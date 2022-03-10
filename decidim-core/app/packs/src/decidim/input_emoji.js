@@ -29,7 +29,23 @@ export default function addInputEmoji() {
       wrapper.appendChild(elem);
       wrapper.appendChild(btnContainer);
 
-      btnContainer.addEventListener("click", () => picker.togglePicker(btnContainer))
+      var handlerPicker = function(e) { picker.togglePicker(btnContainer); }
+
+      btnContainer.addEventListener("click", handlerPicker);
+
+      document.addEventListener("hideEmoji",function(e) {
+        if(e.detail.elem==btnContainer){
+          btnContainer.removeEventListener("click", handlerPicker);
+          btnContainer.setAttribute("style","color:lightgrey");
+        }
+      });
+
+      document.addEventListener("showEmoji",function(e) {
+        if(e.detail.elem==btnContainer){
+          btnContainer.addEventListener("click", handlerPicker );
+          btnContainer.removeAttribute("style");
+        }
+      });
 
       picker.on("emoji", ({ emoji }) => {
         elem.value += ` ${emoji} `

@@ -98,10 +98,12 @@ export default class InputCharacterCounter {
       }
       if (document.querySelector(`textarea[data-remaining-characters="${remainingCharacters}"]`)) {
         if (remaining < 4) {
-          document.querySelector(`textarea[data-remaining-characters="${remainingCharacters}"]`).nextElementSibling.setAttribute("style", "visibility:hidden");
+          const eventHide = new CustomEvent('hideEmoji', { detail: { elem: document.querySelector(`textarea[data-remaining-characters="${remainingCharacters}"]`).nextElementSibling }});
+          document.dispatchEvent(eventHide);
         }
         else {
-          document.querySelector(`textarea[data-remaining-characters="${remainingCharacters}"]`).nextElementSibling.setAttribute("style", "visibility:visible");
+          const eventShow = new CustomEvent('showEmoji', { detail: { elem: document.querySelector(`textarea[data-remaining-characters="${remainingCharacters}"]`).nextElementSibling }});
+          document.dispatchEvent(eventShow);
         }
       }
       showMessages.push(message.replace(COUNT_KEY, remaining));
