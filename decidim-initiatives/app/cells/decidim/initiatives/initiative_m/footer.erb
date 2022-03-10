@@ -1,6 +1,6 @@
 <div class="card__footer card__footer--spaces">
   <div class="card__support">
-    <% if model.published? %>
+    <% if model.published? || model.rejected? || model.accepted? %>
       <div class="card__support__data">
         <%= cell(
           "decidim/progress_bar",
