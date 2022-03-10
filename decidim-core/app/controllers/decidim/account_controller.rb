@@ -61,11 +61,19 @@ module Decidim
 
       ResendConfirmationInstructions.call(current_user) do
         on(:ok) do
-          format.json render: "success"
+          respond_to do |format|
+            format.json do
+              render json: { message: "success", unconfirmed_email: current_user.unconfirmed_email }
+            end
+          end
         end
 
         on(:invalid) do
-          format.json render: "error"
+          respond_to do |format|
+            format.json do
+              render json: { message: "error" }
+            end
+          end
         end
       end
     end
@@ -76,9 +84,17 @@ module Decidim
       if current_user.unconfirmed_email
         current_user.update(unconfirmed_email: nil)
         flash[:notice] = t("account.email_field.cancel_email_change_successfully", scope: "decidim")
-        format.json render: "success"
+        respond_to do |format|
+          format.json do
+            render json: { message: "success" }
+          end
+        end
       else
-        format.json render: "error"
+        respond_to do |format|
+          format.json do
+            render json: { message: "error" }
+          end
+        end
       end
     end
 

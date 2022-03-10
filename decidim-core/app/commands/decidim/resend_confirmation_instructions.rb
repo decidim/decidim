@@ -8,9 +8,11 @@ module Decidim
     end
 
     def call
-      current_user.send_confirmation_instructions
+      return broadcast(:invalid) unless @unconfirmed_email
 
-      broadcast(:ok, @unconfirmed_email)
+      ResendConfirmationInstructionsJob.perform_later(@user)
+
+      broadcast(:ok)
     end
   end
 end

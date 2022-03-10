@@ -37,7 +37,6 @@ $(() => {
     const alert = document.querySelector(".email-confirmation-alert");
     link.addEventListener("click", (event) => {
       event.preventDefault();
-      console.log("Resend instructions");
 
       fetch(link.href, {
         method: "POST",
@@ -45,10 +44,10 @@ $(() => {
           "Content-Type": "application/json",
           "X-CSRF-Token": $("meta[name=csrf-token]").attr("content")
         }
-      }).then((data) => {
+      }).then((response) => response.json()).then((data) => {
         alert.classList.remove("hide");
-        if (data.ok) {
-          alert.innerHTML = resendInstructions.dataset.success;
+        if (data?.message === "success") {
+          alert.innerHTML = `${resendInstructions.dataset.success} ${data.unconfirmed_email}`;
           alert.classList.add("success");
         } else {
           alert.innerHTML = resendInstructions.dataset.error;
@@ -77,7 +76,7 @@ $(() => {
           "X-CSRF-Token": $("meta[name=csrf-token]").attr("content")
         }
       }).then((data) => {
-        if (data.ok) {
+        if (data?.message === "success") {
           location.reload();
         } else {
           alert.innerHTML = cancelEmailChange.dataset.error;
