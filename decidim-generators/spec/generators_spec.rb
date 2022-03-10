@@ -90,6 +90,12 @@ module Decidim
 
         it_behaves_like "a new development application"
       end
+
+      context "with --storage providers" do
+        let(:command) { "decidim #{test_app} --storage s3,gcs,azure" }
+
+        it_behaves_like "an application with cloud storage gems"
+      end
     end
 
     context "with a component" do

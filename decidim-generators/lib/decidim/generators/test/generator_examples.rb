@@ -547,6 +547,11 @@ shared_examples_for "an application with configurable env vars" do
   end
 end
 
+shared_examples_for "an application with cloud storage gems" do
+  # test abort
+  # test gem presence
+end
+
 def json_secrets_for(path, env)
   JSON.parse Decidim::GemManager.new(path).capture("bin/rails runner 'puts Rails.application.secrets.to_json'", env: env, with_stderr: false)[0]
 end

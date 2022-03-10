@@ -1,64 +1,42 @@
 test:
   service: Disk
-  root: <%= Rails.root.join("tmp/storage") %>
+  root: <%%= Rails.root.join("tmp/storage") %>
 
 local:
   service: Disk
-  root: <%= Rails.root.join("storage") %>
+  root: <%%= Rails.root.join("storage") %>
 
 s3:
   service: S3
-  access_key_id: <%= Rails.application.secrets.dig(:storage, :s3, :access_key_id) %>
-  secret_access_key: <%= Rails.application.secrets.dig(:storage, :s3, :secret_access_key) %>
-  region: <%= Rails.application.secrets.dig(:storage, :s3, :region) %>
-  bucket: <%= Rails.application.secrets.dig(:storage, :s3, :bucket) %>
-  endpoint: <%= Rails.application.secrets.dig(:storage, :s3, :endpoint) %>
+  access_key_id: <%%= Rails.application.secrets.dig(:storage, :s3, :access_key_id) %>
+  secret_access_key: <%%= Rails.application.secrets.dig(:storage, :s3, :secret_access_key) %>
+  region: <%%= Rails.application.secrets.dig(:storage, :s3, :region) %>
+  bucket: <%%= Rails.application.secrets.dig(:storage, :s3, :bucket) %>
+  endpoint: <%%= Rails.application.secrets.dig(:storage, :s3, :endpoint) %>
 
 azure:
   service: AzureStorage
-  storage_account_name: <%= Rails.application.secrets.dig(:storage, :azure, :storage_account_name) %>
-  storage_access_key: <%= Rails.application.secrets.dig(:storage, :azure, :storage_access_key) %>
-  container: <%= Rails.application.secrets.dig(:storage, :azure, :container) %>
+  storage_account_name: <%%= Rails.application.secrets.dig(:storage, :azure, :storage_account_name) %>
+  storage_access_key: <%%= Rails.application.secrets.dig(:storage, :azure, :storage_access_key) %>
+  container: <%%= Rails.application.secrets.dig(:storage, :azure, :container) %>
 
 gcs:
   service: GCS
-  project: <%= Rails.application.secrets.dig(:storage, :gcs, :project) %>
-  bucket: <%= Rails.application.secrets.dig(:storage, :gcs, :bucket) %>
+  project: <%%= Rails.application.secrets.dig(:storage, :gcs, :project) %>
+  bucket: <%%= Rails.application.secrets.dig(:storage, :gcs, :bucket) %>
   credentials:
-    type: <%= Rails.application.secrets.dig(:storage, :gcs, :type) %>
-    project_id: <%= Rails.application.secrets.dig(:storage, :gcs, :project_id) %>
-    private_key_id: <%= Rails.application.secrets.dig(:storage, :gcs, :private_key_id) %>
-    private_key: <%= Rails.application.secrets.dig(:storage, :gcs, :private_key) %>
-    client_email: <%= Rails.application.secrets.dig(:storage, :gcs, :client_email) %>
-    client_id: <%= Rails.application.secrets.dig(:storage, :gcs, :client_id) %>
-    auth_uri: <%= Rails.application.secrets.dig(:storage, :gcs, :auth_uri) %>
-    token_uri: <%= Rails.application.secrets.dig(:storage, :gcs, :token_uri) %>
-    auth_provider_x509_cert_url: <%= Rails.application.secrets.dig(:storage, :gcs, :auth_provider_x509_cert_url) %>
-    client_x509_cert_url: <%= Rails.application.secrets.dig(:storage, :gcs, :client_x509_cert_url) %>
-
-# Use rails credentials:edit to set the AWS secrets (as aws:access_key_id|secret_access_key)
-# amazon:
-#   service: S3
-#   access_key_id: <%= Rails.application.credentials.dig(:aws, :access_key_id) %>
-#   secret_access_key: <%= Rails.application.credentials.dig(:aws, :secret_access_key) %>
-#   region: us-east-1
-#   bucket: your_own_bucket
-
-# Remember not to checkin your GCS keyfile to a repository
-# google:
-#   service: GCS
-#   project: your_project
-#   credentials: <%= Rails.root.join("path/to/gcs.keyfile") %>
-#   bucket: your_own_bucket
-
-# Use rails credentials:edit to set the Azure Storage secret (as azure_storage:storage_access_key)
-# microsoft:
-#   service: AzureStorage
-#   storage_account_name: your_account_name
-#   storage_access_key: <%= Rails.application.credentials.dig(:azure_storage, :storage_access_key) %>
-#   container: your_container_name
+    type: <%%= Rails.application.secrets.dig(:storage, :gcs, :type) %>
+    project_id: <%%= Rails.application.secrets.dig(:storage, :gcs, :project_id) %>
+    private_key_id: <%%= Rails.application.secrets.dig(:storage, :gcs, :private_key_id) %>
+    private_key: <%%= Rails.application.secrets.dig(:storage, :gcs, :private_key) %>
+    client_email: <%%= Rails.application.secrets.dig(:storage, :gcs, :client_email) %>
+    client_id: <%%= Rails.application.secrets.dig(:storage, :gcs, :client_id) %>
+    auth_uri: <%%= Rails.application.secrets.dig(:storage, :gcs, :auth_uri) %>
+    token_uri: <%%= Rails.application.secrets.dig(:storage, :gcs, :token_uri) %>
+    auth_provider_x509_cert_url: <%%= Rails.application.secrets.dig(:storage, :gcs, :auth_provider_x509_cert_url) %>
+    client_x509_cert_url: <%%= Rails.application.secrets.dig(:storage, :gcs, :client_x509_cert_url) %>
 
 # mirror:
 #   service: Mirror
 #   primary: local
-#   mirrors: [ amazon, google, microsoft ]
+#   mirrors: [ s3, gcs, azure ]
