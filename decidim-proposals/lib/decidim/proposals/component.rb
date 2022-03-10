@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require "decidim/components/namer"
+require "decidim/meetings"
 
 Decidim.register_component(:proposals) do |component|
   component.engine = Decidim::Proposals::Engine
