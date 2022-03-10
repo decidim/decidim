@@ -34,7 +34,7 @@ edit_link(
   <div class="columns section view-side mediumlarge-4 mediumlarge-push-8 large-3 large-push-9">
     <div class="card text-center">
       <div class="card__content">
-        <% if current_initiative.published? %>
+        <% if current_initiative.published? || current_initiative.rejected? || current_initiative.accepted? %>
           <%= render partial: "progress_bar" %>
           <% if current_initiative.votes_enabled? %>
             <div id="initiative-<%= current_initiative.id %>-vote-cabin">
