@@ -328,7 +328,7 @@ export default class FormFilterComponent {
       return;
     }
 
-    const pathName = window.location.pathname;
+    const pathName = this.$form.attr("action");
     sessionStorage.setItem("filteredParams", JSON.stringify({[pathName]: pathWithQueryStrings}));
   }
 

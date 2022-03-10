@@ -4,23 +4,22 @@
  * For this to work it needs the filteredParams in SessionStorage, that's saved on FormFilterComponent.
  * @returns {void}
  */
-const backToListLink = function() {
-  if ($(".js-back-to-list").length > 0) {
+export default function backToListLink() {
 
-    if (!window.sessionStorage) {
-      return;
-    }
-
-    const path = window.location.pathname;
-    const filteredParams = JSON.parse(sessionStorage.getItem("filteredParams")) || {};
-    Object.keys(filteredParams).forEach(function(url) {
-      if (path.includes(url)) {
-        $(".js-back-to-list").attr("href", filteredParams[url]);
-      }
-    })
+  if (!document.querySelector(".js-back-to-list")) {
+    return;
   }
-}
 
-$(document).ready(() => {
-  backToListLink();
-});
+  if (!window.sessionStorage) {
+    return;
+  }
+
+  const filteredParams = JSON.parse(sessionStorage.getItem("filteredParams")) || {};
+  document.querySelectorAll(".js-back-to-list").forEach((link) => {
+    const href = link.getAttribute("href");
+    if (filteredParams[href]) {
+      link.setAttribute("href", filteredParams[href]);
+    }
+  });
+
+}

@@ -15,6 +15,7 @@ import FormFilterComponent from "src/decidim/form_filter"
 import addInputEmoji from "src/decidim/input_emoji"
 import dialogMode from "src/decidim/dialog_mode"
 import FocusGuard from "src/decidim/focus_guard"
+import backToListLink from "src/decidim/back_to_list"
 
 window.Decidim = window.Decidim || {};
 window.Decidim.config = new Configuration()
@@ -82,4 +83,6 @@ $(() => {
   updateExternalDomainLinks($("body"))
 
   addInputEmoji()
+
+  backToListLink()
 });
