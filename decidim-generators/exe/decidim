@@ -36,8 +36,10 @@ App generation extra options (ignored if the --component flag is on):
   --locales [locales]      Force the available locales to the ones specified. Separate with comas
                            Warning: this option disables the ENV var DECIDIM_AVAILABLE_LOCALES used to setup this configuration by default.
   --profiling              Adds profiling gems for development
+  --path                   Use a local path for the Gemfile instead of the last decidim gem version available
   --edge                   Use GitHub's develop branch instead of the last decidim gem version available
   --branch [branch]        Use GitHub's specified branch instead of the last decidim gem version available
+  --repository             Use a custom GIT repository instead of the default https::/github.com/decidim/decidim
   --skip_gemfile           Skip Gemfile processing
   --skip_bundle            Do not run bundle install
   --skip_webpack_install   Do not run webpacker initialization (webpack install)

@@ -41,6 +41,10 @@ module Decidim
                             default: nil,
                             desc: "Use a specific branch from GitHub's version"
 
+      class_option :repository, type: :string,
+                            default: "https://github.com/decidim/decidim.git",
+                            desc: "Use a specific GIT repository (valid in conjunction with --edge or --branch)"
+
       class_option :recreate_db, type: :boolean,
                                  default: false,
                                  desc: "Recreate test database"
@@ -282,7 +286,7 @@ module Decidim
         @gem_modifier ||= if options[:path]
                             %(path: "#{options[:path]}")
                           elsif branch.present?
-                            %(git: "https://github.com/decidim/decidim.git", branch: "#{branch}")
+                            %(git: "#{repository}", branch: "#{branch}")
                           else
                             %("#{Decidim::Generators.version}")
                           end
@@ -292,6 +296,10 @@ module Decidim
         return if options[:path]
 
         @branch ||= options[:edge] ? "develop" : options[:branch].presence
+      end
+
+      def repository
+        @repository ||= options[:repository] || "https://github.com/decidim/decidim.git"
       end
 
       def app_name
