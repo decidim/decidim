@@ -134,9 +134,8 @@ en:
         confirmation_email_resent_error: Could not resend confirmation email.
         confirmation_email_resent_successfully: Confirmation email resent successfully to
         pending_email_change: 'An email change is currently pending on your account. A verification email has been sent to: %{unconfirmed_email}'
-        pending_email_link_intro: Please click the link shown in the confirmation email in order to complete the email change.
         pending_email_did_not_receive: Did not receive the confirmation email? <a href="%{resend_path}">Resend the confirmation email</a>.
-        pending_email_link_text: Resend the confirmation email.
+        pending_email_link_intro: Please click the link shown in the confirmation email in order to complete the email change.
         pending_email_start_over: Resend the confirmation email. If the new email is incorrect, you can  <a href="%{cancel_path}">cancel the email change</a> and start over.
       show:
         available_locales_helper: Choose the language you want to use to browse and receive notifications on the platform
