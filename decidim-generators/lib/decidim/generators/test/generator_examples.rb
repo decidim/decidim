@@ -78,7 +78,8 @@ shared_examples_for "an application with configurable env vars" do
       "DECIDIM_BASE_UPLOADS_PATH" => "",
       "DECIDIM_DEFAULT_CSV_COL_SEP" => "",
       "DECIDIM_CORS_ENABLED" => "",
-      "RAILS_LOG_LEVEL" => "nonsense"
+      "RAILS_LOG_LEVEL" => "nonsense",
+      "STORAGE_PROVIDER" => ""
     }
   end
 
@@ -172,7 +173,9 @@ shared_examples_for "an application with configurable env vars" do
       "MAPS_PROVIDER" => "here",
       "MAPS_API_KEY" => "a-maps-api-key",
       "VAPID_PUBLIC_KEY" => "a-vapid-public-key",
-      "VAPID_PRIVATE_KEY" => "a-vapid-private-key"
+      "VAPID_PRIVATE_KEY" => "a-vapid-private-key",
+      "STORAGE_PROVIDER" => "s3",
+      "STORAGE_CDN_HOST" => "https://cdn.example.org"
     }
   end
 
@@ -250,7 +253,9 @@ shared_examples_for "an application with configurable env vars" do
       %w(maps geocoding_host) => nil,
       %w(vapid enabled) => false,
       %w(vapid public_key) => nil,
-      %w(vapid private_key) => nil
+      %w(vapid private_key) => nil,
+      %w(storage provider) => "local",
+      %w(storage cdn_host) => nil
     }
   end
 
@@ -324,7 +329,9 @@ shared_examples_for "an application with configurable env vars" do
       %w(maps geocoding_host) => nil,
       %w(vapid enabled) => true,
       %w(vapid public_key) => "a-vapid-public-key",
-      %w(vapid private_key) => "a-vapid-private-key"
+      %w(vapid private_key) => "a-vapid-private-key",
+      %w(storage provider) => "test",
+      %w(storage cdn_host) => "https://cdn.example.org"
     }
   end
 
@@ -470,7 +477,9 @@ shared_examples_for "an application with configurable env vars" do
     {
       "Rails.logger.level" => 0,
       "Rails.application.config.log_level" => "debug",
-      "Rails.application.config.action_controller.asset_host" => nil
+      "Rails.application.config.action_controller.asset_host" => nil,
+      "Rails.application.config.active_storage.service" => :local,
+      "Decidim::ApplicationUploader.new(nil, :file).protocol_option" => {}
     }
   end
 
@@ -478,7 +487,9 @@ shared_examples_for "an application with configurable env vars" do
     {
       "Rails.logger.level" => 4,
       "Rails.application.config.log_level" => "fatal",
-      "Rails.application.config.action_controller.asset_host" => "http://assets.example.org"
+      "Rails.application.config.action_controller.asset_host" => "http://assets.example.org",
+      "Rails.application.config.active_storage.service" => :test,
+      "Decidim::ApplicationUploader.new(nil, :file).protocol_option" => { host: "https://cdn.example.org" }
     }
   end
 

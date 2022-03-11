@@ -123,36 +123,42 @@ module Decidim
 
         gsub_file "Gemfile", /gem "#{current_gem}".*/, "gem \"#{current_gem}\", #{gem_modifier}"
 
-        if current_gem == "decidim"
-          gsub_file "Gemfile", /gem "decidim-dev".*/, "gem \"decidim-dev\", #{gem_modifier}"
+        return unless current_gem == "decidim"
 
-          %w(conferences consultations elections initiatives templates).each do |component|
-            if options[:demo]
-              gsub_file "Gemfile", /gem "decidim-#{component}".*/, "gem \"decidim-#{component}\", #{gem_modifier}"
-            else
-              gsub_file "Gemfile", /gem "decidim-#{component}".*/, "# gem \"decidim-#{component}\", #{gem_modifier}"
-            end
+        gsub_file "Gemfile", /gem "decidim-dev".*/, "gem \"decidim-dev\", #{gem_modifier}"
+
+        %w(conferences consultations elections initiatives templates).each do |component|
+          if options[:demo]
+            gsub_file "Gemfile", /gem "decidim-#{component}".*/, "gem \"decidim-#{component}\", #{gem_modifier}"
+          else
+            gsub_file "Gemfile", /gem "decidim-#{component}".*/, "# gem \"decidim-#{component}\", #{gem_modifier}"
           end
         end
-
-        run "bundle install"
       end
 
       def add_storage_provider
         template "storage.yml.erb", "config/storage.yml", force: true
 
         providers = options[:storage].split(",")
+
+        abort("#{providers.first} is not supported as storage provider, please use local, s3, gcs or azure") unless providers.first.in? %w(local s3 gcs azure)
+        gsub_file "config/environments/production.rb",
+                  /config.active_storage.service = :local/,
+                  "config.active_storage.service = Rails.application.secrets.dig(:storage, :provider) || :local"
+
+        return if options[:skip_gemfile]
+
         gem_group :production do
           gem "aws-sdk-s3", require: false if providers.include?("s3")
           gem "azure-storage-blob", require: false if providers.include?("azure")
           gem "google-cloud-storage", "~> 1.11", require: false if providers.include?("gcs")
         end
+      end
 
-        abort("#{providers.first} is not supported as storage provider, please use local, s3, gcs or azure") unless providers.first.in? %w(local s3 gcs azure)
+      def bundle_install
+        return if options[:skip_gemfile]
 
-        gsub_file "config/environments/production.rb",
-                  /config.active_storage.service = :local/,
-                  "config.active_storage.service = Rails.application.secrets.dig(:storage, :provider) || :local"
+        run "bundle install"
       end
 
       def tweak_bootsnap
