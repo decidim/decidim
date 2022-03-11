@@ -121,6 +121,77 @@ shared_examples "comments" do
         end
       end
 
+      it "updates the numbers of characters left correctly" do
+        within ".add-comment form" do
+          fill_in "add-comment-#{commentable.commentable_type.demodulize}-#{commentable.id}", with: "This is a new comment."
+          expect(page).to have_content("1978 characters left")
+        end
+      end
+
+      it "updates the numbers of characters left correctly for screen reader" do
+        within ".add-comment form" do
+          field_id = "add-comment-#{commentable.commentable_type.demodulize}-#{commentable.id}"
+          fill_in field_id, with: "This is a new comment."
+
+          # Make sure the focus stays in the comment form during these tests
+          # because only then the screen reader
+          page.execute_script("document.getElementById('#{field_id}').focus()")
+
+          # The screen reader character counter should update only when the user
+          # reaches 10% interval of the total characters available not to
+          # announce the remaining characters after every keystroke.
+          field = page.find("##{field_id}")
+          field.native.send_keys " Sending some new text."
+          within ".remaining-character-count" do
+            expect(page).to have_content("1955 characters left") # Normal
+          end
+          within ".remaining-character-count-sr" do
+            expect(page).to have_content("2000 characters left") # Screen reader
+          end
+
+          # After 10% of the total characters is reached, it should be updated
+          # to the screen reader section to announce it.
+          field.native.send_keys "a" * 155
+          within ".remaining-character-count" do
+            expect(page).to have_content("1800 characters left") # Normal
+          end
+          within ".remaining-character-count-sr" do
+            expect(page).to have_content("1800 characters left") # Screen reader
+          end
+
+          # After continuing typing after the announcement, the screen reader
+          # characters should stay the same (announced on the next 10%
+          # interval).
+          field.native.send_keys "b"
+          within ".remaining-character-count" do
+            expect(page).to have_content("1799 characters left") # Normal
+          end
+          within ".remaining-character-count-sr" do
+            expect(page).to have_content("1800 characters left") # Screen reader
+          end
+
+          # When text is removed at the interval, the screen reader should
+          # update back to the previous interval.
+          field.native.send_keys [:backspace, :backspace]
+          within ".remaining-character-count" do
+            expect(page).to have_content("1801 characters left") # Normal
+          end
+          within ".remaining-character-count-sr" do
+            expect(page).to have_content("2000 characters left") # Screen reader
+          end
+
+          # After the input is blurred, the screen reader character counter
+          # should show the actual amount of characters left.
+          page.execute_script("document.getElementById('#{field_id}').blur()")
+          within ".remaining-character-count" do
+            expect(page).to have_content("1801 characters left") # Normal
+          end
+          within ".remaining-character-count-sr" do
+            expect(page).to have_content("1801 characters left") # Screen reader
+          end
+        end
+      end
+
       context "when component is present and has a default comments length params" do
         it "displays the numbers of characters left" do
           if component.present?
