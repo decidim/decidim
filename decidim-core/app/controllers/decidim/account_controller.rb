@@ -83,7 +83,7 @@ module Decidim
 
       if current_user.unconfirmed_email
         current_user.update(unconfirmed_email: nil)
-        flash[:notice] = t("account.email_field.cancel_email_change_successfully", scope: "decidim")
+
         respond_to do |format|
           format.json do
             render json: { message: "success" }

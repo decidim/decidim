@@ -75,8 +75,12 @@ $(() => {
           "X-CSRF-Token": $("meta[name=csrf-token]").attr("content")
         }
       }).then((response) => response.json()).then((data) => {
+        alert.classList.remove("hide");
         if (data?.message === "success") {
-          location.reload();
+          document.querySelector("#user_email").disabled = false;
+          document.querySelector("#email-change-pending").remove();
+          alert.innerHTML = cancelEmailChange.dataset.success;
+          alert.classList.add("success");
         } else {
           alert.innerHTML = cancelEmailChange.dataset.error;
           alert.classList.add("alert");
