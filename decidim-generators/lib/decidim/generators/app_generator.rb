@@ -74,7 +74,7 @@ module Decidim
                              desc: "Force the available locales to the ones specified. Separate with comas"
 
       class_option :storage, type: :string,
-                             default: "locale",
+                             default: "local",
                              desc: "Setup the Gemfile with the appropiate gem to handle a storage provider. Supported options are: local (default), s3, gcs, azure"
 
       class_option :skip_webpack_install, type: :boolean,
@@ -148,7 +148,7 @@ module Decidim
           gem "google-cloud-storage", "~> 1.11", require: false if providers.include?("gcs")
         end
 
-        abort("#{providers.first} is not supported as storage provider, please use local, s3, gcs or azure") unless providers.first.in?("local", "s3", "gcs", "azure")
+        abort("#{providers.first} is not supported as storage provider, please use local, s3, gcs or azure") unless providers.first.in? %w(local s3 gcs azure)
 
         gsub_file "config/environments/production.rb",
                   /config.active_storage.service = :local/,
