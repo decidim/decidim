@@ -60,7 +60,7 @@ export default class InputCharacterCounter {
       // Create the screen reader target element. We don't want to constantly
       // announce every change to screen reader, only occasionally.
       this.$srTarget = $(
-        `<div role="status" aria-live="polite" id="${targetId}_sr" class="show-for-sr remaining-character-count-sr" />`
+        `<span role="status" aria-live="polite" id="${targetId}_sr" class="show-for-sr remaining-character-count-sr" />`
       );
       this.$target.before(this.$srTarget);
       this.$target.attr("aria-hidden", "true");
