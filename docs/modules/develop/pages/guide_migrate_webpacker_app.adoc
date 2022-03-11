@@ -205,7 +205,9 @@ namespace :deploy do
   desc "Decidim webpacker configuration"
   task :decidim_webpacker_install do
     on roles(:all) do
-      execute "cd #{release_path}; npm ci"
+      within release_path do
+        execute :npm, "install"
+      end
     end
   end
 
