@@ -104,6 +104,14 @@ Decidim.register_participatory_space(:participatory_processes) do |participatory
       end
     end
 
+    process_types = []
+    2.times do
+      process_types << Decidim::ParticipatoryProcessType.create!(
+        title: Decidim::Faker::Localized.word,
+        organization: organization
+      )
+    end
+
     2.times do |n|
       params = {
         title: Decidim::Faker::Localized.sentence(word_count: 5),
@@ -140,6 +148,7 @@ Decidim.register_participatory_space(:participatory_processes) do |participatory
         start_date: Date.current,
         end_date: 2.months.from_now,
         participatory_process_group: process_groups.sample,
+        participatory_process_type: process_types.sample,
         scope: n.positive? ? nil : Decidim::Scope.reorder(Arel.sql("RANDOM()")).first
       }
 

@@ -40,19 +40,6 @@ describe "Decidim::Api::QueryType" do
       "slug" => conference.slug,
       "speakers" => conference.speakers.map { |s| { "id" => s.id.to_s } },
       "startDate" => conference.start_date.to_date.to_s,
-      "stats" => [
-        { "name" => "dummies_count_high", "value" => 0 },
-        { "name" => "pages_count", "value" => 0 },
-        { "name" => "meetings_count", "value" => 0 },
-        { "name" => "proposals_count", "value" => 0 },
-        { "name" => "budgets_count", "value" => 0 },
-        { "name" => "surveys_count", "value" => 0 },
-        { "name" => "results_count", "value" => 0 },
-        { "name" => "debates_count", "value" => 0 },
-        { "name" => "sortitions_count", "value" => 0 },
-        { "name" => "posts_count", "value" => 0 },
-        { "name" => "elections_count", "value" => 0 }
-      ],
       "title" => { "translation" => conference.title[locale] },
       "type" => conference.class.name,
       "updatedAt" => conference.updated_at.iso8601.to_s.gsub("Z", "+00:00")
@@ -119,10 +106,6 @@ describe "Decidim::Api::QueryType" do
           id
         }
         startDate
-        stats{
-          name
-          value
-        }
         title {
           translation(locale:"#{locale}")
         }
@@ -145,8 +128,22 @@ describe "Decidim::Api::QueryType" do
       expect { response }.not_to raise_error
     end
 
-    it "has hashtags" do
+    it "returns the correct response" do
       expect(response["conferences"].first).to eq(conference_data)
+    end
+
+    it_behaves_like "implements stats type" do
+      let(:conferences) do
+        %(
+          conferences {
+            stats{
+              name
+              value
+            }
+          }
+        )
+      end
+      let(:stats_response) { response["conferences"].first["stats"] }
     end
   end
 
@@ -211,10 +208,6 @@ describe "Decidim::Api::QueryType" do
           id
         }
         startDate
-        stats{
-          name
-          value
-        }
         title {
           translation(locale:"#{locale}")
         }
@@ -228,8 +221,22 @@ describe "Decidim::Api::QueryType" do
       expect { response }.not_to raise_error
     end
 
-    it "has hashtags" do
+    it "returns the correct response" do
       expect(response["conference"]).to eq(conference_data)
+    end
+
+    it_behaves_like "implements stats type" do
+      let(:conferences) do
+        %(
+          conference(id: #{conference.id}){
+            stats{
+              name
+              value
+            }
+          }
+        )
+      end
+      let(:stats_response) { response["conference"]["stats"] }
     end
   end
 end
