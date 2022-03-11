@@ -91,7 +91,7 @@ export default class InputCharacterCounter {
 
     if (this.maxCharacters > 0) {
       const remaining = this.maxCharacters - numCharacters;
-linter      let message = MESSAGES.charactersLeft.other;
+      let message = MESSAGES.charactersLeft.other;
       if (remaining === 1) {
         message = MESSAGES.charactersLeft.one;
       }
