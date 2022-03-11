@@ -145,7 +145,7 @@ module Decidim
 
         providers = options[:storage].split(",")
 
-        abort("#{providers.first} is not supported as storage provider, please use local, s3, gcs or azure") unless providers.first.in? %w(local s3 gcs azure)
+        abort("#{providers} is not supported as storage provider, please use local, s3, gcs or azure") unless (providers - %w(local s3 gcs azure)).empty?
         gsub_file "config/environments/production.rb",
                   /config.active_storage.service = :local/,
                   "config.active_storage.service = Rails.application.secrets.dig(:storage, :provider) || :local"

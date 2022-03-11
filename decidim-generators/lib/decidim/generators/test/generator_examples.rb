@@ -478,7 +478,7 @@ shared_examples_for "an application with configurable env vars" do
       "Rails.logger.level" => 0,
       "Rails.application.config.log_level" => "debug",
       "Rails.application.config.action_controller.asset_host" => nil,
-      "Rails.application.config.active_storage.service" => :local,
+      "Rails.application.config.active_storage.service" => "local",
       "Decidim::ApplicationUploader.new(nil, :file).protocol_option" => {}
     }
   end
@@ -488,7 +488,7 @@ shared_examples_for "an application with configurable env vars" do
       "Rails.logger.level" => 4,
       "Rails.application.config.log_level" => "fatal",
       "Rails.application.config.action_controller.asset_host" => "http://assets.example.org",
-      "Rails.application.config.active_storage.service" => :test,
+      "Rails.application.config.active_storage.service" => "test",
       "Decidim::ApplicationUploader.new(nil, :file).protocol_option" => { host: "https://cdn.example.org" }
     }
   end
@@ -566,16 +566,16 @@ end
 
 shared_examples_for "an application with cloud storage gems" do
   let(:services) do
-    [ :local, :s3, :gcs, :azure ]
+    [:local, :s3, :gcs, :azure]
   end
 
   it "includes cloud storage gems in the Gemfile" do
     expect(result[1]).to be_success, result[0]
 
     expect(File.read("#{test_app}/Gemfile"))
-      .to match(/gem "aws-sdk-s3"/)
-      .and match(/gem "azure-storage-blob"/)
-      .and match(/gem "google-cloud-storage"/)
+      .to match(/gem ["']+aws-sdk-s3["']+/)
+      .and match(/gem ["']+azure-storage-blob["']+/)
+      .and match(/gem ["']+google-cloud-storage["']+/)
   end
 
   it "can uses the appropiate storage service from env vars" do
