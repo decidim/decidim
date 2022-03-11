@@ -94,6 +94,138 @@ The next tables show all the default Env Vars available when running a default D
 
 |===
 
+If you want to use a cloud provider to storage user uploads. this can be done via next extra configuration variables.
+
+Different providers require extra gems to be specified in your Gemfile. You can generate a new application with the appropiated gems with the command `decidim --storage=[provider] my-application`.
+
+.Optional Decidim Env Vars for cloud storage settings
+|===
+|Name |Value |Default value|Multitenant's System configurable
+
+|STORAGE_PROVIDER
+|Which storage provider is going to be used for the application, provides support for the most popular options. Options are `local`, `s3` (compatible with any AWS-S3 service provider), `azure` (for Microsoft Cloud Storage), `gcs` (Google Cloud Services).
+
+*If this setting is set to any other value than `local`, and additional gem for the specified service must be installed in the Gemfile of your application*. See https://edgeguides.rubyonrails.org/active_storage_overview.html#setup[the official Rails guide] for details.
+|local
+|No
+
+|STORAGE_CDN_HOST
+|If you are using a cloud provider, having a CDN on top of it is probably a good idea. For instance, using a CloudFront distribution on top of a S3 configuration. But other services can be used as well (you can use https://cloudflare.com[CloudFlare] for free with excellent results).
+
+Set the protocol, host and path to your CDN and all the user-generated files (through Active Storage) will be prefixed with this instead of serving files directly from the same domain of your application.
+
+*Note that this is not the same as the RAILS_ASSET_HOST var. This other variable is used for static, compiled assets while STORAGE_CDN_HOST is for files dynamically generated within the application by users or admins.*
+|
+|No
+
+|*S3_ACCESS_KEY_ID*
+|If STORAGE_PROVIDER is set to `s3`, define here your AWS KEY ID with permissions to access the bucket for the application.
+Also, be sure to add the line `gem "aws-sdk-s3", require: false` in your Gemfile.
+|
+|No
+
+|*S3_SECRET_ACCESS_ID*
+|If STORAGE_PROVIDER is set to `s3`, define here your AWS SECRET KEY with permissions to access the bucket for the application.
+|
+|No
+
+|*S3_BUCKET*
+|If STORAGE_PROVIDER is set to `s3`, define here the bucket used for uploading files and images.
+|
+|No
+
+|S3_REGION
+|If STORAGE_PROVIDER is set to `s3`, define here your region (in case your S3 provider requires it, required if using AWS).
+|
+|No
+
+|S3_ENDPOINT
+|If STORAGE_PROVIDER is set to `s3`, define here your endpoint (this is mandatory if using any provider that is not AWS, can be empty if using AWS).
+|
+|No
+
+|*AZURE_STORAGE_ACCESS_KEY*
+|If STORAGE_PROVIDER is set to `azure`, define here your AZURE ACCESS KEY with permissions to access the container for the application.
+Also, be sure to add the line `gem "azure-storage-blob", require: false` in your Gemfile.
+|
+|No
+
+|*AZURE_STORAGE_ACCOUNT_NAME*
+|If STORAGE_PROVIDER is set to `azure`, define here your AZURE ACCOUNT NAME with permissions to access the container for the application.
+|
+|No
+
+|*AZURE_CONTAINER*
+|If STORAGE_PROVIDER is set to `azure`, define here your AZURE CONTAINER used for uploading files and images.
+|
+|No
+
+|*GCS_PROJECT*
+|If STORAGE_PROVIDER is set to `gcs`, define here your GOOGLE CLOUD PROJECT with permissions to access the bucket for the application.
+Also, be sure to add the line `gem "google-cloud-storage", "~> 1.11", require: false` in your Gemfile.
+
+*GOOGLE CLOUD SERVICES require some amount of parameters. You should be able to extract them from a `keyfile.json` file.*
+|
+|No
+
+|*GCS_BUCKET*
+|If STORAGE_PROVIDER is set to `gcs`, define here your GOOGLE CLOUD BUCKET used for uploading files and images.
+|
+|No
+
+|GCS_TYPE
+|If STORAGE_PROVIDER is set to `gcs`, define here your GOOGLE CLOUD SERVICE TYPE.
+|service_account
+|No
+
+|*GCS_PROJECT_ID*
+|If STORAGE_PROVIDER is set to `gcs`, define here your GOOGLE CLOUD PROJECT ID.
+|
+|No
+
+|*GCS_PRIVATE_KEY_ID*
+|If STORAGE_PROVIDER is set to `gcs`, define here your GOOGLE CLOUD PRIVATE KEY ID.
+|
+|No
+
+|*GCS_PRIVATE_KEY*
+|If STORAGE_PROVIDER is set to `gcs`, define here your GOOGLE CLOUD PRIVATE KEY.
+|
+|No
+
+|*GCS_CLIENT_EMAIL*
+|If STORAGE_PROVIDER is set to `gcs`, define here your GOOGLE CLOUD CLIENT EMAIL.
+|
+|No
+
+|*GCS_CLIENT_ID*
+|If STORAGE_PROVIDER is set to `gcs`, define here your GOOGLE CLOUD CLIENT ID.
+|
+|No
+
+|GCS_AUTH_URI
+|If STORAGE_PROVIDER is set to `gcs`, define here your GOOGLE CLOUD AUTH URI (if needed)
+|https://accounts.google.com/o/oauth2/auth
+|No
+
+|GCS_TOKEN_URI
+|If STORAGE_PROVIDER is set to `gcs`, define here your GOOGLE CLOUD TOKEN URI (if needed)
+|https://accounts.google.com/o/oauth2/token
+|No
+
+|GCS_AUTH_PROVIDER_X509_CERT_URL
+|If STORAGE_PROVIDER is set to `gcs`, define here your GOOGLE CLOUD AUTH X509 CERT URI (if needed)
+|https://www.googleapis.com/oauth2/v1/certs
+|No
+
+|GCS_CLIENT_X509_CERT_URL
+|If STORAGE_PROVIDER is set to `gcs`, define here your GOOGLE CLOUD X509 CERT URI (if needed)
+|
+|No
+
+Next variables are additional services such as geolocation, etherpad and other simple integrations.
+Also some more refined configurations:
+
 .Optional Decidim Env Vars for external services integrations
 |===
 |Name |Value |Default value|Multitenant's System configurable
