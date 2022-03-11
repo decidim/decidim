@@ -50,7 +50,7 @@ module Decidim
                              desc: "Seed test database"
 
       class_option :skip_bundle, type: :boolean,
-                                 default: true,
+                                 default: false,
                                  desc: "Don't run bundle install"
 
       class_option :skip_gemfile, type: :boolean,
@@ -157,8 +157,11 @@ module Decidim
 
       def bundle_install
         return if options[:skip_gemfile]
+        return if options[:skip_bundle]
 
-        run "bundle install"
+        Bundler.with_unbundled_env do
+          run "bundle install"
+        end
       end
 
       def tweak_bootsnap

@@ -30,12 +30,20 @@ Options:
   --component [name]       creates a component for Decidim
   [name]                   creates an application based on Decidim
 
-App generation extra options (does not apply with the --component flag):
+App generation extra options (ignored if the --component flag is on):
   --storage [provider]     Setup the Gemfile with the appropiate gem to handle a storage provider. Supported options are: local (default), s3, gcs, azure
   --force_ssl [true|false] Enables or disables mandatory redirection to HTTPS (defaults to enabled)
   --locales [locales]      Force the available locales to the ones specified. Separate with comas
                            Warning: this option disables the ENV var DECIDIM_AVAILABLE_LOCALES used to setup this configuration by default.
   --profiling              Adds profiling gems for development
+  --edge                   Use GitHub's develop branch instead of the last decidim gem version available
+  --branch [branch]        Use GitHub's specified branch instead of the last decidim gem version available
+  --skip_gemfile           Skip Gemfile processing
+  --skip_bundle            Do not run bundle install
+  --skip_webpack_install   Do not run webpacker initialization (webpack install)
+  --demo                   Create a demo application, with seeds, all the optional modules enabled and some authorization examples
+  --seed_db [true|false]   Seed the database: generate demo data for each participatory space and component
+  --recreate_db            Recreate the database after installing Decidim
 
 Examples:
   decidim my-application
