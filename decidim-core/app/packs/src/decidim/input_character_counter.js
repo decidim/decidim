@@ -91,16 +91,13 @@ export default class InputCharacterCounter {
 
     if (this.maxCharacters > 0) {
       const remaining = this.maxCharacters - numCharacters;
-      let remainingCharacters = this.$input.data("remaining-characters")
-      let message = MESSAGES.charactersLeft.other;
+linter      let message = MESSAGES.charactersLeft.other;
       if (remaining === 1) {
         message = MESSAGES.charactersLeft.one;
       }
-      if (document.querySelector(`textarea[data-remaining-characters="${remainingCharacters}"]`)) {
-          this.$input[0].dispatchEvent(
-            new CustomEvent("characterCounter", { detail: { remaining: remaining }})
-          );
-      }
+      this.$input[0].dispatchEvent(
+        new CustomEvent("characterCounter", {detail: {remaining: remaining}})
+      );
       showMessages.push(message.replace(COUNT_KEY, remaining));
     }
 
@@ -124,4 +121,4 @@ $(() => {
   });
 });
 
-export { InputCharacterCounter, createCharacterCounter };
+export {InputCharacterCounter, createCharacterCounter};

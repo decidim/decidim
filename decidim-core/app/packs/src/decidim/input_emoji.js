@@ -11,9 +11,6 @@ export default function addInputEmoji() {
         rootElement: elem.closest("form")?.parentElement || document.body,
         zIndex: 2000
       });
-      let handlerPicker = function () {
-        picker.togglePicker(btnContainer);
-      }
 
       // if the selector is inside a modal window
       // this allows shows the emoji menu uncut
@@ -31,6 +28,10 @@ export default function addInputEmoji() {
       elem.parentNode.insertBefore(wrapper, elem);
       wrapper.appendChild(elem);
       wrapper.appendChild(btnContainer);
+
+      let handlerPicker = function () {
+        picker.togglePicker(btnContainer);
+      }
 
       btnContainer.addEventListener("click", handlerPicker);
 
