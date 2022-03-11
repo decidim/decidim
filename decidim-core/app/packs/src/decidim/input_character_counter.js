@@ -97,8 +97,8 @@ export default class InputCharacterCounter {
         message = MESSAGES.charactersLeft.one;
       }
       if (document.querySelector(`textarea[data-remaining-characters="${remainingCharacters}"]`)) {
-          document.dispatchEvent(
-            new CustomEvent("characterCounter", { detail: { elem: document.querySelector(`textarea[data-remaining-characters="${remainingCharacters}"]`).nextElementSibling, remaining: remaining }})
+          this.$input[0].dispatchEvent(
+            new CustomEvent("characterCounter", { detail: { remaining: remaining }})
           );
       }
       showMessages.push(message.replace(COUNT_KEY, remaining));

@@ -1,4 +1,4 @@
-import { EmojiButton } from "@joeattardi/emoji-button";
+import {EmojiButton} from "@joeattardi/emoji-button";
 
 // eslint-disable-next-line require-jsdoc
 export default function addInputEmoji() {
@@ -11,7 +11,7 @@ export default function addInputEmoji() {
         rootElement: elem.closest("form")?.parentElement || document.body,
         zIndex: 2000
       });
-      let handlerPicker = function() {
+      let handlerPicker = function () {
         picker.togglePicker(btnContainer);
       }
 
@@ -34,22 +34,18 @@ export default function addInputEmoji() {
 
       btnContainer.addEventListener("click", handlerPicker);
 
-      document.addEventListener("characterCounter",function(event) {
-        if (event.detail.remaining > 4) {
-          if (event.detail.elem === btnContainer) {
-            btnContainer.addEventListener("click", handlerPicker);
-            btnContainer.removeAttribute("style");
-          }
+      elem.addEventListener("characterCounter", (event) => {
+        if (event.detail.remaining >= 4) {
+          btnContainer.addEventListener("click", handlerPicker);
+          btnContainer.removeAttribute("style");
         } else {
-          if (event.detail.elem === btnContainer) {
-            btnContainer.removeEventListener("click", handlerPicker);
-            btnContainer.setAttribute("style", "color:lightgrey");
-          }
+          btnContainer.removeEventListener("click", handlerPicker);
+          btnContainer.setAttribute("style", "color:lightgrey");
         }
       });
 
 
-      picker.on("emoji", ({ emoji }) => {
+      picker.on("emoji", ({emoji}) => {
         elem.value += ` ${emoji} `
 
         const event = new Event("emoji.added");
