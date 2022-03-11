@@ -91,6 +91,12 @@ module Decidim
         it_behaves_like "a new development application"
       end
 
+      context "with wrong --storage providers" do
+        let(:command) { "decidim #{test_app} --storage s3,gcs,assure" }
+
+        it_behaves_like "an application with wrong cloud storage options"
+      end
+
       context "with --storage providers" do
         let(:command) { "decidim #{test_app} --storage s3,gcs,azure" }
 

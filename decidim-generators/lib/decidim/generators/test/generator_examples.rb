@@ -174,7 +174,7 @@ shared_examples_for "an application with configurable env vars" do
       "MAPS_API_KEY" => "a-maps-api-key",
       "VAPID_PUBLIC_KEY" => "a-vapid-public-key",
       "VAPID_PRIVATE_KEY" => "a-vapid-private-key",
-      "STORAGE_PROVIDER" => "s3",
+      "STORAGE_PROVIDER" => "test",
       "STORAGE_CDN_HOST" => "https://cdn.example.org"
     }
   end
@@ -558,9 +558,32 @@ shared_examples_for "an application with configurable env vars" do
   end
 end
 
+shared_examples_for "an application with wrong cloud storage options" do
+  it "creating fails" do
+    expect(result[1]).not_to be_success, result[0]
+  end
+end
+
 shared_examples_for "an application with cloud storage gems" do
-  # test abort
-  # test gem presence
+  let(:services) do
+    [ :local, :s3, :gcs, :azure ]
+  end
+
+  it "includes cloud storage gems in the Gemfile" do
+    expect(result[1]).to be_success, result[0]
+
+    expect(File.read("#{test_app}/Gemfile"))
+      .to match(/gem "aws-sdk-s3"/)
+      .and match(/gem "azure-storage-blob"/)
+      .and match(/gem "google-cloud-storage"/)
+  end
+
+  it "can uses the appropiate storage service from env vars" do
+    services.each do |service|
+      current = rails_value("Rails.application.config.active_storage.service", test_app, ["STORAGE_PROVIDER" => service])
+      expect(current).to eq(value), "Rails storage service (#{current}) expected to match provider (#{service})"
+    end
+  end
 end
 
 def json_secrets_for(path, env)
