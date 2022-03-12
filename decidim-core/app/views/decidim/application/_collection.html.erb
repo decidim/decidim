@@ -12,7 +12,7 @@
 
       <div class="card card--list">
         <% documents.each do |document| %>
-          <%= render partial: "decidim/application/document", locals: { document: document } %>
+          <%= render partial: "decidim/application/document.html", locals: { document: document } %>
         <% end %>
       </div>
     </div>

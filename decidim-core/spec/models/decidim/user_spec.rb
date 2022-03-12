@@ -162,7 +162,7 @@ module Decidim
         let(:user) do
           build(
             :user,
-            avatar: ActiveStorage::Blob.create_and_upload!(
+            avatar: ActiveStorage::Blob.create_after_upload!(
               io: File.open(avatar_path),
               filename: "malicious.jpeg",
               content_type: "image/jpeg"

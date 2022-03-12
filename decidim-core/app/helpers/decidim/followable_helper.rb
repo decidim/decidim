@@ -5,7 +5,7 @@ module Decidim
   module FollowableHelper
     # Invokes the decidim/shared/follow_button partial.
     def follow_button_for(model, large = nil)
-      render partial: "decidim/shared/follow_button", locals: { followable: model, large: large }
+      render partial: "decidim/shared/follow_button.html", locals: { followable: model, large: large }
     end
   end
 end

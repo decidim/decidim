@@ -1,12 +1,12 @@
 <% if attached_to.attachments.any? %>
   <div class="row attachments">
     <div class="columns large-12">
-      <%= render partial: "decidim/application/documents", locals: { documents: attached_to.documents } %>
+      <%= render partial: "decidim/application/documents.html", locals: { documents: attached_to.documents } %>
     </div>
   </div>
   <div class="row attachments">
     <div class="columns large-12">
-      <%= render partial: "decidim/application/photos", locals: { photos: attached_to.photos } %>
+      <%= render partial: "decidim/application/photos.html", locals: { photos: attached_to.photos } %>
     </div>
   </div>
 <% end %>
