@@ -12,8 +12,8 @@ module Decidim
         let(:consultation) { create(:consultation, organization: organization) }
         let(:scope) { create(:scope, organization: organization) }
         let(:errors) { double.as_null_object }
-        let(:banner_image) { upload_test_file(Decidim::Dev.test_file( "city.jpeg", "image/jpeg")) }
-        let(:hero_image) { upload_test_file(Decidim::Dev.test_file( "city.jpeg", "image/jpeg")) }
+        let(:banner_image) { upload_test_file(Decidim::Dev.test_file("city.jpeg", "image/jpeg")) }
+        let(:hero_image) { upload_test_file(Decidim::Dev.test_file("city.jpeg", "image/jpeg")) }
         let(:params) do
           {
             question: {

@@ -17,7 +17,7 @@ module Decidim::System
       }
     end
     let(:file) do
-      upload_test_file(Decidim::Dev.test_file( "city.jpeg", "image/jpeg"))
+      upload_test_file(Decidim::Dev.test_file("city.jpeg", "image/jpeg"))
     end
     let(:application) { create(:oauth_application) }
     let(:organization) { application.organization }

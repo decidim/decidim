@@ -96,7 +96,7 @@ module Decidim
 
       describe "avatar" do
         before do
-          form.avatar = upload_test_file(Decidim::Dev.test_file( "avatar.jpg", "image/jpeg"))
+          form.avatar = upload_test_file(Decidim::Dev.test_file("avatar.jpg", "image/jpeg"))
         end
 
         it "updates the avatar" do
@@ -106,7 +106,7 @@ module Decidim
       end
 
       describe "remove_avatar" do
-        let(:user) { create(:user, avatar: upload_test_file(Decidim::Dev.test_file( "avatar.jpg", "image/jpeg"))) }
+        let(:user) { create(:user, avatar: upload_test_file(Decidim::Dev.test_file("avatar.jpg", "image/jpeg"))) }
 
         before do
           form.remove_avatar = true
