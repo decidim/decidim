@@ -28,7 +28,7 @@ describe Decidim::Meetings::Admin::MeetingsController, type: :controller do
       proposal.coauthorships.clear
       proposal.add_coauthor(meeting)
     end
-    
+
     context "when having at least one proposal (invalid)" do
       it "flashes an alert message" do
         delete :destroy, params: { id: meeting.id }

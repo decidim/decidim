@@ -47,9 +47,11 @@ describe Decidim::Meetings::MeetingsController, type: :controller do
     let(:user) { create(:user, :confirmed, organization: meeting_component.organization) }
 
     let(:meeting_params) do
-      { component_id: meeting_component.id }
+      {
+        component_id: meeting_component.id
+      }
     end
-    let(:params) { space_params.merge meeting: meeting_params }
+    let(:params) { { meeting: meeting_params } }
 
     before { sign_in user }
 
@@ -83,7 +85,6 @@ describe Decidim::Meetings::MeetingsController, type: :controller do
 
   describe "#show" do
     context "when user is not logged in" do
-
       it "can access non private meetings" do
         get :show, params: { id: meeting.id }
 

@@ -35,6 +35,7 @@ module Decidim
               participatory_process_slug: participatory_space.slug,
               component_id: component.id
             }
+
             expect(response).to have_http_status(:ok)
             expect(subject).to render_template("decidim/accountability/admin/results/index")
           end
