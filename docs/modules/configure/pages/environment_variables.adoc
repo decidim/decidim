@@ -597,6 +597,28 @@ Additional context: This has been revealed as an issue during a security audit o
 
 |===
 
+.Optional Env Vars fine tuning some Decidim modules (such the API or Proposal behaviors)
+[%autowidth.stretch]
+|===
+|Name |Value |Default value|Multitenant's System configurable
+
+|API_SCHEMA_MAX_PER_PAGE
+|Set this number to define the default limit for the number of items returned and queried from the database in any collection returned in the GraphQL API.
+|50
+|No
+
+|API_SCHEMA_MAX_COMPLEXITY
+|Complexity is a number based on the GraphQL query sent to the API. Too complex queries may cause a degradation of performance, lower or increase this number according your needs.
+|5000
+|No
+
+|API_SCHEMA_MAX_DEPTH
+|GraphQL nested queries can generated equally deeply nested queries on the database. To prevent this set this limit to prevent too unperformant queries.
+|15
+|No
+
+|===
+
 .Optional Env Vars for extra Rails configuration
 [%autowidth.stretch]
 |===
