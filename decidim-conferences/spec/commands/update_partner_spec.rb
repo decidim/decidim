@@ -11,7 +11,7 @@ module Decidim::Conferences
     let(:partner) { create :partner, :main_promotor, conference: conference }
     let!(:current_user) { create :user, :confirmed, organization: conference.organization }
     let(:logo) do
-      ActiveStorage::Blob.create_and_upload!(
+      ActiveStorage::Blob.create_after_upload!(
         io: File.open(Decidim::Dev.asset("avatar.jpg")),
         filename: "avatar.jpeg",
         content_type: "image/jpeg"
@@ -49,7 +49,7 @@ module Decidim::Conferences
 
       context "when image is invalid" do
         let(:logo) do
-          ActiveStorage::Blob.create_and_upload!(
+          ActiveStorage::Blob.create_after_upload!(
             io: File.open(Decidim::Dev.asset("invalid.jpeg")),
             filename: "invalid.jpeg",
             content_type: "image/jpeg"

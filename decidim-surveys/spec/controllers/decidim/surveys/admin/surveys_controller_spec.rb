@@ -19,13 +19,6 @@ module Decidim
         end
 
         let(:session_token) { answers.first.session_token }
-        let(:space_params) do
-          {
-            component_id: survey.component.id,
-            participatory_process_slug: survey.component.participatory_space.slug,
-            script_name: "/admin/participatory_process/#{survey.component.participatory_space.slug}"
-          }
-        end
 
         before do
           request.env["decidim.current_organization"] = component.organization
@@ -36,7 +29,11 @@ module Decidim
         describe "index" do
           let(:survey) { create(:survey) }
           let(:params) do
-            space_params.merge id: survey.id
+            {
+              component_id: survey.component.id,
+              participatory_process_slug: survey.component.participatory_space.slug,
+              id: survey.id
+            }
           end
 
           it "renders the index template" do
@@ -47,10 +44,12 @@ module Decidim
 
         describe "show" do
           let(:params) do
-            space_params.merge({
-                                 id: survey.id,
-                                 session_token: session_token
-                               })
+            {
+              component_id: survey.component.id,
+              participatory_process_slug: survey.component.participatory_space.slug,
+              id: survey.id,
+              session_token: session_token
+            }
           end
 
           it "renders the show template" do
@@ -62,10 +61,12 @@ module Decidim
         describe "export_response" do
           let(:filename) { "Response for #{session_token}.pdf" }
           let(:params) do
-            space_params.merge({
-                                 id: survey.id,
-                                 session_token: session_token
-                               })
+            {
+              component_id: survey.component.id,
+              participatory_process_slug: survey.component.participatory_space.slug,
+              id: survey.id,
+              session_token: session_token
+            }
           end
 
           it "redirects with a flash notice message" do

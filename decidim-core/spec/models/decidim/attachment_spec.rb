@@ -26,7 +26,7 @@ module Decidim
         subject do
           build(
             :attachment,
-            file: ActiveStorage::Blob.create_and_upload!(
+            file: ActiveStorage::Blob.create_after_upload!(
               io: File.open(attachment_path),
               filename: "image.jpeg",
               content_type: "image/jpeg"

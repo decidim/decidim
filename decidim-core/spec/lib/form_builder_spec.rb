@@ -597,7 +597,7 @@ module Decidim
       let(:filename) { "my_image.jpg" }
       let(:image?) { false }
       let(:blob) do
-        ActiveStorage::Blob.create_and_upload!(
+        ActiveStorage::Blob.create_after_upload!(
           io: File.open(Decidim::Dev.asset("city.jpeg")),
           filename: filename
         )

@@ -50,7 +50,7 @@ Decidim.register_participatory_space(:consultations) do |participatory_space|
       start_voting_date: Time.zone.today,
       end_voting_date: Time.zone.today + 1.month,
       organization: organization,
-      banner_image: ActiveStorage::Blob.create_and_upload!(
+      banner_image: ActiveStorage::Blob.create_after_upload!(
         io: File.open(File.join(seeds_root, "city2.jpeg")),
         filename: "banner_image.jpeg",
         content_type: "image/jpeg",
@@ -82,7 +82,7 @@ Decidim.register_participatory_space(:consultations) do |participatory_space|
       start_voting_date: Time.zone.today - 2.months,
       end_voting_date: Time.zone.today - 1.month,
       organization: organization,
-      banner_image: ActiveStorage::Blob.create_and_upload!(
+      banner_image: ActiveStorage::Blob.create_after_upload!(
         io: File.open(File.join(seeds_root, "city2.jpeg")),
         filename: "banner_image.jpeg",
         content_type: "image/jpeg",
@@ -113,7 +113,7 @@ Decidim.register_participatory_space(:consultations) do |participatory_space|
       start_voting_date: Time.zone.today + 1.month + 1.day,
       end_voting_date: Time.zone.today + 2.months,
       organization: organization,
-      banner_image: ActiveStorage::Blob.create_and_upload!(
+      banner_image: ActiveStorage::Blob.create_after_upload!(
         io: File.open(File.join(seeds_root, "city2.jpeg")),
         filename: "banner_image.jpeg",
         content_type: "image/jpeg",
@@ -148,13 +148,13 @@ Decidim.register_participatory_space(:consultations) do |participatory_space|
             Decidim::Faker::Localized.paragraph(sentence_count: 3)
           end,
           organization: organization,
-          hero_image: ActiveStorage::Blob.create_and_upload!(
+          hero_image: ActiveStorage::Blob.create_after_upload!(
             io: File.open(File.join(seeds_root, "city.jpeg")),
             filename: "hero_image.jpeg",
             content_type: "image/jpeg",
             metadata: nil
           ), # Keep after organization
-          banner_image: ActiveStorage::Blob.create_and_upload!(
+          banner_image: ActiveStorage::Blob.create_after_upload!(
             io: File.open(File.join(seeds_root, "city2.jpeg")),
             filename: "banner_image.jpeg",
             content_type: "image/jpeg",
@@ -188,7 +188,7 @@ Decidim.register_participatory_space(:consultations) do |participatory_space|
           description: Decidim::Faker::Localized.sentence(word_count: 5),
           attached_to: question,
           content_type: "image/jpeg",
-          file: ActiveStorage::Blob.create_and_upload!(
+          file: ActiveStorage::Blob.create_after_upload!(
             io: File.open(File.join(seeds_root, "city.jpeg")),
             filename: "city.jpeg",
             content_type: "image/jpeg",
@@ -201,7 +201,7 @@ Decidim.register_participatory_space(:consultations) do |participatory_space|
           description: Decidim::Faker::Localized.sentence(word_count: 5),
           attached_to: question,
           content_type: "application/pdf",
-          file: ActiveStorage::Blob.create_and_upload!(
+          file: ActiveStorage::Blob.create_after_upload!(
             io: File.open(File.join(seeds_root, "Exampledocument.pdf")),
             filename: "Exampledocument.pdf",
             content_type: "application/pdf",

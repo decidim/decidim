@@ -87,7 +87,7 @@ module Decidim
 
         context "when NO draft proposals exist" do
           it "renders the empty form" do
-            get :new
+            get :new, params: params
             expect(response).to have_http_status(:ok)
             expect(subject).to render_template(:new)
           end
@@ -97,7 +97,7 @@ module Decidim
           let!(:others_draft) { create(:proposal, :draft, component: component) }
 
           it "renders the empty form" do
-            get :new
+            get :new, params: params
             expect(response).to have_http_status(:ok)
             expect(subject).to render_template(:new)
           end
@@ -111,7 +111,7 @@ module Decidim
           let(:component) { create(:proposal_component) }
 
           it "raises an error" do
-            post :create
+            post :create, params: params
 
             expect(flash[:alert]).not_to be_empty
           end

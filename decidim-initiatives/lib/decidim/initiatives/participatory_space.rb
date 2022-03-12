@@ -61,7 +61,7 @@ Decidim.register_participatory_space(:initiatives) do |participatory_space|
         title: Decidim::Faker::Localized.sentence(word_count: 5),
         description: Decidim::Faker::Localized.sentence(word_count: 25),
         organization: organization,
-        banner_image: ActiveStorage::Blob.create_and_upload!(
+        banner_image: ActiveStorage::Blob.create_after_upload!(
           io: File.open(File.join(seeds_root, "city2.jpeg")),
           filename: "banner_image.jpeg",
           content_type: "image/jpeg",
@@ -112,7 +112,7 @@ Decidim.register_participatory_space(:initiatives) do |participatory_space|
         description: Decidim::Faker::Localized.sentence(word_count: 5),
         attached_to: initiative,
         content_type: "image/jpeg",
-        file: ActiveStorage::Blob.create_and_upload!(
+        file: ActiveStorage::Blob.create_after_upload!(
           io: File.open(File.join(seeds_root, "city.jpeg")),
           filename: "city.jpeg",
           content_type: "image/jpeg",
