@@ -97,7 +97,7 @@ The next tables show all the default Env Vars available when running a default D
 
 If you want to use a cloud provider to storage user uploads. this can be done via next extra configuration variables.
 
-Different providers require extra gems to be specified in your Gemfile. You can generate a new application with the appropiated gems with the command `decidim --storage=[provider] my-application`.
+Different providers require extra gems to be specified in your Gemfile. You can generate a new application with the appropriated gems with the command `decidim --storage=[provider] my-application`.
 
 .Optional Decidim Env Vars for cloud storage settings
 [%autowidth.stretch]

@@ -2,6 +2,39 @@
 
 Decidim is a Ruby on Rails library, and as such we try to follow their conventions. Please read https://guides.rubyonrails.org/configuring.html[Configuring Rails Applications].
 
+Decidim is also a command line executable capable of generating your own Decidim installation.
+
+Install it as:
+
+[source,console]
+----
+gem install decidim
+----
+
+For a simple, bare application, just run:
+
+[source,console]
+----
+decidim my_decidim_application
+----
+
+However you can take advantage of the optional flags to automatically configure some aspects of the application.
+Check the available option using the `--help` modifier:
+
+[source,console]
+----
+decidim --help
+----
+
+For instance, if you are planing to use some external cloud storage service (such as S3), create a Decidim application using the `--storage` modifier:
+
+[source,console]
+----
+decidim --storage s3 my_decidim_application
+----
+
+Then make use of the related xref:configure:environment_variables.adoc[Environment Variables] to configure your particular provider.
+
 Just as a reminder, these files are important:
 
 * config/database.yml
