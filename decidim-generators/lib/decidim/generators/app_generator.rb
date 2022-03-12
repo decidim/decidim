@@ -154,7 +154,7 @@ module Decidim
 
         gem_group :production do
           gem "aws-sdk-s3", require: false if providers.include?("s3")
-          gem "azure-storage-blob", require: false if providers.include?("azure")
+          gem "azure-storage", require: false if providers.include?("azure")
           gem "google-cloud-storage", "~> 1.11", require: false if providers.include?("gcs")
         end
       end
@@ -288,13 +288,18 @@ module Decidim
                           elsif branch.present?
                             %(git: "#{repository}", branch: "#{branch}")
                           else
-                            %("#{Decidim::Generators.version}")
+                            %("#{app_version}")
                           end
+      end
+
+      def app_version
+        return %(git: "#{repository}", branch: "#{branch}" ) # TODO remove before merge
+        Decidim::Generators.version
       end
 
       def branch
         return if options[:path]
-
+        return  "fet/env-vars-for-services" # TODO remove before merge
         @branch ||= options[:edge] ? "develop" : options[:branch].presence
       end
 

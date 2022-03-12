@@ -617,6 +617,32 @@ Additional context: This has been revealed as an issue during a security audit o
 |15
 |No
 
+|PROPOSALS_SIMILARITY_THRESHOLD
+|When users create proposals, there are presented with a list of alternative, similar, proposals already created.
+Similarity goes from 0 (no similar at all) to 1 (exactly the same content).
+
+Lower this number to require less coincidences between the texts to create the alternative list.
+Increase this number to force the alternative proposal be very similar in order to be considered an alternative.
+
+Using a very high number (ie: 0.99) can effectively deactivate the comparison step when creating proposals.
+|0.25
+|No
+
+|PROPOSALS_SIMILARITY_LIMIT
+|Max number of proposals from the alternative, similar, proposals to be presented to the user.
+|10
+|No
+
+|PROPOSALS_PARTICIPATORY_SPACE_HIGHLIGHTED_PROPOSALS_LIMIT
+|Number of proposals to be shown in blocks with highlighted content across different participatory spaces.
+|4
+|No
+
+|PROPOSALS_PROCESS_GROUP_HIGHLIGHTED_PROPOSALS_LIMIT
+|Number of proposals to be shown in blocks with highlighted content in processes groups only.
+|3
+|No
+
 |===
 
 .Optional Env Vars for extra Rails configuration

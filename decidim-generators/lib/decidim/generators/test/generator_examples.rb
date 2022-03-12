@@ -178,7 +178,11 @@ shared_examples_for "an application with configurable env vars" do
       "STORAGE_CDN_HOST" => "https://cdn.example.org",
       "API_SCHEMA_MAX_PER_PAGE" => 31,
       "API_SCHEMA_MAX_COMPLEXITY" => 3001,
-      "API_SCHEMA_MAX_DEPTH" => 11
+      "API_SCHEMA_MAX_DEPTH" => 11,
+      "PROPOSALS_SIMILARITY_THRESHOLD" => 0.99,
+      "PROPOSALS_SIMILARITY_LIMIT" => 3,
+      "PROPOSALS_PARTICIPATORY_SPACE_HIGHLIGHTED_PROPOSALS_LIMIT" => 6,
+      "PROPOSALS_PROCESS_GROUP_HIGHLIGHTED_PROPOSALS_LIMIT" => 5
     }
   end
 
@@ -261,7 +265,11 @@ shared_examples_for "an application with configurable env vars" do
       %w(storage cdn_host) => nil,
       %w(decidim api_schema_max_per_page) => 50,
       %w(decidim api_schema_max_complexity) => 5000,
-      %w(decidim api_schema_max_depth) => 15
+      %w(decidim api_schema_max_depth) => 15,
+      %w(decidim proposals_similarity_threshold) => 0.25,
+      %w(decidim proposals_similarity_limit) => 10,
+      %w(decidim proposals_participatory_space_highlighted_proposals_limit) => 4,
+      %w(decidim proposals_process_group_highlighted_proposals_limit) => 3
     }
   end
 
@@ -340,7 +348,11 @@ shared_examples_for "an application with configurable env vars" do
       %w(storage cdn_host) => "https://cdn.example.org",
       %w(decidim api_schema_max_per_page) => 31,
       %w(decidim api_schema_max_complexity) => 3001,
-      %w(decidim api_schema_max_depth) => 11
+      %w(decidim api_schema_max_depth) => 11,
+      %w(decidim proposals_similarity_threshold) => 0.99,
+      %w(decidim proposals_similarity_limit) => 3,
+      %w(decidim proposals_participatory_space_highlighted_proposals_limit) => 6,
+      %w(decidim proposals_process_group_highlighted_proposals_limit) => 5
     }
   end
 
@@ -498,6 +510,24 @@ shared_examples_for "an application with configurable env vars" do
     }
   end
 
+  let(:proposals_initializer_off) do
+    {
+      "similarity_threshold" => 0.25,
+      "similarity_limit" => 10,
+      "participatory_space_highlighted_proposals_limit" => 4,
+      "process_group_highlighted_proposals_limit" => 3
+    }
+  end
+
+  let(:proposals_initializer_on) do
+    {
+      "similarity_threshold" => 0.99,
+      "similarity_limit" => 3,
+      "participatory_space_highlighted_proposals_limit" => 6,
+      "process_group_highlighted_proposals_limit" => 5
+    }
+  end
+
   let(:rails_off) do
     {
       "Rails.logger.level" => 0,
@@ -514,7 +544,10 @@ shared_examples_for "an application with configurable env vars" do
       "Rails.application.config.log_level" => "fatal",
       "Rails.application.config.action_controller.asset_host" => "http://assets.example.org",
       "Rails.application.config.active_storage.service" => "test",
-      "Decidim::ApplicationUploader.new(nil, :file).protocol_option" => { "host" => "https://cdn.example.org" }
+      "Decidim::ApplicationUploader.new(nil, :file).protocol_option" => { "host" => "https://cdn.example.org" },
+      "Decidim::Api::Schema.default_max_page_size" => 31,
+      "Decidim::Api::Schema.max_depth" => 3001,
+      "Decidim::Api::Schema.max_complexity" => 11
     }
   end
 
@@ -572,17 +605,31 @@ shared_examples_for "an application with configurable env vars" do
     end
 
     # Test onto the initializer with ENV vars OFF for the API module
-    json_off = initializer_config_for(test_app, env_off)
+    json_off = initializer_config_for(test_app, env_off, "Decidim::Api")
     api_initializer_off.each do |key, value|
       current = json_off[key]
       expect(current).to eq(value), "API Initializer (#{key}) = (#{current}) expected to match Env (#{value})"
     end
 
     # Test onto the initializer with ENV vars ON for the API module
-    json_on = initializer_config_for(test_app, env_on)
+    json_on = initializer_config_for(test_app, env_on, "Decidim::Api")
     api_initializer_on.each do |key, value|
       current = json_on[key]
       expect(current).to eq(value), "API Initializer (#{key}) = (#{current}) expected to match Env (#{value})"
+    end
+
+    # Test onto the initializer with ENV vars OFF for the Proposals module
+    json_off = initializer_config_for(test_app, env_off, "Decidim::Proposals")
+    proposals_initializer_off.each do |key, value|
+      current = json_off[key]
+      expect(current).to eq(value), "Proposals Initializer (#{key}) = (#{current}) expected to match Env (#{value})"
+    end
+
+    # Test onto the initializer with ENV vars ON for the Proposals module
+    json_on = initializer_config_for(test_app, env_on, "Decidim::Proposals")
+    proposals_initializer_on.each do |key, value|
+      current = json_on[key]
+      expect(current).to eq(value), "Proposals Initializer (#{key}) = (#{current}) expected to match Env (#{value})"
     end
 
     # Test onto some extra Rails confing when ENV vars are empty or undefined
@@ -610,30 +657,47 @@ shared_examples_for "an application with cloud storage gems" do
   let(:services) do
     %w(local s3 gcs azure)
   end
+  let(:storage_envs) do
+    {
+      "RAILS_ENV" => "production",
+      "S3_REGION" => "eu-west-1",
+      "S3_ENDPOINT" => "https://s3.amazonaws.com",
+      "S3_BUCKET" => "test",
+      "AZURE_CONTAINER" => "test",
+      "AZURE_STORAGE_ACCOUNT_NAME" => "test",
+      "AZURE_STORAGE_ACCESS_KEY" => "dGVzdA==\n" # Base64 of "test"
+    }
+  end
 
   it "includes cloud storage gems in the Gemfile" do
     expect(result[1]).to be_success, result[0]
 
     expect(File.read("#{test_app}/Gemfile"))
       .to match(/gem ["']+aws-sdk-s3["']+/)
-      .and match(/gem ["']+azure-storage-blob["']+/)
+      .and match(/gem ["']+azure-storage["']+/)
       .and match(/gem ["']+google-cloud-storage["']+/)
 
     services.each do |service|
-      current = rails_value("Rails.application.config.active_storage.service", test_app, { "STORAGE_PROVIDER" => service })
+      current = rails_value("Rails.application.config.active_storage.service", test_app, storage_envs.merge({ "STORAGE_PROVIDER" => service }))
       expect(current).to eq(service), "Rails storage service (#{current}) expected to match provider (#{service})"
     end
   end
 end
 
 def json_secrets_for(path, env)
-  JSON.parse Decidim::GemManager.new(path).capture("bin/rails runner 'puts Rails.application.secrets.to_json'", env: env, with_stderr: false)[0]
+  JSON.parse capture(path, "bin/rails runner 'puts Rails.application.secrets.to_json'", env: env)
 end
 
 def initializer_config_for(path, env, mod = "Decidim")
-  JSON.parse Decidim::GemManager.new(path).capture("bin/rails runner 'puts #{mod}.config.to_json'", env: env, with_stderr: false)[0]
+  JSON.parse capture(path, "bin/rails runner 'puts #{mod}.config.to_json'", env: env)
 end
 
 def rails_value(value, path, env)
-  JSON.parse Decidim::GemManager.new(path).capture("bin/rails runner 'puts #{value}.to_json'", env: env, with_stderr: false)[0]
+  JSON.parse capture(path, "bin/rails runner 'puts #{value}.to_json'", env: env)
+end
+
+def capture(path, cmd, env: {})
+  Bundler.with_unbundled_env do
+    Decidim::GemManager.new(path).capture(cmd, env: env, with_stderr: false)[0]
+  end
 end
