@@ -479,7 +479,7 @@ shared_examples_for "an application with configurable env vars" do
       "Rails.application.config.log_level" => "debug",
       "Rails.application.config.action_controller.asset_host" => nil,
       "Rails.application.config.active_storage.service" => "local",
-      "Decidim::ApplicationUploader.new(nil, :file).protocol_option" => { "protocol"=>"https" }
+      "Decidim::ApplicationUploader.new(nil, :file).protocol_option" => { "protocol" => "https" }
     }
   end
 
@@ -489,7 +489,7 @@ shared_examples_for "an application with configurable env vars" do
       "Rails.application.config.log_level" => "fatal",
       "Rails.application.config.action_controller.asset_host" => "http://assets.example.org",
       "Rails.application.config.active_storage.service" => "test",
-      "Decidim::ApplicationUploader.new(nil, :file).protocol_option" => { host: "https://cdn.example.org" }
+      "Decidim::ApplicationUploader.new(nil, :file).protocol_option" => { "host" => "https://cdn.example.org" }
     }
   end
 
@@ -566,7 +566,7 @@ end
 
 shared_examples_for "an application with cloud storage gems" do
   let(:services) do
-    [:local, :s3, :gcs, :azure]
+    %w(local s3 gcs azure)
   end
 
   it "includes cloud storage gems in the Gemfile" do
@@ -579,7 +579,7 @@ shared_examples_for "an application with cloud storage gems" do
 
     services.each do |service|
       current = rails_value("Rails.application.config.active_storage.service", test_app, ["STORAGE_PROVIDER" => service])
-      expect(current).to eq(value), "Rails storage service (#{current}) expected to match provider (#{service})"
+      expect(current).to eq(service), "Rails storage service (#{current}) expected to match provider (#{service})"
     end
   end
 end
