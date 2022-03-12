@@ -479,7 +479,7 @@ shared_examples_for "an application with configurable env vars" do
       "Rails.application.config.log_level" => "debug",
       "Rails.application.config.action_controller.asset_host" => nil,
       "Rails.application.config.active_storage.service" => "local",
-      "Decidim::ApplicationUploader.new(nil, :file).protocol_option" => {}
+      "Decidim::ApplicationUploader.new(nil, :file).protocol_option" => { "protocol"=>"https" }
     }
   end
 
@@ -576,9 +576,7 @@ shared_examples_for "an application with cloud storage gems" do
       .to match(/gem ["']+aws-sdk-s3["']+/)
       .and match(/gem ["']+azure-storage-blob["']+/)
       .and match(/gem ["']+google-cloud-storage["']+/)
-  end
 
-  it "can uses the appropiate storage service from env vars" do
     services.each do |service|
       current = rails_value("Rails.application.config.active_storage.service", test_app, ["STORAGE_PROVIDER" => service])
       expect(current).to eq(value), "Rails storage service (#{current}) expected to match provider (#{service})"
