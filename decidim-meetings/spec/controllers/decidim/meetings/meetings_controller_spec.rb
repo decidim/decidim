@@ -10,13 +10,6 @@ describe Decidim::Meetings::MeetingsController, type: :controller do
   let(:meeting_component) { create(:meeting_component, :with_creation_enabled, participatory_space: participatory_process) }
   let(:meeting) { create :meeting, :published, component: meeting_component }
 
-  let(:space_params) do
-    {
-      participatory_process_slug: participatory_process.slug,
-      script_name: "/participatory_process/#{participatory_process.slug}"
-    }
-  end
-
   before do
     request.env["decidim.current_organization"] = organization
     request.env["decidim.current_participatory_space"] = participatory_process
@@ -24,10 +17,8 @@ describe Decidim::Meetings::MeetingsController, type: :controller do
   end
 
   shared_examples "having meeting access visibility applied" do
-    let(:params) { space_params.merge(id: meeting.id) }
-
     it "can access non private meetings" do
-      get :show, params: params
+      get :show, params: { id: meeting.id }
 
       expect(subject).to render_template(:show)
       expect(flash[:alert]).to be_blank
@@ -36,7 +27,7 @@ describe Decidim::Meetings::MeetingsController, type: :controller do
     it "can access private but transparent meetings" do
       meeting.update(private_meeting: true, transparent: true)
 
-      get :show, params: params
+      get :show, params: { id: meeting.id }
 
       expect(subject).to render_template(:show)
       expect(flash[:alert]).to be_blank
@@ -45,7 +36,7 @@ describe Decidim::Meetings::MeetingsController, type: :controller do
     it "can access private and non transparent meetings" do
       meeting.update(private_meeting: true, transparent: false)
 
-      get :show, params: params
+      get :show, params: { id: meeting.id }
 
       expect(subject).to render_template(:show)
       expect(flash[:alert]).to be_blank
@@ -92,10 +83,9 @@ describe Decidim::Meetings::MeetingsController, type: :controller do
 
   describe "#show" do
     context "when user is not logged in" do
-      let(:params) { space_params.merge(id: meeting.id) }
 
       it "can access non private meetings" do
-        get :show, params: params
+        get :show, params: { id: meeting.id }
 
         expect(subject).to render_template(:show)
         expect(flash[:alert]).to be_blank
@@ -104,7 +94,7 @@ describe Decidim::Meetings::MeetingsController, type: :controller do
       it "can access private but transparent meetings" do
         meeting.update(private_meeting: true, transparent: true)
 
-        get :show, params: params
+        get :show, params: { id: meeting.id }
 
         expect(subject).to render_template(:show)
         expect(flash[:alert]).to be_blank
@@ -113,7 +103,7 @@ describe Decidim::Meetings::MeetingsController, type: :controller do
       it "can NOT access private and non transparent meetings" do
         meeting.update(private_meeting: true, transparent: false)
 
-        get :show, params: params
+        get :show, params: { id: meeting.id }
 
         expect(subject).to redirect_to(Decidim::ResourceLocatorPresenter.new(meeting).index)
         expect(flash[:alert]).not_to be_empty

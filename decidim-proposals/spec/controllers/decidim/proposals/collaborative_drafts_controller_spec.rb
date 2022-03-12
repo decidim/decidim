@@ -8,18 +8,11 @@ module Decidim
       routes { Decidim::Proposals::Engine.routes }
 
       let(:component) { create(:proposal_component, :with_creation_enabled, :with_collaborative_drafts_enabled) }
-      let(:params) { space_params.merge(component_id: component.id) }
+      let(:params) { { component_id: component.id } }
       let(:user) { create(:user, :confirmed, organization: component.organization) }
       let(:author) { create(:user, :confirmed, organization: component.organization) }
       let!(:collaborative_draft) { create(:collaborative_draft, component: component, users: [author]) }
       let(:user_2) { create(:user, :confirmed, organization: component.organization) }
-
-      let(:space_params) do
-        {
-          participatory_process_slug: component.participatory_space.slug,
-          script_name: "/participatory_process/#{component.participatory_space.slug}"
-        }
-      end
 
       before do
         request.env["decidim.current_organization"] = component.organization
@@ -30,7 +23,7 @@ module Decidim
       describe "GET index" do
         context "when invoked without paramters" do
           it "returns a list of open collaborative drafts by updated_at" do
-            get :index, params: space_params
+            get :index
 
             expect(response).to have_http_status(:ok)
             expect(assigns[:collaborative_drafts]).not_to be_empty
@@ -41,7 +34,7 @@ module Decidim
 
       describe "GET show" do
         it "returns details of a collaborative_draft" do
-          get :show, params: space_params.merge(id: collaborative_draft.id)
+          get :show, params: { id: collaborative_draft.id }
 
           expect(response).to have_http_status(:ok)
           expect(assigns(:collaborative_draft)).to be_kind_of(Decidim::Proposals::CollaborativeDraft)
@@ -67,13 +60,13 @@ module Decidim
 
       describe "POST create" do
         let(:params) do
-          space_params.merge(
+          {
             component_id: component.id,
             collaborative_draft: {
               title: collaborative_draft.title,
               body: collaborative_draft.body
             }
-          )
+          }
         end
 
         context "when creation is not enabled" do
@@ -99,7 +92,7 @@ module Decidim
         end
 
         it "renders the edit form" do
-          get :edit, params: space_params.merge(id: collaborative_draft.id)
+          get :edit, params: {id: collaborative_draft.id}
           expect(response).to have_http_status(:ok)
           expect(assigns(:collaborative_draft)).to be_kind_of(Decidim::Proposals::CollaborativeDraft)
           expect(subject).to render_template(:edit)
@@ -108,14 +101,14 @@ module Decidim
 
       describe "POST update" do
         let(:params) do
-          space_params.merge(
+          {
             component_id: component.id,
             id: collaborative_draft.id,
             collaborative_draft: {
               title: Decidim::Faker::Localized.sentence,
               body: Decidim::Faker::Localized.sentence(word_count: 2)
             }
-          )
+          }
         end
 
         it "updates the collaborative draft" do
@@ -130,7 +123,7 @@ module Decidim
 
         describe "GET index" do
           it "renders not found page" do
-            expect { get :index, params: space_params }.to raise_error(ActionController::RoutingError)
+            expect { get :index }.to raise_error(ActionController::RoutingError)
           end
         end
       end

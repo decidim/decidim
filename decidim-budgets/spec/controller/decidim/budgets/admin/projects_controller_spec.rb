@@ -9,13 +9,6 @@ module Decidim
         routes { Decidim::Budgets::AdminEngine.routes }
 
         let(:user) { create(:user, :confirmed, :admin, organization: component.organization) }
-        let(:space_params) do
-          {
-            participatory_process_slug: component.participatory_space.slug,
-            script_name: "/participatory_process/#{component.participatory_space.slug}"
-          }
-        end
-
         before do
           request.env["decidim.current_organization"] = component.organization
           request.env["decidim.current_participatory_space"] = component.participatory_space
@@ -40,11 +33,11 @@ module Decidim
             }
           end
           let(:params) do
-            space_params.merge(
+            {
               id: project.id,
               budget_id: project.budget.id,
               project: project_params
-            )
+            }
           end
 
           it "updates the project" do

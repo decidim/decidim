@@ -6,12 +6,6 @@ describe Decidim::Proposals::Admin::ProposalsController, type: :controller do
   routes { Decidim::Proposals::AdminEngine.routes }
 
   let(:user) { create(:user, :confirmed, :admin, organization: component.organization) }
-  let(:space_params) do
-    {
-      participatory_process_slug: component.participatory_space.slug,
-      script_name: "/admin/participatory_process/#{component.participatory_space.slug}"
-    }
-  end
 
   before do
     request.env["decidim.current_organization"] = component.organization
@@ -34,10 +28,10 @@ describe Decidim::Proposals::Admin::ProposalsController, type: :controller do
       }
     end
     let(:params) do
-      space_params.merge(
+      {
         id: proposal.id,
         proposal: proposal_params
-      )
+      }
     end
 
     it "updates the proposal" do
