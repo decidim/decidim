@@ -347,6 +347,12 @@ Decidim.configure do |config|
   config.allow_open_redirects = Rails.application.secrets.decidim[:allow_open_redirects] if Rails.application.secrets.decidim[:allow_open_redirects].present?
 end
 
+if defined?(Decidim::Api)
+  Decidim::Api.schema_max_per_page = Rails.application.secrets.decidim[:api_schema_max_per_page].presence || 50
+  Decidim::Api.schema_max_complexity = Rails.application.secrets.decidim[:api_schema_max_complexity].presence || 5000
+  Decidim::Api.schema_max_depth = Rails.application.secrets.decidim[:api_schema_max_depth].presence || 15
+end
+
 Rails.application.config.i18n.available_locales = Decidim.available_locales
 Rails.application.config.i18n.default_locale = Decidim.default_locale
 

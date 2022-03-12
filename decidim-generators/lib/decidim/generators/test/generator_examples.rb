@@ -175,7 +175,10 @@ shared_examples_for "an application with configurable env vars" do
       "VAPID_PUBLIC_KEY" => "a-vapid-public-key",
       "VAPID_PRIVATE_KEY" => "a-vapid-private-key",
       "STORAGE_PROVIDER" => "test",
-      "STORAGE_CDN_HOST" => "https://cdn.example.org"
+      "STORAGE_CDN_HOST" => "https://cdn.example.org",
+      "API_SCHEMA_MAX_PER_PAGE" => 31,
+      "API_SCHEMA_MAX_COMPLEXITY" => 3001,
+      "API_SCHEMA_MAX_DEPTH" => 11
     }
   end
 
@@ -255,7 +258,10 @@ shared_examples_for "an application with configurable env vars" do
       %w(vapid public_key) => nil,
       %w(vapid private_key) => nil,
       %w(storage provider) => "local",
-      %w(storage cdn_host) => nil
+      %w(storage cdn_host) => nil,
+      %w(decidim api_schema_max_per_page) => 50,
+      %w(decidim api_schema_max_complexity) => 5000,
+      %w(decidim api_schema_max_depth) => 15
     }
   end
 
@@ -331,7 +337,10 @@ shared_examples_for "an application with configurable env vars" do
       %w(vapid public_key) => "a-vapid-public-key",
       %w(vapid private_key) => "a-vapid-private-key",
       %w(storage provider) => "test",
-      %w(storage cdn_host) => "https://cdn.example.org"
+      %w(storage cdn_host) => "https://cdn.example.org",
+      %w(decidim api_schema_max_per_page) => 31,
+      %w(decidim api_schema_max_complexity) => 3001,
+      %w(decidim api_schema_max_depth) => 11
     }
   end
 
@@ -473,6 +482,22 @@ shared_examples_for "an application with configurable env vars" do
     }
   end
 
+  let(:api_initializer_off) do
+    {
+      "schema_max_per_page" => 50,
+      "schema_max_complexity" => 5000,
+      "schema_max_depth" => 15
+    }
+  end
+
+  let(:api_initializer_on) do
+    {
+      "schema_max_per_page" => 31,
+      "schema_max_complexity" => 3001,
+      "schema_max_depth" => 11
+    }
+  end
+
   let(:rails_off) do
     {
       "Rails.logger.level" => 0,
@@ -493,6 +518,8 @@ shared_examples_for "an application with configurable env vars" do
     }
   end
 
+  # This is using a big example to avoid recreating the application every time
+  # rubocop:disable RSpec/ExampleLength
   it "env vars generate secrets application" do
     expect(result[1]).to be_success, result[0]
     # Test onto the secret generated when ENV vars are empty strings or undefined
@@ -544,6 +571,20 @@ shared_examples_for "an application with configurable env vars" do
       expect(current).to eq(value), "Initializer (#{key}) = (#{current}) expected to match Env:Maps MIX (#{value})"
     end
 
+    # Test onto the initializer with ENV vars OFF for the API module
+    json_off = initializer_config_for(test_app, env_off)
+    api_initializer_off.each do |key, value|
+      current = json_off[key]
+      expect(current).to eq(value), "API Initializer (#{key}) = (#{current}) expected to match Env (#{value})"
+    end
+
+    # Test onto the initializer with ENV vars ON for the API module
+    json_on = initializer_config_for(test_app, env_on)
+    api_initializer_on.each do |key, value|
+      current = json_on[key]
+      expect(current).to eq(value), "API Initializer (#{key}) = (#{current}) expected to match Env (#{value})"
+    end
+
     # Test onto some extra Rails confing when ENV vars are empty or undefined
     rails_off.each do |key, value|
       current = rails_value(key, test_app, env_off)
@@ -556,6 +597,7 @@ shared_examples_for "an application with configurable env vars" do
       expect(current).to eq(value), "Rails config (#{key}) = (#{current}) expected to match Env:ON (#{value})"
     end
   end
+  # rubocop:enable RSpec/ExampleLength
 end
 
 shared_examples_for "an application with wrong cloud storage options" do
@@ -578,7 +620,7 @@ shared_examples_for "an application with cloud storage gems" do
       .and match(/gem ["']+google-cloud-storage["']+/)
 
     services.each do |service|
-      current = rails_value("Rails.application.config.active_storage.service", test_app, ["STORAGE_PROVIDER" => service])
+      current = rails_value("Rails.application.config.active_storage.service", test_app, { "STORAGE_PROVIDER" => service })
       expect(current).to eq(service), "Rails storage service (#{current}) expected to match provider (#{service})"
     end
   end
@@ -588,8 +630,8 @@ def json_secrets_for(path, env)
   JSON.parse Decidim::GemManager.new(path).capture("bin/rails runner 'puts Rails.application.secrets.to_json'", env: env, with_stderr: false)[0]
 end
 
-def initializer_config_for(path, env)
-  JSON.parse Decidim::GemManager.new(path).capture("bin/rails runner 'puts Decidim.config.to_json'", env: env, with_stderr: false)[0]
+def initializer_config_for(path, env, mod = "Decidim")
+  JSON.parse Decidim::GemManager.new(path).capture("bin/rails runner 'puts #{mod}.config.to_json'", env: env, with_stderr: false)[0]
 end
 
 def rails_value(value, path, env)
