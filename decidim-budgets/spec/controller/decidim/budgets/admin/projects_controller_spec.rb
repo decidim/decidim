@@ -9,6 +9,7 @@ module Decidim
         routes { Decidim::Budgets::AdminEngine.routes }
 
         let(:user) { create(:user, :confirmed, :admin, organization: component.organization) }
+
         before do
           request.env["decidim.current_organization"] = component.organization
           request.env["decidim.current_participatory_space"] = component.participatory_space

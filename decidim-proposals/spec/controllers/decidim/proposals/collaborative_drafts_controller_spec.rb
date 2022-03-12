@@ -92,7 +92,7 @@ module Decidim
         end
 
         it "renders the edit form" do
-          get :edit, params: {id: collaborative_draft.id}
+          get :edit, params: { id: collaborative_draft.id }
           expect(response).to have_http_status(:ok)
           expect(assigns(:collaborative_draft)).to be_kind_of(Decidim::Proposals::CollaborativeDraft)
           expect(subject).to render_template(:edit)

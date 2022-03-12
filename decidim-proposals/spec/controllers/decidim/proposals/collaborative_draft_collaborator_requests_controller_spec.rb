@@ -26,7 +26,7 @@ module Decidim
         end
 
         it "creates a new access request for the given collaborative_draft" do
-          expect { post :request_access, params: { id: collaborative_draft.id, state: collaborative_draft.state} }.to change {
+          expect { post :request_access, params: { id: collaborative_draft.id, state: collaborative_draft.state } }.to change {
             collaborative_draft.reload
             collaborative_draft.requesters.count
           }.by(1)

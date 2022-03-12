@@ -16,7 +16,6 @@ module Decidim
           let(:organization) { create(:organization) }
           let!(:initiative_type) { create(:initiatives_type, organization: organization, banner_image: banner_image) }
           let(:banner_image) { upload_test_file(Decidim::Dev.test_file("city2.jpeg", "image/jpeg")) }
-
           let(:form) do
             form_klass
               .from_model(initiative_type)
