@@ -20,7 +20,7 @@ module Decidim
         let(:gender) { ::Faker::Lorem.word }
         let(:position) { Decidim::AssemblyMember::POSITIONS.first }
         let(:existing_user) { false }
-        let(:non_user_avatar) { fixture_file_upload(File.open(Decidim::Dev.asset("city.jpeg")), "image/jpeg") }
+        let(:non_user_avatar) { upload_test_file(Decidim::Dev.test_file( "city.jpeg", "image/jpeg")) }
         let(:user_id) { nil }
 
         let(:attributes) do

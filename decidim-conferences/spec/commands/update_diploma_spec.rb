@@ -12,8 +12,8 @@ module Decidim::Conferences
         {
           conference: {
             id: my_conference.id,
-            main_logo: fixture_file_upload(Decidim::Dev.asset("avatar.jpg"), "image/jpeg"),
-            signature: fixture_file_upload(Decidim::Dev.asset("avatar.jpg"), "image/jpeg"),
+            main_logo: upload_test_file(Decidim::Dev.test_file( "avatar.jpg", "image/jpeg")),
+            signature: upload_test_file(Decidim::Dev.test_file( "avatar.jpg", "image/jpeg")),
             sign_date: 5.days.from_now,
             signature_name: "Signature name",
             errors: my_conference.errors

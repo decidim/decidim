@@ -18,7 +18,7 @@ module Decidim
         let(:name) { "Name" }
         let(:weight) { 1 }
         let(:link) { "http://decidim.org" }
-        let(:logo) { fixture_file_upload(File.open(Decidim::Dev.asset("avatar.jpg")), "image/jpeg") }
+        let(:logo) { upload_test_file(Decidim::Dev.test_file( "avatar.jpg", "image/jpeg")) }
         let(:partner_type) { "main_promotor" }
         let(:attributes) do
           {

@@ -54,7 +54,7 @@ describe UploaderContentTypeValidator do
   end
 
   context "when the file is not valid" do
-    let(:file) { fixture_file_upload(Decidim::Dev.test_file("city.jpeg", "application/pdf"), "application/pdf") }
+    let(:file) { upload_test_file(Decidim::Dev.test_file( "city.jpeg", "image/jpeg")) }
 
     it "adds the content type error" do
       expect(subject.count).to eq(1)
