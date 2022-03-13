@@ -564,7 +564,6 @@ shared_examples_for "an application with configurable env vars" do
 
     # Test onto the secret generated when ENV vars are set
     json_on = json_secrets_for(test_app, env_on)
-    require "byebug";byebug
     secrets_on.each do |keys, value|
       current = json_on.dig(*keys)
       expect(current).to eq(value), "Secret #{keys} = (#{current}) expected to match Env:ON (#{value})"
