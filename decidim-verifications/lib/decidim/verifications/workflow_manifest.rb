@@ -29,7 +29,7 @@ module Decidim
       include ActiveModel::Model
       include Decidim::AttributeObject::Model
 
-      attribute :engine, Rails::Engine
+      attribute :engine, Rails::Engine, **{}
       attribute :admin_engine, Rails::Engine, **{}
       attribute :form, String
       attribute :expires_in, ActiveSupport::Duration, default: 0.minutes
