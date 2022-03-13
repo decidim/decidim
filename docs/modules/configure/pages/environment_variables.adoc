@@ -122,6 +122,7 @@ Set the protocol, host and path to your CDN and all the user-generated files (th
 
 |*S3_ACCESS_KEY_ID*
 |If STORAGE_PROVIDER is set to `s3`, define here your AWS KEY ID with permissions to access the bucket for the application.
+
 Also, be sure to add the line `gem "aws-sdk-s3", require: false` in your Gemfile.
 |
 |No
@@ -136,18 +137,19 @@ Also, be sure to add the line `gem "aws-sdk-s3", require: false` in your Gemfile
 |
 |No
 
-|S3_REGION
-|If STORAGE_PROVIDER is set to `s3`, define here your region (in case your S3 provider requires it, required if using AWS).
+|*S3_REGION*
+|If STORAGE_PROVIDER is set to `s3`, define here your region (in case your S3 provider requires it, required if `S3_ENDPOINT` is empty).
 |
 |No
 
-|S3_ENDPOINT
-|If STORAGE_PROVIDER is set to `s3`, define here your endpoint (this is mandatory if using any provider that is not AWS, can be empty if using AWS).
+|*S3_ENDPOINT*
+|If STORAGE_PROVIDER is set to `s3`, define here your endpoint (this is mandatory if using any provider that is not AWS, can be empty if using AWS and `S3_REGION` is specified).
 |
 |No
 
 |*AZURE_STORAGE_ACCESS_KEY*
-|If STORAGE_PROVIDER is set to `azure`, define here your AZURE ACCESS KEY with permissions to access the container for the application.
+|If STORAGE_PROVIDER is set to `azure`, define here your AZURE ACCESS KEY with permissions to access the container for the application. Needs to be encoded in Base64.
+
 Also, be sure to add the line `gem "azure-storage-blob", require: false` in your Gemfile.
 |
 |No
@@ -164,6 +166,7 @@ Also, be sure to add the line `gem "azure-storage-blob", require: false` in your
 
 |*GCS_PROJECT*
 |If STORAGE_PROVIDER is set to `gcs`, define here your GOOGLE CLOUD PROJECT with permissions to access the bucket for the application.
+
 Also, be sure to add the line `gem "google-cloud-storage", "~> 1.11", require: false` in your Gemfile.
 
 *GOOGLE CLOUD SERVICES require some amount of parameters. You should be able to extract them from a `keyfile.json` file.*

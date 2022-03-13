@@ -11,8 +11,8 @@ s3:
   access_key_id: <%%= Rails.application.secrets.dig(:storage, :s3, :access_key_id) %>
   secret_access_key: <%%= Rails.application.secrets.dig(:storage, :s3, :secret_access_key) %>
   region: <%%= Rails.application.secrets.dig(:storage, :s3, :region) %>
-  bucket: <%%= Rails.application.secrets.dig(:storage, :s3, :bucket) %>
-  endpoint: <%%= Rails.application.secrets.dig(:storage, :s3, :endpoint) %>
+  <%%= "region: #{Rails.application.secrets.dig(:storage, :s3, :region)}" if Rails.application.secrets.dig(:storage, :s3, :region) %>
+  <%%= "endpoint: #{Rails.application.secrets.dig(:storage, :s3, :endpoint)}" if Rails.application.secrets.dig(:storage, :s3, :endpoint) %>
 
 azure:
   service: AzureStorage

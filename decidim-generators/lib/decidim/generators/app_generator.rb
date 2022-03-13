@@ -288,18 +288,14 @@ module Decidim
                           elsif branch.present?
                             %(git: "#{repository}", branch: "#{branch}")
                           else
-                            %("#{app_version}")
+                            %(git: "#{repository}", branch: "#{branch}" ) # TODO remove before merge
+                            #%("#{Decidim::Generators.version}")
                           end
-      end
-
-      def app_version
-        return %(git: "#{repository}", branch: "#{branch}" ) # TODO remove before merge
-        Decidim::Generators.version
       end
 
       def branch
         return if options[:path]
-        return  "fet/env-vars-for-services" # TODO remove before merge
+        return  "feat/env-vars-for-services" # TODO remove before merge
         @branch ||= options[:edge] ? "develop" : options[:branch].presence
       end
 
