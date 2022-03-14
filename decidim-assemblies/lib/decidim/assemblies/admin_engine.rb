@@ -71,9 +71,7 @@ module Decidim
             end
             collection do
               resource :participatory_space_private_users_csv_imports, only: [:new, :create], path: "csv_import" do
-                collection do
-                  delete :destroy_all
-                end
+                delete :destroy_all
               end
             end
           end
