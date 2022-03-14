@@ -1,4 +1,4 @@
-import { EmojiButton } from "@joeattardi/emoji-button";
+import {EmojiButton} from "@joeattardi/emoji-button";
 
 // eslint-disable-next-line require-jsdoc
 export default function addInputEmoji() {
@@ -37,9 +37,24 @@ export default function addInputEmoji() {
       // belong to for Foundation Abide to show them automatically.
       parent.querySelectorAll(".form-error").forEach((el) => wrapper.appendChild(el));
 
-      btnContainer.addEventListener("click", () => picker.togglePicker(btnContainer))
+      let handlerPicker = function () {
+        picker.togglePicker(btnContainer);
+      }
 
-      picker.on("emoji", ({ emoji }) => {
+      btnContainer.addEventListener("click", handlerPicker);
+
+      elem.addEventListener("characterCounter", (event) => {
+        if (event.detail.remaining >= 4) {
+          btnContainer.addEventListener("click", handlerPicker);
+          btnContainer.removeAttribute("style");
+        } else {
+          btnContainer.removeEventListener("click", handlerPicker);
+          btnContainer.setAttribute("style", "color:lightgrey");
+        }
+      });
+
+
+      picker.on("emoji", ({emoji}) => {
         elem.value += ` ${emoji} `
 
         const event = new Event("emoji.added");
