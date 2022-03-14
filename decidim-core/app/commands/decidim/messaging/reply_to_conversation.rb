@@ -20,7 +20,10 @@ module Decidim
       #
       # Returns nothing.
       def call
-        return broadcast(:invalid) if form.invalid?
+        if form.invalid?
+          message.valid?
+          return broadcast(:invalid, message.errors.full_messages)
+        end
 
         if message.save
           notify_interlocutors
