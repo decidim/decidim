@@ -228,6 +228,23 @@ fr:
         update:
           error: Une erreur s'est produite lors de la mise à jour de cette étape de la concertation.
           success: Étape de la concertation mise à jour avec succès.
+      participatory_process_types:
+        create:
+          error: Une erreur s'est produite lors de la création d'un nouveau type de processus.
+          success: Type de processus créé avec succès.
+        destroy:
+          success: Type de processus supprimé avec succès.
+        edit:
+          title: Modifier le type de processus
+          update: Mettre à jour
+        form:
+          title: Titre
+        new:
+          create: Créer
+          title: Nouveau type de processus
+        update:
+          error: Un problème est survenu lors de la mise à jour de ce type de processus.
+          success: Type de processus mis à jour avec succès.
       participatory_process_user_roles:
         create:
           error: Une erreur s'est produite lors de l'ajout d'un utilisateur pour cette concertation.
@@ -272,6 +289,7 @@ fr:
           success: Groupe de concertations créé avec succès.
       titles:
         participatory_process_groups: Groupes de concertations
+        participatory_process_types: Types de processus participatifs
         participatory_processes: Concertations
       users:
         resend_invitation:
@@ -291,6 +309,10 @@ fr:
         create: "%{user_name} a créé l'étape %{resource_name} dans la concertation %{space_name}"
         delete: "%{user_name} a supprimé l'étape %{resource_name} de la concertation %{space_name}"
         update: "%{user_name} a mis à jour l'étape %{resource_name} de la concertation %{space_name}"
+      participatory_process_type:
+        create: "%{user_name} a créé le type de processus participatif %{resource_name}"
+        delete: "%{user_name} a supprimé le type de processus participatif %{resource_name}"
+        update: "%{user_name} a mis à jour le type de processus participatif %{resource_name}"
       participatory_process_user_role:
         create: "%{user_name} a invité l'utilisateur %{resource_name} à la concertation %{space_name}"
         delete: "%{user_name} a supprimé l'utilisateur %{resource_name} de la concertation %{space_name}"
@@ -318,6 +340,10 @@ fr:
           contextual: "<p>Une <strong>concertation</strong> est une séquence d'activités de participation (par exemple remplir un sondage, puis faire des propositions, les discuter en face-à-face ou en ligne, et enfin les hiérarchiser) dans le but de définir et de prendre une décision sur un sujet spécifique.</p> <p>Exemples de processus participatifs: un processus d’élection des membres du comité (où les candidatures sont d'abord présentées, puis débattues et finalement une candidature est choisie), les budgets participatifs (où les propositions sont faites, évaluées économiquement et votées selon l'argent disponible), un processus de planification stratégique, la rédaction collaborative d'un règlement ou d'une norme, la conception d'un espace urbain ou la production d'un plan de politique publique.</p>\n"
           page: "<p>Une <strong>concertation</strong> est une séquence d'activités de participation (par exemple remplir un sondage, puis faire des propositions, les discuter en face-à-face ou en ligne, et enfin les hiérarchiser) dans le but de définir et de prendre une décision sur un sujet spécifique.</p> <p>Exemples de processus participatifs: un processus d’élection des membres du comité (où les candidatures sont d'abord présentées, puis débattues et finalement une candidature est choisie), les budgets participatifs (où les propositions sont faites, évaluées économiquement et votées selon l'argent disponible), un processus de planification stratégique, la rédaction collaborative d'un règlement ou d'une norme, la conception d'un espace urbain ou la production d'un plan de politique publique.</p>\n"
           title: Qu'est-ce qu'une concertation ?
+    log:
+      value_types:
+        participatory_process_type_presenter:
+          not_found: 'Le type de processus n''a pas été trouvé dans la base de données (ID: %{id})'
     menu:
       processes: Concertations
     metrics:
