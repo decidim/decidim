@@ -38,7 +38,7 @@ module Decidim
               .where(organization: organization)
 
       query = query.where(user: user) if user
-      query = query.where(resource_type: resource_name) if resource_name
+      query = query.where(resource_type: resource_name) if resource_name.present?
 
       query = filter_follows(query)
       query = filter_hidden(query)
