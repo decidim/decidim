@@ -10,18 +10,8 @@ module Decidim
     let(:editor_images_path) { Rails.application.routes.url_helpers.editor_images_url(organization.open_data_file.blob, only_path: true) }
     let(:user) { create(:user, :confirmed, organization: organization) }
     let(:admin) { create(:user, :confirmed, :admin, organization: organization) }
-    let(:image) do
-      Rack::Test::UploadedFile.new(
-        Decidim::Dev.test_file("city.jpeg", "image/jpeg"),
-        "image/jpeg"
-      )
-    end
-    let(:invalid_image) do
-      Rack::Test::UploadedFile.new(
-        Decidim::Dev.test_file("invalid.jpeg", "image/jpeg"),
-        "image/jpeg"
-      )
-    end
+    let(:image) { upload_test_file(Decidim::Dev.test_file("city.jpeg", "image/jpeg")) }
+    let(:invalid_image) { upload_test_file(Decidim::Dev.test_file("invalid.jpeg", "image/jpeg")) }
     let(:valid_params) { { image: image } }
     let(:invalid_params) { { image: invalid_image } }
 

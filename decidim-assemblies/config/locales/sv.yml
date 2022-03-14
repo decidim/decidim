@@ -270,7 +270,7 @@ sv:
             duration_help: Om varaktigheten för gruppen är begränsad, välj ett slutdatum. Annars kommer den att visas som permanent.
             filters: Filter
             images: Bilder
-            included_at_help: Markera det datum då gruppen lades till i Decidim. Det behöver inte nödvändigtvis vara detsamma som datumet det skapades.
+            included_at_help: Markera det datum då gruppen lades till på plattformen. Det behöver inte nödvändigtvis vara detsamma som datumet det skapades.
             metadata: Metadata
             other: Annan
             select_a_created_by: Välj en skapad av

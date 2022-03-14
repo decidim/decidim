@@ -68,8 +68,8 @@ You can download these files directly with these commands:
 
 [source,console]
 ----
-mkdir -p app/packs/src/decidim app/packs/stylesheets/decidim app/packs/stylesheets/images
-touch app/packs/src/decidim/.keep app/packs/stylesheets/decidim/.keep app/packs/stylesheets/images/.keep
+mkdir -p app/packs/src/decidim app/packs/stylesheets/decidim app/packs/images
+touch app/packs/src/decidim/.keep app/packs/stylesheets/decidim/.keep app/packs/images/.keep
 wget https://raw.githubusercontent.com/decidim/decidim/develop/decidim-generators/lib/decidim/generators/app_templates/decidim_application.js -O app/packs/src/decidim/decidim_application.js
 wget https://raw.githubusercontent.com/decidim/decidim/develop/decidim-generators/lib/decidim/generators/app_templates/decidim_application.scss -O app/packs/stylesheets/decidim/decidim_application.scss
 wget https://raw.githubusercontent.com/decidim/decidim/develop/decidim-generators/lib/decidim/generators/app_templates/_decidim-settings.scss -O app/packs/stylesheets/decidim/_decidim-settings.scss
@@ -83,6 +83,16 @@ Copy the existing images from `app/assets/images` to `app/packs/images`. Images 
 ----
 cp -rp app/assets/images/* app/packs/images/
 ----
+
+For instance, add the image "app/packs/images/test.png" in a view using the helper:
+
+[source,erb]
+----
+<%= image_pack_tag "media/images/test.png" %>
+----
+
+Note that, by default, all images are flattened in a single directory (any subdirectory structure is lost when requiring an image using the `image_pack_tag`).
+So, if you have a file in a subdirectory such as `app/packs/images/subfolder/test.png`, you still need to call for the image using `image_pack_tag "media/images/test.png"`
 
 === Migrate stylesheets
 
@@ -110,6 +120,16 @@ Sometimes assets are included in `vendor/assets/` folder or imported from gems. 
 
 1. if the asset is a javascript that is available as npm package the recommendation is to add it to package.json with `npm install`. If it's not available you might want to copy it to `app/packs/src` and import it.
 2. if the asset is a stylesheet it should be copied to `app/packs/stylesheets` and imported with `@import...` from `_decidim-settings.scss`. Alternatively you can use the optional asset includes as described below to include these in the Decidim main SCSS files.
+
+=== Migrate uploads to ActiveStorage
+
+The old method (CarrierWave) to handle user uploads has changed, now it uses ActiveStorage.
+This means that all the old files need to be migrated to the new system. Use the following rake task to perform this task:
+
+[source,console]
+----
+RAILS_ENV=production bin/rails decidim:active_storage_migrations:migrate_from_carrierwave_to_active_storage
+----
 
 === Optional asset includes
 
@@ -177,7 +197,7 @@ Decidim.register_assets_path File.expand_path("app/packs", Rails.application.roo
 
 The deployment needs to be updated to manually run `npm install` before assets are precompiled.
 
-In the case of Capistrano this can be done with a before hook:
+In the case of Capistrano this can be done with a before hook (can be added at the end of your `config/deploy.rb` file):
 
 [source,ruby]
 ----
@@ -186,9 +206,7 @@ namespace :deploy do
   task :decidim_webpacker_install do
     on roles(:all) do
       within release_path do
-        with rails_env: fetch(:rails_env) do
-          execute "npm ci"
-        end
+        execute :npm, "install"
       end
     end
   end
@@ -199,6 +217,7 @@ end
 
 Also, in the case of Capistrano it's interesting to add to the shared_paths the following folders:
 
+* `storage` *IMPORTANT!*
 * `tmp/webpacker-cache`
 * `node_modules`
 * `public/decidim-packs`
@@ -215,3 +234,24 @@ npm ERR!
 ----
 
 Then you need to check again that you're using the correct Node.js and NPM versions.
+
+In some case it might be that some packages are not well resolved when installing NPM modules. If you get messages like:
+
+[source,console]
+----
+...
+[webpack-cli] Error: Cannot find module '@rails/webpacker'
+...
+----
+
+These might be due some kind of corruption in your `package-json.lock` file, you can try either to remove this file and recreate it with `npm install` or to add the package `@rails/webpacker` manually in your `package.json` file next to the `@decidim/webpacker` package:
+
+[source,json]
+----
+...
+    "@decidim/webpacker": "^0.25.2",
+    "@rails/webpacker": "^6.0.0-rc.5",
+...
+----
+
+Then execute `npm install`.

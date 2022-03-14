@@ -43,7 +43,8 @@ describe "Identity document request edition", type: :system do
       submit_upload_form(
         doc_type: "DNI",
         doc_number: "XXXXXXXY",
-        file_name: "dni.jpg"
+        file_name: "dni.jpg",
+        remove_before: true
       )
       expect(page).to have_content("Document successfully reuploaded")
       authorization.reload
@@ -100,7 +101,8 @@ describe "Identity document request edition", type: :system do
         submit_upload_form(
           doc_type: "DNI",
           doc_number: "XXXXXXXY",
-          file_name: "dni.jpg"
+          file_name: "dni.jpg",
+          remove_before: true
         )
 
         expect(page).to have_content("Document successfully reuploaded")
@@ -135,10 +137,11 @@ describe "Identity document request edition", type: :system do
 
   private
 
-  def submit_upload_form(doc_type:, doc_number:, file_name: nil)
+  def submit_upload_form(doc_type:, doc_number:, file_name: nil, remove_before: false)
     select doc_type, from: "Type of your document"
     fill_in "Document number (with letter)", with: doc_number
-    attach_file "Scanned copy of your document", Decidim::Dev.asset(file_name) if file_name
+    options = { remove_before: remove_before }
+    dynamically_attach_file(:id_document_upload_verification_attachment, Decidim::Dev.asset(file_name), options) if file_name
 
     click_button "Request verification again"
   end

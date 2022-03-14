@@ -1098,6 +1098,7 @@ en:
           description:
             show_less: Read less
             show_more: Read more
+            title: About this voting
           metrics:
             heading: Metrics
           polling_stations:

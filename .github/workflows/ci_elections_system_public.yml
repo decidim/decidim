@@ -43,6 +43,9 @@ jobs:
           --health-retries 5
         env:
           POSTGRES_PASSWORD: postgres
+      validator:
+        image: ghcr.io/validator/validator:latest
+        ports: ["8888:8888"]
       bulletin_board:
         image: codegram/decidim-bulletin-board:0.22.3
         ports: ["8000:8000"]
@@ -59,6 +62,7 @@ jobs:
       DATABASE_PASSWORD: postgres
       DATABASE_HOST: localhost
       RUBYOPT: "-W:no-deprecated"
+      VALIDATOR_HTML_URI: http://localhost:8888/
       ELECTIONS_BULLETIN_BOARD_SERVER: http://localhost:8000/api
     steps:
       - uses: actions/checkout@v2.0.0
@@ -71,7 +75,7 @@ jobs:
           processor_count: ${{ env.PARALLEL_TEST_PROCESSORS }}
           ruby_version: ${{ env.RUBY_VERSION }}
           node_version: ${{ env.NODE_VERSION }}
-      - run: bundle exec rake parallel:spec['spec\/system\/(?!admin)']
+      - run: bundle exec rspec spec/system/ --exclude-pattern 'spec/system/admin/**/*_spec.rb'
         name: RSpec
         working-directory: ${{ env.DECIDIM_MODULE }}
         env:

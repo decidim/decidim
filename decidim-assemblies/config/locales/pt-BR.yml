@@ -266,7 +266,6 @@ pt-BR:
             duration_help: Se a duração desse assembly for limitada, selecione a data final. Caso contrário, aparecerá como indefinido.
             filters: Filtros
             images: Imagens
-            included_at_help: Selecione a data em que esta montagem foi adicionada ao Decidim. Não precisa necessariamente ser o mesmo que a data de criação.
             metadata: Metadados
             other: De outros
             select_a_created_by: Selecione um criado por

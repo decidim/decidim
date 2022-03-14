@@ -19,14 +19,9 @@ shared_examples "admin imports controller" do
   end
 
   describe "POST create" do
-    let(:file) do
-      # The file does not really matter for the dummies creator because it
-      # will always create a record for each data row regardless of the data.
-      Rack::Test::UploadedFile.new(
-        Decidim::Dev.test_file("import_proposals.csv", "text/csv"),
-        "text/csv"
-      )
-    end
+    # The file does not really matter for the dummies creator because it
+    # will always create a record for each data row regardless of the data.
+    let(:file) { upload_test_file(Decidim::Dev.test_file("import_proposals.csv", "text/csv")) }
     let(:params) do
       default_params.merge(extra_params).merge(file: file)
     end

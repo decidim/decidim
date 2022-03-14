@@ -251,9 +251,9 @@ fi-pl:
       filters:
         active: Aktiiviset
         all: Kaikki
+        date: Päivämäärä
         finished: Valmiit
         search: Hae
-        state: Tila
         upcoming: Tulevat
       filters_small_view:
         close_modal: Sulje ikkuna

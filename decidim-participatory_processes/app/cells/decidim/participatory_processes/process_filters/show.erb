@@ -1,13 +1,17 @@
-<div class="row collapse order-by">
-  <h3 class="order-by__text section-heading">
-    <%= title %>
-    <%= render :filter_tabs %>
-  </h3>
+<div class="row column">
+  <div class="flex--sbe">
+    <h3 class="section-heading collapse">
+      <%= title %>
+      <%= render :filter_tabs %>
+    </h3>
+    <%= render :type_filter if participatory_process_types_for_select.present? %>
+  </div>
+  <hr class="reset mt-s mb-s">
 </div>
 <% if process_count_by_filter["active"] == 0 && process_count_by_filter["upcoming"] == 0 %>
-<div class="row column">
-  <div class="callout warning mb-sm">
-    <p><%= t("decidim.participatory_processes.participatory_processes.filters.explanations.no_active_nor_upcoming_callout") %></p>
+  <div class="row column">
+    <div class="callout warning mb-sm">
+      <p><%= t("decidim.participatory_processes.participatory_processes.filters.explanations.no_active_nor_upcoming_callout") %></p>
+    </div>
   </div>
-</div>
 <% end %>

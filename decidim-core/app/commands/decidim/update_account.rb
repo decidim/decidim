@@ -42,7 +42,7 @@ module Decidim
 
     def update_avatar
       if @form.avatar.present?
-        @user.avatar = @form.avatar
+        @user.avatar.attach(@form.avatar)
       elsif @form.remove_avatar
         @user.avatar = nil
       end

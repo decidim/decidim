@@ -45,7 +45,8 @@ module Decidim
           followers: meeting.follows.size,
           url: url,
           related_proposals: related_proposals,
-          related_results: related_results
+          related_results: related_results,
+          published: meeting.published_at.present?
         }
       end
 

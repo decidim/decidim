@@ -85,19 +85,15 @@ pt:
             values:
               'false': Passado
               'true': Seguinte
-          origin_eq:
-            label: Origem
-            values:
-              official: Oficial
-              user_group: Grupos de utilizadores
           scope_id_eq:
             label: Âmbito
-          type_eq:
+          with_any_origin:
+            values:
+              user_group: Grupos de utilizadores
+          with_any_type:
             label: Tipo de reunião
             values:
-              hybrid: Ambos
               in_person: Presencialmente
-              online: On-line
       meeting_copies:
         create:
           error: Ocorreu um problema ao duplicar esta reunião.

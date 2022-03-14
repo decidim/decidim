@@ -5,6 +5,8 @@ module Decidim
     module Admin
       # A form object to be used when admin users want to create a proposal.
       class ProposalForm < Decidim::Proposals::Admin::ProposalBaseForm
+        include Decidim::HasUploadValidations
+
         translatable_attribute :title, String do |field, _locale|
           validates field, length: { in: 15..150 }, if: proc { |resource| resource.send(field).present? }
         end

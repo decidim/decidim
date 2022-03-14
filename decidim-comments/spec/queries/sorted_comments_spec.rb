@@ -75,8 +75,8 @@ module Decidim::Comments
         create(:report, moderation: moderation)
       end
 
-      it "is not included in the query" do
-        expect(subject.query).to be_empty
+      it "is included in the query" do
+        expect(subject.query).not_to be_empty
       end
     end
 

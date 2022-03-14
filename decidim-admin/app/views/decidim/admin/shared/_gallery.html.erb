@@ -15,7 +15,12 @@
     <% end %>
 
     <div class="row column">
-      <%= form.file_field :add_photos, multiple: true, label: t(".add_images") %>
+      <%= form.attachment :photos,
+        multiple: true,
+        label: t(".add_images"),
+        button_label: t(".add_images"),
+        button_edit_label: t(".edit_images"),
+        help_i18n_scope: "decidim.forms.file_help.image" %>
     </div>
   </fieldset>
 </div>

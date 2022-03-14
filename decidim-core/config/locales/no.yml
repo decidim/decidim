@@ -5,6 +5,8 @@
         delete_reason: Grunnen til at du vil slette din bruker
       common:
         created_at: Opprettet i
+      conversation:
+        body: Innhold
       group:
         about: Om
         avatar: Profilbilde
@@ -13,6 +15,8 @@
         name: Navn
         nickname: Kallenavn
         phone: Telefon
+      message:
+        body: Innhold
       report:
         details: Ytterlige kommentarer
       user:
@@ -35,6 +39,7 @@
       decidim/profile_updated_event: Profilen er oppdatert
       decidim/promote_to_admin: Forfremmet til gruppe-admin
       decidim/removed_from_group: Fjernet fra gruppen
+      decidim/resource_endorsed_event: Ressurs er tilsluttet
   activerecord:
     attributes:
       decidim/user:
@@ -63,6 +68,7 @@
   carrierwave:
     errors:
       image_too_big: Dette bilde er for stort
+      not_inside_organization: Filen er ikke tilknyttet noen organisasjon
   date:
     formats:
       decidim_short: "%d.%m-%Y"
@@ -70,16 +76,45 @@
       decidim_with_day_and_month_name: "%A %d %b %Y"
       decidim_with_month_name: "%d %B %Y"
       decidim_with_month_name_short: "%d %b"
+  datetime:
+    distance_in_words:
+      about_x_hours:
+        one: omtrent 1 time
+        other: omtrent %{count} timer
+      about_x_months:
+        one: omtrent 1 måned
+        other: omtrent %{count} måneder
+      half_a_minute: et halvt minutt
+      less_than_x_minutes:
+        one: mindre enn et minutt.
+        other: mindre enn %{count} minutter.
+      less_than_x_seconds:
+        one: akkurat nå
+        other: mindre enn %{count} sekunder.
+      x_days:
+        one: 1 dag siden
+        other: "%{count} dager siden"
+      x_hours:
+        one: 1 time siden
+        other: "%{count} timer siden"
+      x_minutes:
+        one: 1 minutt siden
+        other: "%{count} minutter siden"
+      x_seconds:
+        one: 1 sekund siden
+        other: "%{count} sekunder siden"
   decidim:
     accessibility:
       external_link: Ekstern lenke
       logo: "%{organization} s offisielle logo"
       skip_button: Gå til hovedinnhold
     account:
+      blocked: Denne kontoen er sperret på grunn av brudd på vilkår og betingelser
       data_portability_export:
         file_no_exists: Filen finnes ikke
         notice: Opplastingen av dataen din pågår. Du vil få en e-mail når den er ferdig.
       delete:
+        alert: Denne handlingen kan ikke angres. Hvis du sletter kontoen din, vil du ikke kunne logge inn igjen med denne innloggingsinformasjonen. Slettingen av din konto vil resultere i at dine bidrag blir anonymisert. Du vil fortsatt kunne lage en ny konto, men disse bidragene vil ikke bli knyttet til den.
         confirm:
           close: Lukk vindu
           ok: Ja, jeg ønsker å slette kontoen min
@@ -109,6 +144,8 @@
         delete: "%{user_name} fjernet komponenten %{resource_name} fra rommet %{space_name}"
         publish: "%{user_name} publiserte %{resource_name} komponent til %{space_name} rommet"
         unpublish: "%{user_name} avpubliserte %{resource_name} komponent til %{space_name} rommet"
+      impersonation_log:
+        manage: "%{user_name} har behandlet %{resource_name} fordi %{reason}"
       moderation:
         hide: "%{user_name} skjulte en ressurs av type %{resource_type} i %{space_name} rommet"
         unreport: "%{user_name} fjernet en rapport ressurs av type %{resource_type} i %{space_name} rommet"
@@ -125,6 +162,7 @@
         update: "%{user_name} oppdaterte organisasjonens innstillinger"
       participatory_space_private_user:
         create: "%{user_name} inviterte %{resource_name} til å bli en privat deltaker"
+        create_via_csv: "%{user_name} inviterte %{resource_name} via CSV til å være privat deltaker"
         delete: "%{user_name} fjernet deltakeren %{resource_name} som en privat deltaker"
       scope:
         create: "%{user_name} laget temaet %{resource_name}"
@@ -138,15 +176,21 @@
         delete: "%{user_name} slettet %{resource_name} statisk side"
         update: "%{user_name} oppdaterte %{resource_name} statisk side"
       user:
+        block: "%{user_name} blokkert bruker %{resource_name}"
         invite: "%{user_name} inviterte deltakeren %{resource_name} med rolle: %{role}"
         officialize: "%{user_name} gjorde deltakeren %{resource_name} offisiell"
+        promote: "%{user_name} har forfremmet %{resource_name}"
         remove_from_admin: "%{user_name} fjernet deltakeren %{resource_name} med rolle: %{role}"
         show_email: "%{user_name} skaffet eposten til deltakeren %{resource_name}"
+        transfer: "%{user_name} overførte deltakeren %{resource_name}"
+        unblock: "%{user_name} ublokkerte bruker %{resource_name}"
         unofficialize: "%{user_name} gjorde deltakeren %{resource_name} uoffisiell"
       user_group:
         reject: "%{user_name} avslo %{resource_name} gruppens verifikasjon"
         verify: "%{user_name} verifiserte gruppen %{resource_name}"
         verify_via_csv: "%{user_name} verifiserte gruppen %{resource_name} via en CSV fil"
+      user_moderation:
+        unreport: "%{user_name} urapporterte en %{resource_type} – %{unreported_user_name}"
     admin_terms_of_use:
       default_body: "<h2>ADMINISTRATOR BRUKERVILKÅR</h2><p>Vi stoler på at du har mottatt det vanlige foredraget fra den lokale systemadministratoren. Det handlet vanligvis om disse tre tingene:</p><ol><li>Respekter andres privatliv.</li><li>Tenk før du klikker.</li><li>Med stor makt kommer stort ansvar.</li></ol>"
     alert:
@@ -237,9 +281,13 @@
         download: Last ned fil
       documents:
         related_documents: Grunnlagsdokumenter
+      geocoding:
+        geocoded_address: Adresse
       photos:
         related_photos: Illustrasjoner
     author:
+      avatar: 'Avatar: %{name}'
+      avatar_multiuser: Avatar for flere brukere
       comments:
         one: kommentar
         other: kommentarer
@@ -264,6 +312,8 @@
         name: Eksempel autorisering
       dummy_authorization_workflow:
         name: Dummy autoriserings arbeidskraft
+      errors:
+        duplicate_authorization: En deltaker er er allerede autorisert med samme data. En administrator vil kontakte deg for å bekrefte dine detaljer.
       expired_at: Utgått på %{timestamp}
       expires_at: Går ut %{timestamp}
       foo_authorization:
@@ -293,6 +343,8 @@
           authorize: Autoriser med "%{authorization}"
           explanation: For å utføre denne handlingen, må du autorisere med "%{authorization}".
           title: Autorisering påkrevet
+        ok:
+          title: Du har blitt autorisert etter du gikk inn på denne siden. Vennligst oppdater siden for å utføre handlingen din
         pending:
           explanation: For å utføre denne handlingen, må du autorisere med "%{authorization}", men autoriseringen din er fortsatt i gang
           resume: Sjekk "%{authorization}" autoriseringen din
@@ -309,6 +361,13 @@
           title: Bekreft e-posten din
       show:
         close_modal: Lukk vinduet
+    block_user_mailer:
+      notify:
+        body_1: Kontoen din ble blokkert.
+        body_2: 'Årsak: %{justification}'
+        greetings: Hei,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
+        hello: Hei,
+        subject: Kontoen ble blokkert av %{organization_name}
     collapsible_list:
       hidden_elements_count:
         one: å %{count} mer
@@ -345,6 +404,7 @@
             enable_pads_creation: Aktiver oppretting av pads
             resources_permissions_enabled: Ressurs tillatelser aktivert
             scope_id: Tema
+            scopes_enabled: Aktiverte temaer
           step:
             amendment_creation_enabled: Oppretting av endringer aktivert
             amendment_promotion_enabled: Forfremmelse av endringer aktivert
@@ -356,6 +416,13 @@
             dummy_step_translatable_text: Dummy Steg Oversettbar Tekst
     contact: Kontakt
     content_blocks:
+      cta:
+        name: Knapp for bilde, tekst og annonsering
+      cta_settings_form:
+        background_image: Bakgrunnsbilde
+        button_text: Annonseringstekst
+        button_url: URL for annonsering
+        description: Beskrivelse
       footer_sub_hero:
         name: Footer sub hero banner
       hero:
@@ -365,6 +432,11 @@
         welcome_text: Velkomsttekst
       highlighted_content_banner:
         name: Uthevet innholdsbanner
+      highlighted_elements_settings_form:
+        orders:
+          label: 'Sorter elementer etter:'
+          random: Tilfeldig
+          recent: Nyeste
       how_to_participate:
         name: Hvordan delta
       html:
@@ -389,6 +461,7 @@
         ready: Klar
       show:
         download_data: Last ned informasjonen
+        download_data_description: En fil som inneholder all informasjon tilknyttet kontoen din vil bli sendt til <strong>%{user_email}</strong>. Denne e-posten inneholder en .zip-fil og et passord for å åpne den.<br/><br/>For å pakke ut filen vil du trenge <a href="https://www.7-zip.org/">7-Zip</a> (for Windows) eller <a href="https://www.keka.io/">Keka</a> (for MacOS). Hvis du bruker Linux vil du i de fleste tilfeller ha den installert som standard. Dersom dette ikke stemmer, kan du bruke <a href="https://gitlab.gnome.org/GNOME/file-roller">filroller</a> eller <a href="https://peazip.github.io">PeaZip</a>).
         request_data: Etterspør informasjonen
     datepicker:
       help_text: 'Forventet format: %{datepicker_format}'
@@ -424,6 +497,8 @@
           register: Opprett en konto
           sign_in_disabled: Du kan få tilgang til med en ekstern konto
           sign_up_disabled: Registreringen er stoppet, du kan bruke en eksisterende konto for å få tilgang
+        user:
+          timed_out: Du har vært inaktiv for lenge og du har blitt automatisk logget ut fra tjenesten. Hvis du ønsker å fortsette å bruke tjenesten, vennligst logg på igjen.
       shared:
         newsletter_modal:
           buttons:
@@ -459,6 +534,11 @@
           this_application_will_not_be_able_to: 'Dette programmet vil ikke kunne:'
           update_profile: Oppdater profilen din
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> ønsker å bruke profilen din"
+    editor_images:
+      create:
+        error: Feil ved opplasting av bilde
+        success: Opplasting fullført
+      drag_and_drop_help: Legg til bilder ved å dra og slippe eller lime dem inn.
     endorsable:
       endorsements: Påtegnelser
       endorsements_count: Antall tilslutninger
@@ -599,6 +679,14 @@
           notification_title: Brukergruppen %{user_group_name} har oppdatert sin profil, og det er ubekreftet. Du kan nå bekrefte det i <a href="%{groups_admin_path}">admin-panelet</a>.
       notification_event:
         notification_title: En hendelse oppstod til <a href="%{resource_path}">%{resource_title}</a>.
+      reports:
+        resource_hidden:
+          email_intro: En administrator har fjernet din %{resource_type} fordi den er rapportert som %{report_reasons}.
+          email_outro: Du har mottatt dette varselet fordi du er en forfatter av fjernet innhold.
+          email_subject: Din %{resource_type} har blitt fjernet
+          notification_title: |-
+            En administrator har fjernet din %{resource_type} fordi den er rapportert som %{report_reasons}.</br>
+            <i>%{resource_content}</i>
       resource_endorsed:
         email_intro: '%{endorser_name} %{endorser_nickname}, som du følger, har akkurat godkjent "%{resource_title}" og vi tror det kan være interessant for deg. Sjekk det ut og bidra:'
         email_outro: Du har mottatt dette varselet fordi du følger %{endorser_nickname}. Du kan slutte å motta varsler ved å følge den forrige lenken.
@@ -612,6 +700,7 @@
           notification_title: <a href="%{resource_path}">Profilsiden</a> til %{name} (%{nickname}), som du følger er blitt oppdatert.
     export_mailer:
       data_portability_export:
+        click_button: 'Klikk på neste link for å laste ned dataen.<br/>Filen vil være tilgjengelig til %{date}.<br/>Du vil trenge <a href="https://www.7-zip.org/">7-Zip</a> (for Windows), <a href="https://www.keka.io/en/">Keka</a> (for MacOS) eller <a href="https://peazip.github.io">PeaZip</a> (for Linux) for å åpne den. Passord: %{password}'
         download: Last ned
       export:
         ready: Vennligst finn vedlagte en zip-versjon av eksporten din.
@@ -640,10 +729,12 @@
       no_followers: Ingen følgere ennå.
     following:
       no_followings: Følger ikke noen eller noe ennå.
+      non_public_followings: En del av ressursene som følges er ikke offentlige.
     follows:
       create:
         button: Følg
         error: Det oppstod et problem med å følge denne ressursen.
+        participatory_space: Følger <span class="show-for-sr">%{resource_name}</span>
       destroy:
         button: Stopp å følge
         error: Det oppstod et problem med å slutte å følge denne ressursen.
@@ -660,6 +751,7 @@
         file:
           explanation: 'Veiledning for fil:'
           message_1: Må være et bilde eller et dokument.
+          message_2: Den anbefalte størrelsen for dette bildet er 512x512.
         image:
           explanation: 'Veiledning for bilde:'
           message_1: Et landskapsbilde uten tekst er å anbefale.
@@ -799,6 +891,15 @@
       index:
         last_activity: Siste aktivitet
         resource_type: Type
+    links:
+      invalid_url: Ugyldig URL
+      warning:
+        body_1: Du er i ferd med å besøke en ekstern lenke, og vi vil at du skal være forsiktig med hensyn til innholdet på det eksterne nettstedet.
+        body_2: Vennligst sjekk linken du er i ferd med å besøke og sørg for at du anser den som et sikkert nettsted før du fortsetter.
+        cancel: Avbryt
+        close_modal: Lukk dialogboks
+        proceed: Fortsett
+        title: Åpne ekstern lenke
     log:
       base_presenter:
         create: "%{user_name} opprettet %{resource_name}"
@@ -894,6 +995,7 @@
           next: Neste
           no_conversations: Du har ingen samtaler ennå
           title: Samtaler
+          to: Til
         reply:
           placeholder: Ditt svar...
           send: Send
@@ -901,6 +1003,8 @@
         show:
           back: Tilbake til alle samtaler
           chat_with: Samtale med
+          deleted_accounts: Du kan ikke ha en samtale med slettede kontoer.
+          not_allowed: Denne deltakeren godtar ikke direktemeldinger.
           title: Samtale med %{usernames}
         start:
           send: Send
@@ -908,6 +1012,8 @@
         update:
           error: Meldingen ble ikke sendt på grunn av en feil
     metrics:
+      download:
+        csv: Last ned data (CSV)
       followers:
         description: Antall deltakere som følger dette deltakerområdet
         object: følgere
@@ -925,6 +1031,25 @@
         note: Du mottok denne e-posten fordi du abonnerer på nyhetsbrev for %{organization_name}. Du kan endre innstillingene dine på <a href="%{link}">varslings siden din</a>.
         see_on_website: Kan ikke se denne e-posten riktig? Se den på <a href="%{link}" target="_blank">nettsiden</a>.
         unsubscribe: For å velge bort å motta denne typen e-mailer, <a href="%{link}" target="_blank" class="unsubscribe">Avslutt abonnementet</a>.
+    newsletter_templates:
+      basic_only_text:
+        body_preview: 'Fylltekst for innhold: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque fringilla nisl tellus. Donec sed mi dui. Sed efficitur libero a felis tempor sollicitudin. Nullam vestibulum fringilla felis, id efficitur lorem sagittis et. Vivamus aliquam maximus velit vel dapibus. Mauris pellentesque, enim eu varius lacinia, risus ante rutrum ipsum, non lobortis augue lorem quis urna. Aenean et malesuada arcu.'
+        name: Grunnleggende (kun tekst)
+      basic_only_text_settings_form:
+        body: Tekst
+        interpolations_hint: 'Hint: Du kan bruke "%{name}" hvor som helst i teksten eller emnet, og det blir erstattet av mottakerens navn.'
+      image_text_cta:
+        body_preview: 'Fylltekst for tekst: Maecenas ac nisl vitae lectus pretium facilisis. Etiam facilisis sem nibh, sit amet rutrum mi aliquam nec. Sed id urna at nisl pretium mollis eu vel velit. Proin vitae suscipit urna, sed faucibus urna. Pellentesque id libero vulputate ipsum scelerisque suscipit. Nam aliquam sodales mi sit amet cursus. Donec mattis faucibus purus. Aenean tincidunt porta lorem ac commodo. Vestibulum in mollis mi. Morbi eros erat, cursus ut tortor sit amet, imperdiet dapibus arcu. Suspendisse id egestas enim. In eget magna sed enim efficitur elementum sit amet aliquam quam. Donec fermentum metus eget urna luctus pulvinar.'
+        cta_text_preview: Annonseringstekst
+        introduction_preview: 'Fylltekst for introduksjon: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque fringilla nisl tellus. Donec sed mi dui. Sed efficitur libero a felis tempor sollicitudin. Nullam vestibulum fringilla felis, id efficitur lorem sagittis et. Vivamus aliquam maximus velit vel dapibus. Mauris pellentesque, enim eu varius lacinia, risus ante rutrum ipsum, non lobortis augue lorem quis urna. Aenean et malesuada arcu.'
+        name: Knapp for bilde, tekst og annonsering
+      image_text_cta_settings_form:
+        body: Tekst
+        cta_text: Tekst for annonseringsknapp
+        cta_url: URL for annonseringsknapp
+        interpolations_hint: 'Hint: Du kan bruke "%{name}" hvor som helst i introduksjonen, teksten, CTA-teksten eller emnet, og den vil bli erstattet av mottakerens navn.'
+        introduction: Introduksjon
+        main_image: Hovedbilde
     newsletters:
       unsubscribe:
         check_subscription: Hvis du vil endre preferansene dine, kan du gjøre det på <a href="%{link}" target="_blank">konfigurasjons siden</a>
@@ -946,10 +1071,20 @@
         greetings: Hilsener,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Hei,
         subject: Vil du fortsette å motta relevant informasjon om %{organization_name}?
+    notification_mailer:
+      event_received:
+        no_translation_available: Beklager, den automatiserte oversettelsen kunne ikke hentes når e-posten har blitt sendt. Du kan sjekke oversettelsen av den originale teksten på følgende lenke %{link}.
+        original_text: 'Opprinnelig tekst:'
+        same_language: Innholdet er postet på ditt foretrukne språk (%{language}), derfor vises ingen automatisert oversettelse i denne e-posten.
+        translated_text: 'Automatisk oversatt tekst:'
     notifications:
       no_notifications: Ingen varslinger ennå.
     notifications_settings:
       show:
+        administrators: Administratorer
+        allow_public_contact: La hvem som helst sende meg direktemelding, selv om jeg ikke følger dem.
+        direct_messages: Motta direktemeldinger fra alle
+        email_on_moderations: Jeg ønsker å få en e-post hver gang noe rapporteres til moderasjon.
         email_on_notification: Jeg vil motta en e-post hver gang jeg mottar et varsel.
         everything_followed: Alt jeg følger
         newsletter_notifications: Jeg ønsker å motta nyhetsbrev
@@ -961,6 +1096,10 @@
       update:
         error: Det oppstod et problem med å oppdatere varslingsinnstillingene dine.
         success: Varslings innstillingene dine ble oppdatert.
+    offline:
+      show:
+        message: Det ser ut til at du er frakoblet. Vær så snill, prøv igjen senere.
+        retry: Prøv igjen
     open_data:
       not_available_yet: Open Data-filene er ikke tilgjengelige ennå, prøv igjen om noen minutter.
     own_user_groups:
@@ -1028,6 +1167,7 @@
       not_allowed: Du er ikke tillatt å se dette innholdet
     profile:
       deleted: Deltakeren slettet
+      inaccessible_message: Denne profilen er utilgjengelig på grunn av brudd på vilkår og betingelser!
       view: Vis
     profiles:
       default_officialization_text_for_user_groups: Denne gruppen er offentlig bekreftet, navnet er bekreftet for å svare til dets virkelige navn
@@ -1035,10 +1175,13 @@
       show:
         activity: Aktivitet
         badges: Merker
+        conversations: Samtaler
         followers: Følgere
         following: Følger
         groups: Grupper
         members: Medlemmer
+        officialized: Offisiell deltaker
+        send_private_message: Send privat melding
         timeline: Tidslinje
         view_full_profile: Vis hele profilen
       sidebar:
@@ -1064,23 +1207,39 @@
         report_html: <p>Det følgene <a href="%{url}">innholdet</a> har blitt automatisk skjult.</p>
         subject: En ressurs var automatisk skjult
       report:
+        authors: Forfattere
+        content: Rapportert innhold
+        content_original_language: Innhold originalspråk
+        date: Rapportert den
+        details: Detaljer
         hello: Hei %{name},
         id: ID
+        participatory_space: Deltakerområde
+        reason: Årsak
         report_html: <p>Det følgene <a href="%{url}">innholdet</a> har blitt rapportert.</p>
+        see_report: Se rapport
         subject: En ressurs er blitt rapportert
     reports:
       create:
         error: Det oppstod en feil under opprettelsen av rapporten. Vennligs, prøv igjen senere.
         success: Rapporten har blitt opprettet og vil bli gjennomgått av en administrator.
+    resource_endorsements:
+      create:
+        error: Det oppstod et problem under påtegning.
     scopes:
       global: Alle tema
       picker:
         cancel: Avbryt
+        change: Endre valgt tema
         choose: Velg
+        currently_selected: Nåværende valgt tema
         title: Velg %{field}
       prompt: Velg et tema
       scopes: Tema
+      scopes_picker_input:
+        select_scope: 'Velg et tema (for øyeblikket: %{current})'
     search:
+      results: Søkeresultater
       results_found_for_term: '%{count} Resultater for søket: "%{term}"'
       term_input_placeholder: Søk
     searches:
@@ -1110,6 +1269,8 @@
       confirm_modal:
         cancel: Avbryt
         close_modal: Lukk modal
+        ok: Ok
+        title: Bekreft
       embed_modal:
         close_window: Lukk vindu
         embed: Lim inn denne koden på siden din
@@ -1119,26 +1280,41 @@
         unfold: Åpne
       filter_form_help:
         help: Kryss av på de kriteriene du ønsker å inkludere i søket ditt.
+        skip: Hopp til resultater
       flag_modal:
         already_reported: Dette innholdet er allerede rapportert, og det vil bli vurdert av en administrator.
         close: Lukk
         description: Er dette innholdet upassende?
         does_not_belong: Inneholder ulovlig aktivitet, selvmordstrusler, personlig informasjon eller noe annet du mener ikke hører hjemme på %{organization_name}.
         offensive: Inneholder rasisme, sexisme, banning, persjonangrep, dødstrusler, selvmords forespørsler eller all form for hatefullt språk.
+        reason: Årsak
         report: Rapport
         spam: Inneholder klikkagn, reklame, svindel eller manus-roboter.
         title: Rapporter et problem
+      flag_user_modal:
+        already_reported: Dette innholdet er allerede rapportert og vil bli vurdert av en administrator.
+        close: Lukk
+        description: Hva er upassende med brukeren?
+        does_not_belong: Inneholder ulovlig aktivitet, selvmordstrusler, personlig informasjon eller noe annet du mener ikke hører hjemme på %{organization_name}.
+        offensive: Inneholder rasisme, sexisme, banning, personangrep, dødstrusler, selvmordsforespørsler eller andre former for hatefullt språk.
+        report: Rapporter
+        spam: Inneholder klikkeagn, reklame, svindel eller skriptbotter.
+        title: Rapporter upassende bruker
       floating_help:
+        close: Lukk hjelp
         help: Hjelp
       follow_button:
         sign_in_before_follow: Logg på før du utfører denne handlingen
       login_modal:
+        close_modal: Lukk dialogboks
         please_sign_in: Vennligst logg inn
         sign_up: Registrer deg
       participatory_space_filters:
         filters:
           areas: Områder
           select_an_area: Velg et område
+      public_participation:
+        public_participation: Vis min deltagelse offentlig
       reference:
         reference: 'Referanse: %{reference}'
       represent_user_group:
@@ -1146,17 +1322,38 @@
         select_user_group: Velg en gruppe
       results_per_page:
         label: 'Resultater per side:'
+        title: Velg antall resultater per side
       share_modal:
         close_window: Lukk vindu
+        copy_share_link: Kopier
+        copy_share_link_clarification: Kopier lenke til utklippstavlen
+        copy_share_link_copied: Kopiert!
+        copy_share_link_message: Koblingen ble vellykket kopiert til utklippstavlen.
         share: Del
         share_link: Del lenke
     statistics:
       comments_count: Kommentarer
+      endorsements_count: Påtegnelser
+      followers_count: Følgere
+      headline: Statistikk
+      no_stats: Det finnes ingen statistikk enda.
+      pages_count: Sider
+      participants_count: Deltakere
+      users_count: Deltakere
+    tags:
+      filter_results_for_category: 'Filtrer resultater for kategori: %{resource}'
+      filter_results_for_scope: 'Filtrere resultater for tema: %{resource}'
+    translation_bar:
+      help_text: "<strong>Advarsel:</strong> Innhold kan automatisk bli oversatt og ikke alltid være 100 % nøyaktig."
+      show_original: Vis originaltekst
+      show_translated: Vis automatisk oversatt tekst
     user_activity:
       index:
         no_activities_warning: Denne deltakeren har ikke hatt noe aktivitet ennå.
+    user_contact_disabled: Denne deltakeren godtar ikke direktemeldinger.
     user_conversations:
       create:
+        error: Meldingen kunne ikke opprettes. Prøv igjen senere
         existing_error: Meldingen kunne ikke opprettes. Samtalen eksisterer allerede, prøv igjen nå.
         success: Samtalen startet vellykket!
       index:
@@ -1180,6 +1377,8 @@
         send: Send
         title_reply: Svar
       show:
+        back: Vis alle samtaler
+        deleted_accounts: Du kan ikke ha en samtale med slettede kontoer.
         not_allowed: Denne brukeren godtar ingen flere direktemeldinger.
         title: Samtale med %{usernames}
       update:
@@ -1195,7 +1394,11 @@
         success: Interessene dine er oppdatert.
     user_report_mailer:
       notify:
+        body_1: Brukeren %{user} er rapportert av %{token}
+        body_2: 'Årsak: %{reason}'
+        greetings: Hei,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Hei %{admin},
+        subject: En ny bruker har blitt rapportert i %{organization_name}
     version:
       show:
         back_to_resource: Gå tilbake
@@ -1221,6 +1424,7 @@
         number_of_versions: Versjoner
         title: Versjoner
     versions_list_item:
+      back: Vis alle versjoner
       show:
         version_index: Versjon %{index}
     welcome_notification:
@@ -1399,6 +1603,10 @@
       too_short: er for kort (under 15 tegn)
   forms:
     correct_errors: Det er feil i skjemaet, korriger dem for å fortsette.
+    length_validator:
+      minimum:
+        one: Minst %{count} tegn
+        other: Minst %{count} tegn
     required: Påkrevd
     required_explanation: "Obligatoriske felt er markert med en stjerne"
   invisible_captcha:
@@ -1419,9 +1627,11 @@
         made_with_open_source: Nettsted laget med <a target="_blank" href="https://github.com/decidim/decidim">fri programvare</a>.
       header:
         close_menu: Lukk meny
+        main_menu: Hovedmeny
         navigation: Navigasjon
         sign_in: Logg på
         sign_up: Registrer deg
+        user_menu: Brukermeny
       impersonation_warning:
         close_session: Lukk økt
         description_html: Du administrerer deltakeren <b>%{user_name}</b>.
@@ -1431,12 +1641,19 @@
       notifications_dashboard:
         mark_all_as_read: Merk alt som lest
         mark_as_read: Merk som lest
+      offline_banner:
+        cache_version_page: Oooops! Nettverket ditt er frakoblet. Dette er en tidligere bufret versjon av siden du besøker, kanskje er innholdet ikke oppdatert.
       social_media_links:
         facebook: "%{organization} på Facebook"
         github: "%{organization} på GitHub"
         instagram: "%{organization} på Instagram"
         twitter: "%{organization} på Twitter"
         youtube: "%{organization} på YouTube"
+      timeout_modal:
+        body: Du har vært inaktiv i %{minutes} minutter. Hvis du fortsetter å være inaktiv, vil du automatisk bli logget ut for din egen sikkerhet.
+        continue_session: Fortsett økten
+        sign_out: Logg ut
+        title: Ønsker du å fortsette økten?
       user_menu:
         account: 'Brukerkonto: %{name}'
         admin_dashboard: Admin hovedpanel
@@ -1445,6 +1662,7 @@
         profile: Min konto
         public_profile: Min offentlige profil
         sign_out: Logg ut
+        title: Lenker til profil
       user_profile:
         account: Konto
         authorizations: Fullmakter
@@ -1458,11 +1676,14 @@
         see_more: Se mer
   locale:
     name: Engelsk
+    name_with_error: Engelsk (feil!)
   password_validator:
+    blacklisted: er svartelistet
     domain_included_in_password: er for lik dette domenenavnet
     email_included_in_password: er for lik e-postadressen din
     fallback: er ikke gyldig
     name_included_in_password: er for likt navnet ditt
+    nickname_included_in_password: er for likt kallenavnet ditt
     not_enough_unique_characters: har ikke nok unike tegn
     password_not_allowed: er ikke tillatt
     password_too_common: er for vanlig
@@ -1497,6 +1718,8 @@
       day_of_week: "%a"
       day_of_week_long: "%a%e"
       day_of_year: "%d.%m.%y"
+      ddmm: "%d.%m"
+      ddmmyyyy: "%d.%m.%Y"
       decidim_day_of_year: "%d %B %Y"
       decidim_short: "%d/%m/%Y %H:%M"
       default: "%a, %d %b %Y %H:%M:%S %z"
@@ -1522,7 +1745,13 @@
   views:
     pagination:
       first: "&laquo; Først"
+      first_title: Lenke til første side
       last: Siste &raquo;
+      last_title: Lenke til siste side
       next: Neste &rsaquo;
+      next_title: Lenke til neste side
+      pagination: Paginering
       previous: "&lsaquo; Tidligere"
+      previous_title: Lenke til forrige side
+      title: 'Sidenummer: '
       truncate: "&hellip;"

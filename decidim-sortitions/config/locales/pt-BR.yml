@@ -74,7 +74,6 @@ pt-BR:
           index:
             title: Sorteios
           new:
-            confirm: Ao pressionar o botão seguinte, o Decidim registrará a data e a hora (com precisão de segundos) e, junto com o lançamento de dados, essa informação será usada para gerar uma seleção aleatória. A ação será irreversível, uma vez que o botão é clicado o resultado deste sorteio será publicado, juntamente com os dados inseridos neste formulário e não podem ser modificados, por favor, verifique o conteúdo cuidadosamente
             create: Criar
             title: Nova classificação
           show:

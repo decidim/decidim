@@ -160,6 +160,7 @@ hu:
             answers_with_costs: Költségek engedélyezése javaslati válaszoknál
             automatic_hashtags: Hashtagek hozzáadva minden javaslathoz
             comments_blocked: Megjegyzések letiltva
+            creation_enabled: A résztvevők létrehozhatnak javaslatokat
             endorsements_blocked: Jóváhagyások letiltva
             endorsements_enabled: Jóváhagyások engedélyezve
             proposal_answering_enabled: Javaslat válasz engedélyezve
@@ -515,6 +516,7 @@ hu:
           all: Minden
           meetings: Találkozók
           official: Hivatalos
+          participants: Résztvevők
           user_groups: Felhasználói csoportok
         filter_scope_values:
           all: Minden

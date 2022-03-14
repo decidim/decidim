@@ -251,9 +251,9 @@ es-MX:
       filters:
         active: Activo
         all: Todas
+        date: Fecha
         finished: Completada
         search: Buscar
-        state: Estado
         upcoming: Próximo
       filters_small_view:
         close_modal: Cerrar ventana

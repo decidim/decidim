@@ -95,7 +95,6 @@ eu:
         error: Errore bat gertatu da zure kontua ezabatzean.
         success: Zure kontua ezabatu egin da.
       show:
-        available_locales_helper: Aukeratu zein hizkuntza erabili nahi duzun Decidimen nabigatzeko eta jakinarazpenak jasotzeko
         change_password: Aldatu pasahitza
         update_account: Eguneratu kontua
       update:
