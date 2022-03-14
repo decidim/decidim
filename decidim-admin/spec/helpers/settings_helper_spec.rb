@@ -148,7 +148,7 @@ module Decidim
         let(:type) { :scope }
 
         it "is supported" do
-          expect(form).to receive(:scopes_picker).with(:test, checkboxes_on_top: true)
+          expect(form).to receive(:scopes_picker).with(:test, { checkboxes_on_top: true })
           render_input
         end
       end
