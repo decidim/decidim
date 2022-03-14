@@ -47,7 +47,7 @@ $(() => {
       }).then((response) => response.json()).then((data) => {
         alert.classList.remove("hide");
         if (data?.message === "success") {
-          alert.innerHTML = `${resendInstructions.dataset.success} ${data.unconfirmed_email}`;
+          alert.innerHTML = resendInstructions.dataset.success;
           alert.classList.add("success");
         } else {
           alert.innerHTML = resendInstructions.dataset.error;

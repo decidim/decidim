@@ -132,7 +132,7 @@ en:
         cancel_email_change_error: Could not cancel the email change.
         cancel_email_change_successfully: Email change cancelled successfully.
         confirmation_email_resent_error: Could not resend confirmation email.
-        confirmation_email_resent_successfully: Confirmation email resent successfully to
+        confirmation_email_resent_successfully: Confirmation email resent successfully to %{unconfirmed_email}
         pending_email_change: 'An email change is currently pending on your account. A verification email has been sent to: %{unconfirmed_email}'
         pending_email_did_not_receive: Did not receive the confirmation email? <a href="%{resend_path}">Resend the confirmation email</a>.
         pending_email_link_intro: Please click the link shown in the confirmation email in order to complete the email change.

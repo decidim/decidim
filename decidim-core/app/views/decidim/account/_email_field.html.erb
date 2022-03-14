@@ -4,7 +4,7 @@
     <p><%= t(".pending_email_change", unconfirmed_email: current_user.unconfirmed_email) %></p>
     <p><%= t(".pending_email_link_intro") %></p>
     <p id="resend-email-confirmation-instructions"
-       data-success="<%= t(".confirmation_email_resent_successfully") %>"
+       data-success="<%= t(".confirmation_email_resent_successfully", unconfirmed_email: current_user.unconfirmed_email ) %>"
        data-error="<%= t(".confirmation_email_resent_error") %>">
       <%== t(".pending_email_did_not_receive", resend_path: resend_confirmation_instructions_account_path) %>
     </p>
