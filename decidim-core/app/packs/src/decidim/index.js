@@ -84,5 +84,5 @@ $(() => {
 
   addInputEmoji()
 
-  backToListLink()
+  backToListLink(document.querySelectorAll(".js-back-to-list"));
 });
