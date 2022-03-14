@@ -570,10 +570,25 @@ module Decidim
         end
       end
 
+      # We need to run initializers folder before setting these or they have default values.
       initializer "decidim_core.after_initializers_folder", after: "load_config_initializers" do
         Devise.setup do |config|
+          # ==> Mailer Configuration
+          # Configure the e-mail address which will be shown in Devise::Mailer,
+          # note that it will be overwritten if you use your own mailer class
+          # with default "from" parameter.
           config.mailer_sender = Decidim.config.mailer_sender
+
+          # A period that the user is allowed to access the website even without
+          # confirming their account. For instance, if set to 2.days, the user will be
+          # able to access the website for two days without confirming their account,
+          # access will be blocked just in the third day. Default is 0.days, meaning
+          # the user cannot access the website without confirming their account.
           config.allow_unconfirmed_access_for = Decidim.unconfirmed_access_for
+
+          # ==> Configuration for :timeoutable
+          # The time you want to timeout the user session without activity. After this
+          # time the user will be asked for credentials again. Default is 30 minutes.
           config.timeout_in = Decidim.config.expire_session_after
         end
       end
