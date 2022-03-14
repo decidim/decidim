@@ -570,6 +570,14 @@ module Decidim
         end
       end
 
+      initializer "decidim_core.after_initializers_folder", after: "load_config_initializers" do
+        Devise.setup do |config|
+          config.mailer_sender = Decidim.config.mailer_sender
+          config.allow_unconfirmed_access_for = Decidim.unconfirmed_access_for
+          config.timeout_in = Decidim.config.expire_session_after
+        end
+      end
+
       config.to_prepare do
         FoundationRailsHelper::FlashHelper.include Decidim::FlashHelperExtensions
       end
