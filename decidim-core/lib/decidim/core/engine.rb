@@ -570,7 +570,7 @@ module Decidim
         end
       end
 
-      # We need to run initializers folder before setting these or they have default values.
+      # We need to run initializers folder before setting these or Decidim.config variables have default values.
       initializer "decidim_core.after_initializers_folder", after: "load_config_initializers" do
         Devise.setup do |config|
           # ==> Mailer Configuration
