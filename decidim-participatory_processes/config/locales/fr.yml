@@ -56,6 +56,8 @@ fr:
         short_description: Résumé
         start_date: Date de début
         title: Titre
+      participatory_process_type:
+        title: Titre
       participatory_process_user_role:
         email: Email
         name: Nom
@@ -96,6 +98,7 @@ fr:
         new_process: Nouvelle concertation
         new_process_group: Nouveau groupe de concertations
         new_process_step: Nouvelle étape
+        new_process_type: Nouveau type de processus
         new_process_user_role: Nouvel administrateur de la concertation
         preview: Aperçu
         publish: Publier
@@ -106,6 +109,7 @@ fr:
         participatory_process_groups_submenu:
           info: Information
           landing_page: Page d'accueil
+        participatory_process_types: Types de processus
         participatory_processes: Concertations
         participatory_processes_submenu:
           attachment_collections: Dossiers
@@ -137,6 +141,11 @@ fr:
             start_date: Date de début
             title: Titre
           name: Étape de la concertation
+        participatory_process_type:
+          fields:
+            created_at: Crée le
+            title: Titre
+          name: Type de processus
         participatory_process_user_role:
           fields:
             email: Email
@@ -384,6 +393,7 @@ fr:
             related_processes: Concertations liées
             scope_type_max_depth_help: Restreindre la profondeur du filtre de secteur; Le filtre s'affichera du secteur général au type de secteur sélectionné.
             select_an_area: Sélectionnez un secteur
+            select_participatory_process_type: Sélectionnez un type de processus
             select_process_group: Sélectionnez un groupe de concertations
             slug_help: 'Les identifiants d''URL sont utilisés pour générer les URL qui envoient vers cette concertation. Ils n''acceptent que des lettres, des chiffres et des tirets et doivent commencer par une lettre. Exemple : %{url}'
             title: Informations générales
@@ -410,6 +420,7 @@ fr:
           back_to_process: Retour à la page du processus
       participatory_processes:
         filters:
+          all_types: Tous les types
           counters:
             active:
               one: 1 concertation active
@@ -427,6 +438,7 @@ fr:
             no_active: Aucune concertation active
             no_active_nor_upcoming: Aucune concertation active ni à venir
             no_active_nor_upcoming_callout: Il n'y a pas de concertations actives ni à venir. Voici une liste des concertations passées.
+          filter_by: Afficher
           names:
             active: Actives
             all: Toutes
