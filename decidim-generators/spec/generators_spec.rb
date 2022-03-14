@@ -83,6 +83,7 @@ module Decidim
         let(:command) { "decidim #{test_app} --recreate_db --demo" }
 
         it_behaves_like "a new development application"
+        it_behaves_like "an application with extra configurable env vars"
       end
 
       context "with a development application" do

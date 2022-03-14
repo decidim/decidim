@@ -47,7 +47,7 @@ shared_examples_for "a new development application" do
   end
 end
 
-shared_examples_for "an application with configurable env vars" do
+shared_context "application env vars" do
   # ensure that empty env behave like non-defined envs
   let(:env_off) do
     {
@@ -227,6 +227,10 @@ shared_examples_for "an application with configurable env vars" do
       "MAPS_EXTRA_VARS" => URI.encode_www_form({ api_key: true, num: 123, foo: "bar=baz" })
     }
   end
+end
+
+shared_examples_for "an application with configurable env vars" do
+  include_context "application env vars"
 
   let(:secrets_off) do
     {
@@ -302,7 +306,6 @@ shared_examples_for "an application with configurable env vars" do
       %w(decidim initiatives_max_time_in_validating_state) => 60,
       %w(decidim initiatives_print_enabled) => "auto",
       %w(decidim initiatives_do_not_require_authorization) => false
-
     }
   end
 
@@ -615,40 +618,6 @@ shared_examples_for "an application with configurable env vars" do
     }
   end
 
-  let(:initiatives_initializer_off) do
-    {
-      "initiatives_creation_enabled" => true,
-      "initiatives_similarity_threshold" => 0.25,
-      "initiatives_similarity_limit" => 5,
-      "initiatives_minimum_committee_members" => 2,
-      "initiatives_default_signature_time_period_length" => 120,
-      "initiatives_default_components" => %i(pages meetings),
-      "initiatives_first_notification_percentage" => 33,
-      "initiatives_second_notification_percentage" => 66,
-      "initiatives_stats_cache_expiration_time" => 300, # 5.minutes
-      "initiatives_max_time_in_validating_state" => 5184000, # 60.days
-      "initiatives_print_enabled" => true,
-      "initiatives_do_not_require_authorization" => false
-    }
-  end
-
-  let(:initiatives_initializer_on) do
-    {
-      "initiatives_creation_enabled" => false,
-      "initiatives_similarity_threshold" => 0.99,
-      "initiatives_similarity_limit" => 10,
-      "initiatives_minimum_committee_members" => 3,
-      "initiatives_default_signature_time_period_length" => 133,
-      "initiatives_default_components" => %w(pages proposals budgets),
-      "initiatives_first_notification_percentage" => 10,
-      "initiatives_second_notification_percentage" => 70,
-      "initiatives_stats_cache_expiration_time" => 420, # 7.minutes
-      "initiatives_max_time_in_validating_state" => 4320000, # 50.days
-      "initiatives_print_enabled" => false,
-      "initiatives_do_not_require_authorization" => true
-    }
-  end
-
   let(:rails_off) do
     {
       "Rails.logger.level" => 0,
@@ -795,20 +764,6 @@ shared_examples_for "an application with configurable env vars" do
       expect(current).to eq(value), "Accountability Initializer (#{key}) = (#{current}) expected to match Env (#{value})"
     end
 
-    # Test onto the initializer with ENV vars OFF for the Initiatives module
-    json_off = initializer_config_for(test_app, env_off, "Decidim::Initiatives")
-    initiatives_initializer_off.each do |key, value|
-      current = json_off[key]
-      expect(current).to eq(value), "Initiatives Initializer (#{key}) = (#{current}) expected to match Env (#{value})"
-    end
-
-    # Test onto the initializer with ENV vars ON for the Initiatives module
-    json_on = initializer_config_for(test_app, env_on, "Decidim::Initiatives")
-    initiatives_initializer_on.each do |key, value|
-      current = json_on[key]
-      expect(current).to eq(value), "Initiatives Initializer (#{key}) = (#{current}) expected to match Env (#{value})"
-    end
-
     # Test onto some extra Rails configs when ENV vars are empty or undefined
     rails_off.each do |key, value|
       current = rails_value(key, test_app, env_off)
@@ -822,6 +777,62 @@ shared_examples_for "an application with configurable env vars" do
     end
   end
   # rubocop:enable RSpec/ExampleLength
+end
+
+shared_examples_for "an application with extra configurable env vars" do
+  include_context "application env vars"
+
+  let(:initiatives_initializer_off) do
+    {
+      "creation_enabled" => true,
+      "similarity_threshold" => 0.25,
+      "similarity_limit" => 5,
+      "minimum_committee_members" => 2,
+      "default_signature_time_period_length" => 120,
+      "default_components" => %i(pages meetings),
+      "first_notification_percentage" => 33,
+      "second_notification_percentage" => 66,
+      "stats_cache_expiration_time" => 300, # 5.minutes
+      "max_time_in_validating_state" => 5184000, # 60.days
+      "print_enabled" => true,
+      "do_not_require_authorization" => false
+    }
+  end
+
+  let(:initializer_on) do
+    {
+      "creation_enabled" => false,
+      "similarity_threshold" => 0.99,
+      "similarity_limit" => 10,
+      "minimum_committee_members" => 3,
+      "default_signature_time_period_length" => 133,
+      "default_components" => %w(pages proposals budgets),
+      "first_notification_percentage" => 10,
+      "second_notification_percentage" => 70,
+      "stats_cache_expiration_time" => 420, # 7.minutes
+      "max_time_in_validating_state" => 4320000, # 50.days
+      "print_enabled" => false,
+      "do_not_require_authorization" => true
+    }
+  end
+
+  it "env vars generate secrets application" do
+    expect(result[1]).to be_success, result[0]
+
+    # Test onto the initializer with ENV vars OFF for the Initiatives module
+    json_off = initializer_config_for(test_app, env_off, "Decidim::Initiatives")
+    initiatives_initializer_off.each do |key, value|
+      current = json_off[key]
+      expect(current).to eq(value), "Initiatives Initializer (#{key}) = (#{current}) expected to match Env (#{value})"
+    end
+
+    # Test onto the initializer with ENV vars ON for the Initiatives module
+    json_on = initializer_config_for(test_app, env_on, "Decidim::Initiatives")
+    initiatives_initializer_on.each do |key, value|
+      current = json_on[key]
+      expect(current).to eq(value), "Initiatives Initializer (#{key}) = (#{current}) expected to match Env (#{value})"
+    end
+  end
 end
 
 shared_examples_for "an application with wrong cloud storage options" do

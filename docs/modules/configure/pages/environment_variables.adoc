@@ -672,6 +672,71 @@ Using a very high number (ie: 0.99) can effectively deactivate the comparison st
 |auto
 |No
 
+|INITIATIVES_CREATION_ENABLED
+|If false, regular users cannot create initiatives.
+|true
+|No
+
+|INITIATIVES_SIMILARITY_THRESHOLD
+|Acts as the proposals similarity threshold, use a number between 0 and 1 to establish how similar have to be 2 initiatives to be listed the alternate list.
+
+0 will require no similarity at all
+1 will require for two initiatives to contain exactly the same text
+|0.25
+|No
+
+|INITIATIVES_SIMILARITY_LIMIT
+|Number of similar initiatives presented to the user before publishing a new one.
+|5
+|No
+
+|INITIATIVES_MINIMUM_COMMITTEE_MEMBERS
+|Minimum number of committee members required to pass the initiative to technical validation phase. Only applies to initiatives created by individuals.
+|2
+|No
+
+|INITIATIVES_DEFAULT_SIGNATURE_TIME_PERIOD_LENGTH
+|Number of days available to collect supports after an initiative has been published.
+|120
+|No
+
+|INITIATIVES_DEFAULT_COMPONENTS
+|Components enabled by default for a new initiative (administrators can add more).
+|pages, meetings
+|No
+
+|INITIATIVES_FIRST_NOTIFICATION_PERCENTAGE
+|Notifies when the given percentage of supports is reached for an initiative.
+|33
+|No
+
+|INITIATIVES_SECOND_NOTIFICATION_PERCENTAGE
+|Notifies when the given percentage of supports is reached for an initiative.
+|66
+|No
+
+|INITIATIVES_STATS_CACHE_EXPIRATION_TIME
+|Sets the expiration time for the statistic data.
+|5
+|No
+
+|INITIATIVES_MAX_TIME_IN_VALIDATING_STATE
+|Maximum amount of time in validating state.
+
+After this time the initiative will be moved to discarded state.
+|60
+|No
+
+|INITIATIVES_PRINT_ENABLED
+|Print functionality enabled. Allows admin users to get a printed version of the initiative from the administration panel.
+|true
+|No
+
+|INITIATIVES_DO_NOT_REQUIRE_AUTHORIZATION
+|If true, This flag allows creating authorizations to unauthorized users.
+|false
+|No
+
 |===
 
 .Optional Env Vars for extra Rails configuration
