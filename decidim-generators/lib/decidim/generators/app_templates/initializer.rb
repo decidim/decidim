@@ -353,6 +353,13 @@ if defined?(Decidim::Api)
   Decidim::Api.schema_max_depth = Rails.application.secrets.decidim[:api_schema_max_depth].presence || 15
 end
 
+if defined?(Decidim::Proposals)
+  Decidim::Proposals.similarity_threshold = Rails.application.secrets.decidim[:proposals_similarity_threshold].presence || 0.25
+  Decidim::Proposals.similarity_limit = Rails.application.secrets.decidim[:proposals_similarity_limit].presence || 10
+  Decidim::Proposals.participatory_space_highlighted_proposals_limit = Rails.application.secrets.decidim[:proposals_participatory_space_highlighted_proposals_limit].presence || 4
+  Decidim::Proposals.process_group_highlighted_proposals_limit = Rails.application.secrets.decidim[:proposals_process_group_highlighted_proposals_limit].presence || 3
+end
+
 Rails.application.config.i18n.available_locales = Decidim.available_locales
 Rails.application.config.i18n.default_locale = Decidim.default_locale
 
