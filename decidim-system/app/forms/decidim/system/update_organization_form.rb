@@ -17,6 +17,7 @@ module Decidim
       attribute :secondary_hosts, String
       attribute :force_users_to_authenticate_before_access_organization, Boolean
       attribute :available_authorizations, Array[String]
+      attribute :automate_steps_in_processes, Boolean
       attribute :users_registration_mode, String
       jsonb_attribute :smtp_settings, [
         [:from, String],

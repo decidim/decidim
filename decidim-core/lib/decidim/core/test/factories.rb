@@ -97,6 +97,7 @@ FactoryBot.define do
     comments_max_length { 1000 }
     admin_terms_of_use_body { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
     force_users_to_authenticate_before_access_organization { false }
+    automate_steps_in_processes { false }
     machine_translation_display_priority { "original" }
     external_domain_whitelist { ["example.org", "twitter.com", "facebook.com", "youtube.com", "github.com", "mytesturl.me"] }
     smtp_settings do

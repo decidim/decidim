@@ -35,6 +35,7 @@ en:
       organization:
         admin_terms_of_use_body: Body for the admin terms of use
         alert_color: Alert
+        automate_steps_in_processes: Automate steps in processes
         available_authorizations: Available authorizations
         badges_enabled: Enable badges
         comments_max_length: Comments max length (Leave 0 for default value)

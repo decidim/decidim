@@ -30,6 +30,11 @@
     <%= f.collection_check_boxes :available_authorizations, Decidim.authorization_workflows, :name, :description %>
   </div>
 
+  <div class="field">
+    <%= f.label :automate_steps_in_processes %>
+    <%= f.check_box :automate_steps_in_processes %>
+  </div>
+
   <%= render partial: "advanced_settings", locals: { f: f } %>
 
   <div class="actions">
