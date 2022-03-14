@@ -360,6 +360,44 @@ if defined?(Decidim::Proposals)
   Decidim::Proposals.process_group_highlighted_proposals_limit = Rails.application.secrets.decidim[:proposals_process_group_highlighted_proposals_limit].presence || 3
 end
 
+if defined?(Decidim::Meetings)
+  Decidim::Meetings.upcoming_meeting_notification = Rails.application.secrets.decidim[:meetings_upcoming_meeting_notification].to_i.days
+  unless Rails.application.secrets.decidim[:meetings_enable_proposal_linking] == "auto"
+    Decidim::Meetings.enable_proposal_linking = Rails.application.secrets.decidim[:meetings_enable_proposal_linking].present?
+  end
+end
+
+if defined?(Decidim::Budgets)
+  unless Rails.application.secrets.decidim[:budgets_enable_proposal_linking] == "auto"
+    Decidim::Budgets.enable_proposal_linking = Rails.application.secrets.decidim[:budgets_enable_proposal_linking].present?
+  end
+end
+
+if defined?(Decidim::Accountability)
+  unless Rails.application.secrets.decidim[:accountability_enable_proposal_linking] == "auto"
+    Decidim::Accountability.enable_proposal_linking = Rails.application.secrets.decidim[:accountability_enable_proposal_linking].present?
+  end
+end
+
+if defined?(Decidim::Initiatives)
+  unless Rails.application.secrets.decidim[:initiatives_creation_enabled] == "auto"
+    Decidim::Initiatives.creation_enabled = Rails.application.secrets.decidim[:initiatives_creation_enabled].present?
+  end
+  Decidim::Initiatives.similarity_threshold = Rails.application.secrets.decidim[:initiatives_similarity_threshold].presence || 0.25
+  Decidim::Initiatives.similarity_limit = Rails.application.secrets.decidim[:initiatives_similarity_limit].presence || 5
+  Decidim::Initiatives.minimum_committee_members = Rails.application.secrets.decidim[:initiatives_minimum_committee_members].presence || 2
+  Decidim::Initiatives.default_signature_time_period_length = Rails.application.secrets.decidim[:initiatives_default_signature_time_period_length].presence || 120
+  Decidim::Initiatives.default_components = Rails.application.secrets.decidim[:initiatives_default_components]
+  Decidim::Initiatives.first_notification_percentage = Rails.application.secrets.decidim[:initiatives_first_notification_percentage].presence || 33
+  Decidim::Initiatives.second_notification_percentage = Rails.application.secrets.decidim[:initiatives_second_notification_percentage].presence || 66
+  Decidim::Initiatives.stats_cache_expiration_time = Rails.application.secrets.decidim[:initiatives_stats_cache_expiration_time].to_i.minutes
+  Decidim::Initiatives.max_time_in_validating_state = Rails.application.secrets.decidim[:initiatives_max_time_in_validating_state].to_i.days
+  unless Rails.application.secrets.decidim[:initiatives_print_enabled] == "auto"
+    Decidim::Initiatives.print_enabled = Rails.application.secrets.decidim[:initiatives_print_enabled].present?
+  end
+  Decidim::Initiatives.do_not_require_authorization = Rails.application.secrets.decidim[:initiatives_do_not_require_authorization].present?
+end
+
 Rails.application.config.i18n.available_locales = Decidim.available_locales
 Rails.application.config.i18n.default_locale = Decidim.default_locale
 

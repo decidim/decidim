@@ -646,6 +646,32 @@ Using a very high number (ie: 0.99) can effectively deactivate the comparison st
 |3
 |No
 
+|MEETINGS_UPCOMING_MEETING_NOTIFICATION
+|Number of days before scheduled to send a reminder notification to users registered in a meeting.
+|2
+|No
+
+|MEETINGS_ENABLE_PROPOSAL_LINKING
+|If true, enables several relationships between meetings and proposals. By default is active if Proposals are active (which is true always at the moment).
+
+*We recommend not to tamper with this setting unless you know what are you doing*
+|auto
+|No
+
+|BUDGETS_ENABLE_PROPOSAL_LINKING
+|If true, enables several relationships between budgets and proposals. By default is active if Proposals are active (which is true always at the moment).
+
+*We recommend not to tamper with this setting unless you know what are you doing*
+|auto
+|No
+
+|ACCOUNTABILITY_ENABLE_PROPOSAL_LINKING
+|If true, enables several relationships between the accountability module and proposals. By default is active if Proposals are active (which is true always at the moment).
+
+*We recommend not to tamper with this setting unless you know what are you doing*
+|auto
+|No
+
 |===
 
 .Optional Env Vars for extra Rails configuration

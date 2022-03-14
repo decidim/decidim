@@ -182,7 +182,23 @@ shared_examples_for "an application with configurable env vars" do
       "PROPOSALS_SIMILARITY_THRESHOLD" => "0.99",
       "PROPOSALS_SIMILARITY_LIMIT" => "3",
       "PROPOSALS_PARTICIPATORY_SPACE_HIGHLIGHTED_PROPOSALS_LIMIT" => "6",
-      "PROPOSALS_PROCESS_GROUP_HIGHLIGHTED_PROPOSALS_LIMIT" => "5"
+      "PROPOSALS_PROCESS_GROUP_HIGHLIGHTED_PROPOSALS_LIMIT" => "5",
+      "MEETINGS_UPCOMING_MEETING_NOTIFICATION" => "3",
+      "MEETINGS_ENABLE_PROPOSAL_LINKING" => "false",
+      "BUDGETS_ENABLE_PROPOSAL_LINKING" => "false",
+      "ACCOUNTABILITY_ENABLE_PROPOSAL_LINKING" => "false",
+      "INITIATIVES_CREATION_ENABLED" => "false",
+      "INITIATIVES_SIMILARITY_THRESHOLD" => "0.99",
+      "INITIATIVES_SIMILARITY_LIMIT" => "10",
+      "INITIATIVES_MINIMUM_COMMITTEE_MEMBERS" => "3",
+      "INITIATIVES_DEFAULT_SIGNATURE_TIME_PERIOD_LENGTH" => "133",
+      "INITIATIVES_DEFAULT_COMPONENTS" => "pages, proposals,budgets",
+      "INITIATIVES_FIRST_NOTIFICATION_PERCENTAGE" => "10",
+      "INITIATIVES_SECOND_NOTIFICATION_PERCENTAGE" => "70",
+      "INITIATIVES_STATS_CACHE_EXPIRATION_TIME" => "7",
+      "INITIATIVES_MAX_TIME_IN_VALIDATING_STATE" => "50",
+      "INITIATIVES_PRINT_ENABLED" => "false",
+      "INITIATIVES_DO_NOT_REQUIRE_AUTHORIZATION" => "true"
     }
   end
 
@@ -269,7 +285,24 @@ shared_examples_for "an application with configurable env vars" do
       %w(decidim proposals_similarity_threshold) => 0.25,
       %w(decidim proposals_similarity_limit) => 10,
       %w(decidim proposals_participatory_space_highlighted_proposals_limit) => 4,
-      %w(decidim proposals_process_group_highlighted_proposals_limit) => 3
+      %w(decidim proposals_process_group_highlighted_proposals_limit) => 3,
+      %w(decidim meetings_upcoming_meeting_notification) => 2,
+      %w(decidim meetings_enable_proposal_linking) => "auto",
+      %w(decidim budgets_enable_proposal_linking) => "auto",
+      %w(decidim accountability_enable_proposal_linking) => "auto",
+      %w(decidim initiatives_creation_enabled) => "auto",
+      %w(decidim initiatives_similarity_threshold) => 0.25,
+      %w(decidim initiatives_similarity_limit) => 5,
+      %w(decidim initiatives_minimum_committee_members) => 2,
+      %w(decidim initiatives_default_signature_time_period_length) => 120,
+      %w(decidim initiatives_default_components) => %w(pages meetings),
+      %w(decidim initiatives_first_notification_percentage) => 33,
+      %w(decidim initiatives_second_notification_percentage) => 66,
+      %w(decidim initiatives_stats_cache_expiration_time) => 5,
+      %w(decidim initiatives_max_time_in_validating_state) => 60,
+      %w(decidim initiatives_print_enabled) => "auto",
+      %w(decidim initiatives_do_not_require_authorization) => false
+
     }
   end
 
@@ -352,7 +385,23 @@ shared_examples_for "an application with configurable env vars" do
       %w(decidim proposals_similarity_threshold) => 0.99,
       %w(decidim proposals_similarity_limit) => 3,
       %w(decidim proposals_participatory_space_highlighted_proposals_limit) => 6,
-      %w(decidim proposals_process_group_highlighted_proposals_limit) => 5
+      %w(decidim proposals_process_group_highlighted_proposals_limit) => 5,
+      %w(decidim meetings_upcoming_meeting_notification) => 3,
+      %w(decidim meetings_enable_proposal_linking) => false,
+      %w(decidim budgets_enable_proposal_linking) => false,
+      %w(decidim accountability_enable_proposal_linking) => false,
+      %w(decidim initiatives_creation_enabled) => false,
+      %w(decidim initiatives_similarity_threshold) => 0.99,
+      %w(decidim initiatives_similarity_limit) => 10,
+      %w(decidim initiatives_minimum_committee_members) => 3,
+      %w(decidim initiatives_default_signature_time_period_length) => 133,
+      %w(decidim initiatives_default_components) => %w(pages proposals budgets),
+      %w(decidim initiatives_first_notification_percentage) => 10,
+      %w(decidim initiatives_second_notification_percentage) => 70,
+      %w(decidim initiatives_stats_cache_expiration_time) => 7,
+      %w(decidim initiatives_max_time_in_validating_state) => 50,
+      %w(decidim initiatives_print_enabled) => false,
+      %w(decidim initiatives_do_not_require_authorization) => true
     }
   end
 
@@ -528,6 +577,78 @@ shared_examples_for "an application with configurable env vars" do
     }
   end
 
+  let(:meetings_initializer_off) do
+    {
+      "upcoming_meeting_notification" => 172800, # 2.days
+      "enable_proposal_linking" => true
+    }
+  end
+
+  let(:meetings_initializer_on) do
+    {
+      "upcoming_meeting_notification" => 259200, # 3.days
+      "enable_proposal_linking" => false
+    }
+  end
+
+  let(:budgets_initializer_off) do
+    {
+      "enable_proposal_linking" => true
+    }
+  end
+
+  let(:budgets_initializer_on) do
+    {
+      "enable_proposal_linking" => false
+    }
+  end
+
+  let(:accountability_initializer_off) do
+    {
+      "enable_proposal_linking" => true
+    }
+  end
+
+  let(:accountability_initializer_on) do
+    {
+      "enable_proposal_linking" => false
+    }
+  end
+
+  let(:initiatives_initializer_off) do
+    {
+      "initiatives_creation_enabled" => true,
+      "initiatives_similarity_threshold" => 0.25,
+      "initiatives_similarity_limit" => 5,
+      "initiatives_minimum_committee_members" => 2,
+      "initiatives_default_signature_time_period_length" => 120,
+      "initiatives_default_components" => %i(pages meetings),
+      "initiatives_first_notification_percentage" => 33,
+      "initiatives_second_notification_percentage" => 66,
+      "initiatives_stats_cache_expiration_time" => 300, # 5.minutes
+      "initiatives_max_time_in_validating_state" => 5184000, # 60.days
+      "initiatives_print_enabled" => true,
+      "initiatives_do_not_require_authorization" => false
+    }
+  end
+
+  let(:initiatives_initializer_on) do
+    {
+      "initiatives_creation_enabled" => false,
+      "initiatives_similarity_threshold" => 0.99,
+      "initiatives_similarity_limit" => 10,
+      "initiatives_minimum_committee_members" => 3,
+      "initiatives_default_signature_time_period_length" => 133,
+      "initiatives_default_components" => %w(pages proposals budgets),
+      "initiatives_first_notification_percentage" => 10,
+      "initiatives_second_notification_percentage" => 70,
+      "initiatives_stats_cache_expiration_time" => 420, # 7.minutes
+      "initiatives_max_time_in_validating_state" => 4320000, # 50.days
+      "initiatives_print_enabled" => false,
+      "initiatives_do_not_require_authorization" => true
+    }
+  end
+
   let(:rails_off) do
     {
       "Rails.logger.level" => 0,
@@ -632,13 +753,69 @@ shared_examples_for "an application with configurable env vars" do
       expect(current).to eq(value), "Proposals Initializer (#{key}) = (#{current}) expected to match Env (#{value})"
     end
 
-    # Test onto some extra Rails confing when ENV vars are empty or undefined
+    # Test onto the initializer with ENV vars OFF for the Meetings module
+    json_off = initializer_config_for(test_app, env_off, "Decidim::Meetings")
+    meetings_initializer_off.each do |key, value|
+      current = json_off[key]
+      expect(current).to eq(value), "Meetings Initializer (#{key}) = (#{current}) expected to match Env (#{value})"
+    end
+
+    # Test onto the initializer with ENV vars ON for the Meetings module
+    json_on = initializer_config_for(test_app, env_on, "Decidim::Meetings")
+    meetings_initializer_on.each do |key, value|
+      current = json_on[key]
+      expect(current).to eq(value), "Meetings Initializer (#{key}) = (#{current}) expected to match Env (#{value})"
+    end
+
+    # Test onto the initializer with ENV vars OFF for the Budgets module
+    json_off = initializer_config_for(test_app, env_off, "Decidim::Budgets")
+    budgets_initializer_off.each do |key, value|
+      current = json_off[key]
+      expect(current).to eq(value), "Budgets Initializer (#{key}) = (#{current}) expected to match Env (#{value})"
+    end
+
+    # Test onto the initializer with ENV vars ON for the Budgets module
+    json_on = initializer_config_for(test_app, env_on, "Decidim::Budgets")
+    budgets_initializer_on.each do |key, value|
+      current = json_on[key]
+      expect(current).to eq(value), "Budgets Initializer (#{key}) = (#{current}) expected to match Env (#{value})"
+    end
+
+    # Test onto the initializer with ENV vars OFF for the Accountability module
+    json_off = initializer_config_for(test_app, env_off, "Decidim::Accountability")
+    accountability_initializer_off.each do |key, value|
+      current = json_off[key]
+      expect(current).to eq(value), "Accountability Initializer (#{key}) = (#{current}) expected to match Env (#{value})"
+    end
+
+    # Test onto the initializer with ENV vars ON for the Accountability module
+    json_on = initializer_config_for(test_app, env_on, "Decidim::Accountability")
+    accountability_initializer_on.each do |key, value|
+      current = json_on[key]
+      expect(current).to eq(value), "Accountability Initializer (#{key}) = (#{current}) expected to match Env (#{value})"
+    end
+
+    # Test onto the initializer with ENV vars OFF for the Initiatives module
+    json_off = initializer_config_for(test_app, env_off, "Decidim::Initiatives")
+    initiatives_initializer_off.each do |key, value|
+      current = json_off[key]
+      expect(current).to eq(value), "Initiatives Initializer (#{key}) = (#{current}) expected to match Env (#{value})"
+    end
+
+    # Test onto the initializer with ENV vars ON for the Initiatives module
+    json_on = initializer_config_for(test_app, env_on, "Decidim::Initiatives")
+    initiatives_initializer_on.each do |key, value|
+      current = json_on[key]
+      expect(current).to eq(value), "Initiatives Initializer (#{key}) = (#{current}) expected to match Env (#{value})"
+    end
+
+    # Test onto some extra Rails configs when ENV vars are empty or undefined
     rails_off.each do |key, value|
       current = rails_value(key, test_app, env_off)
       expect(current).to eq(value), "Rails config (#{key}) = (#{current}) expected to match Env:OFF (#{value})"
     end
 
-    # Test onto some extra Rails confing when ENV vars are set
+    # Test onto some extra Rails configs when ENV vars are set
     rails_on.each do |key, value|
       current = rails_value(key, test_app, env_on)
       expect(current).to eq(value), "Rails config (#{key}) = (#{current}) expected to match Env:ON (#{value})"
