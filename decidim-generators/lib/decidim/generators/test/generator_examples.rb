@@ -582,14 +582,14 @@ shared_examples_for "an application with configurable env vars" do
 
   let(:meetings_initializer_off) do
     {
-      "upcoming_meeting_notification" => 172800, # 2.days
+      "upcoming_meeting_notification" => 172_800, # 2.days
       "enable_proposal_linking" => true
     }
   end
 
   let(:meetings_initializer_on) do
     {
-      "upcoming_meeting_notification" => 259200, # 3.days
+      "upcoming_meeting_notification" => 259_200, # 3.days
       "enable_proposal_linking" => false
     }
   end
@@ -789,17 +789,17 @@ shared_examples_for "an application with extra configurable env vars" do
       "similarity_limit" => 5,
       "minimum_committee_members" => 2,
       "default_signature_time_period_length" => 120,
-      "default_components" => %i(pages meetings),
+      "default_components" => %w(pages meetings),
       "first_notification_percentage" => 33,
       "second_notification_percentage" => 66,
       "stats_cache_expiration_time" => 300, # 5.minutes
-      "max_time_in_validating_state" => 5184000, # 60.days
+      "max_time_in_validating_state" => 5_184_000, # 60.days
       "print_enabled" => true,
       "do_not_require_authorization" => false
     }
   end
 
-  let(:initializer_on) do
+  let(:initiatives_initializer_on) do
     {
       "creation_enabled" => false,
       "similarity_threshold" => 0.99,
@@ -810,7 +810,7 @@ shared_examples_for "an application with extra configurable env vars" do
       "first_notification_percentage" => 10,
       "second_notification_percentage" => 70,
       "stats_cache_expiration_time" => 420, # 7.minutes
-      "max_time_in_validating_state" => 4320000, # 50.days
+      "max_time_in_validating_state" => 4_320_000, # 50.days
       "print_enabled" => false,
       "do_not_require_authorization" => true
     }

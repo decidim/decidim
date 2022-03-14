@@ -347,39 +347,39 @@ Decidim.configure do |config|
   config.allow_open_redirects = Rails.application.secrets.decidim[:allow_open_redirects] if Rails.application.secrets.decidim[:allow_open_redirects].present?
 end
 
-if defined?(Decidim::Api)
+if Decidim.module_installed? :api
   Decidim::Api.schema_max_per_page = Rails.application.secrets.decidim[:api_schema_max_per_page].presence || 50
   Decidim::Api.schema_max_complexity = Rails.application.secrets.decidim[:api_schema_max_complexity].presence || 5000
   Decidim::Api.schema_max_depth = Rails.application.secrets.decidim[:api_schema_max_depth].presence || 15
 end
 
-if defined?(Decidim::Proposals)
+if Decidim.module_installed? :proposals
   Decidim::Proposals.similarity_threshold = Rails.application.secrets.decidim[:proposals_similarity_threshold].presence || 0.25
   Decidim::Proposals.similarity_limit = Rails.application.secrets.decidim[:proposals_similarity_limit].presence || 10
   Decidim::Proposals.participatory_space_highlighted_proposals_limit = Rails.application.secrets.decidim[:proposals_participatory_space_highlighted_proposals_limit].presence || 4
   Decidim::Proposals.process_group_highlighted_proposals_limit = Rails.application.secrets.decidim[:proposals_process_group_highlighted_proposals_limit].presence || 3
 end
 
-if defined?(Decidim::Meetings)
+if Decidim.module_installed? :meetings
   Decidim::Meetings.upcoming_meeting_notification = Rails.application.secrets.decidim[:meetings_upcoming_meeting_notification].to_i.days
   unless Rails.application.secrets.decidim[:meetings_enable_proposal_linking] == "auto"
     Decidim::Meetings.enable_proposal_linking = Rails.application.secrets.decidim[:meetings_enable_proposal_linking].present?
   end
 end
 
-if defined?(Decidim::Budgets)
+if Decidim.module_installed? :budgets
   unless Rails.application.secrets.decidim[:budgets_enable_proposal_linking] == "auto"
     Decidim::Budgets.enable_proposal_linking = Rails.application.secrets.decidim[:budgets_enable_proposal_linking].present?
   end
 end
 
-if defined?(Decidim::Accountability)
+if Decidim.module_installed? :accountability
   unless Rails.application.secrets.decidim[:accountability_enable_proposal_linking] == "auto"
     Decidim::Accountability.enable_proposal_linking = Rails.application.secrets.decidim[:accountability_enable_proposal_linking].present?
   end
 end
 
-if defined?(Decidim::Initiatives)
+if Decidim.module_installed? :initiatives
   unless Rails.application.secrets.decidim[:initiatives_creation_enabled] == "auto"
     Decidim::Initiatives.creation_enabled = Rails.application.secrets.decidim[:initiatives_creation_enabled].present?
   end
