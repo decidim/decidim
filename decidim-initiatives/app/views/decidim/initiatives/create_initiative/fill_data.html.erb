@@ -82,7 +82,9 @@
                 <legend><%= t("attachment_legend", scope: "decidim.initiatives.form") %></legend>
 
                 <div class="row column">
-                  <%= f.file_field :add_documents, multiple: true, label: t("add_attachments", scope: "decidim.initiatives.form") %>
+                  <%= f.attachment :documents,
+                    multiple: true,
+                    label: t("add_attachments", scope: "decidim.initiatives.form") %>
                 </div>
               </fieldset>
             <% end %>

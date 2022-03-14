@@ -6,9 +6,9 @@
 
 <div class="row columns">
   <div class="title-action">
-    <h3 id="meetings-count" class="title-action__title section-heading">
+    <h2 id="meetings-count" class="title-action__title section-heading">
       <%= render partial: "count" %>
-    </h3>
+    </h2>
 
     <% if allowed_to?(:create, :meeting) %>
       <%= action_authorized_link_to :create, new_meeting_path, class: "title-action__action button small", data: { "redirect_url" => new_meeting_path } do %>

@@ -6,12 +6,12 @@ module Decidim
 
     def build_attachments
       @documents = []
-      @form.add_documents.each do |file|
+      @form.add_documents.reject(&:blank?).each do |attachment|
         @documents << Attachment.new(
-          title: { I18n.locale => file.original_filename },
+          title: title_for(attachment),
           attached_to: @attached_to || documents_attached_to,
-          file: file,
-          content_type: file.content_type
+          file: signed_id_for(attachment),
+          content_type: content_type_for(attachment)
         )
       end
     end
@@ -30,10 +30,18 @@ module Decidim
       false
     end
 
-    def create_attachments
+    def create_attachments(first_weight: 0)
+      weight = first_weight
+      # Add the weights first to the old document
+      @form.documents.each do |document|
+        document.update!(weight: weight)
+        weight += 1
+      end
       @documents.map! do |document|
+        document.weight = weight
         document.attached_to = documents_attached_to
         document.save!
+        weight += 1
         @form.documents << document
       end
     end
@@ -56,6 +64,26 @@ module Decidim
       return form.current_organization if form.respond_to?(:current_organization)
 
       form.current_component.organization if form.respond_to?(:current_component)
+    end
+
+    def signed_id_for(attachment)
+      return attachment[:file] if attachment.is_a?(Hash)
+
+      attachment
+    end
+
+    def title_for(attachment)
+      return { I18n.locale => attachment[:title] } if attachment.is_a?(Hash) && attachment.has_key?(:title)
+
+      { I18n.locale => "" }
+    end
+
+    def content_type_for(attachment)
+      blob(signed_id_for(attachment)).content_type
+    end
+
+    def blob(signed_id)
+      ActiveStorage::Blob.find_signed(signed_id)
     end
   end
 end

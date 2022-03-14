@@ -12,6 +12,8 @@ module Decidim
   # another object in case the PassthruValidator is in charge of the
   # validations.
   class FileValidatorHumanizer
+    # record - Form object (e.g. Decidim::AccountForm)
+    # attribute - Form field (e.g. :avatar)
     def initialize(record, attribute)
       @record = record
       @attribute = attribute
@@ -21,7 +23,12 @@ module Decidim
     end
 
     def uploader
-      @uploader ||= passthru_uploader || record.attached_uploader(attribute) || record.send(attribute)
+      @uploader ||= begin
+        return passthru_uploader if passthru_uploader.present?
+        return record.attached_uploader(attribute) if record.respond_to?(:attached_uploader) && record.attached_uploader(attribute).present?
+
+        record.send(attribute)
+      end
     end
 
     def messages

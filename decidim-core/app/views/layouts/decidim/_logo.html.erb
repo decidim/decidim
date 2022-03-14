@@ -1,5 +1,5 @@
 <% if organization %>
-  <%= link_to decidim.root_url(host: organization.host), title: t("logo", scope: "decidim.accessibility", organization: organization.name) do %>
+  <%= link_to decidim.root_url(host: organization.host), "aria-label": t("front_page_link", scope: "decidim.accessibility") do %>
     <% if organization.logo.attached? %>
       <%= image_tag organization.attached_uploader(:logo).variant_path(:medium), alt: t("logo", scope: "decidim.accessibility", organization: organization.name) %>
     <% else %>

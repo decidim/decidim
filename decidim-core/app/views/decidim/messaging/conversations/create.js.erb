@@ -1,3 +1,4 @@
 $("#messages").append("<%= j(render "messages", sender: conversation.messages.first.sender, messages: [conversation.messages.first]).html_safe %>");
 $(".add-message").replaceWith("<%= j(render "reply", form: form, conversation: conversation).html_safe %>");
-Decidim.addInputEmoji()
+$("#new_message_").foundation();
+Decidim.addInputEmoji();

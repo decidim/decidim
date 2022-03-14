@@ -38,8 +38,7 @@ module Decidim
           }
         end
         let(:slug) { "slug" }
-        let(:fixture_file) { File.open(Decidim::Dev.asset("city.jpeg")) }
-        let(:attachment) { fixture_file_upload(fixture_file, "image/jpeg") }
+        let(:attachment) { upload_test_file(Decidim::Dev.asset("city.jpeg")) }
         let(:show_statistics) { true }
         let(:registrations_enabled) { false }
         let(:available_slots) { 20 }
@@ -88,23 +87,12 @@ module Decidim
           it { is_expected.to be_valid }
         end
 
-        context "when hero_image is too big" do
+        context "when attachment (hero_image or banner_image) is too big" do
           before do
             organization.settings.tap do |settings|
               settings.upload.maximum_file_size.default = 5
             end
-            expect(subject.hero_image).to receive(:size).twice.and_return(6.megabytes)
-          end
-
-          it { is_expected.not_to be_valid }
-        end
-
-        context "when banner_image is too big" do
-          before do
-            organization.settings.tap do |settings|
-              settings.upload.maximum_file_size.default = 5
-            end
-            expect(subject.banner_image).to receive(:size).twice.and_return(6.megabytes)
+            ActiveStorage::Blob.find_signed(attachment).update(byte_size: 6.megabytes)
           end
 
           it { is_expected.not_to be_valid }

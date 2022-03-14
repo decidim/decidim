@@ -1,5 +1,5 @@
 <%= cell "decidim/user_group_pending_invitations_list", model %>
-<div class="empty-notifications callout secondary <%= "hide" if user_groups.any? %>">
+<div class="callout secondary <%= "hide" if user_groups.any? %>">
   <p><%= t("decidim.groups.no_user_groups") %></p>
 </div>
 <div class="row small-up-1 medium-up-2 card-grid">

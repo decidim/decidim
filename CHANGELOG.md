@@ -12,6 +12,19 @@ In the next version (v0.28.0) it will be fully removed from the database.
 
 ### Added
 
+#### Dynamic attachment uploads
+PR [\#8681] https://github.com/decidim/decidim/pull/8681 Changes the way file uploads work in Decidim. Files are now dynamically uploaded inside the modal so we can give the user immediate feedback on validation. There are now two different types of file fields: titled and untitled. Titled file fields related to ```Decidim::Attachment``` internally.
+
+**To update your module** you probably have to update forms and commands related to upload field (also views should be updated in case of titled attachments). After successful a upload and submitting a form, request params should contain signed_id of [ActiveStorage::Blob](https://api.rubyonrails.org/classes/ActiveStorage/Blob.html) which you need to find the blob at the backend.
+
+To update view with titled file field see example: [edit_form_fields.html.erb](https://github.com/decidim/decidim/pull/8681/files#diff-17a22480fdfa3d439edcb26eb0a1a52bed5521d61ba36e0cc6ca83e838f03e9b)
+
+To update untitled form example: [import_form.rb](https://github.com/decidim/decidim/pull/8681/files#diff-5ce71b5873906c6f8919f4bc1f8c330bd97e8757760705a66c789f375eb743c1)
+
+To update untitled command example: [update_account.rb](https://github.com/decidim/decidim/pull/8681/files#diff-ed1274f76cd0ac1d5b223648dcdae670c2127c7dffa0d38540c1536a86f36abb)
+
+[Learn more about direct uploads](https://edgeguides.rubyonrails.org/active_storage_overview.html#direct-uploads)
+
 #### Moderated content can now be removed from search index
 PR [\#8811](https://github.com/decidim/decidim/pull/8811) is addressing an issue when the moderated resources are not removed from the general search index.
 

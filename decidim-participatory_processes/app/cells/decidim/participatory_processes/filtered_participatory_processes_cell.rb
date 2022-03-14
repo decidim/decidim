@@ -39,7 +39,8 @@ module Decidim
 
       def default_filter_params
         {
-          with_date: default_date_filter
+          with_date: default_date_filter,
+          with_type: nil
         }
       end
 

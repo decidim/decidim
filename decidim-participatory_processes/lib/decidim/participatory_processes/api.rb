@@ -7,5 +7,6 @@ module Decidim
     autoload :ParticipatoryProcessGroupType, "decidim/api/participatory_process_group_type"
     autoload :ParticipatoryProcessStepType, "decidim/api/participatory_process_step_type"
     autoload :ParticipatoryProcessType, "decidim/api/participatory_process_type"
+    autoload :ParticipatoryProcessTypeType, "decidim/api/participatory_process_type_type"
   end
 end

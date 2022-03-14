@@ -24,9 +24,9 @@ describe "Admin imports assembly", type: :system do
           ca: "Importació de l'asamblea"
         )
         fill_in :assembly_slug, with: "as-import"
-        attach_file :assembly_document, Decidim::Dev.asset("assemblies.json")
       end
 
+      dynamically_attach_file(:assembly_document, Decidim::Dev.asset("assemblies.json"))
       click_button "Import"
     end
 

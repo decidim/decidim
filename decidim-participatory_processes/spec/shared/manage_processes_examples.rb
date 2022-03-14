@@ -101,7 +101,7 @@ shared_examples "manage processes examples" do
         es: "Mi nuevo título",
         ca: "El meu nou títol"
       )
-      attach_file :participatory_process_banner_image, image3_path
+      dynamically_attach_file(:participatory_process_banner_image, image3_path, remove_before: true)
 
       page.execute_script("$('#participatory_process_end_date').focus()")
       page.find(".datepicker-dropdown .day", text: "22").click

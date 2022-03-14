@@ -28,10 +28,11 @@ module Decidim
     private
 
     def destroy_resource_endorsement
-      query = @resource.endorsements.where(
-        author: @current_user,
-        decidim_user_group_id: @current_group&.id
-      )
+      query = if @current_group.present?
+                @resource.endorsements.where(decidim_user_group_id: @current_group&.id)
+              else
+                @resource.endorsements.where(author: @current_user)
+              end
       query.destroy_all
     end
   end
