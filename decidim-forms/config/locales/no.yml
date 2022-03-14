@@ -3,15 +3,22 @@
     attributes:
       answer:
         body: Svar
+        choices: Valg
+        selected_choices: Valgte valg
       question:
         max_choices: Maksimalt antall valg
         question_type: Type
       questionnaire_question:
         mandatory: Obligatorisk
+        max_characters: Tegngrense (la være 0 hvis ingen begrensning)
     errors:
       models:
         answer:
           attributes:
+            add_documents:
+              needs_to_be_reattached: Må legges til på nytt
+            body:
+              too_long: er for lang
             choices:
               missing: er ikke fullstendig
               too_many: er for mange
@@ -48,16 +55,44 @@
               title: "%{total} svar totalt"
             show:
               title: 'Svar #%{number}'
+          display_condition:
+            answer_option: Svaralternativ
+            condition_question: Spørsmål
+            condition_type: Betingelse
+            condition_types:
+              answered: Besvart
+              equal: Lik
+              match: Inkluder tekst
+              not_answered: Ikke besvart
+              not_equal: Ikke lik
+            condition_value: Inkludert tekst
+            display_condition: Vis betingelse
+            mandatory: Denne betingelsen må alltid oppfylles uavhengig av status for andre betingelser
+            remove: Fjern
+            save_warning: Husk å lagre skjemaet før du konfigurerer visningsbetingelser
+            select_answer_option: Velg svaralternativ
+            select_condition_question: Velg et spørsmål
+            select_condition_type: Velg en betingelsestype
           edit:
             save: Lagre
+            title: Rediger spørreskjema
           form:
             add_question: Legg til spørsmål
+            add_separator: Legg til skilletegn
+            add_title_and_description: Legg til tittel og beskrivelse
             already_answered_warning: Skjemaet er allerede besvart av noen brukere derfor kan du ikke endre spørsmålene.
+            collapse: Skjul alle spørsmål
+            expand: Utvid alle spørsmål
+            preview: Forhåndsvis
+            title: Rediger skjema for %{questionnaire_for}
+            unpublished_warning: Skjemaet er ikke publisert. Du kan endre spørsmålet, men da slettes nåværende svar.
           matrix_row:
+            matrix_row: Rad
             remove: Fjern
             statement: Uttalelse
           question:
             add_answer_option: Legg til svaralternativ
+            add_display_condition: Legg til visningsbetingelse
             add_display_condition_info: Lagre skjemaet for å konfigurere visningsbetingelser
             add_matrix_row: Legg til rad
             any: Alle
@@ -74,8 +109,18 @@
             remove: Fjern
             separator: Skilletegn
             up: Opp
+          title_and_description:
+            collapse: Kollaps
+            description: Beskrivelse
+            down: Ned
+            expand: Utvid
+            remove: Fjern
+            title: Tittel
+            title_and_description: Tittel og beskrivelse
+            up: Opp
           update:
             invalid: Det oppstod et problem med å lagre dette skjema.
+            success: Skjemaet ble lagret.
       errors:
         answer:
           body: Teksten kan ikke være blank
@@ -84,12 +129,19 @@
       images:
         dimensions: "%{width} x %{height} px"
         dimensions_info: 'Dette bildet vil være:'
+        processors:
+          resize_and_pad: Endret størrelse og avstand til
+          resize_to_fit: Endret størrelse for å passe
       question_types:
+        files: Filer
         long_answer: Langt svar
+        matrix_multiple: Matrise (Flervalg)
+        matrix_single: Matrise (Enkeltvalg)
         multiple_option: Flere alternativer
         short_answer: Kort svar
         single_option: Enkelt alternativ
         sorting: Sortering
+        title_and_description: Tittel og beskrivelse
       questionnaires:
         answer:
           invalid: Det oppstod et problem med å svare på skjemaet.

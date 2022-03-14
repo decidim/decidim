@@ -48,8 +48,11 @@ shared_examples "manage attachments examples" do
           es: "Este documento contiene información importante",
           ca: "Aquest document conté informació important"
         )
+      end
 
-        attach_file :attachment_file, Decidim::Dev.asset("Exampledocument.pdf")
+      dynamically_attach_file(:attachment_file, Decidim::Dev.asset("Exampledocument.pdf"))
+
+      within ".new_attachment" do
         find("*[type=submit]").click
       end
 
@@ -81,7 +84,11 @@ shared_examples "manage attachments examples" do
         )
 
         select translated(attachment_collection.name, locale: :en), from: "attachment_attachment_collection_id"
-        attach_file :attachment_file, Decidim::Dev.asset("Exampledocument.pdf")
+      end
+
+      dynamically_attach_file(:attachment_file, Decidim::Dev.asset("Exampledocument.pdf"))
+
+      within ".new_attachment" do
         find("*[type=submit]").click
       end
 

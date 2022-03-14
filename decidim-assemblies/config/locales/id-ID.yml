@@ -217,7 +217,6 @@ id:
             duration_help: Jika durasi rakitan ini terbatas, pilih tanggal akhir. Jika tidak, itu akan muncul sebagai tidak terbatas.
             filters: Filter
             images: Gambar
-            included_at_help: Pilih tanggal saat perakitan ini ditambahkan ke Decidim. Tidak harus sama dengan tanggal pembuatan.
             metadata: Metadata
             other: Lain
             select_a_created_by: Pilih yang dibuat oleh

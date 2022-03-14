@@ -1,6 +1,6 @@
 <div class="conversation-chat<%= " conversation-chat--offset" if sender_is_user?(sender) %>">
   <%= link_to sender.personal_url do %>
-    <%= image_tag sender.attached_uploader(:avatar).url(host: current_organization.host), alt: t("decidim.author.avatar", name: decidim_sanitize(sender.name)) %>
+    <%= image_tag avatar_url_for(sender), alt: t("decidim.author.avatar", name: decidim_sanitize(sender.name)) %>
   <% end %>
   <div>
     <% messages.each do |message| %>

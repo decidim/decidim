@@ -34,7 +34,7 @@ module Decidim
       end
 
       def perform_caching?
-        super && has_replies? == false
+        super && has_replies_in_children? == false && current_user.blank?
       end
 
       private
@@ -134,7 +134,7 @@ module Decidim
       end
 
       def commentable_path(params = {})
-        if root_commentable.is_a?(Decidim::Budgets::Project)
+        if defined?(Decidim::Budgets) && root_commentable.is_a?(Decidim::Budgets::Project)
           resource_locator([root_commentable.budget, root_commentable]).path(params)
         else
           resource_locator(root_commentable).path(params)
@@ -181,8 +181,16 @@ module Decidim
         depth.even?
       end
 
+      def commentable?
+        has_replies? && !model.deleted? && !model.hidden?
+      end
+
       def has_replies?
-        model.comment_threads.any?
+        model.comment_threads.includes(:moderation).collect { |c| !c.deleted? && !c.hidden? }.any?
+      end
+
+      def has_replies_in_children?
+        has_replies? || model.comment_threads.includes(:moderation).collect { |t| t.comment_threads.includes(:moderation).collect { |c| !c.deleted? && !c.hidden? }.any? }.any?
       end
 
       # action_authorization_button expects current_component to be available

@@ -1,0 +1,139 @@
+@import "stylesheets/decidim/variables";
+
+.upload-modal{
+  .button{
+    margin: 0;
+  }
+
+  .dropzone-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 1rem;
+
+    input[type="file"]{
+      display: none;
+    }
+
+    label{
+      background-color: $white;
+      margin: 1rem 0;
+      cursor: pointer;
+
+      &.is-dragover{
+        background-color: lighten($secondary, 50);
+      }
+
+      &.dropzone{
+        padding: 1rem;
+        text-align: center;
+        border-style: dashed;
+        border-color: $secondary;
+        border-width: 2px;
+        border-radius: 4px;
+
+        * >{
+          display: none;
+        }
+      }
+
+      &.disabled{
+        background-color: $light-gray;
+        cursor: not-allowed;
+        border-color: lighten($secondary, 50);
+
+        span{
+          color: #ccc;
+        }
+      }
+    }
+  }
+
+  .upload-items{
+    .upload-item{
+      input[type="text"]{
+        margin: 0;
+      }
+
+      .file-name-span{
+        overflow: hidden;
+      }
+
+      .progress-bar-wrapper{
+        .progress-bar-border{
+          height: 2rem;
+          border: 1px solid $primary;
+          box-sizing: border-box;
+          padding: 0;
+
+          .progress-bar{
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            color: white;
+            background-color: $primary;
+            padding: 0 .5rem;
+            height: 2rem;
+
+            &.filled{
+              justify-content: center;
+              width: 100% !important;
+            }
+          }
+        }
+      }
+    }
+
+    .remove-upload-item{
+      cursor: pointer;
+    }
+
+    .upload-errors{
+      .form-error{
+        margin: 0;
+      }
+    }
+  }
+}
+
+.dynamic-uploads{
+  display: flex;
+  flex-direction: column;
+
+  @include breakpoint(large down){
+    margin-bottom: .5rem;
+  }
+
+  .actions-wrapper{
+    display: flex;
+    justify-content: flex-start;
+    align-items: baseline;
+
+    button.primary{
+      margin-right: .5rem;
+    }
+
+    button.remove-upload{
+      cursor: pointer;
+    }
+
+    &.titled{
+      flex-direction: column-reverse;
+    }
+
+    .active-uploads{
+      span.filename{
+        margin-right: .5rem;
+      }
+
+      span:last-child{
+        margin-right: .5rem;
+      }
+    }
+  }
+
+  &.with-title{
+    display: block;
+    margin: 0;
+  }
+}

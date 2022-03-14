@@ -34,7 +34,7 @@ module Decidim
         let(:slug) { "slug" }
         let(:start_voting_date) { Time.zone.today }
         let(:end_voting_date) { Time.zone.today + 1.month }
-        let(:attachment) { Decidim::Dev.test_file("city2.jpeg", "image/jpeg") }
+        let(:attachment) { upload_test_file(Decidim::Dev.test_file("city2.jpeg", "image/jpeg")) }
 
         let(:attributes) do
           {
@@ -66,7 +66,7 @@ module Decidim
             organization.settings.tap do |settings|
               settings.upload.maximum_file_size.default = 5
             end
-            expect(subject.banner_image).to receive(:size).and_return(6.megabytes)
+            ActiveStorage::Blob.find_signed(attachment).update(byte_size: 6.megabytes)
           end
 
           it { is_expected.not_to be_valid }

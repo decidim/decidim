@@ -7,9 +7,9 @@
       <div class="card__content">
         <div class="card__header">
           <%= link_to post, class: "card__link" do %>
-          <h3 class="card__title">
+          <h2 class="card__title">
             <%= translated_attribute post.title %>
-          </h3>
+          </h2>
           <% end %>
           <div class="card__author">
             <%= cell "decidim/author", present(post.author), from: post, has_actions: true %>

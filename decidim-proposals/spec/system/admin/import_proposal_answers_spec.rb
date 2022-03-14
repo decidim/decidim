@@ -51,14 +51,14 @@ describe "Import proposal answers", type: :system do
 
     it "returns error without a file" do
       click_button "Import"
-      expect(page).to have_content("There was a problem during the import")
+      expect(page).to have_content("There's an error in this field")
     end
 
     it "adds proposal answers after succesfully import" do
       File.open(json_file, "w") do |f|
         f.write(JSON.pretty_generate(answers))
       end
-      attach_file :import_file, json_file
+      dynamically_attach_file(:import_file, json_file)
 
       expect(Decidim::Proposals::Admin::NotifyProposalAnswer).to receive(:call).exactly(amount).times
 
@@ -77,7 +77,7 @@ describe "Import proposal answers", type: :system do
       File.open(json_file, "w") do |f|
         f.write(JSON.pretty_generate(missing_answers))
       end
-      attach_file :import_file, json_file
+      dynamically_attach_file(:import_file, json_file)
       click_button "Import"
       expect(page).to have_content("Missing column answer/en. Please check that the file contains required columns.")
     end
@@ -101,7 +101,7 @@ describe "Import proposal answers", type: :system do
         File.open(json_file, "w") do |f|
           f.write(JSON.pretty_generate(answers))
         end
-        attach_file :import_file, json_file
+        dynamically_attach_file(:import_file, json_file)
 
         expect(Decidim::Proposals::Admin::NotifyProposalAnswer).to receive(:call).exactly(amount).times
 

@@ -6,11 +6,23 @@ $(() => {
     return;
   }
 
+  const allMessages = window.Decidim.config.get("messages");
+  const messages = allMessages.mentionsModal || {};
+
   const $searchInput = $("input", $fieldContainer);
   const $selectedItems = $(`ul.${$searchInput.data().selected}`);
   const options = $fieldContainer.data();
   let selected = [];
   const iconsPath = window.Decidim.config.get("icons_path");
+  const removeLabel = messages.removeRecipient || "Remove recipient %name%";
+
+  let emptyFocusElement = $fieldContainer[0].querySelector(".empty-list");
+  if (!emptyFocusElement) {
+    emptyFocusElement = document.createElement("div");
+    emptyFocusElement.tabIndex = "-1";
+    emptyFocusElement.className = "empty-list";
+    $selectedItems.before(emptyFocusElement);
+  }
 
   const autoComplete = new AutoComplete($searchInput[0], {
     dataMatchKeys: ["name", "nickname"],
@@ -58,12 +70,13 @@ $(() => {
       return;
     }
 
+    const label = removeLabel.replace("%name%", selection.value.name);
     $selectedItems.append(`
-      <li>
-        <input type="hidden" name="${options.name}" value="${selection.value.id}">
+      <li tabindex="-1">
+        <input type="hidden" name="${options.name}" value="${id}">
         <img src="${selection.value.avatarUrl}" class="author__avatar" alt="${selection.value.name}">
         <b>${selection.value.name}</b>
-        <button class="float-right" data-remove=${id} tabindex="0" aria-controls="0" aria-label="Close" role="tab">&times;</button>
+        <button type="button" class="float-right" data-remove="${id}" tabindex="0" aria-controls="0" aria-label="${label}">&times;</button>
       </li>
     `);
 
@@ -73,8 +86,12 @@ $(() => {
     $selectedItems.find(`*[data-remove="${id}"]`).on("keypress click", (evt) => {
       const target = evt.target.parentNode;
       if (target.tagName === "LI") {
+        const focusElement = target.nextElementSibling || target.previousElementSibling || emptyFocusElement;
+
         selected = selected.filter((identifier) => identifier !== id);
         target.remove();
+
+        focusElement.focus();
       }
     })
   })

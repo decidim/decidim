@@ -89,15 +89,15 @@ ca:
             values:
               'false': Passades
               'true': Properes
-          origin_eq:
+          scope_id_eq:
+            label: Àmbit
+          with_any_origin:
             label: Origen
             values:
               official: Oficial
-              participant: Participant
+              participants: Participant
               user_group: Grups
-          scope_id_eq:
-            label: Àmbit
-          type_eq:
+          with_any_type:
             label: Tipus de trobada
             values:
               hybrid: Ambdós

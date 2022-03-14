@@ -399,7 +399,6 @@ eu:
           all: Guztiak
           finished: Amaituta
           search: Bilatu
-          state: Egoera
           upcoming: Hurrengoak
         filters_small_view:
           close_modal: Itxi leihoa
@@ -557,15 +556,12 @@ eu:
               generate_legend_3: Ziurtatu zure ekipoak ez duela fitxategiaren kopiarik (adibidez, egiaztatu Deskargak eta Mahaigaina karpetak).
               generate_legend_4: Egin beste kopia bat kanpoko beste gailu batean, eta gorde oso leku seguruan.
               submit: Bidali
-              submit_legend: Aurretik azaldutako urrats guztiak jarraitu ondoren, osatu prozesua identifikazio publikoaren gakoa bidaliz Decidimen zerbitzarian.
               submit_title: Bidali identifikatzeko gako publikoa
               title: Bermatzailearen identifikazio-gakoak
               upload: Igo zure identifikazio-gakoak
               upload_error:
                 invalid_format: Igotako artxiboak ez du identifikazio-gakorik.
                 invalid_key: Ezin dira kargatu identifikazio-gakoak igotako artxiboan.
-                invalid_public_key: Igotako artxiboko identifikazio-gakoak ez datoz bat Decidimek gordetako identifikazio publikoaren identifikazio-gakoarekin.
-              upload_legend: Decidimek zure identifikazio-gako publikoak ditu, baina zure nabigatzaileak oraindik ez ditu. Sortu ondoren egin zenuen segurtasun-kopiatik ordenagailura inportatu behar duzu zure identifikazio-gakoen fitxategia.
             not_supported_browser_description: Dirudienez, berme-emaile gisa erabili ezin den nabigatzaile bat erabiltzen ari zara. Ziurtatu nabigatzailearen bertsio berriena erabiltzen ari zarela, edo saiatu nabigatzaile ezagunenetako edozein erabiltzen, zure zereginak bermatzaile gisa bete ahal izateko.
             not_supported_browser_title: Eguneratu nabigatzailea bermatzaile gisa aritzeko
             trustee_role_description: Plataforma honetan egindako bozketa batzuen bermatzaile gisa izendatu zaituzte.
@@ -632,9 +628,7 @@ eu:
         onboarding_modal:
           close: Itxi leihoa
           create_account: Sortu Kontua
-          description: Kontu berri bat sortu nahi duzu Decidime-en? Horrela, prozesuetan parte hartuko duzu eta erakundearen parte aktiboa izango zara.
           no_account: Ez, eskerrik asko.
-          title: Berria zara Decidim-en?
         update:
           error: Arazo bat izan da botoaren egoera eguneratzean. Saiatu berriro.
         verify:
@@ -645,7 +639,6 @@ eu:
             header: Botoa ez da aurkitu!
             info: Botoaren kodea ez da aurkitu %{link} hautestontzian, saiatu berriro.
           form:
-            back: Itzuli Decidim-era
             submit: Egiaztatu
             vote_identifier: 'Kode identifikatzailea:'
           header:
@@ -960,7 +953,6 @@ eu:
             assign_missing_officers: Presidenterik eta/edo administratzailerik gabeko bozketa-guneak daude. Esleitu itzazu bozketa-guneen ataletik
             update: Eguneratu
           form:
-            census_contact_information_help: Harremanetarako informazio hori zentsuarekin izandako arazoen berri eman nahi dituen parte-hartzaile batentzat da. Helbide elektroniko bat, beste leku bateko harremanetarako formulario bat, bisitarientzako Decim-en inkesta bat eta abar izan daitezke.
             select_a_voting_type: Mesedez, hautatu bozketa mota bat
             slug_help: 'URLko testu laburrak erabiltzen dira bozketa hau aipatzen duten URLak sortzeko. Letrak, zenbakiak eta gidoiak baino ez ditu onartzen, eta letra batez hasi behar da. Adibidea: %{url}'
             title: Izenburua
@@ -1284,7 +1276,6 @@ eu:
           all: Guztiak
           finished: Amaituta
           search: Bilatu
-          state: Egoera
           upcoming: Hurrengoak
         filters_small_view:
           close_modal: Itxi leihoa

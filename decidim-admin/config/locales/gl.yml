@@ -171,8 +171,6 @@ gl:
         permissions: Permisos
         reject: Rexeitar
         share: Compartir
-        user:
-          new: Novo usuario
         verify: Verifique
       admin_terms_of_use:
         accept:
@@ -252,6 +250,8 @@ gl:
         update:
           error: Produciuse un erro ao actualizar este anexo.
           success: Adxunto actualizado correctamente.
+      attachments_privacy_warning:
+        message: Ten coidado ao traballar con ficheiros anexos nun espazo privado. Calquera participante podería compartir este documento con outra xente.
       autocomplete:
         no_results: Non se atoparon resultados
         search_prompt: Escriba polo menos tres caracteres para buscar
@@ -332,7 +332,6 @@ gl:
       dashboard:
         show:
           view_more_logs: Ver máis rexistros
-          welcome: Benvido ao Panel de administración de decisións.
       domain_whitelist:
         form:
           domain_too_short: Dominio curto de máis
@@ -358,6 +357,13 @@ gl:
           values:
             'false': 'Non'
             'true': 'Si'
+        moderated_users:
+          reports_reason_eq:
+            label: Motivo do informe
+            values:
+              does_not_belong: Non pertence
+              offensive: Ofensivo
+              spam: Lixo
         moderations:
           reportable_type_string_eq:
             label: Tipo
@@ -392,9 +398,11 @@ gl:
         search_label: Busca
         search_placeholder:
           name_or_nickname_or_email_cont: Procurar %{collection} por correo electrónico, nome ou alcume.
+          report_count_eq: Número de denuncias
           reported_id_string_or_reported_content_cont: Procurar %{collection} por contido ou Id reportábel.
           title_cont: Procurar %{collection} por título.
           user_name_or_user_email_cont: Procurar %{collection} por nome ou correo electrónico.
+          user_name_or_user_nickname_or_user_email_cont: Pescudar %{collection} por correo, nome ou alcume.
         state_eq:
           label: Estado
           values:
@@ -807,6 +815,14 @@ gl:
           explanation: 'Sube o teu ficheiro CSV. Ten de ter dúas columnas co correo electrónico na primeira e o nome na última (correo, nome) dos usuarios que desexes engadir ao espazo de participación, sen cabeceiras. Evita empregar os seguintes caracteres `<>?%&^*#@()[]=+:;"{}\|` no nome de usuario.'
           title: Sube o teu ficheiro CSV
           upload: Subir
+      reminders:
+        create:
+          error: Produciuse un problema ao crear os recordatorios.
+          success:
+            one: "Lembrarase a %{count} usuario."
+            other: "Lembrarase a %{count} usuarios."
+        new:
+          submit: Enviar
       resource_permissions:
         edit:
           submit: Enviar
@@ -924,7 +940,6 @@ gl:
         static_pages: Páxinas
         statistics: Actividade
         user_groups: Grupos de usuarios
-        users: Usuarios
       user_group:
         csv_verify:
           invalid: Produciuse un erro ao ler o ficheiro CSV.
@@ -960,7 +975,6 @@ gl:
           role: Rol
         new:
           create: Invitar
-          title: Convidar ao usuario como administrador
       users_statistics:
         users_count:
           admins: Administradores

@@ -39,6 +39,7 @@ module Decidim
         attribute :scopes_enabled, Boolean
         attribute :show_metrics, Boolean
         attribute :show_statistics, Boolean
+        attribute :participatory_process_type_id, Integer
 
         attribute :end_date, Decidim::Attributes::LocalizedDate
         attribute :start_date, Decidim::Attributes::LocalizedDate
@@ -66,6 +67,7 @@ module Decidim
         def map_model(model)
           self.scope_id = model.decidim_scope_id
           self.participatory_process_group_id = model.decidim_participatory_process_group_id
+          self.participatory_process_type_id = model.decidim_participatory_process_type_id
           self.related_process_ids = model.linked_participatory_space_resources(:participatory_process, "related_processes").pluck(:id)
           @processes = Decidim::ParticipatoryProcess.where(organization: model.organization).where.not(id: model.id)
         end
@@ -86,11 +88,25 @@ module Decidim
           Decidim::ParticipatoryProcessGroup.find_by(id: participatory_process_group_id)
         end
 
+        def participatory_process_type
+          Decidim::ParticipatoryProcessType.find_by(id: participatory_process_type_id)
+        end
+
         def processes
           @processes ||= Decidim::ParticipatoryProcess.where(organization: current_organization)
         end
 
+        def participatory_process_types_for_select
+          @participatory_process_types_for_select ||= participatory_process_types.map do |type|
+            [translated_attribute(type.title), type.id]
+          end
+        end
+
         private
+
+        def participatory_process_types
+          Decidim::ParticipatoryProcessType.where(organization: current_organization)
+        end
 
         def organization_participatory_processes
           OrganizationParticipatoryProcesses.new(current_organization).query

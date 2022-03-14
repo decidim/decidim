@@ -64,6 +64,7 @@ module Decidim
         visit decidim.decidim_elections_trustee_zone_path
 
         if upload_keys
+          expect(page).to have_content("Upload your identification keys")
           attach_file(private_keys[trustee_index]) do
             click_button "Upload your identification keys"
           end

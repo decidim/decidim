@@ -32,7 +32,7 @@ describe "Admin verifies user groups via CSV", type: :system do
     # The CSV has headers, we're testing we ignore them
     expect(Decidim::Admin::VerifyUserGroupFromCsvJob).to receive(:perform_later).once.ordered.with("Email", user, organization)
     expect(Decidim::Admin::VerifyUserGroupFromCsvJob).to receive(:perform_later).once.ordered.with(user_group.email, user, organization)
-    attach_file "File", Decidim::Dev.asset("verify_user_groups.csv")
+    dynamically_attach_file(:user_group_csv_verification_file, Decidim::Dev.asset("verify_user_groups.csv"))
     perform_enqueued_jobs { click_button "Upload" }
 
     expect(page).to have_content("CSV file uploaded successfully")

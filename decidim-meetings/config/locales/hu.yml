@@ -33,6 +33,10 @@ hu:
         transparent: Átlátszó
     errors:
       models:
+        meeting:
+          attributes:
+            iframe_embed_type:
+              not_embeddable: Ez az URL nem ágyazható be az értekezlet vagy az élő esemény oldalába
         meeting_agenda:
           attributes:
             base:
@@ -62,6 +66,20 @@ hu:
         other: Regisztrációk
   decidim:
     admin:
+      filters:
+        meetings:
+          with_any_origin:
+            label: Kiindulópont
+            values:
+              official: Hivatalos
+              participants: Résztvevő
+              user_group: Felhasználói csoportok
+          with_any_type:
+            label: Értekezlet típusa
+            values:
+              hybrid: Mindkettő
+              in_person: Személyesen
+              online: Online
       meeting_copies:
         create:
           error: Hiba történt a találkozó duplikálása során.
@@ -241,6 +259,8 @@ hu:
           form:
             address_help: 'Cím: Geocoder használata a helymeghatározáshoz'
             location_help: 'Helyszín: üzenet az adott felhasználóknak a találkozó helyéről'
+            select_an_iframe_access_level: Kérjük, válassz iframe hozzáférési szintet
+            show_embedded_iframe_help: Csak néhány szolgáltatás engedélyezi a beágyazást megbeszélésekbe vagy élő eseményekbe (YouTube, Twitch és Jitsi)
           index:
             title: Találkozók
           new:
@@ -270,6 +290,7 @@ hu:
           form:
             available_slots_help: Hagyd "0" értéken, ha a jelentkezők száma korlátlan.
             invites: Meghívók
+            registration_email_help: Ez a szöveg a regisztrációt megerősítő e-mail közepén fog megjelenni. Épp a regisztrációs kód után.
             registration_form: Regisztrációs űrlap
             registrations_count:
               one: '%{count} regisztráció volt.'
@@ -310,6 +331,15 @@ hu:
           index:
             meetings: találkozók
             space_type: Részvételi hely
+      iframe_access_level:
+        all: Minden látogató
+        registered: A találkozó regisztrált résztvevői
+        signed_in: Csak bejelentkezett résztvevők
+      iframe_embed_type:
+        embed_in_meeting_page: Beágyazás az értekezlet oldalába
+        none: Nincs
+        open_in_live_event_page: Megnyitás az élő esemény oldalán (opcionális szavazásokkal)
+        open_in_new_tab: Megnyitás új fülön
       last_activity:
         new_meeting_at_html: "<span>Új találkozó %{link}</span>kor"
       mailer:
@@ -325,12 +355,16 @@ hu:
         filters:
           category: Kategória
           date: Dátum
+          origin_values:
+            participants: Résztvevők
           search: Keresés
         filters_small_view:
           close_modal: Modal bezárása
           filter: Szűrő
           filter_by: 'Szűrés ez alapján:'
           unfold: Kibont
+        form:
+          show_embedded_iframe_help: Csak néhány szolgáltatás engedélyezi a beágyazást megbeszélésekbe vagy élő eseményekbe (YouTube, Twitch és Jitsi)
         meeting_minutes:
           related_information: Kapcsolódó információ
         meetings:

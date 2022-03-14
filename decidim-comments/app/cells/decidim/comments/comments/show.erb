@@ -2,7 +2,7 @@
   <div class="columns large-9 comments-container" id="comments">
     <div class="comments">
       <div class="row collapse order-by">
-        <h4 class="order-by__text section-heading">
+        <h3 class="order-by__text section-heading">
           <% if single_comment? %>
             <%= t("decidim.components.comments.comment_details_title") %>
           <% else %>
@@ -10,7 +10,7 @@
               <%= t("decidim.components.comments.title", count: comments_count) %>
             </span>
           <% end %>
-        </h4>
+        </h3>
         <%= render :order_control %>
       </div>
       <%= single_comment_warning %>

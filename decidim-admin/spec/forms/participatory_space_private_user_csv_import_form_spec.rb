@@ -22,7 +22,7 @@ module Decidim
           "file" => file
         }
       end
-      let(:file) { File.new Decidim::Dev.asset("import_participatory_space_private_users.csv") }
+      let(:file) { upload_test_file(Decidim::Dev.asset("import_participatory_space_private_users.csv")) }
 
       context "when everything is OK" do
         it { is_expected.to be_valid }
@@ -35,7 +35,7 @@ module Decidim
       end
 
       context "when user name contains invalid chars" do
-        let(:file) { File.new Decidim::Dev.asset("import_participatory_space_private_users_nok.csv") }
+        let(:file) { upload_test_file(Decidim::Dev.asset("import_participatory_space_private_users_nok.csv")) }
 
         it { is_expected.to be_invalid }
       end

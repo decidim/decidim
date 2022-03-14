@@ -372,7 +372,7 @@
 .link{
   cursor: pointer;
   color: var(--secondary);
-  font-weight: 600;
+  font-weight: $anchor-font-weight;
 
   &:hover{
     color: $anchor-color-hover;
@@ -384,6 +384,7 @@
 .link-alt{
   cursor: pointer;
   color: $anchor-color;
+  font-weight: $anchor-font-weight;
 
   &:hover{
     color: $anchor-color-hover;

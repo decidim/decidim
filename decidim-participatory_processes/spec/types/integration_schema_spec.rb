@@ -113,10 +113,6 @@ describe "Decidim::Api::QueryType" do
         showStatistics
         slug
         startDate
-        stats {
-          name
-          value
-        }
         steps {
           active
           callToActionPath
@@ -191,20 +187,7 @@ describe "Decidim::Api::QueryType" do
       "target" => { "translation" => participatory_process.target[locale] },
       "title" => { "translation" => participatory_process.title[locale] },
       "type" => "Decidim::ParticipatoryProcess",
-      "updatedAt" => participatory_process.updated_at.iso8601.to_s.gsub("Z", "+00:00"),
-      "stats" => [
-        { "name" => "dummies_count_high", "value" => 0 },
-        { "name" => "pages_count", "value" => 0 },
-        { "name" => "meetings_count", "value" => 0 },
-        { "name" => "proposals_count", "value" => 0 },
-        { "name" => "budgets_count", "value" => 0 },
-        { "name" => "surveys_count", "value" => 0 },
-        { "name" => "results_count", "value" => 0 },
-        { "name" => "debates_count", "value" => 0 },
-        { "name" => "sortitions_count", "value" => 0 },
-        { "name" => "posts_count", "value" => 0 },
-        { "name" => "elections_count", "value" => 0 }
-      ]
+      "updatedAt" => participatory_process.updated_at.iso8601.to_s.gsub("Z", "+00:00")
     }
   end
   let(:query) do
@@ -221,5 +204,19 @@ describe "Decidim::Api::QueryType" do
     end
 
     it { expect(response["participatoryProcess"]).to eq(participatory_process_response) }
+
+    it_behaves_like "implements stats type" do
+      let(:participatory_process_query) do
+        %(
+          participatoryProcess{
+            stats{
+              name
+              value
+            }
+          }
+        )
+      end
+      let(:stats_response) { response["participatoryProcess"]["stats"] }
+    end
   end
 end

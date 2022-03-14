@@ -2,9 +2,9 @@
   <div class="callout warning">
     <div class="row">
       <div class="columns medium-8 large-9">
-        <h3 class="heading3">
+        <h2 class="heading3">
           <%= t(".rules.title") %>
-        </h3>
+        </h2>
         <ul>
           <%= raw current_rule_explanation %>
         </ul>
@@ -16,23 +16,23 @@
   <div class="card__content">
     <% if include_heading %>
       <% if current_order_checked_out? %>
-        <h3 class="heading3">
+        <h2 class="heading3">
           <%= t(".checked_out.title") %>
           <% unless current_workflow.single? %>
             <small><%= translated_attribute(budget.title) %></small>
           <% end %>
-        </h3>
+        </h2>
         <p>
           <%= raw t(".checked_out.description", cancel_link: link_to(t(".cancel_order"), budget_order_path(return_to: "budget"), method: :delete, class: "cancel-order", data: { confirm: t(".are_you_sure") })) %>
         </p>
       <% else %>
-        <h3 class="heading3">
+        <h2 class="heading3">
           <% if current_workflow.single? %>
             <%= t(".title") %>
           <% else %>
             <%= translated_attribute(budget.title) %>
           <% end %>
-        </h3>
+        </h2>
         <p>
           <%= raw current_rule_description %>
         </p>

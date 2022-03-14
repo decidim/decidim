@@ -173,7 +173,7 @@ fr-CA:
         reject: Rejeter
         share: Partager
         user:
-          new: Nouvel utilisateur
+          new: Nouvel administrateur
         verify: Vérifier
       admin_terms_of_use:
         accept:
@@ -256,6 +256,8 @@ fr-CA:
         update:
           error: Une erreur s'est produite lors de la mise à jour de ce document lié.
           success: Document lié mis à jour avec succès.
+      attachments_privacy_warning:
+        message: Soyez prudent lorsque vous travaillez avec des pièces jointes dans un espace privé. Tout participant pourrait partager ce document à d'autres.
       autocomplete:
         no_results: Aucun résultat trouvé
         search_prompt: Renseignez au moins trois caractères pour lancer la recherche
@@ -338,7 +340,7 @@ fr-CA:
       dashboard:
         show:
           view_more_logs: Afficher plus
-          welcome: Bienvenue dans l'espace d'administration de Decidim.
+          welcome: Bienvenue dans l'espace d'administration.
       domain_whitelist:
         form:
           domain_too_short: Le nom de domaine est trop court
@@ -959,7 +961,7 @@ fr-CA:
         static_pages: Pages
         statistics: Activité
         user_groups: Groupes d'utilisateurs
-        users: Utilisateurs
+        users: Administrateurs
       user_group:
         csv_verify:
           invalid: Une erreur s'est produite lors de la lecture du fichier CSV.
@@ -995,7 +997,7 @@ fr-CA:
           role: Rôle
         new:
           create: Inviter
-          title: Inviter l'utilisateur en tant qu'administrateur
+          title: Inviter un nouvel administrateur
       users_statistics:
         users_count:
           admins: Administrateurs

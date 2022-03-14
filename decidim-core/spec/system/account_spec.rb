@@ -33,7 +33,7 @@ describe "Account", type: :system do
 
     describe "update avatar" do
       it "can update avatar" do
-        attach_file :user_avatar, Decidim::Dev.asset("avatar.jpg")
+        dynamically_attach_file(:user_avatar, Decidim::Dev.asset("avatar.jpg"), remove_before: true)
 
         within "form.edit_user" do
           find("*[type=submit]").click
@@ -43,14 +43,16 @@ describe "Account", type: :system do
       end
 
       it "shows error when image is too big" do
-        attach_file :user_avatar, Decidim::Dev.asset("5000x5000.png")
+        find("#user_avatar_button").click
 
-        within "form.edit_user" do
-          find("*[type=submit]").click
+        within ".upload-modal" do
+          find(".remove-upload-item").click
+          input_element = find("input[type='file']", visible: :all)
+          input_element.attach_file(Decidim::Dev.asset("5000x5000.png"))
+
+          expect(page).to have_content("The image is too big", count: 1)
+          expect(page).to have_css(".upload-errors .form-error", count: 1)
         end
-
-        expect(page).to have_content("The image is too big", count: 1)
-        expect(page).to have_css(".flash.alert")
       end
     end
 
