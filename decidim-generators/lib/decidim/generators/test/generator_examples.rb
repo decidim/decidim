@@ -546,8 +546,8 @@ shared_examples_for "an application with configurable env vars" do
       "Rails.application.config.active_storage.service" => "test",
       "Decidim::ApplicationUploader.new(nil, :file).protocol_option" => { "host" => "https://cdn.example.org" },
       "Decidim::Api::Schema.default_max_page_size" => 31,
-      "Decidim::Api::Schema.max_depth" => 3001,
-      "Decidim::Api::Schema.max_complexity" => 11
+      "Decidim::Api::Schema.max_complexity" => 3001,
+      "Decidim::Api::Schema.max_depth" => 11
     }
   end
 
