@@ -95,6 +95,9 @@ export default class InputCharacterCounter {
       if (remaining === 1) {
         message = MESSAGES.charactersLeft.one;
       }
+      this.$input[0].dispatchEvent(
+        new CustomEvent("characterCounter", {detail: {remaining: remaining}})
+      );
       showMessages.push(message.replace(COUNT_KEY, remaining));
     }
 
@@ -118,4 +121,4 @@ $(() => {
   });
 });
 
-export { InputCharacterCounter, createCharacterCounter };
+export {InputCharacterCounter, createCharacterCounter};
