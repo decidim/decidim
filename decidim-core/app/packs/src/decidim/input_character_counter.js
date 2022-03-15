@@ -57,6 +57,9 @@ export default class InputCharacterCounter {
       }
     }
 
+    this.updateInputLength();
+    this.previousInputLength = this.inputLength;
+
     if (this.$target.length > 0 && (this.maxCharacters > 0 || this.minCharacters > 0)) {
       // Create the screen reader target element. We don't want to constantly
       // announce every change to screen reader, only occasionally.
@@ -100,6 +103,7 @@ export default class InputCharacterCounter {
       this.updateStatus();
     });
     this.$input.on("input", () => {
+      this.updateInputLength();
       this.checkScreenReaderUpdate();
       // If the input is "described by" the character counter, some screen
       // readers (NVDA) announce the status twice when it is updated. By
@@ -124,22 +128,73 @@ export default class InputCharacterCounter {
   }
 
   getInputLength() {
-    return this.$input.val().length;
+    return this.inputLength;
+  }
+
+  updateInputLength() {
+    this.previousInputLength = this.inputLength;
+    this.inputLength = this.$input.val().length;
+  }
+
+  /**
+   * This compares the current inputLength to the previous value and decides
+   * whether the user is currently adding or deleting characters from the view.
+   *
+   * @returns {String} The input direction either "ins" for insert or "del" for
+   *   delete.
+   */
+  getInputDirection() {
+    if (this.inputLength < this.previousInputLength) {
+      return "del";
+    }
+
+    return "ins";
   }
 
   getScreenReaderLength() {
     const currentLength = this.getInputLength();
     if (this.maxCharacters < 1) {
       return currentLength;
-    }
-
-    if (this.maxCharacters - currentLength <= 10) {
+    } else if (this.maxCharacters - currentLength <= 10) {
       return currentLength;
     }
 
     // Get the closest length for the input "gaps" defined by the threshold.
     const gap = Math.round(this.maxCharacters * SR_ANNOUNCE_THRESHOLD);
-    return currentLength - currentLength % gap;
+    const srLength = currentLength - currentLength % gap;
+
+    // Prevent the screen reader telling too many characters left if the user
+    // deletes a characters. This can cause confusing experience e.g. when the
+    // user is closing the maximum amount of characters, so if the previous
+    // announcement was "10 characters left" and the user removes one character,
+    // the screen reader would announce "100 characters left" next time (when
+    // they actually have only 11 characters left). Similar when they are
+    // deleting a character at 900 characters, the screen reader would announce
+    // "1000 characters left" even when they only have 901 characters left.
+    if (this.getInputDirection() === "del") {
+      // The first branch checks that if we are at the final threshold, we
+      // should not announce "0 characters left" when the user deletes more than
+      // the "announce after every stroke" limit.
+      if (this.maxCharacters - srLength === gap) {
+        return this.announcedAt || currentLength;
+      // The second branch checks that when deleting characters, we should
+      // announce the next threshold to get accurate annoucement. E.g. when we
+      // have 750 characters left and the user deletes 100 characters at once,
+      // we should announce "700 characters left" after that deletion.
+      } else if (srLength < currentLength) {
+        return srLength + gap;
+      }
+    // This fixes an issue in the following situation:
+    // 1. 750 characters left
+    // 2. Delete 100 characters in a row
+    // 3. SR: "800 characters left" (actual 850)
+    // 4. Type one additional character
+    // 5. Without this, SR would announce "900 characters left" = confusing
+    } else if (srLength < this.announcedAt) {
+      return this.announcedAt;
+    }
+
+    return srLength;
   }
 
   getMessages(currentLength = null) {
