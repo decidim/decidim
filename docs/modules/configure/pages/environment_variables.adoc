@@ -370,7 +370,7 @@ Also some more refined configurations:
 |No
 
 |BULLETIN_BOARD_API_KEY
-|An additional API key to add additional security with the comunications with the Elections Bulletin Board Server. See xref:services:elections_bulletin_board.adoc[Elections Bulletin Board].
+|An additional API key to add additional security with the communications with the Elections Bulletin Board Server. See xref:services:elections_bulletin_board.adoc[Elections Bulletin Board].
 |
 |No
 
@@ -395,8 +395,38 @@ Also some more refined configurations:
 |No
 
 |ELECTIONS_QUORUM
-|Number of trustees required to be present in order to decrypt an election in case of the `electionguard` scheme. Minimum is 2, maximum the number os trustees. See xref:services:elections_bulletin_board.adoc[Elections Bulletin Board].
+|Number of trustees required to be present in order to decrypt an election in case of the `electionguard` scheme. Minimum is 2, maximum the number of trustees. See xref:services:elections_bulletin_board.adoc[Elections Bulletin Board].
 |
+|No
+
+|ELECTIONS_SETUP_MINIMUM_HOURS_BEFORE_START
+|Public Setting that defines how many hours should the setup be run before the election starts
+|3
+|No
+
+|ELECTIONS_START_VOTE_MAXIMUM_HOURS_BEFORE_START
+|Public Setting that defines how many hours the ballot box can be opened before the election starts
+|6
+|No
+
+|ELECTIONS_VOTER_TOKEN_EXPIRATION_MINUTES
+|How long any time of message sent to the bulletin board will be valid for any kind of processing.
+|120
+|No
+
+|VOTINGS_CHECK_CENSUS_MAX_REQUESTS
+|Max requests in a time period to check the census. Only applied in production and test.
+|5
+|No
+
+|VOTINGS_THROTTLING_PERIOD
+|Time window in which the VOTINGS_CHECK_CENSUS_MAX_REQUESTS throttling is applied (in minutes).
+|1
+|No
+
+|VOTINGS_CENSUS_ACCESS_CODES_EXPORT_EXPIRY_TIME
+|How long the census access codes export file will are available in the server (in days)
+|2
 |No
 
 |VAPID_PUBLIC_KEY
