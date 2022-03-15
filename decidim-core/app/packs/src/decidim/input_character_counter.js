@@ -25,6 +25,7 @@ export default class InputCharacterCounter {
     this.$target = $(this.$input.data("remaining-characters"));
     this.minCharacters = parseInt(this.$input.attr("minlength"), 10);
     this.maxCharacters = parseInt(this.$input.attr("maxlength"), 10);
+    this.describeByCounter = typeof this.$input.attr("aria-describedby") === "undefined";
 
     let targetId = this.$target.attr("id");
     if (typeof targetId === "undefined") {
@@ -64,11 +65,21 @@ export default class InputCharacterCounter {
       );
       this.$target.before(this.$srTarget);
       this.$target.attr("aria-hidden", "true");
-      if (typeof this.$input.attr("aria-describedby") === "undefined") {
-        this.$input.attr("aria-describedby", this.$srTarget.attr("id"));
-      }
+      this.setDescribedBy(true);
 
       this.bindEvents();
+    }
+  }
+
+  setDescribedBy(active) {
+    if (!this.describeByCounter) {
+      return;
+    }
+
+    if (active) {
+      this.$input.attr("aria-describedby", this.$srTarget.attr("id"));
+    } else {
+      this.$input.removeAttr("aria-describedby");
     }
   }
 
@@ -90,9 +101,18 @@ export default class InputCharacterCounter {
     });
     this.$input.on("input", () => {
       this.checkScreenReaderUpdate();
+      // If the input is "described by" the character counter, some screen
+      // readers (NVDA) announce the status twice when it is updated. By
+      // removing the aria-describedby attribute while the user is typing makes
+      // the screen reader announce the status only once.
+      this.setDescribedBy(false);
     });
-    this.$input.on("focus blur", () => {
+    this.$input.on("focus", () => {
       this.updateScreenReaderStatus();
+    });
+    this.$input.on("blur", () => {
+      this.updateScreenReaderStatus();
+      this.setDescribedBy(true);
     });
     if (this.$input.get(0) !== null) {
       this.$input.get(0).addEventListener("emoji.added", () => {
