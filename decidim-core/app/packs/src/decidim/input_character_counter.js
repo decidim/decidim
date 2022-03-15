@@ -1,8 +1,10 @@
 const COUNT_KEY = "%count%";
 // How often SR announces the message in relation to maximum characters. E.g.
 // if max characters is 1000, screen reader announces the remaining characters
-// every 100 (= 0.1 * 1000) characters.
-const SR_ANNOUNCE_THRESHOLD = 0.1;
+// every 100 (= 0.1 * 1000) characters. This will be "floored" to the closest
+// 100 if the maximum characters > 100 or otherwise to closest 10. E.g. if max
+// characters is 5500, the threshold is 500 (= Math.floor(550 / 100) * 100).
+const SR_ANNOUNCE_THRESHOLD_RATIO = 0.1;
 // The number of characters left after which every keystroke will be announced.
 const SR_ANNOUNCE_EVERY_THRESHOLD = 10;
 const DEFAULT_MESSAGES = {
@@ -28,6 +30,21 @@ export default class InputCharacterCounter {
     this.minCharacters = parseInt(this.$input.attr("minlength"), 10);
     this.maxCharacters = parseInt(this.$input.attr("maxlength"), 10);
     this.describeByCounter = typeof this.$input.attr("aria-describedby") === "undefined";
+
+    // Define the closest length for the input "gaps" defined by the threshold.
+    if (this.maxCharacters > 10) {
+      let roundTo = 100;
+      if (this.maxCharacters < 100) {
+        roundTo = 10;
+      }
+      this.announceThreshold = Math.floor(this.maxCharacters * SR_ANNOUNCE_THRESHOLD_RATIO / roundTo) * roundTo;
+
+      // The number of characters left after which every keystroke will be announced.
+      this.announceEveryThreshold = SR_ANNOUNCE_EVERY_THRESHOLD;
+    } else {
+      this.announceThreshold = 1;
+      this.announceEveryThreshold = 1;
+    }
 
     let targetId = this.$target.attr("id");
     if (typeof targetId === "undefined") {
@@ -155,15 +172,13 @@ export default class InputCharacterCounter {
 
   getScreenReaderLength() {
     const currentLength = this.getInputLength();
-    if (this.maxCharacters < 1) {
+    if (this.maxCharacters < 10) {
       return currentLength;
-    } else if (this.maxCharacters - currentLength <= SR_ANNOUNCE_EVERY_THRESHOLD) {
+    } else if (this.maxCharacters - currentLength <= this.announceEveryThreshold) {
       return currentLength;
     }
 
-    // Get the closest length for the input "gaps" defined by the threshold.
-    const gap = Math.round(this.maxCharacters * SR_ANNOUNCE_THRESHOLD);
-    const srLength = currentLength - currentLength % gap;
+    const srLength = currentLength - currentLength % this.announceThreshold;
 
     // Prevent the screen reader telling too many characters left if the user
     // deletes a characters. This can cause confusing experience e.g. when the
@@ -176,15 +191,15 @@ export default class InputCharacterCounter {
     if (this.getInputDirection() === "del") {
       // The first branch checks that if we are at the final threshold, we
       // should not announce "0 characters left" when the user deletes more than
-      // the "announce after every stroke" limit (SR_ANNOUNCE_EVERY_THRESHOLD).
-      if (this.maxCharacters - srLength === gap) {
+      // the "announce after every stroke" limit (this.announceEveryThreshold).
+      if (this.maxCharacters - srLength === this.announceThreshold) {
         return this.announcedAt || currentLength;
       // The second branch checks that when deleting characters, we should
       // announce the next threshold to get accurate annoucement. E.g. when we
       // have 750 characters left and the user deletes 100 characters at once,
       // we should announce "700 characters left" after that deletion.
       } else if (srLength < currentLength) {
-        return srLength + gap;
+        return srLength + this.announceThreshold;
       }
     // This fixes an issue in the following situation:
     // 1. 750 characters left
