@@ -2,18 +2,10 @@
 
 module Decidim
   class OwnActivities < PublicActivities
-    def query
-      query = ActionLog
-              .where(visibility: %w(private-only public-only all))
-              .where(organization: organization)
+    private
 
-      query = query.where(user: user) if user
-      query = query.where(resource_type: resource_name) if resource_name.present?
-
-      query = filter_follows(query)
-      query = filter_hidden(query)
-
-      query.order(created_at: :desc)
+    def visibility
+      %w(private-only public-only all)
     end
   end
 end

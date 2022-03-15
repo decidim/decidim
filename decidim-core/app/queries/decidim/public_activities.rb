@@ -34,7 +34,7 @@ module Decidim
 
     def query
       query = ActionLog
-              .where(visibility: %w(public-only all))
+              .where(visibility: visibility)
               .where(organization: organization)
 
       query = query.where(user: user) if user
@@ -49,6 +49,10 @@ module Decidim
     private
 
     attr_reader :organization, :resource_name, :user, :current_user, :follows, :scopes
+
+    def visibility
+      %w(public-only all)
+    end
 
     def filter_follows(query)
       conditions = []

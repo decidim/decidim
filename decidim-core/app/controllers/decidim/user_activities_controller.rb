@@ -24,27 +24,24 @@ module Decidim
 
     def activities
       @activities ||= begin
-        paginate(
-          activity_class.new(
-            current_organization,
-            user: user,
-            current_user: current_user,
-            resource_name: filter.resource_type
-          ).query.public_send(activity_method, *activity_arguments)
-        )
+        if own_activities?
+          paginate(
+            OwnActivities.new(current_organization, **activity_options).query.with_private_resources
+          )
+        else
+          paginate(
+            PublicActivities.new(current_organization, **activity_options).query.with_all_resources
+          )
+        end
       end
     end
 
-    def activity_method
-      own_activities? ? :with_private_resources : :with_resource_type
-    end
-
-    def activity_arguments
-      own_activities? ? [] : %w(all)
-    end
-
-    def activity_class
-      own_activities? ? OwnActivities : PublicActivities
+    def activity_options
+      {
+        user: user,
+        current_user: current_user,
+        resource_name: filter.resource_type
+      }
     end
 
     def own_activities?
