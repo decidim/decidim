@@ -177,7 +177,7 @@ shared_examples "comments" do
             expect(page).to have_content("1801 characters left") # Normal
           end
           within ".remaining-character-count-sr" do
-            expect(page).to have_content("2000 characters left") # Screen reader
+            expect(page).to have_content("1800 characters left") # Screen reader
           end
 
           # After the input is blurred, the screen reader character counter
