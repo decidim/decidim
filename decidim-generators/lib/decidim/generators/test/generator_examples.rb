@@ -979,11 +979,11 @@ shared_examples_for "an application with cloud storage gems" do
   let(:storage_envs) do
     {
       "RAILS_ENV" => "production",
-      "S3_ACCCESS_KEY_ID" => "my-aws-id",
-      "S3_SECRET_ACCESS_KEY" => "my-aws-secret",
-      "S3_REGION" => "eu-west-1",
-      # "S3_ENDPOINT" => "https://s3.amazonaws.com",
-      "S3_BUCKET" => "test",
+      "AWS_ACCCESS_KEY_ID" => "my-aws-id",
+      "AWS_SECRET_ACCESS_KEY" => "my-aws-secret",
+      "AWS_REGION" => "eu-west-1",
+      # "AWS_ENDPOINT" => "https://s3.amazonaws.com",
+      "AWS_BUCKET" => "test",
       "AZURE_CONTAINER" => "test",
       "AZURE_STORAGE_ACCOUNT_NAME" => "test",
       "AZURE_STORAGE_ACCESS_KEY" => "dGVzdA==\n" # Base64 of "test"

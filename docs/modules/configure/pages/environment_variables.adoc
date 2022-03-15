@@ -120,30 +120,30 @@ Set the protocol, host and path to your CDN and all the user-generated files (th
 |
 |No
 
-|*S3_ACCESS_KEY_ID*
+|*AWS_ACCESS_KEY_ID*
 |If STORAGE_PROVIDER is set to `s3`, define here your AWS KEY ID with permissions to access the bucket for the application.
 
 Also, be sure to add the line `gem "aws-sdk-s3", require: false` in your Gemfile.
 |
 |No
 
-|*S3_SECRET_ACCESS_KEY*
+|*AWS_SECRET_ACCESS_KEY*
 |If STORAGE_PROVIDER is set to `s3`, define here your AWS SECRET KEY with permissions to access the bucket for the application.
 |
 |No
 
-|*S3_BUCKET*
+|*AWS_BUCKET*
 |If STORAGE_PROVIDER is set to `s3`, define here the bucket used for uploading files and images.
 |
 |No
 
-|*S3_REGION*
-|If STORAGE_PROVIDER is set to `s3`, define here your region (in case your S3 provider requires it, required if `S3_ENDPOINT` is empty).
+|*AWS_REGION*
+|If STORAGE_PROVIDER is set to `s3`, define here your region (in case your S3 provider requires it, required if `AWS_ENDPOINT` is empty).
 |
 |No
 
-|*S3_ENDPOINT*
-|If STORAGE_PROVIDER is set to `s3`, define here your endpoint (this is mandatory if using any provider that is not AWS, can be empty if using AWS and `S3_REGION` is specified).
+|*AWS_ENDPOINT*
+|If STORAGE_PROVIDER is set to `s3`, define here your endpoint (this is mandatory if using any provider that is not AWS, can be empty if using AWS and `AWS_REGION` is specified).
 |
 |No
 
