@@ -127,7 +127,7 @@ Also, be sure to add the line `gem "aws-sdk-s3", require: false` in your Gemfile
 |
 |No
 
-|*S3_SECRET_ACCESS_ID*
+|*S3_SECRET_ACCESS_KEY*
 |If STORAGE_PROVIDER is set to `s3`, define here your AWS SECRET KEY with permissions to access the bucket for the application.
 |
 |No

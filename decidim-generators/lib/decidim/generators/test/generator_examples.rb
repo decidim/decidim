@@ -979,6 +979,8 @@ shared_examples_for "an application with cloud storage gems" do
   let(:storage_envs) do
     {
       "RAILS_ENV" => "production",
+      "S3_ACCCESS_KEY_ID" => "my-aws-id",
+      "S3_SECRET_ACCESS_KEY" => "my-aws-secret",
       "S3_REGION" => "eu-west-1",
       # "S3_ENDPOINT" => "https://s3.amazonaws.com",
       "S3_BUCKET" => "test",
