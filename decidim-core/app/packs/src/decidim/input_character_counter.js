@@ -113,6 +113,10 @@ export default class InputCharacterCounter {
       return currentLength;
     }
 
+    if (this.maxCharacters - currentLength <= 10) {
+      return currentLength;
+    }
+
     // Get the closest length for the input "gaps" defined by the threshold.
     const gap = Math.round(this.maxCharacters * SR_ANNOUNCE_THRESHOLD);
     return currentLength - currentLength % gap;
