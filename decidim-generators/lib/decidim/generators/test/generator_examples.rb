@@ -128,14 +128,6 @@ shared_context "application env vars" do
       "SMTP_PORT" => "12345",
       "SMTP_STARTTLS_AUTO" => "a-smtp-starttls-auto",
       "SMTP_AUTHENTICATION" => "a-smtp-authentication",
-      "BULLETIN_BOARD_SERVER" => "a-bulletin-board-server",
-      "BULLETIN_BOARD_PUBLIC_KEY" => "a-bulletin-public-key",
-      "BULLETIN_BOARD_API_KEY" => "an-authority-api-key",
-      "AUTHORITY_NAME" => "an-authority-name",
-      "AUTHORITY_PRIVATE_KEY" => "an-authority-private-key",
-      "ELECTIONS_SCHEME_NAME" => "an-elections-scheme-name",
-      "ELECTIONS_NUMBER_OF_TRUSTEES" => "345",
-      "ELECTIONS_QUORUM" => "987",
       "DECIDIM_APPLICATION_NAME" => "\"A test\" {application}",
       "DECIDIM_MAILER_SENDER" => "noreply@example.org",
       "DECIDIM_AVAILABLE_LOCALES" => "de, fr, zh-CN",
@@ -187,6 +179,7 @@ shared_context "application env vars" do
       "MEETINGS_ENABLE_PROPOSAL_LINKING" => "false",
       "BUDGETS_ENABLE_PROPOSAL_LINKING" => "false",
       "ACCOUNTABILITY_ENABLE_PROPOSAL_LINKING" => "false",
+      "CONSULTATIONS_STATS_CACHE_EXPIRATION_TIME" => "7",
       "INITIATIVES_CREATION_ENABLED" => "false",
       "INITIATIVES_SIMILARITY_THRESHOLD" => "0.99",
       "INITIATIVES_SIMILARITY_LIMIT" => "10",
@@ -198,7 +191,21 @@ shared_context "application env vars" do
       "INITIATIVES_STATS_CACHE_EXPIRATION_TIME" => "7",
       "INITIATIVES_MAX_TIME_IN_VALIDATING_STATE" => "50",
       "INITIATIVES_PRINT_ENABLED" => "false",
-      "INITIATIVES_DO_NOT_REQUIRE_AUTHORIZATION" => "true"
+      "INITIATIVES_DO_NOT_REQUIRE_AUTHORIZATION" => "true",
+      "BULLETIN_BOARD_SERVER" => "a-bulletin-board-server",
+      "BULLETIN_BOARD_PUBLIC_KEY" => "a-bulletin-public-key",
+      "BULLETIN_BOARD_API_KEY" => "an-authority-api-key",
+      "AUTHORITY_NAME" => "an-authority-name",
+      "AUTHORITY_PRIVATE_KEY" => "an-authority-private-key",
+      "ELECTIONS_SCHEME_NAME" => "an-elections-scheme-name",
+      "ELECTIONS_NUMBER_OF_TRUSTEES" => "345",
+      "ELECTIONS_QUORUM" => "987",
+      "ELECTIONS_SETUP_MINIMUM_HOURS_BEFORE_START" => "4",
+      "ELECTIONS_START_VOTE_MAXIMUM_HOURS_BEFORE_START" => "7",
+      "ELECTIONS_VOTER_TOKEN_EXPIRATION_MINUTES" => "123",
+      "VOTINGS_CHECK_CENSUS_MAX_REQUESTS" => "6",
+      "VOTINGS_THROTTLING_PERIOD" => "2",
+      "VOTINGS_CENSUS_ACCESS_CODES_EXPORT_EXPIRY_TIME" => "3"
     }
   end
 
@@ -283,29 +290,36 @@ shared_examples_for "an application with configurable env vars" do
       %w(vapid private_key) => nil,
       %w(storage provider) => "local",
       %w(storage cdn_host) => nil,
-      %w(decidim api_schema_max_per_page) => 50,
-      %w(decidim api_schema_max_complexity) => 5000,
-      %w(decidim api_schema_max_depth) => 15,
-      %w(decidim proposals_similarity_threshold) => 0.25,
-      %w(decidim proposals_similarity_limit) => 10,
-      %w(decidim proposals_participatory_space_highlighted_proposals_limit) => 4,
-      %w(decidim proposals_process_group_highlighted_proposals_limit) => 3,
-      %w(decidim meetings_upcoming_meeting_notification) => 2,
-      %w(decidim meetings_enable_proposal_linking) => "auto",
-      %w(decidim budgets_enable_proposal_linking) => "auto",
-      %w(decidim accountability_enable_proposal_linking) => "auto",
-      %w(decidim initiatives_creation_enabled) => "auto",
-      %w(decidim initiatives_similarity_threshold) => 0.25,
-      %w(decidim initiatives_similarity_limit) => 5,
-      %w(decidim initiatives_minimum_committee_members) => 2,
-      %w(decidim initiatives_default_signature_time_period_length) => 120,
-      %w(decidim initiatives_default_components) => %w(pages meetings),
-      %w(decidim initiatives_first_notification_percentage) => 33,
-      %w(decidim initiatives_second_notification_percentage) => 66,
-      %w(decidim initiatives_stats_cache_expiration_time) => 5,
-      %w(decidim initiatives_max_time_in_validating_state) => 60,
-      %w(decidim initiatives_print_enabled) => "auto",
-      %w(decidim initiatives_do_not_require_authorization) => false
+      %w(decidim api schema_max_per_page) => 50,
+      %w(decidim api schema_max_complexity) => 5000,
+      %w(decidim api schema_max_depth) => 15,
+      %w(decidim proposals similarity_threshold) => 0.25,
+      %w(decidim proposals similarity_limit) => 10,
+      %w(decidim proposals participatory_space_highlighted_proposals_limit) => 4,
+      %w(decidim proposals process_group_highlighted_proposals_limit) => 3,
+      %w(decidim meetings upcoming_meeting_notification) => 2,
+      %w(decidim meetings enable_proposal_linking) => "auto",
+      %w(decidim budgets enable_proposal_linking) => "auto",
+      %w(decidim accountability enable_proposal_linking) => "auto",
+      %w(decidim consultations stats_cache_expiration_time) => 5,
+      %w(decidim initiatives creation_enabled) => "auto",
+      %w(decidim initiatives similarity_threshold) => 0.25,
+      %w(decidim initiatives similarity_limit) => 5,
+      %w(decidim initiatives minimum_committee_members) => 2,
+      %w(decidim initiatives default_signature_time_period_length) => 120,
+      %w(decidim initiatives default_components) => %w(pages meetings),
+      %w(decidim initiatives first_notification_percentage) => 33,
+      %w(decidim initiatives second_notification_percentage) => 66,
+      %w(decidim initiatives stats_cache_expiration_time) => 5,
+      %w(decidim initiatives max_time_in_validating_state) => 60,
+      %w(decidim initiatives print_enabled) => "auto",
+      %w(decidim initiatives do_not_require_authorization) => false,
+      %w(elections setup_minimum_hours_before_start) => 3,
+      %w(elections start_vote_maximum_hours_before_start) => 6,
+      %w(elections voter_token_expiration_minutes) => 120,
+      %w(elections votings check_census_max_requests) => 5,
+      %w(elections votings throttling_period) => 1,
+      %w(elections votings census access_codes_export_expiry_time) => 2
     }
   end
 
@@ -328,14 +342,6 @@ shared_examples_for "an application with configurable env vars" do
       %w(smtp_port) => 12_345,
       %w(smtp_starttls_auto) => true,
       %w(smtp_authentication) => "a-smtp-authentication",
-      %w(elections bulletin_board_server) => "a-bulletin-board-server",
-      %w(elections bulletin_board_public_key) => "a-bulletin-public-key",
-      %w(elections authority_api_key) => "an-authority-api-key",
-      %w(elections authority_name) => "an-authority-name",
-      %w(elections authority_private_key) => "an-authority-private-key",
-      %w(elections scheme_name) => "an-elections-scheme-name",
-      %w(elections number_of_trustees) => 345,
-      %w(elections quorum) => 987,
       %w(decidim application_name) => "\"A test\" {application}",
       %w(decidim mailer_sender) => "noreply@example.org",
       %w(decidim available_locales) => %w(de fr zh-CN),
@@ -382,29 +388,47 @@ shared_examples_for "an application with configurable env vars" do
       %w(vapid private_key) => "a-vapid-private-key",
       %w(storage provider) => "test",
       %w(storage cdn_host) => "https://cdn.example.org",
-      %w(decidim api_schema_max_per_page) => 31,
-      %w(decidim api_schema_max_complexity) => 3001,
-      %w(decidim api_schema_max_depth) => 11,
-      %w(decidim proposals_similarity_threshold) => 0.99,
-      %w(decidim proposals_similarity_limit) => 3,
-      %w(decidim proposals_participatory_space_highlighted_proposals_limit) => 6,
-      %w(decidim proposals_process_group_highlighted_proposals_limit) => 5,
-      %w(decidim meetings_upcoming_meeting_notification) => 3,
-      %w(decidim meetings_enable_proposal_linking) => false,
-      %w(decidim budgets_enable_proposal_linking) => false,
-      %w(decidim accountability_enable_proposal_linking) => false,
-      %w(decidim initiatives_creation_enabled) => false,
-      %w(decidim initiatives_similarity_threshold) => 0.99,
-      %w(decidim initiatives_similarity_limit) => 10,
-      %w(decidim initiatives_minimum_committee_members) => 3,
-      %w(decidim initiatives_default_signature_time_period_length) => 133,
-      %w(decidim initiatives_default_components) => %w(pages proposals budgets),
-      %w(decidim initiatives_first_notification_percentage) => 10,
-      %w(decidim initiatives_second_notification_percentage) => 70,
-      %w(decidim initiatives_stats_cache_expiration_time) => 7,
-      %w(decidim initiatives_max_time_in_validating_state) => 50,
-      %w(decidim initiatives_print_enabled) => false,
-      %w(decidim initiatives_do_not_require_authorization) => true
+      %w(decidim api schema_max_per_page) => 31,
+      %w(decidim api schema_max_complexity) => 3001,
+      %w(decidim api schema_max_depth) => 11,
+      %w(decidim proposals similarity_threshold) => 0.99,
+      %w(decidim proposals similarity_limit) => 3,
+      %w(decidim proposals participatory_space_highlighted_proposals_limit) => 6,
+      %w(decidim proposals process_group_highlighted_proposals_limit) => 5,
+      %w(decidim meetings upcoming_meeting_notification) => 3,
+      %w(decidim meetings enable_proposal_linking) => false,
+      %w(decidim budgets enable_proposal_linking) => false,
+      %w(decidim accountability enable_proposal_linking) => false,
+      %w(decidim consultations stats_cache_expiration_time) => 7,
+      %w(decidim initiatives creation_enabled) => false,
+      %w(decidim initiatives similarity_threshold) => 0.99,
+      %w(decidim initiatives similarity_limit) => 10,
+      %w(decidim initiatives minimum_committee_members) => 3,
+      %w(decidim initiatives default_signature_time_period_length) => 133,
+      %w(decidim initiatives default_components) => %w(pages proposals budgets),
+      %w(decidim initiatives first_notification_percentage) => 10,
+      %w(decidim initiatives second_notification_percentage) => 70,
+      %w(decidim initiatives stats_cache_expiration_time) => 7,
+      %w(decidim initiatives max_time_in_validating_state) => 50,
+      %w(decidim initiatives print_enabled) => false,
+      %w(decidim initiatives do_not_require_authorization) => true,
+      %w(decidim elections setup_minimum_hours_before_start) => 4,
+      %w(decidim elections start_vote_maximum_hours_before_start) => 7,
+      %w(decidim elections voter_token_expiration_minutes) => 123,
+      %w(elections bulletin_board_server) => "a-bulletin-board-server",
+      %w(elections bulletin_board_public_key) => "a-bulletin-public-key",
+      %w(elections authority_api_key) => "an-authority-api-key",
+      %w(elections authority_name) => "an-authority-name",
+      %w(elections authority_private_key) => "an-authority-private-key",
+      %w(elections scheme_name) => "an-elections-scheme-name",
+      %w(elections number_of_trustees) => 345,
+      %w(elections quorum) => 987,
+      %w(elections setup_minimum_hours_before_start) => 3,
+      %w(elections start_vote_maximum_hours_before_start) => 6,
+      %w(elections voter_token_expiration_minutes) => 120,
+      %w(elections votings check_census_max_requests) => 6,
+      %w(elections votings throttling_period) => 2,
+      %w(elections votings census access_codes_export_expiry_time) => 3
     }
   end
 
@@ -782,6 +806,18 @@ end
 shared_examples_for "an application with extra configurable env vars" do
   include_context "application env vars"
 
+  let(:consultations_initializer_off) do
+    {
+      "stats_cache_expiration_time" => 300 # 5.minutes
+    }
+  end
+
+  let(:consultations_initializer_on) do
+    {
+      "stats_cache_expiration_time" => 420 # 7.minutes
+    }
+  end
+
   let(:initiatives_initializer_off) do
     {
       "creation_enabled" => true,
@@ -816,8 +852,64 @@ shared_examples_for "an application with extra configurable env vars" do
     }
   end
 
+  let(:elections_initializer_off) do
+    {
+      "setup_minimum_hours_before_start" => 3,
+      "start_vote_maximum_hours_before_start" => 6,
+      "voter_token_expiration_minutes" => 120
+    }
+  end
+
+  let(:elections_initializer_on) do
+    {
+      "setup_minimum_hours_before_start" => 4,
+      "start_vote_maximum_hours_before_start" => 7,
+      "voter_token_expiration_minutes" => 123
+    }
+  end
+
+  let(:votings_initializer_off) do
+    {
+      "check_census_max_requests" => 5,
+      "throttling_period" => 60 # 1.minute
+    }
+  end
+
+  let(:votings_initializer_on) do
+    {
+      "check_census_max_requests" => 6,
+      "throttling_period" => 120 # 2.minutes
+    }
+  end
+
+  let(:census_initializer_off) do
+    {
+      "census access_codes_export_expiry_time" => 172_800 # 2.days
+    }
+  end
+
+  let(:census_initializer_on) do
+    {
+      "census access_codes_export_expiry_time" => 259_200 # 3.days
+    }
+  end
+
   it "env vars generate secrets application" do
     expect(result[1]).to be_success, result[0]
+
+    # Test onto the initializer with ENV vars OFF for the Consultations module
+    json_off = initializer_config_for(test_app, env_off, "Decidim::Consultations")
+    consultations_initializer_off.each do |key, value|
+      current = json_off[key]
+      expect(current).to eq(value), "Consultations Initializer (#{key}) = (#{current}) expected to match Env (#{value})"
+    end
+
+    # Test onto the initializer with ENV vars ON for the Consultations module
+    json_on = initializer_config_for(test_app, env_on, "Decidim::Consultations")
+    consultations_initializer_on.each do |key, value|
+      current = json_on[key]
+      expect(current).to eq(value), "Consultations Initializer (#{key}) = (#{current}) expected to match Env (#{value})"
+    end
 
     # Test onto the initializer with ENV vars OFF for the Initiatives module
     json_off = initializer_config_for(test_app, env_off, "Decidim::Initiatives")
@@ -831,6 +923,48 @@ shared_examples_for "an application with extra configurable env vars" do
     initiatives_initializer_on.each do |key, value|
       current = json_on[key]
       expect(current).to eq(value), "Initiatives Initializer (#{key}) = (#{current}) expected to match Env (#{value})"
+    end
+
+    # Test onto the initializer with ENV vars OFF for the Elections module
+    json_off = initializer_config_for(test_app, env_off, "Decidim::Elections")
+    elections_initializer_off.each do |key, value|
+      current = json_off[key]
+      expect(current).to eq(value), "Elections Initializer (#{key}) = (#{current}) expected to match Env (#{value})"
+    end
+
+    # Test onto the initializer with ENV vars ON for the Elections module
+    json_on = initializer_config_for(test_app, env_on, "Decidim::Elections")
+    elections_initializer_on.each do |key, value|
+      current = json_on[key]
+      expect(current).to eq(value), "Elections Initializer (#{key}) = (#{current}) expected to match Env (#{value})"
+    end
+
+    # Test onto the initializer with ENV vars OFF for the Votings module
+    json_off = initializer_config_for(test_app, env_off, "Decidim::Votings")
+    votings_initializer_off.each do |key, value|
+      current = json_off[key]
+      expect(current).to eq(value), "Votings Initializer (#{key}) = (#{current}) expected to match Env (#{value})"
+    end
+
+    # Test onto the initializer with ENV vars ON for the Votings module
+    json_on = initializer_config_for(test_app, env_on, "Decidim::Votings")
+    votings_initializer_on.each do |key, value|
+      current = json_on[key]
+      expect(current).to eq(value), "Votings Initializer (#{key}) = (#{current}) expected to match Env (#{value})"
+    end
+
+    # Test onto the initializer with ENV vars OFF for the Votings::Census module
+    json_off = initializer_config_for(test_app, env_off, "Decidim::Votings::Census")
+    census_initializer_off.each do |key, value|
+      current = json_off[key]
+      expect(current).to eq(value), "Votings::Census Initializer (#{key}) = (#{current}) expected to match Env (#{value})"
+    end
+
+    # Test onto the initializer with ENV vars ON for the Votings::Census module
+    json_on = initializer_config_for(test_app, env_on, "Decidim::Votings::Census")
+    census_initializer_on.each do |key, value|
+      current = json_on[key]
+      expect(current).to eq(value), "Votings::Census Initializer (#{key}) = (#{current}) expected to match Env (#{value})"
     end
   end
 end
