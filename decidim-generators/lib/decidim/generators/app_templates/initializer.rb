@@ -410,7 +410,7 @@ if Decidim.module_installed? :elections
   Decidim::Votings.check_census_max_requests = Rails.application.secrets.dig(:elections, :votings, :check_census_max_requests).presence || 5
   Decidim::Votings.throttling_period = Rails.application.secrets.dig(:elections, :votings, :throttling_period).to_i.minutes
 
-  Decidim::Votings::Census.census_access_codes_export_expiry_time = Rails.application.secrets.dig(:elections, :votings, ,:census, :access_codes_export_expiry_time).to_i.days
+  Decidim::Votings::Census.census_access_codes_export_expiry_time = Rails.application.secrets.dig(:elections, :votings, :census, :access_codes_export_expiry_time).to_i.days
 end
 
 Rails.application.config.i18n.available_locales = Decidim.available_locales
