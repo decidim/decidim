@@ -56,14 +56,18 @@ module Decidim
     end
 
     def resource_types
-      @resource_types = %w(Decidim::Proposals::CollaborativeDraft
-                           Decidim::Comments::Comment
-                           Decidim::Debates::Debate
-                           Decidim::Initiative
-                           Decidim::Meetings::Meeting
-                           Decidim::Blogs::Post
-                           Decidim::Proposals::Proposal
-                           Decidim::Consultations::Question)
+      @resource_types = begin
+        array = %w(Decidim::Proposals::CollaborativeDraft
+                   Decidim::Comments::Comment
+                   Decidim::Debates::Debate
+                   Decidim::Initiative
+                   Decidim::Meetings::Meeting
+                   Decidim::Blogs::Post
+                   Decidim::Proposals::Proposal
+                   Decidim::Consultations::Question)
+        array << "Decidim::Budgets::Order" if own_activities?
+        array
+      end
     end
   end
 end
