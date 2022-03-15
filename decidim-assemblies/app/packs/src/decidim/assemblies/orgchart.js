@@ -2,9 +2,13 @@
 /* eslint dot-location: ["error", "property"], no-negated-condition: "error" */
 /* eslint no-unused-expressions: ["error", { "allowTernary": true }] */
 /* eslint no-unused-vars: 0 */
-/* global d3 */
 
-import * as d3 from "d3"
+import { select, selectAll, event } from "d3-selection";
+import { max } from "d3-array";
+import { hierarchy } from "d3-hierarchy";
+import { forceManyBody, forceCollide, forceCenter, forceX, forceY, forceSimulation, forceLink } from "d3-force";
+import { drag } from "d3-drag";
+import { json } from "d3-fetch";
 
 // lib
 const renderOrgCharts = () => {
@@ -53,11 +57,11 @@ const renderOrgCharts = () => {
     let updateData
     let collapse, expand
     let filter
-    let hierarchy = {}
+    let _hierarchy = {}
 
     // main chart object
-    let main = function (selection) {
-      selection.each(function scope() {
+    let main = function (_selection) {
+      _selection.each(function scope() {
 
         // calculated properties
         let calc = {}
@@ -67,12 +71,12 @@ const renderOrgCharts = () => {
         calc.chartHeight = attrs.svgHeight - attrs.marginBottom - calc.chartTopMargin
 
         // ########################## HIERARCHY STUFF  #########################
-        hierarchy.root = d3.hierarchy(attrs.data.root)
+        _hierarchy.root = hierarchy(attrs.data.root)
 
         // ###########################   BEHAVIORS #########################
         let behaviors = {}
-        // behaviors.zoom = d3.zoom().scaleExtent([0.75, 100, 8]).on("zoom", zoomed)
-        behaviors.drag = d3.drag().on("start", dragstarted).on("drag", dragged).on("end", dragended)
+        // behaviors.zoom = zoom().scaleExtent([0.75, 100, 8]).on("zoom", zoomed)
+        behaviors.drag = drag().on("start", dragstarted).on("drag", dragged).on("end", dragended)
 
         // ###########################   LAYOUTS #########################
         let layouts = {}
@@ -82,24 +86,24 @@ const renderOrgCharts = () => {
 
         // ###########################   FORCE STUFF #########################
         let force = {}
-        force.link = d3.forceLink().id((d) => d.id)
-        force.charge = d3.forceManyBody().strength(-240)
-        force.center = d3.forceCenter(calc.chartWidth / 2, calc.chartHeight / 2)
+        force.link = forceLink().id((d) => d.id)
+        force.charge = forceManyBody().strength(-240)
+        force.center = forceCenter(calc.chartWidth / 2, calc.chartHeight / 2)
 
         // prevent collide
-        force.collide = d3.forceCollide().radius((d) => {
+        force.collide = forceCollide().radius((d) => {
           // Creates an invented radius based on element measures: diagonal = 2 * radius = sqrt(width^2, height^2)
           let base = (d.bbox || {}).width + (attrs.nodeGutter.x * 2)
           let height = (d.bbox || {}).height + (attrs.nodeGutter.y * 2)
           let diagonal = Math.sqrt(Math.pow(base, 2) + Math.pow(height, 2))
           let fakeRadius = (diagonal / 2)
 
-          // return d3.max([attrs.nodeDistance * 3, fakeRadius])
+          // return max([attrs.nodeDistance * 3, fakeRadius])
           return fakeRadius * 1.5
         })
 
         // manually set x positions (which is calculated using custom radial layout)
-        force.x = d3.forceX()
+        force.x = forceX()
           .strength(0.5)
           .x(function (d) {
 
@@ -114,8 +118,8 @@ const renderOrgCharts = () => {
             return projectCircle(d.proportion, (d.depth - 1) * attrs.distance)[0]
           })
 
-        // manually set y positions (which is calculated using d3.cluster)
-        force.y = d3.forceY()
+        // manually set y positions (which is calculated using cluster)
+        force.y = forceY()
           .strength(0.5)
           .y(function (d) {
 
@@ -133,7 +137,7 @@ const renderOrgCharts = () => {
         // ---------------------------------  INITIALISE FORCE SIMULATION ----------------------------
 
         // get based on top parameter simulation
-        force.simulation = d3.forceSimulation()
+        force.simulation = forceSimulation()
           .force("link", force.link)
           .force("charge", force.charge)
           .force("center", force.center)
@@ -144,7 +148,7 @@ const renderOrgCharts = () => {
         // ###########################   HIERARCHY STUFF #########################
 
         // flatten root
-        let arr = flatten(hierarchy.root)
+        let arr = flatten(_hierarchy.root)
 
         // hide members based on their depth
         arr.forEach((d) => {
@@ -162,25 +166,25 @@ const renderOrgCharts = () => {
         // ####################################  DRAWINGS #######################
 
         // drawing containers
-        let container = d3.select(this)
+        let container = select(this)
 
         // add svg
-        let svg = container.patternify({ tag: "svg", selector: "svg-chart-container" })
+        let svg = patternify(container, { tag: "svg", selector: "svg-chart-container" })
           .attr("width", attrs.svgWidth)
           .attr("height", attrs.svgHeight)
           // .call(behaviors.zoom)
 
         // add container g element
-        let chart = svg.patternify({ tag: "g", selector: "chart" })
+        let chart = patternify(svg, { tag: "g", selector: "chart" })
           .attr("transform", `translate(${calc.chartLeftMargin},${calc.chartTopMargin})`)
 
         // ################################   Chart Content Drawing ##################################
 
         // link wrapper
-        let linksWrapper = chart.patternify({ tag: "g", selector: "links-wrapper" })
+        let linksWrapper = patternify(chart, { tag: "g", selector: "links-wrapper" })
 
         // node wrapper
-        let nodesWrapper = chart.patternify({ tag: "g", selector: "nodes-wrapper" })
+        let nodesWrapper = patternify(chart, { tag: "g", selector: "nodes-wrapper" })
         let links, nodes
 
         // reusable function which updates visual based on data change
@@ -193,14 +197,14 @@ const renderOrgCharts = () => {
           (clickedNode) ? $btnReset.removeClass("invisible") : $btnReset.addClass("invisible")
 
           // set xy and proportion properties with custom radial layout
-          layouts.radial(hierarchy.root)
+          layouts.radial(_hierarchy.root)
 
           // nodes and links array
-          let nodesArr = flatten(hierarchy.root, true)
+          let nodesArr = flatten(_hierarchy.root, true)
             .orderBy((d) => d.depth)
             .filter((d) => !d.hidden)
 
-          let linksArr = hierarchy.root.links()
+          let linksArr = _hierarchy.root.links()
             .filter((d) => !d.source.hidden)
             .filter((d) => !d.target.hidden)
 
@@ -273,7 +277,7 @@ const renderOrgCharts = () => {
             .attr("class", "as-text")
             .attr("dx", (d) => d.bbox.x + d.bbox.width + attrs.nodeGutter.x)
             .attr("dy", attrs.childrenIndicatorRadius + 3)
-            .text((d) => d3.max([(d.children || {}).length, (d._children || {}).length]))
+            .text((d) => max([(d.children || {}).length, (d._children || {}).length]))
 
           // merge  node groups and style it
           nodes = enteredNodes.merge(nodes)
@@ -290,7 +294,7 @@ const renderOrgCharts = () => {
         // zoom handler
         // function zoomed() {
         //   // get transform event
-        //   let transform = d3.event.transform
+        //   let transform = event.transform
         //   attrs.lastTransform = transform
         //
         //   // apply transform event props to the wrapper
@@ -329,8 +333,8 @@ const renderOrgCharts = () => {
         // handle dragging event
         function dragged(d) {
           // make dragged node fixed
-          d.fx = d3.event.x
-          d.fy = d3.event.y
+          d.fx = event.x
+          d.fy = event.y
         }
 
         // -------------------- handle drag end event ---------------
@@ -341,7 +345,7 @@ const renderOrgCharts = () => {
         // -------------------------- node mouse hover handler ---------------
         function nodeMouseEnter(d) {
           // get links
-          let _links = hierarchy.root.links()
+          let _links = _hierarchy.root.links()
 
           // get hovered node connected links
           let connectedLinks = _links.filter((l) => l.source.id === d.id || l.target.id === d.id)
@@ -437,7 +441,7 @@ const renderOrgCharts = () => {
         // }
 
         function freeNodes() {
-          d3.selectAll(".node").each((n) => {
+          selectAll(".node").each((n) => {
             n.fx = null
             n.fy = null
           })
@@ -506,18 +510,18 @@ const renderOrgCharts = () => {
     }
 
     // ----------- PROTOTYEPE FUNCTIONS  ----------------------
-    d3.selection.prototype.patternify = function (_params) {
+    function patternify(node, _params) {
       let selector = _params.selector
       let elementTag = _params.tag
       let _data = _params.data || [selector]
 
       // pattern in action
-      let selection = this.selectAll(`.${selector}`).data(_data)
-      selection.exit().remove()
-      selection = selection.enter().append(elementTag).merge(selection)
-      selection.attr("class", selector)
+      let _selection = node.selectAll(`.${selector}`).data(_data)
+      _selection.exit().remove()
+      _selection = _selection.enter().append(elementTag).merge(_selection)
+      _selection.attr("class", selector)
 
-      return selection
+      return _selection
     }
 
     // custom radial layout
@@ -526,8 +530,8 @@ const renderOrgCharts = () => {
 
         recurse(root, 0, 1)
 
-        function recurse(node, min, max) {
-          node.proportion = (max + min) / 2
+        function recurse(node, min, _max) {
+          node.proportion = (_max + min) / 2
           if (!node.x) {
 
             // if node has parent, match entered node positions to it's parent
@@ -549,7 +553,7 @@ const renderOrgCharts = () => {
 
           // recursively do the same for children
           if (node.children) {
-            let offset = (max - min) / node.children.length
+            let offset = (_max - min) / node.children.length
             node.children.forEach(function (child, i) {
               let newMin = min + (offset * i)
               let newMax = newMin + offset
@@ -623,7 +627,7 @@ const renderOrgCharts = () => {
 
     // run  visual
     main.run = function () {
-      d3.selectAll(attrs.container)
+      selectAll(attrs.container)
         .call(main)
       return main
     }
@@ -642,7 +646,7 @@ const renderOrgCharts = () => {
 
     main.reset = function () {
 
-      hierarchy.root.children.forEach((e) => collapse(e, true))
+      _hierarchy.root.children.forEach((e) => collapse(e, true))
       main.run()
 
       return main
@@ -658,7 +662,7 @@ const renderOrgCharts = () => {
     let width = $container.width()
     let height = width / (16 / 9)
 
-    d3.json($container.data("url")).then((data) => {
+    json($container.data("url")).then((data) => {
       // Make a fake previous node if the data entry is not hierarchical
       if (data instanceof Array) {
         fake = true
