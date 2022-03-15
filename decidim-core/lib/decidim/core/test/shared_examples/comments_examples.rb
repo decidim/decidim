@@ -203,6 +203,33 @@ shared_examples "comments" do
             end
           end
         end
+
+        it "let the emoji button works properly when there are not too much characters" do
+          if component.present?
+            component.update!(settings: { comments_max_length: 100 })
+            visit current_path
+
+            within ".add-comment form" do
+              find(:css, "textarea:enabled").set("toto")
+              expect(page).not_to have_selector(".emoji-picker__wrapper")
+              find("svg").click
+            end
+            expect(page).to have_selector(".emoji-picker__wrapper")
+          end
+        end
+
+        it "deactivate the emoji button when there are less than 4 characters left" do
+          if component.present?
+            component.update!(settings: { comments_max_length: 30 })
+            visit current_path
+
+            within ".add-comment form" do
+              find(:css, "textarea:enabled").set("0123456789012345678901234567")
+              find("svg").click
+              expect(page).not_to have_selector(".emoji-picker__wrapper")
+            end
+          end
+        end
       end
     end
 
