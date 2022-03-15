@@ -8,7 +8,7 @@ module Decidim
 
       attribute :body, Decidim::Attributes::CleanString
 
-      validates :body, presence: true
+      validates :body, presence: true, length: { maximum: Decidim.config.maximum_conversation_message_length }
     end
   end
 end

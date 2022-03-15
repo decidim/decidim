@@ -17,7 +17,7 @@ module Decidim
       private
 
       def resource_path
-        resource_locator([model.budget, model]).path(filter_link_params)
+        resource_locator([model.budget, model]).path
       end
 
       def resource_title
