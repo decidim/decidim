@@ -67,7 +67,7 @@ module Decidim
       end
 
       context "with --branch flag" do
-        let(:default_branch) { "upgrade/rails-6.1" }
+        let(:default_branch) { "develop" }
         let(:command) { "decidim --branch #{default_branch} #{test_app}" }
 
         it_behaves_like "a new production application"

@@ -252,7 +252,7 @@ module Decidim
         @gem_modifier ||= if options[:path]
                             %(path: "#{options[:path]}")
                           elsif branch.present?
-                            %(git: "https://github.com/tremend-cofe/decidim.git", branch: "#{branch}")
+                            %(git: "https://github.com/decidim/decidim.git", branch: "#{branch}")
                           else
                             %("#{Decidim::Generators.version}")
                           end
@@ -261,7 +261,7 @@ module Decidim
       def branch
         return if options[:path]
 
-        @branch ||= options[:edge] ? "upgrade/rails-6.1" : options[:branch].presence
+        @branch ||= options[:edge] ? "develop" : options[:branch].presence
       end
 
       def app_name
@@ -286,7 +286,7 @@ module Decidim
         root = if options[:path]
                  expanded_path
                elsif branch.present?
-                 "https://raw.githubusercontent.com/tremend-cofe/decidim/#{branch}/decidim-generators"
+                 "https://raw.githubusercontent.com/decidim/decidim/#{branch}/decidim-generators"
                else
                  root_path
                end
