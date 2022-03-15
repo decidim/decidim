@@ -11,7 +11,7 @@ describe Decidim::Admin::DashboardMetricChartsPresenter do
   let(:summary_highlighted_metrics) { %w(users proposals) }
   let(:summary_highlighted_count) { summary_highlighted_metrics.count }
 
-  let(:summary_not_highlighted_metrics) { %w(blocked_users user_reports reported_users comments meetings accepted_proposals results) }
+  let(:summary_not_highlighted_metrics) { %w(blocked_users user_reports reported_users comments accepted_proposals meetings results) }
   let(:summary_not_highlighted_count) { summary_not_highlighted_metrics.count }
 
   context "when not in summary mode" do

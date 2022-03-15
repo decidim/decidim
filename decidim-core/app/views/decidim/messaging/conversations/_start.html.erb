@@ -5,7 +5,7 @@
     <%= t(".title") %>
   </h2>
 
-  <%= form_for form, url: decidim.conversations_path, remote: true do |f| %>
+  <%= decidim_form_for form, url: decidim.conversations_path, remote: true do |f| %>
     <%= form_required_explanation %>
 
     <% @form.recipient.each do |recipient| %>
