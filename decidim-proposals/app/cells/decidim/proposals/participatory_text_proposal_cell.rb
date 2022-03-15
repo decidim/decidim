@@ -39,7 +39,7 @@ module Decidim
       end
 
       def resource_path
-        resource_locator(model).path(filter_link_params)
+        resource_locator(model).path
       end
 
       def amend_resource_path
