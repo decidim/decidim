@@ -189,12 +189,16 @@ export default class InputCharacterCounter {
     // deleting a character at 900 characters, the screen reader would announce
     // "1000 characters left" even when they only have 901 characters left.
     if (this.getInputDirection() === "del") {
-      // The first branch checks that if we are at the final threshold, we
+      // The first branch makes sure that if the SR length matches the actual
+      // length, it will be always announced.
+      if (srLength === currentLength) {
+        return srLength;
+      // The second branch checks that if we are at the final threshold, we
       // should not announce "0 characters left" when the user deletes more than
       // the "announce after every stroke" limit (this.announceEveryThreshold).
-      if (this.maxCharacters - srLength === this.announceThreshold) {
+      } else if (this.maxCharacters - srLength === this.announceThreshold) {
         return this.announcedAt || currentLength;
-      // The second branch checks that when deleting characters, we should
+      // The third branch checks that when deleting characters, we should
       // announce the next threshold to get accurate annoucement. E.g. when we
       // have 750 characters left and the user deletes 100 characters at once,
       // we should announce "700 characters left" after that deletion.
