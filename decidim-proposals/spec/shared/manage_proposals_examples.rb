@@ -371,6 +371,30 @@ shared_examples "manage proposals" do
         end
       end
 
+      it "can change a proposal to 'not answered'" do
+        proposal.update!(
+          state: "rejected",
+          answer: {
+            "en" => "I don't like it"
+          },
+          answered_at: Time.current
+        )
+
+        go_to_admin_proposal_page_answer_section(proposal)
+
+        within ".edit_proposal_answer" do
+          choose "Not answered"
+          click_button "Answer"
+        end
+
+        expect(page).to have_admin_callout("Proposal successfully answered")
+
+        within find("tr", text: proposal_title) do
+          take_screenshot
+          expect(page).to have_content("Not answered")
+        end
+      end
+
       it "can edit a proposal answer" do
         proposal.update!(
           state: "rejected",
