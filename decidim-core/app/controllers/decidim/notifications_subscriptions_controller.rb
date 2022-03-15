@@ -4,7 +4,7 @@ module Decidim
   # The controller to handle the subscriptions to push notifications
   class NotificationsSubscriptionsController < Decidim::ApplicationController
     def create
-      return unless current_user&.allow_push_notifications
+      return head :ok unless current_user&.allow_push_notifications
 
       Decidim::NotificationsSubscription.find_or_create_by(auth: params[:keys][:auth]) do |subscription|
         subscription.decidim_user_id = current_user.id
