@@ -2,9 +2,9 @@
   <div class="columns medium-7 mediumlarge-8">
     <% if !voting_finished? && (voted?) %>
       <div class="section">
-        <h3 class="section-heading">
+        <h2 class="section-heading">
           <%= t(:my_budgets, scope: i18n_scope) %>
-        </h3>
+        </h2>
 
         <%= render :voted %>
       </div>

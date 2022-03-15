@@ -1,16 +1,16 @@
 <div class="<%= card_class %> budget-list__item budget-list__item-cell">
   <div class="budget-list__text flex-horizontal">
     <%= link_to budget_path(budget), class: link_class do %>
-      <h5 class="card--list__heading">
+      <h3 class="card--list__heading">
         <%= translated_attribute(title) %>
-      </h5>
+      </h3>
     <% end %>
 
-    <h5>
+    <div class="heading5">
       <strong>
         <%= budget_to_currency(total_budget) %>
       </strong>
-    </h5>
+    </div>
 
     <%= decidim_sanitize html_truncate(translated_attribute(description), length: 140) %>
   </div>

@@ -87,5 +87,9 @@ module Decidim::Core
         end
       end
     end
+
+    it "loads engine mailer previews" do
+      expect(ActionMailer::Preview.all).to include(Decidim::DeviseMailerPreview)
+    end
   end
 end

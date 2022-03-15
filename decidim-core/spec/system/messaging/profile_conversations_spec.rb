@@ -104,31 +104,54 @@ describe "ProfileConversations", type: :system do
 
   context "when profile has conversations" do
     let(:interlocutor) { create(:user, :confirmed, organization: organization) }
-
+    let(:start_message) { "who wants apples?" }
     let!(:conversation) do
       Decidim::Messaging::Conversation.start!(
         originator: profile,
         interlocutors: [interlocutor],
-        body: "who wants apples?"
+        body: start_message
       )
     end
 
-    it "shows profile's conversation list" do
-      visit_profile_inbox
-
-      within "#conversations" do
-        expect(page).to have_selector(".card.card--widget", text: /#{interlocutor.name}/i)
-        expect(page).to have_selector(".card.card--widget", text: "who wants apples?")
-        expect(page).to have_selector(".card.card--widget", text: /Last message:(.+) ago/)
+    context "when visiting profile inbox" do
+      before do
+        visit_profile_inbox
       end
-    end
 
-    it "allows entering a conversation" do
-      visit_profile_inbox
-      click_link "conversation-#{conversation.id}"
+      it "shows profile's conversation list" do
+        within "#conversations" do
+          expect(page).to have_selector(".card.card--widget", text: /#{interlocutor.name}/i)
+          expect(page).to have_selector(".card.card--widget", text: "who wants apples?")
+          expect(page).to have_selector(".card.card--widget", text: /Last message:(.+) ago/)
+        end
+      end
 
-      expect(page).to have_content("Conversation with #{interlocutor.name}")
-      expect(page).to have_content("who wants apples?")
+      it "allows entering a conversation" do
+        visit_profile_inbox
+        click_link "conversation-#{conversation.id}"
+
+        expect(page).to have_content("Conversation with #{interlocutor.name}")
+        expect(page).to have_content("who wants apples?")
+      end
+
+      context "when viewing conversation" do
+        before do
+          find("#conversation-#{conversation.id}").click
+        end
+
+        it_behaves_like "conversation field with maximum length", "message_body"
+
+        describe "reply to conversation" do
+          let(:reply_message) { ::Faker::Lorem.sentence }
+
+          it "can reply to conversation" do
+            fill_in "message_body", with: reply_message
+            click_button "Send"
+            expect(page).to have_content(start_message)
+            expect(page).to have_content(reply_message)
+          end
+        end
+      end
     end
 
     context "and some of them are unread" do
