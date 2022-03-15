@@ -1019,6 +1019,7 @@ end
 
 def capture(path, cmd, env: {})
   Bundler.with_unbundled_env do
+    puts "EXEC #{cmd} with ENV #{env}"
     Decidim::GemManager.new(path).capture(cmd, env: env, with_stderr: false)[0]
   end
 end
