@@ -881,13 +881,13 @@ shared_examples_for "an application with extra configurable env vars" do
 
   let(:census_initializer_off) do
     {
-      "access_codes_export_expiry_time" => 172_800 # 2.days
+      "census_access_codes_export_expiry_time" => 172_800 # 2.days
     }
   end
 
   let(:census_initializer_on) do
     {
-      "access_codes_export_expiry_time" => 259_200 # 3.days
+      "census_access_codes_export_expiry_time" => 259_200 # 3.days
     }
   end
 
