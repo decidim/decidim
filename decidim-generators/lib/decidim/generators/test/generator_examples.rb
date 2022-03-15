@@ -420,9 +420,9 @@ shared_examples_for "an application with configurable env vars" do
       %w(elections scheme_name) => "an-elections-scheme-name",
       %w(elections number_of_trustees) => 345,
       %w(elections quorum) => 987,
-      %w(elections setup_minimum_hours_before_start) => 3,
-      %w(elections start_vote_maximum_hours_before_start) => 6,
-      %w(elections voter_token_expiration_minutes) => 120,
+      %w(elections setup_minimum_hours_before_start) => 4,
+      %w(elections start_vote_maximum_hours_before_start) => 7,
+      %w(elections voter_token_expiration_minutes) => 123,
       %w(elections votings check_census_max_requests) => 6,
       %w(elections votings throttling_period) => 2,
       %w(elections votings census access_codes_export_expiry_time) => 3
@@ -881,13 +881,13 @@ shared_examples_for "an application with extra configurable env vars" do
 
   let(:census_initializer_off) do
     {
-      "census access_codes_export_expiry_time" => 172_800 # 2.days
+      "access_codes_export_expiry_time" => 172_800 # 2.days
     }
   end
 
   let(:census_initializer_on) do
     {
-      "census access_codes_export_expiry_time" => 259_200 # 3.days
+      "access_codes_export_expiry_time" => 259_200 # 3.days
     }
   end
 
