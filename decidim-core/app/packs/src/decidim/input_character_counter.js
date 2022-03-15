@@ -3,6 +3,8 @@ const COUNT_KEY = "%count%";
 // if max characters is 1000, screen reader announces the remaining characters
 // every 100 (= 0.1 * 1000) characters.
 const SR_ANNOUNCE_THRESHOLD = 0.1;
+// The number of characters left after which every keystroke will be announced.
+const SR_ANNOUNCE_EVERY_THRESHOLD = 10;
 const DEFAULT_MESSAGES = {
   charactersAtLeast: {
     one: `at least ${COUNT_KEY} character`,
@@ -155,7 +157,7 @@ export default class InputCharacterCounter {
     const currentLength = this.getInputLength();
     if (this.maxCharacters < 1) {
       return currentLength;
-    } else if (this.maxCharacters - currentLength <= 10) {
+    } else if (this.maxCharacters - currentLength <= SR_ANNOUNCE_EVERY_THRESHOLD) {
       return currentLength;
     }
 
@@ -174,7 +176,7 @@ export default class InputCharacterCounter {
     if (this.getInputDirection() === "del") {
       // The first branch checks that if we are at the final threshold, we
       // should not announce "0 characters left" when the user deletes more than
-      // the "announce after every stroke" limit.
+      // the "announce after every stroke" limit (SR_ANNOUNCE_EVERY_THRESHOLD).
       if (this.maxCharacters - srLength === gap) {
         return this.announcedAt || currentLength;
       // The second branch checks that when deleting characters, we should
