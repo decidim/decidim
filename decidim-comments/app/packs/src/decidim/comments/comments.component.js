@@ -200,17 +200,33 @@ export default class CommentsComponent {
     this._stopPolling();
 
     this.pollTimeout = setTimeout(() => {
-      $.ajax({
-        url: this.commentsUrl,
+      // $.ajax({
+      //   url: this.commentsUrl,
+      //   method: "GET",
+      //   contentType: "application/javascript",
+      //   global: false,
+      //   data: {
+      //     "commentable_gid": this.commentableGid,
+      //     "root_depth": this.rootDepth,
+      //     order: this.order,
+      //     after: this.lastCommentId
+      //   }
+      // }).done(() => this._pollComments());
+
+      fetch(`${this.commentsUrl}?${new URLSearchParams({
+        "commentable_gid": this.commentableGid,
+        "root_depth": this.rootDepth,
+        "order": this.order,
+        "after": this.lastCommentId
+      })}`, {
         method: "GET",
-        contentType: "application/javascript",
-        data: {
-          "commentable_gid": this.commentableGid,
-          "root_depth": this.rootDepth,
-          order: this.order,
-          after: this.lastCommentId
+        headers: {
+          "Content-Type": "text/javascript"
         }
-      }).done(() => this._pollComments());
+      }).then((response) => response.text()).then((data) => {
+        eval(data);
+        this._pollComments();
+      });
     }, this.pollingInterval);
   }
 

@@ -15,6 +15,8 @@ module Decidim
 
       helper_method :root_depth, :commentable, :order, :reply?, :reload?
 
+      protect_from_forgery except: :index
+
       def index
         enforce_permission_to :read, :comment, commentable: commentable
 
