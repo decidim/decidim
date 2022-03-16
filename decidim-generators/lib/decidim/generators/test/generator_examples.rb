@@ -986,9 +986,9 @@ shared_examples_for "an application with cloud storage gems" do
       "AWS_REGION" => "eu-west-1",
       # "AWS_ENDPOINT" => "https://s3.amazonaws.com",
       "AWS_BUCKET" => "test",
-      "AZURE_CONTAINER" => "test",
       "AZURE_STORAGE_ACCOUNT_NAME" => "test",
-      "AZURE_STORAGE_ACCESS_KEY" => "dGVzdA==\n" # Base64 of "test"
+      "AZURE_STORAGE_ACCESS_KEY" => "dGVzdA==\n", # Base64 of "test"
+      "AZURE_CONTAINER" => "test"
     }
   end
 
