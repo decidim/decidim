@@ -2,8 +2,10 @@ const COUNT_KEY = "%count%";
 // How often SR announces the message in relation to maximum characters. E.g.
 // if max characters is 1000, screen reader announces the remaining characters
 // every 100 (= 0.1 * 1000) characters. This will be "floored" to the closest
-// 100 if the maximum characters > 100 or otherwise to closest 10. E.g. if max
-// characters is 5500, the threshold is 500 (= Math.floor(550 / 100) * 100).
+// 100 if the maximum characters > 100. E.g. if max characters is 5500, the
+// threshold is 500 (= Math.floor(550 / 100) * 100). With 100 or less
+// characters, this ratio is omitted and the announce threshold is always set to
+// 10.
 const SR_ANNOUNCE_THRESHOLD_RATIO = 0.1;
 // The number of characters left after which every keystroke will be announced.
 const SR_ANNOUNCE_EVERY_THRESHOLD = 10;
