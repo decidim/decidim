@@ -455,7 +455,7 @@ describe "Orders", type: :system do
               page.visit decidim.profile_activity_path(nickname: user.nickname)
               expect(page).to have_content(user.name)
               expect(page).to have_current_path "/profiles/#{user.nickname}/activity"
-              expect(page).not_to have_content("New vote at")
+              expect(page).not_to have_content("New budgeting vote at")
               expect(page).not_to have_link(translated(budget.title))
             end
           end
