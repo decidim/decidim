@@ -23,17 +23,13 @@ module Decidim
     end
 
     def activities
-      @activities ||= begin
+      @activities ||= paginate(
         if own_activities?
-          paginate(
-            OwnActivities.new(current_organization, **activity_options).query.with_private_resources
-          )
+          OwnActivities.new(current_organization, **activity_options).query.with_private_resources
         else
-          paginate(
-            PublicActivities.new(current_organization, **activity_options).query.with_all_resources
-          )
+          PublicActivities.new(current_organization, **activity_options).query.with_all_resources
         end
-      end
+      )
     end
 
     def activity_options

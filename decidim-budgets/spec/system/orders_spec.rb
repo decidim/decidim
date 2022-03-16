@@ -446,8 +446,8 @@ describe "Orders", type: :system do
 
             it "shows private-only activity log entry" do
               page.visit decidim.profile_activity_path(nickname: user.nickname)
-              expect(page).to have_content("New vote at #{budget.participatory_space.title["en"]}")
-              expect(page).to have_link(budget.title["en"], href: router.budget_path(budget))
+              expect(page).to have_content("New budgeting vote at #{translated(budget.participatory_space.title)}")
+              expect(page).to have_link(translated(budget.title), href: router.budget_path(budget))
             end
 
             it "does not show activity log entry to another user" do
@@ -456,7 +456,7 @@ describe "Orders", type: :system do
               expect(page).to have_content(user.name)
               expect(page).to have_current_path "/profiles/#{user.nickname}/activity"
               expect(page).not_to have_content("New vote at")
-              expect(page).not_to have_link(budget.title["en"])
+              expect(page).not_to have_link(translated(budget.title))
             end
           end
         end

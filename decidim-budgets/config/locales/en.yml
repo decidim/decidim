@@ -143,7 +143,7 @@ en:
         vote: Vote
         voted_on: You've voted on %{links}
       last_activity:
-        new_vote_at_html: "<span>New vote at %{link}</span>"
+        new_vote_at_html: "<span>New budgeting vote at %{link}</span>"
       limit_announcement:
         cant_vote: You can't vote on this budget. <a href="%{landing_path}">Try on another budget</a>.
         limit_reached: You have active votes in %{links}. To vote on this budget you must <a href="%{landing_path}">delete your vote and start over</a>.
