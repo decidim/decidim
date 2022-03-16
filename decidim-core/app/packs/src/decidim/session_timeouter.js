@@ -117,7 +117,7 @@ $(() => {
   });
 
   $(document).ajaxComplete((_event, _xhr, settings) => {
-    if (settings && settings.url === secondsUntilTimeoutPath) {
+    if (settings && (settings.url === secondsUntilTimeoutPath || settings.url.includes("/comments?commentable_gid="))) {
       return;
     }
     setTimer(timeoutInSeconds);
