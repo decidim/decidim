@@ -64,7 +64,7 @@ module Decidim
           result = block_given? ? yield : nil
           loggable_resource = resource.is_a?(Class) ? result : resource
           log(action, author, loggable_resource, extra_log_info)
-          return result
+          result
         end
       end
     end

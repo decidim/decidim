@@ -79,7 +79,7 @@ module Decidim::Proposals
 
         it "renders the first image in the card whatever the order between attachments" do
           expect(subject).to have_css(".card__image")
-          expect(subject.find(".card__image")[:src]).to eq(attachment_2_img.thumbnail_url)
+          expect(subject.find(".card__image")[:src]).to eq(attachment_2_img.reload.thumbnail_url)
         end
       end
     end
