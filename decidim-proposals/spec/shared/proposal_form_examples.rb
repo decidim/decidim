@@ -356,7 +356,7 @@ shared_examples "a proposal form with meeting as author" do |options|
   let(:body) { { en: "Everything would be better" } }
   let(:created_in_meeting) { true }
   let(:meeting_component) { create(:meeting_component, participatory_space: participatory_space) }
-  let(:author) { create(:meeting, component: meeting_component) }
+  let(:author) { create(:meeting, :published, component: meeting_component) }
   let!(:meeting_as_author) { author }
 
   let(:params) do
