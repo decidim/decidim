@@ -9,6 +9,13 @@ class RandomStalling < Devise::FailureApp
     sleep rand * 5
     super
   end
+
+  protected
+
+  def i18n_options(options)
+    options[:locale] = session[:user_locale]
+    options
+  end
 end
 
 Devise.setup do |config|
