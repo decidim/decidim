@@ -20,6 +20,7 @@ env:
   NODE_VERSION: 16.9.1
   DECIDIM_MODULE: decidim-generators
   PARALLEL_TEST_PROCESSORS: 2
+  DISABLE_SPRING: 1
 
 jobs:
   main:
