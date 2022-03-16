@@ -14,7 +14,7 @@ class RandomStalling < Devise::FailureApp
 
   def i18n_options(options)
     options[:locale] = session[:user_locale]
-    options
+    super
   end
 end
 
