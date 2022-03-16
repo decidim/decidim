@@ -74,7 +74,7 @@ Decidim.register_participatory_space(:participatory_processes) do |participatory
         hashtag: Faker::Internet.slug,
         group_url: Faker::Internet.url,
         organization: organization,
-        hero_image: ActiveStorage::Blob.create_after_upload!(
+        hero_image: ActiveStorage::Blob.create_and_upload!(
           io: File.open(File.join(seeds_root, "city.jpeg")),
           filename: "hero_image.jpeg",
           content_type: "image/jpeg",
@@ -125,13 +125,13 @@ Decidim.register_participatory_space(:participatory_processes) do |participatory
           Decidim::Faker::Localized.paragraph(sentence_count: 3)
         end,
         organization: organization,
-        hero_image: ActiveStorage::Blob.create_after_upload!(
+        hero_image: ActiveStorage::Blob.create_and_upload!(
           io: File.open(File.join(seeds_root, "city.jpeg")),
           filename: "hero_image.jpeg",
           content_type: "image/jpeg",
           metadata: nil
         ), # Keep after organization
-        banner_image: ActiveStorage::Blob.create_after_upload!(
+        banner_image: ActiveStorage::Blob.create_and_upload!(
           io: File.open(File.join(seeds_root, "city2.jpeg")),
           filename: "banner_image.jpeg",
           content_type: "image/jpeg",
@@ -209,7 +209,7 @@ Decidim.register_participatory_space(:participatory_processes) do |participatory
         attachment_collection: attachment_collection,
         content_type: "application/pdf",
         attached_to: process,
-        file: ActiveStorage::Blob.create_after_upload!(
+        file: ActiveStorage::Blob.create_and_upload!(
           io: File.open(File.join(seeds_root, "Exampledocument.pdf")),
           filename: "Exampledocument.pdf",
           content_type: "application/pdf",
@@ -222,7 +222,7 @@ Decidim.register_participatory_space(:participatory_processes) do |participatory
         description: Decidim::Faker::Localized.sentence(word_count: 5),
         attached_to: process,
         content_type: "image/jpeg",
-        file: ActiveStorage::Blob.create_after_upload!(
+        file: ActiveStorage::Blob.create_and_upload!(
           io: File.open(File.join(seeds_root, "city.jpeg")),
           filename: "city.jpeg",
           content_type: "image/jpeg",
@@ -235,7 +235,7 @@ Decidim.register_participatory_space(:participatory_processes) do |participatory
         description: Decidim::Faker::Localized.sentence(word_count: 5),
         attached_to: process,
         content_type: "application/pdf",
-        file: ActiveStorage::Blob.create_after_upload!(
+        file: ActiveStorage::Blob.create_and_upload!(
           io: File.open(File.join(seeds_root, "Exampledocument.pdf")),
           filename: "Exampledocument.pdf",
           content_type: "application/pdf",
