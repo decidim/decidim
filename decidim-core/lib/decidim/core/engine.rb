@@ -46,6 +46,7 @@ require "decidim/webpacker"
 require "decidim/api"
 require "decidim/middleware/strip_x_forwarded_host"
 require "decidim/middleware/current_organization"
+require "decidim/rectify_query_extension"
 
 module Decidim
   module Core
@@ -60,6 +61,14 @@ module Decidim
             helper Decidim::LayoutHelper if respond_to?(:helper)
           end
         end
+      end
+
+      initializer "decidim.action_mailer" do |app|
+        app.config.action_mailer.deliver_later_queue_name = :mailers
+      end
+
+      initializer "decidim.rectify_extension", after: "decidim.action_controller" do
+        ::Rectify::Query.include Decidim::RectifyQueryExtension
       end
 
       initializer "decidim.middleware" do |app|

@@ -50,6 +50,7 @@ describe Decidim::ContentBlocks::HeroCell, type: :cell do
 
   describe "#cache_hash" do
     it "generate a unique hash" do
+      content_block.reload
       old_hash = cell(content_block.cell, content_block).send(:cache_hash)
       content_block.reload
 

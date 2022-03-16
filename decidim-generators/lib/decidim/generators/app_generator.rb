@@ -197,12 +197,12 @@ module Decidim
         copy_file "initializer.rb", "config/initializers/decidim.rb"
 
         gsub_file "config/environments/production.rb",
-                  /config.log_level = :debug/,
-                  "config.log_level = %w(debug info warn error fatal).include?(ENV['RAILS_LOG_LEVEL']) ? ENV['RAILS_LOG_LEVEL'] : :debug"
+                  /config.log_level = :info/,
+                  "config.log_level = %w(debug info warn error fatal).include?(ENV['RAILS_LOG_LEVEL']) ? ENV['RAILS_LOG_LEVEL'] : :info"
 
         gsub_file "config/environments/production.rb",
-                  %r{# config.action_controller.asset_host = 'http://assets.example.com'},
-                  "config.action_controller.asset_host = ENV['RAILS_ASSET_HOST'] if ENV['RAILS_ASSET_HOST'].present?"
+                  %r{# config.asset_host = 'http://assets.example.com'},
+                  "config.asset_host = ENV['RAILS_ASSET_HOST'] if ENV['RAILS_ASSET_HOST'].present?"
 
         if options[:force_ssl] == "false"
           gsub_file "config/initializers/decidim.rb",
