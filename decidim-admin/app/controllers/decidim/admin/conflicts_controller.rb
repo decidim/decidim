@@ -5,8 +5,10 @@ module Decidim
     class ConflictsController < Decidim::Admin::ApplicationController
       layout "decidim/admin/users"
 
+      before_action :users_current_organization, only: :index
+
       def index
-        @conflicts = Decidim::Verifications::Conflict.all
+        @conflicts = Decidim::Verifications::Conflict.where(current_user: @organization_users)
       end
 
       def edit
@@ -40,6 +42,12 @@ module Decidim
             redirect_to decidim.root_path
           end
         end
+      end
+
+      private
+
+      def users_current_organization
+        @organization_users = Decidim::User.where(decidim_organization_id: current_organization.id).pluck(:id)
       end
     end
   end
