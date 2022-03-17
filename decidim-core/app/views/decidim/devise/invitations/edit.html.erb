@@ -21,7 +21,7 @@
 
             <div class="user-nickname">
               <div class="field">
-                <%= f.text_field :nickname, help_text: t("devise.invitations.edit.nickname_help", organization: current_organization.name), required: "required", prefix: { value: "@", small: 1, large: 1 } %>
+                <%= f.text_field :nickname, help_text: t("devise.invitations.edit.nickname_help", organization: current_organization.name), required: "required", prefix: { value: "@", small: 1, large: 1 }, autocomplete: "on" %>
               </div>
             </div>
 

@@ -18,18 +18,18 @@
 
             <div class="user-person">
               <div class="field">
-                <%= f.text_field :name, help_text: t(".username_help") %>
+                <%= f.text_field :name, help_text: t(".username_help"), autocomplete: "on" %>
               </div>
             </div>
 
             <div class="user-person">
               <div class="field">
-                <%= f.text_field :nickname, help_text: t(".nickname_help", organization: current_organization.name) %>
+                <%= f.text_field :nickname, help_text: t(".nickname_help", organization: current_organization.name), autocomplete: "on" %>
               </div>
             </div>
 
             <div class="field">
-              <%= f.email_field :email %>
+              <%= f.email_field :email, autocomplete: "on" %>
             </div>
 
             <%= f.hidden_field :uid %>

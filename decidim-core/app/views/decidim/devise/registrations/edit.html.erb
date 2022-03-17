@@ -6,7 +6,7 @@
   <%= invisible_captcha %>
 
   <div class="field">
-    <%= f.email_field :email %>
+    <%= f.email_field :email, autocomplete: "on" %>
   </div>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
@@ -28,7 +28,7 @@
   </div>
 
   <div class="field">
-    <%= f.text_field :name %>
+    <%= f.text_field :name, autocomplete: "on" %>
   </div>
 
   <div><%= f.submit t("devise.registrations.edit.update") %></div>
