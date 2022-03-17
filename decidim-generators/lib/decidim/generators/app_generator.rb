@@ -151,7 +151,7 @@ module Decidim
       end
 
       def tweak_spring
-        return unless spring_install?
+        return unless File.exist?("config/spring.rb")
 
         prepend_to_file "config/spring.rb", "require \"decidim/spring\"\n\n"
       end
