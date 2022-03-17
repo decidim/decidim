@@ -37,9 +37,7 @@ module Decidim
         def can_set_author
           return if author == current_user.organization
           return if author == current_user
-
           return if user_groups.include? author
-
           return if author == post&.author
 
           errors.add(:decidim_author_id, :invalid)
