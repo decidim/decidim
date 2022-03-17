@@ -36,7 +36,6 @@ require "doorkeeper-i18n"
 require "batch-loader"
 require "mime-types"
 require "diffy"
-require "social-share-button"
 require "ransack"
 require "webpacker"
 
