@@ -33,6 +33,7 @@ module Decidim
     helper Decidim::ViewHooksHelper
     helper Decidim::CardHelper
     helper Decidim::SanitizeHelper
+    helper Decidim::TwitterSearchHelper
 
     register_permissions(::Decidim::ApplicationController,
                          ::Decidim::Admin::Permissions,
