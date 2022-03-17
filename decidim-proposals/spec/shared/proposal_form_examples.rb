@@ -76,9 +76,9 @@ shared_examples "a proposal form" do |options|
     it "only adds errors to this field" do
       subject.valid?
       if options[:i18n]
-        expect(subject.errors.keys).to eq [:title_en]
+        expect(subject.errors.attribute_names).to eq [:title_en]
       else
-        expect(subject.errors.keys).to eq [:title]
+        expect(subject.errors.attribute_names).to eq [:title]
       end
     end
   end
