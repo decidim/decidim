@@ -55,7 +55,7 @@ module Decidim
       end
 
       def official?
-        author.nil?
+        author.is_a? Organization
       end
 
       def users_to_notify_on_comment_created
