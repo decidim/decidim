@@ -14,6 +14,7 @@ pin "lodash/defaultsDeep", to: "https://ga.jspm.io/npm:lodash@4.17.4/defaultsDee
 pin "diff", to: "https://ga.jspm.io/npm:diff@5.0.0/lib/index.mjs"
 
 pin "@rails/ujs", to: "https://ga.jspm.io/npm:@rails/ujs@6.0.0/lib/assets/compiled/rails-ujs.js"
+pin "@rails/activestorage", to: "https://ga.jspm.io/npm:@rails/activestorage@6.0.4/app/assets/javascripts/activestorage.js"
 
 pin "foundation-sites", to: "https://ga.jspm.io/npm:foundation-sites@6.7.4/dist/js/foundation.esm.js"
 
