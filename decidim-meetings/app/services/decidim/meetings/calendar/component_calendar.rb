@@ -12,7 +12,7 @@ module Decidim
         # Returns a String.
         def events
           Rails.cache.fetch(cache_key) do
-            meetings.map do |meeting|
+            filtered_meetings.map do |meeting|
               MeetingCalendar.new(meeting).events
             end.compact.join
           end
@@ -27,6 +27,13 @@ module Decidim
         # Returns a collection of Meetings.
         def meetings
           Decidim::Meetings::Meeting.where(component: component)
+        end
+
+        # Finds the component meetings.
+        #
+        # Returns a collection of Meetings filtered based on provided params.
+        def filtered_meetings
+          meetings.not_hidden.published.except_withdrawn.ransack(@filters).result
         end
 
         # Defines the cache key for the given component.

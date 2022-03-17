@@ -14,15 +14,16 @@ module Decidim
         # resource - a resource that has meetings.
         #
         # Returns a String.
-        def self.for(resource)
-          new(resource).calendar
+        def self.for(resource, filters = nil)
+          new(resource, filters).calendar
         end
 
         # Initializes the class.
         #
         # resource - a resource that has meetings.
-        def initialize(resource)
+        def initialize(resource, filters = nil)
           @resource = resource
+          @filters = filters
         end
 
         # Converts the resource meetings to the ICalendar format.

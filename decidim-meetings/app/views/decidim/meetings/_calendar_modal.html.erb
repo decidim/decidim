@@ -1,13 +1,29 @@
-<button class="button button--title share-link text-center calendar" data-open="calendarShare">
+<button class="button button--title share-link text-center calendar" data-open="calendarShare" aria-controls="calendarShare" aria-haspopup="dialog" tabindex="0">
   <%= t(".export_calendar") %>
   <%= icon "share", class: "icon--after", role: "img", "aria-hidden": true %>
 </button>
+
 <div class="reveal" id="calendarShare" data-reveal>
   <div class="reveal__header">
-    <h2 class="reveal__title"><%= t(".calendar_url") %>:</h2>
+    <h3 class="reveal__title"><%= t(".calendar_url") %>:</h3>
     <button class="close-button" data-close aria-label="<%= t(".close_window") %>" type="button">
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
-  <input type="text" value="<%= "#{path}" %>" readonly title="<%= t(".calendar_url") %>">
+
+  <%= t(".copy_calendar_url_description") %>
+
+  <div class="input-group calendar_url_input">
+    <input id="urlCalendarUrl" class="input-group-field" type="text" title="<%= t(".calendar_url") %>" value="<%= "#{path}" %>" readonly>
+    <div class="input-group-button">
+      <button class="button primary"
+              data-clipboard-copy="#urlCalendarUrl"
+              data-clipboard-copy-label="<%= t(".copy_calendar_url_copied") %>"
+              data-clipboard-copy-message="<%= t(".copy_calendar_url_message") %>"
+              aria-label="<%= t(".copy_calendar_url_clarification") %>">
+        <%= icon "clipboard", role: "img", "aria-hidden": true %>
+        <%= t(".copy_calendar_url") %>
+      </button>
+    </div>
+  </div>
 </div>
