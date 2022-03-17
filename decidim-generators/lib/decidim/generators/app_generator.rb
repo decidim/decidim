@@ -154,7 +154,7 @@ module Decidim
 
         gem_group :production do
           gem "aws-sdk-s3", require: false if providers.include?("s3")
-          gem "azure-storage", require: false if providers.include?("azure")
+          gem "azure-storage-blob", require: false if providers.include?("azure")
           gem "google-cloud-storage", "~> 1.11", require: false if providers.include?("gcs")
         end
       end

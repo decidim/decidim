@@ -997,7 +997,7 @@ shared_examples_for "an application with cloud storage gems" do
 
     expect(File.read("#{test_app}/Gemfile"))
       .to match(/gem ["']+aws-sdk-s3["']+/)
-      .and match(/gem ["']+azure-storage["']+/)
+      .and match(/gem ["']+azure-storage-blob["']+/)
       .and match(/gem ["']+google-cloud-storage["']+/)
 
     services.each do |service|
