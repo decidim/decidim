@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim
   module ParticipatoryProcesses
-    describe change_active_stepProcessesSteps do
+    describe AutomateProcessesSteps do
       describe "#change_active_step" do
         subject { described_class.new }
 
