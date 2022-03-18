@@ -315,7 +315,7 @@ ja:
         title: 参加型プロセス
     participatory_process:
       show:
-        related_assemblies: 関連する参加スペース
+        related_assemblies: 関連する参加型スペース
     participatory_process_groups:
       content_blocks:
         html_1:
