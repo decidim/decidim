@@ -1,4 +1,13 @@
 /*
+ *
+ * Social Share Button
+ *
+ * Copyright (c) <2012> <Jason Lee> - The MIT license
+ * Originally copied fom https://github.com/huacnlee/social-share-button
+ * Transformed from Coffescript to Javascipt with decaffeintate
+ *
+ * We've copied itlocally so it works with webpacker
+ *
  * decaffeinate suggestions:
  * DS102: Remove unnecessary code created because of implicit returns
  * DS205: Consider reworking code to avoid use of IIFEs
