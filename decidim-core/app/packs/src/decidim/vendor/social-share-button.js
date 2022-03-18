@@ -112,14 +112,14 @@ window.SocialShareButton = {
       break;
 
     case "tumblr": {
-      let getTumblrExtra = function(param) {
+      let getTumblrExtra = (param) => {
         const cutomData = el.getAttribute(`data-${param}`);
         if (cutomData) {
           return encodeURIComponent(cutomData);
         }
       };
 
-      let tumblrParams = function() {
+      let tumblrParams = () => {
         const path = getTumblrExtra("type") || "link";
 
         const params = (() => {
