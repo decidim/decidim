@@ -17,6 +17,7 @@
   <div class="row">
     <div class="columns medium-8 medium-offset-2">
       <%= form_with url: decidim_consultations.question_question_votes_path(question),
+                    local: false,
                     id: "confirm-vote-form" do |form| %>
         <%= form.hidden_field :decidim_consultations_response_id, id: "decidim_consultations_response_id" %>
         <%= form.submit t("questions.vote_modal_confirm.confirm", scope: "decidim"),

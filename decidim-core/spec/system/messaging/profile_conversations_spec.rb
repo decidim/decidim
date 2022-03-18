@@ -315,8 +315,25 @@ describe "ProfileConversations", type: :system do
           visit_profile_inbox
           expect(page).to have_content("New conversation")
           click_button "New conversation"
-          find("#add_conversation_users").fill_in with: "@#{interlocutor2.nickname.chars.first}"
+          find("#add_conversation_users").fill_in with: "@#{interlocutor2.nickname}"
           expect(page).to have_selector("#autoComplete_list_1 li.disabled", wait: 2)
+        end
+      end
+
+      context "when starting a new conversation" do
+        before do
+          visit_profile_inbox
+          click_button "New conversation"
+        end
+
+        it "has disabled submit button" do
+          expect(page).to have_button("Next", disabled: true)
+        end
+
+        it "enables submit button after selecting interlocutor" do
+          find("#add_conversation_users").fill_in with: "@#{interlocutor.nickname}"
+          find("#autoComplete_result_0").click
+          expect(page).to have_button("Next", disabled: false)
         end
       end
     end

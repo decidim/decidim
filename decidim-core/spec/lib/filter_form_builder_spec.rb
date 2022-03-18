@@ -5,7 +5,7 @@ require "nokogiri"
 
 module Decidim
   describe FilterFormBuilder do
-    let(:helper) { Class.new(ActionView::Base).new(ActionView::LookupContext.new(nil)) }
+    let(:helper) { Class.new(ActionView::Base).new(ActionView::LookupContext.new(ActionController::Base.view_paths), {}, []) }
     let(:categories) do
       create_list(:category, 3)
       Category.all

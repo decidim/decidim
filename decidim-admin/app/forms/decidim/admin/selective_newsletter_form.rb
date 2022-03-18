@@ -35,7 +35,7 @@ module Decidim
       def at_least_one_participatory_space_selected
         return if send_to_all_users && current_user.admin?
 
-        errors.add(:base, "Select atleast one participatory space") if spaces_selected.blank?
+        errors.add(:base, :at_least_one_space) if spaces_selected.blank?
       end
 
       def spaces_selected

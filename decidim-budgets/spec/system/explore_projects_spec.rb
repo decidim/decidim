@@ -76,6 +76,33 @@ describe "Explore projects", :slow, type: :system do
         end
       end
 
+      it "works with 'back to list' link" do
+        category = categories.first
+        project.category = category
+        project.save
+
+        visit_budget
+
+        within ".with_any_category_check_boxes_tree_filter" do
+          uncheck "All"
+          check translated(category.name)
+        end
+
+        within "#projects" do
+          expect(page).to have_css(".budget-list__item", count: 1)
+          expect(page).to have_content(translated(project.title))
+        end
+
+        page.find(".budget-list__item .card__link", match: :first).click
+        click_link "View all projects"
+
+        take_screenshot
+        within "#projects" do
+          expect(page).to have_css(".budget-list__item", count: 1)
+          expect(page).to have_content(translated(project.title))
+        end
+      end
+
       context "and votes are finished" do
         let!(:component) do
           create(:budgets_component,

@@ -27,7 +27,7 @@ describe Decidim::EditorImage do
       subject do
         build(
           :editor_image,
-          file: ActiveStorage::Blob.create_after_upload!(
+          file: ActiveStorage::Blob.create_and_upload!(
             io: File.open(Decidim::Dev.asset("malicious.jpg")),
             filename: "image.jpeg",
             content_type: "image/jpeg"

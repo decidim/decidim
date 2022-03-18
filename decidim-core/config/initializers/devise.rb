@@ -9,6 +9,13 @@ class RandomStalling < Devise::FailureApp
     sleep rand * 5
     super
   end
+
+  protected
+
+  def i18n_options(options)
+    options[:locale] = session[:user_locale]
+    super
+  end
 end
 
 Devise.setup do |config|
@@ -18,12 +25,6 @@ Devise.setup do |config|
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
   # config.secret_key = 'e1f4e9899fb5e8b3123950b19cd0f6d22ecaa8c7fb792b6db5a939edc2b3bab722d06a6a46345ee9bf12caa0178408d6134ea92ed778977b8a7ed1007a0c6dbe'
-
-  # ==> Mailer Configuration
-  # Configure the e-mail address which will be shown in Devise::Mailer,
-  # note that it will be overwritten if you use your own mailer class
-  # with default "from" parameter.
-  config.mailer_sender = Decidim.config.mailer_sender
 
   # Configure the class responsible to send e-mails.
   config.mailer = "Decidim::DecidimDeviseMailer"
@@ -174,14 +175,6 @@ Devise.setup do |config|
   # Default: true
   config.allow_insecure_sign_in_after_accept = true
 
-  # ==> Configuration for :confirmable
-  # A period that the user is allowed to access the website even without
-  # confirming their account. For instance, if set to 2.days, the user will be
-  # able to access the website for two days without confirming their account,
-  # access will be blocked just in the third day. Default is 0.days, meaning
-  # the user cannot access the website without confirming their account.
-  config.allow_unconfirmed_access_for = Decidim.unconfirmed_access_for
-
   # A period that the user is allowed to confirm their account before their
   # token becomes invalid. For example, if set to 3.days, the user can confirm
   # their account within 3 days after the mail was sent, but on the fourth day
@@ -221,11 +214,6 @@ Devise.setup do |config|
   # one (and only one) @ exists in the given string. This is mainly
   # to give user feedback and not to assert the e-mail validity.
   config.email_regexp = /\A[^@\s]+@[^@\s]+\z/
-
-  # ==> Configuration for :timeoutable
-  # The time you want to timeout the user session without activity. After this
-  # time the user will be asked for credentials again. Default is 30 minutes.
-  config.timeout_in = Decidim.config.expire_session_after
 
   # ==> Configuration for :lockable
   # Defines which strategy will be used to lock an account.

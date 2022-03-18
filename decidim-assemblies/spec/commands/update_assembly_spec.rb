@@ -110,7 +110,7 @@ module Decidim::Assemblies
         let(:attachment_params) do
           {
             banner_image: banner_image.blob,
-            hero_image: ActiveStorage::Blob.create_after_upload!(
+            hero_image: ActiveStorage::Blob.create_and_upload!(
               io: File.open(Decidim::Dev.asset("5000x5000.png")),
               filename: "5000x5000.png",
               content_type: "image/png"
