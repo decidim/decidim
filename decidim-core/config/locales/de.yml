@@ -76,6 +76,9 @@ de:
       decidim_with_day_and_month_name: "%A, %d. %b %Y"
       decidim_with_month_name: "%d %B %Y"
       decidim_with_month_name_short: "%d. %b"
+  datetime:
+    distance_in_words:
+      half_a_minute: eine halbe Minute
   decidim:
     accessibility:
       external_link: Externer Link
@@ -1616,6 +1619,7 @@ de:
     name: Deutsch
     name_with_error: Englisch (Fehler!)
   password_validator:
+    blacklisted: ist gesperrt
     domain_included_in_password: ist diesem Domainnamen zu ähnlich
     email_included_in_password: ist Ihrer E-Mail zu ähnlich
     fallback: ist ungültig
