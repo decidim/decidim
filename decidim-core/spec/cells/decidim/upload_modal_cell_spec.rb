@@ -44,7 +44,7 @@ describe Decidim::UploadModal, type: :cell do
   end
 
   it "renders the open button" do
-    expect(subject).to have_css(".add-file")
+    expect(subject).to have_css(".add-file[type='button']")
   end
 
   it "renders modal" do
