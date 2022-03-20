@@ -94,6 +94,8 @@ ar:
     admin:
       filters:
         proposals:
+          category_id_eq:
+            label: الفئة
           valuator_role_ids_has:
             label: تم إسناده إلى مُقيِّم
     components:
