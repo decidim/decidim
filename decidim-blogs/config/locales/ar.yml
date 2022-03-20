@@ -52,6 +52,7 @@ ar:
             title: عنوان
       posts:
         show:
+          comments: التعليقات
           view: رأي
         sidebar_blog:
           comments: تعليقات
@@ -59,6 +60,10 @@ ar:
       read_more: قراءة المزيد
     components:
       blogs:
+        actions:
+          create: إنشاء
+          destroy: حذف
+          update: تحديث
         name: مدونة
         settings:
           global:
@@ -74,3 +79,5 @@ ar:
           email_outro: لقد تلقيت هذا الإشعار لأنك تتابع "%{participatory_space_title}". يمكنك إلغاء تتبعه من الرابط السابق.
           email_subject: منشور جديد منشور في %{participatory_space_title}
           notification_title: تم نشر المنشور <a href="%{resource_path}">%{resource_title}</a> في %{participatory_space_title}
+    statistics:
+      posts_count: المنشورات
