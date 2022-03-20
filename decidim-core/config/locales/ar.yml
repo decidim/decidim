@@ -78,6 +78,11 @@ ar:
       decidim_with_month_name: "%d %B %Y"
       decidim_with_month_name_short: "%d %b"
   decidim:
+    accessibility:
+      external_link: الرابط الخارجي
+      front_page_link: انتقل إلى الصفحة الأولى
+      logo: "شعار %{organization} الرسمي"
+      skip_button: تخطي إلى المحتوى الرئيسي
     account:
       data_portability_export:
         file_no_exists: الملف غير موجود
@@ -227,11 +232,16 @@ ar:
           few: مستندات
           many: مستندات
           other: مستندات
+      document:
+        download: نزّل الملف
       documents:
         related_documents: الوثائق ذات الصلة
+      geocoding:
+        geocoded_address: العنوان
       photos:
         related_photos: الصور ذات الصلة
     author:
+      avatar: 'الصورة الرمزية: %{name}'
       comments:
         zero: تعليقات
         one: تعليق
@@ -278,6 +288,9 @@ ar:
           title: غير مخوّل
         unconfirmed:
           title: تأكيد البريد الإلكتروني
+    block_user_mailer:
+      notify:
+        hello: مرحبًا،
     collapsible_list:
       hidden_elements_count:
         zero: و %{count} أخرى
@@ -289,6 +302,9 @@ ar:
       see_less: "(انظر أقل)"
       see_more: "(شاهد المزيد)"
     components:
+      component_order_selector:
+        order:
+          question: سؤال
       dummy:
         actions:
           bar: شريط
@@ -313,10 +329,14 @@ ar:
             dummy_step_translatable_text: نص افتراضي للخطوة قابل للترجمة
     contact: اتصل
     content_blocks:
+      cta_settings_form:
+        description: الوصف
       footer_sub_hero:
         name: تذييل البطل الفرعي راية
       hero:
         name: صورة البطل
+      hero_settings_form:
+        welcome_text: نص الترحيب
       highlighted_content_banner:
         name: شعار المحتوى المميز
       how_to_participate:
@@ -579,6 +599,19 @@ ar:
           password: الكلمة السرية قصيرة جدا.
           password_confirmation: يجب أن يكون تأكيد كلمة المرور مطابق للكلمة السرية.
         error: يوجد خطأ في هذا المجال.
+      upload:
+        labels:
+          add_attachment: إضافة مرفق
+          add_file: إضافة ملف
+          add_image: إضافة صورة
+          cancel: إلغاء
+          edit_image: تعديل الصورة
+          error: خطأ!
+          remove: حذف
+          replace: إستبدال
+          save: حفظ
+          title: العنوان
+          title_required: العنوان مطلوب!
     gamification:
       all_badges_link: رؤية جميع الشارات المتاحة.
       badges:
@@ -753,6 +786,8 @@ ar:
           subject: لديك رسائل جديدة من %{sender}
       conversations:
         add_conversation_users:
+          add_users_placeholder: البحث…
+          modal_title: محادثة جديدة
           no_results: لا توجد نتائج
         create:
           error: لم تبدأ المحادثة. حاول مرة أخرى في وقت لاحق
@@ -970,6 +1005,7 @@ ar:
     shared:
       confirm_modal:
         cancel: إلغاء
+        title: تأكيد
       embed_modal:
         close_window: أغلق النافذة
         embed: يرجى لصق هذا الرمز في صفحتك
@@ -1010,11 +1046,21 @@ ar:
         share_link: مشاركة الرابط
     statistics:
       comments_count: تعليقات
+      headline: الإحصائيات
+      pages_count: صفحات
+      participants_count: المشاركون
+      users_count: المشاركون
     user_activity:
       index:
         no_activities_warning: هذا المشارك لم يقم بأي نشاط حتى الآن.
     user_conversations:
       index:
+        add_users_placeholder: البحث…
+        close: غلق
+        last_message: آخر رسالة
+        modal_title: محادثة جديدة
+        new_conversation: محادثة جديدة
+        next: التالي
         no_results: لا توجد نتائج
       update:
         error: لم يتم إرسال الرسالة. حاول مرة أخرى في وقت لاحق
@@ -1027,6 +1073,9 @@ ar:
       update:
         error: حدثت مشكلة أثناء تحديث اهتماماتك.
         success: اهتماماتك تم تحديثها بنجاح
+    version:
+      show:
+        back_to_resource: العودة
     version_author:
       show:
         deleted: مشارك محذوف
@@ -1217,13 +1266,16 @@ ar:
       edit_link:
         edit: تعديل
       footer:
+        decidim_logo: شعار Decidim
         download_open_data: تحميل ملفات البيانات المفتوحة
         made_with_open_source: موقع تم إنشاؤه <a target="_blank" href="https://github.com/decidim/decidim">بالبرمجيات الحرة</a>.
       header:
         close_menu: إغلاق القائمة
+        main_menu: القائمة الرئيسية
         navigation: التنقل
         sign_in: تسجيل الدخول
         sign_up: انشئ حسابًا
+        user_menu: قائمة المستخدم
       impersonation_warning:
         close_session: اغلق الموسم
         description_html: أنت تدير المشارك <b>%{user_name}</b>.
@@ -1232,6 +1284,10 @@ ar:
         choose_language: اختر اللغة
       notifications_dashboard:
         mark_all_as_read: اشر عليها بانها قرات
+      timeout_modal:
+        continue_session: متابعة الجلسة
+        sign_out: تسجيل الخروج
+        title: هل ترغب في متابعة جلستك؟
       user_menu:
         admin_dashboard: لوحة القيادة الادارية
         conversations: المحادثات
