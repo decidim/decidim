@@ -72,6 +72,10 @@ ar:
         other: التسجيلات
   decidim:
     admin:
+      filters:
+        meetings:
+          category_id_eq:
+            label: الفئة
       meeting_copies:
         create:
           error: كانت هناك مشكلة في تكرار هذا الاجتماع.
@@ -299,6 +303,9 @@ ar:
           value_types:
             organizer_presenter:
               not_found: 'لم يتم العثور على المنظم في قاعدة البيانات (المعرف: %{id})'
+      application_helper:
+        filter_category_values:
+          all: الكل
       calendar_modal:
         calendar_url: العنوان الشبكي للتقويم
         close_window: أغلق النافذة
@@ -333,6 +340,8 @@ ar:
           filter: منقي
           filter_by: مصنف بواسطة
           unfold: كشف
+        form:
+          select_a_category: يُرجى اختيار فئة
         meeting_minutes:
           related_information: معلومات ذات صله
         meetings:
