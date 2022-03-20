@@ -53,6 +53,8 @@ ar:
         import_results:
           new:
             import: استيراد
+            link: الرابط
+            title: استيراد النتائج من CSV
         models:
           result:
             name: نتيجة
@@ -124,7 +126,9 @@ ar:
             not_found: 'لم يتم العثور على الأصل في قاعدة البيانات (المعرف: %{id})'
       content_blocks:
         highlighted_results:
+          dates: التواريخ
           results: النتائج
+          unspecified: غير محدد
       import_mailer:
         import:
           errors: أخطاء
@@ -133,8 +137,12 @@ ar:
       models:
         result:
           fields:
+            category: الفئة
+            created_at: أنشئ
             end_date: تاريخ الانتهاء
+            id: المعرف ID
             progress: تقدم
+            scope: النطاق
             start_date: تاريخ البدء
             status: الحالة
             title: عنوان
@@ -189,6 +197,8 @@ ar:
             label: الفئة
     components:
       accountability:
+        actions:
+          comment: تعليق
         name: المسائلة
         settings:
           global:
