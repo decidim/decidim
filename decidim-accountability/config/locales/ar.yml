@@ -132,6 +132,7 @@ ar:
       import_mailer:
         import:
           errors: أخطاء
+          row_number: الصف
       last_activity:
         new_result_at_html: "<span>نتيجة جديدة في %{link}</span>"
       models:
@@ -225,7 +226,7 @@ ar:
           notification_title: النتيجة <a href="%{resource_path}">%{resource_title}</a>، التي تتضمن الاقتراح <a href="%{proposal_path}">%{proposal_title}</a>، اكتملت الآن بنسبة %{progress}٪.
     metrics:
       results:
-        description: عدد النتائج الناتجة
+        description: عدد النتائج التي تم إنشاؤها
         object: النتائج
         title: النتائج
     resource_links:
