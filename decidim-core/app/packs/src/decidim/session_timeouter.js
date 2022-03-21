@@ -82,7 +82,7 @@ $(() => {
     }
 
     const timeRemaining = Math.round((endsAt - moment()) / 1000);
-    console.log("timeRemaining", timeRemaining);
+    // console.log("timeRemaining", timeRemaining);
     if (timeRemaining > 150) {
       return;
     }
@@ -114,6 +114,7 @@ $(() => {
   // Devise restarts its own timer on ajax requests,
   // so here we restart our.
   $(document).on("ajax:complete", () => {
+    console.log("AJAX KOMPLETE");
     setTimer(timeoutInSeconds);
   });
 

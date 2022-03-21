@@ -211,7 +211,6 @@ export default class CommentsComponent {
           "Content-Type": "text/javascript"
         }
       }).then((response) => response.text()).then((data) => {
-        console.log("fetch data");
         eval(data);
         this._pollComments();
       });

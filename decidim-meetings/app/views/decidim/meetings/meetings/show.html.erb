@@ -166,6 +166,10 @@ edit_link(
       </div>
     <% end %>
 
+    <% if current_user && meeting.live? %>
+      <div class="timeout-prevention hide" data-meeting-seconds-left=<%= meeting.end_time - Time.current %>></div>
+    <% end %>
+
     <%= linked_resources_for meeting, :proposals, "proposals_from_meeting" %>
     <%= linked_resources_for meeting, :results, "meetings_through_proposals" %>
   </div>
@@ -175,3 +179,5 @@ edit_link(
 <%= pad_iframe_for meeting %>
 
 <%= cell("decidim/flag_modal", meeting) %>
+
+<%= javascript_pack_tag "decidim_meetings" %>
