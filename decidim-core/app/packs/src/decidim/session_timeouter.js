@@ -82,6 +82,7 @@ $(() => {
     }
 
     const timeRemaining = Math.round((endsAt - moment()) / 1000);
+    console.log("timeRemaining", timeRemaining);
     if (timeRemaining > 150) {
       return;
     }
@@ -117,9 +118,10 @@ $(() => {
   });
 
   $(document).ajaxComplete((_event, _xhr, settings) => {
-    if (settings && (settings.url === secondsUntilTimeoutPath || settings.url.includes("/comments?commentable_gid="))) {
+    if (settings && (settings.url === secondsUntilTimeoutPath)) {
       return;
     }
+    console.log("setTimer", settings.url);
     setTimer(timeoutInSeconds);
   });
 

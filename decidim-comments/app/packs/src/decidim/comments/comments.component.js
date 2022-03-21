@@ -200,19 +200,6 @@ export default class CommentsComponent {
     this._stopPolling();
 
     this.pollTimeout = setTimeout(() => {
-      // $.ajax({
-      //   url: this.commentsUrl,
-      //   method: "GET",
-      //   contentType: "application/javascript",
-      //   global: false,
-      //   data: {
-      //     "commentable_gid": this.commentableGid,
-      //     "root_depth": this.rootDepth,
-      //     order: this.order,
-      //     after: this.lastCommentId
-      //   }
-      // }).done(() => this._pollComments());
-
       fetch(`${this.commentsUrl}?${new URLSearchParams({
         "commentable_gid": this.commentableGid,
         "root_depth": this.rootDepth,
@@ -224,6 +211,7 @@ export default class CommentsComponent {
           "Content-Type": "text/javascript"
         }
       }).then((response) => response.text()).then((data) => {
+        console.log("fetch data");
         eval(data);
         this._pollComments();
       });
