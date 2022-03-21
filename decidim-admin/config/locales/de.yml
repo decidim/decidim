@@ -647,7 +647,7 @@ de:
         reports:
           index:
             author: Autor(en)
-            callout_html: Ein Inhalt erscheint im Moderations-Panel, wenn er von einem Benutzer signalisiert wurde (kann jeder mit einem registrierten Konto sein), indem er auf die %{icon} Flagge neben dem Element klickt.
+            callout_html: Ein Inhalt erscheint im Moderations-Panel, wenn er von einem Benutzer gemeldet wurde. Jeder Benutzer mit einem registrierten Konto kann Inhalte melden, indem er auf die %{icon} Flagge neben dem Element klickt.
             content_original_language: Originalsprache des Inhalts
             participatory_space: Beteiligungsbereich
             reported_content: Gemeldeter Inhalt
