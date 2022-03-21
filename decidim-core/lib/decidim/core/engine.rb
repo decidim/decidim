@@ -22,6 +22,7 @@ require "omniauth"
 require "omniauth-facebook"
 require "omniauth-twitter"
 require "omniauth-google-oauth2"
+require "omniauth/rails_csrf_protection"
 require "invisible_captcha"
 require "premailer/rails"
 require "premailer/adapter/decidim"
@@ -331,6 +332,7 @@ module Decidim
 
       initializer "Expire sessions" do
         Rails.application.config.session_store :cookie_store, secure: Decidim.config.force_ssl, expire_after: Decidim.config.expire_session_after
+        Rails.application.config.action_dispatch.cookies_same_site_protection = :lax
       end
 
       initializer "decidim.core.register_resources" do

@@ -190,7 +190,7 @@ describe "Admin views proposal details from admin", type: :system do
 
   context "with related meetings" do
     let(:meeting_component) { create :meeting_component, participatory_space: participatory_process }
-    let(:meeting) { create :meeting, component: meeting_component }
+    let(:meeting) { create :meeting, :published, component: meeting_component }
     let(:moderated_meeting) { create :meeting, component: meeting_component }
     let!(:moderation) { create(:moderation, reportable: moderated_meeting) }
 

@@ -13,6 +13,7 @@ window.morphdom = morphdom
 import "src/decidim/vendor/foundation-datepicker"
 import "src/decidim/foundation_datepicker_locales"
 import "src/decidim/vendor/modernizr"
+import "src/decidim/vendor/social-share-button"
 
 import "src/decidim/input_tags"
 import "src/decidim/input_hashtags"

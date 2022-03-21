@@ -44,6 +44,15 @@ module Decidim::Budgets
 
         subject.call
       end
+
+      it "creates activelog entry" do
+        expect(Decidim.traceability)
+          .to receive(:update!)
+          .with(order, order.user, { checked_out_at: be_within(10.seconds).of(Time.current) }, visibility: "private-only")
+          .and_call_original
+
+        subject.call
+      end
     end
 
     context "when the order is not present" do

@@ -150,6 +150,12 @@ module Decidim
         RUBY
       end
 
+      def tweak_spring
+        return unless File.exist?("config/spring.rb")
+
+        prepend_to_file "config/spring.rb", "require \"decidim/spring\"\n\n"
+      end
+
       def add_ignore_uploads
         append_file ".gitignore", "\n# Ignore public uploads\npublic/uploads" unless options["skip_git"]
       end
