@@ -6,7 +6,7 @@
   <%= invisible_captcha %>
 
   <div class="field">
-    <%= f.email_field :email, autocomplete: "on" %>
+    <%= f.email_field :email, autocomplete: "email" %>
   </div>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
@@ -16,19 +16,19 @@
   <% end %>
 
   <div class="field">
-    <%= f.password_field :password, autocomplete: "off" %>
+    <%= f.password_field :password, autocomplete: "new-password" %>
   </div>
 
   <div class="field">
-    <%= f.password_field :password_confirmation %>
+    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
 
   <div class="field">
-    <%= f.password_field :current_password %>
+    <%= f.password_field :current_password, autocomplete: "current-password" %>
   </div>
 
   <div class="field">
-    <%= f.text_field :name, autocomplete: "on" %>
+    <%= f.text_field :name, autocomplete: "name" %>
   </div>
 
   <div><%= f.submit t("devise.registrations.edit.update") %></div>

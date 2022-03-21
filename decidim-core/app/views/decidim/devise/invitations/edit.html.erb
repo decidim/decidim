@@ -21,17 +21,17 @@
 
             <div class="user-nickname">
               <div class="field">
-                <%= f.text_field :nickname, help_text: t("devise.invitations.edit.nickname_help", organization: current_organization.name), required: "required", prefix: { value: "@", small: 1, large: 1 }, autocomplete: "on" %>
+                <%= f.text_field :nickname, help_text: t("devise.invitations.edit.nickname_help", organization: current_organization.name), required: "required", prefix: { value: "@", small: 1, large: 1 }, autocomplete: "nickname" %>
               </div>
             </div>
 
             <% if f.object.class.require_password_on_accepting %>
               <div class="field">
-                <p><%= f.password_field :password, required: "required", minlength: ::Devise.password_length.min, maxlength: ::Devise.password_length.max %></p>
+                <p><%= f.password_field :password, required: "required", autocomplete: "new-password", minlength: ::Devise.password_length.min, maxlength: ::Devise.password_length.max %></p>
               </div>
 
               <div class="field">
-                <p><%= f.password_field :password_confirmation, required: "required", minlength: ::Devise.password_length.min, maxlength: ::Devise.password_length.max %></p>
+                <p><%= f.password_field :password_confirmation, required: "required", autocomplete: "new-password", minlength: ::Devise.password_length.min, maxlength: ::Devise.password_length.max %></p>
               </div>
             <% end %>
           </div>
