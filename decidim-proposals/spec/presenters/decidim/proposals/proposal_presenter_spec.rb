@@ -15,7 +15,7 @@ module Decidim
           And a malicous <a href="javascript:document.cookies">click me</a>
         EOCONTENT
         let(:result) { <<~EORESULT }
-          Content with URLs of anchor type and text urls like <a href="https://decidim.org" target="_blank" rel="nofollow noopener">https://decidim.org</a>.
+          Content with URLs of anchor type and text urls like <a href="https://decidim.org" target="_blank" rel="nofollow noopener noreferrer ugc">https://decidim.org</a>.
           And a malicous click me
         EORESULT
 
