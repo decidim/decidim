@@ -10,7 +10,7 @@ FactoryBot.define do
     organization
     # Keep banner_image after organization
     banner_image do
-      ActiveStorage::Blob.create_after_upload!(
+      ActiveStorage::Blob.create_and_upload!(
         io: File.open(Decidim::Dev.test_file("city2.jpeg", "image/jpeg")),
         filename: "city2.jpeg",
         content_type: "image/jpeg"

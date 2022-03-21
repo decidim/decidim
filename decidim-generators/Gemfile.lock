@@ -856,7 +856,7 @@ DEPENDENCIES
   puma (>= 5.0.0)
   spring (~> 2.0)
   spring-watcher-listen (~> 2.0)
-  web-console (~> 4.0)
+  web-console (~> 4.2)
   wicked_pdf (~> 2.1)
 
 RUBY VERSION

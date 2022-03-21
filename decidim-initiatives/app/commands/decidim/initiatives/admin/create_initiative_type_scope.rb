@@ -26,8 +26,8 @@ module Decidim
           if initiative_type_scope.persisted?
             broadcast(:ok, initiative_type_scope)
           else
-            initiative_type_scope.errors.each do |attribute, error|
-              form.errors.add(attribute, error)
+            initiative_type_scope.errors.each do |error|
+              form.errors.add(error.attribute, error.message)
             end
 
             broadcast(:invalid)
