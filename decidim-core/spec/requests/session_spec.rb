@@ -3,8 +3,6 @@
 require "spec_helper"
 
 RSpec.describe "Session", type: :request do
-  include Decidim::ComponentPathHelper
-
   subject { response.body }
 
   let(:request_path) { Decidim::Core::Engine.routes.url_helpers.user_session_path }
