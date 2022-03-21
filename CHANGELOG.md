@@ -120,7 +120,6 @@ Ransack provides a search API that produces the search queries semi-automaticall
 
 More information on using Ransack can be found from the [Ransack documentation](https://github.com/activerecord-hackery/ransack). You can find examples for filtering in the core filtering views and controllers.
 
-
 ### Fixed
 
 ### Removed
