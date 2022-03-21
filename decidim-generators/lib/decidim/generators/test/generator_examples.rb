@@ -47,7 +47,7 @@ shared_examples_for "a new development application" do
   end
 end
 
-shared_context "application env vars" do
+shared_context "with application env vars" do
   # ensure that empty env behave like non-defined envs
   let(:env_off) do
     {
@@ -237,7 +237,7 @@ shared_context "application env vars" do
 end
 
 shared_examples_for "an application with configurable env vars" do
-  include_context "application env vars"
+  include_context "with application env vars"
 
   let(:secrets_off) do
     {
@@ -803,7 +803,7 @@ shared_examples_for "an application with configurable env vars" do
 end
 
 shared_examples_for "an application with extra configurable env vars" do
-  include_context "application env vars"
+  include_context "with application env vars"
 
   let(:consultations_initializer_off) do
     {
@@ -893,6 +893,7 @@ shared_examples_for "an application with extra configurable env vars" do
     }
   end
 
+  # rubocop:disable RSpec/ExampleLength
   it "env vars generate secrets application" do
     expect(result[1]).to be_success, result[0]
 
@@ -966,6 +967,7 @@ shared_examples_for "an application with extra configurable env vars" do
       expect(current).to eq(value), "Votings::Census Initializer (#{key}) = (#{current}) expected to match Env (#{value})"
     end
   end
+  # rubocop:enable RSpec/ExampleLength
 end
 
 shared_examples_for "an application with wrong cloud storage options" do
@@ -1004,6 +1006,43 @@ shared_examples_for "an application with cloud storage gems" do
       current = rails_value("Rails.application.config.active_storage.service", test_app, storage_envs.merge({ "STORAGE_PROVIDER" => service }))
       expect(current).to eq(service), "Rails storage service (#{current}) expected to match provider (#{service})"
     end
+  end
+end
+
+shared_examples_for "an application with storage and queue gems" do
+  let(:queue_envs_off) do
+    {
+      "RAILS_ENV" => "production"
+    }
+  end
+  let(:queue_envs_on) do
+    {
+      "RAILS_ENV" => "production",
+      "QUEUE_ADAPTER" => "sidekiq",
+      "SIDEKIQ_CONCURRENCY" => "11"
+    }
+  end
+
+  it "includes storage and queue gems in the Gemfile" do
+    expect(result[1]).to be_success, result[0]
+
+    expect(File.read("#{test_app}/Gemfile"))
+      .to match(/gem ["']+aws-sdk-s3["']+/)
+      .and match(/gem ["']+sidekiq["']+/)
+
+    current = rails_value("Rails.application.config.active_job.queue_adapter", test_app, queue_envs_off)
+    expect(current).to eq("async"), "sidekiq queue (#{current}) expected to be async"
+
+    current = rails_value("Rails.application.config.active_job.queue_adapter", test_app, queue_envs_on)
+    expect(current).to eq("sidekiq"), "sidekiq queue (#{current}) expected to be sidekiq"
+    current = rails_value("YAML.load(ERB.new(IO.read(\"config/sidekiq.yml\")).result)", test_app, queue_envs_off)
+    expect(current["concurrency"]).to eq(5), "sidekiq concurrency (#{current["concurrency"]}) expected to eq 5"
+
+    current = rails_value("YAML.load(ERB.new(IO.read(\"config/sidekiq.yml\")).result)", test_app, queue_envs_on)
+    expect(current["concurrency"]).to eq(11), "sidekiq concurrency (#{current["concurrency"]}) expected to eq 11"
+
+    queues = %w(mailers vote_reminder reminders default newsletter newsletters_opt_in conference_diplomas events translations user_report block_user metrics exports)
+    expect(current["queues"].flatten).to include(*queues), "sidekiq queues (#{current["queues"].flatten}) expected to eq containt (#{queues})"
   end
 end
 

@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+# rubocop:disable Layout/LineLength
+# rubocop:disable Style/SoleNestedConditional
 Decidim.configure do |config|
   # The name of the application
   config.application_name = Rails.application.secrets.decidim[:application_name]
@@ -418,3 +420,5 @@ Rails.application.config.i18n.default_locale = Decidim.default_locale
 
 # Inform Decidim about the assets folder
 Decidim.register_assets_path File.expand_path("app/packs", Rails.application.root)
+# rubocop:enable Layout/LineLength
+# rubocop:enable Style/SoleNestedConditional

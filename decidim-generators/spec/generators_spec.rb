@@ -103,6 +103,12 @@ module Decidim
 
         it_behaves_like "an application with cloud storage gems"
       end
+
+      context "with --queue providers" do
+        let(:command) { "decidim #{test_app} --storage s3 --queue sidekiq" }
+
+        it_behaves_like "an application with storage and queue gems"
+      end
     end
 
     context "with a component" do

@@ -81,6 +81,10 @@ module Decidim
                              default: "local",
                              desc: "Setup the Gemfile with the appropiate gem to handle a storage provider. Supported options are: local (default), s3, gcs, azure"
 
+      class_option :queue, type: :string,
+                           default: "",
+                           desc: "Setup the Gemfile with the appropiate gem to handle a queue adapter provider. Supported options are: (empty, does nothing) and sidekiq"
+
       class_option :skip_webpack_install, type: :boolean,
                                           default: true,
                                           desc: "Don't run Webpack install"
@@ -150,16 +154,41 @@ module Decidim
                   /config.active_storage.service = :local/,
                   "config.active_storage.service = Rails.application.secrets.dig(:storage, :provider) || :local"
 
-        return if options[:skip_gemfile]
-
-        gem_group :production do
+        add_production_gems do
           gem "aws-sdk-s3", require: false if providers.include?("s3")
           gem "azure-storage-blob", require: false if providers.include?("azure")
           gem "google-cloud-storage", "~> 1.11", require: false if providers.include?("gcs")
         end
       end
 
+      def add_queue_adapter
+        adapter = options[:queue]
+
+        abort("#{adapter} is not supported as a queue adapter, please use sidekiq for the moment") unless adapter.in?(["", "sidekiq"])
+
+        return unless adapter == "sidekiq"
+
+        template "sidekiq.yml.erb", "config/sidekiq.yml", force: true
+
+        gsub_file "config/environments/production.rb",
+                  /# config.active_job.queue_adapter     = :resque/,
+                  "config.active_job.queue_adapter = ENV['QUEUE_ADAPTER'] if ENV['QUEUE_ADAPTER'].present?"
+
+        prepend_file "config/routes.rb", "require \"sidekiq/web\"\n\n"
+        route <<~RUBY
+          authenticate :user, ->(u) { u.admin? } do
+            mount Sidekiq::Web => "/sidekiq"
+          end      
+        RUBY
+
+        add_production_gems do
+          gem "sidekiq"
+        end
+      end
+
       def bundle_install
+        add_production_gems
+
         return if options[:skip_gemfile]
         return if options[:skip_bundle]
 
@@ -296,12 +325,25 @@ module Decidim
       def branch
         return if options[:path]
 
-        return "feat/env-vars-for-services" # TODO: remove before merge
-        @branch ||= options[:edge] ? "develop" : options[:branch].presence
+        "feat/env-vars-for-services" # TODO: remove before merge
+        # @branch ||= options[:edge] ? "develop" : options[:branch].presence
       end
 
       def repository
         @repository ||= options[:repository] || "https://github.com/decidim/decidim.git"
+      end
+
+      def add_production_gems(&block)
+        return if options[:skip_gemfile]
+
+        if block
+          @production_gems ||= []
+          @production_gems << block
+        elsif @production_gems.present?
+          gem_group :production do
+            @production_gems.map(&:call)
+          end
+        end
       end
 
       def app_name

@@ -165,8 +165,9 @@ module Decidim
 
         copy_file "bullet_initializer.rb", "config/initializers/bullet.rb"
         copy_file "rack_profiler_initializer.rb", "config/initializers/rack_profiler.rb"
-
-        run "bundle install"
+        Bundler.with_unbundled_env do
+          run "bundle install"
+        end
       end
 
       private
@@ -184,12 +185,16 @@ module Decidim
 
       # Runs rails commands in a subprocess, and aborts if it doesn't suceeed
       def rails(*args)
-        abort unless system("bin/rails", *args)
+        Bundler.with_unbundled_env do
+          abort unless system("bin/rails", *args)
+        end
       end
 
       # Runs rails commands in a subprocess silencing errors, and ignores status
       def soft_rails(*args)
-        system("bin/rails", *args, err: File::NULL)
+        Bundler.with_unbundled_env do
+          system("bin/rails", *args, err: File::NULL)
+        end
       end
 
       def cut(text, strip: true)
