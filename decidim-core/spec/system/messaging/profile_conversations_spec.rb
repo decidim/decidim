@@ -321,6 +321,23 @@ describe "ProfileConversations", type: :system do
           expect(page).to have_selector(".tribute-container .disabled-tribute-element")
         end
       end
+
+      context "when starting a new conversation" do
+        before do
+          visit_profile_inbox
+          click_button "New conversation"
+        end
+
+        it "has disabled submit button" do
+          expect(page).to have_button("Next", disabled: true)
+        end
+
+        it "enables submit button after selecting interlocutor" do
+          find("#add_conversation_users").fill_in with: "@#{interlocutor.nickname}"
+          find(".tribute-item.User").click
+          expect(page).to have_button("Next", disabled: false)
+        end
+      end
     end
   end
 

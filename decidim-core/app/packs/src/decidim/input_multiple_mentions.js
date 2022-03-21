@@ -1,6 +1,20 @@
 /* eslint no-unused-vars: 0 */
 import Tribute from "src/decidim/vendor/tribute"
 
+const updateSubmitButton = ($fieldContainer, $selectedItems) => {
+  const $form = $fieldContainer.closest("form");
+  if ($form.length < 1) {
+    return;
+  }
+
+  const $submitButton = $form.find("button[type='submit']");
+  if ($selectedItems.children().length === 0) {
+    $submitButton.prop("disabled", true);
+  } else {
+    $submitButton.prop("disabled", false);
+  }
+}
+
 $(() => {
   const $multipleMentionContainer = $(".js-multiple-mentions");
   const $multipleMentionRecipientsContainer = $(".js-multiple-mentions-recipients");
@@ -113,6 +127,7 @@ $(() => {
         $(this).find("div").attr("tabIndex", 0).attr("aria-controls", 0).attr("aria-label", "Close").attr("role", "tab");
       });
 
+      updateSubmitButton($multipleMentionContainer, $multipleMentionRecipientsContainer);
       // Clean input
       return "";
     },
@@ -137,6 +152,8 @@ $(() => {
   });
 
   let setupEvents = function($element) {
+    updateSubmitButton($multipleMentionContainer, $multipleMentionRecipientsContainer);
+
     // DOM manipulation
     $element.on("focusin", (event) => {
       // Set the parent container relative to the current element
@@ -172,6 +189,7 @@ $(() => {
       let $target = event.target.parentNode;
       if ($target.tagName === "LABEL") {
         deleteRecipient($target);
+        updateSubmitButton($multipleMentionContainer, $multipleMentionRecipientsContainer);
       }
     });
     // Allow delete with keypress on element in recipients list
@@ -179,6 +197,7 @@ $(() => {
       let $target = event.target.parentNode;
       if ($target.tagName === "LABEL") {
         deleteRecipient($target);
+        updateSubmitButton($multipleMentionContainer, $multipleMentionRecipientsContainer);
       }
     });
   };
