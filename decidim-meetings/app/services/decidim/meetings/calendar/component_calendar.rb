@@ -11,11 +11,9 @@ module Decidim
         #
         # Returns a String.
         def events
-          Rails.cache.fetch(cache_key) do
-            filtered_meetings.map do |meeting|
-              MeetingCalendar.new(meeting).events
-            end.compact.join
-          end
+          filtered_meetings.map do |meeting|
+            MeetingCalendar.new(meeting).events
+          end.compact.join
         end
 
         private
