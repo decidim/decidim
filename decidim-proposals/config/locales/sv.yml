@@ -538,7 +538,7 @@ sv:
         evaluating: Utvärderas
         not_answered: Ej besvarat
         rejected: Avvisat
-        withdrawn: Tillbakadragna
+        withdrawn: Tillbakadraget
       application_helper:
         filter_category_values:
           all: Alla
@@ -820,7 +820,7 @@ sv:
           read_more: Läs mer
           report: Rapport
           withdraw_btn_hint: Du kan dra tillbaka ett förslag om du ändrar dig, så länge som det inte har fått något stöd. Förslaget raderas inte utan kommer att visas i listan över förslag som dragits tillbaka.
-          withdraw_confirmation_html: Är du säker på att du vill återkalla förslaget?<br><br><strong>Denna åtgärd kan inte avbrytas!</strong>
+          withdraw_confirmation_html: Är du säker på att du vill dra tillbaka förslaget?<br><br><strong>Denna åtgärd kan inte ångras!</strong>
           withdraw_proposal: Dra tillbaka förslaget
         tags:
           changed_from: "(ändrad från <u>%{previous_name}</u> av en administratör)"
