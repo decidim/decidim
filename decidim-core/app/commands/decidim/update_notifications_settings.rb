@@ -29,7 +29,7 @@ module Decidim
       @user.notification_types = @form.notification_types
       @user.direct_message_types = @form.direct_message_types
       @user.email_on_moderations = @form.email_on_moderations
-      @user.component_notification_settings = @form.component_notification_settings
+      @user.notification_settings = @form.notification_settings
     end
   end
 end

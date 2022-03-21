@@ -13,7 +13,7 @@ module Decidim
         email_on_moderations: true,
         newsletter_notifications_at: Time.current,
         direct_message_types: "followed-only",
-        component_notification_settings: { "close_meeting_reminder": "0" }
+        notification_settings: { "close_meeting_reminder": "0" }
       }
     end
 
@@ -24,7 +24,7 @@ module Decidim
         email_on_moderations: data[:email_on_moderations],
         newsletter_notifications_at: data[:newsletter_notifications_at],
         direct_message_types: data[:direct_message_types],
-        component_notification_settings: data[:component_notification_settings],
+        notification_settings: data[:notification_settings],
         valid?: valid
       )
     end
@@ -47,7 +47,7 @@ module Decidim
         expect(user.newsletter_notifications_at).not_to be_nil
         expect(user.notification_types).to eq "none"
         expect(user.direct_message_types).to eq "followed-only"
-        expect(user.component_notification_settings["close_meeting_reminder"]).to eq "0"
+        expect(user.notification_settings["close_meeting_reminder"]).to eq "0"
       end
     end
   end

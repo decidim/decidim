@@ -5,7 +5,7 @@ module Decidim
   #
   # This manifest is a simple object that holds and stores current attributes
   # and their specific validators
-  class ComponentNotificationSettingManifest
+  class NotificationSettingManifest
     include ActiveModel::Model
     include Decidim::AttributeObject::Model
 

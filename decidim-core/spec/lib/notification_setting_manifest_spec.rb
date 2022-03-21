@@ -3,7 +3,7 @@
 require "spec_helper"
 
 module Decidim
-  describe ComponentNotificationSettingManifest do
+  describe NotificationSettingManifest do
     subject { described_class.new }
 
     context "when all the values are correct" do

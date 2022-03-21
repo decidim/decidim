@@ -114,8 +114,8 @@ module Decidim
         Decidim.register_assets_path File.expand_path("app/packs", root)
       end
 
-      initializer "decidim_meetings.component_notification_settings" do
-        Decidim.component_notification_settings(:close_meeting_reminder) { |ns| ns.settings_area = :administrators }
+      initializer "decidim_meetings.notification_settings" do
+        Decidim.notification_settings(:close_meeting_reminder) { |ns| ns.settings_area = :administrators }
       end
 
       initializer "decidim_meetings.register_reminders" do
