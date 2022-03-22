@@ -22,6 +22,7 @@ fi:
       user:
         about: Profiilikuvaus
         email: Sähköpostiosoitteesi
+        locale: Kieli
         name: Nimesi
         nickname: Nimimerkki
         password: Salasana
@@ -389,6 +390,7 @@ fi:
           debate: Keskustelu
           initiative: Aloite
           meeting: Tapaaminen
+          order: Budjetointiääni
           post: Artikkeli
           proposal: Ehdotus
           question: Kysymys
@@ -763,6 +765,21 @@ fi:
       file_validation:
         allowed_file_extensions: 'Sallitut tiedostopäätteet: %{extensions}'
         max_file_size: 'Tiedoston koon rajoitus: %{megabytes}Mt'
+      upload:
+        labels:
+          add_attachment: Lisää liite
+          add_file: Lisää tiedosto
+          add_image: Lisää kuva
+          cancel: Peruuta
+          edit_image: Muokkaa kuvaa
+          error: Virhe!
+          file_too_big: 'Tiedosto on liian suuri! Suurin tiedostokoko: %{megabytes}MB'
+          remove: Poista
+          replace: Korvaa
+          save: Tallenna
+          title: Tiedosto-otsikko
+          title_required: Tiedosto-otsikko tarvitaan!
+          uploaded: Ladattu
     gamification:
       all_badges_link: Kaikki saatavilla olevat kunniamerkit.
       badges:
