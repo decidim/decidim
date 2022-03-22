@@ -200,20 +200,20 @@ export default class CommentsComponent {
     this._stopPolling();
 
     this.pollTimeout = setTimeout(() => {
-      fetch(`${this.commentsUrl}?${new URLSearchParams({
-        "commentable_gid": this.commentableGid,
-        "root_depth": this.rootDepth,
-        "order": this.order,
-        "after": this.lastCommentId
-      })}`, {
-        method: "GET",
-        headers: {
-          "Content-Type": "text/javascript"
-        }
-      }).then((response) => response.text()).then((data) => {
-        eval(data);
-        this._pollComments();
-      });
+      new Promise((resolve, reject) => {
+        Rails.ajax({
+          url: this.commentsUrl,
+          type: "GET",
+          data: new URLSearchParams({
+            "commentable_gid": this.commentableGid,
+            "root_depth": this.rootDepth,
+            "order": this.order,
+            "after": this.lastCommentId
+          }),
+          success: (data) => resolve(data),
+          error: (data) => reject(data)
+        })
+      }).then(() => this._pollComments());
     }, this.pollingInterval);
   }
 
