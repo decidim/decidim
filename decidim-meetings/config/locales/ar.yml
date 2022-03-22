@@ -72,6 +72,10 @@ ar:
         other: التسجيلات
   decidim:
     admin:
+      filters:
+        meetings:
+          category_id_eq:
+            label: الفئة
       meeting_copies:
         create:
           error: كانت هناك مشكلة في تكرار هذا الاجتماع.
@@ -338,6 +342,8 @@ ar:
           filter: منقي
           filter_by: مصنف بواسطة
           unfold: كشف
+        form:
+          select_a_category: يُرجى اختيار فئة
         meeting_minutes:
           related_information: معلومات ذات صله
         meetings:
@@ -385,6 +391,10 @@ ar:
             map: خريطة
             start_time: تاريخ البدء
             title: عنوان
+      polls:
+        questions:
+          index_admin:
+            results: النتائج
       read_more: "(قراءة المزيد)"
       registration_mailer:
         confirmation:

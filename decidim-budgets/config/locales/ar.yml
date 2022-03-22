@@ -1,6 +1,10 @@
 ar:
   activemodel:
     attributes:
+      budget:
+        description: الوصف
+        title: العنوان
+        total_budget: الميزانية الإجمالية
       project:
         decidim_category_id: الفئة
         decidim_scope_id: نطاق
@@ -24,10 +28,16 @@ ar:
         confirm_destroy: هل أنت متأكد أنك تريد حذف هذا المشروع؟
         destroy: حذف
         edit: تعديل
+        edit_projects: إدارة المشاريع
         import: استيراد مقترحات للمشاريع
+        new: '%{name} جديد'
         preview: معاينة
         title: أفعال
       admin:
+        budgets:
+          edit:
+            title: تعديل الميزانية
+            update: تحديث الميزانية
         models:
           project:
             name: مشروع
@@ -63,7 +73,13 @@ ar:
           create: "%{user_name} إنشاء المشروع %{resource_name} في %{space_name} الفضاء"
           delete: "%{user_name} حذف المشروع %{resource_name} في %{space_name} الفضاء"
           update: "%{user_name} تحديث المشروع %{resource_name} في %{space_name} الفضاء"
+      budget_information_modal:
+        continue: مواصلة
+        more_information: المزيد من المعلومات
       models:
+        budget:
+          fields:
+            name: الإسم
         project:
           fields:
             title: عنوان
@@ -145,5 +161,7 @@ ar:
       destroy:
         error: حدثت مشكلة في إلغاء تصويتك
         success: تم إلغاء تصويتك بنجاح
+    statistics:
+      projects_count: المشاريع
   index:
     confirmed_orders_count: عدد الأصوات

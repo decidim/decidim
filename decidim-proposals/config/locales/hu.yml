@@ -685,6 +685,7 @@ hu:
             one: "%{count} javaslat"
             other: "%{count} javaslatot"
         edit:
+          add_documents: Dokumentumok
           attachment_legend: "(Nem kötelező) Melléklet hozzáadása"
           back: Vissza
           select_a_category: Válassz kategóriát

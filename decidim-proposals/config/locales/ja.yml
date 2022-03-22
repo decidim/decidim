@@ -45,7 +45,7 @@ ja:
         participatory_text:
           attributes:
             document:
-              invalid_document_type: '無効なドキュメントの種類です。承認されたフォーマットは次のとおりです: %{valid_mime_types}'
+              invalid_document_type: '無効な種類のドキュメントです。承認されたフォーマットは次のとおりです: %{valid_mime_types}'
         proposal:
           attributes:
             add_documents:
@@ -378,7 +378,7 @@ ja:
             success: おめでとうございます。次のセクションが提案に変換されました。公開する前に確認して調整できます。
           index:
             info_1: 次のセクションが提案に変換されました。公開する前に確認して調整できます。
-            publish_document: 文書を公開
+            publish_document: ドキュメントを公開
             save_draft: 下書きを保存
             title: 参加者のテキストをプレビュー
           new_import:

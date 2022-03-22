@@ -190,7 +190,7 @@ fi:
         admin:
           proposal_note_created:
             email_intro: Joku on jättänyt huomion ehdotukseen "%{resource_title}". Tutustu siihen <a href="%{admin_proposal_info_url}">hallintapaneelin kautta</a>
-            email_outro: Saat tämän ilmoituksen, koska voit arvioida ehdotuksen.
+            email_outro: Tämä ilmoitus on lähetetty sinulle, koska voit arvioida ehdotuksen.
             email_subject: Joku on jättänyt huomion ehdotukseen %{resource_title}.
             notification_title: Joku on jättänyt huomion ehdotukseen <a href="%{resource_path}">%{resource_title}</a>. Tutustu siihen <a href="%{admin_proposal_info_path}">hallintapaneelin kautta</a>
         collaborative_draft_access_accepted:

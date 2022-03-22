@@ -672,6 +672,7 @@ el:
             one: "%{count} πρόταση"
             other: "%{count} προτάσεις"
         edit:
+          add_documents: Έγγραφα
           attachment_legend: "(Προαιρετικά) Προσθήκη συνημμένου"
           back: Πίσω
           select_a_category: Επιλέξτε μια κατηγορία

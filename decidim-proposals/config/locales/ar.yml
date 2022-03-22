@@ -94,6 +94,8 @@ ar:
     admin:
       filters:
         proposals:
+          category_id_eq:
+            label: الفئة
           valuator_role_ids_has:
             label: تم إسناده إلى مُقيِّم
     components:
@@ -625,6 +627,7 @@ ar:
             many: "%{count} مقترحات"
             other: "%{count} مقترحات"
         edit:
+          add_documents: المستندات
           attachment_legend: "(اختياري) إضافة مرفق"
           back: الى الخلف
           select_a_category: الرجاء تحديد الفئة

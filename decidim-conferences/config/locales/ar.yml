@@ -12,24 +12,53 @@ ar:
         description: وصف
         hashtag: رابطة هاشتاق
         hero_image: الصورة الرئيسية
+        main_logo: الشعار الرئيسي
+        objectives: الأهداف
         participatory_processes_ids: العمليات التشاركية ذات الصلة
         promoted: سلط الضوء
         published_at: نشرت في
+        registration_terms: شروط التسجيل
+        registrations_enabled: التسجيلات مفعلة
         scope_id: نطاق
         scopes_enabled: النطاقات المُفعّلَة
         short_description: وصف قصير
         show_statistics: عرض الإحصائيات
+        sign_date: تاريخ التوقيع
+        signature: التوقيع
+        signature_name: اسم التوقيع
         slogan: شعار
         slug: سبيكة العنوان الشبكي
+        start_date: تاريخ البداية
         title: عنوان
       conference_media_link:
+        date: التاريخ
+        link: الرابط
+        title: العنوان
         weight: وزن
       conference_partner:
+        link: الرابط
+        logo: الشعار
+        name: الإسم
+        partner_type: نوع الشريك
         weight: وزن
+      conference_registration_invite:
+        email: البريد الإلكتروني
+        name: الإسم
+        registration_type_id: نوع التسجيل
       conference_registration_type:
+        description: الوصف
+        price: السعر
+        title: العنوان
         weight: وزن
       conference_speaker:
+        avatar: الصورة الرمزية
+        conference_meeting_ids: الاجتماعات ذات الصلة
         full_name: الاسم الكامل
+        personal_url: العنوان الشبكي الشخصي
+        position: المنصب
+        short_bio: سيرة ذاتية قصيرة
+        twitter_handle: مُعرّف حساب تويتر
+        user_id: المستخدم
       conference_user_role:
         email: البريد الإلكتروني
         name: اسم
@@ -201,6 +230,7 @@ ar:
             admin: مدير
             collaborator: متعاون
             moderator: وسيط
+            valuator: مُقيِّم
         media_link:
           fields:
             date: تاريخ
@@ -525,7 +555,7 @@ ar:
           email_subject: لقد مكّن المؤتمر "%{resource_title}" التسجيلات.
           notification_title: لقد مكّن المؤتمر <a href="%{resource_path}">%{resource_title}</a> التسجيلات.
         upcoming_conference:
-          email_intro: 'يعقد مؤتمر "%{resource_title}" خلال يومين. يمكنك قراءة الوصف من صفحتها:'
+          email_intro: 'يعقد مؤتمر "%{resource_title}" خلال يومين. يمكنك قراءة الوصف من صفحته:'
           email_outro: لقد تلقيت هذا الإشعار لأنك تتابع مؤتمر "%{resource_title}". يمكنك إلغاء تتبعه من الرابط السابق.
           email_subject: مؤتمر "%{resource_title}" قادم!
           notification_title: المؤتمر <a href="%{resource_path}">%{resource_title}</a> قادم في يومين.
@@ -539,6 +569,8 @@ ar:
         title: وسائل الإعلام والروابط
     menu:
       conferences: المؤتمرات
+    statistics:
+      conferences_count: المؤتمرات
   devise:
     mailer:
       join_conference:

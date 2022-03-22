@@ -671,6 +671,7 @@ lv:
             one: "%{count} priekšlikums"
             other: "%{count} priekšlikumi"
         edit:
+          add_documents: Dokumenti
           attachment_legend: "(Pēc izvēles) Pievienojiet pielikumu"
           back: Atpakaļ
           select_a_category: Lūdzu, izvēlieties kategoriju

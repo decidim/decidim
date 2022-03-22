@@ -98,14 +98,51 @@ hu:
       actions:
         confirm_destroy: Biztos vagy benne?
         destroy: Töröl
+        edit: Szerkeszt
+        feedback: Szavazó visszajelzése
+        import: Válaszjavaslatok importálása
+        manage_answers: Válaszok kezelése
+        manage_questions: Kérdések kezelése
+        preview: Előnézet
         publish: Közzétesz
+        title: Műveletek
         unpublish: Közzététel visszavonása
       admin:
+        answers:
+          edit:
+            title: Válasz szerkesztése
+            update: Válasz frissítése
+          index:
+            title: Válaszok
+          new:
+            create: Válasz létrehozása
+            title: Új válasz
+          not_selected: Nincs kiválasztva
+          selected: Kiválasztva
+          update:
+            invalid: Hiba történt a válasz frissítése során
+            success: Válasz sikeresen frissítve
         elections:
+          create:
+            success: Választás sikeresen létrehozva
+          edit:
+            update: Választás frissítése
+          index:
+            title: Választások
+          new:
+            create: Választás létrehozása
+            title: Új választás
           publish:
             success: A választás sikeresen publikálásra került.
           unpublish:
             success: A választás publikálását sikeresen visszavonta.
+          update:
+            invalid: Hiba történt a választás frissítése során
+            success: Választás sikeresen frissítve
+        exports:
+          elections: Választások
+        menu:
+          trustees: Felügyelők
         models:
           answer:
             name: Válasz
@@ -115,6 +152,37 @@ hu:
             name: Kérdés
           trustee:
             name: Felügyelő
+        proposals_imports:
+          new:
+            create: Válaszjavaslatok importálása
+            select_component: Kérjük, válassz egy komponenst
+            title: Javaslatok importálása
+        questions:
+          create:
+            invalid: Hiba történt a kérdés létrehozása során
+            success: Kérdés létrehozása sikeres
+          destroy:
+            invalid: Hiba történt a kérdés törlése során
+            success: Kérdés törlése sikeres
+          edit:
+            title: Kérdés szerkesztése
+            update: Kérdés frissítése
+          index:
+            title: Kérdések
+          new:
+            create: Kérdés létrehozása
+            title: Új kérdés
+          update:
+            invalid: Hiba történt a kérdés frissítése során
+            success: Kérdés frissítése sikeres
+        steps:
+          create_election:
+            trustees: Választási megbízottak
+          created:
+            trustees: Felügyelők
+          key_ceremony_ended:
+            invalid: Hiba történt a szavazási időszak elindításakor
+            title: Készen áll a kezdésre
       elections:
         results:
           votes:
@@ -133,6 +201,12 @@ hu:
             already_voted: Már szavaztál?
             verify_here: Itt ellenőrizheted szavazatod.
             will_verify: A választás megkezdését követően ellenőrizheted szavazatod.
+      votes:
+        onboarding_modal:
+          title: Kezdő a Decidim -ben?
+        verify:
+          form:
+            back: Vissza a Decidim -be
     events:
       elections:
         election_published:
@@ -145,7 +219,20 @@ hu:
         menu:
           votings_submenu:
             monitoring_committee: Ellenőrző Bizottság
+        votings:
+          form:
+            census_contact_information_help: Ez a kapcsolatfelvételi információ azoknak a résztvevőknek szól, akik a népszámlálással kapcsolatos problémákat szeretnének jelenteni. Ez lehet e-mail cím, kapcsolatfelvételi űrlap egy másik oldalon, kérdőív a látogatók számára, stb.
+      census:
+        admin:
+          census:
+            create:
+              invalid_csv_header: A CSV fejléce nem megfelelő számú mezőt tartalmaz – kérjük, figyelmesen olvassa el az utasításokat
       polling_officer_zone:
+        in_person_votes:
+          complete_voting:
+            questions_title: 'A következő kérdésekben jogosult szavazni:'
+          in_person_form:
+            census_not_present_description: Be kell mennie a népszámlálási panaszirodába, vagy kapcsolatba kell lépnie az ügyfélszolgálattal.
         polling_officers:
           index:
             polling_officer_role_description: Szavazóhelyiségi Tisztnek jelöltek (Elnökként vagy Ügyvezetőként) azért, hogy ezen platformon megtartott választásokon intézkedj.
