@@ -22,6 +22,7 @@ ja:
       user:
         about: About
         email: あなたのメールアドレス
+        locale: 地域
         name: 表示名
         nickname: アカウントID
         password: パスワード
@@ -94,6 +95,7 @@ ja:
   decidim:
     accessibility:
       external_link: 外部リンク
+      front_page_link: フロントページに移動
       logo: "%{organization}の公式ロゴ"
       skip_button: メインコンテンツにスキップ
     account:
@@ -150,9 +152,9 @@ ja:
       organization:
         update: "%{user_name} が組織設定を更新しました"
       participatory_space_private_user:
-        create: "%{user_name} が %{resource_name} を非公開参加者に招待しました"
-        create_via_csv: "%{user_name} が %{resource_name} をCSV経由で非公開参加者に招待しました"
-        delete: "%{user_name} が参加者 %{resource_name} を非公開参加者として削除しました"
+        create: "%{user_name} が %{resource_name} をプライベート参加者に招待しました"
+        create_via_csv: "%{user_name} が %{resource_name} をCSV経由でプライベート参加者に招待しました"
+        delete: "%{user_name} がプライベート参加者の %{resource_name} を削除しました"
       scope:
         create: "%{user_name} が %{resource_name} スコープを作成しました"
         create_with_parent: "%{user_name} は %{resource_name} スコープ内で %{parent_scope} スコープを作成しました"
@@ -372,6 +374,7 @@ ja:
           debate: ディベート
           initiative: イニシアチブ
           meeting: ミーティング
+          order: 予算投票
           post: 投稿
           proposal: 提案
           question: 質問
@@ -682,6 +685,11 @@ ja:
           email_outro: '%{nickname}をフォローしているため、この通知を受け取りました。前のリンクに続く通知の受信を停止することができます。'
           email_subject: "%{nickname} がプロフィールを更新しました"
           notification_title: あなたがフォロー中の %{name} (%{nickname}) さんの <a href="%{resource_path}">プロフィールページ</a> が更新されました。
+        user_officialized:
+          email_intro: 参加者 %{name} (%{nickname}) が公式化されました。
+          email_outro: あなたは組織の管理者であるため、この通知を受け取りました。
+          email_subject: "%{name} が公式化されました"
+          notification_title: 参加者 %{name} (%{nickname}) が公式化されました。
     export_mailer:
       data_portability_export:
         click_button: '次のリンクをクリックするとあなたのデータがダウンロードできます。<br/>このファイルは %{date} まで利用できます。<br/>ファイルを開くには <a href="https://www.7-zip.org/">7-Zip</a> (Windowsユーザー向け), <a href="https://www.keka.io/en/">Keka</a> (MacOSユーザー向け) または <a href="https://peazip.github.io">PeaZip</a> (Linuxユーザー向け)等が必要です。パスワード:%{password}'
@@ -722,7 +730,6 @@ ja:
         button: フォローを停止
         error: リソースのフォローを解除する際に問題が発生しました。
     forms:
-      current_file: 現在のファイル
       current_image: 現在の画像
       default_image: デフォルトの画像
       errors:
@@ -742,7 +749,26 @@ ja:
       file_validation:
         allowed_file_extensions: 'アップロード可能なファイル形式: %{extensions}'
         max_file_size: '最大ファイルサイズ: %{megabytes}MB'
-      remove_this_file: このファイルを削除
+      upload:
+        labels:
+          add_attachment: 添付ファイルを追加
+          add_file: ファイルを追加
+          add_image: 画像を追加
+          cancel: キャンセル
+          edit_image: 画像を編集
+          error: エラー
+          file_too_big: 'ファイルが大きすぎます。最大ファイルサイズ: %{megabytes}MB'
+          remove: 削除
+          replace: 置換
+          save: 保存
+          title: タイトル
+          title_required: タイトルが必要です
+          uploaded: アップロード済
+          validating: 検証中...
+          validation_error: 検証エラー
+      upload_help:
+        dropzone: ここにファイルをドロップするか、クリックしてアップロードします
+        explanation: '%{attribute} のガイド'
     gamification:
       all_badges_link: 利用可能なバッジをすべて表示
       badges:
@@ -903,7 +929,7 @@ ja:
         scope_type_presenter:
           not_found: 'スコープ種別がデータベース上に見つかりませんでした (ID: %{id})'
     managed_users:
-      expired_session: 出席者の現在の管理セッションの有効期限が切れています。
+      expired_session: 参加者の現在の管理セッションの有効期限が切れています。
     map:
       dynamic:
         screen_reader_explanation: 以下の要素は、このページ上のアイテムを地図上のポイントとして表示するマップです。 この要素はスクリーンリーダーで使用することができますが、理解しにくいかもしれません。
@@ -1291,6 +1317,8 @@ ja:
         close_modal: ウィンドウを閉じる
         please_sign_in: ログインしてください
         sign_up: 新規登録
+      mentions_modal:
+        remove_recipient: 受信者 %{name} を削除
       participatory_space_filters:
         filters:
           areas: エリア
@@ -1342,7 +1370,7 @@ ja:
         add_max_users: '会話にユーザーを追加: 最大 9 人のユーザー'
         add_users_placeholder: 検索...
         close: 閉じる
-        conversations_info: 会話は非公開です。他の誰も見ることはできません。会話はプラットフォームに登録されている参加者またはグループで開始できます。
+        conversations_info: 会話はプライベートです。他の誰も見ることはできません。会話はプラットフォームに登録されている参加者またはグループで開始できます。
         from: '差出人:'
         last_message: 最後のメッセージ
         modal_title: 新しい会話
@@ -1634,6 +1662,8 @@ ja:
         continue_session: セッションを続ける
         sign_out: ログアウト
         title: セッションを続行しますか？
+      upload_modal:
+        close_modal: モーダルを閉じる
       user_menu:
         account: 'ユーザーアカウント: %{name}'
         admin_dashboard: 管理ダッシュボード
@@ -1718,6 +1748,7 @@ ja:
     dropdown:
       choose_diff_view_html: 'HTML ビューモード:'
       choose_diff_view_mode: 'ビューモードを比較:'
+      choose_diff_view_mode_menu: 比較モードを選択
       option_escaped: エスケープあり
       option_split: 並べて表示
       option_unescaped: エスケープなし

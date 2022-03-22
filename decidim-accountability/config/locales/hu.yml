@@ -204,6 +204,8 @@ hu:
             label: Állapot
     components:
       accountability:
+        actions:
+          comment: Megjegyzés
         name: Elszámoltathatóság
         settings:
           global:

@@ -22,6 +22,7 @@ hu:
       user:
         about: Magamról
         email: Email címed
+        locale: Hely
         name: Neved
         nickname: Becenév
         password: Jelszó
@@ -82,6 +83,7 @@ hu:
   decidim:
     accessibility:
       external_link: Külső hivatkozás
+      front_page_link: Ugrás a címlapra
       logo: "%{organization} hivatalos logója"
       skip_button: Ugrás a fő tartalomra
     account:
@@ -626,6 +628,8 @@ hu:
           email_outro: 'Ezt az értesítést azért kaptad, mert őt követed: "%{nickname}". Az értesítéseket a következő linkre kattintva kapcsolhatod ki.'
           email_subject: "%{nickname} frissítette profilját"
           notification_title: '%{name} (%{nickname}) (akit egyébként követsz) <a href="%{resource_path}">profil oldala</a> frissült.'
+        user_officialized:
+          email_outro: Azért kapta ezt az értesítést, mert Ön a szervezet adminisztrátora.
     export_mailer:
       data_portability_export:
         download: Letöltés
@@ -661,7 +665,6 @@ hu:
         button: Követés törlése
         error: Hiba történt az erőforrás követésének visszavonásakor.
     forms:
-      current_file: Jelenlegi fájl
       current_image: Jelenlegi kép
       default_image: Alapértelmezett kép
       errors:
@@ -672,7 +675,25 @@ hu:
       file_help:
         file:
           message_2: A javasolt képméret 512x512 pixel.
-      remove_this_file: Töröld ezt a fájlt
+      upload:
+        labels:
+          add_attachment: Melléklet hozzáadása
+          add_file: Fájl hozzáadása
+          add_image: Képek hozzáadása
+          cancel: Mégse
+          edit_image: Kép szerkesztése
+          error: Hiba!
+          file_too_big: 'A fájl túl nagy! Maximális méret: %{megabytes}MB'
+          remove: Eltávolítás
+          replace: Csere
+          save: Mentés
+          title: Cím
+          title_required: A cím megadása kötelező!
+          uploaded: Feltöltve
+          validating: Ellenőrzés...
+          validation_error: Hitelesítési hiba!
+      upload_help:
+        dropzone: Húzza ide fájlokat vagy kattintson a feltöltéshez
     gamification:
       all_badges_link: Az összes elérhető jelvény megtekintése.
       badges:
@@ -1122,6 +1143,8 @@ hu:
       login_modal:
         please_sign_in: Jelentkezz be
         sign_up: Regisztrálj
+      mentions_modal:
+        remove_recipient: '%{name} címzett eltávolítása'
       participatory_space_filters:
         filters:
           areas: Területek
@@ -1488,6 +1511,7 @@ hu:
     dropdown:
       choose_diff_view_html: 'HTML megtekintési mód:'
       choose_diff_view_mode: 'Összehasonlító nézet mód:'
+      choose_diff_view_mode_menu: Válassz összehasonlítási módot
       option_escaped: Feloldott
       option_split: Egymás mellet
       option_unescaped: Feloldatlan

@@ -674,12 +674,8 @@ zh-CN:
           proposals_count:
             other: "%{count} 个提议"
         edit:
-          add_documents: www.un.org/webcast
-          add_images: 文件
           attachment_legend: "(可选) 添加附件"
           back: 后退
-          delete_document: 删除文档
-          delete_image: 删除图像
           gallery_legend: "(可选) 添加图像到提案卡"
           select_a_category: 请选择一个类别
           send: 发送

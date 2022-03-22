@@ -719,7 +719,6 @@ pl:
         button: Przestań obserwować
         error: Nastąpił błąd podczas cofania obserwowania tego zasobu.
     forms:
-      current_file: Bieżący plik
       current_image: Bieżący obraz
       default_image: Domyślny obraz
       errors:
@@ -739,7 +738,6 @@ pl:
       file_validation:
         allowed_file_extensions: 'Dozwolone rozszerzenia plików: %{extensions}'
         max_file_size: 'Maksymalny rozmiar pliku: %{megabytes}MB'
-      remove_this_file: Usuń ten plik
     gamification:
       all_badges_link: Zobacz wszystkie dostępne odznaki.
       badges:

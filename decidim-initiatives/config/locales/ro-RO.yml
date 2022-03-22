@@ -277,8 +277,6 @@ ro:
             update: Actualizare
           form:
             authorizations: Setări de autorizare
-            child_scope_threshold_enabled_help: 'Acest steag de configurare nu acceptă voturi offline, permite sub-scopurilor și funcționează cu un handler de autorizare care asociază un domeniu utilizatorului, asigură-te că ai ales acea autorizație, mai jos în setările de autorizare. Pentru ca acesta să funcţioneze domeniile de aplicare trebuie configurate în mod ierarhic: 1 părinte - N Child. Pentru mai multe informații despre cum funcționează această configurație, vedeți linkul <a href="https://docs.decidim.org/admin-manual/en/initiatives/" target="_blank"></a>.'
-            only_global_scope_enabled_help: Bifați acest steag dacă ați activat "Semnătura Child scope sigure" și ați configurat domeniul global ca domeniu părinte. Prin acest lucru, selecția de tip de inițiativă va fi omisă în asistentul pentru crearea de inițiative. Pentru mai multe informații despre cum funcționează această configurație, vedeți linkul <a href="https://docs.decidim.org/admin-manual/en/initiatives/" target="_blank"></a>.
             options: Opţiuni
             title: Informaţii generale
           initiative_type_scopes:

@@ -739,7 +739,6 @@ es-PY:
         button: Dejar de seguir
         error: Ha habido un error dejando de seguir este recurso.
     forms:
-      current_file: Archivo actual
       current_image: Imagen actual
       default_image: Imagen predeterminada
       errors:
@@ -759,7 +758,6 @@ es-PY:
       file_validation:
         allowed_file_extensions: 'Formatos de archivo permitidos: %{extensions}'
         max_file_size: 'Tamaño máximo del archivo: %{megabytes}MB'
-      remove_this_file: Eliminar este archivo
     gamification:
       all_badges_link: Ver todas los distintivos disponibles.
       badges:
