@@ -1,7 +1,7 @@
 <% if model.hashtag.present? %>
   <%= link_to(
     "##{hashtag}",
-    "https://twitter.com/hashtag/#{hashtag}",
+    twitter_hashtag_url(hashtag),
     class: "card__text--category",
     target: "_blank"
   ) %>

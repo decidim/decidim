@@ -23,7 +23,7 @@
           <%= icon "twitter", role: "img", aria_label: "Twitter", class: "mr-xs" %>
           <%= link_to(
             "##{hashtag_text}",
-            "https://twitter.com/hashtag/#{hashtag_text}",
+            twitter_hashtag_url(hashtag_text),
             target: "_blank"
           ) %>
         </div>
