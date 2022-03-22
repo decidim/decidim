@@ -26,6 +26,7 @@ module Decidim
       def finder_query(component_id, interval)
         Decidim::Meetings::Meeting
           .published
+          .not_hidden
           .except_withdrawn
           .where(
             "decidim_component_id = ? AND end_time >= ? AND end_time <= ? AND closed_at IS NULL",
