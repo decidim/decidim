@@ -123,6 +123,10 @@ fr:
         file: Fichier
     errors:
       models:
+        newsletter:
+          attributes:
+            base:
+              at_least_one_space: Sélectionnez au moins une concertation
         organization:
           attributes:
             official_img_footer:
