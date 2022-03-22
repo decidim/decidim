@@ -123,6 +123,10 @@ fi:
         file: Tiedosto
     errors:
       models:
+        newsletter:
+          attributes:
+            base:
+              at_least_one_space: Valitse vähintään yksi osallistumistila
         organization:
           attributes:
             official_img_footer:
