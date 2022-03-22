@@ -8,6 +8,7 @@ $(() => {
   const secondsUntilTimeoutPath = $timeoutModal.data("seconds-until-timeout-path");
   const heartbeatPath = $timeoutModal.data("heartbeat-path");
   const interval = parseInt($timeoutModal.data("session-timeout-interval"), 10);
+  const preventTimeOutSeconds = $timeoutModal.data("prevent-timeout-seconds");
   let endsAt = moment().add(timeoutInSeconds, "seconds");
   let lastAction = moment();
   const popup = new Foundation.Reveal($timeoutModal);
@@ -15,13 +16,7 @@ $(() => {
   let lastActivityCheck = moment();
   // 5 * 60 seconds = 5 Minutes
   const activityCheckInterval = 5 * 60;
-  const $preventTimeOutDiv = $("div.timeout-prevention");
-  const preventTimeOut = $preventTimeOutDiv.length > 0;
-  let preventTimeOutUntil = null;
-  if (preventTimeOut) {
-    const prevenTimeOutSeconds = parseInt($preventTimeOutDiv.data("prevent-for"), 10)
-    preventTimeOutUntil = moment().add(prevenTimeOutSeconds, "seconds");
-  }
+  const preventTimeOutUntil = moment().add(preventTimeOutSeconds, "seconds");
 
   // Ajax request is made at timeout_modal.html.erb
   $continueSessionButton.on("click", () => {
@@ -93,7 +88,7 @@ $(() => {
       return;
     }
 
-    if (preventTimeOut && moment() < preventTimeOutUntil) {
+    if (moment() < preventTimeOutUntil) {
       heartbeat();
       return;
     }

@@ -8,12 +8,10 @@ module Decidim
   module SkipTimeoutable
     extend ActiveSupport::Concern
 
-    included do
-      private
+    private
 
-      def skip_timeout
-        request.env["devise.skip_timeoutable"] = true
-      end
+    def skip_timeout
+      request.env["devise.skip_timeoutable"] = true
     end
   end
 end
