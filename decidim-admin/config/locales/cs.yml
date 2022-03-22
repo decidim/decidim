@@ -123,6 +123,10 @@ cs:
         file: Soubor
     errors:
       models:
+        newsletter:
+          attributes:
+            base:
+              at_least_one_space: Vyberte alespoň jeden participační prostor
         organization:
           attributes:
             official_img_footer:
