@@ -12,8 +12,6 @@ module Decidim
     scope :unblocked, -> { joins(:user).where(decidim_users: { blocked: false }) }
 
     delegate :organization, to: :user
-    scope :blocked, -> { joins(:user).where(decidim_users: { blocked: true }) }
-    scope :unblocked, -> { joins(:user).where(decidim_users: { blocked: false }) }
 
     def self.log_presenter_class_for(_log)
       Decidim::AdminLog::UserModerationPresenter

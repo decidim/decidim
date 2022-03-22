@@ -55,7 +55,9 @@ module Decidim
     end
 
     def send_notification_to_admins!
-      current_organization.admins.each do |admin|
+      @current_user.organization.admins.each do |admin|
+        next unless admin.email_on_moderations
+
         Decidim::UserReportJob.perform_later(admin, report)
       end
     end

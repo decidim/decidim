@@ -1115,7 +1115,7 @@ en:
         administrators: Administrators
         allow_public_contact: Allow anyone to send me a direct message, even if I don't follow them.
         direct_messages: Receive direct messages from anyone
-        email_on_moderations: I want to receive an email every time something is reported for moderation.
+        email_on_moderations: I want to receive an email every time something or someone is reported for moderation.
         email_on_notification: I want to receive an email every time I receive a notification.
         everything_followed: Everything I follow
         newsletter_notifications: I want to receive newsletters
