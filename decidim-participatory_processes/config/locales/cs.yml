@@ -451,6 +451,8 @@ cs:
           see: Vidět
         index:
           loading: Načítání výsledků...
+        show:
+          title: O tomto procesu
       show:
         area: Oblast
         belongs_to_group: Tento proces patří do

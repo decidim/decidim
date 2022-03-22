@@ -274,8 +274,6 @@ ca:
             update: Actualitza
           form:
             authorizations: Configuració de l'autorització
-            child_scope_threshold_enabled_help: 'Aquest ajust de configuració no suporta recollida de signatures presencials. Habilita indicadors de signatures per subàmbits i funciona amb un controlador d''autoritzacions que associa un àmbit a l''usuari. Assegura''t de seleccionar aquesta autorització més a baix, en la configuració d''autorització. Perquè funcioni ha de configurar-se de manera jeràrquica : 1 àmbit - N subàmbits. Per a més informació sobre com funciona aquesta configuració, consulta aquest <a href="https://docs.decidim.org/admin-manual/en/initiatives/" target="_blank">enllaç</a>.'
-            only_global_scope_enabled_help: Marca aquesta casella si has habilitat "Activar signatures per subàmbit" i vas configurar l'àmbit global com l'àmbit principal. En habilitar aquesta casella, la selecció del tipus d'iniciativa s'ometrà en l'assistent de creació d'iniciatives. Per a més informació sobre com funciona aquesta configuració, consulta aquest <a href="https://docs.decidim.org/admin-manual/en/initiatives/" target="_blank">enllaç</a>.
             options: Opcions
             title: Informació general
           initiative_type_scopes:

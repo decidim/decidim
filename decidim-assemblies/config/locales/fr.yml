@@ -319,6 +319,9 @@ fr:
         new_import:
           accepted_types:
             json: JSON
+      assemblies:
+        show:
+          title: À propos de cette assemblée
       assembly_members:
         index:
           members: Membres

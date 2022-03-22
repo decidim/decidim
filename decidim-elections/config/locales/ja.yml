@@ -1063,7 +1063,7 @@ ja:
               submit: CSVを送信
               title: センサスを作成
             show:
-              heading: 空間センサスに投票する
+              heading: センサスに投票する
             upload_info:
               csv_example_with_ballot_style: '投票スタイル<strong>のある</strong>ファイルの例:'
               csv_example_without_ballot_style: '投票スタイル<strong>のない</strong>ファイルの例:'
@@ -1088,6 +1088,7 @@ ja:
           description:
             show_less: 詳細を閉じる
             show_more: 続きを読む
+            title: この投票について
           metrics:
             heading: メトリクス
           polling_stations:

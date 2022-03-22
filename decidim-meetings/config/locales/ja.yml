@@ -10,7 +10,7 @@ ja:
         attending_organizations: 参加した組織一覧
         audio_url: 音声URL
         closing_report: 議事録
-        closing_visible: 非表示にする
+        closing_visible: 表示する
         contributions_count: 貢献数
         proposal_ids: ミーティングで作成された提案
         video_url: 動画URL

@@ -325,6 +325,9 @@ cs:
         new_import:
           accepted_types:
             json: JSON
+      assemblies:
+        show:
+          title: O tomto shromáždění
       assembly_members:
         index:
           members: Členové

@@ -435,6 +435,8 @@ de:
           see: Sehen
         index:
           loading: Ergebnisse werden geladen ...
+        show:
+          title: Über diesen Prozess
       show:
         area: Bereich
         belongs_to_group: Dieser Prozess gehört zu
@@ -443,7 +445,7 @@ de:
         end_date: Enddatum
         local_area: Organisationsbereich
         participatory_scope: Was wird entschieden?
-        participatory_structure: Wie ist es entschieden?
+        participatory_structure: Wie wird es entschieden
         private_space: Dies ist ein privater Prozess
         related_processes: Ähnliche Beteiligungsprozesse
         scope: Umfang

@@ -1097,6 +1097,7 @@ fr:
           description:
             show_less: Voir moins
             show_more: Voir plus
+            title: À propos de ce vote
           metrics:
             heading: Métriques
           polling_stations:

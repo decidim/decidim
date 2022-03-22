@@ -36,16 +36,25 @@ ar:
   decidim:
     accountability:
       actions:
+        attachment_collections: المجلدات
+        attachments: المرفقات
         confirm_destroy: هل أنت متأكد أنك تريد حذف هذا %{name}؟
         destroy: حذف
         edit: تعديل
+        import_csv: استيراد CSV
         new: جديد %{name}
         preview: معاينة
         timeline_entries: تطور المشروع
         title: أفعال
       admin:
         exports:
+          result_comments: التعليقات
           results: النتائج
+        import_results:
+          new:
+            import: استيراد
+            link: الرابط
+            title: استيراد النتائج من CSV
         models:
           result:
             name: نتيجة
@@ -115,13 +124,26 @@ ar:
         value_types:
           parent_presenter:
             not_found: 'لم يتم العثور على الأصل في قاعدة البيانات (المعرف: %{id})'
+      content_blocks:
+        highlighted_results:
+          dates: التواريخ
+          results: النتائج
+          unspecified: غير محدد
+      import_mailer:
+        import:
+          errors: أخطاء
+          row_number: الصف
       last_activity:
         new_result_at_html: "<span>نتيجة جديدة في %{link}</span>"
       models:
         result:
           fields:
+            category: الفئة
+            created_at: أنشئ
             end_date: تاريخ الانتهاء
+            id: المعرف ID
             progress: تقدم
+            scope: النطاق
             start_date: تاريخ البدء
             status: الحالة
             title: عنوان
@@ -176,6 +198,8 @@ ar:
             label: الفئة
     components:
       accountability:
+        actions:
+          comment: تعليق
         name: المسائلة
         settings:
           global:
@@ -202,7 +226,7 @@ ar:
           notification_title: النتيجة <a href="%{resource_path}">%{resource_title}</a>، التي تتضمن الاقتراح <a href="%{proposal_path}">%{proposal_title}</a>، اكتملت الآن بنسبة %{progress}٪.
     metrics:
       results:
-        description: عدد النتائج الناتجة
+        description: عدد النتائج التي تم إنشاؤها
         object: النتائج
         title: النتائج
     resource_links:
@@ -210,3 +234,5 @@ ar:
         result_project: المشاريع المدرجة في هذه النتيجة
       included_proposals:
         result_proposal: المقترحات المدرجة في هذه النتيجة
+    statistics:
+      results_count: النتائج

@@ -87,9 +87,11 @@ ar:
           category: الفئة
           category_prompt: اختر تصنيف
           citizens: المواطنين
+          my_debates: مناقشاتي
           official: الرسمية
           origin: الأصل
           search: بحث
+          user_groups: الفِرَق
         filters_small_view:
           close_modal: إغلاق مشروط
           filter: منقي
@@ -103,6 +105,10 @@ ar:
           back: الى الخلف
           create: إنشاء
           title: نقاش جديد
+        show:
+          date: التاريخ
+          groups_count: الفِرَق
+          participants_count: المشاركون
       last_activity:
         new_debate_at_html: "<span>مناقشة جديدة في %{link}</span>"
       models:
@@ -156,3 +162,5 @@ ar:
         description: عدد المناقشات التي تم إنشاؤها
         object: المناقشات
         title: المناقشات
+    statistics:
+      debates_count: المناقشات

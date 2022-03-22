@@ -1097,6 +1097,7 @@ fi-pl:
           description:
             show_less: Näytä vähemmän
             show_more: Lue lisää
+            title: Tietoa tästä äänestyksestä
           metrics:
             heading: Tilastomittarit
           polling_stations:

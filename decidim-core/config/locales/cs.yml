@@ -22,6 +22,7 @@ cs:
       user:
         about: O nás
         email: Váš email
+        locale: Jazyk
         name: Vaše jméno
         nickname: Přezdívka
         password: Heslo
@@ -129,6 +130,7 @@ cs:
   decidim:
     accessibility:
       external_link: Externí odkaz
+      front_page_link: Přejít na titulní stránku
       logo: "Oficiální logo %{organization}"
       skip_button: Přeskočit na hlavní obsah
     account:
@@ -733,6 +735,11 @@ cs:
           email_outro: Toto oznámení jste obdrželi, protože jste sledovali %{nickname}. Na předchozím odkazu můžete přestat přijímat oznámení.
           email_subject: "%{nickname} aktualizoval svůj profil"
           notification_title: <a href="%{resource_path}">Profilová stránka</a> od %{name} (%{nickname}), kterou sledujete, byla aktualizována.
+        user_officialized:
+          email_intro: Uživatel %{name} (%{nickname}) byl oficiálně zveřejněn.
+          email_outro: Obdrželi jste toto oznámení, protože jste správcem organizace.
+          email_subject: "%{name} byl oficializován"
+          notification_title: Uživatel %{name} (%{nickname}) byl oficiálně zveřejněn.
     export_mailer:
       data_portability_export:
         click_button: 'Klikněte na následující odkaz pro stažení vašich dat.<br/>Soubor bude k dispozici do %{date}.<br/>Budete potřebovat <a href="https://www.7-zip.org/">7-Zip</a> (pro Windows), <a href="https://www.keka.io/en/">Keka</a> (pro MacOS) nebo <a href="https://peazip.github.io">PeaZip</a> (pro Linux) pro jeho otevření. Heslo: %{password}'
@@ -1777,6 +1784,7 @@ cs:
     dropdown:
       choose_diff_view_html: 'Režim HTML zobrazení:'
       choose_diff_view_mode: 'Mód srovnávacího zobrazení:'
+      choose_diff_view_mode_menu: Vyberte režim porovnání
       option_escaped: Escapované
       option_split: Vedle sebe
       option_unescaped: Neošetřené Esc

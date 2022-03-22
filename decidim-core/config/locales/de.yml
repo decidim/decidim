@@ -76,6 +76,9 @@ de:
       decidim_with_day_and_month_name: "%A, %d. %b %Y"
       decidim_with_month_name: "%d %B %Y"
       decidim_with_month_name_short: "%d. %b"
+  datetime:
+    distance_in_words:
+      half_a_minute: eine halbe Minute
   decidim:
     accessibility:
       external_link: Externer Link
@@ -98,6 +101,7 @@ de:
         error: Beim Löschen Ihres Kontos ist ein Fehler aufgetreten.
         success: Ihr Konto wurde erfolgreich gelöscht.
       show:
+        available_locales_helper: Wählen Sie die Sprache aus, die Sie verwenden möchten, um in Decidim zu surfen und Benachrichtigungen zu erhalten
         change_password: Passwort ändern
         update_account: Konto aktualisieren
       update:
@@ -661,6 +665,11 @@ de:
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{nickname} folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
           email_subject: "%{nickname} hat ihr Profil aktualisiert"
           notification_title: Die <a href="%{resource_path}">Profilseite</a> von %{name} (%{nickname}), der Sie folgen, wurde aktualisiert.
+        user_officialized:
+          email_intro: Teilnehmer %{name} (%{nickname}) wurde offiziell bestätigt.
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie ein Administrator der Organisation sind.
+          email_subject: "%{name} wurde offiziell bestätigt"
+          notification_title: Teilnehmer %{name} (%{nickname}) wurde offiziell bestätigt.
     export_mailer:
       data_portability_export:
         click_button: 'Klicken Sie auf den Link, um Ihre Daten herunterzuladen.<br/>Die Datei steht bis zum %{date} zur Verfügung.<br/>Sie benötigen <a href="https://www.7-zip.org/">7-Zip</a> (für Windows), <a href="https://www.keka.io/en/">Keka</a> (für MacOS) oder <a href="https://peazip.github.io">PeaZip</a> (für Linux) um die Datei zu öffnen. Passwort: %{password}'
@@ -1097,7 +1106,7 @@ de:
           modal_body: Wenn Sie sich weigern, werden Sie nicht in der Lage sein , die Plattform zu nutzen, können Sie <a href="%{data_portability_path}">laden Sie Ihre Daten</a> und / oder <a href="%{delete_path}">Ihr Konto löschen</a>.
           modal_btn_continue: Bedingungen akzeptieren und fortfahren
           modal_btn_exit: Ich werde es später überprüfen
-          modal_button: Verweiße die Bedingungen
+          modal_button: Bedingungen ablehnen
           modal_close: Modal schließen
           modal_title: Lehnen Sie die aktualisierten Geschäftsbedingungen wirklich ab?
         required_review:
@@ -1610,6 +1619,7 @@ de:
     name: Deutsch
     name_with_error: Englisch (Fehler!)
   password_validator:
+    blacklisted: ist gesperrt
     domain_included_in_password: ist diesem Domainnamen zu ähnlich
     email_included_in_password: ist Ihrer E-Mail zu ähnlich
     fallback: ist ungültig
@@ -1666,6 +1676,7 @@ de:
     dropdown:
       choose_diff_view_html: 'HTML-Ansicht:'
       choose_diff_view_mode: 'Vergleichsansicht:'
+      choose_diff_view_mode_menu: Vergleichsmodus wählen
       option_escaped: aus der Seite herausgekommen
       option_split: Nebeneinander
       option_unescaped: aus der Seite nicht herausgekommen

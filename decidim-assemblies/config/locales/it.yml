@@ -319,6 +319,9 @@ it:
         new_import:
           accepted_types:
             json: JSON
+      assemblies:
+        show:
+          title: Su questa assemblea
       assembly_members:
         index:
           members: Utenti
