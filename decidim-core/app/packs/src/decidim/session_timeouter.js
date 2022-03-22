@@ -129,7 +129,7 @@ $(() => {
   });
 
   $(document).ajaxComplete((_event, _xhr, settings) => {
-    if (settings && (settings.url === secondsUntilTimeoutPath)) {
+    if (settings && settings.url === secondsUntilTimeoutPath) {
       return;
     }
     setTimer(timeoutInSeconds);
