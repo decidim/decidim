@@ -48,6 +48,9 @@ require "decidim/api"
 require "decidim/middleware/strip_x_forwarded_host"
 require "decidim/middleware/current_organization"
 
+# Backport cookie handling extensions for Rails 6.0
+require "decidim/middleware/rails_cookies"
+
 module Decidim
   module Core
     # Decidim's core Rails Engine.
