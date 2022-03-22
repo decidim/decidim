@@ -780,6 +780,11 @@ fi:
           title: Tiedosto-otsikko
           title_required: Tiedosto-otsikko tarvitaan!
           uploaded: Ladattu
+          validating: Validoidaan...
+          validation_error: Validointivirhe!
+      upload_help:
+        dropzone: Pudota tiedostot tähän tai napsauta ladataksesi
+        explanation: Ohjeita %{attribute} varten
     gamification:
       all_badges_link: Kaikki saatavilla olevat kunniamerkit.
       badges:
@@ -1677,6 +1682,8 @@ fi:
         continue_session: Jatka palvelun käyttöä
         sign_out: Kirjaudu ulos
         title: Haluatko jatkaa palvelun käyttöä?
+      upload_modal:
+        close_modal: Sulje ikkuna
       user_menu:
         account: 'Käyttäjätili: %{name}'
         admin_dashboard: Hallintapaneeli
