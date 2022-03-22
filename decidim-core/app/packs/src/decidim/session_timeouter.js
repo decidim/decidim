@@ -15,6 +15,13 @@ $(() => {
   let lastActivityCheck = moment();
   // 5 * 60 seconds = 5 Minutes
   const activityCheckInterval = 5 * 60;
+  const $preventTimeOutDiv = $("div.timeout-prevention");
+  const preventTimeOut = $preventTimeOutDiv.length > 0;
+  let preventTimeOutUntil = null;
+  if (preventTimeOut) {
+    const prevenTimeOutSeconds = parseInt($preventTimeOutDiv.data("prevent-for"), 10)
+    preventTimeOutUntil = moment().add(prevenTimeOutSeconds, "seconds");
+  }
 
   // Ajax request is made at timeout_modal.html.erb
   $continueSessionButton.on("click", () => {
@@ -82,8 +89,12 @@ $(() => {
     }
 
     const timeRemaining = Math.round((endsAt - moment()) / 1000);
-    // console.log("timeRemaining", timeRemaining);
     if (timeRemaining > 150) {
+      return;
+    }
+
+    if (preventTimeOut && moment() < preventTimeOutUntil) {
+      heartbeat();
       return;
     }
 
@@ -114,7 +125,6 @@ $(() => {
   // Devise restarts its own timer on ajax requests,
   // so here we restart our.
   $(document).on("ajax:complete", () => {
-    console.log("AJAX KOMPLETE");
     setTimer(timeoutInSeconds);
   });
 
@@ -122,7 +132,6 @@ $(() => {
     if (settings && (settings.url === secondsUntilTimeoutPath)) {
       return;
     }
-    console.log("setTimer", settings.url);
     setTimer(timeoutInSeconds);
   });
 

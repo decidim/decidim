@@ -167,7 +167,7 @@ edit_link(
     <% end %>
 
     <% if current_user && meeting.live? %>
-      <div class="timeout-prevention hide" data-meeting-seconds-left=<%= meeting.end_time - Time.current %>></div>
+      <div class="timeout-prevention hide" data-prevent-for=<%= meeting.end_time - Time.current %>></div>
     <% end %>
 
     <%= linked_resources_for meeting, :proposals, "proposals_from_meeting" %>
