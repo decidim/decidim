@@ -19,7 +19,7 @@ namespace :decidim do
     target_users.find_each do |user|
       next if user_already_notified?(user, time: time)
 
-      Decidim::EmailNotificationsDigestGeneratorJob.perform_now(user, frequency, time: time)
+      Decidim::EmailNotificationsDigestGeneratorJob.perform_later(user.id, frequency, time: time)
     end
   end
 
@@ -27,6 +27,7 @@ namespace :decidim do
     return false if user.digest_sent_at.blank?
 
     case user.notifications_sending_frequency
+    when :none then true # true to avoid notifying the user then the frequency is none
     when :daily then user.digest_sent_at > time - 1.day
     when :weekly then user.digest_sent_at > time - 1.week
     else false

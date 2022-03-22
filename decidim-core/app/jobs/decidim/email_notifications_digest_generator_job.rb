@@ -4,7 +4,10 @@ module Decidim
   class EmailNotificationsDigestGeneratorJob < ApplicationJob
     queue_as :events
 
-    def perform(user, frequency, time: Time.now.utc)
+    def perform(user_id, frequency, time: Time.now.utc)
+      user = Decidim::User.find(user_id)
+      return unless user
+
       notifications = user.notifications.try(frequency, time: time).presence
       return if notifications.blank?
 
