@@ -16,7 +16,6 @@ module Decidim::System
         default_locale: "en",
         users_registration_mode: "enabled",
         force_users_to_authenticate_before_access_organization: "false",
-        automate_steps_in_processes: "false",
         smtp_settings: {
           "address" => "mail.gotham.gov",
           "port" => "25",

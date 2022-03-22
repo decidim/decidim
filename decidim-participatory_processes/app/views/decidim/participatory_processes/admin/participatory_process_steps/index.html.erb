@@ -32,29 +32,19 @@
                 </td>
                 <td>
                   <% if step.start_date %>
-                    <% if current_organization.automate_steps_in_processes? %>
-                      <%= l step.start_date, format: :long %>
-                    <% else %>
-                      <%= l step.start_date.to_date, format: :long %>
-                    <% end %>
+                    <%= l step.start_date, format: :long %>
                   <% end %>
                 </td>
                 <td>
                   <% if step.end_date %>
-                    <% if current_organization.automate_steps_in_processes? %>
-                      <%= l step.end_date, format: :long %>
-                    <% else %>
-                      <%= l step.end_date.to_date, format: :long %>
-                    <% end %>
+                    <%= l step.end_date, format: :long %>
                   <% end %>
                 </td>
                 <td class="table-list__actions">
-                  <% unless current_organization.automate_steps_in_processes? %>
-                    <% if allowed_to?(:activate, :process_step, process_step: step) && !step.active? %>
-                      <%= icon_link_to "circle-check", participatory_process_step_activate_path(current_participatory_process, step), t("actions.activate", scope: "decidim.admin"), class: "action-icon--activate", method: :post %>
-                    <% else %>
-                      <span class="action-space icon"></span>
-                    <% end %>
+                  <% if allowed_to?(:activate, :process_step, process_step: step) && !step.active? %>
+                    <%= icon_link_to "circle-check", participatory_process_step_activate_path(current_participatory_process, step), t("actions.activate", scope: "decidim.admin"), class: "action-icon--activate", method: :post %>
+                  <% else %>
+                    <span class="action-space icon"></span>
                   <% end %>
 
                   <% if allowed_to? :update, :process_step, process_step: step %>

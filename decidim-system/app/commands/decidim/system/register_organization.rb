@@ -55,7 +55,6 @@ module Decidim
           external_domain_whitelist: ["decidim.org", "github.com"],
           users_registration_mode: form.users_registration_mode,
           force_users_to_authenticate_before_access_organization: form.force_users_to_authenticate_before_access_organization,
-          automate_steps_in_processes: form.automate_steps_in_processes,
           badges_enabled: true,
           user_groups_enabled: true,
           default_locale: form.default_locale,

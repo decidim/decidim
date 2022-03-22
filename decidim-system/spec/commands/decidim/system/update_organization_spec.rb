@@ -21,7 +21,6 @@ module Decidim
               host: "decide.gotham.gov",
               secondary_hosts: "foo.gotham.gov\r\n\r\nbar.gotham.gov",
               force_users_to_authenticate_before_access_organization: false,
-              automate_steps_in_processes: false,
               users_registration_mode: "existing",
               smtp_settings: {
                 "address" => "mail.gotham.gov",
