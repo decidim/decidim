@@ -11,8 +11,8 @@ on:
 
 env:
   CI: "true"
-  NODE_VERSION: 16.9.1
   RUBY_VERSION: 3.0.2
+  NODE_VERSION: 16.9.1
 
 jobs:
   main:
