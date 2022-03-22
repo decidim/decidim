@@ -123,6 +123,10 @@ fi:
         file: Tiedosto
     errors:
       models:
+        newsletter:
+          attributes:
+            base:
+              at_least_one_space: Valitse vähintään yksi osallistumistila
         organization:
           attributes:
             official_img_footer:
@@ -901,6 +905,7 @@ fi:
         gallery:
           add_images: Lisää kuvia
           delete_image: Poista kuva
+          edit_images: Muokkaa kuvia
           gallery_legend: Lisää kuvagalleria (valinnainen)
       static_page_topics:
         create:
