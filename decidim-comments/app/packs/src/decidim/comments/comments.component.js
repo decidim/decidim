@@ -1,3 +1,4 @@
+/* eslint-disable max-lines */
 /* eslint id-length: ["error", { "exceptions": ["$"] }] */
 
 /**
