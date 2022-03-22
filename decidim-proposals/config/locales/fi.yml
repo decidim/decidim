@@ -657,6 +657,8 @@ fi:
           filter_by: Rajaa hakua
           unfold: Avaa
         new:
+          add_file: Lisää tiedosto
+          edit_file: Muokkaa tiedostoa
           send: Jatka
         new_collaborative_draft_button:
           new_collaborative_draft: Uusi yhteistyöluonnos
@@ -767,8 +769,12 @@ fi:
           description: Koordinaatit päivitetään, kun painat Esikatsele-painiketta. Osoitetekstiä ei muuteta.
           instructions: Voit siirtää pistettä kartalla.
         edit:
+          add_documents: Lisää asiakirjoja
+          add_image: Lisää kuva
           attachment_legend: "(Valinnainen) Lisää liite"
           back: Takaisin
+          edit_documents: Muokkaa asiakirjoja
+          edit_image: Muokkaa kuvaa
           gallery_legend: "(Valinnainen) Lisää kuva ehdotuskorttiin"
           select_a_category: Valitse aihepiiri
           send: Lähetä
