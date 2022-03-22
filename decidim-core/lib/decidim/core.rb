@@ -3,7 +3,6 @@
 require "decidim/core/engine"
 require "decidim/core/api"
 require "decidim/core/version"
-require_relative "../gem_overrides/rectify/command"
 
 # Decidim configuration.
 module Decidim
