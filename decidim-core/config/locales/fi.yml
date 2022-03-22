@@ -22,6 +22,7 @@ fi:
       user:
         about: Profiilikuvaus
         email: Sähköpostiosoitteesi
+        locale: Kieli
         name: Nimesi
         nickname: Nimimerkki
         password: Salasana
