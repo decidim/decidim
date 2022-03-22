@@ -212,7 +212,7 @@ describe "Proposals", type: :system do
       let(:meeting_component) do
         create(:component, manifest_name: :meetings, participatory_space: proposal.component.participatory_space)
       end
-      let(:meeting) { create(:meeting, component: meeting_component) }
+      let(:meeting) { create(:meeting, :published, component: meeting_component) }
 
       before do
         meeting.link_resources([proposal], "proposals_from_meeting")

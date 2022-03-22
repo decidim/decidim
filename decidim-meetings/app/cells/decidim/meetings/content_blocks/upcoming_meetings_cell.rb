@@ -17,6 +17,7 @@ module Decidim
                                  .includes(component: :participatory_space)
                                  .where(component: meeting_components)
                                  .visible_meeting_for(current_user)
+                                 .published
                                  .where("end_time >= ?", Time.current)
                                  .except_withdrawn
                                  .not_hidden
