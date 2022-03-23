@@ -14,7 +14,7 @@ module Decidim
       helper Decidim::WidgetUrlsHelper
       helper Decidim::ResourceVersionsHelper
 
-      helper_method :meetings, :meeting, :registration, :search, :prevent_timeout_seconds
+      helper_method :meetings, :meeting, :registration, :search
 
       def new
         enforce_permission_to :create, :meeting
@@ -104,7 +104,7 @@ module Decidim
       private
 
       def meeting
-        @meeting ||= Meeting.not_hidden.where(component: current_component).find(params[:id])
+        @meeting ||= Meeting.not_hidden.where(component: current_component).find(params[:id]) if params[:id]
       end
 
       def meetings
@@ -113,12 +113,6 @@ module Decidim
 
       def registration
         @registration ||= meeting.registrations.find_by(user: current_user)
-      end
-
-      def prevent_timeout_seconds
-        return 0 if !current_user || !params[:id] || !meeting.live?
-
-        (meeting.end_time - Time.current).to_i
       end
 
       def search_collection

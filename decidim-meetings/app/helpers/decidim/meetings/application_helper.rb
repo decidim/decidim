@@ -69,6 +69,12 @@ module Decidim
       def render_meeting_body(meeting)
         render_sanitized_content(meeting, :description)
       end
+
+      def prevent_timeout_seconds
+        return 0 if !current_user || !meeting || !meeting.live?
+
+        (meeting.end_time - Time.current).to_i
+      end
     end
   end
 end
