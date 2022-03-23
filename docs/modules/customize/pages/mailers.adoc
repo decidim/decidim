@@ -4,7 +4,7 @@ Here you can find the available mailer tasks that can be used to perform cron jo
 
 == Notifications digest
 This is an email with all the notifications activity summarized. It's generated for the users that
-have checked the `email_on_notification` option in their user panel. Also the can set the frequency they want
+have checked the `email_on_notification` option in their user panel. Also they can set the frequency they want
 to receive the emails in the `notifications_sending_frequency` option.
 
 There are two tasks to send the mail notifications digest. The email will be send depending on when you set the job in the crontab.
