@@ -36,7 +36,7 @@ describe Decidim::Messaging::Message do
     end
 
     let(:result) do
-      %(Content with <a href="http://urls.net">URLs</a> of anchor type and text urls like <a href="https://decidim.org" target="_blank" rel="nofollow noopener">https://decidim.org</a>.)
+      %(Content with <a href="http://urls.net">URLs</a> of anchor type and text urls like <a href="https://decidim.org" target="_blank" rel="nofollow noopener noreferrer ugc">https://decidim.org</a>.)
     end
 
     it "converts all URLs to links" do
