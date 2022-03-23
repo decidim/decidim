@@ -71,6 +71,7 @@ module Decidim
       end
 
       def prevent_timeout_seconds
+        return 0 unless respond_to?(:meeting)
         return 0 if !current_user || !meeting || !meeting.live?
 
         (meeting.end_time - Time.current).to_i

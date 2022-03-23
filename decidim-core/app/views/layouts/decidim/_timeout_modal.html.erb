@@ -1,6 +1,6 @@
 <% if current_user && !current_user.remember_created_at %>
   <% timeout_time_seconds = Decidim.config.expire_session_after.to_i %>
-  <% prevent_timeout_for = defined?(prevent_timeout_seconds) ? prevent_timeout_seconds : 0 %>
+  <% prevent_timeout_for = respond_to?(:prevent_timeout_seconds) ? prevent_timeout_seconds : 0 %>
   <div class="reveal" id="timeoutModal" data-close-on-click="false" data-close-on-esc="false"
     data-seconds-until-timeout-path="<%= decidim.seconds_until_timeout_path %>"
     data-heartbeat-path="<%= decidim.heartbeat_path %>"
