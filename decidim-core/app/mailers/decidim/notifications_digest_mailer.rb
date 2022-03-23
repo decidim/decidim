@@ -6,8 +6,9 @@ module Decidim
   class NotificationsDigestMailer < Decidim::ApplicationMailer
     helper Decidim::ResourceHelper
 
-    def digest_mail(user, notifications)
+    def digest_mail(user, notification_ids)
       with_user(user) do
+        notifications = Decidim::Notification.where(id: notification_ids)
         size_limit = 10
         @user = user
         @organization = user.organization

@@ -8,10 +8,10 @@ module Decidim
       user = Decidim::User.find(user_id)
       return unless user
 
-      notifications = user.notifications.try(frequency, time: time).presence
-      return if notifications.blank?
+      notification_ids = user.notifications.try(frequency, time: time).pluck(:id)
+      return if notification_ids.blank?
 
-      NotificationsDigestMailer.digest_mail(user, notifications).deliver_later
+      NotificationsDigestMailer.digest_mail(user, notification_ids).deliver_later
       user.update(digest_sent_at: time)
     end
   end
