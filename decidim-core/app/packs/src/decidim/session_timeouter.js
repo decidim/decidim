@@ -1,5 +1,4 @@
 import moment from "moment"
-import Foundation from "foundation-sites"
 
 $(() => {
   let sessionTimeOutEnabled = true;
@@ -11,7 +10,6 @@ $(() => {
   const preventTimeOutSeconds = $timeoutModal.data("prevent-timeout-seconds");
   let endsAt = moment().add(timeoutInSeconds, "seconds");
   let lastAction = moment();
-  const popup = new Foundation.Reveal($timeoutModal);
   const $continueSessionButton = $("#continueSession");
   let lastActivityCheck = moment();
   // 5 * 60 seconds = 5 Minutes
@@ -20,7 +18,7 @@ $(() => {
 
   // Ajax request is made at timeout_modal.html.erb
   $continueSessionButton.on("click", () => {
-    $("#timeoutModal").foundation("close");
+    $timeoutModal.foundation("close");
     // In admin panel we have to hide all overlays
     $(".reveal-overlay").css("display", "none");
     lastActivityCheck = moment();
@@ -102,7 +100,7 @@ $(() => {
       } else if (secondsUntilSessionExpires <= 90) {
         $timeoutModal.find("#reveal-hidden-sign-out")[0].click();
       } else if (secondsUntilSessionExpires <= 150) {
-        popup.open();
+        $timeoutModal.foundation("open");
       }
     });
   }, interval);
