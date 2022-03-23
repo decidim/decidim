@@ -87,5 +87,13 @@ describe Decidim::Proposals::Import::ProposalCreator do
       subject.finish!
       expect(record.new_record?).to be(false)
     end
+
+    it "creates admin log" do
+      record = subject.produce
+      expect { subject.finish! }.to change(Decidim::ActionLog, :count).by(1)
+      expect(Decidim::ActionLog.last.user).to eq(user)
+      expect(Decidim::ActionLog.last.resource).to eq(record)
+      expect(Decidim::ActionLog.last.visibility).to eq("admin-only")
+    end
   end
 end
