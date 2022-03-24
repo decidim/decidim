@@ -6,6 +6,7 @@ module Decidim
     # for an given instance of an Initiative
     class InitiativeMCell < Decidim::CardMCell
       include Decidim::Initiatives::Engine.routes.url_helpers
+      include Decidim::TwitterSearchHelper
 
       property :state
 
