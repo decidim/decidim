@@ -49,6 +49,9 @@ require "decidim/api"
 require "decidim/middleware/strip_x_forwarded_host"
 require "decidim/middleware/current_organization"
 
+# Backport cookie handling extensions for Rails 6.0
+require "decidim/middleware/rails_cookies"
+
 module Decidim
   module Core
     # Decidim's core Rails Engine.
@@ -312,6 +315,7 @@ module Decidim
 
       initializer "Expire sessions" do
         Rails.application.config.session_store :cookie_store, secure: Decidim.config.force_ssl, expire_after: Decidim.config.expire_session_after
+        Rails.application.config.action_dispatch.cookies_same_site_protection = :lax
       end
 
       initializer "decidim.core.register_resources" do
