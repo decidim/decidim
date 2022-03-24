@@ -82,7 +82,7 @@ $(() => {
     }
 
     const timeRemaining = Math.round((endsAt - moment()) / 1000);
-    if (timeRemaining > 150) {
+    if (timeRemaining > 170) {
       return;
     }
 
