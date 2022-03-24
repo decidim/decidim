@@ -34,7 +34,7 @@ module Decidim
           end
 
           it "doesn't update the post" do
-            expect(post).not_to receive(:update_attributes!)
+            expect(post).not_to receive(:update!)
             subject.call
           end
         end

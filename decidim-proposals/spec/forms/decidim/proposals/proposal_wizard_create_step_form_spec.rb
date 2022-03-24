@@ -44,7 +44,7 @@ module Decidim
 
         it "only adds errors to this field" do
           subject.valid?
-          expect(subject.errors.keys).to eq [:title]
+          expect(subject.errors.attribute_names).to eq [:title]
         end
       end
 

@@ -22,6 +22,7 @@ cs:
       user:
         about: O nás
         email: Váš email
+        locale: Jazyk
         name: Vaše jméno
         nickname: Přezdívka
         password: Heslo
@@ -130,6 +131,7 @@ cs:
   decidim:
     accessibility:
       external_link: Externí odkaz
+      front_page_link: Přejít na titulní stránku
       logo: "Oficiální logo %{organization}"
       skip_button: Přeskočit na hlavní obsah
     account:
@@ -420,6 +422,7 @@ cs:
           debate: Debata
           initiative: Iniciativa
           meeting: Schůzka
+          order: Hlasování o rozpočtu
           post: Příspěvek
           proposal: Návrh
           question: Otázka
@@ -734,6 +737,11 @@ cs:
           email_outro: Toto oznámení jste obdrželi, protože jste sledovali %{nickname}. Na předchozím odkazu můžete přestat přijímat oznámení.
           email_subject: "%{nickname} aktualizoval svůj profil"
           notification_title: <a href="%{resource_path}">Profilová stránka</a> od %{name} (%{nickname}), kterou sledujete, byla aktualizována.
+        user_officialized:
+          email_intro: Uživatel %{name} (%{nickname}) byl oficiálně zveřejněn.
+          email_outro: Obdrželi jste toto oznámení, protože jste správcem organizace.
+          email_subject: "%{name} byl oficializován"
+          notification_title: Uživatel %{name} (%{nickname}) byl oficiálně zveřejněn.
     export_mailer:
       data_portability_export:
         click_button: 'Klikněte na následující odkaz pro stažení vašich dat.<br/>Soubor bude k dispozici do %{date}.<br/>Budete potřebovat <a href="https://www.7-zip.org/">7-Zip</a> (pro Windows), <a href="https://www.keka.io/en/">Keka</a> (pro MacOS) nebo <a href="https://peazip.github.io">PeaZip</a> (pro Linux) pro jeho otevření. Heslo: %{password}'
@@ -777,7 +785,6 @@ cs:
         button: Ukončit sledování
         error: Při sledování tohoto zdroje došlo k chybě.
     forms:
-      current_file: Aktuální soubor
       current_image: Aktuální obrázek
       default_image: Výchozí obrázek
       errors:
@@ -797,7 +804,26 @@ cs:
       file_validation:
         allowed_file_extensions: 'Povolené přípony souborů: %{extensions}'
         max_file_size: 'Maximální velikost souboru: %{megabytes}MB'
-      remove_this_file: Odstranit tento soubor
+      upload:
+        labels:
+          add_attachment: Přidat přílohu
+          add_file: Přidat soubor
+          add_image: Přidat obrázek
+          cancel: Zrušit
+          edit_image: Upravit obrázek
+          error: Chyba!
+          file_too_big: 'Soubor je příliš velký! Maximun velikost souboru: %{megabytes}MB'
+          remove: Odebrat
+          replace: Nahradit
+          save: Uložit
+          title: Název
+          title_required: Název je povinný!
+          uploaded: Nahráno
+          validating: Probíhá ověřování...
+          validation_error: Chyba ověření!
+      upload_help:
+        dropzone: Přetáhněte soubory sem nebo klikněte pro nahrání
+        explanation: Návod pro %{attribute}
     gamification:
       all_badges_link: Zobrazit všechny dostupné odznaky.
       badges:
@@ -1349,6 +1375,8 @@ cs:
         close_modal: Zavřít okno
         please_sign_in: Přihlaste se, prosím
         sign_up: Přihlásit se
+      mentions_modal:
+        remove_recipient: Odebrat příjemce %{name}
       participatory_space_filters:
         filters:
           areas: Oblasti
@@ -1701,6 +1729,8 @@ cs:
         continue_session: Pokračovat v relaci
         sign_out: Odhlásit se
         title: Chcete pokračovat v relaci?
+      upload_modal:
+        close_modal: Zavřít modal
       user_menu:
         account: 'Uživatelský účet: %{name}'
         admin_dashboard: Ovládací panel
@@ -1785,6 +1815,7 @@ cs:
     dropdown:
       choose_diff_view_html: 'Režim HTML zobrazení:'
       choose_diff_view_mode: 'Mód srovnávacího zobrazení:'
+      choose_diff_view_mode_menu: Vyberte režim porovnání
       option_escaped: Escapované
       option_split: Vedle sebe
       option_unescaped: Neošetřené Esc

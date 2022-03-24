@@ -701,12 +701,8 @@ tr:
             one: "%{count} teklif"
             other: "%{count} teklif"
         edit:
-          add_documents: Dokümanlar
-          add_images: Dosya
           attachment_legend: "(İsteğe bağlı) Bir ek ekleyin"
           back: Geri
-          delete_document: Doküman Sil
-          delete_image: Resmi sil
           gallery_legend: "(İsteğe bağlı) Teklif kartına bir resim ekleyin"
           select_a_category: Lütfen bir kategori seçin
           send: Gönder

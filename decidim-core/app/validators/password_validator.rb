@@ -35,7 +35,7 @@ class PasswordValidator < ActiveModel::EachValidator
     return true if strong?
 
     @weak_password_reasons.each do |reason|
-      record.errors[attribute] << get_message(reason)
+      record.errors.add attribute, get_message(reason)
     end
 
     false

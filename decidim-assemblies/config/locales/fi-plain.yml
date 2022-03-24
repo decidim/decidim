@@ -319,6 +319,9 @@ fi-pl:
         new_import:
           accepted_types:
             json: JSON
+      assemblies:
+        show:
+          title: Tietoa tästä ryhmästä
       assembly_members:
         index:
           members: Jäsenet

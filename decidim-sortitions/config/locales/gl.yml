@@ -76,6 +76,7 @@ gl:
           index:
             title: Edicións
           new:
+            confirm: Ao premer no seguinte botón, a plataforma rexistrará a data e hora (cunha precisión de segundos) e xunto coa tirada de dados, esta información empregarase para xerar unha escolla ao chou. Esta acción será irreversíbel, unha vez premido o botón publicarase o resultado deste sorteo xunto cos datos inseridos neste formulario e que non é posíbel modificar, por favor verifica o contido con coidado
             create: Crear
             title: Nova xeración
           show:

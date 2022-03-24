@@ -75,10 +75,6 @@ pt:
       postal_letter:
         explanation: Enviaremos-lhe uma carta postal com um código que terá que inserir para que possamos verificar o seu endereço
         name: Código por carta postal
-    events:
-      verifications:
-        verify_with_managed_user:
-          notification_title: O participante <a href=«%{resource_path}»>%{resource_title}</a> tentou verificar-se com os dados do participante gerido <a href=«%{managed_user_path}»>>%{managed_user_name}</a>
     verifications:
       authorizations:
         authorization_metadata:

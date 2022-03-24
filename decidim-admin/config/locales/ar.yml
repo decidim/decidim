@@ -56,6 +56,7 @@ ar:
         omnipresent_banner_short_description: وصف قصير
         omnipresent_banner_title: العنوان
         omnipresent_banner_url: العنوان الشبكي
+        organization_locales: لغات المنظمة
         primary_color: ابتدائي
         reference_prefix: بادئة المرجع
         rich_text_editor_in_public_views: إتاحة محرر النص الغني للمشارِكين
@@ -113,7 +114,7 @@ ar:
         client_id: معرف العميل
         client_secret: سر العميل
         organization_name: اسم المنظمة
-        organization_url: العنوان الشبكي للمؤسسة
+        organization_url: العنوان الشبكي للمنظمة
         redirect_uri: إعادة توجيه URI
         site: موقع الويب
   decidim:
@@ -121,17 +122,26 @@ ar:
       actions:
         add: إضافة
         browse: تصفح
+        category:
+          new: فئة جديدة
+        export: تصدير الكل
+        import: استيراد
         manage: تدبير
         new: جديد %{name}
+        newsletter:
+          new: رسالة إخبارية جديدة
         per_page: في كل صفحة
         permissions: تصريحات
         reject: رفض
         share: مشاركة
+        user:
+          new: مدير جديد
         verify: التحقق
       admin_terms_of_use:
         accept:
           success: رائع! لقد قمت بالموافقة على شروط الإستخدام للمدير.
         actions:
+          accept: أوافق على شروط الإستخدام التالية
           refuse: ارفض شروط المدير
           title: وافق على شروط وأحكام الإستخدام
         required_review:
@@ -206,6 +216,10 @@ ar:
       autocomplete:
         no_results: لا توجد نتائج
         search_prompt: اكتب ثلاثة أحرف على الأقل للبحث
+      block_user:
+        new:
+          justification: المبرر
+          title: حظر المستخدم %{name}
       categories:
         create:
           error: كانت هناك مشكلة في إنشاء هذه الفئة.
@@ -260,11 +274,21 @@ ar:
           error: حدثت مشكلة أثناء تحديث هذا المكون.
           success: تم تحديث المكون بنجاح.
       conflicts:
+        attempts: المحاولات
         'false': 'لا'
+        transfer:
+          email: البريد الإلكتروني
+          name: الإسم
+          reason: السبب
         'true': 'نعم'
+        user_name: المستخدم
       dashboard:
         show:
           view_more_logs: عرض المزيد من السجلات
+          welcome: أهلا بك على اللوح الإداري.
+      domain_whitelist:
+        form:
+          domain_too_short: النطاق قصير جداً
       exports:
         export_as: "%{name} ك %{export_format}"
         notice: التصدير الخاص بك قيد التقدم حاليًا. ستتلقى بريدًا إلكترونيًا عند اكتماله.
@@ -339,6 +363,13 @@ ar:
           impersonate_existing_managed_user: إدارة المشارك "%{name}"
           impersonate_existing_user: إدارة المشارك "%{name}"
           impersonate_new_managed_user: إدارة مشارك جديد
+      imports:
+        and: و
+        new:
+          actions:
+            back: العودة
+          download_example: تنزيل المثال
+          import: استيراد
       logs:
         logs_list:
           no_logs_yet: لا توجد سجلات حتى الآن
@@ -440,6 +471,19 @@ ar:
             phone: هاتف
             state: حالة
             users_count: عدد المشاركين
+      moderated_users:
+        index:
+          actions:
+            title: الإجراءات
+            unblock: إلغاء حظر المستخدم
+            unreport: إلغاء التبليغ
+          name: الإسم
+          nickname: الاسم المستعار
+          reason: السبب
+          reports: عدد الإبلاغات
+        report:
+          reasons:
+            spam: مزعج
       moderations:
         index:
           title: الإشراف
@@ -451,6 +495,8 @@ ar:
         reports:
           index:
             content_original_language: لغة المحتوى الأصلية
+          show:
+            report_reason: السبب
       newsletter_templates:
         index:
           preview_template: معاينة
@@ -517,6 +563,11 @@ ar:
           badge: شارة رسمية
           officialize: الصفة الرسمية
           title: إضفاء الطابع الرسمي على المشارك "%{name}"
+        show_email_modal:
+          email_address: عنوان البريد الإلكتروني
+          full_name: الاسم الكامل
+          hidden: مخفي
+          show: إظهار
       organization:
         edit:
           title: تحرير المنظمة
@@ -544,7 +595,13 @@ ar:
           homepage_highlighted_content_banner_title: لافتة المحتوى الراقي
           images:
             layout_appearance_title: تحرير مظهر التخطيط
+            preview: معاينة
           omnipresent_banner_appearance_title: تحرير لافتة في كل مكان
+      organization_external_domain_whitelist:
+        edit:
+          update: تحديث
+        external_domain:
+          remove: إزالة
       organization_homepage:
         edit:
           active_content_blocks: كتل المحتوى النشط
@@ -607,6 +664,10 @@ ar:
         update:
           error: حدثت مشكلة أثناء تحديث هذا النطاق.
           success: تم تحديث النطاق بنجاح
+      shared:
+        gallery:
+          delete_image: احذف الصورة
+          edit_images: تعديل الصورة
       static_page_topics:
         create:
           error: كانت هناك مشكلة في إنشاء موضوع جديد.
@@ -657,11 +718,14 @@ ar:
         dashboard: لوحة القيادة
         impersonatable_users: المشاركون في الإدارة
         impersonations: إدارة المشاركين
+        panel: مدير
         participants: المشاركين
         scope_types: أنواع النطاق
         scopes: نطاقات
         static_pages: صفحات
+        statistics: النشاط
         user_groups: المجموعات
+        users: المدراء
       user_group:
         csv_verify:
           invalid: حدثت مشكلة في قراءة ملف CSV.
@@ -697,9 +761,13 @@ ar:
           role: وظيفة
         new:
           create: دعا
+          title: دعوة مدير جديد
       users_statistics:
         users_count:
           admins: المدراء
+          last_day: بالأمس
+          last_month: الشهر الماضي
+          last_week: الأسبوع الماضي
           participants: المشاركون
       view_public_page: عرض الصفحة العامة
     moderations:
@@ -724,7 +792,9 @@ ar:
       models:
         moderation:
           fields:
+            created_at: تاريخ الإنشاء
             hidden_at: مخبأة في
+            participatory_space: الفضاء التشاركي
             report_count: عد
             reported_content_url: تم الإبلاغ عن عنوان URL للمحتوى
             reports: تقارير
@@ -732,6 +802,7 @@ ar:
         report:
           fields:
             locale: اللغة
+            reason: السبب
   errors:
     messages:
       invalid_json: JSON غير صالح

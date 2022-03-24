@@ -718,7 +718,6 @@ nl:
         button: Stop met volgen
         error: Er is een fout opgetreden bij het stoppen met volgen van deze bron.
     forms:
-      current_file: Huidig ​​bestand
       current_image: Huidige afbeelding
       default_image: Standaard afbeelding
       errors:
@@ -737,7 +736,6 @@ nl:
       file_validation:
         allowed_file_extensions: 'Toegestane bestandsextensies: %{extensions}'
         max_file_size: 'Maximale bestandsgrootte: %{megabytes}MB'
-      remove_this_file: Verwijder dit bestand
     gamification:
       all_badges_link: Zie alle beschikbare badges.
       badges:

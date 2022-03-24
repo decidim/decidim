@@ -71,9 +71,19 @@ module Decidim
       def valid_handler
         return true if handler
 
-        logger.warn "Invalid authorization handler given: #{handler_name} doesn't"\
-          "exist or you haven't added it to `Decidim.authorization_handlers`"
+        msg = <<-MSG
+        Invalid authorization handler given: #{handler_name} doesn't
+        exist or you haven't added it to `Decidim.authorization_handlers.
 
+        Make sure this name matches with your registrations:\n\n
+        Decidim::Verifications.register_workflow(:#{handler_name}) do
+          ...
+        end
+        MSG
+
+        raise msg if Rails.env.development?
+
+        logger.warn msg
         redirect_to(authorizations_path) && (return false)
       end
 

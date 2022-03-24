@@ -70,19 +70,6 @@ describe "Decidim::Api::QueryType" do
       "resultsPublishedAt" => consultation.results_published_at,
       "slug" => consultation.slug,
       "startVotingDate" => consultation.start_voting_date.to_date.to_s,
-      "stats" => [
-        { "name" => "dummies_count_high", "value" => 0 },
-        { "name" => "pages_count", "value" => 0 },
-        { "name" => "proposals_count", "value" => 0 },
-        { "name" => "meetings_count", "value" => 0 },
-        { "name" => "budgets_count", "value" => 0 },
-        { "name" => "surveys_count", "value" => 0 },
-        { "name" => "results_count", "value" => 0 },
-        { "name" => "debates_count", "value" => 0 },
-        { "name" => "sortitions_count", "value" => 0 },
-        { "name" => "posts_count", "value" => 0 },
-        { "name" => "elections_count", "value" => 0 }
-      ],
       "subtitle" => { "translation" => consultation.subtitle[locale] },
       "title" => { "translation" => consultation.title[locale] },
       "type" => consultation.class.name,
@@ -180,10 +167,6 @@ describe "Decidim::Api::QueryType" do
         resultsPublishedAt
         slug
         startVotingDate
-        stats {
-          name
-          value
-        }
         subtitle {
           translation(locale: "#{locale}")
         }
@@ -209,8 +192,22 @@ describe "Decidim::Api::QueryType" do
       expect { response }.not_to raise_error
     end
 
-    it "has hashtags" do
+    it "returns the correct response" do
       expect(response["consultations"].first).to eq(consultation_data)
+    end
+
+    it_behaves_like "implements stats type" do
+      let(:consultations) do
+        %(
+          consultations{
+            stats{
+              name
+              value
+            }
+          }
+        )
+      end
+      let(:stats_response) { response["consultations"].first["stats"] }
     end
   end
 
@@ -304,10 +301,6 @@ describe "Decidim::Api::QueryType" do
         resultsPublishedAt
         slug
         startVotingDate
-        stats {
-          name
-          value
-        }
         subtitle {
           translation(locale: "#{locale}")
         }
@@ -324,8 +317,22 @@ describe "Decidim::Api::QueryType" do
       expect { response }.not_to raise_error
     end
 
-    it "has hashtags" do
+    it "returns the correct response" do
       expect(response["consultation"]).to eq(consultation_data)
+    end
+
+    it_behaves_like "implements stats type" do
+      let(:consultations) do
+        %(
+          consultation(id: #{consultation.id}){
+            stats{
+              name
+              value
+            }
+          }
+        )
+      end
+      let(:stats_response) { response["consultation"]["stats"] }
     end
   end
 end

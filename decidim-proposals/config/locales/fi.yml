@@ -221,7 +221,7 @@ fi:
         admin:
           proposal_note_created:
             email_intro: Joku on jättänyt huomion ehdotukseen "%{resource_title}". Tutustu siihen <a href="%{admin_proposal_info_url}">hallintapaneelin kautta</a>
-            email_outro: Saat tämän ilmoituksen, koska voit arvioida ehdotuksen.
+            email_outro: Tämä ilmoitus on lähetetty sinulle, koska voit arvioida ehdotuksen.
             email_subject: Joku on jättänyt huomion ehdotukseen %{resource_title}.
             notification_title: Joku on jättänyt huomion ehdotukseen <a href="%{resource_path}">%{resource_title}</a>. Tutustu siihen <a href="%{admin_proposal_info_path}">hallintapaneelin kautta</a>
         collaborative_draft_access_accepted:
@@ -657,6 +657,8 @@ fi:
           filter_by: Rajaa hakua
           unfold: Avaa
         new:
+          add_file: Lisää tiedosto
+          edit_file: Muokkaa tiedostoa
           send: Jatka
         new_collaborative_draft_button:
           new_collaborative_draft: Uusi yhteistyöluonnos
@@ -767,12 +769,12 @@ fi:
           description: Koordinaatit päivitetään, kun painat Esikatsele-painiketta. Osoitetekstiä ei muuteta.
           instructions: Voit siirtää pistettä kartalla.
         edit:
-          add_documents: Asiakirjat
-          add_images: Tiedosto
+          add_documents: Lisää asiakirjoja
+          add_image: Lisää kuva
           attachment_legend: "(Valinnainen) Lisää liite"
           back: Takaisin
-          delete_document: Poista tiedosto
-          delete_image: Poista kuva
+          edit_documents: Muokkaa asiakirjoja
+          edit_image: Muokkaa kuvaa
           gallery_legend: "(Valinnainen) Lisää kuva ehdotuskorttiin"
           select_a_category: Valitse aihepiiri
           send: Lähetä

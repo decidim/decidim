@@ -621,7 +621,6 @@ bg:
         button: Спри следването
         error: Възникна проблем с отказа от следване на този ресурс.
     forms:
-      current_file: Текущ файл
       current_image: Текущо изображение
       default_image: Изображение по подразбиране
       errors:
@@ -629,7 +628,6 @@ bg:
           password: Паролата е твърде къса.
           password_confirmation: Паролата и потвърждението на паролата трябва да съвпадат.
         error: В това поле има грешка.
-      remove_this_file: Премахни този файл
     gamification:
       all_badges_link: Виж всички достъпни значки.
       badges:
