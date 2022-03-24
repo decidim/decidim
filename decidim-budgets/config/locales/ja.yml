@@ -139,6 +139,8 @@ ja:
         show: プロジェクトを表示
         vote: 投票
         voted_on: '%{links} に投票しました'
+      last_activity:
+        new_vote_at_html: "<span> %{link} での新しい予算投票</span>"
       limit_announcement:
         cant_vote: この予算に投票することはできません。 <a href="%{landing_path}">別の予算を試してみてください</a>。
         limit_reached: '%{links} に有効な投票があります。この予算に投票するには、 <a href="%{landing_path}">投票を削除し、</a> やり直す必要があります。'
