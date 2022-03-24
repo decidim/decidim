@@ -8,7 +8,7 @@ module Decidim
       user = Decidim::User.find_by(id: user_id)
       return if user.blank?
 
-      should_notify = force || !user_already_notified?(user, time: time)
+      should_notify = force || NotificationsDigestSendingDecider.must_notify?(user, time: time)
       return unless should_notify
 
       notification_ids = user.notifications.try(frequency, time: time).pluck(:id)
@@ -16,19 +16,6 @@ module Decidim
 
       NotificationsDigestMailer.digest_mail(user, notification_ids).deliver_later
       user.update(digest_sent_at: time)
-    end
-
-    private
-
-    def user_already_notified?(user, time: Time.now.utc)
-      return false if user.digest_sent_at.blank?
-
-      case user.notifications_sending_frequency
-      when :none then true # true to avoid notifying the user then the frequency is none
-      when :daily then user.digest_sent_at > time - 1.day
-      when :weekly then user.digest_sent_at > time - 1.week
-      else false
-      end
     end
   end
 end
