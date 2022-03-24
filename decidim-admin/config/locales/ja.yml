@@ -123,6 +123,10 @@ ja:
         file: ファイル
     errors:
       models:
+        newsletter:
+          attributes:
+            base:
+              at_least_one_space: 少なくとも1つの参加スペースを選択してください
         organization:
           attributes:
             official_img_footer:
