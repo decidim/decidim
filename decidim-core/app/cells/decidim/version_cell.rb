@@ -77,7 +77,7 @@ module Decidim
     end
 
     def resource_path
-      resource_locator(versioned_resource).path(filter_link_params)
+      resource_locator(versioned_resource).path
     end
   end
 end

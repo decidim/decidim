@@ -685,4 +685,30 @@ describe "Filter Proposals", :slow, type: :system do
       expect(page).to have_css(".card.card--proposal", count: 6)
     end
   end
+
+  context "when using the 'back to list' link", :slow do
+    before do
+      create_list(:proposal, 2, component: component)
+      create_list(:proposal, 2, :official, component: component)
+      create_list(:proposal, 2, :official, :accepted, component: component)
+      create_list(:proposal, 2, :official, :rejected, component: component)
+
+      visit_component
+    end
+
+    it "saves and restores the filtering" do
+      expect(page).to have_css(".card.card--proposal", count: 6)
+
+      within ".filters .state_check_boxes_tree_filter" do
+        check "Rejected"
+      end
+
+      expect(page).to have_css(".card.card--proposal", count: 8)
+
+      page.find(".card.card--proposal .card__link", match: :first).click
+      click_link "Back to list"
+
+      expect(page).to have_css(".card.card--proposal", count: 8)
+    end
+  end
 end
