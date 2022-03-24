@@ -73,8 +73,19 @@ module Decidim
       def prevent_timeout_seconds
         return 0 unless respond_to?(:meeting)
         return 0 if !current_user || !meeting || !meeting.live?
+        return 0 unless online_or_hybrid_meeting?(meeting)
+        return 0 unless iframe_embed_or_live_event_page?(meeting)
+        return 0 unless meeting.iframe_access_level_allowed_for_user?(current_user)
 
         (meeting.end_time - Time.current).to_i
+      end
+
+      def online_or_hybrid_meeting?(meeting)
+        meeting.online_meeting? || meeting.hybrid_meeting?
+      end
+
+      def iframe_embed_or_live_event_page?(meeting)
+        meeting.iframe_embed_type == ("embed_in_meeting_page" || "open_in_live_event_page")
       end
     end
   end
