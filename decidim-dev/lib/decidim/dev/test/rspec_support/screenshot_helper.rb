@@ -18,6 +18,23 @@ module ActionDispatch
           name = "#{unique}_#{sanitized_method_name}"
           name[0...225]
         end
+
+        # Add the file URI scheme so terminal emulators can open one click
+        def display_image
+          message = +"[Screenshot Image]: file://#{image_path}\n"
+          message << +"[Screenshot HTML]: file://#{html_path}\n" if save_html?
+
+          case output_type
+          when "artifact"
+            message << "\e]1338;url=artifact://#{absolute_image_path}\a\n"
+          when "inline"
+            name = inline_base64(File.basename(absolute_image_path))
+            image = inline_base64(File.read(absolute_image_path))
+            message << "\e]1337;File=name=#{name};height=400px;inline=1:#{image}\a\n"
+          end
+
+          message
+        end
       end
     end
   end
