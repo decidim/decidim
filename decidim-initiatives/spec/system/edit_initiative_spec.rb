@@ -44,6 +44,14 @@ describe "Edit initiative", type: :system do
 
     it_behaves_like "manage update"
 
+    it "doesn't show the header's edit link" do
+      visit initiative_path
+
+      within ".topbar" do
+        expect(page).not_to have_link("Edit")
+      end
+    end
+
     context "when initiative is published" do
       let(:initiative) { create(:initiative, author: user, scoped_type: scoped_type, organization: organization) }
 

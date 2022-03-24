@@ -66,20 +66,6 @@ describe "Initiative", type: :system do
         end
       end
 
-      context "when user is author of the initiative" do
-        before do
-          # FIXME: this doesn't work :?
-          login_as initiative.author, scope: :user
-        end
-
-        it "doesn't show the header's edit link" do
-          within ".topbar" do
-            # expect(page).not_to have_link("Edit")
-            expect(page).to have_link("Edit")
-          end
-        end
-      end
-
       context "when initiative state is rejected" do
         let(:state) { :rejected }
 
