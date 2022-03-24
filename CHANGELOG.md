@@ -2,6 +2,73 @@
 
 ## [Unreleased](https://github.com/decidim/decidim/tree/HEAD)
 
+Nothing.
+
+## [0.26.1](https://github.com/decidim/decidim/tree/v0.26.1)
+
+### Added
+
+Nothing.
+
+### Changed
+
+Nothing.
+
+### Fixed
+
+- **decidim-meetings**: Backport "Fix the meetings export to also include unpublished meetings" to v0.26 [\#8939](https://github.com/decidim/decidim/pull/8939)
+- **decidim-system**, **decidim-verifications**: Backport "Fix verification report with multitenants" to v0.26 [\#8940](https://github.com/decidim/decidim/pull/8940)
+- **decidim-core**: Backport "Fix officialized user event missing translations" to v0.26 [\#8942](https://github.com/decidim/decidim/pull/8942)
+- **decidim-verifications**: Backport "Fix email for verification conflict with managed users" to v0.26 [\#8945](https://github.com/decidim/decidim/pull/8945)
+- **decidim-core**: Backport "Fix profile notifications" to v0.26 [\#8949](https://github.com/decidim/decidim/pull/8949)
+- **decidim-assemblies**, **decidim-budgets**, **decidim-comments**, **decidim-consultations**, **decidim-core**, **decidim-elections**, **decidim-forms**, **decidim-initiatives**, **decidim-participatory processes**, **decidim-proposals**: Backport several accessibility fixes to v0.26 [\#8950](https://github.com/decidim/decidim/pull/8950)
+- **decidim-core**: Backport "Add missing 'Locale' string in i18n in account page" to v0.26 [\#8980](https://github.com/decidim/decidim/pull/8980)
+- **decidim-meetings**: Backport "Truncate the meetings card description" to v0.26 [\#8979](https://github.com/decidim/decidim/pull/8979)
+- **decidim-proposals**: Backport "Fix proposals' cards with big images" to v0.26 [\#8978](https://github.com/decidim/decidim/pull/8978)
+- **decidim-initiatives**: Backport "Fix link to docs in initiatives admin" to v0.26 [\#8975](https://github.com/decidim/decidim/pull/8975)
+- **decidim-comments**: Backport "Fix budget hard dependency and caching flag issues in comments" to v0.26 [\#8973](https://github.com/decidim/decidim/pull/8973)
+- **decidim-participatory processes**: Backport "Fix processes creation form with stats, metrics and announcements" to v0.26 [\#8977](https://github.com/decidim/decidim/pull/8977)
+- **decidim-initiatives**: Backport "Show signatures in answered initiatives" to v0.26 [\#8991](https://github.com/decidim/decidim/pull/8991)
+- **decidim-core**: Backport "Add missing reveal__title classes" to v0.26 [\#8999](https://github.com/decidim/decidim/pull/8999)
+- **decidim-core**: Backport "Remove the label from the dropdown menu opener" to v0.26 [\#9002](https://github.com/decidim/decidim/pull/9002)
+- **decidim-core**: Backport "Fix mobile nav keyboard focus" to v0.26 [\#9001](https://github.com/decidim/decidim/pull/9001)
+- **decidim-core**: Backport "Fix main navigation aria-current attribute" to v0.26 [\#9000](https://github.com/decidim/decidim/pull/9000)
+- **decidim-core**: Backport "Show character counter when replying to message" to v0.26 [\#9003](https://github.com/decidim/decidim/pull/9003)
+- **decidim-core**: Backport "Fix character counter with emoji picker close to maximum characters" to v0.26 [\#9012](https://github.com/decidim/decidim/pull/9012)
+- **decidim-api**, **decidim-assemblies**, **decidim-conferences**, **decidim-consultations**, **decidim-initiatives**, **decidim-meetings**, **decidim-participatory processes**, **decidim-proposals**: Backport "Fix API when meetings have proposal linking disabled" to v0.26 [\#8992](https://github.com/decidim/decidim/pull/8992)
+- **decidim-core**: Backport "Fix Devise flash messages translation" to v0.26 [\#9043](https://github.com/decidim/decidim/pull/9043)
+- **decidim-core**: Backport "Disable new conversation next button when no users selected" to v0.26 [\#9054](https://github.com/decidim/decidim/pull/9054)
+- **decidim-initiatives**: Backport "Fix initiatives signatures issues" to v0.26 [\#8974](https://github.com/decidim/decidim/pull/8974)
+- **decidim-blogs**, **decidim-core**, **decidim-debates**, **decidim-proposals**: Backport "Fix for endorsed_by with other user group's member" to v0.26 [\#9062](https://github.com/decidim/decidim/pull/9062)
+- **decidim-proposals**: Backport "Fix footer actions caching on proposals' card" to v0.26 [\#9063](https://github.com/decidim/decidim/pull/9063)
+- **decidim-admin**: Backport "Add missing 'Locale' string in i18n in selective newsletter" to v0.26 [\#9064](https://github.com/decidim/decidim/pull/9064)
+- **decidim-core**: Backport "Fix social share button sharing" to v0.26 [\#9065](https://github.com/decidim/decidim/pull/9065)
+- **decidim-meetings**: Backport "Use published meetings scope on processes landing and proposal's form" to v0.26 [\#9066](https://github.com/decidim/decidim/pull/9066)
+- **decidim-core**: Backport "Require omniauth/rails_csrf_protection explicitly" to v0.26 [\#9067](https://github.com/decidim/decidim/pull/9067)
+- **decidim-core**, **decidim-proposals**: Backport "Fix amendable events title" to v0.26 [\#9079](https://github.com/decidim/decidim/pull/9079)
+- **decidim-proposals**: Backport "Create admin log records when proposals are imported from a file" to v0.26 [\#9077](https://github.com/decidim/decidim/pull/9077)
+- **decidim-comments**, **decidim-core**, **decidim-proposals**: Backport "Add noreferrer and ugc to links" to v0.26 [\#9078](https://github.com/decidim/decidim/pull/9078)
+- **decidim-meetings**: Backport "Fix submit in meetings admin form" to v0.26 [\#9076](https://github.com/decidim/decidim/pull/9076)
+- **decidim-core**: Backport "Fix session cookie SameSite policy" to v0.26 [\#9059](https://github.com/decidim/decidim/pull/9059)
+- **decidim-budgets**, **decidim-core**, **decidim-debates**, **decidim-meetings**, **decidim-proposals**: Backport "Fix cache URLs on cards" to v0.26 [\#9074](https://github.com/decidim/decidim/pull/9074)
+- **decidim-assemblies**, **decidim-conferences**, **decidim-consultations**, **decidim-core**, **decidim-initiatives**, **decidim-participatory processes**: Backport "Fix Twitter hashtag search when it starts with a number" to v0.26 [\#9075](https://github.com/decidim/decidim/pull/9075)
+
+### Removed
+
+Nothing.
+
+### Internal
+
+- Backport "Fix ActionMailer preview loading" to v0.26 [\#8963](https://github.com/decidim/decidim/pull/8963)
+- Backport "Fix flaky spec in meetings multi-date selectors" to v0.26 [\#8976](https://github.com/decidim/decidim/pull/8976)
+- Backport "Local HTML validator for the CI" to v0.26 [\#9004](https://github.com/decidim/decidim/pull/9004)
+- Backport "Fix API when meetings have proposal linking disabled" to v0.26 [\#8992](https://github.com/decidim/decidim/pull/8992)
+
+### Developer improvements
+
+- Backport "Fix Devise configs that depend on Decidim configs" to v0.26 [\#9022](https://github.com/decidim/decidim/pull/9022)
+- Backport "Fix Faker address country code in seeds" to v0.26 [\#9046](https://github.com/decidim/decidim/pull/9046)
+
 ## [0.26.0](https://github.com/decidim/decidim/tree/v0.26.0)
 
 ### Added
