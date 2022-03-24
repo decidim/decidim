@@ -96,10 +96,11 @@ class PasswordValidator < ActiveModel::EachValidator
   end
 
   def domain_included_in_password?
-    return false unless record&.current_organization&.host
-    return true if value.include?(record.current_organization.host)
+    organization = record.respond_to?(:current_organization) ? record.current_organization : record.organization
+    return false unless organization.host
+    return true if value.include?(organization.host)
 
-    record.current_organization.host.split(".").each do |part|
+    organization.host.split(".").each do |part|
       next if part.length < IGNORE_SIMILARITY_SHORTER_THAN
 
       return true if value.include?(part)
