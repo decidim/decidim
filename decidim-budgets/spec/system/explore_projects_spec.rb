@@ -83,7 +83,7 @@ describe "Explore projects", :slow, type: :system do
 
         visit_budget
 
-        within ".with_any_category_check_boxes_tree_filter" do
+        within ".category_id_check_boxes_tree_filter" do
           uncheck "All"
           check translated(category.name)
         end

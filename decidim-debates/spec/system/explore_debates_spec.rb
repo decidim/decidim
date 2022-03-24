@@ -181,7 +181,7 @@ describe "Explore debates", type: :system do
         end
 
         it "works with 'back to list' link " do
-          within ".filters .with_any_category_check_boxes_tree_filter" do
+          within ".filters .category_id_check_boxes_tree_filter" do
             uncheck "All"
             check category.name[I18n.locale.to_s]
           end

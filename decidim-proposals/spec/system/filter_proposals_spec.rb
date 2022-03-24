@@ -699,7 +699,7 @@ describe "Filter Proposals", :slow, type: :system do
     it "saves and restores the filtering" do
       expect(page).to have_css(".card.card--proposal", count: 6)
 
-      within ".filters .with_any_state_check_boxes_tree_filter" do
+      within ".filters .state_check_boxes_tree_filter" do
         check "Rejected"
       end
 

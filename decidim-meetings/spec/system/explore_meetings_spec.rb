@@ -188,7 +188,7 @@ describe "Explore meetings", :slow, type: :system do
 
         visit_component
 
-        within ".with_any_scope_check_boxes_tree_filter" do
+        within ".scope_id_check_boxes_tree_filter" do
           check "All"
           uncheck "All"
           check translated(scope.name)
