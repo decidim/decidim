@@ -144,4 +144,49 @@ describe "Meeting", type: :system, download: true do
       end
     end
   end
+
+  context "when user is logged and session is about to timeout" do
+    before do
+      allow(Decidim.config).to receive(:expire_session_after).and_return(2.minutes)
+      allow(Decidim.config).to receive(:session_timeout_interval).and_return(1.second)
+      login_as user, scope: :user
+    end
+
+    context "when meeting is live" do
+      let(:meeting) { create(:meeting, :published, component: component, start_time: 1.minute.ago, end_time: Time.current + 1.hour) }
+
+      it "does not timeout user" do
+        visit_meeting
+        travel 1.minute
+        expect(page).not_to have_content("If you continue being inactive", wait: 4)
+        expect(page).not_to have_content("You were inactive for too long")
+      end
+    end
+
+    context "when meeting is in future" do
+      let(:meeting) { create(:meeting, :published, component: component, start_time: Time.current + 1.day, end_time: Time.current + 1.day + 2.hours) }
+
+      it "timeouts user normally" do
+        visit_meeting
+        travel 1.minute
+        expect(page).to have_content("You were inactive for too long")
+      end
+
+      context "when comments are enabled" do
+        let(:comment) { create(:comment, commentable: meeting) }
+
+        before do
+          component.settings[:comments_enabled] = true
+        end
+
+        it "fetching comments doesnt prevent timeout" do
+          visit_meeting
+          comment
+          expect(page).to have_content(translated(comment.body), wait: 30)
+          expect(page).to have_content("If you continue being inactive", wait: 30)
+          expect(page).to have_content("You were inactive for too long", wait: 30)
+        end
+      end
+    end
+  end
 end

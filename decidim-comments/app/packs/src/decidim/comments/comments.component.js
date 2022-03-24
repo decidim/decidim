@@ -200,17 +200,17 @@ export default class CommentsComponent {
     this._stopPolling();
 
     this.pollTimeout = setTimeout(() => {
-      $.ajax({
+      Rails.ajax({
         url: this.commentsUrl,
-        method: "GET",
-        contentType: "application/javascript",
-        data: {
+        type: "GET",
+        data: new URLSearchParams({
           "commentable_gid": this.commentableGid,
           "root_depth": this.rootDepth,
-          order: this.order,
-          after: this.lastCommentId
-        }
-      }).done(() => this._pollComments());
+          "order": this.order,
+          "after": this.lastCommentId
+        }),
+        success: this._pollComments()
+      })
     }, this.pollingInterval);
   }
 

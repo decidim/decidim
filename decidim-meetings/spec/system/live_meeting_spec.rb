@@ -37,4 +37,37 @@ describe "Meeting live event", type: :system do
     click_link "close"
     expect(page).to have_current_path meeting_path
   end
+
+  context "when user is logged and session is about to timeout" do
+    before do
+      allow(Decidim.config).to receive(:expire_session_after).and_return(2.minutes)
+      allow(Decidim.config).to receive(:session_timeout_interval).and_return(1.second)
+      switch_to_host(organization.host)
+      login_as user, scope: :user
+      visit meeting_live_event_path
+    end
+
+    context "when meeting is live" do
+      let(:meeting) { create(:meeting, :published, :online, :embed_in_meeting_page_iframe_embed_type, component: component, start_time: 1.minute.ago, end_time: end_time) }
+      let(:end_time) { Time.current + 1.hour }
+
+      it "does not timeout user" do
+        travel 5.minutes
+        expect(page).to have_selector("[aria-label='User account: #{user.name}']")
+        expect(page).not_to have_content("If you continue being inactive", wait: 4)
+        expect(page).not_to have_content("You were inactive for too long")
+      end
+
+      context "and ends soon" do
+        let(:end_time) { Time.current + 15.seconds }
+
+        it "logouts user" do
+          travel 1.minute
+          expect(page).to have_content("If you continue being inactive", wait: 30)
+          allow(Time).to receive(:current).and_return(Time.current + 1.minute)
+          expect(page).to have_content("You are not allowed to view this meeting")
+        end
+      end
+    end
+  end
 end
