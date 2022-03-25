@@ -215,13 +215,12 @@ describe "Edit proposals", type: :system do
     end
 
     context "when rich text editor is enabled on the frontend" do
-      let(:link) { "http://www.linux.org" }
-
       before do
         organization.update(rich_text_editor_in_public_views: true)
       end
 
       context "when proposal body has link" do
+        let(:link) { "http://www.linux.org" }
         let(:body_en) { %(Hello <a href="#{link}" target="_blank">this is a link</a> World) }
 
         before do
@@ -242,8 +241,6 @@ describe "Edit proposals", type: :system do
           editor = page.find(".editor-container")
           expect(editor).to have_selector("a[href='#{link}']")
           expect(editor).not_to have_selector("a.external-link-container")
-          click_button "Send"
-          expect(page).to have_link("this is a link", href: link)
         end
       end
     end
