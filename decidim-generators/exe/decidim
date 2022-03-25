@@ -32,6 +32,7 @@ Options:
 
 App generation extra options (ignored if the --component flag is on):
   --storage [provider]     Setup the Gemfile with the appropiate gem to handle a storage provider. Supported options are: local (default), s3, gcs, azure
+  --queue [provider]       Setup the Gemfile with the appropiate gem to handle a job queue backend. Only 'sidekiq' is supported as option for now.
   --force_ssl [true|false] Enables or disables mandatory redirection to HTTPS (defaults to enabled)
   --locales [locales]      Force the available locales to the ones specified. Separate with comas
                            Warning: this option disables the ENV var DECIDIM_AVAILABLE_LOCALES used to setup this configuration by default.
@@ -52,6 +53,8 @@ Examples:
   decidim --storage=s3 my-application
   decidim --storage=s3,gcs --profiling --force_ssl=false my-application
   decidim --locales=en,ca,es,fr my-application
+  decidim --queue sidekiq my-application
+  decidim --queue sidekiq --storage s3 my-application
 "
 else
   require "decidim/generators/app_generator"
