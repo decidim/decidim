@@ -215,20 +215,36 @@ describe "Edit proposals", type: :system do
     end
 
     context "when rich text editor is enabled on the frontend" do
+      let(:link) { "http://www.linux.org" }
+
       before do
         organization.update(rich_text_editor_in_public_views: true)
-        body = proposal.body
-        body["en"] = 'Hello <a href="http://www.linux.org" target="_blank">external link</a> World'
-        proposal.update!(body: body)
       end
 
-      it "doesnt change the href" do
-        visit_component
+      context "when proposal body has link" do
+        let(:body_en) { %(Hello <a href="#{link}" target="_blank">this is a link</a> World) }
 
-        click_link proposal_title
-        click_link "Edit proposal"
+        before do
+          body = proposal.body
+          body["en"] = body_en
+          proposal.update!(body: body)
+          visit_component
+          click_link proposal_title
+        end
 
-        expect(page).to have_link("external link", href: "http://www.linux.org")
+        it "doesnt change the href" do
+          click_link "Edit proposal"
+          expect(page).to have_link("this is a link", href: link)
+        end
+
+        it "doesnt add external link container inside the editor" do
+          click_link "Edit proposal"
+          editor = page.find(".editor-container")
+          expect(editor).to have_selector("a[href='#{link}']")
+          expect(editor).not_to have_selector("a.external-link-container")
+          click_button "Send"
+          expect(page).to have_link("this is a link", href: link)
+        end
       end
     end
   end
