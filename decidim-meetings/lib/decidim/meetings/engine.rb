@@ -121,8 +121,6 @@ module Decidim
       initializer "decidim_meetings.register_reminders" do
         Decidim.reminders_registry.register(:close_meeting) do |reminder_registry|
           reminder_registry.generator_class_name = "Decidim::Meetings::CloseMeetingReminderGenerator"
-          reminder_registry.form_class_name = "Decidim::Meetings::Admin::CloseMeetingReminderForm"
-          reminder_registry.command_class_name = "Decidim::Meetings::Admin::CreateCloseMeetingReminders"
 
           reminder_registry.settings do |settings|
             settings.attribute :reminder_times, type: :array, default: [3.days, 7.days]
