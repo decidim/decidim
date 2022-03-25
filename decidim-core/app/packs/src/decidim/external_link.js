@@ -5,7 +5,7 @@ const EXCLUDE_CLASSES = [
   "footer-social__icon",
   "logo-cityhall"
 ];
-const EXCLUE_ANCESTORS_CLASSES = [
+const EXCLUDE_ANCESTOR_CLASSES = [
   "editor-container"
 ]
 const EXCLUDE_REL = ["license", "decidim"];
@@ -30,7 +30,7 @@ export default class ExternalLink {
     if (EXCLUDE_CLASSES.some((cls) => this.$link.hasClass(cls))) {
       return;
     }
-    if (EXCLUE_ANCESTORS_CLASSES.some((cls) => this.$link.parents().hasClass(cls))) {
+    if (EXCLUDE_ANCESTOR_CLASSES.some((cls) => this.$link.parents().hasClass(cls))) {
       return;
     }
     if (
