@@ -3,6 +3,8 @@
 require "rails"
 require "active_support/all"
 require "action_view/railtie"
+require "active_model"
+require "active_record"
 
 require "pg"
 require "redis"
