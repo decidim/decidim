@@ -185,8 +185,8 @@ en:
           feedback_form_answers: Feedback form answers
         mailers:
           trustee_mailer:
-            subject: You've been added as a trustee to %{resource_name}
             body: "<p>Hi %{user_name},</p><p>You've been added as a trustee to %{resource_name}.</p>"
+            subject: You've been added as a trustee to %{resource_name}
             trustee_zone: Take me to the trustee zone
         menu:
           trustees: Trustees
