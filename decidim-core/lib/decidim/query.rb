@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 #
 # This file has been copied from https://github.com/andypike/rectify/blob/master/lib/rectify/query.rb
 # We have done this so we can decouple Decidim from any Virtus dependency, which is a dead project
@@ -31,15 +32,11 @@ module Decidim
 
     alias merge |
 
-    def count
-      cached_query.count
-    end
+    delegate :count, to: :cached_query
 
     alias size count
 
-    def first
-      cached_query.first
-    end
+    delegate :first, to: :cached_query
 
     def each(&block)
       cached_query.each(&block)
@@ -55,9 +52,7 @@ module Decidim
       !exists?
     end
 
-    def to_a
-      cached_query.to_a
-    end
+    delegate :to_a, to: :cached_query
 
     alias to_ary to_a
 

@@ -108,6 +108,9 @@ module Decidim
   autoload :AttributeObject, "decidim/attribute_object"
   autoload :Query, "decidim/query"
   autoload :Command, "decidim/command"
+  autoload :EventRecorder, "decidim/event_recorder"
+  autoload :NullQuery, "decidim/null_query"
+  autoload :SqlQuery, "decidim/sql_query"
 
   include ActiveSupport::Configurable
   # Loads seeds from all engines.

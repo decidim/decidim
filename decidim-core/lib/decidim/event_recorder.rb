@@ -11,12 +11,10 @@ module Decidim
       @events = {}
     end
 
-    # rubocop:disable Style/MethodMissing
     def method_missing(method_name, *args, &_block)
       args = args.first if args.size == 1
       @events[method_name] = args
     end
-    # rubocop:enable Style/MethodMissing
 
     def respond_to_missing?(_method_name, _include_private = false)
       true
