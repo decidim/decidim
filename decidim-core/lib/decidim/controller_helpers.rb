@@ -5,7 +5,7 @@
 # We have done this so we can decouple Decidim from any Virtus dependency, which is a dead project
 # Please follow Decidim discussion to understand more https://github.com/decidim/decidim/discussions/7234
 module Decidim
-  class ControllerHelpers
+  module ControllerHelpers
     def self.included(base_class)
       base_class.helper_method(:presenter)
     end
