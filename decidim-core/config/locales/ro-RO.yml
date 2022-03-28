@@ -1069,7 +1069,6 @@ ro:
         administrators: Administratori
         allow_public_contact: Permiteți oricui să îmi trimită un mesaj direct, chiar dacă nu-l urmăresc.
         direct_messages: Primește mesaje directe de la oricine
-        email_on_moderations: Vreau să primesc un e-mail de fiecare dată când se raportează ceva pentru moderare.
         email_on_notification: Vreau să primesc un e-mail de fiecare dată când primesc o notificare.
         everything_followed: Tot ce urmăresc
         newsletter_notifications: Vreau să primesc buletine informative
