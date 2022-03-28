@@ -1148,6 +1148,7 @@ cs:
         administrators: Správci
         allow_public_contact: Umožnit komukoli poslat mi přímou zprávu, i když je nesleduji.
         direct_messages: Přijímat přímé zprávy od kohokoli
+        email_on_moderations: Chci dostávat e-mail pokaždé, když je něco nahlášeno k moderování.
         email_on_notification: Chci dostávat e-mail pokaždé, když obdržím oznámení.
         everything_followed: Všechno, co sleduji
         newsletter_notifications: Chci dostávat zpravodaje
