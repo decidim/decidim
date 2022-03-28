@@ -185,16 +185,12 @@ module Decidim
 
       # Runs rails commands in a subprocess, and aborts if it doesn't suceeed
       def rails(*args)
-        Bundler.with_unbundled_env do
-          abort unless system("bin/rails", *args)
-        end
+        abort unless system("bin/rails", *args)
       end
 
       # Runs rails commands in a subprocess silencing errors, and ignores status
       def soft_rails(*args)
-        Bundler.with_unbundled_env do
-          system("bin/rails", *args, err: File::NULL)
-        end
+        system("bin/rails", *args, err: File::NULL)
       end
 
       def cut(text, strip: true)

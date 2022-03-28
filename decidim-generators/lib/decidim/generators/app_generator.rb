@@ -188,7 +188,6 @@ module Decidim
 
       def bundle_install
         add_production_gems
-
         return if options[:skip_gemfile]
         return if options[:skip_bundle]
 
