@@ -1059,7 +1059,6 @@ nl:
         administrators: Beheerders
         allow_public_contact: Ledereen kan mij een persoonlijk bericht sturen, ook mensen die ik niet volg.
         direct_messages: Ontvang privéberichten van iedereen
-        email_on_moderations: Ik wil een e-mail ontvangen telkens wanneer iets wordt gerapporteerd voor moderatie.
         email_on_notification: Ik wil een e-mail ontvangen telkens als ik een melding krijg.
         everything_followed: Alles wat ik volg
         newsletter_notifications: Ik wil de nieuwsbrief ontvangen
