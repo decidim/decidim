@@ -641,7 +641,7 @@ module Decidim
   end
 
   # Checks if a particular decidim gem is installed
-  # Note that defined(Decidim::Somthing) does not work all the times, specially when the
+  # Note that defined(Decidim::Something) does not work all the times, specially when the
   # Gemfile uses the "path" parameter to find the module.
   # This is because the module can be defined by some files searched by Rails automatically
   # (ie: decidim-initiatives/lib/decidim/initiatives/version.rb automatically defines Decidim::Intiatives even if not required)
