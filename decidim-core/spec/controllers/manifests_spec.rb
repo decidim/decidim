@@ -9,6 +9,7 @@ module Decidim
     let(:organization) { create(:organization, colors: { "theme" => "#f0f0f0" }) }
 
     before do
+      Decidim::Organization.destroy_all
       request.env["decidim.current_organization"] = organization
     end
 
