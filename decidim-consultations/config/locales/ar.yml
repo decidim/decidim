@@ -248,6 +248,8 @@ ar:
           label: 'ترتيب المشاورات حسب:'
           random: عشوائية
           recent: الأحدث
+        show:
+          dates: التواريخ
       content_blocks:
         highlighted_consultations:
           name: مشاورات أبرزت
@@ -262,6 +264,7 @@ ar:
       filters:
         active: نشيط
         all: الكل
+        date: التاريخ
         finished: تم الانتهاء من
         search: بحث
         upcoming: القادمة
