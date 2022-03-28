@@ -1033,7 +1033,6 @@ eu:
         administrators: Administratzaileak
         allow_public_contact: Baimentzea edonork bidali diezadala mezu zuzena, nahiz eta nik jarraitu ez.
         direct_messages: Edonoren mezu zuzenak jasotzea
-        email_on_moderations: Mezu elektroniko bat jaso nahi dut zerbait neurriz erreportatzen den bakoitzean.
         email_on_notification: Mezu elektroniko bat jaso nahi dut jakinarazpen bat jasotzen dudan bakoitzean.
         everything_followed: Jarraitzen dudan guztia
         newsletter_notifications: Buletinak jaso nahi ditut
