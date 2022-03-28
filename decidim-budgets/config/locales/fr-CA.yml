@@ -141,6 +141,8 @@ fr-CA:
         show: Voir les projets
         vote: Voter
         voted_on: Vous avez voté sur %{links}
+      last_activity:
+        new_vote_at_html: "<span>Nouveau vote du budget sur ce lien %{link}</span>"
       limit_announcement:
         cant_vote: Vous ne pouvez pas voter sur ce budget. <a href="%{landing_path}">Essayez sur un autre budget</a>.
         limit_reached: Vous avez des votes actifs dans %{links}. Pour voter sur ce budget, vous devez <a href="%{landing_path}">supprimer votre vote et recommencer</a>.
