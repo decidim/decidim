@@ -1082,7 +1082,6 @@
         administrators: Administratorer
         allow_public_contact: La hvem som helst sende meg direktemelding, selv om jeg ikke følger dem.
         direct_messages: Motta direktemeldinger fra alle
-        email_on_moderations: Jeg ønsker å få en e-post hver gang noe rapporteres til moderasjon.
         email_on_notification: Jeg vil motta en e-post hver gang jeg mottar et varsel.
         everything_followed: Alt jeg følger
         newsletter_notifications: Jeg ønsker å motta nyhetsbrev
