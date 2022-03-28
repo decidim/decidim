@@ -1039,7 +1039,6 @@ pt:
         administrators: Administradores
         allow_public_contact: Permitir que qualquer pessoa me envie uma mensagem direta, mesmo que não a siga.
         direct_messages: Receber mensagens diretas de qualquer pessoa
-        email_on_moderations: Quero receber um e-mail sempre que alguma coisa for denunciada para moderação
         email_on_notification: Quero receber um e-mail sempre que recebo uma notificação.
         everything_followed: Tudo o que eu sigo
         newsletter_notifications: Quero receber boletins informativos
