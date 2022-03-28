@@ -1079,7 +1079,6 @@ ca:
         administrators: Administradores
         allow_public_contact: Permetre que qualsevol participant m'envïi missatges directes, encara que no la segueixi.
         direct_messages: Rebre missatges directes de qualsevol
-        email_on_moderations: Vull rebre un correu electrònic cada cop que es reporti quelcom per moderació.
         email_on_notification: Vull rebre un correu electrònic cada vegada que rebi una notificació.
         everything_followed: Tot el que segueixo
         newsletter_notifications: Vull rebre butlletins informatius
