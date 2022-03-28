@@ -953,6 +953,7 @@ hu:
       show:
         allow_public_contact: Megengedem, hogy bárki közvetlen üzenetet küldjön nekem, akkor is, ha nem követem őket.
         direct_messages: Közvetlen üzenetek fogadása bárkitől
+        email_on_moderations: Szeretnék e-mailt kapni, valahányszor valamit vagy valakit jelentenek moderálás miatt.
         email_on_notification: Mindig, amikor értesítést kapok, egy emailt is küldünk róla.
         everything_followed: Minden, amit követek
         newsletter_notifications: Szeretnék hírleveleket kapni
