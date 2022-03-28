@@ -793,6 +793,9 @@ ar:
           error: لم تبدأ المحادثة. حاول مرة أخرى في وقت لاحق
         index:
           close: إغلاق مشروط
+          groups: فِرَقي
+          last_message: آخر رسالة
+          new_conversation: محادثة جديدة
           no_conversations: ليس لديك محادثات حتى الآن
           title: المحادثات
         reply:
@@ -846,6 +849,7 @@ ar:
       no_notifications: لا إخطارات حتى الآن.
     notifications_settings:
       show:
+        email_on_moderations: أريد أن أتلقى رسالة بريد إلكتروني كلما يتم فيها الإبلاغ عن شيء أو عن شخص ما للإشراف.
         email_on_notification: أرغب في تلقي رسالة بريد إلكتروني في كل مرة أتلقى فيها إشعارًا.
         everything_followed: كل شيء أتابعه
         newsletter_notifications: أريد أن أتلقى رسائل إخبارية
