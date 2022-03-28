@@ -1082,7 +1082,6 @@ sv:
         administrators: Administratörer
         allow_public_contact: Tillåt alla att skicka direktmeddelanden till mig, även de som jag inte följer.
         direct_messages: Ta emot direktmeddelanden från alla
-        email_on_moderations: Jag vill få ett e-post varje gång något anmäls för moderering.
         email_on_notification: Jag vill få ett e-post varje gång jag får en notis.
         everything_followed: Allt jag följer
         newsletter_notifications: Jag vill få nyhetsbrev
