@@ -796,6 +796,7 @@ ar:
           groups: فِرَقي
           last_message: آخر رسالة
           new_conversation: محادثة جديدة
+          next: التالي
           no_conversations: ليس لديك محادثات حتى الآن
           title: المحادثات
         reply:
@@ -824,6 +825,10 @@ ar:
         note: لقد تلقيت هذه الرسالة الإلكترونية لأنك مشترك في الرسائل الإخبارية على %{organization_name}. يمكنك تغيير الإعدادات الخاصة بك على هاتفك <a href="%{link}">الصفحة إخطارات</a>.
         see_on_website: لا يمكن عرض هذا البريد الإلكتروني بشكل صحيح؟ اطلع عليه على <a href="%{link}" target="_blank">الموقع</a>.
         unsubscribe: لإلغاء الاشتراك في تلقي هذا النوع من البريد الإلكتروني ، <a href="%{link}" target="_blank" class="unsubscribe">إلغاء الاشتراك</a>.
+    newsletter_templates:
+      image_text_cta_settings_form:
+        introduction: مقدمة
+        main_image: الصورة الرئيسية
     newsletters:
       unsubscribe:
         check_subscription: إذا كنت ترغب في تغيير تفضيلاتك ، يمكنك القيام بذلك في صفحة التكوين <a href="%{link}" target="_blank"></a>
@@ -1046,6 +1051,7 @@ ar:
         label: 'نتائج لكل صفحة:'
       share_modal:
         close_window: أغلق النافذة
+        copy_share_link: انسخ
         share: شارك
         share_link: مشاركة الرابط
     statistics:
