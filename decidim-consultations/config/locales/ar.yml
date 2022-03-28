@@ -248,6 +248,8 @@ ar:
           label: 'ترتيب المشاورات حسب:'
           random: عشوائية
           recent: الأحدث
+        show:
+          dates: التواريخ
       content_blocks:
         highlighted_consultations:
           name: مشاورات أبرزت
