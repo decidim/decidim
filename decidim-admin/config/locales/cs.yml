@@ -123,6 +123,10 @@ cs:
         file: Soubor
     errors:
       models:
+        newsletter:
+          attributes:
+            base:
+              at_least_one_space: Vyberte alespoň jeden participační prostor
         organization:
           attributes:
             official_img_footer:
@@ -911,6 +915,7 @@ cs:
         gallery:
           add_images: Přidat obrázky
           delete_image: Odstranit obrázek
+          edit_images: Upravit obrázky
           gallery_legend: Přidat galerii obrázků (volitelné)
       static_page_topics:
         create:

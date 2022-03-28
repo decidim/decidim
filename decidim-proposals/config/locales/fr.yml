@@ -657,6 +657,8 @@ fr:
           filter_by: Filtrer par
           unfold: Se dérouler
         new:
+          add_file: Ajouter un fichier
+          edit_file: Modifier le fichier
           send: Continuer
         new_collaborative_draft_button:
           new_collaborative_draft: Nouveau brouillon collaboratif
@@ -767,12 +769,12 @@ fr:
           description: Les coordonnées seront mises à jour en cliquant sur le bouton 'Aperçu'. Cependant, l'adresse ne change pas.
           instructions: Vous pouvez déplacer le point sur la carte.
         edit:
-          add_documents: Documents
-          add_images: Fichier
+          add_documents: Ajouter des documents
+          add_image: Ajouter une image
           attachment_legend: "(Facultatif) Ajouter une pièce jointe"
           back: Retour
-          delete_document: Supprimer le document
-          delete_image: Supprimer l'image
+          edit_documents: Modifier les documents
+          edit_image: Modifier l'Image
           gallery_legend: "(Facultatif) Ajouter une image à la carte de proposition"
           select_a_category: Veuillez sélectionner une catégorie
           send: Envoyer

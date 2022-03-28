@@ -16,7 +16,7 @@ module AttachmentHelpers
     filename = options[:filename] || upload_test_file_filename(file)
     content_type = options[:content_type] || upload_test_file_content_type(file)
 
-    blob = ActiveStorage::Blob.create_after_upload!(
+    blob = ActiveStorage::Blob.create_and_upload!(
       io: File.open(file),
       filename: filename,
       content_type: content_type

@@ -713,12 +713,8 @@ pt-BR:
           description: As coordenadas serão atualizadas quando clicar no botão 'visualizar'. No entanto, o endereço não muda.
           instructions: Você pode mover o ponto no mapa.
         edit:
-          add_documents: Documentos
-          add_images: Arquivo
           attachment_legend: "(Opcional) Adicione um anexo"
           back: Voltar
-          delete_document: Apagar Documento
-          delete_image: Excluir Imagem
           gallery_legend: "(Opcional) Adicione uma imagem à carta da proposta"
           select_a_category: Selecione uma categoria
           send: Enviar

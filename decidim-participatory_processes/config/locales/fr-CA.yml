@@ -56,6 +56,8 @@ fr-CA:
         short_description: Résumé
         start_date: Date de début
         title: Titre
+      participatory_process_type:
+        title: Titre
       participatory_process_user_role:
         email: Email
         name: Nom
@@ -96,6 +98,7 @@ fr-CA:
         new_process: Nouvelle concertation
         new_process_group: Nouveau groupe de concertations
         new_process_step: Nouvelle étape
+        new_process_type: Nouveau type de concertation
         new_process_user_role: Nouvel administrateur de la concertation
         preview: Aperçu
         publish: Publier
@@ -106,6 +109,7 @@ fr-CA:
         participatory_process_groups_submenu:
           info: Information
           landing_page: Page d'accueil
+        participatory_process_types: Types de concertation
         participatory_processes: Concertations
         participatory_processes_submenu:
           attachment_collections: Dossiers
@@ -137,6 +141,11 @@ fr-CA:
             start_date: Date de début
             title: Titre
           name: Étape de la concertation
+        participatory_process_type:
+          fields:
+            created_at: Crée le
+            title: Titre
+          name: Type de concertation
         participatory_process_user_role:
           fields:
             email: Email
@@ -219,6 +228,23 @@ fr-CA:
         update:
           error: Une erreur s'est produite lors de la mise à jour de cette étape de la concertation.
           success: Étape de la concertation mise à jour avec succès.
+      participatory_process_types:
+        create:
+          error: Une erreur s'est produite lors de la création d'un nouveau type de concertation.
+          success: Type de concertation créé avec succès.
+        destroy:
+          success: Type de concertation supprimé avec succès.
+        edit:
+          title: Modifier le type de concertation
+          update: Mettre à jour
+        form:
+          title: Titre
+        new:
+          create: Créer
+          title: Nouveau type de concertation
+        update:
+          error: Une erreur s'est produite lors de la mise à jour de ce type de concertation.
+          success: Type de concertation mis à jour avec succès.
       participatory_process_user_roles:
         create:
           error: Une erreur s'est produite lors de l'ajout d'un utilisateur pour cette concertation.
@@ -263,6 +289,7 @@ fr-CA:
           success: Groupe de concertations créé avec succès.
       titles:
         participatory_process_groups: Groupes de concertations
+        participatory_process_types: Types de concertation
         participatory_processes: Concertations
       users:
         resend_invitation:
@@ -282,6 +309,10 @@ fr-CA:
         create: "%{user_name} a créé l'étape %{resource_name} dans la concertation %{space_name}"
         delete: "%{user_name} a supprimé l'étape %{resource_name} de la concertation %{space_name}"
         update: "%{user_name} a mis à jour l'étape %{resource_name} de la concertation %{space_name}"
+      participatory_process_type:
+        create: "%{user_name} a créé le type de concertation %{resource_name}"
+        delete: "%{user_name} a supprimé le type de concertation %{resource_name}"
+        update: "%{user_name} a mis à jour le type de concertation %{resource_name}"
       participatory_process_user_role:
         create: "%{user_name} a invité l'utilisateur %{resource_name} à la concertation %{space_name}"
         delete: "%{user_name} a supprimé l'utilisateur %{resource_name} de la concertation %{space_name}"
@@ -309,6 +340,10 @@ fr-CA:
           contextual: "<p>Un <strong>processus de participation</strong> est une séquence d'activités de participation (par exemple , premier remplir un sondage, puis faire des propositions, les discuter en face-à-face ou virtuelles, et enfin les hiérarchiser) dans le but de définir et de prendre une décision sur un sujet spécifique.</p> <p>Exemples de processus participatifs: un processus d’élection des membres du comité (où les candidatures sont d'abord présentées, puis débattues et finalement une candidature est choisie), les budgets participatifs (où les propositions sont faites, évaluées économiquement et votées avec l'argent disponible), un processus de planification stratégique, la rédaction collaborative d'un règlement ou d'une norme, la conception d'un espace urbain ou la production d'un plan de politique publique.</p>\n"
           page: "<p>Un <strong>processus de participation</strong> est une séquence d'activités de participation (par exemple , premier remplir un sondage, puis faire des propositions, les discuter en face-à-face ou virtuelles, et enfin les hiérarchiser) dans le but de définir et de prendre une décision sur un sujet spécifique.</p> <p>Exemples de processus participatifs: un processus d’élection des membres du comité (où les candidatures sont d'abord présentées, puis débattues et finalement une candidature est choisie), les budgets participatifs (où les propositions sont faites, évaluées économiquement et votées avec l'argent disponible), un processus de planification stratégique, la rédaction collaborative d'un règlement ou d'une norme, la conception d'un espace urbain ou la production d'un plan de politique publique.</p>\n"
           title: Qu'est-ce qu'une concertation ?
+    log:
+      value_types:
+        participatory_process_type_presenter:
+          not_found: 'Le type de concertation n''a pas été trouvé dans la base de données (ID: %{id})'
     menu:
       processes: Concertations
     metrics:
@@ -384,6 +419,7 @@ fr-CA:
             related_processes: Concertations liées
             scope_type_max_depth_help: Restreindre la profondeur du filtre de téles; Le filtre s'affichera de général au type de télescope sélectionné.
             select_an_area: Sélectionnez un secteur
+            select_participatory_process_type: Sélectionnez un type de concertation
             select_process_group: Sélectionnez un groupe de concertations
             slug_help: 'Les identifiants d''URL sont utilisés pour générer les URL qui envoient vers cette concertation. Ils n''acceptent que des lettres, des chiffres et des tirets et doivent commencer par une lettre. Exemple : %{url}'
             title: Informations générales
@@ -410,6 +446,7 @@ fr-CA:
           back_to_process: Retour à la page du processus
       participatory_processes:
         filters:
+          all_types: Tous les types
           counters:
             active:
               one: 1 concertation active
@@ -427,6 +464,7 @@ fr-CA:
             no_active: Aucune concertation active
             no_active_nor_upcoming: Aucune concertation active ni à venir
             no_active_nor_upcoming_callout: Il n'y a pas de concertations actives ni à venir. Voici une liste des concertations passées.
+          filter_by: Afficher
           names:
             active: Actifs
             all: Tous
@@ -435,6 +473,8 @@ fr-CA:
           see: Voir
         index:
           loading: Chargement des résultats...
+        show:
+          title: A propos de cette concertation
       show:
         area: Périmètre d'assemblée
         belongs_to_group: Cette concertation appartient à

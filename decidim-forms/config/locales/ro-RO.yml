@@ -128,10 +128,6 @@ ro:
         extension_allowlist: 'Formate acceptate:'
       images:
         dimensions: "%{width} x %{height} px"
-        dimensions_info: 'Această imagine va fi:'
-        processors:
-          resize_and_pad: Redimensionat și padded la
-          resize_to_fit: Redimensionată pentru a se potrivi
       question_types:
         files: Fișiere
         long_answer: Răspuns lung

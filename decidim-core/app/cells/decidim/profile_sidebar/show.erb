@@ -23,7 +23,7 @@
       <small><%= decidim_html_escape(profile_user.about.to_s) %></small>
     </div>
     <% if profile_user.personal_url.present? %>
-      <%= link_to html_truncate(profile_user.personal_url.gsub(%r{https?\:\/\/}, ""), length: 30), profile_user.personal_url, rel: "nofollow noopener" %>
+      <%= link_to html_truncate(profile_user.personal_url.gsub(%r{https?\:\/\/}, ""), length: 30), profile_user.personal_url, rel: "nofollow noopener noreferrer ugc" %>
     <% end %>
   </div>
   <% if profile_user.badge.present? %>

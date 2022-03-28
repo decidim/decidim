@@ -197,6 +197,7 @@ gl:
       filters:
         active: Activo
         all: Todo
+        date: Data
         finished: Terminado
         search: Busca
         upcoming: Próximos

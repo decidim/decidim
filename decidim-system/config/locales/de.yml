@@ -57,6 +57,9 @@ de:
         update:
           error: Beim Aktualisieren dieses Administrators ist ein Fehler aufgetreten.
           success: Administrator wurde erfolgreich aktualisiert
+      dashboard:
+        show:
+          current_organizations: Aktuelle Organisationen
       default_pages:
         placeholders:
           content: Fügen Sie der statischen Seite %{page} im Admin-Dashboard sinnvollen Inhalt hinzu.
@@ -112,6 +115,9 @@ de:
           error: Beim Erstellen dieser Anwendung ist ein Fehler aufgetreten.
           success: Die Anwendung wurde erfolgreich aktualisiert.
       organizations:
+        advanced_settings:
+          hide: Erweiterte Einstellungen ausblenden
+          show: Zeige erweiterte Einstellungen
         create:
           error: Beim Erstellen einer neuen Organisation ist ein Fehler aufgetreten.
           success: Organisation erfolgreich erstellt

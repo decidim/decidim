@@ -579,6 +579,8 @@ hu:
           filter_by: 'Szűrés ez alapján:'
           unfold: Kibont
         new:
+          add_file: Fájl hozzáadása
+          edit_file: Fájl szerkesztése
           send: Tovább
         new_collaborative_draft_button:
           new_collaborative_draft: Új közös vázlat
@@ -681,8 +683,12 @@ hu:
             one: "%{count} javaslat"
             other: "%{count} javaslatot"
         edit:
+          add_documents: Dokumentum hozzáadása
+          add_image: Kép hozzáadása
           attachment_legend: "(Nem kötelező) Melléklet hozzáadása"
           back: Vissza
+          edit_documents: Dokumentum szerkesztése
+          edit_image: Kép szerkesztése
           select_a_category: Válassz kategóriát
           send: Küldés
           title: Javaslat szerkesztése

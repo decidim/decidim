@@ -690,7 +690,6 @@ tr:
         button: Takibi bırak
         error: Bu kaynağı takip etmekten bir hata oluştu.
     forms:
-      current_file: Mevcut dosya
       current_image: Geçerli resim
       default_image: Varsayılan görüntü
       errors:
@@ -710,7 +709,6 @@ tr:
       file_validation:
         allowed_file_extensions: 'İzin verilen dosya uzantıları: %{extensions}'
         max_file_size: 'Maksimum dosya boyutu: %{megabytes} MB'
-      remove_this_file: Bu dosyayı kaldır
     gamification:
       all_badges_link: Tüm mevcut rozetleri görün.
       badges:

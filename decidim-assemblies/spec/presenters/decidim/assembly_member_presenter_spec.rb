@@ -121,7 +121,7 @@ module Decidim
 
       context "when a image is attached" do
         let(:non_user_avatar) do
-          ActiveStorage::Blob.create_after_upload!(
+          ActiveStorage::Blob.create_and_upload!(
             io: File.open(Decidim::Dev.asset("avatar.jpg")),
             filename: "avatar.jpeg",
             content_type: "image/jpeg"

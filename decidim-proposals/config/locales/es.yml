@@ -767,12 +767,8 @@ es:
           description: Las coordenadas se actualizarán cuando hagas clic en el botón 'previsualizar'. Sin embargo, la dirección no cambia.
           instructions: Puedes mover la ubicación en el mapa.
         edit:
-          add_documents: Documentos
-          add_images: Archivo
           attachment_legend: "(Opcional) Agregar un archivo adjunto"
           back: Volver
-          delete_document: Borrar Documento
-          delete_image: Borrar imagen
           gallery_legend: "(Opcional) Añadir una imagen a la tarjeta de propuesta"
           select_a_category: Por favor, selecciona una categoría
           send: Enviar

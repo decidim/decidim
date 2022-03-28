@@ -736,7 +736,6 @@ ca:
         button: Deixar de seguir
         error: S'ha produït un error en deixar de seguir aquest recurs.
     forms:
-      current_file: Fitxer actual
       current_image: Imatge actual
       default_image: Imatge predeterminada
       errors:
@@ -756,7 +755,6 @@ ca:
       file_validation:
         allowed_file_extensions: 'Tipus de fitxers admesos: %{extensions}'
         max_file_size: 'Mida màxima del fitxer:%{megabytes}MB'
-      remove_this_file: Eliminar aquest arxiu
     gamification:
       all_badges_link: Veure totes les insígnies disponibles.
       badges:

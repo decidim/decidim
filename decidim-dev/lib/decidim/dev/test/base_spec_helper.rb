@@ -3,6 +3,7 @@
 require "decidim/dev"
 
 ENV["RAILS_ENV"] ||= "test"
+ENV["RAILS_SYSTEM_TESTING_SCREENSHOT_HTML"] ||= "1"
 
 engine_spec_dir = File.join(Dir.pwd, "spec")
 

@@ -727,12 +727,8 @@ it:
           description: Le coordinate verranno aggiornate quando si fa clic sul pulsante 'Anteprima'. Tuttavia, l'indirizzo non cambia.
           instructions: Puoi spostare il punto sulla mappa.
         edit:
-          add_documents: Documenti
-          add_images: File
           attachment_legend: "(Opzionale) Aggiungi un allegato"
           back: Indietro
-          delete_document: Elimina Documento
-          delete_image: Elimina Immagine
           gallery_legend: "(Facoltativo) Aggiungi un'immagine alla scheda proposta"
           select_a_category: Seleziona una categoria
           send: Inviare

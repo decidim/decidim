@@ -171,6 +171,8 @@ gl:
         permissions: Permisos
         reject: Rexeitar
         share: Compartir
+        user:
+          new: Novo administrador
         verify: Verifique
       admin_terms_of_use:
         accept:
@@ -332,6 +334,7 @@ gl:
       dashboard:
         show:
           view_more_logs: Ver máis rexistros
+          welcome: Benvido/a ao panel de administración.
       domain_whitelist:
         form:
           domain_too_short: Dominio curto de máis
@@ -880,6 +883,7 @@ gl:
         gallery:
           add_images: Engadir imaxes
           delete_image: Eliminar imaxe
+          edit_images: Editar imaxes
           gallery_legend: Engadir unha galería de imaxes (opcional)
       static_page_topics:
         create:
@@ -940,6 +944,7 @@ gl:
         static_pages: Páxinas
         statistics: Actividade
         user_groups: Grupos de usuarios
+        users: Administradores
       user_group:
         csv_verify:
           invalid: Produciuse un erro ao ler o ficheiro CSV.
@@ -975,6 +980,7 @@ gl:
           role: Rol
         new:
           create: Invitar
+          title: Convidar a un novo administrador
       users_statistics:
         users_count:
           admins: Administradores

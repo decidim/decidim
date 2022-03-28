@@ -118,10 +118,6 @@ it:
         extension_allowlist: 'Formati accettati:'
       images:
         dimensions: "%{width} x %{height} px"
-        dimensions_info: 'Questa immagine sarà:'
-        processors:
-          resize_and_pad: Ridimensionato e spaziato a
-          resize_to_fit: Ridimensionato per adattarsi
       question_types:
         files: I file
         long_answer: Risposta lunga
