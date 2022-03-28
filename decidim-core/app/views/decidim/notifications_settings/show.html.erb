@@ -1,7 +1,7 @@
 <% add_decidim_page_title(t("notifications_settings", scope: "layouts.decidim.user_profile")) %>
 <% content_for(:subtitle) { t("notifications_settings", scope: "layouts.decidim.user_profile") } %>
 
-<div class="row">
+<div class="row mb-m">
   <%= form_for(@notifications_settings, url: notifications_settings_path, method: :put, class: "user-form") do |f| %>
     <p><strong><%= t(".receive_notifications_about") %></strong></p>
     <div class="switch tiny switch-with-label notifications_from_own_activity">
@@ -74,12 +74,12 @@
     <% if @notifications_settings.meet_push_notifications_requirements? %>
       <div class="push-notifications">
         <p><strong><%= t(".push_notifications") %></strong></p>
-          <p class="push-notifications__reminder"><i><%= t(".push_notifications_reminder").html_safe %></i></p>
+          <p class="push-notifications__reminder"><i><%= t(".push_notifications_reminder") %></i></p>
           <div class="switch tiny switch-with-label allow_push_notifications">
             <label>
               <%= f.check_box :allow_push_notifications, label: false, class: "switch-input" %>
               <span class="switch-paddle"></span>
-              <span class="switch-label"><%= t(".allow_push_notifications").html_safe %></span>
+              <span class="switch-label"><%= t(".allow_push_notifications") %></span>
             </label>
           </div>
         </div>
