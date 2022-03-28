@@ -81,6 +81,8 @@ ar:
       budget_information_modal:
         continue: مواصلة
         more_information: المزيد من المعلومات
+      budgets_list:
+        my_budgets: ميزانياتي
       models:
         budget:
           fields:
