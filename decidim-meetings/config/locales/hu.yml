@@ -322,6 +322,11 @@ hu:
         calendar_url: Naptár URL
         close_window: Ablak bezárása
         export_calendar: Naptár exportálása
+      close_meeting_reminder_mailer:
+        close_meeting_reminder:
+          greetings: Üdvözöljük <br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
+          hello: Hello %{username},
+          subject: Lezárhatja a megbeszélést a %{organization_name} platformon beküldött jelentéssel
       conference_venues: Konferencia helyszínek
       content_blocks:
         upcoming_meetings:
