@@ -355,6 +355,12 @@ de:
       calendar_modal:
         calendar_url: Kalender-URL
         close_window: Fenster schließen
+        copy_calendar_url: Kopieren
+        copy_calendar_url_clarification: Kalender-Url in Zwischenablage kopieren
+        copy_calendar_url_copied: Kopiert!
+        copy_calendar_url_description: Sie können alle veröffentlichten Meetings in Ihrer Kalenderanwendung oder bei Ihrem Kalender-Anbieter sehen. Kopieren und fügen Sie diese URL mit der Option "Neuen Kalender von einer URL hinzufügen" in Ihren Kalender ein.
+        copy_calendar_url_explanation: Bitte beachten Sie, dass Sie eine Auswahl von Meetings exportieren, da es aktive Filter gibt. Wenn Sie alle exportieren möchten, setzen Sie zuerst alle Filter zurück.
+        copy_calendar_url_message: Die URL wurde erfolgreich in die Zwischenablage kopiert.
         export_calendar: Kalender exportieren
       conference_venues: Tagungsstätten
       content_blocks:
