@@ -5,12 +5,12 @@ module Decidim
     # This service change the processes steps automatically.
     class AutomateProcessesSteps
       def initialize
-        @participatory_processes = Decidim::ParticipatoryProcess.where.not(published_at: nil).where(start_date: ..Time.zone.now, end_date: Time.zone.now..)
+        @participatory_processes = Decidim::ParticipatoryProcess.where.not(published_at: nil).where("start_date <= ? AND end_date >= ?", Time.zone.now, Time.zone.now)
       end
 
       def change_active_step
         @participatory_processes.each do |process|
-          steps = process.steps.where(start_date: ..Time.zone.now)
+          steps = process.steps.where("start_date <= ?", Time.zone.now)
           active_step = steps.select(&:active).first
 
           steps_candidates = select_steps_candidates(steps, active_step)
