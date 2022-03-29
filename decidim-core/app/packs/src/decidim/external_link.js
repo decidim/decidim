@@ -5,6 +5,9 @@ const EXCLUDE_CLASSES = [
   "footer-social__icon",
   "logo-cityhall"
 ];
+const EXCLUDE_ANCESTOR_CLASSES = [
+  "editor-container"
+]
 const EXCLUDE_REL = ["license", "decidim"];
 
 const DEFAULT_MESSAGES = {
@@ -25,6 +28,9 @@ export default class ExternalLink {
 
   setup() {
     if (EXCLUDE_CLASSES.some((cls) => this.$link.hasClass(cls))) {
+      return;
+    }
+    if (EXCLUDE_ANCESTOR_CLASSES.some((cls) => this.$link.parents().hasClass(cls))) {
       return;
     }
     if (
