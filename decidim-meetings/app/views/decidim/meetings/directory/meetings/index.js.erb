@@ -1,6 +1,10 @@
 var $meetings = $('#meetings');
 var $meetingsCount = $('#meetings-count');
 
+// make sure that calendar modal will use the updated filter values
+var $calendarShare = $('#calendarShare');
+$calendarShare.remove();
+
 $meetings.html('<%= j(render partial: "meetings").strip.html_safe %>');
 $meetingsCount.html('<%= j(render partial: "decidim/meetings/meetings/count").strip.html_safe %>');
 

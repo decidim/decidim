@@ -33,13 +33,6 @@ module Decidim
         def filtered_meetings
           meetings.not_hidden.published.except_withdrawn.ransack(@filters).result
         end
-
-        # Defines the cache key for the given component.
-        #
-        # Returns a String.
-        def cache_key
-          "meetings-calendar-component-#{component.id}-#{component.updated_at.to_i}"
-        end
       end
     end
   end

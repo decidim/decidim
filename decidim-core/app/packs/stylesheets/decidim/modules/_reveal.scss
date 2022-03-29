@@ -27,6 +27,11 @@
   .calendar_url_input{
     margin-top: 1rem;
   }
+
+  #urlCalendarUrl{
+    // Prevent the "not-allowed" cursor in the share input.
+    cursor: auto;
+  }
 }
 
 .reveal__footer{
