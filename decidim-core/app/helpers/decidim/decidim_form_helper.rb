@@ -218,7 +218,7 @@ module Decidim
       return organization.areas if organization.area_types.blank?
       return organization.areas if organization.area_types.all? { |at| at.area_ids.empty? }
 
-      organization.area_types
+      organization.area_types.includes(:areas)
     end
   end
 end

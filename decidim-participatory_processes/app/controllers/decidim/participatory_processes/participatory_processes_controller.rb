@@ -78,11 +78,11 @@ module Decidim
       end
 
       def promoted_collection
-        @promoted_collection ||= promoted_participatory_processes.query + promoted_participatory_process_groups.query
+        @promoted_collection ||= promoted_participatory_processes.query.with_attached_hero_image.includes(:active_step) + promoted_participatory_process_groups.query.with_attached_hero_image
       end
 
       def collection
-        @collection ||= participatory_processes + participatory_process_groups
+        @collection ||= participatory_processes.includes(:active_step) + participatory_process_groups
       end
 
       def filtered_processes
@@ -90,12 +90,13 @@ module Decidim
       end
 
       def participatory_processes
-        @participatory_processes ||= filtered_processes.groupless.includes(attachments: :file_attachment)
+        @participatory_processes ||= filtered_processes.groupless.with_attached_hero_image
       end
 
       def participatory_process_groups
         @participatory_process_groups ||= OrganizationParticipatoryProcessGroups.new(current_organization).query
                                                                                 .where(id: filtered_processes.grouped.group_ids)
+                                                                                .with_attached_hero_image
       end
 
       def stats
