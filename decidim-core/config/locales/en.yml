@@ -1121,6 +1121,8 @@ en:
         everything_followed: Everything I follow
         newsletter_notifications: I want to receive newsletters
         newsletters: Newsletters
+        notification_settings:
+          close_meeting_reminder: I want to receive email reminders of closed meetings unpublished reports
         own_activity: My own activity, like when someone comments in my proposal or mentions me
         receive_notifications_about: I want to get notifications about
         send_notifications_by_email: Send notifications by email
