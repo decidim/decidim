@@ -1114,6 +1114,8 @@ fi:
         everything_followed: Kaikki mitä seuraan
         newsletter_notifications: Haluan vastaanottaa uutiskirjeitä
         newsletters: Uutiskirjeet
+        notification_settings:
+          close_meeting_reminder: Haluan vastaanottaa sähköpostimuistutuksia suljetuista tapaamisista, jotka odottavat raportointia
         own_activity: Oma toiminta, kuten omia ehdotuksia koskevat kommentit tai maininnat
         receive_notifications_about: Haluan saada ilmoituksia
         send_notifications_by_email: Lähetä ilmoitukset sähköpostitse
