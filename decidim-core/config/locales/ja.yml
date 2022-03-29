@@ -1097,6 +1097,8 @@ ja:
         everything_followed: 自分がフォローしているすべて
         newsletter_notifications: ニュースレターを受け取る
         newsletters: ニュースレター
+        notification_settings:
+          close_meeting_reminder: レポートを未公開で閉じたミーティングのリマインドメールを受信したい
         own_activity: 誰かが提案にコメントしたり、私に言及したりした時など、自分自身の活動
         receive_notifications_about: 通知を受け取りたい
         send_notifications_by_email: 電子メールで通知を受け取る
