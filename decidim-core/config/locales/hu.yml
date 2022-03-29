@@ -958,6 +958,8 @@ hu:
         everything_followed: Minden, amit követek
         newsletter_notifications: Szeretnék hírleveleket kapni
         newsletters: Hírlevelek
+        notification_settings:
+          close_meeting_reminder: Szeretnék e-mailben emlékeztetőt kapni a zárt megbeszélésekről és nem nyilvános jelentésekről
         own_activity: Saját tevékenységem - amikor valaki megjegyzést fűz a javaslatomhoz, vagy megemlíti a nevemet
         receive_notifications_about: Értesítést szeretnék kapni
         send_notifications_by_email: Értesítések küldése e-mailben
