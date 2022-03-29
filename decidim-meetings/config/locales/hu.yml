@@ -321,6 +321,9 @@ hu:
       calendar_modal:
         calendar_url: Naptár URL
         close_window: Ablak bezárása
+        copy_calendar_url: Másolás
+        copy_calendar_url_copied: Lemásolva!
+        copy_calendar_url_message: A vágólapra másolás sikeres.
         export_calendar: Naptár exportálása
       close_meeting_reminder_mailer:
         close_meeting_reminder:
