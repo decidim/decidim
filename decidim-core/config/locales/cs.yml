@@ -1153,6 +1153,8 @@ cs:
         everything_followed: Všechno, co sleduji
         newsletter_notifications: Chci dostávat zpravodaje
         newsletters: Zpravodaje
+        notification_settings:
+          close_meeting_reminder: Chci dostávat e-mailem připomenutí uzavřených schůzek nepublikovaných zpráv
         own_activity: Moje vlastní činnost, jako kdyby někdo komentoval ve svém návrhu nebo mě zmínil
         receive_notifications_about: Chci dostávat oznámení
         send_notifications_by_email: Poslat oznámení emailem
