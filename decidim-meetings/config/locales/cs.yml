@@ -405,6 +405,12 @@ cs:
         calendar_url: Adresa URL kalendáře
         close_window: Zavřete okno
         export_calendar: Exportovat kalendář
+      close_meeting_reminder_mailer:
+        close_meeting_reminder:
+          body: Schůzka <a href="%{meeting_path}">"%{meeting_title}"</a> čeká na ukončení. Přidejte prosím zprávu o schůzce pomocí tlačítka "Zavřít schůzku".
+          greetings: Dobrý den,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
+          hello: Dobrý den %{username},
+          subject: Nyní můžete svou schůzku uzavřít se zprávou o platformě %{organization_name}
       conference_venues: Konferenční prostory
       content_blocks:
         upcoming_meetings:
