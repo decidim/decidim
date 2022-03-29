@@ -387,6 +387,12 @@ ja:
         calendar_url: カレンダー URL
         close_window: ウィンドウを閉じる
         export_calendar: カレンダーをエクスポート
+      close_meeting_reminder_mailer:
+        close_meeting_reminder:
+          body: ミーティング <a href="%{meeting_path}">"%{meeting_title}"</a> はクローズされます．「ミーティングを閉じる」ボタンを使ってミーティングのレポートを追加してください．
+          greetings: こんにちは、<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
+          hello: こんにちは、 %{username} さん。
+          subject: '%{organization_name} プラットフォーム上のレポートでミーティングを閉じることができます。'
       conference_venues: カンファレンス会場
       content_blocks:
         upcoming_meetings:
