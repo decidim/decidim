@@ -378,6 +378,9 @@ eu:
       calendar_modal:
         calendar_url: Egutegiaren URLa
         close_window: Itxi leihoa
+        copy_calendar_url: Kopiatu
+        copy_calendar_url_clarification: Egutegiaren URLa arbelean kopiatu 
+        copy_calendar_url_copied: Kopiatuta!
         export_calendar: Esportatu egutegia
       conference_venues: Hitzaldi aretoak
       content_blocks:
