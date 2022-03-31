@@ -17,7 +17,6 @@ module Decidim
         helper Decidim::ResourceHelper
 
         helper_method :meetings, :search, :calendar_filter
-        # before_action :save_calendar_filters, only: :index
 
         def calendar
           render plain: CalendarRenderer.for(current_organization, calendar_filter_params), content_type: "type/calendar"
