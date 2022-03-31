@@ -11,7 +11,7 @@ module Decidim
       skip_around_action :use_organization_time_zone
 
       def show
-        render plain: CalendarRenderer.for(current_component, params[:filter]), content_type: "type/calendar"
+        render plain: CalendarRenderer.for(current_component, calendar_filter_params), content_type: "type/calendar"
       end
 
       def meeting_calendar
@@ -19,6 +19,10 @@ module Decidim
       end
 
       private
+
+      def calendar_filter_params
+        params[:filter].presence || Decidim::Meetings::CalendarFilter.where(identifier: params[:identifier]).first_or_initialize.filters.with_indifferent_access
+      end
 
       def meeting
         @meeting ||= Decidim::Meetings::Meeting.where(component: current_component).find(params[:id])

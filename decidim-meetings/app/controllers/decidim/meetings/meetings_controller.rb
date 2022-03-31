@@ -14,7 +14,7 @@ module Decidim
       helper Decidim::WidgetUrlsHelper
       helper Decidim::ResourceVersionsHelper
 
-      helper_method :meetings, :meeting, :registration, :search
+      helper_method :meetings, :meeting, :registration, :search, :calendar_filter
 
       def new
         enforce_permission_to :create, :meeting
@@ -102,6 +102,14 @@ module Decidim
       end
 
       private
+
+      def calendar_filter
+        @calendar_filter ||= Decidim::Meetings::CalendarFilter.where(filters: filtering_params, decidim_component_id: current_component.id).first_or_create
+      end
+
+      def filtering_params
+        params.fetch(:filter, {}).try(:to_unsafe_hash)
+      end
 
       def meeting
         @meeting ||= Meeting.not_hidden.where(component: current_component).find_by(id: params[:id])

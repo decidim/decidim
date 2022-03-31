@@ -16,13 +16,26 @@ module Decidim
         helper Decidim::Meetings::MapHelper
         helper Decidim::ResourceHelper
 
-        helper_method :meetings, :search
+        helper_method :meetings, :search, :calendar_filter
+        # before_action :save_calendar_filters, only: :index
 
         def calendar
-          render plain: CalendarRenderer.for(current_organization, params[:filter]), content_type: "type/calendar"
+          render plain: CalendarRenderer.for(current_organization, calendar_filter_params), content_type: "type/calendar"
         end
 
         private
+
+        def calendar_filter_params
+          params[:filter].presence || Decidim::Meetings::CalendarFilter.where(identifier: params[:identifier]).first_or_initialize.filters.with_indifferent_access
+        end
+
+        def calendar_filter
+          @calendar_filter ||= Decidim::Meetings::CalendarFilter.where(filters: filtering_params, decidim_component_id: nil).first_or_create
+        end
+
+        def filtering_params
+          params.fetch(:filter, {}).try(:to_unsafe_hash)
+        end
 
         def meetings
           @meetings ||= paginate(search.result)
