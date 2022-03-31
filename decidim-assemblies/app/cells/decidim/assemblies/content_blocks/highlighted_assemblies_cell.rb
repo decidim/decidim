@@ -6,10 +6,6 @@ module Decidim
       class HighlightedAssembliesCell < Decidim::ViewModel
         delegate :current_user, to: :controller
 
-        cache :show, expires_in: 10.minutes, if: :perform_caching? do
-          cache_hash
-        end
-
         def show
           render if highlighted_assemblies.any?
         end
@@ -40,6 +36,10 @@ module Decidim
           hash = []
           hash.push(I18n.locale)
           hash.join(Decidim.cache_key_separator)
+        end
+
+        def expiry_time
+          10.minutes
         end
       end
     end
