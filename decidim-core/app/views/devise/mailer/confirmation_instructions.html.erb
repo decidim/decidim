@@ -2,4 +2,4 @@
 
 <p class="email-instructions"><%= t(".instruction") %></p>
 
-<p class="email-button email-button__cta"><%= link_to t(".action"), confirmation_url(@resource, confirmation_token: @token, host: @resource.organization.host) %></p>
+<p class="email-button email-button__cta"><%= link_to t(".action"), confirmation_url(@resource, confirmation_token: @token, host: @resource.organization.host, protocol: (Rails.env=="production" and Decidim.force_ssl)?"https":"http") %></p>
