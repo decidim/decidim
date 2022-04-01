@@ -4,7 +4,7 @@ module Decidim
   class Follow < ApplicationRecord
     include Decidim::DataPortability
 
-    belongs_to :followable, foreign_key: "decidim_followable_id", foreign_type: "decidim_followable_type", polymorphic: true, counter_cache: true
+    belongs_to :followable, foreign_key: "decidim_followable_id", foreign_type: "decidim_followable_type", polymorphic: true, counter_cache: true, touch: true
     belongs_to :user, foreign_key: "decidim_user_id", class_name: "Decidim::User"
 
     validates :user, uniqueness: { scope: [:followable] }
