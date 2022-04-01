@@ -19,7 +19,7 @@ module Decidim
       end
 
       context "when path includes base url already" do
-        let(:path) { "http://test.host/rails/active_storage/disk/123--foobar/banner_image.jpeg" }
+        let(:path) { "#{base_url}/rails/active_storage/disk/123--foobar/banner_image.jpeg" }
 
         it "does not duplicate base url" do
           expect(subject.add_base_url_to(path)).to eq(path)
