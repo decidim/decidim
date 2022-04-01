@@ -1049,21 +1049,3 @@ shared_examples_for "an application with storage and queue gems" do
     expect(current["queues"].flatten).to include(*queues), "sidekiq queues (#{current["queues"].flatten}) expected to eq containt (#{queues})"
   end
 end
-
-def json_secrets_for(path, env)
-  JSON.parse capture(path, "bin/rails runner 'puts Rails.application.secrets.to_json'", env: env)
-end
-
-def initializer_config_for(path, env, mod = "Decidim")
-  JSON.parse capture(path, "bin/rails runner 'puts #{mod}.config.to_json'", env: env)
-end
-
-def rails_value(value, path, env)
-  JSON.parse capture(path, "bin/rails runner 'puts #{value}.to_json'", env: env)
-end
-
-def capture(path, cmd, env: {})
-  Bundler.with_unbundled_env do
-    Decidim::GemManager.new(path).capture(cmd, env: env, with_stderr: false)[0]
-  end
-end

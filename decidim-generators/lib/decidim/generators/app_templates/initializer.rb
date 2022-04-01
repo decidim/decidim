@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-# rubocop:disable Layout/LineLength
-# rubocop:disable Style/SoleNestedConditional
 Decidim.configure do |config|
   # The name of the application
   config.application_name = Rails.application.secrets.decidim[:application_name]
@@ -350,69 +348,89 @@ Decidim.configure do |config|
 end
 
 if Decidim.module_installed? :api
-  Decidim::Api.schema_max_per_page = Rails.application.secrets.dig(:decidim, :api, :schema_max_per_page).presence || 50
-  Decidim::Api.schema_max_complexity = Rails.application.secrets.dig(:decidim, :api, :schema_max_complexity).presence || 5000
-  Decidim::Api.schema_max_depth = Rails.application.secrets.dig(:decidim, :api, :schema_max_depth).presence || 15
+  Decidim::Api.configure do |config|
+    config.schema_max_per_page = Rails.application.secrets.dig(:decidim, :api, :schema_max_per_page).presence || 50
+    config.schema_max_complexity = Rails.application.secrets.dig(:decidim, :api, :schema_max_complexity).presence || 5000
+    config.schema_max_depth = Rails.application.secrets.dig(:decidim, :api, :schema_max_depth).presence || 15
+  end
 end
 
 if Decidim.module_installed? :proposals
-  Decidim::Proposals.similarity_threshold = Rails.application.secrets.dig(:decidim, :proposals, :similarity_threshold).presence || 0.25
-  Decidim::Proposals.similarity_limit = Rails.application.secrets.dig(:decidim, :proposals, :similarity_limit).presence || 10
-  Decidim::Proposals.participatory_space_highlighted_proposals_limit = Rails.application.secrets.dig(:decidim, :proposals, :participatory_space_highlighted_proposals_limit).presence || 4
-  Decidim::Proposals.process_group_highlighted_proposals_limit = Rails.application.secrets.dig(:decidim, :proposals, :process_group_highlighted_proposals_limit).presence || 3
+  Decidim::Proposals.configure do |config|
+    config.similarity_threshold = Rails.application.secrets.dig(:decidim, :proposals, :similarity_threshold).presence || 0.25
+    config.similarity_limit = Rails.application.secrets.dig(:decidim, :proposals, :similarity_limit).presence || 10
+    config.participatory_space_highlighted_proposals_limit = Rails.application.secrets.dig(:decidim, :proposals, :participatory_space_highlighted_proposals_limit).presence || 4
+    config.process_group_highlighted_proposals_limit = Rails.application.secrets.dig(:decidim, :proposals, :process_group_highlighted_proposals_limit).presence || 3
+  end
 end
 
 if Decidim.module_installed? :meetings
-  Decidim::Meetings.upcoming_meeting_notification = Rails.application.secrets.dig(:decidim, :meetings, :upcoming_meeting_notification).to_i.days
-  unless Rails.application.secrets.dig(:decidim, :meetings, :enable_proposal_linking) == "auto"
-    Decidim::Meetings.enable_proposal_linking = Rails.application.secrets.dig(:decidim, :meetings, :enable_proposal_linking).present?
+  Decidim::Meetings.configure do |config|
+    config.upcoming_meeting_notification = Rails.application.secrets.dig(:decidim, :meetings, :upcoming_meeting_notification).to_i.days
+    unless Rails.application.secrets.dig(:decidim, :meetings, :enable_proposal_linking) == "auto"
+      config.enable_proposal_linking = Rails.application.secrets.dig(:decidim, :meetings, :enable_proposal_linking).present?
+    end
   end
 end
 
 if Decidim.module_installed? :budgets
-  unless Rails.application.secrets.dig(:decidim, :budgets, :enable_proposal_linking) == "auto"
-    Decidim::Budgets.enable_proposal_linking = Rails.application.secrets.dig(:decidim, :budgets, :enable_proposal_linking).present?
+  Decidim::Budgets.configure do |config|
+    unless Rails.application.secrets.dig(:decidim, :budgets, :enable_proposal_linking) == "auto"
+      config.enable_proposal_linking = Rails.application.secrets.dig(:decidim, :budgets, :enable_proposal_linking).present?
+    end
   end
 end
 
 if Decidim.module_installed? :accountability
-  unless Rails.application.secrets.dig(:decidim, :accountability, :enable_proposal_linking) == "auto"
-    Decidim::Accountability.enable_proposal_linking = Rails.application.secrets.dig(:decidim, :accountability, :enable_proposal_linking).present?
+  Decidim::Accountability.configure do |config|
+    unless Rails.application.secrets.dig(:decidim, :accountability, :enable_proposal_linking) == "auto"
+      config.enable_proposal_linking = Rails.application.secrets.dig(:decidim, :accountability, :enable_proposal_linking).present?
+    end
   end
 end
 
 if Decidim.module_installed? :consultations
-  Decidim::Consultations.stats_cache_expiration_time = Rails.application.secrets.dig(:decidim, :consultations, :stats_cache_expiration_time).to_i.minutes
+  Decidim::Consultations.configure do |config|
+    config.stats_cache_expiration_time = Rails.application.secrets.dig(:decidim, :consultations, :stats_cache_expiration_time).to_i.minutes
+  end
 end
 
 if Decidim.module_installed? :initiatives
-  unless Rails.application.secrets.dig(:decidim, :initiatives, :creation_enabled) == "auto"
-    Decidim::Initiatives.creation_enabled = Rails.application.secrets.dig(:decidim, :initiatives, :creation_enabled).present?
+  Decidim::Initiatives.configure do |config|
+    unless Rails.application.secrets.dig(:decidim, :initiatives, :creation_enabled) == "auto"
+      config.creation_enabled = Rails.application.secrets.dig(:decidim, :initiatives, :creation_enabled).present?
+    end
+    config.similarity_threshold = Rails.application.secrets.dig(:decidim, :initiatives, :similarity_threshold).presence || 0.25
+    config.similarity_limit = Rails.application.secrets.dig(:decidim, :initiatives, :similarity_limit).presence || 5
+    config.minimum_committee_members = Rails.application.secrets.dig(:decidim, :initiatives, :minimum_committee_members).presence || 2
+    config.default_signature_time_period_length = Rails.application.secrets.dig(:decidim, :initiatives, :default_signature_time_period_length).presence || 120
+    config.default_components = Rails.application.secrets.dig(:decidim, :initiatives, :default_components)
+    config.first_notification_percentage = Rails.application.secrets.dig(:decidim, :initiatives, :first_notification_percentage).presence || 33
+    config.second_notification_percentage = Rails.application.secrets.dig(:decidim, :initiatives, :second_notification_percentage).presence || 66
+    config.stats_cache_expiration_time = Rails.application.secrets.dig(:decidim, :initiatives, :stats_cache_expiration_time).to_i.minutes
+    config.max_time_in_validating_state = Rails.application.secrets.dig(:decidim, :initiatives, :max_time_in_validating_state).to_i.days
+    unless Rails.application.secrets.dig(:decidim, :initiatives, :print_enabled) == "auto"
+      config.print_enabled = Rails.application.secrets.dig(:decidim, :initiatives, :print_enabled).present?
+    end
+    config.do_not_require_authorization = Rails.application.secrets.dig(:decidim, :initiatives, :do_not_require_authorization).present?
   end
-  Decidim::Initiatives.similarity_threshold = Rails.application.secrets.dig(:decidim, :initiatives, :similarity_threshold).presence || 0.25
-  Decidim::Initiatives.similarity_limit = Rails.application.secrets.dig(:decidim, :initiatives, :similarity_limit).presence || 5
-  Decidim::Initiatives.minimum_committee_members = Rails.application.secrets.dig(:decidim, :initiatives, :minimum_committee_members).presence || 2
-  Decidim::Initiatives.default_signature_time_period_length = Rails.application.secrets.dig(:decidim, :initiatives, :default_signature_time_period_length).presence || 120
-  Decidim::Initiatives.default_components = Rails.application.secrets.dig(:decidim, :initiatives, :default_components)
-  Decidim::Initiatives.first_notification_percentage = Rails.application.secrets.dig(:decidim, :initiatives, :first_notification_percentage).presence || 33
-  Decidim::Initiatives.second_notification_percentage = Rails.application.secrets.dig(:decidim, :initiatives, :second_notification_percentage).presence || 66
-  Decidim::Initiatives.stats_cache_expiration_time = Rails.application.secrets.dig(:decidim, :initiatives, :stats_cache_expiration_time).to_i.minutes
-  Decidim::Initiatives.max_time_in_validating_state = Rails.application.secrets.dig(:decidim, :initiatives, :max_time_in_validating_state).to_i.days
-  unless Rails.application.secrets.dig(:decidim, :initiatives, :print_enabled) == "auto"
-    Decidim::Initiatives.print_enabled = Rails.application.secrets.dig(:decidim, :initiatives, :print_enabled).present?
-  end
-  Decidim::Initiatives.do_not_require_authorization = Rails.application.secrets.dig(:decidim, :initiatives, :do_not_require_authorization).present?
 end
 
 if Decidim.module_installed? :elections
-  Decidim::Elections.setup_minimum_hours_before_start = Rails.application.secrets.dig(:elections, :setup_minimum_hours_before_start).presence || 3
-  Decidim::Elections.start_vote_maximum_hours_before_start = Rails.application.secrets.dig(:elections, :start_vote_maximum_hours_before_start).presence || 6
-  Decidim::Elections.voter_token_expiration_minutes = Rails.application.secrets.dig(:elections, :voter_token_expiration_minutes).presence || 120
+  Decidim::Elections.configure do |config|
+    config.setup_minimum_hours_before_start = Rails.application.secrets.dig(:elections, :setup_minimum_hours_before_start).presence || 3
+    config.start_vote_maximum_hours_before_start = Rails.application.secrets.dig(:elections, :start_vote_maximum_hours_before_start).presence || 6
+    config.voter_token_expiration_minutes = Rails.application.secrets.dig(:elections, :voter_token_expiration_minutes).presence || 120
+  end
 
-  Decidim::Votings.check_census_max_requests = Rails.application.secrets.dig(:elections, :votings, :check_census_max_requests).presence || 5
-  Decidim::Votings.throttling_period = Rails.application.secrets.dig(:elections, :votings, :throttling_period).to_i.minutes
+  Decidim::Votings.configure do |config|
+    config.check_census_max_requests = Rails.application.secrets.dig(:elections, :votings, :check_census_max_requests).presence || 5
+    config.throttling_period = Rails.application.secrets.dig(:elections, :votings, :throttling_period).to_i.minutes
+  end
 
-  Decidim::Votings::Census.census_access_codes_export_expiry_time = Rails.application.secrets.dig(:elections, :votings, :census, :access_codes_export_expiry_time).to_i.days
+  Decidim::Votings::Census.configure do |config|
+    config.census_access_codes_export_expiry_time = Rails.application.secrets.dig(:elections, :votings, :census, :access_codes_export_expiry_time).to_i.days
+  end
 end
 
 Rails.application.config.i18n.available_locales = Decidim.available_locales
@@ -420,5 +438,3 @@ Rails.application.config.i18n.default_locale = Decidim.default_locale
 
 # Inform Decidim about the assets folder
 Decidim.register_assets_path File.expand_path("app/packs", Rails.application.root)
-# rubocop:enable Layout/LineLength
-# rubocop:enable Style/SoleNestedConditional
