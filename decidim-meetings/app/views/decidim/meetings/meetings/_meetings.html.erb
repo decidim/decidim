@@ -1,43 +1,45 @@
-<% if params.dig("filter", "with_availability").present? && params["filter"]["with_availability"] == "withdrawn" %>
-  <div class="callout warning">
-    <%= t("decidim.meetings.meetings.index.text_banner",
-          go_back_link: link_to(t("decidim.meetings.meetings.index.click_here"), meetings_path("filter[with_availability]" => nil)),
-          ).html_safe %>
-  </div>
-<% end %>
-
-<% if @forced_past_meetings %>
-  <div class="callout warning">
-    <%= t ".upcoming_meetings_warning" %>
-  </div>
-<% elsif meetings.length == 0 %>
-  <div class="callout warning">
-    <%= t ".no_meetings_warning" %>
-  </div>
-<% end %>
-
-<div class="row medium-up-2">
-  <div class="column">
-    <%= render partial: "decidim/shared/results_per_page" %>
-  </div>
-  <div class="column">
-    <%= render partial: "decidim/meetings/calendar_modal", locals: { path: calendar_url(filter: params.fetch(:filter, {}).try(:to_unsafe_hash)) } %>
-  </div>
-</div>
-
-<div class="row small-up-1 medium-up-2 card-grid">
-  <% meetings.each do |meeting| %>
-    <%= card_for meeting %>
+<% cache cache_hash, expires_in: 10.minutes do %>
+  <% if params.dig("filter", "with_availability").present? && params["filter"]["with_availability"] == "withdrawn" %>
+    <div class="callout warning">
+      <%= t("decidim.meetings.meetings.index.text_banner",
+            go_back_link: link_to(t("decidim.meetings.meetings.index.click_here"), meetings_path("filter[with_availability]" => nil)),
+           ).html_safe %>
+    </div>
   <% end %>
-</div>
-<%= decidim_paginate meetings, order_start_time: params[:order_start_time], scope_id: params[:scope_id] %>
 
-<div class="row">
-  <div class="text-right">
-    <% if params.dig("filter", "with_availability").present? && params["filter"]["with_availability"] == "withdrawn" %>
-      <%= link_to t("decidim.meetings.meetings.index.see_all"), meetings_path("filter[with_availability]" => nil) %>
-    <% else %>
-      <%= link_to t("decidim.meetings.meetings.index.see_all_withdrawn"), meetings_path("filter[with_availability]" => "withdrawn") %>
+  <% if @forced_past_meetings %>
+    <div class="callout warning">
+      <%= t ".upcoming_meetings_warning" %>
+    </div>
+  <% elsif meetings.length == 0 %>
+    <div class="callout warning">
+      <%= t ".no_meetings_warning" %>
+    </div>
+  <% end %>
+
+  <div class="row medium-up-2">
+    <div class="column">
+      <%= render partial: "decidim/shared/results_per_page" %>
+    </div>
+    <div class="column">
+      <%= render partial: "decidim/meetings/calendar_modal", locals: { path: calendar_url(filter: params.fetch(:filter, {}).try(:to_unsafe_hash)) } %>
+    </div>
+  </div>
+
+  <div class="row small-up-1 medium-up-2 card-grid">
+    <% meetings.each do |meeting| %>
+      <%= card_for meeting %>
     <% end %>
   </div>
-</div>
+  <%= decidim_paginate meetings, order_start_time: params[:order_start_time], scope_id: params[:scope_id] %>
+
+  <div class="row">
+    <div class="text-right">
+      <% if params.dig("filter", "with_availability").present? && params["filter"]["with_availability"] == "withdrawn" %>
+        <%= link_to t("decidim.meetings.meetings.index.see_all"), meetings_path("filter[with_availability]" => nil) %>
+      <% else %>
+        <%= link_to t("decidim.meetings.meetings.index.see_all_withdrawn"), meetings_path("filter[with_availability]" => "withdrawn") %>
+      <% end %>
+    </div>
+  </div>
+<% end %>

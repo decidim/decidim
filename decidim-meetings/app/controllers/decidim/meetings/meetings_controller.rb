@@ -14,7 +14,7 @@ module Decidim
       helper Decidim::WidgetUrlsHelper
       helper Decidim::ResourceVersionsHelper
 
-      helper_method :meetings, :meeting, :registration, :search
+      helper_method :meetings, :meeting, :registration, :search, :cache_hash
 
       def new
         enforce_permission_to :create, :meeting
@@ -109,6 +109,17 @@ module Decidim
 
       def meetings
         @meetings ||= paginate(search.result.order(start_time: :desc))
+      end
+
+      def cache_hash
+        @cache_hash ||= [
+          Array(meetings),
+          params.permit!.to_h[:filter]&.slice(*default_filter_params.keys),
+          params[:page],
+          meetings.cache_version,
+          current_component.cache_key_with_version,
+          current_user&.cache_key_with_version
+        ]
       end
 
       def registration
