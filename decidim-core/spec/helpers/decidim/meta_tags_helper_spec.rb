@@ -8,7 +8,6 @@ module Decidim
 
     let(:base_url) { "http://#{host}" }
     let(:host) { "test.host" }
-    let!(:current_organization) { create(:organization, host: host) }
 
     describe "#add_base_url_to" do
       context "with image path" do
@@ -34,6 +33,8 @@ module Decidim
       end
 
       context "when there is no request" do
+        let!(:current_organization) { create(:organization, host: host) }
+
         before do
           allow(subject).to receive(:request).and_return(nil)
         end
