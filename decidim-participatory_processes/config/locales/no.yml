@@ -56,6 +56,8 @@
         short_description: Kort beskrivelse
         start_date: Startdato
         title: Tittel
+      participatory_process_type:
+        title: Tittel
       participatory_process_user_role:
         email: Epost
         name: Navn
