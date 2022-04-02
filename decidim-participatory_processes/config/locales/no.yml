@@ -105,7 +105,7 @@
         participatory_process_groups: Prosessgrupper
         participatory_process_groups_submenu:
           info: Informasjon
-          landing_page: Startsiden
+          landing_page: Landingsside
         participatory_processes: Prosesser
         participatory_processes_submenu:
           attachment_collections: Mapper
@@ -435,6 +435,8 @@
           see: Se
         index:
           loading: Laster inn resultater...
+        show:
+          title: Om denne prosessen
       show:
         area: Område
         belongs_to_group: Denne prosessen tilhører
