@@ -648,4 +648,13 @@ module Decidim
   def self.register_assets_path(path)
     Rails.autoloaders.main.ignore(path) if Rails.configuration.autoloader == :zeitwerk
   end
+
+  # Checks if a particular decidim gem is installed
+  # Note that defined(Decidim::Something) does not work all the times, specially when the
+  # Gemfile uses the "path" parameter to find the module.
+  # This is because the module can be defined by some files searched by Rails automatically
+  # (ie: decidim-initiatives/lib/decidim/initiatives/version.rb automatically defines Decidim::Intiatives even if not required)
+  def self.module_installed?(mod)
+    Gem.loaded_specs.has_key?("decidim-#{mod}")
+  end
 end

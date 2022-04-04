@@ -83,12 +83,31 @@ module Decidim
         let(:command) { "decidim #{test_app} --recreate_db --demo" }
 
         it_behaves_like "a new development application"
+        it_behaves_like "an application with extra configurable env vars"
       end
 
       context "with a development application" do
         let(:command) { "decidim --path #{repo_root} #{test_app} --recreate_db --seed_db --demo" }
 
         it_behaves_like "a new development application"
+      end
+
+      context "with wrong --storage providers" do
+        let(:command) { "decidim #{test_app} --storage s3,gcs,assure" }
+
+        it_behaves_like "an application with wrong cloud storage options"
+      end
+
+      context "with --storage providers" do
+        let(:command) { "decidim #{test_app} --storage s3,gcs,azure" }
+
+        it_behaves_like "an application with cloud storage gems"
+      end
+
+      context "with --queue providers" do
+        let(:command) { "decidim #{test_app} --storage s3 --queue sidekiq" }
+
+        it_behaves_like "an application with storage and queue gems"
       end
     end
 
@@ -107,6 +126,24 @@ module Decidim
 
     def repo_root
       File.expand_path(File.join("..", ".."), __dir__)
+    end
+
+    def json_secrets_for(path, env)
+      JSON.parse cmd_capture(path, "bin/rails runner 'puts Rails.application.secrets.to_json'", env: env)
+    end
+
+    def initializer_config_for(path, env, mod = "Decidim")
+      JSON.parse cmd_capture(path, "bin/rails runner 'puts #{mod}.config.to_json'", env: env)
+    end
+
+    def rails_value(value, path, env)
+      JSON.parse cmd_capture(path, "bin/rails runner 'puts #{value}.to_json'", env: env)
+    end
+
+    def cmd_capture(path, cmd, env: {})
+      Bundler.with_unbundled_env do
+        Decidim::GemManager.new(path).capture(cmd, env: env, with_stderr: false)[0]
+      end
     end
   end
 end
