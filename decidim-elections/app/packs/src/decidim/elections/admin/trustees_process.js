@@ -52,7 +52,7 @@ $(async () => {
       if (messageIdentifier.author.type === "t") {
         trusteesStatuses[messageIdentifier.author.id] = true;
       } else if (
-        messageIdentifier.type === "tally" &&
+        messageIdentifier.type === "tally_started" &&
         messageIdentifier.subtype === "missing_trustee" &&
         !(decodedData.trustee_id in trusteesStatuses)
       ) {

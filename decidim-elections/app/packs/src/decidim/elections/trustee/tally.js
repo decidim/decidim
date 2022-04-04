@@ -112,7 +112,7 @@ $(() => {
           url: $tally.data("updateElectionStatusUrl"),
           contentType: "application/json",
           data: JSON.stringify({
-            status: "tally"
+            status: "tally_started"
           }),
           headers: {
             "X-CSRF-Token": $("meta[name=csrf-token]").attr("content")

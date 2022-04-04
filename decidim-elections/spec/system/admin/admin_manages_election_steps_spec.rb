@@ -193,7 +193,7 @@ describe "Admin manages election steps", :slow, type: :system do
   end
 
   describe "report missing trustee" do
-    let(:election) { create :election, :bb_test, :tally, component: current_component }
+    let(:election) { create :election, :bb_test, :tally_started, component: current_component }
     let(:trustee) { election.trustees.first }
 
     it "marks the trustee as missing" do

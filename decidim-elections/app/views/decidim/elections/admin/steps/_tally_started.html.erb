@@ -6,7 +6,7 @@
   <div id="trustees_process" class="card-section"
         data-api-endpoint-url="<%= bulletin_board_server %>"
         data-authority-public-key="<%= authority_public_key %>"
-        data-process-type="tally"
+        data-process-type="tally_started"
         data-election-unique-id="<%= election_unique_id %>"
         data-missing-trustees-allowed="<%= missing_trustees_allowed %>"
         data-check-pending-action-path="<%= election_step_path(election, current_step, check_pending_action: 1) %>">
@@ -61,7 +61,7 @@
 </div>
 
 <div class="button--double form-general-submit">
-  <%= link_to t("steps.tally.continue", scope: "decidim.elections.admin"), election_steps_path(election), class: "button disabled js-continue-link" %>
+  <%= link_to t("steps.tally_started.continue", scope: "decidim.elections.admin"), election_steps_path(election), class: "button disabled js-continue-link" %>
 </div>
 
 <%= javascript_pack_tag "decidim_elections_admin_trustees_process" %>

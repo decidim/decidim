@@ -274,7 +274,7 @@ en:
             selected: Selected
             submit: Submit
             title: Results published
-          tally:
+          tally_started:
             continue: Continue
             invalid: There was a problem reporting the missing trustee
             mark_as_missing: Mark as missing
@@ -531,7 +531,7 @@ en:
             title: Restore election keys for %{election}
             upload_election_keys: Upload election keys
             upload_icon: Icon that indicates a download action
-          tally_steps:
+          tally_started_steps:
             back: Back
             description: The results for this election are being computed in the Bulletin Board. To complete this process, your participitation as a Trustee is needed.
             keys:
