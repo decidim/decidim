@@ -786,7 +786,7 @@ After this time the initiative will be moved to discarded state.
 |No
 
 |INITIATIVES_DO_NOT_REQUIRE_AUTHORIZATION
-|If true, This flag allows creating authorizations to unauthorized users.
+|If true, This flag allows creating initiatives to unauthorized users.
 |false
 |No
 
