@@ -130,7 +130,7 @@ FactoryBot.define do
     end
 
     trait :tally_ended do
-      tally
+      tally_started
       bb_status { "tally_ended" }
       verifiable_results_file_hash { SecureRandom.hex(32) }
       verifiable_results_file_url { Faker::Internet.url }
