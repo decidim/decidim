@@ -13,8 +13,14 @@
                 <%= timeline_entry.entry_date %>
               </span>
               <h4 class="timeline__title">
-                <%= translated_attribute timeline_entry.description %>
+                <%= translated_attribute timeline_entry.title %>
               </h4>
+
+              <% if translated_attribute(timeline_entry.description).present? %>
+                <p class="timeline__description__description">
+                  <%== translated_attribute timeline_entry.description %>
+                </p>
+              <% end %>
             </div>
           </div>
         </li>

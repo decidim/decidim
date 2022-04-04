@@ -161,6 +161,7 @@ en:
           fields:
             description: Description
             entry_date: Date
+            title: Title
       result_m:
         executed: Executed
         view: View
