@@ -781,7 +781,7 @@ After this time the initiative will be moved to discarded state.
 |No
 
 |INITIATIVES_PRINT_ENABLED
-|Print functionality enabled. Allows admin users to get a printed version of the initiative from the administration panel.
+|Print functionality enabled. Allows users to get a printed version of the initiative.
 |true
 |No
 
