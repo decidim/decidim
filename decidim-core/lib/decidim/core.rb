@@ -16,6 +16,7 @@ module Decidim
   autoload :AuthorizationFormBuilder, "decidim/authorization_form_builder"
   autoload :FilterFormBuilder, "decidim/filter_form_builder"
   autoload :ComponentManifest, "decidim/component_manifest"
+  autoload :NotificationSettingManifest, "decidim/notification_setting_manifest"
   autoload :ParticipatorySpaceManifest, "decidim/participatory_space_manifest"
   autoload :ResourceManifest, "decidim/resource_manifest"
   autoload :Resourceable, "decidim/resourceable"
@@ -481,6 +482,10 @@ module Decidim
     resource_registry.register(name, &block)
   end
 
+  def self.notification_settings(name, &block)
+    notification_settings_registry.register(name, &block)
+  end
+
   # Public: Finds all registered resource manifests via the `register_component`
   # method.
   #
@@ -551,6 +556,10 @@ module Decidim
   # Public: Stores the registry of resource spaces
   def self.resource_registry
     @resource_registry ||= ManifestRegistry.new(:resources)
+  end
+
+  def self.notification_settings_registry
+    @notification_settings_registry ||= ManifestRegistry.new(:notification_settings)
   end
 
   # Public: Stores the registry for user permissions

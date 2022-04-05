@@ -174,7 +174,7 @@ FactoryBot.define do
       with_questions
 
       after(:create) do |ballot_style, evaluator|
-        evaluator.election.questions.first(2).map { |question| create(:ballot_style_question, question: question, ballot_style: ballot_style) }
+        evaluator.election.reload.questions.first(2).map { |question| create(:ballot_style_question, question: question, ballot_style: ballot_style) }
       end
     end
   end

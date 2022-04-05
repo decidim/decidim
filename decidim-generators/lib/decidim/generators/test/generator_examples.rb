@@ -43,7 +43,11 @@ shared_examples_for "a new development application" do
       expect(schema).to match(/create_table "#{table}"|create_table :#{table}/)
     end
 
+    # Check that important node modules were installed
     expect(Pathname.new("#{test_app}/node_modules/@rails/webpacker")).to be_directory
+
+    # Check that the configuration tweaks are applied properly
+    expect(File.read("#{test_app}/config/spring.rb")).to match(%r{^require "decidim/spring"})
   end
 end
 
@@ -466,10 +470,12 @@ shared_examples_for "an application with configurable env vars" do
     }
   end
 
+  # The logs settings have changed between Rails 6.0 abd 6.1 and this may be here
+  # https://github.com/rails/rails/commit/73079940111e8b85bf87953e5ef9fafeece5b5da
   let(:rails_off) do
     {
-      "Rails.logger.level" => 0,
-      "Rails.application.config.log_level" => "debug",
+      "Rails.logger.level" => 1,
+      "Rails.application.config.log_level" => "info",
       "Rails.application.config.action_controller.asset_host" => nil
     }
   end

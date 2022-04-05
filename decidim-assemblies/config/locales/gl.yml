@@ -270,6 +270,7 @@ gl:
             duration_help: Se a duración deste conxunto é limitada, seleccione a data de finalización. Se non, aparecerá como indefinido.
             filters: Filtros
             images: Imaxes
+            included_at_help: Selecciona a data na que engadiches esta xuntanza á plataforma. Non ten por que ser a mesma que a data de creación.
             metadata: Metadatos
             other: Outra
             select_a_created_by: Seleccione un creado por
@@ -317,6 +318,9 @@ gl:
         new_import:
           accepted_types:
             json: JSON
+      assemblies:
+        show:
+          title: Sobre esta xuntanza
       assembly_members:
         index:
           members: Membros

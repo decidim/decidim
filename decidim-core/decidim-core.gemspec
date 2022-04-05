@@ -55,7 +55,7 @@ Gem::Specification.new do |s|
   s.add_dependency "premailer-rails", "~> 1.10"
   s.add_dependency "rack", "~> 2.2", ">= 2.2.3"
   s.add_dependency "rack-attack", "~> 6.0"
-  s.add_dependency "rails", "~> 6.0.4", ">= 6.0.4.6"
+  s.add_dependency "rails", "~> 6.1.0"
   s.add_dependency "rails-i18n", "~> 6.0"
   s.add_dependency "ransack", "~> 2.4.1"
   s.add_dependency "rectify", "~> 0.13.0"
@@ -67,6 +67,7 @@ Gem::Specification.new do |s|
   s.add_dependency "social-share-button", "~> 1.2", ">= 1.2.1"
   s.add_dependency "valid_email2", "~> 2.1"
   s.add_dependency "webpacker", "= 6.0.0.rc.5"
+  s.add_dependency "webpush", "~> 1.1"
   s.add_dependency "wisper", "~> 2.0"
 
   s.add_dependency "decidim-api", Decidim::Core.version

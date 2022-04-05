@@ -12,6 +12,19 @@ In the next version (v0.28.0) it will be fully removed from the database.
 
 ### Added
 
+#### Rails Upgrade to 6.1
+PR [\#8411] https://github.com/decidim/decidim/pull/8411 changes the following:
+
+- ActionMailer - Change default queue name of the deliver (:mailers) job to be the job adapter's default (:default)
+- ActiveSupport - Remove deprecated fallback to I18n.default_locale when config.i18n.fallbacks is empty.
+  - This change should be transparent for all the Decidim users that have configured the `Decidim.default_locale`
+
+If you are using Spring, it is highly suggested to add the following line at the top of your application's `config/spring.rb` (especially if you are seeing the following messages in the console `ERROR: directory is already being watched!`):
+
+```ruby
+require "decidim/spring"
+```
+
 #### Dynamic attachment uploads
 PR [\#8681] https://github.com/decidim/decidim/pull/8681 Changes the way file uploads work in Decidim. Files are now dynamically uploaded inside the modal so we can give the user immediate feedback on validation. There are now two different types of file fields: titled and untitled. Titled file fields related to ```Decidim::Attachment``` internally.
 

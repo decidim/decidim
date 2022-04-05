@@ -69,10 +69,6 @@ lv:
         extension_allowlist: 'Pieņemtie formāti:'
       images:
         dimensions: "%{width} x %{height} pikseļi"
-        dimensions_info: 'Attēlam būs:'
-        processors:
-          resize_and_pad: Mainīts lielums un izveidota robeža
-          resize_to_fit: Mainīts, lai ietilptu
       question_types:
         long_answer: Garā atbilde
         matrix_multiple: Matrica (vairāki varianti)

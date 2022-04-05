@@ -22,7 +22,7 @@ edit_link(
     <% end %>
 
     <div class="m-bottom">
-      <%= link_to resource_locator(budget).path(filter_link_params), class: "muted-link" do %>
+      <%= link_to budget_projects_path(budget), class: "muted-link js-back-to-list" do %>
         <%= icon "chevron-left", class: "icon--small", role: "img", "aria-hidden": true %>
         <%= t(".view_all_projects") %>
       <% end %>

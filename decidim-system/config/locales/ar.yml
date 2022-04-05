@@ -1,4 +1,13 @@
 ar:
+  activemodel:
+    attributes:
+      oauth_application:
+        organization_name: المنظمة
+      organization:
+        from_email: عنوان البريد الإلكتروني
+        password: الكلمة السرية
+        port: المنفذ
+        user_name: اسم المستخدم
   decidim:
     system:
       actions:
@@ -41,6 +50,9 @@ ar:
           name: مشرف
           validations:
             email_uniqueness: يوجد مشرف آخر بنفس البريد الإلكتروني بالفعل
+        oauth_application:
+          fields:
+            organization_name: المنظمة
         organization:
           actions:
             save_and_invite: إنشاء منظمة ودعوة المشرف
@@ -72,6 +84,9 @@ ar:
           twitter:
             api_key: مفتاح API
             api_secret: سر API
+        smtp_settings:
+          fieldsets:
+            sender: المُرسِل
         update:
           error: حدثت مشكلة أثناء تحديث هذه المؤسسة.
           success: تم تحديث المنظمة بنجاح.

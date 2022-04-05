@@ -255,7 +255,6 @@ zh-CN:
             update: 更新
           form:
             authorizations: 授权设置
-            only_global_scope_enabled_help: 如果您启用了“子范围签名”并将全局范围设置为您的上级范围，请勾选此标记。 通过启用此功能，倡议类型选择将会在创建向导中跳过。 关于此配置如何工作的更多信息，请查看 <a href="https://docs.decidim.org/admin-manual/en/initiatives/" target="_blank">链接</a>。
             options: 备选方案
             title: 通告周知
           initiative_type_scopes:

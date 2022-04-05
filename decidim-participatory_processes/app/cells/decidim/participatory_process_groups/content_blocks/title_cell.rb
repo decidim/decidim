@@ -6,6 +6,7 @@ module Decidim
       class TitleCell < Decidim::ViewModel
         include Decidim::SanitizeHelper
         include Decidim::IconHelper
+        include Decidim::TwitterSearchHelper
 
         delegate :group_url, to: :participatory_process_group
 

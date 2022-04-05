@@ -55,13 +55,10 @@ module Decidim
               let(:project_title) { { en: "" } }
               let(:project) { create(:project, :with_photos, component: component) }
 
-              before do
-                controller.class_eval do
-                  helper_method :proposals_picker_projects_path
-
-                  def proposals_picker_projects_path
-                    "/"
-                  end
+              controller(ProjectsController) do
+                helper_method :proposals_picker_projects_path
+                def proposals_picker_projects_path
+                  "/"
                 end
               end
 

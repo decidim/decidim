@@ -623,7 +623,6 @@ lv:
         button: Pārtraukt sekot
         error: Neizdevās pārtraukt sekot šim vienumam.
     forms:
-      current_file: Pašreizējais fails
       current_image: Pašreizējais attēls
       default_image: Noklusējuma attēls
       errors:
@@ -631,7 +630,6 @@ lv:
           password: Parole ir pārāk īsa.
           password_confirmation: Apstiprinājuma parolei jāsakrīt ar paroli.
         error: Šajā laukā ir kļūda.
-      remove_this_file: Noņemt šo failu
     gamification:
       all_badges_link: Skatīt visus pieejamos žetonus.
       badges:

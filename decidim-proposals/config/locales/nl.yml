@@ -744,12 +744,8 @@ nl:
           description: De coördinaten worden bijgewerkt bij het klikken op de 'preview' knop. Het adres verandert echter niet.
           instructions: Je kunt het punt op de kaart verplaatsen.
         edit:
-          add_documents: Documenten
-          add_images: Bestand
           attachment_legend: "(Optioneel) Voeg een bijlage toe"
           back: Terug
-          delete_document: Document verwijderen
-          delete_image: Afbeelding verwijderen
           gallery_legend: "(Optioneel) Voeg een afbeelding toe aan het voorstel"
           select_a_category: Selecteer een categorie
           send: Verzenden

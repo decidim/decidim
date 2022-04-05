@@ -22,6 +22,7 @@ fi:
       user:
         about: Profiilikuvaus
         email: Sähköpostiosoitteesi
+        locale: Kieli
         name: Nimesi
         nickname: Nimimerkki
         password: Salasana
@@ -106,6 +107,7 @@ fi:
   decidim:
     accessibility:
       external_link: Ulkoinen linkki
+      front_page_link: Siirry etusivulle
       logo: "Organisaation %{organization} virallinen logo"
       skip_button: Siirry sisältöön
     account:
@@ -388,6 +390,7 @@ fi:
           debate: Keskustelu
           initiative: Aloite
           meeting: Tapaaminen
+          order: Budjetointiääni
           post: Artikkeli
           proposal: Ehdotus
           question: Kysymys
@@ -697,6 +700,11 @@ fi:
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat käyttäjää %{nickname}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
           email_subject: "%{nickname} päivitti profiiliaan"
           notification_title: Seuraamasi käyttäjän %{name} (%{nickname}) <a href="%{resource_path}">profiilisivua</a> on päivitetty.
+        user_officialized:
+          email_intro: Osallistuja %{name} (%{nickname}) on virallistettu.
+          email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet tämän organisaation hallintakäyttäjä.
+          email_subject: "%{name} on virallistettu"
+          notification_title: Osallistuja %{name} (%{nickname}) on virallistettu.
     export_mailer:
       data_portability_export:
         click_button: 'Napsauta Seuraava-linkkiä ladataksesi tietosi.<br/>Tiedosto on saatavilla %{date} saakka.<br/>Tarvitset paketin avaamiseen <a href="https://www.7-zip.org/">7-Zip-ohjelmiston</a> (Windows-käyttöjärjestelmille), <a href="https://www.keka.io/en/">Keka-ohjelmiston</a> (MacOS-käyttöjärjestelmille) tai <a href="https://peazip.github.io">PeaZip-ohjelmiston</a> (Linux-käyttöjärjestelmille). Salasana: %{password}'
@@ -738,7 +746,6 @@ fi:
         button: Lopeta seuranta
         error: Tämän kohteen seuraamisen lopetus epäonnistui.
     forms:
-      current_file: Nykyinen tiedosto
       current_image: Nykyinen kuva
       default_image: Oletuskuva
       errors:
@@ -758,7 +765,26 @@ fi:
       file_validation:
         allowed_file_extensions: 'Sallitut tiedostopäätteet: %{extensions}'
         max_file_size: 'Tiedoston koon rajoitus: %{megabytes}Mt'
-      remove_this_file: Poista tiedosto
+      upload:
+        labels:
+          add_attachment: Lisää liite
+          add_file: Lisää tiedosto
+          add_image: Lisää kuva
+          cancel: Peruuta
+          edit_image: Muokkaa kuvaa
+          error: Virhe!
+          file_too_big: 'Tiedosto on liian suuri! Suurin tiedostokoko: %{megabytes}MB'
+          remove: Poista
+          replace: Korvaa
+          save: Tallenna
+          title: Tiedosto-otsikko
+          title_required: Tiedosto-otsikko tarvitaan!
+          uploaded: Ladattu
+          validating: Validoidaan...
+          validation_error: Validointivirhe!
+      upload_help:
+        dropzone: Pudota tiedostot tähän tai napsauta ladataksesi
+        explanation: Ohjeita %{attribute} varten
     gamification:
       all_badges_link: Kaikki saatavilla olevat kunniamerkit.
       badges:
@@ -1308,6 +1334,8 @@ fi:
         close_modal: Sulje ikkuna
         please_sign_in: Kirjaudu sisään
         sign_up: Rekisteröidy
+      mentions_modal:
+        remove_recipient: Poista vastaanottaja %{name}
       participatory_space_filters:
         filters:
           areas: Alueet
@@ -1395,6 +1423,7 @@ fi:
       notify:
         body_1: Käyttäjä %{user} on ilmoitettu käyttäjän %{token} toimesta
         body_2: 'Syy: %{reason}'
+        details: Käyttäjä antoi lisätietoja
         greetings: Terveisin,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Hei %{admin},
         subject: Uusi käyttäjä on ilmoitettu palvelussa %{organization_name}
@@ -1653,6 +1682,8 @@ fi:
         continue_session: Jatka palvelun käyttöä
         sign_out: Kirjaudu ulos
         title: Haluatko jatkaa palvelun käyttöä?
+      upload_modal:
+        close_modal: Sulje ikkuna
       user_menu:
         account: 'Käyttäjätili: %{name}'
         admin_dashboard: Hallintapaneeli
@@ -1737,6 +1768,7 @@ fi:
     dropdown:
       choose_diff_view_html: 'HTML-tarkastelutapa:'
       choose_diff_view_mode: 'Vertailutila:'
+      choose_diff_view_mode_menu: Valitse vertailutila
       option_escaped: Teknisten elementtien käsittely käytössä
       option_split: Vierekkäin
       option_unescaped: Teknisten elementtien käsittely pois käytöstä

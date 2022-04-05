@@ -141,6 +141,8 @@ fi:
         show: Näytä projektit
         vote: Äänestä
         voted_on: Olet äänestänyt budjeteissa %{links}
+      last_activity:
+        new_vote_at_html: "<span>Uusi budjetointiääni %{link}</span>"
       limit_announcement:
         cant_vote: Et voi äänestää tästä budjetista. <a href="%{landing_path}">Kokeile toista budjettia</a>.
         limit_reached: Sinulla on ääniä kohteessa %{links}. Äänestääksesi tästä budjetista <a href="%{landing_path}">poista äänesi ja aloita alusta</a>.

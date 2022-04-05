@@ -745,12 +745,8 @@ eu:
           description: Koordenatuak eguneratu egingo dira 'aurrebistaratu' botoian klik egiten duzunean. Baina helbidea ez da aldatzen.
           instructions: Kokapena mugitu ahal duzu mapan.
         edit:
-          add_documents: Dokumentuak
-          add_images: Fitxategia
           attachment_legend: "(Aukerakoa) Gehitu eranskina"
           back: Back
-          delete_document: Ezabatu dokumentua
-          delete_image: Ezabatu irudia
           gallery_legend: "(Aukerakoa) Gehitu irudi bat proposamen-txartelari"
           select_a_category: Hautatu kategoria bat
           send: Bidali

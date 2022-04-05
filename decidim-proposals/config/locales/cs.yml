@@ -673,6 +673,8 @@ cs:
           filter_by: Filtrovat podle
           unfold: Rozvinout
         new:
+          add_file: Přidat soubor
+          edit_file: Upravit soubor
           send: Pokračovat
         new_collaborative_draft_button:
           new_collaborative_draft: Nový návrh spolupráce
@@ -787,12 +789,12 @@ cs:
           description: Souřadnice budou aktualizovány po kliknutí na tlačítko 'náhled'. Adresa se však nemění.
           instructions: Můžete přesunout bod na mapě.
         edit:
-          add_documents: Dokumenty
-          add_images: Soubor
+          add_documents: Přidat dokumenty
+          add_image: Přidat obrázek
           attachment_legend: "(Volitelné) Přidání přílohy"
           back: Zadní
-          delete_document: Smazat dokument
-          delete_image: Smazat obrázek
+          edit_documents: Upravit dokumenty
+          edit_image: Upravit obrázek
           gallery_legend: "(Volitelné) Přidejte obrázek na kartu návrhu"
           select_a_category: Vyberte kategorii
           send: Poslat
