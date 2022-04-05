@@ -130,9 +130,9 @@ en:
         success: Your account was successfully deleted.
       show:
         available_locales_helper: Choose the language you want to use to browse and receive notifications on the platform
-        change_password: Change password
         cancel_email_change_error: Could not cancel the email change.
         cancel_email_change_successfully: Email change cancelled successfully.
+        change_password: Change password
         confirmation_email_resent_error: Could not resend confirmation email.
         confirmation_email_resent_successfully: Confirmation email resent successfully to %{unconfirmed_email}
         email_change_body: We've sent ant email to %{unconfirmed_email} to verify your new email address.
