@@ -14,10 +14,14 @@ $(async () => {
   const bulletinBoardClient = new Client({
     apiEndpointUrl: $trusteesProcess.data("apiEndpointUrl")
   });
+  const typesFilter = ["create_election", processType];
+  if (processType === "tally_started") {
+    typesFilter.push("tally");
+  }
   const election = new Election({
     uniqueId: electionUniqueId,
     bulletinBoardClient,
-    typesFilter: ["create_election", processType]
+    typesFilter: typesFilter
   });
 
   const authorityPublicKeyJSON = JSON.stringify(
@@ -52,7 +56,7 @@ $(async () => {
       if (messageIdentifier.author.type === "t") {
         trusteesStatuses[messageIdentifier.author.id] = true;
       } else if (
-        messageIdentifier.type === "tally_started" &&
+        messageIdentifier.type === "tally" &&
         messageIdentifier.subtype === "missing_trustee" &&
         !(decodedData.trustee_id in trusteesStatuses)
       ) {
