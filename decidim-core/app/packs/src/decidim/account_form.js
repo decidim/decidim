@@ -52,7 +52,7 @@ $(() => {
 
     const showCallout = () => {
       emailAlert.classList.remove("hide");
-      // emailAlert.setAttribute("style", "display: block;");
+      emailAlert.setAttribute("style", "display: block;");
     }
 
     resend.addEventListener("click", (event) => {
