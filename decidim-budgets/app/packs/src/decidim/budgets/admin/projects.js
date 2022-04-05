@@ -4,30 +4,12 @@ $(() => {
     return $(".table-list .js-check-all-project:checked").length
   }
 
-  const selectedProjectsNotPublishedAnswerCount = function() {
-    return $(".table-list [data-published-state=false] .js-check-all-project:checked").length
-  }
-
   const selectedProjectsCountUpdate = function() {
     const selectedProjects = selectedProjectsCount();
-    const selectedProjectsNotPublishedAnswer = selectedProjectsNotPublishedAnswerCount();
     if (selectedProjects === 0) {
       $("#js-selected-projects-count").text("")
     } else {
       $("#js-selected-projects-count").text(selectedProjects);
-    }
-
-    if (selectedProjects >= 2) {
-      $('button[data-action="merge-projects"]').parent().show();
-    } else {
-      $('button[data-action="merge-projects"]').parent().hide();
-    }
-
-    if (selectedProjectsNotPublishedAnswer > 0) {
-      $('button[data-action="publish-answers"]').parent().show();
-      $("#js-form-publish-answers-number").text(selectedProjectsNotPublishedAnswer);
-    } else {
-      $('button[data-action="publish-answers"]').parent().hide();
     }
   }
 
@@ -56,9 +38,8 @@ $(() => {
     $(".js-bulk-action-form").addClass("hide");
   }
 
-  // Expose functions to make them avaialble in .js.erb templates
+  // Expose functions to make them available in .js.erb templates
   window.selectedProjectsCount = selectedProjectsCount;
-  window.selectedProjectsNotPublishedAnswerCount = selectedProjectsNotPublishedAnswerCount;
   window.selectedProjectsCountUpdate = selectedProjectsCountUpdate;
   window.showBulkActionsButton = showBulkActionsButton;
   window.hideBulkActionsButton = hideBulkActionsButton;
