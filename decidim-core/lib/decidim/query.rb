@@ -23,7 +23,7 @@ module Decidim
     end
 
     def |(other)
-      return other if @scope.nil?
+      return Decidim::Query.new(other.cached_query) if @scope.nil?
 
       if relation? && other.relation?
         Decidim::Query.new(cached_query.merge(other.cached_query))
