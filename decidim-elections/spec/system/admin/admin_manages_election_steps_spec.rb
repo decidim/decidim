@@ -186,7 +186,7 @@ describe "Admin manages election steps", :slow, type: :system do
         expect(page).to have_content("Processing...")
       end
 
-      within ".form.tally" do
+      within ".form.tally_started" do
         expect(page).to have_content("Tally process")
       end
     end
