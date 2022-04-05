@@ -126,11 +126,17 @@ describe "Account", type: :system do
     end
 
     context "when updating the email" do
+      let(:pending_email) { "foo@bar.com" }
+
       before do
         within "form.edit_user" do
-          fill_in :user_email, with: "foo@bar.com"
+          fill_in :user_email, with: pending_email
 
           perform_enqueued_jobs { find("*[type=submit]").click }
+        end
+
+        within_flash_messages do
+          expect(page).to have_content("You'll receive an email to confirm your new email address")
         end
       end
 
@@ -138,17 +144,16 @@ describe "Account", type: :system do
         clear_enqueued_jobs
       end
 
-      it "needs to confirm it" do
-        within_flash_messages do
-          expect(page).to have_content("email to confirm")
-        end
-
+      it "tells user to confirm new email" do
+        expect(page).to have_content("Email change verification")
         expect(page).to have_selector("#user_email[disabled='disabled']")
-        expect(page).to have_content("An email change is currently pending on your account")
+        expect(page).to have_content("We've sent ant email to #{pending_email} to verify your new email address")
       end
 
       it "resend confirmation" do
-        click_link "Resend the confirmation email"
+        within "#email-change-send-again-or-cancel" do
+          click_link "Send again"
+        end
         perform_enqueued_jobs
 
         expect(emails.count).to eq(2)
@@ -158,10 +163,12 @@ describe "Account", type: :system do
       end
 
       it "cancels the email change" do
-        click_link "cancel the email change"
+        within "#email-change-send-again-or-cancel" do
+          click_link "Cancel"
+        end
 
         expect(page).to have_content("Email change cancelled successfully")
-        expect(page).not_to have_content("An email change is currently pending on your account")
+        expect(page).not_to have_content("Email change verification")
       end
     end
 

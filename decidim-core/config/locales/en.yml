@@ -128,18 +128,16 @@ en:
       destroy:
         error: There was a problem deleting your account.
         success: Your account was successfully deleted.
-      email_field:
+      show:
+        available_locales_helper: Choose the language you want to use to browse and receive notifications on the platform
+        change_password: Change password
         cancel_email_change_error: Could not cancel the email change.
         cancel_email_change_successfully: Email change cancelled successfully.
         confirmation_email_resent_error: Could not resend confirmation email.
         confirmation_email_resent_successfully: Confirmation email resent successfully to %{unconfirmed_email}
-        pending_email_change: 'An email change is currently pending on your account. A verification email has been sent to: %{unconfirmed_email}'
-        pending_email_did_not_receive: Did not receive the confirmation email? <a href="%{resend_path}">Resend the confirmation email</a>.
-        pending_email_link_intro: Please click the link shown in the confirmation email in order to complete the email change.
-        pending_email_start_over: Resend the confirmation email. If the new email is incorrect, you can  <a href="%{cancel_path}">cancel the email change</a> and start over.
-      show:
-        available_locales_helper: Choose the language you want to use to browse and receive notifications on the platform
-        change_password: Change password
+        email_change_body: We've sent ant email to %{unconfirmed_email} to verify your new email address.
+        email_change_send_again_or_cancel: Need us to send the verification email again? <a class="email-resend" href="%{resend_path}">Send again</a> or <a class="email-cancel-change" href="%{cancel_path}">Cancel</a>.
+        email_change_verification: Email change verification
         update_account: Update account
       update:
         error: There was a problem updating your account.

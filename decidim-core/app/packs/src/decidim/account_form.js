@@ -30,62 +30,53 @@ $(() => {
   /**
    * Resend the confirmation email logig here, we use fetch here because link is inside the form.
   */
-  const resendInstructions = document.querySelector("form.edit_user")?.querySelector("#resend-email-confirmation-instructions");
+  const sendAgainOrCancel = document.querySelector("form.edit_user")?.querySelector("#email-change-send-again-or-cancel");
 
-  if (resendInstructions) {
-    const link = resendInstructions.querySelector("a");
+  if (sendAgainOrCancel) {
     const alert = document.querySelector(".email-confirmation-alert");
-    link.addEventListener("click", (event) => {
-      event.preventDefault();
+    const resend = sendAgainOrCancel.querySelector("a.email-resend");
+    const cancel = sendAgainOrCancel.querySelector("a.email-cancel-change");
 
-      fetch(link.href, {
+    const sendRequest = (href) => {
+      return fetch(href, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
           "X-CSRF-Token": $("meta[name=csrf-token]").attr("content")
         }
-      }).then((response) => response.json()).then((data) => {
+      })
+    }
+
+    resend.addEventListener("click", (event) => {
+      event.preventDefault();
+
+      sendRequest(resend.href).then((response) => response.json()).then((data) => {
         alert.classList.remove("hide");
         if (data?.message === "success") {
-          alert.innerHTML = resendInstructions.dataset.success;
+          alert.innerHTML = sendAgainOrCancel.dataset.resentSuccess;
           alert.classList.add("success");
         } else {
-          alert.innerHTML = resendInstructions.dataset.error;
+          alert.innerHTML = sendAgainOrCancel.dataset.resentError;
           alert.classList.add("alert");
         }
-      });
+      })
     })
-  }
 
-  /**
-   * Cancel the email change logic, this uses fetch because link is inside the form.
-  */
-  const cancelEmailChange = document.querySelector("form.edit_user")?.querySelector("#cancel-email-change");
-
-  if (cancelEmailChange) {
-    const link = cancelEmailChange.querySelector("a");
-    const alert = document.querySelector(".email-confirmation-alert");
-    link.addEventListener("click", (event) => {
+    cancel.addEventListener("click", (event) => {
       event.preventDefault();
 
-      fetch(link.href, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "X-CSRF-Token": $("meta[name=csrf-token]").attr("content")
-        }
-      }).then((response) => response.json()).then((data) => {
+      sendRequest(resend.href).then((response) => response.json()).then((data) => {
         alert.classList.remove("hide");
         if (data?.message === "success") {
           document.querySelector("#user_email").disabled = false;
           document.querySelector("#email-change-pending").remove();
-          alert.innerHTML = cancelEmailChange.dataset.success;
+          alert.innerHTML = sendAgainOrCancel.dataset.cancelSuccess;
           alert.classList.add("success");
         } else {
-          alert.innerHTML = cancelEmailChange.dataset.error;
+          alert.innerHTML = sendAgainOrCancel.dataset.cancelError;
           alert.classList.add("alert");
         }
-      });
+      })
     })
   }
 });
