@@ -110,7 +110,6 @@ module Decidim
   autoload :Command, "decidim/command"
   autoload :EventRecorder, "decidim/event_recorder"
   autoload :NullQuery, "decidim/null_query"
-  autoload :SqlQuery, "decidim/sql_query"
   autoload :ControllerHelpers, "decidim/controller_helpers"
 
   include ActiveSupport::Configurable
