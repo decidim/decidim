@@ -9,7 +9,7 @@ module Decidim
     include Enumerable
 
     def self.merge(*queries)
-      queries.reduce(Decidim::Query.new) { |a, e| a.merge(e) }
+      queries.reduce(Decidim::Query.new(nil)) { |a, e| a.merge(e) }
     end
 
     def initialize(scope = ActiveRecord::NullRelation)
@@ -17,10 +17,14 @@ module Decidim
     end
 
     def query
+      return [] if @scope.nil?
+
       @scope
     end
 
     def |(other)
+      return other if @scope.nil?
+
       if relation? && other.relation?
         Decidim::Query.new(cached_query.merge(other.cached_query))
       elsif eager? && other.eager?
