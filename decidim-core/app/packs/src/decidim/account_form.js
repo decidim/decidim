@@ -50,10 +50,15 @@ $(() => {
       })
     }
 
+    const showCallout = () => {
+      emailAlert.classList.remove("hide");
+      // emailAlert.setAttribute("style", "display: block;");
+    }
+
     resend.addEventListener("click", (event) => {
       event.preventDefault();
       sendRequest(resend.href).then((response) => response.json()).then((data) => {
-        emailAlert.classList.remove("hide");
+        showCallout(emailAlert);
         emailAlertMessage = emailAlert.querySelector(".email-alert-message");
         if (data?.message === "success") {
           emailAlertMessage.innerHTML = sendAgainOrCancel.dataset.resentSuccess;
@@ -68,7 +73,7 @@ $(() => {
     cancel.addEventListener("click", (event) => {
       event.preventDefault();
       sendRequest(cancel.href).then((response) => response.json()).then((data) => {
-        emailAlert.classList.remove("hide");
+        showCallout(emailAlert);
         emailAlertMessage = emailAlert.querySelector(".email-alert-message");
         if (data?.message === "success") {
           document.querySelector("#user_email").disabled = false;

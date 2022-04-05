@@ -154,10 +154,11 @@ describe "Account", type: :system do
         within "#email-change-send-again-or-cancel" do
           click_link "Send again"
         end
+        expect(page).to have_content("Confirmation email resent successfully to #{pending_email}")
+        perform_enqueued_jobs
         perform_enqueued_jobs
 
         expect(emails.count).to eq(2)
-
         visit last_email_link
         expect(page).to have_content("Your email address has been successfully confirmed")
       end
