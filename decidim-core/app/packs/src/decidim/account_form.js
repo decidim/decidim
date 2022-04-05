@@ -33,7 +33,10 @@ $(() => {
   const sendAgainOrCancel = document.querySelector("form.edit_user")?.querySelector("#email-change-send-again-or-cancel");
 
   if (sendAgainOrCancel) {
-    const alert = document.querySelector(".email-confirmation-alert");
+    const emailAlert = document.querySelector(".email-confirmation-alert");
+    let emailAlertMessage = document.createElement("div");
+    emailAlertMessage.classList.add("email-alert-message")
+    emailAlert.appendChild(emailAlertMessage);
     const resend = sendAgainOrCancel.querySelector("a.email-resend");
     const cancel = sendAgainOrCancel.querySelector("a.email-cancel-change");
 
@@ -49,32 +52,32 @@ $(() => {
 
     resend.addEventListener("click", (event) => {
       event.preventDefault();
-
       sendRequest(resend.href).then((response) => response.json()).then((data) => {
-        alert.classList.remove("hide");
+        emailAlert.classList.remove("hide");
+        emailAlertMessage = emailAlert.querySelector(".email-alert-message");
         if (data?.message === "success") {
-          alert.innerHTML = sendAgainOrCancel.dataset.resentSuccess;
-          alert.classList.add("success");
+          emailAlertMessage.innerHTML = sendAgainOrCancel.dataset.resentSuccess;
+          emailAlert.classList.add("success");
         } else {
-          alert.innerHTML = sendAgainOrCancel.dataset.resentError;
-          alert.classList.add("alert");
+          emailAlertMessage.innerHTML = sendAgainOrCancel.dataset.resentError;
+          emailAlert.classList.add("alert");
         }
       })
     })
 
     cancel.addEventListener("click", (event) => {
       event.preventDefault();
-
-      sendRequest(resend.href).then((response) => response.json()).then((data) => {
-        alert.classList.remove("hide");
+      sendRequest(cancel.href).then((response) => response.json()).then((data) => {
+        emailAlert.classList.remove("hide");
+        emailAlertMessage = emailAlert.querySelector(".email-alert-message");
         if (data?.message === "success") {
           document.querySelector("#user_email").disabled = false;
           document.querySelector("#email-change-pending").remove();
-          alert.innerHTML = sendAgainOrCancel.dataset.cancelSuccess;
-          alert.classList.add("success");
+          emailAlertMessage.innerHTML = sendAgainOrCancel.dataset.cancelSuccess;
+          emailAlert.classList.add("success");
         } else {
-          alert.innerHTML = sendAgainOrCancel.dataset.cancelError;
-          alert.classList.add("alert");
+          emailAlertMessage.innerHTML = sendAgainOrCancel.dataset.cancelError;
+          emailAlert.classList.add("alert");
         }
       })
     })
