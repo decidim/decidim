@@ -7,7 +7,7 @@
 
   <%= link_to t("actions.import", scope: "decidim.budgets", name: t("models.project.name", scope: "decidim.budgets.admin")), new_budget_proposals_import_path(budget), class: "button tiny button--title" if allowed_to? :import_proposals, :project %>
   <% if allowed_to? :export, :budget %>
-  <%= export_dropdown(current_component, budget.id) %>
+    <%= export_dropdown(current_component, budget.id) %>
   <% end %>
   <%= link_to t("actions.new", scope: "decidim.budgets", name: t("models.project.name", scope: "decidim.budgets.admin")), new_budget_project_path, class: "button tiny button--title new" if allowed_to? :create, :project %>
 </div>
