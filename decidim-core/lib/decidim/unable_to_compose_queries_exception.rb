@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# Copyright (c) 2016 Andy Pike - The MIT license
 #
 # This file has been copied from https://github.com/andypike/rectify/blob/master/lib/rectify/errors.rb
 # We have done this so we can decouple Decidim from any Virtus dependency, which is a dead project

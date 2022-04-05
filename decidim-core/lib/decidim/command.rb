@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+# Copyright (c) 2016 Andy Pike - The MIT license
+#
 # This file has been copied from https://github.com/andypike/rectify/blob/master/lib/rectify/command.rb
 # We have done this so we can decouple Decidim from any Virtus dependency, which is a dead project
 # Please follow Decidim discussion to understand more https://github.com/decidim/decidim/discussions/7234
