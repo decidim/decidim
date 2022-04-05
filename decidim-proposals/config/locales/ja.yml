@@ -45,7 +45,7 @@ ja:
         participatory_text:
           attributes:
             document:
-              invalid_document_type: '無効なドキュメントの種類です。承認されたフォーマットは次のとおりです: %{valid_mime_types}'
+              invalid_document_type: '無効な種類のドキュメントです。承認されたフォーマットは次のとおりです: %{valid_mime_types}'
         proposal:
           attributes:
             add_documents:
@@ -424,7 +424,7 @@ ja:
             success: おめでとうございます。次のセクションが提案に変換されました。公開する前に確認して調整できます。
           index:
             info_1: 次のセクションが提案に変換されました。公開する前に確認して調整できます。
-            publish_document: 文書を公開
+            publish_document: ドキュメントを公開
             save_draft: 下書きを保存
             title: 参加者のテキストをプレビュー
           new_import:
@@ -649,6 +649,8 @@ ja:
           filter_by: フィルター
           unfold: 展開する
         new:
+          add_file: ファイルを追加
+          edit_file: ファイルを編集
           send: 続ける
         new_collaborative_draft_button:
           new_collaborative_draft: 新しい共同作業の下書きを作成
@@ -757,12 +759,12 @@ ja:
           description: '「プレビュー」ボタンをクリックすると座標が更新されますが、アドレスは変更されません。'
           instructions: 地図上のポイントを移動できます。
         edit:
-          add_documents: ドキュメント
-          add_images: ファイル
+          add_documents: ドキュメントを追加
+          add_image: 画像を追加
           attachment_legend: "(オプション) 添付ファイルを追加"
           back: 戻る
-          delete_document: ドキュメントの削除
-          delete_image: 画像を削除
+          edit_documents: ドキュメントを編集
+          edit_image: 画像を編集
           gallery_legend: "(オプション) 提案カードに画像を追加する"
           select_a_category: カテゴリを選択してください
           send: 送信

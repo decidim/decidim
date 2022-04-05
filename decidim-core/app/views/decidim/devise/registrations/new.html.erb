@@ -34,26 +34,26 @@
 
             <div class="user-person">
               <div class="field">
-                <%= f.text_field :name, help_text: t(".username_help") %>
+                <%= f.text_field :name, help_text: t(".username_help"), autocomplete: "name" %>
               </div>
             </div>
 
             <div class="user-nickname">
               <div class="field">
-                <%= f.text_field :nickname, help_text: t(".nickname_help", organization: current_organization.name), prefix: { value: "@", small: 1, large: 1 } %>
+                <%= f.text_field :nickname, help_text: t(".nickname_help", organization: current_organization.name), prefix: { value: "@", small: 1, large: 1 }, autocomplete: "nickname" %>
               </div>
             </div>
 
             <div class="field">
-              <%= f.email_field :email %>
+              <%= f.email_field :email, autocomplete: "email" %>
             </div>
 
             <div class="field">
-              <%= f.password_field :password, help_text: t(".password_help", minimun_characters: ::PasswordValidator::MINIMUM_LENGTH), autocomplete: "off" %>
+              <%= f.password_field :password, help_text: t(".password_help", minimun_characters: ::PasswordValidator::MINIMUM_LENGTH), autocomplete: "new-password" %>
             </div>
 
             <div class="field">
-              <%= f.password_field :password_confirmation %>
+              <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
             </div>
           </div>
         </div>

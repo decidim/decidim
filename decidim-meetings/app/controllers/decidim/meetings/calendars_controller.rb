@@ -11,7 +11,7 @@ module Decidim
       skip_around_action :use_organization_time_zone
 
       def show
-        render plain: CalendarRenderer.for(current_component), content_type: "type/calendar"
+        render plain: CalendarRenderer.for(current_component, params[:filter]), content_type: "type/calendar"
       end
 
       def meeting_calendar

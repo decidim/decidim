@@ -10,7 +10,7 @@ module Decidim
         let(:component) { create(:proposal_component) }
         let(:organization) { component.organization }
         let(:meeting_component) { create(:meeting_component, participatory_space: component.participatory_space) }
-        let(:meetings) { create_list(:meeting, 3, component: meeting_component) }
+        let(:meetings) { create_list(:meeting, 3, :published, component: meeting_component) }
         let(:user) { create :user, :admin, :confirmed, organization: organization }
         let(:form) do
           form_klass.from_params(

@@ -118,10 +118,6 @@ pl:
         extension_allowlist: 'Dozwolone formaty:'
       images:
         dimensions: "%{width} × %{height} px"
-        dimensions_info: 'Rozmiar obrazu będzie wynosił:'
-        processors:
-          resize_and_pad: Zmieniony i dopełniony do
-          resize_to_fit: Dopasowany
       question_types:
         files: Pliki
         long_answer: Długa odpowiedź

@@ -698,7 +698,6 @@ eu:
         button: Jarraitzeari utzi
         error: Errorea gertatu da baliabide hau jarraitzeari uztean.
     forms:
-      current_file: Oraingo fitxategia
       current_image: Oraingo irudia
       default_image: Irudi lehenetsia
       errors:
@@ -718,7 +717,6 @@ eu:
       file_validation:
         allowed_file_extensions: 'Onartutako artxiboen formatua: %{extensions}'
         max_file_size: 'Artxiboaren gehieneko tamaina: %{megabytes}MB'
-      remove_this_file: Ezabatu artxibo hau
     gamification:
       all_badges_link: Ikusi eskuragarri dauden txapak.
       badges:

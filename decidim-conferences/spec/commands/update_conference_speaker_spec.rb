@@ -22,7 +22,7 @@ module Decidim::Conferences
     end
     let(:meeting_ids) { meetings.map(&:id) }
     let(:avatar) do
-      ActiveStorage::Blob.create_after_upload!(
+      ActiveStorage::Blob.create_and_upload!(
         io: File.open(Decidim::Dev.asset("avatar.jpg")),
         filename: "avatar.jpeg",
         content_type: "image/jpeg"
@@ -73,7 +73,7 @@ module Decidim::Conferences
 
       context "when image is invalid" do
         let(:avatar) do
-          ActiveStorage::Blob.create_after_upload!(
+          ActiveStorage::Blob.create_and_upload!(
             io: File.open(Decidim::Dev.asset("invalid.jpeg")),
             filename: "avatar.jpeg",
             content_type: "image/jpeg"

@@ -37,6 +37,11 @@ module Decidim
       str.to_s.to_i
     end
 
+    def to_f
+      str = blank? ? @default : value
+      str.to_s.to_f
+    end
+
     def default_or_present_if_exists
       return @default unless ENV.has_key?(@name)
 

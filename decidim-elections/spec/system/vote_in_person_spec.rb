@@ -42,6 +42,7 @@ describe "Polling Officer zone", type: :system do
       expect(page).to have_content("Jon Doe")
       click_button "Verify document"
 
+      election.reload
       expect(page).to have_content(questions_title)
       election.questions.each do |question|
         expect(page).to have_content(translated(question.title))

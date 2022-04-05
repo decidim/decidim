@@ -526,12 +526,10 @@ id:
         button: Berhenti mengikuti
         error: Terjadi kesalahan saat berhenti mengikuti sumber daya ini.
     forms:
-      current_file: File saat ini
       current_image: Gambar saat ini
       default_image: Gambar default
       errors:
         error: Ada kesalahan di bidang ini.
-      remove_this_file: Hapus file ini
     gamification:
       all_badges_link: Lihat semua lencana yang tersedia.
       badges:

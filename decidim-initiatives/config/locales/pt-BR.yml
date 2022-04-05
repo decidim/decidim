@@ -274,8 +274,6 @@ pt-BR:
             update: Atualizar
           form:
             authorizations: Opções de autorização
-            child_scope_threshold_enabled_help: 'Esse parâmetro de configuração não suporta votos off-line, permite subescopos e funciona com um manipulador de autorização que associa o escopo ao usuário, certifique-se de selecionar a autorização, abaixo nas configurações de autorização. Para que funcione, os escopos precisam ser configurados de forma hierárquica: 1 Pai - N Criança. Para mais informações sobre como essa configuração funciona, consulte este <a href="https://docs.decidim.org/admin-manual/en/initiatives/" target="_blank">link</a>.'
-            only_global_scope_enabled_help: Marque este sinalizador se você habilitou "Assinatura de escopo Filho" e configurou o escopo global como seu escopo pai. Habilitando esta possibilidade, a selecção do tipo de iniciativa será ignorada no assistente de criação de iniciativa. Para mais informações sobre como essa configuração funciona, consulte este <a href="https://docs.decidim.org/admin-manual/en/initiatives/" target="_blank">link</a>.
             options: Opções
             title: Informação geral
           initiative_type_scopes:

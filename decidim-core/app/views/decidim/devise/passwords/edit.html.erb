@@ -16,11 +16,11 @@
             <%= f.hidden_field :reset_password_token %>
 
             <div class="field">
-              <%= f.password_field :password, autocomplete: "off", help_text: t("devise.passwords.edit.password_help", minimun_characters: ::PasswordValidator::MINIMUM_LENGTH) %>
+              <%= f.password_field :password, autocomplete: "new-password", help_text: t("devise.passwords.edit.password_help", minimun_characters: ::PasswordValidator::MINIMUM_LENGTH) %>
             </div>
 
             <div class="field">
-              <%= f.password_field :password_confirmation, autocomplete: "off" %>
+              <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
             </div>
 
             <div class="actions">

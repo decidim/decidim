@@ -33,7 +33,10 @@ module Decidim
 
         # Saves the proposal
         def finish!
-          super # resource.save!
+          Decidim.traceability.perform_action!(:create, self.class.resource_klass, context[:current_user], visibility: "admin-only") do
+            resource.save!
+            resource
+          end
           notify(resource)
           publish(resource)
         end

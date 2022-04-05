@@ -235,7 +235,7 @@ shared_examples "manage proposals" do
 
         context "when proposals comes from a meeting" do
           let!(:meeting_component) { create(:meeting_component, participatory_space: participatory_process) }
-          let!(:meetings) { create_list(:meeting, 3, component: meeting_component) }
+          let!(:meetings) { create_list(:meeting, 3, :published, component: meeting_component) }
 
           it "creates a new proposal with meeting as author" do
             click_link "New proposal"

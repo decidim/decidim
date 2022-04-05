@@ -726,7 +726,6 @@ ro:
         button: Nu doresc să mai urmăresc
         error: A apărut o problemă la anularea urmăririi acestei resurse.
     forms:
-      current_file: Fişier curent
       current_image: Imaginea curentă
       default_image: Imagine implicită
       errors:
@@ -746,7 +745,6 @@ ro:
       file_validation:
         allowed_file_extensions: 'Extensii de fișiere permise: %{extensions}'
         max_file_size: 'Dimensiunea maximă a fișierului: %{megabytes}MB'
-      remove_this_file: Elimină acest fișier
     gamification:
       all_badges_link: Vezi toate insignele disponibile.
       badges:

@@ -66,10 +66,10 @@ if !Rails.env.production? || ENV["SEED"]
       organization: organization
     )
 
-    3.times do
+    3.times do |time|
       parent = Decidim::Scope.create!(
         name: Decidim::Faker::Localized.literal(Faker::Address.unique.state),
-        code: Faker::Address.unique.country_code,
+        code: "#{Faker::Address.country_code}_#{time}",
         scope_type: province,
         organization: organization
       )
@@ -211,7 +211,7 @@ if !Rails.env.production? || ENV["SEED"]
   Decidim::System::CreateDefaultContentBlocks.call(organization)
 
   hero_content_block = Decidim::ContentBlock.find_by(organization: organization, manifest_name: :hero, scope_name: :homepage)
-  hero_content_block.images_container.background_image = ActiveStorage::Blob.create_after_upload!(
+  hero_content_block.images_container.background_image = ActiveStorage::Blob.create_and_upload!(
     io: File.open(File.join(seeds_root, "homepage_image.jpg")),
     filename: "homepage_image.jpg",
     content_type: "image/jpeg",

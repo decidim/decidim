@@ -20,7 +20,7 @@ module Decidim
       def render(options = {})
         return content unless content.is_a?(String)
 
-        options = { target: "_blank", rel: "nofollow noopener" }.merge(options)
+        options = { target: "_blank", rel: "nofollow noopener noreferrer ugc" }.merge(options)
         auto_link(content, options)
       end
 

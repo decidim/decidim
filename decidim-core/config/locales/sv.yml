@@ -739,7 +739,6 @@ sv:
         button: Sluta följa
         error: Det gick inte att sluta följa den här resursen.
     forms:
-      current_file: Nuvarande fil
       current_image: Nuvarande bild
       default_image: Förvald bild
       errors:
@@ -759,7 +758,6 @@ sv:
       file_validation:
         allowed_file_extensions: 'Tillåtna filtillägg: %{extensions}'
         max_file_size: 'Maximal filstorlek: %{megabytes}MB'
-      remove_this_file: Ta bort den här filen
     gamification:
       all_badges_link: Se alla tillgängliga märken.
       badges:

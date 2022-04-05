@@ -4,12 +4,12 @@
     <% if (documents_without_collection = documents.reject(&:attachment_collection_id?)).any? %>
       <div class="card card--list">
         <% documents_without_collection.each do |document| %>
-          <%= render partial: "decidim/application/document.html", locals: { document: document } %>
+          <%= render partial: "decidim/application/document", locals: { document: document } %>
         <% end %>
       </div>
     <% end %>
     <% documents.select(&:attachment_collection_id?).group_by(&:attachment_collection).sort_by { |c, d| c.weight }.each do |collection, documents| %>
-      <%= render partial: "decidim/application/collection.html", locals: { attachment_collection: collection, documents: documents } %>
+      <%= render partial: "decidim/application/collection", locals: { attachment_collection: collection, documents: documents } %>
     <% end %>
   </div>
 <% end %>

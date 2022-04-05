@@ -22,6 +22,7 @@ require "omniauth"
 require "omniauth-facebook"
 require "omniauth-twitter"
 require "omniauth-google-oauth2"
+require "omniauth/rails_csrf_protection"
 require "invisible_captcha"
 require "premailer/rails"
 require "premailer/adapter/decidim"
@@ -46,6 +47,7 @@ require "decidim/webpacker"
 require "decidim/api"
 require "decidim/middleware/strip_x_forwarded_host"
 require "decidim/middleware/current_organization"
+require "decidim/rectify_query_extension"
 
 module Decidim
   module Core
@@ -60,6 +62,14 @@ module Decidim
             helper Decidim::LayoutHelper if respond_to?(:helper)
           end
         end
+      end
+
+      initializer "decidim.action_mailer" do |app|
+        app.config.action_mailer.deliver_later_queue_name = :mailers
+      end
+
+      initializer "decidim.rectify_extension", after: "decidim.action_controller" do
+        ::Rectify::Query.include Decidim::RectifyQueryExtension
       end
 
       initializer "decidim.middleware" do |app|
@@ -322,6 +332,7 @@ module Decidim
 
       initializer "Expire sessions" do
         Rails.application.config.session_store :cookie_store, secure: Decidim.config.force_ssl, expire_after: Decidim.config.expire_session_after
+        Rails.application.config.action_dispatch.cookies_same_site_protection = :lax
       end
 
       initializer "decidim.core.register_resources" do
@@ -567,6 +578,30 @@ module Decidim
           Dir[root.join("spec/mailers/previews/**/*_preview.rb")].each do |file|
             require_dependency file
           end
+        end
+      end
+
+      # These are moved from initializers/devise.rb because we need to run initializers folder before
+      # setting these or Decidim.config variables have default values.
+      initializer "decidim_core.after_initializers_folder", after: "load_config_initializers" do
+        Devise.setup do |config|
+          # ==> Mailer Configuration
+          # Configure the e-mail address which will be shown in Devise::Mailer,
+          # note that it will be overwritten if you use your own mailer class
+          # with default "from" parameter.
+          config.mailer_sender = Decidim.config.mailer_sender
+
+          # A period that the user is allowed to access the website even without
+          # confirming their account. For instance, if set to 2.days, the user will be
+          # able to access the website for two days without confirming their account,
+          # access will be blocked just in the third day. Default is 0.days, meaning
+          # the user cannot access the website without confirming their account.
+          config.allow_unconfirmed_access_for = Decidim.unconfirmed_access_for
+
+          # ==> Configuration for :timeoutable
+          # The time you want to timeout the user session without activity. After this
+          # time the user will be asked for credentials again. Default is 30 minutes.
+          config.timeout_in = Decidim.config.expire_session_after
         end
       end
 
