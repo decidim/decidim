@@ -40,6 +40,7 @@ require "mime-types"
 require "diffy"
 require "social-share-button"
 require "ransack"
+require "wisper"
 require "webpacker"
 
 # Needed for the assets:precompile task, for configuring webpacker instance

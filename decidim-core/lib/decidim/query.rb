@@ -9,7 +9,7 @@ module Decidim
     include Enumerable
 
     def self.merge(*queries)
-      queries.reduce(Decidim::NullQuery.new) { |a, e| a.merge(e) }
+      queries.reduce(Decidim::Query.new) { |a, e| a.merge(e) }
     end
 
     def initialize(scope = ActiveRecord::NullRelation)

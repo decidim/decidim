@@ -5,7 +5,7 @@
 # Please follow Decidim discussion to understand more https://github.com/decidim/decidim/discussions/7234
 module Decidim
   class Command
-    include Wisper::Publisher
+    include ::Wisper::Publisher
 
     def self.call(*args, &block)
       event_recorder = Decidim::EventRecorder.new
