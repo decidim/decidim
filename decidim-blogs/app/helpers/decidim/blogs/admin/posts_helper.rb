@@ -24,11 +24,11 @@ module Decidim
             [current_organization.name, ""],
             [current_user.name, current_user.id]
           ]
-          select_options << [form.object.author.name, form.object.author.id] if form.object.author.is_a?(Decidim::User) && form.object.author.id != current_user.id
           if current_organization.user_groups_enabled? && Decidim::UserGroups::ManageableUserGroups.for(current_user).verified.any?
             user_groups = Decidim::UserGroups::ManageableUserGroups.for(current_user).verified
             select_options += user_groups.map { |g| [g.name, g.id] }
           end
+          select_options << [form.object.author.name, form.object.author.id] unless select_options.pluck(1).include?(form.object.author.id)
 
           form.select(name, select_options)
         end
