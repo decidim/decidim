@@ -23,6 +23,7 @@ export default class CommentsComponent {
     this.order = config.order;
     this.lastCommentId = config.lastCommentId;
     this.pollingInterval = config.pollingInterval || 15000;
+    this.singleComment = config.singleComment;
     this.id = this.$element.attr("id") || this._getUID();
     this.mounted = false;
   }
@@ -134,7 +135,18 @@ export default class CommentsComponent {
       }
     });
 
-    this._pollComments();
+    if (!this.singleComment) {
+      Rails.ajax({
+        url: this.commentsUrl,
+        type: "GET",
+        data: new URLSearchParams({
+          "commentable_gid": this.commentableGid,
+          "root_depth": this.rootDepth,
+          "order": this.order
+        }),
+        success: this._pollComments()
+      })
+    }
   }
 
   /**
