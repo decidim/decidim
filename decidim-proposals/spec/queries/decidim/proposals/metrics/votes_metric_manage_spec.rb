@@ -40,11 +40,11 @@ describe Decidim::Proposals::Metrics::VotesMetricManage do
     context "when calculating the metrics" do
       let(:withdrawn_proposal) { create(:proposal, state: "withdrawn", component: component) }
       let!(:invalid_votes) { create_list(:proposal_vote, 5, proposal: withdrawn_proposal, created_at: day) }
-      let(:moderation) { create(:moderation, reportable: proposal, report_count: 1, participatory_space: participatory_space) }
+      let!(:moderation) { create(:moderation, reportable: proposal, report_count: 1, participatory_space: participatory_space) }
       let!(:report) { create(:report, moderation: moderation) }
 
       it "filters the data correctly" do
-        proposal.moderation.update!(hidden_at: Time.current)
+        proposal.reload.moderation.update!(hidden_at: Time.current)
 
         registry = generate_metric_registry
 

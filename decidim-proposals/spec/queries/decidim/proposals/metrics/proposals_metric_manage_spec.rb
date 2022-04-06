@@ -37,11 +37,11 @@ describe Decidim::Proposals::Metrics::ProposalsMetricManage do
     end
 
     context "when calculating the metrics" do
-      let(:moderation) { create(:moderation, reportable: proposals[0], report_count: 1, participatory_space: participatory_space) }
+      let!(:moderation) { create(:moderation, reportable: proposals[0], report_count: 1, participatory_space: participatory_space) }
       let!(:report) { create(:report, moderation: moderation) }
 
       it "filters the data correctly" do
-        proposals[0].moderation.update!(hidden_at: Time.current)
+        proposals[0].reload.moderation.update!(hidden_at: Time.current)
         proposals[1].update!(published_at: nil)
         proposals[2].update!(state: "withdrawn")
 
