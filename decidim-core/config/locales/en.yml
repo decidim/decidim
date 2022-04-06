@@ -129,7 +129,7 @@ en:
         error: There was a problem deleting your account.
         success: Your account was successfully deleted.
       email_change:
-        body1: We've sent ant email to %{unconfirmed_email} to verify your new email address.
+        body1: We've sent an email to %{unconfirmed_email} to verify your new email address.
         body2: Need us to send the verification email again?
         cancel: Cancel
         cancel_error: Could not cancel the email change.
