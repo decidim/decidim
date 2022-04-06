@@ -44,7 +44,6 @@ jobs:
       DATABASE_PASSWORD: postgres
       DATABASE_HOST: localhost
       RUBYOPT: '-W:no-deprecated'
-      BUNDLE_DEPLOYMENT: "false"
     steps:
       - uses: rokroskar/workflow-run-cleanup-action@v0.3.0
         if: "github.ref != 'refs/heads/develop'"
@@ -71,9 +70,6 @@ jobs:
           key: npm-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             npm-
-      - name: Set bundler environmental variable
-        run: |
-          echo "BUNDLE_PATH=$PWD/vendor/bundle" >> $GITHUB_ENV
       - run: bundle exec rake development_app
         name: Create development app
       - run: bundle exec rails assets:precompile
