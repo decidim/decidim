@@ -14,14 +14,10 @@ $(async () => {
   const bulletinBoardClient = new Client({
     apiEndpointUrl: $trusteesProcess.data("apiEndpointUrl")
   });
-  const typesFilter = ["create_election", processType];
-  if (processType === "tally_started") {
-    typesFilter.push("tally");
-  }
   const election = new Election({
     uniqueId: electionUniqueId,
     bulletinBoardClient,
-    typesFilter: typesFilter
+    typesFilter: ["create_election", processType]
   });
 
   const authorityPublicKeyJSON = JSON.stringify(
