@@ -600,7 +600,7 @@ en:
           audit: "( Audit ballot )"
           back: Start voting process again
           ballot_hash: 'Your ballot identifier is:'
-          cast: Cast ballot
+          cast: Cast ballot to finish your vote
           description: Here, you have the options to cast your ballot so that it's properly counted or, alternatively, you can audit that your ballot was correctly encrypted. For security reasons, auditing your ballot will spoil it. That means, to cast your vote, you will need to restart the voting process.
           header: 'Ballot is encrypted: cast it or audit it'
         casting:
