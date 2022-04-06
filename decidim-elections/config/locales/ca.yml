@@ -597,7 +597,6 @@ ca:
           audit: "( Auditar papereta )"
           back: Començar de nou el procés de votació
           ballot_hash: 'L''identificador de la teva papereta és:'
-          cast: Enviar papereta
           description: Aquí tens les opcions per emetre la teva papereta perquè sigui degudament comptada o, alternativament, pots auditar que la teva papereta hagi estat xifrada correctament. Per raons de seguretat, l'auditoria de la teva papereta l'espatllarà, cosa que significa, que per a emetre el teu vot hauràs de reiniciar el procés de votació.
           header: 'La papereta està xifrada: pots dipositar-la o auditar-la'
         casting:
