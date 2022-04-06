@@ -9,8 +9,8 @@ module Decidim
       def author
         @author ||= if official?
                       Decidim::Blogs::OfficialAuthorPresenter.new
-                    elsif user_group
-                      Decidim::UserGroupPresenter.new(user_group)
+                    elsif user_group?
+                      Decidim::UserGroupPresenter.new(super)
                     else
                       Decidim::UserPresenter.new(super)
                     end

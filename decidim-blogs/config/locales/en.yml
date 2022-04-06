@@ -48,7 +48,7 @@ en:
             author: Author
             body: Body
             created_at: Created at
-            official_blog_post: Official blog post
+            official_blog_post: Official post
             title: title
       posts:
         show:

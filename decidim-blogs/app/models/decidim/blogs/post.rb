@@ -58,6 +58,10 @@ module Decidim
         author.is_a?(Decidim::Organization)
       end
 
+      def user_group?
+        author.is_a?(Decidim::UserGroup)
+      end
+
       def users_to_notify_on_comment_created
         followers
       end
