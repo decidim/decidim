@@ -93,6 +93,7 @@ module Decidim
 
         # Regenerate webpacker binstubs
         remove_file "bin/yarn"
+        bundle_install
         rails "webpacker:binstubs"
 
         # Run Decidim custom webpacker installation
@@ -165,9 +166,14 @@ module Decidim
 
         copy_file "bullet_initializer.rb", "config/initializers/bullet.rb"
         copy_file "rack_profiler_initializer.rb", "config/initializers/rack_profiler.rb"
-        Bundler.with_unbundled_env do
+      end
+
+      def bundle_install
+        # Bundler.with_unbundled_env do
+        # require "byebug";byebug
+        # Bundler.with_original_env do
           run "bundle install"
-        end
+        # end
       end
 
       private

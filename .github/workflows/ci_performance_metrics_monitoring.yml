@@ -21,7 +21,6 @@ env:
   RUBY_VERSION: 2.7.5
   NODE_VERSION: 16.9.1
   RAILS_ENV: development
-  BUNDLE_DEPLOYMENT: "false"
 
 jobs:
   main:
@@ -45,6 +44,7 @@ jobs:
       DATABASE_PASSWORD: postgres
       DATABASE_HOST: localhost
       RUBYOPT: '-W:no-deprecated'
+      BUNDLE_DEPLOYMENT: "false"
     steps:
       - uses: rokroskar/workflow-run-cleanup-action@v0.3.0
         if: "github.ref != 'refs/heads/develop'"
