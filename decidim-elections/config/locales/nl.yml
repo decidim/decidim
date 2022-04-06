@@ -485,7 +485,6 @@ nl:
         ballot_decision:
           back: Start het stemproces opnieuw
           ballot_hash: 'Je stem identificatie is:'
-          cast: Stem uitbrengen
           description: 'Hier heb je de opties om je stem uit te brengen zodat ze goed geteld wordt, of -ook een optie: controleren of je stem correct is versleuteld. Om veiligheidsredenen vernietigen we stem op het moment dat je deze controleert. In dat geval moet je het stemproces herstarten om je stem uit te brengen.'
           header: 'Stem is versleuteld: uitbrengen of controleren'
         casting:
