@@ -47,6 +47,7 @@ namespace :decidim do
         "#{base_app_name}_development_app",
         "--path",
         "..",
+        "--skip_bundle",
         "--recreate_db",
         "--seed_db",
         "--demo",
