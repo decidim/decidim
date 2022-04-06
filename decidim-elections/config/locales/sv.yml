@@ -364,7 +364,6 @@ sv:
         ballot_decision:
           audit: "( Granska valsedel )"
           back: Starta om omröstningsprocessen
-          cast: Rösta
         confirm:
           answer: Svar
           answer_number: svara %{number}
