@@ -599,7 +599,6 @@ pl:
           audit: "( Sprawdź kartę z oddanym głosem )"
           back: Rozpocznij proces głosowania ponownie
           ballot_hash: 'Numer Twojej karty do głosowania to:'
-          cast: Oddaj głos
           description: "Masz tutaj dwie opcje, albo możesz już oddać głos tak aby został poprawnie zliczony, albo możesz sprawdzić czy Twoja karta do głosowania została prawidłowo zaszyfrowania. Ze względów bezpieczeństwa sprawdzenie poprawności szyfrowania karty zepsuje ją. Oznacza to, że musisz ponownie rozpocząć od nowa proces oddawania głosu aby oddać głos.\n\nHere, you have the options to cast your ballot so that it's properly counted or, alternatively, you can audit that your ballot was correctly encrypted. For security reasons, auditing your ballot will spoil it. That means, to cast your vote, you will need to restart the voting process."
           header: 'Karta do głosowania została zaszyfrowana. Oddaj głos, albo sprawdź poprawność szyfrowania karty'
         casting:
