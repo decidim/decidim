@@ -54,7 +54,7 @@ module Decidim
                              desc: "Seed test database"
 
       class_option :skip_bundle, type: :boolean,
-                                 default: true,
+                                 default: true, # this is to avoid installing gems in this step yet (done by InstallGenerator)
                                  desc: "Don't run bundle install"
 
       class_option :skip_gemfile, type: :boolean,
@@ -186,15 +186,17 @@ module Decidim
         end
       end
 
-      def bundle_install
-        add_production_gems
-        # return if options[:skip_gemfile]
-        # return if options[:skip_bundle]
-        # require "byebug";byebug
+      def add_production_gems(&block)
+        return if options[:skip_gemfile]
 
-        # # Bundler.with_unbundled_env do
-        #   run "bundle install"
-        # # end
+        if block
+          @production_gems ||= []
+          @production_gems << block
+        elsif @production_gems.present?
+          gem_group :production do
+            @production_gems.map(&:call)
+          end
+        end
       end
 
       def tweak_bootsnap
@@ -335,19 +337,6 @@ module Decidim
 
       def repository
         @repository ||= options[:repository] || "https://github.com/decidim/decidim.git"
-      end
-
-      def add_production_gems(&block)
-        return if options[:skip_gemfile]
-
-        if block
-          @production_gems ||= []
-          @production_gems << block
-        elsif @production_gems.present?
-          gem_group :production do
-            @production_gems.map(&:call)
-          end
-        end
       end
 
       def app_name

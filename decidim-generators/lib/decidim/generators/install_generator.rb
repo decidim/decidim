@@ -169,11 +169,7 @@ module Decidim
       end
 
       def bundle_install
-        # Bundler.with_unbundled_env do
-        # require "byebug";byebug
-        # Bundler.with_original_env do
-          run "bundle install"
-        # end
+        run "bundle install"
       end
 
       private
