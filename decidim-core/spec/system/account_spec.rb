@@ -147,7 +147,7 @@ describe "Account", type: :system do
       it "tells user to confirm new email" do
         expect(page).to have_content("Email change verification")
         expect(page).to have_selector("#user_email[disabled='disabled']")
-        expect(page).to have_content("We've sent ant email to #{pending_email} to verify your new email address")
+        expect(page).to have_content("We've sent an email to #{pending_email} to verify your new email address")
       end
 
       it "resend confirmation" do
