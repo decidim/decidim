@@ -69,8 +69,9 @@ jobs:
           key: npm-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             npm-
-      - run: bundle install
-        name: Bundle install
+      - name: Set bundler environmental variable
+        run: |
+          echo "BUNDLE_PATH=$HOME/vendor/bundle" >> $GITHUB_ENV
       - run: bundle exec rake development_app
         name: Create development app
       - run: bundle exec rails assets:precompile
