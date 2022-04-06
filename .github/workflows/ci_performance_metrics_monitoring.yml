@@ -21,6 +21,7 @@ env:
   RUBY_VERSION: 2.7.5
   NODE_VERSION: 16.9.1
   RAILS_ENV: development
+  BUNDLE_DEPLOYMENT: "false"
 
 jobs:
   main:
