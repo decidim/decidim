@@ -15,10 +15,9 @@
           <p><strong><%= t("decidim.account.email_change.title") %></strong></p>
           <p><%= t("decidim.account.email_change.body1", unconfirmed_email: current_user.unconfirmed_email) %></p>
           <p>
-            <%= t("decidim.account.email_change.body2") %>
-            <%= link_to t("decidim.account.email_change.send_again"), resend_confirmation_instructions_account_path, method: :post, remote: true %>
-            <%= t("decidim.account.email_change.or") %>
-            <%= link_to t("decidim.account.email_change.cancel"), cancel_email_change_account_path, method: :post, remote: true %>
+            <% resend_link = link_to t("decidim.account.email_change.send_again"), resend_confirmation_instructions_account_path, role: :button, method: :post, remote: true %>
+            <% cancel_link = link_to t("decidim.account.email_change.cancel"), cancel_email_change_account_path, role: :button, method: :post, remote: true %>
+            <%== t("decidim.account.email_change.body2", resend_link: resend_link, cancel_link: cancel_link) %>
           </p>
         </div>
       <% end %>

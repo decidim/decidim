@@ -130,11 +130,10 @@ en:
         success: Your account was successfully deleted.
       email_change:
         body1: We've sent an email to %{unconfirmed_email} to verify your new email address.
-        body2: Need us to send the verification email again?
+        body2: Need us to send the verification email again? %{resend_link} or %{cancel_link}.
         cancel: Cancel
         cancel_error: Could not cancel the email change.
         cancel_successfully: Email change cancelled successfully.
-        or: or
         resend_error: Could not resend confirmation email.
         resend_successfully: Confirmation email resent successfully to %{unconfirmed_email}
         send_again: Send again
