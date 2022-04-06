@@ -62,16 +62,28 @@ module Decidim
       ResendConfirmationInstructions.call(current_user) do
         on(:ok) do
           respond_to do |format|
-            format.json do
-              render json: { message: "success", unconfirmed_email: current_user.unconfirmed_email }
+            format.js do
+              render(
+                "resend_confirmation_email",
+                locals: {
+                  text: t("resend_successfully", scope: "decidim.account.email_change", unconfirmed_email: current_user.unconfirmed_email),
+                  alert_class: "success"
+                }
+              )
             end
           end
         end
 
         on(:invalid) do
           respond_to do |format|
-            format.json do
-              render json: { message: "error" }
+            format.js do
+              render(
+                "resend_confirmation_email",
+                locals: {
+                  text: t("resend_error", scope: "decidim.account.email_change"),
+                  alert_class: "alert"
+                }
+              )
             end
           end
         end
@@ -85,14 +97,26 @@ module Decidim
         current_user.update(unconfirmed_email: nil)
 
         respond_to do |format|
-          format.json do
-            render json: { message: "success" }
+          format.js do
+            render(
+              "cancel_email_change",
+              locals: {
+                text: t("cancel_successfully", scope: "decidim.account.email_change"),
+                alert_class: "success"
+              }
+            )
           end
         end
       else
         respond_to do |format|
-          format.json do
-            render json: { message: "error" }
+          format.js do
+            render(
+              "cancel_email_change",
+              locals: {
+                text: t("cancel_error", scope: "decidim.account.email_change"),
+                alert_class: "alert"
+              }
+            )
           end
         end
       end

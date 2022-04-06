@@ -151,7 +151,7 @@ describe "Account", type: :system do
       end
 
       it "resend confirmation" do
-        within "#email-change-send-again-or-cancel" do
+        within "#email-change-pending" do
           click_link "Send again"
         end
         expect(page).to have_content("Confirmation email resent successfully to #{pending_email}")
@@ -164,12 +164,14 @@ describe "Account", type: :system do
       end
 
       it "cancels the email change" do
-        within "#email-change-send-again-or-cancel" do
+        expect(Decidim::User.find(user.id).unconfirmed_email).to eq(pending_email)
+        within "#email-change-pending" do
           click_link "Cancel"
         end
 
         expect(page).to have_content("Email change cancelled successfully")
         expect(page).not_to have_content("Email change verification")
+        expect(Decidim::User.find(user.id).unconfirmed_email).to be_nil
       end
     end
 

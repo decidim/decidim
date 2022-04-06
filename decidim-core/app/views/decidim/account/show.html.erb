@@ -1,4 +1,4 @@
-<%= alert_box("", "email-confirmation-alert hide margin-bottom-1", true) %>
+<%= alert_box("", "account-notification hide margin-bottom-1", true) %>
 <% add_decidim_page_title(t("profile", scope: "layouts.decidim.user_menu")) %>
 <% content_for(:subtitle) { t("profile", scope: "layouts.decidim.user_menu") } %>
 
@@ -12,14 +12,13 @@
     <div class="columns large-8 end">
       <% if current_user.unconfirmed_email.present? %>
         <div id="email-change-pending" class="callout secondary">
-          <p><strong><%= t(".email_change_verification") %></strong></p>
-          <p><%= t(".email_change_body", unconfirmed_email: current_user.unconfirmed_email) %></p>
-          <p id="email-change-send-again-or-cancel"
-            data-resent-success="<%= t(".confirmation_email_resent_successfully", unconfirmed_email: current_user.unconfirmed_email) %>"
-            data-resent-error="<%= t(".confirmation_email_resent_error") %>"
-            data-cancel-success="<%= t(".cancel_email_change_successfully") %>"
-            data-cancel-error="<%= t(".cancel_email_change_error") %>">
-            <%== t(".email_change_send_again_or_cancel", resend_path: resend_confirmation_instructions_account_path, cancel_path: cancel_email_change_account_path) %>
+          <p><strong><%= t("decidim.account.email_change.title") %></strong></p>
+          <p><%= t("decidim.account.email_change.body1", unconfirmed_email: current_user.unconfirmed_email) %></p>
+          <p>
+            <%= t("decidim.account.email_change.body2") %>
+            <%= link_to t("decidim.account.email_change.send_again"), resend_confirmation_instructions_account_path, method: :post, remote: true %>
+            <%= t("decidim.account.email_change.or") %>
+            <%= link_to t("decidim.account.email_change.cancel"), cancel_email_change_account_path, method: :post, remote: true %>
           </p>
         </div>
       <% end %>

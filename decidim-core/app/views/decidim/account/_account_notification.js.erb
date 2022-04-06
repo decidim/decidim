@@ -1,0 +1,15 @@
+if (typeof accountNotification === 'undefined') {
+  var accountNotification = document.querySelector(".account-notification");
+}
+
+if (typeof messageDiv === 'undefined') {
+  var messageDiv = document.createElement("div");
+  messageDiv.classList.add("account-message")
+}
+
+accountNotification.appendChild(messageDiv);
+messageDiv.innerHTML = "<%= text %>";
+
+accountNotification.classList.add("<%= alert_class %>")
+accountNotification.classList.remove("hide");
+accountNotification.setAttribute("style", "display: flex;");
