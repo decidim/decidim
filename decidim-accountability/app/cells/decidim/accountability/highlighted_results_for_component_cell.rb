@@ -31,6 +31,14 @@ module Decidim
       def results_count
         @results_count ||= results.count
       end
+
+      def cache_hash
+        hash = []
+        hash << "decidim/Accountability/highlighted_results_for_component"
+        hash << results.cache_key_with_version
+        hash << I18n.locale.to_s
+        hash.join(Decidim.cache_key_separator)
+      end
     end
   end
 end
