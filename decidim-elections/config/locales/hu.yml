@@ -242,6 +242,9 @@ hu:
               role: A te szereped
               voting: Szavazás
       votings:
+        check_census:
+          error:
+            info: 'Kérjük, próbálja újra. Amennyiben Ön szerint a rendszerben rögzített adat hibás, itt jelentheti: %{census_contact_information}'
         filters:
           date: Dátum
         login:
