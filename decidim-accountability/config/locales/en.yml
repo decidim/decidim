@@ -159,7 +159,6 @@ en:
             progress: Progress
         timeline_entry:
           fields:
-            description: Description
             entry_date: Date
             title: Title
       result_m:
