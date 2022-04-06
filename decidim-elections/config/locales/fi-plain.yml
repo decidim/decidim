@@ -597,7 +597,7 @@ fi-pl:
           audit: "( Tarkasta äänesi )"
           back: Aloita äänestysprosessi uudestaan
           ballot_hash: 'Äänestyslippusi tunniste on:'
-          cast: Lähetä äänesi
+          cast: Lähetä äänestyslippusi viimeistelläksesi äänestyksen
           description: Tässä näkymässä voit tarkastaa, että äänesi on laskettu oikein tai että äänesi salaaminen onnistui. Turvallisuussyistä äänesi tarkastaminen kumoaa aikaisemman äänesi. Tämä tarkoittaa, että jättääksesi äänesi, sinun tulee käynnistää äänestysprosessi uudestaan.
           header: 'Äänesi on salattu: lähetä tai tarkasta se'
         casting:
@@ -1272,6 +1272,9 @@ fi-pl:
         check_census:
           check_status: Tarkista tila
           description: Täällä voit tarkastaa omat tietosi henkilötietorekisterissä selvittääksesi, onko sinulla oikeus osallistua tähän äänestykseen. Sinulla pitäisi jo olla tunnistautumiskoodi, mutta jos hävitit sen, voit pyytää sitä uudestaan, jos tietosi on syötetty oikein.
+          error:
+            info: 'Yritä uudestaan. Jos epäilet, että järjestelmässä olevat tiedot eivät pidä paikkaansa, voit ilmoittaa siitä täällä: %{census_contact_information}'
+            title: Syöttämäsi tiedot eivät ole tämän äänestyksen henkilötietorekisterissä
           form_title: 'Täytä seuraava lomake tarkistaaksesi tietosi henkilötietorekisterissä:'
           invalid: Henkilötietorekisterin tietojen tarkastaminen epäonnistui.
           success:
