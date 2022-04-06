@@ -1118,9 +1118,6 @@ nl:
         check_census:
           check_status: Status controleren
           description: Hier heb je de mogelijkheid om je gegevens op de kiezerslijst te controleren om te weten of je stemrecht hebt. Je zou al een toegangscode moeten hebben, maar als je die hebt verloren, kun je er opnieuw om vragen, als je gegevens juist zijn.
-          error:
-            info: 'Probeer het opnieuw. Als je denkt dat de gegevens in het systeem onjuist zijn, kunt u het hier melden: %{census_contact_information}.'
-            title: Je gegevens op de kiezerslijst zijn onjuist!
           form_title: 'Vul het formulier in om de gegevens van je stemlijst te controleren:'
           invalid: Er is een probleem opgetreden tijdens het controleren van de kiezerslijst.
           success:
