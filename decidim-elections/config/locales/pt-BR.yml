@@ -569,7 +569,6 @@ pt-BR:
           audit: "( Auditar cédula )"
           back: Iniciar o processo de votação novamente
           ballot_hash: 'Seu identificador de voto é:'
-          cast: Transmitir cédula
           description: Aqui, você tem as opções para transmitir a sua cédula de voto para que ela seja devidamente contado ou, em alternativa, poderá auditar, que sua cédula de voto foi corretamente criptografado. Por razões de segurança, a auditoria do seu voto irá estragá-lo. O que significa que, para dar o seu voto, terá de reiniciar o processo de votação.
           header: 'A cédula está criptografada: transmita-a ou auditá-la'
         casting:
