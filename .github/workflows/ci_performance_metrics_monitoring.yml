@@ -55,7 +55,7 @@ jobs:
       - uses: ruby/setup-ruby@v1
         with:
           ruby-version: ${{ env.RUBY_VERSION }}
-          bundler-cache: true
+          # bundler-cache: true
       - uses: actions/setup-node@v1
         with:
           node-version: ${{ env.NODE_VERSION }}
