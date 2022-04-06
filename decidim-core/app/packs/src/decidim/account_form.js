@@ -1,9 +1,8 @@
+/**
+ * Since the delete account has a modal to confirm it we need to copy the content of the
+ * reason field to the hidden field in the form inside the modal.
+ */
 $(() => {
-
-  /**
-   * Since the delete account has a modal to confirm it we need to copy the content of the
-   * reason field to the hidden field in the form inside the modal.
-   */
   const $deleteAccountForm = $(".delete-account");
   const $deleteAccountModalForm = $(".delete-account-modal");
 
