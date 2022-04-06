@@ -135,7 +135,7 @@ en:
         change_password: Change password
         confirmation_email_resent_error: Could not resend confirmation email.
         confirmation_email_resent_successfully: Confirmation email resent successfully to %{unconfirmed_email}
-        email_change_body: We've sent ant email to %{unconfirmed_email} to verify your new email address.
+        email_change_body: We've sent an email to %{unconfirmed_email} to verify your new email address.
         email_change_send_again_or_cancel: Need us to send the verification email again? <a class="email-resend" href="%{resend_path}">Send again</a> or <a class="email-cancel-change" href="%{cancel_path}">Cancel</a>.
         email_change_verification: Email change verification
         update_account: Update account
