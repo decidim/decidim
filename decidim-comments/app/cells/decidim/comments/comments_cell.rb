@@ -22,6 +22,12 @@ module Decidim
         render :single_comment_warning
       end
 
+      def comments_loading
+        return if single_comment?
+
+        render :comments_loading
+      end
+
       def blocked_comments_warning
         return unless comments_blocked?
         return unless user_comments_blocked?
