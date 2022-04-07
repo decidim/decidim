@@ -22,6 +22,7 @@ es:
       user:
         about: Acerca de
         email: Tu correo electrónico
+        locale: Configuración regional
         name: Tu nombre
         nickname: Alias
         password: Contraseña
@@ -107,6 +108,7 @@ es:
   decidim:
     accessibility:
       external_link: Enlace externo
+      front_page_link: Ir a la página principal
       logo: "Logo oficial de %{organization}"
       skip_button: Saltar al contenido principal
     account:
