@@ -15,12 +15,12 @@ module Decidim::Blogs::Admin
       let(:form) do
         double(
           object: double(author: author)
-          ) 
+        )
       end
 
       let(:all_fields) do
         [
-          [organization.name, ""], 
+          [organization.name, ""],
           [user.name, user.id],
           [user_group.name, user_group.id]
         ]
@@ -28,7 +28,7 @@ module Decidim::Blogs::Admin
 
       let(:extra_fields) do
         [
-          [organization.name, ""], 
+          [organization.name, ""],
           [user.name, user.id],
           [user_group.name, user_group.id],
           [another_user.name, another_user.id]
@@ -37,7 +37,7 @@ module Decidim::Blogs::Admin
 
       let(:basic_fields) do
         [
-          [organization.name, ""], 
+          [organization.name, ""],
           [user.name, user.id]
         ]
       end
@@ -60,20 +60,24 @@ module Decidim::Blogs::Admin
       context "when author is a user's user_group" do
         let(:author) { user_group }
 
-        #todo
+        it "Returns all types of authors" do
+          expect(helper.post_author_select_field(form, name)).to eq(all_fields)
+        end
       end
 
       context "when organization has no groups_enabled" do
         let(:groups_enabled) { false }
 
-        it "Returns all types of authors" do
+        it "Returns organization and user" do
           expect(helper.post_author_select_field(form, name)).to eq(basic_fields)
         end
 
         context "when author is a user's user_group" do
           let(:author) { user_group }
 
-          #todo
+          it "Returns organization and user" do
+            expect(helper.post_author_select_field(form, name)).to eq(all_fields)
+          end
         end
       end
 
@@ -88,13 +92,17 @@ module Decidim::Blogs::Admin
       context "when author is the organization" do
         let(:author) { organization }
 
-        #todo
+        it "Returns all types of authors" do
+          expect(helper.post_author_select_field(form, name)).to eq(all_fields)
+        end
       end
 
       context "when author is another user_group" do
         let(:author) { another_user_group }
 
-        #todo
+        it "Returns all types of authors" do
+          expect(helper.post_author_select_field(form, name)).to eq(all_fields)
+        end
       end
     end
   end
