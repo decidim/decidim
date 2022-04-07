@@ -339,6 +339,9 @@ shared_examples "manage proposals" do
         within find("tr", text: proposal_title) do
           expect(page).to have_content("Rejected")
         end
+
+        proposal.reload
+        expect(proposal.answered_at).to be_within(1.second).of Time.zone.now
       end
 
       it "can accept a proposal" do
@@ -354,6 +357,9 @@ shared_examples "manage proposals" do
         within find("tr", text: proposal_title) do
           expect(page).to have_content("Accepted")
         end
+
+        proposal.reload
+        expect(proposal.answered_at).to be_within(1.second).of Time.zone.now
       end
 
       it "can mark a proposal as evaluating" do
@@ -369,9 +375,12 @@ shared_examples "manage proposals" do
         within find("tr", text: proposal_title) do
           expect(page).to have_content("Evaluating")
         end
+
+        proposal.reload
+        expect(proposal.answered_at).to be_within(1.second).of Time.zone.now
       end
 
-      it "can change a proposal to 'not answered'" do
+      it "can mark a proposal as 'not answered'" do
         proposal.update!(
           state: "rejected",
           answer: {
@@ -390,9 +399,11 @@ shared_examples "manage proposals" do
         expect(page).to have_admin_callout("Proposal successfully answered")
 
         within find("tr", text: proposal_title) do
-          take_screenshot
           expect(page).to have_content("Not answered")
         end
+
+        proposal.reload
+        expect(proposal.answered_at).to eq(nil)
       end
 
       it "can edit a proposal answer" do
@@ -422,6 +433,9 @@ shared_examples "manage proposals" do
         within find("tr", text: proposal_title) do
           expect(page).to have_content("Accepted")
         end
+
+        proposal.reload
+        expect(proposal.answered_at).to be_within(1.second).of Time.zone.now
       end
     end
 

@@ -46,12 +46,12 @@ module Decidim
             attributes = {
               state: form.state,
               answer: form.answer,
-              answered_at: Time.current,
               cost: form.cost,
               cost_report: form.cost_report,
               execution_period: form.execution_period
             }
 
+            attributes[:answered_at] = form.state != "not_answered" ? Time.current : nil
             attributes[:state_published_at] = Time.current if !initial_has_state_published && form.publish_answer?
 
             proposal.update!(attributes)
