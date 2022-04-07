@@ -1,4 +1,4 @@
-<% unless @resource.unconfirmed_email.present? %>
+<% if @resource.unconfirmed_email.blank? %>
   <p class="email-greeting"><%= t(".greeting", recipient: @email) %></p>
 <% end %>
 
