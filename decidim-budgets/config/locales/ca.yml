@@ -141,6 +141,8 @@ ca:
         show: Mostra els projectes
         vote: Vota
         voted_on: Has votat a %{links}
+      last_activity:
+        new_vote_at_html: "<span>Nova votació pressupostària a %{link}</span>"
       limit_announcement:
         cant_vote: No pots votar a aquests pressupostos. <a href="%{landing_path}"> Prova amb un altre pressupost </a>.
         limit_reached: Tens vots actius a %{links}. Per votar en aquest pressupot has d' <a href="%{landing_path}">esborrar el teu vot i començar de nou</a>.
