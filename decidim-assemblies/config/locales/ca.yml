@@ -319,6 +319,9 @@ ca:
         new_import:
           accepted_types:
             json: JSON
+      assemblies:
+        show:
+          title: Sobre aquesta assemblea
       assembly_members:
         index:
           members: Membres
