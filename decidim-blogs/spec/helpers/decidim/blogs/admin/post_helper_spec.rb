@@ -26,12 +26,21 @@ module Decidim::Blogs::Admin
         ]
       end
 
-      let(:extra_fields) do
+      let(:extra_user_fields) do
         [
           [organization.name, ""],
           [user.name, user.id],
           [user_group.name, user_group.id],
           [another_user.name, another_user.id]
+        ]
+      end
+
+      let(:extra_group_fields) do
+        [
+          [organization.name, ""],
+          [user.name, user.id],
+          [user_group.name, user_group.id],
+          [another_user_group.name, another_user_group.id]
         ]
       end
 
@@ -75,7 +84,7 @@ module Decidim::Blogs::Admin
         context "when author is a user's user_group" do
           let(:author) { user_group }
 
-          it "Returns organization and user" do
+          it "Returns organization, user and user group" do
             expect(helper.post_author_select_field(form, name)).to eq(all_fields)
           end
         end
@@ -85,7 +94,7 @@ module Decidim::Blogs::Admin
         let(:author) { another_user }
 
         it "Returns all types of authors plus the original author" do
-          expect(helper.post_author_select_field(form, name)).to eq(extra_fields)
+          expect(helper.post_author_select_field(form, name)).to eq(extra_user_fields)
         end
       end
 
@@ -101,7 +110,7 @@ module Decidim::Blogs::Admin
         let(:author) { another_user_group }
 
         it "Returns all types of authors" do
-          expect(helper.post_author_select_field(form, name)).to eq(all_fields)
+          expect(helper.post_author_select_field(form, name)).to eq(extra_group_fields)
         end
       end
     end
