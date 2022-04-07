@@ -392,6 +392,9 @@ es:
       calendar_modal:
         calendar_url: URL del calendario
         close_window: Cerrar ventana
+        copy_calendar_url: Copiar
+        copy_calendar_url_clarification: Copiar URL del calendario al portapapeles
+        copy_calendar_url_copied: '¡Copiado!'
         export_calendar: Exportar calendario
       conference_venues: Sedes de las jornadas
       content_blocks:
