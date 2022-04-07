@@ -62,29 +62,15 @@ module Decidim
       ResendConfirmationInstructions.call(current_user) do
         on(:ok) do
           respond_to do |format|
-            format.js do
-              render(
-                "resend_confirmation_email",
-                locals: {
-                  text: t("resend_successfully", scope: "decidim.account.email_change", unconfirmed_email: current_user.unconfirmed_email),
-                  alert_class: "success"
-                }
-              )
-            end
+            handle_alert(:success, t("resend_successfully", scope: "decidim.account.email_change", unconfirmed_email: current_user.unconfirmed_email))
+            format.js
           end
         end
 
         on(:invalid) do
           respond_to do |format|
-            format.js do
-              render(
-                "resend_confirmation_email",
-                locals: {
-                  text: t("resend_error", scope: "decidim.account.email_change"),
-                  alert_class: "alert"
-                }
-              )
-            end
+            handle_alert(:alert, t("resend_error", scope: "decidim.account.email_change"))
+            format.js
           end
         end
       end
@@ -97,32 +83,25 @@ module Decidim
         current_user.update(unconfirmed_email: nil)
 
         respond_to do |format|
-          format.js do
-            render(
-              "cancel_email_change",
-              locals: {
-                text: t("cancel_successfully", scope: "decidim.account.email_change"),
-                alert_class: "success"
-              }
-            )
-          end
+          handle_alert(:success, t("cancel_successfully", scope: "decidim.account.email_change"))
+          format.js
         end
       else
         respond_to do |format|
-          format.js do
-            render(
-              "cancel_email_change",
-              locals: {
-                text: t("cancel_error", scope: "decidim.account.email_change"),
-                alert_class: "alert"
-              }
-            )
-          end
+          handle_alert(:alert, t("cancel_error", scope: "decidim.account.email_change"))
+          format.js
         end
       end
     end
 
     private
+
+    attr_reader :alert, :text
+
+    def handle_alert(alert_class, text)
+      @alert_class = alert_class
+      @text = text
+    end
 
     def account_params
       params[:user].to_unsafe_h
