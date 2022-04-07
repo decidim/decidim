@@ -597,6 +597,7 @@ es:
           audit: "( Auditar papeleta )"
           back: Comenzar de nuevo el proceso de votación
           ballot_hash: 'El indentificador de la papeleta es:'
+          cast: Deposita la papeleta para terminar tu voto
           description: Aquí tienes las opciones de emitir tu papeleta para que sea debidamente contada o, alternativamente, puedes auditar que tu papeleta fue cifrada correctamente. Por razones de seguridad, la auditoría de su papeleta la estropeará, lo que significa, que para emitir tu voto tendrás que reiniciar el proceso de votación.
           header: 'La papeleta se ha cifrado: envíala o audítala'
         casting:
@@ -1094,6 +1095,7 @@ es:
           description:
             show_less: Leer menos
             show_more: Leer más
+            title: Sobre esta votación
           metrics:
             heading: Métricas
           polling_stations:
@@ -1270,6 +1272,9 @@ es:
         check_census:
           check_status: Comprobar estado
           description: Aquí, tienes la opción de comprobar tus datos del censo para saber si tienes derecho a participar en esta votación. Deberías tener ya un código de acceso, pero si lo has perdido, puedes solicitarlo de nuevo, si tus datos son correctos.
+          error:
+            info: 'Por favor, inténtalo de nuevo. Si crees que los datos del sistema son incorrectos, puedes reportarlo aquí: %{census_contact_information}'
+            title: Los datos que ha introducido no están en el censo de esta votación
           form_title: 'Rellena el siguiente formulario para comprobar tus datos del censo:'
           invalid: Hubo un problema al comprobar el censo.
           success:
