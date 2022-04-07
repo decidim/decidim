@@ -698,6 +698,11 @@ ca:
           email_outro: Has rebut aquesta notificació perquè estàs seguint a %{nickname}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
           email_subject: "%{nickname} ha actualitzat el seu perfil"
           notification_title: El <a href="%{resource_path}"> perfi l</a> de %{name} (%{nickname}), a qui estàs seguint, s'ha actualitzat.
+        user_officialized:
+          email_intro: La participant %{name} (%{nickname}) ha estat oficialitzada.
+          email_outro: Has rebut aquesta notificació perquè ets una de les administradores de la plataforma.
+          email_subject: "S'ha oficialitzat a %{name}"
+          notification_title: La participant %{name} (%{nickname}) ha estat oficialitzada.
     export_mailer:
       data_portability_export:
         click_button: 'Fes clic en el següent enllaç per descarregar les teves dades.<br/>L''arxiu estarà disponible fins %{date}.<br/>Necessitaràs <a href="https://www.7-zip.org/">7-Zip</a> (per a Windows), <a href="https://www.keka.io/en/">Keka</a> (per a MacOS) o <a href="https://peazip.github.io">PeaZip</a> (per a Linux) per obrir-lo. Contrasenya: %{password}'
@@ -1731,6 +1736,7 @@ ca:
     dropdown:
       choose_diff_view_html: 'Vista HTML:'
       choose_diff_view_mode: 'Mode de vista de comparació:'
+      choose_diff_view_mode_menu: Triar el mode de comparació
       option_escaped: Escapada
       option_split: Costat per costat
       option_unescaped: No escapada
