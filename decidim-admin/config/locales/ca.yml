@@ -123,6 +123,10 @@ ca:
         file: Fitxer
     errors:
       models:
+        newsletter:
+          attributes:
+            base:
+              at_least_one_space: Selecciona com a mínim un espai de participació
         organization:
           attributes:
             official_img_footer:
