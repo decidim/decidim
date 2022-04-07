@@ -22,6 +22,7 @@ es:
       user:
         about: Acerca de
         email: Tu correo electrónico
+        locale: Configuración regional
         name: Tu nombre
         nickname: Alias
         password: Contraseña
@@ -106,6 +107,7 @@ es:
   decidim:
     accessibility:
       external_link: Enlace externo
+      front_page_link: Ir a la página principal
       logo: "Logo oficial de %{organization}"
       skip_button: Saltar al contenido principal
     account:
@@ -385,6 +387,7 @@ es:
           debate: Debate
           initiative: Iniciativa
           meeting: Encuentro
+          order: Votación presupuestaria
           post: Publicar
           proposal: Propuesta
           question: Pregunta
@@ -695,6 +698,11 @@ es:
           email_outro: Has recibido esta notificación porque estás siguiendo a %{nickname}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
           email_subject: "%{nickname} ha actualizado su perfil"
           notification_title: La página <a href="%{resource_path}"> de perfil </a> de %{name} (%{nickname}), a quien estás siguiendo, se ha actualizado.
+        user_officialized:
+          email_intro: La participante %{name} (%{nickname}) ha sido oficializada.
+          email_outro: Has recibido esta notificación porque eres una de las administradoras de la plataforma.
+          email_subject: "Se ha oficializado a %{name}"
+          notification_title: La participante %{name} (%{nickname}) ha sido oficializada.
     export_mailer:
       data_portability_export:
         click_button: 'Haz clic en el siguiente enlace para descargar tus datos.<br/>El archivo estará disponible hasta %{date}.<br/>Necesitarás <a href="https://www.7-zip.org/">7-Zip</a> (para Windows), <a href="https://www.keka.io/en/">Keka</a> (para MacOS) o <a href="https://peazip.github.io">PeaZip</a> (para Linux) para abrirlo. Contraseña: %{password}'
@@ -755,6 +763,26 @@ es:
       file_validation:
         allowed_file_extensions: 'Formatos de archivo permitidos: %{extensions}'
         max_file_size: 'Tamaño máximo del archivo: %{megabytes}MB'
+      upload:
+        labels:
+          add_attachment: Añadir adjunto
+          add_file: Añadir archivo
+          add_image: Añadir imagen
+          cancel: Cancelar
+          edit_image: Editar imagen
+          error: '¡Error!'
+          file_too_big: '¡El archivo es demasiado grande! Peso de archivo máximo: %{megabytes}MB'
+          remove: Eliminar
+          replace: Reemplazar
+          save: Guardar
+          title: Título
+          title_required: '¡Se requiere un título!'
+          uploaded: Subido
+          validating: Validando...
+          validation_error: '¡Error de validación!'
+      upload_help:
+        dropzone: Arrastrar archivos aquí o haz clic para subirlos
+        explanation: Guía para %{attribute}
     gamification:
       all_badges_link: Ver todas las insígnias disponibles.
       badges:
@@ -1079,10 +1107,13 @@ es:
         administrators: Administradoras
         allow_public_contact: Permitir que cualquiera me envíe un mensaje directo, incluso si no le sigo.
         direct_messages: Recibir mensajes directos de cualquiera
+        email_on_moderations: Quiero recibir un correo electrónico cada vez que se reporta algo o a alguien para moderación.
         email_on_notification: Quiero recibir un correo electrónico cada vez que reciba una notificación.
         everything_followed: Todo lo que sigo
         newsletter_notifications: Quiero recibir boletines informativos
         newsletters: Boletines informativos
+        notification_settings:
+          close_meeting_reminder: Quiero recibir recordatorios por correo electrónico de reuniones pasadas con informes sin publicar
         own_activity: Mi propia actividad, como cuando alguien comenta en mi propuesta o me menciona
         receive_notifications_about: Quiero recibir notificaciones
         send_notifications_by_email: Enviar notificaciones por correo electrónico
@@ -1303,6 +1334,8 @@ es:
         close_modal: Cerrar el modal
         please_sign_in: Por favor, inicia sesión
         sign_up: Regístrate
+      mentions_modal:
+        remove_recipient: Eliminar destinataria %{name}
       participatory_space_filters:
         filters:
           areas: Áreas
@@ -1648,6 +1681,8 @@ es:
         continue_session: Continuar sesión
         sign_out: Cerrar sesión
         title: '¿Quieres continuar con la sesión?'
+      upload_modal:
+        close_modal: Cerrar ventana
       user_menu:
         account: 'Cuenta de usuario: %{name}'
         admin_dashboard: Tablero de administración
@@ -1732,6 +1767,7 @@ es:
     dropdown:
       choose_diff_view_html: 'Modo de vista HTML:'
       choose_diff_view_mode: 'Comparar el modo de visualización:'
+      choose_diff_view_mode_menu: Elegir el modo de comparación
       option_escaped: Escapado
       option_split: En paralelo
       option_unescaped: Desescapado
