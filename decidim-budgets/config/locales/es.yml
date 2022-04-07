@@ -141,6 +141,8 @@ es:
         show: Ver proyectos
         vote: Votar
         voted_on: Has votado en %{links}
+      last_activity:
+        new_vote_at_html: "<span>Nueva votación presupiestaria en %{link}</span>"
       limit_announcement:
         cant_vote: No puedes votar en este presupuesto. <a href="%{landing_path}"> Prueba con otro presupuesto</a>.
         limit_reached: Tienes votos activos en %{links}. Para votar en este presupuesto debes <a href="%{landing_path}">borrar tu voto y empezar de nuevo</a>.
