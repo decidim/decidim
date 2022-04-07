@@ -1,11 +1,10 @@
-if (typeof accountNotification === 'undefined') {
-  var accountNotification = document.querySelector(".account-notification");
-}
+var accountNotification = document.querySelector(".account-notification");
 
-if (typeof messageDiv === 'undefined') {
-  var messageDiv = document.createElement("div");
-  messageDiv.classList.add("account-message")
+if (accountNotification.querySelector(".account-message")) {
+  accountNotification.querySelector(".account-message").remove();
 }
+var messageDiv = document.createElement("div");
+messageDiv.classList.add("account-message")
 
 accountNotification.appendChild(messageDiv);
 messageDiv.innerHTML = "<%= @text %>";
