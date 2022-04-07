@@ -392,6 +392,9 @@ ca:
       calendar_modal:
         calendar_url: URL del calendari
         close_window: Tanca la finestra
+        copy_calendar_url: Copiar
+        copy_calendar_url_clarification: Copiar l'URL del calendari al porta-retalls
+        copy_calendar_url_copied: Copiat!
         export_calendar: Exporta el calendari
       conference_venues: Seus de les jornades
       content_blocks:
