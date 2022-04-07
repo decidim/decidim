@@ -1,4 +1,4 @@
-const { config } = require("@rails/webpacker");
+const path = require("path");
 
 const overrideSassRule = (modifyConfig) => {
   const sassRule = modifyConfig.module.rules.find(
@@ -15,34 +15,7 @@ const overrideSassRule = (modifyConfig) => {
     return modifyConfig;
   }
 
-  const imports = config.stylesheet_imports;
-  if (!imports) {
-    return modifyConfig;
-  }
-
-  // Add the extra importer to the sass-loader to load the import statements for
-  // Decidim modules.
-  sassLoader.options.sassOptions.importer = [
-    (url) => {
-      const matches = url.match(/^!decidim-style-([^[]+)\[([^\]]+)\]$/);
-      if (!matches) {
-        return null;
-      }
-
-      const type = matches[1];
-      const group = matches[2];
-      if (!imports[type] || !imports[type][group]) {
-        // If the group is not defined, return an empty configuration because
-        // otherwise the importer would continue finding the asset through
-        // paths which obviously fails.
-        return { contents: "" };
-      }
-
-      const statements = imports[type][group].map((style) => `@import "${style}";`);
-
-      return { contents: statements.join("\n") };
-    }
-  ];
+  sassLoader.loader = path.resolve(__dirname, "loaders/decidim-sass-loader"); // eslint-disable-line no-undef
 
   return modifyConfig;
 }
