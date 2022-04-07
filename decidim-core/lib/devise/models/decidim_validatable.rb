@@ -11,7 +11,6 @@ module Devise
     # Validatable adds the following options to devise_for:
     #
     #   * +email_regexp+: the regular expression used to validate e-mails;
-    #   * +password_length+: a range expressing password length. Defaults to 8..72.
     #
     module DecidimValidatable
       # All validations used by this module.
@@ -33,7 +32,6 @@ module Devise
 
           validates_presence_of :password, if: :password_required?
           validates_confirmation_of :password, if: :password_required?
-          validates_length_of :password, within: password_length, allow_blank: true
 
           validates :password, password: { name: :name, email: :email, username: :nickname }
         end
@@ -63,7 +61,7 @@ module Devise
 
       # Methods to be injected at class level.
       module ClassMethods
-        Devise::Models.config(self, :email_regexp, :password_length)
+        Devise::Models.config(self, :email_regexp)
       end
     end
   end
