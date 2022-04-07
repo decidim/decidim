@@ -22,6 +22,7 @@ ca:
       user:
         about: Quant a
         email: El teu correu electrònic
+        locale: Configuració regional
         name: El teu nom
         nickname: Àlies
         password: Contrasenya
@@ -107,6 +108,7 @@ ca:
   decidim:
     accessibility:
       external_link: Enllaç extern
+      front_page_link: Anar a la pàgina principal
       logo: "Logo oficial de %{organization}"
       skip_button: Vés al contingut principal
     account:
