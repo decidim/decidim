@@ -123,6 +123,10 @@ es:
         file: Archivo
     errors:
       models:
+        newsletter:
+          attributes:
+            base:
+              at_least_one_space: Seleccione al menos un espacio participativo
         organization:
           attributes:
             official_img_footer:
@@ -901,6 +905,7 @@ es:
         gallery:
           add_images: Añadir imágenes
           delete_image: Borrar la imagen
+          edit_images: Editar imagenes
           gallery_legend: Añadir una galería de imágenes (opcional)
       static_page_topics:
         create:
