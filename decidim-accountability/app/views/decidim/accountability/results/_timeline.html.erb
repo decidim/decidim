@@ -17,9 +17,13 @@
               </h4>
 
               <% if translated_attribute(timeline_entry.description).present? %>
-                <p class="timeline__description__description">
+                <a data-toggle="timeline_entry__description_toggle_<%= timeline_entry.id %>" class="button small hollow">
+                  <%= t(".read_more") %>
+                </a>
+
+                <div id="timeline_entry__description_toggle_<%= timeline_entry.id %>" data-toggler="is-hidden" class="timeline__description__description is-hidden">
                   <%== translated_attribute timeline_entry.description %>
-                </p>
+                </div>
               <% end %>
             </div>
           </div>

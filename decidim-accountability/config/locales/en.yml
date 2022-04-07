@@ -193,6 +193,7 @@ en:
             proposals: Proposals
             votes: Supports
         timeline:
+          read_more: Read more
           title: Project evolution
     admin:
       filters:
