@@ -123,6 +123,10 @@ ca:
         file: Fitxer
     errors:
       models:
+        newsletter:
+          attributes:
+            base:
+              at_least_one_space: Selecciona com a mínim un espai de participació
         organization:
           attributes:
             official_img_footer:
@@ -901,6 +905,7 @@ ca:
         gallery:
           add_images: Afegir imatges
           delete_image: Esborrar la imatge
+          edit_images: Editar imatges
           gallery_legend: Afegir una galeria d'imatges (opcional)
       static_page_topics:
         create:
