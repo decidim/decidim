@@ -19,7 +19,7 @@ module Decidim
         helper_method :meetings, :search
 
         def calendar
-          render plain: CalendarRenderer.for(current_organization), content_type: "type/calendar"
+          render plain: CalendarRenderer.for(current_organization, params[:filter]), content_type: "type/calendar"
         end
 
         private

@@ -6,7 +6,9 @@ module Decidim
     #
     class CommentsController < Decidim::Comments::ApplicationController
       include Decidim::ResourceHelper
+      include Decidim::SkipTimeoutable
 
+      prepend_before_action :skip_timeout, only: :index
       before_action :authenticate_user!, only: [:create]
       before_action :set_commentable, except: [:destroy, :update]
       before_action :ensure_commentable!, except: [:destroy, :update]

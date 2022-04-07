@@ -75,9 +75,14 @@ module Decidim
     end
 
     def protocol_option
+      return { host: cdn_host } if cdn_host
       return {} unless Rails.application.config.force_ssl
 
       { protocol: "https" }
+    end
+
+    def cdn_host
+      @cdn_host ||= Rails.application.secrets.dig(:storage, :cdn_host)
     end
 
     class << self
