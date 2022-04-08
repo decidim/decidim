@@ -657,6 +657,8 @@ es-PY:
           filter_by: Filtrado por
           unfold: Desplegar
         new:
+          add_file: Añadir archivo
+          edit_file: Editar fichero
           send: Continuar
         new_collaborative_draft_button:
           new_collaborative_draft: Nuevo borrador colaborativo
@@ -767,8 +769,12 @@ es-PY:
           description: Las coordenadas se actualizarán cuando hagas clic en el botón 'previsualizar'. Sin embargo, la dirección no cambia.
           instructions: Puedes mover la ubicación en el mapa.
         edit:
+          add_documents: Añadir documentos
+          add_image: Añadir imagen
           attachment_legend: "(Opcional) Agregar un archivo adjunto"
           back: Volver
+          edit_documents: Editar documentos
+          edit_image: Editar imagen
           gallery_legend: "(Opcional) Añadir una imagen a la tarjeta de propuesta"
           select_a_category: Por favor, seleccione una categoría
           send: Enviar
