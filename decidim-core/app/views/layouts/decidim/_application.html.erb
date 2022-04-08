@@ -4,7 +4,6 @@
   <head>
     <title><%= decidim_page_title %></title>
     <%= render partial: "layouts/decidim/head" %>
-    <%= render partial: "layouts/decidim/js_configuration" %>
   </head>
 
   <body>
@@ -22,5 +21,8 @@
     <%= render partial: "decidim/shared/login_modal" unless current_user %>
     <%= render partial: "decidim/shared/authorization_modal" %>
     <%= render partial: "layouts/decidim/cors" if Decidim.cors_enabled %>
+
+    <%= javascript_pack_tag "decidim_core", defer: false %>
+    <%= render partial: "layouts/decidim/js_configuration" %>
   </body>
 </html>
