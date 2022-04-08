@@ -128,6 +128,9 @@ es-MX:
         extension_allowlist: 'Formatos de archivo aceptados:'
       images:
         dimensions: "%{width} x %{height} px"
+        processors:
+          resize_and_pad: Esta imagen será redimensionada y ajustada a %{dimensions}.
+          resize_to_fit: Esta imagen será redimensionada para ajustarse a %{dimensions}.
       question_types:
         files: Archivos
         long_answer: Respuesta larga
