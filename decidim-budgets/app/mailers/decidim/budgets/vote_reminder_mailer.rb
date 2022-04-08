@@ -32,7 +32,7 @@ module Decidim
       private
 
       def routes
-        @routes ||= Decidim::EngineRouter.main_proxy(@reminder.component, host: @organization.host)
+        @routes ||= Decidim::EngineRouter.main_proxy(@reminder.component)
       end
     end
   end

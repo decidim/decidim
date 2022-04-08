@@ -45,9 +45,9 @@ module Decidim::Budgets
       let(:order3) { create(:order, budget: budgets.last, user: user) }
 
       it "includes links to the budgets" do
-        expect(mail).to have_link(budget.title["en"], href: router.budget_path(budget))
-        expect(mail).to have_link(budgets[0].title["en"], href: router.budget_path(budgets[0]))
-        expect(mail).to have_link(budgets[1].title["en"], href: router.budget_path(budgets[1]))
+        expect(mail).to have_link(budget.title["en"], href: router.budget_url(budget))
+        expect(mail).to have_link(budgets[0].title["en"], href: router.budget_url(budgets[0]))
+        expect(mail).to have_link(budgets[1].title["en"], href: router.budget_url(budgets[1]))
       end
     end
   end
