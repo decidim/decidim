@@ -449,6 +449,7 @@ ja:
             accepted: 承認済み
             answer_proposal: 回答
             evaluating: 評価
+            not_answered: 未回答
             rejected: 拒否
             title: 提案 %{title} の回答
         proposal_notes:
