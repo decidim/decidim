@@ -455,6 +455,7 @@ fi-pl:
             accepted: Hyväksytty
             answer_proposal: Vastaus
             evaluating: Arvioitavana
+            not_answered: Vastaamaton
             rejected: Hylätty
             title: 'Vastaa ehdotukseen: %{title}'
         proposal_notes:
