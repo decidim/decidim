@@ -13,7 +13,7 @@ describe "Admin invite", type: :system do
       reference_prefix: "JKR",
       host: "decide.lvh.me",
       organization_admin_name: "Fiorello Henry La Guardia",
-      organization_admin_email: "f.laguardia@gotham.gov",
+      organization_admin_email: "f.laguardia@example.org",
       available_locales: ["en"],
       default_locale: "en",
       users_registration_mode: "enabled",
@@ -22,7 +22,7 @@ describe "Admin invite", type: :system do
         "port" => "25",
         "user_name" => "f.laguardia",
         "password" => Decidim::AttributeEncryptor.encrypt("password"),
-        "from" => "no-reply@decide.lvh.me"
+        "from" => "no-reply@example.org"
       },
       file_upload_settings: Decidim::OrganizationSettings.default(:upload)
     }
