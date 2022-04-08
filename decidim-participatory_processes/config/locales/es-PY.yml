@@ -435,6 +435,8 @@ es-PY:
           see: Ver
         index:
           loading: Cargando resultados...
+        show:
+          title: Acerca de este proceso
       show:
         area: Área
         belongs_to_group: Este proceso pertenece a
