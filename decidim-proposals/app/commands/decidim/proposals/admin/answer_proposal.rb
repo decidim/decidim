@@ -51,8 +51,13 @@ module Decidim
               execution_period: form.execution_period
             }
 
-            attributes[:answered_at] = form.state != "not_answered" ? Time.current : nil
-            attributes[:state_published_at] = Time.current if !initial_has_state_published && form.publish_answer?
+            if form.state == "not_answered"
+              attributes[:answered_at] = nil
+              attributes[:state_published_at] = nil
+            else
+              attributes[:answered_at] = Time.current
+              attributes[:state_published_at] = Time.current if !initial_has_state_published && form.publish_answer?
+            end
 
             proposal.update!(attributes)
           end
