@@ -11,4 +11,4 @@ messageDiv.innerHTML = "<%= @text %>";
 
 accountNotification.classList.add("<%= @alert_class %>")
 accountNotification.classList.remove("hide");
-accountNotification.setAttribute("style", "display: flex;");
+accountNotification.removeAttribute("style");
