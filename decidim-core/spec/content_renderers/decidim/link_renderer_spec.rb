@@ -33,7 +33,7 @@ module Decidim
         let(:content) { "foo #{url} bar" }
 
         it "does not include target" do
-          expect(renderer.render(options)).to eq("foo <a href=\"#{url}\" rel=\"nofollow noopener\">#{url}</a> bar")
+          expect(renderer.render(options)).to eq("foo <a href=\"#{url}\" rel=\"nofollow noopener noreferrer ugc\">#{url}</a> bar")
         end
       end
 
@@ -41,7 +41,7 @@ module Decidim
         it "renders link tag" do
           urls.each do |url|
             rendered = described_class.new(url).render
-            expect(rendered).to eq("<a href=\"#{url}\" target=\"_blank\" rel=\"nofollow noopener\">#{url}</a>")
+            expect(rendered).to eq("<a href=\"#{url}\" target=\"_blank\" rel=\"nofollow noopener noreferrer ugc\">#{url}</a>")
           end
         end
       end
@@ -51,7 +51,7 @@ module Decidim
           urls.each do |url|
             text = ::Faker::Lorem.sentence
             rendered = described_class.new("#{text} #{url}").render
-            expect(rendered).to eq("#{text} <a href=\"#{url}\" target=\"_blank\" rel=\"nofollow noopener\">#{url}</a>")
+            expect(rendered).to eq("#{text} <a href=\"#{url}\" target=\"_blank\" rel=\"nofollow noopener noreferrer ugc\">#{url}</a>")
           end
         end
       end
@@ -63,7 +63,7 @@ module Decidim
           urls.each do |url|
             punctuations.each do |punctuation|
               rendered = described_class.new("#{url}#{punctuation}").render
-              expect(rendered).to eq("<a href=\"#{url}\" target=\"_blank\" rel=\"nofollow noopener\">#{url}</a>#{punctuation}")
+              expect(rendered).to eq("<a href=\"#{url}\" target=\"_blank\" rel=\"nofollow noopener noreferrer ugc\">#{url}</a>#{punctuation}")
             end
           end
         end
@@ -74,7 +74,7 @@ module Decidim
           urls.each do |url|
             text = ::Faker::Lorem.sentence
             rendered = described_class.new("#{url} #{text}").render
-            expect(rendered).to eq("<a href=\"#{url}\" target=\"_blank\" rel=\"nofollow noopener\">#{url}</a> #{text}")
+            expect(rendered).to eq("<a href=\"#{url}\" target=\"_blank\" rel=\"nofollow noopener noreferrer ugc\">#{url}</a> #{text}")
           end
         end
       end
@@ -85,7 +85,7 @@ module Decidim
             before_text = ::Faker::Lorem.paragraph
             after_text = ::Faker::Lorem.sentence
             rendered = described_class.new("#{before_text} #{url} #{after_text}").render
-            expect(rendered).to eq("#{before_text} <a href=\"#{url}\" target=\"_blank\" rel=\"nofollow noopener\">#{url}</a> #{after_text}")
+            expect(rendered).to eq("#{before_text} <a href=\"#{url}\" target=\"_blank\" rel=\"nofollow noopener noreferrer ugc\">#{url}</a> #{after_text}")
           end
         end
       end
@@ -96,7 +96,7 @@ module Decidim
             before_text = ::Faker::Lorem.sentence
             after_text = ::Faker::Lorem.paragraph
             rendered = described_class.new("#{before_text}#{url}#{after_text}").render
-            expect(rendered).to eq("#{before_text}<a href=\"#{url + after_text.split(" ").first}\" target=\"_blank\" rel=\"nofollow noopener\">#{url + after_text.split(" ").first}</a> #{after_text.split(" ").drop(1).join(" ")}")
+            expect(rendered).to eq("#{before_text}<a href=\"#{url + after_text.split(" ").first}\" target=\"_blank\" rel=\"nofollow noopener noreferrer ugc\">#{url + after_text.split(" ").first}</a> #{after_text.split(" ").drop(1).join(" ")}")
           end
         end
       end

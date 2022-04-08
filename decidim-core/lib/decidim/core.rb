@@ -16,6 +16,7 @@ module Decidim
   autoload :AuthorizationFormBuilder, "decidim/authorization_form_builder"
   autoload :FilterFormBuilder, "decidim/filter_form_builder"
   autoload :ComponentManifest, "decidim/component_manifest"
+  autoload :NotificationSettingManifest, "decidim/notification_setting_manifest"
   autoload :ParticipatorySpaceManifest, "decidim/participatory_space_manifest"
   autoload :ResourceManifest, "decidim/resource_manifest"
   autoload :Resourceable, "decidim/resourceable"
@@ -98,6 +99,7 @@ module Decidim
   autoload :RecordEncryptor, "decidim/record_encryptor"
   autoload :AttachmentAttributes, "decidim/attachment_attributes"
   autoload :CarrierWaveMigratorService, "decidim/carrier_wave_migrator_service"
+  autoload :HasBlobFile, "decidim/has_blob_file"
   autoload :ReminderRegistry, "decidim/reminder_registry"
   autoload :ReminderManifest, "decidim/reminder_manifest"
   autoload :ManifestMessages, "decidim/manifest_messages"
@@ -480,6 +482,10 @@ module Decidim
     resource_registry.register(name, &block)
   end
 
+  def self.notification_settings(name, &block)
+    notification_settings_registry.register(name, &block)
+  end
+
   # Public: Finds all registered resource manifests via the `register_component`
   # method.
   #
@@ -550,6 +556,10 @@ module Decidim
   # Public: Stores the registry of resource spaces
   def self.resource_registry
     @resource_registry ||= ManifestRegistry.new(:resources)
+  end
+
+  def self.notification_settings_registry
+    @notification_settings_registry ||= ManifestRegistry.new(:notification_settings)
   end
 
   # Public: Stores the registry for user permissions
@@ -637,5 +647,14 @@ module Decidim
 
   def self.register_assets_path(path)
     Rails.autoloaders.main.ignore(path) if Rails.configuration.autoloader == :zeitwerk
+  end
+
+  # Checks if a particular decidim gem is installed
+  # Note that defined(Decidim::Something) does not work all the times, specially when the
+  # Gemfile uses the "path" parameter to find the module.
+  # This is because the module can be defined by some files searched by Rails automatically
+  # (ie: decidim-initiatives/lib/decidim/initiatives/version.rb automatically defines Decidim::Intiatives even if not required)
+  def self.module_installed?(mod)
+    Gem.loaded_specs.has_key?("decidim-#{mod}")
   end
 end

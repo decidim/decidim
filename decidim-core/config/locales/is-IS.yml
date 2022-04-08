@@ -223,12 +223,10 @@ is-IS:
       destroy:
         button: Hættu að fylgja
     forms:
-      current_file: Núverandi skrá
       current_image: Núverandi mynd
       default_image: Sjálfgefin mynd
       errors:
         error: Það er villa í þessu sviði.
-      remove_this_file: Fjarlægja þessa skrá
     log:
       base_presenter:
         create: "%{user_name} búið til %{resource_name}"

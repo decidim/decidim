@@ -56,6 +56,8 @@ fi:
         short_description: Lyhyt kuvaus
         start_date: Alkamispäivä
         title: Otsikko
+      participatory_process_type:
+        title: Otsikko
       participatory_process_user_role:
         email: Sähköposti
         name: Nimi
@@ -96,6 +98,7 @@ fi:
         new_process: Uusi prosessi
         new_process_group: Uusi prosessiryhmä
         new_process_step: Uusi vaihe
+        new_process_type: Uusi prosessityyppi
         new_process_user_role: Uusi prosessin hallintakäyttäjä
         preview: Esikatsele
         publish: Julkaise
@@ -106,6 +109,7 @@ fi:
         participatory_process_groups_submenu:
           info: Tiedot
           landing_page: Laskeutumissivu
+        participatory_process_types: Prosessityypit
         participatory_processes: Prosessit
         participatory_processes_submenu:
           attachment_collections: Kansiot
@@ -137,6 +141,11 @@ fi:
             start_date: Alkamispäivä
             title: Otsikko
           name: Osallistumisprosessin vaihe
+        participatory_process_type:
+          fields:
+            created_at: Luontiaika
+            title: Otsikko
+          name: Prosessityyppi
         participatory_process_user_role:
           fields:
             email: Sähköposti
@@ -219,6 +228,23 @@ fi:
         update:
           error: Osallistumisprosessin vaiheen päivitys epäonnistui.
           success: Osallistumisprosessin vaiheen päivitys onnistui.
+      participatory_process_types:
+        create:
+          error: Prosessityypin luonti epäonnistui.
+          success: Prosessityypin luonti onnistui.
+        destroy:
+          success: Prosessityypin poisto onnistui.
+        edit:
+          title: Muokkaa prosessityyppiä
+          update: Päivitä
+        form:
+          title: Otsikko
+        new:
+          create: Luo
+          title: Uusi prosessityyppi
+        update:
+          error: Prosessityypin päivitys epäonnistui.
+          success: Prosessityypin päivittäminen onnistui.
       participatory_process_user_roles:
         create:
           error: Osallistumisprosessin käyttäjän lisääminen epäonnistui.
@@ -263,6 +289,7 @@ fi:
           success: Osallistumisprosessien ryhmän luonti onnistui.
       titles:
         participatory_process_groups: Osallistumisprosessiryhmät
+        participatory_process_types: Osallistumisprosessien tyypit
         participatory_processes: Osallistumisprosessit
       users:
         resend_invitation:
@@ -282,6 +309,10 @@ fi:
         create: "%{user_name} loi vaiheen %{resource_name} osallistumisprosessissa %{space_name}"
         delete: "%{user_name} poisti vaiheen %{resource_name} osallistumisprosessissa %{space_name}"
         update: "%{user_name} päivitti vaiheen %{resource_name} osallistumisprosessissa %{space_name}"
+      participatory_process_type:
+        create: "%{user_name} loi prosessityypin %{resource_name}"
+        delete: "%{user_name} poisti prosessityypin %{resource_name}"
+        update: "%{user_name} päivitti prosessityyppiä %{resource_name}"
       participatory_process_user_role:
         create: "%{user_name} kutsui käyttäjän %{resource_name} osallistumisprosessiin %{space_name}"
         delete: "%{user_name} poisti käyttäjän %{resource_name} osallistumisprosessista %{space_name}"
@@ -309,6 +340,10 @@ fi:
           contextual: "<p><strong>Osallistumisprosessi</strong> on osallistumistoimien sarja (esim. täytä ensin kysely, tee sitten ehdotuksia, keskustele niistä kasvokkain tai virtuaalisissa tapaamisissa ja lopuksi priorisoi ne), tavoitteena päättää tietystä aiheesta.</p> <p>Esimerkkejä osallisuusprosesseista ovat komitean jäsenten valintamenettely (jossa ensin esitetään ehdokkaat, sitten keskustellaan ja lopulta valitaan jäsenet), osallistuva budjetointi (joissa tehdään ehdotuksia, arvioidaan niiden toteutushinta ja äänestetään niistä budjetoitujen varojen puitteissa) strateginen suunnitteluprosessi ja asetuksen, säädöksen, kaupunkisuunnitelman tai julkisen toimintasuunnitelman laatimisen yhteistyöstäminen.</p>\n"
           page: "<p><strong>Osallistumisprosessi</strong> on osallistumistoimien sarja (esim. täytä ensin kysely, tee sitten ehdotuksia, keskustele niistä kasvokkain tai virtuaalisissa tapaamisissa ja lopuksi priorisoi ne), tavoitteena päättää tietystä aiheesta.</p> <p>Esimerkkejä osallisuusprosesseista ovat komitean jäsenten valintamenettely (jossa ensin esitetään ehdokkaat, sitten keskustellaan ja lopulta valitaan jäsenet), osallistuva budjetointi (joissa tehdään ehdotuksia, arvioidaan niiden toteutushinta ja äänestetään niistä budjetoitujen varojen puitteissa) strateginen suunnitteluprosessi ja asetuksen, säädöksen, kaupunkisuunnitelman tai julkisen toimintasuunnitelman laatimisen yhteistyöstäminen.</p>\n"
           title: Mikä on osallistumisprosessi?
+    log:
+      value_types:
+        participatory_process_type_presenter:
+          not_found: 'Prosessityyppiä ei löytynyt tietokannasta (ID: %{id})'
     menu:
       processes: Prosessit
     metrics:
@@ -384,6 +419,7 @@ fi:
             related_processes: Liittyvät prosessit
             scope_type_max_depth_help: Rajaa teemasuodattimen syvyyttä; suodatin näyttää yleisestä teemasta valittuun teematyyppiin saakka.
             select_an_area: Valitse alue
+            select_participatory_process_type: Valitse prosessityyppi
             select_process_group: Valitse prosessiryhmä
             slug_help: 'URL-tunnisteita käytetään tuottamaan URL-tunnisteet, jotka viittaavat tähän prosessiin. Hyväksyy vain kirjaimia, numeroita ja viivoja. Arvon on alettava kirjaimella. Esimerkki: %{url}'
             title: Yleistä tietoa
@@ -410,6 +446,7 @@ fi:
           back_to_process: Takaisin prosessin sivulle
       participatory_processes:
         filters:
+          all_types: Kaikki tyypit
           counters:
             active:
               one: 1 aktiivinen prosessi
@@ -427,6 +464,7 @@ fi:
             no_active: Ei aktiivisia prosesseja
             no_active_nor_upcoming: Ei aktiivisia tai tulevia prosesseja
             no_active_nor_upcoming_callout: Ei ole olemassa aktiivisia tai tulevia prosesseja. Tässä on luettelo menneistä.
+          filter_by: Näytä
           names:
             active: Aktiiviset
             all: Kaikki
@@ -435,6 +473,8 @@ fi:
           see: Näytä
         index:
           loading: Ladataan tulokset...
+        show:
+          title: Tietoa tästä prosessista
       show:
         area: Alue
         belongs_to_group: Tämä prosessi kuuluu ryhmään

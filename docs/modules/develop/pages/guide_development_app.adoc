@@ -26,7 +26,7 @@ echo "DATABASE_PASSWORD=changeme" >> ~/.rbenv-vars
 
 Of course you should change the password before anything.
 
-2. Then you can create a `development_app` from inside the project's root folder with the command:
+3. Then you can create a `development_app` from inside the project's root folder with the command:
 
 [source,console]
 ----

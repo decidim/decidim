@@ -1,9 +1,8 @@
 /* eslint-disable max-lines */
-/* global areachart, renderLineCharts, renderRowCharts */
 
-import renderLineCharts from 'src/decidim/vizzs/linechart';
-import areachart from 'src/decidim/vizzs/areachart';
-import renderRowCharts from 'src/decidim/vizzs/rowchart';
+import renderLineCharts from "src/decidim/vizzs/linechart";
+import areachart from "src/decidim/vizzs/areachart";
+import renderRowCharts from "src/decidim/vizzs/rowchart";
 
 // NOTE: This file purpose is only to populate data for charts
 let DATACHARTS = {}
@@ -23,15 +22,13 @@ $(() => {
       return arr
     }
 
-    return $(".areachart:visible").each((id, container) => {
-      const $container = $(`#${container.id}`)
-
+    return $(".areachart:visible").each((id, container) =>
       areachart({
-        container: $container.selector,
+        container,
         data: mockData(),
-        ...$container.data()
-      });
-    })
+        ...Object.assign({}, container.dataset)
+      })
+    );
   }
 
   DATACHARTS["linechart-0"] = [

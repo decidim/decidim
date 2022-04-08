@@ -11,14 +11,14 @@
           </h1>
         </div>
         <div>
-          <h2 class="text-highlight heading-small">
+          <p class="text-highlight heading-small">
             <% if current_participatory_space.hashtag.present? %>
               <span class="process-header__hashtag">
-                <%= link_to "##{current_participatory_space.hashtag}", "https://twitter.com/hashtag/#{current_participatory_space.hashtag}", target: "_blank" %>
+                <%= link_to "##{current_participatory_space.hashtag}", twitter_hashtag_url(current_participatory_space.hashtag), target: "_blank" %>
               </span>
             <% end %>
             <%= translated_attribute(current_participatory_space.subtitle) %>
-          </h2>
+          </p>
         </div>
       </div>
     </div>

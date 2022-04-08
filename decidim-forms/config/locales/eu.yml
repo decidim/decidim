@@ -118,10 +118,6 @@ eu:
         extension_allowlist: 'Onartutako formatuak:'
       images:
         dimensions: "%{width} x %{height} px"
-        dimensions_info: 'Irudi honek neurtuko du:'
-        processors:
-          resize_and_pad: Birdimentsionatua eta honi egokitua
-          resize_to_fit: Birdimentsionatua egokitzeko
       question_types:
         files: Fitxategiak
         long_answer: Erantzun luzea

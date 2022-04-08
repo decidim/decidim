@@ -58,7 +58,9 @@ ar:
         designation_date: تاريخ التعيين
         full_name: الاسم الكامل
         gender: الجنس
+        non_user_avatar: الصورة الرمزية
         position: الموقع
+        user_id: مستخدم أو مجموعة
       assembly_user_role:
         email: البريد الإلكتروني
         name: الاسم
@@ -89,6 +91,7 @@ ar:
   decidim:
     admin:
       actions:
+        import_assembly: استيراد
         new_assembly: جمعية جديدة
         new_assembly_type: نوع جديد للجمعية
       assemblies:
@@ -128,6 +131,9 @@ ar:
           copy: نسخ
           select: حدد البيانات التي ترغب في تكرارها
           title: نسخ الجمعية
+      assembly_imports:
+        new:
+          import: استيراد
       assembly_members:
         create:
           error: حدثت مشكلة أثناء إضافة عضو لهذا التجميع.

@@ -30,6 +30,7 @@ module Decidim
       @user.direct_message_types = @form.direct_message_types
       @user.email_on_moderations = @form.email_on_moderations
       @user.allow_push_notifications = @form.allow_push_notifications
+      @user.notification_settings = @form.notification_settings
     end
   end
 end

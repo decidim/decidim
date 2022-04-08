@@ -22,7 +22,7 @@ RSpec.describe "Proposal search", type: :request do
   let!(:proposal7) { create(:proposal, :accepted, component: component) }
 
   let(:meetings_component) { create(:component, manifest_name: "meetings", participatory_space: participatory_space) }
-  let(:meeting) { create :meeting, component: meetings_component }
+  let(:meeting) { create :meeting, :published, component: meetings_component }
 
   let(:dummy_component) { create(:component, manifest_name: "dummy", participatory_space: participatory_space) }
   let(:dummy_resource) { create :dummy_resource, component: dummy_component }

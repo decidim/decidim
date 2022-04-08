@@ -111,7 +111,7 @@ module Decidim::Assemblies
 
     context "when the uploaded hero image has too large dimensions" do
       let(:hero_image) do
-        ActiveStorage::Blob.create_after_upload!(
+        ActiveStorage::Blob.create_and_upload!(
           io: File.open(Decidim::Dev.asset("5000x5000.png")),
           filename: "5000x5000.png",
           content_type: "image/png"
@@ -137,7 +137,7 @@ module Decidim::Assemblies
 
       it "broadcasts invalid" do
         expect { subject.call }.to broadcast(:invalid)
-        expect(form.errors.messages[:hero_image]).to contain_exactly(["The image is too big"])
+        expect(form.errors.messages[:hero_image]).to contain_exactly("The image is too big")
       end
     end
 

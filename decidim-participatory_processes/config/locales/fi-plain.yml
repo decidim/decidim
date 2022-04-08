@@ -435,6 +435,8 @@ fi-pl:
           see: Katso
         index:
           loading: Ladataan tulokset...
+        show:
+          title: Tietoa tästä prosessista
       show:
         area: Alue
         belongs_to_group: Tämä prosessi kuuluu ryhmään

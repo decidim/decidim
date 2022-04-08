@@ -124,6 +124,10 @@ en:
         file: File
     errors:
       models:
+        newsletter:
+          attributes:
+            base:
+              at_least_one_space: Select at least one participatory space
         organization:
           attributes:
             official_img_footer:
@@ -902,6 +906,7 @@ en:
         gallery:
           add_images: Add images
           delete_image: Delete Image
+          edit_images: Edit images
           gallery_legend: Add an image gallery (Optional)
       static_page_topics:
         create:

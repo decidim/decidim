@@ -128,10 +128,6 @@
         extension_allowlist: 'Aksepterte formater:'
       images:
         dimensions: "%{width} x %{height} px"
-        dimensions_info: 'Dette bildet vil være:'
-        processors:
-          resize_and_pad: Endret størrelse og avstand til
-          resize_to_fit: Endret størrelse for å passe
       question_types:
         files: Filer
         long_answer: Langt svar

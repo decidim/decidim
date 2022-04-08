@@ -11,14 +11,14 @@
           </h1>
         </div>
         <div>
-          <h2 class="text-highlight heading-small">
+          <p class="text-highlight heading-small">
             <% if current_participatory_space.hashtag.present? %>
               <span class="process-header__hashtag">
-                <%= link_to "##{decidim_html_escape(current_participatory_space.hashtag)}", "https://twitter.com/hashtag/#{decidim_html_escape(current_participatory_space.hashtag)}", target: "_blank" %>
+                <%= link_to "##{decidim_html_escape(current_participatory_space.hashtag)}", twitter_hashtag_url(decidim_html_escape(current_participatory_space.hashtag)), target: "_blank" %>
               </span>
             <% end %>
             <%= translated_attribute(current_participatory_space.subtitle) %>
-          </h2>
+          </p>
         </div>
       </div>
       <%= render partial: "layouts/decidim/process_header_steps", locals: { participatory_process: current_participatory_space } %>

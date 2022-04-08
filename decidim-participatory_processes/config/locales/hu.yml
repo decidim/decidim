@@ -46,6 +46,8 @@ hu:
         short_description: Rövid leírás
         start_date: Kezdő dátum
         title: Cím
+      participatory_process_type:
+        title: Cím
       participatory_process_user_role:
         email: Email
         name: Név

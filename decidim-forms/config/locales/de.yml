@@ -79,6 +79,7 @@ de:
           form:
             add_question: Frage hinzufügen
             add_separator: Trennzeichen hinzufügen
+            add_title_and_description: Füge Titel und Beschreibung hinzu
             already_answered_warning: Der Fragebogen wird bereits von einigen Benutzern beantwortet, sodass Sie die Fragen nicht ändern können.
             collapse: Alle Fragen einklappen
             expand: Alle Fragen ausklappen
@@ -108,6 +109,15 @@ de:
             remove: Löschen
             separator: Trennzeichen
             up: Hoch
+          title_and_description:
+            collapse: Einklappen
+            description: Beschreibung
+            down: Runter
+            expand: Ausklappen
+            remove: Entfernen
+            title: Titel
+            title_and_description: Titel und Beschreibung
+            up: Hinauf
           update:
             invalid: Beim Speichern des Fragebogens sind Fehler aufgetreten.
             success: Formular erfolgreich gespeichert.
@@ -118,10 +128,6 @@ de:
         extension_allowlist: 'Gültige Formate:'
       images:
         dimensions: "%{width} x %{height} px"
-        dimensions_info: 'Das Bild wird:'
-        processors:
-          resize_and_pad: in der Größe angepasst und gepolstert zu
-          resize_to_fit: in der Größe verändert, damit es passt
       question_types:
         files: Dateien
         long_answer: Lange Antwort
@@ -131,6 +137,7 @@ de:
         short_answer: Kurze Antwort
         single_option: Einzelne Option
         sorting: Sortierung
+        title_and_description: Titel und Beschreibung
       questionnaires:
         answer:
           invalid: Bei der Beantwortung des Fragebogens sind Fehler aufgetreten.

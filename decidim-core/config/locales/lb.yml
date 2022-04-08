@@ -701,7 +701,6 @@ lb:
         button: Net méi nogoen
         error: Et gouf e Problem beim Un-Followen vun dëser Ressource.
     forms:
-      current_file: Aktuell Datei
       current_image: Aktuellt Bild
       default_image: Standard-Bild
       errors:
@@ -721,7 +720,6 @@ lb:
       file_validation:
         allowed_file_extensions: 'Erlaabten Datei-Endungen %{extensions}'
         max_file_size: 'Maximal Datei-Gréisst: %{megabytes}MB'
-      remove_this_file: Dës Datei läschen
     gamification:
       all_badges_link: Kuck der all méiglech Ofzeechen un.
       badges:

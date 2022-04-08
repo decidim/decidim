@@ -7,15 +7,14 @@ describe PasswordValidator do
     let(:organization) { create(:organization) }
     let(:validator) { described_class.new(options).validate_each(record, attribute, value) }
 
+    let(:errors) { ActiveModel::Errors.new(attribute.to_s => []) }
     let(:record) do
       double(
         name: ::Faker::Name.name,
         email: ::Faker::Internet.email,
         nickname: ::Faker::Internet.username(specifier: 10..15),
         current_organization: organization,
-        errors: {
-          attribute.to_s => []
-        }
+        errors: errors
       )
     end
     let(:attribute) { "password" }

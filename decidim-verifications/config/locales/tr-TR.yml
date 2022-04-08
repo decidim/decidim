@@ -67,10 +67,6 @@ tr:
       postal_letter:
         explanation: Size adresinizi doğrulayabilmemiz için girmeniz gereken bir kod içeren bir posta mektubu göndereceğiz.
         name: Posta mektubu ile kod
-    events:
-      verifications:
-        verify_with_managed_user:
-          notification_title: Katılımcı <a href="%{resource_path}">%{resource_title} </a>, yönetilen katılımcının <a href="%{managed_user_path}">%{managed_user_name} </a> verileriyle kendini doğrulamaya çalıştı
     verifications:
       authorizations:
         authorization_metadata:

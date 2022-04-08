@@ -5,7 +5,7 @@ require "spec_helper"
 describe "Admin manages polling officers", type: :system do
   include_context "when admin managing a voting"
 
-  let(:csv_file) { Decidim::Dev.test_file("import_voting_census.csv", "text/csv") }
+  let(:csv_file) { upload_test_file(Decidim::Dev.test_file("import_voting_census.csv", "text/csv")) }
 
   before do
     switch_to_host(organization.host)
@@ -21,9 +21,8 @@ describe "Admin manages polling officers", type: :system do
     end
 
     it "uploads a csv" do
+      dynamically_attach_file(:dataset_file, Decidim::Dev.asset("import_voting_census.csv"))
       within ".form.new_census" do
-        attach_file "File", Decidim::Dev.asset("import_voting_census.csv")
-
         find("*[type=submit]").click
       end
 

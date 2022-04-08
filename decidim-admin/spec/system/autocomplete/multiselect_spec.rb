@@ -73,7 +73,7 @@ describe "Autocomplete multiselect", type: :system do
       Class.new(ActionView::Base) do
       end
     end
-    let(:template) { template_class.new }
+    let(:template) { template_class.new(ActionView::LookupContext.new(ActionController::Base.view_paths), {}, []) }
 
     before do
       visit "/test_multiselect"

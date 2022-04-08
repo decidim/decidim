@@ -66,9 +66,8 @@ module Decidim
 
     validates :title, :description, :state, :signature_type, presence: true
     validates :hashtag,
-              uniqueness: true,
-              allow_blank: true,
-              case_sensitive: false
+              uniqueness: { allow_blank: true, case_sensitive: false }
+
     validate :signature_type_allowed
 
     scope :open, lambda {
@@ -305,14 +304,12 @@ module Decidim
 
     # Public: Returns the percentage of required supports reached
     def percentage
-      return 100 if supports_goal_reached?
-
-      supports_count * 100 / supports_required
+      [supports_count * 100 / supports_required, 100].min
     end
 
     # Public: Whether the supports required objective has been reached
     def supports_goal_reached?
-      initiative_type_scopes.map(&:scope).all? { |scope| supports_goal_reached_for?(scope) }
+      votable_initiative_type_scopes.map(&:scope).all? { |scope| supports_goal_reached_for?(scope) }
     end
 
     # Public: Whether the supports required objective has been reached for a scope
@@ -364,9 +361,9 @@ module Decidim
     end
 
     def set_offline_votes_total
-      return if offline_votes.blank? || scope.nil?
+      return if offline_votes.blank?
 
-      offline_votes["total"] = offline_votes[scope.id.to_s]
+      offline_votes["total"] = offline_votes[scope&.id.to_s] || offline_votes["global"]
     end
 
     # Public: Finds all the InitiativeTypeScopes that are eligible to be voted by a user.

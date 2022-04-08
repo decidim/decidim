@@ -13,6 +13,7 @@ describe Decidim::Meetings::Admin::RegistrationsController, type: :controller do
 
   let(:available_slots) { 0 }
   let(:reserved_slots) { 0 }
+
   let(:params) do
     {
       meeting_id: meeting.id,

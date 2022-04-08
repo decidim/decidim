@@ -1,9 +1,13 @@
 /* eslint-disable require-jsdoc, max-lines, id-length, no-invalid-this, no-cond-assign, no-unused-vars, max-params, no-sequences, no-ternary */
 /* eslint prefer-reflect: ["error", { "exceptions": ["call"] }] */
 /* eslint dot-location: ["error", "property"] */
-/* global d3, DATACHARTS, fetchDatacharts */
+/* global DATACHARTS, fetchDatacharts */
 
-import * as d3 from "d3"
+import { select } from "d3-selection";
+import { max } from "d3-array";
+import { scaleBand, scaleLinear } from "d3-scale";
+import { axisLeft, axisBottom } from "d3-axis";
+import "d3-transition"
 
 export default function renderRowCharts() {
   // lib
@@ -15,14 +19,14 @@ export default function renderRowCharts() {
     let data = opts.data
     let title = opts.title
     let subtitle = opts.subtitle
-    let container = d3.select(opts.container)
+    let container = select(opts.container)
     let ratio = opts.ratio
     let xTickFormat = opts.xTickFormat
     let showTooltip = opts.tip !== "false"
 
     // precalculation
     // Explanation: get the inner values foreach object outer values, flat the array, remove duplicates
-    let maxValue = d3.max([...new Set([].concat(...data.map((f) => f.value.map((d) => d.value))))])
+    let maxValue = max([...new Set([].concat(...data.map((f) => f.value.map((d) => d.value))))])
     // Explanation: get the inner keys foreach object outer values, flat the array, remove duplicates
     let keys = [...new Set([].concat(...data.map((f) => f.value.map((d) => d.key))))]
 
@@ -57,9 +61,9 @@ export default function renderRowCharts() {
     let height = (width / ratio) - margin.top - margin.bottom
 
     // set the ranges
-    const x = d3.scaleLinear().rangeRound([0, width])
-    const y0 = d3.scaleBand().rangeRound([height, 0]).paddingInner(0.1)
-    const y1 = d3.scaleBand().padding(0.05)
+    const x = scaleLinear().rangeRound([0, width])
+    const y0 = scaleBand().rangeRound([height, 0]).paddingInner(0.1)
+    const y1 = scaleBand().padding(0.05)
 
     // set the scales
     x.domain([0, maxValue]).nice()
@@ -123,11 +127,11 @@ export default function renderRowCharts() {
       .attr("transform", `translate(${margin.left},${margin.top - headerHeight})`)
 
     // axis
-    let xAxis = d3.axisBottom(x)
+    let xAxis = axisBottom(x)
       .ticks(5)
       .tickSize(-height)
       .tickFormat(xTickFormat)
-    let yAxis = d3.axisLeft(y0)
+    let yAxis = axisLeft(y0)
 
     let _xAxis = (xg) => {
       xg.call(xAxis)
@@ -142,7 +146,7 @@ export default function renderRowCharts() {
       yg.selectAll(".tick text")
         .attr("class", "text-large")
         .each(function() {
-          let text = d3.select(this)
+          let text = select(this)
           let limitLength = margin.left - (gutter * 10)
 
           if (text.node().getComputedTextLength() > limitLength) {
@@ -210,7 +214,7 @@ export default function renderRowCharts() {
 
     // tooltip
     if (showTooltip) {
-      let tooltip = d3.select("body").append("div")
+      let tooltip = select("body").append("div")
         .attr("id", `${container.node().id}-tooltip`)
         .attr("class", "chart-tooltip")
         .style("opacity", 0)

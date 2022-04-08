@@ -47,7 +47,7 @@ module Decidim
           weight: form.weight,
           attachment_collection: form.attachment_collection,
           file: form.file, # Define attached_to before this
-          content_type: form.file.content_type
+          content_type: blob(form.file).content_type
         )
       end
 
@@ -60,6 +60,10 @@ module Decidim
           resource: @attachment,
           followers: @attachment.attached_to.followers
         )
+      end
+
+      def blob(signed_id)
+        ActiveStorage::Blob.find_signed(signed_id)
       end
     end
   end

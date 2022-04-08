@@ -7,7 +7,7 @@ module Decidim
       module QuestionnaireCopier
         def copy_questionnaire_questions(original_questionnaire, new_questionnaire)
           # start by copying the questions so that they already exist when cross referencing them in the conditions
-          original_questionnaire.questions.includes(:answer_options, :matrix_rows, :display_conditions).load
+          original_questionnaire.reload.questions.includes(:answer_options, :matrix_rows, :display_conditions)
           original_questionnaire.questions.each do |original_question|
             new_question = original_question.dup
             new_question.questionnaire = new_questionnaire
@@ -49,6 +49,7 @@ module Decidim
               new_display_condition.answer_option = find_answer_option_by_body(destination_question_to_be_checked.answer_options, original_display_condition.answer_option.body)
             end
             new_display_condition.save!
+            destination_question.display_conditions << new_display_condition
           end
         end
 

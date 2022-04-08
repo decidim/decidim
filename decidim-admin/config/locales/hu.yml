@@ -24,6 +24,7 @@ hu:
       component:
         name: Név
         published_at: Publikálva
+        weight: Rendelési pozíció
       id: ID
       newsletter:
         body: Szöveg
@@ -51,6 +52,7 @@ hu:
         highlighted_content_banner_image: Kép
         highlighted_content_banner_short_description: Rövid leírás
         highlighted_content_banner_title: Cím
+        host: Kiszolgáló
         instagram_handler: Instagram handler
         logo: Logó
         machine_translation_display_priority: A gépi fordítás megjelenítési prioritása
@@ -67,6 +69,7 @@ hu:
         reference_prefix: Hivatkozási előtag
         rich_text_editor_in_public_views: A résztvevők számára a szövegszerkesztő felület engedélyezése
         secondary_color: Másodlagos
+        secondary_hosts: Másodlagos kiszolgáló
         send_welcome_notification: Üdvözlő értesítés küldése
         success_color: Siker
         time_zone: Időzóna
@@ -88,6 +91,8 @@ hu:
         name: Név
         organization: Szervezet
         plural: Plurális
+      settings:
+        scope_id: Hatáskör
       static_page:
         changed_notably: Észrevehető változások történtek.
         content: Tartalom
@@ -128,8 +133,14 @@ hu:
       actions:
         add: Hozzáad
         browse: Böngészés
+        category:
+          new: Új kategória
+        export: Összes exportálása
+        import: Import
         manage: Kezelés
         new: Új %{name}
+        newsletter:
+          new: Új hírlevél
         per_page: Oldalanként
         permissions: Engedélyek
         reject: Elutasít
@@ -719,6 +730,7 @@ hu:
         gallery:
           add_images: Képek hozzáadása
           delete_image: Kép törlése
+          edit_images: Kép szerkesztése
           gallery_legend: Képgaléria hozzáadása (opcionális)
       static_page_topics:
         create:

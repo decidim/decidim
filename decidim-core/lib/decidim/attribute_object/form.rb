@@ -39,7 +39,18 @@ module Decidim
 
       def self.from_model(model)
         form_attributes = attribute_types.keys.each_with_object({}) do |key, attrs|
-          attrs[key] = model.send(key) if model.respond_to?(key)
+          next unless model.respond_to?(key)
+
+          value = model.send(key)
+          attrs[key] =
+            case value
+            when ActiveStorage::Attached::One
+              value.attachment.try(:blob)
+            when ActiveStorage::Attached::Many
+              value.attachments.map(&:blob)
+            else
+              value
+            end
         end
 
         form = new(form_attributes)

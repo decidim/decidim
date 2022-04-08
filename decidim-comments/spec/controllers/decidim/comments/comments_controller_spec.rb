@@ -22,6 +22,12 @@ module Decidim
           expect(subject).to render_template(:index)
         end
 
+        it "tells devise not to reset timeout counter" do
+          expect(request.env["devise.skip_timeoutable"]).to eq(nil)
+          get :index, xhr: true, params: { commentable_gid: commentable.to_signed_global_id.to_s }
+          expect(request.env["devise.skip_timeoutable"]).to eq(true)
+        end
+
         context "when requested without an XHR request" do
           it "redirects to the commentable" do
             get :index, params: { commentable_gid: commentable.to_signed_global_id.to_s }

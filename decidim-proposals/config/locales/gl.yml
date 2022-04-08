@@ -585,6 +585,8 @@ gl:
           filter_by: Filtrar por
           unfold: Despregar
         new:
+          add_file: Engadir ficheiro
+          edit_file: Editar ficheiro
           send: Continuar
         new_collaborative_draft_button:
           new_collaborative_draft: Novo borrador colaborativo
@@ -693,12 +695,12 @@ gl:
         dynamic_map_instructions:
           instructions: Podes mover o punto no mapa.
         edit:
-          add_documents: Documentos
-          add_images: Ficheiro
+          add_documents: Engadir documentos
+          add_image: Engadir imaxe
           attachment_legend: "(Opcional) Engada un anexo"
           back: De volta
-          delete_document: Eliminar documento
-          delete_image: Eliminar imaxe
+          edit_documents: Editar documentos
+          edit_image: Editar imaxe
           gallery_legend: "(Opcional) Engadir unha imaxe ao cartón de proposta"
           select_a_category: Selecciona unha categoría
           send: Enviar

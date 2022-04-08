@@ -337,12 +337,10 @@ uk:
         button: Припинити стежити
         error: При спробі припинити стежити за цим ресурсом сталася помилка.
     forms:
-      current_file: Поточний файл
       current_image: Поточне зображення
       default_image: Зображення за замовчуванням
       errors:
         error: У цьому полі є помилка.
-      remove_this_file: Видалити цей файл
     log:
       base_presenter:
         create: "%{user_name} створив %{resource_name}"
