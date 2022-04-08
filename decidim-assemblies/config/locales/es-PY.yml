@@ -319,6 +319,9 @@ es-PY:
         new_import:
           accepted_types:
             json: JSON
+      assemblies:
+        show:
+          title: Acerca de esta asamblea
       assembly_members:
         index:
           members: Miembros
