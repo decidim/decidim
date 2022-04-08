@@ -105,7 +105,7 @@ class PasswordValidator < ActiveModel::EachValidator
   end
 
   def domain_included_in_password?
-    return false unless organization || organization.host
+    return false unless organization && organization.host
     return true if value.include?(organization.host)
 
     organization.host.split(".").each do |part|
