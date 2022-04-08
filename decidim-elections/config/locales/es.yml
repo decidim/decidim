@@ -1097,6 +1097,7 @@ es:
           description:
             show_less: Leer menos
             show_more: Leer más
+            title: Sobre esta votación
           metrics:
             heading: Métricas
           polling_stations:
