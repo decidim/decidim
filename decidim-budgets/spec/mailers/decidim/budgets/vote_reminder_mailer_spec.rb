@@ -26,11 +26,11 @@ module Decidim::Budgets
         end
 
         it "includes link to the budget" do
-          expect(mail).to have_link(budget.title["en"], href: router.budget_path(budget))
+          expect(mail).to have_link(budget.title["en"], href: router.budget_url(budget))
         end
 
         it "includes link to the component" do
-          expect(mail).to have_link("Go to continue voting", href: router.root_path)
+          expect(mail).to have_link("Go to continue voting", href: router.root_url)
         end
       end
     end
