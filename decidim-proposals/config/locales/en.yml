@@ -456,6 +456,7 @@ en:
             accepted: Accepted
             answer_proposal: Answer
             evaluating: Evaluating
+            not_answered: Not answered
             rejected: Rejected
             title: Answer for proposal %{title}
         proposal_notes:
