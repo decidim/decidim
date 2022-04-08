@@ -455,6 +455,7 @@ fr:
             accepted: Retenue
             answer_proposal: Répondre
             evaluating: En cours d'évaluation
+            not_answered: Non répondu
             rejected: Non retenue
             title: Réponse à la proposition %{title}
         proposal_notes:
