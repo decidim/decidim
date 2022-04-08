@@ -123,6 +123,10 @@ es-MX:
         file: Expediente
     errors:
       models:
+        newsletter:
+          attributes:
+            base:
+              at_least_one_space: Seleccione al menos un espacio participativo
         organization:
           attributes:
             official_img_footer:
