@@ -15,9 +15,9 @@ window.addEventListener("beforeinstallprompt", (event) => {
 });
 
 // to trigger the prompt, it must be a "user gesture"
-window.addEventListener("click", async (e) => {
+window.addEventListener("click", async (event) => {
   if (shouldPrompt()) {
-    e.preventDefault()
+    event.preventDefault()
     deferredPrompt.prompt()
 
     const { outcome } = await deferredPrompt.userChoice;
