@@ -6,7 +6,8 @@
       "url": [],
       "settings": {
         "chromeFlags": "--disable-gpu --no-sandbox",
-        "throttlingMethod": "devtools"
+        "throttlingMethod": "devtools",
+        "preset": "desktop"
       }
     }
   }
