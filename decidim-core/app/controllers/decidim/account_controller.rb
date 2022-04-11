@@ -96,8 +96,6 @@ module Decidim
 
     private
 
-    attr_reader :alert, :text
-
     def handle_alert(alert_class, text)
       @alert_class = alert_class
       @text = text
