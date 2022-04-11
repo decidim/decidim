@@ -18,7 +18,10 @@
   <body>
     <main class="focus">
       <%= render partial: "layouts/decidim/election_votes_header" %>
+
       <%= yield %>
+
+      <%= javascript_pack_tag "decidim_core", defer: false %>
       <%= render partial: "layouts/decidim/js_configuration" %>
     </main>
   </body>
