@@ -5,10 +5,10 @@
     <%= render partial: "layouts/decidim/head" %>
     <%= javascript_pack_tag "decidim_meetings" %>
     <%= render partial: "layouts/decidim/js_configuration" %>
-    <%= render partial: "layouts/decidim/timeout_modal" %>
   </head>
 
   <body>
+    <%= render partial: "layouts/decidim/timeout_modal" %>
     <header class="meeting-polls__header">
       <% if current_user && poll %>
         <div class="flex--cc">
