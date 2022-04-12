@@ -531,7 +531,7 @@ fr-CA:
             upload_election_keys: Télécharger les clés d'élection
             upload_icon: Icône indiquant une action de téléchargement
           tally_steps:
-            back: Retour
+            back: Précédent
             description: Les résultats de cette élection sont calculés dans le Bulletin Board et pour compléter ce processus, votre participation en tant que garant est nécessaire.
             keys:
               end_tally: Dépouillement terminé
@@ -541,7 +541,7 @@ fr-CA:
             list:
               status: Statut
               task: Tâche
-            process_warning: Une fois le processus démarré, vous ne devriez pas quitter cette page avant la fin du processus. Cela prendra plusieurs minutes, car tous les garants doivent être connectés pour le compléter.
+            process_warning: Une fois le processus démarré, vous ne devriez pas quitter cette page avant la fin du processus. Cela prendra plusieurs minutes, car tous les Mandataires doivent être connectés pour le compléter.
             start: Démarrer
             start_icon: Icône indiquant un bouton de démarrage pour démarrer la génération des clés d'élection
             status:
