@@ -20,7 +20,7 @@
   </div>
 </div>
 
-<% content_for :js_content %>
+<% content_for :js_content do %>
   <!-- js entrypoint "decidim_elections_onboarding" -->
   <%= javascript_pack_tag "decidim_elections_onboarding" %>
 <% end %>

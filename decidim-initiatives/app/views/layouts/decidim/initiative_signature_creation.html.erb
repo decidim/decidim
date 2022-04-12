@@ -9,7 +9,7 @@
   </div>
   </div>
 
-  <% content_for :js_content %>
+  <% content_for :js_content do %>
     <!-- js entrypoint "decidim_initiatives" -->
     <%= javascript_pack_tag "decidim_initiatives" %>
   <% end %>

@@ -30,7 +30,7 @@ edit_link(
   <% end %>
 <% end %>
 
-<% content_for :js_content %>
+<% content_for :js_content do %>
   <!-- js entrypoint "decidim_assemblies" -->
   <%= javascript_pack_tag "decidim_assemblies" %>
 <% end %>

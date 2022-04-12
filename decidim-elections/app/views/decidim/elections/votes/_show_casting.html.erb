@@ -22,7 +22,7 @@
   <%= form_tag election_vote_path(election, id: vote.encrypted_vote_hash), method: :patch, class: "update_vote_status" %>
 </div>
 
-<% content_for :js_content %>
+<% content_for :js_content do %>
   <!-- js entrypoint "decidim_elections_voter_casting_vote" -->
   <%= javascript_pack_tag "decidim_elections_voter_casting_vote" %>
 <% end %>
