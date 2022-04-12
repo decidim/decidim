@@ -285,6 +285,5 @@ gl:
         start_voting_date: Comeza a votación
       question_components:
         question_menu_item: A pregunta
-        unfold: Despregar
       question_header:
         back_to_consultation: Ver todas as consultas
