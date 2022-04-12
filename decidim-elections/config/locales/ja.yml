@@ -265,15 +265,6 @@ ja:
             selected: 選択済み
             submit: 送信
             title: 結果を公開しました
-          tally:
-            continue: 続ける
-            invalid: 受託者が見つからない報告する際に問題が発生しました
-            mark_as_missing: missing としてマーク
-            mark_as_missing_description: すべての受託者は、このプロセスに参加する必要がありますが、受託者がプロセスに参加できない場合は、missing とマークすることができます。
-            success: 不足していた受託者の報告は正しく掲示板に送信されました
-            tally_completion: すべての受託者がアクティブまたは missing とマークされた場合、プロセスは完了します。少なくとも %{quorum} 人の受託者がプロセスを完了する必要があります。
-            title: 集計処理
-            undo_mark_as_missing: 受託者は、プロセスが完了する前に、間違ってmissingとマークされていることができます。 その場合、通常通りに進行することができ、missingのマークは無視されます。
           tally_ended:
             answer: 回答
             not_selected: 未選択
@@ -283,6 +274,13 @@ ja:
             submit: 結果を公開
             success: 結果公開のリクエストは正常に掲示板に送信されました
             title: 計算結果
+          tally_started:
+            invalid: 受託者が見つからない報告する際に問題が発生しました
+            mark_as_missing: missing としてマーク
+            mark_as_missing_description: すべての受託者は、このプロセスに参加する必要がありますが、受託者がプロセスに参加できない場合は、missing とマークすることができます。
+            success: 不足していた受託者の報告は正しく掲示板に送信されました
+            tally_completion: すべての受託者がアクティブまたは missing とマークされた場合、プロセスは完了します。少なくとも %{quorum} 人の受託者がプロセスを完了する必要があります。
+            undo_mark_as_missing: 受託者は、プロセスが完了する前に、間違ってmissingとマークされていることができます。 その場合、通常通りに進行することができ、missingのマークは無視されます。
           vote:
             errors:
               time_after: 選挙はまだ進行中です。投票期間を終了するには、終了時間（%{end_time}）まで待つ必要があります。
@@ -517,24 +515,13 @@ ja:
             title: '%{election} の選挙用キーを復元'
             upload_election_keys: 選挙用キーをアップロード
             upload_icon: ダウンロードアクションを示すアイコン
-          tally_steps:
-            back: 戻る
+          tally_started_steps:
             description: この選挙の結果は、掲示板上で計算されます。この処理を完了するには、受託者として参加すること必要があります。
             keys:
               end_tally: 終了しました
               tally:
                 cast: 集計キャスト
                 share: 集計を共有
-            list:
-              status: ステータス
-              task: タスク
-            process_warning: プロセスが開始されると、プロセスが終了するまでこのページを閉じないでください。 すべての受託者が接続し完了するまで、しばらくかかることがあります。
-            start: 開始
-            start_icon: アイコンは、選挙キーの生成を開始するためのスタートボタンを示します
-            status:
-              completed: 完了
-              pending: 保留中
-              processing: 処理中
             title: '%{election} の合計'
           update:
             error: 選挙状況は更新されませんでした。
