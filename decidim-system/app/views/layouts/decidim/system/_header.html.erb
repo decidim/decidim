@@ -1,4 +1,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <%= csrf_meta_tags %>
 <%= stylesheet_pack_tag "decidim_system", media: "all" %>
-<%= javascript_pack_tag "decidim_system", defer: false %>
+
+<% content_for :js_content %>
+  <!-- js entrypoint "decidim_system" -->
+  <%= javascript_pack_tag "decidim_system", defer: false %>
+<% end %>

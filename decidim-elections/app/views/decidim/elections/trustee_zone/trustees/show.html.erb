@@ -99,4 +99,7 @@
   <% end %>
 </div>
 
-<%= javascript_pack_tag "decidim_elections_trustee_trustee_zone" %>
+<% content_for :js_content %>
+  <!-- js entrypoint "decidim_elections_trustee_trustee_zone" -->
+  <%= javascript_pack_tag "decidim_elections_trustee_trustee_zone" %>
+<% end %>

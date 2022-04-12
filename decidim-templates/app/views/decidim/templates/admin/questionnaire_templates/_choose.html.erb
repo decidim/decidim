@@ -41,5 +41,8 @@
   </div>
 </div>
 
-<%= javascript_pack_tag "decidim_templates" %>
+<% content_for :js_content %>
+  <!-- js entrypoint "decidim_templates" -->
+  <%= javascript_pack_tag "decidim_templates" %>
+<% end %>
 <%= stylesheet_pack_tag "decidim_templates", media: "all" %>

@@ -25,7 +25,7 @@
     <%= javascript_pack_tag "decidim_core", defer: false %>
     <%= render partial: "layouts/decidim/js_configuration" %>
 
-    <%= yield :js_pack %>
+    <%= yield :js_content %>
 
     <%= snippets.display(:snippet_scripts) %>
     <%= content_for :header_snippets %>

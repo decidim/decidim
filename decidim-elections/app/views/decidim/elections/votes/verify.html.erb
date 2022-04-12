@@ -72,4 +72,7 @@
 
 </div>
 
-<%= javascript_pack_tag "decidim_elections_voter_verify_vote" %>
+<% content_for :js_content %>
+  <!-- js entrypoint "decidim_elections_voter_verify_vote" -->
+  <%= javascript_pack_tag "decidim_elections_voter_verify_vote" %>
+<% end %>

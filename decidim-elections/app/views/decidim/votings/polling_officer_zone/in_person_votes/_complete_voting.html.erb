@@ -56,4 +56,7 @@
   </div>
 </div>
 
-<%= javascript_pack_tag "decidim_votings_voting_polling_officer_zone_in_person_vote" %>
+<% content_for :js_content %>
+  <!-- js entrypoint "decidim_votings_voting_polling_officer_zone_in_person_vote" -->
+  <%= javascript_pack_tag "decidim_votings_voting_polling_officer_zone_in_person_vote" %>
+<% end %>

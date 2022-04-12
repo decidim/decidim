@@ -33,4 +33,7 @@
   </div>
 </div>
 
-<%= javascript_pack_tag("decidim_budgets") %>
+<% content_for :js_content %>
+  <!-- js entrypoint "decidim_budgets" -->
+  <%= javascript_pack_tag "decidim_budgets" %>
+<% end %>

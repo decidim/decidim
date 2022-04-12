@@ -6,4 +6,7 @@
   </div>
 </div>
 
-<%= javascript_pack_tag "decidim_accountability" %>
+<% content_for :js_content %>
+  <!-- js entrypoint "decidim_accountability" -->
+  <%= javascript_pack_tag "decidim_accountability" %>
+<% end %>

@@ -30,4 +30,7 @@ edit_link(
   </section>
 <% end %>
 
-<%= javascript_pack_tag "decidim_participatory_processes" %>
+<% content_for :js_content %>
+  <!-- js entrypoint "decidim_participatory_processes" -->
+  <%= javascript_pack_tag "decidim_participatory_processes" %>
+<% end %>

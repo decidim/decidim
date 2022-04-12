@@ -221,4 +221,7 @@ edit_link(
   <% end %>
 </div>
 
-<%= javascript_pack_tag "decidim_assemblies" %>
+<% content_for :js_content %>
+  <!-- js entrypoint "decidim_assemblies" -->
+  <%= javascript_pack_tag "decidim_assemblies" %>
+<% end %>

@@ -18,5 +18,8 @@
     <%= render("#{current_step}_steps") %>
   </div>
 
-  <%= javascript_pack_tag "decidim_elections_trustee_#{current_step}" %>
+  <% content_for :js_content %>
+    <!-- js entrypoint "decidim_elections_trustee_#{current_step}" -->
+    <%= javascript_pack_tag "decidim_elections_trustee_#{current_step}" %>
+  <% end %>
 <% end %>
