@@ -289,15 +289,6 @@ cs:
             selected: Vybráno
             submit: Odeslat
             title: Výsledky publikovány
-          tally:
-            continue: Pokračovat
-            invalid: Došlo k problému s nahlášením chybějícího důvěrníka
-            mark_as_missing: Označit jako chybějící
-            mark_as_missing_description: Tohoto procesu by se měli účastnit všichni důvěrníci, ale pokud se některý důvěrník nemůže procesu účastnit, můžete ho označit jako chybějícího.
-            success: Zpráva o chybějícím důvěrníkovi byla úspěšně odeslána na vývěsku
-            tally_completion: Proces bude dokončen, jakmile budou všichni důvěrníci aktivní nebo budou označeni jako chybějící. K dokončení procesu je zapotřebí alespoň %{quorum} důvěrníků.
-            title: Proces volebního přepočítání
-            undo_mark_as_missing: Správce, který byl omylem označen jako chybějící, se bude moci zúčastnit před dokončením procesu. Může postupovat jako obvykle a chybějící označení bude ignorováno.
           tally_ended:
             answer: Odpověď
             not_selected: Nevybráno
@@ -307,6 +298,13 @@ cs:
             submit: Publikovat výsledky
             success: Žádost o Zveřejnění výsledků bylo úspěšně odesláno na Vývěsku
             title: Vypočítané výsledky
+          tally_started:
+            invalid: Došlo k problému s nahlášením chybějícího důvěrníka
+            mark_as_missing: Označit jako chybějící
+            mark_as_missing_description: Tohoto procesu by se měli účastnit všichni důvěrníci, ale pokud se některý důvěrník nemůže procesu účastnit, můžete ho označit jako chybějícího.
+            success: Zpráva o chybějícím důvěrníkovi byla úspěšně odeslána na vývěsku
+            tally_completion: Proces bude dokončen, jakmile budou všichni důvěrníci aktivní nebo budou označeni jako chybějící. K dokončení procesu je zapotřebí alespoň %{quorum} důvěrníků.
+            undo_mark_as_missing: Správce, který byl omylem označen jako chybějící, se bude moci zúčastnit před dokončením procesu. Může postupovat jako obvykle a chybějící označení bude ignorováno.
           vote:
             errors:
               time_after: Volby stále probíhají. Musíte počkat na ukončení hlasovacího období (%{end_time}).
@@ -550,24 +548,13 @@ cs:
             title: Obnovit volební klíče pro %{election}
             upload_election_keys: Nahrát volební klíče
             upload_icon: Ikona, která indikuje akci ke stažení
-          tally_steps:
-            back: Zpět
+          tally_started_steps:
             description: Výsledky těchto voleb jsou vyčísleny na Vývěsce. Pro dokončení tohoto procesu je zapotřebí vaší účasti jako Důvěrníka.
             keys:
               end_tally: Volební přepočítání uzavřeno
               tally:
                 cast: Obsazení volebního přepočítávání
                 share: Poměry volebního přepočítávání
-            list:
-              status: Stav
-              task: Úloha
-            process_warning: Po spuštění procesu byste neměli tuto stránku ukončit, dokud proces neskončí. Trvá to několik minut, protože všichni důvěrníci by měli být k dokončení připojeni.
-            start: Spustit
-            start_icon: Ikona, která označuje tlačítko pro spuštění generování volebních klíčů
-            status:
-              completed: Dokončeno
-              pending: Čekající
-              processing: Zpracovávání
             title: Volební přepočítání pro %{election}
           update:
             error: Stav voleb nebyl aktualizován.
