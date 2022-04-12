@@ -185,6 +185,8 @@ hu:
           key_ceremony_ended:
             invalid: Hiba történt a szavazási időszak elindításakor
             title: Készen áll a kezdésre
+          tally:
+            continue: Folytatás
       elections:
         results:
           votes:
