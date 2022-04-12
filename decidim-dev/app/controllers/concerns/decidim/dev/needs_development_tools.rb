@@ -17,8 +17,8 @@ module Decidim
       def apply_development_tools
         return unless respond_to?(:snippets)
 
-        snippets.add(:head, helpers.stylesheet_pack_tag("decidim_dev"))
-        snippets.add(:head, helpers.javascript_pack_tag("decidim_dev"))
+        snippets.add(:snippet_styles, helpers.stylesheet_pack_tag("decidim_dev"))
+        snippets.add(:snippet_scripts, helpers.javascript_pack_tag("decidim_dev"))
       end
     end
   end

@@ -49,12 +49,13 @@ module Decidim
             geocoding_options
           )
 
-          unless @template.snippets.any?(:geocoding)
-            @template.snippets.add(:geocoding, builder.stylesheet_snippets)
-            @template.snippets.add(:geocoding, builder.javascript_snippets)
+          unless @template.snippets.any?(:geocoding_styles) || @template.snippets.any?(:geocoding_scripts)
+            @template.snippets.add(:geocoding_styles, builder.stylesheet_snippets)
+            @template.snippets.add(:geocoding_scripts, builder.javascript_snippets)
 
             # This will display the snippets in the <head> part of the page.
-            @template.snippets.add(:head, @template.snippets.for(:geocoding))
+            @template.snippets.add(:snippet_styles, @template.snippets.for(:geocoding_styles))
+            @template.snippets.add(:snippet_scripts, @template.snippets.for(:geocoding_scripts))
           end
 
           options = merge_geocoding_options(attribute, options)

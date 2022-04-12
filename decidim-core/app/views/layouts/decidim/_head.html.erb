@@ -32,5 +32,4 @@
 
 <%= render partial: "layouts/decidim/head_extra" %>
 <%== current_organization.header_snippets if Decidim.enable_html_header_snippets %>
-<%= snippets.display(:head) %>
-<%= content_for :header_snippets %>
+<%= snippets.display(:snippet_styles) %>
