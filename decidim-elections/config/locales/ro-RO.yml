@@ -468,16 +468,6 @@ ro:
               tally:
                 cast: Anunțarea rezultatului votului
                 share: Împărtășirea rezultatului votului
-            list:
-              status: Stadiu
-              task: Activitate
-            process_warning: Odată ce procesul este pornit, nu ar trebui să ieși din această pagină până când procesul se încheie. Va dura câteva minute, deoarece toți împuterniciții ar trebui să fie conectați pentru a se finaliza procesul.
-            start: Incepe
-            start_icon: Pictograma care indică un buton de pornire pentru a porni generarea cheilor electorale
-            status:
-              completed: Finalizat
-              pending: În așteptare
-              processing: Se procesează
             title: Numărarea voturilor pentru %{election}
           update:
             error: Statutul alegerilor nu a fost actualizat.
