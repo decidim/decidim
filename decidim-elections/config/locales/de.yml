@@ -272,8 +272,6 @@ de:
             selected: Ausgewählt
             submit: Absenden
             title: Ergebnisse veröffentlicht
-          tally:
-            title: Stimmenzähl-Prozess
           tally_ended:
             answer: Antwort
             not_selected: Nicht ausgewählt
@@ -502,24 +500,13 @@ de:
             title: Wahl-Schlüssel für %{election} wiederherstellen
             upload_election_keys: Wahl-Schlüssel hochladen
             upload_icon: Symbol, das eine Download-Aktion anzeigt
-          tally_steps:
-            back: Zurück
+          tally_started_steps:
             description: Die Ergebnisse dieser Wahl werden im Bulletin Board berechnet. Um diesen Prozess abzuschließen ist Ihre Teilnahme als Wahlhelfer erforderlich.
             keys:
               end_tally: Stimmenzählung abgeschloßen
               tally:
                 cast: Stimmzählung abgeben
                 share: Stimmzählung austauschen
-            list:
-              status: Status
-              task: Aufgabe
-            process_warning: Sobald der Prozess gestartet ist, sollten Sie diese Seite nicht verlassen, bis der Prozess endet. Dies kann einige Minuten dauern, da alle Wahlhelfer verbunden sein müssen um den Prozess abzuschliessen.
-            start: Beginnen
-            start_icon: Symbol, das einen Startknopf anzeigt, um die Erzeugung der Wahl-Schlüssel zu starten
-            status:
-              completed: Abgeschlossen
-              pending: Ausstehend
-              processing: In Verarbeitung
             title: Stimmenzählung für %{election}
           update:
             error: Der Wahlstatus wurde nicht aktualisiert.
