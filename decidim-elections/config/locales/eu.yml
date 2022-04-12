@@ -273,10 +273,6 @@ eu:
             selected: Hautatua
             submit: Bidali
             title: Argitaratutako emaitzak
-          tally:
-            continue: Jarraitu
-            mark_as_missing: Marka desagertu da
-            title: Zenbatzeko prozesua
           tally_ended:
             answer: Erantzuna
             not_selected: Ez hautatua
@@ -286,6 +282,8 @@ eu:
             submit: Argitaratu emaitzak
             success: 'Emaitzak argitaratzeko eskaera zuzen bidali da hona: Iragarki Taula'
             title: Kalkulatutako emaitzak
+          tally_started:
+            mark_as_missing: Marka desagertu da
           vote:
             errors:
               time_after: Bozketa oraindik ez dago martxan. (%{end_time}) amaierako ordura arte itxaron behar duzu bozketaldia amaitzeko.
@@ -506,24 +504,13 @@ eu:
             title: Berriztu gakoak %{election} aukerarako
             upload_election_keys: Igo aukeraren gakoak
             upload_icon: Ikonoak deskargatzeko ekintza adierazten du
-          tally_steps:
-            back: Atzera
+          tally_started_steps:
             description: Aukera horren emaitzak Iragarki Taulan kalkulatzen ari dira. Prozesu hori osatzeko, bermatzaile gisa parte hartu behar duzu.
             keys:
               end_tally: Zenbaketa amaituta
               tally:
                 cast: Zenbaketa bidaltzea
                 share: Zenbaketa partekatzea
-            list:
-              status: Egoera
-              task: Eginkizuna
-            process_warning: Prozesua hasi ondoren, ez duzu orrialde honetatik atera behar prozesua amaitu arte. Zenbait minutu beharko ditu, bermatzaile guztiek konektatuta egon behar baitute hura osatzeko.
-            start: Hasi
-            start_icon: Ikonoak hasteko botoia adierazten du aukera bateko gakoak sortzen hasteko
-            status:
-              completed: Osatuta
-              pending: Zain
-              processing: Prozesatzen
             title: Zenbaketa %{election} aukerarako
           update:
             error: Aukeraketaren egoera ez zen eguneratu.
