@@ -273,8 +273,6 @@ it:
             selected: Selezionato
             submit: Invia
             title: Risultati pubblicati
-          tally:
-            title: Conteggio
           tally_ended:
             answer: Risposta
             not_selected: Non selezionato
@@ -519,24 +517,13 @@ it:
             title: Ripristina le chiavi elettorali per %{election}
             upload_election_keys: Carica chiavi elettorali
             upload_icon: Icona che indica un'azione di download
-          tally_steps:
-            back: Indietro
+          tally_started_steps:
             description: I risultati di queste elezioni sono in fase di elaborazione nel Bulletin Board. Per completare questo processo, è necessaria la tua partecipazione come Garante.
             keys:
               end_tally: Conteggio terminato
               tally:
                 cast: Invio del conteggio
                 share: Condivisione del conteggio
-            list:
-              status: Stato
-              task: Task
-            process_warning: Una volta avviato il processo, non si dovrebbe uscire da questa pagina fino alla fine dello stesso. Ci vorranno diversi minuti, poiché tutti i Garanti dovrebbero essere collegati per completarlo.
-            start: Avvia
-            start_icon: Icona che indica un pulsante avvia per avviare la generazione delle chiavi elettorali
-            status:
-              completed: Completato
-              pending: In attesa di completamento
-              processing: Elaborazione in corso
             title: Conteggio di %{election}
           update:
             error: Lo stato delle elezioni non è stato aggiornato.
