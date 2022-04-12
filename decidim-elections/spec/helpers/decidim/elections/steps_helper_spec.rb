@@ -19,7 +19,7 @@ module Decidim
                                     ["key_ceremony_ended", "text-muted"],
                                     ["vote", "text-muted"],
                                     ["vote_ended", "text-muted"],
-                                    ["tally", "text-muted"],
+                                    ["tally_started", "text-muted"],
                                     ["tally_ended", "text-muted"],
                                     ["results_published", "text-muted"]
                                   ])
@@ -36,7 +36,7 @@ module Decidim
                                       ["key_ceremony_ended", "text-warning"],
                                       ["vote", "text-muted"],
                                       ["vote_ended", "text-muted"],
-                                      ["tally", "text-muted"],
+                                      ["tally_started", "text-muted"],
                                       ["tally_ended", "text-muted"],
                                       ["results_published", "text-muted"]
                                     ])
@@ -54,7 +54,7 @@ module Decidim
                                       ["key_ceremony_ended", "text-success"],
                                       ["vote", "text-success"],
                                       ["vote_ended", "text-success"],
-                                      ["tally", "text-success"],
+                                      ["tally_started", "text-success"],
                                       ["tally_ended", "text-success"],
                                       ["results_published", "text-warning"]
                                     ])

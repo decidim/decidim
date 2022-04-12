@@ -47,7 +47,7 @@ jobs:
         image: ghcr.io/validator/validator:latest
         ports: ["8888:8888"]
       bulletin_board:
-        image: codegram/decidim-bulletin-board:0.22.3
+        image: decidim/decidim-bulletin-board:0.23.0
         ports: ["8000:8000"]
         env:
           DATABASE_URL: postgresql://postgres:postgres@postgres/bb

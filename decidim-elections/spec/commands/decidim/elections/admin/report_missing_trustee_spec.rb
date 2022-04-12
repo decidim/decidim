@@ -10,7 +10,7 @@ describe Decidim::Elections::Admin::ReportMissingTrustee do
   let(:participatory_process) { create :participatory_process, organization: organization }
   let(:current_component) { create :component, participatory_space: participatory_process, manifest_name: "elections" }
   let(:user) { create :user, :admin, :confirmed, organization: organization }
-  let(:election) { create :election, :tally }
+  let(:election) { create :election, :tally_started }
   let(:trustee) { election.trustees.first }
   let(:form) do
     double(
