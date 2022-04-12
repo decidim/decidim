@@ -219,6 +219,13 @@ gl:
             status:
               pending: Pendente
               processing: Procesando
+          tally_steps:
+            list:
+              task: Tarefa
+            start: Comezar
+            status:
+              pending: Pendente
+              processing: Procesando
         trustees:
           show:
             elections:
