@@ -274,6 +274,7 @@ it:
             submit: Invia
             title: Risultati pubblicati
           tally:
+            continue: Continua
             title: Conteggio
           tally_ended:
             answer: Risposta
@@ -528,13 +529,13 @@ it:
                 share: Condivisione del conteggio
             list:
               status: Stato
-              task: Task
+              task: Attività
             process_warning: Una volta avviato il processo, non si dovrebbe uscire da questa pagina fino alla fine dello stesso. Ci vorranno diversi minuti, poiché tutti i Garanti dovrebbero essere collegati per completarlo.
             start: Avvia
             start_icon: Icona che indica un pulsante avvia per avviare la generazione delle chiavi elettorali
             status:
-              completed: Completato
-              pending: In attesa di completamento
+              completed: Completata
+              pending: In attesa
               processing: Elaborazione in corso
             title: Conteggio di %{election}
           update:
