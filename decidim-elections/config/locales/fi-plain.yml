@@ -280,7 +280,7 @@ fi-pl:
             mark_as_missing_description: Kaikkien luottamushenkilöiden pitäisi osallistua tähän prosessiin, mutta jos luottamushenkilö ei voi osallistua prosessiin, voit merkitä kyseisen henkilön poissaolevaksi.
             success: Poissaolevan luottamushenkilön merkitseminen sähköiselle ääniuurnalle onnistui
             tally_completion: Prosessi valmistuu, kun kaikki luottamushenkilöt ovat aktiivisia tai merkitty poissaoleviksi. Vähintään %{quorum} luottamushenkilöä tarvitaan prosessin loppuun saattamiseksi.
-            title: Ääntenlaskun prosessi
+            title: Ääntenlasku
             undo_mark_as_missing: Poissaoleva luottamushenkilö voi osallistua prosessiin ennen sen päättymistä. He voivat jatkaa normaalisti ja heidän poissaolonsa jätetään huomioimatta.
           tally_ended:
             answer: Vastaus
@@ -541,11 +541,11 @@ fi-pl:
             list:
               status: Tila
               task: Tehtävä
-            process_warning: Kun prosessi on aloitettu, sinun ei tule poistua tältä sivulta ennen kuin prosessi saatetaan päätökseen. Tämä kestää useita minuutteja, koska kaikkien luottamushenkilöiden tulee olla yhteydessä samanaikaisesti, jotta prosessi voidaan päättää.
+            process_warning: Kun prosessi on käynnistetty, sinun ei tule poistua tältä sivulta ennen kuin prosessi päättyy. Se kestää useita minuutteja, koska kaikkiin luottamushenkilöihin tulee olla yhteydessä, jotta prosessi voidaan päättää.
             start: Aloita
             start_icon: Kuvake, joka ilmaisee aloituspainikkeen avainten luonnille
             status:
-              completed: Suoritettu
+              completed: Valmis
               pending: Odottaa
               processing: Käsitellään
             title: Ääntenlaskenta vaaleille %{election}
