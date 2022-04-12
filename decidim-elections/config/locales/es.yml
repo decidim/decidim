@@ -531,7 +531,7 @@ es:
             upload_election_keys: Subir claves de elección
             upload_icon: Icono que indica una acción de descarga
           tally_steps:
-            back: Volver
+            back: Atrás
             description: Los resultados de esta elección están siendo calculados en el Bulletin Board. Para completar este proceso, se necesita tu participación como garante.
             keys:
               end_tally: Recuento finalizado
@@ -542,10 +542,10 @@ es:
               status: Estado
               task: Tarea
             process_warning: Una vez iniciado el proceso, no debes salir de esta página hasta que el proceso termine. Tardará varios minutos, ya que todos los garantes deben estar conectados para completarlo.
-            start: Iniciar
-            start_icon: Icono que indica un botón de inicio para iniciar la generación de claves de elección
+            start: Empezar
+            start_icon: Icono que indica un botón de inicio para iniciar la generación de claves de una elección
             status:
-              completed: Completado
+              completed: Completada
               pending: Pendiente
               processing: Procesando
             title: Recuento para %{election}
