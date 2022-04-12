@@ -273,15 +273,6 @@ fr-CA:
             selected: Sélectionné
             submit: Envoyer
             title: Résultats publiés
-          tally:
-            continue: Continuer
-            invalid: Une erreur est survenue lors du signalement du garant absent
-            mark_as_missing: Marquer comme absent
-            mark_as_missing_description: Tout les garants doivent participer au processus, mais si un garant ne peut y prendre part, vous pouvez le marquer comme absent.
-            success: Le signalement du garant absent a été envoyé avec succès sur le Tableau d'Affichage
-            tally_completion: Le processus sera terminé lorsque tout les garants seront marqués comme actif ou absent. Au moins %{quorum} garants sont requis pour compléter le processus.
-            title: Dépouillement
-            undo_mark_as_missing: Un garant marqué comme absent par erreur sera capable de participer avant l'achèvement du processus. Ils peuvent procéder comme d'habitude et le signalement d'absence sera ignoré.
           tally_ended:
             answer: Répondre
             not_selected: Non sélectionné
@@ -291,6 +282,13 @@ fr-CA:
             submit: Publier les résultats
             success: La demande de publication des résultats a bien été envoyée au Panneau d'Affichage
             title: Résultat du calcul
+          tally_started:
+            invalid: Une erreur est survenue lors du signalement du garant absent
+            mark_as_missing: Marquer comme absent
+            mark_as_missing_description: Tout les garants doivent participer au processus, mais si un garant ne peut y prendre part, vous pouvez le marquer comme absent.
+            success: Le signalement du garant absent a été envoyé avec succès sur le Tableau d'Affichage
+            tally_completion: Le processus sera terminé lorsque tout les garants seront marqués comme actif ou absent. Au moins %{quorum} garants sont requis pour compléter le processus.
+            undo_mark_as_missing: Un garant marqué comme absent par erreur sera capable de participer avant l'achèvement du processus. Ils peuvent procéder comme d'habitude et le signalement d'absence sera ignoré.
           vote:
             errors:
               time_after: L'élection est toujours en cours. Vous devez attendre (%{end_time}) pour terminer la période de vote.
@@ -528,24 +526,13 @@ fr-CA:
             title: Restaurer les clés d'élection pour %{election}
             upload_election_keys: Télécharger les clés d'élection
             upload_icon: Icône indiquant une action de téléchargement
-          tally_steps:
-            back: Retour
+          tally_started_steps:
             description: Les résultats de cette élection sont calculés dans le Bulletin Board et pour compléter ce processus, votre participation en tant que garant est nécessaire.
             keys:
               end_tally: Dépouillement terminé
               tally:
                 cast: Valider le dépouillement
                 share: Partager le décompte
-            list:
-              status: Statut
-              task: Tâche
-            process_warning: Une fois le processus démarré, vous ne devriez pas quitter cette page avant la fin du processus. Cela prendra plusieurs minutes, car tous les garants doivent être connectés pour le compléter.
-            start: Démarrer
-            start_icon: Icône indiquant un bouton de démarrage pour démarrer la génération des clés d'élection
-            status:
-              completed: Terminé
-              pending: En attente
-              processing: Traitement en cours
             title: Dépouillement pour %{election}
           update:
             error: Le statut de l'élection n'a pas été mis à jour.
