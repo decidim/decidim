@@ -378,7 +378,6 @@ ar:
         start_voting_date: يبدأ التصويت
       question_components:
         question_menu_item: السؤال
-        unfold: كشف
       question_header:
         back_to_consultation: انظر جميع المشاورات
         back_to_question: العودة إلى السؤال
