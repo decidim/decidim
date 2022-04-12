@@ -272,8 +272,6 @@ pt-BR:
             selected: Selecionado
             submit: Enviar
             title: Resultados publicados
-          tally:
-            title: Processo de registro
           tally_ended:
             answer: Resposta
             not_selected: Não selecionado
@@ -503,24 +501,13 @@ pt-BR:
             title: Restaurar chaves eleitorais para %{election}
             upload_election_keys: Upload das chaves eleitorais
             upload_icon: Ícone que indica uma ação de download
-          tally_steps:
-            back: Voltar
+          tally_started_steps:
             description: Os resultados para esta eleição estão sendo calculados no Quadro de Notas. Para completar este processo, é necessário a sua participação como um curador.
             keys:
               end_tally: Apuração encerrada
               tally:
                 cast: Transmissão de apuração
                 share: Compartilhar apuração
-            list:
-              status: Status
-              task: Tarefa
-            process_warning: Depois que o processo for iniciado, você não deverá sair desta página até que o processo termine. Levará vários minutos, pois todos os curadores deverão estar conectados para completá-lo.
-            start: Iniciar
-            start_icon: Ícone que indica um botão iniciar para começar a geração de chaves eleitorais
-            status:
-              completed: Concluído
-              pending: Pendente
-              processing: Processando
             title: Apuração para %{election}
           update:
             error: O status da eleição não foi atualizado.
