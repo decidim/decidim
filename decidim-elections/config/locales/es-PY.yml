@@ -273,15 +273,6 @@ es-PY:
             selected: Seleccionado
             submit: Enviar
             title: Resultados publicados
-          tally:
-            continue: Continuar
-            invalid: Hubo un problema al reportar al garante ausente
-            mark_as_missing: Marcar como ausente
-            mark_as_missing_description: Todos los garantes deberían participar en este proceso, pero si uno de ellos no puede tomar parte en él, puedes marcarlo como ausente.
-            success: El reporte del garante que falta fue enviado con éxito al Bulletin Board
-            tally_completion: El proceso se completará cuando todos los garantes estén activos o marcados como ausentes. Se requiere al menos %{quorum} garantes para completar el proceso.
-            title: Proceso de recuento
-            undo_mark_as_missing: Un garante marcado como ausente por error podrá participar antes de completar el proceso. Pueden proceder como de costumbre y la marca de ausente será ignorada.
           tally_ended:
             answer: Respuesta
             not_selected: No seleccionado
@@ -291,6 +282,13 @@ es-PY:
             submit: Publicar resultados
             success: La solicitud de publicación de resultados se envió correctamente al Bulletin Board
             title: Resultados calculados
+          tally_started:
+            invalid: Hubo un problema al reportar al garante ausente
+            mark_as_missing: Marcar como ausente
+            mark_as_missing_description: Todos los garantes deberían participar en este proceso, pero si uno de ellos no puede tomar parte en él, puedes marcarlo como ausente.
+            success: El reporte del garante que falta fue enviado con éxito al Bulletin Board
+            tally_completion: El proceso se completará cuando todos los garantes estén activos o marcados como ausentes. Se requiere al menos %{quorum} garantes para completar el proceso.
+            undo_mark_as_missing: Un garante marcado como ausente por error podrá participar antes de completar el proceso. Pueden proceder como de costumbre y la marca de ausente será ignorada.
           vote:
             errors:
               time_after: La elección aún está en curso. Tienes que esperar hasta la hora de finalización (%{end_time}) para terminar el periodo de votación.
@@ -528,24 +526,13 @@ es-PY:
             title: Restaurar claves para la elección %{election}
             upload_election_keys: Subir claves de elección
             upload_icon: Icono que indica una acción de descarga
-          tally_steps:
-            back: Volver
+          tally_started_steps:
             description: Los resultados de esta elección están siendo calculados en el Bulletin Board. Para completar este proceso, se necesita tu participación como garante.
             keys:
               end_tally: Recuento finalizado
               tally:
                 cast: Envío del recuento
                 share: Compartición del recuento
-            list:
-              status: Estado
-              task: Tarea
-            process_warning: Una vez iniciado el proceso, no debes salir de esta página hasta que el proceso termine. Tardará varios minutos, ya que todos los garantes deben estar conectados para completarlo.
-            start: Iniciar
-            start_icon: Icono que indica un botón de inicio para iniciar la generación de claves de elección
-            status:
-              completed: Completado
-              pending: Pendiente
-              processing: Procesando
             title: Recuento para %{election}
           update:
             error: El estado de la elección no fue actualizado.
