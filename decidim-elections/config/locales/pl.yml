@@ -292,7 +292,7 @@ pl:
           tally:
             continue: Dalej
             mark_as_missing: Oznacz jako brakujący
-            title: Ustalenie wyniku głosowania
+            title: Proces ustalania wyniku głosowania
           tally_ended:
             answer: Odpowiedź
             not_selected: Nie wybrano
