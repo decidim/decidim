@@ -344,7 +344,7 @@ sv:
             start: Start
             status:
               completed: Slutförd
-              pending: Väntande
+              pending: Avvaktande
               processing: Bearbetar
         trustees:
           show:
