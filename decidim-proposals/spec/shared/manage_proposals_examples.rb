@@ -339,6 +339,10 @@ shared_examples "manage proposals" do
         within find("tr", text: proposal_title) do
           expect(page).to have_content("Rejected")
         end
+
+        proposal.reload
+        expect(proposal.answered_at).to be_within(1.second).of Time.zone.now
+        expect(proposal.state_published_at).to be_within(1.second).of Time.zone.now
       end
 
       it "can accept a proposal" do
@@ -354,6 +358,10 @@ shared_examples "manage proposals" do
         within find("tr", text: proposal_title) do
           expect(page).to have_content("Accepted")
         end
+
+        proposal.reload
+        expect(proposal.answered_at).to be_within(1.second).of Time.zone.now
+        expect(proposal.state_published_at).to be_within(1.second).of Time.zone.now
       end
 
       it "can mark a proposal as evaluating" do
@@ -369,6 +377,37 @@ shared_examples "manage proposals" do
         within find("tr", text: proposal_title) do
           expect(page).to have_content("Evaluating")
         end
+
+        proposal.reload
+        expect(proposal.answered_at).to be_within(1.second).of Time.zone.now
+        expect(proposal.state_published_at).to be_within(1.second).of Time.zone.now
+      end
+
+      it "can mark a proposal as 'not answered'" do
+        proposal.update!(
+          state: "rejected",
+          answer: {
+            "en" => "I don't like it"
+          },
+          answered_at: Time.current
+        )
+
+        go_to_admin_proposal_page_answer_section(proposal)
+
+        within ".edit_proposal_answer" do
+          choose "Not answered"
+          click_button "Answer"
+        end
+
+        expect(page).to have_admin_callout("Proposal successfully answered")
+
+        within find("tr", text: proposal_title) do
+          expect(page).to have_content("Not answered")
+        end
+
+        proposal.reload
+        expect(proposal.answered_at).to eq(nil)
+        expect(proposal.state_published_at).to eq(nil)
       end
 
       it "can edit a proposal answer" do
@@ -398,6 +437,9 @@ shared_examples "manage proposals" do
         within find("tr", text: proposal_title) do
           expect(page).to have_content("Accepted")
         end
+
+        proposal.reload
+        expect(proposal.answered_at).to be_within(1.second).of Time.zone.now
       end
     end
 
