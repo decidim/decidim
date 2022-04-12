@@ -242,7 +242,7 @@ nl:
             mark_as_missing_description: Alle trustees moeten deelnemen aan dit proces, maar als een trustee niet aan het proces kan deelnemen, kan je dit als ontbrekend aanduiden.
             success: Het rapport met de ontbrekende trustees is met succes verzonden naar het Bulletin Board
             tally_completion: Het proces zal worden voltooid wanneer alle trustees actief zijn of als ontbrekend zijn aangeduid. Tenminste %{quorum} trustees zijn vereist om het proces te voltooien.
-            title: Turfproces
+            title: Tellingsproces
             undo_mark_as_missing: Zolang het proces niet is voltooid zal een trustee die per ongeluk is gemarkeerd als ontbrekend kunnen deelnemen. Ze kunnen doorgaan zoals gebruikelijk en de aanduiding als 'ontbrekend' wordt genegeerd.
           tally_ended:
             answer: Antwoord
@@ -450,7 +450,18 @@ nl:
             upload_election_keys: Upload verkiezingssleutels
             upload_icon: Icoon dat een downloadactie aangeeft
           tally_steps:
+            back: Achterzijde
             description: De resultaten voor deze verkiezingen worden berekend in de Bulletin Board. Om dit proces te voltooien, is uw deelname als Trustee nodig.
+            list:
+              status: Status
+              task: Taak
+            process_warning: Zodra het proces is gestart, mag je de pagina niet verlaten totdat het proces is afgerond. Het duurt enkele minuten, omdat alle Trustees verbonden moeten zijn om het te voltooien.
+            start: Begin
+            start_icon: Icoon met startknop om verkiezingssleutels aan te maken
+            status:
+              completed: Voltooid
+              pending: In afwachting
+              processing: In verwerking
           update:
             error: De verkiezingsstatus is niet bijgewerkt.
             success: 'De verkiezingsstatus is: %{status}'
