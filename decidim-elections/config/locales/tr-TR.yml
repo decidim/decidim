@@ -252,6 +252,11 @@ tr:
         older: Daha eski
         recent: En son
       trustee_zone:
+        elections:
+          tally_steps:
+            back: Geri
+            list:
+              status: Statü
         menu:
           trustee_zone: Vekil bölgesi
         trustees:
