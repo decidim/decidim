@@ -389,7 +389,6 @@ pl:
         start_voting_date: Głosowanie rozpoczyna się
       question_components:
         question_menu_item: Pytanie
-        unfold: Rozwiń
       question_header:
         back_to_consultation: Zobacz wszystkie konsultacje
         back_to_question: Wróć do pytania
