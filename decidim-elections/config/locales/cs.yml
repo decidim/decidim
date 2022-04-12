@@ -546,9 +546,9 @@ cs:
                 share: Poměry volebního přepočítávání
             list:
               status: Stav
-              task: Úloha
+              task: Úkol
             process_warning: Po spuštění procesu byste neměli tuto stránku ukončit, dokud proces neskončí. Trvá to několik minut, protože všichni důvěrníci by měli být k dokončení připojeni.
-            start: Spustit
+            start: Začít
             start_icon: Ikona, která označuje tlačítko pro spuštění generování volebních klíčů
             status:
               completed: Dokončeno
