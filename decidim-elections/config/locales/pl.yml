@@ -289,10 +289,6 @@ pl:
             selected: Wybrane
             submit: Prześlij
             title: Opublikowano wyniki
-          tally:
-            continue: Dalej
-            mark_as_missing: Oznacz jako brakujący
-            title: Ustalenie wyniku głosowania
           tally_ended:
             answer: Odpowiedź
             not_selected: Nie wybrano
@@ -302,6 +298,8 @@ pl:
             submit: Opublikuj wyniki
             success: Prośba o publikację wyników została pomyślnie przesłana do Tablicy danych wyborczych
             title: Obliczone wyniki
+          tally_started:
+            mark_as_missing: Oznacz jako brakujący
           vote:
             errors:
               time_after: Wybory nadal trwają. Musisz poczekać do daty zakończenia (%{end_time}) aby zamknąć głosowanie.
@@ -533,24 +531,13 @@ pl:
             title: Przywróć klucze dla wyborów %{election}
             upload_election_keys: Prześlij klucze wyborcze
             upload_icon: Ikona wskazująca akcję pobierania
-          tally_steps:
-            back: Wróć
+          tally_started_steps:
             description: Wyniki tego głosowania są generowane na Tablicy danych wyborczych. Aby zakończyć ten proces niezbędne jest twoje uczestnictwo jako męża (osoby) zaufania.
             keys:
               end_tally: Zakończono proces ustalania wyniku głosowania
               tally:
                 cast: Suma oddanych głosów
                 share: Udostępnij ustalony wynik głosowania
-            list:
-              status: Status
-              task: Zadanie
-            process_warning: Po rozpoczęciu procesu, nie powinieneś opuszczać tej strony do czasu jego zakończenia. Zajmie to kilka minut, ponieważ wszyscy mężowie (osoby) zaufania powinni być podłączeni w celu jego ukończenia.
-            start: Rozpocznij
-            start_icon: Ikona wskazująca przycisk startu dla tworzenia kluczy wyborczych
-            status:
-              completed: Zakończono
-              pending: Oczekujące
-              processing: Przetwarzanie
             title: Wynik głosowania dla %{election}
           update:
             error: Status wyborów nie został zaktualizowany.
