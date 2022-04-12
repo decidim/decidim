@@ -273,15 +273,6 @@ pt:
             selected: Seleccionado
             submit: Enviar
             title: Resultados publicados
-          tally:
-            continue: Continuar
-            invalid: Ouve um problema ao denunciar o curador ausente
-            mark_as_missing: Assinalar como ausente
-            mark_as_missing_description: Todos os curadores devem participar neste processo, mas se um curador não pode tomar parte no processo pode ser assinalado como ausente.
-            success: O curador ausente foi denunciado com êxito e enviado para o Quadro Informativo
-            tally_completion: O processo será completo quando todos os curadores estiverem activos ou assinalados como ausentes. São necessários pelo menos %{quorum} curadores para completar o processo.
-            title: Processo de contagem
-            undo_mark_as_missing: Um curador assinalado como ausente poderá participar antes do processo estar completo. Pode proceder como usualmente e o assinalar da ausência será ignorado.
           tally_ended:
             answer: Resposta
             not_selected: Não seleccionado
@@ -291,6 +282,13 @@ pt:
             submit: Publicar resultados
             success: Pedido publicação de resultados enviado com êxito para o Quadro Informativo
             title: Resultados calculados
+          tally_started:
+            invalid: Ouve um problema ao denunciar o curador ausente
+            mark_as_missing: Assinalar como ausente
+            mark_as_missing_description: Todos os curadores devem participar neste processo, mas se um curador não pode tomar parte no processo pode ser assinalado como ausente.
+            success: O curador ausente foi denunciado com êxito e enviado para o Quadro Informativo
+            tally_completion: O processo será completo quando todos os curadores estiverem activos ou assinalados como ausentes. São necessários pelo menos %{quorum} curadores para completar o processo.
+            undo_mark_as_missing: Um curador assinalado como ausente poderá participar antes do processo estar completo. Pode proceder como usualmente e o assinalar da ausência será ignorado.
           vote:
             errors:
               time_after: A eleição ainda está a decorrer. Tem que esperar até à hora de fecho (%{end_time}) para poder fechar o período de votação.
@@ -526,24 +524,13 @@ pt:
             title: Restaurar as chaves de eleição para %{election}
             upload_election_keys: Enviar chaves de eleição
             upload_icon: Ícone que indica uma acção de descarregar
-          tally_steps:
-            back: Recuar
+          tally_started_steps:
             description: Os resultados desta eleição estão a ser processados no Quadro Informativo. Para completar este processo é necessária a sua participação como curador.
             keys:
               end_tally: A contagem  terminou
               tally:
                 cast: Registar a contagem
                 share: Partilhar a contagem
-            list:
-              status: Estado
-              task: Tarefa
-            process_warning: Uma vez o processo é iniciado, você não deve sair desta página até que o processo termine. Pode demorar vários minutos, visto que os Curadores todos os curadores devem estar ligados para completá-lo.
-            start: Início
-            start_icon: Ícone que indica um botão de início para iniciar a geração de chaves eleitorais
-            status:
-              completed: Completo
-              pending: Pendente
-              processing: A processar
             title: Contagem para %{election}
           update:
             error: O estado da eleição não foi actualizado.
