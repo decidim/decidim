@@ -274,7 +274,7 @@ de:
             submit: Absenden
             title: Ergebnisse veröffentlicht
           tally:
-            title: Stimmenzähl-Prozess
+            title: Stimmenzählung
             trustees: Wahlhelfer
           tally_ended:
             answer: Antwort
@@ -529,7 +529,7 @@ de:
               status: Status
               task: Aufgabe
             process_warning: Sobald der Prozess gestartet ist, sollten Sie diese Seite nicht verlassen, bis der Prozess endet. Dies kann einige Minuten dauern, da alle Wahlhelfer verbunden sein müssen um den Prozess abzuschliessen.
-            start: Beginnen
+            start: Start
             start_icon: Symbol, das einen Startknopf anzeigt, um die Erzeugung der Wahl-Schlüssel zu starten
             status:
               completed: Abgeschlossen
