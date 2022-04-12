@@ -235,15 +235,6 @@ nl:
             selected: Geselecteerd
             submit: Indienen
             title: Resultaten gepubliceerd
-          tally:
-            continue: Doorgaan
-            invalid: Er is een fout opgetreden bij het rapporteren van de ontbrekende trustee
-            mark_as_missing: Als ontbrekend markeren
-            mark_as_missing_description: Alle trustees moeten deelnemen aan dit proces, maar als een trustee niet aan het proces kan deelnemen, kan je dit als ontbrekend aanduiden.
-            success: Het rapport met de ontbrekende trustees is met succes verzonden naar het Bulletin Board
-            tally_completion: Het proces zal worden voltooid wanneer alle trustees actief zijn of als ontbrekend zijn aangeduid. Tenminste %{quorum} trustees zijn vereist om het proces te voltooien.
-            title: Turfproces
-            undo_mark_as_missing: Zolang het proces niet is voltooid zal een trustee die per ongeluk is gemarkeerd als ontbrekend kunnen deelnemen. Ze kunnen doorgaan zoals gebruikelijk en de aanduiding als 'ontbrekend' wordt genegeerd.
           tally_ended:
             answer: Antwoord
             not_selected: Niet geselecteerd
@@ -252,6 +243,13 @@ nl:
             selected: Geselecteerd
             success: Verzoek om de resultaten te publiceren is met succes verzonden naar het Bulletin Board
             title: Berekende resultaten
+          tally_started:
+            invalid: Er is een fout opgetreden bij het rapporteren van de ontbrekende trustee
+            mark_as_missing: Als ontbrekend markeren
+            mark_as_missing_description: Alle trustees moeten deelnemen aan dit proces, maar als een trustee niet aan het proces kan deelnemen, kan je dit als ontbrekend aanduiden.
+            success: Het rapport met de ontbrekende trustees is met succes verzonden naar het Bulletin Board
+            tally_completion: Het proces zal worden voltooid wanneer alle trustees actief zijn of als ontbrekend zijn aangeduid. Tenminste %{quorum} trustees zijn vereist om het proces te voltooien.
+            undo_mark_as_missing: Zolang het proces niet is voltooid zal een trustee die per ongeluk is gemarkeerd als ontbrekend kunnen deelnemen. Ze kunnen doorgaan zoals gebruikelijk en de aanduiding als 'ontbrekend' wordt genegeerd.
           vote:
             title: Stemperiode
           vote_ended:
@@ -437,7 +435,7 @@ nl:
             title: Herstel verkiezingssleutels voor %{election}
             upload_election_keys: Upload verkiezingssleutels
             upload_icon: Icoon dat een downloadactie aangeeft
-          tally_steps:
+          tally_started_steps:
             description: De resultaten voor deze verkiezingen worden berekend in de Bulletin Board. Om dit proces te voltooien, is uw deelname als Trustee nodig.
           update:
             error: De verkiezingsstatus is niet bijgewerkt.
