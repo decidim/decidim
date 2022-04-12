@@ -843,7 +843,7 @@ fr:
     help:
       main_topic:
         default_page:
-          content: "<p>Sur %{organization} vous pouvez participer et décider sur différents sujets grâce aux espaces que vous voyez dans le menu principal: Processus, Assemblées, Initiatives, Consultations.</p> <p>Au sein de chacune d’elles, vous trouverez différentes options de participation: faites des propositions - individuellement ou avec d’autres personnes -, participez aux débats, accordez la priorité aux projets à mettre en œuvre, participez aux réunions en personne et autres actions.</p>\n"
+          content: "<p>Sur %{organization} vous pouvez participer et décider sur différents sujets grâce aux espaces que vous voyez dans le menu principal: Processus, Assemblées, Pétitions, Consultations.</p> <p>Au sein de chacune d’elles, vous trouverez différentes options de participation: faites des propositions - individuellement ou avec d’autres personnes -, participez aux débats, accordez la priorité aux projets à mettre en œuvre, participez aux réunions en personne et autres actions.</p>\n"
           title: Que puis-je faire sur la plateforme %{organization} ?
         description: En savoir plus sur %{organization}
         title: Aide générale
