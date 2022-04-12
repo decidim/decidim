@@ -290,7 +290,7 @@ pl:
             submit: Prześlij
             title: Opublikowano wyniki
           tally:
-            title: Ustalenie wyniku głosowania
+            title: Proces ustalania wyniku głosowania
             trustees: Mężowie (osoby) zaufania
           tally_ended:
             answer: Odpowiedź
