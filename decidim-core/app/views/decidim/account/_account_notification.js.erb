@@ -1,4 +1,5 @@
 var accountNotification = document.querySelector(".account-notification");
+document.querySelector("main").prepend(accountNotification);
 
 if (accountNotification.querySelector(".account-message")) {
   accountNotification.querySelector(".account-message").remove();
