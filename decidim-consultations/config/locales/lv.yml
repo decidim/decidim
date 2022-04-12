@@ -368,7 +368,6 @@ lv:
         start_voting_date: Balsojums sākas
       question_components:
         question_menu_item: Jautājums
-        unfold: Atritināt
       question_header:
         back_to_consultation: Skatīt visas konsultācijas
         back_to_question: Atpakaļ pie jautājuma
