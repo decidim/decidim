@@ -12,7 +12,7 @@ module Decidim
     end
 
     def followers
-      @followers ||= model.followers.page(params[:page]).per(20)
+      @followers ||= model.followers.find_all{|user| !user.blocked}.page(params[:page]).per(20)
     end
   end
 end
