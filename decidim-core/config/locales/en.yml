@@ -71,7 +71,6 @@ en:
     errors:
       file_resolution_too_large: File resolution is too large
       file_too_large: File size is too large
-      image_too_big: The image is too big
       not_inside_organization: The file is not attached to any organization
   date:
     formats:
