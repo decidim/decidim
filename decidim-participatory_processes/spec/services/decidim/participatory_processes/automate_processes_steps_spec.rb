@@ -62,7 +62,7 @@ module Decidim
 
           before { subject.change_active_step }
 
-          it "activates the last step that has started" do
+          it "activates the first step with early end date" do
             expect(step_one.reload).not_to be_active
             expect(step_two.reload).to be_active
           end
@@ -71,7 +71,7 @@ module Decidim
         context "with three steps all with dates" do
           let!(:step_one) do
             create(:participatory_process_step, participatory_process: participatory_process,
-                                                active: true, start_date: Time.zone.local(2022, 3, 15, 10, 0, 0), end_date: Time.zone.local(2022, 3, 15, 11, 0, 0))
+                                                active: true, start_date: Time.zone.local(2022, 3, 15, 10, 0, 0), end_date: Time.zone.local(2022, 3, 15, 10, 59, 59))
           end
           let!(:step_two) do
             create(:participatory_process_step, participatory_process: participatory_process,
@@ -118,8 +118,8 @@ module Decidim
 
             it "activates step two" do
               expect(step_one.reload).not_to be_active
-              expect(step_two.reload).not_to be_active
-              expect(step_three.reload).to be_active
+              expect(step_two.reload).to be_active
+              expect(step_three.reload).not_to be_active
             end
           end
 
@@ -129,7 +129,7 @@ module Decidim
                 :participatory_process_step,
                 participatory_process: participatory_process,
                 start_date: Time.zone.local(2022, 3, 15, 10, 0, 0),
-                end_date: Time.zone.local(2022, 3, 15, 11, 0, 0)
+                end_date: Time.zone.local(2022, 3, 15, 10, 59, 59)
               )
             end
             let!(:step_two) do
