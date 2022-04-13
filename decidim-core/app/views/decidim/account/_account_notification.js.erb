@@ -1,6 +1,6 @@
-var removeExistingNotification = document.querySelector("main").children[0]
-if (removeExistingNotification.classList.contains("flash") && removeExistingNotification.classList.contains("callout")) {
-  removeExistingNotification.remove();
+var hideExistingNotification = document.querySelector("main").children[0]
+if (hideExistingNotification.classList.contains("flash") && hideExistingNotification.classList.contains("callout")) {
+  hideExistingNotification.classList.add("hide");
 }
 
 var accountNotification = document.querySelector(".account-notification");
