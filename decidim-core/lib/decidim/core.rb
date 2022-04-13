@@ -110,7 +110,6 @@ module Decidim
   autoload :Command, "decidim/command"
   autoload :EventRecorder, "decidim/event_recorder"
   autoload :ControllerHelpers, "decidim/controller_helpers"
-  autoload :UnableToComposeQueriesException, "decidim/unable_to_compose_queries_exception"
 
   include ActiveSupport::Configurable
   # Loads seeds from all engines.
