@@ -1,6 +1,6 @@
 <div class="initiative-letterhead">
   <% if current_organization.logo.present? %>
-    <%= image_tag current_organization.logo.url, title: current_organization.name %>
+    <%= image_tag current_organization.attached_uploader(:logo).path(variant: :medium), title: current_organization.name %>
   <% end %>
 
   <%= current_organization.name %>
