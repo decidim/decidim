@@ -1,4 +1,4 @@
-import * as L from "leaflet"
+import { tileLayer } from "leaflet"
 
 /**
  * NOTE:
@@ -8,6 +8,6 @@ import * as L from "leaflet"
  */
 $(() => {
   $("[data-decidim-map]").on("configure.decidim", (_ev, map, mapConfig) => {
-    L.tileLayer.here(mapConfig.tileLayer).addTo(map);
+    tileLayer.here(mapConfig.tileLayer).addTo(map);
   });
 });

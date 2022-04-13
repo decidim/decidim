@@ -1,4 +1,4 @@
-import * as L from "leaflet";
+import { marker } from "leaflet";
 import MapController from "src/decidim/map/controller"
 import "src/decidim/vendor/leaflet-tilelayer-here"
 
@@ -22,7 +22,7 @@ export default class MapDragMarkerController extends MapController {
     };
     this.triggerEvent("coordinates", [coordinates]);
 
-    this.marker = L.marker(coordinates, {
+    this.marker = marker(coordinates, {
       icon: this.createIcon(),
       keyboard: true,
       title: markerData.title,

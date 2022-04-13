@@ -1,4 +1,4 @@
-import * as L from "leaflet";
+import { marker } from "leaflet";
 import MapController from "src/decidim/map/controller"
 
 const openLink = window.open;
@@ -20,12 +20,12 @@ export default class MapStaticController extends MapController {
       const coordinates = [this.config.latitude, this.config.longitude];
 
       this.map.panTo(coordinates);
-      const marker = L.marker(coordinates, {
+      const _marker = marker(coordinates, {
         icon: this.createIcon(),
         keyboard: true,
         title: this.config.title
       }).addTo(this.map);
-      marker._icon.removeAttribute("tabindex");
+      _marker._icon.removeAttribute("tabindex");
     }
     if (this.config.zoom) {
       this.map.setZoom(this.config.zoom);

@@ -1,6 +1,6 @@
 /* eslint-disable require-jsdoc */
 
-import * as L from "leaflet";
+import { tileLayer } from "leaflet";
 import createMapController from "src/decidim/map/factory"
 
 /**
@@ -63,7 +63,7 @@ const loadMap = (mapId, markersData) => {
   const ctrl = createMapController(mapId, mapData);
   const map = ctrl.load();
 
-  L.tileLayer.here(mapData.tileLayer).addTo(map);
+  tileLayer.here(mapData.tileLayer).addTo(map);
 
   ctrl.start();
 

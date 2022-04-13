@@ -1,8 +1,8 @@
-import * as L from "leaflet";
+import { DivIcon } from "leaflet";
 import { SVGIcon } from "src/decidim/map/svg-icon";
 
-L.DivIcon.SVGIcon = SVGIcon;
-L.DivIcon.SVGIcon.DecidimIcon = L.DivIcon.SVGIcon.extend({
+DivIcon.SVGIcon = SVGIcon;
+DivIcon.SVGIcon.DecidimIcon = DivIcon.SVGIcon.extend({
   options: {
     fillColor: "#ef604d",
     fillOpacity: 1,

@@ -1,4 +1,4 @@
-import * as L from "leaflet";
+import { map, DivIcon, point } from "leaflet";
 import "src/decidim/map/icon"
 import MapControllerRegistry from "src/decidim/map/controller_registry"
 
@@ -31,7 +31,7 @@ export default class MapController {
   }
 
   load() {
-    this.map = L.map(this.mapId);
+    this.map = map(this.mapId);
 
     this.map.scrollWheelZoom.disable();
 
@@ -58,9 +58,9 @@ export default class MapController {
   }
 
   createIcon() {
-    return new L.DivIcon.SVGIcon.DecidimIcon({
+    return new DivIcon.SVGIcon.DecidimIcon({
       fillColor: this.config.markerColor,
-      iconSize: L.point(28, 36)
+      iconSize: point(28, 36)
     });
   }
 

@@ -1,7 +1,7 @@
 import "src/decidim/vendor/jquery-tmpl"
-import * as L from "leaflet";
+import { Marker, LatLngBounds } from "leaflet";
 import MapController from "src/decidim/map/controller"
-import "leaflet.markercluster";
+import { MarkerClusterGroup } from "leaflet.markercluster";
 
 export default class MapMarkersController extends MapController {
   start() {
@@ -16,7 +16,7 @@ export default class MapMarkersController extends MapController {
 
   addMarkers(markersData) {
     if (this.markerClusters === null) {
-      this.markerClusters = new L.MarkerClusterGroup();
+      this.markerClusters = new MarkerClusterGroup();
       this.map.addLayer(this.markerClusters);
     }
 
@@ -26,14 +26,14 @@ export default class MapMarkersController extends MapController {
       $(`#${this.config.popupTemplateId}`).html()
     );
 
-    const bounds = new L.LatLngBounds(
+    const bounds = new LatLngBounds(
       markersData.map(
         (markerData) => [markerData.latitude, markerData.longitude]
       )
     );
 
     markersData.forEach((markerData) => {
-      let marker = new L.Marker([markerData.latitude, markerData.longitude], {
+      let marker = new Marker([markerData.latitude, markerData.longitude], {
         icon: this.createIcon(),
         keyboard: true,
         title: markerData.title
@@ -69,7 +69,7 @@ export default class MapMarkersController extends MapController {
 
   clearMarkers() {
     this.map.removeLayer(this.markerClusters);
-    this.markerClusters = new L.MarkerClusterGroup();
+    this.markerClusters = new MarkerClusterGroup();
     this.map.addLayer(this.markerClusters);
   }
 }
