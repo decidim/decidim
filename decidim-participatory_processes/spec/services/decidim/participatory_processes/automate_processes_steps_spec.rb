@@ -52,12 +52,21 @@ module Decidim
 
         context "with two overlaping steps" do
           let!(:step_one) do
-            create(:participatory_process_step, participatory_process: participatory_process,
-                                                active: true, start_date: Time.zone.local(2022, 3, 15, 10, 0, 0), end_date: Time.zone.local(2022, 3, 15, 22, 0, 0))
+            create(
+              :participatory_process_step,
+              participatory_process: participatory_process,
+              active: true,
+              start_date: Time.zone.local(2022, 3, 15, 10, 0, 0),
+              end_date: Time.zone.local(2022, 3, 15, 22, 0, 0)
+            )
           end
           let!(:step_two) do
-            create(:participatory_process_step, participatory_process: participatory_process,
-                                                start_date: Time.zone.local(2022, 3, 15, 10, 30, 0), end_date: Time.zone.local(2022, 3, 15, 20, 0, 0))
+            create(
+              :participatory_process_step,
+              participatory_process: participatory_process,
+              start_date: Time.zone.local(2022, 3, 15, 10, 30, 0),
+              end_date: Time.zone.local(2022, 3, 15, 20, 0, 0)
+            )
           end
 
           before { subject.change_active_step }

@@ -10,7 +10,7 @@ module Decidim
 
       def change_active_step
         @participatory_processes.each do |process|
-          steps = process.steps.where("start_date <= ? AND end_date >= ?", Time.zone.now, Time.zone.now).order("end_date ASC")
+          steps = process.steps.unscoped.where("start_date <= ? AND end_date >= ?", Time.zone.now, Time.zone.now).order("end_date ASC", :position)
           next if steps.empty?
 
           active_step = process.steps.find_by(active: true)
