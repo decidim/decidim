@@ -9,6 +9,9 @@
       Loading...
     </div>
 
+    <!-- js entrypoint "decidim_api_graphiql" -->
+    <%= javascript_pack_tag "decidim_api_graphiql", defer: false %>
+
     <%
       js_configs = {
         graphql_endpoint: graphql_endpoint_path,
@@ -16,11 +19,9 @@
         request_headers: JSON.pretty_generate(Decidim::GraphiQL::Rails.config.resolve_headers(self))
       }
     %>
+
     <script>
       window.Decidim.config.set(<%== js_configs.to_json %>);
     </script>
-
-    <!-- js entrypoint "decidim_api_graphiql" -->
-    <%= javascript_pack_tag "decidim_api_graphiql", defer: false %>
   </body>
 </html>
