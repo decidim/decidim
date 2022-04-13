@@ -46,10 +46,7 @@
       <%= yield %>
     </main>
 
-    <%= javascript_pack_tag "decidim_core", defer: false %>
-    <%= render partial: "layouts/decidim/js_configuration" %>
-
-    <!-- js entrypoint "decidim_meetings" -->
+    <%= render partial: "layouts/decidim/decidim_javascript" %>
     <%= javascript_pack_tag "decidim_meetings" %>
   </body>
 </html>
