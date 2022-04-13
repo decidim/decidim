@@ -47,7 +47,7 @@ module Decidim::Cw
       return unless image?(self)
 
       manipulate! do |image|
-        raise CarrierWave::IntegrityError, I18n.t("carrierwave.errors.image_too_big") if image.dimensions.any? { |dimension| dimension > max_image_height_or_width }
+        raise CarrierWave::IntegrityError, I18n.t("carrierwave.errors.file_resolution_too_large") if image.dimensions.any? { |dimension| dimension > max_image_height_or_width }
 
         image
       end

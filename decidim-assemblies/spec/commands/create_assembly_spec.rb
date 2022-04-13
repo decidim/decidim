@@ -137,7 +137,7 @@ module Decidim::Assemblies
 
       it "broadcasts invalid" do
         expect { subject.call }.to broadcast(:invalid)
-        expect(form.errors.messages[:hero_image]).to contain_exactly("The image is too big")
+        expect(form.errors.messages[:hero_image]).to contain_exactly("File resolution is too large")
       end
     end
 

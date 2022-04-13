@@ -69,6 +69,8 @@ en:
     'true': 'Yes'
   carrierwave:
     errors:
+      file_resolution_too_large: File resolution is too large
+      file_too_large: File size is too large
       image_too_big: The image is too big
       not_inside_organization: The file is not attached to any organization
   date:
@@ -771,6 +773,7 @@ en:
           message_2: The service crops the image.
       file_validation:
         allowed_file_extensions: 'Allowed file extensions: %{extensions}'
+        max_file_dimension: 'Maximum file dimensions: %{resolution} pixels'
         max_file_size: 'Maximum file size: %{megabytes}MB'
       upload:
         labels:
@@ -780,7 +783,7 @@ en:
           cancel: Cancel
           edit_image: Edit image
           error: Error!
-          file_too_big: 'File is too big! Maximun file size: %{megabytes}MB'
+          file_too_big: 'File size is too large! Maximun file size: %{megabytes}MB'
           remove: Remove
           replace: Replace
           save: Save
