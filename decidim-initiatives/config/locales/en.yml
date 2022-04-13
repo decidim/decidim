@@ -508,6 +508,7 @@ en:
             title: 'Title:'
             type: Type of initiative
           legal_text: The personal data collected will be incorporated and treated confidentially by the organization, according to current legislation.
+          members_header: Members of the initiative's promoter committee
           phone_number: Phone Number
           place_date: Place, Date
           postal_code: Postal Code/ZIP
