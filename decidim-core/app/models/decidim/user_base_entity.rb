@@ -43,8 +43,9 @@ module Decidim
                                               .group(:decidim_followable_type)
                                               .pluck(:decidim_followable_type, "array_agg(decidim_followable_id)")
                                               .to_h
-                                              .flat_map { |type, ids| only_public(type.constantize, ids) }
-                                              .find_all { |user| user.class != Decidim::User || !user.blocked }
+                                              .flat_map do |type, ids|
+        only_public(type.constantize, ids)
+        end
     end
 
     private
@@ -54,6 +55,7 @@ module Decidim
       scope = scope.public_spaces if klass.try(:participatory_space?)
       scope = scope.includes(:component) if klass.try(:has_component?)
       scope = scope.filter(&:visible?) if klass.method_defined?(:visible?)
+      scope = scope.reject(&:blocked) if klass==Decidim::UserBaseEntity
       scope
     end
   end
