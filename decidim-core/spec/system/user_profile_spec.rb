@@ -124,7 +124,7 @@ describe "Profile", type: :system do
       end
 
       context "when the user follows a blocked user" do
-        let(:blocked_user) { create(:user, blocked: true) }
+        let(:blocked_user) { create(:user, :blocked) }
 
         before do
           create(:follow, user: user, followable: blocked_user)
