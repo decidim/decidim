@@ -21,7 +21,7 @@ module Decidim
 
     describe "public followings" do
       it "return all the things followed unless the blocked users" do
-        expect(subject.public_followings).to eq([public_resource,user_followed])
+        expect(subject.public_followings).to eq([public_resource, user_followed])
       end
     end
   end
