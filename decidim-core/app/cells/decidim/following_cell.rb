@@ -12,7 +12,7 @@ module Decidim
     end
 
     def public_followings
-      @public_followings ||= Kaminari.paginate_array(model.public_followings.find_all { |user| user.class != Decidim::User || !user.blocked }).page(params[:page]).per(20)
+      @public_followings ||= Kaminari.paginate_array(model.public_followings).page(params[:page]).per(20)
     end
 
     def non_public_followings?

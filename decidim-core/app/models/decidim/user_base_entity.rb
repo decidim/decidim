@@ -43,9 +43,8 @@ module Decidim
                                               .group(:decidim_followable_type)
                                               .pluck(:decidim_followable_type, "array_agg(decidim_followable_id)")
                                               .to_h
-                                              .flat_map do |type, ids|
-        only_public(type.constantize, ids)
-      end
+                                              .flat_map { |type, ids| only_public(type.constantize, ids) }
+                                              .find_all { |user| user.class != Decidim::User || !user.blocked }
     end
 
     private
