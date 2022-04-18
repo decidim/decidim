@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Decidim
   # The controller to handle the subscriptions to push notifications
   class NotificationsSubscriptionsController < Decidim::ApplicationController

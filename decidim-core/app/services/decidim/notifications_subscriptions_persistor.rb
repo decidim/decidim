@@ -30,7 +30,7 @@ module Decidim
       {
         auth: params[:keys][:auth],
         p256dh: params[:keys][:p256dh],
-        endpoint: params[:endpoint],
+        endpoint: params[:endpoint]
       }
     end
   end

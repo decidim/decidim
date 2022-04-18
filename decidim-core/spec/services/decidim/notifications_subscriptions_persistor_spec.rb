@@ -18,10 +18,10 @@ module Decidim
     end
 
     describe "#delete_subscription" do
-      let(:user) { create(:user, organization: organization, "notification_settings"=> { "subscriptions" => {"auth_code_121" => {p256dh: "value", endpoint: "value"}} }) }
+      let(:user) { create(:user, organization: organization, "notification_settings" => { "subscriptions" => { "auth_code_121" => { p256dh: "value", endpoint: "value" } } }) }
 
       it "returns the result of the subscription deletion" do
-        expect(subject.add_subscription("auth_code_121")).to be_truthy
+        expect(subject.delete_subscription("auth_code_121")).to be_truthy
         expect(user.notifications_subscriptions).to be_empty
       end
     end

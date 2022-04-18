@@ -5,7 +5,6 @@ Decidim::Core::Engine.routes.draw do
 
   get "/offline", to: "offline#show"
 
-
   devise_for :users,
              class_name: "Decidim::User",
              module: :devise,
