@@ -18,16 +18,11 @@ module Decidim
     def perform(notification)
       return unless Rails.application.secrets.vapid[:enabled]
 
-      user = notification.user
-      return unless user.allow_push_notifications
-
-      subscription = Decidim::NotificationsSubscription.find_by(user: user)
-      return unless subscription
-
-      message_params = notification_params(Decidim::PushNotificationPresenter.new(notification))
-      payload = payload(message_params, subscription)
-
-      Webpush.payload_send(payload)
+      notification.user.notifications_subscriptions.values.map do |subscription|
+        message_params = notification_params(Decidim::PushNotificationPresenter.new(notification))
+        payload = payload(message_params, subscription)
+        Webpush.payload_send(payload)
+      end
     end
 
     def notification_params(notification)
@@ -42,9 +37,9 @@ module Decidim
     def payload(message_params, subscription)
       {
         message: JSON.generate(message_params),
-        endpoint: subscription.endpoint,
-        p256dh: subscription.p256dh,
-        auth: subscription.auth,
+        endpoint: subscription["endpoint"],
+        p256dh: subscription["p256dh"],
+        auth: subscription["auth"],
         vapid: {
           public_key: Rails.application.secrets.vapid[:public_key],
           private_key: Rails.application.secrets.vapid[:private_key]

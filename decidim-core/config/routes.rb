@@ -5,8 +5,6 @@ Decidim::Core::Engine.routes.draw do
 
   get "/offline", to: "offline#show"
 
-  post "/subscribe_to_notifications", to: "notifications_subscriptions#create"
-  delete "/unsubscribe_to_notifications", to: "notifications_subscriptions#delete"
 
   devise_for :users,
              class_name: "Decidim::User",
@@ -74,6 +72,7 @@ Decidim::Core::Engine.routes.draw do
       end
     end
 
+    resources :notifications_subscriptions, param: :auth
     resource :user_interests, only: [:show, :update]
 
     get "/authorization_modals/:authorization_action/f/:component_id(/:resource_name/:resource_id)", to: "authorization_modals#show", as: :authorization_modal

@@ -603,13 +603,6 @@ FactoryBot.define do
     end
   end
 
-  factory :notifications_subscription, class: "Decidim::NotificationsSubscription" do
-    user { build(:user) }
-    endpoint { Faker::Internet.url }
-    p256dh { Faker::Crypto.sha256 }
-    auth { Faker::Crypto.sha256 }
-  end
-
   factory :action_log, class: "Decidim::ActionLog" do
     transient do
       extra_data { {} }

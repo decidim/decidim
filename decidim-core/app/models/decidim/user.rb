@@ -35,7 +35,6 @@ module Decidim
     has_many :access_grants, class_name: "Doorkeeper::AccessGrant", foreign_key: :resource_owner_id, dependent: :destroy
     has_many :access_tokens, class_name: "Doorkeeper::AccessToken", foreign_key: :resource_owner_id, dependent: :destroy
     has_many :reminders, foreign_key: "decidim_user_id", class_name: "Decidim::Reminder", dependent: :destroy
-    has_many :notifications_subscriptions, foreign_key: "decidim_user_id", class_name: "Decidim::NotificationsSubscription", dependent: :destroy
 
     has_one :blocking, class_name: "Decidim::UserBlock", foreign_key: :id, primary_key: :block_id, dependent: :destroy
 
@@ -256,6 +255,10 @@ module Decidim
 
     ransacker :last_sign_in_at do
       Arel.sql(%{("decidim_users"."last_sign_in_at")::text})
+    end
+
+    def notifications_subscriptions
+      notification_settings.fetch("subscriptions", {})
     end
 
     protected

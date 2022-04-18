@@ -1,23 +1,14 @@
 # frozen_string_literal: true
-
 module Decidim
   # The controller to handle the subscriptions to push notifications
   class NotificationsSubscriptionsController < Decidim::ApplicationController
     def create
-      return head :ok unless current_user&.allow_push_notifications
-
-      Decidim::NotificationsSubscription.find_or_create_by(auth: params[:keys][:auth]) do |subscription|
-        subscription.decidim_user_id = current_user.id
-        subscription.endpoint = params[:endpoint]
-        subscription.p256dh = params[:keys][:p256dh]
-      end
-
+      Decidim::NotificationsSubscriptionsPersistor.new(current_user).add_subscription(params)
       head :ok
     end
 
-    def delete
-      Decidim::NotificationsSubscription.where(decidim_user_id: current_user.id).destroy_all
-
+    def destroy
+      Decidim::NotificationsSubscriptionsPersistor.new(current_user).delete_subscription(params[:auth])
       head :ok
     end
   end
