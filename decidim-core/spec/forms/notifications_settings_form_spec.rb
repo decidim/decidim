@@ -11,7 +11,7 @@ module Decidim
         email_on_notification: email_on_notification,
         email_on_moderations: email_on_moderations,
         newsletter_notifications: newsletter_notifications,
-        allow_public_contact: allow_public_contact,
+        allow_public_contact: allow_public_contact
       ).with_context(
         current_user: user
       )
