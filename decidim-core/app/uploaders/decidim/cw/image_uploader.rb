@@ -55,7 +55,7 @@ module Decidim::Cw
 
     def validate_size
       manipulate! do |image|
-        validation_error!(I18n.t("carrierwave.errors.file_too_large")) if image.size > maximum_upload_size
+        validation_error!(I18n.t("carrierwave.errors.file_size_too_large")) if image.size > maximum_upload_size
         image
       end
     end

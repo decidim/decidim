@@ -70,7 +70,7 @@ en:
   carrierwave:
     errors:
       file_resolution_too_large: File resolution is too large
-      file_too_large: File size is too large
+      file_size_too_large: File size is too large
       not_inside_organization: The file is not attached to any organization
   date:
     formats:
@@ -782,7 +782,7 @@ en:
           cancel: Cancel
           edit_image: Edit image
           error: Error!
-          file_too_big: 'File size is too large! Maximun file size: %{megabytes}MB'
+          file_size_too_large: 'File size is too large! Maximun file size: %{megabytes}MB'
           remove: Remove
           replace: Replace
           save: Save
