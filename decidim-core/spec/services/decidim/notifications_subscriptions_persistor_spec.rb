@@ -8,7 +8,7 @@ module Decidim
 
     let(:organization) { create(:organization, colors: { "theme" => "#f0f0f0" }) }
     let(:params) { { endpoint: "https://example.es", keys: { auth: "auth_code_121", p256dh: "a_p256dh" } } }
-    let(:user) { create(:user, organization: organization, allow_push_notifications: true) }
+    let(:user) { create(:user, organization: organization) }
 
     describe "#add_subscription" do
       it "returns the result of the subscription persistance" do

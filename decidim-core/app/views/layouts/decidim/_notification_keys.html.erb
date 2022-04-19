@@ -1,3 +1,7 @@
 <% if Rails.application.secrets.vapid[:enabled] %>
   <input id="vapidPublicKey" name="vapid_public_key" type="hidden" value='<%= Base64.urlsafe_decode64(Rails.application.secrets.vapid[:public_key]).bytes %>'>
 <% end %>
+
+<% if current_user %>
+  <input id="subKeys" name="sub_key" type="hidden" value='<%= current_user.notifications_subscriptions.keys %>'>
+<% end %>

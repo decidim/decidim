@@ -77,7 +77,7 @@
           <p class="push-notifications__reminder"><i><%= t(".push_notifications_reminder").html_safe %></i></p>
           <div class="switch tiny switch-with-label allow_push_notifications">
             <label>
-              <%= f.check_box :allow_push_notifications, label: false, class: "switch-input" %>
+              <%= check_box_tag :allow_push_notifications, 0, false, class: "switch-input"%>
               <span class="switch-paddle"></span>
               <span class="switch-label"><%= t(".allow_push_notifications").html_safe %></span>
             </label>

@@ -139,7 +139,6 @@ FactoryBot.define do
     accepted_tos_version { organization.tos_version }
     email_on_notification { true }
     email_on_moderations { true }
-    allow_push_notifications { false }
 
     trait :confirmed do
       confirmed_at { Time.current }

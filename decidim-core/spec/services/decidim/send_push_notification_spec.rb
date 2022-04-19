@@ -18,7 +18,7 @@ describe Decidim::SendPushNotification do
     end
 
     describe "#perform" do
-      let(:user) { create(:user, allow_push_notifications: false) }
+      let(:user) { create(:user) }
       let(:notification) { create :notification, user: user }
 
       it "returns false" do
