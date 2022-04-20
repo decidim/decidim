@@ -3,7 +3,12 @@ window.addEventListener("load", async () => {
   if ("serviceWorker" in navigator) {
     await navigator.serviceWorker.register("/sw.js", { scope: "/" });
   } else {
-    document.querySelector(".sw-mandatory").remove();
+    const mandatoryElements = document.querySelector(".sw-mandatory")
+
+    if (mandatoryElements.length > 0) {
+      mandatoryElements.remove();
+    }
     console.log("Your browser doesn't support service workers 🤷‍♀️");
   }
 });
+
