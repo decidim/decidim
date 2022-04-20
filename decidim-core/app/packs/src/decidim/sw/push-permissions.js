@@ -3,24 +3,24 @@ window.addEventListener("DOMContentLoaded", async () => {
     const toggle = document.getElementById("allow_push_notifications")
 
     if (toggle) {
-      const reminder = document.querySelector(".push-notifications__reminder")
-      const hideClass = "hide"
+      const reminder = document.querySelector("#push-notifications-reminder")
+      const HIDE_CLASS = "hide"
 
       const subKeys = JSON.parse(document.querySelector("#subKeys").value)
 
       const registration = await navigator.serviceWorker.ready
-      let existingSubscription = await registration.pushManager.getSubscription()
+      const currentSubscription = await registration.pushManager.getSubscription()
 
-      if (existingSubscription) {
-        const auth = existingSubscription.toJSON().keys.auth
+      if (currentSubscription) {
+        const auth = currentSubscription.toJSON().keys.auth
         // Subscribed && browser notif enabled
         if (subKeys.includes(auth) && (window.Notification.permission === "granted")) {
-          reminder.classList.add(hideClass)
+          reminder.classList.add(HIDE_CLASS)
           toggle.checked = true
         }
         // Not Subscribed && browser notif enabled
         else if (!subKeys.includes(auth) && (window.Notification.permission === "granted")) {
-          reminder.classList.add(hideClass)
+          reminder.classList.add(HIDE_CLASS)
           toggle.checked = false
         }
         else {
@@ -53,14 +53,15 @@ window.addEventListener("DOMContentLoaded", async () => {
                 });
               }
             }
-            reminder.classList.add(hideClass)
+            reminder.classList.add(HIDE_CLASS)
           } else {
             throw new Error("Permission not granted for Notification");
           }
         }
         else {
-          existingSubscription = await registration.pushManager.getSubscription()
-          const auth = existingSubscription.toJSON().keys.auth
+          /* eslint-disable no-shadow */
+          const currentSubscription = await registration.pushManager.getSubscription()
+          const auth = currentSubscription.toJSON().keys.auth
           await fetch(`/notifications_subscriptions/${auth}`, {
             headers: {
               "Content-Type": "application/json",
@@ -73,7 +74,7 @@ window.addEventListener("DOMContentLoaded", async () => {
 
       if (toggle.checked) {
         if (window.Notification.permission === "granted") {
-          reminder.classList.add(hideClass)
+          reminder.classList.add(HIDE_CLASS)
         } else {
           toggle.checked = false
         }

@@ -74,7 +74,7 @@
     <% if @notifications_settings.meet_push_notifications_requirements? %>
       <div class="push-notifications">
         <p><strong><%= t(".push_notifications") %></strong></p>
-          <p class="push-notifications__reminder"><i><%= t(".push_notifications_reminder").html_safe %></i></p>
+          <p id="push-notifications-reminder" class="push-notifications__reminder"><i><%= t(".push_notifications_reminder").html_safe %></i></p>
           <div class="switch tiny switch-with-label allow_push_notifications">
             <label>
               <%= check_box_tag :allow_push_notifications, 0, false, class: "switch-input" %>
