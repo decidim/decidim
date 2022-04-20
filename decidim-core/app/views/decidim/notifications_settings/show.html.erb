@@ -72,7 +72,7 @@
     <% end %>
 
     <% if @notifications_settings.meet_push_notifications_requirements? %>
-      <div class="push-notifications">
+      <div class="push-notifications sw-mandatory">
         <p><strong><%= t(".push_notifications") %></strong></p>
           <p class="push-notifications__reminder"><i><%= t(".push_notifications_reminder") %></i></p>
           <div class="switch tiny switch-with-label allow_push_notifications">
