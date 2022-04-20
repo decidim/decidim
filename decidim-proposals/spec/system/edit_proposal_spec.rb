@@ -72,6 +72,30 @@ describe "Edit proposals", type: :system do
           expect(page).to have_no_content("Related documents")
           expect(page).to have_no_content("Related images")
         end
+
+        context "with attachment titles" do
+          let(:attachment_file_title) { ::Faker::Lorem.sentence }
+          let(:attachment_image_title) { ::Faker::Lorem.sentence }
+
+          it "can change attachment titles" do
+            visit_component
+            click_link translated(proposal.title)
+            click_link "Edit proposal"
+            click_button "Edit documents"
+            within ".upload-modal" do
+              find(".attachment-title").set(attachment_file_title)
+              click_button "Save"
+            end
+            click_button "Edit image"
+            within ".upload-modal" do
+              find(".attachment-title").set(attachment_image_title)
+              click_button "Save"
+            end
+            click_button "Send"
+            expect(Decidim::Attachment.find_by(attached_to_id: proposal.id, content_type: "image/jpeg").title["en"]).to eq(attachment_image_title)
+            expect(Decidim::Attachment.find_by(attached_to_id: proposal.id, content_type: "application/pdf").title["en"]).to eq(attachment_file_title)
+          end
+        end
       end
 
       context "with multiple images" do

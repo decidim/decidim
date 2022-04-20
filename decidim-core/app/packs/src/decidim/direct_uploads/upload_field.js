@@ -1,5 +1,5 @@
 import UploadModal from "src/decidim/direct_uploads/upload_modal";
-import { truncateFilename } from "src/decidim/direct_uploads/upload_utility";
+import { truncateFilename, createHiddenInput } from "src/decidim/direct_uploads/upload_utility";
 
 const loadAttachments = (um) => {
   Array.from(um.activeAttachments.children).forEach((child) => {
@@ -68,6 +68,17 @@ const addSaveButtonEventListener = (um) => {
       if (um.options.titled) {
         const title = item.querySelector("input[type='text']").value;
         details.dataset.title = title;
+        let hiddenTitle = details.querySelector(".hidden-title")
+        if (hiddenTitle) {
+          hiddenTitle.value = title;
+        } else {
+          const attachmentId = details.querySelector(`[name='${um.options.resourceName}[${um.name}][]'`).value
+          const ordinalNumber = um.getOrdinalNumber()
+          const hiddenTitleField = createHiddenInput("hidden-title", `${um.options.resourceName}[${um.options.addAttribute}][${ordinalNumber}][title]`, title)
+          const hiddenIdField = createHiddenInput("hidden-id", `${um.options.resourceName}[${um.options.addAttribute}][${ordinalNumber}][id]`, attachmentId)
+          details.appendChild(hiddenTitleField);
+          details.appendChild(hiddenIdField);
+        }
         span.innerHTML = `${title} (${truncateFilename(item.dataset.filename)})`;
       } else {
         span.innerHTML = truncateFilename(item.dataset.filename, 19);

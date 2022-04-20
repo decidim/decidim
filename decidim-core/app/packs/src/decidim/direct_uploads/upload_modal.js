@@ -67,8 +67,7 @@ export default class UploadModal {
         progressBar.innerHTML = this.locales.error;
         console.error(error);
       } else {
-        const ordinalNumber = this.attachmentCounter;
-        this.attachmentCounter += 1;
+        const ordinalNumber = this.getOrdinalNumber();
 
         const attachmentDetails = document.createElement("div");
         attachmentDetails.classList.add("attachment-details");
@@ -108,6 +107,12 @@ export default class UploadModal {
       }
     });
     this.updateDropZone();
+  }
+
+  getOrdinalNumber() {
+    const nextOrdinalNumber = this.attachmentCounter;
+    this.attachmentCounter += 1;
+    return nextOrdinalNumber;
   }
 
   updateDropZone() {
