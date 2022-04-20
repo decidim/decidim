@@ -5,7 +5,7 @@ window.addEventListener("load", async () => {
   } else {
     const mandatoryElements = document.querySelector(".sw-mandatory")
 
-    if (mandatoryElements.length > 0) {
+    if (mandatoryElements) {
       mandatoryElements.remove();
     }
     console.log("Your browser doesn't support service workers 🤷‍♀️");
