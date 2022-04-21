@@ -2,8 +2,7 @@
 window.addEventListener("load", async () => {
   if ("serviceWorker" in navigator) {
     await navigator.serviceWorker.register("/sw.js", { scope: "/" });
-
-    const mandatoryElements = document.querySelector(".sw-mandatory");
+    const mandatoryElements = document.querySelector(".js-sw-mandatory");
 
     if (mandatoryElements) {
       mandatoryElements.style.display = "block";
