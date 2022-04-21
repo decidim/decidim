@@ -26,7 +26,6 @@ module Decidim
         newsletter_notifications_at: data[:newsletter_notifications_at],
         direct_message_types: data[:direct_message_types],
         notification_settings: data[:notification_settings],
-        allow_push_notifications: data[:allow_push_notifications],
         valid?: valid
       )
     end
@@ -50,7 +49,6 @@ module Decidim
         expect(user.notification_types).to eq "none"
         expect(user.direct_message_types).to eq "followed-only"
         expect(user.notification_settings["close_meeting_reminder"]).to eq "0"
-        expect(user.allow_push_notifications).to be_truthy
       end
     end
   end
