@@ -42,16 +42,26 @@ describe "Edit proposals", type: :system do
       expect(page).to have_content(new_body)
     end
 
-    context "with attachments allowed" do
+    context "when attachments are allowed" do
       let(:component) { create(:proposal_component, :with_attachments_allowed, participatory_space: participatory_process) }
+
+      before do
+        visit_component
+        click_link translated(proposal.title)
+      end
+
+      it "shows validation error when format is not accepted" do
+        click_link "Edit proposal"
+        dynamically_attach_file(:proposal_photos, Decidim::Dev.asset("participatory_text.md"), keep_modal_open: true)
+        expect(page).to have_content("file should be one of (?-mix:image\\/.*?), (?-mix:application\\/pdf), (?-mix:application\\/rtf), (?-mix:text\\/plain)")
+      end
 
       context "with a file and photo" do
         let!(:file) { create(:attachment, :with_pdf, weight: 1, attached_to: proposal) }
         let!(:photo) { create(:attachment, :with_image, weight: 0, attached_to: proposal) }
 
         it "can delete attachments" do
-          visit_component
-          click_link translated(proposal.title)
+          visit current_path
           expect(page).to have_content("RELATED DOCUMENTS")
           expect(page).to have_content("RELATED IMAGES")
           click_link "Edit proposal"
@@ -78,8 +88,6 @@ describe "Edit proposals", type: :system do
           let(:attachment_image_title) { ::Faker::Lorem.sentence }
 
           it "can change attachment titles" do
-            visit_component
-            click_link translated(proposal.title)
             click_link "Edit proposal"
             click_button "Edit image"
             within ".upload-modal" do
@@ -104,8 +112,6 @@ describe "Edit proposals", type: :system do
 
       context "with multiple images" do
         it "can add many images many times" do
-          visit_component
-          click_link translated(proposal.title)
           click_link "Edit proposal"
           dynamically_attach_file(:proposal_photos, Decidim::Dev.asset("city.jpeg"))
           dynamically_attach_file(:proposal_documents, Decidim::Dev.asset("icon.png"))

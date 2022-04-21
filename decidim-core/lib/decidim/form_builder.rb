@@ -403,16 +403,17 @@ module Decidim
     def attachment(attribute, options = {})
       object_attachment = object.attachment.present?
       record = object_attachment ? object.attachment : object
-
       options = {
         titled: true,
         resource_class: "Decidim::Attachment",
         show_current: false,
         max_file_size: max_file_size(record, :file),
-        help: options[:help] || upload_help(record, attribute, options),
         label: I18n.t("decidim.forms.upload.labels.add_attachment"),
-        button_edit_label: I18n.t("decidim.forms.upload.labels.edit_image")
+        button_edit_label: I18n.t("decidim.forms.upload.labels.edit_image"),
+        extension_allowlist: Decidim.organization_settings(Decidim::Attachment).upload_allowed_file_extensions
       }.merge(options)
+      options[:help] = upload_help(record, attribute, options) if options[:help].blank?
+
       upload(attribute, options)
     end
 
@@ -441,6 +442,8 @@ module Decidim
       self.multipart = true
       max_file_size = options[:max_file_size] || max_file_size(object, attribute)
       button_label = options[:button_label] || choose_button_label(attribute)
+      help_messages = options[:help] || upload_help(object, attribute, options)
+
       options = {
         attribute: attribute,
         resource_name: @object_name,
@@ -449,7 +452,7 @@ module Decidim
         titled: false,
         show_current: true,
         max_file_size: max_file_size,
-        help: upload_help(object, attribute, options),
+        help: help_messages,
         label: label_for(attribute),
         button_label: button_label,
         button_edit_label: I18n.t("decidim.forms.upload.labels.replace")

@@ -46,9 +46,13 @@ export class Uploader {
     }
 
     if (!this.validationSent) {
+      let property = this.modal.options.addAttribute;
+      if (this.modal.options.titled) {
+        property = "file"
+      }
       const params = new URLSearchParams({
         resourceClass: this.modal.options.resourceClass,
-        property: this.modal.options.addAttribute,
+        property: property,
         blob: blobId,
         formClass: this.modal.options.formObjectClass
       });
