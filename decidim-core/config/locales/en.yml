@@ -1111,6 +1111,8 @@ en:
         translated_text: 'Automatically translated text:'
     notifications:
       no_notifications: No notifications yet.
+      show:
+        missing_event: 'Missing event: This resource is no longer available.'
     notifications_settings:
       show:
         administrators: Administrators
