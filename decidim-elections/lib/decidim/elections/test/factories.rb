@@ -124,13 +124,13 @@ FactoryBot.define do
       end
     end
 
-    trait :tally do
+    trait :tally_started do
       vote_ended
-      bb_status { "tally" }
+      bb_status { "tally_started" }
     end
 
     trait :tally_ended do
-      tally
+      tally_started
       bb_status { "tally_ended" }
       verifiable_results_file_hash { SecureRandom.hex(32) }
       verifiable_results_file_url { Faker::Internet.url }

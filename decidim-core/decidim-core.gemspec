@@ -58,7 +58,6 @@ Gem::Specification.new do |s|
   s.add_dependency "rails", "~> 6.1.0"
   s.add_dependency "rails-i18n", "~> 6.0"
   s.add_dependency "ransack", "~> 2.4.1"
-  s.add_dependency "rectify", "~> 0.13.0"
   s.add_dependency "redis", "~> 4.1"
   s.add_dependency "request_store", "~> 1.5.0"
   s.add_dependency "rubyXL", "~> 3.4"

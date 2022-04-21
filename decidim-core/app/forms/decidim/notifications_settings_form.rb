@@ -14,6 +14,7 @@ module Decidim
     attribute :allow_public_contact, Boolean
     attribute :allow_push_notifications, Boolean
     attribute :notification_settings, Hash
+    attribute :allow_push_notifications, Boolean
 
     def map_model(user)
       self.newsletter_notifications = user.newsletter_notifications_at.present?

@@ -4,7 +4,6 @@ require "rails-controller-testing"
 require "rspec/rails"
 require "rspec/cells"
 require "byebug"
-require "rectify/rspec"
 require "wisper/rspec/stub_wisper_publisher"
 require "db-query-matchers"
 require "action_view/helpers/sanitize_helper"
@@ -32,7 +31,6 @@ RSpec.configure do |config|
   # instead of true.
   config.use_transactional_fixtures = true
 
-  config.include Rectify::RSpec::Helpers
   config.include ActionView::Helpers::SanitizeHelper
   config.include ERB::Util
 end

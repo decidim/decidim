@@ -73,7 +73,7 @@ module Decidim
             "key_ceremony_ended" => VotePeriodForm,
             "vote" => VotePeriodForm,
             "vote_ended" => ActionForm,
-            "tally" => ReportMissingTrusteeForm,
+            "tally_started" => ReportMissingTrusteeForm,
             "tally_ended" => ActionForm
           }[current_step]
         end
@@ -85,7 +85,7 @@ module Decidim
             "key_ceremony_ended" => StartVote,
             "vote" => EndVote,
             "vote_ended" => StartTally,
-            "tally" => ReportMissingTrustee,
+            "tally_started" => ReportMissingTrustee,
             "tally_ended" => PublishResults
           }[current_step]
         end

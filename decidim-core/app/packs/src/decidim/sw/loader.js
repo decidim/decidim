@@ -1,8 +1,15 @@
 // check if the browser supports serviceWorker at all
-window.addEventListener("load", () => {
+window.addEventListener("load", async () => {
   if ("serviceWorker" in navigator) {
-    navigator.serviceWorker.register("/sw.js", { scope: "/" });
+    await navigator.serviceWorker.register("/sw.js", { scope: "/" });
+
+    const mandatoryElements = document.querySelector(".sw-mandatory");
+
+    if (mandatoryElements) {
+      mandatoryElements.style.display = "block";
+    }
   } else {
     console.log("Your browser doesn't support service workers 🤷‍♀️");
   }
 });
+
