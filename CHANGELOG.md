@@ -12,6 +12,10 @@ In the next version (v0.28.0) it will be fully removed from the database.
 
 ### Added
 
+#### Upgrade to Ruby 3.0
+
+PR [\#8452] https://github.com/decidim/decidim/pull/8452 has upgraded the required ruby version to 3.0. Upgrading to this version will require either to install the Ruby Version on your host, or change the decidim docker image to use ruby:3.0.2.
+
 #### Rails Upgrade to 6.1
 PR [\#8411] https://github.com/decidim/decidim/pull/8411 changes the following:
 
