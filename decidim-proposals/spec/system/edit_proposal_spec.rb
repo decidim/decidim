@@ -52,7 +52,9 @@ describe "Edit proposals", type: :system do
 
       it "shows validation error when format is not accepted" do
         click_link "Edit proposal"
-        dynamically_attach_file(:proposal_photos, Decidim::Dev.asset("participatory_text.md"), keep_modal_open: true)
+        dynamically_attach_file(:proposal_photos, Decidim::Dev.asset("participatory_text.md"), keep_modal_open: true) do
+          expect(page).to have_content("Accepted formats: #{Decidim::OrganizationSettings.for(organization).upload_allowed_file_extensions_image.join(", ")}")
+        end
         expect(page).to have_content("file should be one of (?-mix:image\\/.*?), (?-mix:application\\/pdf), (?-mix:application\\/rtf), (?-mix:text\\/plain)")
       end
 
