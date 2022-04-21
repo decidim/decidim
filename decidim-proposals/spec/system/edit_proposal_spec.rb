@@ -81,13 +81,13 @@ describe "Edit proposals", type: :system do
             visit_component
             click_link translated(proposal.title)
             click_link "Edit proposal"
-            click_button "Edit documents"
             click_button "Edit image"
             within ".upload-modal" do
               expect(page).to have_content("Preferrably a landscape image that does not have any text")
               find(".attachment-title").set(attachment_image_title)
               click_button "Save"
             end
+            click_button "Edit documents"
             within ".upload-modal" do
               expect(page).to have_content("Has to be an image or a document")
               find(".attachment-title").set(attachment_file_title)
@@ -96,8 +96,8 @@ describe "Edit proposals", type: :system do
             click_button "Send"
             expect(page).to have_selector("div.flash.callout.success")
             expect(Decidim::Attachment.count).to eq(2)
-            expect(Decidim::Attachment.find_by(attached_to_id: proposal.id, content_type: "image/jpeg").title["en"]).to eq(attachment_image_title)
-            expect(Decidim::Attachment.find_by(attached_to_id: proposal.id, content_type: "application/pdf").title["en"]).to eq(attachment_file_title)
+            expect(translated(Decidim::Attachment.find_by(attached_to_id: proposal.id, content_type: "image/jpeg").title)).to eq(attachment_image_title)
+            expect(translated(Decidim::Attachment.find_by(attached_to_id: proposal.id, content_type: "application/pdf").title)).to eq(attachment_file_title)
           end
         end
       end
