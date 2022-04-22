@@ -36,7 +36,9 @@
                 <% end %>
               </td>
               <td>
-                <%= image_tag(partner.attached_uploader(:logo).path(variant: :thumb)) %>
+                <% if partner.attached_uploader(:logo).path %>
+                  <%= image_tag(partner.attached_uploader(:logo).path(variant: :thumb)) %>
+                <% end %>
               </td>
               <td class="table-list__actions">
                 <% if allowed_to? :update, :partner, partner: partner %>

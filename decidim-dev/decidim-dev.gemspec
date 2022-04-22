@@ -47,6 +47,5 @@ Gem::Specification.new do |s|
   s.add_dependency "simplecov-cobertura", "~> 1.3.1"
   s.add_dependency "w3c_rspec_validators", "~> 0.3.0"
   s.add_dependency "webmock", "~> 3.6"
-  s.add_dependency "webpush", "~> 1.1"
   s.add_dependency "wisper-rspec", "~> 1.0"
 end

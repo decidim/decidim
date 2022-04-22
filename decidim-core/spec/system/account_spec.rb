@@ -157,6 +157,33 @@ describe "Account", type: :system do
           expect(page).to have_content("successfully")
         end
       end
+
+      context "when the user is an admin" do
+        let!(:user) { create(:user, :confirmed, :admin, password: password, password_confirmation: password) }
+
+        before do
+          login_as user, scope: :user
+          visit decidim.notifications_settings_path
+        end
+
+        it "updates the administrator's notifications" do
+          within ".switch.email_on_moderations" do
+            page.find(".switch-paddle").click
+          end
+
+          within ".switch.notification_settings" do
+            page.find(".switch-paddle").click
+          end
+
+          within "form.edit_user" do
+            find("*[type=submit]").click
+          end
+
+          within_flash_messages do
+            expect(page).to have_content("successfully")
+          end
+        end
+      end
     end
 
     context "when on the delete my account page" do

@@ -24,6 +24,7 @@ ar:
         other: الأصوات
   decidim:
     comments:
+      comments_title: التعليقات
       last_activity:
         new_comment_at_html: "<span>تعليق جديد على %{link}</span>"
       votes:
@@ -49,7 +50,9 @@ ar:
         alignment:
           against: ضد
           in_favor: لصالح
+        delete: حذف
         deleted_user: مشارك محذوف
+        edit: تعديل
         hide_replies: إخفاء الردود
         reply: الرد
         report:

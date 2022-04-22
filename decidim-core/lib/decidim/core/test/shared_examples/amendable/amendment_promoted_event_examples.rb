@@ -8,7 +8,6 @@ shared_examples "amendment promoted event" do
 
   it_behaves_like "a simple event"
 
-  let(:amendable_title) { amendable.title }
   let(:emendation_author_nickname) { "@#{emendation.creator_author.nickname}" }
   let(:emendation_path) { Decidim::ResourceLocatorPresenter.new(emendation).path }
   let(:emendation_author_path) { Decidim::UserPresenter.new(emendation.creator_author).profile_path }

@@ -3,7 +3,7 @@
 require "spec_helper"
 
 describe "DataPortability", type: :system do
-  let(:user) { create(:user, :confirmed, password: "password1234", password_confirmation: "password1234", name: "Hodor User") }
+  let(:user) { create(:user, :confirmed, name: "Hodor User") }
   let(:organization) { user.organization }
 
   before do

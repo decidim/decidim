@@ -75,10 +75,6 @@ eu:
       postal_letter:
         explanation: Posta-gutun bat bidaliko dizugu, sartu behar duzun kode batekin, beraz, zure helbidea egiaztatu ahal izango dugu
         name: Kodea posta bidez
-    events:
-      verifications:
-        verify_with_managed_user:
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> parte-hartzailea saiatu da bere burua identifikatzen <a href="%{managed_user_path}">%{managed_user_name}</a> kudeatutako parte-hartzailearen datuekin
     verifications:
       authorizations:
         authorization_metadata:

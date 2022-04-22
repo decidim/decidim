@@ -725,12 +725,8 @@ pl:
             many: "%{count} propozycji"
             other: "%{count} propozycji"
         edit:
-          add_documents: Dokumenty
-          add_images: Plik
           attachment_legend: "(Opcjonalnie) Dodaj załącznik"
           back: Wróć
-          delete_document: Usuń dokument
-          delete_image: Usuń obraz
           gallery_legend: "(Opcjonalnie) Dodaj obraz do karty propozycji"
           select_a_category: Wybierz kategorię
           send: Wyślij

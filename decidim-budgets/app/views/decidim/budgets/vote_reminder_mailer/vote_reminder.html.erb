@@ -7,7 +7,7 @@
   <li>
     <%= link_to(
       translated_attribute(order.budget.title),
-      routes.budget_path(order.budget)
+      routes.budget_url(order.budget, host: @organization.host)
     ) %>
   </li>
   <% end %>
@@ -17,5 +17,5 @@
 
 <%= link_to(
   t(".email_link"),
-  routes.root_path
+  routes.root_url(host: @organization.host)
 ) %>

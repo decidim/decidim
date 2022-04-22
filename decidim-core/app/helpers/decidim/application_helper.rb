@@ -119,5 +119,9 @@ module Decidim
         [base_url, "/", process.active_step.cta_path].join("")
       end
     end
+
+    def prevent_timeout_seconds
+      0
+    end
   end
 end

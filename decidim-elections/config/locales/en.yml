@@ -274,15 +274,6 @@ en:
             selected: Selected
             submit: Submit
             title: Results published
-          tally:
-            continue: Continue
-            invalid: There was a problem reporting the missing trustee
-            mark_as_missing: Mark as missing
-            mark_as_missing_description: All the trustees should participate in this process, but if a trustee can't take part in the process, you can mark it as missing.
-            success: Missing trustee report was successfully sent to the Bulletin Board
-            tally_completion: The process will be completed when all the trustees are active or marked as missing. At least %{quorum} trustees are required to complete the process.
-            title: Tally process
-            undo_mark_as_missing: A trustee marked as missing by mistake will be able to participate before the completion of the process. They can proceed as usual and the missing mark will be ignored.
           tally_ended:
             answer: Answer
             not_selected: Not selected
@@ -292,6 +283,15 @@ en:
             submit: Publish results
             success: Publish results request was successfully sent to the Bulletin Board
             title: Calculated results
+          tally_started:
+            continue: Continue
+            invalid: There was a problem reporting the missing trustee
+            mark_as_missing: Mark as missing
+            mark_as_missing_description: All the trustees should participate in this process, but if a trustee can't take part in the process, you can mark it as missing.
+            success: Missing trustee report was successfully sent to the Bulletin Board
+            tally_completion: The process will be completed when all the trustees are active or marked as missing. At least %{quorum} trustees are required to complete the process.
+            title: Tally process
+            undo_mark_as_missing: A trustee marked as missing by mistake will be able to participate before the completion of the process. They can proceed as usual and the missing mark will be ignored.
           vote:
             errors:
               time_after: The election is still ongoing. You have to wait until the ending time (%{end_time}) to end the voting period.
@@ -531,7 +531,7 @@ en:
             title: Restore election keys for %{election}
             upload_election_keys: Upload election keys
             upload_icon: Icon that indicates a download action
-          tally_steps:
+          tally_started_steps:
             back: Back
             description: The results for this election are being computed in the Bulletin Board. To complete this process, your participitation as a Trustee is needed.
             keys:
@@ -600,7 +600,7 @@ en:
           audit: "( Audit ballot )"
           back: Start voting process again
           ballot_hash: 'Your ballot identifier is:'
-          cast: Cast ballot
+          cast: Cast ballot to finish your vote
           description: Here, you have the options to cast your ballot so that it's properly counted or, alternatively, you can audit that your ballot was correctly encrypted. For security reasons, auditing your ballot will spoil it. That means, to cast your vote, you will need to restart the voting process.
           header: 'Ballot is encrypted: cast it or audit it'
         casting:
@@ -1276,8 +1276,8 @@ en:
           check_status: Check status
           description: Here, you have the option to check your census data to know if you have the right to participate in this voting. You should have an access code already but if you lost it, you can ask for it again, when your data is correct.
           error:
-            info: 'Please try again. If you think the data in the system is incorrect, you can report it here: %{census_contact_information}.'
-            title: Your census data is incorrect!
+            info: 'Please try again. If you think the data in the system is incorrect, you can report it here: %{census_contact_information}'
+            title: The data you have entered are not in the census for this vote
           form_title: 'Fill the following form to check your census data:'
           invalid: There was a problem checking the census.
           success:

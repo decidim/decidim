@@ -13,7 +13,7 @@ describe "Admin invite", type: :system do
       reference_prefix: "JKR",
       host: "decide.lvh.me",
       organization_admin_name: "Fiorello Henry La Guardia",
-      organization_admin_email: "f.laguardia@gotham.gov",
+      organization_admin_email: "f.laguardia@example.org",
       available_locales: ["en"],
       default_locale: "en",
       users_registration_mode: "enabled",
@@ -22,7 +22,7 @@ describe "Admin invite", type: :system do
         "port" => "25",
         "user_name" => "f.laguardia",
         "password" => Decidim::AttributeEncryptor.encrypt("password"),
-        "from" => "no-reply@decide.lvh.me"
+        "from" => "no-reply@example.org"
       },
       file_upload_settings: Decidim::OrganizationSettings.default(:upload)
     }
@@ -42,8 +42,8 @@ describe "Admin invite", type: :system do
 
       within "form.new_user" do
         fill_in :invitation_user_nickname, with: "caballo_loco"
-        fill_in :invitation_user_password, with: "123456"
-        fill_in :invitation_user_password_confirmation, with: "123456"
+        fill_in :invitation_user_password, with: "decidim123456"
+        fill_in :invitation_user_password_confirmation, with: "decidim123456"
         check :invitation_user_tos_agreement
         find("*[type=submit]").click
       end

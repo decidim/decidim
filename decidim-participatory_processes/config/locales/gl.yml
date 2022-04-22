@@ -415,6 +415,8 @@ gl:
           see: Ver
         index:
           loading: Cargando resultados ...
+        show:
+          title: Sobre este proceso
       show:
         area: Área
         belongs_to_group: Este proceso pertence a

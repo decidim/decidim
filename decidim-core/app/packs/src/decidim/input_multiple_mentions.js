@@ -1,5 +1,19 @@
 import AutoComplete from "src/decidim/autocomplete";
 
+const updateSubmitButton = ($fieldContainer, $selectedItems) => {
+  const $form = $fieldContainer.closest("form");
+  if ($form.length < 1) {
+    return;
+  }
+
+  const $submitButton = $form.find("button[type='submit']");
+  if ($selectedItems.children().length === 0) {
+    $submitButton.prop("disabled", true);
+  } else {
+    $submitButton.prop("disabled", false);
+  }
+}
+
 $(() => {
   const $fieldContainer = $(".multiple-mentions");
   if ($fieldContainer.length < 1) {
@@ -24,6 +38,7 @@ $(() => {
     $selectedItems.before(emptyFocusElement);
   }
 
+  updateSubmitButton($fieldContainer, $selectedItems);
   const autoComplete = new AutoComplete($searchInput[0], {
     dataMatchKeys: ["name", "nickname"],
     dataSource: (query, callback) => {
@@ -82,6 +97,7 @@ $(() => {
 
     autoComplete.setInput("");
     selected.push(id);
+    updateSubmitButton($fieldContainer, $selectedItems);
 
     $selectedItems.find(`*[data-remove="${id}"]`).on("keypress click", (evt) => {
       const target = evt.target.parentNode;
@@ -91,6 +107,7 @@ $(() => {
         selected = selected.filter((identifier) => identifier !== id);
         target.remove();
 
+        updateSubmitButton($fieldContainer, $selectedItems);
         focusElement.focus();
       }
     })

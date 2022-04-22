@@ -44,8 +44,8 @@ module Decidim
       def verify_import
         return if importer.verify
 
-        importer.errors.each do |_col, message|
-          errors.add(:file, message)
+        importer.errors.each do |error|
+          errors.add(:file, error.message)
         end
       end
 
