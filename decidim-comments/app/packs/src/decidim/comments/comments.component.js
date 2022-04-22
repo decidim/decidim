@@ -1,4 +1,6 @@
 /* eslint id-length: ["error", { "exceptions": ["$"] }] */
+/* eslint max-lines: ["error", {"max": 350, "skipBlankLines": true}] */
+
 
 /**
  * A plain Javascript component that handles the comments.
