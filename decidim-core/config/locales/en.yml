@@ -1112,7 +1112,7 @@ en:
     notifications:
       no_notifications: No notifications yet.
       show:
-        missing_event: 'Missing event: This resource is no longer available.'
+        missing_event: Oops, this notification belongs to an item that is no longer available. You can discard it.
     notifications_settings:
       show:
         administrators: Administrators
