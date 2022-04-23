@@ -93,7 +93,6 @@ export default class CommentsComponent {
     const $comment = $(replyHtml);
     const $replies = $(`#comment-${commentId}-replies`);
     this._addComment($replies, $comment);
-    $replies.siblings(".comment__additionalreply").removeClass("hide");
     this._finalizeCommentCreation($parent, fromCurrentUser);
   }
 
