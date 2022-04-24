@@ -680,6 +680,7 @@ en:
             back: Back to the platform
             submit: Check
             vote_identifier: 'Identifier code:'
+            vote_identifier_help: This is the identifier that was given to you after you cast your vote (not the code to enter the voting booth).
           header:
             title: Verify your vote
           success:
