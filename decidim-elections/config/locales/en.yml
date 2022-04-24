@@ -18,9 +18,17 @@ en:
         min_selections: None of the above option
         title: Title
       voting:
+        banner_image: Banner image
+        census_contact_information: Census contact information
+        description: Description
         end_time: Voting ends
-        start_time: Voting begins
         hide_can_i_vote: Hide "Can I vote?"
+        introductory_image: Introductory image
+        promoted: Promoted
+        scope: Scope
+        start_time: Voting begins
+        title: Title
+        voting_type: Voting type
     errors:
       models:
         answer:
