@@ -227,6 +227,7 @@ en:
         questions:
           create:
             invalid: There was a problem creating this question
+            already_started: Election already started
             success: Question successfully created
           destroy:
             invalid: There was a problem deleting this question
