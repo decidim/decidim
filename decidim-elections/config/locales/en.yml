@@ -226,8 +226,8 @@ en:
             title: Import proposals
         questions:
           create:
-            invalid: There was a problem creating this question
             already_started: Election already started
+            invalid: There was a problem creating this question
             success: Question successfully created
           destroy:
             invalid: There was a problem deleting this question
