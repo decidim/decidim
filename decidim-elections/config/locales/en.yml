@@ -20,6 +20,7 @@ en:
       voting:
         end_time: Voting ends
         start_time: Voting begins
+        hide_can_i_vote: Hide "Can I vote?"
     errors:
       models:
         answer:
@@ -998,6 +999,7 @@ en:
             banner_image: Banner image
             census_contact_information: Census contact information
             census_contact_information_help: This contact information is for a participant who wants to report issues with the census. It can be an email address, a contact form on another site, a survey for visitors, etc.
+            hide_can_i_vote_help: Whether to show the "Can I vote?" link at the public votings menu
             introductory_image: Introductory image
             promoted: Promoted
             select_a_voting_type: Please select a voting type

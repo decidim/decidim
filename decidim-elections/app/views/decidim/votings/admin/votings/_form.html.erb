@@ -45,6 +45,15 @@
     </div>
 
     <div class="row">
+      <div class="columns xlarge-6 hide_can_i_vote">
+        <%= form.check_box :hide_can_i_vote %>
+        <p class="help-text">
+          <%== t(".hide_can_i_vote_help") %>
+        </p>
+      </div>
+    </div>
+
+    <div class="row">
       <div class="columns xlarge-6 census_contact_information">
         <%= form.text_field :census_contact_information, label: t(".census_contact_information") %>
         <p class="help-text">

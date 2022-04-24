@@ -20,6 +20,7 @@ module Decidim
         attribute :introductory_image
         attribute :voting_type, String
         attribute :census_contact_information, String
+        attribute :hide_can_i_vote, Boolean, default: false
 
         validates :title, translatable_presence: true
         validates :description, translatable_presence: true

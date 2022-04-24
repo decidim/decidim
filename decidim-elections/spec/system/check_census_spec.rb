@@ -36,6 +36,18 @@ describe "Check Census", type: :system do
     end
   end
 
+  context "when the page has been hidden" do
+    before do
+      voting.update!(hide_can_i_vote: true)
+    end
+
+    it "returns a not found page" do
+      visit decidim_votings.voting_path(voting)
+
+      expect(page).not_to have_content("CAN I VOTE?")
+    end
+  end
+
   context "when census data is correct" do
     before do
       visit decidim_votings.voting_check_census_path(voting)
