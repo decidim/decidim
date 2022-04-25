@@ -1367,6 +1367,7 @@ en:
         copy_share_link_message: The link was successfully copied to clipboard.
         share: Share
         share_link: Share link
+        share_to: Share to %{service}
     statistics:
       comments_count: Comments
       endorsements_count: Endorsements
