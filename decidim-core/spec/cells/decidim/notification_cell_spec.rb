@@ -27,7 +27,7 @@ describe Decidim::NotificationCell, type: :cell do
     end
 
     it "Resource title is present" do
-      expect(my_cell.notification_title).to include("Missing event")
+      expect(my_cell.notification_title).to include("this notification belongs to an item that is no longer available")
     end
   end
 end
