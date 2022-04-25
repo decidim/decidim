@@ -1,0 +1,62 @@
+= Social shares services
+
+Starting with the v0.27.0, you have the following social shares services that you can enable.
+
+== Configuration
+
+By using the `DECIDIM_SOCIAL_SHARE_SERVICES` environment variable, you can enable snervices:
+
+The format of this is like this "Facebook, Twitter".
+
+The possible services that you can enable are:
+
+* Douban
+* Email
+* Facebook
+* Google Bookmark
+* Hacker News
+* LinkedIn
+* Odnoklassniki
+* Pinterest
+* Reddit
+* Telegram
+* Twitter
+* Vkontakte
+* WhatsApp
+* Xing
+
+NOTE: Services names are case sensitive.
+
+== Default services
+
+By default we enable the following services: Twitter, Facebook, WhatsApp and Telegram.
+
+image::social-share-modal-default.png[Social share modal]
+
+== Custom services
+
+If you have the need, you can enable your own service. To do that, as an example for a ficticious social service called "Foo", you'll need to follow these steps:
+
+. Add the logo of your service to the images' pack at `app/packs/images/`. Following the example, it'd be "foo.svg"
+
+. Add the social share service block configuration at the bottom of your Decidim initializer:
+
+[source,ruby]
+----
+Decidim.social_share_services("Foo") do |service|
+  service.icon = "foo.svg"
+  service.share_uri = "https://foo.example.com/share?url=%{url}"
+end
+----
+
+[NOTE]
+----
+Depending on the service, you could use the following variables in the share URI:
+* url
+* title
+* desc
+* image
+----
+
+. Add the "Foo" service to `DECIDIM_SOCIAL_SHARE_SERVICES` environment variable.
+
