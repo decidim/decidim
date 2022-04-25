@@ -31,7 +31,7 @@ module Decidim
 
         it "renders the correct HTML" do
           expect(result).to include("Share to Twitter")
-          expect(result).to include("https://twitter.com/intent/tweet?url=http://example.org&amp;text=Hello")
+          expect(result).to include("https://twitter.com/intent/tweet?url=http%3A%2F%2Fexample.org&amp;text=Hello")
           expect(result).to include(".svg")
         end
       end
@@ -45,9 +45,9 @@ module Decidim
           expect(result).to include("Share to Twitter")
           expect(result).to include("Share to Facebook")
           expect(result).to include("Share to WhatsApp")
-          expect(result).to include("https://twitter.com/intent/tweet?url=http://example.org&amp;text=Hello")
-          expect(result).to include("http://www.facebook.com/sharer/sharer.php?u=http://example.org")
-          expect(result).to include("https://api.whatsapp.com/send?text=Hello%0Ahttp://example.org")
+          expect(result).to include("https://twitter.com/intent/tweet?url=http%3A%2F%2Fexample.org&amp;text=Hello")
+          expect(result).to include("http://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fexample.org")
+          expect(result).to include("https://api.whatsapp.com/send?text=Hello%0Ahttp%3A%2F%2Fexample.org")
           expect(result).to include(".svg")
         end
       end

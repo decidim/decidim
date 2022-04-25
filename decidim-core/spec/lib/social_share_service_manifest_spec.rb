@@ -51,9 +51,13 @@ module Decidim
     end
 
     describe "#formatted_share_uri" do
+      before do
+        subject.share_uri = "https://example.com/share?url=%{url}"
+      end
+
       it "returns the correct formatted uri" do
-        expected_share_uri = "https://example.com/share?url=https://other.example.org"
-        expect(subject.formatted_share_uri("Bar", { url: "https://other.example.org" })).to eq(expected_share_uri)
+        expected_url = "https://example.com/share?url=https%3A%2F%2Fother.example.org"
+        expect(subject.formatted_share_uri("Bar", { url: "https://other.example.org" })).to eq(expected_url)
       end
 
       context "when there's a title" do
@@ -62,8 +66,20 @@ module Decidim
         end
 
         it "returns the correct formatted uri" do
-          expected_share_uri = "https://example.com/share?title=Bar&url=https://other.example.org"
-          expect(subject.formatted_share_uri("Bar", { url: "https://other.example.org" })).to eq(expected_share_uri)
+          expected_url = "https://example.com/share?title=Bar&url=https%3A%2F%2Fother.example.org"
+          expect(subject.formatted_share_uri("Bar", { url: "https://other.example.org" })).to eq(expected_url)
+        end
+      end
+
+      context "when there are other parameters" do
+        before do
+          subject.share_uri = "https://example.com/share?title=%{title}&url=%{url}&desc=%{desc}"
+        end
+
+        it "returns the correct formatted uri" do
+          expected_url = "https://example.com/share?title=Bar&url=https%3A%2F%2Fother.example.org&desc=Hello+world"
+          params = { url: "https://other.example.org", desc: "Hello world" }
+          expect(subject.formatted_share_uri("Bar", params)).to eq(expected_url)
         end
       end
     end
