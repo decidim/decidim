@@ -108,6 +108,7 @@ module Decidim
   autoload :AttributeObject, "decidim/attribute_object"
   autoload :Query, "decidim/query"
   autoload :Command, "decidim/command"
+  autoload :SocialShareServiceManifest, "decidim/social_share_service_manifest"
 
   include ActiveSupport::Configurable
   # Loads seeds from all engines.
@@ -482,6 +483,16 @@ module Decidim
     resource_registry.register(name, &block)
   end
 
+  # Public: Registers a social share service.
+  #
+  # Returns nothing.
+  def self.social_share_services(name, &block)
+    social_share_service_registry.register(name, &block)
+  end
+
+  # Public: Registers a notification setting.
+  #
+  # Returns nothing.
   def self.notification_settings(name, &block)
     notification_settings_registry.register(name, &block)
   end
@@ -549,6 +560,7 @@ module Decidim
     @participatory_space_registry ||= ManifestRegistry.new(:participatory_spaces)
   end
 
+  # Public: Stores the registry of reminders
   def self.reminders_registry
     @reminders_registry ||= ReminderRegistry.new
   end
@@ -558,6 +570,12 @@ module Decidim
     @resource_registry ||= ManifestRegistry.new(:resources)
   end
 
+  # Public: Stores the registry of social shares services
+  def self.social_share_service_registry
+    @social_share_service_registry ||= ManifestRegistry.new(:social_share_services)
+  end
+
+  # Public: Stores the registry of notifications settings
   def self.notification_settings_registry
     @notification_settings_registry ||= ManifestRegistry.new(:notification_settings)
   end

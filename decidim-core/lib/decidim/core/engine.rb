@@ -558,6 +558,79 @@ module Decidim
         end
       end
 
+      initializer "decidim.core.add_social_share_services" do
+        Decidim.social_share_services("Douban") do |service|
+          service.icon = "douban.svg"
+          service.share_uri = "http://shuo.douban.com/!service/share?href=%{url}&name=%{title}&image=%{image}&sel=%{desc}"
+        end
+
+        Decidim.social_share_services("Email") do |service|
+          service.icon = "email.svg"
+          service.share_uri = "mailto:?subject=%{title}&body=%{url}"
+        end
+
+        Decidim.social_share_services("Facebook") do |service|
+          service.icon = "facebook.svg"
+          service.share_uri = "http://www.facebook.com/sharer/sharer.php?u=%{url}"
+        end
+
+        Decidim.social_share_services("Google Bookmark") do |service|
+          service.icon = "google_bookmark.svg"
+          service.share_uri = "https://www.google.com/bookmarks/mark?op=edit&output=popup&bkmk=%{url}&title=%{title}"
+        end
+
+        Decidim.social_share_services("Hacker News") do |service|
+          service.icon = "hacker_news.svg"
+          service.share_uri = "http://news.ycombinator.com/submitlink?u=%{url}&t=%{title}"
+        end
+
+        Decidim.social_share_services("LinkedIn") do |service|
+          service.icon = "linkedin.svg"
+          service.share_uri = "https://www.linkedin.com/shareArticle?mini=true&url=%{url}&title=%{title}&summary=%{desc}"
+        end
+
+        Decidim.social_share_services("Odnoklassniki") do |service|
+          service.icon = "odnoklassniki.svg"
+          service.share_uri = "https://connect.ok.ru/offer?url=%{url}&title=%{title}&description=%{desc}&imageUrl=%{image}"
+        end
+
+        Decidim.social_share_services("Pinterest") do |service|
+          service.icon = "pinterest.svg"
+          service.share_uri = "http://www.pinterest.com/pin/create/button/?url=%{url}&media=%{image}&description=%{title}"
+        end
+
+        Decidim.social_share_services("Reddit") do |service|
+          service.icon = "reddit.svg"
+          service.share_uri = "http://www.reddit.com/submit?url=%{url}&newwindow=1"
+        end
+
+        Decidim.social_share_services("Telegram") do |service|
+          service.icon = "telegram.svg"
+          service.share_uri = "https://telegram.me/share/url?text=%{title}&url=%{url}"
+        end
+
+        Decidim.social_share_services("Twitter") do |service|
+          service.icon = "twitter.svg"
+          service.share_uri = "https://twitter.com/intent/tweet?url=%{url}&text=%{title}"
+          # TODO hashtag? via?
+        end
+
+        Decidim.social_share_services("Vkontakte") do |service|
+          service.icon = "vkontakte.svg"
+          service.share_uri = "http://vk.com/share.php?url=%{url}&title=%{title}&image=%{image}"
+        end
+
+        Decidim.social_share_services("WhatsApp") do |service|
+          service.icon = "whatsapp.svg"
+          service.share_uri = "https://api.whatsapp.com/send?text=%{title}%%0A%{url}"
+        end
+
+        Decidim.social_share_services("Xing") do |service|
+          service.icon = "xing.svg"
+          service.share_uri = "https://www.xing.com/spi/shares/new?url=%{url}"
+        end
+      end
+
       initializer "decidim.premailer" do
         Premailer::Adapter.use = :decidim
       end
