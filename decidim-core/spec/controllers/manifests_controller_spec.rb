@@ -6,7 +6,7 @@ module Decidim
   describe ManifestsController, type: :controller do
     routes { Decidim::Core::Engine.routes }
 
-    let(:organization) { create(:organization, colors: { "theme" => "#f0f0f0" }) }
+    let(:organization) { create(:organization, name: "Organization's name", colors: { "theme" => "#f0f0f0" }) }
 
     before do
       Decidim::Organization.destroy_all
