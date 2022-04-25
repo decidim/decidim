@@ -114,9 +114,6 @@ en:
       skip_button: Skip to main content
     account:
       blocked: This account has been blocked due to Terms and Conditions violation
-      download_your_data_export:
-        file_no_exists: File does not exist
-        notice: The download of your data is currently in progress. You'll receive an email when it's complete.
       delete:
         alert: This action cannot be undone. If you delete your account you won't be able to log in with your credentials. The deletion of your account will result in the anonymization of your contributions. You will still be able to create a new account, but these contributions will not be associated with it.
         confirm:
@@ -128,6 +125,9 @@ en:
       destroy:
         error: There was a problem deleting your account.
         success: Your account was successfully deleted.
+      download_your_data_export:
+        file_no_exists: File does not exist
+        notice: The download of your data is currently in progress. You'll receive an email when it's complete.
       show:
         available_locales_helper: Choose the language you want to use to browse and receive notifications on the platform
         change_password: Change password
@@ -465,13 +465,6 @@ en:
       actions:
         login_before_access: Please, login with your account before access
         unauthorized: You are not authorized to perform this action
-    download_your_data:
-      export:
-        ready: Ready
-      show:
-        download_data: Download the data
-        download_data_description: A file containing all the information associated with your account will be sent to <strong>%{user_email}</strong>. This email will contain a .zip file and a password to open it.<br/><br/>To unzip the file, you will need <a href="https://www.7-zip.org/">7-Zip</a> (for Windows) or <a href="https://www.keka.io/">Keka</a> (for MacOS). If you use Linux, most of the time you will have it installed by default. If not, you can use <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> or <a href="https://peazip.github.io">PeaZip</a>).
-        request_data: Request data
     datepicker:
       help_text: 'Expected format: %{datepicker_format}'
     devise:
@@ -543,6 +536,13 @@ en:
           this_application_will_not_be_able_to: 'This application will not be able to:'
           update_profile: Update your profile
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> wants to use your account"
+    download_your_data:
+      export:
+        ready: Ready
+      show:
+        download_data: Download the data
+        download_data_description: A file containing all the information associated with your account will be sent to <strong>%{user_email}</strong>. This email will contain a .zip file and a password to open it.<br/><br/>To unzip the file, you will need <a href="https://www.7-zip.org/">7-Zip</a> (for Windows) or <a href="https://www.keka.io/">Keka</a> (for MacOS). If you use Linux, most of the time you will have it installed by default. If not, you can use <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> or <a href="https://peazip.github.io">PeaZip</a>).
+        request_data: Request data
     editor_images:
       create:
         error: Error uploading image
