@@ -80,7 +80,7 @@ eu:
       skip_button: Joan eduki nagusira
     account:
       blocked: Kontu hau blokeatu da erabilera-irizpideak eta baldintzak urratzeagatik
-      data_portability_export:
+      download_your_data_export:
         file_no_exists: Fitxategia ez dago
         notice: Zure datuak une honetan egiten ari dira. Mezu elektroniko bat jasoko duzu beteta dagoenean.
       delete:
@@ -429,7 +429,7 @@ eu:
       actions:
         login_before_access: Mesedez, sartu baino lehen hasi saioa zure kontuarekin
         unauthorized: Ez duzu baimenik ekintza honi heltzeko.
-    data_portability:
+    download_your_data:
       export:
         ready: prest
       show:
@@ -662,7 +662,7 @@ eu:
           email_subject: "%{nickname} profilean eguneratu dute"
           notification_title: <a href="%{resource_path}">profile orriaren 1233_4_1_321 %{name} (%{nickname}) jarraitzen ari zarenean, eguneratu egin da.
     export_mailer:
-      data_portability_export:
+      download_your_data_export:
         click_button: 'Egin klik hurrengo loturan zure datuak deskargatzeko. <br/>Artxiboa eskuragai egongo da data honetara arte %{date}.<br/>Irekitzeko beharko duzu <a href="https://www.7-zip.org/">7-Zip</a> (Windowserako), <a href="https://www.keka.io/en/">Keka</a> (para MacOS) o <a href="https://peazip.github.io">PeaZip</a> (Linuxerako). Pasahitza: %{password}'
         download: Deskarga
       export:
@@ -1098,7 +1098,7 @@ eu:
           agreement: Ados nago irizpide hauekin
           legend: Erabiltzeko baldintzak eta baldintzak onartzen dituzu
         refuse:
-          modal_body: Uko egiten baduzu, ezin izango duzu plataforman erabiltzeko gai, ezin duzu <a href="%{data_portability_path}">deskargatu zure datu</a> edo / <a href="%{delete_path}">zure kontua ezabatu</a>.
+          modal_body: Uko egiten baduzu, ezin izango duzu plataforman erabiltzeko gai, ezin duzu <a href="%{download_your_data_path}">deskargatu zure datu</a> edo / <a href="%{delete_path}">zure kontua ezabatu</a>.
           modal_btn_continue: Baldintzak onartu eta jarraitu
           modal_btn_exit: Berriro berrikusiko dut geroago
           modal_button: Ezetsi terminoak

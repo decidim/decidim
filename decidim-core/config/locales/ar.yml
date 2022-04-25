@@ -84,7 +84,7 @@ ar:
       logo: "شعار %{organization} الرسمي"
       skip_button: تخطي إلى المحتوى الرئيسي
     account:
-      data_portability_export:
+      download_your_data_export:
         file_no_exists: الملف غير موجود
         notice: يتم تنزيل بياناتك حاليًا. ستتلقى بريدًا إلكترونيًا عند اكتماله.
       delete:
@@ -358,7 +358,7 @@ ar:
       actions:
         login_before_access: من فضلك ، لِج بحسابك قبل الوصول
         unauthorized: غير مصرح لك بتنفيذ هذا الإجراء
-    data_portability:
+    download_your_data:
       export:
         ready: جاهز
       show:
@@ -558,7 +558,7 @@ ar:
           email_subject: "%{nickname} تحديث ملفهم الشخصي"
           notification_title: و <a href="%{resource_path}">صفحة الملف الشخصي</a> من %{name} (%{nickname})، الذي كنت التالية، وقد تم تحديثها.
     export_mailer:
-      data_portability_export:
+      download_your_data_export:
         download: تحميل
       export:
         ready: يرجى الاطلاع على نسخة مضغوطة من التصدير.
@@ -909,7 +909,7 @@ ar:
         form:
           legend: توافق على شروط وأحكام الاستخدام
         refuse:
-          modal_body: إذا رفضت ، فلن تتمكن من استخدام النظام الأساسي ، يمكنك <a href="%{data_portability_path}">تنزيل بياناتك</a> و / أو <a href="%{delete_path}">حذف حسابك</a>.
+          modal_body: إذا رفضت ، فلن تتمكن من استخدام النظام الأساسي ، يمكنك <a href="%{download_your_data_path}">تنزيل بياناتك</a> و / أو <a href="%{delete_path}">حذف حسابك</a>.
           modal_btn_continue: قبول الشروط والمتابعة
           modal_btn_exit: سأراجعها لاحقًا
           modal_button: رفض الشروط

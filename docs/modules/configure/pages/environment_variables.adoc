@@ -550,7 +550,7 @@ Mind that this depends on your environment, for instance you could also need to 
 |true
 |No
 
-|DECIDIM_DATA_PORTABILITY_EXPIRY_TIME
+|DECIDIM_DOWNLOAD_YOUR_DATA_EXPIRY_TIME
 |Number of days that the download your data files will be available in the server.
 |7
 |No

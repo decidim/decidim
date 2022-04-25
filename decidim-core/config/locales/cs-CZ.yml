@@ -65,7 +65,7 @@ cs:
       decidim_with_month_name_short: "%d %b"
   decidim:
     account:
-      data_portability_export:
+      download_your_data_export:
         file_no_exists: Soubor neexistuje
         invalid_token: Zadaný token je neplatný.
         no_token: Žádný token není k dispozici
@@ -315,7 +315,7 @@ cs:
     core:
       actions:
         unauthorized: Nemáte oprávnění k provedení této akce
-    data_portability:
+    download_your_data:
       export:
         ready: Připraveno
       show:
@@ -517,7 +517,7 @@ cs:
           email_subject: "%{nickname} aktualizoval svůj profil"
           notification_title: <a href="%{resource_path}">profilová stránka</a> ze %{name} (%{nickname}), kterou sledujete, byla aktualizována.
     export_mailer:
-      data_portability_export:
+      download_your_data_export:
         click_button: Klepnutím na další tlačítko stáhnete data. <br/> Soubor bude k dispozici až do %{date}.
         download: Stažení
       export:
@@ -879,7 +879,7 @@ cs:
           agreement: Souhlasím s těmito podmínkami
           legend: Souhlasíte s podmínkami používání
         refuse:
-          modal_body: Pokud odmítnete, nebudete moci používat platformu, můžete <a href="%{data_portability_path}">stahovat data</a> a / nebo <a href="%{delete_path}">smazat svůj účet</a>.
+          modal_body: Pokud odmítnete, nebudete moci používat platformu, můžete <a href="%{download_your_data_path}">stahovat data</a> a / nebo <a href="%{delete_path}">smazat svůj účet</a>.
           modal_btn_continue: Přijměte termíny a pokračujte
           modal_btn_exit: Později to přezkoumám
           modal_button: Odmítněte podmínky

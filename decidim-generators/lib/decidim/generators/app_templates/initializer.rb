@@ -179,7 +179,7 @@ Decidim.configure do |config|
   config.track_newsletter_links = Rails.application.secrets.decidim[:track_newsletter_links].present? unless Rails.application.secrets.decidim[:track_newsletter_links] == "auto"
 
   # Amount of time that the download your data files will be available in the server.
-  config.data_portability_expiry_time = Rails.application.secrets.decidim[:data_portability_expiry_time].to_i.days
+  config.download_your_data_expiry_time = Rails.application.secrets.decidim[:download_your_data_expiry_time].to_i.days
 
   # Max requests in a time period to prevent DoS attacks. Only applied on production.
   config.throttling_max_requests = Rails.application.secrets.decidim[:throttling_max_requests].to_i

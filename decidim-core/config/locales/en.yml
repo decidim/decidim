@@ -114,7 +114,7 @@ en:
       skip_button: Skip to main content
     account:
       blocked: This account has been blocked due to Terms and Conditions violation
-      data_portability_export:
+      download_your_data_export:
         file_no_exists: File does not exist
         notice: The download of your data is currently in progress. You'll receive an email when it's complete.
       delete:
@@ -465,7 +465,7 @@ en:
       actions:
         login_before_access: Please, login with your account before access
         unauthorized: You are not authorized to perform this action
-    data_portability:
+    download_your_data:
       export:
         ready: Ready
       show:
@@ -713,7 +713,7 @@ en:
           email_subject: "%{name} has been officialized"
           notification_title: Participant %{name} (%{nickname}) has been officialized.
     export_mailer:
-      data_portability_export:
+      download_your_data_export:
         click_button: 'Click the next link to download your data.<br/>The file will be available until %{date}.<br/>You will need <a href="https://www.7-zip.org/">7-Zip</a> (for Windows), <a href="https://www.keka.io/en/">Keka</a> (for MacOS) or <a href="https://peazip.github.io">PeaZip</a> (for Linux) to open it. Password: %{password}'
         download: Download
       export:
@@ -1187,7 +1187,7 @@ en:
           agreement: I agree with these terms
           legend: Agree to the terms and conditions of use
         refuse:
-          modal_body: If you refuse, you won't be able to use the platform, you can <a href="%{data_portability_path}">download your data</a> and/or <a href="%{delete_path}">delete your account</a>.
+          modal_body: If you refuse, you won't be able to use the platform, you can <a href="%{download_your_data_path}">download your data</a> and/or <a href="%{delete_path}">delete your account</a>.
           modal_btn_continue: Accept terms and continue
           modal_btn_exit: I'll review it later
           modal_button: Refuse the terms

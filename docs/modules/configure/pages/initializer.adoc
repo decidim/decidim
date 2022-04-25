@@ -210,7 +210,7 @@ Amount of time that the download your data files will be available in the server
 
 [source,ruby]
 ....
-  config.data_portability_expiry_time = 7.days
+  config.download_your_data_expiry_time = 7.days
 ....
 
 == Throttling settings

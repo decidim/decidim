@@ -59,7 +59,7 @@ ru:
       decidim_with_month_name: "%d %B %Y"
   decidim:
     account:
-      data_portability_export:
+      download_your_data_export:
         file_no_exists: Файла не существует
         notice: Идет сохранение в виде файла. Вы получите электронное письмо, когда оно будет завершено.
       delete:
@@ -278,7 +278,7 @@ ru:
       actions:
         login_before_access: Пожалуйста, войдите под вашей учётной записью перед получением доступа
         unauthorized: Вы не имеете прав для выполнения этого действия
-    data_portability:
+    download_your_data:
       export:
         ready: Готово
       show:
@@ -388,7 +388,7 @@ ru:
           email_subject: "%{nickname} обновил свой профиль"
           notification_title: Страница <a href="%{resource_path}">профиля</a> участника %{name} (%{nickname}), за которым вы следите, была обновлена.
     export_mailer:
-      data_portability_export:
+      download_your_data_export:
         download: Скачать
       export:
         ready: К настоящему прилагается в архивированном виде сохраненный вами файл.
@@ -585,7 +585,7 @@ ru:
         form:
           legend: Согласиться с условиями участия
         refuse:
-          modal_body: Если вы откажетесь, вы не сможете использовать площадку, вы можете <a href="%{data_portability_path}">загрузить свои данные</a> и / или <a href="%{delete_path}">удалить свою учетную запись</a>.
+          modal_body: Если вы откажетесь, вы не сможете использовать площадку, вы можете <a href="%{download_your_data_path}">загрузить свои данные</a> и / или <a href="%{delete_path}">удалить свою учетную запись</a>.
           modal_btn_continue: Принять условия и продолжить
           modal_btn_exit: Я просмотрю это позже
           modal_button: Отказаться от условий участия

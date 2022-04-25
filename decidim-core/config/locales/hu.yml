@@ -88,7 +88,7 @@ hu:
       skip_button: Ugrás a fő tartalomra
     account:
       blocked: Ezt a fiókot az Általános Szerződési Feltételek megsértése miatt blokkoltuk
-      data_portability_export:
+      download_your_data_export:
         file_no_exists: Fájl nem létezik
         notice: Az adatok letöltése jelenleg folyamatban van. Ha befejeződött, e-mailt fogsz kapni.
       delete:
@@ -410,7 +410,7 @@ hu:
       actions:
         login_before_access: Kérlek jelentkezz be a fiókodba a hozzáféréshez
         unauthorized: Nem vagy jogosult a művelet végrehajtására
-    data_portability:
+    download_your_data:
       export:
         ready: Kész
       show:
@@ -631,7 +631,7 @@ hu:
         user_officialized:
           email_outro: Azért kapta ezt az értesítést, mert Ön a szervezet adminisztrátora.
     export_mailer:
-      data_portability_export:
+      download_your_data_export:
         download: Letöltés
       export:
         ready: Mellékelve találod az exportálás tömörített változatát.
@@ -1021,7 +1021,7 @@ hu:
           agreement: Elfogadom a feltételeket
           legend: Elfogadom a felhasználási feltételeket
         refuse:
-          modal_body: Ha elutasítod, akkor nem fogod tudni használi a platformot. <a href="%{data_portability_path}">Töltsd le az adataidat</a> és/vagy <a href="%{delete_path}">töröld a fiókod</a>.
+          modal_body: Ha elutasítod, akkor nem fogod tudni használi a platformot. <a href="%{download_your_data_path}">Töltsd le az adataidat</a> és/vagy <a href="%{delete_path}">töröld a fiókod</a>.
           modal_btn_continue: Elfogadom és tovább lépek
           modal_btn_exit: Később átnézem
           modal_button: Elutasítom a feltételeket

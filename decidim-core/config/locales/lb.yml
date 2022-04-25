@@ -83,7 +83,7 @@ lb:
       skip_button: Zum Haapt-Inhalt eriwwergoen
     account:
       blocked: Dësen Kont gouf gespaart wéinst dem Net-Respekt vun den allgemengen Bestëmmungen
-      data_portability_export:
+      download_your_data_export:
         file_no_exists: Datei existéiert net
         notice: D'Eroflueden ass am Gaang. Du kriss en Email wann et vollstänneg ass.
       delete:
@@ -432,7 +432,7 @@ lb:
       actions:
         login_before_access: Bitte melden Sie sich mit Ihrem Konto an, um auf diese Seite zuzugreifen
         unauthorized: Du hues keng Berechtegung fir dës Aktioun
-    data_portability:
+    download_your_data:
       export:
         ready: Fäerdeg
       show:
@@ -665,7 +665,7 @@ lb:
           email_subject: "%{nickname} huet säin Profil aktualiséiert"
           notification_title: D' <a href="%{resource_path}">Profil-Säit</a> vum </a>%{name} (%{nickname}), där s'du nogees, gouf aktualiséiert.
     export_mailer:
-      data_portability_export:
+      download_your_data_export:
         click_button: 'Klick op den Link, fir den Daten erofzelueden.<br/>D''Datei steet bis den %{date} zur Verfügung.<br/>du brauchs <a href="https://www.7-zip.org/">7-Zip</a> (fir Windows), <a href="https://www.keka.io/en/">Keka</a> (fir MacOS) oder <a href="https://peazip.github.io">PeaZip</a> (fir Linux) fir d''Datei opzemaachen. Passwuert: %{password}'
         download: Eroflueden
       export:
@@ -1101,7 +1101,7 @@ lb:
           agreement: Ech sinn mat dësen Konditiounen averstane
           legend: Akzeptéier d'Konditiounen vum Benotzen
         refuse:
-          modal_body: Wann s'du refuséiers, wàert et dir net méiglech sinn dës Plattform ze benotzen, du kanns <a href="%{data_portability_path}">lDaten eroflueden</a> an / oder <a href="%{delete_path}">Konto läschen</a>.
+          modal_body: Wann s'du refuséiers, wàert et dir net méiglech sinn dës Plattform ze benotzen, du kanns <a href="%{download_your_data_path}">lDaten eroflueden</a> an / oder <a href="%{delete_path}">Konto läschen</a>.
           modal_btn_continue: Konditiounen akzeptéieren an weiderfueren
           modal_btn_exit: Ech iwwerpréiwen dat méi spéit
           modal_button: Konditiounen net unhuelen

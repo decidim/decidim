@@ -110,7 +110,7 @@ es-PY:
       skip_button: Saltar al contenido principal
     account:
       blocked: Esta cuenta ha sido bloqueada por una violación de los Términos y Condiciones de uso
-      data_portability_export:
+      download_your_data_export:
         file_no_exists: El archivo no existe
         notice: Tus datos están actualmente en progreso. Recibirás un correo electrónico cuando se complete.
       delete:
@@ -460,7 +460,7 @@ es-PY:
       actions:
         login_before_access: Por favor, inicia sesión con tu cuenta antes de acceder
         unauthorized: No tienes permiso para realizar esta acción.
-    data_portability:
+    download_your_data:
       export:
         ready: Listo
       show:
@@ -699,7 +699,7 @@ es-PY:
           email_subject: "%{nickname} ha actualizado su perfil"
           notification_title: La página <a href="%{resource_path}">de perfil</a> de %{name} (%{nickname}), a quien estás siguiendo, se ha actualizado.
     export_mailer:
-      data_portability_export:
+      download_your_data_export:
         click_button: 'Haz clic en el siguiente enlace para descargar tus datos.<br/>El archivo estará disponible hasta %{date}.<br/>Necesitarás <a href="https://www.7-zip.org/">7-Zip</a> (para Windows), <a href="https://www.keka.io/en/">Keka</a> (para MacOS) o <a href="https://peazip.github.io">PeaZip</a> (para Linux) para abrirlo. Contraseña: %{password}'
         download: Descargar
       export:
@@ -1151,7 +1151,7 @@ es-PY:
           agreement: Estoy de acuerdo con estos términos
           legend: Aceptar los Términos y Condiciones de uso
         refuse:
-          modal_body: Si no aceptas, no podrás utilizar la plataforma, puedes <a href="%{data_portability_path}">descargar tus datos</a> y / o <a href="%{delete_path}">eliminar tu cuenta</a>.
+          modal_body: Si no aceptas, no podrás utilizar la plataforma, puedes <a href="%{download_your_data_path}">descargar tus datos</a> y / o <a href="%{delete_path}">eliminar tu cuenta</a>.
           modal_btn_continue: Aceptar los términos y continuar
           modal_btn_exit: Lo revisaré más tarde
           modal_button: Rechazar los términos

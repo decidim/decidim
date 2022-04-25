@@ -83,7 +83,7 @@ sk:
       logo: "Oficiálne logo organizácie %{organization}"
       skip_button: Prejsť na hlavný obsah
     account:
-      data_portability_export:
+      download_your_data_export:
         file_no_exists: Súbor neexistuje
         notice: Sťahovanie Vašich dát momentálne prebieha. Po dokončení dostanete e-mail.
       delete:
@@ -384,7 +384,7 @@ sk:
       actions:
         login_before_access: Prosím prihláste sa k účtu pred prístupom
         unauthorized: Nemáte povolenie na vykonanie tejto akcie
-    data_portability:
+    download_your_data:
       export:
         ready: Pripravený
       show:
@@ -592,7 +592,7 @@ sk:
           email_subject: "%{nickname} aktualizoval svoj profil"
           notification_title: <a href="%{resource_path}"> profilová stránka </a> od%{name} (%{nickname}), ktorú sledujete, bola aktualizovaná.
     export_mailer:
-      data_portability_export:
+      download_your_data_export:
         click_button: 'Kliknite na tlačítko pre stiahnutie Vašich dát. <br/> Súbor bude dostupný do %{date}. <br/> Budete potrebovať <a href=''https://www.7-zip.org/''>7-Zip software</a> na jeho otvorenie a rozbalenie. Heslo: %{password}'
         download: Stiahnutie
       export:
@@ -979,7 +979,7 @@ sk:
           agreement: Súhlasím s týmito podmienkami
           legend: Souhlasíte s podmínkami používání
         refuse:
-          modal_body: Ak odmietnete, nebudete môcť používať platformu, môžete <a href="%{data_portability_path}"> sťahovať dáta </a> a / alebo <a href="%{delete_path}"> zmazať svoj účet </a>.
+          modal_body: Ak odmietnete, nebudete môcť používať platformu, môžete <a href="%{download_your_data_path}"> sťahovať dáta </a> a / alebo <a href="%{delete_path}"> zmazať svoj účet </a>.
           modal_btn_continue: Prijmite termíny a pokračujte
           modal_btn_exit: Neskôr to preskúmam
           modal_button: Odmietnite podmienky
@@ -1408,7 +1408,7 @@ sk:
     dropdown:
       choose_diff_view_html: 'Mód zobrazenia HTML:'
       choose_diff_view_mode: 'Mód srovnávacího zobrazení:'
-      option_escaped: Nepoužívané 
+      option_escaped: Nepoužívané
       option_split: Vedle sebe (Sbs)
       option_unescaped: Používané
       option_unified: Sjednocené

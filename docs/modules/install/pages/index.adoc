@@ -97,7 +97,7 @@ You can configure it with `crontab -e`, for instance if you've created your Deci
 [source,console]
 ----
 # Remove expired download your data files
-0 0 * * * cd /home/user/decidim_application && RAILS_ENV=production bundle exec rake decidim:delete_data_portability_files
+0 0 * * * cd /home/user/decidim_application && RAILS_ENV=production bundle exec rake decidim:delete_download_your_data_files
 
 # Compute metrics
 1 0 * * * cd /home/user/decidim_application && RAILS_ENV=production bundle exec rake decidim:metrics:all

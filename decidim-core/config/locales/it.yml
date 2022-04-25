@@ -83,7 +83,7 @@ it:
       skip_button: Vai al contenuto principale
     account:
       blocked: Questo account è stato bloccato a causa della violazione di Termini e Condizioni
-      data_portability_export:
+      download_your_data_export:
         file_no_exists: Il file non esiste
         notice: Il download dei tuoi dati è in corso. Riceverai un'email non appena completato.
       delete:
@@ -432,7 +432,7 @@ it:
       actions:
         login_before_access: Per favore, fai login con il tuo account prima di accedere
         unauthorized: Non sei autorizzato a eseguire questa azione
-    data_portability:
+    download_your_data:
       export:
         ready: Pronto
       show:
@@ -671,7 +671,7 @@ it:
           email_subject: "%{nickname} ha aggiornato il proprio profilo"
           notification_title: La pagina <a href="%{resource_path}">profilo</a> di %{name} (%{nickname}), che stai seguendo, è stata aggiornata.
     export_mailer:
-      data_portability_export:
+      download_your_data_export:
         click_button: 'Clicca sul link per scaricare i tuoi dati.<br/>Il file sarà disponibile fino a %{date}.<br/>Avrai bisogno di <a href="https://www.7-zip.org/">7-Zip</a> (per Windows), <a href="https://www.keka.io/en/">Keka</a> (per MacOS) o <a href="https://peazip.github.io">PeaZip</a> (per Linux) per aprirlo. Password: %{password}'
         download: Scaricare
       export:
@@ -1118,7 +1118,7 @@ it:
           agreement: Accetto le condizioni
           legend: Accetta i termini e le condizioni d'uso
         refuse:
-          modal_body: Se rifiuti, non sarai in grado di utilizzare la piattaforma, puoi <a href="%{data_portability_path}">scaricare i tuoi dati</a> e / o <a href="%{delete_path}">cancellare il tuo account</a>.
+          modal_body: Se rifiuti, non sarai in grado di utilizzare la piattaforma, puoi <a href="%{download_your_data_path}">scaricare i tuoi dati</a> e / o <a href="%{delete_path}">cancellare il tuo account</a>.
           modal_btn_continue: Accetta i termini e continua
           modal_btn_exit: Lo esaminerò più tardi
           modal_button: Rifiuta i termini

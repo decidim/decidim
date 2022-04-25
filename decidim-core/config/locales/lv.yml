@@ -76,7 +76,7 @@ lv:
       logo: "%{organization} oficiālais logotips"
       skip_button: Pāriet uz galveno saturu
     account:
-      data_portability_export:
+      download_your_data_export:
         file_no_exists: Fails neeksistē
         notice: Pašlaik notiek jūsu datu lejupielāde. Kad tā būs pabeigta, jūs saņemsiet e-pastu.
       delete:
@@ -371,7 +371,7 @@ lv:
       actions:
         login_before_access: Pirms piekļuves, lūdzu, piesakieties savā kontā
         unauthorized: Jūs neesat autorizēts veikt šo darbību
-    data_portability:
+    download_your_data:
       export:
         ready: Gatavs
       show:
@@ -590,7 +590,7 @@ lv:
           email_subject: "%{nickname} atjaunināja savu profilu"
           notification_title: '%{name} (%{nickname}) <a href="%{resource_path}">profila lapa</a>, kam jūs sekojat, ir atjaunināta.'
     export_mailer:
-      data_portability_export:
+      download_your_data_export:
         download: Lejupielādēt
       export:
         ready: Lūdzu, jūsu eksportēto datu saspiestā versija.
@@ -977,7 +977,7 @@ lv:
         form:
           legend: Piekrist lietošanas noteikumiem
         refuse:
-          modal_body: Ja atteiksieties, nevarēsiet izmantot platformu, varat <a href="%{data_portability_path}"> lejupielādēt savus datus </a> un/vai <a href="%{delete_path}"> izdzēst savu kontu </a>.
+          modal_body: Ja atteiksieties, nevarēsiet izmantot platformu, varat <a href="%{download_your_data_path}"> lejupielādēt savus datus </a> un/vai <a href="%{delete_path}"> izdzēst savu kontu </a>.
           modal_btn_continue: Pieņemt noteikumus un turpināt
           modal_btn_exit: Es tos pārskatīšu vēlāk
           modal_button: Atteikties no noteikumu pieņemšanas

@@ -73,7 +73,7 @@ bg:
       logo: "Официално лого на %{organization}"
       skip_button: Към съдържанието
     account:
-      data_portability_export:
+      download_your_data_export:
         file_no_exists: Файлът не съществува
         notice: Свалянето на Вашите данни е в процес. Ще получите ел. писмо когато приключи.
       delete:
@@ -373,7 +373,7 @@ bg:
       actions:
         login_before_access: Влезте в профила си за достъп
         unauthorized: Нямате права за това действие
-    data_portability:
+    download_your_data:
       export:
         ready: Готов
       show:
@@ -587,7 +587,7 @@ bg:
           email_subject: "%{nickname} обнови своя профил"
           notification_title: Профилната <a href="%{resource_path}">страница</a> на %{name} (%{nickname}), който следвате е обновена.
     export_mailer:
-      data_portability_export:
+      download_your_data_export:
         download: Сваляне
       export:
         ready: Ще намерите като прикачен файл, компресирана версия на Вашия експорт.
@@ -977,7 +977,7 @@ bg:
         form:
           legend: Съгласявам се с общите условия за ползване
         refuse:
-          modal_body: Ако откажете, не може да използвате платформата, но можете да<a href="%{data_portability_path}">свалите данните си</a> и/или <a href="%{delete_path}">изтриете профила</a>.
+          modal_body: Ако откажете, не може да използвате платформата, но можете да<a href="%{download_your_data_path}">свалите данните си</a> и/или <a href="%{delete_path}">изтриете профила</a>.
           modal_btn_continue: Приемам условията и продължавам
           modal_btn_exit: Ще ги прегледам по-късно
           modal_button: Отказвам условията

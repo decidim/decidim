@@ -71,7 +71,7 @@ zh-CN:
       logo: "%{organization}的官方标志"
       skip_button: 跳转到主要内容
     account:
-      data_portability_export:
+      download_your_data_export:
         file_no_exists: 文件不存在
         notice: 目前正在下载您的数据。完成后，您将收到一封电子邮件。
       delete:
@@ -370,7 +370,7 @@ zh-CN:
       actions:
         login_before_access: 请在访问前使用您的帐户登录
         unauthorized: 您无权执行此操作
-    data_portability:
+    download_your_data:
       export:
         ready: 准备好
       show:
@@ -582,7 +582,7 @@ zh-CN:
           email_subject: "%{nickname} 更新了他们的个人资料"
           notification_title: 您关注的 %{name} (%{nickname}) 的 <a href="%{resource_path}">个人资料页面</a> 已经更新。
     export_mailer:
-      data_portability_export:
+      download_your_data_export:
         download: 下载
       export:
         ready: 请找到您导出的压缩版本。
@@ -1003,7 +1003,7 @@ zh-CN:
           agreement: 我同意这些条款
           legend: 同意使用条款
         refuse:
-          modal_body: 如果您拒绝，您将无法使用平台，您可以 <a href="%{data_portability_path}">下载您的数据</a> 和/或 <a href="%{delete_path}">删除您的帐户</a>。
+          modal_body: 如果您拒绝，您将无法使用平台，您可以 <a href="%{download_your_data_path}">下载您的数据</a> 和/或 <a href="%{delete_path}">删除您的帐户</a>。
           modal_btn_continue: 接受并继续
           modal_btn_exit: 我稍后再查看
           modal_button: 拒绝条款

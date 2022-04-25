@@ -59,7 +59,7 @@ fi-pl:
       decidim_with_month_name_short: "%d. %b"
   decidim:
     account:
-      data_portability_export:
+      download_your_data_export:
         file_no_exists: Tiedostoa ei ole olemassa
         invalid_token: Varmennustunniste ei kelpaa.
         no_token: Varmennustunniste puuttuu
@@ -303,7 +303,7 @@ fi-pl:
     core:
       actions:
         unauthorized: Tiliäsi ei ole varmennettu tämän toiminnon suorittamiseen
-    data_portability:
+    download_your_data:
       export:
         ready: Valmis
       show:
@@ -501,7 +501,7 @@ fi-pl:
           email_subject: "%{nickname} päivitti profiiliaan"
           notification_title: Seuraamasi käyttäjän %{name} (%{nickname}) <a href="%{resource_path}">profiilisivua</a> on päivitetty.
     export_mailer:
-      data_portability_export:
+      download_your_data_export:
         click_button: Klikkaa seuraavaa painiketta ladataksesi tietosi. <br/> Tiedosto on käytettävissäsi %{date} saakka.
         download: Lataa
       export:
@@ -863,7 +863,7 @@ fi-pl:
           agreement: Hyväksyn nämä ehdot
           legend: Hyväksy käyttöehdot
         refuse:
-          modal_body: Jos kieltäydyt, et voi käyttää palvelua. Voit <a href="%{data_portability_path}">ladata omat tietosi</a> ja/tai <a href="%{delete_path}">poistaa tilisi</a>.
+          modal_body: Jos kieltäydyt, et voi käyttää palvelua. Voit <a href="%{download_your_data_path}">ladata omat tietosi</a> ja/tai <a href="%{delete_path}">poistaa tilisi</a>.
           modal_btn_continue: Hyväksy ehdot ja jatka
           modal_btn_exit: Tarkastan ne myöhemmin
           modal_button: Kieltäydy hyväksymästä ehtoja

@@ -110,7 +110,7 @@
       skip_button: Gå til hovedinnhold
     account:
       blocked: Denne kontoen er sperret på grunn av brudd på vilkår og betingelser
-      data_portability_export:
+      download_your_data_export:
         file_no_exists: Filen finnes ikke
         notice: Opplastingen av dataen din pågår. Du vil få en e-mail når den er ferdig.
       delete:
@@ -456,7 +456,7 @@
       actions:
         login_before_access: Vennligst logg inn med kontoen din før tilgang
         unauthorized: Du er ikke autorisert til å utføre denne handlingen
-    data_portability:
+    download_your_data:
       export:
         ready: Klar
       show:
@@ -699,7 +699,7 @@
           email_subject: "%{nickname} oppdaterte profilens sin"
           notification_title: <a href="%{resource_path}">Profilsiden</a> til %{name} (%{nickname}), som du følger er blitt oppdatert.
     export_mailer:
-      data_portability_export:
+      download_your_data_export:
         click_button: 'Klikk på neste link for å laste ned dataen.<br/>Filen vil være tilgjengelig til %{date}.<br/>Du vil trenge <a href="https://www.7-zip.org/">7-Zip</a> (for Windows), <a href="https://www.keka.io/en/">Keka</a> (for MacOS) eller <a href="https://peazip.github.io">PeaZip</a> (for Linux) for å åpne den. Passord: %{password}'
         download: Last ned
       export:
@@ -1151,7 +1151,7 @@
           agreement: Jeg godtar vilkårene
           legend: Godta vilkårene for bruk
         refuse:
-          modal_body: Hvis du nekter, vil du ikke kunne bruke platformen, du kan <a href="%{data_portability_path}"> laste ned dataen din</a> og/eller <a href="%{delete_path}">slette brukeren din</a>.
+          modal_body: Hvis du nekter, vil du ikke kunne bruke platformen, du kan <a href="%{download_your_data_path}"> laste ned dataen din</a> og/eller <a href="%{delete_path}">slette brukeren din</a>.
           modal_btn_continue: Aksepter vilkår og fortsett
           modal_btn_exit: Jeg vil vurdere det senere
           modal_button: Avslå vilkårene

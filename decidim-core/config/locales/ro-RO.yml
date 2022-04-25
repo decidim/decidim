@@ -90,7 +90,7 @@ ro:
       skip_button: Salt la conținutul principal
     account:
       blocked: Acest cont a fost blocat din cauza încălcării termenilor și condițiilor
-      data_portability_export:
+      download_your_data_export:
         file_no_exists: Fișierul nu există
         notice: Descărcarea datelor dvs. este în curs de desfășurare. Veți primi un e-mail atunci când este completă.
       delete:
@@ -443,7 +443,7 @@ ro:
       actions:
         login_before_access: Te rugăm să te conectezi cu contul tău înainte de a accesa conținutul
         unauthorized: Nu sunteți autorizat să efectuați această acțiune
-    data_portability:
+    download_your_data:
       export:
         ready: Gata
       show:
@@ -685,7 +685,7 @@ ro:
           email_subject: "%{nickname} și-a actualizat profilul"
           notification_title: Pagina de profil <a href="%{resource_path}"></a> din %{name} (%{nickname}), pe care o urmărești, a fost actualizată.
     export_mailer:
-      data_portability_export:
+      download_your_data_export:
         click_button: 'Dă-i clic pe următorul link pentru a descărca datele.<br/>Fișierul va fi disponibil până la %{date}.<br/>Vei avea nevoie de <a href="https://www.7-zip.org/">7-Zip</a> (pentru Windows), <a href="https://www.keka.io/en/">Keka</a> (pentru MacOS) sau <a href="https://peazip.github.io">PeaZip</a> (pentru Linux) pentru a-l deschide. Parola: %{password}'
         download: Descărcare
       export:
@@ -1138,7 +1138,7 @@ ro:
           agreement: Sunt de acord cu acești termeni și condiţii
           legend: Sunt de acord cu termenii și condițiile de utilizare
         refuse:
-          modal_body: Dacă refuzați, nu veți putea utiliza platforma, puteți <a href="%{data_portability_path}">descărca datele</a> și/sau <a href="%{delete_path}">șterge contul dvs</a>.
+          modal_body: Dacă refuzați, nu veți putea utiliza platforma, puteți <a href="%{download_your_data_path}">descărca datele</a> și/sau <a href="%{delete_path}">șterge contul dvs</a>.
           modal_btn_continue: Acceptați termenii și continuați
           modal_btn_exit: O voi revizui mai târziu
           modal_button: Refuza termenii

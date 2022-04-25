@@ -88,7 +88,7 @@ gl:
     accessibility:
       front_page_link: Ir á páxina principal
     account:
-      data_portability_export:
+      download_your_data_export:
         file_no_exists: O ficheiro non existe
         notice: Os teus datos están en progreso. Recibirás un correo electrónico cando finalice.
       delete:
@@ -331,7 +331,7 @@ gl:
     core:
       actions:
         unauthorized: Non estás autorizado para realizar esta acción
-    data_portability:
+    download_your_data:
       export:
         ready: Listo
       show:
@@ -537,7 +537,7 @@ gl:
           email_subject: "%{name} foi oficializado"
           notification_title: O participante %{name} (%{nickname}) foi oficializado.
     export_mailer:
-      data_portability_export:
+      download_your_data_export:
         download: Descarga
       export:
         ready: Atopa unha versión comprimida da túa exportación.
@@ -911,7 +911,7 @@ gl:
         form:
           legend: Concorda cos termos e condicións de uso
         refuse:
-          modal_body: Rexeitar, non será capaz de utilizar a plataforma, pode <a href="%{data_portability_path}">Descargar seus datos</a> e / ou <a href="%{delete_path}">eliminar a súa conta</a>.
+          modal_body: Rexeitar, non será capaz de utilizar a plataforma, pode <a href="%{download_your_data_path}">Descargar seus datos</a> e / ou <a href="%{delete_path}">eliminar a súa conta</a>.
           modal_btn_continue: Aceptar termos e continuar
           modal_btn_exit: Vou revisalo máis tarde
           modal_button: Rexeitar os termos

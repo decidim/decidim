@@ -4,7 +4,7 @@ module Decidim
   module Meetings
     # The data store for an Answer in the Decidim::Meetings
     class Answer < Meetings::ApplicationRecord
-      include Decidim::DataPortability
+      include Decidim::DownloadYourData
 
       belongs_to :user, class_name: "Decidim::User", foreign_key: "decidim_user_id", optional: true
       belongs_to :questionnaire, class_name: "Decidim::Meetings::Questionnaire", foreign_key: "decidim_questionnaire_id"
@@ -24,7 +24,7 @@ module Decidim
       end
 
       def self.export_serializer
-        Decidim::Meetings::DataPortabilityUserAnswersSerializer
+        Decidim::Meetings::DownloadYourDataUserAnswersSerializer
       end
 
       def organization
