@@ -30,11 +30,6 @@ namespace :decidim do
       logger.info("Process terminated, #{has_changed.count} users nickname have been updated.")
     end
 
-    task test_update: :environment do
-      logger = Logger.new($stdout)
-      logger.info(update_user_nickname(Decidim::User.first,"tete"))
-    end
-
     private
 
     def send_notification_to(user)
