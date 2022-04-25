@@ -272,7 +272,7 @@ module Decidim
     true
   end
 
-  # Time that data portability files are available in server
+  # Time that download your data files are available in server
   config_accessor :data_portability_expiry_time do
     7.days
   end

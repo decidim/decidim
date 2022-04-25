@@ -3,7 +3,7 @@
 module Decidim
   module Meetings
     class DataPortabilityInviteSerializer < Decidim::Exporters::Serializer
-      # Serializes an invite for data portability
+      # Serializes an invite for download your data
       def serialize
         {
           id: resource.id,

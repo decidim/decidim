@@ -37,7 +37,7 @@ module Decidim
       end
     end
 
-    describe "data portability export " do
+    describe "download your data export " do
       object = "Decidim::DummyResources::DummyResource"
       klass = Object.const_get(object)
       let(:export_data) { [[klass.model_name.name.parameterize.pluralize, Decidim::Exporters.find_exporter("CSV").new(klass.user_collection(user), klass.export_serializer).export]] }

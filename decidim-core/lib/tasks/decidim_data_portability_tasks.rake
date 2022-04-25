@@ -70,7 +70,7 @@ namespace :decidim do
     end
   end
 
-  desc "Deletes all data portability files previous to `Decidim.data_portability_expiry_time` from now."
+  desc "Deletes all download your data files previous to `Decidim.data_portability_expiry_time` from now."
   task delete_data_portability_files: :environment do
     puts "DELETE DATA PORTABILITY FILES: -------------- START"
     attachments = ActiveStorage::Attachment.joins(:blob).where(

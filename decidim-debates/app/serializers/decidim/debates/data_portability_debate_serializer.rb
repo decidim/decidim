@@ -3,7 +3,7 @@
 module Decidim
   module Debates
     class DataPortabilityDebateSerializer < Decidim::Exporters::Serializer
-      # Serializes a Debate for data portability
+      # Serializes a Debate for download your data
       def serialize
         {
           id: resource.id,

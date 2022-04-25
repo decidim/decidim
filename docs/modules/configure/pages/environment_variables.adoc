@@ -551,7 +551,7 @@ Mind that this depends on your environment, for instance you could also need to 
 |No
 
 |DECIDIM_DATA_PORTABILITY_EXPIRY_TIME
-|Number of days that the data portability files will be available in the server.
+|Number of days that the download your data files will be available in the server.
 |7
 |No
 

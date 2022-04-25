@@ -4,7 +4,7 @@ module Decidim
   module Forms
     class DataPortabilityUserAnswersSerializer < Decidim::Exporters::Serializer
       include Decidim::TranslationsHelper
-      # Serializes an user answer for data portability
+      # Serializes an user answer for download your data
       def serialize
         {
           id: resource.id,

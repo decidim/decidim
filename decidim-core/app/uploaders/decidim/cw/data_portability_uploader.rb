@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Decidim::Cw
-  # This class deals with saving data portability Zip Files to App
+  # This class deals with saving download your data Zip Files to App
   class DataPortabilityUploader < ApplicationUploader
     # Override the directory where uploaded files will be stored.
     def store_dir

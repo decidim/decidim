@@ -8,7 +8,7 @@ module Decidim
         @order = order
       end
 
-      # Serializes a Debate for data portability
+      # Serializes a Debate for download your data
       def serialize
         {
           id: order.id,

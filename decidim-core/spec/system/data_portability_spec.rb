@@ -11,7 +11,7 @@ describe "DataPortability", type: :system do
     login_as user, scope: :user
   end
 
-  context "when on the data portability page" do
+  context "when on the download your data page" do
     before do
       visit decidim.data_portability_path
     end

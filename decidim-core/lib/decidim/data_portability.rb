@@ -3,7 +3,7 @@
 require "active_support/concern"
 
 module Decidim
-  # This concern contains the logic related to data portability.
+  # This concern contains the logic related to download your data.
   module DataPortability
     extend ActiveSupport::Concern
 
