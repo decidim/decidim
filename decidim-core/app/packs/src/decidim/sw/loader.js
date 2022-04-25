@@ -4,12 +4,12 @@ window.addEventListener("load", async () => {
     await navigator.serviceWorker.register("/sw.js", { scope: "/" });
 
     const mandatoryElements = document.querySelector(".sw-mandatory");
+    const isOperaMini = (navigator.userAgent.indexOf("OPR") > -1) && (navigator.userAgent.indexOf("Mobile") > -1);
 
-    if (mandatoryElements) {
+    if (mandatoryElements && !isOperaMini) {
       mandatoryElements.style.display = "block";
     }
   } else {
     console.log("Your browser doesn't support service workers 🤷‍♀️");
   }
 });
-
