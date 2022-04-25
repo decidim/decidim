@@ -35,6 +35,8 @@ module Decidim
         Metadata.new(existing_users)
       end
 
+      private
+
       def users
         @users ||=
           existing_users.index_by(&:nickname)
