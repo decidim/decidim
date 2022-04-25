@@ -358,6 +358,11 @@ module Decidim
     # "MyTranslationService"
   end
 
+  # Social Networking services used for social sharing
+  config_accessor :social_share_services do
+    %w(Twitter Facebook WhatsApp Telegram)
+  end
+
   # The Decidim::Exporters::CSV's default column separator
   config_accessor :default_csv_col_sep do
     ";"

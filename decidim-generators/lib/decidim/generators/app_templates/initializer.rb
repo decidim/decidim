@@ -330,6 +330,9 @@ Decidim.configure do |config|
   #
   # config.machine_translation_service = "MyTranslationService"
 
+  # Defines the social networking services used for social sharing
+  config.social_share_services = Rails.application.secrets.decidim[:social_share_services]
+
   # Defines the name of the cookie used to check if the user allows Decidim to
   # set cookies.
   config.consent_cookie_name = Rails.application.secrets.decidim[:consent_cookie_name] if Rails.application.secrets.decidim[:consent_cookie_name].present?
