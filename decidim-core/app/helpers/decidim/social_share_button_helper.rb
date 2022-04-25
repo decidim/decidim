@@ -13,16 +13,20 @@ module Decidim
 
     def render_social_share_buttons(services, title, **args)
       services.map do |service|
-        link_to(
-          service.formatted_share_uri(title, **args),
-          rel: "nofollow",
-          data: { site: service.name.downcase },
-          class: "ssb-icon ssb-#{service.name.downcase}",
-          title: t("decidim.shared.share_modal.share_to", service: service.name)
-        ) do
-          image_tag service.icon_path
-        end
+        render_social_share_button(service, title, **args)
       end.join.html_safe
+    end
+
+    def render_social_share_button(service, title, **args)
+      link_to(
+        service.formatted_share_uri(title, **args),
+        rel: "nofollow",
+        data: { site: service.name.downcase },
+        class: "ssb-icon ssb-#{service.name.downcase}",
+        title: t("decidim.shared.share_modal.share_to", service: service.name)
+      ) do
+        image_tag service.icon_path
+      end
     end
 
     private
