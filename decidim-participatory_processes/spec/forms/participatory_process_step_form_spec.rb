@@ -44,12 +44,12 @@ module Decidim
 
         describe "dates" do
           context "when the dates are set" do
-            let(:start_date) { "22/01/2016" }
-            let(:end_date) { "13/10/2017" }
+            let(:start_date) { Time.zone.local(2022, 5, 31, 12, 34) }
+            let(:end_date) { Time.zone.local(2022, 6, 31, 12, 34) }
 
             it "returns them" do
-              expect(subject.start_date).to eq(Date.new(2016, 1, 22))
-              expect(subject.end_date).to eq(Date.new(2017, 10, 13))
+              expect(subject.start_date).to eq(Time.zone.local(2022, 5, 31, 12, 34))
+              expect(subject.end_date).to eq(Time.zone.local(2022, 6, 31, 12, 34))
             end
           end
 
