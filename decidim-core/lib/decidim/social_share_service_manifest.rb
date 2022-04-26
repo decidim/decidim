@@ -9,13 +9,14 @@ module Decidim
     attribute :name, String
     attribute :icon, String
     attribute :share_uri, String
+    attribute :optional_params, Array
 
     validates :name, presence: true
     validates :icon, presence: true
     validates :share_uri, presence: true, format: { with: /%{url}/ }
 
     def formatted_share_uri(title, **args)
-      format(share_uri, title: url_escape(title), **escape_args(args))
+      format(full_share_uri(args.keys), title: url_escape(title), **escape_args(args))
     end
 
     def icon_path
@@ -23,6 +24,12 @@ module Decidim
     end
 
     private
+
+    def full_share_uri(keys)
+      return share_uri if optional_params.empty?
+
+      share_uri + (optional_params.map(&:to_sym) & keys).map { |k| "&#{k}=%{#{k}}" }.join
+    end
 
     def escape_args(args)
       args.reject { |_k, v| v.nil? }.transform_values { |v| url_escape(v) }

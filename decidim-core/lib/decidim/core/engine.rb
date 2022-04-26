@@ -612,7 +612,7 @@ module Decidim
         Decidim.social_share_services("Twitter") do |service|
           service.icon = "twitter.svg"
           service.share_uri = "https://twitter.com/intent/tweet?url=%{url}&text=%{title}"
-          # TODO hashtag? via?
+          service.optional_params = %w(hashtags via)
         end
 
         Decidim.social_share_services("Vkontakte") do |service|

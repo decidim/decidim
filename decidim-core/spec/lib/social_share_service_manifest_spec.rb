@@ -48,6 +48,14 @@ module Decidim
 
         it { is_expected.to be_invalid }
       end
+
+      context "without an optional_params" do
+        before do
+          subject.optional_params = nil
+        end
+
+        it { is_expected.to be_valid }
+      end
     end
 
     describe "#formatted_share_uri" do
@@ -79,6 +87,19 @@ module Decidim
         it "returns the correct formatted uri" do
           expected_url = "https://example.com/share?title=Bar&url=https%3A%2F%2Fother.example.org&desc=Hello+world"
           params = { url: "https://other.example.org", desc: "Hello world" }
+          expect(subject.formatted_share_uri("Bar", params)).to eq(expected_url)
+        end
+      end
+
+      context "when there are optional parameters" do
+        before do
+          subject.share_uri = "https://example.com/share?title=%{title}&url=%{url}&desc=%{desc}"
+          subject.optional_params = %w(hashtags)
+        end
+
+        it "returns the correct formatted uri" do
+          expected_url = "https://example.com/share?title=Bar&url=https%3A%2F%2Fother.example.org&desc=Hello+world&hashtags=Baz"
+          params = { url: "https://other.example.org", desc: "Hello world", hashtags: "Baz" }
           expect(subject.formatted_share_uri("Bar", params)).to eq(expected_url)
         end
       end
