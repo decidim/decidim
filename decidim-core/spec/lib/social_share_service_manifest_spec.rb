@@ -111,7 +111,7 @@ module Decidim
       end
 
       it "returns the correct path" do
-        expect(subject.icon_path).to match(%r{/packs-test/media/images/email-.*\.svg})
+        expect(subject.icon_path).to match(%r{/packs-test/media/images/email-[a-z0-9]+.svg})
       end
     end
   end
