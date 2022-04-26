@@ -16,6 +16,7 @@ module Decidim
       include Decidim::Searchable
       include Decidim::TranslatableResource
       include Decidim::TranslatableAttributes
+      include Decidim::ActsAsTree
 
       # Limit the max depth of a comment tree. If C is a comment and R is a reply:
       # C          (depth 0)
@@ -26,6 +27,8 @@ module Decidim
       MAX_DEPTH = 3
 
       translatable_fields :body
+
+      parent_item_foreign_key :decidim_commentable_id
 
       belongs_to :commentable, foreign_key: "decidim_commentable_id", foreign_type: "decidim_commentable_type", polymorphic: true
       belongs_to :root_commentable, foreign_key: "decidim_root_commentable_id", foreign_type: "decidim_root_commentable_type", polymorphic: true, touch: true
