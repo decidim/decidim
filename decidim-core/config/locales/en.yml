@@ -42,6 +42,7 @@ en:
       decidim/promote_to_admin: Promoted to group admin
       decidim/removed_from_group: Removed from group
       decidim/resource_endorsed_event: Resource endorsed
+      decidim/welcome_notification_event: Welcomme message
   activerecord:
     attributes:
       decidim/user:
