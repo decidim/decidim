@@ -36,7 +36,7 @@ module Decidim
         end
       end
 
-      context "when there are multiple a services" do
+      context "when there are multiple services" do
         before do
           allow(Decidim.config).to receive(:social_share_services).and_return(%w(Twitter Facebook WhatsApp))
         end
