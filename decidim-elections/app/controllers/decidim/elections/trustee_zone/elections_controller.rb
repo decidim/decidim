@@ -41,7 +41,7 @@ module Decidim
         end
 
         def current_step
-          @current_step ||= election.bb_status if election.bb_key_ceremony? || election.bb_tally?
+          @current_step ||= election.bb_status if election.bb_key_ceremony? || election.bb_tally_started?
         end
       end
     end
