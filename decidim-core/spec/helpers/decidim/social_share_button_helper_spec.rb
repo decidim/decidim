@@ -52,5 +52,33 @@ module Decidim
         end
       end
     end
+
+    describe "render_social_share_button" do
+      context "with email" do
+        before do
+          allow(Decidim.config).to receive(:social_share_services).and_return(%w(Email))
+        end
+
+        it "renders the correct HTML" do
+          expect(result).to include("Share to Email")
+          expect(result).to include("mailto:?subject=Hello&amp;body=http%3A%2F%2Fexample.org")
+          expect(result).to include(".svg")
+        end
+      end
+
+      context "with Twitter and all optional params" do
+        let(:args) { { url: "http://example.org", hashtags: "Hello", via: "Decidim" } }
+
+        before do
+          allow(Decidim.config).to receive(:social_share_services).and_return(%w(Twitter))
+        end
+
+        it "renders the correct HTML" do
+          expect(result).to include("Share to Twitter")
+          expect(result).to include("https://twitter.com/intent/tweet?url=http%3A%2F%2Fexample.org&amp;text=Hello&amp;hashtags=Hello&amp;via=Decidim")
+          expect(result).to include(".svg")
+        end
+      end
+    end
   end
 end
