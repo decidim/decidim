@@ -2,7 +2,7 @@
 
 namespace :decidim do
   namespace :upgrade do
-    desc "Modify nicknames when exists similar ones case insensitively"
+    desc "Modify nicknames with random numbers when exists similar ones case insensitively"
     task fix_nickname_uniqueness: :environment do
       logger = Logger.new($stdout)
       logger.info("Updating users nickname ...")
