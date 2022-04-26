@@ -60,13 +60,10 @@
 <% content_for :js_content do %>
 
   <% if preview_mode? %>
-    <!-- js entrypoint "decidim_elections_voter_setup_preview" -->
     <%= javascript_pack_tag "decidim_elections_voter_setup_preview" %>
   <% else %>
-    <!-- js entrypoint "decidim_elections_voter_setup_vote" -->
     <%= javascript_pack_tag "decidim_elections_voter_setup_vote" %>
   <% end %>
 
-  <!-- js entrypoint "decidim_elections_voter_new_vote" -->
   <%= javascript_pack_tag "decidim_elections_voter_new_vote" %>
 <% end %>

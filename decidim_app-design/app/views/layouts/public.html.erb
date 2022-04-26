@@ -16,7 +16,6 @@
       Decidim.config.set(<%== { icons_path: asset_pack_path("media/images/icons.svg") }.to_json %>);
     </script>
 
-    <!-- js entrypoint "public" -->
     <%= javascript_pack_tag "public", defer: false, 'data-turbolinks-track': "reload" %>
   </body>
 </html>
