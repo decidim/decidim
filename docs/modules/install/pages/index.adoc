@@ -112,6 +112,33 @@ You can configure it with `crontab -e`, for instance if you've created your Deci
 4 0 * * * cd /home/user/decidim_application && RAILS_ENV=production bundle exec rake decidim:reminders:all
 ----
 
+==== Notifications digest
+This is an email with all the notifications activity summarized. It's generated for the users that
+have checked the `email_on_notification` option in their user panel. Also they can set the frequency they want
+to receive the emails in the `notifications_sending_frequency` option.
+
+There are two tasks to send the mail notifications digest. The email will be send depending on when you set the job in the crontab.
+
+
+This one sends a daily summary for the users. It takes the current day when the task is triggered
+----
+decidim:mailers:notifications_digest_daily
+----
+
+And this one, a weekly sumary. It takes the range between the time the task has been triggered and 7 days ago
+----
+decidim:mailers:notifications_digest_weekly
+----
+
+[source,console]
+----
+# Send notification mail digest daily
+5 0 * * * cd /home/user/decidim_application && RAILS_ENV=production bundle exec rake decidim:mailers:notifications_digest_daily
+
+# Send notification mail digest weekly
+6 0 * * * cd /home/user/decidim_application && RAILS_ENV=production bundle exec rake decidim:mailers:notifications_digest_weekly
+----
+
 === Further configuration
 
 We also have other guides on how to configure some extra components:
