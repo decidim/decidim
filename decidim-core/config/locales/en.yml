@@ -1137,9 +1137,9 @@ en:
           none: None
           real_time: Real time
           weekly: Weekly
+        notifications_sending_frequency: How often do you want to receive the notifications email?
         notification_settings:
           close_meeting_reminder: I want to receive email reminders of closed meetings unpublished reports
-        notifications_sending_frequency: How often do you want to receive the notifications email?
         own_activity: My own activity, like when someone comments in my proposal or mentions me
         receive_notifications_about: I want to get notifications about
         send_notifications_by_email: Send notifications by email
