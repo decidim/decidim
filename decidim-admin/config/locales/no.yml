@@ -1018,7 +1018,7 @@
         hide: Skjul
         not_hidden: Ikke skjult
         title: Handlinger
-        unhide: Ikke skjul
+        unhide: Vis
         unreport: Urapporter
       admin:
         reportable:
