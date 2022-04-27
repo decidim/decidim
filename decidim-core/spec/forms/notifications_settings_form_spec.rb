@@ -12,7 +12,6 @@ module Decidim
         email_on_moderations: email_on_moderations,
         newsletter_notifications: newsletter_notifications,
         allow_public_contact: allow_public_contact,
-        allow_push_notifications: allow_push_notifications
       ).with_context(
         current_user: user
       )
@@ -26,7 +25,6 @@ module Decidim
     let(:email_on_moderations) { "1" }
     let(:newsletter_notifications) { "1" }
     let(:allow_public_contact) { "1" }
-    let(:allow_push_notifications) { "1" }
 
     context "with correct data" do
       it "is valid" do

@@ -11,7 +11,6 @@ module Decidim
       {
         email_on_notification: true,
         email_on_moderations: true,
-        allow_push_notifications: true,
         newsletter_notifications_at: Time.current,
         direct_message_types: "followed-only",
         notification_settings: { "close_meeting_reminder": "0" }
