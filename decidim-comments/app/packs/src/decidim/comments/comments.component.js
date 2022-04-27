@@ -26,6 +26,7 @@ export default class CommentsComponent {
     this.lastCommentId = config.lastCommentId;
     this.pollingInterval = config.pollingInterval || 15000;
     this.singleComment = config.singleComment;
+    this.toggleTranslations = config.toggleTranslations;
     this.id = this.$element.attr("id") || this._getUID();
     this.mounted = false;
   }
@@ -144,7 +145,8 @@ export default class CommentsComponent {
         data: new URLSearchParams({
           "commentable_gid": this.commentableGid,
           "root_depth": this.rootDepth,
-          "order": this.order
+          "order": this.order,
+          ...(this.toggleTranslations && { "toggle_translations": this.toggleTranslations })
         }),
         success: this._pollComments()
       })
@@ -221,7 +223,8 @@ export default class CommentsComponent {
           "commentable_gid": this.commentableGid,
           "root_depth": this.rootDepth,
           "order": this.order,
-          "after": this.lastCommentId
+          "after": this.lastCommentId,
+          ...(this.toggleTranslations && { "toggle_translations": this.toggleTranslations })
         }),
         success: this._pollComments()
       })
