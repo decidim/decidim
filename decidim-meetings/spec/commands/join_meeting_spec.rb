@@ -22,7 +22,7 @@ module Decidim::Meetings
              questionnaire: questionnaire)
     end
 
-    let(:user) { create :user, :confirmed, organization: organization, email_on_notification: false }
+    let(:user) { create :user, :confirmed, organization: organization }
 
     let(:registration_form) { Decidim::Meetings::JoinMeetingForm.new }
 

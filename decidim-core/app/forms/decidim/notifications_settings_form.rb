@@ -6,7 +6,6 @@ module Decidim
   class NotificationsSettingsForm < Form
     mimic :user
 
-    attribute :email_on_notification, Boolean
     attribute :email_on_moderations, Boolean
     attribute :newsletter_notifications, Boolean
     attribute :notifications_from_followed, Boolean

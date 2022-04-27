@@ -26,8 +26,8 @@ describe Decidim::EmailNotificationGenerator do
 
       context "when the user does not want emails for notifications" do
         before do
-          recipient.update(email_on_notification: false)
-          follower.update(email_on_notification: false)
+          recipient.update(notifications_sending_frequency: "none")
+          follower.update(notifications_sending_frequency: "none")
         end
 
         it "does not schedule a job for that recipient" do
@@ -40,8 +40,8 @@ describe Decidim::EmailNotificationGenerator do
 
       context "when the user wants emails for notifications" do
         before do
-          recipient.update!(email_on_notification: true)
-          follower.update!(email_on_notification: true)
+          recipient.update!(notifications_sending_frequency: "real_time")
+          follower.update!(notifications_sending_frequency: "real_time")
         end
 
         it "schedules a job for each recipient" do

@@ -8,7 +8,6 @@ module Decidim
       described_class.from_params(
         notifications_from_followed: notifications_from_followed,
         notifications_from_own_activity: notifications_from_own_activity,
-        email_on_notification: email_on_notification,
         email_on_moderations: email_on_moderations,
         newsletter_notifications: newsletter_notifications,
         allow_public_contact: allow_public_contact
@@ -21,7 +20,6 @@ module Decidim
 
     let(:notifications_from_followed) { "1" }
     let(:notifications_from_own_activity) { "1" }
-    let(:email_on_notification) { "1" }
     let(:email_on_moderations) { "1" }
     let(:newsletter_notifications) { "1" }
     let(:allow_public_contact) { "1" }

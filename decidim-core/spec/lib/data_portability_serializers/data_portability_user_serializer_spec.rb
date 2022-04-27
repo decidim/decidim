@@ -43,10 +43,6 @@ module Decidim
         expect(serialized).to include(newsletter_notifications_at: resource.newsletter_notifications_at)
       end
 
-      it "includes the email on notification" do
-        expect(serialized).to include(email_on_notification: resource.email_on_notification)
-      end
-
       it "includes the admin" do
         expect(serialized).to include(admin: resource.admin)
       end
