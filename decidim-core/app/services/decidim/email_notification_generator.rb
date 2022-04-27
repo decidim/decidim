@@ -35,6 +35,7 @@ module Decidim
     def generate
       return unless resource
       return unless event_class.types.include?(:email)
+
       followers.each do |recipient|
         next unless ["all", "followed-only"].include?(recipient.notification_types)
 
