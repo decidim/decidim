@@ -10,8 +10,15 @@ module Decidim
 
       def change_active_step
         @participatory_processes.each do |process|
-          steps = process.steps.unscoped.where("start_date <= ? AND end_date >= ?", Time.zone.now, Time.zone.now).order("end_date ASC", :position)
-          next if steps.empty?
+          steps = Decidim::ParticipatoryProcessStep.unscoped
+                                                   .where(decidim_participatory_process_id: process.id)
+                                                   .where("start_date <= ? AND end_date >= ?", Time.zone.now, Time.zone.now).order("end_date ASC", :position)
+
+          if steps.empty?
+            process.steps.find_by(active: true).update(active: false)
+            process.steps.order("end_date ASC", :position).last.update(active: true)
+            next
+          end
 
           active_step = process.steps.find_by(active: true)
           step_to_activate = steps.first
