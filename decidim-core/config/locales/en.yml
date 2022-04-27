@@ -1651,10 +1651,14 @@ en:
     timestamp_error_message: Sorry, that was too quick! Please resubmit.
   layouts:
     decidim:
-      cookie_warning:
-        description_html: This site uses cookies. By continuing to browse the site, you agree to our use of cookies. %{link}.
-        link_label: Find out more about cookies
-        ok: I agree
+      cookie_consent:
+        dialog:
+          accept_all: Accept all
+          description: We use cookies on our website to improve the performance and content of the site. The cookies enable us to provide a more individual user experience and social media channels.
+          necessary_only: Only necessary
+          privacy_policy_link_label: Learn more
+          cookie_settings: Settings
+          title: Information about the cookies used on the website
       edit_link:
         edit: Edit
       footer:

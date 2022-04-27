@@ -9,7 +9,6 @@
 
   <body>
     <%= render partial: "layouts/decidim/impersonation_warning" %>
-    <%= render partial: "layouts/decidim/cookie_warning" %>
     <%= render partial: "layouts/decidim/omnipresent_banner" %>
     <%= render partial: "layouts/decidim/timeout_modal" %>
     <%= render partial: "layouts/decidim/offline_banner" %>
@@ -22,5 +21,6 @@
     <%= render partial: "decidim/shared/login_modal" unless current_user %>
     <%= render partial: "decidim/shared/authorization_modal" %>
     <%= render partial: "layouts/decidim/cors" if Decidim.cors_enabled %>
+    <%= render partial: "layouts/decidim/cookie_warning" %>
   </body>
 </html>

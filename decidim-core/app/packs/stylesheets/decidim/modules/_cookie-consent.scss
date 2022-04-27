@@ -1,0 +1,33 @@
+.cc-dialog-wrapper{
+  position: fixed;
+  z-index: 1000000;
+
+  .cc-dialog{
+    position: fixed;
+    background-color: $white;
+    display: flex;
+    justify-content: space-around;
+    padding: 1rem;
+    width: 100%;
+    bottom: 0;
+    border: 1px solid #e8e8e8;
+
+    @include breakpoint(medium down){
+      flex-direction: column;
+    }
+
+    .cc-content{
+      flex: 3 1 0px;
+    }
+    .cc-button-wrapper{
+      display: flex;
+      flex: 2 1 0px;
+      justify-content: space-evenly;
+      align-items: center;
+
+      *{
+        margin: 0 1rem;
+      }
+    }
+  }
+}
