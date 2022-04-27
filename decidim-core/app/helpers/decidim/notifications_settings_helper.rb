@@ -5,10 +5,10 @@ module Decidim
   module NotificationsSettingsHelper
     def frequencies_collection
       {
-        none: t(".notifications_sending_frequencies.none"),
-        real_time: t(".notifications_sending_frequencies.real_time"),
-        daily: t(".notifications_sending_frequencies.daily"),
-        weekly: t(".notifications_sending_frequencies.weekly")
+        none: t("decidim.notifications_settings.show.notifications_sending_frequencies.none"),
+        real_time: t("decidim.notifications_settings.show.notifications_sending_frequencies.real_time"),
+        daily: t("decidim.notifications_settings.show.notifications_sending_frequencies.daily"),
+        weekly: t("decidim.notifications_settings.show.notifications_sending_frequencies.weekly")
       }
     end
   end

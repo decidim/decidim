@@ -1128,21 +1128,19 @@ en:
         allow_public_contact: Allow anyone to send me a direct message, even if I don't follow them.
         direct_messages: Receive direct messages from anyone
         email_on_moderations: I want to receive an email every time something or someone is reported for moderation.
-        email_on_notification: I want to receive an email every time I receive a notification.
         everything_followed: Everything I follow
         newsletter_notifications: I want to receive newsletters
         newsletters: Newsletters
+        notification_settings:
+          close_meeting_reminder: I want to receive email reminders of closed meetings unpublished reports
         notifications_sending_frequencies:
           daily: Daily
           none: None
           real_time: Real time
           weekly: Weekly
         notifications_sending_frequency: How often do you want to receive the notifications email?
-        notification_settings:
-          close_meeting_reminder: I want to receive email reminders of closed meetings unpublished reports
         own_activity: My own activity, like when someone comments in my proposal or mentions me
         receive_notifications_about: I want to get notifications about
-        send_notifications_by_email: Send notifications by email
         update_notifications_settings: Save changes
       update:
         error: There was a problem updating your notifications settings.
