@@ -21,6 +21,8 @@ module Decidim
     include UserBlockedChecker
     include DisableRedirectionToExternalHost
 
+    include RedesignLayout
+
     helper Decidim::MetaTagsHelper
     helper Decidim::DecidimFormHelper
     helper Decidim::LanguageChooserHelper
