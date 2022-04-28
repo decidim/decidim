@@ -110,6 +110,7 @@ module Decidim
   autoload :Command, "decidim/command"
   autoload :EventRecorder, "decidim/event_recorder"
   autoload :ControllerHelpers, "decidim/controller_helpers"
+  autoload :RedesignLayout, "decidim/redesign_layout"
 
   include ActiveSupport::Configurable
   # Loads seeds from all engines.
