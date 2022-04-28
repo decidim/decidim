@@ -1655,7 +1655,7 @@ en:
         dialog:
           accept_all: Accept all
           description: We use cookies on our website to improve the performance and content of the site. The cookies enable us to provide a more individual user experience and social media channels.
-          necessary_only: Only necessary
+          essential_only: Essential only
           privacy_policy_link_label: Learn more
           cookie_settings: Settings
           title: Information about the cookies used on the website

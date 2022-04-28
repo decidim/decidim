@@ -1,4 +1,4 @@
-.cc-dialog-wrapper{
+#cc-dialog-wrapper{
   position: fixed;
   z-index: 1000000;
 
@@ -29,5 +29,53 @@
         margin: 0 1rem;
       }
     }
+  }
+}
+
+#cc-modal{
+  background-color: $white;
+
+  .category-wrapper{
+    background-color: $light-gray;
+    margin: 1rem 0;
+    padding: .2rem;
+
+    .category-row{
+      position: relative;
+      display: flex;
+      justify-content: space-between;
+
+      .cc-title{
+        &::before{
+          border: solid #2d4156;
+          border-width: 0 2px 2px 0;
+          padding: .2em;
+          display: inline-block;
+          content: '';
+          margin-right: 15px;
+          position: absolute;
+          left: 1.2em;
+          top: 50%;
+          transform: translateY(-50%) rotate(45deg);
+        }
+
+        &.open{
+          &::before{
+            transform: translateY(-50%) rotate(225deg);
+          }
+        }
+
+        padding: 0 0 0 3rem;
+      }
+
+      .cc-switch{
+        padding: .5rem 0 0;
+      }
+    }
+  }
+
+  .cc-buttons-wrapper{
+    display: flex;
+    justify-content: space-between;
   }
 }

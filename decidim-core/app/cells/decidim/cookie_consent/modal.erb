@@ -1,0 +1,28 @@
+<div class="reveal cc-modal" id="cc-modal" data-close-on-click="false" data-close-on-esc="false" data-reveal>
+  <div class="reveal__header">
+    <h3 class="reveal__title">Cookie settings</h3>
+  </div>
+
+  <div class="cc-categories">
+    <% categories.each do |category| %>
+      <%= render(
+        {
+          view: :category,
+          locals: {
+            category: category
+          }
+        }
+      ) %>
+    <% end %>
+  </div>
+
+  <div class="cc-buttons-wrapper">
+    <div class="cc-buttons-left">
+      <button id="cc-modal-accept" class="button" data-close>Accept all</button>
+      <button id="cc-modal-reject" class="button" data-close>Reject all</button>
+    </div>
+    <div class="cc-buttons-right">
+      <button id="cc-modal-save" class="button" data-close>Save settings</button>
+    </div>
+  </div>
+</div>

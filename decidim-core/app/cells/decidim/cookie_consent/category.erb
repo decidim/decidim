@@ -1,0 +1,26 @@
+<% category = locals[:category] %>
+<div class="category-wrapper">
+  <div class="category-row">
+    <button class="cc-title">
+      <div class="h5 cc-category-title">
+        <strong><%= category[:title] %></strong>
+      </div>
+    </button>
+
+    <div class="cc-switch">
+      <input
+        class="switch-input"
+        <%= %(checked="checked") if category[:mandatory] %>
+        id="cc-<%= category[:id] %>"
+        type="checkbox"
+        name="<%= category[:id] %>"
+        <%= "disabled" if category[:mandatory] %>>
+      <label class="switch-paddle" for="cc-<%= category[:id] %>">
+        <span class="show-for-sr"><%= options[:title] %></span>
+      </label>
+    </div>
+  </div>
+  <div class="cc-description hide">
+    <p><%= category[:description] %></p>
+  </div>
+</div>

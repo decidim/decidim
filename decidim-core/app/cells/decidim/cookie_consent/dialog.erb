@@ -1,0 +1,23 @@
+<div id="cc-dialog-wrapper" class="hide">
+  <div class="cc-dialog">
+    <div class="cc-content">
+      <div class="h2">
+        <%= t("layouts.decidim.cookie_consent.dialog.title") %>
+      </div>
+      <div>
+        <%= t("layouts.decidim.cookie_consent.dialog.description") %>
+      </div>
+    </div>
+    <div class="cc-button-wrapper">
+      <button id="cc-dialog-accept" class="button">
+        <%= t("layouts.decidim.cookie_consent.dialog.accept_all") %>
+      </button>
+      <button id="cc-dialog-reject" class="button">
+        <%= t("layouts.decidim.cookie_consent.dialog.essential_only") %>
+      </button>
+      <button id="cc-dialog-settings" class="button" data-open="cc-modal">
+        <%= t("layouts.decidim.cookie_consent.dialog.cookie_settings") %>
+      </button>
+    </div>
+  </div>
+</div>
