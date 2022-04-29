@@ -33,7 +33,6 @@ module Decidim::Budgets
     let(:latitude) { 40.1234 }
     let(:longitude) { 2.1234 }
     let(:address) { nil }
-    let(:has_address) { false }
     let(:attributes) do
       {
         decidim_scope_id: scope_id,
@@ -42,8 +41,7 @@ module Decidim::Budgets
         description_en: description[:en],
         budget_amount: budget_amount,
         selected: selected,
-        address: address,
-        has_address: has_address,
+        address: address
       }
     end
 
@@ -53,9 +51,6 @@ module Decidim::Budgets
 
     context "when geocoding is enabled" do
       let(:current_component) { create :budgets_component, :with_geocoding_enabled, participatory_space: participatory_process }
-
-      context "when the has address checkbox is checked" do
-        let(:has_address) { true }
 
         context "when the address is not present" do
           it "does not store the coordinates" do
@@ -78,7 +73,6 @@ module Decidim::Budgets
             expect(subject.latitude).to eq(latitude)
             expect(subject.longitude).to eq(longitude)
           end
-        end
       end
     end
 

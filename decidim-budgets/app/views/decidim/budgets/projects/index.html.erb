@@ -5,6 +5,31 @@
 
 <div class="voting-wrapper">
   <div class="row columns">
+    <% if component_settings.geocoding_enabled? %>
+      <%= dynamic_map_for projects_data_for_map(all_geocoded_projects) do %>
+        <template id="marker-popup">
+          <div class="map-info__content">
+            <h3>${title}</h3>
+            <div id="bodyContent">
+              <p>{{html body}}</p>
+              <div class="map__date-address">
+                <div class="address card__extra">
+                  <div class="address__icon">{{html icon}}</div>
+                  <div class="address__details">
+                    <span>${address}</span><br>
+                  </div>
+                </div>
+              </div>
+              <div class="map-info__button">
+                <a href="${link}" class="button button--sc">
+                  <%= t(".view_project") %>
+                </a>
+              </div>
+            </div>
+          </div>
+        </template>
+      <% end %>
+    <% end %>
     <% if voting_finished? %>
       <h2 class="heading2">
         <%= t("decidim.budgets.projects.projects_for", name: translated_attribute(budget.title)) %>

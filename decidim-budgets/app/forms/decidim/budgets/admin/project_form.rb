@@ -16,7 +16,6 @@ module Decidim
         attribute :address, String
         attribute :latitude, Float
         attribute :longitude, Float
-        attribute :has_address, Boolean
         attribute :budget_amount, Integer
         attribute :decidim_scope_id, Integer
         attribute :decidim_category_id, Integer
@@ -59,15 +58,7 @@ module Decidim
           Decidim::Map.available?(:geocoding) && current_component.settings.geocoding_enabled?
         end
 
-        def address
-          return unless has_address
-
-          super
-        end
-
         def has_address?
-          return unless has_address
-
           geocoding_enabled? && address.present?
         end
 
