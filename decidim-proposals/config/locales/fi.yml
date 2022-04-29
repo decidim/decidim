@@ -225,9 +225,12 @@ fi:
             email_subject: Joku on jättänyt huomion ehdotukseen %{resource_title}.
             notification_title: Joku on jättänyt huomion ehdotukseen <a href="%{resource_path}">%{resource_title}</a>. Tutustu siihen <a href="%{admin_proposal_info_path}">hallintapaneelin kautta</a>
         collaborative_draft_access_accepted:
+          email_intro: '%{requester_name} on hyväksytty osallistujaksi yhteistyöluonnokseen <a href="%{resource_url}">%{resource_title}</a>.'
+          email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet osallistujana kohteessa <a href="%{resource_url}">%{resource_title}</a>.
           email_subject: "%{requester_name} on hyväksytty osallistujaksi kohtaan %{resource_title}."
           notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> on <strong>hyväksytty osallistujaksi</strong> yheistyöluonnokseen <a href="%{resource_path}">%{resource_title}</a>.
         collaborative_draft_access_rejected:
+          email_intro: 'Käyttäjän %{requester_name} pyyntö päästä yhteistyöluonnoksen <a href="%{resource_url}">%{resource_title}</a> osallistujaksi on hylätty.'
           email_subject: "%{requester_name} on hylätty, jotta hän voi osallistua %{resource_title} yhteistyöhankkeeseen."
           notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> <strong>avustajaoikeudet on hylätty</strong> yhteistyöluonnoksesta <a href="%{resource_path}">%{resource_title}</a>.
         collaborative_draft_access_requested:
