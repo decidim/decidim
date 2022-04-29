@@ -16,7 +16,6 @@ module Decidim::Budgets
     let(:uploaded_photos) { [] }
     let(:photos) { [] }
     let(:address) { nil }
-    let(:has_address) { nil }
     let(:latitude) { 40.1234 }
     let(:longitude) { 2.1234 }
     let(:proposal_component) do
@@ -83,13 +82,13 @@ module Decidim::Budgets
       it "traces the action", versioning: true do
         expect(Decidim.traceability)
           .to receive(:create!)
-          .with(
-            Decidim::Budgets::Project,
-            current_user,
-            hash_including(:scope, :category, :budget, :title, :description, :budget_amount),
-            visibility: "all"
-          )
-          .and_call_original
+                .with(
+                  Decidim::Budgets::Project,
+                  current_user,
+                  hash_including(:scope, :category, :budget, :title, :description, :budget_amount),
+                  visibility: "all"
+                )
+                .and_call_original
 
         expect { subject.call }.to change(Decidim::ActionLog, :count)
         action_log = Decidim::ActionLog.last
@@ -99,23 +98,19 @@ module Decidim::Budgets
       context "when geocoding is enabled" do
         let(:current_component) { create :budgets_component, :with_geocoding_enabled, participatory_space: participatory_process }
 
-        context "when the has address checkbox is checked" do
-          let(:has_address) { true }
+        context "when the address is present" do
+          let(:address) { "Some address" }
 
-          context "when the address is present" do
-            let(:address) { "Some address" }
+          before do
+            stub_geocoding(address, [latitude, longitude])
+          end
 
-            before do
-              stub_geocoding(address, [latitude, longitude])
-            end
+          it "sets the latitude and longitude" do
+            subject.call
+            project = Decidim::Budgets::Project.last
 
-            it "sets the latitude and longitude" do
-              subject.call
-              project = Decidim::Budgets::Project.last
-
-              expect(project.latitude).to eq(latitude)
-              expect(project.longitude).to eq(longitude)
-            end
+            expect(project.latitude).to eq(latitude)
+            expect(project.longitude).to eq(longitude)
           end
         end
       end
