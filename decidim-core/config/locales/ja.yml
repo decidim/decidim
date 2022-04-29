@@ -64,7 +64,6 @@ ja:
     'true': 'はい'
   carrierwave:
     errors:
-      image_too_big: 画像が大きすぎます
       not_inside_organization: ファイルはどの組織にも添付されていません
   date:
     formats:
@@ -757,7 +756,6 @@ ja:
           cancel: キャンセル
           edit_image: 画像を編集
           error: エラー
-          file_too_big: 'ファイルが大きすぎます。最大ファイルサイズ: %{megabytes}MB'
           remove: 削除
           replace: 置換
           save: 保存
