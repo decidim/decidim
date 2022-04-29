@@ -68,7 +68,6 @@ ca:
     'true': 'Sí'
   carrierwave:
     errors:
-      image_too_big: La imatge és massa gran
       not_inside_organization: L'arxiu no està relacionat amb cap organització
   date:
     formats:
@@ -771,7 +770,6 @@ ca:
           cancel: Cancel·lar
           edit_image: Editar imatge
           error: Error!
-          file_too_big: 'L''arxiu és massa gran! Pes d''arxiu màxim: %{megabytes}MB'
           remove: Eliminar
           replace: Reemplaçar
           save: Desar
