@@ -71,7 +71,6 @@ ro:
     'true': 'Da'
   carrierwave:
     errors:
-      image_too_big: Imaginea este prea mare
       not_inside_organization: Fișierul nu este atașat niciunei organizații
   date:
     formats:
