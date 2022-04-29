@@ -67,7 +67,6 @@ lb:
     'true': 'Jo'
   carrierwave:
     errors:
-      image_too_big: Bild ass ze grouss
       not_inside_organization: D'Datei ass net mat enger Organisatioun verbonnen
   date:
     formats:
