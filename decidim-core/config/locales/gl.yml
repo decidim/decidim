@@ -47,9 +47,6 @@ gl:
   booleans:
     'false': 'Non'
     'true': 'Si'
-  carrierwave:
-    errors:
-      image_too_big: A imaxe é demasiado grande
   date:
     formats:
       decidim_short: "%d/%m/%Y"
@@ -588,7 +585,6 @@ gl:
           cancel: Cancelar
           edit_image: Editar imaxe
           error: Erro!
-          file_too_big: 'O ficheiro e grande de máis! Tamaño máximo: %{megabytes}MB'
           remove: Eliminar
           replace: Substituír
           save: Gardar
