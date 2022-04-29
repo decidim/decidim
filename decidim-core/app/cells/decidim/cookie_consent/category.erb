@@ -1,5 +1,5 @@
 <% category = locals[:category] %>
-<div class="category-wrapper">
+<div class="category-wrapper" data-id="<%= category[:id] %>">
   <div class="category-row">
     <button class="cc-title">
       <div class="h5 cc-category-title">
@@ -11,12 +11,12 @@
       <input
         class="switch-input"
         <%= %(checked="checked") if category[:mandatory] %>
-        id="<%= category[:id] %>"
+        id="cc-<%= category[:id] %>"
         type="checkbox"
         name="<%= category[:id] %>"
         <%= "disabled" if category[:mandatory] %>>
-      <label class="switch-paddle" for="<%= category[:id] %>">
-        <span class="show-for-sr"><%= options[:title] %></span>
+      <label class="switch-paddle" for="cc-<%= category[:id] %>">
+        <span class="show-for-sr"><%= t("layouts.decidim.cookie_consent.modal.toggle", cookie_category: category[:title]) %></span>
       </label>
     </div>
   </div>

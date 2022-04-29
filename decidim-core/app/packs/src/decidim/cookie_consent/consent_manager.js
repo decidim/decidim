@@ -1,16 +1,16 @@
 import Cookies from "js-cookie";
 
 class ConsentManager {
+  // Options should contain the following keys:
+  // - modal - HTML element of the cookie consent modal (e.g. "<div id="cc-modal">Foo bar</div>")
+  // - categories - Available cookie categories (e.g. ["essential", "preferences", "analytics", "marketing"])
+  // - cookieName - Name of the cookie saved in browser (e.g. "decidim-cookie")
   constructor(options) {
-    // const categories = ["cc-essential", "cc-preferences", "cc-analytics", "cc-marketing"]
     this.modal = options.modal;
     this.categories = options.categories;
     this.cookie = Cookies.get(options.cookieName);
-    console.log("cookie", this.cookie);
-    console.log("state", this.state);
     if (this.cookie) {
-      this.state = JSON.parse(this.cookie);
-      console.log("this.state", this.state);
+      this.updateState(JSON.parse(this.cookie));
     }
   }
 
@@ -18,6 +18,25 @@ class ConsentManager {
     this.state = newState;
     Cookies.set("decidim-cookie", JSON.stringify(this.state));
     this.updateModalSelections();
+    this.triggerState();
+  }
+
+  triggerState() {
+    document.querySelectorAll("script[type='text/plain'][data-cookiecategory]").forEach((script) => {
+      console.log("script", script);
+      if (this.state[script.dataset.cookiecategory]) {
+        const activeScript = document.createElement("script");
+        if (script.src.length > 0) {
+          activeScript.src = script.src;
+        } else {
+          activeScript.innerHTML = script.innerHTML;
+        }
+        script.parentNode.replaceChild(activeScript, script);
+      }
+    });
+
+    const event = new CustomEvent("dataconsent", { detail: this.state });
+    document.dispatchEvent(event);
   }
 
   updateModalSelections() {

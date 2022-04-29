@@ -28,7 +28,6 @@ const initDialog = (manager) => {
 
 const initModal = (manager) => {
   const categoryElements = manager.modal.querySelectorAll(".category-wrapper");
-  manager.updateModalSelections(manager.state);
 
   categoryElements.forEach((categoryEl) => {
     const categoryButton = categoryEl.querySelector(".cc-title");
@@ -58,24 +57,24 @@ const initModal = (manager) => {
   })
 
   saveSettingsButton.addEventListener("click", () => {
-    let categoryHash = {};
+    let newState = {};
     manager.categories.forEach((category) => {
       const accepted = manager.modal.querySelector(`input[name='${category}']`).checked;
       if (accepted) {
-        categoryHash[category] = true;
+        newState[category] = true;
       }
     })
-    manager.saveSettings(categoryHash);
+    manager.saveSettings(newState);
   })
 }
 
 document.addEventListener("DOMContentLoaded", () => {
   const modal = document.querySelector("#cc-modal");
-  const categories = ["cc-essential", "cc-preferences", "cc-analytics", "cc-marketing"]
+  const categories = [...modal.querySelectorAll(".category-wrapper")].map((el) => el.dataset.id)
   const manager = new ConsentManager({
     modal: modal,
     categories: categories,
-    cookieName: "decidim-cookie"
+    cookieName: window.Decidim.config.get("cookie_name")
   });
 
   initModal(manager, categories);
