@@ -68,7 +68,6 @@ es-MX:
     'true': 'Sí'
   carrierwave:
     errors:
-      image_too_big: La imagen es demasiado grande
       not_inside_organization: El archivo no está relacionado con ninguna organización
   date:
     formats:
@@ -774,7 +773,6 @@ es-MX:
           cancel: Cancelar
           edit_image: Editar imagen
           error: '¡Error!'
-          file_too_big: '¡El archivo es demasiado grande! Peso de archivo máximo: %{megabytes}MB'
           remove: Eliminar
           replace: Reemplazar
           save: Guardar
