@@ -68,7 +68,6 @@ fi-pl:
     'true': 'Kyllä'
   carrierwave:
     errors:
-      image_too_big: Kuva on liian suuri
       not_inside_organization: Tiedostoa ei ole liitetty mihinkään organisaatioon
   date:
     formats:
@@ -773,7 +772,6 @@ fi-pl:
           cancel: Peruuta
           edit_image: Muokkaa kuvaa
           error: Virhe!
-          file_too_big: 'Tiedosto on liian suuri! Suurin tiedostokoko: %{megabytes}MB'
           remove: Poista
           replace: Korvaa
           save: Tallenna
