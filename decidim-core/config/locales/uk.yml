@@ -35,9 +35,6 @@ uk:
   booleans:
     'false': 'Ні'
     'true': 'Так'
-  carrierwave:
-    errors:
-      image_too_big: Зображення завелике
   date:
     formats:
       decidim_short: "%d.%m.%Y"
