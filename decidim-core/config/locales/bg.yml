@@ -58,9 +58,6 @@ bg:
   booleans:
     'false': 'Не'
     'true': 'Да'
-  carrierwave:
-    errors:
-      image_too_big: Изображението е твърде голямо
   date:
     formats:
       decidim_short: "%d/%m/%Y"
