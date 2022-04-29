@@ -44,9 +44,6 @@ id:
   booleans:
     'false': 'Tidak'
     'true': 'iya nih'
-  carrierwave:
-    errors:
-      image_too_big: Gambarnya terlalu besar
   date:
     formats:
       decidim_short: "%d/%m/%Y"
