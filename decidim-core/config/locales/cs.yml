@@ -76,7 +76,6 @@ cs:
     'true': 'Ano'
   carrierwave:
     errors:
-      image_too_big: Obraz je příliš velký
       not_inside_organization: Soubor není připojen k žádné organizaci
   date:
     formats:
@@ -812,7 +811,6 @@ cs:
           cancel: Zrušit
           edit_image: Upravit obrázek
           error: Chyba!
-          file_too_big: 'Soubor je příliš velký! Maximun velikost souboru: %{megabytes}MB'
           remove: Odebrat
           replace: Nahradit
           save: Uložit
