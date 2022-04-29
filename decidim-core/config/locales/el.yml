@@ -60,9 +60,6 @@ el:
   booleans:
     'false': 'Όχι'
     'true': 'Ναι'
-  carrierwave:
-    errors:
-      image_too_big: Η εικόνα είναι πολύ μεγάλη
   date:
     formats:
       decidim_short: "%d/%m/%Y"
