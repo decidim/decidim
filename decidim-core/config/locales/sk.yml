@@ -66,9 +66,6 @@ sk:
   booleans:
     'false': 'Nie'
     'true': 'Áno'
-  carrierwave:
-    errors:
-      image_too_big: Obrázok je príliš veľký
   date:
     formats:
       decidim_short: "%d/%m/%Y"
