@@ -13,24 +13,40 @@ module Decidim
   # The new layout is expected to be defined at the same path with the name
   # prefixed with "redesigned_"
   #
+  # If a controller calls layout use redesign active: true to use redesigned
+  # layouts. This will affect to inheriting controllers not calling layout
+  # again
+  #
+  # For participatory spaces replace participatory_space_layout with
+  # redesign_participatory_space_layout. It will enable redesign for all
+  # actions in the controller using redesigned FALLBACK_LAYOUT on actions not
+  # covered by conditions
+  #
   module RedesignLayout
     extend ActiveSupport::Concern
 
+    FALLBACK_LAYOUT = "layouts/decidim/application"
+
     class_methods do
       def layout(layout, conditions = {})
-        super unless layout.is_a?(String)
-
-        super(redesigned_layout(layout), **conditions)
+        if layout.is_a?(String)
+          super(redesigned_layout(layout), **conditions)
+        else
+          super
+        end
       end
 
       def redesign(opts = {})
         @enable_redesign = opts.fetch(:active, true)
+        layout_conditions = opts.slice(:except, :only) || _layout_conditions
 
-        layout(_layout, _layout_conditions) if _layout
+        layout(_layout, **layout_conditions) if _layout
       end
 
       def redesign_participatory_space_layout(options = {})
-        layout :participatory_space_redesign_layout, **options
+        @redesign_layout_conditions = conditions_parsed(options)
+
+        layout :participatory_space_redesign_layout
         before_action :authorize_participatory_space, **options
       end
 
@@ -50,20 +66,48 @@ module Decidim
         !@enable_redesign.nil?
       end
 
+      def redesign_layout_conditions
+        @redesign_layout_conditions
+      end
+
+      def default_layout
+        @default_layout
+      end
+
       private
 
       def redesigned?(layout)
         %r{.*\K/_?redesigned}.match?(layout)
       end
+
+      def conditions_parsed(conditions = {})
+        conditions.each { |k, v| conditions[k] = Array(v).map(&:to_s) }
+      end
     end
 
     included do
-      delegate :redesigned_layout, :redesign, :redesign_defined?, to: :class
+      delegate :redesigned_layout, :redesign, :redesign_defined?, :redesign_layout_conditions, to: :class
 
       def participatory_space_redesign_layout
         redesign unless redesign_defined?
 
-        redesigned_layout(current_participatory_space_manifest.context(current_participatory_space_context).layout)
+        if conditional_layout?
+          redesigned_layout(current_participatory_space_manifest.context(current_participatory_space_context).layout)
+        else
+          redesigned_layout(FALLBACK_LAYOUT)
+        end
+      end
+
+      def conditional_layout?
+        return if redesign_layout_conditions.blank?
+
+        if (only = redesign_layout_conditions[:only])
+          only.include?(action_name)
+        elsif (except = redesign_layout_conditions[:except])
+          !except.exclude?(action_name)
+        else
+          true
+        end
       end
     end
   end
