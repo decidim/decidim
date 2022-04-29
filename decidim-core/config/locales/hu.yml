@@ -68,7 +68,6 @@ hu:
     'true': 'Igen'
   carrierwave:
     errors:
-      image_too_big: A kép mérete túl nagy
       not_inside_organization: A fájl nincs csatolva egyetlen szervezethez sem
   date:
     formats:
@@ -683,7 +682,6 @@ hu:
           cancel: Mégse
           edit_image: Kép szerkesztése
           error: Hiba!
-          file_too_big: 'A fájl túl nagy! Maximális méret: %{megabytes}MB'
           remove: Eltávolítás
           replace: Csere
           save: Mentés
