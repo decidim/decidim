@@ -75,7 +75,6 @@ pl:
     'true': 'Tak'
   carrierwave:
     errors:
-      image_too_big: Obraz jest zbyt duży
       not_inside_organization: Plik nie jest dołączony do żadnej organizacji
   date:
     formats:
