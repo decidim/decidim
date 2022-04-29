@@ -67,7 +67,6 @@ sv:
     'true': 'Ja'
   carrierwave:
     errors:
-      image_too_big: Bilden är för stor
       not_inside_organization: Den här filen är inte bifogad till någon organisation
   date:
     formats:
