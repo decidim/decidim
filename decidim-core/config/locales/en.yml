@@ -1681,7 +1681,7 @@ en:
         edit: Edit
       footer:
         cc_by_license: Creative Commons License
-        cookies: Cookies
+        cookie_settings: Cookie settings
         decidim_logo: Decidim Logo
         download_open_data: Download Open Data files
         made_with_open_source: Website made with <a target="_blank" href="https://github.com/decidim/decidim">free software</a>.

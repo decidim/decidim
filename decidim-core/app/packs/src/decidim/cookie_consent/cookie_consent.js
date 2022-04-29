@@ -1,7 +1,6 @@
 import ConsentManager from "src/decidim/cookie_consent/consent_manager";
 
 const initDialog = (manager) => {
-  console.log("manager.state", manager.state);
   if (manager.state) {
     return;
   }
@@ -15,31 +14,24 @@ const initDialog = (manager) => {
   acceptAllButton.addEventListener("click", () => {
     manager.acceptAll();
     dialogWrapper.style.display = "none";
-  })
+  });
 
   rejectAllButton.addEventListener("click", () => {
     manager.rejectAll();
     dialogWrapper.style.display = "none";
-  })
+  });
 
   settingsButton.addEventListener("click", () => {
     dialogWrapper.style.display = "none";
-  })
+  });
 }
 
-const initModal = (manager, categories) => {
+const initModal = (manager) => {
   const modal = document.querySelector("#cc-modal");
-  const categoryElements = modal.querySelectorAll(".category-wrapper")
+  const categoryElements = modal.querySelectorAll(".category-wrapper");
+  manager.updateUi(manager.state);
 
   categoryElements.forEach((categoryEl) => {
-    const categoryInput = categoryEl.querySelector("input");
-
-    if (manager.state && manager.state[categoryInput.name]) {
-      categoryInput.checked = true;
-    } else if (!categoryInput.disabled) {
-      categoryInput.checked = false;
-    }
-
     const categoryButton = categoryEl.querySelector(".cc-title");
     const categoryDescription = categoryEl.querySelector(".cc-description");
     categoryButton.addEventListener("click", () => {
@@ -68,7 +60,7 @@ const initModal = (manager, categories) => {
 
   saveSettingsButton.addEventListener("click", () => {
     let categoryHash = {};
-    categories.forEach((category) => {
+    manager.categories.forEach((category) => {
       const accepted = modal.querySelector(`input[name='${category}']`).checked;
       if (accepted) {
         categoryHash[category] = true;
@@ -79,10 +71,8 @@ const initModal = (manager, categories) => {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  const categories = ["essential", "preferences", "analytics", "marketing"]
-  const manager = new ConsentManager({
-    categories: categories
-  });
+  const categories = ["cc-essential", "cc-preferences", "cc-analytics", "cc-marketing"]
+  const manager = new ConsentManager(categories);
 
   initModal(manager, categories);
   initDialog(manager);

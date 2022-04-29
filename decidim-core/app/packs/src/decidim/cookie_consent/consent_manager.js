@@ -1,9 +1,9 @@
 import Cookies from "js-cookie";
 
 class ConsentManager {
-  constructor(options) {
-    // const categories = ["essential", "preferences", "analytics", "marketing"]
-    this.options = options;
+  constructor(categories) {
+    // const categories = ["cc-essential", "cc-preferences", "cc-analytics", "cc-marketing"]
+    this.categories = categories;
     this.cookie = Cookies.get("decidim-cookie");
     console.log("cookie", this.cookie);
     console.log("state", this.state);
@@ -13,27 +13,42 @@ class ConsentManager {
     }
   }
 
-  stateToCookie() {
+  updateState(newState) {
+    this.state = newState;
     Cookies.set("decidim-cookie", JSON.stringify(this.state));
+    this.updateUi();
+  }
+
+  updateUi() {
+    const modal = document.querySelector("#cc-modal");
+    const categoryElements = modal.querySelectorAll(".category-wrapper");
+
+    categoryElements.forEach((categoryEl) => {
+      const categoryInput = categoryEl.querySelector("input");
+      if (this.state && this.state[categoryInput.name]) {
+        categoryInput.checked = true;
+      } else if (!categoryInput.disabled) {
+        categoryInput.checked = false;
+      }
+    });
   }
 
   saveSettings(categories) {
-    this.state = categories;
-    this.stateToCookie();
+    this.updateState(categories);
   }
 
   acceptAll() {
-    this.options.categories.forEach((category) => {
-      this.state[category] = true;
+    let newState = {};
+    this.categories.forEach((category) => {
+      newState[category] = true;
     });
-    this.stateToCookie();
+    this.updateState(newState);
   }
 
   rejectAll() {
-    this.state = {
+    this.updateState({
       essential: true
-    }
-    this.stateToCookie();
+    });
   }
 
   getState() {
