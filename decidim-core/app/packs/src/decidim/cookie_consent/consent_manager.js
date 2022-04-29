@@ -1,10 +1,11 @@
 import Cookies from "js-cookie";
 
 class ConsentManager {
-  constructor(categories) {
+  constructor(options) {
     // const categories = ["cc-essential", "cc-preferences", "cc-analytics", "cc-marketing"]
-    this.categories = categories;
-    this.cookie = Cookies.get("decidim-cookie");
+    this.modal = options.modal;
+    this.categories = options.categories;
+    this.cookie = Cookies.get(options.cookieName);
     console.log("cookie", this.cookie);
     console.log("state", this.state);
     if (this.cookie) {
@@ -16,12 +17,11 @@ class ConsentManager {
   updateState(newState) {
     this.state = newState;
     Cookies.set("decidim-cookie", JSON.stringify(this.state));
-    this.updateUi();
+    this.updateModalSelections();
   }
 
-  updateUi() {
-    const modal = document.querySelector("#cc-modal");
-    const categoryElements = modal.querySelectorAll(".category-wrapper");
+  updateModalSelections() {
+    const categoryElements = this.modal.querySelectorAll(".category-wrapper");
 
     categoryElements.forEach((categoryEl) => {
       const categoryInput = categoryEl.querySelector("input");
@@ -33,8 +33,8 @@ class ConsentManager {
     });
   }
 
-  saveSettings(categories) {
-    this.updateState(categories);
+  saveSettings(newState) {
+    this.updateState(newState);
   }
 
   acceptAll() {

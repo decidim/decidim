@@ -27,9 +27,8 @@ const initDialog = (manager) => {
 }
 
 const initModal = (manager) => {
-  const modal = document.querySelector("#cc-modal");
-  const categoryElements = modal.querySelectorAll(".category-wrapper");
-  manager.updateUi(manager.state);
+  const categoryElements = manager.modal.querySelectorAll(".category-wrapper");
+  manager.updateModalSelections(manager.state);
 
   categoryElements.forEach((categoryEl) => {
     const categoryButton = categoryEl.querySelector(".cc-title");
@@ -46,9 +45,9 @@ const initModal = (manager) => {
     })
   })
 
-  const acceptAllButton = modal.querySelector("#cc-modal-accept");
-  const rejectAllButton = modal.querySelector("#cc-modal-reject");
-  const saveSettingsButton = modal.querySelector("#cc-modal-save");
+  const acceptAllButton = manager.modal.querySelector("#cc-modal-accept");
+  const rejectAllButton = manager.modal.querySelector("#cc-modal-reject");
+  const saveSettingsButton = manager.modal.querySelector("#cc-modal-save");
 
   acceptAllButton.addEventListener("click", () => {
     manager.acceptAll();
@@ -61,7 +60,7 @@ const initModal = (manager) => {
   saveSettingsButton.addEventListener("click", () => {
     let categoryHash = {};
     manager.categories.forEach((category) => {
-      const accepted = modal.querySelector(`input[name='${category}']`).checked;
+      const accepted = manager.modal.querySelector(`input[name='${category}']`).checked;
       if (accepted) {
         categoryHash[category] = true;
       }
@@ -71,8 +70,13 @@ const initModal = (manager) => {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
+  const modal = document.querySelector("#cc-modal");
   const categories = ["cc-essential", "cc-preferences", "cc-analytics", "cc-marketing"]
-  const manager = new ConsentManager(categories);
+  const manager = new ConsentManager({
+    modal: modal,
+    categories: categories,
+    cookieName: "decidim-cookie"
+  });
 
   initModal(manager, categories);
   initDialog(manager);
