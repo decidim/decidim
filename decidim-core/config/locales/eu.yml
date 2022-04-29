@@ -64,7 +64,6 @@ eu:
     'true': 'Bai'
   carrierwave:
     errors:
-      image_too_big: Irudia pisuegia da
       not_inside_organization: Artxiboa ez dago antolatzaile batekin erlazionatuta
   date:
     formats:
