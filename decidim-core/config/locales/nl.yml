@@ -65,9 +65,6 @@ nl:
   booleans:
     'false': 'Nee'
     'true': 'Ja'
-  carrierwave:
-    errors:
-      image_too_big: De afbeelding is te groot
   date:
     formats:
       decidim_short: "%d/%m/%Y"
