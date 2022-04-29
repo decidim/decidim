@@ -5,6 +5,7 @@ module Decidim
     # A helper to render order and budgets actions
     module ProjectsHelper
       include Decidim::ApplicationHelper
+      include Decidim::MapHelper
 
       # Render a budget as a currency
       #

@@ -33,7 +33,7 @@ module Decidim
       end
 
       def all_geocoded_projects
-        @all_geocoded_projects ||= @projects.geocoded
+        @all_geocoded_projects ||= projects.geocoded
       end
 
       def project
