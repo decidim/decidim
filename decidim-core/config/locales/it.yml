@@ -67,7 +67,6 @@ it:
     'true': 'Si'
   carrierwave:
     errors:
-      image_too_big: L'immagine è troppo grande
       not_inside_organization: Il file non è collegato a nessuna organizzazione
   date:
     formats:
