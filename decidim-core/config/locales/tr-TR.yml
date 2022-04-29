@@ -62,7 +62,6 @@ tr:
     'true': 'Evet'
   carrierwave:
     errors:
-      image_too_big: Görüntü çok büyük
       not_inside_organization: Dosya herhangi bir kuruluşa eklenmemiş
   date:
     formats:
