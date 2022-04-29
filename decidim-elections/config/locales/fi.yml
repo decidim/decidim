@@ -533,6 +533,8 @@ fi:
               tally:
                 cast: Ääntenlaskennan tuloksen valmistuminen
                 share: Ääntenlaskennan tulosten jakaminen
+            status:
+              processing: Käsitellään
             title: Ääntenlaskenta vaaleille %{election}
           update:
             error: Vaalin tilaa ei päivitetty.
