@@ -67,9 +67,6 @@ ar:
   booleans:
     'false': 'لا'
     'true': 'نعم'
-  carrierwave:
-    errors:
-      image_too_big: الصورة كبيرة جدا
   date:
     formats:
       decidim_short: "%d/%m/%Y"
