@@ -11,11 +11,11 @@
       <input
         class="switch-input"
         <%= %(checked="checked") if category[:mandatory] %>
-        id="cc-<%= category[:id] %>"
+        id="<%= category[:id] %>"
         type="checkbox"
         name="<%= category[:id] %>"
         <%= "disabled" if category[:mandatory] %>>
-      <label class="switch-paddle" for="cc-<%= category[:id] %>">
+      <label class="switch-paddle" for="<%= category[:id] %>">
         <span class="show-for-sr"><%= options[:title] %></span>
       </label>
     </div>

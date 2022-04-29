@@ -9,37 +9,25 @@ module Decidim
     def categories
       [
         {
-          id: "essential",
-          title: "Essential",
-          description: "Mauris sed libero. Suspendisse facilisis nulla in lacinia laoreet,
-          lorem velit accumsan velit vel mattis libero nisl et sem. Proin interdum maecenas massa
-          turpis sagittis in, interdum non lobortis vitae massa. Quisque purus lectus, posuere eget imperdiet nec sodales id arcu.
-          Vestibulum elit pede dictum eu, viverra non tincidunt eu ligula.",
+          id: "cc-essential",
+          title: t("layouts.decidim.cookie_consent.modal.essential.title"),
+          description: t("layouts.decidim.cookie_consent.modal.essential.description"),
           mandatory: true
         },
         {
-          id: "preferences",
-          title: "Preferences",
-          description: "Mauris sed libero. Suspendisse facilisis nulla in lacinia laoreet,
-          lorem velit accumsan velit vel mattis libero nisl et sem. Proin interdum maecenas massa
-          turpis sagittis in, interdum non lobortis vitae massa. Quisque purus lectus, posuere eget imperdiet nec sodales id arcu.
-          Vestibulum elit pede dictum eu, viverra non tincidunt eu ligula."
+          id: "cc-preferences",
+          title: t("layouts.decidim.cookie_consent.modal.preferences.title"),
+          description: t("layouts.decidim.cookie_consent.modal.preferences.description")
         },
         {
-          id: "analytics",
-          title: "Analytics and statistics",
-          description: "Mauris sed libero. Suspendisse facilisis nulla in lacinia laoreet,
-          lorem velit accumsan velit vel mattis libero nisl et sem. Proin interdum maecenas massa
-          turpis sagittis in, interdum non lobortis vitae massa. Quisque purus lectus, posuere eget imperdiet nec sodales id arcu.
-          Vestibulum elit pede dictum eu, viverra non tincidunt eu ligula."
+          id: "cc-analytics",
+          title: t("layouts.decidim.cookie_consent.modal.analytics.title"),
+          description: t("layouts.decidim.cookie_consent.modal.analytics.description")
         },
         {
-          id: "marketing",
-          title: "Marketing",
-          description: "Mauris sed libero. Suspendisse facilisis nulla in lacinia laoreet,
-          lorem velit accumsan velit vel mattis libero nisl et sem. Proin interdum maecenas massa
-          turpis sagittis in, interdum non lobortis vitae massa. Quisque purus lectus, posuere eget imperdiet nec sodales id arcu.
-          Vestibulum elit pede dictum eu, viverra non tincidunt eu ligula."
+          id: "cc-marketing",
+          title: t("layouts.decidim.cookie_consent.modal.marketing.title"),
+          description: t("layouts.decidim.cookie_consent.modal.marketing.description")
         }
       ]
     end
