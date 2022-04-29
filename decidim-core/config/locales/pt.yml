@@ -67,7 +67,6 @@ pt:
     'true': 'Sim'
   carrierwave:
     errors:
-      image_too_big: A imagem é demasiado grande
       not_inside_organization: O ficheiro não está anexado a nenhuma organização
   date:
     formats:
