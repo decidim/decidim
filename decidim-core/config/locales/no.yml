@@ -67,7 +67,6 @@
     'true': 'Ja'
   carrierwave:
     errors:
-      image_too_big: Dette bilde er for stort
       not_inside_organization: Filen er ikke tilknyttet noen organisasjon
   date:
     formats:
