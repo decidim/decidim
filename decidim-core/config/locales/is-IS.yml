@@ -22,9 +22,6 @@ is-IS:
   booleans:
     'false': 'Nei'
     'true': 'Já'
-  carrierwave:
-    errors:
-      image_too_big: Myndin er of stór
   date:
     formats:
       decidim_short: "%d/%m/%Y"
