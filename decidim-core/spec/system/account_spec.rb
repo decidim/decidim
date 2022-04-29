@@ -50,7 +50,7 @@ describe "Account", type: :system do
           input_element = find("input[type='file']", visible: :all)
           input_element.attach_file(Decidim::Dev.asset("5000x5000.png"))
 
-          expect(page).to have_content("The image is too big", count: 1)
+          expect(page).to have_content("File resolution is too large", count: 1)
           expect(page).to have_css(".upload-errors .form-error", count: 1)
         end
       end

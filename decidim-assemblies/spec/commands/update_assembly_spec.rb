@@ -120,7 +120,7 @@ module Decidim::Assemblies
 
         it "broadcasts invalid" do
           expect { command.call }.to broadcast(:invalid)
-          expect(form.errors.messages[:hero_image]).to contain_exactly("The image is too big")
+          expect(form.errors.messages[:hero_image]).to contain_exactly("File resolution is too large")
         end
       end
 
@@ -128,8 +128,8 @@ module Decidim::Assemblies
         before do
           expect(form).to receive(:invalid?).and_return(false)
           expect(my_assembly).to receive(:valid?).at_least(:once).and_return(false)
-          my_assembly.errors.add(:hero_image, "Image too big")
-          my_assembly.errors.add(:banner_image, "Image too big")
+          my_assembly.errors.add(:hero_image, "File resolution is too large")
+          my_assembly.errors.add(:banner_image, "File resolution is too large")
         end
 
         it "broadcasts invalid" do

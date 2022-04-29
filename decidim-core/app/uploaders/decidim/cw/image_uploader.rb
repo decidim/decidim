@@ -48,14 +48,14 @@ module Decidim::Cw
     # See https://hackerone.com/reports/390
     def validate_dimensions
       manipulate! do |image|
-        validation_error!(I18n.t("carrierwave.errors.image_too_big")) if image.dimensions.any? { |dimension| dimension > max_image_height_or_width }
+        validation_error!(I18n.t("carrierwave.errors.file_resolution_too_large")) if image.dimensions.any? { |dimension| dimension > max_image_height_or_width }
         image
       end
     end
 
     def validate_size
       manipulate! do |image|
-        validation_error!(I18n.t("carrierwave.errors.image_too_big")) if image.size > maximum_upload_size
+        validation_error!(I18n.t("carrierwave.errors.file_size_too_large")) if image.size > maximum_upload_size
         image
       end
     end

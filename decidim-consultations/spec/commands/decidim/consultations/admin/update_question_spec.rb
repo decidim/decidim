@@ -68,8 +68,8 @@ module Decidim
           before do
             expect(form).to receive(:invalid?).and_return(false)
             expect(question).to receive(:valid?).at_least(:once).and_return(false)
-            question.errors.add(:banner_image, "Image too big")
-            question.errors.add(:hero_image, "Image too big")
+            question.errors.add(:banner_image, "File resolution is too large")
+            question.errors.add(:hero_image, "File resolution is too large")
           end
 
           it "broadcasts invalid" do

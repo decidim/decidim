@@ -43,6 +43,14 @@ module Decidim
         )
       end
 
+      if (file_dimensions = max_file_dimensions)
+        messages << I18n.t(
+          "max_file_dimension",
+          resolution: file_dimensions,
+          scope: "decidim.forms.file_validation"
+        )
+      end
+
       if (extensions = extension_allowlist)
         messages << I18n.t(
           "allowed_file_extensions",
@@ -79,6 +87,12 @@ module Decidim
       lte.call(passthru_record) if lte.respond_to?(:call)
     end
     # rubocop: enable Metrics/CyclomaticComplexity
+
+    def max_file_dimensions
+      return unless uploader.respond_to?(:max_image_height_or_width)
+
+      "#{uploader.max_image_height_or_width}x#{uploader.max_image_height_or_width}"
+    end
 
     def extension_allowlist
       return unless uploader.respond_to?(:extension_allowlist, true)
