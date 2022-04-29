@@ -68,7 +68,6 @@ fr:
     'true': 'Oui'
   carrierwave:
     errors:
-      image_too_big: L'image est trop grande
       not_inside_organization: Le fichier n'est relié à aucune organisation
   date:
     formats:
@@ -769,7 +768,6 @@ fr:
           cancel: Annuler
           edit_image: Modifier l'Image
           error: Erreur !
-          file_too_big: 'Le fichier est trop volumineux! Taille de fichier maximum: %{megabytes}Mo'
           remove: Supprimer
           replace: Remplacer
           save: Sauvegarder
