@@ -45,9 +45,6 @@ eo:
   booleans:
     'false': 'Ne'
     'true': 'Jes'
-  carrierwave:
-    errors:
-      image_too_big: La bildo estas tro granda
   date:
     formats:
       decidim_short: "%d/%m/%Y"
