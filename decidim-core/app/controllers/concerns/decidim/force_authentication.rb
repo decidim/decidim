@@ -36,8 +36,7 @@ module Decidim
 
     def unauthorized_paths
       # /locale is for changing the locale
-      # /cookies is for accepting the cookies
-      %w(/locale /cookies) + Decidim::StaticPage.where(
+      %w(/locale) + Decidim::StaticPage.where(
         organization: current_organization,
         allow_public_access: true
       ).pluck(Arel.sql("CONCAT('/pages/', slug)"))
