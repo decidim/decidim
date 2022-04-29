@@ -50,9 +50,6 @@ ru:
   booleans:
     'false': 'Нет'
     'true': 'Да'
-  carrierwave:
-    errors:
-      image_too_big: Изображение слишком велико
   date:
     formats:
       decidim_short: "%d.%m.%Y"
