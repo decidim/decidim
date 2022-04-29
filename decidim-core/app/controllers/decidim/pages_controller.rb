@@ -3,7 +3,6 @@
 module Decidim
   # This controller serves static pages using HighVoltage.
   class PagesController < Decidim::ApplicationController
-    # include RedesignLayout
     redesign active: true
 
     layout "layouts/decidim/application"
