@@ -405,6 +405,7 @@ cs:
         calendar_url: Adresa URL kalendáře
         close_window: Zavřete okno
         copy_calendar_url: Kopírovat
+        copy_calendar_url_clarification: Zkopírovat Url kalendáře do schránky
         copy_calendar_url_copied: Zkopírováno!
         copy_calendar_url_description: Všechny zveřejněné schůzky můžete vidět v aplikaci nebo poskytovateli kalendáře. Zkopírujte a vložte tuto URL do kalendáře pomocí možnosti "Přidat nový kalendář z URL".
         copy_calendar_url_explanation: Vezměte prosím na vědomí, že exportujete výběr schůzek, protože existují aktivní filtry. Pokud si přejete exportovat všechny, resetujte nejprve všechny filtry.
