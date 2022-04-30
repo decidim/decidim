@@ -280,6 +280,7 @@ cs:
             update: Aktualizovat
           form:
             authorizations: Nastavení autorizace
+            child_scope_threshold_enabled_help: 'Tento konfigurační příznak nepodporuje offline hlasování. Umožňuje podrozsahy a pracuje s obslužnou rutinou autorizace, která uživateli přiřazuje rozsah. Ujistěte se, že jste vybrali toto oprávnění níže v nastavení oprávnění. Aby to fungovalo, musí být rozsahy nakonfigurovány hierarchickým způsobem: 1 nadřazený – N podřízený. Další informace o tom, jak tato konfigurace funguje, najdete na <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">stránce dokumentace pro administraci iniciativ</a>.'
             only_global_scope_enabled_help: Zaškrtněte tuto poznámku, pokud jste povolili "Podřazená oblast působnosti" a nakonfigurovali globální rozsah jako vaši nadřazenou oblast působnosti. Povolením této možnosti bude výběr typu iniciativy přeskočeno v průvodci vytvořením iniciativy. Více informací o tom, jak tato konfigurace funguje, naleznete na tomto <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">odkazu</a>.
             options: Možnosti
             title: Obecná informace
