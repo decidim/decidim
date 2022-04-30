@@ -68,6 +68,8 @@ fi-pl:
     'true': 'Kyllä'
   carrierwave:
     errors:
+      file_resolution_too_large: Tiedoston resoluutio on liian suuri
+      file_size_too_large: Tiedoston koko on liian suuri
       not_inside_organization: Tiedostoa ei ole liitetty mihinkään organisaatioon
   date:
     formats:
@@ -763,6 +765,7 @@ fi-pl:
           message_2: Palvelu rajaa kuvaa.
       file_validation:
         allowed_file_extensions: 'Sallitut tiedostopäätteet: %{extensions}'
+        max_file_dimension: 'Tiedoston enimmäismitat: %{resolution} pikseliä'
         max_file_size: 'Tiedoston koon rajoitus: %{megabytes}Mt'
       upload:
         labels:
@@ -772,6 +775,7 @@ fi-pl:
           cancel: Peruuta
           edit_image: Muokkaa kuvaa
           error: Virhe!
+          file_size_too_large: 'Tiedoston koko on liian suuri! Suurin tiedostokoko: %{megabytes}MB'
           remove: Poista
           replace: Korvaa
           save: Tallenna
@@ -1102,6 +1106,8 @@ fi-pl:
         translated_text: 'Automaattisesti käännetty teksti:'
     notifications:
       no_notifications: Ei vielä ilmoituksia.
+      show:
+        missing_event: Hups, tämä ilmoitus kuuluu kohteeseen, joka ei ole enää käytettävissä. Voit merkitä sen luetuksi.
     notifications_settings:
       show:
         administrators: Hallintakäyttäjät
