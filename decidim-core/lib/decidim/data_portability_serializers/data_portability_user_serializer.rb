@@ -19,6 +19,7 @@ module Decidim
             name: resource.organization.try(:name)
           },
           newsletter_notifications_at: resource.newsletter_notifications_at,
+          notifications_sending_frequency: resource.notifications_sending_frequency,
           admin: resource.admin,
           personal_url: resource.personal_url,
           about: resource.about,
