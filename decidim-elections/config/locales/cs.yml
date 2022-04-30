@@ -64,6 +64,11 @@ cs:
         few: Otázek
         many: Otázek
         other: Otázek
+      decidim/voting:
+        one: Hlasování
+        few: Hlasování
+        many: Hlasování
+        other: Hlasování
       decidim/votings/census/dataset:
         one: Datová sada
         few: Datové sady
