@@ -25,6 +25,23 @@ module Decidim
           end
         end
 
+        describe "when the password is too common" do
+          before do
+            create(:admin, email: "email@foo.bar")
+          end
+
+          let(:params) do
+            {
+              password: "password1234",
+              password_confirmation: "password1234"
+            }
+          end
+
+          it "broadcasts invalid" do
+            expect { command.call }.to broadcast(:invalid)
+          end
+        end
+
         describe "when the admin doesn't exist" do
           before do
             create(:admin, email: "email@foo.bar")
@@ -33,8 +50,8 @@ module Decidim
           let(:params) do
             {
               email: "different_email@foo.bar",
-              password: "fake123",
-              password_confirmation: "fake123"
+              password: "fake123456",
+              password_confirmation: "fake123456"
             }
           end
 
