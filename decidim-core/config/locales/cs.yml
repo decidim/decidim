@@ -76,6 +76,8 @@ cs:
     'true': 'Ano'
   carrierwave:
     errors:
+      file_resolution_too_large: Rozlišení souboru je příliš velké
+      file_size_too_large: Soubor je příliš velký
       not_inside_organization: Soubor není připojen k žádné organizaci
   date:
     formats:
@@ -802,6 +804,7 @@ cs:
           message_2: Software tento obrázek ořízne.
       file_validation:
         allowed_file_extensions: 'Povolené přípony souborů: %{extensions}'
+        max_file_dimension: 'Maximální rozměry souboru: %{resolution} pixelů'
         max_file_size: 'Maximální velikost souboru: %{megabytes}MB'
       upload:
         labels:
@@ -811,6 +814,7 @@ cs:
           cancel: Zrušit
           edit_image: Upravit obrázek
           error: Chyba!
+          file_size_too_large: 'Velikost souboru je příliš velká! Maximální velikost souboru: %{megabytes}MB'
           remove: Odebrat
           replace: Nahradit
           save: Uložit
@@ -1141,6 +1145,8 @@ cs:
         translated_text: 'Automaticky přeložený text:'
     notifications:
       no_notifications: Zatím žádné oznámení.
+      show:
+        missing_event: Jejda, toto oznámení patří k položce, která již není k dispozici. Můžete ho zahodit.
     notifications_settings:
       show:
         administrators: Správci
