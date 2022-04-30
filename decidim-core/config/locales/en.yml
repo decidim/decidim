@@ -1115,7 +1115,7 @@ en:
       header:
         daily: Daily Notification Digest
         weekly: Weekly Notification Digest
-      hello: Hello
+      hello: Hello %{name}
       intro:
         daily: 'These are the notifications from the last day based on the activity you are following:'
         weekly: 'These are the notifications from the last week based on the activity you are following:'
