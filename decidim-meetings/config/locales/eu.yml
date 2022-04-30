@@ -379,7 +379,6 @@ eu:
         calendar_url: Egutegiaren URLa
         close_window: Itxi leihoa
         copy_calendar_url: Kopiatu
-        copy_calendar_url_clarification: Egutegiaren URLa arbelean kopiatu 
         copy_calendar_url_copied: Kopiatuta!
         copy_calendar_url_description: Argitaratutako batzar guztiak zure egutegi-aplikazioan edo hornitzailean ikus ditzakezu. Kopiatu eta itsatsi URL hau "Egutegi berria gehitu URL batetik" aukera erabiliz
         copy_calendar_url_explanation: Kontuan izan aukeratutako batzar multzo bat esportatzen ari zarela, eta iragazkiak aktibatuta daudela. Denak esportatu nahi badituzu kendu irakazkiak lehenengo.
