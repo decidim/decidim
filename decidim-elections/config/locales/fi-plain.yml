@@ -182,6 +182,11 @@ fi-pl:
         exports:
           elections: Vaalit
           feedback_form_answers: Palautelomakkeen vastaukset
+        mailers:
+          trustee_mailer:
+            body: "<p>Hei %{user_name},</p><p>Sinut on lisätty luottamushenkilöksi kohteeseen %{resource_name}.</p>"
+            subject: Sinut on lisätty luottamushenkilöksi kohteeseen %{resource_name}
+            trustee_zone: Siirry luottamusmiesten osioon
         menu:
           trustees: Luottamushenkilöt
         models:
@@ -283,11 +288,13 @@ fi-pl:
             success: Pyyntösi julkaista äänestyksen tulokset on onnistuneesti lähetetty sähköiselle ääniuurnalle
             title: Ääntenlaskun tulokset
           tally_started:
+            continue: Jatka
             invalid: Poissaolevan luottamushenkilön ilmoittaminen epäonnistui
             mark_as_missing: Merkitse poissaolevaksi
             mark_as_missing_description: Kaikkien luottamushenkilöiden pitäisi osallistua tähän prosessiin, mutta jos luottamushenkilö ei voi osallistua prosessiin, voit merkitä kyseisen henkilön poissaolevaksi.
             success: Poissaolevan luottamushenkilön merkitseminen sähköiselle ääniuurnalle onnistui
             tally_completion: Prosessi valmistuu, kun kaikki luottamushenkilöt ovat aktiivisia tai merkitty poissaoleviksi. Vähintään %{quorum} luottamushenkilöä tarvitaan prosessin loppuun saattamiseksi.
+            title: Ääntenlasku
             undo_mark_as_missing: Poissaoleva luottamushenkilö voi osallistua prosessiin ennen sen päättymistä. He voivat jatkaa normaalisti ja heidän poissaolonsa jätetään huomioimatta.
           vote:
             errors:
@@ -527,12 +534,23 @@ fi-pl:
             upload_election_keys: Lataa vaaliavaimet
             upload_icon: Kuvake, joka ilmaisee lataustoiminnon
           tally_started_steps:
+            back: Takaisin
             description: Näiden vaalien tuloksia lasketaan parhaillaan äänestystaululla. Jotta tämä prosessi voidaan saattaa loppuun, sinun tulee osallistua luottamushenkilönä.
             keys:
               end_tally: Ääntenlaskennan päättyminen
               tally:
                 cast: Ääntenlaskennan tuloksen valmistuminen
                 share: Ääntenlaskennan tulosten jakaminen
+            list:
+              status: Tila
+              task: Tehtävä
+            process_warning: Kun prosessi on käynnistetty, sinun ei tule poistua tältä sivulta ennen kuin prosessi päättyy. Tämä kestää useita minuutteja, koska kaikkien luottamushenkilöiden tulee olla yhteydessä samanaikaisesti, jotta prosessi voidaan suorittaa.
+            start: Aloitettu
+            start_icon: Kuvake, joka ilmaisee aloituspainikkeen avainten luonnin aloittamiselle
+            status:
+              completed: Valmis
+              pending: Odottaa
+              processing: Käsitellään
             title: Ääntenlaskenta vaaleille %{election}
           update:
             error: Vaalin tilaa ei päivitetty.
