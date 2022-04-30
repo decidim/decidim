@@ -198,6 +198,11 @@ cs:
         exports:
           elections: Volby
           feedback_form_answers: Odpovědi na formulář zpětné vazby
+        mailers:
+          trustee_mailer:
+            body: "<p>Dobrý den %{user_name},</p><p>Byli jste přidáni jako správce k %{resource_name}.</p>"
+            subject: Byli jste přidáni jako důvěrník do %{resource_name}
+            trustee_zone: Přejít do zóny důvěrníků
         menu:
           trustees: Volební důvěrníci
         models:
