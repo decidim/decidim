@@ -7,7 +7,7 @@ module Decidim
         return true if user.digest_sent_at.blank?
 
         case user.notifications_sending_frequency.to_sym
-        when :none then false # true to avoid notifying the user then the frequency is none
+        when :none then false
         when :daily then user.digest_sent_at < time - 1.day
         when :weekly then user.digest_sent_at < time - 1.week
         else true
