@@ -132,6 +132,9 @@ PR [\#8645](https://github.com/decidim/decidim/pull/8645) we now only allow PNG 
 
 PR [\#8833](https://github.com/decidim/decidim/pull/8833) Users can now configure if the want to receive a real time email when they receive a notification or a periodic one with the notifications digest.
 
+For system administrators, it's necessary to manually setup a cron job for digest delivery. See the
+[updated documentation](https://docs.decidim.org/en/install/#_scheduled_tasks).
+
 ### Changed
 
 - **decidim-core**: The `Decidim::ActivitySearch` class has been rewritten as `Decidim::PublicActivities` which is now a `Rectify::Query` class instead of `Searchlight::Search` class due to the removal of Searchlight at [\#8748](https://github.com/decidim/decidim/pull/8748).
