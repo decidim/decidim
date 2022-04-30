@@ -22,6 +22,7 @@ module Decidim
           @highlighted_assemblies ||= OrganizationPrioritizedAssemblies
                                       .new(current_organization, current_user)
                                       .query
+                                      .with_attached_hero_image
                                       .includes([:organization])
                                       .limit(max_results)
         end

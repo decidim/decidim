@@ -87,8 +87,8 @@ module Decidim::Assemblies
           persisted?: false,
           valid?: false,
           errors: {
-            hero_image: "Image too big",
-            banner_image: "Image too big"
+            hero_image: "File resolution is too large",
+            banner_image: "File resolution is too large"
           }
         ).as_null_object
       end
@@ -103,8 +103,8 @@ module Decidim::Assemblies
       end
 
       it "adds errors to the form" do
-        expect(errors).to receive(:add).with(:hero_image, "Image too big")
-        expect(errors).to receive(:add).with(:banner_image, "Image too big")
+        expect(errors).to receive(:add).with(:hero_image, "File resolution is too large")
+        expect(errors).to receive(:add).with(:banner_image, "File resolution is too large")
         subject.call
       end
     end
@@ -137,7 +137,7 @@ module Decidim::Assemblies
 
       it "broadcasts invalid" do
         expect { subject.call }.to broadcast(:invalid)
-        expect(form.errors.messages[:hero_image]).to contain_exactly("The image is too big")
+        expect(form.errors.messages[:hero_image]).to contain_exactly("File resolution is too large")
       end
     end
 

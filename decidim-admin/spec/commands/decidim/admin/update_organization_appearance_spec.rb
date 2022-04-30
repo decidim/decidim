@@ -51,8 +51,8 @@ module Decidim::Admin
         before do
           expect(form).to receive(:invalid?).and_return(false)
           expect(organization).to receive(:valid?).at_least(:once).and_return(false)
-          organization.errors.add(:official_img_header, "Image too big")
-          organization.errors.add(:official_img_footer, "Image too big")
+          organization.errors.add(:official_img_header, "File resolution is too large")
+          organization.errors.add(:official_img_footer, "File resolution is too large")
         end
 
         it "broadcasts invalid" do
