@@ -8,6 +8,7 @@ module Decidim
       described_class.from_params(
         notifications_from_followed: notifications_from_followed,
         notifications_from_own_activity: notifications_from_own_activity,
+        notifications_sending_frequency: notifications_sending_frequency,
         email_on_moderations: email_on_moderations,
         newsletter_notifications: newsletter_notifications,
         allow_public_contact: allow_public_contact
@@ -23,6 +24,7 @@ module Decidim
     let(:email_on_moderations) { "1" }
     let(:newsletter_notifications) { "1" }
     let(:allow_public_contact) { "1" }
+    let(:notifications_sending_frequency) { "real_time" }
 
     context "with correct data" do
       it "is valid" do
@@ -147,6 +149,14 @@ module Decidim
 
         it "maps the fields correctly" do
           expect(subject.allow_public_contact).to eq false
+        end
+      end
+
+      context "with notifications_sending_frequency present" do
+        let(:user) { create :user, notifications_sending_frequency: "real_time" }
+
+        it "maps the fields correctly" do
+          expect(subject.notifications_sending_frequency).to eq "real_time"
         end
       end
     end
