@@ -38,7 +38,7 @@ module Decidim
           hash.join(Decidim.cache_key_separator)
         end
 
-        def expiry_time
+        def cache_expiry_time
           10.minutes
         end
       end

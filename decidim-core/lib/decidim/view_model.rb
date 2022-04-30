@@ -19,7 +19,7 @@ module Decidim
 
     delegate :current_organization, to: :controller
 
-    cache :show, if: :perform_caching?, expires_in: :expiry_time do
+    cache :show, if: :perform_caching?, expires_in: :cache_expiry_time do
       cache_hash
     end
 
@@ -60,7 +60,7 @@ module Decidim
       nil
     end
 
-    def expiry_time
+    def cache_expiry_time
       nil
     end
 
