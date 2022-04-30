@@ -125,7 +125,8 @@ This one sends a daily summary for the users. It takes the current day when the 
 decidim:mailers:notifications_digest_daily
 ----
 
-And this one, a weekly sumary. It takes the range between the time the task has been triggered and 7 days ago
+And this one, a weekly sumary. It takes the range between the time the task has been triggered and 7 days ago. It should be run in a weekly basis in cron (this is by setting the last prameter of the
+cron format, which referes to the day of week).
 ----
 decidim:mailers:notifications_digest_weekly
 ----
@@ -135,8 +136,8 @@ decidim:mailers:notifications_digest_weekly
 # Send notification mail digest daily
 5 0 * * * cd /home/user/decidim_application && RAILS_ENV=production bundle exec rake decidim:mailers:notifications_digest_daily
 
-# Send notification mail digest weekly
-6 0 * * * cd /home/user/decidim_application && RAILS_ENV=production bundle exec rake decidim:mailers:notifications_digest_weekly
+# Send notification mail digest weekly on saturdays
+5 0 * * 6 cd /home/user/decidim_application && RAILS_ENV=production bundle exec rake decidim:mailers:notifications_digest_weekly
 ----
 
 === Further configuration
