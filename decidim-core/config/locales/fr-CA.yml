@@ -68,6 +68,8 @@ fr-CA:
     'true': 'Oui'
   carrierwave:
     errors:
+      file_resolution_too_large: La résolution du fichier est trop grande
+      file_size_too_large: Le fichier est trop volumineux
       not_inside_organization: Le fichier n'est relié à aucune organisation
   date:
     formats:
@@ -759,6 +761,7 @@ fr-CA:
           message_2: Le service récolte l'image.
       file_validation:
         allowed_file_extensions: 'Extensions de fichier autorisées : %{extensions}'
+        max_file_dimension: 'Dimensions de fichier maximales : %{resolution} pixels'
         max_file_size: 'Taille maximale du fichier : %{megabytes}Mo'
       upload:
         labels:
@@ -768,6 +771,7 @@ fr-CA:
           cancel: Annuler
           edit_image: Modifier l'Image
           error: Erreur !
+          file_size_too_large: 'Le fichier est trop volumineux ! Poids de fichier maximum : %{megabytes}Mo'
           remove: Supprimer
           replace: Remplacer
           save: Sauvegarder
@@ -1098,6 +1102,8 @@ fr-CA:
         translated_text: 'Traduction automatique du texte :'
     notifications:
       no_notifications: Il n'y a pas encore de notifications.
+      show:
+        missing_event: Oups, cette notification est liée à un élément qui n'est plus disponible. Vous pouvez la supprimer.
     notifications_settings:
       show:
         administrators: Administrateurs
