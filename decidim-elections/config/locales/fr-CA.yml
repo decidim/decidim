@@ -58,6 +58,9 @@ fr-CA:
       decidim/elections/question:
         one: Question
         other: Questions
+      decidim/voting:
+        one: Scrutin
+        other: Scrutins
       decidim/votings/census/dataset:
         one: Jeu de données
         other: Jeux de données
