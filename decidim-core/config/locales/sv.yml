@@ -22,6 +22,7 @@ sv:
       user:
         about: Om
         email: Din e-postadress
+        locale: Språk
         name: Ditt namn
         nickname: Användarnamn
         password: Lösenord
@@ -105,6 +106,7 @@ sv:
   decidim:
     accessibility:
       external_link: Extern länk
+      front_page_link: Gå till startsidan
       logo: "%{organization}s logotyp"
       skip_button: Gå till innehåll
     account:
@@ -757,6 +759,22 @@ sv:
       file_validation:
         allowed_file_extensions: 'Tillåtna filtillägg: %{extensions}'
         max_file_size: 'Maximal filstorlek: %{megabytes}MB'
+      upload:
+        labels:
+          add_attachment: Lägg till bilaga
+          add_file: Lägg till fil
+          add_image: Lägg till bild
+          cancel: Avbryta
+          edit_image: Redigera bild
+          error: Fel!
+          remove: Ta bort
+          replace: Ersätt
+          save: Spara
+          title: Titel
+          title_required: Titel krävs!
+          uploaded: Uppladdad
+          validating: Bekräftar...
+          validation_error: Valideringsfel!
     gamification:
       all_badges_link: Se alla tillgängliga märken.
       badges:
@@ -1651,6 +1669,8 @@ sv:
         continue_session: Förtsätt med din session
         sign_out: Logga ut
         title: Vill du fortsätta med din session?
+      upload_modal:
+        close_modal: Stäng fönstret
       user_menu:
         account: 'Användarkonto: %{name}'
         admin_dashboard: Admin kontrollpanel
