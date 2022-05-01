@@ -15,7 +15,6 @@ module Decidim
             return permission_action
           end
 
-          user_can_enter_space_area?
           allowed_read_participatory_space?
           allowed_voting_action?
 
@@ -23,14 +22,6 @@ module Decidim
         end
 
         private
-
-        def user_can_enter_space_area?
-          return unless permission_action.action == :enter &&
-                        permission_action.subject == :space_area &&
-                        context.fetch(:space_name, nil) == :votings
-
-          allow!
-        end
 
         def read_admin_dashboard_action?
           permission_action.action == :read &&
