@@ -27,8 +27,8 @@ module Decidim
               render action: "new"
             end
 
-            on(:already_started) do
-              flash.now[:alert] = I18n.t("questions.create.already_started", scope: "decidim.elections.admin")
+            on(:election_started) do
+              flash.now[:alert] = I18n.t("questions.create.election_started", scope: "decidim.elections.admin")
               render action: "new"
             end
           end
