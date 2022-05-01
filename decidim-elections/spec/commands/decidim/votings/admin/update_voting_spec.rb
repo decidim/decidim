@@ -63,7 +63,7 @@ module Decidim
           before do
             expect(form).to receive(:invalid?).and_return(false)
             expect(voting).to receive(:valid?).at_least(:once).and_return(false)
-            voting.errors.add(:banner_image, "Image too big")
+            voting.errors.add(:banner_image, "File resolution is too large")
           end
 
           it "broadcasts invalid" do

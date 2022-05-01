@@ -17,8 +17,8 @@ FactoryBot.define do
     "#{Faker::Lorem.sentence(word_count: 3)} #{n}".delete("'")
   end
 
-  sequence(:name) do |n|
-    "#{Faker::Name.name} #{n}".delete("'")
+  sequence(:name) do |_|
+    Faker::Name.name.delete("'")
   end
 
   sequence(:nickname) do |n|
