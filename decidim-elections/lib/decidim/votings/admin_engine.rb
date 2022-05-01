@@ -74,7 +74,8 @@ module Decidim
                         decidim_admin_votings.votings_path,
                         icon_name: "comment-square",
                         position: 2.6,
-                        active: :inclusive
+                        active: :inclusive,
+                        if: allowed_to?(:enter, :space_area, space_name: :votings)
         end
       end
 

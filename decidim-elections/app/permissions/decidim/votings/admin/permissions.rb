@@ -8,6 +8,9 @@ module Decidim
           return permission_action unless user
           return user_allowed_to_read_admin_dashboard? if read_admin_dashboard_action?
           return permission_action unless permission_action.scope == :admin
+
+          user_can_enter_space_area?
+
           return permission_action if voting && !voting.is_a?(Decidim::Votings::Voting)
 
           unless user_can_read_votings_admin_dashboard?
@@ -22,6 +25,14 @@ module Decidim
         end
 
         private
+
+        def user_can_enter_space_area?
+          return unless permission_action.action == :enter &&
+                        permission_action.subject == :space_area &&
+                        context.fetch(:space_name, nil) == :votings
+
+          allow!
+        end
 
         def read_admin_dashboard_action?
           permission_action.action == :read &&
