@@ -22,6 +22,6 @@
     <%= render partial: "decidim/shared/login_modal" unless current_user %>
     <%= render partial: "decidim/shared/authorization_modal" %>
     <%= render partial: "layouts/decidim/cors" if Decidim.cors_enabled %>
-    <%= render partial: "layouts/decidim/notification_keys" %>
+    <%= render partial: "layouts/decidim/notification_keys" if Rails.application.secrets.vapid[:enabled] %>
   </body>
 </html>
