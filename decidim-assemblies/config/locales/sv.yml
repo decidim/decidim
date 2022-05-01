@@ -319,6 +319,9 @@ sv:
         new_import:
           accepted_types:
             json: JSON
+      assemblies:
+        show:
+          title: Om den här gruppen
       assembly_members:
         index:
           members: Medlemmar
