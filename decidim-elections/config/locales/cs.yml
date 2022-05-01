@@ -701,6 +701,7 @@ cs:
             back: Zpět na platformu
             submit: Ověřit
             vote_identifier: 'Identifikační kód:'
+            vote_identifier_help: Toto je identifikátor, který vám byl poskytnut po hlasování (ne kód pro zadání hlasovacího pultu).
           header:
             title: Ověřte svůj hlas
           success:
