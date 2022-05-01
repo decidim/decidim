@@ -123,6 +123,10 @@ sv:
         file: Fil
     errors:
       models:
+        newsletter:
+          attributes:
+            base:
+              at_least_one_space: Välj minst ett deltagarutrymme
         organization:
           attributes:
             official_img_footer:
