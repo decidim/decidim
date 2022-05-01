@@ -44,30 +44,44 @@ describe Decidim::SendPushNotification do
 
     describe "#perform" do
       it "returns 201 and created if the message is sent ok" do
-        allow(Webpush).to receive(:payload_send).and_return(double("result", message: "Created", code: "201"))
-
-        expect(subject.perform(notification).first.code).to eq("201")
-        expect(subject.perform(notification).first.message).to eq("Created")
-
-        expect(subject.perform(notification).second.code).to eq("201")
-        expect(subject.perform(notification).second.message).to eq("Created")
-      end
-    end
-
-    describe "#notification_params" do
-      let(:notification) { double("notification", title: "a_title", body: "a_body", icon: "an_icon", url: "a_url") }
-
-      it "returns a hash with the notification fields" do
-        result = subject.notification_params(notification)
-
-        expect(result).to match(
-          a_hash_including(
-            title: "a_title",
-            body: "a_body",
-            icon: "an_icon",
-            data: a_hash_including({ url: "a_url" })
+        presented_notification = Decidim::PushNotificationPresenter.new(notification)
+        first_notification_payload = {
+          message: JSON.generate({
+                                   title: presented_notification.title,
+                                   body: presented_notification.body,
+                                   icon: presented_notification.icon,
+                                   data: { url: presented_notification.url }
+                                 }),
+          endpoint: subscriptions["auth_key_1"]["endpoint"],
+          p256dh: subscriptions["auth_key_1"]["p256dh"],
+          auth: subscriptions["auth_key_1"]["auth"],
+          vapid: a_hash_including(
+            public_key: "public_key",
+            private_key: "private_key"
           )
-        )
+        }
+        second_notification_payload = {
+          message: JSON.generate({
+                                   title: presented_notification.title,
+                                   body: presented_notification.body,
+                                   icon: presented_notification.icon,
+                                   data: { url: presented_notification.url }
+                                 }),
+          endpoint: subscriptions["auth_key_2"]["endpoint"],
+          p256dh: subscriptions["auth_key_2"]["p256dh"],
+          auth: subscriptions["auth_key_2"]["auth"],
+          vapid: a_hash_including(
+            public_key: "public_key",
+            private_key: "private_key"
+          )
+        }
+
+        expect(Webpush).to receive(:payload_send).with(first_notification_payload).and_return(double("result", message: "Created", code: "201"))
+        expect(Webpush).to receive(:payload_send).with(second_notification_payload).and_return(double("result", message: "Created", code: "201"))
+
+        responses = subject.perform(notification)
+        expect(responses.all? { |response| response.code == "201" }).to be(true)
+        expect(responses.all? { |response| response.message == "Created" }).to be(true)
       end
     end
   end
@@ -78,46 +92,28 @@ describe Decidim::SendPushNotification do
 
     describe "#perform" do
       it "returns 201 and created if the message is sent ok" do
-        allow(Webpush).to receive(:payload_send).and_return(double("result", message: "Created", code: "201"))
-
-        expect(subject.perform(notification).first.code).to eq("201")
-        expect(subject.perform(notification).first.message).to eq("Created")
-      end
-    end
-
-    describe "#notification_params" do
-      let(:notification) { double("notification", title: "a_title", body: "a_body", icon: "an_icon", url: "a_url") }
-
-      it "returns a hash with the notification fields" do
-        result = subject.notification_params(notification)
-
-        expect(result).to match(
-          a_hash_including(
-            title: "a_title",
-            body: "a_body",
-            icon: "an_icon",
-            data: a_hash_including({ url: "a_url" })
-          )
-        )
-      end
-    end
-
-    describe "#payload" do
-      let(:message_params) { { title: "a_title", body: "a_body", icon: "an_icon", data: { url: "a_url" } } }
-
-      it "returns true" do
-        result = subject.payload(message_params, subscription)
-
-        expect(result).to match(
-          message: '{"title":"a_title","body":"a_body","icon":"an_icon","data":{"url":"a_url"}}',
-          endpoint: subscription["endpoint"],
-          p256dh: subscription["p256dh"],
-          auth: subscription["auth"],
+        presented_notification = Decidim::PushNotificationPresenter.new(notification)
+        notification_payload = {
+          message: JSON.generate({
+                                   title: presented_notification.title,
+                                   body: presented_notification.body,
+                                   icon: presented_notification.icon,
+                                   data: { url: presented_notification.url }
+                                 }),
+          endpoint: subscriptions["auth_key_1"]["endpoint"],
+          p256dh: subscriptions["auth_key_1"]["p256dh"],
+          auth: subscriptions["auth_key_1"]["auth"],
           vapid: a_hash_including(
             public_key: "public_key",
             private_key: "private_key"
           )
-        )
+        }
+
+        expect(Webpush).to receive(:payload_send).with(notification_payload).and_return(double("result", message: "Created", code: "201"))
+
+        responses = subject.perform(notification)
+        expect(responses.all? { |response| response.code == "201" }).to be(true)
+        expect(responses.all? { |response| response.message == "Created" }).to be(true)
       end
     end
   end

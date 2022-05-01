@@ -25,6 +25,8 @@ module Decidim
       end
     end
 
+    private
+
     def notification_params(notification)
       {
         title: notification.title,
