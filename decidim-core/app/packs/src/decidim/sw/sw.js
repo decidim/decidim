@@ -29,6 +29,7 @@ self.addEventListener("push", (event) => {
   event.waitUntil(self.registration.showNotification(title, { ...opts }));
 });
 
+// Event handler for click on the notification event
 self.addEventListener("notificationclick", function(event) {
   event.notification.close();
   // Get all the Window clients
@@ -36,10 +37,10 @@ self.addEventListener("notificationclick", function(event) {
     self.clients.matchAll({ type: "window" }).then((clientsArr) => {
       const windowToFocus = clientsArr.find((windowClient) => windowClient.url === event.notification.data.url);
       if (windowToFocus) {
-        // If a Window tab matching the targeted URL already exists, focus that;
+        // If a Window tab matching the targeted URL already exists, focus that
         windowToFocus.focus()
       } else {
-        // Otherwise, open a new tab to the applicable URL and focus it.
+        // Otherwise, open a new tab to the applicable URL and focus it
         self.clients.
           openWindow(event.notification.data.url).
           then((windowClient) => windowClient && windowClient.focus());
