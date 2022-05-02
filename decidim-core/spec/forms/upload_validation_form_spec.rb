@@ -42,7 +42,7 @@ module Decidim
       let(:property) { nil }
 
       it "is invalid" do
-        expect(subject.invalid?).to eq(true)
+        expect(subject.invalid?).to be(true)
       end
     end
 
@@ -50,7 +50,7 @@ module Decidim
       let(:blob) { nil }
 
       it "is invalid" do
-        expect(subject.invalid?).to eq(true)
+        expect(subject.invalid?).to be(true)
       end
     end
 
@@ -58,7 +58,7 @@ module Decidim
       let(:resource_class) { nil }
 
       it "is invalid" do
-        expect(subject.invalid?).to eq(true)
+        expect(subject.invalid?).to be(true)
       end
     end
   end

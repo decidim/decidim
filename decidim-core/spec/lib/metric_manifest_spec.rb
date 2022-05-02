@@ -51,7 +51,7 @@ module Decidim
 
         expect(subject).to be_valid
         expect(subject.settings.attributes).to have_key(:highlighted)
-        expect(subject.settings.attributes[:highlighted].default).to eq true
+        expect(subject.settings.attributes[:highlighted].default).to be true
         expect(subject.settings.attributes).to have_key(:scopes)
         expect(subject.settings.attributes[:scopes].default).to eq %w(home)
         expect(subject.settings.attributes).to have_key(:weight)

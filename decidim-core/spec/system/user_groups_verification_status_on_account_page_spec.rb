@@ -26,7 +26,7 @@ describe "User group verification status on account page", type: :system do
 
     describe "#verified?" do
       it "returns false" do
-        expect(user_group.verified?).to eq(false)
+        expect(user_group.verified?).to be(false)
       end
     end
   end
@@ -58,7 +58,7 @@ describe "User group verification status on account page", type: :system do
 
     describe "#verified?" do
       it "returns true" do
-        expect(user_group.verified?).to eq(true)
+        expect(user_group.verified?).to be(true)
       end
     end
   end
