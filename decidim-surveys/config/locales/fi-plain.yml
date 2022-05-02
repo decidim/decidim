@@ -30,7 +30,6 @@ fi-pl:
           step:
             allow_answers: Salli vastaukset
             allow_unregistered: Salli rekisteröitymättömien käyttäjien vastata tähän kyselyyn
-            allow_unregistered_help: Mikäli tämä asetus on päällä, käyttäjien ei tarvitse kirjautua sisään vastatakseen kyselyyn. Tämä voi johtaa heikkolaatuiseen tai epäluotettavaan tietoon ja tekee automaattisista hyökkäyksistä helpompaa. Käytä harkiten!
             announcement: Ilmoitus
     events:
       surveys:
