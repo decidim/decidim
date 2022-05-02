@@ -82,7 +82,7 @@ class PasswordValidator < ActiveModel::EachValidator
     return false if !record.respond_to?(:name) || record.name.blank?
     return true if value.include?(record.name.delete(" "))
 
-    record.name.split(" ").each do |part|
+    record.name.split.each do |part|
       next if part.length < IGNORE_SIMILARITY_SHORTER_THAN
 
       return true if value.include?(part)

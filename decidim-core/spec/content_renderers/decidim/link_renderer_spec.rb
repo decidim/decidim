@@ -96,7 +96,7 @@ module Decidim
             before_text = ::Faker::Lorem.sentence
             after_text = ::Faker::Lorem.paragraph
             rendered = described_class.new("#{before_text}#{url}#{after_text}").render
-            expect(rendered).to eq("#{before_text}<a href=\"#{url + after_text.split(" ").first}\" target=\"_blank\" rel=\"nofollow noopener noreferrer ugc\">#{url + after_text.split(" ").first}</a> #{after_text.split(" ").drop(1).join(" ")}")
+            expect(rendered).to eq("#{before_text}<a href=\"#{url + after_text.split.first}\" target=\"_blank\" rel=\"nofollow noopener noreferrer ugc\">#{url + after_text.split.first}</a> #{after_text.split.drop(1).join(" ")}")
           end
         end
       end

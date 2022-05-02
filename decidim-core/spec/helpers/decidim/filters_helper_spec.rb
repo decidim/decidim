@@ -54,7 +54,7 @@ module Decidim
           helper.filter_form_for(filter) do |form|
             form.text_field :test_attribute
           end
-        end.join("")
+        end.join
 
         expect(dom).to have_tag(
           "input",

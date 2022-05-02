@@ -31,9 +31,6 @@ Lint/NoReturnInBeginEndBlocks:
 Lint/RedundantCopDisableDirective:
   Enabled: false
 
-Style/RedundantArgument:
-  Enabled: false
-
 Style/WordArray:
   Enabled: false
 
