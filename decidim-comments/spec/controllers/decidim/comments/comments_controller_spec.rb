@@ -23,7 +23,7 @@ module Decidim
         end
 
         it "tells devise not to reset timeout counter" do
-          expect(request.env["devise.skip_timeoutable"]).to be(nil)
+          expect(request.env["devise.skip_timeoutable"]).to be_nil
           get :index, xhr: true, params: { commentable_gid: commentable.to_signed_global_id.to_s }
           expect(request.env["devise.skip_timeoutable"]).to be(true)
         end
