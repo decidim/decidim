@@ -43,7 +43,7 @@ describe Decidim::Templates::Admin::Permissions do
       { scope: scope, action: action, subject: subject }
     end
 
-    it { is_expected.to eq true }
+    it { is_expected.to be true }
   end
 
   context "when indexing templates" do
@@ -75,6 +75,6 @@ describe Decidim::Templates::Admin::Permissions do
       { scope: :admin, action: :foo, subject: :questionnaire }
     end
 
-    it { is_expected.to eq true }
+    it { is_expected.to be true }
   end
 end
