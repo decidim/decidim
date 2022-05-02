@@ -30,7 +30,6 @@ eu:
           step:
             allow_answers: Baimendu erantzunak
             allow_unregistered: Baimendu erregistratu gabe dauden erabiltzaileei galdetegia erantzutea
-            allow_unregistered_help: Aktibo badago, ez da beharrezkoa izango saioa hastea inkestari erantzuteko. Horrek datu pobreak edo ez oso fidagarriak ekar ditzake, eta eraso automatizatuekiko zaurgarriagoa izango da. Kontuz ibili!
             announcement: Anuntzio
     events:
       surveys:
