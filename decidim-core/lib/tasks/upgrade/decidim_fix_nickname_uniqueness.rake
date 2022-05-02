@@ -5,18 +5,15 @@ namespace :decidim do
     desc "Modify nicknames with random numbers when exists similar ones case insensitively"
     task fix_nickname_uniqueness: :environment do
       logger = Logger.new($stdout)
-      logger.info("Updating users nickname ...")
+      logger.info("Updating conflicting user nicknames...")
 
       # list of users already changed in the process
       has_changed = []
 
       Decidim::User.find_each do |user|
-        next if has_changed.include? user
+        next if has_changed.include? user.id
 
-        Decidim::User.where("nickname ILIKE ?", user.nickname.downcase).order(:created_at).each do |similar_user|
-          next if has_changed.include? similar_user
-          next if user == similar_user
-
+        Decidim::User.where(organization: user.organization).where("nickname ILIKE ?", user.nickname.downcase).where.not(id: has_changed + [user.id]).order(:created_at).each do |similar_user|
           # change her nickname to the lowercased one with 5 random numbers
           begin
             update_user_nickname(similar_user, "#{similar_user.nickname}-#{rand(99_999)}")
@@ -24,7 +21,7 @@ namespace :decidim do
             logger.warn("User ID (#{similar_user.id}) : #{e}")
             update_user_nickname(similar_user, "#{similar_user.nickname}-#{rand(99_999)}")
           end
-          has_changed.append(similar_user)
+          has_changed.append(similar_user.id)
         end
       end
       logger.info("Process terminated, #{has_changed.count} users nickname have been updated.")
