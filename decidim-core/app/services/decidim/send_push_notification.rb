@@ -20,9 +20,15 @@ module Decidim
 
       notification.user.notifications_subscriptions.values.map do |subscription|
         message_params = notification_params(Decidim::PushNotificationPresenter.new(notification))
-        payload = payload(message_params, subscription)
-        Webpush.payload_send(payload)
-      end
+        payload = build_payload(message_params, subscription)
+        # Capture webpush exceptions in order to avoid this call to be repeated by the background job runner
+        # Webpush::Error class is the parent class of all defined errors
+        begin
+          Webpush.payload_send(payload)
+        rescue Webpush::Error
+          nil
+        end
+      end.compact
     end
 
     private
@@ -36,7 +42,7 @@ module Decidim
       }
     end
 
-    def payload(message_params, subscription)
+    def build_payload(message_params, subscription)
       {
         message: JSON.generate(message_params),
         endpoint: subscription["endpoint"],
