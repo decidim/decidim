@@ -30,7 +30,6 @@ fr-CA:
           step:
             allow_answers: Autoriser les réponses
             allow_unregistered: Autoriser les utilisateurs non inscrits à répondre à l'enquête
-            allow_unregistered_help: Si activé, aucun login ne sera nécessaire pour répondre à l'enquête. Cela peut conduire à des données pauvres ou non fiables et rend plus vulnérable aux attaques automatiques. A utiliser avec précaution !
             announcement: Annonce
     events:
       surveys:
