@@ -142,7 +142,7 @@ module Decidim
         let(:query) { '{ originScope { translation(locale: "en")}}' }
 
         it "returns the originScope field" do
-          expect(response["originScope"]).to be nil
+          expect(response["originScope"]).to be_nil
         end
       end
 
@@ -150,7 +150,7 @@ module Decidim
         let(:query) { '{ originTitle { translation(locale: "en")}}' }
 
         it "returns the originTitle field" do
-          expect(response["originTitle"]).to be nil
+          expect(response["originTitle"]).to be_nil
         end
       end
 
@@ -222,7 +222,7 @@ module Decidim
         let(:query) { '{ instructions { translation(locale: "en")}}' }
 
         it "returns the instructions field" do
-          expect(response["instructions"]).to be nil
+          expect(response["instructions"]).to be_nil
         end
       end
     end
