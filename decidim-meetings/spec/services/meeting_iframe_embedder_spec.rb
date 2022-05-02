@@ -79,7 +79,7 @@ module Decidim
           it "is not embeddable" do
             expect(subject).not_to be_embeddable
           end
-  
+
           context "and emebeddable services are customized" do
             let(:services) { %w(www.youtube.com www.twitch.tv meet.jit.si example.org) }
 
