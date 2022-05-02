@@ -27,9 +27,6 @@ Style/HashConversion:
 
 Style/QuotedSymbols:
   Enabled: false
-#
-#Style/DocumentDynamicEvalDefinition:
-#  Enabled: false
 
 Style/OpenStructUse:
   Enabled: false
