@@ -21,10 +21,10 @@ describe "rake decidim:upgrade:fix_nickname_uniqueness", type: :task do
         task.execute
 
         expect(user1.reload.nickname).to eq("toto")
-        expect(user2.reload.nickname).to match(/Toto-\d{0,5}/)
-        expect(user3.reload.nickname).to match(/TOTO-\d{0,5}/)
+        expect(user2.reload.nickname).to eq("toto_2")
+        expect(user3.reload.nickname).to eq("toto_3")
         expect(user4.reload.nickname).to eq("foO")
-        expect(user5.reload.nickname).to match(/Foo-\d{0,5}/)
+        expect(user5.reload.nickname).to eq("foo")
       end
 
       it "send notifications" do
@@ -54,7 +54,7 @@ describe "rake decidim:upgrade:fix_nickname_uniqueness", type: :task do
         task.execute
 
         expect(user1.reload.nickname).to eq("toto")
-        expect(user2.reload.nickname).to match(/Toto-\d{0,5}/)
+        expect(user2.reload.nickname).to match(/toto_2/)
         expect(user3.reload.nickname).to eq("TOTO")
         expect(user4.reload.nickname).to eq("foO")
         expect(user5.reload.nickname).to eq("Foo")

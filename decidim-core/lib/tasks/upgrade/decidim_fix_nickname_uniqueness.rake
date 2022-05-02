@@ -18,12 +18,11 @@ namespace :decidim do
                      .where.not(id: has_changed + [user.id])
                      .order(:created_at)
                      .each do |similar_user|
-          # change her nickname to the lowercased one with 5 random numbers
+          # change her nickname to the lowercased one with numbers if needed
           begin
-            update_user_nickname(similar_user, "#{similar_user.nickname}-#{rand(99_999)}")
+            update_user_nickname(similar_user, Decidim::UserBaseEntity.nicknamize(similar_user.nickname, organization: similar_user.organization))
           rescue ActiveRecord::RecordInvalid => e
             logger.warn("User ID (#{similar_user.id}) : #{e}")
-            update_user_nickname(similar_user, "#{similar_user.nickname}-#{rand(99_999)}")
           end
           has_changed.append(similar_user.id)
         end
