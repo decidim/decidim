@@ -12,6 +12,36 @@ In the next version (v0.28.0) it will be fully removed from the database.
 
 ### Added
 
+#### Javascript load at the bottom of the pages
+
+PR [\#9156] https://github.com/decidim/decidim/pull/9156 moves javascript snippets to the bottom of `body` sections.
+
+If you are redefining Decidim layout, or partials including javascript packs you might need to review them.
+
+Also, you can't no longer call jQuery or any other library in your views directly. For example the
+following snippet won't work:
+
+```
+<script>
+$(() => {
+  $(".some-element").addClass("page-loadded");
+});
+</script>
+```
+
+Instead of that, you should encapsulate it in a `content_for(:js_content)` block, that will render the snippet
+right after javascript bundles have been loaded.
+
+```
+<% content_for(:js_content) do %>
+  <script>
+    $(() => {
+      $(".some-element").addClass("page-loadded");
+    });
+  </script>
+<% end %>
+```
+
 #### Rails Upgrade to 6.1
 PR [\#8411] https://github.com/decidim/decidim/pull/8411 changes the following:
 
