@@ -34,7 +34,6 @@ cs:
           step:
             allow_answers: Povolte odpovědi
             allow_unregistered: Umožnit neregistrovaným uživatelům odpovědět na průzkum
-            allow_unregistered_help: Pokud je aktivní, nebude vyžadován žádný přihlašovací postup, aby šlo odpovědět na průzkum, což může vést k slabým nebo nespolehlivým údajům a bude náchylnější k automatizovaným útokům. Používejte obezřetně!
             announcement: Oznámení
     events:
       surveys:
