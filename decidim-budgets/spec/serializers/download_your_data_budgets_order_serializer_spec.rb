@@ -7,7 +7,7 @@ module Decidim::Budgets
     let(:resource) { create(:order) }
     let!(:projects) { create_list(:project, 2, budget: resource.budget, budget_amount: 25_000_000) }
 
-    let(:subject) { described_class.new(resource) }
+    subject { described_class.new(resource) }
     let(:serialized) { subject.serialize }
 
     describe "#serialize" do

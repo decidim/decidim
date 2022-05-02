@@ -19,7 +19,7 @@ describe ScopeBelongsToComponentValidator do
     end
   end
 
-  let(:subject) { validatable.new(scope: scope, component: component) }
+  subject { validatable.new(scope: scope, component: component) }
   let(:component) { create :component, organization: organization }
   let!(:parent_scope) { create(:scope, organization: organization) }
   let!(:organization) { create :organization }

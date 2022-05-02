@@ -3,7 +3,7 @@
 require "spec_helper"
 
 describe Decidim::HtmlTruncation do
-  let(:subject) { described_class.new(text, options).perform }
+  subject { described_class.new(text, options).perform }
   let(:options) do
     {
       max_length: max_length,

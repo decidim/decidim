@@ -6,7 +6,7 @@ module Decidim
   module Comments
     describe CommentSerializer do
       let(:comment) { create(:comment) }
-      let(:subject) { described_class.new(comment) }
+      subject { described_class.new(comment) }
 
       describe "#serialize" do
         it "includes the id" do

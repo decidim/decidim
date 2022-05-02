@@ -18,7 +18,7 @@ describe EtiquetteValidator do
     end
   end
 
-  let(:subject) { validatable.new(body: body) }
+  subject { validatable.new(body: body) }
 
   context "when the body is reasonable" do
     [

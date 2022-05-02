@@ -14,11 +14,11 @@ module Decidim::Conferences
     let(:mail) { described_class.diploma(conference, user) }
 
     describe "diploma" do
-      let(:subject) { "has been sent" }
+      let(:mail_subject) { "has been sent" }
       let(:body) { "in the attachment" }
 
       it "expect subject and body" do
-        expect(mail.subject).to include(subject)
+        expect(mail.subject).to include(mail_subject)
         expect(mail.body.encoded).to match(body)
       end
     end

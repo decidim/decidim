@@ -5,8 +5,9 @@ require "spec_helper"
 module Decidim
   module ParticipatoryProcesses
     describe CurrentComponent do
+      subject { described_class.new(manifest) }
+
       let(:request) { double(params: params, env: env) }
-      let(:subject) { described_class.new(manifest) }
       let(:params) { {} }
       let(:manifest) { Decidim.find_component_manifest("dummy") }
 

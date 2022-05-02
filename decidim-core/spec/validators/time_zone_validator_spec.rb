@@ -18,7 +18,7 @@ describe TimeZoneValidator do
     end
   end
 
-  let(:subject) { validatable.new(time_zone: time_zone) }
+  subject { validatable.new(time_zone: time_zone) }
 
   context "when the time zone is valid" do
     let(:time_zone) { "Tijuana" }

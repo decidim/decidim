@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim
   describe DownloadYourDataSerializers::DownloadYourDataParticipatorySpacePrivateUserSerializer do
-    let(:subject) { described_class.new(resource) }
+    subject { described_class.new(resource) }
     let(:resource) { build(:participatory_space_private_user) }
 
     let(:serialized) { subject.serialize }

@@ -15,7 +15,7 @@ module Decidim::Elections
       let(:translated_title) { translated(election.title, locale: locale || election.component.organization.default_locale) }
 
       context "when using the organization default locale" do
-        let(:subject) { "Your vote for #{translated_title} was accepted." }
+        let(:mail_subject) { "Your vote for #{translated_title} was accepted." }
         let(:body) do
           ["<h2>Your vote for #{translated_title} was accepted.</h2>",
            "<p>Your vote was accepted! Using your voting token: #{vote.encrypted_vote_hash}, you can verify your vote <a href=\"#{verify_url}\">here</a>.</p>",
@@ -23,7 +23,7 @@ module Decidim::Elections
         end
 
         it "sends an email with the right subject" do
-          expect(mail.subject).to eq(subject)
+          expect(mail.subject).to eq(mail_subject)
         end
 
         it "sends an email with the right body" do
@@ -35,7 +35,7 @@ module Decidim::Elections
 
       context "when setting a locale" do
         let(:locale) { "ca" }
-        let(:subject) { "El teu vot a #{translated_title} s'ha acceptat." }
+        let(:mail_subject) { "El teu vot a #{translated_title} s'ha acceptat." }
         let(:body) do
           ["<h2>El teu vot a #{translated_title} s&#39;ha acceptat.</h2>",
            "<p>El teu vot s'ha acceptat! Utilitzant el comprovant de vot: #{vote.encrypted_vote_hash}, pots verificar-lo <a href=\"#{verify_url}\">aquí</a>.</p>",
@@ -43,7 +43,7 @@ module Decidim::Elections
         end
 
         it "sends an email with the right subject" do
-          expect(mail.subject).to eq(subject)
+          expect(mail.subject).to eq(mail_subject)
         end
 
         it "sends an email with the right body" do

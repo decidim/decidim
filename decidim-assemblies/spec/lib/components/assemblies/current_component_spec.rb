@@ -6,7 +6,7 @@ module Decidim
   module Assemblies
     describe CurrentComponent do
       let(:request) { double(params: params, env: env) }
-      let(:subject) { described_class.new(manifest) }
+      subject { described_class.new(manifest) }
       let(:params) { {} }
       let(:manifest) { Decidim.find_component_manifest("dummy") }
 

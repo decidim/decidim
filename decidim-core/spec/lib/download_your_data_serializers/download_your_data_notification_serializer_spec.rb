@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim
   describe DownloadYourDataSerializers::DownloadYourDataNotificationSerializer do
-    let(:subject) { described_class.new(resource) }
+    subject { described_class.new(resource) }
     let(:resource) { build(:notification) }
 
     let(:serialized) { subject.serialize }

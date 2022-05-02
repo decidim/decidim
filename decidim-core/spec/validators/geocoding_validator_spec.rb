@@ -28,7 +28,7 @@ describe GeocodingValidator do
   let(:latitude) { 40.1234 }
   let(:longitude) { 2.1234 }
 
-  let(:subject) { validatable.new(address: address) }
+  subject { validatable.new(address: address) }
 
   context "when the address is valid" do
     before do

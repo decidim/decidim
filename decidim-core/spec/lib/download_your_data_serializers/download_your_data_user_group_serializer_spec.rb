@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim
   describe DownloadYourDataSerializers::DownloadYourDataUserGroupSerializer do
-    let(:subject) { described_class.new(resource) }
+    subject { described_class.new(resource) }
     let(:resource) { create(:user_group) }
 
     let(:serialized) { subject.serialize }

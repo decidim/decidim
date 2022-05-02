@@ -8,7 +8,7 @@ module Decidim
       let(:comment) { create(:comment) }
       let(:resource) { create(:comment_vote, comment: comment) }
 
-      let(:subject) { described_class.new(resource) }
+      subject { described_class.new(resource) }
       let(:serialized) { subject.serialize }
 
       describe "#serialize" do

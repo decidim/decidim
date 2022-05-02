@@ -5,8 +5,9 @@ require "spec_helper"
 module Decidim::Meetings
   describe RegistrationSerializer do
     describe "#serialize" do
+      subject { described_class.new(registration) }
+
       let!(:registration) { create(:registration) }
-      let!(:subject) { described_class.new(registration) }
 
       context "when there are not a questionnaire" do
         it "includes the id" do
@@ -81,7 +82,7 @@ module Decidim::Meetings
           )
         end
 
-        let!(:subject) { described_class.new(registration) }
+        subject { described_class.new(registration) }
         let(:serialized) { subject.serialize }
 
         it "includes the answer for each question" do

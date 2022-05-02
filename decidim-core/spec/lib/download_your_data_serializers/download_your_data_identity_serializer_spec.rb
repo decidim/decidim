@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim
   describe DownloadYourDataSerializers::DownloadYourDataIdentitySerializer do
-    let(:subject) { described_class.new(resource) }
+    subject { described_class.new(resource) }
     let(:user) { create(:user) }
     let(:organization) { user&.organization }
     let(:provider) { "facebook" }
