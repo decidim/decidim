@@ -54,8 +54,9 @@ module Decidim
             @template.snippets.add(:geocoding_scripts, builder.javascript_snippets)
 
             # This will display the snippets in the <head> part of the page.
-            @template.snippets.add(:snippet_styles, @template.snippets.for(:geocoding_styles))
-            @template.snippets.add(:snippet_scripts, @template.snippets.for(:geocoding_scripts))
+            @template.snippets.add(:head, @template.snippets.for(:geocoding_styles))
+            # This will display the snippets in the bottom part of the page.
+            @template.snippets.add(:foot, @template.snippets.for(:geocoding_scripts))
           end
 
           options = merge_geocoding_options(attribute, options)

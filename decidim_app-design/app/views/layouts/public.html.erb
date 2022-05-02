@@ -5,13 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <%= stylesheet_pack_tag "public", media: "all", 'data-turbolinks-track': "reload" %>
     <%= favicon_pack_tag "media/images/favicon.png" %>
-    <%= snippets.display(:snippet_styles) %>
+    <%= snippets.display(:head) %>
   </head>
 
   <body>
     <%= yield %>
 
-    <%= snippets.display(:snippet_scripts) %>
+    <%= snippets.display(:foot) %>
     <script>
       Decidim.config.set(<%== { icons_path: asset_pack_path("media/images/icons.svg") }.to_json %>);
     </script>
