@@ -31,17 +31,11 @@ Lint/NoReturnInBeginEndBlocks:
 Lint/RedundantCopDisableDirective:
   Enabled: false
 
-#Style/MapToHash:
-#  Enabled: false
-
 Style/HashConversion:
   Enabled: false
 
-Style/GlobalVars:
-  Enabled: false
-
-Style/RedundantBegin:
-  Enabled: false
+#Style/RedundantBegin:
+#  Enabled: false
 
 Style/QuotedSymbols:
   Enabled: false

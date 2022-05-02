@@ -82,13 +82,12 @@ module Decidim
         form_params = params.to_unsafe_hash
         form_params["static_page"] ||= {}
         form_params["static_page"]["organization"] = current_organization
-        form_params["static_page"]["allow_public_access"] ||= begin
-          if page
+        form_params["static_page"]["allow_public_access"] ||= if page
             page.allow_public_access
           else
             false
           end
-        end
+        
 
         return form_params unless page
 

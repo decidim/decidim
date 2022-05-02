@@ -133,8 +133,7 @@ module Decidim
         next if Decidim.maps.present?
         next if Decidim.geocoder.blank?
 
-        legacy_api_key ||= begin
-          if Decidim.geocoder[:here_api_key].present?
+        legacy_api_key ||= if Decidim.geocoder[:here_api_key].present?
             Decidim.geocoder.fetch(:here_api_key)
           elsif Decidim.geocoder[:here_app_id].present?
             [
@@ -142,7 +141,7 @@ module Decidim
               Decidim.geocoder.fetch(:here_app_code)
             ]
           end
-        end
+        
         next unless legacy_api_key
 
         ActiveSupport::Deprecation.warn(

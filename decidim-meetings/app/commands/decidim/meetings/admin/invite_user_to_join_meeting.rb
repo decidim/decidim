@@ -86,8 +86,7 @@ module Decidim
         end
 
         def user
-          @user ||= begin
-            if form.existing_user
+          @user ||= if form.existing_user
               form.user
             else
               Decidim::User.find_or_initialize_by(
@@ -95,7 +94,7 @@ module Decidim
                 email: form.email.downcase
               )
             end
-          end
+          
         end
 
         def invite_user_to_sign_up

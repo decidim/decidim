@@ -35,14 +35,13 @@ module Decidim
         # the `type` is `:hash`, method `decrypt_hash_values` would be called
         # for decryption and `encrypt_hash_values` would be called for
         # encryption.
-        method_suffix = begin
-          case type
+        method_suffix = case type
           when :hash
             "hash_values"
           else
             "value"
           end
-        end
+        
 
         # Dynamically defines the getter and setter for the encrypted attribute.
         # E.g. when called as `encrypt_attribute :name, type: :string`, this

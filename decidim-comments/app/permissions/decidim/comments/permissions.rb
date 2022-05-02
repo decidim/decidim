@@ -51,13 +51,12 @@ module Decidim
       end
 
       def commentable
-        @commentable ||= begin
-          if comment
+        @commentable ||= if comment
             comment.root_commentable
           else
             context.fetch(:commentable, nil)
           end
-        end
+        
       end
 
       def comment
