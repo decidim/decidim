@@ -27,7 +27,6 @@ sk:
           step:
             allow_answers: Povoliť odpovede
             allow_unregistered: Povoliť neregistrovaným užívateľom odpovedať na prieskum
-            allow_unregistered_help: Ak aktívne, pre hlasovanie v prieskume nebude potrebná registrácia na platforme. To môže viesť ku nespoľahlivým výsledkom a vyššej zraniteľnosti voči automatizovaným útokom. Opatrne!
             announcement: Oznámenie
     events:
       surveys:
