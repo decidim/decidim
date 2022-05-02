@@ -68,6 +68,8 @@ ca:
     'true': 'Sí'
   carrierwave:
     errors:
+      file_resolution_too_large: La resolució de l'arxiu és massa gran
+      file_size_too_large: La mida del fitxer és massa gran
       not_inside_organization: L'arxiu no està relacionat amb cap organització
   date:
     formats:
@@ -761,6 +763,7 @@ ca:
           message_2: El servei retalla la imatge.
       file_validation:
         allowed_file_extensions: 'Tipus de fitxers admesos: %{extensions}'
+        max_file_dimension: 'Mides máximes de l''arxiu: %{resolution} pixels'
         max_file_size: 'Mida màxima del fitxer:%{megabytes}MB'
       upload:
         labels:
@@ -770,6 +773,7 @@ ca:
           cancel: Cancel·lar
           edit_image: Editar imatge
           error: Error!
+          file_size_too_large: 'L''arxiu és massa gran! Pes d''arxiu màxim: %{megabytes}MB'
           remove: Eliminar
           replace: Reemplaçar
           save: Desar
@@ -1100,6 +1104,8 @@ ca:
         translated_text: 'Text de la traducció automàtica:'
     notifications:
       no_notifications: Encara no hi ha notificacions.
+      show:
+        missing_event: Vaja, aquesta notificació pertany a un element que ja no està disponible. Pots descartar-la.
     notifications_settings:
       show:
         administrators: Administradores
