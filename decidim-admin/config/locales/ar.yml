@@ -13,6 +13,7 @@ ar:
         attachment_collection_id: المجلد
         description: الوصف
         file: ملف
+        title: المُرفق أو اسم الصورة
       attachment_collection:
         description: الوصف
         name: اسم
@@ -43,6 +44,7 @@ ar:
         favicon: أيقونة
         github_handler: مُعرّف حساب غِت هَب
         header_snippets: قصاصات رأس
+        highlight_color: تظليل
         highlighted_content_banner_action_subtitle: نص زر الإجراء
         highlighted_content_banner_action_title: عنوان زر الإجراء
         highlighted_content_banner_action_url: عنوان URL لزر الإجراء
@@ -50,8 +52,12 @@ ar:
         highlighted_content_banner_image: الصورة
         highlighted_content_banner_short_description: وصف مختصر
         highlighted_content_banner_title: العنوان
+        host: المضيف
         instagram_handler: مُعرّف حساب استجرام
         logo: الشعار
+        machine_translation_display_priority: أولوية عرض الترجمة الآلية
+        machine_translation_display_priority_original: النص الأصلي أولاً
+        machine_translation_display_priority_translation: النص المترجم أولاً
         name: اسم
         official_img_footer: تذييل الشعار الرسمي
         official_img_header: رأس الشعار الرسمي
@@ -59,11 +65,14 @@ ar:
         omnipresent_banner_short_description: وصف قصير
         omnipresent_banner_title: العنوان
         omnipresent_banner_url: العنوان الشبكي
+        organization_admin_email: بريد مشرف المنظمة
+        organization_admin_name: اسم مشرف المنظمة
         organization_locales: لغات المنظمة
         primary_color: ابتدائي
         reference_prefix: بادئة المرجع
         rich_text_editor_in_public_views: إتاحة محرر النص الغني للمشارِكين
         secondary_color: ثانوي
+        secondary_hosts: المستضيفين الثانويين
         send_welcome_notification: إرسال إشعار بالترحيب
         success_color: نجاح
         time_zone: المنطقة الزمنية
@@ -431,7 +440,10 @@ ar:
           actions:
             back: العودة
           download_example: تنزيل المثال
+          download_example_format: مثال كـ %{name}
+          file_legend: إضافة ملف استيراد سيتم تحليله.
           import: استيراد
+        notice: "تم استيراد %{count} %{resource_name} بنجاح"
       logs:
         logs_list:
           no_logs_yet: لا توجد سجلات حتى الآن
