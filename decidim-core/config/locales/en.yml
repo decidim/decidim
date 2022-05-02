@@ -46,7 +46,7 @@ en:
       decidim/resource_endorsed_event: Resource endorsed
       decidim/resource_hidden_event: Resource hidden
       decidim/user_group_created_event: User group created
-      decidim/welcome_notification_event: Welcomme message
+      decidim/welcome_notification_event: Welcome message
   activerecord:
     attributes:
       decidim/user:
