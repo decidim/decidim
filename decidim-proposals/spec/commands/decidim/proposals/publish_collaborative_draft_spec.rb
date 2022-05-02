@@ -24,7 +24,7 @@ module Decidim
           let(:current_user) { create(:user, organization: component.organization) }
 
           it "broadcasts invalid" do
-            expect(collaborative_draft.authored_by?(current_user)).to eq(false)
+            expect(collaborative_draft.authored_by?(current_user)).to be(false)
             expect { command.call }.to broadcast(:invalid)
           end
         end

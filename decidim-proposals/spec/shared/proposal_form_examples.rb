@@ -181,8 +181,8 @@ shared_examples "a proposal form" do |options|
 
         it "is valid" do
           expect(subject).to be_valid
-          expect(subject.latitude).to eq(nil)
-          expect(subject.longitude).to eq(nil)
+          expect(subject.latitude).to be(nil)
+          expect(subject.longitude).to be(nil)
         end
       end
 
@@ -240,13 +240,13 @@ shared_examples "a proposal form" do |options|
     context "when the category does not exist" do
       let(:category_id) { 7654 }
 
-      it { is_expected.to eq(nil) }
+      it { is_expected.to be(nil) }
     end
 
     context "when the category is from another process" do
       let(:category_id) { create(:category).id }
 
-      it { is_expected.to eq(nil) }
+      it { is_expected.to be(nil) }
     end
   end
 

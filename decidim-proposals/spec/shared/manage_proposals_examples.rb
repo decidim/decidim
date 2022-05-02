@@ -406,8 +406,8 @@ shared_examples "manage proposals" do
         end
 
         proposal.reload
-        expect(proposal.answered_at).to eq(nil)
-        expect(proposal.state_published_at).to eq(nil)
+        expect(proposal.answered_at).to be(nil)
+        expect(proposal.state_published_at).to be(nil)
       end
 
       it "can edit a proposal answer" do
