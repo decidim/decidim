@@ -10,12 +10,13 @@ namespace :decidim do
       # list of users already changed in the process
       has_changed = []
 
-      Decidim::User.find_each do |user|
+      Decidim::User.not_deleted.find_each do |user|
         next if has_changed.include? user.id
 
         Decidim::User.where(organization: user.organization)
                      .where("nickname ILIKE ?", user.nickname.downcase)
                      .where.not(id: has_changed + [user.id])
+                     .not_deleted
                      .order(:created_at)
                      .each do |similar_user|
           # change her nickname to the lowercased one with numbers if needed
