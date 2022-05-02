@@ -31,8 +31,8 @@ Lint/NoReturnInBeginEndBlocks:
 Lint/RedundantCopDisableDirective:
   Enabled: false
 
-Style/MapToHash:
-  Enabled: false
+#Style/MapToHash:
+#  Enabled: false
 
 Style/HashConversion:
   Enabled: false
