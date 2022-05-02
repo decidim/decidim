@@ -52,9 +52,6 @@ Style/QuotedSymbols:
 Style/FetchEnvVar:
   Enabled: false
 
-Style/RedundantParentheses:
-  Enabled: false
-
 Style/DocumentDynamicEvalDefinition:
   Enabled: false
 
