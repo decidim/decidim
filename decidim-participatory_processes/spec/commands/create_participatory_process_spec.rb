@@ -123,8 +123,8 @@ module Decidim::ParticipatoryProcesses
 
       it "doesn't enable by default stats and metrics" do
         subject.call
-        expect(process.show_statistics).to eq(false)
-        expect(process.show_metrics).to eq(false)
+        expect(process.show_statistics).to be(false)
+        expect(process.show_metrics).to be(false)
       end
 
       it "adds the admins as followers" do

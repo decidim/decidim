@@ -55,8 +55,8 @@ module Decidim
 
           context "when no dates" do
             it "returns nil" do
-              expect(subject.start_date).to eq(nil)
-              expect(subject.end_date).to eq(nil)
+              expect(subject.start_date).to be(nil)
+              expect(subject.end_date).to be(nil)
             end
           end
         end
