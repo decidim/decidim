@@ -134,6 +134,8 @@ ar:
         permissions: تصريحات
         reject: رفض
         share: مشاركة
+        user:
+          new: مستخدم جديد
         verify: التحقق
       admin_terms_of_use:
         accept:
@@ -274,10 +276,16 @@ ar:
       conflicts:
         attempts: المحاولات
         'false': 'لا'
+        managed_user_name: المستخدم المُدار
+        solved: تم حلها
+        title: تضارب التحقق
         transfer:
           email: البريد الإلكتروني
+          error: كانت هناك مشكلة في نقل المشارك الحالي إلى مشارك مُدار.
           name: الإسم
           reason: السبب
+          success: قد اكتمل النقل الحالي بنجاح.
+          title: نقل
         'true': 'نعم'
         user_name: المستخدم
       dashboard:
@@ -287,8 +295,13 @@ ar:
       domain_whitelist:
         form:
           domain_too_short: النطاق قصير جداً
+        update:
+          error: فشل تحديث القائمة النطاقات المسموحة
+          success: تم تحديث النطاقات المسموحة بنجاح
       exports:
         export_as: "%{name} ك %{export_format}"
+        formats:
+          CSV: ملف (CSV)
         notice: التصدير الخاص بك قيد التقدم حاليًا. ستتلقى بريدًا إلكترونيًا عند اكتماله.
       filters:
         category_id_eq:
@@ -302,11 +315,25 @@ ar:
           values:
             'false': 'لا'
             'true': 'نعم'
+        moderations:
+          reportable_type_string_eq:
+            label: النوع
         officialized_at_null:
           label: حالة
           values:
             'false': Officialized
             'true': غير رسمي
+        participatory_space_private_users:
+          user_invitation_accepted_at_not_null:
+            label: تم قبول الدعوة
+            values:
+              'false': لم يتم القبول
+              'true': تم قبوله
+          user_invitation_sent_at_not_null:
+            label: تم إرسال الدعوة
+            values:
+              'false': لم يتم الارسال
+              'true': تم الإرسال
         private_space_eq:
           label: خاص
           values:
@@ -322,7 +349,24 @@ ar:
         search_label: بحث
         search_placeholder:
           name_or_nickname_or_email_cont: البحث عن %{collection} بحسب عنوان البريد الإكتروني أو الإسم أو الإسم المستعار.
+          report_count_eq: عدد التقارير يساوى
+          reported_id_string_or_reported_content_cont: البحث عن %{collection} بواسطة رقم-مُعرف أو بالمحتوى.
           title_cont: البحث عن %{collection} بحسب العنوان.
+          user_name_or_user_email_cont: البحث عن %{collection} حسب الاسم أو البريد الإلكتروني.
+          user_name_or_user_nickname_or_user_email_cont: البحث عن %{collection} بحسب عنوان البريد الإكتروني أو الإسم أو الإسم المستعار.
+        state_eq:
+          label: الحالة
+          values:
+            all: الكل
+            pending: قيد الانتظار
+            rejected: تم رفضه
+            verified: تم التحقق
+      forms:
+        file_help:
+          import:
+            explanation: 'إرشادات الملف:'
+            message_1: ملفات CSV, JSON و Excel (.xlsx) مدعومة
+            message_2: بالنسبة لملفات CSV ، يجب أن يكون هناك فاصل بين الأعمدة بفاصلة منقوطة (";")
       help_sections:
         error: حدثت مشكلة أثناء تحديث أقسام المساعدة
         form:
