@@ -180,7 +180,7 @@ module Decidim::Assemblies
         it "assembly type is null" do
           subject.call
 
-          expect(assembly.assembly_type).to eq(nil)
+          expect(assembly.assembly_type).to be(nil)
         end
       end
 
