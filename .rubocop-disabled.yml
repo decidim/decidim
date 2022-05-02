@@ -82,9 +82,6 @@ Layout/EmptyLineBetweenDefs:
 Layout/LineEndStringConcatenationIndentation:
   Enabled: false
 
-Style/FrozenStringLiteralComment:
-  Enabled: false
-
 Rails/CompactBlank:
   Enabled: false
 
