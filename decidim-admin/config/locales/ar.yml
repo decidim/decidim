@@ -8,7 +8,7 @@ ar:
       area_type:
         name: الاسم
         organization: المنظمة
-        plural: الجمع
+        plural: صيغة الجمع
       attachment:
         attachment_collection_id: المجلد
         description: الوصف
@@ -945,6 +945,8 @@ ar:
   layouts:
     decidim:
       admin:
+        global_moderations:
+          title: مُشرف عام
         newsletters:
           title: النشرات الإخبارية
         settings:
