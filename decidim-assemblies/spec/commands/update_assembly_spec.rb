@@ -186,7 +186,7 @@ module Decidim::Assemblies
           it "assembly type is null" do
             command.call
 
-            expect(my_assembly.assembly_type).to be(nil)
+            expect(my_assembly.assembly_type).to be_nil
           end
         end
 
@@ -243,7 +243,7 @@ module Decidim::Assemblies
             my_assembly.reload
             parent_assembly.reload
 
-            expect(my_assembly.parent).to be(nil)
+            expect(my_assembly.parent).to be_nil
             expect(parent_assembly.children_count).to eq(parent_assembly.children.count)
           end
         end

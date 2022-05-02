@@ -38,7 +38,7 @@ module Decidim
         let(:query) { "{ user { name } }" }
 
         it "returns the user field" do
-          expect(response["user"]).to be nil
+          expect(response["user"]).to be_nil
         end
       end
 
@@ -102,7 +102,7 @@ module Decidim
         let(:query) { "{ ceasedDate }" }
 
         it "returns the assembly member ceasedDate" do
-          expect(response["ceasedDate"]).to be nil
+          expect(response["ceasedDate"]).to be_nil
         end
       end
     end
