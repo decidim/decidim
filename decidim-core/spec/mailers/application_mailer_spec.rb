@@ -35,7 +35,7 @@ module Decidim
 
         it "returns default values" do
           expect(mail.from).to eq(["change-me@example.org"])
-          expect(mail.reply_to).to be(nil)
+          expect(mail.reply_to).to be_nil
           expect(mail.subject).to eq(subject)
         end
       end

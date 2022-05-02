@@ -69,7 +69,7 @@ module Decidim
 
       it "stores `readonly`" do
         subject.attribute :something
-        expect(subject.attributes[:something].readonly?({})).to be(nil)
+        expect(subject.attributes[:something].readonly?({})).to be_nil
 
         subject.attribute :something, readonly: ->(_context) { true }
         expect(subject.attributes[:something].readonly?({})).to be(true)
@@ -80,7 +80,7 @@ module Decidim
 
       it "stores `choices`" do
         subject.attribute :something
-        expect(subject.attributes[:something].build_choices).to be(nil)
+        expect(subject.attributes[:something].build_choices).to be_nil
 
         subject.attribute :something, choices: %w(a b c)
         expect(subject.attributes[:something].build_choices).to eq(%w(a b c))
@@ -105,13 +105,13 @@ module Decidim
         it "supports strings" do
           attribute = SettingsManifest::Attribute.new(type: :string)
           expect(attribute.type_class).to eq(String)
-          expect(attribute.default_value).to be(nil)
+          expect(attribute.default_value).to be_nil
         end
 
         it "supports texts" do
           attribute = SettingsManifest::Attribute.new(type: :text)
           expect(attribute.type_class).to eq(String)
-          expect(attribute.default_value).to be(nil)
+          expect(attribute.default_value).to be_nil
         end
 
         it "supports arrays" do
@@ -123,19 +123,19 @@ module Decidim
         it "supports enums" do
           attribute = SettingsManifest::Attribute.new(type: :enum)
           expect(attribute.type_class).to eq(String)
-          expect(attribute.default_value).to be(nil)
+          expect(attribute.default_value).to be_nil
         end
 
         it "supports select" do
           attribute = SettingsManifest::Attribute.new(type: :select)
           expect(attribute.type_class).to eq(String)
-          expect(attribute.default_value).to be(nil)
+          expect(attribute.default_value).to be_nil
         end
 
         it "supports scopes" do
           attribute = SettingsManifest::Attribute.new(type: :scope)
           expect(attribute.type_class).to eq(Integer)
-          expect(attribute.default_value).to be(nil)
+          expect(attribute.default_value).to be_nil
         end
       end
 
@@ -181,7 +181,7 @@ module Decidim
         expect(settings.default_locale).to eq("en")
 
         settings = subject.schema.new({})
-        expect(settings.default_locale).to be(nil)
+        expect(settings.default_locale).to be_nil
       end
 
       context "when adding presence validation to the model from a translated setting" do

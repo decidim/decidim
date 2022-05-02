@@ -9,7 +9,7 @@ module Decidim
         let(:value) { "" }
 
         it "returns nil" do
-          expect(described_class.decrypt(value)).to be(nil)
+          expect(described_class.decrypt(value)).to be_nil
         end
       end
 

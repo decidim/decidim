@@ -19,7 +19,7 @@ module Decidim
 
     shared_examples "a nil value" do
       it "returns nil" do
-        expect(subject.value).to be(nil)
+        expect(subject.value).to be_nil
         expect(subject.to_s).to eq("")
         expect(subject.to_i).to eq(0)
         expect(subject.to_json).to eq("null")
@@ -45,7 +45,7 @@ module Decidim
 
     shared_examples "a defined value" do
       it "returns the value" do
-        expect(subject.value).not_to be(nil)
+        expect(subject.value).not_to be_nil
         expect(subject.value).to eq(value)
         expect(subject.to_s).not_to eq("")
         expect(subject.to_s).to eq(value.to_s)
@@ -112,7 +112,7 @@ module Decidim
 
     shared_examples "default_or_present as default" do
       it "behaves as default" do
-        expect(subject.default_or_present_if_exists).to be(nil)
+        expect(subject.default_or_present_if_exists).to be_nil
       end
 
       context "and has a default" do

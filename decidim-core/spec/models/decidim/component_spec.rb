@@ -149,8 +149,8 @@ module Decidim
         end
 
         it "returns no scope" do
-          expect(subject.scope).to be nil
-          expect(participatory_space.scope).to be nil
+          expect(subject.scope).to be_nil
+          expect(participatory_space.scope).to be_nil
         end
       end
 
@@ -171,7 +171,7 @@ module Decidim
 
         it "returns the component scope" do
           expect(subject.scope).to eq component_scope
-          expect(participatory_space.scope).to be nil
+          expect(participatory_space.scope).to be_nil
         end
 
         it "returns true for the component subscopes" do

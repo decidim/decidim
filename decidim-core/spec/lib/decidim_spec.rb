@@ -4,7 +4,7 @@ require "spec_helper"
 
 describe Decidim do
   it "has a version number" do
-    expect(described_class.version).not_to be nil
+    expect(described_class.version).not_to be_nil
   end
 
   describe ".seed!" do
