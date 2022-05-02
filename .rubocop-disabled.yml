@@ -139,6 +139,3 @@ Rails/TransactionExitStatement:
 
 RSpec/BeNil:
   Enabled: false
-
-RSpec/BeEq:
-  Enabled: false
