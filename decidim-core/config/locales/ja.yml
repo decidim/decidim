@@ -64,6 +64,8 @@ ja:
     'true': 'はい'
   carrierwave:
     errors:
+      file_resolution_too_large: ファイルの解像度の値が大きすぎます
+      file_size_too_large: ファイルサイズが大きすぎます
       not_inside_organization: ファイルはどの組織にも添付されていません
   date:
     formats:
@@ -747,6 +749,7 @@ ja:
           message_2: システムが画像を切り抜きます。
       file_validation:
         allowed_file_extensions: 'アップロード可能なファイル形式: %{extensions}'
+        max_file_dimension: '最大ファイルサイズ: %{resolution} ピクセル'
         max_file_size: '最大ファイルサイズ: %{megabytes}MB'
       upload:
         labels:
@@ -756,6 +759,7 @@ ja:
           cancel: キャンセル
           edit_image: 画像を編集
           error: エラー
+          file_size_too_large: 'ファイルサイズが大きすぎます！最大ファイルサイズ: %{megabytes}MB'
           remove: 削除
           replace: 置換
           save: 保存
@@ -1086,6 +1090,8 @@ ja:
         translated_text: '自動翻訳されたテキスト:'
     notifications:
       no_notifications: まだ通知はありません。
+      show:
+        missing_event: この通知は利用できなくなった要素に属しています。破棄してください。
     notifications_settings:
       show:
         administrators: 管理者
