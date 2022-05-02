@@ -13,7 +13,11 @@ namespace :decidim do
       Decidim::User.find_each do |user|
         next if has_changed.include? user.id
 
-        Decidim::User.where(organization: user.organization).where("nickname ILIKE ?", user.nickname.downcase).where.not(id: has_changed + [user.id]).order(:created_at).each do |similar_user|
+        Decidim::User.where(organization: user.organization)
+                     .where("nickname ILIKE ?", user.nickname.downcase)
+                     .where.not(id: has_changed + [user.id])
+                     .order(:created_at)
+                     .each do |similar_user|
           # change her nickname to the lowercased one with 5 random numbers
           begin
             update_user_nickname(similar_user, "#{similar_user.nickname}-#{rand(99_999)}")

@@ -61,7 +61,7 @@ describe "rake decidim:upgrade:fix_nickname_uniqueness", type: :task do
       end
 
       it "send notifications" do
-        expect(Decidim::EventsManager).to receive(:publish).exactly(1).times
+        expect(Decidim::EventsManager).to receive(:publish).once
 
         task.execute
       end
