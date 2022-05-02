@@ -18,7 +18,7 @@ PR [\#9156] https://github.com/decidim/decidim/pull/9156 moves javascript snippe
 
 If you are redefining Decidim layout, or partials including javascript packs you might need to review them.
 
-Also, you can't no longer call jQuery or any other library in your views directly. For example the
+Also, you can no longer call jQuery or any other library in your views directly. For example the
 following snippet won't work:
 
 ```
