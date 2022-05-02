@@ -672,6 +672,7 @@ fr-CA:
             back: Retour à la plateforme
             submit: Vérifier
             vote_identifier: 'Code d''identification :'
+            vote_identifier_help: C'est l'identifiant qui vous a été donné après que vous avez voté (pas le code pour entrer dans l'isoloir).
           header:
             title: Vérifiez votre vote
           success:
