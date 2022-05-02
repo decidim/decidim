@@ -30,7 +30,6 @@ lb:
           step:
             allow_answers: Äntwerten erlaben
             allow_unregistered: Nicht registrierten Benutzern die Beantwortung des Fragebogens erlauben
-            allow_unregistered_help: Wenn diese Option aktiviert ist, muss man nicht angemeldet sein, um den Fragebogen zu beantworten. Das kann zu schlechten oder unzuverlässigen Daten führen und ist mehr anfällig für automatisierte Angriffe. Verwenden Sie dies mit Bedacht!
             announcement: Ukënnegung
     events:
       surveys:
