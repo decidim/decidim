@@ -6,7 +6,7 @@
   </div>
   <div class="card-section">
     <% if @count!=0 %>
-      <p> <%= t(".destroy.explanation", { count: @count }) %>
+      <p> <%= t(".destroy.explanation", count: @count) %>
       </p>
       <%= link_to  t(".destroy.button"),
                   destroy_all_participatory_space_private_users_csv_imports_path,
