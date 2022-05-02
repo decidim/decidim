@@ -22,6 +22,7 @@ en:
       timeline_entry:
         description: Description
         entry_date: Date
+        title: Title
     models:
       decidim/accountability/proposal_linked_event: Proposal included in a result
       decidim/accountability/result_progress_updated_event: Result progress updated
