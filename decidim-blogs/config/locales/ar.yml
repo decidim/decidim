@@ -19,6 +19,7 @@ ar:
         edit: تعديل
         new: منشور جديد
         title: أفعال
+        user_group_id: إنشاء مشاركة كـ
       admin:
         models:
           components:
@@ -75,6 +76,8 @@ ar:
           step:
             announcement: إعلان
             comments_blocked: تم حظر التعليقات
+            endorsements_blocked: التأييدات مغلقةٌ
+            endorsements_enabled: التأييدات مُتاحه
     events:
       blogs:
         post_created:
