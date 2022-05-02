@@ -6,20 +6,18 @@ module Decidim
   module Assemblies
     describe CurrentComponent do
       let(:request) { double(params: params, env: env) }
-      subject { described_class.new(manifest) }
       let(:params) { {} }
       let(:manifest) { Decidim.find_component_manifest("dummy") }
-
       let(:organization) do
         create(:organization)
       end
-
       let(:current_assembly) { create(:assembly, organization: organization) }
       let(:other_assembly) { create(:assembly, organization: organization) }
-
       let(:env) do
         { "decidim.current_organization" => organization }
       end
+
+      subject { described_class.new(manifest) }
 
       context "when the params contain an assembly id" do
         before do

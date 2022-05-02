@@ -6,6 +6,7 @@ module Decidim
   describe OrganizationPresenter, type: :helper do
     let(:description) { { "en" => "<p>A necessitatibus quo. 1</p>" } }
     let(:organization) { create(:organization, name: "Organization's name", description: description) }
+
     subject { described_class.new(organization) }
 
     context "with an organization" do

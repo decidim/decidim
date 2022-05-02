@@ -18,6 +18,7 @@ module Decidim
           committee_members: double("committee_members", approved: approved_committee_members)
         )
       end
+
       subject { described_class.new(initiative: initiative) }
 
       before do

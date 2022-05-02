@@ -5,6 +5,7 @@ require "spec_helper"
 module Decidim::Meetings
   describe DownloadYourDataInviteSerializer do
     let(:resource) { build_stubbed(:invite) }
+
     subject { described_class.new(resource) }
 
     describe "#serialize" do

@@ -34,6 +34,7 @@ module Decidim
             current_user: user
           )
         end
+
         subject { described_class.new(form, ballot_style) }
 
         context "when the form is not valid" do

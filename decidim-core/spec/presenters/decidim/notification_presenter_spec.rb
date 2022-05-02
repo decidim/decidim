@@ -7,6 +7,7 @@ module Decidim
     include ActiveSupport::Testing::TimeHelpers
     let(:creating_date) { Time.parse("Wed, 1 Sep 2021 21:00:00 UTC +00:00").in_time_zone }
     let(:notification) { create(:notification, created_at: creating_date) }
+
     subject { described_class.new(notification) }
 
     context "with a valid notification" do
@@ -72,6 +73,7 @@ module Decidim
       let(:extra) { { comment_id: create(:comment).id } }
 
       let(:notification) { create(:notification, event_class: event_class, event_name: event_name, extra: extra) }
+
       subject { described_class.new(notification) }
 
       describe "#display_resource_text?" do

@@ -40,6 +40,7 @@ module Decidim
           }
         end
         let(:form) { PollingStationForm.from_params(params).with_context(context) }
+
         subject { described_class.new(form, polling_station) }
 
         context "when the form is not valid" do

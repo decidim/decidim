@@ -5,6 +5,7 @@ require "spec_helper"
 module Decidim::Meetings
   describe DownloadYourDataRegistrationSerializer do
     let(:resource) { create(:registration) }
+
     subject { described_class.new(resource) }
 
     describe "#serialize" do

@@ -5,6 +5,7 @@ require "spec_helper"
 module Decidim::ParticipatoryProcesses
   describe ParticipatoryProcessSerializer do
     let(:resource) { create(:participatory_process) }
+
     subject { described_class.new(resource) }
 
     describe "#serialize" do

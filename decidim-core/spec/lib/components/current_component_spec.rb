@@ -5,9 +5,10 @@ require "spec_helper"
 module Decidim
   describe CurrentComponent do
     let(:request) { double(params: params, env: env) }
-    subject { described_class.new(manifest) }
     let(:params) { {} }
     let(:manifest) { Decidim.find_component_manifest("dummy") }
+
+    subject { described_class.new(manifest) }
 
     context "when the env does not contain a current organization" do
       let(:env) do
