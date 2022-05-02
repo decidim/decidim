@@ -23,7 +23,10 @@ ar:
       component:
         name: اسم
         published_at: نشرت في
+        weight: موضع الطلب
       id: هوية شخصية
+      import:
+        user_group_id: إنشاء واردات ك
       newsletter:
         body: المحتوى
         subject: الموضوع
@@ -294,7 +297,7 @@ ar:
           welcome: مرحبًا بكم في لوحة إدارة Decidim.
       domain_whitelist:
         form:
-          domain_too_short: النطاق قصير جداً
+          domain_too_short: نطاق الدومين قصير جداً
         update:
           error: فشل تحديث القائمة النطاقات المسموحة
           success: تم تحديث النطاقات المسموحة بنجاح
@@ -302,19 +305,31 @@ ar:
         export_as: "%{name} ك %{export_format}"
         formats:
           CSV: ملف (CSV)
+          Excel: مِلَفّ إكسيل Excel
+          FormPDF: ملف (PDF)
+          JSON: ملفات بصيغة (JSON)
         notice: التصدير الخاص بك قيد التقدم حاليًا. ستتلقى بريدًا إلكترونيًا عند اكتماله.
       filters:
         category_id_eq:
           label: الفئة
         filter_label: تصفية
         invitation_accepted_at_present:
+          label: تم قبول الدعوة
           values:
             'false': 'لا'
             'true': 'نعم'
         last_sign_in_at_present:
+          label: لم يتم تسجيل دخولهم
           values:
             'false': 'لا'
             'true': 'نعم'
+        moderated_users:
+          reports_reason_eq:
+            label: سبب الابلاغ
+            values:
+              does_not_belong: لا ينتمي
+              offensive: مسيء
+              spam: محتوى مزعج و احتيال
         moderations:
           reportable_type_string_eq:
             label: النوع
@@ -407,6 +422,11 @@ ar:
           impersonate_new_managed_user: إدارة مشارك جديد
       imports:
         and: و
+        data_errors:
+          duplicate_headers:
+            detail: الرجاء التحقق من أن المِلَفّ يحتوي على أعمدة أو رؤوس مطلوبه لمرة واحدة فقط.
+          missing_headers:
+            detail: برجاء التحقق من أن الملف يحتوي على الأعمدة المطلوبة.
         new:
           actions:
             back: العودة
@@ -489,6 +509,9 @@ ar:
           fields:
             name: اسم
             plural: جمع
+        share_token:
+          fields:
+            user: تم الإنشاء بواسطة
         static_page:
           fields:
             created_at: أنشئت في
@@ -516,6 +539,7 @@ ar:
       moderated_users:
         index:
           actions:
+            block: حظر مستخدم
             title: الإجراءات
             unblock: إلغاء حظر المستخدم
             unreport: إلغاء التبليغ
@@ -525,7 +549,10 @@ ar:
           reports: عدد الإبلاغات
         report:
           reasons:
+            offensive: مسيء
             spam: مزعج
+        tabs:
+          blocked: محظور
       moderations:
         index:
           title: الإشراف
@@ -578,13 +605,21 @@ ar:
           send_to_all_users: إرسال إلى كافة المستخدمين
           send_to_followers: إرسال إلى المتابِعين
           send_to_participants: إرسال إلى المشاركين
+          title: حدد المستلمين للإرسال اليهم
+          warning: "<strong>تنبيه:</strong> سيتم إرسال هذه النشرة الإخبارية فقط للمستخدمين الذين فعلوا <em>أريد تلقي النشرات الإخبارية</em> في إعدادات الإشعارات الخاصة بهم."
+        send:
+          no_recipients: لا يوجد مستلمين لهذا التحديد
         show:
           preview: معاينة
+          select_recipients_to_deliver: حدد المستلمين للإرسال اليهم
           subject: الموضوع
         update:
           error: حدثت مشكلة أثناء تحديث هذه الرسالة الإخبارية.
           success: تم تحديث النشرة الإخبارية بنجاح. يرجى مراجعته قبل الإرسال.
       officializations:
+        block:
+          error: حدث خطأ خلال حظر المشارك
+          success: تم حظر المشارك بنجاح
         create:
           success: مشارك رسمي بنجاح
         destroy:
@@ -592,6 +627,7 @@ ar:
         index:
           actions: أفعال
           badge: شارة
+          block: حظر مستخدم
           created_at: أنشئت في
           name: اسم
           nickname: كنية
@@ -599,17 +635,26 @@ ar:
           officialize: الصفة الرسمية
           officialized: Officialized
           reofficialize: Reofficialize
+          reports: التقارير
+          show_email: إظهار عنوان البريد الإلكتروني
           status: الحالة
+          unblock: إلغاء حظر المستخدم
           unofficialize: Unofficialize
         new:
           badge: شارة رسمية
           officialize: الصفة الرسمية
           title: إضفاء الطابع الرسمي على المشارك "%{name}"
         show_email_modal:
+          close_modal: اغلاق النموذج
+          description: إذا كنت بحاجة إلى الاتصال بأحد المشاركين مباشرة، يمكنك النقر على زر العرض لرؤية عنوان بريده الإلكتروني. سيتم تسجيل هذا الإجراء.
           email_address: عنوان البريد الإلكتروني
           full_name: الاسم الكامل
           hidden: مخفي
           show: إظهار
+          title: إظهار عنوان البريد الإلكتروني للمشترك
+        unblock:
+          error: حدث خطأ خلال فك حجب المشارك
+          success: تم إلغاء حظر المشارك بنجاح
       organization:
         edit:
           title: تحرير المنظمة
@@ -620,6 +665,7 @@ ar:
           instagram: إينستاجرام
           social_handlers: التواصل الاجتماعي
           twitter: تويتر
+          url: عنوان الرابط
           youtube: يوتيوب
         update:
           error: حدثت مشكلة أثناء تحديث هذه المؤسسة.
@@ -643,7 +689,9 @@ ar:
         edit:
           update: تحديث
         external_domain:
+          down: أسفل
           remove: إزالة
+          up: أعلى
       organization_homepage:
         edit:
           active_content_blocks: كتل المحتوى النشط
@@ -811,6 +859,15 @@ ar:
           last_week: الأسبوع الماضي
           participants: المشاركون
       view_public_page: عرض الصفحة العامة
+    metrics:
+      blocked_users:
+        title: المستخدمين المحظورين
+      reported_users:
+        object: المستخدمين المبلغ عنهم
+        title: المستخدمون المبلغ عنهم
+      user_reports:
+        object: تقارير المستخدم
+        title: تقارير المستخدم
     moderations:
       actions:
         hidden: مخفي
