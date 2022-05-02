@@ -58,6 +58,9 @@ ca:
       decidim/elections/question:
         one: Pregunta
         other: Preguntes
+      decidim/voting:
+        one: Votació
+        other: Votacions
       decidim/votings/census/dataset:
         one: Conjunt de dades
         other: Conjunts de dades
@@ -182,6 +185,11 @@ ca:
         exports:
           elections: Eleccions
           feedback_form_answers: Feedback de les respostes
+        mailers:
+          trustee_mailer:
+            body: "<p>Hola %{user_name},</p><p>Se t'ha afegit com a garant a%{resource_name}.</p>"
+            subject: Se t'ha afegit com a garant de %{resource_name}
+            trustee_zone: Portant a l'espai de garants
         menu:
           trustees: Garants
         models:
@@ -283,11 +291,13 @@ ca:
             success: La sol·licitud per publicar els resultats s'ha enviat correctament al Bulletin Board
             title: Resultats calculats
           tally_started:
+            continue: Continuar
             invalid: S'ha produït un error en notificar l'absència de la garant
             mark_as_missing: Marcar com absent
             mark_as_missing_description: Totes les garants haurien de participar en aquest procés, però si una garant no en pot prendre part, la pots marcar com a absent.
             success: La notificació d'absència de la garant ha estat enviada correctament
             tally_completion: El procés es completarà quan totes les garants estiguin actives o marcades com a absents. Fan falta com un mínim de %{quorum} garant per a completar el procés.
+            title: Procés de recompte
             undo_mark_as_missing: Una garant marcada com a absent per error podrà participar abans de la finalització del procés. Pot actuar com de costum i la seva absència serà ignorada.
           vote:
             errors:
@@ -527,12 +537,23 @@ ca:
             upload_election_keys: Pujar claus de l'elecció
             upload_icon: Icona que indica una acció de descàrrega
           tally_started_steps:
+            back: Enrere
             description: Els resultats d'aquesta elecció s'estan computant al Bulletin Board. Per completar aquest procés, és necessària la teva participació com a garant.
             keys:
               end_tally: Recompte finalitzat
               tally:
                 cast: Enviament del recompte
                 share: Compartició del recompte
+            list:
+              status: Estat
+              task: Tasca
+            process_warning: Un cop ha començat el procés, no hauries de sortir d'aquesta pàgina fins que aquest acabi. Trigarà alguns minuts, ja que totes les garants han de connectar-se al mateix temps per completar-lo.
+            start: Començar
+            start_icon: Icona que indica un botó d'inici per a la generació de claus d'una elecció
+            status:
+              completed: Completat
+              pending: Pendent
+              processing: Processant
             title: Recompte per %{election}
           update:
             error: L'estat de l'elecció no s'havia actualitzat.
@@ -656,6 +677,7 @@ ca:
             back: Tornar a la plataforma
             submit: Comprovar
             vote_identifier: 'Codi identificador:'
+            vote_identifier_help: Aquest és l'indicador que se't va donar després d'emetre el teu vot (no és el codi per a entrar a la cabina de votació).
           header:
             title: Verifica el teu vot
           success:
