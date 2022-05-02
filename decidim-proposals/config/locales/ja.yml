@@ -222,25 +222,32 @@ ja:
             notification_title: 誰かが提案 <a href="%{resource_path}">%{resource_title}</a>にメモを残しました。 <a href="%{admin_proposal_info_path}">管理者パネル</a> で確認してください
         collaborative_draft_access_accepted:
           email_intro: '%{requester_name} は、 <a href="%{resource_url}">%{resource_title}</a> の共同ドラフトのコントリビューターとして承認されました。'
+          email_outro: <a href="%{resource_url}">%{resource_title}</a> のコラボレーターであるため、この通知を受け取りました。
           email_subject: "%{requester_name} は %{resource_title} の貢献者としてアクセスできるようになりました。"
           notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> は、 <strong>コントリビューターとして</strong> <a href="%{resource_path}">%{resource_title}</a> 共同ドラフトのコントリビューターとしてアクセスできるようになりました。
         collaborative_draft_access_rejected:
           email_intro: '%{requester_name} は、 <a href="%{resource_url}">%{resource_title}</a> の共同ドラフトのコントリビューターとしてのアクセスを拒否されました。'
+          email_outro: <a href="%{resource_url}">%{resource_title}</a> のコラボレーターであるため、この通知を受け取りました。
           email_subject: "%{requester_name} は、 %{resource_title} の共同ドラフトの貢献者としてアクセスするために拒否されました。"
           notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> が <strong>コントリビューターとしてアクセスを拒否されました <a href="%{resource_path}">%{resource_title}</a> 共同ドラフトのコントリビューター</strong>
         collaborative_draft_access_requested:
           email_intro: '%{requester_name} がコントリビューターとしてアクセスをリクエストしました。 <strong></strong> <a href="%{resource_url}">%{resource_title}</a> の共同ドラフトページからリクエストを承認または拒否できます。'
+          email_outro: <a href="%{resource_url}">%{resource_title}</a> のコラボレーターであるため、この通知を受け取りました。
           email_subject: "%{requester_name} が %{resource_title} に貢献するためにアクセスをリクエストしました。"
           notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> は、 <a href="%{resource_path}">%{resource_title}</a> の共同ドラフトにアクセスをリクエストしました。 <strong>リクエストを承認または拒否してください</strong>。
         collaborative_draft_access_requester_accepted:
           email_intro: <a href="%{resource_url}">%{resource_title}</a> の共同ドラフトのコントリビューターとして承認されました。
+          email_outro: <a href="%{resource_url}">%{resource_title}</a> のコラボレーターになることをリクエストしたため、この通知を受け取りました。
           email_subject: '%{resource_title} の貢献者として承認されました。'
           notification_title: あなたは <strong></strong> <a href="%{resource_path}">%{resource_title}</a> の共同ドラフトの貢献者としてアクセスすることを受け入れられました。
         collaborative_draft_access_requester_rejected:
           email_intro: <a href="%{resource_url}">%{resource_title}</a> の共同ドラフトのコントリビューターとしてのアクセスは拒否されました。
+          email_outro: <a href="%{resource_url}">%{resource_title}</a> のコラボレーターになることをリクエストしたため、この通知を受け取りました。
           email_subject: '%{resource_title} の貢献者として拒否されました。'
           notification_title: 共同草稿<a href="%{resource_path}">%{resource_title}</a>の<strong>投稿者としてのアクセスを拒否</strong>されました。
         collaborative_draft_withdrawn:
+          email_intro: <a href="%{author_url}">%{author_name} %{author_nickname}</a> は、 <a href="%{resource_url}">%{resource_title}</a> の共同ドラフトを撤回しました。
+          email_outro: <a href="%{resource_url}">%{resource_title}</a> のコラボレーターであるため、この通知を受け取りました。
           email_subject: "%{author_name} %{author_nickname} は %{resource_title} の共同ドラフトを撤回しました。"
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> が、共同草稿 <a href="%{resource_path}">%{resource_title}</a> を<strong>撤回しました。</strong>
         creation_enabled:
