@@ -3,7 +3,7 @@
     <h2 class="card-title">
       <%= t(".title") %>
       <% if allowed_to? :create, :space_private_user %>
-        <%= link_to t(".import_via_csv"), new_participatory_space_private_users_csv_import_path, class: "button tiny button--title import" %>
+        <%= link_to t(".import_via_csv"), new_participatory_space_private_users_csv_imports_path, class: "button tiny button--title import" %>
         <%= link_to t("actions.participatory_space_private_user.new", scope: "decidim.admin"), url_for(action: :new), class: "button tiny button--title new" %>
       <% end %>
     </h2>

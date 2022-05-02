@@ -15,10 +15,12 @@ module Decidim::Admin
     let(:form) do
       double(
         invalid?: invalid,
+        delete_current_private_participants?: delete,
         email: email,
         name: name
       )
     end
+    let(:delete) { false }
     let(:invalid) { false }
 
     context "when the form is not valid" do

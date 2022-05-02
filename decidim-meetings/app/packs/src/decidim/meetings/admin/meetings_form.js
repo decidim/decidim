@@ -114,7 +114,7 @@ $(() => {
       toggleDependsOnSelect($target, $meetingRegistrationUrl, "on_different_platform");
     });
 
-    $meetingRegistrationType.trigger("change");
+    toggleDependsOnSelect($meetingRegistrationType, $meetingRegistrationUrl, "on_different_platform");
 
     const $meetingTypeOfMeeting = $form.find("#meeting_type_of_meeting");
     const $meetingOnlineFields = $form.find(".field[data-meeting-type='online']");

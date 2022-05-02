@@ -55,6 +55,7 @@ module Decidim
       scope = scope.public_spaces if klass.try(:participatory_space?)
       scope = scope.includes(:component) if klass.try(:has_component?)
       scope = scope.filter(&:visible?) if klass.method_defined?(:visible?)
+      scope = scope.reject(&:blocked) if klass == Decidim::UserBaseEntity
       scope
     end
   end

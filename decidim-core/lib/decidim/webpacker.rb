@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require "decidim/webpacker/thread_safe_compiler"
+
 module Decidim
   module Webpacker
     autoload :Configuration, "decidim/webpacker/configuration"

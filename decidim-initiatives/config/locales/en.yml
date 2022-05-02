@@ -275,7 +275,7 @@ en:
             update: Update
           form:
             authorizations: Authorization settings
-            child_scope_threshold_enabled_help: 'This config flag doesn''t support offline votes, it enables sub-scopes and works with an authorization handler that associates a scope to the user, make sure you select that authorization, bellow in authorization settings. For it to work scopes need to be configured in hierarchical way : 1 Parent - N Child. For more info on how this configuration works, see this <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">link</a>.'
+            child_scope_threshold_enabled_help: 'This config flag doesn''t support offline votes. It enables sub-scopes and works with an authorization handler that associates a scope to the user. Make sure you select that authorization, below in authorization settings. For it to work, scopes need to be configured in a hierarchical way: 1 Parent - N Child. For more info on how this configuration works, see <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">initiatives'' admin documentation page</a>.'
             only_global_scope_enabled_help: Tick this flag if you enabled "Child scope signature" and configured the global scope as your parent scope. By enabling this, initiative type selection will be skipped in the initiative creation wizard. For more info on how this configuration works, see this <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">link</a>.
             options: Options
             title: General information
