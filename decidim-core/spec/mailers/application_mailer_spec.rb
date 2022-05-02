@@ -18,7 +18,7 @@ module Decidim
           "from" => from
         }
       end
-      let(:mail) { described_class.send_email(user, organization, subject, reply_to) }
+      let(:mail) { described_class.send_email(user, organization, mail_subject, reply_to) }
       let(:from) { "" }
       let(:reply_to) { nil }
       let(:mail_subject) { "Test subject" }
