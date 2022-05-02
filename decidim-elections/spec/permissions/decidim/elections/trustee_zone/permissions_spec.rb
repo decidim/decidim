@@ -75,7 +75,7 @@ describe Decidim::Elections::TrusteeZone::Permissions do
       { scope: :trustee_zone, action: :view, subject: :trustee }
     end
 
-    it { is_expected.to eq true }
+    it { is_expected.to be true }
 
     it_behaves_like "not allowed when the user is not a trustee"
     it_behaves_like "not allowed when the given trustee is not the same than the user trustee"
@@ -86,7 +86,7 @@ describe Decidim::Elections::TrusteeZone::Permissions do
       { scope: :trustee_zone, action: :update, subject: :trustee }
     end
 
-    it { is_expected.to eq true }
+    it { is_expected.to be true }
 
     it_behaves_like "not allowed when the user is not a trustee"
     it_behaves_like "not allowed when the given trustee is not the same than the user trustee"
@@ -97,7 +97,7 @@ describe Decidim::Elections::TrusteeZone::Permissions do
       { scope: :trustee_zone, action: :view, subject: :election }
     end
 
-    it { is_expected.to eq true }
+    it { is_expected.to be true }
 
     it_behaves_like "not allowed when the user is not a trustee"
     it_behaves_like "not allowed when the given trustee is not the same than the user trustee"
@@ -108,7 +108,7 @@ describe Decidim::Elections::TrusteeZone::Permissions do
       { scope: :trustee_zone, action: :update, subject: :election }
     end
 
-    it { is_expected.to eq true }
+    it { is_expected.to be true }
 
     it_behaves_like "not allowed when election is not attached to trustee"
     it_behaves_like "not allowed when the user is not a trustee"

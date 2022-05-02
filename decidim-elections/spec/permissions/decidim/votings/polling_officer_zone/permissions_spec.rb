@@ -58,7 +58,7 @@ module Decidim
             { scope: :polling_officer_zone, action: :view, subject: :polling_officers }
           end
 
-          it { is_expected.to eq true }
+          it { is_expected.to be true }
 
           it_behaves_like "not allowed when a polling officer is not attached to the current user"
         end
@@ -68,7 +68,7 @@ module Decidim
             { scope: :polling_officer_zone, action: :manage, subject: :polling_station_results }
           end
 
-          it { is_expected.to eq true }
+          it { is_expected.to be true }
 
           it_behaves_like "not allowed when a polling officer is not attached to the current user"
         end
@@ -78,7 +78,7 @@ module Decidim
             { scope: :polling_officer_zone, action: :manage, subject: :in_person_vote }
           end
 
-          it { is_expected.to eq true }
+          it { is_expected.to be true }
 
           it_behaves_like "not allowed when a polling officer is not attached to the current user"
         end
