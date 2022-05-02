@@ -30,7 +30,6 @@ pt:
           step:
             allow_answers: Permitir respostas
             allow_unregistered: Permitir que utilizadores não registados respondam ao inquérito
-            allow_unregistered_help: Caso esta opção esteja ativa, não será necessário iniciar sessão para responder ao inquérito. Isto poderá resultar em dados pouco fidedignos ou fiáveis e aumentará a vulnerabilidade a ataques automatizados. Utilizar com precaução!
             announcement: Anúncio
     events:
       surveys:
