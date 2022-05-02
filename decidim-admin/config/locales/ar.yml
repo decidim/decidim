@@ -567,6 +567,7 @@ ar:
         reports:
           index:
             content_original_language: لغة المحتوى الأصلية
+            participatory_space: المساحة التشاركية
           show:
             report_reason: السبب
       newsletter_templates:
@@ -909,11 +910,14 @@ ar:
             hidden_at: مخبأة في
             participatory_space: الفضاء التشاركي
             report_count: عد
+            reportable_id: المعرف
+            reportable_type: النوع
             reported_content_url: تم الإبلاغ عن عنوان URL للمحتوى
             reports: تقارير
             visit_url: زيارة العنوان الشبكي
         report:
           fields:
+            details: تفاصيل السبب
             locale: اللغة
             reason: السبب
   errors:
