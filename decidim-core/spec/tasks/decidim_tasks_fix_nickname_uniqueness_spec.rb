@@ -24,7 +24,7 @@ describe "rake decidim:upgrade:fix_nickname_uniqueness", type: :task do
         expect(user2.reload.nickname).to eq("toto_2")
         expect(user3.reload.nickname).to eq("toto_3")
         expect(user4.reload.nickname).to eq("foO")
-        expect(user5.reload.nickname).to eq("foo")
+        expect(user5.reload.nickname).to eq("foo_2")
       end
 
       it "send notifications" do
