@@ -708,7 +708,6 @@ eu:
         file:
           explanation: 'Jarraibideak artxiborako:'
           message_1: Irudi bat edo dokumentu bat izan behar da.
-          message_2: Irudietarako, ahal izanez gero, erabili irudi etzanak, zerbitzuak irudia moztu egiten baitu. CSV artxiboetarako zutabeen arteko banatzailea koma bat izan behar da (",")
         image:
           explanation: 'Jarraibideak irudirako:'
           message_1: Ahal izanez gero, irudi etzana eta testurik gabekoa.
