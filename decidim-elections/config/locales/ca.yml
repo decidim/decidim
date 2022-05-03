@@ -1295,6 +1295,7 @@ ca:
           day_placeholder: DD
           document_number: Número de document
           document_number_placeholder: Número d'ID
+          document_type: Tipus de document
           month: Mes
           month_placeholder: MM
           postal_code: Codi postal
