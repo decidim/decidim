@@ -412,6 +412,8 @@ module Decidim
         button_edit_label: I18n.t("decidim.forms.upload.labels.edit_image"),
         extension_allowlist: Decidim.organization_settings(Decidim::Attachment).upload_allowed_file_extensions
       }.merge(options)
+
+      # Upload help uses extension allowlist from the options so we need to call this AFTER setting the defaults.
       options[:help] = upload_help(record, attribute, options) if options[:help].blank?
 
       upload(attribute, options)
