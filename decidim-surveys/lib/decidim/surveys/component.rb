@@ -38,7 +38,6 @@ Decidim.register_component(:surveys) do |component|
 
   component.register_resource(:survey) do |resource|
     resource.model_class_name = "Decidim::Surveys::Survey"
-    resource.searchable = true
   end
 
   component.register_stat :surveys_count do |components, start_at, end_at|
