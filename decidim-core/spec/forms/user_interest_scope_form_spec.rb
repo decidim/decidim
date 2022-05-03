@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-# bfrozen_string_literal: true
-
 require "spec_helper"
 
 module Decidim
@@ -33,6 +31,7 @@ module Decidim
       subject do
         described_class.from_model(model_hash)
       end
+
       let(:model_hash) { { scope: scope, user: user } }
 
       it "creates form" do
@@ -43,7 +42,7 @@ module Decidim
       end
 
       context "when user has interested scope" do
-        let(:extended_data) { {"interested_scopes" => [scope.id]} }
+        let(:extended_data) { { "interested_scopes" => [scope.id] } }
 
         it "checks the scope" do
           expect(subject.checked).to eq(true)
