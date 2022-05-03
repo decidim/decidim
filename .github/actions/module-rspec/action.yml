@@ -9,7 +9,7 @@ inputs:
     required: true
   ruby_version:
     description: 'Ruby Version'
-    default: "2.7.5"
+    default: "3.0.2"
     required: false
   node_version:
     description: 'Node version'
@@ -52,10 +52,6 @@ runs:
       name: Create the screenshots folder
       shell: "bash"
     - uses: nanasess/setup-chromedriver@v1.0.1
-      with:
-        # Needed temporarily to bypass issues with Chromedriver v98
-        # https://bugs.chromium.org/p/chromedriver/issues/detail?id=3999
-        chromedriver-version: '97.0.4692.71'
     - run: RAILS_ENV=test bundle exec rails assets:precompile
       name: Precompile assets
       working-directory: ./spec/decidim_dummy_app/

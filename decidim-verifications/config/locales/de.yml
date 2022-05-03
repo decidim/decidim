@@ -75,10 +75,6 @@ de:
       postal_letter:
         explanation: Wir senden Ihnen einen Brief mit einem Code, den Sie eingeben müssen, damit wir Ihre Adresse bestätigen können
         name: Code per Post
-    events:
-      verifications:
-        verify_with_managed_user:
-          notification_title: Der Teilnehmer <a href="%{resource_path}">%{resource_title}</a> hat versucht, sich mit den Daten des verwalteten Teilnehmers <a href="%{managed_user_path}">%{managed_user_name}</a> zu verifizieren.
     verifications:
       authorizations:
         authorization_metadata:

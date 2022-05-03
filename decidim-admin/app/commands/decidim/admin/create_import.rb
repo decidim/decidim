@@ -14,13 +14,12 @@ module Decidim
         transaction do
           form.importer.import!
 
-          return broadcast(:ok, imported_data)
+          broadcast(:ok, imported_data)
         rescue StandardError
+          # Something went wrong with import/finish
+          broadcast(:invalid)
           raise ActiveRecord::Rollback
         end
-
-        # Something went wrong with import/finish
-        broadcast(:invalid)
       end
 
       attr_reader :form

@@ -8,7 +8,7 @@ describe Decidim::Admin::Permissions do
   let(:user) { build :user, :admin, organization: organization }
   let(:organization) { build :organization }
   let(:context) { {} }
-  let(:permission_action) { Decidim::PermissionAction.new(action) }
+  let(:permission_action) { Decidim::PermissionAction.new(**action) }
   let(:registrations_enabled) { true }
   let(:action) do
     { scope: :admin, action: action_name, subject: action_subject }

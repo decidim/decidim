@@ -8,6 +8,7 @@ module Decidim
     #
     class ParticipatorySpacePrivateUserCsvImportForm < Form
       include Decidim::HasUploadValidations
+      include Decidim::HasBlobFile
 
       attribute :file
       attribute :user_name, String
@@ -19,7 +20,7 @@ module Decidim
       def validate_csv
         return if file.blank?
 
-        CSV.foreach(file.path) do |_email, user_name|
+        CSV.foreach(blob_path) do |_email, user_name|
           errors.add(:user_name, :invalid) unless user_name.match?(UserBaseEntity::REGEXP_NAME)
         end
       end

@@ -23,6 +23,7 @@ en:
       user:
         about: About
         email: Your email
+        locale: Locale
         name: Your name
         nickname: Nickname
         password: Password
@@ -68,7 +69,8 @@ en:
     'true': 'Yes'
   carrierwave:
     errors:
-      image_too_big: The image is too big
+      file_resolution_too_large: File resolution is too large
+      file_size_too_large: File size is too large
       not_inside_organization: The file is not attached to any organization
   date:
     formats:
@@ -391,6 +393,7 @@ en:
           debate: Debate
           initiative: Initiative
           meeting: Meeting
+          order: Budgeting vote
           post: Post
           proposal: Proposal
           question: Question
@@ -751,7 +754,6 @@ en:
         button: Stop following
         error: There was a problem unfollowing this resource.
     forms:
-      current_file: Current file
       current_image: Current image
       default_image: Default image
       errors:
@@ -770,8 +772,28 @@ en:
           message_2: The service crops the image.
       file_validation:
         allowed_file_extensions: 'Allowed file extensions: %{extensions}'
+        max_file_dimension: 'Maximum file dimensions: %{resolution} pixels'
         max_file_size: 'Maximum file size: %{megabytes}MB'
-      remove_this_file: Remove this file
+      upload:
+        labels:
+          add_attachment: Add attachment
+          add_file: Add file
+          add_image: Add image
+          cancel: Cancel
+          edit_image: Edit image
+          error: Error!
+          file_size_too_large: 'File size is too large! Maximun file size: %{megabytes}MB'
+          remove: Remove
+          replace: Replace
+          save: Save
+          title: Title
+          title_required: Title is required!
+          uploaded: Uploaded
+          validating: Validating...
+          validation_error: Validation error!
+      upload_help:
+        dropzone: Drop files here or click to upload
+        explanation: Guidance for %{attribute}
     gamification:
       all_badges_link: See all available badges.
       badges:
@@ -1091,16 +1113,20 @@ en:
         translated_text: 'Automatically translated text:'
     notifications:
       no_notifications: No notifications yet.
+      show:
+        missing_event: Oops, this notification belongs to an item that is no longer available. You can discard it.
     notifications_settings:
       show:
         administrators: Administrators
         allow_public_contact: Allow anyone to send me a direct message, even if I don't follow them.
         direct_messages: Receive direct messages from anyone
-        email_on_moderations: I want to receive an email every time something is reported for moderation.
+        email_on_moderations: I want to receive an email every time something or someone is reported for moderation.
         email_on_notification: I want to receive an email every time I receive a notification.
         everything_followed: Everything I follow
         newsletter_notifications: I want to receive newsletters
         newsletters: Newsletters
+        notification_settings:
+          close_meeting_reminder: I want to receive email reminders of closed meetings unpublished reports
         own_activity: My own activity, like when someone comments in my proposal or mentions me
         receive_notifications_about: I want to get notifications about
         send_notifications_by_email: Send notifications by email
@@ -1669,6 +1695,8 @@ en:
         continue_session: Continue session
         sign_out: Sign out
         title: Would you like to continue your session?
+      upload_modal:
+        close_modal: Close modal
       user_menu:
         account: 'User account: %{name}'
         admin_dashboard: Admin dashboard

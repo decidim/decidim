@@ -12,7 +12,7 @@ describe "Accessibility tool", type: :system do
       end
     end
   end
-  let(:template) { template_class.new }
+  let(:template) { template_class.new(ActionView::LookupContext.new(ActionController::Base.view_paths), {}, []) }
 
   let(:html_document) do
     document_inner = html_body

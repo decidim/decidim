@@ -38,7 +38,7 @@ describe Decidim::Elections::TrusteeZone::UpdateElectionBulletinBoardStatus do
 
   context "when the new election status is tally_ended" do
     let(:election) { create :election, :complete, bb_status: required_status }
-    let(:required_status) { :tally }
+    let(:required_status) { :tally_started }
     let(:new_status) { :tally_ended }
     let(:bullettin_board_server) { "https://my-bb.com" }
     let(:election_results_response) do

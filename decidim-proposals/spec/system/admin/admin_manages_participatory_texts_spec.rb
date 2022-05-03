@@ -40,7 +40,7 @@ describe "Admin manages participatory texts", type: :system do
       en: "The description of some participatory text",
       es: "La descripción de algún texto participativo"
     )
-    attach_file :import_participatory_text_document, Decidim::Dev.asset("participatory_text.md")
+    dynamically_attach_file(:import_participatory_text_document, Decidim::Dev.asset("participatory_text.md"))
     click_button "Upload document"
     expect(page).to have_content "The following sections have been converted to proposals. Now you can review and adjust them before publishing."
     expect(page).to have_content "Preview participatory text"

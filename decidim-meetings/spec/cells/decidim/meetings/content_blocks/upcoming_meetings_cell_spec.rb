@@ -37,11 +37,15 @@ module Decidim
             let!(:moderated_meeting) do
               create(:meeting, :moderated, :published, start_time: meeting.start_time.advance(weeks: 1), component: meeting.component)
             end
+            let!(:unpublished_meeting) do
+              create(:meeting, start_time: 2.weeks.from_now, component: meeting.component)
+            end
 
             it { is_expected.not_to include(moderated_meeting) }
             it { is_expected.not_to include(past_meeting) }
             it { is_expected.to include(meeting) }
             it { is_expected.to include(second_meeting) }
+            it { is_expected.not_to include(unpublished_meeting) }
 
             it "orders them correctly" do
               expect(subject.length).to eq(2)

@@ -33,7 +33,7 @@ describe "Account", type: :system do
 
     describe "update avatar" do
       it "can update avatar" do
-        attach_file :user_avatar, Decidim::Dev.asset("avatar.jpg")
+        dynamically_attach_file(:user_avatar, Decidim::Dev.asset("avatar.jpg"), remove_before: true)
 
         within "form.edit_user" do
           find("*[type=submit]").click
@@ -43,14 +43,16 @@ describe "Account", type: :system do
       end
 
       it "shows error when image is too big" do
-        attach_file :user_avatar, Decidim::Dev.asset("5000x5000.png")
+        find("#user_avatar_button").click
 
-        within "form.edit_user" do
-          find("*[type=submit]").click
+        within ".upload-modal" do
+          find(".remove-upload-item").click
+          input_element = find("input[type='file']", visible: :all)
+          input_element.attach_file(Decidim::Dev.asset("5000x5000.png"))
+
+          expect(page).to have_content("File resolution is too large", count: 1)
+          expect(page).to have_css(".upload-errors .form-error", count: 1)
         end
-
-        expect(page).to have_content("The image is too big", count: 1)
-        expect(page).to have_css(".flash.alert")
       end
     end
 
@@ -153,6 +155,33 @@ describe "Account", type: :system do
 
         within_flash_messages do
           expect(page).to have_content("successfully")
+        end
+      end
+
+      context "when the user is an admin" do
+        let!(:user) { create(:user, :confirmed, :admin, password: password, password_confirmation: password) }
+
+        before do
+          login_as user, scope: :user
+          visit decidim.notifications_settings_path
+        end
+
+        it "updates the administrator's notifications" do
+          within ".switch.email_on_moderations" do
+            page.find(".switch-paddle").click
+          end
+
+          within ".switch.notification_settings" do
+            page.find(".switch-paddle").click
+          end
+
+          within "form.edit_user" do
+            find("*[type=submit]").click
+          end
+
+          within_flash_messages do
+            expect(page).to have_content("successfully")
+          end
         end
       end
     end

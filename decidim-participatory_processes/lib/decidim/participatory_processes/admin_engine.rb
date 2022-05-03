@@ -20,6 +20,7 @@ module Decidim
             resources :content_blocks, only: [:edit, :update], controller: "participatory_process_group_landing_page_content_blocks"
           end
         end
+        resources :participatory_process_types
         resources :participatory_processes, param: :slug, except: [:show, :destroy] do
           resource :publish, controller: "participatory_process_publications", only: [:create, :destroy]
           resources :copies, controller: "participatory_process_copies", only: [:new, :create]
@@ -76,7 +77,9 @@ module Decidim
               post :resend_invitation, to: "participatory_space_private_users#resend_invitation"
             end
             collection do
-              resource :participatory_space_private_users_csv_import, only: [:new, :create], path: "csv_import"
+              resource :participatory_space_private_users_csv_imports, only: [:new, :create], path: "csv_import" do
+                delete :destroy_all
+              end
             end
           end
         end
@@ -120,6 +123,13 @@ module Decidim
                         position: 2,
                         if: allowed_to?(:enter, :space_area, space_name: :process_groups),
                         active: is_active_link?(decidim_admin_participatory_processes.participatory_process_groups_path)
+
+          menu.add_item :participatory_process_types,
+                        I18n.t("menu.participatory_process_types", scope: "decidim.admin"),
+                        decidim_admin_participatory_processes.participatory_process_types_path,
+                        position: 3,
+                        if: allowed_to?(:manage, :participatory_process_type),
+                        active: is_active_link?(decidim_admin_participatory_processes.participatory_process_types_path)
         end
       end
 

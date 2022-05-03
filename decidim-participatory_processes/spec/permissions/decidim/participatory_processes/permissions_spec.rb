@@ -9,7 +9,7 @@ describe Decidim::ParticipatoryProcesses::Permissions do
   let(:organization) { create :organization }
   let(:process) { create :participatory_process, organization: organization }
   let(:context) { {} }
-  let(:permission_action) { Decidim::PermissionAction.new(action) }
+  let(:permission_action) { Decidim::PermissionAction.new(**action) }
   let(:process_admin) { create :process_admin, participatory_process: process }
   let(:process_collaborator) { create :process_collaborator, participatory_process: process }
   let(:process_moderator) { create :process_moderator, participatory_process: process }

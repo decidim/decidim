@@ -58,11 +58,9 @@ describe "Edit collaborative_drafts", type: :system do
           click_link collaborative_draft.title
           click_link "Edit collaborative draft"
 
-          expect(page).to have_css "#collaborative_draft_attachment_file"
+          dynamically_attach_file(:collaborative_draft_documents, Decidim::Dev.asset("city.jpeg"), { title: "My attachment" })
 
           within "form.edit_collaborative_draft" do
-            fill_in :collaborative_draft_attachment_title, with: "My attachment"
-            attach_file :collaborative_draft_attachment_file, Decidim::Dev.asset("city.jpeg")
             find("*[type=submit]").click
           end
 
@@ -84,7 +82,8 @@ describe "Edit collaborative_drafts", type: :system do
           click_button "Send"
         end
 
-        expect(page).to have_content("At least 15 characters", count: 2)
+        # The character counters are doubled because there is a separate screen reader character counter.
+        expect(page).to have_content("At least 15 characters", count: 4)
 
         within "form.edit_collaborative_draft" do
           fill_in :collaborative_draft_body, with: "WE DO NOT WANT TO SHOUT IN THE PROPOSAL BODY TEXT!"

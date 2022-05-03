@@ -64,7 +64,7 @@ describe "Initiative", type: :system do
         it "they are redirected to the initiative form after log in" do
           click_button "New initiative"
           fill_in "Email", with: authorized_user.email
-          fill_in "Password", with: "password1234"
+          fill_in "Password", with: "decidim123456"
           click_button "Log in"
 
           expect(page).to have_content("Which initiative do you want to launch")
@@ -79,7 +79,7 @@ describe "Initiative", type: :system do
         it "they are shown an error" do
           click_button "New initiative"
           fill_in "Email", with: authorized_user.email
-          fill_in "Password", with: "password1234"
+          fill_in "Password", with: "decidim123456"
           click_button "Log in"
 
           expect(page).to have_content("You are not authorized to perform this action")
@@ -371,7 +371,7 @@ describe "Initiative", type: :system do
 
           select(translated(initiative_type_scope.scope.name, locale: :en), from: "Scope")
           select("Online", from: "Signature collection type")
-          attach_file :initiative_add_documents, Decidim::Dev.asset("Exampledocument.pdf")
+          dynamically_attach_file(:initiative_documents, Decidim::Dev.asset("Exampledocument.pdf"))
           find_button("Continue").click
         end
 

@@ -17,8 +17,8 @@ FactoryBot.define do
     "#{Faker::Lorem.sentence(word_count: 3)} #{n}".delete("'")
   end
 
-  sequence(:name) do |n|
-    "#{Faker::Name.name} #{n}".delete("'")
+  sequence(:name) do |_|
+    Faker::Name.name.delete("'")
   end
 
   sequence(:nickname) do |n|
@@ -125,7 +125,7 @@ FactoryBot.define do
 
   factory :user, class: "Decidim::User" do
     email { generate(:email) }
-    password { "password1234" }
+    password { "decidim123456" }
     password_confirmation { password }
     name { generate(:name) }
     nickname { generate(:nickname) }

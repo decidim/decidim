@@ -145,6 +145,8 @@ cs:
         show: Zobrazit projekty
         vote: Hlasovat
         voted_on: Hlasovali jste pro %{links}
+      last_activity:
+        new_vote_at_html: "<span>Nové hlasování o rozpočtu v %{link}</span>"
       limit_announcement:
         cant_vote: O tomto rozpočtu nelze hlasovat. <a href="%{landing_path}">Zkuste jiný rozpočet</a>.
         limit_reached: Máte aktivní hlasy v %{links}. Chcete-li hlasovat o tomto rozpočtu, musíte <a href="%{landing_path}">smazat svůj hlas a začít znovu</a>.

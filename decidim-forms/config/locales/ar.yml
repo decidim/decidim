@@ -3,6 +3,7 @@ ar:
     attributes:
       answer:
         body: إجابة
+        choices: الخيارات
       question:
         max_choices: أقصى عدد من الخيارات
         question_type: نوع
@@ -30,6 +31,9 @@ ar:
             free_text: نص حر
             remove: إزالة
             statement: بيان
+          display_condition:
+            condition_question: سؤال
+            remove: حذف
           edit:
             save: حفظ
           form:
@@ -47,6 +51,8 @@ ar:
             remove: إزالة
             statement: بيان
             up: فوق
+          title_and_description:
+            description: الوصف
           update:
             invalid: كانت هناك مشكلة في حفظ النموذج.
       errors:

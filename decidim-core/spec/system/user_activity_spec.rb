@@ -5,7 +5,7 @@ require "spec_helper"
 describe "User activity", type: :system do
   let(:organization) { create(:organization) }
   let(:comment) { create(:comment) }
-  let(:user) { create(:user, organization: organization) }
+  let(:user) { create(:user, :confirmed, organization: organization) }
 
   let!(:action_log) do
     create(:action_log, action: "create", visibility: "public-only", resource: comment, organization: organization, user: user)
@@ -17,6 +17,10 @@ describe "User activity", type: :system do
 
   let!(:hidden_action_log) do
     create(:action_log, action: "publish", visibility: "all", resource: resource2, organization: organization, participatory_space: component.participatory_space)
+  end
+
+  let!(:private_action_log) do
+    create(:action_log, action: "update", visibility: "private-only", resource: resource3, organization: organization, participatory_space: component.participatory_space, user: user)
   end
 
   let(:component) do
@@ -31,6 +35,10 @@ describe "User activity", type: :system do
     create(:dummy_resource, component: component, published_at: Time.current)
   end
 
+  let!(:resource3) do
+    create(:coauthorable_dummy_resource, component: component)
+  end
+
   let(:resource_types) do
     %w(Collaborative\ Draft Comment Debate Initiative Meeting Post Proposal Question)
   end
@@ -42,11 +50,40 @@ describe "User activity", type: :system do
         Decidim::DummyResources::DummyResource
       )
     )
+    allow(Decidim::ActionLog).to receive(:private_resource_types).and_return(
+      %w(Decidim::DummyResources::CoauthorableDummyResource)
+    )
     allow(Decidim::ActionLog).to receive(:publicable_public_resource_types).and_return(
       %w(Decidim::DummyResources::DummyResource)
     )
 
     switch_to_host organization.host
+  end
+
+  context "when signed in" do
+    before do
+      switch_to_host(organization.host)
+      login_as user, scope: :user
+    end
+
+    describe "accessing user's own activity page" do
+      it "displays the private-only action also" do
+        # rubocop:disable RSpec/AnyInstance
+        # Because CoauthorableDummyResource does not have path.
+        allow_any_instance_of(Decidim::ActivityCell).to receive(:resource_link_path).and_return("/example/path")
+        # rubocop:enable RSpec/AnyInstance
+
+        page.visit decidim.profile_activity_path(nickname: user.nickname)
+        within ".user-activity" do
+          expect(page).to have_css(".card--activity", count: 3)
+
+          expect(page).to have_content(translated(resource.title))
+          expect(page).to have_content(translated(comment.commentable.title))
+          expect(page).to have_content(translated(resource3.title))
+          expect(page).to have_no_content(translated(resource2.title))
+        end
+      end
+    end
   end
 
   describe "accessing the user activity page" do
@@ -61,6 +98,7 @@ describe "User activity", type: :system do
         expect(page).to have_content(translated(resource.title))
         expect(page).to have_content(translated(comment.commentable.title))
         expect(page).to have_no_content(translated(resource2.title))
+        expect(page).to have_no_content(translated(resource3.title))
       end
     end
 

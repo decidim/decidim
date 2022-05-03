@@ -14,9 +14,10 @@ module Decidim
 
         def upcoming_meetings
           @upcoming_meetings ||= Decidim::Meetings::Meeting
-                                 .includes(component: :participatory_space)
+                                 .includes(:author, component: :participatory_space)
                                  .where(component: meeting_components)
                                  .visible_for(current_user)
+                                 .published
                                  .where("end_time >= ?", Time.current)
                                  .except_withdrawn
                                  .not_hidden

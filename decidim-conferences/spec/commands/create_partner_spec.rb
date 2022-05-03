@@ -10,7 +10,7 @@ module Decidim::Conferences
     let(:user) { nil }
     let!(:current_user) { create :user, :confirmed, organization: conference.organization }
     let(:logo) do
-      ActiveStorage::Blob.create_after_upload!(
+      ActiveStorage::Blob.create_and_upload!(
         io: File.open(Decidim::Dev.asset("avatar.jpg")),
         filename: "avatar.jpeg",
         content_type: "image/jpeg"
@@ -50,7 +50,7 @@ module Decidim::Conferences
 
       context "when image is invalid" do
         let(:logo) do
-          ActiveStorage::Blob.create_after_upload!(
+          ActiveStorage::Blob.create_and_upload!(
             io: File.open(Decidim::Dev.asset("invalid.jpeg")),
             filename: "avatar.jpeg",
             content_type: "image/jpeg"
@@ -83,7 +83,7 @@ module Decidim::Conferences
       it "traces the action", versioning: true do
         expect(Decidim.traceability)
           .to receive(:perform_action!)
-          .with(:create, Decidim::Conferences::Partner, current_user, participatory_space: { title: conference.title }, resource: { title: form.name })
+          .with(:create, Decidim::Conferences::Partner, current_user, { participatory_space: { title: conference.title }, resource: { title: form.name } })
           .and_call_original
 
         expect { subject.call }.to change(Decidim::ActionLog, :count)

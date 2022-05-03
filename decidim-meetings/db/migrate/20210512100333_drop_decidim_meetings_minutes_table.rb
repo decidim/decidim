@@ -21,6 +21,7 @@ class DropDecidimMeetingsMinutesTable < ActiveRecord::Migration[6.0]
     ActionLog.where(resource_type: "Decidim::Meetings::Minutes").each do |action_log|
       minutes = Minutes.find_by(id: action_log.resource_id)
       version = Version.find_by(id: action_log.version_id)
+      next unless minutes && version
 
       version_updates = {
         item_type: "Decidim::Meetings::Meeting",

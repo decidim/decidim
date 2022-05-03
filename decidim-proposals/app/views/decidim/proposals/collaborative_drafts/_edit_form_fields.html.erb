@@ -63,21 +63,13 @@
 <% if component_settings.attachments_allowed? %>
   <fieldset class="attachments_container">
     <legend><%= t("attachment_legend", scope: "decidim.proposals.collaborative_drafts.edit") %></legend>
-    <%= form.fields_for :attachment, @form.attachment do |nested_form| %>
-      <div class="field">
-        <%= nested_form.text_field :title %>
-      </div>
-
-      <div class="field">
-        <%= nested_form.upload :file, optional: false %>
-        <% if @form.errors[:attachment].present? %>
-          <% @form.errors[:attachment].each do |message| %>
-            <small class="form-error is-visible">
-              <%= message %>
-            </small>
-          <% end %>
-        <% end %>
-      </div>
-    <% end %>
+    <div class="row column">
+      <%= form.attachment :documents,
+        multiple: false,
+        label: t("decidim.proposals.collaborative_drafts.new.add_file"),
+        button_label: t("decidim.proposals.collaborative_drafts.new.add_file"),
+        button_edit_label: t("decidim.proposals.collaborative_drafts.new.edit_file"),
+        help_i18n_scope: "decidim.forms.file_help.file" %>
+    </div>
   </fieldset>
 <% end %>

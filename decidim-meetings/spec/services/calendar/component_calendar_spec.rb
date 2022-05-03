@@ -6,10 +6,12 @@ module Decidim::Meetings::Calendar
   describe ComponentCalendar do
     subject { described_class.for(component) }
 
-    let!(:meeting) { create :meeting }
+    let!(:meeting) { create :meeting, :published }
     let!(:component) { meeting.component }
-    let!(:another_meeting) { create :meeting, component: component }
+    let!(:another_meeting) { create :meeting, :published, component: component }
     let!(:external_meeting) { create :meeting }
+    let!(:unpublished_meeting) { create :meeting, component: component }
+    let!(:withdrawn_meeting) { create :meeting, :published, :withdrawn }
 
     describe "#calendar" do
       it "renders a full calendar" do
@@ -23,6 +25,8 @@ module Decidim::Meetings::Calendar
         expect(subject).to include(meeting.title["en"])
         expect(subject).to include(another_meeting.title["en"])
         expect(subject).not_to include(external_meeting.title["en"])
+        expect(subject).not_to include(unpublished_meeting.title["en"])
+        expect(subject).not_to include(withdrawn_meeting.title["en"])
       end
     end
 
@@ -40,6 +44,35 @@ module Decidim::Meetings::Calendar
         expect(subject).to include(meeting.title["en"])
         expect(subject).to include(another_meeting.title["en"])
         expect(subject).not_to include(external_meeting.title["en"])
+        expect(subject).not_to include(unpublished_meeting.title["en"])
+        expect(subject).not_to include(withdrawn_meeting.title["en"])
+      end
+    end
+
+    describe "#filters" do
+      subject { described_class.for(component, filters) }
+
+      let!(:filters) { { "with_any_origin" => ["", "official"], "with_any_type" => ["", "online"] } }
+
+      context "when no meetings returned" do
+        let!(:online_meeting) { create :meeting, :published, :not_official, :online, component: component }
+
+        it "returns a nil value" do
+          expect(subject).to be_nil
+        end
+      end
+
+      context "when having meetings returned" do
+        let!(:online_meeting) { create :meeting, :published, :official, :online, component: component }
+
+        it "renders the meetings of the given component based on filters" do
+          expect(subject).to include(online_meeting.title["en"])
+          expect(subject).not_to include(meeting.title["en"])
+          expect(subject).not_to include(another_meeting.title["en"])
+          expect(subject).not_to include(external_meeting.title["en"])
+          expect(subject).not_to include(unpublished_meeting.title["en"])
+          expect(subject).not_to include(withdrawn_meeting.title["en"])
+        end
       end
     end
   end

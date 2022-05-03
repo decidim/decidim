@@ -22,7 +22,7 @@ module Decidim
   #   contained in any of them as spaces.
   # :scopes - a collection of `Decidim::Scope`. It will return any activity that
   #   took place in any of those scopes.
-  class PublicActivities < Rectify::Query
+  class PublicActivities < Decidim::Query
     def initialize(organization, options = {})
       @organization = organization
       @resource_name = options[:resource_name]
@@ -34,11 +34,11 @@ module Decidim
 
     def query
       query = ActionLog
-              .where(visibility: %w(public-only all))
+              .where(visibility: visibility)
               .where(organization: organization)
 
       query = query.where(user: user) if user
-      query = query.where(resource_type: resource_name) if resource_name
+      query = query.where(resource_type: resource_name) if resource_name.present?
 
       query = filter_follows(query)
       query = filter_hidden(query)
@@ -49,6 +49,10 @@ module Decidim
     private
 
     attr_reader :organization, :resource_name, :user, :current_user, :follows, :scopes
+
+    def visibility
+      %w(public-only all)
+    end
 
     def filter_follows(query)
       conditions = []

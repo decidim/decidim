@@ -44,7 +44,7 @@ module Decidim
         let(:short_bio) { Decidim::Faker::Localized.sentence }
         let(:twitter_handle) { "full_name" }
         let(:personal_url) { "http://decidim.org" }
-        let(:avatar) { fixture_file_upload(File.open(Decidim::Dev.asset("city.jpeg")), "image/jpeg") }
+        let(:avatar) { upload_test_file(Decidim::Dev.test_file("city.jpeg", "image/jpeg")) }
         let(:existing_user) { false }
         let(:user_id) { nil }
         let(:attributes) do

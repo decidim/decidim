@@ -710,12 +710,8 @@ de:
             one: "%{count} Vorschlag"
             other: "%{count} Vorschläge"
         edit:
-          add_documents: Dokumente
-          add_images: Datei
           attachment_legend: "(Optional) Fügen Sie einen Anhang hinzu"
           back: Zurück
-          delete_document: Dokument löschen
-          delete_image: Bild löschen
           gallery_legend: "(Optional) Ein Bild zur Vorschlagskarte hinzufügen"
           select_a_category: Bitte wählen sie eine Kategorie
           send: Abschicken

@@ -22,7 +22,7 @@ describe "User group creation", type: :system do
     fill_in "Phone", with: "12345678"
     fill_in "About", with: "This is us."
 
-    attach_file "Avatar", Decidim::Dev.asset("avatar.jpg")
+    dynamically_attach_file(:group_avatar, Decidim::Dev.asset("avatar.jpg"))
 
     click_button "Create group"
 

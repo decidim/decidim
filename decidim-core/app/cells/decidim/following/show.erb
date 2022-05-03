@@ -1,6 +1,6 @@
 <% if public_followings.any? %>
   <% if non_public_followings? %>
-    <div class="empty-notifications callout secondary">
+    <div class="callout secondary">
       <p><%= t("decidim.following.non_public_followings") %></p>
     </div>
   <% end %>
@@ -12,7 +12,7 @@
   </div>
   <%= decidim_paginate public_followings %>
 <% else %>
-  <div class="empty-notifications callout secondary">
+  <div class="callout secondary">
     <p><%= t("decidim.following.no_followings") %></p>
   </div>
 <% end %>

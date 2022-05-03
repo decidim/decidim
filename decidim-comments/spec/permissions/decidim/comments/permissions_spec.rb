@@ -8,7 +8,7 @@ module Decidim::Comments
 
     let(:user) { nil }
     let(:context) { {} }
-    let(:permission_action) { Decidim::PermissionAction.new(action) }
+    let(:permission_action) { Decidim::PermissionAction.new(**action) }
     let(:action_name) { :foo }
     let(:action_subject) { :bar }
     let(:action) do

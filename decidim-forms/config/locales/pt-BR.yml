@@ -118,10 +118,6 @@ pt-BR:
         extension_allowlist: 'Formatos aceitos:'
       images:
         dimensions: "%{width} x %{height} px"
-        dimensions_info: 'Esta imagem será:'
-        processors:
-          resize_and_pad: Redimensionado e acolchoado para
-          resize_to_fit: Redimensionado para caber
       question_types:
         files: Arquivos
         long_answer: Resposta longa

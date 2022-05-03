@@ -12,8 +12,8 @@ module Decidim
         let(:consultation) { create(:consultation, organization: organization) }
         let(:scope) { create(:scope, organization: organization) }
         let(:errors) { double.as_null_object }
-        let(:banner_image) { fixture_file_upload(File.open(Decidim::Dev.asset("city.jpeg")), "image/jpeg") }
-        let(:hero_image) { fixture_file_upload(File.open(Decidim::Dev.asset("city.jpeg")), "image/jpeg") }
+        let(:banner_image) { upload_test_file(Decidim::Dev.test_file("city.jpeg", "image/jpeg")) }
+        let(:hero_image) { upload_test_file(Decidim::Dev.test_file("city.jpeg", "image/jpeg")) }
         let(:params) do
           {
             question: {
@@ -56,8 +56,8 @@ module Decidim
               persisted?: false,
               valid?: false,
               errors: {
-                banner_image: "Image too big",
-                hero_image: "Image too big"
+                banner_image: "File resolution is too large",
+                hero_image: "File resolution is too large"
               }
             ).as_null_object
           end

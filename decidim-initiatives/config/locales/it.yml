@@ -274,8 +274,6 @@ it:
             update: Aggiornare
           form:
             authorizations: Impostazioni di autorizzazione
-            child_scope_threshold_enabled_help: 'Questo flag di configurazione non supporta i voti offline, abilita i sotto-ambiti e funziona con un gestore di autorizzazioni che associa un ambito all''utente, assicurarsi di selezionare tale autorizzazione, sotto nelle impostazioni di autorizzazione. Affinché gli ambiti di lavoro debbano essere configurati in modo gerarchico: 1 Genitore - N Bambino. Per ulteriori informazioni su come funziona questa configurazione, vedere questo <a href="https://docs.decidim.org/admin-manual/en/initiatives/" target="_blank">link</a>.'
-            only_global_scope_enabled_help: Seleziona questo contrassegno se hai abilitato "Child scope signature" e hai configurato l'ambito globale come ambito genitore. Abilitando questo, la selezione del tipo di iniziativa sarà saltata nella procedura guidata di creazione di iniziativa. Per ulteriori informazioni su come funziona questa configurazione, vedere questo <a href="https://docs.decidim.org/admin-manual/en/initiatives/" target="_blank">link</a>.
             options: Opzioni
             title: Informazione generale
           initiative_type_scopes:

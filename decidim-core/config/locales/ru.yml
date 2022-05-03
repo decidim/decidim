@@ -421,12 +421,10 @@ ru:
         button: Перестать следить
         error: При попытке перестать следить за этим ресурсом произошла ошибка.
     forms:
-      current_file: Текущий файл
       current_image: Текущее изображение
       default_image: Изображение по умолчанию
       errors:
         error: В этом поле есть ошибка.
-      remove_this_file: Удалить этот файл
     gamification:
       badges:
         index:

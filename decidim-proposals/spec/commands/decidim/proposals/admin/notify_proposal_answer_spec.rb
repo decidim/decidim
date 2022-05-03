@@ -71,6 +71,26 @@ module Decidim
           end
         end
 
+        context "when the proposal is not answered after being accepted" do
+          let(:proposal) { create(:proposal, state: nil, answered_at: Time.current, state_published_at: Time.current) }
+          let(:initial_state) { "accepted" }
+
+          it "broadcasts ok" do
+            expect { subject }.to broadcast(:ok)
+          end
+
+          it "doesn't notify the proposal followers" do
+            expect(Decidim::EventsManager)
+              .not_to receive(:publish)
+
+            subject
+          end
+
+          it "decrements the accepted proposals counter" do
+            expect { subject }.to change { Gamification.status_for(proposal.coauthorships.first.author, :accepted_proposals).score }.by(-1)
+          end
+        end
+
         context "when the proposal published state has not changed" do
           let(:initial_state) { "accepted" }
 

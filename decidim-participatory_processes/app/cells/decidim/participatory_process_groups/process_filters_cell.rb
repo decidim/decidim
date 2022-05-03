@@ -25,18 +25,11 @@ module Decidim
     #   date_filter: "active"
     # )
     class ProcessFiltersCell < Decidim::ParticipatoryProcesses::ProcessFiltersCell
-      def filter_link(filter)
+      def filter_link(date_filter, type_filter = nil)
         Decidim::ParticipatoryProcesses::Engine
           .routes
           .url_helpers
-          .participatory_process_group_path(
-            model,
-            filter: {
-              with_scope: get_filter(:with_scope),
-              with_area: get_filter(:with_area),
-              with_date: filter
-            }
-          )
+          .participatory_process_group_path(model, **filter_params(date_filter, type_filter))
       end
 
       def current_filter
@@ -59,12 +52,13 @@ module Decidim
         end
       end
 
-      def filtered_processes(date_filter)
+      def filtered_processes(date_filter, filter_with_type: true)
         query = base_relation.ransack(
           {
             with_date: date_filter,
             with_scope: get_filter(:with_scope),
-            with_area: get_filter(:with_area)
+            with_area: get_filter(:with_area),
+            with_type: filter_with_type ? get_filter(:with_type) : nil
           },
           current_user: current_user,
           organization: current_organization

@@ -17,7 +17,7 @@ module Decidim
           }
         end
         let(:description) {}
-        let(:document) { Decidim::Dev.test_file("participatory_text.md", "text/markdown") }
+        let(:document) { upload_test_file(Decidim::Dev.test_file("participatory_text.md", "text/markdown")) }
 
         let(:params) do
           {

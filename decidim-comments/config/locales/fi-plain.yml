@@ -70,6 +70,7 @@ fi-pl:
         edit: Muokkaa
         edited: Muokattu
         hide_replies: Piilota vastaukset
+        moderated_at: Kommentti moderoitu %{date}
         reply: Vastaa
         report:
           action: Tee ilmoitus

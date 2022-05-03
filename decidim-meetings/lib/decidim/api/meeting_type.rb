@@ -11,7 +11,7 @@ module Decidim
       implements Decidim::Core::AttachableInterface
       implements Decidim::Core::TimestampsInterface
       implements Decidim::Meetings::ServicesInterface
-      implements Decidim::Meetings::LinkedResourcesInterface
+      implements Decidim::Meetings::LinkedResourcesInterface if Decidim::Meetings.enable_proposal_linking
       implements Decidim::Forms::QuestionnaireEntityInterface
 
       field :id, GraphQL::Types::ID, "ID of this meeting", null: false

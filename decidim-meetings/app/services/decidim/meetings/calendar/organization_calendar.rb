@@ -13,7 +13,7 @@ module Decidim
         # Returns a String.
         def events
           @events ||= components.map do |component|
-            ComponentCalendar.new(component).events
+            ComponentCalendar.new(component, @filters).events
           end.compact.join
         end
 

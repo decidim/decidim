@@ -13,7 +13,7 @@
         <thead>
           <tr>
             <th><%= t("models.timeline_entry.fields.entry_date", scope: "decidim.accountability") %></th>
-            <th><%= t("models.timeline_entry.fields.description", scope: "decidim.accountability") %></th>
+            <th><%= t("models.timeline_entry.fields.title", scope: "decidim.accountability") %></th>
             <th class="actions"><%= t("actions.title", scope: "decidim.accountability") %></th>
           </tr>
         </thead>
@@ -21,7 +21,7 @@
           <% timeline_entries.each do |timeline_entry| %>
             <tr data-id="<%= timeline_entry.id %>">
               <td><%= timeline_entry.entry_date %><br></td>
-              <td><%= translated_attribute(timeline_entry.description) %></td>
+              <td><%= translated_attribute(timeline_entry.title) %></td>
               <td class="table-list__actions">
                 <% if allowed_to? :update, :timeline_entry, timeline_entry: timeline_entry %>
                   <%= icon_link_to "pencil", edit_result_timeline_entry_path(timeline_entry.result, timeline_entry), t("actions.edit", scope: "decidim.accountability"), class: "action-icon--edit" %>

@@ -51,7 +51,7 @@ module Decidim
           let(:target_items) { ::Faker::Number.between(from: 1, to: 10) }
           let(:params) do
             {
-              participatory_process_slug: component.participatory_space.slug,
+              participatory_process_slug: sortition.component.participatory_space.slug,
               sortition: {
                 decidim_proposals_component_id: decidim_proposals_component_id,
                 decidim_category_id: decidim_category_id,
@@ -170,8 +170,8 @@ module Decidim
           let(:sortition) { create(:sortition) }
           let(:params) do
             {
+              participatory_process_slug: component.participatory_space.slug,
               component_id: sortition.component.id,
-              participatory_process_slug: sortition.component.participatory_space.slug,
               id: sortition.id
             }
           end

@@ -104,7 +104,7 @@ module Decidim
       private
 
       def meeting
-        @meeting ||= Meeting.not_hidden.where(component: current_component).find(params[:id])
+        @meeting ||= Meeting.not_hidden.where(component: current_component).find_by(id: params[:id])
       end
 
       def meetings
