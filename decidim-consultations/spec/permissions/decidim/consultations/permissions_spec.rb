@@ -10,7 +10,7 @@ describe Decidim::Consultations::Permissions do
   let(:consultation) { create :consultation, organization: organization }
   let(:question) { create :question, consultation: consultation }
   let(:context) { { consultation: consultation, question: question } }
-  let(:permission_action) { Decidim::PermissionAction.new(action) }
+  let(:permission_action) { Decidim::PermissionAction.new(**action) }
 
   context "when the action is for the admin part" do
     let(:action) do

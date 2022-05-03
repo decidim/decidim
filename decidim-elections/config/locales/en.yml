@@ -995,14 +995,20 @@ en:
             assign_missing_officers: There are Polling Stations without President and/or Managers. Please assign them from the Polling stations section
             update: Update
           form:
+            banner_image: Banner image
+            census_contact_information: Census contact information
             census_contact_information_help: This contact information is for a participant who wants to report issues with the census. It can be an email address, a contact form on another site, a survey for visitors, etc.
+            introductory_image: Introductory image
+            promoted: Promoted
             select_a_voting_type: Please select a voting type
+            slug: Slug
             slug_help: 'URL slugs are used to generate the URLs that point to this voting. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
             title: Title
             voting_type:
               hybrid: Hybrid
               in_person: In person
               online: Online
+            voting_type_label: Voting type
           new:
             create: Create
             title: New Voting
@@ -1105,8 +1111,6 @@ en:
           name: Highlighted votings
         landing_page:
           description:
-            show_less: Read less
-            show_more: Read more
             title: About this voting
           metrics:
             heading: Metrics
@@ -1300,6 +1304,7 @@ en:
           day_placeholder: DD
           document_number: Document number
           document_number_placeholder: ID number
+          document_type: Document type
           month: Month
           month_placeholder: MM
           postal_code: Postal code

@@ -14,7 +14,7 @@ describe Decidim::Debates::Admin::Permissions do
   end
   let(:debates_component) { create :debates_component }
   let(:debate) { create :debate, component: debates_component }
-  let(:permission_action) { Decidim::PermissionAction.new(action) }
+  let(:permission_action) { Decidim::PermissionAction.new(**action) }
 
   context "when scope is not admin" do
     let(:action) do

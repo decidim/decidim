@@ -27,7 +27,7 @@ group :development, :test do
 
   gem "decidim-dev", path: "."
 
-  gem "brakeman", "~> 5.1"
+  gem "brakeman", "~> 5.2"
   gem "parallel_tests", "~> 3.7"
 end
 

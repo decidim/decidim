@@ -20,7 +20,7 @@ describe Decidim::Meetings::Permissions do
   end
   let(:meeting_component) { create :meeting_component }
   let(:meeting) { create :meeting, component: meeting_component }
-  let(:permission_action) { Decidim::PermissionAction.new(action) }
+  let(:permission_action) { Decidim::PermissionAction.new(**action) }
   let(:poll) { create :poll, meeting: meeting }
   let(:poll_questionnaire) { create :meetings_poll_questionnaire, questionnaire_for: poll }
   let(:question) { create :meetings_poll_question, questionnaire: poll_questionnaire }

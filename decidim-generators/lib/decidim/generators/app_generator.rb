@@ -178,7 +178,7 @@ module Decidim
         route <<~RUBY
           authenticate :user, ->(u) { u.admin? } do
             mount Sidekiq::Web => "/sidekiq"
-          end      
+          end
         RUBY
 
         add_production_gems do

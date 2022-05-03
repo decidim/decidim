@@ -19,7 +19,7 @@ describe Decidim::Elections::TrusteeZone::Permissions do
   end
   let(:trustee_participatory_space) { create :trustees_participatory_space, trustee: trustee }
   let(:permission_trustee) { trustee }
-  let(:permission_action) { Decidim::PermissionAction.new(action) }
+  let(:permission_action) { Decidim::PermissionAction.new(**action) }
 
   shared_examples "not allowed when the user is not a trustee" do
     context "when the user is not a trustee" do
