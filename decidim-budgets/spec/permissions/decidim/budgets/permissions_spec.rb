@@ -14,7 +14,7 @@ describe Decidim::Budgets::Permissions do
   end
   let(:budgets_component) { create :budgets_component }
   let(:project) { create :project, component: budgets_component }
-  let(:permission_action) { Decidim::PermissionAction.new(action) }
+  let(:permission_action) { Decidim::PermissionAction.new(**action) }
 
   context "when scope is admin" do
     let(:action) do

@@ -51,7 +51,7 @@ module Decidim
 
       config = utility_configuration(category)
       options[:config] = config.except(:provider)
-      klass.new(options)
+      klass.new(**options)
     end
 
     # Public: Returns the utility class module namespace for each category of

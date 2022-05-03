@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "InitiativeTypeScopesController", type: :system do
+describe "Admin manages initiatives types scopes", type: :system do
   let(:organization) { create(:organization) }
   let(:user) { create(:user, :admin, :confirmed, organization: organization) }
   let(:initiatives_type) { create :initiatives_type, organization: organization }

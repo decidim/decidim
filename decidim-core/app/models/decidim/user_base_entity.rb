@@ -18,7 +18,7 @@ module Decidim
     has_many :following_follows, foreign_key: "decidim_user_id", class_name: "Decidim::Follow", dependent: :destroy
 
     # Regex for name & nickname format validations
-    REGEXP_NAME = /\A(?!.*[<>?%&\^*#@()\[\]=+:;"{}\\|])/.freeze
+    REGEXP_NAME = /\A(?!.*[<>?%&\^*#@()\[\]=+:;"{}\\|])/
 
     has_one_attached :avatar
     validates_avatar :avatar, uploader: Decidim::AvatarUploader
@@ -55,6 +55,7 @@ module Decidim
       scope = scope.public_spaces if klass.try(:participatory_space?)
       scope = scope.includes(:component) if klass.try(:has_component?)
       scope = scope.filter(&:visible?) if klass.method_defined?(:visible?)
+      scope = scope.reject(&:blocked) if klass == Decidim::UserBaseEntity
       scope
     end
   end

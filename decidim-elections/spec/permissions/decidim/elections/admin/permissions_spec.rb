@@ -22,7 +22,7 @@ describe Decidim::Elections::Admin::Permissions do
   let(:answer) { nil }
   let(:trustee_participatory_space) { create :trustees_participatory_space }
   let(:questionnaire) { election&.questionnaire }
-  let(:permission_action) { Decidim::PermissionAction.new(action) }
+  let(:permission_action) { Decidim::PermissionAction.new(**action) }
 
   shared_examples "not allowed when election was created on the bulletin board" do
     context "when election was created on the bulletin board" do

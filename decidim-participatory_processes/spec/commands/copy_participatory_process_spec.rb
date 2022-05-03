@@ -125,7 +125,7 @@ module Decidim::ParticipatoryProcesses
       it "duplicates a participatory process and the components" do
         dummy_hook = proc {}
         component.manifest.on :copy, &dummy_hook
-        expect(dummy_hook).to receive(:call).with(new_component: an_instance_of(Decidim::Component), old_component: component)
+        expect(dummy_hook).to receive(:call).with({ new_component: an_instance_of(Decidim::Component), old_component: component })
 
         expect { subject.call }.to change { Decidim::Component.count }.by(1)
 

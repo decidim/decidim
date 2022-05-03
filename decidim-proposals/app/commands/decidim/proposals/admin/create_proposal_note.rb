@@ -59,7 +59,7 @@ module Decidim
             affected_users: affected_users
           }
 
-          Decidim::EventsManager.publish(data)
+          Decidim::EventsManager.publish(**data)
         end
       end
     end

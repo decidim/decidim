@@ -30,7 +30,7 @@ module Decidim::Admin
         end
 
         it "returns 0 matches" do
-          query = described_class.new(parameters)
+          query = described_class.new(**parameters)
 
           expect(query.count).to eq(0)
         end
@@ -60,12 +60,12 @@ module Decidim::Admin
 
         let(:result) do
           {
-            total_admins_last_24: described_class.new(parameters_last_day_admin).query.count,
-            total_admins_last_week: described_class.new(parameters_last_week_admin).query.count,
-            total_admins_last_month: described_class.new(parameters_last_month_admin).query.count,
-            total_participants_last_24: described_class.new(parameters_last_day_participants).query.count,
-            total_participants_last_week: described_class.new(parameters_last_week_participants).query.count,
-            total_participants_last_month: described_class.new(parameters_last_month_participants).query.count
+            total_admins_last_24: described_class.new(**parameters_last_day_admin).query.count,
+            total_admins_last_week: described_class.new(**parameters_last_week_admin).query.count,
+            total_admins_last_month: described_class.new(**parameters_last_month_admin).query.count,
+            total_participants_last_24: described_class.new(**parameters_last_day_participants).query.count,
+            total_participants_last_week: described_class.new(**parameters_last_week_participants).query.count,
+            total_participants_last_month: described_class.new(**parameters_last_month_participants).query.count
           }
         end
 
