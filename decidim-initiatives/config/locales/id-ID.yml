@@ -168,8 +168,6 @@ id:
             actions_title: Tindakan
             preview: Preview
             print: Mencetak
-          show:
-            print: Mencetak
           update:
             error: Sebuah kesalahan telah terjadi
             success: Inisiatif warga telah berhasil diperbarui
