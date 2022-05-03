@@ -941,9 +941,6 @@ nl:
         highlighted_votings:
           name: Stemrondes in de kijker
         landing_page:
-          description:
-            show_less: Minder lezen
-            show_more: Lees verder
           metrics:
             heading: Cijfers
           polling_stations:
