@@ -759,7 +759,6 @@ es-MX:
         file:
           explanation: 'Instrucciones para el archivo:'
           message_1: Tiene que ser una imagen o un documento.
-          message_2: Para las imágenes, utilizar imágenes preferiblemente apaisadas, el servicio recorta la imagen. Para los archivos CSV, el separador entre columnas debe ser una coma (",")
         image:
           explanation: 'Instrucciones para la imagen:'
           message_1: Preferiblemente una imagen de paisaje que no tenga ningún texto.
