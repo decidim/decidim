@@ -9,7 +9,7 @@ export class Uploader {
     this.fileTooBig = false;
     if (modal.options.maxFileSize && options.file.size > modal.options.maxFileSize) {
       this.fileTooBig = true;
-      this.showError([modal.locales.file_too_big]);
+      this.showError([modal.locales.file_size_too_large]);
     } else {
       this.upload = new DirectUpload(options.file, options.url, this);
     }

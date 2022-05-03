@@ -159,7 +159,8 @@ Decidim.register_component(:accountability) do |component|
           rand(0..5).times do |i|
             child_result.timeline_entries.create!(
               entry_date: child_result.start_date + i.days,
-              description: Decidim::Faker::Localized.sentence(word_count: 2)
+              title: Decidim::Faker::Localized.sentence(word_count: 2),
+              description: Decidim::Faker::Localized.paragraph(sentence_count: 1)
             )
           end
 

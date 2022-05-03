@@ -56,8 +56,8 @@ module Decidim
               persisted?: false,
               valid?: false,
               errors: {
-                banner_image: "Image too big",
-                hero_image: "Image too big"
+                banner_image: "File resolution is too large",
+                hero_image: "File resolution is too large"
               }
             ).as_null_object
           end

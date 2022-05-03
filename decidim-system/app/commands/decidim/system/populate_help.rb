@@ -49,8 +49,8 @@ module Decidim
         end
       end
 
-      def multi_translation(key, *arguments)
-        Decidim::TranslationsHelper.multi_translation(key, @organization.available_locales, *arguments)
+      def multi_translation(key, **arguments)
+        Decidim::TranslationsHelper.multi_translation(key, @organization.available_locales, **arguments)
       end
     end
   end

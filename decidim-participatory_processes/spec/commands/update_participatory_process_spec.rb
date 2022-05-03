@@ -79,8 +79,8 @@ module Decidim::ParticipatoryProcesses
         before do
           expect(form).to receive(:invalid?).and_return(false)
           expect(my_process).to receive(:valid?).at_least(:once).and_return(false)
-          my_process.errors.add(:hero_image, "Image too big")
-          my_process.errors.add(:banner_image, "Image too big")
+          my_process.errors.add(:hero_image, "File resolution is too large")
+          my_process.errors.add(:banner_image, "File resolution is too large")
         end
 
         it "broadcasts invalid" do

@@ -34,8 +34,9 @@ module Decidim
 
         def update_timeline_entry
           timeline_entry.update!(
-            entry_date: @form.entry_date,
-            description: @form.description
+            entry_date: form.entry_date,
+            title: form.title,
+            description: form.description
           )
         end
       end

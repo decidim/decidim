@@ -1,0 +1,5 @@
+<%== t("body", scope: "decidim.elections.admin.mailers.trustee_mailer", resource_name: @participatory_space_title, user_name: @user.name) %>
+
+<p class="email-button email-button__cta">
+  <%= link_to t("trustee_zone", scope: "decidim.elections.admin.mailers.trustee_mailer"), decidim.decidim_elections_trustee_zone_url(host: @organization.host) %>
+</p>

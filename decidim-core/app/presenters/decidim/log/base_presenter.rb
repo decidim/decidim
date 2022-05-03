@@ -107,7 +107,7 @@ module Decidim
         h.content_tag(:div, class: "logs__log__explanation") do
           I18n.t(
             action_string,
-            i18n_params
+            **i18n_params
           ).html_safe
         end
       end

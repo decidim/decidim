@@ -12,7 +12,7 @@ describe Decidim::Blog::Permissions do
     }
   end
   let(:blog_component) { create :post_component }
-  let(:permission_action) { Decidim::PermissionAction.new(action) }
+  let(:permission_action) { Decidim::PermissionAction.new(**action) }
 
   context "when scope is public" do
     let(:action) do

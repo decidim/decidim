@@ -98,9 +98,9 @@ module Decidim
       let(:options) { { organization: create(:organization), locale: "en" } }
 
       it "returns a new instance of the configured utility" do
-        expect(subject.utility(:dynamic, options)).to be_a(Decidim::Map::Provider::DynamicMap::Osm)
-        expect(subject.utility(:static, options)).to be_a(Decidim::Map::Provider::StaticMap::Osm)
-        expect(subject.utility(:geocoding, options)).to be_a(Decidim::Map::Provider::Geocoding::Osm)
+        expect(subject.utility(:dynamic, **options)).to be_a(Decidim::Map::Provider::DynamicMap::Osm)
+        expect(subject.utility(:static, **options)).to be_a(Decidim::Map::Provider::StaticMap::Osm)
+        expect(subject.utility(:geocoding, **options)).to be_a(Decidim::Map::Provider::Geocoding::Osm)
       end
 
       context "when the categories are unregistered" do

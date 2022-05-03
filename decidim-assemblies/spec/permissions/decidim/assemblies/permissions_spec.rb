@@ -11,7 +11,7 @@ describe Decidim::Assemblies::Permissions do
   let(:assemblies_setting) { create :assemblies_setting, organization: organization }
   let(:assembly) { create :assembly, organization: organization, assembly_type: assembly_type }
   let(:context) { {} }
-  let(:permission_action) { Decidim::PermissionAction.new(action) }
+  let(:permission_action) { Decidim::PermissionAction.new(**action) }
   let(:assembly_admin) { create :assembly_admin, assembly: assembly }
   let(:assembly_collaborator) { create :assembly_collaborator, assembly: assembly }
   let(:assembly_moderator) { create :assembly_moderator, assembly: assembly }

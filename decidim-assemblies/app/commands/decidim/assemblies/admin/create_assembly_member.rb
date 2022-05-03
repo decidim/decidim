@@ -99,7 +99,7 @@ module Decidim
             resource: assembly,
             followers: followers
           }
-          Decidim::EventsManager.publish(data)
+          Decidim::EventsManager.publish(**data)
         end
       end
     end
