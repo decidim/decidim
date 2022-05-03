@@ -28,7 +28,7 @@ describe PasswordValidator do
       let(:value) { "decidim123456" }
 
       it "just works" do
-        expect(validator).to eq(true)
+        expect(validator).to be(true)
         expect(record.errors[attribute]).to be_empty
       end
     end
@@ -49,7 +49,7 @@ describe PasswordValidator do
         let(:value) { example_password }
 
         it "is blacklisted" do
-          expect(validator).to eq(false)
+          expect(validator).to be(false)
           expect(record.errors[attribute]).to eq(["is blacklisted"])
         end
       end
@@ -58,7 +58,7 @@ describe PasswordValidator do
         let(:value) { "bazfoobar123456" }
 
         it "does not validate" do
-          expect(validator).to eq(false)
+          expect(validator).to be(false)
           expect(record.errors[attribute]).to eq(["is blacklisted"])
         end
       end
@@ -67,7 +67,7 @@ describe PasswordValidator do
         let(:value) { "decidim123456" }
 
         it "is valid" do
-          expect(validator).to eq(true)
+          expect(validator).to be(true)
           expect(record.errors[attribute]).to be_empty
         end
       end
@@ -77,7 +77,7 @@ describe PasswordValidator do
       let(:value) { ::Faker::Internet.password(max_length: ::PasswordValidator::MINIMUM_LENGTH - 1) }
 
       it "is too short" do
-        expect(validator).to eq(false)
+        expect(validator).to be(false)
         expect(record.errors[attribute]).to eq(["is too short"])
       end
     end
@@ -86,7 +86,7 @@ describe PasswordValidator do
       let(:value) { ::Faker::Internet.password(min_length: ::PasswordValidator::MAX_LENGTH + 1) }
 
       it "is too long" do
-        expect(validator).to eq(false)
+        expect(validator).to be(false)
         expect(record.errors[attribute]).to eq(["is too long"])
       end
     end
@@ -95,7 +95,7 @@ describe PasswordValidator do
       let(:value) { "ab" * ::PasswordValidator::MINIMUM_LENGTH }
 
       it "does not have enough unique characters" do
-        expect(validator).to eq(false)
+        expect(validator).to be(false)
         expect(record.errors[attribute]).to eq(["does not have enough unique characters"])
       end
     end
@@ -104,7 +104,7 @@ describe PasswordValidator do
       let(:value) { "foo#{record.email}bar" }
 
       it "is too similar with email" do
-        expect(validator).to eq(false)
+        expect(validator).to be(false)
         expect(record.errors[attribute]).to eq(["is too similar to your email"])
       end
     end
@@ -113,7 +113,7 @@ describe PasswordValidator do
       let(:value) { "foo#{record.name.delete(" ")}bar" }
 
       it "is too similar with name" do
-        expect(validator).to eq(false)
+        expect(validator).to be(false)
         expect(record.errors[attribute]).to eq(["is too similar to your name"])
       end
     end
@@ -122,7 +122,7 @@ describe PasswordValidator do
       let(:value) { "foo#{record.nickname}bar" }
 
       it "is too similar with nickname" do
-        expect(validator).to eq(false)
+        expect(validator).to be(false)
         expect(record.errors[attribute]).to eq(["is too similar to your nickname"])
       end
     end
@@ -131,7 +131,7 @@ describe PasswordValidator do
       let(:value) { "foo#{organization.host}bar" }
 
       it "is too similar with domain" do
-        expect(validator).to eq(false)
+        expect(validator).to be(false)
         expect(record.errors[attribute]).to eq(["is too similar to this domain name"])
       end
     end
@@ -140,7 +140,7 @@ describe PasswordValidator do
       let(:value) { "qwerty12345" }
 
       it "is too common" do
-        expect(validator).to eq(false)
+        expect(validator).to be(false)
         expect(record.errors[attribute]).to eq(["is too common"])
       end
     end

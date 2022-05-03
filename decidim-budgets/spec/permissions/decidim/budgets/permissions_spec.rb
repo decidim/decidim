@@ -53,6 +53,6 @@ describe Decidim::Budgets::Permissions do
       { scope: :public, action: :report, subject: :project }
     end
 
-    it { is_expected.to eq true }
+    it { is_expected.to be true }
   end
 end

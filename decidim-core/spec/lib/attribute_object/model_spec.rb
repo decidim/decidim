@@ -145,7 +145,7 @@ module Decidim
       end
 
       it "returns nil when the provided attribute does not exist" do
-        expect(subject[:unexisting]).to be(nil)
+        expect(subject[:unexisting]).to be_nil
       end
     end
 
@@ -157,7 +157,7 @@ module Decidim
 
       it "does nothing when trying to assign an unexisting attribute through #[]=" do
         subject[:unexisting] = "foo"
-        expect(subject[:unexisting]).to be(nil)
+        expect(subject[:unexisting]).to be_nil
       end
     end
 

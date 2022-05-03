@@ -19,7 +19,7 @@ describe Decidim::Blog::Permissions do
       { scope: :public, action: :foo, subject: :blogpost }
     end
 
-    it { is_expected.to eq true }
+    it { is_expected.to be true }
   end
 
   context "when scope is admin" do
@@ -27,7 +27,7 @@ describe Decidim::Blog::Permissions do
       { scope: :admin, action: :foo, subject: :blogpost }
     end
 
-    it { is_expected.to eq true }
+    it { is_expected.to be true }
   end
 
   context "when scope is a random one" do

@@ -52,7 +52,7 @@ describe Decidim::Surveys::Permissions do
     end
 
     context "when user is authorized" do
-      it { is_expected.to eq true }
+      it { is_expected.to be true }
     end
   end
 end

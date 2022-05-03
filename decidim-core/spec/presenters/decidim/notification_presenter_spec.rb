@@ -61,7 +61,7 @@ module Decidim
 
       describe "#display_resource_text?" do
         it "returns false if the notification hasn't to display the content of the comment" do
-          expect(subject.display_resource_text?).to eq(false)
+          expect(subject.display_resource_text?).to be(false)
         end
       end
     end
@@ -76,7 +76,7 @@ module Decidim
 
       describe "#display_resource_text?" do
         it "returns true if the notification has to display the content of the comment" do
-          expect(subject.display_resource_text?).to eq(true)
+          expect(subject.display_resource_text?).to be(true)
         end
       end
     end

@@ -102,6 +102,7 @@ Rails/EagerEvaluationLogMessage:
 
 Style/FileWrite:
   Enabled: false
+  
 Rails/RedundantPresenceValidationOnBelongsTo:
   Enabled: false
 
@@ -122,8 +123,10 @@ Rails/DuplicateScope:
 
 RSpec/IdenticalEqualityAssertion:
   Enabled: false
+
 Style/StringChars:
   Enabled: false
+
 Rails/ExpandedDateRange:
   Enabled: false
 
@@ -132,13 +135,9 @@ Rails/I18nLocaleTexts:
 
 Naming/MemoizedInstanceVariableName:
   Enabled: false
+
 RSpec/VerifiedDoubleReference:
   Enabled: false
+
 Rails/TransactionExitStatement:
-  Enabled: false
-
-RSpec/BeNil:
-  Enabled: false
-
-RSpec/BeEq:
   Enabled: false

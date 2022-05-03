@@ -71,7 +71,7 @@ module Decidim
       end
 
       it "returns true for participatory_space scopes_enabled" do
-        expect(participatory_space.scopes_enabled).to eq true
+        expect(participatory_space.scopes_enabled).to be true
       end
 
       it "returns the participatory_space scope" do
@@ -108,7 +108,7 @@ module Decidim
         let!(:component_subscope) { create(:scope, parent: component_scope, organization: organization) }
 
         it "returns true for component scopes_enabled" do
-          expect(subject.scopes_enabled).to eq true
+          expect(subject.scopes_enabled).to be true
         end
 
         it "returns the component scope" do
@@ -128,7 +128,7 @@ module Decidim
         let(:component_scope) { nil }
 
         it "returns false for component scopes_enabled" do
-          expect(subject.scopes_enabled).to eq false
+          expect(subject.scopes_enabled).to be false
         end
 
         it "returns the space's scope" do
@@ -144,13 +144,13 @@ module Decidim
         let(:component_scope) { nil }
 
         it "scopes_enabled returns false" do
-          expect(subject.scopes_enabled).to eq false
-          expect(participatory_space.scopes_enabled).to eq false
+          expect(subject.scopes_enabled).to be false
+          expect(participatory_space.scopes_enabled).to be false
         end
 
         it "returns no scope" do
-          expect(subject.scope).to eq nil
-          expect(participatory_space.scope).to eq nil
+          expect(subject.scope).to be_nil
+          expect(participatory_space.scope).to be_nil
         end
       end
 
@@ -162,16 +162,16 @@ module Decidim
         let!(:component_subscope) { create(:scope, parent: component_scope) }
 
         it "returns true for component scopes_enabled" do
-          expect(subject.scopes_enabled).to eq true
+          expect(subject.scopes_enabled).to be true
         end
 
         it "returns falsey for space scopes_enabled" do
-          expect(participatory_space.scopes_enabled).to eq false
+          expect(participatory_space.scopes_enabled).to be false
         end
 
         it "returns the component scope" do
           expect(subject.scope).to eq component_scope
-          expect(participatory_space.scope).to eq nil
+          expect(participatory_space.scope).to be_nil
         end
 
         it "returns true for the component subscopes" do

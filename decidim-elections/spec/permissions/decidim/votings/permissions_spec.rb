@@ -31,7 +31,7 @@ describe Decidim::Votings::Permissions do
       context "when the consultation is published" do
         let(:voting) { create :voting, :published, organization: organization }
 
-        it { is_expected.to eq true }
+        it { is_expected.to be true }
       end
     end
   end

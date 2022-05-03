@@ -52,14 +52,14 @@ module Decidim::Admin
 
         expect(component["name"]["en"]).to eq("My component")
         expect(component.weight).to eq(3)
-        expect(component.settings.dummy_global_attribute_1).to eq(true)
-        expect(component.settings.dummy_global_attribute_2).to eq(false)
-        expect(component.settings.readonly_attribute).to eq(true)
+        expect(component.settings.dummy_global_attribute_1).to be(true)
+        expect(component.settings.dummy_global_attribute_2).to be(false)
+        expect(component.settings.readonly_attribute).to be(true)
 
         step_settings = component.step_settings[step.id.to_s]
-        expect(step_settings.dummy_step_attribute_1).to eq(true)
-        expect(step_settings.dummy_step_attribute_2).to eq(false)
-        expect(step_settings.readonly_step_attribute).to eq(true)
+        expect(step_settings.dummy_step_attribute_1).to be(true)
+        expect(step_settings.dummy_step_attribute_2).to be(false)
+        expect(step_settings.readonly_step_attribute).to be(true)
       end
 
       it "fires the hooks" do

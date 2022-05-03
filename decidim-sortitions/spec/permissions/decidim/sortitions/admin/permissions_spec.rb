@@ -46,13 +46,13 @@ describe Decidim::Sortitions::Admin::Permissions do
   context "when reading a sortition" do
     let(:action_name) { :read }
 
-    it { is_expected.to eq true }
+    it { is_expected.to be true }
   end
 
   context "when creating a sortition" do
     let(:action_name) { :create }
 
-    it { is_expected.to eq true }
+    it { is_expected.to be true }
   end
 
   context "when destroying a sortition" do
@@ -60,7 +60,7 @@ describe Decidim::Sortitions::Admin::Permissions do
 
     context "when sortition is present" do
       context "when sortition is not cancelled" do
-        it { is_expected.to eq true }
+        it { is_expected.to be true }
       end
 
       context "when sortition is cancelled" do
@@ -81,7 +81,7 @@ describe Decidim::Sortitions::Admin::Permissions do
     let(:action_name) { :update }
 
     context "when sortition is present" do
-      it { is_expected.to eq true }
+      it { is_expected.to be true }
     end
 
     context "when sortition is missing" do
