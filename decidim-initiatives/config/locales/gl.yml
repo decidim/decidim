@@ -174,8 +174,6 @@ gl:
             actions_title: Acción
             preview: Vista previa
             print: Imprimir
-          show:
-            print: Imprimir
           update:
             error: Produciuse un erro
             success: A iniciativa cidadá foi actualizada con éxito
