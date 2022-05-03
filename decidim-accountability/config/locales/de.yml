@@ -158,7 +158,6 @@ de:
             progress: Fortschritt
         timeline_entry:
           fields:
-            description: Beschreibung
             entry_date: Datum
       result_m:
         executed: Ausgeführt
