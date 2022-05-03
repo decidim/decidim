@@ -27,10 +27,8 @@ module Decidim
     attr_reader :form
 
     def user
-      # rubocop:disable Rails/FindBy
       @user ||= Decidim::User.where(organization: form.organization).where(email: form.email.downcase).first
-      # rubocop:enable Rails/FindBy
-    end
+          end
 
     def update_user
       user.admin = form.role == "admin"

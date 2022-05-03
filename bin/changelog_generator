@@ -4,8 +4,6 @@
 require "json"
 require "ruby-progressbar"
 
-# rubocop:disable Style/GlobalVars
-
 $github_token = ARGV[0]
 $since_sha = ARGV[1] || "HEAD~5"
 
@@ -171,4 +169,3 @@ if unsorted_prs.any?
 end
 
 File.write("temporary_changelog.md", $output_file.join("\n"))
-# rubocop:enable Style/GlobalVars

@@ -32,7 +32,6 @@ module RakeTaskOutputHelpers
   included do
     let!(:original_stdout) { $stdout }
 
-    # rubocop:disable RSpec/ExpectOutput
     before do
       $stdout = StringIO.new
     end
@@ -40,7 +39,6 @@ module RakeTaskOutputHelpers
     after do
       $stdout = original_stdout
     end
-    # rubocop:enable RSpec/ExpectOutput
   end
 
   def check_no_errors_have_been_printed

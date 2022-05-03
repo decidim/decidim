@@ -16,9 +16,6 @@ Lint/EmptyBlock:
 Lint/NoReturnInBeginEndBlocks:
   Enabled: false
 
-Lint/RedundantCopDisableDirective:
-  Enabled: false
-
 Style/HashConversion:
   Enabled: false
 
