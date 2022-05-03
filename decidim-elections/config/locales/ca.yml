@@ -1102,8 +1102,6 @@ ca:
           name: Votacions destacades
         landing_page:
           description:
-            show_less: Llegir menys
-            show_more: Llegir més
             title: Quant a aquesta votació
           metrics:
             heading: Mètriques
