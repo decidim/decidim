@@ -14,12 +14,14 @@ module Decidim::Accountability
     let(:timeline_entry) { create :timeline_entry, result: result }
 
     let(:date) { "2017-9-23" }
+    let(:title) { "New title" }
     let(:description) { "new description" }
 
     let(:form) do
       double(
         invalid?: invalid,
         entry_date: date,
+        title: { en: title },
         description: { en: description }
       )
     end
