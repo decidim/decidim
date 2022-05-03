@@ -20,7 +20,7 @@ module Capybara
           expect(page).to have_css("div.progress-bar.filled", wait: 5)
         end
         all("input.attachment-title").last.set(options[:title]) if options.has_key?(:title)
-        click_button "Save"
+        click_button "Save" unless options[:keep_modal_open]
       end
     end
   end

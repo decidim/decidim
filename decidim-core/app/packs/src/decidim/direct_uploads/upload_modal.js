@@ -1,5 +1,5 @@
 import { Uploader } from "src/decidim/direct_uploads/uploader";
-import { truncateFilename, checkTitles } from "src/decidim/direct_uploads/upload_utility";
+import { truncateFilename, checkTitles, createHiddenInput } from "src/decidim/direct_uploads/upload_utility";
 
 // This class handles logic inside upload modal, but since modal is not inside the form
 // logic here moves "upload items" / hidden inputs to form.
@@ -67,8 +67,7 @@ export default class UploadModal {
         progressBar.innerHTML = this.locales.error;
         console.error(error);
       } else {
-        const ordinalNumber = this.attachmentCounter;
-        this.attachmentCounter += 1;
+        const ordinalNumber = this.getOrdinalNumber();
 
         const attachmentDetails = document.createElement("div");
         attachmentDetails.classList.add("attachment-details");
@@ -77,9 +76,7 @@ export default class UploadModal {
         titleAndFileNameSpan.style.display = "none";
         attachmentDetails.appendChild(titleAndFileNameSpan);
 
-        const hiddenBlobField = document.createElement("input");
-        hiddenBlobField.setAttribute("type", "hidden");
-        hiddenBlobField.setAttribute("value", blob.signed_id);
+        const hiddenBlobField = createHiddenInput(null, null, blob.signed_id);
         if (this.options.titled) {
           hiddenBlobField.name = `${this.options.resourceName}[${this.options.addAttribute}][${ordinalNumber}][file]`;
         } else {
@@ -87,11 +84,7 @@ export default class UploadModal {
         }
 
         if (this.options.titled) {
-          const hiddenTitleField = document.createElement("input");
-          hiddenTitleField.classList.add("hidden-title");
-          hiddenTitleField.setAttribute("type", "hidden");
-          hiddenTitleField.setAttribute("value", title);
-          hiddenTitleField.name = `${this.options.resourceName}[${this.options.addAttribute}][${ordinalNumber}][title]`;
+          const hiddenTitleField = createHiddenInput("hidden-title", `${this.options.resourceName}[${this.options.addAttribute}][${ordinalNumber}][title]`, title);
           titleAndFileNameSpan.innerHTML = `${title} (${file.name})`;
           attachmentDetails.appendChild(hiddenTitleField);
         } else {
@@ -108,6 +101,12 @@ export default class UploadModal {
       }
     });
     this.updateDropZone();
+  }
+
+  getOrdinalNumber() {
+    const nextOrdinalNumber = this.attachmentCounter;
+    this.attachmentCounter += 1;
+    return nextOrdinalNumber;
   }
 
   updateDropZone() {
