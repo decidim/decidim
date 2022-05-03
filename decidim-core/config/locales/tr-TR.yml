@@ -700,7 +700,6 @@ tr:
         file:
           explanation: 'Dosya kılavuzu:'
           message_1: Bir resim veya bir belge olmalı.
-          message_2: Resimler için tercihen yatay resimleri kullanın, bu servis resmi kırpar. CSV dosyaları için, sütunlar arasındaki ayırıcı virgül (",") olmalıdır
         image:
           explanation: 'Dosya kılavuzu:'
           message_1: Tercihen herhangi bir metin içermeyen yatay bir resim.
