@@ -21,6 +21,7 @@ ar:
       timeline_entry:
         description: وصف
         entry_date: تاريخ
+        title: العنوان
     models:
       decidim/accountability/proposal_linked_event: اقتراح المدرجة في النتيجة
       decidim/accountability/result_progress_updated_event: نتيجة التقدم المحدث
