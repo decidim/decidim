@@ -73,9 +73,6 @@ Style/OpenStructUse:
 Security/IoMethods:
   Enabled: false
 
-Layout/LineEndStringConcatenationIndentation:
-  Enabled: false
-
 Rails/CompactBlank:
   Enabled: false
 
