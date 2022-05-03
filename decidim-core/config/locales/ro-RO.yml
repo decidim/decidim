@@ -736,7 +736,6 @@ ro:
         file:
           explanation: 'Orientări pentru fișier:'
           message_1: Are o imagine sau un document.
-          message_2: Pentru imagini, utiilizează preferabil formatul landscape, serviciul va decupa imaginea. Pentru fișierele CSV, separatorul de coloane trebuie să fie virgula
         image:
           explanation: 'Orientări pentru imagine:'
           message_1: De preferință o imagine landscape care să nu conțină vreun text.
