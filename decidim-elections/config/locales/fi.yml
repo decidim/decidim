@@ -1098,8 +1098,6 @@ fi:
           name: Korostetut äänestykset
         landing_page:
           description:
-            show_less: Näytä vähemmän
-            show_more: Lue lisää
             title: Tietoa tästä äänestyksestä
           metrics:
             heading: Tilastomittarit
