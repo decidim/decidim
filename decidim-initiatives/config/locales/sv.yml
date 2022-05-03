@@ -226,8 +226,6 @@ sv:
             edit: Redigera
             new: Ny
             photos: Foton
-          show:
-            print: Skriv ut
           update:
             error: Ett fel har inträffat
             success: Initiativet har uppdaterats
