@@ -71,10 +71,10 @@ AllCops:
   # Otherwise we fallback to the oldest officially supported Ruby version (2.0).
   TargetRubyVersion: 3.0
 
-  RSpec:
-    Patterns:
-      - "(?:^|/)spec/"
-      - "(?:^|/)test/"
+#  RSpec:
+#    Patterns:
+#      - "(?:^|/)spec/"
+#      - "(?:^|/)test/"
 
 # Indent private/protected/public as deep as method definitions
 Layout/AccessModifierIndentation:
