@@ -29,11 +29,10 @@ module Decidim
       extra_classes = ""
       extra_classes += " active" if current_user_follows?
       extra_classes += if large?
-          " button--sc"
-        else
-          " small"
-        end
-      
+                         " button--sc"
+                       else
+                         " small"
+                       end
 
       "button expanded button--icon follow-button secondary hollow #{extra_classes}"
     end

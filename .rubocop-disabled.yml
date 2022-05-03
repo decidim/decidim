@@ -39,9 +39,9 @@ Style/HashConversion:
 
 Style/QuotedSymbols:
   Enabled: false
-
-Style/FetchEnvVar:
-  Enabled: false
+#
+#Style/FetchEnvVar:
+#  Enabled: false
 
 Style/DocumentDynamicEvalDefinition:
   Enabled: false

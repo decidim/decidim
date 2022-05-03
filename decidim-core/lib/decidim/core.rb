@@ -620,11 +620,11 @@ module Decidim
   #
   def self.organization_settings(model)
     organization = if model.is_a?(Decidim::Organization)
-        model
-      elsif model.respond_to?(:organization) && model.organization.present?
-        model.organization
-      end
-    
+                     model
+                   elsif model.respond_to?(:organization) && model.organization.present?
+                     model.organization
+                   end
+
     return Decidim::OrganizationSettings.defaults unless organization
 
     Decidim::OrganizationSettings.for(organization)

@@ -87,14 +87,13 @@ module Decidim
 
         def user
           @user ||= if form.existing_user
-              form.user
-            else
-              Decidim::User.find_or_initialize_by(
-                organization: form.current_organization,
-                email: form.email.downcase
-              )
-            end
-          
+                      form.user
+                    else
+                      Decidim::User.find_or_initialize_by(
+                        organization: form.current_organization,
+                        email: form.email.downcase
+                      )
+                    end
         end
 
         def invite_user_to_sign_up

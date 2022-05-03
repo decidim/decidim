@@ -136,7 +136,7 @@ module Decidim
         all_dirs(include_root: include_root) do |dir|
           status = new(dir).run(command, out: out)
 
-          break unless status || ENV["FAIL_FAST"] == "false"
+          break unless status || ENV.fetch("FAIL_FAST", nil) == "false"
         end
       end
 
@@ -144,7 +144,7 @@ module Decidim
         package_dirs do |dir|
           status = new(dir).run(command, out: out)
 
-          break unless status || ENV["FAIL_FAST"] == "false"
+          break unless status || ENV.fetch("FAIL_FAST", nil) == "false"
         end
       end
 

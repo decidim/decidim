@@ -485,20 +485,18 @@ module Decidim
       humanizer = FileValidatorHumanizer.new(record, attribute)
 
       help_scope = if options[:help_i18n_scope].present?
-          options[:help_i18n_scope]
-        elsif humanizer.uploader.is_a?(Decidim::ImageUploader)
-          "decidim.forms.file_help.image"
-        else
-          "decidim.forms.file_help.file"
-        end
-      
+                     options[:help_i18n_scope]
+                   elsif humanizer.uploader.is_a?(Decidim::ImageUploader)
+                     "decidim.forms.file_help.image"
+                   else
+                     "decidim.forms.file_help.file"
+                   end
 
       help_messages = if options[:help_i18n_messages].present?
-          Array(options[:help_i18n_messages])
-        else
-          %w(message_1 message_2)
-        end
-      
+                        Array(options[:help_i18n_messages])
+                      else
+                        %w(message_1 message_2)
+                      end
 
       help_messages = help_messages.each.map { |msg| I18n.t(msg, scope: help_scope) } + humanizer.messages
       help_messages += extension_allowlist_help(options[:extension_allowlist]) if options[:extension_allowlist]

@@ -75,11 +75,10 @@ module Decidim
       #          without applying filtering and/or sorting options.
       def collection
         @collection ||= if params[:hidden]
-            participatory_space_moderations.hidden
-          else
-            participatory_space_moderations.not_hidden
-          end
-        
+                          participatory_space_moderations.hidden
+                        else
+                          participatory_space_moderations.not_hidden
+                        end
       end
 
       # Private: Returns a collection of `Moderation` filtered and/or sorted by

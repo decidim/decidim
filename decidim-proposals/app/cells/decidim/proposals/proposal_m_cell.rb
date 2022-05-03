@@ -58,11 +58,10 @@ module Decidim
 
       def base_statuses
         @base_statuses ||= if endorsements_visible?
-            [:endorsements_count, :comments_count]
-          else
-            [:comments_count]
-          end
-        
+                             [:endorsements_count, :comments_count]
+                           else
+                             [:comments_count]
+                           end
       end
 
       def statuses
