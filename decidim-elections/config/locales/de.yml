@@ -1005,9 +1005,6 @@ de:
         highlighted_votings:
           name: Hervorgehobene Abstimmungen
         landing_page:
-          description:
-            show_less: Weniger anzeigen
-            show_more: Mehr anzeigen
           metrics:
             heading: Metriken
           polling_stations:
