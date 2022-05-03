@@ -749,7 +749,6 @@
         file:
           explanation: 'Veiledning for fil:'
           message_1: Må være et bilde eller et dokument.
-          message_2: Den anbefalte størrelsen for dette bildet er 512x512.
         image:
           explanation: 'Veiledning for bilde:'
           message_1: Et landskapsbilde uten tekst er å anbefale.
