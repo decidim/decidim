@@ -32,8 +32,8 @@ module Decidim
 
     def privacy_policy_content_blocks
       @privacy_policy_content_blocks ||= Decidim::ContentBlock.published
-                                                       .for_scope(:privacy_policy, organization: current_organization)
-                                                       .reject { |content_block| content_block.manifest.nil? }
+                                                              .for_scope(:privacy_policy, organization: current_organization)
+                                                              .reject { |content_block| content_block.manifest.nil? }
     end
   end
 end

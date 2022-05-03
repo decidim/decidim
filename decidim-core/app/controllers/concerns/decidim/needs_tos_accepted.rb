@@ -26,9 +26,9 @@ module Decidim
     end
 
     def privacy_policy_summary_content_blocks
-        @privacy_policy_summary_content_blocks ||= Decidim::ContentBlock.published
-                                                         .for_scope(:privacy_policy, organization: current_organization)
-                                                         .reject { |content_block| content_block.manifest.nil? || content_block.manifest.name != :summary }
+      @privacy_policy_summary_content_blocks ||= Decidim::ContentBlock.published
+                                                                      .for_scope(:privacy_policy, organization: current_organization)
+                                                                      .reject { |content_block| content_block.manifest.nil? || content_block.manifest.name != :summary }
     end
 
     def permitted_paths?
