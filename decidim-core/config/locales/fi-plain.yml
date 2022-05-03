@@ -758,7 +758,6 @@ fi-pl:
         file:
           explanation: 'Tiedoston ohjeistus:'
           message_1: On oltava kuva tai asiakirja.
-          message_2: Käytä kuvina mieluiten vaakasuuntaisia kuvia, palvelu rajaa kuvaa sopivaksi näkymään. CSV-tiedostojen osalta käytä sarake-erottimena pilkkua (",")
         image:
           explanation: 'Kuvan ohjeistus:'
           message_1: Käytä mieluiten vaakasuuntaista kuvaa, jossa ei ole tekstiä.
