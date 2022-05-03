@@ -55,6 +55,9 @@ edit_link(
     </div>
     <div class="columns mediumlarge-8 mediumlarge-pull-4">
       <div class="section">
+        <% if component_settings.geocoding_enabled? && project.geocoded? %>
+          <%= render partial: "decidim/shared/static_map", locals: { icon_name: "projects", geolocalizable: project } %>
+        <% end %>
         <%= cell("decidim/budgets/project_selected_status", project, as_label: true) %>
         <%= decidim_sanitize_editor translated_attribute project.description %>
         <%= cell "decidim/budgets/project_tags", project, context: { extra_classes: ["tags--project"] } %>

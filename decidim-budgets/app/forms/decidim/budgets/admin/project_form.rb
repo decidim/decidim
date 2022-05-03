@@ -57,34 +57,40 @@ module Decidim
           Decidim::Map.available?(:geocoding) && current_component.settings.geocoding_enabled?
         end
 
-        def has_address? geocoding_enabled? && address.present?
+        def has_address?
+          geocoding_enabled? && address.present?
         end
 
-        def geocoded? latitude.present? && longitude.present?
+        def geocoded?
+          latitude.present? && longitude.present?
         end
 
         # Finds the Budget from the decidim_budgets_budget_id.
         #
         # Returns a Decidim::Budgets:Budget
-        def budget @budget ||= context[:budget]
+        def budget
+          @budget ||= context[:budget]
         end
 
         # Finds the Category from the decidim_category_id.
         #
         # Returns a Decidim::Category
-        def category @category ||= categories.find_by(id: decidim_category_id)
+        def category
+          @category ||= categories.find_by(id: decidim_category_id)
         end
 
         # Finds the Scope from the given decidim_scope_id,uses the component scope if missing.
         #
         # Returns a Decidim::Scope
-        def scope @scope ||= @attributes["decidim_scope_id"].value ? current_component.scopes.find_by(id: @attributes["decidim_scope_id"].value) : current_component.scope
+        def scope
+          @scope ||= @attributes["decidim_scope_id"].value ? current_component.scopes.find_by(id: @attributes["decidim_scope_id"].value) : current_component.scope
         end
 
         # Scope identifier
         #
         # Returns the scope identifier related to the project
-        def decidim_scope_id super || scope&.id
+        def decidim_scope_id
+          super || scope&.id
         end
 
         private
@@ -93,7 +99,8 @@ module Decidim
         # any error in any other field. This is needed because when the form has
         # an error,the attachment is lost,so we need a way to inform the user of
         # this problem.
-        def notify_missing_attachment_if_errored errors.add(:add_photos,:needs_to_be_reattached) if errors.any? && add_photos.present?
+        def notify_missing_attachment_if_errored
+          errors.add(:add_photos,:needs_to_be_reattached) if errors.any? && add_photos.present?
         end
       end
     end
