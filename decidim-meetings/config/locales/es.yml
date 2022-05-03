@@ -507,11 +507,11 @@ es:
           date: Fecha
           edit_meeting: Editar el encuentro
           going: Te has inscrito en este encuentro
-          join: Inscríbete al encuentro
+          join: Unirse al encuentro
           leave: Cancela tu inscripción
           leave_confirmation: '¿Seguro que quieres cancelar tu inscripción para este encuentro?'
           link_available_soon: Enlace disponible próximamente
-          link_closed: El enlace para unirte a la reunión estará disponible unos minutos antes de que comience
+          link_closed: El enlace a la sala de videoconferencia estará disponible unos minutos antes de que comience
           live_event: Este encuentro está sucediendo ahora mismo
           meeting_minutes: Acta del encuentro
           micro_camera_permissions_warning: Cuando hagas clic en el botón de abajo, se te pedirán permisos de micrófono y/o cámara y te unirás a la videoconferencia
