@@ -312,7 +312,7 @@ en:
             select_a_meeting_type: Please select a meeting type
             select_a_registration_type: Please select a registration type
             select_an_iframe_access_level: Please select an iframe access level
-            show_embedded_iframe_help: Only a few services allow embedding in meeting or live event (YouTube, Twitch and Jitsi)
+            show_embedded_iframe_help: "Only a few services allow embedding in meeting or live event from the following domains: %{domains}"
           index:
             title: Meetings
           new:
@@ -509,7 +509,7 @@ en:
           select_a_meeting_type: Please select a meeting type
           select_a_registration_type: Please select a registration type
           select_an_iframe_access_level: Please select an iframe access level
-          show_embedded_iframe_help: Only a few services allow embedding in meeting or live event (YouTube, Twitch and Jitsi)
+          show_embedded_iframe_help: "Only a few services allow embedding in meeting or live event from the following domains: %{domains}"
         index:
           click_here: See all meetings
           new_meeting: New meeting
