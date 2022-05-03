@@ -751,7 +751,6 @@ sv:
         file:
           explanation: 'Vägledning för fil:'
           message_1: Måste vara en bild eller ett dokument.
-          message_2: Använd helst landskapsbilder. Tjänsten beskär bilden. För CSV filer måste separatorn mellan kolumner vara ett kommatecken (",")
         image:
           explanation: 'Vägledning för bild:'
           message_1: Helst en landskapsbild som inte har någon text.
