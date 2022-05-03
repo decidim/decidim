@@ -1046,9 +1046,6 @@ eu:
         highlighted_votings:
           name: Bozketa nabarmenduak
         landing_page:
-          description:
-            show_less: Irakurri gutxiago
-            show_more: Irakurri gehiago
           metrics:
             heading: Metrikak
           polling_stations:
