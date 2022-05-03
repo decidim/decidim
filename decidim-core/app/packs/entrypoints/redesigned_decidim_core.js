@@ -61,7 +61,7 @@ import "src/decidim/sw"
 import "src/decidim/back_to_list"
 
 // CSS
-import "entrypoints/decidim_core.scss"
+import "entrypoints/redesigned_decidim_core.scss"
 
 // Import from the Rails instance application
 import "src/decidim/decidim_application"
