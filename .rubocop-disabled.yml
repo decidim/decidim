@@ -34,22 +34,13 @@ Lint/RedundantCopDisableDirective:
 Style/HashConversion:
   Enabled: false
 
-#Style/RedundantBegin:
-#  Enabled: false
-
 Style/QuotedSymbols:
   Enabled: false
-#
-#Style/FetchEnvVar:
-#  Enabled: false
 
 Style/DocumentDynamicEvalDefinition:
   Enabled: false
 
 Style/ClassEqualityComparison:
-  Enabled: false
-
-Style/NegatedIfElseCondition:
   Enabled: false
 
 Style/OpenStructUse:
