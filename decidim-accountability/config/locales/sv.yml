@@ -21,6 +21,7 @@ sv:
       timeline_entry:
         description: Beskrivning
         entry_date: Datum
+        title: Titel
     models:
       decidim/accountability/proposal_linked_event: Förslag som ingår i ett resultat
       decidim/accountability/result_progress_updated_event: Uppdaterat resultatutvecklingen
@@ -159,6 +160,7 @@ sv:
         timeline_entry:
           fields:
             entry_date: Datum
+            title: Titel
       result_m:
         executed: Utfört
         view: Visa
