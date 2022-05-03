@@ -189,8 +189,6 @@ hu:
             actions_title: Művelet
             preview: Előnézet
             print: Nyomtatás
-          show:
-            print: Nyomtatás
           update:
             error: Hiba történt
             success: Az állampolgári kezdeményezés frissítése sikeres
