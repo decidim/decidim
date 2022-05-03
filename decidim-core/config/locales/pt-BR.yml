@@ -715,7 +715,6 @@ pt-BR:
         file:
           explanation: 'Orientação para o arquivo:'
           message_1: Tem que ser uma imagem ou um documento.
-          message_2: Para imagens, use de preferência imagens de paisagem, o serviço cultiva a imagem. Para arquivos CSV, o separador entre colunas deve ser uma vírgula (",")
         image:
           explanation: 'Orientação da imagem:'
           message_1: Preferencialmente, uma imagem de paisagem que não tem nenhum texto.
