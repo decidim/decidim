@@ -10,9 +10,6 @@ Lint/SymbolConversion:
 Lint/EmptyClass:
   Enabled: false
 
-Lint/RedundantSafeNavigation:
-  Enabled: false
-
 Lint/EmptyBlock:
   Enabled: false
 
