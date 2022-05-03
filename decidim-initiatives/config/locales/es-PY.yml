@@ -238,8 +238,6 @@ es-PY:
             edit: Editar
             new: Nueva
             photos: Fotos
-          show:
-            print: Impresión
           update:
             error: Se ha producido un error
             success: La iniciativa ciudadana se ha actualizado con éxito
