@@ -540,7 +540,7 @@ ca:
           leave: Cancel·la la teva inscripció
           leave_confirmation: Segur que vols cancel·lar la teva inscripció a aquesta trobada?
           link_available_soon: Enllaç disponible pròximament
-          link_closed: L'enllaç a la trobada estarà disponible uns minuts abans de que comenci
+          link_closed: L'enllaç a la sala de videoconferència estarà disponible uns minuts abans que comenci
           live_event: Aquesta trobada està succeint ara mateix
           meeting_minutes: Acta de la trobada
           micro_camera_permissions_warning: Quan facis clic en el botó de sota, se't demanaran permisos per al micròfon i/o la càmera, i t'uniràs a la videoconferència
