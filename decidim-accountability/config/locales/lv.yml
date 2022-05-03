@@ -143,7 +143,6 @@ lv:
             name: Nosaukums
         timeline_entry:
           fields:
-            description: Apraksts
             entry_date: Datums
       results:
         count:
