@@ -158,7 +158,6 @@ eu:
             progress: Aurrerapena
         timeline_entry:
           fields:
-            description: Descripción
             entry_date: Data
       result_m:
         executed: Burutua
