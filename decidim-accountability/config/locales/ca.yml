@@ -158,7 +158,6 @@ ca:
             progress: Progrés
         timeline_entry:
           fields:
-            description: Descripció
             entry_date: Data
       result_m:
         executed: Executat
