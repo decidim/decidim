@@ -162,6 +162,7 @@ ar:
         timeline_entry:
           fields:
             entry_date: تاريخ
+            title: العنوان
       result_m:
         executed: تم التنفيذ
         view: عرض
