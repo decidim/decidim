@@ -23,4 +23,5 @@ describe "Admin manages projects", type: :system do
 
   it_behaves_like "manage projects"
   it_behaves_like "import proposals to projects"
+
 end
