@@ -160,7 +160,6 @@ pl:
             progress: Postęp
         timeline_entry:
           fields:
-            description: Opis
             entry_date: Data
       result_m:
         executed: Wykonane
