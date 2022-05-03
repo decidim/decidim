@@ -573,10 +573,6 @@ gl:
       default_image: Imaxe predeterminada
       errors:
         error: Hai un erro neste campo.
-      file_help:
-        file:
-          message_1: Ten que ser unha imaxe cadrada.
-          message_2: O tamaño recomendado para esta imaxe é de 512x512.
       upload:
         labels:
           add_attachment: Engadir ficheiro anexo
