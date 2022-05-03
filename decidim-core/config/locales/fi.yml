@@ -757,8 +757,7 @@ fi:
       file_help:
         file:
           explanation: 'Tiedoston ohjeistus:'
-          message_1: On oltava neliömuotoinen kuva.
-          message_2: Tämän kuvan suositeltu koko on 512x512.
+          message_1: On oltava kuva tai asiakirja.
         image:
           explanation: 'Kuvan ohjeistus:'
           message_1: Käytä mieluiten vaakasuuntaista kuvaa, jossa ei ole tekstiä.
