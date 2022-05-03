@@ -158,7 +158,6 @@ hu:
             progress: Folyamat
         timeline_entry:
           fields:
-            description: Leírás
             entry_date: Dátum
       result_m:
         executed: Végrehajtva
