@@ -1,26 +1,26 @@
 /* eslint-disable no-invalid-this */
 $(() => {
-  const selectedProjectsCount = () => {
+  const selectedResourcesCount = () => {
     return $(".table-list .js-check-all-resources:checked").length
   }
 
-  const selectedProjectsCountUpdate = () => {
-    const selectedProjects = selectedProjectsCount();
-    if (selectedProjects === 0) {
+  const selectedResourcesCountUpdate = () => {
+    const selectedResources = selectedResourcesCount();
+    if (selectedResources === 0) {
       $("#js-selected-resources-count").text("")
     } else {
-      $("#js-selected-resources-count").text(selectedProjects);
+      $("#js-selected-resources-count").text(selectedResources);
     }
   }
 
   const showBulkActionsButton = () => {
-    if (selectedProjectsCount() > 0) {
+    if (selectedResourcesCount() > 0) {
       $("#js-bulk-actions-button").removeClass("hide");
     }
   }
 
   const hideBulkActionsButton = (force = false) => {
-    if (selectedProjectsCount() === 0 || force === true) {
+    if (selectedResourcesCount() === 0 || force === true) {
       $("#js-bulk-actions-button").addClass("hide");
       $("#js-bulk-actions-dropdown").removeClass("is-open");
     }
@@ -46,7 +46,7 @@ $(() => {
   window.hideBulkActionForms = hideBulkActionForms;
   window.hideBulkActionsButton = hideBulkActionsButton;
   window.showOtherActionsButtons = showOtherActionsButtons;
-  window.selectedProjectsCountUpdate = selectedProjectsCountUpdate;
+  window.selectedResourcesCountUpdate = selectedResourcesCountUpdate;
 
 
   if ($(".js-bulk-action-form").length) {
@@ -73,14 +73,16 @@ $(() => {
       $(".js-check-all-resources").prop("checked", $(this).prop("checked"));
 
       if ($(this).prop("checked")) {
+        console.log("SHOW BULK ACTIONS BUTTON");
         $(".js-check-all-resources").closest("tr").addClass("selected");
         showBulkActionsButton();
       } else {
+        console.log("HIDE BULK ACTIONS BUTTON");
         $(".js-check-all-resources").closest("tr").removeClass("selected");
         hideBulkActionsButton();
       }
 
-      selectedProjectsCountUpdate();
+      selectedResourcesCountUpdate();
     });
 
     // resource checkbox change
@@ -111,7 +113,7 @@ $(() => {
       }
 
       $(".js-bulk-action-form").find(`.js-resource-id-${resourceId}`).prop("checked", checked);
-      selectedProjectsCountUpdate();
+      selectedResourcesCountUpdate();
     });
 
     $(".js-cancel-bulk-action").on("click", () => {
