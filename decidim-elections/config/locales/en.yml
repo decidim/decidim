@@ -1111,8 +1111,6 @@ en:
           name: Highlighted votings
         landing_page:
           description:
-            show_less: Read less
-            show_more: Read more
             title: About this voting
           metrics:
             heading: Metrics
