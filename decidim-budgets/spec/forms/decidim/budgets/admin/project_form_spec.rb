@@ -52,27 +52,27 @@ module Decidim::Budgets
     context "when geocoding is enabled" do
       let(:current_component) { create :budgets_component, :with_geocoding_enabled, participatory_space: participatory_process }
 
-        context "when the address is not present" do
-          it "does not store the coordinates" do
-            expect(subject).to be_valid
-            expect(subject.address).to be(nil)
-            expect(subject.latitude).to be(nil)
-            expect(subject.longitude).to be(nil)
-          end
+      context "when the address is not present" do
+        it "does not store the coordinates" do
+          expect(subject).to be_valid
+          expect(subject.address).to be(nil)
+          expect(subject.latitude).to be(nil)
+          expect(subject.longitude).to be(nil)
+        end
+      end
+
+      context "when the address is present" do
+        let(:address) { "Some address" }
+
+        before do
+          stub_geocoding(address, [latitude, longitude])
         end
 
-        context "when the address is present" do
-          let(:address) { "Some address" }
-
-          before do
-            stub_geocoding(address, [latitude, longitude])
-          end
-
-          it "validates the address and store its coordinates" do
-            expect(subject).to be_valid
-            expect(subject.latitude).to eq(latitude)
-            expect(subject.longitude).to eq(longitude)
-          end
+        it "validates the address and store its coordinates" do
+          expect(subject).to be_valid
+          expect(subject.latitude).to eq(latitude)
+          expect(subject.longitude).to eq(longitude)
+        end
       end
     end
 

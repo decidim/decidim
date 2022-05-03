@@ -131,14 +131,14 @@ describe "Explore projects", :slow, type: :system do
 
     context "when geocoding is enabled" do
       before do
-        component.update!(settings: {geocoding_enabled: true})
+        component.update!(settings: { geocoding_enabled: true })
 
         allow(Decidim.config).to receive(:maps).and_return({
-                                                            provider: :here,
-                                                            api_key: Rails.application.secrets.maps[:api_key],
-                                                            static: { url: "https://image.maps.ls.hereapi.com/mia/1.6/mapview" }
-                                                          })
-        #To make sure there are 5 points distinct
+                                                             provider: :here,
+                                                             api_key: Rails.application.secrets.maps[:api_key],
+                                                             static: { url: "https://image.maps.ls.hereapi.com/mia/1.6/mapview" }
+                                                           })
+        # To make sure there are 5 points distinct
         projects[0].update!(latitude: -10)
         projects[0].update!(longitude: -10)
         projects[1].update!(latitude: -10)
@@ -155,19 +155,18 @@ describe "Explore projects", :slow, type: :system do
 
       it "displays a map with the projects" do
         expect(page).to have_selector("div[data-decidim-map]")
-        expect(find('div[data-decidim-map]')['data-decidim-map']).to have_content("latitude", count: 5)
+        expect(find("div[data-decidim-map]")["data-decidim-map"]).to have_content("latitude", count: 5)
         expect(page).to have_selector(".leaflet-marker-icon", count: 5)
       end
 
       it "can be clicked" do
-        find(".leaflet-marker-icon[title='"+project.title["en"]+"']").click
+        find(".leaflet-marker-icon[title='#{project.title["en"]}']").click
         within ".leaflet-popup-content-wrapper" do
           expect(page).to have_content(project.title["en"])
-          find(".button--sc").click()
+          find(".button--sc").click
         end
         expect(page).to have_content(project.address)
       end
-
     end
 
     context "when directly accessing from URL with an invalid budget id" do
