@@ -755,8 +755,7 @@ es:
       file_help:
         file:
           explanation: 'Instrucciones para el archivo:'
-          message_1: Tiene que ser una imagen cuadrada.
-          message_2: El tamaño recomendado para esta imagen es 512x512.
+          message_1: Tiene que ser una imagen o un documento.
         image:
           explanation: 'Instrucciones para la imagen:'
           message_1: Preferiblemente una imagen apaisada que no tenga ningún texto.
