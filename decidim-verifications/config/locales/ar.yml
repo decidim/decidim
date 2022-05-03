@@ -145,7 +145,7 @@ ar:
               verification_number: 'التحقق #%{n}'
           rejections:
             create:
-              success: تم رفض التحقق. ستتم مطالبة المشاركين بتعديل مستنداتها
+              success: تم رفض التحقق. ستتم مطالبة المشاركة بتعديل مستنداتها
         authorizations:
           choose:
             choose_a_type: 'الرجاء تحديد الطريقة التي تريد التحقق منها:'
