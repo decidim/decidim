@@ -68,11 +68,12 @@
 
               <% if allowed_to? :read, :initiative, initiative: initiative %>
                 <%= icon_link_to "print",
-                                 decidim_admin_initiatives.initiative_path(initiative.to_param),
+                                 decidim_initiatives.print_initiative_path(initiative),
                                  t(".print",),
-                                 class: "action-icon--print" %>
-              <% else %>
-                <span class="action-space icon"></span>
+                                 class: "action-icon--print",
+                               target: :blank %>
+            <% else %>
+              <span class="action-space icon"></span>
               <% end %>
               <%= free_resource_permissions_link(initiative) || content_tag(:span, nil, class: "action-space icon") %>
             </td>
