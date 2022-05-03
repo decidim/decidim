@@ -720,7 +720,6 @@ it:
         file:
           explanation: 'Orientamenti per il file:'
           message_1: Deve essere un'immagine o un documento.
-          message_2: Per le immagini, usare preferibilmente immagini orizzontali, il servizio ritaglia l'immagine. Per i file CSV, il separatore tra colonne deve essere una virgola (",")
         image:
           explanation: 'Orientamenti per il file:'
           message_1: Preferibilmente un'immagine orizzontale che non ha alcun testo.
