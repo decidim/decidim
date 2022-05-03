@@ -18,7 +18,7 @@ module Decidim
     has_many :following_follows, foreign_key: "decidim_user_id", class_name: "Decidim::Follow", dependent: :destroy
 
     # Regex for name & nickname format validations
-    REGEXP_NAME = /\A(?!.*[<>?%&\^*#@()\[\]=+:;"{}\\|])/.freeze
+    REGEXP_NAME = /\A(?!.*[<>?%&\^*#@()\[\]=+:;"{}\\|])/
 
     has_one_attached :avatar
     validates_avatar :avatar, uploader: Decidim::AvatarUploader
