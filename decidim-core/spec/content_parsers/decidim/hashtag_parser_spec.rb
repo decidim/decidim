@@ -89,5 +89,26 @@ module Decidim
 
       it_behaves_like "find and stores the hashtags references"
     end
+
+    context "when content contains an URL with a fragment (aka anchored link)" do
+      let(:hashtag) { Decidim::Hashtag.find_by(organization: organization, name: name) }
+      let(:content) { "You can add an URL and this shouldn't be parsed http://www.example.org/path##{hashtag.name}" }
+      let(:parsed_content) { "You can add an URL and this shouldn't be parsed http://www.example.org/path#fragment" }
+
+      it "doesn't find the hashtag" do
+        expect(parser.metadata).to be_a(Decidim::ContentParsers::HashtagParser::Metadata)
+        expect(parser.metadata.hashtags).to eq([])
+      end
+
+      context "when written with an slash before the fragmnent" do
+        let(:content) { "You can add an URL and this shouldn't be parsed http://www.example.org/path/#fragment" }
+        let(:parsed_content) { "You can add an URL and this shouldn't be parsed http://www.example.org/path/#fragment" }
+
+        it "doesn't find the hashtag" do
+          expect(parser.metadata).to be_a(Decidim::ContentParsers::HashtagParser::Metadata)
+          expect(parser.metadata.hashtags).to eq([])
+        end
+      end
+    end
   end
 end
