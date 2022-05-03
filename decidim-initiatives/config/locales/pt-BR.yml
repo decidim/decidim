@@ -238,8 +238,6 @@ pt-BR:
             edit: Editar
             new: Novo
             photos: Fotos
-          show:
-            print: Impressão
           update:
             error: ocorreu um erro
             success: A iniciativa do cidadão foi atualizada com sucesso
