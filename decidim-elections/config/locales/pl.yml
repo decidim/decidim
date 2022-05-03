@@ -1057,9 +1057,6 @@ pl:
         highlighted_votings:
           name: Wyróżnione głosowania
         landing_page:
-          description:
-            show_less: Pokaż mniej
-            show_more: Pokaż więcej
           metrics:
             heading: Partycypacja w liczbach
           polling_stations:
