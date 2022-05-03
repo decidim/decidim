@@ -711,7 +711,6 @@ lb:
         file:
           explanation: 'Uleedung fir dës Datei:'
           message_1: Soll eBild oder en Dokument sinn.
-          message_2: Biller sollen am beschten Landschaftsbiller sinn, den Programm passt d'Bild vum selwen un. Fir CSV-Dateien muss d'Trennung tëscht de Spalten e Komma (",") sinn
         image:
           explanation: 'Uleedung fir d''Bild:'
           message_1: Am beschten queesch Format ouni Text.
