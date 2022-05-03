@@ -159,7 +159,6 @@ ro:
             progress: Progres
         timeline_entry:
           fields:
-            description: Descriere
             entry_date: Dată
       result_m:
         executed: Executat
