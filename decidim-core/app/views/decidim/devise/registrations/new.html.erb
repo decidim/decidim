@@ -62,9 +62,11 @@
           <div class="card__content">
             <h3><%= t(".tos_title") %></h3>
 
-            <p class="tos-text">
-              <%= strip_tags(translated_attribute(terms_and_conditions_page.content)) %>
-            </p>
+            <div class="tos-text">
+              <% privacy_policy_summary_content_blocks.each do |content_block| %>
+                 <%= cell content_block.manifest.cell, content_block %>
+              <% end %>
+            </div>
 
             <div class="field">
               <%= f.check_box :tos_agreement, label: t(".tos_agreement", link: link_to(t(".terms"), page_path("terms-and-conditions"))) %>

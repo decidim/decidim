@@ -39,10 +39,13 @@
 
         <div class="card" id="card__tos">
           <div class="card__content">
-            <fieldset>
-              <legend><%= t("tos_title", scope: "decidim.devise.registrations.new") %></legend>
-              <p class="tos-text"><%= strip_tags(translated_attribute(terms_and_conditions_page.content)) %></p>
-            </fieldset>
+            <h3><%= t("tos_title", scope: "decidim.devise.registrations.new") %></h3>
+
+            <div class="tos-text">
+              <% privacy_policy_summary_content_blocks.each do |content_block| %>
+                <%= cell content_block.manifest.cell, content_block %>
+              <% end %>
+            </div>
 
             <div class="field">
               <% link = link_to t("terms", scope: "decidim.devise.registrations.new"), page_path("terms-and-conditions"), target: "_blank" %>

@@ -7,7 +7,7 @@ module Decidim
 
     included do
       before_action :tos_accepted_by_user
-      helper_method :terms_and_conditions_page
+      helper_method :terms_and_conditions_page, :privacy_policy_summary_content_blocks
     end
 
     private
@@ -23,6 +23,12 @@ module Decidim
 
     def terms_and_conditions_page
       @terms_and_conditions_page ||= Decidim::StaticPage.find_by(slug: "terms-and-conditions", organization: current_organization)
+    end
+
+    def privacy_policy_summary_content_blocks
+        @privacy_policy_summary_content_blocks ||= Decidim::ContentBlock.published
+                                                         .for_scope(:privacy_policy, organization: current_organization)
+                                                         .reject { |content_block| content_block.manifest.nil? || content_block.manifest.name != :summary }
     end
 
     def permitted_paths?
