@@ -57,6 +57,7 @@ si:
       models:
         timeline_entry:
           fields:
+            description: සවිස්තරය
             entry_date: දිනය
       results:
         show:
