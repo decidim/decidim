@@ -1097,8 +1097,6 @@ fr-CA:
           name: Élections remarquables
         landing_page:
           description:
-            show_less: Voir moins
-            show_more: Lire la suite
             title: À propos de ce vote
           metrics:
             heading: Statistiques
