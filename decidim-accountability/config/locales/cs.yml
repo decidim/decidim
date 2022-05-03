@@ -21,6 +21,7 @@ cs:
       timeline_entry:
         description: Popis
         entry_date: Datum
+        title: Název
     models:
       decidim/accountability/proposal_linked_event: Návrh zahrnutý do výsledku
       decidim/accountability/result_progress_updated_event: Výsledek byl aktualizován
@@ -161,6 +162,7 @@ cs:
         timeline_entry:
           fields:
             entry_date: Datum
+            title: Název
       result_m:
         executed: Provedeno
         view: Zobrazit
