@@ -238,8 +238,6 @@ fr-CA:
             edit: Modifier
             new: Nouvelle
             photos: Photos
-          show:
-            print: Impression
           update:
             error: Une erreur est survenue
             success: L'initiative a été mise à jour avec succès
