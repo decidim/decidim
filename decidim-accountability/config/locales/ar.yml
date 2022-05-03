@@ -161,7 +161,6 @@ ar:
             progress: تقدم
         timeline_entry:
           fields:
-            description: وصف
             entry_date: تاريخ
       result_m:
         executed: تم التنفيذ
