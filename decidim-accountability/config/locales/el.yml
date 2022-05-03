@@ -158,7 +158,6 @@ el:
             progress: Πρόοδος
         timeline_entry:
           fields:
-            description: Περιγραφή
             entry_date: Ημερομηνία
       result_m:
         executed: Εκτελέσθηκε
