@@ -158,7 +158,7 @@ lb:
             progress: Fortschritt
         timeline_entry:
           fields:
-            description: Beschreibung
+            description: Beschreiwung
             entry_date: Datum
       result_m:
         executed: Ausgeführt
