@@ -238,8 +238,6 @@ fi-pl:
             edit: Muokkaa
             new: Uusi
             photos: Kuvat
-          show:
-            print: Tulosta
           update:
             error: Tapahtui virhe
             success: Kansalaisaloite on onnistuneesti päivitetty
