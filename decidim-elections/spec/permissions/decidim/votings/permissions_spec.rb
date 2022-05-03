@@ -9,7 +9,7 @@ describe Decidim::Votings::Permissions do
   let(:organization) { create :organization }
   let(:voting) { create :voting, organization: organization }
   let(:context) { { voting: voting } }
-  let(:permission_action) { Decidim::PermissionAction.new(action) }
+  let(:permission_action) { Decidim::PermissionAction.new(**action) }
 
   context "when the action is for the admin part" do
     let(:action) do

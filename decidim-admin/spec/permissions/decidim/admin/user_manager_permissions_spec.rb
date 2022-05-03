@@ -8,7 +8,7 @@ describe Decidim::Admin::UserManagerPermissions do
   let(:user) { build :user, :user_manager, organization: organization }
   let(:organization) { build :organization }
   let(:context) { {} }
-  let(:permission_action) { Decidim::PermissionAction.new(action) }
+  let(:permission_action) { Decidim::PermissionAction.new(**action) }
   let(:space_permissions) { instance_double(Decidim::ParticipatoryProcesses::Permissions, allowed?: space_allows) }
   let(:registrations_enabled) { true }
   let(:action) do

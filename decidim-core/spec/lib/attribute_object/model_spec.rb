@@ -14,7 +14,7 @@ module Decidim
         attribute :str, String
         attribute :int, Integer
         attribute :flt, Float
-        attribute :eng, Rails::Engine, {}
+        attribute :eng, Rails::Engine, **{}
         attribute :arr, Array[OpenStruct]
         attribute :hsh, Hash[String => OpenStruct]
       end

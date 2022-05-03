@@ -25,19 +25,8 @@ module Decidim
       i18n("version_index", index: index)
     end
 
-    def i18n(string, params = {})
-      t(
-        string,
-        params.merge(
-          scope: i18n_scope,
-          default: t(
-            string,
-            params.merge(
-              scope: default_i18n_scope
-            )
-          )
-        )
-      )
+    def i18n(string, **params)
+      t(string, **params, scope: i18n_scope, default: t(string, **params, scope: default_i18n_scope))
     end
 
     def i18n_scope

@@ -9,7 +9,7 @@ describe Decidim::Initiatives::Admin::Permissions do
   let(:organization) { create :organization }
   let(:initiative) { create :initiative, organization: organization }
   let(:context) { { initiative: initiative } }
-  let(:permission_action) { Decidim::PermissionAction.new(action) }
+  let(:permission_action) { Decidim::PermissionAction.new(**action) }
   let(:action) do
     { scope: :admin, action: action_name, subject: action_subject }
   end

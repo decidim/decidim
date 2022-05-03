@@ -10,7 +10,7 @@ describe Decidim::Votings::Admin::Permissions do
   let(:voting) { create :voting, organization: organization }
   let(:context) { { participatory_space: voting }.merge(extra_context) }
   let(:extra_context) { {} }
-  let(:permission_action) { Decidim::PermissionAction.new(action) }
+  let(:permission_action) { Decidim::PermissionAction.new(**action) }
   let(:action) do
     { scope: :admin, action: action_name, subject: action_subject }
   end

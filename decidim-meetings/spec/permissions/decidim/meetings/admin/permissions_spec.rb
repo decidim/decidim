@@ -20,7 +20,7 @@ describe Decidim::Meetings::Admin::Permissions do
   let(:meeting) { create :meeting, :official, component: meeting_component }
   let(:agenda) { create :agenda }
   let(:questionnaire) { create :questionnaire }
-  let(:permission_action) { Decidim::PermissionAction.new(action) }
+  let(:permission_action) { Decidim::PermissionAction.new(**action) }
   let(:registrations_enabled) { true }
   let(:action) do
     { scope: :admin, action: action_name, subject: action_subject }

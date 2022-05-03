@@ -37,7 +37,7 @@ describe Decidim::Proposals::Admin::Permissions do
   let(:component_settings_participatory_texts_enabled?) { true }
   let(:current_settings_proposal_answering_enabled?) { true }
   let(:current_settings_publish_answers_immediately?) { true }
-  let(:permission_action) { Decidim::PermissionAction.new(action) }
+  let(:permission_action) { Decidim::PermissionAction.new(**action) }
 
   shared_examples "can create proposal notes" do
     describe "proposal note creation" do
