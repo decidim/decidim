@@ -100,7 +100,7 @@ ja:
       skip_button: メインコンテンツにスキップ
     account:
       blocked: このアカウントは利用規約違反によりブロックされています
-      download_your_data_export:
+      data_portability_export:
         file_no_exists: ファイルが存在しません
         notice: データのダウンロードは現在進行中です。完了するとメールが届きます。
       delete:
@@ -447,7 +447,7 @@ ja:
       actions:
         login_before_access: アクセスする前にアカウントでログインしてください
         unauthorized: この操作を実行する権限がありません。
-    download_your_data:
+    data_portability:
       export:
         ready: 準備完了
       show:
@@ -691,7 +691,7 @@ ja:
           email_subject: "%{name} が公式化されました"
           notification_title: 参加者 %{name} (%{nickname}) が公式化されました。
     export_mailer:
-      download_your_data_export:
+      data_portability_export:
         click_button: '次のリンクをクリックするとあなたのデータがダウンロードできます。<br/>このファイルは %{date} まで利用できます。<br/>ファイルを開くには <a href="https://www.7-zip.org/">7-Zip</a> (Windowsユーザー向け), <a href="https://www.keka.io/en/">Keka</a> (MacOSユーザー向け) または <a href="https://peazip.github.io">PeaZip</a> (Linuxユーザー向け)等が必要です。パスワード:%{password}'
         download: ダウンロード
       export:
@@ -1162,7 +1162,7 @@ ja:
           agreement: 上記の規約に同意する
           legend: 利用規約に同意する
         refuse:
-          modal_body: 拒否した場合は、プラットフォームを使用できなくなります。 <a href="%{download_your_data_path}">データをダウンロード</a> または <a href="%{delete_path}">アカウントを削除</a> することができます。
+          modal_body: 拒否した場合は、プラットフォームを使用できなくなります。 <a href="%{data_portability_path}">データをダウンロード</a> または <a href="%{delete_path}">アカウントを削除</a> することができます。
           modal_btn_continue: 利用規約に同意して続ける
           modal_btn_exit: 後で確認する
           modal_button: 同意しない

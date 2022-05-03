@@ -109,7 +109,7 @@ ga:
           random: Randamach
       last_activity:
         view_all: Amharc ar uile
-    download_your_data:
+    data_portability:
       export:
         ready: Réidh
     devise:
@@ -133,7 +133,7 @@ ga:
       identities:
         done: Críochnaithe
     export_mailer:
-      download_your_data_export:
+      data_portability_export:
         download: Íoslódáil
     filters:
       linked_classes:

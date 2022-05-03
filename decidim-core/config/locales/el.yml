@@ -76,7 +76,7 @@ el:
       logo: "Επίσημο λογότυπο του οργανισμού %{organization}"
       skip_button: Μετάβαση στο κύριο περιεχόμενο
     account:
-      download_your_data_export:
+      data_portability_export:
         file_no_exists: Το αρχείο δεν υπάρχει
         notice: Η λήψη των δεδομένων σας είναι σε εξέλιξη. Θα λάβετε email όταν ολοκληρωθεί.
       delete:
@@ -379,7 +379,7 @@ el:
       actions:
         login_before_access: Συνδεθείτε με τον λογαριασμό σας πριν από την πρόσβαση
         unauthorized: Δεν είστε εξουσιοδοτημένοι να εκτελέσετε αυτήν την ενέργεια
-    download_your_data:
+    data_portability:
       export:
         ready: Έτοιμο
       show:
@@ -603,7 +603,7 @@ el:
           email_subject: "Ο/η %{nickname} ενημέρωσε το προφίλ του/της"
           notification_title: Η <a href="%{resource_path}">σελίδα προφίλ</a> του υποστηρικτή %{name} (%{nickname}), τον οποίο ακολουθείτε, έχει ενημερωθεί.
     export_mailer:
-      download_your_data_export:
+      data_portability_export:
         download: Λήψη
       export:
         ready: Επισυνάπτεται μια συμπιεσμένη έκδοση της εξαγωγής σας.
@@ -1017,7 +1017,7 @@ el:
         form:
           legend: Αποδοχή των όρων και των προϋποθέσεων χρήσης
         refuse:
-          modal_body: Εάν αρνηθείτε, δεν θα μπορείτε να χρησιμοποιήσετε την πλατφόρμα, μπορείτε να πραγματοποιήσετε <a href="%{download_your_data_path}">λήψη των δεδομένων σας</a> ή/και <a href="%{delete_path}">διαγραφή του λογαριασμού σας</a>.
+          modal_body: Εάν αρνηθείτε, δεν θα μπορείτε να χρησιμοποιήσετε την πλατφόρμα, μπορείτε να πραγματοποιήσετε <a href="%{data_portability_path}">λήψη των δεδομένων σας</a> ή/και <a href="%{delete_path}">διαγραφή του λογαριασμού σας</a>.
           modal_btn_continue: Αποδοχή των όρων και συνέχεια
           modal_btn_exit: Θα τους διαβάσω αργότερα
           modal_button: Απόρριψη των όρων

@@ -109,7 +109,7 @@ nl:
       skip_button: Ga naar de hoofdinhoud
     account:
       blocked: Dit account is geblokkeerd vanwege schending van de Algemene Voorwaarden
-      download_your_data_export:
+      data_portability_export:
         file_no_exists: Bestand bestaat niet
         notice: Uw gegevens worden momenteel verwerkt. Je ontvangt een e-mail als deze is voltooid.
       delete:
@@ -449,7 +449,7 @@ nl:
       actions:
         login_before_access: Log in met uw account voor toegang
         unauthorized: U bent niet gemachtigd dit te doen
-    download_your_data:
+    data_portability:
       export:
         ready: Klaar
       show:
@@ -678,7 +678,7 @@ nl:
           email_subject: "%{nickname} heeft zijn/haar profiel bijgewerkt"
           notification_title: De <a href="%{resource_path}">profile page</a> van %{name} (%{nickname}), die je volgt, is bijgewerkt.
     export_mailer:
-      download_your_data_export:
+      data_portability_export:
         click_button: 'Klik op de volgende link om je gegevens te downloaden. <br/> Het bestand is beschikbaar tot %{date}. <br/> Je hebt <a href="https://www.7-zip.org/">7-Zip</a>(for Windows), <a href="https://www.keka.io/en/">Keka</a> (for MacOS) or <a href="https://peazip.github.io">PeaZip</a> (for Linux) nodig om het te openen. Wachtwoord: %{password}'
         download: Download
       export:
@@ -1128,7 +1128,7 @@ nl:
           agreement: Ik ga akkoord met deze voorwaarden
           legend: Ga akkoord met de gebruiksvoorwaarden
         refuse:
-          modal_body: Als u weigert, kunt u het platform niet gebruiken, kunt u <a href="%{download_your_data_path}">uw gegevens downloaden</a> en / of <a href="%{delete_path}">uw account verwijderen</a>.
+          modal_body: Als u weigert, kunt u het platform niet gebruiken, kunt u <a href="%{data_portability_path}">uw gegevens downloaden</a> en / of <a href="%{delete_path}">uw account verwijderen</a>.
           modal_btn_continue: Voorwaarden accepteren en doorgaan
           modal_btn_exit: Ik zal het later bekijken
           modal_button: Weigeren de voorwaarden

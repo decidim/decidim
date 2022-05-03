@@ -110,7 +110,7 @@ ca:
       skip_button: Vés al contingut principal
     account:
       blocked: Aquest compte ha estat bloquejat degut a una violació dels Termes i Condicions d'ús
-      download_your_data_export:
+      data_portability_export:
         file_no_exists: L'arxiu no existeix
         notice: La descàrrega de les teves dades està en curs. Rebràs un correu electrònic quan estigui completa.
       delete:
@@ -457,7 +457,7 @@ ca:
       actions:
         login_before_access: Si us plau, identifica't amb el teu compte abans d'accedir
         unauthorized: No tens permís per realitzar aquesta acció
-    download_your_data:
+    data_portability:
       export:
         ready: Llest
       show:
@@ -696,7 +696,7 @@ ca:
           email_subject: "%{nickname} ha actualitzat el seu perfil"
           notification_title: El <a href="%{resource_path}"> perfi l</a> de %{name} (%{nickname}), a qui estàs seguint, s'ha actualitzat.
     export_mailer:
-      download_your_data_export:
+      data_portability_export:
         click_button: 'Fes clic en el següent enllaç per descarregar les teves dades.<br/>L''arxiu estarà disponible fins %{date}.<br/>Necessitaràs <a href="https://www.7-zip.org/">7-Zip</a> (per a Windows), <a href="https://www.keka.io/en/">Keka</a> (per a MacOS) o <a href="https://peazip.github.io">PeaZip</a> (per a Linux) per obrir-lo. Contrasenya: %{password}'
         download: Descarregar
       export:
@@ -1148,7 +1148,7 @@ ca:
           agreement: Estic d'acord amb aquests termes
           legend: Accepto els termes i condicions
         refuse:
-          modal_body: Si no acceptes, no podràs utilitzar la plataforma, pots <a href="%{download_your_data_path}">descarregar les teves dades</a> i / o <a href="%{delete_path}">esborrar el teu compte de</a>.
+          modal_body: Si no acceptes, no podràs utilitzar la plataforma, pots <a href="%{data_portability_path}">descarregar les teves dades</a> i / o <a href="%{delete_path}">esborrar el teu compte de</a>.
           modal_btn_continue: Acceptar els termes i continuar
           modal_btn_exit: Ho revisaré més tard
           modal_button: Rebutjar els termes

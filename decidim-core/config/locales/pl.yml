@@ -91,7 +91,7 @@ pl:
       skip_button: Przejdź do głównej zawartości
     account:
       blocked: To konto zostało zablokowane z powodu naruszenia Regulaminu
-      download_your_data_export:
+      data_portability_export:
         file_no_exists: Plik nie istnieje
         notice: Twoje dane są obecnie w trakcie procesowania w celu pobrania. Otrzymasz e-mail po zakończeniu.
       delete:
@@ -444,7 +444,7 @@ pl:
       actions:
         login_before_access: Zaloguj się na swoje konto, żeby mieć dostęp
         unauthorized: Nie masz uprawnień do wykonania tej czynności
-    download_your_data:
+    data_portability:
       export:
         ready: Gotowy
       show:
@@ -678,7 +678,7 @@ pl:
           email_subject: "%{nickname} zaktualizował(a) swój profil"
           notification_title: Zaktualizowano <a href="%{resource_path}">stronę profilową</a> użytkownika %{name} (%{nickname}), którego obserwujesz.
     export_mailer:
-      download_your_data_export:
+      data_portability_export:
         click_button: 'Kliknij poniższy przycisk, aby pobrać swoje dane. <br/>Plik będzie dostępny do %{date}. <br/>Będziesz potrzebował <a href=''''https://www.7-zip.org/''''>7-Zip</a> (Windows), <a href="https://www.keka.io/en/">Keka</a> (MacOS) lub <a href="https://peazip.github.io">PeaZip</a> (Linux) do otwarcia pliku. Hasło: %{password}'
         download: Pobieranie
       export:
@@ -1115,7 +1115,7 @@ pl:
           agreement: Akceptuję Regulamin
           legend: Zgadzam się z warunkami użytkowania
         refuse:
-          modal_body: Jeśli odmówisz, nie będziesz mógł korzystać z platformy, możesz <a href="%{download_your_data_path}">pobrać swoje dane</a> i/lub <a href="%{delete_path}">usunąć konto</a>.
+          modal_body: Jeśli odmówisz, nie będziesz mógł korzystać z platformy, możesz <a href="%{data_portability_path}">pobrać swoje dane</a> i/lub <a href="%{delete_path}">usunąć konto</a>.
           modal_btn_continue: Zaakceptuj warunki i kontynuuj
           modal_btn_exit: Sprawdzę to później
           modal_button: Odrzuć warunki

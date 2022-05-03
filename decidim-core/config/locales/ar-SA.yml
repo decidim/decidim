@@ -71,7 +71,7 @@ ar:
       decidim_with_month_name_short: "%d %b"
   decidim:
     account:
-      download_your_data_export:
+      data_portability_export:
         file_no_exists: الملف غير موجود
         invalid_token: الرمز المميز المقدم غير صالح.
         no_token: لا رمزية المقدمة
@@ -300,7 +300,7 @@ ar:
     core:
       actions:
         unauthorized: غير مصرح لك بتنفيذ هذا الإجراء
-    download_your_data:
+    data_portability:
       export:
         ready: جاهز
       show:
@@ -502,7 +502,7 @@ ar:
           email_subject: "%{nickname} تحديث ملفهم الشخصي"
           notification_title: و <a href="%{resource_path}">صفحة الملف الشخصي</a> من %{name} (%{nickname})، الذي كنت التالية، وقد تم تحديثها.
     export_mailer:
-      download_your_data_export:
+      data_portability_export:
         click_button: انقر فوق الزر التالي لتنزيل بياناتك. <br/> سيكون لديك ملف متاح حتى %{date}.
         download: تحميل
       export:
@@ -864,7 +864,7 @@ ar:
           agreement: أوافق على هذه الشروط
           legend: توافق على شروط وأحكام الاستخدام
         refuse:
-          modal_body: إذا رفضت ، فلن تتمكن من استخدام النظام الأساسي ، يمكنك <a href="%{download_your_data_path}">تنزيل بياناتك</a> و / أو <a href="%{delete_path}">حذف حسابك</a>.
+          modal_body: إذا رفضت ، فلن تتمكن من استخدام النظام الأساسي ، يمكنك <a href="%{data_portability_path}">تنزيل بياناتك</a> و / أو <a href="%{delete_path}">حذف حسابك</a>.
           modal_btn_continue: قبول الشروط والمتابعة
           modal_btn_exit: سأراجعها لاحقًا
           modal_button: رفض الشروط

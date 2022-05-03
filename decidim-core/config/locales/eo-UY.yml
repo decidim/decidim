@@ -57,7 +57,7 @@ eo:
       decidim_with_month_name_short: "%d %b"
   decidim:
     account:
-      download_your_data_export:
+      data_portability_export:
         file_no_exists: Dosiero ne ekzistas
         notice: La malŝarĝo de viaj datumoj nuntempe progresas. Vi ricevos retpoŝton kiam ĝi estos kompleta.
       delete:

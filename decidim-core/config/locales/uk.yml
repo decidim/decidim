@@ -44,7 +44,7 @@ uk:
       decidim_with_month_name: "%d %B %Y"
   decidim:
     account:
-      download_your_data_export:
+      data_portability_export:
         file_no_exists: Файл не існує
         notice: Зараз відбувається збереження у вигляді файлу. Ви отримаєте електронного листа після його завершення.
       delete:
@@ -209,7 +209,7 @@ uk:
     core:
       actions:
         unauthorized: Ви не маєте прав на виконання цієї дії
-    download_your_data:
+    data_portability:
       export:
         ready: Готово
       show:
@@ -304,7 +304,7 @@ uk:
           email_subject: "%{nickname} оновив свій профіль"
           notification_title: Сторінка <a href="%{resource_path}">профілю</a> учасника %{name} (%{nickname}), за яким ви стежите, була оновлена.
     export_mailer:
-      download_your_data_export:
+      data_portability_export:
         download: Завантажити
       export:
         ready: Нижче додається стиснута в архів версія вашого збереженого файлу.
@@ -457,7 +457,7 @@ uk:
         form:
           legend: Погодитися з умовами участі
         refuse:
-          modal_body: Якщо ви відмовитеся, ви не зможете використовувати майданчик, ви можете <a href="%{download_your_data_path}">завантажити свої дані</a> і / або <a href="%{delete_path}">видалити свій обліковий запис</a>.
+          modal_body: Якщо ви відмовитеся, ви не зможете використовувати майданчик, ви можете <a href="%{data_portability_path}">завантажити свої дані</a> і / або <a href="%{delete_path}">видалити свій обліковий запис</a>.
           modal_btn_continue: Прийняти умови та продовжити
           modal_btn_exit: Я перегляну це пізніше
           modal_button: Відмовитися від умов участі
