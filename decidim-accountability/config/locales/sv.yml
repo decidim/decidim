@@ -158,7 +158,6 @@ sv:
             progress: Behandling
         timeline_entry:
           fields:
-            description: Beskrivning
             entry_date: Datum
       result_m:
         executed: Utfört
