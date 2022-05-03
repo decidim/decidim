@@ -160,7 +160,6 @@ cs:
             progress: Průběh
         timeline_entry:
           fields:
-            description: Popis
             entry_date: Datum
       result_m:
         executed: Provedeno
