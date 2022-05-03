@@ -156,7 +156,6 @@ tr:
             progress: İlerleme
         timeline_entry:
           fields:
-            description: Açıklama
             entry_date: tarih
       result_m:
         executed: Yürütüldü
