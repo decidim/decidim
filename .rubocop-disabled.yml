@@ -40,9 +40,6 @@ Style/QuotedSymbols:
 Style/DocumentDynamicEvalDefinition:
   Enabled: false
 
-Style/ClassEqualityComparison:
-  Enabled: false
-
 Style/OpenStructUse:
   Enabled: false
 

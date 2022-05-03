@@ -274,7 +274,7 @@ module Decidim
 
       # Public: Whether the proposal is created in a meeting or not.
       def official_meeting?
-        authors.first.class.name == "Decidim::Meetings::Meeting"
+        authors.first.instance_of?(Decidim::Meetings::Meeting)
       end
 
       # Public: The maximum amount of votes allowed for this proposal.
