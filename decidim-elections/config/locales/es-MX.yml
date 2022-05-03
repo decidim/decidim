@@ -58,6 +58,9 @@ es-MX:
       decidim/elections/question:
         one: Pregunta
         other: Preguntas
+      decidim/voting:
+        one: Votación
+        other: Votaciones
       decidim/votings/census/dataset:
         one: Conjunto de datos
         other: Conjuntos de datos
@@ -182,6 +185,11 @@ es-MX:
         exports:
           elections: Elecciones
           feedback_form_answers: Retorno de las respuestas
+        mailers:
+          trustee_mailer:
+            body: "<p>Hola %{user_name},</p><p>se te ha añadido como garante a %{resource_name}.</p>"
+            subject: Se te ha añadido como garante de %{resource_name}
+            trustee_zone: Llévame al espacio de garantes
         menu:
           trustees: Garantes
         models:
@@ -283,11 +291,13 @@ es-MX:
             success: La solicitud de publicación de resultados se envió correctamente al Bulletin Board
             title: Resultados calculados
           tally_started:
+            continue: Continuar
             invalid: Hubo un problema al reportar al garante ausente
             mark_as_missing: Marcar como ausente
             mark_as_missing_description: Todos los garantes deberían participar en este proceso, pero si uno de ellos no puede tomar parte en él, puedes marcarlo como ausente.
             success: El reporte del garante que falta fue enviado con éxito al Bulletin Board
             tally_completion: El proceso se completará cuando todos los garantes estén activos o marcados como ausentes. Se requiere al menos %{quorum} garantes para completar el proceso.
+            title: Proceso de recuento
             undo_mark_as_missing: Un garante marcado como ausente por error podrá participar antes de completar el proceso. Pueden proceder como de costumbre y la marca de ausente será ignorada.
           vote:
             errors:
@@ -527,12 +537,23 @@ es-MX:
             upload_election_keys: Subir claves de elección
             upload_icon: Icono que indica una acción de descarga
           tally_started_steps:
+            back: Atrás
             description: Los resultados de esta elección están siendo calculados en el Bulletin Board. Para completar este proceso, se necesita tu participación como garante.
             keys:
               end_tally: Recuento finalizado
               tally:
                 cast: Envío del recuento
                 share: Compartición del recuento
+            list:
+              status: Estado
+              task: Tarea
+            process_warning: Una vez iniciado el proceso, no debes salir de esta página hasta que el proceso termine. Tardará algunos minutos, ya que todas las garantes deben estar conectados para completarlo.
+            start: Empezar
+            start_icon: Icono que indica un botón de inicio para iniciar la generación de claves de una elección
+            status:
+              completed: Completado
+              pending: Pendiente
+              processing: Procesando
             title: Recuento para %{election}
           update:
             error: El estado de la elección no fue actualizado.
@@ -656,6 +677,7 @@ es-MX:
             back: Volver a la plataforma
             submit: Comprobar
             vote_identifier: 'Código identificador:'
+            vote_identifier_help: Este es el identificador que se te dio después de emitir tu voto (no es el código para entrar la cabina de votación).
           header:
             title: Verifica tu voto
           success:
