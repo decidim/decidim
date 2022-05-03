@@ -1,0 +1,26 @@
+<%= render partial: "layouts/decidim/meta_tags_config" %>
+<!DOCTYPE html>
+<html lang="<%= I18n.locale %>" class="no-js">
+  <head>
+    <title><%= decidim_page_title %></title>
+    <%= render partial: "layouts/decidim/redesigned_head" %>
+    <%= render partial: "layouts/decidim/js_configuration" %>
+  </head>
+
+  <body>
+    <%= render partial: "layouts/decidim/impersonation_warning" %>
+    <%= render partial: "layouts/decidim/cookie_warning" %>
+    <%= render partial: "layouts/decidim/omnipresent_banner" %>
+    <%= render partial: "layouts/decidim/timeout_modal" %>
+    <%= render partial: "layouts/decidim/offline_banner" %>
+
+    <%= render "layouts/decidim/wrapper" do %>
+      <%= yield %>
+    <% end %>
+
+    <%= render partial: "decidim/shared/confirm_modal" %>
+    <%= render partial: "decidim/shared/login_modal" unless current_user %>
+    <%= render partial: "decidim/shared/authorization_modal" %>
+    <%= render partial: "layouts/decidim/cors" if Decidim.cors_enabled %>
+  </body>
+</html>
