@@ -73,9 +73,6 @@ Style/OpenStructUse:
 Security/IoMethods:
   Enabled: false
 
-Layout/EmptyLineBetweenDefs:
-  Enabled: false
-
 Layout/LineEndStringConcatenationIndentation:
   Enabled: false
 

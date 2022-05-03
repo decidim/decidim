@@ -39,5 +39,6 @@ module Decidim
   end
 
   class DummyGenerator; end
+
   class DummyGenerator2; end
 end
