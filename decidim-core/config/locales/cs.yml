@@ -797,7 +797,6 @@ cs:
         file:
           explanation: 'Pokyny pro soubor:'
           message_1: Jedná se o obrázek nebo dokument.
-          message_2: Pro obrázky použijte pokud možno orientaci na šířku, služba ořeže obrázek. Pro CSV soubory musí být oddělovač mezi sloupci čárkou (",")
         image:
           explanation: 'Pokyny pro obrázek:'
           message_1: Je vhodnější obrázek na šířku, který nemá žádný text.
