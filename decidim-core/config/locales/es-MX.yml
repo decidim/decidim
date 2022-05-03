@@ -68,6 +68,8 @@ es-MX:
     'true': 'Sí'
   carrierwave:
     errors:
+      file_resolution_too_large: La resolución del archivo es demasiado grande
+      file_size_too_large: El tamaño del archivo es demasiado grande
       not_inside_organization: El archivo no está relacionado con ninguna organización
   date:
     formats:
@@ -764,6 +766,7 @@ es-MX:
           message_2: El servicio recorta la imagen.
       file_validation:
         allowed_file_extensions: 'Formatos de archivo permitidos: %{extensions}'
+        max_file_dimension: 'Medidas máximas de archivo: %{resolution} píxeles'
         max_file_size: 'Tamaño máximo del archivo: %{megabytes}MB'
       upload:
         labels:
@@ -773,6 +776,7 @@ es-MX:
           cancel: Cancelar
           edit_image: Editar imagen
           error: '¡Error!'
+          file_size_too_large: '¡El archivo es demasiado grande! Peso de archivo máximo: %{megabytes}MB'
           remove: Eliminar
           replace: Reemplazar
           save: Guardar
@@ -1103,6 +1107,8 @@ es-MX:
         translated_text: 'Texto traducido automáticamente:'
     notifications:
       no_notifications: No hay notificaciones aún.
+      show:
+        missing_event: Vaya, esta notificación pertenece a un elemento que ya no está disponible. Puedes descartarla.
     notifications_settings:
       show:
         administrators: Administradoras
