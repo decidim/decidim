@@ -238,8 +238,6 @@ ca:
             edit: Edita
             new: Nou
             photos: Fotografies
-          show:
-            print: Imprimir
           update:
             error: S'ha produït un error
             success: La iniciativa ciutadana s'ha actualitzat correctament
