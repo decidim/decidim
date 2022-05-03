@@ -238,8 +238,6 @@ fi:
             edit: Muokkaa
             new: Uusi
             photos: Kuvat
-          show:
-            print: Tulosta
           update:
             error: Tapahtui virhe
             success: Aloitteen päivitys onnistui
