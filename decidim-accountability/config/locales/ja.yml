@@ -157,7 +157,6 @@ ja:
             progress: 進捗状況
         timeline_entry:
           fields:
-            description: 説明
             entry_date: 日付
       result_m:
         executed: 実行日時
