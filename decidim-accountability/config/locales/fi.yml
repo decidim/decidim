@@ -158,7 +158,6 @@ fi:
             progress: Edistyminen
         timeline_entry:
           fields:
-            description: Kuvaus
             entry_date: Päivämäärä
       result_m:
         executed: Valmistunut
