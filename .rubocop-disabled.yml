@@ -82,9 +82,6 @@ Security/Open:
 Lint/DuplicateBranch:
   Enabled: false
 
-Layout/LeadingCommentSpace:
-  Enabled: false
-
 Lint/AmbiguousOperatorPrecedence:
   Enabled: false
 
