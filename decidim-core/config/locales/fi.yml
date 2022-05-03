@@ -758,6 +758,11 @@ fi:
         file:
           explanation: 'Tiedoston ohjeistus:'
           message_1: On oltava kuva tai asiakirja.
+          message_2: Kuvina käytä mieluiten vaakasuintaisia kuvia, palvelu rajaa kuvaa.
+        icon:
+          explanation: 'Ikonin ohjeistus:'
+          message_1: On oltava neliömuotoinen kuva.
+          message_2: Tämän kuvan suositeltu koko on 512x512.
         image:
           explanation: 'Kuvan ohjeistus:'
           message_1: Käytä mieluiten vaakasuuntaista kuvaa, jossa ei ole tekstiä.
