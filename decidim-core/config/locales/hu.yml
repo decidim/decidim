@@ -673,7 +673,7 @@ hu:
         error: Hiba van ebben a mezőben.
       file_help:
         file:
-          message_2: A javasolt képméret 512x512 pixel.
+          message_1: Képnek vagy dokumentumnak kell lennie.
       upload:
         labels:
           add_attachment: Melléklet hozzáadása
