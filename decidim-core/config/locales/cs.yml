@@ -797,6 +797,11 @@ cs:
         file:
           explanation: 'Pokyny pro soubor:'
           message_1: Jedná se o obrázek nebo dokument.
+          message_2: U obrázků použijte pokud možno formát na šířku, obrázek bude oříznut.
+        icon:
+          explanation: 'Pokyny pro ikonu:'
+          message_1: Musí to být čtvercový obrázek.
+          message_2: Doporučená velikost pro tento obrázek je 512 x 512.
         image:
           explanation: 'Pokyny pro obrázek:'
           message_1: Je vhodnější obrázek na šířku, který nemá žádný text.
