@@ -1126,8 +1126,6 @@ cs:
           name: Zvýrazněné hlasování
         landing_page:
           description:
-            show_less: Číst méně
-            show_more: Přečtěte si více
             title: O tomto hlasování
           metrics:
             heading: Metriky
