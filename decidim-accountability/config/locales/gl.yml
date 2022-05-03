@@ -158,7 +158,6 @@ gl:
             progress: Progreso
         timeline_entry:
           fields:
-            description: Descrición
             entry_date: Data
       result_m:
         executed: Executado
