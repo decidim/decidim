@@ -468,6 +468,10 @@ en:
         view_all: View all
       metrics:
         name: Organization metrics
+      privacy_policy:
+        summary:
+          name: Summary
+          summary_content: Content
       stats:
         name: Organization statistics
       sub_hero:

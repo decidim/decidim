@@ -5,7 +5,7 @@ module Decidim
   class PagesController < Decidim::ApplicationController
     layout "layouts/decidim/application"
 
-    helper_method :page, :pages
+    helper_method :page, :pages, :privacy_policy_content_blocks
     helper CtaButtonHelper
     helper Decidim::SanitizeHelper
 
@@ -28,6 +28,12 @@ module Decidim
 
     def set_default_request_format
       request.format = :html
+    end
+
+    def privacy_policy_content_blocks
+      @privacy_policy_content_blocks ||= Decidim::ContentBlock.published
+                                                       .for_scope(:privacy_policy, organization: current_organization)
+                                                       .reject { |content_block| content_block.manifest.nil? }
     end
   end
 end

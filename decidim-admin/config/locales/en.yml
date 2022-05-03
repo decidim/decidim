@@ -536,6 +536,7 @@ en:
         moderation: Global moderations
         newsletters: Newsletters
         participants: Participants
+        privacy_policy: Privacy policy
         reported_users: Reported Users
         scope_types: Scope types
         scopes: Scopes
@@ -818,6 +819,13 @@ en:
           active_content_blocks: Active content blocks
           inactive_content_blocks: Inactive content blocks
       organization_homepage_content_blocks:
+        edit:
+          update: Update
+      organization_privacy_policy:
+        edit:
+          active_content_blocks: Active content blocks
+          inactive_content_blocks: Inactive content blocks
+      organization_privacy_policy_content_blocks:
         edit:
           update: Update
       participatory_space_private_users:

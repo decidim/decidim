@@ -479,6 +479,18 @@ module Decidim
         end
       end
 
+      initializer "decidim.core.privacy_policy_blocks" do
+        Decidim.content_blocks.register(:privacy_policy, :summary) do |content_block|
+          content_block.cell = "decidim/content_blocks/privacy_policy/summary"
+          content_block.settings_form_cell = "decidim/content_blocks/privacy_policy/summary_settings_form"
+          content_block.public_name_key = "decidim.content_blocks.privacy_policy.summary.name"
+
+          content_block.settings do |settings|
+            settings.attribute :summary, type: :text, translated: true
+          end
+        end
+      end
+
       initializer "decidim.core.newsletter_templates" do
         Decidim.content_blocks.register(:newsletter_template, :basic_only_text) do |content_block|
           content_block.cell = "decidim/newsletter_templates/basic_only_text"
