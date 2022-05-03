@@ -34,7 +34,7 @@ describe "Admin manages projects", type: :system do
     end
 
     it "changes projects category" do
-      find(".js-project-id-#{project.id}").set(true)
+      find(".js-resource-id-#{project.id}").set(true)
       find("#js-bulk-actions-button").click
       click_button "Change category"
       select translated(category.name), from: "category_id"
@@ -48,7 +48,7 @@ describe "Admin manages projects", type: :system do
     end
 
     it "changes projects scope" do
-      find(".js-project-id-#{project.id}").set(true)
+      find(".js-resource-id-#{project.id}").set(true)
       find("#js-bulk-actions-button").click
       click_button "Change scope"
       scope_pick select_data_picker(:scope_id), scope

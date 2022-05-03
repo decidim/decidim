@@ -1,62 +1,64 @@
 /* eslint-disable no-invalid-this */
 $(() => {
-  const selectedProjectsCount = function() {
-    return $(".table-list .js-check-all-project:checked").length
+  const selectedProjectsCount = () => {
+    return $(".table-list .js-check-all-resources:checked").length
   }
 
-  const selectedProjectsCountUpdate = function() {
+  const selectedProjectsCountUpdate = () => {
     const selectedProjects = selectedProjectsCount();
     if (selectedProjects === 0) {
-      $("#js-selected-projects-count").text("")
+      $("#js-selected-resources-count").text("")
     } else {
-      $("#js-selected-projects-count").text(selectedProjects);
+      $("#js-selected-resources-count").text(selectedProjects);
     }
   }
 
-  const showBulkActionsButton = function() {
+  const showBulkActionsButton = () => {
     if (selectedProjectsCount() > 0) {
       $("#js-bulk-actions-button").removeClass("hide");
     }
   }
 
-  const hideBulkActionsButton = function(force = false) {
+  const hideBulkActionsButton = (force = false) => {
     if (selectedProjectsCount() === 0 || force === true) {
       $("#js-bulk-actions-button").addClass("hide");
       $("#js-bulk-actions-dropdown").removeClass("is-open");
     }
   }
 
-  const showOtherActionsButtons = function() {
+  const showOtherActionsButtons = () => {
     $("#js-other-actions-wrapper").removeClass("hide");
   }
 
-  const hideOtherActionsButtons = function() {
+  const hideOtherActionsButtons = () => {
     $("#js-other-actions-wrapper").addClass("hide");
   }
 
-  const hideBulkActionForms = function() {
+  const hideBulkActionForms = () => {
     $(".js-bulk-action-form").addClass("hide");
   }
 
+  if ($("#js-bulk-actions-wrapper").length === 0) {
+    return;
+  }
+
   // Expose functions to make them available in .js.erb templates
-  window.selectedProjectsCount = selectedProjectsCount;
-  window.selectedProjectsCountUpdate = selectedProjectsCountUpdate;
-  window.showBulkActionsButton = showBulkActionsButton;
+  window.hideBulkActionForms = hideBulkActionForms;
   window.hideBulkActionsButton = hideBulkActionsButton;
   window.showOtherActionsButtons = showOtherActionsButtons;
-  window.hideOtherActionsButtons = hideOtherActionsButtons;
-  window.hideBulkActionForms = hideBulkActionForms;
+  window.selectedProjectsCountUpdate = selectedProjectsCountUpdate;
+
 
   if ($(".js-bulk-action-form").length) {
     hideBulkActionForms();
     $("#js-bulk-actions-button").addClass("hide");
 
-    $("#js-bulk-actions-dropdown ul li button").click(function(event) {
+    $("#js-bulk-actions-dropdown ul li button").on("click", (event) => {
       event.preventDefault();
       let action = $(event.target).data("action");
 
       if (action) {
-        $(`#js-form-${action}`).on("submit", function() {
+        $(`#js-form-${action}`).on("submit", () => {
           $(".layout-content > .callout-wrapper").html("");
         })
 
@@ -68,30 +70,30 @@ $(() => {
 
     // select all checkboxes
     $(".js-check-all").on("change", function() {
-      $(".js-check-all-project").prop("checked", $(this).prop("checked"));
+      $(".js-check-all-resources").prop("checked", $(this).prop("checked"));
 
       if ($(this).prop("checked")) {
-        $(".js-check-all-project").closest("tr").addClass("selected");
+        $(".js-check-all-resources").closest("tr").addClass("selected");
         showBulkActionsButton();
       } else {
-        $(".js-check-all-project").closest("tr").removeClass("selected");
+        $(".js-check-all-resources").closest("tr").removeClass("selected");
         hideBulkActionsButton();
       }
 
       selectedProjectsCountUpdate();
     });
 
-    // project checkbox change
-    $(".table-list").on("change", ".js-check-all-project", function () {
-      let projectId = $(this).val()
+    // resource checkbox change
+    $(".table-list").on("change", ".js-check-all-resources", function() {
+      let resourceId = $(this).val()
       let checked = $(this).prop("checked")
 
       // uncheck "select all", if one of the listed checkbox item is unchecked
       if ($(this).prop("checked") === false) {
         $(".js-check-all").prop("checked", false);
       }
-      // check "select all" if all checkbox projects are checked
-      if ($(".js-check-all-project:checked").length === $(".js-check-all-project").length) {
+      // check "select all" if all checkbox resources are checked
+      if ($(".js-check-all-resources:checked").length === $(".js-check-all-resources").length) {
         $(".js-check-all").prop("checked", true);
         showBulkActionsButton();
       }
@@ -104,15 +106,15 @@ $(() => {
         $(this).closest("tr").removeClass("selected");
       }
 
-      if ($(".js-check-all-project:checked").length === 0) {
+      if ($(".js-check-all-resources:checked").length === 0) {
         hideBulkActionsButton();
       }
 
-      $(".js-bulk-action-form").find(`.js-project-id-${projectId}`).prop("checked", checked);
+      $(".js-bulk-action-form").find(`.js-resource-id-${resourceId}`).prop("checked", checked);
       selectedProjectsCountUpdate();
     });
 
-    $(".js-cancel-bulk-action").on("click", function () {
+    $(".js-cancel-bulk-action").on("click", () => {
       hideBulkActionForms()
       showBulkActionsButton();
       showOtherActionsButtons();
