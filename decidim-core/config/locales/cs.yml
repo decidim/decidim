@@ -1535,7 +1535,6 @@ cs:
     invitations:
       edit:
         header: Dokončete vytvoření účtu
-        nickname_help: Vaše přezdívka v %{organization}.
         submit_button: Uložit
         subtitle: Pokud přijmete pozvánku, nastavte svou přezdívku a heslo.
       invitation_removed: Vaše pozvánka byla odstraněna.
