@@ -89,9 +89,6 @@ ro:
       skip_button: Salt la conținutul principal
     account:
       blocked: Acest cont a fost blocat din cauza încălcării termenilor și condițiilor
-      data_portability_export:
-        file_no_exists: Fișierul nu există
-        notice: Descărcarea datelor dvs. este în curs de desfășurare. Veți primi un e-mail atunci când este completă.
       delete:
         alert: Această acțiune nu poate fi anulată. Dacă vă ștergeți contul, nu veți mai putea să vă autentificați cu datele de autentificare. Ștergerea contului dvs. va duce la anonimizarea contribuțiilor dvs. Veți putea crea în continuare un cont nou, dar aceste contribuții nu vor fi asociate cu acesta.
         confirm:
@@ -103,6 +100,9 @@ ro:
       destroy:
         error: A apărut o eroare la ștergerea contului tău.
         success: Contul tău a fost șters cu succes.
+      download_your_data_export:
+        file_no_exists: Fișierul nu există
+        notice: Descărcarea datelor dvs. este în curs de desfășurare. Veți primi un e-mail atunci când este completă.
       show:
         change_password: Schimbă parola
         update_account: Actualizați contul
@@ -442,13 +442,6 @@ ro:
       actions:
         login_before_access: Te rugăm să te conectezi cu contul tău înainte de a accesa conținutul
         unauthorized: Nu sunteți autorizat să efectuați această acțiune
-    data_portability:
-      export:
-        ready: Gata
-      show:
-        download_data: Descarcă datele
-        download_data_description: Un fișier care conține toate informațiile asociate contului tău va fi trimis la <strong>%{user_email}</strong>. Acest e-mail va conține un fișier .zip și o parolă pentru a-l deschide.<br/><br/>Pentru a dezarhiva fişierul, aveţi nevoie de <a href="https://www.7-zip.org/">7-Zip</a> (pentru Windows) sau <a href="https://www.keka.io/">Keka</a> (pentru MacOS). Dacă utilizați Linux, de cele mai multe ori îl veți instala în mod implicit. Dacă nu, puteți utiliza <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> sau <a href="https://peazip.github.io">PeaZip</a>).
-        request_data: Cere date
     datepicker:
       help_text: 'Format preconizat: %{datepicker_format}'
     devise:
@@ -519,6 +512,13 @@ ro:
           this_application_will_not_be_able_to: 'Această aplicație nu va putea să:'
           update_profile: Actualizeză-ți profilul
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> vrea să folosească contul tău"
+    download_your_data:
+      export:
+        ready: Gata
+      show:
+        download_data: Descarcă datele
+        download_data_description: Un fișier care conține toate informațiile asociate contului tău va fi trimis la <strong>%{user_email}</strong>. Acest e-mail va conține un fișier .zip și o parolă pentru a-l deschide.<br/><br/>Pentru a dezarhiva fişierul, aveţi nevoie de <a href="https://www.7-zip.org/">7-Zip</a> (pentru Windows) sau <a href="https://www.keka.io/">Keka</a> (pentru MacOS). Dacă utilizați Linux, de cele mai multe ori îl veți instala în mod implicit. Dacă nu, puteți utiliza <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> sau <a href="https://peazip.github.io">PeaZip</a>).
+        request_data: Cere date
     editor_images:
       create:
         error: Eroare la încărcarea imaginii
@@ -684,7 +684,7 @@ ro:
           email_subject: "%{nickname} și-a actualizat profilul"
           notification_title: Pagina de profil <a href="%{resource_path}"></a> din %{name} (%{nickname}), pe care o urmărești, a fost actualizată.
     export_mailer:
-      data_portability_export:
+      download_your_data_export:
         click_button: 'Dă-i clic pe următorul link pentru a descărca datele.<br/>Fișierul va fi disponibil până la %{date}.<br/>Vei avea nevoie de <a href="https://www.7-zip.org/">7-Zip</a> (pentru Windows), <a href="https://www.keka.io/en/">Keka</a> (pentru MacOS) sau <a href="https://peazip.github.io">PeaZip</a> (pentru Linux) pentru a-l deschide. Parola: %{password}'
         download: Descărcare
       export:
@@ -1135,7 +1135,6 @@ ro:
           agreement: Sunt de acord cu acești termeni și condiţii
           legend: Sunt de acord cu termenii și condițiile de utilizare
         refuse:
-          modal_body: Dacă refuzați, nu veți putea utiliza platforma, puteți <a href="%{data_portability_path}">descărca datele</a> și/sau <a href="%{delete_path}">șterge contul dvs</a>.
           modal_btn_continue: Acceptați termenii și continuați
           modal_btn_exit: O voi revizui mai târziu
           modal_button: Refuza termenii
