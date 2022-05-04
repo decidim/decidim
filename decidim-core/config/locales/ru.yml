@@ -706,7 +706,6 @@ ru:
     invitations:
       edit:
         header: Завершите создание своей учетной записи
-        nickname_help: Ваш уникальный псевдоним в %{organization}.
         submit_button: Сохранить
         subtitle: Если вы принимаете приглашение, укажите, пожалуйста, свой псевдоним и пароль.
       invitation_removed: Ваше приглашение было удалено.
