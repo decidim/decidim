@@ -155,7 +155,7 @@ module Decidim
       def replace_file(name, regexp, replacement)
         new_content = File.read(name).gsub(regexp, replacement)
 
-        File.open(name, "w") { |f| f.write(new_content) }
+        File.write(name, new_content)
       end
 
       def all_dirs(include_root: true)

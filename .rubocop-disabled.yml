@@ -61,9 +61,6 @@ Lint/AmbiguousOperatorPrecedence:
 Rails/EagerEvaluationLogMessage:
   Enabled: false
 
-Style/FileWrite:
-  Enabled: false
-
 Rails/RedundantPresenceValidationOnBelongsTo:
   Enabled: false
 
@@ -75,9 +72,6 @@ Lint/UnmodifiedReduceAccumulator:
 
 Gemspec/RequireMFA:
   Enabled: false
-#
-#Style/SelectByRegexp:
-#  Enabled: false
 
 Rails/DuplicateScope:
   Enabled: false

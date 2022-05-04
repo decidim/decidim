@@ -23,7 +23,7 @@ module Decidim
     def export
       dirname = File.dirname(path)
       FileUtils.mkdir_p(dirname) unless File.directory?(dirname)
-      File.open(path, "wb") { |file| file.write(data) }
+      File.binwrite(path, data)
     end
 
     private
