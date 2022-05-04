@@ -30,7 +30,7 @@ module Decidim
       # random seed at the database.
       def random_seed
         @random_seed ||= begin
-          session[:random_seed] ||= rand * 2 - 1
+          session[:random_seed] ||= (rand * 2) - 1
         end.to_f
       end
     end

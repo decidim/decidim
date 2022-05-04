@@ -36,9 +36,9 @@ Security/Open:
 
 #Lint/DuplicateBranch:
 #  Enabled: false
-
-Lint/AmbiguousOperatorPrecedence:
-  Enabled: false
+#
+#Lint/AmbiguousOperatorPrecedence:
+#  Enabled: false
 
 Rails/EagerEvaluationLogMessage:
   Enabled: false

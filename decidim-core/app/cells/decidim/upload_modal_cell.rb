@@ -141,7 +141,7 @@ module Decidim
       return filename if filename.length <= max_length
 
       name = File.basename(filename, File.extname(filename))
-      name.truncate(max_length, omission: "...#{name.last(max_length / 2 - 3)}#{File.extname(filename)}")
+      name.truncate(max_length, omission: "...#{name.last((max_length / 2) - 3)}#{File.extname(filename)}")
     end
 
     def file_name_for(attachment)
