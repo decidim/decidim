@@ -73,9 +73,6 @@ lv:
       logo: "%{organization} oficiālais logotips"
       skip_button: Pāriet uz galveno saturu
     account:
-      data_portability_export:
-        file_no_exists: Fails neeksistē
-        notice: Pašlaik notiek jūsu datu lejupielāde. Kad tā būs pabeigta, jūs saņemsiet e-pastu.
       delete:
         confirm:
           close: Aizvērt logu
@@ -86,6 +83,9 @@ lv:
       destroy:
         error: Dzēšot jūsu kontu, radās problēma.
         success: Jūsu konts tika veiksmīgi dzēsts.
+      download_your_data_export:
+        file_no_exists: Fails neeksistē
+        notice: Pašlaik notiek jūsu datu lejupielāde. Kad tā būs pabeigta, jūs saņemsiet e-pastu.
       show:
         change_password: Mainīt paroli
         update_account: Atjaunināt kontu
@@ -368,12 +368,6 @@ lv:
       actions:
         login_before_access: Pirms piekļuves, lūdzu, piesakieties savā kontā
         unauthorized: Jūs neesat autorizēts veikt šo darbību
-    data_portability:
-      export:
-        ready: Gatavs
-      show:
-        download_data: Lejupielādēt datus
-        request_data: Pieprasīt datus
     datepicker:
       help_text: 'Paredzētais formāts: %{datepicker_format}'
     devise:
@@ -436,6 +430,12 @@ lv:
           this_application_will_not_be_able_to: 'Lietojumprogramma nevarēs:'
           update_profile: Atjaunināt profilu
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> vēlas izmantot jūsu kontu"
+    download_your_data:
+      export:
+        ready: Gatavs
+      show:
+        download_data: Lejupielādēt datus
+        request_data: Pieprasīt datus
     endorsable:
       endorsements: Atbalsts
     endorsement_buttons_cell:
@@ -587,7 +587,7 @@ lv:
           email_subject: "%{nickname} atjaunināja savu profilu"
           notification_title: '%{name} (%{nickname}) <a href="%{resource_path}">profila lapa</a>, kam jūs sekojat, ir atjaunināta.'
     export_mailer:
-      data_portability_export:
+      download_your_data_export:
         download: Lejupielādēt
       export:
         ready: Lūdzu, jūsu eksportēto datu saspiestā versija.
@@ -974,7 +974,6 @@ lv:
         form:
           legend: Piekrist lietošanas noteikumiem
         refuse:
-          modal_body: Ja atteiksieties, nevarēsiet izmantot platformu, varat <a href="%{data_portability_path}"> lejupielādēt savus datus </a> un/vai <a href="%{delete_path}"> izdzēst savu kontu </a>.
           modal_btn_continue: Pieņemt noteikumus un turpināt
           modal_btn_exit: Es tos pārskatīšu vēlāk
           modal_button: Atteikties no noteikumu pieņemšanas
