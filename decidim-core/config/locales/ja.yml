@@ -101,9 +101,6 @@ ja:
       skip_button: メインコンテンツにスキップ
     account:
       blocked: このアカウントは利用規約違反によりブロックされています
-      data_portability_export:
-        file_no_exists: ファイルが存在しません
-        notice: データのダウンロードは現在進行中です。完了するとメールが届きます。
       delete:
         alert: この操作は元に戻せません。アカウントを削除すると、ログインできなくなります。 アカウントを削除すると、あなたの貢献が匿名化されます。 引き続き新しいアカウントを作成することはできますが、これらの貢献は関連付けられません。
         confirm:
@@ -115,6 +112,9 @@ ja:
       destroy:
         error: アカウントの削除中に問題が発生しました。
         success: アカウントが正常に削除されました。
+      download_your_data_export:
+        file_no_exists: ファイルが存在しません
+        notice: データのダウンロードは現在進行中です。完了するとメールが届きます。
       show:
         available_locales_helper: プラットフォーム上での通知と表示に使用する言語を選択してください
         change_password: パスワードの変更
@@ -448,13 +448,6 @@ ja:
       actions:
         login_before_access: アクセスする前にアカウントでログインしてください
         unauthorized: この操作を実行する権限がありません。
-    data_portability:
-      export:
-        ready: 準備完了
-      show:
-        download_data: データをダウンロード
-        download_data_description: あなたのアカウントに関連付けられたすべての情報を含むファイルを<strong>%{user_email}</strong> に送信します。このメールは.zipファイルとパスワードが添付されています。<br/><br/>ファイルを展開するには、 <a href="https://www.7-zip.org/">7-Zip</a> (Windowsユーザー向け) か <a href="https://www.keka.io/">Keka</a> (MacOSユーザー向け)が必要です。Linuxをお使いの場合、すでにツールがインストールされているはずです。インストールされていない場合、 <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> や <a href="https://peazip.github.io">PeaZip</a> が利用できます。
-        request_data: データを要求する
     datepicker:
       help_text: '期待されるフォーマット: %{datepicker_format}'
     devise:
@@ -522,6 +515,13 @@ ja:
           this_application_will_not_be_able_to: 'このアプリケーションは次のことができません：'
           update_profile: プロフィールを更新
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> があなたのアカウントを使用しようとしています"
+    download_your_data:
+      export:
+        ready: 準備完了
+      show:
+        download_data: データをダウンロード
+        download_data_description: あなたのアカウントに関連付けられたすべての情報を含むファイルを<strong>%{user_email}</strong> に送信します。このメールは.zipファイルとパスワードが添付されています。<br/><br/>ファイルを展開するには、 <a href="https://www.7-zip.org/">7-Zip</a> (Windowsユーザー向け) か <a href="https://www.keka.io/">Keka</a> (MacOSユーザー向け)が必要です。Linuxをお使いの場合、すでにツールがインストールされているはずです。インストールされていない場合、 <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> や <a href="https://peazip.github.io">PeaZip</a> が利用できます。
+        request_data: データを要求する
     editor_images:
       create:
         error: アップロード画像のエラー
@@ -692,7 +692,7 @@ ja:
           email_subject: "%{name} が公式化されました"
           notification_title: 参加者 %{name} (%{nickname}) が公式化されました。
     export_mailer:
-      data_portability_export:
+      download_your_data_export:
         click_button: '次のリンクをクリックするとあなたのデータがダウンロードできます。<br/>このファイルは %{date} まで利用できます。<br/>ファイルを開くには <a href="https://www.7-zip.org/">7-Zip</a> (Windowsユーザー向け), <a href="https://www.keka.io/en/">Keka</a> (MacOSユーザー向け) または <a href="https://peazip.github.io">PeaZip</a> (Linuxユーザー向け)等が必要です。パスワード:%{password}'
         download: ダウンロード
       export:
@@ -1167,7 +1167,6 @@ ja:
           agreement: 上記の規約に同意する
           legend: 利用規約に同意する
         refuse:
-          modal_body: 拒否した場合は、プラットフォームを使用できなくなります。 <a href="%{data_portability_path}">データをダウンロード</a> または <a href="%{delete_path}">アカウントを削除</a> することができます。
           modal_btn_continue: 利用規約に同意して続ける
           modal_btn_exit: 後で確認する
           modal_button: 同意しない
