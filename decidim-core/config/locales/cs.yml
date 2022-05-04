@@ -1227,6 +1227,7 @@ cs:
           agreement: Souhlasím s těmito podmínkami
           legend: Souhlasíte s podmínkami používání
         refuse:
+          modal_body: Pokud odmítnete, nebudete moci platformu používat, můžete <a href="%{download_your_data_path}">stáhnout svá data</a> a/nebo <a href="%{delete_path}">smazat svůj účet</a>.
           modal_btn_continue: Přijměte termíny a pokračujte
           modal_btn_exit: Později to přezkoumám
           modal_button: Odmítněte podmínky
