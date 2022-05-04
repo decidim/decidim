@@ -1404,7 +1404,6 @@ nl:
     invitations:
       edit:
         header: Voltooi het aanmaken van je account
-        nickname_help: Je bijnaam in %{organization}.
         submit_button: Opslaan
         subtitle: Als u de uitnodiging accepteert, stelt u uw bijnaam en wachtwoord in.
       invitation_removed: Je uitnodiging is verwijderd.
