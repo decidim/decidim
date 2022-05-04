@@ -1471,7 +1471,6 @@ ja:
     invitations:
       edit:
         header: アカウントの作成を完了する
-        nickname_help: '%{organization} のニックネーム。'
         submit_button: 保存
         subtitle: 招待を受け入れる場合は、アカウントIDとパスワードを設定してください。
       invitation_removed: 招待が削除されました。
