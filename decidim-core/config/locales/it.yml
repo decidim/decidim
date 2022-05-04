@@ -82,9 +82,6 @@ it:
       skip_button: Vai al contenuto principale
     account:
       blocked: Questo account è stato bloccato a causa della violazione di Termini e Condizioni
-      data_portability_export:
-        file_no_exists: Il file non esiste
-        notice: Il download dei tuoi dati è in corso. Riceverai un'email non appena completato.
       delete:
         alert: Questa azione non può essere annullata. Se elimini il tuo account non potrai accedere con le tue credenziali. La cancellazione del tuo account comporterà l'anonimizzazione dei tuoi contributi. Sarai ancora in grado di creare un nuovo account, ma questi contributi non saranno associati ad esso.
         confirm:
@@ -96,6 +93,9 @@ it:
       destroy:
         error: Si è verificato un errore durante l'eliminazione del tuo account.
         success: Il tuo account è stato eliminato correttamente.
+      download_your_data_export:
+        file_no_exists: Il file non esiste
+        notice: Il download dei tuoi dati è in corso. Riceverai un'email non appena completato.
       show:
         change_password: Cambia password
         update_account: Aggiorna l'account
@@ -431,13 +431,6 @@ it:
       actions:
         login_before_access: Per favore, fai login con il tuo account prima di accedere
         unauthorized: Non sei autorizzato a eseguire questa azione
-    data_portability:
-      export:
-        ready: Pronto
-      show:
-        download_data: Scarica i dati
-        download_data_description: Un file contenente tutte le informazioni associate al tuo account verrà inviato a <strong>%{user_email}</strong>. Questa email conterrà un file .zip e una password per aprirlo.<br/><br/>Per decomprimere il file, avrai bisogno di <a href="https://www.7-zip.org/">7-Zip</a> (per Windows) o <a href="https://www.keka.io/">Keka</a> (per MacOS). Se si utilizza Linux, la maggior parte delle volte il software predefinito è sufficiente. In caso contrario, è possibile utilizzare <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> o <a href="https://peazip.github.io">PeaZip</a>).
-        request_data: Richiedi dati
     datepicker:
       help_text: 'Formato previsto: %{datepicker_format}'
     devise:
@@ -505,6 +498,13 @@ it:
           this_application_will_not_be_able_to: 'Questa applicazione non sarà in grado di:'
           update_profile: Aggiorna il tuo profilo
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> vuole utilizzare il tuo account"
+    download_your_data:
+      export:
+        ready: Pronto
+      show:
+        download_data: Scarica i dati
+        download_data_description: Un file contenente tutte le informazioni associate al tuo account verrà inviato a <strong>%{user_email}</strong>. Questa email conterrà un file .zip e una password per aprirlo.<br/><br/>Per decomprimere il file, avrai bisogno di <a href="https://www.7-zip.org/">7-Zip</a> (per Windows) o <a href="https://www.keka.io/">Keka</a> (per MacOS). Se si utilizza Linux, la maggior parte delle volte il software predefinito è sufficiente. In caso contrario, è possibile utilizzare <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> o <a href="https://peazip.github.io">PeaZip</a>).
+        request_data: Richiedi dati
     editor_images:
       create:
         error: Errore nel caricamento dell'immagine
@@ -670,7 +670,7 @@ it:
           email_subject: "%{nickname} ha aggiornato il proprio profilo"
           notification_title: La pagina <a href="%{resource_path}">profilo</a> di %{name} (%{nickname}), che stai seguendo, è stata aggiornata.
     export_mailer:
-      data_portability_export:
+      download_your_data_export:
         click_button: 'Clicca sul link per scaricare i tuoi dati.<br/>Il file sarà disponibile fino a %{date}.<br/>Avrai bisogno di <a href="https://www.7-zip.org/">7-Zip</a> (per Windows), <a href="https://www.keka.io/en/">Keka</a> (per MacOS) o <a href="https://peazip.github.io">PeaZip</a> (per Linux) per aprirlo. Password: %{password}'
         download: Scaricare
       export:
@@ -1115,7 +1115,6 @@ it:
           agreement: Accetto le condizioni
           legend: Accetta i termini e le condizioni d'uso
         refuse:
-          modal_body: Se rifiuti, non sarai in grado di utilizzare la piattaforma, puoi <a href="%{data_portability_path}">scaricare i tuoi dati</a> e / o <a href="%{delete_path}">cancellare il tuo account</a>.
           modal_btn_continue: Accetta i termini e continua
           modal_btn_exit: Lo esaminerò più tardi
           modal_button: Rifiuta i termini
