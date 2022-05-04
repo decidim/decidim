@@ -9,10 +9,10 @@ module Decidim
   class Command
     include ::Wisper::Publisher
 
-    def self.call(*args, &block)
+    def self.call(*args, **kwargs, &block)
       event_recorder = Decidim::EventRecorder.new
 
-      command = new(*args)
+      command = new(*args, **kwargs)
       command.subscribe(event_recorder)
       command.evaluate(&block) if block_given?
       command.call
@@ -29,9 +29,9 @@ module Decidim
       ActiveRecord::Base.transaction(&block) if block_given?
     end
 
-    def method_missing(method_name, *args, &block)
+    def method_missing(method_name, ...)
       if @caller.respond_to?(method_name, true)
-        @caller.send(method_name, *args, &block)
+        @caller.send(method_name, ...)
       else
         super
       end

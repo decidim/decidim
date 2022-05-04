@@ -65,7 +65,7 @@ module Decidim::Admin
 
           expect(newsletter.author).to eq(user)
           expect(newsletter.subject.except("machine_translations")).to eq(form.subject.deep_stringify_keys.except("machine_translations"))
-          expect(newsletter.sent?).to eq(false)
+          expect(newsletter.sent?).to be(false)
           expect(newsletter.template).to be_present
           expect(newsletter.template.settings.body.stringify_keys).to eq(newsletter_body.stringify_keys.except("machine_translations"))
         end

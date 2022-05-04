@@ -7,6 +7,11 @@ module Decidim
     def build_attachments
       @documents = []
       @form.add_documents.reject(&:blank?).each do |attachment|
+        if attachment.is_a?(Hash) && attachment.has_key?(:id)
+          update_attachment_title_for(attachment)
+          next
+        end
+
         @documents << Attachment.new(
           title: title_for(attachment),
           attached_to: @attached_to || documents_attached_to,
@@ -14,6 +19,10 @@ module Decidim
           content_type: content_type_for(attachment)
         )
       end
+    end
+
+    def update_attachment_title_for(attachment)
+      Decidim::Attachment.find(attachment[:id]).update(title: title_for(attachment))
     end
 
     def attachments_invalid?

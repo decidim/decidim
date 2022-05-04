@@ -60,7 +60,7 @@ describe Decidim::Verifications::AuthorizationsBeforeDate do
   end
 
   shared_examples_for "a correct usage of the query" do
-    subject { described_class.new(parameters).query }
+    subject { described_class.new(**parameters).query }
 
     it { is_expected.to match_array(expectation) }
     it { is_expected.not_to include(external_organization_authorization) }

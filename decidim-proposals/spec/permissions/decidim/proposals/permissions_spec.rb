@@ -28,7 +28,7 @@ describe Decidim::Proposals::Permissions do
     }
   end
   let(:extra_settings) { {} }
-  let(:permission_action) { Decidim::PermissionAction.new(action) }
+  let(:permission_action) { Decidim::PermissionAction.new(**action) }
 
   context "when scope is admin" do
     let(:action) do
@@ -62,13 +62,13 @@ describe Decidim::Proposals::Permissions do
     context "when creation is disabled" do
       let(:extra_settings) { { creation_enabled?: false } }
 
-      it { is_expected.to eq false }
+      it { is_expected.to be false }
     end
 
     context "when user is authorized" do
       let(:extra_settings) { { creation_enabled?: true } }
 
-      it { is_expected.to eq true }
+      it { is_expected.to be true }
     end
   end
 
@@ -84,13 +84,13 @@ describe Decidim::Proposals::Permissions do
     context "when proposal is editable" do
       let(:editable) { true }
 
-      it { is_expected.to eq true }
+      it { is_expected.to be true }
     end
 
     context "when proposal is not editable" do
       let(:editable) { false }
 
-      it { is_expected.to eq false }
+      it { is_expected.to be false }
     end
   end
 
@@ -100,13 +100,13 @@ describe Decidim::Proposals::Permissions do
     end
 
     context "when proposal author is the user trying to withdraw" do
-      it { is_expected.to eq true }
+      it { is_expected.to be true }
     end
 
     context "when trying by another user" do
       let(:user) { build :user }
 
-      it { is_expected.to eq false }
+      it { is_expected.to be false }
     end
   end
 
@@ -123,7 +123,7 @@ describe Decidim::Proposals::Permissions do
         }
       end
 
-      it { is_expected.to eq false }
+      it { is_expected.to be false }
     end
 
     context "when votes are blocked" do
@@ -134,7 +134,7 @@ describe Decidim::Proposals::Permissions do
         }
       end
 
-      it { is_expected.to eq false }
+      it { is_expected.to be false }
     end
 
     context "when the user has no more remaining votes" do
@@ -151,7 +151,7 @@ describe Decidim::Proposals::Permissions do
         create :proposal_vote, author: user, proposal: proposals[1]
       end
 
-      it { is_expected.to eq false }
+      it { is_expected.to be false }
     end
 
     context "when the user is authorized" do
@@ -162,7 +162,7 @@ describe Decidim::Proposals::Permissions do
         }
       end
 
-      it { is_expected.to eq true }
+      it { is_expected.to be true }
     end
   end
 
@@ -179,7 +179,7 @@ describe Decidim::Proposals::Permissions do
         }
       end
 
-      it { is_expected.to eq false }
+      it { is_expected.to be false }
     end
 
     context "when votes are blocked" do
@@ -190,7 +190,7 @@ describe Decidim::Proposals::Permissions do
         }
       end
 
-      it { is_expected.to eq false }
+      it { is_expected.to be false }
     end
 
     context "when the user is authorized" do
@@ -201,7 +201,7 @@ describe Decidim::Proposals::Permissions do
         }
       end
 
-      it { is_expected.to eq true }
+      it { is_expected.to be true }
     end
   end
 
@@ -217,7 +217,7 @@ describe Decidim::Proposals::Permissions do
         }
       end
 
-      it { is_expected.to eq false }
+      it { is_expected.to be false }
     end
 
     context "when the user is authorized" do
@@ -227,7 +227,7 @@ describe Decidim::Proposals::Permissions do
         }
       end
 
-      it { is_expected.to eq true }
+      it { is_expected.to be true }
     end
   end
 end

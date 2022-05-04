@@ -16,7 +16,7 @@ module Decidim
       Metadata = Struct.new(:groups)
 
       # Matches a nickname if contains letters, numbers or underscores.
-      MENTION_REGEX = /\B@(\w*)\b/.freeze
+      MENTION_REGEX = /\B@(\w*)\b/
 
       # Replaces found mentions matching a nickname of an existing
       # group in the current organization with a global id. Other

@@ -94,7 +94,7 @@ module Decidim
         let(:query) { "{ resultsPublishedAt }" }
 
         it "returns when the consultation results have been published" do
-          expect(response["resultsPublishedAt"]).to be nil
+          expect(response["resultsPublishedAt"]).to be_nil
         end
       end
 

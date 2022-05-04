@@ -764,6 +764,10 @@ en:
       file_help:
         file:
           explanation: 'Guidance for file:'
+          message_1: Has to be an image or a document.
+          message_2: For images, use preferrably landscape images, the service crops the image.
+        icon:
+          explanation: 'Guidance for icon:'
           message_1: Has to be a square image.
           message_2: The recommended size for this image is 512x512.
         image:

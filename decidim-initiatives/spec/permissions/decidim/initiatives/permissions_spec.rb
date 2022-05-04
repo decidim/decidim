@@ -9,7 +9,7 @@ describe Decidim::Initiatives::Permissions do
   let(:organization) { create :organization }
   let(:initiative) { create(:initiative, organization: organization) }
   let(:context) { {} }
-  let(:permission_action) { Decidim::PermissionAction.new(action) }
+  let(:permission_action) { Decidim::PermissionAction.new(**action) }
 
   shared_examples "votes permissions" do
     let(:organization) { create(:organization, available_authorizations: authorizations) }
@@ -27,13 +27,13 @@ describe Decidim::Initiatives::Permissions do
     context "when initiative has votes disabled" do
       let(:votes_enabled?) { false }
 
-      it { is_expected.to eq false }
+      it { is_expected.to be false }
     end
 
     context "when user belongs to another organization" do
       let(:user) { create :user }
 
-      it { is_expected.to eq false }
+      it { is_expected.to be false }
     end
 
     context "when user has already voted the initiative" do
@@ -41,7 +41,7 @@ describe Decidim::Initiatives::Permissions do
         create(:initiative_user_vote, initiative: initiative, author: user)
       end
 
-      it { is_expected.to eq false }
+      it { is_expected.to be false }
     end
 
     context "when user has verified user groups" do
@@ -49,7 +49,7 @@ describe Decidim::Initiatives::Permissions do
         create :user_group, :verified, users: [user], organization: user.organization
       end
 
-      it { is_expected.to eq true }
+      it { is_expected.to be true }
     end
 
     context "when the initiative type has permissions to vote" do
@@ -67,7 +67,7 @@ describe Decidim::Initiatives::Permissions do
       end
 
       context "when user is not verified" do
-        it { is_expected.to eq false }
+        it { is_expected.to be false }
       end
 
       context "when user is not fully verified" do
@@ -75,7 +75,7 @@ describe Decidim::Initiatives::Permissions do
           create(:authorization, name: "dummy_authorization_handler", user: user, granted_at: 2.seconds.ago)
         end
 
-        it { is_expected.to eq false }
+        it { is_expected.to be false }
       end
 
       context "when user is fully verified" do
@@ -84,7 +84,7 @@ describe Decidim::Initiatives::Permissions do
           create(:authorization, name: "another_dummy_authorization_handler", user: user, granted_at: 2.seconds.ago)
         end
 
-        it { is_expected.to eq true }
+        it { is_expected.to be true }
       end
     end
   end
@@ -109,31 +109,31 @@ describe Decidim::Initiatives::Permissions do
     context "when initiative is published" do
       let(:initiative) { create(:initiative, :published, organization: organization) }
 
-      it { is_expected.to eq true }
+      it { is_expected.to be true }
     end
 
     context "when initiative is rejected" do
       let(:initiative) { create(:initiative, :rejected, organization: organization) }
 
-      it { is_expected.to eq true }
+      it { is_expected.to be true }
     end
 
     context "when initiative is accepted" do
       let(:initiative) { create(:initiative, :accepted, organization: organization) }
 
-      it { is_expected.to eq true }
+      it { is_expected.to be true }
     end
 
     context "when user is admin" do
       let(:user) { create :user, :admin, organization: organization }
 
-      it { is_expected.to eq true }
+      it { is_expected.to be true }
     end
 
     context "when user is author of the initiative" do
       let(:initiative) { create(:initiative, author: user, organization: organization) }
 
-      it { is_expected.to eq true }
+      it { is_expected.to be true }
     end
 
     context "when user is committee member of the initiative" do
@@ -141,11 +141,11 @@ describe Decidim::Initiatives::Permissions do
         create(:initiatives_committee_member, initiative: initiative, user: user)
       end
 
-      it { is_expected.to eq true }
+      it { is_expected.to be true }
     end
 
     context "when any other condition" do
-      it { is_expected.to eq false }
+      it { is_expected.to be false }
     end
   end
 
@@ -158,7 +158,7 @@ describe Decidim::Initiatives::Permissions do
       { initiative: initiative }
     end
 
-    it { is_expected.to eq true }
+    it { is_expected.to be true }
   end
 
   context "when approving committee member of the initiative as author" do
@@ -170,7 +170,7 @@ describe Decidim::Initiatives::Permissions do
       { initiative: initiative }
     end
 
-    it { is_expected.to eq true }
+    it { is_expected.to be true }
   end
 
   context "when revoking committee member of the initiative as author" do
@@ -182,7 +182,7 @@ describe Decidim::Initiatives::Permissions do
       { initiative: initiative }
     end
 
-    it { is_expected.to eq true }
+    it { is_expected.to be true }
   end
 
   context "when sending initiative to technical validation as author" do
@@ -194,7 +194,7 @@ describe Decidim::Initiatives::Permissions do
       { initiative: initiative }
     end
 
-    it { is_expected.to eq true }
+    it { is_expected.to be true }
   end
 
   context "when creating an initiative" do
@@ -209,7 +209,7 @@ describe Decidim::Initiatives::Permissions do
           .and_return(true)
       end
 
-      it { is_expected.to eq false }
+      it { is_expected.to be false }
 
       context "when authorizations are not required" do
         before do
@@ -218,7 +218,7 @@ describe Decidim::Initiatives::Permissions do
             .and_return(true)
         end
 
-        it { is_expected.to eq true }
+        it { is_expected.to be true }
       end
 
       context "when user is authorized" do
@@ -226,7 +226,7 @@ describe Decidim::Initiatives::Permissions do
           create :authorization, :granted, user: user
         end
 
-        it { is_expected.to eq true }
+        it { is_expected.to be true }
       end
 
       context "when user belongs to a verified user group" do
@@ -234,7 +234,7 @@ describe Decidim::Initiatives::Permissions do
           create :user_group, :verified, users: [user], organization: user.organization
         end
 
-        it { is_expected.to eq true }
+        it { is_expected.to be true }
       end
     end
 
@@ -245,7 +245,7 @@ describe Decidim::Initiatives::Permissions do
           .and_return(false)
       end
 
-      it { is_expected.to eq false }
+      it { is_expected.to be false }
     end
   end
 
@@ -264,7 +264,7 @@ describe Decidim::Initiatives::Permissions do
       context "when initiative is not created" do
         let(:initiative) { create(:initiative, author: user, organization: organization) }
 
-        it { is_expected.to eq false }
+        it { is_expected.to be false }
       end
 
       context "when user is a committee member" do
@@ -274,20 +274,20 @@ describe Decidim::Initiatives::Permissions do
           create(:initiatives_committee_member, initiative: initiative, user: user)
         end
 
-        it { is_expected.to eq true }
+        it { is_expected.to be true }
       end
 
       context "when user is not an initiative author" do
         let(:initiative) { create(:initiative, :created, organization: organization) }
 
-        it { is_expected.to eq false }
+        it { is_expected.to be false }
       end
 
       context "when user is admin" do
         let(:user) { create :user, :admin, organization: organization }
         let(:initiative) { create(:initiative, :created, author: user, organization: organization) }
 
-        it { is_expected.to eq true }
+        it { is_expected.to be true }
       end
     end
 
@@ -303,7 +303,7 @@ describe Decidim::Initiatives::Permissions do
       context "when initiative is not created" do
         let(:initiative) { create(:initiative, organization: organization) }
 
-        it { is_expected.to eq false }
+        it { is_expected.to be false }
       end
 
       context "when user is a committee member" do
@@ -313,20 +313,20 @@ describe Decidim::Initiatives::Permissions do
           create(:initiatives_committee_member, user: user, initiative: initiative)
         end
 
-        it { is_expected.to eq true }
+        it { is_expected.to be true }
       end
 
       context "when user is not an initiative author" do
         let(:initiative) { create(:initiative, :created, organization: organization) }
 
-        it { is_expected.to eq false }
+        it { is_expected.to be false }
       end
 
       context "when user is admin" do
         let(:user) { create :user, :admin, organization: organization }
         let(:initiative) { create(:initiative, :created, author: user, organization: organization) }
 
-        it { is_expected.to eq true }
+        it { is_expected.to be true }
       end
     end
   end
@@ -343,20 +343,20 @@ describe Decidim::Initiatives::Permissions do
     context "when initiative is published" do
       let(:initiative) { create(:initiative, :published, organization: organization) }
 
-      it { is_expected.to eq false }
+      it { is_expected.to be false }
     end
 
     context "when initiative is not published" do
       context "when user is member" do
         let(:initiative) { create(:initiative, :discarded, author: user, organization: organization) }
 
-        it { is_expected.to eq false }
+        it { is_expected.to be false }
       end
 
       context "when user is not a member" do
         let(:initiative) { create(:initiative, :discarded, organization: organization) }
 
-        it { is_expected.to eq false }
+        it { is_expected.to be false }
 
         context "when authorizations are not required" do
           before do
@@ -365,7 +365,7 @@ describe Decidim::Initiatives::Permissions do
               .and_return(true)
           end
 
-          it { is_expected.to eq true }
+          it { is_expected.to be true }
         end
 
         context "when user is authorized" do
@@ -373,7 +373,7 @@ describe Decidim::Initiatives::Permissions do
             create :authorization, :granted, user: user
           end
 
-          it { is_expected.to eq true }
+          it { is_expected.to be true }
         end
 
         context "when user belongs to a verified user group" do
@@ -381,13 +381,13 @@ describe Decidim::Initiatives::Permissions do
             create :user_group, :verified, users: [user], organization: user.organization
           end
 
-          it { is_expected.to eq true }
+          it { is_expected.to be true }
         end
 
         context "when user is not connected" do
           let(:user) { nil }
 
-          it { is_expected.to eq true }
+          it { is_expected.to be true }
         end
       end
     end
@@ -434,7 +434,7 @@ describe Decidim::Initiatives::Permissions do
           create :user_group, :verified, users: [user], organization: user.organization
         end
 
-        it { is_expected.to eq false }
+        it { is_expected.to be false }
       end
 
       context "when the initiative type has permissions to vote" do
@@ -457,7 +457,7 @@ describe Decidim::Initiatives::Permissions do
             create(:authorization, name: "another_dummy_authorization_handler", user: user, granted_at: 2.seconds.ago)
           end
 
-          it { is_expected.to eq false }
+          it { is_expected.to be false }
         end
       end
     end
@@ -482,23 +482,23 @@ describe Decidim::Initiatives::Permissions do
     context "when initiative has votes disabled" do
       let(:votes_enabled?) { false }
 
-      it { is_expected.to eq false }
+      it { is_expected.to be false }
     end
 
     context "when initiative has unvotes disabled" do
       let(:accepts_online_unvotes?) { false }
 
-      it { is_expected.to eq false }
+      it { is_expected.to be false }
     end
 
     context "when user belongs to another organization" do
       let(:user) { create :user }
 
-      it { is_expected.to eq false }
+      it { is_expected.to be false }
     end
 
     context "when user has not voted the initiative" do
-      it { is_expected.to eq false }
+      it { is_expected.to be false }
     end
 
     context "when user has verified user groups" do
@@ -507,7 +507,7 @@ describe Decidim::Initiatives::Permissions do
         create(:initiative_user_vote, initiative: initiative, author: user)
       end
 
-      it { is_expected.to eq true }
+      it { is_expected.to be true }
     end
   end
 end
