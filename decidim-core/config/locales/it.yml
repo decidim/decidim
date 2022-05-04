@@ -1416,7 +1416,6 @@ it:
     invitations:
       edit:
         header: Completa la creazione del tuo account
-        nickname_help: Il tuo identificativo univoco in %{organization}.
         submit_button: Salva
         subtitle: Se accetti l'invito, imposta il tuo nickname e password.
       invitation_removed: Il tuo invito è stato rimosso
