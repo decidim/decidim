@@ -111,9 +111,6 @@ sv:
       skip_button: Gå till innehåll
     account:
       blocked: Detta konto har blockerats på grund av överträdelse av användarvillkoren
-      data_portability_export:
-        file_no_exists: Filen finns inte
-        notice: Dina uppgifter hämtas för närvarande. Du får ett e-postmeddelande när det är klart.
       delete:
         alert: Denna åtgärd kan inte ångras. Om du tar bort ditt konto kommer du inte att kunna logga in med dina uppgifter. Raderingen av ditt konto kommer att resultera i anonymiseringen av dina bidrag. Du kommer fortfarande kunna skapa ett nytt konto, men dina gamla bidrag kommer inte förknippas med det.
         confirm:
@@ -125,6 +122,9 @@ sv:
       destroy:
         error: Det gick inte att radera ditt konto.
         success: Ditt konto har raderats.
+      download_your_data_export:
+        file_no_exists: Filen finns inte
+        notice: Dina uppgifter hämtas för närvarande. Du får ett e-postmeddelande när det är klart.
       show:
         available_locales_helper: Välj det språk du vill använda på plattformen och få i notiserna
         change_password: Ändra lösenord
@@ -460,13 +460,6 @@ sv:
       actions:
         login_before_access: Logga in före åtkomst
         unauthorized: Du har inte behörighet att utföra denna åtgärd
-    data_portability:
-      export:
-        ready: Klar
-      show:
-        download_data: Hämta data
-        download_data_description: En fil som innehåller all information kopplad till ditt konto kommer att skickas till <strong>%{user_email}</strong>. Detta e-postmeddelande kommer att innehålla en .zip-fil och ett lösenord för att öppna den.<br/><br/>För att packa upp filen behöver du <a href="https://www.7-zip.org/">7-Zip</a> (för Windows) eller <a href="https://www.keka.io/">Keka</a> (för MacOS). Om du använder Linux, för det mesta kommer du att ha den installerad som standard. Om inte, kan du använda <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> eller <a href="https://peazip.github.io">PeaZip</a>).
-        request_data: Begär data
     datepicker:
       help_text: 'Förväntat format: %{datepicker_format}'
     devise:
@@ -534,6 +527,13 @@ sv:
           this_application_will_not_be_able_to: 'Det här programmet kommer inte att kunna:'
           update_profile: Uppdatera din profil
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> vill använda ditt konto"
+    download_your_data:
+      export:
+        ready: Klar
+      show:
+        download_data: Hämta data
+        download_data_description: En fil som innehåller all information kopplad till ditt konto kommer att skickas till <strong>%{user_email}</strong>. Detta e-postmeddelande kommer att innehålla en .zip-fil och ett lösenord för att öppna den.<br/><br/>För att packa upp filen behöver du <a href="https://www.7-zip.org/">7-Zip</a> (för Windows) eller <a href="https://www.keka.io/">Keka</a> (för MacOS). Om du använder Linux, för det mesta kommer du att ha den installerad som standard. Om inte, kan du använda <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> eller <a href="https://peazip.github.io">PeaZip</a>).
+        request_data: Begär data
     editor_images:
       create:
         error: Fel vid uppladdning av bild
@@ -700,7 +700,7 @@ sv:
           email_subject: "%{nickname} uppdaterade sin profil"
           notification_title: <a href="%{resource_path}">Profilsidan</a> för %{name} (%{nickname}), som du följer, har uppdaterats.
     export_mailer:
-      data_portability_export:
+      download_your_data_export:
         click_button: 'Hämta dina data genom att klicka på Nästa.<br/>Filen kommer vara tillgänglig till och med %{date}.<br/>Du kan använda <a href="https://www.7-zip.org/">7-Zip</a> (för Windows), <a href="https://www.keka.io/en/">Keka</a> (för MacOS) eller <a href="https://peazip.github.io">PeaZip</a> (för Linux) för att öppna den. Lösenord: %{password}'
         download: Hämta
       export:
@@ -1166,7 +1166,6 @@ sv:
           agreement: Jag godkänner villkoren
           legend: Godkänn användarvillkoren
         refuse:
-          modal_body: Om du vägrar kan du inte använda plattformen, men du kan <a href="%{data_portability_path}">hämta dina data</a> eller <a href="%{delete_path}">radera ditt konto</a>.
           modal_btn_continue: Acceptera villkoren och fortsätt
           modal_btn_exit: Jag granskar dem senare
           modal_button: Avvisa villkoren
