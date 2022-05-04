@@ -73,9 +73,6 @@ el:
       logo: "Επίσημο λογότυπο του οργανισμού %{organization}"
       skip_button: Μετάβαση στο κύριο περιεχόμενο
     account:
-      data_portability_export:
-        file_no_exists: Το αρχείο δεν υπάρχει
-        notice: Η λήψη των δεδομένων σας είναι σε εξέλιξη. Θα λάβετε email όταν ολοκληρωθεί.
       delete:
         confirm:
           close: Κλείσιμο παραθύρου
@@ -86,6 +83,9 @@ el:
       destroy:
         error: Υπήρξε ένα πρόβλημα κατά τη διαγραφή του λογαριασμού σας.
         success: Ο λογαριασμός σας διαγράφηκε με επιτυχία.
+      download_your_data_export:
+        file_no_exists: Το αρχείο δεν υπάρχει
+        notice: Η λήψη των δεδομένων σας είναι σε εξέλιξη. Θα λάβετε email όταν ολοκληρωθεί.
       show:
         change_password: Αλλαγή κωδικού πρόσβασης
         update_account: Ενημέρωση λογαριασμού
@@ -376,12 +376,6 @@ el:
       actions:
         login_before_access: Συνδεθείτε με τον λογαριασμό σας πριν από την πρόσβαση
         unauthorized: Δεν είστε εξουσιοδοτημένοι να εκτελέσετε αυτήν την ενέργεια
-    data_portability:
-      export:
-        ready: Έτοιμο
-      show:
-        download_data: Πραγματοποιήστε λήψη των δεδομένων
-        request_data: Αίτηση για δεδομένα
     datepicker:
       help_text: 'Αναμενόμενη μορφή: %{datepicker_format}'
     devise:
@@ -448,6 +442,12 @@ el:
           this_application_will_not_be_able_to: 'Αυτή η εφαρμογή δεν θα μπορεί να:'
           update_profile: Ενημερώστε το προφίλ σας
           wants_to_use_your_account_html: "Η εφαρμογή <strong>%{application_name}</strong> θέλει να χρησιμοποιήσει τον λογαριασμό σας"
+    download_your_data:
+      export:
+        ready: Έτοιμο
+      show:
+        download_data: Πραγματοποιήστε λήψη των δεδομένων
+        request_data: Αίτηση για δεδομένα
     endorsable:
       endorsements: Επιδοκιμασίες
       endorsements_count: Καταμέτρηση επιδοκιμασιών
@@ -600,7 +600,7 @@ el:
           email_subject: "Ο/η %{nickname} ενημέρωσε το προφίλ του/της"
           notification_title: Η <a href="%{resource_path}">σελίδα προφίλ</a> του υποστηρικτή %{name} (%{nickname}), τον οποίο ακολουθείτε, έχει ενημερωθεί.
     export_mailer:
-      data_portability_export:
+      download_your_data_export:
         download: Λήψη
       export:
         ready: Επισυνάπτεται μια συμπιεσμένη έκδοση της εξαγωγής σας.
@@ -1014,7 +1014,6 @@ el:
         form:
           legend: Αποδοχή των όρων και των προϋποθέσεων χρήσης
         refuse:
-          modal_body: Εάν αρνηθείτε, δεν θα μπορείτε να χρησιμοποιήσετε την πλατφόρμα, μπορείτε να πραγματοποιήσετε <a href="%{data_portability_path}">λήψη των δεδομένων σας</a> ή/και <a href="%{delete_path}">διαγραφή του λογαριασμού σας</a>.
           modal_btn_continue: Αποδοχή των όρων και συνέχεια
           modal_btn_exit: Θα τους διαβάσω αργότερα
           modal_button: Απόρριψη των όρων
