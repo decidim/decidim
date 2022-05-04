@@ -73,12 +73,6 @@ Style/OpenStructUse:
 Security/IoMethods:
   Enabled: false
 
-Layout/EmptyLineBetweenDefs:
-  Enabled: false
-
-Layout/LineEndStringConcatenationIndentation:
-  Enabled: false
-
 Rails/CompactBlank:
   Enabled: false
 
@@ -86,9 +80,6 @@ Security/Open:
   Enabled: false
 
 Lint/DuplicateBranch:
-  Enabled: false
-
-Layout/LeadingCommentSpace:
   Enabled: false
 
 Lint/AmbiguousOperatorPrecedence:

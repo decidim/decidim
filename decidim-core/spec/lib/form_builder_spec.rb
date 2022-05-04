@@ -338,7 +338,7 @@ module Decidim
       it "renders the checkbox before the label text" do
         expect(output).to eq(
           '<label for="resource_name"><input name="resource[name]" type="hidden" value="0" autocomplete="off" />' \
-            '<input type="checkbox" value="1" name="resource[name]" id="resource_name" />Name' \
+          '<input type="checkbox" value="1" name="resource[name]" id="resource_name" />Name' \
           "</label>"
         )
       end

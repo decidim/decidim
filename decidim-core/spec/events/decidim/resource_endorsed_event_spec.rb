@@ -39,7 +39,7 @@ describe Decidim::ResourceEndorsedEvent do
     it "is generated correctly" do
       expect(subject.email_intro)
         .to eq("#{author.name} #{author_presenter.nickname}, who you are following," \
-         " has just endorsed \"#{translated resource.title}\" and we think it may be interesting to you. Check it out and contribute:")
+               " has just endorsed \"#{translated resource.title}\" and we think it may be interesting to you. Check it out and contribute:")
     end
   end
 
