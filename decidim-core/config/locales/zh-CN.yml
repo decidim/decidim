@@ -1265,7 +1265,6 @@ zh-CN:
     invitations:
       edit:
         header: 完成创建您的帐户
-        nickname_help: 您在 %{organization} 中的昵称。
         submit_button: 保存
         subtitle: 如果您接受邀请，请设置您的昵称和密码。
       invitation_removed: 您的邀请已被删除。
