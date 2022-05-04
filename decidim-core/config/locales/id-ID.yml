@@ -984,7 +984,6 @@ id:
     invitations:
       edit:
         header: Selesaikan membuat akun Anda
-        nickname_help: Pengenal unik Anda dalam %{organization}.
         submit_button: Menyimpan
         subtitle: Jika Anda menerima undangan, atur nama panggilan dan kata sandi Anda.
       invitation_removed: Undangan Anda telah dihapus.
