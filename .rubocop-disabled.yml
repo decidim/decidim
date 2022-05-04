@@ -75,9 +75,9 @@ Lint/UnmodifiedReduceAccumulator:
 
 Gemspec/RequireMFA:
   Enabled: false
-
-Style/SelectByRegexp:
-  Enabled: false
+#
+#Style/SelectByRegexp:
+#  Enabled: false
 
 Rails/DuplicateScope:
   Enabled: false
