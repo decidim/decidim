@@ -29,4 +29,12 @@ module Decidim
       2.days
     end
   end
+
+  module ContentParsers
+    autoload :MeetingParser, "decidim/content_parsers/meeting_parser"
+  end
+
+  module ContentRenderers
+    autoload :MeetingRenderer, "decidim/content_renderers/meeting_renderer"
+  end
 end
