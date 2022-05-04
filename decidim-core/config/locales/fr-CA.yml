@@ -127,6 +127,16 @@ fr-CA:
       download_your_data_export:
         file_no_exists: Le fichier n'existe pas
         notice: Votre export est actuellement en cours. Vous recevrez un email quand il sera complet.
+      email_change:
+        body1: Nous avons envoyé un e-mail à %{unconfirmed_email} pour vérifier votre nouvelle adresse e-mail.
+        body2: Envoyer à nouveau l'e-mail de vérification ? %{resend_link} ou %{cancel_link}.
+        cancel: Annuler
+        cancel_error: Impossible d'annuler la modification de l'e-mail.
+        cancel_successfully: Modification de l'e-mail annulée.
+        resend_error: Impossible de renvoyer l'e-mail de confirmation.
+        resend_successfully: E-mail de confirmation renvoyé avec succès à %{unconfirmed_email}
+        send_again: Envoyer à nouveau
+        title: Vérification du changement d'adresse e-mail
       show:
         available_locales_helper: Choisissez la langue que vous souhaitez utiliser pour naviguer et recevoir des notifications sur la plateforme
         change_password: Changer de mot de passe
@@ -1485,7 +1495,6 @@ fr-CA:
     invitations:
       edit:
         header: Terminer la création de votre compte
-        nickname_help: Cet identifiant est public et unique sur la plateforme "%{organization}" ; il permet aux autres utilisateurs de vous suivre, de vous contacter ou de vous mentionner dans leurs commentaires. Il s’affichera précédé d’un « @ » ; il ne doit pas contenir d’espace ni de caractère spécial.
         submit_button: Sauvegarder
         subtitle: Si vous acceptez l'invitation, veuillez indiquer votre pseudonyme et votre mot de passe.
       invitation_removed: Votre invitation a été supprimée.
