@@ -21,6 +21,7 @@ fi-pl:
       timeline_entry:
         description: Kuvaus
         entry_date: Päivämäärä
+        title: Otsikko
     models:
       decidim/accountability/proposal_linked_event: Ehdotus sisältyy tulokseen
       decidim/accountability/result_progress_updated_event: Tuloksen edistyminen päivitetty
@@ -159,6 +160,7 @@ fi-pl:
         timeline_entry:
           fields:
             entry_date: Päivämäärä
+            title: Otsikko
       result_m:
         executed: Valmistunut
         view: Näytä
