@@ -6,14 +6,12 @@ module Decidim
     #
     # @see BaseParser Examples of how to use a content parser
     class ResourceParser < BaseParser
-
       # Matches a URL
       URL_REGEX_SCHEME = '(?:http(s)?:\/\/)'
       URL_REGEX_CONTENT = '[\w.-]+[\w\-\._~:\/?#\[\]@!\$&\'\(\)\*\+,;=.]+'
       URL_REGEX_END_CHAR = '[\d]'
       # Matches a mentioned resource ID (~(d)+ expression)
       ID_REGEX = /~(\d+)/
-
 
       # Replaces found mentions matching an existing
       # Resource with a global id for that Resource. Other mentions found that doesn't
@@ -31,7 +29,7 @@ module Decidim
         content.gsub(url_regex) do |match|
           resource = resource_from_url_match(match)
           if resource
-            @metadata.linked_proposals << resource.id if is_proposal(resource)
+            update_metadata(resource)
             resource.to_global_id
           else
             match
@@ -43,7 +41,7 @@ module Decidim
         content.gsub(ID_REGEX) do |match|
           resource = resource_from_id_match(Regexp.last_match(1))
           if resource
-            @metadata.linked_proposals << resource.id if is_proposal(resource)
+            update_metadata(resource)
             resource.to_global_id
           else
             match
@@ -77,16 +75,16 @@ module Decidim
         end
       end
 
-      def is_proposal(resource)
-        resource.is_a?(Decidim::Proposals::Proposal)
-      end
-
       def url_regex
         raise "Not implemented"
       end
 
       def model_class
         raise "Not implemented"
+      end
+
+      def update_metadata(resource)
+        # code to update metadata - needs to be overwritten
       end
     end
   end

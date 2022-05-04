@@ -36,6 +36,10 @@ module Decidim
       def model_class
         "Decidim::Proposals::Proposal"
       end
+
+      def update_metadata(resource)
+        @metadata.linked_proposals << resource.id
+      end
     end
   end
 end

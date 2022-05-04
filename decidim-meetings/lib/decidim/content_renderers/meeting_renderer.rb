@@ -9,7 +9,6 @@ module Decidim
     #
     # @see BaseRenderer Examples of how to use a content renderer
     class MeetingRenderer < ResourceRenderer
-
       def regex
         %r{gid://([\w-]*/Decidim::Meetings::Meeting/(\d+))}i
       end

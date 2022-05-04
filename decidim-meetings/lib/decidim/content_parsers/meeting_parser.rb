@@ -6,7 +6,6 @@ module Decidim
     #
     # @see BaseParser Examples of how to use a content parser
     class MeetingParser < ResourceParser
-
       private
 
       def url_regex
