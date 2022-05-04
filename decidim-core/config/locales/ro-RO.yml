@@ -1438,7 +1438,6 @@ ro:
     invitations:
       edit:
         header: Finalizează crearea contului tău
-        nickname_help: Pseudonimul tău în %{organization}.
         submit_button: Salvează
         subtitle: Dacă acceptați invitația, vă rugăm să vă setați porecla și parola.
       invitation_removed: Invitația ta a fost eliminată.
