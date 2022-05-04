@@ -81,9 +81,6 @@ ar:
       logo: "شعار %{organization} الرسمي"
       skip_button: تخطي إلى المحتوى الرئيسي
     account:
-      data_portability_export:
-        file_no_exists: الملف غير موجود
-        notice: يتم تنزيل بياناتك حاليًا. ستتلقى بريدًا إلكترونيًا عند اكتماله.
       delete:
         confirm:
           close: أغلق النافذة
@@ -94,6 +91,9 @@ ar:
       destroy:
         error: حدثت مشكلة في حذف حسابك.
         success: تم حذف حسابك بنجاح.
+      download_your_data_export:
+        file_no_exists: الملف غير موجود
+        notice: يتم تنزيل بياناتك حاليًا. ستتلقى بريدًا إلكترونيًا عند اكتماله.
       show:
         available_locales_helper: اختر اللغة التي تريد استخدامها لتصفح وتلقي الإشعارات على المنصة
         change_password: غير كلمة السر
@@ -355,12 +355,6 @@ ar:
       actions:
         login_before_access: من فضلك ، لِج بحسابك قبل الوصول
         unauthorized: غير مصرح لك بتنفيذ هذا الإجراء
-    data_portability:
-      export:
-        ready: جاهز
-      show:
-        download_data: قم بتنزيل البيانات
-        request_data: طلب البيانات
     datepicker:
       help_text: 'التنسيق المتوقع: %{datepicker_format}'
     devise:
@@ -426,6 +420,12 @@ ar:
           this_application_will_not_be_able_to: 'لن يكون هذا التطبيق قادرًا على:'
           update_profile: تحديث ملفك الشخصي
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> يريد استخدام حسابك"
+    download_your_data:
+      export:
+        ready: جاهز
+      show:
+        download_data: قم بتنزيل البيانات
+        request_data: طلب البيانات
     endorsable:
       endorsements: موافقات
     errors:
@@ -555,7 +555,7 @@ ar:
           email_subject: "%{nickname} تحديث ملفهم الشخصي"
           notification_title: و <a href="%{resource_path}">صفحة الملف الشخصي</a> من %{name} (%{nickname})، الذي كنت التالية، وقد تم تحديثها.
     export_mailer:
-      data_portability_export:
+      download_your_data_export:
         download: تحميل
       export:
         ready: يرجى الاطلاع على نسخة مضغوطة من التصدير.
@@ -922,7 +922,6 @@ ar:
         form:
           legend: توافق على شروط وأحكام الاستخدام
         refuse:
-          modal_body: إذا رفضت ، فلن تتمكن من استخدام النظام الأساسي ، يمكنك <a href="%{data_portability_path}">تنزيل بياناتك</a> و / أو <a href="%{delete_path}">حذف حسابك</a>.
           modal_btn_continue: قبول الشروط والمتابعة
           modal_btn_exit: سأراجعها لاحقًا
           modal_button: رفض الشروط
