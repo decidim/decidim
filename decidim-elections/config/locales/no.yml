@@ -545,6 +545,10 @@
           email_intro: 'Valget %{resource_title} er nå aktivt for %{participatory_space_title}. Du kan se det fra denne siden:'
     votings:
       admin:
+        landing_page:
+          content_blocks:
+            edit:
+              update: Oppdater
         menu:
           votings_submenu:
             monitoring_committee: Kontrollgruppe
