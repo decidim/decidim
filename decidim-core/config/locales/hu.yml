@@ -87,9 +87,6 @@ hu:
       skip_button: Ugrás a fő tartalomra
     account:
       blocked: Ezt a fiókot az Általános Szerződési Feltételek megsértése miatt blokkoltuk
-      data_portability_export:
-        file_no_exists: Fájl nem létezik
-        notice: Az adatok letöltése jelenleg folyamatban van. Ha befejeződött, e-mailt fogsz kapni.
       delete:
         alert: Ez a művelet nem visszavonható. Ha törlöd a fiókjod, nem fogsz tudni bejelentkezni a hitelesítő adataiddal. Fiókod törlése a hozzájárulásaid anonimizálását eredményezi. Továbbra is létrehozhatsz új fiókot, de ezek a hozzájárulások nem fognak kapcsolódni hozzá.
         confirm:
@@ -101,6 +98,9 @@ hu:
       destroy:
         error: Hiba történt a fiók törlése során.
         success: Fiók törlése sikeres.
+      download_your_data_export:
+        file_no_exists: Fájl nem létezik
+        notice: Az adatok letöltése jelenleg folyamatban van. Ha befejeződött, e-mailt fogsz kapni.
       show:
         available_locales_helper: Válasszd ki a nyelvet, amelyet használni szeretnél a platform értesítéseinek böngészéshez és fogadásához
         change_password: Jelszó módosítása
@@ -409,12 +409,6 @@ hu:
       actions:
         login_before_access: Kérlek jelentkezz be a fiókodba a hozzáféréshez
         unauthorized: Nem vagy jogosult a művelet végrehajtására
-    data_portability:
-      export:
-        ready: Kész
-      show:
-        download_data: Töltsd le az adatokat
-        request_data: Adatkérés
     datepicker:
       help_text: 'Várható formátum: %{datepicker_format}'
     devise:
@@ -477,6 +471,12 @@ hu:
           this_application_will_not_be_able_to: 'Ez az alkalmazás nem képes erre:'
           update_profile: Frissítsd a profilod
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> szeretné használni a fiókod"
+    download_your_data:
+      export:
+        ready: Kész
+      show:
+        download_data: Töltsd le az adatokat
+        request_data: Adatkérés
     editor_images:
       create:
         error: Hiba történt a kép feltöltése közben
@@ -630,7 +630,7 @@ hu:
         user_officialized:
           email_outro: Azért kapta ezt az értesítést, mert Ön a szervezet adminisztrátora.
     export_mailer:
-      data_portability_export:
+      download_your_data_export:
         download: Letöltés
       export:
         ready: Mellékelve találod az exportálás tömörített változatát.
@@ -1022,7 +1022,6 @@ hu:
           agreement: Elfogadom a feltételeket
           legend: Elfogadom a felhasználási feltételeket
         refuse:
-          modal_body: Ha elutasítod, akkor nem fogod tudni használi a platformot. <a href="%{data_portability_path}">Töltsd le az adataidat</a> és/vagy <a href="%{delete_path}">töröld a fiókod</a>.
           modal_btn_continue: Elfogadom és tovább lépek
           modal_btn_exit: Később átnézem
           modal_button: Elutasítom a feltételeket
