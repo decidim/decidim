@@ -1469,7 +1469,6 @@ sv:
     invitations:
       edit:
         header: Slutför att skapa ditt konto
-        nickname_help: Ditt användarnamn i %{organization}.
         submit_button: Spara
         subtitle: Om du godkänner inbjudan väljer du ditt användarnamn och lösenord.
       invitation_removed: Din inbjudan har tagits bort.
