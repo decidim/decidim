@@ -27,7 +27,9 @@ module Decidim
         end
 
         it "Draw can be reproduced several times" do
+          # rubocop:disable RSpec/IdenticalEqualityAssertion
           expect(Draw.for(sortition)).to eq(Draw.for(sortition))
+          # rubocop:enable RSpec/IdenticalEqualityAssertion
         end
       end
     end

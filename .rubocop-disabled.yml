@@ -76,9 +76,6 @@ Gemspec/RequireMFA:
 Rails/DuplicateScope:
   Enabled: false
 
-RSpec/IdenticalEqualityAssertion:
-  Enabled: false
-
 Rails/ExpandedDateRange:
   Enabled: false
 
