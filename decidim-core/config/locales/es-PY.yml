@@ -1489,7 +1489,6 @@ es-PY:
     invitations:
       edit:
         header: Termina de crear tu cuenta
-        nickname_help: Tu identificador único en %{organization}.
         submit_button: Guardar
         subtitle: Si aceptas la invitación, por favor establece tu nombre de usuario/a y contraseña.
       invitation_removed: Tu invitación fue eliminada.
