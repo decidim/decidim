@@ -87,11 +87,11 @@ module Decidim
 
       describe "translated notifications" do
         let(:en_body) { "A nice proposal" }
-        let(:body) { { "en": en_body, "machine_translations": { "ca": "Une belle idee" } } }
+        let(:body) { { en: en_body, machine_translations: { ca: "Une belle idee" } } }
         let(:resource) do
           create :proposal,
                  component: proposal_component,
-                 title: { "en": "A nice proposal", "machine_translations": { "ca": "Une belle idee" } },
+                 title: { en: "A nice proposal", machine_translations: { ca: "Une belle idee" } },
                  body: body
         end
 

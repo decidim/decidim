@@ -50,7 +50,7 @@ module Decidim
       end
 
       context "when the user is blocked and extended_data has user_name" do
-        let(:user) { build(:user, name: "Blocked user", blocked: true, extended_data: { "user_name": "Test" }) }
+        let(:user) { build(:user, name: "Blocked user", blocked: true, extended_data: { user_name: "Test" }) }
 
         it "returns user name" do
           expect(user.user_name).to eq("Test")
@@ -286,9 +286,9 @@ module Decidim
       let(:scope4) { create(:scope, organization: organization) }
       let(:scope5) { create(:scope, organization: organization) }
 
-      let(:users_scope1) { create_list(:user, 10, organization: organization, extended_data: { "interested_scopes": scope1.id }) }
-      let(:users_scope2) { create_list(:user, 10, organization: organization, extended_data: { "interested_scopes": [scope2.id] }) }
-      let(:users_multiscope) { create_list(:user, 10, organization: organization, extended_data: { "interested_scopes": [scope1.id, scope2.id, scope3.id] }) }
+      let(:users_scope1) { create_list(:user, 10, organization: organization, extended_data: { interested_scopes: scope1.id }) }
+      let(:users_scope2) { create_list(:user, 10, organization: organization, extended_data: { interested_scopes: [scope2.id] }) }
+      let(:users_multiscope) { create_list(:user, 10, organization: organization, extended_data: { interested_scopes: [scope1.id, scope2.id, scope3.id] }) }
 
       # It needs to be controlled when the users are created which is why this
       # needs to be separated to its own method instead of using the bang
@@ -361,7 +361,7 @@ module Decidim
       context "when there are scopes with matching numbers in their IDs" do
         let(:scopes) { [scope1.id] }
         let(:extra_scopes) { create_list(:scope, 15, organization: organization) }
-        let(:users_scope11) { create_list(:user, 10, organization: organization, extended_data: { "interested_scopes": [11] }) }
+        let(:users_scope11) { create_list(:user, 10, organization: organization, extended_data: { interested_scopes: [11] }) }
 
         before do
           # Reset the scope IDs to start from 1 in order to get possibly

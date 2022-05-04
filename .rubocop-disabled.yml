@@ -4,8 +4,8 @@ Rails/DurationArithmetic:
 Naming/VariableNumber:
   Enabled: false
 
-Lint/SymbolConversion:
-  Enabled: false
+#Lint/SymbolConversion:
+#  Enabled: false
 
 Lint/EmptyClass:
   Enabled: false

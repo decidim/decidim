@@ -33,7 +33,7 @@ describe "Explore meeting directory", type: :system do
   describe "category filter" do
     context "with a category" do
       let!(:category1) do
-        create(:category, participatory_space: participatory_process, name: { "en": "Category1" })
+        create(:category, participatory_space: participatory_process, name: { en: "Category1" })
       end
       let!(:meeting) do
         meeting = meetings.first
