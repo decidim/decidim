@@ -126,6 +126,9 @@ en:
       destroy:
         error: There was a problem deleting your account.
         success: Your account was successfully deleted.
+      download_your_data_export:
+        file_no_exists: File does not exist
+        notice: The download of your data is currently in progress. You'll receive an email when it's complete.
       email_change:
         body1: We've sent an email to %{unconfirmed_email} to verify your new email address.
         body2: Need us to send the verification email again? %{resend_link} or %{cancel_link}.
@@ -136,9 +139,6 @@ en:
         resend_successfully: Confirmation email resent successfully to %{unconfirmed_email}
         send_again: Send again
         title: Email change verification
-      download_your_data_export:
-        file_no_exists: File does not exist
-        notice: The download of your data is currently in progress. You'll receive an email when it's complete.
       show:
         available_locales_helper: Choose the language you want to use to browse and receive notifications on the platform
         change_password: Change password
