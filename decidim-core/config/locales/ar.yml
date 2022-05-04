@@ -1129,7 +1129,6 @@ ar:
     invitations:
       edit:
         header: الانتهاء من إنشاء حسابك
-        nickname_help: اسم الشهرة الخاص بك في %{organization}.
         submit_button: حفظ
         subtitle: إذا قبلت الدعوة ، فيرجى تعيين اسم المستخدم وكلمة المرور الخاصين بك.
       invitation_removed: تمت إزالة دعوتك.
