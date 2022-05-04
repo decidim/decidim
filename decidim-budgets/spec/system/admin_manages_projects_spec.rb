@@ -44,7 +44,7 @@ describe "Admin manages projects", type: :system do
         expect(page).to have_content(translated(category.name))
       end
       expect(::Decidim::Budgets::Project.find(project.id).category).to eq(category)
-      expect(::Decidim::Budgets::Project.find(project2.id).category).to be(nil)
+      expect(::Decidim::Budgets::Project.find(project2.id).category).to be_nil
     end
 
     it "changes projects scope" do
@@ -58,7 +58,7 @@ describe "Admin manages projects", type: :system do
         expect(page).to have_content(translated(scope.name))
       end
       expect(::Decidim::Budgets::Project.find(project.id).scope).to eq(scope)
-      expect(::Decidim::Budgets::Project.find(project2.id).scope).to be(nil)
+      expect(::Decidim::Budgets::Project.find(project2.id).scope).to be_nil
     end
 
     it "selects projects to implementation" do
