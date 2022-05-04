@@ -100,7 +100,7 @@ RSpec.configure do |config|
   end
 
   config.after(type: :system) do |example|
-    warn page.driver.browser.manage.logs.get(:browser) unless example.metadata[:driver].eql?(:rack_test)
+    warn page.driver.browser.logs.get(:browser) unless example.metadata[:driver].eql?(:rack_test)
   end
 
   config.include Decidim::CapybaraTestHelpers, type: :system
