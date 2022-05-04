@@ -3,6 +3,10 @@ ar:
     attributes:
       account:
         delete_reason: سبب حذف حسابك
+      common:
+        created_at: تم إنشاؤها في
+      conversation:
+        body: المحتوى
       group:
         about: عن
         avatar: الصورة الرمزية
@@ -11,11 +15,14 @@ ar:
         name: الإسم
         nickname: الاسم المستعار
         phone: الهاتف
+      message:
+        body: المحتوى
       report:
         details: تعليقات إضافية
       user:
         about: عن
         email: بريدك الإلكتروني
+        locale: اللغة
         name: اسمك
         nickname: الاسم المستعار
         password: الكلمة السرية
@@ -33,6 +40,7 @@ ar:
       decidim/profile_updated_event: تحديث الملف الشخصي
       decidim/promote_to_admin: تمت ترقيته إلى مسؤول المجموعة
       decidim/removed_from_group: تمت إزالته من المجموعة
+      decidim/resource_endorsed_event: المورد المدعُوم
   activerecord:
     attributes:
       decidim/user:
