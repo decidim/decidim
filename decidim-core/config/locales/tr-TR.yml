@@ -1360,7 +1360,6 @@ tr:
     invitations:
       edit:
         header: Hesabınızı oluşturmayı bitirin
-        nickname_help: Benzersiz tanımlayıcınız %{organization}.
         submit_button: Kayıt etmek
         subtitle: Davetiyeyi kabul ederseniz, lütfen takma adınızı ve şifrenizi ayarlayın.
       invitation_removed: Davetiniz kaldırıldı.
