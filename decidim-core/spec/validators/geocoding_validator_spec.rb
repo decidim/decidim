@@ -21,7 +21,9 @@ describe GeocodingValidator do
       validates :address, geocoding: true
 
       def component
+        # rubocop:disable RSpec/FactoryBot/SyntaxMethods
         FactoryBot.create(:component)
+        # rubocop:enable RSpec/FactoryBot/SyntaxMethods
       end
     end
   end

@@ -41,9 +41,11 @@ describe UploaderContentTypeValidator do
 
       validates_upload(:file, **validation_options.merge(uploader: mount_class))
 
+      # rubocop:disable RSpec/FactoryBot/SyntaxMethods
       def organization
         @organization ||= FactoryBot.create(:organization)
       end
+      # rubocop:enable RSpec/FactoryBot/SyntaxMethods
     end
   end
 

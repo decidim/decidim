@@ -45,9 +45,11 @@ describe PassthruValidator do
       attribute :file
       validates :file, validator_config
 
+      # rubocop:disable RSpec/FactoryBot/SyntaxMethods
       def organization
         @organization ||= FactoryBot.create(:organization)
       end
+      # rubocop:enable RSpec/FactoryBot/SyntaxMethods
     end
   end
 
