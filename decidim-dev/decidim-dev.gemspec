@@ -42,7 +42,7 @@ Gem::Specification.new do |s|
   s.add_dependency "rubocop", "~> 0.92.0"
   s.add_dependency "rubocop-rails", "~> 2.8"
   s.add_dependency "rubocop-rspec", "= 1.43.2"
-  s.add_dependency "selenium-webdriver", "~> 3.142"
+  s.add_dependency "selenium-webdriver", "~> 4.1.0"
   s.add_dependency "simplecov", "~> 0.19.0"
   s.add_dependency "simplecov-cobertura", "~> 1.3.1"
   s.add_dependency "w3c_rspec_validators", "~> 0.3.0"

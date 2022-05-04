@@ -215,4 +215,45 @@ describe "Account", type: :system do
       end
     end
   end
+
+  context "when on the notifications page in a PWA browser" do
+    let(:organization) { create(:organization, host: "pwa.lvh.me") }
+    let(:user) { create(:user, :confirmed, password: password, password_confirmation: password, organization: organization) }
+    let(:password) { "dqCFgjfDbC7dPbrv" }
+
+    before do
+      allow(Rails.application.secrets).to receive("vapid").and_return({
+                                                                        enabled: true,
+                                                                        public_key: "BKmjw_A8tJCcZNQ72uG8QW15XHQnrGJjHjsmoUILUUFXJ1VNhOnJLc3ywR3eZKibX4HSqhB1hAzZFj__3VqzcPQ=",
+                                                                        private_key: "TF_MRbSSs_4BE1jVfOsILSJemND8cRMpiznWHgdsro0="
+                                                                      })
+      driven_by(:pwa_chrome)
+      switch_to_host(organization.host)
+      login_as user, scope: :user
+      visit decidim.notifications_settings_path
+    end
+
+    context "when on the account page" do
+      it "enables push notifications" do
+        sleep 2
+        within ".push-notifications" do
+          # Check allow push notifications
+          find(".switch-paddle").click
+        end
+
+        # Wait for the browser to be subscribed
+        sleep 5
+
+        within "form.edit_user" do
+          find("*[type=submit]").click
+        end
+
+        within_flash_messages do
+          expect(page).to have_content("successfully")
+        end
+
+        expect(page.find("#allow_push_notifications", visible: false)).to be_checked
+      end
+    end
+  end
 end

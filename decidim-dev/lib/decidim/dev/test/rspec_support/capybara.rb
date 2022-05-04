@@ -31,6 +31,27 @@ Capybara.register_driver :headless_chrome do |app|
                   else
                     "--window-size=1920,1080"
                   end
+  Capybara::Selenium::Driver.new(
+    app,
+    browser: :chrome,
+    options: options
+  )
+end
+
+Capybara.server_port = rand(5000..6999)
+
+Capybara.register_driver :pwa_chrome do |app|
+  options = ::Selenium::WebDriver::Chrome::Options.new
+  options.args << "--no-sandbox"
+  options.args << "--unsafely-treat-insecure-origin-as-secure=http://pwa.lvh.me:#{Capybara.server_port}"
+  options.args << "--user-data-dir=/tmp/decidim_tests_user_data_#{rand(1000)}"
+  options.args << if ENV["BIG_SCREEN_SIZE"].present?
+                    "--window-size=1920,3000"
+                  else
+                    "--window-size=1920,1080"
+                  end
+  options.local_state["browser.enabled_labs_experiments"] = ["enable-system-notifications@1", "unsafely-treat-insecure-origin-as-secure"]
+  options.prefs["profile.default_content_setting_values.notifications"] = 1
 
   Capybara::Selenium::Driver.new(
     app,
