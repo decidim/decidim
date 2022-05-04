@@ -4,12 +4,31 @@ $(() => {
     return $(".table-list .js-check-all-resources:checked").length
   }
 
+  const selectedResourcesNotPublishedAnswerCount = () => {
+    return $(".table-list [data-published-state=false] .js-check-all-resources:checked").length
+  }
+
   const selectedResourcesCountUpdate = () => {
     const selectedResources = selectedResourcesCount();
+    const selectedResourcesNotPublishedAnswer = selectedResourcesNotPublishedAnswerCount();
+
     if (selectedResources === 0) {
       $("#js-selected-resources-count").text("")
     } else {
       $("#js-selected-resources-count").text(selectedResources);
+    }
+
+    if (selectedResources >= 2) {
+      $('button[data-action="merge-resources"]').parent().show();
+    } else {
+      $('button[data-action="merge-resources"]').parent().hide();
+    }
+
+    if (selectedResourcesNotPublishedAnswer > 0) {
+      $('button[data-action="publish-answers"]').parent().show();
+      $("#js-form-publish-answers-number").text(selectedResourcesNotPublishedAnswer);
+    } else {
+      $('button[data-action="publish-answers"]').parent().hide();
     }
   }
 
@@ -73,11 +92,9 @@ $(() => {
       $(".js-check-all-resources").prop("checked", $(this).prop("checked"));
 
       if ($(this).prop("checked")) {
-        console.log("SHOW BULK ACTIONS BUTTON");
         $(".js-check-all-resources").closest("tr").addClass("selected");
         showBulkActionsButton();
       } else {
-        console.log("HIDE BULK ACTIONS BUTTON");
         $(".js-check-all-resources").closest("tr").removeClass("selected");
         hideBulkActionsButton();
       }
