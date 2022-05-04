@@ -1493,7 +1493,6 @@ fi-pl:
     invitations:
       edit:
         header: Viimeistele tilisi
-        nickname_help: Yksilöllinen käyttäjänimesi organisaatiossa %{organization}.
         submit_button: Tallenna
         subtitle: Jos hyväksyt kutsun, aseta käyttäjänimesi ja salasana.
       invitation_removed: Kutsusi peruutettiin.
