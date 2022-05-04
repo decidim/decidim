@@ -9,7 +9,7 @@ module Decidim
     i18n_attributes :link_to_account_settings
 
     def notification_title
-      I18n.t("decidim.events.nickname_event.notification_body", i18n_options).to_s.html_safe
+      I18n.t("decidim.events.nickname_event.notification_body", **i18n_options).to_s.html_safe
     end
 
     def i18n_options
