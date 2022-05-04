@@ -1411,7 +1411,6 @@ pl:
     invitations:
       edit:
         header: Zakończ tworzenie konta
-        nickname_help: Twój unikalny identyfikator w %{organization}.
         submit_button: Zapisz
         subtitle: Jeśli akceptujesz zaproszenie, ustaw swój pseudonim i hasło.
       invitation_removed: Twoje zaproszenie zostało usunięte.
