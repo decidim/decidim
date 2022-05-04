@@ -1249,7 +1249,6 @@ hu:
     invitations:
       edit:
         header: Profil létrehozásának befejezése
-        nickname_help: 'Egyedi azonosítód ehhez: %{organization}.'
         submit_button: Mentés
         subtitle: Ha elfogadod a meghívást, állítsd be a beceneved és a jelszavad.
       invitation_removed: Meghívása eltávolításra került.
