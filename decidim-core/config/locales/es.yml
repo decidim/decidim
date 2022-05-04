@@ -127,6 +127,9 @@ es:
       download_your_data_export:
         file_no_exists: El archivo no existe
         notice: La descarga de tus datos está en curso. Recibirás un correo electrónico cuando se complete.
+      email_change:
+        body1: Hemos enviado un correo electrónico a %{unconfirmed_email} para verificar tu nueva dirección de correo electrónico.
+        body2: '¿Necesitas que te reenviemos el correo de verificación? %{resend_link} o %{cancel_link}.'
       show:
         available_locales_helper: Elige el idioma que deseas utilizar para navegar y recibir notificaciones en la plataforma
         change_password: Cambia la contraseña
