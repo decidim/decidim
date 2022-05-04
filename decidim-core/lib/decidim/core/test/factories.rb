@@ -17,8 +17,8 @@ FactoryBot.define do
     "#{Faker::Lorem.sentence(word_count: 3)} #{n}".delete("'")
   end
 
-  sequence(:name) do |n|
-    "#{Faker::Name.name} #{n}".delete("'")
+  sequence(:name) do |_|
+    Faker::Name.name.delete("'")
   end
 
   sequence(:nickname) do |n|
@@ -125,7 +125,7 @@ FactoryBot.define do
 
   factory :user, class: "Decidim::User" do
     email { generate(:email) }
-    password { "password1234" }
+    password { "decidim123456" }
     password_confirmation { password }
     name { generate(:name) }
     nickname { generate(:nickname) }
@@ -248,7 +248,7 @@ FactoryBot.define do
   end
 
   factory :user_group_membership, class: "Decidim::UserGroupMembership" do
-    user
+    user { create(:user, :confirmed, organization: user_group.organization) }
     role { :creator }
     user_group
   end
@@ -713,8 +713,8 @@ FactoryBot.define do
 
   factory :user_report, class: "Decidim::UserReport" do
     reason { "spam" }
-    moderation { build(:user_moderation) }
-    user { build(:user, organization: moderation.organization) }
+    moderation { create(:user_moderation, user: user) }
+    user { build(:user) }
   end
 
   factory :user_moderation, class: "Decidim::UserModeration" do
@@ -748,5 +748,25 @@ FactoryBot.define do
       times_used { 3 }
       last_used_at { 1.hour.ago }
     end
+  end
+
+  factory :editor_image, class: "Decidim::EditorImage" do
+    organization
+    author { create(:user, :admin, :confirmed, organization: organization) }
+    file { Decidim::Dev.test_file("city.jpeg", "image/jpeg") }
+  end
+
+  factory :reminder, class: "Decidim::Reminder" do
+    user { build(:user) }
+    component { build(:dummy_component, organization: user.organization) }
+  end
+
+  factory :reminder_record, class: "Decidim::ReminderRecord" do
+    reminder { create(:reminder) }
+    remindable { build(:dummy_resource) }
+  end
+
+  factory :reminder_delivery, class: "Decidim::ReminderDelivery" do
+    reminder { create(:reminder) }
   end
 end

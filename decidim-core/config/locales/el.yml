@@ -62,7 +62,6 @@ el:
     'true': 'Ναι'
   carrierwave:
     errors:
-      general: Σφάλμα κατά την επεξεργασία της εικόνας
       image_too_big: Η εικόνα είναι πολύ μεγάλη
   date:
     formats:
@@ -641,7 +640,6 @@ el:
         button: Διακοπή παρακολούθησης
         error: Υπήρξε ένα πρόβλημα κατά τη διακοπή παρακολούθησης αυτού του πόρου.
     forms:
-      current_file: Τρέχον αρχείο
       current_image: Τρέχουσα εικόνα
       default_image: Προεπιλεγμένη εικόνα
       errors:
@@ -660,7 +658,6 @@ el:
       file_validation:
         allowed_file_extensions: 'Επιτρεπόμενα είδη αρχείου: %{extensions}'
         max_file_size: 'Μέγιστο μέγεθος αρχείου: %{megabytes}MB'
-      remove_this_file: Καταργήστε αυτό το αρχείο
     gamification:
       all_badges_link: Δείτε όλα τα διαθέσιμα εμβλήματα.
       badges:

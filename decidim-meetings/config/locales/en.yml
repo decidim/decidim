@@ -24,6 +24,7 @@ en:
         decidim_user_group_id: User group
         description: Description
         end_time: End Time
+        id: ID
         location: Location
         location_hints: Location hints
         online_meeting_url: Online meeting URL
@@ -35,12 +36,17 @@ en:
         registration_terms: Registration terms
         registration_url: Registration URL
         registrations_enabled: Registrations enabled
+        show_embedded_iframe: Show embedded iframe for this URL
         start_time: Start Time
         title: Title
         transparent: Transparent
         type_of_meeting: Type
     errors:
       models:
+        meeting:
+          attributes:
+            iframe_embed_type:
+              not_embeddable: This URL can't be embedded in meeting or live event page
         meeting_agenda:
           attributes:
             base:
@@ -70,6 +76,34 @@ en:
         other: Registrations
   decidim:
     admin:
+      filters:
+        meetings:
+          category_id_eq:
+            label: Category
+          closed_at_present:
+            label: State
+            values:
+              'false': Open
+              'true': Closed
+          is_upcoming_true:
+            label: Date
+            values:
+              'false': Past
+              'true': Upcoming
+          scope_id_eq:
+            label: Scope
+          with_any_origin:
+            label: Origin
+            values:
+              official: Official
+              participants: Participant
+              user_group: User Groups
+          with_any_type:
+            label: Type of meeting
+            values:
+              hybrid: Both
+              in_person: In Person
+              online: Online
       meeting_copies:
         create:
           error: There was a problem duplicating this meeting.
@@ -81,6 +115,7 @@ en:
     components:
       meetings:
         actions:
+          comment: Comment
           join: Join
         name: Meetings
         settings:
@@ -148,6 +183,9 @@ en:
           email_outro: You have received this notification because you are following the "%{resource_title}" meeting. You can unfollow it from the previous link.
           email_subject: The "%{resource_title}" meeting will start in less than 48h.
           notification_title: The <a href="%{resource_path}">%{resource_title}</a> meeting will start in less than 48h.
+    forms:
+      meetings:
+        attendees_count_help_text: Don’t forget to include the total number of participants at your event. Whether in person, hybrid, or online, it’s important that we know how many people are involved.
     gamification:
       badges:
         attended_meetings:
@@ -245,6 +283,9 @@ en:
           edit:
             close: Close
             title: Close meeting
+        meeting_copies:
+          form:
+            select_a_meeting_type: Please select a meeting type
         meetings:
           close:
             invalid: There was a problem closing this meeting
@@ -263,15 +304,15 @@ en:
             update: Update
           form:
             address_help: 'Address: used by Geocoder to find the location'
-            available_slots_help: Leave it to 0 if you have unlimited slots available
             disclaimer: 'Disclaimer: By using an external registration system, you''re aware that the organizers of %{organization} are not responsible for the data provided by the users to the external service.'
             location_help: 'Location: message directed to the users implying the spot to meet at'
             location_hints_help: 'Location hints: additional info. Example: the floor of the building if it is an in-person meeting, or the meeting password if it is an online meeting with restricted access.'
             online_meeting_url_help: 'Link: allow participants to connect directly to your meeting'
-            registration_email_help: This text will appear in the middle of the registration confirmation email. Just after the registration code.
             registration_url_help: 'Link: allow participants to go on the external service you are using for registrations'
             select_a_meeting_type: Please select a meeting type
             select_a_registration_type: Please select a registration type
+            select_an_iframe_access_level: Please select an iframe access level
+            show_embedded_iframe_help: Only a few services allow embedding in meeting or live event (YouTube, Twitch and Jitsi)
           index:
             title: Meetings
           new:
@@ -314,6 +355,7 @@ en:
             available_slots_help: Leave it to 0 if you have unlimited slots available.
             invites: Invitations
             recommendation_message: For privacy reasons we recommend that you delete this inscription form when you no longer need it. By default this is 3 months after the meeting has ended.
+            registration_email_help: This text will appear in the middle of the registration confirmation email. Just after the registration code.
             registration_form: Registration form
             registrations_count:
               one: There has been %{count} registration.
@@ -341,26 +383,49 @@ en:
           value_types:
             organizer_presenter:
               not_found: 'The organizer was not found on the database (ID: %{id})'
+      application_helper:
+        filter_category_values:
+          all: All
+        filter_meeting_space_values:
+          all: All
+        filter_scope_values:
+          all: All
       calendar_modal:
         calendar_url: Calendar URL
         close_window: Close window
+        copy_calendar_url: Copy
+        copy_calendar_url_clarification: Copy calendar url to clipboard
+        copy_calendar_url_copied: Copied!
+        copy_calendar_url_description: You can see all the published meetings in your calendar application or provider. Copy and paste this URL in your calendar using the "Add new calendar from an URL" option.
+        copy_calendar_url_explanation: Please note that you're exporting a selection of meetings, as there are active filters. If you wish to export them all, reset all filters first.
+        copy_calendar_url_message: The url was successfully copied to clipboard.
         export_calendar: Export calendar
+      close_meeting_reminder_mailer:
+        close_meeting_reminder:
+          body: The meeting <a href="%{meeting_path}">"%{meeting_title}"</a> is pending to be closed. Please add a report of the meeting using the "Close meeting" button.
+          greetings: Greetings,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
+          hello: Hello %{username},
+          subject: You can now close your meeting with a report on the %{organization_name} platform
       conference_venues: Conference Venues
       content_blocks:
-        upcoming_events:
-          name: Upcoming events
-          upcoming_events: Upcoming meetings
-          view_all_events: View all
+        upcoming_meetings:
+          name: Upcoming meetings
+          upcoming_meetings: Upcoming meetings
+          view_all_meetings: View all
       directory:
         meetings:
           index:
-            all: All
-            date: Date
             meetings: Meetings
-            past: Past
-            search: Search
             space_type: Participatory space
-            upcoming: Upcoming
+      iframe_access_level:
+        all: All visitors
+        registered: Registered participants to this meeting
+        signed_in: Only signed-in participants
+      iframe_embed_type:
+        embed_in_meeting_page: Embed in meeting page
+        none: None
+        open_in_live_event_page: Open in live event page (with optional polls)
+        open_in_new_tab: Open URL in a new tab
       last_activity:
         meeting_updated_at_html: "<span>Meeting updated at %{link}</span>"
         new_meeting_at_html: "<span>New meeting at %{link}</span>"
@@ -415,8 +480,8 @@ en:
           origin: Origin
           origin_values:
             all: All
-            citizens: Citizens
             official: Official
+            participants: Participants
             user_groups: Groups
           scope: Scope
           search: Search
@@ -443,8 +508,14 @@ en:
           select_a_category: Please select a category
           select_a_meeting_type: Please select a meeting type
           select_a_registration_type: Please select a registration type
+          select_an_iframe_access_level: Please select an iframe access level
+          show_embedded_iframe_help: Only a few services allow embedding in meeting or live event (YouTube, Twitch and Jitsi)
         index:
+          click_here: See all meetings
           new_meeting: New meeting
+          see_all: See all meetings
+          see_all_withdrawn: See all withdrawn meetings
+          text_banner: You are viewing the list of meetings withdrawn by their authors. %{go_back_link}.
         meeting_minutes:
           related_information: Related Information
         meetings:
@@ -454,10 +525,6 @@ en:
           back: Back
           create: Create
           title: Create Your Meeting
-        online_meeting_link:
-          join: Join the meeting
-          link_available_soon: Link available soon
-          live_event: This meeting is happening right now
         registration_confirm:
           cancel: Cancel
           confirm: Confirm
@@ -467,12 +534,17 @@ en:
           close_meeting: Close meeting
           contributions: Contributions count
           date: Date
+          edit_close_meeting: Edit meeting report
           edit_meeting: Edit meeting
           going: You have signed up for this meeting
           join: Join meeting
           leave: Cancel your registration
           leave_confirmation: Are you sure you want to cancel your registration for this meeting?
+          link_available_soon: Link available soon
+          link_closed: The link to join the meeting will be available a few minutes before it starts
+          live_event: This meeting is happening right now
           meeting_minutes: Meeting Minutes
+          micro_camera_permissions_warning: When you click on the button below, you will be asked for microphone and/or camera permissions, and you will join the videoconference
           no_slots_available: No slots available
           organizations: Attending organizations
           registration_code_help_text: Your registration code
@@ -483,6 +555,10 @@ en:
             one: "%{count} slot remaining"
             other: "%{count} slots remaining"
           view: View
+          visit_finished: View past meeting
+          withdraw_btn_hint: You can withdraw your meeting if you change your mind. The meeting is not deleted, it will appear in the list of withdrawn meetings.
+          withdraw_confirmation_html: Are you sure you want to withdraw this meeting?<br><br><strong>This action cannot be cancelled!</strong>
+          withdraw_meeting: Withdraw meeting
         update:
           invalid: There was a problem updating the meeting.
           success: You have updated the meeting successfully.
@@ -503,6 +579,7 @@ en:
           fields:
             closed: Closed
             end_time: End date
+            id: Id
             map: Map
             official_meeting: Official meeting
             start_time: Start date
@@ -559,8 +636,12 @@ en:
       types:
         private_meeting: Private meeting
         transparent: Transparent
+        withdraw: Withdrawn
       versions:
         back_to_resource: Go back to meeting
+      withdraw:
+        error: An error ocurred while withdrawing the meeting
+        success: The meeting has been withdrawn successfully
     metrics:
       meetings:
         description: Number of meetings created

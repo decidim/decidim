@@ -23,7 +23,8 @@ module Decidim
                prepare: lambda { |direction, ctx|
                           lambda { |locale|
                             locale = ctx[:current_organization].default_locale if locale.blank?
-                            [Arel.sql("name->? #{direction.upcase}"), locale]
+                            field = Arel::Nodes::InfixOperation.new("->", Arel.sql("name"), Arel::Nodes.build_quoted(locale))
+                            Arel::Nodes::InfixOperation.new("", field, Arel.sql(direction.upcase))
                           }
                         }
     end

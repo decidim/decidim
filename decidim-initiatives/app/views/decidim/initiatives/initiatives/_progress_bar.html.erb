@@ -3,7 +3,7 @@
     <% if index == 0 %>
       <%= cell(
         "decidim/progress_bar",
-        current_initiative.online_votes_count_for(type_scope.scope),
+        current_initiative.supports_count_for(type_scope.scope),
         total: type_scope.supports_required,
         units_name: "decidim.initiatives.initiatives.votes_count.count",
         element_id: "initiative-#{current_initiative.id}-votes-count",
@@ -13,7 +13,7 @@
     <% else %>
       <%= cell(
         "decidim/progress_bar",
-        current_initiative.online_votes_count_for(type_scope.scope),
+        current_initiative.supports_count_for(type_scope.scope),
         total: type_scope.supports_required,
         subtitle_text: translated_attribute(type_scope.scope_name),
         element_id: "initiative-scope-#{type_scope.id}-#{current_initiative.id}-votes-count",

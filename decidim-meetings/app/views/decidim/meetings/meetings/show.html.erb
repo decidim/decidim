@@ -17,13 +17,13 @@ edit_link(
 
 <div class="row column view-header">
   <div class="m-bottom">
-    <%= link_to meetings_path(filter_link_params), class: "small hollow" do %>
+    <%= link_to meetings_path, class: "small hollow js-back-to-list" do %>
       <%= icon "chevron-left", class: "icon--small", role: "img", "aria-hidden": true %>
       <%= t(".back") %>
     <% end %>
   </div>
 
-  <h2 class="heading2"><%= present(meeting).title(links: true) %></h2>
+  <h2 class="heading2"><%= present(meeting).title(links: true, html_escape: true ) %></h2>
 
   <%= cell "decidim/author", author_presenter_for(meeting.normalized_author), has_actions: true, from: meeting, context: { extra_classes: ["author-data--small"] } %>
 
@@ -37,20 +37,14 @@ edit_link(
     <% end %>
 
     <% if allowed_to?(:close, :meeting, meeting: meeting) %>
-      <%= link_to t(".close_meeting"), edit_meeting_meeting_close_path(meeting_id: meeting.id, id: meeting.id), class: "button hollow expanded button-sc button--icon follow-button" %>
+      <% caption =  meeting.closed? ? t(".edit_close_meeting") : t(".close_meeting") %>
+      <%= link_to caption, edit_meeting_meeting_close_path(meeting_id: meeting.id, id: meeting.id), class: "button hollow expanded button-sc button--icon follow-button" %>
     <% end %>
 
     <div class="card extra">
       <div class="card__content">
-        <div class="extra__date">
-          <%= l meeting.start_time, format: "%d" %>
-          <span class="extra__month"><%= l meeting.start_time, format: "%B" %>
-            <%= l(meeting.start_time, format: "%Y") if meeting.start_time.year != Date.current.year %>
-          </span>
-        </div>
-        <div class="extra__time">
-          <%= meeting.start_time.strftime("%H:%M") %> - <%= meeting.end_time.strftime("%H:%M") %>
-        </div>
+        <%= cell("decidim/date_range", { start: meeting.start_time, end: meeting.end_time }) %>
+
         <%= cell "decidim/meetings/join_meeting_button", meeting, big_button: true, show_remaining_slots: true %>
         <%= render partial: "decidim/shared/follow_button", locals: { followable: meeting, large: false  } %>
       </div>
@@ -125,14 +119,19 @@ edit_link(
           <%= t("transparent", scope: "decidim.meetings.types") %>
         </span>
       <% end %>
-      <%= decidim_sanitize(present(meeting).description(links: true)) %>
+      <% if meeting.withdrawn? %>
+        <span class="<%= meeting_type_badge_css_class("withdraw") %> label proposal-status">
+          <%= t("withdraw", scope: "decidim.meetings.types") %>
+        </span>
+      <% end %>
+      <%= render_meeting_body(@meeting) %>
 
       <% if meeting.maps_enabled? && !meeting.online_meeting? %>
         <%= render partial: "decidim/shared/static_map", locals: { icon_name: "meetings", geolocalizable: meeting } %>
       <% end %>
 
-      <% unless meeting.in_person_meeting? %>
-        <%= render partial: "online_meeting_link", locals: { meeting: meeting } %>
+      <% unless meeting.in_person_meeting? || meeting.withdrawn? %>
+        <%= cell "decidim/meetings/online_meeting_link", meeting %>
       <% end %>
 
       <%= render partial: "decidim/shared/tags", locals: { resource: meeting, tags_class_extra: "tags--meeting" } %>
@@ -163,7 +162,7 @@ edit_link(
     <% if meeting.closed? && meeting.closing_visible? %>
       <div class="section">
         <h3 class="section-heading"><%= t(".meeting_minutes") %></h3>
-        <%= decidim_sanitize translated_attribute meeting.closing_report %>
+        <%= decidim_sanitize_editor translated_attribute meeting.closing_report %>
       </div>
     <% end %>
 

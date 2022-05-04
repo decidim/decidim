@@ -1,11 +1,11 @@
 <div class="row section" id="consultation-details">
   <div class="columns medium-6 large-5 large-push-1">
-    <p class="lead"><%= decidim_sanitize translated_attribute(consultation.description) %></p>
+    <p class="lead"><%= decidim_sanitize_editor translated_attribute(consultation.description) %></p>
   </div>
   <div class="columns medium-6 large-5 large-pull-1">
     <% if consultation.introductory_video_url.blank? %>
       <div class="card--full__image consultations-card__image introductory-image"
-           style="background-image: url(<%= consultation.introductory_image_url %>);">
+           style="background-image: url(<%= consultation.attached_uploader(:introductory_image).path %>);">
       </div>
     <% else %>
       <div class="embed-container">

@@ -27,6 +27,7 @@ module Decidim
       include Decidim::Proposals::Valuatable
       include Decidim::TranslatableResource
       include Decidim::TranslatableAttributes
+      include Decidim::FilterableResource
 
       translatable_fields :title, :body
 
@@ -70,13 +71,40 @@ module Decidim
       scope :except_drafts, -> { where.not(published_at: nil) }
       scope :published, -> { where.not(published_at: nil) }
       scope :order_by_most_recent, -> { order(created_at: :desc) }
+
+      scope :with_availability, lambda { |state_key|
+        case state_key
+        when "withdrawn"
+          withdrawn
+        else
+          except_withdrawn
+        end
+      }
+
+      scope :with_type, lambda { |type_key, user, component|
+        case type_key
+        when "proposals"
+          only_amendables
+        when "amendments"
+          only_visible_emendations_for(user, component)
+        else # Assume 'all'
+          amendables_and_visible_emendations_for(user, component)
+        end
+      }
+
+      scope :voted_by, lambda { |user|
+        includes(:votes).where(decidim_proposals_proposal_votes: { decidim_author_id: user })
+      }
+
       scope :sort_by_valuation_assignments_count_asc, lambda {
-        order("#{sort_by_valuation_assignments_count_nulls_last_query}ASC NULLS FIRST")
+        order(Arel.sql("#{sort_by_valuation_assignments_count_nulls_last_query} ASC NULLS FIRST").to_s)
       }
 
       scope :sort_by_valuation_assignments_count_desc, lambda {
-        order("#{sort_by_valuation_assignments_count_nulls_last_query}DESC NULLS LAST")
+        order(Arel.sql("#{sort_by_valuation_assignments_count_nulls_last_query} DESC NULLS LAST").to_s)
       }
+
+      scope_search_multi :with_any_state, [:accepted, :rejected, :evaluating, :state_not_published]
 
       def self.with_valuation_assigned_to(user, space)
         valuator_roles = space.user_roles(:valuator).where(user: user)
@@ -234,8 +262,9 @@ module Decidim
       end
 
       # Public: Overrides the `reported_searchable_content_extras` Reportable concern method.
+      # Returns authors name or title in case it's a meeting
       def reported_searchable_content_extras
-        [authors.map(&:name).join("\n")]
+        [authors.map { |p| p.respond_to?(:name) ? p.name : p.title }.join("\n")]
       end
 
       # Public: Whether the proposal is official or not.
@@ -278,7 +307,7 @@ module Decidim
       #
       # user - the user to check for authorship
       def editable_by?(user)
-        return true if draft?
+        return true if draft? && created_by?(user)
 
         !published_state? && within_edit_time_limit? && !copied_from_other_component? && created_by?(user)
       end
@@ -293,6 +322,10 @@ module Decidim
       # Public: Whether the proposal is a draft or not.
       def draft?
         published_at.nil?
+      end
+
+      def self.ransack(params = {}, options = {})
+        ProposalSearch.new(self, params, options)
       end
 
       # Defines the base query so that ransack can actually sort by this value
@@ -320,9 +353,17 @@ module Decidim
         where(query, value: value)
       end
 
-      def self.ransackable_scopes(_auth = nil)
-        [:valuator_role_ids_has]
+      def self.ransackable_scopes(auth_object = nil)
+        base = [:with_any_origin, :with_any_state, :voted_by, :coauthored_by, :related_to, :with_any_scope, :with_any_category]
+        return base unless auth_object&.admin?
+
+        # Add extra scopes for admins for the admin panel searches
+        base + [:valuator_role_ids_has]
       end
+
+      # Create i18n ransackers for :title and :body.
+      # Create the :search_text ransacker alias for searching from both of these.
+      ransacker_i18n_multi :search_text, [:title, :body]
 
       ransacker :state_published do
         Arel.sql("CASE
@@ -337,8 +378,18 @@ module Decidim
         ")
       end
 
+      def self.sort_by_translated_title_asc
+        field = Arel::Nodes::InfixOperation.new("->>", arel_table[:title], Arel::Nodes.build_quoted(I18n.locale))
+        order(Arel::Nodes::InfixOperation.new("", field, Arel.sql("ASC")))
+      end
+
+      def self.sort_by_translated_title_desc
+        field = Arel::Nodes::InfixOperation.new("->>", arel_table[:title], Arel::Nodes.build_quoted(I18n.locale))
+        order(Arel::Nodes::InfixOperation.new("", field, Arel.sql("DESC")))
+      end
+
       ransacker :title do
-        Arel.sql(%{("decidim_proposals_proposals"."title")::text})
+        Arel.sql(%{cast("decidim_proposals_proposals"."title" as text)})
       end
 
       ransacker :id_string do

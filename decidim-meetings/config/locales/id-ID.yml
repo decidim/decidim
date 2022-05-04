@@ -285,20 +285,13 @@ id:
         export_calendar: Ekspor kalender
       conference_venues: Tempat Konferensi
       content_blocks:
-        upcoming_events:
-          name: Acara Mendatang
-          upcoming_events: Pertemuan yang akan datang
-          view_all_events: Lihat semua
+        upcoming_meetings:
+          view_all_meetings: Lihat semua
       directory:
         meetings:
           index:
-            all: Semua
-            date: Tanggal
             meetings: Rapat
-            past: Lalu
-            search: Pencarian
             space_type: Ruang partisipatif
-            upcoming: Mendatang
       last_activity:
         new_meeting_at_html: "<span>Pertemuan baru jam %{link}</span>"
       mailer:

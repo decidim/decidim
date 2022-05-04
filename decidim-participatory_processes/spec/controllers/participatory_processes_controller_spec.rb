@@ -79,6 +79,11 @@ module Decidim
             organization: other_organization
           )
 
+          _manipulated_other_groups = create(
+            :participatory_process_group,
+            participatory_processes: [create(:participatory_process, organization: organization)]
+          )
+
           expect(controller.helpers.collection)
             .to match_array([*published, *organization_groups])
         end

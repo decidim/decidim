@@ -12,7 +12,8 @@ module Decidim
     helper_method :activities, :resource_types, :user
 
     def index
-      raise ActionController::RoutingError, "Blocked User" if user&.blocked? && !current_user&.admin?
+      raise ActionController::RoutingError, "Missing user: #{params[:nickname]}" unless user
+      raise ActionController::RoutingError, "Blocked User" if user.blocked? && !current_user&.admin?
     end
 
     private
@@ -23,13 +24,24 @@ module Decidim
 
     def activities
       @activities ||= paginate(
-        ActivitySearch.new(
-          organization: current_organization,
-          user: user,
-          resource_type: "all",
-          resource_name: filter.resource_type
-        ).run
+        if own_activities?
+          OwnActivities.new(current_organization, **activity_options).query.with_private_resources
+        else
+          PublicActivities.new(current_organization, **activity_options).query.with_all_resources
+        end
       )
+    end
+
+    def activity_options
+      {
+        user: user,
+        current_user: current_user,
+        resource_name: filter.resource_type
+      }
+    end
+
+    def own_activities?
+      @own_activities ||= current_user == user
     end
 
     def default_filter_params
@@ -37,14 +49,18 @@ module Decidim
     end
 
     def resource_types
-      @resource_types = %w(Decidim::Proposals::CollaborativeDraft
-                           Decidim::Comments::Comment
-                           Decidim::Debates::Debate
-                           Decidim::Initiative
-                           Decidim::Meetings::Meeting
-                           Decidim::Blogs::Post
-                           Decidim::Proposals::Proposal
-                           Decidim::Consultations::Question)
+      @resource_types = begin
+        array = %w(Decidim::Proposals::CollaborativeDraft
+                   Decidim::Comments::Comment
+                   Decidim::Debates::Debate
+                   Decidim::Initiative
+                   Decidim::Meetings::Meeting
+                   Decidim::Blogs::Post
+                   Decidim::Proposals::Proposal
+                   Decidim::Consultations::Question)
+        array << "Decidim::Budgets::Order" if own_activities?
+        array
+      end
     end
   end
 end

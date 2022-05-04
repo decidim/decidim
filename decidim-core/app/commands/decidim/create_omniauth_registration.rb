@@ -2,7 +2,7 @@
 
 module Decidim
   # A command with all the business logic to create a user from omniauth
-  class CreateOmniauthRegistration < Rectify::Command
+  class CreateOmniauthRegistration < Decidim::Command
     # Public: Initializes the command.
     #
     # form - A form object with the params.
@@ -66,7 +66,12 @@ module Decidim
         @user.email_on_notification = true
         @user.password = generated_password
         @user.password_confirmation = generated_password
-        @user.remote_avatar_url = form.avatar_url if form.avatar_url.present?
+        if form.avatar_url.present?
+          url = URI.parse(form.avatar_url)
+          filename = File.basename(url.path)
+          file = URI.open(url)
+          @user.avatar.attach(io: file, filename: filename)
+        end
         @user.skip_confirmation! if verified_email
       end
 

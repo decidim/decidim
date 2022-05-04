@@ -121,6 +121,7 @@ ignore_unused:
   - activerecord.models.*
   - booleans.*
   - '{date,time.formats}.*'
+  - datetime.distance_in_words.*
   - decidim.admin.participatory_process_steps.default_title
   - decidim.authorization_handlers.{direct,multistep}
   - decidim.admin.models.assembly_member.positions.*
@@ -294,7 +295,7 @@ ignore_unused:
   - decidim.elections.trustee_zone.trustees.show.identification_keys.upload_error.*
   - decidim.elections.feedback.answer.*
   - decidim.elections.trustee_zone.elections.key_ceremony_steps.keys.*
-  - decidim.elections.trustee_zone.elections.tally_steps.keys.*
+  - decidim.elections.trustee_zone.elections.tally_started_steps.keys.*
   - decidim.votings.admin_log.*
   - decidim.votings.admin.content_blocks.landing_page.*
   - decidim.votings.census.admin.census.new.file_help.*
@@ -304,7 +305,17 @@ ignore_unused:
   - decidim.admin.menu.questions_submenu.attachments
   - decidim.admin.menu.questions_submenu.categories
   - decidim.meetings.public_participants_list.hidden_participants_count.*
-
+  - decidim.budgets.budgets_list.*
+  - decidim.budgets.projects.project_budget_button.*
+  - decidim.meetings.meetings.show.withdraw_btn_hint
+  - decidim.meetings.meetings.show.withdraw_confirmation_html
+  - decidim.meetings.meetings.show.withdraw_meeting
+  - decidim.proposals.proposals.show.withdraw_btn_hint
+  - decidim.proposals.proposals.show.withdraw_confirmation_html
+  - decidim.proposals.proposals.show.withdraw_proposal
+  - decidim.assemblies.admin.assembly_members.form.explanation
+  - decidim.assemblies.admin.assembly_members.form.image_guide
+  - decidim.assemblies.admin.assembly_members.form.non_user_avatar_help
 
 ## Exclude these keys from the `i18n-tasks eq-base' report:
 # ignore_eq_base:

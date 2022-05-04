@@ -53,9 +53,12 @@ describe "Admin manages assemblies", type: :system do
         fill_in :assembly_slug, with: "slug"
         fill_in :assembly_hashtag, with: "#hashtag"
         fill_in :assembly_weight, with: 1
-        attach_file :assembly_hero_image, image1_path
-        attach_file :assembly_banner_image, image2_path
+      end
 
+      dynamically_attach_file(:assembly_hero_image, image1_path)
+      dynamically_attach_file(:assembly_banner_image, image2_path)
+
+      within ".new_assembly" do
         find("*[type=submit]").click
       end
 
@@ -85,6 +88,37 @@ describe "Admin manages assemblies", type: :system do
     describe "listing parent assemblies" do
       it_behaves_like "filtering collection by published/unpublished"
       it_behaves_like "filtering collection by private/public"
+
+      context "when filtering by assemblies type" do
+        include_context "with filterable context"
+
+        let!(:assemblies_type_1) { create(:assemblies_type) }
+        let!(:assemblies_type_2) { create(:assemblies_type) }
+
+        Decidim::AssembliesType.all.each do |assemblies_type|
+          i18n_assemblies_type = assemblies_type.name[I18n.locale.to_s]
+
+          context "filtering collection by assemblies_type: #{i18n_assemblies_type}" do
+            let!(:assembly_1) { create(:assembly, organization: organization, assemblies_type: assemblies_type_1) }
+            let!(:assembly_2) { create(:assembly, organization: organization, assemblies_type: assemblies_type_2) }
+
+            it_behaves_like "a filtered collection", options: "Assembly type", filter: i18n_assemblies_type do
+              let(:in_filter) { translated(assembly_with_type(type).title) }
+              let(:not_in_filter) { translated(assembly_without_type(type).title) }
+            end
+          end
+        end
+
+        it_behaves_like "paginating a collection"
+
+        def assembly_with_type(type)
+          Decidim::Assembly.find_by(decidim_assemblies_type_id: type)
+        end
+
+        def assembly_without_type(type)
+          Decidim::Assembly.where.not(decidim_assemblies_type_id: type).sample
+        end
+      end
     end
   end
 

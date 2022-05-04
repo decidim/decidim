@@ -16,9 +16,6 @@ sl:
         meetings:
           index:
             title: Sestanki
-      content_blocks:
-        upcoming_events:
-          upcoming_events: Prihajajoči dogodki
       directory:
         meetings:
           index:

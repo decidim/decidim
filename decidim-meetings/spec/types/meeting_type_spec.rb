@@ -72,6 +72,26 @@ module Decidim
         end
       end
 
+      describe "isWithdrawn" do
+        let(:query) { "{ isWithdrawn }" }
+
+        context "when meetings is withdrawn" do
+          let(:model) { create(:meeting, :withdrawn, component: component) }
+
+          it "returns true" do
+            expect(response["isWithdrawn"]).to be true
+          end
+        end
+
+        context "when meetings is not withdrawn" do
+          let(:model) { create(:meeting, component: component) }
+
+          it "returns false" do
+            expect(response["isWithdrawn"]).to be false
+          end
+        end
+      end
+
       describe "closed" do
         let(:query) { "{ closed closingReport { translation(locale: \"ca\") } }" }
 

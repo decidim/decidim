@@ -5,7 +5,7 @@
     <% if @form.photos.any? %>
       <% @form.photos.each do |photo| %>
         <div class="callout gallery__item" data-closable>
-          <%= image_tag photo.thumbnail_url, class: "thumbnail", alt: photo.file.file.filename %>
+          <%= image_tag photo.thumbnail_url, class: "thumbnail", alt: photo.file.filename %>
           <%= form.hidden_field :photos, multiple: true, value: photo.id, id: "photo-#{photo.id}" %>
           <button class="close-button" aria-label="<%= t(".delete_image") %>" title="<%= t(".delete_image") %>" type="button" data-close>
             <span aria-hidden="true">&times;</span>
@@ -15,7 +15,12 @@
     <% end %>
 
     <div class="row column">
-      <%= form.file_field :add_photos, multiple: true, label: t(".add_images") %>
+      <%= form.attachment :photos,
+        multiple: true,
+        label: t(".add_images"),
+        button_label: t(".add_images"),
+        button_edit_label: t(".edit_images"),
+        help_i18n_scope: "decidim.forms.file_help.image" %>
     </div>
   </fieldset>
 </div>

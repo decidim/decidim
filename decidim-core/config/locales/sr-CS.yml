@@ -5,9 +5,6 @@ sr:
         one: Podržavanje
         few: Podržavanja
         other: Podržavanja
-  carrierwave:
-    errors:
-      general: Greška pri obradi slike
   decidim:
     accessibility:
       logo: "Zvanični logo %{organization}"

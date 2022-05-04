@@ -264,8 +264,6 @@ tr:
             update: Güncelle
           form:
             authorizations: Yetkilendirme ayarları
-            child_scope_threshold_enabled_help: 'Bu yapılandırma bayrağı çevrimdışı oyları desteklemez, alt kapsamları etkinleştirir ve kullanıcıyla bir kapsamı ilişkilendiren bir yetkilendirme işleyicisi ile çalışır, aşağıdaki yetkilendirme ayarlarında bu yetkilendirmeyi seçtiğinizden emin olun. Çalışması için kapsamların hiyerarşik şekilde yapılandırılması gerekir: 1 Ana - N Alt. Bu yapılandırmanın nasıl çalıştığı hakkında daha fazla bilgi için bu <a href="https://docs.decidim.org/admin-manual/en/initiatives/" target="_blank"> bağlantıya </a> bakın.'
-            only_global_scope_enabled_help: '"Alt kapsam imzasını" etkinleştirdiyseniz ve genel kapsamı ana kapsamınız olarak yapılandırdıysanız bu bayrağı işaretleyin. Bunu etkinleştirdiğinizde, girişim oluşturma sihirbazında girişim türü seçimi atlanacaktır. Bu yapılandırmanın nasıl çalıştığı hakkında daha fazla bilgi için bu <a href="https://docs.decidim.org/admin-manual/en/initiatives/" target="_blank"> bağlantıya </a> bakın.'
             options: Seçenekler
             title: Genel bilgi
           initiative_type_scopes:
@@ -379,7 +377,6 @@ tr:
           notification_title: <a href="%{resource_path}">%{resource_title} </a> girişimi <a href="%{author_path}">%{author_name} %{author_nickname} </a> tarafından onaylandı.
       form:
         add_attachments: Dokümanlar
-        attachment_legend: "(İsteğe bağlı) Ekler Ekleyin"
         delete_attachment: Sil
       index:
         title: Girişimler

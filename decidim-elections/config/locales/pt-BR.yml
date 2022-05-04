@@ -1,4 +1,4 @@
-pt:
+pt-BR:
   activemodel:
     attributes:
       answer:
@@ -254,7 +254,6 @@ pt:
             trustees: Agentes fiduciários
           key_ceremony:
             title: Cerimônia de chave
-            trustees: Agentes fiduciários
           key_ceremony_ended:
             errors:
               time_before: A eleição está pronta para começar. Você tem que esperar até %{hours} horas antes da hora de início (%{start_time}) para iniciar o período de votação.
@@ -275,7 +274,6 @@ pt:
             title: Resultados publicados
           tally:
             title: Processo de registro
-            trustees: Agentes fiduciários
           tally_ended:
             answer: Resposta
             not_selected: Não selecionado
@@ -326,16 +324,6 @@ pt:
           update:
             invalid: Ocorreu um erro ao atualizar %{trustee} como curador
             success: Curador %{trustee} atualizado com sucesso
-      admin_log:
-        election:
-          end_vote: "%{user_name} terminou o período de votação para a eleição %{resource_name} no Quadro de Notas"
-          publish: "%{user_name} publicou a eleição %{resource_name}"
-          publish_results: "%{user_name} publicou os resultados para a eleição %{resource_name} no Quadro de Notas"
-          setup: "%{user_name} criou a eleição %{resource_name} no Quadro de Notas"
-          start_key_ceremony: "%{user_name} iniciou a cerimônia chave para a eleição %{resource_name} no Quadro de Notas"
-          start_tally: "%{user_name} começou a apuração para a eleição %{resource_name} no Quadro de Notas"
-          start_vote: "%{user_name} começou o período de votação para a eleição %{resource_name} no Quadro de Notas"
-          unpublish: "%{user_name} despublicizou a eleição %{resource_name}"
       election_m:
         badge_name:
           finished: Finalizado
@@ -408,7 +396,6 @@ pt:
           all: Todos
           finished: Finalizado
           search: Pesquisa
-          state: Status
           upcoming: Próximos
         filters_small_view:
           close_modal: Fechar modal
@@ -566,15 +553,12 @@ pt:
               generate_legend_3: Certifique-se de que seu computador não tenha uma cópia do arquivo (por exemplo, verifique as pastas Downloads e Desktop).
               generate_legend_4: Faça outra cópia do arquivo em um dispositivo externo diferente e armazene-o em um lugar muito seguro.
               submit: Enviar
-              submit_legend: Depois de seguir todos os passos explicados acima, complete o processo de envio da chave de identificação pública para o servidor Decidim.
               submit_title: Enviar a chave de identificação pública
               title: Chaves de identificação de curadores
               upload: Envie suas chaves de identificação
               upload_error:
                 invalid_format: O arquivo enviado não contém nenhuma chave de identificação.
                 invalid_key: As chaves de identificação no arquivo enviado não podem ser carregadas.
-                invalid_public_key: As chaves de identificação no arquivo enviado não correspondem à chave de identificação pública armazenada pelo Decidim.
-              upload_legend: O Decidim tem suas chaves públicas de identificação, mas seu navegador ainda não tem. Você precisa importar o arquivo com as suas chaves de identificação para o seu computador a partir do backup que você criou após gerá-las.
             not_supported_browser_description: Parece que você está usando um navegador da web que não pode ser usado para atuar como um curador. Certifique-se de estar usando a versão mais recente do seu navegador, ou tente usar qualquer um dos navegadores mais populares para conseguir completar suas tarefas de confiança.
             not_supported_browser_title: Atualize o navegador para agir como um curador
             trustee_role_description: Você foi designado para agir como um curador em algumas das eleições realizadas nesta plataforma.
@@ -641,9 +625,7 @@ pt:
         onboarding_modal:
           close: Fechar modal
           create_account: Criar conta
-          description: Você quer criar uma nova conta em Decidim? Você poderá participar dos processos e ser parte ativa da organização.
           no_account: Não, obrigado.
-          title: Nova(o) no Decidim?
         update:
           error: Houve um problema ao atualizar o status do voto. Por favor, vote novamente.
         verify:
@@ -654,7 +636,6 @@ pt:
             header: Voto não encontrado!
             info: O código de voto não foi encontrado na urna %{link}. Tente novamente.
           form:
-            back: Voltar ao Decidim
             submit: Check
             vote_identifier: 'Código de identificador:'
           header:
@@ -971,7 +952,6 @@ pt:
             assign_missing_officers: Existem estações de votação sem Presidente e/ou gerentes. Por favor atribua-as a partir da seção estações de enquete
             update: Atualizar
           form:
-            census_contact_information_help: Esta informação de contato é para um usuário que deseja relatar problemas com o censo. Ele pode ser um endereço de e-mail, um formulário de contato em outro site, uma pesquisa Decidim para visitantes, etc.
             select_a_voting_type: Por favor, selecione um tipo de votação
             slug_help: 'Os slugs de URL são usados ​​para gerar os URLs que apontam para esse processo. Apenas aceita letras, números e traços, e deve começar com uma carta. Exemplo: %{url}'
             title: Título
@@ -999,7 +979,6 @@ pt:
           census:
             create:
               invalid: Ocorreu um erro ao atualizar o censo, por favor tente novamente mais tarde.
-              invalid_csv_header: O cabeçalho CSV não possui o número correto de campos - por favor, leia as instruções cuidadosamente
             creating_data:
               info_message: "<strong>Aguarde</strong>, processado %{processed_count} de %{raw_count} linhas de %{file} arquivo."
             delete:
@@ -1278,7 +1257,6 @@ pt:
           all: Todos
           finished: Finalizado
           search: Pesquisar
-          state: Status
           upcoming: Próximos
         filters_small_view:
           close_modal: Fechar modal

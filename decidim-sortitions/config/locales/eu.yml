@@ -19,10 +19,13 @@ eu:
   decidim:
     components:
       sortitions:
+        actions:
+          comment: Egin iruzkina
         name: Sortitions
         settings:
           global:
             comments_enabled: Iruzkinak gaituta
+            comments_max_length: Iruzkinen gehieneko luzera (utzi 0 lehenetsita konfigurazioa mantendu nahi baduzu)
     events:
       sortitions:
         sortition_created:
@@ -73,7 +76,6 @@ eu:
           index:
             title: Sortitions
           new:
-            confirm: Hurrengo botoia sakatuz gero, data eta ordua (segundotan zehaztuta) eta dadoen zerrendarekin batera grabatu egingo dira, informazio hori ausazko hautapena sortzeko erabiliko da. Ekintza atzeraezina izango da, botoia klik egitean zozketaren emaitza argitaratuko da, formulario honetan bildutako datuak eta ezin dira aldatu, egiaztatu edukia arretaz
             create: Sortu
             title: Sortion berria
           show:
@@ -117,6 +119,7 @@ eu:
         show:
           algorithm: Sortzeko algoritmoaren kodea
           any_category: kategoria guztietan
+          back: Itzuli zerrendara
           cancelled: Ezeztatuta sortzea
           candidate_proposal_ids: Ordenatzeko proposamenen ordena eta IDak
           candidate_proposals_info: 'Hurrengo proposamenen artean (%{category_label}) honako idazketa hauek egin dira (hautatutako proposamenetan lodia)  '
@@ -142,3 +145,5 @@ eu:
           count:
             one: 1 sortion
             other: "%{count} sortapenak"
+    statistics:
+      sortitions_count: Zozketak

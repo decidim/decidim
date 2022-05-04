@@ -49,7 +49,7 @@ en:
         favicon: Icon
         force_authentication: Force authentication
         force_users_to_authenticate_before_access_organization: Force users to authenticate before access organization
-        from: From email address
+        from: Sender's email address
         github_handler: GitHub handler
         header_snippets: Header snippets
         highlight_alternative_color: Highlight, alternative
@@ -124,6 +124,10 @@ en:
         file: File
     errors:
       models:
+        newsletter:
+          attributes:
+            base:
+              at_least_one_space: Select at least one participatory space
         organization:
           attributes:
             official_img_footer:
@@ -133,6 +137,7 @@ en:
       new_import:
         attributes:
           file:
+            invalid_file: Invalid file provided, please check that the file is correctly formatted
             invalid_mime_type: Invalid mime type
   activerecord:
     attributes:
@@ -173,7 +178,7 @@ en:
         reject: Reject
         share: Share
         user:
-          new: New user
+          new: New admin
         verify: Verify
       admin_terms_of_use:
         accept:
@@ -181,12 +186,12 @@ en:
           success: Great! You've accepted the admin terms of use.
         actions:
           accept: I agree with the following terms
-          are_you_sure: Are you sure to refuse the admin terms?
+          are_you_sure: Are you sure you want to refuse the admin terms of use?
           refuse: Refuse the admin terms
           title: Agree to the terms and conditions of use
         required_review:
           alert: 'Required: Review our admin terms of use'
-          callout: Please take a moment to review Admin Terms of Use. Otherwise you won't be able to admin the platform.
+          callout: Please take a moment to review Admin Terms of Use. Otherwise you won't be able to manage the platform.
           cta: Review them now.
         title: Admin Terms of Use
       area_types:
@@ -209,7 +214,7 @@ en:
           error: There was a problem creating a new area.
           success: Area created successfully.
         destroy:
-          has_spaces: Area has dependent spaces, it must not have dependencies in order to be deleted.
+          has_spaces: This area has dependent spaces. Please make sure no Participatory Space references this area before deleting it.
           success: Area successfully destroyed
         edit:
           title: Edit area
@@ -256,13 +261,15 @@ en:
         update:
           error: There was a problem updating this attachment.
           success: Attachment updated successfully.
+      attachments_privacy_warning:
+        message: Be careful when working with attachments in a private space. Any participant could share this document to others.
       autocomplete:
         no_results: No results found
         search_prompt: Type at least three characters to search
       block_user:
         new:
           action: Block account and send justification
-          description: Blocking an user will render its account unusable, you may provide in your justification and guidelines on ways you deem you would consider unblocking the user.
+          description: Blocking a user will render their account unusable. You may provide in your justification any guidelines on ways you would consider unblocking the user.
           justification: Justification
           title: Block User %{name}
       categories:
@@ -325,7 +332,7 @@ en:
         'false': 'No'
         managed_user_name: Managed User
         solved: Solved
-        title: Verifications's conflicts
+        title: Verification conflicts
         transfer:
           email: Email
           error: There was a problem transfering the current participant to managed participant.
@@ -338,7 +345,7 @@ en:
       dashboard:
         show:
           view_more_logs: View more logs
-          welcome: Welcome to the Decidim Admin Panel.
+          welcome: Welcome to the Admin Panel.
       domain_whitelist:
         form:
           domain_too_short: Domain too short
@@ -367,6 +374,13 @@ en:
           values:
             'false': 'No'
             'true': 'Yes'
+        moderated_users:
+          reports_reason_eq:
+            label: Report reason
+            values:
+              does_not_belong: Does not belong
+              offensive: Offensive
+              spam: Spam
         moderations:
           reportable_type_string_eq:
             label: Type
@@ -401,11 +415,18 @@ en:
         search_label: Search
         search_placeholder:
           name_or_nickname_or_email_cont: Search %{collection} by email, name or nickname.
+          report_count_eq: Report count eq
           reported_id_string_or_reported_content_cont: Search %{collection} by reportable id or content.
           title_cont: Search %{collection} by title.
           user_name_or_user_email_cont: Search %{collection} by name or email.
+          user_name_or_user_nickname_or_user_email_cont: Search %{collection} by email, name or nickname.
         state_eq:
           label: State
+          values:
+            all: All
+            pending: Pending
+            rejected: Rejected
+            verified: Verified
       forms:
         file_help:
           import:
@@ -451,23 +472,43 @@ en:
           impersonate_existing_user: Manage participant "%{name}"
           impersonate_new_managed_user: Manage new participant
       imports:
-        creators:
-          proposalcreator: Proposal creator
+        and: and
+        data_errors:
+          duplicate_headers:
+            detail: Please check that file contains required columns or headers only once.
+            message:
+              one: Duplicate column %{columns}.
+              other: Duplicate columns %{columns}.
+          invalid_indexes:
+            lines:
+              detail: Please check that these lines are formatted correctly and contain valid records.
+              message:
+                one: Found an error in the import file on line %{indexes}.
+                other: Found errors in the import file on lines %{indexes}.
+            records:
+              detail: Please check that these records are formatted correctly and contain valid records.
+              message:
+                one: Found an error in the import file for records with order numbers %{indexes}.
+                other: Found errors in the import file for records with order numbers %{indexes}.
+          missing_headers:
+            detail: Please check that the file contains required columns.
+            message:
+              one: Missing column %{columns}.
+              other: Missing columns %{columns}.
         error: There was a problem during the import
-        help:
-          proposalcreator: The file must have column names title/en and body/en (or another locale which you prefer eg. title/ca and body/ca). Also scope/id and category/id columns are supported.
-        import_from_file: Import from a file
-        invalid_lines: Found error in resource number %{invalid_lines}
+        example_error: Could not create an example for the given type
         new:
           accepted_mime_types:
-            csv: csv
-            json: json
-            xlsx: xlsx
+            csv: CSV
+            json: JSON
+            xlsx: Excel (.xlsx)
           actions:
             back: Back
+          download_example: Download example
+          download_example_format: Example as %{name}
           file_legend: Add an import file that will be parsed.
           import: Import
-        notice: "%{number} %{resource_name} successfully imported"
+        notice: "%{count} %{resource_name} successfully imported"
       logs:
         logs_list:
           no_logs_yet: There are no logs yet
@@ -488,7 +529,7 @@ en:
         areas: Areas
         configuration: Configuration
         dashboard: Dashboard
-        external_domain_whitelist: External domain whitelist
+        external_domain_whitelist: Allowed external domains
         help_sections: Help sections
         homepage: Homepage
         impersonations: Impersonations
@@ -637,7 +678,7 @@ en:
       newsletters:
         create:
           error: There was a problem creating this newsletter.
-          success: Newsletter created successfully. Please, review it before sending.
+          success: Newsletter created successfully. Please review it before sending.
         deliver:
           error: There was a problem delivering this newsletter.
           success: Newsletter delivered successfully.
@@ -720,12 +761,12 @@ en:
           title: Officialize participant "%{name}"
         show_email_modal:
           close_modal: Close modal
-          description: If you need to contact a participant directly you can click on the Show button to see the email address. This action will be logged.
+          description: If you need to contact a participant directly, you can click on the Show button to see their email address. This action will be logged.
           email_address: Email address
           full_name: Full name
           hidden: hidden
           show: Show
-          title: Show participant email address
+          title: Show participant's email address
         unblock:
           error: There was an error unblocking the participant
           success: Participant successfully unblocked
@@ -751,6 +792,7 @@ en:
         form:
           colors:
             colors_title: Organization colors
+            colors_warning_html: Warning! Changing these colors can break the accessibility contrasts. You can check the contrast of your choosing with <a href="%{link}">WebAIM Contrast Checker</a> or other similar tools.
             header_snippets_help: Use this field to add things to the HTML head. The most common use is to integrate third-party services that require some extra JavaScript or CSS. Also, you can use it to add extra meta tags to the HTML. Note that this will only be rendered in public pages, not in the admin section.
           cta_button_path_help: 'You can overwrite where the Call To Action button in the homepage links to. Use partial paths, not full URLs here. Accepts letters, numbers, dashes and slashes, and must start with a letter. The Call To Action button is shown in the homepage between the welcome text and the description. Example: %{url}'
           cta_button_text_help: You can overwrite the Call To Action button text in the homepage for each available language in your organization. If not set, the default value will be used. The Call To Action button is shown in the homepage between the welcome text and the description.
@@ -796,9 +838,23 @@ en:
           invalid: There was a problem reading the CSV file.
           success: CSV file uploaded successfully, we're sending an invitation email to participants. This might take a while.
         new:
+          destroy:
+            button: Delete all private participants
+            confirm: Are you sure you want to delete all private participants? This action can't be undone, you will not be able to recover them.
+            empty: You have no private participants.
+            explanation: You have %{count} private participants.
+            title: Delete private participants
           explanation: Upload your CSV file. It must have two columns with email in the first column of the file and name in the last column of the file (email, name) of the users that you want to add to the participatory space, without headers. Avoid using invalid chars like `<>?%&^*#@()[]=+:;"{}\|` in user name.
           title: Upload your CSV file
           upload: Upload
+      reminders:
+        create:
+          error: There was a problem creating reminders.
+          success:
+            one: "%{count} user will be reminded."
+            other: "%{count} users will be reminded."
+        new:
+          submit: Send
       resource_permissions:
         edit:
           submit: Submit
@@ -856,6 +912,7 @@ en:
         gallery:
           add_images: Add images
           delete_image: Delete Image
+          edit_images: Edit images
           gallery_legend: Add an image gallery (Optional)
       static_page_topics:
         create:
@@ -916,7 +973,7 @@ en:
         static_pages: Pages
         statistics: Activity
         user_groups: Groups
-        users: Participants
+        users: Administrators
       user_group:
         csv_verify:
           invalid: There was a problem reading the CSV file.
@@ -929,13 +986,6 @@ en:
           success: Group successfully verified
       user_groups:
         index:
-          filter:
-            all: All
-            pending: Pending
-            rejected: Rejected
-            verified: Verified
-          filter_by: Filter by
-          search: Search
           state:
             pending: Pending
             rejected: Rejected
@@ -959,7 +1009,7 @@ en:
           role: Role
         new:
           create: Invite
-          title: Invite participant as administrator
+          title: Invite new administrator
       users_statistics:
         users_count:
           admins: Admins
@@ -972,7 +1022,7 @@ en:
     forms:
       errors:
         impersonate_user:
-          reason: You need to provide a reason when managing a non managed participant
+          reason: You need to provide a reason when managing a non-managed participant
     metrics:
       blocked_users:
         object: blocked users

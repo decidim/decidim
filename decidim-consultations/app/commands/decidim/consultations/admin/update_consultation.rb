@@ -5,15 +5,14 @@ module Decidim
     module Admin
       # A command with all the business logic when updating an existing participatory
       # consultation in the system.
-      class UpdateConsultation < Rectify::Command
+      class UpdateConsultation < Decidim::Command
+        include ::Decidim::AttachmentAttributesMethods
+
         # Public: Initializes the command.
         #
         # consultation - the Consultation to update
         # form - A form object with the params.
         def initialize(consultation, form)
-          form.banner_image = consultation.banner_image if form.banner_image.blank?
-          form.introductory_image = consultation.introductory_image if form.introductory_image.blank?
-
           @consultation = consultation
           @form = form
         end
@@ -57,16 +56,9 @@ module Decidim
             introductory_video_url: form.introductory_video_url,
             start_voting_date: form.start_voting_date,
             end_voting_date: form.end_voting_date
-          }.merge(uploader_attributes)
-        end
-
-        def uploader_attributes
-          {
-            banner_image: form.banner_image,
-            remove_banner_image: form.remove_banner_image,
-            introductory_image: form.introductory_image,
-            remove_introductory_image: form.remove_introductory_image
-          }.delete_if { |_k, val| val.is_a?(Decidim::ApplicationUploader) }
+          }.merge(
+            attachment_attributes(:introductory_image, :banner_image)
+          )
         end
       end
     end

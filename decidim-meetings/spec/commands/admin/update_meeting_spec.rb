@@ -28,9 +28,8 @@ module Decidim::Meetings
     let(:online_meeting_url) { "http://decidim.org" }
     let(:registration_url) { "http://decidim.org" }
     let(:registration_type) { "on_this_platform" }
-    let(:available_slots) { 0 }
-    let(:customize_registration_email) { true }
-    let(:registration_email_custom_content) { { "en" => "The registration email custom content." } }
+    let(:iframe_embed_type) { "none" }
+    let(:iframe_access_level) { nil }
 
     let(:form) do
       double(
@@ -52,12 +51,14 @@ module Decidim::Meetings
         current_user: user,
         current_organization: organization,
         registration_type: registration_type,
-        available_slots: available_slots,
         registration_url: registration_url,
         clean_type_of_meeting: type_of_meeting,
         online_meeting_url: online_meeting_url,
-        customize_registration_email: customize_registration_email,
-        registration_email_custom_content: registration_email_custom_content
+        iframe_embed_type: iframe_embed_type,
+        comments_enabled: true,
+        comments_start_time: nil,
+        comments_end_time: nil,
+        iframe_access_level: iframe_access_level
       )
     end
 
@@ -104,11 +105,10 @@ module Decidim::Meetings
         end
       end
 
-      it "sets the registration email related fields" do
+      it "sets iframe_access_level" do
         subject.call
 
-        expect(meeting.customize_registration_email).to be true
-        expect(meeting.registration_email_custom_content).to eq(registration_email_custom_content)
+        expect(meeting.iframe_access_level).to eq(iframe_access_level)
       end
 
       it "traces the action", versioning: true do
@@ -148,12 +148,14 @@ module Decidim::Meetings
             current_user: user,
             current_organization: organization,
             registration_type: registration_type,
-            available_slots: available_slots,
             registration_url: registration_url,
             clean_type_of_meeting: type_of_meeting,
             online_meeting_url: online_meeting_url,
-            customize_registration_email: customize_registration_email,
-            registration_email_custom_content: registration_email_custom_content
+            iframe_embed_type: iframe_embed_type,
+            comments_enabled: true,
+            comments_start_time: nil,
+            comments_end_time: nil,
+            iframe_access_level: iframe_access_level
           )
         end
 
@@ -204,15 +206,9 @@ module Decidim::Meetings
             subject.call
           end
 
-          it "schedules a upcoming meeting notification job 48h before start time" do
-            expect(UpcomingMeetingNotificationJob)
-              .to receive(:generate_checksum).and_return "1234"
-
-            expect(UpcomingMeetingNotificationJob)
-              .to receive_message_chain(:set, :perform_later) # rubocop:disable RSpec/MessageChain
-              .with(set: start_time - 2.days).with(meeting.id, "1234")
-
-            subject.call
+          it_behaves_like "emits an upcoming notificaton" do
+            let(:future_start_date) { 1.day.from_now + Decidim::Meetings.upcoming_meeting_notification }
+            let(:past_start_date) { 1.day.ago }
           end
         end
 

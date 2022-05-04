@@ -43,11 +43,12 @@ nl:
         default_locale: Standaard taal
         description: Beschrijving
         enable_omnipresent_banner: Toon permanente header
+        enable_participatory_space_filters: Schakel filters in voor de participatieve ruimte
         facebook_handler: Facebook naam
         favicon: Pictogram
         force_authentication: Verplicht aanmelden
         force_users_to_authenticate_before_access_organization: Verplicht gebruikers om zich aan te melden voor toegang tot de organisatie
-        from: Afzender van de e-mail
+        from: E-mailadres afzender
         github_handler: GitHub gebruikersnaam
         header_snippets: Elementen om toe te voegen tussen HTML-tags
         highlight_alternative_color: In de kijker, alternatief
@@ -126,6 +127,7 @@ nl:
       new_import:
         attributes:
           file:
+            invalid_file: Ongeldig bestand opgegeven, controleer of het bestand correct geformatteerd is
             invalid_mime_type: Ongeldig mime-type
   activerecord:
     attributes:
@@ -164,8 +166,6 @@ nl:
         per_page: Per pagina
         permissions: Permissies
         reject: Weigeren
-        user:
-          new: Nieuwe gebruiker
         verify: Verifiëren
       admin_terms_of_use:
         accept:
@@ -173,12 +173,12 @@ nl:
           success: Geweldig! Je hebt de admin gebruiksvoorwaarden geaccepteerd.
         actions:
           accept: Ik ga akkoord met de volgende voorwaarden
-          are_you_sure: Weet u zeker dat u de admin gebruiksvoorwaarden wilt weigeren?
+          are_you_sure: Weet je zeker dat je de Admin gebruiksvoorwaarden wil resetten?
           refuse: Weiger de admin gebruiksvoorwaarden
           title: Ga akkoord met de gebruiksvoorwaarden
         required_review:
           alert: 'Vereist: neem onze admin gebruiksvoorwaarden door'
-          callout: Neem even de tijd om Admin Gebruiksvoorwaarden door te nemen. Anders kunt u het platform niet beheren.
+          callout: Neem even de tijd om de Admin Gebruiksvoorwaarden door te nemen. Anders kan je het platform niet beheren.
           cta: Bekijk ze nu.
         title: Admin gebruiksvoorwaarden
       area_types:
@@ -201,7 +201,7 @@ nl:
           error: Er is een fout opgetreden bij het maken van een nieuwe pagina.
           success: Pagina succesvol aangemaakt.
         destroy:
-          has_spaces: Gebied heeft afhankelijke ruimten, het mag geen afhankelijkheden hebben om te worden verwijderd.
+          has_spaces: Dit gebied heeft nog onderliggende ruimtes. Zorg ervoor dat er geen participatieve ruimte meer naar dit gebied verwijst om het te verwijderen.
           success: Pagina succesvol verwijderd
         edit:
           title: Pagina bewerken
@@ -312,10 +312,17 @@ nl:
         update:
           error: Er is een fout opgetreden bij het bijwerken van dit onderdeel.
           success: Het onderdeel is met succes bijgewerkt.
+      conflicts:
+        title: Controle conflicten
       dashboard:
         show:
           view_more_logs: Bekijk meer logs
-          welcome: Welkom bij het Decidim Admin Panel.
+      domain_whitelist:
+        form:
+          domain_too_short: Domein te kort
+        update:
+          error: Kan domein whitelist niet bijwerken
+          success: Domain whitelist succesvol bijgewerkt
       exports:
         export_as: "%{name} als %{export_format}"
         formats:
@@ -338,6 +345,13 @@ nl:
           values:
             'false': 'Nee'
             'true': 'Ja'
+        moderated_users:
+          reports_reason_eq:
+            label: Reden rapportering
+            values:
+              does_not_belong: Hoort niet
+              offensive: Beledigend
+              spam: Spam
         moderations:
           reportable_type_string_eq:
             label: Type
@@ -346,6 +360,17 @@ nl:
           values:
             'false': Gevalideerd
             'true': Niet gevalideerd
+        participatory_space_private_users:
+          user_invitation_accepted_at_not_null:
+            label: Uitnodiging geaccepteerd
+            values:
+              'false': Niet geaccepteerd
+              'true': Geaccepteerd
+          user_invitation_sent_at_not_null:
+            label: Uitnodiging verzonden
+            values:
+              'false': Niet verzonden
+              'true': Verzonden
         private_space_eq:
           label: Privé
           values:
@@ -361,10 +386,18 @@ nl:
         search_label: Zoeken
         search_placeholder:
           name_or_nickname_or_email_cont: Zoek %{collection} op e-mail, naam of bijnaam.
+          report_count_eq: Aantal rapporteringen
           reported_id_string_or_reported_content_cont: Zoek %{collection} op rapporteerbaar id of op inhoud.
           title_cont: Zoek %{collection} op titel.
+          user_name_or_user_email_cont: '%{collection} doorzoeken op Id of titel.'
+          user_name_or_user_nickname_or_user_email_cont: Doorzoek %{collection} op e-mail, naam of bijnaam.
         state_eq:
           label: Provincie
+          values:
+            all: Alle
+            pending: In afwachting
+            rejected: Afgewezen
+            verified: Geverifieerd
       forms:
         file_help:
           import:
@@ -410,20 +443,40 @@ nl:
           impersonate_existing_user: Beheer deelnemer "%{name}"
           impersonate_new_managed_user: Beheer nieuwe deelnemer
       imports:
-        creators:
-          proposalcreator: Maker van het voorstel
+        and: en
+        data_errors:
+          duplicate_headers:
+            detail: Controleer of het bestand de vereiste kolommen of koppen maar één keer bevat.
+            message:
+              one: Dubbele kolom %{columns}.
+              other: Dubbele kolommen %{columns}.
+          invalid_indexes:
+            lines:
+              detail: Controleer of deze regels correct zijn geformatteerd en geldige records bevatten.
+              message:
+                one: Er is een fout opgetreden in het importbestand op regel %{indexes}.
+                other: Fouten gevonden in het importbestand op regels %{indexes}.
+            records:
+              detail: Controleer of deze records correct zijn geformatteerd en geldige records bevatten.
+              message:
+                one: Er is een fout opgetreden in het importbestand voor records met nummers %{indexes}.
+                other: Fouten gevonden in het importbestand voor records met nummers %{indexes}.
+          missing_headers:
+            detail: Controleer of het bestand de vereiste kolommen bevat.
+            message:
+              one: Ontbrekende kolom %{columns}.
+              other: Ontbrekende kolommen %{columns}.
         error: Er zijn fouten opgetreden bij het importeren
-        help:
-          proposalcreator: Het bestand moet kolomnamen titel/nl en body/en bevatten (of een andere locale die jij verkiest, bijv. title/ca en body/ca). Ook scope/id en category/id kolommen worden ondersteund.
-        import_from_file: Uit een bestand importeren
-        invalid_lines: Fout gevonden in bronnummer %{invalid_lines}
+        example_error: Kon geen voorbeeld maken voor het opgegeven type
         new:
           accepted_mime_types:
             csv: csv
             json: json
-            xlsx: xlsx
+            xlsx: Excel (.xlsx)
           actions:
             back: Terug
+          download_example: Download voorbeeld
+          download_example_format: Voorbeeld als %{name}
           file_legend: Een importbestand toevoegen dat zal worden verwerkt.
           import: Importeren
         notice: "%{number} %{resource_name} succesvol geïmporteerd"
@@ -447,6 +500,7 @@ nl:
         areas: Thema's
         configuration: Configuratie
         dashboard: Dashboard
+        external_domain_whitelist: Toegelaten externe domeinen
         help_sections: Helpsecties
         homepage: Startpagina
         impersonations: Zich voordoen als
@@ -568,7 +622,7 @@ nl:
       newsletters:
         create:
           error: Er is een fout opgetreden bij het maken van deze nieuwsbrief.
-          success: Nieuwsbrief is succesvol gemaakt. Controleer het alvorens te verzenden.
+          success: Nieuwsbrief is succesvol gemaakt. Gelieve te controleren voor verzenden.
         deliver:
           error: Er is een fout opgetreden bij het leveren van deze nieuwsbrief.
           success: Nieuwsbrief is succesvol geleverd.
@@ -650,12 +704,12 @@ nl:
           title: Deelnemer "%{name}" officieel maken
         show_email_modal:
           close_modal: Sluit venster
-          description: Als u rechtstreeks contact wilt opnemen met een deelnemer, kunt u klikken op de Toon knop om het e-mailadres te zien. Deze actie wordt geregistreerd.
+          description: Als je rechtstreeks contact wil opnemen met een deelnemer, kun je op de knop Weergeven klikken om het e-mailadres te zien. Voor deze actie worden logbestanden bewaard.
           email_address: E-mail adres
           full_name: Volledige naam
           hidden: hidden
           show: Weergeven
-          title: Toon e-mailadres van gebruiker
+          title: E-mailadres deelnemer weergeven
         unblock:
           error: Er was een probleem bij het deblokkeren van de deelnemer
           success: Deelnemer met succes gedeblokkeerd
@@ -681,6 +735,7 @@ nl:
         form:
           colors:
             colors_title: Organisatiekleuren
+            colors_warning_html: Waarschuwing! Het wijzigen van deze kleuren kan de toegankelijkheid verminderen door een te klein contrast. Je kunt het contrast van je keuze nakijken met <a href="%{link}">WebAIM Contrast Checker</a> of andere vergelijkbare tools.
             header_snippets_help: Gebruik dit veld om dingen toe te voegen aan de HTML-kop. Het meest voorkomende gebruik is het integreren van diensten van derden die extra JavaScript of CSS nodig hebben. U kunt het ook gebruiken om extra metatags toe te voegen aan de HTML. Houd er rekening mee dat dit alleen op openbare pagina's wordt weergegeven, niet in de beheerdersafdeling.
           cta_button_path_help: 'U kunt de verwijzing van de knop "Call to Action" overschrijven. Gebruik hier gedeeltelijke paden, niet volledige URL''s. Aanvaardt letters, cijfers, streepjes en streepjes en moet beginnen met een brief. De knop "Call to Action" wordt weergegeven op de homepage tussen de welkomsttekst en de omschrijving. Voorbeeld: %{url}'
           cta_button_text_help: U kunt de tekst voor "Call To Action" overschrijven op de homepage voor elke beschikbare taal in uw organisatie. Indien niet ingesteld, wordt de standaardwaarde gebruikt. De knop Call to Action wordt weergegeven op de homepage tussen de welkomsttekst en de omschrijving.
@@ -690,6 +745,17 @@ nl:
             layout_appearance_title: Weergave van de lay-out bewerken
             preview: Voorvertoning
           omnipresent_banner_appearance_title: Bewerk de permanente banner
+      organization_external_domain_whitelist:
+        edit:
+          update: Bijwerken
+        external_domain:
+          down: Naar beneden
+          external_domain: Extern domein
+          remove: Verwijderen
+          up: Naar boven
+        form:
+          add: Toevoegen aan whitelist
+          title: Externe domein whitelist
       organization_homepage:
         edit:
           active_content_blocks: Actieve inhoudsblokken
@@ -828,7 +894,6 @@ nl:
         static_pages: Pagina's
         statistics: Activiteit
         user_groups: groepen
-        users: Deelnemers
       user_group:
         csv_verify:
           invalid: Er is een fout opgetreden bij het lezen van het CSV-bestand.
@@ -841,13 +906,6 @@ nl:
           success: Groep succesvol geverifieerd
       user_groups:
         index:
-          filter:
-            all: Alle
-            pending: In afwachting
-            rejected: Geweigerd
-            verified: Geverifieerd
-          filter_by: Filteren op
-          search: Zoeken
           state:
             pending: In afwachting
             rejected: Geweigerd
@@ -871,7 +929,6 @@ nl:
           role: Rol
         new:
           create: Nodig uit
-          title: Nodig deelnemer uit als beheerder
       users_statistics:
         users_count:
           admins: Admins
@@ -884,7 +941,7 @@ nl:
     forms:
       errors:
         impersonate_user:
-          reason: U moet een reden opgeven voor het beheer van een niet-beheerde deelnemer
+          reason: Je moet een reden opgeven voor het beheer van een niet-beheerde deelnemer
     metrics:
       blocked_users:
         object: geblokkeerde gebruikers

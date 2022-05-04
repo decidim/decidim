@@ -19,6 +19,9 @@ eu:
         hashtag: hashtag
         hero_image: Hasiera irudia
         i_frame_url: Kanpoko boto-sistemaren URLa
+        instructions: Jarraibide osagarriak botoa emateko
+        max_votes: Gehieneko boto kopurua
+        min_votes: Gutxieneko boto kopurua
         origin_scope: esparrua
         origin_title: Origin
         origin_url: Jatorria URLa
@@ -31,11 +34,24 @@ eu:
         subtitle: azpititulua
         vote: Kanpoko boto sistema
         what_is_decided: Zer erabaki
+      response:
+        decidim_consultations_response_group_id: Taldea
     errors:
+      models:
+        question:
+          attributes:
+            max_votes:
+              lower_than_min: Gehieneko boto kopurua gutxienekoa baino handiagoa edo berdina izan behar da.
       vote:
         decidim_consultations_response_id:
           not_found: Erantzuna ez da aurkitu.
   activerecord:
+    errors:
+      models:
+        decidim/consultations/vote:
+          attributes:
+            question:
+              invalid_num_votes: Boto kopurua ez da baliozkoa
     models:
       decidim/consultation:
         one: Consulta
@@ -52,10 +68,13 @@ eu:
   decidim:
     admin:
       actions:
+        back_to_responses: Itzuli erantzunetara
         new_consultation: Kontsulta berria
         new_question: Galdera berria
         new_response: Erantzun berria
+        new_response_group: Talde berri bat
         publish_results: Argitaratu emaitzak
+        response_groups: Kudeatu erantzun-multzoak
         unpublish_results: Argitaratu emaitzak
       consultation_publications:
         create:
@@ -75,6 +94,7 @@ eu:
         create:
           error: Errore bat gertatu da kontsulta berri bat sortzean.
           success: Kontsulta sortu da.
+        deprecation_warning: Kontsulten modulua laster zaharkituta egongo da. Lantzen ari gara kriptografikoki segurua izango den hurrengo bertsioa, Bozketak izenekoa.
         edit:
           update: eguneratzearen
         form:
@@ -86,6 +106,10 @@ eu:
         new:
           create: Sortu
           title: Kontsulta berria
+        results:
+          not_visible: Emaitzak eskuragai egongo dira inkesta ixten denean
+          participants: "%{count} parte-hartzaile"
+          total_votes: 'Guztira: %{count} boto'
         update:
           error: Errore bat gertatu da kontsulta hau eguneratzean.
           success: Kontsultak eguneratu egin du.
@@ -94,10 +118,12 @@ eu:
         consultations_submenu:
           info: informazioa
           questions: Galderak
+          results: Emaitzak
         questions_submenu:
           attachments: eranskinak
           categories: Kategoriak
           components: Osagaiak
+          configuration: Konfigurazioa
           consultation: Consulta
           info: informazioa
           responses: Erantzunak
@@ -121,10 +147,16 @@ eu:
         response:
           fields:
             created_at: Sortutako at
+            response_group: Taldea
             title: Izenburua
           name:
             one: Erantzun
             other: Erantzunak
+      question_configuration:
+        disable_external_voting: Mesedez, desaktibatu kanpoko bozketa konfigurazio aurreratuetarako
+        form:
+          help: Erantzun anitzeko aukerak dituzten galderak konfiguratzen ditu, parte-hartzaile batek aukera ditzakeen erantzun kopurua handituz. Aurrez zehaztutako gehieneko balioa 1 da, eta horrek esan nahi du erantzun bakarra aukera daitekeela.
+          title: Konfigurazio aurreratua
       question_publications:
         create:
           error: Errore bat gertatu da galdera hau argitaratzean.
@@ -151,6 +183,24 @@ eu:
         update:
           error: Errore bat gertatu da galdera hau eguneratzean.
           success: Galdera ondo eguneratu da.
+      response_groups:
+        create:
+          error: Errore bat gertatu da erantzun-multzo berri bat sortzean.
+          success: Erantzun-multzoa zuzen sortu da.
+        destroy:
+          error: Arazo bat gertatu da erantzun-multzoa ezabatzean. Egiaztatu ez dagoela erantzunik horren menpe.
+          success: Erantzun-multzoa zuzen ezabatu da.
+        edit:
+          update: Eguneratu
+        form:
+          title: Informazio orokorra
+        help: Erabili multzoak aukera anitzeko galderak paketetan antolatzeko.
+        new:
+          create: Sortu
+          title: Erantzun-multzo berria
+        update:
+          error: Arazoa gertatu da erantzun hau eguneratzean.
+          success: Erantzuna zuzen eguneratu da.
       responses:
         create:
           error: Errore bat gertatu da erantzun berri bat sortzean.
@@ -171,7 +221,9 @@ eu:
       titles:
         consultations: kontsultak
         questions: Galderak
+        response_groups: Erantzun-multzoak
         responses: Erantzunak
+        results: Emaitzak
     consultations:
       admin:
         content_blocks:
@@ -187,6 +239,8 @@ eu:
           label: 'Ordenatu kontsultak honela:'
           random: Random
           recent: Berrienak
+        show:
+          dates: Datak
       content_blocks:
         highlighted_consultations:
           name: Nabarmendutako kontsultak
@@ -199,7 +253,6 @@ eu:
         all: guztiak
         finished: Amaitu
         search: Search
-        state: Estatu
         upcoming: Datozen
       filters_small_view:
         close_modal: Itxi leihoa
@@ -228,9 +281,28 @@ eu:
         votes_out_of:
           one: bozkatu
           other: botoetatik kanpo
+      question_multiple_votes:
+        results_rules:
+          minimum_votes_per_user:
+            description: Parte-hartzaileek gutxienez %{votes} banatu ahal dituzte hainbat aukeraren artean.
+          title: Galdera honetan, aukera anitzeko erantzunak egon daitezke
+          total_participants: Kontsultan, guztira %{count} pertsonak hartu dute parte.
+          vote_limit:
+            description: Parte-hartzaileek gehienez %{limit} aukera bozkatu ahal dituzte.
+        voting_rules:
+          minimum_votes_per_user:
+            description: Gutxienez %{votes} boto banatu behar dituzu proposamen desberdinen artean.
+          title: 'Bozketa indarrean dagoen araudiaren araberakoa da:'
+          vote_limit:
+            description: Gehienez, %{limit} aukera bozkatu ahal duzu.
+            left: Gainontzekoak
+            votes: Botoak
       question_votes:
         create:
           error: Arazoak izan dira galdera hautapenean
+          success: Kontsultaren amaiera arte alda dezakezu. Azken botoa baino ez da onartuko.
+          title_error: Boto-akatsa!
+          title_success: Botoa zuzen erregistratu da
       regular_questions:
         title: Kontsulta honi buruzko galderak
       show:
@@ -248,10 +320,14 @@ eu:
     help:
       participatory_spaces:
         consultations:
+          contextual: "<p><strong>Kontsultak</strong> aukera ematen du elkarte bat osatzen duten pertsona guztiei galdera argi bat egiteko, parte hartzeko deia egiteko, eztabaida pizteko eta erantzuna emateko edo aurka egiteko. Kontsultaren ordua iristen denean, bozkatu eta emaitzak argitaratu ditzakezu.</p> <p>Adibideak: Kontsultak erakunde bati eragiten dion ia edozein alderdiri buruzkoak izan daitezke: adibidez, erakundearen izena edo logotipoa aldatzeko aukeren artean erabakitzeko, erakunde handiago bateko kide izateari buruz galdetuta Bai edo Ez erantzuteko, estrategia berri bat edo lan-talde baten lana baliogabetzeko edo baztertzeko, edo karguek gehienez 1, 2 edo 3 agintalditan egon behar duten erabakitzeko</p>\n"
+          page: "<p><strong>Kontsultak</strong> aukera ematen du elkarte bat osatzen duten pertsona guztiei galdera argi bat egiteko, parte hartzeko deia egiteko, eztabaida pizteko eta erantzuna emateko edo aurka egiteko. Kontsultaren ordua iristen denean, bozkatu eta emaitzak argitaratu ditzakezu.</p> <p>Adibideak: Kontsultak erakunde bati eragiten dion ia edozein alderdiri buruzkoak izan daitezke: adibidez, erakundearen izena edo logotipoa aldatzeko aukeren artean erabakitzeko, erakunde handiago bateko kide izateari buruz galdetuta Bai edo Ez erantzuteko, estrategia berri bat edo lan-talde baten lana baliogabetzeko edo baztertzeko, edo karguek gehienez 1, 2 edo 3 agintalditan egon behar duten erabakitzeko</p>"
           title: Zer dira kontsultak?
     menu:
       consultations: kontsultak
     questions:
+      next_button: Hurrengo galdera
+      previous_button: Aurreko galdera
       results:
         title: Emaitzak
       show:
@@ -267,15 +343,26 @@ eu:
         already_voted: Bozkatu
         already_voted_hover: Ezeztatu laguntza
         starting_from: '%{date}tik hasita'
+        verification_required: Egiaztatu zure kontua bozkatzeko
         vote: Bozkatu
       vote_modal:
+        close_modal: Itxi leihoa
         contextual_help: Aukeratu aukera bat.
         title: 'Kontsulta: galdera-laguntza'
       vote_modal_confirm:
         change: Aldaketa
+        close_modal: Itxi leihoa
         confirm: Berretsi
         contextual_help: Berretsi hautatutako aukera.
         title: 'Kontsulta: berretsi laguntza'
+    resources:
+      consultations:
+        actions:
+          comment: Iruzkina
+          vote: Eman botoa
+    statistics:
+      consultations_count: Kontsultak
+      votes_count: Botoak
   layouts:
     decidim:
       consultation_voting_data:
@@ -285,3 +372,4 @@ eu:
         unfold: Zabaldu
       question_header:
         back_to_consultation: Ikusi kontsulta guztiak
+        back_to_question: Itzuli galderara

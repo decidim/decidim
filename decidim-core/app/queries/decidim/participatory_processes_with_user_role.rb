@@ -3,7 +3,7 @@
 module Decidim
   # A class used to find the ParticipatoryProcesses that the given user has
   # the specific role privilege.
-  class ParticipatoryProcessesWithUserRole < Rectify::Query
+  class ParticipatoryProcessesWithUserRole < Decidim::Query
     # Syntactic sugar to initialize the class and return the queried objects.
     #
     # user - a User that needs to find which processes can manage

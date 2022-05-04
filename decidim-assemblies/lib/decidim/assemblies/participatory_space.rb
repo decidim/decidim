@@ -30,7 +30,7 @@ Decidim.register_participatory_space(:assemblies) do |participatory_space|
 
   participatory_space.exports :assemblies do |export|
     export.collection do |assembly|
-      Decidim::Assembly.where(id: assembly.id)
+      Decidim::Assembly.where(id: assembly.id).includes(:area, :scope, :attachment_collections, :categories)
     end
 
     export.serializer Decidim::Assemblies::AssemblySerializer
@@ -66,8 +66,18 @@ Decidim.register_participatory_space(:assemblies) do |participatory_space|
           Decidim::Faker::Localized.paragraph(sentence_count: 3)
         end,
         organization: organization,
-        hero_image: File.new(File.join(seeds_root, "city.jpeg")), # Keep after organization
-        banner_image: File.new(File.join(seeds_root, "city2.jpeg")), # Keep after organization
+        hero_image: ActiveStorage::Blob.create_and_upload!(
+          io: File.open(File.join(seeds_root, "city.jpeg")),
+          filename: "hero_image.jpeg",
+          content_type: "image/jpeg",
+          metadata: nil
+        ), # Keep after organization
+        banner_image: ActiveStorage::Blob.create_and_upload!(
+          io: File.open(File.join(seeds_root, "city2.jpeg")),
+          filename: "banner_image.jpeg",
+          content_type: "image/jpeg",
+          metadata: nil
+        ), # Keep after organization
         promoted: true,
         published_at: 2.weeks.ago,
         meta_scope: Decidim::Faker::Localized.word,
@@ -149,8 +159,18 @@ Decidim.register_participatory_space(:assemblies) do |participatory_space|
           Decidim::Faker::Localized.paragraph(sentence_count: 3)
         end,
         organization: organization,
-        hero_image: File.new(File.join(seeds_root, "city.jpeg")), # Keep after organization
-        banner_image: File.new(File.join(seeds_root, "city2.jpeg")), # Keep after organization
+        hero_image: ActiveStorage::Blob.create_and_upload!(
+          io: File.open(File.join(seeds_root, "city.jpeg")),
+          filename: "hero_image.jpeg",
+          content_type: "image/jpeg",
+          metadata: nil
+        ), # Keep after organization
+        banner_image: ActiveStorage::Blob.create_and_upload!(
+          io: File.open(File.join(seeds_root, "city2.jpeg")),
+          filename: "banner_image.jpeg",
+          content_type: "image/jpeg",
+          metadata: nil
+        ), # Keep after organization
         promoted: true,
         published_at: 2.weeks.ago,
         meta_scope: Decidim::Faker::Localized.word,
@@ -176,21 +196,39 @@ Decidim.register_participatory_space(:assemblies) do |participatory_space|
           description: Decidim::Faker::Localized.sentence(word_count: 5),
           attachment_collection: attachment_collection,
           attached_to: current_assembly,
-          file: File.new(File.join(seeds_root, "Exampledocument.pdf")) # Keep after attached_to
+          content_type: "application/pdf",
+          file: ActiveStorage::Blob.create_and_upload!(
+            io: File.open(File.join(seeds_root, "Exampledocument.pdf")),
+            filename: "Exampledocument.pdf",
+            content_type: "application/pdf",
+            metadata: nil
+          ) # Keep after attached_to
         )
 
         Decidim::Attachment.create!(
           title: Decidim::Faker::Localized.sentence(word_count: 2),
           description: Decidim::Faker::Localized.sentence(word_count: 5),
           attached_to: current_assembly,
-          file: File.new(File.join(seeds_root, "city.jpeg")) # Keep after attached_to
+          content_type: "image/jpeg",
+          file: ActiveStorage::Blob.create_and_upload!(
+            io: File.open(File.join(seeds_root, "city.jpeg")),
+            filename: "city.jpeg",
+            content_type: "image/jpeg",
+            metadata: nil
+          ) # Keep after attached_to
         )
 
         Decidim::Attachment.create!(
           title: Decidim::Faker::Localized.sentence(word_count: 2),
           description: Decidim::Faker::Localized.sentence(word_count: 5),
           attached_to: current_assembly,
-          file: File.new(File.join(seeds_root, "Exampledocument.pdf")) # Keep after attached_to
+          content_type: "application/pdf",
+          file: ActiveStorage::Blob.create_and_upload!(
+            io: File.open(File.join(seeds_root, "Exampledocument.pdf")),
+            filename: "Exampledocument.pdf",
+            content_type: "application/pdf",
+            metadata: nil
+          ) # Keep after attached_to
         )
 
         2.times do
@@ -210,7 +248,6 @@ Decidim.register_participatory_space(:assemblies) do |participatory_space|
             birthday: Faker::Date.birthday(min_age: 18, max_age: 65),
             birthplace: Faker::Demographic.demonym,
             designation_date: Faker::Date.between(from: 1.year.ago, to: 1.month.ago),
-            designation_mode: Faker::Lorem.word,
             position: position,
             position_other: position == "other" ? Faker::Job.position : nil,
             assembly: current_assembly
@@ -223,7 +260,6 @@ Decidim.register_participatory_space(:assemblies) do |participatory_space|
           birthday: Faker::Date.birthday(min_age: 18, max_age: 65),
           birthplace: Faker::Demographic.demonym,
           designation_date: Faker::Date.between(from: 1.year.ago, to: 1.month.ago),
-          designation_mode: Faker::Lorem.word,
           position: "other",
           position_other: Faker::Job.position,
           assembly: current_assembly

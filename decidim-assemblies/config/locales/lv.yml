@@ -51,7 +51,6 @@ lv:
         birthplace: Dzimšanas vieta
         ceased_date: Beigu datums
         designation_date: Iecelšanas datums
-        designation_mode: Iecelšanas veids
         full_name: Vārds, uzvārds
         gender: Dzimums
         position: Pozīcija
@@ -244,7 +243,6 @@ lv:
             duration_help: Ja šīs asamblejas ilgums ir ierobežots, izvēlieties beigu datumu. Pretējā gadījumā tas parādīsies kā nenoteikts
             filters: Filtri
             images: Attēli
-            included_at_help: Izvēlieties datumu, kad šī asambleja tika pievienota Decidim. Tam nav noteikti jābūt tādam pašam kā izveides datumam.
             metadata: Metadati
             other: Cits
             select_a_created_by: Izvēlieties izveidotāju

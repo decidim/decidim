@@ -20,10 +20,18 @@ ca:
               a: Opció A
               b: Opció B
               c: Opció C
+            test_options:
+              bar: Barra
+              baz: Baz
+              foo: Foo
           step:
             endorsements_blocked: Adhesions bloquejades
             endorsements_enabled: Adhesions habilitades
             readonly_step_attribute: Atribut de només lectura
+            test_options:
+              bar: Barra
+              baz: Baz
+              foo: Foo
     dummy:
       admin:
         exports:

@@ -31,7 +31,7 @@ describe Decidim::Votings::Census::Admin::CreateDatumJob do
       end
     end
 
-    context "when the dataset is missing" do
+    context "when the user is missing" do
       let!(:user) { nil }
 
       it "does not create a datum" do

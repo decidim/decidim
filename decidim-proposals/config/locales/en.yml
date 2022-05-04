@@ -58,6 +58,16 @@ en:
               identical: AND title cannot be identical
             title:
               identical: AND body cannot be identical
+        proposals_merge:
+          attributes:
+            base:
+              not_official: Are not official
+              supported: Have received support or endorsements
+        proposals_split:
+          attributes:
+            base:
+              not_official: Are not official
+              supported: Have received support or endorsements
     models:
       decidim/proposals/accepted_proposal_event: Proposal accepted
       decidim/proposals/admin/update_proposal_category_event: Proposal category changed
@@ -126,7 +136,6 @@ en:
         name: Proposals
         settings:
           global:
-            allow_card_image: Allow card image
             amendments_enabled: Amendments enabled
             amendments_enabled_help: If active, configure Amendment features for each step.
             amendments_wizard_help_text: Amendments Wizard help text
@@ -136,6 +145,17 @@ en:
             collaborative_drafts_enabled: Collaborative drafts enabled
             comments_enabled: Comments enabled
             comments_max_length: Comments max length (Leave 0 for default value)
+            default_sort_order: Default proposal sorting
+            default_sort_order_help: Default means that if the supports are enabled, the proposals will be shown sorted by random, and if the supports are blocked, then they will be sorted by the most supported.
+            default_sort_order_options:
+              default: Default
+              most_commented: Most commented
+              most_endorsed: Most endorsed
+              most_followed: Most followed
+              most_voted: Most supported
+              random: Random
+              recent: Recent
+              with_more_authors: With more authors
             geocoding_enabled: Geocoding enabled
             minimum_votes_per_user: Minimum supports per user
             new_proposal_body_template: New proposal body template
@@ -177,7 +197,18 @@ en:
             answers_with_costs: Enable costs on proposal answers
             automatic_hashtags: Hashtags added to all proposals
             comments_blocked: Comments blocked
-            creation_enabled: Proposal creation enabled
+            creation_enabled: Participants can create proposals
+            default_sort_order: Default proposal sorting
+            default_sort_order_help: Default it means that if the supports are enabled, the proposals will be shown sorted by random, and if the supports are blocked, then they will be sorted by the most supported.
+            default_sort_order_options:
+              default: Default
+              most_commented: Most commented
+              most_endorsed: Most endorsed
+              most_followed: Most followed
+              most_voted: Most supported
+              random: Random
+              recent: Recent
+              with_more_authors: With more authors
             endorsements_blocked: Endorsements blocked
             endorsements_enabled: Endorsements enabled
             proposal_answering_enabled: Proposal answering enabled
@@ -195,33 +226,33 @@ en:
             email_subject: Someone left a note on proposal %{resource_title}.
             notification_title: Someone has left a note on the proposal <a href="%{resource_path}">%{resource_title}</a>. Check it out at <a href="%{admin_proposal_info_path}">the admin panel</a>
         collaborative_draft_access_accepted:
-          email_intro: '%{requester_name} has been accepted to access as a contributor of the <a href="%{resource_path}">%{resource_title}</a> collaborative draft.'
-          email_outro: You have received this notification because you are a collaborator of <a href="%{resource_path}">%{resource_title}</a>.
+          email_intro: '%{requester_name} has been accepted to access as a contributor of the <a href="%{resource_url}">%{resource_title}</a> collaborative draft.'
+          email_outro: You have received this notification because you are a collaborator of <a href="%{resource_url}">%{resource_title}</a>.
           email_subject: "%{requester_name} has been accepted to access as a contributor of the %{resource_title}."
           notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> has been <strong>accepted to access as a contributor</strong> of the <a href="%{resource_path}">%{resource_title}</a> collaborative draft.
         collaborative_draft_access_rejected:
-          email_intro: '%{requester_name} has been rejected to access as a contributor of the <a href="%{resource_path}">%{resource_title}</a> collaborative draft.'
-          email_outro: You have received this notification because you are a collaborator of <a href="%{resource_path}">%{resource_title}</a>.
+          email_intro: '%{requester_name} has been rejected to access as a contributor of the <a href="%{resource_url}">%{resource_title}</a> collaborative draft.'
+          email_outro: You have received this notification because you are a collaborator of <a href="%{resource_url}">%{resource_title}</a>.
           email_subject: "%{requester_name} has been rejected to access as a contributor of the %{resource_title} collaborative draft."
           notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> has been <strong>rejected to access as a contributor</strong> of the <a href="%{resource_path}">%{resource_title}</a> collaborative draft.
         collaborative_draft_access_requested:
-          email_intro: '%{requester_name} requested access as a contributor. You can <strong>accept or reject the request</strong> from the <a href="%{resource_path}">%{resource_title}</a> collaborative draft page.'
-          email_outro: You have received this notification because you are a collaborator of <a href="%{resource_path}">%{resource_title}</a>.
+          email_intro: '%{requester_name} requested access as a contributor. You can <strong>accept or reject the request</strong> from the <a href="%{resource_url}">%{resource_title}</a> collaborative draft page.'
+          email_outro: You have received this notification because you are a collaborator of <a href="%{resource_url}">%{resource_title}</a>.
           email_subject: "%{requester_name} requested access to contribute to %{resource_title}."
           notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> requested access to contribute to the <a href="%{resource_path}">%{resource_title}</a> collaborative draft. Please <strong>accept or reject the request</strong>.
         collaborative_draft_access_requester_accepted:
-          email_intro: You have been accepted to access as a contributor of the <a href="%{resource_path}">%{resource_title}</a> collaborative draft.
-          email_outro: You have received this notification because you requested to become a collaborator of <a href="%{resource_path}">%{resource_title}</a>.
+          email_intro: You have been accepted to access as a contributor of the <a href="%{resource_url}">%{resource_title}</a> collaborative draft.
+          email_outro: You have received this notification because you requested to become a collaborator of <a href="%{resource_url}">%{resource_title}</a>.
           email_subject: You have been accepted as a contributor of %{resource_title}.
           notification_title: You have been <strong>accepted to access as a contributor</strong> of the <a href="%{resource_path}">%{resource_title}</a> collaborative draft.
         collaborative_draft_access_requester_rejected:
-          email_intro: You have been rejected to access as a contributor of the <a href="%{resource_path}">%{resource_title}</a> collaborative draft.
-          email_outro: You have received this notification because you requested to become a collaborator of <a href="%{resource_path}">%{resource_title}</a>.
+          email_intro: You have been rejected to access as a contributor of the <a href="%{resource_url}">%{resource_title}</a> collaborative draft.
+          email_outro: You have received this notification because you requested to become a collaborator of <a href="%{resource_url}">%{resource_title}</a>.
           email_subject: You have been rejected as a contributor of %{resource_title}.
           notification_title: You have been <strong>rejected to access as a contributor</strong> of the <a href="%{resource_path}">%{resource_title}</a> collaborative draft.
         collaborative_draft_withdrawn:
-          email_intro: <a href="%{author_path}">%{author_name} %{author_nickname}</a> withdrawn the <a href="%{resource_path}">%{resource_title}</a> collaborative draft.
-          email_outro: You have received this notification because you are a collaborator of <a href="%{resource_path}">%{resource_title}</a>.
+          email_intro: <a href="%{author_url}">%{author_name} %{author_nickname}</a> withdrawn the <a href="%{resource_url}">%{resource_title}</a> collaborative draft.
+          email_outro: You have received this notification because you are a collaborator of <a href="%{resource_url}">%{resource_title}</a>.
           email_subject: "%{author_name} %{author_nickname} withdrawn the %{resource_title} collaborative draft."
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> <strong>withdrawn</strong> the <a href="%{resource_path}">%{resource_title}</a> collaborative draft.
         creation_enabled:
@@ -270,7 +301,7 @@ en:
           email_intro: The proposal "%{resource_title}" has been added to "%{participatory_space_title}" that you are following.
           email_outro: You have received this notification because you are following "%{participatory_space_title}". You can stop receiving notifications following the previous link.
           email_subject: New proposal "%{resource_title}" added to %{participatory_space_title}
-          notification_title: The proposal <a href="%{resource_path}">%{resource_title}</a> has been added to %{participatory_space_title}
+          notification_title: The proposal <a href="%{resource_path}">%{resource_title}</a> has been added to %{participatory_space_title} by %{author}
         proposal_rejected:
           affected_user:
             email_intro: 'Your proposal "%{resource_title}" has been rejected. You can read the answer in this page:'
@@ -356,7 +387,7 @@ en:
       actions:
         answer_proposal: Answer proposal
         edit_proposal: Edit proposal
-        import: Import from another component
+        import: Import proposals from another component
         new: New proposal
         participatory_texts: Participatory texts
         show: Show proposal
@@ -367,6 +398,23 @@ en:
         exports:
           proposal_comments: Comments
           proposals: Proposals
+        imports:
+          help:
+            answers: 'The import document should contain the following columns: id, state (accepted, evaluating, rejected), answer/en (and other languages enabled for the organization).'
+            proposals: The file must have column names title/en and body/en (or another locale which you prefer eg. title/ca and body/ca). Also scope/id and category/id columns are supported.
+          label:
+            answers: Import answers from a file
+            proposals: Import proposals from a file
+          resources:
+            answers:
+              one: proposal answer
+              other: proposal answers
+            proposals:
+              one: proposal
+              other: proposals
+          title:
+            answers: Import proposal answers
+            proposals: Import proposals
         models:
           proposal:
             name: Proposal
@@ -408,6 +456,7 @@ en:
             accepted: Accepted
             answer_proposal: Answer
             evaluating: Evaluating
+            not_answered: Not answered
             rejected: Rejected
             title: Answer for proposal %{title}
         proposal_notes:
@@ -510,11 +559,11 @@ en:
             title: Import proposals
         proposals_merges:
           create:
-            invalid: There was a problem merging the selected proposals.
+            invalid: 'There has been a problem merging the selected proposals because some of them:'
             success: Successfully merged the proposals into a new one.
         proposals_splits:
           create:
-            invalid: There was a problem spliting the selected proposals.
+            invalid: 'There has been a problem splitting the selected proposals because some of them:'
             success: Successfully splitted the proposals into new ones.
         valuation_assignments:
           create:
@@ -545,9 +594,9 @@ en:
           all: All
         filter_origin_values:
           all: All
-          citizens: Citizens
           meetings: Meetings
           official: Official
+          participants: Participants
           user_groups: Groups
         filter_scope_values:
           all: All
@@ -610,6 +659,8 @@ en:
           filter_by: Filter by
           unfold: Unfold
         new:
+          add_file: Add file
+          edit_file: Edit file
           send: Continue
         new_collaborative_draft_button:
           new_collaborative_draft: New collaborative draft
@@ -720,12 +771,12 @@ en:
           description: The coordinates will be updated when clicking on 'preview' button. However, the address does not change.
           instructions: You can move the point on the map.
         edit:
-          add_documents: Documents
-          add_images: File
+          add_documents: Add documents
+          add_image: Add image
           attachment_legend: "(Optional) Add an attachment"
           back: Back
-          delete_document: Delete Document
-          delete_image: Delete Image
+          edit_documents: Edit documents
+          edit_image: Edit image
           gallery_legend: "(Optional) Add an image to the proposal card"
           select_a_category: Please select a category
           send: Send
@@ -754,9 +805,12 @@ en:
           filter_by: Filter by
           unfold: Unfold
         index:
+          click_here: See all proposals
           collaborative_drafts_list: Access collaborative drafts
           new_proposal: New proposal
+          see_all: See all proposals
           see_all_withdrawn: See all withdrawn proposals
+          text_banner: You are viewing the list of proposals withdrawn by their authors. %{go_back_link}.
           view_proposal: View proposal
         linked_proposals:
           proposal_votes:

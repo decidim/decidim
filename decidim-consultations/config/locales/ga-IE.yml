@@ -1,1 +1,136 @@
 ga:
+  activemodel:
+    attributes:
+      consultation:
+        questions: Ceisteanna
+        slug: Píosa URL
+        subtitle: Fotheideal
+        title: Teideal
+      question:
+        hashtag: Haischlib
+        origin_scope: Scóip
+        origin_title: Bunús
+        question_context: Comhthéacs
+        slug: Píosa URL
+        subtitle: Fotheideal
+      response:
+        decidim_consultations_response_group_id: Grúpa
+  activerecord:
+    models:
+      decidim/consultations/question:
+        one: Ceist
+        two: Ceisteanna
+        few: Ceisteanna
+        many: Ceisteanna
+        other: Ceisteanna
+      decidim/consultations/vote:
+        one: Vóta
+        two: Vótaí
+        few: Vótaí
+        many: Vótaí
+        other: Vótaí
+  decidim:
+    admin:
+      consultations:
+        edit:
+          update: Nuashonraigh
+        new:
+          create: Cruthaigh
+      menu:
+        consultations_submenu:
+          questions: Ceisteanna
+          results: Torthaí
+        questions_submenu:
+          attachments: Ceangaltáin
+          categories: Catagóirí
+      models:
+        consultation:
+          fields:
+            title: Teideal
+        question:
+          fields:
+            title: Teideal
+          name:
+            one: Ceist
+            two: Ceisteanna
+            few: Ceisteanna
+            many: Ceisteanna
+            other: Ceisteanna
+        response:
+          fields:
+            response_group: Grúpa
+            title: Teideal
+          name:
+            one: Freagra
+            two: Freagraí
+            few: Freagraí
+            many: Freagraí
+            other: Freagraí
+      questions:
+        edit:
+          update: Nuashonraigh
+        new:
+          create: Cruthaigh
+      response_groups:
+        edit:
+          update: Nuashonraigh
+        new:
+          create: Cruthaigh
+      responses:
+        edit:
+          update: Nuashonraigh
+        new:
+          create: Cruthaigh
+      titles:
+        questions: Ceisteanna
+        results: Torthaí
+    consultations:
+      consultations:
+        orders:
+          random: Randamach
+        show:
+          dates: Dátaí
+      filters:
+        active: Gníomhach
+        all: Uile
+        finished: Críochnaithe
+        search: Cuardaigh
+        upcoming: Le teacht
+      filters_small_view:
+        filter: Scag
+        unfold: Oscail
+      question_multiple_votes:
+        voting_rules:
+          vote_limit:
+            votes: Vótaí
+      show:
+        badge_name:
+          finished: Críochnaithe
+          open: Oscail
+        footer_button_text:
+          debate: Díospóireacht
+          view: Amharc
+          vote: Vótáil
+    questions:
+      results:
+        title: Torthaí
+      statistics:
+        comments_count_title: Tráchtanna
+        meetings_count_title: Cruinnithe
+        supports_count_title: Vótaí
+      vote_button:
+        vote: Vótáil
+      vote_modal_confirm:
+        change: Athrú
+        confirm: Deimhnigh
+    resources:
+      consultations:
+        actions:
+          comment: Tabhair Trácht
+          vote: Vótáil
+    statistics:
+      votes_count: Vótaí
+  layouts:
+    decidim:
+      question_components:
+        unfold: Oscail

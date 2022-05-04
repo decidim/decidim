@@ -19,6 +19,8 @@ nl:
   decidim:
     components:
       sortitions:
+        actions:
+          comment: Reactie
         name: Loting
         settings:
           global:
@@ -74,7 +76,6 @@ nl:
           index:
             title: Lotingen
           new:
-            confirm: Door op de volgende knop te drukken, legt Decidim de datum en tijd vast (met een nauwkeurigheid van seconden) en samen met de dobbelsteenworp wordt deze informatie gebruikt om een ​​willekeurige selectie te genereren. De actie is onomkeerbaar, zodra op de knop is geklikt, wordt het resultaat van deze trekking gepubliceerd, samen met de gegevens die in dit formulier zijn ingevoerd en niet kunnen worden gewijzigd. Bekijk de inhoud zorgvuldig
             create: Aanmaken
             title: Nieuwe loting
           show:

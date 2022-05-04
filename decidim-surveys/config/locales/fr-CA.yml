@@ -49,6 +49,8 @@ fr-CA:
         description: Nombre d'enquêtes auxquelles ont répondu les utilisateurs
         object: réponses aux enquêtes
         title: Réponses aux enquêtes
+    statistics:
+      answers_count: Réponses
     surveys:
       admin:
         exports:

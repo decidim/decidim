@@ -82,11 +82,7 @@ module Decidim
         end
 
         def conference_params
-          {
-            id: params[:slug],
-            hero_image: current_conference.hero_image,
-            banner_image: current_conference.banner_image
-          }.merge(params[:conference].to_unsafe_h)
+          { id: params[:slug] }.merge(params[:conference].to_unsafe_h)
         end
       end
     end

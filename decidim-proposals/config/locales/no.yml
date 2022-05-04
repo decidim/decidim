@@ -7,6 +7,7 @@
         category_id: Kategori
         decidim_scope_id: Tema
         has_address: Har adresse
+        scope_id: Tema
         state: Delstat
         title: Tittel
         user_group_id: Opprett samarbeids utkast som
@@ -19,17 +20,22 @@
         category_id: Kategori
         decidim_scope_id: Tema
         has_address: Har adresse
+        scope_id: Tema
         state: Delstat
         suggested_hashtags: Foreslåtte hashtags
         title: Tittel
         user_group_id: Opprett forslag som
       proposal_answer:
         answer: Svar
+        cost: Kostnad
+        cost_report: Kostnadsrapport
+        execution_period: Utførelsesperiode
       proposals_copy:
         copy_proposals: Jeg forstår at dette vil importere alle forslag fra den valgte komponenten til den nåværende, og at denne handlingen ikke kan reverseres.
         origin_component_id: Komponent å kopiere forslagene fra
       proposals_import:
         import_proposals: Importer forslag
+        keep_answers: Behold status og svar
         keep_authors: Behold originale forfattere
     errors:
       models:
@@ -48,9 +54,20 @@
               identical: OG tittelen kan ikke være identisk
             title:
               identical: OG teksten kan ikke være identisk
+        proposals_merge:
+          attributes:
+            base:
+              not_official: Er ikke offisiell
+              supported: Har mottatt støtte eller påtegninger
+        proposals_split:
+          attributes:
+            base:
+              not_official: Er ikke offisiell
+              supported: Har mottatt støtte eller påtegninger
     models:
       decidim/proposals/accepted_proposal_event: Forslag akseptert
       decidim/proposals/admin/update_proposal_category_event: Forslags kategorien ble endret
+      decidim/proposals/admin/update_proposal_scope_event: Forslagstema er endret
       decidim/proposals/creation_enabled_event: Opprettelse av forslag aktivert
       decidim/proposals/endorsing_enabled_event: Forslags påtegning aktivert
       decidim/proposals/evaluating_proposal_event: Forslaget blir evaluert
@@ -75,20 +92,44 @@
   decidim:
     admin:
       filters:
+        proposals:
+          category_id_eq:
+            label: Kategori
+          is_emendation_true:
+            label: Type
+            values:
+              'false': Forslag
+              'true': Endringer
+          scope_id_eq:
+            label: Tema
+          state_eq:
+            label: Tilstand
+            values:
+              accepted: Aksepterte
+              evaluating: Vurderer
+              published: Publisert
+              rejected: Avvist
+              validating: Teknisk validering
+              withdrawn: Tilbakekalt
+          state_null:
+            label: Tilstand
+            values:
+              'true': Ikke besvart
         search_placeholder:
           id_string_or_title_cont: Søk %{collection} etter ID eller tittel.
     components:
       proposals:
         actions:
           amend: Endre
+          comment: Kommentar
           create: Opprett
           endorse: Påtegne
           vote: Støtte
+          vote_comment: Stem på kommentar
           withdraw: Trekk tilbake
         name: Forslag
         settings:
           global:
-            allow_card_image: Tillat kortbilde
             amendments_enabled: Endringer aktivert
             amendments_enabled_help: Hvis aktiv, konfigurer du endringsfunksjoner for hvert trinn.
             amendments_wizard_help_text: Endrings Veiviser hjelpetekst
@@ -97,6 +138,18 @@
             can_accumulate_supports_beyond_threshold: Kan samle støtter utover terskelen
             collaborative_drafts_enabled: Samarbeids utkaster aktivert
             comments_enabled: Kommentarer aktivert
+            comments_max_length: Maks lengde på kommentarer (Sett 0 for standardverdi)
+            default_sort_order: Standard sortering av forslag
+            default_sort_order_help: Standardverdien betyr at hvis støtte er aktivert, vil forslagene bli vist i tilfeldig rekkefølge og hvis støttene er blokkert, vil de bli sortert etter de mest støttede forslagene.
+            default_sort_order_options:
+              default: Standardverdi
+              most_commented: Mest kommenterte
+              most_endorsed: Mest påtegnet
+              most_followed: Mest fulgte
+              most_voted: Mest støttet
+              random: Tilfeldig
+              recent: Nylig
+              with_more_authors: Med flere forfattere
             geocoding_enabled: Geokoding aktivert
             minimum_votes_per_user: Minimum støtter per bruker
             new_proposal_body_template: Nytt forslag korppsmal
@@ -107,6 +160,10 @@
             participatory_texts_enabled_readonly: Kan ikke samhandle med denne innstillingen hvis det finnes eksisterende forslag. Vennligst, opprett et nytt "Forslags komponent" hvis du vil aktivere denne funksjonen eller forkaste alle importerte forslag i `Deltakende tekster` -menyen hvis du vil deaktivere den.
             proposal_answering_enabled: Forslags besvaring aktivert
             proposal_edit_before_minutes: Forslag kan redigeres av forfattere før så mange minutter går
+            proposal_edit_time: Forslagsredigering
+            proposal_edit_time_choices:
+              infinite: Tillat å redigere forslag til en uendelig tidsperiode
+              limited: Tillat redigering av forslag innenfor en bestemt tidsramme
             proposal_length: Maksimal forslagstekst lengde
             proposal_limit: Forslagsgrense per deltaker
             proposal_wizard_step_1_help_text: Forslags veiviseren "Opprett" trinn-hjelpeteksten
@@ -114,6 +171,8 @@
             proposal_wizard_step_3_help_text: Forslags veiviseren "Fullfør " trinn-hjelpeteksten
             proposal_wizard_step_4_help_text: Forslags veiviseren "Publiser" trinn-hjelpeteksten
             resources_permissions_enabled: Handlings tillatelser kan settes for hvert forslag
+            scope_id: Tema
+            scopes_enabled: Aktiverte temaer
             threshold_per_proposal: Terskel per forslag
             vote_limit: Støttegrense per deltaker
           step:
@@ -124,21 +183,39 @@
             amendment_reaction_enabled: Endrings reaksjon aktivert
             amendment_reaction_enabled_help: Forslagets forfattere vil kunne godta eller avvise Deltakerens emendasjoner.
             amendments_visibility: Endringens synlighet
+            amendments_visibility_choices:
+              all: Endringer er synlig for alle
+              participants: Endringen er bare synlig for forfatteren
             amendments_visibility_help: Hvis alternativet "Endringer er bare synlige for forfatterne" er valgt, må deltaker være logget inn for å se endringene som er gjort.
             announcement: Kunngjøring
             answers_with_costs: Aktiver kostnader på forslag til svar
             automatic_hashtags: Hashtagger lagt til i alle forslag
             comments_blocked: Kommentarer blokkert
-            creation_enabled: Opprettelse av forslag aktivert
+            creation_enabled: Deltakerne kan opprette forslag
+            default_sort_order: Standard sortering av forslag
+            default_sort_order_help: Standard betyr at hvis støttene er aktivert, vil forslagene bli vist i tilfeldig rekkefølge, og hvis støttene er blokkert, vil de bli sortert etter de mest støttede støttene.
+            default_sort_order_options:
+              default: Standardverdi
+              most_commented: Mest kommentert
+              most_endorsed: Mest påtegnet
+              most_followed: Mest fulgt
+              most_voted: Mest støttet
+              random: Tilfeldig
+              recent: Nylig
+              with_more_authors: Med flere forfattere
             endorsements_blocked: Påtegnelser blokkert
             endorsements_enabled: Påtegnelser aktivert
             proposal_answering_enabled: Forslags besvaring aktivert
+            publish_answers_immediately: Publiser svar på forslag umiddelbart
             suggested_hashtags: Hashtagger foreslått til deltakere for nye forslag
             votes_blocked: Støtter blokkert
             votes_enabled: Støtter aktivert
             votes_hidden: Støtter skjult (hvis støtter er aktivert, sjekke du av dette vil det skjule antall støtter)
     events:
       proposals:
+        admin:
+          proposal_note_created:
+            email_intro: Noen har lagt ut en merknad på forslaget "%{resource_title}". Sjekk det ut i <a href="%{admin_proposal_info_url}">administratorpanelet</a>
         collaborative_draft_access_accepted:
           email_intro: '%{requester_name} har blitt akseptert tilgang som bidragsyter til <a href="%{resource_path}">%{resource_title}</a> samarbeids utkastet.'
           email_outro: Du har mottatt denne varslingen fordi du er en samarbeidspartner av <a href="%{resource_path}">%{resource_title}</a>.
@@ -214,7 +291,6 @@
           email_intro: Forslaget "%{resource_title}" er blitt lagt til "%{participatory_space_title}" som du følger.
           email_outro: Du har mottatt denne varslingen fordi du følger "%{participatory_space_title}". Du kan slutte å motta varsler hvis du følger den forrige lenken.
           email_subject: Nytt forslag "%{resource_title}" lagt til %{participatory_space_title}
-          notification_title: Forslaget <a href="%{resource_path}">%{resource_title}</a> har blitt lagt til %{participatory_space_title}
         proposal_rejected:
           affected_user:
             email_intro: 'Forslaget ditt "%{resource_title}" er blitt avvist. Du kan lese svaret på denne siden:'
@@ -295,6 +371,7 @@
         see_all: Vis alle (%{count})
     proposals:
       actions:
+        answer_proposal: Svar på forslag
         edit_proposal: Rediger forslaget
         import: Importer fra en annen komponent
         new: Nytt forslag
@@ -305,7 +382,22 @@
         actions:
           preview: Forhåndsvis
         exports:
+          proposal_comments: Kommentarer
           proposals: Forslag
+        imports:
+          label:
+            answers: Importer svar fra fil
+            proposals: Importer forslag fra en fil
+          resources:
+            answers:
+              one: svar på forslag
+              other: svar på forslag
+            proposals:
+              one: forslag
+              other: forslag
+          title:
+            answers: Importer svar på forslag
+            proposals: Importer forslag
         models:
           proposal:
             name: Forslag
@@ -328,6 +420,7 @@
           new_import:
             accepted_mime_types:
               md: Markdown
+              odt: ODT
             bottom_hint: "(Du vil kunne forhåndsvise og sortere dokument seksjoner)"
             title: LEGG TIL DOKUMENT
             upload_document: Last opp dokument
@@ -369,21 +462,27 @@
           form:
             attachment_legend: "(Valgfritt) Legg til et vedlegg"
             created_in_meeting: Dette forslaget kommer fra et møte
+            delete_attachment: Slett vedlegg
             select_a_category: Velg en kategori
             select_a_meeting: Velg et møte
           index:
             actions: Handlinger
+            assign_to_valuator_button: Tildel
             cancel: Avbryt
             change_category: Endre kategori
+            change_scope: Endre tema
             merge: Slå sammen til en ny
             merge_button: Slå sammen
             publish: Publiser
+            publish_answers: Publiser svar
             select_component: Velg en komponent
             selected: valgt
             split: Delte forslag
             split_button: Delt
             title: Forslag
+            unassign_from_valuator_button: Fjern tilegning
             update: Oppdater
+            update_scope_button: Oppdater tema
           new:
             create: Opprett
             title: Opprett forslag
@@ -428,11 +527,9 @@
             select_states: Sjekk statusen til forslagene som skal importeres
         proposals_merges:
           create:
-            invalid: Det oppstod et problem med å slå sammen de valgte forslagene.
             success: Slo sammen forslagene til et nytt ett.
         proposals_splits:
           create:
-            invalid: Det oppstod et problem med å splitte de valgte forslagene.
             success: Delte forslagene vellykket til nye.
       admin_log:
         proposal:
@@ -452,7 +549,6 @@
           all: Alle
         filter_origin_values:
           all: Alle
-          citizens: Borgere
           meetings: Møter
           official: Offisiell
           user_groups: Grupper
@@ -647,7 +743,9 @@
         index:
           collaborative_drafts_list: Lag utkast sammen med andre
           new_proposal: Nytt forslag
+          see_all: Se alle forslag
           see_all_withdrawn: Se alle tilbaketrukne forslag
+          text_banner: Du ser en liste med forslag tilbaketrukket av deres forfattere. %{go_back_link}.
           view_proposal: Se forslag
         linked_proposals:
           proposal_votes:
@@ -670,7 +768,11 @@
             document_index: Dokument indeks
           view_index:
             see_index: Se index
+        placeholder:
+          address: 37 Homewood Drive Brownsburg, IN 46112
         preview:
+          announcement_body: Forslaget ditt er lagret som en kladd. Det må publiseres for at det skal vises på nettstedet.
+          announcement_title: Forslaget ditt har ikke blitt publisert enda
           modify: Endre forslaget
           proposal_edit_before_minutes:
             one: Du vil kunne redigere dette forslaget i løpet av det første minuttet etter at forslaget er publisert. Etter dette tidsvinduet passerer, vil du ikke kunne redigere forslaget.
@@ -680,9 +782,13 @@
         proposal:
           creation_date: 'Opprettet: %{date}'
           view_proposal: Se forslag
+        proposals:
+          empty: Det finnes ingen forslag enda
+          empty_filters: Det er ingen forslag med disse kriteriene
         show:
           answer: Svar
           back_to: Tilbake til
+          back_to_list: Tilbake til listen
           changes_at_title: Endring til "%{title}"
           comments: Kommentarer
           edit_proposal: Rediger forslaget
@@ -704,7 +810,12 @@
           read_more: Les mer
           report: Rapport
           withdraw_btn_hint: Du kan trekke tilbake forslaget ditt hvis du ombestemmer deg, så lenge du ikke har fått noe støtte. Forslaget er ikke slettet, den vil vises i listen av tilbaketrukne forslag.
+          withdraw_confirmation_html: Er du sikker på at du vil trekke tilbake dette forslaget?<br><br><strong>Denne handlingen kan ikke avbrytes!</strong>
           withdraw_proposal: Trekk tilbake forslag
+        tags:
+          changed_from: "(endret fra <u>%{previous_name}</u> av en administrator)"
+        update:
+          title: Oppdater forslag
         vote_button:
           already_voted: Støttet allerede
           already_voted_hover: Trekk tilbake støtte
@@ -736,14 +847,25 @@
             votes: Støtter
         wizard_aside:
           back: Tilbake
+          back_from_step_1: Tilbake til forslag
+          back_from_step_2: Tilbake til forslag
+          back_from_step_3: Tilbake til sammenlign forslag
+          back_from_step_4: Tilbake til redigering av utkast
           info: Du lage et <strong>forslag</strong>.
         wizard_steps:
+          current_step: Gjeldende trinn
           see_steps: se trinn
           step_1: Opprett ditt forslag
           step_2: Sammenlign
           step_3: Fullført
           step_4: Publiser forslaget ditt
           step_of: Trinn %{current_step_num} av %{total_steps}
+          title: Trinn for opprettelse av forslag
+      proposals_picker:
+        choose_proposals: Velg forslag
+        close: Lukk
+        more_proposals: Det er %{number} flere forslag. Begrens søket for å finne dem.
+        no_proposals: Ingen forslag stemmer overens med søkekriteriene, eller så finnes det ikke noe forslag.
       publish:
         error: Det oppstod et problem med å publisere forslaget.
         success: Forslag publisert.
@@ -771,3 +893,7 @@
       included_proposals:
         proposal_project: 'Forslag vises i disse prosjektene:'
         proposal_result: 'Forslag vises i disse resultatene:'
+    statistics:
+      proposals_accepted: Godkjente forslag
+      proposals_count: Forslag
+      supports_count: Støtter

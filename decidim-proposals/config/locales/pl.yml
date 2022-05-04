@@ -72,22 +72,22 @@ pl:
       decidim/proposals/collaborative_draft:
         one: Wspólny szkic
         few: Wspólne szkice
-        many: Wspólne szkice
+        many: Wspólne szkiców
         other: Wspólne szkice
       decidim/proposals/proposal:
         one: Propozycja
         few: Propozycje
-        many: Propozycje
+        many: Propozycji
         other: Propozycje
       decidim/proposals/proposal_note:
         one: Uwaga
         few: Uwagi
-        many: Uwagi
+        many: Uwag
         other: Uwagi
       decidim/proposals/proposal_vote:
         one: Wsparcie
-        few: Wsparć
-        many: Wsparcia
+        few: Wsparcia
+        many: Wsparć
         other: Wsparcia
   decidim:
     admin:
@@ -132,7 +132,6 @@ pl:
         name: Propozycje
         settings:
           global:
-            allow_card_image: Zezwalaj na obraz
             amendments_enabled: Można dodawać poprawki
             amendments_enabled_help: Jeśli aktywne, skonfiguruj funkcje poprawek dla każdego kroku.
             amendments_wizard_help_text: Tekst pomocy Kreatora poprawek
@@ -183,7 +182,6 @@ pl:
             answers_with_costs: Zezwalaj na koszty w odpowiedziach na propozycje
             automatic_hashtags: Hashtagi dodane do wszystkich propozycji
             comments_blocked: Komentarze zablokowane
-            creation_enabled: Włączono tworzenie propozycji
             endorsements_blocked: Rekomendacje zostały zablokowane
             endorsements_enabled: Rekomendacje włączone
             proposal_answering_enabled: Włączono odpowiadanie na propozycję
@@ -248,7 +246,7 @@ pl:
             notification_title: Twoja propozycja <a href="%{resource_path}">%{resource_title}</a> została zaakceptowana.
           follower:
             email_intro: 'Propozycja "%{resource_title}" została zaakceptowana. Możesz przeczytać odpowiedź na tej stronie:'
-            email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz "%{resource_title}". Możesz przestać obserwować klikając w poprzedni link.
+            email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz "%{resource_title}". Aby przestać otrzymywać powiadomienia kliknij w powyższy link, a następnie na stronie propozycji kliknij w przycisk obserwowania.
             email_subject: Propozycja, którą obserwujesz, została zaakceptowana
             notification_title: Propozycja <a href="%{resource_path}">%{resource_title}</a> została zaakceptowana.
         proposal_evaluating:
@@ -259,7 +257,7 @@ pl:
             notification_title: Twoja propozycja <a href="%{resource_path}">%{resource_title}</a> jest oceniana.
           follower:
             email_intro: 'Propozycja "%{resource_title}" jest obecnie oceniana. Możesz sprawdzić odpowiedź na tej stronie:'
-            email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz "%{resource_title}". Możesz przestać obserwować klikając w poprzedni link.
+            email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz "%{resource_title}". Aby przestać otrzymywać powiadomienia kliknij w powyższy link, a następnie na stronie propozycji kliknij w przycisk obserwowania.
             email_subject: Propozycja, którą obserwujesz, jest oceniana
             notification_title: Trwa ocenianie propozycji <a href="%{resource_path}">%{resource_title}</a>.
         proposal_mentioned:
@@ -274,9 +272,8 @@ pl:
           notification_title: Propozycja <a href="%{resource_path}">%{resource_title}</a> została opublikowana przez <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
         proposal_published_for_space:
           email_intro: Propozycja "%{resource_title}" została dodana do przestrzeni "%{participatory_space_title}", którą obserwujesz.
-          email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz "%{participatory_space_title}". Możesz przestać obserwować klikając w poprzedni link.
+          email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz "%{participatory_space_title}". Aby przestać otrzymywać powiadomienia kliknij w powyższy link, a następnie na stronie kliknij w przycisk obserwowania.
           email_subject: Nowa propozycja "%{resource_title}" została dodana do %{participatory_space_title}
-          notification_title: Propozycja <a href="%{resource_path}">%{resource_title}</a> została dodana do %{participatory_space_title}
         proposal_rejected:
           affected_user:
             email_intro: 'Twoja propozycja "%{resource_title}" została odrzucona. Możesz przeczytać odpowiedź na tej stronie:'
@@ -285,7 +282,7 @@ pl:
             notification_title: Twoja propozycja <a href="%{resource_path}">%{resource_title}</a> została odrzucona.
           follower:
             email_intro: 'Propozycja "%{resource_title}" została odrzucona. Możesz przeczytać odpowiedź na tej stronie:'
-            email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz "%{resource_title}". Możesz przestać obserwować klikając w poprzedni link.
+            email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz "%{resource_title}". Aby przestać otrzymywać powiadomienia kliknij w powyższy link, a następnie na stronie propozycji kliknij w przycisk obserwowania.
             email_subject: Propozycja, którą obserwujesz, została odrzucona
             notification_title: Propozycja <a href="%{resource_path}">%{resource_title}</a> została odrzucona.
         proposal_update_category:
@@ -518,11 +515,9 @@ pl:
             title: Importuj propozycje
         proposals_merges:
           create:
-            invalid: Podczas łączenia wybranych propozycji wystąpił błąd.
             success: Pomyślnie połączono propozycje.
         proposals_splits:
           create:
-            invalid: Wystąpił błąd podczas podziału wybranych propozycji.
             success: Pomyślnie podzielono propozycje.
         valuation_assignments:
           create:
@@ -553,7 +548,6 @@ pl:
           all: Wszystko
         filter_origin_values:
           all: Wszystko
-          citizens: Obywatele
           meetings: Spotkania
           official: Urzędnik
           user_groups: Grupy użytkowników
@@ -625,7 +619,7 @@ pl:
           new_collaborative_draft: Nowy wspólny szkic
         orders:
           label: 'Sortuj szkice według:'
-          most_contributed: Najwięcej kontrybucji
+          most_contributed: Najbardziej wspierane
           random: Losowo
           recent: Najnowszy
         requests:
@@ -683,7 +677,7 @@ pl:
         success: Szkic propozycji został usunięty.
       last_activity:
         new_proposal_at_html: "<span>Nowa propozycja pod %{link}</span>"
-        proposal_updated_at_html: "<span>Wniosek zaktualizowany o %{link}</span>"
+        proposal_updated_at_html: "<span>Propozycja zaktualizowana o %{link}</span>"
       models:
         collaborative_draft:
           fields:
@@ -731,12 +725,8 @@ pl:
             many: "%{count} propozycji"
             other: "%{count} propozycji"
         edit:
-          add_documents: Dokumenty
-          add_images: Plik
           attachment_legend: "(Opcjonalnie) Dodaj załącznik"
           back: Wróć
-          delete_document: Usuń dokument
-          delete_image: Usuń obraz
           gallery_legend: "(Opcjonalnie) Dodaj obraz do karty propozycji"
           select_a_category: Wybierz kategorię
           send: Wyślij

@@ -52,15 +52,16 @@ fr-CA:
         target: Participants
         title: Titre
         twitter: Twitter
+        weight: Rang
         youtube: Youtube
       assembly_member:
         birthday: Date de naissance
         birthplace: Lieu de naissance
         ceased_date: Date de radiation
         designation_date: Date de désignation
-        designation_mode: Mode de désignation
         full_name: Nom et prénom
         gender: Genre
+        non_user_avatar: Avatar
         position: Statut
         user_id: Utilisateur
       assembly_user_role:
@@ -181,6 +182,9 @@ fr-CA:
         update:
           error: Une erreur s'est produite lors de la mise à jour d'un utilisateur pour cette assemblée.
           success: Utilisateur mis à jour avec succès pour cette assemblée.
+      filters:
+        decidim_assemblies_type_id_eq:
+          label: Type d'assemblée
       menu:
         assemblies: Assemblées
         assemblies_settings: Paramètres
@@ -261,11 +265,12 @@ fr-CA:
       admin:
         assemblies:
           form:
+            announcement_help: Le texte que vous saisissez ici sera affiché aux utilisateurs juste en dessous des informations de l'assemblée.
             duration: Durée
             duration_help: Si la durée de cette assemblée est limitée, sélectionnez la date de fin. Sinon sa durée ne sera pas limitée.
             filters: Filtres
             images: Images
-            included_at_help: Sélectionnez la date à laquelle cet assemblée a été ajoutée à Decidim. Elle ne doit pas nécessairement être identique à la date de création.
+            included_at_help: Sélectionnez la date à laquelle cet assemblée a été ajoutée à la plateforme. Elle ne doit pas nécessairement être identique à la date de création.
             metadata: Métadonnées
             other: Autre
             select_a_created_by: Sélectionnez un créateur
@@ -294,7 +299,10 @@ fr-CA:
         assembly_members:
           form:
             existing_user: Utilisateur existant
+            explanation: 'Instruction concernant l’image:'
+            image_guide: De préférence une image en format portrait sans texte.
             non_user: Utilisateur inconnu
+            non_user_avatar_help: Vous devriez obtenir le consentement des personnes avant de les publier en tant que membre.
             select_a_position: Sélectionnez un statut
             select_user: Sélectionnez un utilisateur
             user_type: Type d'utilisateur
@@ -311,6 +319,9 @@ fr-CA:
         new_import:
           accepted_types:
             json: JSON
+      assemblies:
+        show:
+          title: À propos de cette assemblée
       assembly_members:
         index:
           members: Membres
@@ -420,6 +431,8 @@ fr-CA:
     participatory_processes:
       show:
         related_assemblies: Assemblées associées
+    statistics:
+      assemblies_count: Assemblées
   errors:
     messages:
       cannot_be_blank: ne peut être vide

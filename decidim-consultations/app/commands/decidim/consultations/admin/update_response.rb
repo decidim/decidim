@@ -4,7 +4,7 @@ module Decidim
   module Consultations
     module Admin
       # A command with all the business logic when updating an response in the system.
-      class UpdateResponse < Rectify::Command
+      class UpdateResponse < Decidim::Command
         # Public: Initializes the command.
         #
         # response - the response to update

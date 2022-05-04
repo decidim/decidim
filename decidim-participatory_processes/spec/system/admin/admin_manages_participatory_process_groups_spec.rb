@@ -46,17 +46,20 @@ describe "Admin manages participatory process groups", type: :system do
         ca: "La corporació X"
       )
       select participatory_processes.first.title["en"], from: :participatory_process_group_participatory_process_ids
-      attach_file :participatory_process_group_hero_image, image1_path
+    end
 
+    dynamically_attach_file(:participatory_process_group_hero_image, image1_path)
+
+    within ".new_participatory_process_group" do
       find("*[type=submit]").click
     end
 
     expect(page).to have_admin_callout("successfully")
-    expect(page).to have_content("My group")
-    expect(page).to have_content("hashtag")
-    expect(page).to have_content("http://example.org")
-    expect(page).to have_content("X corporation")
-    expect(page).to have_content(participatory_processes.first.title["en"])
+    expect(page).to have_field(:participatory_process_group_title_en, with: "My group")
+    expect(page).to have_field(:participatory_process_group_hashtag, with: "hashtag")
+    expect(page).to have_field(:participatory_process_group_group_url, with: "http://example.org")
+    expect(page).to have_field(:participatory_process_group_developer_group_en, with: "X corporation")
+    expect(page).to have_select("Related processes", selected: participatory_processes.first.title["en"])
     expect(page).to have_css("img[src*='#{image1_filename}']")
   end
 
@@ -101,18 +104,21 @@ describe "Admin manages participatory process groups", type: :system do
           ca: "La corporació Z"
         )
         select participatory_processes.last.title["en"], from: :participatory_process_group_participatory_process_ids
-        attach_file :participatory_process_group_hero_image, image2_path
+      end
 
+      dynamically_attach_file(:participatory_process_group_hero_image, image2_path, remove_before: true)
+
+      within ".edit_participatory_process_group" do
         find("*[type=submit]").click
       end
 
       expect(page).to have_admin_callout("successfully")
-      expect(page).to have_content("My old group")
+      expect(page).to have_field(:participatory_process_group_title_en, with: "My old group")
       expect(page).to have_content("New description")
-      expect(page).to have_content("new_hashtag")
-      expect(page).to have_content("http://new-example.org")
-      expect(page).to have_content("Z corporation")
-      expect(page).to have_content(participatory_processes.last.title["en"])
+      expect(page).to have_field(:participatory_process_group_hashtag, with: "new_hashtag")
+      expect(page).to have_field(:participatory_process_group_group_url, with: "http://new-example.org")
+      expect(page).to have_field(:participatory_process_group_developer_group_en, with: "Z corporation")
+      expect(page).to have_select("Related processes", selected: participatory_processes.last.title["en"])
       expect(page).to have_css("img[src*='#{image2_filename}']")
     end
 
@@ -141,7 +147,13 @@ describe "Admin manages participatory process groups", type: :system do
         click_link "Edit"
       end
 
-      check "Remove this file"
+      within ".upload-container-for-hero_image" do
+        find("#participatory_process_group_hero_image_button").click
+      end
+
+      find(".remove-upload-item").click
+      click_button "Save"
+
       click_button "Update"
 
       expect(page).to have_no_css("img")

@@ -5,7 +5,7 @@ module Decidim
     module Admin
       # This command is executed when the user creates an Answer
       # from the admin panel.
-      class CreateAnswer < Rectify::Command
+      class CreateAnswer < Decidim::Command
         include ::Decidim::AttachmentMethods
         include ::Decidim::GalleryMethods
 

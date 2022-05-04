@@ -4,7 +4,7 @@ module Decidim
   module Meetings
     # This command is executed when the user closes a Meeting from the public
     # views.
-    class CloseMeeting < Rectify::Command
+    class CloseMeeting < Decidim::Command
       # Initializes a CloseMeeting Command.
       #
       # form - The form from which to get the data.
@@ -41,7 +41,9 @@ module Decidim
           form.current_user
         ) do
           meeting.update!(
+            attendees_count: form.attendees_count,
             closed_at: form.closed_at,
+            closing_visible: true,
             closing_report: { I18n.locale => parsed_closing_report }
           )
         end

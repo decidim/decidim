@@ -23,6 +23,7 @@ fi-pl:
         decidim_user_group_id: Käyttäjäryhmä
         description: Kuvaus
         end_time: Lopetusaika
+        id: ID
         location: Paikka
         location_hints: Paikan tarkemmat tiedot
         online_meeting_url: Verkkotapaamisen osoite (URL)
@@ -34,12 +35,17 @@ fi-pl:
         registration_terms: Ilmoittautumisehdot
         registration_url: Ilmoittautumisosoite (URL)
         registrations_enabled: Ilmoittautumiset ovat käytössä
+        show_embedded_iframe: Näytä upotettu iframe tälle osoitteelle
         start_time: Aloitusaika
         title: Otsikko
         transparent: Läpinäkyvä
         type_of_meeting: Tyyppi
     errors:
       models:
+        meeting:
+          attributes:
+            iframe_embed_type:
+              not_embeddable: Tätä URL-osoitetta ei voi upottaa tapaamisen sivulle tai reaaliaikaisen tapahtuman sivulle
         meeting_agenda:
           attributes:
             base:
@@ -69,6 +75,34 @@ fi-pl:
         other: Ilmoittautumiset
   decidim:
     admin:
+      filters:
+        meetings:
+          category_id_eq:
+            label: Aihepiiri
+          closed_at_present:
+            label: Tila
+            values:
+              'false': Avoin
+              'true': Suljettu
+          is_upcoming_true:
+            label: Päivämäärä
+            values:
+              'false': Menneet
+              'true': Tulevat
+          scope_id_eq:
+            label: Teema
+          with_any_origin:
+            label: Alkuperä
+            values:
+              official: Viralliset
+              participants: Osallistujat
+              user_group: Käyttäjäryhmät
+          with_any_type:
+            label: Tapaamisen tyyppi
+            values:
+              hybrid: Molemmat
+              in_person: Fyysinen
+              online: Verkossa
       meeting_copies:
         create:
           error: Tämän tapahtuman monistamisessa tapahtui virhe.
@@ -80,6 +114,7 @@ fi-pl:
     components:
       meetings:
         actions:
+          comment: Kommentoi
           join: Liity mukaan
         name: Tapahtumat
         settings:
@@ -147,6 +182,9 @@ fi-pl:
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat tapahtumaa "%{resource_title}". Voit lopettaa seuraamisen edellä esitetyn linkin kautta.
           email_subject: Tapahtuman "%{resource_title}" alkuun on alle 48 tuntia.
           notification_title: Tapahtuma <a href="%{resource_path}">%{resource_title}</a> alkaa alle 48 tuntin kuluttua.
+    forms:
+      meetings:
+        attendees_count_help_text: Älä unohda ilmoittaa tapahtuman osallistujamäärää. Tapahtuman tyypistä riippumatta, meille on tärkeä tietää, kuinka moni osallistui tapahtumaan.
     gamification:
       badges:
         attended_meetings:
@@ -244,6 +282,9 @@ fi-pl:
           edit:
             close: Sulje
             title: Sulje tapahtuma
+        meeting_copies:
+          form:
+            select_a_meeting_type: Valitse tapaamisen tyyppi
         meetings:
           close:
             invalid: Tapahtuman sulkemisessa tapahtui virhe
@@ -262,15 +303,15 @@ fi-pl:
             update: Päivitä
           form:
             address_help: 'Osoite: käytetään sijainnin löytämiseksi geokoodaukseen'
-            available_slots_help: Määritä tähän kenttään arvo 0, jos tapahtuman paikkamäärää ei ole rajoitettu
             disclaimer: 'Vastuuvapauslauseke: Käyttämällä ulkoista ilmoittautumisjärjestelmää olet tietoinen siitä, että organisaatio %{organization} ei ole vastuussa tiedoista, jotka käyttäjät ovat antaneet ulkoiselle palvelulle.'
             location_help: 'Sijainti: viesti osallistujille tapaamispaikan sijainnin löytämiseksi'
             location_hints_help: 'Vihjeet sijainnille: sijainnin lisätieto. Esimerkiksi rakennuksen kerros fyysisissä tapaamisissa tai tapaamisen salasana rajatussa verkkotapaamisessa.'
             online_meeting_url_help: 'Linkki: salli osallistujien yhdistäminen tapaamiseen suoraan'
-            registration_email_help: Tämä teksti näytetään tapahtumailmoittautumisten vahvistussähköpostin keskiosassa. Teksti näkyy heti ilmoittautumiskoodin jälkeen.
             registration_url_help: 'Linkki: salli käyttäjien siirtyminen käytettyyn ulkoiseen ilmoittautumispalveluun'
             select_a_meeting_type: Valitse tapaamisen tyyppi
             select_a_registration_type: Valitse ilmoittautumisten tyyppi
+            select_an_iframe_access_level: Valitse iframe-upotusten käyttöoikeustaso
+            show_embedded_iframe_help: Vain harvat palvelut sallivat tapaamisen upottamisen reaaliaikaisesti tapahtumasivulle (YouTube, Twitch ja Jitsi)
           index:
             title: Tapahtumat
           new:
@@ -313,6 +354,7 @@ fi-pl:
             available_slots_help: Jätä arvoksi 0, mikäli tapahtumaan on rajoittamaton määrä paikkoja.
             invites: Kutsut
             recommendation_message: Yksityisyytesi takia suosittelemme, että poistat tämän kirjoituksen, kun et enää tarvitse sitä. Oletuksena se säilytetään 3 kuukautta tapahtuman päättymisen jälkeen.
+            registration_email_help: Tämä teksti näytetään tapahtumailmoittautumisten vahvistussähköpostin keskiosassa. Teksti näkyy heti ilmoittautumiskoodin jälkeen.
             registration_form: Ilmoittautumislomake
             registrations_count:
               one: Tapahtumaan on %{count} ilmoittautuminen.
@@ -340,26 +382,37 @@ fi-pl:
           value_types:
             organizer_presenter:
               not_found: 'Järjestäjää ei löytynyt tietokannasta (ID: %{id})'
+      application_helper:
+        filter_category_values:
+          all: Kaikki
+        filter_meeting_space_values:
+          all: Kaikki
+        filter_scope_values:
+          all: Kaikki
       calendar_modal:
         calendar_url: Kalenterin URL
         close_window: Sulje ikkuna
         export_calendar: Vie kalenterin tiedot
       conference_venues: Tapahtumapaikat
       content_blocks:
-        upcoming_events:
-          name: Tulevat tapahtumat
-          upcoming_events: Tulevat tapahtumat
-          view_all_events: Näytä kaikki
+        upcoming_meetings:
+          name: Tulevat tapaamiset
+          upcoming_meetings: Tulevat tapaamiset
+          view_all_meetings: Näytä kaikki
       directory:
         meetings:
           index:
-            all: Kaikki
-            date: Päivämäärä
             meetings: Tapahtumat
-            past: Menneet
-            search: Hae
             space_type: Osallisuustila
-            upcoming: Tulevat
+      iframe_access_level:
+        all: Kaikki kävijät
+        registered: Tähän tapaamiseen ilmoittautuneet osallistujat
+        signed_in: Vain sisäänkirjautuneet osallistujat
+      iframe_embed_type:
+        embed_in_meeting_page: Upota tapaamisen sivulle
+        none: Ei mitään
+        open_in_live_event_page: Avaa upotus tapahtuman sivulla reaaliajassa (liitä vapaaehtoisia mielipidekyselyjä)
+        open_in_new_tab: Avaa uudessa välilehdessä
       last_activity:
         meeting_updated_at_html: "<span>Tapaaminen päivitetty osoitteessa %{link}</span>"
         new_meeting_at_html: "<span>Uusi tapahtuma osoitteessa %{link}</span>"
@@ -414,8 +467,8 @@ fi-pl:
           origin: Alkuperä
           origin_values:
             all: Kaikki
-            citizens: Kansalaiset
             official: Viralliset
+            participants: Osallistujat
             user_groups: Ryhmät
           scope: Teema
           search: Hae
@@ -442,8 +495,14 @@ fi-pl:
           select_a_category: Valitse aihepiiri
           select_a_meeting_type: Valitse tapaamisen tyyppi
           select_a_registration_type: Valitse ilmoittautumisten tyyppi
+          select_an_iframe_access_level: Valitse iframe-upotusten käyttöoikeustaso
+          show_embedded_iframe_help: Vain harvat palvelut sallivat tapaamisen upottamisen reaaliaikaisesti tapahtumasivulle (YouTube, Twitch ja Jitsi)
         index:
+          click_here: Näytä kaikki tapahtumat
           new_meeting: Uusi tapahtuma
+          see_all: Näytä kaikki tapahtumat
+          see_all_withdrawn: Näytä kaikki peruutetut tapahtumat
+          text_banner: Katselet peruutettuja tapahtumia, jotka niiden tekijät ovat peruuttaneet. %{go_back_link}.
         meeting_minutes:
           related_information: Liittyviä tietoja
         meetings:
@@ -453,9 +512,6 @@ fi-pl:
           back: Takaisin
           create: Luo
           title: Luo tapahtuma
-        online_meeting_link:
-          join: Ilmoittaudu tapaamiseen
-          live_event: Tämä tapaaminen on käynnissä juuri nyt
         registration_confirm:
           cancel: Peruuta
           confirm: Vahvista
@@ -465,12 +521,17 @@ fi-pl:
           close_meeting: Sulje tapaaminen
           contributions: Kontribuutioiden määrä
           date: Päivämäärä
+          edit_close_meeting: Muokkaa tapahtumaraporttia
           edit_meeting: Muokkaa tapahtumaa
           going: Olet ilmoittautunut tähän tapaamiseen
           join: Liity tapahtumaan
           leave: Peruuta ilmoittautumisesi
           leave_confirmation: Haluatko varmasti peruuttaa ilmoittautumisesi tähän tapaamiseen?
+          link_available_soon: Linkki julkaistaan pian
+          link_closed: Linkki tähän tapaamiseen liittymiseksi julkaistaan muutama minuutti ennen tapaamisen alkamista
+          live_event: Tämä tapaaminen on parhaillaan käynnissä
           meeting_minutes: Tapahtumapöytäkirja
+          micro_camera_permissions_warning: Painaessasi alla olevaa painiketta, sinua pyydetään antamaan palvelulle oikeudet käyttää mikrofoniasi ja/tai kameraasi, minkä jälkeen voit liittyä tapaamiseen
           no_slots_available: Ei paikkoja vapaana
           organizations: Osallistuvat järjestöt
           registration_code_help_text: Ilmoittautumiskoodisi
@@ -481,6 +542,10 @@ fi-pl:
             one: "%{count} paikka jäljellä"
             other: "%{count} paikkaa jäljellä"
           view: Näytä
+          visit_finished: Näytä mennyt tapaaminen
+          withdraw_btn_hint: Voit peruuttaa tapahtumasi, jos muutat mieltäsi. Tapahtumaa ei poisteta kokonaan, eli se löytyy edelleen peruutettujen tapahtumien listasta.
+          withdraw_confirmation_html: Haluatko varmasti peruuttaa tämän tapahtuman?<br><br><strong>Tätä toimintoa ei voi peruuttaa!</strong>
+          withdraw_meeting: Peruuta tapahtuma
         update:
           invalid: Tapahtuman luonti epäonnistui.
           success: Tapahtuman luonti onnistui.
@@ -501,6 +566,7 @@ fi-pl:
           fields:
             closed: Suljettu
             end_time: Päättymispäivä
+            id: Id
             map: Kartta
             official_meeting: Virallinen tapahtuma
             start_time: Alkamispäivä
@@ -557,8 +623,12 @@ fi-pl:
       types:
         private_meeting: Yksityinen tapahtuma
         transparent: Läpinäkyvä
+        withdraw: Peruutettu
       versions:
         back_to_resource: Takaisin tapahtumaan
+      withdraw:
+        error: Tapahtuman peruuttaminen epäonnistui
+        success: Tapahtuman peruuttaminen onnistui
     metrics:
       meetings:
         description: Tapahtumien määrä

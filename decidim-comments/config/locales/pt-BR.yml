@@ -1,4 +1,4 @@
-pt:
+pt-BR:
   activemodel:
     models:
       decidim/comments/comment_by_followed_user_event: Comente
@@ -93,7 +93,6 @@ pt:
         blocked_comments_warning: Os comentários estão desativados neste momento, mas você pode ler os anteriores.
         comment_details_title: Detalhes do comentário
         loading: Carregando comentários ...
-        single_comment_warning: Você pode verificar o resto dos comentários <a href="%{url}">aqui</a>.
         single_comment_warning_title: Você está vendo um único comentário
         title:
           one: "%{count} comentário"

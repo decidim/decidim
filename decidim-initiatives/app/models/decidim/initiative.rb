@@ -21,6 +21,9 @@ module Decidim
     include Decidim::Searchable
     include Decidim::Initiatives::HasArea
     include Decidim::TranslatableResource
+    include Decidim::HasResourcePermission
+    include Decidim::HasArea
+    include Decidim::FilterableResource
 
     translatable_fields :title, :description, :answer
 
@@ -61,12 +64,10 @@ module Decidim
     enum signature_type: [:online, :offline, :any], _suffix: true
     enum state: [:created, :validating, :discarded, :published, :rejected, :accepted]
 
-    validates :title, :description, :state, presence: true
-    validates :signature_type, presence: true
+    validates :title, :description, :state, :signature_type, presence: true
     validates :hashtag,
-              uniqueness: true,
-              allow_blank: true,
-              case_sensitive: false
+              uniqueness: { allow_blank: true, case_sensitive: false }
+
     validate :signature_type_allowed
 
     scope :open, lambda {
@@ -79,6 +80,8 @@ module Decidim
     }
     scope :published, -> { where.not(published_at: nil) }
     scope :with_state, ->(state) { where(state: state) if state.present? }
+
+    scope_search_multi :with_any_state, [:accepted, :rejected, :answered, :open, :closed]
 
     scope :currently_signable, lambda {
       where("signature_start_date <= ?", Date.current)
@@ -106,6 +109,42 @@ module Decidim
     scope :future_spaces, -> { none }
     scope :past_spaces, -> { closed }
 
+    scope :with_any_type, lambda { |*original_type_ids|
+      type_ids = original_type_ids.flatten
+      return self if type_ids.include?("all")
+
+      types = InitiativesTypeScope.where(decidim_initiatives_types_id: type_ids).pluck(:id)
+      where(scoped_type: types)
+    }
+
+    # Redefine the with_any_scope method as the initiative scope is defined by
+    # the initiative type scope.
+    scope :with_any_scope, lambda { |*original_scope_ids|
+      scope_ids = original_scope_ids.flatten
+      return self if scope_ids.include?("all")
+
+      clean_scope_ids = scope_ids
+
+      conditions = []
+      conditions << "decidim_initiatives_type_scopes.decidim_scopes_id IS NULL" if clean_scope_ids.delete("global")
+      conditions.concat(["? = ANY(decidim_scopes.part_of)"] * clean_scope_ids.count) if clean_scope_ids.any?
+
+      joins(:scoped_type).references(:decidim_scopes).where(conditions.join(" OR "), *clean_scope_ids.map(&:to_i))
+    }
+
+    scope :authored_by, lambda { |author|
+      co_authoring_initiative_ids = Decidim::InitiativesCommitteeMember.where(
+        decidim_users_id: author
+      ).pluck(:decidim_initiatives_id)
+
+      where(
+        decidim_author_id: author,
+        decidim_author_type: Decidim::UserBaseEntity.name
+      ).or(
+        where(id: co_authoring_initiative_ids)
+      )
+    }
+
     before_update :set_offline_votes_total
     after_commit :notify_state_change
     after_create :notify_creation
@@ -124,37 +163,37 @@ module Decidim
       Decidim::Initiatives::AdminLog::InitiativePresenter
     end
 
-    # PUBLIC banner image
-    #
-    # Overrides participatory space's banner image with the banner image defined
-    # for the initiative type.
-    #
-    # RETURNS string
-    delegate :banner_image, to: :type
+    def self.ransackable_scopes(_auth_object = nil)
+      [:with_any_state, :with_any_type, :with_any_scope, :with_any_area]
+    end
+
     delegate :document_number_authorization_handler, :promoting_committee_enabled?, to: :type
     delegate :type, :scope, :scope_name, to: :scoped_type, allow_nil: true
 
-    # PUBLIC
+    # Public: Overrides participatory space's banner image with the banner image defined
+    # for the initiative type.
     #
-    # Returns true when an initiative has been created by an individual person.
-    # False in case it has been created by an authorized organization.
+    # Returns Decidim::BannerImageUploader
+    def banner_image
+      type.attached_uploader(:banner_image)
+    end
+
+    # Public: Check if an initiative has been created by an individual person.
+    # If it's false, then it has been created by an authorized organization.
     #
-    # RETURN boolean
+    # Returns a Boolean
     def created_by_individual?
       decidim_user_group_id.nil?
     end
 
-    # PUBLIC
+    # Public: check if an initiative is open
     #
-    # RETURN boolean TRUE when the initiative is open, false in case its
-    # not closed.
+    # Returns a Boolean
     def open?
       !closed?
     end
 
-    # PUBLIC
-    #
-    # Returns when an initiative is closed. An initiative is closed when
+    # Public: Checks if an initiative is closed. An initiative is closed when
     # at least one of the following conditions is true:
     #
     # * It has been discarded.
@@ -162,30 +201,17 @@ module Decidim
     # * It has been accepted.
     # * Signature collection period has finished.
     #
-    # RETURNS BOOLEAN
+    # Returns a Boolean
     def closed?
       discarded? || rejected? || accepted? || !votes_enabled?
     end
 
-    # PUBLIC
-    #
-    # Returns the author name. If it has been created by an organization it will
+    # Public: Returns the author name. If it has been created by an organization it will
     # return the organization's name. Otherwise it will return author's name.
     #
-    # RETURN string
+    # Returns a string
     def author_name
       user_group&.name || author.name
-    end
-
-    # PUBLIC author_avatar_url
-    #
-    # Returns the author's avatar URL. In case it is not defined the method
-    # falls back to images/default-avatar.svg
-    #
-    # RETURNS STRING
-    def author_avatar_url
-      author.avatar&.url ||
-        ActionController::Base.helpers.asset_pack_path("media/images/default-avatar.svg")
     end
 
     def votes_enabled?
@@ -203,7 +229,7 @@ module Decidim
 
     # Public: Checks if the organization has given an answer for the initiative.
     #
-    # Returns Boolean.
+    # Returns a Boolean.
     def answered?
       answered_at.present?
     end
@@ -278,14 +304,12 @@ module Decidim
 
     # Public: Returns the percentage of required supports reached
     def percentage
-      return 100 if supports_goal_reached?
-
-      supports_count * 100 / supports_required
+      [supports_count * 100 / supports_required, 100].min
     end
 
     # Public: Whether the supports required objective has been reached
     def supports_goal_reached?
-      initiative_type_scopes.map(&:scope).all? { |scope| supports_goal_reached_for?(scope) }
+      votable_initiative_type_scopes.map(&:scope).all? { |scope| supports_goal_reached_for?(scope) }
     end
 
     # Public: Whether the supports required objective has been reached for a scope
@@ -337,9 +361,9 @@ module Decidim
     end
 
     def set_offline_votes_total
-      return if offline_votes.blank? || scope.nil?
+      return if offline_votes.blank?
 
-      offline_votes["total"] = offline_votes[scope.id.to_s]
+      offline_votes["total"] = offline_votes[scope&.id.to_s] || offline_votes["global"]
     end
 
     # Public: Finds all the InitiativeTypeScopes that are eligible to be voted by a user.
@@ -410,13 +434,15 @@ module Decidim
       committee_members.approved.count >= minimum_committee_members
     end
 
-    # PUBLIC
-    #
-    # Checks if the type the initiative belongs to enables SMS code
+    def component
+      nil
+    end
+
+    # Public: Checks if the type the initiative belongs to enables SMS code
     # verification step. Tis configuration is ignored if the organization
     # doesn't have the sms authorization available
     #
-    # RETURNS boolean
+    # Returns a Boolean
     def validate_sms_code_on_votes?
       organization.available_authorizations.include?("sms") && type.validate_sms_code_on_votes?
     end
@@ -426,6 +452,19 @@ module Decidim
     # implement this interface.
     def user_role_config_for(_user, _role_name)
       Decidim::ParticipatorySpaceRoleConfig::Base.new(:empty_role_name)
+    end
+
+    # Public: Overrides the `allow_resource_permissions?` Resourceable concern method.
+    def allow_resource_permissions?
+      true
+    end
+
+    def user_allowed_to_comment?(user)
+      ActionAuthorizer.new(user, "comment", self, nil).authorize.ok?
+    end
+
+    def self.ransack(params = {}, options = {})
+      Initiatives::InitiativeSearch.new(self, params, options)
     end
 
     private
@@ -441,7 +480,7 @@ module Decidim
       type.scopes
     end
 
-    # Private: A validator that verifies the signaature type is allowed by the InitiativeType.
+    # Private: A validator that verifies the signature type is allowed by the InitiativeType.
     def signature_type_allowed
       return if published?
 
@@ -461,11 +500,10 @@ module Decidim
     end
 
     # Allow ransacker to search for a key in a hstore column (`title`.`en`)
-    [:title, :description].each do |column|
-      ransacker column do |parent|
-        Arel::Nodes::InfixOperation.new("->>", parent.table[column], Arel::Nodes.build_quoted(I18n.locale.to_s))
-      end
-    end
+    [:title, :description].each { |column| ransacker_i18n(column) }
+
+    # Alias search_text as a grouped OR query with all the text searchable fields.
+    ransack_alias :search_text, :id_string_or_title_or_description_or_author_name_or_author_nickname
 
     # Allow ransacker to search on an Enum Field
     ransacker :state, formatter: proc { |int| states[int] }

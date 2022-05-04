@@ -12,6 +12,8 @@ module Decidim
   module Comments
     autoload :CommentsHelper, "decidim/comments/comments_helper"
     autoload :Commentable, "decidim/comments/commentable"
+    autoload :CommentableWithComponent, "decidim/comments/commentable_with_component"
+    autoload :HasAvailabilityAttributes, "decidim/comments/has_availability_attributes"
     autoload :CommentSerializer, "decidim/comments/comment_serializer"
     autoload :CommentVoteSerializer, "decidim/comments/comment_vote_serializer"
     autoload :Export, "decidim/comments/export"

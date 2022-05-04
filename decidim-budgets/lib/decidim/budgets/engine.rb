@@ -38,6 +38,27 @@ module Decidim
           metric_operation.manager_class = "Decidim::Budgets::Metrics::BudgetFollowersMetricMeasure"
         end
       end
+
+      initializer "decidim_budgets.webpacker.assets_path" do
+        Decidim.register_assets_path File.expand_path("app/packs", root)
+      end
+
+      initializer "decidim_budgets.register_reminders" do
+        Decidim.reminders_registry.register(:orders) do |reminder_registry|
+          reminder_registry.generator_class_name = "Decidim::Budgets::OrderReminderGenerator"
+          reminder_registry.form_class_name = "Decidim::Budgets::Admin::OrderReminderForm"
+          reminder_registry.command_class_name = "Decidim::Budgets::Admin::CreateOrderReminders"
+
+          reminder_registry.settings do |settings|
+            settings.attribute :reminder_times, type: :array, default: [2.hours, 1.week, 2.weeks]
+          end
+
+          reminder_registry.messages do |msg|
+            msg.set(:title) { |count: 0| I18n.t("decidim.budgets.admin.reminders.orders.title", count: count) }
+            msg.set(:description) { I18n.t("decidim.budgets.admin.reminders.orders.description") }
+          end
+        end
+      end
     end
   end
 end

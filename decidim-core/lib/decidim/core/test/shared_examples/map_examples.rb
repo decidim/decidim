@@ -24,7 +24,7 @@ shared_context "with frontend map builder" do
     end
   end
   let(:organization) { create(:organization) }
-  let(:template) { template_class.new(ActionView::LookupContext.new(nil)) }
+  let(:template) { template_class.new(ActionView::LookupContext.new(ActionController::Base.view_paths), {}, []) }
   let(:options) { {} }
   let(:js_options) { options.transform_keys { |k| k.to_s.camelize(:lower) }.to_h }
 
@@ -68,7 +68,7 @@ shared_context "with frontend map elements" do
         <head>
           <title>Map Test</title>
           #{stylesheet_pack_tag "decidim_core"}
-          #{javascript_pack_tag "decidim_core"}
+          #{javascript_pack_tag "decidim_core", defer: false}
           #{builder.stylesheet_snippets}
           #{builder.javascript_snippets}
           #{head_extra}
@@ -103,6 +103,7 @@ shared_context "with frontend map elements" do
     final_html = html_document
     Rails.application.routes.draw do
       get "test_dynamic_map", to: ->(_) { [200, {}, [final_html]] }
+      get "offline", to: ->(_) { [200, {}, [""]] }
     end
 
     visit "/test_dynamic_map"
@@ -180,7 +181,6 @@ shared_examples "a record with front-end geocoding address field" do |geocoded_m
   it "calls the front-end geocoder when an address is written", :slow do
     within view_options[:within_selector] do
       fill_in_geocoding view_options[:address_field], with: geocoded_address_value
-      find(".tribute-container ul#results li", match: :first).click
       find("*[type=submit]").click
     end
 

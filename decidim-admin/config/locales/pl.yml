@@ -24,6 +24,7 @@ pl:
       component:
         name: Nazwa
         published_at: Opublikowano
+        weight: Kolejność na stronie
       id: ID
       import:
         user_group_id: Utwórz import jako
@@ -39,14 +40,14 @@ pl:
         cta_button_path: Ścieżka przycisku CTA
         cta_button_text: Tekst przycisku CTA
         customize_welcome_notification: Dostosuj treść komunikatu powitalnego
-        default_locale: Domena domyślna
+        default_locale: Domyślny język
         description: Opis
         enable_omnipresent_banner: Pokaż stały banner
         facebook_handler: Handler Facebooka
         favicon: Ikona
         force_authentication: Wymuś uwierzytelnianie
         force_users_to_authenticate_before_access_organization: Wymuś uwierzytelnianie użytkowników przed dołączeniem do organizacji
-        from: Z adresu e-mail
+        from: Adres e-mail nadawcy
         github_handler: Handler GitHuba
         header_snippets: Fragmenty nagłówków
         highlight_alternative_color: Wyróżnij (alternatywny kolor)
@@ -111,10 +112,12 @@ pl:
         show_in_footer: Pokaż w stopce
         slug: URL slug
         title: Tytuł
+        weight: Kolejność na stronie
       static_page_topic:
         description: Opis
         show_in_footer: Pokaż w stopce
         title: Tytuł
+        weight: Kolejność na stronie
       user_group_csv_verification:
         file: Plik
     errors:
@@ -154,6 +157,8 @@ pl:
         browse: Przeglądaj
         category:
           new: Nowa kategoria
+        export: Eksportuj wszystko
+        export-selection: Eksportuj wybrane
         import: Importuj
         manage: Zarządzanie
         new: 'Nowy: %{name}'
@@ -165,8 +170,6 @@ pl:
         permissions: Uprawnienia
         reject: Odrzuć
         share: Udostępnij
-        user:
-          new: Nowy administrator
         verify: Zweryfikuj
       admin_terms_of_use:
         accept:
@@ -174,12 +177,10 @@ pl:
           success: Świetnie! Zaakceptowano warunki użytkowania dla administratorów.
         actions:
           accept: Zgadzam się z warunkami użytkowania
-          are_you_sure: Czy na pewno chcesz odrzucić warunki dla administratorów?
           refuse: Nie akceptuję warunków dla administratorów
           title: Akceptuję warunki użytkowania
         required_review:
           alert: 'Wymagane: Zapoznaj się z warunkami użytkowania dla administratorów'
-          callout: Poświęć chwilę, aby zapoznać się z Warunkami użytkowania dla administratorów. W przeciwnym razie nie uzyskasz dostępu do administrowania platformą.
           cta: Zapoznaj się teraz.
         title: Warunki użytkowania dla administratorów
       area_types:
@@ -202,7 +203,6 @@ pl:
           error: Wystąpił błąd podczas tworzenia nowej ketegorii.
           success: Kategoria została utworzona.
         destroy:
-          has_spaces: Kategoria ma elementy zależne; aby można było ją usunąć, nie może mieć elementów zależnych.
           success: Kategoria została usunięta
         edit:
           title: Edytuj kategorię
@@ -255,7 +255,6 @@ pl:
       block_user:
         new:
           action: Zablokuj konto i wyślij uzasadnienie
-          description: Zablokowanie użytkownika spowoduje że jego konto nie będzie mogło być użytkowane, możesz podać w swoim uzasadnieniu i wytycznych opis działań, które pozwolą na odblokowanie użytkownika.
           justification: Uzasadnienie
           title: Zablokuj użytkownika %{name}
       categories:
@@ -318,7 +317,6 @@ pl:
         'false': 'Nie'
         managed_user_name: Zarządzany użytkownik
         solved: Rozwiązane
-        title: Konflikty weryfikacji
         transfer:
           email: Adres e-mail
           error: Podczas transferu bieżącego użytkownika do zarządzanego użytkownika wystąpił błąd.
@@ -331,10 +329,11 @@ pl:
       dashboard:
         show:
           view_more_logs: Zobacz więcej logów
-          welcome: Witamy w panelu administracyjnym Decidim.
       domain_whitelist:
         form:
           domain_too_short: Domena jest zbyt krótka
+        update:
+          error: Nie udało się zaktualizować białej listy domen
       exports:
         export_as: "%{name} jako %{export_format}"
         formats:
@@ -347,6 +346,15 @@ pl:
         category_id_eq:
           label: Kategoria
         filter_label: Filtr
+        invitation_accepted_at_present:
+          label: Zaproszenie zaakceptowane
+          values:
+            'false': 'Nie'
+            'true': 'Tak'
+        last_sign_in_at_present:
+          values:
+            'false': 'Nie'
+            'true': 'Tak'
         moderations:
           reportable_type_string_eq:
             label: Typ
@@ -381,10 +389,16 @@ pl:
         search_label: Szukaj
         search_placeholder:
           name_or_nickname_or_email_cont: Przeszukaj %{collection} według adresu e-mail, nazwiska lub nazwy użytkownika.
-          reported_id_string_or_reported_content_cont: Szukaj %{collection} według identyfikatora lub treści zgłoszenia.
+          reported_id_string_or_reported_content_cont: Przeszukaj %{collection} według identyfikatora lub treści zgłoszenia.
           title_cont: Przeszukaj %{collection} według tytułu.
+          user_name_or_user_email_cont: Przeszukaj %{collection} według nazwy lub e-maila.
         state_eq:
           label: Stan
+          values:
+            all: Wszystkie
+            pending: Oczekujące
+            rejected: Odrzucono
+            verified: Zweryfikowano
       forms:
         file_help:
           import:
@@ -430,13 +444,8 @@ pl:
           impersonate_existing_user: Zarządzaj użytkownikiem "%{name}"
           impersonate_new_managed_user: Zarządzaj nowym uczestnikiem
       imports:
-        creators:
-          proposalcreator: Twórca propozycji
+        and: i
         error: Podczas importowania wystąpił błąd
-        help:
-          proposalcreator: Plik musi mieć nazwy kolumn title/pl i body/pl (lub inny język, który wybierzesz, np. title/ca i body/ca). Wspierane są również kolumny scope/id i category/id.
-        import_from_file: Importuj z pliku
-        invalid_lines: Znaleziono błąd w numerze zasobu %{invalid_lines}
         new:
           accepted_mime_types:
             csv: csv
@@ -467,6 +476,7 @@ pl:
         areas: Kategorie
         configuration: Konfiguracja
         dashboard: Panel
+        external_domain_whitelist: Dozwolone domeny zewnętrzne
         help_sections: Sekcje pomocy
         homepage: Strona główna
         impersonations: Podszywanie się pod inne osoby
@@ -615,7 +625,6 @@ pl:
       newsletters:
         create:
           error: Podczas tworzenia newslettera wystąpił błąd.
-          success: Newsletter został pomyślnie utworzony. Prosimy o sprawdzenie go przed wysłaniem.
         deliver:
           error: Podczas dostarczania tego newslettera wystąpił błąd.
           success: Newsletter został dostarczony pomyślnie.
@@ -698,12 +707,10 @@ pl:
           title: Oficjalizuj użytkownika "%{name}"
         show_email_modal:
           close_modal: Zamknij okno
-          description: Jeśli chcesz się bezpośrednio skontaktować z użytkownikiem, możesz kliknąć przycisk Pokaż, aby wyświetlić adres e-mail. Ta akcja zostanie zarejestrowana.
           email_address: Adres e-mail
           full_name: Imię i nazwisko
           hidden: ukryty
           show: Pokaż
-          title: Pokaż adres e-mail użytkownika
         unblock:
           error: Wystąpił błąd podczas odblokowywania użytkownika
           success: Użytkownik został odblokowany
@@ -742,7 +749,10 @@ pl:
         edit:
           update: Aktualizuj
         external_domain:
+          down: W dół
+          external_domain: Domena zewnętrzna
           remove: Usuń
+          up: W górę
         form:
           add: Dodaj do białej listy
           title: Biała lista domen zewnętrznych
@@ -891,7 +901,6 @@ pl:
         static_pages: Strony
         statistics: Aktywność
         user_groups: Grupy użytkowników
-        users: Administratorzy
       user_group:
         csv_verify:
           invalid: Wystąpił błąd podczas odczytu pliku CSV.
@@ -904,13 +913,6 @@ pl:
           success: Grupa użytkowników została zweryfikowana
       user_groups:
         index:
-          filter:
-            all: Wszystkie
-            pending: Oczekujące
-            rejected: Odrzucone
-            verified: Zweryfikowane
-          filter_by: Filtruj według
-          search: Szukaj
           state:
             pending: Oczekujące
             rejected: Odrzucone
@@ -934,7 +936,6 @@ pl:
           role: Rola
         new:
           create: Zaproś
-          title: Zaproś użytkownika jako administratora
       users_statistics:
         users_count:
           admins: Administratorzy
@@ -944,10 +945,6 @@ pl:
           no_users_count_statistics_yet: Nie ma jeszcze statystyk dotyczących liczby użytkowników
           participants: Użytkownicy
       view_public_page: Zobacz stronę publiczną
-    forms:
-      errors:
-        impersonate_user:
-          reason: Musisz podać powód podszywania się pod niezarządzanego użytkownika
     metrics:
       blocked_users:
         object: zablokowani użytkownicy

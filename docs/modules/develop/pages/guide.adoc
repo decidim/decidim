@@ -1,13 +1,10 @@
 = Developing Decidim
 
-* xref:develop:guide_architecture.adoc[Architecture]
-* xref:develop:guide_changelog.adoc[Changelog]
-* xref:develop:guide_commands.adoc[Commands]
-* xref:develop:guide_development_app.adoc[Development App]
-* xref:develop:guide_example_apps.adoc[Example Applications]
-* xref:develop:guide_git_conventions.adoc[Git conventions]
-* xref:develop:guide_github_projects.adoc[GitHub Projects Workflow]
-* xref:develop:guide_semver.adoc[Semantic Versioning]
+* xref:develop:guide_example_apps.adoc[1. Example Applications]
+* xref:develop:guide_development_app.adoc[2. Development App]
+* xref:develop:guide_commands.adoc[3. Commands]
+* xref:develop:guide_conventions.adoc[4. Conventions]
+* xref:develop:guide_architecture.adoc[5. Architecture]
 
 == Good to know
 

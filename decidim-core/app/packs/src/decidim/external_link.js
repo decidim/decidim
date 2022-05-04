@@ -5,6 +5,9 @@ const EXCLUDE_CLASSES = [
   "footer-social__icon",
   "logo-cityhall"
 ];
+const EXCLUDE_ANCESTOR_CLASSES = [
+  "editor-container"
+]
 const EXCLUDE_REL = ["license", "decidim"];
 
 const DEFAULT_MESSAGES = {
@@ -27,6 +30,9 @@ export default class ExternalLink {
     if (EXCLUDE_CLASSES.some((cls) => this.$link.hasClass(cls))) {
       return;
     }
+    if (EXCLUDE_ANCESTOR_CLASSES.some((cls) => this.$link.parents().hasClass(cls))) {
+      return;
+    }
     if (
       EXCLUDE_REL.some((rel) => {
         const linkRels = `${this.$link.attr("rel")}`.split(" ");
@@ -37,7 +43,12 @@ export default class ExternalLink {
     }
 
     this.$link.addClass("external-link-container");
-    this.$link.append(`&nbsp;${this.generateElement()}`);
+    let spacer = "&nbsp;";
+    if (this.$link.text().trim().length < 1) {
+      // Fixes image links extra space
+      spacer = "";
+    }
+    this.$link.append(`${spacer}${this.generateElement()}`);
   }
 
   generateElement() {

@@ -1,5 +1,5 @@
 <% add_decidim_meta_tags({
-                             image_url: current_initiative.type.banner_image.url,
+                             image_url: current_initiative.type.attached_uploader(:banner_image).path,
                              description: translated_attribute(current_initiative.description),
                              title: translated_attribute(current_initiative.title),
                              url: initiative_url(current_initiative.id),
@@ -7,7 +7,7 @@
                          }) %>
 
 <% add_decidim_page_title(translated_attribute(current_initiative.title)) %>
-<% provide :meta_image_url, current_initiative.type.banner_image.url %>
+<% provide :meta_image_url, current_initiative.type.attached_uploader(:banner_image).path %>
 
 <br><br>
 <div class="row column">
@@ -18,7 +18,7 @@
 <div class="row">
   <div class="columns large-12">
     <div class="section">
-      <%= decidim_sanitize translated_attribute(current_initiative.description) %>
+      <%= decidim_sanitize_editor translated_attribute(current_initiative.description) %>
     </div>
 
     <div class="section">

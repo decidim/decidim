@@ -87,7 +87,7 @@ module Decidim
             it "calls the geocoding API correctly" do
               find("#test_address").set("item")
               expect(page).to have_selector(
-                ".tribute-container",
+                ".autoComplete_wrapper",
                 text: "first item\nsecond item\nthird item"
               )
               expect(page).to have_selector(
@@ -104,7 +104,7 @@ module Decidim
                 }.to_json
               )
 
-              find(".tribute-container ul#results li", match: :first).click
+              find(".autoComplete_wrapper ul#autoComplete_list_1 li", match: :first).click
               expect(page).to have_selector(
                 "#ajax_request",
                 text: {

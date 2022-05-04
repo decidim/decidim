@@ -85,10 +85,13 @@ fr:
         search_placeholder:
           title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Rechercher %{collection} par titre, description, ID ou nom de l'auteur.
       menu:
+        attachments: Pièces jointes
+        committee_members: Membres du comité
         components: Fonctionnalités
         information: Informations
         initiatives: Initiatives
         initiatives_types: Types d'initiatives
+        moderations: Modérations
       models:
         initiatives:
           fields:
@@ -271,8 +274,8 @@ fr:
             update: Mettre à jour
           form:
             authorizations: Paramètres d'autorisation
-            child_scope_threshold_enabled_help: 'Cette option de configuration ne gère pas les votes hors-ligne, elle permet d''activer des sous-secteurs et fonctionne avec un gestionnaire d''autorisation qui associe un secteur à l''utilisateur. Assurez-vous de sélectionner une telle autorisation dans les paramètres d''autorisation ci-dessous. Pour que cela fonctionne, les secteurs doivent être configurées de manière hiérarchique : 1 Parent - N Enfants. Pour plus d''informations sur le fonctionnement de cette configuration, cliquez <a href="https://docs.decidim.org/admin-manual/en/initiatives/" target="_blank">ici</a>.'
-            only_global_scope_enabled_help: Cochez cette case si vous avez activé "Autoriser les signatures par sous-secteur" et configuré la portée globale comme votre portée parente. En activant cette option, la sélection du type d'initiative sera ignorée dans l'assistant de création d'initiative. Pour plus d'informations sur le fonctionnement de cette configuration, voir ce <a href="https://docs.decidim.org/admin-manual/en/initiatives/" target="_blank">lien</a>.
+            child_scope_threshold_enabled_help: 'Cette option de configuration ne gère pas les votes hors-ligne, elle permet d''activer des sous-secteurs et fonctionne avec un gestionnaire d''autorisation qui associe un secteur à l''utilisateur. Assurez-vous de sélectionner cette autorisation dans les paramètres d''autorisation ci-dessous. Pour que cela fonctionne, les secteurs doivent être configurées de manière hiérarchique : 1 Parent - N Enfants. Pour plus d''informations sur le fonctionnement de cette configuration, cliquez <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">ici</a>.'
+            only_global_scope_enabled_help: Cochez cette case si vous avez activé "Autoriser les signatures par sous-secteur" et configurer la portée globale comme votre portée parente. En activant cette option, la sélection du type d'initiative sera ignorée dans l'assistant de création d'initiative. Pour plus d'informations sur le fonctionnement de cette configuration, voir ce <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">lien</a>.
             options: Paramètres
             title: informations générales
           initiative_type_scopes:
@@ -337,10 +340,10 @@ fr:
           back_to_initiatives: Retour à l'index des initiatives
           callout_text: Bravo ! Votre pétition a été créée avec succès.
           confirm: Vous allez envoyer la pétition à un administrateur pour qu'il la consulte et la publie. Une fois publiée, vous ne serez plus en mesure de l'éditer. Êtes-vous sûr que votre pétition est prête ?
-          edit_my_initiative: Modifier mon initiative
+          edit_my_initiative: Modifier ma pétition
           go_to_my_initiatives: Consulter mes initiatives
           more_information: "(Plus d'informations)"
-          send_my_initiative: Envoyer mon initiative pour la validation technique
+          send_my_initiative: Envoyer ma pétition pour validation technique
         finish_help:
           access_reminder: Vous pouvez accéder à vos pétitions via le filtre %{link} sur la page Pétitions.
           publish_helper_text: N'oubliez pas que pour que votre pétition soit publiée, vous devez compléter les informations requises et <strong>l'envoyer à la validation technique</strong> pour qu'un administrateur puisse l'examiner.
@@ -394,7 +397,7 @@ fr:
           email_subject: Initiative soutenue par %{author_nickname}
           notification_title: L'initiative<a href="%{resource_path}">%{resource_title}</a> a été soutenue par <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
         revoke_membership_request:
-          email_intro: "%{author_nickname} a accepté votre candidature pour faire partie du comité de promotion de la pétition %{resource_title}."
+          email_intro: "%{author_nickname} a rejeté votre candidature pour faire partie du comité de promotion de la pétition %{resource_title}."
           email_outro: 'Vous avez reçu cette notification parce que vous avez demandé à rejoindre cette pétition : %{resource_title}.'
           email_subject: "%{author_nickname} a rejeté votre candidature au comité de promotion"
           notification_title: <a href="%{author_profile_url}">%{author_nickname}</a> a rejeté votre candidature pour faire partie du comité de promotion de la pétition suivante <a href="%{resource_url}">%{resource_title}</a>.
@@ -512,7 +515,7 @@ fr:
           section: 'Si l''organisme le demande, veuillez imprimer et remplir ce formulaire pour soumettre si indiqué:'
           signature: Signature
         result:
-          answer_title: Cette initiative a reçu une réponse
+          answer_title: Cette pétition a reçu une réponse
           initiative_rejected_reason: Cette initiative a été rejetée car elle n'a pas atteint le nombre de signatures requis dans le délai de collecte.
         show:
           any_vote_method: Cette pétition recueille des signatures en ligne ainsi qu'en présentiel.
@@ -576,6 +579,9 @@ fr:
     menu:
       initiatives: Initiatives
     resources:
+      initiative:
+        actions:
+          comment: Commenter
       initiatives_type:
         actions:
           title: Actions

@@ -7,10 +7,11 @@ module Decidim
       #
       class AssemblyUserRolesController < Decidim::Assemblies::Admin::ApplicationController
         include Concerns::AssemblyAdmin
+        include Decidim::Admin::Officializations::Filterable
 
         def index
           enforce_permission_to :index, :assembly_user_role
-          @assembly_user_roles = collection
+          @assembly_user_roles = filtered_collection
         end
 
         def new
@@ -90,11 +91,18 @@ module Decidim
 
         private
 
+        def search_field_predicate
+          :name_or_nickname_or_email_cont
+        end
+
+        def filters
+          [:invitation_accepted_at_present, :last_sign_in_at_present]
+        end
+
         def collection
           @collection ||= Decidim::AssemblyUserRole
-                          .includes(:user)
+                          .joins(:user)
                           .where(assembly: current_assembly)
-                          .order(:role, "decidim_users.name")
         end
       end
     end

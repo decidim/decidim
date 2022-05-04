@@ -17,7 +17,7 @@ es-MX:
       decidim/debates/close_debate_event: Debate cerrado
       decidim/debates/create_debate_event: Debate
       decidim/debates/creation_disabled_event: Debates deshabilitados
-      decidim/debates/creation_enabled_event: Debates habilitados
+      decidim/debates/creation_enabled_event: Creación de debates habilitada
   activerecord:
     models:
       decidim/debates/debate:
@@ -27,6 +27,7 @@ es-MX:
     components:
       debates:
         actions:
+          comment: Comentar
           create: Crear
           endorse: Adherirse
         name: Debates
@@ -40,7 +41,7 @@ es-MX:
           step:
             announcement: Anuncio
             comments_blocked: Comentarios bloqueados
-            creation_enabled: Habilitar la creación de debates por los usuarios
+            creation_enabled: Las participantes pueden crear debates
             endorsements_blocked: Adhesiones bloqueadas
             endorsements_enabled: Adhesiones habilitadas
     debates:
@@ -116,11 +117,11 @@ es-MX:
           all: Todos
           category: Categoría
           category_prompt: Selecciona una categoría
-          citizens: Ciudadanía
           commented: Comentado
           my_debates: Mis debates
           official: Oficial
           origin: Origen
+          participants: Participantes
           scope: Ámbito
           search: Buscar
           state: Estado

@@ -1,11 +1,12 @@
 <div class="row section voting-description-cell">
   <div class="columns">
-    <% if introductory_image.present? %>
+    <% if introductory_image.attached? %>
       <div id="introductory-image" class="columns medium-4 mediumlarge-5">
-        <img src="<%= introductory_image.url %>" alt="">
+        <img src="<%= introductory_image.path %>" alt="">
       </div>
     <% end %>
     <div class="columns medium-8 mediumlarge-7 content">
+      <h2 class="show-for-sr"><%= t("decidim.votings.content_blocks.landing_page.description.title") %></h2>
       <div><%= description_text %></div>
     </div>
     <div class="content-height-toggler show-more">

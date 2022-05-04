@@ -1,1 +1,48 @@
 ga:
+  activemodel:
+    attributes:
+      organization:
+        from_label: Lipéad
+        password: Pasfhocal
+        port: Port
+  decidim:
+    system:
+      actions:
+        destroy: Scrios
+        edit: Eagar
+        new: Nua
+        save: Sábháil
+        title: Gníomhartha
+      admins:
+        edit:
+          update: Nuashonraigh
+        index:
+          title: Riaracháin
+        new:
+          create: Cruthaigh
+      menu:
+        admins: Riaracháin
+      models:
+        admin:
+          fields:
+            email: Seoladh ríomhphoist
+          name: Riarachán
+        organization:
+          fields:
+            name: Ainm
+      oauth_applications:
+        edit:
+          save: Sábháil
+        new:
+          save: Sábháil
+      organizations:
+        omniauth_settings:
+          enabled: Cumasaithe
+          facebook:
+            app_id: ID Aipe
+          icon: Deilbhín
+          twitter:
+            api_key: Eochair API
+        smtp_settings:
+          fieldsets:
+            sender: Seoltóir

@@ -20,7 +20,6 @@ module Decidim
       # field :birthday, Decidim::Core::DateType, "Birthday date of the member" # non-public currently
       field :birthplace, GraphQL::Types::String, "Birthplace of the member", null: true
       field :designation_date, Decidim::Core::DateType, "Date of designation of the member", null: true
-      # field :designationMode, types.String, "Mode in which the member was designated", property: :designation_mode # non-public currently
       field :position_other, GraphQL::Types::String, "Custom position name", null: true
       field :ceased_date, Decidim::Core::DateType, "Date of cease for the member", null: true
     end

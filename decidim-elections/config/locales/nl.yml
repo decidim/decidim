@@ -225,8 +225,8 @@ nl:
             title: Nieuwe stemronde
             trustees: Verkiezing Trustees
           key_ceremony:
+            continue: Doorgaan
             title: Sleutelceremonie
-            trustees: Trustees
           results_published:
             answer: Antwoord
             not_selected: Niet geselecteerd
@@ -236,7 +236,14 @@ nl:
             submit: Indienen
             title: Resultaten gepubliceerd
           tally:
+            continue: Doorgaan
+            invalid: Er is een fout opgetreden bij het rapporteren van de ontbrekende trustee
+            mark_as_missing: Als ontbrekend markeren
+            mark_as_missing_description: Alle trustees moeten deelnemen aan dit proces, maar als een trustee niet aan het proces kan deelnemen, kan je dit als ontbrekend aanduiden.
+            success: Het rapport met de ontbrekende trustees is met succes verzonden naar het Bulletin Board
+            tally_completion: Het proces zal worden voltooid wanneer alle trustees actief zijn of als ontbrekend zijn aangeduid. Tenminste %{quorum} trustees zijn vereist om het proces te voltooien.
             title: Turfproces
+            undo_mark_as_missing: Zolang het proces niet is voltooid zal een trustee die per ongeluk is gemarkeerd als ontbrekend kunnen deelnemen. Ze kunnen doorgaan zoals gebruikelijk en de aanduiding als 'ontbrekend' wordt genegeerd.
           tally_ended:
             answer: Antwoord
             not_selected: Niet geselecteerd
@@ -277,14 +284,70 @@ nl:
             success: Trustee %{trustee} succesvol bijgewerkt
       admin_log:
         election:
-          publish: "%{user_name} publiceerde de %{resource_name} verkiezing"
-          setup: "%{user_name} heeft de %{resource_name} stemronde op het Bulletin Bord aangemaakt"
-          unpublish: "%{user_name} heeft de verkiezing van %{resource_name} gedepubliceerd"
+          create: "%{user_name} heeft de verkiezing %{resource_name} van %{space_name} gemaakt"
+          delete: "%{user_name} heeft de verkiezing %{resource_name} van %{space_name} verwijderd"
+          end_vote: "%{user_name} beëindigde de stemperiode voor de verkiezing %{resource_name} van %{space_name} in het Bulletin Board"
+          publish: "%{user_name} heeft de verkiezing %{resource_name} van %{space_name} gepubliceerd"
+          publish_results: "%{user_name} publiceerde de resultaten voor de verkiezing %{resource_name} van %{space_name} in het Bulletin Board"
+          report_missing_trustee: "%{user_name} rapporteerde %{trustee_name} als een ontbrekende trustee tijdens de telling voor de verkiezing %{resource_name} van %{space_name} op het Bulletin Board"
+          setup: "%{user_name} maakte de verkiezing %{resource_name} van %{space_name} aan in het Bulletin Board"
+          start_key_ceremony: "%{user_name} startte de sleutelceremonie voor de verkiezing %{resource_name} van %{space_name} in het Bulletin Board"
+          start_tally: "%{user_name} startte de telling voor de verkiezing %{resource_name} van %{space_name} in het Bulletin Board"
+          start_vote: "%{user_name} startte de stemperiode voor de verkiezing %{resource_name} van %{space_name} in het Bulletin Board"
+          unpublish: "%{user_name} heeft de publicatie van de verkiezing %{resource_name} van %{space_name} ongedaan gemaakt"
+          update: "%{user_name} heeft de verkiezing %{resource_name} van %{space_name} bijgewerkt"
+        trustee:
+          create: "%{user_name} heeft de gebruiker %{trustee_user} aangewezen als Trustee"
       elections:
         count:
           elections_count:
             one: "%{count} verkiezing"
             other: "%{count} verkiezingen"
+        election_log:
+          chained_hash: De ketting Hash van dit bericht
+          complete: Voltooid
+          creation_description:
+            complete: De verkiezing is aangemaakt en in het Bulletin Board toegevoegd.
+            not_created: De verkiezing is nog niet aangemaakt.
+          creation_title: Verkiezing aangemaakt
+          description: Dit is het verkiezingslogboek waar je de status van elke stap kunt controleren, bijvoorbeeld als de verkiezingen eenmaal zijn voltooid, als de telling is afgerond en als de verkiezingen zijn afgesloten.
+          download: Download
+          key_ceremony_description:
+            complete: De sleutelceremonie is voltooid. Elke trustee heeft geldige sleutels en heeft de nodige backup-sleutels gedownload.
+            not_started: De sleutelceremonie is nog niet begonnen.
+            started: De sleutelceremonie is begonnen maar is nog niet voltooid.
+          key_ceremony_title: Sleutelceremonie
+          not_available: Nog niet beschikbaar
+          not_created: Niet aangemaakt
+          not_published: Niet gepubliceerd
+          not_ready: Niet gereed
+          not_started: Niet begonnen
+          published: Gepubliceerd
+          results_description:
+            not_published: De resultaten zijn nog niet gepubliceerd.
+            published: De resultaten zijn gepubliceerd.
+          results_title: Resultaten
+          started: Gestart
+          tally_description:
+            finished: Het tellingsproces is voltooid.
+            not_started: Het tellingsproces is nog niet begonnen.
+            started: Het tellingsproces is begonnen.
+          tally_title: Tellingsproces
+          title: Verkiezingslogboek
+          verifiable_results:
+            checksum: 'Bestand SHA256-controlegetal:'
+            description:
+              not_ready: Het verifieerbare verkiezingsbestand en SHA256 checksum zijn nog niet beschikbaar. Zodra de resultaten zijn gepubliceerd, kun je deze verkiezing verifiëren.
+              ready: 'Hier heb je de mogelijkheid om de verkiezing te verifiëren. Eerst moet je het bestand downloaden en ervoor zorgen dat het niet beschadigd is. Voer het volgende commando uit en controleer of de output overeenkomt met de checksum:'
+            how_to_verify: 'Nadat je het bestand gedownload hebt en zeker weet dat het in orde is, kan je doorgaan met de universele controle. Kopieer <a href=''https://github.com/decidim/decidim-bulletin-board''>deze repository</a> en voer vanuit de hoofdmap de volgende opdracht uit:'
+            title: Verifieer verkiezingsuitslagen
+            verifiable_file: 'Verifieerbaar verkiezingsbestand:'
+          verify: Verifieer verkiezing
+          vote_description:
+            finished: Het stemproces is beëindigd.
+            not_started: Het stemproces is nog niet begonnen.
+            started: Het stemproces is begonnen.
+          vote_title: Stemproces
         preview:
           available_answers: 'Beschikbare antwoorden:'
           description: 'Dit zijn de vragen die je tijdens het stemproces tegenkomt:'
@@ -301,6 +364,7 @@ nl:
             already_voted: Je hebt al gestemd in deze verkiezing. Je kunt je stem wijzigen of controleren.
             pending_vote: Jouw stem wordt uitgebracht op de server.
             vote_rejected: Het was niet mogelijk om je stem te verifiëren. Gelieve je stem opnieuw uit te brengen.
+          election_log: Verkiezingslogboek
           preview: Voorvertoning
           verify:
             already_voted: Al gestemd?
@@ -310,6 +374,9 @@ nl:
             finished: De stemming begon op %{start_time} en eindigde op %{end_time}
             ongoing: 'Actieve stem tot: %{end_time}'
             upcoming: Stemmen begint op %{start_time}
+      feedback:
+        answer:
+          invalid: Er is een fout opgetreden bij het indienen van je feedback.
       models:
         answer:
           fields:
@@ -403,15 +470,12 @@ nl:
               generate_legend_3: Zorg ervoor dat uw computer geen kopie van het bestand heeft (kijk bijvoorbeeld naar de downloads en Desktop-mappen).
               generate_legend_4: Maak nog een kopie van het bestand op een ander extern apparaat en sla het op een zeer veilige plaats.
               submit: Verzenden
-              submit_legend: Na het volgen van alle bovenstaande stappen, voltooi het proces door de publieke identificatiesleutel naar de Decidim server te sturen.
               submit_title: Vul de publieke identificatiesleutel in
               title: Trustee identificatiesleutels
               upload: Upload jouw identificatiesleutels
               upload_error:
                 invalid_format: Het geüploade bestand bevat geen identificatiesleutel.
                 invalid_key: De identificatiesleutels in het geüploade bestand kunnen niet worden geladen.
-                invalid_public_key: De identificatiesleutels in het geüploade bestand komen niet overeen met de publieke identificatiesleutel die door Decidim is opgeslagen.
-              upload_legend: Decidim heeft jouw publieke identificatiesleutels, maar je browser heeft deze nog niet. Je moet het bestand met jouw identificatiesleutels importeren naar je computer, vanuit de back-up die je hebt gemaakt na het genereren ervan.
             not_supported_browser_description: Het lijkt erop dat je een webbrowser gebruikt die niet kan gebruikt worden als Trustee. Zorg ervoor dat je de meest recente versie van je browser gebruikt, of probeer een van de populairste browsers te gebruiken om je Trustee taken te voltooien.
             not_supported_browser_title: Upgrade de browser om als Trustee te fungeren
             trustee_role_description: Je bent aangeduid om als Trustee te fungeren in enkele verkiezingen op dit platform.
@@ -420,6 +484,7 @@ nl:
       votes:
         ballot_decision:
           back: Start het stemproces opnieuw
+          ballot_hash: 'Je stem identificatie is:'
           cast: Stem uitbrengen
           description: 'Hier heb je de opties om je stem uit te brengen zodat ze goed geteld wordt, of -ook een optie: controleren of je stem correct is versleuteld. Om veiligheidsredenen vernietigen we stem op het moment dat je deze controleert. In dat geval moet je het stemproces herstarten om je stem uit te brengen.'
           header: 'Stem is versleuteld: uitbrengen of controleren'
@@ -439,6 +504,7 @@ nl:
           experience: Hoe was uw ervaring?
           feedback: Geef ons feedback
           header: Stem bevestigd
+          lead: Je stem is opgeslagen!
           text: 'U kunt controleren of uw stem succesvol is toegevoegd aan de stembus met het volgende identificatie: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
           verify_link: Om het te controleren, kopieer de identificatiecode en plak ze in de <a href="%{link}">pagina voor het controleren van stemmen</a>
         create:
@@ -459,6 +525,7 @@ nl:
           encrypting: Versleutelen van de stem
           failed: Stem mislukt
         messages:
+          invalid_token: Je sessie in het stemhokje is niet geldig. Probeer opnieuw te stemmen.
           not_allowed: U mag op dit moment niet stemmen over deze verkiezingen.
         modal:
           close: Afsluiten
@@ -468,6 +535,10 @@ nl:
           preview_alert: Dit is een voorbeeld van de stembooth.
           question_steps: Vraag %{current_step} van %{total_steps}
           selections: "%{selected} van %{max_selections}<br> selecties"
+        onboarding_modal:
+          close: Sluit venster
+          create_account: Account aanmaken
+          no_account: Nee, bedankt.
         update:
           error: Er is een probleem opgetreden bij het bijwerken van stemstatus. Probeer het opnieuw.
         verify:
@@ -478,7 +549,6 @@ nl:
             header: Stem niet gevonden!
             info: De stemcode werd niet gevonden in de stembus %{link}, probeer het opnieuw.
           form:
-            back: Terug naar Decidim
             submit: Controleer
             vote_identifier: 'Identificatiecode:'
           header:
@@ -520,6 +590,9 @@ nl:
             email_outro: Je hebt deze melding ontvangen omdat je bent toegevoegd als %{role} van %{polling_station_name}.
             email_subject: Je bent %{role} van het Stembureau %{polling_station_name}.
             notification_title: Je bent %{role} van het stembureau %{polling_station_name} in de stemronde <a href="%{resource_path}">%{resource_title}</a>.
+        send_access_code:
+          instruction: 'Hier is de toegangscode waar je om vroeg: %{access_code}. Hiermee kun je deelnemen aan %{voting}.'
+          subject: Je toegangscode om deel te nemen aan %{voting}
     menu:
       votings: Stemronde
     statistics:
@@ -527,6 +600,37 @@ nl:
       votings_count: Stemrondes
     votings:
       admin:
+        ballot_styles:
+          create:
+            error: Er is een probleem opgetreden bij het aanmaken van deze stembriefstijl
+            success: Stembriefstijl succesvol aangemaakt
+          destroy:
+            invalid: Er is een probleem opgetreden bij het verwijderen van deze stembriefstijl
+            success: Stembriefstijl succesvol verwijderd
+          edit:
+            title: Pas stembriefstijl aan
+            update: Bijwerken
+          form:
+            code_help: 'Tip: de code is de link tussen de kiezerslijst en een stembriefstijl. Bij het uploaden van de kiezerslijst wordt elk record een stembriefstijl toegewezen die overeenkomt met de code'
+            election: Verkiezing
+            questions: Vragen voor deze stembrief stijl
+            questions_help: 'Tip: selecteer de vragen uit de verkiezingsonderdelen die aan de kiezers worden voorgelegd die aan deze stembriefstijl zijn toegewezen'
+          index:
+            actions:
+              confirm_destroy: Weet je het zeker?
+              destroy: Verwijderen
+              edit: Bewerken
+              new: Nieuw
+              title: Acties
+            associated_census_data: Gekoppelde kiezerslijst gegevens
+            explanation_callout: Een stembriefstijl geeft aan welke vragen een kiezer in het stemhokje zal worden voorgelegd. In een stembriefstijl kun je kiezen welke vragen uit de verkiezingsonderdelen van deze stemming tot een stembrief behoren. De code voor stembriefstijl wordt gebruikt om een kiezer van de kiezerslijst te matchen met de stembrief die in het stemhokje zal worden gepresenteerd. Maak geen stembriefstijl als je altijd alle vragen wilt voorleggen.
+            title: Stembriefstijlen
+          new:
+            create: Creëren
+            title: Maak stembriefstijl
+          update:
+            invalid: Er is een probleem opgetreden bij het bijwerken van deze stembriefstijl
+            success: Stembriefstijl succesvol bijgewerkt
         content_blocks:
           highlighted_votings:
             max_results: Maximum aantal elementen dat kan worden weergegeven
@@ -569,7 +673,8 @@ nl:
             attachment_collections: Mappen
             attachment_files: Bestanden
             attachments: Bijlagen
-            census: Register
+            ballot_styles: Stembriefstijlen
+            census: Kiezerslijst
             components: Onderdelen
             info: Informatie
             landing_page: Landingspagina
@@ -580,6 +685,10 @@ nl:
             monitoring_committee_verify_elections: Verifieer verkiezingen
             polling_stations: Stembureau
         models:
+          ballot_style:
+            fields:
+              code: Code
+            name: Stembriefstijl
           monitoring_committee_member:
             fields:
               email: E-mail
@@ -745,6 +854,24 @@ nl:
             invalid: Er is een probleem opgetreden bij het bijwerken van deze stemronde
             success: Vergadering succesvol bijgewerkt
       admin_log:
+        ballot_style:
+          create: "%{user_name} heeft een stembriefstijl gemaakt met code %{ballot_style_code} in %{space_name}"
+          delete: "%{user_name} heeft de stembriefstijl verwijderd met code %{ballot_style_code} in %{space_name}"
+          update: "%{user_name} heeft de stembriefstijl bijgewerkt met code %{ballot_style_code} in %{space_name}"
+        census:
+          create: "%{user_name} heeft de census voor %{space_name} gemaakt"
+          delete: "%{user_name} heeft de census voor %{space_name} verwijderd"
+          update: "%{user_name} heeft de census voor %{space_name} bijgewerkt"
+        monitoring_committee_member:
+          create: "%{user_name} heeft de gebruiker %{monitoring_committee_member_user} aangewezen als lid van de monitoring commissie in %{space_name}"
+          delete: "%{user_name} heeft de gebruiker %{monitoring_committee_member_user} verwijderd als lid van de monitoring commissie in %{space_name}"
+        polling_officer:
+          create: "%{user_name} heeft de gebruiker %{polling_officer_user} aangewezen als polling officer in %{space_name}"
+          delete: "%{user_name} heeft de gebruiker %{polling_officer_user} verwijderd als polling officer in %{space_name}"
+        polling_station:
+          create: "%{user_name} heeft het stembureau %{resource_name} van %{space_name} gemaakt"
+          delete: "%{user_name} heeft het stembureau %{resource_name} van %{space_name} verwijderd"
+          update: "%{user_name} heeft het stembureau %{resource_name} van %{space_name} bijgewerkt"
         voting:
           create: "%{user_name} heeft de stemronde %{resource_name} aangemaakt"
           publish: "%{user_name} heeft de stemronde %{resource_name} gepubliceerd"
@@ -752,30 +879,67 @@ nl:
       census:
         admin:
           census:
+            create:
+              invalid: Er is een fout opgetreden bij het uploaden van de kiezerslijst, probeer het later opnieuw.
+              invalid_csv_header: De CSV-headers ontbreken of zijn niet correct - lees de instructies zorgvuldig door
             creating_data:
               info_message: "<strong>Gelieve te wachten</strong>, %{processed_count} verwerkt van %{raw_count} rijen uit bestand %{file}."
             delete:
-              button: Verwijder alle registergegevens
+              button: Verwijder alle kiezerslijstgegevens
               confirm: Het verwijderen van alle registers kan niet ongedaan worden gemaakt. Weet je zeker dat je wil doorgaan?
             destroy:
+              error: Er is een fout opgetreden bij het verwijderen van de kiezerslijst, probeer het later opnieuw.
               success: Registergegevens verwijderd
+            export_access_codes:
+              button: Genereer toegangscodes voor de stemronde
+              callout: Je kunt nu doorgaan met het exporteren van de toegangscodes. Dit kan slechts één keer gedaan worden. Zodra je de export hebt opgestart, ontvang je een e-mail met de instructies voor <strong>%{email}</strong>
+              confirm: Je kunt de toegangscodes slechts één keer exporteren. Controleer of je toegang heeft tot het e-mailadres <strong>%{email}</strong>.
+              file_not_exists: Dit bestand bestaat niet
+              launch_error: Probleem bij het starten van de toegangscodes export
+              launch_success: Exporteer toegangscodes gestart. Je ontvangt binnenkort een e-mail op %{email}
+            exporting_access_codes:
+              info_message: "<strong>Gelieve te wachten</strong>, de export wordt voorbereid, je ontvangt deze binnenkort op %{email}"
+            freeze:
+              callout: De kiezerslijst is bevroren, en kan niet worden gewijzigd.
             generate_access_codes:
               button: Genereer stemcodes
+              callout: Je kunt nu doorgaan met het genereren van de toegangscodes. Na het genereren van de toegangscodes kun je de kiezerslijst niet meer wijzigen.
               confirm: Als je doorgaat, kan je het register niet wijzigen.
               info_message_all: "<strong>Alle rijen zijn met succes</strong> geïmporteerd uit bestand %{file} (%{raw_count} van %{data_count})."
               info_message_warn: Controleer of er geen gegevens ontbreken, omdat %{data_count} records zijn gemaakt en het geüploade bestand %{file} %{raw_count} rijen had.
+              launch_error: Probleem bij het starten van de toegangscodes export
+              launch_success: Codes genereren gestart.
+            generating_access_codes:
+              info_message: "<strong>Even geduld</strong>, de codes voor stemtoegang worden gegenereerd..."
             new:
               file_help:
                 explanation: 'Instructie bij het bestand:'
                 message_1: Alleen CSV-bestanden (.csv) zijn toegestaan.
                 message_2: Het scheidingsteken tussen kolommen moet een puntkomma (";") zijn.
+              has_ballot_styles_message: Je stelt StembriefStijlen in. Zorg ervoor dat het "%{ballot_style_code_header}" veld in de CSV overeenkomt met de gewenste StembriefStijlcode.
               info_message: "<strong>Er is nog geen register.</strong> Gebruik het formulier hieronder om een CSV-bestand te importeren."
+              missing_ballot_styles_message: 'Er is nog geen StembriefStijl voor deze stemming. Als je voorwaardelijke vragen wenst te stellen (wil je de kiezer verschillende vragen voorleggen afhankelijk van bijvoorbeeld de wijk/regio), dan moet je de <a href=%{ballot_styles_admin_path}>Ballot Stijlen</a> <strong>instellen voordat</strong> je de kiezerslijst importeert. Als je alle kiezers dezelfde vragen wilt stellen, kun je doorgaan met de procedure van de kiezerslijstimport.'
               submit: Dien CSV in
               title: Stel het register op
             show:
               heading: Register van de stemming
+            upload_info:
+              csv_example_with_ballot_style: 'Een voorbeeld van het bestand <strong>met</strong> stembriefstijlen:'
+              csv_example_without_ballot_style: 'Een voorbeeld van het bestand <strong>zonder</strong> stembriefstijlen:'
+              csv_header_after: Voeg het laatste veld ("%{ballot_style_code_header}") niet toe als je geen stembriefstijl of voorwaardelijke vragen nodig hebt
+              csv_header_before: 'De kiezerslijst moet een CSV-bestand zijn met de volgende header:'
+        document_types:
+          dni: DNI
+          nie: NIE
+          passport: Paspoort
+        export_mailer:
+          access_codes_export:
+            click_button: 'Klik op de volgende link om je toegangscode te downloaden. <br/> Het bestand is beschikbaar tot %{date}. <br/> Je hebt <a href="https://www.7-zip.org/">7-Zip</a>(for Windows), <a href="https://www.keka.io/en/">Keka</a> (for MacOS) or <a href="https://peazip.github.io">PeaZip</a> (for Linux) nodig om het te openen. Wachtwoord: %{password}'
+            download: Download
+            subject: De export van de stem toegangscodes voor %{voting_title} is beschikbaar
         vote_flow:
           already_voted_in_person: Deze gebruiker heeft al persoonlijk gestemd en heeft geen stemrecht.
+          datum_not_found: De gegevens komen niet overeen met een stemgerechtigde.
       content_blocks:
         highlighted_votings:
           name: Stemrondes in de kijker
@@ -876,7 +1040,7 @@ nl:
             error: De stemming werd niet geregistreerd. Probeer het opnieuw.
           in_person_form:
             census_not_present: Deze gebruiker staat niet op het stemregister.
-            census_not_present_description: Zij/hij moet naar het klachtenbureau gaan of contact opnemen met support.
+            census_not_present_description: Zij moeten zich tot het klachtenbureau voor de verkiezing wenden, of contact opnemen met Support.
             date_of_birth: Geboortedatum
             day: Dag
             day_placeholder: DD
@@ -944,7 +1108,42 @@ nl:
           new: Nieuw
           title: Acties
       votings:
+        access_code_modal:
+          email: Via e-mail verzenden naar %{email}
+          info: Je hebt een toegangscode nodig om deel te nemen. Als je ze niet per post hebt gekregen, kunnen we een nieuwe sturen.
+          no_email: Geen e-mail beschikbaar
+          no_sms: Geen telefoonnummer beschikbaar
+          sms: Via e-mail verzenden naar %{sms}
+          title: Toegangscode krijgen
+        check_census:
+          check_status: Status controleren
+          description: Hier heb je de mogelijkheid om je gegevens op de kiezerslijst te controleren om te weten of je stemrecht hebt. Je zou al een toegangscode moeten hebben, maar als je die hebt verloren, kun je er opnieuw om vragen, als je gegevens juist zijn.
+          error:
+            info: 'Probeer het opnieuw. Als je denkt dat de gegevens in het systeem onjuist zijn, kunt u het hier melden: %{census_contact_information}.'
+            title: Je gegevens op de kiezerslijst zijn onjuist!
+          form_title: 'Vul het formulier in om de gegevens van je stemlijst te controleren:'
+          invalid: Er is een probleem opgetreden tijdens het controleren van de kiezerslijst.
+          success:
+            access_link: via SMS of e-mail.
+            info: Je zou je toegangscode per post moeten hebben ontvangen. Als je ze niet hebt, kun je ze hier aanvragen
+            title: Je gegevens op de kiezerslijst zijn juist!
+          title: Kan ik stemmen?
+        check_fields:
+          date_of_birth: Geboortedatum
+          day: Dag
+          day_placeholder: DD
+          document_number: Documentnummer
+          document_number_placeholder: Id-nummer
+          month: Maand
+          month_placeholder: MM
+          postal_code: Postcode
+          postal_code_placeholder: Postcode nummer
+          select: Selecteer het type document
+          year: Jaar
+          year_placeholder: JJJJ
         elections_log:
+          bb_status: Verkiezingsstatus
+          description: Het verkiezingslogboek toont je alle relevante informatie over elke stemming. Zo is bijvoorbeeld de status van de sleutelceremonie of telling, en of de resultaten al bekend zijn gemaakt. Klik op de verkiezing waarover je de logboekinformatie wilt hebben.
           election_log: Verkiezingslogboek
           title: Verkiezingslogboek
         filters:
@@ -952,7 +1151,6 @@ nl:
           all: Alle
           finished: Afgelopen
           search: Zoeken
-          state: Status
           upcoming: Gepland
         filters_small_view:
           close_modal: Sluit venster
@@ -961,7 +1159,18 @@ nl:
           no_votings: Er zijn geen stemrondes die voldoen aan jouw zoekcriteria.
           only_finished: Momenteel zijn er geen geplande stemrondes, maar hier vind je alle afgelopen stemrondes.
         login:
+          access_code: Toegangscode
+          access_code_placeholder: Toegangscode
+          ask_for_a_new_one: Vraag om een nieuwe.
+          dont_have_access_code: Heb je geen toegangscode?
+          form_title: 'Vul het onderstaande formulier in om toegang te krijgen tot de stemming:'
           start_voting: Begin met stemmen
+          step: Identificatie
+          title: Mezelf identificeren aan de hand van mijn stemlijstgegevens
+        no_census_contact_information: Er is nog geen contactinformatie
+        send_access_code:
+          invalid: De toegangscode kon niet verzonden worden
+          success: Je toegangscode is succesvol verzonden
       votings_m:
         footer_button_text:
           participate: Deelnemen
@@ -976,6 +1185,7 @@ nl:
       election_votes_header:
         exit: Afsluiten
       voting_navigation:
+        check_census: Kan ik stemmen?
         election_log: Verkiezingslogboek
         voting_menu_item: De stemronde
       votings:

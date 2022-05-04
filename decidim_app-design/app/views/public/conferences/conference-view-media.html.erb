@@ -52,7 +52,7 @@
             <div class="column">
               <article class="card" data-open="media-picture-<%= seed %>">
                 <div class="picture__content">
-                  <%= image_pack_tag @photos[i] %>
+                  <%= image_pack_tag "media/images/#{@photos[i]}" %>
                   <h5 class="card__title">
                     <strong>Title of the photo</strong>
                   </h5>
@@ -65,7 +65,7 @@
                 <div class="reveal__header">
                   <h3 class="reveal__title">Photo</h3>
                 </div>
-                <%= image_pack_tag @photos[i] %>
+                <%= image_pack_tag "media/images/#{@photos[i]}" %>
                 <h5>
                   <strong>Title of the photo</strong>
                 </h5>

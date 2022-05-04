@@ -42,6 +42,7 @@ module Decidim
           allow! if permission_action.subject == :component
           allow! if permission_action.subject == :admin_user
           allow! if permission_action.subject == :attachment
+          allow! if permission_action.subject == :editor_image
           allow! if permission_action.subject == :attachment_collection
           allow! if permission_action.subject == :scope
           allow! if permission_action.subject == :scope_type
@@ -55,6 +56,7 @@ module Decidim
           allow! if permission_action.subject == :static_page_topic
           allow! if permission_action.subject == :help_sections
           allow! if permission_action.subject == :share_token
+          allow! if permission_action.subject == :reminder
         end
 
         permission_action

@@ -6,11 +6,12 @@
     <li class="card-data__item">
       <div class="text-left">
         <div class="card__icondata--address">
-          <% if has_meeting_url? %>
-            <span><%= link_to(model.online_meeting_url, model.online_meeting_url, target: "_blank") %></span><br>
-            <span><%= translated_attribute model.location_hints %></span>
+          <% if future? %>
+            <span><%= t("link_available_soon", scope: "decidim.meetings.meetings.show") %></span>
+          <% elsif live? %>
+            <span><%= link_to(t("join", scope: "decidim.meetings.meetings.show"), live_event_url, target: "_blank") %></span><br>
           <% else %>
-            <span><%= t("decidim.meetings.meetings.online_meeting_link.link_available_soon") %></span>
+            <span><%= link_to(t("visit_finished", scope: "decidim.meetings.meetings.show"), live_event_url, target: "_blank") %></span><br>
           <% end %>
         </div>
       </div>

@@ -19,6 +19,8 @@ es-PY:
   decidim:
     components:
       sortitions:
+        actions:
+          comment: Comentar
         name: Sorteos
         settings:
           global:
@@ -74,7 +76,7 @@ es-PY:
           index:
             title: Sorteos
           new:
-            confirm: Al presionar el botón siguiente, Decidim registrará la fecha y la hora (con precisión de segundos) y junto con la tirada de dados, esta información se usará para generar una selección aleatoria. La acción será irreversible, una vez que se haga clic en el botón, se publicará el resultado de este sorteo, junto con los datos ingresados ​​en este formulario y no se pueden modificar, compruebe el contenido detenidamente
+            confirm: Al hacer clic en el siguiente botón, la plataforma registrará la fecha y hora (con una precisión de segundos) y el resultado del dado, y esta información se utilizará para generar una selección aleatoria. Esta acción será irreversible y, una vez que hayas hecho clic en el botón, se publicará el resultado del sorteo junto con los datos facilitados en el presente formulario y no podrán modificarse. Te pedimos que revises el contenido cuidadosamente
             create: Crear
             title: Nuevo sorteo
           show:

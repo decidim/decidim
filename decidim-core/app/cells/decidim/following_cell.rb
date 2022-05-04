@@ -11,8 +11,12 @@ module Decidim
       render :show
     end
 
-    def followings
-      @followings ||= Kaminari.paginate_array(model.following).page(params[:page]).per(20)
+    def public_followings
+      @public_followings ||= Kaminari.paginate_array(model.public_followings).page(params[:page]).per(20)
+    end
+
+    def non_public_followings?
+      public_followings.count < model.following_count
     end
   end
 end

@@ -31,9 +31,35 @@ describe "Account", type: :system do
 
     it_behaves_like "accessible page"
 
+    describe "update avatar" do
+      it "can update avatar" do
+        dynamically_attach_file(:user_avatar, Decidim::Dev.asset("avatar.jpg"), remove_before: true)
+
+        within "form.edit_user" do
+          find("*[type=submit]").click
+        end
+
+        expect(page).to have_css(".flash.success")
+      end
+
+      it "shows error when image is too big" do
+        find("#user_avatar_button").click
+
+        within ".upload-modal" do
+          find(".remove-upload-item").click
+          input_element = find("input[type='file']", visible: :all)
+          input_element.attach_file(Decidim::Dev.asset("5000x5000.png"))
+
+          expect(page).to have_content("File resolution is too large", count: 1)
+          expect(page).to have_css(".upload-errors .form-error", count: 1)
+        end
+      end
+    end
+
     describe "updating personal data" do
       it "updates the user's data" do
         within "form.edit_user" do
+          select "Castellano", from: :user_locale
           fill_in :user_name, with: "Nikola Tesla"
           fill_in :user_personal_url, with: "https://example.org"
           fill_in :user_about, with: "A Serbian-American inventor, electrical engineer, mechanical engineer, physicist, and futurist."
@@ -51,7 +77,7 @@ describe "Account", type: :system do
         user.reload
 
         within_user_menu do
-          find("a", text: "public profile").click
+          find("a", text: "perfil público").click
         end
 
         expect(page).to have_content("example.org")
@@ -131,6 +157,33 @@ describe "Account", type: :system do
           expect(page).to have_content("successfully")
         end
       end
+
+      context "when the user is an admin" do
+        let!(:user) { create(:user, :confirmed, :admin, password: password, password_confirmation: password) }
+
+        before do
+          login_as user, scope: :user
+          visit decidim.notifications_settings_path
+        end
+
+        it "updates the administrator's notifications" do
+          within ".switch.email_on_moderations" do
+            page.find(".switch-paddle").click
+          end
+
+          within ".switch.notification_settings" do
+            page.find(".switch-paddle").click
+          end
+
+          within "form.edit_user" do
+            find("*[type=submit]").click
+          end
+
+          within_flash_messages do
+            expect(page).to have_content("successfully")
+          end
+        end
+      end
     end
 
     context "when on the delete my account page" do
@@ -138,7 +191,7 @@ describe "Account", type: :system do
         visit decidim.delete_account_path
       end
 
-      it "the user can delete his account" do
+      it "the user can delete their account" do
         fill_in :delete_user_delete_account_delete_reason, with: "I just want to delete my account"
 
         click_button "Delete my account"

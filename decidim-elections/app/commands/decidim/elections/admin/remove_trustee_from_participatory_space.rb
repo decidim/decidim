@@ -5,7 +5,7 @@ module Decidim
     module Admin
       # This command is executed when the admin user removes a trustee
       # from a participatory space from the admin panel.
-      class RemoveTrusteeFromParticipatorySpace < Rectify::Command
+      class RemoveTrusteeFromParticipatorySpace < Decidim::Command
         # Public: Initializes the command.
         #
         # trustee_participatory_space - A trustee_participatory_space

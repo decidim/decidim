@@ -34,7 +34,7 @@ ro:
   decidim:
     system:
       actions:
-        confirm_destroy: Sunteţi sigur că doriţi să ştergeţi acest lucru?
+        confirm_destroy: Sigur dorești să ştergi acest element?
         destroy: Ștergere
         edit: Editare
         new: Nou
@@ -52,11 +52,14 @@ ro:
         index:
           title: Administratori
         new:
-          create: Crează
+          create: Creează
           title: Administrator nou
         update:
           error: A apărut o eroare la actualizarea administratorului.
           success: Administrator actualizat cu succes
+      dashboard:
+        show:
+          current_organizations: Organizații curente
       default_pages:
         placeholders:
           content: Vă rugăm să adăugaţi conţinut semnificativ paginii statice %{page} de pe tabloul de bord al administratorului.
@@ -82,7 +85,7 @@ ro:
           name: Aplicație OAuth
         organization:
           actions:
-            save_and_invite: Creați organizație și invitați administrator
+            save_and_invite: Creează grupul de lucru și invită un administrator
           fields:
             created_at: Creat la
             file_upload_settings: Setări pentru încărcarea fișierului
@@ -103,7 +106,7 @@ ro:
         form:
           select_organization: Selectați o organizație
         index:
-          confirm_delete: Sunteți sigur(ă) că doriți să ștergeți această aplicație?
+          confirm_delete: Sigur dorești să ștergi această aplicație?
           title: Aplicații OAuth
         new:
           save: Salveaza
@@ -112,6 +115,9 @@ ro:
           error: A apărut o eroare la actualizarea acestei aplicații.
           success: Aplicație actualizată cu succes.
       organizations:
+        advanced_settings:
+          hide: Ascunde setările avansate
+          show: Arată setările avansate
         create:
           error: A apărut o problemă la crearea unei noi organizații.
           success: Organizație creată cu succes.
@@ -176,7 +182,7 @@ ro:
           existing: Nu permiteţi participanţilor să se înregistreze, dar permiteţi participanţilor existenţi să se autentifice
       shared:
         notices:
-          no_organization_warning_html: Trebuie să creați o organizație pentru a începe. Asigurați-vă că ați citit %{guide} înainte de a continua.
+          no_organization_warning_html: Trebuie să creezi o organizație pentru a începe. Asigură-te că ai citit %{guide} înainte de a continua.
           our_getting_started_guide: ghidul nostru de început
       titles:
         dashboard: Panou

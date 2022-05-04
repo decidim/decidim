@@ -21,6 +21,18 @@ module Decidim
         def decidim_conferences
           Decidim::Conferences::Engine.routes.url_helpers
         end
+
+        private
+
+        def cache_hash
+          hash = []
+          hash.push(I18n.locale)
+          hash.join(Decidim.cache_key_separator)
+        end
+
+        def cache_expiry_time
+          10.minutes
+        end
       end
     end
   end

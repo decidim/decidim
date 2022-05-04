@@ -3,7 +3,7 @@
 module Decidim
   # A command with all the business logic related with a user endorsing a resource.
   # This is a user creates and endorsement.
-  class EndorseResource < Rectify::Command
+  class EndorseResource < Decidim::Command
     # Public: Initializes the command.
     #
     # resource     - An instance of Decidim::Endorsable.

@@ -66,7 +66,7 @@ module Decidim
       end
     end
 
-    describe "validations", processing_uploads_for: Decidim::AvatarUploader do
+    describe "validations" do
       context "when the nickname is empty" do
         before do
           user.nickname = ""
@@ -151,7 +151,7 @@ module Decidim
 
       context "when the file is too big" do
         before do
-          expect(subject.avatar).to receive(:size).and_return(11.megabytes)
+          expect(subject.avatar.blob).to receive(:byte_size).at_least(:once).and_return(11.megabytes)
         end
 
         it { is_expected.not_to be_valid }
@@ -162,7 +162,11 @@ module Decidim
         let(:user) do
           build(
             :user,
-            avatar: Rack::Test::UploadedFile.new(avatar_path, "image/jpeg")
+            avatar: ActiveStorage::Blob.create_and_upload!(
+              io: File.open(avatar_path),
+              filename: "malicious.jpeg",
+              content_type: "image/jpeg"
+            )
           )
         end
 

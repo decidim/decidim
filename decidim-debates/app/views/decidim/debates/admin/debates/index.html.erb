@@ -25,7 +25,7 @@
           <% debates.each do |debate| %>
             <tr data-id="<%= debate.id %>">
               <td>
-                <%= link_to present(debate).title, resource_locator(debate).path, target: :blank %><br>
+                <%= link_to present(debate).title(html_escape: true), resource_locator(debate).path, target: :blank %><br>
               </td>
               <td>
                 <% if debate.start_time %>
@@ -50,6 +50,8 @@
                 <% else %>
                   <span class="action-space icon"></span>
                 <% end %>
+
+                <%= resource_permissions_link(debate) %>
 
                 <% if allowed_to? :delete, :debate, debate: debate %>
                   <%= icon_link_to "circle-x", debate_path(debate), t("actions.destroy", scope: "decidim.debates"), method: :delete, class: "action-icon--remove", data: { confirm: t("actions.confirm_destroy", scope: "decidim.debates") } %>

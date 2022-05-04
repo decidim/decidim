@@ -5,7 +5,7 @@ module Decidim
     module Admin
       # This command is executed when the user creates a Meeting from the admin
       # panel.
-      class CreateMeeting < Rectify::Command
+      class CreateMeeting < Decidim::Command
         def initialize(form)
           @form = form
         end
@@ -21,6 +21,7 @@ module Decidim
             create_services!
           end
 
+          create_follow_form_resource(form.current_user)
           broadcast(:ok, meeting)
         end
 
@@ -41,7 +42,6 @@ module Decidim
             online_meeting_url: form.online_meeting_url,
             registration_type: form.registration_type,
             registration_url: form.registration_url,
-            available_slots: form.available_slots,
             type_of_meeting: form.clean_type_of_meeting,
             address: form.address,
             latitude: form.latitude,
@@ -54,8 +54,11 @@ module Decidim
             registration_terms: form.current_component.settings.default_registration_terms,
             component: form.current_component,
             questionnaire: Decidim::Forms::Questionnaire.new,
-            customize_registration_email: form.customize_registration_email,
-            registration_email_custom_content: form.registration_email_custom_content
+            iframe_embed_type: form.iframe_embed_type,
+            comments_enabled: form.comments_enabled,
+            comments_start_time: form.comments_start_time,
+            comments_end_time: form.comments_end_time,
+            iframe_access_level: form.iframe_access_level
           }
 
           @meeting = Decidim.traceability.create!(
@@ -74,6 +77,11 @@ module Decidim
               "description" => service.description
             )
           end
+        end
+
+        def create_follow_form_resource(user)
+          follow_form = Decidim::FollowForm.from_params(followable_gid: meeting.to_signed_global_id.to_s).with_context(current_user: user)
+          Decidim::CreateFollow.call(follow_form, user)
         end
       end
     end

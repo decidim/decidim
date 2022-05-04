@@ -14,6 +14,10 @@ module Decidim
       field :logo, GraphQL::Types::String, "Link to the partner's logo", null: true
       field :created_at, Decidim::Core::DateTimeType, "The time this partner was created", null: true
       field :updated_at, Decidim::Core::DateTimeType, "The time this partner was updated", null: true
+
+      def logo
+        object.attached_uploader(:logo).path
+      end
     end
   end
 end

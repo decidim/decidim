@@ -2,7 +2,7 @@
 
 module Decidim
   # A command with all the business logic to remove a user from a group.
-  class RemoveUserFromGroup < Rectify::Command
+  class RemoveUserFromGroup < Decidim::Command
     # Public: Initializes the command.
     #
     # membership - the UserGroupMembership to be accepted.

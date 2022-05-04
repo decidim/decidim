@@ -87,8 +87,8 @@ module Decidim::Assemblies
           persisted?: false,
           valid?: false,
           errors: {
-            hero_image: "Image too big",
-            banner_image: "Image too big"
+            hero_image: "File resolution is too large",
+            banner_image: "File resolution is too large"
           }
         ).as_null_object
       end
@@ -103,14 +103,20 @@ module Decidim::Assemblies
       end
 
       it "adds errors to the form" do
-        expect(errors).to receive(:add).with(:hero_image, "Image too big")
-        expect(errors).to receive(:add).with(:banner_image, "Image too big")
+        expect(errors).to receive(:add).with(:hero_image, "File resolution is too large")
+        expect(errors).to receive(:add).with(:banner_image, "File resolution is too large")
         subject.call
       end
     end
 
     context "when the uploaded hero image has too large dimensions" do
-      let(:hero_image) { Decidim::Dev.test_file("5000x5000.png", "image/png") }
+      let(:hero_image) do
+        ActiveStorage::Blob.create_and_upload!(
+          io: File.open(Decidim::Dev.asset("5000x5000.png")),
+          filename: "5000x5000.png",
+          content_type: "image/png"
+        )
+      end
       let(:banner_image) { nil }
       let(:form) do
         Admin::AssemblyForm.from_params(
@@ -129,18 +135,9 @@ module Decidim::Assemblies
         )
       end
 
-      before do
-        # Enable processing for the test in order to catch validation errors
-        Decidim::HeroImageUploader.enable_processing = true
-      end
-
-      after do
-        Decidim::HeroImageUploader.enable_processing = false
-      end
-
       it "broadcasts invalid" do
         expect { subject.call }.to broadcast(:invalid)
-        expect(form.errors.messages[:hero_image]).to contain_exactly(["The image is too big"])
+        expect(form.errors.messages[:hero_image]).to contain_exactly("File resolution is too large")
       end
     end
 

@@ -116,7 +116,7 @@ it:
           info: Informazioni
           moderations: Moderazione
           private_users: Utenti privati
-          process_admins: Utenti
+          process_admins: Amministratrici/tori di processo
           steps: Fasi (Steps)
       models:
         participatory_process:
@@ -435,6 +435,8 @@ it:
           see: Vedi tutto
         index:
           loading: Caricamento risultati...
+        show:
+          title: Informazioni su questo processo
       show:
         area: Area
         belongs_to_group: Questo processo appartiene a

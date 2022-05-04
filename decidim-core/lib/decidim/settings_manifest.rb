@@ -38,14 +38,14 @@ module Decidim
       manifest = self
 
       @schema = Class.new do
-        include Virtus.model
+        include Decidim::AttributeObject::Model
         include ActiveModel::Validations
         include TranslatableAttributes
 
         cattr_accessor :manifest
         attr_reader :default_locale
 
-        # Overwrites Virtus::InstanceMethods::Constructor#initialize to allow
+        # Overwrites Decidim::AttributeObject::Model#initialize to allow
         # passing a default_locale needed to validate translatable attributes.
         # See TranslatablePresenceValidator#default_locale_for(record).
         def initialize(attributes = nil, default_locale = nil)
@@ -85,7 +85,7 @@ module Decidim
     # to encapsulate behavior related to each individual settings field. Shouldn't
     # be used from the outside.
     class Attribute
-      include Virtus.model
+      include Decidim::AttributeObject::Model
       include ActiveModel::Validations
 
       TYPES = {
@@ -95,8 +95,9 @@ module Decidim
         text: { klass: String, default: nil },
         array: { klass: Array, default: [] },
         enum: { klass: String, default: nil },
+        select: { klass: String, default: nil },
         scope: { klass: Integer, default: nil },
-        time: { klass: Time, default: nil }
+        time: { klass: DateTime, default: nil }
       }.freeze
 
       attribute :type, Symbol, default: :boolean
@@ -109,6 +110,7 @@ module Decidim
       attribute :required_for_authorization, Boolean, default: false
       attribute :readonly
       attribute :choices
+      attribute :include_blank, Boolean, default: false
 
       validates :type, inclusion: { in: TYPES.keys }
 

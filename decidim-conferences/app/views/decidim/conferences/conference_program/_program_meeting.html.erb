@@ -43,7 +43,7 @@
             <strong><%= t(".content") %></strong>
           </div>
           <div class="column medium-10">
-            <%= decidim_sanitize(present(meeting).description(links: true)) %>
+            <%= decidim_sanitize_editor(present(meeting).description(links: true)) %>
           </div>
         </div>
       <% end %>

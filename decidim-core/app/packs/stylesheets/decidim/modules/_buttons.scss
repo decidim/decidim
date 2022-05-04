@@ -372,7 +372,7 @@
 .link{
   cursor: pointer;
   color: var(--secondary);
-  font-weight: 600;
+  font-weight: $anchor-font-weight;
 
   &:hover{
     color: $anchor-color-hover;
@@ -384,6 +384,7 @@
 .link-alt{
   cursor: pointer;
   color: $anchor-color;
+  font-weight: $anchor-font-weight;
 
   &:hover{
     color: $anchor-color-hover;
@@ -441,12 +442,19 @@
   text-align: center;
 }
 
-.button--social--mini .button--social__icon{
-  position: relative;
-}
-
 .button--social__text{
   margin-left: 3rem;
+}
+
+.button--social--mini{
+  padding: 0;
+  min-width: 0;
+
+  .button--social__icon{
+    border: 0;
+    padding: .85em 0;
+    margin-right: 0;
+  }
 }
 
 .button--twitter{

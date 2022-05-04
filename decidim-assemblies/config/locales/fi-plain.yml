@@ -59,9 +59,9 @@ fi-pl:
         birthplace: Syntymäpaikka
         ceased_date: Päättymispäivä
         designation_date: Nimityspäivä
-        designation_mode: Nimitystila
         full_name: Koko nimi
         gender: Sukupuoli
+        non_user_avatar: Avatar
         position: Asema
         user_id: Käyttäjä tai ryhmä
       assembly_user_role:
@@ -182,6 +182,9 @@ fi-pl:
         update:
           error: Ryhmän käyttäjän päivityksessä tapahtui virhe.
           success: Ryhmän käyttäjä päivitetty onnistuneesti.
+      filters:
+        decidim_assemblies_type_id_eq:
+          label: Ryhmän tyyppi
       menu:
         assemblies: Ryhmät
         assemblies_settings: Asetukset
@@ -267,7 +270,7 @@ fi-pl:
             duration_help: Jos ryhmän kesto on rajoitettu, valitse päättymispäivä. Muussa tapauksessa se näkyy määrittelemättömänä.
             filters: Suodattimet
             images: kuvat
-            included_at_help: Valitse päivämäärä, jolloin ryhmä lisättiin Decidimiin. Sen ei välttämättä tarvitse olla sama kuin luomispäivä.
+            included_at_help: Valitse päivämäärä, jolloin tämä ryhmä lisättiin alustalle. Sen ei välttämättä tarvitse olla sama kuin luontipäivä.
             metadata: metadata
             other: muut
             select_a_created_by: Valitse luoja
@@ -296,7 +299,10 @@ fi-pl:
         assembly_members:
           form:
             existing_user: Olemassa oleva käyttäjä
+            explanation: 'Kuvan ohjeistus:'
+            image_guide: Käytä mieluiten vaakasuuntaista kuvaa, jossa ei ole tekstiä.
             non_user: Ei käyttäjä
+            non_user_avatar_help: Sinun pitäisi hankkia henkilöiden suostumus ennen kuin julkaiset heidän jäsenyytensä.
             select_a_position: Valitse asema
             select_user: Valitse käyttäjä
             user_type: Käyttäjätyyppi
@@ -313,6 +319,9 @@ fi-pl:
         new_import:
           accepted_types:
             json: JSON
+      assemblies:
+        show:
+          title: Tietoa tästä ryhmästä
       assembly_members:
         index:
           members: Jäsenet

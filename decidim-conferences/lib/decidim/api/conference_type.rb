@@ -37,6 +37,14 @@ module Decidim
       field :speakers, [Decidim::Conferences::ConferenceSpeakerType, { null: true }], "List of speakers in this conference", null: true
       field :partners, [Decidim::Conferences::ConferencePartnerType, { null: true }], "List of partners in this conference", null: true
       field :media_links, [Decidim::Conferences::ConferenceMediaLinkType, { null: true }], "List of media links in this conference", null: true
+
+      def hero_image
+        object.attached_uploader(:hero_image).path
+      end
+
+      def banner_image
+        object.attached_uploader(:banner_image).path
+      end
     end
   end
 end

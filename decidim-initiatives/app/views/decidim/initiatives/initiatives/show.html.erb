@@ -1,5 +1,5 @@
 <% add_decidim_meta_tags({
-  image_url: current_initiative.type.banner_image.url,
+  image_url: current_initiative.type.attached_uploader(:banner_image).path,
   description: translated_attribute(current_initiative.description),
   title: translated_attribute(current_initiative.title),
   url: initiative_url(current_initiative.id),
@@ -9,16 +9,15 @@
 <%
 edit_link(
   resource_locator(current_participatory_space).edit,
-  :update,
-  :initiative,
-  initiative: current_participatory_space
+  :read,
+  :initiative
 )
 %>
 
 <%= participatory_space_floating_help %>
 
 <% add_decidim_page_title(translated_attribute(current_initiative.title)) %>
-<% provide :meta_image_url, current_initiative.type.banner_image.url %>
+<% provide :meta_image_url, current_initiative.type.attached_uploader(:banner_image).path %>
 <div class="row">
   <% unless current_initiative.online_signature_type? %>
     <div class="column">
@@ -34,7 +33,7 @@ edit_link(
   <div class="columns section view-side mediumlarge-4 mediumlarge-push-8 large-3 large-push-9">
     <div class="card text-center">
       <div class="card__content">
-        <% if current_initiative.published? %>
+        <% if current_initiative.published? || current_initiative.rejected? || current_initiative.accepted? %>
           <%= render partial: "progress_bar" %>
           <% if current_initiative.votes_enabled? %>
             <div id="initiative-<%= current_initiative.id %>-vote-cabin">
@@ -80,7 +79,7 @@ edit_link(
       <br>
       <div class="row column">
         <%= render partial: "initiative_badge", locals: { initiative: current_initiative } %>
-        <%= decidim_sanitize translated_attribute(current_initiative.description) %>
+        <%= decidim_sanitize_editor translated_attribute(current_initiative.description) %>
         <%= render partial: "tags", locals: { resource: current_initiative } %>
       </div>
 

@@ -61,8 +61,8 @@ module Decidim
 
         attribute :banner_image
         attribute :hero_image
-        attribute :remove_banner_image
-        attribute :remove_hero_image
+        attribute :remove_banner_image, Boolean, default: false
+        attribute :remove_hero_image, Boolean, default: false
 
         validates :area, presence: true, if: proc { |object| object.area_id.present? }
 

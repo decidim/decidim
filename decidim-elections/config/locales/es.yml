@@ -91,6 +91,16 @@ es:
           name_or_email_or_nickname_or_presided_station_title_or_managed_station_title_cont: Buscar %{collection} por nombre/email/alias o punto de votación.
           ? title_or_address_or_manager_name_or_manager_email_or_manager_nickname_or_president_name_or_president_email_or_president_nickname_cont
           : Buscar %{collection} por título, dirección o nombre del responsable/email/alias.
+        signed_eq:
+          label: Firmada
+          values:
+            'false': Firmada
+            'true': Sin firmar
+        validated_eq:
+          label: Validada
+          values:
+            'false': Validada
+            'true': Sin validar
     components:
       elections:
         actions:
@@ -243,8 +253,8 @@ es:
             title: Elección creada
             trustees: Garantes
           key_ceremony:
+            continue: Continuar
             title: Ceremonia de claves
-            trustees: Garantes
           key_ceremony_ended:
             errors:
               time_before: La elección está lista para comenzar. Tienes que esperar hasta %{hours} horas antes de la hora de inicio (%{start_time}) para comenzar el periodo de votación.
@@ -264,8 +274,14 @@ es:
             submit: Enviar
             title: Resultados publicados
           tally:
+            continue: Continuar
+            invalid: Hubo un problema al reportar al garante ausente
+            mark_as_missing: Marcar como ausente
+            mark_as_missing_description: Todos los garantes deberían participar en este proceso, pero si uno de ellos no puede tomar parte en él, puedes marcarlo como ausente.
+            success: El reporte del garante que falta fue enviado con éxito al Bulletin Board
+            tally_completion: El proceso se completará cuando todos los garantes estén activos o marcados como ausentes. Se requiere al menos %{quorum} garantes para completar el proceso.
             title: Proceso de recuento
-            trustees: Garantes
+            undo_mark_as_missing: Un garante marcado como ausente por error podrá participar antes de completar el proceso. Pueden proceder como de costumbre y la marca de ausente será ignorada.
           tally_ended:
             answer: Respuesta
             not_selected: No seleccionado
@@ -318,14 +334,20 @@ es:
             success: El garante %{trustee} se ha actualizado correctamente
       admin_log:
         election:
-          end_vote: "%{user_name} terminó el período de votación para la elección %{resource_name} en el Bulletin Board"
-          publish: "%{user_name} ha publicado la votación %{resource_name}"
-          publish_results: "%{user_name} publicó los resultados de la elección %{resource_name} en el Bulletin Board"
-          setup: "%{user_name} creó la elección %{resource_name} en el Bulletin Board"
-          start_key_ceremony: "%{user_name} comenzó la ceremonia de claves para las elecciones %{resource_name} en el Bulletin Board"
-          start_tally: "%{user_name} comenzó el recuento para la elección %{resource_name} en el Bulletin Board"
-          start_vote: "%{user_name} comenzó el período de votación para la elección %{resource_name} en el Bulletin Board"
-          unpublish: "%{user_name} ha despublicado la votación %{resource_name}"
+          create: "%{user_name} creó la elección %{resource_name} de %{space_name}"
+          delete: "%{user_name} eliminó la elección %{resource_name} de %{space_name}"
+          end_vote: "%{user_name} terminó el período de votación para la elección %{resource_name} de %{space_name} en el Bulletin Board"
+          publish: "%{user_name} publicó la elección %{resource_name} de %{space_name}"
+          publish_results: "%{user_name} publicó los resultados para la elección %{resource_name} de %{space_name} en el Bulletin Board"
+          report_missing_trustee: "%{user_name} reportó a %{trustee_name} como garante ausente durante el recuento de la elección %{resource_name} de %{space_name} en el Bulletin Board"
+          setup: "%{user_name} creó la elección %{resource_name} de %{space_name} en el Bulletin Board"
+          start_key_ceremony: "%{user_name} comenzó la ceremonia claves para la elección %{resource_name} de %{space_name} en el Bulletin Board"
+          start_tally: "%{user_name} comenzó el recuento de la elección %{resource_name} de %{space_name} en el Bulletin Board"
+          start_vote: "%{user_name} comenzó el período de votación para la elección %{resource_name} de %{space_name} en el Bulletin Board"
+          unpublish: "%{user_name} ha despublicado el %{resource_name} de la elección de %{space_name}"
+          update: "%{user_name} actualizó la elección %{resource_name} de %{space_name}"
+        trustee:
+          create: "%{user_name} asignó al usuario %{trustee_user} como garante"
       election_m:
         badge_name:
           finished: Finalizada
@@ -396,9 +418,9 @@ es:
         filters:
           active: Activas
           all: Todas
+          date: Fecha
           finished: Finalizadas
           search: Buscar
-          state: Estado
           upcoming: Próximas
         filters_small_view:
           close_modal: Cerrar el modal
@@ -455,6 +477,8 @@ es:
             end_time: Termina el
             start_time: Empieza el
             title: Título
+            verifiable_results_file_hash: Suma de comprobación SHA256 del archivo
+            verifiable_results_file_url: Archivo de verificación de la elección
         question:
           fields:
             answers: Respuestas
@@ -554,15 +578,15 @@ es:
               generate_legend_3: Asegúrate de que tu equipo no tenga una copia del archivo (por ejemplo, comprueba las carpetas de Descargas y Escritorio).
               generate_legend_4: Haz otra copia del archivo en un dispositivo externo diferente y guárdalo en un lugar muy seguro.
               submit: Enviar
-              submit_legend: Después de seguir todos los pasos explicados anteriormente, completa el proceso enviando la clave de identificación pública al servidor de Decidim.
+              submit_legend: Después de seguir todos los pasos explicados anteriormente, completa el proceso enviando la clave de identificación pública al servidor.
               submit_title: Enviar la clave pública de identificación
               title: Claves de identificación del garante
               upload: Sube tus claves de identificación
               upload_error:
                 invalid_format: El archivo subido no contiene ninguna clave de identificación.
                 invalid_key: Las claves de identificación en el archivo subido no se pueden cargar.
-                invalid_public_key: Las claves de identificación en el archivo subido no coinciden con la clave de identificación pública almacenada por Decidim.
-              upload_legend: Decidim tiene tus claves públicas de identificación, pero tu navegador todavía no las tiene. Necesitas importar el archivo con tus claves de identificación a tu ordenador desde la copia de seguridad que creaste después de generarlas.
+                invalid_public_key: Las claves de identificación en el archivo subido no coinciden con la clave pública de identificación almacenada.
+              upload_legend: El servidor tiene sus claves públicas de identificación, pero su navegador todavía no las tiene. Necesitas importar el archivo con tus claves de identificación a tu ordenador desde la copia de seguridad que creaste después de generarlas.
             not_supported_browser_description: Parece que estás usando un navegador que no puede ser utilizado para actuar como garante. Asegúrate de que estás usando la versión más reciente de tu navegador, o intenta usar cualquiera de los navegadores más populares para poder completar tus tareas como garante.
             not_supported_browser_title: Actualiza el navegador para actuar como garante
             trustee_role_description: Se le ha asignado como garante en algunas de las elecciones celebradas en esta plataforma.
@@ -596,6 +620,8 @@ es:
           lead: '¡Tu voto se ha emitido!'
           text: 'Puedes comprobar que tu voto se ha añadido correctamente a la urna con el siguiente identificador: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
           verify_link: Para comprobarlo, copia el identificador y pégalo en la <a href="%{link}">página de verificación de voto</a>
+        create:
+          error: Hubo un problema al emitir el voto. Por favor, inténtalo de nuevo.
         encrypting:
           header: Se está cifrando el voto...
           text: Se está cifrando tu papeleta para garantizar el secreto de voto.
@@ -627,9 +653,9 @@ es:
         onboarding_modal:
           close: Cerrar modal
           create_account: Crear Cuenta
-          description: '¿Quieres crear una nueva cuenta en Decidim? Así participarás en los procesos y ser parte activa de la organización.'
+          description: '¿Quieres crear una nueva cuenta en la plataforma? Podrás participar en los procesos y ser parte activa de la organización.'
           no_account: No, gracias.
-          title: '¿Es tu primera vez en Decidim?'
+          title: '¿Eres nueva en la plataforma?'
         update:
           error: Ha habido un problema al actualizar el estado del voto. Vuelve a intentarlo.
         verify:
@@ -640,7 +666,7 @@ es:
             header: Voto no encontrado!
             info: El código de voto no se ha encontrado en la urna de %{link}, inténtelo de nuevo.
           form:
-            back: Volver a Decidim
+            back: Volver a la plataforma
             submit: Comprobar
             vote_identifier: 'Código identificador:'
           header:
@@ -780,7 +806,10 @@ es:
             info: Información
             landing_page: Página de inicio
             monitoring_committee: Comité de seguimiento
+            monitoring_committee_election_results: Validar resultados
             monitoring_committee_members: Miembros
+            monitoring_committee_polling_station_closures: Validar certificados
+            monitoring_committee_verify_elections: Verificar elecciones
             polling_officers: Gestores de mesa
             polling_stations: Puntos de votación
         models:
@@ -812,6 +841,33 @@ es:
               promoted: Destacada
               published: Publicada
               title: Título
+        monitoring_committee_election_results:
+          actions:
+            title: Acciones
+            view: Ver
+          index:
+            title: Elige una elección para ver los resultados
+          results:
+            bulletin_board: Bulletin Board
+            election_totals: Totales de la elección
+            polling_stations: Puntos de votación
+            result_types:
+              blank_answers: Respuestas en blanco
+              blank_ballots: Papeletas en blanco
+              null_ballots: Papeletas nulas
+              total_ballots: Total de papeletas
+              valid_ballots: Papeletas válidas
+            selected: Seleccionado
+            title: Resultados para la elección <i>%{election_title}</i>
+            totals: Totales
+          show:
+            change_election: Cambiar elección
+            publish_results: Publicar resultados
+            publishing: Publicando resultados...
+          update:
+            invalid: Se ha producido un error al publicar los resultados
+            rejected: La publicación de los resultados fue rechazada por el Bulletin Board. Inténtalo de nuevo o ponte en contacto con el administrador del sistema.
+            success: Los resultados se han publicado correctamente
         monitoring_committee_members:
           create:
             invalid: Hubo un problema al crear este miembro del comité de seguimiento
@@ -829,6 +885,38 @@ es:
           new:
             create: Crear
             title: Crear miembro del comité de seguimiento
+        monitoring_committee_polling_station_closures:
+          actions:
+            title: Acciones
+            validate: Validar
+            view: Ver
+          closures:
+            change_election: Cambiar elección
+            signed: '¿Firmado?'
+            title: Puntos de votación para la elección <i>%{election_title}</i>
+            validated: '¿Validado?'
+          edit:
+            change_polling_station: Volver a los puntos de votación
+            monitoring_committee_notes: Observaciones
+            monitoring_committee_notes_placeholder: Reporta cualquier incidencia aquí
+            title: Resultados para la elección <i>%{election_title}</i> en el punto de votación <i>%{polling_station_title}</i>
+          elections:
+            title: Elige una elección para validar
+          show:
+            change_polling_station: Volver a los puntos de votación
+            monitoring_committee_notes: Observaciones del Comité de Seguimiento
+          validate:
+            error: Se ha producido un error al validar el cierre
+            success: El cierre se ha validado correctamente
+        monitoring_committee_verify_elections:
+          index:
+            download: Descargar
+            how_to_checksum: 'Para asegurarse de que el archivo descargado no ha sido dañado o manipulado durante el proceso de descarga, ejecuta el siguiente comando en tu consola y comprueba que la salida coincida con la suma de verificación reportada arriba:'
+            how_to_download: Para verificar una elección, descarga tu archivo verificable de la tabla de arriba.
+            how_to_run_verifier: 'Una vez que hayas descargado el archivo y te hayas asegurado de que está bien, puedes proceder a ejecutar el verificador universal. Clona <a href=''https://github.com/decidim/decidim-bulletin-board''>este repositorio</a> y, desde la carpeta raíz, ejecuta el siguiente comando:'
+            how_to_title: Cómo verificar la validez de una elección
+            not_available: No disponible todavía
+            title: Elecciones
         polling_officers:
           create:
             invalid: Hubo un problema al crear este gestor de mesa
@@ -895,7 +983,7 @@ es:
             assign_missing_officers: Hay puntos de votación sin presidente y/o administradores. Asígnalos desde la sección de puntos de votación
             update: Actualizar
           form:
-            census_contact_information_help: Esta información de contacto es para una participante que quiere reportar problemas con el censo. Puede ser una dirección de correo electrónico, un formulario de contacto en otro sitio, una encuesta de Decidim para visitantes, etc.
+            census_contact_information_help: Esta información de contacto es para una participante que quiere reportar problemas con el censo. Puede ser una dirección de correo electrónico, un formulario de contacto en otro sitio, una encuesta para visitantes, etc.
             select_a_voting_type: Por favor, selecciona un tipo de votación
             slug_help: 'Los textos cortos de URL se utilizan para generar las URL que apuntan a esta votación. Sólo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
             title: Título
@@ -914,6 +1002,24 @@ es:
             invalid: Hubo un problema al actualizar esta votación
             success: Votación actualizada correctamente
       admin_log:
+        ballot_style:
+          create: "%{user_name} creó un estilo de papeleta con código %{ballot_style_code} en el espacio %{space_name}"
+          delete: "%{user_name} eliminó el estilo de la papeleta con el código %{ballot_style_code} en el espacio %{space_name}"
+          update: "%{user_name} actualizó el estilo de la papeleta con el código %{ballot_style_code} en el espacio %{space_name}"
+        census:
+          create: "%{user_name} creó el censo para el espacio %{space_name}"
+          delete: "%{user_name} eliminó el censo del espacio %{space_name}"
+          update: "%{user_name} actualizó el censo del espacio %{space_name}"
+        monitoring_committee_member:
+          create: "%{user_name} asignó al usuario %{monitoring_committee_member_user} como miembro del comité de seguimiento en el espacio %{space_name}"
+          delete: "%{user_name} desasignó el usuario %{monitoring_committee_member_user} como miembro del comité de seguimiento en el espacio %{space_name}"
+        polling_officer:
+          create: "%{user_name} asignó al usuario %{polling_officer_user} como gestor de mesa en el espacio %{space_name}"
+          delete: "%{user_name} desasignó al usuario %{polling_officer_user} como gestor de mesa en el espacio %{space_name}"
+        polling_station:
+          create: "%{user_name} creó el punto de votación %{resource_name} en el espacio %{space_name}"
+          delete: "%{user_name} eliminó el punto de votación %{resource_name} en el espacio %{space_name}"
+          update: "%{user_name} actualizó el punto de votación %{resource_name} en el espacio %{space_name}"
         voting:
           create: "%{user_name} creó la votación %{resource_name}"
           publish: "%{user_name} publicó la votación %{resource_name}"
@@ -923,7 +1029,7 @@ es:
           census:
             create:
               invalid: Se ha producido un error al subir el censo, por favor inténtalo de nuevo más tarde.
-              invalid_csv_header: La cabecera CSV no tiene el número correcto de campos - por favor lee las instrucciones cuidadosamente
+              invalid_csv_header: Los encabezados CSV faltan o no son correctos - por favor lee las instrucciones cuidadosamente
             creating_data:
               info_message: "<strong>Por favor espera</strong>, procesadas %{processed_count} de %{raw_count} filas del fichero %{file}."
             delete:
@@ -980,6 +1086,7 @@ es:
             download: Descargar
             subject: La exportación de los códigos de acceso de votación para %{voting_title} está disponible
         vote_flow:
+          already_voted_in_person: Esta participante ya ha votado presencialmente y no tiene derecho a voto.
           datum_not_found: Los datos introducidos no coinciden con ningún votante.
       content_blocks:
         highlighted_votings:
@@ -1010,6 +1117,14 @@ es:
       polling_officer_zone:
         closures:
           back_to_polling_stations: Volver a los puntos de votación
+          certify:
+            add_images: Añadir imágenes
+            error: Se ha producido un error al adjuntar el certificado, por favor inténtalo de nuevo.
+            form_legend: Sube una foto del certificado de cierre electoral
+            heading: Recuento de votos - Subir certificado
+            info_text: Por favor, sube una foto del certificado de cierre electoral.
+            submit: Subir el certificado
+            success: Certificado subido correctamente.
           create:
             error: Se ha producido un error al crear el cierre, por favor inténtalo de nuevo más tarde.
             success: Cierre creado correctamente.
@@ -1043,9 +1158,65 @@ es:
             polling_station: 'Punto de votación:'
             submit: Verificar número total
             total_ballots_count: Número de papeletas
+          show:
+            heading: Recuento de votos
+            info_text: Cierre electoral del punto de votación.
+          sign:
+            cancel: Cancelar
+            check_box: Lo he revisado y es idéntico al certificado físico de cierre electoral
+            close_modal: Cerrar
+            confirm: Ok, continuar
+            error: Se ha producido un error, por favor inténtalo de nuevo.
+            heading: Recuento de votos - Firmar cierre
+            info_text: Si continúas ya no podrás modificar ninguna información, esta acción no se puede deshacer.
+            submit: Firmar el cierre
+            success: Cierre firmado con éxito.
+            title: Esta acción no se puede deshacer
           update:
             error: Se ha producido un error al actualizar los resultados del cierre. Inténtalo de nuevo más tarde.
             success: Resultados de cierre actualizados correctamente.
+        in_person_votes:
+          complete_voting:
+            available_answers: 'Respuestas disponibles:'
+            census_verified: La participante aún no ha votado.
+            complete_voting: Completar votación
+            identify_another: Identificar a otra participante
+            questions_title: 'Tienen derecho a votar en las siguientes preguntas:'
+            questions_title_voted: 'La participante ya ha votado en línea y tiene derecho a votar en las siguientes preguntas:'
+            voted: La participante ha votado
+          create:
+            error: El voto no ha sido registrado. Por favor, inténtalo de nuevo.
+          in_person_form:
+            census_not_present: Esta participante no aparece en el censo.
+            census_not_present_description: Deben acudir a la oficina de reclamaciones del censo o al servicio de asistencia técnica.
+            date_of_birth: Fecha de nacimiento
+            day: Día
+            day_placeholder: DD
+            document_number: Número de documento
+            document_number_placeholder: Número de ID
+            month: Mes
+            month_placeholder: MM
+            select: Selecciona el tipo de documento
+            title: 'Selecciona el tipo de documento e introduce el número de documento de la participante:'
+            validate_document: Validar documento
+            year: Año
+            year_placeholder: AAAA
+          new:
+            back: Volver a los puntos de votación
+            title: Identificar y verificar a una participante
+          show:
+            back: Volver a los puntos de votación
+            title: Esperando a que se registre el voto presencial
+          update:
+            error: Se ha producido un error al registrar el voto. Por favor, inténtalo de nuevo.
+            success:
+              accepted: El voto se ha registrado correctamente.
+              rejected: El Bulletin Board no ha aceptado el voto. Por favor, ponte en contacto con el administrador del sistema.
+          verify_document:
+            census_present: Esta participante aparece en el censo.
+            name: Nombre
+            title: 'Comprueba que los siguientes datos son correctos:'
+            verify_document: Verificar documento
         menu:
           polling_officer_zone: Zona del gestor de mesa
         polling_officers:
@@ -1072,6 +1243,16 @@ es:
           manager: Administrador
           president: Presidente
           unassigned: No Asignado
+      polling_station_closure_recount:
+        nota_option: En blanco / Ninguna de las anteriores
+        polling_officer_notes: 'Notas del gestor de mesa:'
+        polling_officer_notes_blank: No hay notas
+        recount_summary: 'Resumen del recuento:'
+        signed: Firmado
+        total_ballots: 'Total de papeletas:'
+        total_blank_ballots: 'Total de papeletas en blanco:'
+        total_null_ballots: 'Total de papeletas nulas:'
+        total_valid_ballots: 'Total de papeletas válidas:'
       polling_stations:
         actions:
           confirm_destroy: '¿Estás segura?'
@@ -1125,9 +1306,9 @@ es:
         filters:
           active: Activas
           all: Todas
+          date: Fecha
           finished: Finalizadas
           search: Buscar
-          state: Estado
           upcoming: Próximas
         filters_small_view:
           close_modal: Cerrar ventana

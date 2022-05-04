@@ -59,9 +59,9 @@ cs:
         birthplace: Rodiště
         ceased_date: Datum ukončení
         designation_date: Datum označení
-        designation_mode: Režim označení
         full_name: Celé jméno
         gender: Rod
+        non_user_avatar: Avatar
         position: Pozice
         user_id: Uživatel
       assembly_user_role:
@@ -188,6 +188,9 @@ cs:
         update:
           error: Při aktualizaci administrátora pro toto shromáždění došlo k chybě.
           success: Administrátor úspěšně aktualizován pro toto shromáždění.
+      filters:
+        decidim_assemblies_type_id_eq:
+          label: Typ shromáždění
       menu:
         assemblies: Shromáždění
         assemblies_settings: Nastavení
@@ -273,7 +276,7 @@ cs:
             duration_help: Pokud je doba trvání tohoto shromáždění omezená, zvolte konečné datum, jinak se objeví jako neurčitá.
             filters: Filtry
             images: snímky
-            included_at_help: Vyberte datum, kdy bylo toto shromáždění přidáno do aplikace Decidim. Nemusí to být nutně stejné jako datum vytvoření.
+            included_at_help: Vyberte datum, kdy byla tato sestava přidána na platformu. Nemusí být nutně stejné jako datum vytvoření.
             metadata: Metadata
             other: jiný
             select_a_created_by: Vybrat vytvořeno od
@@ -302,7 +305,10 @@ cs:
         assembly_members:
           form:
             existing_user: Existující účastník
+            explanation: 'Pokyny pro obrázek:'
+            image_guide: Je vhodnější obrázek na výšku, který nemá žádný text.
             non_user: Není účastník
+            non_user_avatar_help: Měli byste získat souhlas osob před jejich zveřejněním jako člena.
             select_a_position: Vyberte pozici
             select_user: Vybrat účastníka
             user_type: Typ účastníka
@@ -319,6 +325,9 @@ cs:
         new_import:
           accepted_types:
             json: JSON
+      assemblies:
+        show:
+          title: O tomto shromáždění
       assembly_members:
         index:
           members: Členové

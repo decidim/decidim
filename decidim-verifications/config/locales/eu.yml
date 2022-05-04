@@ -8,7 +8,7 @@ eu:
         online: Online
       id_document_information:
         document_number: Dokumentuaren zenbakia (letra batekin)
-        document_type: Dokumentuaren mota
+        document_type: Dokumentu mota
       id_document_upload:
         document_number: Dokumentuaren zenbakia (letra batekin)
         document_type: Zure dokumentuaren mota
@@ -24,6 +24,26 @@ eu:
         full_address: Helbide osoa
         verification_code: Egiaztapen kodea
   decidim:
+    admin:
+      menu:
+        authorization_revocation:
+          before_date_info: Erabilgarria da prozesua hasita badago eta aurreko prozesuko baimenak ezeztatu nahi badituzu.
+          button: Ezeztatu guztiak
+          button_before: Ezeztatu data honen aurrekoak
+          destroy:
+            confirm: Data horren aurreko baimenak ezeztatzea ezin da desegin. Ziur jarraitu nahi duzula?
+            confirm_all: Baimen guztiak ezeztatzea ezin da desegin. Ziur jarraitu nahi duzula?
+          destroy_nok: Arazo bat izan da baimen guztiak ezeztatzean.
+          destroy_ok: Bat datozen baimen guztiak zuzen ezeztatu dira.
+          info: Guztira %{count} parte-hartzaile egiaztatuta daude.
+          no_data: Ez dago parte-hartzaile egiaztaturik
+          title: Baimenak ezeztatzea
+        authorization_workflows: Baimenak
+    admin_log:
+      organization:
+        update_id_documents_config: "%{user_name} k eguneratu zuen nortasun agiriko dokumentuen konfigurazioa"
+      user:
+        grant_id_documents_offline_verification: "%{user_name} k egiaztatu zuen %{resource_name} nortasun agirien baimen bat erabiliz"
     authorization_handlers:
       admin:
         csv_census:
@@ -57,10 +77,16 @@ eu:
         name: Kodea posta bidez
     verifications:
       authorizations:
+        authorization_metadata:
+          info: 'Hauek dira oraingo egiaztapenaren datuak:'
+          no_data_stored: Ez dago datu gorderik.
         create:
           error: Errore bat gertatu da baimena sortzean.
           success: Ongi baimendu duzu.
           unconfirmed: Zure posta elektronikoa baieztatzeko, baimena eman behar duzu.
+        destroy:
+          error: Arazo bat izan da baimena ezabatzean.
+          success: Baimena zuzen ezabatu duzu.
         first_login:
           actions:
             another_dummy_authorization_handler: Egiaztatu baimenen kudeatzailearen beste adibide baten aurka
@@ -69,13 +95,23 @@ eu:
             dummy_authorization_workflow: Egiaztatu baimenen laneko fluxuaren aurka
             id_documents: Egiaztatu zure identifikazio dokumentua kargatzen
             postal_letter: Egiaztatu egiaztapen-kodea posta-posta bidez egiaztatuz
+            sms: Identifikatu zaitez SMS bidez bidalitako kode baten bitartez
           title: Egiaztatu zure identitatea
           verify_with_these_options: 'Hauek dira zure identitatea egiaztatzeko erabilgarri dauden aukerak:'
+        index:
+          expired_verification: Egiaztapena iraungi egin da
+          pending_verification: Egiaztatzeke
+          show_renew_info: Egin klik hemen egiaztapena berritzeko
+          unauthorized_verification: Egiaztapen berri bat
         new:
           authorize: Bidali
           authorize_with: Egiaztatu %{authorizer} rekin
         renew_modal:
           cancel: Utzi
+          close: itxi
+          continue: Jarraitu
+          info_renew: Datuak eguneratu nahi badituzu, jarraitu berriztatzen
+          title: Berritu egiaztapena
         skip_verification: Hau saltatu dezakezu oraingoz eta %{link}
         start_exploring: Hasi esploratzen
       csv_census:
@@ -95,8 +131,10 @@ eu:
             title: Uneko erroldako datuak
           instructions:
             body: Horretarako, sistemaren administrazioa sartu behar duzu eta gehitu csv_census baimenak erakundeari
+            title: CSVa aktibatu behar duzu antolaketa honetarako
           new:
             file: ".csv fitxategia helbide elektronikoen datuekin"
+            info: 'CSV formatudun artxiboa izan behar da eta zutabe batean posta elektronikoaren helbidea:'
             submit: Kargatu fitxategia
             title: Kargatu zentsu berri bat
         authorizations:
@@ -108,6 +146,8 @@ eu:
           postal_codes:
             one: Partehartzea mugatua da %{postal_codes} kode postalarekin duten erabiltzaileentzat.
             other: 'Parte-hartzea honako posta-kode hauetakoren bat duten erabiltzaileentzat mugatuta dago: %{postal_codes}.'
+          scope: Partehartzea mugatua da %{scope_name} eremuan egiaztatutako erabiltzaileentzat.
+          user_scope: Parte hartzea mugatuta dago %{scope_name} eremua duten parte-hartzaileentzat eta zure eremua hau da %{user_scope_name}.
       id_documents:
         admin:
           config:

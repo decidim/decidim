@@ -33,6 +33,20 @@ describe "Filter Assemblies", type: :system do
     end
   end
 
+  context "when no assemblies types present" do
+    let!(:assemblies) { create_list(:assembly, 3, organization: organization) }
+
+    before do
+      visit decidim_assemblies.assemblies_path
+    end
+
+    it "doesn't show the assemblies types filter" do
+      within("#assemblies-filter") do
+        expect(page).to have_no_content("All types")
+      end
+    end
+  end
+
   context "when filtering parent assemblies by scope" do
     let!(:scope) { create :scope, organization: organization }
     let!(:assembly_with_scope) { create(:assembly, scope: scope, organization: organization) }
@@ -40,7 +54,7 @@ describe "Filter Assemblies", type: :system do
 
     context "and choosing a scope" do
       before do
-        visit decidim_assemblies.assemblies_path(filter: { scope_id: scope.id })
+        visit decidim_assemblies.assemblies_path(filter: { with_scope: scope.id })
       end
 
       it "lists all processes belonging to that scope" do
@@ -63,7 +77,7 @@ describe "Filter Assemblies", type: :system do
 
     context "and choosing an area" do
       before do
-        select translated(area.name), from: "filter[area_id]"
+        select translated(area.name), from: "filter[with_area]"
       end
 
       it "lists all processes belonging to that area" do

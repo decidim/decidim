@@ -1,7 +1,7 @@
 <%= form_tag results_path, method: :get do %>
   <div class="filters__search">
     <div class="input-group">
-      <%= search_field_tag "filter[search_text]", nil, class: "input-group-field", placeholder: t(".search"), value: "", title:  t(".search") %>
+      <%= search_field_tag "filter[search_text_cont]", nil, class: "input-group-field", placeholder: t(".search"), value: "", title:  t(".search") %>
       <div class="input-group-button">
         <button type="submit" class="button">
           <%= icon "magnifying-glass", aria_label: t(".search"), role: "img" %>

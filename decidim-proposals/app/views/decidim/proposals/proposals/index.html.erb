@@ -28,9 +28,9 @@
 <%= render partial: "voting_rules" %>
 <div class="row columns">
   <div class="title-action">
-    <h3 id="proposals-count" class="title-action__title section-heading">
+    <h2 id="proposals-count" class="title-action__title section-heading">
       <%= render partial: "count" %>
-    </h3>
+    </h2>
     <% if current_settings.creation_enabled && current_component.participatory_space.can_participate?(current_user) %>
       <%= action_authorized_link_to :create, new_proposal_path, class: "title-action__action button small", data: { "redirect_url" => new_proposal_path } do %>
         <%= t(".new_proposal") %>
@@ -52,10 +52,5 @@
   </div>
   <div id="proposals" class="columns mediumlarge-8 large-9" aria-live="polite">
     <%= render partial: "proposals" %>
-  </div>
-</div>
-<div class="row">
-  <div class="text-right">
-    <%= link_to t(".see_all_withdrawn"), proposals_path("filter[state][]" => "withdrawn") %>
   </div>
 </div>

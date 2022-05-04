@@ -15,7 +15,7 @@ module Decidim
     # options - A Hash with the options to truncate the text (default: {}):
     #           :length - An Integer number with the max length of the text.
     #           :separator - A String to append to the text when it's being
-    #           truncated. See `truncato` gem for more options.
+    #           truncated.
     #
     # Returns a String.
     def html_truncate(text, options = {})
@@ -25,7 +25,7 @@ module Decidim
       options[:count_tail] ||= false
       options[:tail_before_final_tag] = true unless options.has_key?(:tail_before_final_tag)
 
-      Truncato.truncate(text, options)
+      Decidim::HtmlTruncation.new(text, options).perform
     end
 
     def present(object, presenter_class: nil)
@@ -118,6 +118,10 @@ module Decidim
       else
         [base_url, "/", process.active_step.cta_path].join("")
       end
+    end
+
+    def prevent_timeout_seconds
+      0
     end
   end
 end

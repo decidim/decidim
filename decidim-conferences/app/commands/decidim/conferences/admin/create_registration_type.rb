@@ -5,7 +5,7 @@ module Decidim
     module Admin
       # A command with all the business logic when creating a new registration type
       # in the system.
-      class CreateRegistrationType < Rectify::Command
+      class CreateRegistrationType < Decidim::Command
         # Public: Initializes the command.
         #
         # form - A form object with the params.
@@ -52,11 +52,11 @@ module Decidim
             Decidim::Conferences::RegistrationType,
             form.current_user,
             form.attributes.slice(
-              :title,
-              :description,
-              :price,
-              :weight
-            ).merge(
+              "title",
+              "description",
+              "price",
+              "weight"
+            ).symbolize_keys.merge(
               conference: conference
             ),
             log_info

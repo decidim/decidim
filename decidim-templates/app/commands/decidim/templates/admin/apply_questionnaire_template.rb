@@ -4,7 +4,9 @@ module Decidim
   module Templates
     # A command with all the business logic when duplicating a questionnaire template
     module Admin
-      class ApplyQuestionnaireTemplate < Rectify::Command
+      class ApplyQuestionnaireTemplate < Decidim::Command
+        include Decidim::Templates::Admin::QuestionnaireCopier
+
         # Public: Initializes the command.
         #
         # template - The template we want to apply
@@ -41,32 +43,6 @@ module Decidim
             description: @template.templatable.description,
             tos: @template.templatable.tos
           )
-        end
-
-        def copy_questionnaire_questions(original_questionnaire, new_questionnaire)
-          original_questionnaire.questions.each do |original_question|
-            new_question = original_question.dup
-            new_question.questionnaire = new_questionnaire
-            new_question.save!
-            copy_questionnaire_answer_options(original_question, new_question)
-            copy_questionnaire_matrix_rows(original_question, new_question)
-          end
-        end
-
-        def copy_questionnaire_answer_options(original_question, new_question)
-          original_question.answer_options.each do |original_answer_option|
-            new_answer_option = original_answer_option.dup
-            new_answer_option.question = new_question
-            new_answer_option.save!
-          end
-        end
-
-        def copy_questionnaire_matrix_rows(original_question, new_question)
-          original_question.matrix_rows.each do |original_matrix_row|
-            new_matrix_row = original_matrix_row.dup
-            new_matrix_row.question = new_question
-            new_matrix_row.save!
-          end
         end
       end
     end

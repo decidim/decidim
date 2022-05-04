@@ -1,5 +1,32 @@
 @import "tributejs/tribute";
 
-input.js-multiple-mentions.mentions__container::placeholder{
-  color: $input-multiple-placeholder-color;
+.multiple-mentions{
+  input::placeholder{
+    color: $input-multiple-placeholder-color;
+  }
+}
+
+.multiple-mentions-selected{
+  font-size: 1.3rem;
+  line-height: 1.8;
+  list-style: none;
+  margin: 1rem 0 0;
+
+  button{
+    cursor: pointer;
+  }
+
+  img{
+    &.author__avatar{
+      display: inline-block;
+      padding: 0;
+      border-radius: 50%;
+      width: 35px;
+      height: 35px;
+    }
+  }
+
+  li b{
+    font-size: .875rem;
+  }
 }

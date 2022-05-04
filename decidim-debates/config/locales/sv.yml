@@ -17,7 +17,6 @@ sv:
       decidim/debates/close_debate_event: Debatt stängd
       decidim/debates/create_debate_event: Debatt
       decidim/debates/creation_disabled_event: Debatter avaktiverade
-      decidim/debates/creation_enabled_event: Debatter aktiverade
   activerecord:
     models:
       decidim/debates/debate:
@@ -27,6 +26,7 @@ sv:
     components:
       debates:
         actions:
+          comment: Kommentera
           create: Skapa
           endorse: Instäm
         name: Debatter
@@ -40,7 +40,6 @@ sv:
           step:
             announcement: Meddelande
             comments_blocked: Kommentarer blockerade
-            creation_enabled: Skapande av debatter av användare aktiverat
             endorsements_blocked: Instämmanden är blockerade
             endorsements_enabled: Instämmanden aktiverade
     debates:
@@ -116,11 +115,11 @@ sv:
           all: Alla
           category: Kategori
           category_prompt: Välj en kategori
-          citizens: Medborgare
           commented: Kommenterade
           my_debates: Mina debatter
           official: Officiell
           origin: Ursprung
+          participants: Deltagare
           scope: Omfång
           search: Sök
           state: Status

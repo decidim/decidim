@@ -33,6 +33,16 @@ module Decidim
       false
     end
 
+    def avatar
+      attached_uploader(:avatar)
+    end
+
+    def avatar_url(variant = nil)
+      return avatar.default_url unless avatar.attached?
+
+      avatar.path(variant: variant)
+    end
+
     private
 
     def user

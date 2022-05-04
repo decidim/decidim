@@ -13,7 +13,7 @@ Decidim.register_component(:sortitions) do |component|
   end
 
   # These actions permissions can be configured in the admin panel
-  component.actions = %w()
+  component.actions = %w(comment)
 
   component.settings(:global) do |settings|
     settings.attribute :comments_enabled, type: :boolean, default: true
@@ -25,6 +25,7 @@ Decidim.register_component(:sortitions) do |component|
     resource.model_class_name = "Decidim::Sortitions::Sortition"
     resource.template = "decidim/sortitions/sortitions/linked_sortitions"
     resource.card = "decidim/sortitions/sortition"
+    resource.actions = %w(comment)
   end
 
   component.register_stat :sortitions_count, primary: true, priority: Decidim::StatsRegistry::HIGH_PRIORITY do |components, start_at, end_at|

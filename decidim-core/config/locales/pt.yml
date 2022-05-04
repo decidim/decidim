@@ -5,6 +5,8 @@ pt:
         delete_reason: Razão para cancelar a sua conta
       common:
         created_at: Criado em
+      conversation:
+        body: Corpo
       group:
         about: Sobre
         avatar: Avatar
@@ -13,6 +15,8 @@ pt:
         name: Nome
         nickname: Alcunha
         phone: Telefone
+      message:
+        body: Corpo
       report:
         details: Comentários adicionais
       user:
@@ -35,6 +39,7 @@ pt:
       decidim/profile_updated_event: Perfil atualizado
       decidim/promote_to_admin: Promovido a administrador do grupo
       decidim/removed_from_group: Removido do grupo
+      decidim/resource_endorsed_event: Recurso apoiado
   activerecord:
     attributes:
       decidim/user:
@@ -62,8 +67,8 @@ pt:
     'true': 'Sim'
   carrierwave:
     errors:
-      general: Erro ao processar a imagem
       image_too_big: A imagem é demasiado grande
+      not_inside_organization: O ficheiro não está anexado a nenhuma organização
   date:
     formats:
       decidim_short: "%d/%m/%Y"
@@ -77,10 +82,12 @@ pt:
       logo: "Logótipo oficial de %{organization}"
       skip_button: Avançar para o conteúdo principal
     account:
+      blocked: Esta conta foi bloqueada por violação dos Termos e Condições
       data_portability_export:
         file_no_exists: Ficheiro não existente
         notice: A transferência dos seus dados está atualmente em progresso. Receberá um e-mail quando estiver concluído.
       delete:
+        alert: Esta acção não pode ser revertida. Se apagar a sua conta não poderá mais ligar-se com as suas credenciais. Apagar a sua conta resultará no anonimizar de todas as suas contribuições. Conseguirá criar uma nova conta, mas essas contribuições não serão associadas a ela.
         confirm:
           close: Fechar janela
           ok: Sim, eu quero cancelar a minha conta
@@ -110,6 +117,8 @@ pt:
         delete: "%{user_name} removeu o componente %{resource_name} do espaço %{space_name}"
         publish: "%{user_name} publicou o componente %{resource_name} no espaço %{space_name}"
         unpublish: "%{user_name} removeu a publicação do componente %{resource_name} do espaço %{space_name}"
+      impersonation_log:
+        manage: "%{user_name} geriu %{resource_name} porque %{reason}"
       moderation:
         hide: "%{user_name} escondeu um recurso de tipo %{resource_type} no %{space_name} espaço"
         unreport: "%{user_name} não declarou um recurso de tipo %{resource_type} no %{space_name} espaço"
@@ -126,6 +135,7 @@ pt:
         update: "%{user_name} atualizou as configurações da organização"
       participatory_space_private_user:
         create: "%{user_name} convidou %{resource_name} para ser um participante privado"
+        create_via_csv: "%{user_name} convidou %{resource_name} via CSV para ser participante privado"
         delete: "%{user_name} removeu o participante %{resource_name} como participante privado"
       scope:
         create: "%{user_name} criou o âmbito %{resource_name}"
@@ -139,15 +149,21 @@ pt:
         delete: "%{user_name} eliminou a página estática %{resource_name}"
         update: "%{user_name} atualizou a página estática %{resource_name}"
       user:
+        block: "%{user_name} bloqueou o utilizador %{resource_name}"
         invite: "%{user_name} convidou o usuário %{resource_name} com papel: %{role}"
         officialize: "%{user_name} oficializou o participante %{resource_name}"
+        promote: "%{user_name} promoveu %{resource_name}"
         remove_from_admin: "%{user_name} removeu o participante %{resource_name} com função: %{role}"
         show_email: "%{user_name} obteve o e-mail do participante %{resource_name}"
+        transfer: "%{user_name} transferiu o participante %{resource_name}"
+        unblock: "%{user_name} desbloqueou o utilizador %{resource_name}"
         unofficialize: "%{user_name} remoção a oficialização do participante %{resource_name}"
       user_group:
         reject: "%{user_name} rejeitou a verificação de grupo %{resource_name}"
         verify: "%{user_name} verificou o grupo %{resource_name}"
         verify_via_csv: "%{user_name} verificou o grupo %{resource_name} através de um ficheiro CSV"
+      user_moderation:
+        unreport: "%{user_name} retirou denuncia a %{resource_type} - %{unreported_user_name}"
     admin_terms_of_use:
       default_body: "<h2>TERMOS DE UTILIZAÇÃO DE ADMINISTRADOR</h2><p>Confiamos que recebeu as instruções habituais por parte do Administrador de Sistema local. Normalmente resume-se a estes três fatores:</p><ol><li>Respeitar a privacidade dos outros.</li><li>Pensar antes de clicar.</li><li>Um grande poder acarreta uma grande responsabilidade.</li></ol>"
     alert:
@@ -240,9 +256,13 @@ pt:
         download: Transferir ficheiro
       documents:
         related_documents: Documentos relacionados
+      geocoding:
+        geocoded_address: Endereço
       photos:
         related_photos: Imagens relacionadas
     author:
+      avatar: 'Avatar: %{name}'
+      avatar_multiuser: Avatar para múltiplos utilizadores
       comments:
         one: comentário
         other: comentários
@@ -267,6 +287,8 @@ pt:
         name: Exemplo de autorização
       dummy_authorization_workflow:
         name: Fluxo de trabalho de autorização falsa
+      errors:
+        duplicate_authorization: Um participante já foi autorizado com os mesmos dados. Um administrador irá contactá-lo para verificar os seus detalhes.
       expired_at: Expirou em %{timestamp}
       expires_at: Expira em %{timestamp}
       foo_authorization:
@@ -296,6 +318,8 @@ pt:
           authorize: Autorizar com "%{authorization}"
           explanation: Para executar esta ação, você precisa ser autorizado com "%{authorization}".
           title: Autorização necessária
+        ok:
+          title: Recebeu autorização enquanto nesta página. Por favor carregue a página de novo para executar a sua acção.
         pending:
           explanation: De forma a executar esta ação, precisa de ser autorizado com "%{authorization}", mas a sua autorização ainda está em progresso
           resume: Verifique o progresso da sua autorização "%{authorization}"
@@ -312,6 +336,13 @@ pt:
           title: Confirmar o seu e-mail
       show:
         close_modal: Fechar modal
+    block_user_mailer:
+      notify:
+        body_1: A sua conta foi bloqueada.
+        body_2: 'Razão: %{justification}'
+        greetings: Saudações, <br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
+        hello: Olá,
+        subject: A sua conta foi bloqueada por %{organization_name}
     collapsible_list:
       hidden_elements_count:
         one: e mais %{count}
@@ -347,6 +378,8 @@ pt:
             dummy_global_translatable_text: Texto Traduzível Fictício
             enable_pads_creation: Ativar criação de blocos
             resources_permissions_enabled: Permissões de recursos ativadas
+            scope_id: Âmbito
+            scopes_enabled: Âmbitos activados
           step:
             amendment_creation_enabled: Criação de modificação ativada
             amendment_promotion_enabled: Promoção de modificação ativada
@@ -358,6 +391,13 @@ pt:
             dummy_step_translatable_text: Passo de Texto Traduzível Fictício
     contact: Contacto
     content_blocks:
+      cta:
+        name: Imagem, texto, botão de convite a acção
+      cta_settings_form:
+        background_image: Imagem de fundo
+        button_text: Texto da chamada a acção
+        button_url: URL da chamada a acção
+        description: Descrição
       footer_sub_hero:
         name: Faixa sub hero do rodapé
       hero:
@@ -367,6 +407,11 @@ pt:
         welcome_text: Texto de boas-vindas
       highlighted_content_banner:
         name: Faixa de conteúdo realçado
+      highlighted_elements_settings_form:
+        orders:
+          label: 'Ordenar elementos por:'
+          random: Aleatório
+          recent: Mais recente
       how_to_participate:
         name: Como participar
       html:
@@ -391,6 +436,7 @@ pt:
         ready: Pronto
       show:
         download_data: Transferir os dados
+        download_data_description: Um ficheiro contendo toda a informação associada com a sua conta será enviado a <strong>%{user_email}</strong>. Este e-mail irá conter um ficheiro .zip e uma password para o abrir. <Br/><br/>Para abrir o ficheiro zip irá precisar do <a href="https://www.7-zip.org/">7-Zip</a> (para Windows) ou <a href="https://www.keka.io/">Keka</a> (para MacOS). Se utiliza Linux, provavelmente terá a ferramenta instalada por defeito. Se não, pode usar <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> ou <a href="https://peazip.github.io">PeaZip</a>).
         request_data: Solicitar dados
     datepicker:
       help_text: 'Formato esperado: %{datepicker_format}'
@@ -400,6 +446,7 @@ pt:
           email_already_exists: Outra conta está usando o mesmo endereço de e-mail
         new:
           complete_profile: Complete o seu perfil
+          nickname_help: A sua alcunha em %{organization}. Só pode conter letras, números, “-”, e “_”
           sign_up: Por favor, complete o seu perfil
           subtitle: Por favor, preencha o seguinte formulário para completar a inscrição
           username_help: Nome público que aparece nas suas publicações. Com o objetivo de garantir o anonimato, pode ser qualquer nome.
@@ -408,6 +455,7 @@ pt:
           already_have_an_account?: Já tem uma conta?
           newsletter: Receber um boletim informativo ocasional com informações relevantes
           newsletter_title: Permissão de contacto
+          nickname_help: A sua alcunha em %{organization}. Só pode conter letras, números, “-”, e “_”
           password_help: "%{minimun_characters} caracteres no mínimo, não deverá ser muito comum (por ex. 123456) e deverá ser diferente da sua alcunha e do seu e-mail."
           sign_in: Entrar
           sign_up: Inscreva-se
@@ -424,11 +472,14 @@ pt:
           register: Criar uma conta
           sign_in_disabled: Pode aceder com uma conta externa
           sign_up_disabled: A inscrição está desativada, pode utilizar uma conta existente para aceder
+        user:
+          timed_out: Esteve inactivo por muito tempo e foi automaticamente desligado do serviço. Se quiser continuar a usar o serviço, por favor ligue-se de novo.
       shared:
         newsletter_modal:
           buttons:
             check: Verificar e continuar
             close_modal: Fechar modal
+            uncheck: Manter não verificado
           notice: |-
             <p>Tem a certeza de que não deseja receber um boletim informativo?<br>
             Por favor, considere novamente marcar a caixa de seleção do boletim informativo abaixo.<br>
@@ -456,7 +507,7 @@ pt:
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> quer usar a sua conta"
     endorsable:
       endorsements: Endossos
-      endorsements_count: Contagem de endossamentos
+      endorsements_count: Contagem de apoios
     endorsement_buttons_cell:
       already_endorsed: Endossado
       endorse: Endossar
@@ -594,6 +645,14 @@ pt:
           notification_title: O grupo de utilizadores %{user_group_name} atualizou o seu perfil, deixando-o por verificar. Pode agora verificá-lo no <a href="%{groups_admin_path}">painel de administrador</a>.
       notification_event:
         notification_title: Ocorreu um evento em <a href="%{resource_path}">%{resource_title}</a>.
+      reports:
+        resource_hidden:
+          email_intro: Um administrador removeu o seu %{resource_type} porque foi denunciado como %{report_reasons}.
+          email_outro: Recebeu esta notificação porque é o autor do conteúdo removido
+          email_subject: O seu %{resource_type} foi removido
+          notification_title: |-
+            Um administrador removeu o seu %{resource_type} porque foi denunciado como %{report_reasons}.</br>
+            <i>%{resource_content}</i>
       resource_endorsed:
         email_intro: '%{endorser_name} %{endorser_nickname}, que você segue, endossou "%{resource_title}" e pensamos que poderá ser do seu interesse. Verifique e contribua:'
         email_outro: Recebeu esta notificação porque segue %{endorser_nickname}. Poderá deixar de receber notificações seguindo a hiperligação anterior.
@@ -607,6 +666,7 @@ pt:
           notification_title: A <a href="%{resource_path}">página de perfil</a> de %{name} (%{nickname}), que você segue, foi atualizada.
     export_mailer:
       data_portability_export:
+        click_button: 'Clique na ligação seguinta para descarregar os seus dados. <Br/> Irá precisar  de <a href="https://www.7-zip.org/">7-Zip</a> (para Windows), <a href="https://www.keka.io/en/">Keka</a> (para MacOS), ou <a href="https://peazip.github.io">PeaZip</a> (para Linux) para abrir o ficheiro. Palavra-chave: %{password}'
         download: Transferir
       export:
         ready: Por favor, encontre em anexo uma versão zip da sua exportação.
@@ -639,11 +699,11 @@ pt:
       create:
         button: Seguir
         error: Ocorreu um problema ao seguir este recurso.
+        participatory_space: Seguindo <span class="show-for-sr">%{resource_name}</span>
       destroy:
         button: Parar de seguir
         error: Ocorreu um problema ao seguir este recurso.
     forms:
-      current_file: Ficheiro atual
       current_image: Imagem actual
       default_image: Imagem por defeito
       errors:
@@ -655,6 +715,7 @@ pt:
         file:
           explanation: 'Orientação para o ficheiro:'
           message_1: Tem que ser uma imagem ou um documento.
+          message_2: Para imagens, use de preferência imagens em paisagem, o serviço corta a imagem. Para ficheiros CSV, o separador entre colunas deve ser uma vírgula (“,”)
         image:
           explanation: 'Orientação para a imagem:'
           message_1: Preferencialmente, uma imagem de paisagem que não tem nenhum texto.
@@ -662,7 +723,6 @@ pt:
       file_validation:
         allowed_file_extensions: 'Extensões de ficheiro permitidas: %{extensions}'
         max_file_size: 'Tamanho máximo do ficheiro: %{megabytes}MB'
-      remove_this_file: Remover este ficheiro
     gamification:
       all_badges_link: Ver todos os distintivos disponíveis.
       badges:
@@ -794,6 +854,15 @@ pt:
       index:
         last_activity: Última atividade
         resource_type: Tipo
+    links:
+      invalid_url: URL inválido
+      warning:
+        body_1: Está prestes a visitar uma ligação externa e gostaríamos que fosse cuidadoso quanto ao conteúdo do sítio externo.
+        body_2: Como medida de precaução, por favor verifique o link que está prestes a visitar e certifique-se que o reconhece.
+        cancel: Cancelar
+        close_modal: Fechar modal
+        proceed: Continuar
+        title: Abrir ligação externa
     log:
       base_presenter:
         create: "%{user_name} criou %{resource_name}"
@@ -874,6 +943,11 @@ pt:
           show: Mostrar conversa com %{sender}
         create:
           error: Conversa não iniciada. Tente novamente mais tarde
+        error_modal:
+          close: Fechar modal
+          correct_errors: Por favor corrija os erros e tente de novo
+          intro: 'Há os seguintes erros com a sua mensagem:'
+          ok: OK
         index:
           ago: atrás
           close: Fechar modal
@@ -891,11 +965,16 @@ pt:
         show:
           back: Retroceder a todas as conversas
           chat_with: Conversa com
+          not_allowed: Este participante não aceita mensagens directas.
           title: Conversa com %{usernames}
         start:
           send: Enviar
           title: Iniciar uma conversa
+        update:
+          error: A mensagem não foi enviada devido a um erro
     metrics:
+      download:
+        csv: Descarregar dados (CSV)
       followers:
         description: Número de participantes que seguem este espaço de participação
         object: seguidores
@@ -957,8 +1036,10 @@ pt:
       no_notifications: Ainda não há notificações.
     notifications_settings:
       show:
+        administrators: Administradores
         allow_public_contact: Permitir que qualquer pessoa me envie uma mensagem direta, mesmo que não a siga.
         direct_messages: Receber mensagens diretas de qualquer pessoa
+        email_on_moderations: Quero receber um e-mail sempre que alguma coisa for denunciada para moderação
         email_on_notification: Quero receber um e-mail sempre que recebo uma notificação.
         everything_followed: Tudo o que eu sigo
         newsletter_notifications: Quero receber boletins informativos
@@ -1020,6 +1101,7 @@ pt:
           error: Ocorreu um problema ao aceitar os termos e condições.
           success: Ótimo! Aceitou os termos e condições.
         form:
+          agreement: Concordo com estes termos
           legend: Concordo com os termos e condições de uso
         refuse:
           modal_body: Se recusar, não será capaz de utilizar a plataforma, pode <a href="%{data_portability_path}">transferir os seus dados</a> e / ou <a href="%{delete_path}">eliminar a sua conta</a>.
@@ -1036,6 +1118,7 @@ pt:
       not_allowed: Não tem permissão para visualizar este conteúdo
     profile:
       deleted: Participante eliminado
+      inaccessible_message: Esta conta foi bloqueada por violação dos Termos e Condições!
       view: Visualizar
     profiles:
       default_officialization_text_for_user_groups: Este grupo está verificado publicamente, o seu nome foi confirmado para corresponder ao seu nome real
@@ -1049,6 +1132,7 @@ pt:
         groups: Grupos
         members: Membros
         officialized: Participante oficial
+        send_private_message: Enviar mensagem privada
         timeline: Cronograma
         view_full_profile: Ver o perfil completo
       sidebar:
@@ -1076,12 +1160,15 @@ pt:
       report:
         authors: Autores
         content: Conteúdo reportado
+        content_original_language: Língua original do conteúdo
         date: Reportado em
         details: Detalhes
         hello: Olá %{name},
+        id: Identificação
         participatory_space: Espaço participativo
         reason: Razão
         report_html: <p>O seguinte <a href="%{url}">conteúdo</a> foi reportado.</p>
+        see_report: Ver relatório
         subject: Um recurso foi reportado
     reports:
       create:
@@ -1094,14 +1181,14 @@ pt:
       global: Âmbito global
       picker:
         cancel: Cancelar
-        change: Alterar o âmbito selecionado
+        change: Alterar o âmbito seleccionado
         choose: Selecionar
-        currently_selected: Âmbito atualmente selecionado
+        currently_selected: Âmbito actualmente seleccionado
         title: Selecionar %{field}
       prompt: Selecionar um âmbito
       scopes: Âmbitos
       scopes_picker_input:
-        select_scope: 'Selecione um âmbito (atualmente: %{current})'
+        select_scope: 'Seleccione um âmbito (actualmente: %{current})'
     search:
       results: Resultados da pesquisa
       results_found_for_term: '%{count} Resultados para a pesquisa: "%{term}"'
@@ -1125,6 +1212,10 @@ pt:
           one: "%{count} resultado"
           other: "%{count} resultados"
         view_all: Ver todos (%{count})
+    security:
+      selfxss_warning:
+        description: Esta funcionalidade do navegador é destinada a programadores e não deve colar aqui nada se lhe for pedido que o faça. Colar conteúdo nesta janela pode comprometer a sua privacidade e dar acesso à sua conta a hackers.
+        title: Pare!
     shared:
       confirm_modal:
         cancel: Cancelar
@@ -1147,9 +1238,19 @@ pt:
         description: Este conteúdo é impróprio?
         does_not_belong: Contém atividades ilegais, ameaças suicidas, informações pessoais ou qualquer outra coisa que pense não pertencer a %{organization_name}.
         offensive: Contém racismo, sexismo, insultos, ataques pessoais, ameaças de morte, pedidos de suicídio ou qualquer tipo de discurso de ódio.
+        reason: Motivo
         report: Reportar
         spam: Contém clickbait, publicidade, fraudes ou robots de scripts.
-        title: Reportar um problema
+        title: Denunciar um problema
+      flag_user_modal:
+        already_reported: Este conteúdo já foi denunciado e será revisto por um administrador.
+        close: Fechar
+        description: O que é inapropriado acerca do utilizador?
+        does_not_belong: Contém actividade ilegal, ameaças de suicídio, informações pessoais ou algo que acha que não pertence a %{organization_name}.
+        offensive: Contém racismo, sexismo, insultos, ataques pessoais, ameaças de morte, pedidos de suicídio ou qualquer forma de discurso de ódio.
+        report: Denuncie
+        spam: Contém clickbait, publicidade, golpes ou bots de script.
+        title: Denunciar utilizador inapropriado
       floating_help:
         close: Fechar ajuda
         help: Ajuda
@@ -1163,6 +1264,8 @@ pt:
         filters:
           areas: Áreas
           select_an_area: Selecione uma área
+      public_participation:
+        public_participation: Mostrar publicamente a minha participação
       reference:
         reference: 'Referência: %{reference}'
       represent_user_group:
@@ -1173,13 +1276,28 @@ pt:
         title: Selecionar número de resultados por página
       share_modal:
         close_window: Fechar janela
+        copy_share_link: Copiar
+        copy_share_link_clarification: Copiar a ligação de partilha para o clipboard
+        copy_share_link_copied: Copiado!
+        copy_share_link_message: A ligação foi  copiada para o clipboard com êxito.
         share: Partilhar
         share_link: Partilhar link
     statistics:
       comments_count: Comentários
+      endorsements_count: Apoios
+      followers_count: Seguidores
+      headline: Estatísticas
+      no_stats: Ainda não há estatísticas.
+      pages_count: Páginas
+      participants_count: Participantes
+      users_count: Participantes
     tags:
       filter_results_for_category: 'Resultados do filtro para a categoria: %{resource}'
       filter_results_for_scope: 'Resultados do filtro para o âmbito: %{resource}'
+    translation_bar:
+      help_text: "<strong>Aviso:</strong> O conteúdo pode ser traduzido automaticamente e não ser 100% fidedigno."
+      show_original: Mostrar texto original
+      show_translated: Mostrar texto traduzido automaticamente
     user_activity:
       index:
         no_activities_warning: Este participante ainda não possui nenhuma atividade.
@@ -1210,6 +1328,7 @@ pt:
         send: Enviar
         title_reply: Responder
       show:
+        back: Mostrar todas as conversas
         not_allowed: Este utilizador não aceita mais mensagens diretas.
         title: Conversa com %{usernames}
       update:
@@ -1223,6 +1342,13 @@ pt:
       update:
         error: Ocorreu um problema ao atualizar os seus interesses.
         success: Os seus interesses foram atualizados corretamente.
+    user_report_mailer:
+      notify:
+        body_1: O utilizador %{user} foi denunciado por %{token}
+        body_2: 'Razão: %{razão}'
+        greetings: Saudações, <br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
+        hello: Olá %{admin},
+        subject: Um novo utilizador foi denunciado em %{organization_name}
     version:
       show:
         back_to_resource: Retroceder
@@ -1239,6 +1365,7 @@ pt:
     versions:
       resource_version:
         of_versions: "(de %{number})"
+        see_other_versions: ver outras versões
         version: Versão %{number}
     versions_list:
       show:
@@ -1247,6 +1374,7 @@ pt:
         number_of_versions: Versões
         title: Versões
     versions_list_item:
+      back: Mostrar todas as versões
       show:
         version_index: Versão %{index}
     welcome_notification:
@@ -1425,6 +1553,10 @@ pt:
       too_short: é muito curto (abaixo de 15 caracteres)
   forms:
     correct_errors: Existem erros no formulário, por favor corrija-os para continuar.
+    length_validator:
+      minimum:
+        one: Pelo menos %{count} caracter
+        other: Pelo menos %{count} caracteres
     required: Requeridos
     required_explanation: "* Campos obrigatórios estão marcados com um asterisco"
   invisible_captcha:
@@ -1445,9 +1577,11 @@ pt:
         made_with_open_source: Site criado com <a target="_blank" href="https://github.com/decidim/decidim"> software livre</a>.
       header:
         close_menu: Fechar menu
+        main_menu: Menu principal
         navigation: Navegação
         sign_in: Entrar
         sign_up: Inscrever-se
+        user_menu: Menu de utilizador
       impersonation_warning:
         close_session: Terminar sessão
         description_html: Está a gerir o participante <b>%{user_name}</b>.
@@ -1463,6 +1597,11 @@ pt:
         instagram: "%{organization} no Instagram"
         twitter: "%{organization} no Twitter"
         youtube: "%{organization} no YouTube"
+      timeout_modal:
+        body: Está inactivo há %{minutes}. Se continuar inactivo será automaticamente desligado para a sua própria segurança.
+        continue_session: Continuar sessão
+        sign_out: Desligar
+        title: Gostaria de continuar a sua sessão?
       user_menu:
         account: 'Conta de utilizador: %{name}'
         admin_dashboard: Painel de administração
@@ -1471,6 +1610,7 @@ pt:
         profile: A minha conta
         public_profile: O meu perfil público
         sign_out: Sair
+        title: Ligações de perfil
       user_profile:
         account: Conta
         authorizations: Autorizações
@@ -1484,6 +1624,7 @@ pt:
         see_more: Ver mais
   locale:
     name: Português
+    name_with_error: Português (erro!)
   password_validator:
     domain_included_in_password: é muito semelhante a este nome de domínio
     email_included_in_password: é muito semelhante com o seu email

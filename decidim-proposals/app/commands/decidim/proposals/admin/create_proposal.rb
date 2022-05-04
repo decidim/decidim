@@ -4,7 +4,7 @@ module Decidim
   module Proposals
     module Admin
       # A command with all the business logic when a user creates a new proposal.
-      class CreateProposal < Rectify::Command
+      class CreateProposal < Decidim::Command
         include ::Decidim::AttachmentMethods
         include GalleryMethods
         include HashtagsMethods
@@ -37,8 +37,8 @@ module Decidim
 
           transaction do
             create_proposal
-            create_attachment if process_attachments?
             create_gallery if process_gallery?
+            create_attachment(weight: first_attachment_weight) if process_attachments?
             link_author_meeeting if form.created_in_meeting?
             send_notification
           end
@@ -90,6 +90,12 @@ module Decidim
               participatory_space: true
             }
           )
+        end
+
+        def first_attachment_weight
+          return 1 if proposal.photos.count.zero?
+
+          proposal.photos.count
         end
       end
     end

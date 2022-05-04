@@ -1,1 +1,204 @@
 ga:
+  activemodel:
+    attributes:
+      agenda:
+        duration: Fad
+        title: Teideal
+      close_meeting:
+        audio_url: URL Fuaime
+        closing_report: Miontuairiscí
+        video_url: URL Físeáin
+      meeting:
+        address: Seoladh
+        decidim_category_id: Catagóir
+        decidim_scope_id: Scóip
+        end_time: Am Críochnaithe
+        id: ID
+        location: Suíomh
+        title: Teideal
+        type_of_meeting: Cineál
+    models:
+      decidim/meetings/create_meeting_event: Cruinniú
+  decidim:
+    admin:
+      filters:
+        meetings:
+          category_id_eq:
+            label: Catagóir
+          closed_at_present:
+            label: Staid
+            values:
+              'false': Oscail
+              'true': Dúnta
+          is_upcoming_true:
+            label: Dáta
+            values:
+              'false': Roimhe
+              'true': Le teacht
+          scope_id_eq:
+            label: Scóip
+      meeting_copies:
+        new:
+          copy: Cóipeáil
+    components:
+      meetings:
+        actions:
+          comment: Tabhair Trácht
+          join: Téigh leis
+        name: Cruinnithe
+        settings:
+          global:
+            scope_id: Scóip
+    meetings:
+      actions:
+        agenda: Clár
+        attachment_collections: Fillteáin
+        attachments: Ceangaltáin
+        close: Dún
+        destroy: Scrios
+        edit: Eagar
+        preview: Réamhamharc
+        title: Gníomhartha
+      admin:
+        agenda:
+          agenda_item:
+            down: Ísligh
+            remove: Bain as
+            up: Ardaigh
+          agenda_item_child:
+            down: Ísligh
+            remove: Bain as
+            up: Ardaigh
+          edit:
+            update: Nuashonraigh
+          form:
+            end_date: Dáta deiridh
+          new:
+            create: Cruthaigh
+        exports:
+          answers: Freagraí
+          meeting_comments: Tráchtanna
+          meetings: Cruinnithe
+        invites:
+          form:
+            invite: Tabhair Cuireadh
+          index:
+            filter:
+              accepted: Glactha
+              all: Uile
+              rejected: Diúltaithe
+              sent: Seolta
+            invites: Cuirí
+            search: Cuardaigh
+        meeting_closes:
+          edit:
+            close: Dún
+        meetings:
+          edit:
+            update: Nuashonraigh
+          index:
+            title: Cruinnithe
+          new:
+            create: Cruthaigh
+          service:
+            down: Síos
+            remove: Bain as
+            service: Seirbhís
+            title: Teideal
+            up: Thuas
+          services:
+            services: Seirbhísí
+        models:
+          meeting:
+            name: Cruinniú
+        registrations:
+          edit:
+            save: Sábháil
+          form:
+            invites: Cuirí
+      content_blocks:
+        upcoming_meetings:
+          view_all_meetings: Amharc ar uile
+      directory:
+        meetings:
+          index:
+            meetings: Cruinnithe
+      layouts:
+        live_event:
+          close: dún
+          questions: Ceisteanna
+      meeting_closes:
+        edit:
+          back: Ar Ais
+      meetings:
+        edit:
+          back: Ar Ais
+          update: Nuashonraigh
+        filters:
+          all: Uile
+          category: Catagóir
+          date: Dáta
+          date_values:
+            all: Uile
+            past: Roimhe
+            upcoming: Le teacht
+          origin: Bunús
+          origin_values:
+            all: Uile
+            official: Oifigiúil
+            user_groups: Grúpaí
+          scope: Scóip
+          search: Cuardaigh
+          type: Cineál
+          type_values:
+            all: Uile
+            hybrid: Araon
+            online: Ar líne
+        filters_small_view:
+          filter: Scag
+          unfold: Oscail
+        form:
+          select_a_category: Roghnaigh catagóir le do thoil
+        new:
+          back: Ar Ais
+          create: Cruthaigh
+        registration_confirm:
+          cancel: Cealaigh
+          confirm: Deimhnigh
+        show:
+          date: Dáta
+          view: Amharc
+      models:
+        invite:
+          fields:
+            email: Seoladh ríomhphoist
+            name: Ainm
+            sent_at: Seolta ag
+            status: Stádas
+          status:
+            sent: Seolta
+        meeting:
+          fields:
+            closed: Dúnta
+            end_time: Dáta deiridh
+            id: Id
+            map: Léarscáil
+            title: Teideal
+      polls:
+        questions:
+          index_admin:
+            question: Ceist
+            results: Torthaí
+            send: Seol
+            sent: Seolta
+          published_question:
+            question: Ceist
+      type_of_meeting:
+        hybrid: Araon
+        online: Ar líne
+    metrics:
+      meetings:
+        object: cruinnithe
+        title: Cruinnithe
+    statistics:
+      meetings_count: Cruinnithe

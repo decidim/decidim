@@ -21,6 +21,12 @@ pt:
           global:
             announcement: Anúncio
             clean_after_publish: Eliminar respostas ao publicar o inquérito
+            ends_at: Respostas aceites até
+            ends_at_help: Deixar em branco se sem data específica
+            scope_id: Âmbito
+            scopes_enabled: Âmbitos activados
+            starts_at: Respostas aceites a partir de
+            starts_at_help: Deixar em branco se sem data específica
           step:
             allow_answers: Permitir respostas
             allow_unregistered: Permitir que utilizadores não registados respondam ao inquérito
@@ -43,6 +49,8 @@ pt:
         description: Número de inquéritos respondidos por participantes
         object: respostas aos questionários
         title: Respostas aos questionários
+    statistics:
+      answers_count: Respostas
     surveys:
       admin:
         exports:

@@ -9,10 +9,12 @@ module Decidim::Comments
     let(:options) do
       {
         order_by: order_by,
-        id: id
+        id: id,
+        after: after
       }
     end
     let(:id) { nil }
+    let(:after) { nil }
     let!(:organization) { create(:organization) }
     let!(:participatory_process) { create(:participatory_process, organization: organization) }
     let!(:component) { create(:component, participatory_space: participatory_process) }
@@ -49,14 +51,32 @@ module Decidim::Comments
       end
     end
 
+    context "when filtering comments after id" do
+      let!(:comments) { create_list(:comment, 10, commentable: commentable, author: author) }
+      let(:after) { comments.first.id }
+
+      it "only returns the comments after the specified id" do
+        expect(subject.query).to eq(comments[1..-1])
+      end
+
+      context "when the after comments contain replies" do
+        let(:replies) { create_list(:comment, 5, commentable: comment, root_commentable: commentable, author: author) }
+        let(:after) { comments.last.id }
+
+        it "returns the replies" do
+          expect(subject.query).to eq(replies)
+        end
+      end
+    end
+
     context "when the comment is hidden" do
       before do
         moderation = create(:moderation, reportable: comment, participatory_space: comment.component.participatory_space, report_count: 1, hidden_at: Time.current)
         create(:report, moderation: moderation)
       end
 
-      it "is not included in the query" do
-        expect(subject.query).to be_empty
+      it "is included in the query" do
+        expect(subject.query).not_to be_empty
       end
     end
 

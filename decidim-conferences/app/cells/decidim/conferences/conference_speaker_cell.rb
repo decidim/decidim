@@ -39,10 +39,10 @@ module Decidim
         speakers.map { |speaker| present(speaker) }
       end
 
-      def avatar
-        return model.user.avatar if model.user.present?
+      def avatar_path
+        return Decidim::UserPresenter.new(model.user).avatar_url if model.user.present?
 
-        model.avatar
+        Decidim::ConferenceSpeakerPresenter.new(model).avatar_url
       end
 
       def has_profile?
@@ -72,9 +72,7 @@ module Decidim
       def personal_url
         return unless model.personal_url.presence || (model.user.presence && model.user.personal_url.presence)
 
-        link_to model.personal_url || model.user.personal_url, target: "_blank", class: "card-link", rel: "noopener" do
-          "#{icon "external-link"}" "&nbsp;#{t(".personal_website")}"
-        end
+        link_to t(".personal_website"), model.personal_url || model.user.personal_url, target: "_blank", class: "card-link", rel: "noopener"
       end
 
       def meetings

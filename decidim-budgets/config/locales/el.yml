@@ -1,11 +1,19 @@
 el:
   activemodel:
     attributes:
+      budget:
+        decidim_scope_id: Πεδίο εφαρμογής
+        description: Περιγραφή
+        title: Τίτλος
+        total_budget: Συνολικός προϋπολογισμός
+        weight: Θέση κατάταξης
       project:
+        budget_amount: Ποσό προϋπολογισμού
         decidim_category_id: Κατηγορία
         decidim_scope_id: Πεδίο εφαρμογής
         description: Περιγραφή
         proposal_ids: Σχετικές προτάσεις
+        selected: Επιλεγμένο για εφαρμογή
         title: Τίτλος
   activerecord:
     models:
@@ -20,11 +28,39 @@ el:
         confirm_destroy: Είστε βέβαιοι ότι θέλετε να διαγράψετε αυτό το έργο;
         destroy: Διαγραφή
         edit: Επεξεργασία
+        edit_projects: Διαχείριση έργων
         import: Εισαγωγή προτάσεων σε έργα
+        new: Νέο %{name}
         preview: Προεπισκόπηση
         title: Ενέργειες
       admin:
+        budgets:
+          create:
+            invalid: Υπήρξε ένα πρόβλημα στη δημιουργία αυτού του προϋπολογισμού
+            success: Ο προϋπολογισμός δημιουργήθηκε επιτυχώς
+          destroy:
+            invalid: Υπήρξε πρόβλημα με τη διαγραφή αυτού του προϋπολογισμού
+            success: Ο προϋπολογισμός διαγράφηκε επιτυχώς
+          edit:
+            title: Επεξεργασία προϋπολογισμού
+            update: Ενημέρωση προϋπολογισμού
+          index:
+            finished_orders: Ολοκληρωμένοι ψήφοι
+            pending_orders: Εκκρεμείς ψήφοι
+            title: Προϋπολογισμοί
+            users_with_finished_orders: Χρήστες με ολοκληρωμένους ψήφους
+            users_with_pending_orders: Χρήστες με εκκρεμείς ψήφους
+          new:
+            create: Δημιουργία προϋπολογισμού
+            title: Νέος προϋπολογισμός
+          update:
+            invalid: Υπήρξε πρόβλημα στην ενημέρωση αυτού του προϋπολογισμού
+            success: Ο προϋπολογισμός ενημερώθηκε επιτυχώς
+        exports:
+          projects: Έργα
         models:
+          budget:
+            name: Προϋπολογισμός
           project:
             name: Έργο
         projects:
@@ -39,6 +75,7 @@ el:
           index:
             finished_orders: Ολοκληρωμένες ψηφοφορίες
             pending_orders: Ψηφοφορίες σε εκκρεμότητα
+            selected: Επιλεγμένο
             title: Έργα
           new:
             create: Δημιουργία
@@ -54,12 +91,44 @@ el:
             create: Εισαγωγή προτάσεων σε έργα
             no_components: Δεν υπάρχουν άλλα στοιχεία προτάσεων σε αυτόν τον χώρο συμμετοχής για εισαγωγή των προτάσεων σε έργα.
             select_component: Επιλέξτε ένα στοιχείο
+            title: Προτάσεις εισαγωγής
       admin_log:
+        budget:
+          create: "%{user_name} δημιούργησε τον προϋπολογισμό %{resource_name} στον χώρο %{space_name}"
+          delete: "%{user_name} διέγραψε τον προϋπολογισμό %{resource_name} στο χώρο %{space_name}"
+          update: "%{user_name} ενημέρωση του προϋπολογισμού %{resource_name} στο χώρο %{space_name}"
         project:
           create: "Ο χρήστης %{user_name} δημιούργησε το έργο %{resource_name} στον χώρο %{space_name}"
           delete: "Ο χρήστης %{user_name} διέγραψε το έργο %{resource_name} στον χώρο %{space_name}"
           update: "Ο χρήστης %{user_name} ενημέρωσε το έργο %{resource_name} στον χώρο %{space_name}"
+      budget:
+        view: Προβολή όλων των σχεδίων προϋπολογισμού
+      budget_information_modal:
+        back_to: Πίσω στο %{component_name}
+        close_modal: Κλείσιμο παραθύρου
+        continue: Συνέχεια
+        more_information: Περισσότερες πληροφορίες
+      budget_list_item:
+        voting_finished: Ψηφίσατε αυτόν τον προϋπολογισμό
+        voting_started: Έχετε αρχίσει να ψηφίζετε σε αυτόν τον προϋπολογισμό
+      budgets_list:
+        cancel_order:
+          more_than_one: διαγράψτε την ψήφο σας στο %{name} και ξεκινήστε από την αρχή
+          only_one: διαγράψτε την ψήφο σας και ξεκινήστε από την αρχή.
+        finished_message: Ολοκληρώσατε τη διαδικασία ψηφοφορίας. Ευχαριστούμε για τη συμμετοχή σας!
+        highlighted_cta: Ψηφίστε για %{name}
+        if_change_opinion: Αν αλλάξατε γνώμη, μπορείτε να
+        my_budgets: Οι προϋπολογισμοί μου
+        voted_on: Έχετε ψηφίσει για %{links}
+      limit_announcement:
+        cant_vote: Δεν μπορείτε να ψηφίσετε αυτόν τον προϋπολογισμό. <a href="%{landing_path}">Δοκιμάστε έναν άλλο προϋπολογισμό</a>.
+        limit_reached: Έχετε ενεργές ψήφους στο %{links}. Για να ψηφίσετε αυτόν τον προϋπολογισμό πρέπει να <a href="%{landing_path}">διαγράψετε την ψήφο σας και να ξεκινήσετε από την αρχή.</a>
       models:
+        budget:
+          fields:
+            name: Όνομα
+            projects_count: Πλήθος έργων
+            total_budget: Συνολικός προϋπολογισμός
         project:
           fields:
             title: Τίτλος
@@ -67,17 +136,25 @@ el:
         order_summary:
           selected_projects: 'Τα έργα που έχετε επιλέξει είναι τα εξής:'
           subject: Ψηφίσατε για τον χώρο συμμετοχής %{space_name}
+          voted_on_space: Ψηφίσατε τον %{budget_name} προϋπολογισμό για τον %{space_name} συμμετοχικό χώρο.
+          voted_on_space_with_scope: Ψηφίσατε τον %{budget_name} προϋπολογισμό για τον %{space_name} συμμετοχικό χώρο στο %{scope_name} (%{scope_type}).
       projects:
         budget_confirm:
+          are_you_sure: Αν αλλάξετε γνώμη, μπορείτε να αλλάξετε την ψήφο σας αργότερα.
           cancel: Ακύρωση
           confirm: Επιβεβαίωση
           description: Αυτά είναι τα έργα για τα οποία έχετε επιλέξει να συμμετάσχετε στον προϋπολογισμό.
           title: Επιβεβαίωση ψήφου
         budget_excess:
           budget_excess:
+            description: Το έργο αυτό υπερβαίνει τον μέγιστο προϋπολογισμό και δεν μπορεί να προστεθεί. Εάν θέλετε, μπορείτε να διαγράψετε ένα έργο που έχετε ήδη επιλέξει να προσθέσετε ή να κάνετε την ψήφο σας σύμφωνα με τις προτιμήσεις σας.
             title: Υπέρβαση του μέγιστου προϋπολογισμού
           close: Κλείσιμο
+          description: Το έργο αυτό υπερβαίνει τον μέγιστο προϋπολογισμό και δεν μπορεί να προστεθεί. Εάν θέλετε, μπορείτε να διαγράψετε ένα έργο που έχετε ήδη επιλέξει να προσθέσετε ή να κάνετε την ψήφο σας σύμφωνα με τις προτιμήσεις σας.
           ok: OK
+          projects_excess:
+            description: Αυτό το έργο υπερβαίνει τον μέγιστο αριθμό έργων και δεν μπορεί να προστεθεί. Εάν θέλετε, μπορείτε να διαγράψετε ένα έργο που έχετε ήδη επιλέξει να προσθέσετε ή να κάνετε την ψήφο σας σύμφωνα με τις προτιμήσεις σας.
+            title: Υπέρβαση των μέγιστων έργων
         budget_summary:
           are_you_sure: Είστε βέβαιοι ότι θέλετε να ακυρώσετε την ψήφο σας;
           assigned: 'Εκχωρήθηκε:'
@@ -85,7 +162,23 @@ el:
           checked_out:
             description: Έχετε ήδη ψηφίσει για τον προϋπολογισμό. Εάν αλλάξατε γνώμη, μπορείτε να %{cancel_link}.
             title: Ολοκληρώθηκε η ψηφοφορία για τον προϋπολογισμό
+          minimum_projects_rule:
+            description: Για ποια έργα πιστεύετε ότι πρέπει να διαθέσουμε προϋπολογισμό Επιλέξτε τουλάχιστον %{minimum_number} έργα που επιθυμείτε και ψηφίστε σύμφωνα με τις προτιμήσεις σας για τον καθορισμό του προϋπολογισμού.
+            instruction: "<li>Επιλέξτε τουλάχιστον %{minimum_number} έργα που επιθυμείτε και ψηφίστε σύμφωνα με τις προτιμήσεις σας για να καθορίσετε τον προϋπολογισμό.</li>"
+          projects_rule:
+            description: Για ποια έργα πιστεύετε ότι πρέπει να διαθέσουμε προϋπολογισμό; Επιλέξτε τουλάχιστον %{minimum_number} και μέχρι %{maximum_number} έργα που θέλετε και ψηφίστε σύμφωνα με τις προτιμήσεις σας για να καθορίσετε τον προϋπολογισμό.
+            instruction: "<li>Επιλέξτε τουλάχιστον %{minimum_number} και μέχρι %{maximum_number} έργα που θέλετε και ψηφίστε σύμφωνα με τις προτιμήσεις σας για να καθορίσετε τον προϋπολογισμό.</li>"
+          projects_rule_maximum_only:
+            description: Για ποια έργα πιστεύετε ότι πρέπει να διαθέσουμε προϋπολογισμό; Επιλέξτε μέχρι %{maximum_number} έργα που θέλετε και ψηφίστε σύμφωνα με τις προτιμήσεις σας για να καθορίσετε τον προϋπολογισμό.
+            instruction: "<li>Επιλέξτε έως και %{maximum_number} έργα που θέλετε και ψηφίστε σύμφωνα με τις προτιμήσεις σας για να καθορίσετε τον προϋπολογισμό.</li>"
+          rules:
+            title: Κανόνες προϋπολογισμού
           title: Εσείς αποφασίζετε τον προϋπολογισμό
+          total_budget: Συνολικός προϋπολογισμός
+          total_projects: Σύνολο ψήφων
+          vote_threshold_percent_rule:
+            description: Για ποια έργα πιστεύετε ότι πρέπει να διαθέσουμε προϋπολογισμό Δώστε τουλάχιστον %{minimum_budget} στα έργα που θέλετε και ψηφίστε σύμφωνα με τις προτιμήσεις σας για να καθορίσετε τον προϋπολογισμό.
+            instruction: "<li>Αναθέστε τουλάχιστον %{minimum_budget} στα έργα που θέλετε και ψηφίστε σύμφωνα με τις προτιμήσεις σας για να καθορίσετε τον προϋπολογισμό.</li>"
         count:
           projects_count:
             one: 1 έργο
@@ -94,6 +187,11 @@ el:
           category: Κατηγορία
           scope: Πεδίο εφαρμογής
           search: Αναζήτηση
+          status: Κατάσταση
+          status_values:
+            all: Όλα
+            not_selected: Δεν έχει επιλεγεί
+            selected: Επιλεγμένο
         filters_small_view:
           close_modal: Κλείσιμο βοηθητικού στοιχείου
           filter: Φίλτρο
@@ -113,21 +211,29 @@ el:
           lowest_cost: Χαμηλότερο κόστος
           most_voted: Με τις περισσότερες ψήφους
           random: Τυχαία σειρά
+          selected: Επιλεγμένο
         project:
           add: Προσθήκη του έργου %{resource_name} στην ψήφο σας
           remove: Αφαίρεση του έργου %{resource_name} από την ψήφο σας
+          selected: Επιλεγμένο
           view: Προβολή
+          votes:
+            one: ψήφος
+            other: ψήφοι
+          you_voted: Το ψηφίσατε
         project_budget_button:
-          add: Προσθήκη στην ψήφο
+          add: Προσθέστε στην ψήφο σας
           add_descriptive: Προσθήκη του έργου %{resource_name} στην ψήφο σας
           added: Προστέθηκε στην ψήφο σας
           added_descriptive: Το έργο %{resource_name} προστέθηκε στην ψήφο σας
+        projects_for: Έργα για %{name}
         show:
           budget: Προϋπολογισμός
           view_all_projects: Προβολή όλων των έργων
     components:
       budgets:
         actions:
+          comment: Σχόλιο
           vote: Ψηφοφορία
         name: Προϋπολογισμοί
         settings:
@@ -139,18 +245,46 @@ el:
               errors:
                 budget_voting_rule_only_one: Μόνο ένας κανόνας ψηφοφορίας πρέπει να είναι ενεργοποιημένος
                 budget_voting_rule_required: Απαιτείται ένας κανόνας ψηφοφορίας
+            landing_page_content: Σελίδα προορισμού προϋπολογισμών
+            more_information_modal: Παράθυρο για περισσότερες πληροφορίες
             projects_per_page: Έργα ανά σελίδα
+            resources_permissions_enabled: Τα δικαιώματα ενεργειών μπορούν να οριστούν για κάθε έργο
+            scope_id: Πεδίο εφαρμογής
+            scopes_enabled: Ενεργοποιημένα πεδία εφαρμογών
+            title: Τίτλος
             total_budget: Συνολικός προϋπολογισμός
             vote_minimum_budget_projects_number: Ελάχιστος αριθμός έργων προς ψηφοφορία
             vote_rule_minimum_budget_projects_enabled: 'Ενεργοποίηση κανόνα: Ελάχιστος αριθμός έργων προς ψηφοφορία'
+            vote_rule_selected_projects_enabled: 'Ενεργοποίηση κανόνα: Επιλεγμένα έργα με ελάχιστο και μέγιστο αριθμό έργων προς ψήφιση'
             vote_rule_threshold_percent_enabled: 'Ενεργοποίηση κανόνα: Ελάχιστο ποσοστό προϋπολογισμού'
+            vote_selected_projects_maximum: Μέγιστο ποσό έργων προς επιλογή
+            vote_selected_projects_minimum: Ελάχιστος αριθμός έργων προς επιλογή
             vote_threshold_percent: Ποσοστό ορίου ψηφοφορίας
+            workflow: Ροή εργασίας
+            workflow_choices:
+              all: 'Ψήφος σε όλους: επιτρέπει στους συμμετέχοντες να ψηφίσουν σε όλους τους προϋπολογισμούς.'
+              one: 'Ψηφίστε σε έναν: επιτρέπει στους συμμετέχοντες να ψηφίσουν σε οποιονδήποτε προϋπολογισμό, αλλά μόνο σε έναν.'
           step:
             announcement: Ανακοίνωση
             comments_blocked: Τα σχόλια αποκλείστηκαν
+            highlighted_heading: Επισημασμένη επικεφαλίδα
+            landing_page_content: Σελίδα προορισμού προϋπολογισμών
+            list_heading: Επικεφαλίδα καταλόγου
+            more_information_modal: Παράθυρο για περισσότερες πληροφορίες
             show_votes: Εμφάνιση ψήφων
+            title: Τίτλος
+            votes: Ψηφοφορία
             votes_choices:
+              disabled: Απενεργοποιημένη ψηφοφορία
               enabled: Η ψηφοφορία ενεργοποιήθηκε
+              finished: Η ψηφοφορία ολοκληρώθηκε
+    events:
+      budgets:
+        budget_published:
+          email_intro: 'Ο προϋπολογισμός %{resource_title} είναι τώρα ενεργός για το %{participatory_space_title}. Μπορείτε να τον δείτε από αυτή τη σελίδα:'
+          email_outro: Λάβατε αυτή την ειδοποίηση επειδή ακολουθείτε το %{participatory_space_title}. Μπορείτε να σταματήσετε να λαμβάνετε ειδοποιήσεις ακολουθώντας τον προηγούμενο σύνδεσμο.
+          email_subject: Ο προϋπολογισμός %{resource_title} είναι τώρα ενεργός για το %{participatory_space_title}.
+          notification_title: Ο προϋπολογισμός <a href="%{resource_path}">%{resource_title}</a> είναι τώρα ενεργός για το %{participatory_space_title}.
     orders:
       checkout:
         error: Υπήρξε ένα πρόβλημα κατά την επεξεργασία της ψήφου σας
@@ -158,5 +292,11 @@ el:
       destroy:
         error: Υπήρξε ένα πρόβλημα κατά την ακύρωση της ψήφου σας
         success: Η ψήφος σας ακυρώθηκε με επιτυχία
+    resource_links:
+      included_proposals:
+        project_proposal: Προτάσεις που περιλαμβάνονται στο παρόν έργο
+    statistics:
+      orders_count: Υποστηρίξεις
+      projects_count: Έργα
   index:
     confirmed_orders_count: Πλήθος ψήφων

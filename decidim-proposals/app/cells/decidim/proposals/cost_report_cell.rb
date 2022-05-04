@@ -18,7 +18,7 @@ module Decidim
       end
 
       def cost_report
-        decidim_sanitize(translated_attribute(model.cost_report).html_safe)
+        decidim_sanitize_editor(translated_attribute(model.cost_report).html_safe)
       end
 
       def needs_text_toggle?
@@ -26,7 +26,7 @@ module Decidim
       end
 
       def cost_report_short
-        decidim_sanitize(
+        decidim_sanitize_editor(
           html_truncate(
             translated_attribute(model.cost_report).html_safe,
             length: 200
@@ -35,7 +35,7 @@ module Decidim
       end
 
       def execution_period
-        decidim_sanitize(translated_attribute(model.execution_period).html_safe)
+        decidim_sanitize_editor(translated_attribute(model.execution_period).html_safe)
       end
     end
   end

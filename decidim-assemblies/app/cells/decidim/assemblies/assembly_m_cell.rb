@@ -27,7 +27,7 @@ module Decidim
       end
 
       def resource_image_path
-        model.hero_image.url
+        model.attached_uploader(:hero_image).path
       end
 
       def statuses

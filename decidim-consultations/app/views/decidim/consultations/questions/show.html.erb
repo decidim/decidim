@@ -2,7 +2,7 @@
   <div class="row">
     <div class="columns medium-7 mediumlarge-8">
       <div class="section">
-        <%= decidim_sanitize translated_attribute current_question.question_context %>
+        <%= decidim_sanitize_editor translated_attribute current_question.question_context %>
 
         <div class="show-more">
           <button class="button hollow small"><%= t "read_more", scope: "decidim.questions.show" %></button>
@@ -13,12 +13,12 @@
 
           <div class="section">
             <h2 class=section-heading><%= t "question.what_is_decided", scope: "activemodel.attributes" %></h2>
-            <p><%= decidim_sanitize translated_attribute(current_question.what_is_decided), strip_tags: true %></p>
+            <p><%= decidim_sanitize_editor translated_attribute(current_question.what_is_decided), strip_tags: true %></p>
           </div>
 
           <div class="section">
             <h2 class=section-heading><%= t "question.question_context", scope: "activemodel.attributes" %></h2>
-            <p><%= decidim_sanitize translated_attribute(current_question.question_context), strip_tags: true %></p>
+            <p><%= decidim_sanitize_editor translated_attribute(current_question.question_context), strip_tags: true %></p>
           </div>
         </div>
       </div>
@@ -35,22 +35,22 @@
 <%= content_for :question_header_details do %>
   <div id="question-header-details" class="row consultations-home-intro">
     <div class="columns medium-5">
-      <%= image_tag current_question.hero_image&.url, alt: t("question.hero_image", scope: "activemodel.attributes") if current_question.hero_image&.url %>
+      <%= image_tag current_question.attached_uploader(:hero_image).path, alt: t("question.hero_image", scope: "activemodel.attributes") if current_question.hero_image.attached? %>
     </div>
 
     <div class="columns medium-5">
       <% unless translated_attribute(current_question.origin_scope).blank? %>
-        <h4 class="heading6"><%= t "question.origin_scope", scope: "activemodel.attributes" %></h4>
+        <h3 class="heading6"><%= t "question.origin_scope", scope: "activemodel.attributes" %></h3>
         <p><%= translated_attribute current_question.origin_scope %></p>
       <% end %>
 
-      <h4 class="heading6"><%= t "question.promoter_group", scope: "activemodel.attributes" %></h4>
+      <h3 class="heading6"><%= t "question.promoter_group", scope: "activemodel.attributes" %></h3>
       <p><%= translated_attribute current_question.promoter_group %></p>
 
-      <h4 class="heading6"><%= t "question.scope", scope: "activemodel.attributes" %></h4>
+      <h3 class="heading6"><%= t "question.scope", scope: "activemodel.attributes" %></h3>
       <p><%= translated_attribute current_question.scope.name %></p>
 
-      <h4 class="heading6"><%= t "question.participatory_scope", scope: "activemodel.attributes" %></h4>
+      <h3 class="heading6"><%= t "question.participatory_scope", scope: "activemodel.attributes" %></h3>
       <p><%= translated_attribute current_question.participatory_scope %></p>
     </div>
   </div>

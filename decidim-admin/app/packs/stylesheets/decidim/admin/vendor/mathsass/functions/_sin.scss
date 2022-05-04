@@ -3,7 +3,8 @@
 // @example
 //     sin(1.0472) // 0.86603
 //     sin(60deg)  // 0.86603
-@function sin ($x) {
-    $x: unitless-rad($x);
-    @return cos($x - $PI / 2);
+@function sin ($x){
+  $x: unitless-rad($x);
+
+  @return cos($x - $PI * .5);
 }

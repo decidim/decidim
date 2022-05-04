@@ -7,17 +7,18 @@
       <% end %>
     </h2>
   </div>
+  <%= admin_filter_selector %>
 
   <div class="card-section">
     <div class="table-scroll">
-      <table class="stack">
+      <table class="stack table-list">
         <thead>
           <tr>
-            <th><%= t("models.assembly_user_role.fields.name", scope: "decidim.admin") %></th>
-            <th><%= t("models.assembly_user_role.fields.email", scope: "decidim.admin") %></th>
-            <th><%= t("models.user.fields.invitation_sent_at", scope: "decidim.admin") %></th>
-            <th><%= t("models.user.fields.invitation_accepted_at", scope: "decidim.admin") %></th>
-            <th><%= t("models.assembly_user_role.fields.role", scope: "decidim.admin") %></th>
+            <th><%= sort_link(query, :name,t("models.assembly_user_role.fields.name", scope: "decidim.admin"), default_order: :desc) %></th>
+            <th><%= sort_link(query, :email, t("models.assembly_user_role.fields.email", scope: "decidim.admin"), default_order: :desc) %></th>
+            <th><%= sort_link(query, :last_sign_in_at, t("models.user.fields.last_sign_in_at", scope: "decidim.admin"), default_order: :desc) %></th>
+            <th><%= sort_link(query, :invitation_accepted_at, t("models.user.fields.invitation_accepted_at", scope: "decidim.admin"), default_order: :desc) %></th>
+            <th><%= sort_link(query, :role, t("models.assembly_user_role.fields.role", scope: "decidim.admin"), default_order: :desc) %></th>
             <th class="actions"></th>
           </tr>
         </thead>

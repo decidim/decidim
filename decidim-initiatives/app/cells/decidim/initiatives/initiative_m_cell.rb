@@ -6,6 +6,7 @@ module Decidim
     # for an given instance of an Initiative
     class InitiativeMCell < Decidim::CardMCell
       include Decidim::Initiatives::Engine.routes.url_helpers
+      include Decidim::TwitterSearchHelper
 
       property :state
 
@@ -65,9 +66,7 @@ module Decidim
       end
 
       def image
-        @image ||= model.attachments.find do |attachment|
-          attachment.file.content_type.start_with?("image")
-        end
+        @image ||= model.attachments.find(&:image?)
       end
 
       def resource_image_path

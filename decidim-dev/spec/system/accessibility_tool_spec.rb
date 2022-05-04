@@ -12,7 +12,7 @@ describe "Accessibility tool", type: :system do
       end
     end
   end
-  let(:template) { template_class.new }
+  let(:template) { template_class.new(ActionView::LookupContext.new(ActionController::Base.view_paths), {}, []) }
 
   let(:html_document) do
     document_inner = html_body
@@ -25,9 +25,9 @@ describe "Accessibility tool", type: :system do
         <head>
           <title>Accessibility Test</title>
           #{stylesheet_pack_tag "decidim_core"}
-          #{javascript_pack_tag "decidim_core"}
+          #{javascript_pack_tag "decidim_core", defer: false}
           #{stylesheet_pack_tag "decidim_dev"}
-          #{javascript_pack_tag "decidim_dev"}
+          #{javascript_pack_tag "decidim_dev", defer: false}
         </head>
         <body>
           #{document_inner}

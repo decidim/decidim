@@ -17,7 +17,7 @@ cs:
       decidim/debates/close_debate_event: Debata byla uzavřena
       decidim/debates/create_debate_event: Debata
       decidim/debates/creation_disabled_event: Debaty zakázány
-      decidim/debates/creation_enabled_event: Debaty povoleny
+      decidim/debates/creation_enabled_event: Vytvoření debat povoleno
   activerecord:
     models:
       decidim/debates/debate:
@@ -29,6 +29,7 @@ cs:
     components:
       debates:
         actions:
+          comment: Komentář
           create: Vytvořit
           endorse: Schválit
         name: Debaty
@@ -42,7 +43,7 @@ cs:
           step:
             announcement: Oznámení
             comments_blocked: Komentáře blokovány
-            creation_enabled: Vytváření debaty účastníky povoleno
+            creation_enabled: Účastníci mohou vytvářet debaty
             endorsements_blocked: Schvalování blokováno
             endorsements_enabled: Schvalování povoleno
     debates:
@@ -120,11 +121,11 @@ cs:
           all: Vše
           category: Kategorie
           category_prompt: Vyberte kategorii
-          citizens: Občané
           commented: Okomentováno
           my_debates: Moje rozpravy
           official: Oficiální
           origin: Původ
+          participants: Účastníci
           scope: Oblast působnosti
           search: Hledat
           state: Stav

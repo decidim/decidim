@@ -3,6 +3,8 @@ pt:
     attributes:
       debate:
         category_id: Categoria
+        closed_at: Encerrado às
+        conclusions: Conclusões
         decidim_category_id: Categoria
         description: Descrição
         end_time: Termina em
@@ -12,9 +14,9 @@ pt:
         title: Título
         user_group_id: Criar debate como
     models:
+      decidim/debates/close_debate_event: Debate fechado
       decidim/debates/create_debate_event: Debate
       decidim/debates/creation_disabled_event: Debates desativados
-      decidim/debates/creation_enabled_event: Debates ativados
   activerecord:
     models:
       decidim/debates/debate:
@@ -24,25 +26,35 @@ pt:
     components:
       debates:
         actions:
+          comment: Comentários
           create: Criar
+          endorse: Apoiar
         name: Debates
         settings:
           global:
             announcement: Anúncio
             comments_enabled: Comentários ativados
             comments_max_length: Comprimento máximo dos comentários (Deixar 0 para o valor predefinido)
+            scope_id: Âmbito
+            scopes_enabled: Âmbitos activados
           step:
             announcement: Anúncio
             comments_blocked: Comentários bloqueados
-            creation_enabled: Criação de debate por participantes ativado
+            endorsements_blocked: Apoios bloqueados
+            endorsements_enabled: Endossamentos ativados
     debates:
       actions:
+        close: Fechar
         confirm_destroy: Tem a certeza?
         destroy: Eliminar
         edit: Editar
         new: Novo %{name}
         title: Ações
       admin:
+        debate_closes:
+          edit:
+            close: Fechar
+            title: Fechar debate
         debates:
           create:
             invalid: Ocorreu um problema ao criar o debate.
@@ -52,6 +64,10 @@ pt:
           edit:
             title: Editar debate
             update: Atualizar debate
+          form:
+            debate_type: Tipo de debate
+            finite: Finito (com hora de abertura e de fecho)
+            open: Aberto (sem hora de abertura ou fecho)
           index:
             title: Debates
           new:
@@ -60,14 +76,27 @@ pt:
           update:
             invalid: Ocorreu um problema ao atualizar este debate.
             success: Debate atualizado corretamente.
+        exports:
+          comments: Comentários
         models:
           debate:
             name: Debate
       admin_log:
         debate:
+          close: "%{user_name} Fechou o debate %{resource_name} no espaço %{space_name}"
           create: "%{user_name} criou o debate %{resource_name} no espaço %{space_name}"
           update: "%{user_name} atualizou o debate %{resource_name} no espaço %{space_name}"
+      debate_m:
+        commented_time_ago: Comentou há %{time}
       debates:
+        close:
+          invalid: Ocorreu um problema ao fechar o debate.
+          success: Debate fechado com êxito
+        close_debate_modal:
+          close: Fechar
+          description: Qual é o sumário ou conclusão para este debate?
+          send: Fechar debate
+        closed: Fechado
         count:
           debates_count:
             one: "%{count} debate"
@@ -82,13 +111,21 @@ pt:
           save: Guardar alterações
           title: Editar debate
         filters:
+          activity: A minha atividade
           all: Todos
           category: Categoria
           category_prompt: Selecione uma categoria
-          citizens: Cidadãos
+          commented: Comentários
+          my_debates: Os meus debates
           official: Oficial
           origin: Origem
+          scope: Âmbito
           search: Pesquisar
+          state: Estado
+          state_values:
+            closed: Fechar
+            open: Abertas
+          user_groups: Grupos
         filters_small_view:
           close_modal: Fechar modal
           filter: Filtrar
@@ -102,10 +139,25 @@ pt:
           back: Retroceder
           create: Criar
           title: Novo debate
+        orders:
+          commented: Mais comentado
+          label: Ordenar debates por
+          random: Ordem aleatória
+          recent: Mais recente
+          updated: Actualizado recentemente
         show:
           back: Retroceder à lista
+          close_debate: Fechar debate
           date: Data
+          debate_closed: Fechar
+          debate_conclusions_are: 'O debate foi fechado em %{date} com as seguintes conclusões:'
+          edit_conclusions: Editar conclusões
           edit_debate: Editar debate
+          groups_count: Grupos
+          last_comment_by: Último comentário por
+          no_comments_yet: Não há ainda comentários
+          open: Abrir debate
+          participants_count: Participantes
         update:
           invalid: Ocorreu um problema ao atualizar o debate.
           success: Debate atualizado corretamente.
@@ -117,6 +169,7 @@ pt:
         versions_list:
           back_to_resource: Retroceder para debate
       last_activity:
+        debate_updated_at_html: "<span>Proposta actualizada em %{link}</span>"
         new_debate_at_html: "<span>Novo debate em %{link}</span>"
       models:
         debate:
@@ -152,6 +205,17 @@ pt:
           email_outro: Recebeu esta notificação porque segue %{participatory_space_title}. Pode parar de receber notificações seguindo a hiperligação anterior.
           email_subject: Debates agora disponíveis em %{participatory_space_title}
           notification_title: Agora pode começar <a href="%{resource_path}">novos debates</a> em <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+        debate_closed:
+          affected_user:
+            email_intro: 'O debate "%{resource_title}" foi encerrado. Pode ler as conclusões a partir da sua página:'
+            email_outro: Recebeu esta notificação porque segue o debate "%{resource_title}". Pode deixar de segui-lo a partir da hiperligação anterior.
+            email_subject: O debate “%{resource_title}” foi encerrado.
+            notification_title: O debate <a href="%{resource_path}">%{resource_title}</a> foi encerrado.
+          follower:
+            email_intro: 'O debate "%{resource_title}" foi encerrado. Pode ler as conclusões a partir da sua página:'
+            email_outro: Recebeu esta notificação porque segue o debate "%{resource_title}". Pode deixar de segui-lo a partir da hiperligação anterior.
+            email_subject: O debate “%{resource_title}” foi encerrado.
+            notification_title: O debate <a href="%{resource_path}">%{resource_title}</a> foi encerrado.
     gamification:
       badges:
         commented_debates:
@@ -169,3 +233,5 @@ pt:
         description: Número de debates criados
         object: debates
         title: Debates
+    statistics:
+      debates_count: Debates

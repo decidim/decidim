@@ -8,7 +8,7 @@ ja:
         dice: ダイロールの結果。 6面ダイをロールするか、1から6まで数字を生成する別のランダムな方法を探します そして目撃者の前にナンバーを入力します。 これにより、品質と結果のランダム性を保証します
         target_items: 選択される提案の数 (選択した提案のグループをたくさん描画して選択したい提案の数を示します)
         title: タイトル
-        witnesses: Witnes
+        witnesses: 目撃者
     models:
       decidim/sortitions/create_sortition_event: 並べ替え
   activerecord:
@@ -18,6 +18,8 @@ ja:
   decidim:
     components:
       sortitions:
+        actions:
+          comment: コメント
         name: 並べ替え
         settings:
           global:
@@ -72,7 +74,7 @@ ja:
           index:
             title: 並べ替え
           new:
-            confirm: 次のボタンを押すと、日付と時刻(秒の精度で)が記録され、サイコロロールと一緒に記録されます。 この情報はランダムな選択を生成するために使用されます アクションは元に戻せません。ボタンをクリックすると、この描画の結果が公開されます。 このフォームに入力されたデータと一緒に変更することはできません。コンテンツを注意深く確認してください。
+            confirm: 次のボタンを押すと、プラットフォームは日付と時刻(秒単位の精度) を記録し、サイコロのような乱数と日時の情報を元にランダムな選択を行います。この抽選は、一度ボタンをクリックすると入力されたデータとともに結果が公開され、変更できません。入力内容を注意深く確認してください。
             create: 作成
             title: 新しいソート順
           show:
@@ -106,7 +108,7 @@ ja:
           selected_proposals: 選択された提案
         orders:
           label: '並べ替え順:'
-          random: Random
+          random: ランダム
           recent: 最近のもの
         results_count:
           count:
@@ -118,16 +120,16 @@ ja:
           cancelled: キャンセルされた並べ替え
           candidate_proposal_ids: 並べ替え提案の順序とID
           candidate_proposals_info: '次の提案の中でソートが行われました (%{category_label}), 以下のIDを持つ(選択した提案を太字で)  '
-          category: from the %{category} category
+          category: '%{category} カテゴリから'
           dice_result: "(1)サイコロ結果"
           introduction: 'このページには、ソート %{reference} の結果が含まれています。このソートにより、%{target_items} の数の結果が、以下に表示されている提案の集合から同確率でランダムに選択されています。結果とともにこのページに表示される情報は、保証を最大化し、結果を再現するために必要なすべての情報を提供します。このソートの品質の鍵となるのは、転がるサイコロ(目撃者による検証) による二重のランダム性と、ランダムな選択を生成するアルゴリズムの入力となるソートの正確な時間です。ソートのタイムシードは、人間がコントロールすることが不可能な正確さ(秒単位) を持っているため、公平な結果を保証するための二重の「コントロール不可能な」入力を提供しています。  '
           mathematical_result: 結果 (1) x (2)
           proposals_selected_by_sortition: 並べ替えによって選択された提案
           sortition_reproducibility_details: 並べ替え再現性の詳細
           time_seed: "(2) 時間の種"
-          witnesses: Witnes
+          witnesses: 目撃者
         sortition:
-          random_seed: ランダムな種
+          random_seed: 乱数のシード
           selected_proposals:
             other: 提案を選択しました
           view: 表示

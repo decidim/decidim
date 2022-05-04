@@ -10,7 +10,7 @@
     display: flex;
     align-items: baseline;
 
-    @include flexgap($global-margin / 2);
+    @include flexgap($global-margin * .5);
 
     span{
       white-space: nowrap;

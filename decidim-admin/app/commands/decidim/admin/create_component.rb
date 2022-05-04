@@ -3,7 +3,7 @@
 module Decidim
   module Admin
     # This command gets called when a component is created from the admin panel.
-    class CreateComponent < Rectify::Command
+    class CreateComponent < Decidim::Command
       attr_reader :form, :manifest, :participatory_space
 
       # Public: Initializes the command.

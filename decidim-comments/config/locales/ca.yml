@@ -16,9 +16,19 @@ ca:
         other: Vots
   decidim:
     comments:
+      admin:
+        shared:
+          availability_fields:
+            enabled: Comentaris habilitats
+            end_time: Comentaris habilitats fins al
+            start_time: Comentaris habilitats des de
       comments:
         create:
           error: S'ha produït un error en crear el comentari.
+        delete:
+          error: El comentari no s'ha pogut eliminar.
+        update:
+          error: S'ha produït un error en actualitzar el comentari.
       comments_count: Número de comentaris
       comments_title: Comentaris
       last_activity:
@@ -53,8 +63,14 @@ ca:
         alignment:
           against: En contra
           in_favor: A favor
+        confirm_destroy: Segur que vols esborrar aquest comentari?
+        delete: Esborrar
+        deleted_at: Comentari esborrat el %{date}
         deleted_user: Participant eliminada
+        edit: Editar
+        edited: Editat
         hide_replies: Oculta les respostes
+        moderated_at: Comentari moderat el %{date}
         reply: Respondre
         report:
           action: Denúncia
@@ -68,6 +84,7 @@ ca:
             spam: Conté "clickbait", publicitat o estafes.
           title: Notificar contingut inapropiat
         show_replies: Mostra %{replies_count} respostes
+        single_comment_link_title: Obtenir enllaç
       comment_order_selector:
         order:
           best_rated: Més ben valorats
@@ -83,13 +100,21 @@ ca:
         blocked_comments_warning: Els comentaris estan desactivats en aquest moment, però pots llegir els anteriors.
         comment_details_title: Detalls del comentari
         loading: Carregant els comentaris ...
-        single_comment_warning: Pots revisar la resta de comentaris <a href="%{url}">aquí</a>.
+        single_comment_warning: <a href="%{url}">Mostra tots els comentaris</a>
         single_comment_warning_title: Estàs veient un sol comentari
         title:
           one: "%{count} comentari"
           other: "%{count} comentaris"
       down_vote_button:
         text: No estic d'acord amb aquest comentari
+      edit_comment_modal_form:
+        close: Tancar
+        form:
+          body:
+            label: Comentar
+            placeholder: Què opines sobre això?
+          submit: Enviar
+        title: Edita el teu comentari
       up_vote_button:
         text: Estic d'acord amb aquest comentari
     events:

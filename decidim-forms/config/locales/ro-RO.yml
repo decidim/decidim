@@ -4,13 +4,13 @@ ro:
       answer:
         body: Răspuns
         choices: Opțiuni
-        selected_choices: Alegeri selectate
+        selected_choices: Opțiuni selectate
       question:
         max_choices: Numărul maxim de opțiuni
         question_type: Tip
       questionnaire_question:
-        mandatory: Mandatory
-        max_characters: Limita de caractere (lăsați la 0 dacă nu este limită)
+        mandatory: Obligatoriu
+        max_characters: Limita de caractere (lăsați la 0 dacă nu este nicio limită)
     errors:
       models:
         answer:
@@ -20,23 +20,23 @@ ro:
             body:
               too_long: este prea lung
             choices:
-              missing: nu sunt complete
+              missing: nu sunt completate
               too_many: sunt prea multe
         questionnaire:
-          request_invalid: A apărut o eroare la procesarea cererii. Vă rugăm să încercați din nou
+          request_invalid: A apărut o eroare la procesarea cererii. Te rugăm să încerci din nou
   decidim:
     forms:
       admin:
         models:
           components:
             description: Descriere
-            tos: Termenii serviciului
+            tos: Condiţii de utilizare
         questionnaires:
           actions:
             back: Înapoi la întrebări
-            show: Arată răspunsurile
+            show: Afișează răspunsurile
           answer_option:
-            answer_option: Opțiune răspuns
+            answer_option: Opțiune de răspuns
             free_text: Text liber
             remove: Elimină
             statement: Declarație
@@ -44,135 +44,142 @@ ro:
             actions:
               back: Înapoi la răspunsuri
               export: Exportă
-              show: Arată răspunsurile
-            empty: Încă nu există răspunsuri
+              show: Afişează răspunsurile
+            empty: Niciun răspuns încă
             export:
               answer:
                 title: 'Răspuns #%{number}'
             export_response:
-              title: chestionar_utilizator_răspunsuri_%{token}
+              title: survey_user_answers_%{token}
             index:
               title: "%{total} total răspunsuri"
             show:
               title: 'Răspuns #%{number}'
           display_condition:
-            answer_option: Opțiune răspuns
+            answer_option: Opțiune de răspuns
             condition_question: Întrebare
             condition_type: Condiție
             condition_types:
-              answered: Răspuns
-              equal: Egal
+              answered: Răspunse
+              equal: Egal cu
               match: Include textul
-              not_answered: Nu s-a răspuns
-              not_equal: Nu este egal
+              not_answered: Fără răspuns
+              not_equal: Nu este egal cu
             condition_value: Text inclus
-            display_condition: Condiție de afișare
-            mandatory: Această condiție trebuie îndeplinită întotdeauna indiferent de statutul altor condiții
+            display_condition: Afișează condiția
+            mandatory: Această condiție trebuie îndeplinită întotdeauna indiferent de stadiul altor condiții
             remove: Elimină
-            save_warning: Amintiţi-vă să salvaţi formularul înainte de configurarea condiţiilor de afişare
-            select_answer_option: Selectați opțiunea de răspuns
+            save_warning: Ține minte să salvezi chestionarul înainte de configurarea condiţiilor de afişare
+            select_answer_option: Selectează opțiunea de răspuns
             select_condition_question: Selectează o întrebare
-            select_condition_type: Selectați un tip de condiție
+            select_condition_type: Selectează un tip de condiție
           edit:
             save: Salvează
-            title: Editare chestionar
+            title: Editează chestionarul
           form:
             add_question: Adaugă întrebare
             add_separator: Adaugă separator
-            already_answered_warning: Formularul a primit deja un răspuns de la unii utilizatori astfel încât nu îi puteți modifica întrebările.
+            add_title_and_description: Adaugă titlu și descriere
+            already_answered_warning: Au fost înregistrare deja câteva răspunsuri de la utilizatori pentru acest chestionar. De aceea, nu mai poți modifica întrebările.
             collapse: Restrânge toate întrebările
             expand: Extinde toate întrebările
-            preview: Previzualizare
-            title: Editare formular pentru %{questionnaire_for}
-            unpublished_warning: Formularul nu este publicat. Puteți modifica întrebările, dar acest lucru va șterge răspunsurile curente.
+            preview: Previzualizează
+            title: Editează chestionarul pentru %{questionnaire_for}
+            unpublished_warning: Chestionarul nu este publicat. Poți modifica întrebările, dar această acțiune va duce la stergerea automată a răspunsurilor curente.
           matrix_row:
             matrix_row: Rând
             remove: Elimină
             statement: Declarație
           question:
-            add_answer_option: Adaugă opțiune răspuns
-            add_display_condition: Adăugați o condiție de afișare
-            add_display_condition_info: Salvați formularul pentru a configura condițiile de afișare
+            add_answer_option: Adaugă opțiune de răspuns
+            add_display_condition: Adaugă condiție de afișare
+            add_display_condition_info: Salvează formularul pentru a configura condițiile de afișare
             add_matrix_row: Adaugă rând
             any: Oricare
             collapse: Restrânge
             description: Descriere
-            down: Jos
+            down: Mergi în jos
             expand: Extinde
             question: Întrebare
             remove: Elimină
             statement: Declarație
-            up: Sus
+            up: Mergi în sus
           separator:
-            down: Jos
+            down: Mergi în jos
             remove: Elimină
             separator: Separator
-            up: Sus
+            up: Mergi în sus
+          title_and_description:
+            collapse: Restrânge
+            description: Descriere
+            down: Mergi în jos
+            expand: Extinde
+            remove: Șterge
+            title: Titlu
+            title_and_description: Titlu și descriere
+            up: Mergi în sus
           update:
-            invalid: A apărut o eroare la salvarea formularului.
-            success: Formular salvat cu succes.
+            invalid: A apărut o eroare la salvarea chestionarului.
+            success: Chestionarul a fost salvat cu succes.
       errors:
         answer:
-          body: Corpul nu poate fi gol
+          body: Conținutul nu poate fi gol
       files:
         extension_allowlist: 'Formate acceptate:'
       images:
         dimensions: "%{width} x %{height} px"
-        dimensions_info: 'Această imagine va fi:'
-        processors:
-          resize_and_pad: Redimensionat și padded la
-          resize_to_fit: Redimensionat pentru a se potrivi
       question_types:
         files: Fișiere
         long_answer: Răspuns lung
-        matrix_multiple: Matricea (opțiune multiplă)
-        matrix_single: Matricea (opțiunea unică)
-        multiple_option: Opțiune multiplă
+        matrix_multiple: Matrice (mai multe opțiuni)
+        matrix_single: Matrice (opțiune unică)
+        multiple_option: Mai multe opțiuni
         short_answer: Răspuns scurt
         single_option: Opțiune unică
         sorting: Sortare
+        title_and_description: Titlu și descriere
       questionnaires:
         answer:
-          invalid: A apărut o problemă cu răspunsul la formular.
+          invalid: A apărut o problemă la completarea chestionarului.
           max_choices_alert: Există prea multe alegeri selectate
-          success: Formularul a răspuns cu succes.
+          success: Chestionarul a fost completat cu succes.
         question:
-          max_choices: 'Max alegeri: %{n}'
+          max_choices: 'Număr maxim de alegeri: %{n}'
         show:
           answer_questionnaire:
-            anonymous_user_message: <a href="%{sign_in_link}">Autentifică-te cu contul tău</a> sau <a href="%{sign_up_link}">înregistrează-te</a> pentru a răspunde la formular.
-            title: Răspundeți la formular
+            anonymous_user_message: <a href="%{sign_in_link}">Autentifică-te cu contul tău</a> sau <a href="%{sign_up_link}">înregistrează-te</a> pentru a răspunde la chestionar.
+            title: Completează chestionarul
           current_step: Pasul %{step}
           of_total_steps: din %{total_steps}
           questionnaire_answered:
-            body: Ați răspuns deja la acest formular.
-            title: Răspuns deja
+            body: Ai completat deja la acest chestionar.
+            title: Un răspuns a fost deja trimis
           questionnaire_closed:
-            body: Formularul este închis și nu se poate răspunde.
+            body: Chestionarul este închis și nu mai poate fi completat.
             title: Formular închis
           questionnaire_for_private_users:
-            body: Formularul este disponibil doar pentru utilizatorii privați
-            title: Formular închis
+            body: Chestionarul este disponibil doar pentru utilizatorii privați
+            title: Chestionar închis
           questionnaire_js_disabled:
-            body: Unele dintre funcțiile acestui formular vor fi dezactivate. Pentru a vă îmbunătăți experiența, vă rugăm să activați JavaScript în browser-ul dvs.
+            body: Unele dintre funcționalitățile acestui chestionar vor fi dezactivate. Pentru a îți îmbunătăți experiența, te rugăm să activezi JavaScript în browser-ul tău.
             title: JavaScript este dezactivat
           questionnaire_not_published:
-            body: Acest formular nu este publicat încă.
-          tos_agreement: Prin participare acceptați termenii și condițiile sale de utilizare
+            body: Acest chestionar nu este încă publicat.
+          tos_agreement: Prin participare accepți Termenii și condițiile sale de utilizare
       step_navigation:
         show:
-          are_you_sure: Această acțiune nu poate fi anulată și nu veți putea să vă editați răspunsurile. Sunteți sigur?
+          are_you_sure: Această acțiune nu poate fi anulată și nu vei putea să îți editezi răspunsurile. Sigur dorești asta?
           back: Înapoi
           continue: Continuă
-          submit: Trimiteți
+          submit: Trimite
       user_answers_serializer:
         body: Răspuns
         completion: Finalizare
-        created_at: Răspuns pornit
+        created_at: Răspuns completat la
         id: ID răspuns
-        ip_hash: Hash IP
+        ip_hash: IP Hash
         question: Întrebare
         registered: Înregistrat
         session_token: Identificator utilizator
         unregistered: Neînregistrat
-        user_status: Statusul utilizatorului
+        user_status: Stadiul utilizatorului

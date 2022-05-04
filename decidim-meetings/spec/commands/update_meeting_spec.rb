@@ -24,6 +24,8 @@ module Decidim::Meetings
     let(:registration_type) { "on_this_platform" }
     let(:available_slots) { 0 }
     let(:registration_url) { "http://decidim.org" }
+    let(:iframe_embed_type) { "none" }
+    let(:iframe_access_level) { nil }
     let(:form) do
       double(
         invalid?: invalid,
@@ -47,7 +49,9 @@ module Decidim::Meetings
         registration_terms: "The meeting registration terms",
         registrations_enabled: true,
         clean_type_of_meeting: type_of_meeting,
-        online_meeting_url: online_meeting_url
+        online_meeting_url: online_meeting_url,
+        iframe_embed_type: iframe_embed_type,
+        iframe_access_level: iframe_access_level
       )
     end
 
@@ -144,7 +148,9 @@ module Decidim::Meetings
             registration_terms: meeting.registration_terms,
             registrations_enabled: true,
             clean_type_of_meeting: type_of_meeting,
-            online_meeting_url: online_meeting_url
+            online_meeting_url: online_meeting_url,
+            iframe_embed_type: iframe_embed_type,
+            iframe_access_level: iframe_access_level
           )
         end
 
@@ -195,15 +201,9 @@ module Decidim::Meetings
             subject.call
           end
 
-          it "schedules a upcoming meeting notification job 48h before start time" do
-            expect(UpcomingMeetingNotificationJob)
-              .to receive(:generate_checksum).and_return "1234"
-
-            expect(UpcomingMeetingNotificationJob)
-              .to receive_message_chain(:set, :perform_later) # rubocop:disable RSpec/MessageChain
-              .with(set: start_time - 2.days).with(meeting.id, "1234")
-
-            subject.call
+          it_behaves_like "emits an upcoming notificaton" do
+            let(:future_start_date) { 1.day.from_now + Decidim::Meetings.upcoming_meeting_notification }
+            let(:past_start_date) { 1.day.ago }
           end
         end
 

@@ -57,6 +57,16 @@ fr-CA:
               identical: ET le titre ne peut pas être identique
             title:
               identical: ET le corps ne peut pas être identique
+        proposals_merge:
+          attributes:
+            base:
+              not_official: Non officiels
+              supported: Avoir reçu des soutiens ou des approbations
+        proposals_split:
+          attributes:
+            base:
+              not_official: Non officiels
+              supported: A reçu des soutiens ou des approbations
     models:
       decidim/proposals/accepted_proposal_event: Proposition acceptée
       decidim/proposals/admin/update_proposal_category_event: Catégorie de proposition modifiée
@@ -125,7 +135,6 @@ fr-CA:
         name: Propositions
         settings:
           global:
-            allow_card_image: Afficher les images sur les cartes de l'index de proposition
             amendments_enabled: Modifications activées
             amendments_enabled_help: Si actif, configurez les fonctionnalités d'amendement pour chaque étape.
             amendments_wizard_help_text: Texte d'aide de l'assistant
@@ -135,6 +144,17 @@ fr-CA:
             collaborative_drafts_enabled: Brouillons collaboratifs activés
             comments_enabled: Activer le module de commentaire
             comments_max_length: Longueur maximum (en caractères) des commentaires (laisser 0 pour la valeur par défaut)
+            default_sort_order: Tri des propositions par défaut
+            default_sort_order_help: Par défaut, si l’es aides sont activés, les propositions seront affichées par ordre aléatoire, et si les aides sont bloqués, alors ils seront triés par l’aide le plus soutenu.
+            default_sort_order_options:
+              default: Défaut
+              most_commented: Les plus commentées
+              most_endorsed: Les plus approuvées
+              most_followed: Les plus suivies
+              most_voted: Les plus soutenues
+              random: Aléatoire
+              recent: Les plus récents
+              with_more_authors: Avec le plus d'auteurs
             geocoding_enabled: Géocodage activé
             minimum_votes_per_user: Nombre minimum de votes par utilisateur
             new_proposal_body_template: Modèle de corps d'une nouvelle proposition
@@ -145,6 +165,10 @@ fr-CA:
             participatory_texts_enabled_readonly: Impossible d'interagir avec ce paramètre s'il y a des propositions existantes. Veuillez créer une nouvelle fonctionnalité `Propositions` si vous voulez activer cette fonctionnalité ou supprimer toutes les propositions importées dans 'Textes participatifs` si vous voulez la désactiver.
             proposal_answering_enabled: Autoriser la réponse officielle aux propositions
             proposal_edit_before_minutes: Délai (en minutes) après lequel les auteurs ne peuvent plus modifier leurs propositions
+            proposal_edit_time: Durée d'édition des propositions
+            proposal_edit_time_choices:
+              infinite: Autoriser l'édition des propositions pour une durée infinie
+              limited: Autoriser l'édition des propositions durant un délai spécifique
             proposal_length: Nombre maximum de caractères du corps de la proposition
             proposal_limit: Limite de proposition par utilisateur
             proposal_wizard_step_1_help_text: Texte d'aide à l'étape "Créer" de la création de proposition
@@ -172,7 +196,18 @@ fr-CA:
             answers_with_costs: Activer les coûts sur les réponses aux propositions
             automatic_hashtags: Hashtags ajoutés à toutes les propositions
             comments_blocked: Bloquer la création de nouveaux commentaires
-            creation_enabled: Autoriser la création de nouvelles propositions
+            creation_enabled: Les participants peuvent créer des propositions
+            default_sort_order: Tri des propositions par défaut
+            default_sort_order_help: Par défaut, si les aides sont activés, les propositions seront affichées par ordre aléatoire, et si les aides sont bloqués, alors ils seront triés par l’aide le plus soutenu.
+            default_sort_order_options:
+              default: Par défaut
+              most_commented: Les plus commentées
+              most_endorsed: Les plus soutenues
+              most_followed: Les plus suivies
+              most_voted: Les plus votées
+              random: Aléatoire
+              recent: Récentes
+              with_more_authors: Avec le plus d'auteurs
             endorsements_blocked: Bloquer les soutiens
             endorsements_enabled: Activer le module de soutiens
             proposal_answering_enabled: Autoriser la réponse officielle aux propositions
@@ -265,7 +300,7 @@ fr-CA:
           email_intro: La proposition "%{resource_title}" a été publiée dans "%{participatory_space_title}" que vous suivez.
           email_outro: Vous avez reçu cette notification parce que vous suivez "%{participatory_space_title}". Vous pouvez cesser de le suivre en cliquant sur le lien précédent.
           email_subject: Nouvelle proposition "%{resource_title}" ajoutée à %{participatory_space_title}
-          notification_title: La proposition <a href="%{resource_path}">%{resource_title}</a> a été publiée dans %{participatory_space_title}
+          notification_title: La proposition <a href="%{resource_path}">%{resource_title}</a> a été ajoutée à %{participatory_space_title} par %{author}
         proposal_rejected:
           affected_user:
             email_intro: 'Votre proposition "%{resource_title}" a été rejetée. Vous pouvez lire la réponse sur cette page:'
@@ -362,6 +397,23 @@ fr-CA:
         exports:
           proposal_comments: Commentaires
           proposals: Propositions
+        imports:
+          help:
+            answers: 'Le document d''importation doit contenir les colonnes suivantes : Id, État (accepté, évaluation, rejeté), réponse/fr (et d''autres langues activées pour l''organisme).'
+            proposals: Le fichier doit comprendre les colonnes title/fr et corps/fr (ou une autre locale de votre choix, par ex. titre/de et corps/de). Les colonnes scope/id et category/id sont également pris en charge.
+          label:
+            answers: Importer des valeurs depuis un fichier
+            proposals: Importer des propositions depuis un fichier
+          resources:
+            answers:
+              one: réponse à la proposition
+              other: réponses à la proposition
+            proposals:
+              one: proposition
+              other: propositions
+          title:
+            answers: Importer des réponses aux propositions
+            proposals: Importer des propositions
         models:
           proposal:
             name: Proposition
@@ -505,11 +557,11 @@ fr-CA:
             title: Importer des propositions
         proposals_merges:
           create:
-            invalid: Une erreur s'est produite lors de la fusion des propositions sélectionnées.
+            invalid: 'Une erreur est survenue lors de la fusion des propositions à cause de certaines d''entre elles:'
             success: A fusionné avec succès les propositions dans un nouveau.
         proposals_splits:
           create:
-            invalid: Une erreur s'est produite lors de la division des propositions sélectionnées.
+            invalid: 'Une erreur est survenue lors de la division des propositions sélectionnées à cause de certaines d''entre elles:'
             success: Divisé avec succès les propositions en nouvelles.
         valuation_assignments:
           create:
@@ -540,9 +592,9 @@ fr-CA:
           all: Tout
         filter_origin_values:
           all: Tout
-          citizens: Propositions citoyennes
           meetings: Des réunions
           official: Propositions officielles
+          participants: Participants
           user_groups: Groupes d'utilisateurs
         filter_scope_values:
           all: Tout
@@ -605,6 +657,8 @@ fr-CA:
           filter_by: Filtrer par
           unfold: Se dérouler
         new:
+          add_file: Ajouter un fichier
+          edit_file: Modifier le fichier
           send: Continuer
         new_collaborative_draft_button:
           new_collaborative_draft: Nouveau brouillon collaboratif
@@ -715,12 +769,12 @@ fr-CA:
           description: Les coordonnées seront mises à jour en cliquant sur le bouton 'Aperçu'. Cependant, l'adresse ne change pas.
           instructions: Vous pouvez déplacer le point sur la carte.
         edit:
-          add_documents: Documents
-          add_images: Fichier
+          add_documents: Ajouter des documents
+          add_image: Ajouter une image
           attachment_legend: "(Facultatif) Ajouter une pièce jointe"
           back: Retour
-          delete_document: Supprimer le document
-          delete_image: Supprimer l'image
+          edit_documents: Modifier les documents
+          edit_image: Modifier l'Image
           gallery_legend: "(Facultatif) Ajouter une image à la carte de proposition"
           select_a_category: Veuillez sélectionner une catégorie
           send: Envoyer
@@ -749,9 +803,12 @@ fr-CA:
           filter_by: Filtrer par
           unfold: Voir plus
         index:
+          click_here: Voir toutes les propositions
           collaborative_drafts_list: Accéder aux brouillons collaboratifs
           new_proposal: Nouvelle proposition
+          see_all: Voir toutes les propositions
           see_all_withdrawn: Voir toutes les propositions retirées
+          text_banner: Vous voyez actuellemnent la liste des propositions retirées par leurs auteurs. %{go_back_link}.
           view_proposal: Voir la proposition
         linked_proposals:
           proposal_votes:
@@ -901,3 +958,7 @@ fr-CA:
       included_proposals:
         proposal_project: 'Proposition figurant dans ces projets :'
         proposal_result: 'Proposition figurant dans ces réalisations :'
+    statistics:
+      proposals_accepted: Propositions acceptées
+      proposals_count: Propositions
+      supports_count: Votes

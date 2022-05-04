@@ -13,7 +13,7 @@ window.morphdom = morphdom
 import "src/decidim/vendor/foundation-datepicker"
 import "src/decidim/foundation_datepicker_locales"
 import "src/decidim/vendor/modernizr"
-import "social-share-button"
+import "src/decidim/vendor/social-share-button"
 
 import "src/decidim/input_tags"
 import "src/decidim/input_hashtags"
@@ -31,7 +31,9 @@ import "src/decidim/account_form"
 import "src/decidim/data_picker"
 import "src/decidim/dropdowns_menus"
 import "src/decidim/append_redirect_url_to_modals"
+import "src/decidim/form_attachments"
 import "src/decidim/form_validator"
+import "src/decidim/form_remote"
 import "src/decidim/ajax_modals"
 import "src/decidim/conferences"
 import "src/decidim/tooltip_keep_on_hover"
@@ -54,6 +56,9 @@ import "src/decidim/start_conversation_dialog"
 import "src/decidim/notifications"
 import "src/decidim/identity_selector_dialog"
 import "src/decidim/gallery"
+import "src/decidim/direct_uploads/upload_field"
+import "src/decidim/sw"
+import "src/decidim/back_to_list"
 
 // CSS
 import "entrypoints/decidim_core.scss"
@@ -66,4 +71,3 @@ require.context("../images", true)
 
 // This needs to be loaded after confirm dialog to bind properly
 Rails.start()
-

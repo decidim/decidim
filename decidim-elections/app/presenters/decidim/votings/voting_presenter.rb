@@ -3,13 +3,8 @@
 module Decidim
   module Votings
     class VotingPresenter < SimpleDelegator
-      include Rails.application.routes.mounted_helpers
-      include ActionView::Helpers::UrlHelper
       include Decidim::SanitizeHelper
       include Decidim::TranslatableAttributes
-
-      delegate :url, to: :introductory_image, prefix: true
-      delegate :url, to: :banner_image, prefix: true
 
       def title
         content = translated_attribute(voting.title)
@@ -17,15 +12,11 @@ module Decidim
       end
 
       def introductory_image_url
-        return if voting.introductory_image.blank?
-
-        URI.join(decidim.root_url(host: voting.organization.host), voting.introductory_image_url).to_s
+        voting.attached_uploader(:introductory_image).url(host: voting.organization.host)
       end
 
       def banner_image_url
-        return if voting.banner_image.blank?
-
-        URI.join(decidim.root_url(host: voting.organization.host), voting.banner_image_url).to_s
+        voting.attached_uploader(:banner_image).url(host: voting.organization.host)
       end
 
       def voting

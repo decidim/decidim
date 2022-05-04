@@ -15,29 +15,32 @@ module Decidim
 
       def index
         @sortitions = search
-                      .results
-                      .includes(:author)
+                      .result
                       .includes(:category)
 
         @sortitions = paginate(@sortitions)
         @sortitions = reorder(@sortitions)
       end
 
+      def show
+        raise ActionController::RoutingError, "Not Found" unless sortition
+      end
+
       private
 
       def sortition
-        Sortition.find(params[:id])
+        search_collection.find_by(id: params[:id])
       end
 
-      def search_klass
-        SortitionSearch
+      def search_collection
+        Sortition.where(component: current_component)
       end
 
       def default_filter_params
         {
-          search_text: "",
-          category_id: "",
-          state: "active"
+          search_text_cont: "",
+          with_category: "",
+          with_any_state: "active"
         }
       end
     end

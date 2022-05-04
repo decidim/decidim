@@ -45,6 +45,14 @@ module Decidim
       field :participatory_process_group, Decidim::ParticipatoryProcesses::ParticipatoryProcessGroupType,
             null: true,
             description: "The participatory process group in which this process belong to"
+
+      def banner_image
+        object.attached_uploader(:banner_image).path
+      end
+
+      def hero_image
+        object.attached_uploader(:hero_image).path
+      end
     end
   end
 end

@@ -3,7 +3,7 @@
 module Decidim
   module Forms
     # This command is executed when the user answers a Questionnaire.
-    class AnswerQuestionnaire < Rectify::Command
+    class AnswerQuestionnaire < Decidim::Command
       include ::Decidim::MultipleAttachmentsMethods
 
       # Initializes a AnswerQuestionnaire Command.
@@ -20,7 +20,7 @@ module Decidim
       #
       # Broadcasts :ok if successful, :invalid otherwise.
       def call
-        return broadcast(:invalid) if @form.invalid?
+        return broadcast(:invalid) if @form.invalid? || user_already_answered?
 
         answer_questionnaire
 
@@ -32,7 +32,7 @@ module Decidim
         end
       end
 
-      attr_reader :form
+      attr_reader :form, :questionnaire, :current_user
 
       private
 
@@ -95,6 +95,10 @@ module Decidim
           @form = @main_form
           raise ActiveRecord::Rollback if @errors
         end
+      end
+
+      def user_already_answered?
+        questionnaire.answered_by?(current_user || form.context.session_token)
       end
     end
   end

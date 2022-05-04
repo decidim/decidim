@@ -1,1 +1,21 @@
 si:
+  activemodel:
+    models:
+      decidim/comments/comment_by_followed_user_event: අදහස
+      decidim/comments/comment_created_event: අදහස
+  activerecord:
+    models:
+      decidim/comments/comment:
+        one: අදහස
+        other: අදහස්
+  decidim:
+    comments:
+      comments_title: අදහස්
+    components:
+      add_comment_form:
+        form:
+          body:
+            label: අදහස
+          submit: යවන්න
+          user_group_id:
+            label: ලෙස අදහස් දක්වන්න

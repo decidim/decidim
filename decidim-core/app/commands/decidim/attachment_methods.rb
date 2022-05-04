@@ -12,12 +12,13 @@ module Decidim
       @attachment = Attachment.new(
         title: { I18n.locale => @form.attachment.title },
         attached_to: attached_to,
-        file: @form.attachment.file # Define attached_to before this
+        file: @form.attachment.file, # Define attached_to before this
+        content_type: @form.attachment.file.content_type
       )
     end
 
     def delete_attachment(attachment)
-      Attachment.find(attachment.id).delete if attachment.id == proposal.documents.first.id
+      Attachment.find(attachment.id).delete if attachment.id.to_i == proposal.documents.first.id
     end
 
     def attachment_invalid?
@@ -35,7 +36,8 @@ module Decidim
       !@form.attachment.file.is_a?(Decidim::ApplicationUploader)
     end
 
-    def create_attachment
+    def create_attachment(weight: 0)
+      attachment.weight = weight
       attachment.attached_to = @attached_to
       attachment.save!
     end

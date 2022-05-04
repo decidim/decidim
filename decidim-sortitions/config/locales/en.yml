@@ -20,6 +20,8 @@ en:
   decidim:
     components:
       sortitions:
+        actions:
+          comment: Comment
         name: Sortitions
         settings:
           global:
@@ -75,7 +77,7 @@ en:
           index:
             title: Sortitions
           new:
-            confirm: By pressing the next button Decidim will record the date and time (with precision of seconds) and together with the dice roll, this information will be used to generate a random selection. The action will be irreversible, once the button is clicked the result of this draw will be published, together with the data entered in this form and can not be modified, please check the content carefully
+            confirm: By pressing the next button the platform will record the date and time (with precision of seconds) and together with the dice roll, this information will be used to generate a random selection. The action will be irreversible, once the button is clicked the result of this draw will be published, together with the data entered in this form and can not be modified, please check the content carefully
             create: Create
             title: New sortition
           show:

@@ -4,7 +4,7 @@
   </label>
   <ul id="<%= context_menu_id %>" data-dropdown data-close-on-click="true" data-position="left" data-alignment="top" class="card dropdown-pane comment__header__context-menu__content">
     <li>
-      <button type="button" class="link-alt comment__header__context-menu__content-item" data-open="<%= current_user.present? ? "flagModalComment#{model.id}" : "loginModal" %>" title="<%= t("decidim.components.comment.report.title") %>" aria-controls="<%= current_user.present? ? "flagModalComment#{model.id}" : "loginModal" %>" aria-haspopup="true" tabindex="0">
+      <button type="button" class="link-alt comment__header__context-menu__content-item" data-open="<%= current_user.present? ? "flagModalComment#{model.id}" : "loginModal" %>" title="<%= t("decidim.components.comment.report.title") %>" aria-controls="<%= current_user.present? ? "flagModalComment#{model.id}" : "loginModal" %>" aria-haspopup="dialog" tabindex="0">
         <%= icon "flag", class: "icon--small", aria_label: t("decidim.components.comment.report.title") %>
         <span><%= t("decidim.components.comment.report.action") %></span>
       </button>
@@ -17,7 +17,7 @@
     </li>
     <% if model.authored_by?(current_user) %>
       <li>
-      <button type="button" class="link-alt comment__header__context-menu__content-item" data-open="<%= "editCommentModal#{model.id}" %>" title="<%= t("decidim.components.comment.edit") %>" aria-controls="<%= "editCommentModal#{model.id}" %>" aria-haspopup="true" tabindex="0">
+      <button type="button" class="link-alt comment__header__context-menu__content-item" data-open="<%= "editCommentModal#{model.id}" %>" title="<%= t("decidim.components.comment.edit") %>" aria-controls="<%= "editCommentModal#{model.id}" %>" aria-haspopup="dialog" tabindex="0">
           <%= icon "pencil", class: "icon--small", aria_label: t("decidim.components.comment.edit") %>
           <span><%= t("decidim.components.comment.edit") %></span>
       </button>

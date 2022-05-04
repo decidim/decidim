@@ -7,16 +7,18 @@ module Decidim
   #
   # It behaves as a presenter for deleted resources.
   # Returns an empty string for most of the method calls.
-  class NilPresenter < Rectify::Presenter
+  class NilPresenter
+    def initialize(*); end
+
     def deleted?
       true
     end
 
-    def avatar_url
-      Decidim::AvatarUploader.new.default_url
+    def avatar_url(_variant = nil)
+      Decidim::AvatarUploader.new(Decidim::User.new, :avatar).default_url
     end
 
-    def respond_to_missing?
+    def respond_to_missing?(*)
       true
     end
 

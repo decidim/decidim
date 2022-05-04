@@ -28,7 +28,7 @@ module Decidim
         mimic :participatory_process_group
 
         attribute :hero_image
-        attribute :remove_hero_image
+        attribute :remove_hero_image, Boolean, default: false
 
         validates :title, :description, translatable_presence: true
 

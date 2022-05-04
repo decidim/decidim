@@ -1,0 +1,403 @@
+lb:
+  activemodel:
+    attributes:
+      agenda:
+        description: Beschreibung
+        duration: Dauer
+        title: Titel
+      close_meeting:
+        attendees_count: Anzahl der Teilnehmer
+        attending_organizations: Liste der Organisationen, die teilgenommen haben
+        audio_url: Audio-URL
+        closing_report: Protokoll
+        closing_visible: Ist sichtbar
+        contributions_count: Anzahl der Beiträge
+        proposal_ids: An der Sitzung entstandene Vorschläge
+        video_url: Video-URL
+      meeting:
+        address: Adresse
+        available_slots: Verfügbare Slots für dieses Meeting
+        customize_registration_email: Registrierungs-E-Mail anpassen
+        decidim_category_id: Kategorie
+        decidim_scope_id: Ëmfang
+        decidim_user_group_id: Benutzergruppe
+        description: Beschreiwung
+        end_time: Endzeit
+        id: ID
+        location: Standuert
+        location_hints: Standorthinweise
+        online_meeting_url: Online Meeting URL
+        organizer_gid: Erstellt als
+        organizer_id: Veranstalter
+        private_meeting: Private Sitzung
+        registration_email_custom_content: Angepasster Inhalt des Registrierungs-E-Mails
+        registration_form_enabled: Anmeldeformular aktiviert
+        registration_terms: Registrierungsbedingungen
+        registration_url: Registrierungs-URL
+        registrations_enabled: Registrierungen aktiviert
+        start_time: Startzeit
+        title: Titel
+        transparent: Transparent
+        type_of_meeting: Zort
+    errors:
+      models:
+        meeting_agenda:
+          attributes:
+            base:
+              too_many_minutes: Die Dauer der Elemente überschreitet die Besprechungsdauer um %{count} Minuten
+              too_many_minutes_child: Die Dauer der Item-Childs überschreitet den Tagesordnungspunkt "%{parent_title}" Elternzeit um %{count} Minute
+        meeting_registration_invite:
+          attributes:
+            email:
+              already_invited: Diese E-Mail wurde bereits eingeladen
+    models:
+      decidim/meetings/close_meeting_event: Sitzung geschlossen
+      decidim/meetings/create_meeting_event: Versammlung
+      decidim/meetings/meeting_registrations_enabled_event: Registrierungen aktiviert
+      decidim/meetings/meeting_registrations_over_percentage_event: Anmeldungen über Limit
+      decidim/meetings/upcoming_meeting_event: Kommende Sitzung
+      decidim/meetings/update_meeting_event: Besprechung aktualisiert
+  activerecord:
+    models:
+      decidim/meetings/meeting:
+        one: Versammlung
+        other: Versammlungen
+      decidim/meetings/minutes:
+        one: Rapport
+        other: Rapporten
+      decidim/meetings/registration:
+        one: Registréierung
+        other: Anmeldungen
+  decidim:
+    admin:
+      filters:
+        meetings:
+          category_id_eq:
+            label: Kategorie
+          closed_at_present:
+            label: Zustand
+            values:
+              'false': Öffnen
+              'true': Geschlossen
+          is_upcoming_true:
+            label: Datum
+            values:
+              'false': Vergaangenes
+              'true': Demnächst stattfannend
+          scope_id_eq:
+            label: Ëmfang
+          with_any_origin:
+            values:
+              user_group: Benotzergruppen
+          with_any_type:
+            label: Typ vu Versammlung
+      meeting_copies:
+        create:
+          error: Es gab einen Fehler beim Duplizieren dieses Meetings.
+          success: Dupliziertes Meeting erfolgreich
+        new:
+          copy: Kopieren
+          select: Wählen Sie die Daten aus, die Sie duplizieren möchten
+          title: Doppelte Besprechung
+    components:
+      meetings:
+        actions:
+          comment: Kommentar
+          join: Beitreten
+        name: Meetings
+        settings:
+          global:
+            announcement: Ankündigung
+            comments_enabled: Kommentare aktiviert
+            comments_max_length: Maximale Länge der Kommentare (0 für Standardwert)
+            creation_enabled_for_participants: Teilnehmer können Besprechungen erstellen
+            default_registration_terms: Standard-Registrierungsbedingungen
+            enable_pads_creation: Aktivieren Sie die Pads-Erstellung
+            registration_code_enabled: Registrierungscode aktiviert
+            resources_permissions_enabled: Aktionsberechtigungen können für jedes Meeting festgelegt werden
+            scope_id: Bereich
+            scopes_enabled: Bereiche aktiviert
+            terms_and_conditions_url_for_meeting_creators: Nutzungsbedingungen URL für Meeting-Ersteller
+          step:
+            announcement: Ankündigung
+            comments_blocked: Kommentare blockiert
+            creation_enabled_for_participants: Besprechung-Erstellung durch Teilnehmer aktiviert
+            creation_enabled_for_user_groups: Besprechung-Erstellung durch Benutzergruppen aktiviert
+    events:
+      meetings:
+        meeting_closed:
+          affected_user:
+            email_intro: 'Ihre Sitzung "%{resource_title}" wurde geschlossen. Sie können die Ergebnisse auf dieser Seite lesen:'
+            email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie die Sitzung "%{resource_title}" organisiert haben.
+            email_subject: Die Sitzung "%{resource_title}" wurde geschlossen
+            notification_title: Die Sitzung <a href="%{resource_path}">%{resource_title}</a> wurde geschlossen.
+          follower:
+            email_intro: 'Die Sitzung "%{resource_title}" wurde geschlossen. Sie können die Ergebnisse auf dieser Seite lesen:'
+            email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie der Sitzung "%{resource_title}" folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
+            email_subject: Die Sitzung "%{resource_title}" wurde geschlossen
+            notification_title: Die Sitzung <a href="%{resource_path}">%{resource_title}</a> wurde geschlossen.
+        meeting_created:
+          email_intro: Die Sitzung "%{resource_title}" wurde zu "%{participatory_space_title}" hinzugefügt, welchem Sie folgen.
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie "%{participatory_space_title}" folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
+          email_subject: Neue Sitzung zu %{participatory_space_title} hinzugefügt
+          notification_title: Die Sitzung <a href="%{resource_path}">%{resource_title}</a> wurde zu %{participatory_space_title} hinzugefügt
+        meeting_registration_confirmed:
+          notification_title: Ihre Anmeldung zur Sitzung <a href="%{resource_url}">%{resource_title}</a> wurde bestätigt. Ihr Registrierungscode ist %{registration_code}.
+        meeting_registrations_over_percentage:
+          email_intro: Die Slots der Sitzung "%{resource_title}" sind zu über %{percentage}% belegt.
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie ein Administrator des Teilnahmebereichs der Besprechung sind.
+          email_subject: Slots der Sitzung "%{resource_title}" über %{percentage}% belegt
+          notification_title: Die Slots der Sitzung <a href="%{resource_path}">%{resource_title}</a> sind zu über %{percentage}% belegt.
+        meeting_updated:
+          email_intro: 'Die Sitzung "%{resource_title}" wurde aktualisiert. Sie können die neue Version auf der Sitzungs-Seite lesen:'
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie der Sitzung "%{resource_title}" folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
+          email_subject: Die Sitzung "%{resource_title}" wurde aktualisiert
+          notification_title: Die Sitzung <a href="%{resource_path}">%{resource_title}</a> wurde aktualisiert.
+        registration_code_validated:
+          email_intro: Ihr Registrierungscode "%{registration_code}" für die Sitzung "%{resource_title}" wurde bestätigt.
+    meetings:
+      admin:
+        agenda:
+          edit:
+            title: Agenda bearbeiten
+            update: Aktualiséieren
+          form:
+            add_agenda_item: Tagesordnungspunkt hinzufügen
+            agenda_items: Tagesordnungspunkte
+            end_date: Enddatum
+            start_date: Startdatum
+          new:
+            create: Erstellen
+            title: Neue Agenda
+          update:
+            invalid: Beim Aktualisieren dieser Agenda ist ein Problem aufgetreten
+            success: Agenda erfolgreich aktualisiert
+        exports:
+          answers: Antworten
+          meeting_comments: Kommentare
+          meetings: Treffen
+          registrations: Anmeldungen
+        invite_join_meeting_mailer:
+          invite:
+            decline: Einladung ablehnen
+            invited_you_to_join_a_meeting: "%{invited_by} hat Sie eingeladen, an einem Meeting um %{application}. Sie können dies über die unten stehenden Links ablehnen oder akzeptieren."
+            join: Trete dem Meeting '%{meeting_title}' bei
+        invites:
+          create:
+            error: Beim Einladen des Nutzers in das Meeting ist ein Problem aufgetreten.
+            success: Der Benutzer wurde erfolgreich zum Meeting eingeladen.
+          form:
+            attendee_type: Teilnehmertyp
+            existing_user: Existierender Benutzer
+            invite: Einladen
+            invite_explanation: Der Benutzer wird eingeladen, dem Meeting und der Organisation beizutreten.
+            non_user: Nicht existierender Benutzer
+            select_user: Nutzer wählen
+          index:
+            filter:
+              accepted: Akzeptiert
+              all: Alle
+              rejected: Abgelehnt
+              sent: Geschickt
+            filter_by: Filtern nach
+            invite_attendee: Teilnehmer einladen
+            invites: Lädt ein
+            registrations_disabled: Sie können keinen Teilnehmer einladen, da die Registrierungen deaktiviert sind.
+            search: Suche
+        meeting_closes:
+          edit:
+            close: Schließen
+            title: Sitzung beenden
+        meetings:
+          close:
+            invalid: Beim Schließen dieses Meetings ist ein Problem aufgetreten
+            success: Sitzung erfolgreich abgeschlossen
+          create:
+            invalid: Beim Erstellen dieses Meetings ist ein Problem aufgetreten
+            success: Sitzung erfolgreich erstellt. Beachten Sie, dass dies noch nicht veröffentlicht wurde. Sie müssen es manuell veröffentlichen.
+          destroy:
+            invalid:
+              proposals_count:
+                one: Die Besprechung kann nicht gelöscht werden, da %{count} Vorschlag mit dieser verbunden ist
+                other: Die Besprechung kann nicht gelöscht werden, da %{count} Vorschläge mit dieser verbunden sind
+            success: Das Meeting wurde erfolgreich gelöscht
+          edit:
+            title: Meeting bearbeiten
+            update: Aktualisieren
+          form:
+            address_help: 'Adresse: wird von Geocoder zur Lokalisierung verwendet'
+            disclaimer: 'Haftungsausschluss: Durch Verwendung eines externen Registrierungssystems wissen Sie, dass die Organisatoren von %{organization} nicht für die Daten verantwortlich sind, welche die Benutzer dem externen Dienst zur Verfügung stellen.'
+            location_help: 'Ort: an die Benutzer gerichtete Nachricht mit dem Treffpunkt'
+            location_hints_help: 'Hinweise zum Standort: Zusätzliche Informationen. Beispiel: das Stockwerk im Gebäude wenn es eine Sitzung vor Ort ist, oder das Passwort wenn es eine Online-Sitzung mit eingeschränktem Zugriff ist.'
+            online_meeting_url_help: 'Link: Erlaubt Teilnehmern, sich direkt mit Ihrem Meeting zu verbinden'
+            registration_url_help: 'Link: Erlaubt den Teilnehmern den externen Service zu nutzen, den Sie für die Registrierung verwenden'
+            select_a_meeting_type: Bitte eine Meeting-Typ auswählen
+            select_a_registration_type: Bitte wählen Sie eine Registrierungsart aus
+          index:
+            title: Versammlungen
+          new:
+            create: Erstellen
+            title: Versammlung erstellen
+          publish:
+            invalid: Beim Veröffentlichen dieser Sitzung ist ein Fehler aufgetreten
+            success: Sitzung erfolgreich veröffentlicht
+          service:
+            description: Beschreibung
+            down: Nieder
+            remove: Löschen
+            service: Bedienung
+            title: Titel
+            up: Hoch
+          services:
+            add_service: Service dobäisetzen
+            services: Dienstleistungen
+          unpublish:
+            invalid: Beim Aufheben der Veröffentlichung dieser Sitzung ist ein Fehler aufgetreten
+            success: Veröffentlichung der Sitzung erfolgreich rückgängig gemacht
+          update:
+            invalid: Beim Aktualisieren dieses Meetings ist ein Problem aufgetreten
+            success: Sitzung erfolgreich aktualisiert
+        models:
+          meeting:
+            name: Versammlung
+        registrations:
+          edit:
+            save: Späicheren
+            validate: Bestätigen
+            validate_registration_code: Validiere den Registrierungscode
+          form:
+            available_slots_help: Belassen Sie es auf 0, wenn Sie unbegrenzte Plätze zur Verfügung haben.
+            invites: Aluedungen
+            recommendation_message: Aus Datenschutzgründen empfehlen wir, dass Sie dieses Einschreibeformular löschen, wenn es nicht länger benötigt wird. Standardmäßig ist das 3 Monate nachdem die Besprechung durchgeführt wurde.
+            registration_email_help: Dieser Text erscheint in der Mitte der Registrierungs-E-Mail, direkt nach dem Registrierungscode.
+            registration_form: Anmeldeformular
+            registrations_count:
+              one: Es wurde %{count} registriert.
+              other: Es gab %{count} Registrierungen.
+            reserved_slots_help: Belassen Sie es auf 0, wenn Sie keine reservierten Slots haben
+            reserved_slots_less_than: Muss kleiner oder gleich %{count}
+            title: Anmeldungen
+          update:
+            invalid: Beim Speichern der Registrierungseinstellungen ist ein Problem aufgetreten.
+            success: Die Registrierungseinstellungen wurden erfolgreich gespeichert.
+          validate_registration_code:
+            invalid: Dieser Registrierungscode ist ungültig.
+            success: Registrierungscode erfolgreich validiert.
+      admin_log:
+        invite:
+          create: "%{user_name} hat %{attendee_name} eingeladen, an der Sitzung %{resource_name} in %{space_name} teilzunehmen"
+          deleted: "%{user_name} hat die Einladung von %{attendee_name} zur Sitzung %{resource_name} in %{space_name} entfernt"
+          update: "%{user_name} hat %{attendee_name} eingeladen, an der Sitzung %{resource_name} in %{space_name} teilzunehmen"
+        meeting:
+          close: "%{user_name} hat die Sitzung %{resource_name} in %{space_name} geschlossen"
+          create: "%{user_name} hat die Sitzung %{resource_name} in %{space_name} erstellt"
+          delete: "%{user_name} hat die Sitzung %{resource_name} aus %{space_name} gelöscht"
+          export_registrations: "%{user_name} hat die Anmeldungen der Sitzung %{resource_name} in %{space_name} exportiert"
+          update: "%{user_name} hat die Sitzung %{resource_name} in %{space_name} aktualisiert"
+      calendar_modal:
+        calendar_url: Kalender-URL
+        close_window: Fenster schließen
+        export_calendar: Kalender exportieren
+      conference_venues: Tagungsstätten
+      content_blocks:
+        upcoming_meetings:
+          view_all_meetings: Alle ansehen
+      directory:
+        meetings:
+          index:
+            meetings: Meetings
+            space_type: Partizipativer Raum
+      last_activity:
+        meeting_updated_at_html: "<span>Besprechung aktualisiert unter %{link}</span>"
+        new_meeting_at_html: "<span>Neues Treffen um %{link}</span>"
+      layouts:
+        live_event:
+          close: schließen
+          questions: Fragen
+      mailer:
+        invite_join_meeting_mailer:
+          invite:
+            subject: Einladung, an einem Meeting teilzunehmen
+        registration_mailer:
+          confirmation:
+            subject: Die Registrierung Ihrer Konferenz wurde bestätigt
+      meeting:
+        not_allowed: Sie dürfen dieses Meeting nicht sehen
+      meeting_closes:
+        edit:
+          back: Zurück
+          close: Sitzung beenden
+          title: Sitzung beenden
+      meetings:
+        calendar_modal:
+          add_to_calendar: An de Kalenner androen
+        form:
+          select_a_registration_type: Bitte wählen Sie eine Registrierungsart aus
+        index:
+          new_meeting: Nei Versammlung
+        meeting_minutes:
+          related_information: Zugehörige Informationen
+        meetings:
+          no_meetings_warning: Keine Besprechung entspricht Ihren Suchkriterien oder es ist keine Besprechung geplant.
+          upcoming_meetings_warning: Momentan gibt es keine geplanten Besprechungen, aber hier finden Sie alle aufgelisteten Besprechungen.
+        new:
+          back: Zréck
+          create: Erstellen
+          title: Ihre Besprechung erstellen
+        registration_confirm:
+          cancel: Stornieren
+          confirm: Bestätegen
+        show:
+          attendees: Teilnehmer zählen
+          back: Zurück zur Liste
+          close_meeting: Meeting beenden
+          contributions: Beiträge zählen
+          date: Datum
+          edit_meeting: Versammlung bearbeiten
+          going: Sie haben sich für diese Sitzung angemeldet
+          join: Tritt dem Treffen bei
+          leave: Registrierung stornieren
+          leave_confirmation: Sind Sie sicher dass Sie Ihre Registrierung für diese Sitzung stornieren möchten?
+          meeting_minutes: Sitzungsprotokolle
+          no_slots_available: Keine Steckplätze verfügbar
+          organizations: Teilnahme an Organisationen
+          registration_code_help_text: Ihr Registrierungscode
+          registration_state:
+            validated: GÜLTIG
+            validation_pending: Validierung ausstehend
+          view: Uweisen
+        update:
+          invalid: Beim Aktualisieren der Besprechung ist ein Fehler aufgetreten.
+          success: Sie haben die Sitzung erfolgreich aktualisiert.
+      meetings_map:
+        view_meeting: Besprechung anzeigen
+      models:
+        invite:
+          fields:
+            email: Email
+            name: Numm
+            sent_at: Gesendet um
+            status: Status
+          status:
+            accepted: Akzeptiert (%{at})
+            rejected: Zurückgewiesen (%{at})
+            sent: Geschéckt
+        meeting:
+          fields:
+            closed: Geschlossen
+            end_time: Schlussdatum
+            id: Id
+            map: Kaart
+            official_meeting: Offizielle Besprechung
+            start_time: Ufanksdatum
+            title: Titel
+    resource_links:
+      proposals_from_meeting:
+        meeting_proposal: 'Ähnliche Vorschläge:'
+        proposal_meeting: 'Ähnlech Versammlungen:'
+    statistics:
+      meetings_count: Versammlungen
+  devise:
+    mailer:
+      join_meeting:
+        subject: Einladung, an einem Meeting teilzunehmen

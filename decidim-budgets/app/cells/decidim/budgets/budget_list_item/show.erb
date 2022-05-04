@@ -1,22 +1,38 @@
-<div class="<%= card_class %>">
-  <div class="card--list__text">
+<div class="<%= card_class %> budget-list__item budget-list__item-cell">
+  <div class="budget-list__text flex-horizontal">
     <%= link_to budget_path(budget), class: link_class do %>
-      <% if voted? && !voting_finished? %>
-        <strong>
-          <%= translated_attribute(title) %>
-        </strong>
-        <span class="button tiny success card--list__check card--list__check--disabled">
+      <h3 class="card--list__heading">
+        <%= translated_attribute(title) %>
+      </h3>
+    <% end %>
+
+    <div class="heading5">
+      <strong>
+        <%= budget_to_currency(total_budget) %>
+      </strong>
+    </div>
+
+    <%= decidim_sanitize html_truncate(translated_attribute(description), length: 140) %>
+  </div>
+
+  <% if !voting_finished? %>
+    <div class="budget-list__icon mr-s">
+      <% if voted? %>
+        <span class="button tiny success card--list__check card--list__check--disabled card--list__check--inline">
           <%= icon "check", class: "icon--small", role: "img", aria_label: t("decidim.budgets.budget_list_item.voting_finished") %>
         </span>
-      <% else %>
-        <%= translated_attribute(title) %>
-
-        <% if progress? && !voting_finished? %>
-          <span class="button tiny hollow secondary card--list__check card--list__check--disabled">
-            <%= icon "bookmark", class: "icon--small", role: "img", aria_label: t("decidim.budgets.budget_list_item.voting_started") %>
-          </span>
-        <% end %>
+      <% elsif progress? %>
+        <span class="button tiny warning card--list__check card--list__check--disabled card--list__check--inline">
+          <%= icon "bookmark", class: "icon--small", role: "img", aria_label: t("decidim.budgets.budget_list_item.voting_started") %>
+        </span>
       <% end %>
+    </div>
+  <% end %>
+
+  <div class="budget-list__data">
+    <%= link_to budget_path(budget), class: "button button--sc expanded #{button_class} mb-none" do %>
+      <span><%= button_text %></span>
+      <%= icon "chevron-right", class: "icon--small", role: "img" %>
     <% end %>
   </div>
 </div>

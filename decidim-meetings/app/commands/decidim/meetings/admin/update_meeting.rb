@@ -5,7 +5,7 @@ module Decidim
     module Admin
       # This command is executed when the user changes a Meeting from the admin
       # panel.
-      class UpdateMeeting < Rectify::Command
+      class UpdateMeeting < Decidim::Command
         # Initializes a UpdateMeeting Command.
         #
         # form - The form from which to get the data.
@@ -51,7 +51,6 @@ module Decidim
             online_meeting_url: form.online_meeting_url,
             registration_type: form.registration_type,
             registration_url: form.registration_url,
-            available_slots: form.available_slots,
             type_of_meeting: form.clean_type_of_meeting,
             address: form.address,
             latitude: form.latitude,
@@ -60,8 +59,11 @@ module Decidim
             location_hints: form.location_hints,
             private_meeting: form.private_meeting,
             transparent: form.transparent,
-            customize_registration_email: form.customize_registration_email,
-            registration_email_custom_content: form.registration_email_custom_content
+            iframe_embed_type: form.iframe_embed_type,
+            comments_enabled: form.comments_enabled,
+            comments_start_time: form.comments_start_time,
+            comments_end_time: form.comments_end_time,
+            iframe_access_level: form.iframe_access_level
           )
         end
 
@@ -94,10 +96,12 @@ module Decidim
         end
 
         def schedule_upcoming_meeting_notification
+          return if meeting.start_time < Time.zone.now
+
           checksum = Decidim::Meetings::UpcomingMeetingNotificationJob.generate_checksum(meeting)
 
           Decidim::Meetings::UpcomingMeetingNotificationJob
-            .set(wait_until: meeting.start_time - 2.days)
+            .set(wait_until: meeting.start_time - Decidim::Meetings.upcoming_meeting_notification)
             .perform_later(meeting.id, checksum)
         end
       end

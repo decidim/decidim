@@ -14,7 +14,8 @@ module Decidim
         avatar: avatar,
         remove_avatar: remove_avatar,
         personal_url: personal_url,
-        about: about
+        about: about,
+        locale: "es"
       ).with_context(
         current_organization: organization,
         current_user: user
@@ -29,7 +30,7 @@ module Decidim
     let(:nickname) { "foo_bar" }
     let(:password) { "Rf9kWTqQfyqkwseH" }
     let(:password_confirmation) { password }
-    let(:avatar) { File.open("spec/assets/avatar.jpg") }
+    let(:avatar) { upload_test_file(Decidim::Dev.test_file("avatar.jpg", "image/jpeg")) }
     let(:remove_avatar) { false }
     let(:personal_url) { "http://example.org" }
     let(:about) { "This is a description about me" }

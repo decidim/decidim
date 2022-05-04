@@ -12,12 +12,13 @@ module Decidim
       include Decidim::HasAttachmentCollections
       include Decidim::HasReference
       include Decidim::Followable
-      include Decidim::Comments::Commentable
+      include Decidim::Comments::CommentableWithComponent
       include Decidim::Traceable
       include Decidim::Loggable
       include Decidim::Randomable
       include Decidim::Searchable
       include Decidim::TranslatableResource
+      include Decidim::FilterableResource
 
       translatable_fields :title, :description
 
@@ -26,7 +27,14 @@ module Decidim
       has_many :line_items, class_name: "Decidim::Budgets::LineItem", foreign_key: "decidim_project_id", dependent: :destroy
       has_many :orders, through: :line_items, foreign_key: "decidim_project_id", class_name: "Decidim::Budgets::Order"
 
-      delegate :organization, :participatory_space, to: :component
+      delegate :organization, :participatory_space, :can_participate_in_space?, to: :component
+
+      alias can_participate? can_participate_in_space?
+
+      scope :selected, -> { where.not(selected_at: nil) }
+      scope :not_selected, -> { where(selected_at: nil) }
+
+      scope_search_multi :with_any_status, [:selected, :not_selected]
 
       searchable_fields(
         scope_id: :decidim_scope_id,
@@ -41,7 +49,8 @@ module Decidim
         # delimiter. Otherwise e.g. ID 2 would match ID "26" in the original
         # array. This is why we search for match ",2," instead to get the actual
         # position for ID 2.
-        order(Arel.sql("position(concat(',', id::text, ',') in ',#{ids.join(",")},')"))
+        concat_ids = connection.quote(",#{ids.join(",")},")
+        order(Arel.sql("position(concat(',', id::text, ',') in #{concat_ids})"))
       end
 
       def self.log_presenter_class_for(_log)
@@ -54,16 +63,6 @@ module Decidim
 
       def polymorphic_resource_url(url_params)
         ::Decidim::ResourceLocatorPresenter.new([budget, self]).url(url_params)
-      end
-
-      # Public: Overrides the `commentable?` Commentable concern method.
-      def commentable?
-        component.settings.comments_enabled?
-      end
-
-      # Public: Overrides the `accepts_new_comments?` Commentable concern method.
-      def accepts_new_comments?
-        commentable? && !component.current_settings.comments_blocked
       end
 
       # Public: Overrides the `comments_have_votes?` Commentable concern method.
@@ -86,11 +85,6 @@ module Decidim
         component.settings.resources_permissions_enabled
       end
 
-      # Public: Whether the object can have new comments or not.
-      def user_allowed_to_comment?(user)
-        component.can_participate_in_space?(user)
-      end
-
       # Public: Checks if the project has been selected or not.
       #
       # Returns Boolean.
@@ -101,6 +95,35 @@ module Decidim
       # Public: Returns the attachment context for this record.
       def attachment_context
         :admin
+      end
+
+      ransacker :id_string do
+        Arel.sql(%{cast("decidim_budgets_projects"."id" as text)})
+      end
+
+      # Create i18n ransackers for :title and :description.
+      # Create the :search_text ransacker alias for searching from both of these.
+      ransacker_i18n_multi :search_text, [:title, :description]
+
+      ransacker :selected do
+        Arel.sql(%{("decidim_budgets_projects"."selected_at")::text})
+      end
+
+      ransacker :confirmed_orders_count do
+        query = <<-SQL.squish
+        (
+            SELECT COUNT(decidim_budgets_line_items.decidim_order_id)
+            FROM decidim_budgets_line_items
+            LEFT JOIN decidim_budgets_orders ON decidim_budgets_orders.id = decidim_budgets_line_items.decidim_order_id
+            WHERE decidim_budgets_orders.checked_out_at IS NOT NULL
+            AND decidim_budgets_projects.id = decidim_budgets_line_items.decidim_project_id
+        )
+        SQL
+        Arel.sql(query)
+      end
+
+      def self.ransackable_scopes(_auth_object = nil)
+        [:with_any_status, :with_any_scope, :with_any_category]
       end
     end
   end

@@ -269,8 +269,8 @@ cs:
             title: Volba vytvořena
             trustees: Důvěrníci
           key_ceremony:
+            continue: Pokračovat
             title: Slavnostní ceremoniál
-            trustees: Důvěrníci
           key_ceremony_ended:
             errors:
               time_before: Volby jsou připraveny k zahájení. Musíte počkat %{hours} hodin před začátkem období hlasování (%{start_time}).
@@ -290,8 +290,14 @@ cs:
             submit: Odeslat
             title: Výsledky publikovány
           tally:
+            continue: Pokračovat
+            invalid: Došlo k problému s nahlášením chybějícího důvěrníka
+            mark_as_missing: Označit jako chybějící
+            mark_as_missing_description: Tohoto procesu by se měli účastnit všichni důvěrníci, ale pokud se některý důvěrník nemůže procesu účastnit, můžete ho označit jako chybějícího.
+            success: Zpráva o chybějícím důvěrníkovi byla úspěšně odeslána na vývěsku
+            tally_completion: Proces bude dokončen, jakmile budou všichni důvěrníci aktivní nebo budou označeni jako chybějící. K dokončení procesu je zapotřebí alespoň %{quorum} důvěrníků.
             title: Proces volebního přepočítání
-            trustees: Volební důvěrníci
+            undo_mark_as_missing: Správce, který byl omylem označen jako chybějící, se bude moci zúčastnit před dokončením procesu. Může postupovat jako obvykle a chybějící označení bude ignorováno.
           tally_ended:
             answer: Odpověď
             not_selected: Nevybráno
@@ -344,14 +350,20 @@ cs:
             success: Důvěrník %{trustee} úspěšně aktualizován
       admin_log:
         election:
-          end_vote: "%{user_name} ukončil hlasovací období pro volby v %{resource_name} na Vývěsce"
-          publish: "%{user_name} zveřejnil volby %{resource_name}"
-          publish_results: "%{user_name} zveřejnil výsledky voleb %{resource_name} na volební vývěsce"
-          setup: "%{user_name} vytvořil %{resource_name} volby na Vývěsce"
-          start_key_ceremony: "%{user_name} zahájil Úvodní volební ceremoniál na Vývěsce %{resource_name}"
-          start_tally: "%{user_name} zahájil Volební přepočítání pro volby v %{resource_name} na Vývěsce"
-          start_vote: "%{user_name} zahájil hlasovací období pro volby %{resource_name} na Vývěsce"
-          unpublish: "%{user_name} zrušil zveřejnění volby %{resource_name}"
+          create: "%{user_name} vytvořil volby %{resource_name} z %{space_name}"
+          delete: "%{user_name} odstranil volby %{resource_name} ze %{space_name}"
+          end_vote: "%{user_name} ukončil hlasovací období pro zvolení %{resource_name} ve %{space_name} na Vývěsce"
+          publish: "%{user_name} publikoval volbu %{resource_name} z %{space_name}"
+          publish_results: "%{user_name} zveřejnil výsledky voleb %{resource_name} v %{space_name} na Vývěsce"
+          report_missing_trustee: "%{user_name} nahlásil %{trustee_name} jako chybějícího správce během volby %{resource_name} %{space_name} na Vývěsce"
+          setup: "%{user_name} vytvořil volbu %{resource_name} z %{space_name} na Vývěsce"
+          start_key_ceremony: "%{user_name} zahájil klíčový ceremoniál pro volby %{resource_name} z %{space_name} na Vývěsce"
+          start_tally: "%{user_name} zahájil volební přepočítání pro volby %{resource_name} %{space_name} na Vývěsce"
+          start_vote: "%{user_name} zahájil hlasovací období pro volby %{resource_name} z %{space_name} na Vývěsce"
+          unpublish: "%{user_name} zrušil publikaci %{resource_name} z volby %{space_name}"
+          update: "%{user_name} aktualizoval volbu %{resource_name} z %{space_name}"
+        trustee:
+          create: "%{user_name} přiřadil uživatele %{trustee_user} jako důvěrníka"
       election_m:
         badge_name:
           finished: Dokončeno
@@ -426,9 +438,9 @@ cs:
         filters:
           active: Aktivní
           all: Vše
+          date: Datum
           finished: Dokončeno
           search: Hledat
-          state: Stav
           upcoming: Nadcházející
         filters_small_view:
           close_modal: Zavřít okno
@@ -588,15 +600,15 @@ cs:
               generate_legend_3: Ujistěte se, že váš počítač nemá kopii souboru (např. zkontrolujte složky Stahování a plocha).
               generate_legend_4: Vytvořit další kopii souboru na jiném externím zařízení a uložit jej na velmi bezpečném místě.
               submit: Odeslat
-              submit_legend: Po splnění všech výše uvedených kroků dokončete proces odesílání veřejného identifikačního klíče na server Decidim.
+              submit_legend: Po splnění všech výše uvedených kroků dokončete proces odesílání veřejného identifikačního klíče na server.
               submit_title: Odeslat veřejný identifikační klíč
               title: Identifikační klíče důvěrníka
               upload: Nahrajte své identifikační klíče
               upload_error:
                 invalid_format: Nahraný soubor neobsahuje žádný identifikační klíč.
                 invalid_key: Identifikační klíče v nahraném souboru nelze načíst.
-                invalid_public_key: Identifikační klíče v nahraném souboru neodpovídají veřejnému identifikačnímu klíči uloženému v Decidim.
-              upload_legend: Decidim má vaše veřejné identifikační klíče, ale váš prohlížeč jej stále nemá. Je třeba importovat soubor s identifikačními klíči do počítače ze zálohy, kterou jste vytvořili po jejich vygenerování.
+                invalid_public_key: Identifikační klíče v nahraném souboru neodpovídají uloženému veřejnému identifikačnímu klíči.
+              upload_legend: Server má vaše veřejné identifikační klíče, ale váš prohlížeč jej stále nemá. Je třeba importovat soubor s identifikačními klíči do počítače ze zálohy, kterou jste vytvořili po jejich vygenerování.
             not_supported_browser_description: Vypadá to, že používáte webový prohlížeč, který nelze použít jako správce. Ujistěte se, že používáte nejnovější verzi prohlížeče, nebo zkuste použít některý z nejpopulárnějších prohlížečů, abyste mohli dokončit své úkoly správce.
             not_supported_browser_title: Upgradujte prohlížeč abyste mohl fungovat jako důvěrník
             trustee_role_description: Byl jste pověřen, abyste v některých volbách, které na této platformě probíhají, jednal jako důvěrník.
@@ -663,9 +675,9 @@ cs:
         onboarding_modal:
           close: Zavřít okno
           create_account: Vytvořit účet
-          description: Chcete si vytvořit nový účet v Decidimu? Budete se moci účastnit procesů a být aktivní součástí organizace.
+          description: Chcete vytvořit nový účet na platformě? Budete se moci účastnit procesů a být aktivní součástí organizace.
           no_account: Ne, děkuji.
-          title: Jste v Decidim poprvé?
+          title: Jste na platformě nový?
         update:
           error: Při aktualizaci statusu hlasování se vyskytl problém. Prosím, hlasujte znovu.
         verify:
@@ -676,7 +688,7 @@ cs:
             header: Hlasování nenalezeno!
             info: Kód hlasu nebyl nalezen v %{link} volebních urnám, zkuste to znovu.
           form:
-            back: Zpět na Deidim
+            back: Zpět na platformu
             submit: Ověřit
             vote_identifier: 'Identifikační kód:'
           header:
@@ -993,7 +1005,7 @@ cs:
             assign_missing_officers: Existují volební místnosti bez předsedy a/nebo manažerů. Prosím, přiřaďte je ze sekce volebních místností
             update: Aktualizovat
           form:
-            census_contact_information_help: Tato kontaktní informace je určena pro účastníka, který chce nahlásit problémy se sčítáním. Může to být e-mailová adresa, kontaktní formulář na jiné stránce, anketa Decidim pro návštěvníky, atd.
+            census_contact_information_help: Tato kontaktní informace je určena pro účastníka, který chce nahlásit problémy se sčítáním. Může to být e-mailová adresa, kontaktní formulář na jiné stránce, průzkum pro návštěvníky atd.
             select_a_voting_type: Vyberte prosím typ hlasování
             slug_help: 'URL slugů se používají k generování URL, které odkazují na toto hlasování. přijímá pouze písmena, čísla a pomlčky a musí začínat písmenem. Příklad: %{url}'
             title: Název
@@ -1012,6 +1024,24 @@ cs:
             invalid: Při aktualizaci tohoto hlasování došlo k chybě
             success: Hlasování bylo úspěšně aktualizováno
       admin_log:
+        ballot_style:
+          create: "%{user_name} vytvořil styl voleb s kódem %{ballot_style_code} ve %{space_name}"
+          delete: "%{user_name} odstranil styl voleb s kódem %{ballot_style_code} ve %{space_name}"
+          update: "%{user_name} aktualizoval styl voleb s kódem %{ballot_style_code} ve %{space_name}"
+        census:
+          create: "%{user_name} vytvořil sčítání pro %{space_name}"
+          delete: "%{user_name} odstranil sčítání pro %{space_name}"
+          update: "%{user_name} aktualizoval sčítání pro %{space_name}"
+        monitoring_committee_member:
+          create: "%{user_name} přiřadil uživatele %{monitoring_committee_member_user} jako člena monitorovacího výboru ve %{space_name}"
+          delete: "%{user_name} odebral uživatele %{monitoring_committee_member_user} jako člena monitorovacího výboru ve %{space_name}"
+        polling_officer:
+          create: "%{user_name} přiřadil uživatele %{polling_officer_user} jako volebního úředníka ve %{space_name}"
+          delete: "%{user_name} zrušil přiřazení uživatele %{polling_officer_user} jako volebního úředníka ve %{space_name}"
+        polling_station:
+          create: "%{user_name} vytvořil hlasovací místo %{resource_name} ve %{space_name}"
+          delete: "%{user_name} odstranil hlasovací místo %{resource_name} ve %{space_name}"
+          update: "%{user_name} aktualizoval hlasovací místo %{resource_name} ve %{space_name}"
         voting:
           create: "%{user_name} vytvořil %{resource_name} hlasování"
           publish: "%{user_name} zveřejnil %{resource_name} hlasování"
@@ -1021,7 +1051,7 @@ cs:
           census:
             create:
               invalid: Při nahrávání seznamu osob došlo k chybě, opakujte akci později.
-              invalid_csv_header: Záhlaví CSV nemá správný počet polí - přečtěte si prosím pečlivě pokyny
+              invalid_csv_header: Hlavičky CSV chybí nebo nejsou správné - přečtěte si prosím pečlivě pokyny
             creating_data:
               info_message: "<strong>Počkejte prosím</strong>, zpracováno %{processed_count} z %{raw_count} řádků ze souboru %{file}."
             delete:
@@ -1087,6 +1117,7 @@ cs:
           description:
             show_less: Číst méně
             show_more: Přečtěte si více
+            title: O tomto hlasování
           metrics:
             heading: Metriky
           polling_stations:
@@ -1300,9 +1331,9 @@ cs:
         filters:
           active: Aktivní
           all: Vše
+          date: Datum
           finished: Dokončeno
           search: Hledat
-          state: Stav
           upcoming: Nadcházející
         filters_small_view:
           close_modal: Zavřít modal

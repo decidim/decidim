@@ -35,6 +35,11 @@ shared_examples "with promoted participatory processes and groups" do
         organization: organization
       )
 
+      _external_promoted_group = create(
+        :participatory_process_group,
+        :promoted
+      )
+
       expect(controller.helpers.promoted_collection).to(
         match_array([promoted_group, promoted_process])
       )

@@ -3,7 +3,7 @@
 module Decidim
   module Debates
     # A command with all the business logic when a user updates a debate.
-    class UpdateDebate < Rectify::Command
+    class UpdateDebate < Decidim::Command
       # Public: Initializes the command.
       #
       # form         - A form object with the params.

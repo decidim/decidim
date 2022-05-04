@@ -21,6 +21,12 @@ module Decidim
       def meetings
         model
       end
+
+      private
+
+      def cache_hash
+        nil
+      end
     end
   end
 end

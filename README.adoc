@@ -1,5 +1,3 @@
-:doctype: book
-
 image::https://cdn.rawgit.com/decidim/decidim/develop/logo.svg[Decidim Logo,400]
 
 The participatory democracy framework.
@@ -15,7 +13,7 @@ All members of the Decidim community agree with http://www.decidim.org/contract/
 
 '''
 
-image:https://img.shields.io/gem/v/decidim.svg[Gem,link=https://rubygems.org/gems/decidim] image:https://img.shields.io/gem/dt/decidim.svg[Gem,link=https://rubygems.org/gems/decidim] image:https://img.shields.io/github/contributors/decidim/decidim.svg[GitHub contributors,link=https://github.com/decidim/decidim/graphs/contributors] image:http://img.shields.io/badge/yard-docs-blue.svg[Yard Docs,link=http://rubydoc.info/github/decidim/decidim/master] image:https://img.shields.io/gitter/room/nwjs/nw.js.svg[Gitter,link=https://gitter.im/decidim/decidim]
+image:https://img.shields.io/gem/v/decidim.svg[Gem,link=https://rubygems.org/gems/decidim] image:https://img.shields.io/gem/dt/decidim.svg[Gem,link=https://rubygems.org/gems/decidim] image:https://img.shields.io/github/contributors/decidim/decidim.svg[GitHub contributors,link=https://github.com/decidim/decidim/graphs/contributors] image:http://img.shields.io/badge/yard-docs-blue.svg[Yard Docs,link=http://rubydoc.info/github/decidim/decidim/master] image:https://img.shields.io/matrix/decidimdevs:matrix.org[Matrix,link=https://matrix.to/#/#decidimdevs:matrix.org]
 
 Code quality
 
@@ -85,60 +83,29 @@ If you need to have some features that we don't have yet, we recommend that you 
 This is a Ruby on Rails engine with some APIs specific to Decidim (for registering with the menus, integration with spaces like Participatory Processes or Assemblies, with /admin or /api, etc).
 
 As a base you can use these modules, although check first that the version is compatible with your current Decidim version.
-Also you should know that until v1.0.0 We're under development and these internal APIs can change.
+Also, you should know that until v1.0.0 We're under development, and these internal APIs can change.
+
 We recommend that you extensively test your module.
 
 See https://decidim.org/modules[Modules page on Decidim.org].
 
 === Authorizations Strategies
 
-One specific thing regarding these kind of applications is the xref:decidim-verifications/README.adoc[authorization/verification] logic.
-Here are some examples:
-
-- https://github.com/AjuntamentdeBarcelona/decidim-barcelona/blob/master/app/services/census_authorization_handler.rb[Barcelona (City)]
-- https://github.com/AjuntamentdeCalafell/decidim-calafell/blob/master/app/services/census_authorization_handler.rb[Calafell]
-- https://github.com/diputacioBCN/decidim-diba/blob/master/decidim-diba_census_api/app/services/diba_census_api_authorization_handler.rb[DIBA (Barcelona Province)]
-- https://github.com/AjuntamentDeGava/decidim-gava/blob/master/app/services/census_authorization_handler.rb[Gavà]
-- https://github.com/HospitaletDeLlobregat/decidim-hospitalet/blob/master/app/services/census_authorization_handler.rb[Hospitalet de Llobregat]
-- https://github.com/AjMalgrat/decidim-malgrat/blob/master/app/services/carpetaciutada_handler.rb[Malgrat de Mar]
-- https://github.com/AjuntamentDeMataro/decidimmataro.cat/blob/master/app/services/census_authorization_handler.rb[Mataró]
-- https://github.com/ErabakiPamplona/erabaki/blob/master/app/services/census_authorization_handler.rb[Pamplona]
-- https://github.com/AjuntamentdeReus/decidim/blob/master/app/services/census_authorization_handler.rb[Reus]
-- https://github.com/AjuntamentDeSabadell/decidim-sabadell/blob/master/app/services/census_authorization_handler.rb[Sabadell]
-- https://github.com/AjuntamentdeSantCugat/decidim-sant_cugat/blob/master/app/services/census_authorization_handler.rb[Sant Cugat]
-- https://github.com/AjuntamentDeTerrassa/decidim-terrassa/blob/master/app/services/census_authorization_handler.rb[Terrassa]
-- https://github.com/vilanovailageltru/decidim-vilanova/blob/master/app/services/vilanova_authorization_handler.rb[Vilanova i la Geltrú]
-
-Other special verifications:
-
-- https://github.com/podemos-info/participa2/tree/master/decidim-module-census_connector[Podemos]
-- https://github.com/ElectricThings/fund_action/blob/master/app/services/anybody_authorization_handler.rb[FundAction]
-- https://github.com/CodiTramuntana/decidim-verifications-csv_emails[CSV emails]
-- https://github.com/mainio/decidim-module-access_requests[Access Requests]
+One specific thing regarding these kind of applications is the authorization or verification logic. This tries to solve the problem of how to verify that the user is who they say they are and that they have the right to participate in this city or organization. Read more about https://docs.decidim.org/en/customize/authorizations/[Authorizations] in our documentation.
 
 == Following our license
 
-If you plan to release your application you'll need to publish it using the same license: GPL Affero 3.
-We recommend doing that on GitHub before publishing, you can read more on "http://producingoss.com/en/governments-and-open-source.html#starting-open-for-govs[Being Open Source From Day One is Especially Important for Government Projects]".
-If you have any trouble you can contact us on https://gitter.im/decidim/decidim[Gitter].
+If you plan to put your application in production, you'll need to publish it using the same license: GPL Affero 3.
+
+We recommend doing that on GitHub (or any other code hosting platform) before publishing.
+
+You can read more on "http://producingoss.com/en/governments-and-open-source.html#starting-open-for-govs[Being Open Source From Day One is Especially Important for Government Projects]".
+
+If you have any trouble you can contact us on https://app.element.io/#/room/#decidimdevs:matrix.org[our Matrix.org chat room for developers].
 
 == Example applications
 
-Since Decidim is a ruby gem, you can check out the https://github.com/decidim/decidim/network/dependents?type=application[dependent repositories] to see how many applications are on the wild or tests that other developers have made.
-Here's a partial list with some of the projects that have used Decidim:
-
-- http://staging.decidim.codegram.com[Demo]
-- https://decidim.barcelona[Decidim Barcelona] - https://github.com/AjuntamentdeBarcelona/decidim-barcelona[View code]
-- https://www.lhon-participa.cat[L'H ON Participa] - https://github.com/HospitaletDeLlobregat/decidim-hospitalet[View code]
-- https://participa.terrassa.cat[Decidim Terrassa] - https://github.com/AjuntamentDeTerrassa/decidim-terrassa[View code]
-- https://decidim.sabadell.cat[Decidim Sabadell] - https://github.com/AjuntamentDeSabadell/decidim-sabadell[View code]
-- https://participa.gavaciutat.cat[Decidim Gavà] - https://github.com/AjuntamentDeGava/decidim-gava[View code]
-- https://dialogluzern.ch[Dialog Luzern] - https://github.com/stadtluzern/decidim-ocl[View code]
-- https://decidim.santcugat.cat/[Decidim Sant Cugat] - https://github.com/AjuntamentdeSantCugat/decidim-sant_cugat[View code]
-- http://participa.vilanova.cat[Vilanova Participa] - https://github.com/vilanovailageltru/decidim-vilanova[View code]
-- https://erabaki.pamplona.es[Erabaki Pamplona] - https://github.com/ErabakiPamplona/erabaki[View code]
-- https://www.decidimmataro.cat[Decidim Mataró] - https://github.com/AjuntamentDeMataro/decidim-mataro[View code]
-- https://meta.decidim.barcelona/[MetaDecidim] - https://github.com/decidim/metadecidim[View Code]
+Since Decidim is a ruby gem, you can check out the https://github.com/decidim/decidim/network/dependents?type=application[dependent repositories] to see how many applications are on the wild or tests that other developers have made. You can see a highlight of https://docs.decidim.org/en/develop/guide_example_apps/[example applications] in our documentation.
 
 == Security
 

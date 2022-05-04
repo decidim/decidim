@@ -3,8 +3,8 @@
 module Decidim
   module Votings
     module Admin
-      # A class used to find the admins for a voting including organization admins.
-      class AdminUsers < Rectify::Query
+      # A class used to find the admins for a voting or an organization votings.
+      class AdminUsers < Decidim::Query
         # Syntactic sugar to initialize the class and return the queried objects.
         #
         # voting - a voting that needs to find its voting admins
@@ -12,27 +12,32 @@ module Decidim
           new(voting).query
         end
 
-        # Initializes the class.
+        # Syntactic sugar to initialize the class and return the queried objects.
         #
-        # voting - a voting that needs to find its process admins
-        def initialize(voting)
-          @voting = voting
+        # organization - an organization that needs to find its voting admins
+        def self.for_organization(organization)
+          new(nil, organization).query
         end
 
-        # Finds organization admins and the users with role admin for the given process.
+        # Initializes the class.
+        #
+        # voting - a voting that needs to find its voting admins
+        # organization - an organization that needs to find its voting admins
+        def initialize(voting, organization = nil)
+          @voting = voting
+          @organization = voting&.organization || organization
+        end
+
+        # Finds organization admins and the users with role admin for the given voting.
         #
         # Returns an ActiveRecord::Relation.
         def query
-          Decidim::User.where(id: organization_admins)
+          organization.admins
         end
 
         private
 
-        attr_reader :voting
-
-        def organization_admins
-          voting.organization.admins
-        end
+        attr_reader :voting, :organization
       end
     end
   end

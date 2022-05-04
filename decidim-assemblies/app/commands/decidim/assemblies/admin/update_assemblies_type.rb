@@ -5,7 +5,7 @@ module Decidim
     module Admin
       # A command with all the business logic when updating a new assembly
       # type in the system.
-      class UpdateAssembliesType < Rectify::Command
+      class UpdateAssembliesType < Decidim::Command
         # Public: Initializes the command.
         #
         # assemblies_type - A assemblies_type object to update.

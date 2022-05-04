@@ -69,7 +69,7 @@ $palette: (
 
   @if $dir == row{
     & > *{
-      margin: 0 $gap/2;
+      margin: 0 $gap*.5;
     }
 
     & > :first-child{
@@ -82,7 +82,7 @@ $palette: (
   }
   @else if $dir == column{
     & > *{
-      margin: $gap/2 0;
+      margin: $gap*.5 0;
     }
 
     & > :first-child{
@@ -95,7 +95,7 @@ $palette: (
   }
   @else if $dir == row-reverse{
     & > *{
-      margin: 0 $gap/2;
+      margin: 0 $gap*.5;
     }
 
     & > :last-child{
@@ -108,7 +108,7 @@ $palette: (
   }
   @else if $dir == column-reverse{
     & > *{
-      margin: $gap/2 0;
+      margin: $gap*.5 0;
     }
 
     & > :last-child{
@@ -146,7 +146,7 @@ $palette: (
 
   box-sizing: border-box;
   border-radius: 50%;
-  border: floor(($size / 8)) solid $orbit;
+  border: floor(($size * .125)) solid $orbit;
   border-right-color: $satellite;
   display: inline-block;
   position: relative;

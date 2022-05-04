@@ -24,16 +24,37 @@ describe "Admin views proposal details from admin", type: :system do
   end
 
   describe "with authors" do
-    it "has a link to each author profile" do
-      go_to_admin_proposal_page(proposal)
+    context "when the proposal's author is other user" do
+      let!(:other_user) { create(:user, organization: current_component.organization) }
+      let!(:proposal) { create :proposal, component: current_component, users: [other_user] }
 
-      within "#proposal-authors-list" do
-        proposal.authors.each do |author|
-          list_item = find("li", text: author.name)
+      it "has a link to each author profile" do
+        go_to_admin_proposal_page(proposal)
 
-          within list_item do
-            expect(page).to have_selector("a", text: author.name)
-            expect(page).to have_selector(:xpath, './/a[@title="Contact"]')
+        within "#proposal-authors-list" do
+          proposal.authors.each do |author|
+            list_item = find("li", text: author.name)
+
+            within list_item do
+              expect(page).to have_selector("a", text: author.name)
+              expect(page).to have_selector(:xpath, './/a[@title="Contact"]')
+            end
+          end
+        end
+      end
+    end
+
+    context "when the proposal's author is current user" do
+      it "has a link to each author profile" do
+        go_to_admin_proposal_page(proposal)
+
+        within "#proposal-authors-list" do
+          proposal.authors.each do |author|
+            list_item = find("li", text: author.name)
+
+            within list_item do
+              expect(page).to have_selector("a", text: author.name)
+            end
           end
         end
       end
@@ -169,7 +190,9 @@ describe "Admin views proposal details from admin", type: :system do
 
   context "with related meetings" do
     let(:meeting_component) { create :meeting_component, participatory_space: participatory_process }
-    let(:meeting) { create :meeting, component: meeting_component }
+    let(:meeting) { create :meeting, :published, component: meeting_component }
+    let(:moderated_meeting) { create :meeting, component: meeting_component }
+    let!(:moderation) { create(:moderation, reportable: moderated_meeting) }
 
     it "lists the related meetings" do
       proposal.link_resources(meeting, "proposals_from_meeting")
@@ -177,6 +200,17 @@ describe "Admin views proposal details from admin", type: :system do
 
       within "#related-meetings" do
         expect(page).to have_selector("a", text: translated(meeting.title))
+      end
+    end
+
+    it "hides the moderated related meeting" do
+      proposal.link_resources(moderated_meeting, "proposals_from_meeting")
+      moderation.update(hidden_at: Time.current)
+
+      go_to_admin_proposal_page(proposal)
+
+      within "#related-meetings" do
+        expect(page).not_to have_selector("a", text: translated(moderated_meeting.title))
       end
     end
   end
@@ -196,6 +230,7 @@ describe "Admin views proposal details from admin", type: :system do
   context "with attached photos" do
     it "lists the documents" do
       image = create :attachment, :with_image, attached_to: proposal
+      image.reload
       go_to_admin_proposal_page(proposal)
 
       within "#photos" do

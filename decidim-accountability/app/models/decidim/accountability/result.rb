@@ -12,13 +12,14 @@ module Decidim
       include Decidim::ScopableResource
       include Decidim::HasCategory
       include Decidim::HasReference
-      include Decidim::Comments::Commentable
+      include Decidim::Comments::CommentableWithComponent
       include Decidim::Traceable
       include Decidim::Loggable
       include Decidim::DataPortability
       include Decidim::Randomable
       include Decidim::Searchable
       include Decidim::TranslatableResource
+      include Decidim::FilterableResource
 
       component_manifest_name "accountability"
 
@@ -66,16 +67,6 @@ module Decidim
         save!
       end
 
-      # Public: Overrides the `commentable?` Commentable concern method.
-      def commentable?
-        component.settings.comments_enabled?
-      end
-
-      # Public: Overrides the `accepts_new_comments?` Commentable concern method.
-      def accepts_new_comments?
-        commentable? && !component.current_settings.comments_blocked
-      end
-
       # Public: Overrides the `comments_have_alignment?` Commentable concern method.
       def comments_have_alignment?
         true
@@ -86,19 +77,22 @@ module Decidim
         true
       end
 
-      # Public: Whether the object can have new comments or not.
-      def user_allowed_to_comment?(user)
-        can_participate_in_space?(user)
+      # Public: Overrides the `allow_resource_permissions?` Resourceable concern method.
+      def allow_resource_permissions?
+        true
+      end
+
+      def self.ransackable_scopes(_auth_object = nil)
+        [:with_category, :with_scope]
       end
 
       ransacker :id_string do
         Arel.sql(%{cast("decidim_accountability_results"."id" as text)})
       end
 
-      # Allow ransacker to search for a key in a hstore column (`title`.`en`)
-      ransacker :title do |parent|
-        Arel::Nodes::InfixOperation.new("->>", parent.table[:title], Arel::Nodes.build_quoted(I18n.locale.to_s))
-      end
+      # Create i18n ransackers for :title and :description.
+      # Create the :search_text ransacker alias for searching from both of these.
+      ransacker_i18n_multi :search_text, [:title, :description]
 
       private
 

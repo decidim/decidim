@@ -1,7 +1,7 @@
 <% add_decidim_page_title(translated_attribute(current_component.name)) if try(:current_component) %>
 <% add_decidim_page_title(translated_attribute(current_participatory_space.title)) %>
 <% add_decidim_meta_tags(
-  image_url: current_participatory_space.banner_image.url,
+  image_url: current_participatory_space.attached_uploader(:banner_image).path,
   description: translated_attribute(current_participatory_space.short_description),
 ) %>
 
@@ -24,4 +24,4 @@
   <% end %>
 <% end %>
 
-<% provide :meta_image_url, current_participatory_space.banner_image.url %>
+<% provide :meta_image_url, current_participatory_space.attached_uploader(:banner_image).path %>

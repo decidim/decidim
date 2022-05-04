@@ -4,7 +4,7 @@ module Decidim
   module Consultations
     module Admin
       # A command with all the business logic when creating a new response
-      class CreateResponse < Rectify::Command
+      class CreateResponse < Decidim::Command
         # Public: Initializes the command.
         #
         # form - A form object with the params.

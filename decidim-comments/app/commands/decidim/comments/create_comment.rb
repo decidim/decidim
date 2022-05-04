@@ -3,7 +3,7 @@
 module Decidim
   module Comments
     # A command with all the business logic to create a new comment
-    class CreateComment < Rectify::Command
+    class CreateComment < Decidim::Command
       # Public: Initializes the command.
       #
       # form - A form object with the params.
@@ -39,7 +39,8 @@ module Decidim
           root_commentable: root_commentable(form.commentable),
           body: { I18n.locale => parsed.rewrite },
           alignment: form.alignment,
-          decidim_user_group_id: form.user_group_id
+          decidim_user_group_id: form.user_group_id,
+          participatory_space: form.current_component.try(:participatory_space)
         }
 
         @comment = Decidim.traceability.create!(

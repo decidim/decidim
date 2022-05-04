@@ -15,22 +15,18 @@ module Decidim
                  class_name: "Decidim::Votings::Census::Datum",
                  dependent: :destroy
 
+        has_one_attached :access_codes_file
+
         delegate :organization, to: :voting
 
         enum status: [:init_data, :creating_data, :data_created, :generating_codes, :codes_generated, :exporting_codes, :freeze]
 
         validates :file, presence: true
 
+        alias participatory_space voting
+
         def self.log_presenter_class_for(_log)
           Decidim::Votings::Census::AdminLog::DatasetPresenter
-        end
-
-        # Caches a Decidim::VotingCensusUploader with the retrieved file.
-        def access_codes_file(filename)
-          @access_codes_file ||= VotingCensusUploader.new(self).tap do |uploader|
-            uploader.retrieve_from_store!(filename)
-            uploader.cache!(filename)
-          end
         end
       end
     end

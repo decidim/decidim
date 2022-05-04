@@ -5,7 +5,7 @@ module Decidim
     module Admin
       # This command is executed when the user changes a Page from the admin
       # panel.
-      class UpdatePage < Rectify::Command
+      class UpdatePage < Decidim::Command
         # Initializes a UpdatePage Command.
         #
         # form - The form from which to get the data.

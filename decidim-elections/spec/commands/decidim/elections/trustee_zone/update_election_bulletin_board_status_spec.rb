@@ -38,8 +38,9 @@ describe Decidim::Elections::TrusteeZone::UpdateElectionBulletinBoardStatus do
 
   context "when the new election status is tally_ended" do
     let(:election) { create :election, :complete, bb_status: required_status }
-    let(:required_status) { :tally }
+    let(:required_status) { :tally_started }
     let(:new_status) { :tally_ended }
+    let(:bullettin_board_server) { "https://my-bb.com" }
     let(:election_results_response) do
       {
         election_results: {
@@ -59,13 +60,14 @@ describe Decidim::Elections::TrusteeZone::UpdateElectionBulletinBoardStatus do
 
     before do
       allow(Decidim::Elections.bulletin_board).to receive(:get_election_results).and_return(election_results_response)
+      allow(Decidim::Elections.bulletin_board).to receive(:bulletin_board_server).and_return(bullettin_board_server)
     end
 
     it "updates the election verifiable results data" do
       subject.call
       election.reload
 
-      expect(election.verifiable_results_file_url).to eq "some-url"
+      expect(election.verifiable_results_file_url).to eq "https://my-bb.com/some-url"
       expect(election.verifiable_results_file_hash).to eq "some-hash"
     end
 

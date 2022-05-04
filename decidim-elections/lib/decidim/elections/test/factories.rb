@@ -70,7 +70,7 @@ FactoryBot.define do
 
     trait :ready_for_setup do
       transient do
-        trustee_keys { 2.times.map { [Faker::Name.name, generate(:private_key).export.to_json] }.to_h }
+        trustee_keys { 3.times.map { [Faker::Name.name, generate(:private_key).export.to_json] }.to_h }
       end
 
       upcoming
@@ -124,13 +124,13 @@ FactoryBot.define do
       end
     end
 
-    trait :tally do
+    trait :tally_started do
       vote_ended
-      bb_status { "tally" }
+      bb_status { "tally_started" }
     end
 
     trait :tally_ended do
-      tally
+      tally_started
       bb_status { "tally_ended" }
       verifiable_results_file_hash { SecureRandom.hex(32) }
       verifiable_results_file_url { Faker::Internet.url }
@@ -315,7 +315,7 @@ FactoryBot.define do
     end
 
     public_key { nil }
-    user { build(:user, organization: organization) }
+    user { build(:user, :confirmed, organization: organization) }
     organization { create(:organization) }
 
     trait :considered do

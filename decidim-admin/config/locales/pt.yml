@@ -24,12 +24,17 @@ pt:
       component:
         name: Nome
         published_at: Publicado em
+        weight: Posição do pedido
       id: ID
+      import:
+        user_group_id: Criar importações como
       newsletter:
         body: Corpo
         subject: Assunto
       organization:
+        admin_terms_of_use_body: Corpo para os termos de utilização do administrador
         alert_color: Alerta
+        available_authorizations: Autorizações disponíveis
         badges_enabled: Ativar distintivos
         comments_max_length: Comprimento máximo dos comentários (Deixar 0 para o valor predefinido)
         cta_button_path: Caminho do botão Chamar para Ação
@@ -38,8 +43,11 @@ pt:
         default_locale: Idioma por defeito
         description: Descrição
         enable_omnipresent_banner: Mostrar faixa omnipresente
+        enable_participatory_space_filters: Activar filtros do espaço participativo
         facebook_handler: Manipulador do Facebook
         favicon: Ícone
+        force_authentication: Forçar autenticação
+        force_users_to_authenticate_before_access_organization: Forçar usuários a autenticar antes de aceder à organização
         from: Endereço de e-mail do remetente
         github_handler: GitHub handler
         header_snippets: Snippets de cabeçalho
@@ -52,8 +60,12 @@ pt:
         highlighted_content_banner_image: Imagem
         highlighted_content_banner_short_description: Pequena descrição
         highlighted_content_banner_title: Título
+        host: Anfitrião
         instagram_handler: Instagram handler
         logo: Logótipo
+        machine_translation_display_priority: Prioridade de apresentação de tradução automática
+        machine_translation_display_priority_original: Texto original primeiro
+        machine_translation_display_priority_translation: Texto traduzido primeiro
         name: Nome
         official_img_footer: Logótipo oficial do rodapé
         official_img_header: Logótipo oficial do cabeçalho
@@ -61,16 +73,21 @@ pt:
         omnipresent_banner_short_description: Pequena descrição
         omnipresent_banner_title: Título
         omnipresent_banner_url: URL
+        organization_admin_email: E-mail do administrador da organização
+        organization_admin_name: Nome do administrador da organização
+        organization_locales: Localidades da organização
         primary_color: Primário
         reference_prefix: Prefixo de referência
         rich_text_editor_in_public_views: Ativar o editor de texto avançado para os participantes
         secondary_color: Secundário
+        secondary_hosts: Anfitriões secundários
         send_welcome_notification: Enviar notificação de boas-vindas
         success_color: Sucesso
         time_zone: Fuso Horário
         tos_version: Versão dos termos de serviço
         twitter_handler: Manipulador do Twitter
         user_groups_enabled: Ativar grupos
+        users_registration_mode: Modo de registo dos utilizadores
         warning_color: Aviso
         welcome_notification_body: Corpo da notificação de boas-vindas
         welcome_notification_subject: Assunto da notificação de boas-vindas
@@ -86,17 +103,22 @@ pt:
         name: Nome
         organization: Organização
         plural: Plural
+      settings:
+        scope_id: Âmbito
       static_page:
+        allow_public_access: Permitir acesso sem autenticação
         changed_notably: Ocorreram mudanças notáveis.
         content: Conteúdo
         organization: Organização
         show_in_footer: Mostrar no rodapé
         slug: Texto curto de URL
         title: Título
+        weight: Posição do pedido
       static_page_topic:
         description: Descrição
         show_in_footer: Mostrar no rodapé
         title: Título
+        weight: Posição do pedido
       user_group_csv_verification:
         file: Ficheiro
     errors:
@@ -107,6 +129,10 @@ pt:
               allowed_file_content_types: Ficheiro de imagem inválido
             official_img_header:
               allowed_file_content_types: Ficheiro de imagem inválido
+      new_import:
+        attributes:
+          file:
+            invalid_mime_type: Tipo MIME inválido
   activerecord:
     attributes:
       decidim/static_page:
@@ -125,24 +151,39 @@ pt:
     admin:
       actions:
         add: Adicionar
+        attachment:
+          new: Novo anexo
+        attachment_collection:
+          new: Nova colecção de anexos
         browse: Explorar
+        category:
+          new: Nova categoria
+        export: Exportar tudo
+        export-selection: Exportar selecção
+        import: Importar
         manage: Gerir
         new: Novo %{name}
+        newsletter:
+          new: Novo boletim informativo
+        participatory_space_private_user:
+          new: Novo utilizador privado do espaço participativo
         per_page: Por página
         permissions: Permissões
         reject: Rejeitar
+        share: Partilhar
         verify: Verificar
       admin_terms_of_use:
         accept:
           error: Ocorreu um erro ao aceitar os termos de utilização de administrador.
           success: Excelente! Aceitou os termos de utilização de administrador.
         actions:
-          are_you_sure: Tem a certeza de que pretende recusar os termos de administrador?
+          accept: Concordo com os seguintes termos
+          are_you_sure: Tem a certeza que quer rejeitar os termos de utilização de administrador?
           refuse: Recusar os termos de administrador
           title: Concordar com os termos e condições de utilização
         required_review:
           alert: 'Necessário: Rever os nossos termos de utilização de administrador'
-          callout: Por favor, despenda algum tempo para rever os Termos de Utilização de Administrador. Caso contrário, não poderá administrar a plataforma.
+          callout: Por favor reserve um momento para rever os termos de utilização de administrador. Caso contrário não lhe será possível gerir a plataforma.
           cta: Reveja-os agora.
         title: Termos de Utilização de Administrador
       area_types:
@@ -165,7 +206,7 @@ pt:
           error: Ocorreu um problema ao criar uma nova área.
           success: Área criada corretamente.
         destroy:
-          has_spaces: A área possui espaços dependentes, não poderá ter dependências para poder ser eliminada.
+          has_spaces: Está area tem espaços dependentes. For favor certifique-se que nenhum Espaço Participativo faz referência a esta área antes de a apagar.
           success: Área destruída corretamente
         edit:
           title: Editar área
@@ -215,6 +256,12 @@ pt:
       autocomplete:
         no_results: Nenhum resultado encontrado
         search_prompt: Digite pelo menos três caracteres para pesquisar
+      block_user:
+        new:
+          action: Bloquear conta e enviar justificação
+          description: Bloquear um utilizador torna a sua conta inutilizável. Pode dar na sua justificação orientações sobre o que poderia levar a considerar desbloquear o utilizador.
+          justification: Justificação
+          title: Bloquear utilizador %{name}
       categories:
         create:
           error: Ocorreu um problema ao criar esta categoria.
@@ -257,6 +304,7 @@ pt:
           headers:
             actions: Ações
             name: Nome do componente
+            scope: Âmbito do componente
             type: Tipo de componente
         new:
           add: Adicionar componente
@@ -269,10 +317,30 @@ pt:
         update:
           error: Ocorreu um problema ao atualizar este componente.
           success: O componente foi atualizado corretamente.
+      conflicts:
+        attempts: Tentativas
+        'false': 'Não'
+        managed_user_name: Utilizador gerido
+        solved: Resolvido
+        title: Conflitos de verificação
+        transfer:
+          email: e-Mail
+          error: Houve um problema ao transferir o utilizador actual para utilizador gerido.
+          name: Nome
+          reason: Motivo
+          success: A transferência actual foi completada com êxito.
+          title: Transferência
+        'true': 'Sim'
+        user_name: Utilizador
       dashboard:
         show:
           view_more_logs: Ver mais registos
-          welcome: Bem-vindo ao Painel de Administração de Decidim.
+      domain_whitelist:
+        form:
+          domain_too_short: Domínio demasiado curto
+        update:
+          error: Falha ao carregar a lista branca de domínios
+          success: Lista branca de domínios carregada com êxito
       exports:
         export_as: "%{name} como %{export_format}"
         formats:
@@ -285,11 +353,35 @@ pt:
         category_id_eq:
           label: Categoria
         filter_label: Filtro
+        invitation_accepted_at_present:
+          label: Convite aceite
+          values:
+            'false': 'Não'
+            'true': 'Sim'
+        last_sign_in_at_present:
+          label: Já se ligou alguma vez?
+          values:
+            'false': 'Não'
+            'true': 'Sim'
+        moderations:
+          reportable_type_string_eq:
+            label: Tipo
         officialized_at_null:
           label: Estado
           values:
             'false': Oficializado
             'true': Não oficializado
+        participatory_space_private_users:
+          user_invitation_accepted_at_not_null:
+            label: Convite aceite
+            values:
+              'false': Não aceite
+              'true': Aceite
+          user_invitation_sent_at_not_null:
+            label: Convite enviado
+            values:
+              'false': Não enviado
+              'true': Enviado
         private_space_eq:
           label: Privado
           values:
@@ -305,9 +397,22 @@ pt:
         search_label: Pesquisa
         search_placeholder:
           name_or_nickname_or_email_cont: Pesquisar %{collection} por e-mail, nome ou alcunha.
+          reported_id_string_or_reported_content_cont: Pesquisar %{coleção} por identificador de denúncia ou conteúdo.
           title_cont: Pesquisar %{collection} por título.
+          user_name_or_user_email_cont: Pesquisar %{coleção} por nome ou e-mail.
         state_eq:
           label: Estado
+          values:
+            all: Todos
+            pending: Pendentes
+            rejected: Rejeitados
+            verified: Verificados
+      forms:
+        file_help:
+          import:
+            explanation: 'Orientação para ficheiro:'
+            message_1: Ficheiros CSV, JSON e Excel (.xlsx) não são suportados
+            message_2: Para ficheiros CSV o separador entre coludas deve ser um ponto e vírgula (";")
       help_sections:
         error: Ocorreu um problema ao atualizar as secções de ajuda
         form:
@@ -340,12 +445,24 @@ pt:
         form:
           authorization_method: Método de autorização
           name: Nome
-          reason: Razão
+          reason: Motivo
         new:
           impersonate: Personificar
           impersonate_existing_managed_user: Gerir participante "%{name}"
           impersonate_existing_user: Gerir participante "%{name}"
           impersonate_new_managed_user: Gerir novo participante
+      imports:
+        error: Houve um problema durante a importação
+        new:
+          accepted_mime_types:
+            csv: CSV
+            json: JSON
+            xlsx: Excel (.xlsx)
+          actions:
+            back: Voltar
+          file_legend: Adicionar ficheiro para importar a analisar.
+          import: Importar
+        notice: "%{number} %{resource_name} importado(s) com êxito"
       logs:
         logs_list:
           no_logs_yet: Ainda não há registos
@@ -366,11 +483,14 @@ pt:
         areas: Áreas
         configuration: Configuração
         dashboard: Painel de controlo
+        external_domain_whitelist: Domínios externos autorizados
         help_sections: Secções de ajuda
         homepage: Página inicial
         impersonations: Personificações
+        moderation: Moderações globais
         newsletters: Boletins informativos
         participants: Participantes
+        reported_users: Utilizadores denunciados
         scope_types: Tipos de âmbito
         scopes: Âmbitos
         settings: Configurações
@@ -405,7 +525,7 @@ pt:
             admin: Administrador(a)
             ended_at: Terminou em
             expired_at: Expirou em
-            reason: Razão
+            reason: Motivo
             started_at: Começou em
             user: Do utilizador
         newsletter:
@@ -426,6 +546,14 @@ pt:
           fields:
             name: Nome
             plural: Plural
+        share_token:
+          fields:
+            created_at: Criado em
+            expires_at: Expira em
+            last_used_at: Ultima utilização
+            times_used: Total de utilizações
+            token: Identificador
+            user: Criado por
         static_page:
           fields:
             created_at: Criado em
@@ -450,6 +578,26 @@ pt:
             phone: Telefone
             state: Estado
             users_count: Contagem de participantes
+      moderated_users:
+        index:
+          actions:
+            block: Bloquear utilizador
+            title: Acções
+            unblock: Desbloquear utilizador
+            unreport: Remover denúncia
+          name: Nome
+          nickname: Alcunha
+          reason: Motivo
+          reports: Contagem de denúncias
+          title: A listar utilizadores denunciados
+        report:
+          reasons:
+            does_not_belong: Não pertence
+            offensive: Ofensivo
+            spam: Spam
+        tabs:
+          blocked: Bloqueado
+          unblocked: Não bloqueado
       moderations:
         index:
           title: Moderações
@@ -458,6 +606,21 @@ pt:
             does_not_belong: Não pertence
             offensive: Ofensiva
             spam: Spam
+        reports:
+          index:
+            author: Autor(es)
+            callout_html: Um conteúdo aparece no painel de moderação quando ele foi sinalizado por um utilizador (pode ser qualquer pessoa com uma conta registrada) clicando no sinalizador %{icon} ao lado do item.
+            content_original_language: Língua original do conteúdo
+            participatory_space: Espaço participativo
+            reported_content: Conteúdo denunciado
+            see_current: Ver actual
+            see_original: Ver original
+            title: Moderar denúncias
+          show:
+            report_details: Detalhes do motivo
+            report_language: Denunciar linguagem
+            report_reason: Motivo
+            title: Detalhes da denúncia
       newsletter_templates:
         index:
           preview_template: Pré-visualização
@@ -469,7 +632,7 @@ pt:
       newsletters:
         create:
           error: Ocorreu um problema ao criar este boletim informativo.
-          success: Boletim Informativo criado corretamente. Por favor, reveja-o antes de enviar.
+          success: Boletim informativo criado com sucesso. Reveja antes de enviar.
         deliver:
           error: Ocorreu um problema na entrega deste boletim informativo.
           success: Boletim Informativo entregue corretamente.
@@ -523,6 +686,9 @@ pt:
           error: Ocorreu um problema ao atualizar este boletim informativo.
           success: Boletim informativo atualizado corretamente. Por favor, reveja-o antes de enviar.
       officializations:
+        block:
+          error: Houve um erro ao bloquear o participante
+          success: Participante bloqueado com sucesso
         create:
           success: Participante oficializado corretamente
         destroy:
@@ -530,6 +696,7 @@ pt:
         index:
           actions: Ações
           badge: Distintivo
+          block: Bloquear utilizador
           created_at: Criado em
           name: Nome
           nickname: Alcunha
@@ -537,8 +704,10 @@ pt:
           officialize: Oficializar
           officialized: Oficializado
           reofficialize: Reoficializar
+          reports: Relatórios
           show_email: Mostrar endereço de e-mail
           status: Estado
+          unblock: Desbloquear utilizador
           unofficialize: Desoficializar
         new:
           badge: Distintivo de oficialização
@@ -546,12 +715,15 @@ pt:
           title: Oficializar participante "%{name}"
         show_email_modal:
           close_modal: Fechar modal
-          description: Caso necessite de contactar um participante diretamente, poderá clicar no botão Mostrar para ver o endereço de e-mail. Esta ação será registada.
+          description: Se precisar de contactar directamente um, pode clicar no botão Mostrar para ver seu endereço de e-mail.
           email_address: Endereço de e-mail
           full_name: Nome completo
           hidden: oculto
           show: Mostrar
-          title: Mostrar endereço de e-mail do participante
+          title: Mostrar o endereço de e-mail do participante
+        unblock:
+          error: Houve um erro ao desbloquear o participante
+          success: Participante desbloqueado com sucesso
       organization:
         edit:
           title: Editar organização
@@ -563,6 +735,7 @@ pt:
           rich_text_editor_in_public_views_help: Em algumas áreas de texto, os participantes serão capazes de inserir algumas etiquetas HTML utilizando o editor de texto avançado.
           social_handlers: Social
           twitter: Twitter
+          url: URL
           youtube: Youtube
         update:
           error: Ocorreu um problema ao atualizar esta organização.
@@ -582,10 +755,21 @@ pt:
             layout_appearance_title: Editar aparência do layout
             preview: Pré-visualização
           omnipresent_banner_appearance_title: Editar faixa omnipresente
+      organization_external_domain_whitelist:
+        edit:
+          update: Actualização
+        external_domain:
+          down: Para baixo
+          external_domain: Domínio externo
+          remove: Remover
+          up: Para cima
+        form:
+          add: Adicionar à lista branca
+          title: Lista branca de domínio externo
       organization_homepage:
         edit:
-          active_content_blocks: Blocos de conteúdo ativos
-          inactive_content_blocks: Blocos de conteúdo inativos
+          active_content_blocks: Blocos de conteúdo activos
+          inactive_content_blocks: Blocos de conteúdo inactivos
       organization_homepage_content_blocks:
         edit:
           update: Atualizar
@@ -597,6 +781,7 @@ pt:
           error: Houve um problema ao eliminar um participante privado deste espaço participativo.
           success: Espaço participativo acesso de usuário privado destruído com sucesso.
         index:
+          import_via_csv: Importar via CSV
           title: Espaço participativo de participante privado
         new:
           create: Criar
@@ -606,6 +791,7 @@ pt:
           invalid: Ocorreu um problema ao ler o ficheiro CSV.
           success: Ficheiro CSV carregado com sucesso, estamos a enviar um e-mail de convite aos participantes. Isto poderá demorar algum tempo.
         new:
+          explanation: 'Carrege o seu ficheiro CSV. Deve ter duas colunas com o e-mail na primeira coluna do ficheiro e  o nome na última coluna do ficheiro (e-mail, nome) dos utilizadores que quer adicionar ao espaço participativo, sem cabeçalhos. Evite utilizar charactéres inválidos como “<>?%&^*#@=+:"{}\|” no nome de utente.'
           title: Carregar o seu ficheiro CSV
           upload: Carregar
       resource_permissions:
@@ -614,6 +800,10 @@ pt:
           title: Editar permissões
         update:
           success: Permissões atualizadas corretamente.
+      resources:
+        index:
+          headers:
+            scope: Âmbito
       scope_types:
         create:
           error: Ocorreu um problema ao criar um novo tipo de âmbito.
@@ -645,6 +835,18 @@ pt:
         update:
           error: Ocorreu um problema ao atualizar este âmbito.
           success: Âmbito atualizado com sucesso
+      share_tokens:
+        actions:
+          confirm_destroy: Tem a certeza que quer eliminar este identificador?
+          destroy: Eliminar
+          share: Partilhar
+        destroy:
+          error: Houve um problema ao destruir o identificador
+          success: Identificador destruído com sucesso.
+        share_tokens:
+          empty: Não existem identificadores activos
+          help: Estes identificadores são usados para partilhar publicamente para qualquer utilizador este recurso não publicado. Estarão escondidos quando o recurso estiver publicado. Clique no icone de partilha do identificador para visitar o URL parltilhável.
+          title: Compartilhar identificadores
       shared:
         gallery:
           add_images: Adicionar imagens
@@ -702,13 +904,13 @@ pt:
         impersonatable_users: Participantes geríveis
         impersonations: Gestão de participantes
         metrics: Métricas
+        panel: Administrador
         participants: Participantes
         scope_types: Tipos de âmbito
         scopes: Âmbitos
         static_pages: Páginas
         statistics: Atividade
         user_groups: Grupos
-        users: Participantes
       user_group:
         csv_verify:
           invalid: Ocorreu um problema ao ler o ficheiro CSV.
@@ -721,13 +923,6 @@ pt:
           success: Grupo verificado corretamente
       user_groups:
         index:
-          filter:
-            all: Todos
-            pending: Pendente
-            rejected: Rejeitado
-            verified: Verificado
-          filter_by: Filtrar por
-          search: Pesquisar
           state:
             pending: Pendente
             rejected: Rejeitado
@@ -751,7 +946,6 @@ pt:
           role: Função
         new:
           create: Convidar
-          title: Convidar o(a) participante como administrador(a)
       users_statistics:
         users_count:
           admins: Administradores
@@ -764,9 +958,20 @@ pt:
     forms:
       errors:
         impersonate_user:
-          reason: Precisa de fornecer um motivo ao gerir um participante que não é gerido
+          reason: Precisa de fornecer um motivo para gerir um participante não gerido
+    metrics:
+      blocked_users:
+        object: utilizadores bloqueados
+        title: Utilizadores bloqueados
+      reported_users:
+        object: utilizadores denunciados
+        title: Utilizadores denunciados
+      user_reports:
+        object: relatórios de utilizador
+        title: Relatórios de utilizador
     moderations:
       actions:
+        expand: Expandir
         hidden: Ocultado
         hide: Ocultar
         not_hidden: Não oculto
@@ -787,17 +992,28 @@ pt:
       models:
         moderation:
           fields:
+            created_at: Data de criação
             hidden_at: Escondido em
+            participatory_space: Espaço participativo
             report_count: Contagem
+            reportable_id: Identificação
+            reportable_type: Tipo
             reported_content_url: URL de conteúdo reportado
             reports: Relatórios
             visit_url: URL de visita
+        report:
+          fields:
+            details: Dados relativos ao motivo
+            locale: Língua
+            reason: Motivo
   errors:
     messages:
       invalid_json: JSON inválido
   layouts:
     decidim:
       admin:
+        global_moderations:
+          title: Moderações globais
         newsletters:
           title: Boletins Informativos
         settings:

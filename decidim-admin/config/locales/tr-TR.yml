@@ -40,7 +40,6 @@ tr:
         enable_omnipresent_banner: Her yerde banner göster
         facebook_handler: Facebook işleyicisi
         favicon: ikon
-        from: Gelen e-posta adresi
         github_handler: GitHub işleyicisi
         header_snippets: Üstbilgi snippet'leri
         highlight_alternative_color: Vurgu, alternatif
@@ -145,12 +144,10 @@ tr:
           success: Harika! Yönetici kullanım şartlarını kabul ettiniz.
         actions:
           accept: Aşağıdaki şartları kabul ediyorum
-          are_you_sure: Yönetici şartlarını reddettiğinizden emin misiniz?
           refuse: Yönetici şartlarını reddedin
           title: Kullanım şartlarını ve koşullarını kabul edin
         required_review:
           alert: 'Gerekli: Yönetici kullanım şartlarımızı inceleyin'
-          callout: Lütfen Yönetici Kullanım Koşullarını gözden geçirmek için bir dakikanızı ayırın. Aksi takdirde platformu yönetemezsiniz.
           cta: Şimdi gözden geçirin.
         title: Yönetici Kullanım Koşulları
       area_types:
@@ -173,7 +170,6 @@ tr:
           error: Yeni bir alan oluştururken bir hata oluştu.
           success: Alan başarıyla oluşturuldu.
         destroy:
-          has_spaces: Alanın bağımlı boşlukları mevcut, silinmesi için bağımlılıklarının olmaması gerekmektedir.
           success: Alan başarıyla yok edildi
         edit:
           title: Alanı düzenle
@@ -226,7 +222,6 @@ tr:
       block_user:
         new:
           action: Hesabı engelle ve uyarı mesjı gönder
-          description: Bir kullanıcının engellenmesi, hesabının kullanılamaz hale gelmesine neden olur, gerekçenizde ve kullanıcının engellemesini kaldırmayı düşündüğünüz yollarla ilgili yönergeler sağlayabilirsiniz.
           justification: Gerekçe
           title: '%{name} Kullanıcısını Engelle'
       categories:
@@ -289,7 +284,6 @@ tr:
         'false': 'Hayır'
         managed_user_name: Yönetilen Kullanıcı
         solved: Çözüldü
-        title: Doğrulamaların çatışmaları
         transfer:
           email: E-Posta
           error: Mevcut katılımcıyı yönetilen katılımcıya aktarırken bir sorun oluştu.
@@ -302,7 +296,6 @@ tr:
       dashboard:
         show:
           view_more_logs: Daha fazla günlükleri görüntüle
-          welcome: Decidim Yönetici Paneline hoş geldiniz.
       exports:
         export_as: "%{name} olarak %{export_format}"
         formats:
@@ -542,7 +535,6 @@ tr:
       newsletters:
         create:
           error: Bu bülteni oluştururken bir hata oluştu.
-          success: Bülten başarıyla oluşturuldu. Lütfen göndermeden önce gözden geçirin.
         deliver:
           error: Bu bülteni veren bir hata oluştu.
           success: Bülten başarıyla teslim edildi.
@@ -625,12 +617,10 @@ tr:
           title: '"%{name}" kullanıcısını resmi olarak yetkilendir'
         show_email_modal:
           close_modal: Pencereyi kapat
-          description: Bir katılımcıyla doğrudan iletişime geçmeniz gerekirse, e-posta adresini görmek için Göster düğmesine tıklayabilirsiniz. Bu eylem günlüğe kaydedilecek.
           email_address: E-posta adresi
           full_name: Tam adı
           hidden: saklı
           show: Göster
-          title: Katılımcı e-posta adresini göster
         unblock:
           error: Katılımcıyı engellerken bir hata oluştu
           success: Katılımcı başarıyla engellendi
@@ -810,7 +800,6 @@ tr:
         static_pages: Sayfalar
         statistics: Aktivite
         user_groups: Kullanıcı Grupları
-        users: Kullanıcılar
       user_group:
         csv_verify:
           invalid: CSV dosyasını okurken bir hata oluştu.
@@ -823,13 +812,6 @@ tr:
           success: Kullanıcı grubu başarıyla doğrulandı
       user_groups:
         index:
-          filter:
-            all: Herşey
-            pending: kadar
-            rejected: Reddedilen
-            verified: Doğrulanmış
-          filter_by: Tarafından filtre
-          search: Arama
           state:
             pending: kadar
             rejected: Reddedilen
@@ -853,7 +835,6 @@ tr:
           role: Rol
         new:
           create: Davet et
-          title: Kullanıcıyı yönetici olarak davet et
       users_statistics:
         users_count:
           admins: Yöneticiler
@@ -863,10 +844,6 @@ tr:
           no_users_count_statistics_yet: Henüz canlı kullanıcı istatistikleri yok
           participants: Katılımcılar
       view_public_page: Genel sayfayı görüntüle
-    forms:
-      errors:
-        impersonate_user:
-          reason: Yönetilmeyen bir kullanıcıyı taklit ederken bir neden belirtmeniz gerekir
     moderations:
       actions:
         expand: Genişlet

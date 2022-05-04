@@ -19,6 +19,7 @@ module Decidim
             code: code,
             question_ids: question_ids,
             current_participatory_space: voting,
+            current_user: user,
             errors: errors
           )
         end
@@ -46,6 +47,22 @@ module Decidim
           subject.call
           expect(ballot_style.code).to eq code.upcase
           expect(ballot_style.questions.pluck(:id)).to match_array(question_ids)
+        end
+
+        it "traces the action", versioning: true do
+          expect(Decidim.traceability)
+            .to receive(:create!)
+            .with(
+              Decidim::Votings::BallotStyle,
+              user,
+              kind_of(Hash),
+              visibility: "all"
+            )
+            .and_call_original
+
+          expect { subject.call }.to change(Decidim::ActionLog, :count)
+          action_log = Decidim::ActionLog.last
+          expect(action_log.action).to eq "create"
         end
 
         context "when the form is not valid" do

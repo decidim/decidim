@@ -2,7 +2,7 @@
 
 module Decidim
   # This command updates the user's notifications settings.
-  class UpdateNotificationsSettings < Rectify::Command
+  class UpdateNotificationsSettings < Decidim::Command
     # Updates a user's notifications settings.
     #
     # user - The user to be updated.
@@ -29,6 +29,7 @@ module Decidim
       @user.notification_types = @form.notification_types
       @user.direct_message_types = @form.direct_message_types
       @user.email_on_moderations = @form.email_on_moderations
+      @user.notification_settings = @form.notification_settings
     end
   end
 end

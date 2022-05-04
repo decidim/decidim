@@ -39,8 +39,8 @@ module Decidim
       return hidden_field(name) if name.to_s == "handler_name"
       return scopes_selector if name.to_s == "scope_id"
 
-      case type.name
-      when "Date", "Time"
+      case type
+      when :date, :datetime, :time, :"decidim/attributes/localized_date"
         date_field name
       else
         text_field name
@@ -54,24 +54,22 @@ module Decidim
     end
 
     def find_input_type(name)
-      found_attribute = object.class.attribute_set.detect do |attribute|
-        attribute.name.to_s == name
-      end
+      value_type = object.class.attribute_types[name]
 
-      raise "Could not find attribute #{name} in #{object.class.name}" unless found_attribute
+      raise "Could not find attribute #{name} in #{object.class.name}" unless value_type
 
-      found_attribute.type.primitive
+      value_type.type
     end
 
     def public_attributes
-      form_attributes.inject({}) do |all, attribute|
-        all.update(attribute.name => attribute.type.primitive)
+      form_attributes.inject({}) do |all, (name, value_type)|
+        all.update(name => value_type.type)
       end
     end
 
     def form_attributes
-      object.class.attribute_set.select do |attribute|
-        object.form_attributes.include?(attribute.name)
+      object.class.attribute_types.select do |key, _|
+        object.form_attributes.include?(key) || object.form_attributes.include?(key.to_sym)
       end
     end
   end

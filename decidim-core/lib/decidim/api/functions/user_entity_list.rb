@@ -19,7 +19,9 @@ module Decidim
       def call(_obj, args, ctx)
         @query = Decidim::UserBaseEntity
                  .where(organization: ctx[:current_organization])
-                 .where.not(confirmed_at: nil)
+                 .confirmed
+                 .not_blocked
+                 .includes(avatar_attachment: :blob)
         add_filter_keys(args[:filter])
         add_order_keys(args[:order].to_h)
         @query

@@ -23,22 +23,29 @@ sv:
         decidim_user_group_id: Användargrupp
         description: Beskrivning
         end_time: Sluttid
+        id: ID
         location: Plats
         location_hints: Detaljer om platsen
         online_meeting_url: URL för onlinemötet
         organizer_gid: Skapa som
         organizer_id: Organisatör
         private_meeting: Privat möte
+        registration_email_custom_content: Custom text i anmälningse-post
         registration_form_enabled: Registreringsformulär aktiverat
         registration_terms: Registreringsvillkor
         registration_url: URL för anmälan
         registrations_enabled: Registreringar aktiverade
+        show_embedded_iframe: Visa integrerad iframe för denna URL
         start_time: Starttid
         title: Titel
         transparent: Transparent
         type_of_meeting: Typ
     errors:
       models:
+        meeting:
+          attributes:
+            iframe_embed_type:
+              not_embeddable: Denna URL kan inte bäddas in på ett mötes- eller liveevenemangssida
         meeting_agenda:
           attributes:
             base:
@@ -68,6 +75,34 @@ sv:
         other: Registreringar
   decidim:
     admin:
+      filters:
+        meetings:
+          category_id_eq:
+            label: Kategori
+          closed_at_present:
+            label: Status
+            values:
+              'false': Öppna
+              'true': Stängda
+          is_upcoming_true:
+            label: Datum
+            values:
+              'false': Tidigare
+              'true': Kommande
+          scope_id_eq:
+            label: Omfång
+          with_any_origin:
+            label: Ursprung
+            values:
+              official: Officiella
+              participants: Deltagare
+              user_group: Användargrupper
+          with_any_type:
+            label: Mötestyp
+            values:
+              hybrid: Båda
+              in_person: Fysiska
+              online: Online
       meeting_copies:
         create:
           error: Det gick inte att duplicera mötet.
@@ -79,6 +114,7 @@ sv:
     components:
       meetings:
         actions:
+          comment: Kommentera
           join: Gå med
         name: Möten
         settings:
@@ -89,10 +125,12 @@ sv:
             creation_enabled_for_participants: Deltagarna kan skapa möten
             default_registration_terms: Villkor för standardregistrering
             enable_pads_creation: Aktivera skapande av memo
+            maps_enabled: Karta aktiverad
             registration_code_enabled: Registreringskod aktiverad
             resources_permissions_enabled: Åtgärdsbehörigheter kan ställas in för varje möte
             scope_id: Omfång
             scopes_enabled: Omfång aktiverade
+            terms_and_conditions_url_for_meeting_creators: Adress till användarvillkor för mötesförfattare
           step:
             announcement: Meddelande
             comments_blocked: Kommentarer blockerade
@@ -112,6 +150,7 @@ sv:
             email_subject: Mötet "%{resource_title}" stängdes
             notification_title: Mötet <a href="%{resource_path}">%{resource_title}</a> stängdes.
         meeting_created:
+          button_text: Anmäl till mötet
           email_intro: Mötet "%{resource_title}" har lagts till i "%{participatory_space_title}" som du följer.
           email_outro: Du har fått det här meddelandet eftersom du följer "%{participatory_space_title}". Du kan avfölja det vid föregående länk.
           email_subject: Nytt möte har lagts till i %{participatory_space_title}
@@ -143,6 +182,9 @@ sv:
           email_outro: Du har fått det här meddelandet eftersom du följer mötet "%{resource_title}". Du kan sluta följa det på föregående länk.
           email_subject: Mötet "%{resource_title}" börjar om färre än 48 timmar.
           notification_title: Mötet <a href="%{resource_path}">%{resource_title}</a> startar inom mindre än 48 timmar.
+    forms:
+      meetings:
+        attendees_count_help_text: Glöm inte att inkludera det totala antalet deltagare på ditt evenemang. Det är viktigt att hålla koll på hur många människor, oavsett om de deltog fysiskt eller online.
     gamification:
       badges:
         attended_meetings:
@@ -168,6 +210,7 @@ sv:
           proposals_count:
             one: 'Mötet kan inte raderas eftersom det finns %{count} relaterat förslag:'
             other: 'Mötet kan inte raderas eftersom det finns %{count} relaterade förslag:'
+        manage_poll: Hantera enkäter
         new: Nytt möte
         preview: Förhandsvisa
         registrations: Registreringar
@@ -204,6 +247,7 @@ sv:
             invalid: Det gick inte att uppdatera dagordningen
             success: Dagordning uppdaterad
         exports:
+          answers: Svar
           meeting_comments: Kommentarer
           meetings: Möten
           registrations: Registreringar
@@ -238,12 +282,16 @@ sv:
           edit:
             close: Stäng
             title: Stäng mötet
+        meeting_copies:
+          form:
+            select_a_meeting_type: Välj mötestyp
         meetings:
           close:
             invalid: Det gick inte att stänga mötet
             success: Mötet avslutades
           create:
             invalid: Det gick inte att skapa mötet
+            success: Mötet har skapats men är ännu inte publicerat, du måste publicera det manuellt.
           destroy:
             invalid:
               proposals_count:
@@ -255,15 +303,23 @@ sv:
             update: Uppdatera
           form:
             address_help: 'Adress: anger en plats för Geocoder'
-            available_slots_help: Lämna det till 0 om du har obegränsade platser
+            disclaimer: 'Disclaimer: När du använder ett externt anmälningssystem är du medveten om att administratörerna för %{organization} inte är ansvariga för de data som tillhandahålls av användarna till den externa tjänsten.'
             location_help: 'Plats: meddelande till användarna som anger mötesplats'
+            location_hints_help: 'Tips för att hitta platsen: ytterligare information. Exempel: våningen om det är ett fysiskt möte eller möteslösenordet om det är ett online möte.'
+            online_meeting_url_help: 'Länk: tillåt deltagare att koppla sig direct till ditt möte'
+            registration_url_help: 'Länk: tillåt deltagare att registrera sig på en extern tjänst'
             select_a_meeting_type: Välj mötestyp
             select_a_registration_type: Välj en registreringsmetod
+            select_an_iframe_access_level: Välj vem får tillgång till denna iframe
+            show_embedded_iframe_help: Endast ett fåtal tjänster tillåter inbäddning i möten eller live-event (t.ex. YouTube, Twitch och Jitsi)
           index:
             title: Möten
           new:
             create: Skapa
             title: Skapa möte
+          publish:
+            invalid: Det gick inte att publicera det här mötet
+            success: Mötet har publicerats
           service:
             description: Beskrivning
             down: Ned
@@ -274,9 +330,18 @@ sv:
           services:
             add_service: Lägg till service
             services: Tjänster
+          unpublish:
+            invalid: Det gick inte att avpublicera det här mötet
+            success: Mötet har avpublicerats
           update:
             invalid: Det gick inte att uppdatera mötet
             success: Mötet har uppdaterats
+        meetings_poll:
+          form:
+            title: Redigera undersökningen för %{questionnaire_for}
+          update:
+            invalid: Det gick inte att uppdatera mötesundersökningen
+            success: Mötesundersökning har uppdaterats
         models:
           meeting:
             name: Möte
@@ -289,6 +354,7 @@ sv:
             available_slots_help: Lämna det till 0 om du har obegränsade platser.
             invites: Inbjudningar
             recommendation_message: Av sekretessskäl rekommenderar vi att du tar bort detta inskriptionsformulär när du inte längre behöver det. Som standard är detta 3 månader efter att mötet avslutats.
+            registration_email_help: Denna text kommer att synas i mitten av e-postet för registreringsbekräftelse, efter registreringskod.
             registration_form: Anmälningsformulär
             registrations_count:
               one: Det har gjorts %{count} anmälan.
@@ -316,28 +382,45 @@ sv:
           value_types:
             organizer_presenter:
               not_found: 'Arrangören hittades inte i databasen (ID: %{id})'
+      application_helper:
+        filter_category_values:
+          all: Alla
+        filter_meeting_space_values:
+          all: Alla
+        filter_scope_values:
+          all: Alla
       calendar_modal:
         calendar_url: Kalender-URL
         close_window: Stäng fönster
         export_calendar: Exportera kalender
       conference_venues: Konferenslokaler
       content_blocks:
-        upcoming_events:
-          name: Kommande händelser
-          upcoming_events: Kommande möten
-          view_all_events: Visa alla
+        upcoming_meetings:
+          name: Kommande möten
+          upcoming_meetings: Kommande möten
+          view_all_meetings: Visa alla
       directory:
         meetings:
           index:
-            all: Alla
-            date: Datum
             meetings: Möten
-            past: Tidigare
-            search: Sök
             space_type: Deltagarutrymme
-            upcoming: Kommande
+      iframe_access_level:
+        all: Alla besökare
+        registered: Registrerade deltagare till detta möte
+        signed_in: Endast registrerade deltagare
+      iframe_embed_type:
+        embed_in_meeting_page: Bädda in på mötessidan
+        none: Ingen
+        open_in_live_event_page: Öppna i live event sida (med valfria omröstningar)
+        open_in_new_tab: Öppna länk i ny flik
       last_activity:
+        meeting_updated_at_html: "<span>Mötet uppdaterades på %{link}</span>"
         new_meeting_at_html: "<span>Nytt möte på %{link}</span>"
+      layouts:
+        live_event:
+          administrate: Administrera
+          close: stäng
+          questions: Frågor
       mailer:
         invite_join_meeting_mailer:
           invite:
@@ -353,6 +436,13 @@ sv:
           close: Avsluta möte
           title: Avsluta möte
       meetings:
+        calendar_modal:
+          add_to_calendar: Lägg till i kalender
+          apple: Lägg till i Apple kalender
+          close_window: Stäng fönster
+          full_details_html: För mer detalj gå till %{link}
+          google: Lägg till i Google kalender
+          outlook: Lägg till i Outlook kalender
         count:
           meetings_count:
             one: "%{count} möte"
@@ -377,8 +467,8 @@ sv:
           origin: Ursprung
           origin_values:
             all: Alla
-            citizens: Medborgare
             official: Officiell
+            participants: Deltagare
             user_groups: Grupper
           scope: Omfattning
           search: Sök
@@ -397,10 +487,22 @@ sv:
           address_help: 'Adress: som används av Geocoder för att hitta platsen'
           available_slots_help: Lämna det till 0 om du har obegränsade platser
           create_as: Skapa möte som
+          disclaimer: 'Disclaimer: När du använder ett externt anmälningssystem är du medveten om att administratörerna för %{organization} inte är ansvariga för de data som tillhandahålls av användarna till den externa tjänsten.'
           location_help: 'Plats: meddelande riktat till de användare som antyder platsen att träffas på'
+          location_hints_help: 'Tips för att hitta platsen: ytterligare information. Exempel: våningen om det är ett fysiskt möte eller möteslösenordet om det är ett online möte.'
+          online_meeting_url_help: 'Länk: tillåt deltagare att koppla sig direct till ditt möte'
+          registration_url_help: 'Länk: tillåt deltagare att registrera sig på en extern tjänst'
           select_a_category: Välj en kategori
+          select_a_meeting_type: Välj mötestyp
+          select_a_registration_type: Välj en registreringsmetod
+          select_an_iframe_access_level: Välj vem får tillgång till denna iframe
+          show_embedded_iframe_help: Endast ett fåtal tjänster tillåter inbäddning i möten eller live-event (t.ex. YouTube, Twitch och Jitsi)
         index:
+          click_here: Se alla möten
           new_meeting: Nytt möte
+          see_all: Se alla möten
+          see_all_withdrawn: Se alla tillbakadragna möten
+          text_banner: Du tittar på listan över möten som dragits tillbaka av sina författare. %{go_back_link}.
         meeting_minutes:
           related_information: Relaterad information
         meetings:
@@ -419,9 +521,17 @@ sv:
           close_meeting: Avsluta möte
           contributions: Antal bidrag
           date: Datum
+          edit_close_meeting: Redigera mötesrapport
           edit_meeting: Redigera möte
+          going: Du har anmält dig för detta möte
           join: Gå med i mötet
+          leave: Avbryt din registrering
+          leave_confirmation: Är du säker på att du vill avboka från detta möte?
+          link_available_soon: Länk snart tillgänglig
+          link_closed: Länken till mötet kommer finnas tillgänglig några minuter innan det börjar
+          live_event: Detta möte händer nu
           meeting_minutes: Mötesprotokoll
+          micro_camera_permissions_warning: När du klickar på knappen nedan kommer du att bli ombedd om mikrofon och/eller kamera och du kommer att ansluta till videokonferensen
           no_slots_available: Inga platser kvar
           organizations: Delta i organisationer
           registration_code_help_text: Din registreringskod
@@ -432,6 +542,10 @@ sv:
             one: "%{count} plats kvar"
             other: "%{count} platser kvar"
           view: Visa
+          visit_finished: Visa tidigare möten
+          withdraw_btn_hint: Du kan dra tillbaka ditt möte om du ändrar dig. Mötet raderas inte utan kommer att synas i listan över möten som dragits tillbaka.
+          withdraw_confirmation_html: Är du säker på att du vill dra tillbaka det här mötet?<br><br><strong>Den här åtgärden kan inte ångras!</strong>
+          withdraw_meeting: Dra tillbaka möte
         update:
           invalid: Det gick inte att uppdatera mötet.
           success: Du har uppdaterat mötet.
@@ -452,10 +566,36 @@ sv:
           fields:
             closed: Stängd
             end_time: Slutdatum
+            id: Id
             map: Karta
             official_meeting: Officiellt möte
             start_time: Startdatum
             title: Titel
+      polls:
+        questions:
+          closed_question:
+            question_results: Resultat
+          index:
+            empty_questions: Under hela mötet kommer några frågor att skickas och du kommer kunna svara på dem. De kommer att visas här.
+          index_admin:
+            admin_dashboard: Adminpanel
+            edit: Redigera i adminpanelen
+            question: Fråga
+            received_answer: mottaget svar
+            received_answers: mottagna svar
+            results: Resultat
+            send: Skicka
+            sent: Skickat
+          published_question:
+            max_choices_alert: För många alternativ har valts
+            question: Fråga
+            question_replied: Besvarad fråga
+            reply_question: Svara på fråga
+      public_participants_list:
+        attending_participants: Deltagare
+        hidden_participants_count:
+          one: och %{count} person till
+          other: och %{count} personer till
       read_more: "(läs mer)"
       registration_mailer:
         confirmation:
@@ -463,7 +603,9 @@ sv:
           details: Du hittar mötesuppgifterna i bilagan.
           registration_code: Din registreringskod är %{code}.
       registration_type:
+        on_different_platform: På en annan plattform
         on_this_platform: På den plattform
+        registration_disabled: Registrering inaktiverad
       registrations:
         create:
           invalid: Det gick inte att ansluta till mötet.
@@ -481,8 +623,12 @@ sv:
       types:
         private_meeting: Privat möte
         transparent: Transparent
+        withdraw: Tillbakadragna
       versions:
         back_to_resource: Gå tillbaka till mötet
+      withdraw:
+        error: Det gick inte att dra tillbaka mötet
+        success: Mötet har dragits tillbaka
     metrics:
       meetings:
         description: Antal skapade möten

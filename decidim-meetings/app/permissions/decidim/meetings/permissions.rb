@@ -33,6 +33,8 @@ module Decidim
             toggle_allow(can_create_meetings?)
           when :update
             toggle_allow(can_update_meeting?)
+          when :withdraw
+            toggle_allow(can_withdraw_meeting?)
           when :close
             toggle_allow(can_close_meeting?)
           when :register
@@ -79,10 +81,16 @@ module Decidim
           !meeting.closed?
       end
 
+      def can_withdraw_meeting?
+        component_settings&.creation_enabled_for_participants? &&
+          meeting.authored_by?(user) &&
+          !meeting.withdrawn? &&
+          !meeting.past?
+      end
+
       def can_close_meeting?
         component_settings&.creation_enabled_for_participants? &&
           meeting.authored_by?(user) &&
-          !meeting.closed? &&
           meeting.past?
       end
 

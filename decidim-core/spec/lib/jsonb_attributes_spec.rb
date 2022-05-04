@@ -11,7 +11,7 @@ module Decidim
         end
 
         include ActiveModel::Model
-        include Virtus.model
+        include Decidim::AttributeObject::Model
         include JsonbAttributes
       end
     end
@@ -39,8 +39,8 @@ module Decidim
         model.custom_setting = "new setting"
         model.another_setting = "random setting"
 
-        expect(model.settings).to include(custom_setting: "new setting")
-        expect(model.settings).to include(another_setting: "random setting")
+        expect(model.settings).to include("custom_setting" => "new setting")
+        expect(model.settings).to include("another_setting" => "random setting")
       end
 
       it "coerces values" do

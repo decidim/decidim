@@ -11,7 +11,7 @@ module Decidim
       implements Decidim::Core::AttachableInterface
       implements Decidim::Core::TimestampsInterface
       implements Decidim::Meetings::ServicesInterface
-      implements Decidim::Meetings::LinkedResourcesInterface
+      implements Decidim::Meetings::LinkedResourcesInterface if Decidim::Meetings.enable_proposal_linking
       implements Decidim::Forms::QuestionnaireEntityInterface
 
       field :id, GraphQL::Types::ID, "ID of this meeting", null: false
@@ -28,6 +28,7 @@ module Decidim
       end
 
       field :closed, GraphQL::Types::Boolean, "Whether this meeting is closed or not.", method: :closed?, null: false
+      field :isWithdrawn, GraphQL::Types::Boolean, "Whether this meeting is withdrawn or not.", method: :withdrawn?, null: false
       field :closing_report, Decidim::Core::TranslatedFieldType, "The closing report of this meeting.", null: true
       field :video_url, GraphQL::Types::String, "URL for the video of the session, if any", null: true
       field :audio_url, GraphQL::Types::String, "URL for the audio of the session, if any", null: true
@@ -72,6 +73,7 @@ module Decidim
       end
       field :type_of_meeting, GraphQL::Types::String, "The type of the meeting (online or in-person)", null: false
       field :online_meeting_url, GraphQL::Types::String, "The URL of the meeting (when the type is online)", null: false
+      field :iframe_embed_type, GraphQL::Types::String, "The type of displaying of the online meeting URL", null: true
     end
   end
 end

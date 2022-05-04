@@ -16,7 +16,7 @@ module Decidim
       end
 
       def background_image
-        model.images_container.background_image.big.url
+        model.images_container.attached_uploader(:background_image).path(variant: :big)
       end
 
       private
@@ -30,7 +30,7 @@ module Decidim
         hash << current_organization.cache_key_with_version
         hash << I18n.locale.to_s
 
-        hash.join("/")
+        hash.join(Decidim.cache_key_separator)
       end
     end
   end

@@ -15,7 +15,7 @@ module Decidim::Admin
             description_ca: "La meva descripció",
             enable_omnipresent_banner: false,
             header_snippets: '<script>alert("Hello");</script>',
-            favicon: File.new(Decidim::Dev.asset("icon.png"))
+            favicon: upload_test_file(Decidim::Dev.test_file("city.jpeg", "image/jpeg"))
           }
         }
       end
@@ -51,8 +51,8 @@ module Decidim::Admin
         before do
           expect(form).to receive(:invalid?).and_return(false)
           expect(organization).to receive(:valid?).at_least(:once).and_return(false)
-          organization.errors.add(:official_img_header, "Image too big")
-          organization.errors.add(:official_img_footer, "Image too big")
+          organization.errors.add(:official_img_header, "File resolution is too large")
+          organization.errors.add(:official_img_footer, "File resolution is too large")
         end
 
         it "broadcasts invalid" do
@@ -117,7 +117,7 @@ module Decidim::Admin
             command.call
             organization.reload
 
-            expect(organization.favicon.small).to be_present
+            expect(organization.attached_uploader(:favicon).variant_path(:small)).to be_present
           end
         end
       end

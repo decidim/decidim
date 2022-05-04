@@ -16,7 +16,8 @@ module Decidim
         avatar: nil,
         remove_avatar: nil,
         personal_url: "https://example.org",
-        about: "This is a description of me"
+        about: "This is a description of me",
+        locale: "es"
       }
     end
 
@@ -30,7 +31,8 @@ module Decidim
         avatar: data[:avatar],
         remove_avatar: data[:remove_avatar],
         personal_url: data[:personal_url],
-        about: data[:about]
+        about: data[:about],
+        locale: data[:locale]
       ).with_context(current_organization: user.organization, current_user: user)
     end
 
@@ -70,6 +72,11 @@ module Decidim
         expect(user.reload.about).to eq("This is a description of me")
       end
 
+      it "updates the language preference" do
+        expect { command.call }.to broadcast(:ok)
+        expect(user.reload.locale).to eq("es")
+      end
+
       describe "updating the email" do
         before do
           form.email = "new@email.com"
@@ -89,7 +96,7 @@ module Decidim
 
       describe "avatar" do
         before do
-          form.avatar = File.open("spec/assets/avatar.jpg")
+          form.avatar = upload_test_file(Decidim::Dev.test_file("avatar.jpg", "image/jpeg"))
         end
 
         it "updates the avatar" do
@@ -99,7 +106,7 @@ module Decidim
       end
 
       describe "remove_avatar" do
-        let(:user) { create(:user, avatar: File.open("spec/assets/avatar.jpg")) }
+        let(:user) { create(:user, avatar: upload_test_file(Decidim::Dev.test_file("avatar.jpg", "image/jpeg"))) }
 
         before do
           form.remove_avatar = true
@@ -129,7 +136,7 @@ module Decidim
         before do
           form.avatar = user.avatar
 
-          allow(form.avatar).to receive(:size).and_return(1000.megabytes)
+          allow(form.avatar.blob).to receive(:byte_size).and_return(1000.megabytes)
         end
 
         it "broadcasts invalid" do

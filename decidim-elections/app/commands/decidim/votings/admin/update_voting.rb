@@ -5,15 +5,14 @@ module Decidim
     module Admin
       # A command with all the business logic when updating an existing
       # voting in the system.
-      class UpdateVoting < Rectify::Command
+      class UpdateVoting < Decidim::Command
+        include ::Decidim::AttachmentAttributesMethods
+
         # Public: Initializes the command.
         #
         # voting - the Voting to update
         # form - A form object with the params.
         def initialize(voting, form)
-          image_fields.each do |field|
-            form.send("#{field}=".to_sym, voting.send(field)) if form.send(field).blank?
-          end
           @voting = voting
           @form = form
         end
@@ -69,16 +68,7 @@ module Decidim
             promoted: form.promoted,
             voting_type: form.voting_type,
             census_contact_information: form.census_contact_information
-          }.merge(uploader_attributes)
-        end
-
-        def uploader_attributes
-          {
-            banner_image: form.banner_image,
-            remove_banner_image: form.remove_banner_image,
-            introductory_image: form.introductory_image,
-            remove_introductory_image: form.remove_introductory_image
-          }.delete_if { |_k, val| val.is_a?(Decidim::ApplicationUploader) }
+          }.merge(attachment_attributes(*image_fields))
         end
       end
     end

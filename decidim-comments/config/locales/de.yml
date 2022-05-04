@@ -16,8 +16,18 @@ de:
         other: Stimmen
   decidim:
     comments:
+      admin:
+        shared:
+          availability_fields:
+            enabled: Kommentare aktiviert
+            end_time: Kommentare aktiviert bis
+            start_time: Kommentare aktiviert von
       comments:
         create:
+          error: Beim Erstellen des Kommentars ist ein Fehler aufgetreten.
+        delete:
+          error: Die Sendung konnte nicht gelöscht werden.
+        update:
           error: Beim Erstellen des Kommentars ist ein Fehler aufgetreten.
       comments_count: Kommentaranzahl
       comments_title: Kommentare
@@ -53,8 +63,14 @@ de:
         alignment:
           against: Gegen
           in_favor: Zugunsten
+        confirm_destroy: Bist du sicher, dass du diesen Kommentar löschen willst?
+        delete: Löschen
+        deleted_at: Kommentar gelöscht am %{date}
         deleted_user: Gelöschter Benutzer
+        edit: Bearbeiten
+        edited: Bearbeitet
         hide_replies: Antworten verbergen
+        moderated_at: Kommentar moderiert am %{date}
         reply: Antworten
         report:
           action: Melden
@@ -68,6 +84,7 @@ de:
             spam: Enthält Clickbait, Werbung, Scams oder Script Bots.
           title: Ungeeigneten Inhalt melden
         show_replies: '%{replies_count} Antworten anzeigen'
+        single_comment_link_title: Link erhalten
       comment_order_selector:
         order:
           best_rated: Am besten bewertet
@@ -83,13 +100,21 @@ de:
         blocked_comments_warning: Kommentare sind zu diesem Zeitpunkt deaktiviert, aber Sie können die vorherigen lesen.
         comment_details_title: Kommentarinformationen
         loading: Kommentare werden geladen ...
-        single_comment_warning: Sie können die restlichen Kommentare <a href="%{url}">hier</a> prüfen.
+        single_comment_warning: <a href="%{url}">Alle Kommentare anzeigen</a>
         single_comment_warning_title: Ihnen wird ein einzelner Kommentar angezeigt
         title:
           one: "%{count} Kommentar"
           other: "%{count} Kommentare"
       down_vote_button:
         text: Ich bin mit diesem Kommentar nicht einverstanden
+      edit_comment_modal_form:
+        close: Schliessen
+        form:
+          body:
+            label: Kommentar
+            placeholder: Was denken Sie darüber?
+          submit: Senden
+        title: Kommentar bearbeiten
       up_vote_button:
         text: Ich stimme diesem Kommentar zu
     events:

@@ -3,14 +3,14 @@
 module Decidim
   module Admin
     class ModeratedUsersController < Decidim::Admin::ApplicationController
-      include Decidim::Moderations::Admin::Filterable
+      include Decidim::ModeratedUsers::Admin::Filterable
 
       layout "decidim/admin/users"
 
       def index
         enforce_permission_to :read, :moderate_users
 
-        @moderated_users = filtered_collection.page(params[:page]).per(15)
+        @moderated_users = filtered_collection
       end
 
       def ignore

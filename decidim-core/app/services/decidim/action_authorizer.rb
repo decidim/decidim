@@ -37,11 +37,12 @@ module Decidim
     attr_reader :user, :component, :resource, :action
 
     def authorization_handlers
-      if permission&.has_key?("authorization_handler_name")
+      available_authorizations = component.organization.available_authorizations
+      if permission&.has_key?("authorization_handler_name") && available_authorizations.include?(permission["authorization_handler_name"])
         options = permission["options"]
         { permission["authorization_handler_name"] => options.present? ? { "options" => options } : {} }
       else
-        permission&.fetch("authorization_handlers", {})
+        permission&.fetch("authorization_handlers", {})&.slice(*available_authorizations)
       end
     end
 

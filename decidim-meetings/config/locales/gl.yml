@@ -8,10 +8,12 @@ gl:
       close_meeting:
         attendees_count: Número de asistentes
         attending_organizations: Listaxe de organizacións que asistiron
+        audio_url: URL de son
         closing_report: Minutos
         closing_visible: É visible
         contributions_count: Número de contribucións
         proposal_ids: Propostas creadas na reunión
+        video_url: URL do vídeo
       meeting:
         address: Enderezo
         available_slots: Slots dispoñibles para esta reunión
@@ -62,6 +64,17 @@ gl:
         other: Rexistros
   decidim:
     admin:
+      filters:
+        meetings:
+          with_any_origin:
+            label: Orixe
+            values:
+              official: Oficial
+              participants: Participante
+          with_any_type:
+            values:
+              hybrid: Ambos
+              online: En liña
       meeting_copies:
         create:
           error: Produciuse un erro ao duplicar esta reunión.
@@ -223,6 +236,9 @@ gl:
           edit:
             close: Pechar
             title: Pechar reunión
+        meeting_copies:
+          form:
+            select_a_meeting_type: Por favor, selecciona un tipo de xuntanza
         meetings:
           close:
             invalid: Produciuse un problema ao pechar esta reunión
@@ -233,8 +249,6 @@ gl:
             success: Reunión eliminada correctamente
           edit:
             update: Actualización
-          form:
-            registration_email_help: Este texto aparecerá no medio do correo de confirmación do rexistro, xusto despois do código de rexistro.
           index:
             title: Reunións
           new:
@@ -264,6 +278,7 @@ gl:
           form:
             available_slots_help: Déixao a 0 se ten slots ilimitados dispoñibles.
             invites: Invitacións
+            registration_email_help: Este texto aparecerá no medio do correo de confirmación do rexistro, xusto despois do código de rexistro.
             registration_form: Formulario de inscrición
             registrations_count:
               one: Houbo un rexistro de %{count}.
@@ -290,26 +305,32 @@ gl:
           value_types:
             organizer_presenter:
               not_found: 'O organizador non se atopou na base de datos (ID: %{id})'
+      application_helper:
+        filter_category_values:
+          all: Todas
+        filter_meeting_space_values:
+          all: Todas
+        filter_scope_values:
+          all: Todas
       calendar_modal:
         calendar_url: URL do calendario
         close_window: Pechar ventá
         export_calendar: Calendario de exportación
       conference_venues: Lugares de conferencias
       content_blocks:
-        upcoming_events:
-          name: Próximos eventos
-          upcoming_events: Próximas reunións
-          view_all_events: Ver todo
+        upcoming_meetings:
+          name: Vindeiras xuntanzas
+          upcoming_meetings: Vindeiras xuntanzas
+          view_all_meetings: Ver todo
       directory:
         meetings:
           index:
-            all: Todo
-            date: Data
             meetings: Reunións
-            past: Pasado
-            search: Busca
             space_type: Espazo participativo
-            upcoming: Próximos
+      iframe_access_level:
+        all: Todos os visitantes
+      iframe_embed_type:
+        open_in_new_tab: Abrir ligazón nunha nova lapela
       last_activity:
         meeting_updated_at_html: "<span>Xuntanza actualizada en %{link}</span>"
         new_meeting_at_html: "<span>Nova reunión en %{link}</span>"
@@ -338,25 +359,33 @@ gl:
         filters:
           category: Categoría
           date: Data
+          origin_values:
+            participants: Participantes
           search: Busca
         filters_small_view:
           close_modal: Pechar modal
           filter: Filtro
           filter_by: Filtrar por
           unfold: Despregar
+        form:
+          select_an_iframe_access_level: Por favor, selecciona o nivel de acceso ao iframe
+        index:
+          click_here: Ver todas as xuntanzas
+          see_all: Ver todas as xuntanzas
+          see_all_withdrawn: Ver todas as xuntanzas anuladas
+          text_banner: Estás a ver todas as xuntanzas anuladas polos seus autores. %{go_back_link}.
         meeting_minutes:
           related_information: Información relacionada
         meetings:
           no_meetings_warning: Non hai encontros que coincidan cos seus criterios de busca ou non hai ningunha reunión programada.
           upcoming_meetings_warning: Actualmente, non hai reunións programadas, pero aquí podes atopar todas as reunións anteriores.
-        online_meeting_link:
-          link_available_soon: Ligazón dispoñíbel en breve
         registration_confirm:
           cancel: Cancelar
           confirm: Confirmar
         show:
           attendees: Os asistentes contan
           contributions: Contribucións contar
+          edit_close_meeting: Editar o informe da xuntanza
           going: Inscribícheste nesta xuntaza
           join: Únete a reunión
           leave: Cancelar a túa inscrición
@@ -372,6 +401,9 @@ gl:
             one: "%{count} slot restante"
             other: "%{count} slots restantes"
           view: Ver
+          withdraw_btn_hint: Podes anular a túa xuntanza se mudas de parecer. A xuntanza non está anulada, aparecerá na listaxe de xuntanzas anuladas.
+          withdraw_confirmation_html: Estás certo/a de querer anular esta xuntanza?<br><br><strong>Esta acción non pode ser cancelada!</strong>
+          withdraw_meeting: Anular xuntanza
       meetings_map:
         view_meeting: Ver reunión
       models:
@@ -428,6 +460,10 @@ gl:
       types:
         private_meeting: Encontro privado
         transparent: Transparente
+        withdraw: Anular
+      withdraw:
+        error: Produciuse un erro ao anular a xuntanza
+        success: Xuntanza anulada con éxito
     metrics:
       meetings:
         description: Número de reunións creadas

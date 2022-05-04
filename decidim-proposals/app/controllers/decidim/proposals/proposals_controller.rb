@@ -32,16 +32,16 @@ module Decidim
                        .published
                        .not_hidden
                        .only_amendables
-                       .includes(:category, :scope)
+                       .includes(:category, :scope, :attachments, :coauthorships)
                        .order(position: :asc)
           render "decidim/proposals/proposals/participatory_texts/participatory_text"
         else
           @base_query = search
-                        .results
+                        .result
                         .published
                         .not_hidden
 
-          @proposals = @base_query.includes(:component, :coauthorships)
+          @proposals = @base_query.includes(:component, :coauthorships, :attachments)
           @all_geocoded_proposals = @base_query.geocoded
 
           @voted_proposals = if current_user
@@ -91,6 +91,7 @@ module Decidim
       end
 
       def compare
+        enforce_permission_to :edit, :proposal, proposal: @proposal
         @step = :step_2
         @similar_proposals ||= Decidim::Proposals::SimilarProposals
                                .for(current_component, @proposal)
@@ -103,7 +104,7 @@ module Decidim
       end
 
       def complete
-        enforce_permission_to :create, :proposal
+        enforce_permission_to :edit, :proposal, proposal: @proposal
         @step = :step_3
 
         @form = form_proposal_model
@@ -112,11 +113,13 @@ module Decidim
       end
 
       def preview
+        enforce_permission_to :edit, :proposal, proposal: @proposal
         @step = :step_4
         @form = form(ProposalForm).from_model(@proposal)
       end
 
       def publish
+        enforce_permission_to :edit, :proposal, proposal: @proposal
         @step = :step_4
         PublishProposal.call(@proposal, current_user) do
           on(:ok) do
@@ -208,25 +211,25 @@ module Decidim
 
       private
 
-      def search_klass
-        ProposalSearch
+      def search_collection
+        Proposal.where(component: current_component).published.not_hidden.with_availability(params[:filter].try(:[], :with_availability))
       end
 
       def default_filter_params
         {
-          search_text: "",
-          origin: default_filter_origin_params,
+          search_text_cont: "",
+          with_any_origin: default_filter_origin_params,
           activity: "all",
-          category_id: default_filter_category_params,
-          state: %w(accepted evaluating state_not_published),
-          scope_id: default_filter_scope_params,
+          with_any_category: default_filter_category_params,
+          with_any_state: %w(accepted evaluating state_not_published),
+          with_any_scope: default_filter_scope_params,
           related_to: "",
           type: "all"
         }
       end
 
       def default_filter_origin_params
-        filter_origin_params = %w(citizens meeting)
+        filter_origin_params = %w(participants meeting)
         filter_origin_params << "official" if component_settings.official_proposals_enabled
         filter_origin_params << "user_group" if current_organization.user_groups_enabled?
         filter_origin_params

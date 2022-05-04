@@ -23,6 +23,7 @@ es-MX:
         decidim_user_group_id: Grupo de usuarias
         description: Descripción
         end_time: Hora de finalización
+        id: ID
         location: Ubicación
         location_hints: Pistas de ubicación
         online_meeting_url: URL del encuentro online
@@ -34,12 +35,17 @@ es-MX:
         registration_terms: Términos y condiciones de inscripción
         registration_url: URL de inscripción
         registrations_enabled: Inscripciones abiertas
+        show_embedded_iframe: Mostrar iframe incrustado para esta URL
         start_time: Hora de inicio
         title: Título
         transparent: Transparente
         type_of_meeting: Tipo
     errors:
       models:
+        meeting:
+          attributes:
+            iframe_embed_type:
+              not_embeddable: Esta URL no puede ser incrustada en la página de encuentro o evento en directo
         meeting_agenda:
           attributes:
             base:
@@ -69,6 +75,34 @@ es-MX:
         other: Registros
   decidim:
     admin:
+      filters:
+        meetings:
+          category_id_eq:
+            label: Categoría
+          closed_at_present:
+            label: Estado
+            values:
+              'false': Abierto
+              'true': Cerrado
+          is_upcoming_true:
+            label: Fecha
+            values:
+              'false': Pasados
+              'true': Próximos
+          scope_id_eq:
+            label: Ámbito
+          with_any_origin:
+            label: Origen
+            values:
+              official: Oficial
+              participants: Participante
+              user_group: Grupos
+          with_any_type:
+            label: Tipo de encuentro
+            values:
+              hybrid: Ambos
+              in_person: Presencial
+              online: Online
       meeting_copies:
         create:
           error: Se ha producido un error al duplicar este encuentro.
@@ -80,6 +114,7 @@ es-MX:
     components:
       meetings:
         actions:
+          comment: Comentar
           join: Unirse
         name: Encuentros
         settings:
@@ -90,6 +125,7 @@ es-MX:
             creation_enabled_for_participants: Las participantes pueden crear encuentros
             default_registration_terms: Términos de registro predeterminados
             enable_pads_creation: Habilitar la creación de pads
+            maps_enabled: Mapas habilitados
             registration_code_enabled: Código de inscripción activado
             resources_permissions_enabled: Se pueden establecer permisos de acciones para cada encuentro
             scope_id: Ámbito
@@ -114,6 +150,7 @@ es-MX:
             email_subject: Se ha cerrado el encuentro "%{resource_title}"
             notification_title: El encuentro <a href="%{resource_path}">%{resource_title}</a> ha sido cerrada.
         meeting_created:
+          button_text: Inscribirse en el encuentro
           email_intro: Se ha añadido el encuentro "%{resource_title}" al espacio "%{participatory_space_title}" que estás siguiendo.
           email_outro: Has recibido esta notificación porque sigues "%{participatory_space_title}". Puedes dejar de seguirlo en el enlace anterior.
           email_subject: Nuevo encuentro añadido a %{participatory_space_title}
@@ -145,6 +182,9 @@ es-MX:
           email_outro: Has recibido esta notificación porque sigues el encuentro "%{resource_title}". Puedes dejar de seguirlo en el enlace anterior.
           email_subject: El encuentro "%{resource_title}" comenzará en menos de 48 h.
           notification_title: El encuentro <a href="%{resource_path}">%{resource_title}</a> comenzará en menos de 48 h.
+    forms:
+      meetings:
+        attendees_count_help_text: No olvides incluir el número total de asistentes a tu encuentro, ya sea presencial, en línea o híbrido.
     gamification:
       badges:
         attended_meetings:
@@ -170,6 +210,7 @@ es-MX:
           proposals_count:
             one: 'El encuentro no se puede eliminar porque tiene %{count} propuesta asociada:'
             other: 'El encuentro no se puede eliminar porque tiene %{count} propuestas asociadas:'
+        manage_poll: Configurar encuesta
         new: Nuevo encuentro
         preview: Previsualizar
         registrations: Inscripciones
@@ -206,6 +247,7 @@ es-MX:
             invalid: Ha habido un problema al actualizar el orden del día
             success: Orden del día actualizado correctamente
         exports:
+          answers: Respuestas
           meeting_comments: Comentarios
           meetings: Reuniones
           registrations: Inscripciones
@@ -240,12 +282,16 @@ es-MX:
           edit:
             close: Cerrar
             title: Cerrar encuentro
+        meeting_copies:
+          form:
+            select_a_meeting_type: Por favor, selecciona un tipo de encuentro
         meetings:
           close:
             invalid: Ha habido un problema al cerrar este encuentro
             success: Encuentro cerrado con éxito
           create:
             invalid: Ha habido un problema al crear este encuentro
+            success: Encuentro creado correctamente. Ten en cuenta que aún no se ha publicado, deberás publicarlo manualmente.
           destroy:
             invalid:
               proposals_count:
@@ -257,20 +303,23 @@ es-MX:
             update: Actualizar
           form:
             address_help: 'Dirección: usada por Geocoder para encontrar la ubicación'
-            available_slots_help: Déjalo a 0 si tienes espacio ilimitado disponible
             disclaimer: 'Descargo de responsabilidad: Mediante el uso de un sistema de inscripción externo, aceptas que los organizadores de %{organization} no son responsables de los datos proporcionados por los usuarios al servicio externo.'
             location_help: 'Ubicación: mensaje dirigido a las participantes indicando el lugar donde reunirse'
             location_hints_help: 'Consejos de ubicación: información adicional. Ejemplo: la planta del edificio si se trata de un encuentro presencial, o la contraseña de la sala si se trata de un encuentro online con acceso restringido.'
             online_meeting_url_help: 'Enlace: permitir a las participantes conectarse directamente a tu encuentro'
-            registration_email_help: Este texto aparecerá en medio del correo de confirmación de inscripción. Justo después del código de inscripción.
             registration_url_help: 'Enlace: permitir a las participantes ir al servicio externo que estás utilizando para las inscripciones'
             select_a_meeting_type: Por favor, selecciona un tipo de encuentro
             select_a_registration_type: Por favor, seleccione un tipo de inscripción
+            select_an_iframe_access_level: Por favor, seleccione un nivel de acceso iframe
+            show_embedded_iframe_help: Solo unos pocos servicios se pueden incrustar en encuentros o eventos en directo (YouTube, Twitch y Jitsi)
           index:
             title: Encuentros
           new:
             create: Crear
             title: Crear encuentro
+          publish:
+            invalid: Se ha producido un error al publicar este encuentro
+            success: Encuentro publicado correctamente
           service:
             description: Descripción
             down: Abajo
@@ -281,9 +330,18 @@ es-MX:
           services:
             add_service: Añadir servicio
             services: Servicios
+          unpublish:
+            invalid: Se ha producido un error al despublicar este encuentro
+            success: Encuentro despublicado correctamente
           update:
             invalid: Ha habido un problema al actualizar este encuentro
             success: Encuentro actualizado correctamente
+        meetings_poll:
+          form:
+            title: Editar cuestionario de encuesta para %{questionnaire_for}
+          update:
+            invalid: Se ha producido un error al actualizar esta encuesta
+            success: Encuesta actualizada correctamente
         models:
           meeting:
             name: Encuentro
@@ -296,6 +354,7 @@ es-MX:
             available_slots_help: Déjalo a 0 si tiene inscripciones ilimitadas.
             invites: Invitaciones
             recommendation_message: Por razones de privacidad te recomendamos que elimines este formulario de inscripción cuando ya no lo necesites. Por defecto, esto es 3 meses después de que la reunión haya finalizado.
+            registration_email_help: Este texto aparecerá en medio del correo de confirmación de inscripción. Justo después del código de inscripción.
             registration_form: Formulario de inscripción
             registrations_count:
               one: Ha habido %{count} inscripción.
@@ -323,29 +382,45 @@ es-MX:
           value_types:
             organizer_presenter:
               not_found: 'El organizador no se encontró en la base de datos (ID: %{id})'
+      application_helper:
+        filter_category_values:
+          all: Todas
+        filter_meeting_space_values:
+          all: Todos
+        filter_scope_values:
+          all: Todos
       calendar_modal:
         calendar_url: URL del calendario
         close_window: Cerrar ventana
         export_calendar: Exportar calendario
       conference_venues: Sedes de las jornadas
       content_blocks:
-        upcoming_events:
+        upcoming_meetings:
           name: Próximos encuentros
-          upcoming_events: Próximos encuentros
-          view_all_events: Ver todo
+          upcoming_meetings: Próximos encuentros
+          view_all_meetings: Ver todo
       directory:
         meetings:
           index:
-            all: Todos
-            date: Fecha
             meetings: Encuentros
-            past: Pasados
-            search: Buscar
             space_type: Espacio participativo
-            upcoming: Próximo
+      iframe_access_level:
+        all: Todos los visitantes
+        registered: Participantes inscritas en este encuentro
+        signed_in: Sólo participantes registradas
+      iframe_embed_type:
+        embed_in_meeting_page: Incrustar en la página del encuentro
+        none: Ninguno
+        open_in_live_event_page: Abrir en la página del evento en directo (con encuestas opcionales)
+        open_in_new_tab: Abrir en nueva pestaña
       last_activity:
         meeting_updated_at_html: "<span>Encuentro actualizado a las %{link}</span>"
         new_meeting_at_html: "<span>Nuevo encuentro en %{link}</span>"
+      layouts:
+        live_event:
+          administrate: Administrar
+          close: cerrar
+          questions: Preguntas
       mailer:
         invite_join_meeting_mailer:
           invite:
@@ -361,6 +436,13 @@ es-MX:
           close: Crear encuentro
           title: Cerrar el encuentro
       meetings:
+        calendar_modal:
+          add_to_calendar: Añadir al calendario
+          apple: Añadir al calendario de Apple
+          close_window: Cerrar ventana
+          full_details_html: Para obtener todos los detalles ve a %{link}
+          google: Añadir al calendario de Google
+          outlook: Abrir el calendario de Outlook
         count:
           meetings_count:
             one: "%{count} encuentro"
@@ -385,8 +467,8 @@ es-MX:
           origin: Origen
           origin_values:
             all: Todos
-            citizens: Ciudadanos
             official: Oficial
+            participants: Participantes
             user_groups: Grupos
           scope: Ámbito
           search: Buscar
@@ -413,8 +495,14 @@ es-MX:
           select_a_category: Por favor, selecciona una categoría
           select_a_meeting_type: Por favor, selecciona un tipo de encuentro
           select_a_registration_type: Por favor, selecciona un tipo de inscripción
+          select_an_iframe_access_level: Por favor, selecciona un nivel de acceso iframe
+          show_embedded_iframe_help: Solo unos pocos servicios se pueden incrustar en encuentros o eventos en directo (YouTube, Twitch y Jitsi)
         index:
+          click_here: Ver todos los encuentros
           new_meeting: Nuevo encuentro
+          see_all: Ver todos los encuentros
+          see_all_withdrawn: Ver todos los encuentros retirados
+          text_banner: Estás viendo la lista de encuentros retirados por sus autores. %{go_back_link}.
         meeting_minutes:
           related_information: Información relacionada
         meetings:
@@ -433,12 +521,17 @@ es-MX:
           close_meeting: Cerrar encuentro
           contributions: Número de contribuciones
           date: Fecha
+          edit_close_meeting: Editar informe del encuentro
           edit_meeting: Editar el encuentro
           going: Te has inscrito en este encuentro
           join: Inscribirse al encuentro
           leave: Cancela tu inscripción
           leave_confirmation: '¿Seguro que quieres cancelar tu inscripción para este encuentro?'
+          link_available_soon: Enlace disponible próximamente
+          link_closed: El enlace para unirte a la reunión estará disponible unos minutos antes de que comience
+          live_event: Este encuentro está sucediendo ahora mismo
           meeting_minutes: Acta del encuentro
+          micro_camera_permissions_warning: Cuando hagas clic en el botón de abajo, se te pedirán permisos de micrófono y/o cámara y te unirás a la videoconferencia
           no_slots_available: No hay espacio disponible
           organizations: Organizaciones que han asistido
           registration_code_help_text: Tu codigo de registro
@@ -449,6 +542,10 @@ es-MX:
             one: "Queda %{count} plaza"
             other: "%{count} plazas restantes"
           view: Ver
+          visit_finished: Ver encuentro pasado
+          withdraw_btn_hint: Puedes retirar tu encuentro si cambias de opinión. El encuentro no será eliminado, aparecerá en la lista de encuentros retirados.
+          withdraw_confirmation_html: '¿Seguro que quieres retirar este encuentro?<br><br><strong>¡Esta acción no se puede cancelar!</strong>'
+          withdraw_meeting: Retirar encuentro
         update:
           invalid: Se ha producido un error al actualizar este encuentro.
           success: Has actualizado el encuentro con éxito.
@@ -469,10 +566,36 @@ es-MX:
           fields:
             closed: Cerrado
             end_time: Fecha de finalización
+            id: Id
             map: Mapa
             official_meeting: Encuentro oficial
             start_time: Fecha de inicio
             title: Título
+      polls:
+        questions:
+          closed_question:
+            question_results: Resultados de la pregunta
+          index:
+            empty_questions: A lo largo de este encuentro, se enviarán algunas preguntas y podrás responderlas. Se mostrarán aquí.
+          index_admin:
+            admin_dashboard: Panel de administración
+            edit: Editar en el panel de administración
+            question: Pregunta
+            received_answer: respuesta recibida
+            received_answers: respuestas recibidas
+            results: Resultados
+            send: Enviar
+            sent: Enviada
+          published_question:
+            max_choices_alert: Hay demasiadas opciones seleccionadas
+            question: Pregunta
+            question_replied: Pregunta respondida
+            reply_question: Responder pregunta
+      public_participants_list:
+        attending_participants: Participantes asistentes
+        hidden_participants_count:
+          one: y %{count} persona más
+          other: y %{count} personas más
       read_more: "(leer más)"
       registration_mailer:
         confirmation:
@@ -500,8 +623,12 @@ es-MX:
       types:
         private_meeting: Encuentro privado
         transparent: Transparente
+        withdraw: Retirado
       versions:
         back_to_resource: Volver al encuentro
+      withdraw:
+        error: Se ha producido un error al retirar el encuentro
+        success: El encuentro se ha retirado con éxito
     metrics:
       meetings:
         description: Número de encuentros creados

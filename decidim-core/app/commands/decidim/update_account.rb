@@ -2,7 +2,7 @@
 
 module Decidim
   # This command updates the user's account.
-  class UpdateAccount < Rectify::Command
+  class UpdateAccount < Decidim::Command
     # Updates a user's account.
     #
     # user - The user to be updated.
@@ -32,6 +32,7 @@ module Decidim
     private
 
     def update_personal_data
+      @user.locale = @form.locale
       @user.name = @form.name
       @user.nickname = @form.nickname
       @user.email = @form.email
@@ -40,8 +41,11 @@ module Decidim
     end
 
     def update_avatar
-      @user.avatar = @form.avatar
-      @user.remove_avatar = @form.remove_avatar
+      if @form.avatar.present?
+        @user.avatar.attach(@form.avatar)
+      elsif @form.remove_avatar
+        @user.avatar = nil
+      end
     end
 
     def update_password

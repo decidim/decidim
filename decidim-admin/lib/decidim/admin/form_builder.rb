@@ -63,7 +63,14 @@ module Decidim
 
       # Calls Decidim::FormBuilder#editor with default options for admin.
       def editor(name, options = {})
-        super(name, { toolbar: :full, lines: 25 }.merge(options))
+        super(
+          name,
+          {
+            toolbar: :full,
+            lines: 25,
+            editor_images: true
+          }.merge(options)
+        )
       end
     end
   end

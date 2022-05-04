@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim
   module System
-    describe OAuthApplicationForm, processing_uploads_for: Decidim::ImageUploader do
+    describe OAuthApplicationForm do
       subject do
         described_class.from_params(attributes).with_context(context)
       end
@@ -68,7 +68,29 @@ module Decidim
       context "when the organization logo is missing" do
         let(:organization_logo) { nil }
 
-        it { is_expected.not_to be_valid }
+        context "when the application is persisted" do
+          let(:oauth_application) { create(:oauth_application, organization: organization) }
+          let(:attributes) do
+            {
+              "oauth_application" => oauth_application.attributes.slice(
+                "id",
+                "name",
+                "decidim_organization_id",
+                "organization_name",
+                "organization_url",
+                "redirect_uri"
+              ).merge(
+                "organization_logo" => organization_logo
+              )
+            }
+          end
+
+          it { is_expected.to be_valid }
+        end
+
+        context "when the application is not persisted" do
+          it { is_expected.not_to be_valid }
+        end
       end
 
       context "when the redirect URI is missing" do

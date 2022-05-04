@@ -7,6 +7,7 @@ module Decidim
       include FormFactory
       include PayloadInfo
       include HttpCachingDisabler
+      include DisableRedirectionToExternalHost
 
       protect_from_forgery with: :exception, prepend: true
 

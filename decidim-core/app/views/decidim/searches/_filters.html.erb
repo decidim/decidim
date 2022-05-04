@@ -1,5 +1,5 @@
 <label class="text-medium mb-s"><%= t(".jump_to") %></label>
-<% if params.dig(:filter, :resource_type).present? %>
+<% if params.dig(:filter, :with_resource_type).present? %>
   <p class="text-secondary">
     <%= link_to main_search_path do %>
       <%= icon "caret-left", class: "icon--small", role: "img", "aria-hidden": true %>&nbsp;<%= t(".back") %>
@@ -12,7 +12,7 @@
 <%= render partial: "resources_filter_block", locals: { sections: @sections, types: Decidim::Searchable.searchable_resources_of_type_comment } %>
 <div class="card card--secondary">
   <%= filter_form_for filter do |form| %>
-    <%= scopes_picker_filter form, :decidim_scope_id %>
+    <%= scopes_picker_filter form, :decidim_scope_id_eq %>
     <%= form.hidden_field :term %>
   <% end %>
 </div>

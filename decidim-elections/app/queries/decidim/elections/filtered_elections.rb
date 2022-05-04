@@ -3,7 +3,7 @@
 module Decidim
   module Elections
     # A class used to find elections filtered by its state
-    class FilteredElections < Rectify::Query
+    class FilteredElections < Decidim::Query
       # Syntactic sugar to initialize the class and return the queried objects.
       #
       # components - An array of Decidim::Component

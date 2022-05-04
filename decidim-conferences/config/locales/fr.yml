@@ -3,6 +3,7 @@ fr:
     attributes:
       conference:
         assemblies_ids: Assemblées associées
+        available_slots: Nombre de places disponibles
         banner_image: Image d'en-tête
         consultations_ids: Votations associées
         copy_categories: Copier les catégories
@@ -10,26 +11,59 @@ fr:
         copy_features: Copier les fonctionnalités
         decidim_scope_id: Périmètre
         description: Description
+        end_date: Date de fin
         hashtag: Hashtag
         hero_image: Image de la page d'accueil
+        location: Lieu
+        main_logo: Logo principal
+        objectives: Objectifs
         participatory_processes_ids: Concertations associées
         promoted: Mise en avant
         published_at: Publié à
+        registration_terms: Conditions d’inscription
+        registrations_enabled: Inscriptions ouvertes
         scope_id: Périmètre
         scopes_enabled: Périmètres d'application activés
         short_description: Brève description
         show_statistics: Montrer les statistiques
+        sign_date: Date de signature
+        signature: Signature
+        signature_name: nom de la signature
         slogan: Slogan
         slug: Slug URL
+        start_date: Date de début
         title: Titre
       conference_media_link:
+        date: Date
+        link: Lien
+        title: Titre
         weight: Rang d'affichage
       conference_partner:
+        link: Lien
+        logo: Logo
+        name: Nom
+        partner_type: Type de partenaire
         weight: Rang d'affichage
+      conference_registration_invite:
+        email: Email
+        name: Nom
+        registration_type_id: Type d'inscription
+        user_id: Utilisateur
       conference_registration_type:
+        description: Description
+        price: Prix
+        title: Titre
         weight: Rang d'affichage
       conference_speaker:
+        affiliation: Organisme
+        avatar: Avatar
+        conference_meeting_ids: Rencontres associées
         full_name: Nom complet
+        personal_url: Site internet personnel
+        position: Profession
+        short_bio: Courte bio
+        twitter_handle: Gestionnaire Twitter
+        user_id: Utilisateur
       conference_user_role:
         email: Email
         name: Nom
@@ -212,6 +246,7 @@ fr:
             price: Prix
             registrations_count: Nombre d'inscriptions
             title: Titre
+            weight: Rang d'affichage
           name: Type d'inscription
       partners:
         create:
@@ -316,7 +351,7 @@ fr:
             invites: Invite
             search: Chercher
           new:
-            explanation: L'utilisateur sera invité à participer à une conférence. Si l'e-mail n'est pas enregistré, ils seront également invités à l'organisation.
+            explanation: L'utilisateur sera invité à participer à une conférence. Si l'e-mail n'est pas enregistré, ils seront également invités dans l'organisation.
             invite: Inviter
             new_invite: Inviter un utilisateur
         conference_registrations:
@@ -545,6 +580,8 @@ fr:
         title: Médias et liens
     menu:
       conferences: Conférences
+    statistics:
+      conferences_count: Conférences
   devise:
     mailer:
       join_conference:

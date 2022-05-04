@@ -204,6 +204,8 @@ gl:
             label: Estado
     components:
       accountability:
+        actions:
+          comment: Comentario
         name: Responsabilidade
         settings:
           global:

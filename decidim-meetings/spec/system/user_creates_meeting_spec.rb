@@ -6,7 +6,7 @@ describe "User creates meeting", type: :system do
   include_context "with a component"
   let(:manifest_name) { "meetings" }
 
-  let(:organization) { create(:organization) }
+  let(:organization) { create(:organization, available_authorizations: %w(dummy_authorization_handler)) }
   let(:participatory_process) { create(:participatory_process, :with_steps, organization: organization) }
   let(:current_component) { create :meeting_component, participatory_space: participatory_process }
   let(:start_time) { 1.day.from_now }

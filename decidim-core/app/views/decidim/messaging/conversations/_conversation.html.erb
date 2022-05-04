@@ -4,9 +4,9 @@
       <div class="card__link text-center">
         <div class="user-header__avatar">
           <% if conversation.interlocutors(current_user).count == 1 %>
-            <%= image_tag conversation.interlocutors(current_user).first.avatar_url, alt: t("decidim.author.avatar", name: decidim_sanitize(current_user.name)) %>
+            <%= image_tag present(conversation.interlocutors(current_user).first).avatar_url, alt: t("decidim.author.avatar", name: decidim_sanitize(current_user.name)) %>
           <% else %>
-            <%= image_tag current_user.avatar.default_multiuser_url, alt: t("decidim.author.avatar_multiuser") %>
+            <%= image_tag present(current_user).avatar.default_multiuser_url, alt: t("decidim.author.avatar_multiuser") %>
           <% end %>
         </div>
         <span class="text-medium mt-xs"><%= Date::ABBR_DAYNAMES[conversation.created_at.wday] %> <%= conversation.created_at.wday %></span>
@@ -14,10 +14,16 @@
     </li>
     <li class="card-data__item card--list__item card-data__item--expand absolutes">
       <div class="mr-s">
-        <% if conversation.interlocutors(current_user).count == 1 %>
-          <%= t("from", scope: "decidim.messaging.conversations.index") %>: <strong><%= conversation.interlocutors(current_user).first.name %> <span class="muted">@<%= conversation.interlocutors(current_user).first.nickname %></span></strong>
+        <% if conversation.messages.last.decidim_sender_id == current_user.id %>
+          <%= t("to", scope: "decidim.messaging.conversations.index") %>:
         <% else %>
-          <%= t("from", scope: "decidim.messaging.conversations.index") %>: <strong><%= username_list(conversation.interlocutors(current_user), shorten: true) %></strong>
+          <%= t("from", scope: "decidim.messaging.conversations.index") %>:
+        <% end %>
+
+        <% if conversation.interlocutors(current_user).count == 1 %>
+          <%= conversation_name_for(conversation.interlocutors(current_user)) %>
+        <% else %>
+          <strong><%= username_list(conversation.interlocutors(current_user), shorten: true).html_safe %></strong>
         <% end %>
         <br>
         <span class="muted">
@@ -45,7 +51,7 @@
           <% if conversation.interlocutors(current_user).count == 1 %>
             <%= icon "chevron-right", class: "card__link icon--big", role: "img", aria_label: t(".show", sender: conversation.interlocutors(current_user).first.name) %>
           <% else %>
-            <%= icon "chevron-right", class: "card__link icon--big", role: "img", aria_label: t(".show", sender: username_list(conversation.interlocutors(current_user))) %>
+            <%= icon "chevron-right", class: "card__link icon--big", role: "img", aria_label: t(".show", sender: strip_tags(username_list(conversation.interlocutors(current_user)))) %>
           <% end %>
         <% end %>
       </div>

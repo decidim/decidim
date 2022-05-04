@@ -65,51 +65,27 @@
 <% end %>
 
 <% if component_settings.attachments_allowed? && @proposal %>
-  <fieldset class="gallery__container">
+  <fieldset class="gallery__container photos_container">
     <legend><%= t("gallery_legend", scope: "decidim.proposals.proposals.edit") %></legend>
-
-    <% if @form.photos.any? %>
-      <% @form.photos.each do |photo| %>
-        <div class="callout gallery__item" id="attachment_<%= photo.id %>" data-closable>
-          <%= image_tag photo.thumbnail_url, class: "thumbnail", alt: photo.file.file.filename %>
-          <%= form.hidden_field :photos, multiple: true, value: photo.id, id: "photo-#{photo.id}" %>
-          <button class="close-button"
-                  aria-label="<%= t("delete_image", scope: "decidim.proposals.proposals.edit") %>"
-                  title="<%= t("delete_image", scope: "decidim.proposals.proposals.edit") %>"
-                  type="button"
-                  data-close>
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-      <% end %>
-    <% end %>
-
     <div class="row column">
-      <%= form.file_field :add_photos, multiple: false, label: t("add_images", scope: "decidim.proposals.proposals.edit") %>
+      <%= form.attachment :photos,
+        multiple: false,
+        label: t("decidim.proposals.proposals.edit.add_image"),
+        button_label: t("decidim.proposals.proposals.edit.add_image"),
+        button_edit_label: t("decidim.proposals.proposals.edit.edit_image"),
+        help_i18n_scope: "decidim.forms.file_help.image" %>
     </div>
   </fieldset>
 
-  <fieldset class="gallery__container">
+  <fieldset class="attachments_container gallery__container documents_container">
     <legend><%= t("attachment_legend", scope: "decidim.proposals.proposals.edit") %></legend>
-
-    <% if @form.documents.any? %>
-      <% @form.documents.each do |document| %>
-        <div class="callout" id="attachment_<%= document.id %>" data-closable>
-          <%= link_to translated_attribute(document.title), document.url %>
-          <small><%= document.file_type %> <%= number_to_human_size(document.file_size) %></small>
-          <%= form.hidden_field :documents, multiple: true, value: document.id, id: "document-#{document.id}" %>
-          <button class="close-button"
-                  aria-label="<%= t("delete_document", scope: "decidim.proposals.proposals.edit") %>"
-                  title="<%= t("delete_document", scope: "decidim.proposals.proposals.edit") %>"
-                  type="button" data-close>
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-      <% end %>
-    <% end %>
-
     <div class="row column">
-      <%= form.file_field :add_documents, multiple: true, label: t("add_documents", scope: "decidim.proposals.proposals.edit") %>
+      <%= form.attachment :documents,
+        multiple: true,
+        label: t("decidim.proposals.proposals.edit.add_documents"),
+        button_label: t("decidim.proposals.proposals.edit.add_documents"),
+        button_edit_label: t("decidim.proposals.proposals.edit.edit_documents"),
+        help_i18n_scope: "decidim.forms.file_help.file" %>
     </div>
   </fieldset>
 <% end %>

@@ -59,6 +59,10 @@ sv:
       read_more: Läs mer
     components:
       blogs:
+        actions:
+          create: Skapa
+          destroy: Radera
+          update: Uppdatera
         name: Blogg
         settings:
           global:

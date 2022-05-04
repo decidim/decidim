@@ -32,6 +32,8 @@ el:
   decidim:
     accountability:
       actions:
+        attachment_collections: Φάκελοι
+        attachments: Συνημμένα
         confirm_destroy: Είστε βέβαιοι ότι θέλετε να διαγράψετε αυτό το όνομα %{name};
         destroy: Διαγραφή
         edit: Επεξεργασία
@@ -42,6 +44,7 @@ el:
         title: Ενέργειες
       admin:
         exports:
+          result_comments: Σχόλια
           results: Αποτελέσματα
         import_results:
           new:
@@ -121,6 +124,11 @@ el:
         value_types:
           parent_presenter:
             not_found: 'H γονική διαδικασία δεν βρέθηκε στη βάση δεδομένων (αναγνωριστικό: %{id})'
+      content_blocks:
+        highlighted_results:
+          dates: Ημερομηνίες
+          results: Αποτελέσματα
+          unspecified: Δεν έχει καθοριστεί
       import_mailer:
         import:
           errors: Σφάλματα
@@ -133,8 +141,12 @@ el:
       models:
         result:
           fields:
+            category: Κατηγορία
+            created_at: Δημιουργήθηκε
             end_date: Ημερομηνία λήξης
+            id: Αναγνωριστικό ID
             progress: Πρόοδος
+            scope: Πεδίο εφαρμογής
             start_date: Ημερομηνία έναρξης
             status: Κατάσταση
             title: Τίτλος
@@ -148,6 +160,9 @@ el:
           fields:
             description: Περιγραφή
             entry_date: Ημερομηνία
+      result_m:
+        executed: Εκτελέσθηκε
+        view: Προβολή
       results:
         count:
           results_count:
@@ -178,8 +193,19 @@ el:
             votes: Υποστηρίξεις
         timeline:
           title: Εξέλιξη έργου
+    admin:
+      filters:
+        results:
+          category_id_eq:
+            label: Κατηγορία
+          scope_id_eq:
+            label: Πεδίο εφαρμογής
+          status_id_eq:
+            label: Κατάσταση
     components:
       accountability:
+        actions:
+          comment: Σχόλιο
         name: Υπευθυνότητα
         settings:
           global:
@@ -190,6 +216,8 @@ el:
             heading_leaf_level_results: Όνομα για «Έργα»
             heading_parent_level_results: Όνομα για «Αποτελέσματα»
             intro: Εισαγωγή
+            scope_id: Πεδίο εφαρμογής
+            scopes_enabled: Ενεργοποιημένα πεδία εφαρμογής
             subcategories_label: Όνομα για «Υποκατηγορίες»
           step:
             comments_blocked: Τα σχόλια αποκλείστηκαν
@@ -218,3 +246,5 @@ el:
         result_project: Έργα που περιλαμβάνονται σε αυτό το αποτέλεσμα
       included_proposals:
         result_proposal: Προτάσεις που περιλαμβάνονται σε αυτό το αποτέλεσμα
+    statistics:
+      results_count: Αποτελέσματα

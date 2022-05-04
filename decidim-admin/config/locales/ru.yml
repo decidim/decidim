@@ -38,7 +38,6 @@ ru:
         enable_omnipresent_banner: Показывать вездесущий баннер
         facebook_handler: Обработчик Facebook
         favicon: Значок
-        from: Отправитель сообщения
         github_handler: Обработчик GitHub
         header_snippets: Сниппеты для гипертекстовых заголовков страниц сайта
         highlighted_content_banner_action_subtitle: Подзаголовок кнопки действия
@@ -250,7 +249,6 @@ ru:
       dashboard:
         show:
           view_more_logs: Просмотреть другие журналы
-          welcome: Добро пожаловать в админ-панель Десидим!
       exports:
         export_as: "%{name} как %{export_format}"
         notice: Идет сохранение в виде файла. Вы получите электронное письмо, когда оно будет завершено.
@@ -414,7 +412,6 @@ ru:
       newsletters:
         create:
           error: При попытке создать эту рассылку новостей произошла ошибка.
-          success: Рассылка новостей успешно создана. Пожалуйста, просмотрите её перед отправкой.
         deliver:
           error: При доставке этой рассылки новостей произошла ошибка.
           success: Рассылка новостей успешно доставлена.
@@ -577,7 +574,6 @@ ru:
         scopes: Охваты
         static_pages: Страницы
         user_groups: Группы участников
-        users: Участники
       user_group:
         reject:
           invalid: При отказе от этой группы участников произошла ошибка.
@@ -587,13 +583,6 @@ ru:
           success: Группа участников успешно подтверждена
       user_groups:
         index:
-          filter:
-            all: Все
-            pending: В ожидании
-            rejected: Отклонено
-            verified: Проверено
-          filter_by: 'Отобрать по признаку:'
-          search: Поиск
           state:
             pending: В ожидании
             rejected: Отклонено
@@ -615,16 +604,11 @@ ru:
           role: Роль
         new:
           create: Пригласить
-          title: Пригласить участника в качестве администратора
       users_statistics:
         users_count:
           admins: Администраторы
           participants: Участники
       view_public_page: Просмотреть общедоступную страницу
-    forms:
-      errors:
-        impersonate_user:
-          reason: Необходимо указать причину выступления в роли участника, не являющегося управляемым
     moderations:
       actions:
         hidden: Скрыт

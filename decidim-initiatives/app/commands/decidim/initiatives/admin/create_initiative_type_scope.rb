@@ -4,7 +4,7 @@ module Decidim
   module Initiatives
     module Admin
       # A command with all the business logic that creates a new initiative type scope
-      class CreateInitiativeTypeScope < Rectify::Command
+      class CreateInitiativeTypeScope < Decidim::Command
         # Public: Initializes the command.
         #
         # form - A form object with the params.
@@ -26,8 +26,8 @@ module Decidim
           if initiative_type_scope.persisted?
             broadcast(:ok, initiative_type_scope)
           else
-            initiative_type_scope.errors.each do |attribute, error|
-              form.errors.add(attribute, error)
+            initiative_type_scope.errors.each do |error|
+              form.errors.add(error.attribute, error.message)
             end
 
             broadcast(:invalid)

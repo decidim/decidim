@@ -15,21 +15,21 @@ describe "Decidim::Api::QueryType" do
 
   let(:consultation_data) do
     {
-      "bannerImage" => consultation.banner_image.url,
+      "bannerImage" => consultation.attached_uploader(:banner_image).path,
       "components" => [],
       "createdAt" => consultation.created_at.iso8601.to_s.gsub("Z", "+00:00"),
       "description" => { "translation" => consultation.description[locale] },
       "endVotingDate" => consultation.end_voting_date.to_date.to_s,
       "highlightedScope" => { "id" => consultation.highlighted_scope.id.to_s },
       "id" => consultation.id.to_s,
-      "introductoryImage" => consultation.introductory_image.url,
+      "introductoryImage" => consultation.attached_uploader(:introductory_image).path,
       "introductoryVideoUrl" => consultation.introductory_video_url,
       "publishedAt" => consultation.published_at.iso8601.to_s.gsub("Z", "+00:00"),
       "questions" => consultation.questions.map do |q|
         {
           "acceptsNewComments" => q.accepts_new_comments?,
           "attachments" => [],
-          "bannerImage" => q.banner_image.url,
+          "bannerImage" => q.attached_uploader(:banner_image).path,
           "comments" => [],
           "commentsHaveAlignment" => q.comments_have_alignment?,
           "commentsHaveVotes" => q.comments_have_votes?,
@@ -38,7 +38,7 @@ describe "Decidim::Api::QueryType" do
           "externalVoting" => q.external_voting?,
           "hasComments" => q.comment_threads.size.positive?,
           "hashtag" => q.hashtag,
-          "heroImage" => q.hero_image.url,
+          "heroImage" => q.attached_uploader(:hero_image).path,
           "iFrameUrl" => q.i_frame_url,
           "id" => q.id.to_s,
           "instructions" => q.instructions,
@@ -70,19 +70,6 @@ describe "Decidim::Api::QueryType" do
       "resultsPublishedAt" => consultation.results_published_at,
       "slug" => consultation.slug,
       "startVotingDate" => consultation.start_voting_date.to_date.to_s,
-      "stats" => [
-        { "name" => "dummies_count_high", "value" => 0 },
-        { "name" => "pages_count", "value" => 0 },
-        { "name" => "meetings_count", "value" => 0 },
-        { "name" => "proposals_count", "value" => 0 },
-        { "name" => "budgets_count", "value" => 0 },
-        { "name" => "surveys_count", "value" => 0 },
-        { "name" => "results_count", "value" => 0 },
-        { "name" => "debates_count", "value" => 0 },
-        { "name" => "sortitions_count", "value" => 0 },
-        { "name" => "posts_count", "value" => 0 },
-        { "name" => "elections_count", "value" => 0 }
-      ],
       "subtitle" => { "translation" => consultation.subtitle[locale] },
       "title" => { "translation" => consultation.title[locale] },
       "type" => consultation.class.name,
@@ -180,10 +167,6 @@ describe "Decidim::Api::QueryType" do
         resultsPublishedAt
         slug
         startVotingDate
-        stats {
-          name
-          value
-        }
         subtitle {
           translation(locale: "#{locale}")
         }
@@ -209,8 +192,22 @@ describe "Decidim::Api::QueryType" do
       expect { response }.not_to raise_error
     end
 
-    it "has hashtags" do
+    it "returns the correct response" do
       expect(response["consultations"].first).to eq(consultation_data)
+    end
+
+    it_behaves_like "implements stats type" do
+      let(:consultations) do
+        %(
+          consultations{
+            stats{
+              name
+              value
+            }
+          }
+        )
+      end
+      let(:stats_response) { response["consultations"].first["stats"] }
     end
   end
 
@@ -304,10 +301,6 @@ describe "Decidim::Api::QueryType" do
         resultsPublishedAt
         slug
         startVotingDate
-        stats {
-          name
-          value
-        }
         subtitle {
           translation(locale: "#{locale}")
         }
@@ -324,8 +317,22 @@ describe "Decidim::Api::QueryType" do
       expect { response }.not_to raise_error
     end
 
-    it "has hashtags" do
+    it "returns the correct response" do
       expect(response["consultation"]).to eq(consultation_data)
+    end
+
+    it_behaves_like "implements stats type" do
+      let(:consultations) do
+        %(
+          consultation(id: #{consultation.id}){
+            stats{
+              name
+              value
+            }
+          }
+        )
+      end
+      let(:stats_response) { response["consultation"]["stats"] }
     end
   end
 end

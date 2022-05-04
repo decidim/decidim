@@ -4,7 +4,7 @@ module Decidim
   module Conferences
     # This query orders conferences by importance, prioritizing promoted
     # conferences.
-    class PrioritizedConferences < Rectify::Query
+    class PrioritizedConferences < Decidim::Query
       def query
         Decidim::Conference.order(promoted: :desc)
       end

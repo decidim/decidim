@@ -16,7 +16,7 @@ Decidim.register_component(:budgets) do |component|
 
   component.query_type = "Decidim::Budgets::BudgetsType"
 
-  component.actions = %(vote)
+  component.actions = %w(vote comment)
 
   component.on(:before_destroy) do |instance|
     raise StandardError, "Can't remove this component" if Decidim::Budgets::Budget.where(component: instance).any?
@@ -32,7 +32,7 @@ Decidim.register_component(:budgets) do |component|
     resource.model_class_name = "Decidim::Budgets::Project"
     resource.template = "decidim/budgets/projects/linked_projects"
     resource.card = "decidim/budgets/project"
-    resource.actions = %(vote)
+    resource.actions = %w(vote comment)
     resource.searchable = true
   end
 
@@ -46,7 +46,7 @@ Decidim.register_component(:budgets) do |component|
 
   component.register_stat :orders_count do |components, start_at, end_at|
     budgets = Decidim::Budgets::Budget.where(component: components)
-    orders = Decidim::Budgets::Order.where(component: budgets)
+    orders = Decidim::Budgets::Order.where(budget: budgets)
     orders = orders.where("created_at >= ?", start_at) if start_at.present?
     orders = orders.where("created_at <= ?", end_at) if end_at.present?
     orders.count
@@ -148,7 +148,7 @@ Decidim.register_component(:budgets) do |component|
           description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
             Decidim::Faker::Localized.paragraph(sentence_count: 3)
           end,
-          budget_amount: Faker::Number.number(digits: 8)
+          budget_amount: Faker::Number.between(from: Integer(budget.total_budget * 0.7), to: budget.total_budget)
         )
 
         attachment_collection = Decidim::AttachmentCollection.create!(
@@ -162,19 +162,37 @@ Decidim.register_component(:budgets) do |component|
           description: Decidim::Faker::Localized.sentence(word_count: 5),
           attachment_collection: attachment_collection,
           attached_to: project,
-          file: File.new(File.join(__dir__, "seeds", "Exampledocument.pdf"))
+          content_type: "application/pdf",
+          file: ActiveStorage::Blob.create_and_upload!(
+            io: File.open(File.join(__dir__, "seeds", "Exampledocument.pdf")),
+            filename: "Exampledocument.pdf",
+            content_type: "application/pdf",
+            metadata: nil
+          )
         )
         Decidim::Attachment.create!(
           title: Decidim::Faker::Localized.sentence(word_count: 2),
           description: Decidim::Faker::Localized.sentence(word_count: 5),
           attached_to: project,
-          file: File.new(File.join(__dir__, "seeds", "city.jpeg"))
+          content_type: "image/jpeg",
+          file: ActiveStorage::Blob.create_and_upload!(
+            io: File.open(File.join(__dir__, "seeds", "city.jpeg")),
+            filename: "city.jpeg",
+            content_type: "image/jpeg",
+            metadata: nil
+          )
         )
         Decidim::Attachment.create!(
           title: Decidim::Faker::Localized.sentence(word_count: 2),
           description: Decidim::Faker::Localized.sentence(word_count: 5),
           attached_to: project,
-          file: File.new(File.join(__dir__, "seeds", "Exampledocument.pdf"))
+          content_type: "application/pdf",
+          file: ActiveStorage::Blob.create_and_upload!(
+            io: File.open(File.join(__dir__, "seeds", "Exampledocument.pdf")),
+            filename: "Exampledocument.pdf",
+            content_type: "application/pdf",
+            metadata: nil
+          )
         )
         Decidim::Comments::Seed.comments_for(project)
       end

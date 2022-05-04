@@ -20,10 +20,9 @@ Gem::Specification.new do |s|
 
   s.files = Dir["{app,config,db,lib,vendor,docs}/**/*", "Rakefile", "README.md"]
 
-  s.add_dependency "graphql", "~> 1.12", ">= 1.12.3"
+  s.add_dependency "graphql", "~> 1.12", "< 1.13"
+  s.add_dependency "graphql-docs", "~> 2.1.0"
   s.add_dependency "rack-cors", "~> 1.0"
-  s.add_dependency "redcarpet", "~> 3.5", ">= 3.5.1"
-
   s.add_development_dependency "decidim-comments", Decidim::Api.version
   s.add_development_dependency "decidim-core", Decidim::Api.version
   s.add_development_dependency "decidim-dev", Decidim::Api.version

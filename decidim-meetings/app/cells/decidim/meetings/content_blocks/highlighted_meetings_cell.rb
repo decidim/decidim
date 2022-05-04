@@ -5,7 +5,13 @@ module Decidim
     module ContentBlocks
       class HighlightedMeetingsCell < Decidim::ContentBlocks::HighlightedElementsCell
         def base_relation
-          Decidim::Meetings::Meeting.where(component: published_components)
+          Decidim::Meetings::Meeting
+            .except_withdrawn
+            .published
+            .not_hidden
+            .upcoming
+            .visible_for(current_user)
+            .where(component: published_components)
         end
 
         def elements

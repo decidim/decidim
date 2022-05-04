@@ -10,7 +10,7 @@ module Decidim
       exporter = OpenDataExporter.new(organization, path)
       raise "Couldn't generate Open Data export" unless exporter.export.positive?
 
-      OpenDataUploader.new(organization).store!(File.open(path, "rb"))
+      organization.open_data_file.attach(io: File.open(path, "rb"), filename: organization.open_data_file_path)
     end
   end
 end

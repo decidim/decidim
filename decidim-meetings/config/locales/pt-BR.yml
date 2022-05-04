@@ -1,4 +1,4 @@
-pt:
+pt-BR:
   activemodel:
     attributes:
       agenda:
@@ -262,12 +262,10 @@ pt:
             update: Atualizar
           form:
             address_help: 'Endereço: usado pelo Geocodificador para encontrar a localização'
-            available_slots_help: Deixe-o em 0 se você tiver slots ilimitados disponíveis
             disclaimer: 'Aviso: ao usar um sistema de registro externo, você está ciente de que os organizadores do %{organization} não são responsáveis pelos dados fornecidos pelos usuários ao serviço externo.'
             location_help: 'Localização: mensagem direcionada aos usuários que imprimem o local para'
             location_hints_help: 'Dicas de localização: informações adicionais Exemplo: o piso do edifício se é uma reunião presencial, ou a senha da reunião, se é uma reunião online com acesso restrito.'
             online_meeting_url_help: 'Link: permitir que os participantes se conectem diretamente à sua reunião'
-            registration_email_help: Este texto aparecerá no meio do e-mail de confirmação de registro. Logo após o código de registro.
             registration_url_help: 'Link: permitir que os participantes possam acessar o serviço externo que você está usando para inscrições'
             select_a_meeting_type: Por favor, selecione um tipo de reunião
             select_a_registration_type: Por favor, selecione um tipo de registro
@@ -313,6 +311,7 @@ pt:
             available_slots_help: Deixe-o para 0 se você tiver slots ilimitados disponíveis.
             invites: Convites
             recommendation_message: Por razões de privacidade, recomendamos que você exclua esse formulário de inscrição quando não precisar mais dele. Por padrão, isso será daqui a 3 meses após o fim da reunião.
+            registration_email_help: Este texto aparecerá no meio do e-mail de confirmação de registro. Logo após o código de registro.
             registration_form: Formulário de registro
             registrations_count:
               one: Houve %{count} registro.
@@ -346,20 +345,13 @@ pt:
         export_calendar: Calendário de exportação
       conference_venues: Locais de conferência
       content_blocks:
-        upcoming_events:
-          name: Próximos eventos
-          upcoming_events: Próximos encontros
-          view_all_events: Ver tudo
+        upcoming_meetings:
+          view_all_meetings: Ver tudo
       directory:
         meetings:
           index:
-            all: Todos
-            date: Encontro
             meetings: Reuniões
-            past: Passado
-            search: Pesquisa
             space_type: Espaço participativo
-            upcoming: próximos
       last_activity:
         meeting_updated_at_html: "<span>Novo debate em %{link}</span>"
         new_meeting_at_html: "<span>Nova reunião em %{link}</span>"
@@ -414,7 +406,6 @@ pt:
           origin: Origem
           origin_values:
             all: Tudo
-            citizens: Cidadãos
             official: Oficial
             user_groups: Grupos
           scope: Escopo
@@ -453,10 +444,6 @@ pt:
           back: Voltar
           create: Criar
           title: Criar uma reunião
-        online_meeting_link:
-          join: Participe da reunião
-          link_available_soon: Link disponível em breve
-          live_event: Esta reunião está acontecendo agora
         registration_confirm:
           cancel: Cancelar
           confirm: confirme
@@ -482,6 +469,7 @@ pt:
             one: "%{count} slot restante"
             other: "%{count} slots restantes"
           view: Visualizar
+          visit_finished: Ver reunião anterior
         update:
           invalid: Houve um problema ao atualizar a reunião.
           success: Você atualizou a reunião com sucesso.

@@ -6,7 +6,7 @@ describe "show", type: :system do
   include_context "with a component"
   let(:manifest_name) { "debates" }
 
-  let!(:debate) { create(:debate, component: component) }
+  let!(:debate) { create(:debate, component: component, skip_injection: true) }
 
   before do
     visit_component
@@ -44,6 +44,17 @@ describe "show", type: :system do
       it "shows the last comment author" do
         within ".definition-data" do
           expect(page).to have_content(last_comment.author.name)
+        end
+      end
+
+      it "shows the last comment author when it's a user group" do
+        group = create(:user_group, organization: debate.organization)
+        create(:comment, commentable: debate, author: group)
+
+        visit current_url
+
+        within ".definition-data" do
+          expect(page).to have_content(group.name)
         end
       end
 

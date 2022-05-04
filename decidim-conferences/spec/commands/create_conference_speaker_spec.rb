@@ -21,43 +21,63 @@ module Decidim::Conferences
       )
     end
     let(:meeting_ids) { meetings.map(&:id) }
-    let(:avatar) { Decidim::Dev.test_file("avatar.jpg", "image/jpeg") }
-    let(:form) do
-      instance_double(
-        Admin::ConferenceSpeakerForm,
-        invalid?: invalid,
-        full_name: "Full name",
-        user: user,
-        errors: ActiveModel::Errors.new(Admin::ConferenceSpeakerForm),
-        attributes: {
-          full_name: "Full name",
-          position: { en: "position" },
-          affiliation: { en: "affiliation" },
-          short_bio: Decidim::Faker::Localized.sentence(word_count: 5),
-          twitter_handle: "full_name",
-          personal_url: Faker::Internet.url,
-          meeting_ids: meeting_ids,
-          avatar: avatar
-        }
+    let(:avatar) do
+      ActiveStorage::Blob.create_and_upload!(
+        io: File.open(Decidim::Dev.asset("avatar.jpg")),
+        filename: "avatar.jpeg",
+        content_type: "image/jpeg"
       )
     end
 
-    let(:invalid) { false }
+    let(:full_name) { "Full name" }
+    let(:position) { Decidim::Faker::Localized.word }
+    let(:affiliation) { Decidim::Faker::Localized.word }
+    let(:short_bio) { Decidim::Faker::Localized.sentence }
+    let(:twitter_handle) { "full_name" }
+    let(:personal_url) { "http://decidim.org" }
+    let(:existing_user) { false }
+    let(:user_id) { nil }
+
+    let(:form_klass) { Admin::ConferenceSpeakerForm }
+    let(:form_params) do
+      {
+        conference_speaker: {
+          full_name: full_name,
+          position: position,
+          affiliation: affiliation,
+          short_bio: short_bio,
+          twitter_handle: twitter_handle,
+          personal_url: personal_url,
+          avatar: avatar,
+          existing_user: existing_user,
+          user_id: user_id,
+          conference_meeting_ids: meeting_ids
+        }
+      }
+    end
+    let(:form) do
+      form_klass.from_params(
+        form_params
+      ).with_context(
+        current_user: current_user,
+        current_organization: conference.organization
+      )
+    end
 
     context "when the form is not valid" do
-      let(:invalid) { true }
+      let(:full_name) { nil }
 
       it "is not valid" do
         expect { subject.call }.to broadcast(:invalid)
       end
 
       context "when image is invalid" do
-        let(:invalid) { false }
-
-        let(:avatar) { Decidim::Dev.test_file("invalid.jpeg", "image/jpeg") }
-
-        before do
-          Decidim::AvatarUploader.enable_processing = true
+        let(:avatar) do
+          ActiveStorage::Blob.create_and_upload!(
+            io: File.open(Decidim::Dev.asset("invalid.jpeg")),
+            filename: "avatar.jpeg",
+            content_type: "image/jpeg"
+          )
         end
 
         it "prevents uploading" do
@@ -96,6 +116,7 @@ module Decidim::Conferences
 
       context "with an existing user in the platform" do
         let!(:user) { create(:user, organization: conference.organization) }
+        let!(:user_id) { user.id }
 
         it "sets the user" do
           subject.call

@@ -115,7 +115,6 @@ zh-CN:
         name: 建议
         settings:
           global:
-            allow_card_image: 允许卡片图像
             amendments_enabled: 修改已启用
             amendments_enabled_help: 如果激活，配置每一步的修正功能。
             amendments_wizard_help_text: 修正向导帮助文本
@@ -162,7 +161,6 @@ zh-CN:
             answers_with_costs: 启用建议答案的成本
             automatic_hashtags: 添加到所有建议的标签
             comments_blocked: 评论已阻止
-            creation_enabled: 建议创建已启用
             endorsements_blocked: 已阻止授权
             endorsements_enabled: 授权已启用
             proposal_answering_enabled: 建议答案已启用
@@ -248,7 +246,6 @@ zh-CN:
           email_intro: 提议 "%{resource_title}" 已被添加到"%{participatory_space_title}"，您正在关注它。
           email_outro: 您收到此通知是因为您正在关注 "%{participatory_space_title}"。您可以停止收到跟随上一个链接的通知。
           email_subject: 新提议 "%{resource_title}" 已添加到 %{participatory_space_title}
-          notification_title: 提议 <a href="%{resource_path}">%{resource_title}</a> 已被添加到 %{participatory_space_title}
         proposal_rejected:
           affected_user:
             email_intro: '您的提议 "%{resource_title}" 已被拒绝。您可以在此页中读取答案：'
@@ -480,11 +477,9 @@ zh-CN:
             select_states: 检查要导入的建议的状态
         proposals_merges:
           create:
-            invalid: 合并选定的建议时出现问题。
             success: 成功地将提案合并为一个新提案。
         proposals_splits:
           create:
-            invalid: 在分割选定的建议时遇到问题。
             success: 成功地将建议分成新的建议。
         valuation_assignments:
           create:
@@ -515,7 +510,6 @@ zh-CN:
           all: 所有的
         filter_origin_values:
           all: 所有的
-          citizens: Citizens
           meetings: 会议
           official: 官方的
           user_groups: 群組
@@ -680,12 +674,8 @@ zh-CN:
           proposals_count:
             other: "%{count} 个提议"
         edit:
-          add_documents: www.un.org/webcast
-          add_images: 文件
           attachment_legend: "(可选) 添加附件"
           back: 后退
-          delete_document: 删除文档
-          delete_image: 删除图像
           gallery_legend: "(可选) 添加图像到提案卡"
           select_a_category: 请选择一个类别
           send: 发送

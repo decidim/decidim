@@ -11,8 +11,22 @@ module Decidim
       return if current_organization.favicon.blank?
 
       safe_join(Decidim::OrganizationFaviconUploader::SIZES.map do |version, size|
-        favicon_link_tag(current_organization.favicon.send(version).url, sizes: "#{size}x#{size}")
+        favicon_link_tag(current_organization.attached_uploader(:favicon).variant_url(version, host: current_organization.host), sizes: "#{size}x#{size}")
       end)
+    end
+
+    def apple_favicon
+      icon_image = current_organization.attached_uploader(:favicon).variant_url(:medium, host: current_organization.host)
+      return unless icon_image
+
+      favicon_link_tag(icon_image, rel: "apple-touch-icon", type: "image/png")
+    end
+
+    def legacy_favicon
+      icon_image = current_organization.attached_uploader(:favicon).variant_url(:small, host: current_organization.host)
+      return unless icon_image
+
+      favicon_link_tag(icon_image.gsub(".png", ".ico"), rel: "icon", sizes: "any", type: nil)
     end
 
     # Outputs an SVG-based icon.
@@ -53,9 +67,11 @@ module Decidim
         html_properties["aria-hidden"] = true
       end
 
+      href = Decidim.cors_enabled ? "" : asset_pack_path("media/images/icons.svg")
+
       content_tag :svg, html_properties do
         inner = content_tag :title, title
-        inner += content_tag :use, nil, "href" => "#{asset_pack_path("media/images/icons.svg")}#icon-#{name}"
+        inner += content_tag :use, nil, "href" => "#{href}#icon-#{name}"
 
         inner
       end
@@ -73,11 +89,17 @@ module Decidim
 
       if path.split(".").last == "svg"
         attributes = { class: classes.join(" ") }.merge(options)
-        asset = File.read(Rails.root.join("public#{asset_pack_path(path)}"))
+        asset = File.read(application_path(path))
         asset.gsub("<svg ", "<svg#{tag_builder.tag_options(attributes)} ").html_safe
       else
         image_pack_tag(path, class: classes.join(" "), style: "display: none")
       end
+    end
+
+    def application_path(path)
+      img_path = asset_pack_path(path)
+      img_path = URI(img_path).path if Decidim.cors_enabled
+      Rails.root.join("public/#{img_path}")
     end
 
     # Allows to create role attribute according to accessibility rules
@@ -99,7 +121,7 @@ module Decidim
       extra_items = items.slice((max_items + 1)..-1) || []
       active_item = items.find { |item| item[:active] }
 
-      render partial: "decidim/shared/extended_navigation_bar.html", locals: {
+      controller.view_context.render partial: "decidim/shared/extended_navigation_bar", locals: {
         items: items,
         extra_items: extra_items,
         active_item: active_item,

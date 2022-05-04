@@ -7,7 +7,7 @@ describe Decidim do
     expect(described_class.version).not_to be nil
   end
 
-  describe ".seed!", processing_uploads_for: Decidim::AttachmentUploader do
+  describe ".seed!" do
     it "actually seeds" do
       expect { described_class.seed! }.not_to raise_error
     end
@@ -35,6 +35,57 @@ describe Decidim do
       expect(Rails).to receive(:application).and_return application
 
       described_class.seed!
+    end
+  end
+
+  describe ".force_ssl" do
+    let!(:orig_force_ssl) { described_class.force_ssl }
+    let(:rails_env) { "test" }
+
+    before do
+      allow(Rails).to receive(:env).and_return(rails_env)
+      load "#{Decidim::Core::Engine.root}/lib/decidim/core.rb"
+    end
+
+    after do
+      described_class.force_ssl = orig_force_ssl
+      load "#{Rails.application.root}/config/initializers/decidim.rb"
+    end
+
+    it "returns false for the test environment" do
+      expect(described_class.force_ssl).to eq(false)
+    end
+
+    context "when the Rails.env is set to production" do
+      let(:rails_env) { "production" }
+
+      it "returns true" do
+        expect(described_class.force_ssl).to eq(true)
+      end
+    end
+
+    context "when the Rails.env is set to production_foo" do
+      let(:rails_env) { "production_foo" }
+
+      it "returns true" do
+        expect(described_class.force_ssl).to eq(true)
+      end
+    end
+
+    context "when the Rails.env is set to staging" do
+      let(:rails_env) { "staging" }
+
+      it "returns true" do
+        expect(described_class.force_ssl).to eq(true)
+      end
+    end
+
+    context "when the Rails.env is set to staging_foo" do
+      let(:rails_env) { "staging_foo" }
+
+      it "returns true" do
+        expect(described_class.force_ssl).to eq(true)
+      end
     end
   end
 end

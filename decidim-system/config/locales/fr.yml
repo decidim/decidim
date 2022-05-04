@@ -178,7 +178,7 @@ fr:
           success: Organisation mise à jour avec succès.
         users_registration_mode:
           disabled: L'accès n'est possible qu'avec des comptes externes
-          enabled: Autoriser les utilisateurs à s'inscrire et à se connecter
+          enabled: Autoriser les utilisateurs à se créer un compte et à s'identifier
           existing: Ne pas autoriser les utilisateurs à s'inscrire, mais autoriser les utilisateurs existants à se connecter
       shared:
         notices:

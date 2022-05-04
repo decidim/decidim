@@ -12,7 +12,7 @@ module Decidim::Proposals
     let(:cell_html) { my_cell.call }
     let(:created_at) { Time.current - 1.month }
     let(:published_at) { Time.current }
-    let(:component) { create(:proposal_component, :with_attachments_allowed, :with_card_image_allowed) }
+    let(:component) { create(:proposal_component, :with_attachments_allowed) }
     let!(:proposal) { create(:proposal, component: component, created_at: created_at, published_at: published_at) }
     let(:model) { proposal }
     let(:user) { create :user, organization: proposal.participatory_space.organization }
@@ -79,7 +79,7 @@ module Decidim::Proposals
 
         it "renders the first image in the card whatever the order between attachments" do
           expect(subject).to have_css(".card__image")
-          expect(subject.find(".card__image")[:src]).to eq(attachment_2_img.url)
+          expect(subject.find(".card__image")[:src]).to eq(attachment_2_img.reload.thumbnail_url)
         end
       end
     end
@@ -126,6 +126,7 @@ module Decidim::Proposals
         it "generate a different hash" do
           old_hash = my_cell.send(:cache_hash)
           create(:proposal_vote, proposal: proposal)
+          my_cell.model.reload
 
           expect(my_cell.send(:cache_hash)).not_to eq(old_hash)
         end
@@ -150,6 +151,7 @@ module Decidim::Proposals
         it "generate a different hash" do
           old_hash = my_cell.send(:cache_hash)
           create(:attachment, :with_image, attached_to: proposal)
+          my_cell.model.reload
 
           expect(my_cell.send(:cache_hash)).not_to eq(old_hash)
         end

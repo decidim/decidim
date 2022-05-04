@@ -3,7 +3,7 @@
 module Decidim
   module Admin
     # A command with all the business logic when creating an area
-    class CreateArea < Rectify::Command
+    class CreateArea < Decidim::Command
       # Public: Initializes the command.
       #
       # form - A form object with the params.

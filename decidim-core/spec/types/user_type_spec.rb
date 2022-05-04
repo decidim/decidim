@@ -50,7 +50,7 @@ module Decidim
         let(:query) { "{ avatarUrl }" }
 
         it "returns the user avatar url (small version)" do
-          expect(response).to include("avatarUrl" => model.avatar.url(:thumb))
+          expect(response).to include("avatarUrl" => model.attached_uploader(:avatar).path(variant: :thumb))
         end
       end
 

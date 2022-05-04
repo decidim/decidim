@@ -4,10 +4,10 @@ module Decidim
   module Elections
     module Admin
       # This command gets called to start the tally in the Bulletin Board.
-      class StartTally < Rectify::Command
+      class StartTally < Decidim::Command
         # Public: Initializes the command.
         #
-        # form - A VotePeriodForm object with the information needed to start or end the vote period
+        # form - An ActionForm object with the information needed to perform an action
         def initialize(form)
           @form = form
         end

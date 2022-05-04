@@ -269,8 +269,8 @@ pl:
             title: Utworzono wybory
             trustees: Mężowie (osoby) zaufania
           key_ceremony:
+            continue: Dalej
             title: '"Ceremonia kluczy"'
-            trustees: Mężowie (osoby) zaufania
           key_ceremony_ended:
             errors:
               time_before: Wybory są gotowe do otwarcia. Aby rozpocząć głosowanie musisz poczekać do %{hours} godzin(y) przed czasem rozpoczęcia (%{start_time}).
@@ -290,8 +290,9 @@ pl:
             submit: Prześlij
             title: Opublikowano wyniki
           tally:
+            continue: Dalej
+            mark_as_missing: Oznacz jako brakujący
             title: Ustalenie wyniku głosowania
-            trustees: Mężowie (osoby) zaufania
           tally_ended:
             answer: Odpowiedź
             not_selected: Nie wybrano
@@ -344,14 +345,9 @@ pl:
             success: Mąż (osoba) zaufania %{trustee} został pomyślnie zaktualizowany
       admin_log:
         election:
-          end_vote: "%{user_name} zamknął(ła) głosowanie w wyborach %{resource_name} na Tablicy danych wyborczych"
-          publish: "%{user_name} opublikował(a) wybory %{resource_name}"
-          publish_results: "%{user_name} opublikował wyniki głosowania w wyborach %{resource_name} Tablicy danych wyborczych"
-          setup: "%{user_name} utworzył wybory %{resource_name} na Tablicy danych wyborczych"
-          start_key_ceremony: "%{user_name} rozpoczął/rozpoczęła \"ceremonię kluczy\" w wyborach %{resource_name} na Tablicy danych wyborczych"
-          start_tally: "%{user_name} rozpoczął proces liczenia głosów %{resource_name} na Tablicy danych wyborczych"
-          start_vote: "%{user_name} otworzył/otwarła głosowanie w wyborach %{resource_name} na Tablicy danych wyborczych"
-          unpublish: "%{user_name} cofnął/cofnęła publikację wyborów %{resource_name}"
+          publish: "%{user_name} opublikował(a) wybory %{resource_name} w %{space_name}"
+          publish_results: "%{user_name} opublikował wyniki głosowania w %{resource_name} w %{space_name} na tablicy ogłoszeń"
+          unpublish: "%{user_name} cofnął/cofnęła publikację wyborów %{resource_name} w %{space_name}"
       election_m:
         badge_name:
           finished: Zakończone
@@ -428,7 +424,6 @@ pl:
           all: Wszystkie
           finished: Zakończone
           search: Szukaj
-          state: Status
           upcoming: Nadchodzące
         filters_small_view:
           close_modal: Zamknij okno
@@ -588,15 +583,12 @@ pl:
               generate_legend_3: Upewnij się, że Twój komputer nie ma kopii pliku (np. sprawdź foldery Pobrane i Pulpit).
               generate_legend_4: Utwórz kolejną kopię pliku na innym urządzeniu zewnętrznym i przechowuj go w bezpiecznym miejscu.
               submit: Prześlij
-              submit_legend: Po wykonaniu wszystkich opisanych wyżej kroków, zakończ proces wysyłania publicznego klucza identyfikacyjnego na serwer Decidim.
               submit_title: Prześlij publiczny klucz identyfikacyjny
               title: Klucze identyfikacyjne męża (osoby) zaufania
               upload: Prześlij swoje klucze identyfikacyjne
               upload_error:
                 invalid_format: Wgrany plik nie zawiera żadnego klucza identyfikacyjnego.
                 invalid_key: Nie można załadować kluczy identyfikacyjnych z przesłanego pliku.
-                invalid_public_key: Klucze identyfikacyjne z przesłanego pliku nie pasują do publicznego klucza identyfikacyjnego przechowywanego przez Decidim.
-              upload_legend: Decidim posiada twoje publiczne klucze identyfikacyjne, ale Twoja przeglądarka nadal nie ma tych kluczy. Musisz zaimportować plik z kluczami identyfikacyjnymi do komputera z kopii zapasowej, którą utworzyłeś po ich utworzeniu.
             not_supported_browser_description: Wygląda na to, że używasz przeglądarki internetowej, która nie może być użyta do działań męża (osoby) zaufania. Upewnij się, że używasz najnowszej wersji przeglądarki, lub spróbuj użyć dowolnej z najpopularniejszych przeglądarek, aby móc wykonać zadania męża (osoby) zaufania.
             not_supported_browser_title: Aktualizuj przeglądarkę by działać jako mąż (osoba) zaufania
             trustee_role_description: Zostałeś powołany do pełnienia funkcji męża (osoby) zaufania w niektórych głosowaniach na tej platformie.
@@ -663,9 +655,7 @@ pl:
         onboarding_modal:
           close: Zamknij okno
           create_account: Utwórz konto
-          description: Czy chcesz utworzyć nowe konto w Decydim? Będziesz mógł uczestniczyć w procesach i aktywnie działać w organizacji.
           no_account: Nie, dziękuję.
-          title: Nowy w Decydim?
         update:
           error: Wystąpił błąd z aktualizacją stanu Twojego głosu. Zagłosuj ponownie.
         verify:
@@ -676,7 +666,6 @@ pl:
             header: Nie znaleziono głosu!
             info: Kod głosu nie został znaleziony na urnie wyborczej %{link}, spróbuj ponownie.
           form:
-            back: Wróć do Decidim
             submit: Sprawdź
             vote_identifier: 'Kod identyfikacyjny:'
           header:
@@ -993,7 +982,6 @@ pl:
             assign_missing_officers: Wciąż są lokale wyborcze bez przewodniczącego i/lub menedżerów. Proszę przydzielić ich w sekcji lokali wyborczych
             update: Aktualizuj
           form:
-            census_contact_information_help: Te dane kontaktowe dotyczą uczestnika, który chce zgłaszać problemy ze listą wyborców. Może to być adres e-mail, formularz kontaktowy na innej stronie, ankieta Decidim dla odwiedzających itp.
             select_a_voting_type: Wybierz typ głosowania
             slug_help: 'URL slugi służą do generowania adresów URL kierujących bezpośrednio do tego procesu. Należy wpisać tylko to, co ma znaleźć się na końcu po znaku „/”, a nie pełen adres. Można użyć liter, cyfr i myślników. Musi zaczynać się od litery. Przykład: %{url}'
             title: Tytuł
@@ -1021,7 +1009,6 @@ pl:
           census:
             create:
               invalid: Wystąpił błąd przy przesyłaniu listy wyborców. Spróbuj ponownie później.
-              invalid_csv_header: Nagłówek CSV nie ma prawidłowej liczby pól - przeczytaj uważnie instrukcję
             creating_data:
               info_message: "<strong>Poczekaj</strong>, przetworzono %{processed_count} z %{raw_count} wierszy z pliku %{file}."
             delete:
@@ -1302,7 +1289,6 @@ pl:
           all: Wszystko
           finished: Zakończone
           search: Szukaj
-          state: Status
           upcoming: Nadchodzące
         filters_small_view:
           close_modal: Zamknij okno

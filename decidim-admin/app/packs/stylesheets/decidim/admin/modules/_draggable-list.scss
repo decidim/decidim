@@ -12,7 +12,7 @@
 
   li{
     cursor: move;
-    padding: $global-padding / 2 0;
+    padding: $global-padding * .5 0;
   }
 
   .draggable-content{
@@ -22,6 +22,6 @@
     font-weight: $global-weight-bold;
     border: $border;
     background-color: $light-gray;
-    padding: $global-padding / 2 $global-padding;
+    padding: $global-padding * .5 $global-padding;
   }
 }

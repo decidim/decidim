@@ -6,7 +6,7 @@
   }
 
   > div{
-    padding: $global-padding / 2 0;
+    padding: $global-padding * .5 0;
     border-bottom: $border;
 
     &:first-of-type{

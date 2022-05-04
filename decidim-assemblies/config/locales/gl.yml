@@ -59,9 +59,9 @@ gl:
         birthplace: Lugar de nacemento
         ceased_date: Data de suspensión
         designation_date: Data de designación
-        designation_mode: Modo de designación
         full_name: Nome completo
         gender: Xénero
+        non_user_avatar: Avatar
         position: Posición
         user_id: Usuario
       assembly_user_role:
@@ -182,6 +182,9 @@ gl:
         update:
           error: Houbo un erro actualizado por un usuario para este conxunto.
           success: O usuario actualizouse con éxito para este conxunto.
+      filters:
+        decidim_assemblies_type_id_eq:
+          label: Tipo de xuntanza
       menu:
         assemblies: Asembleas
         assemblies_settings: Axustes
@@ -267,7 +270,7 @@ gl:
             duration_help: Se a duración deste conxunto é limitada, seleccione a data de finalización. Se non, aparecerá como indefinido.
             filters: Filtros
             images: Imaxes
-            included_at_help: Seleccione a data en que se engadiu este conxunto a Decidim. Non ten que ser necesariamente o mesmo que a data de creación.
+            included_at_help: Selecciona a data na que engadiches esta xuntanza á plataforma. Non ten por que ser a mesma que a data de creación.
             metadata: Metadatos
             other: Outra
             select_a_created_by: Seleccione un creado por
@@ -295,7 +298,10 @@ gl:
         assembly_members:
           form:
             existing_user: Usuario existente
+            explanation: 'Instrucións para a imaxe:'
+            image_guide: É preferíbel unha imaxe apaisada sen ningún texto.
             non_user: Non usuario
+            non_user_avatar_help: Tes que obter o consentimento das persoas antes de publicalas coma membros.
             select_a_position: Seleccione unha posición
             select_user: Selecciona un usuario
             user_type: Tipo de usuario
@@ -312,6 +318,9 @@ gl:
         new_import:
           accepted_types:
             json: JSON
+      assemblies:
+        show:
+          title: Sobre esta xuntanza
       assembly_members:
         index:
           members: Membros

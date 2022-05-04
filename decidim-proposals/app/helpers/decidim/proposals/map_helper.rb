@@ -19,7 +19,7 @@ module Decidim
           .slice(:latitude, :longitude, :address)
           .merge(
             title: decidim_html_escape(present(proposal).title),
-            body: html_truncate(decidim_sanitize(present(proposal).body), length: 100),
+            body: html_truncate(decidim_sanitize_editor(present(proposal).body), length: 100),
             icon: icon("proposals", width: 40, height: 70, remove_icon_class: true),
             link: proposal_path(proposal)
           )

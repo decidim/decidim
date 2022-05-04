@@ -100,7 +100,7 @@ shared_examples "manage attachment collections examples" do
       end
     end
 
-    context "when the attachment collection has associated content", processing_uploads_for: Decidim::AttachmentUploader do
+    context "when the attachment collection has associated content" do
       let!(:attachment) { create(:attachment, attached_to: collection_for, attachment_collection: attachment_collection) }
 
       before do

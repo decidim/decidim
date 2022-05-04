@@ -4,6 +4,12 @@
       <%= t(:voted_on, scope: i18n_scope, links: budgets_link_list(voted)) %>
     </p>
 
+    <div id="voted-budgets-list" class="card card--list budget-list">
+      <% voted.each do |budget| %>
+        <%= cell("decidim/budgets/budget_list_item", budget) %>
+      <% end %>
+    </div>
+
     <% if finished? %>
       <p class="lead">
         <%= t(:finished_message, scope: i18n_scope) %>

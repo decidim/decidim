@@ -15,10 +15,10 @@ module Decidim
         translatable_attribute :description, String
         attribute :slug, String
         attribute :banner_image
-        attribute :remove_banner_image
+        attribute :remove_banner_image, Boolean, default: false
         attribute :introductory_video_url, String
-        attribute :introductory_image, String
-        attribute :remove_introductory_image
+        attribute :introductory_image
+        attribute :remove_introductory_image, Boolean, default: false
         attribute :decidim_highlighted_scope_id, Integer
         attribute :start_voting_date, Decidim::Attributes::LocalizedDate
         attribute :end_voting_date, Decidim::Attributes::LocalizedDate

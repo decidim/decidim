@@ -1,10 +1,13 @@
 <%
 js_configs = {
-  icons_path: asset_pack_path("media/images/icons.svg"),
+  icons_path: Decidim.cors_enabled ? "" : asset_pack_path("media/images/icons.svg"),
   messages: {
     "selfxssWarning": {
       title: t("decidim.security.selfxss_warning.title"),
       description: t("decidim.security.selfxss_warning.description")
+    },
+    "mentionsModal": {
+      "removeRecipient": t("decidim.shared.mentions_modal.remove_recipient", name: "%name%")
     }
   },
   external_domain_whitelist: [current_organization.host] + current_organization.external_domain_whitelist
@@ -32,12 +35,4 @@ validator_messages = {
   Decidim.InputCharacterCounter.configureMessages(<%== character_messages.to_json %>);
   Decidim.ExternalLink.configureMessages(<%== external_link_messages.to_json %>);
   Decidim.FormValidator.configureMessages(<%== validator_messages.to_json %>);
-  DecidimComments = {
-    assets: {
-      'icons.svg': "<%= asset_pack_path "media/images/icons.svg" %>"
-    }
-  }
-  Decidim.assets = {
-    'icons.svg': "<%= asset_pack_path "media/images/icons.svg" %>"
-  }
 </script>

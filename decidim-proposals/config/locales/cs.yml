@@ -57,6 +57,16 @@ cs:
               identical: A název nemůže být totožný
             title:
               identical: Tělo A nemůže být totožné
+        proposals_merge:
+          attributes:
+            base:
+              not_official: Nejsou oficiální
+              supported: Obdrželi podporu nebo potvrzení
+        proposals_split:
+          attributes:
+            base:
+              not_official: Nejsou oficiální
+              supported: Obdrželi podporu nebo potvrzení
     models:
       decidim/proposals/accepted_proposal_event: Návrh byl akceptován
       decidim/proposals/admin/update_proposal_category_event: Kategorie nabídky se změnila
@@ -133,7 +143,6 @@ cs:
         name: Návrhy
         settings:
           global:
-            allow_card_image: Povolit obrázek karty
             amendments_enabled: Pozměňovací návrhy povoleny
             amendments_enabled_help: Pokud je aktivní, nastavte funkce změny pro každý krok.
             amendments_wizard_help_text: Nápověda průvodce k Pozměňovacím návrhům
@@ -143,6 +152,17 @@ cs:
             collaborative_drafts_enabled: Společné koncepty povoleny
             comments_enabled: Komentáře povoleny
             comments_max_length: Maximální délka komentáře (ponechte 0 pro výchozí hodnotu)
+            default_sort_order: Výchozí řazení návrhu
+            default_sort_order_help: Výchozí znamená, že pokud jsou podporované funkce povoleny, budou návrhy zobrazeny náhodně, a pokud jsou opory blokovány, pak budou seřazeny podle nejpodporovanější.
+            default_sort_order_options:
+              default: Výchozí
+              most_commented: Nejvíce komentované
+              most_endorsed: Nejvíce schvalované
+              most_followed: Nejvíce sledované
+              most_voted: Nejvíce podporované
+              random: Náhodně
+              recent: Nedávné
+              with_more_authors: S více autory
             geocoding_enabled: Geokódování povoleno
             minimum_votes_per_user: Minimální počet hlasů na uživatele
             new_proposal_body_template: Šablona těla nového návrhu
@@ -184,7 +204,18 @@ cs:
             answers_with_costs: Povolit finanční náklady v odpovědích k návrhu
             automatic_hashtags: Do všech návrhů byly přidány značky Hashtags
             comments_blocked: Komentáře byly blokovány
-            creation_enabled: Vytváření návrhu je povoleno
+            creation_enabled: Účastníci mohou vytvářet návrhy
+            default_sort_order: Výchozí řazení návrhu
+            default_sort_order_help: Výchozí znamená, že pokud jsou podporované funkce povoleny, budou návrhy zobrazeny náhodně, a pokud jsou opory blokovány, pak budou seřazeny podle nejpodporovanější.
+            default_sort_order_options:
+              default: Výchozí
+              most_commented: Nejvíce komentované
+              most_endorsed: Nejvíce schvalované
+              most_followed: Nejvíce sledované
+              most_voted: Nejvíce podporované
+              random: Náhodně
+              recent: Nedávné
+              with_more_authors: S více autory
             endorsements_blocked: Schvalování blokováno
             endorsements_enabled: Schvalování povoleno
             proposal_answering_enabled: Odpovídání návrhu je povoleno
@@ -277,7 +308,7 @@ cs:
           email_intro: Návrh "%{resource_title}" byl přidán k "%{participatory_space_title}", který sledujete.
           email_outro: Toto oznámení jste obdrželi, protože jste sledovali "%{participatory_space_title}". Můžete jej odhlásit od předchozího odkazu.
           email_subject: Nový návrh "%{resource_title}" byl přidán k %{participatory_space_title}
-          notification_title: Návrh <a href="%{resource_path}">%{resource_title}</a> byl přidán do %{participatory_space_title}
+          notification_title: Návrh <a href="%{resource_path}">%{resource_title}</a> byl přidán do %{participatory_space_title} uživatelem %{author}
         proposal_rejected:
           affected_user:
             email_intro: 'Váš návrh "%{resource_title}" byl zamítnut. Odpověď můžete číst na této stránce:'
@@ -374,6 +405,27 @@ cs:
         exports:
           proposal_comments: Komentáře
           proposals: Návrhy
+        imports:
+          help:
+            answers: 'Importní dokument by měl obsahovat následující sloupce: id, state (accepted, evaluating, rejected), answer/cs (a další jazyky povolené pro organizaci).'
+            proposals: Soubor musí mít názvy sloupců title/en a body/en (nebo jiné lokalizace, které dáváte. title/cs a body/cs). Podporovány jsou také sloupce pro scope/id a category/id.
+          label:
+            answers: Importovat odpovědi ze souboru
+            proposals: Importovat návrhy ze souboru
+          resources:
+            answers:
+              one: odpověď na návrh
+              few: odpovědi na návrh
+              many: odpovědí na návrh
+              other: odpovědi na návrh
+            proposals:
+              one: návrh
+              few: návrhy
+              many: návrhů
+              other: návrhy
+          title:
+            answers: Importovat odpovědi návrhu
+            proposals: Importovat návrhy
         models:
           proposal:
             name: Návrh
@@ -519,11 +571,11 @@ cs:
             title: Importovat návrhy
         proposals_merges:
           create:
-            invalid: Při propojení vybraných návrhů došlo k chybě.
+            invalid: 'Při slučování vybraných návrhů došlo k chybě, protože některé z nich:'
             success: Projekty byly úspěšně sloučeny do nové.
         proposals_splits:
           create:
-            invalid: Při výběru vybraných návrhů došlo k chybě.
+            invalid: 'Vyskytl se problém s rozdělením vybraných návrhů, protože některé z nich:'
             success: Úspěšně rozdělil návrhy na nové.
         valuation_assignments:
           create:
@@ -554,9 +606,9 @@ cs:
           all: Vše
         filter_origin_values:
           all: Vše
-          citizens: Občané
           meetings: Setkání
           official: Oficiální
+          participants: Účastníci
           user_groups: Skupiny uživatelů
         filter_scope_values:
           all: Vše
@@ -621,6 +673,8 @@ cs:
           filter_by: Filtrovat podle
           unfold: Rozvinout
         new:
+          add_file: Přidat soubor
+          edit_file: Upravit soubor
           send: Pokračovat
         new_collaborative_draft_button:
           new_collaborative_draft: Nový návrh spolupráce
@@ -735,12 +789,12 @@ cs:
           description: Souřadnice budou aktualizovány po kliknutí na tlačítko 'náhled'. Adresa se však nemění.
           instructions: Můžete přesunout bod na mapě.
         edit:
-          add_documents: Dokumenty
-          add_images: Soubor
+          add_documents: Přidat dokumenty
+          add_image: Přidat obrázek
           attachment_legend: "(Volitelné) Přidání přílohy"
           back: Zadní
-          delete_document: Smazat dokument
-          delete_image: Smazat obrázek
+          edit_documents: Upravit dokumenty
+          edit_image: Upravit obrázek
           gallery_legend: "(Volitelné) Přidejte obrázek na kartu návrhu"
           select_a_category: Vyberte kategorii
           send: Poslat
@@ -769,9 +823,12 @@ cs:
           filter_by: Filtrovat podle
           unfold: Rozvinout
         index:
+          click_here: Zobrazit všechny návrhy
           collaborative_drafts_list: Přístup ke konceptům spolupráce
           new_proposal: Nový návrh
+          see_all: Zobrazit všechny návrhy
           see_all_withdrawn: Podívejte se na všechny stažené návrhy
+          text_banner: Zobrazujete seznam návrhů stažených jejich autory. %{go_back_link}.
           view_proposal: Zobrazit návrh
         linked_proposals:
           proposal_votes:

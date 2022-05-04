@@ -59,6 +59,9 @@ en:
       decidim/elections/question:
         one: Question
         other: Questions
+      decidim/voting:
+        one: Voting
+        other: Votings
       decidim/votings/census/dataset:
         one: Dataset
         other: Datasets
@@ -183,6 +186,11 @@ en:
         exports:
           elections: Elections
           feedback_form_answers: Feedback form answers
+        mailers:
+          trustee_mailer:
+            body: "<p>Hi %{user_name},</p><p>You've been added as a trustee to %{resource_name}.</p>"
+            subject: You've been added as a trustee to %{resource_name}
+            trustee_zone: Take me to the trustee zone
         menu:
           trustees: Trustees
         models:
@@ -254,8 +262,8 @@ en:
             title: Election created
             trustees: Trustees
           key_ceremony:
+            continue: Continue
             title: Key ceremony
-            trustees: Trustees
           key_ceremony_ended:
             errors:
               time_before: The election is ready to start. You have to wait until %{hours} hours before the starting time (%{start_time}) to start the voting period.
@@ -274,9 +282,6 @@ en:
             selected: Selected
             submit: Submit
             title: Results published
-          tally:
-            title: Tally process
-            trustees: Trustees
           tally_ended:
             answer: Answer
             not_selected: Not selected
@@ -286,6 +291,15 @@ en:
             submit: Publish results
             success: Publish results request was successfully sent to the Bulletin Board
             title: Calculated results
+          tally_started:
+            continue: Continue
+            invalid: There was a problem reporting the missing trustee
+            mark_as_missing: Mark as missing
+            mark_as_missing_description: All the trustees should participate in this process, but if a trustee can't take part in the process, you can mark it as missing.
+            success: Missing trustee report was successfully sent to the Bulletin Board
+            tally_completion: The process will be completed when all the trustees are active or marked as missing. At least %{quorum} trustees are required to complete the process.
+            title: Tally process
+            undo_mark_as_missing: A trustee marked as missing by mistake will be able to participate before the completion of the process. They can proceed as usual and the missing mark will be ignored.
           vote:
             errors:
               time_after: The election is still ongoing. You have to wait until the ending time (%{end_time}) to end the voting period.
@@ -329,14 +343,20 @@ en:
             success: Trustee %{trustee} successfully updated
       admin_log:
         election:
-          end_vote: "%{user_name} ended the voting period for the %{resource_name} election on the Bulletin Board"
-          publish: "%{user_name} published the %{resource_name} election"
-          publish_results: "%{user_name} published the results for the election %{resource_name} on the Bulletin Board"
-          setup: "%{user_name} created the %{resource_name} election on the Bulletin Board"
-          start_key_ceremony: "%{user_name} started the key ceremony for the %{resource_name} election on the Bulletin Board"
-          start_tally: "%{user_name} started the tally for the %{resource_name} election on the Bulletin Board"
-          start_vote: "%{user_name} started the voting period for the %{resource_name} election on the Bulletin Board"
-          unpublish: "%{user_name} unpublished the %{resource_name} election"
+          create: "%{user_name} created the election %{resource_name} of %{space_name}"
+          delete: "%{user_name} deleted the election %{resource_name} of %{space_name}"
+          end_vote: "%{user_name} ended the voting period for the election %{resource_name} of %{space_name} on the Bulletin Board"
+          publish: "%{user_name} published the election %{resource_name} of %{space_name}"
+          publish_results: "%{user_name} published the results for the election %{resource_name} of %{space_name} on the Bulletin Board"
+          report_missing_trustee: "%{user_name} reported %{trustee_name} as a missing trustee during the tally for the election %{resource_name} of %{space_name} on the Bulletin Board"
+          setup: "%{user_name} created the election %{resource_name} of %{space_name} on the Bulletin Board"
+          start_key_ceremony: "%{user_name} started the key ceremony for the election %{resource_name} of %{space_name} on the Bulletin Board"
+          start_tally: "%{user_name} started the tally for the election %{resource_name} of %{space_name} on the Bulletin Board"
+          start_vote: "%{user_name} started the voting period for the election %{resource_name} of %{space_name} on the Bulletin Board"
+          unpublish: "%{user_name} unpublished the %{resource_name} of %{space_name} election"
+          update: "%{user_name} updated the election %{resource_name} of %{space_name}"
+        trustee:
+          create: "%{user_name} assigned the user %{trustee_user} as Trustee"
       election_m:
         badge_name:
           finished: Finished
@@ -408,9 +428,9 @@ en:
         filters:
           active: Active
           all: All
+          date: Date
           finished: Finished
           search: Search
-          state: Status
           upcoming: Upcoming
         filters_small_view:
           close_modal: Close modal
@@ -519,7 +539,7 @@ en:
             title: Restore election keys for %{election}
             upload_election_keys: Upload election keys
             upload_icon: Icon that indicates a download action
-          tally_steps:
+          tally_started_steps:
             back: Back
             description: The results for this election are being computed in the Bulletin Board. To complete this process, your participitation as a Trustee is needed.
             keys:
@@ -569,15 +589,15 @@ en:
               generate_legend_3: Ensure your computer doesn't have a copy of the file (e.g. check the Downloads and Desktop folders).
               generate_legend_4: Make another copy of the file on a different external device and store it in a very safe place.
               submit: Submit
-              submit_legend: After following all the steps explained above, complete the process sending the public identification key to the Decidim server.
+              submit_legend: After following all the steps explained above, complete the process sending the public identification key to the server.
               submit_title: Submit the public identification key
               title: Trustee identification keys
               upload: Upload your identification keys
               upload_error:
                 invalid_format: The uploaded file doesn't contain any identification key.
                 invalid_key: The identification keys in the uploaded file can't be loaded.
-                invalid_public_key: The identification keys in the uploaded file doesn't match the public identification key stored by Decidim.
-              upload_legend: Decidim has your public identification keys, but your browser still doesn't have it. You need to import the file with your identification keys to your computer from the backup you created after generating them.
+                invalid_public_key: The identification keys in the uploaded file doesn't match the public identification key stored.
+              upload_legend: The server has your public identification keys, but your browser still doesn't have it. You need to import the file with your identification keys to your computer from the backup you created after generating them.
             not_supported_browser_description: It looks like you are using a web browser that can't be used to act as a Trustee. Make sure you're using the most recent version of your browser, or try using any of the most popular browsers to be able to complete your Trustee tasks.
             not_supported_browser_title: Upgrade browser to act as a Trustee
             trustee_role_description: You have been assigned to act as a Trustee in some of the elections celebrated in this platform.
@@ -588,7 +608,7 @@ en:
           audit: "( Audit ballot )"
           back: Start voting process again
           ballot_hash: 'Your ballot identifier is:'
-          cast: Cast ballot
+          cast: Cast ballot to finish your vote
           description: Here, you have the options to cast your ballot so that it's properly counted or, alternatively, you can audit that your ballot was correctly encrypted. For security reasons, auditing your ballot will spoil it. That means, to cast your vote, you will need to restart the voting process.
           header: 'Ballot is encrypted: cast it or audit it'
         casting:
@@ -644,9 +664,9 @@ en:
         onboarding_modal:
           close: Close modal
           create_account: Create Account
-          description: Do you want to create a new account in Decidim? You will be able to participate in the processes and be an active part of the organization.
+          description: Do you want to create a new account on the platform? You will be able to participate in the processes and be an active part of the organization.
           no_account: No, thanks.
-          title: New to Decidim?
+          title: New to the platform?
         update:
           error: There was a problem updating the vote status. Please, vote again.
         verify:
@@ -657,9 +677,10 @@ en:
             header: Vote not found!
             info: The vote code was not found in the %{link} ballot box, try again.
           form:
-            back: Back to Decidim
+            back: Back to the platform
             submit: Check
             vote_identifier: 'Identifier code:'
+            vote_identifier_help: This is the identifier that was given to you after you cast your vote (not the code to enter the voting booth).
           header:
             title: Verify your vote
           success:
@@ -974,7 +995,7 @@ en:
             assign_missing_officers: There are Polling Stations without President and/or Managers. Please assign them from the Polling stations section
             update: Update
           form:
-            census_contact_information_help: This contact information is for a participant who wants to report issues with the census. It can be an email address, a contact form on another site, a Decidim survey for visitors, etc.
+            census_contact_information_help: This contact information is for a participant who wants to report issues with the census. It can be an email address, a contact form on another site, a survey for visitors, etc.
             select_a_voting_type: Please select a voting type
             slug_help: 'URL slugs are used to generate the URLs that point to this voting. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
             title: Title
@@ -993,6 +1014,24 @@ en:
             invalid: There was a problem updating this voting
             success: Voting successfully updated
       admin_log:
+        ballot_style:
+          create: "%{user_name} created a ballot style with code %{ballot_style_code} in the space %{space_name}"
+          delete: "%{user_name} deleted the ballot style with code %{ballot_style_code} in the space %{space_name}"
+          update: "%{user_name} updated the ballot style with code %{ballot_style_code} in the space %{space_name}"
+        census:
+          create: "%{user_name} created the census for the space %{space_name}"
+          delete: "%{user_name} deleted the census for the space %{space_name}"
+          update: "%{user_name} updated the census for the space %{space_name}"
+        monitoring_committee_member:
+          create: "%{user_name} assigned the user %{monitoring_committee_member_user} as monitoring committee member in the space %{space_name}"
+          delete: "%{user_name} unassigned the user %{monitoring_committee_member_user} as monitoring committee member in the space %{space_name}"
+        polling_officer:
+          create: "%{user_name} assigned the user %{polling_officer_user} as polling officer in the space %{space_name}"
+          delete: "%{user_name} unassigned the user %{polling_officer_user} as polling officer in the space %{space_name}"
+        polling_station:
+          create: "%{user_name} created the polling station %{resource_name} in the space %{space_name}"
+          delete: "%{user_name} deleted the polling station %{resource_name} in the space %{space_name}"
+          update: "%{user_name} updated the polling station %{resource_name} in the space %{space_name}"
         voting:
           create: "%{user_name} created the %{resource_name} voting"
           publish: "%{user_name} published the %{resource_name} voting"
@@ -1002,7 +1041,7 @@ en:
           census:
             create:
               invalid: An error occurred uploading the census, please try again later.
-              invalid_csv_header: The CSV header does not have the correct number of fields - please read the instructions carefully
+              invalid_csv_header: The CSV headers are missing or not correct - please read the instructions carefully
             creating_data:
               info_message: "<strong>Please wait</strong>, processed %{processed_count} of %{raw_count} rows from %{file} file."
             delete:
@@ -1068,6 +1107,7 @@ en:
           description:
             show_less: Read less
             show_more: Read more
+            title: About this voting
           metrics:
             heading: Metrics
           polling_stations:
@@ -1154,14 +1194,14 @@ en:
             census_verified: The participant has not voted yet.
             complete_voting: Complete voting
             identify_another: Identify another participant
-            questions_title: 'She is entitled to vote in the following questions:'
+            questions_title: 'They''re entitled to vote in the following questions:'
             questions_title_voted: 'The participant has already voted online and is entitled to vote in the following questions:'
             voted: The participant has voted
           create:
             error: The vote was not registered. Please try again.
           in_person_form:
             census_not_present: This participant is not listed in the census.
-            census_not_present_description: She must go to the census complaint office or contact support.
+            census_not_present_description: They must go to the census complaint office or contact support.
             date_of_birth: Date of birth
             day: Day
             day_placeholder: DD
@@ -1245,8 +1285,8 @@ en:
           check_status: Check status
           description: Here, you have the option to check your census data to know if you have the right to participate in this voting. You should have an access code already but if you lost it, you can ask for it again, when your data is correct.
           error:
-            info: 'Please try again. If you think the data in the system is incorrect, you can report it here: %{census_contact_information}.'
-            title: Your census data is incorrect!
+            info: 'Please try again. If you think the data in the system is incorrect, you can report it here: %{census_contact_information}'
+            title: The data you have entered are not in the census for this vote
           form_title: 'Fill the following form to check your census data:'
           invalid: There was a problem checking the census.
           success:
@@ -1279,9 +1319,9 @@ en:
         filters:
           active: Active
           all: All
+          date: Date
           finished: Finished
           search: Search
-          state: Status
           upcoming: Upcoming
         filters_small_view:
           close_modal: Close modal

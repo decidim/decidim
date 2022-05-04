@@ -15,28 +15,35 @@ module Decidim
                inverse_of: :attached_to,
                as: :attached_to
 
-      # All the attachments that are photos for this process.
+      # The first attachment that is a photo for this model.
+      #
+      # Returns an Attachment
+      def photo
+        @photo ||= photos.first
+      end
+
+      # All the attachments that are photos for this model.
       #
       # Returns an Array<Attachment>
       def photos
-        @photos ||= attachments.select(&:photo?)
+        @photos ||= attachments.with_attached_file.order(:weight).select(&:photo?)
       end
 
-      # All the attachments that are documents for this process.
+      # All the attachments that are documents for this model.
       #
       # Returns an Array<Attachment>
       def documents
-        @documents ||= attachments.includes(:attachment_collection).select(&:document?)
+        @documents ||= attachments.with_attached_file.order(:weight).includes(:attachment_collection).select(&:document?)
       end
 
-      # All the attachments that are documents for this process that has a collection.
+      # All the attachments that are documents for this model that has a collection.
       #
       # Returns an Array<Attachment>
       def documents_with_collection
         documents.select(&:attachment_collection_id?)
       end
 
-      # All the attachments that are documents for this process that not has a collection.
+      # All the attachments that are documents for this model that not has a collection.
       #
       # Returns an Array<Attachment>
       def documents_without_collection

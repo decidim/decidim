@@ -3,11 +3,35 @@ eu:
     attributes:
       dummy_resource:
         created_at: Sortutako at
+        decidim_scope_id: Eremua
         field: Nire eremua
         start_date: Hasiera data
         title: Izenburua
+        translatable_text: Itzul daitekeen testua
         updated_at: Eguneratuta
   decidim:
+    components:
+      dummy:
+        settings:
+          global:
+            readonly_attribute: Soilik irakurtzeko atributua
+            test: Test bat
+            test_choices:
+              a: A aukera
+              b: B aukera
+              c: C aukera
+            test_options:
+              bar: Bar
+              baz: Baz
+              foo: foo
+          step:
+            endorsements_blocked: Atxikimenduak blokeatuta
+            endorsements_enabled: Atxikimenduak gaituta
+            readonly_step_attribute: Soilik irakurtzeko atributua
+            test_options:
+              bar: Bar
+              baz: Baz
+              foo: foo
     dummy:
       admin:
         exports:

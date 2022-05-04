@@ -214,14 +214,6 @@ FactoryBot.define do
       end
     end
 
-    trait :with_card_image_allowed do
-      settings do
-        {
-          allow_card_image: true
-        }
-      end
-    end
-
     trait :with_extra_hashtags do
       transient do
         automatic_hashtags { "AutoHashtag AnotherAutoHashtag" }
@@ -297,7 +289,7 @@ FactoryBot.define do
       proposal.body = Decidim::ContentProcessor.parse_with_processor(:hashtag, proposal.body, current_organization: proposal.organization).rewrite
 
       if proposal.component
-        users = evaluator.users || [create(:user, organization: proposal.component.participatory_space.organization)]
+        users = evaluator.users || [create(:user, :confirmed, organization: proposal.component.participatory_space.organization)]
         users.each_with_index do |user, idx|
           user_group = evaluator.user_groups[idx]
           proposal.coauthorships.build(author: user, user_group: user_group)
@@ -313,7 +305,7 @@ FactoryBot.define do
       published_at { nil }
     end
 
-    trait :citizen_author do
+    trait :participant_author do
       after :build do |proposal|
         proposal.coauthorships.clear
         user = build(:user, organization: proposal.component.participatory_space.organization)

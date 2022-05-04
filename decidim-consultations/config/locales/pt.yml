@@ -94,6 +94,7 @@ pt:
         create:
           error: Ocorreu um problema ao criar uma nova consulta.
           success: Consulta criada corretamente.
+        deprecation_warning: O módulo de consultação será descontinuado no futuro próximo. Estamos a trabalhar na próxima versão criptograficamente segura chamará Votações.
         edit:
           update: Atualizar
         form:
@@ -252,7 +253,6 @@ pt:
         all: Todos
         finished: Acabado
         search: Pesquisar
-        state: Estado
         upcoming: Próximas
       filters_small_view:
         close_modal: Fechar janela
@@ -320,6 +320,8 @@ pt:
     help:
       participatory_spaces:
         consultations:
+          contextual: "<p>Uma <strong>consultação</strong> é um espaço que permite perguntar uma questão transparente a todas a pessoas que formam uma organização, fazer uma chamada a participar na consultação, espoletar e ordenar o debate a favor ou contra uma resposta. Quando a data duma consultação chega, pode votar e publicar o resultados das votações.</p><p>Exemplos: As consultações podem ser sobre praticamente todos os aspectos que afectam uma organização: alguns exemplos são a mudança de nome ou logótipo da organização oferecendo várias alternativas, decidir Sim ou Não ser parte duma organização maior, validar ou rejeitar um plano estratégico novo ou o resultado dum grupo de trabalho, ou definir se os cargos devem durar por um máximo de 1, 2, ou 3 mandatos.</p>"
+          page: "<p>Uma <strong>consultação</strong>  é um espaço que permite perguntar uma questão transparente a todas a pessoas que formam uma organização, fazer uma chamada a participar na consultação, espoletar e ordenar o debate a favor ou contra uma resposta. Quando a data duma consultação chega, pode votar e publicar o resultados das votações.</p><p>Exemplos: As consultações podem ser sobre praticamente todos os aspectos que afectam uma organização: alguns exemploes são a mudança de nome ou logótipo da organização oferecendo várias alternativas, decidir Sim ou Não ser parte duma organização maior, validar ou rejeitar um plano estratégico novo ou o resultado dum grupo de trabalho, ou definir se os cargos devem durar por um máximo de 1, 2, ou 3 mandatos na organização.</p>"
           title: O que são consultas?
     menu:
       consultations: Consultas
@@ -356,7 +358,11 @@ pt:
     resources:
       consultations:
         actions:
+          comment: Comentários
           vote: Voto
+    statistics:
+      consultations_count: Consultas
+      votes_count: Votos
   layouts:
     decidim:
       consultation_voting_data:

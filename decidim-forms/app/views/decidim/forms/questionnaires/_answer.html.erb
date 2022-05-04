@@ -3,6 +3,15 @@
 <% if answer.question.separator? %>
   <%= render partial: "decidim/forms/questionnaires/answers/#{answer.question.question_type}", locals: { answer: answer, answer_form: answer_form, answer_idx: answer_idx, field_id: field_id, disabled: disabled } %>
   <%= answer_form.hidden_field :question_id %>
+<% elsif answer.question.title_and_description? %>
+  <%= label_tag field_id, translated_attribute(answer.question.body), class: "questionnaire-title_and_description" %>
+  <% if translated_attribute(answer.question.description).present? %>
+    <div class="help-title_and_description ">
+      <%= decidim_sanitize_editor translated_attribute(answer.question.description) %>
+    </div>
+  <% end %>
+  <%= render partial: "decidim/forms/questionnaires/answers/#{answer.question.question_type}", locals: { answer: answer, answer_form: answer_form, answer_idx: answer_idx, field_id: field_id, disabled: disabled } %>
+  <%= answer_form.hidden_field :question_id %>
 <% else %>
   <% case answer.question.question_type %>
   <% when "single_option", "multiple_option", "sorting" %>
@@ -13,7 +22,7 @@
 
   <% if translated_attribute(answer.question.description).present? %>
     <div class="help-text">
-      <%= decidim_sanitize translated_attribute(answer.question.description) %>
+      <%= decidim_sanitize_editor translated_attribute(answer.question.description) %>
     </div>
   <% end %>
 
@@ -21,7 +30,9 @@
 
   <%= answer_form.hidden_field :question_id %>
 
-  <small class="form-error max-choices-alert"><%= t(".max_choices_alert") %></small>
+  <% if answer.question.max_choices %>
+    <small class="form-error max-choices-alert"><%= t(".max_choices_alert") %></small>
+  <% end %>
 
   <% answer.errors.full_messages.each do |msg| %>
     <small class="form-error is-visible"><%= msg %></small>

@@ -1,4 +1,4 @@
-pt:
+pt-BR:
   activemodel:
     attributes:
       debate:
@@ -17,7 +17,6 @@ pt:
       decidim/debates/close_debate_event: Debate encerrado
       decidim/debates/create_debate_event: Debate
       decidim/debates/creation_disabled_event: Debates desativados
-      decidim/debates/creation_enabled_event: Debates ativados
   activerecord:
     models:
       decidim/debates/debate:
@@ -40,7 +39,6 @@ pt:
           step:
             announcement: Anúncio
             comments_blocked: Comentários bloqueados
-            creation_enabled: Criação de debate por usuários habilitado
             endorsements_blocked: Endossos bloqueados
             endorsements_enabled: Endossos habilitados
     debates:
@@ -116,7 +114,6 @@ pt:
           all: Todos
           category: Categoria
           category_prompt: Selecione uma categoria
-          citizens: Cidadãos
           commented: Comentado
           my_debates: Meus debates
           official: Oficial

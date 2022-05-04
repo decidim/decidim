@@ -5,7 +5,7 @@ module Decidim
     module Admin
       # A class used to find the admins for a participatory process including
       # organization admins.
-      class AdminUsers < Rectify::Query
+      class AdminUsers < Decidim::Query
         # Syntactic sugar to initialize the class and return the queried objects.
         #
         # process - a process that needs to find its process admins
@@ -13,33 +13,46 @@ module Decidim
           new(process).query
         end
 
+        # Syntactic sugar to initialize the class and return the queried objects.
+        #
+        # organization - an organization that needs to find its process admins
+        def self.for_organization(organization)
+          new(nil, organization).query
+        end
+
         # Initializes the class.
         #
         # process - a process that needs to find its process admins
-        def initialize(process)
+        # organization - an organization that needs to find its process admins
+        def initialize(process, organization = nil)
           @process = process
+          @organization = process&.organization || organization
         end
 
         # Finds organization admins and the users with role admin for the given process.
         #
         # Returns an ActiveRecord::Relation.
         def query
-          Decidim::User.where(id: organization_admins).or(process_user_admins)
+          organization.admins.or(processes_user_admins)
         end
 
         private
 
-        attr_reader :process
+        attr_reader :process, :organization
 
-        def organization_admins
-          process.organization.admins
+        def processes_user_admins
+          Decidim::User.where(
+            id: Decidim::ParticipatoryProcessUserRole.where(participatory_process: processes, role: :admin)
+                                                     .select(:decidim_user_id)
+          )
         end
 
-        def process_user_admins
-          process_user_admin_ids = Decidim::ParticipatoryProcessUserRole
-                                   .where(participatory_process: process, role: :admin)
-                                   .pluck(:decidim_user_id)
-          Decidim::User.where(id: process_user_admin_ids)
+        def processes
+          if process
+            [process]
+          else
+            Decidim::ParticipatoryProcess.where(organization: organization)
+          end
         end
       end
     end

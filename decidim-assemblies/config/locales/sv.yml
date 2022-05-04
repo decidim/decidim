@@ -59,9 +59,9 @@ sv:
         birthplace: Födelseort
         ceased_date: Slutade datum
         designation_date: Utnämningsdatum
-        designation_mode: Utnämningsläge
         full_name: Fullständigt namn
         gender: Kön
+        non_user_avatar: Profilbild
         position: Befattning
         user_id: Användare
       assembly_user_role:
@@ -182,6 +182,9 @@ sv:
         update:
           error: Det gick inte att uppdatera en administratör för gruppen.
           success: Administratören för gruppen har uppdaterats.
+      filters:
+        decidim_assemblies_type_id_eq:
+          label: Typ av grupp
       menu:
         assemblies: Grupper
         assemblies_settings: Inställningar
@@ -262,11 +265,12 @@ sv:
       admin:
         assemblies:
           form:
+            announcement_help: Texten du skriver här visas för användaren direkt under gruppinformationen.
             duration: Varaktighet
             duration_help: Om varaktigheten för gruppen är begränsad, välj ett slutdatum. Annars kommer den att visas som permanent.
             filters: Filter
             images: Bilder
-            included_at_help: Markera det datum då gruppen lades till i Decidim. Det behöver inte nödvändigtvis vara detsamma som datumet det skapades.
+            included_at_help: Markera det datum då gruppen lades till på plattformen. Det behöver inte nödvändigtvis vara detsamma som datumet det skapades.
             metadata: Metadata
             other: Annan
             select_a_created_by: Välj en skapad av
@@ -295,7 +299,10 @@ sv:
         assembly_members:
           form:
             existing_user: Befintlig deltagare
+            explanation: 'Vägledning för bild:'
+            image_guide: Helst en porträttbild utan text.
             non_user: Ej deltagande
+            non_user_avatar_help: Du bör få samtycke av personerna innan du publicerar dem som medlem.
             select_a_position: Välj en position
             select_user: Välj en deltagare
             user_type: Typ av deltagare

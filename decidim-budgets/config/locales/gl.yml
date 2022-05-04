@@ -20,6 +20,18 @@ gl:
         one: Proxecto
         other: Proxectos
   decidim:
+    admin:
+      filters:
+        projects:
+          category_id_eq:
+            label: Categoría
+          scope_id_eq:
+            label: Ámbito
+          selected_at_null:
+            label: Seleccionado
+            values:
+              'false': Seleccionado para implementación
+              'true': Sen seleccionar para implementación
     budgets:
       actions:
         attachment_collections: Carpetas
@@ -85,6 +97,12 @@ gl:
             create: Importa propostas a proxectos
             no_components: Non existen outros compoñentes de proposta neste espazo participativo para importar as propostas en proxectos.
             select_component: Selecciona un compoñente
+        reminders:
+          orders:
+            description: Os usuarios recibirán un correo coas ligazóns aos orzamentos onde teñen ordes pendentes.
+            title:
+              one: Estás a punto de enviar un correo recordatorio a %{count} usuario
+              other: Estás a punto de enviar un correo recordatorio a %{count} usuarios
       admin_log:
         project:
           create: "%{user_name} creou o proxecto %{resource_name} no espazo %{space_name}"
@@ -104,6 +122,9 @@ gl:
           only_one: eliminar o teu voto e comezar de novo.
         highlighted_cta: Votar en %{name}
         my_budgets: Os meus orzamentos
+        progress: Finalizar votación
+        show: Ver proxectos
+        vote: Votar
       models:
         budget:
           fields:
@@ -112,6 +133,8 @@ gl:
             total_budget: Orzamento total
         project:
           fields:
+            category: Categoría
+            id: ID
             title: Título
       order_summary_mailer:
         order_summary:
@@ -143,6 +166,12 @@ gl:
           projects_count:
             one: 1 proxecto
             other: "%{count} proxectos"
+        exit_modal:
+          cancel: Volver á votación
+          close_modal: Pechar modal
+          exit: Saír da votación
+          message: O teu voto non foi rexistrado xa que aínda non completaches o proceso de votación. Estás certo/a de querer saír da votación?
+          title: Aínda non votaches
         filters:
           category: Categoría
           scope: Alcance
@@ -190,6 +219,9 @@ gl:
         show:
           budget: Orzamento
           view_all_projects: Ver todos os proxectos
+      vote_reminder_mailer:
+        vote_reminder:
+          email_outro: Por favor, lembra completar a voto. Para votar, tes que seleccionar a proposta ou propostas para as que desexas votar e despois confirmar o teu voto premendo o botón "Votat".
     components:
       budgets:
         actions:

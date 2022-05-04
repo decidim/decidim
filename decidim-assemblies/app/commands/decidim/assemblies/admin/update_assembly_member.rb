@@ -5,7 +5,9 @@ module Decidim
     module Admin
       # A command with all the business logic when updating an assembly
       # member in the system.
-      class UpdateAssemblyMember < Rectify::Command
+      class UpdateAssemblyMember < Decidim::Command
+        include ::Decidim::AttachmentAttributesMethods
+
         # Public: Initializes the command.
         #
         # form - A form object with the params.
@@ -25,13 +27,45 @@ module Decidim
           return broadcast(:invalid) if form.invalid?
           return broadcast(:invalid) unless assembly_member
 
-          update_assembly_member!
-          broadcast(:ok)
+          assembly_member.assign_attributes(attributes)
+
+          if assembly_member.valid?
+            assembly_member.reload
+            update_assembly_member!
+            broadcast(:ok)
+          else
+            if assembly_member.errors.include? :non_user_avatar
+              form.errors.add(
+                :non_user_avatar,
+                assembly_member.errors[:non_user_avatar]
+              )
+            end
+
+            broadcast(:invalid)
+          end
         end
 
         private
 
         attr_reader :form, :assembly_member
+
+        def attributes
+          form.attributes.slice(
+            "full_name",
+            "gender",
+            "birthday",
+            "birthplace",
+            "ceased_date",
+            "designation_date",
+            "position",
+            "position_other",
+            "weight"
+          ).symbolize_keys.merge(
+            user: form.user
+          ).merge(
+            attachment_attributes(:non_user_avatar)
+          )
+        end
 
         def update_assembly_member!
           log_info = {
@@ -46,20 +80,7 @@ module Decidim
           Decidim.traceability.update!(
             assembly_member,
             form.current_user,
-            form.attributes.slice(
-              :full_name,
-              :gender,
-              :birthday,
-              :birthplace,
-              :ceased_date,
-              :designation_date,
-              :designation_mode,
-              :position,
-              :position_other,
-              :weight
-            ).merge(
-              user: form.user
-            ),
+            attributes,
             log_info
           )
         end

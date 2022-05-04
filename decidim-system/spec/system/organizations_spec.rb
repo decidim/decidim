@@ -30,11 +30,11 @@ describe "Organizations", type: :system do
 
       it "creates a new organization" do
         fill_in "Name", with: "Citizen Corp"
-        fill_in "Host", with: "www.citizen.corp"
-        fill_in "Secondary hosts", with: "foo.citizen.corp\n\rbar.citizen.corp"
+        fill_in "Host", with: "www.example.org"
+        fill_in "Secondary hosts", with: "foo.example.org\n\rbar.example.org"
         fill_in "Reference prefix", with: "CCORP"
         fill_in "Organization admin name", with: "City Mayor"
-        fill_in "Organization admin email", with: "mayor@citizen.corp"
+        fill_in "Organization admin email", with: "mayor@example.org"
         check "organization_available_locales_en"
         choose "organization_default_locale_en"
         choose "Allow participants to register and login"
@@ -87,8 +87,8 @@ describe "Organizations", type: :system do
 
       it "edits the data" do
         fill_in "Name", with: "Citizens Rule!"
-        fill_in "Host", with: "www.foo.org"
-        fill_in "Secondary hosts", with: "foobar.citizen.corp\n\rbar.citizen.corp"
+        fill_in "Host", with: "www.example.org"
+        fill_in "Secondary hosts", with: "foobar.example.org\n\rbar.example.org"
         choose "Don't allow participants to register, but allow existing participants to login"
         check "Example authorization (Direct)"
 

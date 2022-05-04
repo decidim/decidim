@@ -2,7 +2,12 @@
 
 namespace :decidim do
   desc "Install migrations from Decidim to the app."
-  task upgrade: [:choose_target_plugins, :"railties:install:migrations", :"decidim:webpacker:upgrade"]
+  task upgrade: [
+    :choose_target_plugins,
+    :"railties:install:migrations",
+    :"decidim:webpacker:upgrade",
+    :"decidim_api:generate_docs"
+  ]
 
   desc "Setup environment so that only decidim migrations are installed."
   task :choose_target_plugins do

@@ -7,6 +7,7 @@ module Decidim
     class ProcessMCell < Decidim::CardMCell
       include Decidim::SanitizeHelper
       include Decidim::TranslationsHelper
+      include Decidim::TwitterSearchHelper
 
       private
 
@@ -37,7 +38,7 @@ module Decidim
       end
 
       def resource_image_path
-        model.hero_image.url
+        model.attached_uploader(:hero_image).path
       end
 
       def step_cta_text

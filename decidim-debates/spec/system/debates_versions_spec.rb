@@ -61,6 +61,8 @@ describe "Explore versions", versioning: true, type: :system do
       end
     end
 
+    it_behaves_like "accessible page"
+
     it "shows the version number" do
       expect(page).to have_content("VERSION NUMBER\n2 out of 2")
     end

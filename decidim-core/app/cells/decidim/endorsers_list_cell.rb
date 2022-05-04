@@ -23,7 +23,9 @@ module Decidim
     #
     # Returns an Array of presented Users/UserGroups
     def endorsers
-      @endorsers ||= model.endorsements.for_listing.map { |identity| present(identity.normalized_author) }
+      @endorsers ||= model.endorsements.for_listing
+                          .includes(:author, :user_group)
+                          .map { |identity| present(identity.normalized_author) }
     end
   end
 end

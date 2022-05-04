@@ -2,12 +2,18 @@ eu:
   activemodel:
     attributes:
       budget:
+        decidim_scope_id: Eremua
         description: Deskribapena
+        title: Izenburua
+        total_budget: Aurrekontua guztira
+        weight: Kokapenaren hurrenkera
       project:
+        budget_amount: Aurrekontuaren zenbatekoa
         decidim_category_id: Kategoria
         decidim_scope_id: Esparrua
         description: Descripción
         proposal_ids: Honekin lotutako proposamenak
+        selected: Hautatua inplementatzeko
         title: Titulua
   activerecord:
     models:
@@ -15,6 +21,16 @@ eu:
         one: Proiektua
         other: Proiektuak
   decidim:
+    admin:
+      filters:
+        projects:
+          category_id_eq:
+            label: Kategoria
+          selected_at_null:
+            label: Hautatua
+            values:
+              'false': Gauzatzeko hautatua
+              'true': Ez hautaua gauzatzeko
     budgets:
       actions:
         attachment_collections: Karpetak
@@ -22,11 +38,39 @@ eu:
         confirm_destroy: Ziur zaude proiektu hau ezabatu nahi duzula?
         destroy: Ezabatu
         edit: Editatu
+        edit_projects: Kudeatu proiektuak
         import: Inportatu proposamenak proiektuetarako
+        new: '%{name} berria'
         preview: Aurreikusi
         title: Ekintzak
       admin:
+        budgets:
+          create:
+            invalid: Errorea gertatu da proiektu hau sortzean
+            success: Aurrekontua zuzen sortu da
+          destroy:
+            invalid: Errorea gertatu da aurrekontu hau ezabatzean
+            success: Aurrekontua zuzen ezabatu da
+          edit:
+            title: Editatu aurrekontua
+            update: Eguneratu aurrekontua
+          index:
+            finished_orders: Emandako botoak
+            pending_orders: Emateke dauden botoak
+            title: Aurrekontuak
+            users_with_finished_orders: Erabiltzaile hauek botoak emanda
+            users_with_pending_orders: Erabiltzaile hauek botoak emateke
+          new:
+            create: Sortu aurrekontua
+            title: Aurrekontu berri bat
+          update:
+            invalid: Arazoa gertatu da aurrekontu hau eguneratzean
+            success: Aurrekontua zuzen eguneratu da
+        exports:
+          projects: Proiektuak
         models:
+          budget:
+            name: Aurrekontua
           project:
             name: Proiektua
         projects:
@@ -41,6 +85,7 @@ eu:
           index:
             finished_orders: Bukatutako botoak
             pending_orders: Zain dauden botoei
+            selected: Hautatua
             title: Proiektuak
           new:
             create: Sortu
@@ -56,26 +101,74 @@ eu:
             create: Inportatu proposamenak proiektuetarako
             no_components: Proposamenak proiektuetan inportatzeko espazio parte hartzaile honetan ez dago proposamenrik.
             select_component: Hautatu osagaia
+            title: Inportatu proposamenak
       admin_log:
+        budget:
+          create: "%{user_name} k sortu zuen %{resource_name} aurrekontua %{space_name} esparruan"
+          delete: "%{user_name} k ezabatu zuen %{resource_name} aurrekontua %{space_name} esparruan"
+          update: "%{user_name} k eguneratu zuen %{resource_name} aurrekontua %{space_name} esparruan"
         project:
           create: "%{user_name} %{resource_name} proiektua %{space_name} espazioan sortu zen"
           delete: "%{user_name} %{resource_name} proiektua %{space_name} espazioan ezabatu da"
           update: "%{user_name} %{resource_name} proiektuaren %{space_name} espazio eguneratu du"
+      budget:
+        view: Ikusi aurrekontuaren proiektu guztiak
+      budget_information_modal:
+        back_to: Itzuli hona %{component_name}
+        close_modal: Itxi modala
+        continue: Jarraitu
+        more_information: Informazio gehiago
+      budget_list_item:
+        voting_finished: Eman duzu botoa proiektu honetan
+        voting_started: Hasi zara botoa ematen proiektu honetan
+      budgets_list:
+        cancel_order:
+          more_than_one: ezabatu zure botoa hemen %{name} eta hasi berriro
+          only_one: ezabatu zure botoa eta hasi berriro.
+        finished_message: Amaitu duzu bozkatzeko prozesua. Eskerrik asko parte hartzeagatik!
+        highlighted_cta: Botoa eman hemen %{name}
+        if_change_opinion: Iritzia aldatu baduzu, ahal duzu
+        my_budgets: Nire aurrekontuak
+        progress: Amaitu bozketa
+        show: Ikusi proiektuak
+        vote: Eman botoa
+        voted_on: Botoa eman duzu hemen %{links}
+      limit_announcement:
+        cant_vote: Ezin duzu botoa eman aurrekontu honetan. <a href="%{landing_path}"> Saiatu beste aurrekontu batekin</a>.
+        limit_reached: Badituzu botoak aktibo hemen %{links}. Aurrekontu honetan botoa emateko <a href="%{landing_path}">ezabatu behar duzu zure botoa eta berriro hasi</a>.
       models:
+        budget:
+          fields:
+            name: Izena
+            projects_count: Proiektu kopurua
+            total_budget: Aurrekontua guztira
         project:
           fields:
+            category: Kategoria
             title: Titulua
+      order_summary_mailer:
+        order_summary:
+          selected_projects: 'Hautatu dituzun proiektuak hauek dira:'
+          subject: Botoa eman duzu parte hartzeko esparru honetan %{space_name}
+          voted_on_space: Botoa eman duzu %{budget_name} aurrekontuan %{space_name} parte hartzeko esparrurako.
+          voted_on_space_with_scope: Botoa eman duzu %{budget_name} aurrekontuan %{space_name} de %{scope_name} (%{scope_type}) parte hartzeko esparruan.
       projects:
         budget_confirm:
+          are_you_sure: Iritzia aldatzen baduzu, zure botoa alda dezakezu geroago.
           cancel: Utzi
           confirm: Baieztatu
           description: Proiektu hauek hautatu dituzu aurrekontuan sartzeko.
           title: Baieztatu botoa
         budget_excess:
           budget_excess:
+            description: Proiektu honek gehieneko aurrekontua gainditzen du, eta ezin da gehitu. Nahi baduzu, jada hautatua duzun proiektu bat ezaba dezakezu edo botoa eman zure lehenespenekin bat.
             title: Aurrekontua gainditu da
           close: Itxi
+          description: Proiektu honek gehieneko aurrekontua gainditzen du, eta ezin da gehitu. Nahi baduzu, jada hautatua duzun proiektu bat ezaba dezakezu edo botoa eman zure lehenespenekin bat.
           ok: Ados
+          projects_excess:
+            description: Proiektu honek gehieneko aurrekontua gainditzen du, eta ezin da gehitu. Nahi baduzu, jada hautatua duzun proiektu bat ezaba dezakezu edo botoa eman zure lehenespenekin bat.
+            title: Gehieneko proiektu kopurua gainditu egin da
         budget_summary:
           are_you_sure: Ziur zaude zure botoa ezeztatu nahi duzula?
           assigned: 'Esleituta:'
@@ -83,15 +176,41 @@ eu:
           checked_out:
             description: 'Jada bozkatu duzu aurrekonturako. Iritziz aldatu baduzu, ezeztatu hemen: %{cancel_link}.'
             title: Botoa zuzen bidali da
+          minimum_projects_rule:
+            description: Zure aburuz, proiektuetako zeinei esleitu behar diegu aurrekontua? Hautatu gutxienez %{minimum_number} eta bozkatu zure lehentasunen arabera proiektua zehazteko.
+            instruction: "<li>Hautatu gutxienez nahi dituzun %{minimum_number} proiektu eta bozkatu zure lehentasunen arabera </li> proiektua zehazteko"
+          projects_rule:
+            description: Zure ustez, zein proiekturi esleitu beharko genieke aurrekontua? Hautatu %{minimum_number} eta %{maximum_number} arteko proiektuak, eta eman botoa zure lehentasunen arabera aurrekontua zehazteko.
+            instruction: "<li>Hautatu gutxienez nahi dituzun %{minimum_number} eta %{maximum_number} arteko proiektu eta bozkatu zure lehentasunen arabera </li> proiektua zehazteko"
+          projects_rule_maximum_only:
+            description: Zure ustez, zein proiekturi eman beharko genieke aurrekontua? Hautatu %{maximum_number} arte eta eman botoa zure lehentasunen arabera aurrekontua zehazteko.
+            instruction: "<li>Hautatu %{maximum_number} arte nahi beste proiektu eta eman botoa zure lehentasunen arabera aurrekontua zehazteko </li>"
+          rules:
+            title: Aurrekontuaren arauak
           title: Zure esku dago aurrekontua erabakitzea
+          total_budget: Aurrekontua guztira
+          total_projects: Botoak guztira
+          vote_threshold_percent_rule:
+            description: Zure ustez, zein proiekturi eman beharko genieke aurrekontua? Hautatu %{minimum_budget} arte eta eman botoa zure lehentasunen arabera aurrekontua zehazteko.
+            instruction: "<li>Hautatu %{minimum_budget} arte nahi beste proiektu eta eman botoa zure lehentasunen arabera aurrekontua zehazteko </li>"
         count:
           projects_count:
             one: Proiektu bat
             other: "%{count} proiektu"
+        exit_modal:
+          cancel: Berriro bozkatu
+          exit: Bozketatik irten
+          message: Zure botoa ez da erregistratu, oraindik ez duzulako osatu bozketa-prozesua. Ziur zaude bozketatik irten nahi duzula?
+          title: Oraindik ez duzu bozkatu
         filters:
           category: Kategoria
           scope: Esparrua
           search: Bilatu
+          status: Egoera
+          status_values:
+            all: Denak
+            not_selected: Ez hautatua
+            selected: Hautatua
         filters_small_view:
           close_modal: Itxi leihoa
           filter: Iragazi
@@ -105,29 +224,86 @@ eu:
             one: hautatutako proiektua
             other: hautatutako proiektuak
           view: Ikusi
+        orders:
+          highest_cost: Kostu handiena
+          label: Antolatu proiektuak honen arabera
+          lowest_cost: Kostu txikiena
+          most_voted: Bozkatuenak
+          random: Ausazko ordena
+          selected: Hautatua
         project:
+          add: Gehitu %{resource_name} proiektua zure botoari
+          remove: Ezabatu %{resource_name} proiektua zure bototik
+          selected: Hautatua
           view: ikusi
+          votes:
+            one: Botoa
+            other: botoak
+          you_voted: Hau bozkatu duzu
+        project_budget_button:
+          add: Gehitu zure botoari
+          add_descriptive: Gehitu %{resource_name} proiektua zure botoari
+          added: Gehituta zure botoari
+          added_descriptive: '%{resource_name} proiektua zure botoari gehitu zaio'
+        projects_for: '%{name} ren prozesuak'
         show:
           budget: Aurrekontua
           view_all_projects: Ikusi proiektu guztiak
     components:
       budgets:
         actions:
+          comment: Egin iruzkina
           vote: Bozkatu
         name: Aurrekontuak
         settings:
           global:
             announcement: Anuntzio
             comments_enabled: Iruzkinak gaituta
+            comments_max_length: Iruzkinen gehieneko luzera (uzti 0 defektuz konfigurazioa mantendu nahi baduzu)
+            form:
+              errors:
+                budget_voting_rule_only_one: Gutxienez arau bat aktibatu behar da bozketarako
+                budget_voting_rule_required: Arau bat behar da bozketarako
+            landing_page_content: Aurrekontuen hasierako orria
+            more_information_modal: '"Informazio gehiago"ren modala'
             projects_per_page: Orrialde bakoitzeko proiektuak
+            resources_permissions_enabled: Ekintza-baimenak ezarri ahal dira proiektu bakoitzerako
+            scope_id: Eremua
+            scopes_enabled: Eremuak gaituta
+            title: Izenburua
             total_budget: Aurrekontu osoa
+            vote_minimum_budget_projects_number: Bozkatzeko gutxieneko proiektu kopurua
+            vote_rule_minimum_budget_projects_enabled: 'Aktibatu araua: Bozkatzeko gutxieneko proiektu kopurua'
+            vote_rule_selected_projects_enabled: 'Gaitu araua: hautatutako proiektuak gutxieneko eta gehieneko proiektu kopurua bozkatzeko'
+            vote_rule_threshold_percent_enabled: 'Aktibatu araua: aurrekontuaren gutxieneko ehunekoa'
+            vote_selected_projects_maximum: Gehieneko proiektu kopurua hautatzeko
+            vote_selected_projects_minimum: Gutxieneko proiektu kopurua hautatzeko
             vote_threshold_percent: Votuen ehuneko atalasea
+            workflow: Lan-fluxua
+            workflow_choices:
+              all: 'Bozkatu guztietan: utzi parte-hartzaileei aurrekontu guztietan botoa ematen.'
+              one: 'Bozkatu batean: utzi parte-hartzaileei edozein aurrekontutan botoa ematen, baina batean baino ez.'
           step:
             announcement: Anuntzio
             comments_blocked: Iruzkinak blokeatuta
+            highlighted_heading: Goiburu nabarmendua
+            landing_page_content: Aurrekontuen hasierako orrialdea
+            list_heading: Zerrendaren izenburua
+            more_information_modal: '"Informazio gehiago"ren modala'
             show_votes: Erakutsi botoak
+            title: Izenburua
+            votes: Bozketa
             votes_choices:
+              disabled: Bozketa desgaituta
               enabled: Botoak gaituta
+              finished: Bozketa amaituta
+    events:
+      budgets:
+        budget_published:
+          email_intro: '%{resource_title} urratsa aktibo dago %{participatory_space_title} rako. Orrialde honetatik ikus dezakezu:'
+          email_outro: Jakinarazpen hau jaso duzu %{participatory_space_title} jarraitzen ari zarelako. Jakinarazpenak jasotzeari utzi ahal diozu aurreko lotura jarraituz.
+          email_subject: '%{resource_title} osagaia orain aktibo dago %{participatory_space_title} rentzat.'
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> aurrekontua aktibo dago hemen %{participatory_space_title}.
     orders:
       checkout:
         error: Errorea gertatu da zure botoa prozesatzean
@@ -135,5 +311,11 @@ eu:
       destroy:
         error: Errorea gertatu da zure botoa ezeztatzean
         success: Zure botua zuzen ezeztatu da
+    resource_links:
+      included_proposals:
+        project_proposal: Proiektu honetan sartuta dauden proposamenak
+    statistics:
+      orders_count: Aldeko botoak
+      projects_count: Proiektuak
   index:
     confirmed_orders_count: Botoen zenbaketa

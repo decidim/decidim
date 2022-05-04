@@ -22,7 +22,7 @@ module Decidim
       def render_debate_description(debate)
         description = present(debate).description(strip_tags: !safe_content?, links: true)
 
-        safe_content? ? decidim_sanitize(description) : simple_format(description)
+        safe_content? ? decidim_sanitize_editor(description) : simple_format(description)
       end
 
       # Returns :text_area or :editor based on current_component settings.
@@ -35,7 +35,7 @@ module Decidim
       def filter_origin_values
         origin_values = []
         origin_values << TreePoint.new("official", t("decidim.debates.debates.filters.official"))
-        origin_values << TreePoint.new("citizens", t("decidim.debates.debates.filters.citizens"))
+        origin_values << TreePoint.new("participants", t("decidim.debates.debates.filters.participants"))
         origin_values << TreePoint.new("user_group", t("decidim.debates.debates.filters.user_groups")) if current_organization.user_groups_enabled?
 
         TreeNode.new(TreePoint.new("", t("decidim.debates.debates.filters.all")), origin_values)

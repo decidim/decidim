@@ -1,10 +1,15 @@
-/* global d3 */
 /* eslint-disable require-jsdoc, id-length, no-undefined, no-unused-vars, multiline-ternary, no-ternary, no-nested-ternary, no-invalid-this */
 /* eslint prefer-reflect: ["error", { "exceptions": ["call"] }] */
 /* eslint dot-location: ["error", "property"] */
 /* eslint no-unused-vars: 0 */
 
-import * as d3 from "d3";
+import { select, mouse } from "d3-selection";
+import { min, max, extent, ascending, bisector } from "d3-array";
+import { scaleTime, scaleLinear } from "d3-scale";
+import { axisLeft, axisBottom } from "d3-axis";
+import { timeMonth } from "d3-time";
+import { timeFormat, isoParse } from "d3-time-format";
+import { area, line } from "d3-shape";
 
 // lib
 export default function areachart(opts = {}) {
@@ -12,12 +17,12 @@ export default function areachart(opts = {}) {
   const parseData = (data) => {
     // format the data
     data.forEach((d) => {
-      d.key = d3.isoParse(d.key)
+      d.key = isoParse(d.key)
       d.value = Number(d.value)
     });
 
     // order by date
-    return data.sort((x, y) => d3.ascending(x.key, y.key))
+    return data.sort((x, y) => ascending(x.key, y.key))
   }
 
   // OPTIONAL: Helper function to accumulates all data values
@@ -32,7 +37,7 @@ export default function areachart(opts = {}) {
   let data = parseData(opts.data)
   let title = opts.title
   let objectName = opts.objectName || ""
-  let container = d3.select(opts.container)
+  let container = select(opts.container)
   let showAxis = opts.axis || false
   let ratio = (opts.ratio || "").split(":").reduce((a, b) => a / b) || (4 / 3)
   let showTooltip = Object.is(opts.tip, undefined) ? true : opts.tip
@@ -52,20 +57,20 @@ export default function areachart(opts = {}) {
 
   let width = Number(container.node().getBoundingClientRect().width) - margin.left - margin.right
   let height = (width / ratio) - margin.top - margin.bottom
-  let titlePadding = d3.min([width / 10, 32])
+  let titlePadding = min([width / 10, 32])
 
   // set the ranges
-  let x = d3.scaleTime().range([0, width]);
-  let y = d3.scaleLinear().range([height, 0]);
+  let x = scaleTime().range([0, width]);
+  let y = scaleLinear().range([height, 0]);
 
   // define the area
-  let area = d3.area()
+  let _area = area()
     .x((d) => x(d.key))
     .y0(height)
     .y1((d) => y(d.value));
 
   // define the line
-  let valueline = d3.line()
+  let valueline = line()
     .x((d) => x(d.key))
     .y((d) => y(d.value));
 
@@ -76,8 +81,8 @@ export default function areachart(opts = {}) {
     .attr("transform", `translate(${margin.left},${margin.top})`);
 
   // scale the range of the data
-  x.domain(d3.extent(data, (d) => d.key));
-  y.domain([0, d3.max(data, (d) => d.value)]).nice();
+  x.domain(extent(data, (d) => d.key));
+  y.domain([0, max(data, (d) => d.value)]).nice();
 
   // add the valueline path.
   let topLine = svg.append("path")
@@ -89,7 +94,7 @@ export default function areachart(opts = {}) {
   svg.append("path")
     .data([data])
     .attr("class", "area")
-    .attr("d", area)
+    .attr("d", _area)
 
   if (showTooltip) {
     // tooltip
@@ -98,7 +103,7 @@ export default function areachart(opts = {}) {
       .attr("r", 6)
       .style("display", "none")
 
-    let tooltip = d3.select("body").append("div")
+    let tooltip = select("body").append("div")
       .attr("id", `${container.node().id}-tooltip`)
       .attr("class", "chart-tooltip")
       .style("opacity", 0)
@@ -113,8 +118,8 @@ export default function areachart(opts = {}) {
         tooltip.style("opacity", 0)
       })
       .on("mousemove", function() {
-        let x0 = x.invert(d3.mouse(this)[0])
-        let i = d3.bisector((d) => d.key).left(data, x0, 1)
+        let x0 = x.invert(mouse(this)[0])
+        let i = bisector((d) => d.key).left(data, x0, 1)
         let d0 = data[i - 1]
         let d1 = data[i]
         let d = (x0 - d0.key > d1.key - x0) ? d1 : d0
@@ -127,7 +132,7 @@ export default function areachart(opts = {}) {
 
         let tooltipContent = `
           <div class="tooltip-content">
-            ${d3.timeFormat("%e %B %Y")(d.key)}<br />
+            ${timeFormat("%e %B %Y")(d.key)}<br />
             ${d.value.toLocaleString()} ${objectName}
           </div>`
 
@@ -139,11 +144,11 @@ export default function areachart(opts = {}) {
   }
 
   if (showAxis) {
-    let xAxis = d3.axisBottom(x)
-      .ticks(d3.timeMonth)
-      .tickFormat(d3.timeFormat("%b %y"))
+    let xAxis = axisBottom(x)
+      .ticks(timeMonth)
+      .tickFormat(timeFormat("%b %y"))
       .tickSize(-height)
-    let yAxis = d3.axisLeft(y)
+    let yAxis = axisLeft(y)
       .ticks(5)
       .tickSize(8)
 
@@ -200,10 +205,10 @@ export default function areachart(opts = {}) {
         .text(title)
         .call(function(fulltext, wrapwidth, start = 0) {
           fulltext.each(function() {
-            let text = d3.select(this)
+            let text = select(this)
             let word = ""
             let words = text.text().split(/\s+/).reverse()
-            let line = []
+            let _line = []
             let lineNumber = 0
             let lineHeight = 1.1
             let _x = text.attr("x")
@@ -217,12 +222,12 @@ export default function areachart(opts = {}) {
 
             /* eslint-disable no-cond-assign, no-plusplus */
             while (word = words.pop()) {
-              line.push(word);
-              tspan.text(line.join(" "));
+              _line.push(word);
+              tspan.text(_line.join(" "));
               if (tspan.node().getComputedTextLength() > wrapwidth) {
-                line.pop()
-                tspan.text(line.join(" "))
-                line = [word]
+                _line.pop()
+                tspan.text(_line.join(" "))
+                _line = [word]
                 tspan = text.append("tspan")
                   .attr("x", _x)
                   .attr("y", _y)

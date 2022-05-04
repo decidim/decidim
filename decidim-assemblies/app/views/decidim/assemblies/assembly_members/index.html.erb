@@ -1,5 +1,14 @@
 <% add_decidim_meta_tags(title: t("assembly_members.index.title", scope: "decidim")) %>
 
+<%
+edit_link(
+  decidim_admin_assemblies.assembly_members_path(current_participatory_space.slug),
+  :update,
+  :assembly,
+  assembly: current_participatory_space
+)
+%>
+
 <div class="section row column">
   <div class="flex--sbe">
     <h3 class="section-heading"><%= t(".members") %> <span class="text-muted">(<%= collection.size %>)</span></h3>

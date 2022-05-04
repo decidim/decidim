@@ -42,7 +42,7 @@ shared_examples "manage participatory process private users examples" do
       # The CSV has no headers
       expect(Decidim::Admin::ImportParticipatorySpacePrivateUserCsvJob).to receive(:perform_later).once.ordered.with("my_user@example.org", "My User Name", participatory_process, user)
       expect(Decidim::Admin::ImportParticipatorySpacePrivateUserCsvJob).to receive(:perform_later).once.ordered.with("my_private_user@example.org", "My Private User Name", participatory_process, user)
-      attach_file "File", Decidim::Dev.asset("import_participatory_space_private_users.csv")
+      dynamically_attach_file(:participatory_space_private_user_csv_import_file, Decidim::Dev.asset("import_participatory_space_private_users.csv"))
       perform_enqueued_jobs { click_button "Upload" }
 
       expect(page).to have_content("CSV file uploaded successfully")

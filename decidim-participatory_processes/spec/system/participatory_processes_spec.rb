@@ -232,10 +232,12 @@ describe "Participatory Processes", type: :system do
       end
 
       context "when there are promoted participatory process groups" do
-        let!(:promoted_group) { create(:participatory_process_group, :promoted, :with_participatory_processes) }
+        let!(:promoted_group) { create(:participatory_process_group, :promoted, :with_participatory_processes, organization: organization) }
         let(:promoted_items_titles) { page.all("#highlighted-processes .card__title").map(&:text) }
 
         before do
+          promoted_group.title["en"] = "D'Artagnan #{promoted_group.title["en"]}"
+          promoted_group.save!
           visit decidim_participatory_processes.participatory_processes_path
         end
 
@@ -246,6 +248,13 @@ describe "Participatory Processes", type: :system do
         it "lists only promoted groups" do
           expect(promoted_items_titles).to include(translated(promoted_group.title, locale: :en))
           expect(promoted_items_titles).not_to include(translated(group.title, locale: :en))
+        end
+
+        it "lists all the highlighted process groups" do
+          within "#highlighted-processes" do
+            expect(page).to have_content(translated(promoted_group.title, locale: :en))
+            expect(page).to have_selector(".card--full", count: 2)
+          end
         end
 
         context "and promoted group has defined a CTA content block" do
@@ -272,6 +281,16 @@ describe "Participatory Processes", type: :system do
           it "shows a CTA button inside group card" do
             within("#highlighted-processes") do
               expect(page).to have_link(cta_settings[:button_text_en], href: cta_settings[:button_url])
+            end
+          end
+
+          context "and promoted group belongs to another organization" do
+            let!(:promoted_group) { create(:participatory_process_group, :promoted, :with_participatory_processes) }
+
+            it "shows a CTA button inside group card" do
+              within("#highlighted-processes") do
+                expect(page).not_to have_link(cta_settings[:button_text_en], href: cta_settings[:button_url])
+              end
             end
           end
         end

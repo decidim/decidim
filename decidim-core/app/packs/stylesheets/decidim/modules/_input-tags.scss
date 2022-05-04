@@ -29,7 +29,7 @@ $tag-margin: .2rem;
   width: 100%;
   border: $border;
   min-height: $height;
-  padding-bottom: $tag-margin / 4;
+  padding-bottom: $tag-margin * .25;
 
   &.focus{
     outline: none;

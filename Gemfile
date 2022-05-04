@@ -13,8 +13,7 @@ gem "decidim-templates", path: "."
 
 gem "bootsnap", "~> 1.4"
 
-gem "foundation_rails_helper", git: "https://github.com/sgruhier/foundation_rails_helper.git"
-gem "puma", ">= 5.3.1"
+gem "puma", ">= 5.6.2"
 
 gem "faker", "~> 2.14"
 
@@ -27,6 +26,9 @@ group :development, :test do
   gem "simplecov", "~> 0.19.0"
 
   gem "decidim-dev", path: "."
+
+  gem "brakeman", "~> 5.1"
+  gem "parallel_tests", "~> 3.7"
 end
 
 group :development do
@@ -35,5 +37,5 @@ group :development do
   gem "rubocop-faker"
   gem "spring", "~> 2.0"
   gem "spring-watcher-listen", "~> 2.0"
-  gem "web-console", "4.0.4"
+  gem "web-console", "~> 4.2"
 end

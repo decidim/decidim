@@ -53,7 +53,7 @@
     }
 
     .card{
-      margin-bottom: $global-margin / 2;
+      margin-bottom: $global-margin * .5;
     }
 
     .card:last-of-type{

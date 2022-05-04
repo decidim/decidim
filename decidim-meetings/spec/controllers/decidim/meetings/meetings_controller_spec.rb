@@ -7,7 +7,7 @@ describe Decidim::Meetings::MeetingsController, type: :controller do
 
   let(:organization) { create(:organization) }
   let(:participatory_process) { create :participatory_process, organization: organization }
-  let(:meeting_component) { create(:meeting_component, participatory_space: participatory_process) }
+  let(:meeting_component) { create(:meeting_component, :with_creation_enabled, participatory_space: participatory_process) }
   let(:meeting) { create :meeting, :published, component: meeting_component }
 
   before do
@@ -40,6 +40,46 @@ describe Decidim::Meetings::MeetingsController, type: :controller do
 
       expect(subject).to render_template(:show)
       expect(flash[:alert]).to be_blank
+    end
+  end
+
+  describe "withdraw a meeting" do
+    let(:user) { create(:user, :confirmed, organization: meeting_component.organization) }
+
+    let(:meeting_params) do
+      {
+        component_id: meeting_component.id
+      }
+    end
+    let(:params) { { meeting: meeting_params } }
+
+    before { sign_in user }
+
+    context "when an authorized user is withdrawing a meeting" do
+      let(:meeting) { create(:meeting, component: meeting_component, author: user) }
+
+      it "withdraws the meeting" do
+        put :withdraw, params: params.merge(id: meeting.id)
+
+        expect(flash[:notice]).to eq("The meeting has been withdrawn successfully")
+        expect(response).to have_http_status(:found)
+        meeting.reload
+        expect(meeting.withdrawn?).to be true
+      end
+    end
+
+    context "when current user is NOT the author of the meeting" do
+      let(:current_user) { create(:user, organization: meeting_component.organization) }
+      let(:meeting) { create(:meeting, component: meeting_component, author: current_user) }
+
+      it "is not able to withdraw the meeting" do
+        put :withdraw, params: params.merge(id: meeting.id)
+
+        expect(flash[:alert]).to eq("You are not authorized to perform this action")
+        expect(response).to have_http_status(:found)
+        meeting.reload
+        expect(meeting.withdrawn?).to be false
+      end
     end
   end
 

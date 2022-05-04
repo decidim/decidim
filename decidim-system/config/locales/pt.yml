@@ -1,4 +1,36 @@
 pt:
+  activemodel:
+    attributes:
+      oauth_application:
+        name: Nome de Aplicativo OAuth
+        organization_logo: Logótipo da organização (quadrado)
+        organization_name: Organização
+        organization_url: URL da organização
+        redirect_uri: URI de redireccionamento
+      organization:
+        address: SMTP hostname
+        from_email: Endereço de e-mail
+        from_label: Rótulo
+        password: Palavra-chave
+        port: Porta
+        user_name: Nome de utilizador
+      organization_file_uploads:
+        allowed_content_types:
+          admin: Tipos MIME de administrador
+          default: Tipos MIME por defeito
+        allowed_file_extensions:
+          admin: Extensões de ficheiros de administrador
+          default: Extensões de ficheiros por defeito
+          image: Extensões de ficheiros de imagem
+        maximum_file_size:
+          avatar: Dimensão de ficheiro de avatar
+          default: Dimensão de ficheiro por defeito
+    errors:
+      models:
+        oauth_application:
+          attributes:
+            redirect_uri:
+              must_be_ssl: O URI de redireccionamento deve ser um URI SSL
   decidim:
     system:
       actions:
@@ -25,6 +57,9 @@ pt:
         update:
           error: Ocorreu um problema ao atualizar este administrador.
           success: Administrador atualizado corretamente
+      dashboard:
+        show:
+          current_organizations: Organizações actuais
       default_pages:
         placeholders:
           content: Por favor adicione conteúdo relevante à página estática %{page} no painel de administrador.
@@ -32,6 +67,7 @@ pt:
       menu:
         admins: Administradores
         dashboard: Painel de controlo
+        oauth_applications: Aplicativos OAuth
         organizations: Organizações
       models:
         admin:
@@ -41,21 +77,69 @@ pt:
           name: Administrador
           validations:
             email_uniqueness: já existe outro administrador com o mesmo e-mail
+        oauth_application:
+          fields:
+            created_at: Criado em
+            name: Nome do aplicativo OAuth
+            organization_name: Organização
+          name: Aplicativo OAuth
         organization:
           actions:
             save_and_invite: Criar organização e convidar administrador
           fields:
             created_at: Criado em
+            file_upload_settings: Definições para envio de ficheiro
             name: Nome
             omniauth_settings: Configurações Omniauth
             smtp_settings: Configurações SMTP
           name: Organização
+      oauth_applications:
+        create:
+          error: Houve um problema ao criar este modelo.
+          success: Aplicativo criado com êxito.
+        destroy:
+          error: Houve um problema ao destruir este aplicativo
+          success: Aplicativo destruído com êxito.
+        edit:
+          save: Guardar
+          title: Editar aplicativo
+        form:
+          select_organization: Seleccionar uma organização
+        index:
+          confirm_delete: Tem a certeza que quer eliminar este identificador?
+          title: Aplicativos OAuth
+        new:
+          save: Guardar
+          title: Nova aplicativo
+        update:
+          error: Houve um problema ao actualizar esta votação
+          success: Aplicativo actualizado com êxito.
       organizations:
+        advanced_settings:
+          hide: Esconder definições avançadas
+          show: Mostrar definições avançadas
         create:
           error: Ocorreu um problema ao criar uma nova organização.
           success: Organização criada corretamente.
         edit:
           secondary_hosts_hint: Insira cada um deles em uma nova linha
+        file_upload_settings:
+          content_types:
+            admin_hint: Estes tipos MIME são autorizados para a secção de envio dos administradores. Os utilizadores administradores devem estar ao corrente dos riscos ao enviarem alguns formatos de documentos, por isso pode esperar deles serem mais cautelosos com o envio de ficheiros.
+            default_hint: Estes tipos MIME estão atribuidos a todos os utilizadores por defeito.
+            intro_html: Adicionou asteriscos como caracteres polivalentes para os tipos MIME, exemplo <code> image/*</code>
+            title: Tipos MIME permitidos
+          file_extensions:
+            admin_hint: Estas extensões de ficheiros não são autorizadas para a secção de envio dos administradores. Os utilizadores administradores devem estar ao corrente dos riscos ao enviarem alguns formatos de documentos, por isso pode esperar deles serem mais cautelosos com o envio de ficheiros.
+            default_hint: Estas extensões de ficheiro são permitidas a todos os utilizadores por defeito.
+            image_hint: Estas extensões de ficheiros são permitiras para todo o tipo de envio de imagens
+            title: Extensões de ficheiros de imagem permitidas
+          file_sizes:
+            avatar_hint: Megabytes (MB). Este limite de dimensão é utilizado para o envio de imagens de avatares.
+            default_hint: Megabytes (MB). Este limite de dimensão é o utilizado por defeito para todos os ficheiros enviados a menos que outro seja especificado.
+            title: Dimensão máxima de ficheiros
+          intro: |
+            Por favor seja especialmente cuidadoso quando considerar alterar estas definições. Quanto menos permitir, melhor. Permitir extensões de ficheiro ou tipos MIME pode expor o sistemas utilizadores a riscos de segurança e também pode afectar a acessibilidade deste sítio web.
         index:
           title: Organizações
         new:
@@ -81,7 +165,12 @@ pt:
             api_key: Chave de API
             api_secret: Segredo de API
         smtp_settings:
+          fieldsets:
+            sender: Remetente
+          instructions:
+            from_label: 'O remetente do email será “nome-sua-organizacao <your-organization@example.org>”. Deixe em branco para usar ‘Endereço de e-mail’ como rótulo'
           placeholder:
+            from_email: sua-organizacao@exemplo.org
             from_label: nome-da-sua-organização
         update:
           error: Ocorreu um problema ao atualizar esta organização.

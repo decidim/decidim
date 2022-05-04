@@ -30,45 +30,42 @@ shared_examples "import proposals" do
     confirm_current_path
   end
 
-  it "imports proposals from a csv file" do
-    find(".imports.dropdown").click
-    click_link "Import from a file"
+  describe "import proposals" do
+    before do
+      find(".imports.dropdown").click
+      click_link "Import proposals from a file"
+    end
 
-    attach_file("import_file", Decidim::Dev.asset("import_proposals.csv"))
+    it "imports from a csv file" do
+      dynamically_attach_file(:proposals_file_import_file, Decidim::Dev.asset("import_proposals.csv"))
+      click_button "Import"
 
-    click_button "Import"
+      confirm_flash_message
+      confirm_current_path
+    end
 
-    confirm_flash_message
-    confirm_current_path
-  end
+    it "imports from a json file" do
+      dynamically_attach_file(:proposals_file_import_file, Decidim::Dev.asset("import_proposals.json"))
 
-  it "imports proposals from a json file" do
-    find(".imports.dropdown").click
-    click_link "Import from a file"
+      click_button "Import"
 
-    attach_file("import_file", Decidim::Dev.asset("import_proposals.json"))
+      confirm_flash_message
+      confirm_current_path
+    end
 
-    click_button "Import"
+    it "imports from a excel file" do
+      dynamically_attach_file(:proposals_file_import_file, Decidim::Dev.asset("import_proposals.xlsx"))
 
-    confirm_flash_message
-    confirm_current_path
-  end
+      click_button "Import"
 
-  it "imports proposals from a excel file" do
-    find(".imports.dropdown").click
-    click_link "Import from a file"
-
-    attach_file("import_file", Decidim::Dev.asset("import_proposals.xlsx"))
-
-    click_button "Import"
-
-    confirm_flash_message
-    confirm_current_path
+      confirm_flash_message
+      confirm_current_path
+    end
   end
 
   def fill_form(keep_authors: false)
     find(".imports.dropdown").click
-    click_link "Import from another component"
+    click_link "Import proposals from another component"
 
     within ".import_proposals" do
       select origin_component.name["en"], from: "Origin component"

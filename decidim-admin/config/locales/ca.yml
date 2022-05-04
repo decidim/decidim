@@ -48,7 +48,7 @@ ca:
         favicon: Icona
         force_authentication: Forçar autenticació
         force_users_to_authenticate_before_access_organization: Forçar les usuàries a autenticar-se abans d'accedir a l'organització
-        from: Adreça des d'on s'enviaran els correus electrònics
+        from: Adreça de correu electrònic del remitent
         github_handler: Nom d'usuari de GitHub
         header_snippets: Codi personalitzat a la capçalera
         highlight_alternative_color: Destacat, alternatiu
@@ -132,6 +132,7 @@ ca:
       new_import:
         attributes:
           file:
+            invalid_file: L'arxiu proporcionat no és vàlid, si us plau comprova que l'arxiu està formatat correctament
             invalid_mime_type: Tipus Mime invàlid
   activerecord:
     attributes:
@@ -158,6 +159,8 @@ ca:
         browse: Explorar
         category:
           new: Nova categoria
+        export: Exportar tot
+        export-selection: Exportar selecció
         import: Importar
         manage: Gestionar
         new: Nou %{name}
@@ -170,7 +173,7 @@ ca:
         reject: Rebutjar
         share: Compartir
         user:
-          new: Nou usuari
+          new: Nova administradora
         verify: Verificar
       admin_terms_of_use:
         accept:
@@ -178,12 +181,12 @@ ca:
           success: Genial! Has acceptat els Termes i Condicions del panell d'administració.
         actions:
           accept: Estic d'acord amb els termes següents
-          are_you_sure: Segur que vols rebutjar els Termes i Condicions del panell d'administració?
+          are_you_sure: Segur que vols rebutjar els termes i condicions del panell d'administració?
           refuse: Rebutjar els termes
           title: Accepto els Termes i Condicions d'Administració
         required_review:
           alert: 'Requerit: Revisa els nostres Termes i Condicions del panell d''administració'
-          callout: Si us plau dedica un moment a revisar l'actualització dels nostres Termes i Condicions del panell d'administració. En cas contrari, no podràs utilitzar la plataforma.
+          callout: Si us plau dedica un moment a revisar l'actualització dels nostres termes i condicions del panell d'administració. En cas contrari, no podràs utilitzar la plataforma.
           cta: Revisa-les ara.
         title: Termes i Condicions del panell d'administració
       area_types:
@@ -206,7 +209,7 @@ ca:
           error: S'ha produït un error en crear una nova àrea.
           success: Àrea creada correctament.
         destroy:
-          has_spaces: L'àrea té espais dependents, no ha de tenir dependències per a ser esborrada.
+          has_spaces: Aquesta àrea té espais dependents. Assegura't que no fa referència a cap espai de participació abans d'eliminar-la.
           success: Àrea eliminada correctament
         edit:
           title: Editar àrea
@@ -253,13 +256,15 @@ ca:
         update:
           error: S'ha produït un error en actualitzar aquest adjunt.
           success: Adjunt actualitzat correctament.
+      attachments_privacy_warning:
+        message: Tingues cura quan treballis amb adjunts en un espai privat. Qualsevol participant pot compartir aquest document amb tercers.
       autocomplete:
         no_results: No s'han trobat resultats
         search_prompt: Escriu com a mínim tres caràcters per cercar
       block_user:
         new:
           action: Bloquejar compte i enviar justificació
-          description: El bloqueig d'una usuària deixarà el seu compte inservible, pots facilitar a la teva justificació i directrius les maneres que consideris per tal de desbloquejar a la usuària.
+          description: El bloqueig d'una usuària deixarà el seu compte inutilitzable. Pots proporcionar en la teva justificació els criteris sota els quals consideraries desbloquejar-la.
           justification: Justificació
           title: Bloquejar a la usuària %{name}
       categories:
@@ -322,7 +327,7 @@ ca:
         'false': 'No'
         managed_user_name: Usuari gestionat
         solved: Resolt
-        title: Conflictes de verificacions
+        title: Conflictes de verificació
         transfer:
           email: Correu electrònic
           error: S¡ha produït un error en transferir la participant actual a la participant gestionada.
@@ -335,13 +340,13 @@ ca:
       dashboard:
         show:
           view_more_logs: Veure més registres
-          welcome: Benvinguda al tauler d'administració de Decidim.
+          welcome: Benvinguda al Tauler d'Aministració.
       domain_whitelist:
         form:
           domain_too_short: El domini és massa curt
         update:
           error: Hi ha hagut un error en incloure el domini en la llista blanca
-          success: Hem actualitzat correctament la llista blanca de dominis
+          success: Llista blanca de dominis actualitzada correctament
       exports:
         export_as: "%{name} com a %{export_format}"
         formats:
@@ -354,6 +359,23 @@ ca:
         category_id_eq:
           label: Categoria
         filter_label: Filtre
+        invitation_accepted_at_present:
+          label: 'Invitació: acceptada'
+          values:
+            'false': 'No'
+            'true': 'Sí'
+        last_sign_in_at_present:
+          label: Alguna vegada s'ha connectat
+          values:
+            'false': 'No'
+            'true': 'Sí'
+        moderated_users:
+          reports_reason_eq:
+            label: Motiu de l'informe
+            values:
+              does_not_belong: No correspon
+              offensive: Ofensiu
+              spam: Contingut brossa
         moderations:
           reportable_type_string_eq:
             label: Tipus
@@ -388,11 +410,18 @@ ca:
         search_label: Cercar
         search_placeholder:
           name_or_nickname_or_email_cont: Buscar %{collection} per correu electrònic, nom o àlies.
+          report_count_eq: Número de denúncies
           reported_id_string_or_reported_content_cont: Cercar %{collection} per id o contingut reportable.
           title_cont: Buscar %{collection} per títol.
           user_name_or_user_email_cont: Cerca %{collection} per nom o correu electrònic.
+          user_name_or_user_nickname_or_user_email_cont: Cercar %{collection} per correu electrònic, nom o àlies.
         state_eq:
           label: Estat
+          values:
+            all: Totes
+            pending: Pendents
+            rejected: Rebutjada
+            verified: Verificades
       forms:
         file_help:
           import:
@@ -438,20 +467,40 @@ ca:
           impersonate_existing_user: Gestionar la participant "%{name}"
           impersonate_new_managed_user: Gestionar una nova participant
       imports:
-        creators:
-          proposalcreator: Creador de la proposta
+        and: i
+        data_errors:
+          duplicate_headers:
+            detail: Comprova, si us plau, que l'arxiu conté les columnes o les capçaleres necessàries només una vegada.
+            message:
+              one: Duplicar la columna %{columns}.
+              other: Duplicar les columnes %{columns}.
+          invalid_indexes:
+            lines:
+              detail: Comprova, si us plau, que aquestes línies estan formatades correctament i contenen registres vàlids.
+              message:
+                one: S'ha trobat a la línia %{indexes} de l'arxiu importat.
+                other: S'han trobat errors a les línies %{indexes} de l'arxiu importat.
+            records:
+              detail: Comprova, si us plau, que aquestes línies estan formatades correctament i contenen registres vàlids.
+              message:
+                one: S'ha trobat un error a l'arxiu importat al registre amb número d'ordre %{indexes}.
+                other: S'han trobat errors a l'arxiu importat als registres amb número d'ordre %{indexes}.
+          missing_headers:
+            detail: Comprova, si us plau, que l'arxiu conté les columnes requerides.
+            message:
+              one: Falta la columna %{columns}.
+              other: Falten les columnes %{columns}.
         error: S'ha produït un error durant la importació
-        help:
-          proposalcreator: L'arxiu ha d'incloure els noms de columna title/en i body/en (o un altre idioma de preferència per exemple, title/ca i body/ca). També s'admeten les columnes scope/id i category/id.
-        import_from_file: Importar d'un arxiu
-        invalid_lines: S'ha trobat un error al recurs número %{invalid_lines}
+        example_error: No s'ha pogut crear un exemple per al tipus facilitat
         new:
           accepted_mime_types:
-            csv: csv
-            json: json
-            xlsx: xlsx
+            csv: CSV
+            json: JSON
+            xlsx: Excel (.xlsx)
           actions:
             back: Tornar
+          download_example: Descarregar un exemple
+          download_example_format: Exemple de %{name}
           file_legend: Afegir un arxiu d'importació que serà processat.
           import: Importar
         notice: "%{number} %{resource_name} importat correctament"
@@ -475,7 +524,7 @@ ca:
         areas: Àrees
         configuration: Configuració
         dashboard: Tauler de control
-        external_domain_whitelist: Llista blanca de dominis externs
+        external_domain_whitelist: Dominis externs permesos
         help_sections: Seccions d'ajuda
         homepage: Pàgina d'inici
         impersonations: Impersonacions
@@ -707,7 +756,7 @@ ca:
           title: Oficialitza la participant "%{name}"
         show_email_modal:
           close_modal: Tanca el modal
-          description: Si necessites contactar a una participant directament pots clicar al botó Mostra per veure la seva adreça de correu electrònic. Aquesta acció s'auditarà.
+          description: Si necessites contactar a una participant directament pots clicar al botó Mostra per veure la seva adreça de correu electrònic. Aquesta acció es registrarà.
           email_address: Adreça de correu electrònic
           full_name: Nom complet
           hidden: ocult
@@ -738,6 +787,7 @@ ca:
         form:
           colors:
             colors_title: Colors de l'organització
+            colors_warning_html: Advertència! Canviant aquests colors pot trencar l'accessibilitat dels contrasts. Pots comprovar el contrast de la teva selecció a <a href="%{link}">WebAIM Contrast Checker</a> o amb altres eines similars.
             header_snippets_help: Utilitza aquest camp per afegir coses al head d'HTML. L'ús més habitual és integrar serveis de tercers que requereixen codi JavaScript o CSS addicional. A més, pots utilitzar-lo per afegir etiquetes meta addicionals a l'HTML. Tingues en compte que això només es mostrarà a les pàgines públiques, no a la secció d'administració.
           cta_button_path_help: 'Pots redirigir la direcció on enllaça el botó d''acció principal de la pàgina d''inici on desitgis. Utilitza rutes parcials, no URLs completes aquí. Accepta lletres, números, guions i barres, i ha de començar amb una lletra. El botó d''acció principal es mostra a la pàgina d''inici entre el text de benvinguda i la descripció. Exemple: %{url}'
           cta_button_text_help: Pots sobreescriure el text del botó d'acció principal a la pàgina d'inici per cada idioma disponible a la teva organització. Si no s'omple, s'utilitzarà el valor predeterminat. El botó d'acció principal es mostra a la pàgina d'inici entre el text de benvinguda i la descripció.
@@ -749,14 +799,14 @@ ca:
           omnipresent_banner_appearance_title: Edita banner omnipresent
       organization_external_domain_whitelist:
         edit:
-          update: Actualitza
+          update: Actualitzar
         external_domain:
-          down: Avall
+          down: Baixar
           external_domain: Domini extern
-          remove: Lleva
-          up: Amunt
+          remove: Eliminar
+          up: Pujar
         form:
-          add: Afegeix a llista blanca
+          add: Afegir a la llista blanca
           title: Llista blanca de dominis externs
       organization_homepage:
         edit:
@@ -786,6 +836,14 @@ ca:
           explanation: 'Carrega el teu arxiu CSV. Ha de tenir dues columnes amb l''adreça de correu electrònic a la primera columna i el nom a la segona (adreça electrònica, nom) dels usuaris que vulguis afegir a l''espai de participació, sense capçaleres. Evita emprar caràcter invàlids com `<>?%&^*#@()[]=+:;"{}\|` al nom d''usuari.'
           title: Puja el fitxer CSV
           upload: Carrega
+      reminders:
+        create:
+          error: Hi ha hagut un problema en crear els recordatoris.
+          success:
+            one: "Es recordarà a %{count} usuària."
+            other: "Es recordarà a %{count} usuàries."
+        new:
+          submit: Envia
       resource_permissions:
         edit:
           submit: Enviar
@@ -903,7 +961,7 @@ ca:
         static_pages: Pàgines
         statistics: Activitat
         user_groups: Grups
-        users: Participants
+        users: Administradores
       user_group:
         csv_verify:
           invalid: S'ha produït un error en llegir el fitxer CSV.
@@ -916,13 +974,6 @@ ca:
           success: Grup verificat correctament
       user_groups:
         index:
-          filter:
-            all: Tots
-            pending: Pendents
-            rejected: Rebutjats
-            verified: Verificats
-          filter_by: Filtra per
-          search: Cerca
           state:
             pending: Pendent
             rejected: Rebutjat
@@ -946,7 +997,7 @@ ca:
           role: Rol
         new:
           create: Convidar
-          title: Convidar una participant com a administradora
+          title: Convidar una nova administradora
       users_statistics:
         users_count:
           admins: Administradores

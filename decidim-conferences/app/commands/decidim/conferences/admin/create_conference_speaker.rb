@@ -5,7 +5,9 @@ module Decidim
     module Admin
       # A command with all the business logic when creating a new conference
       # speaker in the system.
-      class CreateConferenceSpeaker < Rectify::Command
+      class CreateConferenceSpeaker < Decidim::Command
+        include ::Decidim::AttachmentAttributesMethods
+
         # Public: Initializes the command.
         #
         # form - A form object with the params.
@@ -52,18 +54,18 @@ module Decidim
 
         def conference_speaker_with_attributes
           attrs = form.attributes.slice(
-            :full_name,
-            :twitter_handle,
-            :personal_url,
-            :avatar,
-            :remove_avatar,
-            :position,
-            :affiliation,
-            :short_bio
-          ).merge(
+            "full_name",
+            "twitter_handle",
+            "personal_url",
+            "position",
+            "affiliation",
+            "short_bio"
+          ).symbolize_keys.merge(
             decidim_conference_id: conference.id,
             conference: conference,
             user: form.user
+          ).merge(
+            attachment_attributes(:avatar)
           )
           conference_speaker = conference.speakers.build
           conference_speaker.conference = conference

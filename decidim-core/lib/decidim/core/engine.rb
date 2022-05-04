@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require "rails"
+require "decidim/rails"
 require "active_support/all"
 require "action_view/railtie"
 
@@ -13,16 +13,15 @@ require "devise-i18n"
 require "devise_invitable"
 require "foundation_rails_helper"
 require "active_link_to"
-require "rectify"
 require "carrierwave"
 require "rails-i18n"
 require "date_validator"
-require "truncato"
 require "file_validators"
 require "omniauth"
 require "omniauth-facebook"
 require "omniauth-twitter"
 require "omniauth-google-oauth2"
+require "omniauth/rails_csrf_protection"
 require "invisible_captcha"
 require "premailer/rails"
 require "premailer/adapter/decidim"
@@ -34,14 +33,12 @@ require "cell/partial"
 require "kaminari"
 require "doorkeeper"
 require "doorkeeper-i18n"
-require "nobspw"
 require "batch-loader"
-require "etherpad-lite"
+require "mime-types"
 require "diffy"
-require "anchored"
 require "social-share-button"
 require "ransack"
-require "searchlight"
+require "wisper"
 require "webpacker"
 
 # Needed for the assets:precompile task, for configuring webpacker instance
@@ -66,6 +63,10 @@ module Decidim
         end
       end
 
+      initializer "decidim.action_mailer" do |app|
+        app.config.action_mailer.deliver_later_queue_name = :mailers
+      end
+
       initializer "decidim.middleware" do |app|
         app.config.middleware.insert_before Warden::Manager, Decidim::Middleware::CurrentOrganization
         app.config.middleware.insert_before Warden::Manager, Decidim::Middleware::StripXForwardedHost
@@ -85,12 +86,21 @@ module Decidim
       end
 
       initializer "decidim.graphql_api" do
-        # Enable them method `!` everywhere for compatibility, this line will be removed when upgrading to GraphQL 2.0
-        GraphQL::DeprecatedDSL.activate
         Decidim::Api::QueryType.include Decidim::QueryExtensions
 
         Decidim::Api.add_orphan_type Decidim::Core::UserType
         Decidim::Api.add_orphan_type Decidim::Core::UserGroupType
+      end
+
+      initializer "decidim.ransack" do
+        Ransack.configure do |config|
+          # Avoid turning parameter values such as user_id[]=1&user_id[]=2 into
+          # { user_id: [true, "2"] }. This option allows us to handle the type
+          # convertions manually instead for each case.
+          # See: https://github.com/activerecord-hackery/ransack/issues/593
+          # See: https://github.com/activerecord-hackery/ransack/pull/742
+          config.sanitize_custom_scope_booleans = false
+        end
       end
 
       initializer "decidim.i18n_exceptions" do
@@ -168,6 +178,7 @@ module Decidim
 
         Decidim.stats.register :processes_count, priority: StatsRegistry::HIGH_PRIORITY do |organization, start_at, end_at|
           processes = ParticipatoryProcesses::OrganizationPrioritizedParticipatoryProcesses.new(organization)
+
           processes = processes.where("created_at >= ?", start_at) if start_at.present?
           processes = processes.where("created_at <= ?", end_at) if end_at.present?
           processes.count
@@ -304,7 +315,7 @@ module Decidim
 
       initializer "SSL and HSTS" do
         Rails.application.configure do
-          config.force_ssl = Rails.env.production? && Decidim.config.force_ssl
+          config.force_ssl = Decidim.config.force_ssl
         end
       end
 
@@ -315,7 +326,8 @@ module Decidim
       end
 
       initializer "Expire sessions" do
-        Rails.application.config.session_store :cookie_store, expire_after: Decidim.config.expire_session_after
+        Rails.application.config.session_store :cookie_store, secure: Decidim.config.force_ssl, expire_after: Decidim.config.expire_session_after
+        Rails.application.config.action_dispatch.cookies_same_site_protection = :lax
       end
 
       initializer "decidim.core.register_resources" do
@@ -542,12 +554,50 @@ module Decidim
         end
       end
 
-      initializer "nbspw" do
-        NOBSPW.configuration.use_ruby_grep = true
-      end
-
       initializer "decidim.premailer" do
         Premailer::Adapter.use = :decidim
+      end
+
+      initializer "decidim_core.webpacker.assets_path" do
+        Decidim.register_assets_path File.expand_path("app/packs", root)
+      end
+
+      initializer "decidim_core.preview_mailer" do
+        # Load in mailer previews for apps to use in development.
+        # We need to make sure we call `Preview.all` before requiring our
+        # previews, otherwise any previews the app attempts to add need to be
+        # manually required.
+        if Rails.env.development? || Rails.env.test?
+          ActionMailer::Preview.all
+
+          Dir[root.join("spec/mailers/previews/**/*_preview.rb")].each do |file|
+            require_dependency file
+          end
+        end
+      end
+
+      # These are moved from initializers/devise.rb because we need to run initializers folder before
+      # setting these or Decidim.config variables have default values.
+      initializer "decidim_core.after_initializers_folder", after: "load_config_initializers" do
+        Devise.setup do |config|
+          # ==> Mailer Configuration
+          # Configure the e-mail address which will be shown in Devise::Mailer,
+          # note that it will be overwritten if you use your own mailer class
+          # with default "from" parameter.
+          config.mailer_sender = Decidim.config.mailer_sender
+
+          # A period that the user is allowed to access the website even without
+          # confirming their account. For instance, if set to 2.days, the user will be
+          # able to access the website for two days without confirming their account,
+          # access will be blocked just in the third day. Default is 0.days, meaning
+          # the user cannot access the website without confirming their account.
+          config.allow_unconfirmed_access_for = Decidim.unconfirmed_access_for
+
+          # ==> Configuration for :timeoutable
+          # The time you want to timeout the user session without activity. After this
+          # time the user will be asked for credentials again. Default is 30 minutes.
+          config.timeout_in = Decidim.config.expire_session_after
+        end
       end
 
       config.to_prepare do

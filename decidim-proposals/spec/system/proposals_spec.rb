@@ -126,10 +126,9 @@ describe "Proposals", type: :system do
       it_behaves_like "rendering unsafe content", ".columns.mediumlarge-8.large-9"
     end
 
-    context "when it is a proposal with card image enabled" do
+    context "when it is a proposal with image" do
       let!(:component) do
         create(:proposal_component,
-               :with_card_image_allowed,
                manifest: manifest,
                participatory_space: participatory_process)
       end
@@ -213,7 +212,7 @@ describe "Proposals", type: :system do
       let(:meeting_component) do
         create(:component, manifest_name: :meetings, participatory_space: proposal.component.participatory_space)
       end
-      let(:meeting) { create(:meeting, component: meeting_component) }
+      let(:meeting) { create(:meeting, :published, component: meeting_component) }
 
       before do
         meeting.link_resources([proposal], "proposals_from_meeting")
@@ -593,7 +592,7 @@ describe "Proposals", type: :system do
 
       it "finds the correct proposal" do
         within "form.new_filter" do
-          find("input[name='filter[search_text]']", match: :first).set("lorem")
+          find("input[name='filter[search_text_cont]']", match: :first).set("lorem")
           find("*[type=submit]").click
         end
 

@@ -132,6 +132,7 @@ fi-pl:
       new_import:
         attributes:
           file:
+            invalid_file: Antamasi tiedosto on virheellinen. Tarkasta, että tiedosto on muotoiltu oikein.
             invalid_mime_type: Virheellinen mime-tyyppi
   activerecord:
     attributes:
@@ -172,7 +173,7 @@ fi-pl:
         reject: Hylkää
         share: Jaa
         user:
-          new: Uusi käyttäjä
+          new: Uusi hallintakäyttäjä
         verify: Vahvista
       admin_terms_of_use:
         accept:
@@ -180,7 +181,7 @@ fi-pl:
           success: Hienoa! Olet hyväksynyt hallintakäyttäjän ehdot.
         actions:
           accept: Hyväksyn seuraavat ehdot
-          are_you_sure: Haluatko varmasti olla hyväksymättä hallintakäyttäjän ehtoja?
+          are_you_sure: Oletko varma, että haluat kieltäytyä hyväksymästä hallintakäyttäjien käyttöehtoja?
           refuse: Kieltäydy hyväksymästä hallintakäyttäjän ehtoja
           title: Hyväksy käyttöehdot
         required_review:
@@ -208,7 +209,7 @@ fi-pl:
           error: Uuden alueen luomisessa tapahtui virhe.
           success: Alue luotu onnistuneesti.
         destroy:
-          has_spaces: Alueella on siitä riippuvia osallisuustiloja. Sillä ei saa olla riippuvuuksia, jotta se voidaan poistaa.
+          has_spaces: Tällä alueella on riippuvia osallistumistiloja. Tarkasta huolellisesti, että alueella ei ole yhtään riippuuvuuksia osallistumistiloihin ennen sen poistoa.
           success: Alue tuhottu onnistuneesti
         edit:
           title: Muokkaa aluetta
@@ -255,6 +256,8 @@ fi-pl:
         update:
           error: Tämän liitteen päivityksessä tapahtui virhe.
           success: Liite luotu onnistuneesti.
+      attachments_privacy_warning:
+        message: Ole varovainen, kun työskentelet liitetiedostojen kanssa yksityisessä tilassa. Kuka tahansa osallistuja voi jakaa tämän asiakirjan muille.
       autocomplete:
         no_results: Ei tuloksia
         search_prompt: Kirjoita vähintään kolme merkkiä hakuun
@@ -324,7 +327,7 @@ fi-pl:
         'false': 'Ei'
         managed_user_name: Hallittu käyttäjä
         solved: Ratkaistu
-        title: Tarkistusten ristiriidat
+        title: Vahvistusten ristiriidat
         transfer:
           email: Sähköposti
           error: Nykyisen käyttäjän siirto hallituksi käyttäjäksi epäonnistui.
@@ -337,7 +340,7 @@ fi-pl:
       dashboard:
         show:
           view_more_logs: Näytä lisää lokitietoja
-          welcome: Tervetuloa Decidimin hallintapaneeliin.
+          welcome: Tervetuloa hallintapaneeliin.
       domain_whitelist:
         form:
           domain_too_short: Verkkotunnus on liian lyhyt
@@ -366,6 +369,13 @@ fi-pl:
           values:
             'false': 'Ei'
             'true': 'Kyllä'
+        moderated_users:
+          reports_reason_eq:
+            label: Ilmoituksen syy
+            values:
+              does_not_belong: Ei kuulu joukkoon
+              offensive: Loukkaava
+              spam: Roskapostittaja
         moderations:
           reportable_type_string_eq:
             label: Tyyppi
@@ -400,11 +410,18 @@ fi-pl:
         search_label: Hae
         search_placeholder:
           name_or_nickname_or_email_cont: '%{collection}: Hae sähköpostilla, nimellä tai nimimerkillä'
+          report_count_eq: Ilmoitusten määrä
           reported_id_string_or_reported_content_cont: Etsi kohteista %{collection} raportoitavan kohteen ID:n tai sisällön perusteella.
           title_cont: '%{collection}: Hae otsikon perusteella'
           user_name_or_user_email_cont: Hae kohteesta %{collection} nimen tai sähköpostiosoitteen perusteella.
+          user_name_or_user_nickname_or_user_email_cont: Etsi kohteita %{collection} sähköpostiosoitteen, nimen tai nimimerkin perusteella.
         state_eq:
           label: Tila
+          values:
+            all: Kaikki
+            pending: Odottavat
+            rejected: Hylätyt
+            verified: Vahvistetut
       forms:
         file_help:
           import:
@@ -450,13 +467,31 @@ fi-pl:
           impersonate_existing_user: Esiinny käyttäjänä "%{name}"
           impersonate_new_managed_user: Esiinny uutena hallittuna käyttäjää
       imports:
-        creators:
-          proposalcreator: Ehdotuksen luoja
+        and: ja
+        data_errors:
+          duplicate_headers:
+            detail: Tarkasta, että tiedosto sisältää jokaisen vaaditun sarakenimen ainoastaan yhden kerran.
+            message:
+              one: Sarake %{columns} esiintyy kahdesti.
+              other: Sarakkeet %{columns} esiintyvät kahdesti.
+          invalid_indexes:
+            lines:
+              detail: Tarkista, että nämä rivit on muotoiltu oikein ja sisältävät ohjeistettuja tietoja.
+              message:
+                one: Tuontitiedostosta löytyi virhe riviltä %{indexes}.
+                other: Tuontitiedostosta löytyi virheitä riveiltä %{indexes}.
+            records:
+              detail: Tarkasta, että nämä tietueet muotoiltu oikein ja sisältävät ohjeistettuja tietoja.
+              message:
+                one: Tuontitiedostosta löytyi virhe tietueesta järjestysnumerolla %{indexes}.
+                other: Tuontitiedostosta löytyi virhe tietueista järjestysnumeroilla %{indexes}.
+          missing_headers:
+            detail: Tarkasta, että tiedosto sisältää vaaditut sarakkeet.
+            message:
+              one: Puuttuva sarake %{columns}.
+              other: Puuttuvia sarakkeita %{columns}.
         error: Tuonti epäonnistui
-        help:
-          proposalcreator: Tiedostossa on oltava sarakenimet title/fi otsikoille ja body/fi kuvausteksteille (tai toiseen kieleen viittaavat sarakenimet, kuten title/en ja body/en). Tuettuja sarakkeita ovat myös scope/id (teemalle) ja category/id (aihepiirille).
-        import_from_file: Tuo tiedostosta
-        invalid_lines: Tuontitiedostossa on virheitä riveillä %{invalid_lines}
+        example_error: Esimerkkitiedoston luonti epäonnistui annetulle tiedostotyypille
         new:
           accepted_mime_types:
             csv: csv
@@ -464,6 +499,8 @@ fi-pl:
             xlsx: xlsx
           actions:
             back: Takaisin
+          download_example: Lataa esimerkki
+          download_example_format: Esimerkki muodossa %{name}
           file_legend: Lisää tuontitiedosto, josta tiedot luetaan.
           import: Tuo
         notice: "%{number} kpl kohteita %{resource_name} tuotu onnistuneesti"
@@ -487,7 +524,7 @@ fi-pl:
         areas: Alueet
         configuration: Asetukset
         dashboard: Hallintapaneeli
-        external_domain_whitelist: Sallittujen ulkoisten verkkotunnusten lista
+        external_domain_whitelist: Sallitut ulkoiset verkko-osoitteet
         help_sections: Ohjeosiot
         homepage: Kotisivu
         impersonations: Esiintymiset toisena käyttäjänä
@@ -750,6 +787,7 @@ fi-pl:
         form:
           colors:
             colors_title: Organisaation värit
+            colors_warning_html: Varoitus! Näiden värien muuttaminen voi rikkoa palvelun saavutettavuuden vaatimat kontrastiarvot. Voit tarkastaa kontrastiarvot valitsemillesi väreille <a href="%{link}">WebAIM kontrastintarkastustyökalulla</a> tai muilla vastaavilla työkaluilla.
             header_snippets_help: Käytä tätä kenttää lisätäksesi HTML-koodia sivun alkuun. Yleisin käyttötarve on sellaisten kolmannen osapuolen palveluiden integrointi, jotka vaativat JavaScript- tai CSS-koodin lisäystä sivun HTML-koodiin. Huomioi, että tämä lisätään ainoastaan julkisille sivuille, ei hallinnointisivuille.
           cta_button_path_help: 'Voit määrittää, mihin kotisivun toimintopainike (Call To Action) linkkaa. Käytä tässä osoitepolkuja, ei kokonaisia URL-osoitteita. Hyväksyy kirjaimet, numerot, viivat ja kauttaviivat. Arvon on alettava kirjaimella. Toimintopainike näytetään kotisivulla Tervetuloa-tekstin ja kuvauksen välissä. Esimerkki: %{url}'
           cta_button_text_help: Voit korvata toimintopainikkeen (Call to Action) tekstin kotisivulla jokaiselle organisaatiosi kielelle. Mikäli tätä ei ole asetettu, oletusarvoa käytetään. Toimintopainike näytetään kotisivulla Tervetuloa-tekstin ja kuvauksen välissä.
@@ -798,6 +836,14 @@ fi-pl:
           explanation: 'Lataa CSV-tiedosto osallistumistilan käyttäjistä. Tiedostossa on oltava kaksi saraketta tuotaville käyttäjille ilman sarakeotsikoita: sähköpostiosoitteet ensimmäisessä ja nimi toisessa sarakkeessa (sähköposti, nimi). Vältä erikoismerkkejä nimessä, kuten `<>?%&^*#@()[]=+:;"{}\|`.'
           title: Lataa CSV-tiedosto
           upload: Lataa
+      reminders:
+        create:
+          error: Muistutusten luonti epäonnistui.
+          success:
+            one: "%{count} käyttäjää muistutetaan."
+            other: "%{count} käyttäjää muistutetaan."
+        new:
+          submit: Lähetä
       resource_permissions:
         edit:
           submit: Lähetä
@@ -915,7 +961,7 @@ fi-pl:
         static_pages: Sivut
         statistics: Toiminta
         user_groups: Käyttäjäryhmät
-        users: Käyttäjät
+        users: Hallintakäyttäjät
       user_group:
         csv_verify:
           invalid: CSV-tiedoston käsittelyssä tapahtui virhe.
@@ -928,13 +974,6 @@ fi-pl:
           success: Käyttäjäryhmä vahvistaminen onnistui
       user_groups:
         index:
-          filter:
-            all: Kaikki
-            pending: Odottaa
-            rejected: Hylätty
-            verified: Vahvistettu
-          filter_by: Suodata
-          search: Etsi
           state:
             pending: Odottaa
             rejected: Hylätty
@@ -958,7 +997,7 @@ fi-pl:
           role: Rooli
         new:
           create: Kutsu
-          title: Kutsu käyttäjä hallinnoijaksi
+          title: Luo uusi hallintakäyttäjä
       users_statistics:
         users_count:
           admins: Ylläpitäjät
@@ -971,7 +1010,7 @@ fi-pl:
     forms:
       errors:
         impersonate_user:
-          reason: Sinun on annettava syy esittäessäsi käyttäjää, joka ei ole hallittu
+          reason: Sinun on annettava syy, kun esiinnyt hallinnoimattomana osallistujana
     metrics:
       blocked_users:
         object: estetyt käyttäjät

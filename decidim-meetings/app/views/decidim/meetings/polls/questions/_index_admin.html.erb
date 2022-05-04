@@ -10,7 +10,7 @@
 
         <%= link_to t(".edit"), Decidim::EngineRouter.admin_proxy(meeting.component).edit_meeting_poll_path(meeting), target: "_blank", rel: "noopener noreferrer" %>
 
-        <div class="meeting-polls__admin-action">
+        <div class="meeting-polls__admin-action meeting-polls__admin-action-question">
           <div><%= t(".question") %></div>
           <div>
             <% if question.unpublished? %>
@@ -21,7 +21,7 @@
             <% end %>
           </div>
         </div>
-        <div class="meeting-polls__admin-action">
+        <div class="meeting-polls__admin-action meeting-polls__admin-action-results">
           <div><%= t(".results") %></div>
           <div>
             <% unless question.unpublished? %>

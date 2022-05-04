@@ -106,7 +106,6 @@ sk:
         name: Návrhy
         settings:
           global:
-            allow_card_image: Povoliť kartové obrázky
             amendments_enabled: Pozmeňujúce návrhy povolené
             amendments_enabled_help: Ak je aktívne, nastavte funkcie Pozmeňujúcich návrhov pre každý krok.
             amendments_wizard_help_text: Sprievodca Pozmeňujúcimi návrhmi
@@ -147,7 +146,6 @@ sk:
             answers_with_costs: Povoliť náklady v rámci odpovedí na návrhy
             automatic_hashtags: Do všetkých návrhov boli pridané značky hashtags
             comments_blocked: Komentáre boli blokované
-            creation_enabled: Vytváranie návrhu je povolené
             endorsements_blocked: Schvaľovanie blokované
             endorsements_enabled: Schvaľovanie povolené
             proposal_answering_enabled: Odpovedanie na návrh je povolené
@@ -234,7 +232,6 @@ sk:
           email_intro: Návrh "%{resource_title}" bol pridaný k "%{participatory_space_title}", ktorý sledujete.
           email_outro: Toto oznámenie ste dostali, pretože sledujete "%{participatory_space_title}". Môžete ho odhlásiť od predchádzajúceho odkazu.
           email_subject: Nový návrh "%{resource_title}" bol pridaný k%{participatory_space_title}
-          notification_title: Návrh <a href="%{resource_path}">%{resource_title} </a> bol pridaný do%{participatory_space_title}
         proposal_rejected:
           affected_user:
             email_intro: 'Váš návrh "%{resource_title}" bol zamietnutý. Odpoveď môžete čítať na tejto stránke: '
@@ -471,11 +468,9 @@ sk:
             select_states: Skontrolujte stav návrhov, ktoré chcete importovať
         proposals_merges:
           create:
-            invalid: Pri prepojení vybraných návrhov došlo k chybe.
             success: Projekty boli úspešne zlúčené do novej.
         proposals_splits:
           create:
-            invalid: Pri výbere vybraných návrhov došlo k chybe.
             success: Úspešne rozdelil návrhy na nové.
         valuation_assignments:
           create:
@@ -506,7 +501,6 @@ sk:
           all: Všetko
         filter_origin_values:
           all: Všetko
-          citizens: Občania
           meetings: Stretnutie
           official: Oficiálne
           user_groups: Skupiny užívateľov

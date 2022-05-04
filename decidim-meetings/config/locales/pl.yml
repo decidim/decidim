@@ -22,6 +22,7 @@ pl:
         decidim_user_group_id: Grupa użytkowników
         description: Opis
         end_time: Czas zakończenia
+        id: Numer ID
         location: Miejsce
         location_hints: Wskazówki co do miejsca
         online_meeting_url: Adres URL spotkania online
@@ -59,7 +60,7 @@ pl:
       decidim/meetings/meeting:
         one: Spotkanie
         few: Spotkania
-        many: Spotkania
+        many: Spotkań
         other: Spotkania
       decidim/meetings/minutes:
         one: Minuta
@@ -69,10 +70,20 @@ pl:
       decidim/meetings/registration:
         one: Rejestracja
         few: Rejestracje
-        many: Rejestracje
+        many: Rejestracji
         other: Rejestracje
   decidim:
     admin:
+      filters:
+        meetings:
+          category_id_eq:
+            label: Kategoria
+          closed_at_present:
+            label: Państwo
+            values:
+              'true': Zamknięte
+          is_upcoming_true:
+            label: Data
       meeting_copies:
         create:
           error: Wystąpił błąd podczas duplikowania tego spotkania.
@@ -119,8 +130,9 @@ pl:
             email_subject: Spotkanie "%{resource_title}" zostało zakończone
             notification_title: Spotkanie <a href="%{resource_path}">%{resource_title}</a> zostało zakończone.
         meeting_created:
+          button_text: Zarejestruj się na spotkanie
           email_intro: Spotkanie "%{resource_title}" zostało dodane do przestrzeni "%{participatory_space_title}", którą obserwujesz.
-          email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz przestrzeń "%{participatory_space_title}". Możesz przestać ją obserwować obserwować klikając w poprzedni link.
+          email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz przestrzeń "%{participatory_space_title}". Aby przestać otrzymywać powiadomienia kliknij w powyższy link, a następnie na stronie spotkania kliknij w przycisk obserwowania.
           email_subject: Nowe spotkanie zostało dodane do %{participatory_space_title}
           notification_title: Spotkanie <a href="%{resource_path}">%{resource_title}</a> zostało dodane do %{participatory_space_title}
         meeting_registration_confirmed:
@@ -132,7 +144,7 @@ pl:
           notification_title: Liczba zarezerwowanych miejsc na spotkanie <a href="%{resource_path}">%{resource_title}"</a> przekroczyła %{percentage}%.
         meeting_updated:
           email_intro: 'Spotkanie "%{resource_title}" zostało zaktualizowane. Możesz sprawdzić aktualną wersję na stronie:'
-          email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz spotkanie "%{resource_title}". Możesz przestać je obserwować klikając w poprzedni link.
+          email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz spotkanie "%{resource_title}". Aby przestać otrzymywać powiadomienia kliknij w powyższy link, a następnie na stronie spotkania kliknij w przycisk obserwowania.
           email_subject: Spotkanie "%{resource_title}" zostało zaktualizowane
           notification_title: Spotkanie <a href="%{resource_path}">%{resource_title}</a> zostało zaktualizowane.
         registration_code_validated:
@@ -142,12 +154,12 @@ pl:
           notification_title: Twój kod rejestracyjny "%{registration_code}" na spotkanie <a href="%{resource_path}">%{resource_title}</a> został zatwierdzony.
         registrations_enabled:
           email_intro: 'Otwarto rejestrację na spotkanie "%{resource_title}". Możesz zarejestrować się na tej stronie:'
-          email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz spotkanie "%{resource_title}". Możesz przestać je obserwować klikając w poprzedni link.
+          email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz spotkanie "%{resource_title}". Aby przestać otrzymywać powiadomienia kliknij w powyższy link, a następnie na stronie spotkania kliknij w przycisk obserwowania.
           email_subject: Otwarto rejestracje na spotkanie "%{resource_title}".
           notification_title: Otwarto rejestracje na spotkanie <a href="%{resource_path}">%{resource_title}</a>.
         upcoming_meeting:
           email_intro: Spotkanie "%{resource_title}" rozpocznie się za mniej niż 48 godzin.
-          email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz spotkanie "%{resource_title}". Możesz przestać je obserwować klikając w poprzedni link.
+          email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz spotkanie "%{resource_title}". Aby przestać otrzymywać powiadomienia kliknij w powyższy link, a następnie na stronie spotkania kliknij w przycisk obserwowania.
           email_subject: Spotkanie "%{resource_title}" rozpocznie się za mniej niż 48 godzin.
           notification_title: Spotkanie <a href="%{resource_path}">%{resource_title}</a> rozpocznie się za mniej niż 48 godzin.
     gamification:
@@ -177,6 +189,7 @@ pl:
             few: 'Nie można usunąć spotkania ponieważ ma ono %{count} powiązane propozycje:'
             many: 'Nie można usunąć spotkania ponieważ ma ono %{count} powiązanych propozycji:'
             other: 'Nie można usunąć spotkania ponieważ ma ono %{count} powiązanych propozycji:'
+        manage_poll: Zarządzaj głosowaniem
         new: Nowe spotkanie
         preview: Podgląd
         registrations: Rejestracje
@@ -253,6 +266,7 @@ pl:
             success: Spotkanie zostało zakończone
           create:
             invalid: Podczas tworzenia tego spotkania wystąpił błąd
+            success: Spotkanie zostało utworzone. Zauważ, że jest ono nieopublikowane, musisz je opublikować ręcznie.
           destroy:
             invalid:
               proposals_count:
@@ -266,12 +280,10 @@ pl:
             update: Aktualizuj
           form:
             address_help: 'Adres: używany przez Geocoder do znalezienia lokalizacji'
-            available_slots_help: Pozostaw 0, jeśli masz dostęp do nieograniczonej liczby miejsc
             disclaimer: 'Uwaga: Korzystając z zewnętrznego systemu uwierzytelniania, jesteś świadomy, że organizatorzy %{organization} nie są odpowiedzialni za dane dostarczone przez użytkowników usługi zewnętrznej.'
             location_help: 'Lokalizacja: informacja dla użytkowników dotycząca miejsca spotkania'
             location_hints_help: 'Wskazówki dotyczące lokalizacji: dodatkowe informacje. Przykład: piętro budynku, jeśli jest to spotkanie fizyczne, lub hasło do spotkania, jeśli odbywa się ono online i ma ograniczony dostęp.'
             online_meeting_url_help: 'Link: zezwól uczestnikom na bezpośredni dostęp do Twojego spotkania'
-            registration_email_help: Ten tekst pojawi się w środku wiadomości e-mail z potwierdzeniem rejestracji. Tuż po kodzie rejestracyjnym.
             registration_url_help: 'Link: zezwól użytkownikom na korzystanie z usługi zewnętrznej, której używasz do rejestracji'
             select_a_meeting_type: Wybierz typ spotkania
             select_a_registration_type: Wybierz typ rejestracji
@@ -280,6 +292,9 @@ pl:
           new:
             create: Utwórz
             title: Utwórz spotkanie
+          publish:
+            invalid: Wystąpił błąd podczas publikowania tego spotkania
+            success: Spotkanie zostało opublikowane
           service:
             description: Opis
             down: Na dół
@@ -290,9 +305,15 @@ pl:
           services:
             add_service: Dodaj usługę
             services: Usługi
+          unpublish:
+            invalid: Wystąpił błąd podczas ukrywania tego spotkania
+            success: Spotkanie zostało ukryte
           update:
             invalid: Podczas aktualizowania tego spotkania wystąpił błąd
             success: Spotkanie zostało zaktualizowane
+        meetings_poll:
+          form:
+            title: Edytuj kartę do głosowania dla %{questionnaire_for}
         models:
           meeting:
             name: Spotkanie
@@ -305,6 +326,7 @@ pl:
             available_slots_help: Zostaw 0, jeśli dostępna jest nieograniczona liczba miejsc.
             invites: Zaproszenia
             recommendation_message: Ze względu na ochronę prywatności zalecamy usunięcie tego podpisu, gdy nie będzie już wymagany. Standardowo są to 3 miesiące od zakończenia spotkania.
+            registration_email_help: Ten tekst pojawi się w środku wiadomości e-mail z potwierdzeniem rejestracji. Tuż po kodzie rejestracyjnym.
             registration_form: Formularz rejestracyjny
             registrations_count:
               one: Była%{count} rejestracja.
@@ -340,20 +362,13 @@ pl:
         export_calendar: Eksportuj kalendarz
       conference_venues: Sale konferencyjne
       content_blocks:
-        upcoming_events:
-          name: Nadchodzące wydarzenia
-          upcoming_events: Nadchodzące spotkania
-          view_all_events: Pokaż wszystkie
+        upcoming_meetings:
+          view_all_meetings: Pokaż wszystkie
       directory:
         meetings:
           index:
-            all: Wszystko
-            date: Data
             meetings: Spotkania
-            past: Przeszłe
-            search: Szukaj
             space_type: Przestrzeń partycypacyjna
-            upcoming: Nadchodzące
       last_activity:
         meeting_updated_at_html: "<span>Spotkanie zaktualizowane o %{link}</span>"
         new_meeting_at_html: "<span>Nowe spotkanie %{link}</span>"
@@ -404,7 +419,6 @@ pl:
           origin: Źródło
           origin_values:
             all: Wszystkie
-            citizens: Obywatele
             official: Oficjalny
             user_groups: Grupy
           scope: Zakres
@@ -492,6 +506,15 @@ pl:
             official_meeting: Spotkanie oficjalne
             start_time: Data rozpoczęcia
             title: Tytuł
+      polls:
+        questions:
+          closed_question:
+            question_results: Wyniki wyborów
+          published_question:
+            max_choices_alert: Wybrano zbyt wiele opcji
+            question: Pytanie
+            question_replied: Odpowiedziano na pytanie
+            reply_question: Odpowiedz na pytanie
       read_more: "(zobacz więcej)"
       registration_mailer:
         confirmation:

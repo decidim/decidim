@@ -1,0 +1,89 @@
+name: "[CI] Performance Metrics monitoring"
+on:
+  push:
+    branches:
+      - develop
+      - release/*
+      - "*-stable"
+  pull_request:
+    branches-ignore:
+      - "chore/l10n*"
+    paths:
+      - "*"
+      - ".github/**"
+      - "decidim-api/**"
+      - "decidim-core/**"
+      - "decidim-dev/**"
+
+env:
+  CI: "true"
+  SIMPLECOV: "true"
+  RUBY_VERSION: 2.7.5
+  NODE_VERSION: 16.9.1
+  RAILS_ENV: development
+
+jobs:
+  main:
+    name: Tests
+    runs-on: ubuntu-latest
+    if: "!startsWith(github.head_ref, 'chore/l10n')"
+    timeout-minutes: 60
+    services:
+      postgres:
+        image: postgres:11
+        ports: ["5432:5432"]
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+        env:
+          POSTGRES_PASSWORD: postgres
+    env:
+      DATABASE_USERNAME: postgres
+      DATABASE_PASSWORD: postgres
+      DATABASE_HOST: localhost
+      RUBYOPT: '-W:no-deprecated'
+    steps:
+      - uses: rokroskar/workflow-run-cleanup-action@v0.3.0
+        if: "github.ref != 'refs/heads/develop'"
+        env:
+          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+      - uses: actions/checkout@v2.0.0
+        with:
+          fetch-depth: 1
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: ${{ env.RUBY_VERSION }}
+          bundler-cache: true
+      - uses: actions/setup-node@v1
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+      - name: Get npm cache directory path
+        id: npm-cache-dir-path
+        run: echo "::set-output name=dir::$(npm get cache)-${{ env.DECIDIM_MODULE }}"
+      - uses: actions/cache@v2
+        id: npm-cache
+        with:
+          path: ${{ steps.npm-cache-dir-path.outputs.dir }}
+          key: npm-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            npm-
+      - run: bundle exec rake development_app
+        name: Create development app
+      - run: bundle exec rails assets:precompile
+        name: Precompile assets
+        working-directory: ./development_app/
+      - run: bundle exec rails decidim:lighthouse:prepare_urls
+        name: Setup lighthouse urls
+        working-directory: ./development_app/
+      - run: bundle exec rails server -b localhost -d
+        name: Run Rails server
+        working-directory: ./development_app/
+      - name: Audit URLs using Lighthouse
+        uses: treosh/lighthouse-ci-action@v8
+        with:
+          runs: 3 # run more than once to warm up the application
+          uploadArtifacts: true
+          budgetPath: ./.github/workflows/lighthouse_budget.json # test performance budgets
+          temporaryPublicStorage: true

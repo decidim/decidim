@@ -23,6 +23,7 @@ en:
       user:
         about: About
         email: Your email
+        locale: Locale
         name: Your name
         nickname: Nickname
         password: Password
@@ -68,8 +69,8 @@ en:
     'true': 'Yes'
   carrierwave:
     errors:
-      general: Error processing image
-      image_too_big: The image is too big
+      file_resolution_too_large: File resolution is too large
+      file_size_too_large: File size is too large
       not_inside_organization: The file is not attached to any organization
   date:
     formats:
@@ -78,9 +79,38 @@ en:
       decidim_with_day_and_month_name: "%A %d %b %Y"
       decidim_with_month_name: "%d %B %Y"
       decidim_with_month_name_short: "%d %b"
+  datetime:
+    distance_in_words:
+      about_x_hours:
+        one: about 1 hour
+        other: about %{count} hours
+      about_x_months:
+        one: about 1 month
+        other: about %{count} months
+      half_a_minute: half a minute
+      less_than_x_minutes:
+        one: less than a min.
+        other: less than %{count} min.
+      less_than_x_seconds:
+        one: right now
+        other: less than %{count} sec.
+      x_days:
+        one: 1 day ago
+        other: "%{count} days ago"
+      x_hours:
+        one: 1 hour ago
+        other: "%{count} hours ago"
+      x_minutes:
+        one: 1 min. ago
+        other: "%{count} min. ago"
+      x_seconds:
+        one: 1 sec. ago
+        other: "%{count} sec. ago"
+        zero: right now
   decidim:
     accessibility:
       external_link: External link
+      front_page_link: Go to front page
       logo: "%{organization}'s official logo"
       skip_button: Skip to main content
     account:
@@ -100,6 +130,7 @@ en:
         error: There was a problem deleting your account.
         success: Your account was successfully deleted.
       show:
+        available_locales_helper: Choose the language you want to use to browse and receive notifications on the platform
         change_password: Change password
         update_account: Update account
       update:
@@ -362,6 +393,7 @@ en:
           debate: Debate
           initiative: Initiative
           meeting: Meeting
+          order: Budgeting vote
           post: Post
           proposal: Proposal
           question: Question
@@ -512,6 +544,11 @@ en:
           this_application_will_not_be_able_to: 'This application will not be able to:'
           update_profile: Update your profile
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> wants to use your account"
+    editor_images:
+      create:
+        error: Error uploading image
+        success: Image uploaded successfully
+      drag_and_drop_help: Add images by dragging & dropping or pasting them.
     endorsable:
       endorsements: Endorsements
       endorsements_count: Endorsements count
@@ -671,6 +708,11 @@ en:
           email_outro: You have received this notification because you are following %{nickname}. You can stop receiving notifications following the previous link.
           email_subject: "%{nickname} updated their profile"
           notification_title: The <a href="%{resource_path}">profile page</a> of %{name} (%{nickname}), who you are following, has been updated.
+        user_officialized:
+          email_intro: Participant %{name} (%{nickname}) has been officialized.
+          email_outro: You have received this notification because you are an administrator of the organization.
+          email_subject: "%{name} has been officialized"
+          notification_title: Participant %{name} (%{nickname}) has been officialized.
     export_mailer:
       data_portability_export:
         click_button: 'Click the next link to download your data.<br/>The file will be available until %{date}.<br/>You will need <a href="https://www.7-zip.org/">7-Zip</a> (for Windows), <a href="https://www.keka.io/en/">Keka</a> (for MacOS) or <a href="https://peazip.github.io">PeaZip</a> (for Linux) to open it. Password: %{password}'
@@ -702,6 +744,7 @@ en:
       no_followers: No followers yet.
     following:
       no_followings: Doesn't follow anyone or anything yet.
+      non_public_followings: Some of the resources followed are not public.
     follows:
       create:
         button: Follow
@@ -711,7 +754,6 @@ en:
         button: Stop following
         error: There was a problem unfollowing this resource.
     forms:
-      current_file: Current file
       current_image: Current image
       default_image: Default image
       errors:
@@ -722,16 +764,36 @@ en:
       file_help:
         file:
           explanation: 'Guidance for file:'
-          message_1: Has to be an image or a document.
-          message_2: For images, use preferrably landscape images, the service crops the image. For CSV files, the separator between columns must be a comma (",")
+          message_1: Has to be a square image.
+          message_2: The recommended size for this image is 512x512.
         image:
           explanation: 'Guidance for image:'
           message_1: Preferrably a landscape image that does not have any text.
           message_2: The service crops the image.
       file_validation:
         allowed_file_extensions: 'Allowed file extensions: %{extensions}'
+        max_file_dimension: 'Maximum file dimensions: %{resolution} pixels'
         max_file_size: 'Maximum file size: %{megabytes}MB'
-      remove_this_file: Remove this file
+      upload:
+        labels:
+          add_attachment: Add attachment
+          add_file: Add file
+          add_image: Add image
+          cancel: Cancel
+          edit_image: Edit image
+          error: Error!
+          file_size_too_large: 'File size is too large! Maximun file size: %{megabytes}MB'
+          remove: Remove
+          replace: Replace
+          save: Save
+          title: Title
+          title_required: Title is required!
+          uploaded: Uploaded
+          validating: Validating...
+          validation_error: Validation error!
+      upload_help:
+        dropzone: Drop files here or click to upload
+        explanation: Guidance for %{attribute}
     gamification:
       all_badges_link: See all available badges.
       badges:
@@ -967,6 +1029,7 @@ en:
           next: Next
           no_conversations: You have no conversations yet
           title: Conversations
+          to: To
         reply:
           placeholder: Your reply...
           send: Send
@@ -974,6 +1037,7 @@ en:
         show:
           back: Back to all conversations
           chat_with: Conversation with
+          deleted_accounts: You can't have a conversation with deleted accounts.
           not_allowed: This participant does not accept direct messages.
           title: Conversation with %{usernames}
         start:
@@ -1041,18 +1105,28 @@ en:
         greetings: Greetings,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Hello,
         subject: Do you want to keep receiving relevant information about %{organization_name}?
+    notification_mailer:
+      event_received:
+        no_translation_available: Sorry, the automated translation could not be retrieved when the email has been sent. You can check the translation of the original text on the following link %{link}.
+        original_text: 'Original text:'
+        same_language: The content has been posted in your preferred language (%{language}), this is why no automated translation is displayed in this email.
+        translated_text: 'Automatically translated text:'
     notifications:
       no_notifications: No notifications yet.
+      show:
+        missing_event: Oops, this notification belongs to an item that is no longer available. You can discard it.
     notifications_settings:
       show:
         administrators: Administrators
         allow_public_contact: Allow anyone to send me a direct message, even if I don't follow them.
         direct_messages: Receive direct messages from anyone
-        email_on_moderations: I want to receive an email every time something is reported for moderation.
+        email_on_moderations: I want to receive an email every time something or someone is reported for moderation.
         email_on_notification: I want to receive an email every time I receive a notification.
         everything_followed: Everything I follow
         newsletter_notifications: I want to receive newsletters
         newsletters: Newsletters
+        notification_settings:
+          close_meeting_reminder: I want to receive email reminders of closed meetings unpublished reports
         own_activity: My own activity, like when someone comments in my proposal or mentions me
         receive_notifications_about: I want to get notifications about
         send_notifications_by_email: Send notifications by email
@@ -1060,6 +1134,10 @@ en:
       update:
         error: There was a problem updating your notifications settings.
         success: Your notifications settings were successfully updated.
+    offline:
+      show:
+        message: It looks like you're currently offline. Please, try again later.
+        retry: Retry
     open_data:
       not_available_yet: The Open Data files are not yet available, please try again in a few minutes.
     own_user_groups:
@@ -1269,6 +1347,8 @@ en:
         close_modal: Close modal
         please_sign_in: Please sign in
         sign_up: Sign up
+      mentions_modal:
+        remove_recipient: Remove recipient %{name}
       participatory_space_filters:
         filters:
           areas: Areas
@@ -1338,6 +1418,7 @@ en:
         title_reply: Reply
       show:
         back: Show all conversations
+        deleted_accounts: You can't have a conversation with deleted accounts.
         not_allowed: This user does not accept any more direct messages.
         title: Conversation with %{usernames}
       update:
@@ -1355,6 +1436,7 @@ en:
       notify:
         body_1: User %{user} has been reported by %{token}
         body_2: 'Reason: %{reason}'
+        details: User provided details
         greetings: Greetings,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Hello %{admin},
         subject: A new user has been reported in %{organization_name}
@@ -1600,6 +1682,8 @@ en:
       notifications_dashboard:
         mark_all_as_read: Mark all as read
         mark_as_read: Mark as read
+      offline_banner:
+        cache_version_page: Oooops! Your network is offline. This is a previously cached version of the page you're visiting, perhaps the content is not up to date.
       social_media_links:
         facebook: "%{organization} at Facebook"
         github: "%{organization} at GitHub"
@@ -1611,6 +1695,8 @@ en:
         continue_session: Continue session
         sign_out: Sign out
         title: Would you like to continue your session?
+      upload_modal:
+        close_modal: Close modal
       user_menu:
         account: 'User account: %{name}'
         admin_dashboard: Admin dashboard
@@ -1635,10 +1721,12 @@ en:
     name: English
     name_with_error: English (error!)
   password_validator:
+    blacklisted: is blacklisted
     domain_included_in_password: is too similar to this domain name
     email_included_in_password: is too similar to your email
     fallback: is not valid
     name_included_in_password: is too similar to your name
+    nickname_included_in_password: is too similar to your nickname
     not_enough_unique_characters: does not have enough unique characters
     password_not_allowed: is not allowed
     password_too_common: is too common
@@ -1673,6 +1761,8 @@ en:
       day_of_week: "%a"
       day_of_week_long: "%a %e"
       day_of_year: "%d.%m.%y"
+      ddmm: "%d.%m"
+      ddmmyyyy: "%d.%m.%Y"
       decidim_day_of_year: "%d %B %Y"
       decidim_short: "%d/%m/%Y %H:%M"
       default: "%a, %d %b %Y %H:%M:%S %z"
@@ -1691,6 +1781,7 @@ en:
     dropdown:
       choose_diff_view_html: 'HTML view mode:'
       choose_diff_view_mode: 'Compare view mode:'
+      choose_diff_view_mode_menu: Choose compare mode
       option_escaped: Escaped
       option_split: Side-by-side
       option_unescaped: Unescaped

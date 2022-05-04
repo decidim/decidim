@@ -43,6 +43,7 @@ hu:
           in_favor: Támogatom
         deleted_user: Törölt felhasználó
         hide_replies: Válaszok elrejtése
+        moderated_at: Hozzászólás moderálva %{date}
         reply: Válasz
         report:
           action: Jelentés
@@ -69,7 +70,6 @@ hu:
         blocked_comments_warning: A megjegyzések jelenleg le vannak tiltva, de a korábbiakat elolvashatod.
         comment_details_title: Megjegyzés részletei
         loading: Hozzászólások betöltése ...
-        single_comment_warning: A többi hozzászólást <a href="%{url}">itt</a> ellenőrizheti.
         single_comment_warning_title: Egyetlen megjegyzést látsz
     events:
       comments:

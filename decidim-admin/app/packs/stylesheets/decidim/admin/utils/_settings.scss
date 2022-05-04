@@ -451,7 +451,7 @@ $input-border-focus: 1px solid map-get($foundation-palette, primary);
 $input-outline: 0;
 $input-outline-focus: 2px solid $primary-color;
 $input-outline-offset: 2px;
-$input-padding: $form-spacing / 2;
+$input-padding: $form-spacing * .5;
 $input-shadow: inset 0 1px 2px rgba($black, .1);
 $input-shadow-focus: 0 0 5px $medium-gray;
 $input-cursor-disabled: not-allowed;
@@ -791,7 +791,7 @@ $table-row-stripe-hover: darken($table-background, $table-color-scale + $table-h
 $table-is-striped: true;
 $table-striped-background: smart-scale($table-background, $table-color-scale);
 $table-stripe: even;
-$table-head-background: smart-scale($table-background, $table-color-scale / 2);
+$table-head-background: smart-scale($table-background, $table-color-scale * .5);
 $table-head-row-hover: darken($table-head-background, $table-hover-scale);
 $table-foot-background: smart-scale($table-background, $table-color-scale);
 $table-foot-row-hover: darken($table-foot-background, $table-hover-scale);
@@ -876,3 +876,7 @@ $grid-padding-gutters: $grid-margin-gutters;
 $grid-container-padding: $grid-padding-gutters;
 $grid-container-max: $global-width;
 $xy-block-grid-max: 8;
+
+// This imports all the Decidim module stylesheet configs registered at
+// `config/assets.rb` of the module for the "admin" group.
+@import "!decidim-style-settings[admin]";

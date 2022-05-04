@@ -41,11 +41,12 @@ module Decidim
           location: meeting.location,
           reference: meeting.reference,
           comments: meeting.comments_count,
-          attachments: meeting.attachments.count,
-          followers: meeting.followers.count,
+          attachments: meeting.attachments.size,
+          followers: meeting.follows.size,
           url: url,
           related_proposals: related_proposals,
-          related_results: related_results
+          related_results: related_results,
+          published: meeting.published_at.present?
         }
       end
 

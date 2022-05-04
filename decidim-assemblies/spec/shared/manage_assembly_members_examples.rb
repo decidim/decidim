@@ -22,7 +22,13 @@ shared_examples "manage assembly members examples" do
           :assembly_member_full_name,
           with: "Daisy O'connor"
         )
+      end
 
+      dynamically_attach_file(:assembly_member_non_user_avatar, Decidim::Dev.asset("avatar.jpg")) do
+        expect(page).to have_content("You should get the consent of the persons before publishing them as a member")
+      end
+
+      within ".new_assembly_member" do
         select "President", from: :assembly_member_position
 
         find("*[type=submit]").click

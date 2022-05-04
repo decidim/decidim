@@ -4,7 +4,7 @@ module Decidim
   module Elections
     module Admin
       # This command gets called to publish the election results in the Bulletin Board.
-      class PublishResults < Rectify::Command
+      class PublishResults < Decidim::Command
         # Public: Initializes the command.
         #
         # form - An ActionForm object with the information needed to publish the results

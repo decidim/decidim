@@ -254,7 +254,6 @@ de:
             trustees: Wahlhelfer
           key_ceremony:
             title: Schlüsselzeremonie
-            trustees: Wahlhelfer
           key_ceremony_ended:
             errors:
               time_before: Die Wahl ist startbereit. Sie können die Abstimmungsperiode frühestens %{hours} Stunden vor der Startzeit (%{start_time}) eröffnen.
@@ -275,7 +274,6 @@ de:
             title: Ergebnisse veröffentlicht
           tally:
             title: Stimmenzähl-Prozess
-            trustees: Wahlhelfer
           tally_ended:
             answer: Antwort
             not_selected: Nicht ausgewählt
@@ -326,16 +324,6 @@ de:
           update:
             invalid: Es ist ein Problem beim Aktualisieren des Wahlhelfers %{trustee} aufgetreten
             success: Wahlhelfer %{trustee} erfolgreich aktualisiert
-      admin_log:
-        election:
-          end_vote: "%{user_name} hat die Abstimmungsperiode für die Wahl %{resource_name} im Bulletin Board beendet"
-          publish: "%{user_name} hat die %{resource_name} Wahl veröffentlicht"
-          publish_results: "%{user_name} hat die Resultate für die Wahl %{resource_name} im Bulletin Board veröffentlicht"
-          setup: "%{user_name} hat die Wahl %{resource_name} auf dem Bulletin Board erstellt"
-          start_key_ceremony: "%{user_name} hat die Schlüssel-Zeremonie für die Wahl %{resource_name} im Bulletin Board eröffnet"
-          start_tally: "%{user_name} hat die Stimmenzählung für die Wahl %{resource_name} im Bulletin Board eröffnet"
-          start_vote: "%{user_name} hat die Abstimmungsperiode für die Wahl %{resource_name} im Bulletin Board eröffnet"
-          unpublish: "%{user_name} hat die %{resource_name} Wahl zurückgezogen"
       election_m:
         badge_name:
           finished: Abgeschlossen
@@ -408,7 +396,6 @@ de:
           all: Alle
           finished: Abgeschlossen
           search: Suche
-          state: Status
           upcoming: Anstehend
         filters_small_view:
           close_modal: Dialog schließen
@@ -565,15 +552,12 @@ de:
               generate_legend_3: Stellen Sie sicher, dass Ihr Computer keine Kopie der Datei hat (z.B. überprüfen Sie die Download- und Desktop-Ordner).
               generate_legend_4: Machen Sie eine weitere Kopie der Datei auf einem anderen externen Gerät und speichern Sie sie an einem sehr sicheren Ort.
               submit: Einreichen
-              submit_legend: Nachdem Sie alle oben beschriebenen Schritte befolgt haben, führen Sie den Prozess durch, der den öffentlichen Identifikationsschlüssel an den Decidim-Server sendet.
               submit_title: Öffentlichen Identifikationsschlüssel einreichen
               title: Wahlhelfer-Identifikationsschlüssel
               upload: Lade deine Identifikationsschlüssel hoch
               upload_error:
                 invalid_format: Die hochgeladene Datei enthält keinen Identifikationsschlüssel.
                 invalid_key: Die Identifikationsschlüssel in der hochgeladenen Datei können nicht geladen werden.
-                invalid_public_key: Die Identifikationsschlüssel in der hochgeladenen Datei stimmen nicht mit dem öffentlichen Identifikationsschlüssel überein, der von Decidim gespeichert wird.
-              upload_legend: Decidim hat Ihren öffentlichen Identifikationsschlüssel, aber Ihr Browser hat ihn immer noch nicht. Sie müssen die Datei mit Ihren Identifikationsschlüssel aus dem Backup auf Ihren Computer importieren, das Sie nach der Generierung erstellt haben.
             not_supported_browser_description: Es sieht so aus, als ob Sie einen Webbrowser verwenden, der als Wahlhelfer nicht verwendet werden kann. Stellen Sie sicher, dass Sie die neueste Version Ihres Browsers verwenden, oder versuchen Sie, einen der üblichen Browser zu verwenden, um Ihre Wahlhelfer-Aufgaben zu erfüllen.
             not_supported_browser_title: Browser aktualisieren, um als Wahlhelfer zu agieren
             trustee_role_description: Sie wurden beauftragt, bei einigen der auf dieser Plattform gehaltenen Wahlen als Wahlhelfer zu agieren.
@@ -629,9 +613,7 @@ de:
         onboarding_modal:
           close: Dialog schließen
           create_account: Konto erstellen
-          description: Möchten Sie ein neues Konto in Decidim erstellen? Sie können an den Prozessen teilnehmen und aktiv an der Organisation teilnehmen.
           no_account: Nein, danke.
-          title: Neu bei Decidim?
         verify:
           content:
             heading: Stimme verifizieren
@@ -640,7 +622,6 @@ de:
             header: Stimme nicht gefunden!
             info: Diese Kennung wurde nicht in der Wahlurne %{link} gefunden. Versuchen Sie es erneut.
           form:
-            back: Zurück zu Decidim
             submit: Überprüfen
             vote_identifier: 'Kennung:'
           header:
@@ -951,7 +932,6 @@ de:
             assign_missing_officers: Es gibt noch Wahllokale ohne Präsident und/oder Wahlleiter. Bitte ordnen Sie diese im Wahllokal-Abschnitt zu
             update: Aktualisieren
           form:
-            census_contact_information_help: Diese Kontaktinformationen richten sich an einen Teilnehmer, der Probleme mit einer Erhebung melden möchte. Es kann eine E-Mail-Adresse, ein Kontaktformular auf einer anderen Seite, eine Decidim-Umfrage für Besucher, etc. sein.
             select_a_voting_type: Bitte einen Abstimmungs-Typ auswählen
             slug_help: 'URL-Slugs werden zum Generieren der URLs verwendet, die auf diese Abstimmung verweisen. Akzeptiert nur Buchstaben, Zahlen und Bindestriche und muss mit einem Buchstaben beginnen. Beispiel: %{url}'
             title: Titel
@@ -979,7 +959,6 @@ de:
           census:
             create:
               invalid: Beim Hochladen der Erhebung ist ein Problem aufgetreten, bitte versuchen Sie es später erneut.
-              invalid_csv_header: Der CSV-Header hat nicht die richtige Anzahl Felder - bitte lesen Sie die Anweisungen sorgfältig
             creating_data:
               info_message: "<strong>Bitte warten</strong>, %{processed_count} von %{raw_count} Zeilen aus der Datei %{file} wurden verarbeitet."
             delete:
@@ -1256,7 +1235,6 @@ de:
           all: Alle
           finished: Abgeschlossen
           search: Suchen
-          state: Status
           upcoming: Zukünftig
         filters_small_view:
           close_modal: Dialog schließen

@@ -174,16 +174,18 @@ module Decidim
             end
           end
 
-          context "when attachments are allowed", processing_uploads_for: Decidim::AttachmentUploader do
+          context "when attachments are allowed" do
             let(:component) { create(:proposal_component, :with_attachments_allowed) }
             let(:uploaded_files) do
               [
-                Decidim::Dev.test_file("Exampledocument.pdf", "application/pdf")
+                file: upload_test_file(Decidim::Dev.asset("Exampledocument.pdf"), content_type: "application/pdf")
               ]
             end
             let(:uploaded_photos) do
               [
-                Decidim::Dev.test_file("city.jpeg", "image/jpeg")
+                {
+                  file: upload_test_file(Decidim::Dev.asset("city.jpeg"), content_type: "image/jpeg")
+                }
               ]
             end
 
@@ -205,12 +207,12 @@ module Decidim
             end
           end
 
-          context "when attachments are allowed and file is invalid", processing_uploads_for: Decidim::AttachmentUploader do
+          context "when attachments are allowed and file is invalid" do
             let(:component) { create(:proposal_component, :with_attachments_allowed) }
             let(:uploaded_files) do
               [
-                Decidim::Dev.test_file("city.jpeg", "image/jpeg"),
-                Decidim::Dev.test_file("Exampledocument.pdf", "")
+                { file: upload_test_file(Decidim::Dev.asset("Exampledocument.pdf"), content_type: "application/pdf") },
+                { file: upload_test_file(Decidim::Dev.asset("verify_user_groups.csv"), content_type: "text/csv") }
               ]
             end
 
@@ -223,23 +225,19 @@ module Decidim
             end
           end
 
-          context "when documents and gallery are allowed", processing_uploads_for: Decidim::AttachmentUploader do
+          context "when documents and gallery are allowed" do
             let(:component) { create(:proposal_component, :with_attachments_allowed) }
-            let(:uploaded_photos) { [Decidim::Dev.test_file("city.jpeg", "image/jpeg")] }
-            let(:uploaded_files) do
-              [
-                Decidim::Dev.test_file("Exampledocument.pdf", "application/pdf")
-              ]
-            end
+            let(:uploaded_photos) { [{ file: upload_test_file(Decidim::Dev.asset("city.jpeg"), content_type: "image/jpeg") }] }
+            let(:uploaded_files) { [{ file: upload_test_file(Decidim::Dev.asset("Exampledocument.pdf"), content_type: "application/pdf") }] }
 
             it "Create gallery and documents for the proposal" do
               expect { command.call }.to change(Decidim::Attachment, :count).by(2)
             end
           end
 
-          context "when gallery are allowed", processing_uploads_for: Decidim::AttachmentUploader do
+          context "when gallery are allowed" do
             let(:component) { create(:proposal_component, :with_attachments_allowed) }
-            let(:uploaded_photos) { [Decidim::Dev.test_file("city.jpeg", "image/jpeg")] }
+            let(:uploaded_photos) { [{ file: upload_test_file(Decidim::Dev.asset("city.jpeg"), content_type: "image/jpeg") }] }
 
             it "creates an image attachment for the proposal" do
               expect { command.call }.to change(Decidim::Attachment, :count).by(1)

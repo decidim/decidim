@@ -11,7 +11,7 @@ module Decidim
         validates :code, presence: true
 
         def code
-          @code&.upcase
+          super&.upcase
         end
       end
     end

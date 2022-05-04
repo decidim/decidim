@@ -132,10 +132,6 @@ zh-CN:
           update:
             invalid: 更新此问题时出错
             success: 问题已成功更新
-      admin_log:
-        election:
-          publish: "%{user_name} 发布了 %{resource_name} 次选择"
-          unpublish: "%{user_name} 未发布的 %{resource_name} 选"
       election_m:
         badge_name:
           finished: 已完成
@@ -159,7 +155,6 @@ zh-CN:
           all: 所有的
           finished: 已完成
           search: 搜索
-          state: 状态
           upcoming: 即将到来的
         filters_small_view:
           close_modal: 关闭模式

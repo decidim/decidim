@@ -25,7 +25,7 @@ module Decidim
         # This calculation is a bit complex because of multiple option answers
         question_answers_choices = Decidim::Meetings::AnswerOption.where(decidim_question_id: model.id)
                                                                   .joins([choices: :answer])
-                                                                  .group("#{answers_table_name}.id, #{answer_options_table_name}.id")
+                                                                  .group(Arel.sql("#{answers_table_name}.id, #{answer_options_table_name}.id"))
                                                                   .select(<<~SELECT
                                                                     #{answer_options_table_name}.id AS id,
                                                                     #{answer_options_table_name}.body,

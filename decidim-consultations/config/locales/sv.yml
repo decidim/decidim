@@ -251,9 +251,9 @@ sv:
       filters:
         active: Aktiv
         all: Alla
+        date: Datum
         finished: Avslutade
         search: Sök
-        state: Status
         upcoming: Kommande
       filters_small_view:
         close_modal: Stäng fönstret
@@ -359,6 +359,7 @@ sv:
     resources:
       consultations:
         actions:
+          comment: Kommentera
           vote: Rösta
     statistics:
       consultations_count: Samråd

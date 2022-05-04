@@ -50,9 +50,10 @@ module Decidim
 
       def filtered_proposals
         @filtered_proposals ||= if filtered?
-                                  proposals.where("title::text ILIKE ?", "%#{search_text}%")
-                                           .or(proposals.where("reference ILIKE ?", "%#{search_text}%"))
-                                           .or(proposals.where("id::text ILIKE ?", "%#{search_text}%"))
+                                  table_name = Decidim::Proposals::Proposal.table_name
+                                  proposals.where(%("#{table_name}"."title"::text ILIKE ?), "%#{search_text}%")
+                                           .or(proposals.where(%("#{table_name}"."reference" ILIKE ?), "%#{search_text}%"))
+                                           .or(proposals.where(%("#{table_name}"."id"::text ILIKE ?), "%#{search_text}%"))
                                 else
                                   proposals
                                 end
@@ -60,8 +61,10 @@ module Decidim
 
       def proposals
         @proposals ||= Decidim.find_resource_manifest(:proposals).try(:resource_scope, component)
-                       &.published
-                       &.order(id: :asc)
+                         &.includes(:component)
+                         &.published
+                         &.not_hidden
+                         &.order(id: :asc)
       end
 
       def proposals_collection_name

@@ -19,6 +19,7 @@ module Decidim
     include SafeRedirect
     include NeedsSnippets
     include UserBlockedChecker
+    include DisableRedirectionToExternalHost
 
     helper Decidim::MetaTagsHelper
     helper Decidim::DecidimFormHelper
@@ -32,6 +33,7 @@ module Decidim
     helper Decidim::ViewHooksHelper
     helper Decidim::CardHelper
     helper Decidim::SanitizeHelper
+    helper Decidim::TwitterSearchHelper
 
     register_permissions(::Decidim::ApplicationController,
                          ::Decidim::Admin::Permissions,

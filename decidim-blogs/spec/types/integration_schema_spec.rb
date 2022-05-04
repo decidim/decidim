@@ -23,7 +23,7 @@ describe "Decidim::Api::QueryType" do
       "endorsements" => post.endorsements.map do |endo|
         {
           "__typename" => "User",
-          "avatarUrl" => "/uploads/decidim/user/avatar/#{endo.author.id}/thumb_avatar.jpg",
+          "avatarUrl" => endo.author.attached_uploader(:avatar).path(variant: :thumb),
           "badge" => "",
           "deleted" => false,
           "id" => endo.author.id.to_s,
@@ -212,12 +212,6 @@ describe "Decidim::Api::QueryType" do
           let(:criteria) { "filter: { createdSince: \"#{1.week.ago.to_date}\" } " }
 
           it { expect(edges).to eq([{ "node" => { "id" => post.id.to_s } }]) }
-        end
-
-        context "with updatedBefore" do
-          let(:criteria) { "filter: { updatedBefore: \"#{post.created_at.to_date}\" } " }
-
-          it { expect(edges).to eq([{ "node" => { "id" => other_post.id.to_s } }]) }
         end
 
         context "with updatedBefore" do

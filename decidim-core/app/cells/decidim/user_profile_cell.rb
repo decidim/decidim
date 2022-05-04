@@ -23,6 +23,7 @@ module Decidim
 
     delegate :nickname, to: :presented_resource
     delegate :name, to: :presented_resource
+    delegate :organization, to: :presented_resource
     delegate :officialized?, to: :presented_resource
 
     delegate :badge, to: :presented_resource
@@ -32,7 +33,7 @@ module Decidim
     end
 
     def avatar
-      user.avatar_url(:big)
+      present(user).avatar_url(variant: :big, host: organization.host)
     end
 
     def presented_resource

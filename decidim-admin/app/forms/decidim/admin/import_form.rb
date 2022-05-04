@@ -4,37 +4,25 @@ module Decidim
   module Admin
     class ImportForm < Form
       ACCEPTED_MIME_TYPES = Decidim::Admin::Import::Readers::ACCEPTED_MIME_TYPES
+      include Decidim::HasUploadValidations
 
-      attribute :creator, String, default: ->(form, _attribute) { form.creators.first[:creator].to_s }
+      attribute :name, String
       attribute :file
-      attribute :user_group_id, Integer
 
       validates :file, presence: true
-      validates :creator, presence: true
-      validate :accepted_mime_type
-      validate :check_invalid_lines
+      validates :name, presence: true
+      validate :check_accepted_mime_type
+      validate :check_invalid_file, if: -> { file.present? && accepted_mime_type? }
+      validate :verify_import, if: -> { file.present? && accepted_mime_type? && !importer.invalid_file? }
 
-      def check_invalid_lines
-        return if file.blank? || !accepted_mime_type
-
-        importer.prepare
-        invalid_lines = importer.invalid_lines
-        errors.add(:file, I18n.t("decidim.admin.imports.invalid_lines", invalid_lines: invalid_lines.join(","))) unless invalid_lines.empty?
+      def importer
+        @importer ||= importer_for(file_path, mime_type)
       end
 
-      def file_path
-        file&.path
-      end
+      private
 
-      def mime_type
-        file&.content_type
-      end
-
-      def accepted_mime_type
-        accepted_mime_types = ACCEPTED_MIME_TYPES.values
-        return true if accepted_mime_types.include?(mime_type)
-        # Avoid duplicating error messages
-        return false if errors[:file].present?
+      def check_accepted_mime_type
+        return if accepted_mime_type?
 
         errors.add(
           :file,
@@ -45,40 +33,63 @@ module Decidim
             end.join(", ")
           )
         )
-        false
       end
 
-      def creators
-        @creators ||= current_component.manifest.import_manifests.map do |manifest|
-          { creator: manifest.creator, name: manifest.creator.to_s.split("::").last.downcase }
+      def check_invalid_file
+        return unless importer.invalid_file?
+
+        errors.add(:file, I18n.t("activemodel.errors.new_import.attributes.file.invalid_file"))
+      end
+
+      def verify_import
+        return if importer.verify
+
+        importer.errors.each do |error|
+          errors.add(:file, error.message)
         end
       end
 
+      def file_path
+        ActiveStorage::Blob.service.path_for(blob.key) if blob.respond_to? :key
+      end
+
+      def mime_type
+        blob&.content_type
+      end
+
       def creator_class
-        return creator.constantize if creator.is_a?(String)
-
-        creator
+        manifest.creator
       end
 
-      def user_group
-        @user_group ||= Decidim::UserGroup.find_by(
-          organization: current_organization,
-          id: user_group_id.to_i
-        )
-      end
-
-      def importer
-        @importer ||= importer_for(file_path, mime_type)
-      end
-
-      def importer_for(filepath, mime_type)
-        context[:user_group] = user_group
+      def importer_for(path, mime_type)
         Import::ImporterFactory.build(
-          filepath,
+          path,
           mime_type,
-          context: context,
+          context: importer_context,
           creator: creator_class
         )
+      end
+
+      def blob
+        @blob ||= ActiveStorage::Blob.find_signed(file) if file.presence.is_a?(String)
+      end
+
+      protected
+
+      def accepted_mime_type?
+        return true if ACCEPTED_MIME_TYPES.values.include?(mime_type)
+
+        false
+      end
+
+      def importer_context
+        context
+      end
+
+      def manifest
+        @manifest ||= current_component.manifest.import_manifests.find do |import_manifest|
+          import_manifest.name.to_s == name
+        end
       end
     end
   end

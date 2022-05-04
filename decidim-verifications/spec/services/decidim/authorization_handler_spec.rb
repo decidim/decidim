@@ -10,7 +10,7 @@ module Decidim
     describe "form_attributes" do
       subject { handler.form_attributes }
 
-      it { is_expected.to match_array([:handler_name]) }
+      it { is_expected.to match_array(["handler_name"]) }
       it { is_expected.not_to match_array([:id, :user]) }
     end
 

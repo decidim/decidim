@@ -1,13 +1,13 @@
 <div class="filters-controls hide-for-mediumlarge">
-  <button data-open="filter-box" class="filters-controls__trigger">
+  <button data-open="filter-box" class="filters-controls__trigger" aria-controls="filter-box" aria-haspopup="dialog">
     <%= t("filter", scope: "decidim.searches.filters_small_view") %>
     <%= icon "caret-bottom", class: "icon--small float-right", aria_label: t("unfold", scope: "decidim.searches.filters_small_view"), role: "img" %>
   </button>
 </div>
 
-<div class="reveal" id="filter-box" data-reveal>
+<div class="reveal" id="filter-box" data-reveal role="dialog" aria-modal="true" aria-labelledby="filter-box-label">
   <div class="reveal__header">
-    <h3 class="reveal__title"><%= t("filter_by", scope: "decidim.searches.filters_small_view") %>:</h3>
+    <h3 id="filter-box-label" class="reveal__title"><%= t("filter_by", scope: "decidim.searches.filters_small_view") %>:</h3>
     <button class="close-button" data-close aria-label="<%= 't("close_modal", scope: "decidim.searches.filters_small_view")' %>" type="button">
       <span aria-hidden="true">&times;</span>
     </button>

@@ -27,7 +27,7 @@ module Decidim
         subject { presenter.public_key_thumbprint }
 
         it "returns the thumbprint for the JWK public key according the RFC 7638 specification" do
-          expect(subject).to eq "NzbLsXh8uDCcd-6MNwXF4W_7noWXFZAfHkxZsRGC9Xs"
+          expect(subject).to eq "<pre class='text-small text-muted'>NzbLsXh8uDCcd-6\nMNwXF4W_7noWX\nFZAfHkxZsRGC9Xs</pre>"
         end
 
         context "when the public key is not present" do

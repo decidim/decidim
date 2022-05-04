@@ -164,7 +164,7 @@ ja:
           icon_path: アイコンのパス
           twitter:
             api_key: API キー
-            api_secret: API secret
+            api_secret: APIシークレット
         smtp_settings:
           fieldsets:
             sender: 送信者

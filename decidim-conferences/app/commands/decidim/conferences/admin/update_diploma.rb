@@ -4,7 +4,7 @@ module Decidim
   module Conferences
     module Admin
       # This command is executed when the user updates the conference diploma configuration.
-      class UpdateDiploma < Rectify::Command
+      class UpdateDiploma < Decidim::Command
         # Initializes a UpdateDiploma Command.
         #
         # form - The form from which to get the data.
@@ -35,8 +35,8 @@ module Decidim
         attr_reader :form, :conference
 
         def update_conference_diploma
-          @conference.main_logo = @form.main_logo
-          @conference.signature = @form.signature
+          @conference.main_logo = @form.main_logo if @form.main_logo.present?
+          @conference.signature = @form.signature if @form.signature.present?
           @conference.signature_name = @form.signature_name
           @conference.sign_date = @form.sign_date
 

@@ -302,20 +302,13 @@ sk:
         export_calendar: Exportovať kalendár
       conference_venues: Konferenčné priestory
       content_blocks:
-        upcoming_events:
-          name: Pripravované akcie
-          upcoming_events: Nadchádzajúce schôdzky
-          view_all_events: Zobraziť všetko
+        upcoming_meetings:
+          view_all_meetings: Zobraziť všetko
       directory:
         meetings:
           index:
-            all: Všetko
-            date: dátum
             meetings: Stretnutie
-            past: Uplynulé
-            search: Vyhľadávanie
             space_type: Zúčastňujú priestor
-            upcoming: Nadchádzajúce
       last_activity:
         new_meeting_at_html: "<span> Nové stretnutie v %{link} </ span>"
       mailer:

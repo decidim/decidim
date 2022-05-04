@@ -1,9 +1,41 @@
 eu:
+  activemodel:
+    attributes:
+      oauth_application:
+        name: OAuth Aplikazioaren izena
+        organization_logo: Antolatzailearen logoa (karratua)
+        organization_name: Antolatzailea
+        organization_url: Antolatzailearen URLa
+        redirect_uri: Berbideratu URI
+      organization:
+        address: SMTP host-aren izena
+        from_email: Korreo elektronikoaren helbidea
+        from_label: Etiketa
+        password: Pasahitza
+        port: Ataka
+        user_name: Erabiltzaile-izena
+      organization_file_uploads:
+        allowed_content_types:
+          admin: Administrazio-panelaren MIME motak
+          default: MIME motak, lehenetsita
+        allowed_file_extensions:
+          admin: "\nAdministrazio-panelaren artxibo-luzapenak"
+          default: Artxibo-luzapenak, erantsita
+          image: Irudien artxibo-luzapenak
+        maximum_file_size:
+          avatar: Avatar-artxiboaren tamaina
+          default: Artxibo-tamaina, lehenetsita
+    errors:
+      models:
+        oauth_application:
+          attributes:
+            redirect_uri:
+              must_be_ssl: Berbideratzeko URIa URI SSL izan behar da
   decidim:
     system:
       actions:
         confirm_destroy: '‘Ziur zaude ezabatu nahi duzula?’'
-        destroy: ezabatu
+        destroy: Ezabatu
         edit: Editatu
         new: Berria
         save: Gorde
@@ -25,6 +57,9 @@ eu:
         update:
           error: Errorea gertatu da administratzaile hau eguneratzean.
           success: Administratzailea zuzen eguneratu da
+      dashboard:
+        show:
+          current_organizations: Uneko antolatzaileak
       default_pages:
         placeholders:
           content: Gehitu eduki adierazgarria %{page} (a)ren orri estatikoaren administrazio-panelean.
@@ -32,6 +67,7 @@ eu:
       menu:
         admins: Administratzaileak
         dashboard: Kontrol-panela
+        oauth_applications: OAuth Aplikazioak
         organizations: Erakundeak
       models:
         admin:
@@ -41,25 +77,103 @@ eu:
           name: Administratzailea
           validations:
             email_uniqueness: beste administratzaile bat dago, helbide elektroniko hauxe bera duena
+        oauth_application:
+          fields:
+            created_at: Sortze-data
+            name: OAuth Aplikazioaren izena
+            organization_name: Antolatzailea
+          name: OAuth Aplikazioa
         organization:
           actions:
             save_and_invite: Sortu erakundea eta gonbit egin administratzaileari
           fields:
             created_at: Tan sortua
+            file_upload_settings: Fitxategiak igotzearen doikuntzak
             name: Izena
+            omniauth_settings: Omniauth doikuntzak
+            smtp_settings: SMTP konfigurazioa
           name: Erakundea
-      organizations:
+      oauth_applications:
         create:
-          error: Errorea gertatu da erakunde berri bat sortzean.
-          success: Erakundea zuzen sortu da.
+          error: Errore bat gertatu da aplikazio hau sortzean.
+          success: Aplikazioa ondo sortu da.
+        destroy:
+          error: Errorea izan da aukera hau ezabatzean.
+          success: Aplikazioa ondo ezabatu da.
+        edit:
+          save: Gorde
+          title: Aplikazioa editatu
+        form:
+          select_organization: Aukeratu antolatzaile bat
+        index:
+          confirm_delete: Ziur zaude aplikazio hau ezabatu nahi duzula?
+          title: OAuth Aplikazioak
+        new:
+          save: Gorde
+          title: Aplikazio berria
+        update:
+          error: Errorea izan da aplikazio hau eguneratzean.
+          success: Aplikazioa ondo eguneratu da.
+      organizations:
+        advanced_settings:
+          hide: Ezkutatu ezarpen aurreratua
+          show: Erakutsi aukera aurreratua
+        create:
+          error: Errorea izan da antolatzaile berri bat sortzean.
+          success: Antolatzailea zuzen sortu da.
         edit:
           secondary_hosts_hint: Sartu haietako bakoitza lerro batean
+        file_upload_settings:
+          content_types:
+            admin_hint: MIME mota horiek baimenduta daude administrazio-paneletik igotzeko. Administratzaileek dokumentuen formatu batzuk igotzean dauden arriskuez jabetu behar dute, eta, beraz, artxiboen igoeretan zuhurragoak izatea espero daiteke.
+            default_hint: MIME mota hauek, lehenetsiz, baimenduta daude erabiltzaile guztientzat.
+            intro_html: 'Gehitu izartxoa duten komodinak MIME motetarako, adibidez: <code>image/*</code>.'
+            title: Baimendutako MIME motak
+          file_extensions:
+            admin_hint: Artxibo-luzapen hauek baimenduta daude administrazio-paneletik igotzeko. Administratzaileek dokumentuen formatu batzuk igotzean dauden arriskuez jabetu behar dute, eta, beraz, artxiboen igoeretan zuhurragoak izatea espero daiteke.
+            default_hint: Artxibo-luzapen hauek, lehenetsiz, baimenduta daude erabiltzaile guztientzat.
+            image_hint: Artxibo-luzapen hauek baimenduta daude edozein motatako irudi-igoeratarako.
+            title: Baimendutako fitxategi-luzapenak
+          file_sizes:
+            avatar_hint: Megabytes (MB). Fitxategiaren tamainaren muga hori erabiltzen da avatar-irudiak igotzeko.
+            default_hint: Megabytes (MB). Fitxategiaren tamainaren muga hori fitxategien igoera guztietarako erabiltzen den lehenetsia da, kontrakoa zehaztu ezean.
+            title: Gehieneko fitxategi tamaina
+          intro: |
+            Mesedez, kontuz ibili doikuntza horiek aldatzean.
+            Zenbat eta aukera gutxiago, hobe.
+            Fitxategi espezifikoen luzapenak edo MIME motakoak baimentzeak segurtasun-arriskuen eraginpean jar ditzake sistemaren erabiltzaileak, eta webgunearen irisgarritasunari ere eragin diezaioke.
         index:
           title: Erakundeak
         new:
           reference_prefix_hint: Erreferentzia-aurrizkia erabiltzen da erakunde guztien baliabideak modu bakarrean identifikatzeko
           secondary_hosts_hint: Sartu haietako bakoitza lerro batean
           title: Erakunde berria
+        omniauth_settings:
+          decidim:
+            client_id: Bezeroaren IDa
+            client_secret: Bezeroaren sekretua
+            site_url: Guneko URLa
+          enabled: Gaituta
+          enabled_by_default: Hornitzaile hau lehenetsiz gaituta dago. Editatu ahal da, baina ezin da desaktibatu.
+          facebook:
+            app_id: Apparen IDa
+            app_secret: Aplikazio-sekretua
+          google_oauth2:
+            client_id: Bezeroaren IDa
+            client_secret: Bezeroaren sekretua
+          icon: Ikonoa
+          icon_path: Ikonoaren bidea
+          twitter:
+            api_key: API giltza
+            api_secret: API sekretua
+        smtp_settings:
+          fieldsets:
+            sender: Bidaltzailea
+          instructions:
+            from_label: 'Posta elektronikoaren bidaltzailea honako hau izango da: "Erakundearen izena < your-organization@example.org>". Utzi hutsik ''Helbide elektronikoa'' eremua etiketa gisa erabiltzeko'
+          placeholder:
+            from_email: zure-erakundea@example.org
+            from_label: erakundearen izena
         update:
           error: Errorea gertatu da erakunde hau eguneratzean.
           success: Erakundea zuzen eguneratu da.

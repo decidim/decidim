@@ -6,7 +6,7 @@ ja:
       assembly:
         area_id: エリア
         assembly_type: 参加スペース種別
-        assembly_type_other: Assembly type other
+        assembly_type_other: その他（参加スペース）
         banner_image: バナー画像
         closing_date: 終了日
         closing_date_reason: 終了日時の理由
@@ -31,7 +31,7 @@ ja:
         included_at: 含まれた日
         instagram: Instagram
         internal_organisation: 内部組織
-        is_transparent: 透明な
+        is_transparent: 透明性
         local_area: 組織エリア
         meta_scope: スコープメタデータ
         parent_id: 親の参加スペース
@@ -59,9 +59,9 @@ ja:
         birthplace: 出生地
         ceased_date: 終了日
         designation_date: 指定日
-        designation_mode: 指定方法
         full_name: フルネーム
         gender: 性別
+        non_user_avatar: アバター
         position: ポジション
         user_id: ユーザー
       assembly_user_role:
@@ -96,7 +96,7 @@ ja:
           update: 更新
         index:
           not_published: 未公開
-          private: 非公開
+          private: プライベート
           public: 公開
           published: 公開済み
         new:
@@ -133,7 +133,7 @@ ja:
       assembly_imports:
         create:
           error: この参加スペースのインポート中に問題が発生しました。
-          success: アセンブリは正常にインポートされました。
+          success: 参加スペースは正常にインポートされました。
         new:
           import: インポート
           select: インポートしたいデータを選択
@@ -172,13 +172,16 @@ ja:
           title: 参加スペース管理者を更新する
           update: 更新
         index:
-          assembly_admins_title: 組立管理者
+          assembly_admins_title: 参加スペース管理者
         new:
           create: 作成
           title: 新しい参加スペース管理者です。
         update:
           error: この参加スペースの管理者を更新中に問題が発生しました。
           success: 管理者はこの参加スペースの更新に成功しました。
+      filters:
+        decidim_assemblies_type_id_eq:
+          label: 参加スペース種別
       menu:
         assemblies: 参加スペース
         assemblies_settings: 設定
@@ -192,7 +195,7 @@ ja:
           components: コンポーネント
           info: 情報
           moderations: モデレーション
-          private_users: 非公開ユーザー
+          private_users: プライベートユーザー
         assemblies_types: 参加スペース種別
       models:
         assemblies_types:
@@ -202,11 +205,11 @@ ja:
         assembly:
           fields:
             created_at: 作成日時
-            private: 非公開
+            private: プライベート
             promoted: 強調表示
             published: 公開済み
             title: タイトル
-          name: Assembly
+          name: 参加スペース
         assembly_member:
           fields:
             ceased_date: 終了日
@@ -227,9 +230,9 @@ ja:
           name: 参加スペース管理者
           roles:
             admin: 管理者
-            collaborator: 共同編集者
+            collaborator: コラボレーター
             moderator: モデレーター
-            valuator: Valuator
+            valuator: 評価者
       titles:
         assemblies: 参加スペース
         assemblies_types: 参加スペース種別
@@ -264,7 +267,7 @@ ja:
             duration_help: この参加スペースの持続時間が限られている場合は、終了日を選択します。それ以外の場合は、不定義として表示されます。
             filters: フィルタ
             images: 画像
-            included_at_help: この参加スペースがDecidimに追加された日付を選択します。必ずしも作成日と同じである必要はありません。
+            included_at_help: この参加スペースがプラットフォームに追加された日付を選択します。必ずしも作成日と同じである必要はありません。
             metadata: メタデータ
             other: その他
             select_a_created_by: 作成者を選択してください
@@ -293,7 +296,10 @@ ja:
         assembly_members:
           form:
             existing_user: 既存の参加者
+            explanation: '画像のガイダンス:'
+            image_guide: テキストを持たない人物の画像を使用する必要があります。
             non_user: 参加者がいません
+            non_user_avatar_help: メンバーとして公開する前に同意を得る必要があります。
             select_a_position: ポジションを選択
             select_user: 参加者を選択
             user_type: 参加者の種類
@@ -310,6 +316,9 @@ ja:
         new_import:
           accepted_types:
             json: JSON
+      assemblies:
+        show:
+          title: この参加スペースについて
       assembly_members:
         index:
           members: メンバー
@@ -330,9 +339,9 @@ ja:
         public: 一般
       filter:
         all: すべてのタイプ
-        commission: Commission
+        commission: コミッション
         consultative_advisory: 協議/アドバイザリ
-        executive: Executive
+        executive: 役員会
         government: 政府
         help: '表示:'
         others: その他
@@ -362,11 +371,11 @@ ja:
         developer_group: プロモーターグループ
         duration: 持続期間
         included_at: 含まれた日
-        indefinite_duration: 不定義
+        indefinite_duration: 無期限
         internal_organisation: 内部組織
         is_transparent:
           'false': 不透明な
-          'true': transparent
+          'true': 透明性
         local_area: 組織エリア
         participatory_scope: 決定されるもの
         participatory_structure: どのように決められますか？
@@ -400,8 +409,8 @@ ja:
     help:
       participatory_spaces:
         assemblies:
-          contextual: "<p> <strong>参加スペース</strong>とは、組織の特定の領域や範囲について決定を下すために定期的に会合を開く組織のメンバーのグループです。</p> <p>会議体は非公開のものもあれば、公開されているものもあります。公開されている場合は、その集会に参加することができます (例えば、定員に余裕があれば出席したり、議題にポイントを追加したり、この組織の提案や決定に対してコメントしたりすることができます)。</p> <p>例：総会（年に一度開催され、組織の主要な活動方針と執行機関を投票で決定する）、平等諮問評議会（組織内の男女比率等を改善する方法についての提案を行うために2ヶ月ごとに開催される）、評価委員会（プロセスを監視するために毎月開催される）、保証機関（意思決定手続きを改善するために事件や虐待、提案を収集する）などは、すべて会議体の例です。</p>\n"
-          page: "<p> <strong>参加スペース</strong>とは、組織の特定の領域や範囲について決定を下すために定期的に会合を開く組織のメンバーのグループです。</p> <p>会議体は非公開のものもあれば、公開されているものもあります。公開されている場合は、その集会に参加することができます (例えば、定員に余裕があれば出席したり、議題にポイントを追加したり、この組織の提案や決定に対してコメントしたりすることができます)。</p> <p>例：総会（年に一度開催され、組織の主要な活動方針と執行機関を投票で決定する）、平等諮問評議会（組織内の男女比率等を改善する方法についての提案を行うために2ヶ月ごとに開催される）、評価委員会（プロセスを監視するために毎月開催される）、保証機関（意思決定手続きを改善するために事件や虐待、提案を収集する）などは、すべて会議体の例です。</p>\n"
+          contextual: "<p> <strong>参加スペース</strong>とは、組織の特定の領域や範囲について決定を下すために定期的に会合を開く組織のメンバーのグループです。</p> <p>会議体はプライベートのものもあれば、公開されているものもあります。公開されている場合は、その集会に参加することができます (例えば、定員に余裕があれば出席したり、議題にポイントを追加したり、この組織の提案や決定に対してコメントしたりすることができます)。</p> <p>例：総会（年に一度開催され、組織の主要な活動方針と執行機関を投票で決定する）、平等諮問評議会（組織内の男女比率等を改善する方法についての提案を行うために2ヶ月ごとに開催される）、評価委員会（プロセスを監視するために毎月開催される）、保証機関（意思決定手続きを改善するために事件や虐待、提案を収集する）などは、すべて会議体の例です。</p>\n"
+          page: "<p> <strong>参加型スペース</strong>とは、組織の特定の領域や範囲について決定を下すために定期的に会合を開く組織のメンバーのグループです。</p> <p>会議体はプライベートのものもあれば、公開されているものもあります。公開されている場合は、その集会に参加することができます (例えば、定員に余裕があれば出席したり、議題にポイントを追加したり、この組織の提案や決定に対してコメントしたりすることができます)。</p> <p>例：総会（年に一度開催され、組織の主要な活動方針と執行機関を投票で決定する）、平等諮問評議会（組織内の男女比率等を改善する方法についての提案を行うために2ヶ月ごとに開催される）、評価委員会（プロセスを監視するために毎月開催される）、保証機関（意思決定手続きを改善するために事件や虐待、提案を収集する）などは、すべて会議体の例です。</p>\n"
           title: 参加スペースとは？
     log:
       value_types:
@@ -414,13 +423,13 @@ ja:
     metrics:
       assemblies:
         description: 作成された参加スペース数
-        object: assemblies
+        object: 参加スペース
         title: 参加スペース
     participatory_processes:
       show:
         related_assemblies: 関連する参加スペース
     statistics:
-      assemblies_count: アセンブリ
+      assemblies_count: 参加スペース
   errors:
     messages:
       cannot_be_blank: 空白にできません
@@ -434,7 +443,7 @@ ja:
           children: '参加スペース: '
           organizational_chart: 組織図
           promoted_assemblies: ハイライトされた参加スペース
-          reset_chart: Reset
+          reset_chart: リセット
         order_by_assemblies:
           assemblies:
             other: "%{count} 個の参加スペース"

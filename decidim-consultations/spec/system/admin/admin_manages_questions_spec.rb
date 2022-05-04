@@ -44,10 +44,14 @@ describe "Admin manages questions", type: :system do
           en: "What is decided"
         )
         fill_in :question_slug, with: "slug"
-        attach_file :question_hero_image, image2_path
-        attach_file :question_banner_image, image1_path
-        scope_pick select_data_picker(:question_decidim_scope_id), organization.scopes.first
 
+        scope_pick select_data_picker(:question_decidim_scope_id), organization.scopes.first
+      end
+
+      dynamically_attach_file(:question_hero_image, image2_path)
+      dynamically_attach_file(:question_banner_image, image1_path)
+
+      within ".new_question" do
         find("*[type=submit]").click
       end
 
@@ -94,10 +98,13 @@ describe "Admin manages questions", type: :system do
           "#question-what_is_decided-tabs",
           en: "What is decided"
         )
-        attach_file :question_banner_image, image1_path
-        attach_file :question_hero_image, image2_path
         scope_pick select_data_picker(:question_decidim_scope_id), organization.scopes.first
+      end
 
+      dynamically_attach_file(:question_banner_image, image1_path)
+      dynamically_attach_file(:question_hero_image, image2_path)
+
+      within ".new_question" do
         find("*[type=submit]").click
       end
 
@@ -117,7 +124,7 @@ describe "Admin manages questions", type: :system do
         "#question-title-tabs",
         en: "My new title"
       )
-      attach_file :question_banner_image, image3_path
+      dynamically_attach_file(:question_banner_image, image3_path, remove_before: true)
 
       within ".edit_question" do
         find("*[type=submit]").click
@@ -168,8 +175,8 @@ describe "Admin manages questions", type: :system do
       end
 
       expect(page).to have_admin_callout("successfully")
-      expect(page).to have_css("img[src*='#{question.banner_image.url}']")
-      expect(page).to have_css("img[src*='#{question.hero_image.url}']")
+      expect(page).to have_css("img[src*='#{question.attached_uploader(:banner_image).path}']")
+      expect(page).to have_css("img[src*='#{question.attached_uploader(:hero_image).path}']")
     end
   end
 

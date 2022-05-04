@@ -2,87 +2,171 @@
 
 ## [Unreleased](https://github.com/decidim/decidim/tree/HEAD)
 
-#### Webpacker migration
-As per [#7464](https://github.com/decidim/decidim/pull/7464), [#7733](https://github.com/decidim/decidim/pull/7733) Decidim has been upgraded to use Webpacker to manage its assets. It's a huge change that requires some updates in your applications. Please refer to the guide [Migrate to Webpacker an instance app](https://github.com/decidim/decidim/blob/develop/docs/modules/develop/pages/guide_migrate_webpacker_app.adoc) and follow the steps described.
-
-#### Improved menu api
-As per [\#7368](https://github.com/decidim/decidim/pull/7368), [\#7382](https://github.com/decidim/decidim/pull/7382) the entire admin structure has been migrated from menus being rendered in partials, to the existing menu structure. Before, this change adding a new menu item to an admin submenu required partial override.
-
-As per [\#7545](https://github.com/decidim/decidim/pull/7545) the menu api has been enhanced to support removal of elements and reordering. All the menu items have an identifier that allow any developer to interact without overriding the entire menu structure. As a result of this change, the old ```menu.item``` function has been deprecated in favour of a more verbose version ```menu.add_item ```, of which first argument is the menu identifier.
-
-Example on adding new elements to a menu:
-```ruby
-Decidim.menu :menu do |menu|
-  menu.add_item :root,
-                I18n.t("menu.home", scope: "decidim"),
-                decidim.root_path,
-                position: 1,
-                active: :exclusive
-
-  menu.add_item :pages,
-                I18n.t("menu.help", scope: "decidim"),
-                decidim.pages_path,
-                position: 7,
-                active: :inclusive
-end
-```
-
-Example Customizing the elements of a menu:
+DEPRECATION NOTE: The `description` field in the categories admin forms has been removed (this applies to any participatory space using categories). For now it's still available in the database, so you can extract it with the following command in the Rails console:
 
 ```ruby
-Decidim.menu :menu do |menu|
-  # Completely remove a menu item
-  menu.remove_item :my_item
-
-  # Change the items order
-  menu.move :root, after: :pages
-  # alternative
-  menu.move :pages, before: :root
-end
+Decidim::Category.pluck(:id, :name, :description)
 ```
 
-#### Meetings merge minutes and close actions
-
-With changes introduced in [\#7968](https://github.com/decidim/decidim/pull/7968) the `Decidim::Meetings::Minutes` model and related table are removed and the attributes of the previously existing minutes are migrated to `Decidim::Meetings::Meeting` model in the `closing_report`, `video_url`, `audio_url` and `closing_visible` columns. These are the different results of the merge according to the initial data:
-
-* It there was no minutes data and the meeting was not closed nothing changes
-* If there was no minutes data and the meeting was closed, the meeting remains closed with the `closing_visible` attribute to true. In this way the closing data will remain visible.
-* If there was minutes data and the meeting was not closed, the meeting is closed and the minutes `description` value is copied to the meeting `closing_report`, the `video_url` and `audio_url` minutes attributes values are copied to the respective meeting attributes and the minutes `visible` attribute value is copied to the meeting `closing_visible` attribute.
-* If there was minutes data and the meeting was closed, the meeting remains closed and the meeting `closing_report` value remains if present. Elsewere the minutes `description` value is copied to the meeting `closing_report`. the `video_url` and `audio_url` minutes attributes values are copied to the respective meeting attributes and the minutes `visible` attribute value is copied to the meeting `closing_visible` attribute. In this case the visibility of closing report may change to false if there was a minutes with `visible` set to false.
-
-Please, note that if there was previously `minutes_description` and `closing_report` data for a meeting, after applying the changes of this release, the `minutes_description` data will be lost.
-
-If there is previous activity of creation or edition of minutes, `Decidim::ActionLog` instances and an associated `PaperTrail::Version` instance for each one will have been created pointing to these elements in their polymorphic associations. To avoid errors, the migration includes changing those associations to point to the meeting and changing the action to `close` in the action log items. This change is not reversible
-
-#### New Job queues
-
-PR [\#7986](https://github.com/decidim/decidim/pull/7986) splits some jobs from the `:default` queue to two new queues:
-
-- `:exports`
-- `:translations`
-
-If your application uses Sidekiq and you set a manual configuration file, you'll need to update it to add these two new queues. Otherwise these queues [will never run](https://github.com/mperham/sidekiq/issues/4897).
-
-#### User groups in global search
-
-PR [\#8061](https://github.com/decidim/decidim/pull/8061) adds user groups to the global search and previously existing groups need to be indexed, otherwise it won't be available as search results. Run in a rails console or create a migration with:
-
-```ruby
-  Decidim::UserGroup.find_each(&:try_update_index_for_search_resource)
-```
-
-Please be aware that it could take a while if your database has a lot of groups.
+In the next version (v0.28.0) it will be fully removed from the database.
 
 ### Added
 
+#### Rails Upgrade to 6.1
+PR [\#8411] https://github.com/decidim/decidim/pull/8411 changes the following:
+
+- ActionMailer - Change default queue name of the deliver (:mailers) job to be the job adapter's default (:default)
+- ActiveSupport - Remove deprecated fallback to I18n.default_locale when config.i18n.fallbacks is empty.
+  - This change should be transparent for all the Decidim users that have configured the `Decidim.default_locale`
+
+If you are using Spring, it is highly suggested to add the following line at the top of your application's `config/spring.rb` (especially if you are seeing the following messages in the console `ERROR: directory is already being watched!`):
+
+```ruby
+require "decidim/spring"
+```
+
+#### Dynamic attachment uploads
+PR [\#8681] https://github.com/decidim/decidim/pull/8681 Changes the way file uploads work in Decidim. Files are now dynamically uploaded inside the modal so we can give the user immediate feedback on validation. There are now two different types of file fields: titled and untitled. Titled file fields related to ```Decidim::Attachment``` internally.
+
+**To update your module** you probably have to update forms and commands related to upload field (also views should be updated in case of titled attachments). After successful a upload and submitting a form, request params should contain signed_id of [ActiveStorage::Blob](https://api.rubyonrails.org/classes/ActiveStorage/Blob.html) which you need to find the blob at the backend.
+
+To update view with titled file field see example: [edit_form_fields.html.erb](https://github.com/decidim/decidim/pull/8681/files#diff-17a22480fdfa3d439edcb26eb0a1a52bed5521d61ba36e0cc6ca83e838f03e9b)
+
+To update untitled form example: [import_form.rb](https://github.com/decidim/decidim/pull/8681/files#diff-5ce71b5873906c6f8919f4bc1f8c330bd97e8757760705a66c789f375eb743c1)
+
+To update untitled command example: [update_account.rb](https://github.com/decidim/decidim/pull/8681/files#diff-ed1274f76cd0ac1d5b223648dcdae670c2127c7dffa0d38540c1536a86f36abb)
+
+[Learn more about direct uploads](https://edgeguides.rubyonrails.org/active_storage_overview.html#direct-uploads)
+
+#### Moderated content can now be removed from search index
+PR [\#8811](https://github.com/decidim/decidim/pull/8811) is addressing an issue when the moderated resources are not removed from the general search index.
+
+This will automatically work for new moderated resources. For already existing ones, we have introduced a new task that will remove the moderated content from being displayed in search:
+
+```ruby
+bin/rails decidim:upgrade:moderation:remove_from_search
+```
+
+#### Default Decidim app fully configurable via ENV vars
+
+PR [#8725](https://github.com/decidim/decidim/pull/8725) Modifies the default generator to create a new Decidim app (command `decidim my-decidim`).
+Once generated, the default initializers allows to setup most of the optional configuration values (such as geolocation, languages, etc) for Decidim entirely via ENV variables.
+
+Documentation is also updated so be sure to check the options in the [Environment Variables](https://docs.decidim.org/en/configure/environment_variables/) doc.
+
+Note that this change does not affect existing installations as only the `config/initializers/decidim.rb` and `config/secrets.yml` files are involved.
+However you can migrate to the new structure easily by creating a new Decidim app and copying or adapting those files to your own project.
+
+#### Reminders for pending orders in budgets
+
+**decidim-core**, **decidim-budgets**: Reminders for pending orders in budgets [#8621](https://github.com/decidim/decidim/pull/8621). To generate reminders:
+
+```bash
+bundle exec rake decidim:reminders:all
+```
+
+Or add cronjob:
+
+```bash
+4 0 * * * cd /home/user/decidim_application && RAILS_ENV=production bundle exec rake decidim:reminders:all
+```
+
+#### New Comments statistics structure
+
+PR [#8012](https://github.com/decidim/decidim/pull/8012) Participatory space to comments, to fix the statistics. Use
+`rake decidim_comments:update_participatory_process_in_comments` to migrate existing comments to the new structure.
+
+#### New Api Documentation engine
+
+PR [\#8631](https://github.com/decidim/decidim/pull/8631) Replaces graphql-docs npm package with gem. In this PR we have also added 3 configurable parameters:
+
+```ruby
+# defines the schema max_per_page to configure GraphQL pagination
+Decidim::Api.schema_max_per_page = 50
+
+# defines the schema max_complexity to configure GraphQL query complexity
+Decidim::Api.schema_max_complexity = 5000
+
+# defines the schema max_depth to configure GraphQL query max_depth
+Decidim::Api.schema_max_depth = 15
+```
+
+The static documentation will be rendered into : ```app/views/static/api/docs``` which is being refreshed automatically when you will run ```rake decidim:upgrade```.
+You can manually regenerate the docs by running: ```rake decidim_api:generate_docs```
+
+#### Global search user by nickname
+
+PR [\#8658](https://github.com/decidim/decidim/pull/8663) Added the ability to search for a user by nickname, to update the existing search, Run in a rails console or create a migration with:
+
+```ruby
+  Decidim::User.find_each(&:try_update_index_for_search_resource)
+```
+
+Please be aware that it could take a while if your database has a lot of Users.
+
+#### `Decidim::Form`s no longer use `Rectify::Form` and `Virtus` should be no longer used
+
+As per [\#8669](https://github.com/decidim/decidim/pull/8669), your `Decidim::Form`s will no longer use `Rectify::Form` or `Virtus.model` attributes because `Virtus` is discontinued and Decidim is loosening the dependency on the `virtus` gem. Instead, the attributes implementation is now based on [`ActiveModel::Attributes`](https://api.rubyonrails.org/classes/ActiveModel/Attributes/ClassMethods.html) with an integration layer within Decidim that aims to provide as much backwards compatibility as possible with the `Virtus.model` attributes that were previously used.
+
+For most cases, no changes in the code should be needed but there are specific differences with the implementation which may require changes in the 3rd party code as well. Both `Rectify::Form` and `Virtus` will be still available in the core (through the `rectify` gem) but you should migrate away from them as soon as possible as they may be removed in future versions of Decidim.
+
+There are specific things that you need to change regarding your Form or `Virtus.model` classes when migrating to `Decidim::AttributeObject`:
+
+- Change all instances of `YourForm < Rectify::Form` to `YourForm < Decidim::Form`. It should be very rare to find any classes in your code that inherit directly from `Rectify::Form` but in case you have used that, replace those references with `Decidim::Form`.
+- Change all instances of `include Virtus.model` to `include Decidim::AttributeObject::Model`.
+- For all file objects that may be of type `String` or `ActionDispatch::Http::UploadedFile`, remove the `String` type casting from these attributes as otherwise the uploaded file objects would be converted to strings. In other words, change all `attribute :uploaded_image, String` definitions within the forms to `attribute :uploaded_image` which allows them to be of any type.
+- Change all `attribute :attr_name, Hash` to `attribute :attr_name, Hash[Symbol => ExpectedType]` where `ExpectedType` is the type you are expecting the hash values to be. The new layer will default the hash key types to `Symbol` and hash value types to `Object` (= any type). The Virtus Hash attribute did not force any default types for these. It should be preferred to use the actual expected type for the values instead of `Object` (= any type) to make your code more robust and less buggy.
+- Change all `attribute :attr_name, Array` to `attribute :attr_name, Array[ExpectedType]` where `ExpectedType` is the type you are expecting the array values to be. It should be preferred to use the actual expected type for the values instead of `Object` (= any type) to make your code more robust and less buggy.
+- The original form attribute values are no longer available through the `@attr_name` instance variables within the Form or `Virtus.model` classes. Instead, change all these references to `@attributes["attr_name"].value` in case you want to fetch the original value of the attribute without using its accessor method. Another way is to provide an alias for the original attribute method before overriding it. If you have not overridden the original attribute accessor, simply remove the `@` character in front of the attribute name to fetch the attribute value using the original accessor method.
+- When calling the `attributes` method of the model/form classes, use strings to refer to the attribute names, not symbols as you might have done with `Virtus` or `Rectify::Form`. Change all `model.attributes[:attr_name]` method calls to `model.attributes["attr_name"]`.
+- When calling `model.attributes.slice(...)`, you also need to use strings to refer to the attribute keys. Change all instances of `model.attributes.slice(:attr1, :attr2)` to `model.attributes.slice("attr1", "attr2")`
+- If you had overridden any of the [`Rectify::Form` methods](https://github.com/andypike/rectify/blob/v0.13.0/lib/rectify/form.rb) within your form classes, remove those overrides. For example, you might have overridden the `form_attributes_valid?` method which no longer does anything. Instead, define a custom validation in order to add extra validations to your forms.
+- Very rarely, when defining a an attribute of type `Rails::Engine`, you need to change `attribute :attr_name, Rails::Engine` to `attribute :attr_name, Rails::Engine, {}`. This is because we want to preserve the method signature against `ActiveModel::Attributes` for the `attribute` class method intead of the legacy `Virtus.model`. There is a limitation in the Ruby language that if the method has default values for the previous arguments and defines keyword arguments, the last argument will always receive a `respond_to?(:to_hash)` call to it which doesn't work for `Rails::Engine` (you can try it out in the Rails console by calling `Rails::Engine.respond_to?(:to_hash)`).
+- Test all your form and command classes thoroughly to notice any differences between the two implementations. The new layer is a bit more "robust" with some of the type castings, so some things may break during the migration in case you have relied on some of the oversights within `Virtus`.
+
+#### Custom icons new uploader
+
+PR [\#8645](https://github.com/decidim/decidim/pull/8645) we now only allow PNG images at Favicon so we can provide higher quality versions to mobile devices.
+
 ### Changed
 
-* Meetings merge minutes and close actions - [\#7968](https://github.com/decidim/decidim/pull/7968)
+- **decidim-core**: The `Decidim::ActivitySearch` class has been rewritten as `Decidim::PublicActivities` which is now a `Rectify::Query` class instead of `Searchlight::Search` class due to the removal of Searchlight at [\#8748](https://github.com/decidim/decidim/pull/8748).
+- **decidim-core**: The `Decidim::ResourceSearch` class now inherits from `Ransack::Search` instead of `Searchlight::Search` as of [\#8748](https://github.com/decidim/decidim/pull/8748). The new `ResourceSearch` class provides extra search functionality for contextual searches that require context information in addition to the search parameters, such as current user or current component. It has barely anything to do with the `ResourceSearch` class in the previous versions which contained much more logic. Please review all your search classes that were inheriting from this class. You should migrate your search filtering to Ransack.
+- **decidim-debates**, **decidim-initiatives**, **decidim-meetings**: The resource search classes `Decidim::Debates::DebateSearch`, `Decidim::Intitatives::InitiativeSearch` and `Decidim::Meetings::MeetingSearch` are rewritten for the Ransack searches due to Searchlight removal at [\#8748](https://github.com/decidim/decidim/pull/8748). The role of these classes is now to pass contextual information to the searches, such as the current user. All other search filtering should happen directly through Ransack.
+- **decidim-meetings**: The `visible_meetings_for` scope for the `Meeting` model has been renamed to `visible_for` in [\#8748](https://github.com/decidim/decidim/pull/8748) for consistency.
+- **decidim-core**: The `official_origin`, `participants_origin`, `user_group_origin` and `meeting_origin` scopes for the `Decidim::Authorable` and `Decidim::Coauthorable` concerns have been changed to `with_official_origin`, `with_participants_origin`, `with_user_group_origin` and `with_meeting_origin` respectively in [\#8748](https://github.com/decidim/decidim/pull/8748) for consistency. See the Searchlight removal change notes for reasoning.
+
+#### Deprecation of `Rectify::Presenter`
+PR [\#8758](https://github.com/decidim/decidim/pull/8758) is deprecating the implementation of `Rectify::Presenter` in favour of `SimpleDelegator`
+
+#### Searchlight removal causes changes in the participant searches
+
+The `searchlight` gem has been removed in favor of Ransack as of [\#8748](https://github.com/decidim/decidim/pull/8748) in order to standardize all searches within Decidim around a single way of performing searches. Ransack was selected as the preferred search backend because it is better maintained and has a larger community of developers around it compared to Searchlight.
+
+Ransack provides a search API that produces the search queries semi-automatically against the available database columns and ActiveRecord scopes made available for the Ransack searches while Searchlight used to require to write all the search logic manually in the search classes. Due to the inner workings of the Ransack gem and for consistency reasons, the following changes have been made for the search filtering:
+
+- For search scopes that are doing more than matching against a specific column in the database or require special programming logic during the searches, there is a new scope convention introduced with the `with_*` and `with_any_*` scope names. The `with_*` convention should be used when providing a search scope that searches against one key, such as `with_category(1)` and the `with_any_*` convention should be used when providing a search scope that searches against one or multiple keys, such as `with_any_category(1, 2, 3)`.
+  * An example of such scope is `with_any_category` provided by the `HasCategory` concern which searches against the provided category IDs or any sub-category of those category IDs. You can find all the introduced (or changed) scopes by searching for `scope :with_` within the Decidim codebase.
+  * With Searchlight, these search parameters were provided e.g. as `category_id` which was then used to perform the explained search query manually in the ResourceSearch class which is now used for a different purpose. As the search now happens through Ransack and the ActiveRecord scopes, these parameters have been renamed to better explain what they do. With Ransack, matching e.g. against the `category_id_eq` key would mean that the search is done against this specific column in the record's database table and only searching for the provided search input (and not e.g. the parent categories in the category case).
+- The origin scopes provided by `Decidim::Authorable` and `Decidim::Coauthorable` have been renamed with the `with_` prefix as explained above.
+- All the filtering key changes have been reflected to the participant filtering views (`_filters.html.erb` in most modules) as well as the controller methods `default_filter_params` where applicable.
+- The `default_filter_params` method within the participant-facing controllers now defines all the parameters that are allowed in the search queries and only these parameters are passed to the Ransack search. This limitation is made in order to protect the participant views from providing more searching options through the URL parameters than they are supposed to provide. In the past, the `Searchlight::Search` classes took care of utilizing only the allowed parameters but Ransacker does not have any middle-layer that would do the same, which is why the limitation is done at the controller side.
+- The `search_collection` method now defines the base collection used for the searches within the filtering controllers. In previous versions, there used to be a method that defined a `search_klass` method that defined the `Searchlight::Search` class to be used as the basis for the search. Now, the `search_collection` defines the base collection instead against which the Ransack search is run.
+
+3rd party developers that have developed their own modules or customizations for the core controllers or filtering views, should revisit their customizations and make sure they reflect these changes made for the controllers or filtering views. It is suggested to remove the customizations related to the filtering views/controllers and re-do from scratch what needs to be customized in order to ensure full compatibility with the changed filtering APIs. In case you had created your own `Searchlight::Search` (or `ResourceSearch`) classes, you should scrap those and start over using Ransack.
+
+More information on using Ransack can be found from the [Ransack documentation](https://github.com/activerecord-hackery/ransack). You can find examples for filtering in the core filtering views and controllers.
 
 ### Fixed
 
 ### Removed
 
+- **decidim-core**: The `rectify` gem has been removed from the stack as of [\#9101](https://github.com/decidim/decidim/pull/9101). If you are a library developer, replace any `Rectify::Query` with `Decidim::Query`, replace any `Rectify::Command` with `Decidim::Command`. Replace any `Rectify::Presenter` with `SimpleDelegator` (Already deprecated in [\#8758](https://github.com/decidim/decidim/pull/8758))
+- **decidim-core**: The `searchlight` gem has been removed in favor of Ransach as of [\#8748](https://github.com/decidim/decidim/pull/8748). Please review the **Changed** notes regarding the required changes. Please review all your search classes that were inheriting from `Searchlight::Search`. You should migrate your search filtering to Ransack.
+- **decidim-core**: The `search_params` and `default_search_params` methods within the participant-facing controllers are now removed in favor of using `filter_params` and `default_filter_params` as of [\#8748](https://github.com/decidim/decidim/pull/8748). The duplicate methods were redundant after the Ransack migration which is why they were removed. In case you had overridden these methods in your controllers, they no longer do anything. In case you were calling these methods before, you will now receive a `NoMethodError` because they are removed. Please use `filter_params` and `default_filter_params` instead.
+- **decidim-accountability**, **decidim-assemblies**, **decidim-budgets**, **decidim-consultations**, **decidim-core**, **decidim-elections**, **decidim-initiatives**, **decidim-participatory_processes**, **decidim-proposals**, **decidim-sortitions**: The search service classes inheriting from `Searchlight::Search` that are no longer necessary due to the Ransack migration have been removed in all modules as of [\#8748](https://github.com/decidim/decidim/pull/8748). This includes `Decidim::Accountability::ResultSearch`, `Decidim::Assemblies::AssemblySearch`, `Decidim::Budgets::ProjectSearch`, `Decidim::Consultations::ConsultationSearch`, `Decidim::HomeActivitySearch`, `Decidim::ParticipatorySpaceSearch`, `Decidim::Elections::ElectionsSearch`, `Decidim::Votings::VotingSearch`, `Decidim::Meetings::Directory::MeetingSearch`, `Decidim::ParticipatoryProcesses::ParticipatoryProcessesSearch`, `Decidim::Proposals::CollaborativeDraftSearch`, `Decidim::Proposals::ProposalSearch` and `Decidim::Sortitions::SortitionSearch`.
+
 ## Previous versions
 
-Please check [release/0.24-stable](https://github.com/decidim/decidim/blob/release/0.24-stable/CHANGELOG.md) for previous changes.
+Please check [release/0.26-stable](https://github.com/decidim/decidim/blob/release/0.26-stable/CHANGELOG.md) for previous changes.
+

@@ -1,0 +1,18 @@
+<% add_decidim_page_title(translated_attribute(current_participatory_space.title)) %>
+<% content_for :sidebar_menu_nav do %>
+  <%= sidebar_menu(:admin_assembly_menu).render do
+    public_page_link decidim_assemblies.assembly_assembly_members_path(current_participatory_space)
+  end %>
+<% end %>
+
+<%= render "layouts/decidim/admin/application" do %>
+  <div class="process-title">
+    <div class="process-title-content">
+      <%= link_to translated_attribute(current_participatory_space.title), decidim_assemblies.assembly_path(current_participatory_space), target: "_blank" %>
+    </div>
+  </div>
+
+  <div class="process-content">
+    <%= yield %>
+  </div>
+<% end %>

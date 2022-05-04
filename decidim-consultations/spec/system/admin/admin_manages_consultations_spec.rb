@@ -55,10 +55,12 @@ describe "Admin manages consultations", type: :system do
           ca: "Descripció més llarga"
         )
         fill_in :consultation_slug, with: "slug"
-        attach_file :consultation_banner_image, image2_path
+      end
 
+      dynamically_attach_file(:consultation_banner_image, image2_path)
+
+      within ".new_consultation" do
         scope_pick select_data_picker(:consultation_decidim_highlighted_scope_id), organization.scopes.first
-
         find("*[type=submit]").click
       end
 
@@ -108,9 +110,12 @@ describe "Admin manages consultations", type: :system do
           ca: "Descripció més llarga"
         )
         fill_in :consultation_slug, with: "slug"
-        attach_file :consultation_banner_image, image2_path
-        scope_pick select_data_picker(:consultation_decidim_highlighted_scope_id), organization.scopes.first
+      end
 
+      dynamically_attach_file(:consultation_banner_image, image2_path)
+
+      within ".new_consultation" do
+        scope_pick select_data_picker(:consultation_decidim_highlighted_scope_id), organization.scopes.first
         find("*[type=submit]").click
       end
 
@@ -131,7 +136,7 @@ describe "Admin manages consultations", type: :system do
         es: "Mi nuevo título",
         ca: "El meu nou títol"
       )
-      attach_file :consultation_banner_image, image3_path
+      dynamically_attach_file(:consultation_banner_image, image3_path, remove_before: true)
 
       within ".edit_consultation" do
         find("*[type=submit]").click
@@ -184,7 +189,7 @@ describe "Admin manages consultations", type: :system do
       end
 
       expect(page).to have_admin_callout("successfully")
-      expect(page).to have_css("img[src*='#{consultation3.banner_image.url}']")
+      expect(page).to have_css("img[src*='#{consultation3.attached_uploader(:banner_image).path}']")
     end
   end
 

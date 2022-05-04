@@ -95,7 +95,7 @@ $filters-padding-y: 1rem;
 
 .filters__subfilters{
   & > .filters__subfilters{
-    padding-left: $filters-padding-x / 2;
+    padding-left: $filters-padding-x * .5;
   }
 }
 

@@ -16,6 +16,12 @@ fi-pl:
         other: Äänet
   decidim:
     comments:
+      admin:
+        shared:
+          availability_fields:
+            enabled: Kommentointi sallittu
+            end_time: Kommentointi sallittu aikarajaan saakka
+            start_time: Kommentointi sallittu alkaen
       comments:
         create:
           error: Kommentin luotaessa tapahtui virhe.
@@ -64,6 +70,7 @@ fi-pl:
         edit: Muokkaa
         edited: Muokattu
         hide_replies: Piilota vastaukset
+        moderated_at: Kommentti moderoitu %{date}
         reply: Vastaa
         report:
           action: Tee ilmoitus
@@ -93,7 +100,7 @@ fi-pl:
         blocked_comments_warning: Kommentit on poistettu käytöstä tällä hetkellä, mutta voit lukea aikaisempia kommentteja.
         comment_details_title: Kommentin yksityiskohdat
         loading: Ladataan kommentteja ...
-        single_comment_warning: Voit katsoa loput kommentit <a href="%{url}">täältä</a>.
+        single_comment_warning: <a href="%{url}">Näytä kaikki kommentit</a>
         single_comment_warning_title: Näet yhden kommentin
         title:
           one: "%{count} kommentti"

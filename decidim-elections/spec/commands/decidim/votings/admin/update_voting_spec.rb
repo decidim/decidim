@@ -18,15 +18,19 @@ module Decidim
               description_ca: voting.description["ca"],
               description_es: voting.description["es"],
               slug: voting.slug,
-              banner_image: voting.banner_image,
               decidim_scope_id: voting.scope.id,
               start_time: voting.start_time,
               end_time: voting.end_time,
-              introductory_image: voting.introductory_image,
               promoted: voting.promoted,
               voting_type: voting.voting_type,
               census_contact_information: voting.census_contact_information
-            }
+            }.merge(attachment_params)
+          }
+        end
+        let(:attachment_params) do
+          {
+            banner_image: voting.banner_image.blob,
+            introductory_image: voting.introductory_image.blob
           }
         end
         let(:context) do
@@ -59,7 +63,7 @@ module Decidim
           before do
             expect(form).to receive(:invalid?).and_return(false)
             expect(voting).to receive(:valid?).at_least(:once).and_return(false)
-            voting.errors.add(:banner_image, "Image too big")
+            voting.errors.add(:banner_image, "File resolution is too large")
           end
 
           it "broadcasts invalid" do
@@ -86,6 +90,12 @@ module Decidim
           end
 
           context "when banner image is not updated" do
+            let(:attachment_params) do
+              {
+                introductory_image: voting.introductory_image.blob
+              }
+            end
+
             it "does not replace the banner image" do
               expect(voting).not_to receive(:banner_image=)
 
@@ -97,6 +107,12 @@ module Decidim
           end
 
           context "when introductory image is not updated" do
+            let(:attachment_params) do
+              {
+                banner_image: voting.banner_image.blob
+              }
+            end
+
             it "does not replace the introductory image" do
               expect(voting).not_to receive(:introductory_image=)
 

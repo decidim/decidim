@@ -9,13 +9,18 @@ module Decidim::Assemblies
     let(:assembly) { create(:assembly) }
     let(:user_entity) { nil }
     let!(:current_user) { create :user, :confirmed, organization: assembly.organization }
-    let(:form) do
-      instance_double(
-        Admin::AssemblyMemberForm,
-        invalid?: invalid,
-        full_name: "Full name",
-        user: user_entity,
-        attributes: {
+    let(:existing_user) { false }
+    let(:non_user_avatar) do
+      ActiveStorage::Blob.create_and_upload!(
+        io: File.open(Decidim::Dev.asset("avatar.jpg")),
+        filename: "avatar.jpeg",
+        content_type: "image/jpeg"
+      )
+    end
+    let(:form_klass) { Admin::AssemblyMemberForm }
+    let(:form_params) do
+      {
+        assembly_member: {
           weight: 0,
           full_name: "Full name",
           gender: Faker::Lorem.word,
@@ -23,19 +28,44 @@ module Decidim::Assemblies
           birthplace: Faker::Demographic.demonym,
           ceased_date: nil,
           designation_date: Time.current,
-          designation_mode: "designation mode",
           position: Decidim::AssemblyMember::POSITIONS.sample,
-          position_other: "other"
+          position_other: "other",
+          existing_user: existing_user,
+          non_user_avatar: non_user_avatar,
+          user_id: user_entity&.id
         }
+      }
+    end
+    let(:form) do
+      form_klass.from_params(
+        form_params
+      ).with_context(
+        current_user: current_user,
+        current_organization: assembly.organization
       )
     end
-    let(:invalid) { false }
 
     context "when the form is not valid" do
-      let(:invalid) { true }
+      let(:existing_user) { true }
 
       it "is not valid" do
         expect { subject.call }.to broadcast(:invalid)
+      end
+
+      context "when image is invalid" do
+        let(:existing_user) { false }
+        let(:non_user_avatar) do
+          ActiveStorage::Blob.create_and_upload!(
+            io: File.open(Decidim::Dev.asset("invalid.jpeg")),
+            filename: "avatar.jpeg",
+            content_type: "image/jpeg"
+          )
+        end
+
+        it "prevents uploading" do
+          expect { subject.call }.not_to raise_error
+          expect { subject.call }.to broadcast(:invalid)
+        end
       end
     end
 
@@ -68,6 +98,7 @@ module Decidim::Assemblies
 
       context "with an existing user in the platform" do
         let!(:user_entity) { create(:user, organization: assembly.organization) }
+        let(:existing_user) { true }
 
         it "sets the user" do
           subject.call
@@ -94,6 +125,7 @@ module Decidim::Assemblies
         let!(:member1) { create(:user, organization: assembly.organization) }
         let!(:member2) { create(:user, organization: assembly.organization) }
         let!(:user_entity) { create(:user_group, :verified, users: [member1, member2], organization: assembly.organization) }
+        let(:existing_user) { true }
 
         it "sets the group" do
           subject.call

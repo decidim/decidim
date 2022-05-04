@@ -4,10 +4,15 @@ module Decidim
   # This class deals with uploading files to Decidim. It is intended to just
   # hold the uploads configuration, so you should inherit from this class and
   # then tweak any configuration you need.
-  class ApplicationUploader < CarrierWave::Uploader::Base
-    include CarrierWave::MiniMagick
+  class ApplicationUploader
+    def initialize(model, mounted_as)
+      @model = model
+      @mounted_as = mounted_as
+    end
 
-    process :validate_inside_organization
+    attr_reader :validable_dimensions, :model, :mounted_as, :content_type_allowlist, :content_type_denylist
+
+    delegate :variants, to: :class
 
     # Override the directory where uploaded files will be stored.
     # This is a sensible default for uploaders that are meant to be mounted:
@@ -19,38 +24,79 @@ module Decidim
       default_path
     end
 
-    # When the uploaded content can't be processed, we want to make sure
-    # not to expose internal tools errors to the users.
-    # We'll show a generic error instead.
-    def manipulate!
-      super
-    rescue CarrierWave::ProcessingError => e
-      Rails.logger.error(e)
-      raise CarrierWave::ProcessingError, I18n.t("carrierwave.errors.general")
+    def variant(key)
+      if key && variants[key].present?
+        model.send(mounted_as).variant(variants[key])
+      else
+        model.send(mounted_as)
+      end
     end
 
-    # As of Carrierwave 2.0 fog_provider method has been deprecated, and is throwing RuntimeError
-    # RuntimeError: Carrierwave fog_provider not supported: DEPRECATION WARNING: #fog_provider is deprecated...
-    # We are attempting to fetch the provider from credentials, if not we consider to be file
-    def provider
-      fog_credentials.fetch(:provider, "file").downcase
+    def attached?
+      model.send(mounted_as).attached?
     end
 
-    # We overwrite the downloader to be able to fetch some elements from URL.
-    def downloader
-      Decidim::Downloader
+    def url(options = {})
+      representable = model.send(mounted_as)
+      return super unless representable.is_a? ActiveStorage::Attached
+
+      variant_url(options.delete(:variant), **options)
     end
 
-    protected
+    def variant_url(key, options = {})
+      return unless attached?
 
-    # Validates that the associated model is always within an organization in
-    # order to pass the organization specific settings for the file upload
-    # checks (e.g. file extension, mime type, etc.).
-    def validate_inside_organization
-      return if model.is_a?(Decidim::Organization)
-      return if model.respond_to?(:organization) && model.organization.is_a?(Decidim::Organization)
+      representable = variant(key)
+      if representable.is_a? ActiveStorage::Attached
+        Rails.application.routes.url_helpers.rails_blob_url(representable.blob, **protocol_option.merge(options))
+      else
+        Rails.application.routes.url_helpers.rails_representation_url(representable, **protocol_option.merge(options))
+      end
+    end
 
-      raise CarrierWave::IntegrityError, I18n.t("carrierwave.errors.not_inside_organization")
+    def path(options = {})
+      representable = model.send(mounted_as)
+      return super() unless representable.is_a? ActiveStorage::Attached
+
+      variant_path(options.delete(:variant), **options)
+    end
+
+    def variant_path(key, options = {})
+      variant_url(key, **options.merge(only_path: true))
+    end
+
+    def remote_url=(url)
+      uri = URI.parse(url)
+      filename = File.basename(uri.path)
+      file = URI.open(url)
+      model.send(mounted_as).attach(io: file, filename: filename)
+    rescue URI::InvalidURIError
+      model.errors.add(mounted_as, :invalid)
+    end
+
+    def protocol_option
+      return { host: cdn_host } if cdn_host
+      return {} unless Rails.application.config.force_ssl
+
+      { protocol: "https" }
+    end
+
+    def cdn_host
+      @cdn_host ||= Rails.application.secrets.dig(:storage, :cdn_host)
+    end
+
+    class << self
+      # Each class inherits variants from parents and can define their own
+      # variants with the set_variants class method
+      def variants
+        @variants ||= {}
+      end
+
+      def set_variants
+        return unless block_given?
+
+        variants.merge!(yield)
+      end
     end
   end
 end

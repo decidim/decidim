@@ -79,6 +79,7 @@ fi-pl:
           form:
             add_question: Lisää kysymys
             add_separator: Lisää erotinviiva
+            add_title_and_description: Lisää otsikko ja kuvaus
             already_answered_warning: Jotkut käyttäjät ovat jo vastanneet kyselyyn, joten et voi muokata kysymyksiä.
             collapse: Sulje kaikki kysymykset
             expand: Avaa kaikki kysymykset
@@ -108,6 +109,15 @@ fi-pl:
             remove: Poista
             separator: Erotin
             up: Ylös
+          title_and_description:
+            collapse: Pienennä
+            description: Kuvaus
+            down: Alas
+            expand: Laajenna
+            remove: Poista
+            title: Otsikko
+            title_and_description: Otsikko ja kuvaus
+            up: Ylös
           update:
             invalid: Kyselylomakkeiden tallentamisessa on tapahtunut virheitä.
             success: Lomake tallennettu onnistuneesti.
@@ -118,10 +128,6 @@ fi-pl:
         extension_allowlist: 'Sallitut tiedostopäätteet:'
       images:
         dimensions: "%{width} x %{height} pikseliä"
-        dimensions_info: 'Tämän kuvan koko tulee olemaan:'
-        processors:
-          resize_and_pad: Muutetaan kokoon ja täytetään
-          resize_to_fit: Muutetaan mahtumaan kokoon
       question_types:
         files: Tiedostot
         long_answer: Pitkä vastaus
@@ -131,6 +137,7 @@ fi-pl:
         short_answer: Lyhyt vastaus
         single_option: Yksi vaihtoehto
         sorting: Järjestäminen
+        title_and_description: Otsikko ja kuvaus
       questionnaires:
         answer:
           invalid: Kyselylomakkeeseen vastatessa tapahtui virheitä.

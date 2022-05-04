@@ -30,7 +30,7 @@ module Decidim
         def create
           enforce_permission_to :create, :authorization, authorization: @authorization
 
-          @form = UploadForm.from_params(params.merge(user: current_user))
+          @form = UploadForm.from_params(params.merge(user: current_user)).with_context(current_organization: current_organization)
 
           PerformAuthorizationStep.call(@authorization, @form) do
             on(:ok) do
@@ -58,9 +58,9 @@ module Decidim
             params.merge(
               user: current_user,
               verification_type: verification_type,
-              verification_attachment: params[:id_document_upload][:verification_attachment] || @authorization.verification_attachment
+              verification_attachment: params[:id_document_upload][:verification_attachment] || @authorization.verification_attachment.blob
             )
-          )
+          ).with_context(current_organization: current_organization)
 
           PerformAuthorizationStep.call(@authorization, @form) do
             on(:ok) do

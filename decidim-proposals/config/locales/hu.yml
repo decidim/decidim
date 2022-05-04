@@ -117,7 +117,6 @@ hu:
         name: Javaslatok
         settings:
           global:
-            allow_card_image: Kártyakép engedélyezése
             amendments_enabled: A módosítások engedélyezve vannak
             amendments_enabled_help: Ha aktív, minden lépéshez konfigurálja a Módosítás funkciókat.
             amendments_wizard_help_text: Módosítások Varázsló súgószöveg
@@ -161,7 +160,7 @@ hu:
             answers_with_costs: Költségek engedélyezése javaslati válaszoknál
             automatic_hashtags: Hashtagek hozzáadva minden javaslathoz
             comments_blocked: Megjegyzések letiltva
-            creation_enabled: Javaslat létrehozása engedélyezve
+            creation_enabled: A résztvevők létrehozhatnak javaslatokat
             endorsements_blocked: Jóváhagyások letiltva
             endorsements_enabled: Jóváhagyások engedélyezve
             proposal_answering_enabled: Javaslat válasz engedélyezve
@@ -248,7 +247,6 @@ hu:
           email_intro: 'A(z) "%{resource_title}" című javaslatot hozzáadtuk ehhez: "%{participatory_space_title}" (követed).'
           email_outro: 'Ezt az értesítést azért kaptad, mert ezt követed: "%{participatory_space_title}". Leiratkozás az előző link segítségével.'
           email_subject: Új javaslat "%{resource_title}" hozzáadva az %{participatory_space_title}
-          notification_title: 'A(z) <a href="%{resource_path}">%{resource_title}</a> című javaslat hozzáadva ehhez: %{participatory_space_title}'
         proposal_rejected:
           affected_user:
             email_intro: 'Javaslata "%{resource_title}" elutasításra került. A válasz ezen az oldalon olvasható:'
@@ -483,11 +481,9 @@ hu:
             select_states: Ellenőrizd az importálandó javaslatok állapotát
         proposals_merges:
           create:
-            invalid: Hiba történt a kiválasztott javaslatok egyesítésével.
             success: A javaslatokat sikeresen egy újba egyesítettük.
         proposals_splits:
           create:
-            invalid: Hiba történt a kiválasztott javaslatok szétválasztása során.
             success: A javaslatokat sikeresen újakra osztottuk.
         valuation_assignments:
           create:
@@ -518,9 +514,9 @@ hu:
           all: Minden
         filter_origin_values:
           all: Minden
-          citizens: Állampolgárok
           meetings: Találkozók
           official: Hivatalos
+          participants: Résztvevők
           user_groups: Felhasználói csoportok
         filter_scope_values:
           all: Minden
@@ -583,6 +579,8 @@ hu:
           filter_by: 'Szűrés ez alapján:'
           unfold: Kibont
         new:
+          add_file: Fájl hozzáadása
+          edit_file: Fájl szerkesztése
           send: Tovább
         new_collaborative_draft_button:
           new_collaborative_draft: Új közös vázlat
@@ -685,8 +683,12 @@ hu:
             one: "%{count} javaslat"
             other: "%{count} javaslatot"
         edit:
+          add_documents: Dokumentum hozzáadása
+          add_image: Kép hozzáadása
           attachment_legend: "(Nem kötelező) Melléklet hozzáadása"
           back: Vissza
+          edit_documents: Dokumentum szerkesztése
+          edit_image: Kép szerkesztése
           select_a_category: Válassz kategóriát
           send: Küldés
           title: Javaslat szerkesztése

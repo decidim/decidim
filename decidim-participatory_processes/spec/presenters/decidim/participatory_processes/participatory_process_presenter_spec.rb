@@ -10,60 +10,38 @@ module Decidim
 
     describe "#hero_image_url" do
       context "when there's no image" do
-        it "returns nil" do
-          allow(process).to receive(:hero_image_url).and_return(nil)
+        before do
+          process.hero_image.purge
+        end
 
+        it "returns nil" do
           expect(subject.hero_image_url).to be_nil
         end
       end
 
-      context "when image is a full url" do
-        it "returns nil" do
-          image_url = "http://example.com/image.jpg"
-          allow(process).to receive(:hero_image_url).and_return(image_url)
-
-          expect(subject.hero_image_url).to eq(image_url)
-        end
-      end
-
-      context "when image is a partial path" do
-        it "returns nil" do
-          organization_host = "http://example.org"
-          image_path = "/my/image.jpg"
-          allow(process).to receive(:hero_image_url).and_return(image_path)
-          allow(process.organization).to receive(:host).and_return(organization_host)
-
-          expect(subject.hero_image_url).to eq("http://example.org/my/image.jpg")
+      context "when image is attached" do
+        it "returns an URL including the organization domain" do
+          expect(subject.hero_image_url).to include(process.organization.host)
+          expect(subject.hero_image_url).to include(process.attached_uploader(:hero_image).path)
         end
       end
     end
 
     describe "#banner_image_url" do
       context "when there's no image" do
-        it "returns nil" do
-          allow(process).to receive(:banner_image_url).and_return(nil)
+        before do
+          process.banner_image.purge
+        end
 
+        it "returns nil" do
           expect(subject.banner_image_url).to be_nil
         end
       end
 
-      context "when image is a full url" do
-        it "returns nil" do
-          image_url = "http://example.com/image.jpg"
-          allow(process).to receive(:banner_image_url).and_return(image_url)
-
-          expect(subject.banner_image_url).to eq(image_url)
-        end
-      end
-
-      context "when image is a partial path" do
-        it "returns nil" do
-          organization_host = "http://example.org"
-          image_path = "/my/image.jpg"
-          allow(process).to receive(:banner_image_url).and_return(image_path)
-          allow(process.organization).to receive(:host).and_return(organization_host)
-
-          expect(subject.banner_image_url).to eq("http://example.org/my/image.jpg")
+      context "when image is attached" do
+        it "returns an URL including the organization domain" do
+          expect(subject.banner_image_url).to include(process.organization.host)
+          expect(subject.banner_image_url).to include(process.attached_uploader(:banner_image).path)
         end
       end
     end

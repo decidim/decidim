@@ -72,6 +72,10 @@ ar:
         other: التسجيلات
   decidim:
     admin:
+      filters:
+        meetings:
+          category_id_eq:
+            label: الفئة
       meeting_copies:
         create:
           error: كانت هناك مشكلة في تكرار هذا الاجتماع.
@@ -299,26 +303,22 @@ ar:
           value_types:
             organizer_presenter:
               not_found: 'لم يتم العثور على المنظم في قاعدة البيانات (المعرف: %{id})'
+      application_helper:
+        filter_category_values:
+          all: الكل
       calendar_modal:
         calendar_url: العنوان الشبكي للتقويم
         close_window: أغلق النافذة
         export_calendar: تصدير التقويم
       conference_venues: أماكن المؤتمر
       content_blocks:
-        upcoming_events:
-          name: الأحداث القادمة
-          upcoming_events: الاجتماعات القادمة
-          view_all_events: عرض الكل
+        upcoming_meetings:
+          view_all_meetings: عرض الكل
       directory:
         meetings:
           index:
-            all: الكل
-            date: تاريخ
             meetings: اجتماعات
-            past: الماضي
-            search: بحث
             space_type: الفضاء التشاركي
-            upcoming: القادمة
       last_activity:
         new_meeting_at_html: "<span>اجتماع جديد في %{link}</span>"
       mailer:
@@ -340,6 +340,8 @@ ar:
           filter: منقي
           filter_by: مصنف بواسطة
           unfold: كشف
+        form:
+          select_a_category: يُرجى اختيار فئة
         meeting_minutes:
           related_information: معلومات ذات صله
         meetings:
@@ -387,6 +389,10 @@ ar:
             map: خريطة
             start_time: تاريخ البدء
             title: عنوان
+      polls:
+        questions:
+          index_admin:
+            results: النتائج
       read_more: "(قراءة المزيد)"
       registration_mailer:
         confirmation:

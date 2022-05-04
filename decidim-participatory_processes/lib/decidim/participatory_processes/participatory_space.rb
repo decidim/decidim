@@ -74,7 +74,12 @@ Decidim.register_participatory_space(:participatory_processes) do |participatory
         hashtag: Faker::Internet.slug,
         group_url: Faker::Internet.url,
         organization: organization,
-        hero_image: File.new(File.join(seeds_root, "city.jpeg")), # Keep after organization
+        hero_image: ActiveStorage::Blob.create_and_upload!(
+          io: File.open(File.join(seeds_root, "city.jpeg")),
+          filename: "hero_image.jpeg",
+          content_type: "image/jpeg",
+          metadata: nil
+        ), # Keep after organization
         developer_group: Decidim::Faker::Localized.sentence(word_count: 1),
         local_area: Decidim::Faker::Localized.sentence(word_count: 2),
         meta_scope: Decidim::Faker::Localized.word,
@@ -99,6 +104,14 @@ Decidim.register_participatory_space(:participatory_processes) do |participatory
       end
     end
 
+    process_types = []
+    2.times do
+      process_types << Decidim::ParticipatoryProcessType.create!(
+        title: Decidim::Faker::Localized.word,
+        organization: organization
+      )
+    end
+
     2.times do |n|
       params = {
         title: Decidim::Faker::Localized.sentence(word_count: 5),
@@ -112,8 +125,18 @@ Decidim.register_participatory_space(:participatory_processes) do |participatory
           Decidim::Faker::Localized.paragraph(sentence_count: 3)
         end,
         organization: organization,
-        hero_image: File.new(File.join(seeds_root, "city.jpeg")), # Keep after organization
-        banner_image: File.new(File.join(seeds_root, "city2.jpeg")), # Keep after organization
+        hero_image: ActiveStorage::Blob.create_and_upload!(
+          io: File.open(File.join(seeds_root, "city.jpeg")),
+          filename: "hero_image.jpeg",
+          content_type: "image/jpeg",
+          metadata: nil
+        ), # Keep after organization
+        banner_image: ActiveStorage::Blob.create_and_upload!(
+          io: File.open(File.join(seeds_root, "city2.jpeg")),
+          filename: "banner_image.jpeg",
+          content_type: "image/jpeg",
+          metadata: nil
+        ), # Keep after organization
         promoted: true,
         published_at: 2.weeks.ago,
         meta_scope: Decidim::Faker::Localized.word,
@@ -125,6 +148,7 @@ Decidim.register_participatory_space(:participatory_processes) do |participatory
         start_date: Date.current,
         end_date: 2.months.from_now,
         participatory_process_group: process_groups.sample,
+        participatory_process_type: process_types.sample,
         scope: n.positive? ? nil : Decidim::Scope.reorder(Arel.sql("RANDOM()")).first
       }
 
@@ -183,22 +207,40 @@ Decidim.register_participatory_space(:participatory_processes) do |participatory
         title: Decidim::Faker::Localized.sentence(word_count: 2),
         description: Decidim::Faker::Localized.sentence(word_count: 5),
         attachment_collection: attachment_collection,
+        content_type: "application/pdf",
         attached_to: process,
-        file: File.new(File.join(seeds_root, "Exampledocument.pdf")) # Keep after attached_to
+        file: ActiveStorage::Blob.create_and_upload!(
+          io: File.open(File.join(seeds_root, "Exampledocument.pdf")),
+          filename: "Exampledocument.pdf",
+          content_type: "application/pdf",
+          metadata: nil
+        ) # Keep after attached_to
       )
 
       Decidim::Attachment.create!(
         title: Decidim::Faker::Localized.sentence(word_count: 2),
         description: Decidim::Faker::Localized.sentence(word_count: 5),
         attached_to: process,
-        file: File.new(File.join(seeds_root, "city.jpeg")) # Keep after attached_to
+        content_type: "image/jpeg",
+        file: ActiveStorage::Blob.create_and_upload!(
+          io: File.open(File.join(seeds_root, "city.jpeg")),
+          filename: "city.jpeg",
+          content_type: "image/jpeg",
+          metadata: nil
+        ) # Keep after attached_to
       )
 
       Decidim::Attachment.create!(
         title: Decidim::Faker::Localized.sentence(word_count: 2),
         description: Decidim::Faker::Localized.sentence(word_count: 5),
         attached_to: process,
-        file: File.new(File.join(seeds_root, "Exampledocument.pdf")) # Keep after attached_to
+        content_type: "application/pdf",
+        file: ActiveStorage::Blob.create_and_upload!(
+          io: File.open(File.join(seeds_root, "Exampledocument.pdf")),
+          filename: "Exampledocument.pdf",
+          content_type: "application/pdf",
+          metadata: nil
+        ) # Keep after attached_to
       )
 
       2.times do

@@ -4,7 +4,7 @@ require "devise/models/decidim_validatable"
 require "valid_email2"
 
 module Decidim
-  # A UserGroup is an organization of citizens
+  # A UserGroup is an organization of participants
   class UserGroup < UserBaseEntity
     include Decidim::Traceable
     include Decidim::DataPortability
@@ -139,6 +139,46 @@ module Decidim
     def unread_messages_count_for(user)
       @unread_messages_count_for ||= {}
       @unread_messages_count_for[user.id] ||= Decidim::Messaging::Conversation.user_collection(self).unread_messages_by(user).count
+    end
+
+    def self.state_eq(value)
+      send(value.to_sym) if %w(all pending rejected verified).include?(value)
+    end
+
+    def self.ransackable_scopes(_auth = nil)
+      [:state_eq]
+    end
+
+    scope :sort_by_users_count_asc, lambda {
+      order("users_count ASC NULLS FIRST")
+    }
+
+    scope :sort_by_users_count_desc, lambda {
+      order("users_count DESC NULLS LAST")
+    }
+
+    def self.sort_by_document_number_asc
+      order(Arel.sql("extended_data->>'document_number' ASC"))
+    end
+
+    def self.sort_by_document_number_desc
+      order(Arel.sql("extended_data->>'document_number' DESC"))
+    end
+
+    def self.sort_by_phone_asc
+      order(Arel.sql("extended_data->>'phone' ASC"))
+    end
+
+    def self.sort_by_phone_desc
+      order(Arel.sql("extended_data->>'phone' DESC"))
+    end
+
+    def self.sort_by_state_asc
+      order(Arel.sql("extended_data->>'rejected_at' ASC, extended_data->>'verified_at' ASC, deleted_at ASC"))
+    end
+
+    def self.sort_by_state_desc
+      order(Arel.sql("extended_data->>'rejected_at' DESC, extended_data->>'verified_at' DESC, deleted_at DESC"))
     end
 
     private

@@ -48,7 +48,7 @@ cs:
         favicon: Ikona
         force_authentication: Vynutit ověření
         force_users_to_authenticate_before_access_organization: Vynutit uživateli autentizaci před přístupem do organizace
-        from: Z e-mailové adresy
+        from: E-mailová adresa odesílatele
         github_handler: GitHub handler
         header_snippets: Úryvky záhlaví
         highlight_alternative_color: Jiné zvýraznění
@@ -123,6 +123,10 @@ cs:
         file: Soubor
     errors:
       models:
+        newsletter:
+          attributes:
+            base:
+              at_least_one_space: Vyberte alespoň jeden participační prostor
         organization:
           attributes:
             official_img_footer:
@@ -132,6 +136,7 @@ cs:
       new_import:
         attributes:
           file:
+            invalid_file: Neplatný soubor, zkontrolujte, zda je soubor správně naformátován
             invalid_mime_type: Neplatný typ mime
   activerecord:
     attributes:
@@ -172,7 +177,7 @@ cs:
         reject: Odmítnout
         share: Sdílet
         user:
-          new: Nový uživatel
+          new: Nový administrátor
         verify: Ověřit
       admin_terms_of_use:
         accept:
@@ -180,12 +185,12 @@ cs:
           success: Skvělé! Přijali jste administrátorské podmínky použití.
         actions:
           accept: Souhlasím s následujícími podmínkami
-          are_you_sure: Opravdu chcete odmítnout administrátorské podmínky?
+          are_you_sure: Oravdu chcete odmítnout podmínky používání správce?
           refuse: Odmítnout administrátorské podmínky
           title: Souhlasit s podmínkami používání
         required_review:
           alert: 'Vyžadováno: Zkontrolujte naše administrátorské podmínky použití'
-          callout: Věnujte prosím chvilku a přečtěte si administrátorské podmínky použití. V opačném případě nebudete moci platformu spravovat. MUSÍTE KLIKNOUT NA ZELENÉ TLAČÍTKO.
+          callout: Věnujte prosím chvíli a přečtěte si podmínky použití správce. V opačném případě nebudete moci platformu spravovat.
           cta: Zkontrolovat je nyní.
         title: Administrátorské podmínky použití
       area_types:
@@ -208,7 +213,7 @@ cs:
           error: Při vytváření nové oblasti došlo k chybě.
           success: Oblast byla úspěšně vytvořena.
         destroy:
-          has_spaces: Oblast má závislá místa, nesmí mít závislosti, aby mohla být odstraněna.
+          has_spaces: Tato oblast má závislé prostory. Před smazáním se prosím ujistěte, že žádný účatnický prostor neodkazuje na tuto oblast.
           success: Oblast úspěšně zničena
         edit:
           title: Upravit oblast
@@ -255,13 +260,15 @@ cs:
         update:
           error: Při aktualizaci této přílohy došlo k chybě.
           success: Příloha byla úspěšně aktualizována.
+      attachments_privacy_warning:
+        message: Buďte opatrní při práci s přílohami v soukromém prostoru. Každý účastník by mohl sdílet tento dokument s ostatními.
       autocomplete:
         no_results: Nenalezeny žádné výsledky
         search_prompt: Zadejte nejméně tři znaky, které chcete vyhledat
       block_user:
         new:
           action: Blokovat účet a odeslat odůvodnění
-          description: Blokováním uživatele bude jeho účet nepoužitelný, ve svém odůvodnění a pokynech můžete uvést způsob, jaký považujete za vhodný k odblokování uživatele.
+          description: Blokováním uživatele bude jejich účet nepoužitelný. Ve svém zdůvodnění můžete uvést veškerá pravidla pro způsob, jakým byste uvažovali o odblokování uživatele.
           justification: Odůvodnění
           title: Blokovat uživatele %{name}
       categories:
@@ -337,7 +344,7 @@ cs:
       dashboard:
         show:
           view_more_logs: Zobrazit další protokoly
-          welcome: Vítejte v administrátorském panelu Decidim.
+          welcome: Vítejte v Admin panelu.
       domain_whitelist:
         form:
           domain_too_short: Doména je příliš krátká
@@ -366,6 +373,13 @@ cs:
           values:
             'false': 'Ne'
             'true': 'Ano'
+        moderated_users:
+          reports_reason_eq:
+            label: Důvod hlášení
+            values:
+              does_not_belong: Nepatří
+              offensive: Urážlivý
+              spam: Nevyžádané
         moderations:
           reportable_type_string_eq:
             label: Typ
@@ -400,11 +414,18 @@ cs:
         search_label: Hledat
         search_placeholder:
           name_or_nickname_or_email_cont: Hledat %{collection} podle e-mailu, jména nebo přezdívky.
+          report_count_eq: Počet nahlášení
           reported_id_string_or_reported_content_cont: Hledat %{collection} podle nahlášeného Id nebo obsahu.
           title_cont: Hledat %{collection} podle názvu.
           user_name_or_user_email_cont: Hledat %{collection} podle jména nebo e-mailu.
+          user_name_or_user_nickname_or_user_email_cont: Hledat %{collection} podle e-mailu, jména nebo přezdívky.
         state_eq:
           label: Stav
+          values:
+            all: Vše
+            pending: Čekající
+            rejected: Odmítnuto
+            verified: Ověřeno
       forms:
         file_help:
           import:
@@ -450,13 +471,39 @@ cs:
           impersonate_existing_user: Spravovat účastníka "%{name}"
           impersonate_new_managed_user: Spravovat nového účastníka
       imports:
-        creators:
-          proposalcreator: Tvůrce návrhu
+        and: a
+        data_errors:
+          duplicate_headers:
+            detail: Zkontrolujte, zda soubor obsahuje požadované sloupce nebo záhlaví pouze jednou.
+            message:
+              one: Duplikovat sloupec %{columns}.
+              few: Duplikovat sloupce %{columns}.
+              many: Duplikovat sloupce %{columns}.
+              other: Duplikovat sloupce %{columns}.
+          invalid_indexes:
+            lines:
+              detail: Zkontrolujte, zda jsou tyto řádky správně formátovány a obsahují platné záznamy.
+              message:
+                one: Nalezena chyba v importním souboru na řádku %{indexes}.
+                few: Nalezena chyba v importním souboru na řádcách %{indexes}.
+                many: Nalezena chyba v importním souboru na řádcích %{indexes}.
+                other: Nalezeny chyby v importním souboru na řádcích %{indexes}.
+            records:
+              detail: Zkontrolujte, zda jsou tyto záznamy správně formátovány a obsahují platné záznamy.
+              message:
+                one: Nalezena chyba v importním souboru pro záznamy s pořadovým číslem %{indexes}.
+                few: Nalezeny chyby v importním souboru pro záznamy s pořadovými čísly %{indexes}.
+                many: Nalezeny chyby v importním souboru pro záznamy s pořadovými čísly %{indexes}.
+                other: Nalezeny chyby v importním souboru pro záznamy s pořadovými čísly %{indexes}.
+          missing_headers:
+            detail: Zkontrolujte, zda soubor obsahuje požadované sloupce.
+            message:
+              one: Chybí sloupec %{columns}.
+              few: Chybí sloupce %{columns}.
+              many: Chybí sloupce %{columns}.
+              other: Chybí sloupce %{columns}.
         error: Při importu došlo k chybě
-        help:
-          proposalcreator: Soubor musí mít názvy sloupců title/en a body/en (nebo jiné lokalizace, které dáváte. title/cs a body/cs). Podporovány jsou také sloupce pro scope/id a category/id.
-        import_from_file: Importovat ze souboru
-        invalid_lines: Nalezena chyba ve zdroji číslo %{invalid_lines}
+        example_error: Nelze vytvořit příklad pro daný typ
         new:
           accepted_mime_types:
             csv: csv
@@ -464,6 +511,8 @@ cs:
             xlsx: xlsx
           actions:
             back: Zpět
+          download_example: Stáhnout příklad
+          download_example_format: Příklad jako %{name}
           file_legend: Přidat importovaný soubor, který bude analyzován.
           import: Importovat
         notice: "%{number} %{resource_name} úspěšně importováno"
@@ -487,7 +536,7 @@ cs:
         areas: Oblasti
         configuration: Konfigurace
         dashboard: Ovládací panel
-        external_domain_whitelist: Seznam externích povolených domén
+        external_domain_whitelist: Povolené externí domény
         help_sections: Sekce nápovědy
         homepage: Domovská stránka
         impersonations: V zastoupení
@@ -750,6 +799,7 @@ cs:
         form:
           colors:
             colors_title: Organizační barvy
+            colors_warning_html: Varování! Změna těchto barev může narušit kontrasty přístupnosti. Můžete zkontrolovat kontrast výběru s <a href="%{link}">kontrolou kontrastu WebAIM Contrast Checker</a> nebo jinými podobnými nástroji.
             header_snippets_help: Toto pole použijte k přidání věcí do hlavičky HTML. Nejběžnějším používáním je integrace služeb třetích stran, které vyžadují nějaký extra JavaScript nebo CSS. Můžete také použít k přidání dalších metaznaček do HTML. Všimněte si, že to bude vykresleno pouze na veřejných stránkách, nikoliv v sekci admin.
           cta_button_path_help: 'Můžete přepsat, kde se na domovské stránce odkazuje tlačítko Výzvy k akci. Použijte zde částečné cesty, ne úplné adresy URL. Přijme písmena, čísla, pomlčky a lomítka a musí začínat písmenem. Tlačítko Výzvy k akci se na domovské stránce zobrazí mezi uvítacím textem a popisem. Příklad: %{url}'
           cta_button_text_help: Text tlačítka výzvy k akci můžete na domovské stránce přepsat pro každý dostupný jazyk ve vaší organizaci. Pokud není nastaveno, bude použita výchozí hodnota. Tlačítko Výzvy k akci se na domovské stránce zobrazí mezi uvítacím textem a popisem.
@@ -798,6 +848,16 @@ cs:
           explanation: 'Nahrajte soubor CSV. Musí mít dva sloupce s e-mailem v prvním sloupci souboru a jméno v posledním sloupci souboru (e-mail, jméno) uživatelů, které chcete přidat do participačního prostoru, bez záhlaví. Vyhněte se používání neplatných znaků jako `<>?%&^*#@()[]=+:;"{}\|` v uživatelském jméně.'
           title: Nahrajte Váš CSV soubor
           upload: Nahrát
+      reminders:
+        create:
+          error: Při vytváření připomenutí došlo k chybě.
+          success:
+            one: "%{count} uživatel bude upozorněn."
+            few: "%{count} uživatelé budou upozorněni."
+            many: "%{count} uživatelů bude upozorněno."
+            other: "%{count} uživatelů bude upozorněno."
+        new:
+          submit: Odeslat
       resource_permissions:
         edit:
           submit: Předložit
@@ -855,6 +915,7 @@ cs:
         gallery:
           add_images: Přidat obrázky
           delete_image: Odstranit obrázek
+          edit_images: Upravit obrázky
           gallery_legend: Přidat galerii obrázků (volitelné)
       static_page_topics:
         create:
@@ -915,7 +976,7 @@ cs:
         static_pages: Stránky
         statistics: Aktivita
         user_groups: Skupiny
-        users: Účastníci
+        users: Administrátoři
       user_group:
         csv_verify:
           invalid: Při čtení souboru CSV došlo k chybě.
@@ -928,13 +989,6 @@ cs:
           success: Skupina byla úspěšně ověřena
       user_groups:
         index:
-          filter:
-            all: Vše
-            pending: Čekající
-            rejected: Odmítnuto
-            verified: Ověřeno
-          filter_by: Filtrovat podle
-          search: Vyhledávání
           state:
             pending: čekající
             rejected: Odmítnuto
@@ -958,7 +1012,7 @@ cs:
           role: Role
         new:
           create: Pozvat
-          title: Pozvat účastníka jako administrátora
+          title: Pozvat nového administrátora
       users_statistics:
         users_count:
           admins: Administrátoři

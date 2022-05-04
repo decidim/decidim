@@ -6,20 +6,20 @@ module Decidim::Conferences
   describe Admin::UpdatePartner do
     subject { described_class.new(form, partner) }
 
+    let(:form_klass) { Admin::PartnerForm }
     let!(:conference) { create(:conference) }
     let(:partner) { create :partner, :main_promotor, conference: conference }
     let!(:current_user) { create :user, :confirmed, organization: conference.organization }
-    let(:logo) { Decidim::Dev.test_file("avatar.jpg", "image/jpeg") }
-    let(:form) do
-      double(
-        Admin::PartnerForm,
-        invalid?: invalid,
-        current_user: current_user,
-        full_name: "New name",
-        errors: ActiveModel::Errors.new(Admin::PartnerForm),
-        logo: logo,
-        remove_logo: false,
-        attributes: {
+    let(:logo) do
+      ActiveStorage::Blob.create_and_upload!(
+        io: File.open(Decidim::Dev.asset("avatar.jpg")),
+        filename: "avatar.jpeg",
+        content_type: "image/jpeg"
+      )
+    end
+    let(:form_params) do
+      {
+        conference_partner: {
           name: "New name",
           weight: 2,
           partner_type: "collaborator",
@@ -27,24 +27,33 @@ module Decidim::Conferences
           logo: logo,
           remove_logo: false
         }
+      }
+    end
+    let!(:form) do
+      form_klass.from_params(
+        form_params
+      ).with_context(
+        current_user: current_user,
+        current_organization: conference.organization
       )
     end
-    let(:invalid) { false }
 
     context "when the form is not valid" do
-      let(:invalid) { true }
+      context "when form is invalid" do
+        let(:form_params) { { conference_partner: { name: nil } } }
 
-      it "is not valid" do
-        expect { subject.call }.to broadcast(:invalid)
+        it "is not valid" do
+          expect { subject.call }.to broadcast(:invalid)
+        end
       end
 
       context "when image is invalid" do
-        let(:invalid) { false }
-
-        let(:logo) { Decidim::Dev.test_file("invalid.jpeg", "image/jpeg") }
-
-        before do
-          Decidim::Conferences::PartnerLogoUploader.enable_processing = true
+        let(:logo) do
+          ActiveStorage::Blob.create_and_upload!(
+            io: File.open(Decidim::Dev.asset("invalid.jpeg")),
+            filename: "invalid.jpeg",
+            content_type: "image/jpeg"
+          )
         end
 
         it "prevents uploading" do

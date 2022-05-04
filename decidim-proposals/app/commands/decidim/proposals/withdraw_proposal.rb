@@ -3,7 +3,7 @@
 module Decidim
   module Proposals
     # A command with all the business logic when a user withdraws a new proposal.
-    class WithdrawProposal < Rectify::Command
+    class WithdrawProposal < Decidim::Command
       # Public: Initializes the command.
       #
       # proposal     - The proposal to withdraw.

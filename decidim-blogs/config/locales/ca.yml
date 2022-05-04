@@ -59,6 +59,10 @@ ca:
       read_more: Llegeix més
     components:
       blogs:
+        actions:
+          create: Crear
+          destroy: Esborrar
+          update: Actualitzar
         name: Blog
         settings:
           global:

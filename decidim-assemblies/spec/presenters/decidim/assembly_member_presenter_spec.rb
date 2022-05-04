@@ -8,9 +8,10 @@ module Decidim
     let(:day_offset) { 0 }
     let(:today) { ::Time.zone.today }
     let(:birthday) { Time.zone.today - age.years + day_offset.days }
+    let(:non_user_avatar) { nil }
 
     let(:assembly_member) do
-      build(:assembly_member, full_name: "Full name", birthday: birthday)
+      build(:assembly_member, full_name: "Full name", birthday: birthday, non_user_avatar: non_user_avatar)
     end
 
     describe "name" do
@@ -108,6 +109,27 @@ module Decidim
         it "show the custom position value" do
           expect(subject).to eq("Custom position")
         end
+      end
+    end
+
+    describe "non_user_avatar_path" do
+      subject { described_class.new(assembly_member).non_user_avatar_path }
+
+      context "when no image is attached" do
+        it { is_expected.to include "default-avatar" }
+      end
+
+      context "when a image is attached" do
+        let(:non_user_avatar) do
+          ActiveStorage::Blob.create_and_upload!(
+            io: File.open(Decidim::Dev.asset("avatar.jpg")),
+            filename: "avatar.jpeg",
+            content_type: "image/jpeg"
+          )
+        end
+        let(:avatar_path) { Rails.application.routes.url_helpers.rails_blob_url(non_user_avatar, only_path: true) }
+
+        it { is_expected.to eq avatar_path }
       end
     end
   end

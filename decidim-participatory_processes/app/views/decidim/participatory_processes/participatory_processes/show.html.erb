@@ -1,5 +1,5 @@
 <% add_decidim_meta_tags({
-                           image_url: current_participatory_space.hero_image.url,
+                           image_url: current_participatory_space.attached_uploader(:hero_image).path,
                            description: translated_attribute(current_participatory_space.short_description),
                            url: participatory_process_url(current_participatory_space),
                            twitter_handler: current_organization.twitter_handler
@@ -27,13 +27,14 @@
   <div class="row">
     <div class="columns medium-7 mediumlarge-8">
       <div class="section">
+        <h2 class="show-for-sr"><%= t(".title") %></h2>
         <% if participatory_process_group.present? %>
           <%= render partial: "participatory_process_group" %>
         <% end %>
         <div class="lead">
-          <%= decidim_sanitize translated_attribute(current_participatory_space.short_description) %>
+          <%= decidim_sanitize_editor translated_attribute(current_participatory_space.short_description) %>
         </div>
-        <%= decidim_sanitize translated_attribute(current_participatory_space.description) %>
+        <%= decidim_sanitize_editor translated_attribute(current_participatory_space.description) %>
       </div>
       <%= attachments_for current_participatory_space %>
       <%= render_hook(:participatory_space_highlighted_elements) %>
@@ -143,7 +144,7 @@
   </div>
 
   <% if current_participatory_space.show_statistics? %>
-         <%= cell "decidim/statistics", stats.collection %>
+     <%= cell "decidim/statistics", stats.collection %>
   <% end %>
 
   <% if current_participatory_space.show_metrics? %>

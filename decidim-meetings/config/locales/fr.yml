@@ -23,6 +23,7 @@ fr:
         decidim_user_group_id: Groupe d'utilisateurs
         description: Description
         end_time: Date de fin
+        id: ID
         location: Lieu
         location_hints: Indicateurs d’emplacement
         online_meeting_url: URL de la rencontre
@@ -34,12 +35,17 @@ fr:
         registration_terms: Conditions d'inscription
         registration_url: URL d'inscription
         registrations_enabled: Inscriptions ouvertes
+        show_embedded_iframe: Montrer l'iframe intégrée pour cette URL
         start_time: Heure de début
         title: Titre
         transparent: Visible par les non-membres
         type_of_meeting: Type
     errors:
       models:
+        meeting:
+          attributes:
+            iframe_embed_type:
+              not_embeddable: Cette URL ne peut pas être intégrée dans la page de rencontre ou d'événement en direct
         meeting_agenda:
           attributes:
             base:
@@ -69,6 +75,34 @@ fr:
         other: Inscriptions
   decidim:
     admin:
+      filters:
+        meetings:
+          category_id_eq:
+            label: Catégorie
+          closed_at_present:
+            label: État
+            values:
+              'false': Ouvert
+              'true': Fermé
+          is_upcoming_true:
+            label: Date
+            values:
+              'false': Passées
+              'true': À venir
+          scope_id_eq:
+            label: Secteur
+          with_any_origin:
+            label: Origine
+            values:
+              official: Officiel
+              participants: Participants
+              user_group: Groupes d’utilisateurs
+          with_any_type:
+            label: Type de rencontre
+            values:
+              hybrid: Hybride
+              in_person: En présentiel
+              online: En ligne
       meeting_copies:
         create:
           error: Une erreur s'est produite lors de la duplication de cette rencontre.
@@ -80,6 +114,7 @@ fr:
     components:
       meetings:
         actions:
+          comment: Commenter
           join: Rejoindre
         name: Rencontres
         settings:
@@ -115,7 +150,7 @@ fr:
             email_subject: La rencontre "%{resource_title}" est terminée
             notification_title: La rencontre <a href="%{resource_path}">%{resource_title}</a> est terminée.
         meeting_created:
-          button_text: S'inscrire à la réunion
+          button_text: S'inscrire à la rencontre
           email_intro: La rencontre "%{resource_title}" a été ajoutée à "%{participatory_space_title}" que vous suivez.
           email_outro: Vous avez reçu cette notification parce que vous suivez "%{participatory_space_title}". Vous pouvez arrêter le suivi à partir du lien précédent.
           email_subject: Nouvelle rencontre ajoutée à %{participatory_space_title}
@@ -128,7 +163,7 @@ fr:
           email_subject: Les places réservées pour la rencontre "%{resource_title}" dépassent %{percentage}%
           notification_title: Les places réservées pour la rencontre <a href="%{resource_path}">%{resource_title}</a> dépassent %{percentage}%.
         meeting_updated:
-          email_intro: 'La rencontre "%{resource_title}" a été mise à jour. Vous pouvez accéder à la nouvelle version depuis sa page :'
+          email_intro: 'La rencontre "%{resource_title}" a été mise à jour. Vous pouvez accéder aux modifications sur la page de la rencontre :'
           email_outro: Vous avez reçu cette notification, car vous suivez la rencontre "%{resource_title}". Vous pouvez arrêter de la suivre à partir du lien précédent.
           email_subject: La rencontre "%{resource_title}" a été mise à jour
           notification_title: La rencontre <a href="%{resource_path}">%{resource_title}</a> a été mise à jour.
@@ -147,6 +182,9 @@ fr:
           email_outro: Vous avez reçu cette notification, car vous suivez la rencontre "%{resource_title}". Vous pouvez arrêter de la suivre à partir du lien précédent.
           email_subject: La rencontre "%{resource_title}" commencera dans moins de 48h.
           notification_title: La rencontre <a href="%{resource_path}">%{resource_title}</a> débutera dans moins de 48h.
+    forms:
+      meetings:
+        attendees_count_help_text: N’oubliez pas d’inclure le nombre total de participants à votre événement, que ce soit en présentiel, en ligne ou en hybride.
     gamification:
       badges:
         attended_meetings:
@@ -172,7 +210,8 @@ fr:
           proposals_count:
             one: 'La rencontre ne peut être supprimée car %{count} proposition y est rattachée:'
             other: 'La rencontre ne peut être supprimée car %{count} propositions y sont rattachées:'
-        new: Nouvelle réunion
+        manage_poll: Gérer le sondage
+        new: Nouvelle rencontre
         preview: Aperçu
         registrations: Inscriptions
         title: Actions
@@ -208,6 +247,7 @@ fr:
             invalid: Un problème est survenu lors de la mise à jour de cet ordre du jour
             success: Ordre du jour mis à jour avec succès
         exports:
+          answers: Réponses
           meeting_comments: Commentaires
           meetings: Rencontres
           registrations: Inscriptions
@@ -242,12 +282,16 @@ fr:
           edit:
             close: Clore
             title: Clore la rencontre
+        meeting_copies:
+          form:
+            select_a_meeting_type: Veuillez sélectionner un type de rencontre
         meetings:
           close:
             invalid: Il y a eu un problème au moment de clore cette rencontre
             success: Rencontre close avec succès
           create:
             invalid: Il y a eu un problème lors de la création de cette rencontre
+            success: Rencontre créée avec succès. Notez que celle-ci n'est pas encore publiée, vous devez la publier manuellement.
           destroy:
             invalid:
               proposals_count:
@@ -259,20 +303,23 @@ fr:
             update: Mettre à jour
           form:
             address_help: 'L''adresse entrée est utilisée par le géocodage pour trouver l''emplacement et afficher la réunion sur la carte. Format accepté : [rue] [code postal] [ville]'
-            available_slots_help: Laisser à 0 si le nombre de places disponibles est illimité
             disclaimer: 'Avertissement : En utilisant un système d''enregistrement externe, sachez que les organisateurs de %{organization} ne sont pas responsables des données fournies par les utilisateurs au service externe.'
             location_help: 'Le lieu indique le nom de l''endroit qui accueille la réunion (ex : Maison de la citoyenneté)'
             location_hints_help: 'Indices de localisation : informations complémentaires. Exemple: l''étage du bâtiment s''il s''agit d''une réunion en personne, ou le mot de passe de la réunion s''il s''agit d''une réunion en ligne avec accès restreint.'
             online_meeting_url_help: 'Lien : permet aux participants de se connecter directement à votre réunion'
-            registration_email_help: Ce texte apparaîtra au milieu de l'e-mail de confirmation d'inscription, juste après le code d'inscription.
             registration_url_help: 'Lien : permet aux participants de partir sur le service externe que vous utilisez pour les inscriptions'
             select_a_meeting_type: Veuillez sélectionner un type de rencontre
             select_a_registration_type: Veuillez sélectionner un type d'inscription
+            select_an_iframe_access_level: Veuillez sélectionner un niveau d'accès iframe
+            show_embedded_iframe_help: Seuls quelques services permettent d'intégrer des rencontres ou des événements en direct (YouTube, Twitch et Jitsi)
           index:
             title: Rencontres
           new:
             create: Créer
             title: Créer une rencontre
+          publish:
+            invalid: Une erreur s'est produite lors de la publication de la rencontre
+            success: Rencontre publiée avec succès
           service:
             description: Description
             down: Vers le bas
@@ -283,9 +330,18 @@ fr:
           services:
             add_service: Ajouter un service
             services: Services
+          unpublish:
+            invalid: Une erreur s'est produite lors de la dépublication de la rencontre
+            success: Rencontre dépubliée avec succès
           update:
             invalid: Il y a eu un problème lors de la mise à jour de cette rencontre
             success: Rencontre mise à jour avec succès
+        meetings_poll:
+          form:
+            title: Modifier le questionnaire de sondage pour %{questionnaire_for}
+          update:
+            invalid: Une erreur s'est produite lors de la mise à jour du sondage de la rencontre
+            success: Sondage de rencontre mis à jour avec succès
         models:
           meeting:
             name: Rencontre
@@ -298,6 +354,7 @@ fr:
             available_slots_help: Laisser à 0 si le nombre de places disponibles est illimité.
             invites: Invitations
             recommendation_message: Pour des raisons de confidentialité, nous vous recommandons de supprimer ce formulaire d'inscription lorsque vous n'en avez plus besoin. Par défaut, il le sera 3 mois après la fin de la réunion.
+            registration_email_help: Ce texte apparaîtra au centre de l'e-mail de confirmation d'inscription, juste après le code d'inscription.
             registration_form: Formulaire d'inscription
             registrations_count:
               one: Il y a eu %{count} inscription.
@@ -325,29 +382,45 @@ fr:
           value_types:
             organizer_presenter:
               not_found: 'L''organisateur n''a pas été trouvé dans la base de données (ID: %{id})'
+      application_helper:
+        filter_category_values:
+          all: Tout
+        filter_meeting_space_values:
+          all: Tout
+        filter_scope_values:
+          all: Tout
       calendar_modal:
         calendar_url: URL du calendrier
         close_window: Fermer la fenêtre
         export_calendar: Calendrier d'exportation
       conference_venues: Salles de conférence
       content_blocks:
-        upcoming_events:
-          name: Évènements à venir
-          upcoming_events: Rencontres à venir
-          view_all_events: Voir tout
+        upcoming_meetings:
+          name: Rencontres à venir
+          upcoming_meetings: Rencontres à venir
+          view_all_meetings: Voir tout
       directory:
         meetings:
           index:
-            all: Tout
-            date: Date
             meetings: Rencontres
-            past: Passées
-            search: Rechercher
             space_type: Espace participatif
-            upcoming: À venir
+      iframe_access_level:
+        all: Tous les visiteurs
+        registered: Participants inscrits à cette rencontre
+        signed_in: Les participants inscrits uniquement
+      iframe_embed_type:
+        embed_in_meeting_page: Intégrer à la page de la rencontre
+        none: Aucun
+        open_in_live_event_page: Ouvrir dans la page de l'événement en direct (avec sondages facultatifs)
+        open_in_new_tab: Ouvrir le lien dans un nouvel onglet
       last_activity:
-        meeting_updated_at_html: "<span>Débat mis à jour à %{link}</span>"
-        new_meeting_at_html: "<span>Nouvelle réunion à %{link}</span>"
+        meeting_updated_at_html: "<span>Rencontre mise à jour à %{link}</span>"
+        new_meeting_at_html: "<span>Nouvelle rencontre dans %{link}</span>"
+      layouts:
+        live_event:
+          administrate: Administrer
+          close: fermer
+          questions: Questions
       mailer:
         invite_join_meeting_mailer:
           invite:
@@ -363,6 +436,13 @@ fr:
           close: Clore la rencontre
           title: Clore la rencontre
       meetings:
+        calendar_modal:
+          add_to_calendar: Ajouter au calendrier
+          apple: Ajouter au calendrier Apple
+          close_window: Fermer la fenêtre
+          full_details_html: Pour plus de détails, cliquez sur %{link}
+          google: Ajouter au calendrier Google
+          outlook: Ajouter au calendrier Outlook
         count:
           meetings_count:
             one: "%{count} rencontre"
@@ -387,8 +467,8 @@ fr:
           origin: Origine
           origin_values:
             all: Toutes
-            citizens: Citoyens
             official: Officiel
+            participants: Participants
             user_groups: Groupes
           scope: Secteur
           search: Rechercher
@@ -415,8 +495,14 @@ fr:
           select_a_category: Veuillez sélectionner une catégorie
           select_a_meeting_type: Veuillez sélectionner un type de rencontre
           select_a_registration_type: Veuillez sélectionner un type d'inscription
+          select_an_iframe_access_level: Veuillez sélectionner un niveau d'accès iframe
+          show_embedded_iframe_help: Seuls quelques services permettent d'intégrer des rencontres ou des événements en direct (YouTube, Twitch et Jitsi)
         index:
+          click_here: Voir toutes les rencontres
           new_meeting: Nouvelle rencontre
+          see_all: Voir toutes les rencontres
+          see_all_withdrawn: Voir toutes les rencontres annulées
+          text_banner: Vous consultez la liste des rencontres annulées par leurs auteurs. %{go_back_link}.
         meeting_minutes:
           related_information: Informations liées
         meetings:
@@ -426,8 +512,6 @@ fr:
           back: Précédent
           create: Créer
           title: Créez votre rencontre
-        online_meeting_link:
-          link_available_soon: Lien bientôt disponible
         registration_confirm:
           cancel: Annuler
           confirm: Confirmer
@@ -437,12 +521,17 @@ fr:
           close_meeting: Clore la rencontre
           contributions: Décompte des contributions
           date: Date
+          edit_close_meeting: Modifier le compte-rendu de la rencontre
           edit_meeting: Modifier la rencontre
           going: Vous vous êtes inscrit à cette rencontre
           join: Participer à la rencontre
           leave: Annuler votre inscription
           leave_confirmation: Êtes-vous sûr de vouloir annuler votre inscription à cette rencontre ?
+          link_available_soon: Lien bientôt disponible
+          link_closed: Le lien pour rejoindre la réunion sera disponible quelques minutes avant le début de la réunion
+          live_event: Cette réunion se déroule en ce moment
           meeting_minutes: Comptes rendus des rencontres
+          micro_camera_permissions_warning: Lorsque vous cliquez sur le bouton ci-dessous, on vous demandera des autorisations de microphone et/ou de caméra, et vous rejoindrez la vidéoconférence
           no_slots_available: Il ne reste plus de place
           organizations: Organisations participantes
           registration_code_help_text: Votre code d'inscription
@@ -453,6 +542,10 @@ fr:
             one: "Il reste %{count} place"
             other: "Il reste %{count} places"
           view: Voir
+          visit_finished: Consulter l’historique des rencontres
+          withdraw_btn_hint: Vous pouvez annuler votre rencontre si vous changez d'avis. La rencontre n'est pas supprimée, elle apparaîtra dans la liste des rencontres retirées.
+          withdraw_confirmation_html: Êtes-vous sûr de vouloir annuler cette rencontre ?<br><br><strong>Cette action ne peut pas être annulée !</strong>
+          withdraw_meeting: Annuler la rencontre
         update:
           invalid: Une erreur s'est produite lors de la mise à jour de la rencontre.
           success: La rencontre a été mise à jour avec succès.
@@ -473,10 +566,31 @@ fr:
           fields:
             closed: Fermée
             end_time: Date de fin
+            id: Id
             map: Carte
             official_meeting: Rencontre officielle
             start_time: Date de début
             title: Titre
+      polls:
+        questions:
+          closed_question:
+            question_results: Résultats du sondage
+          index:
+            empty_questions: Tout au long de cette rencontre, certaines questions seront envoyées et vous pourrez y répondre. Elles seront affichées ici.
+          index_admin:
+            admin_dashboard: Administration du sondage
+            edit: Modifier le sondage dans le panneau d'administration (attention, une fois qu'une question a commencé à recevoir des réponses, vous ne pouvez plus modifier le sondage)
+            question: Question
+            received_answer: réponse reçue
+            received_answers: réponses reçues
+            results: Résultats
+            send: Publier
+            sent: Publiée
+          published_question:
+            max_choices_alert: Vous avez sélectionné trop de choix
+            question: Question
+            question_replied: Réponse envoyée
+            reply_question: Répondre
       public_participants_list:
         attending_participants: Participants présents
         hidden_participants_count:
@@ -509,8 +623,12 @@ fr:
       types:
         private_meeting: Rencontre privée
         transparent: Visible par les non-membres
+        withdraw: Retirée
       versions:
         back_to_resource: Revenir à la rencontre
+      withdraw:
+        error: Une erreur s'est produite lors de l'annulation de la rencontre
+        success: La réunion a été annulée avec succès
     metrics:
       meetings:
         description: Nombre de rencontres créées
@@ -530,6 +648,8 @@ fr:
       proposals_from_meeting:
         meeting_proposal: 'Propositions créées lors de cette rencontre :'
         proposal_meeting: 'Rencontres associées :'
+    statistics:
+      meetings_count: Rencontres
   devise:
     mailer:
       join_meeting:

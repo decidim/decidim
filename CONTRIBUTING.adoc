@@ -1,10 +1,12 @@
 = How to contribute to Decidim
 
-We're really glad you're reading this, because we need volunteer developers to help this project come to fruition.
-
-If you haven't already, come find us in https://gitter.im/decidim/decidim[Gitter]. We want you working on things you're excited about.
+We're really glad you're reading this, because we need volunteer contributors to help this project come to fruition.
 
 Please note that by making a Pull Request in this repository you're agreeing with https://decidim.org/contract[Decidim's Social Contract].
+
+== Do you want to say hello to us?
+
+Come find us at https://matrix.to/#/#decidim:matrix.org[our Matrix.org space]. We have chat rooms for developers, designers and translators.
 
 == Did you find a bug?
 
@@ -21,7 +23,7 @@ Be sure to include a *title and clear description*, as much relevant information
 Include the relevant issue number if applicable.
 * Check our https://docs.decidim.org/en/develop/guide/[development_guide].
 * When the PR includes a breaking change or includes something that requires manual intervention when deploying, it's necessary to add it on the changelog upgrade notes.
-See https://docs.decidim.org/en/develop/guide_changelog/[rules for the changelog page in docs].
+See https://docs.decidim.org/en/develop/guide_conventions/#_changelog[rules for the changelog page in docs].
 
 == Do you intend to add a new feature or change an existing one?
 
@@ -37,7 +39,7 @@ You can read in detail about this process in https://docs.decidim.org/en/governa
 
 == Do you have questions about the source code?
 
-* Ask any question about how to use Decidim in https://gitter.im/decidim/decidim[Gitter].
+* Ask any question about how to use Decidim in https://matrix.to/#/#decidimdevs:matrix.org[our Decidim Devs Matrix chat room].
 
 == Do you want to contribute to Decidim documentation?
 

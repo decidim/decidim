@@ -116,7 +116,7 @@ ca:
           success: S'ha actualitzat l'aplicació correctament.
       organizations:
         advanced_settings:
-          hide: Amaga la configuració avançada
+          hide: Amagar la configuració avançada
           show: Mostra la configuració avançada
         create:
           error: S'ha produït un error en crear una nova organització.

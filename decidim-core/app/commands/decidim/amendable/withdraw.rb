@@ -3,7 +3,7 @@
 module Decidim
   module Amendable
     # A command with all the business logic to withdraw an amendment.
-    class Withdraw < Rectify::Command
+    class Withdraw < Decidim::Command
       # Public: Initializes the command.
       #
       # amendment     - The amendment to withdraw.

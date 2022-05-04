@@ -4,7 +4,7 @@ module Decidim
   module Conferences
     module Admin
       # A class used to find the ConferenceSpeakers's by the search.
-      class ConferenceSpeakers < Rectify::Query
+      class ConferenceSpeakers < Decidim::Query
         # Syntactic sugar to initialize the class and return the queried objects.
         #
         # conference_speakers - the initial ConferenceSpeaker relation that needs to be filtered.

@@ -27,9 +27,57 @@ module Decidim
         present(model).title
       end
 
+      def description
+        present(model).description(strip_tags: true).truncate(120, separator: /\s/)
+      end
+
+      def badge
+        render if has_badge?
+      end
+
+      def has_badge?
+        withdrawn?
+      end
+
+      def state_classes
+        ["alert"]
+      end
+
       delegate :online_meeting?, to: :model
 
       private
+
+      def cache_hash
+        hash = []
+        hash << I18n.locale.to_s
+        hash << model.cache_key_with_version
+        hash << Digest::MD5.hexdigest(model.component.cache_key_with_version)
+        hash << Digest::MD5.hexdigest(resource_image_path) if resource_image_path
+        hash << model.comments_count
+        hash << model.follows_count
+        hash << render_space? ? 1 : 0
+
+        if current_user
+          hash << current_user.cache_key_with_version
+          hash << current_user.follows?(model) ? 1 : 0
+        end
+        hash << Digest::MD5.hexdigest(model.author.cache_key_with_version)
+        hash << (model.must_render_translation?(current_organization) ? 1 : 0) if model.respond_to?(:must_render_translation?)
+
+        hash.join(Decidim.cache_key_separator)
+      end
+
+      def has_state?
+        withdrawn?
+      end
+
+      def resource_image_path
+        model.photo&.url
+      end
+
+      def has_image?
+        true
+      end
 
       def spans_multiple_dates?
         start_date != end_date

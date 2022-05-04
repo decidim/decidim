@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 shared_examples "manage attachments examples" do
-  context "when processing attachments", processing_uploads_for: Decidim::AttachmentUploader do
+  context "when processing attachments" do
     let!(:attachment) { create(:attachment, attached_to: attached_to, attachment_collection: attachment_collection) }
 
     before do
@@ -48,8 +48,11 @@ shared_examples "manage attachments examples" do
           es: "Este documento contiene información importante",
           ca: "Aquest document conté informació important"
         )
+      end
 
-        attach_file :attachment_file, Decidim::Dev.asset("Exampledocument.pdf")
+      dynamically_attach_file(:attachment_file, Decidim::Dev.asset("Exampledocument.pdf"))
+
+      within ".new_attachment" do
         find("*[type=submit]").click
       end
 
@@ -81,7 +84,11 @@ shared_examples "manage attachments examples" do
         )
 
         select translated(attachment_collection.name, locale: :en), from: "attachment_attachment_collection_id"
-        attach_file :attachment_file, Decidim::Dev.asset("Exampledocument.pdf")
+      end
+
+      dynamically_attach_file(:attachment_file, Decidim::Dev.asset("Exampledocument.pdf"))
+
+      within ".new_attachment" do
         find("*[type=submit]").click
       end
 

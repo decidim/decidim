@@ -3,7 +3,7 @@
 module Decidim
   module Assemblies
     # This query filters assemblies that can be assigned as parents for an assembly.
-    class ParentAssembliesForSelect < Rectify::Query
+    class ParentAssembliesForSelect < Decidim::Query
       # Syntactic sugar to initialize the class and return the queried objects.
       def self.for(organization, assembly)
         new(organization, assembly).query

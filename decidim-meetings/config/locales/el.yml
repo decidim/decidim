@@ -294,20 +294,13 @@ el:
         export_calendar: Εξαγωγή ημερολογίου
       conference_venues: Χώροι διασκέψεων
       content_blocks:
-        upcoming_events:
-          name: Προσεχείς εκδηλώσεις
-          upcoming_events: Προσεχείς συσκέψεις
-          view_all_events: Προβολή όλων
+        upcoming_meetings:
+          view_all_meetings: Προβολή όλων
       directory:
         meetings:
           index:
-            all: Όλα
-            date: Ημερομηνία
             meetings: Συσκέψεις
-            past: Παρελθόν
-            search: Αναζήτηση
             space_type: Χώρος συμμετοχής
-            upcoming: Προσεχείς
       last_activity:
         new_meeting_at_html: "<span>Νέα σύσκεψη σε %{link}</span>"
       mailer:

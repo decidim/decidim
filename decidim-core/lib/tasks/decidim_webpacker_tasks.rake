@@ -1,13 +1,13 @@
 # frozen_string_literal: true
 
+require "decidim/gem_manager"
+
 namespace :decidim do
   namespace :webpacker do
     desc "Installs Decidim webpacker files in Rails instance application"
     task install: :environment do
       raise "Decidim gem is not installed" if decidim_path.nil?
 
-      # Remove yarn.lock (because bin/rails webpacker:install has been executed)
-      remove_file_from_application "yarn.lock"
       # Removing bin/yarn makes assets:precompile task to don't execute `yarn install`
       remove_file_from_application "bin/yarn"
       # Babel config
@@ -18,9 +18,6 @@ namespace :decidim do
       copy_file_to_application "decidim-core/lib/decidim/webpacker/webpacker.yml", "config/webpacker.yml"
       # Webpack JS config files
       copy_folder_to_application "decidim-core/lib/decidim/webpacker/webpack", "config"
-      # Modify the webpack binstubs
-      add_binstub_load_path "bin/webpack"
-      add_binstub_load_path "bin/webpack-dev-server"
 
       # Install JS dependencies
       install_decidim_npm
@@ -31,14 +28,13 @@ namespace :decidim do
         @rails/actioncable
         @rails/activestorage
         @rails/ujs
-        @rails/webpacker
         turbolinks
-        webpack
-        webpack-cli
-        @webpack-cli/serve
-        webpack-dev-server
       )
       system! "npm uninstall #{webpacker_packages.join(" ")}"
+
+      # Modify the webpack binstubs
+      add_binstub_load_path "bin/webpack"
+      add_binstub_load_path "bin/webpack-dev-server"
 
       # Add the Browserslist configuration to the project
       add_decidim_browserslist_configuration
@@ -53,12 +49,8 @@ namespace :decidim do
     end
 
     def install_decidim_npm
-      decidim_npm_packages.each do |type, package|
-        if type == :dev
-          system! "npm i -D #{package}"
-        else
-          system! "npm i #{package}"
-        end
+      decidim_npm_packages.each do |type, packages|
+        system! "npm i --save-#{type} #{packages.join(" ")}"
       end
     end
 
@@ -71,32 +63,55 @@ namespace :decidim do
     end
 
     def decidim_npm_packages
+      gem_path = unreleased_gem_path
+
+      if gem_path
+        package_spec = "./packages/%s"
+
+        # The packages folder needs to be copied to the application folder
+        # because the linked dependencies are not installed when packages
+        # are installed using file references outside the application root
+        # where the `package.json` is located at. For more information, see:
+        # https://github.com/npm/cli/issues/2339
+        FileUtils.rm_rf(rails_app_path.join("packages"))
+        FileUtils.cp_r(gem_path.join("packages"), rails_app_path)
+      else
+        package_spec = "@decidim/%s@~#{Decidim::GemManager.semver_friendly_version(decidim_gemspec.version.to_s)}"
+      end
+
+      local_npm_dependencies.transform_values { |names| names.map { |name| format(package_spec, name) } }
+    end
+
+    def unreleased_gem_path
       if decidim_gemspec.source.is_a?(Bundler::Source::Rubygems)
-        if released_version?
-          return {
-            dev: "@decidim/dev@~#{decidim_gemspec.version}",
-            prod: "@decidim/all@~#{decidim_gemspec.version}"
-          }
-        else
-          gem_path = Pathname(decidim_gemspec.full_gem_path)
-        end
+        return if released_version?
+
+        gem_path = Pathname(decidim_gemspec.full_gem_path)
       else
         gem_path = decidim_gemspec.source.path
         gem_path = Pathname(ENV["BUNDLE_GEMFILE"]).dirname.join(gem_path) if gem_path.relative?
       end
 
-      # The packages folder needs to be copied to the application folder
-      # because the linked dependencies are not installed when packages
-      # are installed using file references outside the application root
-      # where the `package.json` is located at. For more information, see:
-      # https://github.com/npm/cli/issues/2339
-      FileUtils.rm_rf(rails_app_path.join("packages"))
-      FileUtils.cp_r(gem_path.join("packages"), rails_app_path)
+      gem_path
+    end
 
-      {
-        dev: "./packages/dev",
-        prod: "./packages/all"
-      }
+    def local_npm_dependencies
+      @local_npm_dependencies ||= begin
+        package_json = JSON.parse(File.read(decidim_path.join("package.json")))
+
+        {
+          prod: local_npm_dependencies_list(package_json["dependencies"]),
+          dev: local_npm_dependencies_list(package_json["devDependencies"])
+        }.freeze
+      end
+    end
+
+    def local_npm_dependencies_list(deps)
+      return [] unless deps
+
+      deps.values
+          .select { |ref| ref.starts_with?("file:packages/") }
+          .map { |ref| ref.delete_prefix("file:packages/") }
     end
 
     def decidim_path
@@ -149,8 +164,8 @@ namespace :decidim do
       File.write(file, contents)
     end
 
-    def system!(*args)
-      system(*args) || abort("\n== Command #{args} failed ==")
+    def system!(command)
+      system("cd #{rails_app_path} && #{command}") || abort("\n== Command #{command} failed ==")
     end
   end
 end
@@ -164,3 +179,10 @@ if (config_path = Decidim::Webpacker.configuration.configuration_file)
     config_path: Pathname.new(config_path)
   )
 end
+
+# Remove the yarn install prerequisity from assets:precompile
+Rake::Task["assets:precompile"].prerequisites.delete("webpacker:yarn_install")
+
+# Add gem overrides path to the beginning in order to override rake tasks
+# Needed because of a bug in Rails 6.0 (see the overridden task for details)
+$LOAD_PATH.unshift "#{Gem.loaded_specs["decidim-core"].full_gem_path}/lib/gem_overrides"

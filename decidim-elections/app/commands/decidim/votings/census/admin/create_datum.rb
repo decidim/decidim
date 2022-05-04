@@ -6,7 +6,7 @@ module Decidim
       module Admin
         # A command with the business logic to create the datum for a
         # dataset row.
-        class CreateDatum < Rectify::Command
+        class CreateDatum < Decidim::Command
           def initialize(form, dataset)
             @form = form
             @dataset = dataset

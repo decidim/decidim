@@ -47,6 +47,14 @@ module Decidim
       field :min_votes, GraphQL::Types::Int, "The minimum number of votes in this question", null: true
       field :response_groups_count, GraphQL::Types::Int, "The number of group responses for this question", null: true
       field :instructions, Decidim::Core::TranslatedFieldType, "Instructions for this question", null: true
+
+      def banner_image
+        object.attached_uploader(:banner_image).path
+      end
+
+      def hero_image
+        object.attached_uploader(:hero_image).path
+      end
     end
   end
 end

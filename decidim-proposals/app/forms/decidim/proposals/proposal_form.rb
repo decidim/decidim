@@ -6,6 +6,7 @@ module Decidim
     class ProposalForm < Decidim::Proposals::ProposalWizardCreateStepForm
       include Decidim::TranslatableAttributes
       include Decidim::AttachmentAttributes
+      include Decidim::HasUploadValidations
 
       mimic :proposal
 
@@ -41,6 +42,12 @@ module Decidim
         self.scope_id = model.scope.id if model.scope
 
         self.has_address = true if model.address.present?
+
+        # Proposals have the "photos" field reserved for the proposal card image
+        # so we don't want to show all photos there. Instead, only show the
+        # first photo.
+        self.photos = [model.photo].compact.select { |p| p.weight.zero? }
+        self.documents = model.attachments - photos
       end
 
       # Finds the Category from the category_id.
@@ -54,14 +61,14 @@ module Decidim
       #
       # Returns a Decidim::Scope
       def scope
-        @scope ||= @scope_id ? current_component.scopes.find_by(id: @scope_id) : current_component.scope
+        @scope ||= @attributes["scope_id"].value ? current_component.scopes.find_by(id: @attributes["scope_id"].value) : current_component.scope
       end
 
       # Scope identifier
       #
       # Returns the scope identifier related to the proposal
       def scope_id
-        @scope_id || scope&.id
+        super || scope&.id
       end
 
       def geocoding_enabled?
@@ -89,7 +96,7 @@ module Decidim
       end
 
       def suggested_hashtags
-        downcased_suggested_hashtags = Array(@suggested_hashtags&.map(&:downcase)).to_set
+        downcased_suggested_hashtags = super.map(&:downcase).to_set
         component_suggested_hashtags.select { |hashtag| downcased_suggested_hashtags.member?(hashtag.downcase) }
       end
 

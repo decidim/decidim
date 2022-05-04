@@ -3,7 +3,10 @@
 // @example
 //     tan(0.5236) // 0.57735
 //     tan(30deg)  // 0.57735
-@function tan ($x) {
-    $x: unitless-rad($x);
-    @return sin($x) / cos($x);
+@use "sass:math";
+
+@function tan ($x){
+  $x: unitless-rad($x);
+
+  @return math.div(sin($x), cos($x));
 }

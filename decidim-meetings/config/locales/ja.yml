@@ -10,7 +10,7 @@ ja:
         attending_organizations: 参加した組織一覧
         audio_url: 音声URL
         closing_report: 議事録
-        closing_visible: 非表示にする
+        closing_visible: 表示する
         contributions_count: 貢献数
         proposal_ids: ミーティングで作成された提案
         video_url: 動画URL
@@ -23,6 +23,7 @@ ja:
         decidim_user_group_id: ユーザーグループ
         description: 説明
         end_time: 終了時刻
+        id: ID
         location: 場所
         location_hints: 位置情報のヒント
         online_meeting_url: オンラインミーティングURL
@@ -34,12 +35,17 @@ ja:
         registration_terms: 登録条件
         registration_url: 登録URL
         registrations_enabled: 登録が有効
+        show_embedded_iframe: この URL の埋め込まれた iframe を表示
         start_time: 開始時刻
         title: タイトル
         transparent: 透明度
         type_of_meeting: 種別
     errors:
       models:
+        meeting:
+          attributes:
+            iframe_embed_type:
+              not_embeddable: このURLはミーティングまたはライブイベントページに埋め込むことができません
         meeting_agenda:
           attributes:
             base:
@@ -66,6 +72,34 @@ ja:
         other: 登録
   decidim:
     admin:
+      filters:
+        meetings:
+          category_id_eq:
+            label: カテゴリ
+          closed_at_present:
+            label: 状態
+            values:
+              'false': 開く
+              'true': 終了済
+          is_upcoming_true:
+            label: 日付
+            values:
+              'false': 過去
+              'true': 近日公開
+          scope_id_eq:
+            label: スコープ
+          with_any_origin:
+            label: オリジン
+            values:
+              official: 公式
+              participants: 参加者
+              user_group: ユーザーグループ
+          with_any_type:
+            label: ミーティングの種類
+            values:
+              hybrid: ハイブリッド
+              in_person: 対面
+              online: オンライン
       meeting_copies:
         create:
           error: このミーティングを複製する際に問題が発生しました。
@@ -77,6 +111,7 @@ ja:
     components:
       meetings:
         actions:
+          comment: コメント
           join: 参加する
         name: ミーティング
         settings:
@@ -144,6 +179,9 @@ ja:
           email_outro: '「%{resource_title}」ミーティングをフォローしているため、この通知を受け取りました．前のリンクからフォローを解除することができます．'
           email_subject: '"%{resource_title}" のミーティングは48時間以内に開始されます．'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> のミーティングは48時間以内に開始されます．
+    forms:
+      meetings:
+        attendees_count_help_text: イベントに参加者の合計数を含めることを忘れないでください。 対面、ハイブリッド、オンラインに関わらず、何人が関わっているかを知ることが重要です。
     gamification:
       badges:
         attended_meetings:
@@ -223,7 +261,7 @@ ja:
             existing_user: 既存の参加者
             invite: 招待
             invite_explanation: 参加者は、ミーティングや組織にも招待されます。
-            non_user: 非既存の参加者
+            non_user: 非参加者
             select_user: 参加者を選択
           index:
             filter:
@@ -240,6 +278,9 @@ ja:
           edit:
             close: 閉じる
             title: ミーティングを閉じる
+        meeting_copies:
+          form:
+            select_a_meeting_type: ミーティング種別を選択してください
         meetings:
           close:
             invalid: このミーティングを終了する際に問題が発生しました
@@ -257,15 +298,15 @@ ja:
             update: 更新
           form:
             address_help: 'アドレス: ジオコーダーが場所を見つけるために使用'
-            available_slots_help: 無制限の場合は0のままにしてください
             disclaimer: '免責事項: 外部登録システムを使用する場合、 %{organization} の主催者は、ユーザーが外部サービスに提供したデータについて責任を負いません。'
             location_help: '場所: ユーザーにメッセージが表示されます。'
             location_hints_help: '位置情報のヒント：追加情報。 例: 対面ミーティングでの建物のフロア、またはアクセス制限のあるオンラインミーティングでのミーティングパスワード。'
             online_meeting_url_help: 'リンク: 参加者があなたのミーティングに直接接続できるようにします'
-            registration_email_help: このテキストは登録確認メールの途中に表示されます。場所は登録コードの直後になります。
             registration_url_help: 'リンク: 参加者が登録に使用している外部サービスにアクセスできるようにします'
             select_a_meeting_type: ミーティング種別を選択してください
             select_a_registration_type: 登録種別を選択してください
+            select_an_iframe_access_level: Iframeアクセスレベルを選択してください
+            show_embedded_iframe_help: ミーティングやライブイベント( YouTube、Twitch、Jitsi) に埋め込むことができるサービスは限られたもののみです。
           index:
             title: ミーティング
           new:
@@ -308,6 +349,7 @@ ja:
             available_slots_help: 無制限のスロットがある場合は0のままにしてください。
             invites: 招待
             recommendation_message: プライバシー上の理由から、不要になったときにこの碑文フォームを削除することをお勧めします。 デフォルトでは、ミーティングが終了してから3ヶ月です。
+            registration_email_help: このテキストは登録確認メールの途中に表示されます。場所は登録コードの直後になります。
             registration_form: 登録フォーム
             registrations_count:
               other: '%{count} 件の登録がありました。'
@@ -334,26 +376,37 @@ ja:
           value_types:
             organizer_presenter:
               not_found: '主催者がデータベース上に見つかりませんでした (ID: %{id})'
+      application_helper:
+        filter_category_values:
+          all: すべて
+        filter_meeting_space_values:
+          all: すべて
+        filter_scope_values:
+          all: すべて
       calendar_modal:
         calendar_url: カレンダー URL
         close_window: ウィンドウを閉じる
         export_calendar: カレンダーをエクスポート
-      conference_venues: ミーティング会場
+      conference_venues: カンファレンス会場
       content_blocks:
-        upcoming_events:
-          name: 今後の予定
-          upcoming_events: 今後のミーティング
-          view_all_events: すべて表示
+        upcoming_meetings:
+          name: これからのミーティング
+          upcoming_meetings: これからのミーティング
+          view_all_meetings: すべて表示
       directory:
         meetings:
           index:
-            all: すべて
-            date: 日付
             meetings: ミーティング
-            past: 過去
-            search: 検索
-            space_type: 参加者のスペース
-            upcoming: 近日公開
+            space_type: 参加型スペース
+      iframe_access_level:
+        all: すべての訪問者
+        registered: このミーティングに参加者を登録しました
+        signed_in: ログイン済みの参加者のみ
+      iframe_embed_type:
+        embed_in_meeting_page: ミーティングページに埋め込む
+        none: なし
+        open_in_live_event_page: ライブイベントページで開く (オプションの投票付き)
+        open_in_new_tab: URLを新しいタブで開く
       last_activity:
         meeting_updated_at_html: "<span>ミーティングが %{link} に更新されました</span>"
         new_meeting_at_html: "<span> %{link}に新しいミーティング</span>"
@@ -407,8 +460,8 @@ ja:
           origin: 起案者：
           origin_values:
             all: すべて
-            citizens: 一般参加者
             official: 事務局
+            participants: 参加者
             user_groups: グループ
           scope: スコープ
           search: 検索
@@ -435,8 +488,14 @@ ja:
           select_a_category: カテゴリを選択してください
           select_a_meeting_type: ミーティング種別を選択してください
           select_a_registration_type: 登録種別を選択してください
+          select_an_iframe_access_level: iframeアクセスレベルを選択してください
+          show_embedded_iframe_help: ミーティングやライブイベント（YouTube、Twitch、Jitsi）に埋め込むことができるサービスは限られたもののみです。
         index:
+          click_here: すべてのミーティングを見る
           new_meeting: 新しいミーティング
+          see_all: すべてのミーティングを見る
+          see_all_withdrawn: 撤回されたすべてのミーティングを見る
+          text_banner: 作成者が取り消したミーティングの一覧を表示しています． %{go_back_link}
         meeting_minutes:
           related_information: 関連情報
         meetings:
@@ -446,9 +505,6 @@ ja:
           back: 戻る
           create: 作成
           title: ミーティングを作成
-        online_meeting_link:
-          join: ミーティングに参加する
-          live_event: このミーティングは現在開催中です
         registration_confirm:
           cancel: キャンセル
           confirm: 確認する
@@ -458,12 +514,17 @@ ja:
           close_meeting: ミーティングを閉じる
           contributions: コントリビューション数
           date: 日付
+          edit_close_meeting: ミーティングレポートを編集
           edit_meeting: ミーティングを編集
           going: このミーティングにログインしました
           join: ミーティングに参加
           leave: 登録をキャンセルする
           leave_confirmation: このミーティングの登録をキャンセルしてもよろしいですか？
+          link_available_soon: 間もなくリンクが利用可能です
+          link_closed: ミーティングに参加するリンクは開始数分前に利用可能になります
+          live_event: このミーティングは現在開催中です
           meeting_minutes: ミーティング議事録
+          micro_camera_permissions_warning: 下のボタンをクリックすると、マイクおよび/またはカメラの権限を求められ、ビデオ会議に参加できます
           no_slots_available: 利用可能なスロットがありません
           organizations: 組織に参加
           registration_code_help_text: 登録コード
@@ -473,6 +534,10 @@ ja:
           remaining_slots:
             other: "残り%{count} スロット"
           view: 表示
+          visit_finished: 過去のミーティングを表示
+          withdraw_btn_hint: 気が変わった場合はミーティングを取り消せます．ミーティングは削除されません．取り消されたミーティングのリストに表示されます．
+          withdraw_confirmation_html: このミーティングを取り消してもよろしいですか?<br><br><strong>この操作はキャンセルできません!</strong>
+          withdraw_meeting: ミーティングを撤回する
         update:
           invalid: ミーティングの更新に問題がありました。
           success: ミーティングを更新しました．
@@ -493,6 +558,7 @@ ja:
           fields:
             closed: クローズ済み
             end_time: 終了日
+            id: ID
             map: 地図
             official_meeting: 公式ミーティング
             start_time: 開始日
@@ -547,9 +613,13 @@ ja:
         online: オンライン
       types:
         private_meeting: プライベートミーティング
-        transparent: 透明度
+        transparent: 透明性
+        withdraw: 取り消し
       versions:
         back_to_resource: ミーティングに戻る
+      withdraw:
+        error: ミーティングの取り消し中にエラーが発生しました
+        success: ミーティングは正常に取り消されました
     metrics:
       meetings:
         description: 作成されたミーティング数

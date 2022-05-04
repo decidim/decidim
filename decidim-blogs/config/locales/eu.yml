@@ -11,10 +11,11 @@ eu:
     blogs:
       actions:
         confirm_destroy: Ziur mezua ezabatu nahi duzula?
-        destroy: ezabatu
+        destroy: Ezabatu
         edit: Editatu
         new: Post berria
         title: Ekintzak
+        user_group_id: Sortu argitalpena hau bezala
       admin:
         models:
           components:
@@ -29,6 +30,7 @@ eu:
             success: Mezua ondo ezabatu da
           edit:
             save: eguneratzearen
+            title: Editatu argitalpena
           index:
             title: Mezuak
           new:
@@ -48,6 +50,8 @@ eu:
             title: Izenburua
       posts:
         show:
+          back: Itzuli zerrendara
+          comments: Iruzkinak
           view: ikusi
         sidebar_blog:
           comments: iruzkinak
@@ -55,18 +59,27 @@ eu:
       read_more: Irakurri gehiago
     components:
       blogs:
+        actions:
+          create: Sortu
+          destroy: Ezabatu
+          update: Eguneratu
         name: Bloga
         settings:
           global:
             announcement: Anuntzio
             comments_enabled: Iruzkinak gaituta
+            comments_max_length: Iruzkinen gehieneko luzera (utzi 0 defektuz konfigurazioa mantendu nahi baduzu)
           step:
             announcement: Anuntzio
             comments_blocked: Iruzkinak blokeatuta
+            endorsements_blocked: Atxikimenduak blokeatuta
+            endorsements_enabled: Atxikimenduak gaituta
     events:
       blogs:
         post_created:
           email_intro: '"%{resource_title}" mezua "%{participatory_space_title}" argitaratzen ari zarela jarraitzen ari zara.'
-          email_outro: Jakinarazpena jaso duzu "%{participatory_space_title}" jarraitzen ari zarenagatik. Aurreko esteka estekan jarrai dezakezu.
-          email_subject: '%{participatory_space_title} urtean argitaratutako mezu berria'
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> post %{participatory_space_title} argitaratu da
+          email_outro: Jakinarazpena jaso duzu "%{participatory_space_title}" jarraitzen ari zarelako. Aurreko estekan utzi ahal diozu jarraitzeari.
+          email_subject: '%{participatory_space_title} argitaratutako mezu berria'
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> posta %{participatory_space_title} argitaratu da
+    statistics:
+      posts_count: Argitalpenak

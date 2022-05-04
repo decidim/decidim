@@ -18,7 +18,7 @@ module Decidim
         attribute :twitter_handle, String
         attribute :personal_url, String
         attribute :avatar
-        attribute :remove_avatar
+        attribute :remove_avatar, Boolean, default: false
         attribute :user_id, Integer
         attribute :existing_user, Boolean, default: false
         attribute :conference_meeting_ids, Array[Integer]

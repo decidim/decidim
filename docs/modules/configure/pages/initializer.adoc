@@ -1,8 +1,12 @@
 = Initializer
 
-There are some settings that you'll need to change in the `config/initializer/decidim.rb` file.
+There are some settings that you'll need to change in the `config/initializer/decidim.rb` file. We recommend that, whenever it is possible, you use xref:configure:environment_variables.adoc[Environment Variables], as just cleaner and easier to work with.
 
-This is where you can change the behaviour defined on the diferent components (most notably from `decidim-core`).
+If you need to add special logic or if you feel more comfortable working with Ruby code instead of Environment Variables, then you can of course do all the changes that you need directly in the initializer file. Take into account that this file could be published in a Version Control System (like `git`) so you should be careful with the secrets/API keys that you add here.
+
+Remember to restart your server when making changes in this file.
+
+This is where you can change the behaviour defined on the different components (most notably from `decidim-core`).
 
 After making changes to this file you'll need to also restart your application server.
 
@@ -79,6 +83,22 @@ Whether SSL should be enabled or not. Recommended for extra security.
   config.force_ssl = true
 ....
 
+== CORS enabled
+
+The SVG do not support CORS. When using custom asset host different than root url, set this value to `true`, in order to activate the available workaround.
+
+Please refer to:
+
+- https://github.com/w3c/svgwg/issues/707
+- https://stackoverflow.com/questions/65811142/how-to-allow-external-images-referenced-within-embedded-svg
+- https://groups.google.com/a/chromium.org/g/blink-dev/c/qemQwRpe2so/m/THi81oodSDgJ.
+- https://www.w3.org/Graphics/SVG/WG/track/actions/3781
+
+[source,ruby]
+....
+  config.cors_enabled = true
+....
+
 == Geocoder configuration
 
 Allows to make geographical mapping in some components, like Proposals or Meetings. It must be configured against a OpenStreetMap provider. See xref:services:geocoder.adoc[Geocoder service documentation].
@@ -139,7 +159,7 @@ Mind that this depends on your environment, for instance you could also need to 
 
 === User avatar file size
 
-  # The maximum file size for a user avatar
+The maximum file size for a user avatar
 
 Mind that this depends on your environment, for instance you could also need to change your web server configuration (nginx, apache, etc).
 
@@ -273,7 +293,7 @@ Used by `decidim-initiatives`.
 
 Provide a class to generate a timestamp for a document. The instances of
 this class are initialized with a hash containing the :document key with
-the document to be timestamped as value. The istances respond to a
+the document to be timestamped as value. The instances respond to a
 timestamp public method with the timestamp.
 
 An example class would be something like:
@@ -341,6 +361,37 @@ xref:services:etherpad.adoc[Etherpad's Decidim docs] in order to set it up.
     api_version: Rails.application.secrets.etherpad[:api_version]
   }
 ....
+
+==  Machine Translation Configuration
+
+To enable machine translations you need to enable the service and specify the class used for translation (this usually is the one contacting an external API from a 3d party service that actually translates the string).
+
+[source,ruby]
+....
+  config.enable_machine_translations = false
+  config.machine_translation_service = "MyTranslationService"
+....
+
+An example class would be something like:
+
+[source,ruby]
+....
+  class MyTranslationService
+    attr_reader :text, :original_locale, :target_locale
+
+    def initialize(text, original_locale, target_locale)
+      @text = text
+      @original_locale = original_locale
+      @target_locale = target_locale
+    end
+
+    def translate
+      Actual code to translate the text
+    end
+  end
+....
+
+See xref:develop:machine_translations.adoc[Machine Translations] for more information about how it works and how to set it up.
 
 == Default CSV column separator
 

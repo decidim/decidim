@@ -11,9 +11,11 @@ describe Decidim::Debates::Debate do
   it { is_expected.to be_valid }
   it { is_expected.to be_versioned }
 
+  include_examples "endorsable"
   include_examples "has component"
   include_examples "has category"
   include_examples "resourceable"
+  include_examples "has comments availability attributes"
 
   describe "newsletter participants" do
     subject { Decidim::Debates::Debate.newsletter_participant_ids(debate.component) }
@@ -38,7 +40,7 @@ describe Decidim::Debates::Debate do
     end
 
     context "when author is set" do
-      let(:debate) { build :debate, :citizen_author }
+      let(:debate) { build :debate, :participant_author }
 
       it { is_expected.not_to be_official }
     end
@@ -106,7 +108,7 @@ describe Decidim::Debates::Debate do
     end
 
     context "when comments are enabled" do
-      let(:debate) { build :debate, :citizen_author }
+      let(:debate) { build :debate, :participant_author }
 
       before do
         allow(debate).to receive(:commentable?).and_return(true)
@@ -132,7 +134,7 @@ describe Decidim::Debates::Debate do
     end
 
     context "when the debate has been closed" do
-      let(:debate) { build :debate, :citizen_author, :closed }
+      let(:debate) { build :debate, :participant_author, :closed }
 
       it { is_expected.to be_falsey }
     end

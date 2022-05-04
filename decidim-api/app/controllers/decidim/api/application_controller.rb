@@ -10,6 +10,7 @@ module Decidim
       include NeedsPermission
       include ImpersonateUsers
       include ForceAuthentication
+      include DisableRedirectionToExternalHost
 
       register_permissions(::Decidim::Api::ApplicationController,
                            ::Decidim::Permissions)

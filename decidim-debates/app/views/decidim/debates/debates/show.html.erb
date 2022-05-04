@@ -15,14 +15,14 @@ edit_link(
 
 <div class="row column view-header">
   <div class="m-bottom">
-    <%= link_to debates_path(filter_link_params), class: "small hollow" do %>
+    <%= link_to debates_path, class: "small hollow js-back-to-list" do %>
       <%= icon "chevron-left", class: "icon--small", role: "img", "aria-hidden": true %>
       <%= t(".back") %>
     <% end %>
   </div>
 
   <h2 class="heading3">
-    <%== present(debate).title(links: true) %>
+    <%== present(debate).title(links: true, html_escape: true) %>
   </h2>
 
   <% debate_presenter = Decidim::Debates::DebatePresenter.new(debate) %>
@@ -37,7 +37,7 @@ edit_link(
     <% end %>
     <% close_debate_action_text = (debate.closed? ? ".edit_conclusions" : ".close_debate" ) %>
     <% if allowed_to?(:close, :debate, debate: debate) %>
-      <button type="button" data-open="closeDebateModal" title="<%= t(close_debate_action_text) %>" aria-controls="closeDebateModal" aria-haspopup="true" tabindex="0" class="button hollow expanded button-sc button--icon follow-button">
+      <button type="button" data-open="closeDebateModal" title="<%= t(close_debate_action_text) %>" aria-controls="closeDebateModal" aria-haspopup="dialog" tabindex="0" class="button hollow expanded button-sc button--icon follow-button">
         <%= t(close_debate_action_text) %>
       </button>
     <% elsif admin_allowed_to?(:close, :debate, debate: debate) %>
@@ -108,12 +108,12 @@ edit_link(
 
       <% if translated_attribute(debate.instructions).present? %>
         <div class="callout secondary">
-          <%= decidim_sanitize(simple_format(translated_attribute(debate.instructions), {}, sanitize: false)) %>
+          <%= decidim_sanitize_editor(simple_format(translated_attribute(debate.instructions), {}, sanitize: false)) %>
         </div>
       <% end %>
       <% if translated_attribute(debate.information_updates).present? %>
         <div class="callout success">
-          <%= decidim_sanitize(simple_format(translated_attribute(debate.information_updates), {}, sanitize: false)) %>
+          <%= decidim_sanitize_editor(simple_format(translated_attribute(debate.information_updates), {}, sanitize: false)) %>
         </div>
       <% end %>
 

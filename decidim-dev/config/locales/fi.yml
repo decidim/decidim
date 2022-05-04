@@ -20,10 +20,18 @@ fi:
               a: A-valinta
               b: B-valinta
               c: C-valinta
+            test_options:
+              bar: Palkki
+              baz: Baz
+              foo: Foo
           step:
             endorsements_blocked: Suositukset estetty
             endorsements_enabled: Suositukset käytössä
             readonly_step_attribute: Vain luku -attribuutti vaiheelle
+            test_options:
+              bar: Palkki
+              baz: Baz
+              foo: Foo
     dummy:
       admin:
         exports:

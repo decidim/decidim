@@ -13,7 +13,8 @@ module Decidim
       include Decidim::ScopableResource
       include Decidim::HasCategory
       include Decidim::Followable
-      include Decidim::Comments::Commentable
+      include Decidim::Comments::CommentableWithComponent
+      include Decidim::Comments::HasAvailabilityAttributes
       include Decidim::Searchable
       include Decidim::Traceable
       include Decidim::Loggable
@@ -24,6 +25,7 @@ module Decidim
       include Decidim::Authorable
       include Decidim::TranslatableResource
       include Decidim::Publicable
+      include Decidim::FilterableResource
 
       TYPE_OF_MEETING = %w(in_person online hybrid).freeze
       REGISTRATION_TYPE = %w(registration_disabled on_this_platform on_different_platform).freeze
@@ -44,6 +46,9 @@ module Decidim
         source: :user
       )
 
+      enum iframe_access_level: [:all, :signed_in, :registered], _prefix: true
+      enum iframe_embed_type: [:none, :embed_in_meeting_page, :open_in_live_event_page, :open_in_new_tab], _prefix: true
+
       component_manifest_name "meetings"
 
       validates :title, presence: true
@@ -53,9 +58,29 @@ module Decidim
       scope :published, -> { where.not(published_at: nil) }
       scope :past, -> { where(arel_table[:end_time].lteq(Time.current)) }
       scope :upcoming, -> { where(arel_table[:end_time].gteq(Time.current)) }
+      scope :withdrawn, -> { where(state: "withdrawn") }
+      scope :except_withdrawn, -> { where.not(state: "withdrawn").or(where(state: nil)) }
+      scope :with_availability, lambda { |state_key|
+        case state_key
+        when "withdrawn"
+          withdrawn
+        else
+          except_withdrawn
+        end
+      }
+      scope_search_multi :with_any_date, [:upcoming, :past]
+      scope :with_any_space, lambda { |*target_space|
+        target_spaces = target_space.compact.reject(&:blank?)
 
-      scope :visible_meeting_for, lambda { |user|
-        (all.published.distinct if user&.admin?) ||
+        return self if target_spaces.blank? || target_spaces.include?("all")
+
+        joins(:component).where(
+          decidim_components: { participatory_space_type: target_spaces.map(&:classify) }
+        )
+      }
+
+      scope :visible_for, lambda { |user|
+        (all.distinct if user&.admin?) ||
           if user.present?
             spaces = Decidim.participatory_space_registry.manifests.map do |manifest|
               {
@@ -95,13 +120,17 @@ module Decidim
               "
             end
 
-            where(query, false, true, user.id, user.id, *user_role_queries.compact.map { user.id }).published.distinct
+            where(Arel.sql(query).to_s, false, true, user.id, user.id, *user_role_queries.compact.map { user.id }).published.distinct
           else
             published.visible
           end
       }
 
       scope :visible, -> { where("decidim_meetings_meetings.private_meeting != ? OR decidim_meetings_meetings.transparent = ?", true, true) }
+
+      scope :authored_by, ->(author) { where(decidim_author_id: author) }
+
+      scope_search_multi :with_any_type, TYPE_OF_MEETING.map(&:to_sym)
 
       TYPE_OF_MEETING.each do |type|
         scope type.to_sym, -> { where(type_of_meeting: type.to_sym) }
@@ -120,6 +149,10 @@ module Decidim
 
       # we create a salt for the meeting only on new meetings to prevent changing old IDs for existing (Ether)PADs
       before_create :set_default_salt
+
+      def self.participants_iframe_embed_types
+        iframe_embed_types.except(:open_in_live_event_page)
+      end
 
       # Return registrations of a particular meeting made by users representing a group
       def user_group_registrations
@@ -153,6 +186,10 @@ module Decidim
         end_time < Time.current
       end
 
+      def emendation?
+        false
+      end
+
       def has_available_slots?
         return true if available_slots.zero?
 
@@ -171,14 +208,9 @@ module Decidim
         component.settings.maps_enabled?
       end
 
-      # Public: Overrides the `commentable?` Commentable concern method.
-      def commentable?
-        component.settings.comments_enabled?
-      end
-
-      # Public: Overrides the `accepts_new_comments?` Commentable concern method.
+      # Public: Overrides the `accepts_new_comments?` CommentableWithComponent concern method.
       def accepts_new_comments?
-        commentable? && !component.current_settings.comments_blocked
+        commentable? && !component.current_settings.comments_blocked && comments_allowed?
       end
 
       # Public: Overrides the `allow_resource_permissions?` Resourceable concern method.
@@ -201,17 +233,23 @@ module Decidim
         followers
       end
 
-      # Public: Whether the object can have new comments or not.
-      def user_allowed_to_comment?(user)
-        can_participate?(user)
-      end
-
       def can_participate?(user)
         can_participate_in_space?(user) && can_participate_in_meeting?(user)
       end
 
       def current_user_can_visit_meeting?(user)
-        Decidim::Meetings::Meeting.visible_meeting_for(user).exists?(id: id)
+        Decidim::Meetings::Meeting.visible_for(user).exists?(id: id)
+      end
+
+      def iframe_access_level_allowed_for_user?(user)
+        case iframe_access_level
+        when "all"
+          true
+        when "signed_in"
+          user.present?
+        else
+          has_registration_for?(user)
+        end
       end
 
       # Return the duration of the meeting in minutes
@@ -223,6 +261,21 @@ module Decidim
         return false if hidden?
 
         !private_meeting? || transparent?
+      end
+
+      # Public: Checks if the author has withdrawn the meeting.
+      #
+      # Returns Boolean.
+      def withdrawn?
+        state == "withdrawn"
+      end
+
+      # Checks whether the user can withdraw the given meeting.
+      #
+      # user - the user to check for withdrawability.
+      # past meetings cannot be withdrawn
+      def withdrawable_by?(user)
+        user && !withdrawn? && !past? && authored_by?(user)
       end
 
       # Overwrites method from Paddable to add custom rules in order to know
@@ -296,7 +349,40 @@ module Decidim
       end
 
       def live?
-        start_time && end_time && Time.current >= start_time && Time.current <= end_time
+        start_time &&
+          end_time &&
+          Time.current >= (start_time - 10.minutes) &&
+          Time.current <= end_time
+      end
+
+      def self.sort_by_translated_title_asc
+        field = Arel::Nodes::InfixOperation.new("->>", arel_table[:title], Arel::Nodes.build_quoted(I18n.locale))
+        order(Arel::Nodes::InfixOperation.new("", field, Arel.sql("ASC")))
+      end
+
+      def self.sort_by_translated_title_desc
+        field = Arel::Nodes::InfixOperation.new("->>", arel_table[:title], Arel::Nodes.build_quoted(I18n.locale))
+        order(Arel::Nodes::InfixOperation.new("", field, Arel.sql("DESC")))
+      end
+
+      # Create i18n ransackers for :title and :description.
+      # Create the :search_text ransacker alias for searching from both of these.
+      ransacker_i18n_multi :search_text, [:title, :description]
+
+      ransacker :id_string do
+        Arel.sql(%{cast("decidim_meetings_meetings"."id" as text)})
+      end
+
+      ransacker :is_upcoming do
+        Arel.sql("(start_time > NOW())")
+      end
+
+      def self.ransackable_scopes(_auth_object = nil)
+        [:with_any_type, :with_any_date, :with_any_space, :with_any_origin, :with_any_scope, :with_any_category, :with_any_global_category]
+      end
+
+      def self.ransack(params = {}, options = {})
+        MeetingSearch.new(self, params, options)
       end
 
       private

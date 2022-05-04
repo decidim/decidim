@@ -15,9 +15,8 @@ describe "Manage proposal wizard steps help texts", type: :system do
     )
   end
 
-  let!(:proposal) { create(:proposal, component: current_component) }
+  let!(:proposal) { create(:proposal, component: current_component, users: [user]) }
   let!(:proposal_similar) { create(:proposal, component: current_component, title: "This proposal is to ensure a similar exists") }
-  let!(:proposal_draft) { create(:proposal, :draft, component: current_component, title: "This proposal has a similar") }
 
   it "customize the help text for step 1 of the proposal wizard" do
     visit edit_component_path(current_component)
@@ -51,8 +50,8 @@ describe "Manage proposal wizard steps help texts", type: :system do
 
     click_button "Update"
 
-    create(:proposal, title: "More sidewalks and less roads", body: "Cities need more people, not more cars", component: component)
-    create(:proposal, title: "More trees and parks", body: "Green is always better", component: component)
+    create(:proposal, title: "More sidewalks and less roads", body: "Cities need more people, not more cars", component: component, users: [user])
+    create(:proposal, title: "More trees and parks", body: "Green is always better", component: component, users: [user])
     visit_component
     click_link "New proposal"
     within ".new_proposal" do
@@ -107,7 +106,7 @@ describe "Manage proposal wizard steps help texts", type: :system do
 
     click_button "Update"
 
-    visit preview_proposal_path(current_component, proposal_draft)
+    visit preview_proposal_path(current_component, create(:proposal, :draft, component: current_component, title: "This proposal has a similar", users: [user]))
     within ".proposal_wizard_help_text" do
       expect(page).to have_content("This is the fourth step of the Proposal creation wizard.")
     end

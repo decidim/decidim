@@ -37,11 +37,16 @@ sv:
         weight: Vikt
       participatory_process_group:
         description: Beskrivning
+        developer_group: Kampanjgrupp
         group_url: Webbplats
         hashtag: Hashtag
         hero_image: Bild
+        local_area: Organisationsområde
+        meta_scope: Omfångets metadata
         participatory_process_ids: Relaterade dialoger
         participatory_scope: Vad som bestäms
+        participatory_structure: Hur det bestäms
+        target: Vem deltar
         title: Titel
       participatory_process_step:
         cta_path: Uppmaningens sökväg
@@ -152,6 +157,10 @@ sv:
           copy: Kopiera
           select: Välj vilka data som du vill duplicera
           title: Duplicera dialog
+      participatory_process_group_landing_page:
+        edit:
+          active_content_blocks: Aktiva innehållsblock
+          inactive_content_blocks: Inactiva innehållsblock
       participatory_process_group_landing_page_content_blocks:
         edit:
           update: Uppdatera
@@ -394,6 +403,7 @@ sv:
             more_information: Mer information
             participate: Delta
             participate_in: Delta i dialogen %{resource_name}
+            processes_button_title: Länk till sidan som visar alla dialoger
             see_all_processes: Visa alla dialoger
       participatory_process_steps:
         index:

@@ -28,6 +28,51 @@ FactoryBot.define do
       end
     end
 
+    trait :with_all_questions do
+      after(:build) do |questionaire, _evaluator|
+        position = 0
+        %w(short_answer long_answer).collect do |text_question_type|
+          q = create(:questionnaire_question,
+                     question_type: text_question_type,
+                     position: position,
+                     questionnaire: questionaire)
+          position += 1
+          questionaire.questions << q
+        end
+
+        %w(single_option multiple_option).each do |option_question_type|
+          q = create(:questionnaire_question, :with_answer_options,
+                     question_type: option_question_type,
+                     position: position,
+                     questionnaire: questionaire)
+          q.display_conditions.build(
+            condition_question: questionaire.questions[q.position - 1],
+            question: q,
+            condition_type: :answered,
+            mandatory: true
+          )
+          questionaire.questions << q
+          position += 1
+        end
+
+        %w(matrix_single matrix_multiple).collect do |matrix_question_type|
+          q = build(:questionnaire_question, :with_answer_options,
+                    question_type: matrix_question_type,
+                    position: position,
+                    body: generate_localized_title,
+                    questionnaire: questionaire)
+          q.display_conditions.build(
+            condition_question: questionaire.questions[q.position - 1],
+            question: q,
+            condition_type: :answered,
+            mandatory: true
+          )
+          questionaire.questions << q
+          position += 1
+        end
+      end
+    end
+
     trait :empty do
       title { {} }
       description { {} }
@@ -87,6 +132,10 @@ FactoryBot.define do
     trait :separator do
       question_type { :separator }
     end
+
+    trait :title_and_description do
+      question_type { :title_and_description }
+    end
   end
 
   factory :answer, class: "Decidim::Forms::Answer" do
@@ -108,6 +157,14 @@ FactoryBot.define do
     question { create(:questionnaire_question) }
     body { generate_localized_title }
     free_text { false }
+
+    trait :free_text_enabled do
+      free_text { true }
+    end
+
+    trait :free_text_disabled do
+      free_text { false }
+    end
   end
 
   factory :answer_choice, class: "Decidim::Forms::AnswerChoice" do

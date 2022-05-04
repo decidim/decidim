@@ -59,11 +59,11 @@ ca:
         birthplace: Lloc de naixement
         ceased_date: Data de cessament
         designation_date: Data de designació
-        designation_mode: Mode de designació
         full_name: Nom complet
         gender: Gènere
+        non_user_avatar: Avatar
         position: Posició
-        user_id: Usuària
+        user_id: Participant o grup
       assembly_user_role:
         email: Correu electrònic
         name: Nom
@@ -182,6 +182,9 @@ ca:
         update:
           error: S'ha produït un error en actualitzar una administradora per a aquesta assemblea.
           success: L'administradora s'ha actualitzat correctament per a aquesta assemblea.
+      filters:
+        decidim_assemblies_type_id_eq:
+          label: Tipus d'assemblea
       menu:
         assemblies: Assemblees
         assemblies_settings: Configuració
@@ -267,7 +270,7 @@ ca:
             duration_help: Si la durada d'aquesta assemblea és limitada, selecciona la data de finalització. En cas contrari, apareixerà com a indefinida.
             filters: Filtres
             images: Imatges
-            included_at_help: Selecciona la data en què es va afegir aquest assemblea a Decidim. No necessàriament ha de ser la mateixa que la data de creació.
+            included_at_help: Selecciona la data en què es va afegir aquesta assemblea a la plataforma. No necessàriament ha de ser la mateixa que la data de creació.
             metadata: Metadades
             other: Altre
             select_a_created_by: Selecciona una creadora
@@ -296,7 +299,10 @@ ca:
         assembly_members:
           form:
             existing_user: Participant existent
+            explanation: 'Instruccions per a la imatge:'
+            image_guide: Preferiblement una imatge apaïsada que no tingui cap text.
             non_user: No participant
+            non_user_avatar_help: Cal tenir el consentiment de la persona abans publicar-la com a membre.
             select_a_position: Selecciona una posició
             select_user: Selecciona una participant
             user_type: Tipus de participant

@@ -4,8 +4,8 @@ require "decidim/core/test/factories"
 
 FactoryBot.define do
   factory :admin, class: "Decidim::System::Admin" do
-    sequence(:email) { |n| "admin#{n}@citizen.corp" }
-    password { "password1234" }
-    password_confirmation { "password1234" }
+    sequence(:email) { |n| "admin#{n}@example.org" }
+    password { "decidim123456" }
+    password_confirmation { "decidim123456" }
   end
 end

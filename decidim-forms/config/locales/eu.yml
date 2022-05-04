@@ -3,18 +3,27 @@ eu:
     attributes:
       answer:
         body: Erantzuna
+        choices: Aukerak
+        selected_choices: Hautatutako aukerak
       question:
         max_choices: Gehienezko aukera kopurua
         question_type: Mota
       questionnaire_question:
         mandatory: derrigorrezko
+        max_characters: Karaktereen muga (utzi 0 mugarik ez badago)
     errors:
       models:
         answer:
           attributes:
+            add_documents:
+              needs_to_be_reattached: Fitxategia berriro erantsi behar da
+            body:
+              too_long: luzeegia da
             choices:
               missing: ez dira osatu
               too_many: gehiegi dira
+        questionnaire:
+          request_invalid: Arazo bat izan da zure eskaera bidaltzean. Saiatu berriro
   decidim:
     forms:
       admin:
@@ -23,35 +32,97 @@ eu:
             description: deskribapena
             tos: Zerbitzu-baldintzak
         questionnaires:
+          actions:
+            back: Itzuli galderetara
+            show: Erakutsi erantzunak
           answer_option:
             answer_option: Erantzun aukera
             free_text: Testu librea
             remove: Kendu
             statement: adierazpena
+          answers:
+            actions:
+              back: Itzuli erantzunetara
+              export: Esportatu
+              show: Erakutsi erantzunak
+            empty: Oraindik ez dago erantzunik
+            export:
+              answer:
+                title: '#%{number} erantzuna'
+            export_response:
+              title: survey_user_answers_%{token}
+            index:
+              title: "Guztira %{total} erantzun"
+            show:
+              title: '#%{number} erantzuna'
+          display_condition:
+            answer_option: Erantzuteko aukera
+            condition_question: Galdera
+            condition_type: Baldintza
+            condition_types:
+              answered: Erantzunda
+              equal: Honen berdina
+              match: Testua barne
+              not_answered: Erantzun gabe
+              not_equal: Ez da berdina
+            condition_value: Testua barne
+            display_condition: Bistaratzeko baldintza
+            mandatory: Baldintza hau beti bete behar da, beste baldintza batzuen egoera edozein dela ere
+            remove: Kendu
+            save_warning: Gogoratu formularioa gorde behar duzula, bistaratze-baldintzak konfiguratu aurretik
+            select_answer_option: Hautatu erantzun-aukera
+            select_condition_question: Hautatu galdera bat
+            select_condition_type: Hautatu baldintza mota bat
           edit:
             save: Save
+            title: Editatu galdetegia
           form:
-            add_question: Galdera gehitu
+            add_question: Gehitu galdera
+            add_separator: Gehitu banatzailea
             already_answered_warning: Galdetegia dagoeneko erantzun dio erabiltzaile batzuek, beraz, ezin dituzu bere galderak aldatu.
+            collapse: Bildu galdera guztiak
+            expand: Zabaldu galdera guztiak
+            preview: Aurreikusi
+            title: Editatu galdetegia honetarako %{questionnaire_for}
+            unpublished_warning: Galdetegia ez dago argitaratuta. Bere galderak aldatu ahal dituzu, baina egitean oraingo erantzunak ezabatuko dira.
           matrix_row:
+            matrix_row: Errenkada
             remove: Kendu
             statement: adierazpena
           question:
             add_answer_option: Gehitu erantzun aukera
+            add_display_condition: Gehitu bistaratzeko baldintza
+            add_display_condition_info: Gorde galdetegia bistaratzeko baldintzak konfiguratzeko
+            add_matrix_row: Gehitu errenkada
             any: Edozein
+            collapse: Bildu
             description: deskribapena
             down: Down
+            expand: Zabaldu
             question: Galdera
             remove: Kendu
             statement: adierazpena
             up: up
+          separator:
+            down: Jaitsi
+            remove: Kendu
+            separator: Bereizlea
+            up: Igo
           update:
             invalid: Akatsik egon da galdeketa gordetzean.
+            success: Galdetegia zuzen gorde da.
       errors:
         answer:
           body: Gorputza ezin da hutsik egon
+      files:
+        extension_allowlist: 'Onartutako formatuak:'
+      images:
+        dimensions: "%{width} x %{height} px"
       question_types:
+        files: Fitxategiak
         long_answer: Erantzun luzea
+        matrix_multiple: Matrizea (aukera anitzekoa)
+        matrix_single: Matrizea (aukera bakarrekoa)
         multiple_option: Hainbat aukera
         short_answer: Erantzun laburra
         single_option: Aukera bakarra
@@ -59,6 +130,7 @@ eu:
       questionnaires:
         answer:
           invalid: Akatsik egon da galdeketa erantzutean.
+          max_choices_alert: Aukera gehiegi daude hautatuta
           success: Galdesortaz erantzun ona.
         question:
           max_choices: 'Gehienezko aukerak: %{n}'
@@ -66,6 +138,8 @@ eu:
           answer_questionnaire:
             anonymous_user_message: <a href="%{sign_in_link}">Hasi saioa zure kontuarekin</a> edo <a href="%{sign_up_link}">saioa hasi</a> galdetegiari erantzuteko.
             title: Erantzun galdetegia
+          current_step: '%{step} urratsa'
+          of_total_steps: '%{total_steps} etik'
           questionnaire_answered:
             body: Galdeketa honi erantzun dio.
             title: Dagoeneko erantzun
@@ -75,11 +149,24 @@ eu:
           questionnaire_for_private_users:
             body: Galdetegia erabiltzaile pribatuentzat soilik dago erabilgarri
             title: Galdeketa itxia
+          questionnaire_js_disabled:
+            body: Galdetegi honen ezaugarri batzuk desaktibatu egingo dira. Zure esperientzia hobetzeko, gaitu JavaScript zure nabigatzailean.
+            title: Javascript desaktibatuta dago
           tos_agreement: Zerbitzu-baldintzak onartzen dituzunean parte hartuz
       step_navigation:
         show:
           are_you_sure: Ekintza hau ezin da desegin eta ezin izango dituzu zure erantzunak editatu. Ziur zaude?
+          back: Atzera
+          continue: Jarraitu
           submit: Bidali
       user_answers_serializer:
+        body: Erantzuna
+        completion: Amaiera
         created_at: Erantzuna
         id: Erantzun IDa
+        ip_hash: IP Helbidearen Hash
+        question: Galdera
+        registered: Erregistratuta
+        session_token: Erabiltzailearen identifikatzailea
+        unregistered: Erregistratu gabe
+        user_status: Erabiltzailearen egoera

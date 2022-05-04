@@ -136,7 +136,7 @@ module Decidim
 
       return body unless rich_text_editor_in_public_views?
 
-      decidim_sanitize(body)
+      decidim_sanitize_editor(body)
     end
 
     # Return the edited field value or presents the original attribute value in a form.

@@ -3,7 +3,6 @@
 module Decidim
   class NotificationsCell < Decidim::ViewModel
     include Decidim::CellsPaginateHelper
-    include Decidim::IconHelper
     include Decidim::Core::Engine.routes.url_helpers
 
     helper_method :notifications

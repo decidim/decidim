@@ -12,20 +12,20 @@ module Decidim
       mimic :organization
 
       attribute :logo
-      attribute :remove_logo
+      attribute :remove_logo, Boolean, default: false
       attribute :favicon
-      attribute :remove_favicon
+      attribute :remove_favicon, Boolean, default: false
       attribute :official_img_header
-      attribute :remove_official_img_header
+      attribute :remove_official_img_header, Boolean, default: false
       attribute :official_img_footer
-      attribute :remove_official_img_footer
+      attribute :remove_official_img_footer, Boolean, default: false
       attribute :official_url
       attribute :header_snippets, String
       attribute :cta_button_path, String
       attribute :highlighted_content_banner_enabled, Boolean, default: false
       attribute :highlighted_content_banner_action_url, String
       attribute :highlighted_content_banner_image
-      attribute :remove_highlighted_content_banner_image
+      attribute :remove_highlighted_content_banner_image, Boolean, default: false
       attribute :enable_omnipresent_banner, Boolean, default: false
       attribute :omnipresent_banner_url, String
 
@@ -36,6 +36,7 @@ module Decidim
       attribute :alert_color, String, default: "#ec5840"
       attribute :highlight_color, String, default: "#be6400"
       attribute :highlight_alternative_color, String, default: "#ff5731"
+      attribute :theme_color, String, default: "#ef604d"
 
       translatable_attribute :cta_button_text, String
       translatable_attribute :description, String

@@ -3,7 +3,7 @@
 require "spec_helper"
 
 module Decidim
-  describe Attachment, processing_uploads_for: Decidim::AttachmentUploader do
+  describe Attachment do
     subject { build(:attachment) }
 
     let(:organization) { subject.organization }
@@ -16,7 +16,7 @@ module Decidim
           organization.settings.tap do |settings|
             settings.upload.maximum_file_size.default = 5
           end
-          expect(subject.file).to receive(:size).and_return(6.megabytes)
+          allow(subject.file.blob).to receive(:byte_size).and_return(6.megabytes)
         end
 
         it { is_expected.not_to be_valid }
@@ -26,7 +26,11 @@ module Decidim
         subject do
           build(
             :attachment,
-            file: Rack::Test::UploadedFile.new(attachment_path, "image/jpeg")
+            file: ActiveStorage::Blob.create_and_upload!(
+              io: File.open(attachment_path),
+              filename: "image.jpeg",
+              content_type: "image/jpeg"
+            )
           )
         end
 

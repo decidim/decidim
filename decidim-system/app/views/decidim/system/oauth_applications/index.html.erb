@@ -20,7 +20,7 @@
     <% @oauth_applications.each do |oauth_application| %>
       <tr>
         <td>
-          <%= image_tag oauth_application.organization_logo.url %>
+          <%= image_tag oauth_application.attached_uploader(:organization_logo).path %>
         </td>
         <td>
           <%= link_to oauth_application.name, oauth_application %><br>

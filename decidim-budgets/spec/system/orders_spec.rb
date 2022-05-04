@@ -6,7 +6,7 @@ describe "Orders", type: :system do
   include_context "with a component"
   let(:manifest_name) { "budgets" }
 
-  let(:organization) { create :organization }
+  let(:organization) { create :organization, available_authorizations: %w(dummy_authorization_handler) }
   let!(:user) { create :user, :confirmed, organization: organization }
   let(:project) { projects.first }
 
@@ -318,14 +318,26 @@ describe "Orders", type: :system do
 
         expect(page).to have_content "ASSIGNED: €25,000,000"
 
-        # Note that this is not a default alert box, this is the default browser
-        # prompt for verifying the page unload. Therefore, `dismiss_prompt` is
-        # used instead of `dismiss_confirm`.
-        dismiss_prompt do
-          page.find(".logo-wrapper a").click
-        end
+        page.find(".logo-wrapper a").click
 
+        expect(page).to have_content "You have not yet voted"
+
+        click_button "Return to voting"
+
+        expect(page).not_to have_content("You have not yet voted")
         expect(page).to have_current_path budget_projects_path
+      end
+
+      it "is alerted but can sign out before completing" do
+        visit_budget
+
+        page.find("#user-menu-control").click
+        page.find(".sign-out-link").click
+
+        expect(page).to have_content "You have not yet voted"
+
+        page.find("#exit-notification-link").click
+        expect(page).to have_content("Signed out successfully")
       end
 
       context "and try to vote a project that exceed the total budget" do
@@ -336,6 +348,20 @@ describe "Orders", type: :system do
 
           within "#project-#{expensive_project.id}-item" do
             page.find(".budget-list__action").click
+          end
+
+          expect(page).to have_css("#budget-excess", visible: :visible)
+        end
+      end
+
+      context "and in project show page cant exceed the budget" do
+        let!(:expensive_project) { create(:project, budget: budget, budget_amount: 250_000_000) }
+
+        it "cannot add the project" do
+          page.visit Decidim::EngineRouter.main_proxy(component).budget_project_path(budget, expensive_project)
+
+          within "#project-#{expensive_project.id}-budget-button" do
+            page.find("button").click
           end
 
           expect(page).to have_css("#budget-excess", visible: :visible)
@@ -399,12 +425,38 @@ describe "Orders", type: :system do
             order.destroy!
             order_percent.projects << projects
             order_percent.save!
+            visit_budget
           end
 
           it "can vote" do
-            visit_budget
             within "#order-progress" do
               expect(page).to have_button("Vote", disabled: false)
+            end
+          end
+
+          context "when user has voted" do
+            let(:router) { Decidim::EngineRouter.main_proxy(component) }
+            let(:another_user) { create(:user, :confirmed, organization: organization) }
+
+            before do
+              find("[data-toggle='budget-confirm']").click
+              click_button "Confirm"
+              expect(page).to have_css(".flash.success")
+            end
+
+            it "shows private-only activity log entry" do
+              page.visit decidim.profile_activity_path(nickname: user.nickname)
+              expect(page).to have_content("New budgeting vote at #{translated(budget.participatory_space.title)}")
+              expect(page).to have_link(translated(budget.title), href: router.budget_path(budget))
+            end
+
+            it "does not show activity log entry to another user" do
+              relogin_as another_user, scope: :user
+              page.visit decidim.profile_activity_path(nickname: user.nickname)
+              expect(page).to have_content(user.name)
+              expect(page).to have_current_path "/profiles/#{user.nickname}/activity"
+              expect(page).not_to have_content("New budgeting vote at")
+              expect(page).not_to have_link(translated(budget.title))
             end
           end
         end
@@ -562,7 +614,7 @@ describe "Orders", type: :system do
 
       visit_budget
 
-      expect(page).to have_selector("[id^=project-]", count: 1)
+      expect(page).to have_selector("div[id^=project-]", count: 1)
     end
 
     it "respects the projects_per_page setting when it matches total projects" do
@@ -572,7 +624,7 @@ describe "Orders", type: :system do
 
       visit_budget
 
-      expect(page).to have_selector("[id^=project-]", count: 2)
+      expect(page).to have_selector("div[id^=project-]", count: 2)
     end
 
     it "respects the projects_per_page setting when over total projects" do
@@ -582,7 +634,7 @@ describe "Orders", type: :system do
 
       visit_budget
 
-      expect(page).to have_selector("[id^=project-]", count: 2)
+      expect(page).to have_selector("div[id^=project-]", count: 2)
     end
   end
 

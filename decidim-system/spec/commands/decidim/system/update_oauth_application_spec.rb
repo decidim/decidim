@@ -3,7 +3,7 @@
 require "spec_helper"
 
 module Decidim::System
-  describe UpdateOAuthApplication, processing_uploads_for: Decidim::ImageUploader do
+  describe UpdateOAuthApplication do
     subject { described_class.call(application, form, user) }
 
     let(:params) do
@@ -17,10 +17,7 @@ module Decidim::System
       }
     end
     let(:file) do
-      Rack::Test::UploadedFile.new(
-        Decidim::Dev.test_file("city.jpeg", "image/jpeg"),
-        "image/jpeg"
-      )
+      upload_test_file(Decidim::Dev.test_file("city.jpeg", "image/jpeg"))
     end
     let(:application) { create(:oauth_application) }
     let(:organization) { application.organization }

@@ -9,13 +9,13 @@
         <%= icon "plus", role: "img", "aria-hidden": true %>
       <% end %>
     <% elsif current_user %>
-      <button type="button" class="title-action__action button small" data-open="not-authorized-modal" aria-controls="not-authorized-modal" aria-haspopup="true" tabindex="0">
+      <button type="button" class="title-action__action button small" data-open="not-authorized-modal" aria-controls="not-authorized-modal" aria-haspopup="dialog" tabindex="0">
         <%= t(".new_initiative") %>
         <%= icon "plus", role: "img", "aria-hidden": true %>
       </button>
     <% else %>
       <% content_for(:redirect_after_login) { create_initiative_url(:select_initiative_type) } %>
-      <button type="button" class="title-action__action button small" data-open="loginModal" aria-controls="loginModal" aria-haspopup="true" tabindex="0">
+      <button type="button" class="title-action__action button small" data-open="loginModal" aria-controls="loginModal" aria-haspopup="dialog" tabindex="0">
         <%= t(".new_initiative") %>
         <%= icon "plus", role: "img", "aria-hidden": true %>
       </button>
@@ -23,7 +23,7 @@
   <% end %>
 </div>
 
-<div class="reveal not-authorized-reveal" id="not-authorized-modal" aria-hidden="true" role="dialog" aria-labelledby="not-authorized-modal-title" data-reveal data-multiple-opened="true">
+<div class="reveal not-authorized-reveal" id="not-authorized-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="not-authorized-modal-title" data-reveal data-multiple-opened="true">
   <div class="reveal__header">
     <h2 class="reveal__title" id="not-authorized-modal-title"><%= t(".not_authorized.title") %></h2>
     <button class="close-button" data-close aria-label="<%= t(".not_authorized.close") %>"
@@ -40,6 +40,5 @@
   </div>
   <div class="not-authorized-modal-footer reveal__footer">
     <%= link_to t(".not_authorized.authorizations_page"), decidim_verifications.authorizations_path(redirect_url: create_initiative_url(:select_initiative_type)), class: "button expanded" %>
-  </div>
   </div>
 </div>

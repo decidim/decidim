@@ -3,7 +3,7 @@
 module Decidim
   module System
     # Creates an OAuthApplication.
-    class CreateOAuthApplication < Rectify::Command
+    class CreateOAuthApplication < Decidim::Command
       # Initializes the command.
       #
       # form - The source fo data for this OAuthApplication.
@@ -17,6 +17,17 @@ module Decidim
         @application = Decidim.traceability.create!(
           OAuthApplication,
           @form.current_user,
+          **oauth_application_attributes
+        )
+
+        broadcast(:ok, @application)
+      rescue ActiveRecord::RecordInvalid
+        @form.errors.add(:organization_logo, @application.errors[:organization_logo]) if @application.errors.include? :organization_logo
+        broadcast(:invalid)
+      end
+
+      def oauth_application_attributes
+        {
           organization: @form.current_organization,
           name: @form.name,
           decidim_organization_id: @form.decidim_organization_id,
@@ -25,12 +36,9 @@ module Decidim
           organization_logo: @form.organization_logo,
           redirect_uri: @form.redirect_uri,
           scopes: "public"
-        )
-
-        broadcast(:ok, @application)
-      rescue ActiveRecord::RecordInvalid
-        @form.errors.add(:organization_logo, @application.errors[:organization_logo]) if @application.errors.include? :organization_logo
-        broadcast(:invalid)
+        }.tap do |attrs|
+          attrs[:organization_logo] = @form.organization_logo if @form.organization_logo.present?
+        end
       end
     end
   end

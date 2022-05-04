@@ -251,9 +251,9 @@ fr-CA:
       filters:
         active: Actives
         all: Tout
+        date: Date
         finished: Passées
         search: Rechercher
-        state: État
         upcoming: À venir
       filters_small_view:
         close_modal: Fermer la fenêtre
@@ -359,7 +359,11 @@ fr-CA:
     resources:
       consultations:
         actions:
+          comment: Commenter
           vote: Voter
+    statistics:
+      consultations_count: Consultations
+      votes_count: Votes
   layouts:
     decidim:
       consultation_voting_data:

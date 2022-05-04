@@ -20,10 +20,16 @@ tr:
               a: Seçenek
               b: Seçim
               c: Seçenek
+            test_options:
+              bar: Çubuk
+              foo: Sahte değişken
           step:
             endorsements_blocked: Onaylar engellendi
             endorsements_enabled: Onaylar etkinleştirildi
             readonly_step_attribute: Salt okunur özniteliği
+            test_options:
+              bar: Çubuk
+              foo: Sahte değişken
     dummy:
       admin:
         exports:

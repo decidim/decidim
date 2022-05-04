@@ -3,6 +3,10 @@ hu:
     attributes:
       account:
         delete_reason: Fiók törlésének oka
+      common:
+        created_at: Létrehozva
+      conversation:
+        body: Szöveg
       group:
         about: Rólunk
         avatar: Profilkép
@@ -11,11 +15,14 @@ hu:
         name: Név
         nickname: Becenév
         phone: Telefonszám
+      message:
+        body: Szöveg
       report:
         details: További megjegyzések
       user:
         about: Magamról
         email: Email címed
+        locale: Hely
         name: Neved
         nickname: Becenév
         password: Jelszó
@@ -33,6 +40,7 @@ hu:
       decidim/profile_updated_event: Profil frissítve
       decidim/promote_to_admin: A csoport adminisztrátora
       decidim/removed_from_group: Eltávolítva a csoportból
+      decidim/resource_endorsed_event: Erőforrás jóváhagyva
   activerecord:
     attributes:
       decidim/user:
@@ -60,8 +68,8 @@ hu:
     'true': 'Igen'
   carrierwave:
     errors:
-      general: Hiba történt a kép feldolgozásakor
       image_too_big: A kép mérete túl nagy
+      not_inside_organization: A fájl nincs csatolva egyetlen szervezethez sem
   date:
     formats:
       decidim_short: "%Y.%m.%d"
@@ -69,15 +77,22 @@ hu:
       decidim_with_day_and_month_name: "%A %d %b %Y"
       decidim_with_month_name: "%d %B %Y"
       decidim_with_month_name_short: "%d %b"
+  datetime:
+    distance_in_words:
+      half_a_minute: fél perce
   decidim:
     accessibility:
+      external_link: Külső hivatkozás
+      front_page_link: Ugrás a címlapra
       logo: "%{organization} hivatalos logója"
       skip_button: Ugrás a fő tartalomra
     account:
+      blocked: Ezt a fiókot az Általános Szerződési Feltételek megsértése miatt blokkoltuk
       data_portability_export:
         file_no_exists: Fájl nem létezik
         notice: Az adatok letöltése jelenleg folyamatban van. Ha befejeződött, e-mailt fogsz kapni.
       delete:
+        alert: Ez a művelet nem visszavonható. Ha törlöd a fiókjod, nem fogsz tudni bejelentkezni a hitelesítő adataiddal. Fiókod törlése a hozzájárulásaid anonimizálását eredményezi. Továbbra is létrehozhatsz új fiókot, de ezek a hozzájárulások nem fognak kapcsolódni hozzá.
         confirm:
           close: Ablak bezárása
           ok: Igen, törölni szeretném a fiókomat
@@ -88,6 +103,7 @@ hu:
         error: Hiba történt a fiók törlése során.
         success: Fiók törlése sikeres.
       show:
+        available_locales_helper: Válasszd ki a nyelvet, amelyet használni szeretnél a platform értesítéseinek böngészéshez és fogadásához
         change_password: Jelszó módosítása
         update_account: Fiók frissítése
       update:
@@ -235,9 +251,13 @@ hu:
         download: Fájl letöltése
       documents:
         related_documents: Kapcsolódó dokumentumok
+      geocoding:
+        geocoded_address: Cím
       photos:
         related_photos: Kapcsolódó képek
     author:
+      avatar: 'Avatár: %{name}'
+      avatar_multiuser: Avatár több felhasználó számára
       comments:
         one: megjegyzés
         other: megjegyzések
@@ -254,8 +274,11 @@ hu:
       dummy_authorization_handler:
         explanation: Ellenőriztesd magad egy "A" betűvel kezdődő dokumentum azonosítóval
         fields:
+          allowed_postal_codes: Engedélyezett irányítószámok (vesszővel elválasztva)
+          allowed_scope_id: Engedélyezett hatáskör
           document_number: Dokumentum száma
           postal_code: Irányítószám
+          scope_id: Hatáskör
         name: Példa feljogosításra
       dummy_authorization_workflow:
         name: Dummy feljogosítási folyamat
@@ -301,6 +324,9 @@ hu:
           explanation_html: Annak érdekében, hogy ezt a műveletet elvégezhesse, engedélyeznie kell, mielőtt ezt elvégezné, meg kell erősítenie az e-mail címét <strong>%{email}</strong>.
           request_confirmation_instructions: Kérjen megerősítési utasítást
           title: Erősítsd meg az e-mail címed
+    block_user_mailer:
+      notify:
+        hello: Helló,
     collapsible_list:
       hidden_elements_count:
         one: és még %{count}
@@ -329,11 +355,14 @@ hu:
           global:
             amendments_enabled: A módosítások engedélyezve vannak
             comments_enabled: Megjegyzések engedélyezve
+            comments_max_length: A hozzászólások maximális hossza
             dummy_global_attribute_1: Dummy tulajdonság 1
             dummy_global_attribute_2: Dummy tulajdonság 2
             dummy_global_translatable_text: Kenyérszöveg - nem valódi fordítható szöveg
             enable_pads_creation: A közös dokumentum létrehozásának engedélyezése
             resources_permissions_enabled: Erőforrás-engedélyek biztosítva
+            scope_id: Hatáskör
+            scopes_enabled: Hatáskörök engedélyezve
           step:
             amendment_creation_enabled: A módosítás létrehozása engedélyezett
             amendment_promotion_enabled: A módosítás előléptetése engedélyezett
@@ -345,6 +374,9 @@ hu:
             dummy_step_translatable_text: Hamis Lépés Fordítható Szöveg
     contact: Kapcsolat
     content_blocks:
+      cta_settings_form:
+        background_image: Háttérkép
+        description: Leírás
       footer_sub_hero:
         name: Lábléc sub hero banner
       hero:
@@ -354,6 +386,11 @@ hu:
         welcome_text: Üdvözlő szöveg
       highlighted_content_banner:
         name: Kiemelt banner
+      highlighted_elements_settings_form:
+        orders:
+          label: 'Elemek rendezése a következő szerint:'
+          random: Véletlenszerű
+          recent: Legfrissebb
       how_to_participate:
         name: Így vehetsz részt
       html:
@@ -416,6 +453,7 @@ hu:
           buttons:
             check: Ellenőrzés és folytatás
             close_modal: Modal bezárása
+            uncheck: Kijelöletlenül hagy
           notice: |-
             <p>Biztos vagy benne, hogy nem szeretnél hírlevelet kapni?<br>
             Gondold át mégegyszer a döntést.<br>
@@ -440,6 +478,10 @@ hu:
           this_application_will_not_be_able_to: 'Ez az alkalmazás nem képes erre:'
           update_profile: Frissítsd a profilod
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> szeretné használni a fiókod"
+    editor_images:
+      create:
+        error: Hiba történt a kép feltöltése közben
+        success: Kép sikeresen feltöltve
     endorsable:
       endorsements: Jóváhagyások
     endorsement_buttons_cell:
@@ -586,6 +628,8 @@ hu:
           email_outro: 'Ezt az értesítést azért kaptad, mert őt követed: "%{nickname}". Az értesítéseket a következő linkre kattintva kapcsolhatod ki.'
           email_subject: "%{nickname} frissítette profilját"
           notification_title: '%{name} (%{nickname}) (akit egyébként követsz) <a href="%{resource_path}">profil oldala</a> frissült.'
+        user_officialized:
+          email_outro: Azért kapta ezt az értesítést, mert Ön a szervezet adminisztrátora.
     export_mailer:
       data_portability_export:
         download: Letöltés
@@ -621,7 +665,6 @@ hu:
         button: Követés törlése
         error: Hiba történt az erőforrás követésének visszavonásakor.
     forms:
-      current_file: Jelenlegi fájl
       current_image: Jelenlegi kép
       default_image: Alapértelmezett kép
       errors:
@@ -629,7 +672,28 @@ hu:
           password: A jelszó túl rövid.
           password_confirmation: A jelszó megerősítés meg kell egyezzen a jelszóval.
         error: Hiba van ebben a mezőben.
-      remove_this_file: Töröld ezt a fájlt
+      file_help:
+        file:
+          message_2: A javasolt képméret 512x512 pixel.
+      upload:
+        labels:
+          add_attachment: Melléklet hozzáadása
+          add_file: Fájl hozzáadása
+          add_image: Képek hozzáadása
+          cancel: Mégse
+          edit_image: Kép szerkesztése
+          error: Hiba!
+          file_too_big: 'A fájl túl nagy! Maximális méret: %{megabytes}MB'
+          remove: Eltávolítás
+          replace: Csere
+          save: Mentés
+          title: Cím
+          title_required: A cím megadása kötelező!
+          uploaded: Feltöltve
+          validating: Ellenőrzés...
+          validation_error: Hitelesítési hiba!
+      upload_help:
+        dropzone: Húzza ide fájlokat vagy kattintson a feltöltéshez
     gamification:
       all_badges_link: Az összes elérhető jelvény megtekintése.
       badges:
@@ -816,6 +880,7 @@ hu:
           next: Következő
           no_conversations: Még nincsenek beszélgetések
           title: Beszélgetések
+          to: Címzett
         reply:
           placeholder: A válaszod...
           send: Elküld
@@ -876,6 +941,12 @@ hu:
         greetings: Üdvözöljük <br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Helló!
         subject: 'Szeretnél továbbra is fontos információkat kapni róluk: a %{organization_name}?'
+    notification_mailer:
+      event_received:
+        no_translation_available: 'Sajnáljuk, az automatikus fordítást az e-mail elküldése után nem lehetett lekérni. Az eredeti szöveg fordítását a következő linken tekintheti meg: %{link}.'
+        original_text: 'Eredeti szöveg:'
+        same_language: A tartalom az általad preferált nyelven (%{language}) került közzétételre, ezért ebben az e-mailben nem szerepel automatizált fordítás.
+        translated_text: 'Automatikusan lefordított szöveg:'
     notifications:
       no_notifications: Még nincs értesítés.
     notifications_settings:
@@ -893,6 +964,10 @@ hu:
       update:
         error: Hiba történt az értesítési beállítások frissítése során.
         success: Az értesítési beállításaid frissítése sikeres volt.
+    offline:
+      show:
+        message: Úgy tűnik, nem kapcsolódik az internethez. Kérjük, próbálja meg újra később.
+        retry: Újra
     open_data:
       not_available_yet: Az Open Data fájlok még nem érhetők el, próbálkozzon újra pár perc múlva.
     own_user_groups:
@@ -943,6 +1018,7 @@ hu:
           error: Hiba történt az általános szerződési feltételek elfogadása során.
           success: Remek! Elfogadtad a feltételeket.
         form:
+          agreement: Elfogadom a feltételeket
           legend: Elfogadom a felhasználási feltételeket
         refuse:
           modal_body: Ha elutasítod, akkor nem fogod tudni használi a platformot. <a href="%{data_portability_path}">Töltsd le az adataidat</a> és/vagy <a href="%{delete_path}">töröld a fiókod</a>.
@@ -966,6 +1042,7 @@ hu:
       show:
         activity: Tevékenység
         badges: Jelvények
+        conversations: Beszélgetések
         followers: Követők
         following: Követés
         groups: Csoportok
@@ -996,6 +1073,7 @@ hu:
         subject: Egy erőforrás automatikusan elrejtve
       report:
         hello: Hello %{name}!
+        reason: Ok
         report_html: <p>A következő <a href="%{url}">tartalmat</a>korábban jelentették.</p>
         subject: Egy erőforrást jelentettek
     reports:
@@ -1035,7 +1113,13 @@ hu:
           one: "%{count} találat"
           other: "%{count} eredmények"
         view_all: Összes megtekintése (%{count})
+    security:
+      selfxss_warning:
+        title: Stop!
     shared:
+      confirm_modal:
+        cancel: Mégse
+        ok: OK
       embed_modal:
         close_window: Ablak bezárása
         embed: Illeszd be ezt a kódot az oldaladba
@@ -1059,6 +1143,8 @@ hu:
       login_modal:
         please_sign_in: Jelentkezz be
         sign_up: Regisztrálj
+      mentions_modal:
+        remove_recipient: '%{name} címzett eltávolítása'
       participatory_space_filters:
         filters:
           areas: Területek
@@ -1072,10 +1158,18 @@ hu:
         label: 'Találatok száma oldalanként:'
       share_modal:
         close_window: Ablak bezárása
+        copy_share_link: Másolás
+        copy_share_link_clarification: Megosztási hivatkozás másolása vágólapra
         share: Megosztás
         share_link: Hivatkozás megosztása
     statistics:
       comments_count: Hozzászólások
+      followers_count: Követők
+      headline: Statisztikák
+      no_stats: Még nincsenek statisztikák.
+      pages_count: Oldalak
+      participants_count: Résztvevők
+      users_count: Résztvevők
     translation_bar:
       help_text: "<strong>Figyelem:</strong> A tartalmat automatikusan fordíthatták, és nem 100% -ban pontos."
       show_original: Eredeti szöveg mutatása
@@ -1085,6 +1179,17 @@ hu:
         no_activities_warning: Ez a résztvevő még nem végzett tevékenységet.
     user_contact_disabled: Ez a résztvevő nem fogad el közvetlen üzeneteket.
     user_conversations:
+      create:
+        success: A beszélgetés sikeresen elindult!
+      new:
+        title: Beszélgetés indítása
+      reply:
+        placeholder: A válaszod...
+        send: Küldés
+        title_reply: Válasz
+      show:
+        back: Beszélgetések megtekintése
+        title: Beszélgetés %{usernames} nevű felhasználóval
       update:
         error: Üzenet elküldése sikertelen. Próbáld újra később
     user_interests:
@@ -1096,12 +1201,25 @@ hu:
       update:
         error: Hiba történt az érdeklődési körök frissítése közben.
         success: Az érdeklődési köreid sikeresen frissültek.
+    user_report_mailer:
+      notify:
+        details: Felhasználó által megadott adatok
+    version:
+      show:
+        number_of_versions: Verziók
+        show_all_versions: Összes verzió megjelenítése
+        version_author: Verzió szerzője
+        version_created_at: A verzió létrehozásának ideje
+        version_number: Verziószám
     version_author:
       show:
         deleted: Törölt résztvevő
     versions:
       resource_version:
         see_other_versions: lásd a többi verziót
+    versions_list:
+      show:
+        back_to_resource: Visszalépés
     welcome_notification:
       default_body: <p>Szia{{name}}, üdvözöllek és köszönöm, hogy csatlakoztál a {{organization}} szervezethez</p><ul><li>Ha gyorsan meg szeretnéd tudni, hogy mit tehetsz itt, nézd meg a <a href="{{help_url}}">Súgó</a> részt.</li><li>Miután elolvastad, megkapod az első jelvényed. Itt van egy <a href="{{badges_url}}">lista a</a> jelvényekről, melyeket akkor érdemelsz ki, ha részt veszel a {{organization}} által biztosított lehetőségekben. </li></ul> Végül, de nem utolsósorban, a platform lehetőséget biztosít, hogy kapcsolódj más emberekhez is! Oszd meg velük a tapasztalatodat a {{organization}} részvételében. Tegyél javaslatokat, megjegyzéseket, generálj konstruktív vitákat és gondold végig, hogyan járulj hozzá a közjó előmozdításához. Gyűjts érveket, hogy meggyőzz másokat, hallgass meg és olvasd el mások meggyőződést, fejezd ki ötleteidet konkrét és közvetlen módon, válaszolj türelemmel és határozottan, védd meg ötleteidet és hagyd nyitva elmédet, hogy elősegítsd az együttműködést és lehetőséget teremts más emberek ötleteinek befogadásához.</p>
       default_subject: Köszönjük, hogy csatlakoztál a {{organization}} szervezethez!
@@ -1290,19 +1408,31 @@ hu:
       edit_link:
         edit: Szerkesztés
       footer:
+        decidim_logo: Decidim-logó
         download_open_data: Töltse le a Nyílt Adat fájlokat
         made_with_open_source: Az oldal <a target="_blank" href="https://github.com/decidim/decidim">nyílt forráskódú szoftverrel</a> készült.
       header:
         close_menu: Menü bezárása
+        main_menu: Főmenü
         navigation: Navigáció
         sign_in: Bejelentkezés
         sign_up: Regisztráció
+        user_menu: Felhasználói menü
       impersonation_warning:
         close_session: Munkamenet bezárása
         description_html: <b>%{user_name}</b> felhasználó menedzselése.
         expire_time_html: A munkamenet <b><span class="minutes">%{minutes}</span> perc múlva lejár</b>.
+      language_chooser:
+        choose_language: Válassz nyelvet
       notifications_dashboard:
         mark_all_as_read: Összes megjelölése olvasottként
+        mark_as_read: Megjelölés olvasottként
+      offline_banner:
+        cache_version_page: Upsz! Nem kapcsolódik az internetre. Most az oldal egy régebbi, eltárolt változatát látja, ami lehet, hogy nem teljesen friss.
+      timeout_modal:
+        continue_session: Munkamenet folytatása
+        sign_out: Kijelentkezés
+        title: Folytatod a munkameneted?
       user_menu:
         admin_dashboard: Admin vezérlőpult
         conversations: Beszélgetések
@@ -1362,6 +1492,8 @@ hu:
       day_of_week: "%a"
       day_of_week_long: "%a %e"
       day_of_year: "%d.%m.%y"
+      ddmm: "%d.%m"
+      ddmmyyyy: "%d.%m.%Y"
       decidim_day_of_year: "%d %B %Y"
       decidim_short: "%d/%m/%Y %H:%M"
       default: "%a, %d %b %Y %H:%M:%S %z"
@@ -1379,6 +1511,7 @@ hu:
     dropdown:
       choose_diff_view_html: 'HTML megtekintési mód:'
       choose_diff_view_mode: 'Összehasonlító nézet mód:'
+      choose_diff_view_mode_menu: Válassz összehasonlítási módot
       option_escaped: Feloldott
       option_split: Egymás mellet
       option_unescaped: Feloldatlan

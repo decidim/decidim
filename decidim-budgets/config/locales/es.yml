@@ -21,6 +21,18 @@ es:
         one: Proyecto
         other: Proyectos
   decidim:
+    admin:
+      filters:
+        projects:
+          category_id_eq:
+            label: Categoría
+          scope_id_eq:
+            label: Ámbito
+          selected_at_null:
+            label: Seleccionado
+            values:
+              'false': Seleccionado para implementar
+              'true': No seleccionado para implementar
     budgets:
       actions:
         attachment_collections: Carpetas
@@ -92,6 +104,12 @@ es:
             no_components: No hay otros componentes de la propuesta en este espacio participativo para importar las propuestas en los proyectos.
             select_component: Por favor seleccione un componente
             title: Importar propuestas
+        reminders:
+          orders:
+            description: Las usuarias recibirán un correo electrónico con enlaces a los presupuestos en los que tienen un pedido pendiente.
+            title:
+              one: Estás a punto de enviar un recordatorio por correo electrónico a %{count} usuaria
+              other: Estás a punto de enviar un recordatorio por correo electrónico a %{count} usuarias
       admin_log:
         budget:
           create: "%{user_name} creó el presupuesto %{resource_name} en el espacio %{space_name}"
@@ -119,6 +137,9 @@ es:
         highlighted_cta: Votar en %{name}
         if_change_opinion: Si has cambiado de opinión, puedes
         my_budgets: Mis presupuestos
+        progress: Finalizar votación
+        show: Ver proyectos
+        vote: Votar
         voted_on: Has votado en %{links}
       limit_announcement:
         cant_vote: No puedes votar en este presupuesto. <a href="%{landing_path}"> Prueba con otro presupuesto</a>.
@@ -131,6 +152,8 @@ es:
             total_budget: Presupuesto total
         project:
           fields:
+            category: Categoría
+            id: ID
             title: Título
       order_summary_mailer:
         order_summary:
@@ -183,6 +206,12 @@ es:
           projects_count:
             one: 1 proyecto
             other: "%{count} proyectos"
+        exit_modal:
+          cancel: Volver a la votación
+          close_modal: Cerrar modal
+          exit: Salir de la votación
+          message: Tu voto no ha sido registrado porque aún no has completado el proceso de votación. ¿Seguro que quieres salir de la votación?
+          title: Aún no has votado
         filters:
           category: Categoría
           scope: Ámbito
@@ -230,9 +259,19 @@ es:
         show:
           budget: Presupuesto
           view_all_projects: Ver todos los proyectos
+      vote_reminder_mailer:
+        vote_reminder:
+          email_budgets: 'Áreas donde tienes una votación inacabada:'
+          email_intro: Has iniciado la votación de los presupuestos, pero no la has completado.
+          email_link: Ir a la votación
+          email_outro: Por favor, recuerda completar la votación. Para votar, primero debes seleccionar el proyecto o proyectos sobre las que deseas votar y luego confirmar tu voto con el botón "Votar".
+          email_subject:
+            one: Tienes un voto sin finalizar en la votación de los presupuestos
+            other: Tienes votos sin finalizar en la votación de los presupuestos
     components:
       budgets:
         actions:
+          comment: Comentar
           vote: Vota
         name: Presupuestos
         settings:

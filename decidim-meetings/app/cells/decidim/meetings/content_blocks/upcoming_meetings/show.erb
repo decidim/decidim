@@ -1,0 +1,26 @@
+<section id="upcoming_meetings" class="wrapper-home upcoming-meetings home-section">
+  <div class="row">
+    <h3 class="section-heading"><%= t("decidim.meetings.content_blocks.upcoming_meetings.upcoming_meetings") %></h3>
+    <div class="row">
+      <div class="columns medium-6">
+        <% upcoming_meetings.first(4).each do |event| %>
+          <%= card_for event, size: :s %>
+        <% end %>
+      </div>
+      <div class="columns medium-6">
+        <% if geolocation_enabled? %>
+          <%= cell "decidim/meetings/meetings_map", upcoming_meetings %>
+        <% else %>
+          <% (upcoming_meetings - upcoming_meetings.first(4)).each do |event| %>
+            <%= card_for event, size: :s %>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="column">
+        <%= link_to t("decidim.meetings.content_blocks.upcoming_meetings.view_all_meetings"), meetings_directory_path, class: "button hollow button--sc pull-right" %>
+      </div>
+    </div>
+  </div>
+</section>

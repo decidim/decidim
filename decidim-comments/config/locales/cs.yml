@@ -20,6 +20,12 @@ cs:
         other: Hlasy
   decidim:
     comments:
+      admin:
+        shared:
+          availability_fields:
+            enabled: Komentáře povoleny
+            end_time: Komentáře povoleny do
+            start_time: Komentáře povoleny od
       comments:
         create:
           error: Při vytváření komentáře došlo k chybě.
@@ -68,6 +74,7 @@ cs:
         edit: Upravit
         edited: Upraveno
         hide_replies: Skrýt odpovědi
+        moderated_at: Komentář moderován dne %{date}
         reply: Odpověď
         report:
           action: Zpráva
@@ -97,7 +104,7 @@ cs:
         blocked_comments_warning: Komentáře jsou momentálně zakázány, ale můžete si přečíst ty předchozí.
         comment_details_title: Podrobnosti komentáře
         loading: Načítání komentářů ...
-        single_comment_warning: Můžete zkontrolovat zbytek komentářů <a href="%{url}">zde</a>.
+        single_comment_warning: <a href="%{url}">Zobrazit všechny komentáře</a>
         single_comment_warning_title: Vidíte jeden komentář
         title:
           one: "%{count} komentář"

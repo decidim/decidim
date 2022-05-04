@@ -56,10 +56,11 @@ ar:
         birthplace: مكان الازدياد
         ceased_date: تاريخ التوقف
         designation_date: تاريخ التعيين
-        designation_mode: وضع التعيين
         full_name: الاسم الكامل
         gender: الجنس
+        non_user_avatar: الصورة الرمزية
         position: الموقع
+        user_id: مستخدم أو مجموعة
       assembly_user_role:
         email: البريد الإلكتروني
         name: الاسم
@@ -90,6 +91,7 @@ ar:
   decidim:
     admin:
       actions:
+        import_assembly: استيراد
         new_assembly: جمعية جديدة
         new_assembly_type: نوع جديد للجمعية
       assemblies:
@@ -129,6 +131,9 @@ ar:
           copy: نسخ
           select: حدد البيانات التي ترغب في تكرارها
           title: نسخ الجمعية
+      assembly_imports:
+        new:
+          import: استيراد
       assembly_members:
         create:
           error: حدثت مشكلة أثناء إضافة عضو لهذا التجميع.
@@ -246,7 +251,6 @@ ar:
             duration_help: إذا كانت مدة هذه الجمعية محدودة ، فحدد تاريخ الانتهاء. خلاف ذلك ، سوف يظهر على أنه غير مسمى.
             filters: مرشحات
             images: الصور
-            included_at_help: حدد التاريخ الذي تمت فيه إضافة هذه الجمعية إلى Decidim. ليس بالضرورة أن يكون هو نفسه تاريخ الإنشاء.
             metadata: البيانات الوصفية
             other: آخر
             select_a_created_by: حدد تم إنشاؤها بواسطة

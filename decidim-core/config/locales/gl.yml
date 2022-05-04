@@ -57,7 +57,36 @@ gl:
       decidim_with_day_and_month_name: "%A %d %b %Y"
       decidim_with_month_name: "%d %B %Y"
       decidim_with_month_name_short: "%d %b"
+  datetime:
+    distance_in_words:
+      about_x_hours:
+        one: ao redor de 1 hora
+        other: ao redor de %{count} horas
+      about_x_months:
+        one: ao redor de 1 mes
+        other: ao redor de %{count} meses
+      half_a_minute: medio minuto
+      less_than_x_minutes:
+        one: menos de 1 minuto
+        other: menos de %{count} minutos
+      less_than_x_seconds:
+        one: agora
+        other: menos de %{count} segundos
+      x_days:
+        one: hai 1 día
+        other: "hai %{count} días"
+      x_hours:
+        one: hai 1 hora
+        other: "hai %{count} horas"
+      x_minutes:
+        one: hai 1 min
+        other: "hai %{count} min"
+      x_seconds:
+        one: hai 1 seg
+        other: "hai %{count} seg"
   decidim:
+    accessibility:
+      front_page_link: Ir á páxina principal
     account:
       data_portability_export:
         file_no_exists: O ficheiro non existe
@@ -369,6 +398,11 @@ gl:
           this_application_will_not_be_able_to: 'Esta aplicación non poderá:'
           update_profile: Actualiza o teu perfil
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> quere usar a túa conta"
+    editor_images:
+      create:
+        error: Erro ó subir a imaxe
+        success: Imaxe subida con éxito
+      drag_and_drop_help: Engade imaxes arrastrándoas ou pegándoas aquí.
     endorsable:
       endorsements: Aprobacións
     errors:
@@ -497,6 +531,11 @@ gl:
           email_outro: Recibiches esta notificación porque estás seguindo %{nickname}. Podes deixar de recibir notificacións seguindo a ligazón anterior.
           email_subject: "%{nickname} actualizou o seu perfil"
           notification_title: O <a href="%{resource_path}">profile páxina</a> de %{name} (%{nickname}), quen está a seguir, foi actualizado.
+        user_officialized:
+          email_intro: O participante %{name} (%{nickname}) foi oficializado.
+          email_outro: Recibiches esta notificación por que es administrador da organización.
+          email_subject: "%{name} foi oficializado"
+          notification_title: O participante %{name} (%{nickname}) foi oficializado.
     export_mailer:
       data_portability_export:
         download: Descarga
@@ -524,6 +563,7 @@ gl:
       no_followers: Aínda non hai seguidores.
     following:
       no_followings: Aínda non segue a ninguén nin a nada.
+      non_public_followings: Algúns dos recursos seguidos non son públicos.
     follows:
       create:
         button: Segue
@@ -532,12 +572,34 @@ gl:
         button: Deixar de seguir
         error: Houbo un erro ao seguir este recurso.
     forms:
-      current_file: Arquivo actual
       current_image: Imaxe actual
       default_image: Imaxe predeterminada
       errors:
         error: Hai un erro neste campo.
-      remove_this_file: Elimina este ficheiro
+      file_help:
+        file:
+          message_1: Ten que ser unha imaxe cadrada.
+          message_2: O tamaño recomendado para esta imaxe é de 512x512.
+      upload:
+        labels:
+          add_attachment: Engadir ficheiro anexo
+          add_file: Engadir ficheiro
+          add_image: Engadir imaxe
+          cancel: Cancelar
+          edit_image: Editar imaxe
+          error: Erro!
+          file_too_big: 'O ficheiro e grande de máis! Tamaño máximo: %{megabytes}MB'
+          remove: Eliminar
+          replace: Substituír
+          save: Gardar
+          title: Título
+          title_required: O título é obrigatorio!
+          uploaded: Cargado
+          validating: Validando...
+          validation_error: Erro de validación!
+      upload_help:
+        dropzone: Solta os ficheiros aquí ou preme para cargar
+        explanation: Guía para %{attribute}
     gamification:
       all_badges_link: Consulta todas as insignias dispoñibles.
       badges:
@@ -723,10 +785,12 @@ gl:
           close: Pechar modal
           no_conversations: Aínda non tes conversas
           title: Conversas
+          to: Para
         reply:
           send: Enviar
           title: Responder
         show:
+          deleted_accounts: Non podes manter unha conversa con contas eliminadas.
           title: Conversa con %{usernames}
         start:
           send: Enviar
@@ -770,6 +834,12 @@ gl:
         greetings: Saúdos,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Ola,
         subject: Queres seguir recibindo información relevante sobre %{organization_name}?
+    notification_mailer:
+      event_received:
+        no_translation_available: Sentímolo, non foi posíbel recuperar a tradución automática ao enviar o correo. Podes verificar a tradución do texto orixinal na seguinte ligazaón %{link}.
+        original_text: 'Texto orixinal:'
+        same_language: O contido foi subido no teu idioma preferido (%{language}), por iso non se amosa ningunha tradución automática neste correo electrónico.
+        translated_text: 'Texto traducido automaticamente:'
     notifications:
       no_notifications: Aínda non hai notificacións.
     notifications_settings:
@@ -785,6 +855,10 @@ gl:
       update:
         error: Produciuse un erro ao actualizar a configuración das notificacións.
         success: A configuración das notificacións actualizouse correctamente.
+    offline:
+      show:
+        message: Semella que non tes conexión. Por favor, téntao de novo máis tarde.
+        retry: Tentar de novo
     open_data:
       not_available_yet: Os ficheiros Open Data aínda non están dispoñibles. Téntao de novo nuns minutos.
     own_user_groups:
@@ -949,6 +1023,8 @@ gl:
       login_modal:
         please_sign_in: Inicia sesión
         sign_up: Rexistrarse
+      mentions_modal:
+        remove_recipient: Eliminar o destinatario %{name}
       participatory_space_filters:
         filters:
           areas: Ámbitos
@@ -985,6 +1061,7 @@ gl:
     user_conversations:
       show:
         back: Amosar todas as conversas
+        deleted_accounts: Non podes manter unha conversa con contas eliminadas.
       update:
         error: Mensaxe non enviada. Téntao de novo máis tarde
     user_interests:
@@ -996,6 +1073,9 @@ gl:
       update:
         error: Produciuse un erro ao actualizar os teus intereses.
         success: Os teus intereses foron actualizados correctamente.
+    user_report_mailer:
+      notify:
+        details: Detalles fornecidos polo usuario
     version_author:
       show:
         deleted: Usuario eliminado
@@ -1196,6 +1276,10 @@ gl:
         expire_time_html: A túa sesión caducará en <b><span class="minutes">%{minutes}</span> minutos</b>.
       notifications_dashboard:
         mark_all_as_read: Marca todo como lido
+      offline_banner:
+        cache_version_page: Vaites! A túa rede está desconectada. O que estás a ver é unha versión previa da páxina gardada na caché, é podería non estar actualizada.
+      upload_modal:
+        close_modal: Pechar modal
       user_menu:
         admin_dashboard: Taboleiro de administración
         conversations: Conversas
@@ -1218,10 +1302,12 @@ gl:
   locale:
     name: Galego
   password_validator:
+    blacklisted: na lista negra
     domain_included_in_password: é moi similar a este nome de dominio
     email_included_in_password: é demasiado semellante ao teu correo electrónico
     fallback: non é válido
     name_included_in_password: é moi similar ao teu nome
+    nickname_included_in_password: é moi semellante ao teu alcume
     not_enough_unique_characters: non ten suficientes caracteres únicos
     password_not_allowed: non está permitido
     password_too_common: é moi común
@@ -1253,6 +1339,8 @@ gl:
       day_of_week: "%a"
       day_of_week_long: "%a %e"
       day_of_year: "%d.%m.%y"
+      ddmm: "%d.%m"
+      ddmmyyyy: "%d.%m.%Y"
       decidim_day_of_year: "123_2_0_321 %B 123_2_2_321 |"
       decidim_short: "%d/%m/%Y %H:%M"
       devise:
@@ -1260,6 +1348,9 @@ gl:
           invitation_instructions:
             accept_until_format: "%B %d, %Y %I:%M %p"
       time_of_day: "%H:%M"
+  versions:
+    dropdown:
+      choose_diff_view_mode_menu: Escoller o modo de comparación
   views:
     pagination:
       first: "&laquo; Primeiro"

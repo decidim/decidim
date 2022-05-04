@@ -1,4 +1,4 @@
-<section class="wrapper-home home-section" xmlns="http://www.w3.org/1999/xhtml">
+<section id="highlighted_assemblies" class="wrapper-home home-section" xmlns="http://www.w3.org/1999/xhtml">
   <div class="row" id="highlighted-assemblies">
     <h3 class="section-heading"><%= t("active_assemblies", scope: i18n_scope) %></h3>
     <div class="row collapse">
@@ -8,7 +8,7 @@
           <div class="column">
             <%= link_to decidim_assemblies.assembly_path(assembly), class: "card card--assembly card--mini" do %>
               <div aria-hidden="true" class="card__image-top"
-                style="background-image:url(<%= assembly.hero_image.url %>)"></div>
+                style="background-image:url(<%= assembly.attached_uploader(:hero_image).path %>)"></div>
               <div class="card__content">
                 <span class="card__title card__link"><%= translated_attribute assembly.title %></span>
               </div>

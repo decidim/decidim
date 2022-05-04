@@ -1,4 +1,4 @@
-pt:
+pt-BR:
   activemodel:
     attributes:
       collaborative_draft:
@@ -125,7 +125,6 @@ pt:
         name: Propostas
         settings:
           global:
-            allow_card_image: Permitir imagem do cartão
             amendments_enabled: Alterações ativadas
             amendments_enabled_help: Se estiver ativo, configure as características da alteração em cada passo.
             amendments_wizard_help_text: Texto de ajuda do Assistente
@@ -176,7 +175,6 @@ pt:
             answers_with_costs: Ativar custos na resposta da proposta
             automatic_hashtags: Hashtags adicionados a todas as propostas
             comments_blocked: Comentários bloqueados
-            creation_enabled: Criação de proposta ativada
             endorsements_blocked: Endossos bloqueados
             endorsements_enabled: Endossos habilitados
             proposal_answering_enabled: Resposta de proposta ativada
@@ -269,7 +267,6 @@ pt:
           email_intro: A proposta "%{resource_title}" foi adicionada a "%{participatory_space_title}" que você está seguindo.
           email_outro: Você recebeu esta notificação porque está seguindo "%{participatory_space_title}". Você pode deixar de segui-lo no link anterior.
           email_subject: Nova proposta "%{resource_title}" adicionada a %{participatory_space_title}
-          notification_title: A proposta <a href="%{resource_path}">%{resource_title}</a> foi adicionada a %{participatory_space_title}
         proposal_rejected:
           affected_user:
             email_intro: 'Sua proposta "%{resource_title}" foi rejeitada. Você pode ler a resposta nesta página:'
@@ -509,11 +506,9 @@ pt:
             title: Importar propostas
         proposals_merges:
           create:
-            invalid: Ocorreu um erro ao mesclar as propostas selecionadas.
             success: Fundiu com sucesso as propostas em uma nova.
         proposals_splits:
           create:
-            invalid: Ocorreu um erro ao dividir as propostas selecionadas.
             success: Dividiu com sucesso as propostas em novas.
         valuation_assignments:
           create:
@@ -544,7 +539,6 @@ pt:
           all: Todos
         filter_origin_values:
           all: Todos
-          citizens: Cidadãos
           meetings: Reuniões
           official: Oficial
           user_groups: Grupos de usuários
@@ -719,12 +713,8 @@ pt:
           description: As coordenadas serão atualizadas quando clicar no botão 'visualizar'. No entanto, o endereço não muda.
           instructions: Você pode mover o ponto no mapa.
         edit:
-          add_documents: Documentos
-          add_images: Arquivo
           attachment_legend: "(Opcional) Adicione um anexo"
           back: Voltar
-          delete_document: Apagar Documento
-          delete_image: Excluir Imagem
           gallery_legend: "(Opcional) Adicione uma imagem à carta da proposta"
           select_a_category: Selecione uma categoria
           send: Enviar

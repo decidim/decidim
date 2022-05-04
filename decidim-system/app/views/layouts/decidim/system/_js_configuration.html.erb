@@ -1,6 +1,6 @@
 <%
 js_configs = {
-  icons_path: asset_pack_path("media/images/icons.svg")
+  icons_path: Decidim.cors_enabled ? "" : asset_pack_path("media/images/icons.svg")
 }
 %>
 

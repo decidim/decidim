@@ -2,7 +2,7 @@
 
 module Decidim
   # Class used to retrieve similar emendations, scoped to the current component.
-  class SimilarEmendations < Rectify::Query
+  class SimilarEmendations < Decidim::Query
     include Decidim::TranslationsHelper
 
     # Syntactic sugar to initialize the class and return the queried objects.
@@ -29,7 +29,7 @@ module Decidim
                 .published
                 .not_hidden
                 .where(
-                  "GREATEST(#{title_similarity}, #{body_similarity}) >= ?",
+                  Arel.sql("GREATEST(#{title_similarity}, #{body_similarity}) >= ?").to_s,
                   translated_attribute(emendation.title),
                   translated_attribute(emendation.body),
                   amendable_module.similarity_threshold

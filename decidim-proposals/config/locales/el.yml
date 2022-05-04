@@ -97,7 +97,6 @@ el:
         name: Προτάσεις
         settings:
           global:
-            allow_card_image: Να επιτρέπεται η εικόνα κάρτας
             amendments_enabled: Οι τροποποιήσεις ενεργοποιήθηκαν
             amendments_enabled_help: Εάν είναι ενεργό, διαμορφώστε τα χαρακτηριστικά Τροποποίησης για κάθε βήμα.
             amendments_wizard_help_text: Κείμενο βοήθειας για τον Οδηγό τροποποιήσεων
@@ -141,7 +140,6 @@ el:
             answers_with_costs: Ενεργοποιήστε το κόστος στις απαντήσεις της πρότασης
             automatic_hashtags: Προστέθηκαν hashtag σε όλες τις προτάσεις
             comments_blocked: Τα σχόλια αποκλείστηκαν
-            creation_enabled: Η δημιουργία πρότασης ενεργοποιήθηκε
             endorsements_blocked: Επιδοκιμασίες αποκλεισμένες
             endorsements_enabled: Επιδοκιμασίες ενεργοποιημένες
             proposal_answering_enabled: Η απάντηση στην πρόταση ενεργοποιήθηκε
@@ -234,7 +232,6 @@ el:
           email_intro: Η πρόταση «%{resource_title}» προστέθηκε στον χώρο συμμετοχής «%{participatory_space_title}» που ακολουθείτε.
           email_outro: Λάβατε αυτήν την ειδοποίηση επειδή ακολουθείτε τον χώρο συμμετοχής «%{participatory_space_title}». Μπορείτε να διακόψετε τη λήψη ειδοποιήσεων ακολουθώντας τον προηγούμενο σύνδεσμο.
           email_subject: Η νέα πρόταση «%{resource_title}» προστέθηκε στον χώρο συμμετοχής %{participatory_space_title}
-          notification_title: Η πρόταση <a href="%{resource_path}">%{resource_title}</a> προστέθηκε στον χώρο συμμετοχής %{participatory_space_title}
         proposal_rejected:
           affected_user:
             email_intro: 'Η πρότασή σας «%{resource_title}» απορρίφθηκε. Μπορείτε να διαβάσετε την απάντηση σε αυτήν τη σελίδα:'
@@ -469,11 +466,9 @@ el:
             select_states: Ελέγξτε την κατάσταση των προτάσεων προς εισαγωγή
         proposals_merges:
           create:
-            invalid: Υπήρξε ένα πρόβλημα κατά τη συγχώνευση των επιλεγμένων προτάσεων.
             success: Επιτυχής συγχώνευση των προτάσεων σε μία νέα.
         proposals_splits:
           create:
-            invalid: Υπήρξε ένα πρόβλημα κατά τον διαχωρισμό των επιλεγμένων προτάσεων.
             success: Επιτυχής διαχωρισμός των προτάσεων σε νέες.
         valuation_assignments:
           create:
@@ -504,7 +499,6 @@ el:
           all: Όλα
         filter_origin_values:
           all: Όλα
-          citizens: Πολίτες
           meetings: Συσκέψεις
           official: Επίσημη
           user_groups: Ομάδες

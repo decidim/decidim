@@ -70,11 +70,25 @@ gl:
             title: Nova resposta
           not_selected: Non seleccionada
           selected: Seleccionada
+        elections:
+          index:
+            title: Eleccións
+          new:
+            create: Crear elección
+            title: Nova elección
+        exports:
+          elections: Eleccións
+        menu:
+          trustees: Comisarios
         models:
           answer:
             name: Resposta
+          election:
+            name: Elección
           question:
             name: Pregunta
+          trustee:
+            name: Comisario
         questions:
           edit:
             title: Editar pregunta
@@ -89,6 +103,8 @@ gl:
             errors:
               minimum_answers: As preguntas teñen de ter <strong>polo menos dúas respostas</strong>.
             not_used_trustee: "(non usada)"
+          key_ceremony:
+            continue: Continuar
           results_published:
             answer: Resposta
             not_selected: Non seleccionado
@@ -96,6 +112,14 @@ gl:
             result: Resultado
             selected: Seleccionado
             submit: Enviar
+          tally:
+            continue: Continuar
+            invalid: Produciuse un problema ao denunciar o comisario ausente
+            mark_as_missing: Marcar coma ausente
+            mark_as_missing_description: Todos os comisarios teñen que participar neste proceso, mais se un comisario non pode tomar parte pode ser sinalado como ausente.
+            success: O informe sobre o comisario ausente foi enviado con éxito ao Bulletin Board
+            tally_completion: O proceso completarase cando todos os comisarios estean activos ou marcados coma ausentes. Son necesarios polo menos %{quorum} comisarios para completar o proceso.
+            undo_mark_as_missing: Un comisario sinalado como ausente poderá participar antes de se completar o proceso. Poderá proceder como é usual e a marca de ausencia será ignorada.
           tally_ended:
             answer: Resposta
             not_selected: Non seleccionado
@@ -108,7 +132,14 @@ gl:
             text: Rematou a votación. Podes comezar o reconto agora.
       admin_log:
         election:
-          publish_results: "%{user_name} publicou os resultados da elección %{resource_name} no Bulletin Board"
+          create: "%{user_name} creou a elección %{resource_name} para %{space_name}"
+          delete: "%{user_name} eliminou a elección %{resource_name} para %{space_name}"
+          end_vote: "%{user_name} terminou o período de votación para a elección %{resource_name} de %{space_name} no Bulletin Board"
+          publish: "%{user_name} publicou a elección %{resource_name} para %{space_name}"
+          publish_results: "%{user_name} publicou os resultados da elección %{resource_name} para %{space_name} no Bulletin Board"
+          setup: "%{user_name} creou a elección %{resource_name} para %{space_name} no Bulletin Board"
+        trustee:
+          create: "%{user_name} atribuíu ao usuario %{trustee_user} como comisario"
       election_m:
         badge_name:
           finished: Finalizada
@@ -142,9 +173,9 @@ gl:
         filters:
           active: Activa
           all: Todas
+          date: Data
           finished: Finalizada
           search: Procurar
-          state: Estado
           upcoming: Vindeiras
         filters_small_view:
           close_modal: Pechar modal
@@ -211,6 +242,9 @@ gl:
                 bb_status: Estado
             identification_keys:
               submit: Enviar
+              upload_error:
+                invalid_public_key: As claves de identificación no ficheiro a subir non coinciden coas claves públicas almacenadas.
+              upload_legend: O servidor ten as túas claves públicas, mais o teu navegador aínda non. Precisas importar ao teu computador o ficheiro coas túas claves de identificación dende a copia de seguranza creada despois de xerar as chaves.
       votes:
         ballot_decision:
           audit: "( Auditar papeleta )"
@@ -240,11 +274,14 @@ gl:
         onboarding_modal:
           close: Pechar modal
           create_account: Crear conta
-          description: Queres crear unha conta nova no Decidim? Poderás participar nos procesos e ser unha parte activa da organización.
+          description: Queres crear unha conta nova na plataforma? Poderás participar nos procesos e ser unha parte activa da organización.
           no_account: Non, grazas.
-          title: Novo/a no Decidim?
+          title: Es novo na plataforma?
         update:
           error: Produciuse un problema ao actualizar o estado do voto. Por favor, téntao de novo.
+        verify:
+          form:
+            back: Volver á plataforma
     events:
       elections:
         votes:
@@ -362,7 +399,6 @@ gl:
             title: Eleccións
         votings:
           form:
-            census_contact_information_help: A información de contacto é para o participante que desexe informar de problemas co censo. Pode ser un enderezo de correo electrónico, un formulario de contacto noutro sitio web, unha enquisa do Decidim para visitantes, etc.
             select_a_voting_type: Por favor, selecciona un tipo de votación
             voting_type:
               hybrid: Híbrido
@@ -371,6 +407,8 @@ gl:
       census:
         admin:
           census:
+            create:
+              invalid_csv_header: Faltan as cabeceiras CSV ou non son correctas - por favor, le as instrucións con cuidado
             creating_data:
               info_message: "<strong>Agarda</strong>, procesadas %{processed_count} de %{raw_count} filas do ficheiro %{file}."
             delete:
@@ -425,6 +463,7 @@ gl:
           description:
             show_less: Ler menos
             show_more: Ler máis
+            title: Sobre esta votación
           metrics:
             heading: Métricas
           polling_stations:
@@ -487,6 +526,7 @@ gl:
             available_answers: 'Respostas dispoñibles:'
             census_verified: O participante aínda non votou.
             complete_voting: Completar votación
+            questions_title: 'Teñen dereito a votar nas seguintes preguntas:'
           in_person_form:
             census_not_present: Este participante non está no censo.
             census_not_present_description: Ten de ir á oficina de reclamacións do censo ou contactar coa asistencia técnica.
@@ -576,6 +616,8 @@ gl:
           description: O rexistro da elección amosarache toda a información importante sobre cada votación. Por exemplo, o estado da cerimonia de chaves, o reconto ou se os resultados xa están publicados. Fai clic na elección da que desexas a información do rexistro.
           election_log: Rexistro da elección
           title: Rexistro da elección
+        filters:
+          date: Data
         login:
           access_code: Código de acceso
           access_code_placeholder: Código de acceso

@@ -27,11 +27,15 @@ pt:
         user_group_id: Criar proposta como
       proposal_answer:
         answer: Responder
+        cost: Custo
+        cost_report: Relatório de custo
+        execution_period: Período de execução
       proposals_copy:
         copy_proposals: Eu entendo que isto irá importar todas as propostas do componente selecionado para o atual e que esta ação não pode ser revertida.
         origin_component_id: Componente para copiar as propostas de
       proposals_import:
         import_proposals: Importar propostas
+        keep_answers: Guardar estado e respostas
         keep_authors: Manter os autores originais
       valuation_assignment:
         admin_log:
@@ -53,6 +57,16 @@ pt:
               identical: E o título não pode ser idêntico
             title:
               identical: E o corpo não pode ser idêntico
+        proposals_merge:
+          attributes:
+            base:
+              not_official: Não são oficiais
+              supported: Receberam suporte ou apoios
+        proposals_split:
+          attributes:
+            base:
+              not_official: Não são oficiais
+              supported: Receberam suporte ou apoios
     models:
       decidim/proposals/accepted_proposal_event: Proposta aceite
       decidim/proposals/admin/update_proposal_category_event: Categoria da proposta modificada
@@ -82,6 +96,28 @@ pt:
     admin:
       filters:
         proposals:
+          category_id_eq:
+            label: Categoria
+          is_emendation_true:
+            label: Tipo
+            values:
+              'false': Propostas
+              'true': Revisões
+          scope_id_eq:
+            label: Âmbito
+          state_eq:
+            label: Estado
+            values:
+              accepted: Aceite
+              evaluating: Em avaliação
+              published: Publicado
+              rejected: Rejeitado
+              validating: Validação técnica
+              withdrawn: Retirado
+          state_null:
+            label: Estado
+            values:
+              'true': Não respondido
           valuator_role_ids_has:
             label: Atribuído a avaliador
         search_placeholder:
@@ -90,14 +126,15 @@ pt:
       proposals:
         actions:
           amend: Modificar
+          comment: Comentar
           create: Criar
           endorse: Endossar
           vote: Voto
+          vote_comment: Cometário ao voto
           withdraw: Retirar
         name: Propostas
         settings:
           global:
-            allow_card_image: Permitir imagem de cartão
             amendments_enabled: Modificações ativadas
             amendments_enabled_help: Caso a opção esteja ativa, configure as características de Modificação para cada passo.
             amendments_wizard_help_text: Texto de ajuda do Assistente de Modificações
@@ -107,6 +144,17 @@ pt:
             collaborative_drafts_enabled: Rascunhos colaborativos ativados
             comments_enabled: Comentários ativados
             comments_max_length: Comprimento máximo dos comentários (Deixar 0 para o valor predefinido)
+            default_sort_order: Ordenamento por defeitos das propostas
+            default_sort_order_help: Por defeito significa que se os apoios estiverem activos as propostas serão ordenadas ao acaso, e se os apoios estiverem bloqueados serão ordenadas do maior para o menor número de apoios.
+            default_sort_order_options:
+              default: Por defeito
+              most_commented: Mais comentada
+              most_endorsed: Mais apoiada
+              most_followed: Mais seguida
+              most_voted: Mais apoiada
+              random: Aleatório
+              recent: Mais recentes
+              with_more_authors: Com mais autores
             geocoding_enabled: Geocoding ativado
             minimum_votes_per_user: Votos mínimos por utilizador
             new_proposal_body_template: Novo modelo de corpo de proposta
@@ -117,6 +165,10 @@ pt:
             participatory_texts_enabled_readonly: Não é possível interagir com esta configuração caso existam propostas. Crie um novo "Componente de propostas" caso pretenda ativar esta característica ou elimine todas as propostas importadas no menu "Textos Participativos" caso pretenda desativá-la.
             proposal_answering_enabled: Respostas à proposta ativadas
             proposal_edit_before_minutes: As propostas podem ser editadas pelos autores antes que estes minutos passem
+            proposal_edit_time: Edição de proposta
+            proposal_edit_time_choices:
+              infinite: Permitir editar propostas por um limite de tempo indeterminado
+              limited: Permitir edição de propostas dentro dum espaço de tempo
             proposal_length: Comprimento máximo do corpo da proposta
             proposal_limit: Limite de propostas por utilizador
             proposal_wizard_step_1_help_text: Texto de ajuda do passo "Criar" do Assistente de Propostas
@@ -124,6 +176,8 @@ pt:
             proposal_wizard_step_3_help_text: Texto de ajuda do passo "Concluir" do Assistente de Propostas
             proposal_wizard_step_4_help_text: Texto de ajuda do passo "Publicar" do Assistente de Propostas
             resources_permissions_enabled: As permissões de ações podem ser definidas para cada proposta
+            scope_id: Âmbito
+            scopes_enabled: Âmbitos activados
             threshold_per_proposal: Limiar por proposta
             vote_limit: Limite de voto por participante
           step:
@@ -142,7 +196,17 @@ pt:
             answers_with_costs: Ativar custos nas respostas a propostas
             automatic_hashtags: Hashtags adicionados a todas as propostas
             comments_blocked: Comentários bloqueados
-            creation_enabled: Criação de proposta ativada
+            default_sort_order: Ordenamento por defeitos das propostas
+            default_sort_order_help: Por defeito significa que se os apoios estiverem activos as propostas serão ordenadas ao acaso, e se os apoios estiverem bloqueados serão ordenadas do maior para o menor número de apoios.
+            default_sort_order_options:
+              default: Por defeito
+              most_commented: Mais comentada
+              most_endorsed: Mais apoiada
+              most_followed: Mais seguida
+              most_voted: Mais apoiada
+              random: Aleatório
+              recent: Mais recentes
+              with_more_authors: Com mais autores
             endorsements_blocked: Endossos bloqueados
             endorsements_enabled: Endossamentos ativados
             proposal_answering_enabled: Resposta de proposta ativada
@@ -235,7 +299,6 @@ pt:
           email_intro: A proposta "%{resource_title}" foi adicionada a "%{participatory_space_title}" que você segue.
           email_outro: Recebeu esta notificação porque segue "%{participatory_space_title}". Pode deixar de receber notificações seguindo a hiperligação anterior.
           email_subject: Nova proposta "%{resource_title}" adicionada a %{participatory_space_title}
-          notification_title: A proposta <a href="%{resource_path}">%{resource_title}</a> foi adicionada a %{participatory_space_title}
         proposal_rejected:
           affected_user:
             email_intro: 'A sua proposta "%{resource_title}" foi rejeitada. Pode ler a resposta nesta página:'
@@ -330,6 +393,7 @@ pt:
         actions:
           preview: Pré-visualizar
         exports:
+          proposal_comments: Comentários
           proposals: Propostas
         models:
           proposal:
@@ -353,7 +417,9 @@ pt:
           new_import:
             accepted_mime_types:
               md: Anotação
+              odt: ODT
             bottom_hint: "(Será capaz de pré-visualizar e classificar as secções do documento)"
+            document_legend: 'Adicionar um documento com menos de 2MB, cada secção até 3 níveis de profundidade será introduzida nas propostas. Os formatos suportados são: %{valid_mime_types}'
             title: ADICIONAR DOCUMENTO
             upload_document: Enviar documento
           publish:
@@ -394,6 +460,7 @@ pt:
           form:
             attachment_legend: "(Opcional) Adicionar um anexo"
             created_in_meeting: Esta proposta vem de uma reunião
+            delete_attachment: Apagar anexo
             select_a_category: Selecione uma categoria
             select_a_meeting: Selecione uma reunião
           index:
@@ -468,13 +535,14 @@ pt:
             no_components: Não há outros componentes da proposta neste espaço participativo de onde importar as propostas.
             select_component: Selecione um componente
             select_states: Verifique os estados das propostas a importar
+            title: Importar propostas
         proposals_merges:
           create:
-            invalid: Ocorreu um problema ao fundir as propostas selecionadas.
+            invalid: 'Houve um problema ao fundir as propostas seleccionadas porque algumas delas:'
             success: Fundiu corretamente as propostas em uma nova.
         proposals_splits:
           create:
-            invalid: Ocorreu um problema ao dividir as propostas selecionadas.
+            invalid: 'Houve um problema ao dividir as propostas seleccionadas porque algumas delas:'
             success: Dividiu corretamente as propostas em novas.
         valuation_assignments:
           create:
@@ -505,7 +573,6 @@ pt:
           all: Todos
         filter_origin_values:
           all: Todos
-          citizens: Cidadãos
           meetings: Reuniões
           official: Oficial
           user_groups: Grupos
@@ -620,6 +687,9 @@ pt:
           info: Está a criar um <strong>projeto colaborativo</strong>.
         wizard_header:
           title: Criar o seu rascunho colaborativo
+      content_blocks:
+        highlighted_proposals:
+          proposals: Propostas
       create:
         error: Ocorreu um problema ao guardar a proposta.
         success: Proposta criada corretamente. Guardado como Rascunho.
@@ -628,6 +698,7 @@ pt:
         success: O rascunho da proposta foi eliminado corretamente.
       last_activity:
         new_proposal_at_html: "<span>Nova proposta em %{link}</span>"
+        proposal_updated_at_html: "<span>Proposta actualizada em %{link}</span>"
       models:
         collaborative_draft:
           fields:
@@ -672,9 +743,13 @@ pt:
           proposals_count:
             one: "%{count} proposta"
             other: "%{count} propostas"
+        dynamic_map_instructions:
+          description: As coordenadas serão actualizadas quando clicar no botão ‘pré-visualização’. No entanto, o endereço não será alterado.
+          instructions: Pode mover o ponto no mapa.
         edit:
           attachment_legend: "(Opcional) Adicione um anexo"
           back: Voltar
+          gallery_legend: "(Opcional) Adicionar uma imagem ao cartão da proposta"
           select_a_category: Por favor selecione uma categoria
           send: Enviar
           title: Editar proposta
@@ -702,9 +777,12 @@ pt:
           filter_by: Filtrar por
           unfold: Desdobrar
         index:
+          click_here: Ver todas as propostas
           collaborative_drafts_list: Aceder a rascunhos colaborativos
           new_proposal: Nova proposta
+          see_all: Ver todas as propostas
           see_all_withdrawn: Ver todas as propostas retiradas
+          text_banner: Está a ver a lista de propostas retiradas pelos seus próprios autores. %{go_back_link}
           view_proposal: Ver proposta
         linked_proposals:
           proposal_votes:
@@ -727,7 +805,11 @@ pt:
             document_index: Índice de documentos
           view_index:
             see_index: Ver o índice
+        placeholder:
+          address: 37 Homewood Drive Brownsburg, IN 46112
         preview:
+          announcement_body: A sua proposta foi guardada como rascunho. Precisa de ser publicada para aparecer no site.
+          announcement_title: A sua proposta não foi ainda publicada
           modify: Modificar a proposta
           proposal_edit_before_minutes:
             one: Poderá editar esta proposta durante o primeiro minuto após a publicação da mesma. Assim que esta janela de tempo passe, não poderá editar a proposta.
@@ -850,3 +932,7 @@ pt:
       included_proposals:
         proposal_project: 'Propostas que aparecem nestes projetos:'
         proposal_result: 'Propostas que aparecem nestes resultados:'
+    statistics:
+      proposals_accepted: Propostas aceites
+      proposals_count: Propostas
+      supports_count: Suportes

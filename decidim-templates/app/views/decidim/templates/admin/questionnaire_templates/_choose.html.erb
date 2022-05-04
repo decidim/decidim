@@ -12,9 +12,18 @@
     </div>
 
     <%= decidim_form_for([questionnaire], url: decidim_admin_templates.apply_questionnaire_templates_url(questionnaire_id: questionnaire, url: request.url), method: :post, html: { class: "form choose_questionnaire_templates" }) do |form| %>
-      <div class="row column">
-        <%= select_template form, templates %>
-      </div>
+      <%= datalist_select(templates,
+        {
+          id: "choose-template",
+          list: "template-list",
+          label: t(".label"),
+          name: "select-template",
+          placeholder: t("placeholder", scope: "decidim.templates.admin.questionnaire_templates.choose"),
+          data: {
+            previewurl: decidim_admin_templates.preview_questionnaire_templates_url(format: :js)
+          }
+        }
+      ) { form.hidden_field :questionnaire_template_id } %>
 
       <div class="card-section questionnaire-template-preview">
         <h3 class="template-name"></h3>
@@ -32,4 +41,5 @@
   </div>
 </div>
 
+<%= javascript_pack_tag "decidim_templates" %>
 <%= stylesheet_pack_tag "decidim_templates", media: "all" %>

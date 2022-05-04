@@ -63,3 +63,5 @@ import "foundation-datepicker/js/locales/foundation-datepicker.vi"
 import "foundation-datepicker/js/locales/foundation-datepicker.zh-CN"
 import "foundation-datepicker/js/locales/foundation-datepicker.zh-TW"
 
+import "src/decidim/foundation-datepicker/js/locales/foundation-datepicker.lb"
+

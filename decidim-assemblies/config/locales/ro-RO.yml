@@ -2,24 +2,24 @@ ro:
   activemodel:
     attributes:
       assemblies_setting:
-        enable_organization_chart: Activeaza graficul organizatiei
+        enable_organization_chart: Activează graficul organizatiei
       assembly:
         area_id: Zonă
-        assembly_type: Tip organizație
-        assembly_type_other: Alt tip de organizație
+        assembly_type: Tipul grupului de lucru
+        assembly_type_other: Alt tip de grup de lucru
         banner_image: Imagine pentru banner
         closing_date: Data închiderii
         closing_date_reason: Motivul datei de închidere
         composition: Componență
         copy_categories: Copiază categoriile
         copy_components: Copiază componentele
-        copy_features: Copiere caracteristici
+        copy_features: Copiază funcționalitățile
         created_by: Creat de
-        created_by_other: Creat de alte
+        created_by_other: Creat de altcineva
         creation_date: Data creării
-        decidim_area_id: Suprafață
-        decidim_assemblies_type_id: Tip organizație
-        decidim_scope_id: Domeniu de aplicare
+        decidim_area_id: Zonă
+        decidim_assemblies_type_id: Tipul grupului de lucru
+        decidim_scope_id: Domeniu
         description: Descriere
         developer_group: Grup promotor
         domain: Domeniu
@@ -27,41 +27,41 @@ ro:
         facebook: Facebook
         github: GitHub
         hashtag: Hashtag
-        hero_image: Imagine pagina principala
+        hero_image: Imagine pentru pagina principală
         included_at: Inclus la
         instagram: Instagram
         internal_organisation: Organizare internă
         is_transparent: Este transparent
-        local_area: Zonă organizație
-        meta_scope: Sferă metadate
-        parent_id: Organizație părinte
-        participatory_processes_ids: Procese participative conexe
+        local_area: Zona grupului de lucru
+        meta_scope: Metadate privind domeniul
+        parent_id: Grup de lucru părinte
+        participatory_processes_ids: Procese participative asociate
         participatory_scope: Ce se decide
         participatory_structure: Cum se decide
         private_space: Spațiu privat
         promoted: Evidenţiat
         published_at: Publicat la
         purpose_of_action: Scopul acțiunii
-        scope_id: Domeniu de aplicare
+        scope_id: Domeniu de interes
         scopes_enabled: Domenii activate
         short_description: Descriere scurtă
         show_statistics: Arată statistici
-        slug: Adresă URL
-        special_features: Caracteristici speciale
+        slug: URL slug
+        special_features: Funcționalități speciale
         subtitle: Subtitlu
         target: Cine participă
         title: Titlu
         twitter: Twitter
-        weight: Ordinea procesului
+        weight: Ordinea în poziționare
         youtube: YouTube
       assembly_member:
         birthday: Data nașterii
         birthplace: Locul nașterii
         ceased_date: Data încetării
         designation_date: Data desemnării
-        designation_mode: Modul de desemnare
         full_name: Numele complet
         gender: Sexul
+        non_user_avatar: Avatar
         position: Poziție
         user_id: Utilizator sau grup
       assembly_user_role:
@@ -77,119 +77,122 @@ ro:
   activerecord:
     models:
       decidim/assembly:
-        one: Organizație
-        few: Organizații
-        other: Organizații
+        one: Grup de lucru
+        few: Grupuri de lucru
+        other: Grupuri de lucru
       decidim/assembly_member:
-        one: Membru al organizației
-        few: Membru al organizației
-        other: Membrii organizație
+        one: Membru al grupului de lucru
+        few: Membrii ai grupului de lucru
+        other: Membrii ai grupului de lucru
       decidim/assembly_user_role:
-        one: Rolul utilizatorului în cadrul organizației
-        few: Adunați rolurile utilizatorilor
-        other: Rolurile utilizatorului în cadrul organizației
+        one: Rolul utilizatorului în cadrul grupului de lucru
+        few: Rolurile utilizatorului în cadrul grupului de lucru
+        other: Rolurile utilizatorului în cadrul grupului de lucru
   decidim:
     admin:
       actions:
         import_assembly: Importă
-        new_assembly: Organizație nouă
-        new_assembly_type: Tip nou de organizație
+        new_assembly: Grup de lucru nou
+        new_assembly_type: Tip nou de grup de lucru
       assemblies:
         create:
-          error: A apărut o problemă la crearea unei noi organizații.
-          success: Organizația a fost creata.
+          error: A apărut o problemă la crearea unui nou tip de grup de lucru.
+          success: Grupul de lucru a fost creat cu succes.
         edit:
-          update: Actualizare
+          update: Actualizează
         index:
           not_published: Nu este publicat
           private: Privat
-          public: Publice
+          public: Public
           published: Publicat
         new:
-          create: Crează
-          title: Organizație nouă
+          create: Creează
+          title: Grup de lucru nou
         update:
-          error: A apărut o eroare la actualizarea acestei organizații.
-          success: Organizația a fost actualizată.
+          error: A apărut o eroare la actualizarea acestui grup de lucru.
+          success: Grupul de lucru a fost actualizat cu succes.
       assemblies_copies:
         create:
-          error: A apărut o problemă la duplicarea acestei organizații.
-          success: Organizația a fost duplicată.
+          error: A apărut o problemă la duplicarea acestui grup de lucru.
+          success: Grupul de lucru a fost duplicat cu succes.
       assemblies_settings:
         update:
           error: A apărut o eroare la actualizarea setărilor.
-          success: Setări actualizate cu succes.
+          success: Setările au fost actualizate cu succes.
       assemblies_types:
         create:
-          error: A apărut o problemă la crearea unui nou tip de organizație.
-          success: Tipul de organizație a fost creat.
+          error: A apărut o problemă la crearea unui nou tip de grup de lucru.
+          success: Tipul grupului de lucru a fost creat cu succes.
         destroy:
-          success: Tipul de organizație a fost șters.
+          success: Tipul grupului de lucru a fost șters cu succes.
         new:
-          create: Crează
-          title: Tip nou de organizație
+          create: Creează
+          title: Tip nou de grup de lucru
         update:
-          error: A apărut o eroare la actualizarea acestui tip de organizație.
-          success: Tip de organizație actualizat cu succes.
+          error: A apărut o eroare la actualizarea acestui grup de lucru.
+          success: Tipul grupului de lucru a fost actualizat cu succes.
       assembly_copies:
         new:
           copy: Copiază
           select: Selectați datele pe care doriți să le duplicați
-          title: Duplică organizația
+          title: Duplică grupul de lucru
       assembly_imports:
         create:
-          error: A apărut o problemă la importul acestui organizații.
-          success: Organizația a fost importată.
+          error: A apărut o problemă la importul acestui grup de lucru.
+          success: Grupul de lucru a fost importat.
         new:
           import: Importă
           select: Selectați ce date doriți să importați
-          title: Importă organizație
+          title: Importă grupul de lucru
       assembly_members:
         create:
-          error: A apărut o problemă la adăugarea unui membru pentru această organizație.
-          success: Membru creat cu succes pentru această organizație.
+          error: A apărut o problemă la adăugarea unui membru pentru acest grup de lucru.
+          success: Membru creat cu succes pentru acest grup de lucru.
         destroy:
-          success: Membru şters cu succes pentru această organizație.
+          success: Membru şters cu succes pentru acest grup de lucru.
         edit:
-          title: Actualizează membrul organizației.
-          update: Actualizare
+          title: Actualizează membrul grupului de lucru.
+          update: Actualizează
         index:
-          assembly_members_title: Membrii organizației
+          assembly_members_title: Membrii grupului de lucru
         new:
-          create: Crează
-          title: Membru nou al organizației.
+          create: Creează
+          title: Membru nou al grupului de lucru.
         update:
-          error: A apărut o eroare la actualizarea membrului pentru această organizație.
-          success: Membrul a fost actualizat pentru această organizație.
+          error: A apărut o problemă la adăugarea unui membru pentru acest grup de lucru.
+          success: Membrul a fost actualizat cu succes pentru acest grup de lucru.
       assembly_publications:
         create:
-          error: A apărut o problemă la publicarea acestei organizații.
-          success: Organizația a fost publicată.
+          error: A apărut o problemă la publicarea acestui grup de lucru.
+          success: Grupul de lucru a fost publicat cu succes.
         destroy:
-          error: A apărut o problemă la publicarea acestei organizații.
-          success: Organizația a fost de-publicată.
+          error: A apărut o problemă la anularea publicării acestui grup de lucru.
+          success: Anularea publicării grupului de lucru s-a efectuat cu succes.
       assembly_user_roles:
         create:
-          error: A apărut o eroare la adăugarea unui administrator pentru această organizație.
-          success: Administratorul a fost adăugat la această organizație.
+          error: A apărut o eroare la adăugarea unui administrator pentru acest grup de lucru.
+          success: Administratorul a fost adăugat cu succes la acest grup de lucru.
         destroy:
-          success: Administratorul a fost șters de la această organizație.
+          success: Administratorul a fost șters cu succes de la acest grup de lucru.
         edit:
-          title: Actualizare administrator organizație.
-          update: Actualizare
+          title: Actualizează administratorul grupului de lucru.
+          update: Actualizează
         index:
-          assembly_admins_title: Administratori de organizație
+          assembly_admins_title: Administratori ai grupului de lucru
         new:
-          create: Crează
-          title: Noul administrator al organizației.
+          create: Creează
+          title: Nou administrator al grupului de lucru.
         update:
-          error: A apărut o eroare la actualizarea unui administrator pentru această organizație.
-          success: Administratorul a fost actualizat pentru această organizație.
+          error: A apărut o eroare la actualizarea unui administrator pentru acest grup de lucru.
+          success: Administratorul a fost actualizat cu succes pentru acest grup de lucru.
+      filters:
+        decidim_assemblies_type_id_eq:
+          label: Tipul grupului de lucru
       menu:
-        assemblies: Organizații
+        assemblies: Grupuri de lucru
         assemblies_settings: Setări
         assemblies_submenu:
-          assembly_admins: Administratori de organizație
+          assembly_admins: Administratorii grupului de lucru
           assembly_members: Membri
           attachment_collections: Dosare
           attachment_files: Fișiere
@@ -197,9 +200,9 @@ ro:
           categories: Categorii
           components: Componente
           info: Informații
-          moderations: Moderatii
+          moderations: Moderări
           private_users: Utilizatori privați
-        assemblies_types: Tipuri de organizații
+        assemblies_types: Tipuri de grupuri de lucru
       models:
         assemblies_types:
           fields:
@@ -212,7 +215,7 @@ ro:
             promoted: Evidenţiat
             published: Publicat
             title: Titlu
-          name: Organizație
+          name: Grup de lucru
         assembly_member:
           fields:
             ceased_date: Data încetării
@@ -221,7 +224,7 @@ ro:
             position: Poziție
           name: Membru
           positions:
-            other: Altele
+            other: Alta
             president: Președinte
             secretary: Secretar
             vice_president: Vicepreşedinte
@@ -230,88 +233,91 @@ ro:
             email: E-mail
             name: Nume
             role: Rol
-          name: Admin adunare
+          name: Administrator al grupulului de lucru
           roles:
             admin: Administrator
             collaborator: Colaborator
             moderator: Moderator
             valuator: Evaluator
       titles:
-        assemblies: Adunări
-        assemblies_types: Tipuri de adunări
+        assemblies: Grupuri de lucru
+        assemblies_types: Tipuri de grupuri de lucru
     admin_log:
       assembly:
-        create: "%{user_name} a creat asamblarea %{resource_name}"
-        publish: "%{user_name} a publicat asamblarea %{resource_name}"
-        unpublish: "%{user_name} nepublicat asamblarea %{resource_name}"
-        update: "%{user_name} a actualizat asamblarea %{resource_name}"
+        create: "%{user_name} a creat grupul de lucru %{resource_name}"
+        publish: "%{user_name} a publicat grupul de lucru %{resource_name}"
+        unpublish: "%{user_name} a anulat publicarea grupului de lucru %{resource_name}"
+        update: "%{user_name} a actualizat grupul de lucru %{resource_name}"
       assembly_member:
-        create: "%{user_name} a creat membrul %{resource_name} în adunarea %{space_name}"
-        delete: "%{user_name} a eliminat membrul %{resource_name} din adunarea %{space_name}"
-        update: "%{user_name} a actualizat membrul %{resource_name} în adunarea %{space_name}"
+        create: "%{user_name} a creat pe %{resource_name}, membru în grupul de lucru %{space_name}"
+        delete: "%{user_name} a eliminat pe %{resource_name}, membru din adunarea %{space_name}"
+        update: "%{user_name} a actualizat pe %{resource_name}, membru în adunarea %{space_name}"
       assembly_setting:
-        update: "%{user_name} a actualizat setările de asamblare"
+        update: "%{user_name} a actualizat setările grupurilor de lucru"
       assembly_type:
-        create: "%{user_name} a creat %{resource_name} tip de asamblare"
-        delete: "%{user_name} a creat tipul de organizație %{resource_name}"
-        publish: "%{user_name} a publicat %{resource_name} tip de asamblare"
-        unpublish: "%{user_name} nu a publicat %{resource_name} tip de asamblare"
-        update: "%{user_name} a actualizat tipul de asamblare %{resource_name}"
+        create: "%{user_name} a creat tipul de grup de lucru %{resource_name}"
+        delete: "%{user_name} a eliminat tipul de grup de lucru %{resource_name}"
+        publish: "%{user_name} a publicat tipul de grup de lucru %{resource_name}"
+        unpublish: "%{user_name} a anulat publicarea pentru tipul de grup de lucru %{resource_name}"
+        update: "%{user_name} a actualizat tipul de grup de lucru %{resource_name}"
       assembly_user_role:
-        create: "%{user_name} a invitat %{resource_name} la adunarea %{space_name}"
-        delete: "%{user_name} a șters participantul %{resource_name} de la asamblarea %{space_name}"
-        update: "%{user_name} a schimbat rolul %{resource_name} în adunarea %{space_name}"
+        create: "%{user_name} a invitat pe %{resource_name} în grupul de lucru %{space_name}"
+        delete: "%{user_name} a șters participantul %{resource_name} de la grupul de lucru %{space_name}"
+        update: "%{user_name} a schimbat rolul pentru %{resource_name} în grupul de lucru %{space_name}"
     assemblies:
       admin:
         assemblies:
           form:
+            announcement_help: Textul pe care îl introduceți aici va fi prezentat utilizatorului sub informațiile despre grupul de lucru.
             duration: Durată
-            duration_help: În cazul în care durata acestei adunări este limitată, selectaţi data de încheiere. În caz contrar, va apărea ca indefinită.
+            duration_help: În cazul în care durata acestui grup de lucru este limitată, selectaţi data de încheiere. În caz contrar, va apărea ca nelimitată.
             filters: Filtre
             images: Imagini
-            included_at_help: Selectați data la care această adunare a fost adăugată la Decidim. Nu trebuie să fie neapărat aceeași dată cu data creării.
             metadata: Metadate
-            other: Altele
-            select_a_created_by: Selectați un creeat de
+            other: Altul
+            select_a_created_by: Selectați după persoana care a creat
             select_an_area: Selectați o zonă
-            select_an_assembly_type: Selectaţi un tip de asamblare
-            select_parent_assembly: Selectați adunarea părinte
-            slug_help: 'URL slugs sunt folosite pentru a genera URL-urile care indică acest punct de asamblare. Acceptă doar litere, numere și cratime și trebuie să înceapă cu o literă. Exemplu: %{url}'
-            social_handlers: Sociale
+            select_an_assembly_type: Selectaţi un tip de grup de lucru
+            select_parent_assembly: Selectați grupul de lucru părinte
+            slug_help: 'URL slugs sunt folosite pentru a genera URL-urile care indică acest grup de lucru. Acestea acceptă doar litere, numere și cratime și trebuie să înceapă cu o literă. Exemplu: %{url}'
+            social_handlers: Rețele de socializare
             title: Informaţii generale
             visbility: Vizibilitate
         assemblies_settings:
           edit:
-            update: Actualizare
+            update: Actualizează
           form:
-            title: Setări pentru ansambluri
+            title: Setări pentru grupuri de lucru
         assemblies_types:
           form:
             title: Titlu
         assembly_copies:
           form:
-            slug_help: 'URL slugs sunt folosite pentru a genera URL-urile care indică acest punct de asamblare. Acceptă doar litere, numere și cratime și trebuie să înceapă cu o literă. Exemplu: %{url}'
+            slug_help: 'URL slugs sunt folosite pentru a genera URL-urile care indică acest grup de lucru. Acestea acceptă doar litere, numere și cratime și trebuie să înceapă cu o literă. Exemplu: %{url}'
         assembly_imports:
           form:
             document_legend: Adaugă un document
-            slug_help: 'URL slugs sunt folosite pentru a genera URL-urile care indică acest punct de asamblare. Acceptă doar litere, numere și cratime și trebuie să înceapă cu o literă. Exemplu: %{url}'
+            slug_help: 'URL slugs sunt folosite pentru a genera URL-urile care indică acest grup de lucru. Acestea acceptă doar litere, numere și cratime și trebuie să înceapă cu o literă. Exemplu: %{url}'
         assembly_members:
           form:
             existing_user: Participant existent
+            explanation: 'Îndrumare pentru imagine:'
+            image_guide: Este de preferat o imagine pe format orizontal care să nu conțină text deloc.
             non_user: Non participant
+            non_user_avatar_help: Ar trebui să obţii consimţământul persoanelor înainte de a îi publica drept membri.
             select_a_position: Selectaţi o poziţie
             select_user: Selectați un participant
             user_type: Tipul participantului
           index:
             filter:
-              all: Toate
+              all: Toți
               ceased: Sistat
               not_ceased: Nesistat
-            filter_by: Filtrare după
+            filter_by: Filtrează după
             search: Caută
         content_blocks:
           highlighted_assemblies:
-            max_results: Cantitatea maximă de elemente de afișat
+            max_results: Număr maxim de elemente care vor fi afișate
         new_import:
           accepted_types:
             json: JSON
@@ -319,47 +325,47 @@ ro:
         index:
           members: Membri
       assembly_types:
-        commission: Comision
-        consultative_advisory: Consultativă
+        commission: Comisie
+        consultative_advisory: Organ consultativ
         executive: Executiv
-        government: Guvernul
+        government: Conducere
         others: Altele
-        participatory: Participant
-        working_group: Grupul de lucru
+        participatory: Participativ
+        working_group: Sub-grup de lucru
       content_blocks:
         highlighted_assemblies:
-          name: Organizații evidențiate
+          name: Grupuri de lucru evidențiate
       created_by:
         city_council: Consiliul Local
-        others: Altele
+        others: Alții
         public: Public
       filter:
         all: Toate tipurile
-        commission: Comision
-        consultative_advisory: Consultativă
+        commission: Comisia
+        consultative_advisory: Organ consultativ
         executive: Executiv
-        government: Guvernul
-        help: 'Arată:'
+        government: Conducere
+        help: 'Afișează:'
         others: Altele
-        participatory: Participant
-        working_group: Grupul de lucru
+        participatory: Participativ
+        working_group: Sub-grup de lucru
       index:
-        title: Organizații
+        title: Grupuri de lucru
       last_activity:
-        new_assembly: Organizație nouă
+        new_assembly: Grup de lucru nou
       pages:
         home:
           highlighted_assemblies:
-            active_assemblies: Organizații active
-            assemblies_button_title: Link către pagina de Organizații care afișează toate organizațiile
-            see_all_assemblies: Vezi toate organizațiile
+            active_assemblies: Grupuri de lucru active
+            assemblies_button_title: Link către pagina Grupuri de lucru care afișează toate grupurile
+            see_all_assemblies: Vezi toate grupurile de lucru
         user_profile:
           member_of:
             member_of: Membru al
       show:
         area: Zonă
-        assembly_type: Tip organizație
-        children: Organizații
+        assembly_type: Tipul grupului de lucru
+        children: Grupuri de lucru
         closing_date: Data închiderii
         composition: Componență
         created_by: Creat de
@@ -367,22 +373,22 @@ ro:
         developer_group: Grup promotor
         duration: Durată
         included_at: Inclus la
-        indefinite_duration: Nedefinit
+        indefinite_duration: Nedeterminată
         internal_organisation: Organizare internă
         is_transparent:
           'false': opac
           'true': transparent
-        local_area: Zonă organizație
+        local_area: Zona grupului de lucru
         participatory_scope: Ce se decide
         participatory_structure: Cum se decide
-        private_space: Aceasta este o organizație privată
+        private_space: Acesta este un grup de lucru privat
         purpose_of_action: Scopul acțiunii
         read_less: Citește mai puțin
         read_more: Citește mai mult
-        related_participatory_processes: Procese participative conexe
-        scope: Domeniu de aplicare
+        related_participatory_processes: Procese participative asociate
+        scope: Domeniu de interes
         social_networks: Rețele sociale
-        social_networks_title: Distribuie această organizație pe
+        social_networks_title: Distribuie aceast grup de lucru pe
         target: Cine participă
     assembly_members:
       assembly_member:
@@ -392,43 +398,43 @@ ro:
     events:
       assemblies:
         create_assembly_member:
-          email_intro: Un administrator al organizației <a href="%{resource_url}">%{resource_name}</a> te-a adăugat ca unul dintre membrii săi.
-          email_outro: Ați primit această notificare deoarece ați fost invitat la o organizație. Verificați <a href="%{resource_path}">pagina organizației</a> pentru a colabora!
-          email_subject: Ai fost invitat să fii membru al organizației %{resource_name}!
-          notification_title: Ați fost înregistrat ca membru al Organizației <a href="%{resource_path}">%{resource_name}</a>. Verificați pagina <a href="%{resource_path}">organizației</a> pentru a accepta!
+          email_intro: Un administrator al grupului de lucru <a href="%{resource_url}">%{resource_name}</a> te-a adăugat ca unul dintre membrii săi.
+          email_outro: Ai primit această notificare deoarece ai fost invitat la un grup de lucru. Verifică <a href="%{resource_path}">pagina organizației</a> pentru a colabora!
+          email_subject: Ai primit invitație drept membru al grupului de lucru %{resource_name}!
+          notification_title: Ai fost înregistrat ca membru al grupului de lucru <a href="%{resource_path}">%{resource_name}</a>. Verificați pagina <a href="%{resource_path}">grupului de lucru</a> pentru a accepta!
       assembly:
         role_assigned:
-          email_intro: Ai fost numit %{role} pentru organizația "%{resource_title}".
-          email_outro: Ați primit această notificare deoarece sunteți %{role} al organizației "%{resource_title}".
-          email_subject: Ai fost numit ca %{role} pentru "%{resource_title}".
-          notification_title: Ați fost numit %{role} pentru organizația <a href="%{resource_url}">%{resource_title}</a>.
+          email_intro: Ai fost numit %{role} pentru grupul de lucru "%{resource_title}".
+          email_outro: Ai primit această notificare deoare ești %{role} al grupului de lucru "%{resource_title}".
+          email_subject: Ai fost numit drept %{role} pentru "%{resource_title}".
+          notification_title: Ai fost numit %{role} pentru grupul de lucru <a href="%{resource_url}">%{resource_title}</a>.
     help:
       participatory_spaces:
         assemblies:
-          contextual: "<p>O <strong>organizație</strong> este un grup de membri ai unei organizații care se întrunesc periodic pentru a lua decizii cu privire la o anumită zonă sau domeniu de aplicare al organizației.</p> <p>Organizațiile țin ședințe, unele sunt private și altele sunt deschise. Dacă sunt deschise, este posibilă participarea la acestea (de exemplu: participarea la activitate, dacă capacitatea permite acest lucru; adăugarea de puncte pe ordinea de zi sau formularea de observații cu privire la propunerile și deciziile luate de acest organ).</p> <p>Exemple: o adunare generală (care se întruneşte o dată pe an pentru a defini principalele direcţii de acţiune ale organizaţiei, precum şi organele sale executive prin vot); un consiliu consultativ pentru egalitate (care se întrunește la fiecare două luni pentru a formula propuneri privind modalitățile de îmbunătățire a relațiilor de gen în organizație); o comisie de evaluare (care se întrunește lunar pentru a monitoriza un proces) sau un organism de garantare (care colectează incidentele; abuzurile sau propunerile de îmbunătățire a procedurilor decizionale) sunt toate exemple de adunări.</p>\n"
-          page: "<p>O <strong>organizație</strong> este un grup de membri ai unei organizații care se întrunesc periodic pentru a lua decizii cu privire la o anumită zonă sau domeniu de aplicare al organizației.</p> <p>Organizațiile țin ședințe, unele sunt private și altele sunt deschise. Dacă sunt deschise, este posibilă participarea la acestea (de exemplu: participarea la activitate, dacă capacitatea permite acest lucru; adăugarea de puncte pe ordinea de zi sau formularea de observații cu privire la propunerile și deciziile luate de acest organ).</p> <p>Exemple: o adunare generală (care se întruneşte o dată pe an pentru a defini principalele direcţii de acţiune ale organizaţiei, precum şi organele sale executive prin vot); un consiliu consultativ pentru egalitate (care se întrunește la fiecare două luni pentru a formula propuneri privind modalitățile de îmbunătățire a relațiilor de gen în organizație); o comisie de evaluare (care se întrunește lunar pentru a monitoriza un proces) sau un organism de garantare (care colectează incidentele; abuzurile sau propunerile de îmbunătățire a procedurilor decizionale) sunt toate exemple de adunări.</p>\n"
-          title: Ce sunt organizațiile?
+          contextual: "<p>Un <strong>grup de lucru</strong> reprezintă un grup de oameni care se întrunesc periodic pentru a lua decizii cu privire la o anumită zonă sau domeniu de interes.</p> <p>Grupurile de lucru organizează întâlniri, unele sunt private și altele sunt deschise. Dacă sunt deschise, oricine poate participa (de exemplu: dacă nu a fost încă atins numărul maxim de participanți pentru o anumită întâlnire te poți înscrie, poți adăuga subiecte pe ordinea de zi sau poți contribui cu comentarii la propunerile și deciziile acestui grup). </p> <p> Exemple: un grup de lucru care se întrunește pentru definirea unui regulament pentru bugetare participativă, un grup de lucru care își propune să definească temele de proiectare pentru regenerare urbană prin consultarea atât a specialiștilor cât și a cetățenilor, un consiliu consultativ pentru egalitate (care se întrunește la fiecare două luni pentru a formula propuneri privind modalitățile de îmbunătățire a relațiilor de gen în organizație); o comisie de evaluare (care se întrunește lunar pentru a monitoriza un proces) sau un organism de garantare (care colectează incidentele; abuzurile sau propunerile de îmbunătățire a procedurilor decizionale).</p>\n"
+          page: "<p>Un <strong>grup de lucru</strong> reprezintă un grup de oameni care se întrunesc periodic pentru a lua decizii cu privire la o anumită zonă sau domeniu de interes.</p> <p>Grupurile de lucru organizează întâlniri, unele sunt private și altele sunt deschise. Dacă sunt deschise, oricine poate participa (de exemplu: dacă nu a fost încă atins numărul maxim de participanți pentru o anumită întâlnire te poți înscrie, poți adăuga subiecte pe ordinea de zi sau poți contribui cu comentarii la propunerile și deciziile acestui grup). </p> <p> Exemple: un grup de lucru care se întrunește pentru definirea unui regulament pentru bugetare participativă, un grup de lucru care își propune să definească temele de proiectare pentru regenerare urbană prin consultarea atât a specialiștilor cât și a cetățenilor, un consiliu consultativ pentru egalitate (care se întrunește la fiecare două luni pentru a formula propuneri privind modalitățile de îmbunătățire a relațiilor de gen în organizație); o comisie de evaluare (care se întrunește lunar pentru a monitoriza un proces) sau un organism de garantare (care colectează incidentele; abuzurile sau propunerile de îmbunătățire a procedurilor decizionale).</p>\n"
+          title: Ce sunt grupurile de lucru?
     log:
       value_types:
         assembly_presenter:
-          not_found: 'Organizația nu a fost găsită în baza de date (ID: %{id})'
+          not_found: 'Grupul de lucru nu a fost găsit în baza de date (ID: %{id})'
         assembly_type_presenter:
-          not_found: 'Tipul de organizație nu a fost găsit în baza de date (ID: %{id})'
+          not_found: 'Tipul de grup de lucru nu a fost găsit în baza de date (ID: %{id})'
     menu:
-      assemblies: Organizații
+      assemblies: Grupuri de lucru
     metrics:
       assemblies:
-        description: Numărul de organizații create
-        object: organizații
-        title: Organizații
+        description: Număr de grupuri de lucru create
+        object: grupuri de lucru
+        title: Grupuri de lucru
     participatory_processes:
       show:
-        related_assemblies: Organizații asemănătoare
+        related_assemblies: Grupuri de lucru asociate
     statistics:
-      assemblies_count: Organizații
+      assemblies_count: Grupuri de lucru
   errors:
     messages:
-      cannot_be_blank: nu poate fi necompletat
+      cannot_be_blank: nu poate fi gol
   layouts:
     decidim:
       assemblies:
@@ -436,15 +442,15 @@ ro:
           more_info: Mai multe informații
           take_part: Participă
         index:
-          children: 'Organizații: '
+          children: 'Grupuri de lucru: '
           organizational_chart: Grafic organizațional
-          promoted_assemblies: Organizații evidențiate
-          reset_chart: Resetare
+          promoted_assemblies: Grupuri de lucru evidențiate
+          reset_chart: Resetează
         order_by_assemblies:
           assemblies:
-            one: "%{count} ansambluri"
-            few: "%{count} ansambluri"
-            other: "%{count} organizații"
+            one: "%{count} grup de lucru"
+            few: "%{count} grupuri de lucru"
+            other: "%{count} grupuri de lucru"
         promoted_assembly:
           more_info: Mai multe informații
           take_part: Participă

@@ -79,6 +79,7 @@ fr:
           form:
             add_question: Ajouter une question
             add_separator: Ajouter un séparateur
+            add_title_and_description: Ajouter un titre et une description
             already_answered_warning: Certains utilisateurs ont déjà répondu au questionnaire, vous ne pouvez donc pas modifier ses questions.
             collapse: Réduire toutes les questions
             expand: Développer toutes les questions
@@ -108,6 +109,15 @@ fr:
             remove: Retirer
             separator: Séparateur
             up: Haut
+          title_and_description:
+            collapse: Réduire
+            description: Description
+            down: Descendre
+            expand: Développer
+            remove: Supprimer
+            title: Titre
+            title_and_description: Titre et description
+            up: Monter
           update:
             invalid: Il y a eu des erreurs lors de la sauvegarde du questionnaire.
             success: Le questionnaire a bien été sauvegardé.
@@ -118,10 +128,9 @@ fr:
         extension_allowlist: 'Formats acceptés :'
       images:
         dimensions: "%{width} x %{height} px"
-        dimensions_info: 'Cette image sera :'
         processors:
-          resize_and_pad: Redimensionné et ajustée à
-          resize_to_fit: Redimensionnée pour s'adapter
+          resize_and_pad: Cette image sera redimensionnée et recadrée en %{dimensions}.
+          resize_to_fit: Cette image sera redimensionnée pour s'adapter à %{dimensions}.
       question_types:
         files: Fichiers
         long_answer: Longue réponse
@@ -131,6 +140,7 @@ fr:
         short_answer: Réponse courte
         single_option: Option unique
         sorting: Tri
+        title_and_description: Titre et description
       questionnaires:
         answer:
           invalid: Il y a eu des erreurs en répondant au questionnaire.
@@ -140,7 +150,7 @@ fr:
           max_choices: 'Choix maximum: %{n}'
         show:
           answer_questionnaire:
-            anonymous_user_message: <a href="%{sign_in_link}">Connectez-vous avec votre compte</a> ou <a href="%{sign_up_link}">inscrivez-vous</a> pour répondre au questionnaire.
+            anonymous_user_message: <a href="%{sign_in_link}">Identifiez-vous avec votre compte</a> ou <a href="%{sign_up_link}">créez un compte</a> pour répondre au questionnaire.
             title: Répondez au questionnaire
           current_step: Étape %{step}
           of_total_steps: de %{total_steps}

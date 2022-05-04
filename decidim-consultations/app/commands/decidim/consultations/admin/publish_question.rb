@@ -4,7 +4,7 @@ module Decidim
   module Consultations
     module Admin
       # A command that sets a question as published.
-      class PublishQuestion < Rectify::Command
+      class PublishQuestion < Decidim::Command
         # Public: Initializes the command.
         #
         # question - A Question that will be published

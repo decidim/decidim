@@ -44,7 +44,7 @@ describe "Proposals", type: :system do
                  settings: { scopes_enabled: true, scope_id: participatory_process.scope&.id })
         end
 
-        let(:proposal_draft) { create(:proposal, :draft, component: component) }
+        let(:proposal_draft) { create(:proposal, :draft, component: component, users: [user]) }
 
         context "when process is not related to any scope" do
           it "can be related to a scope" do
@@ -106,7 +106,7 @@ describe "Proposals", type: :system do
                    })
           end
 
-          let(:proposal_draft) { create(:proposal, :draft, users: [user], component: component, title: "More sidewalks and less roads", body: "He will not solve everything") }
+          let(:proposal_draft) { create(:proposal, :draft, users: [user], component: component, title: "More sidewalks and less roads", body: "It will not solve everything") }
 
           it "creates a new proposal", :slow do
             visit complete_proposal_path(component, proposal_draft)
@@ -174,7 +174,7 @@ describe "Proposals", type: :system do
                    participatory_space: participatory_process)
           end
 
-          let(:proposal_draft) { create(:proposal, :draft, users: [user], component: component, title: "More sidewalks and less roads", body: "He will not solve everything") }
+          let(:proposal_draft) { create(:proposal, :draft, users: [user], component: component, title: "More sidewalks and less roads", body: "It will not solve everything") }
           let(:component_automatic_hashtags) { "AutoHashtag1 AutoHashtag2" }
           let(:component_suggested_hashtags) { "SuggestedHashtag1 SuggestedHashtag2" }
 
@@ -241,7 +241,7 @@ describe "Proposals", type: :system do
                      })
             end
 
-            let(:proposal_draft) { create(:proposal, :draft, users: [user], component: component, title: "More sidewalks and less roads", body: "He will not solve everything") }
+            let(:proposal_draft) { create(:proposal, :draft, users: [user], component: component, title: "More sidewalks and less roads", body: "It will not solve everything") }
 
             it "creates a new proposal as a user group", :slow do
               visit complete_proposal_path(component, proposal_draft)
@@ -291,7 +291,7 @@ describe "Proposals", type: :system do
           end
         end
 
-        context "when attachments are allowed", processing_uploads_for: Decidim::AttachmentUploader do
+        context "when attachments are allowed" do
           let!(:component) do
             create(:proposal_component,
                    :with_creation_enabled,
@@ -308,7 +308,11 @@ describe "Proposals", type: :system do
             within ".edit_proposal" do
               fill_in :proposal_title, with: "Proposal with attachments"
               fill_in :proposal_body, with: "This is my proposal and I want to upload attachments."
-              attach_file :proposal_add_photos, Decidim::Dev.asset("city.jpeg")
+            end
+
+            dynamically_attach_file(:proposal_photos, Decidim::Dev.asset("city.jpeg"))
+
+            within ".edit_proposal" do
               find("*[type=submit]").click
             end
 
@@ -318,6 +322,68 @@ describe "Proposals", type: :system do
 
             within ".section.images" do
               expect(page).to have_selector("img[src*=\"city.jpeg\"]", count: 1)
+            end
+          end
+
+          context "with multiple images" do
+            before do
+              visit complete_proposal_path(component, proposal_draft)
+
+              within ".edit_proposal" do
+                fill_in :proposal_title, with: "Proposal with attachments"
+                fill_in :proposal_body, with: "This is my proposal and I want to upload attachments."
+              end
+            end
+
+            it "sets the card image correctly with zero weight" do
+              # Attach one card image and two document images and go to preview
+              dynamically_attach_file(:proposal_photos, Decidim::Dev.asset("city.jpeg"))
+              dynamically_attach_file(:proposal_documents, Decidim::Dev.asset("city2.jpeg"))
+              dynamically_attach_file(:proposal_documents, Decidim::Dev.asset("city3.jpeg"))
+
+              within ".edit_proposal" do
+                find("*[type=submit]").click
+              end
+
+              # From preview, go back to edit
+              expect(page).to have_content("Your proposal has not yet been published")
+              click_link "Modify the proposal"
+
+              # See that the images are in correct positions and remove the card
+              # image.
+              within ".dynamic-uploads.upload-container-for-photos .active-uploads" do
+                expect(page).to have_content("city.jpeg")
+              end
+              within ".dynamic-uploads.upload-container-for-documents .active-uploads" do
+                expect(page).to have_content("city2.jpeg")
+                expect(page).to have_content("city3.jpeg")
+              end
+
+              within ".dynamic-uploads.upload-container-for-photos" do
+                click_button "Edit image"
+              end
+              within ".upload-modal" do
+                find("button.remove-upload-item").click
+                click_button "Save"
+              end
+
+              within ".edit_proposal" do
+                find("*[type=submit]").click
+              end
+
+              # From preview, go back to edit
+              expect(page).to have_content("Your proposal has not yet been published")
+              click_link "Modify the proposal"
+
+              # See that the card image is now empty and the two other images
+              # are still in the documents container as they should.
+              within ".dynamic-uploads.upload-container-for-photos .active-uploads" do
+                expect(page).not_to have_selector(".attachment-details")
+              end
+              within ".dynamic-uploads.upload-container-for-documents .active-uploads" do
+                expect(page).to have_content("city2.jpeg")
+                expect(page).to have_content("city3.jpeg")
+              end
             end
           end
         end

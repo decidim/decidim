@@ -1,6 +1,7 @@
 /* Variables */
 
 /* Typography - Foundation overrides */
+
 button,
 input{
   font-family: inherit;
@@ -8,6 +9,7 @@ input{
 
 a{
   color: $anchor-color;
+  font-weight: $anchor-font-weight;
 
   &:hover{
     color: $anchor-color-hover;
@@ -31,17 +33,17 @@ button{
 @mixin heading($heading){
   line-height: 1.2;
   font-size:
-    map-get(
+    (map-get(
       map-get(map-get($header-styles, small), $heading),
       "font-size"
-    ) / 16 + em;
+    ) * .0625) + em;
 
   @include breakpoint(medium){
     font-size:
-      map-get(
+      (map-get(
         map-get(map-get($header-styles, medium), $heading),
         "font-size"
-      ) / 16 + em;
+      ) * .0625) + em;
   }
 }
 
@@ -88,6 +90,7 @@ button{
 
 .heading-small{
   font-size: 1rem;
+  line-height: $header-lineheight;
 }
 
 hr{

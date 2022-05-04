@@ -2,7 +2,7 @@
 
 module Decidim
   module Admin
-    class UpdateExternalDomainWhitelist < Rectify::Command
+    class UpdateExternalDomainWhitelist < Decidim::Command
       attr_reader :form, :organization
 
       def initialize(form, organization)

@@ -6,7 +6,7 @@
 
     <div class="card-section">
       <div class="row column">
-        <%= f.collection_radio_buttons :internal_state, [["accepted", t(".accepted")], ["rejected", t(".rejected")], ["evaluating", t(".evaluating")]], :first, :last, prompt: true %>
+        <%= f.collection_radio_buttons :internal_state, [["not_answered", t(".not_answered")], ["accepted", t(".accepted")], ["rejected", t(".rejected")], ["evaluating", t(".evaluating")]], :first, :last, prompt: true %>
       </div>
 
       <div class="row column">

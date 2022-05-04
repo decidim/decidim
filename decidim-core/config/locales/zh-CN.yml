@@ -58,7 +58,6 @@ zh-CN:
     'true': '否'
   carrierwave:
     errors:
-      general: 处理图像出错
       image_too_big: 图片过大
       not_inside_organization: 该文件没有附加到任何组织
   date:
@@ -619,7 +618,6 @@ zh-CN:
         button: 停止关注
         error: 出现了一个不关注此资源的问题。
     forms:
-      current_file: 当前文件
       current_image: 当前图像
       default_image: 默认图像
       errors:
@@ -638,7 +636,6 @@ zh-CN:
       file_validation:
         allowed_file_extensions: '允许的文件扩展名: %{extensions}'
         max_file_size: '最大文件大小: %{megabytes}MB'
-      remove_this_file: 删除此文件
     gamification:
       all_badges_link: 查看所有可用的徽章。
       badges:

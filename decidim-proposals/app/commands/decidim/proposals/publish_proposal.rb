@@ -3,7 +3,7 @@
 module Decidim
   module Proposals
     # A command with all the business logic when a user publishes a draft proposal.
-    class PublishProposal < Rectify::Command
+    class PublishProposal < Decidim::Command
       # Public: Initializes the command.
       #
       # proposal     - The proposal to publish.

@@ -57,7 +57,7 @@ describe Decidim::ContentBlocks::SubHeroCell, type: :cell do
       it "shows the custom welcome text with formating" do
         expect(
           subject.find(".heading2").native.inner_html.strip
-        ).to eq(
+        ).to include(
           "<strong>First row of text</strong><br><br>Second row of text"
         )
       end

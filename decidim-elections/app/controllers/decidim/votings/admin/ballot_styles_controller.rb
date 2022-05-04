@@ -60,7 +60,7 @@ module Decidim
         def destroy
           enforce_permission_to :delete, :ballot_style, ballot_style: current_ballot_style, voting: current_voting
 
-          DestroyBallotStyle.call(current_ballot_style) do
+          DestroyBallotStyle.call(current_ballot_style, current_user) do
             on(:ok) do
               flash[:notice] = t("destroy.success", scope: "decidim.votings.admin.ballot_styles")
             end

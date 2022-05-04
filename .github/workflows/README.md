@@ -37,3 +37,5 @@ Individual workflows with changes:
   - `ci_proposals_system_admin.yml`: Runs the system specs for the admin section
   - `ci_proposals_system_public.yml`: Runs the system specs for the public section
   - `ci_proposals_unit_tests.yml`: Runs the unit tests
+
+- `ci_performance_metrics_monitoring.yml`: runs Lighthouse metrics expectations against the app to get performance metrics

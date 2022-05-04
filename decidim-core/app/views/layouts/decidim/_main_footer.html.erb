@@ -1,7 +1,7 @@
 <div class="main-footer">
-  <% if current_organization.official_img_footer? %>
+  <% if current_organization.official_img_footer.attached? %>
     <%= link_to current_organization.official_url, class: "main-footer__badge" do %>
-      <%= image_tag current_organization.official_img_footer.url.to_s , alt: current_organization.name %>
+      <%= image_tag current_organization.attached_uploader(:official_img_footer).path, alt: current_organization.name %>
     <% end %>
   <% end %>
   <div class="row">

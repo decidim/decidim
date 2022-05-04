@@ -67,7 +67,6 @@ nl:
     'true': 'Ja'
   carrierwave:
     errors:
-      general: Fout bij verwerken afbeelding
       image_too_big: De afbeelding is te groot
   date:
     formats:
@@ -76,6 +75,33 @@ nl:
       decidim_with_day_and_month_name: "%A %d %b %Y"
       decidim_with_month_name: "%d %B %Y"
       decidim_with_month_name_short: "%d %b"
+  datetime:
+    distance_in_words:
+      about_x_hours:
+        one: ongeveer 1 uur
+        other: ongeveer %{count} uren
+      about_x_months:
+        one: ongeveer 1 maand
+        other: ongeveer %{count} maanden
+      half_a_minute: een halve minuut
+      less_than_x_minutes:
+        one: minder dan een minuut
+        other: minder dan %{count} minuten
+      less_than_x_seconds:
+        one: nu meteen
+        other: minder dan %{count} seconden
+      x_days:
+        one: 1 dag geleden
+        other: "%{count} dagen geleden"
+      x_hours:
+        one: 1 uur geleden
+        other: "%{count} uren geleden"
+      x_minutes:
+        one: 1 minuut geleden
+        other: "%{count} minuten geleden"
+      x_seconds:
+        one: 1 seconde geleden
+        other: "%{count} seconden geleden"
   decidim:
     accessibility:
       external_link: Externe link
@@ -495,6 +521,11 @@ nl:
           this_application_will_not_be_able_to: 'Deze applicatie krijgt geen toegang tot:'
           update_profile: update je profiel
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> wil toegang tot je account"
+    editor_images:
+      create:
+        error: Fout bij het uploaden van een afbeelding
+        success: Afbeelding met succes geüploaded
+      drag_and_drop_help: Voeg afbeeldingen toe door ze te slepen of te plakken.
     endorsable:
       endorsements: Aanbevelingen
       endorsements_count: Aantal suggesties
@@ -677,6 +708,7 @@ nl:
       no_followers: Nog geen volgers.
     following:
       no_followings: Volgt nog niets of niemand.
+      non_public_followings: Sommige van de gevolgde bronnen zijn niet openbaar.
     follows:
       create:
         button: Volgen
@@ -686,7 +718,6 @@ nl:
         button: Stop met volgen
         error: Er is een fout opgetreden bij het stoppen met volgen van deze bron.
     forms:
-      current_file: Huidig ​​bestand
       current_image: Huidige afbeelding
       default_image: Standaard afbeelding
       errors:
@@ -705,7 +736,6 @@ nl:
       file_validation:
         allowed_file_extensions: 'Toegestane bestandsextensies: %{extensions}'
         max_file_size: 'Maximale bestandsgrootte: %{megabytes}MB'
-      remove_this_file: Verwijder dit bestand
     gamification:
       all_badges_link: Zie alle beschikbare badges.
       badges:
@@ -837,6 +867,15 @@ nl:
       index:
         last_activity: Laatste Activiteit
         resource_type: Type
+    links:
+      invalid_url: Ongeldige URL
+      warning:
+        body_1: Je staat op het punt om een externe link te bezoeken, wees voorzichtig met de inhoud van de externe site.
+        body_2: Controleer de link, zorg ervoor dat je deze herkent als een veilige site voor je verdergaat.
+        cancel: Annuleer
+        close_modal: Sluit venster
+        proceed: Doorgaan
+        title: Externe link openen
     log:
       base_presenter:
         create: "%{user_name} gemaakt %{resource_name}"
@@ -939,6 +978,7 @@ nl:
         show:
           back: Terug naar alle gesprekken
           chat_with: Gesprek met
+          deleted_accounts: Je kunt geen gesprek voeren met verwijderde accounts.
           not_allowed: Deze deelnemer aanvaardt geen rechtstreekse berichten.
           title: Gesprek met %{usernames}
         start:
@@ -1006,6 +1046,12 @@ nl:
         greetings: Groeten,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Hallo,
         subject: Wilt u relevante informatie over %{organization_name}blijven ontvangen?
+    notification_mailer:
+      event_received:
+        no_translation_available: Sorry, de geautomatiseerde vertaling kon niet worden opgehaald toen de e-mail is verzonden. Je kan de vertaling van de oorspronkelijke tekst controleren via de volgende link %{link}.
+        original_text: 'Originele tekst:'
+        same_language: De inhoud werd in je voorkeurstaal (%{language}) geplaatst. Dit is de reden waarom er geen automatische vertaling wordt weergegeven in deze e-mail.
+        translated_text: 'Automatisch vertaalde tekst:'
     notifications:
       no_notifications: Nog geen meldingen.
     notifications_settings:
@@ -1025,6 +1071,10 @@ nl:
       update:
         error: Er is een fout opgetreden bij het bijwerken van uw notificatie instellingen.
         success: Uw notificatie instellingen zijn bijgewerkt.
+    offline:
+      show:
+        message: Het lijkt erop dat je momenteel offline bent. Probeer het later opnieuw.
+        retry: Probeer opnieuw
     open_data:
       not_available_yet: De Open Data-bestanden zijn nog niet beschikbaar. Probeer het over een paar minuten opnieuw.
     own_user_groups:
@@ -1289,6 +1339,7 @@ nl:
         title_reply: Beantwoorden
       show:
         back: Toon alle gesprekken
+        deleted_accounts: Je kunt geen gesprek voeren met verwijderde accounts.
         not_allowed: Deze gebruiker accepteert geen directe berichten meer.
         title: Gesprek met %{usernames}
       update:
@@ -1543,6 +1594,8 @@ nl:
       notifications_dashboard:
         mark_all_as_read: Alles als gelezen markeren
         mark_as_read: Markeren als gelezen
+      offline_banner:
+        cache_version_page: Oeps! Je netwerk is offline. Dit is een eerdere gecachete versie van de pagina die je bezoekt, misschien is de inhoud niet up-to-date.
       social_media_links:
         facebook: "%{organization} op Facebook"
         github: "%{organization} op GitHub"
@@ -1573,10 +1626,12 @@ nl:
     name: Nederlands
     name_with_error: Engels (fout!)
   password_validator:
+    blacklisted: staat op de zwarte lijst
     domain_included_in_password: lijkt te veel op deze domeinnaam
     email_included_in_password: lijkt te veel op uw e-mail
     fallback: is niet geldig
     name_included_in_password: lijkt te veel op uw naam
+    nickname_included_in_password: lijkt te veel op jouw bijnaam
     not_enough_unique_characters: heeft niet genoeg unieke tekens
     password_not_allowed: is niet toegestaan
     password_too_common: te algemeen
@@ -1611,6 +1666,8 @@ nl:
       day_of_week: "%a"
       day_of_week_long: "%a %e"
       day_of_year: "%d.%m.%y"
+      ddmm: "%d.%m"
+      ddmmyyyy: "%d.%m.%Y"
       decidim_day_of_year: "%d %B %Y"
       decidim_short: "%d/%m/%Y %H:%M"
       default: "%a, %d %b %Y %H:%M:%S %z"

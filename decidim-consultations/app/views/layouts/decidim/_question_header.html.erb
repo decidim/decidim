@@ -1,6 +1,6 @@
 <div class="consultations-header row column">
   <div class="row column consultations-header__main"
-       style="background-image:url(<%= question.banner_image_url %>);">
+       style="background-image:url(<%= question.attached_uploader(:banner_image).path %>);">
     <div class="consultations-header__container row">
       <div class="columns mediumlarge-9 consultations-header__info">
         <div>
@@ -23,10 +23,10 @@
 <%= yield :question_header_instructions if content_for? :question_header_instructions %>
 
 <div class="row column consultations-title">
-  <h1 class="heading2"><%= decidim_sanitize translated_attribute question.title %></h1>
+  <h2 class="heading2"><%= decidim_sanitize translated_attribute question.title %></h2>
   <% unless question.hashtag.blank? %>
     <div class="text-center">
-      <%= link_to "##{question.hashtag}", "https://twitter.com/hashtag/#{question.hashtag}", target: "_blank" %>
+      <%= link_to "##{question.hashtag}", twitter_hashtag_url(question.hashtag), target: "_blank" %>
     </div>
   <% end %>
 

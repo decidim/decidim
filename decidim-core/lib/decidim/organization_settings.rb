@@ -105,8 +105,9 @@ module Decidim
           "upload" => {
             "allowed_file_extensions" => {
               "default" => %w(jpg jpeg gif png bmp pdf rtf txt),
-              "admin" => %w(jpg jpeg gif png bmp pdf doc docx xls xlsx ppt ppx rtf txt odt ott odf otg ods ots),
-              "image" => %w(jpg jpeg gif png bmp ico)
+              "admin" => %w(jpg jpeg gif png bmp pdf doc docx xls xlsx ppt pptx ppx rtf txt odt ott odf otg ods ots),
+              "image" => %w(jpg jpeg gif png bmp),
+              "favicon" => %w(png)
             },
             "allowed_content_types" => {
               "default" => %w(
@@ -129,8 +130,8 @@ module Decidim
               )
             },
             "maximum_file_size" => {
-              "default" => 10,
-              "avatar" => 5
+              "default" => 10.0,
+              "avatar" => 5.0
             }
           }
         }

@@ -40,7 +40,6 @@ zh-CN:
         enable_omnipresent_banner: Show omnipresent banner
         facebook_handler: Facebook 处理程序
         favicon: 图标
-        from: 来自电子邮件地址
         github_handler: GitHub handler
         header_snippets: 头部代码片段
         highlight_alternative_color: 高亮显示选项
@@ -141,12 +140,10 @@ zh-CN:
           error: 接受管理员使用条款时出错。
           success: 太棒了！您已经接受了管理员使用条款。
         actions:
-          are_you_sure: 您确定要拒绝管理员条款吗？
           refuse: 拒绝管理条款
           title: 同意使用条款
         required_review:
           alert: '要求：审查我们的管理员使用条件'
-          callout: 请花一点时间来审阅管理员使用条款。否则您将无法管理平台。
           cta: 现在审查它们。
         title: 管理员使用条款
       area_types:
@@ -169,7 +166,6 @@ zh-CN:
           error: 创建一个新区域时出现问题。
           success: 区域创建成功。
         destroy:
-          has_spaces: 区域有依赖空间，它不能有依赖关系才能被删除。
           success: 已成功摧毁区域
         edit:
           title: 编辑区域
@@ -277,7 +273,6 @@ zh-CN:
       dashboard:
         show:
           view_more_logs: 查看更多日志
-          welcome: 欢迎来到Decidim管理面板
       exports:
         export_as: "%{name} 为 %{export_format}"
         formats:
@@ -482,7 +477,6 @@ zh-CN:
       newsletters:
         create:
           error: 创建这份通讯时出现问题。
-          success: 通讯创建成功。请在发送前查看。
         deliver:
           error: 在传送这份通讯时遇到问题。
           success: 通讯已成功发送。
@@ -559,12 +553,10 @@ zh-CN:
           title: 认证参与者 "%{name}"
         show_email_modal:
           close_modal: 关闭模式
-          description: 如果您需要直接联系参与者，您可以点击显示按钮查看电子邮件地址。此操作将被记录。
           email_address: 电子邮件地址
           full_name: 全名
           hidden: hidden
           show: 显示
-          title: 显示参与者电子邮件地址
       organization:
         edit:
           title: 编辑组织
@@ -738,7 +730,6 @@ zh-CN:
         static_pages: 页 次
         statistics: 活动
         user_groups: 群組
-        users: 参加者
       user_group:
         csv_verify:
           invalid: 读取CSV文件时出现问题。
@@ -751,13 +742,6 @@ zh-CN:
           success: 组验证成功
       user_groups:
         index:
-          filter:
-            all: 所有的
-            pending: 待定
-            rejected: 已拒绝
-            verified: 已验证
-          filter_by: 筛选方式
-          search: 搜索
           state:
             pending: 待定
             rejected: 已拒绝
@@ -781,7 +765,6 @@ zh-CN:
           role: 作用
         new:
           create: 邀请
-          title: 邀请参与者作为管理员
       users_statistics:
         users_count:
           admins: 管理员
@@ -791,10 +774,6 @@ zh-CN:
           no_users_count_statistics_yet: 还没有用户统计信息
           participants: 参加者
       view_public_page: 查看公共页面
-    forms:
-      errors:
-        impersonate_user:
-          reason: 您需要在管理非管理参与者时提供一个原因
     moderations:
       actions:
         hidden: Hidden

@@ -10,17 +10,24 @@ module Decidim
       # You can also use the ImporterFactory class to create an Importer
       # instance.
       class Importer
+        delegate :errors, to: :verifier
+
         # Public: Initializes an Importer.
         #
         # file   - A file with the data to be imported.
         # reader - A Reader to be used to read the data from the file.
-        # creator - A Creator to be used during the import.
+        # creator - A Creator class to be used during the import.
         # context - A hash including component specific data.
         def initialize(file:, reader: Readers::Base, creator: Creator, context: nil)
           @file = file
           @reader = reader
           @creator = creator
           @context = context
+          @data_headers = []
+        end
+
+        def verify
+          verifier.valid?
         end
 
         # Import data and create resources
@@ -40,27 +47,38 @@ module Decidim
           @collection ||= collection_data.map { |item| creator.new(item, context) }
         end
 
-        # Returns array of all resource indexes where validations fail.
-        def invalid_lines
-          @invalid_lines ||= check_invalid_lines(prepare)
+        def invalid_file?
+          collection.blank?
+        rescue Decidim::Admin::Import::InvalidFileError
+          true
         end
 
         private
 
-        attr_reader :file, :reader, :creator, :context
+        attr_reader :file, :reader, :creator, :context, :data_headers
+
+        def verifier
+          # Prepare needs to be called so that data headers become available.
+          data = prepare
+          @verifier ||= creator.verifier_klass.new(
+            headers: data_headers.map(&:to_s),
+            data: data,
+            reader: reader,
+            context: context
+          )
+        end
 
         def collection_data
           return @collection_data if @collection_data
 
           @collection_data = []
-          data_headers = []
           reader.new(file).read_rows do |rowdata, index|
             if index.zero?
-              data_headers = rowdata.map(&:to_sym)
+              @data_headers = rowdata.map { |d| d.to_s.to_sym }
             else
               @collection_data << Hash[
                 rowdata.each_with_index.map do |val, ind|
-                  [data_headers[ind], val]
+                  [@data_headers[ind], val]
                 end
               ]
             end
@@ -69,12 +87,12 @@ module Decidim
           @collection_data
         end
 
-        def check_invalid_lines(imported_data)
-          invalid_lines = []
-          imported_data.each_with_index do |record, index|
-            invalid_lines << index + 1 unless record.valid?
-          end
-          invalid_lines
+        def component
+          context[:current_component]
+        end
+
+        def available_locales
+          @available_locales ||= component.participatory_space.organization.available_locales
         end
       end
     end

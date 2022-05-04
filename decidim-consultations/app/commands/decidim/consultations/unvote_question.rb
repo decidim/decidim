@@ -3,7 +3,7 @@
 module Decidim
   module Consultations
     # A command with all the business logic when a user unvotes a question.
-    class UnvoteQuestion < Rectify::Command
+    class UnvoteQuestion < Decidim::Command
       # Public: Initializes the command.
       #
       # question   - A Decidim::Consultations::Question object.

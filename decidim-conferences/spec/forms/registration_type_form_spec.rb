@@ -91,7 +91,9 @@ module Decidim
         context "when price is not number" do
           let(:price) { "blabla" }
 
-          it { is_expected.to be_invalid }
+          # The value is cast to the correct type so "blabla" becomes 0.0 which
+          # is valid.
+          it { is_expected.to be_valid }
         end
       end
     end

@@ -42,7 +42,7 @@ module Decidim
             has_address: has_address,
             latitude: latitude,
             longitude: longitude,
-            attachment: attachment_params,
+            add_documents: attachment_params,
             user_group_id: user_group.try(:id),
             suggested_hashtags: suggested_hashtags
           }
@@ -152,13 +152,15 @@ module Decidim
             end
           end
 
-          context "when attachments are allowed", processing_uploads_for: Decidim::AttachmentUploader do
+          context "when attachments are allowed" do
             let(:component) { create(:proposal_component, :with_attachments_allowed) }
             let(:attachment_params) do
-              {
-                title: "My attachment",
-                file: Decidim::Dev.test_file("city.jpeg", "image/jpeg")
-              }
+              [
+                {
+                  title: "My attachment",
+                  file: upload_test_file(Decidim::Dev.asset("city.jpeg"), content_type: "image/jpeg")
+                }
+              ]
             end
 
             it "creates an atachment for the proposal" do

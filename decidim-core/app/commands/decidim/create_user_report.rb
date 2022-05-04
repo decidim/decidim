@@ -2,7 +2,7 @@
 
 module Decidim
   # A command with all the business logic when a user creates a report.
-  class CreateUserReport < Rectify::Command
+  class CreateUserReport < Decidim::Command
     # Public: Initializes the command.
     #
     # form         - A form object with the params.
@@ -55,8 +55,10 @@ module Decidim
     end
 
     def send_notification_to_admins!
-      current_organization.admins.each do |admin|
-        Decidim::UserReportJob.perform_later(admin, current_user, form.reason, reportable)
+      @current_user.organization.admins.each do |admin|
+        next unless admin.email_on_moderations
+
+        Decidim::UserReportJob.perform_later(admin, report)
       end
     end
 

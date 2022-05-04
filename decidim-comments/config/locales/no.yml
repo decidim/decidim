@@ -16,9 +16,24 @@
         other: Stemmer
   decidim:
     comments:
+      admin:
+        shared:
+          availability_fields:
+            enabled: Kommentarer aktivert
+            end_time: Kommentarer aktivert til
+            start_time: Kommentarer aktivert fra
+      comments:
+        create:
+          error: Et problem oppstod med å opprette kommentaren.
+        delete:
+          error: Kommentaren kunne ikke slettes.
+        update:
+          error: Et problem oppstod med å oppdatere kommentaren.
       comments_count: Antall kommentarer
+      comments_title: Kommentarer
       last_activity:
         new_comment_at_html: "<span>Ny kommentar på %{link}</span>"
+      view: Vis
       votes:
         create:
           error: Det oppstod et problem med å stemme kommentaren.
@@ -34,7 +49,13 @@
           user_group_id:
             label: Kommenter som
         opinion:
+          label: Din mening om dette temaet
+          negative: Negativ
+          negative_selected: Din mening om dette emnet er negativ
           neutral: Nøytral
+          neutral_selected: Din mening om dette emnet er nøytral
+          positive: Positiv
+          positive_selected: Din mening om dette emnet er positivt
         remaining_characters: "%{count} tegn igjen"
         remaining_characters_1: "%{count} tegn igjen"
         title: Legg til kommentar
@@ -42,7 +63,12 @@
         alignment:
           against: Imot
           in_favor: I favør
+        confirm_destroy: Er du sikker på at du vil slette denne kommentaren?
+        delete: Slett
+        deleted_at: Kommentar slettet den %{date}
         deleted_user: Slettet deltaker
+        edit: Rediger
+        edited: Redigert
         hide_replies: Skjul svar
         reply: Svar
         report:
@@ -57,6 +83,7 @@
             spam: Inneholder klikkagn, reklame, svindel eller manus-roboter.
           title: Rapporter upassende innhold
         show_replies: Vis %{replies_count} svar
+        single_comment_link_title: Få lenke
       comment_order_selector:
         order:
           best_rated: Best vurdert
@@ -67,14 +94,26 @@
       comment_thread:
         title: Samtale med %{authorName}
       comments:
+        blocked_comments_for_unauthorized_user_warning: Du må verifiseres for å kommentere, men du kan lese de forrige.
         blocked_comments_for_user_warning: Du kan ikke kommentere for øyeblikket, men du kan lese de forrige.
         blocked_comments_warning: Kommenterer er deaktivert på dette tidspunktet, men du kan lese de forrige.
         comment_details_title: Kommenter detaljer
         loading: Laster inn kommenterer ...
-        single_comment_warning: Du kan sjekke resten av kommentarene <a href="%{url}">her</a>.
+        single_comment_warning: <a href="%{url}">Se alle kommentarer</a>
         single_comment_warning_title: Du ser en enkelt kommentar
+        title:
+          one: "%{count} kommentar"
+          other: "%{count} kommentarer"
       down_vote_button:
         text: Jeg er uenig med denne kommentaren
+      edit_comment_modal_form:
+        close: Lukk
+        form:
+          body:
+            label: Kommenter
+            placeholder: Hva mener du om dette?
+          submit: Send
+        title: Rediger din kommentar
       up_vote_button:
         text: Jeg er enig med denne kommentaren
     events:
@@ -94,6 +133,16 @@
           email_outro: Du har mottatt denne varslingen fordi du følger "%{resource_title}" eller dens forfatter. Du kan slutte å følge den fra den forrige lenken.
           email_subject: Det er en ny kommentar fra %{author_name} i %{resource_title}
           notification_title: Det er en ny kommentar fra <a href="%{author_path}">%{author_name} %{author_nickname}</a> i <a href="%{resource_path}">%{resource_title}</a>
+        comment_downvoted:
+          email_intro: Din kommentar i "%{resource_title}" har blitt stemt ned. Den har nå totalt %{upvotes} stemmer opp og %{downvotes} stemmer ned.
+          email_outro: Du har mottatt dette varselet fordi du er forfatteren av denne kommentaren.
+          email_subject: Din kommentar i "%{resource_title}" har blitt stemt ned.
+          notification_title: Din <a href="%{resource_path}">kommentar</a> i "%{resource_title}" har blitt stemt ned. Den har nå totalt %{upvotes} stemmer opp og %{downvotes} stemmer ned.
+        comment_upvoted:
+          email_intro: Din kommentar i "%{resource_title}" har blitt stemt opp. Den har nå totalt %{upvotes} stemmer opp og %{downvotes} stemmer ned.
+          email_outro: Du har mottatt dette varselet fordi du er forfatteren av denne kommentaren.
+          email_subject: Din kommentar i "%{resource_title}" har blitt stemt opp.
+          notification_title: Din <a href="%{resource_path}">kommentar</a> i "%{resource_title}" har blitt stemt opp. Den har nå totalt %{upvotes} stemmer opp og %{downvotes} stemmer ned.
         reply_created:
           email_intro: "%{author_name} har svart kommentaren din i %{resource_title}. Du kan lese den på denne siden:"
           email_outro: Du har mottatt denne varslingen fordi din kommentar er besvart.

@@ -20,7 +20,7 @@ shared_examples "manage assemblies" do
         ca: "El meu nou títol"
       )
 
-      attach_file :assembly_banner_image, image3_path
+      dynamically_attach_file(:assembly_banner_image, image3_path, remove_before: true)
 
       within ".edit_assembly" do
         expect(assembly_parent_id_options).not_to include(assembly.id)
@@ -54,8 +54,8 @@ shared_examples "manage assemblies" do
 
       expect(page).to have_admin_callout("successfully")
 
-      expect(page).to have_css("img[src*='#{assembly.hero_image.url}']")
-      expect(page).to have_css("img[src*='#{assembly.banner_image.url}']")
+      expect(page).to have_css("img[src*='#{assembly.attached_uploader(:hero_image).path}']")
+      expect(page).to have_css("img[src*='#{assembly.attached_uploader(:banner_image).path}']")
     end
   end
 

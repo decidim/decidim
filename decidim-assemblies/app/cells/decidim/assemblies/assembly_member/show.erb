@@ -24,7 +24,7 @@
                   <% end %>
                 </div>
               <% else %>
-                <div class="author__avatar"><%= image_tag asset_pack_path("media/images/default-avatar.svg"), alt: "member-avatar" %></div>
+                <div class="author__avatar"><%= image_tag model.non_user_avatar_path, alt: "member-avatar" %></div>
                 <div>
                   <div class="author__name--container">
                     <div class="author__name">

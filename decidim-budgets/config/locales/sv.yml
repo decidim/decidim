@@ -21,6 +21,18 @@ sv:
         one: Projekt
         other: Projekt
   decidim:
+    admin:
+      filters:
+        projects:
+          category_id_eq:
+            label: Kategori
+          scope_id_eq:
+            label: Omfång
+          selected_at_null:
+            label: Valda
+            values:
+              'false': Valda för genomförande
+              'true': Inte valda för genomförande
     budgets:
       actions:
         attachment_collections: Mappar
@@ -92,6 +104,12 @@ sv:
             no_components: Det finns inga andra förslagskomponenter med förslag i deltagarutrymmet som kan importeras till projekt.
             select_component: Välj en komponent
             title: Importera förslag
+        reminders:
+          orders:
+            description: Användarna kommer få ett e-post med länkar till budgetar de har börjat rösta i.
+            title:
+              one: Du är på väg att skicka ett e-postpåminnelse till %{count} användare
+              other: Du är på väg att skicka ett e-postpåminnelse till %{count} användare
       admin_log:
         budget:
           create: "%{user_name} skapade budgeten %{resource_name} i utrymmet %{space_name}"
@@ -119,6 +137,9 @@ sv:
         highlighted_cta: Rösta på %{name}
         if_change_opinion: Om du ångrar dig kan du
         my_budgets: Mina budgetar
+        progress: Avsluta röstning
+        show: Visa projekt
+        vote: Rösta
         voted_on: Du har röstat på %{links}
       limit_announcement:
         cant_vote: Du kan inte rösta på denna budget. <a href="%{landing_path}">Pröva en annan budget</a>.
@@ -131,6 +152,8 @@ sv:
             total_budget: Total budget
         project:
           fields:
+            category: Kategori
+            id: ID
             title: Titel
       order_summary_mailer:
         order_summary:
@@ -183,6 +206,12 @@ sv:
           projects_count:
             one: Ett projekt
             other: "%{count} projekt"
+        exit_modal:
+          cancel: Tillbaka till omröstningen
+          close_modal: Stäng fönster
+          exit: Lämna omröstning
+          message: Din röst har inte registrerats eftersom du ännu inte har slutfört omröstningen. Är du säker på att du vill avsluta omröstningen?
+          title: Du har ännu inte röstat
         filters:
           category: Kategori
           scope: Omfång
@@ -230,9 +259,19 @@ sv:
         show:
           budget: Budget
           view_all_projects: Visa alla projekt
+      vote_reminder_mailer:
+        vote_reminder:
+          email_budgets: 'Områden där du inte har skickat din röst:'
+          email_intro: Du har börjat rösta i medborgarbudgeten men inte skickat den.
+          email_link: Rösta klart
+          email_outro: Kom ihåg att slutföra omröstningen. För att rösta måste du först välja ett eller flera förslag som du vill rösta för och bekräfta din röst med knappen "Rösta".
+          email_subject:
+            one: Du har börjat rösta i medborgarbudgeten men glömt skicka din röst
+            other: Du har börjat rösta i medborgarbudgeten men glömt skicka dina röster
     components:
       budgets:
         actions:
+          comment: Kommentera
           vote: Rösta
         name: Budgetar
         settings:

@@ -40,7 +40,7 @@ describe "Admin manages participatory texts", type: :system do
       en: "The description of some participatory text",
       es: "La descripción de algún texto participativo"
     )
-    attach_file :import_participatory_text_document, Decidim::Dev.asset("participatory_text.md")
+    dynamically_attach_file(:import_participatory_text_document, Decidim::Dev.asset("participatory_text.md"))
     click_button "Upload document"
     expect(page).to have_content "The following sections have been converted to proposals. Now you can review and adjust them before publishing."
     expect(page).to have_content "Preview participatory text"
@@ -139,21 +139,6 @@ describe "Admin manages participatory texts", type: :system do
       validate_occurrences(sections: 0, subsections: 0, articles: 5)
       discard_participatory_text_drafts
       validate_occurrences(sections: 0, subsections: 0, articles: 0)
-    end
-  end
-
-  describe "updating participatory texts in draft mode" do
-    let!(:proposal) { create :proposal, :draft, component: current_component, participatory_text_level: "article" }
-    let!(:new_body) { Faker::Lorem.unique.sentences(number: 3).join("\n") }
-
-    it "persists changes and all proposals remain as drafts" do
-      visit_participatory_texts
-      validate_occurrences(sections: 0, subsections: 0, articles: 1)
-      edit_participatory_text_body(0, new_body)
-      save_participatory_text_drafts
-      validate_occurrences(sections: 0, subsections: 0, articles: 1)
-      proposal.reload
-      expect(translated(proposal.body).delete("\r")).to eq(new_body)
     end
   end
 

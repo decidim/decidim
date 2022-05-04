@@ -7,7 +7,7 @@ module Decidim
     module ApplicationHelper
       include Decidim::CheckBoxesTreeHelper
 
-      def state_filter_values
+      def date_filter_values
         TreeNode.new(
           TreePoint.new("", t("elections.elections.filters.all", scope: "decidim")),
           [

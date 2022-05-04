@@ -2,19 +2,20 @@
 
 module Decidim
   # The form object that handles the data behind updating a user's
-  # account in her profile page.
+  # account in their profile page.
   class AccountForm < Form
     include Decidim::HasUploadValidations
 
     mimic :user
 
+    attribute :locale
     attribute :name
     attribute :nickname
     attribute :email
     attribute :password
     attribute :password_confirmation
     attribute :avatar
-    attribute :remove_avatar
+    attribute :remove_avatar, Boolean, default: false
     attribute :personal_url
     attribute :about
 

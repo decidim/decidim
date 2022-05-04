@@ -37,11 +37,15 @@ module Decidim
       user.id == sender.id
     end
 
+    def avatar_url_for(sender)
+      present(sender).avatar_url
+    end
+
     def conversation_avatar
       if interlocutors.count == 1
-        interlocutors.first.avatar_url
+        present(interlocutors.first).avatar_url
       else
-        current_user.avatar.default_multiuser_url
+        present(current_user).avatar.default_multiuser_url
       end
     end
 

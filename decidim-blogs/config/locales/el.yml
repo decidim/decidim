@@ -1,7 +1,7 @@
 el:
   activemodel:
     models:
-      decidim/blogs/create_post_event: Νέα δημοσίευση ιστολογίου
+      decidim/blogs/create_post_event: Νέα ανάρτηση ιστολογίου
   activerecord:
     models:
       decidim/blogs/post:
@@ -15,6 +15,7 @@ el:
         edit: Επεξεργασία
         new: Νέα δημοσίευση
         title: Ενέργειες
+        user_group_id: Δημιουργία ανάρτησης ως
       admin:
         models:
           components:
@@ -23,22 +24,23 @@ el:
             name: Δημοσίευση
         posts:
           create:
-            invalid: Υπήρξε ένα πρόβλημα κατά τη δημιουργία αυτής της δημοσίευσης
+            invalid: Υπήρξε ένα πρόβλημα κατά τη δημιουργία αυτής της ανάρτησης
             success: Η δημοσίευση δημιουργήθηκε με επιτυχία
           destroy:
-            success: Η δημοσίευση διαγράφηκε με επιτυχία
+            success: Η ανάρτηση διαγράφηκε με επιτυχία
           edit:
             save: Ενημέρωση
+            title: Επεξεργασία ανάρτησης
           index:
             title: Δημοσιεύσεις
           new:
             create: Δημιουργία
             title: Δημιουργία δημοσίευσης
           update:
-            invalid: Υπήρξε ένα πρόβλημα κατά την αποθήκευση της δημοσίευσης.
-            success: Η δημοσίευση αποθηκεύτηκε με επιτυχία
+            invalid: Υπήρξε ένα πρόβλημα κατά την αποθήκευση της ανάρτησης.
+            success: Η ανάρτηση αποθηκεύτηκε με επιτυχία
       last_activity:
-        new_post_at_html: "<span>Νέα δημοσίευση στις %{link}</span>"
+        new_post_at_html: "<span>Νέα ανάρτηση στις %{link}</span>"
       models:
         post:
           fields:
@@ -53,7 +55,7 @@ el:
           view: Προβολή
         sidebar_blog:
           comments: σχόλια
-          most_commented_posts: Δημοσιεύσεις με τα περισσότερα σχόλια
+          most_commented_posts: Ανάρτήσεις με τα περισσότερα σχόλια
       read_more: Διαβάστε περισσότερα
     components:
       blogs:
@@ -71,7 +73,9 @@ el:
     events:
       blogs:
         post_created:
-          email_intro: Η δημοσίευση «%{resource_title}» έχει δημοσιευτεί στον χώρο συμμετοχής «%{participatory_space_title}» που ακολουθείτε.
+          email_intro: Η ανάρτηση «%{resource_title}» έχει δημοσιευτεί στον χώρο συμμετοχής «%{participatory_space_title}» που ακολουθείτε.
           email_outro: Λάβατε αυτήν την ειδοποίηση επειδή ακολουθείτε τον χώρο συμμετοχής «%{participatory_space_title}». Μπορείτε να σταματήσετε να τον ακολουθείτε από τον προηγούμενο σύνδεσμο.
-          email_subject: Νέα δημοσίευση δημοσιεύτηκε στον χώρο συμμετοχής %{participatory_space_title}
-          notification_title: Η δημοσίευση <a href="%{resource_path}">%{resource_title}</a> δημοσιεύτηκε στον χώρο συμμετοχής %{participatory_space_title}
+          email_subject: Νέα ανάρτηση δημοσιεύτηκε στον χώρο συμμετοχής %{participatory_space_title}
+          notification_title: Η ανάρτηση <a href="%{resource_path}">%{resource_title}</a> δημοσιεύτηκε στον χώρο συμμετοχής %{participatory_space_title}
+    statistics:
+      posts_count: Αναρτήσεις

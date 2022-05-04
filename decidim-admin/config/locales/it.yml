@@ -48,7 +48,7 @@ it:
         favicon: Icona
         force_authentication: Autenticazione obbligata
         force_users_to_authenticate_before_access_organization: Autenticazione obbligata per l'accesso all'organizzazione
-        from: '"Da" indirizzo email'
+        from: Indirizzo email del mittente
         github_handler: Gestore di GitHub
         header_snippets: Frammenti di intestazione
         highlight_alternative_color: Evidenziato, alternativa
@@ -171,21 +171,19 @@ it:
         permissions: Permessi
         reject: Rifiuta
         share: Condividi
-        user:
-          new: Nuovo utente
         verify: Verifica
       admin_terms_of_use:
         accept:
           error: Si è verificato un errore durante l'accettazione dei termini di utilizzo da parte dell'amministratore.
-          success: Ottimo! Hai accettato i termini d'uso dell'amministratore.
+          success: Ottimo! Hai accettato i termini d'uso dell'amministratrice/tore.
         actions:
           accept: Sono d'accordo con i seguenti termini
-          are_you_sure: Sei sicuro di voler rifiutare i termini di amministrazione?
+          are_you_sure: Sei sicuro di voler rifiutare i termini di utilizzo dell'amministratore?
           refuse: Rifiuta i termini di amministrazione
           title: Accetta i termini e le condizioni di utilizzo
         required_review:
-          alert: 'Richiesto: Rivedi i nostri termini di utilizzo da amministratore'
-          callout: Prenditi un momento per leggere i Termini di utilizzo dell'amministratore. Altrimenti non sarai in grado di amministrare la piattaforma.
+          alert: 'Richiesto: Rivedi i nostri termini di utilizzo dell''amministratrice/tore'
+          callout: Ti preghiamo di prendere un momento per rivedere i Termini di utilizzo dell'amministratore. Altrimenti non sarai in grado di gestire la piattaforma.
           cta: Rivedili ora.
         title: Termini di utilizzo dell'amministratore
       area_types:
@@ -208,7 +206,7 @@ it:
           error: Si è verificato un errore durante la creazione di una nuova area.
           success: Area creata con successo.
         destroy:
-          has_spaces: L'area ha spazi dipendenti, non deve avere dipendenze per essere eliminata.
+          has_spaces: Questa area ha spazi correlati. Assicurati che nessuno spazio partecipativo faccia riferimento a questa area prima di eliminarla.
           success: Area distrutta con successo
         edit:
           title: Modifica area
@@ -261,7 +259,7 @@ it:
       block_user:
         new:
           action: Blocca account e invia la motivazione
-          description: Bloccare un utente renderà il suo account inutilizzabile, puoi fornire nelle tue motivazioni e linee guida i modi in cui ritieni di prendere in considerazione lo sblocco dell'utente.
+          description: Il blocco di un utente renderà quell'account inutilizzabile. È possibile fornire nella propria giustificazione tutte le linee guida su come prendere in considerazione lo sblocco dell'utente.
           justification: Motivazione
           title: Blocca utente %{name}
       categories:
@@ -324,7 +322,7 @@ it:
         'false': 'No'
         managed_user_name: Gestione utente
         solved: Risolto
-        title: Conflitti delle verifiche
+        title: Verifica dei conflitti
         transfer:
           email: Email
           error: Si è verificato un problema nel trasferimento dell'utente corrente a partecipante gestito.
@@ -337,7 +335,6 @@ it:
       dashboard:
         show:
           view_more_logs: Visualizza più registri
-          welcome: Benvenuti nel pannello di amministrazione di Decidim.
       domain_whitelist:
         form:
           domain_too_short: Dominio troppo corto
@@ -405,6 +402,11 @@ it:
           user_name_or_user_email_cont: Cerca %{collection} per nome o email.
         state_eq:
           label: Stato
+          values:
+            all: Tutte
+            pending: In Sospeso
+            rejected: Respinto
+            verified: Verificato
       forms:
         file_help:
           import:
@@ -450,13 +452,7 @@ it:
           impersonate_existing_user: Gestisci partecipante %{name}"
           impersonate_new_managed_user: Gestisci nuovo partecipante
       imports:
-        creators:
-          proposalcreator: Autore della proposta
         error: Si è verificato un errore durante l'importazione
-        help:
-          proposalcreator: Il file deve avere nomi di colonna title/en e body/en (o un altro locale che preferisci, ad esempio title/it e body/it). Sono supportate anche le colonne scope/id e category/id.
-        import_from_file: Importare da un file
-        invalid_lines: Ci sono errori di importazione alle linee %{invalid_lines}
         new:
           accepted_mime_types:
             csv: csv
@@ -487,7 +483,7 @@ it:
         areas: Ambiti territoriali
         configuration: Configurazione
         dashboard: Cruscotto (Dashboard)
-        external_domain_whitelist: Whitelist di domini esterni
+        external_domain_whitelist: Consenti l'uso di domini esterni
         help_sections: Sezioni di Aiuto
         homepage: Homepage
         impersonations: Impersonificazioni
@@ -526,7 +522,7 @@ it:
           name: Categorie
         impersonation_log:
           fields:
-            admin: Amministratore
+            admin: Amministratrice/tore
             ended_at: Terminato il
             expired_at: Scaduto il
             reason: Ragionare
@@ -570,7 +566,7 @@ it:
             name: Nome
             role: Ruolo
             roles:
-              admin: Amministratore
+              admin: Amministratrice/tore
               user_manager: Responsabile del partecipante
           name: Utente
         user_group:
@@ -636,7 +632,7 @@ it:
       newsletters:
         create:
           error: Si è verificato un errore durante la creazione di questa newsletter.
-          success: OK, la Newsletter è stata creata. Adesso è possibile controllarla ed eventualmente inviarla.
+          success: Newsletter creata con successo. Si prega di controllarla prima dell'invio.
         deliver:
           error: Si è verificato un errore durante l'invio di questa newsletter.
           success: La newsletter è stata inviata con successo.
@@ -719,12 +715,12 @@ it:
           title: Utente ufficiale "%{name}"
         show_email_modal:
           close_modal: Chiudi modalità
-          description: Se hai bisogno di contattare un utente direttamente puoi fare clic sul pulsante Mostra per vedere l'indirizzo email. Questa azione verrà registrata.
+          description: Se hai bisogno di contattare un partecipante direttamente, puoi fare clic sul pulsante Mostra per vedere il loro indirizzo email. Questa azione sarà registrata.
           email_address: Indirizzo email
           full_name: Nome Completo
           hidden: nascosto
           show: Mostra
-          title: Mostra l'indirizzo email dell'utente
+          title: Mostra l'indirizzo email del partecipante
         unblock:
           error: Si è verificato un errore durante lo sblocco del partecipante
           success: Partecipante sbloccato con successo
@@ -798,6 +794,11 @@ it:
           explanation: 'Carica il file CSV. Il file deve contenere due colonne (e-mail e nome) senza intestazioni: nella prima sono elencati gli indirizzi e-mail degli utenti che si desidera aggiungere allo spazio partecipativo, nella seconda i loro nomi. Evita di usare caratteri non validi come `<>?%&^*#@()[]=+:;"{}\|` nella colonna dei nomi.'
           title: Carica il tuo file CSV
           upload: Carica File
+      reminders:
+        create:
+          error: Si è verificato un errore durante la creazione dei promemoria.
+        new:
+          submit: Invia
       resource_permissions:
         edit:
           submit: Invia
@@ -908,14 +909,13 @@ it:
         impersonatable_users: Partecipanti gestibili
         impersonations: Gestione dei partecipanti
         metrics: Partecipazione in cifre
-        panel: Amministratore
+        panel: Amministratrice/tore
         participants: Partecipanti
         scope_types: Tipi di ambito
         scopes: Ambiti
         static_pages: Pagine
         statistics: Attività
         user_groups: Gruppi di utenti
-        users: Utenti
       user_group:
         csv_verify:
           invalid: Si è verificato un errore durante la lettura del file CSV.
@@ -928,13 +928,6 @@ it:
           success: Il gruppo utenti è stato verificato correttamente
       user_groups:
         index:
-          filter:
-            all: Tutto
-            pending: in attesa di
-            rejected: Rifiutata
-            verified: Verificato
-          filter_by: Filtra per
-          search: Cerca
           state:
             pending: in attesa di
             rejected: Rifiutata
@@ -951,14 +944,13 @@ it:
           success: OK, utente invitato.
         destroy:
           error: Si è verificato un problema durante il tentativo di eliminare questo amministratore.
-          success: Questo utente non è più un amministratore.
+          success: Questo utente non è più una/un amministratrice/tore.
         form:
           email: E-mail
           name: Nome
           role: Ruolo
         new:
           create: Invita
-          title: Invita l'utente in qualità di amministratore
       users_statistics:
         users_count:
           admins: Amministratori
@@ -971,7 +963,7 @@ it:
     forms:
       errors:
         impersonate_user:
-          reason: È necessario fornire un motivo durante la rappresentazione di un utente non gestito
+          reason: È necessario fornire un motivo per gestire un partecipante non gestito
     metrics:
       blocked_users:
         object: utenti bloccati

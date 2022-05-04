@@ -70,6 +70,8 @@ describe "Explore versions", versioning: true, type: :system do
       end
     end
 
+    it_behaves_like "accessible page"
+
     it "shows the version number" do
       expect(page).to have_content("VERSION NUMBER\n2 out of 2")
     end
@@ -94,8 +96,8 @@ describe "Explore versions", versioning: true, type: :system do
     it "shows the changed attributes" do
       expect(page).to have_content("Changes at")
 
-      within ".diff-for-title" do
-        expect(page).to have_content("TITLE")
+      within ".diff-for-title-english" do
+        expect(page).to have_content("TITLE (ENGLISH)")
 
         within ".diff > ul > .del" do
           expect(page).to have_content("My title")

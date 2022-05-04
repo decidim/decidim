@@ -3,8 +3,8 @@
 module Decidim
   module Proposals
     # A command with all the business logic when a user creates a new collaborative draft.
-    class CreateCollaborativeDraft < Rectify::Command
-      include ::Decidim::AttachmentMethods
+    class CreateCollaborativeDraft < Decidim::Command
+      include ::Decidim::MultipleAttachmentsMethods
       include HashtagsMethods
 
       # Public: Initializes the command.
@@ -27,13 +27,13 @@ module Decidim
         return broadcast(:invalid) if form.invalid?
 
         if process_attachments?
-          build_attachment
-          return broadcast(:invalid) if attachment_invalid?
+          build_attachments
+          return broadcast(:invalid) if attachments_invalid?
         end
 
         transaction do
           create_collaborative_draft
-          create_attachment if process_attachments?
+          create_attachments if process_attachments?
         end
 
         broadcast(:ok, collaborative_draft)

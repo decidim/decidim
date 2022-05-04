@@ -4,7 +4,7 @@ module Decidim
   module Initiatives
     # Class uses to retrieve initiatives that have been a long time in validating
     # state
-    class SupportPeriodFinishedInitiatives < Rectify::Query
+    class SupportPeriodFinishedInitiatives < Decidim::Query
       # Retrieves the initiatives ready to be evaluated to decide if they've been
       # accepted or not.
       def query

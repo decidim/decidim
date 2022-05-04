@@ -16,6 +16,12 @@ it:
         other: voti
   decidim:
     comments:
+      admin:
+        shared:
+          availability_fields:
+            enabled: Commenti abilitati
+            end_time: Commenti abilitati fino a
+            start_time: Commenti abilitati da
       comments:
         create:
           error: Ci sono stati problemi durante la creazione del commento.
@@ -93,7 +99,7 @@ it:
         blocked_comments_warning: I commenti sono disabilitati in questo momento, ma puoi leggere quelli precedenti.
         comment_details_title: Dettagli commento
         loading: Sto caricando i commenti ...
-        single_comment_warning: Puoi controllare il resto dei commenti <a href="%{url}">qui</a>.
+        single_comment_warning: <a href="%{url}">Visualizza tutti i commenti</a>
         single_comment_warning_title: Stai vedendo un singolo commento
         title:
           one: "%{count} commento"

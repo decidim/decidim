@@ -3,7 +3,7 @@
 module Decidim
   module Proposals
     # A command with all the business logic when a user updates a proposal.
-    class UpdateProposal < Rectify::Command
+    class UpdateProposal < Decidim::Command
       include ::Decidim::MultipleAttachmentsMethods
       include GalleryMethods
       include HashtagsMethods
@@ -45,11 +45,12 @@ module Decidim
           else
             update_proposal
           end
-          create_gallery if process_gallery?
-          create_attachments if process_attachments?
 
           photo_cleanup!
           document_cleanup!
+
+          create_gallery if process_gallery?
+          create_attachments(first_weight: first_attachment_weight) if process_attachments?
         end
 
         broadcast(:ok, proposal)
@@ -113,6 +114,12 @@ module Decidim
         else
           current_user_proposals.count >= proposal_limit
         end
+      end
+
+      def first_attachment_weight
+        return 1 if proposal.photos.count.zero?
+
+        proposal.photos.count
       end
 
       def user_group

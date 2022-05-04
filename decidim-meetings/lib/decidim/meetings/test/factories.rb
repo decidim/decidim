@@ -37,6 +37,8 @@ FactoryBot.define do
     registration_type { :on_this_platform }
     type_of_meeting { :in_person }
     component { build(:component, manifest_name: "meetings") }
+    iframe_access_level { :all }
+    iframe_embed_type { :none }
 
     author do
       component.try(:organization)
@@ -44,6 +46,14 @@ FactoryBot.define do
 
     trait :published do
       published_at { Time.current }
+    end
+
+    trait :withdrawn do
+      state { "withdrawn" }
+    end
+
+    trait :in_person do
+      type_of_meeting { :in_person }
     end
 
     trait :online do
@@ -75,6 +85,8 @@ FactoryBot.define do
         meeting.services = evaluator.services || build_list(:service, 2, meeting: meeting)
       end
     end
+
+    trait(:participant_author) { not_official }
 
     trait :user_group_author do
       author do
@@ -122,8 +134,38 @@ FactoryBot.define do
       end_time { 1.day.from_now }
     end
 
+    trait :embeddable do
+      online_meeting_url { "https://www.youtube.com/watch?v=pj_2G3x6-Zk" }
+    end
+
     factory :published_meeting do
       published_at { Time.current }
+    end
+
+    trait :signed_in_iframe_access_level do
+      iframe_access_level { :signed_in }
+    end
+
+    trait :registered_iframe_access_level do
+      iframe_access_level { :registered }
+    end
+
+    trait :embed_in_meeting_page_iframe_embed_type do
+      iframe_embed_type { :embed_in_meeting_page }
+    end
+
+    trait :open_in_live_event_page_iframe_embed_type do
+      iframe_embed_type { :open_in_live_event_page }
+    end
+
+    trait :open_in_new_tab_iframe_embed_type do
+      iframe_embed_type { :open_in_new_tab }
+    end
+
+    trait :moderated do
+      after(:create) do |meeting, _evaluator|
+        create(:moderation, reportable: meeting, hidden_at: 2.days.ago)
+      end
     end
   end
 

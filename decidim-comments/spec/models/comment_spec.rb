@@ -53,6 +53,10 @@ module Decidim
         expect(comment.down_votes.count).to eq(1)
       end
 
+      it "has an associated participatory_process" do
+        expect(comment.participatory_space).to eq(component.participatory_space)
+      end
+
       it "is not valid if its parent is a comment and cannot accept new comments" do
         expect(comment.root_commentable).to receive(:accepts_new_comments?).and_return false
         expect(replies[0]).not_to be_valid
@@ -155,7 +159,7 @@ module Decidim
         end
 
         it "sanitizes user input" do
-          expect(comment).to receive(:sanitize_content)
+          expect(comment).to receive(:sanitize_content_for_comment)
           comment.formatted_body
         end
 
@@ -177,6 +181,15 @@ module Decidim
           end
         end
 
+        describe "when the body contains HTML" do
+          let(:body) { %(<a target="alert(1)" href="javascript:alert(document.location)">XSS via target in a tag</a>) }
+          let(:result) { "<div><p>XSS via target in a tag</p></div>" }
+
+          it "parses the HTML and renders them only with accepted tags" do
+            expect(comment.formatted_body).to eq(result)
+          end
+        end
+
         describe "when the body contains quotes with paragraphs" do
           let(:body) { "> quote first paragraph\n>\n> quote second paragraph\n\nanswer" }
           let(:result) { "<div><blockquote class=\"comment__quote\">\n<br /><p>quote first paragraph</p>\n<br /><p>quote second paragraph</p>\n<br /></blockquote><p>answer</p></div>" }
@@ -193,7 +206,7 @@ module Decidim
             %(Content with <a href="http://urls.net" onmouseover="alert('hello')">URLs</a> of anchor type and text urls like https://decidim.org. And a malicous <a href="javascript:document.cookies">click me</a>)
           end
           let(:result) do
-            %(<div><p>Content with URLs of anchor type and text urls like <a href="https://decidim.org" target="_blank" rel="nofollow noopener">https://decidim.org</a>. And a malicous click me</p></div>)
+            %(<div><p>Content with URLs of anchor type and text urls like <a href="https://decidim.org" target="_blank" rel="nofollow noopener noreferrer ugc">https://decidim.org</a>. And a malicous click me</p></div>)
           end
 
           it "converts all URLs to links and strips attributes in anchors" do
@@ -210,10 +223,10 @@ module Decidim
           expect(parent.comment_threads.count).to eq 3
         end
 
-        it "returns 2 when a comment has been moderated" do
+        it "still returns 3 when a comment has been moderated" do
           Decidim::Moderation.create!(reportable: comments.last, participatory_space: comments.last.participatory_space, hidden_at: 1.day.ago)
 
-          expect(parent.comment_threads.count).to eq 2
+          expect(parent.comment_threads.count).to eq 3
         end
 
         describe "#body_length" do

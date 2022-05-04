@@ -1,0 +1,31 @@
+<div class="card card--widget">
+  <ul class="card-data">
+    <li class="card-data__item">
+      <div class="card__link text-center">
+        <%= resource_icon notification.resource, class: "icon--large" %>
+        <span class="text-medium mt-xs" title="<%= l(notification.created_at) %>" data-tooltip="true" data-disable-hover="false">
+          <%= notification.created_at_in_words %>
+        </span>
+      </div>
+    </li>
+    <li class="card-data__item card-data__item--expand absolutes">
+      <div class="mr-s">
+        <span class="text-small"><%= notification.event_class.constantize.model_name.human %></span>
+        <br>
+        <span>
+          <%= notification_title %>
+        </span>
+        <% if notification.display_resource_text? %>
+          <p>
+            <em><%= notification.resource_text %></em>
+          </p>
+        <% end %>
+      </div>
+      <div class="right center mr-s">
+        <%= link_to model, remote: true, method: :delete, class: "mark-as-read-button" do %>
+          <%= icon "circle-x", class: "card__link", aria_label: t("mark_as_read", scope: "layouts.decidim.notifications_dashboard"), role: "img" %>
+        <% end %>
+      </div>
+    </li>
+  </ul>
+</div>

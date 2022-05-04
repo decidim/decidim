@@ -57,10 +57,14 @@ module Decidim
           @bulletin_board ||= context[:bulletin_board] || Decidim::Elections.bulletin_board
         end
 
+        def main_button?
+          true
+        end
+
         private
 
         def choose_random_trustees
-          return @trustee_ids if @trustee_ids.any? || defined?(@trustees)
+          return @trustee_ids if @trustee_ids&.any? || defined?(@trustees)
 
           @trustees = if participatory_space_trustees_with_public_key.count >= bulletin_board.number_of_trustees
                         participatory_space_trustees_with_public_key.sample(bulletin_board.number_of_trustees)

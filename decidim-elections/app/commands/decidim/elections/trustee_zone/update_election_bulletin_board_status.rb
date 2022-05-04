@@ -4,7 +4,7 @@ module Decidim
   module Elections
     module TrusteeZone
       # This command updates the election status if it got changed
-      class UpdateElectionBulletinBoardStatus < Rectify::Command
+      class UpdateElectionBulletinBoardStatus < Decidim::Command
         # Public: Initializes the command.
         #
         # status - The actual election status
@@ -78,9 +78,13 @@ module Decidim
 
         def store_verifiable_results
           election.update!(
-            verifiable_results_file_url: verifiable_results[:url],
+            verifiable_results_file_url: verifiable_results_file_url,
             verifiable_results_file_hash: verifiable_results[:hash]
           )
+        end
+
+        def verifiable_results_file_url
+          URI.join(Decidim::Elections.bulletin_board.bulletin_board_server, verifiable_results[:url])
         end
 
         def update_election_status!

@@ -1,0 +1,104 @@
+lb:
+  activemodel:
+    attributes:
+      questionnaire_question:
+        mandatory: Verpflichtend
+        max_characters: Maximale Anzahl Zeichen (0 bedeutet kein Limit)
+    errors:
+      models:
+        answer:
+          attributes:
+            add_documents:
+              needs_to_be_reattached: Muss erneut angehängt werden
+            body:
+              too_long: ist zu lang
+            choices:
+              missing: sind nicht vollständig
+              too_many: sind zu viele
+        questionnaire:
+          request_invalid: Bei der Bearbeitung der Anfrage ist ein Fehler aufgetreten. Bitte versuchen Sie es nochmal
+  decidim:
+    forms:
+      admin:
+        models:
+          components:
+            description: Beschreibung
+            tos: Nutzungsbedingungen
+        questionnaires:
+          actions:
+            back: Zurück zu Fragen
+            show: Antworten anzeigen
+          answer_option:
+            answer_option: Antwortoption
+            free_text: Freier Text
+            remove: Löschen
+            statement: Aussage
+          answers:
+            actions:
+              back: Zurück zu Antworten
+              export: Exportieren
+              show: Antworten anzeigen
+            empty: Noch keine Antworten
+            export:
+              answer:
+                title: 'Antwort #%{number}'
+            export_response:
+              title: Umfrage_Benutzer_Antworten_%{token}
+            index:
+              title: "%{total} Antworten insgesamt"
+            show:
+              title: 'Antwort #%{number}'
+          display_condition:
+            answer_option: Antwortoption
+            condition_question: Frage
+            condition_type: Bedingung
+            condition_types:
+              answered: Beantwortet
+              equal: Gleich
+              match: Beinhaltet Text
+              not_answered: Unbeantwortet
+              not_equal: Nicht gleich
+            condition_value: Enthaltener Text
+            display_condition: Bedingung anzeigen
+            mandatory: Diese Bedingung muss immer erfüllt werden, unabhängig vom Status anderer Bedingungen
+            remove: Löschen
+            save_warning: Vergessen Sie nicht, das Formular zu speichern, bevor Sie die Anzeigebedingungen konfigurieren
+            select_answer_option: Antwortoption auswählen
+            select_condition_question: Eine Frage
+            select_condition_type: Wählen Sie einen Bedingungstyp
+          edit:
+            save: Speichern
+            title: Fragebogen bearbeiten
+          form:
+            add_question: Frage hinzufügen
+            add_separator: Trennzeichen hinzufügen
+            already_answered_warning: Der Fragebogen wird bereits von einigen Benutzern beantwortet, sodass Sie die Fragen nicht ändern können.
+            collapse: Alle Fragen einklappen
+            expand: Alle Fragen ausklappen
+            preview: Vorschau
+            title: Formular für %{questionnaire_for} bearbeiten
+            unpublished_warning: Das Formular ist nicht öffentlich. Sie können die Fragen ändern, dabei werden allerdings die aktuellen Antworten gelöscht.
+          matrix_row:
+            matrix_row: Zeile
+      questionnaires:
+        show:
+          questionnaire_not_published:
+            body: Dieses Formular ist noch nicht veröffentlicht.
+          tos_agreement: Mit der Teilnahme stimmen Sie den Nutzungsbedingungen zu
+      step_navigation:
+        show:
+          are_you_sure: Diese Aktion kann nicht rückgängig gemacht werden und Sie können Ihre Antworten nicht bearbeiten. Bist du sicher?
+          back: Zurück
+          continue: Weiter
+          submit: einreichen
+      user_answers_serializer:
+        body: Antwort
+        completion: Abschluss
+        created_at: Beantwortet am
+        id: ID beantworten
+        ip_hash: IP-Hash
+        question: Frage
+        registered: Registriert
+        session_token: Benutzerkennung
+        unregistered: Nicht registriert
+        user_status: Benutzerstatus

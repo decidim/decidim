@@ -32,6 +32,7 @@ fr-CA:
         body: Corps de texte
         subject: Objet
       organization:
+        admin_terms_of_use_body: Corps du texte pour les conditions d'utilisation de l'admin
         alert_color: Alerte
         available_authorizations: Autorisations disponibles
         badges_enabled: Activer les badges
@@ -47,7 +48,7 @@ fr-CA:
         favicon: Icône
         force_authentication: Forcer l'authentification
         force_users_to_authenticate_before_access_organization: Forcer les utilisateurs à s'authentifier avant d'accéder à l'organisation
-        from: Adresse e-mail de l’expéditeur
+        from: Adresse mail de l'expéditeur
         github_handler: Gestionnaire GitHub
         header_snippets: Éléments à ajouter entre les balises HTML
         highlight_alternative_color: Surligner, alternative
@@ -122,6 +123,10 @@ fr-CA:
         file: Fichier
     errors:
       models:
+        newsletter:
+          attributes:
+            base:
+              at_least_one_space: Sélectionnez au moins une concertation
         organization:
           attributes:
             official_img_footer:
@@ -131,6 +136,7 @@ fr-CA:
       new_import:
         attributes:
           file:
+            invalid_file: Fichier fourni invalide , veuillez vérifier que le fichier est correctement formaté
             invalid_mime_type: Type MIME invalide
   activerecord:
     attributes:
@@ -157,6 +163,8 @@ fr-CA:
         browse: Parcourir
         category:
           new: Nouvelle catégorie
+        export: Tout exporter
+        export-selection: Exporter la sélection
         import: Importer
         manage: Gérer
         new: Nouvelle %{name}
@@ -169,7 +177,7 @@ fr-CA:
         reject: Rejeter
         share: Partager
         user:
-          new: Nouvel utilisateur
+          new: Nouvel administrateur
         verify: Vérifier
       admin_terms_of_use:
         accept:
@@ -177,12 +185,12 @@ fr-CA:
           success: Super! Vous avez accepté les conditions d'utilisation administrateur.
         actions:
           accept: J'accepte les conditions d'utilisation suivantes
-          are_you_sure: Êtes-vous certain de vouloir refuser les conditions d'utilisation administrateur?
+          are_you_sure: Êtes-vous sûr de vouloir refuser les conditions d'utilisation de l'administrateur?
           refuse: Refuser les conditions d'utilisation administrateur
           title: Accepter les conditions d'utilisation
         required_review:
           alert: 'Obligatoire: Consultez nos conditions d''utilisation administrateur'
-          callout: Veuillez prendre un moment pour consulter les conditions d'utilisation administrateur. Sinon, vous ne pourrez pas utiliser la plateforme en tant qu'administrateur.
+          callout: Veuillez prendre un moment pour consulter les conditions d'utilisation de l'administration. Sinon, vous ne pourrez pas gérer la plateforme.
           cta: Consulter les maintenant.
         title: Conditions d'utilisation administrateur
       area_types:
@@ -205,7 +213,7 @@ fr-CA:
           error: Une erreur s'est produite lors de la création d'une nouvelle zone d'application.
           success: Zone d'application créée avec succès.
         destroy:
-          has_spaces: Le secteur a des sous-secteur dépendants, il ne doit pas avoir de dépendances pour être supprimé.
+          has_spaces: Cette zone a des espaces dépendants. Veuillez vous assurer qu'aucun espace participatif ne référence cette zone avant de la supprimer.
           success: La zone d'application a bien été supprimée
         edit:
           title: Modifier la zone d'application
@@ -252,13 +260,15 @@ fr-CA:
         update:
           error: Une erreur s'est produite lors de la mise à jour de ce document lié.
           success: Document lié mis à jour avec succès.
+      attachments_privacy_warning:
+        message: Soyez prudent lorsque vous travaillez avec des pièces jointes dans un espace privé. Tout participant pourrait partager ce document à d'autres.
       autocomplete:
         no_results: Aucun résultat trouvé
         search_prompt: Renseignez au moins trois caractères pour lancer la recherche
       block_user:
         new:
           action: Bloquer le compte et envoyer la justification
-          description: Bloquer un utilisateur rendra son compte inutilisable, vous devriez fournir dans votre justification et vos directives les conditions de déblocage de l'utilisateur.
+          description: Bloquer un utilisateur rendra son compte inutilisable. Vous devriez fournir dans votre justification des actions à effectuer par ce dernier pour envisager le déblocage.
           justification: Justification
           title: Bloquer l'utilisateur %{name}
       categories:
@@ -334,7 +344,7 @@ fr-CA:
       dashboard:
         show:
           view_more_logs: Afficher plus
-          welcome: Bienvenue dans l'espace d'administration de Decidim.
+          welcome: Bienvenue dans l'espace d'administration.
       domain_whitelist:
         form:
           domain_too_short: Le nom de domaine est trop court
@@ -363,6 +373,13 @@ fr-CA:
           values:
             'false': 'Non'
             'true': 'Oui'
+        moderated_users:
+          reports_reason_eq:
+            label: Raison du signalement
+            values:
+              does_not_belong: N'appartient pas
+              offensive: Offensant
+              spam: Spam
         moderations:
           reportable_type_string_eq:
             label: Type
@@ -397,11 +414,18 @@ fr-CA:
         search_label: Rechercher
         search_placeholder:
           name_or_nickname_or_email_cont: Rechercher %{collection} par e-mail, nom ou pseudo.
+          report_count_eq: Nombre de signalement
           reported_id_string_or_reported_content_cont: Rechercher %{collection} par Id ou par contenu.
           title_cont: Search %{collection} par titre.
           user_name_or_user_email_cont: Rechercher %{collection} par nom ou par email.
+          user_name_or_user_nickname_or_user_email_cont: Rechercher les %{collection} par e-mail, nom ou pseudo.
         state_eq:
           label: État
+          values:
+            all: Tout
+            pending: En attente
+            rejected: Rejeté
+            verified: Vérifié
       forms:
         file_help:
           import:
@@ -447,13 +471,31 @@ fr-CA:
           impersonate_existing_user: Représenter l'utilisateur standard "%{name}"
           impersonate_new_managed_user: Représenter un nouvel utilisateur
       imports:
-        creators:
-          proposalcreator: Créateur de proposition
+        and: et
+        data_errors:
+          duplicate_headers:
+            detail: Veuillez vérifier que le fichier ne contient qu'une fois les colonnes ou les en-têtes requis.
+            message:
+              one: Colonne dupliquée %{columns}.
+              other: Colonnes dupliquées %{columns}.
+          invalid_indexes:
+            lines:
+              detail: Veuillez vérifier que ces lignes sont correctement formatées et contiennent des données valides.
+              message:
+                one: Une erreur a été trouvée dans le fichier d'importation à la ligne %{indexes}.
+                other: Erreurs trouvées dans le fichier d'importation sur les lignes %{indexes}.
+            records:
+              detail: Veuillez vérifier que ces lignes sont correctement formatées et contiennent des données valides.
+              message:
+                one: Une erreur a été trouvée dans le fichier d'importation pour les enregistrements avec le numéro de commande %{indexes}.
+                other: Erreurs trouvées dans le fichier d'importation pour les enregistrements avec les numéros de commande %{indexes}.
+          missing_headers:
+            detail: Veuillez vérifier que le fichier contient les colonnes requises.
+            message:
+              one: Colonne %{columns} manquante.
+              other: Colonnes %{columns} manquantes.
         error: Un problème est survenu lors de l'import
-        help:
-          proposalcreator: Le fichier doit comprendre les colonnes title/fr et body/fr (ou une autre locale de votre choix). Les colonnes scope/id et category/id sont également prises en charge.
-        import_from_file: Importer à partir d'un fichier
-        invalid_lines: Erreur trouvée dans la ressource aux lignes %{invalid_lines}
+        example_error: Impossible de créer un exemple pour le type donné
         new:
           accepted_mime_types:
             csv: csv
@@ -461,6 +503,8 @@ fr-CA:
             xlsx: xlsx
           actions:
             back: Retour
+          download_example: Télécharger l'exemple
+          download_example_format: Exemple comme %{name}
           file_legend: Ajouter un fichier d'import qui sera analysé.
           import: Importer
         notice: "%{number} %{resource_name} importées avec succès"
@@ -484,7 +528,7 @@ fr-CA:
         areas: Zones d'application
         configuration: Configuration
         dashboard: Tableau de bord
-        external_domain_whitelist: Liste blanche du domaine externe
+        external_domain_whitelist: Domaines externes autorisés
         help_sections: Sections d'aide
         homepage: Page d'accueil
         impersonations: Utilisateurs représentés
@@ -633,7 +677,7 @@ fr-CA:
       newsletters:
         create:
           error: Il y a eu une erreur lors de la création de cette newsletter.
-          success: Newsletter créée avec succès. Veuillez la vérifier avant de l'envoyer.
+          success: Bulletin d'information créé avec succès. Veuillez le vérifier avant de l'envoyer.
         deliver:
           error: Il y a eu une erreur lors de l'envoi de cette newsletter.
           success: Newsletter envoyée avec succès.
@@ -716,12 +760,12 @@ fr-CA:
           title: Valider l'utilisateur "%{name}"
         show_email_modal:
           close_modal: Fermer la fenêtre modale
-          description: Si vous avez besoin de contacter directement un participant, vous pouvez cliquer sur le bouton Afficher pour voir l'adresse e-mail. Cette action sera enregistrée.
+          description: Si vous avez besoin de contacter directement un participant, vous pouvez cliquer sur le bouton Afficher pour voir leur adresse mèl. Cette action sera enregistrée.
           email_address: Adresse e-mail
           full_name: Nom complet
           hidden: masqués
           show: Afficher
-          title: Afficher l'adresse e-mail des participants
+          title: Afficher l'adresse e-mail du participant
         unblock:
           error: Une erreur s'est produite lors du déblocage du participant
           success: Participant débloqué avec succès
@@ -747,6 +791,7 @@ fr-CA:
         form:
           colors:
             colors_title: Couleurs de l'organisation
+            colors_warning_html: Attention ! La modification de ces couleurs peut rompre les contrastes d'accessibilité. Vous pouvez vérifier le contraste de votre choix avec <a href="%{link}">WebAIM Contrast Checker</a> ou d'autres outils similaires.
             header_snippets_help: Utilisez ce champ pour ajouter des éléments entre les balises HTML <head> </head>. L'utilisation la plus courante de champs consiste à intégrer des services tiers nécessitant du JavaScript ou du CSS supplémentaire. Vous pouvez aussi l'utiliser pour ajouter des méta-tags supplémentaires au code HTML. Notez que cela ne fonctionnera que dans sur les pages publiques, et non dans la section admin.
           cta_button_path_help: 'Vous pouvez remplacer le lien vers lequel renvoie le bouton de la page d''accueil. Utilisez ici des chemins partiels et non des URL complets. Il accepte les lettres, les chiffres, les tirets et les barres obliques, et doit commencer par une lettre. Le bouton apparaît sur la page d''accueil entre le texte de bienvenue et la description. Exemple : %{url}'
           cta_button_text_help: Vous pouvez remplacer le texte du bouton dans la page d'accueil pour chaque langue disponible dans votre organisation. Si elle n'est pas définie, la valeur par défaut sera utilisée. Le bouton apparaît sur la page d'accueil entre le texte de bienvenue et la description.
@@ -795,6 +840,14 @@ fr-CA:
           explanation: 'Téléchargez votre fichier CSV. Il doit avoir deux colonnes avec dans la première colonne les emails, et dans la deuxième colonne les noms (email, nom) des utilisateurs que vous souhaitez ajouter à l''espace participatif, sans en-tête. Évitez les caractères spéciaux comme `<>?%&^*#@()[]=+:;"{}\|` dans les noms des utilisateurs.'
           title: Téléchargez votre fichier CSV
           upload: Télécharger
+      reminders:
+        create:
+          error: Il y a eu un problème lors de la création des rappels.
+          success:
+            one: "%{count} utilisateur recevra un rappel."
+            other: "%{count} utilisateurs recevront un rappel."
+        new:
+          submit: Envoyer
       resource_permissions:
         edit:
           submit: Soumettre
@@ -852,6 +905,7 @@ fr-CA:
         gallery:
           add_images: Ajouter des images
           delete_image: Supprimer l'image
+          edit_images: Modifier les images
           gallery_legend: Ajouter une galerie d'images (facultatif)
       static_page_topics:
         create:
@@ -912,7 +966,7 @@ fr-CA:
         static_pages: Pages
         statistics: Activité
         user_groups: Groupes d'utilisateurs
-        users: Utilisateurs
+        users: Administrateurs
       user_group:
         csv_verify:
           invalid: Une erreur s'est produite lors de la lecture du fichier CSV.
@@ -925,13 +979,6 @@ fr-CA:
           success: Groupe d'utilisateurs vérifié avec succès
       user_groups:
         index:
-          filter:
-            all: Tous
-            pending: En attente
-            rejected: Non validés
-            verified: Vérifié
-          filter_by: Filtrer par
-          search: Rechercher
           state:
             pending: En attente
             rejected: Non validés
@@ -955,7 +1002,7 @@ fr-CA:
           role: Rôle
         new:
           create: Inviter
-          title: Inviter l'utilisateur en tant qu'administrateur
+          title: Inviter un nouvel administrateur
       users_statistics:
         users_count:
           admins: Administrateurs
@@ -968,7 +1015,7 @@ fr-CA:
     forms:
       errors:
         impersonate_user:
-          reason: Vous devez fournir une raison lors de l'emprunt d'identité d'un utilisateur standard
+          reason: Vous devez fournir une raison si vous modérer un participant actuellement non-modéré
     metrics:
       blocked_users:
         object: utilisateurs bloqués
@@ -976,6 +1023,9 @@ fr-CA:
       reported_users:
         object: utilisateurs signalés
         title: Utilisateurs signalés
+      user_reports:
+        object: signalements d'utilisateurs
+        title: Signalements d'utilisateurs
     moderations:
       actions:
         expand: Agrandir

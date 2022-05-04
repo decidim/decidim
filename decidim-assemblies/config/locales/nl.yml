@@ -59,9 +59,9 @@ nl:
         birthplace: Geboorteplaats
         ceased_date: Sluitingsdatum
         designation_date: Ontwerpdatum
-        designation_mode: Ontwerpdatum
         full_name: Volledige naam
         gender: Geslacht
+        non_user_avatar: Profielfoto
         position: Positie
         user_id: Gebruiker of gebruikersgroep
       assembly_user_role:
@@ -182,6 +182,9 @@ nl:
         update:
           error: Er is een fout opgetreden bij het bijwerken van een admin voor deze groep.
           success: Beheerder is succesvol bijgewerkt voor deze vergadering.
+      filters:
+        decidim_assemblies_type_id_eq:
+          label: Groepstype
       menu:
         assemblies: Groepen
         assemblies_settings: Instellingen
@@ -267,7 +270,6 @@ nl:
             duration_help: Als de duur van deze groep beperkt is, selecteert u de einddatum. Anders zal dit verschijnen als onbepaald.
             filters: Filters
             images: Afbeeldingen
-            included_at_help: Selecteer de datum waarop deze groep aan Decidim is toegevoegd. Het hoeft niet noodzakelijk hetzelfde te zijn als de aanmaakdatum.
             metadata: Metadata
             other: Overige
             select_a_created_by: Selecteer op 'gemaakt door'
@@ -296,7 +298,10 @@ nl:
         assembly_members:
           form:
             existing_user: Bestaande deelnemer
+            explanation: 'Eigenschappen afbeelding:'
+            image_guide: Bij voorkeur een afbeelding in 'portretmodus' (staand) die geen tekst bevat.
             non_user: Niet deelnemer
+            non_user_avatar_help: Je hebt de toestemming nodig van de personen voordat je ze als lid publiceert.
             select_a_position: Selecteer een positie
             select_user: Selecteer een deelnemer
             user_type: Type deelnemer

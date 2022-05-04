@@ -249,7 +249,6 @@ nl:
             destroy: Verwijder
             update: Bijwerken
           form:
-            child_scope_threshold_enabled_help: 'Deze configuratie-vlag biedt geen ondersteuning voor offline stemmen, het maakt subscopes mogelijk en werkt met een autorisatieverwerker die een scope associeert met de gebruiker. Zorg ervoor dat je deze machtiging selecteert, onderaan in de autorisatie-instellingen. Om de toepassingsmogelijkheden te kunnen laten werken moet het op hiërarchische wijze worden geconfigureerd: 1 ouder - N kind. Voor meer informatie over hoe deze configuratie werkt, zie deze <a href="https://docs.decidim.org/admin-manual/en/initiatives/" target="_blank">link</a> .'
             title: Algemene informatie
           initiative_type_scopes:
             title: Scopes voor het initiatieftype
@@ -360,6 +359,8 @@ nl:
           email_outro: 'Je hebt deze melding ontvangen omdat je de auteur bent van het initiatief %{resource_title}'
           email_subject: "%{applicant_nickname} wil deelnemen aan je initiatief"
           notification_title: <a href="%{applicant_profile_url}">%{applicant_nickname}</a> wil graag deel uitmaken van de promotiecommissie voor jouw initiatief <a href="%{resource_url}">%{resource_title}</a>. Om te accepteren of te weigeren, klik <a href="%{resource_url}/edit">hier</a>.
+      form:
+        attachment_legend: "(Optioneel) Voeg een bijlage toe"
       index:
         title: Initiatieven
       initiative_signatures:
@@ -493,6 +494,9 @@ nl:
     menu:
       initiatives: Initiatieven
     resources:
+      initiative:
+        actions:
+          comment: Reactie
       initiatives_type:
         actions:
           title: acties

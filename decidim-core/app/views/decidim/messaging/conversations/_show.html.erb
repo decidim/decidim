@@ -1,12 +1,6 @@
-<% if participants.count == 1 %>
-  <% conversation_label = t(".chat_with") + " #{participants.first.name} (@#{participants.first.nickname})" %>
-<% else %>
-  <% conversation_label = t(".title", usernames: username_list(participants)) %>
-<% end %>
-
 <div class="wrapper">
   <div class="row">
-    <div class="columns medium-9 medium-centered tabs-panel is-active" id="conversations" role="tabpanel" aria-label="<%= conversation_label %>">
+    <div class="columns medium-9 medium-centered tabs-panel is-active" id="conversations" role="tabpanel" aria-label="<%= strip_tags(conversation_label_for(participants)) %>">
       <div class="conversation">
 
         <div class="conversation-header flex--cc absolutes">
@@ -15,20 +9,24 @@
               <%= icon "chevron-left", role: "img", aria_label: t(".back") %>
             <% end %>
           </div>
+
           <% if participants.count == 1 %>
-            <%= link_to profile_path(participants.first.nickname) do %>
-              <%= image_tag participants.first.avatar_url, alt: t("decidim.author.avatar", name: decidim_sanitize(participants.first.name)) %>
+            <% if participants.first.deleted? %>
+              <%= image_tag present(participants.first).avatar_url, alt: t("decidim.author.avatar", name: t("decidim.profile.deleted")) %>
+            <% else %>
+              <%= link_to profile_path(participants.first.nickname) do %>
+                <%= image_tag present(participants.first).avatar_url, alt: t("decidim.author.avatar", name: decidim_sanitize(participants.first.name)) %>
+              <% end %>
             <% end %>
           <% else %>
-            <%= image_tag current_user.avatar.default_multiuser_url, alt: t("decidim.author.avatar_multiuser") %>
+            <%= image_tag present(current_user).avatar.default_multiuser_url, alt: t("decidim.author.avatar_multiuser") %>
           <% end %>
-
           <div class="ml-s">
             <h1>
               <% if participants.count == 1 %>
-                <%= t(".chat_with") %> <strong><%= participants.first.name %></strong><br><span class="muted">@<%= participants.first.nickname %></span>
+                <%= t(".chat_with") %> <%= conversation_name_for(participants) %>
               <% else %>
-                <%= t(".title", usernames: username_list(participants)) %>
+                <%= t(".title", usernames: username_list(participants)).html_safe %>
               <% end %>
             </h1>
           </div>

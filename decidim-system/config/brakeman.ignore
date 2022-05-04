@@ -1,0 +1,37 @@
+{
+  "ignored_warnings": [
+    {
+      "warning_type": "Cross-Site Scripting",
+      "warning_code": 2,
+      "fingerprint": "b05e389333830ab35fadd2e9c91b043b998f8a0c9715a6ab12aefba59fab9408",
+      "check_name": "CrossSiteScripting",
+      "message": "Unescaped parameter value",
+      "file": "app/views/decidim/system/organizations/show.html.erb",
+      "line": 4,
+      "link": "https://brakemanscanner.org/docs/warning_types/cross_site_scripting",
+      "code": "translated_attribute(Organization.find(params[:id]).description)",
+      "render_path": [
+        {
+          "type": "controller",
+          "class": "Decidim::System::OrganizationsController",
+          "method": "show",
+          "line": 38,
+          "file": "app/controllers/decidim/system/organizations_controller.rb",
+          "rendered": {
+            "name": "decidim/system/organizations/show",
+            "file": "app/views/decidim/system/organizations/show.html.erb"
+          }
+        }
+      ],
+      "location": {
+        "type": "template",
+        "template": "decidim/system/organizations/show"
+      },
+      "user_input": "params[:id]",
+      "confidence": "Weak",
+      "note": ""
+    }
+  ],
+  "updated": "2021-09-12 08:06:17 +0000",
+  "brakeman_version": "5.1.1"
+}

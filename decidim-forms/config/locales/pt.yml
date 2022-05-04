@@ -3,15 +3,22 @@ pt:
     attributes:
       answer:
         body: Responder
+        choices: Escolhas
+        selected_choices: Escolhas seleccionadas
       question:
         max_choices: Número máximo de escolhas
         question_type: Tipo
       questionnaire_question:
         mandatory: Obrigatório
+        max_characters: Limite de caracteres (deixar 0 se não houver limite)
     errors:
       models:
         answer:
           attributes:
+            add_documents:
+              needs_to_be_reattached: Precisa de ser reanexado
+            body:
+              too_long: é demasiado longo
             choices:
               missing: não estão completos
               too_many: são demasiados
@@ -76,6 +83,7 @@ pt:
             collapse: Colapsar todas as questões
             expand: Expandir todas as questões
             preview: Pré-visualizar
+            title: Editar formulário para %{questionnaire_for}
             unpublished_warning: O formulário não está publicado. Pode modificar as suas questões, mas essa ação eliminará as respostas atuais.
           matrix_row:
             matrix_row: Linha
@@ -102,6 +110,7 @@ pt:
             up: Acima
           update:
             invalid: Ocorreu um problema ao guardar o questionário.
+            success: Formulário guardado com êxito
       errors:
         answer:
           body: O corpo não pode ficar em branco
@@ -109,11 +118,8 @@ pt:
         extension_allowlist: 'Formatos aceites:'
       images:
         dimensions: "%{width} x %{height} px"
-        dimensions_info: 'Esta imagem será:'
-        processors:
-          resize_and_pad: Redimensionada e ajustada para
-          resize_to_fit: Redimensionada para caber
       question_types:
+        files: Ficheiros
         long_answer: Resposta longa
         matrix_multiple: Matriz (Escolha múltipla)
         matrix_single: Matriz (Escolha única)

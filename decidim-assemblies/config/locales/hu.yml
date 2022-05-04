@@ -56,7 +56,6 @@ hu:
         birthplace: Születési hely
         ceased_date: Megszűnés dátuma
         designation_date: Kijelölés dátuma
-        designation_mode: Kijelölés módszere
         full_name: Teljes név
         gender: Neme
         position: Pozíció
@@ -261,7 +260,7 @@ hu:
             duration_help: Ha a gyűlés időtartama korlátozott, válassz befejező dátumot. Ellenkező esetben határozatlan idejű lesz.
             filters: Szűrők
             images: képek
-            included_at_help: Válaszd ki a dátumot, amikor a gyűlést hozzáadtad a Decidimhez. Nem feltétlenül kell megegyeznie a létrehozás időpontjával.
+            included_at_help: Válassza ki a dátumot, amikor ezt a gyűlést hozzáadták a platformhoz. Nem feltétlenül kell megegyeznie a létrehozás dátumával.
             metadata: Metaadatok
             other: Egyéb
             select_a_created_by: Válassz alapítót

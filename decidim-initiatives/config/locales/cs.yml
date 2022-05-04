@@ -280,8 +280,8 @@ cs:
             update: Aktualizovat
           form:
             authorizations: Nastavení autorizace
-            child_scope_threshold_enabled_help: 'Tento příznak konfigurace nepodporuje offline hlasování, povoluje dílčí oblasti působnosti a pracuje s obslužnou rutinou autorizace, která přidruží oblast působnosti uživateli. ujistěte se, že jste vybrali tuto autorizaci níže v nastavení autorizace. Aby to fungovalo, je třeba hierarchicky nakonfigurovat oblasti působnosti: 1 Nadřazený - N Podřazených. Další informace o tom, jak tato konfigurace funguje, naleznete v tomto <a href="https://docs.decidim.org/admin-manual/en/initiatives/" target="_blank"> odkazu </a>.'
-            only_global_scope_enabled_help: Zaškrtněte tuto poznámku, pokud jste povolili "Podřazená oblast působnosti" a nakonfigurovali globální rozsah jako vaši nadřazenou oblast působnosti. Povolením této možnosti bude výběr typu iniciativy přeskočeno v průvodci vytvořením iniciativy. Více informací o tom, jak tato konfigurace funguje, naleznete na tomto <a href="https://docs.decidim.org/admin-manual/en/initiatives/" target="_blank">odkazu</a>.
+            child_scope_threshold_enabled_help: 'Tento příznak konfigurace nepodporuje offline hlasování, umožňuje podřízené oblasti působnosti a pracuje s obslužnou rutinou autorizace, která uživateli přiřazuje rozsah, Ujistěte se, že jste vybrali tuto autorizaci, níže v nastavení autorizace. Aby fungovala obblast působnosti, musí být nastavena hierarchickým způsobem: 1 nadřazený - N podřazených. Více informací o tom, jak tato konfigurace funguje, naleznete na tomto <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">odkazu</a>.'
+            only_global_scope_enabled_help: Zaškrtněte tuto poznámku, pokud jste povolili "Podřazená oblast působnosti" a nakonfigurovali globální rozsah jako vaši nadřazenou oblast působnosti. Povolením této možnosti bude výběr typu iniciativy přeskočeno v průvodci vytvořením iniciativy. Více informací o tom, jak tato konfigurace funguje, naleznete na tomto <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">odkazu</a>.
             options: Možnosti
             title: Obecná informace
           initiative_type_scopes:
@@ -414,7 +414,7 @@ cs:
           notification_title: <a href="%{applicant_profile_url}">%{applicant_nickname}</a> požádal o funkci ve výboru vaší iniciativy <a href="%{resource_url}">%{resource_title}</a>. Chcete-li přijmout nebo odmítnout <a href="%{resource_url}/edit">, klepněte zde</a>.
       form:
         add_attachments: Dokumenty
-        attachment_legend: "(Volitelné) přidat přílohy"
+        attachment_legend: "(Volitelné) Přidat přílohu"
         delete_attachment: Smazat
       index:
         title: Iniciativy
@@ -595,6 +595,9 @@ cs:
     menu:
       initiatives: Iniciativy
     resources:
+      initiative:
+        actions:
+          comment: Komentář
       initiatives_type:
         actions:
           title: Akce

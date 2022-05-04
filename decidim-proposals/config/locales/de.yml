@@ -125,7 +125,6 @@ de:
         name: Vorschläge
         settings:
           global:
-            allow_card_image: Kartenbild zulassen
             amendments_enabled: Änderungsvorschläge aktiviert
             amendments_enabled_help: Wenn aktiviert, konfigurieren Sie Änderungsmerkmale für jeden Schritt.
             amendments_wizard_help_text: Hilfetext für Änderungsassistent
@@ -176,7 +175,6 @@ de:
             answers_with_costs: Kosten für Vorschlagsantworten aktivieren
             automatic_hashtags: Hashtags wurden allen Vorschlägen hinzugefügt
             comments_blocked: Kommentare blockiert
-            creation_enabled: Vorschlagserstellung aktiviert
             endorsements_blocked: Zustimmungen blockiert
             endorsements_enabled: Bestätigungen aktiviert
             proposal_answering_enabled: Vorschlagsantworten aktiviert
@@ -269,7 +267,6 @@ de:
           email_intro: Der Vorschlag "%{resource_title}" wurde zu "%{participatory_space_title}" hinzugefügt, welchem Sie folgen.
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie "%{participatory_space_title}" folgen. Sie können den Erhalt von Benachrichtigungen über den vorherigen Link beenden.
           email_subject: Neuer Vorschlag "%{resource_title}" zu %{participatory_space_title} hinzugefügt
-          notification_title: Der Vorschlag <a href="%{resource_path}">%{resource_title}</a> wurde zu %{participatory_space_title} hinzugefügt
         proposal_rejected:
           affected_user:
             email_intro: 'Ihr Vorschlag "%{resource_title}" wurde abgelehnt. Sie können die Antwort auf dieser Seite lesen:'
@@ -509,11 +506,9 @@ de:
             title: Vorschläge importieren
         proposals_merges:
           create:
-            invalid: Beim Zusammenführen der ausgewählten Vorschläge ist ein Fehler aufgetreten.
             success: Erfolgreich die Vorschläge in eine neue zusammengeführt.
         proposals_splits:
           create:
-            invalid: Beim Teilen der ausgewählten Vorschläge ist ein Fehler aufgetreten.
             success: Die Vorschläge wurden erfolgreich in neue aufgeteilt.
         valuation_assignments:
           create:
@@ -544,7 +539,6 @@ de:
           all: Alle
         filter_origin_values:
           all: Alle
-          citizens: Einzelpersonen
           meetings: Meetings
           official: Offiziell
           user_groups: Benutzergruppen
@@ -716,12 +710,8 @@ de:
             one: "%{count} Vorschlag"
             other: "%{count} Vorschläge"
         edit:
-          add_documents: Dokumente
-          add_images: Datei
           attachment_legend: "(Optional) Fügen Sie einen Anhang hinzu"
           back: Zurück
-          delete_document: Dokument löschen
-          delete_image: Bild löschen
           gallery_legend: "(Optional) Ein Bild zur Vorschlagskarte hinzufügen"
           select_a_category: Bitte wählen sie eine Kategorie
           send: Abschicken

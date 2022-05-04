@@ -70,7 +70,6 @@ zh-CN:
         blocked_comments_warning: 评论此时被禁用，但您可以阅读前面的评论。
         comment_details_title: 评论详情
         loading: 正在加载评论...
-        single_comment_warning: 您可以在这里查看 <a href="%{url}">的其余评论</a>。
         single_comment_warning_title: 您正在看到一个评论
       down_vote_button:
         text: 我不同意这个评论

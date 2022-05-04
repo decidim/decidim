@@ -4,7 +4,7 @@ module Decidim
   module ParticipatoryProcesses
     # This class counts unique Participants on a participatory process or
     # participatory processes belonging to a participatory process group
-    class StatsParticipantsCount < Rectify::Query
+    class StatsParticipantsCount < Decidim::Query
       def self.for(participatory_space)
         return 0 unless participatory_space.is_a?(Decidim::ParticipatoryProcess) ||
                         participatory_space.is_a?(Decidim::ParticipatoryProcessGroup) && participatory_space.participatory_processes.exists?
@@ -20,6 +20,7 @@ module Decidim
         [
           comments_query,
           debates_query,
+          meetings_query,
           endorsements_query,
           project_supports_query,
           proposals_query,
@@ -42,7 +43,8 @@ module Decidim
 
       def comments_query
         Decidim::Comments::Comment
-          .where(decidim_root_commentable_id: participatory_space_ids)
+          .where(decidim_participatory_space_type: Decidim::ParticipatoryProcess.class.name)
+          .where(decidim_participatory_space_id: participatory_space_ids)
           .pluck(:decidim_author_id)
           .uniq
       end
@@ -56,6 +58,14 @@ module Decidim
           .not_hidden
           .pluck(:decidim_author_id)
           .uniq
+      end
+
+      def meetings_query
+        meetings = Decidim::Meetings::Meeting.where(component: space_components).not_hidden
+        registrations = Decidim::Meetings::Registration.where(decidim_meeting_id: meetings).distinct.pluck(:decidim_user_id)
+        organizers = meetings.where(decidim_author_type: Decidim::UserBaseEntity.name).distinct.pluck(:decidim_author_id)
+
+        [registrations, organizers].flatten.uniq
       end
 
       def endorsements_query

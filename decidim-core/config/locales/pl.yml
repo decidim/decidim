@@ -75,7 +75,6 @@ pl:
     'true': 'Tak'
   carrierwave:
     errors:
-      general: Błąd podczas przetwarzania obrazu
       image_too_big: Obraz jest zbyt duży
       not_inside_organization: Plik nie jest dołączony do żadnej organizacji
   date:
@@ -266,6 +265,8 @@ pl:
         download: Pobierz plik
       documents:
         related_documents: Materiały
+      geocoding:
+        geocoded_address: Adres
       photos:
         related_photos: Powiązane zdjęcia
     author:
@@ -411,7 +412,7 @@ pl:
         button_url: Adres url przycisku CTA
         description: Opis
       footer_sub_hero:
-        name: Banner podrzędny stopki
+        name: Baner podrzędny stopki
       hero:
         name: Obraz główny
       hero_settings_form:
@@ -438,7 +439,7 @@ pl:
       stats:
         name: Statystyki organizacji
       sub_hero:
-        name: Banner podrzędny
+        name: Baner podrzędny
     core:
       actions:
         login_before_access: Zaloguj się na swoje konto, żeby mieć dostęp
@@ -468,7 +469,7 @@ pl:
           newsletter: Chcę otrzymywać okazjonalne newslettery z istotnymi informacjami
           newsletter_title: Zgoda na subskrybcję
           nickname_help: Twój pseudonim w %{organization}. Może zawierać tylko litery, cyfry, '-' i '_'.
-          password_help: "Minimalna liczba znaków: %{minimun_characters}; nie może być zbyt powszechny (np. 123456) i musi różnić się od Twojego pseudonimu i adresu e-mail."
+          password_help: "Minimalna liczba znaków: %{minimun_characters}; nie może być zbyt powszechne (np. 123456) i musi różnić się od Twojego pseudonimu i adresu e-mail."
           sign_in: Zaloguj się
           sign_up: Zarejestruj się
           sign_up_as:
@@ -596,7 +597,7 @@ pl:
       email_event:
         email_greeting: Witaj %{user_name},
         email_intro: 'Zaktualizowano "%{resource_title}". Możesz zobaczyć zmiany na tej stronie:'
-        email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz "%{resource_title}". Możesz przestać obserwować ten zasób klikając w poprzedni link.
+        email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz przestrzeń "%{resource_title}". Aby przestać otrzymywać powiadomienia kliknij w powyższy link, a następnie na stronie kliknij w przycisk obserwowania.
         email_subject: Aktualizacja %{resource_title}
       gamification:
         badge_earned:
@@ -681,7 +682,7 @@ pl:
         click_button: 'Kliknij poniższy przycisk, aby pobrać swoje dane. <br/>Plik będzie dostępny do %{date}. <br/>Będziesz potrzebował <a href=''''https://www.7-zip.org/''''>7-Zip</a> (Windows), <a href="https://www.keka.io/en/">Keka</a> (MacOS) lub <a href="https://peazip.github.io">PeaZip</a> (Linux) do otwarcia pliku. Hasło: %{password}'
         download: Pobieranie
       export:
-        ready: Znajdź załączoną wersję eksportowanego pliku.
+        ready: Mail zawiera załączony plik eksportu.
       subject: Twój eksport "%{name}" jest gotowy
     filters:
       linked_classes:
@@ -718,7 +719,6 @@ pl:
         button: Przestań obserwować
         error: Nastąpił błąd podczas cofania obserwowania tego zasobu.
     forms:
-      current_file: Bieżący plik
       current_image: Bieżący obraz
       default_image: Domyślny obraz
       errors:
@@ -738,7 +738,6 @@ pl:
       file_validation:
         allowed_file_extensions: 'Dozwolone rozszerzenia plików: %{extensions}'
         max_file_size: 'Maksymalny rozmiar pliku: %{megabytes}MB'
-      remove_this_file: Usuń ten plik
     gamification:
       all_badges_link: Zobacz wszystkie dostępne odznaki.
       badges:
@@ -870,6 +869,11 @@ pl:
       index:
         last_activity: Ostatnia aktywność
         resource_type: Typ
+    links:
+      warning:
+        close_modal: Zamknij okno
+        proceed: Dalej
+        title: Otwórz zewnętrzny link
     log:
       base_presenter:
         create: "%{user_name} stworzył(a) %{resource_name}"
@@ -909,35 +913,35 @@ pl:
           admin_in_group: Otrzymujesz to powiadomienie, ponieważ jesteś administratorem w %{group}.
           greeting: Cześć, %{recipient}!
           intro: "%{manager} rozpoczął/rozpoczęła nową konwersację w imieniu %{group}. Kliknij tutaj, aby ją zobaczyć:"
-          outro: Miłego korzystania z decidim!
+          outro: Miłego korzystania z platformy!
           subject: "%{manager} rozpoczął/rozpoczęła nową konwersację jako %{group}"
         comanagers_new_message:
           admin_in_group: Otrzymujesz to powiadomienie, ponieważ jesteś administratorem w %{group}.
           greeting: Cześć, %{recipient}!
-          intro: "%{manager} opublikował(a) nowe wiadomości w konwersacji w imieniu %{group}. Kliknij tutaj, aby je zobaczyć:"
-          outro: Miłego korzystania z decidim!
+          intro: "%{manager} wysłał(a) nową wiadomość w konwersacji w imieniu %{group}. Kliknij tutaj, aby ją zobaczyć:"
+          outro: Miłego korzystania z platformy!
           subject: "%{manager} wysłał(a) nowe wiadomości jako %{group}"
         new_conversation:
           greeting: Cześć, %{recipient}!
           intro: "%{sender} rozpoczął/rozpoczęła z tobą nową rozmowę. Kliknij tutaj, aby zobaczyć:"
-          outro: Miłego korzystania z decidim!
+          outro: Miłego korzystania z platformy!
           subject: "%{sender} rozpoczął/rozpoczęła z Tobą rozmowę"
         new_group_conversation:
           admin_in_group: Otrzymujesz to powiadomienie, ponieważ jesteś administratorem w %{group}.
           greeting: Cześć, %{recipient}!
           intro: "%{sender} rozpoczął/rozpoczęła nową konwersację z grupą %{group}. Kliknij tutaj, aby ją zobaczyć:"
-          outro: Miłego korzystania z decidim!
+          outro: Miłego korzystania z platformy!
           subject: "%{sender} rozpoczął/rozpoczęła konwersację z %{group}"
         new_group_message:
           admin_in_group: Otrzymujesz to powiadomienie, ponieważ jesteś administratorem w %{group}.
           greeting: Cześć, %{recipient}!
-          intro: "%{sender} opublikował(a) nowe wiadomości w konwersacji z grupą %{group}. Kliknij tutaj, aby je zobaczyć:"
-          outro: Miłego korzystania z decidim!
+          intro: "%{sender} wysłał(a) nową wiadomość w konwersacji z grupą %{group}. Kliknij tutaj, aby ją zobaczyć:"
+          outro: Miłego korzystania z platformy!
           subject: "%{group} ma nowe wiadomości od %{sender}"
         new_message:
           greeting: Cześć, %{recipient}!
-          intro: "%{sender} opublikował(a) nowe wiadomości w twojej rozmowie. Kliknij tutaj, aby je zobaczyć:"
-          outro: Miłego korzystania z decidim!
+          intro: "%{sender} wysłał(a) nową wiadomość w konwersacji. Kliknij tutaj, aby ją zobaczyć:"
+          outro: Miłego korzystania z platformy!
           subject: Masz nowe wiadomości od %{sender}
       conversations:
         add_conversation_users:
@@ -962,7 +966,7 @@ pl:
           groups: Moje grupy
           last_message: Ostatnia wiadomość
           new_conversation: Nowa konwersacja
-          next: Następna
+          next: Dalej
           no_conversations: Nie masz jeszcze żadnych konwersacji
           title: Konwersacje
         reply:
@@ -1247,6 +1251,7 @@ pl:
         description: Czy ta treść jest nieodpowiednia?
         does_not_belong: Promuje nielegalną działalność, groźby samobójcze, informacje osobiste lub coś innego, co według Ciebie nie powinno pojawić się w %{organization_name}.
         offensive: Promuje rasizm, seksizm, nienawiść, ataki osobiste, groźby śmierci, groźby samobójcze jakąkolwiek formę mowy nienawiści.
+        reason: Powód
         report: Zgłoś
         spam: Zawiera clickbaity, reklamy, oszustwa lub wrogie skrypty.
         title: Zgłoś nieodpowiednią zawartość
@@ -1320,7 +1325,7 @@ pl:
         last_message: Ostatnia wiadomość
         modal_title: Nowa konwersacja
         new_conversation: Nowa konwersacja
-        next: Następna
+        next: Dalej
         no_conversations_warning: Brak konwersacji.
         no_results: Brak wyników
         participant_with_disabled_message_reception: Ten użytkownik wyłączył odbiór wiadomości
@@ -1480,7 +1485,7 @@ pl:
         change_your_password: Zmień swoje hasło
         confirm_new_password: Potwierdź nowe hasło
         new_password: Nowe hasło
-        password_help: "Minimalna liczba znaków: %{minimun_characters}; nie może być zbyt powszechny (np. 123456) i musi różnić się od Twojego pseudonimu i adresu e-mail."
+        password_help: "Minimalna liczba znaków: %{minimun_characters}; nie może być zbyt powszechne (np. 123456) i musi różnić się od Twojego pseudonimu i adresu e-mail."
       new:
         forgot_your_password: Zapomniałeś hasła?
         send_me_reset_password_instructions: Wyślij mi instrukcje resetowania hasła
@@ -1539,7 +1544,7 @@ pl:
       public: Twoje informacje publiczne.
   errors:
     messages:
-      already_confirmed: zostało już potwierdzone, spróbuj się zalogować
+      already_confirmed: zostało już potwierdzone
       confirmation_period_expired: musi być potwierdzone w ciągu %{period}, proszę poprosić o nowy
       content_type_allowlist_error: typ pliku jest nieprawidłowy
       cycle_detected: zakres podrzędny nie może być jednocześnie zakresem nadrzędnym
@@ -1561,6 +1566,12 @@ pl:
       too_short: jest za krótki (poniżej 15 znaków)
   forms:
     correct_errors: Wystąpiły błędy w formularzu, popraw je, aby kontynuować.
+    length_validator:
+      minimum:
+        one: Co najmniej %{count} znak
+        few: Co najmniej %{count} znaki
+        many: Co najmniej %{count} znaków
+        other: Co najmniej %{count} znaków
     required: Wymagane
     required_explanation: "* Wymagane pola są oznaczone gwiazdką"
   invisible_captcha:
@@ -1615,7 +1626,7 @@ pl:
         public_profile: Mój profil publiczny
         sign_out: Wyloguj się
       user_profile:
-        account: Konto
+        account: Moje konto
         authorizations: Autoryzacje
         delete_my_account: Usuń moje konto
         my_data: Moje dane

@@ -48,7 +48,6 @@ gl:
         favicon: Ícona
         force_authentication: Forzar autenticación
         force_users_to_authenticate_before_access_organization: Forzar aos usuarios a se autenticar antes de acceder á organización
-        from: Correo electrónico do remitente
         github_handler: Xestor de GitHub
         header_snippets: Fragmentos de cabeceira
         highlight_alternative_color: Realzado, alternativo
@@ -132,6 +131,7 @@ gl:
       new_import:
         attributes:
           file:
+            invalid_file: O ficheiro fornecido non é válido, por favor verifica que o ficheiro posúe o formato correcto
             invalid_mime_type: Tipo Mime non válido
   activerecord:
     attributes:
@@ -172,7 +172,7 @@ gl:
         reject: Rexeitar
         share: Compartir
         user:
-          new: Novo usuario
+          new: Novo administrador
         verify: Verifique
       admin_terms_of_use:
         accept:
@@ -180,12 +180,10 @@ gl:
           success: Xenial! Aceptaches os termos de uso do panel de administración.
         actions:
           accept: Concordo con seguintes termos
-          are_you_sure: Estás certo/a de querer rexeitar os termos de uso do panel de administración?
           refuse: Rexeitar os termos de uso
           title: Concordo cos termos e condicións de uso
         required_review:
           alert: 'Requirido: Revisa os nosos termos de uso do panel de administración'
-          callout: Por favor, dedícalle un anaco de tempo á revisión da actualización dos nosos Termos de uso do panel de administración. No caso contrario, non poderás administrar a plataforma.
           cta: Revísaos agora.
         title: Termos de uso do panel de administración
       area_types:
@@ -208,7 +206,6 @@ gl:
           error: Produciuse un erro ao crear unha nova área.
           success: Area creada con éxito.
         destroy:
-          has_spaces: A área ten espazos dependentes, non poderá ter dependencias para poder ser eliminada.
           success: Área destruída con éxito
         edit:
           title: Editar área
@@ -255,13 +252,14 @@ gl:
         update:
           error: Produciuse un erro ao actualizar este anexo.
           success: Adxunto actualizado correctamente.
+      attachments_privacy_warning:
+        message: Ten coidado ao traballar con ficheiros anexos nun espazo privado. Calquera participante podería compartir este documento con outra xente.
       autocomplete:
         no_results: Non se atoparon resultados
         search_prompt: Escriba polo menos tres caracteres para buscar
       block_user:
         new:
           action: Bloquear conta e enviar xustificante
-          description: O bloqueo dun usuario/a deixará a súa conta inservible, podes fornecer no teu xustificante e directrices de que xeito é posible desbloquear o usuario/a.
           justification: Xustificante
           title: Bloquear ao usuario %{name}
       categories:
@@ -324,7 +322,6 @@ gl:
         'false': 'Non'
         managed_user_name: Usuario xestionado
         solved: Resolto
-        title: Conflitos de verificación
         transfer:
           email: Correo electrónico
           error: Produciuse un problema ao transferir el participante actual a un participante xestionado.
@@ -337,7 +334,7 @@ gl:
       dashboard:
         show:
           view_more_logs: Ver máis rexistros
-          welcome: Benvido ao Panel de administración de decisións.
+          welcome: Benvido/a ao panel de administración.
       domain_whitelist:
         form:
           domain_too_short: Dominio curto de máis
@@ -363,6 +360,13 @@ gl:
           values:
             'false': 'Non'
             'true': 'Si'
+        moderated_users:
+          reports_reason_eq:
+            label: Motivo do informe
+            values:
+              does_not_belong: Non pertence
+              offensive: Ofensivo
+              spam: Lixo
         moderations:
           reportable_type_string_eq:
             label: Tipo
@@ -397,11 +401,18 @@ gl:
         search_label: Busca
         search_placeholder:
           name_or_nickname_or_email_cont: Procurar %{collection} por correo electrónico, nome ou alcume.
+          report_count_eq: Número de denuncias
           reported_id_string_or_reported_content_cont: Procurar %{collection} por contido ou Id reportábel.
           title_cont: Procurar %{collection} por título.
           user_name_or_user_email_cont: Procurar %{collection} por nome ou correo electrónico.
+          user_name_or_user_nickname_or_user_email_cont: Pescudar %{collection} por correo, nome ou alcume.
         state_eq:
           label: Estado
+          values:
+            all: Todo
+            pending: Pendente
+            rejected: Rexeitado
+            verified: Verificado
       forms:
         file_help:
           import:
@@ -447,13 +458,31 @@ gl:
           impersonate_existing_user: Substitúe o usuario "%{name}"
           impersonate_new_managed_user: Substituír o novo usuario xestor
       imports:
-        creators:
-          proposalcreator: Creador da proposta
+        and: e
+        data_errors:
+          duplicate_headers:
+            detail: Por favor, verifica que o ficheiro contén as columnas requiridas ou que a cabeceira non está repetida.
+            message:
+              one: Columna duplicada %{columns}.
+              other: Columnas duplicadas %{columns}.
+          invalid_indexes:
+            lines:
+              detail: Por favor, verifica que estas liñas teñen o formato correcto e conteñen rexistros válidos.
+              message:
+                one: Atopouse un erro no ficheiro a importar na liña %{indexes}.
+                other: Atopouse un erro no ficheiro a importar nas liñas %{indexes}.
+            records:
+              detail: Por favor, verifica que estes rexistros teñen o formato correcto e conteñen rexistros válidos.
+              message:
+                one: Atopouse un erro no ficheiro a importar para os rexistros con números de ordenación %{indexes}.
+                other: Atopáronse erros no ficheiro a importar para os rexistros con números de ordenación %{indexes}.
+          missing_headers:
+            detail: Por favor, verifica que o ficheiro contén as columnas requiridas.
+            message:
+              one: Falta a columna %{columns}.
+              other: Faltan as columnas %{columns}.
         error: Produciuse un problema durante a importación
-        help:
-          proposalcreator: O ficheiro ten de incluír os nomes de columna title/en e body/en (ou outro idioma da túa preferencia, por exemplo title/gl e body/gl). Admítense tamén as columnas scope/id e category/id.
-        import_from_file: Importar dende o ficheiro
-        invalid_lines: Atopouse un erro no recurso número %{invalid_lines}
+        example_error: Non foi posíbel crear un exemplo para o tipo dado
         new:
           accepted_mime_types:
             csv: csv
@@ -461,6 +490,8 @@ gl:
             xlsx: xlsx
           actions:
             back: Volver
+          download_example: Descargar exemplo
+          download_example_format: Exemplo com %{name}
           file_legend: Engadir un ficheiro de importación para o análise.
           import: Importar
         notice: "%{number}%{resource_name} importados con éxito"
@@ -632,7 +663,6 @@ gl:
       newsletters:
         create:
           error: Produciuse un erro ao crear este boletín informativo.
-          success: Boletín creado con éxito. Por favor, revíseo antes de enviar.
         deliver:
           error: Produciuse un erro ao enviar este boletín informativo.
           success: Boletín enviado con éxito.
@@ -715,12 +745,10 @@ gl:
           title: Clasificar o usuario "%{name}"
         show_email_modal:
           close_modal: Pechar modal
-          description: Se precisas contactar cun participante directamente, podes premer no botón Amosar para ver o seu enderezo de correo. Está acción será rexistrada.
           email_address: Enderezo de correo electrónico
           full_name: Nome completo
           hidden: oculto
           show: Amosar
-          title: Amosar o correo electrónico do participante
         unblock:
           error: Produciuse un erro ao desbloquear o participante
           success: Participante desbloqueado con éxito
@@ -746,6 +774,7 @@ gl:
         form:
           colors:
             colors_title: Cores da organización
+            colors_warning_html: Atención! Mudar estas cores pode estragar ao contrastes de accesibilidade. Podes verificar o contraste da túa elección a través de <a href="%{link}">WebAIM Contrast Checker</a> ou outras ferramentas semellantes.
             header_snippets_help: Use este campo para engadir cousas ao título HTML. O uso máis común é integrar servizos de terceiros que requiren algún JavaScript ou CSS adicional. Ademais, podes usalo para engadir etiquetas metais extra ao HTML. Ten en conta que isto só se renderá en páxinas públicas, non na sección de administración.
           cta_button_path_help: 'Pode sobrescribir onde se enlaza o botón de chamada a acción na páxina de inicio. Use aquí rutas parciais, non URL completo. Acepta letras, números, guións e barras, e debe comezar cunha letra. O botón de chamada a acción amósase na páxina de inicio entre o texto de benvida ea descrición. Exemplo: %{url}'
           cta_button_text_help: Pode sobrescribir o texto do botón de chamada a acción na páxina de inicio para cada idioma dispoñible na súa organización. Se non se establece, empregarase o valor predeterminado. O botón de chamada a acción amósase na páxina de inicio entre o texto de benvida ea descrición.
@@ -789,6 +818,14 @@ gl:
           explanation: 'Sube o teu ficheiro CSV. Ten de ter dúas columnas co correo electrónico na primeira e o nome na última (correo, nome) dos usuarios que desexes engadir ao espazo de participación, sen cabeceiras. Evita empregar os seguintes caracteres `<>?%&^*#@()[]=+:;"{}\|` no nome de usuario.'
           title: Sube o teu ficheiro CSV
           upload: Subir
+      reminders:
+        create:
+          error: Produciuse un problema ao crear os recordatorios.
+          success:
+            one: "Lembrarase a %{count} usuario."
+            other: "Lembrarase a %{count} usuarios."
+        new:
+          submit: Enviar
       resource_permissions:
         edit:
           submit: Enviar
@@ -846,6 +883,7 @@ gl:
         gallery:
           add_images: Engadir imaxes
           delete_image: Eliminar imaxe
+          edit_images: Editar imaxes
           gallery_legend: Engadir unha galería de imaxes (opcional)
       static_page_topics:
         create:
@@ -906,7 +944,7 @@ gl:
         static_pages: Páxinas
         statistics: Actividade
         user_groups: Grupos de usuarios
-        users: Usuarios
+        users: Administradores
       user_group:
         csv_verify:
           invalid: Produciuse un erro ao ler o ficheiro CSV.
@@ -919,13 +957,6 @@ gl:
           success: Grupo de usuarios verificado con éxito
       user_groups:
         index:
-          filter:
-            all: Todo
-            pending: Pendente
-            rejected: Rexeitado
-            verified: Verificado
-          filter_by: Filtrar por
-          search: Busca
           state:
             pending: Pendente
             rejected: Rexeitado
@@ -949,7 +980,7 @@ gl:
           role: Rol
         new:
           create: Invitar
-          title: Convidar ao usuario como administrador
+          title: Convidar a un novo administrador
       users_statistics:
         users_count:
           admins: Administradores
@@ -959,10 +990,6 @@ gl:
           no_users_count_statistics_yet: Aínda non hai estatísticas do reconto de usuario/as
           participants: Participantes
       view_public_page: Ver páxina pública
-    forms:
-      errors:
-        impersonate_user:
-          reason: Debe proporcionar un motivo ao suplantar a un usuario non xestionado
     metrics:
       blocked_users:
         object: usuarias bloqueadas

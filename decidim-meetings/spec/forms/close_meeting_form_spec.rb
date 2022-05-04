@@ -8,8 +8,10 @@ module Decidim::Meetings
 
     let(:meeting) { create(:meeting, component: component) }
     let(:component) { create(:meeting_component) }
+    let(:attendees_count) { 5 }
     let(:attributes) do
       {
+        attendees_count: attendees_count,
         closing_report: closing_report
       }
     end
@@ -34,6 +36,31 @@ module Decidim::Meetings
       let(:closing_report) { nil }
 
       it { is_expected.not_to be_valid }
+    end
+
+    describe "when attendees_count is missing" do
+      let(:attendees_count) { nil }
+
+      it { is_expected.not_to be_valid }
+    end
+
+    describe "when attendees_count is greater than 999" do
+      let(:attendees_count) { 10_000 }
+
+      it { is_expected.not_to be_valid }
+    end
+
+    describe "when attendees_count is less than 0" do
+      let(:attendees_count) { -10 }
+
+      it { is_expected.not_to be_valid }
+    end
+
+    describe "when attendees_count is invalid" do
+      let(:attendees_count) { "a" }
+
+      # The value is cast to the correct type so "a" becomes 0 which is valid.
+      it { is_expected.to be_valid }
     end
 
     describe "map_model" do

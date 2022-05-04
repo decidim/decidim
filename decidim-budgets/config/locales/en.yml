@@ -22,6 +22,18 @@ en:
         one: Project
         other: Projects
   decidim:
+    admin:
+      filters:
+        projects:
+          category_id_eq:
+            label: Category
+          scope_id_eq:
+            label: Scope
+          selected_at_null:
+            label: Selected
+            values:
+              'false': Selected for implementation
+              'true': Not selected for implementation
     budgets:
       actions:
         attachment_collections: Folders
@@ -93,6 +105,12 @@ en:
             no_components: There are no other proposal components in this participatory space to import the proposals into projects.
             select_component: Please select a component
             title: Import proposals
+        reminders:
+          orders:
+            description: Users will receive an email with links to the budgets where they have pending order.
+            title:
+              one: You are about to send an email reminder to %{count} user
+              other: You are about to send an email reminder to %{count} users
       admin_log:
         budget:
           create: "%{user_name} created the %{resource_name} budget in the %{space_name} space"
@@ -120,7 +138,12 @@ en:
         highlighted_cta: Vote on %{name}
         if_change_opinion: If you've changed your mind, you can
         my_budgets: My budgets
+        progress: Finish voting
+        show: See projects
+        vote: Vote
         voted_on: You've voted on %{links}
+      last_activity:
+        new_vote_at_html: "<span>New budgeting vote at %{link}</span>"
       limit_announcement:
         cant_vote: You can't vote on this budget. <a href="%{landing_path}">Try on another budget</a>.
         limit_reached: You have active votes in %{links}. To vote on this budget you must <a href="%{landing_path}">delete your vote and start over</a>.
@@ -132,6 +155,8 @@ en:
             total_budget: Total budget
         project:
           fields:
+            category: Category
+            id: ID
             title: Title
       order_summary_mailer:
         order_summary:
@@ -184,6 +209,12 @@ en:
           projects_count:
             one: 1 project
             other: "%{count} projects"
+        exit_modal:
+          cancel: Return to voting
+          close_modal: Close modal
+          exit: Exit voting
+          message: Your vote has not been registered because you have not yet completed the voting process. Are you sure you want to exit voting?
+          title: You have not yet voted
         filters:
           category: Category
           scope: Scope
@@ -231,9 +262,19 @@ en:
         show:
           budget: Budget
           view_all_projects: View all projects
+      vote_reminder_mailer:
+        vote_reminder:
+          email_budgets: 'Areas where you have an unfinished vote:'
+          email_intro: You have started the participatory budgeting vote, but have not completed it.
+          email_link: Go to continue voting
+          email_outro: Please remember to complete the vote. To vote, you must first select the proposal or proposals you want to vote on and then confirm your vote with the "Vote" button.
+          email_subject:
+            one: You have an unfinished vote in the participatory budgeting vote
+            other: You have unfinished votes in the participatory budgeting vote
     components:
       budgets:
         actions:
+          comment: Comment
           vote: Vote
         name: Budgets
         settings:

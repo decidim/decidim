@@ -5,7 +5,7 @@ module Decidim
     module Admin
       # This command is executed when the user creates a Debate from the admin
       # panel.
-      class CreateDebate < Rectify::Command
+      class CreateDebate < Decidim::Command
         def initialize(form)
           @form = form
         end
@@ -40,7 +40,8 @@ module Decidim
             start_time: (form.start_time if form.finite),
             scope: form.scope,
             component: form.current_component,
-            author: form.current_organization
+            author: form.current_organization,
+            comments_enabled: form.comments_enabled
           }
 
           @debate = Decidim.traceability.create!(

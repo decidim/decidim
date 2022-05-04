@@ -20,12 +20,12 @@ Decidim.register_component(:meetings) do |component|
     resource.template = "decidim/meetings/meetings/linked_meetings"
     resource.card = "decidim/meetings/meeting"
     resource.reported_content_cell = "decidim/meetings/reported_content"
-    resource.actions = %w(join)
+    resource.actions = %w(join comment)
     resource.searchable = true
   end
 
   component.register_stat :meetings_count, primary: true, priority: Decidim::StatsRegistry::MEDIUM_PRIORITY do |components, start_at, end_at|
-    meetings = Decidim::Meetings::FilteredMeetings.for(components, start_at, end_at)
+    meetings = Decidim::Meetings::FilteredMeetings.for(components, start_at, end_at).except_withdrawn
     meetings.count
   end
 
@@ -42,11 +42,10 @@ Decidim.register_component(:meetings) do |component|
   component.exports :meetings do |exports|
     exports.collection do |component_instance|
       Decidim::Meetings::Meeting
-        .published
         .not_hidden
         .visible
         .where(component: component_instance)
-        .includes(component: { participatory_space: :organization })
+        .includes(:scope, :category, :attachments, component: { participatory_space: :organization })
     end
 
     exports.include_in_open_data = true
@@ -58,7 +57,7 @@ Decidim.register_component(:meetings) do |component|
     exports.collection do |component_instance|
       Decidim::Comments::Export.comments_for_resource(
         Decidim::Meetings::Meeting, component_instance
-      )
+      ).includes(:author, :user_group, root_commentable: { component: { participatory_space: :organization } })
     end
 
     exports.include_in_open_data = true
@@ -76,7 +75,7 @@ Decidim.register_component(:meetings) do |component|
     exports.serializer Decidim::Meetings::UserAnswersSerializer
   end
 
-  component.actions = %w(join)
+  component.actions = %w(join comment)
 
   component.settings(:global) do |settings|
     settings.attribute :scopes_enabled, type: :boolean, default: false
@@ -129,6 +128,7 @@ Decidim.register_component(:meetings) do |component|
 
     2.times do
       start_time = [rand(1..20).weeks.from_now, rand(1..20).weeks.ago].sample
+      end_time = start_time + [rand(1..4).hours, rand(1..20).days].sample
       params = {
         component: component,
         scope: Faker::Boolean.boolean(true_ratio: 0.5) ? global : scopes.sample,
@@ -140,7 +140,7 @@ Decidim.register_component(:meetings) do |component|
         location: Decidim::Faker::Localized.sentence,
         location_hints: Decidim::Faker::Localized.sentence,
         start_time: start_time,
-        end_time: start_time + rand(1..4).hours,
+        end_time: end_time,
         address: "#{Faker::Address.street_address} #{Faker::Address.zip} #{Faker::Address.city}",
         latitude: Faker::Address.latitude,
         longitude: Faker::Address.longitude,
@@ -149,20 +149,29 @@ Decidim.register_component(:meetings) do |component|
         author: participatory_space.organization,
         registration_terms: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
           Decidim::Faker::Localized.paragraph(sentence_count: 3)
-        end
+        end,
+        published_at: Faker::Boolean.boolean(true_ratio: 0.8) ? Time.current : nil
       }
 
       _hybrid_meeting = Decidim.traceability.create!(
         Decidim::Meetings::Meeting,
         admin_user,
-        params.merge(type_of_meeting: :hybrid, online_meeting_url: "http://example.org"),
+        params.merge(
+          title: Decidim::Faker::Localized.sentence(word_count: 2),
+          type_of_meeting: :hybrid,
+          online_meeting_url: "http://example.org"
+        ),
         visibility: "all"
       )
 
       _online_meeting = Decidim.traceability.create!(
         Decidim::Meetings::Meeting,
         admin_user,
-        params.merge(type_of_meeting: :online, online_meeting_url: "http://example.org"),
+        params.merge(
+          title: Decidim::Faker::Localized.sentence(word_count: 2),
+          type_of_meeting: :online,
+          online_meeting_url: "http://example.org"
+        ),
         visibility: "all"
       )
 
@@ -198,8 +207,8 @@ Decidim.register_component(:meetings) do |component|
         user = Decidim::User.find_or_initialize_by(email: email)
 
         user.update!(
-          password: "password1234",
-          password_confirmation: "password1234",
+          password: "decidim123456",
+          password_confirmation: "decidim123456",
           name: name,
           nickname: Faker::Twitter.unique.screen_name,
           organization: component.organization,
@@ -226,19 +235,37 @@ Decidim.register_component(:meetings) do |component|
         description: Decidim::Faker::Localized.sentence(word_count: 5),
         attachment_collection: attachment_collection,
         attached_to: meeting,
-        file: File.new(File.join(__dir__, "seeds", "Exampledocument.pdf")) # Keep after attached_to
+        content_type: "application/pdf",
+        file: ActiveStorage::Blob.create_and_upload!(
+          io: File.open(File.join(__dir__, "seeds", "Exampledocument.pdf")),
+          filename: "Exampledocument.pdf",
+          content_type: "application/pdf",
+          metadata: nil
+        ) # Keep after attached_to
       )
       Decidim::Attachment.create!(
         title: Decidim::Faker::Localized.sentence(word_count: 2),
         description: Decidim::Faker::Localized.sentence(word_count: 5),
         attached_to: meeting,
-        file: File.new(File.join(__dir__, "seeds", "city.jpeg")) # Keep after attached_to
+        content_type: "image/jpeg",
+        file: ActiveStorage::Blob.create_and_upload!(
+          io: File.open(File.join(__dir__, "seeds", "city.jpeg")),
+          filename: "city.jpeg",
+          content_type: "image/jpeg",
+          metadata: nil
+        ) # Keep after attached_to
       )
       Decidim::Attachment.create!(
         title: Decidim::Faker::Localized.sentence(word_count: 2),
         description: Decidim::Faker::Localized.sentence(word_count: 5),
         attached_to: meeting,
-        file: File.new(File.join(__dir__, "seeds", "Exampledocument.pdf")) # Keep after attached_to
+        content_type: "application/pdf",
+        file: ActiveStorage::Blob.create_and_upload!(
+          io: File.open(File.join(__dir__, "seeds", "Exampledocument.pdf")),
+          filename: "Exampledocument.pdf",
+          content_type: "application/pdf",
+          metadata: nil
+        ) # Keep after attached_to
       )
     end
 

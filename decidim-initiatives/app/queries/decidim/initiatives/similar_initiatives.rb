@@ -3,7 +3,7 @@
 module Decidim
   module Initiatives
     # Class uses to retrieve similar initiatives types.
-    class SimilarInitiatives < Rectify::Query
+    class SimilarInitiatives < Decidim::Query
       include Decidim::TranslationsHelper
       include CurrentLocale
 
@@ -30,7 +30,7 @@ module Decidim
           .published
           .where(organization: @organization)
           .where(
-            "GREATEST(#{title_similarity}, #{description_similarity}) >= ?",
+            Arel.sql("GREATEST(#{title_similarity}, #{description_similarity}) >= ?").to_s,
             form.title,
             form.description,
             Decidim::Initiatives.similarity_threshold

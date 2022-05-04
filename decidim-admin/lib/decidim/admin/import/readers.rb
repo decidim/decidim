@@ -13,8 +13,8 @@ module Decidim
         # keys: are used for dynamic help text on admin form.
         # values: are used to validate the file format of imported document.
         ACCEPTED_MIME_TYPES = {
-          json: Readers::JSON::MIME_TYPE,
           csv: Readers::CSV::MIME_TYPE,
+          json: Readers::JSON::MIME_TYPE,
           xlsx: Readers::XLSX::MIME_TYPE
         }.freeze
 
@@ -32,6 +32,12 @@ module Decidim
           end
 
           nil
+        end
+
+        def self.search_by_file_extension(extension)
+          return unless ACCEPTED_MIME_TYPES.has_key?(extension.to_sym)
+
+          search_by_mime_type(ACCEPTED_MIME_TYPES[extension.to_sym])
         end
       end
     end

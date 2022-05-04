@@ -5,7 +5,7 @@ module Decidim
     module Admin
       # A command with all the business logic when copying a new participatory
       # conference in the system.
-      class CopyConference < Rectify::Command
+      class CopyConference < Decidim::Command
         # Public: Initializes the command.
         #
         # form - A form object with the params.
@@ -26,6 +26,7 @@ module Decidim
 
           Conference.transaction do
             copy_conference
+            copy_conference_attachments
             copy_conference_categories if @form.copy_categories?
             copy_conference_components if @form.copy_components?
           end
@@ -47,8 +48,6 @@ module Decidim
             description: @conference.description,
             short_description: @conference.short_description,
             location: @conference.location,
-            hero_image: @conference.hero_image,
-            banner_image: @conference.banner_image,
             promoted: @conference.promoted,
             scopes_enabled: @conference.scopes_enabled,
             scope: @conference.scope,
@@ -56,6 +55,14 @@ module Decidim
             start_date: @conference.start_date,
             end_date: @conference.end_date
           )
+        end
+
+        def copy_conference_attachments
+          [:hero_image, :banner_image].each do |attribute|
+            next unless @conference.attached_uploader(attribute).attached?
+
+            @copied_conference.send(attribute).attach(@conference.send(attribute).blob)
+          end
         end
 
         def copy_conference_categories

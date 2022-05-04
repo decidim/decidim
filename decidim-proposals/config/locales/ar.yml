@@ -94,6 +94,8 @@ ar:
     admin:
       filters:
         proposals:
+          category_id_eq:
+            label: الفئة
           valuator_role_ids_has:
             label: تم إسناده إلى مُقيِّم
     components:
@@ -107,7 +109,6 @@ ar:
         name: اقتراحات
         settings:
           global:
-            allow_card_image: السماح بالبطاقة الصورية
             amendments_enabled: تم تمكين التعديلات
             announcement: إعلان
             attachments_allowed: السماح للمرفقات
@@ -137,7 +138,6 @@ ar:
             announcement: إعلان
             automatic_hashtags: علامات التصنيف المضافة إلى جميع المقترحات
             comments_blocked: تم حظر التعليقات
-            creation_enabled: تمكين إنشاء الاقتراح
             endorsements_blocked: المصادقة المحظورة
             endorsements_enabled: تم التصديق
             proposal_answering_enabled: تم تمكين الرد على الاقتراح
@@ -214,7 +214,6 @@ ar:
           email_intro: تمت إضافة الاقتراح "%{resource_title}" إلى "%{participatory_space_title}" الذي تتابعه.
           email_outro: لقد تلقيت هذا الإشعار لأنك تتابع "%{participatory_space_title}". يمكنك إيقاف تلقي الإخطارات باتباع الرابط السابق.
           email_subject: تمت إضافة اقتراح جديد "%{resource_title}" إلى %{participatory_space_title}
-          notification_title: تمت إضافة الاقتراح <a href="%{resource_path}">%{resource_title}</a> إلى %{participatory_space_title}
         proposal_rejected:
           affected_user:
             email_intro: 'تم رفض اقتراحك "%{resource_title}". يمكنك قراءة الإجابة في هذه الصفحة:'
@@ -420,11 +419,9 @@ ar:
             select_states: تحقق من حالة مقترحات الاستيراد
         proposals_merges:
           create:
-            invalid: كانت هناك مشكلة في دمج المقترحات المحددة.
             success: دمج المقترحات بنجاح في واحدة جديدة.
         proposals_splits:
           create:
-            invalid: كانت هناك مشكلة في تقسيم المقترحات المحددة.
             success: تم تقسيم المقترحات بنجاح إلى مقترحات جديدة.
         valuation_assignments:
           create:
@@ -447,7 +444,6 @@ ar:
           all: الكل
         filter_origin_values:
           all: الكل
-          citizens: المواطنون
           meetings: اجتماعات
           official: الرسمية
           user_groups: المجموعات

@@ -6,7 +6,17 @@ end
 
 FactoryBot.define do
   factory :debate, class: "Decidim::Debates::Debate" do
-    title { generate_localized_debate_title }
+    transient do
+      skip_injection { false }
+    end
+
+    title do
+      if skip_injection
+        Decidim::Faker::Localized.localized { generate(:title) }
+      else
+        Decidim::Faker::Localized.localized { "<script>alert(\"TITLE\");</script> #{generate(:title)}" }
+      end
+    end
     description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_debate_title } }
     information_updates { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_debate_title } }
     instructions { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_debate_title } }
@@ -18,7 +28,7 @@ FactoryBot.define do
       end_time { 1.day.from_now }
     end
 
-    trait :citizen_author do
+    trait :participant_author do
       start_time { nil }
       end_time { nil }
       author do

@@ -168,7 +168,6 @@ FactoryBot.define do
     birthplace { Faker::Lorem.word }
     position { Decidim::AssemblyMember::POSITIONS.first }
     designation_date { Faker::Date.between(from: 1.year.ago, to: 1.month.ago) }
-    designation_mode { Faker::Lorem.word }
 
     trait :ceased do
       ceased_date { Faker::Date.between(from: 1.day.ago, to: 5.days.ago) }

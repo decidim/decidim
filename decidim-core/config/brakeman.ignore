@@ -1,0 +1,149 @@
+{
+  "ignored_warnings": [
+    {
+      "warning_type": "Cross-Site Scripting",
+      "warning_code": 2,
+      "fingerprint": "211ff4b5e0d738e40e3c7f6d27b6905f23b1ed4e20347c179af3df40f6e5694d",
+      "check_name": "CrossSiteScripting",
+      "message": "Unescaped model attribute",
+      "file": "app/views/decidim/messaging/conversations/_conversation.html.erb",
+      "line": 20,
+      "link": "https://brakemanscanner.org/docs/warning_types/cross_site_scripting",
+      "code": "username_list((Unresolved Model).new.interlocutors(current_user), :shorten => true)",
+      "render_path": [
+        {
+          "type": "template",
+          "name": "decidim/messaging/conversations/index",
+          "line": 25,
+          "file": "app/views/decidim/messaging/conversations/index.html.erb",
+          "rendered": {
+            "name": "decidim/messaging/conversations/_conversation",
+            "file": "app/views/decidim/messaging/conversations/_conversation.html.erb"
+          }
+        }
+      ],
+      "location": {
+        "type": "template",
+        "template": "decidim/messaging/conversations/_conversation"
+      },
+      "user_input": "(Unresolved Model).new.interlocutors(current_user)",
+      "confidence": "Weak",
+      "note": ""
+    },
+    {
+      "warning_type": "Cross-Site Scripting",
+      "warning_code": 4,
+      "fingerprint": "2c7f1da812b5d4b350d2260b604e9061ef082ecae90073ae09fe2eb46c1b9a08",
+      "check_name": "LinkToHref",
+      "message": "Unsafe parameter value in `link_to` href",
+      "file": "app/views/decidim/links/_modal.html.erb",
+      "line": 16,
+      "link": "https://brakemanscanner.org/docs/warning_types/link_to_href",
+      "code": "link_to(t(\"decidim.links.warning.proceed\"), params[:external_url], :target => \"_blank\", :data => ({ :close => \"\" }), :class => \"button primary button--nomargin\")",
+      "render_path": [
+        {
+          "type": "controller",
+          "class": "Decidim::LinksController",
+          "method": "new",
+          "line": 16,
+          "file": "app/controllers/decidim/links_controller.rb",
+          "rendered": {
+            "name": "decidim/links/new",
+            "file": "app/views/decidim/links/new.js.erb"
+          }
+        },
+        {
+          "type": "template",
+          "name": "decidim/links/new",
+          "line": 3,
+          "file": "app/views/decidim/links/new.js.erb",
+          "rendered": {
+            "name": "decidim/links/_modal",
+            "file": "app/views/decidim/links/_modal.html.erb"
+          }
+        }
+      ],
+      "location": {
+        "type": "template",
+        "template": "decidim/links/_modal"
+      },
+      "user_input": "params[:external_url]",
+      "confidence": "High",
+      "note": ""
+    },
+    {
+      "warning_type": "Cross-Site Scripting",
+      "warning_code": 2,
+      "fingerprint": "2d9910c9250df37f9cf9ddd225d4541ab9c411c61e74562b9a4b7b188e44cc47",
+      "check_name": "CrossSiteScripting",
+      "message": "Unescaped parameter value",
+      "file": "app/views/decidim/searches/index.js.erb",
+      "line": 5,
+      "link": "https://brakemanscanner.org/docs/warning_types/cross_site_scripting",
+      "code": "j(cell(\"decidim/search_results\", @sections, :params => (params)).show).strip",
+      "render_path": [
+        {
+          "type": "controller",
+          "class": "Decidim::SearchesController",
+          "method": "index",
+          "line": 15,
+          "file": "app/controllers/decidim/searches_controller.rb",
+          "rendered": {
+            "name": "decidim/searches/index",
+            "file": "app/views/decidim/searches/index.js.erb"
+          }
+        }
+      ],
+      "location": {
+        "type": "template",
+        "template": "decidim/searches/index"
+      },
+      "user_input": "params",
+      "confidence": "Weak",
+      "note": ""
+    },
+    {
+      "warning_type": "Cross-Site Scripting",
+      "warning_code": 2,
+      "fingerprint": "b46eb40178db883a8a9065d3affe7fb7868369084048fd88321f887d8618eea5",
+      "check_name": "CrossSiteScripting",
+      "message": "Unescaped parameter value",
+      "file": "app/views/decidim/messaging/conversations/_show.html.erb",
+      "line": 29,
+      "link": "https://brakemanscanner.org/docs/warning_types/cross_site_scripting",
+      "code": "t(\".title\", :usernames => username_list(form(ConversationForm).from_params(params, :sender => current_user).recipient.to_a))",
+      "render_path": [
+        {
+          "type": "controller",
+          "class": "Decidim::Messaging::ConversationsController",
+          "method": "new",
+          "line": 35,
+          "file": "app/controllers/decidim/messaging/conversations_controller.rb",
+          "rendered": {
+            "name": "decidim/messaging/conversations/new",
+            "file": "app/views/decidim/messaging/conversations/new.html.erb"
+          }
+        },
+        {
+          "type": "template",
+          "name": "decidim/messaging/conversations/new",
+          "line": 1,
+          "file": "app/views/decidim/messaging/conversations/new.html.erb",
+          "rendered": {
+            "name": "decidim/messaging/conversations/_show",
+            "file": "app/views/decidim/messaging/conversations/_show.html.erb"
+          }
+        }
+      ],
+      "location": {
+        "type": "template",
+        "template": "decidim/messaging/conversations/_show"
+      },
+      "user_input": "params",
+      "confidence": "Weak",
+      "note": ""
+    }
+  ],
+  "updated": "2021-12-22 09:55:40 +0000",
+  "brakeman_version": "5.1.2"
+}

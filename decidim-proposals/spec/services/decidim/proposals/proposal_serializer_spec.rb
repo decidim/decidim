@@ -16,7 +16,7 @@ module Decidim
       let(:component) { proposal.component }
 
       let!(:meetings_component) { create(:component, manifest_name: "meetings", participatory_space: participatory_process) }
-      let(:meetings) { create_list(:meeting, 2, component: meetings_component) }
+      let(:meetings) { create_list(:meeting, 2, :published, component: meetings_component) }
 
       let!(:proposals_component) { create(:component, manifest_name: "proposals", participatory_space: participatory_process) }
       let(:other_proposals) { create_list(:proposal, 2, component: proposals_component) }
@@ -62,6 +62,18 @@ module Decidim
 
         it "serializes the body" do
           expect(serialized).to include(body: proposal.body)
+        end
+
+        it "serializes the address" do
+          expect(serialized).to include(address: proposal.address)
+        end
+
+        it "serializes the latitude" do
+          expect(serialized).to include(latitude: proposal.latitude)
+        end
+
+        it "serializes the longitude" do
+          expect(serialized).to include(longitude: proposal.longitude)
         end
 
         it "serializes the amount of supports" do

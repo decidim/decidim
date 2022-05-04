@@ -1,6 +1,6 @@
-<div class="reveal edit-comment-modal" id="<%= "editCommentModal#{model.id}" %>" data-reveal>
+<div class="reveal edit-comment-modal" id="<%= "editCommentModal#{model.id}" %>" data-reveal role="dialog" aria-modal="true" aria-labelledby="<%= "editCommentModal#{model.id}" %>-label">
   <div class="reveal__header">
-    <h3 class="reveal__title"><%= t("decidim.components.edit_comment_modal_form.title") %></h3>
+    <h3 id="<%= "editCommentModal#{model.id}" %>-label" class="reveal__title"><%= t("decidim.components.edit_comment_modal_form.title") %></h3>
     <button class="close-button" data-close aria-label="<%= t("decidim.components.edit_comment_modal_form.close") %>" type="button">
       <span aria-hidden="true">&times;</span>
     </button>
@@ -19,7 +19,7 @@
           required: true,
           placeholder: t("decidim.components.edit_comment_modal_form.form.body.placeholder"),
           label: false,
-          data: { remaining_characters: "##{form_id}-remaining-characters" }
+          data: { remaining_characters: "##{form_id}-remaining-characters", input_emoji: true }
         ) %>
       </div>
       <button type="submit" data-close class="button button--sc"><%= t("decidim.components.edit_comment_modal_form.form.submit") %></button>

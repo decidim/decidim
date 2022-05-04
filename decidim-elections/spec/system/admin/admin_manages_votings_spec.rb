@@ -52,12 +52,14 @@ describe "Admin manages votings", type: :system do
           ca: "Descripció més llarga"
         )
         fill_in :voting_slug, with: "slug"
-        attach_file :voting_banner_image, image1_path
-        attach_file :voting_introductory_image, image2_path
+      end
+
+      dynamically_attach_file(:voting_banner_image, image1_path)
+      dynamically_attach_file(:voting_introductory_image, image2_path)
+
+      within ".new_voting" do
         select "Online", from: :voting_voting_type
-
         scope_pick select_data_picker(:voting_scope_id), organization.scopes.first
-
         find("*[type=submit]").click
       end
 
@@ -105,10 +107,13 @@ describe "Admin manages votings", type: :system do
         )
         fill_in :voting_slug, with: "slug"
         select "Online", from: :voting_voting_type
-        attach_file :voting_banner_image, image1_path
-        attach_file :voting_introductory_image, image2_path
-        scope_pick select_data_picker(:voting_scope_id), organization.scopes.first
+      end
 
+      dynamically_attach_file(:voting_banner_image, image1_path)
+      dynamically_attach_file(:voting_introductory_image, image2_path)
+
+      within ".new_voting" do
+        scope_pick select_data_picker(:voting_scope_id), organization.scopes.first
         find("*[type=submit]").click
       end
 
@@ -133,7 +138,7 @@ describe "Admin manages votings", type: :system do
         es: "Mi nuevo título",
         ca: "El meu nou títol"
       )
-      attach_file :voting_banner_image, image3_path
+      dynamically_attach_file(:voting_banner_image, image3_path, remove_before: true)
       select "Online", from: :voting_voting_type
 
       within ".edit_voting" do
@@ -178,14 +183,17 @@ describe "Admin manages votings", type: :system do
       click_link translated(voting.title)
     end
 
-    it "does not update the voting" do
-      attach_file :voting_banner_image, image_invalid_path
+    it "shows an error inside the upload modal" do
+      find("#voting_banner_image_button").click
 
-      within ".edit_voting" do
-        find("*[type=submit]").click
+      within ".upload-modal" do
+        find(".remove-upload-item").click
+        input_element = find("input[type='file']", visible: :all)
+        input_element.attach_file(image_invalid_path)
+
+        expect(page).to have_content("file should be one of image/jpeg, image/png", count: 1)
+        expect(page).to have_css(".upload-errors .form-error", count: 1)
       end
-
-      expect(page).to have_admin_callout("problem")
     end
   end
 
@@ -204,7 +212,7 @@ describe "Admin manages votings", type: :system do
       end
 
       expect(page).to have_admin_callout("successfully")
-      expect(page).to have_css("img[src*='#{voting3.banner_image.url}']")
+      expect(page).to have_css("img[src*='#{voting3.attached_uploader(:banner_image).path}']")
     end
   end
 

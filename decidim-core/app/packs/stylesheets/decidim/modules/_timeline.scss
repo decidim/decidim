@@ -80,7 +80,7 @@ $timeline-padding: 1rem;
 
 .timeline__header{
   background: $medium-gray;
-  padding: $timeline-padding/2 $timeline-padding;
+  padding: $timeline-padding*.5 $timeline-padding;
 
   .timeline__item--current &{
     background-color: $timeline-color;
@@ -92,7 +92,7 @@ $timeline-padding: 1rem;
   color: $dark-gray;
 
   .timeline__item--current &{
-    color: rgba($white, .8);
+    color: $white;
   }
 }
 

@@ -14,10 +14,11 @@ module Decidim
       include Traceable
       include Loggable
       include Decidim::Forms::HasQuestionnaire
+      include Decidim::FilterableResource
 
       translatable_fields :title, :description
 
-      enum bb_status: [:created, :key_ceremony, :key_ceremony_ended, :vote, :vote_ended, :tally, :tally_ended, :results_published].index_with(&:to_s), _prefix: :bb
+      enum bb_status: [:created, :key_ceremony, :key_ceremony_ended, :vote, :vote_ended, :tally_started, :tally_ended, :results_published].index_with(&:to_s), _prefix: :bb
 
       component_manifest_name "elections"
 
@@ -42,6 +43,8 @@ module Decidim
         where("start_time < ?", Time.current)
           .where("end_time < ?", Time.current)
       }
+
+      scope_search_multi :with_any_date, [:active, :upcoming, :finished]
 
       def self.log_presenter_class_for(_log)
         Decidim::Elections::AdminLog::ElectionPresenter
@@ -124,7 +127,7 @@ module Decidim
       end
 
       def trustee_action_required?
-        bb_key_ceremony? || bb_tally?
+        bb_key_ceremony? || bb_tally_started?
       end
 
       # Public: Checks if the election has a blocked_at value
@@ -137,6 +140,14 @@ module Decidim
       # Public: Overrides the Resourceable concern method to allow setting permissions at resource level
       def allow_resource_permissions?
         true
+      end
+
+      # Create i18n ransackers for :title and :description.
+      # Create the :search_text ransacker alias for searching from both of these.
+      ransacker_i18n_multi :search_text, [:title, :description]
+
+      def self.ransackable_scopes(_auth_object = nil)
+        [:with_any_date]
       end
     end
   end

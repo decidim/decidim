@@ -12,6 +12,8 @@ module Decidim::Meetings
     let(:registration_form_enabled) { true }
     let(:available_slots) { 10 }
     let(:reserved_slots) { 2 }
+    let(:customize_registration_email) { true }
+    let(:registration_email_custom_content) { { "en" => "The registration email custom content." } }
     let(:registration_terms) do
       {
         en: "A legal text",
@@ -26,6 +28,8 @@ module Decidim::Meetings
         registration_form_enabled: registration_form_enabled,
         available_slots: available_slots,
         reserved_slots: reserved_slots,
+        customize_registration_email: customize_registration_email,
+        registration_email_custom_content: registration_email_custom_content,
         registration_terms: registration_terms
       )
     end
@@ -49,6 +53,8 @@ module Decidim::Meetings
         expect(meeting.registration_form_enabled).to eq(registration_form_enabled)
         expect(meeting.available_slots).to eq(available_slots)
         expect(meeting.reserved_slots).to eq(reserved_slots)
+        expect(meeting.customize_registration_email).to be true
+        expect(meeting.registration_email_custom_content).to eq(registration_email_custom_content)
         expect(translated(meeting.registration_terms)).to eq "A legal text"
       end
     end

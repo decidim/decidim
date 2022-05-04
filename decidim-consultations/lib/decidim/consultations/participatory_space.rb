@@ -31,7 +31,7 @@ Decidim.register_participatory_space(:consultations) do |participatory_space|
 
   participatory_space.register_resource(:question) do |resource|
     resource.model_class_name = "Decidim::Consultations::Question"
-    resource.actions = %w(vote)
+    resource.actions = %w(vote comment)
   end
 
   participatory_space.seeds do
@@ -50,7 +50,12 @@ Decidim.register_participatory_space(:consultations) do |participatory_space|
       start_voting_date: Time.zone.today,
       end_voting_date: Time.zone.today + 1.month,
       organization: organization,
-      banner_image: File.new(File.join(seeds_root, "city2.jpeg")), # Keep after organization
+      banner_image: ActiveStorage::Blob.create_and_upload!(
+        io: File.open(File.join(seeds_root, "city2.jpeg")),
+        filename: "banner_image.jpeg",
+        content_type: "image/jpeg",
+        metadata: nil
+      ), # Keep after organization
       introductory_video_url: "https://www.youtube.com/embed/zhMMW0TENNA",
       decidim_highlighted_scope_id: Decidim::Scope.reorder(Arel.sql("RANDOM()")).first.id
     }
@@ -77,7 +82,12 @@ Decidim.register_participatory_space(:consultations) do |participatory_space|
       start_voting_date: Time.zone.today - 2.months,
       end_voting_date: Time.zone.today - 1.month,
       organization: organization,
-      banner_image: File.new(File.join(seeds_root, "city2.jpeg")), # Keep after organization
+      banner_image: ActiveStorage::Blob.create_and_upload!(
+        io: File.open(File.join(seeds_root, "city2.jpeg")),
+        filename: "banner_image.jpeg",
+        content_type: "image/jpeg",
+        metadata: nil
+      ), # Keep after organization
       introductory_video_url: "https://www.youtube.com/embed/zhMMW0TENNA",
       decidim_highlighted_scope_id: Decidim::Scope.reorder(Arel.sql("RANDOM()")).first.id
     }
@@ -103,7 +113,12 @@ Decidim.register_participatory_space(:consultations) do |participatory_space|
       start_voting_date: Time.zone.today + 1.month + 1.day,
       end_voting_date: Time.zone.today + 2.months,
       organization: organization,
-      banner_image: File.new(File.join(seeds_root, "city2.jpeg")), # Keep after organization
+      banner_image: ActiveStorage::Blob.create_and_upload!(
+        io: File.open(File.join(seeds_root, "city2.jpeg")),
+        filename: "banner_image.jpeg",
+        content_type: "image/jpeg",
+        metadata: nil
+      ), # Keep after organization
       introductory_video_url: "https://www.youtube.com/embed/zhMMW0TENNA",
       decidim_highlighted_scope_id: Decidim::Scope.reorder(Arel.sql("RANDOM()")).first.id
     }
@@ -133,8 +148,18 @@ Decidim.register_participatory_space(:consultations) do |participatory_space|
             Decidim::Faker::Localized.paragraph(sentence_count: 3)
           end,
           organization: organization,
-          hero_image: File.new(File.join(seeds_root, "city.jpeg")), # Keep after organization
-          banner_image: File.new(File.join(seeds_root, "city2.jpeg")), # Keep after organization
+          hero_image: ActiveStorage::Blob.create_and_upload!(
+            io: File.open(File.join(seeds_root, "city.jpeg")),
+            filename: "hero_image.jpeg",
+            content_type: "image/jpeg",
+            metadata: nil
+          ), # Keep after organization
+          banner_image: ActiveStorage::Blob.create_and_upload!(
+            io: File.open(File.join(seeds_root, "city2.jpeg")),
+            filename: "banner_image.jpeg",
+            content_type: "image/jpeg",
+            metadata: nil
+          ), # Keep after organization
           promoter_group: Decidim::Faker::Localized.sentence(word_count: 3),
           participatory_scope: Decidim::Faker::Localized.sentence(word_count: 3),
           published_at: Time.now.utc
@@ -162,14 +187,26 @@ Decidim.register_participatory_space(:consultations) do |participatory_space|
           title: Decidim::Faker::Localized.sentence(word_count: 2),
           description: Decidim::Faker::Localized.sentence(word_count: 5),
           attached_to: question,
-          file: File.new(File.join(seeds_root, "city.jpeg")) # Keep after attached_to
+          content_type: "image/jpeg",
+          file: ActiveStorage::Blob.create_and_upload!(
+            io: File.open(File.join(seeds_root, "city.jpeg")),
+            filename: "city.jpeg",
+            content_type: "image/jpeg",
+            metadata: nil
+          ) # Keep after attached_to
         )
 
         Decidim::Attachment.create!(
           title: Decidim::Faker::Localized.sentence(word_count: 2),
           description: Decidim::Faker::Localized.sentence(word_count: 5),
           attached_to: question,
-          file: File.new(File.join(seeds_root, "Exampledocument.pdf")) # Keep after attached_to
+          content_type: "application/pdf",
+          file: ActiveStorage::Blob.create_and_upload!(
+            io: File.open(File.join(seeds_root, "Exampledocument.pdf")),
+            filename: "Exampledocument.pdf",
+            content_type: "application/pdf",
+            metadata: nil
+          ) # Keep after attached_to
         )
       end
     end

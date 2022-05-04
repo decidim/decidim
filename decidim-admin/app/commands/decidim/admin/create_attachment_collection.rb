@@ -4,7 +4,7 @@ module Decidim
   module Admin
     # A command with all the business logic to add an attachment collection
     # to a participatory space.
-    class CreateAttachmentCollection < Rectify::Command
+    class CreateAttachmentCollection < Decidim::Command
       # Public: Initializes the command.
       #
       # form - A form object with the params.

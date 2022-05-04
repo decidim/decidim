@@ -204,6 +204,8 @@ fr-CA:
             label: Statut
     components:
       accountability:
+        actions:
+          comment: Commenter
         name: Suivi
         settings:
           global:

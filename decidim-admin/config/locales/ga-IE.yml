@@ -1,1 +1,406 @@
 ga:
+  activemodel:
+    attributes:
+      area:
+        name: Ainm
+      area_type:
+        name: Ainm
+        plural: Iolra
+      attachment:
+        attachment_collection_id: Fillteán
+        file: Comhad
+      attachment_collection:
+        name: Ainm
+      category:
+        description: Cur Síos
+        name: Ainm
+        parent_id: Tuismitheoir
+      component:
+        name: Ainm
+      id: ID
+      newsletter:
+        body: Corp
+        subject: Ábhar
+      organization:
+        alert_color: Foláireamh
+        favicon: Deilbhín
+        highlighted_content_banner_image: Íomhá
+        highlighted_content_banner_title: Teideal
+        host: Óstach
+        logo: Lógó
+        name: Ainm
+        omnipresent_banner_title: Teideal
+        omnipresent_banner_url: URL
+        primary_color: Bundath
+        success_color: Rathúil
+        warning_color: Rabhadh
+      scope:
+        code: Cód
+        name: Ainm
+        parent_id: Tuismitheoir
+      scope_type:
+        name: Ainm
+        plural: Iolra
+      settings:
+        scope_id: Scóip
+      static_page:
+        content: Inneachar
+        slug: Píosa URL
+        title: Teideal
+      static_page_topic:
+        title: Teideal
+      user_group_csv_verification:
+        file: Comhad
+  activerecord:
+    attributes:
+      decidim/static_page:
+        content: Inneachar
+        slug: Píosa URL
+        title: Teideal
+      doorkeeper/application:
+        site: Suíomh Gréasáin
+  decidim:
+    admin:
+      actions:
+        add: Cuir leis
+        browse: Brabhsáil
+        category:
+          new: Catagóir nua
+        import: Iompórtáil
+        manage: Bainistigh
+        per_page: In aghaidh an leathanach
+        reject: Diúltaigh
+        share: Roinn
+        verify: Deimhnigh
+      area_types:
+        edit:
+          update: Nuashonraigh
+      areas:
+        edit:
+          update: Nuashonraigh
+        new:
+          title: Ceantar nua
+        no_areas: Aon ceantair
+      attachment_collections:
+        edit:
+          update: Nuashonraigh
+        new:
+          create: Cruthaigh
+      attachments:
+        edit:
+          update: Nuashonraigh
+        index:
+          attachments_title: Ceangaltáin
+      categories:
+        edit:
+          title: Cuir catagóir
+          update: Nuashonraigh
+        index:
+          categories_title: Catagóirí
+        new:
+          create: Cruthaigh catagóir
+          title: Catagóir nua
+        update:
+          success: Catagóir nuashonraithe go rathúil.
+      components:
+        edit:
+          update: Nuashonraigh
+        index:
+          headers:
+            actions: Gníomhartha
+      conflicts:
+        'false': 'Níl'
+        solved: Réitithe
+        title: Coimhlintí deimhnithe
+        transfer:
+          email: Seoladh ríomhphoist
+          name: Ainm
+          reason: Cúis
+        'true': 'Is ea'
+        user_name: Úsáideoir
+      exports:
+        formats:
+          CSV: CSV
+          Excel: Excel
+          FormPDF: PDF
+          JSON: JSON
+      filters:
+        category_id_eq:
+          label: Catagóir
+        filter_label: Scagaire
+        invitation_accepted_at_present:
+          values:
+            'false': 'Níl'
+            'true': 'Is ea'
+        last_sign_in_at_present:
+          values:
+            'false': 'Níl'
+            'true': 'Is ea'
+        moderations:
+          reportable_type_string_eq:
+            label: Cineál
+        officialized_at_null:
+          label: Staid
+        participatory_space_private_users:
+          user_invitation_accepted_at_not_null:
+            values:
+              'true': Glactha
+          user_invitation_sent_at_not_null:
+            values:
+              'true': Seolta
+        private_space_eq:
+          label: Príobháideach
+          values:
+            'false': Poblach
+            'true': Príobháideach
+        scope_id_eq:
+          label: Scóip
+        search_label: Cuardaigh
+        state_eq:
+          label: Staid
+      help_sections:
+        form:
+          save: Sábháil
+      impersonatable_users:
+        index:
+          filter:
+            all: Uile
+            managed: Bhainistithe
+          managed: Bhainistithe
+          name: Ainm
+          promote: Cuir chun cinn
+          search: Cuardaigh
+          status: Stádas
+      impersonations:
+        form:
+          name: Ainm
+          reason: Cúis
+      imports:
+        new:
+          accepted_mime_types:
+            csv: csv
+            json: json
+            xlsx: xlsx
+          actions:
+            back: Ar Ais
+          import: Iompórtáil
+      managed_users:
+        promotions:
+          new:
+            promote: Cuir chun cinn
+      menu:
+        admins: Riaracháin
+        areas: Ceantair
+        homepage: Leathanach baile
+        scopes: Scóip
+        settings: Socruithe
+        static_pages: Leathanaigh
+        user_groups: Grúpaí
+      models:
+        area:
+          fields:
+            name: Ainm
+        area_type:
+          fields:
+            name: Ainm
+            plural: Iolra
+        attachment:
+          fields:
+            collection: Fillteán
+            content_type: Cineál
+            file_size: Méid
+            title: Teideal
+          name: Ceangaltán
+        attachment_collection:
+          name: Fillteán
+        category:
+          name: Catagóir
+        impersonation_log:
+          fields:
+            admin: Riarachán
+            ended_at: Críochnaithe ag
+            reason: Cúis
+        newsletter:
+          fields:
+            progress: Forás
+            sent_at: Seolta ag
+            sent_to: Seolta go
+            subject: Ábhar
+        scope:
+          fields:
+            name: Ainm
+        scope_type:
+          fields:
+            name: Ainm
+            plural: Iolra
+        share_token:
+          fields:
+            token: Licín
+        static_page:
+          fields:
+            title: Teideal
+        user:
+          fields:
+            email: Seoladh ríomhphoist
+            name: Ainm
+            role: Ról
+            roles:
+              admin: Riarachán
+        user_group:
+          fields:
+            actions: Gníomhartha
+            name: Ainm
+            phone: Fón
+            state: Staid
+      moderated_users:
+        index:
+          actions:
+            title: Gníomhartha
+            unreport: Cuir ar ceal tuairisc
+          name: Ainm
+          nickname: Leasainm
+          reason: Cúis
+        report:
+          reasons:
+            spam: Turscar
+        tabs:
+          blocked: Blocáilte
+      moderations:
+        report:
+          reasons:
+            spam: Turscar
+        reports:
+          show:
+            report_reason: Cúis
+      newsletter_templates:
+        index:
+          preview_template: Réamhamharc
+      newsletters:
+        index:
+          all: uile
+          and: 'agus '
+        new:
+          save: Sábháil
+        select_recipients_to_deliver:
+          all_spaces: Uile
+          none: Ceann ar Bith
+        show:
+          preview: Réamhamharc
+          subject: Ábhar
+      officializations:
+        index:
+          actions: Gníomhartha
+          badge: Suaitheantas
+          name: Ainm
+          nickname: Leasainm
+          reports: Tuairiscí
+          status: Stádas
+        show_email_modal:
+          hidden: ceilte
+          show: Taispeáin
+      organization:
+        edit:
+          update: Nuashonraigh
+        form:
+          facebook: Facebook
+          github: GitHub
+          social_handlers: Sóisialta
+          twitter: Twitter
+          url: URL
+          youtube: YouTube
+      organization_appearance:
+        edit:
+          update: Nuashonraigh
+        form:
+          images:
+            preview: Réamhamharc
+      organization_external_domain_whitelist:
+        edit:
+          update: Nuashonraigh
+        external_domain:
+          down: Ísligh
+          remove: Bain as
+          up: Ardaigh
+      organization_homepage_content_blocks:
+        edit:
+          update: Nuashonraigh
+      participatory_space_private_users:
+        new:
+          create: Cruthaigh
+      participatory_space_private_users_csv_imports:
+        new:
+          upload: Uaslódáil
+      resource_permissions:
+        edit:
+          submit: Deimhnigh
+      resources:
+        index:
+          headers:
+            scope: Scóip
+      scope_types:
+        edit:
+          update: Nuashonraigh
+      scopes:
+        edit:
+          update: Nuashonraigh
+      share_tokens:
+        actions:
+          destroy: Scrios
+          share: Roinn
+      static_pages:
+        edit:
+          update: Nuashonraigh
+        form:
+          none: Ceann ar Bith
+        new:
+          title: Leathanach nua
+      titles:
+        areas: Ceantair
+        authorization_workflows: Modhanna deimhnithe
+        metrics: Méadrachtaí
+        panel: Riarachán
+        scopes: Scóip
+        static_pages: Leathanaigh
+        user_groups: Grúpaí
+      user_groups:
+        index:
+          state:
+            pending: Ar feitheamh
+            rejected: Diúltaithe
+            verified: Fíoraithe
+      user_groups_csv_verifications:
+        new:
+          upload: Uaslódáil
+      users:
+        form:
+          email: Seoladh ríomhphoist
+          name: Ainm
+          role: Ról
+        new:
+          create: Tabhair Cuireadh
+      users_statistics:
+        users_count:
+          admins: Riaracháin
+    moderations:
+      actions:
+        expand: Méadaigh
+        hidden: Ceilte
+        hide: Cuir i bhfolach
+        title: Gníomhartha
+        unhide: Nocht
+        unreport: Cuir ar ceal tuairisc
+      models:
+        moderation:
+          fields:
+            report_count: Líon
+            reportable_id: Id
+            reportable_type: Cineál
+            reports: Tuairiscí
+        report:
+          fields:
+            reason: Cúis
+  layouts:
+    decidim:
+      admin:
+        settings:
+          title: Socruithe

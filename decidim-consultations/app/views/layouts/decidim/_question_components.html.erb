@@ -1,36 +1,21 @@
-<div class="row column">
-  <div class="process-nav consultations-nav">
-    <button class="process-nav__trigger hide-for-medium" data-toggle="process-nav-content">
-      <%= icon "caret-bottom", class: "icon--small process-nav__trigger__icon", aria_label: t(".unfold"), role: "img" %>
-      <span class="process-nav__link">
-        <% if self.try(:current_component) %>
-          <%= component_icon(current_component) %>
-          <%= translated_attribute(current_component.name) %>
-        <% else %>
-          <%= external_icon "media/images/decidim_pages.svg", role: "img", "aria-hidden": true %>
-          <%= t ".question_menu_item" %>
-        <% end %>
-      </span>
-    </button>
+<div class="row column consultations-nav">
+  <%
+    components = question.components.published.or(Decidim::Component.where(id: self.try(:current_component)))
+  %>
 
-    <%
-      components = question.components.published.or(Decidim::Component.where(id: self.try(:current_component)))
-    %>
-
-    <%=
-      extended_navigation_bar([
-        {
-          name: t(".question_menu_item"),
-          url: decidim_consultations.question_path(question),
-          active: is_active_link?(decidim_consultations.question_path(question), :exclusive)
-        }
-      ] + components.map do |component|
-        {
-          name: translated_attribute(component.name),
-          url: main_component_path(component),
-          active: is_active_link?(main_component_path(component), :inclusive)
-        }
-      end)
-    %>
-  </div>
+  <%=
+    extended_navigation_bar([
+      {
+        name: t(".question_menu_item"),
+        url: decidim_consultations.question_path(question),
+        active: is_active_link?(decidim_consultations.question_path(question), :exclusive)
+      }
+    ] + components.map do |component|
+      {
+        name: translated_attribute(component.name),
+        url: main_component_path(component),
+        active: is_active_link?(main_component_path(component), :inclusive)
+      }
+    end)
+  %>
 </div>

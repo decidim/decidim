@@ -10,6 +10,8 @@ module Decidim
 
     validate :user_and_participatory_space_same_organization
 
+    scope :by_participatory_space, ->(privatable_to) { where(privatable_to_id: privatable_to.id, privatable_to_type: privatable_to.class.to_s) }
+
     def self.user_collection(user)
       where(decidim_user_id: user.id)
     end
@@ -20,6 +22,22 @@ module Decidim
 
     def self.log_presenter_class_for(_log)
       Decidim::AdminLog::ParticipatorySpacePrivateUserPresenter
+    end
+
+    ransacker :name do
+      Arel.sql(%{("decidim_users"."name")::text})
+    end
+
+    ransacker :email do
+      Arel.sql(%{("decidim_users"."email")::text})
+    end
+
+    ransacker :invitation_sent_at do
+      Arel.sql(%{("invitation_sent_at")::text})
+    end
+
+    ransacker :invitation_accepted_at do
+      Arel.sql(%{("invitation_accepted_at")::text})
     end
 
     private

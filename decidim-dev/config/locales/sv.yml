@@ -20,10 +20,18 @@ sv:
               a: Ett val
               b: B val
               c: C val
+            test_options:
+              bar: Bar
+              baz: Baz
+              foo: Foo
           step:
             endorsements_blocked: Instämmanden är blockerade
             endorsements_enabled: Instämmanden tillåtna
             readonly_step_attribute: Skrivskyddade steg attribut
+            test_options:
+              bar: Bar
+              baz: Baz
+              foo: Foo
     dummy:
       admin:
         exports:

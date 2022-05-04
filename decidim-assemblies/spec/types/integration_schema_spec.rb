@@ -22,7 +22,7 @@ describe "Decidim::Api::QueryType" do
         "updatedAt" => assembly.assembly_type.updated_at.iso8601.to_s.gsub("Z", "+00:00")
       },
       "attachments" => [],
-      "bannerImage" => assembly.banner_image.url,
+      "bannerImage" => assembly.attached_uploader(:banner_image).path,
       "categories" => [],
       "children" => [],
       "childrenCount" => 0,
@@ -40,7 +40,7 @@ describe "Decidim::Api::QueryType" do
       "facebookHandler" => assembly.facebook_handler,
       "githubHandler" => assembly.github_handler,
       "hashtag" => assembly.hashtag,
-      "heroImage" => assembly.hero_image.url,
+      "heroImage" => assembly.attached_uploader(:hero_image).path,
       "id" => assembly.id.to_s,
       "includedAt" => assembly.included_at.to_date.to_s,
       "instagramHandler" => assembly.instagram_handler,
@@ -64,19 +64,6 @@ describe "Decidim::Api::QueryType" do
       "showStatistics" => assembly.show_statistics?,
       "slug" => assembly.slug,
       "specialFeatures" => { "translation" => assembly.special_features[locale] },
-      "stats" => [
-        { "name" => "dummies_count_high", "value" => 0 },
-        { "name" => "pages_count", "value" => 0 },
-        { "name" => "meetings_count", "value" => 0 },
-        { "name" => "proposals_count", "value" => 0 },
-        { "name" => "budgets_count", "value" => 0 },
-        { "name" => "surveys_count", "value" => 0 },
-        { "name" => "results_count", "value" => 0 },
-        { "name" => "debates_count", "value" => 0 },
-        { "name" => "sortitions_count", "value" => 0 },
-        { "name" => "posts_count", "value" => 0 },
-        { "name" => "elections_count", "value" => 0 }
-      ],
       "subtitle" => { "translation" => assembly.subtitle[locale] },
       "target" => { "translation" => assembly.target[locale] },
       "title" => { "translation" => assembly.title[locale] },
@@ -200,10 +187,6 @@ describe "Decidim::Api::QueryType" do
         specialFeatures {
           translation(locale:"#{locale}")
         }
-        stats{
-          name
-          value
-        }
         subtitle {
           translation(locale:"#{locale}")
         }
@@ -234,8 +217,22 @@ describe "Decidim::Api::QueryType" do
       expect { response }.not_to raise_error
     end
 
-    it "has hashtags" do
+    it "returns the correct response" do
       expect(response["assemblies"].first).to eq(assembly_data)
+    end
+
+    it_behaves_like "implements stats type" do
+      let(:assemblies) do
+        %(
+          assemblies{
+            stats{
+              name
+              value
+            }
+          }
+        )
+      end
+      let(:stats_response) { response["assemblies"].first["stats"] }
     end
   end
 
@@ -353,10 +350,6 @@ describe "Decidim::Api::QueryType" do
         specialFeatures {
           translation(locale:"#{locale}")
         }
-        stats{
-          name
-          value
-        }
         subtitle {
           translation(locale:"#{locale}")
         }
@@ -378,8 +371,22 @@ describe "Decidim::Api::QueryType" do
       expect { response }.not_to raise_error
     end
 
-    it "has hashtags" do
+    it "returns the correct response" do
       expect(response["assembly"]).to eq(assembly_data)
+    end
+
+    it_behaves_like "implements stats type" do
+      let(:assemblies) do
+        %(
+          assembly(id: #{assembly.id}){
+            stats{
+              name
+              value
+            }
+          }
+        )
+      end
+      let(:stats_response) { response["assembly"]["stats"] }
     end
   end
 end

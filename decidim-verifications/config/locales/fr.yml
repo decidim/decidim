@@ -34,7 +34,7 @@ fr:
             confirm: Révoquer avant la date d'autorisation ne peut pas être annulée. Êtes-vous sûr de vouloir continuer ?
             confirm_all: Révoquer toutes les autorisations ne peut pas être annulés. Êtes-vous sûr de vouloir continuer ?
           destroy_nok: Il y a eu un problème lors de la révocation des autorisations.
-          destroy_ok: Toutes les autorisations correspondantes ont été annulées avec succès.
+          destroy_ok: Toutes les autorisations correspondantes ont été révoquées avec succès.
           info: Il y a un total de %{count} participants vérifiés.
           no_data: Aucun participant vérifié
           title: Révocation des autorisations
@@ -78,7 +78,10 @@ fr:
     events:
       verifications:
         verify_with_managed_user:
-          notification_title: Le participant <a href="%{resource_path}">%{resource_title}</a> a essayé de se vérifier avec les données du participant représenté <a href="%{managed_user_path}">%{managed_user_name}</a>
+          email_intro: Le participant <a href="%{resource_path}">%{resource_title}</a> a essayé d'être vérifié avec les données de l'utilisateur représenté <a href="%{managed_user_path}">%{managed_user_name}</a>.
+          email_outro: Consultez la <a href="%{conflicts_path}">liste de conflits des vérifications</a> et contactez le participant pour vérifier ses détails et résoudre le problème.
+          email_subject: Echec lors de la tentative de vérification d'un participant
+          notification_title: Le participant <a href="%{resource_path}">%{resource_title}</a> a essayé d'être vérifié avec les données de l'utilisateur représenté <a href="%{managed_user_path}">%{managed_user_name}</a>.
     verifications:
       authorizations:
         authorization_metadata:
@@ -224,7 +227,7 @@ fr:
               mark_as_sent: Marquer comme envoyé
               not_yet_sent: Pas encore envoyé
               title: Vérifications en cours
-              username: Nom d'utilisateur
+              username: Pseudonyme
               verification_code: Code de vérification
           postages:
             create:

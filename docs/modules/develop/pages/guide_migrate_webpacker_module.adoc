@@ -75,6 +75,14 @@ Decidim::Webpacker.register_stylesheet_import("stylesheets/decidim/foo/app")
 # If you want to do the same but include the SCSS file for the admin panel's
 # main SCSS file, you can use the following method.
 Decidim::Webpacker.register_stylesheet_import("stylesheets/decidim/foo/admin", group: :admin)
+
+# If you want to override some SCSS variables/settings for Foundation from the
+# module, you can add the following registered import.
+Decidim::Webpacker.register_stylesheet_import("stylesheets/decidim/foo/settings", type: :settings)
+
+# If you want to do the same but override the SCSS variables of the admin
+# panel's styles, you can use the following method.
+Decidim::Webpacker.register_stylesheet_import("stylesheets/decidim/foo/admin_settings", type: :settings, group: :admin)
 ----
 
 == Component stylesheet migration
@@ -111,3 +119,14 @@ Decidim::Webpacker.register_stylesheet_import("stylesheets/decidim/your_componen
 # Register the admin panel's stylesheet include statement:
 Decidim::Webpacker.register_stylesheet_import("stylesheets/decidim/your_component/your_component_admin", group: :admin)
 ----
+
+=== Help Decidim to know the module's assets folder
+
+To prevent Zeitwerk issues trying to autoload the non-ruby module folders, modify the `lib/[module_name]/engine.rb` file to include the following:
+
+[source,ruby]
+---
+initializer "[module_name].webpacker.assets_path" do
+  Decidim.register_assets_path File.expand_path("app/packs", root)
+end
+---

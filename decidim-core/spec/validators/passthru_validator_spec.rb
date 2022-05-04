@@ -17,10 +17,10 @@ describe PassthruValidator do
 
   let(:to_class) do
     mount_class = uploader
-    Class.new do
-      extend CarrierWave::Mount
-      include ActiveModel::Model
+    Class.new(ApplicationRecord) do
       include Decidim::HasUploadValidations
+
+      self.table_name = "decidim_dummy_resources_dummy_resources"
 
       def self.model_name
         ActiveModel::Name.new(self, nil, "Passthrough")
@@ -28,8 +28,7 @@ describe PassthruValidator do
 
       attr_accessor :organization, :file
 
-      validates_upload :file
-      mount_uploader :file, mount_class
+      validates_upload(:file, uploader: mount_class)
     end
   end
 
@@ -40,7 +39,7 @@ describe PassthruValidator do
         ActiveModel::Name.new(self, nil, "Validatable")
       end
 
-      include Virtus.model
+      include Decidim::AttributeObject::Model
       include ActiveModel::Validations
 
       attribute :file
@@ -109,7 +108,7 @@ describe PassthruValidator do
         it { is_expected.to be_valid }
       end
 
-      context "when the if condition returns false" do
+      context "when the unless condition returns false" do
         let(:validator_settings) { { unless: -> { false } } }
 
         it { is_expected.to be_invalid }

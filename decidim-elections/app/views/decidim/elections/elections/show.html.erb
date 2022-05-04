@@ -24,9 +24,12 @@ edit_link(
       <% end %>
     <% end %>
 
-    <h1 class="heading3">
+    <h2 class="heading3">
       <%== present(election).title %>
-    </h1>
+    </h2>
+    <div class="card__callout">
+      <%= cell "decidim/elections/remaining_time_callout", election %>
+    </div>
     <p>
       <%= t(".voting_period_status.#{election.voting_period_status}",
             start_time: "<strong>#{l election.start_time, format: :long}</strong>",
@@ -35,14 +38,14 @@ edit_link(
   </div>
 </div>
 <div class="row section">
-  <% if election.attachments.first.present? && election.attachments.first.file.content_type.start_with?("image") %>
+  <% if election.attachments.first.present? && election.attachments.first.image? %>
     <div class="columns medium-4 mediumlarge-5">
       <img src="<%= election.attachments.first.url %>" alt="">
     </div>
   <% end %>
   <div class="columns medium-8 mediumlarge-7">
     <div class="section">
-      <p><%= decidim_sanitize(simple_format(translated_attribute(election.description)), strip_tags: true) %></p>
+      <p><%= decidim_sanitize_editor(simple_format(translated_attribute(election.description)), strip_tags: true) %></p>
 
       <%= cell("decidim/elections/election_vote_cta", election) %>
 

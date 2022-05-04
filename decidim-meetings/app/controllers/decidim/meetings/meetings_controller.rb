@@ -5,9 +5,12 @@ module Decidim
     # Exposes the meeting resource so users can view them
     class MeetingsController < Decidim::Meetings::ApplicationController
       include FilterResource
+      include Filterable
       include Flaggable
+      include Withdrawable
       include FormFactory
       include Paginable
+
       helper Decidim::WidgetUrlsHelper
       helper Decidim::ResourceVersionsHelper
 
@@ -38,13 +41,13 @@ module Decidim
       end
 
       def index
-        return unless search.results.blank? && params.dig("filter", "date") != %w(past)
+        return unless search.result.blank? && params.dig("filter", "date") != %w(past)
 
-        @past_meetings = search_klass.new(search_params.merge(date: %w(past)))
+        @past_meetings ||= search_with(filter_params.merge(with_any_date: %w(past)))
 
-        if @past_meetings.results.present?
+        if @past_meetings.result.present?
           params[:filter] ||= {}
-          params[:filter][:date] = %w(past)
+          params[:filter][:with_any_date] = %w(past)
           @forced_past_meetings = true
           @search = @past_meetings
         end
@@ -83,22 +86,42 @@ module Decidim
         end
       end
 
+      def withdraw
+        enforce_permission_to :withdraw, :meeting, meeting: meeting
+
+        WithdrawMeeting.call(@meeting, current_user) do
+          on(:ok) do
+            flash[:notice] = I18n.t("meetings.withdraw.success", scope: "decidim")
+            redirect_to Decidim::ResourceLocatorPresenter.new(@meeting).path
+          end
+          on(:invalid) do
+            flash[:alert] = I18n.t("meetings.withdraw.error", scope: "decidim")
+            redirect_to Decidim::ResourceLocatorPresenter.new(@meeting).path
+          end
+        end
+      end
+
       private
 
       def meeting
-        @meeting ||= Meeting.not_hidden.where(component: current_component).find(params[:id])
+        @meeting ||= Meeting.not_hidden.where(component: current_component).find_by(id: params[:id])
       end
 
       def meetings
-        @meetings ||= paginate(search.results.order(start_time: :desc))
+        @meetings ||= paginate(search.result.order(start_time: :desc))
       end
 
       def registration
         @registration ||= meeting.registrations.find_by(user: current_user)
       end
 
-      def search_klass
-        MeetingSearch
+      def search_collection
+        Meeting.where(component: current_component).published.not_hidden.visible_for(current_user).with_availability(
+          filter_params[:with_availability]
+        ).includes(
+          :component,
+          attachments: :file_attachment
+        )
       end
 
       def meeting_form
@@ -107,30 +130,15 @@ module Decidim
 
       def default_filter_params
         {
-          search_text: "",
-          date: %w(upcoming),
+          search_text_cont: "",
+          with_any_date: %w(upcoming),
           activity: "all",
-          scope_id: default_filter_scope_params,
-          category_id: default_filter_category_params,
-          origin: default_filter_origin_params,
-          type: default_filter_type_params
-        }
-      end
-
-      def default_filter_origin_params
-        filter_origin_params = %w(citizens)
-        filter_origin_params << "official"
-        filter_origin_params << "user_group" if current_organization.user_groups_enabled?
-        filter_origin_params
-      end
-
-      def default_filter_type_params
-        %w(all) + Decidim::Meetings::Meeting::TYPE_OF_MEETING
-      end
-
-      def default_search_params
-        {
-          scope: Meeting.not_hidden.visible_meeting_for(current_user)
+          with_availability: "",
+          with_any_scope: default_filter_scope_params,
+          with_any_category: default_filter_category_params,
+          with_any_state: nil,
+          with_any_origin: default_filter_origin_params,
+          with_any_type: default_filter_type_params
         }
       end
     end

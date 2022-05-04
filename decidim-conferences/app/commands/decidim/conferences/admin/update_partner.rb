@@ -5,14 +5,14 @@ module Decidim
     module Admin
       # A command with all the business logic when updating a conference
       # partner in the system.
-      class UpdatePartner < Rectify::Command
+      class UpdatePartner < Decidim::Command
+        include ::Decidim::AttachmentAttributesMethods
+
         # Public: Initializes the command.
         #
         # form - A form object with the params.
         # conference_partner - The ConferencePartner to update
         def initialize(form, conference_partner)
-          form.logo = conference_partner.logo if form.logo.blank?
-
           @form = form
           @conference_partner = conference_partner
         end
@@ -51,12 +51,12 @@ module Decidim
 
         def attributes
           form.attributes.slice(
-            :name,
-            :weight,
-            :partner_type,
-            :link,
-            :logo,
-            :remove_logo
+            "name",
+            "weight",
+            "partner_type",
+            "link"
+          ).symbolize_keys.merge(
+            attachment_attributes(:logo)
           )
         end
 

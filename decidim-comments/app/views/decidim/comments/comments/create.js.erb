@@ -6,11 +6,13 @@
   var $comments = $("#" + rootCommentableId);
   var component = $comments.data("comments");
   if (inReplyTo) {
-    component.addReply(inReplyTo, commentHtml);
+    component.addReply(inReplyTo, commentHtml, true);
   } else {
-    component.addThread(commentHtml);
+    component.addThread(commentHtml, true);
   }
 
   // Update the comments count
   $(".comments-count", $comments).text(<%== t("decidim.components.comments.title", count: @comments_count).to_json %>);
+
+  Decidim.addInputEmoji();
 }());

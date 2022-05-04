@@ -7,7 +7,9 @@ module Decidim
     # `filter` returns a Filter object from Decidim::FilterResource
     module FilterAssembliesHelper
       def available_filters
-        @available_filters ||= [t("all", scope: "decidim.assemblies.filter")] + organization_assembly_types
+        return if organization_assembly_types.blank?
+
+        [t("all", scope: "decidim.assemblies.filter")] + organization_assembly_types
       end
 
       def filter_link(type_id)
@@ -16,9 +18,9 @@ module Decidim
           .url_helpers
           .assemblies_path(
             filter: {
-              scope_id: filter.scope_id,
-              area_id: filter.area_id,
-              type_id: type_id
+              with_scope: filter.with_scope,
+              with_area: filter.with_area,
+              type_id_eq: type_id
             }
           )
       end
@@ -28,14 +30,16 @@ module Decidim
       end
 
       def current_filter_name
-        type = AssembliesType.find_by(id: filter.type_id)
+        type = AssembliesType.find_by(id: filter_params[:type_id_eq])
         return translated_attribute type.title if type
 
         t("all", scope: "decidim.assemblies.filter")
       end
 
       def organization_assembly_types
-        AssembliesType.where(organization: current_organization)&.map { |type| [translated_attribute(type.title), type.id] }
+        @organization_assembly_types ||= AssembliesType.where(organization: current_organization).joins(:assemblies).where(
+          decidim_assemblies: { id: search.result.unscope(where: :decidim_assemblies_type_id).parent_assemblies }
+        ).distinct&.map { |type| [translated_attribute(type.title), type.id] }
       end
     end
   end

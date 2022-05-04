@@ -19,6 +19,13 @@ module Decidim
           participatory_space_admin_layout
 
           alias_method :current_participatory_space, :current_initiative
+          alias_method :current_participatory_space_manifest, :initiatives_manifest
+        end
+
+        private
+
+        def initiatives_manifest
+          @initiatives_manifest ||= Decidim.find_participatory_space_manifest(:initiatives)
         end
       end
     end

@@ -35,6 +35,7 @@ nl:
         origin_component_id: Onderdeel om de voorstellen te kopiëren van
       proposals_import:
         import_proposals: Voorstellen importeren
+        keep_answers: Status en antwoorden behouden
         keep_authors: Bewaar originele auteurs
       valuation_assignment:
         admin_log:
@@ -56,6 +57,16 @@ nl:
               identical: EN titel kan niet identiek zijn
             title:
               identical: EN tekstgedeelte kan niet identiek zijn
+        proposals_merge:
+          attributes:
+            base:
+              not_official: Zijn niet officieel
+              supported: Heeft steun ontvangen
+        proposals_split:
+          attributes:
+            base:
+              not_official: Zijn niet officieel
+              supported: Heeft steun ontvangen
     models:
       decidim/proposals/accepted_proposal_event: Voorstel geaccepteerd
       decidim/proposals/admin/update_proposal_category_event: Voorstelcategorie gewijzigd
@@ -102,7 +113,6 @@ nl:
         name: Voorstellen
         settings:
           global:
-            allow_card_image: Kaart afbeelding toestaan
             amendments_enabled: Wijzigingen ingeschakeld
             amendments_enabled_help: 'Indien actief: stel de amendementsfunctionaliteiten in voor elke stap.'
             amendments_wizard_help_text: Hulptekst van de amendementen wizard
@@ -112,6 +122,17 @@ nl:
             collaborative_drafts_enabled: Samenwerkingsconcepten ingeschakeld
             comments_enabled: Reacties ingeschakeld
             comments_max_length: Commentaar maximale lengte (laat 0 voor standaard waarde)
+            default_sort_order: Standaardsortering
+            default_sort_order_help: Standaardsortering betekent dat als de ondersteuning is ingeschakeld, de voorstellen willekeurig worden weergegeven. Als de ondersteuning geblokkeerd is, zullen ze gesorteerd worden op de meest ondersteunde manier.
+            default_sort_order_options:
+              default: Standaard
+              most_commented: Meeste reacties
+              most_endorsed: Meest gesteund
+              most_followed: Meest gevolgd
+              most_voted: Meeste stemmen
+              random: Willekeurig
+              recent: Meest recent
+              with_more_authors: Met meer auteurs
             geocoding_enabled: Geolocatie ingeschakeld
             minimum_votes_per_user: Minimale stemmen per gebruiker
             new_proposal_body_template: Nieuw voorstel lichaamssjabloon
@@ -153,7 +174,18 @@ nl:
             answers_with_costs: Kosten inschakelen bij antwoorden op voorstel
             automatic_hashtags: Hashtags toegevoegd aan alle voorstellen
             comments_blocked: Reacties geblokkeerd
-            creation_enabled: Creatie nieuw voorstel toegestaan
+            creation_enabled: Gebruikers kunnen voorstellen maken
+            default_sort_order: Standaardsortering
+            default_sort_order_help: Standaardsortering betekent dat als de ondersteuning is ingeschakeld, de voorstellen willekeurig worden weergegeven. Als de ondersteuning geblokkeerd is, zullen ze gesorteerd worden op de meest ondersteunde manier.
+            default_sort_order_options:
+              default: Standaard
+              most_commented: Meeste reacties
+              most_endorsed: Meest gesteund
+              most_followed: Meest gevolgd
+              most_voted: Meeste stemmen
+              random: Willekeurig
+              recent: Meest recent
+              with_more_authors: Met meer auteurs
             endorsements_blocked: Aanbevelingen geblokkeerd
             endorsements_enabled: "Aanbevelingen toegestaan\n"
             proposal_answering_enabled: Formeel antwoord op voorstellen toegestaan.
@@ -246,7 +278,7 @@ nl:
           email_intro: Het voorstel "%{resource_title}" is toegevoegd aan "%{participatory_space_title}" dat je volgt.
           email_outro: Je hebt deze melding ontvangen omdat je "%{participatory_space_title}" volgt. Schakel de meldingen uit door op bovenstaande link te klikken en te stoppen met volgen.
           email_subject: Nieuw voorstel "%{resource_title}" toegevoegd aan %{participatory_space_title}
-          notification_title: Het voorstel <a href="%{resource_path}">%{resource_title}</a> is toegevoegd aan %{participatory_space_title}
+          notification_title: Het voorstel <a href="%{resource_path}">%{resource_title}</a> is toegevoegd aan %{participatory_space_title} door %{author}
         proposal_rejected:
           affected_user:
             email_intro: 'Uw voorstel "%{resource_title}" is afgewezen. U kunt het antwoord op deze pagina lezen:'
@@ -343,6 +375,23 @@ nl:
         exports:
           proposal_comments: Reacties
           proposals: Voorstellen
+        imports:
+          help:
+            answers: 'Het importdocument moet de volgende kolommen bevatten: id, status (geaccepteerd, evalueren, afgewezen), antwoord/nl (en andere talen ingeschakeld voor de organisatie).'
+            proposals: Het bestand moet kolomnamen title/nl en body/nl bevatten (of een andere locale die jij verkiest, bijv. title/fr en body/fr). Ook scope/id en category/id kolommen worden ondersteund.
+          label:
+            answers: Importeer antwoorden vanuit een bestand
+            proposals: Importeer voorstellen vanuit een bestand
+          resources:
+            answers:
+              one: antwoord op het voorstel
+              other: antwoorden op het voorstel
+            proposals:
+              one: voorstel
+              other: voorstellen
+          title:
+            answers: Importeer antwoorden op voorstellen
+            proposals: Importeer voorstellen
         models:
           proposal:
             name: Voorstel
@@ -485,11 +534,11 @@ nl:
             select_states: Controleer de status van de voorstellen om te importeren
         proposals_merges:
           create:
-            invalid: Er is een fout opgetreden bij het samenvoegen van de geselecteerde voorstellen.
+            invalid: 'Er is een probleem opgetreden bij het samenvoegen van de geselecteerde voorstellen omdat:'
             success: De voorstellen zijn succesvol samengevoegd tot een nieuwe.
         proposals_splits:
           create:
-            invalid: Er is een fout opgetreden bij het splitsen van de geselecteerde voorstellen.
+            invalid: 'Er is een probleem opgetreden bij het splitsen van de geselecteerde voorstellen omdat:'
             success: De voorstellen succesvol gesplitst in nieuwe.
         valuation_assignments:
           create:
@@ -520,9 +569,9 @@ nl:
           all: Alle
         filter_origin_values:
           all: Alle
-          citizens: Burgers
           meetings: vergaderingen
           official: Officieel
+          participants: Deelnemers
           user_groups: Groepen
         filter_scope_values:
           all: Alle
@@ -695,12 +744,8 @@ nl:
           description: De coördinaten worden bijgewerkt bij het klikken op de 'preview' knop. Het adres verandert echter niet.
           instructions: Je kunt het punt op de kaart verplaatsen.
         edit:
-          add_documents: Documenten
-          add_images: Bestand
           attachment_legend: "(Optioneel) Voeg een bijlage toe"
           back: Terug
-          delete_document: Document verwijderen
-          delete_image: Afbeelding verwijderen
           gallery_legend: "(Optioneel) Voeg een afbeelding toe aan het voorstel"
           select_a_category: Selecteer een categorie
           send: Verzenden
@@ -729,9 +774,12 @@ nl:
           filter_by: Filteren op
           unfold: Uitvouwen
         index:
+          click_here: Bekijk alle voorstellen
           collaborative_drafts_list: Toegang tot samenwerkende concepten
           new_proposal: Nieuw voorstel
+          see_all: Bekijk alle voorstellen
           see_all_withdrawn: Bekijk alle ingetrokken voorstellen
+          text_banner: Je bekijkt de lijst van voorstellen die zijn ingetrokken door hun maker. %{go_back_link}.
           view_proposal: Bekijk voorstel
         linked_proposals:
           proposal_votes:

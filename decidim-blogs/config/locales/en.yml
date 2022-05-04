@@ -60,6 +60,10 @@ en:
       read_more: Read more
     components:
       blogs:
+        actions:
+          create: Create
+          destroy: Delete
+          update: Update
         name: Blog
         settings:
           global:

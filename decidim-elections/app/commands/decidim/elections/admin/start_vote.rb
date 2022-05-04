@@ -4,7 +4,7 @@ module Decidim
   module Elections
     module Admin
       # This command gets called to start the voting period in the Bulletin Board.
-      class StartVote < Rectify::Command
+      class StartVote < Decidim::Command
         # Public: Initializes the command.
         #
         # form - A VotePeriodForm object with the information needed to start or end the vote period

@@ -4,7 +4,7 @@ module Decidim
   module Initiatives
     # Class uses to retrieve initiatives that have been a long time in
     # validating state
-    class OutdatedValidatingInitiatives < Rectify::Query
+    class OutdatedValidatingInitiatives < Decidim::Query
       # Syntactic sugar to initialize the class and return the queried objects.
       #
       # period_length - Maximum time in validating state

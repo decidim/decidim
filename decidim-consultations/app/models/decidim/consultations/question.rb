@@ -55,17 +55,18 @@ module Decidim
                dependent: :destroy,
                as: :participatory_space
 
-      validates_upload :hero_image
-      mount_uploader :hero_image, Decidim::HeroImageUploader
+      has_one_attached :hero_image
+      validates_upload :hero_image, uploader: Decidim::HeroImageUploader
 
-      validates_upload :banner_image
-      mount_uploader :banner_image, Decidim::BannerImageUploader
+      has_one_attached :banner_image
+      validates_upload :banner_image, uploader: Decidim::BannerImageUploader
 
       default_scope { order(order: :asc) }
 
       delegate :start_voting_date, to: :consultation
       delegate :end_voting_date, to: :consultation
       delegate :results_published?, to: :consultation
+      delegate :moderators, to: :consultation
 
       alias participatory_space consultation
 
@@ -132,7 +133,7 @@ module Decidim
       end
 
       def banner_image_url
-        banner_image.present? ? banner_image.url : consultation.banner_image.url
+        banner_image.attached? ? attached_uploader(:banner_image).path : consultation.attached_uploader(:banner_image).path
       end
 
       # Public: Check if the user has voted the question.
@@ -199,6 +200,14 @@ module Decidim
       # Public: Overrides the `allow_resource_permissions?` Resourceable concern method.
       def allow_resource_permissions?
         true
+      end
+
+      def user_allowed_to_comment?(user)
+        ActionAuthorizer.new(user, "comment", self, nil).authorize.ok?
+      end
+
+      def component
+        nil
       end
 
       def attachment_context

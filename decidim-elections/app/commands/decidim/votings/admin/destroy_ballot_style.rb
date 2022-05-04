@@ -4,9 +4,10 @@ module Decidim
   module Votings
     module Admin
       # A command with the business logic to delete the ballot style
-      class DestroyBallotStyle < Rectify::Command
-        def initialize(ballot_style)
+      class DestroyBallotStyle < Decidim::Command
+        def initialize(ballot_style, current_user)
           @ballot_style = ballot_style
+          @current_user = current_user
         end
 
         # Executes the command. Broadcast this events:
@@ -22,10 +23,17 @@ module Decidim
 
         private
 
-        attr_reader :ballot_style
+        attr_reader :ballot_style, :current_user
 
         def destroy_ballot_style!
-          ballot_style.destroy!
+          Decidim.traceability.perform_action!(
+            :delete,
+            ballot_style,
+            current_user,
+            visibility: "all"
+          ) do
+            ballot_style.destroy!
+          end
         end
       end
     end

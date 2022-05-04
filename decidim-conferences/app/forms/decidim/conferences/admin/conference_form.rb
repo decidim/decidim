@@ -25,9 +25,9 @@ module Decidim
         attribute :scopes_enabled, Boolean
         attribute :scope_id, Integer
         attribute :hero_image
-        attribute :remove_hero_image
+        attribute :remove_hero_image, Boolean, default: false
         attribute :banner_image
-        attribute :remove_banner_image
+        attribute :remove_banner_image, Boolean, default: false
         attribute :show_statistics, Boolean
         attribute :start_date, Decidim::Attributes::LocalizedDate
         attribute :end_date, Decidim::Attributes::LocalizedDate

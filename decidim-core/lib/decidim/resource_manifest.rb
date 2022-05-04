@@ -15,7 +15,7 @@ module Decidim
   #
   class ResourceManifest
     include ActiveModel::Model
-    include Virtus.model
+    include Decidim::AttributeObject::Model
 
     # The name of the resource we are exposing.
     attribute :name, String
@@ -53,6 +53,10 @@ module Decidim
     # as well that allows checking for those permissions.
     attribute :actions, Array[String]
 
+    # The name of the class that handles the permissions for this resource. It will
+    # probably have the form of `Decidim::<MyComponent>::Permissions`.
+    attribute :permissions_class_name, String, default: "Decidim::DefaultPermissions"
+
     validates :model_class_name, :route_name, :name, presence: true
 
     # Finds an ActiveRecord::Relation of the resource `model_class`, scoped to the
@@ -78,6 +82,15 @@ module Decidim
     # Returns a class.
     def model_class
       model_class_name.constantize
+    end
+
+    # Public: Finds the permission class from its name, using the
+    # `permissions_class_name` attribute. If the class does not exist,
+    # it raises an exception. If the class name is not set, it returns nil.
+    #
+    # Returns a Class.
+    def permissions_class
+      permissions_class_name&.constantize
     end
 
     # The name of the named Rails route to create the url to the resource.

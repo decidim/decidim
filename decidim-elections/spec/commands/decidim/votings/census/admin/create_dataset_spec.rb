@@ -8,7 +8,7 @@ module Decidim::Votings::Census::Admin
 
     let(:voting) { create(:voting) }
     let(:user) { create(:user, :admin, organization: voting.organization) }
-    let(:file) { Decidim::Dev.test_file("import_voting_census.csv", "text/csv") }
+    let(:file) { upload_test_file(Decidim::Dev.test_file("import_voting_census.csv", "text/csv")) }
     let(:params) { { file: file } }
     let(:context) { { current_participatory_space: voting } }
 
@@ -28,12 +28,32 @@ module Decidim::Votings::Census::Admin
       end
     end
 
+    context "when headers are invalid" do
+      let(:file) { upload_test_file(Decidim::Dev.test_file("import_voting_census_without_headers.csv", "text/csv")) }
+
+      it "broadcasts invalid_csv_file" do
+        expect(subject.call).to broadcast(:invalid_csv_header)
+      end
+
+      it "does not enqueue any job" do
+        expect(CreateDatumJob).not_to receive(:perform_later)
+
+        subject.call
+      end
+    end
+
     it "broadcasts ok" do
       expect(subject.call).to broadcast(:ok)
     end
 
+    it "enqueues a job for processing the dataset and strips the data from whitespaces" do
+      expect { subject.call }.to(have_enqueued_job(CreateDatumJob).at_least(1).times.with do |_user, _dataset, row|
+        expect(row[3]).to eq("Hugo Doe") if row.first == "55566677B"
+      end)
+    end
+
     it "enqueues a job for processing the dataset" do
-      expect { subject.call }.to enqueue_job(CreateDatumJob).at_least(4).times
+      expect { subject.call }.to enqueue_job(CreateDatumJob).exactly(5).times
     end
 
     it "traces the action", versioning: true do

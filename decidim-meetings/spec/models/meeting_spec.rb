@@ -18,6 +18,7 @@ module Decidim::Meetings
     include_examples "has reference"
     include_examples "resourceable"
     include_examples "reportable"
+    include_examples "has comments availability attributes"
 
     it "has an association with one agenda" do
       subject.agenda = build_stubbed(:agenda)
@@ -96,6 +97,53 @@ module Decidim::Meetings
         let(:meeting) { build :meeting, registrations_enabled: true }
 
         it { is_expected.to eq true }
+      end
+    end
+
+    describe "#withdrawn?" do
+      context "when meeting is withdrawn" do
+        let(:meeting) { build :meeting, :withdrawn }
+
+        it { is_expected.to be_withdrawn }
+      end
+
+      context "when meeting is not withdrawn" do
+        let(:meeting) { build :meeting }
+
+        it { is_expected.not_to be_withdrawn }
+      end
+    end
+
+    describe "#withdrawable_by" do
+      let(:organization) { create :organization, available_locales: [:en] }
+      let(:participatory_process) { create :participatory_process, organization: organization }
+      let(:component) { create :component, participatory_space: participatory_process, manifest_name: "meetings" }
+      let(:author) { create(:user, organization: organization) }
+
+      context "when user is author" do
+        let(:meeting) { create :meeting, component: component, author: author, created_at: Time.current }
+
+        it { is_expected.to be_withdrawable_by(author) }
+      end
+
+      context "when user is admin" do
+        let(:admin) { build(:user, :admin, organization: organization) }
+        let(:meeting) { build :meeting, author: author, created_at: Time.current }
+
+        it { is_expected.not_to be_withdrawable_by(admin) }
+      end
+
+      context "when user is not the author" do
+        let(:someone_else) { build(:user, organization: organization) }
+        let(:meeting) { build :meeting, author: author, created_at: Time.current }
+
+        it { is_expected.not_to be_withdrawable_by(someone_else) }
+      end
+
+      context "when meeting is already withdrawn" do
+        let(:meeting) { build :meeting, :withdrawn, author: author, created_at: Time.current }
+
+        it { is_expected.not_to be_withdrawable_by(author) }
       end
     end
 
@@ -231,7 +279,7 @@ module Decidim::Meetings
     end
 
     describe "pad_is_visible?" do
-      let(:pad) { instance_double(EtherpadLite::Pad, id: "pad-id", read_only_id: "read-only-id") }
+      let(:pad) { instance_double(Decidim::Etherpad::Pad, id: "pad-id", read_only_id: "read-only-id") }
 
       before do
         allow(meeting).to receive(:pad).and_return(pad)
@@ -277,7 +325,7 @@ module Decidim::Meetings
     end
 
     describe "pad_is_writable?" do
-      let(:pad) { instance_double(EtherpadLite::Pad, id: "pad-id", read_only_id: "read-only-id") }
+      let(:pad) { instance_double(Decidim::Etherpad::Pad, id: "pad-id", read_only_id: "read-only-id") }
 
       before do
         allow(meeting).to receive(:pad).and_return(pad)

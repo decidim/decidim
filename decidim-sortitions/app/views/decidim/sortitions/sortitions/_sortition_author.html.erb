@@ -1,7 +1,7 @@
 <div class="author-data__main">
   <div class="author author--inline">
     <span class="author__avatar author__avatar--small">
-      <%= image_tag sortition.author.avatar_url %>
+      <%= image_tag present(sortition.author).avatar_url %>
     </span>
     <span class="author__name">
       <% if sortition.author&.deleted? %>

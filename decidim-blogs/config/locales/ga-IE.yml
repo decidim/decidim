@@ -1,1 +1,52 @@
 ga:
+  activerecord:
+    models:
+      decidim/blogs/post:
+        one: Postáil
+        two: Postálacha
+        few: Postálacha
+        many: Postálacha
+        other: Postálacha
+  decidim:
+    blogs:
+      actions:
+        destroy: Scrios
+        edit: Eagar
+        new: Postáil nua
+        title: Gníomhartha
+      admin:
+        models:
+          components:
+            body: Corp
+          post:
+            name: Postáil
+        posts:
+          edit:
+            save: Nuashonraigh
+            title: Cuir in eagar postáil
+          index:
+            title: Postálacha
+          new:
+            create: Cruthaigh
+            title: Cruthaigh postáil
+      models:
+        post:
+          fields:
+            author: Údar
+            body: Corp
+            title: teideal
+      posts:
+        show:
+          comments: Tráchtanna
+          view: Amharc
+        sidebar_blog:
+          comments: tráchtanna
+    components:
+      blogs:
+        name: Blag
+        settings:
+          step:
+            endorsements_blocked: Formhuinithe blocáilte
+            endorsements_enabled: Formhuinithe cumasaithe
+    statistics:
+      posts_count: Postálacha

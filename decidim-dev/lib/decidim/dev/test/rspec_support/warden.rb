@@ -18,6 +18,7 @@ end
 
 RSpec.configure do |config|
   config.include Decidim::WardenTestHelpers, type: :system
+  config.include Decidim::WardenTestHelpers, type: :request
   config.include Devise::Test::ControllerHelpers, type: :controller
 
   config.before :each, type: :cell do
@@ -28,6 +29,10 @@ RSpec.configure do |config|
   end
 
   config.after :each, type: :system do
+    Warden.test_reset!
+  end
+
+  config.after :each, type: :request do
     Warden.test_reset!
   end
 end

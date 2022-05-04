@@ -60,7 +60,7 @@ it:
           projects: Progetti
         models:
           budget:
-            name: Bilancio
+            name: Budget
           project:
             name: Progetto
         projects:
@@ -119,6 +119,9 @@ it:
         highlighted_cta: Vota su %{name}
         if_change_opinion: Se hai cambiato idea, puoi
         my_budgets: I miei budget
+        progress: Chiusura voto
+        show: Vedi progetti
+        vote: Vota
         voted_on: Hai votato il %{links}
       limit_announcement:
         cant_vote: Non puoi votare su questo budget. <a href="%{landing_path}">Prova con un altro budget</a>.
@@ -183,6 +186,12 @@ it:
           projects_count:
             one: 1 progetto
             other: "%{count} progetti"
+        exit_modal:
+          cancel: Ritorna alla votazione
+          close_modal: Chiudi modalità
+          exit: Esci dalla votazione
+          message: Il tuo voto non è stato registrato perché non hai ancora completato il processo di votazione. Sei sicuro di voler uscire dal voto?
+          title: Non hai ancora votato
         filters:
           category: Categoria
           scope: Ambito tematico
@@ -233,8 +242,9 @@ it:
     components:
       budgets:
         actions:
+          comment: Commenta
           vote: Votazione
-        name: i bilanci
+        name: Budget
         settings:
           global:
             announcement: Annuncio

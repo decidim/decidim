@@ -23,6 +23,7 @@ ca:
         decidim_user_group_id: Grup d'usuàries
         description: Descripció
         end_time: Hora de finalització
+        id: ID
         location: Ubicació
         location_hints: Detalls d'ubicació
         online_meeting_url: URL de trobada en línia
@@ -34,12 +35,17 @@ ca:
         registration_terms: Termes i condicions d'inscripció
         registration_url: URL d'inscripció
         registrations_enabled: Inscripcions obertes
+        show_embedded_iframe: Mostrar iframe incrustat per aquesta URL
         start_time: Hora d'inici
         title: Títol
         transparent: Transparent
         type_of_meeting: Tipus
     errors:
       models:
+        meeting:
+          attributes:
+            iframe_embed_type:
+              not_embeddable: Aquesta adreça URL no es pot incrustar a la pàgina de la trobada o de l'esdeveniment en directe
         meeting_agenda:
           attributes:
             base:
@@ -69,6 +75,34 @@ ca:
         other: Inscripcions
   decidim:
     admin:
+      filters:
+        meetings:
+          category_id_eq:
+            label: Categoria
+          closed_at_present:
+            label: Estat
+            values:
+              'false': Oberta
+              'true': Tancada
+          is_upcoming_true:
+            label: Data
+            values:
+              'false': Passades
+              'true': Properes
+          scope_id_eq:
+            label: Àmbit
+          with_any_origin:
+            label: Origen
+            values:
+              official: Oficial
+              participants: Participant
+              user_group: Grups
+          with_any_type:
+            label: Tipus de trobada
+            values:
+              hybrid: Ambdós
+              in_person: Presencial
+              online: En línia
       meeting_copies:
         create:
           error: S'ha produït un error en duplicar aquesta trobada.
@@ -80,6 +114,7 @@ ca:
     components:
       meetings:
         actions:
+          comment: Comentar
           join: Inscriu-t'hi
         name: Trobades
         settings:
@@ -115,7 +150,7 @@ ca:
             email_subject: S'ha tancat la trobada "%{resource_title}"
             notification_title: La trobada de <a href="%{resource_path}">%{resource_title}</a> s'ha tancat.
         meeting_created:
-          button_text: Registreu-vos a la trobada
+          button_text: Inscriu-te a la trobada
           email_intro: S'ha afegit la trobada "%{resource_title}" a l'espai "%{participatory_space_title}" que estàs seguint.
           email_outro: Has rebut aquesta notificació perquè estàs seguint "%{participatory_space_title}". Pots deixar de seguir-lo des de l'enllaç anterior.
           email_subject: Nova trobada afegida a  %{participatory_space_title}
@@ -147,6 +182,9 @@ ca:
           email_outro: Has rebut aquesta notificació perquè estàs seguint la trobada "%{resource_title}". Pots deixar-la de seguir des de l'enllaç anterior.
           email_subject: En menys de 48 hores s'iniciarà la trobada "%{resource_title}".
           notification_title: La trobada <a href="%{resource_path}">%{resource_title}</a> començarà en menys de 48 hores.
+    forms:
+      meetings:
+        attendees_count_help_text: No oblidis incloure el nombre total d'assistents a la teva trobada, ja sigui presencial, en línia o híbrida.
     gamification:
       badges:
         attended_meetings:
@@ -172,6 +210,7 @@ ca:
           proposals_count:
             one: 'No es pot destruir la trobada perquè té %{count} proposta associades:'
             other: 'No es pot destruir la trobada perquè té %{count} propostes associades:'
+        manage_poll: Configurar enquesta
         new: Nova trobada
         preview: Previsualitzar
         registrations: Inscripcions
@@ -208,6 +247,7 @@ ca:
             invalid: S'ha produït un error en actualitzar aquest ordre del dia
             success: Ordre del dia actualitzat correctament
         exports:
+          answers: Respostes
           meeting_comments: Comentaris
           meetings: Trobades
           registrations: Inscripcions
@@ -242,13 +282,16 @@ ca:
           edit:
             close: Tancar
             title: Tancar trobada
+        meeting_copies:
+          form:
+            select_a_meeting_type: Si us plau, selecciona un tipus de trobada
         meetings:
           close:
             invalid: S'ha produït un error en tancar aquesta trobada
             success: Trobada tancada amb èxit
           create:
             invalid: S'ha produït un error en crear aquesta trobada
-            success: S'ha creat la trobada correctament. Adona-te'n que per a fer-la pública, ho hauràs de fer manualment.
+            success: Trobada creada correctament. Tingues en compte que encara no s'ha publicat, hauràs de publicar-la manualment.
           destroy:
             invalid:
               proposals_count:
@@ -260,15 +303,15 @@ ca:
             update: Actualitzar
           form:
             address_help: 'Adreça: que farà servir per Geocoder per a trobar la localització'
-            available_slots_help: Deixeu-ho a 0 si les places disponibles són il·limitades
             disclaimer: 'Descàrrec de responsabilitat: en utilitzar un sistema d''inscripcions extern, ets conscient que els organitzadors de %{organization} no són responsables de les dades proporcionades per les usuàries al servei extern.'
             location_help: 'Localització: missatge dirigit a les participants indicant el lloc on trobar-se'
             location_hints_help: 'Detalls d''ubicació: informació addicional. Exemple: la planta de l''edifici si es tracta d''una reunió presencial, o la contrasenya de la reunió si es tracta d''una reunió en línia amb accés restringit.'
             online_meeting_url_help: 'Enllaç: permetre que les participants es connectin directament a la teva trobada'
-            registration_email_help: Aquest text apareixerà enmig del correu de confirmació de la inscripció. Just a sota del codi d'inscripció.
             registration_url_help: 'Enllaç: permetre a les participants anar al servei extern que estàs utilitzant per a les inscripcions'
             select_a_meeting_type: Si us plau selecciona un tipus de trobada
             select_a_registration_type: Si us plau selecciona un tipus d'inscripció
+            select_an_iframe_access_level: Si us plau, selecciona el nivell d'accés a l'iframe
+            show_embedded_iframe_help: Només uns quants serveis es poden incrustar a una trobada o esdeveniment en directe (YouTube, Twitch i Jitsi)
           index:
             title: Trobades
           new:
@@ -276,7 +319,7 @@ ca:
             title: Crear trobada
           publish:
             invalid: S'ha produït un error en publicar la trobada
-            success: La trobada ara ja és pública
+            success: La trobada s'ha publicat correctament
           service:
             description: Descripció
             down: Baixar
@@ -289,10 +332,16 @@ ca:
             services: Serveis
           unpublish:
             invalid: Hi ha hagut un problema en en despublicar la trobada
-            success: La trobada ara ja no és pública
+            success: La trobada s'ha despublicat correctament
           update:
             invalid: S'ha produït un error en actualitzar aquesta trobada
             success: Trobada actualitzada correctament
+        meetings_poll:
+          form:
+            title: Editar qüestionari d'enquesta per a %{questionnaire_for}
+          update:
+            invalid: Hi ha hagut un problema en actualitzar aquesta enquesta
+            success: Enquesta actualitzada correctament
         models:
           meeting:
             name: Trobada
@@ -305,6 +354,7 @@ ca:
             available_slots_help: Deixar a 0 si les inscripcions són il·limitades.
             invites: Invitacions
             recommendation_message: Per raons de privacitat et recomanem que esborris aquest formulari d'inscripció quan ja no el necessitis. Per defecte això és 3 mesos després que la reunió hagi finalitzat.
+            registration_email_help: Aquest text apareixerà enmig del correu de confirmació de la inscripció. Just a sota del codi d'inscripció.
             registration_form: Formulari d'inscripció
             registrations_count:
               one: Hi ha hagut %{count} inscripció.
@@ -332,29 +382,45 @@ ca:
           value_types:
             organizer_presenter:
               not_found: 'L''organitzador no s''ha trobat a la base de dades (identificació: %{id})'
+      application_helper:
+        filter_category_values:
+          all: Totes
+        filter_meeting_space_values:
+          all: Totes
+        filter_scope_values:
+          all: Totes
       calendar_modal:
         calendar_url: URL del calendari
         close_window: Tanca la finestra
         export_calendar: Exporta el calendari
       conference_venues: Seus de les jornades
       content_blocks:
-        upcoming_events:
-          name: Propers trobades
-          upcoming_events: Properes trobades
-          view_all_events: Veure-ho tot
+        upcoming_meetings:
+          name: Properes trobades
+          upcoming_meetings: Properes trobades
+          view_all_meetings: Veure-ho tot
       directory:
         meetings:
           index:
-            all: Totes
-            date: Data
             meetings: Trobades
-            past: Passades
-            search: Cercar
             space_type: Espai participatiu
-            upcoming: Properes
+      iframe_access_level:
+        all: Totes les visites
+        registered: Participants inscrites a aquesta trobada
+        signed_in: Només participants registrades
+      iframe_embed_type:
+        embed_in_meeting_page: Incrustar a la pàgina de la trobada
+        none: Cap
+        open_in_live_event_page: Obrir a la pàgina de l'esdeveniment en directe (amb opció d'enquestes)
+        open_in_new_tab: Obrir en una nova pestanya
       last_activity:
         meeting_updated_at_html: "<span>Trobada actualitzada el %{link}</span>"
         new_meeting_at_html: "<span>Nova trobada a %{link}</span>"
+      layouts:
+        live_event:
+          administrate: Administrar
+          close: tancar
+          questions: Preguntes
       mailer:
         invite_join_meeting_mailer:
           invite:
@@ -371,12 +437,12 @@ ca:
           title: Tancar trobada
       meetings:
         calendar_modal:
-          add_to_calendar: Afegeix al calendari
-          apple: Afegeix al calendari d'Apple
-          close_window: Tanca la finestra
-          full_details_html: Per a més informació visiteu %{link}
-          google: Afegeix al calendari de Google
-          outlook: Afegeix al calendari d'Outlook
+          add_to_calendar: Afegir al calendari
+          apple: Afegir al calendari d'Apple
+          close_window: Tancar finestra
+          full_details_html: Per a obtenir tots els detalls vés a %{link}
+          google: Afegir al calendari de Google
+          outlook: Afegir al calendari d'Outlook
         count:
           meetings_count:
             one: "%{count} trobada"
@@ -401,8 +467,8 @@ ca:
           origin: Origen
           origin_values:
             all: Tots
-            citizens: Ciutadania
             official: Oficial
+            participants: Participants
             user_groups: Grups
           scope: Àmbit
           search: Cerca
@@ -429,8 +495,14 @@ ca:
           select_a_category: Si us plau, selecciona una categoria
           select_a_meeting_type: Si us plau selecciona un tipus de trobada
           select_a_registration_type: Si us plau selecciona un tipus d'inscripció
+          select_an_iframe_access_level: Si us plau, selecciona el nivell d'accés a l'iframe
+          show_embedded_iframe_help: Només uns quants serveis es poden incrustar a una trobada o esdeveniment en directe (YouTube, Twitch i Jitsi)
         index:
+          click_here: Veure totes les trobades
           new_meeting: Nova trobada
+          see_all: Veure totes les trobades
+          see_all_withdrawn: Veure totes les trobades cancel·lades
+          text_banner: Estàs veient un llistat de trobades cancel·lades per les seves autores. %{go_back_link}.
         meeting_minutes:
           related_information: Informació relacionada
         meetings:
@@ -440,8 +512,6 @@ ca:
           back: Enrere
           create: Crear
           title: Crea la teva trobada
-        online_meeting_link:
-          link_available_soon: L'enllaç estarà disponible aviat
         registration_confirm:
           cancel: Cancel·lar
           confirm: Confirmar
@@ -451,14 +521,19 @@ ca:
           close_meeting: Tancar trobada
           contributions: Nombre d'aportacions
           date: Data
+          edit_close_meeting: Editeu l'informe de la reunió
           edit_meeting: Editar la trobada
           going: T'has inscrit en aquesta trobada
           join: Inscriu-te a la trobada
           leave: Cancel·la la teva inscripció
           leave_confirmation: Segur que vols cancel·lar la teva inscripció a aquesta trobada?
+          link_available_soon: Enllaç disponible pròximament
+          link_closed: L'enllaç a la trobada estarà disponible uns minuts abans de que comenci
+          live_event: Aquesta trobada està succeint ara mateix
           meeting_minutes: Acta de la trobada
+          micro_camera_permissions_warning: Quan facis clic en el botó de sota, se't demanaran permisos per al micròfon i/o la càmera, i t'uniràs a la videoconferència
           no_slots_available: No hi ha places disponible
-          organizations: Organitzacions que han assistit
+          organizations: Organitzacions assistents
           registration_code_help_text: El teu codi de registre
           registration_state:
             validated: VALIDAT
@@ -467,6 +542,10 @@ ca:
             one: "%{count} plaça restant"
             other: "%{count} places restants"
           view: Veure
+          visit_finished: Veure trobada passada
+          withdraw_btn_hint: Pots cancel·lar la teva trobada si canvies de parer. La trobada no s'elimina, apareixerà al llistat de trobades cancel·lades.
+          withdraw_confirmation_html: Segur que vols cancel·lar aquesta trobada?<br><br><strong>Aquesta acció no es pot desfer!</strong>
+          withdraw_meeting: Cancel·lar trobada
         update:
           invalid: Hi ha hagut un problema en actualitzar aquesta trobada.
           success: Has actualitzat la trobada amb èxit.
@@ -487,12 +566,33 @@ ca:
           fields:
             closed: Tancada
             end_time: Data de finalització
+            id: Id
             map: Mapa
             official_meeting: Trobada oficial
             start_time: Data d'inici
             title: Títol
+      polls:
+        questions:
+          closed_question:
+            question_results: Resultats de la pregunta
+          index:
+            empty_questions: Al llarg d'aquesta trobada, s'enviaran algunes preguntes i podràs respondre-les. Es mostraran aquí.
+          index_admin:
+            admin_dashboard: Panell d'administració
+            edit: Editar al panell d'administració
+            question: Pregunta
+            received_answer: resposta rebuda
+            received_answers: respostes rebudes
+            results: Resultats
+            send: Enviar
+            sent: Enviades
+          published_question:
+            max_choices_alert: Hi ha massa opcions seleccionades
+            question: Pregunta
+            question_replied: Pregunta contestada
+            reply_question: Contestar a la pregunta
       public_participants_list:
-        attending_participants: Participants que assisteixen
+        attending_participants: Participants assistents
         hidden_participants_count:
           one: i %{count} persona més
           other: i %{count} persones més
@@ -523,8 +623,12 @@ ca:
       types:
         private_meeting: Trobada privada
         transparent: Transparent
+        withdraw: Cancel·lada
       versions:
         back_to_resource: Tornar a la trobada
+      withdraw:
+        error: S'ha produït un error al cancel·lar la trobada
+        success: La trobada s'ha cancel·lat correctament
     metrics:
       meetings:
         description: Nombre de trobades creades

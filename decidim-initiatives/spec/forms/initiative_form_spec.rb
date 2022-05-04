@@ -12,11 +12,11 @@ module Decidim
       let(:scope) { create(:initiatives_type_scope, type: initiatives_type) }
       let(:attachment_params) { nil }
 
-      let(:title) { Decidim::Faker::Localized.sentence(word_count: 5) }
+      let(:title) { ::Faker::Lorem.sentence(word_count: 5) }
       let(:attributes) do
         {
           title: title,
-          description: Decidim::Faker::Localized.sentence(word_count: 25),
+          description: ::Faker::Lorem.sentence(word_count: 25),
           type_id: initiatives_type.id,
           scope_id: scope&.scope&.id,
           signature_type: "offline",
@@ -169,7 +169,7 @@ module Decidim
           it "adds an error to the `:attachment` field" do
             expect(subject).not_to be_valid
             expect(subject.errors.full_messages).to match_array(["Title can't be blank", "Attachment Needs to be reattached"])
-            expect(subject.errors.keys).to match_array([:title, :attachment])
+            expect(subject.errors.attribute_names).to match_array([:title, :attachment])
           end
         end
       end

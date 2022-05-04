@@ -25,24 +25,12 @@ module Decidim
     def download_file
       enforce_permission_to :download, :user, current_user: current_user
 
-      if data_portability_file_exists?
-        redirect_to uploader.url
+      if current_user.data_portability_file.attached?
+        redirect_to Rails.application.routes.url_helpers.rails_blob_url(current_user.data_portability_file.blob, only_path: true)
       else
         flash[:error] = t("decidim.account.data_portability_export.file_no_exists")
         redirect_to data_portability_path
       end
-    end
-
-    private
-
-    def data_portability_file_exists?
-      uploader.file.exists?
-    rescue StandardError
-      false
-    end
-
-    def uploader
-      current_user.data_portability_file(params[:filename])
     end
   end
 end

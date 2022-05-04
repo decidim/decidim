@@ -49,7 +49,7 @@ pl:
             author: Autor
             body: Treść
             created_at: Utworzono
-            title: tytuł
+            title: Tytuł
       posts:
         show:
           back: Powrót do listy

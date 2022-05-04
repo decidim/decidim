@@ -13,7 +13,7 @@ describe Decidim::Accountability::ResultProgressUpdatedEvent do
   let(:proposal) { create :proposal, component: proposal_component, title: { en: "My super proposal" } }
   let(:extra) { { proposal_id: proposal.id, progress: 95 } }
   let(:proposal_path) { resource_locator(proposal).path }
-  let(:proposal_title) { proposal.title }
+  let(:proposal_title) { translated(proposal.title) }
 
   before do
     resource.link_resources([proposal], "included_proposals")
@@ -48,12 +48,14 @@ describe Decidim::Accountability::ResultProgressUpdatedEvent do
   describe "email_outro" do
     it "is generated correctly" do
       expect(subject.email_outro).to eq("You have received this notification because you are following \"#{proposal_title}\", and this proposal is included in the result \"#{translated resource.title}\". You can stop receiving notifications following the previous link.")
+      expect(subject.email_outro).not_to include(proposal.title.to_s)
     end
   end
 
   describe "email_intro" do
     it "is generated correctly" do
       expect(subject.email_intro).to eq("The result \"#{translated resource.title}\", which includes the proposal \"#{proposal_title}\", is now 95% complete. You can see it from this page:")
+      expect(subject.email_intro).not_to include(proposal.title.to_s)
     end
   end
 

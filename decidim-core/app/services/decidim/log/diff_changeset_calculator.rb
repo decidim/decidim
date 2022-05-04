@@ -75,9 +75,14 @@ module Decidim
       #
       # Returns an array of hashes.
       def generate_i18n_changeset(attribute, values, type)
-        values.map! { |value| value.is_a?(String) ? JSON.parse(value) : value }
+        values.map! do |value|
+          value = value.is_a?(String) ? JSON.parse(value) : value
+          value.is_a?(Hash) ? value : { I18n.default_locale.to_s => value }
+        rescue JSON::ParserError
+          { I18n.default_locale.to_s => value }
+        end
 
-        locales = values[0].to_h.keys | values[1].to_h.keys
+        locales = values[0].keys | values[1].keys
         locales.flat_map do |locale|
           previous_value = values.first.try(:[], locale)
           new_value = values.last.try(:[], locale)

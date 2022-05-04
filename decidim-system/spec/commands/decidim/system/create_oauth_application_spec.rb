@@ -3,7 +3,7 @@
 require "spec_helper"
 
 module Decidim::System
-  describe CreateOAuthApplication, processing_uploads_for: Decidim::ImageUploader do
+  describe CreateOAuthApplication do
     subject { described_class.call(form) }
 
     let(:organization) { create(:organization) }

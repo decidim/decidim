@@ -67,7 +67,6 @@ de:
     'true': 'Ja'
   carrierwave:
     errors:
-      general: Fehler bei der Bildverarbeitung
       image_too_big: Das Bild ist zu groß
       not_inside_organization: Die Datei ist keiner Organisation hinzugefügt
   date:
@@ -77,6 +76,9 @@ de:
       decidim_with_day_and_month_name: "%A, %d. %b %Y"
       decidim_with_month_name: "%d %B %Y"
       decidim_with_month_name_short: "%d. %b"
+  datetime:
+    distance_in_words:
+      half_a_minute: eine halbe Minute
   decidim:
     accessibility:
       external_link: Externer Link
@@ -662,6 +664,11 @@ de:
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{nickname} folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
           email_subject: "%{nickname} hat ihr Profil aktualisiert"
           notification_title: Die <a href="%{resource_path}">Profilseite</a> von %{name} (%{nickname}), der Sie folgen, wurde aktualisiert.
+        user_officialized:
+          email_intro: Teilnehmer %{name} (%{nickname}) wurde offiziell bestätigt.
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie ein Administrator der Organisation sind.
+          email_subject: "%{name} wurde offiziell bestätigt"
+          notification_title: Teilnehmer %{name} (%{nickname}) wurde offiziell bestätigt.
     export_mailer:
       data_portability_export:
         click_button: 'Klicken Sie auf den Link, um Ihre Daten herunterzuladen.<br/>Die Datei steht bis zum %{date} zur Verfügung.<br/>Sie benötigen <a href="https://www.7-zip.org/">7-Zip</a> (für Windows), <a href="https://www.keka.io/en/">Keka</a> (für MacOS) oder <a href="https://peazip.github.io">PeaZip</a> (für Linux) um die Datei zu öffnen. Passwort: %{password}'
@@ -702,7 +709,6 @@ de:
         button: Entfolgen
         error: Beim Entfolgen dieser Ressource ist ein Fehler aufgetreten.
     forms:
-      current_file: Aktuelle Datei
       current_image: Aktuelles Bild
       default_image: Standardbild
       errors:
@@ -722,7 +728,6 @@ de:
       file_validation:
         allowed_file_extensions: 'Erlaubte Dateiendungen: %{extensions}'
         max_file_size: 'Maximale Dateigröße: %{megabytes}MB'
-      remove_this_file: Diese Datei entfernen
     gamification:
       all_badges_link: Sieh dir alle verfügbaren Abzeichen an.
       badges:
@@ -1042,6 +1047,9 @@ de:
       update:
         error: Beim Aktualisieren der Benachrichtigungseinstellungen ist ein Fehler aufgetreten.
         success: Ihre Benachrichtigungseinstellungen wurden erfolgreich aktualisiert.
+    offline:
+      show:
+        retry: Wiederholen
     open_data:
       not_available_yet: Die Open Data-Dateien sind noch nicht verfügbar. Bitte versuchen Sie es in einigen Minuten erneut.
     own_user_groups:
@@ -1098,7 +1106,7 @@ de:
           modal_body: Wenn Sie sich weigern, werden Sie nicht in der Lage sein , die Plattform zu nutzen, können Sie <a href="%{data_portability_path}">laden Sie Ihre Daten</a> und / oder <a href="%{delete_path}">Ihr Konto löschen</a>.
           modal_btn_continue: Bedingungen akzeptieren und fortfahren
           modal_btn_exit: Ich werde es später überprüfen
-          modal_button: Verweiße die Bedingungen
+          modal_button: Bedingungen ablehnen
           modal_close: Modal schließen
           modal_title: Lehnen Sie die aktualisierten Geschäftsbedingungen wirklich ab?
         required_review:
@@ -1251,6 +1259,8 @@ de:
         close_modal: Modal schließen
         please_sign_in: Bitte einloggen
         sign_up: Registrieren
+      mentions_modal:
+        remove_recipient: Empfänger %{name} entfernen
       participatory_space_filters:
         filters:
           areas: Bereiche
@@ -1335,6 +1345,7 @@ de:
       notify:
         body_1: Benutzer %{user} wurde von %{token} gemeldet
         body_2: 'Grund: %{reason}'
+        details: Vom Nutzer übermittelte Details
         greetings: Grüße,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Hallo %{admin},
         subject: Ein neuer Benutzer wurde in %{organization_name} gemeldet
@@ -1587,6 +1598,8 @@ de:
         continue_session: Sitzung fortsetzen
         sign_out: Ausloggen
         title: Möchten Sie ihre Sitzung fortsetzen?
+      upload_modal:
+        close_modal: Modal schließen
       user_menu:
         account: 'Benutzerkonto: %{name}'
         admin_dashboard: Admin-Dashboard
@@ -1611,6 +1624,7 @@ de:
     name: Deutsch
     name_with_error: Englisch (Fehler!)
   password_validator:
+    blacklisted: ist gesperrt
     domain_included_in_password: ist diesem Domainnamen zu ähnlich
     email_included_in_password: ist Ihrer E-Mail zu ähnlich
     fallback: ist ungültig
@@ -1667,6 +1681,7 @@ de:
     dropdown:
       choose_diff_view_html: 'HTML-Ansicht:'
       choose_diff_view_mode: 'Vergleichsansicht:'
+      choose_diff_view_mode_menu: Vergleichsmodus wählen
       option_escaped: aus der Seite herausgekommen
       option_split: Nebeneinander
       option_unescaped: aus der Seite nicht herausgekommen

@@ -4,7 +4,7 @@ require "spec_helper"
 
 describe "Edit initiative", type: :system do
   let(:organization) { create(:organization) }
-  let(:user) { create(:user, organization: organization) }
+  let(:user) { create(:user, :confirmed, organization: organization) }
   let(:initiative_title) { translated(initiative.title) }
   let(:new_title) { "This is my initiative new title" }
 
@@ -44,6 +44,14 @@ describe "Edit initiative", type: :system do
 
     it_behaves_like "manage update"
 
+    it "doesn't show the header's edit link" do
+      visit initiative_path
+
+      within ".topbar" do
+        expect(page).not_to have_link("Edit")
+      end
+    end
+
     context "when initiative is published" do
       let(:initiative) { create(:initiative, author: user, scoped_type: scoped_type, organization: organization) }
 
@@ -70,7 +78,7 @@ describe "Edit initiative", type: :system do
   end
 
   describe "when user is admin" do
-    let(:user) { create(:user, :admin, organization: organization) }
+    let(:user) { create(:user, :confirmed, :admin, organization: organization) }
     let(:initiative) { create(:initiative, :created, scoped_type: scoped_type, organization: organization) }
 
     it_behaves_like "manage update"

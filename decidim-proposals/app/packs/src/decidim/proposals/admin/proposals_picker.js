@@ -8,6 +8,7 @@ $(() => {
       }
 
   let jqxhr = null
+  let filterBuffer = ""
 
   toggleNoProposals()
 
@@ -15,15 +16,29 @@ $(() => {
     const filter = event.target.value.toLowerCase()
 
     if (pickerMore) {
+      if (filter.length < 3) {
+        return
+      }
+
+      if (filter === filterBuffer) {
+        return
+      }
+
       if (jqxhr !== null) {
         jqxhr.abort()
       }
 
       $content.html("<div class='loading-spinner'></div>")
       jqxhr = $.get(`${pickerPath}?q=${filter}`, (data) => {
+        filterBuffer = filter
         $content.html(data)
         jqxhr = null
         toggleNoProposals()
+
+        if (typeof window.theDataPicker === "object" && window.theDataPicker.current !== null) {
+          window.theDataPicker._handleCheckboxes($content);
+          window.theDataPicker._handleLinks($content);
+        }
       })
     } else {
       $("#proposals_list li").each((index, li) => {

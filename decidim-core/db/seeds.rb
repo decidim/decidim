@@ -66,10 +66,10 @@ if !Rails.env.production? || ENV["SEED"]
       organization: organization
     )
 
-    3.times do
+    3.times do |time|
       parent = Decidim::Scope.create!(
         name: Decidim::Faker::Localized.literal(Faker::Address.unique.state),
-        code: Faker::Address.unique.country_code,
+        code: "#{Faker::Address.country_code}_#{time}",
         scope_type: province,
         organization: organization
       )
@@ -132,21 +132,23 @@ if !Rails.env.production? || ENV["SEED"]
     admin_terms_accepted_at: Time.current
   )
 
-  regular_user = Decidim::User.find_or_initialize_by(email: "user@example.org")
+  ["user@example.org", "user2@example.org"].each do |email|
+    Decidim::User.find_or_initialize_by(email: email).update!(
+      name: Faker::Name.name,
+      nickname: Faker::Twitter.unique.screen_name,
+      password: "decidim123456",
+      password_confirmation: "decidim123456",
+      confirmed_at: Time.current,
+      locale: I18n.default_locale,
+      organization: organization,
+      tos_agreement: true,
+      personal_url: Faker::Internet.url,
+      about: Faker::Lorem.paragraph(sentence_count: 2),
+      accepted_tos_version: organization.tos_version
+    )
+  end
 
-  regular_user.update!(
-    name: Faker::Name.name,
-    nickname: Faker::Twitter.unique.screen_name,
-    password: "decidim123456",
-    password_confirmation: "decidim123456",
-    confirmed_at: Time.current,
-    locale: I18n.default_locale,
-    organization: organization,
-    tos_agreement: true,
-    personal_url: Faker::Internet.url,
-    about: Faker::Lorem.paragraph(sentence_count: 2),
-    accepted_tos_version: organization.tos_version
-  )
+  regular_user = Decidim::User.find_or_initialize_by(email: "user@example.org")
 
   locked_user = Decidim::User.find_or_initialize_by(email: "locked_user@example.org")
 
@@ -195,20 +197,26 @@ if !Rails.env.production? || ENV["SEED"]
     end
   end
 
-  Decidim::OAuthApplication.create!(
+  oauth_application = Decidim::OAuthApplication.create!(
     organization: organization,
     name: "Test OAuth application",
     organization_name: "Example organization",
     organization_url: "http://www.example.org",
-    organization_logo: File.new(File.join(seeds_root, "homepage_image.jpg")), # Keep after organization
     redirect_uri: "https://www.example.org/oauth/decidim",
     scopes: "public"
   )
 
+  oauth_application.organization_logo.attach(io: File.open(File.join(seeds_root, "homepage_image.jpg")), filename: "organization_logo.jpg", content_type: "image/jpeg")
+
   Decidim::System::CreateDefaultContentBlocks.call(organization)
 
   hero_content_block = Decidim::ContentBlock.find_by(organization: organization, manifest_name: :hero, scope_name: :homepage)
-  hero_content_block.images_container.background_image = File.new(File.join(seeds_root, "homepage_image.jpg"))
+  hero_content_block.images_container.background_image = ActiveStorage::Blob.create_and_upload!(
+    io: File.open(File.join(seeds_root, "homepage_image.jpg")),
+    filename: "homepage_image.jpg",
+    content_type: "image/jpeg",
+    metadata: nil
+  )
   settings = {}
   welcome_text = Decidim::Faker::Localized.sentence(word_count: 5)
   settings = welcome_text.inject(settings) { |acc, (k, v)| acc.update("welcome_text_#{k}" => v) }

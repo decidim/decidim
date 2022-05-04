@@ -5,7 +5,7 @@ require "devise/models/decidim_newsletterable"
 require "valid_email2"
 
 module Decidim
-  # A User is a citizen that wants to join the platform to participate.
+  # A User is a participant that wants to join the platform to engage.
   class User < UserBaseEntity
     include Decidim::DataPortability
     include Decidim::Searchable
@@ -34,6 +34,7 @@ module Decidim
     has_many :user_groups, through: :memberships, class_name: "Decidim::UserGroup", foreign_key: :decidim_user_group_id
     has_many :access_grants, class_name: "Doorkeeper::AccessGrant", foreign_key: :resource_owner_id, dependent: :destroy
     has_many :access_tokens, class_name: "Doorkeeper::AccessToken", foreign_key: :resource_owner_id, dependent: :destroy
+    has_many :reminders, foreign_key: "decidim_user_id", class_name: "Decidim::Reminder", dependent: :destroy
 
     has_one :blocking, class_name: "Decidim::UserBlock", foreign_key: :id, primary_key: :block_id, dependent: :destroy
 
@@ -50,7 +51,7 @@ module Decidim
 
     validate :all_roles_are_valid
 
-    mount_uploader :avatar, Decidim::AvatarUploader
+    has_one_attached :data_portability_file
 
     scope :not_deleted, -> { where(deleted_at: nil) }
 
@@ -60,17 +61,11 @@ module Decidim
     scope :officialized, -> { where.not(officialized_at: nil) }
     scope :not_officialized, -> { where(officialized_at: nil) }
 
-    scope :confirmed, -> { where.not(confirmed_at: nil) }
-    scope :not_confirmed, -> { where(confirmed_at: nil) }
-
-    scope :blocked, -> { where(blocked: true) }
-    scope :not_blocked, -> { where(blocked: false) }
-
     scope :interested_in_scopes, lambda { |scope_ids|
       actual_ids = scope_ids.select(&:presence)
       if actual_ids.count.positive?
         ids = actual_ids.map(&:to_i).join(",")
-        where("extended_data->'interested_scopes' @> ANY('{#{ids}}')")
+        where(Arel.sql("extended_data->'interested_scopes' @> ANY('{#{ids}}')").to_s)
       else
         # Do not apply the scope filter when there are scope ids available. Note
         # that the active record scope must always return an active record
@@ -87,10 +82,11 @@ module Decidim
                         # scope_id: :decidim_scope_id,
                         organization_id: :decidim_organization_id,
                         A: :name,
+                        B: :nickname,
                         datetime: :created_at
                       },
-                      index_on_create: ->(user) { !user.deleted? },
-                      index_on_update: ->(user) { !user.deleted? })
+                      index_on_create: ->(user) { !(user.deleted? || user.blocked?) },
+                      index_on_update: ->(user) { !(user.deleted? || user.blocked?) })
 
     before_save :ensure_encrypted_password
 
@@ -103,6 +99,10 @@ module Decidim
     #
     # Returns a String.
     attr_accessor :invitation_instructions
+
+    def invitation_pending?
+      invited_to_sign_up? && !invitation_accepted?
+    end
 
     # Returns the user corresponding to the given +email+ if it exists and has pending invitations,
     #   otherwise returns nil.
@@ -228,14 +228,6 @@ module Decidim
 
     def user_name
       extended_data["user_name"] || name
-    end
-
-    # Caches a Decidim::DataPortabilityUploader with the retrieved file.
-    def data_portability_file(filename)
-      @data_portability_file ||= DataPortabilityUploader.new(self).tap do |uploader|
-        uploader.retrieve_from_store!(filename)
-        uploader.cache!(filename)
-      end
     end
 
     # return the groups where this user has been accepted

@@ -3,7 +3,7 @@
 module Decidim
   module Initiatives
     # This query searches scopes by name.
-    class FreetextInitiativeTypes < Rectify::Query
+    class FreetextInitiativeTypes < Decidim::Query
       # Syntactic sugar to initialize the class and return the queried objects.
       #
       # organization - an Organization context for the initiative type search

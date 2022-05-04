@@ -3,7 +3,7 @@
 module Decidim
   module Admin
     # A command with all the business logic to transfer a managed user.
-    class TransferUser < Rectify::Command
+    class TransferUser < Decidim::Command
       # Public: Initializes the command.
       #
       # form

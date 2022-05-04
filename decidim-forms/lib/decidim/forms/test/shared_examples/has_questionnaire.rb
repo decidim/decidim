@@ -241,6 +241,9 @@ shared_examples_for "has questionnaire" do
 
       it "shows errors without submitting the form" do
         expect(page).to have_no_selector ".alert.flash"
+        different_error = I18n.t("decidim.forms.questionnaires.answer.max_choices_alert")
+        expect(different_error).to eq("There are too many choices selected")
+        expect(page).not_to have_content(different_error)
 
         expect(page).to have_content("can't be blank")
       end

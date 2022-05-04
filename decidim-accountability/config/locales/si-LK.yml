@@ -3,18 +3,51 @@ si:
     attributes:
       result:
         decidim_accountability_status_id: තත්වය
+        decidim_category_id: ප්‍රවර්ගය
+        description: සවිස්තරය
+        title: මාතෘකාව
       status:
+        description: සවිස්තරය
+        key: යතුර
         name: නම
       timeline_entry:
+        description: සවිස්තරය
         entry_date: දිනය
+  activerecord:
+    models:
+      decidim/accountability/result:
+        one: ප්‍රතිඵලය
+        other: ප්‍රතිඵල
   decidim:
     accountability:
       actions:
+        attachment_collections: බහාලුම්
+        attachments: ඇමුණුම්
         edit: සංස්කරණය
+        preview: පෙරදසුන
+        title: ක්‍රියාමාර්ග
       admin:
+        exports:
+          result_comments: අදහස්
+          results: ප්‍රතිඵල
+        import_results:
+          new:
+            import: ආයාත කරන්න
+            link: සබැඳිය
         models:
+          result:
+            name: ප්‍රතිඵලය
           status:
             name: තත්වය
+        results:
+          index:
+            title: ප්‍රතිඵල
+        shared:
+          subnav:
+            statuses: තත්වයන්
+        statuses:
+          edit:
+            title: තත්වය සංස්කරණය
       content_blocks:
         highlighted_results:
           dates: දින

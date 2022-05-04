@@ -6,7 +6,6 @@ sr:
         show_replies: Prikaži %{replies_count} odgovora
       comments:
         comment_details_title: Detalji o komentaru
-        single_comment_warning: Možete videti ostale komentare <a href="%{url}">ovde</a>.
         single_comment_warning_title: Vidite samo jedan komentar
     events:
       comments:

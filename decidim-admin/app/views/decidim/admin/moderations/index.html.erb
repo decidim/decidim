@@ -49,7 +49,7 @@
               </td>
               <td>
                 <%=
-                  link_to t("models.moderation.fields.visit_url", scope: "decidim.moderations"), moderation.reportable.reported_content_url, data: { tooltip: true }, aria: { haspopup: true }, title: strip_tags(reported_content_excerpt_for(moderation.reportable, limit: 250))
+                  link_to t("models.moderation.fields.visit_url", scope: "decidim.moderations"), moderation.reportable.reported_content_url, data: { tooltip: true }, title: strip_tags(reported_content_excerpt_for(moderation.reportable, limit: 250))
                 %>
               </td>
               <td>

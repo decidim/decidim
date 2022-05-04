@@ -38,7 +38,6 @@ sk:
         enable_omnipresent_banner: Zobraziť všadeprítomný banner
         facebook_handler: Facebook handler
         favicon: Ikona
-        from: Z e-mailovej adresy
         github_handler: GitHub handler
         header_snippets: Krátke kódy v HTML hlavičke
         highlighted_content_banner_action_subtitle: Podnadpis tlačítka Akcie
@@ -133,12 +132,10 @@ sk:
           error: Pri odsúhlasení podmienok použitia nastala chyba.
           success: Skvele! Odsúhlasili ste podmienky použitia pre administrátorov.
         actions:
-          are_you_sure: Ste si istí, že chcete odmietnuť podmienky použitia pre administrátorov?
           refuse: "Odmietnuť podmienky použitia pre administrátorov.\n"
           title: Súhasím s podmienkami použitia.
         required_review:
           alert: 'Vyžaduje sa: oboznámiť sa s administrátorskými podmienkami použitia'
-          callout: Prosíme, nájdite si chvíľu pre oboznámenie sa s administrátorskými podmienkami použitia, inak nebudete môcť spravovať platformu.
           cta: Oboznámte sa s nimi teraz.
         title: Administrátorské podmienky použitia
       area_types:
@@ -161,7 +158,6 @@ sk:
           error: Pri tvorbe novej oblasti nastala chyba.
           success: Oblasť úspešne vytvorená.
         destroy:
-          has_spaces: Oblasť má priradené priestory, ktoré nesmie mať, ak má byť vymazaná.
           success: Oblasť úspešne vymazaná
         edit:
           title: Upravit oblasť
@@ -268,7 +264,6 @@ sk:
       dashboard:
         show:
           view_more_logs: Zobraziť viac logov
-          welcome: Vitajte v Administrátorskom Paneli Decidim.
       exports:
         export_as: "%{name} ako %{export_format}"
         notice: Váš export práve prebieha. Obdržíte e-mail po dokončení.
@@ -458,7 +453,6 @@ sk:
       newsletters:
         create:
           error: Vyskytol sa problém s vytváraním spravodaja.
-          success: Spravodaj úspešne vytvorený. Prosíme skontrolujte ho pred odoslaním.
         deliver:
           error: Vyskytol sa problém s doručením spravodaja.
           success: Spravodaj doručený úspešne.
@@ -534,12 +528,10 @@ sk:
           officialize: Oficializovať
           title: Oficializovať účastníka "%{name}"
         show_email_modal:
-          description: Ak potrebujete účastníka kontaktovať priamo, môžete kliknúť na tlačidlo "Ukázať" pre zobrazenie e-mailovej adresy. Táto udalosť bude logovaná.
           email_address: E-mailová adresa
           full_name: Meno a priezvisko
           hidden: skryté
           show: Zobraziť
-          title: Zobraziť e-mailovú adresu účastníka
       organization:
         edit:
           title: Upraviť organizáciu
@@ -695,7 +687,6 @@ sk:
         static_pages: Stránky
         statistics: Aktivita
         user_groups: Skupiny
-        users: Účastníci
       user_group:
         csv_verify:
           invalid: Vyskytol sa problém s čítaním súboru CSV.
@@ -708,13 +699,6 @@ sk:
           success: Skupina úspešne verifikovaná
       user_groups:
         index:
-          filter:
-            all: Všetko
-            pending: Čakajúce
-            rejected: Odmietnuté
-            verified: Overené
-          filter_by: Filtrovať podľa
-          search: Hľadať
           state:
             pending: Čakajúce
             rejected: Odmietnuté
@@ -738,7 +722,6 @@ sk:
           role: Rola
         new:
           create: Pozvať
-          title: Pozvať účastníka ako administrátora
       users_statistics:
         users_count:
           admins: Administrátori
@@ -748,10 +731,6 @@ sk:
           no_users_count_statistics_yet: Zatiaľ nie sú žiadne štatistiky o počte užívateľov
           participants: Účastníci
       view_public_page: Zobraziť verejnú stránku
-    forms:
-      errors:
-        impersonate_user:
-          reason: Musíte zadať dôvod, keď spravujete nespravovaného účastníka
     moderations:
       actions:
         hidden: Skryté

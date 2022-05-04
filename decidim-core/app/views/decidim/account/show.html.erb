@@ -17,12 +17,20 @@
       <%= f.url_field :personal_url %>
       <%= f.text_area :about, rows: 5 %>
 
+      <%= f.collection_select(
+            :locale,
+            @account.organization.available_locales,
+            :to_s,
+            ->(locale) {locale_name(locale) }
+          ) %>
+      <p class="help-text"><%= t(".available_locales_helper") %></p>
+
       <% if @account.errors[:password].any? || @account.errors[:password_confirmation].any? %>
         <%= render partial: "password_fields", locals: { form: f } %>
       <% else %>
         <% if current_organization.sign_in_enabled? %>
           <p>
-            <a data-toggle="passwordChange" class="change-password" href="#passwordChange"><%= t ".change_password" %></a>
+            <button type="button" data-toggle="passwordChange" class="link change-password"><%= t ".change_password" %></button>
           </p>
           <div id="passwordChange" class="toggle-show" data-toggler=".is-expanded">
             <%= render partial: "password_fields", locals: { form: f } %>

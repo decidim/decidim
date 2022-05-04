@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require "selenium-webdriver"
-require "system_test_html_screenshots"
 
 module Decidim
   # Helpers meant to be used only during capybara test runs.
@@ -30,7 +29,7 @@ Capybara.register_driver :headless_chrome do |app|
   options.args << if ENV["BIG_SCREEN_SIZE"].present?
                     "--window-size=1920,3000"
                   else
-                    "--window-size=1024,768"
+                    "--window-size=1920,1080"
                   end
 
   Capybara::Selenium::Driver.new(

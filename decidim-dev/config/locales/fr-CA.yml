@@ -20,10 +20,18 @@ fr-CA:
               a: Choix A
               b: Choix B
               c: Choix C
+            test_options:
+              bar: Seuil
+              baz: Baz
+              foo: Foo
           step:
             endorsements_blocked: Bloquer les soutiens
             endorsements_enabled: Soutiens activés
             readonly_step_attribute: Attribut étape en lecture seule
+            test_options:
+              bar: Seuil
+              baz: Baz
+              foo: Foo
     dummy:
       admin:
         exports:

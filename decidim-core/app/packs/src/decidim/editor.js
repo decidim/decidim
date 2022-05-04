@@ -1,8 +1,10 @@
 /* eslint-disable require-jsdoc */
 
 import lineBreakButtonHandler from "src/decidim/editor/linebreak_module"
+import "src/decidim/vendor/image-resize.min"
+import "src/decidim/vendor/image-upload.min"
 
-const quillFormats = ["bold", "italic", "link", "underline", "header", "list", "video", "image", "alt", "break"];
+const quillFormats = ["bold", "italic", "link", "underline", "header", "list", "video", "image", "alt", "break", "width", "style", "code", "blockquote", "indent"];
 
 export default function createQuillEditor(container) {
   const toolbar = $(container).data("toolbar");
@@ -11,12 +13,16 @@ export default function createQuillEditor(container) {
   let quillToolbar = [
     ["bold", "italic", "underline", "linebreak"],
     [{ list: "ordered" }, { list: "bullet" }],
-    ["link", "clean"]
+    ["link", "clean"],
+    ["code", "blockquote"],
+    [{ "indent": "-1"}, { "indent": "+1" }]
   ];
+
+  let addImage = $(container).data("editorImages");
 
   if (toolbar === "full") {
     quillToolbar = [
-      [{ header: [1, 2, 3, 4, 5, 6, false] }],
+      [{ header: [2, 3, 4, 5, 6, false] }],
       ...quillToolbar,
       ["video"]
     ];
@@ -27,19 +33,48 @@ export default function createQuillEditor(container) {
     ];
   }
 
+  if (addImage) {
+    quillToolbar.push(["image"]);
+  }
+
+  let modules = {
+    linebreak: {},
+    toolbar: {
+      container: quillToolbar,
+      handlers: {
+        "linebreak": lineBreakButtonHandler
+      }
+    }
+  };
   const $input = $(container).siblings('input[type="hidden"]');
   container.innerHTML = $input.val() || "";
-
-  const quill = new Quill(container, {
-    modules: {
-      linebreak: {},
-      toolbar: {
-        container: quillToolbar,
-        handlers: {
-          "linebreak": lineBreakButtonHandler
-        }
+  const token = $('meta[name="csrf-token"]').attr("content");
+  if (addImage) {
+    modules.imageResize = {
+      modules: ["Resize", "DisplaySize"]
+    }
+    modules.imageUpload = {
+      url: $(container).data("uploadImagesPath"),
+      method: "POST",
+      name: "image",
+      withCredentials: false,
+      headers: { "X-CSRF-Token": token },
+      callbackOK: (serverResponse, next) => {
+        $("div.ql-toolbar").last().removeClass("editor-loading")
+        next(serverResponse.url);
+      },
+      callbackKO: (serverError) => {
+        $("div.ql-toolbar").last().removeClass("editor-loading")
+        console.log(`Image upload error: ${serverError.message}`);
+      },
+      checkBeforeSend: (file, next) => {
+        $("div.ql-toolbar").last().addClass("editor-loading")
+        next(file);
       }
-    },
+    }
+  }
+  const quill = new Quill(container, {
+    modules: modules,
     formats: quillFormats,
     theme: "snow"
   });
@@ -67,6 +102,13 @@ export default function createQuillEditor(container) {
   // After editor is ready, linebreak_module deletes two extraneous new lines
   quill.emitter.emit("editor-ready");
 
+  if (addImage) {
+    const text = $(container).data("dragAndDropHelpText");
+    $(container).after(`<p class="help-text" style="margin-top:-1.5rem;">${text}</p>`);
+  }
+
+  // After editor is ready, linebreak_module deletes two extraneous new lines
+  quill.emitter.emit("editor-ready");
+
   return quill;
 }
-

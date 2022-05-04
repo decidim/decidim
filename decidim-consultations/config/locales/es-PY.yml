@@ -251,9 +251,9 @@ es-PY:
       filters:
         active: Activo
         all: Todas
+        date: Fecha
         finished: Completada
         search: Buscar
-        state: Estado
         upcoming: Próximo
       filters_small_view:
         close_modal: Cerrar ventana
@@ -359,6 +359,7 @@ es-PY:
     resources:
       consultations:
         actions:
+          comment: Comentar
           vote: Votar
     statistics:
       consultations_count: Consultas

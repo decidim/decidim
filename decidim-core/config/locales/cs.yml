@@ -22,6 +22,7 @@ cs:
       user:
         about: O nás
         email: Váš email
+        locale: Jazyk
         name: Vaše jméno
         nickname: Přezdívka
         password: Heslo
@@ -75,7 +76,6 @@ cs:
     'true': 'Ano'
   carrierwave:
     errors:
-      general: Chyba při zpracování obrázku
       image_too_big: Obraz je příliš velký
       not_inside_organization: Soubor není připojen k žádné organizaci
   date:
@@ -85,9 +85,53 @@ cs:
       decidim_with_day_and_month_name: "%A %d %b %Y"
       decidim_with_month_name: "%d %B %Y"
       decidim_with_month_name_short: "%d %b"
+  datetime:
+    distance_in_words:
+      about_x_hours:
+        one: asi 1 hodina
+        few: asi %{count} hodiny
+        many: asi %{count} hodin
+        other: asi %{count} hodin
+      about_x_months:
+        one: asi 1 měsíc
+        few: asi %{count} měsíce
+        many: asi %{count} měsíců
+        other: asi %{count} měsíců
+      half_a_minute: půl minuty
+      less_than_x_minutes:
+        one: méně než minutu.
+        few: méně než %{count} minuty.
+        many: méně než %{count} minut.
+        other: méně než %{count} minut.
+      less_than_x_seconds:
+        one: právě teď
+        few: méně než %{count} vteřiny.
+        many: méně než %{count} vteřin.
+        other: méně než %{count} vteřin.
+      x_days:
+        one: před 1 dnem
+        few: "před %{count} dny"
+        many: "před %{count} ti dny"
+        other: "před %{count} ti dny"
+      x_hours:
+        one: před 1 hodinou
+        few: "před %{count} hodinami"
+        many: "před %{count} hodinami"
+        other: "před %{count} hodinami"
+      x_minutes:
+        one: před 1 minutou
+        few: "před %{count} minutami"
+        many: "před %{count} minutami"
+        other: "před %{count} minutami"
+      x_seconds:
+        one: před 1 vteřinou
+        few: "před %{count} vteřinami"
+        many: "před %{count} vteřinami"
+        other: "před %{count} vteřinami"
   decidim:
     accessibility:
       external_link: Externí odkaz
+      front_page_link: Přejít na titulní stránku
       logo: "Oficiální logo %{organization}"
       skip_button: Přeskočit na hlavní obsah
     account:
@@ -107,6 +151,7 @@ cs:
         error: Při mazání účtu došlo k chybě.
         success: Účet byl úspěšně smazán.
       show:
+        available_locales_helper: Vyberte jazyk, který chcete použít k procházení a přijímání oznámení na platformě
         change_password: Změnit heslo
         update_account: Aktualizovat účet
       update:
@@ -377,6 +422,7 @@ cs:
           debate: Debata
           initiative: Iniciativa
           meeting: Schůzka
+          order: Hlasování o rozpočtu
           post: Příspěvek
           proposal: Návrh
           question: Otázka
@@ -527,6 +573,11 @@ cs:
           this_application_will_not_be_able_to: 'Tato aplikace nebude moci:'
           update_profile: Aktualizujte svůj profil
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> chce používat váš účet"
+    editor_images:
+      create:
+        error: Chyba při nahrávání obrázku
+        success: Obrázek byl úspěšně nahrán
+      drag_and_drop_help: Přidejte obrázky přetažením nebo vložením.
     endorsable:
       endorsements: Schválení
       endorsements_count: Počet schvalování
@@ -686,6 +737,11 @@ cs:
           email_outro: Toto oznámení jste obdrželi, protože jste sledovali %{nickname}. Na předchozím odkazu můžete přestat přijímat oznámení.
           email_subject: "%{nickname} aktualizoval svůj profil"
           notification_title: <a href="%{resource_path}">Profilová stránka</a> od %{name} (%{nickname}), kterou sledujete, byla aktualizována.
+        user_officialized:
+          email_intro: Uživatel %{name} (%{nickname}) byl oficiálně zveřejněn.
+          email_outro: Obdrželi jste toto oznámení, protože jste správcem organizace.
+          email_subject: "%{name} byl oficializován"
+          notification_title: Uživatel %{name} (%{nickname}) byl oficiálně zveřejněn.
     export_mailer:
       data_portability_export:
         click_button: 'Klikněte na následující odkaz pro stažení vašich dat.<br/>Soubor bude k dispozici do %{date}.<br/>Budete potřebovat <a href="https://www.7-zip.org/">7-Zip</a> (pro Windows), <a href="https://www.keka.io/en/">Keka</a> (pro MacOS) nebo <a href="https://peazip.github.io">PeaZip</a> (pro Linux) pro jeho otevření. Heslo: %{password}'
@@ -719,6 +775,7 @@ cs:
       no_followers: Zatím žádní sledující.
     following:
       no_followings: Nesleduje nikoho ani nic.
+      non_public_followings: Některé z uvedených zdrojů nejsou veřejné.
     follows:
       create:
         button: Sledovat
@@ -728,7 +785,6 @@ cs:
         button: Ukončit sledování
         error: Při sledování tohoto zdroje došlo k chybě.
     forms:
-      current_file: Aktuální soubor
       current_image: Aktuální obrázek
       default_image: Výchozí obrázek
       errors:
@@ -748,7 +804,26 @@ cs:
       file_validation:
         allowed_file_extensions: 'Povolené přípony souborů: %{extensions}'
         max_file_size: 'Maximální velikost souboru: %{megabytes}MB'
-      remove_this_file: Odstranit tento soubor
+      upload:
+        labels:
+          add_attachment: Přidat přílohu
+          add_file: Přidat soubor
+          add_image: Přidat obrázek
+          cancel: Zrušit
+          edit_image: Upravit obrázek
+          error: Chyba!
+          file_too_big: 'Soubor je příliš velký! Maximun velikost souboru: %{megabytes}MB'
+          remove: Odebrat
+          replace: Nahradit
+          save: Uložit
+          title: Název
+          title_required: Název je povinný!
+          uploaded: Nahráno
+          validating: Probíhá ověřování...
+          validation_error: Chyba ověření!
+      upload_help:
+        dropzone: Přetáhněte soubory sem nebo klikněte pro nahrání
+        explanation: Návod pro %{attribute}
     gamification:
       all_badges_link: Zobrazit všechny dostupné odznaky.
       badges:
@@ -984,6 +1059,7 @@ cs:
           next: Další
           no_conversations: Nemáte zatím žádné konverzace
           title: Konverzace
+          to: Komu
         reply:
           placeholder: Vaše odpověď...
           send: Poslat
@@ -991,6 +1067,7 @@ cs:
         show:
           back: Zpět ke všem konverzacím
           chat_with: Konverzace s
+          deleted_accounts: Nemůžete mít konverzaci s odstraněnými účty.
           not_allowed: Tento uživatel nepřijímá přímé zprávy.
           title: Konverzace s číslem %{usernames}
         start:
@@ -1058,6 +1135,12 @@ cs:
         greetings: Zdravím,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Ahoj,
         subject: Chcete nadále dostávat příslušné informace o %{organization_name}?
+    notification_mailer:
+      event_received:
+        no_translation_available: Omlouváme se, po odeslání e-mailu nelze získat automatický překlad. Překlad původního textu můžete zkontrolovat na následujícím odkazu %{link}.
+        original_text: 'Původní text:'
+        same_language: Obsah byl zveřejněn ve vašem preferovaném jazyce (%{language}), proto se v tomto e-mailu nezobrazuje automatický překlad.
+        translated_text: 'Automaticky přeložený text:'
     notifications:
       no_notifications: Zatím žádné oznámení.
     notifications_settings:
@@ -1077,6 +1160,10 @@ cs:
       update:
         error: Při aktualizaci nastavení oznámení došlo k chybě.
         success: Nastavení oznámení bylo úspěšně aktualizováno.
+    offline:
+      show:
+        message: Vypadá to, že jste v režimu offline. Zkuste to prosím později.
+        retry: Zkusit znovu
     open_data:
       not_available_yet: Soubory Open Data nejsou dosud k dispozici. Zkuste to prosím znovu za pár minut.
     own_user_groups:
@@ -1288,6 +1375,8 @@ cs:
         close_modal: Zavřít okno
         please_sign_in: Přihlaste se, prosím
         sign_up: Přihlásit se
+      mentions_modal:
+        remove_recipient: Odebrat příjemce %{name}
       participatory_space_filters:
         filters:
           areas: Oblasti
@@ -1357,6 +1446,7 @@ cs:
         title_reply: Odpovědět
       show:
         back: Zobrazit všechny konverzace
+        deleted_accounts: Nemůžete mít konverzaci s odstraněnými účty.
         not_allowed: Tento uživatel již nepřijímá žádné přímé zprávy.
         title: Konverzace s %{usernames}
       update:
@@ -1374,6 +1464,7 @@ cs:
       notify:
         body_1: Uživatel %{user} byl nahlášen od %{token}
         body_2: 'Důvod: %{reason}'
+        details: Podrobnosti poskytnuté uživatelem
         greetings: Zdravíme<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Dobrý den %{admin},
         subject: Nový uživatel byl nahlášen v %{organization_name}
@@ -1625,6 +1716,8 @@ cs:
       notifications_dashboard:
         mark_all_as_read: Označit vše jako přečtené
         mark_as_read: Označit jako přečtené
+      offline_banner:
+        cache_version_page: Jejda! Vaše síť je offline. Toto je dříve uložená verze stránky, kterou navštívíte, možná není aktualizovaná.
       social_media_links:
         facebook: "%{organization} na Facebooku"
         github: "%{organization} na GitHubu"
@@ -1636,6 +1729,8 @@ cs:
         continue_session: Pokračovat v relaci
         sign_out: Odhlásit se
         title: Chcete pokračovat v relaci?
+      upload_modal:
+        close_modal: Zavřít modal
       user_menu:
         account: 'Uživatelský účet: %{name}'
         admin_dashboard: Ovládací panel
@@ -1660,10 +1755,12 @@ cs:
     name: Čeština
     name_with_error: Čeština
   password_validator:
+    blacklisted: je na černé listině
     domain_included_in_password: je příliš podobné tomuto názvu domény
     email_included_in_password: je příliš podobný e-mailu
     fallback: není platný
     name_included_in_password: je příliš podobné vašemu jménu
+    nickname_included_in_password: je příliš podobné vaší přezdívce
     not_enough_unique_characters: nemá dostatek jedinečných znaků
     password_not_allowed: není povoleno
     password_too_common: je příliš běžné
@@ -1698,6 +1795,8 @@ cs:
       day_of_week: "%a"
       day_of_week_long: "%a %e"
       day_of_year: "%d.%m.%y"
+      ddmm: "%d.%m"
+      ddmmyyyy: "%d.%m.%Y"
       decidim_day_of_year: "%d %B %Y"
       decidim_short: "%d/%m/%Y %H:%M"
       default: "%a, %d %b %Y %H:%M:%S %z"
@@ -1716,6 +1815,7 @@ cs:
     dropdown:
       choose_diff_view_html: 'Režim HTML zobrazení:'
       choose_diff_view_mode: 'Mód srovnávacího zobrazení:'
+      choose_diff_view_mode_menu: Vyberte režim porovnání
       option_escaped: Escapované
       option_split: Vedle sebe
       option_unescaped: Neošetřené Esc

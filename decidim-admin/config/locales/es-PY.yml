@@ -132,6 +132,7 @@ es-PY:
       new_import:
         attributes:
           file:
+            invalid_file: El archivo proporcionado no es válido, por favor comprueba que el archivo está correctamente formateado
             invalid_mime_type: Tipo de mime inválido
   activerecord:
     attributes:
@@ -158,6 +159,8 @@ es-PY:
         browse: Explorar
         category:
           new: Nueva categoría
+        export: Exportar todo
+        export-selection: Exportar selección
         import: Importar
         manage: Gestionar
         new: Nuevo %{name}
@@ -170,7 +173,7 @@ es-PY:
         reject: Rechazar
         share: Compartir
         user:
-          new: Nuevo ususario
+          new: Nueva administradora
         verify: Verificar
       admin_terms_of_use:
         accept:
@@ -178,12 +181,12 @@ es-PY:
           success: '¡Genial! Has aceptado los Términos y Condiciones de Administración.'
         actions:
           accept: Estoy de acuerdo con los siguientes términos
-          are_you_sure: '¿Estás seguro de rechazar los Términos y Condiciones de Administración?'
+          are_you_sure: '¿Seguro que deseas rechazar los términos de uso para administradoras?'
           refuse: Rechazar los Términos y Condiciones de Administración
           title: Acepto los Términos y Condiciones de Administración
         required_review:
           alert: 'Requerido: revisa nuestros Términos y Condiciones de Administración'
-          callout: Por favor dedica un momento a revisar la actualización de nuestros Términos y Condiciones de Administración. De lo contrario, no podrás usar la plataforma.
+          callout: Por favor dedica un momento a familiarizarte con los términos de uso para administradoras. En caso contrario, no podrás administrar la plataforma.
           cta: Revísalos ahora.
         title: Términos y Condiciones de Administración
       area_types:
@@ -206,7 +209,7 @@ es-PY:
           error: Hubo un error al crear una nueva área.
           success: Área creada correctamente.
         destroy:
-          has_spaces: El área tiene espacios dependientes, no debe tener dependencias para ser eliminada.
+          has_spaces: Esta área tiene espacios dependientes. Asegúrate de que no hace referencia a ningún espacio de participación antes de eliminarla.
           success: Área destruida correctamente
         edit:
           title: Editar área
@@ -253,13 +256,15 @@ es-PY:
         update:
           error: Se ha producido un error al actualizar este archivo adjunto.
           success: Adjunto actualizado correctamente.
+      attachments_privacy_warning:
+        message: Por favor ten cuidado al trabajar con archivos adjuntos en un espacio privado. Cualquier participante puede compartir este documento con otras.
       autocomplete:
         no_results: No se han encontrado resultados
         search_prompt: Escriba al menos tres caracteres para buscar
       block_user:
         new:
           action: Bloquear cuenta y enviar justificación
-          description: El bloqueo de una usuaria dejará su cuenta inservible, puede proporcionar en su justificación y directrices sobre las formas que consideres para desbloquear a la usuaria.
+          description: El bloqueo de una usuaria dejará su cuenta inutilizable. Puedes proporcionar en tu justificación los criterios bajo los cuales considerarías desbloquearla.
           justification: Justificación
           title: Bloquear a la usuaria %{name}
       categories:
@@ -322,7 +327,7 @@ es-PY:
         'false': 'No'
         managed_user_name: Usuario gestionado
         solved: Resuelto
-        title: Conflictos de verificaciones
+        title: Conflictos de verificación
         transfer:
           email: Correo electrónico
           error: Hubo un problema al transferir el participante actual a un participante gestionado.
@@ -335,7 +340,13 @@ es-PY:
       dashboard:
         show:
           view_more_logs: Ver más registros
-          welcome: Bienvenido al panel de administración de Decidim.
+          welcome: Bienvenida al panel de administración.
+      domain_whitelist:
+        form:
+          domain_too_short: Dominio demasiado corto
+        update:
+          error: Error al actualizar la lista blanca del dominio
+          success: Lista blanca de dominio actualizada correctamente
       exports:
         export_as: "%{name} como %{export_format}"
         formats:
@@ -348,6 +359,23 @@ es-PY:
         category_id_eq:
           label: Categoría
         filter_label: Filtro
+        invitation_accepted_at_present:
+          label: Invitación aceptada
+          values:
+            'false': 'No'
+            'true': 'Sí'
+        last_sign_in_at_present:
+          label: Alguna vez se ha conectado
+          values:
+            'false': 'No'
+            'true': 'Sí'
+        moderated_users:
+          reports_reason_eq:
+            label: Motivo de la denuncia
+            values:
+              does_not_belong: No pertenece
+              offensive: Ofensivo
+              spam: Spam
         moderations:
           reportable_type_string_eq:
             label: Tipo
@@ -382,11 +410,18 @@ es-PY:
         search_label: Buscar
         search_placeholder:
           name_or_nickname_or_email_cont: Buscar %{collection} por correo electrónico, nombre o alias.
+          report_count_eq: Número de denuncias
           reported_id_string_or_reported_content_cont: Buscar %{collection} por contenido o id reportable.
           title_cont: Buscar %{collection} por título.
           user_name_or_user_email_cont: Busca %{collection} por nombre o por correo electrónico.
+          user_name_or_user_nickname_or_user_email_cont: Buscar %{collection} por correo electrónico, nombre o alias.
         state_eq:
           label: Estado
+          values:
+            all: Todos
+            pending: Pendiente
+            rejected: Rechazado
+            verified: Verificado
       forms:
         file_help:
           import:
@@ -432,13 +467,31 @@ es-PY:
           impersonate_existing_user: Impersonar usuario "%{name}"
           impersonate_new_managed_user: Impersonar a un nuevo usuario administrado
       imports:
-        creators:
-          proposalcreator: Creador de propuesta
+        and: "y"
+        data_errors:
+          duplicate_headers:
+            detail: Por favor, comprueba que el archivo contiene las columnas requeridas y que la cabecera no está repetida.
+            message:
+              one: Duplicar columna %{columns}.
+              other: Duplicar columnas %{columns}.
+          invalid_indexes:
+            lines:
+              detail: Por favor, comprueba que estas líneas están formateadas correctamente y contienen registros válidos.
+              message:
+                one: Se encontró un error en el archivo de importación en la línea %{indexes}.
+                other: Se encontraron errores en el archivo de importación en las líneas %{indexes}.
+            records:
+              detail: Por favor, comprueba que estas líneas están formateadas correctamente y contienen registros válidos.
+              message:
+                one: Se encontró un error en el archivo de importación para los registros con números de ordenación %{indexes}.
+                other: Se encontraron errores en el archivo de importación para los registros con números de ordenación %{indexes}.
+          missing_headers:
+            detail: Por favor, comprueba que el archivo contiene las columnas requeridas.
+            message:
+              one: Falta la columna %{columns}.
+              other: Faltan las columnas %{columns}.
         error: Se ha producido un error durante la importación
-        help:
-          proposalcreator: El archivo debe incluir los nombres de columna title/en y body/en (u otro idioma de tu preferencia, por ejemplo title/es y body/es). También se admiten las columnas scope/id y category/id.
-        import_from_file: Importar desde un archivo
-        invalid_lines: Se ha encontrado un error en el número de recurso %{invalid_lines}
+        example_error: No se pudo crear un ejemplo para el tipo dado
         new:
           accepted_mime_types:
             csv: csv
@@ -446,6 +499,8 @@ es-PY:
             xlsx: xlsx
           actions:
             back: Volver
+          download_example: Descargar ejemplo
+          download_example_format: Ejemplo como %{name}
           file_legend: Añadir un archivo de importación que será procesado.
           import: Importar
         notice: "%{number} %{resource_name} importado correctamente"
@@ -469,6 +524,7 @@ es-PY:
         areas: Áreas
         configuration: Configuración
         dashboard: Panel de control
+        external_domain_whitelist: Dominios externos permitidos
         help_sections: Secciones de ayuda
         homepage: Página principal
         impersonations: Impersonaciones
@@ -617,7 +673,7 @@ es-PY:
       newsletters:
         create:
           error: Se ha producido un error al crear este boletín.
-          success: Boletín creado con éxito. Por favor, revíselo antes de enviarlo.
+          success: Boletín creado correctamente. Por favor, revísalo antes de enviarlo.
         deliver:
           error: Ha habido un error de entrega de este boletín.
           success: Boletín enviado con éxito.
@@ -705,7 +761,7 @@ es-PY:
           full_name: Nombre completo
           hidden: oculto
           show: Mostrar
-          title: Mostrar dirección de correo del participante
+          title: Mostrar dirección de correo de la participante
         unblock:
           error: Se ha producido un error al desbloquear a la participante
           success: Participante desbloqueada correctamente
@@ -731,6 +787,7 @@ es-PY:
         form:
           colors:
             colors_title: Colores de organizacion
+            colors_warning_html: '¡Advertencia! Cambiar estos colores puede romper los contrastes de accesibilidad. Puedes comprobar el contraste de tu elección con <a href="%{link}">WebAIM Contrast Checker</a> u otras herramientas similares.'
             header_snippets_help: Utiliza este campo para agregar cosas a la cabecera HTML. El uso más común es integrar servicios de terceros que requieran JavaScript o CSS adicionales. Además, puedes usarlo para agregar etiquetas HTML adicionales. Ten en cuenta que esto sólo se mostrará en las páginas públicas, no en la sección de administración.
           cta_button_path_help: 'Puedes sobrescribir el enlace al botón de acción principal en la página principal. Usa rutas parciales, no URLs completas aquí. Acepta letras, números, guiones y barras, y debe comenzar con una letra. El botón de acción principal se muestra en la página de inicio entre el texto de bienvenida y la descripción. Ejemplo: %{url}'
           cta_button_text_help: Puedes sobrescribir el texto del botón de acción principal en la página de inicio para cada idioma disponible en tu organización. Si no está configurado, se usará el valor predeterminado. El botón de acción principal se muestra en la página de inicio entre el texto de bienvenida y la descripción.
@@ -740,6 +797,17 @@ es-PY:
             layout_appearance_title: Editar apariencia de diseño global
             preview: Previsualizar
           omnipresent_banner_appearance_title: Editar banner omnipresente
+      organization_external_domain_whitelist:
+        edit:
+          update: Actualizar
+        external_domain:
+          down: Bajar
+          external_domain: Dominio externo
+          remove: Eliminar
+          up: Subir
+        form:
+          add: Añadir a la lista blanca
+          title: Lista blanca de dominios externos
       organization_homepage:
         edit:
           active_content_blocks: Bloques de contenido activos
@@ -768,6 +836,14 @@ es-PY:
           explanation: 'Sube tu archivo CSV. Debe tener dos columnas con correo electrónico en la primera columna del archivo y el nombre en la última columna del archivo (correo electrónico, nombre) de los usuarios que deseas añadir al espacio participativo, sin encabezados. Evitar usar caracteres no válidos como `<>?%&^*#@()[]=+:;"{}\|` en el nombre de usuario.'
           title: Sube tu archivo CSV
           upload: Subir
+      reminders:
+        create:
+          error: Se ha producido un error al crear los recordatorios.
+          success:
+            one: "%{count} usuaria será recordada."
+            other: "%{count} usuarias serán recordadas."
+        new:
+          submit: Enviar
       resource_permissions:
         edit:
           submit: Enviar
@@ -885,7 +961,7 @@ es-PY:
         static_pages: Páginas
         statistics: Actividad
         user_groups: Grupos de usuarios
-        users: Usuarios
+        users: Administradoras
       user_group:
         csv_verify:
           invalid: Se produjo un error al leer el archivo CSV.
@@ -898,13 +974,6 @@ es-PY:
           success: Grupo de usuarios verificado correctamente
       user_groups:
         index:
-          filter:
-            all: Todos
-            pending: Pendiente
-            rejected: Rechazados
-            verified: Verificados
-          filter_by: Filtrar por
-          search: Buscar
           state:
             pending: Pendiente
             rejected: Rechazado
@@ -928,7 +997,7 @@ es-PY:
           role: Rol
         new:
           create: Invitar
-          title: Invitar a un usuario como administrador
+          title: Invitar nueva administradora
       users_statistics:
         users_count:
           admins: Administradores
@@ -941,7 +1010,7 @@ es-PY:
     forms:
       errors:
         impersonate_user:
-          reason: Debe proporcionar una razón para impersonar a un usuario no administrado
+          reason: Debes indicar un motivo para la gestión de una participante no gestionada
     metrics:
       blocked_users:
         object: usuarias bloqueadas

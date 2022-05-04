@@ -15,12 +15,15 @@ module Decidim
       attribute :organization_logo
       attribute :redirect_uri, String
 
-      validates :name, :redirect_uri, :decidim_organization_id, :organization_name, :organization_url, :organization_logo, presence: true
+      validates :name, :redirect_uri, :decidim_organization_id, :organization_name, :organization_url, presence: true
       validates :redirect_uri, :organization_url, url: true
+      validates :organization_logo, presence: true, unless: :persisted?
       validates :organization_logo, passthru: { to: Decidim::OAuthApplication }
       validate :redirect_uri_is_ssl
 
-      alias organization current_organization
+      def organization
+        current_organization || Decidim::Organization.find_by(id: decidim_organization_id)
+      end
 
       private
 

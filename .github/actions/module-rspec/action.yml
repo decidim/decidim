@@ -1,0 +1,68 @@
+name: '[CI] Module rspec'
+description: 'Test module with rspec'
+inputs:
+  name:
+    description: 'Module Name'
+    required: true
+  github_token:
+    description: 'Github token'
+    required: true
+  ruby_version:
+    description: 'Ruby Version'
+    default: "2.7.5"
+    required: false
+  node_version:
+    description: 'Node version'
+    default: '16.9.1'
+    required: false
+  processor_count:
+    description: "Number or parallel jobs to run"
+    default: "4"
+    required: false
+
+runs:
+  using: "composite"
+  steps:
+    - uses: rokroskar/workflow-run-cleanup-action@v0.3.0
+      if: "github.ref != 'refs/heads/develop'"
+      env:
+        GITHUB_TOKEN: " ${{ inputs.github_token }}"
+    - uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: ${{ inputs.ruby_version }}
+        bundler-cache: true
+    - uses: actions/setup-node@v1
+      with:
+        node-version: ${{ inputs.node_version }}
+    - name: Get npm cache directory path
+      id: npm-cache-dir-path
+      run: echo "::set-output name=dir::$(npm get cache)-${{ inputs.name }}"
+      shell: "bash"
+    - uses: actions/cache@v2
+      id: npm-cache
+      with:
+        path: ${{ steps.npm-cache-dir-path.outputs.dir }}
+        key: npm-${{ hashFiles('**/package-lock.json') }}
+        restore-keys: |
+          npm-
+    - run: bundle exec rake test_app
+      name: Create test app
+      shell: "bash"
+    - run: mkdir -p ./spec/decidim_dummy_app/tmp/screenshots
+      name: Create the screenshots folder
+      shell: "bash"
+    - uses: nanasess/setup-chromedriver@v1.0.1
+    - run: RAILS_ENV=test bundle exec rails assets:precompile
+      name: Precompile assets
+      working-directory: ./spec/decidim_dummy_app/
+      shell: "bash"
+    - run: bundle exec brakeman --rails6 --force-scan .
+      name: Scanning Security issues on module
+      working-directory: ${{ inputs.name }}
+      shell: "bash"
+    - run: bundle exec rake parallel:create parallel:migrate
+      name: Parallel tests
+      shell: "bash"
+      working-directory: ./spec/decidim_dummy_app/
+      env:
+        PARALLEL_TEST_PROCESSORS: " ${{ inputs.processor_count }}"

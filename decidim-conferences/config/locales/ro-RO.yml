@@ -2,34 +2,68 @@ ro:
   activemodel:
     attributes:
       conference:
-        assemblies_ids: Organizații asemănătoare
+        assemblies_ids: Grupuri de lucru asociate
+        available_slots: Locuri disponibile
         banner_image: Imagine pentru banner
-        consultations_ids: Consultări conexe
+        consultations_ids: Consultări asociate
         copy_categories: Copiază categoriile
         copy_components: Copiază componentele
-        copy_features: Copiază caracteristici
+        copy_features: Copiază funcționalitățile
         decidim_scope_id: Domeniu de interes
         description: Descriere
+        end_date: Data de sfârșit
         hashtag: Hashtag
         hero_image: Imagine pagina principală
-        participatory_processes_ids: Procese participative conexe
+        location: Locație
+        main_logo: Logo principal
+        objectives: Obiective
+        participatory_processes_ids: Procese participative asociate
         promoted: Evidenţiat
         published_at: Publicat la
+        registration_terms: Condiții de înscriere
+        registrations_enabled: Înregistrare activată
         scope_id: Domeniu de interes
-        scopes_enabled: Domenii de interes activate
+        scopes_enabled: Domenii activate
         short_description: Descriere scurtă
         show_statistics: Arată statistici
+        sign_date: Data semnării
+        signature: Semnătură
+        signature_name: numele semnăturii
         slogan: Slogan
-        slug: Adresă URL
+        slug: URL slug
+        start_date: Data de început
         title: Titlu
       conference_media_link:
-        weight: Greutate
+        date: Dată
+        link: Link
+        title: Titlu
+        weight: Ordinea în poziționare
       conference_partner:
-        weight: Greutate
+        link: Link
+        logo: Logo
+        name: Nume
+        partner_type: Tipul partenerului
+        weight: Ordinea în poziționare
+      conference_registration_invite:
+        email: E-mail
+        name: Nume
+        registration_type_id: Tip de înscriere
+        user_id: Utilizator
       conference_registration_type:
-        weight: Greutate
+        description: Descriere
+        price: Preț
+        title: Titlu
+        weight: Ordinea în poziționare
       conference_speaker:
+        affiliation: Afiliere
+        avatar: Avatar
+        conference_meeting_ids: Întâlniri asociate
         full_name: Numele complet
+        personal_url: Url personal
+        position: Poziție
+        short_bio: Biografie scurtă
+        twitter_handle: Responsabil Twitter
+        user_id: Utilizator
       conference_user_role:
         email: E-mail
         name: Nume
@@ -88,7 +122,7 @@ ro:
         index:
           conference_speakers_title: Vorbitori de conferințe
         new:
-          create: Crează
+          create: Creează
           title: Un nou vorbitor de conferinţă.
         update:
           error: A apărut o problemă la actualizarea difuzorului conferinţei.
@@ -105,7 +139,7 @@ ro:
         index:
           conference_admins_title: administratori ai conferinței
         new:
-          create: Crează
+          create: Creează
           title: Admin de conferință nouă.
         update:
           error: A apărut o problemă la actualizarea administratorului conferinței.
@@ -124,7 +158,7 @@ ro:
           not_published: Nu este publicat
           published: Publicat
         new:
-          create: Crează
+          create: Creează
           title: Conferință
         update:
           error: A apărut o eroare la actualizarea conferinței.
@@ -145,7 +179,7 @@ ro:
         index:
           media_links_title: Link-uri media
         new:
-          create: Crează
+          create: Creează
           title: Link media
         update:
           error: A apărut o eroare la actualizarea acestui link media.
@@ -215,7 +249,7 @@ ro:
             price: Preț
             registrations_count: Numărul de înregistrări
             title: Titlu
-            weight: Poziția comenzii
+            weight: Ordinea în poziționare
           name: Tip de înregistrare
       partners:
         create:
@@ -227,7 +261,7 @@ ro:
           title: Actualizare partener.
           update: Actualizare
         new:
-          create: Crează
+          create: Creează
           title: Partener nou
         update:
           error: A apărut o eroare la actualizarea unui partener pentru această conferință.
@@ -249,7 +283,7 @@ ro:
           title: Actualizați tipul de înregistrare.
           update: Actualizare
         new:
-          create: Crează
+          create: Creează
           title: Tip nou de înregistrare
         update:
           error: A apărut o eroare la actualizarea unui tip de înregistrare pentru această conferință.
@@ -298,7 +332,7 @@ ro:
       admin:
         conference_copies:
           form:
-            slug_help: 'URL slugs sunt utilizate pentru a genera URL-urile care indică acest punct la această conferință. Acceptă doar litere, numere și cratime și trebuie să înceapă cu o literă. Exemplu: %{url}'
+            slug_help: 'URL slugs sunt utilizate pentru a genera URL-urile care indică această conferință. Acestea acceptă doar litere, numere și cratime și trebuie să înceapă cu o literă. Exemplu: %{url}'
         conference_invites:
           create:
             error: A apărut o problemă la invitarea participantului să participe la conferinţă.
@@ -341,7 +375,7 @@ ro:
               one: A existat o înregistrare.
               few: Au fost %{count} înregistrări.
               other: Au fost %{count} înregistrări.
-            slug_help: 'URL slugs sunt utilizate pentru a genera URL-urile care indică acest punct la această conferință. Acceptă doar litere, numere și cratime și trebuie să înceapă cu o literă. Exemplu: %{url}'
+            slug_help: 'URL slugs sunt utilizate pentru a genera URL-urile care indică această conferință. Acestea acceptă doar litere, numere și cratime și trebuie să înceapă cu o literă. Exemplu: %{url}'
         diplomas:
           edit:
             save: Salvează
@@ -426,7 +460,7 @@ ro:
           collaborators: Parteneri
           main_promotors: Organizatori
         show:
-          login_as: Ești autentificat ca %{name} <%{email}>
+          login_as: Ești contectat ca %{name} <%{email}>
           make_conference_registration: 'Înregistrați-vă la conferință:'
           register: Inregistrare
       content_blocks:
@@ -486,7 +520,7 @@ ro:
       registration_types:
         index:
           choose_an_option: 'Alegeți opțiunea de înregistrare:'
-          login_as: Ești autentificat ca %{name} <%{email}>
+          login_as: Ești contectat ca %{name} <%{email}>
           no_registrations: Fără înregistrări
           register: Inregistrare
           title: Tipuri de înregistrare
@@ -494,15 +528,15 @@ ro:
         conference_user_login:
           already_account: Ai deja un cont în decidim?
           new_user: Utilizator nou?
-          sign_in: Loghează-te pentru a te înregistra la conferință
-          sign_up: Creați un cont în decidim pentru a vă înregistra la conferință
+          sign_in: Conectează-te pentru a te înregistra la conferință
+          sign_up: Creează un cont în platforma Decidem pentru a vă înregistra la conferință
       show:
         details: Detalii
         introduction: Introducere
         objectives: Obiective
-        related_assemblies: Asambluri asemănătoare
-        related_consultations: Consultări conexe
-        related_participatory_processes: Procese participative conexe
+        related_assemblies: Grupuri de lucru asociate
+        related_consultations: Consultări asociate
+        related_participatory_processes: Procese participative asociate
     events:
       conferences:
         conference_registration_confirmed:
@@ -537,8 +571,8 @@ ro:
     help:
       participatory_spaces:
         conferences:
-          contextual: "<p>O <strong>conferință</strong> este o colecție de întâlniri organizate într-un program, cu un număr de persoane invitate ca vorbitori, precum și alte domenii de informare tipice marilor congrese sau evenimente sociale (înregistrare, lista organizațiilor care sponsorizează evenimentul etc.</p> <p>Exemple: O conferință poate fi un eveniment relevant pentru o organizație și membrii acesteia; sau să se desfășoare ca parte a unui proces participativ sau în urma unei consultări.</p>\n"
-          page: "<p>O <strong>conferință</strong> este o colecție de întâlniri organizate într-un program, cu un număr de persoane invitate ca vorbitori, precum și alte domenii de informare tipice marilor congrese sau evenimente sociale (înregistrare, lista organizațiilor care sponsorizează evenimentul etc.</p> <p>Exemple: O conferință poate fi un eveniment relevant pentru o organizație și membrii acesteia; sau să se desfășoare ca parte a unui proces participativ sau în urma unei consultări.</p>\n"
+          contextual: "<p>O <strong>conferință</strong> reprezintă un set de întâlniri organizate în cadrul unui program, cu un grup de persoane invitate ca vorbitori, precum și alte informații tipice marilor congrese sau evenimente sociale (modalitatea de înregistrare, lista organizațiilor care sponsorizează evenimentul etc).</p> <p>Exemple: O conferință poate fi un eveniment relevant pentru o organizație și membrii acesteia; sau să se desfășoare ca parte a unui proces participativ sau în urma unei consultări.</p>\n"
+          page: "<p>O <strong>conferință</strong> reprezintă un set de întâlniri organizate în cadrul unui program, cu un grup de persoane invitate ca vorbitori, precum și alte informații tipice marilor congrese sau evenimente sociale (modalitatea de înregistrare, lista organizațiilor care sponsorizează evenimentul etc).</p> <p>Exemple: O conferință poate fi un eveniment relevant pentru o organizație și membrii acesteia; sau să se desfășoare ca parte a unui proces participativ sau în urma unei consultări.</p>\n"
           title: Ce sunt conferinţele?
     log:
       value_types:

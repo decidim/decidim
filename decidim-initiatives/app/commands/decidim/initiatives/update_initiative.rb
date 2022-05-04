@@ -4,8 +4,9 @@ module Decidim
   module Initiatives
     # A command with all the business logic that updates an
     # existing initiative.
-    class UpdateInitiative < Rectify::Command
+    class UpdateInitiative < Decidim::Command
       include ::Decidim::MultipleAttachmentsMethods
+      include ::Decidim::GalleryMethods
       include CurrentLocale
 
       # Public: Initializes the command.
@@ -29,18 +30,20 @@ module Decidim
         return broadcast(:invalid) if form.invalid?
 
         if process_attachments?
-          @initiative.attachments.where(id: form.documents).destroy_all
-
           build_attachments
           return broadcast(:invalid) if attachments_invalid?
         end
+
         @initiative = Decidim.traceability.update!(
           initiative,
           current_user,
           attributes
         )
 
+        photo_cleanup!
+        document_cleanup!
         create_attachments if process_attachments?
+
         broadcast(:ok, initiative)
       rescue ActiveRecord::RecordInvalid
         broadcast(:invalid, initiative)

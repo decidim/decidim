@@ -12,6 +12,8 @@ module Decidim
   # another object in case the PassthruValidator is in charge of the
   # validations.
   class FileValidatorHumanizer
+    # record - Form object (e.g. Decidim::AccountForm)
+    # attribute - Form field (e.g. :avatar)
     def initialize(record, attribute)
       @record = record
       @attribute = attribute
@@ -21,7 +23,12 @@ module Decidim
     end
 
     def uploader
-      @uploader ||= passthru_uploader || record.send(attribute)
+      @uploader ||= begin
+        return passthru_uploader if passthru_uploader.present?
+        return record.attached_uploader(attribute) if record.respond_to?(:attached_uploader) && record.attached_uploader(attribute).present?
+
+        record.send(attribute)
+      end
     end
 
     def messages
@@ -32,6 +39,14 @@ module Decidim
         messages << I18n.t(
           "max_file_size",
           megabytes: file_size_mb,
+          scope: "decidim.forms.file_validation"
+        )
+      end
+
+      if (file_dimensions = max_file_dimensions)
+        messages << I18n.t(
+          "max_file_dimension",
+          resolution: file_dimensions,
           scope: "decidim.forms.file_validation"
         )
       end
@@ -73,6 +88,12 @@ module Decidim
     end
     # rubocop: enable Metrics/CyclomaticComplexity
 
+    def max_file_dimensions
+      return unless uploader.respond_to?(:max_image_height_or_width)
+
+      "#{uploader.max_image_height_or_width}x#{uploader.max_image_height_or_width}"
+    end
+
     def extension_allowlist
       return unless uploader.respond_to?(:extension_allowlist, true)
 
@@ -94,7 +115,8 @@ module Decidim
     def passthru_uploader
       return unless passthru_record
 
-      passthru_record.send(passthru_validator.target_attribute(attribute))
+      passthru_attribute = passthru_validator.target_attribute(attribute)
+      passthru_record.attached_uploader(passthru_attribute) || passthru_record.send(passthru_attribute)
     end
   end
 end

@@ -26,6 +26,21 @@ module Decidim
       delegate :scopes, to: :organization
 
       validate :scope_belongs_to_organization
+
+      scope :with_scope, ->(scope_id) { includes(:scope).references(:decidim_scopes).where("? = ANY(decidim_scopes.part_of)", scope_id) }
+
+      scope :with_any_scope, lambda { |*original_scope_ids|
+        scope_ids = original_scope_ids.flatten
+        return self if scope_ids.include?("all")
+
+        clean_scope_ids = scope_ids
+
+        conditions = []
+        conditions << "#{table_name}.decidim_scope_id IS NULL" if clean_scope_ids.delete("global")
+        conditions.concat(["? = ANY(decidim_scopes.part_of)"] * clean_scope_ids.count) if clean_scope_ids.any?
+
+        includes(:scope).references(:decidim_scopes).where(Arel.sql(conditions.join(" OR ")).to_s, *clean_scope_ids.map(&:to_i))
+      }
     end
 
     # Whether the resource has scopes enabled or not.

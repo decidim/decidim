@@ -54,14 +54,14 @@ $datetime-bg: var(--primary);
   padding: $card-padding-small;
 
   &:not(:only-child){
-    padding-bottom: $card-padding-small / 2;
+    padding-bottom: $card-padding-small * .5;
   }
 
   @include breakpoint(medium){
     padding: $card-padding;
 
     &:not(:only-child){
-      padding-bottom: $card-padding / 2;
+      padding-bottom: $card-padding * .5;
     }
   }
 }
@@ -87,7 +87,7 @@ a .card__title{
 }
 
 .card__header{
-  margin-bottom: $card-padding / 2;
+  margin-bottom: $card-padding * .5;
 
   .card__title{
     margin-bottom: .5rem;
@@ -153,11 +153,11 @@ a .card__title{
 
   .card__text--category{
     display: block;
-    margin-top: $global-margin / 2;
+    margin-top: $global-margin * .5;
   }
 
   &:not(:last-child){
-    margin-bottom: $global-margin / 2;
+    margin-bottom: $global-margin * .5;
   }
 
   &.card--picture-offset{
@@ -634,6 +634,10 @@ a .card__title{
     pointer-events: none;
   }
 
+  &--inline{
+    display: inline-block;
+  }
+
   svg{
     flex-basis: auto;
   }
@@ -987,7 +991,7 @@ a .card__title{
 .card__block{
   @extend .card__icondata;
 
-  margin-bottom: $global-margin / 2;
+  margin-bottom: $global-margin * .5;
 
   ul{
     border: $border;
@@ -1078,14 +1082,14 @@ a .card__title{
 
   .card__content{
     line-height: $global-lineheight;
-    padding: $card-padding-small / 4 $card-padding-small;
+    padding: $card-padding-small * .25 $card-padding-small;
 
     > :first-child{
       flex-shrink: 0;
     }
 
     @include breakpoint(medium){
-      padding: $card-padding / 4 $card-padding;
+      padding: $card-padding * .25 $card-padding;
     }
   }
 }

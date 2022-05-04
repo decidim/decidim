@@ -3,7 +3,7 @@
 module Decidim
   module Conferences
     # This query class filters all conferences given an organization.
-    class OrganizationConferences < Rectify::Query
+    class OrganizationConferences < Decidim::Query
       def initialize(organization)
         @organization = organization
       end

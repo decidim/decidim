@@ -5,21 +5,26 @@ fr:
         delete_reason: Pour quelle(s) raison(s) supprimez-vous votre compte ?
       common:
         created_at: Créé le
+      conversation:
+        body: Corps de texte
       group:
         about: A propos
         avatar: Avatar
         document_number: Numéro de document
         email: Courriel
         name: Nom
-        nickname: Nom d'utilisateur
+        nickname: Pseudonyme
         phone: Téléphone
+      message:
+        body: Corps de texte
       report:
         details: Commentaires supplémentaires
       user:
         about: A propos de moi
         email: Votre email
+        locale: Langue
         name: Votre nom
-        nickname: Surnom
+        nickname: Pseudonyme
         password: Mot de passe
         password_confirmation: Confirmez votre mot de passe
         personal_url: Site internet personnel
@@ -41,7 +46,7 @@ fr:
       decidim/user:
         current_password: Mot de passe actuel
         email: Email
-        name: Surnom
+        name: Pseudonyme
         password: Mot de passe
         password_confirmation: Confirmation du mot de passe
         remember_me: Retenir le mot de passe
@@ -63,7 +68,6 @@ fr:
     'true': 'Oui'
   carrierwave:
     errors:
-      general: Erreur de traitement de l'image
       image_too_big: L'image est trop grande
       not_inside_organization: Le fichier n'est relié à aucune organisation
   date:
@@ -73,9 +77,37 @@ fr:
       decidim_with_day_and_month_name: "%A %d %b %Y"
       decidim_with_month_name: "%d %B %Y"
       decidim_with_month_name_short: "%d %b"
+  datetime:
+    distance_in_words:
+      about_x_hours:
+        one: environ %{count} heure
+        other: environ %{count} heures
+      about_x_months:
+        one: environ %{count} mois
+        other: environ %{count} mois
+      half_a_minute: 30 secondes
+      less_than_x_minutes:
+        one: moins d’une minute.
+        other: moins de %{count} min.
+      less_than_x_seconds:
+        one: à l’instant
+        other: moins de %{count} sec.
+      x_days:
+        one: Hier
+        other: "Il y a %{count} jours"
+      x_hours:
+        one: Il y a 1 heure
+        other: "Il y a %{count} heures"
+      x_minutes:
+        one: Il y a 1 min
+        other: "Il y a %{count} min"
+      x_seconds:
+        one: Il y a 1 seconde
+        other: "Il y a %{count} secondes"
   decidim:
     accessibility:
       external_link: Lien externe
+      front_page_link: Aller à la première page
       logo: "Logo officiel de %{organization}"
       skip_button: Passer au contenu principal
     account:
@@ -95,6 +127,7 @@ fr:
         error: Une erreur s'est produite lors de la suppression de votre compte.
         success: Votre compte a été supprimé avec succès.
       show:
+        available_locales_helper: Choisissez la langue que vous souhaitez utiliser pour naviguer et recevoir des notifications sur la plateforme
         change_password: Changer de mot de passe
         update_account: Mettre à jour votre compte
       update:
@@ -259,6 +292,8 @@ fr:
       photos:
         related_photos: Photos associées
     author:
+      avatar: 'Avatar: %{name}'
+      avatar_multiuser: Avatar pour plusieurs utilisateurs
       comments:
         one: commentaire
         other: commentaires
@@ -444,7 +479,7 @@ fr:
           complete_profile: Complétez votre profil
           nickname_help: Cet identifiant est public et unique sur %{organization} ; il permet aux autres utilisateurs de vous suivre, de vous contacter ou de vous mentionner dans leurs commentaires. Il s’affichera précédé d’un « @ » ; il ne doit pas contenir d’espace ni de caractère spécial.
           sign_up: Veuillez compléter votre profil
-          subtitle: Remplissez le formulaire suivant pour compléter l'inscription
+          subtitle: Remplissez le formulaire suivant pour créer votre compte
           username_help: Le nom est public et apparaît dans votre profil et sur vos messages. Dans le but de garantir l'anonymat, vous pouvez choisir n'importe quel nom.
       registrations:
         new:
@@ -453,21 +488,21 @@ fr:
           newsletter_title: Autorisation de contact
           nickname_help: Cet identifiant est public et unique sur %{organization} ; il permet aux autres utilisateurs de vous suivre, de vous contacter ou de vous mentionner dans leurs commentaires. Il s’affichera précédé d’un « @ » ; il ne doit pas contenir d’espace ni de caractère spécial.
           password_help: "%{minimun_characters} caractères minimum, ne doit pas être trop commun (par exemple 123456) et doit être différent de votre pseudo et de votre email."
-          sign_in: Se connecter
-          sign_up: S'inscrire
+          sign_in: S'identifier
+          sign_up: Créer un compte
           sign_up_as:
-            legend: S'inscrire en tant que
-          subtitle: Inscrivez-vous pour participer aux discussions et pour exprimer votre soutien aux propositions de votre choix.
+            legend: Créer un compte en tant que
+          subtitle: Créez un compte pour participer aux discussions et pour exprimer votre soutien aux propositions de votre choix.
           terms: les termes et conditions d'utilisation
-          tos_agreement: En vous inscrivant, vous acceptez %{link}.
+          tos_agreement: En vous créant un compte, vous acceptez %{link}.
           tos_title: Conditions d'utilisation
           username_help: Le nom est public et apparaît dans votre profil et sur vos messages. Dans le but de garantir l'anonymat, vous pouvez choisir n'importe quel nom.
       sessions:
         new:
           are_you_new?: Nouveau sur la plateforme ?
-          register: Créer un compte
+          register: S'inscrire
           sign_in_disabled: Vous pouvez accéder avec un compte externe
-          sign_up_disabled: L'inscription est désactivée, vous pouvez utiliser un utilisateur existant pour accéder
+          sign_up_disabled: La création de compte est désactivée, mais vous pouvez vous identifier avec votre compte si vous en avez déjà un
         user:
           timed_out: Vous avez été inactif pendant trop longtemps et vous avez été automatiquement déconnecté du service. Si vous souhaitez continuer à utiliser le service, veuillez vous reconnecter.
       shared:
@@ -496,6 +531,11 @@ fr:
           this_application_will_not_be_able_to: 'Cette application ne sera pas capable de :'
           update_profile: Mettre à jour votre profil
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> veut utiliser votre compte"
+    editor_images:
+      create:
+        error: Erreur lors du téléchargement de l'image
+        success: Image téléchargée avec succès
+      drag_and_drop_help: Ajoutez des images en les glissant - déposant ou en les collant depuis votre presse-papier.
     endorsable:
       endorsements: Soutiens
       endorsements_count: Nombre de soutiens
@@ -655,6 +695,11 @@ fr:
           email_outro: Vous recevez cette notification car vous suivez « %{nickname} ». Vous pouvez cesser de le suivre à partir du lien précédent.
           email_subject: "%{nickname} a mis à jour son profil public"
           notification_title: Le <a href="%{resource_path}">profil public</a> de %{name} (%{nickname}), que vous suivez, a été mis à jour.
+        user_officialized:
+          email_intro: Le participant %{name} (%{nickname}) a été officialisé.
+          email_outro: Vous avez reçu cette notification parce que vous êtes un administrateur de l'organisation.
+          email_subject: "%{name} a été officialisé"
+          notification_title: Le participant %{name} (%{nickname}) a été officialisé.
     export_mailer:
       data_portability_export:
         click_button: 'Cliquez sur le bouton suivant pour télécharger vos données.<br/>Le fichier sera disponible jusqu''au %{date}.<br/>Vous aurez besoin de <a href="https://www.7-zip.org/">7-Zip</a> (Windows), <a href="https://www.keka.io/en/">Keka</a> (MacOS) ou <a href="https://peazip.github.io">PeaZip</a> (Linux) pour l''ouvrir. Mot de passe : %{password}'
@@ -686,6 +731,7 @@ fr:
       no_followers: Aucun abonné pour le moment.
     following:
       no_followings: Aucun abonnement
+      non_public_followings: Certaines des ressources suivies ne sont pas publiques.
     follows:
       create:
         button: Suivre
@@ -695,7 +741,6 @@ fr:
         button: Ne plus suivre
         error: Une erreur s'est produite lors du traitement de votre demande de ne plus suivre ce contenu.
     forms:
-      current_file: Fichier actuel
       current_image: Image actuelle
       default_image: Image par défaut
       errors:
@@ -706,8 +751,8 @@ fr:
       file_help:
         file:
           explanation: 'Orientation pour le fichier :'
-          message_1: Doit être une image ou un document.
-          message_2: Pour les images, utilisez de préférence des formats paysage, car le service recadre l'image. Pour les fichiers CSV, le séparateur entre les colonnes doit être une virgule (","). Pour pouvoir choisir le type de séparateur il recommander d'utiliser le logiciel "Libre Office"
+          message_1: Doit être une image carrée.
+          message_2: La taille recommandée pour cette image est de 512x512.
         image:
           explanation: 'Orientation pour l''image:'
           message_1: De préférence une image au format paysage qui n'a pas de texte.
@@ -715,7 +760,26 @@ fr:
       file_validation:
         allowed_file_extensions: 'Extensions de fichier autorisées : %{extensions}'
         max_file_size: 'Taille maximale du fichier : %{megabytes}Mo'
-      remove_this_file: Supprimer ce fichier
+      upload:
+        labels:
+          add_attachment: Ajouter une pièce jointe
+          add_file: Ajouter un fichier
+          add_image: Ajouter une image
+          cancel: Annuler
+          edit_image: Modifier l'Image
+          error: Erreur !
+          file_too_big: 'Le fichier est trop volumineux! Taille de fichier maximum: %{megabytes}Mo'
+          remove: Supprimer
+          replace: Remplacer
+          save: Sauvegarder
+          title: Titre
+          title_required: Le titre est requis !
+          uploaded: Téléchargé
+          validating: Validation en cours...
+          validation_error: Erreur de validation !
+      upload_help:
+        dropzone: Déposez les fichiers ici ou cliquez pour télécharger
+        explanation: Explication pour %{attribute}
     gamification:
       all_badges_link: Voir tous les badges disponibles.
       badges:
@@ -951,6 +1015,7 @@ fr:
           next: Suivant
           no_conversations: Vous n'avez encore aucune conversation
           title: Conversations
+          to: À
         reply:
           placeholder: Votre réponse...
           send: Envoyer
@@ -958,6 +1023,7 @@ fr:
         show:
           back: Retour à toutes les conversations
           chat_with: Conversation avec
+          deleted_accounts: Vous ne pouvez pas avoir de conversation avec des comptes supprimés.
           not_allowed: Cet utilisateur ne souhaite pas recevoir de messages directs.
           title: Conversation avec %{usernames}
         start:
@@ -1025,12 +1091,18 @@ fr:
         greetings: Salutations,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Bonjour,
         subject: Voulez-vous continuer à recevoir des informations pertinentes sur %{organization_name} ?
+    notification_mailer:
+      event_received:
+        no_translation_available: Désolé, la traduction automatique n'a pas pu être récupérée lorsque l'e-mail a été envoyé. Vous pouvez voir la traduction du texte original sur le lien suivant %{link}.
+        original_text: 'Texte original :'
+        same_language: Le contenu a été publié dans votre langue préférée (%{language}), c'est pourquoi aucune traduction automatique n'est affichée dans cet e-mail.
+        translated_text: 'Traduction automatique du texte :'
     notifications:
       no_notifications: Il n'y a pas encore de notifications.
     notifications_settings:
       show:
         administrators: Administrateurs
-        allow_public_contact: Permettre à n'importe quoi de m'envoyer un message direct, même si je ne les suis pas.
+        allow_public_contact: Permettre à quelqu'un de m'envoyer un message direct, même si je ne les suis pas.
         direct_messages: Recevoir des messages directs de n'importe qui
         email_on_moderations: Je veux recevoir un email chaque fois que quelque chose est signalé pour modération.
         email_on_notification: Je souhaite recevoir un email à chaque fois que je reçois une notification.
@@ -1044,6 +1116,10 @@ fr:
       update:
         error: Une erreur s'est produite lors de la mise à jour des paramètres de vos notifications.
         success: Vos paramètres de notifications ont été mis à jour avec succès.
+    offline:
+      show:
+        message: On dirait que vous êtes actuellement hors ligne. Veuillez réessayer plus tard.
+        retry: Réessayer
     open_data:
       not_available_yet: Les fichiers Open Data ne sont pas encore disponibles. Veuillez réessayer dans quelques minutes.
     own_user_groups:
@@ -1231,6 +1307,7 @@ fr:
         description: Ce contenu est-il inapproprié ?
         does_not_belong: Contient d’autres types de contenus qui vous semblent inappropriés à %{organization_name} (activités illégales, menaces suicidaires, informations personnelles,...).
         offensive: Contient des propos contraires à la loi (propos racistes, sexistes, insultes, attaques personnelles, menaces de mort, incitations au suicide ou toute forme de discours de haine,...).
+        reason: Motif
         report: Signaler
         spam: Contient des publicités, des escroqueries, des pièges à clic (clickbait) ou des robots fonctionnant au script (script bots).
         title: Signaler un contenu inapproprié
@@ -1250,8 +1327,10 @@ fr:
         sign_in_before_follow: Veuillez vous connecter avant d'effectuer cette action
       login_modal:
         close_modal: Fermer la fenêtre de dialogue
-        please_sign_in: Veuillez vous connecter
-        sign_up: S'inscrire
+        please_sign_in: Veuillez vous identifier
+        sign_up: Créer un compte
+      mentions_modal:
+        remove_recipient: Supprimer le destinataire %{name}
       participatory_space_filters:
         filters:
           areas: Zones d'application
@@ -1268,10 +1347,21 @@ fr:
         title: Sélectionner le nombre de résultats par page
       share_modal:
         close_window: Fermer la fenêtre
+        copy_share_link: Copier
+        copy_share_link_clarification: Copier le lien de partage dans le presse-papiers
+        copy_share_link_copied: Copié!
+        copy_share_link_message: Le lien a bien été copié dans le presse-papier.
         share: Partager
         share_link: Lien de partage
     statistics:
       comments_count: Commentaires
+      endorsements_count: Soutiens
+      followers_count: Abonnés
+      headline: Statistiques
+      no_stats: Il n'y a pas encore de statistiques.
+      pages_count: Pages
+      participants_count: Participants
+      users_count: Participants
     tags:
       filter_results_for_category: 'Filtrer les résultats de la catégorie : %{resource}'
       filter_results_for_scope: 'Filtrer les résultats pour le secteur : %{resource}'
@@ -1309,6 +1399,8 @@ fr:
         send: Envoyer
         title_reply: Répondre
       show:
+        back: Afficher toutes les conversations
+        deleted_accounts: Vous ne pouvez pas avoir de conversation avec des comptes supprimés.
         not_allowed: Cet utilisateur n'accepte plus de messages directs.
         title: Conversation avec %{usernames}
       update:
@@ -1326,13 +1418,14 @@ fr:
       notify:
         body_1: L'utilisateur %{user} a été signalé par %{token}
         body_2: 'Motif : %{reason}'
+        details: Détails fournis par l'utilisateur
         greetings: Salutations,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Bonjour %{admin},
         subject: Un nouvel utilisateur a été signalé dans %{organization_name}
     version:
       show:
         back_to_resource: Revenir en arrière
-        changes_at_title: Changements à%{title}"
+        changes_at_title: Changements sur "%{title}"
         number_of_versions: Versions
         show_all_versions: Afficher toutes les versions
         version_author: Auteur de la version
@@ -1350,10 +1443,11 @@ fr:
     versions_list:
       show:
         back_to_resource: Revenir en arrière
-        changes_at_title: Changements à%{title}"
+        changes_at_title: Changements sur "%{title}"
         number_of_versions: Versions
         title: Versions
     versions_list_item:
+      back: Afficher toutes les versions
       show:
         version_index: Version %{index}
     welcome_notification:
@@ -1381,7 +1475,7 @@ fr:
       locked: Votre compte est bloqué.
       not_found_in_database: '%{authentication_keys} ou mot de passe invalide.'
       timeout: Votre session a expiré. Veuillez vous connecter à nouveau pour continuer.
-      unauthenticated: Vous devez vous connecter ou vous inscrire avant de continuer.
+      unauthenticated: Vous devez vous identifier ou vous créer un compte avant de continuer.
     invitations:
       edit:
         header: Terminer la création de votre compte
@@ -1476,10 +1570,10 @@ fr:
         update: Mettre à jour
         we_need_your_current_password_to_confirm_your_changes: nous avons besoin de votre mot de passe actuel pour confirmer vos modifications
       new:
-        sign_up: S'inscrire
-      signed_up: Bienvenue! Vous vous êtes inscrit avec succès.
-      signed_up_but_inactive: Vous vous êtes inscrit avec succès. Cependant, nous ne pouvons pas vous connecter car votre compte n'est pas encore activé.
-      signed_up_but_locked: Vous vous êtes inscrit avec succès. Cependant, nous ne pouvons pas vous connecter car votre compte est verrouillé.
+        sign_up: Créer un compte
+      signed_up: Bienvenue! Votre compte a été créé avec succès.
+      signed_up_but_inactive: Votre compte a été créé avec succès. Cependant, nous ne pouvons pas vous identifier car votre compte n'est pas encore activé.
+      signed_up_but_locked: Votre compte a été créé avec succès. Cependant, nous ne pouvons pas vous identifier car votre compte est verrouillé.
       signed_up_but_unconfirmed: Un message avec un lien de confirmation a été envoyé à votre adresse e-mail. Veuillez suivre le lien pour activer votre compte.
       update_needs_confirmation: Vous avez mis à jour votre compte avec succès, mais nous devons vérifier votre nouvelle adresse e-mail. S'il vous plaît vérifier votre email et suivez le lien de confirmation pour confirmer votre nouvelle adresse e-mail.
       updated: Votre compte a été mis à jour avec succès.
@@ -1496,8 +1590,8 @@ fr:
         didn_t_receive_unlock_instructions: Si la plateforme vous indique que votre compte est bloqué, cliquez ici pour recevoir les instructions de déblocage
         forgot_your_password: Mot de passe oublié?
         sign_in: S'identifier
-        sign_in_with_provider: Se connecter avec %{provider}
-        sign_up: S'inscrire
+        sign_in_with_provider: S'identifier avec %{provider}
+        sign_up: Créer un compte
       minimum_password_length:
         one: "(%{count} caractère minimum)"
         other: "(%{count} caractères minimum)"
@@ -1522,7 +1616,7 @@ fr:
       long_words: contient des mots trop longs (plus de 35 caractères)
       must_start_with_caps: doit commencer par une majuscule
       nesting_too_deep: ne peut pas être à l'intérieur d'une sous-catégorie
-      not_found: introuvable. Vous êtes-vous déjà inscrit ?
+      not_found: Compte introuvable. Vous êtes-vous déjà inscrit ?
       not_locked: n'était pas verrouillé
       not_saved:
         one: 'Une erreur est survenue pendant le traitement de votre requête.'
@@ -1532,6 +1626,10 @@ fr:
       too_short: est trop court (moins de 15 caractères)
   forms:
     correct_errors: Il y a des erreurs dans le formulaire, veuillez les corriger pour continuer.
+    length_validator:
+      minimum:
+        one: Au moins %{count} caractère
+        other: Au moins %{count} caractères
     required: Champ obligatoire
     required_explanation: "* Les champs obligatoires sont marqués d'un astérisque"
   invisible_captcha:
@@ -1554,8 +1652,8 @@ fr:
         close_menu: Fermer le menu
         main_menu: Menu principal
         navigation: Navigation
-        sign_in: Se connecter
-        sign_up: S'inscrire
+        sign_in: S'identifier
+        sign_up: Créer un compte
         user_menu: Menu utilisateur
       impersonation_warning:
         close_session: Fermer la session
@@ -1566,6 +1664,8 @@ fr:
       notifications_dashboard:
         mark_all_as_read: Marquer tout comme lu
         mark_as_read: Marquer comme lu
+      offline_banner:
+        cache_version_page: Oups ! Votre réseau est hors ligne. Vous visitez actuellement une version précédemment mise en cache de la page, peut-être que son contenu n'est pas à jour.
       social_media_links:
         facebook: "%{organization} sur Facebook"
         github: "%{organization} sur GitHub"
@@ -1573,10 +1673,12 @@ fr:
         twitter: "%{organization} sur Twitter"
         youtube: "%{organization} sur YouTube"
       timeout_modal:
-        body: Vous avez été inactif pendant %{minutes} minutes. Si vous continuez à être inactif, vous serez automatiquement déconnecté pour votre propre sécurité.
+        body: Vous avez été inactif pendant %{minutes} minutes. Si vous continuez à être inactif, vous serez automatiquement déconnecté de la plateforme pour des raisons de sécurité.
         continue_session: Continuer la session
         sign_out: Se déconnecter
         title: Voulez-vous poursuivre votre session ?
+      upload_modal:
+        close_modal: Fermer la fenêtre
       user_menu:
         account: 'Compte utilisateur: %{name}'
         admin_dashboard: Tableau de bord des administrateurs
@@ -1601,10 +1703,12 @@ fr:
     name: Français
     name_with_error: Anglais (erreur !)
   password_validator:
+    blacklisted: sur liste noire
     domain_included_in_password: est trop similaire au nom de domaine de cette plateforme
     email_included_in_password: est trop similaire à votre email
     fallback: n'est pas valide
     name_included_in_password: est trop similaire à votre nom
+    nickname_included_in_password: est trop similaire à votre surnom
     not_enough_unique_characters: n'a pas assez de caractères uniques
     password_not_allowed: n'est pas autorisé
     password_too_common: est trop commun
@@ -1639,6 +1743,8 @@ fr:
       day_of_week: "%a"
       day_of_week_long: "%a %e"
       day_of_year: "%d.%m.%y"
+      ddmm: "%d.%m"
+      ddmmyyyy: "%d.%m.%Y"
       decidim_day_of_year: "%d %B %Y"
       decidim_short: "%d/%m/%Y %H:%M"
       default: "%d %B %Y %H h %M min %S s"
@@ -1657,6 +1763,7 @@ fr:
     dropdown:
       choose_diff_view_html: 'Mode d''affichage HTML :'
       choose_diff_view_mode: 'Sélectionner le mode de vue :'
+      choose_diff_view_mode_menu: Choisissez le mode de comparaison
       option_escaped: Echappé
       option_split: Côte à côte
       option_unescaped: Non échappé

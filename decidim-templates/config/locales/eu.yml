@@ -1,1 +1,67 @@
 eu:
+  activemodel:
+    attributes:
+      questionnaire:
+        title: Izenburua
+      template:
+        description: Deskribapena
+        name: Izena
+  decidim:
+    admin:
+      menu:
+        templates: Txantiloiak
+      templates:
+        apply:
+          error: Arazo bat izan da txantiloi hau aplikatzean.
+          success: Txantiloia zuzen aplikatu da
+        copy:
+          error: Arazo bat izan da txantiloi hau kopiatzean.
+          success: Txantiloia zuzen kopiatu da
+        create:
+          error: Arazo bat izan da txantiloi hau sortzean.
+          success: Txantiloia zuzen sortu da
+        destroy:
+          success: Txantiloia zuzen ezabatu da
+        empty: Oraindik ez dago txantiloirik.
+        update:
+          error: Arazo bat izan da txantiloi hau eguneratzean.
+          success: Txantiloia zuzen eguneratu da
+      titles:
+        template_types:
+          questionnaires: Galdeketa-txantiloiak
+        templates: Txantiloiak
+    models:
+      questionnaire_template:
+        fields:
+          questions: Galdera kopurua
+          title: Galdeketaren Izenburua
+      template:
+        fields:
+          created_at: Noiz sortua
+        name: Txantiloia
+    templates:
+      admin:
+        questionnaire_templates:
+          choose:
+            create_from_template: Sortu txantiloitik
+            description: Galdeketa berri bat sortuko duzu. Aurretik zehaztutako txantiloi bat aukeratu ahal duzu eta gero moldatu.
+            label: Aukeratu txantiloi bat
+            placeholder: Aukeratu txantiloi bat
+            skip_template: Saltatu
+          edit:
+            edit: Editatu
+            empty: Oraindik ez dago galderarik
+            questionnaire: Galdetegia
+          form:
+            save: Gorde
+            template_title: Txantiloiaren informazioa
+            title: '%{questionnaire_for} galdetegiaren txantiloia'
+          index:
+            confirm_delete: Ziur zaude txantiloi hau ezabatu nahi duzula?
+            title: Galdetegi-txantiloiak
+          preview:
+            current_step: '%{step} urratsa'
+            of_total_steps: '%{total_steps} etik'
+            tos_agreement: Parte hartzean erabilera-irizpideak eta baldintzak onartzen dituzu
+      template_types:
+        questionnaires: Galdetegiak

@@ -15,15 +15,14 @@ describe Decidim::ContentBlocks::LastActivityCell, type: :cell do
 
   controller Decidim::PagesController
 
-  Decidim::HomeActivitySearch.class_eval do
-    def resource_types
-      %w(
-        Decidim::DummyResources::DummyResource
-      )
-    end
-  end
-
   before do
+    allow(Decidim::ActionLog).to receive(:public_resource_types).and_return(
+      %w(Decidim::DummyResources::DummyResource)
+    )
+    allow(Decidim::ActionLog).to receive(:publicable_public_resource_types).and_return(
+      %w(Decidim::DummyResources::DummyResource)
+    )
+
     allow(cell).to receive(:controller).and_return(controller)
   end
 

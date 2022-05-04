@@ -6,6 +6,7 @@ fr-CA:
         description: Description
         title: Titre
         total_budget: Budget total
+        weight: Rang
       project:
         budget_amount: Montant du budget
         decidim_category_id: Catégorie
@@ -20,6 +21,18 @@ fr-CA:
         one: Projet
         other: Projets
   decidim:
+    admin:
+      filters:
+        projects:
+          category_id_eq:
+            label: Catégorie
+          scope_id_eq:
+            label: Secteur
+          selected_at_null:
+            label: Sélectionnés
+            values:
+              'false': Projet sélectionné
+              'true': Non sélectionné
     budgets:
       actions:
         attachment_collections: Dossiers
@@ -91,6 +104,12 @@ fr-CA:
             no_components: Il n'y a pas d'autres modules de proposition dans cet espace participatif pour importer les propositions dans des projets.
             select_component: Veuillez sélectionner un module
             title: Importer des propositions
+        reminders:
+          orders:
+            description: Les utilisateurs recevront un e-mail avec des liens vers les budgets où ils ont un vote en attente.
+            title:
+              one: Vous êtes sur le point d'envoyer un rappel par e-mail à %{count} utilisateur
+              other: Vous êtes sur le point d'envoyer un rappel par e-mail à %{count} utilisateurs
       admin_log:
         budget:
           create: "%{user_name} a créé le budget %{resource_name} dans l'espace %{space_name}"
@@ -107,6 +126,9 @@ fr-CA:
         close_modal: Fermer la fenêtre de dialogue
         continue: Continuer
         more_information: Plus d'information
+      budget_list_item:
+        voting_finished: Vous avez voté pour ce budget
+        voting_started: Vous avez commencé à voter dans ce budget
       budgets_list:
         cancel_order:
           more_than_one: supprimer votre vote sur %{name} et recommencer
@@ -115,6 +137,9 @@ fr-CA:
         highlighted_cta: Voter pour %{name}
         if_change_opinion: Si vous avez changé d'avis, vous pouvez
         my_budgets: Mes Budgets
+        progress: Terminer le vote
+        show: Voir les projets
+        vote: Voter
         voted_on: Vous avez voté sur %{links}
       limit_announcement:
         cant_vote: Vous ne pouvez pas voter sur ce budget. <a href="%{landing_path}">Essayez sur un autre budget</a>.
@@ -127,6 +152,8 @@ fr-CA:
             total_budget: Budget total
         project:
           fields:
+            category: Catégorie
+            id: ID
             title: Titre
       order_summary_mailer:
         order_summary:
@@ -179,6 +206,12 @@ fr-CA:
           projects_count:
             one: 1 projet
             other: "%{count} projets"
+        exit_modal:
+          cancel: Revenir au vote
+          close_modal: Fermer la fenêtre de dialogue
+          exit: Quitter le vote
+          message: Votre vote n'a pas encore été enregistré car vous n'avez pas terminé le processus de vote. Êtes-vous sûr de vouloir quitter le vote ?
+          title: Vous n'avez pas encore voté
         filters:
           category: Catégorie
           scope: Périmètre d'application
@@ -226,9 +259,19 @@ fr-CA:
         show:
           budget: Budget
           view_all_projects: Voir tous les projets
+      vote_reminder_mailer:
+        vote_reminder:
+          email_budgets: 'Budgets où vous avez un vote encore en cours :'
+          email_intro: Vous avez commencé un vote sur le budget, mais vous ne l'avez pas finalisé.
+          email_link: Cliquez ici pour finaliser votre vote
+          email_outro: N'oubliez pas de finaliser votre vote. Pour voter, vous devez d'abord sélectionner le projet ou les projets sur lesquelles vous souhaitez voter, puis confirmer votre vote avec le bouton "Voter".
+          email_subject:
+            one: Vous avez un vote inachevé sur un budget
+            other: Vous avez des votes inachevés sur des budgets
     components:
       budgets:
         actions:
+          comment: Commenter
           vote: Voter
         name: Budgets
         settings:
@@ -290,5 +333,8 @@ fr-CA:
     resource_links:
       included_proposals:
         project_proposal: Propositions incluses dans ce projet
+    statistics:
+      orders_count: Votes
+      projects_count: Projets
   index:
     confirmed_orders_count: Nombre de votes

@@ -1,49 +1,53 @@
-const { config } = require("@rails/webpacker");
+const path = require("path");
+const miniCssExtractPlugin = require("mini-css-extract-plugin");
+const { inliningCss } = require("@rails/webpacker");
 
 const overrideSassRule = (modifyConfig) => {
+  const sassLoaderPath = path.resolve(__dirname, "loaders/decidim-sass-loader") // eslint-disable-line no-undef
+
   const sassRule = modifyConfig.module.rules.find(
     (rule) => rule.test.toString() === "/\\.(scss|sass)(\\.erb)?$/i"
   );
-  if (!sassRule) {
-    return modifyConfig;
-  }
-
-  const sassLoader = sassRule.use.find(use => use.loader.match(/sass-loader/));
-  if (!sassLoader) {
-    return modifyConfig;
-  }
-
-  const imports = config.stylesheet_imports;
-  if (!imports) {
-    return modifyConfig;
-  }
-
-  // Add the extra importer to the sass-loader to load the import statements for
-  // Decidim modules.
-  sassLoader.options.sassOptions.importer = [
-    (url, _prev) => {
-      const matches = url.match(/^\!decidim-style-imports\[([^\]]+)\]$/);
-      if (!matches) {
-        return null;
-      }
-
-      const group = matches[1];
-      if (!imports[group]) {
-        // If the group is not defined, return an empty configuration because
-        // otherwise the importer would continue finding the asset through
-        // paths which obviously fails.
-        return { contents: "" };
-      }
-
-      const statements = imports[group].map((style) => `@import "${style}";`);
-
-      return { contents: statements.join("\n") };
+  if (sassRule) {
+    const existingLoader = sassRule.use.find((use) => {
+      return (typeof use === "object") && use.loader.match(/sass-loader/);
+    });
+    if (existingLoader) {
+      existingLoader.loader = sassLoaderPath;
+    } else {
+      sassRule.use.push({ loader: sassLoaderPath });
     }
-  ];
+  } else {
+    // Add the sass rule
+    let baseLoader = "style-loader";
+    if (!inliningCss) {
+      baseLoader = miniCssExtractPlugin.loader;
+    }
+
+    modifyConfig.module.rules.push({
+      test: /\.(scss|sass)(\.erb)?$/i,
+      use: [
+        baseLoader,
+        {
+          loader: require.resolve("css-loader"),
+          options: {
+            sourceMap: true,
+            importLoaders: 2
+          }
+        },
+        {
+          loader: "postcss-loader",
+          options: { sourceMap: true }
+        },
+        {
+          loader: sassLoaderPath
+        }
+      ]
+    })
+  }
 
   return modifyConfig;
 }
 
-module.exports = (originalConfig) => {
-  return overrideSassRule(originalConfig);
-};
+// Since all modifiers are functions, we can use a reduce clause to apply all them
+module.exports = (originalConfig) => [overrideSassRule].reduce((acc, modifier) => modifier(acc), originalConfig)

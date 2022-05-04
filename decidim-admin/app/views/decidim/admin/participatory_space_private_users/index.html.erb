@@ -3,7 +3,7 @@
     <h2 class="card-title">
       <%= t(".title") %>
       <% if allowed_to? :create, :space_private_user %>
-        <%= link_to t(".import_via_csv"), new_participatory_space_private_users_csv_import_path, class: "button tiny button--title import" %>
+        <%= link_to t(".import_via_csv"), new_participatory_space_private_users_csv_imports_path, class: "button tiny button--title import" %>
         <%= link_to t("actions.participatory_space_private_user.new", scope: "decidim.admin"), url_for(action: :new), class: "button tiny button--title new" %>
       <% end %>
     </h2>
@@ -15,10 +15,18 @@
         <table class="stack">
           <thead>
             <tr>
-              <th><%= t("models.assembly_user_role.fields.name", scope: "decidim.admin") %></th>
-              <th><%= t("models.assembly_user_role.fields.email", scope: "decidim.admin") %></th>
-              <th><%= t("models.user.fields.invitation_sent_at", scope: "decidim.admin") %></th>
-              <th><%= t("models.user.fields.invitation_accepted_at", scope: "decidim.admin") %></th>
+              <th>
+               <%= sort_link(query, :name, t("models.user.fields.name", scope: "decidim.admin"), default_order: :desc ) %>
+              </th>
+              <th>
+                <%= sort_link(query, :email, t("models.user.fields.email", scope: "decidim.admin"), default_order: :desc ) %>
+              </th>
+              <th>
+                <%= sort_link(query, :invitation_sent_at, t("models.user.fields.invitation_sent_at", scope: "decidim.admin"), default_order: :desc ) %>
+              </th>
+              <th>
+                <%= sort_link(query, :invitation_accepted_at, t("models.user.fields.invitation_accepted_at", scope: "decidim.admin"), default_order: :desc ) %>
+              </th>
               <th class="actions"></th>
             </tr>
           </thead>

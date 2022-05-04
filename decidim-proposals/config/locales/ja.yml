@@ -39,13 +39,13 @@ ja:
         keep_authors: オリジナルの作者を保持
       valuation_assignment:
         admin_log:
-          valuator_role_id: バリュエーター名
+          valuator_role_id: 評価者名
     errors:
       models:
         participatory_text:
           attributes:
             document:
-              invalid_document_type: '無効なドキュメントの種類です。承認されたフォーマットは次のとおりです: %{valid_mime_types}'
+              invalid_document_type: '無効な種類のドキュメントです。承認されたフォーマットは次のとおりです: %{valid_mime_types}'
         proposal:
           attributes:
             add_documents:
@@ -57,6 +57,16 @@ ja:
               identical: ANDタイトルは同一にすることはできません
             title:
               identical: AND本体は同一にすることはできません
+        proposals_merge:
+          attributes:
+            base:
+              not_official: 公式ではありません
+              supported: サポートまたはオススメを受けました
+        proposals_split:
+          attributes:
+            base:
+              not_official: 公式ではありません
+              supported: サポートまたはオススメを受けました
     models:
       decidim/proposals/accepted_proposal_event: 提案が承認されました
       decidim/proposals/admin/update_proposal_category_event: 提案カテゴリが変更されました
@@ -114,14 +124,13 @@ ja:
           amend: 修正
           comment: コメント
           create: 作成
-          endorse: 支持する
+          endorse: オススメする
           vote: サポート
           vote_comment: コメントに投票
           withdraw: 撤回する
         name: 提案
         settings:
           global:
-            allow_card_image: カードの画像を許可
             amendments_enabled: 修正が有効
             amendments_enabled_help: アクティブな場合、各ステップに修正機能を設定します。
             amendments_wizard_help_text: 修正ウィザードのヘルプテキスト
@@ -131,6 +140,17 @@ ja:
             collaborative_drafts_enabled: 共同草稿を有効にする
             comments_enabled: コメントを有効にする
             comments_max_length: コメント最大長 (デフォルト値は 0 のまま)
+            default_sort_order: デフォルトの提案の並べ替え
+            default_sort_order_help: デフォルトは、サポートが有効な場合、提案がランダムでソートされることを意味します。サポートがブロックされている場合は、最もサポートされている順にソートされます。
+            default_sort_order_options:
+              default: デフォルト
+              most_commented: コメントが多い順
+              most_endorsed: 最もオススメされた順
+              most_followed: 最もフォローされている順
+              most_voted: サポートされている順
+              random: ランダム
+              recent: 最近のもの
+              with_more_authors: より多くの著者と一緒に
             geocoding_enabled: ジオコーディングが有効
             minimum_votes_per_user: 参加者一人あたりの最低サポート数
             new_proposal_body_template: 新しい提案本文テンプレート
@@ -172,9 +192,20 @@ ja:
             answers_with_costs: 提案の回答時にコストを有効にする
             automatic_hashtags: すべての提案に下記のハッシュタグを追加する
             comments_blocked: コメントをブロック
-            creation_enabled: 提案の作成を有効にする
-            endorsements_blocked: 支持をブロック
-            endorsements_enabled: 支持を有効にする
+            creation_enabled: 参加者は提案を作成できます
+            default_sort_order: デフォルトの提案の並べ替え
+            default_sort_order_help: デフォルトは、サポートが有効な場合、提案がランダムでソートされることを意味します。サポートがブロックされている場合は、最もサポートされている順にソートされます。
+            default_sort_order_options:
+              default: デフォルト
+              most_commented: コメントが多い順
+              most_endorsed: 最もオススメされた順
+              most_followed: フォローが多い順
+              most_voted: サポートされている順
+              random: ランダム
+              recent: 最新順
+              with_more_authors: 著者の多い順
+            endorsements_blocked: オススメをブロック
+            endorsements_enabled: オススメを有効にする
             proposal_answering_enabled: 提案への回答を有効にする
             publish_answers_immediately: 提案の回答をすぐに公開
             suggested_hashtags: 提案作成時に参加者に提案するハッシュタグ
@@ -225,7 +256,7 @@ ja:
           email_subject: '%{participatory_space_title} で現在利用可能な提案'
           notification_title: <a href="%{resource_path}">新しい提案</a> を <a href="%{participatory_space_url}">%{participatory_space_title}</a>で提出できるようになりました。
         endorsing_enabled:
-          email_intro: 'あなたは %{participatory_space_title}で提案を支持することができます! このページへの参加を開始します:'
+          email_intro: 'あなたは %{participatory_space_title} で提案をオススメすることができます! このページへの参加を開始します:'
           email_outro: '%{participatory_space_title}をフォローしているため、この通知を受け取りました。前のリンクに続く通知の受信を停止することができます。'
           email_subject: '%{participatory_space_title} の推薦提案が開始されました'
           notification_title: <a href="%{resource_path}">提案の支持</a> <a href="%{participatory_space_url}">%{participatory_space_title}</a> を開始することができます。
@@ -265,7 +296,7 @@ ja:
           email_intro: あなたがフォローしている提案「%{resource_title}」が「%{participatory_space_title}」に追加されました。
           email_outro: '「%{participatory_space_title}」をフォローしているため、この通知を受け取りました。前のリンクに続く通知の受信を停止できます。'
           email_subject: 新しい提案 "%{resource_title}" が %{participatory_space_title} に追加されました
-          notification_title: 提案 <a href="%{resource_path}">%{resource_title}</a> が %{participatory_space_title} に追加されました
+          notification_title: 提案 <a href="%{resource_path}">%{resource_title}</a> が %{author} によって %{participatory_space_title} に追加されました
         proposal_rejected:
           affected_user:
             email_intro: 'あなたの提案 "%{resource_title}" は拒否されました。このページで回答を読むことができます:'
@@ -333,9 +364,9 @@ ja:
         object: 提案
         title: 承認された提案
       endorsements:
-        description: 提案への承認数
-        object: 承認
-        title: 支持
+        description: 提案へのオススメ数
+        object: オススメ
+        title: オススメ
       proposals:
         description: 提案数
         object: 提案
@@ -362,6 +393,21 @@ ja:
         exports:
           proposal_comments: コメント
           proposals: 提案
+        imports:
+          help:
+            answers: 'インポートドキュメントは、id、状態 (受け入れられた、評価、拒否された)、answer/en (および組織で使える他の言語) の列を含む必要があります。'
+            proposals: 'ファイルには、カラム名「title/en」と「body/en」(または、あなたが好む別のロケール、例: 「title/ja」と「body/ja」) が必要です。また、カラム名「scope/id」と「category/id」にも対応しています。'
+          label:
+            answers: ファイルから回答をインポート
+            proposals: ファイルから提案をインポート
+          resources:
+            answers:
+              other: 提案の回答
+            proposals:
+              other: 提案
+          title:
+            answers: 提案の回答をインポート
+            proposals: 提案をインポート
         models:
           proposal:
             name: 提案
@@ -378,7 +424,7 @@ ja:
             success: おめでとうございます。次のセクションが提案に変換されました。公開する前に確認して調整できます。
           index:
             info_1: 次のセクションが提案に変換されました。公開する前に確認して調整できます。
-            publish_document: 文書を公開
+            publish_document: ドキュメントを公開
             save_draft: 下書きを保存
             title: 参加者のテキストをプレビュー
           new_import:
@@ -447,7 +493,7 @@ ja:
             split_button: 分割
             title: 提案
             unassign_from_valuator: 評価者からの割り当てを解除
-            unassign_from_valuator_button: アサインを解除
+            unassign_from_valuator_button: 割り当ての解除
             update: 更新
             update_scope_button: スコープの更新
           new:
@@ -467,9 +513,9 @@ ja:
             comments_positive_count: お気に入り
             created_at: 作成日
             documents: ドキュメント
-            endorsements_count: 支持数
-            endorsements_ranking: 承認によるランキング
-            endorsers: Endorsers
+            endorsements_count: オススメ数
+            endorsements_ranking: オススメランキング
+            endorsers: オススメしている人
             link: リンク
             n_more_endorsers:
               other: 他 %{count} 名
@@ -479,7 +525,7 @@ ja:
             related_meetings: 関連するミーティング
             remove_assignment: 課題を削除
             remove_assignment_confirmation: この提案から評価者を削除してもよろしいですか？
-            valuators: Valuators
+            valuators: 評価者
             votes_count: サポート数
             votes_ranking: サポートによるランキング
           update_category:
@@ -504,19 +550,19 @@ ja:
             title: 提案をインポート
         proposals_merges:
           create:
-            invalid: 選択した提案をマージする際に問題が発生しました。
+            invalid: '選択した提案をマージする際に問題が発生しました:'
             success: 提案を正常に新しいものにマージしました。
         proposals_splits:
           create:
-            invalid: 選択した提案を分割する際に問題が発生しました。
+            invalid: '選択した提案を分割する際に問題が発生しました:'
             success: 提案を新しいものに分割しました。
         valuation_assignments:
           create:
-            invalid: バリュエーターに提案を割り当てる際にエラーが発生しました
+            invalid: 評価者に提案を割り当てる際にエラーが発生しました
             success: 評価者に割り当てられた提案
           delete:
-            invalid: バリュエーターからの提案の割り当てを解除中にエラーが発生しました
-            success: プロポーザルから正常に割り当てられていません
+            invalid: 評価者からの提案の割り当てを解除中にエラーが発生しました
+            success: 評価者としての提案への割り当てが正常に解除されました
       admin_log:
         proposal:
           answer: "%{user_name} が %{resource_name} スペースで %{space_name} の提案に回答しました"
@@ -539,9 +585,9 @@ ja:
           all: すべて
         filter_origin_values:
           all: すべて
-          citizens: 一般参加者
           meetings: ミーティング
           official: 事務局
+          participants: 参加者
           user_groups: グループ
         filter_scope_values:
           all: すべて
@@ -603,18 +649,20 @@ ja:
           filter_by: フィルター
           unfold: 展開する
         new:
+          add_file: ファイルを追加
+          edit_file: ファイルを編集
           send: 続ける
         new_collaborative_draft_button:
           new_collaborative_draft: 新しい共同作業の下書きを作成
         orders:
           label: '下書きの注文:'
           most_contributed: 最も貢献したもの
-          random: Random
+          random: ランダム
           recent: 最近のもの
         requests:
           accepted_request:
             error: コラボレーターとして受け入れることができませんでした。後でもう一度お試しください。
-            success: "@%{user} は共同作業者として正常に承認されました"
+            success: "@%{user} はコラボレーターとして正常に承認されました"
           access_requested:
             error: リクエストを完了できませんでした。後でもう一度お試しください。
             success: 共同作業のリクエストが正常に送信されました
@@ -624,7 +672,7 @@ ja:
             title: コラボレーションリクエスト
           rejected_request:
             error: コラボレーターとして拒否できませんでした。後でもう一度やり直してください。
-            success: "@%{user} は共同作業者として正常に拒否されました"
+            success: "@%{user} はコラボレーターとして正常に拒否されました"
         show:
           back: 戻る
           edit: 共同作業の下書きを編集
@@ -682,8 +730,8 @@ ja:
             scope: スコープ
             state: ステータス
             title: タイトル
-            valuator: Valuator
-            valuators: Valuators
+            valuator: 評価者
+            valuators: 評価者
             votes: 投票
       new:
         limit_reached: 制限を超えたため、新しい提案を作成することはできません。
@@ -711,12 +759,12 @@ ja:
           description: '「プレビュー」ボタンをクリックすると座標が更新されますが、アドレスは変更されません。'
           instructions: 地図上のポイントを移動できます。
         edit:
-          add_documents: ドキュメント
-          add_images: ファイル
+          add_documents: ドキュメントを追加
+          add_image: 画像を追加
           attachment_legend: "(オプション) 添付ファイルを追加"
           back: 戻る
-          delete_document: ドキュメントの削除
-          delete_image: 画像を削除
+          edit_documents: ドキュメントを編集
+          edit_image: 画像を編集
           gallery_legend: "(オプション) 提案カードに画像を追加する"
           select_a_category: カテゴリを選択してください
           send: 送信
@@ -745,9 +793,12 @@ ja:
           filter_by: フィルター
           unfold: 展開する
         index:
+          click_here: すべての提案を見る
           collaborative_drafts_list: 共同作業の下書きにアクセスする
           new_proposal: 新しい提案
+          see_all: すべての提案を見る
           see_all_withdrawn: すべての撤回された提案を見る
+          text_banner: 提案者が撤回した提案の一覧を表示しています。 %{go_back_link}.
           view_proposal: 提案を表示
         linked_proposals:
           proposal_votes:
@@ -758,10 +809,10 @@ ja:
         orders:
           label: '提案の順序：'
           most_commented: コメントが多い順
-          most_endorsed: 最も支持された
+          most_endorsed: 最もオススメされた
           most_followed: 最もフォローされている
-          most_voted: 最もサポートされています
-          random: Random
+          most_voted: サポートされている順
+          random: ランダム
           recent: 最近のもの
           with_more_authors: より多くの著者と一緒に
         participatory_texts:
@@ -792,7 +843,7 @@ ja:
           changes_at_title: '「%{title} 」に修正'
           comments: コメント
           edit_proposal: 提案を編集
-          endorsements_list: 承認者一覧
+          endorsements_list: オススメ一覧
           estimated_cost: 推定コスト
           hidden_endorsers_count:
             other: '%{count} 人以上'

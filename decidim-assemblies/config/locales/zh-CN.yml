@@ -56,7 +56,6 @@ zh-CN:
         birthplace: 出生地点
         ceased_date: 缓存日期
         designation_date: 指定日期
-        designation_mode: 设计模式
         full_name: 全名
         gender: 两性平等
         position: 位置
@@ -258,7 +257,6 @@ zh-CN:
             duration_help: 如果这个程序集的持续时间有限，请选择结束日期。否则，它将显示为无限期。
             filters: 筛选器
             images: 图像
-            included_at_help: 选择程序集添加到 Decidim 的日期。它不一定与创建日期相同。
             metadata: 元数据
             other: 其他
             select_a_created_by: 选择创建者：

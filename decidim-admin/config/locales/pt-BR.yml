@@ -1,4 +1,4 @@
-pt:
+pt-BR:
   activemodel:
     attributes:
       area:
@@ -48,7 +48,6 @@ pt:
         favicon: Ícone
         force_authentication: Forçar autenticação
         force_users_to_authenticate_before_access_organization: Forçar usuários a autenticar antes de acessar organização
-        from: Endereço de e-mail de origem
         github_handler: Manipulador GitHub
         header_snippets: Snippets de cabeçalho
         highlight_alternative_color: Destaque, alternativa
@@ -171,8 +170,6 @@ pt:
         permissions: Permissões
         reject: Negar
         share: Compartilhar
-        user:
-          new: Novo usuário
         verify: Verificar
       admin_terms_of_use:
         accept:
@@ -180,12 +177,10 @@ pt:
           success: Ótimo! Você aceitou os termos de uso do administrador.
         actions:
           accept: Concordo com os seguintes termos
-          are_you_sure: Tem certeza de que deseja recusar os termos do administrador?
           refuse: Recusar os termos do admin
           title: Concorde com os termos e condições de uso
         required_review:
           alert: 'Obrigatório: Revise os termos de uso de nosso administrador'
-          callout: Por favor, reserve um momento para revisar os Termos de Uso do Administrador. Caso contrário, você não poderá administrar a plataforma.
           cta: Reveja eles agora.
         title: Termos de Uso do Administrador
       area_types:
@@ -208,7 +203,6 @@ pt:
           error: Ocorreu um erro ao criar uma nova área.
           success: Área criada com sucesso.
         destroy:
-          has_spaces: A área tem espaços dependentes, não deve ter dependências para ser excluída.
           success: Área excluída com sucesso
         edit:
           title: Editar área
@@ -261,7 +255,6 @@ pt:
       block_user:
         new:
           action: Bloquear conta e enviar justificativa
-          description: Bloquear um usuário irá tornar sua conta inutilizável, você pode fornecer em sua justificação e orientações sobre maneiras que achar que você consideraria desbloquear o usuário.
           justification: Justificativa
           title: Bloquear usuário %{name}
       categories:
@@ -324,7 +317,6 @@ pt:
         'false': 'Não'
         managed_user_name: Usuário gerenciado
         solved: Resolvido
-        title: Conflitos de verificações
         transfer:
           email: E-mail
           error: Houve um erro ao transferir o usuário atual para o usuário gerenciado.
@@ -337,7 +329,6 @@ pt:
       dashboard:
         show:
           view_more_logs: Ver mais registros
-          welcome: Bem-vindo ao Decidim Admin Panel.
       domain_whitelist:
         form:
           domain_too_short: Domínio muito curto
@@ -450,13 +441,7 @@ pt:
           impersonate_existing_user: Representar usuário "%{name}"
           impersonate_new_managed_user: Representar novo usuário gerenciado
       imports:
-        creators:
-          proposalcreator: Criação de propostas
         error: Houve um problema durante a importação
-        help:
-          proposalcreator: O arquivo deve ter nomes de coluna título/en e corpo/en (ou outro idioma que você preferir. title/ca e corpo/ca). Também são suportadas colunas de escopo/id e categoria/id.
-        import_from_file: Importar de um arquivo
-        invalid_lines: Erro encontrado no número de recursos %{invalid_lines}
         new:
           accepted_mime_types:
             csv: csv
@@ -487,7 +472,6 @@ pt:
         areas: Áreas
         configuration: Configuração
         dashboard: Painel de controle
-        external_domain_whitelist: Domínio externo na lista branca
         help_sections: Seções de ajuda
         homepage: Pagina inicial
         impersonations: Imitações
@@ -636,7 +620,6 @@ pt:
       newsletters:
         create:
           error: Ocorreu um erro ao criar este boletim informativo.
-          success: Newsletter criada com sucesso. Por favor, reveja-o antes de enviar.
         deliver:
           error: Houve um erro na entrega deste boletim informativo.
           success: Newsletter entregue com sucesso.
@@ -719,12 +702,10 @@ pt:
           title: Oficializar o usuário "%{name}"
         show_email_modal:
           close_modal: Fechar Modal
-          description: Se você precisar entrar em contato com um participante diretamente você pode clicar no botão Mostrar para ver o endereço de e-mail. Esta ação será registrada.
           email_address: Endereço de E-mail
           full_name: Nome completo
           hidden: oculto
           show: Mostrar
-          title: Mostrar endereço de e-mail do participante
         unblock:
           error: Ocorreu um erro ao desbloquear o participante
           success: Usuário desbloqueado com sucesso
@@ -915,7 +896,6 @@ pt:
         static_pages: Páginas
         statistics: Atividade
         user_groups: Grupos de usuários
-        users: Usuários
       user_group:
         csv_verify:
           invalid: Ocorreu um erro ao ler o arquivo CSV.
@@ -928,13 +908,6 @@ pt:
           success: Grupo de usuários verificado com sucesso
       user_groups:
         index:
-          filter:
-            all: Tudo
-            pending: Pendente
-            rejected: Rejeitado
-            verified: Verificado
-          filter_by: Filtrar por
-          search: Buscar
           state:
             pending: Pendente
             rejected: Rejeitado
@@ -958,7 +931,6 @@ pt:
           role: Cargo
         new:
           create: Convite
-          title: Convide o usuário como administrador
       users_statistics:
         users_count:
           admins: Admins
@@ -968,10 +940,6 @@ pt:
           no_users_count_statistics_yet: Ainda não há nenhuma estatística de usuários
           participants: Participantes
       view_public_page: Ver página pública
-    forms:
-      errors:
-        impersonate_user:
-          reason: Você precisa fornecer um motivo ao representar um usuário não gerenciado
     metrics:
       blocked_users:
         object: usuários bloqueados

@@ -2,17 +2,17 @@ ro:
   activemodel:
     attributes:
       budget:
-        decidim_scope_id: Domeniu
+        decidim_scope_id: Domeniu de interes
         description: Descriere
         title: Titlu
         total_budget: Total budget
-        weight: Poziția comenzii
+        weight: Ordinea în poziționare
       project:
         budget_amount: Sumă bugetară
         decidim_category_id: Categorie
-        decidim_scope_id: Domeniu
+        decidim_scope_id: Domeniu de interes
         description: Descriere
-        proposal_ids: Propuneri conexe
+        proposal_ids: Propuneri asociate
         selected: Selectate pentru implementare
         title: Titlu
   activerecord:
@@ -22,11 +22,23 @@ ro:
         few: Proiecte
         other: Proiecte
   decidim:
+    admin:
+      filters:
+        projects:
+          category_id_eq:
+            label: Categorie
+          scope_id_eq:
+            label: Domeniu de interes
+          selected_at_null:
+            label: Selectate
+            values:
+              'false': Implementare alesă
+              'true': Implementare refuzată
     budgets:
       actions:
         attachment_collections: Dosare
         attachments: Atașamente
-        confirm_destroy: Sunteţi sigur că doriţi să ştergeţi acest proiect?
+        confirm_destroy: Sigur dorești să ştergi acest proiect?
         destroy: Ștergere
         edit: Editare
         edit_projects: Gestionați proiectele
@@ -52,7 +64,7 @@ ro:
             users_with_finished_orders: Utilizatori cu voturi finalizate
             users_with_pending_orders: Utilizatori cu voturi în așteptare
           new:
-            create: Creați un buget
+            create: Creează un buget
             title: Buget nou
           update:
             invalid: A apărut o eroare la actualizarea acestui buget
@@ -79,51 +91,54 @@ ro:
             selected: Selectate
             title: Proiecte
           new:
-            create: Crează
+            create: Creează
             title: Proiect nou
           update:
             invalid: A apărut o eroare la actualizarea acestui proiect
-            success: Proiect actualizat cu succes
+            success: Proiectul a fost actualizat cu succes
         proposals_imports:
           create:
             invalid: A apărut o problemă la importul propunerilor în proiecte
             success: "%{number} propuneri importate cu succes în proiecte"
           new:
             create: Importă propuneri în proiecte
-            no_components: Nu există alte componente de propunere în acest spațiu participativ pentru a importa propunerile în proiecte.
-            select_component: Vă rugăm să selectaţi o componentă
+            no_components: Nu există alte componente de propuneri în acest spațiu participativ pentru a importa propunerile în proiecte.
+            select_component: Te rugăm selectează o componentă
             title: Importă propuneri
       admin_log:
         budget:
           create: "%{user_name} a creat bugetul %{resource_name} în spațiul %{space_name}"
-          delete: "%{user_name} a șters bugetul %{resource_name} în spațiul %{space_name}"
-          update: "%{user_name} a actualizat bugetul %{resource_name} în spațiul %{space_name}"
+          delete: "%{user_name} a șters bugetul %{resource_name} din spațiul %{space_name}"
+          update: "%{user_name} a actualizat bugetul %{resource_name} din spațiul %{space_name}"
         project:
           create: "%{user_name} a creat proiectul %{resource_name} în spațiul %{space_name}"
-          delete: "%{user_name} a șters proiectul %{resource_name} în spațiul %{space_name}"
-          update: "%{user_name} a actualizat proiectul %{resource_name} în spațiul %{space_name}"
+          delete: "%{user_name} a șters proiectul %{resource_name} din spațiul %{space_name}"
+          update: "%{user_name} a actualizat proiectul %{resource_name} din spațiul %{space_name}"
       budget:
-        view: Vezi toate proiectele bugetare
+        view: Vezi toate proiectele
       budget_information_modal:
         back_to: Înapoi la %{component_name}
-        close_modal: Închidere
+        close_modal: Închide fereastra
         continue: Continuă
         more_information: Mai multe informații
       budget_list_item:
-        voting_finished: Ați votat în acest buget
-        voting_started: Ați început să votați în acest buget
+        voting_finished: Ai votat în acest buget
+        voting_started: Ai început să votezi în acest buget
       budgets_list:
         cancel_order:
-          more_than_one: șterge votul pentru %{name} și începe din nou
-          only_one: șterge votul și începe din nou.
+          more_than_one: șterge votul tău pentru %{name} și reia procesul
+          only_one: șterge votul și reia procesul.
         finished_message: Ai terminat procesul de vot. Mulțumim pentru participare!
-        highlighted_cta: Votează la %{name}
-        if_change_opinion: Dacă v-ați răzgândit, puteți
+        highlighted_cta: Votează pentru %{name}
+        if_change_opinion: Dacă te-ai răzgândit, poți
         my_budgets: Bugetele mele
+        progress: Finalizează votul
+        show: Vezi proiectele
+        vote: Votează
         voted_on: Ai votat pentru %{links}
       limit_announcement:
-        cant_vote: Nu puteți vota pentru acest buget. <a href="%{landing_path}">Încercați un alt buget</a>.
-        limit_reached: Voturi active în %{links}. Pentru a vota cu privire la acest buget, trebuie să <a href="%{landing_path}">ștergeți votul și să reîncepeți</a>.
+        cant_vote: Nu poți vota pentru acest buget. <a href="%{landing_path}">Încearcă un alt buget</a>.
+        limit_reached: Ai voturi active în %{links}. Pentru a vota în acest buget, trebuie <a href="%{landing_path}">să ștergi votul și să reiei procesul</a>.
       models:
         budget:
           fields:
@@ -132,46 +147,81 @@ ro:
             total_budget: Buget total
         project:
           fields:
+            category: Categorie
+            id: ID
             title: Titlu
       order_summary_mailer:
         order_summary:
-          selected_projects: 'Proiectele pe care le-aţi selectat sunt:'
-          subject: Ați votat pentru spațiul participativ %{space_name}
-          voted_on_space: Ați votat asupra bugetului %{budget_name} pentru spațiul participativ al %{space_name}.
-          voted_on_space_with_scope: Ați votat bugetul pentru %{budget_name} pentru spațiul participativ %{space_name} pe %{scope_name} (%{scope_type}).
+          selected_projects: 'Proiectele pe care le-ai selectat sunt:'
+          subject: Ai votat pentru spațiul participativ %{space_name}
+          voted_on_space: Ai votat pentrul bugetul %{budget_name} aferent spațiului participativ %{space_name}.
+          voted_on_space_with_scope: Ai votat pentrul bugetul %{budget_name} aferent spațiului participativ %{space_name} pentru %{scope_name} (%{scope_type}).
       projects:
         budget_confirm:
+          are_you_sure: Dacă te răzgândești, poți modifica votul mai târziu.
           cancel: Anulează
-          confirm: Confirmare
-          description: Acestea sunt proiectele pe care aţi ales să le faceţi parte din buget.
+          confirm: Confirmă
+          description: Acestea sunt proiectele pe care ai ales să le incluzi în buget.
           title: Confirmă votul
         budget_excess:
           budget_excess:
+            description: Acest proiect depășește bugetul maxim și nu poate fi adăugat. Dacă dorești, poți șterge un proiect deja selectat pentru a-l adăuga pe acesta, putând astfel vota din nou conform preferințelor tale.
             title: Buget maxim depășit
           close: Inchide
+          description: Acest proiect depășește bugetul maxim și nu poate fi adăugat. Dacă dorești, poți șterge un proiect deja selectat pentru a-l adăuga pe acesta, putând astfel vota din nou conform preferințelor tale.
           ok: Ok
+          projects_excess:
+            description: Acest proiect depășește numărul maxim de proiecte și nu poate fi adăugat. Dacă dorești, poți șterge un proiect deja selectat pentru a-l adăuga pe acesta, putând astfel vota din nou conform preferințelor tale.
+            title: Numărul maxim de proiecte a fost depășit
         budget_summary:
-          are_you_sure: Ești sigur că vrei să anulezi votul?
-          assigned: 'Atribuit'
-          cancel_order: șterge votul tău și începe din nou
+          are_you_sure: Sigur dorești să îți anulezi votul?
+          assigned: 'Atribuit:'
+          cancel_order: șterge votul și reia procesul
           checked_out:
-            description: Ai votat deja pentru buget. Dacă te-ai răzgândit, poți %{cancel_link}.
-            title: Votul pentru buget finalizat
-          title: Dumneavoastră decideţi bugetul
+            description: Ai votat deja pentru acest buget. Dacă te-ai răzgândit, poți %{cancel_link}.
+            title: Votul pentru buget a fost finalizat
+          minimum_projects_rule:
+            description: Pentru ce proiecte consideri că ar trebui să alocăm bugetul? Selectează cel puțin %{minimum_number} proiecte pe care le susții și votează apoi conform preferințelor tale pentru a defini bugetul.
+            instruction: "<li>Selectează cel puțin %{minimum_number} proiecte pe care le susții și votează în funcție de preferințele tale pentru a defini bugetul.</li>"
+          projects_rule:
+            description: Pentru ce proiecte consideri că ar trebui să alocăm bugetul? Selectează cel puțin %{minimum_number} și până la %{maximum_number} proiecte pe care le susții și votează apoi conform preferințelor tale pentru a defini bugetul.
+            instruction: "<li>Selectează cel puțin %{minimum_number} și până la %{maximum_number} proiecte pe care le susții și votează apoi conform preferințelor tale pentru a defini bugetul.</li>"
+          projects_rule_maximum_only:
+            description: Pentru ce proiecte consideri că ar trebui să alocăm bugetul? Selectează până la %{maximum_number} proiecte pe care le susții și votează apoi conform preferințelor tale pentru a defini bugetul.
+            instruction: "<li>Selectează până la %{maximum_number} proiecte pe care le susții și votează în funcție de preferințele tale pentru a defini bugetul.</li>"
+          rules:
+            title: Reguli privind votarea
+          title: Tu decizi bugetul
+          total_budget: Buget total
+          total_projects: Total voturi
+          vote_threshold_percent_rule:
+            description: Pentru ce proiecte consideri că ar trebui să alocăm bugetul? Alocă cel puțin %{minimum_budget} pentru proiectele pe care le susții și votează apoi conform preferințelor tale pentru a defini bugetul.
+            instruction: "<li>Alocă cel puțin %{minimum_budget} pentru proiectele pe care le susții și votează apoi conform preferințelor tale pentru a defini bugetul.</li>"
         count:
           projects_count:
             one: 1 proiect
             few: "%{count} proiecte"
             other: "%{count} proiecte"
+        exit_modal:
+          cancel: Revino la secțiunea de votare
+          close_modal: Închide fereastra
+          exit: Ieși din secțiunea de votare
+          message: Votul tău nu a fost înregistrat încă pentru că nu ai finalizat procesul de votare. Sigur dorești să ieși din secțiunea de votare?
+          title: Nu ai votat încă
         filters:
           category: Categorie
           scope: Domeniu
           search: Caută
+          status: Stadiu
+          status_values:
+            all: Toate
+            not_selected: Neselectate
+            selected: Selectate
         filters_small_view:
           close_modal: Închide fereastra
           filter: Filtrare
-          filter_by: Filtrare după
-          unfold: Desfășurat
+          filter_by: Filtrează după
+          unfold: Extinde
         order_progress:
           vote: Votează
         order_selected_projects:
@@ -180,51 +230,88 @@ ro:
             one: proiect selectat
             few: proiecte selectate
             other: proiecte selectate
-          view: Vizualizare
+          view: Vizualizează
         orders:
           highest_cost: Cel mai mare cost
-          label: Ordonare proiecte de
+          label: Ordonează proiectele după
           lowest_cost: Cel mai mic cost
           most_voted: Cele mai votate
           random: Ordine aleatorie
+          selected: Selectate
         project:
           add: Adaugă proiectul %{resource_name} la votul tău
           remove: Elimină proiectul %{resource_name} din votul tău
-          view: Vizualizare
+          selected: Selectate
+          view: Vizualizează
+          votes:
+            one: vot
+            few: voturi
+            other: voturi
+          you_voted: Ai votat pentru
         project_budget_button:
           add: Adaugă la votul tău
           add_descriptive: Adaugă proiectul %{resource_name} la votul tău
-          added: Adăugat la votul dvs.
+          added: Adăugat la votul tău
           added_descriptive: Proiectul %{resource_name} a fost adăugat la votul tău
+        projects_for: Proiecte pentru %{name}
         show:
           budget: Buget
           view_all_projects: Vezi toate proiectele
     components:
       budgets:
         actions:
+          comment: Comentează
           vote: Votează
         name: Bugete
         settings:
           global:
             announcement: Anunţ
             comments_enabled: Comentarii activate
-            comments_max_length: Lungimea maximă a comentariilor (Leave 0 pentru valoarea implicită)
+            comments_max_length: Lungimea maximă a comentariilor (lăsați 0 pentru valoarea implicită)
             form:
               errors:
                 budget_voting_rule_only_one: Doar o singură regulă de vot trebuie activată
                 budget_voting_rule_required: Este necesară o regulă de vot
+            landing_page_content: Pagina pentru bugetare participativă
+            more_information_modal: Mai multe informații
             projects_per_page: Proiecte pe pagină
+            resources_permissions_enabled: Pentru fiecare proiect pot fi setate drepturi pentru acțiuni
+            scope_id: Domeniu de interes
+            scopes_enabled: Domenii activate
+            title: Titlu
             total_budget: Buget total
             vote_minimum_budget_projects_number: Numărul minim de proiecte de votat
-            vote_rule_minimum_budget_projects_enabled: 'Permite regula: numărul minim de proiecte care urmează să fie votate pe'
-            vote_rule_threshold_percent_enabled: 'Activare regulă: Procentaj minim buget'
-            vote_threshold_percent: Pragul de vot procentual
+            vote_rule_minimum_budget_projects_enabled: 'Activează regula: Numărul minim de proiecte care urmează să fie votate pentru'
+            vote_rule_selected_projects_enabled: 'Activează regula: Numărul minim și numărul maxim de proiecte ce pot fi votate pentru'
+            vote_rule_threshold_percent_enabled: 'Activează regulă: Procentaj minim al bugetului'
+            vote_selected_projects_maximum: Numărul maxim de proiecte ce pot fi selectate
+            vote_selected_projects_minimum: Numărul minim de proiecte ce pot fi selectate
+            vote_threshold_percent: Pragul procentual pentru vot
+            workflow: Flux de lucru
+            workflow_choices:
+              all: 'Votare pentru toate: permite participanților să voteze în cadrul tuturor bugetelor.'
+              one: 'Votare pentru unul singur: permite participanților să voteze în orice buget, dar numai în unul dintre acestea.'
           step:
             announcement: Anunţ
             comments_blocked: Comentarii blocate
-            show_votes: Arată voturile
+            highlighted_heading: Antet evidențiat
+            landing_page_content: Pagina pentru bugetare participativă
+            list_heading: Antetul listei cu bugete
+            more_information_modal: Mai multe informații
+            show_votes: Afișează voturile
+            title: Titlu
+            votes: Votare
             votes_choices:
+              disabled: Votare dezactivată
               enabled: Votare activată
+              finished: Votare terminată
+    events:
+      budgets:
+        budget_published:
+          email_intro: 'Bugetul %{resource_title} este acum activ pentru %{participatory_space_title}. Îl poți vizualiza pe această pagină:'
+          email_outro: Ai primit această notificare deoarece urmărești „%{participatory_space_title}”. Poți anula abonarea de la link-ul anterior.
+          email_subject: Bugetul %{resource_title} este în prezent activ pentru %{participatory_space_title}.
+          notification_title: Bugetul <a href="%{resource_path}">%{resource_title}</a> este activ pentru %{participatory_space_title}.
     orders:
       checkout:
         error: A apărut o problemă la procesarea votului tău
@@ -232,8 +319,11 @@ ro:
       destroy:
         error: A apărut o problemă la anularea votului tău
         success: Votul tău a fost anulat cu succes
+    resource_links:
+      included_proposals:
+        project_proposal: Propuneri incluse în acest proiect
     statistics:
-      orders_count: Susține
+      orders_count: Voturi
       projects_count: Proiecte
   index:
     confirmed_orders_count: Numărul de voturi

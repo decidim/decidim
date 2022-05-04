@@ -3,7 +3,7 @@
 module Decidim
   module Admin
     # This command deals with destroying a newsletter from the admin panel.
-    class DestroyNewsletter < Rectify::Command
+    class DestroyNewsletter < Decidim::Command
       # Public: Initializes the command.
       #
       # newsletter - The Newsletter to be destroyed.

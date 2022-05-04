@@ -8,12 +8,15 @@ module Decidim
           include Decidim::SanitizeHelper
 
           delegate :current_participatory_space, to: :controller
-          delegate :introductory_image, to: :current_participatory_space
 
           private
 
+          def introductory_image
+            current_participatory_space.attached_uploader(:introductory_image)
+          end
+
           def description_text
-            decidim_sanitize(translated_attribute(current_participatory_space.description))
+            decidim_sanitize_editor(translated_attribute(current_participatory_space.description))
           end
 
           def button_show_more_text

@@ -95,7 +95,6 @@ bg:
         name: Предложения
         settings:
           global:
-            allow_card_image: Позволи изображение на карта
             amendments_enabled: Поправките са разрешени
             amendments_enabled_help: Ако е активно, конфигурирайте свойствата на измененията за всяка стъпка.
             amendments_wizard_help_text: Помощен текст на съветника за изменения
@@ -139,7 +138,6 @@ bg:
             answers_with_costs: Активиране на "тежест" за отговорите на предложение
             automatic_hashtags: Добавени са хаштагове на всички предложения
             comments_blocked: Коментарите са блокирани
-            creation_enabled: Създаването на предложения е разрешено
             endorsements_blocked: Одобряване забранено
             endorsements_enabled: Одобряване разрешено
             proposal_answering_enabled: Отговора на предложение е разрешен

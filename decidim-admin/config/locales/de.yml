@@ -32,6 +32,7 @@ de:
         body: Haupttext
         subject: Betreff
       organization:
+        admin_terms_of_use_body: Inhalt für die Admin-Nutzungsbedingungen
         alert_color: Benachrichtigung
         available_authorizations: Verfügbare Autorisierungen
         badges_enabled: Abzeichen aktivieren
@@ -47,7 +48,7 @@ de:
         favicon: Icon
         force_authentication: Authentifizierung erzwingen
         force_users_to_authenticate_before_access_organization: Benutzer müssen sich authentifizieren bevor sie auf die Organisation zugreifen können
-        from: Absender E-Mail
+        from: E-Mail-Adresse des Absenders
         github_handler: GitHub-Handler
         header_snippets: Header-Snippets
         highlight_alternative_color: Hervorhebung, Alternative
@@ -131,6 +132,7 @@ de:
       new_import:
         attributes:
           file:
+            invalid_file: Ungültige Datei, bitte überprüfen Sie, ob die Datei korrekt formatiert ist
             invalid_mime_type: Ungültiger MIME-Typ
   activerecord:
     attributes:
@@ -157,6 +159,8 @@ de:
         browse: Durchsuchen
         category:
           new: Neue Kategorie
+        export: Alles exportieren
+        export-selection: Auswahl exportieren
         import: Importieren
         manage: Verwalten
         new: Neu %{name}
@@ -169,7 +173,7 @@ de:
         reject: Ablehnen
         share: Teilen
         user:
-          new: Neuer Benutzer
+          new: Neuer Administrator
         verify: Überprüfen
       admin_terms_of_use:
         accept:
@@ -182,7 +186,7 @@ de:
           title: Den Admin-Nutzungsbedingungen zustimmen
         required_review:
           alert: 'Erforderlich: Überprüfen Sie unsere Admin-Nutzungsbedingungen'
-          callout: Bitte nehmen Sie sich einen Moment Zeit, um die Admin-Nutzungsbedingungen zu lesen. Ansonsten können Sie die Plattform nicht administrieren.
+          callout: Bitte nehmen Sie sich einen Moment Zeit, um die Admin-Nutzungsbedingungen zu lesen. Ansonsten können Sie die Plattform nicht verwalten.
           cta: Lesen Sie sie jetzt.
         title: Admin-Nutzungsbedingungen
       area_types:
@@ -205,7 +209,7 @@ de:
           error: Beim Erstellen eines neuen Bereichs ist ein Fehler aufgetreten.
           success: Bereich wurde erfolgreich erstellt.
         destroy:
-          has_spaces: Dieser Bereich hat abhängige Abschnitte. Es darf keine Abhängigkeiten geben, um gelöscht zu werden.
+          has_spaces: Dieser Bereich hat abhängige partizipative Räume. Bitte stellen Sie sicher, dass kein partizipativer Raum mehr diesen Bereich referenziert, bevor sie ihn löschen.
           success: Bereich wurde erfolgreich zerstört
         edit:
           title: Bereich bearbeiten
@@ -252,6 +256,8 @@ de:
         update:
           error: Beim Aktualisieren dieses Anhangs ist ein Fehler aufgetreten.
           success: Anhang wurde erfolgreich aktualisiert.
+      attachments_privacy_warning:
+        message: Seien Sie vorsichtig, wenn Sie mit Anhängen in einem privaten Raum arbeiten. Jeder Teilnehmer kann dieses Dokument mit anderen teilen.
       autocomplete:
         no_results: keine Ergebnisse gefunden
         search_prompt: Geben Sie mindestens drei Zeichen ein, um zu suchen
@@ -321,7 +327,7 @@ de:
         'false': 'Nein'
         managed_user_name: Verwalteter Benutzer
         solved: Gelöst
-        title: Konflikte von Überprüfungen
+        title: Überprüfungskonflikte
         transfer:
           email: E-Mail
           error: Es gab ein Problem bei der Übertragung des aktuellen Teilnehmers zu den verwalteten Teilnehmern.
@@ -334,7 +340,13 @@ de:
       dashboard:
         show:
           view_more_logs: Weitere Protokolle anzeigen
-          welcome: Willkommen im Decidim Admin Panel.
+          welcome: Willkommen beim Admin-Panel von Decidim.
+      domain_whitelist:
+        form:
+          domain_too_short: Domain zu kurz
+        update:
+          error: Fehler beim Aktualisieren der Domain-Whitelist
+          success: Domain-Whitelist erfolgreich aktualisiert
       exports:
         export_as: "%{name} als %{export_format}"
         formats:
@@ -347,6 +359,23 @@ de:
         category_id_eq:
           label: Kategorie
         filter_label: Filtern
+        invitation_accepted_at_present:
+          label: Einladung angenommen
+          values:
+            'false': 'Nein'
+            'true': 'Ja'
+        last_sign_in_at_present:
+          label: Schon einmal eingeloggt
+          values:
+            'false': 'Nein'
+            'true': 'Ja'
+        moderated_users:
+          reports_reason_eq:
+            label: Grund der Meldung
+            values:
+              does_not_belong: Gehört nicht hier hin
+              offensive: Offensiv
+              spam: Spam
         moderations:
           reportable_type_string_eq:
             label: Art
@@ -384,8 +413,14 @@ de:
           reported_id_string_or_reported_content_cont: Suche %{collection} nach meldbarer Id oder Inhalt.
           title_cont: In %{collection} nach Titel suchen.
           user_name_or_user_email_cont: In %{collection} nach Name oder E-Mail suchen.
+          user_name_or_user_nickname_or_user_email_cont: '%{collection} nach E-Mail, Name oder Benutzername durchsuchen.'
         state_eq:
           label: Bundesland
+          values:
+            all: Alle
+            pending: Ausstehend
+            rejected: Abgelehnt
+            verified: Überprüft
       forms:
         file_help:
           import:
@@ -431,13 +466,31 @@ de:
           impersonate_existing_user: Imitieren von Benutzer "%{name}"
           impersonate_new_managed_user: Sich als neuer verwalteter Benutzer ausgeben
       imports:
-        creators:
-          proposalcreator: Vorschlagsersteller
+        and: und
+        data_errors:
+          duplicate_headers:
+            detail: Bitte überprüfen Sie, dass die Datei benötigte Spalten oder Kopfzeilen nur einmal enthält.
+            message:
+              one: Spalte %{columns} duplizieren.
+              other: Spalten %{columns} duplizieren.
+          invalid_indexes:
+            lines:
+              detail: Bitte überprüfen Sie, ob diese Zeilen korrekt formatiert sind und gültige Datensätze enthalten.
+              message:
+                one: Fehler in der Importdatei auf Zeile %{indexes} gefunden.
+                other: Fehler in der Importdatei auf den Zeilen %{indexes} gefunden.
+            records:
+              detail: Bitte überprüfen Sie, ob diese Zeilen korrekt formatiert sind und gültige Datensätze enthalten.
+              message:
+                one: Fehler in der Importdatei beim Eintrag Nummer %{indexes} gefunden.
+                other: Fehler in der Importdatei bei den Einträgen Nummer %{indexes} gefunden.
+          missing_headers:
+            detail: Bitte überprüfen Sie, ob die Datei die erforderlichen Spalten enthält.
+            message:
+              one: Fehlende Spalte %{columns}.
+              other: Fehlende Spalten %{columns}.
         error: Beim Importieren ist ein Fehler aufgetreten
-        help:
-          proposalcreator: Die Datei muss die Spaltennamen title/de und body/de (oder andere Sprachen wie zum Beispiel title/en und body/en) enthalten. Zudem sind scope/id und category/id unterstützt.
-        import_from_file: Aus einer Datei importieren
-        invalid_lines: Fehler in der Ressource Nummer %{invalid_lines}
+        example_error: Konnte kein Beispiel für den angegebenen Typ erstellen
         new:
           accepted_mime_types:
             csv: CSV
@@ -445,6 +498,8 @@ de:
             xlsx: xlsx
           actions:
             back: Zurück
+          download_example: Beispiel herunterladen
+          download_example_format: Beispiel als %{name}
           file_legend: Datei zum Importieren hinzufügen.
           import: Importieren
         notice: "%{number}%{resource_name} erfolgreich importiert"
@@ -468,6 +523,7 @@ de:
         areas: Bereiche
         configuration: Aufbau
         dashboard: Instrumententafel
+        external_domain_whitelist: Erlaubte externe Domains
         help_sections: Hilfeabschnitte
         homepage: Startseite
         impersonations: Identitätswechsel
@@ -593,7 +649,7 @@ de:
         reports:
           index:
             author: Autor(en)
-            callout_html: Ein Inhalt erscheint im Moderations-Panel, wenn er von einem Benutzer signalisiert wurde (kann jeder mit einem registrierten Konto sein), indem er auf die %{icon} Flagge neben dem Element klickt.
+            callout_html: Ein Inhalt erscheint im Moderations-Panel, wenn er von einem Benutzer gemeldet wurde. Jeder Benutzer mit einem registrierten Konto kann Inhalte melden, indem er auf die %{icon} Flagge neben dem Element klickt.
             content_original_language: Originalsprache des Inhalts
             participatory_space: Beteiligungsbereich
             reported_content: Gemeldeter Inhalt
@@ -699,12 +755,12 @@ de:
           title: Benutzer "%{name}" offiziellisieren
         show_email_modal:
           close_modal: Modal schließen
-          description: Wenn Sie einen Teilnehmer direkt kontaktieren möchten, können Sie auf die Schaltfläche "Anzeigen" klicken, um die E-Mail-Adresse zu sehen. Diese Aktion wird protokolliert.
+          description: Wenn Sie einen Teilnehmer direkt kontaktieren möchten, können Sie auf die Schaltfläche "Anzeigen" klicken, um seine E-Mail-Adresse zu sehen. Diese Aktion wird protokolliert.
           email_address: E-Mail-Adresse
           full_name: Voller Name
           hidden: versteckt
           show: Anzeigen
-          title: Teilnehmer E-Mail-Adresse anzeigen
+          title: E-Mail-Adresse des Teilnehmers anzeigen
         unblock:
           error: Beim Blockieren des Teilnehmers ist ein Fehler aufgetreten
           success: Blockierung des Teilnehmers wurde erfolgreich aufgehoben
@@ -730,6 +786,7 @@ de:
         form:
           colors:
             colors_title: Organisationsfarben
+            colors_warning_html: Warnung! Das Ändern dieser Farben kann die für Barrierefreiheit notwendigen Kontraste brechen. Sie können den Kontrast Ihrer Wahl mit <a href="%{link}">WebAIM Contrast Checker</a> oder ähnlichen Tools überprüfen.
             header_snippets_help: Verwenden Sie dieses Feld, um Dinge zum HTML-Kopf hinzuzufügen. Die häufigste Verwendung ist die Integration von Drittanbieterdiensten, für die zusätzliches JavaScript oder CSS erforderlich ist. Außerdem können Sie damit dem HTML zusätzliche Meta-Tags hinzufügen. Beachten Sie, dass dies nur auf öffentlichen Seiten und nicht im Admin-Bereich erfolgt.
           cta_button_path_help: 'Sie können überschreiben, wo die Call To Action-Schaltfläche in der Homepage verlinkt ist. Verwenden Sie hier Teilpfade, nicht vollständige URLs. Akzeptiert Buchstaben, Zahlen, Bindestriche und Schrägstriche und muss mit einem Buchstaben beginnen. Die Call To Action-Schaltfläche wird auf der Startseite zwischen Begrüßungstext und Beschreibung angezeigt. Beispiel: %{url}'
           cta_button_text_help: Sie können den Text der Call To Action-Schaltfläche auf der Startseite für jede verfügbare Sprache in Ihrer Organisation überschreiben. Wenn nicht festgelegt, wird der Standardwert verwendet. Die Call To Action-Schaltfläche wird auf der Startseite zwischen Begrüßungstext und Beschreibung angezeigt.
@@ -739,6 +796,17 @@ de:
             layout_appearance_title: Layout-Layout bearbeiten
             preview: Vorschau
           omnipresent_banner_appearance_title: Bearbeiten Sie das allgegenwärtige Banner
+      organization_external_domain_whitelist:
+        edit:
+          update: Aktualisieren
+        external_domain:
+          down: Runter
+          external_domain: Externe Domain
+          remove: Entfernen
+          up: Hoch
+        form:
+          add: Zur Whitelist hinzufügen
+          title: Externe Domain-Whitelist
       organization_homepage:
         edit:
           active_content_blocks: Aktive Inhaltsblöcke
@@ -767,6 +835,11 @@ de:
           explanation: 'Laden Sie Ihre CSV-Datei hoch. Diese muss zwei Spalten haben ohne Kopfzeile, mit E-Mail in der ersten Spalte der Datei und Namen in der letzten Spalte der Datei (E-Mail, Name) in Bezug auf die Benutzer, die Sie dem Beteiligungsbereich hinzufügen möchten. Vermeiden sie ungültige Zeichen wie `<>?%&^*#@()[]=+:;"{}\|` im Namen des Nutzers zu verwenden.'
           title: CSV-Datei hochladen
           upload: Hochladen
+      reminders:
+        create:
+          error: Beim Erstellen dieser Erinnerungen ist ein Problem aufgetreten.
+        new:
+          submit: Senden
       resource_permissions:
         edit:
           submit: einreichen
@@ -884,7 +957,7 @@ de:
         static_pages: Seiten
         statistics: Aktivität
         user_groups: Benutzergruppen
-        users: Benutzer
+        users: Administratoren
       user_group:
         csv_verify:
           invalid: Beim Lesen der CSV-Datei ist ein Fehler aufgetreten.
@@ -897,13 +970,6 @@ de:
           success: Benutzergruppe erfolgreich verifiziert
       user_groups:
         index:
-          filter:
-            all: Alle
-            pending: steht aus
-            rejected: Abgelehnt
-            verified: Überprüft
-          filter_by: Filtern nach
-          search: Suche
           state:
             pending: steht aus
             rejected: Abgelehnt
@@ -927,7 +993,7 @@ de:
           role: Rolle
         new:
           create: Einladen
-          title: Benutzer als Administrator einladen
+          title: Neuen Administrator einladen
       users_statistics:
         users_count:
           admins: Admins
@@ -937,10 +1003,6 @@ de:
           no_users_count_statistics_yet: Es gibt noch keine Nutzerstatistiken
           participants: Teilnehmer
       view_public_page: Öffentliche Seite anzeigen
-    forms:
-      errors:
-        impersonate_user:
-          reason: Sie müssen einen Grund angeben, wenn Sie sich als nicht verwalteter Benutzer ausgeben
     metrics:
       blocked_users:
         object: blockierte Benutzer

@@ -10,7 +10,7 @@
         organization: Organisasjon
         plural: Flertall
       attachment:
-        attachment_collection_id: Mapper
+        attachment_collection_id: Mappe
         description: Beskrivelse
         file: Fil
         title: Vedlegg eller bildenavn
@@ -48,7 +48,7 @@
         favicon: Ikon
         force_authentication: Tving godkjenning
         force_users_to_authenticate_before_access_organization: Pålegg brukere å godkjenne før tilgang til organisasjonen
-        from: Fra e-postadresse
+        from: Avsenders e-postadresse
         github_handler: GitHub brukernavn
         header_snippets: Utdrag topptekst
         highlight_alternative_color: Fremhev, alternativ
@@ -75,6 +75,7 @@
         omnipresent_banner_url: URL
         organization_admin_email: Epost for organisasjonsadministrator
         organization_admin_name: Navn på organisasjonen
+        organization_locales: Organisasjonsområder
         primary_color: Primært
         reference_prefix: Referanse prefiks
         rich_text_editor_in_public_views: Aktiver rik-tekst-redigering for deltakere
@@ -86,6 +87,7 @@
         tos_version: Vilkår for tjenesten
         twitter_handler: Twitter brukernavn
         user_groups_enabled: Aktiver grupper
+        users_registration_mode: Brukerregistrering
         warning_color: Advarsel
         welcome_notification_body: Velkomst varslings tekst
         welcome_notification_subject: Velkomst varslings emne
@@ -101,17 +103,22 @@
         name: Navn
         organization: Organisasjon
         plural: Flertall
+      settings:
+        scope_id: Tema
       static_page:
+        allow_public_access: Tillat tilgang uten godkjenning
         changed_notably: Det har vært merkbare endringer.
         content: Innhold
         organization: Organisasjon
         show_in_footer: Vis i bunnteksten
         slug: URL slug
         title: Tittel
+        weight: Prioritert rekkefølge
       static_page_topic:
         description: Beskrivelse
         show_in_footer: Vis i bunnteksten
         title: Tittel
+        weight: Prioritert rekkefølge
       user_group_csv_verification:
         file: Fil
     errors:
@@ -122,6 +129,11 @@
               allowed_file_content_types: Ugyldig bildefil
             official_img_header:
               allowed_file_content_types: Ugyldig bildefil
+      new_import:
+        attributes:
+          file:
+            invalid_file: Ugyldig fil gitt, sjekk at filen er riktig formatert
+            invalid_mime_type: Ugyldig medie-type
   activerecord:
     attributes:
       decidim/static_page:
@@ -140,9 +152,22 @@
     admin:
       actions:
         add: Legg til
+        attachment:
+          new: Nytt vedlegg
+        attachment_collection:
+          new: Ny vedleggssamling
         browse: Bla gjennom
+        category:
+          new: Ny kategori
+        export: Eksporter alt
+        export-selection: Eksporter valg
+        import: Importer
         manage: Administrer
         new: Nytt %{name}
+        newsletter:
+          new: Nytt nyhetsbrev
+        participatory_space_private_user:
+          new: Nytt deltakerområde for privat bruker
         per_page: Per side
         permissions: Tillatelser
         reject: Avvis
@@ -153,12 +178,13 @@
           error: Det oppstod et problem med å godkjenne administrator vilkårene.
           success: Flott! Du har godtatt administratorenes vilkår for bruk.
         actions:
-          are_you_sure: Er du sikker på å nekte administrasjons vilkårene?
+          accept: Jeg godtar følgende vilkår
+          are_you_sure: Er du sikker på at du vil avslå administratorvilkårene for bruk?
           refuse: Avslå administratorvilkårene
           title: Godta vilkårene for bruk
         required_review:
           alert: 'Påkrevd: Gå gjennom administrasjons vilkårene våre'
-          callout: Vennligst ta deg tid til å se gjennom administrator Vilkår for bruk. Ellers vil du ikke kunne administrere plattformen.
+          callout: Vennligst ta deg tid til å se gjennom administratorers bruksvilkår. Ellers vil du ikke kunne administrere plattformen.
           cta: Se over dem nå.
         title: Administrator vilkår for bruk
       area_types:
@@ -181,7 +207,7 @@
           error: Det oppstod et problem med å opprette et nytt område.
           success: Området ble opprettet.
         destroy:
-          has_spaces: Område har avhengige rom, den må ikke ha avhengigheter for å bli slettet.
+          has_spaces: Dette området har avhengige rom. Vennligst sørg for at ingen deltakende rom refererer til dette rommet før du sletter det.
           success: Området ble ødelagt
         edit:
           title: Endre området
@@ -228,9 +254,17 @@
         update:
           error: Det oppsto et problem med å oppdatere dette vedlegget.
           success: Vedlegg ble oppdatert.
+      attachments_privacy_warning:
+        message: Vær forsiktig når du arbeider med vedlegg i et privat rom. Alle deltakere kan dele dette dokumentet med andre.
       autocomplete:
         no_results: Ingen resultat funnet
         search_prompt: Skriv minst tre tegn for å søke
+      block_user:
+        new:
+          action: Blokker konto og send begrunnelse
+          description: Blokkering av en bruker vil gjøre kontoen ubrukelig. Du kan i din begrunnelse angi eventuelle retningslinjer på måter du vil vurdere å re-aktivere brukeren.
+          justification: Begrunnelse
+          title: Blokker bruker %{name}
       categories:
         create:
           error: Det oppstod et problem med å oppdatere denne kategorien.
@@ -273,6 +307,7 @@
           headers:
             actions: Handlinger
             name: Komponentnavn
+            scope: Komponenttype
             type: Komponenttype
         new:
           add: Legg til komponent
@@ -285,10 +320,30 @@
         update:
           error: Det oppstod et problem med å oppdatere denne komponenten.
           success: Komponenten ble oppdatert.
+      conflicts:
+        attempts: Forsøk
+        'false': 'Nei'
+        managed_user_name: Håndtert bruker
+        solved: Løst
+        title: Verifiseringskonflikter
+        transfer:
+          email: E-post
+          error: Det oppstod et problem med overføring av gjeldende deltaker til håndtert deltaker.
+          name: Navn
+          reason: Årsak
+          success: Overføringen er gjennomført.
+          title: Overfør
+        'true': 'Ja'
+        user_name: Bruker
       dashboard:
         show:
           view_more_logs: Vis flere logger
-          welcome: Velkommen til Decidim administrator Panel.
+      domain_whitelist:
+        form:
+          domain_too_short: Domene er for kort
+        update:
+          error: Kunne ikke oppdatere domene-hviteliste
+          success: Domene-hviteliste oppdatert
       exports:
         export_as: "%{name} som %{export_format}"
         formats:
@@ -301,11 +356,42 @@
         category_id_eq:
           label: Kategori
         filter_label: Filter
+        invitation_accepted_at_present:
+          label: Invitasjonen er akseptert
+          values:
+            'false': 'Nei'
+            'true': 'Ja'
+        last_sign_in_at_present:
+          label: Noensinne logget inn
+          values:
+            'false': 'Nei'
+            'true': 'Ja'
+        moderated_users:
+          reports_reason_eq:
+            label: Rapporter årsak
+            values:
+              does_not_belong: Tilhører ikke
+              offensive: Støtende
+              spam: Søppelpost
+        moderations:
+          reportable_type_string_eq:
+            label: Type
         officialized_at_null:
           label: Stat
           values:
             'false': Offisialisert
             'true': Ikke offisialisert
+        participatory_space_private_users:
+          user_invitation_accepted_at_not_null:
+            label: Invitasjon godtatt
+            values:
+              'false': Ikke akseptert
+              'true': Godkjent
+          user_invitation_sent_at_not_null:
+            label: Invitasjon sendt
+            values:
+              'false': Ikke sendt
+              'true': Sendt
         private_space_eq:
           label: Privat
           values:
@@ -321,9 +407,24 @@
         search_label: Søk
         search_placeholder:
           name_or_nickname_or_email_cont: Søk %{collection} via email, navn eller kallenavn.
+          report_count_eq: Antall rapporter
+          reported_id_string_or_reported_content_cont: Søk %{collection} av rapporterbar id eller innhold.
           title_cont: Søk %{collection} etter tittel.
+          user_name_or_user_email_cont: Søk %{collection} etter navn eller e-post.
+          user_name_or_user_nickname_or_user_email_cont: Søk %{collection} via e-post, navn eller kallenavn.
         state_eq:
           label: Tilstand
+          values:
+            all: Alle
+            pending: Pågår
+            rejected: Avvist
+            verified: Bekreftet
+      forms:
+        file_help:
+          import:
+            explanation: 'Veiledning for fil:'
+            message_1: CSV, JSON og Excel (.xlsx)-filer støttes
+            message_2: For CSV-filer, må skilletegnet mellom kolonner være et semikolon (";")
       help_sections:
         error: Det oppsto et problem med å oppdatere hjelpeseksjonene
         form:
@@ -362,6 +463,44 @@
           impersonate_existing_managed_user: Administrer deltaker "%{name}"
           impersonate_existing_user: Administrer deltaker "%{name}"
           impersonate_new_managed_user: Administrer ny deltaker
+      imports:
+        and: og
+        data_errors:
+          duplicate_headers:
+            detail: Kontroller at nødvendige kolonner eller overskrifter forekommer bare én gang.
+            message:
+              one: Dupliser kolonne %{columns}.
+              other: Dupliser kolonner %{columns}.
+          invalid_indexes:
+            lines:
+              detail: Vennligst kontroller at disse linjene er formatert riktig og inneholder gyldige registreringer.
+              message:
+                one: Fant en feil i importfilen på linje %{indexes}.
+                other: Fant feil i importfilen på linjene %{indexes}.
+            records:
+              detail: Vennligst kontroller at disse registreringene er formatert riktig og inneholder gyldige registreringer.
+              message:
+                one: Fant en feil i importfilen for oppføringer med ordrenummer %{indexes}.
+                other: Fant feil i importfilen for oppføringer med ordrenummer %{indexes}.
+          missing_headers:
+            detail: Kontroller at filen inneholder nødvendige kolonner.
+            message:
+              one: Mangler kolonne %{columns}.
+              other: Manglende kolonner %{columns}.
+        error: Det oppstod et problem under importen
+        example_error: Kunne ikke opprette et eksempel for den angitte typen
+        new:
+          accepted_mime_types:
+            csv: CSV
+            json: JSON
+            xlsx: Excel (.xlsx)
+          actions:
+            back: Tilbake
+          download_example: Last ned eksempel
+          download_example_format: Eksempel som %{name}
+          file_legend: Legg til en importfil som vil bli analysert.
+          import: Importer
+        notice: "%{count} %{resource_name} ble importert"
       logs:
         logs_list:
           no_logs_yet: Det er ingen logger ennå
@@ -382,11 +521,14 @@
         areas: Områder
         configuration: Konfigurasjon
         dashboard: Skrivebord
+        external_domain_whitelist: Tillatte eksterne domener
         help_sections: Hjelpeseksjoner
         homepage: Hjemmeside
         impersonations: Etterligninger
+        moderation: Globale moderasjoner
         newsletters: Nyhetsbrev
         participants: Deltakere
+        reported_users: Rapporterte brukere
         scope_types: Tematyper
         scopes: Tema
         settings: Innstillinger
@@ -448,6 +590,7 @@
             expires_at: Utløper
             last_used_at: Sist brukt
             times_used: Ganger brukt
+            token: Token
             user: Opprettet av
         static_page:
           fields:
@@ -475,7 +618,24 @@
             users_count: Deltakere teller
       moderated_users:
         index:
+          actions:
+            block: Blokker bruker
+            title: Handlinger
+            unblock: Fjern blokkering av bruker
+            unreport: Opphev rapport
+          name: Navn
           nickname: Kallenavn
+          reason: Årsak
+          reports: Antall rapporter
+          title: Oppføring rapporterte brukere
+        report:
+          reasons:
+            does_not_belong: Tilhører ikke
+            offensive: Støtende
+            spam: Søppelpost
+        tabs:
+          blocked: Blokkert
+          unblocked: Ikke blokkert
       moderations:
         index:
           title: Moderering
@@ -484,6 +644,21 @@
             does_not_belong: Tilhører ikke
             offensive: Offensiv
             spam: Søppelpost
+        reports:
+          index:
+            author: Forfatter(e)
+            callout_html: Innhold vises i moderasjonsområdet når det er signalisert av en bruker (kan være alle med en registrert konto) ved å klikke på %{icon} flagget ved siden av elementet.
+            content_original_language: Innhold originalspråk
+            participatory_space: Deltakende rom
+            reported_content: Rapportert innhold
+            see_current: Se gjeldende
+            see_original: Se originalen
+            title: Moderasjonsrapporter
+          show:
+            report_details: Årsaksdetaljer
+            report_language: Rapporter språk
+            report_reason: Årsak
+            title: Rapporter detaljer
       newsletter_templates:
         index:
           preview_template: Forhåndsvis
@@ -495,7 +670,7 @@
       newsletters:
         create:
           error: Det oppstod et problem med å opprette dette nyhetsbrevet.
-          success: Nyhetsbrev opprettet. Vennligst se gjennom det før du sender.
+          success: Nyhetsbrev opprettet. Vennligst se gjennom før du sender.
         deliver:
           error: Det oppstod et problem med å levere dette nyhetsbrevet.
           success: Nyhetsbrevet ble levert.
@@ -549,6 +724,9 @@
           error: Det oppstod et problem med å oppdatere dette nyhetsbrevet.
           success: Nyhetsbrev oppdatert. Vennligst se gjennom det før du sender.
       officializations:
+        block:
+          error: Det oppstod en feil under blokkering av deltakeren
+          success: Deltageren ble blokkert
         create:
           success: Deltaker ble offisialisert
         destroy:
@@ -556,6 +734,7 @@
         index:
           actions: Handlinger
           badge: Merke
+          block: Blokker bruker
           created_at: Opprette På
           name: Navn
           nickname: Kallenavn
@@ -563,8 +742,10 @@
           officialize: Offisialiser
           officialized: Offisialisert
           reofficialize: Offisialiser igjen
+          reports: Rapporter
           show_email: Vis e-postadresse
           status: Status
+          unblock: Fjern blokkering av bruker
           unofficialize: Uoffisialisert
         new:
           badge: Offisialiserings merke
@@ -578,6 +759,9 @@
           hidden: skjult
           show: Vis
           title: Vis deltakerens e-postadresse
+        unblock:
+          error: Kunne ikke fjerne blokkering av deltaker
+          success: Deltaker godkjent på ny
       organization:
         edit:
           title: Rediger organisasjon
@@ -600,6 +784,7 @@
         form:
           colors:
             colors_title: Organisasjonens farger
+            colors_warning_html: Advarsel! Endring av disse fargene kan ødelegge tilgjengelighetskontraster. Du kan sjekke kontrasten du velger, <a href="%{link}">WebAIM Contrast Checker</a> eller andre lignende verktøy.
             header_snippets_help: "Bruk dette feltet til å legge til ting i HTML head. Den vanligste bruken er å integrere tredjeparts tjenester som krever litt ekstra JavaScript eller CSS. Du kan også bruke den til å legge til ekstra meta tags til HTML. Merk at dette bare blir gjengitt på offentlige sider, ikke i \nadministrator seksjonen."
           cta_button_path_help: 'Du kan overskrive hvor Kall til Handlingsknappen på hjemmesiden lenker til. Bruk delvise veier, ikke fullstendige URLer her. Godtar bokstaver, tall, tankestreker og skråstreker, og må starte med en bokstav. Kall til Handlingknappen vises på hjemmesiden mellom velkomstteksten og beskrivelsen. Eksempel: %{url}'
           cta_button_text_help: Du kan overskrive Handlingsknappens tekst på hjemmesiden for hvert tilgjengelige språk i organisasjonen. Hvis ikke satt, blir standardverdien brukt. Kall til Handlingknappen vises på hjemmesiden mellom velkomstteksten og beskrivelsen.
@@ -609,6 +794,17 @@
             layout_appearance_title: Rediger layout utseende
             preview: Forhåndsvis
           omnipresent_banner_appearance_title: Endre enerådende banner
+      organization_external_domain_whitelist:
+        edit:
+          update: Oppdater
+        external_domain:
+          down: Ned
+          external_domain: Eksternt domene
+          remove: Fjern
+          up: Opp
+        form:
+          add: Legg til i hviteliste
+          title: Hviteliste for eksterne domener
       organization_homepage:
         edit:
           active_content_blocks: Aktive innholdsblokkerer
@@ -624,6 +820,7 @@
           error: Det oppstod et problem med å slette en privat deltaker for dette deltakerområdet.
           success: Deltakerområde privat deltaker tilgang ødelagt.
         index:
+          import_via_csv: Importer fra CSV
           title: Deltakerområdets private deltaker
         new:
           create: Opprett
@@ -633,8 +830,17 @@
           invalid: Det oppstod et problem med å lese CSV-filen.
           success: CSV fil lastet opp. Vi sender en invitasjons email til deltakerne. Dette kan ta en stund.
         new:
+          explanation: 'Last opp din CSV-fil. Det må være to kolonner uten overskrifter, e-post i den første kolonnen og navn i den siste kolonnen (e-post, navn) til brukerne du vil legge til i det deltakende rommet. Unngå å bruke ugyldige tegn som `<>?%&^*#@()[]=+:;"{}\″` med brukernavn.'
           title: Last opp din CSV fil
           upload: Last opp
+      reminders:
+        create:
+          error: Det oppsto et problem med å opprette påminnelser.
+          success:
+            one: "%{count} bruker vil bli påminnet."
+            other: "%{count} brukere vil bli påminnet."
+        new:
+          submit: Send
       resource_permissions:
         edit:
           submit: Send inn
@@ -678,8 +884,16 @@
           success: Temaet ble oppdatert
       share_tokens:
         actions:
+          confirm_destroy: Er du sikker på at du vil slette denne token?
           destroy: Slett
           share: Del
+        destroy:
+          error: Et problem oppstod under ødelggelsen av token.
+          success: Token ble ødelagt.
+        share_tokens:
+          empty: Ingen aktive token
+          help: Disse tokenene brukes til å dele denne upubliserte ressursen til hvilken som helst bruker. De vil bli skjult når ressursen publiseres. Klikk på tokenenes deleikon for å besøke den delte URL-en.
+          title: Del tokener
       shared:
         gallery:
           add_images: Legg til bilder
@@ -737,13 +951,13 @@
         impersonatable_users: Håndterbare deltakere
         impersonations: Deltakernes administrasjon
         metrics: Måltall
+        panel: Administrator
         participants: Deltakere
         scope_types: Tematyper
         scopes: Tema
         static_pages: Sider
         statistics: Aktivitet
         user_groups: Grupper
-        users: Deltakere
       user_group:
         csv_verify:
           invalid: Det oppstod et problem med å lese CSV-filen.
@@ -756,13 +970,6 @@
           success: Gruppen ble verifisert
       user_groups:
         index:
-          filter:
-            all: Alle
-            pending: Venter
-            rejected: Avvist
-            verified: Verifisert
-          filter_by: Filtrer etter
-          search: Søk
           state:
             pending: Venter
             rejected: Avvist
@@ -786,7 +993,6 @@
           role: Rolle
         new:
           create: Inviter
-          title: Inviter deltaker som administrator
       users_statistics:
         users_count:
           admins: Adminer
@@ -799,9 +1005,20 @@
     forms:
       errors:
         impersonate_user:
-          reason: Du må oppgi en grunn når du administrerer en ikke administrert deltaker
+          reason: Du må oppgi en grunn når du behandler en ikke-behandlet deltaker
+    metrics:
+      blocked_users:
+        object: blokkerte brukere
+        title: Blokkerte brukere
+      reported_users:
+        object: rapporterte brukere
+        title: Rapporterte brukere
+      user_reports:
+        object: brukerrapporter
+        title: Brukerrapporter
     moderations:
       actions:
+        expand: Utvid
         hidden: Skjult
         hide: Skjul
         not_hidden: Ikke skjult
@@ -822,18 +1039,28 @@
       models:
         moderation:
           fields:
+            created_at: Opprettelsesdato
             hidden_at: Skjult på
+            participatory_space: Deltakerrom
             report_count: Antall
             reportable_id: Id
+            reportable_type: Type
             reported_content_url: Rapportert innholds URL
             reports: Rapporter
             visit_url: Besøk URL
+        report:
+          fields:
+            details: Årsaksdetaljer
+            locale: Språk
+            reason: Årsak
   errors:
     messages:
       invalid_json: Ugyldig JSON
   layouts:
     decidim:
       admin:
+        global_moderations:
+          title: Globale moderasjoner
         newsletters:
           title: Nyhetsbrev
         settings:

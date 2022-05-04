@@ -8,7 +8,9 @@ if ENV["SIMPLECOV"]
 end
 
 require "spec_helper"
+require "json"
 require "decidim/gem_manager"
+require "decidim/generators/test/generator_examples"
 
 module Decidim
   describe Generators do
@@ -51,55 +53,11 @@ module Decidim
 
       after { FileUtils.rm_rf(test_app) }
 
-      shared_examples_for "a new production application" do
-        it "includes optional plugins commented out in Gemfile" do
-          expect(result[1]).to be_success, result[0]
-
-          expect(File.read("#{test_app}/Gemfile"))
-            .to match(/^# gem "decidim-initiatives"/)
-            .and match(/^# gem "decidim-consultations"/)
-            .and match(/^# gem "decidim-elections"/)
-            .and match(/^# gem "decidim-conferences"/)
-            .and match(/^# gem "decidim-templates"/)
-        end
-      end
-
-      shared_examples_for "a new development application" do
-        it "includes optional plugins uncommented in Gemfile" do
-          expect(result[1]).to be_success, result[0]
-
-          expect(File.read("#{test_app}/Gemfile"))
-            .to match(/^gem "decidim-initiatives"/)
-            .and match(/^gem "decidim-consultations"/)
-            .and match(/^gem "decidim-elections"/)
-            .and match(/^gem "decidim-conferences"/)
-            .and match(/^gem "decidim-templates"/)
-
-          # Checks that every table from a migration is included in the generated schema
-          schema = File.read("#{test_app}/db/schema.rb")
-          tables = []
-          dropped = []
-          Decidim::GemManager.plugins.each do |plugin|
-            Dir.glob("#{plugin}db/migrate/*.rb").each do |migration|
-              lines = File.readlines(migration)
-              tables.concat(lines.filter { |line| line.match? "create_table" }.map { |line| line.match(/(:)([a-z_0-9]+)/)[2] })
-              dropped.concat(lines.filter { |line| line.match? "drop_table" }.map { |line| line.match(/(:)([a-z_0-9]+)/)[2] })
-              tables.concat(lines.filter { |line| line.match? "rename_table" }.map { |line| line.match(/(, :)([a-z_0-9]+)/)[2] })
-              dropped.concat(lines.filter { |line| line.match? "rename_table" }.map { |line| line.match(/(:)([a-z_0-9]+)/)[2] })
-            end
-          end
-          tables.each do |table|
-            next if dropped.include? table
-
-            expect(schema).to match(/create_table "#{table}"|create_table :#{table}/)
-          end
-        end
-      end
-
       context "without flags" do
         let(:command) { "decidim #{test_app}" }
 
         it_behaves_like "a new production application"
+        it_behaves_like "an application with configurable env vars"
       end
 
       context "with --edge flag" do
@@ -125,12 +83,31 @@ module Decidim
         let(:command) { "decidim #{test_app} --recreate_db --demo" }
 
         it_behaves_like "a new development application"
+        it_behaves_like "an application with extra configurable env vars"
       end
 
       context "with a development application" do
         let(:command) { "decidim --path #{repo_root} #{test_app} --recreate_db --seed_db --demo" }
 
         it_behaves_like "a new development application"
+      end
+
+      context "with wrong --storage providers" do
+        let(:command) { "decidim #{test_app} --storage s3,gcs,assure" }
+
+        it_behaves_like "an application with wrong cloud storage options"
+      end
+
+      context "with --storage providers" do
+        let(:command) { "decidim #{test_app} --storage s3,gcs,azure" }
+
+        it_behaves_like "an application with cloud storage gems"
+      end
+
+      context "with --queue providers" do
+        let(:command) { "decidim #{test_app} --storage s3 --queue sidekiq" }
+
+        it_behaves_like "an application with storage and queue gems"
       end
     end
 
@@ -149,6 +126,24 @@ module Decidim
 
     def repo_root
       File.expand_path(File.join("..", ".."), __dir__)
+    end
+
+    def json_secrets_for(path, env)
+      JSON.parse cmd_capture(path, "bin/rails runner 'puts Rails.application.secrets.to_json'", env: env)
+    end
+
+    def initializer_config_for(path, env, mod = "Decidim")
+      JSON.parse cmd_capture(path, "bin/rails runner 'puts #{mod}.config.to_json'", env: env)
+    end
+
+    def rails_value(value, path, env)
+      JSON.parse cmd_capture(path, "bin/rails runner 'puts #{value}.to_json'", env: env)
+    end
+
+    def cmd_capture(path, cmd, env: {})
+      Bundler.with_unbundled_env do
+        Decidim::GemManager.new(path).capture(cmd, env: env, with_stderr: false)[0]
+      end
     end
   end
 end

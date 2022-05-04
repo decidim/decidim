@@ -25,6 +25,23 @@
     margin-bottom: .3em;
   }
 
+  .questionnaire-title_and_description{
+    font-size: 2rem;
+    font-weight: 600;
+    padding-left: 1rem;
+    line-height: 1.4;
+    margin-bottom: .3em;
+  }
+
+  .help-title_and_description{
+    padding-left: 1rem;
+    margin-bottom: 2rem;
+
+    .ql-video{
+      margin: .5em auto;
+    }
+  }
+
   .help-text{
     margin-top: .5em;
 

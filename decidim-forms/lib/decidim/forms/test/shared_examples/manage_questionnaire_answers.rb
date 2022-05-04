@@ -69,6 +69,24 @@ shared_examples_for "manage questionnaire answers" do
           expect(page).to have_content("User identifier")
         end
       end
+
+      context "when multiple answer choice" do
+        let(:first_type) { "multiple_option" }
+        let!(:answer1) { create :answer, questionnaire: questionnaire, question: first, body: nil }
+        let!(:answer_option) { create :answer_option, question: first }
+        let!(:answer_choice) { create :answer_choice, answer: answer1, answer_option: answer_option, body: translated(answer_option.body, locale: I18n.locale) }
+
+        before do
+          find_all("a.action-icon.action-icon--eye").first.click
+        end
+
+        it "shows the answers page with custom body" do
+          within "#answers" do
+            expect(page).to have_css("dt", text: translated(first.body))
+            expect(page).to have_css("li", text: translated(answer_option.body))
+          end
+        end
+      end
     end
 
     context "and managing individual answer page" do

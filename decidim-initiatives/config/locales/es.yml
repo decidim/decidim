@@ -274,8 +274,6 @@ es:
             update: Actualizar
           form:
             authorizations: Ajustes de autorización
-            child_scope_threshold_enabled_help: 'Este ajuste de configuración no soporta recogida de firmas en persona, habilita indicadores de firmas por subámbitos y funciona con un controlador de autorizaciones que asocia un ámbito al usuario. Asegúrate de seleccionar esa autorización más abajo, en la configuración de autorización. Para que funcione debe configurarse de manera jerárquica : 1 ámbito - N subámbitos. Para más información sobre cómo funciona esta configuración, consulta este <a href="https://docs.decidim.org/admin-manual/en/initiatives/" target="_blank">enlace</a>.'
-            only_global_scope_enabled_help: Marca esta casilla si habilitaste "Activar firmas por subámbito" y configuraste el ámbito global como el ámbito principal. Al habilitar esta casilla, la selección del tipo de iniciativa se omitirá en el asistente de creación de iniciativas. Para más información sobre cómo funciona esta configuración, consulta este <a href="https://docs.decidim.org/admin-manual/en/initiatives/" target="_blank">enlace</a>.
             options: Opciones
             title: Información general
           initiative_type_scopes:
@@ -408,7 +406,7 @@ es:
           notification_title: <a href="%{applicant_profile_url}">%{applicant_nickname}</a> ha solicitado unirse al comité promotor de tu iniciativa <a href="%{resource_url}">%{resource_title}</a>. Para aceptar o rechazar la solicitud haz clic <a href="%{resource_url}/edit">aquí</a>.
       form:
         add_attachments: Documentos
-        attachment_legend: "(Opcional) Añadir adjuntos"
+        attachment_legend: "(Opcional) Añadir un archivo adjunto"
         delete_attachment: Borrar
       index:
         title: Iniciativas
@@ -579,6 +577,9 @@ es:
     menu:
       initiatives: Iniciativas
     resources:
+      initiative:
+        actions:
+          comment: Comentar
       initiatives_type:
         actions:
           title: Acciones

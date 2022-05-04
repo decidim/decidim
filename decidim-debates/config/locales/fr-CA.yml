@@ -17,7 +17,7 @@ fr-CA:
       decidim/debates/close_debate_event: Débat terminé
       decidim/debates/create_debate_event: Débat
       decidim/debates/creation_disabled_event: Débats désactivés
-      decidim/debates/creation_enabled_event: Débats activés
+      decidim/debates/creation_enabled_event: Création de débats activée
   activerecord:
     models:
       decidim/debates/debate:
@@ -27,6 +27,7 @@ fr-CA:
     components:
       debates:
         actions:
+          comment: Commenter
           create: Créer
           endorse: Soutenir
         name: Débats
@@ -40,7 +41,7 @@ fr-CA:
           step:
             announcement: Annonce
             comments_blocked: Commentaires désactivés
-            creation_enabled: Création de débats par les utilisateurs activés
+            creation_enabled: Les participants peuvent créer des débats
             endorsements_blocked: Soutiens bloqués
             endorsements_enabled: Soutiens activés
     debates:
@@ -116,11 +117,11 @@ fr-CA:
           all: Tout
           category: Catégorie
           category_prompt: Choisir une catégorie
-          citizens: Citoyenne
           commented: Commenté
           my_debates: Mes débats
           official: Officielle
           origin: Origine
+          participants: Participants
           scope: Périmètre d'application
           search: Rechercher
           state: Statut
@@ -235,3 +236,5 @@ fr-CA:
         description: Nombre de débats créés
         object: débats
         title: Débats
+    statistics:
+      debates_count: Débats

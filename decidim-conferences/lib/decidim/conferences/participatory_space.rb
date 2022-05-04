@@ -64,8 +64,18 @@ Decidim.register_participatory_space(:conferences) do |participatory_space|
           Decidim::Faker::Localized.paragraph(sentence_count: 3)
         end,
         organization: organization,
-        hero_image: File.new(File.join(seeds_root, "city.jpeg")), # Keep after organization
-        banner_image: File.new(File.join(seeds_root, "city2.jpeg")), # Keep after organization
+        hero_image: ActiveStorage::Blob.create_and_upload!(
+          io: File.open(File.join(seeds_root, "city.jpeg")),
+          filename: "hero_image.jpeg",
+          content_type: "image/jpeg",
+          metadata: nil
+        ), # Keep after organization
+        banner_image: ActiveStorage::Blob.create_and_upload!(
+          io: File.open(File.join(seeds_root, "city2.jpeg")),
+          filename: "banner_image.jpeg",
+          content_type: "image/jpeg",
+          metadata: nil
+        ), # Keep after organization
         promoted: true,
         published_at: 2.weeks.ago,
         objectives: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
@@ -115,21 +125,39 @@ Decidim.register_participatory_space(:conferences) do |participatory_space|
         description: Decidim::Faker::Localized.sentence(word_count: 5),
         attachment_collection: attachment_collection,
         attached_to: conference,
-        file: File.new(File.join(seeds_root, "Exampledocument.pdf")) # Keep after attached_to
+        content_type: "application/pdf",
+        file: ActiveStorage::Blob.create_and_upload!(
+          io: File.open(File.join(seeds_root, "Exampledocument.pdf")),
+          filename: "Exampledocument.pdf",
+          content_type: "application/pdf",
+          metadata: nil
+        ) # Keep after attached_to
       )
 
       Decidim::Attachment.create!(
         title: Decidim::Faker::Localized.sentence(word_count: 2),
         description: Decidim::Faker::Localized.sentence(word_count: 5),
         attached_to: conference,
-        file: File.new(File.join(seeds_root, "city.jpeg")) # Keep after attached_to
+        content_type: "image/jpeg",
+        file: ActiveStorage::Blob.create_and_upload!(
+          io: File.open(File.join(seeds_root, "city.jpeg")),
+          filename: "city.jpeg",
+          content_type: "image/jpeg",
+          metadata: nil
+        ) # Keep after attached_to
       )
 
       Decidim::Attachment.create!(
         title: Decidim::Faker::Localized.sentence(word_count: 2),
         description: Decidim::Faker::Localized.sentence(word_count: 5),
         attached_to: conference,
-        file: File.new(File.join(seeds_root, "Exampledocument.pdf")) # Keep after attached_to
+        content_type: "application/pdf",
+        file: ActiveStorage::Blob.create_and_upload!(
+          io: File.open(File.join(seeds_root, "Exampledocument.pdf")),
+          filename: "Exampledocument.pdf",
+          content_type: "application/pdf",
+          metadata: nil
+        ) # Keep after attached_to
       )
 
       2.times do
@@ -147,7 +175,7 @@ Decidim.register_participatory_space(:conferences) do |participatory_space|
           user: conference.organization.users.sample,
           full_name: Faker::Name.name,
           position: Decidim::Faker::Localized.word,
-          affiliation: Decidim::Faker::Localized.paragraph(sentence_count: 3),
+          affiliation: Decidim::Faker::Localized.sentence(word_count: 3),
           short_bio: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
             Decidim::Faker::Localized.paragraph(sentence_count: 3)
           end,
@@ -165,7 +193,12 @@ Decidim.register_participatory_space(:conferences) do |participatory_space|
             link: Faker::Internet.url,
             partner_type: type,
             conference: conference,
-            logo: File.new(File.join(seeds_root, "logo.png")) # Keep after conference
+            logo: ActiveStorage::Blob.create_and_upload!(
+              io: File.open(File.join(seeds_root, "logo.png")),
+              filename: "logo.png",
+              content_type: "image/png",
+              metadata: nil
+            ) # Keep after conference
           )
         end
       end
@@ -193,6 +226,17 @@ Decidim.register_participatory_space(:conferences) do |participatory_space|
 
       Decidim.component_manifests.each do |manifest|
         manifest.seed!(conference.reload)
+      end
+
+      Decidim::ConferenceMeeting.where(component: conference.components).each do |conference_meeting|
+        next unless Faker::Boolean.boolean(true_ratio: 0.5)
+
+        conference.speakers.sample(3).each do |speaker|
+          Decidim::ConferenceSpeakerConferenceMeeting.create!(
+            conference_meeting: conference_meeting,
+            conference_speaker: speaker
+          )
+        end
       end
     end
   end

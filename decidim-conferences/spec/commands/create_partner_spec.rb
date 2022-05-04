@@ -9,42 +9,52 @@ module Decidim::Conferences
     let(:conference) { create(:conference) }
     let(:user) { nil }
     let!(:current_user) { create :user, :confirmed, organization: conference.organization }
-    let(:logo) { Decidim::Dev.test_file("avatar.jpg", "image/jpeg") }
-
-    let(:form) do
-      double(
-        Admin::PartnerForm,
-        invalid?: invalid,
-        current_user: current_user,
-        name: "Name",
-        errors: ActiveModel::Errors.new(Admin::PartnerForm),
-        attributes: {
-          name: "name",
-          weight: 1,
-          partner_type: "main_promotor",
-          logo: logo,
-          link: Faker::Internet.url,
-          remove_logo: false
-        }
+    let(:logo) do
+      ActiveStorage::Blob.create_and_upload!(
+        io: File.open(Decidim::Dev.asset("avatar.jpg")),
+        filename: "avatar.jpeg",
+        content_type: "image/jpeg"
       )
     end
 
-    let(:invalid) { false }
+    let(:name) { "Name" }
+    let(:partner_type) { "main_promotor" }
+    let(:form_klass) { Admin::PartnerForm }
+    let(:form_params) do
+      {
+        conference_partner: {
+          name: name,
+          weight: 1,
+          partner_type: partner_type,
+          link: Faker::Internet.url,
+          logo: logo,
+          remove_logo: false
+        }
+      }
+    end
+    let(:form) do
+      form_klass.from_params(
+        form_params
+      ).with_context(
+        current_user: current_user,
+        current_organization: conference.organization
+      )
+    end
 
     context "when the form is not valid" do
-      let(:invalid) { true }
+      let(:name) { nil }
 
       it "is not valid" do
         expect { subject.call }.to broadcast(:invalid)
       end
 
       context "when image is invalid" do
-        let(:invalid) { false }
-
-        let(:logo) { Decidim::Dev.test_file("invalid.jpeg", "image/jpeg") }
-
-        before do
-          Decidim::Conferences::PartnerLogoUploader.enable_processing = true
+        let(:logo) do
+          ActiveStorage::Blob.create_and_upload!(
+            io: File.open(Decidim::Dev.asset("invalid.jpeg")),
+            filename: "avatar.jpeg",
+            content_type: "image/jpeg"
+          )
         end
 
         it "prevents uploading" do

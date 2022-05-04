@@ -23,7 +23,7 @@
             </td>
             <td>
               <%= link_to new_pending_authorization_confirmation_path(authorization.id) do %>
-                <%= image_tag authorization.verification_attachment.url(:thumbnail), class: "thumbnail-list" %>
+                <%= image_tag authorization.attached_uploader(:verification_attachment).variant_path(:thumbnail), class: "thumbnail-list" %>
               <% end %>
             </td>
           </tr>

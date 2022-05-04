@@ -4,7 +4,7 @@ module Decidim
   module UserGroups
     # Use this class to find the the members of the given user group with the
     # "member" role. It returns memberships.
-    class MemberMemberships < Rectify::Query
+    class MemberMemberships < Decidim::Query
       # Syntactic sugar to initialize the class and return the queried objects.
       #
       # user_group - a UserGroup that needs to find its member users

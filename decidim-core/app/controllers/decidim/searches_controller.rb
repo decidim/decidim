@@ -2,7 +2,7 @@
 
 module Decidim
   class SearchesController < Decidim::ApplicationController
-    include Rectify::ControllerHelpers
+    include Decidim::ControllerHelpers
     include FormFactory
     include FilterResource
     include Paginable
@@ -24,8 +24,9 @@ module Decidim
     def default_filter_params
       {
         term: params[:term],
-        resource_type: nil,
-        decidim_scope_id: nil
+        with_resource_type: nil,
+        with_space_state: nil,
+        decidim_scope_id_eq: nil
       }
     end
 

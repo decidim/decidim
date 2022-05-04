@@ -26,7 +26,7 @@ $tag-margin: .2rem;
 
   width: 100%;
   min-height: $height;
-  padding-bottom: $tag-margin / 4;
+  padding-bottom: $tag-margin * .25;
 
   .tag{
     color: inherit;

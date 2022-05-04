@@ -56,7 +56,8 @@ Decidim.register_component(:elections) do |component|
 
   component.exports :elections do |exports|
     exports.collection do |component_instance|
-      Decidim::Elections::Question.where(election: Decidim::Elections::Election.where(component: component_instance).bb_results_published).collect(&:answers).flatten
+      Decidim::Elections::Answer
+        .where(decidim_elections_question_id: Decidim::Elections::Election.where(component: component_instance).bb_results_published.extract_associated(:questions))
     end
 
     exports.include_in_open_data = true
@@ -143,7 +144,13 @@ Decidim.register_component(:elections) do |component|
             title: Decidim::Faker::Localized.sentence(word_count: 2),
             description: Decidim::Faker::Localized.sentence(word_count: 5),
             attached_to: answer,
-            file: File.new(File.join(__dir__, "seeds", "city.jpeg")) # Keep after attached_to
+            content_type: "image/jpeg",
+            file: ActiveStorage::Blob.create_and_upload!(
+              io: File.open(File.join(__dir__, "seeds", "city.jpeg")),
+              filename: "city.jpeg",
+              content_type: "image/jpeg",
+              metadata: nil
+            ) # Keep after attached_to
           )
         end
 
@@ -237,7 +244,13 @@ Decidim.register_component(:elections) do |component|
             title: Decidim::Faker::Localized.sentence(word_count: 2),
             description: Decidim::Faker::Localized.sentence(word_count: 5),
             attached_to: answer,
-            file: File.new(File.join(__dir__, "seeds", "city.jpeg")) # Keep after attached_to
+            content_type: "image/jpeg",
+            file: ActiveStorage::Blob.create_and_upload!(
+              io: File.open(File.join(__dir__, "seeds", "city.jpeg")),
+              filename: "city.jpeg",
+              content_type: "image/jpeg",
+              metadata: nil
+            ) # Keep after attached_to
           )
         end
 
@@ -355,7 +368,13 @@ Decidim.register_component(:elections) do |component|
             title: Decidim::Faker::Localized.sentence(word_count: 2),
             description: Decidim::Faker::Localized.sentence(word_count: 5),
             attached_to: answer,
-            file: File.new(File.join(__dir__, "seeds", "city.jpeg")) # Keep after attached_to
+            content_type: "image/jpeg",
+            file: ActiveStorage::Blob.create_and_upload!(
+              io: File.open(File.join(__dir__, "seeds", "city.jpeg")),
+              filename: "city.jpeg",
+              content_type: "image/jpeg",
+              metadata: nil
+            ) # Keep after attached_to
           )
 
           answer_value = Faker::Number.between(from: 0, to: question_pending)
@@ -468,7 +487,13 @@ Decidim.register_component(:elections) do |component|
           title: Decidim::Faker::Localized.sentence(word_count: 2),
           description: Decidim::Faker::Localized.sentence(word_count: 5),
           attached_to: answer,
-          file: File.new(File.join(__dir__, "seeds", "city.jpeg")) # Keep after attached_to
+          content_type: "image/jpeg",
+          file: ActiveStorage::Blob.create_and_upload!(
+            io: File.open(File.join(__dir__, "seeds", "city.jpeg")),
+            filename: "city.jpeg",
+            content_type: "image/jpeg",
+            metadata: nil
+          ) # Keep after attached_to
         )
       end
     end

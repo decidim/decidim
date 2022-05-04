@@ -24,6 +24,7 @@ hu:
       component:
         name: Név
         published_at: Publikálva
+        weight: Rendelési pozíció
       id: ID
       newsletter:
         body: Szöveg
@@ -40,7 +41,6 @@ hu:
         enable_omnipresent_banner: Mindenhol megjelenő banner mutatása
         facebook_handler: Facebook handler
         favicon: Ikon
-        from: Küldő email címe
         github_handler: GitHub handler
         header_snippets: Fejléc részletek
         highlight_alternative_color: Kiemelés, alternatíva
@@ -52,6 +52,7 @@ hu:
         highlighted_content_banner_image: Kép
         highlighted_content_banner_short_description: Rövid leírás
         highlighted_content_banner_title: Cím
+        host: Kiszolgáló
         instagram_handler: Instagram handler
         logo: Logó
         machine_translation_display_priority: A gépi fordítás megjelenítési prioritása
@@ -68,6 +69,7 @@ hu:
         reference_prefix: Hivatkozási előtag
         rich_text_editor_in_public_views: A résztvevők számára a szövegszerkesztő felület engedélyezése
         secondary_color: Másodlagos
+        secondary_hosts: Másodlagos kiszolgáló
         send_welcome_notification: Üdvözlő értesítés küldése
         success_color: Siker
         time_zone: Időzóna
@@ -89,6 +91,8 @@ hu:
         name: Név
         organization: Szervezet
         plural: Plurális
+      settings:
+        scope_id: Hatáskör
       static_page:
         changed_notably: Észrevehető változások történtek.
         content: Tartalom
@@ -129,23 +133,29 @@ hu:
       actions:
         add: Hozzáad
         browse: Böngészés
+        category:
+          new: Új kategória
+        export: Összes exportálása
+        import: Import
         manage: Kezelés
         new: Új %{name}
+        newsletter:
+          new: Új hírlevél
         per_page: Oldalanként
         permissions: Engedélyek
         reject: Elutasít
+        user:
+          new: Új adminisztrátor
         verify: Ellenőrzés
       admin_terms_of_use:
         accept:
           error: Hiba történt az adminra vonatkozó általános szerződési feltételek elfogadása során.
           success: Nagyszerű! Elfogadtad az admin felhasználási feltételeket.
         actions:
-          are_you_sure: Biztosan visszautasítod az admin feltételek elfogadását?
           refuse: Admin feltételek elutasítása
           title: Elfogadom a felhasználási feltételeket
         required_review:
           alert: 'Szükséges: az admin felhasználási feltételek áttekintése'
-          callout: Kérünk nézz rá az admin felhasználási feltételekre. Máskülönben nem fogod tudni adminisztrálni a platformot.
           cta: Áttekintés most.
         title: Admin felhasználási feltételek
       area_types:
@@ -168,7 +178,6 @@ hu:
           error: Hiba történt az új terület létrehozásakor.
           success: Terület létrehozása sikeres.
         destroy:
-          has_spaces: A terület függő terekkel rendelkezik, a törléshez meg kell szüntetni ezen függőségeket.
           success: Terület eltávolítása sikeres
         edit:
           title: Terület szerkesztése
@@ -215,6 +224,8 @@ hu:
         update:
           error: Hiba történt a melléklet frissítése során.
           success: Melléklet frissítése sikeres.
+      attachments_privacy_warning:
+        message: Legyen óvatos a mellékletek kezelése során. Bármely résztvevő megoszthatja a dokumentumokat bárkivel.
       autocomplete:
         no_results: Nincs találat
         search_prompt: Legalább három karakter szükséges a kereséshez
@@ -288,7 +299,7 @@ hu:
       dashboard:
         show:
           view_more_logs: További naplók megtekintése
-          welcome: Üdvözöljük a Decidim Admin Panelben.
+          welcome: Üdvözölünk az Admin Panelben.
       exports:
         export_as: "%{name} mint %{export_format}"
         formats:
@@ -383,8 +394,6 @@ hu:
           impersonate_existing_user: '"%{name}" felhasználó kezelése'
           impersonate_new_managed_user: Új résztvevő kezelése
       imports:
-        import_from_file: Importálás fájlból
-        invalid_lines: Hiba található a(z) erőforrásban %{invalid_lines}
         new:
           accepted_mime_types:
             csv: csv
@@ -531,7 +540,6 @@ hu:
       newsletters:
         create:
           error: Hiba történt a hírlevél létrehozása során.
-          success: Hírlevél létrehozása sikeres. Ellenőrizd le, mielőtt elküldenéd.
         deliver:
           error: Hiba történt a hírlevél kézbesítése során.
           success: Hírlevél kézbesítése sikeres.
@@ -614,12 +622,10 @@ hu:
           title: '"%{name}" hivatalossá tétele'
         show_email_modal:
           close_modal: Ablak bezárás
-          description: Ha közvetlenül kapcsolatba kell lépnie egy résztvevővel, akkor kattintson a Megjelenítés gombra az e-mail cím megtekintéséhez. Ez a művelet naplózásra kerül.
           email_address: E-mail cím
           full_name: Teljes név
           hidden: rejtett
           show: Megjelenítés
-          title: A résztvevő e-mail címének megjelenítése
         unblock:
           error: Hiba történt a résztvevő feloldásának feloldása során
       organization:
@@ -678,6 +684,11 @@ hu:
         new:
           title: Töltse fel a CSV fájlod
           upload: Feltölt
+      reminders:
+        create:
+          error: Hiba történt a bejegyzés létrehozása során.
+        new:
+          submit: Küldés
       resource_permissions:
         edit:
           submit: Beküldés
@@ -719,6 +730,7 @@ hu:
         gallery:
           add_images: Képek hozzáadása
           delete_image: Kép törlése
+          edit_images: Kép szerkesztése
           gallery_legend: Képgaléria hozzáadása (opcionális)
       static_page_topics:
         create:
@@ -778,7 +790,7 @@ hu:
         static_pages: Oldalak
         statistics: Tevékenység
         user_groups: Csoportok
-        users: Résztvevők
+        users: Adminisztrátorok
       user_group:
         csv_verify:
           invalid: Hiba történt a CSV fájl olvasásában.
@@ -791,13 +803,6 @@ hu:
           success: A csoport sikeresen ellenőrzött
       user_groups:
         index:
-          filter:
-            all: Összes
-            pending: Függőben
-            rejected: Elutasítva
-            verified: Megerősítve
-          filter_by: 'Szűrés ez alapján:'
-          search: Keresés
           state:
             pending: Függőben
             rejected: Elutasítva
@@ -821,7 +826,7 @@ hu:
           role: Szerep
         new:
           create: Meghívás
-          title: A résztvevő meghívása rendszergazdaként
+          title: Új adminisztrátor létrehozása
       users_statistics:
         users_count:
           admins: Adminok
@@ -831,10 +836,6 @@ hu:
           no_users_count_statistics_yet: Nincsenek felhasználói statisztikák még
           participants: Résztvevők
       view_public_page: Nyilvános oldal megtekintése
-    forms:
-      errors:
-        impersonate_user:
-          reason: Indokolnod kell a nem menedzselt résztvevők felhatalmazását
     metrics:
       user_reports:
         object: felhasználói jelentések

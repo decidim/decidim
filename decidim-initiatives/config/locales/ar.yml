@@ -380,6 +380,8 @@ ar:
           recent: الأحدث
         print:
           city: مدينة
+          initiative:
+            description: 'الوصف:'
         result:
           initiative_rejected_reason: تم رفض هذه المبادرة بسبب افتقارها للتوقيعات.
         show:

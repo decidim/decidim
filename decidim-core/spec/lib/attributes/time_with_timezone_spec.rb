@@ -4,14 +4,20 @@ require "spec_helper"
 
 module Decidim
   describe Attributes::TimeWithZone do
-    describe "coerce" do
-      subject { described_class.build(Attributes::TimeWithZone, {}).coerce(value) }
+    describe "#type" do
+      it "returns :\"decidim/attributes/time_with_zone\"" do
+        expect(subject.type).to be(:"decidim/attributes/time_with_zone")
+      end
+    end
+
+    describe "#cast" do
+      subject { described_class.new.cast(value) }
 
       context "when given a Time" do
         let(:value) { Time.current }
 
         it "returns the time" do
-          expect(subject).to eq(value)
+          expect(subject).to be(value)
         end
       end
 
@@ -50,7 +56,7 @@ module Decidim
           let(:value) { "foo" }
 
           it "returns nil" do
-            expect(subject).to eq(nil)
+            expect(subject).to be(nil)
           end
         end
       end

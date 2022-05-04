@@ -20,8 +20,17 @@ eu:
         settings:
           global:
             announcement: Anuntzio
+            clean_after_publish: Ezabatu erantzuna galdetegia argitaratzean
+            ends_at: Erantzunak noiz arte onartuko
+            ends_at_help: Utzi zuriz data zehatzik ez badago
+            scope_id: Eremua
+            scopes_enabled: Eremu gaituak
+            starts_at: Honen erantzunak onartuak
+            starts_at_help: Utzi zuriz data zehatzik ez badago
           step:
             allow_answers: Baimendu erantzunak
+            allow_unregistered: Baimendu erregistratu gabe dauden erabiltzaileei galdetegia erantzutea
+            allow_unregistered_help: Aktibo badago, ez da beharrezkoa izango saioa hastea inkestari erantzuteko. Horrek datu pobreak edo ez oso fidagarriak ekar ditzake, eta eraso automatizatuekiko zaurgarriagoa izango da. Kontuz ibili!
             announcement: Anuntzio
     events:
       surveys:
@@ -40,6 +49,8 @@ eu:
         description: Erabiltzaileek emandako inkesta kopurua
         object: inkestak erantzunak
         title: Inkesten erantzunak
+    statistics:
+      answers_count: Erantzunak
     surveys:
       admin:
         exports:
@@ -53,4 +64,5 @@ eu:
       surveys:
         answer:
           invalid: Inkesta erantzutean erroreak gertatu dira.
+          spam_detected: Arazo bat izan da galdetegia erantzutean. Agian azkarregi joan zara, berriro egin dezakezu?
           success: Inkesta ondo bete da.

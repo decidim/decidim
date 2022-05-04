@@ -23,6 +23,10 @@ pl:
       comments:
         create:
           error: Wystąpił błąd podczas tworzenia komentarza.
+        delete:
+          error: Komentarz nie może zostać usunięty.
+        update:
+          error: Wystąpił błąd podczas aktualizowania komentarza.
       comments_count: Liczba komentarzy
       comments_title: Komentarze
       last_activity:
@@ -39,7 +43,7 @@ pl:
             label: Komentarz
             placeholder: Co o tym myślisz?
           form_error: 'Tekst jest wymagany. Maksymalna liczba znaków to: %{length}.'
-          submit: Wyślij
+          submit: Skomentuj
           user_group_id:
             label: Komentuj jako
         opinion:
@@ -57,7 +61,12 @@ pl:
         alignment:
           against: Negatywny
           in_favor: Pozytywny
+        confirm_destroy: Czy na pewno chcesz usunąć ten komentarz?
+        delete: Usuń
+        deleted_at: Komentarz usunięty %{date}
         deleted_user: Usunięty użytkownik
+        edit: Edytuj
+        edited: Edytowany
         hide_replies: Ukryj odpowiedzi
         reply: Odpowiedz
         report:
@@ -72,6 +81,7 @@ pl:
             spam: Zawiera clickbaity, reklamy, oszustwa lub skrypty botów.
           title: Zgłoś niewłaściwą treść
         show_replies: Pokaż %{replies_count} odpowiedzi
+        single_comment_link_title: Pobierz link
       comment_order_selector:
         order:
           best_rated: Najlepiej oceniane
@@ -82,11 +92,11 @@ pl:
       comment_thread:
         title: Rozmowa z %{authorName}
       comments:
+        blocked_comments_for_unauthorized_user_warning: Musisz być zweryfikowany żeby teraz komentować, ale możesz przeczytać poprzednie komentarze.
         blocked_comments_for_user_warning: Nie możesz teraz komentować, ale możesz przeczytać poprzednie komentarze.
         blocked_comments_warning: Komentarze są w tej chwili wyłączone, ale możesz przeczytać poprzednie.
         comment_details_title: Szczegóły komentarza
         loading: Ładowanie komentarzy ...
-        single_comment_warning: Resztę komentarzy możesz sprawdzić <a href="%{url}">tutaj</a>.
         single_comment_warning_title: Wyświetlasz teraz pojedynczy komentarz
         title:
           one: "%{count} komentarz"
@@ -95,6 +105,14 @@ pl:
           other: "%{count} komentarze"
       down_vote_button:
         text: Nie zgadzam się z tym komentarzem
+      edit_comment_modal_form:
+        close: Zamknij
+        form:
+          body:
+            label: Komentarz
+            placeholder: Co o tym myślisz?
+          submit: Skomentuj
+        title: Edytuj swój komentarz
       up_vote_button:
         text: Zgadzam się z tym komentarzem
     events:

@@ -66,9 +66,12 @@ describe "Admin manages participatory processes", versioning: true, type: :syste
         fill_in :participatory_process_slug, with: "slug"
         fill_in :participatory_process_hashtag, with: "#hashtag"
         fill_in :participatory_process_weight, with: 1
-        attach_file :participatory_process_hero_image, image1_path
-        attach_file :participatory_process_banner_image, image2_path
+      end
 
+      dynamically_attach_file(:participatory_process_hero_image, image1_path)
+      dynamically_attach_file(:participatory_process_banner_image, image2_path)
+
+      within ".new_participatory_process" do
         find("*[type=submit]").click
       end
 
@@ -95,8 +98,8 @@ describe "Admin manages participatory processes", versioning: true, type: :syste
       click_button "Update"
 
       expect(page).to have_admin_callout("successfully")
-      expect(page).to have_css("img[src*='#{participatory_process3.hero_image.url}']")
-      expect(page).to have_css("img[src*='#{participatory_process3.banner_image.url}']")
+      expect(page).to have_css("img[src*='#{participatory_process3.attached_uploader(:hero_image).path}']")
+      expect(page).to have_css("img[src*='#{participatory_process3.attached_uploader(:banner_image).path}']")
     end
   end
 end

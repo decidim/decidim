@@ -54,11 +54,12 @@ module Decidim
         end
       end
 
+      after_touch do |searchable|
+        remove_from_index(searchable) if searchable.respond_to?(:hidden?) && searchable.hidden?
+      end
+
       after_destroy do |searchable|
-        if self.class.search_resource_fields_mapper
-          org = self.class.search_resource_fields_mapper.retrieve_organization(searchable)
-          searchable.searchable_resources.by_organization(org.id).destroy_all
-        end
+        remove_from_index(searchable) if self.class.search_resource_fields_mapper
       end
       # after_create and after_update callbacks are dynamically setted in `searchable_fields` method.
 
@@ -68,6 +69,11 @@ module Decidim
         return unless self.class.searchable_resource?(self) && self.class.search_resource_fields_mapper.index_on_create?(self)
 
         add_to_index_as_search_resource
+      end
+
+      def remove_from_index(searchable)
+        org = self.class.search_resource_fields_mapper.retrieve_organization(searchable)
+        searchable.searchable_resources.by_organization(org.id).destroy_all
       end
 
       # Forces the model to be indexed for the first time.
@@ -143,8 +149,8 @@ module Decidim
         return ApplicationRecord.none if id_list.to_a.empty?
 
         values_clause = id_list.each_with_index.map { |id, i| "(#{id}, #{i})" }.join(", ")
-        joins("JOIN (VALUES #{values_clause}) AS #{table_name}_id_order(id, ordering) ON #{table_name}.id = #{table_name}_id_order.id")
-          .order("#{table_name}_id_order.ordering")
+        joins(Arel.sql("JOIN (VALUES #{values_clause}) AS #{table_name}_id_order(id, ordering) ON #{table_name}.id = #{table_name}_id_order.id").to_s)
+          .order(Arel.sql("#{table_name}_id_order.ordering").to_s)
       end
 
       # Declares the searchable fields for this instance and, optionally, some conditions.

@@ -5,7 +5,9 @@ module Decidim
     module Admin
       # A command with all the business logic when creating a new participatory
       # process group in the system.
-      class UpdateParticipatoryProcessGroup < Rectify::Command
+      class UpdateParticipatoryProcessGroup < Decidim::Command
+        include ::Decidim::AttachmentAttributesMethods
+
         # Public: Initializes the command.
         #
         # participatory_process_group - the ParticipatoryProcessGroup to update
@@ -52,8 +54,6 @@ module Decidim
         def attributes
           {
             title: form.title,
-            hero_image: form.hero_image,
-            remove_hero_image: form.remove_hero_image,
             description: form.description,
             hashtag: form.hashtag,
             group_url: form.group_url,
@@ -65,7 +65,7 @@ module Decidim
             participatory_structure: form.participatory_structure,
             target: form.target,
             promoted: form.promoted
-          }
+          }.merge(attachment_attributes(:hero_image))
         end
 
         def participatory_processes

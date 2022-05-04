@@ -3,7 +3,7 @@
 module Decidim
   module Messaging
     # A command with all the business logic for replying to a conversation
-    class ReplyToConversation < Rectify::Command
+    class ReplyToConversation < Decidim::Command
       # Public: Initializes the command.
       #
       # conversation - The conversation to be updated.
@@ -20,7 +20,10 @@ module Decidim
       #
       # Returns nothing.
       def call
-        return broadcast(:invalid) if form.invalid?
+        if form.invalid?
+          message.valid?
+          return broadcast(:invalid, message.errors.full_messages)
+        end
 
         if message.save
           notify_interlocutors
@@ -69,7 +72,7 @@ module Decidim
       end
 
       # in order for a recipient to receive an email it should not have direct-messages disabled
-      # if direct-messages are disabled, only send if he follows the sending user
+      # if direct-messages are disabled, only send if they follow the sending user
       def notify(recipient)
         return unless conversation.unread_count(recipient) == 1
         return unless recipient.accepts_conversation?(form.context.current_user)

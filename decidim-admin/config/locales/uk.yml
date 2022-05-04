@@ -223,7 +223,6 @@ uk:
       dashboard:
         show:
           view_more_logs: Переглянути інші журнали
-          welcome: Ласкаво просимо до адмін-панелі Десідім!
       exports:
         export_as: "%{name} як %{export_format}"
         notice: Зараз відбувається збереження у вигляді файлу. Ви отримаєте електронного листа після його завершення.
@@ -381,7 +380,6 @@ uk:
       newsletters:
         create:
           error: При спробі створити це розсилання новин сталася помилка.
-          success: Випуск новин успішно створено. Будь ласка, перегляньте його перед відправленням.
         deliver:
           error: При розсиланні цього випуску новин сталася помилка.
           success: Випуск новин успішно доставлено.
@@ -532,7 +530,6 @@ uk:
         scopes: Обсяги
         static_pages: Сторінки
         user_groups: Гурти учасників
-        users: Учасники
       user_group:
         reject:
           invalid: При відхиленні цього гурту учасників сталася помилка.
@@ -542,13 +539,6 @@ uk:
           success: Гурт учасників успішно підтверджено
       user_groups:
         index:
-          filter:
-            all: Усі
-            pending: Очікує на розгляд
-            rejected: Відхилено
-            verified: Перевірено
-          filter_by: 'Відібрати за ознакою:'
-          search: Шукати
           state:
             pending: Очікує на розгляд
             rejected: Відхилено
@@ -566,14 +556,9 @@ uk:
           role: Роль
         new:
           create: Запросити
-          title: Запросити учасника в якості адміністратора
       users_statistics:
         users_count:
           admins: Адміністратори
-    forms:
-      errors:
-        impersonate_user:
-          reason: Ви повинні вказати причину, коли виступаєте в ролі не керованого учасника
     moderations:
       actions:
         hidden: Приховано

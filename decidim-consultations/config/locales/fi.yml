@@ -251,9 +251,9 @@ fi:
       filters:
         active: Aktiiviset
         all: Kaikki
+        date: Päivämäärä
         finished: Valmiit
         search: Hae
-        state: Tila
         upcoming: Tulevat
       filters_small_view:
         close_modal: Sulje ikkuna
@@ -359,6 +359,7 @@ fi:
     resources:
       consultations:
         actions:
+          comment: Kommentoi
           vote: Äänestä
     statistics:
       consultations_count: Kuulemista

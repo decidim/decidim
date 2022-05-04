@@ -20,10 +20,10 @@ module Decidim
         translatable_attribute :origin_title, String
         attribute :origin_url, String
         attribute :slug, String
-        attribute :remove_hero_image
+        attribute :remove_hero_image, Boolean, default: false
         attribute :hero_image
         attribute :banner_image
-        attribute :remove_banner_image
+        attribute :remove_banner_image, Boolean, default: false
         attribute :hashtag, String
         attribute :decidim_scope_id, Integer
         attribute :external_voting, Boolean, default: false

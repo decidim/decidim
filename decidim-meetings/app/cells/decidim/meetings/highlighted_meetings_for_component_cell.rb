@@ -18,7 +18,11 @@ module Decidim
       private
 
       def meetings
-        @meetings ||= Decidim::Meetings::Meeting.where(component: model).visible_meeting_for(current_user)
+        @meetings ||= Decidim::Meetings::Meeting.where(component: model)
+                                                .except_withdrawn
+                                                .published
+                                                .not_hidden
+                                                .visible_for(current_user)
       end
 
       def past_meetings
@@ -31,6 +35,23 @@ module Decidim
 
       def meetings_count
         @meetings_count ||= meetings.count
+      end
+
+      def past_meetings_count
+        @past_meetings_count ||= meetings.past.count
+      end
+
+      def upcoming_meetings_count
+        @upcoming_meetings_count ||= meetings.upcoming.count
+      end
+
+      def cache_hash
+        hash = []
+        hash << "decidim/meetings/highlighted_meetings_for_component"
+        hash << meetings.cache_key_with_version
+        hash.push(current_user.try(:id))
+        hash << I18n.locale.to_s
+        hash.join(Decidim.cache_key_separator)
       end
     end
   end

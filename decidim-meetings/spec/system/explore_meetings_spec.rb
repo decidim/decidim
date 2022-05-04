@@ -27,6 +27,40 @@ describe "Explore meetings", :slow, type: :system do
       end
     end
 
+    context "when checking withdrawn meetings" do
+      context "when there are no withrawn meetings" do
+        let!(:meeting) { create_list(:meeting, 3, :published, component: component) }
+
+        before do
+          visit_component
+          click_link "See all withdrawn meetings"
+        end
+
+        it "shows an empty page with a message" do
+          expect(page).to have_content("No meetings match your search criteria or there isn't any meeting scheduled.")
+          within ".callout.warning", match: :first do
+            expect(page).to have_content("You are viewing the list of meetings withdrawn by their authors.")
+          end
+        end
+      end
+
+      context "when there are withrawn meetings" do
+        let!(:withdrawn_meetings) { create_list(:meeting, 3, :withdrawn, :published, component: component) }
+
+        before do
+          visit_component
+          click_link "See all withdrawn meetings"
+        end
+
+        it "shows all the withdrawn meetings" do
+          expect(page).to have_css(".card--meeting.alert", count: 3)
+          within ".callout.warning", match: :first do
+            expect(page).to have_content("You are viewing the list of meetings withdrawn by their authors.")
+          end
+        end
+      end
+    end
+
     context "with hidden meetings" do
       let(:meeting) { meetings.last }
 
@@ -76,7 +110,7 @@ describe "Explore meetings", :slow, type: :system do
           it "lists the filtered meetings" do
             visit_component
 
-            within ".origin_check_boxes_tree_filter" do
+            within ".with_any_origin_check_boxes_tree_filter" do
               uncheck "All"
               check "Official"
             end
@@ -95,7 +129,7 @@ describe "Explore meetings", :slow, type: :system do
           it "lists the filtered meetings" do
             visit_component
 
-            within ".origin_check_boxes_tree_filter" do
+            within ".with_any_origin_check_boxes_tree_filter" do
               uncheck "All"
               check "Groups"
             end
@@ -109,13 +143,13 @@ describe "Explore meetings", :slow, type: :system do
           end
         end
 
-        context "with 'citizens' origin" do
+        context "with 'participants' origin" do
           it "lists the filtered meetings" do
             visit_component
 
-            within ".origin_check_boxes_tree_filter" do
+            within ".with_any_origin_check_boxes_tree_filter" do
               uncheck "All"
-              check "Citizens"
+              check "Participants"
             end
 
             expect(page).to have_no_content("6 MEETINGS")
@@ -130,7 +164,7 @@ describe "Explore meetings", :slow, type: :system do
         within ".filters" do
           # It seems that there's another field with the same name in another form on page.
           # Because of that we try to select the correct field to set the value and submit the right form
-          find(:css, "#content form.new_filter [name='filter[search_text]']").set(translated(meetings.first.title))
+          find(:css, "#content form.new_filter [name='filter[search_text_cont]']").set(translated(meetings.first.title))
 
           # The form should be auto-submitted when filter box is filled up, but
           # somehow it's not happening. So we workaround that be explicitly
@@ -147,7 +181,7 @@ describe "Explore meetings", :slow, type: :system do
         past_meeting = create(:meeting, :published, component: component, start_time: 1.day.ago)
         visit_component
 
-        within ".date_check_boxes_tree_filter" do
+        within ".with_any_date_check_boxes_tree_filter" do
           uncheck "All"
           check "Past"
         end
@@ -155,7 +189,7 @@ describe "Explore meetings", :slow, type: :system do
         expect(page).to have_css(".card--meeting", count: 1)
         expect(page).to have_content(translated(past_meeting.title))
 
-        within ".date_check_boxes_tree_filter" do
+        within ".with_any_date_check_boxes_tree_filter" do
           uncheck "All"
           check "Upcoming"
         end
@@ -171,11 +205,33 @@ describe "Explore meetings", :slow, type: :system do
 
         visit_component
 
-        within ".scope_id_check_boxes_tree_filter" do
+        within ".with_any_scope_check_boxes_tree_filter" do
           check "All"
           uncheck "All"
           check translated(scope.name)
         end
+
+        expect(page).to have_css(".card--meeting", count: 1)
+      end
+
+      it "works with 'back to list' link" do
+        scope = create(:scope, organization: organization)
+        meeting = meetings.first
+        meeting.scope = scope
+        meeting.save
+
+        visit_component
+
+        within ".with_any_scope_check_boxes_tree_filter" do
+          check "All"
+          uncheck "All"
+          check translated(scope.name)
+        end
+
+        expect(page).to have_css(".card--meeting", count: 1)
+
+        find(".card--meeting .card__link").click
+        click_link "Back to list"
 
         expect(page).to have_css(".card--meeting", count: 1)
       end

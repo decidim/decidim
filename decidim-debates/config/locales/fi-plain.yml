@@ -17,7 +17,7 @@ fi-pl:
       decidim/debates/close_debate_event: Keskustelu suljettu
       decidim/debates/create_debate_event: Keskustelu
       decidim/debates/creation_disabled_event: Keskustelut poistettu käytöstä
-      decidim/debates/creation_enabled_event: Keskustelut käytössä
+      decidim/debates/creation_enabled_event: Keskustelujen luonti käytössä
   activerecord:
     models:
       decidim/debates/debate:
@@ -27,6 +27,7 @@ fi-pl:
     components:
       debates:
         actions:
+          comment: Kommentoi
           create: Luo
           endorse: Suosittele
         name: Keskustelut
@@ -40,7 +41,7 @@ fi-pl:
           step:
             announcement: Ilmoitus
             comments_blocked: Kommentointi estetty
-            creation_enabled: Keskustelujen luominen käyttäjien toimesta sallittu
+            creation_enabled: Osallistujat voivat luoda keskusteluja
             endorsements_blocked: Suositukset estetty
             endorsements_enabled: Suositukset käytössä
     debates:
@@ -116,11 +117,11 @@ fi-pl:
           all: Kaikki
           category: Aihepiiri
           category_prompt: Valitse aihepiiri
-          citizens: Kansalaiset
           commented: Kommentoitu
           my_debates: Omat keskustelut
           official: Virallinen
           origin: Alkuperä
+          participants: Osallistujat
           scope: Teema
           search: Hae
           state: Tila

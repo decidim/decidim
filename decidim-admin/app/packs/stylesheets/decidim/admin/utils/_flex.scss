@@ -9,7 +9,7 @@ $spaces: $space ($space * 2);
 
   @if $dir == row{
     & > *{
-      margin: 0 $gap/2;
+      margin: 0 $gap*.5;
     }
 
     & > :first-child{
@@ -23,7 +23,7 @@ $spaces: $space ($space * 2);
 
   @else if $dir == column{
     & > *{
-      margin: $gap/2 0;
+      margin: $gap*.5 0;
     }
 
     & > :first-child{

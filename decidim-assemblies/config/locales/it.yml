@@ -59,9 +59,9 @@ it:
         birthplace: Luogo di nascita
         ceased_date: Data di termine
         designation_date: Data di designazione
-        designation_mode: Modalità di designazione
         full_name: Nome e cognome
         gender: Genere
+        non_user_avatar: Avatar
         position: Posizione
         user_id: Utente
       assembly_user_role:
@@ -182,6 +182,9 @@ it:
         update:
           error: Si è verificato un errore durante l'aggiornamento di un amministratore per questa assemblea.
           success: Admin aggiornato correttamente per questa assemblea.
+      filters:
+        decidim_assemblies_type_id_eq:
+          label: Tipo di assemblea
       menu:
         assemblies: Assemblee
         assemblies_settings: Impostazioni
@@ -267,7 +270,6 @@ it:
             duration_help: Se la durata di questa assemblea è limitata, selezionare la data di fine. Altrimenti, apparirà come indefinita.
             filters: Filtri
             images: Immagini
-            included_at_help: Seleziona la data in cui questa assemblea è stata aggiunto a Decidim. Non deve necessariamente essere uguale alla data di creazione.
             metadata: Metadati
             other: Altro
             select_a_created_by: Seleziona un creatore
@@ -296,7 +298,10 @@ it:
         assembly_members:
           form:
             existing_user: Utente esistente
+            explanation: 'Guida per l''immagine:'
+            image_guide: È preferibile un'immagine verticale priva di testo.
             non_user: Non utente
+            non_user_avatar_help: Si dovrebbe ottenere il consenso delle persone prima di renderle pubbliche come membri dell'assemblea.
             select_a_position: Seleziona una posizione
             select_user: Seleziona un utente
             user_type: Tipologia di utente
@@ -313,6 +318,9 @@ it:
         new_import:
           accepted_types:
             json: JSON
+      assemblies:
+        show:
+          title: Su questa assemblea
       assembly_members:
         index:
           members: Utenti

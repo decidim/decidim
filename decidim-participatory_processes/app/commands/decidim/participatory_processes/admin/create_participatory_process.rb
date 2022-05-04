@@ -5,7 +5,7 @@ module Decidim
     module Admin
       # A command with all the business logic when creating a new participatory
       # process in the system.
-      class CreateParticipatoryProcess < Rectify::Command
+      class CreateParticipatoryProcess < Decidim::Command
         # Public: Initializes the command.
         #
         # form - A form object with the params.
@@ -40,7 +40,30 @@ module Decidim
         attr_reader :form, :process
 
         def create_participatory_process
-          @process = ParticipatoryProcess.new(
+          @process = ParticipatoryProcess.new
+          @process.assign_attributes(attributes)
+
+          return process unless process.valid?
+
+          transaction do
+            process.save!
+
+            log_process_creation(process)
+
+            process.steps.create!(
+              title: TranslationsHelper.multi_translation(
+                "decidim.admin.participatory_process_steps.default_title",
+                form.current_organization.available_locales
+              ),
+              active: true
+            )
+
+            process
+          end
+        end
+
+        def attributes
+          {
             organization: form.current_organization,
             title: form.title,
             subtitle: form.subtitle,
@@ -65,26 +88,12 @@ module Decidim
             meta_scope: form.meta_scope,
             start_date: form.start_date,
             end_date: form.end_date,
-            participatory_process_group: form.participatory_process_group
-          )
-
-          return process unless process.valid?
-
-          transaction do
-            process.save!
-
-            log_process_creation(process)
-
-            process.steps.create!(
-              title: TranslationsHelper.multi_translation(
-                "decidim.admin.participatory_process_steps.default_title",
-                form.current_organization.available_locales
-              ),
-              active: true
-            )
-
-            process
-          end
+            participatory_process_group: form.participatory_process_group,
+            participatory_process_type: form.participatory_process_type,
+            show_metrics: form.show_metrics,
+            show_statistics: form.show_statistics,
+            announcement: form.announcement
+          }
         end
 
         def log_process_creation(process)

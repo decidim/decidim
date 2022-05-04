@@ -29,6 +29,7 @@ module Decidim
 
       belongs_to :commentable, foreign_key: "decidim_commentable_id", foreign_type: "decidim_commentable_type", polymorphic: true
       belongs_to :root_commentable, foreign_key: "decidim_root_commentable_id", foreign_type: "decidim_root_commentable_type", polymorphic: true, touch: true
+      belongs_to :participatory_space, foreign_key: "decidim_participatory_space_id", foreign_type: "decidim_participatory_space_type", polymorphic: true, optional: true
       has_many :up_votes, -> { where(weight: 1) }, foreign_key: "decidim_comment_id", class_name: "CommentVote", dependent: :destroy
       has_many :down_votes, -> { where(weight: -1) }, foreign_key: "decidim_comment_id", class_name: "CommentVote", dependent: :destroy
 
@@ -81,8 +82,11 @@ module Decidim
         participatory_space.try(:visible?) && component.try(:published?)
       end
 
+      alias original_participatory_space participatory_space
+
       def participatory_space
-        return root_commentable if root_commentable.is_a?(Decidim::Participable)
+        return original_participatory_space if original_participatory_space.present?
+        return root_commentable unless root_commentable.respond_to?(:participatory_space)
 
         root_commentable.participatory_space
       end
@@ -96,13 +100,6 @@ module Decidim
         return if deleted?
 
         root_commentable.accepts_new_comments? && depth < MAX_DEPTH
-      end
-
-      # Public: Override comment threads to exclude hidden ones.
-      #
-      # Returns comment.
-      def comment_threads
-        super.reject(&:hidden?)
       end
 
       # Public: Override Commentable concern method `users_to_notify_on_comment_created`.
@@ -176,11 +173,11 @@ module Decidim
       end
 
       def formatted_body
-        Decidim::ContentProcessor.render(sanitize_content(render_markdown(translated_body)), "div")
+        Decidim::ContentProcessor.render(sanitize_content_for_comment(render_markdown(translated_body)), "div")
       end
 
       def translated_body
-        @translated_body ||= translated_attribute(body, organization)
+        translated_attribute(body, organization)
       end
 
       def delete!
@@ -231,11 +228,6 @@ module Decidim
         self.depth = commentable.depth + 1 if commentable.respond_to?(:depth)
       end
 
-      # Private: Returns the comment body sanitized, sanitizing HTML tags
-      def sanitize_content(content)
-        Decidim::ContentProcessor.sanitize(content)
-      end
-
       # Private: Initializes the Markdown parser
       def markdown
         @markdown ||= Decidim::Comments::Markdown.new
@@ -250,6 +242,13 @@ module Decidim
         return unless root_commentable
 
         root_commentable.update_comments_count
+      end
+
+      def sanitize_content_for_comment(text, options = {})
+        Rails::Html::WhiteListSanitizer.new.sanitize(
+          text,
+          { scrubber: Decidim::Comments::UserInputScrubber.new }.merge(options)
+        ).try(:html_safe)
       end
     end
   end

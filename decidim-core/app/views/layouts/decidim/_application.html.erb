@@ -1,20 +1,10 @@
-<% add_decidim_meta_tags({
-  description: strip_tags(translated_attribute(current_organization.description)),
-  title: current_organization.name,
-  url: request.original_url,
-  twitter_handler: current_organization.twitter_handler,
-  image_url: Decidim::ContentBlock.published.find_by(
-    organization: current_organization,
-    scope_name: :homepage,
-    manifest_name: :hero
-  ).try(:images_container).try(:background_image).try(:url)
-}) %>
-
+<%= render partial: "layouts/decidim/meta_tags_config" %>
 <!DOCTYPE html>
 <html lang="<%= I18n.locale %>" class="no-js">
   <head>
     <title><%= decidim_page_title %></title>
     <%= render partial: "layouts/decidim/head" %>
+    <%= render partial: "layouts/decidim/js_configuration" %>
   </head>
 
   <body>
@@ -22,6 +12,7 @@
     <%= render partial: "layouts/decidim/cookie_warning" %>
     <%= render partial: "layouts/decidim/omnipresent_banner" %>
     <%= render partial: "layouts/decidim/timeout_modal" %>
+    <%= render partial: "layouts/decidim/offline_banner" %>
 
     <%= render "layouts/decidim/wrapper" do %>
       <%= yield %>
@@ -30,6 +21,6 @@
     <%= render partial: "decidim/shared/confirm_modal" %>
     <%= render partial: "decidim/shared/login_modal" unless current_user %>
     <%= render partial: "decidim/shared/authorization_modal" %>
-    <%= render partial: "layouts/decidim/js_configuration" %>
+    <%= render partial: "layouts/decidim/cors" if Decidim.cors_enabled %>
   </body>
 </html>

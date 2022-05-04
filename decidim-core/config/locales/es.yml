@@ -67,7 +67,6 @@ es:
     'true': 'Sí'
   carrierwave:
     errors:
-      general: Error procesando imagen
       image_too_big: La imagen es demasiado grande
       not_inside_organization: El archivo no está relacionado con ninguna organización
   date:
@@ -77,6 +76,33 @@ es:
       decidim_with_day_and_month_name: "%A %d %b %Y"
       decidim_with_month_name: "%d %B %Y"
       decidim_with_month_name_short: "%d %b"
+  datetime:
+    distance_in_words:
+      about_x_hours:
+        one: aproximadamente 1 hora
+        other: aproximadamente %{count} horas
+      about_x_months:
+        one: aproximadamente 1 mes
+        other: aproximadamente %{count} meses
+      half_a_minute: medio minuto
+      less_than_x_minutes:
+        one: menos de 1 minuto
+        other: menos de %{count} minutos
+      less_than_x_seconds:
+        one: ahora mismo
+        other: menos de %{count} segundos
+      x_days:
+        one: hace 1 día
+        other: "hace %{count} días"
+      x_hours:
+        one: hace 1 hora
+        other: "hace %{count} días"
+      x_minutes:
+        one: hace 1 minuto
+        other: "hace %{count} minutos"
+      x_seconds:
+        one: hace 1 segundo
+        other: "hace %{count} segundos"
   decidim:
     accessibility:
       external_link: Enlace externo
@@ -99,6 +125,7 @@ es:
         error: Se ha producido un error al eliminar tu cuenta.
         success: Tu cuenta se ha eliminado correctamente.
       show:
+        available_locales_helper: Elige el idioma que deseas utilizar para navegar y recibir notificaciones en la plataforma
         change_password: Cambia la contraseña
         update_account: Actualizar cuenta
       update:
@@ -255,6 +282,8 @@ es:
         download: Descargar archivo
       documents:
         related_documents: Documentos relacionados
+      geocoding:
+        geocoded_address: Dirección
       photos:
         related_photos: Imágenes relacionadas
     author:
@@ -315,6 +344,8 @@ es:
           authorize: Autorizar con "%{authorization}"
           explanation: Para llevar a cabo esta acción, tienes que disponer de la autorización "%{authorization}".
           title: Autorización requerida
+        ok:
+          title: Has sido autorizado mientras estás en esta página. Por favor, vuelve a cargar la página para realizar tu acción
         pending:
           explanation: Para realizar esta acción, debes estar autorizado con "%{authorization}", pero tu autorización todavía está en progreso
           resume: Comprueba el progreso de la autorización "%{authorization}"
@@ -500,6 +531,11 @@ es:
           this_application_will_not_be_able_to: 'Esta aplicación no podrá:'
           update_profile: Actualiza tu perfil
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> quiere usar tu cuenta"
+    editor_images:
+      create:
+        error: Error al subir la imagen
+        success: Imagen subida con éxito
+      drag_and_drop_help: Puedes añadir imágenes arrastrando y soltándolas o también pegándolas.
     endorsable:
       endorsements: Adhesiones
       endorsements_count: Número de adhesiones
@@ -690,6 +726,7 @@ es:
       no_followers: Aún no hay seguidores.
     following:
       no_followings: No sigue a nadie ni a ninguna actividad.
+      non_public_followings: Algunos de los recursos seguidos no son públicos.
     follows:
       create:
         button: Seguir
@@ -699,7 +736,6 @@ es:
         button: Dejar de seguir
         error: Se ha producido un error al dejar de seguir este recurso.
     forms:
-      current_file: Archivo actual
       current_image: Imagen actual
       default_image: Imagen predeterminada
       errors:
@@ -710,8 +746,8 @@ es:
       file_help:
         file:
           explanation: 'Instrucciones para el archivo:'
-          message_1: Tiene que ser una imagen o un documento.
-          message_2: Para las imágenes, utilizar imágenes preferiblemente apaisadas, el servicio recorta la imagen. Para los archivos CSV, el separador entre columnas debe ser una coma (",")
+          message_1: Tiene que ser una imagen cuadrada.
+          message_2: El tamaño recomendado para esta imagen es 512x512.
         image:
           explanation: 'Instrucciones para la imagen:'
           message_1: Preferiblemente una imagen apaisada que no tenga ningún texto.
@@ -719,7 +755,6 @@ es:
       file_validation:
         allowed_file_extensions: 'Formatos de archivo permitidos: %{extensions}'
         max_file_size: 'Tamaño máximo del archivo: %{megabytes}MB'
-      remove_this_file: Eliminar este archivo
     gamification:
       all_badges_link: Ver todas las insígnias disponibles.
       badges:
@@ -851,6 +886,15 @@ es:
       index:
         last_activity: Última actividad
         resource_type: Tipo
+    links:
+      invalid_url: Dirección URL no válida
+      warning:
+        body_1: Estás a punto de visitar un enlace externo y te recomendamos que seas prudente respecto al contenido de páginas externas.
+        body_2: Por favor, antes de seguir, comprueba que el enlace que estás a punto de visitar pertenece a un sitio seguro.
+        cancel: Cancelar
+        close_modal: Cerrar ventana
+        proceed: Continuar
+        title: Abrir enlace externo
     log:
       base_presenter:
         create: "%{user_name} creó %{resource_name}"
@@ -946,6 +990,7 @@ es:
           next: Siguiente
           no_conversations: Aún no tienes conversaciones
           title: Conversaciones
+          to: A
         reply:
           placeholder: Tu respuesta...
           send: Enviar
@@ -953,6 +998,7 @@ es:
         show:
           back: Volver a todas las conversaciones
           chat_with: Conversación con
+          deleted_accounts: No puedes tener una conversación con cuentas borradas.
           not_allowed: Esta participante no acepta mensajes directos.
           title: Conversación con %{usernames}
         start:
@@ -1020,6 +1066,12 @@ es:
         greetings: Saludos,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Hola,
         subject: '¿Deseas seguir recibiendo información relevante sobre %{organization_name}?'
+    notification_mailer:
+      event_received:
+        no_translation_available: Lo sentimos, no se pudo recuperar la traducción automática al enviar el correo electrónico. Puedes comprobar la traducción del texto original en el siguiente enlace %{link}.
+        original_text: 'Texto original:'
+        same_language: El contenido ha sido publicado en tu idioma preferido (%{language}), por eso no se muestra ninguna traducción automática en este correo electrónico.
+        translated_text: 'Texto traducido automáticamente:'
     notifications:
       no_notifications: Aún no hay notificaciones.
     notifications_settings:
@@ -1039,6 +1091,10 @@ es:
       update:
         error: Se ha producido un error al actualizar la configuración de las notificaciones.
         success: La configuración de las notificaciones se ha actualizado correctamente.
+    offline:
+      show:
+        message: Parece que estás desconectada. Por favor, inténtalo de nuevo más tarde.
+        retry: Reintentar
     open_data:
       not_available_yet: Los ficheros Open Data aún no están disponibles, inténtalo de nuevo en unos minutos.
     own_user_groups:
@@ -1252,6 +1308,8 @@ es:
         filters:
           areas: Áreas
           select_an_area: Selecciona una area
+      public_participation:
+        public_participation: Mostrar mi asistencia públicamente
       reference:
         reference: 'Referencia: %{reference}'
       represent_user_group:
@@ -1315,6 +1373,7 @@ es:
         title_reply: Responder
       show:
         back: Ver todas las conversaciones
+        deleted_accounts: No puedes tener una conversación con cuentas borradas.
         not_allowed: Esta participante no acepta mensajes directos.
         title: Conversación con %{usernames}
       update:
@@ -1332,6 +1391,7 @@ es:
       notify:
         body_1: La usuaria %{user} ha sido reportada por %{token}
         body_2: 'Motivo: %{reason}'
+        details: Datos proporcionados por la usuaria
         greetings: Saludos,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Hola %{admin},
         subject: Una nueva usuaria ha sido reportada en %{organization_name}
@@ -1576,6 +1636,8 @@ es:
       notifications_dashboard:
         mark_all_as_read: Marcar todo como leído
         mark_as_read: Marcar como leído
+      offline_banner:
+        cache_version_page: '¡Ups! Tu red está desconectada. Esta es una versión en caché de la página que estás visitando, quizás el contenido no está actualizado.'
       social_media_links:
         facebook: "%{organization} en Facebook"
         github: "%{organization} en GitHub"
@@ -1611,10 +1673,12 @@ es:
     name: Castellano
     name_with_error: Inglés (¡error!)
   password_validator:
+    blacklisted: en la lista negra
     domain_included_in_password: es demasiado similar a este nombre de dominio
     email_included_in_password: es demasiado similar a tu correo electrónico
     fallback: no es válido
     name_included_in_password: es demasiado similar a tu nombre
+    nickname_included_in_password: es demasiado similar a tu alias
     not_enough_unique_characters: no tiene suficientes caracteres únicos
     password_not_allowed: no está permitido
     password_too_common: es demasiado común
@@ -1649,6 +1713,8 @@ es:
       day_of_week: "%a"
       day_of_week_long: "%a %e"
       day_of_year: "%d/%m/%y"
+      ddmm: "%d.%m"
+      ddmmyyyy: "%d.%m.%Y"
       decidim_day_of_year: "%d %B %Y"
       decidim_short: "%d/%m/%Y %H:%M"
       default: "%a, %d %b %Y %H:%M:%S %z"

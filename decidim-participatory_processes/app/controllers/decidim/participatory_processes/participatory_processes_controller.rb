@@ -40,15 +40,16 @@ module Decidim
 
       private
 
-      def search_klass
-        ParticipatoryProcessSearch
+      def search_collection
+        ParticipatoryProcess.where(organization: current_organization).published.visible_for(current_user).includes(:area)
       end
 
       def default_filter_params
         {
-          scope_id: nil,
-          area_id: nil,
-          date: default_date_filter
+          with_scope: nil,
+          with_area: nil,
+          with_type: nil,
+          with_date: default_date_filter
         }
       end
 
@@ -73,7 +74,7 @@ module Decidim
       end
 
       def promoted_participatory_process_groups
-        @promoted_participatory_process_groups ||= PromotedParticipatoryProcessGroups.new
+        @promoted_participatory_process_groups ||= OrganizationPromotedParticipatoryProcessGroups.new(current_organization)
       end
 
       def promoted_collection
@@ -85,16 +86,16 @@ module Decidim
       end
 
       def filtered_processes
-        search.results
+        search.result
       end
 
       def participatory_processes
-        @participatory_processes ||= filtered_processes.groupless
+        @participatory_processes ||= filtered_processes.groupless.includes(attachments: :file_attachment)
       end
 
       def participatory_process_groups
-        @participatory_process_groups ||= Decidim::ParticipatoryProcessGroup
-                                          .where(id: filtered_processes.grouped.group_ids)
+        @participatory_process_groups ||= OrganizationParticipatoryProcessGroups.new(current_organization).query
+                                                                                .where(id: filtered_processes.grouped.group_ids)
       end
 
       def stats
@@ -102,7 +103,7 @@ module Decidim
       end
 
       def metrics
-        @metrics ||= ParticipatoryProcessMetricChartsPresenter.new(participatory_process: current_participatory_space)
+        @metrics ||= ParticipatoryProcessMetricChartsPresenter.new(participatory_process: current_participatory_space, view_context: view_context)
       end
 
       def participatory_process_group

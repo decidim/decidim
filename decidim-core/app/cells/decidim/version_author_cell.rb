@@ -2,6 +2,7 @@
 
 module Decidim
   class VersionAuthorCell < Decidim::ViewModel
+    include Decidim::ApplicationHelper
     include Decidim::SanitizeHelper
 
     def author

@@ -23,6 +23,7 @@ it:
         decidim_user_group_id: Gruppo di utenti
         description: Descrizione
         end_time: Orario fine
+        id: ID
         location: Luogo
         location_hints: Informazione sul luogo
         online_meeting_url: Url riunione online
@@ -34,6 +35,7 @@ it:
         registration_terms: Termini di registrazione
         registration_url: URL di iscrizione
         registrations_enabled: Registrazioni abilitate
+        show_embedded_iframe: Mostra iframe incorporato per questo URL
         start_time: Orario inizio
         title: Titolo
         transparent: Trasparente
@@ -69,6 +71,29 @@ it:
         other: iscrizioni
   decidim:
     admin:
+      filters:
+        meetings:
+          category_id_eq:
+            label: Categoria
+          closed_at_present:
+            label: Stato
+            values:
+              'false': Apri
+              'true': Chiuso
+          is_upcoming_true:
+            label: Data
+            values:
+              'false': Conclusi
+              'true': Prossimi
+          scope_id_eq:
+            label: Ambito
+          with_any_origin:
+            values:
+              user_group: Gruppi di utenti
+          with_any_type:
+            label: Tipologia di incontro
+            values:
+              in_person: Fisiche
       meeting_copies:
         create:
           error: C'era un errore en duplicazione di questo incontro.
@@ -80,6 +105,7 @@ it:
     components:
       meetings:
         actions:
+          comment: Commenta
           join: Iscriviti
         name: Incontri
         settings:
@@ -147,6 +173,9 @@ it:
           email_outro: Hai ricevuto questa notifica perché stai seguendo la riunione "%{resource_title}". Puoi smettere di seguirlo dal link precedente.
           email_subject: La riunione "%{resource_title}" inizierà tra meno di 48 ore.
           notification_title: La riunione <a href="%{resource_path}">%{resource_title}</a> inizierà tra meno di 48 ore.
+    forms:
+      meetings:
+        attendees_count_help_text: Non dimenticare di includere il numero totale di partecipanti al tuo evento. Sia fisiche, ibrido o online, è importante sapere quante persone sono coinvolte.
     gamification:
       badges:
         attended_meetings:
@@ -262,12 +291,10 @@ it:
             update: Modifica
           form:
             address_help: 'Indirizzo: usato da Geocoder per trovare la posizione'
-            available_slots_help: Lasciare a 0 se si dispone di posti illimitati disponibili
             disclaimer: 'Disclaimer: Utilizzando un sistema di registrazione esterno, sei consapevole che gli organizzatori di %{organization} non sono responsabili per i dati forniti dagli utenti al servizio esterno.'
             location_help: 'Posizione: messaggio diretto agli utenti che riporta il luogo dell''incontro'
             location_hints_help: 'Suggerimenti: informazioni aggiuntive. Esempio: il pavimento dell''edificio se si tratta di una riunione di persona o la password di riunione se si tratta di una riunione online con accesso ristretto.'
             online_meeting_url_help: 'Link: permette ai partecipanti di connettersi direttamente alla tua riunione'
-            registration_email_help: Questo testo apparirà nel mezzo dell'email di conferma della registrazione. Subito dopo il codice di registrazione.
             registration_url_help: 'Link: consentire ai partecipanti di accedere al servizio esterno che stai utilizzando per le iscrizioni'
             select_a_meeting_type: Seleziona un tipo di riunione
             select_a_registration_type: Seleziona un tipo di registrazione
@@ -313,6 +340,7 @@ it:
             available_slots_help: Lasciare a 0 se disponi di slot illimitati.
             invites: Inviti
             recommendation_message: Per motivi di privacy, ti consigliamo di eliminare questo modulo di iscrizione quando non ne hai più bisogno. Per impostazione predefinita, questo avverrà 3 mesi dopo la fine della riunione.
+            registration_email_help: Questo testo apparirà nel mezzo dell'email di conferma della registrazione. Subito dopo il codice di registrazione.
             registration_form: Formulario di registrazione
             registrations_count:
               one: C'è stata %{count} registrazione.
@@ -346,20 +374,13 @@ it:
         export_calendar: Esporta il calendario
       conference_venues: Sale per conferenze
       content_blocks:
-        upcoming_events:
-          name: Prossimi eventi
-          upcoming_events: Prossimi incontri
-          view_all_events: Guarda tutto
+        upcoming_meetings:
+          view_all_meetings: Guarda tutto
       directory:
         meetings:
           index:
-            all: Tutti
-            date: Quando
             meetings: Incontri
-            past: Conclusi
-            search: Ricerca
             space_type: Spazio partecipativo
-            upcoming: Prossime
       last_activity:
         meeting_updated_at_html: "<span>Dibattito aggiornato su %{link}</span>"
         new_meeting_at_html: "<span>Nuovo incontro al %{link}</span>"
@@ -414,8 +435,8 @@ it:
           origin: Origine
           origin_values:
             all: Tutte
-            citizens: Cittadini
             official: Ufficiale
+            participants: Utenti
             user_groups: Gruppi
           scope: Ambito
           search: Cerca
@@ -453,10 +474,6 @@ it:
           back: Indietro
           create: Crea
           title: Crea una riunione
-        online_meeting_link:
-          join: Partecipa alla riunione
-          link_available_soon: Link disponibile a breve
-          live_event: Questa riunione sta avvenendo in questo momento
         registration_confirm:
           cancel: Annulla
           confirm: Conferma
@@ -466,12 +483,17 @@ it:
           close_meeting: Chiusura meeting
           contributions: Conteggio dei contributi
           date: Data
+          edit_close_meeting: Modifica rapporto riunione
           edit_meeting: Modifica la riunione
           going: Ti sei iscritto a questa riunione
           join: Partecipa alla riunione
           leave: Annulla la tua registrazione
           leave_confirmation: Sei sicuro di voler annullare la tua registrazione per questa riunione?
+          link_available_soon: Link disponibile a breve
+          link_closed: Il link per partecipare alla riunione sarà disponibile alcuni minuti prima dell'inizio
+          live_event: Questa riunione è in corso
           meeting_minutes: Riunione dei verbali
+          micro_camera_permissions_warning: Quando fai clic sul pulsante qui sotto, ti verrà chiesto il permesso del microfono e/o della fotocamera, per unirti alla videoconferenza
           no_slots_available: Nessuna slot disponibile
           organizations: Organizzazioni partecipanti.
           registration_code_help_text: Il tuo codice di registrazione
@@ -482,6 +504,7 @@ it:
             one: "%{count} slot rimanenti"
             other: "%{count} slot rimanenti"
           view: Visualizza
+          visit_finished: Visualizza la riunione passata
         update:
           invalid: Si è verificato un errore durante l'aggiornamento della riunione.
           success: Hai aggiornato la riunione con successo.
@@ -502,6 +525,7 @@ it:
           fields:
             closed: Chiuso
             end_time: Data di fine
+            id: Id
             map: Mappa
             official_meeting: Riunione ufficiale
             start_time: Data di inizio

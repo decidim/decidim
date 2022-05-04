@@ -35,8 +35,9 @@ module Decidim
         template "circleci/config.yml", "#{component_folder}/.circleci/config.yml"
 
         app_folder = "#{component_folder}/app"
-        template "app/assets/config/component_manifest.js", "#{app_folder}/assets/config/decidim_#{component_name}_manifest.js"
-        template "app/assets/images/decidim/component/icon.svg", "#{app_folder}/assets/images/decidim/#{component_name}/icon.svg"
+        template "app/packs/js/entrypoint.js", "#{app_folder}/packs/entrypoints/decidim_#{component_name}.js"
+        template "app/packs/images/decidim/component/icon.svg", "#{app_folder}/packs/images/decidim/#{component_name}/icon.svg"
+        template "app/packs/stylesheets/decidim/default.scss", "#{app_folder}/packs/stylesheets/decidim/#{component_name}/#{component_name}.scss"
         template "app/controllers/decidim/component/application_controller.rb.erb", "#{app_folder}/controllers/decidim/#{component_name}/application_controller.rb"
         template "app/controllers/decidim/component/admin/application_controller.rb.erb", "#{app_folder}/controllers/decidim/#{component_name}/admin/application_controller.rb"
         template "app/helpers/decidim/component/application_helper.rb.erb", "#{app_folder}/helpers/decidim/#{component_name}/application_helper.rb"
@@ -47,6 +48,7 @@ module Decidim
         chmod "#{bin_folder}/rails", "+x"
 
         config_folder = "#{component_folder}/config"
+        template "config/assets.rb.erb", "#{config_folder}/assets.rb"
         template "config/locales/en.yml.erb", "#{config_folder}/locales/en.yml"
         template "config/i18n-tasks.yml.erb", "#{config_folder}/i18n-tasks.yml"
 

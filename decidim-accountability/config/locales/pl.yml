@@ -208,6 +208,8 @@ pl:
             label: Status
     components:
       accountability:
+        actions:
+          comment: Skomentuj
         name: Rozliczenie
         settings:
           global:

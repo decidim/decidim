@@ -4,8 +4,8 @@
     <title><%= @title || "Decidim Admin" %></title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <%= stylesheet_pack_tag "decidim_admin", media: "all", 'data-turbolinks-track': "reload" %>
-    <%= javascript_pack_tag "decidim_admin", 'data-turbolinks-track': "reload" %>
-    <%= favicon_pack_tag "favicon.png" %>
+    <%= javascript_pack_tag "decidim_admin", defer: false, 'data-turbolinks-track': "reload" %>
+    <%= favicon_pack_tag "media/images/favicon.png" %>
   </head>
 
   <body>

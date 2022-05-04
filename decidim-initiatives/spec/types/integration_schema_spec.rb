@@ -30,7 +30,7 @@ describe "Decidim::Api::QueryType" do
       "hashtag" => initiative.hashtag,
       "id" => initiative.id.to_s,
       "initiativeType" => {
-        "bannerImage" => initiative.type.banner_image.url,
+        "bannerImage" => initiative.type.attached_uploader(:banner_image).path,
         "collectUserExtraFields" => initiative.type.collect_user_extra_fields?,
         "createdAt" => initiative.type.created_at.iso8601.to_s.gsub("Z", "+00:00"),
         "description" => { "translation" => initiative.type.description[locale] },
@@ -55,19 +55,6 @@ describe "Decidim::Api::QueryType" do
       "signatureType" => initiative.signature_type,
       "slug" => initiative.slug,
       "state" => initiative.state,
-      "stats" => [
-        { "name" => "dummies_count_high", "value" => 0 },
-        { "name" => "pages_count", "value" => 0 },
-        { "name" => "meetings_count", "value" => 0 },
-        { "name" => "proposals_count", "value" => 0 },
-        { "name" => "budgets_count", "value" => 0 },
-        { "name" => "surveys_count", "value" => 0 },
-        { "name" => "results_count", "value" => 0 },
-        { "name" => "debates_count", "value" => 0 },
-        { "name" => "sortitions_count", "value" => 0 },
-        { "name" => "posts_count", "value" => 0 },
-        { "name" => "elections_count", "value" => 0 }
-      ],
       "title" => { "translation" => initiative.title[locale] },
       "type" => initiative.class.name,
       "updatedAt" => initiative.updated_at.iso8601.to_s.gsub("Z", "+00:00")
@@ -133,10 +120,6 @@ describe "Decidim::Api::QueryType" do
         signatureType
         slug
         state
-        stats {
-           name
-          value
-        }
         title {
           translation(locale: "#{locale}")
         }
@@ -159,8 +142,22 @@ describe "Decidim::Api::QueryType" do
       expect { response }.not_to raise_error
     end
 
-    it "has hashtags" do
+    it "returns the correct response" do
       expect(response["initiatives"].first).to eq(initiative_data)
+    end
+
+    it_behaves_like "implements stats type" do
+      let(:initiatives) do
+        %(
+          initiatives {
+            stats{
+              name
+              value
+            }
+          }
+        )
+      end
+      let(:stats_response) { response["initiatives"].first["stats"] }
     end
   end
 
@@ -223,10 +220,6 @@ describe "Decidim::Api::QueryType" do
         signatureType
         slug
         state
-        stats {
-           name
-          value
-        }
         title {
           translation(locale: "en")
         }
@@ -240,8 +233,22 @@ describe "Decidim::Api::QueryType" do
       expect { response }.not_to raise_error
     end
 
-    it "has hashtags" do
+    it "returns the correct response" do
       expect(response["initiative"]).to eq(initiative_data)
+    end
+
+    it_behaves_like "implements stats type" do
+      let(:initiatives) do
+        %(
+          initiative(id: #{initiative.id}){
+            stats{
+              name
+              value
+            }
+          }
+        )
+      end
+      let(:stats_response) { response["initiative"]["stats"] }
     end
   end
 end

@@ -1,4 +1,11 @@
 sv:
+  activemodel:
+    attributes:
+      questionnaire:
+        title: Titel
+      template:
+        description: Beskrivning
+        name: Namn
   decidim:
     admin:
       menu:

@@ -18,6 +18,17 @@ module Decidim
       # An association with the permissions settings for the resource
       has_one :resource_permission, as: :resource, class_name: "Decidim::ResourcePermission"
 
+      scope :related_to, lambda { |related_to_key|
+        from = joins(:resource_links_from).where(
+          decidim_resource_links: { to_type: related_to_key.camelcase }
+        )
+        to = joins(:resource_links_to).where(
+          decidim_resource_links: { from_type: related_to_key.camelcase }
+        )
+
+        where(id: from).or(where(id: to))
+      }
+
       # Finds all the linked resources to or from this model for a given resource
       # name and link name.
       #
@@ -51,6 +62,7 @@ module Decidim
 
         scope = manifest.resource_scope(component)
         scope = scope.where("#{self.class.table_name}.id != ?", id) if manifest.model_class == self.class
+        scope = scope.not_hidden if manifest.model_class.respond_to?(:not_hidden)
         scope.includes(:component).where.not(decidim_components: { published_at: nil })
       end
 
@@ -93,7 +105,8 @@ module Decidim
       # - the visibility of its participatory space.
       # - the visibility of the resource itself.
       def visible?
-        component.participatory_space.try(:visible?) && component.published? && resource_visible?
+        (!self.class.try(:belong_to_component?) || (component && component.participatory_space.try(:visible?) && component.published?)) &&
+          resource_visible?
       end
 
       # Check only the resource visibility not its hierarchy.

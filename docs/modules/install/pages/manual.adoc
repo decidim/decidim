@@ -1,41 +1,39 @@
 = Manual installation tutorial
 
-== Step by step
-
 In order to develop on decidim, you'll need:
 
 * *Git* 2.15+
-* *PostgreSQL* 9.5+
-* *Ruby* 2.5.0 (2.3+ should work just fine, but that's the version we test against)
-* *NodeJS* 15.14.x
-* *Npm* 7.7.x
+* *PostgreSQL* 12.7+
+* *Ruby* 2.7.5
+* *NodeJS* 16.9.x
+* *Npm* 7.21.x
 * *ImageMagick*
 * *Chrome* browser and https://sites.google.com/a/chromium.org/chromedriver/[chromedriver].
 
-We're starting with an Ubuntu 16.04 LTS. This is an opinionated guide and YMMV, so if you're free to use the technology that you fell most comfortable on. If you have any doubts and you're blocked you can go and ask on https://gitter.im/decidim/decidim[our Gitter]. We recommend that you follow some Ruby on Rails tutorials (like http://guides.rubyonrails.org/getting_started.html[Getting Started with Ruby on Rails]) and have some knowledge on how gems and engines work.
+We're starting with an Ubuntu 20.04.2 LTS. This is an opinionated guide, so you're free to use the technology that you are most comfortable. If you have any doubts and you're blocked you can go and ask on https://matrix.to/#/#decidimdevs:matrix.org[our Matrix.org chat room for developers].
 
-On this tutorial we'll see how to install rbenv, PostgreSQL and Decidim, and how to configure everything together.
+We recommend to have at least some basic proficiency in Ruby on Rails (a good starting point is http://guides.rubyonrails.org/getting_started.html[Getting Started with Ruby on Rails]) and have some knowledge on how gems work.
 
-=== Installing rbenv
+In this guide, we'll see how to install rbenv, PostgreSQL, Node.js and, Decidim, and how to configure everything together for a development environment. Mind that if you want to make a production deployment with real users this guide isn't enough, you should configure a web server (like nginx), backups, monitoring, etc. This is out of the scope of this guide, but you can follow the https://platoniq.github.io/decidim-install/[Platoniq guide].
 
-First we're going to install rbenv, for managing various ruby versions. We're following the guide from https://www.digitalocean.com/community/tutorials/how-to-install-ruby-on-rails-with-rbenv-on-ubuntu-16-04[DigitalOcean]. You could also use https://rvm.io/[rvm] as an alternative on this step. On these instruction we're using the latest ruby published version at the moment (2.5.3), but you should check this out on https://www.ruby-lang.org/en/downloads/[Ruby official website].
+== 1. Installing rbenv
+
+First, we're going to install https://github.com/rbenv/rbenv[rbenv], for managing various ruby versions. You could also use https://rvm.io/[rvm] or https://github.com/asdf-vm/asdf[asdf] as alternatives on this step. Mind that at the moment, Decidim isn't compatible with Ruby 3.0.
 
 [source,bash]
 ----
 sudo apt update
-sudo apt install -y build-essential autoconf bison libssl-dev libyaml-dev libreadline-dev zlib1g-dev libncurses5-dev libffi-dev libgdbm3 libgdbm-dev libicu-dev
+sudo apt install -y build-essential curl git libssl-dev zlib1g-dev
 git clone https://github.com/rbenv/rbenv.git ~/.rbenv
 echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc
 echo 'eval "$(rbenv init -)"' >> ~/.bashrc
 source ~/.bashrc
 git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
-rbenv install 2.5.3
-rbenv global 2.5.3
-echo "gem: --no-document" > ~/.gemrc
-gem install bundler
+rbenv install 2.7.5
+rbenv global 2.7.5
 ----
 
-=== Installing PostgreSQL
+== 2. Installing PostgreSQL
 
 Now we're going to install PostgreSQL for the database:
 
@@ -45,20 +43,32 @@ sudo apt install -y postgresql libpq-dev
 sudo -u postgres psql -c "CREATE USER decidim_app WITH SUPERUSER CREATEDB NOCREATEROLE PASSWORD 'thepassword'"
 ----
 
-You need to change the password (on this example is "thepassword") and save it somewhere to configure it later with the application.
+You need to change the password (in this example is "thepassword") and save it somewhere to configure it later with the application.
 
-=== Installing Decidim
+== 3. Installing Node.js
 
-Next, we need to install the `decidim` gem:
+An important component for Decidim is Node.js and Yarn. With this commands you will install them:
 
 [source,bash]
 ----
-gem install bootsnap
-gem install listen
+curl -sL https://deb.nodesource.com/setup_16.x | sudo -E bash -
+sudo apt-get install -y nodejs
+curl -sL https://dl.yarnpkg.com/debian/pubkey.gpg | gpg --dearmor | sudo tee /usr/share/keyrings/yarnkey.gpg >/dev/null
+echo "deb [signed-by=/usr/share/keyrings/yarnkey.gpg] https://dl.yarnpkg.com/debian stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+sudo apt-get update && sudo apt-get install -y yarn
+----
+
+== 4. Installing Decidim
+
+Next, we need to install the `decidim` gem with its dependencies:
+
+[source,bash]
+----
+sudo apt install -y libicu-dev imagemagick
 gem install decidim
 ----
 
-Afterwards, we can create an application with the nice `decidim` executable, where `decidim_application` is your application name (ie decidim.barcelona):
+Then we can create an application with the `decidim` executable, where `decidim_application` is your application name (ie DecidimBarcelona):
 
 [source,bash]
 ----
@@ -70,49 +80,40 @@ We recommend that you save it all on Git.
 
 [source,bash]
 ----
-git init .
-git commit -m "Initial commit. Generated with Decidim 0.X https://decidim.org"
-----
-
-=== Configure the database
-
-You need to modify your secrets (see `config/database.yml`). For this you can use https://github.com/laserlemon/figaro[figaro], https://github.com/bkeepers/dotenv[dotenv] or https://github.com/rbenv/rbenv-vars[rbenv-vars]. You should always be careful of not uploading your plain secrets on git or your version control system. You can also upload the encrypted secrets, using the sekrets gem or if you're on Ruby on Rails greater than 5.1 you can do it natively.
-
-For instance, for working with figaro, add this to your `Gemfile`:
-
-[source,ruby]
-----
-gem "figaro"
-----
-
-Then install it:
-
-[source,bash]
-----
-bundle install
-bundle exec figaro install
-----
-
-Next add this to your `config/application.yml`, using the setup the PostgreSQL database name, user and password that you configure before.
-
-[source,yaml]
-----
-DATABASE_HOST: localhost
-DATABASE_USERNAME: decidim_app
-DATABASE_PASSWORD: your_password
-----
-
-Finally, save it all to git:
-
-[source,bash]
-----
 git add .
-git commit -m "Adds figaro configuration management"
+git commit -m "Initial commit. Generated with Decidim https://decidim.org"
 ----
 
-=== Initializing your app for local development
+== 5. Configure the database
 
-We should now setup your database:
+Modify your secrets (see `config/database.yml`). For this you can use https://github.com/laserlemon/figaro[figaro], https://github.com/bkeepers/dotenv[dotenv] or https://github.com/rbenv/rbenv-vars[rbenv-vars]. You
+should always be careful of not uploading your plain secrets on git or your version control system. You can also upload the encrypted secrets, using the sekrets gem or if you're on Ruby on Rails greater than 5.1 you can do it natively.
+
+For a development environment, and if you are using rbenv, we strongly recommend you to use the https://github.com/rbenv/rbenv-vars[rbenv-vars] to facilitate the edition of ENV vars.
+
+First you'll need to install the rbenv-vars plugin:
+
+[source,bash]
+----
+git clone https://github.com/rbenv/rbenv-vars.git "$(rbenv root)"/plugins/rbenv-vars
+----
+
+Then, in **any folder above your decidim generated application**, you need to create a file named `.rbenv-vars` and put your variables there:
+
+[source,bash]
+----
+cat << EOF > .rbenv-vars
+DATABASE_HOST=localhost
+DATABASE_USERNAME=decidim_app
+DATABASE_PASSWORD=thepassword
+EOF
+----
+
+Be careful where you put the `.rbenv-vars` file, as if you put it in the same folder of your decidim generated application, and if you use a version control system (like `git`, which we strongly recommend), then you should ignore this file (ie with the `.gitignore` file).
+
+== 6. Initializing your app for local development
+
+We should now create your database:
 
 [source,bash]
 ----
@@ -120,23 +121,9 @@ bin/rails db:create db:migrate
 bin/rails db:seed
 ----
 
-This will also create some default data so you can start testing the app:
+This will also create some default data so you can start testing the app, with an administrator account with email admin@example.org and password `decidim123456`
 
-* A `Decidim::System::Admin` with email `system@example.org` and password `decidim123456`, to log in at `/system`.
-* A `Decidim::Organization` named `Decidim Staging`. You probably want to change its name and hostname to match your needs.
-* A `Decidim::User` acting as an admin for the organization, with email `admin@example.org` and password `decidim123456`.
-* A `Decidim::User` that also belongs to the organization but it's a regular user, with email `user@example.org` and password `decidim123456`.
-
-This data won't be created in production environments, if you still want to do it, run:
-
-[source,bash]
-----
-SEED=true rails db:setup
-----
-
-==== Notes
-
-When you run `bin/rails db:migrate` you should see a lot of output. If you don't, or if you run into errors seeding your database, try runnning `bin/rake decidim:upgrade` before.
+== 7. Start your web server
 
 You can now start your server!
 
@@ -146,3 +133,22 @@ bin/rails s
 ----
 
 Visit http://localhost:3000 to see your app running. 🎉 🎉
+
+[NOTE]
+====
+With these steps you would only have an initial installation for trying Decidim, but it still needs lots of things to take in account. If you want a working production system then we recommend that you follow the https://platoniq.github.io/decidim-install/[Decidim Install guide by Platoniq].
+====
+
+== Extra notes
+
+Other user accounts that you'll have in the seeds are:
+
+* To participate as a regular user, with email `user@example.org` and password `decidim123456`.
+* To manage the Multitenant and being able to log in at `/system`, with email `system@example.org` and password `decidim123456`.
+
+The seed data won't be created in production environments, if you still want to do it (for instance, for a Demo or Staging server), run:
+
+[source,bash]
+----
+SEED=true rails db:seed
+----

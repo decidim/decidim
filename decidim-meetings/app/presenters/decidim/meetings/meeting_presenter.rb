@@ -5,8 +5,7 @@ module Decidim
     #
     # Decorator for meetings
     #
-    class MeetingPresenter < SimpleDelegator
-      include Decidim::TranslationsHelper
+    class MeetingPresenter < Decidim::ResourcePresenter
       include Decidim::ResourceHelper
       include Decidim::SanitizeHelper
 
@@ -14,22 +13,21 @@ module Decidim
         __getobj__
       end
 
-      def title(links: false, all_locales: false)
+      def title(links: false, html_escape: false, all_locales: false)
         return unless meeting
 
-        handle_locales(meeting.title, all_locales) do |content|
-          renderer = Decidim::ContentRenderers::HashtagRenderer.new(decidim_html_escape(content))
-          renderer.render(links: links).html_safe
-        end
+        super meeting.title, links, html_escape, all_locales
       end
 
-      def description(links: false, all_locales: false)
+      def description(links: false, extras: true, strip_tags: false, all_locales: false)
         return unless meeting
 
-        handle_locales(meeting.description, all_locales) do |content|
-          renderer = Decidim::ContentRenderers::HashtagRenderer.new(decidim_sanitize(content))
+        new_description = handle_locales(meeting.description, all_locales) do |content|
+          renderer = Decidim::ContentRenderers::HashtagRenderer.new(sanitized(content))
           renderer.render(links: links).html_safe
         end
+
+        content_handle_locale(new_description, all_locales, extras, links, strip_tags)
       end
 
       def location(all_locales: false)
@@ -60,7 +58,7 @@ module Decidim
         return unless meeting
 
         handle_locales(meeting.closing_report, all_locales) do |content|
-          renderer = Decidim::ContentRenderers::HashtagRenderer.new(decidim_sanitize(content))
+          renderer = Decidim::ContentRenderers::HashtagRenderer.new(sanitized(content))
           renderer.render(links: links).html_safe
         end
       end
@@ -69,7 +67,7 @@ module Decidim
         return unless meeting
 
         handle_locales(meeting.registration_email_custom_content, all_locales) do |content|
-          renderer = Decidim::ContentRenderers::HashtagRenderer.new(decidim_sanitize(content))
+          renderer = Decidim::ContentRenderers::HashtagRenderer.new(sanitized(content))
           renderer.render(links: links).html_safe
         end
       end
@@ -102,7 +100,7 @@ module Decidim
         resource_locator(meeting).path
       end
 
-      def avatar_url
+      def avatar_url(_variant = nil)
         ActionController::Base.helpers.asset_pack_path("media/images/decidim_meetings.svg")
       end
 
@@ -131,20 +129,8 @@ module Decidim
         proposals.map.with_index { |proposal, index| "#{index + 1}) #{proposal.title}\n" }
       end
 
-      private
-
-      def handle_locales(content, all_locales, &block)
-        if all_locales
-          content.each_with_object({}) do |(key, value), parsed_content|
-            parsed_content[key] = if key == "machine_translations"
-                                    handle_locales(value, all_locales, &block)
-                                  else
-                                    block.call(value)
-                                  end
-          end
-        else
-          yield(translated_attribute(content))
-        end
+      def sanitized(content)
+        decidim_sanitize_editor(content)
       end
     end
   end

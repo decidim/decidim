@@ -1,6 +1,12 @@
-// From social-share-button gem
+//
+// Social Share Button
+//
+// Copyright (c) <2012> <Jason Lee> - The MIT license
+// Originally copied fom https://github.com/huacnlee/social-share-button
+// Adapted to Decidim assets pipeline
+//
 
-.social-share-button .ssb-icon {
+.social-share-button .ssb-icon{
   background-position: center center;
   background-repeat: no-repeat;
   background-size: 18px 18px;
@@ -9,109 +15,109 @@
   width: 18px;
 }
 
-.social-share-button .ssb-twitter {
+.social-share-button .ssb-twitter{
   background-image: url("../images/decidim/vendor/social-share-button/twitter.svg");
 }
 
-.social-share-button .ssb-facebook {
+.social-share-button .ssb-facebook{
   background-image: url("../images/decidim/vendor/social-share-button/facebook.svg");
 }
 
-.social-share-button .ssb-google_bookmark {
+.social-share-button .ssb-google_bookmark{
   background-image: url("../images/decidim/vendor/social-share-button/google_bookmark.svg");
 }
 
-.social-share-button .ssb-google_plus {
+.social-share-button .ssb-google_plus{
   background-image: url("../images/decidim/vendor/social-share-button/google_plus.svg");
 }
 
-.social-share-button .ssb-weibo {
+.social-share-button .ssb-weibo{
   background-image: url("../images/decidim/vendor/social-share-button/weibo.svg");
 }
 
-.social-share-button .ssb-qq {
+.social-share-button .ssb-qq{
   background-image: url("../images/decidim/vendor/social-share-button/qq.svg");
 }
 
-.social-share-button .ssb-delicious {
+.social-share-button .ssb-delicious{
   background-image: url("../images/decidim/vendor/social-share-button/delicious.svg");
 }
 
-.social-share-button .ssb-linkedin {
+.social-share-button .ssb-linkedin{
   background-image: url("../images/decidim/vendor/social-share-button/linkedin.svg");
 }
 
-.social-share-button .ssb-tumblr {
+.social-share-button .ssb-tumblr{
   background-image: url("../images/decidim/vendor/social-share-button/tumblr.svg");
 }
 
-.social-share-button .ssb-pinterest {
+.social-share-button .ssb-pinterest{
   background-image: url("../images/decidim/vendor/social-share-button/pinterest.svg");
 }
 
-.social-share-button .ssb-douban {
+.social-share-button .ssb-douban{
   background-image: url("../images/decidim/vendor/social-share-button/douban.svg");
 }
 
-.social-share-button .ssb-wechat {
+.social-share-button .ssb-wechat{
   background-image: url("../images/decidim/vendor/social-share-button/wechat.svg");
 }
 
-.social-share-button .ssb-vkontakte {
+.social-share-button .ssb-vkontakte{
   background-image: url("../images/decidim/vendor/social-share-button/vkontakte.svg");
 }
 
-.social-share-button .ssb-odnoklassniki {
+.social-share-button .ssb-odnoklassniki{
   background-image: url("../images/decidim/vendor/social-share-button/odnoklassniki.svg");
 }
 
-.social-share-button .ssb-xing {
+.social-share-button .ssb-xing{
   background-image: url("../images/decidim/vendor/social-share-button/xing.svg");
 }
 
-.social-share-button .ssb-email {
+.social-share-button .ssb-email{
   background-image: url("../images/decidim/vendor/social-share-button/email.svg");
 }
 
-.social-share-button .ssb-reddit {
+.social-share-button .ssb-reddit{
   background-image: url("../images/decidim/vendor/social-share-button/reddit.svg");
 }
 
-.social-share-button .ssb-hacker_news {
+.social-share-button .ssb-hacker_news{
   background-image: url("../images/decidim/vendor/social-share-button/hacker_news.svg");
 }
 
-.social-share-button .ssb-telegram {
+.social-share-button .ssb-telegram{
   background-image: url("../images/decidim/vendor/social-share-button/telegram.svg");
 }
 
 .social-share-button .ssb-whatsapp_app,
-.social-share-button .ssb-whatsapp_web {
+.social-share-button .ssb-whatsapp_web{
   background-image: url("../images/decidim/vendor/social-share-button/whatsapp.svg");
 }
 
-.ss-wechat-dialog {
+.ss-wechat-dialog{
   width: 300px;
   position: fixed;
   background: #fff;
   padding: 15px;
   border-radius: 3px;
-  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 2px 15px rgba(0, 0, 0, .15);
   z-index: 11001;
   font-size: 14px;
   line-height: 1.2em;
 }
 
-.ss-wechat-dialog .wechat-popup-header {
+.ss-wechat-dialog .wechat-popup-header{
   font-weight: bold;
 }
 
-.ss-wechat-dialog .wechat-dialog-qr {
+.ss-wechat-dialog .wechat-dialog-qr{
   text-align: center;
   margin: 25px 0;
 }
 
-.ss-wechat-dialog .wechat-popup-close {
+.ss-wechat-dialog .wechat-popup-close{
   width: 16px;
   height: 16px;
   position: absolute;
@@ -122,7 +128,7 @@
   font-size: 16px;
 }
 
-.ss-wechat-dialog .wechat-popup-footer {
+.ss-wechat-dialog .wechat-popup-footer{
   text-align: left;
   line-height: 22px;
   color: #666;

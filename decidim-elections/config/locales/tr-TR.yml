@@ -177,10 +177,6 @@ tr:
           update:
             invalid: '%{trustee} vekili güncellenirken bir sorun oluştu'
             success: Vekil %{trustee} başarıyla güncellendi
-      admin_log:
-        election:
-          publish: "%{user_name}, %{resource_name} seçimini yayınladı"
-          unpublish: "%{user_name}, %{resource_name} seçimini yayından kaldırdı"
       election_m:
         badge_name:
           finished: Bitti
@@ -205,7 +201,6 @@ tr:
           all: Tümü
           finished: Bitti
           search: Arama
-          state: Statü
           upcoming: Yakında
         filters_small_view:
           close_modal: Pencereyi kapat
@@ -279,15 +274,12 @@ tr:
               generate_legend_3: Bilgisayarınızda dosyanın bir kopyası olmadığından emin olun (ör. İndirilenler ve Masaüstü klasörlerini kontrol edin).
               generate_legend_4: Dosyanın başka bir kopyasını farklı bir harici cihazda oluşturun ve çok güvenli bir yerde saklayın.
               submit: Gönder
-              submit_legend: Yukarıda açıklanan tüm adımları izledikten sonra, açık kimlik anahtarını Decidim sunucusuna gönderme işlemini tamamlayın.
               submit_title: Genel kimlik anahtarını gönderin
               title: Vekil kimlik anahtarları
               upload: Kimlik anahtarlarınızı yükleyin
               upload_error:
                 invalid_format: Yüklenen dosya herhangi bir kimlik anahtarı içermiyor.
                 invalid_key: Yüklenen dosyadaki kimlik anahtarları yüklenemez.
-                invalid_public_key: Yüklenen dosyadaki tanımlama anahtarları, Decidim tarafından saklanan genel tanımlama anahtarıyla eşleşmiyor.
-              upload_legend: Decidim'de sizin genel kimlik anahtarlarınız var, ancak tarayıcınızda hala bu anahtarlar yok. Kimlik anahtarlarınızın olduğu dosyayı, oluşturduktan sonra oluşturduğunuz yedekten bilgisayarınıza aktarmanız gerekir.
             not_supported_browser_description: Vekil olarak hareket etmek için kullanılamayan bir web tarayıcısı kullanıyorsunuz gibi görünüyor. Vekil görevlerinizi tamamlayabilmek için tarayıcınızın en son sürümünü kullandığınızdan emin olun veya en popüler tarayıcılardan herhangi birini kullanmayı deneyin.
             not_supported_browser_title: Vekil kişi olarak hareket etmek için tarayıcıyı yükseltin
             trustee_role_description: Bu platformda kutlanan bazı seçimlerde Vekil olarak görev yapmakla görevlendirildiniz.

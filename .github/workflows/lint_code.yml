@@ -1,4 +1,4 @@
-name: "[CI] Lint"
+name: "[CI] Lint code"
 on:
   push:
     branches:
@@ -12,8 +12,8 @@ on:
 env:
   CI: "true"
   SIMPLECOV: "true"
-  RUBY_VERSION: 2.7.1
-  NODE_VERSION: 15.14.0
+  RUBY_VERSION: 2.7.5
+  NODE_VERSION: 16.9.1
 
 jobs:
   lint:
@@ -52,5 +52,7 @@ jobs:
         name: Lint Ruby files
       - run: npm run lint
         name: Lint JS files
+      - run: npm run stylelint
+        name: Lint SCSS files
       - run: ./.github/run_erblint.sh
         name: Lint ERB files

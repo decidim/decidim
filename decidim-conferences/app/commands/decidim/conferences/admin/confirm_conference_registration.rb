@@ -4,7 +4,7 @@ module Decidim
   module Conferences
     module Admin
       # This command is executed when the user joins a conference.
-      class ConfirmConferenceRegistration < Rectify::Command
+      class ConfirmConferenceRegistration < Decidim::Command
         # Initializes a JoinConference Command.
         #
         # conference_registration - The registration to be confirmed

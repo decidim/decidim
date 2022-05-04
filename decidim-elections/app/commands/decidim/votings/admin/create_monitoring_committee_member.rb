@@ -4,7 +4,7 @@ module Decidim
   module Votings
     module Admin
       # A command with the business logic to create a new monitoring committee member
-      class CreateMonitoringCommitteeMember < Rectify::Command
+      class CreateMonitoringCommitteeMember < Decidim::Command
         # Public: Initializes the command.
         #
         # form - A form object with the params
@@ -67,7 +67,7 @@ module Decidim
               organization: voting.organization
             )
 
-            InviteUserAgain.call(tentative_user, invitation_instructions) if tentative_user && !tentative_user.invitation_accepted?
+            InviteUserAgain.call(tentative_user, invitation_instructions) if tentative_user&.invitation_pending?
 
             tentative_user
           end

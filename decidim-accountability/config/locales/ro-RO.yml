@@ -4,10 +4,10 @@ ro:
       result:
         decidim_accountability_status_id: Stare
         decidim_category_id: Categorie
-        decidim_scope_id: Domeniu de aplicare
+        decidim_scope_id: Domeniu de interes
         description: Descriere
         end_date: Data de sfârșit
-        progress: Progresul
+        progress: Progres
         project_ids: Proiecte incluse
         proposals: Propuneri incluse
         start_date: Data de început
@@ -35,7 +35,7 @@ ro:
       actions:
         attachment_collections: Dosare
         attachments: Atașamente
-        confirm_destroy: Ești sigur că vrei să ștergi acest %{name}?
+        confirm_destroy: Sigur dorești să ștergi acest %{name}?
         destroy: Ștergere
         edit: Editare
         import_csv: Importă CSV
@@ -60,7 +60,7 @@ ro:
           result:
             name: Rezultat
           status:
-            name: Status
+            name: Stadiu
           timeline_entry:
             name: Intrare cronologie
         results:
@@ -71,72 +71,72 @@ ro:
             success: Rezultatul a fost șters
           edit:
             title: Editare rezultat
-            update: Rezultat actualizare
+            update: Actualizare rezultat
           index:
             title: Rezultate
           new:
-            create: Creare rezultat
+            create: Creează rezultat
             title: Rezultat nou
           update:
             invalid: A apărut o eroare la actualizarea acestui rezultat
             success: Rezultatul a fost actualizat
         shared:
           subnav:
-            statuses: Status-uri
+            statuses: Stadii
         statuses:
           create:
-            invalid: A apărut o eroare la crearea acestui status
-            success: Status creat cu succes
+            invalid: A apărut o eroare la crearea acestui stadiu
+            success: Stadiu creat cu succes
           destroy:
-            success: Status şters cu succes
+            success: Stadiu şters cu succes
           edit:
-            title: Editare stare
-            update: Stare actualizare
+            title: Editare stadiu
+            update: Actualizare stadiu
           index:
-            title: Status-uri
+            title: Stadii
           new:
-            create: Creare stare
-            title: Stare nouă
+            create: Creează stadiu
+            title: Stadiu nou
           update:
-            invalid: A apărut o eroare la actualizarea acestei stări
-            success: Status actualizat cu succes
+            invalid: A apărut o eroare la crearea acestui stadiu
+            success: Stadiu actualizat cu succes
         timeline_entries:
           create:
-            invalid: A apărut o eroare la crearea acestei intrări
+            invalid: A apărut o eroare la crearea acestei înregistrări
             success: Intrare creată cu succes
           destroy:
             success: Intrare ștearsă cu succes
           edit:
-            title: Editare intrare
-            update: Actualizare intrare
+            title: Editare înregistrare
+            update: Actualizare înregistrare
           index:
-            title: Înregistrări de calendar proiect
+            title: Înregistrări în calendarul proiectului
           new:
-            create: Creare intrare
-            title: Intrare nouă
+            create: Creează înregistrare
+            title: Înregistrare nouă
           update:
-            invalid: A apărut o eroare la actualizarea acestei intrări
-            success: Intrare actualizata cu succes
+            invalid: A apărut o eroare la actualizarea acestei înregistrări
+            success: Înregistrare actualizată cu succes
       admin_log:
         result:
-          create: "%{user_name} rezultat creat %{resource_name} în %{space_name}"
-          delete: "%{user_name} a șters rezultatul %{resource_name} în %{space_name}"
-          update: "%{user_name} rezultat actualizat %{resource_name} în %{space_name}"
+          create: "%{user_name} a creat %{resource_name} în %{space_name}"
+          delete: "%{user_name} a șters %{resource_name} în %{space_name}"
+          update: "%{user_name} a actualizat %{resource_name} în %{space_name}"
         value_types:
           parent_presenter:
-            not_found: 'Părintele nu a fost găsit în baza de date (ID: %{id})'
+            not_found: 'Elementul-părinte nu a fost găsit în baza de date (ID: %{id})'
       content_blocks:
         highlighted_results:
           dates: Date
-          results: Rezultatele
+          results: Rezultate
           unspecified: Nespecificat
       import_mailer:
         import:
           errors: Erori
           errors_present: A apărut o problemă la importarea rezultatelor
           row_number: Rând
-          subject: Importarea cu succes a rezultatelor
-          success: Importul de rezultate s-a reușit. Puteți analiza rezultatele în interfața de administrare.
+          subject: Importare cu succes a rezultatelor
+          success: Rezultate importate. Puteți revizui rezultatele în interfața de administrare.
       last_activity:
         new_result_at_html: "<span>Un nou rezultat la %{link}</span>"
       models:
@@ -144,25 +144,25 @@ ro:
           fields:
             category: Categorie
             created_at: Creat
-            end_date: Data de încheiere
+            end_date: Dată de sfârşit
             id: ID
-            progress: Progresul
-            scope: Domeniu de aplicare
-            start_date: Data de început
-            status: Status
+            progress: Progres
+            scope: Domeniu de interes
+            start_date: Dată de începere
+            status: Stadiu
             title: Titlu
         status:
           fields:
             description: Descriere
             key: Cheie
             name: Nume
-            progress: Progresul
+            progress: Progres
         timeline_entry:
           fields:
             description: Descriere
-            entry_date: Data
+            entry_date: Dată
       result_m:
-        executed: Execută
+        executed: Executat
         view: Vizualizare
       results:
         count:
@@ -172,7 +172,7 @@ ro:
             other: "%{count} rezultate"
         filters:
           all: Toate
-          scopes: Domeniu
+          scopes: Domenii de interes
         home:
           categories_label: Categorii
           subcategories_label: Subcategorii
@@ -192,7 +192,7 @@ ro:
             last_updated_at: Ultima actualizare la
             meetings: Întâlniri
             proposals: Propuneri
-            votes: Suportă
+            votes: Voturi
         timeline:
           title: Evoluția proiectului
     admin:
@@ -201,11 +201,13 @@ ro:
           category_id_eq:
             label: Categorie
           scope_id_eq:
-            label: Domeniul de aplicare
+            label: Domeniu de interes
           status_id_eq:
             label: Stare
     components:
       accountability:
+        actions:
+          comment: Comentariu
         name: Responsabilitate
         settings:
           global:
@@ -216,8 +218,8 @@ ro:
             heading_leaf_level_results: Nume pentru "Proiecte"
             heading_parent_level_results: Nume pentru "Rezultate"
             intro: Introducere
-            scope_id: Domeniu de aplicare
-            scopes_enabled: Domenii de aplicare activate
+            scope_id: Domeniu de interes
+            scopes_enabled: Domenii de interes activate
             subcategories_label: Nume pentru "Subcategorii"
           step:
             comments_blocked: Comentarii blocate
@@ -225,12 +227,12 @@ ro:
       accountability:
         proposal_linked:
           email_intro: 'Propunerea "%{proposal_title}" a fost inclusă într-un rezultat. O puteţi vedea de pe această pagină:'
-          email_outro: Ați primit această notificare deoarece urmați ""%{proposal_title}". Puteți înceta să primiți notificări urmând linkul anterior.
+          email_outro: Ai primit această notificare deoarece urmărești „%{proposal_title}”. Poți anula aceste notificări de la link-ul anterior.
           email_subject: O actualizare la %{proposal_title}
           notification_title: Propunerea <a href="%{proposal_path}">%{proposal_title}</a> a fost inclusă în rezultatul <a href="%{resource_path}">%{resource_title}</a>.
         result_progress_updated:
           email_intro: 'Rezultatul "%{resource_title}", care include propunerea "%{proposal_title}", este acum %{progress}% complet. Îl puteţi vedea de pe această pagină:'
-          email_outro: Ați primit această notificare deoarece urmăriți „%{proposal_title}” și această propunere este inclusă în rezultatul „%{resource_title}”. Puteți înceta să primiți notificări urmând link-ul anterior.
+          email_outro: Ai primit această notificare deoarece urmărești „%{proposal_title}” și această propunere este inclusă în rezultatul „%{resource_title}”. Poți înceta să primești notificări urmând link-ul anterior.
           email_subject: O actualizare la progresul %{resource_title}
           notification_title: Rezultatul <a href="%{resource_path}">%{resource_title}</a>, care include propunerea <a href="%{proposal_path}">%{proposal_title}</a>, este acum %{progress}% complet.
     metrics:

@@ -4,7 +4,7 @@ module Decidim
   module Proposals
     module Admin
       # A command with all the business logic when a user updates a proposal.
-      class UpdateProposal < Rectify::Command
+      class UpdateProposal < Decidim::Command
         include ::Decidim::AttachmentMethods
         include GalleryMethods
         include HashtagsMethods
@@ -45,8 +45,8 @@ module Decidim
           transaction do
             update_proposal
             update_proposal_author
-            create_attachment if process_attachments?
             create_gallery if process_gallery?
+            create_attachment(weight: first_attachment_weight) if process_attachments?
             photo_cleanup!
           end
 
@@ -79,6 +79,12 @@ module Decidim
           proposal.add_coauthor(form.author)
           proposal.save!
           proposal
+        end
+
+        def first_attachment_weight
+          return 1 if proposal.photos.count.zero?
+
+          proposal.photos.count
         end
       end
     end

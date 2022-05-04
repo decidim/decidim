@@ -57,14 +57,14 @@ module Decidim
         #
         # Returns a Decidim::Scope
         def scope
-          @scope ||= @scope_id ? current_component.scopes.find_by(id: @scope_id) : current_component.scope
+          @scope ||= @attributes["scope_id"].value ? current_component.scopes.find_by(id: @attributes["scope_id"].value) : current_component.scope
         end
 
         # Scope identifier
         #
         # Returns the scope identifier related to the proposal
         def scope_id
-          @scope_id || scope&.id
+          super || scope&.id
         end
 
         def geocoding_enabled?
@@ -82,7 +82,7 @@ module Decidim
         # Finds the Meetings of the current participatory space
         def meetings
           @meetings ||= Decidim.find_resource_manifest(:meetings).try(:resource_scope, current_component)
-                               &.order(title: :asc)
+                          &.published&.order(title: :asc)
         end
 
         # Return the meeting as author
@@ -101,7 +101,7 @@ module Decidim
         end
 
         def suggested_hashtags
-          downcased_suggested_hashtags = Array(@suggested_hashtags&.map(&:downcase)).to_set
+          downcased_suggested_hashtags = super.map(&:downcase).to_set
           component_suggested_hashtags.select { |hashtag| downcased_suggested_hashtags.member?(hashtag.downcase) }
         end
 

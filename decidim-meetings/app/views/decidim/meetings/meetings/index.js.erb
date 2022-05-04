@@ -1,13 +1,17 @@
 var $meetings = $('#meetings');
 var $meetingsCount = $('#meetings-count');
 
+// make sure that calendar modal will use the updated filter values
+var $calendarShare = $('#calendarShare');
+$calendarShare.remove();
+
 $meetings.html('<%= j(render partial: "meetings").strip.html_safe %>');
 $meetingsCount.html('<%= j(render partial: "count").strip.html_safe %>');
 
 var $dropdownMenu = $('.dropdown.menu', $meetings);
 $dropdownMenu.foundation();
 
-var markerData = JSON.parse('<%= escape_javascript meetings_data_for_map(search.results.select(&:geocoded_and_valid?)).to_json.html_safe %>');
+var markerData = JSON.parse('<%= escape_javascript meetings_data_for_map(search.result.select(&:geocoded_and_valid?)).to_json.html_safe %>');
 
 var $map = $("#map");
 var controller = $map.data("map-controller");
@@ -15,3 +19,5 @@ if (controller) {
   controller.clearMarkers();
   controller.addMarkers(markerData);
 }
+
+$("#calendarShare").foundation(); // initialize export calendar on the page

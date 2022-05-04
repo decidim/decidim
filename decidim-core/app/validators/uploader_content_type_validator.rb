@@ -1,8 +1,7 @@
 # frozen_string_literal: true
 
 # This validator ensures the files to be uploaded match the attached uploader's
-# content types. This prevents CarrierWave from uploading the records before
-# they pass the content type validations.
+# content types.
 class UploaderContentTypeValidator < ActiveModel::Validations::FileContentTypeValidator
   # rubocop: disable Metrics/CyclomaticComplexity
   def validate_each(record, attribute, value)
@@ -15,8 +14,7 @@ class UploaderContentTypeValidator < ActiveModel::Validations::FileContentTypeVa
 
     return if values.empty?
 
-    uploader = record.send(attribute)
-    return unless uploader
+    uploader = record.attached_uploader(attribute) || record.send(attribute)
     return unless uploader.is_a?(Decidim::ApplicationUploader)
 
     mode = option_value(record, :mode)

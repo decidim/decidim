@@ -120,12 +120,12 @@ $nav-border-width: 3px;
   padding: 0;
 
   ul{
-    padding: $global-padding / 2 0;
+    padding: $global-padding * .5 0;
   }
 
   li{
     width: 100%;
-    padding: $global-padding / 2 $global-padding;
+    padding: $global-padding * .5 $global-padding;
   }
 }
 
@@ -135,7 +135,7 @@ $nav-border-width: 3px;
   background-color: transparent;
   text-align: right;
   border-bottom: $border;
-  padding: $global-padding / 2 $global-padding;
+  padding: $global-padding * .5 $global-padding;
 }
 
 .process-nav__link{

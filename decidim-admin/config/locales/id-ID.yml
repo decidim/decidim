@@ -245,7 +245,6 @@ id:
       dashboard:
         show:
           view_more_logs: Lihat lebih banyak log
-          welcome: Selamat datang di Panel Admin Decidim.
       exports:
         export_as: "%{name} sebagai %{export_format}"
         notice: Ekspor Anda sedang dalam proses. Anda akan menerima email setelah selesai.
@@ -410,7 +409,6 @@ id:
       newsletters:
         create:
           error: Terjadi kesalahan saat membuat buletin ini.
-          success: Newsletter berhasil dibuat. Silakan, tinjau sebelum mengirim.
         deliver:
           error: Terjadi kesalahan saat mengirim buletin ini.
           success: Nawala berhasil dikirim.
@@ -595,7 +593,6 @@ id:
         scopes: Scopes
         static_pages: Halaman
         user_groups: Grup Pengguna
-        users: Pengguna
       user_group:
         csv_verify:
           invalid: Ada kesalahan saat membaca file CSV.
@@ -608,13 +605,6 @@ id:
           success: Kelompok pengguna berhasil diverifikasi
       user_groups:
         index:
-          filter:
-            all: Semua
-            pending: Menunggu keputusan
-            rejected: Ditolak
-            verified: Diverifikasi
-          filter_by: Filter berdasarkan
-          search: Pencarian
           state:
             pending: Menunggu keputusan
             rejected: Ditolak
@@ -638,16 +628,11 @@ id:
           role: Peran
         new:
           create: Undang
-          title: Undang pengguna sebagai administrator
       users_statistics:
         users_count:
           admins: Admin
           participants: Peserta
       view_public_page: Lihat halaman publik
-    forms:
-      errors:
-        impersonate_user:
-          reason: Anda perlu memberikan alasan ketika meniru pengguna yang tidak dikelola
     moderations:
       actions:
         hidden: Tersembunyi

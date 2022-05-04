@@ -17,7 +17,6 @@ zh-CN:
       decidim/debates/close_debate_event: 辩论结束
       decidim/debates/create_debate_event: B. 辩论
       decidim/debates/creation_disabled_event: 已禁用辩论
-      decidim/debates/creation_enabled_event: 辩论已启用
   activerecord:
     models:
       decidim/debates/debate:
@@ -39,7 +38,6 @@ zh-CN:
           step:
             announcement: 通 知
             comments_blocked: 评论已阻止
-            creation_enabled: 参与者创建辩论已启用
             endorsements_blocked: 已阻止授权
             endorsements_enabled: 授权已启用
     debates:
@@ -108,7 +106,6 @@ zh-CN:
           all: 所有的
           category: 类别
           category_prompt: 选择一个类别
-          citizens: Citizens
           commented: 已评论
           my_debates: 我的辩论
           official: 官方的

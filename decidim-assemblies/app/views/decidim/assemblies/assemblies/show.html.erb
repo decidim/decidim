@@ -1,5 +1,5 @@
 <% add_decidim_meta_tags({
-  image_url: current_participatory_space.hero_image.url,
+  image_url: current_participatory_space.attached_uploader(:hero_image).path,
   description: translated_attribute(current_participatory_space.short_description),
   url: assembly_url(current_participatory_space),
   twitter_handler: current_organization.twitter_handler
@@ -35,10 +35,11 @@ edit_link(
   <div class="row">
     <div class="columns medium-7 mediumlarge-8">
       <div class="section">
+        <h2 class="show-for-sr"><%= t(".title") %></h2>
         <div class="lead">
-          <%= decidim_sanitize translated_attribute(current_participatory_space.short_description) %>
+          <%= decidim_sanitize_editor translated_attribute(current_participatory_space.short_description) %>
         </div>
-        <%= decidim_sanitize translated_attribute(current_participatory_space.description) %>
+        <%= decidim_sanitize_editor translated_attribute(current_participatory_space.description) %>
 
         <% if current_participatory_space.private_space? %>
           <%= assembly_features(current_participatory_space) %>
@@ -56,21 +57,21 @@ edit_link(
           <% if translated_attribute(current_participatory_space.purpose_of_action).present? %>
             <div class="section">
               <h3 class="section-heading"><%= t("purpose_of_action", scope: "decidim.assemblies.show") %></h3>
-              <%= decidim_sanitize translated_attribute(current_participatory_space.purpose_of_action) %>
+              <%= decidim_sanitize_editor translated_attribute(current_participatory_space.purpose_of_action) %>
             </div>
           <% end %>
 
           <% if translated_attribute(current_participatory_space.internal_organisation).present? %>
             <div class="section">
               <h3 class="section-heading"><%= t("internal_organisation", scope: "decidim.assemblies.show") %></h3>
-              <%= decidim_sanitize translated_attribute(current_participatory_space.internal_organisation) %>
+              <%= decidim_sanitize_editor translated_attribute(current_participatory_space.internal_organisation) %>
             </div>
           <% end %>
 
           <% if translated_attribute(current_participatory_space.composition).present? %>
             <div class="section">
               <h3 class="section-heading"><%= t("composition", scope: "decidim.assemblies.show") %></h3>
-              <%= decidim_sanitize translated_attribute(current_participatory_space.composition) %>
+              <%= decidim_sanitize_editor translated_attribute(current_participatory_space.composition) %>
             </div>
           <% end %>
           <div class="section text-center">
@@ -85,7 +86,7 @@ edit_link(
 
       <%= render_hook(:participatory_space_highlighted_elements) %>
 
-      <% if current_participatory_space.children.visible_for(current_user).count.positive? %>
+      <% if current_participatory_space.children.visible_for(current_user).published.count.positive? %>
         <section id="assemblies-grid" class="section row collapse">
           <h3 class="section-heading"><%= t("children", scope: "decidim.assemblies.show") %></h3>
           <div class="row small-up-1 medium-up-2 large-up-2 card-grid">
@@ -203,7 +204,7 @@ edit_link(
             <span class="definition-data__title"><%= t("closing_date", scope: "decidim.assemblies.show") %></span>
             <%= l(current_participatory_space.closing_date, format: :decidim_short) %>
             <br>
-            <%= decidim_sanitize translated_attribute(current_participatory_space.closing_date_reason) %>
+            <%= decidim_sanitize_editor translated_attribute(current_participatory_space.closing_date_reason) %>
           </div>
         <% end %>
 

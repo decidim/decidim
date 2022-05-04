@@ -88,7 +88,7 @@ $side:(
 
 @include make-spaces();
 
-  @mixin animation($animation){
+@mixin animation($animation){
   -webkit-animation: $animation;
   -o-animation: $animation;
   animation: $animation;
@@ -100,7 +100,7 @@ $side:(
 
   box-sizing: border-box;
   border-radius: 50%;
-  border: floor(($size / 8)) solid $orbit;
+  border: floor(($size * .125)) solid $orbit;
   border-right-color: $satellite;
   display: inline-block;
   position: relative;

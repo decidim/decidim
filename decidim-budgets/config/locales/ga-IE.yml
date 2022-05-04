@@ -1,1 +1,92 @@
 ga:
+  activemodel:
+    attributes:
+      budget:
+        decidim_scope_id: Scóip
+        title: Teideal
+      project:
+        decidim_category_id: Catagóir
+        decidim_scope_id: Scóip
+        title: Teideal
+  decidim:
+    budgets:
+      actions:
+        attachment_collections: Fillteáin
+        attachments: Ceangaltáin
+        destroy: Scrios
+        edit: Eagar
+        preview: Réamhamharc
+        title: Gníomhartha
+      admin:
+        budgets:
+          index:
+            finished_orders: Vótaí críochnaithe
+            title: Buiséid
+        exports:
+          projects: Tionscadail
+        models:
+          budget:
+            name: Buiséad
+          project:
+            name: Tionscadal
+        projects:
+          edit:
+            update: Nuashonraigh
+          index:
+            finished_orders: Vótaí críochnaithe
+            title: Tionscadail
+          new:
+            create: Cruthaigh
+      budget_information_modal:
+        continue: Lean ar aghaidh
+      models:
+        budget:
+          fields:
+            name: Ainm
+        project:
+          fields:
+            title: Teideal
+      projects:
+        budget_confirm:
+          cancel: Cealaigh
+          confirm: Deimhnigh
+        budget_excess:
+          close: Dún
+          ok: Togha
+        filters:
+          category: Catagóir
+          scope: Scóip
+          search: Cuardaigh
+          status: Stádas
+          status_values:
+            all: Uile
+        filters_small_view:
+          filter: Scag
+          unfold: Oscail
+        order_progress:
+          vote: Vóta
+        order_selected_projects:
+          remove: Bain as
+          view: Amharc
+        project:
+          view: Amharc
+        show:
+          budget: Buiséad
+    components:
+      budgets:
+        actions:
+          comment: Tabhair Trácht
+          vote: Vótáil
+        name: Buiséid
+        settings:
+          global:
+            scope_id: Scóip
+            title: Teideal
+          step:
+            title: Teideal
+            votes: Vótáil
+            votes_choices:
+              finished: Vótáil críochnaithe
+    statistics:
+      orders_count: Tacaíochtaí
+      projects_count: Tionscadail

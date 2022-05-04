@@ -2,6 +2,7 @@
 
 require "decidim/faker/localized"
 require "decidim/dev"
+require "decidim/meetings/test/factories"
 
 FactoryBot.define do
   sequence(:conference_slug) do |n|
@@ -120,10 +121,56 @@ FactoryBot.define do
     short_bio { generate_localized_title }
     twitter_handle { Faker::Internet.user_name }
     personal_url { Faker::Internet.url }
-    avatar { Decidim::Dev.test_file("avatar.jpg", "image/jpeg") }
+
+    trait :with_avatar do
+      avatar { Decidim::Dev.test_file("avatar.jpg", "image/jpeg") }
+    end
 
     trait :with_user do
       user { create(:user, organization: conference.organization) }
+    end
+
+    trait :with_meeting do
+      transient do
+        meetings_component { create(:meetings_component, participatory_space: conference.participatory_space) }
+      end
+
+      after :build do |conference_speaker, evaluator|
+        conference_speaker.conference_speaker_conference_meetings << build(:conference_speaker_conference_meeting,
+                                                                           meetings_component: evaluator.meetings_component,
+                                                                           conference_speaker: conference_speaker)
+      end
+    end
+  end
+
+  factory :conference_speaker_conference_meeting, class: "Decidim::ConferenceSpeakerConferenceMeeting" do
+    transient do
+      conference { create(:conference) }
+      meetings_component { create(:meetings_component, participatory_space: conference.participatory_space) }
+    end
+
+    conference_meeting { create(:conference_meeting, :published, conference: conference, component: meetings_component) }
+    conference_speaker { create(:conference_speaker, conference: conference) }
+  end
+
+  factory :conference_meeting_registration_type, class: "Decidim::Conferences::ConferenceMeetingRegistrationType" do
+    transient do
+      conference { create(:conference) }
+    end
+
+    conference_meeting
+    registration_type { build(:registration_type, conference: conference) }
+  end
+
+  factory :conference_meeting, parent: :meeting, class: "Decidim::ConferenceMeeting" do
+    transient do
+      conference { create(:conference) }
+    end
+
+    after :build do |conference_meeting, evaluator|
+      conference_meeting.conference_meeting_registration_types << build(:conference_meeting_registration_type,
+                                                                        conference_meeting: conference_meeting,
+                                                                        conference: evaluator.conference)
     end
   end
 

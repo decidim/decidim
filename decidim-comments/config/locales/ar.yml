@@ -24,6 +24,7 @@ ar:
         other: الأصوات
   decidim:
     comments:
+      comments_title: التعليقات
       last_activity:
         new_comment_at_html: "<span>تعليق جديد على %{link}</span>"
       votes:
@@ -49,7 +50,9 @@ ar:
         alignment:
           against: ضد
           in_favor: لصالح
+        delete: حذف
         deleted_user: مشارك محذوف
+        edit: تعديل
         hide_replies: إخفاء الردود
         reply: الرد
         report:
@@ -77,7 +80,6 @@ ar:
         blocked_comments_warning: التعليقات معطلة في هذا الوقت ، لكن يمكنك قراءة التعليقات السابقة.
         comment_details_title: تفاصيل التعليق
         loading: جارٍ تحميل التعليقات ...
-        single_comment_warning: يمكنك الإطلاع على التعليقات المتبقية الأخرى <a href="%{url}">هنا</a>.
         single_comment_warning_title: إنك ترى تعليقا واحدا
     events:
       comments:

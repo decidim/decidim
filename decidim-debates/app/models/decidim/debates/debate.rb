@@ -10,7 +10,8 @@ module Decidim
       include Decidim::HasCategory
       include Decidim::Resourceable
       include Decidim::Followable
-      include Decidim::Comments::Commentable
+      include Decidim::Comments::CommentableWithComponent
+      include Decidim::Comments::HasAvailabilityAttributes
       include Decidim::ScopableResource
       include Decidim::Authorable
       include Decidim::Reportable
@@ -24,6 +25,7 @@ module Decidim
       include Decidim::TranslatableAttributes
       include Decidim::Endorsable
       include Decidim::Randomable
+      include Decidim::FilterableResource
 
       belongs_to :last_comment_by, polymorphic: true, foreign_type: "last_comment_by_type", optional: true
       component_manifest_name "debates"
@@ -52,9 +54,18 @@ module Decidim
           }
         )
       }
+      scope_search_multi :with_any_state, [:open, :closed]
 
       def self.log_presenter_class_for(_log)
         Decidim::Debates::AdminLog::DebatePresenter
+      end
+
+      def comments_start_time
+        start_time
+      end
+
+      def comments_end_time
+        end_time
       end
 
       # Public: Overrides the `reported_content_url` Reportable concern method.
@@ -96,17 +107,12 @@ module Decidim
         (ama? && open_ama?) || !ama?
       end
 
-      # Public: Overrides the `commentable?` Commentable concern method.
-      def commentable?
-        component.settings.comments_enabled?
-      end
-
-      # Public: Overrides the `accepts_new_comments?` Commentable concern method.
+      # Public: Overrides the `accepts_new_comments?` CommentableWithComponent concern method.
       def accepts_new_comments?
         return false unless open?
         return false if closed?
 
-        commentable? && !comments_blocked?
+        commentable? && !comments_blocked? && comments_allowed?
       end
 
       # Public: Overrides the `comments_have_alignment?` Commentable concern method.
@@ -131,13 +137,13 @@ module Decidim
         followers
       end
 
-      def self.export_serializer
-        Decidim::Debates::DataPortabilityDebateSerializer
+      # Public: Overrides the `allow_resource_permissions?` Resourceable concern method.
+      def allow_resource_permissions?
+        true
       end
 
-      # Public: Whether the object can have new comments or not.
-      def user_allowed_to_comment?(user)
-        can_participate_in_space?(user)
+      def self.export_serializer
+        Decidim::Debates::DataPortabilityDebateSerializer
       end
 
       def self.newsletter_participant_ids(component)
@@ -181,13 +187,25 @@ module Decidim
 
         update_columns(
           last_comment_at: last_comment&.created_at,
-          last_comment_by_id: last_comment&.decidim_author_id,
+          last_comment_by_id: last_comment&.decidim_user_group_id || last_comment&.decidim_author_id,
           last_comment_by_type: last_comment&.decidim_author_type,
           comments_count: comments_count,
           updated_at: Time.current
         )
       end
       # rubocop:enable Rails/SkipsModelValidations
+
+      # Create i18n ransackers for :title and :description.
+      # Create the :search_text ransacker alias for searching from both of these.
+      ransacker_i18n_multi :search_text, [:title, :description]
+
+      def self.ransackable_scopes(_auth_object = nil)
+        [:with_any_state, :with_any_origin, :with_any_category, :with_any_scope]
+      end
+
+      def self.ransack(params = {}, options = {})
+        DebateSearch.new(self, params, options)
+      end
 
       private
 

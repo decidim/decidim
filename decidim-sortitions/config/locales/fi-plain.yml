@@ -19,6 +19,8 @@ fi-pl:
   decidim:
     components:
       sortitions:
+        actions:
+          comment: Kommentoi
         name: Satunnaistamiset
         settings:
           global:
@@ -74,7 +76,7 @@ fi-pl:
           index:
             title: Satunnaisvalinnat
           new:
-            confirm: Painamalla seuraavaa painiketta Decidim tallentaa päivämäärän ja kellonajan (sekuntien tarkkuudella) ja yhdessä nopan heiton kanssa näitä tietoja käytetään satunnaisvalinnan luomiseen. Toimenpide on peruuttamaton, kun painiketta painetaan valinnan tulos julkaistaan ​​yhdessä tämän lomakkeen tietojen kanssa eikä sitä voi muuttaa, tarkista sisältö huolellisesti
+            confirm: Kun painat painiketta, palvelin tallentaa päivämäärän ja kellonajan (sekunnin tarkkuudella) ja näitä tietoja käytetään yhdessä nopanheiton kanssa satunnaisen valinnan luomiseen. Toimintoa ei voi peruuttaa. Kun painiketta napsautetaan, arvonnan tulos julkaistaan yhdessä tähän lomakkeeseen syötettyjen tietojen kanssa. Tietoja ei voi muuttaa jälkikäteen, joten tarkista sisältö huolellisesti
             create: Luo
             title: Uusi satunnaisvalinta
           show:

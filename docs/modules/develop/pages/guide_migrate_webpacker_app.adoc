@@ -2,27 +2,30 @@
 
 In order to migrate an existing Decidim app to Webpacker, there are a few changes your need to run in your code.
 
-Disclaimer: this recipe might not work for all the cases, it tries to cover the generic scenarios. If you find yourself with a complex scenario and want to improve this guide feel free to open a PR to complete the guide.
+NOTE: this recipe might not work for all the cases, it tries to cover the generic scenarios. If you find yourself with a complex scenario and want to improve this guide feel free to open a PR to complete the guide.
 
 == About Webpacker
 
 It's recommended to understand how Webpacker works. More information:
 
-* https://github.com/rails/webpacker#usage
-* https://edgeguides.rubyonrails.org/webpacker.html
+* https://github.com/rails/webpacker#usage[Webpacker README]
+* https://edgeguides.rubyonrails.org/webpacker.html[Rails Webpacker guide]
 
 == Requirements
 
 Before starting the migration, please check you have the following dependencies installed:
 
-- Node.js version 15.14.0 (this version is mandatory)
-- Npm version 7.7.0 (it works with other versions, but this is the recommended)
+- Node.js version 16.9.x (this version is mandatory)
+- Npm version 7.21.x (it works with other versions, but this is the recommended)
+- Decidim updated to at least v0.25.0.rc4
 
-== Add Webpacker to the application
+== Guide
 
-Follow the steps described https://github.com/rails/webpacker#installation[here]
+=== Add Webpacker to the application
 
-- Install it
+Follow these steps. If you want more information you can find it at the https://github.com/rails/webpacker#installation[Webpacker installation guide].
+
+* Install it
 
 [source,console]
 ----
@@ -40,7 +43,7 @@ This task do a few steps to allow the Rails instance to have a webpacker instanc
 
 This task is automatically performed every time decidim is updated, to get the latest Webpack configuration. This happens when you run the `decidim:upgrade` task.
 
-== Copy Decidim custom CSS and Javascript
+=== Copy Decidim custom CSS and Javascript
 
 `webpacker:install` task should have created to you the following dirs structure:
 
@@ -61,11 +64,37 @@ If it's not the case you must create it. Then, copy Decidim customizable assets
 
 These files are hooked into Decidim packs (specifically into decidim-core pack) and will be automatically included inside that pack when compiled.
 
-== Migrate images
+You can download these files directly with these commands:
+
+[source,console]
+----
+mkdir -p app/packs/src/decidim app/packs/stylesheets/decidim app/packs/images
+touch app/packs/src/decidim/.keep app/packs/stylesheets/decidim/.keep app/packs/images/.keep
+wget https://raw.githubusercontent.com/decidim/decidim/develop/decidim-generators/lib/decidim/generators/app_templates/decidim_application.js -O app/packs/src/decidim/decidim_application.js
+wget https://raw.githubusercontent.com/decidim/decidim/develop/decidim-generators/lib/decidim/generators/app_templates/decidim_application.scss -O app/packs/stylesheets/decidim/decidim_application.scss
+wget https://raw.githubusercontent.com/decidim/decidim/develop/decidim-generators/lib/decidim/generators/app_templates/_decidim-settings.scss -O app/packs/stylesheets/decidim/_decidim-settings.scss
+----
+
+=== Migrate images
 
 Copy the existing images from `app/assets/images` to `app/packs/images`. Images will be available at `/media/images/image.png`
 
-== Migrate stylesheets
+[source,console]
+----
+cp -rp app/assets/images/* app/packs/images/
+----
+
+For instance, add the image "app/packs/images/test.png" in a view using the helper:
+
+[source,erb]
+----
+<%= image_pack_tag "media/images/test.png" %>
+----
+
+Note that, by default, all images are flattened in a single directory (any subdirectory structure is lost when requiring an image using the `image_pack_tag`).
+So, if you have a file in a subdirectory such as `app/packs/images/subfolder/test.png`, you still need to call for the image using `image_pack_tag "media/images/test.png"`
+
+=== Migrate stylesheets
 
 Existing stylesheets should be moved from `app/assets/stylesheets` to `app/packs/stylesheets` and imported with `@import` into `decidim_application.scss`. Take into account that you might need to adjust a bit the paths of the `@import` to adjust them to the new locations.
 
@@ -73,26 +102,36 @@ If that CSS file is replacing a Decidim file, there's no need to add it to `deci
 
 If any of the CSS is re-defining CSS vars add them to `_decidim-settings.scss`.
 
-== Migrate javascripts
+=== Migrate javascripts
 
 Existing javascripts should be moved from `app/assets/javascsripts` to `app/packs/src` and imported with `import` into `decidim_application.js`. Take into account that you might need to adjust a bit the paths of the `import` to adjust them to the new locations.
 
 If that JS file is replacing a Decidim file, there's no need to add it to `decidim_application.js`
 
-== Update Rails helpers
+=== Update Rails helpers
 
-`javascript_include_tag` and `stylesheet_link_tag` have been replaced by `javascript_pack_tag` and `stylesheet_pack_tag`.
+`javascript_include_tag` and `stylesheet_link_tag` have been replaced by `javascript_pack_tag` and `stylesheet_pack_tag`. This only needs to be done if you're modifying the `application.html` file or partial in your layout.
 
-For images, if they are in `app/packs/images` you could use `image_pack_tag`.
+For images, if they are in `app/packs/images` you need to replace `ìmage_tag` with `image_pack_tag`.
 
-== Migrate vendorized files and gems
+=== Migrate vendorized files and gems
 
 Sometimes assets are included in `vendor/assets/` folder or imported from gems. For each specific one you should check:
 
 1. if the asset is a javascript that is available as npm package the recommendation is to add it to package.json with `npm install`. If it's not available you might want to copy it to `app/packs/src` and import it.
 2. if the asset is a stylesheet it should be copied to `app/packs/stylesheets` and imported with `@import...` from `_decidim-settings.scss`. Alternatively you can use the optional asset includes as described below to include these in the Decidim main SCSS files.
 
-== Optional asset includes
+=== Migrate uploads to ActiveStorage
+
+The old method (CarrierWave) to handle user uploads has changed, now it uses ActiveStorage.
+This means that all the old files need to be migrated to the new system. Use the following rake task to perform this task:
+
+[source,console]
+----
+RAILS_ENV=production bin/rails decidim:active_storage_migrations:migrate_from_carrierwave_to_active_storage
+----
+
+=== Optional asset includes
 
 Decidim Webpacker provides a new configuration convention that allows you to add extra configurations for webpacker using a configuration file named `config/assets.rb`. Within this file, you have the following API methods available:
 
@@ -117,7 +156,7 @@ Decidim::Webpacker.register_stylesheet_import("stylesheets/your_app_extensions")
 Decidim::Webpacker.register_stylesheet_import("stylesheets/your_app_admin_extensions", group: :admin)
 ----
 
-== Remove Sprockets references
+=== Remove Sprockets references
 
 The completely remove Sprockets references from your application:
 
@@ -135,29 +174,30 @@ with:
 
 [source,ruby]
 ----
-require "rails"
-# Pick the frameworks you want:
-require "active_model/railtie"
-require "active_job/railtie"
-require "active_record/railtie"
-require "active_storage/engine"
-require "action_controller/railtie"
-require "action_mailer/railtie"
-require "action_mailbox/engine"
-require "action_text/engine"
-require "action_view/railtie"
-require "action_cable/engine"
-# require "sprockets/railtie"
-require "rails/test_unit/railtie"
+require "decidim/rails"
+# Add the frameworks used by your app that are not loaded by Decidim.
+# require "action_cable/engine"
+# require "action_mailbox/engine"
+# require "action_text/engine"
 ----
 
 * In `config/environments/*.rb` remove any line containing `config.assets.*` (i.e `config.assets.debug = true`)
 
-== Deployment
+=== Help Decidim to know the application's assets folder
+
+To prevent Zeitwerk issues trying to autoload the non-ruby application folders, modify the `config/initializers/decidim.rb` file to include the following:
+
+[source,ruby]
+---
+# Inform Decidim about the assets folder
+Decidim.register_assets_path File.expand_path("app/packs", Rails.application.root)
+---
+
+=== Deployment
 
 The deployment needs to be updated to manually run `npm install` before assets are precompiled.
 
-In the case of Capistrano this can be done with a before hook:
+In the case of Capistrano this can be done with a before hook (can be added at the end of your `config/deploy.rb` file):
 
 [source,ruby]
 ----
@@ -166,9 +206,7 @@ namespace :deploy do
   task :decidim_webpacker_install do
     on roles(:all) do
       within release_path do
-        with rails_env: fetch(:rails_env) do
-          execute "npm ci"
-        end
+        execute :npm, "install"
       end
     end
   end
@@ -179,6 +217,41 @@ end
 
 Also, in the case of Capistrano it's interesting to add to the shared_paths the following folders:
 
+* `storage` *IMPORTANT!*
 * `tmp/webpacker-cache`
 * `node_modules`
 * `public/decidim-packs`
+
+== Troubleshooting
+
+If you have the following exception when executing `bundle exec rails decidim:upgrade` or `bundle exec rails decidim:webpacker:install`
+
+[source,console]
+----
+npm ERR! code ERESOLVE
+npm ERR! ERESOLVE unable to resolve dependency tree
+npm ERR!
+----
+
+Then you need to check again that you're using the correct Node.js and NPM versions.
+
+In some case it might be that some packages are not well resolved when installing NPM modules. If you get messages like:
+
+[source,console]
+----
+...
+[webpack-cli] Error: Cannot find module '@rails/webpacker'
+...
+----
+
+These might be due some kind of corruption in your `package-json.lock` file, you can try either to remove this file and recreate it with `npm install` or to add the package `@rails/webpacker` manually in your `package.json` file next to the `@decidim/webpacker` package:
+
+[source,json]
+----
+...
+    "@decidim/webpacker": "^0.25.2",
+    "@rails/webpacker": "^6.0.0-rc.5",
+...
+----
+
+Then execute `npm install`.

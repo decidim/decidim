@@ -5,7 +5,7 @@ require "spec_helper"
 describe "Admin manages comments", type: :system do
   let(:manifest_name) { "dummy" }
   let!(:dummy) { create :dummy_resource, component: current_component }
-  let!(:resources) { create_list(:dummy_resource, 3, component: current_component) }
+  let!(:resources) { create_list(:dummy_resource, 2, component: current_component) }
   let!(:reportables) do
     resources.map do |resource|
       create(:comment, commentable: resource)
@@ -18,4 +18,8 @@ describe "Admin manages comments", type: :system do
   include_context "when managing a component as an admin"
 
   it_behaves_like "manage moderations"
+
+  it_behaves_like "sorted moderations" do
+    let!(:reportables) { create_list(:dummy_resource, 17, component: current_component) }
+  end
 end

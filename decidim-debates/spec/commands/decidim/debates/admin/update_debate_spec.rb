@@ -22,7 +22,8 @@ describe Decidim::Debates::Admin::UpdateDebate do
       end_time: 1.day.from_now + 1.hour,
       scope: scope,
       category: category,
-      current_organization: organization
+      current_organization: organization,
+      comments_enabled: true
     )
   end
   let(:invalid) { false }

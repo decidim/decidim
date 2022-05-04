@@ -20,10 +20,18 @@ gl:
               a: Opción A
               b: Opción B
               c: Opción C
+            test_options:
+              bar: Bar
+              baz: Baz
+              foo: Foo
           step:
             endorsements_blocked: Adhesións bloqueadas
             endorsements_enabled: Adhesións habilitadas
             readonly_step_attribute: Atributo de paso de só lectura
+            test_options:
+              bar: Bar
+              baz: Baz
+              foo: Foo
     dummy:
       admin:
         exports:

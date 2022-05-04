@@ -12,12 +12,12 @@ ro:
         instructions: Instrucţiuni de participare
         start_time: Începe la
         title: Titlu
-        user_group_id: Creează o dezbatere ca
+        user_group_id: Creați o dezbatere în calitate de
     models:
       decidim/debates/close_debate_event: Dezbatere închisă
       decidim/debates/create_debate_event: Dezbatere
       decidim/debates/creation_disabled_event: Dezbateri dezactivate
-      decidim/debates/creation_enabled_event: Dezbateri activate
+      decidim/debates/creation_enabled_event: Crearea de dezbateri activată
   activerecord:
     models:
       decidim/debates/debate:
@@ -28,26 +28,27 @@ ro:
     components:
       debates:
         actions:
-          create: Crează
-          endorse: Aprobare
+          comment: Comentează
+          create: Creează
+          endorse: Susține
         name: Dezbateri
         settings:
           global:
             announcement: Anunţ
             comments_enabled: Comentarii activate
-            comments_max_length: Lungimea maximă a comentariilor (Leave 0 pentru valoarea implicită)
+            comments_max_length: Lungimea maximă a comentariilor (Lasă 0 pentru valoarea implicită)
             scope_id: Domeniu de interes
             scopes_enabled: Domenii de interes activate
           step:
             announcement: Anunţ
             comments_blocked: Comentarii blocate
-            creation_enabled: Crearea de dezbateri de către participanți este activată
-            endorsements_blocked: Aprobări blocate
-            endorsements_enabled: Aprobări activate
+            creation_enabled: Participanții pot crea dezbateri
+            endorsements_blocked: Susțineri blocate
+            endorsements_enabled: Susțineri activate
     debates:
       actions:
         close: Închide
-        confirm_destroy: Ești sigur?
+        confirm_destroy: Sigur dorești asta?
         destroy: Ștergere
         edit: Editare
         new: '%{name} nou'
@@ -55,7 +56,7 @@ ro:
       admin:
         debate_closes:
           edit:
-            close: Inchide
+            close: Închide
             title: Închide dezbaterea
         debates:
           create:
@@ -98,7 +99,7 @@ ro:
           close: Închide
           description: Care este rezumatul sau concluzia acestei dezbateri?
           send: Închide dezbaterea
-        closed: Închis
+        closed: Închisă
         count:
           debates_count:
             one: "%{count} dezbatere"
@@ -118,16 +119,16 @@ ro:
           all: Toate
           category: Categorie
           category_prompt: Selectați o categorie
-          citizens: Cetățeni
           commented: Comentat
           my_debates: Dezbaterile mele
           official: Oficial
           origin: Origine
+          participants: Participanți
           scope: Domeniu de interes
           search: Caută
           state: Stare
           state_values:
-            closed: Inchide
+            closed: Închisă
             open: Deschide
           user_groups: Grupuri
         filters_small_view:
@@ -136,16 +137,16 @@ ro:
           filter_by: Filtrare după
           unfold: Desfășurat
         form:
-          select_a_category: Vă rugăm să selectaţi o categorie
+          select_a_category: Te rugăm selectează o categorie
         index:
           new_debate: Dezbatere nouă
         new:
           back: Înapoi
-          create: Crează
+          create: Creează
           title: Dezbatere nouă
         orders:
           commented: Cele mai comentate
-          label: Dezbateri de ordine
+          label: Ordonează dezbaterile după
           random: Ordine aleatorie
           recent: Cele mai recente
           updated: Actualizate recent
@@ -153,10 +154,10 @@ ro:
           back: Înapoi la listă
           close_debate: Închide dezbaterea
           date: Data
-          debate_closed: Inchide
+          debate_closed: Închisă
           debate_conclusions_are: 'Dezbaterea s-a încheiat la %{date} cu următoarele concluzii:'
-          edit_conclusions: Editați concluziile
-          edit_debate: Editare dezbatere
+          edit_conclusions: Editează concluziile
+          edit_debate: Editează dezbaterea
           groups_count: Grupuri
           last_comment_by: Ultimul comentariu din partea
           no_comments_yet: Încă nu există comentarii
@@ -171,7 +172,7 @@ ro:
           index:
             title: Versiuni
         versions_list:
-          back_to_resource: Revenire la dezbatere
+          back_to_resource: Înapoi la dezbatere
       last_activity:
         debate_updated_at_html: "<span>Dezbatere actualizată la %{link}</span>"
         new_debate_at_html: "<span>Noua dezbatere la %{link}</span>"
@@ -179,7 +180,7 @@ ro:
         debate:
           fields:
             end_time: Data de încheiere
-            official_debate: Dezbatere oficială
+            official_debate: Dezbatere publică
             start_time: Data de început
             title: Titlu
     events:
@@ -188,48 +189,50 @@ ro:
           space_followers:
             email_intro: |-
               Bună,
-              O nouă dezbatere "%{resource_title}" a fost creată pe spațiul participativ %{space_title} , verificați-l și contribuți:
+              O nouă dezbatere "%{resource_title}" a fost creată în spațiul participativ %{space_title}, citește și contribuie:
             email_outro: Ați primit această notificare deoarece urmați spațiul participativ al %{space_title} . Puteți înceta să primiți notificări urmând linkul anterior.
-            email_subject: Noua dezbatere "%{resource_title}" pe %{space_title}
-            notification_title: Dezbaterea <a href="%{resource_path}">%{resource_title}</a> a fost creată pe <a href="%{space_path}">%{space_title}</a>.
+            email_subject: Dezbatere nouă "%{resource_title}" pe %{space_title}
+            notification_title: Dezbaterea <a href="%{resource_path}">%{resource_title}</a> a fost creată în <a href="%{space_path}">%{space_title}</a>.
           user_followers:
             email_intro: |-
               Bună,
-              %{author_name} %{author_nickname}, pe care îl urmărești, a creat o nouă dezbatere "%{resource_title}". Verifică-l și adaugă:
-            email_outro: Ați primit această notificare deoarece urmăriți %{author_nickname}. Puteți înceta să primiți notificări urmând linkul anterior.
-            email_subject: Noua dezbatere "%{resource_title}" de %{author_nickname}
+              %{author_name} %{author_nickname}, pe care îl urmărești, a creat o nouă dezbatere "%{resource_title}". Uită-te peste și contribuie:
+            email_outro: Ai primit această notificare deoarece urmărești %{author_nickname}. Poți opri notificările accesând linkul anterior.
+            email_subject: Dezbatere nouă "%{resource_title}" - autor %{author_nickname}
             notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> a creat dezbaterea <a href="%{resource_path}">%{resource_title}</a>.
         creation_disabled:
-          email_intro: 'Crearea de dezbateri nu mai este activă în %{participatory_space_title}. Puteți participa în continuare la dezbaterile deschise de pe această pagină:'
-          email_outro: Ați primit această notificare deoarece urmăriți %{participatory_space_title}. Puteți înceta să primiți notificări urmând linkul anterior.
+          email_intro: 'Crearea de dezbateri nu mai este activă în %{participatory_space_title}. Poți participa în continuare la dezbaterile deschise de pe această pagină:'
+          email_outro: Aii primit această notificare deoarece urmărești %{participatory_space_title}. Poți opri notificările accesând linkul anterior.
           email_subject: Crearea de dezbateri este dezactivată în %{participatory_space_title}
           notification_title: Crearea de dezbateri este acum dezactivată în <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         creation_enabled:
-          email_intro: 'Acum poți începe noi dezbateri în %{participatory_space_title}! Începe să participi în această pagină:'
-          email_outro: Ați primit această notificare deoarece urmăriți %{participatory_space_title}. Puteți înceta să primiți notificări urmând linkul anterior.
+          email_intro: 'Acum poți începe noi dezbateri în %{participatory_space_title}! Participă acum:'
+          email_outro: Ai primit această notificare deoarece urmărești %{participatory_space_title}. Poți opri notificările accesând linkul anterior.
           email_subject: Dezbaterile sunt acum disponibile în %{participatory_space_title}
           notification_title: Acum poți începe <a href="%{resource_path}">noi dezbateri</a> în <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         debate_closed:
           affected_user:
-            email_intro: 'Dezbaterea pentru "%{resource_title}” a fost închisă. Puteți citi concluziile pe pagina sa:'
+            email_intro: 'Dezbaterea pentru "%{resource_title}” a fost închisă. Poți citi concluziile pe pagina dezbaterii:'
+            email_outro: Ai primit această notificare deoarece urmărești dezbaterea "%{resource_title}". Te poți dezabona de la linkul anterior.
             email_subject: Dezbaterea pentru "%{resource_title}” a fost închisă
             notification_title: Dezbaterea pentru <a href="%{resource_path}">%{resource_title}</a> a fost închisă.
           follower:
-            email_intro: 'Dezbaterea pentru "%{resource_title}” a fost închisă. Puteți citi concluziile pe pagina sa:'
+            email_intro: 'Dezbaterea pentru "%{resource_title}” a fost închisă. Poții citi concluziile pe pagina dezbaterii:'
+            email_outro: Ai primit această notificare deoarece urmărești dezbaterea "%{resource_title}". Te poți dezabona accesând linkul anterior.
             email_subject: Dezbaterea pentru "%{resource_title}” a fost închisă
             notification_title: Dezbaterea pentru <a href="%{resource_path}">%{resource_title}</a> a fost închisă.
     gamification:
       badges:
         commented_debates:
           conditions:
-            - Alegeți o dezbatere deschisă în care să participați
-          description: Această insignă este acordată atunci când participaţi activ la diferitele dezbateri, lăsând comentariile dumneavoastră.
+            - Alege o dezbatere deschisă la care să participi
+          description: Această insignă este acordată atunci când participi activ la diferitele dezbateri, lăsând comentariile tale.
           description_another: Acest participant a luat parte la %{score} dezbateri.
           description_own: Ai participat la %{score} dezbateri.
           name: Dezbateri
           next_level_in: Participați la încă %{score} dezbateri pentru a ajunge la următorul nivel!
           unearned_another: Acest participant nu a luat încă parte la nicio dezbatere.
-          unearned_own: Încă nu aţi participat la nicio dezbatere.
+          unearned_own: Încă nu ai luat parte la nicio dezbatere.
     metrics:
       debates:
         description: Numărul de dezbateri create

@@ -19,6 +19,8 @@ it:
   decidim:
     components:
       sortitions:
+        actions:
+          comment: Commenta
         name: Sorteggi
         settings:
           global:
@@ -74,7 +76,6 @@ it:
           index:
             title: Sorteggi
           new:
-            confirm: Premendo il pulsante successivo, Decidim registrerà la data e l'ora (con precisione dei secondi) e insieme al lancio dei dadi, queste informazioni verranno utilizzate per generare una selezione casuale. L'azione sarà irreversibile, una volta cliccato il pulsante verrà pubblicato il risultato di questa estrazione, insieme ai dati inseriti in questo modulo e non possono essere modificati, si prega di controllare attentamente il contenuto
             create: Creare
             title: Nuova sortizione
           show:

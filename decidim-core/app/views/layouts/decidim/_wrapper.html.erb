@@ -35,9 +35,9 @@ end
           <!-- Topbar -->
           <div class="title-bar">
             <%= link_to t("skip_button", scope: "decidim.accessibility"), url_for(anchor: "content"), class: "skip" %>
-            <% if current_organization.official_img_header? %>
+            <% if current_organization.official_img_header.attached? %>
               <%= link_to  current_organization.official_url, class: "logo-cityhall" do %>
-                <%= image_tag current_organization.official_img_header.url.to_s , alt: current_organization.name %>
+                <%= image_tag current_organization.attached_uploader(:official_img_header).path, alt: current_organization.name %>
               <% end %>
             <% end %>
             <div class="row column topbar">
@@ -66,7 +66,7 @@ end
                     data-close-on-click="true"
                     role="menubar">
                     <li class="is-dropdown-submenu-parent show-for-medium" role="presentation">
-                      <%= link_to current_user.name, decidim.account_path, id: "user-menu-control", "aria-controls": "user-menu", "aria-haspopup": "true", "aria-label": t("layouts.decidim.user_menu.account", name: current_user.name), "role": "menuitem" %>
+                      <%= link_to current_user.name, decidim.account_path, id: "user-menu-control", "aria-controls": "user-menu", "aria-haspopup": "menu", "aria-label": t("layouts.decidim.user_menu.account", name: current_user.name), "role": "menuitem" %>
                       <ul class="menu is-dropdown-submenu" id="user-menu" role="menu" aria-labelledby="user-menu-control">
                         <%= render partial: "layouts/decidim/user_menu" %>
                       </ul>

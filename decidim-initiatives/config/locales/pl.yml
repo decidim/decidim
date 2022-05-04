@@ -280,8 +280,6 @@ pl:
             update: Aktualizuj
           form:
             authorizations: Ustawienia autoryzacji
-            child_scope_threshold_enabled_help: 'Ta konfiguracja nie pozwala na głosowania offline, zezwala na pod-zakresy i działa z procedura autoryzacji, która łączy zakres z użytkownikiem, upewnij się, że wybrałeś taką autoryzację, poniżej w sekcji autoryzacji. Żeby działały zakresy muszą być konfigurowane w hierarchii: 1 Rodzic - N element podrzędny. Więcej informacji o działaniu tej konfiguracji znajdziesz pod tym <a href="https://docs.decidim.org/admin-manual/en/initiatives/" target="_blank">linkiem</a>.'
-            only_global_scope_enabled_help: Zaznacz tę flagę, jeśli włączyłeś opcję "Podpisy zakresu podrzędnego" i skonfigurowałeś globalny zakres jako zakres nadrzędny. Umożliwiając to działanie, wybór typu inicjatywy zostanie pominięty w kreatorze tworzenia inicjatyw. Aby uzyskać więcej informacji na temat funkcjonowania tej konfiguracji, zobacz ten <a href="https://docs.decidim.org/admin-manual/en/initiatives/" target="_blank">link</a>.
             options: Ustawienia
             title: Informacje ogólne
           initiative_type_scopes:
@@ -414,7 +412,6 @@ pl:
           notification_title: <a href="%{applicant_profile_url}">%{applicant_nickname}</a> złożył wniosek na członka komitetu organizacyjnego Twojej inicjatywy <a href="%{resource_url}">%{resource_title}</a>. Aby zaakceptować lub odrzucić kliknij <a href="%{resource_url}/edit">tutaj</a>.
       form:
         add_attachments: Dokumenty
-        attachment_legend: "(Opcjonalnie) Dodaj załącznik"
         delete_attachment: Usuń
       index:
         title: Inicjatywy
@@ -595,6 +592,9 @@ pl:
     menu:
       initiatives: Inicjatywy
     resources:
+      initiative:
+        actions:
+          comment: Skomentuj
       initiatives_type:
         actions:
           title: Działania

@@ -17,26 +17,30 @@ module Decidim
     # cell(
     #   "decidim/participatory_processes/filtered_participatory_processes",
     #   group.participatory_processes.published,
-    #   date_filter: "active"
+    #   default_filter: "active"
     # )
     class FilteredParticipatoryProcessesCell < Decidim::ViewModel
       include Decidim::FilterResource
       include Decidim::CardHelper
 
       def elements
-        @elements ||= search.results
+        @elements ||= search.result
       end
 
       private
 
-      def search_klass
-        Decidim::ParticipatoryProcesses::ParticipatoryProcessSearch
+      def search_collection
+        base_relation.published.visible_for(current_user).includes(:area)
       end
 
-      def default_search_params
+      def base_relation
+        model
+      end
+
+      def default_filter_params
         {
-          base_relation: model,
-          date: default_date_filter
+          with_date: default_date_filter,
+          with_type: nil
         }
       end
 

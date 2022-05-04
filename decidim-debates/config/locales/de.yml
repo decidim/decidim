@@ -17,7 +17,6 @@ de:
       decidim/debates/close_debate_event: Debatte beendet
       decidim/debates/create_debate_event: Debatte
       decidim/debates/creation_disabled_event: Debatten deaktiviert
-      decidim/debates/creation_enabled_event: Debatten aktiviert
   activerecord:
     models:
       decidim/debates/debate:
@@ -40,7 +39,6 @@ de:
           step:
             announcement: Ankündigung
             comments_blocked: Kommentare blockiert
-            creation_enabled: Debate-Erstellung durch Benutzer aktiviert
             endorsements_blocked: Bestätigungen blockiert
             endorsements_enabled: Bestätigungen aktiviert
     debates:
@@ -116,7 +114,6 @@ de:
           all: Alle
           category: Kategorie
           category_prompt: Wählen Sie eine Kategorie
-          citizens: Einzelpersonen
           commented: Kommentiert
           my_debates: Meine Debatten
           official: Offiziell

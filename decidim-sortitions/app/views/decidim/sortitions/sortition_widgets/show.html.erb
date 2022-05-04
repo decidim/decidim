@@ -1,4 +1,4 @@
 <% content_for(:title, decidim_html_escape(translated_attribute(model.title))) %>
 <p>
-  <%= decidim_sanitize html_truncate(translated_attribute(model.additional_info), length: 100, separator: "...") %>
+  <%= decidim_sanitize_editor html_truncate(translated_attribute(model.additional_info), length: 100, separator: "...") %>
 </p>

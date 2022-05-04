@@ -1,1 +1,388 @@
 ga:
+  activemodel:
+    attributes:
+      conversation:
+        body: Corp
+      group:
+        about: Faoi
+        avatar: Abhatár
+        email: Seoladh ríomhphoist
+        name: Ainm
+        nickname: Leasainm
+        phone: Fón
+      message:
+        body: Corp
+      user:
+        about: Faoi
+        nickname: Leasainm
+        password: Pasfhocal
+    models:
+      decidim/attachment_created_event: Ceangaltán
+  activerecord:
+    attributes:
+      decidim/user:
+        email: Seoladh ríomhphoist
+        name: Leasainm
+        password: Pasfhocal
+  booleans:
+    'false': 'Níl'
+    'true': 'Is ea'
+  date:
+    formats:
+      decidim_short: "%d/%m/%Y"
+      decidim_short_with_month_name_short: "%d %b %Y"
+      decidim_with_month_name: "%d %B %Y"
+      decidim_with_month_name_short: "%d %b"
+  decidim:
+    admin:
+      actions:
+        cancel: Cealaigh
+    amendments:
+      compare_draft:
+        continue: Lean ar aghaidh
+      edit_draft:
+        send: Réamhamharc
+      emendation:
+        actions:
+          button_accept: Glac
+          button_reject: Diúltaigh
+      new:
+        send: Cruthaigh
+      preview_draft:
+        modify: Athraigh
+        publish: Foilsigh
+      review:
+        back: Ar Ais
+    application:
+      collection:
+        documents:
+          one: Cáipéis
+          two: Cáipéisí
+          few: Cáipéisí
+          many: Cáipéisí
+          other: Cáipéisí
+      geocoding:
+        geocoded_address: Seoladh
+    authorization_handlers:
+      another_dummy_authorization_handler:
+        fields:
+          postal_code: Cód poist
+      dummy_authorization_handler:
+        fields:
+          postal_code: Cód poist
+          scope_id: Scóip
+      foo_authorization:
+        fields:
+          bar: Bar
+          foo: Foo
+    authorization_modals:
+      content:
+        incomplete:
+          cancel: Cealaigh
+          invalid_field: "%{field}"
+        unauthorized:
+          ok: Togha
+    block_user_mailer:
+      notify:
+        hello: Dia duit,
+    components:
+      component_order_selector:
+        order:
+          comment: Trácht
+          debate: Díospóireacht
+          meeting: Cruinniú
+          post: Postáil
+          proposal: Moladh
+          question: Ceist
+        title: 'Taispeáin:'
+      dummy:
+        actions:
+          bar: Bar
+          foo: Foo
+        settings:
+          global:
+            scope_id: Scóip
+    contact: Teagmháil
+    content_blocks:
+      highlighted_elements_settings_form:
+        orders:
+          random: Randamach
+      last_activity:
+        view_all: Amharc ar uile
+    data_portability:
+      export:
+        ready: Réidh
+    devise:
+      registrations:
+        new:
+          sign_in: Logáil isteach
+          sign_up: Cláraigh
+      shared:
+        omniauth_buttons:
+          or: Nó
+    doorkeeper:
+      authorizations:
+        new:
+          cancel: Cealaigh
+    endorsable:
+      endorsements: Formhuinithe
+    endorsement_buttons_cell:
+      already_endorsed: Formhuinithe
+      endorse: Formhuinigh
+    endorsements:
+      identities:
+        done: Críochnaithe
+    export_mailer:
+      data_portability_export:
+        download: Íoslódáil
+    filters:
+      linked_classes:
+        all: Uile
+        meeting: Cruinnithe
+        project: Tionscadail
+        proposal: Moltaí
+        result: Torthaí
+    fingerprint:
+      source: Foinse
+      value: Luach
+    follows:
+      create:
+        button: Lean
+    gamification:
+      badges:
+        index:
+          title: Suaitheantais
+        invitations:
+          name: Cuirí
+    group_invites:
+      accept_invitation: Glac
+      index:
+        invite: Tabhair Cuireadh
+      reject_invitation: Diúltaigh
+    groups:
+      members:
+        accept_request: Glac
+        reject_request: Diúltaigh
+      roles:
+        admin: Riarthóir
+        creator: Cruthaitheoir
+        member: Ball
+    last_activities:
+      index:
+        resource_type: Cineál
+    links:
+      warning:
+        cancel: Cealaigh
+        proceed: Gabh ar aghaidh
+    menu:
+      help: Cabhair
+      home: Baile
+    messaging:
+      conversations:
+        error_modal:
+          ok: Togha
+        index:
+          ago: ó shin
+          from: Ó
+          next: I ndiaidh
+        reply:
+          send: Seol
+          title: Freagra
+        start:
+          send: Seol
+    newsletter_templates:
+      basic_only_text_settings_form:
+        body: Corp
+      image_text_cta_settings_form:
+        body: Corp
+        introduction: Réamhrá
+    newsletters_opt_in_mailer:
+      notify:
+        hello: Dia duit,
+    notifications_settings:
+      show:
+        administrators: Riarthóirí
+    own_user_groups:
+      index:
+        pending: Ar feitheamh
+        rejected: Diúltaithe
+        verified: Fíoraithe
+    pad_iframe:
+      pad: Ceap
+    pages:
+      home:
+        extended:
+          debates: Díospóireachtaí
+          meetings: Cruinnithe
+          proposals: Moltaí
+        footer_sub_hero:
+          register: Cláraigh
+        metrics:
+          headline: Méadrachtaí
+        sub_hero:
+          register: Cláraigh
+      index:
+        standalone_pages: Leathanaigh
+        title: Cabhair
+        topics: Ábhair
+      participatory_space:
+        metrics:
+          headline: Méadrachtaí
+    profile:
+      view: Amharc
+    profiles:
+      show:
+        activity: Gníomhaíocht
+        badges: Suaitheantais
+        following: Leantach
+        groups: Grúpaí
+        members: Baill
+      sidebar:
+        badges:
+          title: Suaitheantais
+    reported_mailer:
+      report:
+        authors: Údair
+        details: Sonraí
+        id: ID
+        reason: Cúis
+    scopes:
+      picker:
+        cancel: Cealaigh
+        choose: Roghnaigh
+      scopes: Scóip
+    search:
+      term_input_placeholder: Cuardaigh
+    searches:
+      filters:
+        state:
+          active: Gníomhach
+          all: Uile
+          future: Todhchaí
+          past: Roimhe
+      filters_small_view:
+        filter: Scagaire
+        unfold: Oscail
+    security:
+      selfxss_warning:
+        title: Stad!
+    shared:
+      confirm_modal:
+        cancel: Cealaigh
+        ok: Togha
+        title: Deimhnigh
+      embed_modal:
+        embed_link: Leabaigh
+      extended_navigation_bar:
+        more: Níos mó
+        unfold: Oscail
+      flag_modal:
+        close: Dún
+        reason: Cúis
+        report: Tuairiscigh
+      flag_user_modal:
+        close: Dún
+        report: Tuairiscigh
+      floating_help:
+        help: Cabhair
+      login_modal:
+        sign_up: Cláraigh
+      participatory_space_filters:
+        filters:
+          areas: Ceantair
+      share_modal:
+        copy_share_link: Cóipeáil
+        copy_share_link_copied: Cóipeáilte!
+        share: Roinn
+    statistics:
+      comments_count: Tráchtanna
+      endorsements_count: Formhuinithe
+      pages_count: Leathanaigh
+    user_conversations:
+      index:
+        close: Dún
+        from: Ó
+        next: I ndiaidh
+      reply:
+        send: Seol
+        title_reply: Freagair
+    version:
+      show:
+        back_to_resource: Dul ar ais
+        number_of_versions: Leaganacha
+    versions_list:
+      show:
+        back_to_resource: Dul ar ais
+        number_of_versions: Leaganacha
+        title: Leaganacha
+    wizard_step_form:
+      wizard_aside:
+        back: Ar Ais
+  devise:
+    invitations:
+      edit:
+        submit_button: Sábháil
+    registrations:
+      edit:
+        update: Nuashonraigh
+      new:
+        sign_up: Cláraigh
+    sessions:
+      new:
+        sign_in: Logáil isteach
+    shared:
+      links:
+        back: Ar Ais
+        sign_in: Logáil isteach
+        sign_up: Cláraigh
+  layouts:
+    decidim:
+      cookie_warning:
+        ok: Aontaím
+      edit_link:
+        edit: Eagar
+      header:
+        sign_in: Sínigh Isteach
+        sign_up: Cláraigh
+      timeout_modal:
+        sign_out: Sínigh amach
+      user_menu:
+        sign_out: Sínigh amach
+      user_profile:
+        account: Cuntas
+        my_data: Mo chuid sonraí
+        user_groups: Grúpaí
+      widget:
+        see_more: Feic níos mó
+  locale:
+    name: Gaeilge
+  social_share_button:
+    douban: Douban
+    email: Seoladh ríomhphoist
+    facebook: Facebook
+    google_plus: Google+
+    linkedin: Linkedin
+    qq: Qzone
+    reddit: Reddit
+    telegram: Telegram
+    tumblr: Tumblr
+    twitter: Twitter
+    wechat: WeChat
+    whatsapp_app: WhatsApp
+    whatsapp_web: WhatsApp
+    xing: Xing
+  time:
+    formats:
+      day_of_month: "%b %d"
+      day_of_week: "%a"
+      day_of_week_long: "%a %e"
+      day_of_year: "%d.%m.%y"
+      decidim_day_of_year: "%d %B %Y"
+      time_of_day: "%H:%M"
+  versions:
+    dropdown:
+      option_escaped: Éalaithe
+      option_unified: Aontaithe
+  views:
+    pagination:
+      truncate: "&hellip;"

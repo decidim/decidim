@@ -23,6 +23,7 @@ nl:
         decidim_user_group_id: Gebruikers groep
         description: Beschrijving
         end_time: Eindtijd
+        id: ID
         location: Plaats
         location_hints: Locatie hints
         online_meeting_url: De URL van de online vergadering
@@ -34,6 +35,7 @@ nl:
         registration_terms: Registratievoorwaarden
         registration_url: Registratie URL
         registrations_enabled: Registraties geactiveerd
+        show_embedded_iframe: Toon embedded iframe voor deze URL
         start_time: Starttijd
         title: Titel
         transparent: Transparant
@@ -69,6 +71,29 @@ nl:
         other: registraties
   decidim:
     admin:
+      filters:
+        meetings:
+          category_id_eq:
+            label: Categorie
+          closed_at_present:
+            label: Status
+            values:
+              'false': Open
+              'true': Gesloten
+          is_upcoming_true:
+            label: Datum
+            values:
+              'false': Verleden
+              'true': Toekomstige
+          scope_id_eq:
+            label: Scope
+          with_any_origin:
+            values:
+              user_group: Gebruikersgroepen
+          with_any_type:
+            label: Type vergadering
+            values:
+              in_person: Fysiek
       meeting_copies:
         create:
           error: Er is een fout opgetreden tijdens het dupliceren van deze vergadering.
@@ -80,6 +105,7 @@ nl:
     components:
       meetings:
         actions:
+          comment: Reactie
           join: Word lid
         name: event
         settings:
@@ -146,6 +172,9 @@ nl:
           email_outro: Je ontvangt deze melding omdat je het event "%{resource_title}" volgt. Ontvolgen kan door te klikken op de voorgaande link.
           email_subject: Het "%{resource_title}" event start in minder dan 48 uur.
           notification_title: Het <a href="%{resource_path}">%{resource_title}</a> event begint over minder dan 48 uur.
+    forms:
+      meetings:
+        attendees_count_help_text: Vergeet niet het totale aantal deelnemers op je evenement toe te voegen. Of het nu een fysieke, hybride of online bijeenkomst is, het is handig om het aantal mensen te kennen.
     gamification:
       badges:
         attended_meetings:
@@ -239,6 +268,9 @@ nl:
           edit:
             close: Sluiten
             title: Vergadering sluiten
+        meeting_copies:
+          form:
+            select_a_meeting_type: Selecteer een vergaderingstype
         meetings:
           close:
             invalid: Er is een probleem opgetreden bij het sluiten van deze vergadering
@@ -252,12 +284,10 @@ nl:
             update: Bijwerken
           form:
             address_help: 'Adres: gebruikt door Geocoder om de locatie te vinden'
-            available_slots_help: Laat op 0 staan als je onbeperkt aantal tijdsblokken beschikbaar hebt
             disclaimer: 'Disclaimer: Door gebruik te maken van een extern registratiesysteem, ben je op de hoogte dat de organisatoren van %{organization} niet verantwoordelijk zijn voor de gegevens die door gebruikers aan de externe dienst worden verstrekt.'
             location_help: 'Locatie: bericht gericht aan de gebruikers die de locatie op een vergadering plaatsen'
             location_hints_help: 'Locatie hints: aanvullende informatie. Bijvoorbeeld: de verdieping van het gebouw als het een fysieke vergadering is, of het vergaderwachtwoord als het een online vergadering is met beperkte toegang.'
             online_meeting_url_help: 'Link: laat deelnemers direct verbinding maken met je vergadering'
-            registration_email_help: Deze tekst verschijnt in het midden van de registratie bevestigingsmail, net na de registratiecode.
             registration_url_help: 'Link: verleen deelnemers toegang tot de externe dienst die je gebruikt voor registraties'
             select_a_meeting_type: Selecteer een vergaderingstype
             select_a_registration_type: Selecteer een registratietype
@@ -303,6 +333,7 @@ nl:
             available_slots_help: Laat het op 0 indien u onbeperkt beschikbare plaatsen hebt.
             invites: Uitnodigingen
             recommendation_message: Om privacyredenen raden we je aan dit inscriptformulier te verwijderen als je het niet meer nodig hebt. Standaard is dit 3 maanden na afloop van de vergadering.
+            registration_email_help: Deze tekst verschijnt in het midden van de registratie bevestigingsmail, net na de registratiecode.
             registration_form: Registratieformulier
             registrations_count:
               one: Er is %{count} registratie geweest.
@@ -330,26 +361,28 @@ nl:
           value_types:
             organizer_presenter:
               not_found: 'De organisator is niet gevonden in de database (ID: %{id})'
+      application_helper:
+        filter_category_values:
+          all: Alle
+        filter_meeting_space_values:
+          all: Alle
+        filter_scope_values:
+          all: Alle
       calendar_modal:
         calendar_url: Agenda-URL
         close_window: Venster sluiten
         export_calendar: Kalender exporteren
       conference_venues: Vergaderlocaties
       content_blocks:
-        upcoming_events:
-          name: Aankomende evenementen
-          upcoming_events: Aankomende vergaderingen
-          view_all_events: Bekijk alles
+        upcoming_meetings:
+          name: Geplande vergaderingen
+          upcoming_meetings: Geplande vergaderingen
+          view_all_meetings: Bekijk alles
       directory:
         meetings:
           index:
-            all: Alle
-            date: Datum
             meetings: vergaderingen
-            past: Verleden
-            search: Zoeken
             space_type: Participatieve ruimte
-            upcoming: Aankomende
       last_activity:
         meeting_updated_at_html: "<span>Vergadering bijgewerkt op %{link}</span>"
         new_meeting_at_html: "<span>Nieuwe vergadering op %{link}</span>"
@@ -404,8 +437,8 @@ nl:
           origin: Oorsprong
           origin_values:
             all: Allemaal
-            citizens: Burgers
             official: Officiële
+            participants: Deelnemers
             user_groups: Groepen
           scope: Bereik
           search: Zoeken
@@ -432,8 +465,13 @@ nl:
           select_a_category: Selecteer een categorie
           select_a_meeting_type: Selecteer een vergaderingstype
           select_a_registration_type: Selecteer een registratietype
+          select_an_iframe_access_level: Selecteer een iframe toegangsniveau
         index:
+          click_here: Alle vergaderingen bekijken
           new_meeting: Nieuwe vergadering
+          see_all: Alle vergaderingen bekijken
+          see_all_withdrawn: Bekijk alle afgelaste vergaderingen
+          text_banner: Je bekijkt de lijst van vergaderingen die zijn afgelast door hun maker. %{go_back_link}.
         meeting_minutes:
           related_information: Gerelateerde informatie
         meetings:
@@ -443,10 +481,6 @@ nl:
           back: Achterzijde
           create: Aanmaken
           title: Maak je vergadering
-        online_meeting_link:
-          join: Deelnemen aan de vergadering
-          link_available_soon: Link binnenkort beschikbaar
-          live_event: Deze vergadering vindt op dit moment plaats
         registration_confirm:
           cancel: Annuleer
           confirm: Bevestigen
@@ -461,7 +495,11 @@ nl:
           join: Deelnemen aan bijeenkomst
           leave: Inschrijving annuleren
           leave_confirmation: Weet je zeker dat je je inschrijving voor deze vergadering wil annuleren?
+          link_available_soon: Link binnenkort beschikbaar
+          link_closed: De link om deel te nemen aan de vergadering zal enkele minuten voor het begint beschikbaar zijn
+          live_event: Deze vergadering vindt op dit moment plaats
           meeting_minutes: Verslag van de vergadering
+          micro_camera_permissions_warning: Als je op de knop hieronder klikt, wordt toestemming gevraagd voor het gebruik van je microfoon en/of camera en neem je deel aan de videoconferentie
           no_slots_available: Geen plaatsen beschikbaar
           organizations: Bijwonen van organisaties
           registration_code_help_text: Uw registratiecode
@@ -472,6 +510,10 @@ nl:
             one: "%{count} resterende plaats"
             other: "%{count} slots over"
           view: Bekijk
+          visit_finished: Bekijk voorbije vergadering
+          withdraw_btn_hint: Je kunt je vergadering afgelasten indien nodig. De vergadering wordt niet verwijderd, deze verschijnt in de lijst met afgelaste vergaderingen.
+          withdraw_confirmation_html: Weet je zeker dat je deze vergadering wil afgelasten? <br><br><strong>Deze actie kan niet worden ongedaan gemaakt</strong>
+          withdraw_meeting: Vergadering afgelasten
         update:
           invalid: Er was een probleem bij het bijwerken van de vergadering.
           success: U heeft de vergadering succesvol bijgewerkt.
@@ -492,6 +534,7 @@ nl:
           fields:
             closed: Gesloten
             end_time: Einddatum
+            id: Id
             map: Kaart
             official_meeting: Officiële vergadering
             start_time: Startdatum
@@ -548,8 +591,12 @@ nl:
       types:
         private_meeting: Privé vergadering
         transparent: Transparant
+        withdraw: Afgelasten
       versions:
         back_to_resource: Ga terug naar de vergadering
+      withdraw:
+        error: Er is een fout opgetreden tijdens het afgelasten van de vergadering
+        success: De vergadering is met succes afgelast
     metrics:
       meetings:
         description: Aantal gemaakte vergaderingen

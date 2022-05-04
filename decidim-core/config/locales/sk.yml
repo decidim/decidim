@@ -68,7 +68,6 @@ sk:
     'true': 'Áno'
   carrierwave:
     errors:
-      general: Chyba spracovania obrázku
       image_too_big: Obrázok je príliš veľký
   date:
     formats:
@@ -628,7 +627,6 @@ sk:
         button: Ukončiť sledovanie
         error: Pri sledovaní tohto zdroja sa vyskytla chyba.
     forms:
-      current_file: Aktuálna súbor
       current_image: Aktuálna obrázok
       default_image: Predvolený obrázok
       errors:
@@ -636,7 +634,6 @@ sk:
           password: Heslo je príliš krátke.
           password_confirmation: Potvrdenie hesla sa musí zhodovať s vaším heslom.
         error: V tomto poli je chyba.
-      remove_this_file: Odstrániť tento súbor
     gamification:
       all_badges_link: Zobraziť všetky dostupné odznaky.
       badges:

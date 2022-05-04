@@ -16,6 +16,12 @@ gl:
         other: Votos
   decidim:
     comments:
+      admin:
+        shared:
+          availability_fields:
+            enabled: Comentarios habilitados
+            end_time: Comentarios habilitados até
+            start_time: Comentarios habilitados dende
       comments:
         create:
           error: Produciuse un problema ao crear o comentario.
@@ -64,6 +70,7 @@ gl:
         edit: Editar
         edited: Editado
         hide_replies: Ocultar respostas
+        moderated_at: Comentario moderado o %{date}
         reply: Responder
         report:
           action: Informe
@@ -93,7 +100,7 @@ gl:
         blocked_comments_warning: Os comentarios están desactivados neste momento, pero podes ler os anteriores.
         comment_details_title: Detalles do comentario
         loading: Cargando comentarios ...
-        single_comment_warning: Podes revisar os comentarios restantes <a href="%{url}">aquí</a>.
+        single_comment_warning: <a href="%{url}">Ver todos os comentarios</a>
         single_comment_warning_title: Estás a ver un único comentario
         title:
           one: "%{count} comentario"

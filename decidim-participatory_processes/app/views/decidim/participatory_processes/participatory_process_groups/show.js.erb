@@ -1,12 +1,15 @@
 var $grid = $('#processes-grid');
-var $assembliesFilter = $('#processes-filter');
+var $order_by_filters = $grid.find('.processes-grid-order-by');
+var $loading = $grid.find('.loading');
 
 $grid.find('.card-grid').html('<%= j(cell(
                                       "decidim/participatory_processes/filtered_participatory_processes",
                                       participatory_processes
                                     ).show).strip.html_safe %>');
-$grid.find('.processes-grid-order-by').html('<%= j(cell(
-                                                    "decidim/participatory_process_groups/process_filters",
-                                                    group,
-                                                    base_relation: participatory_processes
-                                                  ).show).strip.html_safe %>');
+$order_by_filters.html('<%= j(cell(
+                                "decidim/participatory_process_groups/process_filters",
+                                group,
+                                base_relation: participatory_processes
+                              ).show).strip.html_safe %>');
+$order_by_filters.foundation();
+$loading.hide();

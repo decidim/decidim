@@ -4,7 +4,7 @@ module Decidim
   module Admin
     # A command with all the business logic when creating a new participatory space
     # private user in the system.
-    class CreateParticipatorySpacePrivateUser < Rectify::Command
+    class CreateParticipatorySpacePrivateUser < Decidim::Command
       # Public: Initializes the command.
       #
       # form - A form object with the params.
@@ -66,7 +66,7 @@ module Decidim
           organization: private_user_to.organization
         )
 
-        InviteUserAgain.call(@existing_user, invitation_instructions) if @existing_user && !@existing_user.invitation_accepted?
+        InviteUserAgain.call(@existing_user, invitation_instructions) if @existing_user&.invitation_pending?
 
         @existing_user
       end

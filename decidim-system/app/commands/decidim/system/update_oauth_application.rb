@@ -3,7 +3,7 @@
 module Decidim
   module System
     # Updates the OAuth application given form data.
-    class UpdateOAuthApplication < Rectify::Command
+    class UpdateOAuthApplication < Decidim::Command
       # Initializes the command.
       #
       # application - The OAuthApplication to update.
@@ -21,18 +21,25 @@ module Decidim
         @application = Decidim.traceability.update!(
           @application,
           @user,
-          name: @form.name,
-          decidim_organization_id: @form.decidim_organization_id,
-          organization_name: @form.organization_name,
-          organization_url: @form.organization_url,
-          organization_logo: @form.organization_logo,
-          redirect_uri: @form.redirect_uri
+          **oauth_application_attributes
         )
 
         broadcast(:ok, @application)
       rescue ActiveRecord::RecordInvalid
         @form.errors.add(:organization_logo, @application.errors[:organization_logo]) if @application.errors.include? :organization_logo
         broadcast(:invalid)
+      end
+
+      def oauth_application_attributes
+        {
+          name: @form.name,
+          decidim_organization_id: @form.decidim_organization_id,
+          organization_name: @form.organization_name,
+          organization_url: @form.organization_url,
+          redirect_uri: @form.redirect_uri
+        }.tap do |attrs|
+          attrs[:organization_logo] = @form.organization_logo if @form.organization_logo.present?
+        end
       end
     end
   end

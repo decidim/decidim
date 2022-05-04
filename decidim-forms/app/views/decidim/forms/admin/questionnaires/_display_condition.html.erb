@@ -44,10 +44,10 @@
       <%=
         form.select(
           :decidim_answer_option_id,
-          options_from_collection_for_select(display_condition.answer_options, :id, :translated_body, display_condition.answer_option),
+          options_from_collection_for_select(display_condition.answer_options, :id, :translated_body, selected: display_condition.decidim_answer_option_id),
           { prompt: t(".select_answer_option"), label: t(".answer_option") },
           disabled: !editable,
-          data: { selected: display_condition.answer_option&.id }
+          data: { selected: display_condition.decidim_answer_option_id }
         )
       %>
     </div>

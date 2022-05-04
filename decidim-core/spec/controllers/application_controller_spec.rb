@@ -41,7 +41,19 @@ module Decidim
       it "allows absolute URLs within the organization" do
         get :show, params: { redirect_url: "http://#{organization.host}/my/account" }
 
-        expect(controller.helpers.redirect_url).to eq("http://#{organization.host}/my/account")
+        expect(controller.helpers.redirect_url).to eq("/my/account")
+      end
+
+      it "adds a slash when the URLs starts with a dot" do
+        get :show, params: { redirect_url: ".example.org" }
+
+        expect(controller.helpers.redirect_url).to eq("/.example.org")
+      end
+
+      it "adds a slash when the URLs starts with at" do
+        get :show, params: { redirect_url: "@example.org" }
+
+        expect(controller.helpers.redirect_url).to eq("/@example.org")
       end
 
       it "doesn't allow other URLs" do

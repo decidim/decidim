@@ -16,7 +16,7 @@ module Decidim
 
         validates :title, translatable_presence: true
         validates :description, translatable_presence: true
-        validates :max_selections, presence: true, numericality: { greater_than_or_equal_to: 0 }
+        validates :max_selections, presence: true, numericality: { greater_than_or_equal_to: 1 }
 
         def election
           @election ||= context[:election]

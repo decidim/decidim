@@ -5,7 +5,7 @@ module Decidim
     module Admin
       # A command with all the business logic when destroying an conference
       # speaker in the system.
-      class DestroyConferenceSpeaker < Rectify::Command
+      class DestroyConferenceSpeaker < Decidim::Command
         # Public: Initializes the command.
         #
         # conference_speaker - the ConferenceSpeaker to destroy

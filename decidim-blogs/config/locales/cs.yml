@@ -61,6 +61,10 @@ cs:
       read_more: Přečtěte si více
     components:
       blogs:
+        actions:
+          create: Vytvořit
+          destroy: Smazat
+          update: Aktualizovat
         name: Blog
         settings:
           global:

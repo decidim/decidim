@@ -4,7 +4,7 @@ module Decidim
   module Admin
     # A command with all the business logic to create a new category in the
     # system.
-    class CreateCategory < Rectify::Command
+    class CreateCategory < Decidim::Command
       # Public: Initializes the command.
       #
       # form - A form object with the params.
@@ -36,7 +36,6 @@ module Decidim
         Category.create!(
           name: form.name,
           weight: form.weight,
-          description: form.description,
           parent_id: form.parent_id,
           participatory_space: @participatory_space
         )

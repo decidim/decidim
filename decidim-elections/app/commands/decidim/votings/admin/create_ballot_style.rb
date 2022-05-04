@@ -4,7 +4,7 @@ module Decidim
   module Votings
     module Admin
       # A command with the business logic to create the ballot style
-      class CreateBallotStyle < Rectify::Command
+      class CreateBallotStyle < Decidim::Command
         def initialize(form)
           @form = form
         end
@@ -34,13 +34,16 @@ module Decidim
         attr_reader :form, :ballot_style
 
         def create_ballot_style!
-          attributes = {
-            code: form.code
+          params = {
+            code: form.code,
+            voting: form.current_participatory_space
           }
 
-          @ballot_style = Decidim::Votings::BallotStyle.create!(
-            voting: form.current_participatory_space,
-            attributes: attributes
+          @ballot_style = Decidim.traceability.create!(
+            Decidim::Votings::BallotStyle,
+            form.current_user,
+            params,
+            visibility: "all"
           )
         end
 

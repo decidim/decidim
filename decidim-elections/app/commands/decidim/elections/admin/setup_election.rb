@@ -4,7 +4,7 @@ module Decidim
   module Elections
     module Admin
       # This command gets called when a election is setup from the admin panel.
-      class SetupElection < Rectify::Command
+      class SetupElection < Decidim::Command
         # Public: Initializes the command.
         #
         # form - A SetupForm object with the information needed to setup the election
@@ -142,7 +142,7 @@ module Decidim
             affected_users: trustee
           }
 
-          Decidim::EventsManager.publish(data)
+          Decidim::EventsManager.publish(**data)
         end
 
         # Since machine_translations return a nested hash but Electionguard and other

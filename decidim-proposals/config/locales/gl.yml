@@ -49,14 +49,24 @@ gl:
         proposal:
           attributes:
             add_documents:
-              needs_to_be_reattached: Necesita ser reenxerado
+              needs_to_be_reattached: É preciso anexar de novo o ficheiro
             add_photos:
-              needs_to_be_reattached: Necesita ser reenxerado
+              needs_to_be_reattached: É preciso anexar de novo o ficheiro
             body:
               cant_be_equal_to_template: non pode ser igual ao modelo
               identical: E o título non pode ser idéntico
             title:
               identical: E o corpo non pode ser idéntico
+        proposals_merge:
+          attributes:
+            base:
+              not_official: Non é oficial
+              supported: Recibiron soporte ou apoios
+        proposals_split:
+          attributes:
+            base:
+              not_official: Non é oficial
+              supported: Recibiron soporte ou apoios
     models:
       decidim/proposals/accepted_proposal_event: A proposta foi aceptada
       decidim/proposals/admin/update_proposal_category_event: Modificouse a categoría de proposta
@@ -125,6 +135,17 @@ gl:
             can_accumulate_supports_beyond_threshold: Pode acumular soportes máis aló do limiar
             collaborative_drafts_enabled: Esquemas colaborativos habilitados
             comments_enabled: Comentarios habilitados
+            default_sort_order: Orde predefinido das propostas
+            default_sort_order_help: Predefinido significa que se os apoios están activos, as propostas amosaranse ordenadas ao chou e se están bloqueados, entón serán ordenados de máis a menos apoios.
+            default_sort_order_options:
+              default: Predefinida
+              most_commented: Máis comentadas
+              most_endorsed: Máis apoios
+              most_followed: Máis seguidas
+              most_voted: Máis apoios
+              random: Ao chou
+              recent: Máis recentes
+              with_more_authors: Con máis autores
             geocoding_enabled: Geocoding habilitado
             minimum_votes_per_user: Votos mínimos por usuario
             new_proposal_help_text: Nova proposta de axuda de texto
@@ -147,7 +168,18 @@ gl:
             announcement: Anuncio
             automatic_hashtags: Hashtags engadido a todas as propostas
             comments_blocked: Comentarios bloqueados
-            creation_enabled: Creación de proposta habilitada
+            creation_enabled: Os participantes poden crear propostas
+            default_sort_order: Orde predefinido das propostas
+            default_sort_order_help: Predefinido significa que se os apoios están activos, as propostas amosaranse ordenadas ao chou e se están bloqueados, entón serán ordenados de máis a menos apoios.
+            default_sort_order_options:
+              default: Predefinida
+              most_commented: Máis comentadas
+              most_endorsed: Máis apoios
+              most_followed: Máis seguidas
+              most_voted: Máis apoios
+              random: Ao chou
+              recent: Recentes
+              with_more_authors: Con máis autores
             endorsements_blocked: Aprobacións bloqueadas
             endorsements_enabled: Aprobacións habilitadas
             proposal_answering_enabled: Contestando a proposta habilitada
@@ -232,7 +264,7 @@ gl:
           email_intro: A proposta "%{resource_title}" engadiuse a "%{participatory_space_title}" que estás seguindo.
           email_outro: Recibiches esta notificación porque estás seguindo "%{participatory_space_title}". Podes deixar de seguir desde a ligazón anterior.
           email_subject: Nova proposta "%{resource_title}" engadida a %{participatory_space_title}
-          notification_title: A proposta <a href="%{resource_path}">%{resource_title}</a> engadiuse a %{participatory_space_title}
+          notification_title: '%{author} engadiu a proposta <a href="%{resource_path}">%{resource_title}</a> a %{participatory_space_title}'
         proposal_rejected:
           affected_user:
             email_intro: 'A túa proposta "%{resource_title}" foi rexeitada. Podes ler a resposta nesta páxina:'
@@ -326,6 +358,22 @@ gl:
         exports:
           proposal_comments: Comentarios
           proposals: Propostas
+        imports:
+          help:
+            answers: 'O documento a importar ten de conter as seguintes columnas: id, state (aceptado, avaliando, rexeitado), resposta (e outros idiomas habilitados pola organización).'
+          label:
+            answers: Importar respostas dende un ficheiro
+            proposals: Importar propostas dende un ficheiro
+          resources:
+            answers:
+              one: resposta á proposta
+              other: respostas á proposta
+            proposals:
+              one: proposta
+              other: propostas
+          title:
+            answers: Importar as respostas ás propostas
+            proposals: Importar propostas
         models:
           proposal:
             name: Proposta
@@ -445,11 +493,11 @@ gl:
             title: Importar propostas
         proposals_merges:
           create:
-            invalid: Produciuse un erro ao fusionar as propostas seleccionadas.
+            invalid: 'Produciuse un problema ao agrupar as propostas xa que algunhas delas:'
             success: Fusionou con éxito as propostas nun novo.
         proposals_splits:
           create:
-            invalid: Produciuse un erro dividindo as propostas seleccionadas.
+            invalid: 'Produciuse un problema ao dividir as propostas seleccionadas xa que algunhas delas:'
             success: Reaccionou con éxito as propostas en novas.
         valuation_assignments:
           create:
@@ -472,9 +520,9 @@ gl:
           all: Todo
         filter_origin_values:
           all: Todo
-          citizens: Cidadáns
           meetings: Reunións
           official: Oficial
+          participants: Participantes
           user_groups: Grupos de usuarios
         filter_scope_values:
           all: Todo
@@ -537,6 +585,8 @@ gl:
           filter_by: Filtrar por
           unfold: Despregar
         new:
+          add_file: Engadir ficheiro
+          edit_file: Editar ficheiro
           send: Continuar
         new_collaborative_draft_button:
           new_collaborative_draft: Novo borrador colaborativo
@@ -645,12 +695,12 @@ gl:
         dynamic_map_instructions:
           instructions: Podes mover o punto no mapa.
         edit:
-          add_documents: Documentos
-          add_images: Ficheiro
+          add_documents: Engadir documentos
+          add_image: Engadir imaxe
           attachment_legend: "(Opcional) Engada un anexo"
           back: De volta
-          delete_document: Eliminar documento
-          delete_image: Eliminar imaxe
+          edit_documents: Editar documentos
+          edit_image: Editar imaxe
           gallery_legend: "(Opcional) Engadir unha imaxe ao cartón de proposta"
           select_a_category: Selecciona unha categoría
           send: Enviar
@@ -679,9 +729,12 @@ gl:
           filter_by: Filtrar por
           unfold: Despregar
         index:
+          click_here: Ver todas as propostas
           collaborative_drafts_list: Acceda a borradores colaborativos
           new_proposal: Nova proposta
+          see_all: Ver todas as propostas
           see_all_withdrawn: Ver todas as propostas retiradas
+          text_banner: Estás a ver todas as propostas anuladas polos seus autores. %{go_back_link}.
           view_proposal: Ver proposta
         linked_proposals:
           proposal_votes:

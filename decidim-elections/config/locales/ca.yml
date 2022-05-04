@@ -253,8 +253,8 @@ ca:
             title: Elecció creada
             trustees: Garants
           key_ceremony:
+            continue: Continuar
             title: Cerimònia de claus
-            trustees: Garants
           key_ceremony_ended:
             errors:
               time_before: L'elecció està llesta per començar. Has d'esperar fins a %{hours} hores abans de l'hora d'inici (%{start_time}) per iniciar el període de votació.
@@ -274,8 +274,14 @@ ca:
             submit: Enviar
             title: Resultats publicats
           tally:
+            continue: Continuar
+            invalid: S'ha produït un error en notificar l'absència de la garant
+            mark_as_missing: Marcar com absent
+            mark_as_missing_description: Totes les garants haurien de participar en aquest procés, però si una garant no en pot prendre part, la pots marcar com a absent.
+            success: La notificació d'absència de la garant ha estat enviada correctament
+            tally_completion: El procés es completarà quan totes les garants estiguin actives o marcades com a absents. Fan falta com un mínim de %{quorum} garant per a completar el procés.
             title: Procés de recompte
-            trustees: Garants
+            undo_mark_as_missing: Una garant marcada com a absent per error podrà participar abans de la finalització del procés. Pot actuar com de costum i la seva absència serà ignorada.
           tally_ended:
             answer: Resposta
             not_selected: No seleccionat
@@ -328,14 +334,20 @@ ca:
             success: El garant %{trustee} s'ha actualitzat correctament
       admin_log:
         election:
-          end_vote: "%{user_name} ha finalittzat el període de votació per l'elecció %{resource_name} al Bulletin Board"
-          publish: "%{user_name} ha publicat la votació %{resource_name}"
-          publish_results: "%{user_name} ha publicat els resultats de l'elecció %{resource_name} al Bulletin Board"
-          setup: "%{user_name} ha creat l'elecció %{resource_name} al Bulletin Board"
-          start_key_ceremony: "%{user_name} va començar la cerimònia de claus per l'elecció %{resource_name} al Bulletin Board"
-          start_tally: "%{user_name} ha iniciat el recompte per a l'elecció %{resource_name} al Bulletin Board"
-          start_vote: "%{user_name} ha iniciat el període de votació per a l'elecció %{resource_name} al Bulletin Board"
-          unpublish: "%{user_name} ha despublicat la votació %{resource_name}"
+          create: "%{user_name} ha creat l'elecció %{resource_name} a %{space_name}"
+          delete: "%{user_name} ha eliminat l'elecció %{resource_name} a %{space_name}"
+          end_vote: "%{user_name} ha tancat el període de votació per a l'elecció %{resource_name} a %{space_name}"
+          publish: "%{user_name} ha publicat l'elecció %{resource_name} a %{space_name}"
+          publish_results: "%{user_name} ha publicat els resultats de l'elecció %{resource_name} a %{space_name}"
+          report_missing_trustee: "%{user_name} ha notificat %{trustee_name} com a absent durant el recompte de les eleccions %{resource_name} a %{space_name}"
+          setup: "%{user_name} ha creat l'elecció %{resource_name} a %{space_name}"
+          start_key_ceremony: "%{user_name} ha iniciat la cerimònia de claus per l'elecció %{resource_name} a %{space_name}"
+          start_tally: "%{user_name} ha iniciat el recompte de l'elecció %{resource_name} a %{space_name}"
+          start_vote: "%{user_name} ha iniciat el període de votació per a l'elecció %{resource_name} a %{space_name}"
+          unpublish: "%{user_name} ha despublicat l'elecció %{resource_name} a %{space_name}"
+          update: "%{user_name} ha actualitzat l'elecció %{resource_name} a %{space_name}"
+        trustee:
+          create: "%{user_name} ha assignat a la usuària %{trustee_user} com a garant"
       election_m:
         badge_name:
           finished: Acabada
@@ -406,9 +418,9 @@ ca:
         filters:
           active: Activa
           all: Totes
+          date: Data
           finished: Finalizada
           search: Cercar
-          state: Estat
           upcoming: Properes
         filters_small_view:
           close_modal: Tancar el modal
@@ -566,14 +578,14 @@ ca:
               generate_legend_3: Assegura't de que el teu equip no tingui una còpia de l'arxiu (per exemple, comprova les carpetes de Baixades i Escriptori).
               generate_legend_4: Fes una altra copia de l'arxiu en un dispositiu extern diferent i guarda'l a un lloc molt segur.
               submit: Enviar
-              submit_legend: Després de seguir tots els passos explicats anteriorment, completa el procés enviant la clau d'identificació pública al servidor de Decidim.
+              submit_legend: Després de seguir tots els passos explicats anteriorment, completa el procés enviant la clau d'identificació pública al servidor.
               submit_title: Enviar la clau d'identificació pública
               title: Claus d'identificació del garant
               upload: Puja les teves claus d'identificació
               upload_error:
                 invalid_format: L'arxiu pujat no conté cap clau d'identificació.
                 invalid_key: Les claus d'identificació a l'arxiu pujat no es poden carregar.
-                invalid_public_key: Les claus d'identificació a l'arxiu pujat no coincideixen amb la clau d'identificació pública emmagatzemada per Decidim.
+                invalid_public_key: Les claus d'identificació a l'arxiu pujat no coincideixen amb la clau d'identificació pública emmagatzemada.
               upload_legend: Decidim té les teves claus públiques d'identificació, però el teu navegador encara no les té. Necessites importar l'arxiu amb les teves claus d'identificació al teu ordinador des de la còpia de seguretat que vas crear després de generar-les.
             not_supported_browser_description: Sembla que estàs usant un navegador que no pot ser utilitzat per a actuar com a garant. Assegura't que estàs usant la versió més recent del teu navegador, o intenta usar qualsevol dels navegadors més populars per a poder completar les teves tasques com a garant.
             not_supported_browser_title: Actualitza el navegador per a actuar com a garant
@@ -641,9 +653,9 @@ ca:
         onboarding_modal:
           close: Tanca el modal
           create_account: Crea un compte
-          description: Vols crear un nou compte al Decidim? Podràs participar als processos i ser una part activa de l'organització.
+          description: Vols crear un nou compte? Podràs participar als processos i ser part activa de l'organització.
           no_account: No, gràcies.
-          title: Primer cop a Decidim?
+          title: Ets nova a la plataforma?
         update:
           error: Hi ha hagut un error en actualitzar el vot. Prova-ho de nou.
         verify:
@@ -654,7 +666,7 @@ ca:
             header: Vot no localitzat!
             info: El codi del vot no s'ha trobat a l'urna %{link}, intenta-ho de nou.
           form:
-            back: Tornar a Decidim
+            back: Tornar a la plataforma
             submit: Comprovar
             vote_identifier: 'Codi identificador:'
           header:
@@ -797,7 +809,7 @@ ca:
             monitoring_committee_election_results: Valida els resultats
             monitoring_committee_members: Membres
             monitoring_committee_polling_station_closures: Valida els certificats
-            monitoring_committee_verify_elections: Valida les eleccions
+            monitoring_committee_verify_elections: Verificar eleccions
             polling_officers: Gestors de mesa
             polling_stations: Punts de votació
         models:
@@ -832,30 +844,30 @@ ca:
         monitoring_committee_election_results:
           actions:
             title: Accions
-            view: Mostra
+            view: Mostrar
           index:
             title: Escull l'elecció per veure-hi els resultats
           results:
-            bulletin_board: Butlletí d'informació
+            bulletin_board: Bulletin Board
             election_totals: Totals de l'elecció
             polling_stations: Punts de votació
             result_types:
               blank_answers: Respostes en blanc
-              blank_ballots: Vots en blanc
-              null_ballots: Vots nuls
-              total_ballots: Vots totals
-              valid_ballots: Vots vàlids
+              blank_ballots: Paperetes en blanc
+              null_ballots: Paperetes nul·les
+              total_ballots: Total de paperetes
+              valid_ballots: Paperetes vàlides
             selected: Seleccionat
             title: Resultats de l'elecció <i>%{election_title}</i>
             totals: Totals
           show:
-            change_election: Canvia d'elecció
-            publish_results: Publica els resultats
-            publishing: Estem publicant els resultats...
+            change_election: Canviar elecció
+            publish_results: Publicar resultats
+            publishing: Publicant resultats...
           update:
             invalid: Hi ha hagut un problema en publicar els resultats
-            rejected: El Butlletí d'Informació ha rebutjat la publicació dels resultats. Prova-ho de nou, o contacta amb l'administració del sistema.
-            success: Hem publicat correctament els resultats
+            rejected: El Bulletin Board ha rebutjat la publicació dels resultats. Prova-ho de nou, o contacta amb l'administrador del sistema.
+            success: Resultats publicats correctament
         monitoring_committee_members:
           create:
             invalid: Hi ha hagut un problema en crear aquest membre del comitè de seguiment
@@ -876,33 +888,33 @@ ca:
         monitoring_committee_polling_station_closures:
           actions:
             title: Accions
-            validate: Valida
-            view: Mostra
+            validate: Validar
+            view: Mostrar
           closures:
-            change_election: Canvia d'elecció
+            change_election: Canviar elecció
             signed: Signat?
             title: Punts de votació de l'elecció <i>%{election_title}</i>
             validated: Validat?
           edit:
-            change_polling_station: Torna als punts de votació
+            change_polling_station: Tornar als punts de votació
             monitoring_committee_notes: Observacions
             monitoring_committee_notes_placeholder: Informa de qualsevol incidència aquí
             title: Els resultats de l'elecció <i>%{election_title}</i> en el punt de votació <i>%{polling_station_title}</i>
           elections:
             title: Escull una elecció per validar
           show:
-            change_polling_station: Torna als punts de votació
+            change_polling_station: Tornar als punts de votació
             monitoring_committee_notes: Annotacions del Comitè de Seguiment
           validate:
-            error: Hi ha hagut un problema en validar la cloenda
-            success: Hem validat correctament la cloenda
+            error: Hi ha hagut un problema en validar el tancament
+            success: El tancament s'ha validat correctament
         monitoring_committee_verify_elections:
           index:
-            download: Baixa
-            how_to_checksum: 'Per assegurar-nos que el fitxer descarregat no estigui corromput o compromè durant el procès de baixada, executa el següent ordre en la consola i comprova que la resposta de sortida coincideixi amb la comprovació de suma que s''informa a dalt:'
-            how_to_download: Per verificar l'elecció, baixa el fitxer verificable de la taula de dalt.
+            download: Descarregar
+            how_to_checksum: 'Per a assegurar-se que l''arxiu descarregat no ha estat danyat o manipulat durant el procés de descàrrega, executa el següent comando en la teva consola i comprova que la sortida coincideixi amb la suma de verificació reportada a dalt:'
+            how_to_download: Per verificar l'elecció, descarrega el fitxer verificable de la taula de dalt.
             how_to_run_verifier: 'Una vegada que has descarregat el fitxer i te''n has assegurat que és correcte, pots executar-hi el verificador universal. Clona <a href=''https://github.com/decidim/decidim-bulletin-board''>el repositori</a> i, des de la carpeta d''arrel, executa la següent ordre:'
-            how_to_title: Com es verifica la validesa d'una elecció
+            how_to_title: Com verificar la validesa d'una elecció
             not_available: Encara no està disponible
             title: Eleccions
         polling_officers:
@@ -990,6 +1002,24 @@ ca:
             invalid: S'ha produït un error en actualitzar aquesta votació
             success: La votació s'ha actualitzat correctament
       admin_log:
+        ballot_style:
+          create: "%{user_name} ha creat un estil de papereta amb codi %{ballot_style_code} a l'espai %{space_name}"
+          delete: "%{user_name} ha eliminat l'estil de papereta amb codi %{ballot_style_code} a l'espai %{space_name}"
+          update: "%{user_name} ha actualitzat l'estil de papereta amb codi %{ballot_style_code} a l'espai %{space_name}"
+        census:
+          create: "%{user_name} ha creat el cens per l'espai %{space_name}"
+          delete: "%{user_name} ha eliminat el cens per l'espai %{space_name}"
+          update: "%{user_name} ha actualitzat el cens per l'espai %{space_name}"
+        monitoring_committee_member:
+          create: "%{user_name} ha assignat a la usuària %{monitoring_committee_member_user} com a membre de la comissió de seguiment a l'espai %{space_name}"
+          delete: "%{user_name} desassignat a la usuària %{monitoring_committee_member_user} com a membre de la comissió de seguiment a l'espai %{space_name}"
+        polling_officer:
+          create: "%{user_name} ha assignat a la usuària %{polling_officer_user} com a gestora de mesa a l'espai %{space_name}"
+          delete: "%{user_name} ha desassignat a la usuària %{polling_officer_user} com a gestora de mesa a l'espai %{space_name}"
+        polling_station:
+          create: "%{user_name} ha creat el punt de votació %{resource_name} a l'espai %{space_name}"
+          delete: "%{user_name} ha eliminat el punt de votació %{resource_name} a l'espai %{space_name}"
+          update: "%{user_name} ha actualitzat el punt de votació %{resource_name} a l'espai %{space_name}"
         voting:
           create: "%{user_name} ha creat la votació %{resource_name}"
           publish: "%{user_name} ha publicat la votació %{resource_name}"
@@ -999,7 +1029,7 @@ ca:
           census:
             create:
               invalid: Hi ha hagut un error en pujar el cens, prova-ho de nou més tard.
-              invalid_csv_header: La capçalera CSV no té el nombre correcte de camps. Consulta les instruccions amb atenció
+              invalid_csv_header: Les capçaleres al CSV manquen o no son correctes. Si us plau, rellegeix atentament les instruccions
             creating_data:
               info_message: "<strong>Si us plau espera</strong>, processades %{processed_count} de %{raw_count} fileres al fitxer de %{file}."
             delete:
@@ -1056,7 +1086,7 @@ ca:
             download: Descarregar
             subject: L'exportació dels codis d'accés a la votació de %{voting_title} està disponible
         vote_flow:
-          already_voted_in_person: La participant ja ha votat de forma presencial i no se l'insta a votar.
+          already_voted_in_person: La participant ja ha votat de forma presencial i no té dret a vot.
           datum_not_found: No hi ha cap votant amb aquestes dades.
       content_blocks:
         highlighted_votings:
@@ -1088,13 +1118,13 @@ ca:
         closures:
           back_to_polling_stations: Tornar als punts de votació
           certify:
-            add_images: Afegeix imatges
-            error: S'ha produït un error en annexar el certificat. Torneu a provar-ho.
-            form_legend: Puja una imatge del Certificat de Cloenda Electoral
-            heading: Recompte de vots - Puja certificat
-            info_text: Puja una imatge del Certificat de Cloenda Electoral.
-            submit: Puja el certificat
-            success: Hem pujat el certificat correctament.
+            add_images: Afegir imatges
+            error: S'ha produït un error en adjuntar el certificat. Si us plau, prova de nou.
+            form_legend: Puja una imatge del certificat de tancament electoral
+            heading: Recompte de vots - Pujar certificat
+            info_text: Si us plau, puja una imatge del certificat de tancament electoral.
+            submit: Pujar el certificat
+            success: El certificat s'ha pujat correctament.
           create:
             error: S'ha produït un error en crear el tancament. Si us plau, intenta-ho més tard.
             success: Tancament creat correctament.
@@ -1130,18 +1160,18 @@ ca:
             total_ballots_count: Nombre de paperetes
           show:
             heading: Recompte de vots
-            info_text: Cloenda electoral del punt de votació.
+            info_text: Tancament electoral del punt de votació.
           sign:
-            cancel: Cancel·la
-            check_box: Ho he revisat i és idèntic que el certificat físic de cloenda electoral
-            close_modal: Clou
-            confirm: D'acord, continua
-            error: Ha occorregut un error. Torna a provar-ho.
-            heading: Recompte de vots - Signa la cloenda
-            info_text: D'ara en endavant ja no podríeu modificar cap informació perquè l'acció no es pot desfer.
-            submit: Signa la cloenda
-            success: Has signat correctament la cloenda.
-            title: No es pot desfer l'acció
+            cancel: Cancel·lar
+            check_box: Ho he revisat i és idèntic al certificat físic de tancament electoral
+            close_modal: Tancar
+            confirm: D'acord, continuar
+            error: Hi ha hagut un error. Si us plau, torna-ho a provar.
+            heading: Recompte de vots - Signar el tancament
+            info_text: Si continues ja no podràs modificar cap informació, aquesta acció no es pot desfer.
+            submit: Signar el tancament
+            success: Tancament signat correctament.
+            title: Aquesta acció no es pot desfer
           update:
             error: S'ha produït un error en actualitzar els resultats del tancament. Intenta-ho de nou més tard.
             success: Resultats de tancament actualitzats correctament.
@@ -1149,16 +1179,16 @@ ca:
           complete_voting:
             available_answers: 'Respostes disponibles:'
             census_verified: La participant encara no ha votat.
-            complete_voting: Completa el vot
-            identify_another: Identifica una altra participant
-            questions_title: 'Se l''insta a votar les següents preguntes:'
-            questions_title_voted: 'La participant ja ha votat en línia i se l''insta a votar les següents preguntes:'
+            complete_voting: Completar el vot
+            identify_another: Identificar una altra participant
+            questions_title: 'Té dret a votar les següents preguntes:'
+            questions_title_voted: 'La participant ja ha votat en línia i té dret a votar les següents preguntes:'
             voted: La participant ha votat
           create:
-            error: No hem registrat el vot. Prova-ho de nou.
+            error: El vot no ha estat registrat. Si us plau, prova-ho de nou.
           in_person_form:
             census_not_present: La participant no és a la llista del cens.
-            census_not_present_description: Ha d'anar a l'oficina del cens o contactar l'assistència.
+            census_not_present_description: Ha de dirigir-se a l'oficina de reclamacions del cens o al servei d'assistència tècnica.
             date_of_birth: Data de naixement
             day: Dia
             day_placeholder: DD
@@ -1166,27 +1196,27 @@ ca:
             document_number_placeholder: Número d'ID
             month: Mes
             month_placeholder: MM
-            select: Escull el tipus de document
-            title: 'Escull el tipus de document i introdueix el número de document de la participant:'
-            validate_document: Valida el document
+            select: Selecciona el tipus de document
+            title: 'Selecciona el tipus de document i introdueix el número de document de la participant:'
+            validate_document: Validar el document
             year: Any
             year_placeholder: AAAA
           new:
-            back: Torna als punts de votació
-            title: Identifica i verifica participant
+            back: Tornar als punts de votació
+            title: Identificar i verificar una participant
           show:
-            back: Torna als punts de votació
+            back: Tornar als punts de votació
             title: En espera del registre de vot presencial
           update:
-            error: Hi ha hagut un problema en registrar el vot. Prova-ho de nou.
+            error: Hi ha hagut un problema en registrar el vot. Si us plau, prova-ho de nou.
             success:
-              accepted: Hem registrat el vot correctament.
-              rejected: El Butlletí d'Informació no ha acceptat el vot. Contacta amb l'administrador del sistema.
+              accepted: El vot s'ha registrat correctament.
+              rejected: El Bulletin Board no ha acceptat el vot. Si us plau, contacta amb l'administrador del sistema.
           verify_document:
-            census_present: Hem trobat la participant al cens.
+            census_present: La participant es troba al cens.
             name: Nom
             title: 'Comprova que les dades següents són correctes:'
-            verify_document: Verifica el document
+            verify_document: Verificar el document
         menu:
           polling_officer_zone: Zona del gestor de mesa
         polling_officers:
@@ -1214,15 +1244,15 @@ ca:
           president: President
           unassigned: Sense assignar
       polling_station_closure_recount:
-        nota_option: En blanc, o cap dels de dalt
-        polling_officer_notes: 'Annotacions del gestor de mesa:'
-        polling_officer_notes_blank: Cap annotació
-        recount_summary: 'Sumari del recompte:'
+        nota_option: En blanc / Cap de les anteriors
+        polling_officer_notes: 'Anotacions del gestor de mesa:'
+        polling_officer_notes_blank: Cap anotació
+        recount_summary: 'Resum del recompte:'
         signed: Signat
-        total_ballots: 'Vots en total:'
-        total_blank_ballots: 'Vots en blanc en total:'
-        total_null_ballots: 'Vots nuls en total:'
-        total_valid_ballots: 'Vots vàlids en total:'
+        total_ballots: 'Total de paperetes:'
+        total_blank_ballots: 'Total de paperetes en blanc:'
+        total_null_ballots: 'Total de paperetes nul·les:'
+        total_valid_ballots: 'Total de paperetes vàlides:'
       polling_stations:
         actions:
           confirm_destroy: N'estàs segura?
@@ -1276,9 +1306,9 @@ ca:
         filters:
           active: Actives
           all: Totes
+          date: Data
           finished: Finalitzades
           search: Cercar
-          state: Estat
           upcoming: Properes
         filters_small_view:
           close_modal: Tancar finestra

@@ -3,7 +3,7 @@
 module Decidim
   module Conferences
     # This command is executed when the user joins a conference.
-    class JoinConference < Rectify::Command
+    class JoinConference < Decidim::Command
       # Initializes a JoinConference Command.
       #
       # conference - The current instance of the conference to be joined.

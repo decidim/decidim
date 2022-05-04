@@ -13,10 +13,7 @@ module Decidim
             "category" => {
               "name_en" => "New title",
               "name_es" => "Title",
-              "name_ca" => "Title",
-              "description_en" => "Description",
-              "description_es" => "Description",
-              "description_ca" => "Description"
+              "name_ca" => "Title"
             }
           }
         end

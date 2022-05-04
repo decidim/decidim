@@ -244,7 +244,6 @@ zh-CN:
         all: 所有的
         finished: 已完成
         search: 搜索
-        state: 状态
         upcoming: 即将到来的
       filters_small_view:
         close_modal: 关闭窗口

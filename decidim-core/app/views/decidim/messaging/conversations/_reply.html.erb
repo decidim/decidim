@@ -3,9 +3,9 @@
     <%= t(".title") %>
   </h2>
 
-  <%= form_for form, url: decidim.conversation_path(conversation.id), method: :put, remote: true do |f| %>
+  <%= decidim_form_for form, url: decidim.conversation_path(conversation.id), method: :put, remote: true do |f| %>
     <%= f.label :body, nil, class: "show-for-sr" %>
-    <%= f.text_area :body, label: false, rows: 4, required: true, placeholder: t(".placeholder") %>
+    <%= f.text_area :body, label: false, rows: 4, required: true, placeholder: t(".placeholder"), data: { input_emoji: true } %>
 
     <%= f.submit t(".send"), class: "button pull-right", data: { disable: true } %>
   <% end %>

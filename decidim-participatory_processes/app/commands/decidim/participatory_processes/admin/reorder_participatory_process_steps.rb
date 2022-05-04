@@ -4,7 +4,7 @@ module Decidim
   module ParticipatoryProcesses
     module Admin
       # A command that reorders the steps in a participatory process.
-      class ReorderParticipatoryProcessSteps < Rectify::Command
+      class ReorderParticipatoryProcessSteps < Decidim::Command
         # Public: Initializes the command.
         #
         # collection - an ActiveRecord::Relation of steps

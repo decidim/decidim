@@ -51,7 +51,7 @@ label,
 }
 
 .form-input-extra-before{
-  margin-bottom: $form-spacing / 2;
+  margin-bottom: $form-spacing * .5;
 }
 
 .form-input-extra-after{
@@ -126,5 +126,27 @@ input[type="radio"]{
     outline: $input-outline-focus;
     outline-color: var(--highlight);
     outline-offset: $input-outline-offset;
+  }
+}
+
+.emoji{
+  &__container{
+    position: relative;
+  }
+
+  &__trigger{
+    position: relative;
+    top: -$form-spacing;
+  }
+
+  &__button{
+    position: absolute;
+    bottom: $global-margin * .5;
+    right: $global-margin;
+    cursor: pointer;
+  }
+
+  &__button svg{
+    width: 1em;
   }
 }

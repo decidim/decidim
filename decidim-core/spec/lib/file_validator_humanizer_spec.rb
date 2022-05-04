@@ -19,10 +19,10 @@ module Decidim
     let(:validatable) do
       mount_class = uploader
       validation_options = file_validation_options
-      Class.new do
-        extend CarrierWave::Mount
-        include ActiveModel::Model
+      Class.new(ApplicationRecord) do
         include Decidim::HasUploadValidations
+
+        self.table_name = "decidim_dummy_resources_dummy_resources"
 
         def self.model_name
           ActiveModel::Name.new(self, nil, "Validatable")
@@ -30,8 +30,7 @@ module Decidim
 
         attr_accessor :file
 
-        validates_upload :file, validation_options
-        mount_uploader :file, mount_class
+        validates_upload(:file, **validation_options.merge(uploader: mount_class))
 
         def organization
           @organization ||= FactoryBot.create(:organization)

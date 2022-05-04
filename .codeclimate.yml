@@ -115,7 +115,14 @@ plugins:
       severity: minor
 
   stylelint:
-    enabled: true
+    # FIXME: after the webpacker packages changes, this is broken with this error:
+    #
+    # > Error: Could not find "@decidim/stylelint-config". Do you need a `configBasedir`?
+    # > See our documentation at https://docs.codeclimate.com/docs/stylelint for more information.
+    #
+    # Disabling it for the moment, we should enable it as it's useful.
+    #
+    enabled: false
     exclude_patterns:
       - "decidim-admin/app/assets/stylesheets/decidim/admin/bundle.scss"
       - "decidim-core/app/assets/stylesheets/decidim/email.css"

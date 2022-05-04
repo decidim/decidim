@@ -5,7 +5,9 @@ module Decidim
     module Admin
       # A command with all the business logic when creating a new participatory
       # conference in the system.
-      class UpdateConference < Rectify::Command
+      class UpdateConference < Decidim::Command
+        include ::Decidim::AttachmentAttributesMethods
+
         # Public: Initializes the command.
         #
         # conference - the Conference to update
@@ -85,16 +87,9 @@ module Decidim
             scopes_enabled: form.scopes_enabled,
             scope: form.scope,
             show_statistics: form.show_statistics
-          }.merge(uploader_attributes)
-        end
-
-        def uploader_attributes
-          {
-            hero_image: form.hero_image,
-            remove_hero_image: form.remove_hero_image,
-            banner_image: form.banner_image,
-            remove_banner_image: form.remove_banner_image
-          }.delete_if { |_k, val| val.is_a?(Decidim::ApplicationUploader) }
+          }.merge(
+            attachment_attributes(:hero_image, :banner_image)
+          )
         end
 
         def send_notification_registrations_enabled

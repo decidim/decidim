@@ -3,7 +3,7 @@
 module Decidim
   module Assemblies
     # This query class filters assemblies given a current_user.
-    class VisibleAssemblies < Rectify::Query
+    class VisibleAssemblies < Decidim::Query
       def initialize(user)
         @user = user
       end

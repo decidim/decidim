@@ -5,7 +5,7 @@ module Decidim
     module Admin
       # This command is executed when the user destroys a Result from the admin
       # panel.
-      class DestroyResult < Rectify::Command
+      class DestroyResult < Decidim::Command
         # Initializes an UpdateResult Command.
         #
         # result - The current instance of the result to be destroyed.

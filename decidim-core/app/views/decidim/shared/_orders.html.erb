@@ -9,7 +9,7 @@
       data-close-on-click="true"
       role="menubar">
       <li class="is-dropdown-submenu-parent" role="presentation">
-        <a href="#" id="<%= menu_id %>-control" aria-controls="<%= menu_id %>" aria-haspopup="true" title="<%= t("#{i18n_scope}.label") %>" role="menuitem"><%= t("#{i18n_scope}.#{order}") %></a>
+        <a href="#" id="<%= menu_id %>-control" aria-controls="<%= menu_id %>" aria-haspopup="menu" title="<%= t("#{i18n_scope}.label") %>" role="menuitem"><%= t("#{i18n_scope}.#{order}") %></a>
 
         <ul id="<%= menu_id %>" class="menu" role="menu" aria-labelledby="<%= menu_id %>-control">
           <% orders.each do |order_name| %>

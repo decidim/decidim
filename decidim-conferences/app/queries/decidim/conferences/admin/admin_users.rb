@@ -3,8 +3,8 @@
 module Decidim
   module Conferences
     module Admin
-      # A class used to find the admins for an conference.
-      class AdminUsers < Rectify::Query
+      # A class used to find the admins for an conference or an organization conferences.
+      class AdminUsers < Decidim::Query
         # Syntactic sugar to initialize the class and return the queried objects.
         #
         # conference - an conference that needs to find its conference admins
@@ -12,33 +12,46 @@ module Decidim
           new(conference).query
         end
 
+        # Syntactic sugar to initialize the class and return the queried objects.
+        #
+        # organization - an organization that needs to find its conference admins
+        def self.for_organization(organization)
+          new(nil, organization).query
+        end
+
         # Initializes the class.
         #
         # conference - an conference that needs to find its conference admins
-        def initialize(conference)
+        # organization - an organization that needs to find its conference admins
+        def initialize(conference, organization = nil)
           @conference = conference
+          @organization = conference&.organization || organization
         end
 
         # Finds organization admins and the users with role admin for the given conference.
         #
         # Returns an ActiveRecord::Relation.
         def query
-          Decidim::User.where(id: organization_admins).or(conference_user_admins)
+          organization.admins.or(conferences_user_admins)
         end
 
         private
 
-        attr_reader :conference
+        attr_reader :conference, :organization
 
-        def organization_admins
-          conference.organization.admins
+        def conferences_user_admins
+          Decidim::User.where(
+            id: Decidim::ConferenceUserRole.where(conference: conferences, role: :admin)
+                                           .select(:decidim_user_id)
+          )
         end
 
-        def conference_user_admins
-          conference_user_admin_ids = Decidim::ConferenceUserRole
-                                      .where(conference: conference, role: :admin)
-                                      .pluck(:decidim_user_id)
-          Decidim::User.where(id: conference_user_admin_ids)
+        def conferences
+          if conference
+            [conference]
+          else
+            Decidim::Conference.where(organization: organization)
+          end
         end
       end
     end

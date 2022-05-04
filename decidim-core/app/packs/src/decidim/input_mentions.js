@@ -110,8 +110,9 @@ $(() => {
     menuItemTemplate: function(item) {
       let svg = "";
       if (window.Decidim && item.original.__typename === "UserGroup") {
-        let icons = window.Decidim.assets["icons.svg"];
-        svg = `<span class="is-group">${item.original.membersCount}x <svg class="icon--members icon"><use xlink:href="${icons}#icon-members"/></svg></span>`;
+        const iconsPath =  window.Decidim.config.get("icons_path");
+
+        svg = `<span class="is-group">${item.original.membersCount}x <svg class="icon--members icon"><use href="${iconsPath}#icon-members"/></svg></span>`;
       }
       return `<div class="tribute-item ${item.original.__typename}">
       <span class="author__avatar"><img src="${item.original.avatarUrl}" alt="author-avatar"></span>

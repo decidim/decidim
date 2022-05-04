@@ -67,7 +67,6 @@ it:
     'true': 'Si'
   carrierwave:
     errors:
-      general: Errore nell'elaborazione dell'immagine
       image_too_big: L'immagine è troppo grande
       not_inside_organization: Il file non è collegato a nessuna organizzazione
   date:
@@ -507,6 +506,11 @@ it:
           this_application_will_not_be_able_to: 'Questa applicazione non sarà in grado di:'
           update_profile: Aggiorna il tuo profilo
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> vuole utilizzare il tuo account"
+    editor_images:
+      create:
+        error: Errore nel caricamento dell'immagine
+        success: Immagine caricata con successo
+      drag_and_drop_help: Aggiungi immagini trascinandole o incollandole.
     endorsable:
       endorsements: Mi piace
       endorsements_count: Numero di Appoggi
@@ -706,7 +710,6 @@ it:
         button: Smetti di seguire
         error: Si è verificato un errore ad smettere questa risorsa.
     forms:
-      current_file: File attuale
       current_image: Immagine attuale
       default_image: Immagine predefinita
       errors:
@@ -726,7 +729,6 @@ it:
       file_validation:
         allowed_file_extensions: 'Estensioni file consentite: %{extensions}'
         max_file_size: 'Dimensione massima file: %{megabytes}MB'
-      remove_this_file: Rimuovere questo file
     gamification:
       all_badges_link: Vedi tutti i badge disponibili.
       badges:
@@ -969,6 +971,7 @@ it:
         show:
           back: Torna a tutte le conversazioni
           chat_with: Conversazione con
+          deleted_accounts: Non è possibile avere una conversazione con account eliminati.
           not_allowed: Questo partecipante non accetta messaggi diretti.
           title: Conversazione con %{usernames}
         start:
@@ -1036,6 +1039,9 @@ it:
         greetings: Saluti,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Ciao,
         subject: Vuoi continuare a ricevere informazioni rilevanti su %{organization_name}?
+    notification_mailer:
+      event_received:
+        translated_text: 'Testo tradotto automaticamente:'
     notifications:
       no_notifications: Nessuna notifica.
     notifications_settings:
@@ -1055,6 +1061,10 @@ it:
       update:
         error: Si è verificato un errore durante l'aggiornamento delle impostazioni di notifica.
         success: OK, le impostazioni per le notifiche sono state modificate.
+    offline:
+      show:
+        message: Sembra che tu sia attualmente offline. Per favore, riprova più tardi.
+        retry: Riprova
     open_data:
       not_available_yet: I file Open Data non sono ancora disponibili, riprova tra qualche minuto.
     own_user_groups:
@@ -1595,6 +1605,8 @@ it:
       notifications_dashboard:
         mark_all_as_read: Contrassegnare tutti come letti
         mark_as_read: Segna come già letto
+      offline_banner:
+        cache_version_page: Oooops! La tua rete è offline. Questa è una versione precedentemente memorizzata nella cache della pagina che stai visitando, forse il contenuto non è aggiornato.
       social_media_links:
         facebook: "%{organization} su Facebook"
         github: "%{organization} su GitHub"
@@ -1630,10 +1642,12 @@ it:
     name: Italiano
     name_with_error: Inglese (errore!)
   password_validator:
+    blacklisted: è nella blacklist
     domain_included_in_password: è troppo simile a questo nome di dominio
     email_included_in_password: è troppo simile alla tua email
     fallback: non è valido
     name_included_in_password: è troppo simile al tuo nome
+    nickname_included_in_password: è troppo simile al tuo nickname
     not_enough_unique_characters: non ha abbastanza caratteri unici
     password_not_allowed: non è permesso
     password_too_common: è troppo comune
@@ -1675,7 +1689,7 @@ it:
         mailer:
           invitation_instructions:
             accept_until_format: "%B %d, %Y %I:%M %p"
-      long: "%B %d, % %Y %H:%M"
+      long: "%B %d %Y %H:%M"
       long_dashed: "%d/%m/%Y %H:%M:%S"
       short: "%d/%m/%Y %H:%M"
       time_of_day: "%H:%M"
@@ -1686,6 +1700,7 @@ it:
     dropdown:
       choose_diff_view_html: 'Modalità visualizzazione HTML:'
       choose_diff_view_mode: 'Modalità di visualizzazione confronto:'
+      choose_diff_view_mode_menu: Scegli la modalità di ricerca
       option_escaped: Escaped
       option_split: Affiancati
       option_unescaped: Unescaped

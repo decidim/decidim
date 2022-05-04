@@ -14,9 +14,10 @@ module Decidim::Admin
       }
     end
     let(:uploaded_image) do
-      Rack::Test::UploadedFile.new(
-        Decidim::Dev.test_file("city2.jpeg", "image/jpeg"),
-        "image/jpeg"
+      ActiveStorage::Blob.create_and_upload!(
+        io: File.open(Decidim::Dev.asset("city.jpeg")),
+        filename: "city.jpeg",
+        content_type: "image/jpeg"
       )
     end
     let(:images) do
@@ -26,21 +27,23 @@ module Decidim::Admin
       }.with_indifferent_access
     end
 
-    let(:form) do
-      double(
-        invalid?: invalid,
-        settings: settings,
-        images: images
-      )
+    let(:form_klass) { Decidim::Admin::ContentBlockForm }
+    let(:form_params) do
+      {
+        content_block: {
+          settings: settings,
+          images: images
+        }
+      }
     end
-    let(:invalid) { false }
-
-    before do
-      Decidim::AttachmentUploader.enable_processing = true
+    let(:form) do
+      form_klass.from_params(form_params)
     end
 
     context "when the form is not valid" do
-      let(:invalid) { true }
+      before do
+        allow(form).to receive(:invalid?).and_return(true)
+      end
 
       it "is not valid" do
         expect { subject.call }.to broadcast(:invalid)
@@ -51,51 +54,49 @@ module Decidim::Admin
       it "updates the content block settings" do
         subject.call
         content_block.reload
-        expect(content_block.settings.welcome_text[:en]).to eq("My text")
+        expect(content_block.settings.welcome_text["en"]).to eq("My text")
       end
 
       context "when the image does not exist" do
         it "creates the related image" do
-          expect(content_block.images).to eq({ "background_image" => nil })
+          expect(content_block.images_container.background_image.attached?).to be false
 
           subject.call
           content_block.reload
 
-          expect(content_block.images).not_to be_empty
-          expect(content_block.images_container.background_image.url).to be_present
+          expect(content_block.images_container.background_image.attached?).to be true
+          expect(content_block.images_container.attached_uploader(:background_image).path).to be_present
         end
       end
 
       context "when the image exists" do
         let(:original_image) do
-          Rack::Test::UploadedFile.new(
-            Decidim::Dev.test_file("city.jpeg", "image/jpeg"),
-            "image/jpeg"
+          ActiveStorage::Blob.create_and_upload!(
+            io: File.open(Decidim::Dev.asset("city.jpeg")),
+            filename: "city.jpeg",
+            content_type: "image/jpeg"
           )
         end
 
         before do
-          # Enable processing for the test in order to catch validation errors
-          Decidim::HomepageImageUploader.enable_processing = true
-
           content_block.images_container.background_image = original_image
           content_block.save
         end
 
         after do
-          Decidim::HomepageImageUploader.enable_processing = false
-          content_block.images_container.background_image.remove! if content_block.images_container.background_image
+          content_block.images_container.background_image.purge if content_block.images_container.background_image.attached?
         end
 
         it "updates the image" do
           expect do
             subject.call
             content_block.reload
-          end.to(change { content_block.images_container.background_image.url })
+          end.to(change { content_block.images_container.attached_uploader(:background_image).path })
         end
 
         context "with the image being larger in size than the organization allows" do
           before do
+            content_block.images_container.background_image.purge
             content_block.organization.settings.tap do |settings|
               settings.upload.maximum_file_size.default = 1.kilobyte.to_f / 1.megabyte
             end
@@ -103,6 +104,8 @@ module Decidim::Admin
 
           it "is not valid" do
             expect { subject.call }.to broadcast(:invalid)
+            content_block.reload
+            expect(content_block.images_container.background_image.attached?).to be false
           end
         end
 
@@ -117,7 +120,7 @@ module Decidim::Admin
             expect do
               subject.call
               content_block.reload
-            end.to change { content_block.images.values }.to([nil])
+            end.to change { content_block.images_container.background_image.attached? }.to(false)
           end
         end
       end

@@ -16,9 +16,19 @@ sv:
         other: Röster
   decidim:
     comments:
+      admin:
+        shared:
+          availability_fields:
+            enabled: Kommentarer aktiverade
+            end_time: Kommentarer aktiverade till
+            start_time: Kommentarer aktiverade från och med
       comments:
         create:
           error: Det gick inte att skapa kommentaren.
+        delete:
+          error: Kommentaren kunde inte tas bort.
+        update:
+          error: Det gick inte att uppdatera kommentaren.
       comments_count: Antal kommentarer
       comments_title: Kommentarer
       last_activity:
@@ -53,7 +63,12 @@ sv:
         alignment:
           against: Mot
           in_favor: För
+        confirm_destroy: Är du säker på att du vill ta bort denna kommentar?
+        delete: Radera
+        deleted_at: Kommentar borttagen den %{date}
         deleted_user: Raderad deltagare
+        edit: Redigera
+        edited: Redigerad
         hide_replies: Göm svar
         reply: Svara
         report:
@@ -68,6 +83,7 @@ sv:
             spam: Innehåller clickbait, reklam, bedrägerier eller skriptrobotar.
           title: Rapportera olämpligt innehåll
         show_replies: Visa %{replies_count} svar
+        single_comment_link_title: Hämta länk
       comment_order_selector:
         order:
           best_rated: Bästa betyg
@@ -78,17 +94,26 @@ sv:
       comment_thread:
         title: Samtal med %{authorName}
       comments:
+        blocked_comments_for_unauthorized_user_warning: Du behöver verifiera dig för att kunna kommentera just nu, men du kan läsa tidigare kommentarer.
         blocked_comments_for_user_warning: Du kan inte kommentera just nu, men du kan läsa tidigare kommentarer.
         blocked_comments_warning: Kommentarer är inaktiverade just nu, men du kan läsa de föregående.
         comment_details_title: Kommentarsdetaljer
         loading: Laddar kommentarer...
-        single_comment_warning: Läs återstående <a href="%{url}">kommentarer</a>.
+        single_comment_warning: <a href="%{url}">Visa alla kommentarer</a>
         single_comment_warning_title: Du visar en enda kommentar
         title:
           one: "%{count} kommentarer"
           other: "%{count} kommentarer"
       down_vote_button:
         text: Jag håller inte med om denna kommentar
+      edit_comment_modal_form:
+        close: Stäng
+        form:
+          body:
+            label: Kommentar
+            placeholder: Vad tycker du om detta?
+          submit: Skicka
+        title: Redigera din kommentar
       up_vote_button:
         text: Jag instämmer i denna kommentar
     events:

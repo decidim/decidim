@@ -274,8 +274,8 @@ fi:
             update: Päivitä
           form:
             authorizations: Varmennuksen asetukset
-            child_scope_threshold_enabled_help: 'Tämä asetus ei tue fyysisiä äänestyksiä, se ottaa käyttöön alateemat ja toimii sellaisten tunnistautumistapojen kanssa, jotka yhdistävät käyttäjän tiettyyn teemaan. Varmista, että valitset tällaisen tunnistautumistavan alla olevista asetuksista. Toimiakseen teemojen on oltava määritetty hierarkisella tavalla: 1 isäntä - N lasta. Jos tarvitset lisätietoja kuinka tämä asetus toimii, tutustu <a href="https://docs.decidim.org/admin-manual/en/initiatives/" target="_blank">asetuksen dokumentaatioon täältä</a>.'
-            only_global_scope_enabled_help: Ota tämä asetus käyttöön, jos otit köyttöön "alateemojen allekirjoitukset" ja asetit järjestelmänlaajuisen yläteeman. Ottamalla tämän asetuksen käyttöön, aloitteen tyypin valinta sivuutetaan aloitteiden luontinäkymässä. Saat <a href="https://docs.decidim.org/admin-manual/en/initiatives/" target="_blank">lisätietoja tästä ominaisuudesta täältä</a>.
+            child_scope_threshold_enabled_help: 'Tämä asetus ei tue fyysisiä äänestyksiä, se ottaa käyttöön alateemat ja toimii sellaisten tunnistautumistapojen kanssa, jotka yhdistävät käyttäjän tiettyyn teemaan. Varmista, että valitset tällaisen tunnistautumistavan alla olevista asetuksista. Tämän asetuksen toiminta vaatii teemojen määrityksen hierarkisesti: 1 isäntä - N lasta. Jos tarvitset lisätietoja kuinka tämä asetus toimii, tutustu <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">asetuksen dokumentaatioon täältä</a>.'
+            only_global_scope_enabled_help: Ota tämä asetus käyttöön, jos otit käyttöön "alateemojen allekirjoitukset" ja asetit yleisen yläteeman. Ottamalla tämän asetuksen käyttöön, aloitteen tyypin valinta sivuutetaan aloitteiden luontinäkymässä. Saat <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">lisätietoja tästä ominaisuudesta täältä</a>.
             options: Valinnat
             title: Yleistä tietoa
           initiative_type_scopes:
@@ -408,7 +408,7 @@ fi:
           notification_title: <a href="%{applicant_profile_url}">%{applicant_nickname}</a> haki jäseneksi aloitteesi <a href="%{resource_url}">%{resource_title}</a> kannatuskomiteaan. Voit hyväksyä tai hylätä pyynnön <a href="%{resource_url}/edit">aloitteen muokkaussivulta</a>.
       form:
         add_attachments: Asiakirjat
-        attachment_legend: "(Vapaaehtoinen) Lisää liitteitä"
+        attachment_legend: "(Valinnainen) Lisää liitetiedosto"
         delete_attachment: Poista
       index:
         title: Aloitteet
@@ -579,6 +579,9 @@ fi:
     menu:
       initiatives: Aloitteet
     resources:
+      initiative:
+        actions:
+          comment: Kommentoi
       initiatives_type:
         actions:
           title: Toimet

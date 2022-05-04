@@ -8,7 +8,9 @@ module Decidim
       module Admin
         # A command with the business logic to create census dataset for a
         # voting space.
-        class CreateDataset < Rectify::Command
+        class CreateDataset < Decidim::Command
+          include Decidim::HasBlobFile
+
           def initialize(form, current_user)
             @form = form
             @current_user = current_user
@@ -31,7 +33,7 @@ module Decidim
             end
 
             if dataset
-              CSV.foreach(form.file.tempfile.path, col_sep: ";", headers: true) do |row|
+              CSV.foreach(blob_path, col_sep: ";", headers: true, converters: ->(f) { f&.strip }) do |row|
                 CreateDatumJob.perform_later(current_user, dataset, row.fields)
               end
             end
@@ -48,7 +50,7 @@ module Decidim
               current_user,
               {
                 voting: form.current_participatory_space,
-                file: form.file.original_filename,
+                file: blob,
                 csv_row_raw_count: csv_row_count,
                 status: :creating_data
               },
@@ -57,23 +59,31 @@ module Decidim
           end
 
           def csv_header_invalid?
-            CSV.parse_line(File.open(form.file.tempfile.path, &:readline), col_sep: ";").size != expected_header_size
+            CSV.parse_line(File.open(blob_path), col_sep: ";", headers: true, header_converters: :symbol).headers != expected_headers
           end
 
-          def expected_header_size
-            @expected_header_size ||= form.current_participatory_space.has_ballot_styles? ? 9 : 8
+          def headers
+            [:document_id, :document_type, :date_of_birth, :full_name, :full_address, :postal_code, :mobile_phone_number, :email_address]
+          end
+
+          def ballot_style_headers
+            headers.push(:ballot_style_code)
+          end
+
+          def expected_headers
+            @expected_headers ||= form.current_participatory_space.has_ballot_styles? ? ballot_style_headers : headers
           end
 
           def csv_rows
-            @csv_rows ||= CSV.read(form.file.tempfile.path)
+            @csv_rows ||= CSV.read(blob_path)
           end
 
           def csv_row_count
-            @csv_row_count ||= file_lines_count(form.file.tempfile.path) - 1
+            @csv_row_count ||= file_lines_count(blob_path) - 1
           end
 
           def file_lines_count(file_path)
-            `wc -l "#{file_path}"`.strip.split(" ")[0].to_i
+            `wc -l "#{file_path.shellescape}"`.strip.split(" ")[0].to_i
           end
         end
       end

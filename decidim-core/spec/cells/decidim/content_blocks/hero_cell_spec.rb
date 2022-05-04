@@ -31,9 +31,10 @@ describe Decidim::ContentBlocks::HeroCell, type: :cell do
 
   context "when the content block has a background image" do
     let(:background_image) do
-      Rack::Test::UploadedFile.new(
-        Decidim::Dev.test_file("city.jpeg", "image/jpeg"),
-        "image/jpeg"
+      ActiveStorage::Blob.create_and_upload!(
+        io: File.open(Decidim::Dev.asset("city.jpeg")),
+        filename: "city.jpeg",
+        content_type: "image/jpeg"
       )
     end
 
@@ -43,12 +44,13 @@ describe Decidim::ContentBlocks::HeroCell, type: :cell do
     end
 
     it "uses that image's big version as background" do
-      expect(subject.to_s).to include(content_block.images_container.background_image.big.url)
+      expect(subject.to_s).to include(content_block.images_container.attached_uploader(:background_image).path(variant: :big))
     end
   end
 
   describe "#cache_hash" do
     it "generate a unique hash" do
+      content_block.reload
       old_hash = cell(content_block.cell, content_block).send(:cache_hash)
       content_block.reload
 

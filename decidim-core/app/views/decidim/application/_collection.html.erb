@@ -1,18 +1,18 @@
 <% unless attachment_collection.unused? %>
   <div class="docs__container">
-    <span data-toggle="docs-collection-<%= attachment_collection.id %>"><%= icon "caret-right", class: "icon--small", role: "img", "aria-hidden": true %>&nbsp;
+    <button type="button" data-toggle="docs-collection-<%= attachment_collection.id %>"><%= icon "caret-right", class: "icon--small", role: "img", "aria-hidden": true %>&nbsp;
       <strong><%= translated_attribute(attachment_collection.name) %></strong>
 
       <% attachment_collection_documents_count =  attachment_collection.attachments.select(&:document?).count %>
       <small>(<%= attachment_collection_documents_count %> <%= t("decidim.application.collection.documents", count: attachment_collection_documents_count) %>)</small>
-    </span>
+    </button>
 
     <div id="docs-collection-<%= attachment_collection.id %>" class="docs__content hide" data-toggler=".hide">
       <p><%= translated_attribute(attachment_collection.description) %></p>
 
       <div class="card card--list">
         <% documents.each do |document| %>
-          <%= render partial: "decidim/application/document.html", locals: { document: document } %>
+          <%= render partial: "decidim/application/document", locals: { document: document } %>
         <% end %>
       </div>
     </div>

@@ -9,7 +9,7 @@ ja:
         max_choices: 選択肢の最大数
         question_type: タイプ
       questionnaire_question:
-        mandatory: Mandatory
+        mandatory: 必須
         max_characters: 文字数制限 (制限がない場合は0にしてください)
     errors:
       models:
@@ -79,6 +79,7 @@ ja:
           form:
             add_question: 質問を追加
             add_separator: 区切り文字を追加
+            add_title_and_description: タイトルと説明を追加
             already_answered_warning: このフォームはすでに一部のユーザーによって回答されているため、質問を修正することはできません。
             collapse: すべての質問を閉じる
             expand: すべての質問を展開
@@ -108,6 +109,15 @@ ja:
             remove: 削除
             separator: 区切り記号
             up: 上へ
+          title_and_description:
+            collapse: 折りたたむ
+            description: 説明
+            down: 下へ
+            expand: 展開する
+            remove: 削除
+            title: タイトル
+            title_and_description: タイトルと説明
+            up: 上へ
           update:
             invalid: フォームの保存に失敗しました。
             success: フォームを保存しました。
@@ -118,10 +128,9 @@ ja:
         extension_allowlist: '承認されたフォーマット:'
       images:
         dimensions: "%{width} x %{height} px"
-        dimensions_info: 'この画像は次のようになります:'
         processors:
-          resize_and_pad: リサイズおよびパッド先
-          resize_to_fit: フィットするようにリサイズしました
+          resize_and_pad: この画像はリサイズされ、 %{dimensions} に合わされます。
+          resize_to_fit: この画像は %{dimensions} に合うようにリサイズされます。
       question_types:
         files: ファイル
         long_answer: 長い回答
@@ -131,6 +140,7 @@ ja:
         short_answer: 短い回答
         single_option: 単一オプション
         sorting: 並び替え
+        title_and_description: タイトルと説明
       questionnaires:
         answer:
           invalid: フォームの回答に問題がありました。

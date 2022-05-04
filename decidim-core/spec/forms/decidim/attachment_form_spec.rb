@@ -7,11 +7,12 @@ describe Decidim::AttachmentForm do
     described_class.new(
       title: title,
       file: file
-    )
+    ).with_context(current_organization: organization)
   end
 
   let(:title) { "My attachment" }
   let(:file) { Decidim::Dev.test_file("city.jpeg", "image/jpeg") }
+  let(:organization) { create(:organization) }
 
   context "with correct data" do
     it "is valid" do

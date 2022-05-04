@@ -18,7 +18,8 @@ module GeocoderHelpers
   # are no pending requests when proceeding.
   def fill_in_geocoding(attribute, options = {})
     fill_in attribute, options
-    expect(page).to have_selector(".tribute-container ul#results", count: 1)
+    expect(page).to have_selector(".autoComplete_wrapper ul#autoComplete_list_1", count: 1)
+    find("li#autoComplete_result_0").click
   end
 
   module_function
@@ -61,7 +62,7 @@ module Decidim::Map::Provider
 
       class Builder < Decidim::Map::Autocomplete::Builder
         def javascript_snippets
-          template.javascript_pack_tag("decidim_geocoding_provider_photon")
+          template.javascript_pack_tag("decidim_geocoding_provider_photon", defer: false)
         end
       end
     end

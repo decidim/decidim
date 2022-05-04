@@ -88,12 +88,20 @@ module Decidim
 
         # Create empty directory for images
         empty_directory "app/packs/images"
+        # Add a .keep file so directory is included in git when committing
+        create_file "app/packs/images/.keep"
 
-        # Run webpacker installation
-        rails "webpacker:install"
+        # Regenerate webpacker binstubs
+        remove_file "bin/yarn"
+        bundle_install
+        rails "webpacker:binstubs"
 
         # Run Decidim custom webpacker installation
         rails "decidim:webpacker:install"
+      end
+
+      def build_api_docs
+        rails "decidim_api:generate_docs"
       end
 
       def remove_old_assets
@@ -103,16 +111,13 @@ module Decidim
       end
 
       def remove_sprockets_requirement
-        gsub_file "config/application.rb", %r{require 'rails/all'}, <<~RUBY
-          require "rails"
-          # Pick the frameworks you want:
-          require "active_model/railtie"
-          require "active_job/railtie"
-          require "active_record/railtie"
-          require "active_storage/engine"
-          require "action_controller/railtie"
-          require "action_mailer/railtie"
-          require "action_view/railtie"
+        gsub_file "config/application.rb", %r{require ['"]rails/all['"]\R}, <<~RUBY
+          require "decidim/rails"
+
+          # Add the frameworks used by your app that are not loaded by Decidim.
+          # require "action_mailbox/engine"
+          # require "action_text/engine"
+          require "action_cable/engine"
           require "rails/test_unit/railtie"
         RUBY
 
@@ -161,7 +166,9 @@ module Decidim
 
         copy_file "bullet_initializer.rb", "config/initializers/bullet.rb"
         copy_file "rack_profiler_initializer.rb", "config/initializers/rack_profiler.rb"
+      end
 
+      def bundle_install
         run "bundle install"
       end
 

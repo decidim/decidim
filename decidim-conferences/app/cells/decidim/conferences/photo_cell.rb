@@ -30,7 +30,7 @@ module Decidim
       end
 
       def short_description
-        decidim_sanitize html_truncate(description, length: 100, separator: "...")
+        decidim_sanitize_editor html_truncate(description, length: 100, separator: "...")
       end
 
       def description

@@ -5,8 +5,9 @@ module Decidim
   # context of a participatory process.
   class Category < ApplicationRecord
     include Decidim::TranslatableResource
+    include Decidim::FilterableResource
 
-    translatable_fields :name, :description
+    translatable_fields :name
 
     belongs_to :participatory_space, foreign_key: "decidim_participatory_space_id", foreign_type: "decidim_participatory_space_type", polymorphic: true
     has_many :subcategories, foreign_key: "parent_id", class_name: "Decidim::Category", dependent: :destroy, inverse_of: :parent
@@ -39,9 +40,7 @@ module Decidim
     end
 
     # Allow ransacker to search for a key in a hstore column (`name`.`en`)
-    ransacker :name do |parent|
-      Arel::Nodes::InfixOperation.new("->>", parent.table[:name], Arel::Nodes.build_quoted(I18n.locale.to_s))
-    end
+    ransacker_i18n :name
 
     private
 

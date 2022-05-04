@@ -3,7 +3,7 @@
   <head>
     <title><%= Decidim::GraphiQL::Rails.config.title || "Decidim API" %></title>
     <%= stylesheet_pack_tag("decidim_api_graphiql") %>
-    <%= javascript_pack_tag("decidim_api_graphiql") %>
+    <%= javascript_pack_tag("decidim_api_graphiql", defer: false) %>
   </head>
   <body>
     <div id="graphiql-container">

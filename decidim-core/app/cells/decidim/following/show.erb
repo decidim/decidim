@@ -1,9 +1,18 @@
-<div class="empty-notifications callout secondary <%= "hide" if followings.any? %>">
-  <p><%= t("decidim.following.no_followings") %></p>
-</div>
-<div class="row small-up-1 medium-up-2 card-grid">
-  <% followings.each do |following| %>
-    <%= card_for following, context: { label: true, show_space: true } %>
+<% if public_followings.any? %>
+  <% if non_public_followings? %>
+    <div class="callout secondary">
+      <p><%= t("decidim.following.non_public_followings") %></p>
+    </div>
   <% end %>
-</div>
-<%= decidim_paginate followings %>
+
+  <div class="row small-up-1 medium-up-2 card-grid">
+    <% public_followings.each do |followable| %>
+      <%= card_for followable, context: { label: true, show_space: true } %>
+    <% end %>
+  </div>
+  <%= decidim_paginate public_followings %>
+<% else %>
+  <div class="callout secondary">
+    <p><%= t("decidim.following.no_followings") %></p>
+  </div>
+<% end %>

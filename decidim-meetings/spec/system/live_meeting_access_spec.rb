@@ -20,28 +20,327 @@ describe "Meeting live event access", type: :system do
   end
 
   context "when online meeting is live" do
-    let(:meeting) { create :meeting, :published, :online, :live, component: component }
+    shared_examples "iframe access levels" do |embedding_type|
+      context "when the iframe access level is for all visitors" do
+        before do
+          meeting.iframe_access_level_all!
+        end
 
-    it "shows the link to the live meeting streaming" do
-      visit_meeting
+        context "and user is signed in" do
+          before do
+            login_as user, scope: :user
+          end
 
-      expect(page).to have_content("This meeting is happening right now")
+          it "shows the meeting link embedded" do
+            visit_meeting
 
-      # Join the meeting opens in a new window
-      new_window = window_opened_by { click_link "Join the meeting" }
-      within_window new_window do
-        expect(page).to have_current_path meeting_live_event_path
+            expect(page).to have_content("This meeting is happening right now")
+            case embedding_type
+            when :embedded
+              expect(page).to have_css("iframe")
+            else
+              expect(page).to have_content("JOIN MEETING")
+            end
+          end
+        end
       end
+
+      context "and the iframe access level is for signed in visitors" do
+        before do
+          meeting.iframe_access_level_signed_in!
+        end
+
+        context "and user is not signed in" do
+          it "doesn't show the meeting link embedded" do
+            visit_meeting
+
+            expect(page).to have_no_content("This meeting is happening right now")
+            case embedding_type
+            when :embedded
+              expect(page).to have_no_css("iframe")
+            else
+              expect(page).to have_no_content("JOIN MEETING")
+            end
+          end
+        end
+
+        context "and user is signed in" do
+          before do
+            login_as user, scope: :user
+          end
+
+          it "shows the meeting link embedded" do
+            visit_meeting
+
+            expect(page).to have_content("This meeting is happening right now")
+            case embedding_type
+            when :embedded
+              expect(page).to have_css("iframe")
+            else
+              expect(page).to have_content("JOIN MEETING")
+            end
+          end
+        end
+      end
+
+      context "and the iframe access level is for registered visitors" do
+        before do
+          meeting.iframe_access_level_registered!
+        end
+
+        let!(:registered_user) { create :user, :confirmed, organization: organization }
+        let!(:registration) { create :registration, meeting: meeting, user: registered_user }
+
+        context "and user is not signed in" do
+          it "doesn't show the meeting link embedded" do
+            visit_meeting
+
+            expect(page).to have_no_content("This meeting is happening right now")
+            case embedding_type
+            when :embedded
+              expect(page).to have_no_css("iframe")
+            else
+              expect(page).to have_no_content("JOIN MEETING")
+            end
+          end
+        end
+
+        context "and not registered user is signed in" do
+          before do
+            login_as user, scope: :user
+          end
+
+          it "doesn't show the meeting link embedded" do
+            visit_meeting
+
+            expect(page).to have_no_content("This meeting is happening right now")
+            case embedding_type
+            when :embedded
+              expect(page).to have_no_css("iframe")
+            else
+              expect(page).to have_no_content("JOIN MEETING")
+            end
+          end
+        end
+
+        context "and registered user is signed in" do
+          before do
+            login_as registered_user, scope: :user
+          end
+
+          it "shows the meeting link embedded" do
+            visit_meeting
+
+            expect(page).to have_content("This meeting is happening right now")
+            case embedding_type
+            when :embedded
+              expect(page).to have_css("iframe")
+            else
+              expect(page).to have_content("JOIN MEETING")
+            end
+          end
+        end
+      end
+    end
+
+    shared_examples "belonging to an assembly which is a transparent private space" do
+      let(:assembly) { create(:assembly, :private, :transparent, organization: organization) }
+      let(:participatory_space) { assembly }
+      let(:admin) { create :user, :confirmed, :admin, organization: organization }
+      let(:private_user) { create :user, :confirmed, organization: organization }
+      let!(:assembly_private_user) { create :assembly_private_user, user: private_user, privatable_to: assembly }
+
+      context "when user is not signed in" do
+        it "doesn't show the meeting link embedded" do
+          visit_meeting
+
+          expect(page).to have_no_content("This meeting is happening right now")
+        end
+      end
+
+      context "when user is signed in" do
+        before do
+          login_as user, scope: :user
+        end
+
+        it "doesn't show the meeting link embedded" do
+          visit_meeting
+
+          expect(page).to have_no_content("This meeting is happening right now")
+        end
+      end
+
+      context "when private user is signed in" do
+        before do
+          login_as private_user, scope: :user
+        end
+
+        it "shows the meeting link embedded" do
+          visit_meeting
+
+          expect(page).to have_content("This meeting is happening right now")
+        end
+      end
+
+      context "when admin user is signed in" do
+        before do
+          login_as admin, scope: :user
+        end
+
+        it "shows the meeting link embedded" do
+          visit_meeting
+
+          expect(page).to have_content("This meeting is happening right now")
+        end
+      end
+    end
+
+    context "and the iframe_embed_type is none" do
+      let(:meeting) { create :meeting, :published, :online, :live, component: component }
+
+      it "doesn't show the link to the live meeting streaming" do
+        visit_meeting
+
+        expect(page).to have_no_content("This meeting is happening right now")
+      end
+    end
+
+    context "and the iframe_embed_type is 'embed_in_meeting_page'" do
+      let(:meeting) { create :meeting, :published, :embed_in_meeting_page_iframe_embed_type, :online, :embeddable, :live, component: component }
+
+      context "and the meeting URL is not embeddable" do
+        let(:meeting) { create :meeting, :published, :embed_in_meeting_page_iframe_embed_type, :online, :live, component: component }
+
+        it "shows the link to the live meeting streaming" do
+          visit_meeting
+
+          expect(page).to have_content("This meeting is happening right now")
+        end
+      end
+
+      it "shows the meeting link embedded" do
+        visit_meeting
+
+        expect(page).to have_css("iframe")
+      end
+
+      it_behaves_like "iframe access levels", :embedded
+      it_behaves_like "belonging to an assembly which is a transparent private space"
+    end
+
+    context "and the iframe_embed_type is 'open_in_live_event_page'" do
+      let(:meeting) { create :meeting, :published, :online, :open_in_live_event_page_iframe_embed_type, :live, :embeddable, component: component }
+
+      it "shows the link to the live meeting streaming" do
+        visit_meeting
+
+        new_window = window_opened_by { click_link "Join meeting" }
+
+        within_window new_window do
+          expect(page).to have_current_path(meeting_live_event_path)
+        end
+      end
+
+      context "and the meeting URL is not embeddable" do
+        let(:meeting) { create :meeting, :published, :online, :open_in_live_event_page_iframe_embed_type, :live, component: component }
+
+        it "shows the link to the external streaming service" do
+          visit_meeting
+
+          # Join the meeting displays a warning to users because
+          # is redirecting to a different domain
+          click_link "Join meeting"
+
+          expect(page).to have_content("Open external link")
+        end
+      end
+
+      it_behaves_like "iframe access levels", :live_event_page
+      it_behaves_like "belonging to an assembly which is a transparent private space"
+    end
+
+    context "and the iframe_embed_type is 'open_in_new_tab'" do
+      let(:meeting) { create :meeting, :published, :online, :open_in_new_tab_iframe_embed_type, :live, component: component }
+
+      it "shows the link to the meeting URL" do
+        visit_meeting
+
+        # Join the meeting displays a warning to users because
+        # is redirecting to a different domain
+        click_link "Join meeting"
+
+        expect(page).to have_content("Open external link")
+      end
+
+      it_behaves_like "belonging to an assembly which is a transparent private space"
     end
   end
 
-  context "when online meeting is not live" do
+  context "when online meeting is not live and is not embedded" do
     let(:meeting) { create :meeting, :published, :online, :past, component: component }
 
     it "doesn't show the link to the live meeting streaming" do
       visit_meeting
 
       expect(page).to have_no_content("This meeting is happening right now")
+    end
+  end
+
+  context "when online meeting is not live and it's embedded" do
+    let(:meeting) { create :meeting, :published, :embed_in_meeting_page_iframe_embed_type, :online, :embeddable, component: component }
+
+    it "doesn't show the meeting link embedded" do
+      visit_meeting
+
+      expect(page).to have_no_css("iframe")
+    end
+  end
+
+  describe "live meeting access" do
+    let(:meeting) { create :meeting, :published, :online, :embed_in_meeting_page_iframe_embed_type, component: component }
+    let(:start_time) { meeting.start_time }
+    let(:end_time) { meeting.end_time }
+
+    around do |example|
+      travel_to current_time do
+        example.run
+      end
+    end
+
+    before do
+      visit_meeting
+    end
+
+    context "when current time is further than 10 minutes from the start time" do
+      let(:current_time) { start_time - 20.minutes }
+
+      it "is not live" do
+        expect(page).to have_no_content("This meeting is happening right now")
+      end
+    end
+
+    context "when current time is lesser than 10 minutes from the start time" do
+      let(:current_time) { start_time - 5.minutes }
+
+      it "is live" do
+        expect(page).to have_content("This meeting is happening right now")
+      end
+    end
+
+    context "when current time in between the start and the end time" do
+      let(:current_time) { start_time + 1.minute }
+
+      it "is live" do
+        expect(page).to have_content("This meeting is happening right now")
+      end
+    end
+
+    context "when current time has passed the end time" do
+      let(:current_time) { end_time + 5.minutes }
+
+      it "is not live" do
+        expect(page).to have_no_content("This meeting is happening right now")
+      end
     end
   end
 end

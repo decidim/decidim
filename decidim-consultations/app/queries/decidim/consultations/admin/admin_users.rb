@@ -3,37 +3,41 @@
 module Decidim
   module Consultations
     module Admin
-      # A class used to find the admins for a participatory process including
-      # organization admins.
-      class AdminUsers < Rectify::Query
+      # A class used to find the admins for a consultation or an organization consultations.
+      class AdminUsers < Decidim::Query
         # Syntactic sugar to initialize the class and return the queried objects.
         #
-        # consultation - a process that needs to find its process admins
+        # consultation - a consultation that needs to find its consultation admins
         def self.for(consultation)
           new(consultation).query
         end
 
-        # Initializes the class.
+        # Syntactic sugar to initialize the class and return the queried objects.
         #
-        # consultation - a consultation that needs to find its process admins
-        def initialize(consultation)
-          @consultation = consultation
+        # organization - an organization that needs to find its consultation admins
+        def self.for_organization(organization)
+          new(nil, organization).query
         end
 
-        # Finds organization admins and the users with role admin for the given process.
+        # Initializes the class.
+        #
+        # consultation - a consultation that needs to find its consultation admins
+        # organization - an organization that needs to find its consultation admins
+        def initialize(consultation, organization = nil)
+          @consultation = consultation
+          @organization = consultation&.organization || organization
+        end
+
+        # Finds organization admins and the users with role admin for the given consultation.
         #
         # Returns an ActiveRecord::Relation.
         def query
-          Decidim::User.where(id: organization_admins)
+          organization.admins
         end
 
         private
 
-        attr_reader :consultation
-
-        def organization_admins
-          consultation.organization.admins
-        end
+        attr_reader :organization
       end
     end
   end

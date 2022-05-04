@@ -7,6 +7,9 @@ module Decidim
       autoload :Importer, "decidim/admin/import/importer"
       autoload :Creator, "decidim/admin/import/creator"
       autoload :Readers, "decidim/admin/import/readers"
+      autoload :Verifier, "decidim/admin/import/verifier"
+
+      class InvalidFileError < StandardError; end
     end
   end
 end

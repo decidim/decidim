@@ -4,7 +4,7 @@ module Decidim
   module Admin
     # A command with all the business logic to add an attachment to a
     # participatory process.
-    class CreateAttachment < Rectify::Command
+    class CreateAttachment < Decidim::Command
       # Public: Initializes the command.
       #
       # form - A form object with the params.
@@ -46,7 +46,8 @@ module Decidim
           attached_to: @attached_to,
           weight: form.weight,
           attachment_collection: form.attachment_collection,
-          file: form.file # Define attached_to before this
+          file: form.file, # Define attached_to before this
+          content_type: blob(form.file).content_type
         )
       end
 
@@ -59,6 +60,10 @@ module Decidim
           resource: @attachment,
           followers: @attachment.attached_to.followers
         )
+      end
+
+      def blob(signed_id)
+        ActiveStorage::Blob.find_signed(signed_id)
       end
     end
   end

@@ -21,13 +21,17 @@ module Decidim
               description_ca: consultation.description["ca"],
               description_es: consultation.description["es"],
               slug: consultation.slug,
-              banner_image: consultation.banner_image,
               decidim_highlighted_scope_id: consultation.highlighted_scope.id,
               start_voting_date: consultation.start_voting_date,
               end_voting_date: consultation.end_voting_date,
-              introductory_video_url: consultation.introductory_video_url,
-              introductory_image: consultation.introductory_image
-            }
+              introductory_video_url: consultation.introductory_video_url
+            }.merge(attachment_params)
+          }
+        end
+        let(:attachment_params) do
+          {
+            banner_image: consultation.banner_image.blob,
+            introductory_image: consultation.introductory_image.blob
           }
         end
         let(:context) do
@@ -60,7 +64,7 @@ module Decidim
           before do
             expect(form).to receive(:invalid?).and_return(false)
             expect(consultation).to receive(:valid?).at_least(:once).and_return(false)
-            consultation.errors.add(:banner_image, "Image too big")
+            consultation.errors.add(:banner_image, "File resolution is too large")
           end
 
           it "broadcasts invalid" do
@@ -87,6 +91,12 @@ module Decidim
           end
 
           context "when banner image is not updated" do
+            let(:attachment_params) do
+              {
+                introductory_image: consultation.introductory_image.blob
+              }
+            end
+
             it "does not replace the banner image" do
               expect(consultation).not_to receive(:banner_image=)
 
@@ -98,6 +108,12 @@ module Decidim
           end
 
           context "when introductory image is not updated" do
+            let(:attachment_params) do
+              {
+                banner_image: consultation.banner_image.blob
+              }
+            end
+
             it "does not replace the introductory image" do
               expect(consultation).not_to receive(:introductory_image=)
 

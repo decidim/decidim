@@ -1,0 +1,11 @@
+<% add_decidim_meta_tags({
+  description: strip_tags(translated_attribute(current_organization.description)),
+  title: current_organization.name,
+  url: request.original_url,
+  twitter_handler: current_organization.twitter_handler,
+  image_url: Decidim::ContentBlock.published.find_by(
+    organization: current_organization,
+    scope_name: :homepage,
+    manifest_name: :hero
+  ).try(:images_container).try(:attached_uploader, :background_image).try(:path)
+}) %>

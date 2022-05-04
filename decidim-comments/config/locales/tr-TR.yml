@@ -76,7 +76,6 @@ tr:
         blocked_comments_warning: Yorumlar şu anda devre dışı, ancak öncekileri okuyabilirsiniz.
         comment_details_title: Yorum ayrıntıları
         loading: Yorumlar yükleniyor ...
-        single_comment_warning: Yorumların geri kalanını <a href="%{url}"> buradan </a> kontrol edebilirsiniz.
         single_comment_warning_title: Tek bir yorum görüyorsunuz
         title:
           one: "%{count} yorum"

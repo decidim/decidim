@@ -36,7 +36,7 @@ module Decidim
             manifest.participatory_spaces.call(@organization).public_spaces
           end
           @query = Decidim::Accountability::Result.select(:decidim_component_id)
-                                                  .where(component: visible_component_ids_from_spaces(spaces))
+                                                  .where(component: visible_components_from_spaces(spaces))
                                                   .joins(:component)
                                                   .left_outer_joins(:category)
           @query = @query.where("decidim_accountability_results.created_at <= ?", end_time)

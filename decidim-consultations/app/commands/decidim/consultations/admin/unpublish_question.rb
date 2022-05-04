@@ -4,7 +4,7 @@ module Decidim
   module Consultations
     module Admin
       # A command that sets a question as unpublished.
-      class UnpublishQuestion < Rectify::Command
+      class UnpublishQuestion < Decidim::Command
         # Public: Initializes the command.
         #
         # question - A Question that will be unpublished

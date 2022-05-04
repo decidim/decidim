@@ -21,35 +21,18 @@ module Decidim
           next if attachment_block.last.nil?
 
           folder_name = attachment_block.first.parameterize
-          attachment_block.last.each do |attachment_uploader|
-            next if attachment_uploader.file.nil?
+          attachment_block.last.each do |attachment|
+            next unless attachment.attached?
 
-            case attachment_uploader.provider
-            when "file" # file system
-              next unless File.exist?(attachment_uploader.file.file)
-            when "aws"
-              cache_attachment_from_aws(attachment_uploader)
-            else
-              Rails.logger.info "Carrierwave fog_provider not supported by DataPortabilityExporter for attachment: #{attachment_uploader}"
-              next
+            blobs = attachment.is_a?(ActiveStorage::Attached::One) ? [attachment.blob] : attachment.blobs
+            blobs.each do |blob|
+              out.put_next_entry("#{folder_name}/#{blob.filename}")
+              blob.open do |f|
+                out << f.read
+              end
             end
-
-            attachment_local_path = attachment_uploader.file.file
-            out.put_next_entry("#{folder_name}/#{attachment_uploader.file.filename}")
-            File.open(attachment_local_path) do |f|
-              out << f.read
-            end
-            CarrierWave.clean_cached_files!
           end
         end
-      end
-
-      # Retrieves the file from AWS and stores it into a temporal cache.
-      # Once the file is cached, the uploader returns a local `CarrierWave::SanitizedFile`
-      # instead of a fog file that acts as a proxy to the remote file.
-      def cache_attachment_from_aws(uploader)
-        uploader.cache_stored_file!
-        uploader.retrieve_from_cache!(uploader.cache_name)
       end
     end
   end

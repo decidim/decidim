@@ -1,0 +1,88 @@
+{
+  "ignored_warnings": [
+    {
+      "warning_type": "Cross-Site Scripting",
+      "warning_code": 2,
+      "fingerprint": "7568599cc8af59b10939f6617f52763f2df32bba7474f9df063d71c803e95e32",
+      "check_name": "CrossSiteScripting",
+      "message": "Unescaped parameter value",
+      "file": "app/views/decidim/proposals/proposals/show.html.erb",
+      "line": 59,
+      "link": "https://brakemanscanner.org/docs/warning_types/cross_site_scripting",
+      "code": "cell(\"decidim/proposals/proposal_m\", Proposal.published.not_hidden.where(:component => current_component).find_by(:id => params[:id]), :full_badge => true).badge",
+      "render_path": [
+        {
+          "type": "controller",
+          "class": "Decidim::Proposals::ProposalsController",
+          "method": "show",
+          "line": 62,
+          "file": "app/controllers/decidim/proposals/proposals_controller.rb",
+          "rendered": {
+            "name": "decidim/proposals/proposals/show",
+            "file": "app/views/decidim/proposals/proposals/show.html.erb"
+          }
+        }
+      ],
+      "location": {
+        "type": "template",
+        "template": "decidim/proposals/proposals/show"
+      },
+      "user_input": "params[:id]",
+      "confidence": "Weak",
+      "note": ""
+    },
+    {
+      "warning_type": "Cross-Site Scripting",
+      "warning_code": 2,
+      "fingerprint": "7d03debd980da201727e8648772750aab0445ea0eb5426f1aea2c8e560e5c458",
+      "check_name": "CrossSiteScripting",
+      "message": "Unescaped parameter value",
+      "file": "app/views/decidim/proposals/collaborative_drafts/show.html.erb",
+      "line": 34,
+      "link": "https://brakemanscanner.org/docs/warning_types/cross_site_scripting",
+      "code": "cell(\"decidim/proposals/collaborative_draft_m\", CollaborativeDraft.not_hidden.where(:component => current_component).find_by(:id => params[:id]), :full_badge => true).badge",
+      "render_path": [
+        {
+          "type": "controller",
+          "class": "Decidim::Proposals::CollaborativeDraftsController",
+          "method": "show",
+          "line": 43,
+          "file": "app/controllers/decidim/proposals/collaborative_drafts_controller.rb",
+          "rendered": {
+            "name": "decidim/proposals/collaborative_drafts/show",
+            "file": "app/views/decidim/proposals/collaborative_drafts/show.html.erb"
+          }
+        }
+      ],
+      "location": {
+        "type": "template",
+        "template": "decidim/proposals/collaborative_drafts/show"
+      },
+      "user_input": "params[:id]",
+      "confidence": "Weak",
+      "note": ""
+    },
+    {
+      "warning_type": "Mass Assignment",
+      "warning_code": 70,
+      "fingerprint": "8eeee9ad33162a80c7cf7a87d597f4cc108b0874d40ddabd1f5241f460a9519a",
+      "check_name": "MassAssignment",
+      "message": "Specify exact keys allowed for mass assignment instead of using `permit!` which allows any keys",
+      "file": "app/controllers/decidim/proposals/admin/participatory_texts_controller.rb",
+      "line": 50,
+      "link": "https://brakemanscanner.org/docs/warning_types/mass_assignment/",
+      "code": "params.require(:preview_participatory_text).permit!",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "Decidim::Proposals::Admin::ParticipatoryTextsController",
+        "method": "update"
+      },
+      "user_input": null,
+      "confidence": "Medium",
+      "note": ""
+    }
+  ],
+  "updated": "2021-10-05 05:32:00 +0000",
+  "brakeman_version": "5.1.1"
+}

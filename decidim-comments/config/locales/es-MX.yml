@@ -16,9 +16,19 @@ es-MX:
         other: Votos
   decidim:
     comments:
+      admin:
+        shared:
+          availability_fields:
+            enabled: Comentarios habilitados
+            end_time: Comentarios habilitados hasta
+            start_time: Comentarios habilitados desde
       comments:
         create:
           error: Se ha producido un error al crear el comentario.
+        delete:
+          error: El comentario no pudo ser eliminado.
+        update:
+          error: Se ha producido un error al actualizar el comentario.
       comments_count: Número de comentarios
       comments_title: Comentarios
       last_activity:
@@ -53,8 +63,14 @@ es-MX:
         alignment:
           against: En contra
           in_favor: A favor
+        confirm_destroy: '¿Seguro que quieres eliminar este comentario?'
+        delete: Eliminar
+        deleted_at: Comentario eliminado el %{date}
         deleted_user: Usuario eliminado
+        edit: Editar
+        edited: Editado
         hide_replies: Ocultar respuestas
+        moderated_at: Comentario moderado el %{date}
         reply: Respuesta
         report:
           action: Denunciar
@@ -68,6 +84,7 @@ es-MX:
             spam: Contiene clickbait, publicidad o estafas.
           title: Notificar contenido inapropiado
         show_replies: Mostrar %{replies_count} respuestas
+        single_comment_link_title: Obtener enlace
       comment_order_selector:
         order:
           best_rated: Mejor valoración
@@ -83,13 +100,21 @@ es-MX:
         blocked_comments_warning: Los comentarios están deshabilitados en este momento, pero puedes leer los anteriores.
         comment_details_title: Detalles del comentario
         loading: Cargando los comentarios ...
-        single_comment_warning: Puedes revisar el resto de los comentarios <a href="%{url}">aquí</a>.
+        single_comment_warning: <a href="%{url}">Ver todos los comentarios</a>
         single_comment_warning_title: Estás viendo un solo comentario
         title:
           one: "%{count} comentario"
           other: "%{count} comentarios"
       down_vote_button:
         text: No estoy de acuerdo con este comentario
+      edit_comment_modal_form:
+        close: Cerrar
+        form:
+          body:
+            label: Comentario
+            placeholder: '¿Qué opinas sobre esto?'
+          submit: Enviar
+        title: Edita tu comentario
       up_vote_button:
         text: Estoy de acuerdo con este comentario
     events:

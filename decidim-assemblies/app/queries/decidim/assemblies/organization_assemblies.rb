@@ -3,7 +3,7 @@
 module Decidim
   module Assemblies
     # This query class filters all assemblies given an organization.
-    class OrganizationAssemblies < Rectify::Query
+    class OrganizationAssemblies < Decidim::Query
       def initialize(organization)
         @organization = organization
       end

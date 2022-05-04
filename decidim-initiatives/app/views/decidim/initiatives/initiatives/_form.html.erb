@@ -64,13 +64,13 @@
   <%= form.select :signature_type, [], {}, { disabled: !@form.signature_type_updatable? } %>
 </div>
 <% if current_initiative.type.attachments_enabled? %>
-  <fieldset>
+  <fieldset class="attachments_container">
     <legend><%= t("attachment_legend", scope: "decidim.initiatives.form") %></legend>
 
     <% if @form.photos.any? %>
       <% @form.photos.each do |photo| %>
         <div class="callout gallery__item" data-closable>
-          <%= image_tag photo.thumbnail_url, class: "thumbnail", alt: photo.file.file.filename %>
+          <%= image_tag photo.thumbnail_url, class: "thumbnail", alt: photo.file.filename %>
           <%= form.hidden_field :photos, multiple: true, value: photo.id, id: "photo-#{photo.id}" %>
           <button class="close-button"
                   aria-label="<%= t("delete_attachment", scope: "decidim.initiatives.form") %>"

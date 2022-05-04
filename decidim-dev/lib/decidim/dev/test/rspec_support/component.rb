@@ -45,6 +45,32 @@ module Decidim
 
         root to: proc { [200, {}, ["DUMMY ADMIN ENGINE"]] }
       end
+
+      initializer "dummy_admin.imports" do
+        class ::DummyCreator < Decidim::Admin::Import::Creator
+          def self.resource_klass
+            Decidim::DummyResources::DummyResource
+          end
+
+          def produce
+            resource
+          end
+
+          private
+
+          def resource
+            @resource ||= Decidim::DummyResources::DummyResource.new(
+              title: { en: "Dummy" },
+              author: context[:current_user],
+              component: component
+            )
+          end
+
+          def component
+            context[:current_component]
+          end
+        end
+      end
     end
 
     class ApplicationRecord < ActiveRecord::Base
@@ -162,14 +188,14 @@ module Decidim
         false
       end
 
-      def respond_to_missing?
+      def respond_to_missing?(*)
         true
       end
 
       def method_missing(method, *args)
         if method.to_s.ends_with?("?")
           false
-        elsif [:avatar_url, :profile_path, :badge, :followers_count].include?(method)
+        elsif [:avatar_url, :profile_path, :badge, :followers_count, :cache_key_with_version].include?(method)
           ""
         else
           super
@@ -267,6 +293,24 @@ Decidim.register_component(:dummy) do |component|
     end
 
     exports.serializer DummySerializer
+  end
+
+  component.imports :dummies do |imports|
+    imports.messages do |msg|
+      msg.set(:resource_name) { |count: 1| count == 1 ? "Dummy" : "Dummies" }
+      msg.set(:title) { "Import dummies" }
+      msg.set(:label) { "Import dummies from a file" }
+    end
+
+    imports.creator DummyCreator
+    imports.example do |import_component|
+      locales = import_component.organization.available_locales
+      translated = ->(name) { locales.map { |l| "#{name}/#{l}" } }
+      [
+        translated.call("title") + %w(body) + translated.call("translatable_text") + %w(address latitude longitude),
+        locales.map { "Title text" } + ["Body text"] + locales.map { "Translatable text" } + ["Fake street 1", 1.0, 1.0]
+      ]
+    end
   end
 end
 
