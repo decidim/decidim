@@ -1396,7 +1396,6 @@ eu:
     invitations:
       edit:
         header: Amaitu zure kontua sortzea
-        nickname_help: Zure identifikadore bakarra %{organization} zenbakian.
         submit_button: Gorde
         subtitle: Gonbidapena onartzen baduzu, ezarri zure ezizena eta pasahitza.
       invitation_removed: Zure gonbidapena kendu egin da.
