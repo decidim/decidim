@@ -1403,7 +1403,6 @@ pt-BR:
     invitations:
       edit:
         header: Termine de criar sua conta
-        nickname_help: Seu identificador exclusivo em %{organization}.
         submit_button: Salvar
         subtitle: Se você aceitar o convite, defina seu apelido e senha.
       invitation_removed: Seu convite foi removido.
