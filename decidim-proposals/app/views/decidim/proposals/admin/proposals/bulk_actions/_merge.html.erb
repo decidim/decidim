@@ -1,5 +1,5 @@
-<div id="js-merge-proposals-actions" class="hide js-bulk-action-form">
-  <%= form_tag(proposals_merge_path, method: :post, id: "js-form-merge-proposals", class: "flex--cc flex-gap--1") do %>
+<div id="js-merge-resources-actions" class="hide js-bulk-action-form">
+  <%= form_tag(proposals_merge_path, method: :post, id: "js-form-merge-resources", class: "flex--cc flex-gap--1") do %>
     <div class="checkboxes hide">
       <% proposals.each do |proposal| %>
         <%= check_box_tag "proposal_ids[]", proposal.id, false, class: "js-check-all-resources js-resource-id-#{proposal.id}" %>
@@ -8,8 +8,8 @@
 
     <%= bulk_components_select((current_component.siblings + [current_component])) %>
 
-    <%= submit_tag(t("decidim.proposals.admin.proposals.index.merge_button"), id: "js-submit-merge-proposals", class: "button small button--simple float-left") %>
+    <%= submit_tag(t("decidim.proposals.admin.proposals.index.merge_button"), id: "js-submit-merge-resources", class: "button small button--simple float-left") %>
 
-    <button id="js-cancel-merge-proposals" class="button tiny clear compact js-cancel-bulk-action" type="button"><%= t("decidim.proposals.admin.proposals.index.cancel") %></button>
+    <button id="js-cancel-merge-resources" class="button tiny clear compact js-cancel-bulk-action" type="button"><%= t("decidim.proposals.admin.proposals.index.cancel") %></button>
   <% end %>
 </div>
