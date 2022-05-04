@@ -113,9 +113,6 @@ fr:
       skip_button: Passer au contenu principal
     account:
       blocked: Ce compte a été bloqué en raison d'une violation des Conditions Générales d'Utilisation
-      data_portability_export:
-        file_no_exists: Le fichier n'existe pas
-        notice: Votre export est actuellement en cours. Vous recevrez un email quand il sera complet.
       delete:
         alert: Cette action ne peut être annulée. Si vous supprimez votre compte, vous ne pourrez pas vous connecter avec vos identifiants. La suppression de votre compte entraînera l'anonymisation de vos contributions. Vous serez toujours en mesure de créer un nouveau compte, mais vos anciennes contributions n'y seront plus associées.
         confirm:
@@ -127,6 +124,9 @@ fr:
       destroy:
         error: Une erreur s'est produite lors de la suppression de votre compte.
         success: Votre compte a été supprimé avec succès.
+      download_your_data_export:
+        file_no_exists: Le fichier n'existe pas
+        notice: Votre export est actuellement en cours. Vous recevrez un email quand il sera complet.
       show:
         available_locales_helper: Choisissez la langue que vous souhaitez utiliser pour naviguer et recevoir des notifications sur la plateforme
         change_password: Changer de mot de passe
@@ -464,13 +464,6 @@ fr:
       actions:
         login_before_access: Veuillez vous connecter avec votre compte avant de réaliser cette action
         unauthorized: Vous n'êtes pas autorisé à effectuer cette action
-    data_portability:
-      export:
-        ready: Prêt
-      show:
-        download_data: Télécharger les données
-        download_data_description: Un fichier contenant toutes les informations associées à votre compte sera envoyé à <strong>%{user_email}</strong>. Cet e-mail contiendra un fichier .zip et un mot de passe pour l'ouvrir.<br/><br/>Pour décompresser le fichier, vous aurez besoin de <a href="https://www.7-zip.org/">7-Zip</a> (pour Windows) ou <a href="https://www.keka.io/">Keka</a> (pour MacOS). Si vous utilisez Linux, la plupart du temps, vous l'aurez installé par défaut. Sinon, vous pouvez utiliser <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> ou <a href="https://peazip.github.io">PeaZip</a>.
-        request_data: Demander les données
     datepicker:
       help_text: 'Format attendu : %{datepicker_format}'
     devise:
@@ -533,6 +526,13 @@ fr:
           this_application_will_not_be_able_to: 'Cette application ne sera pas capable de :'
           update_profile: Mettre à jour votre profil
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> veut utiliser votre compte"
+    download_your_data:
+      export:
+        ready: Prêt
+      show:
+        download_data: Télécharger les données
+        download_data_description: Un fichier contenant toutes les informations associées à votre compte sera envoyé à <strong>%{user_email}</strong>. Cet e-mail contiendra un fichier .zip et un mot de passe pour l'ouvrir.<br/><br/>Pour décompresser le fichier, vous aurez besoin de <a href="https://www.7-zip.org/">7-Zip</a> (pour Windows) ou <a href="https://www.keka.io/">Keka</a> (pour MacOS). Si vous utilisez Linux, la plupart du temps, vous l'aurez installé par défaut. Sinon, vous pouvez utiliser <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> ou <a href="https://peazip.github.io">PeaZip</a>.
+        request_data: Demander les données
     editor_images:
       create:
         error: Erreur lors du téléchargement de l'image
@@ -703,7 +703,7 @@ fr:
           email_subject: "%{name} a été officialisé"
           notification_title: Le participant %{name} (%{nickname}) a été officialisé.
     export_mailer:
-      data_portability_export:
+      download_your_data_export:
         click_button: 'Cliquez sur le bouton suivant pour télécharger vos données.<br/>Le fichier sera disponible jusqu''au %{date}.<br/>Vous aurez besoin de <a href="https://www.7-zip.org/">7-Zip</a> (Windows), <a href="https://www.keka.io/en/">Keka</a> (MacOS) ou <a href="https://peazip.github.io">PeaZip</a> (Linux) pour l''ouvrir. Mot de passe : %{password}'
         download: Télécharger
       export:
@@ -1179,7 +1179,7 @@ fr:
           agreement: J'accepte ces conditions d'utilisation
           legend: Accepter les conditions d'utilisation
         refuse:
-          modal_body: Si vous refusez, vous ne pourrez pas utiliser la plateforme. Vous pouvez <a href="%{data_portability_path}">télécharger vos données</a> et / ou <a href="%{delete_path}">supprimer votre compte</a>.
+          modal_body: Si vous refusez, vous ne pourrez pas utiliser la plateforme. Vous pouvez <a href="%{download_your_data_path}">télécharger vos données</a> ainsi que <a href="%{delete_path}">supprimer votre compte</a>.
           modal_btn_continue: Accepter les conditions et continuer
           modal_btn_exit: Je l'examinerai plus tard
           modal_button: Refuser les conditions d'utilisation
