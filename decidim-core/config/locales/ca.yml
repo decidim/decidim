@@ -130,6 +130,13 @@ ca:
       email_change:
         body1: Hem enviat un correu a %{unconfirmed_email} per a verificar la teva nova adreça de correu electrònic.
         body2: Cal que et reenviem el correu de verificació? %{resend_link} o %{cancel_link}.
+        cancel: Cancel·lar
+        cancel_error: No s'ha pogut cancel·lar el canvi de correu electrònic.
+        cancel_successfully: Canvi de correu electrònic cancel·lat amb èxit.
+        resend_error: No s'ha pogut reenviar el correu de confirmació.
+        resend_successfully: Correu de confirmació reenviat amb èxit a %{unconfirmed_email}
+        send_again: Tornar a enviar
+        title: Verificació del canvi de correu electrònic
       show:
         available_locales_helper: Tria l'idioma que en que vols navegar i rebre notificacions de la plataforma
         change_password: Canvia la contrasenya
@@ -681,6 +688,8 @@ ca:
           email_outro: Has rebut aquesta notificació perquè ets una de les administradores de la plataforma.
           email_subject: Un grup d'usuàries ha actualitzat el seu perfil
           notification_title: El grup d'usuàries %{user_group_name} ha actualitzat el seu perfil perdent-ne la verificació. Pots tornar a verificar-lo a través del <a href="%{groups_admin_path}"> taulell d'administració</a>.
+      nickname_event:
+        notification_body: S'ha corregit la manera en que es fan servir els àlies per a que no n'hi hagi de duplicats, per fer-ho ja no distingueix les majúscules de les minúscules. <br/> El teu àlies es va crear més tard que un altre d'igual, així que se t'ha renombrat automàticament. Pot modificar el teu àlies des de la <a href="%{link_to_account_settings}">configuració del teu compte</a>.
       notification_event:
         notification_title: S'ha produït un esdeveniment a <a href="%{resource_path}">%{resource_title}</a>.
       reports:
@@ -759,6 +768,11 @@ ca:
         file:
           explanation: 'Instruccions per a l''arxiu:'
           message_1: Ha de ser una imatge o un document.
+          message_2: Per a les imatges, fes servir imatges apaïsades preferiblement, el servei retalla la imatge.
+        icon:
+          explanation: 'Instruccions per a la icona:'
+          message_1: Ha de ser una imatge quadrada.
+          message_2: La mida recomanada per a aquesta imatge és 512x512.
         image:
           explanation: 'Instruccions per a la imatge:'
           message_1: Preferiblement una imatge apaïsada que no tingui cap text.
@@ -1184,6 +1198,7 @@ ca:
           agreement: Estic d'acord amb aquests termes
           legend: Accepto els termes i condicions
         refuse:
+          modal_body: Si no acceptes, no podràs utilitzar la plataforma, pots <a href="%{download_your_data_path}">descarregar les teves dades</a> i/o <a href="%{delete_path}">esborrar el teu compte de</a>.
           modal_btn_continue: Acceptar els termes i continuar
           modal_btn_exit: Ho revisaré més tard
           modal_button: Rebutjar els termes
@@ -1489,6 +1504,7 @@ ca:
     invitations:
       edit:
         header: Acabar de crear el teu compte
+        nickname_help: El teu àlies a %{organization}. Només pot contenir lletres, números, '-' i '_'.
         submit_button: Desa
         subtitle: Si acceptes la invitació, si us plau, estableix el teu àlies i contrasenya.
       invitation_removed: S'ha eliminat la teva invitació.
