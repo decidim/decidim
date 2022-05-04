@@ -34,12 +34,12 @@ namespace :decidim do
     private
 
     def send_notification_to(user)
-      Decidim::EventsManager.publish({
-                                       event: "decidim.events.nickname_event",
-                                       event_class: Decidim::ChangeNicknameEvent,
-                                       affected_users: [user],
-                                       resource: user
-                                     })
+      Decidim::EventsManager.publish(
+        event: "decidim.events.nickname_event",
+        event_class: Decidim::ChangeNicknameEvent,
+        affected_users: [user],
+        resource: user
+      )
     end
 
     def update_user_nickname(user, new_nickname)
