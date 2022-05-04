@@ -106,9 +106,6 @@ nl:
       skip_button: Ga naar de hoofdinhoud
     account:
       blocked: Dit account is geblokkeerd vanwege schending van de Algemene Voorwaarden
-      data_portability_export:
-        file_no_exists: Bestand bestaat niet
-        notice: Uw gegevens worden momenteel verwerkt. Je ontvangt een e-mail als deze is voltooid.
       delete:
         alert: Deze actie kan niet ongedaan worden gemaakt. Als je je account verwijdert, kan je niet meer inloggen met je inloggegevens. Het verwijderen van je account zal leiden tot het anonimiseren van je bijdragen. Je kunt nog steeds een nieuw account aanmaken, maar eerdere bijdragen worden daar niet aan gekoppeld.
         confirm:
@@ -120,6 +117,9 @@ nl:
       destroy:
         error: Er is een fout opgetreden bij het verwijderen van uw account.
         success: Uw account is succesvol verwijderd.
+      download_your_data_export:
+        file_no_exists: Bestand bestaat niet
+        notice: Uw gegevens worden momenteel verwerkt. Je ontvangt een e-mail als deze is voltooid.
       show:
         change_password: Wachtwoord wijzigen
         update_account: Account bijwerken
@@ -446,13 +446,6 @@ nl:
       actions:
         login_before_access: Log in met uw account voor toegang
         unauthorized: U bent niet gemachtigd dit te doen
-    data_portability:
-      export:
-        ready: Klaar
-      show:
-        download_data: Download de gegevens
-        download_data_description: Een bestand met alle gegevens van uw account zal worden verzonden naar <strong>%{user_email}</strong>. Deze e-mail bevat een .zip-bestand en een wachtwoord om het te openen.<br/><br/>Om het bestand uit te pakken heeft u <a href="https://www.7-zip.org/">7-Zip</a> (voor Windows) of <a href="https://www.keka.io/">Keka</a> nodig (voor MacOS). Als u Linux gebruikt, zal deze meestal standaard geïnstalleerd worden. Als dit niet het geval is, kan je <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> of <a href="https://peazip.github.io">PeaZip</a> gebruiken).
-        request_data: Gegevens aanvragen
     datepicker:
       help_text: 'Verwacht formaat: %{datepicker_format}'
     devise:
@@ -518,6 +511,13 @@ nl:
           this_application_will_not_be_able_to: 'Deze applicatie krijgt geen toegang tot:'
           update_profile: update je profiel
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> wil toegang tot je account"
+    download_your_data:
+      export:
+        ready: Klaar
+      show:
+        download_data: Download de gegevens
+        download_data_description: Een bestand met alle gegevens van uw account zal worden verzonden naar <strong>%{user_email}</strong>. Deze e-mail bevat een .zip-bestand en een wachtwoord om het te openen.<br/><br/>Om het bestand uit te pakken heeft u <a href="https://www.7-zip.org/">7-Zip</a> (voor Windows) of <a href="https://www.keka.io/">Keka</a> nodig (voor MacOS). Als u Linux gebruikt, zal deze meestal standaard geïnstalleerd worden. Als dit niet het geval is, kan je <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> of <a href="https://peazip.github.io">PeaZip</a> gebruiken).
+        request_data: Gegevens aanvragen
     editor_images:
       create:
         error: Fout bij het uploaden van een afbeelding
@@ -675,7 +675,7 @@ nl:
           email_subject: "%{nickname} heeft zijn/haar profiel bijgewerkt"
           notification_title: De <a href="%{resource_path}">profile page</a> van %{name} (%{nickname}), die je volgt, is bijgewerkt.
     export_mailer:
-      data_portability_export:
+      download_your_data_export:
         click_button: 'Klik op de volgende link om je gegevens te downloaden. <br/> Het bestand is beschikbaar tot %{date}. <br/> Je hebt <a href="https://www.7-zip.org/">7-Zip</a>(for Windows), <a href="https://www.keka.io/en/">Keka</a> (for MacOS) or <a href="https://peazip.github.io">PeaZip</a> (for Linux) nodig om het te openen. Wachtwoord: %{password}'
         download: Download
       export:
@@ -1124,7 +1124,6 @@ nl:
           agreement: Ik ga akkoord met deze voorwaarden
           legend: Ga akkoord met de gebruiksvoorwaarden
         refuse:
-          modal_body: Als u weigert, kunt u het platform niet gebruiken, kunt u <a href="%{data_portability_path}">uw gegevens downloaden</a> en / of <a href="%{delete_path}">uw account verwijderen</a>.
           modal_btn_continue: Voorwaarden accepteren en doorgaan
           modal_btn_exit: Ik zal het later bekijken
           modal_button: Weigeren de voorwaarden
