@@ -245,6 +245,45 @@ rails decidim:active_storage_migrations:migrate_inline_images_to_active_storage[
 - **decidim-core**: Disable unconfirmed access by default [\#8233](https://github.com/decidim/decidim/pull/8233)
 - **decidim-meetings**: Rename 'upcoming events' content block to 'upcoming meetings' [\#8412](https://github.com/decidim/decidim/pull/8412)
 - **decidim-core**: Change user workflows to prevent user enumeration attacks [\#8537](https://github.com/decidim/decidim/pull/8537)
+### Rename data portability to download your data
+
+"Data portability" has been renamed to "Download you data" at [\#9196](https://github.com/decidim/decidim/pull/9196), you should update your cron job via crontab -e.
+```
+0 0 * * * cd /home/user/decidim_application && RAILS_ENV=production bundle exec rake decidim:delete_data_portability_files
+```
+Changes to:
+```
+0 0 * * * cd /home/user/decidim_application && RAILS_ENV=production bundle exec rake decidim:delete_download_your_data_files
+```
+
+
+- **decidim-core**: The `Decidim::ActivitySearch` class has been rewritten as `Decidim::PublicActivities` which is now a `Rectify::Query` class instead of `Searchlight::Search` class due to the removal of Searchlight at [\#8748](https://github.com/decidim/decidim/pull/8748).
+- **decidim-core**: The `Decidim::ResourceSearch` class now inherits from `Ransack::Search` instead of `Searchlight::Search` as of [\#8748](https://github.com/decidim/decidim/pull/8748). The new `ResourceSearch` class provides extra search functionality for contextual searches that require context information in addition to the search parameters, such as current user or current component. It has barely anything to do with the `ResourceSearch` class in the previous versions which contained much more logic. Please review all your search classes that were inheriting from this class. You should migrate your search filtering to Ransack.
+- **decidim-debates**, **decidim-initiatives**, **decidim-meetings**: The resource search classes `Decidim::Debates::DebateSearch`, `Decidim::Intitatives::InitiativeSearch` and `Decidim::Meetings::MeetingSearch` are rewritten for the Ransack searches due to Searchlight removal at [\#8748](https://github.com/decidim/decidim/pull/8748). The role of these classes is now to pass contextual information to the searches, such as the current user. All other search filtering should happen directly through Ransack.
+- **decidim-meetings**: The `visible_meetings_for` scope for the `Meeting` model has been renamed to `visible_for` in [\#8748](https://github.com/decidim/decidim/pull/8748) for consistency.
+- **decidim-core**: The `official_origin`, `participants_origin`, `user_group_origin` and `meeting_origin` scopes for the `Decidim::Authorable` and `Decidim::Coauthorable` concerns have been changed to `with_official_origin`, `with_participants_origin`, `with_user_group_origin` and `with_meeting_origin` respectively in [\#8748](https://github.com/decidim/decidim/pull/8748) for consistency. See the Searchlight removal change notes for reasoning.
+- **decidim-core**: Nicknames are now differents case insensitively, a rake task has been created to check every nickname and modify them if some are similar (Launch it with "bundle exec rake decidim:upgrade:fix_nickname_uniqueness"). Routing and mentions has been made case insensitive for every tab in profiles.
+
+#### Deprecation of `Rectify::Presenter`
+PR [\#8758](https://github.com/decidim/decidim/pull/8758) is deprecating the implementation of `Rectify::Presenter` in favour of `SimpleDelegator`
+
+#### Searchlight removal causes changes in the participant searches
+
+The `searchlight` gem has been removed in favor of Ransack as of [\#8748](https://github.com/decidim/decidim/pull/8748) in order to standardize all searches within Decidim around a single way of performing searches. Ransack was selected as the preferred search backend because it is better maintained and has a larger community of developers around it compared to Searchlight.
+
+Ransack provides a search API that produces the search queries semi-automatically against the available database columns and ActiveRecord scopes made available for the Ransack searches while Searchlight used to require to write all the search logic manually in the search classes. Due to the inner workings of the Ransack gem and for consistency reasons, the following changes have been made for the search filtering:
+
+- For search scopes that are doing more than matching against a specific column in the database or require special programming logic during the searches, there is a new scope convention introduced with the `with_*` and `with_any_*` scope names. The `with_*` convention should be used when providing a search scope that searches against one key, such as `with_category(1)` and the `with_any_*` convention should be used when providing a search scope that searches against one or multiple keys, such as `with_any_category(1, 2, 3)`.
+  * An example of such scope is `with_any_category` provided by the `HasCategory` concern which searches against the provided category IDs or any sub-category of those category IDs. You can find all the introduced (or changed) scopes by searching for `scope :with_` within the Decidim codebase.
+  * With Searchlight, these search parameters were provided e.g. as `category_id` which was then used to perform the explained search query manually in the ResourceSearch class which is now used for a different purpose. As the search now happens through Ransack and the ActiveRecord scopes, these parameters have been renamed to better explain what they do. With Ransack, matching e.g. against the `category_id_eq` key would mean that the search is done against this specific column in the record's database table and only searching for the provided search input (and not e.g. the parent categories in the category case).
+- The origin scopes provided by `Decidim::Authorable` and `Decidim::Coauthorable` have been renamed with the `with_` prefix as explained above.
+- All the filtering key changes have been reflected to the participant filtering views (`_filters.html.erb` in most modules) as well as the controller methods `default_filter_params` where applicable.
+- The `default_filter_params` method within the participant-facing controllers now defines all the parameters that are allowed in the search queries and only these parameters are passed to the Ransack search. This limitation is made in order to protect the participant views from providing more searching options through the URL parameters than they are supposed to provide. In the past, the `Searchlight::Search` classes took care of utilizing only the allowed parameters but Ransacker does not have any middle-layer that would do the same, which is why the limitation is done at the controller side.
+- The `search_collection` method now defines the base collection used for the searches within the filtering controllers. In previous versions, there used to be a method that defined a `search_klass` method that defined the `Searchlight::Search` class to be used as the basis for the search. Now, the `search_collection` defines the base collection instead against which the Ransack search is run.
+
+3rd party developers that have developed their own modules or customizations for the core controllers or filtering views, should revisit their customizations and make sure they reflect these changes made for the controllers or filtering views. It is suggested to remove the customizations related to the filtering views/controllers and re-do from scratch what needs to be customized in order to ensure full compatibility with the changed filtering APIs. In case you had created your own `Searchlight::Search` (or `ResourceSearch`) classes, you should scrap those and start over using Ransack.
+
+More information on using Ransack can be found from the [Ransack documentation](https://github.com/activerecord-hackery/ransack). You can find examples for filtering in the core filtering views and controllers.
 
 ### Fixed
 

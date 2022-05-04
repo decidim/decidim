@@ -3,26 +3,27 @@
 require "spec_helper"
 
 module Decidim
-  describe UserActivitiesController, type: :controller do
+  describe UserTimelineController, type: :controller do
     routes { Decidim::Core::Engine.routes }
 
     let(:organization) { create(:organization) }
-    let!(:user) { create(:user, nickname: "Nick", organization: organization) }
+    let!(:user) { create(:user, :confirmed, nickname: "Nick", organization: organization) }
 
     before do
       request.env["decidim.current_organization"] = organization
+      sign_in user
     end
 
-    describe "#show" do
-      context "with an unknown user" do
+    describe "#index" do
+      context "with a different user than me" do
         it "raises an ActionController::RoutingError" do
           expect do
             get :index, params: { nickname: "foobar" }
-          end.to raise_error(ActionController::RoutingError, "Missing user: foobar")
+          end.to raise_error(ActionController::RoutingError, "Not Found")
         end
       end
 
-      context "with an user with uppercase" do
+      context "with my user with uppercase" do
         it "returns the lowercased user" do
           get :index, params: { nickname: "NICK" }
           expect(response).to render_template(:index)

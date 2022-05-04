@@ -685,6 +685,8 @@ en:
           email_outro: You have received this notification because you are an admin of the platform.
           email_subject: A user group has updated its profile
           notification_title: The %{user_group_name} user group has updated its profile, leaving it unverified. You can now verify it in the <a href="%{groups_admin_path}">admin panel</a>.
+      nickname_event:
+        notification_body: We have corrected the way nicknames are used so that there are no duplicates, and that's why we have removed the case sensitive rule. <br/> Your nickname was created after another one with the same name, so we have automatically renamed it. You can change it from <a href="%{link_to_account_settings}">your account settings</a>.
       notification_event:
         notification_title: An event occured to <a href="%{resource_path}">%{resource_title}</a>.
       reports:
@@ -1465,7 +1467,7 @@ en:
     invitations:
       edit:
         header: Finish creating your account
-        nickname_help: Your nickname in %{organization}.
+        nickname_help: Your nickname in %{organization}. Can only contain letters, numbers, '-' and '_'.
         submit_button: Save
         subtitle: If you accept the invitation please set your nickname and password.
       invitation_removed: Your invitation was removed.
