@@ -82,9 +82,6 @@ lb:
       skip_button: Zum Haapt-Inhalt eriwwergoen
     account:
       blocked: Dësen Kont gouf gespaart wéinst dem Net-Respekt vun den allgemengen Bestëmmungen
-      data_portability_export:
-        file_no_exists: Datei existéiert net
-        notice: D'Eroflueden ass am Gaang. Du kriss en Email wann et vollstänneg ass.
       delete:
         alert: Dës Aktioun kann net réckgängeg gemaach ginn. Wann däin Kont geläscht ass, kanns du dech net méi mat de selwechten Donnéeën aloggen. Zukünfteg Beiträg sinn dann anonymiséiert. Du kanns nach ëmmer en neien Kont erstellen, mee anonym Beiträg sinn net mat engem Kont verknäppt.
         confirm:
@@ -96,6 +93,9 @@ lb:
       destroy:
         error: Et gouf e Problem beim Läschen vum Kont.
         success: De Kont gouf geläscht.
+      download_your_data_export:
+        file_no_exists: Datei existéiert net
+        notice: D'Eroflueden ass am Gaang. Du kriss en Email wann et vollstänneg ass.
       show:
         change_password: Passwuert änneren
         update_account: Kont aktualiséieren
@@ -431,13 +431,6 @@ lb:
       actions:
         login_before_access: Bitte melden Sie sich mit Ihrem Konto an, um auf diese Seite zuzugreifen
         unauthorized: Du hues keng Berechtegung fir dës Aktioun
-    data_portability:
-      export:
-        ready: Fäerdeg
-      show:
-        download_data: Daten eroflueden
-        download_data_description: Eng Datei, déi all Informatiounen enthält, déi mat dengem Konto verknäppt sinn, gëtt an den <strong>%{user_email}</strong> geschéckt. Dës Mail enthält eng .zip-Datei an e Passwuert fir se opzemaachen .<br/><br/>Fir d'Datei auszepaken, brauchs du <a href="https://www.7-zip.org/">7-Zip</a> (fir Windows) oder <a href="https://www.keka.io/">Keka</a> (fir MacOS). Wann s'du mat Linux schaffs, gëtt ass et meeschtens als Standard mat installéiert. Wann net, kanns du <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> oder <a href="https://peazip.github.io">PeaZip</a> benotzen.
-        request_data: Daten ufroen
     datepicker:
       help_text: 'Format: %{datepicker_format}'
     devise:
@@ -505,6 +498,13 @@ lb:
           this_application_will_not_be_able_to: 'Diese Applikatioun kann net:'
           update_profile: Profil aktualiséieren
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> well däin Kont benotzen"
+    download_your_data:
+      export:
+        ready: Fäerdeg
+      show:
+        download_data: Daten eroflueden
+        download_data_description: Eng Datei, déi all Informatiounen enthält, déi mat dengem Konto verknäppt sinn, gëtt an den <strong>%{user_email}</strong> geschéckt. Dës Mail enthält eng .zip-Datei an e Passwuert fir se opzemaachen .<br/><br/>Fir d'Datei auszepaken, brauchs du <a href="https://www.7-zip.org/">7-Zip</a> (fir Windows) oder <a href="https://www.keka.io/">Keka</a> (fir MacOS). Wann s'du mat Linux schaffs, gëtt ass et meeschtens als Standard mat installéiert. Wann net, kanns du <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> oder <a href="https://peazip.github.io">PeaZip</a> benotzen.
+        request_data: Daten ufroen
     endorsable:
       endorsements: Ennerstëtzungen
       endorsements_count: Zuel vun den Ënnerstëtzer
@@ -664,7 +664,7 @@ lb:
           email_subject: "%{nickname} huet säin Profil aktualiséiert"
           notification_title: D' <a href="%{resource_path}">Profil-Säit</a> vum </a>%{name} (%{nickname}), där s'du nogees, gouf aktualiséiert.
     export_mailer:
-      data_portability_export:
+      download_your_data_export:
         click_button: 'Klick op den Link, fir den Daten erofzelueden.<br/>D''Datei steet bis den %{date} zur Verfügung.<br/>du brauchs <a href="https://www.7-zip.org/">7-Zip</a> (fir Windows), <a href="https://www.keka.io/en/">Keka</a> (fir MacOS) oder <a href="https://peazip.github.io">PeaZip</a> (fir Linux) fir d''Datei opzemaachen. Passwuert: %{password}'
         download: Eroflueden
       export:
@@ -1098,7 +1098,6 @@ lb:
           agreement: Ech sinn mat dësen Konditiounen averstane
           legend: Akzeptéier d'Konditiounen vum Benotzen
         refuse:
-          modal_body: Wann s'du refuséiers, wàert et dir net méiglech sinn dës Plattform ze benotzen, du kanns <a href="%{data_portability_path}">lDaten eroflueden</a> an / oder <a href="%{delete_path}">Konto läschen</a>.
           modal_btn_continue: Konditiounen akzeptéieren an weiderfueren
           modal_btn_exit: Ech iwwerpréiwen dat méi spéit
           modal_button: Konditiounen net unhuelen
