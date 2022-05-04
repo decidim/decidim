@@ -77,9 +77,6 @@ tr:
       skip_button: Ana içeriğe geç
     account:
       blocked: Bu hesap, Şartlar ve Koşullar ihlali nedeniyle engellendi
-      data_portability_export:
-        file_no_exists: Dosya bulunmuyor
-        notice: Verilerinizin indirilmesi şu anda devam ediyor. Tamamlandığında bir e-posta alacaksınız.
       delete:
         confirm:
           close: Pencereyi kapat
@@ -90,6 +87,9 @@ tr:
       destroy:
         error: Hesabınız silinirken bir hata oluştu.
         success: Hesabınız başarıyla silindi.
+      download_your_data_export:
+        file_no_exists: Dosya bulunmuyor
+        notice: Verilerinizin indirilmesi şu anda devam ediyor. Tamamlandığında bir e-posta alacaksınız.
       show:
         change_password: Şifre değiştir
         update_account: Hesabı güncelle
@@ -417,12 +417,6 @@ tr:
       actions:
         login_before_access: Lütfen, erişmeden önce hesabınızla giriş yapın
         unauthorized: Bu eylemi gerçekleştirmek için yetkiniz yok
-    data_portability:
-      export:
-        ready: Hazır
-      show:
-        download_data: Verileri indir
-        request_data: Veri talep et
     datepicker:
       help_text: 'Beklenen format: %{datepicker_format}'
     devise:
@@ -492,6 +486,12 @@ tr:
           this_application_will_not_be_able_to: 'Bu uygulama mümkün olmayacaktır:'
           update_profile: profilinizi güncelleyin
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> hesabınızı kullanmak istiyor"
+    download_your_data:
+      export:
+        ready: Hazır
+      show:
+        download_data: Verileri indir
+        request_data: Veri talep et
     endorsable:
       endorsements: Cirolar
       endorsements_count: Onay sayısı
@@ -652,7 +652,7 @@ tr:
           email_subject: "%{nickname} profilini güncelledi"
           notification_title: <a href="%{resource_path}">profil sayfası</a> arasında %{name} (%{nickname} izlediğiniz), güncellendi.
     export_mailer:
-      data_portability_export:
+      download_your_data_export:
         download: İndir
       export:
         ready: Lütfen dışa aktarımınızın sıkıştırılmış bir sürümünü ekte bulun.
@@ -1076,7 +1076,6 @@ tr:
           agreement: Bu koşulları kabul ediyorum
           legend: Kullanım şartlarını ve koşullarını kabul et
         refuse:
-          modal_body: Eğer kabul ederseniz, platformu kullanmak mümkün olmayacaktır şunları yapabilirsiniz <a href="%{data_portability_path}">verileri indirme</a> ve / veya <a href="%{delete_path}">Hesabınızı silmek</a>.
           modal_btn_continue: Şartları kabul et ve devam et
           modal_btn_exit: Daha sonra inceleyeceğim
           modal_button: Şartları reddet
