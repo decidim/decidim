@@ -242,6 +242,10 @@ describe "Authorizations", type: :system, with_authorization_workflows: ["dummy_
             expect(page).to have_link("Example authorization")
             click_link "Example authorization"
           end
+          
+          within "#renew-modal" do
+            click_link "Continue"
+          end
 
           fill_in "Document number", with: "123456789X"
           click_button "Send"
