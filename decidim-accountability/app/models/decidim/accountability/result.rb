@@ -15,7 +15,7 @@ module Decidim
       include Decidim::Comments::CommentableWithComponent
       include Decidim::Traceable
       include Decidim::Loggable
-      include Decidim::DataPortability
+      include Decidim::DownloadYourData
       include Decidim::Randomable
       include Decidim::Searchable
       include Decidim::TranslatableResource

@@ -28,7 +28,7 @@ module Decidim
     attribute :query_list, String, default: "Decidim::Core::ParticipatorySpaceList"
 
     # An array with the name of the classes that will be exported with
-    # the data portability feature for this component. For example, `Decidim::<MyModule>::<MyClass>``
+    # the download your data feature for this component. For example, `Decidim::<MyModule>::<MyClass>``
     attribute :data_portable_entities, Array, default: []
 
     # A String with the component's icon. The icon must be stored in the

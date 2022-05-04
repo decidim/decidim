@@ -233,9 +233,9 @@ module Decidim
                         decidim.user_interests_path,
                         position: 1.4
 
-          menu.add_item :data_portability,
+          menu.add_item :download_your_data,
                         t("my_data", scope: "layouts.decidim.user_profile"),
-                        decidim.data_portability_path,
+                        decidim.download_your_data_path,
                         position: 1.5
 
           menu.add_item :delete_account,

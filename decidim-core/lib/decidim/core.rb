@@ -74,9 +74,9 @@ module Decidim
   autoload :ViewModel, "decidim/view_model"
   autoload :FingerprintCalculator, "decidim/fingerprint_calculator"
   autoload :Fingerprintable, "decidim/fingerprintable"
-  autoload :DataPortability, "decidim/data_portability"
-  autoload :DataPortabilitySerializers, "decidim/data_portability_serializers"
-  autoload :DataPortabilityExporter, "decidim/data_portability_exporter"
+  autoload :DownloadYourData, "decidim/download_your_data"
+  autoload :DownloadYourDataSerializers, "decidim/download_your_data_serializers"
+  autoload :DownloadYourDataExporter, "decidim/download_your_data_exporter"
   autoload :Amendable, "decidim/amendable"
   autoload :Gamification, "decidim/gamification"
   autoload :Hashtag, "decidim/hashtag"
@@ -272,8 +272,8 @@ module Decidim
     true
   end
 
-  # Time that data portability files are available in server
-  config_accessor :data_portability_expiry_time do
+  # Time that download your data files are available in server
+  config_accessor :download_your_data_expiry_time do
     7.days
   end
 
