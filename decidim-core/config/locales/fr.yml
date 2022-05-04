@@ -1485,7 +1485,6 @@ fr:
     invitations:
       edit:
         header: Terminer la création de votre compte
-        nickname_help: Cet identifiant est public et unique sur la plateforme "%{organization}" ; il permet aux autres utilisateurs de vous suivre, de vous contacter ou de vous mentionner dans leurs commentaires. Il s’affichera précédé d’un « @ » ; il ne doit pas contenir d’espace ni de caractère spécial.
         submit_button: Sauvegarder
         subtitle: Si vous acceptez l'invitation, veuillez indiquer votre pseudonyme et votre mot de passe.
       invitation_removed: Votre invitation a été supprimée.
