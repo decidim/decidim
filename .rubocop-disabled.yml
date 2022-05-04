@@ -49,8 +49,8 @@ Rails/RedundantPresenceValidationOnBelongsTo:
 Rails/HasManyOrHasOneDependent:
   Enabled: false
 
-Lint/UnmodifiedReduceAccumulator:
-  Enabled: false
+#Lint/UnmodifiedReduceAccumulator:
+#  Enabled: false
 
 Gemspec/RequireMFA:
   Enabled: false
