@@ -1399,7 +1399,6 @@ lb:
     invitations:
       edit:
         header: D'Erstellen vun dengem Kont ass fäerdeg
-        nickname_help: Däin Pseudonym %{organization}.
         submit_button: Späicheren
         subtitle: Gëff w. e. g. däin Pseudonym an däin Passwuert an, fir dës Invitatioun unzehuelen.
       invitation_removed: Deng Invitatioun gouf geläscht.
