@@ -1450,7 +1450,6 @@
     invitations:
       edit:
         header: Fullfør oppretting av kontoen din
-        nickname_help: Kallenavnet ditt i %{organization}.
         submit_button: Lagre
         subtitle: Hvis du godtar invitasjonen, må du angi kallenavnet og passordet ditt.
       invitation_removed: Invitasjonen din ble fjernet.
