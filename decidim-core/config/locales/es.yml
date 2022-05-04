@@ -1486,7 +1486,6 @@ es:
     invitations:
       edit:
         header: Termina de crear tu cuenta
-        nickname_help: Tu alias en %{organization}.
         submit_button: Guardar
         subtitle: Si aceptas la invitación, por favor establece tu alias y contraseña.
       invitation_removed: Se ha eliminado tu invitación.
