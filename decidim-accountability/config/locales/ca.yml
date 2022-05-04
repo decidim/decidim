@@ -21,6 +21,7 @@ ca:
       timeline_entry:
         description: Descripció
         entry_date: Data
+        title: Títol
     models:
       decidim/accountability/proposal_linked_event: Proposta inclosa a un resultat
       decidim/accountability/result_progress_updated_event: Progrés del resultat actualitzat
@@ -159,6 +160,7 @@ ca:
         timeline_entry:
           fields:
             entry_date: Data
+            title: Títol
       result_m:
         executed: Executat
         view: Veure
