@@ -70,9 +70,6 @@ zh-CN:
       logo: "%{organization}的官方标志"
       skip_button: 跳转到主要内容
     account:
-      data_portability_export:
-        file_no_exists: 文件不存在
-        notice: 目前正在下载您的数据。完成后，您将收到一封电子邮件。
       delete:
         confirm:
           close: 关闭窗口
@@ -83,6 +80,9 @@ zh-CN:
       destroy:
         error: 删除您的帐户时出错。
         success: 您的帐户已成功删除。
+      download_your_data_export:
+        file_no_exists: 文件不存在
+        notice: 目前正在下载您的数据。完成后，您将收到一封电子邮件。
       show:
         change_password: 更改密码
         update_account: 更新帐户
@@ -369,12 +369,6 @@ zh-CN:
       actions:
         login_before_access: 请在访问前使用您的帐户登录
         unauthorized: 您无权执行此操作
-    data_portability:
-      export:
-        ready: 准备好
-      show:
-        download_data: 下载数据
-        request_data: 请求数据
     datepicker:
       help_text: '预期格式: %{datepicker_format}'
     devise:
@@ -431,6 +425,12 @@ zh-CN:
           this_application_will_not_be_able_to: '此应用程序将无法：'
           update_profile: 更新您的个人资料
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> 想要使用您的帐户"
+    download_your_data:
+      export:
+        ready: 准备好
+      show:
+        download_data: 下载数据
+        request_data: 请求数据
     endorsable:
       endorsements: 授权
       endorsements_count: 批准次数
@@ -581,7 +581,7 @@ zh-CN:
           email_subject: "%{nickname} 更新了他们的个人资料"
           notification_title: 您关注的 %{name} (%{nickname}) 的 <a href="%{resource_path}">个人资料页面</a> 已经更新。
     export_mailer:
-      data_portability_export:
+      download_your_data_export:
         download: 下载
       export:
         ready: 请找到您导出的压缩版本。
@@ -1002,7 +1002,6 @@ zh-CN:
           agreement: 我同意这些条款
           legend: 同意使用条款
         refuse:
-          modal_body: 如果您拒绝，您将无法使用平台，您可以 <a href="%{data_portability_path}">下载您的数据</a> 和/或 <a href="%{delete_path}">删除您的帐户</a>。
           modal_btn_continue: 接受并继续
           modal_btn_exit: 我稍后再查看
           modal_button: 拒绝条款
