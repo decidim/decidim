@@ -48,7 +48,7 @@ module Decidim
 
       def unused_manifests
         @unused_manifests ||= Decidim.content_blocks.for(:privacy_policy).reject do |manifest|
-          used_manifests.include?(manifest.name.to_s) unless manifest.multiple?
+          used_manifests.include?(manifest.name.to_s) # unless manifest.multiple?
         end
       end
     end
