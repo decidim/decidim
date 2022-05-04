@@ -1204,7 +1204,6 @@ bg:
     invitations:
       edit:
         header: Завършете създаването на профила си
-        nickname_help: Вашият псевдоним в %{organization}.
         submit_button: Запази
         subtitle: Ако приемате поканата, моля задайте своя псевдоним и парола.
       invitation_removed: Поканата Ви беше премахната.
