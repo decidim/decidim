@@ -1486,7 +1486,6 @@ ca:
     invitations:
       edit:
         header: Acabar de crear el teu compte
-        nickname_help: El teu àlies a %{organization}.
         submit_button: Desa
         subtitle: Si acceptes la invitació, si us plau, estableix el teu àlies i contrasenya.
       invitation_removed: S'ha eliminat la teva invitació.
