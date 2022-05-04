@@ -1402,7 +1402,6 @@ pt:
     invitations:
       edit:
         header: Termine a criação da sua conta
-        nickname_help: A sua alcunha em %{organization}.
         submit_button: Salvar
         subtitle: Se aceitar o convite, por favor defina a sua alcunha e palavra-passe.
       invitation_removed: O seu convite foi removido.
