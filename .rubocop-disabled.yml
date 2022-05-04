@@ -34,8 +34,8 @@ Rails/CompactBlank:
 Security/Open:
   Enabled: false
 
-Lint/DuplicateBranch:
-  Enabled: false
+#Lint/DuplicateBranch:
+#  Enabled: false
 
 Lint/AmbiguousOperatorPrecedence:
   Enabled: false

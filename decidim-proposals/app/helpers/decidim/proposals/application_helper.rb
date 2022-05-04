@@ -40,12 +40,10 @@ module Decidim
         case state
         when "accepted"
           "text-success"
-        when "rejected"
+        when "rejected", "withdrawn"
           "text-alert"
         when "evaluating"
           "text-warning"
-        when "withdrawn"
-          "text-alert"
         else
           "text-info"
         end
