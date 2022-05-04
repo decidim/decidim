@@ -85,9 +85,6 @@ Rails/DuplicateScope:
 RSpec/IdenticalEqualityAssertion:
   Enabled: false
 
-Style/StringChars:
-  Enabled: false
-
 Rails/ExpandedDateRange:
   Enabled: false
 
