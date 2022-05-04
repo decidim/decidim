@@ -1,11 +1,5 @@
-RSpec/StubbedMock:
-  Enabled: false
-
 Rails/DurationArithmetic:
   Enabled: false
-
-#RSpec/FactoryBot/SyntaxMethods:
-#  Enabled: false
 
 Naming/VariableNumber:
   Enabled: false

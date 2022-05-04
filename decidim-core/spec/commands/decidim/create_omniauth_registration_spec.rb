@@ -50,7 +50,7 @@ module Decidim
 
         context "when the form is not valid" do
           before do
-            expect(form).to receive(:invalid?).and_return(true)
+            allow(form).to receive(:invalid?).and_return(true)
           end
 
           it "broadcasts invalid" do
@@ -70,7 +70,7 @@ module Decidim
           end
 
           it "creates a new user" do
-            expect(SecureRandom).to receive(:hex).and_return("decidim123456")
+            allow(SecureRandom).to receive(:hex).and_return("decidim123456")
 
             expect do
               command.call
@@ -89,7 +89,7 @@ module Decidim
           it "notifies about registration with oauth data" do
             user = create(:user, email: email, organization: organization)
             identity = Decidim::Identity.new(id: 1234)
-            expect(command).to receive(:create_identity).and_return(identity)
+            allow(command).to receive(:create_identity).and_return(identity)
 
             expect(ActiveSupport::Notifications)
               .to receive(:publish)

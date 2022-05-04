@@ -22,7 +22,7 @@ describe Decidim::Forms::ExportQuestionnaireAnswersJob do
     let(:mailer) { double :mailer }
 
     it "sends an email" do
-      expect(Decidim::ExportMailer)
+      allow(Decidim::ExportMailer)
         .to receive(:export)
         .and_return(mailer)
       expect(mailer)

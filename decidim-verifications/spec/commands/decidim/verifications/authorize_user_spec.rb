@@ -20,7 +20,7 @@ module Decidim::Verifications
 
     context "when the form is not authorized" do
       before do
-        expect(handler).to receive(:valid?).and_return(false)
+        allow(handler).to receive(:valid?).and_return(false)
       end
 
       it "is not valid" do

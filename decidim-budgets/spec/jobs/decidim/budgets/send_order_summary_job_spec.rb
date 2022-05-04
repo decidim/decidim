@@ -18,7 +18,7 @@ describe Decidim::Budgets::SendOrderSummaryJob do
     let(:mailer) { double :mailer }
 
     it "sends an email" do
-      expect(Decidim::Budgets::OrderSummaryMailer)
+      allow(Decidim::Budgets::OrderSummaryMailer)
         .to receive(:order_summary)
         .with(order)
         .and_return(mailer)

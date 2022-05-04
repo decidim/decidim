@@ -54,7 +54,7 @@ describe Decidim::Verifications::Adapter do
 
     context "when the main engine is not defined" do
       it "raises a MissingEngine error" do
-        expect(wrapper).to receive(:respond_to?).with("decidim_#{handler}").and_return(false)
+        allow(wrapper).to receive(:respond_to?).with("decidim_#{handler}").and_return(false)
 
         expect { wrapper.resume_authorization_path }.to raise_error(
           Decidim::Verifications::MissingEngine
@@ -93,7 +93,7 @@ describe Decidim::Verifications::Adapter do
 
     context "when the main engine is not defined" do
       it "raises a MissingEngine error" do
-        expect(wrapper).to receive(:respond_to?).with("decidim_#{handler}").and_return(false)
+        allow(wrapper).to receive(:respond_to?).with("decidim_#{handler}").and_return(false)
 
         expect { wrapper.renew_path }.to raise_error(
           Decidim::Verifications::MissingEngine
