@@ -1,0 +1,20 @@
+var existingNotification = document.querySelector("main > .flash.callout");
+if (existingNotification) {
+  existingNotification.classList.add("hide");
+}
+
+var accountNotification = document.querySelector(".account-notification");
+document.querySelector("main").prepend(accountNotification);
+
+if (accountNotification.querySelector(".account-message")) {
+  accountNotification.querySelector(".account-message").remove();
+}
+var messageDiv = document.createElement("div");
+messageDiv.classList.add("account-message");
+
+accountNotification.appendChild(messageDiv);
+messageDiv.innerHTML = <%== @text.to_json %>;
+
+accountNotification.classList.add("<%= @alert_class %>");
+accountNotification.classList.remove("hide");
+accountNotification.removeAttribute("style");

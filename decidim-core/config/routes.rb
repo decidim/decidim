@@ -50,6 +50,8 @@ Decidim::Core::Engine.routes.draw do
     resource :account, only: [:show, :update, :destroy], controller: "account" do
       member do
         get :delete
+        post :resend_confirmation_instructions
+        post :cancel_email_change
       end
     end
     resources :conversations, only: [:new, :create, :index, :show, :update], controller: "messaging/conversations"
