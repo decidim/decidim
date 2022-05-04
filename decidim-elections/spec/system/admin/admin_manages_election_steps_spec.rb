@@ -186,14 +186,14 @@ describe "Admin manages election steps", :slow, type: :system do
         expect(page).to have_content("Processing...")
       end
 
-      within ".form.tally" do
+      within ".form.tally_started" do
         expect(page).to have_content("Tally process")
       end
     end
   end
 
   describe "report missing trustee" do
-    let(:election) { create :election, :bb_test, :tally, component: current_component }
+    let(:election) { create :election, :bb_test, :tally_started, component: current_component }
     let(:trustee) { election.trustees.first }
 
     it "marks the trustee as missing" do

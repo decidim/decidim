@@ -104,7 +104,7 @@ module Decidim
             it "creates a user with no newsletter notifications" do
               expect do
                 command.call
-                expect(User.last.newsletter_notifications_at).to eq(nil)
+                expect(User.last.newsletter_notifications_at).to be_nil
               end.to change(User, :count).by(1)
             end
           end

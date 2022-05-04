@@ -98,9 +98,9 @@ module Decidim
       let(:options) { { organization: create(:organization), locale: "en" } }
 
       it "returns a new instance of the configured utility" do
-        expect(subject.utility(:dynamic, options)).to be_a(Decidim::Map::Provider::DynamicMap::Osm)
-        expect(subject.utility(:static, options)).to be_a(Decidim::Map::Provider::StaticMap::Osm)
-        expect(subject.utility(:geocoding, options)).to be_a(Decidim::Map::Provider::Geocoding::Osm)
+        expect(subject.utility(:dynamic, **options)).to be_a(Decidim::Map::Provider::DynamicMap::Osm)
+        expect(subject.utility(:static, **options)).to be_a(Decidim::Map::Provider::StaticMap::Osm)
+        expect(subject.utility(:geocoding, **options)).to be_a(Decidim::Map::Provider::Geocoding::Osm)
       end
 
       context "when the categories are unregistered" do
@@ -109,9 +109,9 @@ module Decidim
           subject.unregister_category(:static)
           subject.unregister_category(:geocoding)
 
-          expect(subject.utility(:dynamic, options)).to be(nil)
-          expect(subject.utility(:static, options)).to be(nil)
-          expect(subject.utility(:geocoding, options)).to be(nil)
+          expect(subject.utility(:dynamic, options)).to be_nil
+          expect(subject.utility(:static, options)).to be_nil
+          expect(subject.utility(:geocoding, options)).to be_nil
         end
       end
 
@@ -119,9 +119,9 @@ module Decidim
         let(:config) { {} }
 
         it "returns nil for the registered utilities" do
-          expect(subject.utility(:dynamic, options)).to be(nil)
-          expect(subject.utility(:static, options)).to be(nil)
-          expect(subject.utility(:geocoding, options)).to be(nil)
+          expect(subject.utility(:dynamic, options)).to be_nil
+          expect(subject.utility(:static, options)).to be_nil
+          expect(subject.utility(:geocoding, options)).to be_nil
         end
       end
 
@@ -129,7 +129,7 @@ module Decidim
         let(:config) { { provider: :osm, dynamic: false } }
 
         it "returns a new instance for all the non-disabled utilities and nil for the dynamic utility" do
-          expect(subject.utility(:dynamic, options)).to be(nil)
+          expect(subject.utility(:dynamic, options)).to be_nil
           expect(subject.utility(:static, options)).to be_a(Decidim::Map::Provider::StaticMap::Osm)
           expect(subject.utility(:geocoding, options)).to be_a(Decidim::Map::Provider::Geocoding::Osm)
         end
@@ -363,7 +363,7 @@ module Decidim
 
       context "when the utility has not been registered" do
         it "returns nil" do
-          expect(subject.utility_class(:foobar)).to be(nil)
+          expect(subject.utility_class(:foobar)).to be_nil
         end
       end
 
@@ -371,7 +371,7 @@ module Decidim
         let(:config) { {} }
 
         it "returns nil" do
-          expect(subject.utility_class(:dynamic)).to be(nil)
+          expect(subject.utility_class(:dynamic)).to be_nil
         end
       end
 
@@ -379,7 +379,7 @@ module Decidim
         let(:config) { { provider: :osm, dynamic: { provider: :foobar } } }
 
         it "returns nil" do
-          expect(subject.utility_class(:dynamic)).to be(nil)
+          expect(subject.utility_class(:dynamic)).to be_nil
           expect(subject.utility_class(:static)).to be(Decidim::Map::Provider::StaticMap::Osm)
           expect(subject.utility_class(:geocoding)).to be(Decidim::Map::Provider::Geocoding::Osm)
           expect(subject.utility_class(:autocomplete)).to be(Decidim::Map::Provider::Autocomplete::Osm)

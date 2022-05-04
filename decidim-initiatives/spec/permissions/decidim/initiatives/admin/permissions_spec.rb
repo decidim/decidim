@@ -9,7 +9,7 @@ describe Decidim::Initiatives::Admin::Permissions do
   let(:organization) { create :organization }
   let(:initiative) { create :initiative, organization: organization }
   let(:context) { { initiative: initiative } }
-  let(:permission_action) { Decidim::PermissionAction.new(action) }
+  let(:permission_action) { Decidim::PermissionAction.new(**action) }
   let(:action) do
     { scope: :admin, action: action_name, subject: action_subject }
   end
@@ -20,13 +20,13 @@ describe Decidim::Initiatives::Admin::Permissions do
     context "when initiative is #{valid_trait}" do
       let(:initiative) { create :initiative, valid_trait, organization: organization }
 
-      it { is_expected.to eq true }
+      it { is_expected.to be true }
     end
 
     context "when initiative is not #{valid_trait}" do
       let(:initiative) { create :initiative, invalid_trait, organization: organization }
 
-      it { is_expected.to eq false }
+      it { is_expected.to be false }
     end
   end
 
@@ -36,7 +36,7 @@ describe Decidim::Initiatives::Admin::Permissions do
     context "when indexing" do
       let(:action_name) { :index }
 
-      it { is_expected.to eq true }
+      it { is_expected.to be true }
     end
 
     context "when approving" do
@@ -46,13 +46,13 @@ describe Decidim::Initiatives::Admin::Permissions do
       context "when request is not accepted yet" do
         let(:request) { create :initiatives_committee_member, :requested, initiative: initiative }
 
-        it { is_expected.to eq true }
+        it { is_expected.to be true }
       end
 
       context "when request is already accepted" do
         let(:request) { create :initiatives_committee_member, :accepted, initiative: initiative }
 
-        it { is_expected.to eq false }
+        it { is_expected.to be false }
       end
     end
 
@@ -63,13 +63,13 @@ describe Decidim::Initiatives::Admin::Permissions do
       context "when request is not revoked yet" do
         let(:request) { create :initiatives_committee_member, :accepted, initiative: initiative }
 
-        it { is_expected.to eq true }
+        it { is_expected.to be true }
       end
 
       context "when request is already revoked" do
         let(:request) { create :initiatives_committee_member, :rejected, initiative: initiative }
 
-        it { is_expected.to eq false }
+        it { is_expected.to be false }
       end
     end
 
@@ -108,7 +108,7 @@ describe Decidim::Initiatives::Admin::Permissions do
 
       before { initiative }
 
-      it { is_expected.to eq true }
+      it { is_expected.to be true }
     end
 
     context "when user promoted an initiative" do
@@ -116,13 +116,13 @@ describe Decidim::Initiatives::Admin::Permissions do
         create :initiatives_committee_member, initiative: initiative, user: user
       end
 
-      it { is_expected.to eq true }
+      it { is_expected.to be true }
     end
 
     context "when user is admin" do
       let(:user) { create :user, :admin, organization: organization }
 
-      it { is_expected.to eq true }
+      it { is_expected.to be true }
     end
 
     context "when space name is not set" do
@@ -152,13 +152,13 @@ describe Decidim::Initiatives::Admin::Permissions do
         context "when print is disabled" do
           let(:print_enabled) { false }
 
-          it { is_expected.to eq false }
+          it { is_expected.to be false }
         end
 
         context "when print is enabled" do
           let(:print_enabled) { true }
 
-          it { is_expected.to eq true }
+          it { is_expected.to be true }
         end
       end
 
@@ -168,11 +168,11 @@ describe Decidim::Initiatives::Admin::Permissions do
         context "when initiative is created" do
           let(:initiative) { create :initiative, :created, organization: organization }
 
-          it { is_expected.to eq true }
+          it { is_expected.to be true }
         end
 
         context "when initiative is not created" do
-          it { is_expected.to eq false }
+          it { is_expected.to be false }
         end
       end
 
@@ -189,7 +189,7 @@ describe Decidim::Initiatives::Admin::Permissions do
               initiative.update(decidim_user_group_id: user_group.id)
             end
 
-            it { is_expected.to eq true }
+            it { is_expected.to be true }
           end
 
           context "when initiative has enough approved members" do
@@ -197,7 +197,7 @@ describe Decidim::Initiatives::Admin::Permissions do
               allow(initiative).to receive(:enough_committee_members?).and_return(true)
             end
 
-            it { is_expected.to eq true }
+            it { is_expected.to be true }
           end
 
           context "when initiative has not enough approved members" do
@@ -205,43 +205,43 @@ describe Decidim::Initiatives::Admin::Permissions do
               allow(initiative).to receive(:enough_committee_members?).and_return(false)
             end
 
-            it { is_expected.to eq false }
+            it { is_expected.to be false }
           end
         end
 
         context "when initiative is discarded" do
           let(:initiative) { create :initiative, :discarded, organization: organization }
 
-          it { is_expected.to eq true }
+          it { is_expected.to be true }
         end
 
         context "when initiative is not created or discarded" do
-          it { is_expected.to eq false }
+          it { is_expected.to be false }
         end
       end
 
       context "when editing" do
         let(:action_name) { :edit }
 
-        it { is_expected.to eq true }
+        it { is_expected.to be true }
       end
 
       context "when previewing" do
         let(:action_name) { :preview }
 
-        it { is_expected.to eq true }
+        it { is_expected.to be true }
       end
 
       context "when managing memberships" do
         let(:action_name) { :manage_membership }
 
-        it { is_expected.to eq true }
+        it { is_expected.to be true }
       end
 
       context "when any other action" do
         let(:action_name) { :foo }
 
-        it { is_expected.to eq false }
+        it { is_expected.to be false }
       end
     end
 
@@ -256,13 +256,13 @@ describe Decidim::Initiatives::Admin::Permissions do
           context "when attached to an initiative" do
             let(:attachment) { create :attachment, attached_to: initiative }
 
-            it { is_expected.to eq true }
+            it { is_expected.to be true }
           end
 
           context "when attached to something else" do
             let(:attachment) { create :attachment }
 
-            it { is_expected.to eq false }
+            it { is_expected.to be false }
           end
         end
       end
@@ -270,13 +270,13 @@ describe Decidim::Initiatives::Admin::Permissions do
       context "when reading" do
         let(:action_name) { :read }
 
-        it { is_expected.to eq true }
+        it { is_expected.to be true }
       end
 
       context "when creating" do
         let(:action_name) { :create }
 
-        it { is_expected.to eq true }
+        it { is_expected.to be true }
       end
 
       it_behaves_like "attached to an initiative", :update
@@ -293,7 +293,7 @@ describe Decidim::Initiatives::Admin::Permissions do
       let(:action_subject) { :attachment }
       let(:action_name) { :foo }
 
-      it { is_expected.to eq true }
+      it { is_expected.to be true }
     end
 
     context "when managing initiative types" do
@@ -316,7 +316,7 @@ describe Decidim::Initiatives::Admin::Permissions do
             ]
           end
 
-          it { is_expected.to eq true }
+          it { is_expected.to be true }
         end
 
         context "when its scopes are not empty" do
@@ -326,14 +326,14 @@ describe Decidim::Initiatives::Admin::Permissions do
             ]
           end
 
-          it { is_expected.to eq false }
+          it { is_expected.to be false }
         end
       end
 
       context "when any random action" do
         let(:action_name) { :foo }
 
-        it { is_expected.to eq true }
+        it { is_expected.to be true }
       end
     end
 
@@ -354,7 +354,7 @@ describe Decidim::Initiatives::Admin::Permissions do
             []
           end
 
-          it { is_expected.to eq true }
+          it { is_expected.to be true }
         end
 
         context "when it has some initiatives" do
@@ -362,14 +362,14 @@ describe Decidim::Initiatives::Admin::Permissions do
             [1, 2, 3]
           end
 
-          it { is_expected.to eq false }
+          it { is_expected.to be false }
         end
       end
 
       context "when any random action" do
         let(:action_name) { :foo }
 
-        it { is_expected.to eq true }
+        it { is_expected.to be true }
       end
     end
 
@@ -386,13 +386,13 @@ describe Decidim::Initiatives::Admin::Permissions do
         context "when print is disabled" do
           let(:print_enabled) { false }
 
-          it { is_expected.to eq false }
+          it { is_expected.to be false }
         end
 
         context "when print is enabled" do
           let(:print_enabled) { true }
 
-          it { is_expected.to eq true }
+          it { is_expected.to be true }
         end
       end
 
@@ -411,24 +411,24 @@ describe Decidim::Initiatives::Admin::Permissions do
           allow(initiative).to receive(:supports_goal_reached?).and_return(goal_reached)
         end
 
-        it { is_expected.to eq true }
+        it { is_expected.to be true }
 
         context "when the initiative is not published" do
           let(:initiative) { create :initiative, :validating, organization: organization }
 
-          it { is_expected.to eq false }
+          it { is_expected.to be false }
         end
 
         context "when the initiative signature time is not finished" do
           let(:initiative) { create :initiative, signature_end_date: 2.days.from_now, organization: organization }
 
-          it { is_expected.to eq false }
+          it { is_expected.to be false }
         end
 
         context "when the initiative percentage is not complete" do
           let(:goal_reached) { false }
 
-          it { is_expected.to eq false }
+          it { is_expected.to be false }
         end
       end
 
@@ -441,24 +441,24 @@ describe Decidim::Initiatives::Admin::Permissions do
           allow(initiative).to receive(:supports_goal_reached?).and_return(goal_reached)
         end
 
-        it { is_expected.to eq true }
+        it { is_expected.to be true }
 
         context "when the initiative is not published" do
           let(:initiative) { create :initiative, :validating, organization: organization }
 
-          it { is_expected.to eq false }
+          it { is_expected.to be false }
         end
 
         context "when the initiative signature time is not finished" do
           let(:initiative) { create :initiative, signature_end_date: 2.days.from_now, organization: organization }
 
-          it { is_expected.to eq false }
+          it { is_expected.to be false }
         end
 
         context "when the initiative percentage is complete" do
           let(:goal_reached) { true }
 
-          it { is_expected.to eq false }
+          it { is_expected.to be false }
         end
       end
     end

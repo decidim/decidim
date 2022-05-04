@@ -95,7 +95,7 @@ module Decidim::Admin
 
         expect(published_block2.weight).to eq 1
         expect(unpublished_block.weight).to eq 2
-        expect(published_block1.weight).to eq nil
+        expect(published_block1.weight).to be_nil
       end
 
       it "unpublishes a published block that disappears from the order" do

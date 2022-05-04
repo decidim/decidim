@@ -1,7 +1,7 @@
 # Number of days of inactivity before an issue becomes stale
 daysUntilStale: 60
 # Number of days of inactivity before a stale issue is closed
-daysUntilClose: 7
+daysUntilClose: false
 # Ignore issues in a project
 exemptProjects: true
 # Ignore issues in a milestone
@@ -14,8 +14,12 @@ exemptLabels:
   - "type: bug"
 # Comment to post when marking an issue as stale. Set to `false` to disable
 markComment: >
-  This issue has been automatically marked as stale because it has not had
-  recent activity. It will be closed if no further activity occurs. Thank you
-  for your contributions. @carolromero & @andreslucena feel free to chime in.
+  Thank you for your contribution. This issue has been automatically marked
+  as stale because it has not had recent activity.
+
+  Is this still relevant? If so, what is blocking it? Is there anything you
+  can do to help move it forward?
+
+  @carolromero & @andreslucena feel free to chime in.
 # Comment to post when closing a stale issue. Set to `false` to disable
 closeComment: false

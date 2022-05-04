@@ -51,7 +51,7 @@ module Decidim
 
       describe "#url" do
         it "returns nil when the url has not been configured" do
-          expect(subject.url(latitude: latitude, longitude: longitude)).to be(nil)
+          expect(subject.url(latitude: latitude, longitude: longitude)).to be_nil
         end
 
         context "with configured url" do

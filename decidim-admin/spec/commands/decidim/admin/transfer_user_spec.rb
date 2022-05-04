@@ -53,7 +53,7 @@ module Decidim::Admin
     context "when solve conflict succeeds " do
       it "mark conflict as solved" do
         subject.call
-        expect(conflict.reload.solved).to eq(true)
+        expect(conflict.reload.solved).to be(true)
       end
 
       it "update email" do

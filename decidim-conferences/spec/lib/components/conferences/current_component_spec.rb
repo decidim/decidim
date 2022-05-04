@@ -28,7 +28,7 @@ module Decidim
 
         context "when the params don't contain a component id" do
           it "doesn't match" do
-            expect(subject.matches?(request)).to eq(false)
+            expect(subject.matches?(request)).to be(false)
           end
         end
 
@@ -41,7 +41,7 @@ module Decidim
             let(:component) { create(:component, participatory_space: other_conference) }
 
             it "matches" do
-              expect(subject.matches?(request)).to eq(false)
+              expect(subject.matches?(request)).to be(false)
             end
           end
 
@@ -49,7 +49,7 @@ module Decidim
             let(:component) { create(:component, participatory_space: current_conference) }
 
             it "matches" do
-              expect(subject.matches?(request)).to eq(true)
+              expect(subject.matches?(request)).to be(true)
             end
           end
         end

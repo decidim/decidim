@@ -18,7 +18,7 @@ module Decidim
 
       translatable_fields :title, :description
 
-      enum bb_status: [:created, :key_ceremony, :key_ceremony_ended, :vote, :vote_ended, :tally, :tally_ended, :results_published].index_with(&:to_s), _prefix: :bb
+      enum bb_status: [:created, :key_ceremony, :key_ceremony_ended, :vote, :vote_ended, :tally_started, :tally_ended, :results_published].index_with(&:to_s), _prefix: :bb
 
       component_manifest_name "elections"
 
@@ -127,7 +127,7 @@ module Decidim
       end
 
       def trustee_action_required?
-        bb_key_ceremony? || bb_tally?
+        bb_key_ceremony? || bb_tally_started?
       end
 
       # Public: Checks if the election has a blocked_at value

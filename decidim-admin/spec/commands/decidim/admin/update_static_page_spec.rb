@@ -58,7 +58,7 @@ module Decidim::Admin
           page.reload
 
           expect(page.slug).to eq("new-slug")
-          expect(page.allow_public_access).to eq(true)
+          expect(page.allow_public_access).to be(true)
         end
       end
     end

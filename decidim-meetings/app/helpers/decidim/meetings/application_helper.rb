@@ -85,7 +85,7 @@ module Decidim
       end
 
       def iframe_embed_or_live_event_page?(meeting)
-        meeting.iframe_embed_type == ("embed_in_meeting_page" || "open_in_live_event_page")
+        %w(embed_in_meeting_page open_in_live_event_page).include? meeting.iframe_embed_type
       end
     end
   end

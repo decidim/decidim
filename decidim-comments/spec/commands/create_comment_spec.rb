@@ -49,13 +49,13 @@ module Decidim
 
           it "creates a new comment" do
             expect(Comment).to receive(:create!).with(
-              author: author,
-              commentable: commentable,
-              root_commentable: commentable,
-              body: { en: body },
-              alignment: alignment,
-              decidim_user_group_id: user_group_id,
-              participatory_space: form.current_component.try(:participatory_space)
+              { author: author,
+                commentable: commentable,
+                root_commentable: commentable,
+                body: { en: body },
+                alignment: alignment,
+                decidim_user_group_id: user_group_id,
+                participatory_space: form.current_component.try(:participatory_space) }
             ).and_call_original
 
             expect do
@@ -121,13 +121,13 @@ module Decidim
 
             it "creates a new comment with user mention replaced" do
               expect(Comment).to receive(:create!).with(
-                author: author,
-                commentable: commentable,
-                root_commentable: commentable,
-                body: { en: Decidim::ContentProcessor.parse(body, parser_context).rewrite },
-                alignment: alignment,
-                decidim_user_group_id: user_group_id,
-                participatory_space: form.current_component.try(:participatory_space)
+                { author: author,
+                  commentable: commentable,
+                  root_commentable: commentable,
+                  body: { en: Decidim::ContentProcessor.parse(body, parser_context).rewrite },
+                  alignment: alignment,
+                  decidim_user_group_id: user_group_id,
+                  participatory_space: form.current_component.try(:participatory_space) }
               ).and_call_original
 
               expect do
@@ -157,13 +157,13 @@ module Decidim
 
             it "creates a new comment with user_group mention replaced" do
               expect(Comment).to receive(:create!).with(
-                author: author,
-                commentable: commentable,
-                root_commentable: commentable,
-                body: { en: Decidim::ContentProcessor.parse(body, parser_context).rewrite },
-                alignment: alignment,
-                decidim_user_group_id: user_group_id,
-                participatory_space: form.current_component.try(:participatory_space)
+                { author: author,
+                  commentable: commentable,
+                  root_commentable: commentable,
+                  body: { en: Decidim::ContentProcessor.parse(body, parser_context).rewrite },
+                  alignment: alignment,
+                  decidim_user_group_id: user_group_id,
+                  participatory_space: form.current_component.try(:participatory_space) }
               ).and_call_original
 
               expect do

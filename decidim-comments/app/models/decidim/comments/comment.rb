@@ -10,7 +10,7 @@ module Decidim
       include Decidim::Authorable
       include Decidim::Comments::Commentable
       include Decidim::FriendlyDates
-      include Decidim::DataPortability
+      include Decidim::DownloadYourData
       include Decidim::Traceable
       include Decidim::Loggable
       include Decidim::Searchable

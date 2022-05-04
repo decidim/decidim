@@ -66,7 +66,7 @@ Decidim::Core::Engine.routes.draw do
 
     get "/newsletters_opt_in/:token", to: "newsletters_opt_in#update", as: :newsletters_opt_in
 
-    resource :data_portability, only: [:show], controller: "data_portability" do
+    resource :download_your_data, only: [:show], controller: "download_your_data" do
       member do
         post :export
         get :download_file

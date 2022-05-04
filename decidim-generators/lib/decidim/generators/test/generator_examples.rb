@@ -144,7 +144,7 @@ shared_context "with application env vars" do
       "DECIDIM_MAXIMUM_AVATAR_SIZE" => "11",
       "DECIDIM_MAX_REPORTS_BEFORE_HIDING" => "4",
       "DECIDIM_TRACK_NEWSLETTER_LINKS" => "",
-      "DECIDIM_DATA_PORTABILITY_EXPIRY_TIME" => "2",
+      "DECIDIM_DOWNLOAD_YOUR_DATA_EXPIRY_TIME" => "2",
       "DECIDIM_THROTTLING_MAX_REQUESTS" => "99",
       "DECIDIM_THROTTLING_PERIOD" => "2",
       "DECIDIM_UNCONFIRMED_ACCESS_FOR" => "3",
@@ -260,7 +260,7 @@ shared_examples_for "an application with configurable env vars" do
       %w(decidim maximum_avatar_size) => 5,
       %w(decidim max_reports_before_hiding) => 3,
       %w(decidim track_newsletter_links) => "auto",
-      %w(decidim data_portability_expiry_time) => 7,
+      %w(decidim download_your_data_expiry_time) => 7,
       %w(decidim throttling_max_requests) => 100,
       %w(decidim throttling_period) => 1,
       %w(decidim unconfirmed_access_for) => 0,
@@ -358,7 +358,7 @@ shared_examples_for "an application with configurable env vars" do
       %w(decidim maximum_avatar_size) => 11,
       %w(decidim max_reports_before_hiding) => 4,
       %w(decidim track_newsletter_links) => false,
-      %w(decidim data_portability_expiry_time) => 2,
+      %w(decidim download_your_data_expiry_time) => 2,
       %w(decidim throttling_max_requests) => 99,
       %w(decidim throttling_period) => 2,
       %w(decidim unconfirmed_access_for) => 3,
@@ -447,7 +447,7 @@ shared_examples_for "an application with configurable env vars" do
       "maximum_avatar_size" => 5_242_880, # 5 megabytes
       "max_reports_before_hiding" => 3,
       "track_newsletter_links" => true,
-      "data_portability_expiry_time" => 604_800, # 7 days
+      "download_your_data_expiry_time" => 604_800, # 7 days
       "throttling_max_requests" => 100,
       "throttling_period" => 60, # 1 minute
       "unconfirmed_access_for" => 0,
@@ -483,7 +483,7 @@ shared_examples_for "an application with configurable env vars" do
       "maximum_avatar_size" => 11_534_336, # 11 megabytes
       "max_reports_before_hiding" => 4,
       "track_newsletter_links" => false,
-      "data_portability_expiry_time" => 172_800, # 2 days
+      "download_your_data_expiry_time" => 172_800, # 2 days
       "throttling_max_requests" => 99,
       "throttling_period" => 120, # 2 minutes
       "unconfirmed_access_for" => 259_200, # 3 days

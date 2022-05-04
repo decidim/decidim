@@ -2,7 +2,7 @@
 
 module Decidim
   class UserReport < ApplicationRecord
-    include Decidim::DataPortability
+    include Decidim::DownloadYourData
 
     REASONS = %w(spam offensive does_not_belong).freeze
 
@@ -16,7 +16,7 @@ module Decidim
 
     def self.export_serializer
       raise NotImplementedError
-      # Decidim::DataPortabilitySerializers::DataPortabilityReportSerializer
+      # Decidim::DownloadYourDataSerializers::DownloadYourDataReportSerializer
     end
 
     private

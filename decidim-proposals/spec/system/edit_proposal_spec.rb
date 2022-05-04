@@ -42,16 +42,28 @@ describe "Edit proposals", type: :system do
       expect(page).to have_content(new_body)
     end
 
-    context "with attachments allowed" do
+    context "when attachments are allowed" do
       let(:component) { create(:proposal_component, :with_attachments_allowed, participatory_space: participatory_process) }
+
+      before do
+        visit_component
+        click_link translated(proposal.title)
+      end
+
+      it "shows validation error when format is not accepted" do
+        click_link "Edit proposal"
+        dynamically_attach_file(:proposal_photos, Decidim::Dev.asset("participatory_text.md"), keep_modal_open: true) do
+          expect(page).to have_content("Accepted formats: #{Decidim::OrganizationSettings.for(organization).upload_allowed_file_extensions_image.join(", ")}")
+        end
+        expect(page).to have_content("file should be one of (?-mix:image\\/.*?), (?-mix:application\\/pdf), (?-mix:application\\/rtf), (?-mix:text\\/plain)")
+      end
 
       context "with a file and photo" do
         let!(:file) { create(:attachment, :with_pdf, weight: 1, attached_to: proposal) }
         let!(:photo) { create(:attachment, :with_image, weight: 0, attached_to: proposal) }
 
         it "can delete attachments" do
-          visit_component
-          click_link translated(proposal.title)
+          visit current_path
           expect(page).to have_content("RELATED DOCUMENTS")
           expect(page).to have_content("RELATED IMAGES")
           click_link "Edit proposal"
@@ -72,12 +84,36 @@ describe "Edit proposals", type: :system do
           expect(page).to have_no_content("Related documents")
           expect(page).to have_no_content("Related images")
         end
+
+        context "with attachment titles" do
+          let(:attachment_file_title) { ::Faker::Lorem.sentence }
+          let(:attachment_image_title) { ::Faker::Lorem.sentence }
+
+          it "can change attachment titles" do
+            click_link "Edit proposal"
+            click_button "Edit image"
+            within ".upload-modal" do
+              expect(page).to have_content("Preferrably a landscape image that does not have any text")
+              find(".attachment-title").set(attachment_image_title)
+              click_button "Save"
+            end
+            click_button "Edit documents"
+            within ".upload-modal" do
+              expect(page).to have_content("Has to be an image or a document")
+              find(".attachment-title").set(attachment_file_title)
+              click_button "Save"
+            end
+            click_button "Send"
+            expect(page).to have_selector("div.flash.callout.success")
+            expect(Decidim::Attachment.count).to eq(2)
+            expect(translated(Decidim::Attachment.find_by(attached_to_id: proposal.id, content_type: "image/jpeg").title)).to eq(attachment_image_title)
+            expect(translated(Decidim::Attachment.find_by(attached_to_id: proposal.id, content_type: "application/pdf").title)).to eq(attachment_file_title)
+          end
+        end
       end
 
       context "with multiple images" do
         it "can add many images many times" do
-          visit_component
-          click_link translated(proposal.title)
           click_link "Edit proposal"
           dynamically_attach_file(:proposal_photos, Decidim::Dev.asset("city.jpeg"))
           dynamically_attach_file(:proposal_documents, Decidim::Dev.asset("icon.png"))
@@ -94,6 +130,7 @@ describe "Edit proposals", type: :system do
           dynamically_attach_file(:proposal_documents, Decidim::Dev.asset("city2.jpeg"))
           dynamically_attach_file(:proposal_documents, Decidim::Dev.asset("city3.jpeg"))
           click_button "Send"
+          expect(page).to have_selector("div.flash.callout.success")
           expect(page).to have_selector(".thumbnail[alt='city']")
           expect(page).to have_selector(".thumbnail[alt='icon']")
           expect(page).to have_selector(".thumbnail[alt='avatar']")

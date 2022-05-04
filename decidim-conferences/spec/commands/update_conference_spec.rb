@@ -106,8 +106,8 @@ module Decidim::Conferences
         before do
           expect(form).to receive(:invalid?).and_return(false)
           expect(my_conference).to receive(:valid?).at_least(:once).and_return(false)
-          my_conference.errors.add(:hero_image, "Image too big")
-          my_conference.errors.add(:banner_image, "Image too big")
+          my_conference.errors.add(:hero_image, "File resolution is too large")
+          my_conference.errors.add(:banner_image, "File resolution is too large")
         end
 
         it "broadcasts invalid" do
