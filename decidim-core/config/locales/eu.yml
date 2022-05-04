@@ -79,9 +79,6 @@ eu:
       skip_button: Joan eduki nagusira
     account:
       blocked: Kontu hau blokeatu da erabilera-irizpideak eta baldintzak urratzeagatik
-      data_portability_export:
-        file_no_exists: Fitxategia ez dago
-        notice: Zure datuak une honetan egiten ari dira. Mezu elektroniko bat jasoko duzu beteta dagoenean.
       delete:
         alert: Ekintza hori ezin da desegin. Zure kontua ezabatzen baduzu, ezin izango duzu saioa hasi zure kredentzialekin. Zure kontua ezabatzeak zure ekarpenen anonimotasuna ekarriko du. Oraindik kontu berri bat sortu ahal izango duzu, baina ekarpen horiek ez dira kontu horrekin lotuko.
         confirm:
@@ -93,6 +90,9 @@ eu:
       destroy:
         error: Errore bat gertatu da zure kontua ezabatzean.
         success: Zure kontua ezabatu egin da.
+      download_your_data_export:
+        file_no_exists: Fitxategia ez dago
+        notice: Zure datuak une honetan egiten ari dira. Mezu elektroniko bat jasoko duzu beteta dagoenean.
       show:
         change_password: Aldatu pasahitza
         update_account: Eguneratu kontua
@@ -428,12 +428,6 @@ eu:
       actions:
         login_before_access: Mesedez, sartu baino lehen hasi saioa zure kontuarekin
         unauthorized: Ez duzu baimenik ekintza honi heltzeko.
-    data_portability:
-      export:
-        ready: prest
-      show:
-        download_data: Deskargatu datuak
-        request_data: Eskaera datuak
     datepicker:
       help_text: 'Espero den formatua: %{datepicker_format}'
     devise:
@@ -496,6 +490,12 @@ eu:
           this_application_will_not_be_able_to: 'Aplikazio honek ezin izango du:'
           update_profile: Eguneratu profila
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> zure kontua erabili nahi du"
+    download_your_data:
+      export:
+        ready: prest
+      show:
+        download_data: Deskargatu datuak
+        request_data: Eskaera datuak
     editor_images:
       create:
         error: Arazoa irudia eguneratzean
@@ -661,7 +661,7 @@ eu:
           email_subject: "%{nickname} profilean eguneratu dute"
           notification_title: <a href="%{resource_path}">profile orriaren 1233_4_1_321 %{name} (%{nickname}) jarraitzen ari zarenean, eguneratu egin da.
     export_mailer:
-      data_portability_export:
+      download_your_data_export:
         click_button: 'Egin klik hurrengo loturan zure datuak deskargatzeko. <br/>Artxiboa eskuragai egongo da data honetara arte %{date}.<br/>Irekitzeko beharko duzu <a href="https://www.7-zip.org/">7-Zip</a> (Windowserako), <a href="https://www.keka.io/en/">Keka</a> (para MacOS) o <a href="https://peazip.github.io">PeaZip</a> (Linuxerako). Pasahitza: %{password}'
         download: Deskarga
       export:
@@ -1095,7 +1095,6 @@ eu:
           agreement: Ados nago irizpide hauekin
           legend: Erabiltzeko baldintzak eta baldintzak onartzen dituzu
         refuse:
-          modal_body: Uko egiten baduzu, ezin izango duzu plataforman erabiltzeko gai, ezin duzu <a href="%{data_portability_path}">deskargatu zure datu</a> edo / <a href="%{delete_path}">zure kontua ezabatu</a>.
           modal_btn_continue: Baldintzak onartu eta jarraitu
           modal_btn_exit: Berriro berrikusiko dut geroago
           modal_button: Ezetsi terminoak
