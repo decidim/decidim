@@ -4,6 +4,7 @@
 // This imports all the Decidim module stylesheet imports registered at
 // `config/assets.rb` of the module for the "app" group.
 @import "!decidim-style-imports[app]";
+@import "!decidim-style-imports[redesigned_app]";
 
 // Application specific styles
 @import "stylesheets/decidim/decidim_application";
