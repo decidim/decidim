@@ -54,6 +54,19 @@ module Decidim
         #     super(encrypt_value(value))
         #   end
         class_eval <<-RUBY, __FILE__, __LINE__ + 1
+
+          # def full_name
+          #   return @full_name_decrypted if instance_variable_defined?(:@full_name_decrypted)
+          #
+          #   encrypted_value = begin
+          #     if defined?(super)
+          #       super
+          #     elsif instance_variable_defined?(:@full_name)
+          #       @full_name
+          #     end
+          #   end
+          #   @full_name_decrypted = decrypt_value(encrypted_value)
+          # end
           def #{attribute}
             return @#{attribute}_decrypted if instance_variable_defined?(:@#{attribute}_decrypted)
 
@@ -67,6 +80,16 @@ module Decidim
             @#{attribute}_decrypted = decrypt_#{method_suffix}(encrypted_value)
           end
 
+          # def full_name=(value)
+          #   remove_instance_variable(:@full_name_decrypted) if instance_variable_defined?(:@full_name_decrypted)
+          #   encrypted_value = encrypt_value(value)
+          #
+          #   if defined?(super)
+          #     super(encrypted_value)
+          #   else
+          #     @full_name = encrypted_value
+          #   end
+          # end
           def #{attribute}=(value)
             remove_instance_variable(:@#{attribute}_decrypted) if instance_variable_defined?(:@#{attribute}_decrypted)
             encrypted_value = encrypt_#{method_suffix}(value)

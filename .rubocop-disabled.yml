@@ -36,9 +36,9 @@ Style/HashConversion:
 
 Style/QuotedSymbols:
   Enabled: false
-
-Style/DocumentDynamicEvalDefinition:
-  Enabled: false
+#
+#Style/DocumentDynamicEvalDefinition:
+#  Enabled: false
 
 Style/OpenStructUse:
   Enabled: false
@@ -63,7 +63,7 @@ Rails/EagerEvaluationLogMessage:
 
 Style/FileWrite:
   Enabled: false
-  
+
 Rails/RedundantPresenceValidationOnBelongsTo:
   Enabled: false
 
