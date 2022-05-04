@@ -1203,7 +1203,6 @@ lv:
     invitations:
       edit:
         header: Pabeidziet sava konta izveidi
-        nickname_help: Jūsu segvārds %{organization}.
         submit_button: Saglabāt
         subtitle: Ja pieņemat ielūgumu, lūdzu, izvēlieties savu segvārdu un paroli.
       invitation_removed: Jūsu ielūgums tika noņemts.
