@@ -184,7 +184,7 @@ module Decidim
         end
 
         it "returns true" do
-          expect(subject.meet_push_notifications_requirements?).to eq true
+          expect(subject.meet_push_notifications_requirements?).to be true
         end
       end
 
@@ -194,7 +194,7 @@ module Decidim
         end
 
         it "returns false" do
-          expect(subject.meet_push_notifications_requirements?).to eq false
+          expect(subject.meet_push_notifications_requirements?).to be false
         end
       end
     end
