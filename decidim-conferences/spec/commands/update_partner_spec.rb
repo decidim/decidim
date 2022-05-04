@@ -76,7 +76,7 @@ module Decidim::Conferences
         end.to change { partner.reload && partner.partner_type }.from(partner.partner_type).to("collaborator")
       end
 
-      it "broadcasts  ok" do
+      it "broadcasts ok" do
         expect { subject.call }.to broadcast(:ok)
       end
 

@@ -132,7 +132,7 @@ module Decidim::Admin
       context "when sending to followers" do
         let(:send_to_followers) { true }
 
-        context "when no spaces selected " do
+        context "when no spaces selected" do
           it "is not valid" do
             expect { command.call }.to broadcast(:invalid)
           end
@@ -180,7 +180,7 @@ module Decidim::Admin
       context "when sending to participants" do
         let(:send_to_participants) { true }
 
-        context "when no spaces selected " do
+        context "when no spaces selected" do
           it "is not valid" do
             expect { command.call }.to broadcast(:invalid)
           end

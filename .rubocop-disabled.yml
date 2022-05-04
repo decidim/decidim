@@ -1,6 +1,3 @@
-RSpec/ExcessiveDocstringSpacing:
-  Enabled: false
-
 RSpec/StubbedMock:
   Enabled: false
 

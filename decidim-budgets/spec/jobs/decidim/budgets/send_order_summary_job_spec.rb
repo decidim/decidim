@@ -32,7 +32,7 @@ describe Decidim::Budgets::SendOrderSummaryJob do
   describe "when no order" do
     let(:order) { nil }
 
-    it " doesn't send the email" do
+    it "doesn't send the email" do
       expect(Decidim::Budgets::OrderSummaryMailer)
         .not_to receive(:order_summary)
 
@@ -41,7 +41,7 @@ describe Decidim::Budgets::SendOrderSummaryJob do
   end
 
   describe "when no user" do
-    it " doesn't send the email" do
+    it "doesn't send the email" do
       user.destroy
       order.reload
 
@@ -53,7 +53,7 @@ describe Decidim::Budgets::SendOrderSummaryJob do
   end
 
   describe "when user as no email" do
-    it " doesn't send the email" do
+    it "doesn't send the email" do
       user.update(email: "")
 
       expect(Decidim::Budgets::OrderSummaryMailer)
