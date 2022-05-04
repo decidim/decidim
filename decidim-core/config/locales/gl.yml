@@ -85,9 +85,6 @@ gl:
     accessibility:
       front_page_link: Ir á páxina principal
     account:
-      data_portability_export:
-        file_no_exists: O ficheiro non existe
-        notice: Os teus datos están en progreso. Recibirás un correo electrónico cando finalice.
       delete:
         confirm:
           close: Pechar xanela
@@ -98,6 +95,9 @@ gl:
       destroy:
         error: Produciuse un erro ao eliminar a túa conta.
         success: A túa conta eliminouse correctamente.
+      download_your_data_export:
+        file_no_exists: O ficheiro non existe
+        notice: Os teus datos están en progreso. Recibirás un correo electrónico cando finalice.
       show:
         change_password: Cambie o contrasinal
         update_account: Actualizar a conta
@@ -328,12 +328,6 @@ gl:
     core:
       actions:
         unauthorized: Non estás autorizado para realizar esta acción
-    data_portability:
-      export:
-        ready: Listo
-      show:
-        download_data: Descarga os datos
-        request_data: Solicitar datos
     datepicker:
       help_text: 'Formato esperado: %{datepicker_format}'
     devise:
@@ -395,6 +389,12 @@ gl:
           this_application_will_not_be_able_to: 'Esta aplicación non poderá:'
           update_profile: Actualiza o teu perfil
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> quere usar a túa conta"
+    download_your_data:
+      export:
+        ready: Listo
+      show:
+        download_data: Descarga os datos
+        request_data: Solicitar datos
     editor_images:
       create:
         error: Erro ó subir a imaxe
@@ -534,7 +534,7 @@ gl:
           email_subject: "%{name} foi oficializado"
           notification_title: O participante %{name} (%{nickname}) foi oficializado.
     export_mailer:
-      data_portability_export:
+      download_your_data_export:
         download: Descarga
       export:
         ready: Atopa unha versión comprimida da túa exportación.
@@ -903,7 +903,6 @@ gl:
         form:
           legend: Concorda cos termos e condicións de uso
         refuse:
-          modal_body: Rexeitar, non será capaz de utilizar a plataforma, pode <a href="%{data_portability_path}">Descargar seus datos</a> e / ou <a href="%{delete_path}">eliminar a súa conta</a>.
           modal_btn_continue: Aceptar termos e continuar
           modal_btn_exit: Vou revisalo máis tarde
           modal_button: Rexeitar os termos
