@@ -1095,7 +1095,6 @@ gl:
     invitations:
       edit:
         header: Acaba de crear a túa conta
-        nickname_help: O teu identificador único en %{organization}.
         submit_button: Gardar
         subtitle: Se aceptas a invitación, configure o teu alcume e contrasinal.
       invitation_removed: A túa invitación foi eliminada.
