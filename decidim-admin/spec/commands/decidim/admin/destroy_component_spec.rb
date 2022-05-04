@@ -37,9 +37,9 @@ module Decidim::Admin
 
         subject.call
 
-        component = results[:component]
-        expect(results[:component].id).to eq(component.id)
-        expect(results[:component]).not_to be_persisted
+        result_component = results[:component]
+        expect(result_component.id).to eq(component.id)
+        expect(result_component).not_to be_persisted
       end
     end
   end
