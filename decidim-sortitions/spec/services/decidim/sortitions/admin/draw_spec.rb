@@ -25,11 +25,10 @@ module Decidim
             decidim_proposals_component: proposal_component
           )
         end
+        let(:initial_draw) { Draw.for(sortition) }
 
         it "Draw can be reproduced several times" do
-          # rubocop:disable RSpec/IdenticalEqualityAssertion
-          expect(Draw.for(sortition)).to eq(Draw.for(sortition))
-          # rubocop:enable RSpec/IdenticalEqualityAssertion
+          expect(Draw.for(sortition)).to eq(initial_draw)
         end
       end
     end
