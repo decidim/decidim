@@ -79,13 +79,14 @@ module Decidim
 
         def authorization
           @authorization_presenter ||= AuthorizationPresenter.new(@authorization)
-end
+        end
+
         def load_authorization
           @authorization = Decidim::Authorization.find_or_initialize_by(
             user: current_user,
             name: "id_documents"
           )
-end
+        end
 
         def verification_type
           params[:using] || authorization_verification_type || available_methods.first

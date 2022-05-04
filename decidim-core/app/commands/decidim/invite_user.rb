@@ -28,7 +28,7 @@ module Decidim
 
     def user
       @user ||= Decidim::User.where(organization: form.organization).where(email: form.email.downcase).first
-          end
+    end
 
     def update_user
       user.admin = form.role == "admin"

@@ -41,5 +41,5 @@ module W3cRspecValidators
         w3c_service_uri: ENV.fetch("VALIDATOR_HTML_URI", "https://validator.w3.org/nu/")
       }.stringify_keys
     end
-      end
+  end
 end
