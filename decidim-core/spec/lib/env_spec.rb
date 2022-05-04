@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim
   describe Env do
-    let(:subject) { described_class.new(name, default) }
+    subject { described_class.new(name, default) }
     let(:name) { "TEST_ENV_VAR" }
     let(:value) { nil }
     let(:default) { nil }

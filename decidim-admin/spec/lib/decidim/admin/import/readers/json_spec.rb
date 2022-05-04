@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim::Admin::Import::Readers
   describe JSON do
-    let(:subject) { described_class.new(file) }
+    subject { described_class.new(file) }
     let(:json_data) do
       <<~JSON
         [

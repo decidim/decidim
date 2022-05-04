@@ -5,10 +5,10 @@ require "spec_helper"
 module Decidim::Budgets
   describe DownloadYourDataBudgetsOrderSerializer do
     let(:resource) { create(:order) }
+    let(:serialized) { subject.serialize }
     let!(:projects) { create_list(:project, 2, budget: resource.budget, budget_amount: 25_000_000) }
 
-    let(:subject) { described_class.new(resource) }
-    let(:serialized) { subject.serialize }
+    subject { described_class.new(resource) }
 
     describe "#serialize" do
       it "includes the id" do

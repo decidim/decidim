@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim
   describe Debates::DownloadYourDataDebateSerializer do
-    let(:subject) { described_class.new(resource) }
+    subject { described_class.new(resource) }
     let(:resource) { create(:debate) }
 
     let(:serialized) { subject.serialize }

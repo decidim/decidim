@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim
   describe DownloadYourDataSerializers::DownloadYourDataConversationSerializer do
-    let(:subject) { described_class.new(conversation) }
+    subject { described_class.new(conversation) }
 
     let(:organization) { create(:organization) }
     let(:user) { create :user, :confirmed, organization: organization }

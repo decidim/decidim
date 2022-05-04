@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim
   describe DownloadYourDataSerializers::DownloadYourDataReportSerializer do
-    let(:subject) { described_class.new(resource) }
+    subject { described_class.new(resource) }
 
     let(:organization) { create(:organization) }
     let(:user) { create(:user, organization: organization) }
