@@ -85,7 +85,7 @@ describe Decidim::Meetings::DiffRenderer, versioning: true do
         end_time: :date,
         decidim_scope_id: :scope
       }
-      types = subject.map { |attribute, data| [attribute.to_sym, data[:type]] }.to_h
+      types = subject.to_h { |attribute, data| [attribute.to_sym, data[:type]] }
       expect(types).to eq expected_types
     end
 
@@ -102,7 +102,7 @@ describe Decidim::Meetings::DiffRenderer, versioning: true do
         end_time: "End Time",
         decidim_scope_id: "Scope"
       }
-      labels = subject.map { |attribute, data| [attribute.to_sym, data[:label]] }.to_h
+      labels = subject.to_h { |attribute, data| [attribute.to_sym, data[:label]] }
       expect(labels).to eq expected_labels
     end
 
@@ -132,7 +132,7 @@ describe Decidim::Meetings::DiffRenderer, versioning: true do
           end_time: "End Time",
           decidim_scope_id: "Scope"
         }
-        labels = subject.map { |attribute, data| [attribute.to_sym, data[:label]] }.to_h
+        labels = subject.to_h { |attribute, data| [attribute.to_sym, data[:label]] }
         expect(labels).to eq expected_labels
       end
     end

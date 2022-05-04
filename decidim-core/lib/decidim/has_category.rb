@@ -38,7 +38,8 @@ module Decidim
         return self if categories.include?("all")
 
         cat_ids = categories.without("without")
-        additional_ids = cat_ids.select { |a| a =~ /Decidim__/ }
+
+        additional_ids = cat_ids.grep(/Decidim__/)
         additional_ids = additional_ids.map { |a| a.gsub("__", "::").gsub(/(\d+)/, '.\1').split(".") }
         additional_ids = additional_ids.map { |v| v.first.safe_constantize.send(:find, v.last.to_i).category_ids }
         additional_ids = additional_ids.flatten

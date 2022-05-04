@@ -7,7 +7,7 @@ describe "Search comments", type: :system do
   let(:manifest_name) { "dummy" }
   let!(:commentable) { create(:dummy_resource, component: component) }
   let!(:searchables) { create_list(:comment, 3, commentable: commentable) }
-  let!(:term) { translated(searchables.first.body).split(" ").last }
+  let!(:term) { translated(searchables.first.body).split.last }
   let(:hashtag) { "#decidim" }
 
   before do

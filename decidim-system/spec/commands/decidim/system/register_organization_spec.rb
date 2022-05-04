@@ -155,7 +155,7 @@ module Decidim
         private
 
         def params_for_uploads(hash)
-          hash.map do |key, value|
+          hash.to_h do |key, value|
             case value
             when Hash
               value = params_for_uploads(value)
@@ -164,7 +164,7 @@ module Decidim
             end
 
             [key, value]
-          end.to_h
+          end
         end
       end
     end

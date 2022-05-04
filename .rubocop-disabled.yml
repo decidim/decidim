@@ -31,41 +31,14 @@ Lint/NoReturnInBeginEndBlocks:
 Lint/RedundantCopDisableDirective:
   Enabled: false
 
-Style/RedundantArgument:
-  Enabled: false
-
-Style/WordArray:
-  Enabled: false
-
-Style/MapToHash:
-  Enabled: false
-
 Style/HashConversion:
-  Enabled: false
-
-Style/GlobalVars:
-  Enabled: false
-
-Style/RedundantBegin:
   Enabled: false
 
 Style/QuotedSymbols:
   Enabled: false
-
-Style/FetchEnvVar:
-  Enabled: false
-
-Style/RedundantParentheses:
-  Enabled: false
-
-Style/DocumentDynamicEvalDefinition:
-  Enabled: false
-
-Style/ClassEqualityComparison:
-  Enabled: false
-
-Style/NegatedIfElseCondition:
-  Enabled: false
+#
+#Style/DocumentDynamicEvalDefinition:
+#  Enabled: false
 
 Style/OpenStructUse:
   Enabled: false
@@ -88,9 +61,6 @@ Lint/AmbiguousOperatorPrecedence:
 Rails/EagerEvaluationLogMessage:
   Enabled: false
 
-Style/FileWrite:
-  Enabled: false
-  
 Rails/RedundantPresenceValidationOnBelongsTo:
   Enabled: false
 
@@ -103,16 +73,10 @@ Lint/UnmodifiedReduceAccumulator:
 Gemspec/RequireMFA:
   Enabled: false
 
-Style/SelectByRegexp:
-  Enabled: false
-
 Rails/DuplicateScope:
   Enabled: false
 
 RSpec/IdenticalEqualityAssertion:
-  Enabled: false
-
-Style/StringChars:
   Enabled: false
 
 Rails/ExpandedDateRange:

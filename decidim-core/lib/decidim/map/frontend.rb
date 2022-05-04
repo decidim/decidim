@@ -84,12 +84,12 @@ module Decidim
         # @return [Hash] The resulting hash with JS-style hash keys in camelCase
         #   format.
         def hash_to_js(hash)
-          hash.map do |key, value|
+          hash.to_h do |key, value|
             value = hash_to_js(value) if value.is_a?(Hash)
             value = value.call(self) if value.respond_to?(:call)
 
             [key.to_s.camelize(:lower), value]
-          end.to_h
+          end
         end
       end
     end

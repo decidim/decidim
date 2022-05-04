@@ -19,7 +19,7 @@ require_relative "factories"
 
 RSpec.configure do |config|
   config.color = true
-  config.fail_fast = ENV["FAIL_FAST"] == "true"
+  config.fail_fast = ENV.fetch("FAIL_FAST", nil) == "true"
   config.infer_spec_type_from_file_location!
   config.mock_with :rspec
   config.order = :random
