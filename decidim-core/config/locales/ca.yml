@@ -127,6 +127,9 @@ ca:
       download_your_data_export:
         file_no_exists: L'arxiu no existeix
         notice: La descàrrega de les teves dades està en curs. Rebràs un correu electrònic quan estigui completa.
+      email_change:
+        body1: Hem enviat un correu a %{unconfirmed_email} per a verificar la teva nova adreça de correu electrònic.
+        body2: Cal que et reenviem el correu de verificació? %{resend_link} o %{cancel_link}.
       show:
         available_locales_helper: Tria l'idioma que en que vols navegar i rebre notificacions de la plataforma
         change_password: Canvia la contrasenya
