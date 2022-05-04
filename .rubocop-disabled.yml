@@ -7,8 +7,8 @@ Naming/VariableNumber:
 #Lint/SymbolConversion:
 #  Enabled: false
 
-Lint/EmptyClass:
-  Enabled: false
+#Lint/EmptyClass:
+#  Enabled: false
 
 Lint/EmptyBlock:
   Enabled: false

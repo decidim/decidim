@@ -2,8 +2,9 @@
 
 require "spec_helper"
 
-class ::TestPermissions
-end
+# rubocop:disable Lint/EmptyClass
+class ::TestPermissions; end
+# rubocop:enable Lint/EmptyClass
 
 module Decidim
   describe ParticipatorySpaceManifest do
