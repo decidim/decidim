@@ -1133,7 +1133,6 @@ sk:
     invitations:
       edit:
         header: Dokončite vytvorenie účtu
-        nickname_help: Vaša prezývka v %{organization}.
         submit_button: Uložiť
         subtitle: Ak prijmete pozvánku, nastavte svoju prezývku a heslo.
       invitation_removed: Vaša pozvánka bola odstránená.
