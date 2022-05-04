@@ -82,9 +82,6 @@ pt-BR:
       skip_button: Pular para o conteúdo principal
     account:
       blocked: Esta conta foi bloqueada devido a violação de Termos e Condições
-      data_portability_export:
-        file_no_exists: O arquivo não existe
-        notice: Seus dados estão atualmente em andamento. Você receberá um e-mail quando estiver concluído.
       delete:
         alert: Esta ação não pode ser desfeita. Se você excluir sua conta, não poderá fazer login com suas credenciais. A exclusão da sua conta resultará em anonimato das suas contribuições. Você ainda poderá criar uma nova conta, mas estas contribuições não serão associadas a ela.
         confirm:
@@ -96,6 +93,9 @@ pt-BR:
       destroy:
         error: Ocorreu um erro ao cancelar a sua conta.
         success: Sua conta foi excluída.
+      download_your_data_export:
+        file_no_exists: O arquivo não existe
+        notice: Seus dados estão atualmente em andamento. Você receberá um e-mail quando estiver concluído.
       show:
         change_password: Mudar senha
         update_account: Atualizar conta
@@ -431,13 +431,6 @@ pt-BR:
       actions:
         login_before_access: Faça o login com sua conta antes de acessar
         unauthorized: Não está autorizado a realizar esta ação
-    data_portability:
-      export:
-        ready: pronto
-      show:
-        download_data: Baixe os dados
-        download_data_description: Um arquivo contendo todas as informações associadas à sua conta será enviado para <strong>%{user_email}</strong>. Este e-mail conterá um arquivo .zip e uma senha para abri-lo.<br/><br/>Para descompactar o arquivo, você precisará de <a href="https://www.7-zip.org/">7-Zip</a> (para Windows) ou <a href="https://www.keka.io/">Keka</a> (para MacOS). Se você usar Linux, a maior parte do tempo você o terá instalado por padrão. Se não, você pode usar <a href="https://gitlab.gnome.org/GNOME/file-roller">Rolagem de Arquivos</a> ou <a href="https://peazip.github.io">PeaZip</a>. ).
-        request_data: Solicitar dados
     datepicker:
       help_text: 'Formato esperado: %{datepicker_format}'
     devise:
@@ -505,6 +498,13 @@ pt-BR:
           this_application_will_not_be_able_to: 'Esta aplicação não poderá:'
           update_profile: atualize seu perfil
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> quer usar sua conta"
+    download_your_data:
+      export:
+        ready: pronto
+      show:
+        download_data: Baixe os dados
+        download_data_description: Um arquivo contendo todas as informações associadas à sua conta será enviado para <strong>%{user_email}</strong>. Este e-mail conterá um arquivo .zip e uma senha para abri-lo.<br/><br/>Para descompactar o arquivo, você precisará de <a href="https://www.7-zip.org/">7-Zip</a> (para Windows) ou <a href="https://www.keka.io/">Keka</a> (para MacOS). Se você usar Linux, a maior parte do tempo você o terá instalado por padrão. Se não, você pode usar <a href="https://gitlab.gnome.org/GNOME/file-roller">Rolagem de Arquivos</a> ou <a href="https://peazip.github.io">PeaZip</a>. ).
+        request_data: Solicitar dados
     endorsable:
       endorsements: Avais
       endorsements_count: Contagem de endossos
@@ -665,7 +665,7 @@ pt-BR:
           email_subject: "%{nickname} atualizaram seu perfil"
           notification_title: O <a href="%{resource_path}">profile page</a> de %{name} (%{nickname}), quem você está seguindo, foi atualizado.
     export_mailer:
-      data_portability_export:
+      download_your_data_export:
         click_button: 'Clique no próximo link para baixar seus dados.<br/>O arquivo estará disponível até %{date}.<br/>Você vai precisar de <a href="https://www.7-zip.org/">7-Zip</a> (para Windows), <a href="https://www.keka.io/en/">Keka</a> (para MacOS) ou <a href="https://peazip.github.io">PeaZip</a> (para Linux) para abri-lo. Senha: %{password}'
         download: Download
       export:
@@ -1102,7 +1102,6 @@ pt-BR:
           agreement: Concordo com estes termos
           legend: Concorde com os termos e condições de uso
         refuse:
-          modal_body: Se recusar, você não será capaz de usar a plataforma, você pode <a href="%{data_portability_path}">baixar seus dados</a> e / ou <a href="%{delete_path}">excluir sua conta</a>.
           modal_btn_continue: Aceite os termos e continue
           modal_btn_exit: Vou revisá-lo mais tarde
           modal_button: Recuse os termos
