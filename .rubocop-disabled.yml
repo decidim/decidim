@@ -34,8 +34,8 @@ Rails/HasManyOrHasOneDependent:
 Gemspec/RequireMFA:
   Enabled: false
 
-Rails/ExpandedDateRange:
-  Enabled: false
+#Rails/ExpandedDateRange:
+#  Enabled: false
 
 Rails/I18nLocaleTexts:
   Enabled: false
