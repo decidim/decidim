@@ -10,8 +10,8 @@ Naming/VariableNumber:
 #Lint/EmptyClass:
 #  Enabled: false
 
-Lint/EmptyBlock:
-  Enabled: false
+#Lint/EmptyBlock:
+#  Enabled: false
 
 #Lint/NoReturnInBeginEndBlocks:
 #  Enabled: false

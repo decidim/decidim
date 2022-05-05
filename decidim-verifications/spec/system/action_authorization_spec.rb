@@ -151,7 +151,7 @@ describe "Action Authorization", type: :system do
 
         context "when the scope and postal code is missing" do
           let(:user_scope) { nil }
-          let(:postal_code) {}
+          let(:postal_code) { nil }
 
           it "prompts user to check their authorization status" do
             click_link "New proposal"
