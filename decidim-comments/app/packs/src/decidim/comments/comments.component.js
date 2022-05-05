@@ -139,17 +139,7 @@ export default class CommentsComponent {
     });
 
     if (!this.singleComment) {
-      Rails.ajax({
-        url: this.commentsUrl,
-        type: "GET",
-        data: new URLSearchParams({
-          "commentable_gid": this.commentableGid,
-          "root_depth": this.rootDepth,
-          "order": this.order,
-          ...(this.toggleTranslations && { "toggle_translations": this.toggleTranslations })
-        }),
-        success: this._pollComments()
-      })
+      this._fetchComments();
     }
   }
 
@@ -216,19 +206,30 @@ export default class CommentsComponent {
     this._stopPolling();
 
     this.pollTimeout = setTimeout(() => {
-      Rails.ajax({
-        url: this.commentsUrl,
-        type: "GET",
-        data: new URLSearchParams({
-          "commentable_gid": this.commentableGid,
-          "root_depth": this.rootDepth,
-          "order": this.order,
-          "after": this.lastCommentId,
-          ...(this.toggleTranslations && { "toggle_translations": this.toggleTranslations })
-        }),
-        success: this._pollComments()
-      })
+      this._fetchComments();
     }, this.pollingInterval);
+  }
+
+  /**
+   * Sends an ajax request based on current
+   * params to get comments for the component
+   * @private
+   * @returns {Void} - Returns nothing
+   */
+  _fetchComments() {
+    Rails.ajax({
+      url: this.commentsUrl,
+      type: "GET",
+      data: new URLSearchParams({
+        "commentable_gid": this.commentableGid,
+        "root_depth": this.rootDepth,
+        "order": this.order,
+        "after": this.lastCommentId,
+        ...(this.toggleTranslations && { "toggle_translations": this.toggleTranslations }),
+        ...(this.lastCommentId && { "after": this.lastCommentId })
+      }),
+      success: this._pollComments()
+    })
   }
 
   /**
