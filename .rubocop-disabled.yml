@@ -28,9 +28,6 @@ Lint/DuplicateBranch:
 Lint/AmbiguousOperatorPrecedence:
   Enabled: false
 
-Rails/HasManyOrHasOneDependent:
-  Enabled: false
-
 Gemspec/RequireMFA:
   Enabled: false
 
