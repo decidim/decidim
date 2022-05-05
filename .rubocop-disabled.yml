@@ -4,18 +4,6 @@ Rails/DurationArithmetic:
 Naming/VariableNumber:
   Enabled: false
 
-#Lint/SymbolConversion:
-#  Enabled: false
-
-#Lint/EmptyClass:
-#  Enabled: false
-
-#Lint/EmptyBlock:
-#  Enabled: false
-
-#Lint/NoReturnInBeginEndBlocks:
-#  Enabled: false
-
 Style/HashConversion:
   Enabled: false
 
@@ -34,12 +22,6 @@ Rails/CompactBlank:
 Security/Open:
   Enabled: false
 
-#Lint/DuplicateBranch:
-#  Enabled: false
-#
-#Lint/AmbiguousOperatorPrecedence:
-#  Enabled: false
-
 Rails/EagerEvaluationLogMessage:
   Enabled: false
 
@@ -48,9 +30,6 @@ Rails/RedundantPresenceValidationOnBelongsTo:
 
 Rails/HasManyOrHasOneDependent:
   Enabled: false
-
-#Lint/UnmodifiedReduceAccumulator:
-#  Enabled: false
 
 Gemspec/RequireMFA:
   Enabled: false
