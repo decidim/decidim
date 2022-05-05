@@ -83,6 +83,9 @@
           </label>
         </div>
       </div>
+
+      <input id="vapidPublicKey" name="vapid_public_key" type="hidden" value="<%= Base64.urlsafe_decode64(Rails.application.secrets.vapid[:public_key]).bytes %>">
+      <input id="subKeys" name="sub_key" type="hidden" value="<%= current_user.notifications_subscriptions.keys %>">
     <% end %>
 
     <%= f.submit t(".update_notifications_settings") %>
