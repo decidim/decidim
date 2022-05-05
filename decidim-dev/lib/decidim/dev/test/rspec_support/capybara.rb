@@ -43,6 +43,7 @@ Capybara.server_port = rand(5000..6999)
 Capybara.register_driver :pwa_chrome do |app|
   options = ::Selenium::WebDriver::Chrome::Options.new
   options.args << "--no-sandbox"
+  options.args << "--disable-dev-shm-usage"
   options.args << "--unsafely-treat-insecure-origin-as-secure=http://pwa.lvh.me:#{Capybara.server_port}"
   options.args << "--user-data-dir=/tmp/decidim_tests_user_data_#{rand(1000)}"
   options.args << if ENV["BIG_SCREEN_SIZE"].present?
