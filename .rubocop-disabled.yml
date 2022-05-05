@@ -1,6 +1,3 @@
-#Rails/DurationArithmetic:
-#  Enabled: false
-
 Naming/VariableNumber:
   Enabled: false
 
@@ -16,9 +13,6 @@ Style/OpenStructUse:
 Security/IoMethods:
   Enabled: false
 
-#Rails/CompactBlank:
-#  Enabled: false
-
 Security/Open:
   Enabled: false
 
@@ -31,9 +25,6 @@ Lint/AmbiguousOperatorPrecedence:
 Gemspec/RequireMFA:
   Enabled: false
 
-#Rails/ExpandedDateRange:
-#  Enabled: false
-
 Rails/I18nLocaleTexts:
   Enabled: false
 
@@ -43,5 +34,3 @@ Naming/MemoizedInstanceVariableName:
 RSpec/VerifiedDoubleReference:
   Enabled: false
 
-#Rails/TransactionExitStatement:
-#  Enabled: false
