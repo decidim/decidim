@@ -25,13 +25,14 @@ module Decidim
 
         private
 
-        attr_reader :timeline_entry
+        attr_reader :timeline_entry, :form
 
         def create_timeline_entry
           @timeline_entry = TimelineEntry.create!(
-            decidim_accountability_result_id: @form.decidim_accountability_result_id,
-            entry_date: @form.entry_date,
-            description: @form.description
+            decidim_accountability_result_id: form.decidim_accountability_result_id,
+            entry_date: form.entry_date,
+            title: form.title,
+            description: form.description
           )
         end
       end

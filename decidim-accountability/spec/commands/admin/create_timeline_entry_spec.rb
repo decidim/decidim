@@ -12,6 +12,7 @@ module Decidim::Accountability
     let(:result) { create :result, component: current_component }
 
     let(:date) { "2017-8-23" }
+    let(:title) { "Title" }
     let(:description) { "description" }
 
     let(:form) do
@@ -19,6 +20,7 @@ module Decidim::Accountability
         invalid?: invalid,
         decidim_accountability_result_id: result.id,
         entry_date: date,
+        title: { en: title },
         description: { en: description }
       )
     end
@@ -42,6 +44,11 @@ module Decidim::Accountability
       it "sets the entry date" do
         subject.call
         expect(timeline_entry.entry_date).to eq(Date.new(2017, 8, 23))
+      end
+
+      it "sets the title" do
+        subject.call
+        expect(translated(timeline_entry.title)).to eq title
       end
 
       it "sets the description" do
