@@ -32,6 +32,7 @@ ar:
         body: المحتوى
         subject: الموضوع
       organization:
+        admin_terms_of_use_body: نص شروط الاستخدام للمدير
         alert_color: تنبيه
         badges_enabled: تمكين الشارات
         cta_button_path: دعوة إلى العمل مسار زر
