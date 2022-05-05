@@ -46,5 +46,5 @@ Naming/MemoizedInstanceVariableName:
 RSpec/VerifiedDoubleReference:
   Enabled: false
 
-Rails/TransactionExitStatement:
-  Enabled: false
+#Rails/TransactionExitStatement:
+#  Enabled: false
