@@ -3,6 +3,8 @@
 require "spec_helper"
 
 describe GeocodingValidator do
+  subject { validatable.new(address: address) }
+
   let(:validatable) do
     Class.new do
       def self.model_name
@@ -27,8 +29,6 @@ describe GeocodingValidator do
   let(:address) { "Some address" }
   let(:latitude) { 40.1234 }
   let(:longitude) { 2.1234 }
-
-  let(:subject) { validatable.new(address: address) }
 
   context "when the address is valid" do
     before do

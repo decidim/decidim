@@ -5,7 +5,7 @@ require "nokogiri"
 
 module Decidim
   describe Admin::FormBuilder do
-    let(:subject) { Nokogiri::HTML(output) }
+    subject { Nokogiri::HTML(output) }
 
     let(:helper) { Class.new(ActionView::Base).new(ActionView::LookupContext.new(ActionController::Base.view_paths), {}, []) }
     let(:available_locales) { %w(ca en de-CH) }

@@ -20,7 +20,7 @@ describe Decidim::Meetings::Admin::Permissions do
   let(:meeting) { create :meeting, :official, component: meeting_component }
   let(:agenda) { create :agenda }
   let(:questionnaire) { create :questionnaire }
-  let(:permission_action) { Decidim::PermissionAction.new(action) }
+  let(:permission_action) { Decidim::PermissionAction.new(**action) }
   let(:registrations_enabled) { true }
   let(:action) do
     { scope: :admin, action: action_name, subject: action_subject }
@@ -32,37 +32,37 @@ describe Decidim::Meetings::Admin::Permissions do
 
   shared_examples "action requiring a meeting" do
     context "when meeting is present" do
-      it { is_expected.to eq true }
+      it { is_expected.to be true }
     end
 
     context "when meeting is missing" do
       let(:meeting) { nil }
 
-      it { is_expected.to eq false }
+      it { is_expected.to be false }
     end
   end
 
   shared_examples "action requiring an agenda" do
     context "when agenda is present" do
-      it { is_expected.to eq true }
+      it { is_expected.to be true }
     end
 
     context "when agenda is missing" do
       let(:agenda) { nil }
 
-      it { is_expected.to eq false }
+      it { is_expected.to be false }
     end
   end
 
   shared_examples "action requiring a questionnaire" do
     context "when registration form is present" do
-      it { is_expected.to eq true }
+      it { is_expected.to be true }
     end
 
     context "when registration form is missing" do
       let(:questionnaire) { nil }
 
-      it { is_expected.to eq false }
+      it { is_expected.to be false }
     end
   end
 
@@ -97,13 +97,13 @@ describe Decidim::Meetings::Admin::Permissions do
       let(:meeting) { create :meeting, :not_official, component: meeting_component }
       let(:action_name) { :update }
 
-      it { is_expected.to eq false }
+      it { is_expected.to be false }
     end
 
     context "when creating a meeting" do
       let(:action_name) { :create }
 
-      it { is_expected.to eq true }
+      it { is_expected.to be true }
     end
 
     context "when closing a meeting" do
@@ -139,7 +139,7 @@ describe Decidim::Meetings::Admin::Permissions do
       context "when the meeting registrations are closed" do
         let(:meeting) { create :meeting, registrations_enabled: false, component: meeting_component }
 
-        it { is_expected.to eq false }
+        it { is_expected.to be false }
       end
     end
 
@@ -196,7 +196,7 @@ describe Decidim::Meetings::Admin::Permissions do
       context "when poll is missing" do
         let(:poll) { nil }
 
-        it { is_expected.to eq false }
+        it { is_expected.to be false }
       end
     end
   end

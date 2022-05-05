@@ -40,7 +40,7 @@ describe "User activity", type: :system do
   end
 
   let(:resource_types) do
-    %w(Collaborative\ Draft Comment Debate Initiative Meeting Post Proposal Question)
+    ["Collaborative Draft", "Comment", "Debate", "Initiative", "Meeting", "Post", "Proposal", "Question"]
   end
 
   before do
@@ -68,10 +68,10 @@ describe "User activity", type: :system do
 
     describe "accessing user's own activity page" do
       it "displays the private-only action also" do
-        # rubocop:disable Rspec/AnyInstance
+        # rubocop:disable RSpec/AnyInstance
         # Because CoauthorableDummyResource does not have path.
         allow_any_instance_of(Decidim::ActivityCell).to receive(:resource_link_path).and_return("/example/path")
-        # rubocop:enable Rspec/AnyInstance
+        # rubocop:enable RSpec/AnyInstance
 
         page.visit decidim.profile_activity_path(nickname: user.nickname)
         within ".user-activity" do

@@ -5,7 +5,7 @@ module Decidim
     # Exposes the proposal vote resource so users can vote proposals.
     class ProposalVotesController < Decidim::Proposals::ApplicationController
       include ProposalVotesHelper
-      include Rectify::ControllerHelpers
+      include Decidim::ControllerHelpers
 
       helper_method :proposal
 

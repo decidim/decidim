@@ -118,13 +118,13 @@ module Decidim
           context "when the user does not exist" do
             let(:user_id) { 999_999 }
 
-            it { is_expected.to eq(nil) }
+            it { is_expected.to be_nil }
           end
 
           context "when the user is from another organization" do
             let(:user_id) { create(:user).id }
 
-            it { is_expected.to eq(nil) }
+            it { is_expected.to be_nil }
           end
         end
       end

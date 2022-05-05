@@ -7,7 +7,7 @@ module Decidim
     include ActiveModel::Model
     include Decidim::AttributeObject::Model
 
-    attribute :engine, Rails::Engine, {}
+    attribute :engine, Rails::Engine, **{}
     attribute :helper
     attribute :layout
   end

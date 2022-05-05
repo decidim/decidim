@@ -27,9 +27,9 @@ module Decidim
         # as the default value when building the admin form.
         return value unless value.is_a?(::Hash)
 
-        value.map do |k, v|
+        value.to_h do |k, v|
           [primitive_value(k, key_type), primitive_value(v, value_type)]
-        end.to_h
+        end
       end
     end
   end

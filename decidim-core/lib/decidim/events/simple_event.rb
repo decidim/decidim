@@ -32,19 +32,19 @@ module Decidim
       end
 
       def email_subject
-        I18n.t("email_subject", i18n_options).html_safe
+        I18n.t("email_subject", **i18n_options).html_safe
       end
 
       def email_intro
-        I18n.t("email_intro", i18n_options).html_safe
+        I18n.t("email_intro", **i18n_options).html_safe
       end
 
       def email_outro
-        I18n.t("email_outro", i18n_options).html_safe
+        I18n.t("email_outro", **i18n_options).html_safe
       end
 
       def notification_title
-        I18n.t("notification_title", i18n_options).html_safe
+        I18n.t("notification_title", **i18n_options).html_safe
       end
 
       # Public: The String to use as scope to search for the keys

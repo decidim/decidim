@@ -34,7 +34,8 @@ module Decidim
             current_user: user
           )
         end
-        let(:subject) { described_class.new(form, ballot_style) }
+
+        subject { described_class.new(form, ballot_style) }
 
         context "when the form is not valid" do
           context "when the code is not present" do

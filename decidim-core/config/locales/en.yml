@@ -69,7 +69,8 @@ en:
     'true': 'Yes'
   carrierwave:
     errors:
-      image_too_big: The image is too big
+      file_resolution_too_large: File resolution is too large
+      file_size_too_large: File size is too large
       not_inside_organization: The file is not attached to any organization
   date:
     formats:
@@ -114,9 +115,6 @@ en:
       skip_button: Skip to main content
     account:
       blocked: This account has been blocked due to Terms and Conditions violation
-      data_portability_export:
-        file_no_exists: File does not exist
-        notice: The download of your data is currently in progress. You'll receive an email when it's complete.
       delete:
         alert: This action cannot be undone. If you delete your account you won't be able to log in with your credentials. The deletion of your account will result in the anonymization of your contributions. You will still be able to create a new account, but these contributions will not be associated with it.
         confirm:
@@ -128,6 +126,19 @@ en:
       destroy:
         error: There was a problem deleting your account.
         success: Your account was successfully deleted.
+      download_your_data_export:
+        file_no_exists: File does not exist
+        notice: The download of your data is currently in progress. You'll receive an email when it's complete.
+      email_change:
+        body1: We've sent an email to %{unconfirmed_email} to verify your new email address.
+        body2: Need us to send the verification email again? %{resend_link} or %{cancel_link}.
+        cancel: Cancel
+        cancel_error: Could not cancel the email change.
+        cancel_successfully: Email change cancelled successfully.
+        resend_error: Could not resend confirmation email.
+        resend_successfully: Confirmation email resent successfully to %{unconfirmed_email}
+        send_again: Send again
+        title: Email change verification
       show:
         available_locales_helper: Choose the language you want to use to browse and receive notifications on the platform
         change_password: Change password
@@ -465,13 +476,6 @@ en:
       actions:
         login_before_access: Please, login with your account before access
         unauthorized: You are not authorized to perform this action
-    data_portability:
-      export:
-        ready: Ready
-      show:
-        download_data: Download the data
-        download_data_description: A file containing all the information associated with your account will be sent to <strong>%{user_email}</strong>. This email will contain a .zip file and a password to open it.<br/><br/>To unzip the file, you will need <a href="https://www.7-zip.org/">7-Zip</a> (for Windows) or <a href="https://www.keka.io/">Keka</a> (for MacOS). If you use Linux, most of the time you will have it installed by default. If not, you can use <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> or <a href="https://peazip.github.io">PeaZip</a>).
-        request_data: Request data
     datepicker:
       help_text: 'Expected format: %{datepicker_format}'
     devise:
@@ -543,6 +547,13 @@ en:
           this_application_will_not_be_able_to: 'This application will not be able to:'
           update_profile: Update your profile
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> wants to use your account"
+    download_your_data:
+      export:
+        ready: Ready
+      show:
+        download_data: Download the data
+        download_data_description: A file containing all the information associated with your account will be sent to <strong>%{user_email}</strong>. This email will contain a .zip file and a password to open it.<br/><br/>To unzip the file, you will need <a href="https://www.7-zip.org/">7-Zip</a> (for Windows) or <a href="https://www.keka.io/">Keka</a> (for MacOS). If you use Linux, most of the time you will have it installed by default. If not, you can use <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> or <a href="https://peazip.github.io">PeaZip</a>).
+        request_data: Request data
     editor_images:
       create:
         error: Error uploading image
@@ -686,6 +697,8 @@ en:
           email_outro: You have received this notification because you are an admin of the platform.
           email_subject: A user group has updated its profile
           notification_title: The %{user_group_name} user group has updated its profile, leaving it unverified. You can now verify it in the <a href="%{groups_admin_path}">admin panel</a>.
+      nickname_event:
+        notification_body: We have corrected the way nicknames are used so that there are no duplicates, and that's why we have removed the case sensitive rule. <br/> Your nickname was created after another one with the same name, so we have automatically renamed it. You can change it from <a href="%{link_to_account_settings}">your account settings</a>.
       notification_event:
         notification_title: An event occured to <a href="%{resource_path}">%{resource_title}</a>.
       reports:
@@ -713,7 +726,7 @@ en:
           email_subject: "%{name} has been officialized"
           notification_title: Participant %{name} (%{nickname}) has been officialized.
     export_mailer:
-      data_portability_export:
+      download_your_data_export:
         click_button: 'Click the next link to download your data.<br/>The file will be available until %{date}.<br/>You will need <a href="https://www.7-zip.org/">7-Zip</a> (for Windows), <a href="https://www.keka.io/en/">Keka</a> (for MacOS) or <a href="https://peazip.github.io">PeaZip</a> (for Linux) to open it. Password: %{password}'
         download: Download
       export:
@@ -763,6 +776,10 @@ en:
       file_help:
         file:
           explanation: 'Guidance for file:'
+          message_1: Has to be an image or a document.
+          message_2: For images, use preferrably landscape images, the service crops the image.
+        icon:
+          explanation: 'Guidance for icon:'
           message_1: Has to be a square image.
           message_2: The recommended size for this image is 512x512.
         image:
@@ -771,6 +788,7 @@ en:
           message_2: The service crops the image.
       file_validation:
         allowed_file_extensions: 'Allowed file extensions: %{extensions}'
+        max_file_dimension: 'Maximum file dimensions: %{resolution} pixels'
         max_file_size: 'Maximum file size: %{megabytes}MB'
       upload:
         labels:
@@ -780,7 +798,7 @@ en:
           cancel: Cancel
           edit_image: Edit image
           error: Error!
-          file_too_big: 'File is too big! Maximun file size: %{megabytes}MB'
+          file_size_too_large: 'File size is too large! Maximun file size: %{megabytes}MB'
           remove: Remove
           replace: Replace
           save: Save
@@ -1111,6 +1129,8 @@ en:
         translated_text: 'Automatically translated text:'
     notifications:
       no_notifications: No notifications yet.
+      show:
+        missing_event: Oops, this notification belongs to an item that is no longer available. You can discard it.
     notifications_settings:
       show:
         administrators: Administrators
@@ -1187,7 +1207,7 @@ en:
           agreement: I agree with these terms
           legend: Agree to the terms and conditions of use
         refuse:
-          modal_body: If you refuse, you won't be able to use the platform, you can <a href="%{data_portability_path}">download your data</a> and/or <a href="%{delete_path}">delete your account</a>.
+          modal_body: If you refuse, you won't be able to use the platform, you can <a href="%{download_your_data_path}">download your data</a> and/or <a href="%{delete_path}">delete your account</a>.
           modal_btn_continue: Accept terms and continue
           modal_btn_exit: I'll review it later
           modal_button: Refuse the terms
@@ -1493,7 +1513,7 @@ en:
     invitations:
       edit:
         header: Finish creating your account
-        nickname_help: Your nickname in %{organization}.
+        nickname_help: Your nickname in %{organization}. Can only contain letters, numbers, '-' and '_'.
         submit_button: Save
         subtitle: If you accept the invitation please set your nickname and password.
       invitation_removed: Your invitation was removed.

@@ -54,6 +54,7 @@
 
             <input type="text" class="vote-identifier" name="vote-identifier" value="<%= params[:vote_id].gsub("_","") %>">
           </label>
+          <p class="help-text"><%= t("decidim.elections.votes.verify.form.vote_identifier_help") %></p>
           <div>
             <%= link_to(
               "#",

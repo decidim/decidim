@@ -46,7 +46,7 @@ module Decidim
           let(:value) { "foo" }
 
           it "returns nil" do
-            expect(subject).to eq(nil)
+            expect(subject).to be_nil
           end
         end
       end

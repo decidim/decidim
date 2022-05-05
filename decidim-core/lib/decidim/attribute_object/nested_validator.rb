@@ -2,7 +2,7 @@
 
 module Decidim
   module AttributeObject
-    class NestedValidator < ActiveModel::EachValidator #:nodoc:
+    class NestedValidator < ActiveModel::EachValidator # :nodoc:
       def validate_each(record, attribute, value)
         value = value.values if value.is_a?(Hash)
         return unless Array(value).reject { |r| valid_object?(r) }.any?

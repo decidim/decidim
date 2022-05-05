@@ -49,7 +49,7 @@ module Decidim
               persisted?: false,
               valid?: false,
               errors: {
-                banner_image: "Image too big"
+                banner_image: "File resolution is too large"
               }
             ).as_null_object
           end
@@ -63,7 +63,7 @@ module Decidim
           end
 
           it "adds errors to the form" do
-            expect(errors).to receive(:add).with(:banner_image, "Image too big")
+            expect(errors).to receive(:add).with(:banner_image, "File resolution is too large")
             subject.call
           end
         end

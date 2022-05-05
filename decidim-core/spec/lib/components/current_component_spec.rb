@@ -5,9 +5,10 @@ require "spec_helper"
 module Decidim
   describe CurrentComponent do
     let(:request) { double(params: params, env: env) }
-    let(:subject) { described_class.new(manifest) }
     let(:params) { {} }
     let(:manifest) { Decidim.find_component_manifest("dummy") }
+
+    subject { described_class.new(manifest) }
 
     context "when the env does not contain a current organization" do
       let(:env) do
@@ -15,7 +16,7 @@ module Decidim
       end
 
       it "matches" do
-        expect(subject.matches?(request)).to eq(false)
+        expect(subject.matches?(request)).to be(false)
       end
     end
 
@@ -41,7 +42,7 @@ module Decidim
 
         context "when there's no component" do
           it "doesn't match" do
-            expect(subject.matches?(request)).to eq(false)
+            expect(subject.matches?(request)).to be(false)
           end
         end
 
@@ -53,7 +54,7 @@ module Decidim
           let(:component) { create(:component) }
 
           it "matches" do
-            expect(subject.matches?(request)).to eq(false)
+            expect(subject.matches?(request)).to be(false)
           end
         end
 
@@ -65,14 +66,14 @@ module Decidim
           let(:component) { create(:component, participatory_space: current_participatory_process) }
 
           it "matches" do
-            expect(subject.matches?(request)).to eq(true)
+            expect(subject.matches?(request)).to be(true)
           end
         end
       end
 
       context "when the env doesn't contain a current participatory space" do
         it "doesn't match" do
-          expect(subject.matches?(request)).to eq(false)
+          expect(subject.matches?(request)).to be(false)
         end
       end
     end

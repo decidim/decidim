@@ -7,7 +7,6 @@ require "devise"
 require "devise-i18n"
 require "decidim/core"
 require "foundation_rails_helper"
-require "rectify"
 
 module Decidim
   module System

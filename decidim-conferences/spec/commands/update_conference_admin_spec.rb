@@ -68,7 +68,7 @@ module Decidim::Conferences
       it "traces the action", versioning: true do
         expect(Decidim.traceability)
           .to receive(:update!)
-          .with(user_role, current_user, { role: new_role }, resource: hash_including(:title))
+          .with(user_role, current_user, { role: new_role }, { resource: hash_including(:title) })
           .and_call_original
 
         expect { subject.call }.to change(Decidim::ActionLog, :count)

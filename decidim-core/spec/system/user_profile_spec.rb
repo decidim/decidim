@@ -122,6 +122,40 @@ describe "Profile", type: :system do
           expect(page).not_to have_content(translated(non_public_resource.title))
         end
       end
+
+      context "when the user follows a blocked user" do
+        let(:blocked_user) { create(:user, :blocked) }
+
+        before do
+          create(:follow, user: user, followable: blocked_user)
+        end
+
+        it "lists only the unblocked followings" do
+          visit decidim.profile_path(user.nickname)
+
+          click_link "Follows"
+          expect(page).to have_content("Some of the resources followed are not public.")
+          expect(page).to have_content(translated(other_user.name))
+          expect(page).to have_content(translated(user_to_follow.name))
+          expect(page).to have_content(translated(public_resource.title))
+        end
+      end
+
+      context "when the user is followed by a blocked user" do
+        let(:blocked_user) { create(:user, :blocked) }
+
+        before do
+          create(:follow, user: blocked_user, followable: user)
+        end
+
+        it "lists only the unblocked followers" do
+          visit decidim.profile_path(user.nickname)
+
+          click_link "Followers"
+          expect(page).to have_content(translated(other_user.name))
+          expect(page).not_to have_content(translated(blocked_user.name))
+        end
+      end
     end
 
     describe "badges" do

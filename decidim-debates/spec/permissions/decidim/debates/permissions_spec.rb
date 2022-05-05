@@ -25,7 +25,7 @@ describe Decidim::Debates::Permissions do
     }
   end
   let(:extra_settings) { {} }
-  let(:permission_action) { Decidim::PermissionAction.new(action) }
+  let(:permission_action) { Decidim::PermissionAction.new(**action) }
 
   context "when scope is admin" do
     let(:action) do
@@ -59,13 +59,13 @@ describe Decidim::Debates::Permissions do
     context "when creation is disabled" do
       let(:extra_settings) { { creation_enabled?: false } }
 
-      it { is_expected.to eq false }
+      it { is_expected.to be false }
     end
 
     context "when user is authorized" do
       let(:extra_settings) { { creation_enabled?: true } }
 
-      it { is_expected.to eq true }
+      it { is_expected.to be true }
     end
   end
 
@@ -77,11 +77,11 @@ describe Decidim::Debates::Permissions do
     context "when the user is the author" do
       let(:debate) { create :debate, author: user, component: debates_component }
 
-      it { is_expected.to eq true }
+      it { is_expected.to be true }
     end
 
     context "when the user is not the author" do
-      it { is_expected.to eq false }
+      it { is_expected.to be false }
     end
   end
 
@@ -90,7 +90,7 @@ describe Decidim::Debates::Permissions do
       { scope: :public, action: :report, subject: :debate }
     end
 
-    it { is_expected.to eq true }
+    it { is_expected.to be true }
   end
 
   context "when endorsing a debate" do
@@ -98,12 +98,12 @@ describe Decidim::Debates::Permissions do
       { scope: :public, action: :endorse, subject: :debate }
     end
 
-    it { is_expected.to eq true }
+    it { is_expected.to be true }
 
     context "when the debate is closed" do
       let(:debate) { create :debate, :closed, component: debates_component }
 
-      it { is_expected.to eq false }
+      it { is_expected.to be false }
     end
   end
 end
