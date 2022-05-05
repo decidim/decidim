@@ -37,10 +37,8 @@ module Decidim
       end
     end
   end
-  # rubocop:disable Lint/EmptyClass
 
-  class DummyGenerator; end
+  class DummyGenerator < Object; end
 
-  class DummyGenerator2; end
-  # rubocop:enable Lint/EmptyClass
+  class DummyGenerator2 < Object; end
 end
