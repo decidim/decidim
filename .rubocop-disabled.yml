@@ -22,7 +22,10 @@ Security/IoMethods:
 Security/Open:
   Enabled: false
 
-Rails/EagerEvaluationLogMessage:
+Lint/DuplicateBranch:
+  Enabled: false
+
+Lint/AmbiguousOperatorPrecedence:
   Enabled: false
 
 Rails/RedundantPresenceValidationOnBelongsTo:
