@@ -72,7 +72,9 @@ module Decidim
 
       return query if conditions.empty?
 
-      chained_conditions = conditions.inject([]) do |previous_condition, condition|
+      chained_conditions = conditions.inject do |previous_condition, condition|
+        next condition unless previous_condition
+
         previous_condition.or(condition)
       end
 
