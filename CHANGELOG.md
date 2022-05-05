@@ -132,8 +132,12 @@ PR [\#8645](https://github.com/decidim/decidim/pull/8645) we now only allow PNG 
 
 PR [\#8833](https://github.com/decidim/decidim/pull/8833) Users can now configure if the want to receive a real time email when they receive a notification or a periodic one with the notifications digest.
 
-For system administrators, it's necessary to manually setup a cron job for digest delivery. See the
-[updated documentation](https://docs.decidim.org/en/install/#_scheduled_tasks).
+
+```bash
+# Send notification mail digest daily
+5 0 * * * cd /home/user/decidim_application && RAILS_ENV=production bundle exec rake decidim:mailers:notifications_digest_daily
+# Send notification mail digest weekly on saturdays
+5 0 * * 6 cd /home/user/decidim_application && RAILS_ENV=production bundle exec rake decidim:mailers:notifications_digest_weekly
 
 ### Changed
 
