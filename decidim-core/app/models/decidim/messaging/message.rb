@@ -26,7 +26,6 @@ module Decidim
                foreign_key: :decidim_message_id,
                inverse_of: :message
 
-      validates :sender
       validates :body, presence: true, length: { maximum: ->(_message) { Decidim.config.maximum_conversation_message_length } }
 
       default_scope { order(created_at: :asc) }

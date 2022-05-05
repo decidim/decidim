@@ -7,7 +7,6 @@ module Decidim
     translatable_fields :content
 
     belongs_to :organization, class_name: "Decidim::Organization"
-    validates :organization
     validates :content, presence: true
 
     # Public: Finds content given an id

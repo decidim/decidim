@@ -6,8 +6,6 @@ module Decidim
 
     belongs_to :coauthorable, polymorphic: true, counter_cache: true
 
-    validates :coauthorable
-
     after_commit :author_is_follower, on: [:create]
 
     def identity
