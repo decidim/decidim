@@ -40,6 +40,9 @@ export default class CommentsComponent {
     if (this.$element.length > 0 && !this.mounted) {
       this.mounted = true;
       this._initializeComments(this.$element);
+      if (!this.singleComment) {
+        this._fetchComments();
+      }
 
       $(".order-by__dropdown .is-submenu-item a", this.$element).on("click.decidim-comments", () => this._onInitOrder());
     }
@@ -137,10 +140,6 @@ export default class CommentsComponent {
         $text.get(0).addEventListener("emoji.added", this._onTextInput);
       }
     });
-
-    if (!this.singleComment) {
-      this._fetchComments();
-    }
   }
 
   /**
