@@ -27,12 +27,12 @@ describe Decidim do
       expect(other_railties).not_to include(receive(:load_seed))
 
       manifests = [double(name: "Component A"), double(name: "Component B")]
-      expect(described_class).to receive(:participatory_space_manifests).and_return(manifests)
+      allow(described_class).to receive(:participatory_space_manifests).and_return(manifests)
 
       expect(manifests).to all(receive(:seed!).once)
 
       application = double(railties: (decidim_railties + other_railties))
-      expect(Rails).to receive(:application).and_return application
+      allow(Rails).to receive(:application).and_return application
 
       described_class.seed!
     end

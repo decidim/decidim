@@ -98,7 +98,7 @@ module Decidim
           let(:settings) { double }
 
           it "returns the organization comments_max_length" do
-            expect(component).to receive(:settings).and_return(settings)
+            allow(component).to receive(:settings).and_return(settings)
             expect(subject.max_length).to eq(organization.comments_max_length)
           end
         end

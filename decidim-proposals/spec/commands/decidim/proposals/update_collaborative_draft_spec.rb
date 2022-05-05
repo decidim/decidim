@@ -50,7 +50,7 @@ module Decidim
 
         describe "when the form is not valid" do
           before do
-            expect(form).to receive(:invalid?).and_return(true)
+            allow(form).to receive(:invalid?).and_return(true)
           end
 
           it "broadcasts invalid" do
@@ -66,7 +66,7 @@ module Decidim
 
         describe "when the collaborative draft is not editable by the user" do
           before do
-            expect(collaborative_draft).to receive(:editable_by?).and_return(false)
+            allow(collaborative_draft).to receive(:editable_by?).and_return(false)
           end
 
           it "broadcasts invalid" do

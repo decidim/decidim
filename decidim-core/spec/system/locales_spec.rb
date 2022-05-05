@@ -37,7 +37,7 @@ describe "Locales", type: :system do
       expect(page).to have_content("Inici")
     end
 
-    it "displays devise messages with the right locale when not authenticated " do
+    it "displays devise messages with the right locale when not authenticated" do
       within_language_menu do
         click_link "Català"
       end
@@ -47,7 +47,7 @@ describe "Locales", type: :system do
       expect(page).to have_content("Has d'iniciar la sessió o registrar-te abans de continuar.")
     end
 
-    it "displays devise messages with the right locale when authentication fails " do
+    it "displays devise messages with the right locale when authentication fails" do
       click_link "Sign In"
 
       within_language_menu do

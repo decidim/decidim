@@ -86,7 +86,7 @@ describe Decidim::HtmlTruncation do
       end
     end
 
-    describe "sequential void elements " do
+    describe "sequential void elements" do
       let(:text) { %(<img src="some/path/foo/bar" alt="foobar"><input id="bar" type="text"><br>) }
 
       it "cuts between elements" do

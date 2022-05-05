@@ -154,7 +154,7 @@ module Decidim
     end
 
     describe "#user_is_moderator?" do
-      context "when an organization has a moderator and a regular user " do
+      context "when an organization has a moderator and a regular user" do
         let(:organization) { create :organization, available_locales: [:en] }
         let(:participatory_space) { create :participatory_process, organization: organization }
         let(:moderator) do

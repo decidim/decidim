@@ -556,7 +556,7 @@ module Decidim
           end
         end
 
-        context "with min and max length " do
+        context "with min and max length" do
           let(:output) do
             builder.text_field :number
           end
@@ -570,7 +570,7 @@ module Decidim
           end
         end
 
-        context "with min length " do
+        context "with min length" do
           let(:output) do
             builder.text_field :min_number
           end
@@ -580,7 +580,7 @@ module Decidim
           end
         end
 
-        context "with max length " do
+        context "with max length" do
           let(:output) do
             builder.text_field :max_number
           end
@@ -763,7 +763,7 @@ module Decidim
         end
 
         before do
-          expect(helper).to receive(:render).and_return("[rendering]")
+          allow(helper).to receive(:render).and_return("[rendering]")
         end
 
         it "renders a hidden field and a container for the editor" do

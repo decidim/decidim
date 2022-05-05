@@ -60,13 +60,13 @@ describe "Authorizations revocation flow", type: :system do
         end
       end
 
-      it "allows the user to see Verification's revocation menu. Revoke all option " do
+      it "allows the user to see Verification's revocation menu. Revoke all option" do
         within ".container" do
           expect(page).to have_content(t("decidim.admin.menu.authorization_revocation.button"))
         end
       end
 
-      it "allows the user to see Verification's revocation menu. Before date option " do
+      it "allows the user to see Verification's revocation menu. Before date option" do
         within ".container" do
           expect(page).to have_content(t("decidim.admin.menu.authorization_revocation.before_date_info"))
           expect(page).to have_content(t("decidim.admin.menu.authorization_revocation.button_before"))

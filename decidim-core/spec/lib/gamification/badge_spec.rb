@@ -16,7 +16,7 @@ module Decidim
       end
 
       context "without a name" do
-        it "isn't valid " do
+        it "isn't valid" do
           badge = described_class.new
           badge.name = nil
           badge.valid?

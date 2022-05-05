@@ -3,7 +3,7 @@
 require "spec_helper"
 
 describe PassthruValidator do
-  subject { validatable.new(file: file) }
+  subject { validatable.new(file: file, organization: organization) }
 
   let(:validator_settings) { {} }
 
@@ -43,13 +43,13 @@ describe PassthruValidator do
       include ActiveModel::Validations
 
       attribute :file
-      validates :file, validator_config
+      attribute :organization
 
-      def organization
-        @organization ||= FactoryBot.create(:organization)
-      end
+      validates :file, validator_config
     end
   end
+
+  let(:organization) { create(:organization) }
 
   context "when the file is valid" do
     let(:file) { Decidim::Dev.test_file("city.jpeg", "image/jpeg") }

@@ -61,7 +61,7 @@ module Decidim
             )
           end
 
-          it "includes the answer " do
+          it "includes the answer" do
             expect(serialized).to include(answer: answer.attachments.map(&:url))
           end
         end
@@ -110,7 +110,7 @@ module Decidim
             )
           end
 
-          it "includes the answer " do
+          it "includes the answer" do
             expect(serialized).to include(answer: answer.body)
           end
         end

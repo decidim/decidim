@@ -1,13 +1,4 @@
-RSpec/ExcessiveDocstringSpacing:
-  Enabled: false
-
-RSpec/StubbedMock:
-  Enabled: false
-
 Rails/DurationArithmetic:
-  Enabled: false
-
-RSpec/FactoryBot/SyntaxMethods:
   Enabled: false
 
 Naming/VariableNumber:
@@ -74,9 +65,6 @@ Gemspec/RequireMFA:
   Enabled: false
 
 Rails/DuplicateScope:
-  Enabled: false
-
-RSpec/IdenticalEqualityAssertion:
   Enabled: false
 
 Rails/ExpandedDateRange:

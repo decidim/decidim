@@ -116,7 +116,7 @@ module Decidim
         let(:converted_value) { %w(foo bar) }
 
         before do
-          expect(value).to receive(:to_a).and_return(converted_value)
+          allow(value).to receive(:to_a).and_return(converted_value)
         end
 
         it "returns the value returned by the to_a method" do
