@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class MoveLegacyDescriptionToTitleOfTimelineEntries < ActiveRecord::Migration[6.1]
+class MoveLegacyDescriptionToTitleOfTimelineEntries < ActiveRecord::Migration[6.0]
   class TimelineEntry < ApplicationRecord
     self.table_name = :decidim_accountability_timeline_entries
   end
