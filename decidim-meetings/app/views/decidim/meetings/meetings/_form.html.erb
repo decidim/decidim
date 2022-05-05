@@ -98,4 +98,6 @@
   ) %>
 </div>
 
-<%= javascript_pack_tag "decidim_meetings" %>
+<% content_for :js_content do %>
+  <%= javascript_pack_tag "decidim_meetings" %>
+<% end %>
