@@ -1,5 +1,5 @@
-Rails/DurationArithmetic:
-  Enabled: false
+#Rails/DurationArithmetic:
+#  Enabled: false
 
 Naming/VariableNumber:
   Enabled: false
