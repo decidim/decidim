@@ -257,6 +257,7 @@ ar:
             update: تحديث
           form:
             registration_email_help: سيظهر هذا النص في منتصف البريد الإلكتروني الخاص بتأكيد التسجيل مباشرة بعد رمز التسجيل.
+            show_embedded_iframe_help: سواء تم تضمين أو عدم تضمين الإطار iframe لعنوان الرابط URL الخاص بمؤتمر الفيديو. تسمح بعض الخِدْمَات فقط بتضمينه (مثل Youtube، Twitch...)
           index:
             title: اجتماعات
           new:
@@ -360,6 +361,7 @@ ar:
           unfold: كشف
         form:
           select_a_category: يُرجى اختيار فئة
+          show_embedded_iframe_help: سواء تم تضمين أو عدم تضمين الإطار iframe لعنوان الرابط URL الخاص بمؤتمر الفيديو. تسمح بعض الخِدْمَات فقط بتضمينه (مثل Youtube، Twitch...)
         meeting_minutes:
           related_information: معلومات ذات صله
         meetings:
