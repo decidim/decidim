@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim
   describe NotificationsDigestPresenter, type: :presenter do
-    let(:subject) { described_class.new(user) }
+    subject { described_class.new(user) }
 
     context "with a user with daily sending frequency" do
       let(:user) { create(:user, notifications_sending_frequency: :daily) }

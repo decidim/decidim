@@ -10,7 +10,7 @@ describe Decidim::NotificationsDigestSendingDecider do
 
     describe "must_notify?" do
       it "returns true" do
-        expect(subject.must_notify?(user)).to eq(true)
+        expect(subject.must_notify?(user)).to be(true)
       end
     end
   end
@@ -20,7 +20,7 @@ describe Decidim::NotificationsDigestSendingDecider do
 
     describe "must_notify?" do
       it "returns false" do
-        expect(subject.must_notify?(user)).to eq(false)
+        expect(subject.must_notify?(user)).to be(false)
       end
     end
   end
@@ -32,7 +32,7 @@ describe Decidim::NotificationsDigestSendingDecider do
 
       describe "must_notify?" do
         it "returns false" do
-          expect(subject.must_notify?(user, time: current_time)).to eq(false)
+          expect(subject.must_notify?(user, time: current_time)).to be(false)
         end
       end
     end
@@ -43,7 +43,7 @@ describe Decidim::NotificationsDigestSendingDecider do
 
       describe "must_notify?" do
         it "returns true" do
-          expect(subject.must_notify?(user, time: current_time)).to eq(true)
+          expect(subject.must_notify?(user, time: current_time)).to be(true)
         end
       end
     end
@@ -56,7 +56,7 @@ describe Decidim::NotificationsDigestSendingDecider do
 
       describe "must_notify?" do
         it "returns false" do
-          expect(subject.must_notify?(user, time: current_time)).to eq(false)
+          expect(subject.must_notify?(user, time: current_time)).to be(false)
         end
       end
     end
@@ -67,7 +67,7 @@ describe Decidim::NotificationsDigestSendingDecider do
 
       describe "must_notify?" do
         it "returns true" do
-          expect(subject.must_notify?(user, time: current_time)).to eq(true)
+          expect(subject.must_notify?(user, time: current_time)).to be(true)
         end
       end
     end

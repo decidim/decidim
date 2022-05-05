@@ -6,7 +6,8 @@ module Decidim
   describe NotificationToMailerPresenter, type: :presenter do
     let(:creating_date) { Time.parse("Wed, 1 Sep 2021 21:00:00 UTC +00:00").in_time_zone }
     let(:notification) { create(:notification, created_at: creating_date) }
-    let(:subject) { described_class.new(notification) }
+
+    subject { described_class.new(notification) }
 
     context "with a daily frequency" do
       describe "#date_time" do
