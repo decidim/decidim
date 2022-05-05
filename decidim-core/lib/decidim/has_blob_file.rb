@@ -13,13 +13,15 @@ module Decidim
     private
 
     def blob
-      @blob ||= begin
-        return file if defined?(file) && file.is_a?(ActiveStorage::Blob)
-        return @form.file if @form.present? && @form.respond_to?(:file) && @form.file.is_a?(ActiveStorage::Blob)
-        return ActiveStorage::Blob.find_signed(file_signed_id) if file_signed_id.is_a?(String)
+      @blob ||= fetch_blob
+    end
 
-        file_signed_id
-      end
+    def fetch_blob
+      return file if defined?(file) && file.is_a?(ActiveStorage::Blob)
+      return @form.file if @form.present? && @form.respond_to?(:file) && @form.file.is_a?(ActiveStorage::Blob)
+      return ActiveStorage::Blob.find_signed(file_signed_id) if file_signed_id.is_a?(String)
+
+      file_signed_id
     end
 
     def blob_path
@@ -27,10 +29,12 @@ module Decidim
     end
 
     def file_signed_id
-      @file_signed_id ||= begin
-        return file if defined?(file) && file.is_a?(String)
-        return @form.file if @form.file.is_a?(String)
-      end
+      return @file_signed_id if instance_variable_defined?("@file_signed_id")
+
+      @file_signed_id = nil
+      @file_signed_id = file if defined?(file) && file.is_a?(String)
+      @file_signed_id = @form.file if @form.file.is_a?(String)
+      @file_signed_id
     end
   end
 end

@@ -473,9 +473,11 @@ module Decidim
 
     def choose_button_label(attribute)
       @choose_button_label ||= begin
-        return I18n.t("decidim.forms.upload.labels.add_image") if resource_class(attribute).attached_config[attribute].uploader <= Decidim::ImageUploader
-
-        I18n.t("decidim.forms.upload.labels.add_file")
+        if resource_class(attribute).attached_config[attribute].uploader <= Decidim::ImageUploader
+          I18n.t("decidim.forms.upload.labels.add_image")
+        else
+          I18n.t("decidim.forms.upload.labels.add_file")
+        end
       rescue NoMethodError
         I18n.t("decidim.forms.upload.labels.add_file")
       end

@@ -13,8 +13,8 @@ Naming/VariableNumber:
 Lint/EmptyBlock:
   Enabled: false
 
-Lint/NoReturnInBeginEndBlocks:
-  Enabled: false
+#Lint/NoReturnInBeginEndBlocks:
+#  Enabled: false
 
 Style/HashConversion:
   Enabled: false

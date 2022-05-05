@@ -145,16 +145,18 @@ module Decidim
     end
 
     def file_name_for(attachment)
-      filename = begin
-        return attachment.filename.to_s if attachment.is_a? ActiveStorage::Blob
-        return blob(attachment).filename.to_s if blob(attachment).present?
-
-        attachment.url.split("/").last
-      end
+      filename = determine_filename(attachment)
 
       return "(#{filename})" if has_title?
 
       filename
+    end
+
+    def determine_filename(attachment)
+      return attachment.filename.to_s if attachment.is_a? ActiveStorage::Blob
+      return blob(attachment).filename.to_s if blob(attachment).present?
+
+      attachment.url.split("/").last
     end
 
     def file_attachment_path(attachment)
