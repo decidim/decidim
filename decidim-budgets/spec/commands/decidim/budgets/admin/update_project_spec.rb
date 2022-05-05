@@ -76,12 +76,12 @@ module Decidim::Budgets
       it "traces the action", versioning: true do
         expect(Decidim.traceability)
           .to receive(:update!)
-                .with(
-                  project,
-                  current_user,
-                  hash_including(:scope, :category, :title, :description, :budget_amount)
-                )
-                .and_call_original
+          .with(
+            project,
+            current_user,
+            hash_including(:scope, :category, :title, :description, :budget_amount)
+          )
+          .and_call_original
 
         expect { subject.call }.to change(Decidim::ActionLog, :count)
         action_log = Decidim::ActionLog.last
