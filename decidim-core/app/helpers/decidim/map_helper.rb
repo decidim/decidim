@@ -91,8 +91,9 @@ module Decidim
         snippets.add(:map_scripts, builder.javascript_snippets)
 
         # This will display the snippets in the <head> part of the page.
-        snippets.add(:snippet_styles, snippets.for(:map_styles))
-        snippets.add(:snippet_scripts, snippets.for(:map_scripts))
+        snippets.add(:head, snippets.for(:map_styles))
+        # This will display the snippets in the bottom part of the page.
+        snippets.add(:foot, snippets.for(:map_scripts))
       end
 
       map_html_options = { id: "map", class: "google-map" }.merge(html_options)
