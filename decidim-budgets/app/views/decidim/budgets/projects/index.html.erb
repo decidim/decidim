@@ -33,4 +33,6 @@
   </div>
 </div>
 
-<%= javascript_pack_tag("decidim_budgets") %>
+<% content_for :js_content do %>
+  <%= javascript_pack_tag "decidim_budgets" %>
+<% end %>

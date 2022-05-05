@@ -26,7 +26,7 @@ module Decidim::Votings
 
       context "when medium is email" do
         it "sends an email" do
-          expect(Decidim::Votings::AccessCodeMailer)
+          allow(Decidim::Votings::AccessCodeMailer)
             .to receive(:send_access_code)
             .with(datum)
             .and_return(mailer)

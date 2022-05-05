@@ -355,7 +355,7 @@ module Decidim::Meetings
 
       context "when the pad is not visible" do
         before do
-          expect(meeting).to receive(:pad_is_visible?).and_return(false)
+          allow(meeting).to receive(:pad_is_visible?).and_return(false)
         end
 
         it "returns false" do

@@ -88,7 +88,7 @@ module Decidim::Conferences
 
       before do
         allow(Decidim::ActionLogger).to receive(:log).and_return(true)
-        expect(Decidim::Conference).to receive(:create).and_return(invalid_conference)
+        allow(Decidim::Conference).to receive(:create).and_return(invalid_conference)
       end
 
       it "broadcasts invalid" do

@@ -16,6 +16,35 @@ In the next version (v0.28.0) it will be fully removed from the database.
 #### Push notifications
 PR [\#8774] https://github.com/decidim/decidim/pull/8774 Implements push notifications. Use `rails
 decidim:pwa:generate_vapid_keys` to generate the VAPID keys and copy them to your env vars file.
+#### Javascript load at the bottom of the pages
+
+PR [\#9156] https://github.com/decidim/decidim/pull/9156 moves javascript snippets to the bottom of `body` sections.
+
+If you are redefining Decidim layout, or partials including javascript packs you might need to review them.
+
+Also, you can no longer call jQuery or any other library in your views directly. For example the
+following snippet won't work:
+
+```
+<script>
+$(() => {
+  $(".some-element").addClass("page-loadded");
+});
+</script>
+```
+
+Instead of that, you should encapsulate it in a `content_for(:js_content)` block, that will render the snippet
+right after javascript bundles have been loaded.
+
+```
+<% content_for(:js_content) do %>
+  <script>
+    $(() => {
+      $(".some-element").addClass("page-loadded");
+    });
+  </script>
+<% end %>
+```
 #### Upgrade to Ruby 3.0
 
 PR [\#8452] https://github.com/decidim/decidim/pull/8452 has upgraded the required ruby version to 3.0. Upgrading to this version will require either to install the Ruby Version on your host, or change the decidim docker image to use ruby:3.0.2.

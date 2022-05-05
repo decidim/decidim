@@ -23,7 +23,7 @@ describe Decidim::NotificationGeneratorForRecipientJob do
     let(:notification_sender) { double :notification_sender }
 
     it "delegates the work to the class" do
-      expect(Decidim::NotificationGeneratorForRecipient)
+      allow(Decidim::NotificationGeneratorForRecipient)
         .to receive(:new)
         .with(event, event_class, resource, recipient, :follower, extra)
         .and_return(generator)

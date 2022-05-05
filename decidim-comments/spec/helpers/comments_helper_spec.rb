@@ -24,7 +24,7 @@ module Decidim
 
           expect(cell).to receive(:to_s)
 
-          expect(helper)
+          allow(helper)
             .to receive(:cell)
             .with(
               "decidim/comments/comments",

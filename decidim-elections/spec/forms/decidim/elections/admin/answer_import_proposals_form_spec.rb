@@ -46,7 +46,7 @@ module Decidim
           it { is_expected.to be_valid }
         end
 
-        context "when the import proposals is  accepted" do
+        context "when the import proposals is accepted" do
           let(:import_all_accepted_proposals) { true }
 
           it { is_expected.to be_valid }

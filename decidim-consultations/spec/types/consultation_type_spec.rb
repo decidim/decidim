@@ -77,7 +77,7 @@ module Decidim
       describe "startVotingDate" do
         let(:query) { "{ startVotingDate }" }
 
-        it "returns the signature start date of the consultation " do
+        it "returns the signature start date of the consultation" do
           expect(response["startVotingDate"]).to eq(model.start_voting_date.to_date.iso8601)
         end
       end

@@ -42,7 +42,7 @@ module Decidim::Admin
       end
     end
 
-    context "when user  is missing" do
+    context "when user is missing" do
       let(:current_user) {}
 
       it "broadcasts invalid" do
@@ -50,7 +50,7 @@ module Decidim::Admin
       end
     end
 
-    context "when solve conflict succeeds " do
+    context "when solve conflict succeeds" do
       it "mark conflict as solved" do
         subject.call
         expect(conflict.reload.solved).to be(true)
