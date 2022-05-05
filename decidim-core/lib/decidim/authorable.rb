@@ -42,7 +42,7 @@ module Decidim
         scoped_query
       }
 
-      validates :author, presence: true
+      validates :author
       validate :verified_user_group, :user_group_membership
       validate :author_belongs_to_organization
 

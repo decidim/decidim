@@ -28,9 +28,6 @@ Lint/DuplicateBranch:
 Lint/AmbiguousOperatorPrecedence:
   Enabled: false
 
-Rails/RedundantPresenceValidationOnBelongsTo:
-  Enabled: false
-
 Rails/HasManyOrHasOneDependent:
   Enabled: false
 

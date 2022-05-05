@@ -35,7 +35,8 @@ module Decidim
 
     before_validation :update_part_of, on: :update
 
-    validates :name, :code, :organization, presence: true
+    validates :organization
+    validates :name, :code, presence: true
     validates :code, uniqueness: { scope: :organization }
     validate :forbid_cycles
 
