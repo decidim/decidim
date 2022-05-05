@@ -1678,6 +1678,10 @@ en:
           marketing:
             title: Marketing
             description: These cookies collect information about how you use the website, which pages you visited and which links you clicked on.
+        warning:
+          all_cookies: all cookies
+          need_cookies: You need to enable %{cookies} in order to see this content.
+          cookie_settings: Cookie settings
       edit_link:
         edit: Edit
       footer:

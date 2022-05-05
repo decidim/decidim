@@ -9,6 +9,7 @@ class ConsentManager {
     this.modal = options.modal;
     this.categories = options.categories;
     this.cookie = Cookies.get(options.cookieName);
+    this.warningElement = document.querySelector(".cookie-warning");
     if (this.cookie) {
       this.updateState(JSON.parse(this.cookie));
     }
@@ -21,9 +22,8 @@ class ConsentManager {
     this.triggerState();
   }
 
-  triggerState() {
+  triggerJavaScripts() {
     document.querySelectorAll("script[type='text/plain'][data-cookiecategory]").forEach((script) => {
-      console.log("script", script);
       if (this.state[script.dataset.cookiecategory]) {
         const activeScript = document.createElement("script");
         if (script.src.length > 0) {
@@ -37,6 +37,61 @@ class ConsentManager {
 
     const event = new CustomEvent("dataconsent", { detail: this.state });
     document.dispatchEvent(event);
+  }
+
+  triggerIframes() {
+    if (this.allAccepted()) {
+      document.querySelectorAll(".disabled-iframe").forEach((original) => {
+        let newElement = this.transformElement(original, "iframe");
+        newElement.className = original.classList.toString().replace("disabled-iframe", "");
+        original.parentElement.appendChild(newElement);
+        original.remove();
+      })
+    } else {
+      document.querySelectorAll("iframe").forEach((original) => {
+        const newElement = this.transformElement(original, "div");
+        newElement.className = `disabled-iframe ${original.classList.toString()}`;
+        original.parentElement.appendChild(newElement);
+        original.remove();
+      })
+    }
+  }
+
+  transformElement(original, targetType) {
+    const newElement = document.createElement(targetType);
+    ["src", "allow", "frameborder", "style", "loading"].forEach((attribute) => {
+      newElement.setAttribute(attribute, original.getAttribute(attribute));
+    })
+
+    return newElement;
+  }
+
+  triggerWarnings() {
+    document.querySelectorAll(".disabled-iframe").forEach((original) => {
+      if (original.querySelector(".cookie-warning")) {
+        return;
+      }
+
+      let cloned = this.warningElement.cloneNode(true);
+      cloned.classList.remove("hide");
+      original.appendChild(cloned);
+    });
+  }
+
+  triggerState() {
+    this.triggerJavaScripts();
+    this.triggerIframes();
+    this.triggerWarnings();
+  }
+
+  allAccepted() {
+    let allAccepted = true;
+    this.categories.forEach((category) => {
+      if (!this.state || !this.state[category]) {
+        allAccepted = false;
+      }
+    })
+    return allAccepted;
   }
 
   updateModalSelections() {

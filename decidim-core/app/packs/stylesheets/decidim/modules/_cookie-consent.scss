@@ -79,3 +79,13 @@
     justify-content: space-between;
   }
 }
+
+.cookie-warning{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 2rem;
+  font-weight: $global-weight-bold;
+  padding: 1rem;
+  margin: 1rem;
+}

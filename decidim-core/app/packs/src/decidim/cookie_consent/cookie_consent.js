@@ -68,6 +68,21 @@ const initModal = (manager) => {
   })
 }
 
+const initDisabledIframes = (manager) => {
+  const disabledIframes = document.querySelectorAll(".disabled-iframe")
+  if (manager.allAccepted()) {
+    disabledIframes.forEach((elem) => {
+      const iframe = document.createElement("iframe")
+      iframe.setAttribute("src", elem.getAttribute("src"));
+      iframe.className = elem.classList.toString();
+      iframe.setAttribute("allowfullscreen", elem.getAttribute("allowfullscreen"));
+      iframe.setAttribute("frameborder", elem.getAttribute("frameborder"));
+      elem.parentElement.appendChild(iframe);
+      elem.remove();
+    })
+  }
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   const modal = document.querySelector("#cc-modal");
   const categories = [...modal.querySelectorAll(".category-wrapper")].map((el) => el.dataset.id)
@@ -77,6 +92,7 @@ document.addEventListener("DOMContentLoaded", () => {
     cookieName: window.Decidim.config.get("cookie_name")
   });
 
+  initDisabledIframes(manager);
   initModal(manager, categories);
   initDialog(manager);
 });

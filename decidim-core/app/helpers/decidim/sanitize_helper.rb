@@ -32,6 +32,7 @@ module Decidim
     end
 
     def decidim_sanitize_editor(html, options = {})
+      html = Decidim::IframeDisabler.new(html, options).perform
       content_tag(:div, decidim_sanitize(html, options), class: %w(ql-editor ql-reset-decidim))
     end
 

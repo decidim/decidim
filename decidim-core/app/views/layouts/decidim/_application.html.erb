@@ -22,5 +22,6 @@
     <%= render partial: "decidim/shared/authorization_modal" %>
     <%= render partial: "layouts/decidim/cors" if Decidim.cors_enabled %>
     <%= render partial: "layouts/decidim/cookie_warning" %>
+    <%= cell("decidim/cookie_consent", current_organization) %>
   </body>
 </html>
