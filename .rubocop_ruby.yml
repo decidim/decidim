@@ -14,7 +14,6 @@ AllCops:
     - "**/Rakefile"
   Exclude:
     - "**/node_modules/**/*"
-    - "bin/**"
     - "**/vendor/**/*"
     - "development_app/**/*"
     - "decidim_app-design/node_modules/**/*"
