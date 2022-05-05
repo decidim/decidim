@@ -275,7 +275,7 @@ es-MX:
             title: Resultados publicados
           tally:
             continue: Continuar
-            invalid: Hubo un problema al reportar al garante ausente
+            invalid: Hubo un problema al reportar la fideicomisaria faltante
             mark_as_missing: Marcar como ausente
             mark_as_missing_description: Todos los garantes deberían participar en este proceso, pero si uno de ellos no puede tomar parte en él, puedes marcarlo como ausente.
             success: El reporte del garante que falta fue enviado con éxito al Bulletin Board
