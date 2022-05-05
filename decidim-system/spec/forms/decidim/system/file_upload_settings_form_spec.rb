@@ -16,13 +16,13 @@ module Decidim::System
 
         it "sets the default settings for the view" do
           expect(subject.allowed_file_extensions).to eq(
-            defaults["allowed_file_extensions"].map { |k, v| [k.to_sym, v.join(",")] }.to_h
+            defaults["allowed_file_extensions"].to_h { |k, v| [k.to_sym, v.join(",")] }
           )
           expect(subject.allowed_content_types).to eq(
-            defaults["allowed_content_types"].map { |k, v| [k.to_sym, v.join(",")] }.to_h
+            defaults["allowed_content_types"].to_h { |k, v| [k.to_sym, v.join(",")] }
           )
           expect(subject.maximum_file_size).to eq(
-            defaults["maximum_file_size"].map { |k, v| [k.to_sym, v.to_f] }.to_h
+            defaults["maximum_file_size"].to_h { |k, v| [k.to_sym, v.to_f] }
           )
         end
       end

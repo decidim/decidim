@@ -89,7 +89,7 @@ namespace :decidim do
         gem_path = Pathname(decidim_gemspec.full_gem_path)
       else
         gem_path = decidim_gemspec.source.path
-        gem_path = Pathname(ENV["BUNDLE_GEMFILE"]).dirname.join(gem_path) if gem_path.relative?
+        gem_path = Pathname(ENV.fetch("BUNDLE_GEMFILE", nil)).dirname.join(gem_path) if gem_path.relative?
       end
 
       gem_path

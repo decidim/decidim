@@ -133,16 +133,15 @@ module Decidim
         next if Decidim.maps.present?
         next if Decidim.geocoder.blank?
 
-        legacy_api_key ||= begin
-          if Decidim.geocoder[:here_api_key].present?
-            Decidim.geocoder.fetch(:here_api_key)
-          elsif Decidim.geocoder[:here_app_id].present?
-            [
-              Decidim.geocoder.fetch(:here_app_id),
-              Decidim.geocoder.fetch(:here_app_code)
-            ]
-          end
-        end
+        legacy_api_key ||= if Decidim.geocoder[:here_api_key].present?
+                             Decidim.geocoder.fetch(:here_api_key)
+                           elsif Decidim.geocoder[:here_app_id].present?
+                             [
+                               Decidim.geocoder.fetch(:here_app_id),
+                               Decidim.geocoder.fetch(:here_app_code)
+                             ]
+                           end
+
         next unless legacy_api_key
 
         ActiveSupport::Deprecation.warn(
@@ -233,9 +232,9 @@ module Decidim
                         decidim.user_interests_path,
                         position: 1.4
 
-          menu.add_item :data_portability,
+          menu.add_item :download_your_data,
                         t("my_data", scope: "layouts.decidim.user_profile"),
-                        decidim.data_portability_path,
+                        decidim.download_your_data_path,
                         position: 1.5
 
           menu.add_item :delete_account,

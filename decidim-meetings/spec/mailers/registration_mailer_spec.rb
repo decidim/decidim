@@ -15,7 +15,7 @@ module Decidim::Meetings
     let(:mail) { described_class.confirmation(user, meeting, registration) }
 
     describe "confirmation" do
-      let(:subject) { "La teva inscripció a la trobada ha estat confirmada" }
+      let(:mail_subject) { "La teva inscripció a la trobada ha estat confirmada" }
       let(:default_subject) { "Your meeting's registration has been confirmed" }
 
       let(:body) { "arxiu adjunt" }

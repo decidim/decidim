@@ -24,9 +24,9 @@ module Decidim
       #
       if ENV["SIMPLECOV"]
         {
-          "RUBYOPT" => "-rsimplecov #{ENV["RUBYOPT"]}",
-          "RUBYLIB" => "#{repo_root}/decidim-generators/lib:#{ENV["RUBYLIB"]}",
-          "PATH" => "#{repo_root}/decidim-generators/exe:#{ENV["PATH"]}",
+          "RUBYOPT" => "-rsimplecov #{ENV.fetch("RUBYOPT", nil)}",
+          "RUBYLIB" => "#{repo_root}/decidim-generators/lib:#{ENV.fetch("RUBYLIB", nil)}",
+          "PATH" => "#{repo_root}/decidim-generators/exe:#{ENV.fetch("PATH", nil)}",
           "COMMAND_NAME" => example.full_description.tr(" ", "_")
         }
       else

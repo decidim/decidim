@@ -49,7 +49,7 @@ describe "User timeline", type: :system do
   end
 
   let(:resource_types) do
-    %w(Collaborative\ Draft Comment Debate Initiative Meeting Post Proposal Question)
+    ["Collaborative Draft", "Comment", "Debate", "Initiative", "Meeting", "Post", "Proposal", "Question"]
   end
 
   before do

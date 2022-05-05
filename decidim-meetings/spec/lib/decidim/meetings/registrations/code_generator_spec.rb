@@ -39,7 +39,7 @@ module Decidim
           end
 
           it "returns a code where all chars are valid" do
-            code.split("").each do |char|
+            code.chars.each do |char|
               expect(CodeGenerator::ALPHABET).to include char
             end
           end

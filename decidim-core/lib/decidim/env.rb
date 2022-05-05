@@ -8,7 +8,7 @@ module Decidim
 
     def initialize(name, default = nil)
       @name = name
-      @value = ENV[name]
+      @value = ENV.fetch(name, nil)
       @default = default
     end
 

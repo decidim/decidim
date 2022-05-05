@@ -18,7 +18,8 @@ module Decidim
           committee_members: double("committee_members", approved: approved_committee_members)
         )
       end
-      let!(:subject) { described_class.new(initiative: initiative) }
+
+      subject { described_class.new(initiative: initiative) }
 
       before do
         allow(message_delivery).to receive(:deliver_later)

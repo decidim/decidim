@@ -6,20 +6,18 @@ module Decidim
   module Votings
     describe CurrentComponent do
       let(:request) { double(params: params, env: env) }
-      let(:subject) { described_class.new(manifest) }
       let(:params) { {} }
       let(:manifest) { Decidim.find_component_manifest("dummy") }
-
       let(:organization) do
         create(:organization)
       end
-
       let(:current_voting) { create(:voting, organization: organization) }
       let(:other_voting) { create(:voting, organization: organization) }
-
       let(:env) do
         { "decidim.current_organization" => organization }
       end
+
+      subject { described_class.new(manifest) }
 
       context "when the params contain a voting id" do
         before do

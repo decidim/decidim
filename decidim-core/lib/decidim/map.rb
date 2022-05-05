@@ -75,9 +75,9 @@ module Decidim
 
       # Dynamically define the category method.
       module_eval %{
-        def self.#{category}(options)
-          utility(:#{category}, options)
-        end
+        def self.#{category}(options)    # def self.dynamic(options)
+          utility(:#{category}, options) #  utility(:dynamic, options)
+        end                              # end
       }, __FILE__, __LINE__ - 4
 
       mod
