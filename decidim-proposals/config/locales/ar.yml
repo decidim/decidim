@@ -623,8 +623,11 @@ ar:
             other: "%{count} مقترحات"
         edit:
           add_documents: المستندات
+          add_images: ملف
           attachment_legend: "(اختياري) إضافة مرفق"
           back: الى الخلف
+          delete_document: حذف المستند
+          delete_image: حذف الصورة
           select_a_category: الرجاء تحديد الفئة
           send: إرسال
           title: تعديل الاقتراح
