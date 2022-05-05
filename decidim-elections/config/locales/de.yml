@@ -281,6 +281,9 @@ de:
             submit: Resultate veröffentlichen
             success: Die Anfrage zur Veröffentlichung der Resultate wurde erfolgreich ans Bulletin Board gesendet
             title: Berechnete Ergebnisse
+          tally_started:
+            invalid: Es ist ein Problem beim Melden des Wahlhelfers %{trustee} aufgetreten
+            mark_as_missing: Als fehlend markieren
           vote:
             errors:
               time_after: Die Wahl läuft noch. Sie müssen bis zum Ende (%{end_time}) warten, um die Abstimmungsperiode zu schließen.
