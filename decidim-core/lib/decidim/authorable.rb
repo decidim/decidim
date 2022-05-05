@@ -27,7 +27,7 @@ module Decidim
       }
 
       scope :with_any_origin, lambda { |*origin_keys|
-        search_values = origin_keys.compact.reject(&:blank?)
+        search_values = origin_keys.compact.compact_blank
 
         conditions = [:official, :participants, :user_group].map do |key|
           search_values.member?(key.to_s) ? try("with_#{key}_origin") : nil
