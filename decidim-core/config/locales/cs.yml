@@ -153,6 +153,14 @@ cs:
         notice: Vaše data jsou momentálně v provozu. Po dokončení e-mailu obdržíte e-mail.
       email_change:
         body1: Poslali jsme e-mail na %{unconfirmed_email} k ověření Vaší nové e-mailové adresy.
+        body2: Potřebujete poslat znovu ověřovací e-mail? %{resend_link} nebo %{cancel_link}.
+        cancel: Zrušit
+        cancel_error: Nelze zrušit změnu e-mailu.
+        cancel_successfully: Změna e-mailu byla úspěšně zrušena.
+        resend_error: Potvrzovací e-mail nelze znovu odeslat.
+        resend_successfully: Potvrzovací e-mail byl úspěšně odeslán na %{unconfirmed_email}
+        send_again: Znovu odeslat
+        title: Ověření změny e-mailu
       show:
         available_locales_helper: Vyberte jazyk, který chcete použít k procházení a přijímání oznámení na platformě
         change_password: Změnit heslo
@@ -719,6 +727,8 @@ cs:
           email_outro: Toto oznámení jste obdrželi, protože jste administrátor platformy.
           email_subject: Skupina uživatelů aktualizovala svůj profil
           notification_title: Uživatelská skupina %{user_group_name} aktualizovala svůj profil, ponechala jej neověřený. Nyní jej můžete ověřit v <a href="%{groups_admin_path}">admin panelu</a>.
+      nickname_event:
+        notification_body: Opravili jsme způsob, jakým jsou přezdívky používány, aby nedocházelo k duplicitám, a proto jsme odstranili pravidlo citlivého na případ případu. <br/> Vaše přezdívka byla vytvořena po jiné, se stejným jménem, takže jsme ji automaticky přejmenovali. Můžete to změnit z <a href="%{link_to_account_settings}">nastavení účtu</a>.
       notification_event:
         notification_title: Došlo k události <a href="%{resource_path}">%{resource_title}</a>.
       reports:
@@ -1537,6 +1547,7 @@ cs:
     invitations:
       edit:
         header: Dokončete vytvoření účtu
+        nickname_help: Vaše přezdívka v %{organization}. Může obsahovat pouze písmena, číslice, '-' a '_'.
         submit_button: Uložit
         subtitle: Pokud přijmete pozvánku, nastavte svou přezdívku a heslo.
       invitation_removed: Vaše pozvánka byla odstraněna.
