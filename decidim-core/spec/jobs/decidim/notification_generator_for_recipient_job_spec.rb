@@ -27,11 +27,11 @@ describe Decidim::NotificationGeneratorForRecipientJob do
         .to receive(:new)
         .with(event, event_class, resource, recipient, :follower, extra)
         .and_return(generator)
-      expect(generator)
+      allow(generator)
         .to receive(:generate)
         .and_return(notification)
 
-      expect(Decidim::SendPushNotification)
+      allow(Decidim::SendPushNotification)
         .to receive(:new)
         .and_return(notification_sender)
       expect(notification_sender)

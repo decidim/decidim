@@ -123,7 +123,7 @@ describe Decidim::SendPushNotification do
           )
         }
 
-        expect(Webpush).to receive(:payload_send).with(notification_payload).and_return(double("result", message: "Created", code: "201"))
+        allow(Webpush).to receive(:payload_send).with(notification_payload).and_return(double("result", message: "Created", code: "201"))
 
         responses = subject.perform(notification)
         expect(responses.all? { |response| response.code == "201" }).to be(true)
