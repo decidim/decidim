@@ -273,6 +273,9 @@ de:
             submit: Absenden
             title: Ergebnisse veröffentlicht
           tally:
+            invalid: Es ist ein Problem beim Melden des Wahlhelfers %{trustee} aufgetreten
+            mark_as_missing: Als fehlend markieren
+            mark_as_missing_description: Alle Wahlhelfer sollten an diesem Prozess teilnehmen. Wenn ein Wahlhelfer nicht am Prozess teilnehmen kann, können Sie ihn als fehlend markieren.
             title: Stimmenzählung
           tally_ended:
             answer: Antwort
