@@ -29,12 +29,11 @@ module Decidim
     end
 
     def file_signed_id
-      return @file_signed_id if instance_variable_defined?("@file_signed_id")
-
-      @file_signed_id = nil
-      @file_signed_id = file if defined?(file) && file.is_a?(String)
-      @file_signed_id = @form.file if @form.file.is_a?(String)
-      @file_signed_id
+      @file_signed_id ||= if defined?(file) && file.is_a?(String)
+                            file
+                          elsif @form.file.is_a?(String)
+                            @form.file
+                          end
     end
   end
 end
