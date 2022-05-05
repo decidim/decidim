@@ -151,6 +151,8 @@ cs:
       download_your_data_export:
         file_no_exists: Soubor neexistuje
         notice: Vaše data jsou momentálně v provozu. Po dokončení e-mailu obdržíte e-mail.
+      email_change:
+        body1: Poslali jsme e-mail na %{unconfirmed_email} k ověření Vaší nové e-mailové adresy.
       show:
         available_locales_helper: Vyberte jazyk, který chcete použít k procházení a přijímání oznámení na platformě
         change_password: Změnit heslo
