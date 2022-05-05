@@ -34,9 +34,6 @@ Rails/HasManyOrHasOneDependent:
 Gemspec/RequireMFA:
   Enabled: false
 
-Rails/DuplicateScope:
-  Enabled: false
-
 Rails/ExpandedDateRange:
   Enabled: false
 
