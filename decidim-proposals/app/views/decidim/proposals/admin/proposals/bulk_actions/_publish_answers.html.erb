@@ -2,7 +2,7 @@
   <%= form_tag(publish_answers_proposals_path, method: :post, remote: true, id: "js-form-publish-answers", class: "flex--cc flex-gap--1") do %>
     <div class="checkboxes hide">
       <% proposals.each do |proposal| %>
-        <%= check_box_tag "proposal_ids[]", proposal.id, false, class: "js-check-all-resources js-resource-id-#{proposal.id}" %>
+        <%= check_box_tag "proposal_ids[]", proposal.id, false, class: "js-check-all-proposal js-proposal-id-#{proposal.id}" %>
       <% end %>
     </div>
     <p><%= t("decidim.proposals.admin.proposals.publish_answers.number_of_proposals", number: '<span id="js-form-publish-answers-number"></span>').html_safe %></p>

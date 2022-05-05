@@ -2,7 +2,7 @@
   <%= form_tag(valuation_assignment_path, method: :post, id: "js-form-assign-proposals-to-valuator", class: "flex--cc flex-gap--1") do %>
     <div class="checkboxes hide">
       <% proposals.each do |proposal| %>
-        <%= check_box_tag "proposal_ids[]", proposal.id, false, class: "js-check-all-resources js-resource-id-#{proposal.id}" %>
+        <%= check_box_tag "proposal_ids[]", proposal.id, false, class: "js-check-all-proposal js-proposal-id-#{proposal.id}" %>
       <% end %>
     </div>
 

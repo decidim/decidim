@@ -22,7 +22,7 @@ shared_examples "when managing proposals category as an admin" do
       end
 
       it "shows the number of selected proposals" do
-        expect(page).to have_css("button#js-bulk-actions-button", count: 1)
+        expect(page).to have_css("span#js-selected-proposals-count", count: 1)
       end
 
       it "shows the bulk actions button" do

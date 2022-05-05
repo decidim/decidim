@@ -43,18 +43,18 @@ shared_examples "merge proposals" do
       end
 
       it "shows the component select" do
-        expect(page).to have_css("#js-form-merge-resources select", count: 1)
+        expect(page).to have_css("#js-form-merge-proposals select", count: 1)
       end
 
       it "shows an update button" do
-        expect(page).to have_css("button#js-submit-merge-resources", count: 1)
+        expect(page).to have_css("button#js-submit-merge-proposals", count: 1)
       end
 
       context "when submiting the form" do
         before do
-          within "#js-form-merge-resources" do
+          within "#js-form-merge-proposals" do
             select translated(target_component.name), from: :target_component_id_
-            page.find("button#js-submit-merge-resources").click
+            page.find("button#js-submit-merge-proposals").click
           end
         end
 

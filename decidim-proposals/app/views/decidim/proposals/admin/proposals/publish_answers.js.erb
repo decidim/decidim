@@ -6,7 +6,7 @@ $("<%= escape_javascript(render partial: %q{decidim/admin/shared/js-callout}, lo
 <% end %>
 
 $(".js-check-all").prop('checked', false);
-$(".js-check-all-resources").prop('checked', false);
+$(".js-check-all-proposal").prop('checked', false);
 window.hideBulkActionForms()
 window.showOtherActionsButtons();
-window.selectedResourcesCountUpdate();
+window.selectedProposalsCountUpdate();

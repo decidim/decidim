@@ -1,6 +1,6 @@
 <tr data-id="<%= proposal.id %>" <%= "data-published-state=false" if proposal.answered? && !proposal.published_state? %>>
   <td>
-    <%= check_box_tag "proposal_ids_s[]", proposal.id, false, class: "js-check-all-resources js-proposal-list-check  js-resource-id-#{proposal.id}" %><br>
+    <%= check_box_tag "proposal_ids_s[]", proposal.id, false, class: "js-check-all-proposal js-proposal-list-check  js-proposal-id-#{proposal.id}" %><br>
   </td>
   <td>
     <%= proposal.id %><br>
