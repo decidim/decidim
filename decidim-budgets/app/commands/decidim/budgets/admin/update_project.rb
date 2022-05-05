@@ -56,7 +56,7 @@ module Decidim
             selected_at: selected_at,
             address: form.address,
             latitude: form.latitude,
-            longitude: form.longitude,
+            longitude: form.longitude
           )
         end
 

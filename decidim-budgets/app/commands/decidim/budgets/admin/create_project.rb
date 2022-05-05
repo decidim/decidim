@@ -47,7 +47,7 @@ module Decidim
             budget_amount: form.budget_amount,
             address: form.address,
             latitude: form.latitude,
-            longitude: form.longitude,
+            longitude: form.longitude
           }
 
           @project = Decidim.traceability.create!(

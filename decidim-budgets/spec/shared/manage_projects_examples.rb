@@ -22,6 +22,7 @@ shared_examples "manage projects" do
       before do
         stub_geocoding(address, [latitude, longitude])
         current_component.update!(settings: { geocoding_enabled: true })
+        visit current_path
       end
 
       it "creates a new project" do
@@ -39,8 +40,7 @@ shared_examples "manage projects" do
           project = Decidim::Budgets::Project.last
 
           expect(page).to have_content("Make decidim great again")
-          expect(translated(project.body)).to eq("<p>Decidim is great but it can be better</p>")
-          expect(project.scope).to eq(scope)
+          expect(translated(project.description)).to eq("<p>Decidim is great but it can be better</p>")
         end
       end
 

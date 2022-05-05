@@ -1,5 +1,4 @@
 ---
-
 en:
   activemodel:
     attributes:
@@ -197,8 +196,6 @@ en:
           voted_on_space: You have voted on the %{budget_name} budget for the %{space_name} participatory space.
           voted_on_space_with_scope: You have voted on the %{budget_name} budget for the %{space_name} participatory space on %{scope_name} (%{scope_type}).
       projects:
-        index:
-          view_project: View project
         budget_confirm:
           are_you_sure: If you change your mind, you can change your vote later.
           cancel: Cancel
@@ -263,6 +260,8 @@ en:
           filter: Filter
           filter_by: Filter by
           unfold: Unfold
+        index:
+          view_project: View project
         order_progress:
           vote: Vote
         order_selected_projects:
