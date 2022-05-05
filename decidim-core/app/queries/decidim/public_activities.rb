@@ -72,13 +72,9 @@ module Decidim
 
       return query if conditions.empty?
 
-      # rubocop:disable Lint/UnmodifiedReduceAccumulator
       chained_conditions = conditions.inject do |previous_condition, condition|
-        next condition unless previous_condition
-
-        previous_condition.or(condition)
+        previous_condition.present? ? previous_condition.or(condition) : condition
       end
-      # rubocop:enable Lint/UnmodifiedReduceAccumulator
 
       query.where(chained_conditions)
     end
