@@ -9,7 +9,7 @@ describe "Search proposals", type: :system do
   end
   let(:manifest_name) { "proposals" }
   let!(:searchables) { create_list(:proposal, 3, component: component) }
-  let!(:term) { translated(searchables.first.title).split(" ").last }
+  let!(:term) { translated(searchables.first.title).split.last }
   let(:component) { create(:proposal_component, participatory_space: participatory_process) }
   let(:hashtag) { "#decidim" }
 

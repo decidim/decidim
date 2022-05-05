@@ -109,8 +109,8 @@ module Decidim
 
         expect(subject).to be_valid
         expect(subject.settings.attributes).to have_key(:name)
-        expect(subject.settings.attributes[:name].translated).to eq true
-        expect(subject.settings.attributes[:name].editor).to eq true
+        expect(subject.settings.attributes[:name].translated).to be true
+        expect(subject.settings.attributes[:name].editor).to be true
         expect(subject.settings.attributes[:name].type).to eq :text
       end
     end

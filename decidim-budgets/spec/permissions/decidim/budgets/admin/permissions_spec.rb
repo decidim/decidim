@@ -16,7 +16,7 @@ describe Decidim::Budgets::Admin::Permissions do
   let(:budgets_component) { create :budgets_component }
   let(:budget) { create :budget, component: budgets_component }
   let(:project) { create :project, component: budgets_component }
-  let(:permission_action) { Decidim::PermissionAction.new(action) }
+  let(:permission_action) { Decidim::PermissionAction.new(**action) }
 
   context "when scope and action are both random" do
     let(:action) do
@@ -48,7 +48,7 @@ describe Decidim::Budgets::Admin::Permissions do
     end
     let(:budget) { nil }
 
-    it { is_expected.to eq true }
+    it { is_expected.to be true }
   end
 
   describe "budget update" do
@@ -56,7 +56,7 @@ describe Decidim::Budgets::Admin::Permissions do
       { scope: :admin, action: :update, subject: :budget }
     end
 
-    it { is_expected.to eq true }
+    it { is_expected.to be true }
   end
 
   context "when deleting a budget" do
@@ -65,7 +65,7 @@ describe Decidim::Budgets::Admin::Permissions do
         { scope: :admin, action: :delete, subject: :budget }
       end
 
-      it { is_expected.to eq true }
+      it { is_expected.to be true }
     end
 
     describe "with projects" do
@@ -74,7 +74,7 @@ describe Decidim::Budgets::Admin::Permissions do
         { scope: :admin, action: :delete, subject: :budget }
       end
 
-      it { is_expected.to eq false }
+      it { is_expected.to be false }
     end
   end
 
@@ -91,7 +91,7 @@ describe Decidim::Budgets::Admin::Permissions do
       { scope: :admin, action: :create, subject: :project }
     end
 
-    it { is_expected.to eq true }
+    it { is_expected.to be true }
   end
 
   describe "project update" do
@@ -99,7 +99,7 @@ describe Decidim::Budgets::Admin::Permissions do
       { scope: :admin, action: :update, subject: :project }
     end
 
-    it { is_expected.to eq true }
+    it { is_expected.to be true }
 
     context "when project is not present" do
       let(:project) { nil }
@@ -113,7 +113,7 @@ describe Decidim::Budgets::Admin::Permissions do
       { scope: :admin, action: :destroy, subject: :project }
     end
 
-    it { is_expected.to eq true }
+    it { is_expected.to be true }
 
     context "when project is not present" do
       let(:project) { nil }

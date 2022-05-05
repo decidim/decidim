@@ -189,7 +189,7 @@ module Decidim
         let(:query) { "{ area { id } }" }
 
         it "returns the area field" do
-          expect(response["area"]).to be nil
+          expect(response["area"]).to be_nil
         end
       end
 
@@ -198,7 +198,7 @@ module Decidim
 
         context "when has no parent" do
           it "returns the parent" do
-            expect(response["parent"]).to be nil
+            expect(response["parent"]).to be_nil
           end
         end
 
@@ -258,7 +258,7 @@ module Decidim
         let(:query) { "{ assemblyType { id } }" }
 
         it "returns the assemblyType field" do
-          expect(response["assemblyType"]).to be nil
+          expect(response["assemblyType"]).to be_nil
         end
       end
 

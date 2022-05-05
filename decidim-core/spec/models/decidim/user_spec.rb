@@ -136,7 +136,7 @@ module Decidim
         end
 
         it "can be created" do
-          expect(user.save).to eq(true)
+          expect(user.save).to be(true)
         end
 
         it "can't have duplicates even when skipping validations" do
@@ -175,7 +175,7 @@ module Decidim
 
       context "with weird characters" do
         let(:weird_characters) do
-          %w(< > ? % & ^ * # @ ( ) [ ] = + : ; " { } \ |)
+          ["<", ">", "?", "%", "&", "^", "*", "#", "@", "(", ")", "[", "]", "=", "+", ":", ";", '"', "{", "}", " |"]
         end
 
         it "doesn't allow them" do

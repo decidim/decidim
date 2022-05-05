@@ -61,7 +61,7 @@ module Decidim
 
           context "when questionnaire has no questions" do
             it "returns true" do
-              expect(questionnaire.pristine?).to eq(true)
+              expect(questionnaire.pristine?).to be(true)
             end
           end
 
@@ -69,7 +69,7 @@ module Decidim
             let!(:question) { create(:questionnaire_question, questionnaire: questionnaire) }
 
             it "returns false" do
-              expect(questionnaire.pristine?).to eq(false)
+              expect(questionnaire.pristine?).to be(false)
             end
           end
         end
@@ -78,7 +78,7 @@ module Decidim
           let(:questionnaire) { create(:questionnaire, created_at: 1.day.ago) }
 
           it "returns false" do
-            expect(questionnaire.pristine?).to eq(false)
+            expect(questionnaire.pristine?).to be(false)
           end
         end
       end

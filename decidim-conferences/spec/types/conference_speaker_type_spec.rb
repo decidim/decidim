@@ -78,7 +78,7 @@ module Decidim
         let(:query) { "{ user { name } }" }
 
         it "returns the decidim user for this speaker" do
-          expect(response["user"]).to be nil
+          expect(response["user"]).to be_nil
         end
       end
 

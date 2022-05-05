@@ -101,7 +101,7 @@ describe "Account", type: :system do
             expect(page).to have_content("successfully")
           end
 
-          expect(user.reload.valid_password?("sekritpass123")).to eq(true)
+          expect(user.reload.valid_password?("sekritpass123")).to be(true)
         end
       end
 
@@ -120,22 +120,58 @@ describe "Account", type: :system do
             expect(page).to have_content("There was a problem")
           end
 
-          expect(user.reload.valid_password?("sekritpass123")).to eq(false)
+          expect(user.reload.valid_password?("sekritpass123")).to be(false)
+        end
+      end
+    end
+
+    context "when updating the email" do
+      let(:pending_email) { "foo@bar.com" }
+
+      before do
+        within "form.edit_user" do
+          fill_in :user_email, with: pending_email
+
+          perform_enqueued_jobs { find("*[type=submit]").click }
+        end
+
+        within_flash_messages do
+          expect(page).to have_content("You'll receive an email to confirm your new email address")
         end
       end
 
-      context "when updating the email" do
-        it "needs to confirm it" do
-          within "form.edit_user" do
-            fill_in :user_email, with: "foo@bar.com"
+      after do
+        clear_enqueued_jobs
+      end
 
-            find("*[type=submit]").click
-          end
+      it "tells user to confirm new email" do
+        expect(page).to have_content("Email change verification")
+        expect(page).to have_selector("#user_email[disabled='disabled']")
+        expect(page).to have_content("We've sent an email to #{pending_email} to verify your new email address")
+      end
 
-          within_flash_messages do
-            expect(page).to have_content("email to confirm")
-          end
+      it "resend confirmation" do
+        within "#email-change-pending" do
+          click_link "Send again"
         end
+        expect(page).to have_content("Confirmation email resent successfully to #{pending_email}")
+        perform_enqueued_jobs
+        perform_enqueued_jobs
+
+        expect(emails.count).to eq(2)
+        visit last_email_link
+        expect(page).to have_content("Your email address has been successfully confirmed")
+      end
+
+      it "cancels the email change" do
+        expect(Decidim::User.find(user.id).unconfirmed_email).to eq(pending_email)
+        within "#email-change-pending" do
+          click_link "Cancel"
+        end
+
+        expect(page).to have_content("Email change cancelled successfully")
+        expect(page).not_to have_content("Email change verification")
+        expect(Decidim::User.find(user.id).unconfirmed_email).to be_nil
       end
     end
 

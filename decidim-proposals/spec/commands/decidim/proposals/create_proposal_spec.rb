@@ -104,7 +104,7 @@ module Decidim
               creator = proposal.creator
 
               expect(creator.author).to eq(author)
-              expect(creator.user_group).to eq(nil)
+              expect(creator.user_group).to be_nil
             end
 
             it "adds the author as a follower" do

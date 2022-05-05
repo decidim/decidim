@@ -51,7 +51,7 @@ module Decidim
 
       config = utility_configuration(category)
       options[:config] = config.except(:provider)
-      klass.new(options)
+      klass.new(**options)
     end
 
     # Public: Returns the utility class module namespace for each category of
@@ -75,9 +75,9 @@ module Decidim
 
       # Dynamically define the category method.
       module_eval %{
-        def self.#{category}(options)
-          utility(:#{category}, options)
-        end
+        def self.#{category}(options)    # def self.dynamic(options)
+          utility(:#{category}, options) #  utility(:dynamic, options)
+        end                              # end
       }, __FILE__, __LINE__ - 4
 
       mod

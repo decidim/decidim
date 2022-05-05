@@ -100,7 +100,7 @@ module Decidim
         let(:resource) { OpenStruct.new }
 
         it "ignores it" do
-          expect(subject.author).to eq(nil)
+          expect(subject.author).to be_nil
         end
       end
     end

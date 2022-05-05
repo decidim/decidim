@@ -27,7 +27,7 @@ module Decidim
       #
       # Returns a String with the filename of the export.
       def filename(prefix = "export", options = {})
-        options[:extension] = !options[:extension].nil? ? options[:extension] : true
+        options[:extension] = options[:extension].nil? ? true : options[:extension]
         result = "#{prefix}-#{I18n.l(Time.zone.today, format: :default)}-#{Time.now.seconds_since_midnight.to_i}"
         result += ".#{extension}" if options[:extension]
         result

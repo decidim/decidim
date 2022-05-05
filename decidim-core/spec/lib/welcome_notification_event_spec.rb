@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim
   describe WelcomeNotificationEvent do
-    let(:subject) { described_class.new(resource: user, event_name: "test", user: user) }
+    subject { described_class.new(resource: user, event_name: "test", user: user) }
     let(:user) { create(:user, organization: organization, name: "James") }
     let(:organization) { create(:organization, name: "Awesome Town") }
 

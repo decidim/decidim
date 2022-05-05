@@ -10,7 +10,7 @@ describe Decidim::Consultations::Permissions do
   let(:consultation) { create :consultation, organization: organization }
   let(:question) { create :question, consultation: consultation }
   let(:context) { { consultation: consultation, question: question } }
-  let(:permission_action) { Decidim::PermissionAction.new(action) }
+  let(:permission_action) { Decidim::PermissionAction.new(**action) }
 
   context "when the action is for the admin part" do
     let(:action) do
@@ -32,7 +32,7 @@ describe Decidim::Consultations::Permissions do
       context "when the consultation is published" do
         let(:consultation) { create :consultation, :published, organization: organization }
 
-        it { is_expected.to eq true }
+        it { is_expected.to be true }
       end
 
       context "when the consultation is not published" do
@@ -41,13 +41,13 @@ describe Decidim::Consultations::Permissions do
         context "when the user is not an admin" do
           let(:user) { nil }
 
-          it { is_expected.to eq false }
+          it { is_expected.to be false }
         end
 
         context "when the user is an admin" do
           let(:user) { create :user, :admin, organization: organization }
 
-          it { is_expected.to eq true }
+          it { is_expected.to be true }
         end
       end
     end
@@ -58,7 +58,7 @@ describe Decidim::Consultations::Permissions do
       context "when the question is published" do
         let(:question) { create :question, :published, consultation: consultation }
 
-        it { is_expected.to eq true }
+        it { is_expected.to be true }
       end
 
       context "when the question is not published" do
@@ -67,13 +67,13 @@ describe Decidim::Consultations::Permissions do
         context "when the user is not an admin" do
           let(:user) { nil }
 
-          it { is_expected.to eq false }
+          it { is_expected.to be false }
         end
 
         context "when the user is an admin" do
           let(:user) { create :user, :admin, organization: organization }
 
-          it { is_expected.to eq true }
+          it { is_expected.to be true }
         end
       end
     end
@@ -92,13 +92,13 @@ describe Decidim::Consultations::Permissions do
       context "when the question can be voted by the user" do
         let(:votable) { true }
 
-        it { is_expected.to eq true }
+        it { is_expected.to be true }
       end
 
       context "when the question cannot be voted by the user" do
         let(:votable) { false }
 
-        it { is_expected.to eq false }
+        it { is_expected.to be false }
       end
     end
 
@@ -116,13 +116,13 @@ describe Decidim::Consultations::Permissions do
       context "when the question can be unvoted by the user" do
         let(:unvotable) { true }
 
-        it { is_expected.to eq true }
+        it { is_expected.to be true }
       end
 
       context "when the question cannot be unvoted by the user" do
         let(:unvotable) { false }
 
-        it { is_expected.to eq false }
+        it { is_expected.to be false }
       end
     end
   end

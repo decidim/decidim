@@ -7,7 +7,7 @@ module Decidim
     describe "confirmation_instructions" do
       let(:mail) { described_class.confirmation_instructions(user, "foo", {}) }
 
-      let(:subject) { "Instruccions de confirmació" }
+      let(:mail_subject) { "Instruccions de confirmació" }
       let(:body) { "Pots confirmar el correu electrònic del teu compte" }
       let(:default_subject) { "Confirmation instructions" }
       let(:default_body) { "You can confirm your email account through the link below" }
@@ -18,7 +18,7 @@ module Decidim
     describe "reset_password_instructions" do
       let(:mail) { described_class.reset_password_instructions(user, "foo", {}) }
 
-      let(:subject) { "Instruccions de regeneració de contrasenya" }
+      let(:mail_subject) { "Instruccions de regeneració de contrasenya" }
       let(:body) { "Algú ha demanat un enllaç per canviar la teva contrasenya" }
       let(:default_subject) { "Reset password instructions" }
       let(:default_body) { "Someone has requested a link to change your password" }
@@ -29,7 +29,7 @@ module Decidim
     describe "password_change" do
       let(:mail) { described_class.password_change(user, {}) }
 
-      let(:subject) { "Contrasenya modificada" }
+      let(:mail_subject) { "Contrasenya modificada" }
       let(:body) { "Ens posem en contacte amb tu per notificar-te que la teva contrasenya ha estat canviada correctament" }
       let(:default_subject) { "Password changed" }
       let(:default_body) { "contacting you to notify you that your password has been changed" }
@@ -43,7 +43,7 @@ module Decidim
         described_class.invitation_instructions(user, "foo", invitation_instructions: "organization_admin_invitation_instructions")
       end
 
-      let(:subject) { "Has estat convidada a gestionar #{user.organization.name}" }
+      let(:mail_subject) { "Has estat convidada a gestionar #{user.organization.name}" }
       let(:body) { "Acceptar invitaci" }
       let(:default_subject) { "You've been invited to manage #{user.organization.name}" }
       let(:default_body) { "Accept invitation" }

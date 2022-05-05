@@ -46,11 +46,9 @@ module Decidim
     private
 
     def user
-      @user ||= begin
-        if (user = __getobj__.user.presence)
-          Decidim::UserPresenter.new(user)
-        end
-      end
+      @user ||= if (user = __getobj__.user.presence)
+                  Decidim::UserPresenter.new(user)
+                end
     end
   end
 end

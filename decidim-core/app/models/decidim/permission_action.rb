@@ -55,6 +55,7 @@ module Decidim
     end
 
     class PermissionNotSetError < StandardError; end
+
     class PermissionCannotBeDisallowedError < StandardError; end
   end
 end
