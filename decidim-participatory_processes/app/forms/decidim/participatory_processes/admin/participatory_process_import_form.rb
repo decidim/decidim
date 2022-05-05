@@ -33,8 +33,7 @@ module Decidim
         attribute :import_components, Boolean, default: true
         attribute :document
 
-        validates :document, presence: true
-
+        validates :document, file_content_type: { allow: ACCEPTED_TYPES.values }
         validates :slug, presence: true, format: { with: Decidim::ParticipatoryProcess.slug_format }
         validates :title, translatable_presence: true
         validate :slug_uniqueness

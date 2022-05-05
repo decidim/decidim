@@ -28,13 +28,7 @@ class PassthruValidator < ActiveModel::EachValidator
 
     # Create a dummy record for which the validations are actually run on
     dummy = validation_record(record)
-    if dummy.respond_to?(dummy_attr) && !(value.class <= ActiveStorage::Attached)
-      dummy.public_send("#{dummy_attr}=", value)
-      value = dummy.public_send(dummy_attr)
-    elsif dummy.respond_to? :file
-      dummy.public_send("file=", value)
-      value = dummy.public_send(:file)
-    end
+    value = value_to_file(dummy, dummy_attr, value)
 
     target_validators(attribute).each do |validator|
       next unless validator.is_a?(ActiveModel::EachValidator)
@@ -92,6 +86,20 @@ class PassthruValidator < ActiveModel::EachValidator
   end
 
   private
+
+  def value_to_file(dummy, dummy_attr, value)
+    if dummy.respond_to?(dummy_attr) && !(value.class <= ActiveStorage::Attached)
+      dummy.public_send("#{dummy_attr}=", value)
+      value = dummy.public_send(dummy_attr)
+    elsif dummy.respond_to? :file
+      dummy.public_send("file=", value)
+      value = dummy.public_send(:file)
+    end
+
+    value = ActiveStorage::Blob.find_signed(value) || value if value.is_a?(String)
+
+    value
+  end
 
   def check_validator_conditions(record, validator)
     if (condition = validator.options[:if])
