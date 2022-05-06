@@ -5,13 +5,16 @@ class ConsentManager {
   // - modal - HTML element of the cookie consent modal (e.g. "<div id="cc-modal">Foo bar</div>")
   // - categories - Available cookie categories (e.g. ["essential", "preferences", "analytics", "marketing"])
   // - cookieName - Name of the cookie saved in browser (e.g. "decidim-cookie")
+  // - warningElement - HTML element to be shown when user hasn't accepted necessary cookie(s) to display the content.
   constructor(options) {
     this.modal = options.modal;
     this.categories = options.categories;
     this.cookie = Cookies.get(options.cookieName);
-    this.warningElement = document.querySelector(".cookie-warning");
+    this.warningElement = options.warningElement;
     if (this.cookie) {
       this.updateState(JSON.parse(this.cookie));
+    } else {
+      this.updateState({});
     }
   }
 
@@ -85,13 +88,13 @@ class ConsentManager {
   }
 
   allAccepted() {
-    let allAccepted = true;
-    this.categories.forEach((category) => {
-      if (!this.state || !this.state[category]) {
-        allAccepted = false;
-      }
-    })
-    return allAccepted;
+    if (!this.state) {
+      return false;
+    }
+
+    return this.categories.every((category) => {
+      return this.state[category] === true;
+    });
   }
 
   updateModalSelections() {

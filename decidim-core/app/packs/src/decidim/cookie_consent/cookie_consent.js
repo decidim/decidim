@@ -89,7 +89,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const manager = new ConsentManager({
     modal: modal,
     categories: categories,
-    cookieName: window.Decidim.config.get("cookie_name")
+    cookieName: window.Decidim.config.get("cookie_name"),
+    warningElement: document.querySelector(".cookie-warning")
   });
 
   initDisabledIframes(manager);
