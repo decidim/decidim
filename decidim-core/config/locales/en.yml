@@ -1674,34 +1674,33 @@ en:
       cookie_consent:
         dialog:
           accept_all: Accept all
+          cookie_settings: Settings
           description: We use cookies on our website to improve the performance and content of the site. The cookies enable us to provide a more individual user experience and social media channels.
           essential_only: Essential only
-          privacy_policy_link_label: Learn more
-          cookie_settings: Settings
           title: Information about the cookies used on the website
         modal:
           accept_all: Accept all
+          analytics:
+            description: Analytics cookies are cookies that track how users navigate and interact with a website. The information collected is used to help the website owner improve the website.
+            title: Analytics and statistics
           description: We use cookies to ensure the basic functionalities of the website and to enhance your online experience. You can choose for each category to opt-in/out whenever you want.
+          essential:
+            description: These cookies are essential for the proper functioning of my website. Without these cookies, the website would not work properly.
+            title: Essential
           essential_only: Essential only
+          marketing:
+            description: These cookies collect information about how you use the website, which pages you visited and which links you clicked on.
+            title: Marketing
+          preferences:
+            description: These cookies allow the website to remember the choices you have made in the past
+            title: Preferences
           save_settings: Save settings
           title: Cookie settings
           toggle: Toggle %{cookie_category}
-          essential:
-            title: Essential
-            description: These cookies are essential for the proper functioning of my website. Without these cookies, the website would not work properly.
-          preferences:
-            title: Preferences
-            description: These cookies allow the website to remember the choices you have made in the past
-          analytics:
-            title: Analytics and statistics
-            description: Analytics cookies are cookies that track how users navigate and interact with a website. The information collected is used to help the website owner improve the website.
-          marketing:
-            title: Marketing
-            description: These cookies collect information about how you use the website, which pages you visited and which links you clicked on.
         warning:
           all_cookies: all cookies
-          need_cookies: You need to enable %{cookies} in order to see this content.
           cookie_settings: Cookie settings
+          need_cookies: You need to enable %{cookies} in order to see this content.
       edit_link:
         edit: Edit
       footer:

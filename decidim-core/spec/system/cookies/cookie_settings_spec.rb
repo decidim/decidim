@@ -53,13 +53,13 @@ describe "Cookies", type: :system do
       end
 
       within "[data-id='analytics']" do
-        expect(find("input", visible: :all).checked?).to eq(true)
+        expect(find("input", visible: :all).checked?).to be(true)
       end
       within "[data-id='marketing']" do
-        expect(find("input", visible: :all).checked?).to eq(false)
+        expect(find("input", visible: :all).checked?).to be(false)
       end
       within "[data-id='preferences']" do
-        expect(find("input", visible: :all).checked?).to eq(false)
+        expect(find("input", visible: :all).checked?).to be(false)
       end
     end
   end
