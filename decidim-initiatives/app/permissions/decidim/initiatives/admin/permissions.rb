@@ -134,12 +134,10 @@ module Decidim
           case permission_action.action
           when :read
             toggle_allow(Decidim::Initiatives.print_enabled)
-          when :publish
+          when :publish, :discard
             toggle_allow(initiative.validating?)
           when :unpublish
             toggle_allow(initiative.published?)
-          when :discard
-            toggle_allow(initiative.validating?)
           when :export_pdf_signatures
             toggle_allow(initiative.published? || initiative.accepted? || initiative.rejected?)
           when :export_votes

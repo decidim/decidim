@@ -669,7 +669,6 @@ shared_examples_for "an application with configurable env vars" do
   end
 
   # This is using a big example to avoid recreating the application every time
-  # rubocop:disable RSpec/ExampleLength
   it "env vars generate secrets application" do
     expect(result[1]).to be_success, result[0]
     # Test onto the secret generated when ENV vars are empty strings or undefined
@@ -803,7 +802,6 @@ shared_examples_for "an application with configurable env vars" do
       expect(current).to eq(value), "Rails config (#{key}) = (#{current}) expected to match Env:ON (#{value})"
     end
   end
-  # rubocop:enable RSpec/ExampleLength
 end
 
 shared_examples_for "an application with extra configurable env vars" do
@@ -897,7 +895,6 @@ shared_examples_for "an application with extra configurable env vars" do
     }
   end
 
-  # rubocop:disable RSpec/ExampleLength
   it "env vars generate secrets application" do
     expect(result[1]).to be_success, result[0]
 
@@ -971,7 +968,6 @@ shared_examples_for "an application with extra configurable env vars" do
       expect(current).to eq(value), "Votings::Census Initializer (#{key}) = (#{current}) expected to match Env (#{value})"
     end
   end
-  # rubocop:enable RSpec/ExampleLength
 end
 
 shared_examples_for "an application with wrong cloud storage options" do

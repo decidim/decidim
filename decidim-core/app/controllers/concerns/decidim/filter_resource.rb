@@ -20,7 +20,7 @@ module Decidim
       end
 
       def respond_to_missing?(method_name, include_private = false)
-        @filter.present? && @filter.has_key?(method_name) || super
+        (@filter.present? && @filter.has_key?(method_name)) || super
       end
     end
 

@@ -59,13 +59,9 @@ module Decidim
 
     def photo_cleanup!
       gallery_attached_to.photos.each do |photo|
-        if @form.photos.map(&:id).exclude?(photo.id)
-          if @form.respond_to?(:documents) && @form.documents.map(&:id).exclude?(photo.id)
-            photo.destroy!
-          elsif !@form.respond_to?(:documents)
-            photo.destroy!
-          end
-        end
+        next unless @form.photos.map(&:id).exclude?(photo.id)
+
+        photo.destroy! if (@form.respond_to?(:documents) && @form.documents.map(&:id).exclude?(photo.id)) || !@form.respond_to?(:documents)
       end
       # manually reset cached photos
       gallery_attached_to.reload

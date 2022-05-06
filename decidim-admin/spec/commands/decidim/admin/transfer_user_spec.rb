@@ -43,7 +43,7 @@ module Decidim::Admin
     end
 
     context "when user is missing" do
-      let(:current_user) {}
+      let(:current_user) { nil }
 
       it "broadcasts invalid" do
         expect { subject.call }.to broadcast(:invalid)

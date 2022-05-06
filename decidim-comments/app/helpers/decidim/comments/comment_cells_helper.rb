@@ -14,7 +14,7 @@ module Decidim
       end
 
       def resource_link_path
-        return root_commentable.polymorphic_resource_path(url_params) if root_commentable&.respond_to?(:polymorphic_resource_path)
+        return root_commentable.polymorphic_resource_path(url_params) if root_commentable.respond_to?(:polymorphic_resource_path)
 
         resource_locator(root_commentable).path(url_params)
       end
