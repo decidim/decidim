@@ -88,10 +88,6 @@ class ConsentManager {
   }
 
   allAccepted() {
-    if (!this.state) {
-      return false;
-    }
-
     return this.categories.every((category) => {
       return this.state[category] === true;
     });
