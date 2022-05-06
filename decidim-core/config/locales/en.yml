@@ -959,8 +959,8 @@ en:
         unknown_action: "%{user_name} performed some action on %{resource_name}"
         unknown_action_with_space: "%{user_name} performed some action on %{resource_name} in %{space_name}"
         update: "%{user_name} updated %{resource_name}"
-        update_with_space: "%{user_name} updated %{resource_name} in %{space_name}"
         update_permissions_with_space: "%{user_name} updated the permissions of %{resource_name} in %{space_name}"
+        update_with_space: "%{user_name} updated %{resource_name} in %{space_name}"
       value_types:
         area_presenter:
           not_found: 'The area was not found on the database (ID: %{id})'
