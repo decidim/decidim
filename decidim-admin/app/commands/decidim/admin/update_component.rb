@@ -23,7 +23,7 @@ module Decidim
       def call
         return broadcast(:invalid) if form.invalid?
 
-        Decidim.traceability.perform_action!("update",@component,@user) do
+        Decidim.traceability.perform_action!("update", @component, @user) do
           transaction do
             update_component
             run_hooks

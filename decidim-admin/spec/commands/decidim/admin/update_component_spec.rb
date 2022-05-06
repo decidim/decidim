@@ -98,8 +98,8 @@ module Decidim::Admin
       it "traces the action", versioning: true do
         expect(Decidim.traceability)
           .to receive(:perform_action!)
-                .with("update", Decidim::Component, user)
-                .and_call_original
+          .with("update", Decidim::Component, user)
+          .and_call_original
 
         expect { described_class.call(form, component, user) }.to change(Decidim::ActionLog, :count)
         action_log = Decidim::ActionLog.last
