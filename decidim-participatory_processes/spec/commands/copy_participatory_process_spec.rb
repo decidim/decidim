@@ -7,7 +7,7 @@ module Decidim::ParticipatoryProcesses
     subject { described_class.new(form, participatory_process, user) }
 
     let(:organization) { create :organization }
-    let(:user) { create :user, organization: organization}
+    let(:user) { create :user, organization: organization }
     let(:participatory_process_group) { create :participatory_process_group, organization: organization }
     let(:scope) { create :scope, organization: organization }
     let(:errors) { double.as_null_object }
@@ -77,8 +77,8 @@ module Decidim::ParticipatoryProcesses
       it "traces the action", versioning: true do
         expect(Decidim.traceability)
           .to receive(:perform_action!)
-                .with("duplicate", Decidim::ParticipatoryProcess, user)
-                .and_call_original
+          .with("duplicate", Decidim::ParticipatoryProcess, user)
+          .and_call_original
 
         expect { subject.call }.to change(Decidim::ActionLog, :count)
         action_log = Decidim::ActionLog.last

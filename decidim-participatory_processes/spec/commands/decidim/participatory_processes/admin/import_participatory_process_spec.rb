@@ -56,7 +56,7 @@ module Decidim::ParticipatoryProcesses
       it "traces the action", versioning: true do
         expect(Decidim.traceability)
           .to receive(:perform_action!).exactly(3).times
-                .and_call_original
+                                       .and_call_original
 
         expect { subject.call }.to change(Decidim::ActionLog, :count)
         action_log = Decidim::ActionLog.last
