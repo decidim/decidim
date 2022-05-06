@@ -222,4 +222,16 @@ if !Rails.env.production? || ENV.fetch("SEED", nil)
   settings = welcome_text.inject(settings) { |acc, (k, v)| acc.update("welcome_text_#{k}" => v) }
   hero_content_block.settings = settings
   hero_content_block.save!
+
+  privacy_policy_content_block_summary = Decidim::ContentBlock.create(
+    organization: organization,
+    scope_name: :privacy_policy,
+    manifest_name: :summary,
+    weight: 1,
+    # scoped_resource_id: voting.id,
+    published_at: Time.current
+  )
+
+  privacy_policy_content_block_summary.settings = { summary: Decidim::Faker::Localized.paragraph(sentence_count: 2) }
+  privacy_policy_content_block_summary.save!
 end
