@@ -7,6 +7,7 @@ module Decidim
     module Admin
       describe UpdateQuestionnaire do
         let(:current_organization) { create(:organization) }
+        let(:user) { create :user, organization: current_organization }
         let(:participatory_process) { create(:participatory_process, organization: current_organization) }
         let(:current_component) { create :component, participatory_space: participatory_process, manifest_name: "meetings" }
         let(:meeting) { create :meeting, component: current_component }
@@ -71,7 +72,8 @@ module Decidim
           QuestionnaireForm.from_params(
             questionnaire: form_params
           ).with_context(
-            current_organization: current_organization
+            current_organization: current_organization,
+            current_user: user
           )
         end
         let(:command) { described_class.new(form, questionnaire) }
@@ -110,6 +112,17 @@ module Decidim
 
               expect(questionnaire.questions[1].question_type).to eq("multiple_option")
               expect(questionnaire.questions[1].max_choices).to eq(2)
+            end
+
+            it "traces the action" do
+              expect(Decidim.traceability)
+                .to receive(:perform_action!)
+                      .with("update", Decidim::Meetings::Questionnaire, Decidim::User)
+                      .and_call_original
+
+              expect { command.call }.to change(Decidim::ActionLog, :count)
+              action_log = Decidim::ActionLog.last
+              expect(action_log.action).to eq("update")
             end
           end
 
