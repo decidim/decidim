@@ -1,7 +1,7 @@
 import ConsentManager from "src/decidim/cookie_consent/consent_manager";
 
 const initDialog = (manager) => {
-  if (manager.state) {
+  if (Object.keys(manager.state).length > 0) {
     return;
   }
   const dialogWrapper = document.querySelector("#cc-dialog-wrapper");
