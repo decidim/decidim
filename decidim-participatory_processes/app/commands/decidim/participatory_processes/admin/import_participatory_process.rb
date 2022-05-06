@@ -38,11 +38,14 @@ module Decidim
         def import_participatory_process
           importer = Decidim::ParticipatoryProcesses::ParticipatoryProcessImporter.new(form.current_organization, form.current_user)
           participatory_processes.each do |original_process|
-            @imported_process = importer.import(original_process, form.current_user, title: form.title, slug: form.slug)
-            importer.import_participatory_process_steps(original_process["participatory_process_steps"]) if form.import_steps?
-            importer.import_categories(original_process["participatory_process_categories"]) if form.import_categories?
-            importer.import_folders_and_attachments(original_process["attachments"]) if form.import_attachments?
-            importer.import_components(original_process["components"]) if form.import_components?
+            Decidim.traceability.perform_action!("import", Decidim::ParticipatoryProcess, form.current_user) do
+              @imported_process = importer.import(original_process, form.current_user, title: form.title, slug: form.slug)
+              importer.import_participatory_process_steps(original_process["participatory_process_steps"]) if form.import_steps?
+              importer.import_categories(original_process["participatory_process_categories"]) if form.import_categories?
+              importer.import_folders_and_attachments(original_process["attachments"]) if form.import_attachments?
+              importer.import_components(original_process["components"]) if form.import_components?
+              @imported_process
+            end
           end
         end
 
@@ -57,11 +60,11 @@ module Decidim
         def add_admins_as_followers(process)
           process.organization.admins.each do |admin|
             form = Decidim::FollowForm
-                   .from_params(followable_gid: process.to_signed_global_id.to_s)
-                   .with_context(
-                     current_organization: process.organization,
-                     current_user: admin
-                   )
+                     .from_params(followable_gid: process.to_signed_global_id.to_s)
+                     .with_context(
+                       current_organization: process.organization,
+                       current_user: admin
+                     )
 
             Decidim::CreateFollow.new(form, admin).call
           end

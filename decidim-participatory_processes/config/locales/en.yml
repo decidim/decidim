@@ -302,6 +302,9 @@ en:
         publish: "%{user_name} published the %{resource_name} participatory process"
         unpublish: "%{user_name} unpublished the %{resource_name} participatory process"
         update: "%{user_name} updated the %{resource_name} participatory process"
+        import: "%{user_name} imported the %{resource_name} participatory process"
+        export: "%{user_name} exported the %{resource_name} participatory process"
+        duplicate: "%{user_name} duplicated the %{resource_name} participatory process"
       participatory_process_group:
         create: "%{user_name} created the %{resource_name} participatory process group"
         update: "%{user_name} updated the %{resource_name} participatory process group"
