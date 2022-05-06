@@ -11,7 +11,7 @@ describe "Cookies", type: :system do
     visit decidim.root_path
   end
 
-  describe "cookie dialog and modal" do
+  describe "cookie dialog" do
     it "user see the cookie policy" do
       within "#cc-dialog-wrapper" do
         expect(page).to have_content "Information about the cookies used on the website"
@@ -31,13 +31,15 @@ describe "Cookies", type: :system do
     it "user rejects the cookies and dialog isn't shown anymore'" do
       expect(page).to have_content(cookies_description)
 
-      click_button "Reject all"
+      click_button "Essential only"
       expect(page).not_to have_content(cookies_description)
 
       visit decidim.root_path
       expect(page).not_to have_content(cookies_description)
     end
+  end
 
+  describe "cookie modal" do
     it "modal remembers users selection" do
       within "#cc-dialog-wrapper" do
         click_button "Settings"
