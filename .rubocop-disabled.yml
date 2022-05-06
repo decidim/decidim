@@ -16,12 +16,6 @@ Security/IoMethods:
 Security/Open:
   Enabled: false
 
-Lint/DuplicateBranch:
-  Enabled: false
-
-Lint/AmbiguousOperatorPrecedence:
-  Enabled: false
-
 Gemspec/RequireMFA:
   Enabled: false
 
