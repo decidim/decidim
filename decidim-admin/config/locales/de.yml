@@ -123,6 +123,10 @@ de:
         file: Datei
     errors:
       models:
+        newsletter:
+          attributes:
+            base:
+              at_least_one_space: Wählen Sie mindestens einen partizipativen Bereich aus
         organization:
           attributes:
             official_img_footer:
@@ -408,6 +412,7 @@ de:
         search_label: Suche
         search_placeholder:
           name_or_nickname_or_email_cont: Suche in %{collection} nach E-Mail, Name oder Benutzername.
+          report_count_eq: Anzahl Meldungen
           reported_id_string_or_reported_content_cont: Suche %{collection} nach meldbarer Id oder Inhalt.
           title_cont: In %{collection} nach Titel suchen.
           user_name_or_user_email_cont: In %{collection} nach Name oder E-Mail suchen.
@@ -996,6 +1001,10 @@ de:
           no_users_count_statistics_yet: Es gibt noch keine Nutzerstatistiken
           participants: Teilnehmer
       view_public_page: Öffentliche Seite anzeigen
+    forms:
+      errors:
+        impersonate_user:
+          reason: Sie müssen einen Grund angeben, weshalb Sie sich als nicht-verwalteten Benutzer ausgeben
     metrics:
       blocked_users:
         object: blockierte Benutzer
