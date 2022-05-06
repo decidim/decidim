@@ -59,7 +59,7 @@ runs:
         # start xvfb on (default) display :0
         export DISPLAY=:99
         chromedriver --url-base=/wd/hub &
-        sudo Xvfb -ac $DISPLAY -screen 0 1280x1024x24 > /dev/null 2>&1 & # optional
+        sudo Xvfb -ac :99 -screen 0 1280x1024x24 > /dev/null 2>&1 & # optional
     - run: RAILS_ENV=test bundle exec rails assets:precompile
       name: Precompile assets
       working-directory: ./spec/decidim_dummy_app/
@@ -74,3 +74,4 @@ runs:
       working-directory: ./spec/decidim_dummy_app/
       env:
         PARALLEL_TEST_PROCESSORS: " ${{ inputs.processor_count }}"
+        DISPLAY: ":99"
