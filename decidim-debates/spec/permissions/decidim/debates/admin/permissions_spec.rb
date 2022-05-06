@@ -14,7 +14,7 @@ describe Decidim::Debates::Admin::Permissions do
   end
   let(:debates_component) { create :debates_component }
   let(:debate) { create :debate, component: debates_component }
-  let(:permission_action) { Decidim::PermissionAction.new(action) }
+  let(:permission_action) { Decidim::PermissionAction.new(**action) }
 
   context "when scope is not admin" do
     let(:action) do
@@ -30,7 +30,7 @@ describe Decidim::Debates::Admin::Permissions do
         { scope: :admin, action: :export, subject: :comments }
       end
 
-      it { is_expected.to eq true }
+      it { is_expected.to be true }
     end
 
     context "when subject is anything else" do
@@ -55,7 +55,7 @@ describe Decidim::Debates::Admin::Permissions do
       { scope: :admin, action: :create, subject: :debate }
     end
 
-    it { is_expected.to eq true }
+    it { is_expected.to be true }
   end
 
   describe "debate update" do
@@ -64,13 +64,13 @@ describe Decidim::Debates::Admin::Permissions do
     end
 
     context "when the debate is official" do
-      it { is_expected.to eq true }
+      it { is_expected.to be true }
     end
 
     context "when debate is not official" do
       let(:debate) { create :debate, author: user, component: debates_component }
 
-      it { is_expected.to eq false }
+      it { is_expected.to be false }
     end
   end
 
@@ -80,13 +80,13 @@ describe Decidim::Debates::Admin::Permissions do
     end
 
     context "when the debate is official" do
-      it { is_expected.to eq true }
+      it { is_expected.to be true }
     end
 
     context "when debate is not official" do
       let(:debate) { create :debate, author: user, component: debates_component }
 
-      it { is_expected.to eq false }
+      it { is_expected.to be false }
     end
   end
 end

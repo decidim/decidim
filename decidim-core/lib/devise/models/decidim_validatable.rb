@@ -37,7 +37,7 @@ module Devise
         end
       end
 
-      def self.assert_validations_api!(base) #:nodoc:
+      def self.assert_validations_api!(base) # :nodoc:
         unavailable_validations = VALIDATIONS.reject { |v| base.respond_to?(v) }
 
         unless unavailable_validations.empty?

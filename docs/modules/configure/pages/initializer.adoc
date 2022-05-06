@@ -204,13 +204,13 @@ Allow organizations admins to track newsletter links, trough UTMs. See https://e
   config.track_newsletter_links = true
 ....
 
-== Data portability expiry time
+== Download your data expiry time
 
-Amount of time that the data portability files will be available in the server.
+Amount of time that the download your data files will be available in the server.
 
 [source,ruby]
 ....
-  config.data_portability_expiry_time = 7.days
+  config.download_your_data_expiry_time = 7.days
 ....
 
 == Throttling settings

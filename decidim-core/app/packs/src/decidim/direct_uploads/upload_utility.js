@@ -28,3 +28,22 @@ export const truncateFilename = (filename, maxLength = 31) => {
   const charactersFromEnd = maxLength - charactersFromBegin - 3;
   return `${filename.slice(0, charactersFromBegin)}...${filename.slice(-charactersFromEnd)}`;
 }
+
+export const createHiddenInput = (elClasses, elName, elValue) => {
+  const el = document.createElement("input");
+  el.type = "hidden";
+  if (elClasses) {
+    if (typeof (elClasses) === "string") {
+      el.className = elClasses;
+    } else {
+      el.className = elClasses.join(" ")
+    }
+  }
+  if (elName) {
+    el.name = elName;
+  }
+  if (elValue) {
+    el.value = elValue;
+  }
+  return el;
+}

@@ -94,7 +94,7 @@ module Decidim::Conferences
         end.to change { conference_speaker.reload && conference_speaker.full_name }.from(conference_speaker.full_name).to("New name")
       end
 
-      it "broadcasts  ok" do
+      it "broadcasts ok" do
         expect { subject.call }.to broadcast(:ok)
       end
 

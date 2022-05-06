@@ -74,7 +74,7 @@ module Decidim
         context "when the closure is signed" do
           let(:signed_at) { Time.current }
 
-          it "returns true " do
+          it "returns true" do
             expect(response["signed"]).to be true
           end
         end

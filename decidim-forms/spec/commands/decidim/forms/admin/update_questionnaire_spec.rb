@@ -206,7 +206,7 @@ module Decidim
 
         describe "when the form is invalid" do
           before do
-            expect(form).to receive(:invalid?).and_return(true)
+            allow(form).to receive(:invalid?).and_return(true)
           end
 
           it "broadcasts invalid" do
@@ -246,22 +246,22 @@ module Decidim
             expect(questionnaire.questions[2].max_characters).to eq(0)
 
             expect(questionnaire.questions[3].question_type).to eq("multiple_option")
-            expect(questionnaire.questions[2].answer_options[0].free_text).to eq(false)
+            expect(questionnaire.questions[2].answer_options[0].free_text).to be(false)
             expect(questionnaire.questions[2].max_choices).to be_nil
 
             expect(questionnaire.questions[3].question_type).to eq("multiple_option")
-            expect(questionnaire.questions[3].answer_options[0].free_text).to eq(true)
+            expect(questionnaire.questions[3].answer_options[0].free_text).to be(true)
             expect(questionnaire.questions[3].max_choices).to eq(2)
 
             expect(questionnaire.questions[4].question_type).to eq("matrix_single")
-            expect(questionnaire.questions[4].answer_options[0].free_text).to eq(true)
+            expect(questionnaire.questions[4].answer_options[0].free_text).to be(true)
             (0..1).each do |idx|
               expect(questionnaire.questions[4].matrix_rows[idx].body["en"]).to eq(form_params["questions"]["4"]["matrix_rows"][idx.to_s]["body"]["en"])
               expect(questionnaire.questions[4].matrix_rows[idx].position).to eq(idx)
             end
 
             expect(questionnaire.questions[5].question_type).to eq("matrix_multiple")
-            expect(questionnaire.questions[5].answer_options[0].free_text).to eq(true)
+            expect(questionnaire.questions[5].answer_options[0].free_text).to be(true)
             expect(questionnaire.questions[5].matrix_rows[0].body["en"]).to eq(form_params["questions"]["5"]["matrix_rows"]["0"]["body"]["en"])
           end
         end

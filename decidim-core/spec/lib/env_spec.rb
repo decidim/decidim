@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim
   describe Env do
-    let(:subject) { described_class.new(name, default) }
+    subject { described_class.new(name, default) }
     let(:name) { "TEST_ENV_VAR" }
     let(:value) { nil }
     let(:default) { nil }
@@ -19,12 +19,12 @@ module Decidim
 
     shared_examples "a nil value" do
       it "returns nil" do
-        expect(subject.value).to eq(nil)
+        expect(subject.value).to be_nil
         expect(subject.to_s).to eq("")
         expect(subject.to_i).to eq(0)
         expect(subject.to_json).to eq("null")
-        expect(subject.blank?).to eq(true)
-        expect(subject.present?).to eq(false)
+        expect(subject.blank?).to be(true)
+        expect(subject.present?).to be(false)
         expect(subject.to_array).to eq([])
       end
 
@@ -36,8 +36,8 @@ module Decidim
           expect(subject.to_s).to eq("42")
           expect(subject.to_i).to eq(42)
           expect(subject.to_json).to eq("42")
-          expect(subject.blank?).to eq(false)
-          expect(subject.present?).to eq(true)
+          expect(subject.blank?).to be(false)
+          expect(subject.present?).to be(true)
           expect(subject.to_array).to eq(["42"])
         end
       end
@@ -45,15 +45,15 @@ module Decidim
 
     shared_examples "a defined value" do
       it "returns the value" do
-        expect(subject.value).not_to eq(nil)
+        expect(subject.value).not_to be_nil
         expect(subject.value).to eq(value)
         expect(subject.to_s).not_to eq("")
         expect(subject.to_s).to eq(value.to_s)
         expect(subject.to_i).to eq(value.to_s.to_i)
         expect(subject.to_json).not_to eq("null")
         expect(subject.to_json).to eq(value.to_json)
-        expect(subject.present?).to eq(true)
-        expect(subject.blank?).to eq(false)
+        expect(subject.present?).to be(true)
+        expect(subject.blank?).to be(false)
         expect(subject.to_array).to eq([value.to_s])
       end
 
@@ -75,8 +75,8 @@ module Decidim
         expect(subject.to_s).to eq(value)
         expect(subject.to_i).to eq(0)
         expect(subject.to_json).to eq(value.to_json)
-        expect(subject.blank?).to eq(true)
-        expect(subject.present?).to eq(false)
+        expect(subject.blank?).to be(true)
+        expect(subject.present?).to be(false)
       end
 
       context "and has a default" do
@@ -90,8 +90,8 @@ module Decidim
 
         it "the default is applied" do
           expect(subject.to_i).to eq(42)
-          expect(subject.blank?).to eq(true)
-          expect(subject.present?).to eq(false)
+          expect(subject.blank?).to be(true)
+          expect(subject.present?).to be(false)
         end
       end
     end
@@ -112,7 +112,7 @@ module Decidim
 
     shared_examples "default_or_present as default" do
       it "behaves as default" do
-        expect(subject.default_or_present_if_exists).to eq(nil)
+        expect(subject.default_or_present_if_exists).to be_nil
       end
 
       context "and has a default" do

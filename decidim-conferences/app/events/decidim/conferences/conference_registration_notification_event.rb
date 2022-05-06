@@ -6,7 +6,7 @@ module Decidim
       include Decidim::Events::NotificationEvent
 
       def notification_title
-        I18n.t("notification_title", i18n_options).html_safe
+        I18n.t("notification_title", **i18n_options).html_safe
       end
 
       def i18n_options

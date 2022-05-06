@@ -51,7 +51,7 @@ module Decidim
       #
       # user - the user to check for authorship
       def authored_by?(other_author)
-        other_author == author || other_author.respond_to?(:user_groups) && other_author.user_groups.include?(user_group)
+        other_author == author || (other_author.respond_to?(:user_groups) && other_author.user_groups.include?(user_group))
       end
 
       # Returns the normalized author, whether it's a user group or a user. Ideally this should be
@@ -86,7 +86,7 @@ module Decidim
       def author_belongs_to_organization
         return if !author || !organization
 
-        errors.add(:author, :invalid) unless author == organization || author.respond_to?(:organization) && author.organization == organization
+        errors.add(:author, :invalid) unless author == organization || (author.respond_to?(:organization) && author.organization == organization)
       end
     end
   end

@@ -1,0 +1,8 @@
+<% add_decidim_page_title(t("my_data", scope: "layouts.decidim.user_profile")) %>
+<% content_for(:subtitle) { t("my_data", scope: "layouts.decidim.user_profile") } %>
+
+<div class="row download-your-data">
+  <strong><%= t(".download_data") %></strong>
+  <p><%= t(".download_data_description", user_email: current_user.email).html_safe %></p>
+  <%= button_to t(".request_data"), export_download_your_data_path, class: "button", data: { disable: true } %>
+</div>

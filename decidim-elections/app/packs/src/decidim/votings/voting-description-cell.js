@@ -1,6 +1,4 @@
 $(() => {
-  const isShowMoreButton = ($button) => $button.hasClass("show-more-content");
-
   const remToPx = (count) => {
     const unit = $("html").css("font-size");
 
@@ -25,17 +23,12 @@ $(() => {
     $content.css("max-height", contentMaxHeight);
   }
 
-  $button.on("click", (event) => {
-    const $buttonTextMore = $button.find(".button-text.show-more-content");
+  $button.on("click", () => {
     const $buttonTextLess = $button.find(".button-text.show-less-content");
 
     let newHeight = contentMaxHeight;
-    if (isShowMoreButton($(event.target))) {
-      newHeight = contentHeight;
-    }
 
     $content.css("max-height", newHeight);
     $buttonTextLess.toggleClass("hide");
-    $buttonTextMore.toggleClass("hide");
   });
 });

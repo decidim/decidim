@@ -39,7 +39,7 @@ module Decidim::Votings::Census::Admin
     let(:email) { "example@test.org" }
 
     context "when the form is not valid" do
-      let(:document_number) {}
+      let(:document_number) { nil }
 
       it "broadcasts invalid" do
         expect(subject.call).to broadcast(:invalid)

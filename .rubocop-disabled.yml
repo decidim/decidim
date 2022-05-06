@@ -1,0 +1,53 @@
+Rails/DurationArithmetic:
+  Enabled: false
+
+Naming/VariableNumber:
+  Enabled: false
+
+Style/HashConversion:
+  Enabled: false
+
+Style/QuotedSymbols:
+  Enabled: false
+
+Style/OpenStructUse:
+  Enabled: false
+
+Security/IoMethods:
+  Enabled: false
+
+Rails/CompactBlank:
+  Enabled: false
+
+Security/Open:
+  Enabled: false
+
+Rails/EagerEvaluationLogMessage:
+  Enabled: false
+
+Rails/RedundantPresenceValidationOnBelongsTo:
+  Enabled: false
+
+Rails/HasManyOrHasOneDependent:
+  Enabled: false
+
+Gemspec/RequireMFA:
+  Enabled: false
+
+Rails/DuplicateScope:
+  Enabled: false
+
+Rails/ExpandedDateRange:
+  Enabled: false
+
+Rails/I18nLocaleTexts:
+  Enabled: false
+
+Naming/MemoizedInstanceVariableName:
+  Enabled: false
+
+RSpec/VerifiedDoubleReference:
+  Enabled: false
+
+Rails/TransactionExitStatement:
+  Enabled: false

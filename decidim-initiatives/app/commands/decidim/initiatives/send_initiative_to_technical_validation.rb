@@ -50,7 +50,7 @@ module Decidim
           force_send: true
         }
 
-        Decidim::EventsManager.publish(data)
+        Decidim::EventsManager.publish(**data)
       end
     end
   end

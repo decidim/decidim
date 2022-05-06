@@ -70,7 +70,7 @@ module Decidim
 
       describe "when the form is invalid" do
         before do
-          expect(form).to receive(:invalid?).and_return(true)
+          allow(form).to receive(:invalid?).and_return(true)
         end
 
         it "broadcasts invalid" do
@@ -116,11 +116,11 @@ module Decidim
             command.call
 
             expect(Answer.first.session_token).to eq(tokenize(current_user.id))
-            expect(Answer.first.ip_hash).to eq(nil)
+            expect(Answer.first.ip_hash).to be_nil
             expect(Answer.second.session_token).to eq(tokenize(current_user.id))
-            expect(Answer.second.ip_hash).to eq(nil)
+            expect(Answer.second.ip_hash).to be_nil
             expect(Answer.third.session_token).to eq(tokenize(current_user.id))
-            expect(Answer.third.ip_hash).to eq(nil)
+            expect(Answer.third.ip_hash).to be_nil
           end
         end
 

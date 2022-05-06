@@ -9,7 +9,7 @@ describe Decidim::Elections::Admin::UpdateTrusteeParticipatorySpace do
 
   it "toggles the considered status" do
     subject.call
-    expect(trustee_participatory_space.considered).to eq(false)
+    expect(trustee_participatory_space.considered).to be(false)
   end
 
   context "when trustee_participatory_space is missing" do

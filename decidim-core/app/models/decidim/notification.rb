@@ -2,7 +2,7 @@
 
 module Decidim
   class Notification < ApplicationRecord
-    include Decidim::DataPortability
+    include Decidim::DownloadYourData
 
     belongs_to :resource, foreign_key: "decidim_resource_id", foreign_type: "decidim_resource_type", polymorphic: true
     belongs_to :user, foreign_key: "decidim_user_id", class_name: "Decidim::User"
@@ -26,7 +26,7 @@ module Decidim
     end
 
     def self.export_serializer
-      Decidim::DataPortabilitySerializers::DataPortabilityNotificationSerializer
+      Decidim::DownloadYourDataSerializers::DownloadYourDataNotificationSerializer
     end
   end
 end

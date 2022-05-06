@@ -20,11 +20,7 @@ module Decidim
           end
 
           def blob
-            @blob ||= begin
-              return if file.blank?
-
-              ActiveStorage::Blob.find_signed(file)
-            end
+            @blob ||= file.blank? ? nil : ActiveStorage::Blob.find_signed(file)
           end
         end
       end

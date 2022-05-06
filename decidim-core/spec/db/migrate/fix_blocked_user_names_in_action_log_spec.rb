@@ -60,16 +60,16 @@ describe "FixBlockedUserNamesInActionLog", type: :migration do
       it "updates the correct resource titles" do
         subject
 
-        block_logs = Decidim::ActionLog.where(resource_type: "Decidim::User", action: "block").map do |log|
+        block_logs = Decidim::ActionLog.where(resource_type: "Decidim::User", action: "block").to_h do |log|
           [log.resource_id, log.extra["resource"]["title"]]
-        end.to_h
-        expected_logs = users.map do |user|
+        end
+        expected_logs = users.to_h do |user|
           if direction == :up
             [user.id, user.extended_data["user_name"]]
           else
             [user.id, "Blocked user"]
           end
-        end.to_h
+        end
         expect(block_logs).to match(expected_logs)
       end
 
@@ -88,16 +88,16 @@ describe "FixBlockedUserNamesInActionLog", type: :migration do
         it "updates the log entries with the expected user names" do
           subject
 
-          block_logs = Decidim::ActionLog.where(resource_type: "Decidim::User", action: "block").map do |log|
+          block_logs = Decidim::ActionLog.where(resource_type: "Decidim::User", action: "block").to_h do |log|
             [log.resource_id, log.extra["resource"]["title"]]
-          end.to_h
-          expected_logs = users.map do |user|
+          end
+          expected_logs = users.to_h do |user|
             if direction == :up
               [user.id, user.name]
             else
               [user.id, "Blocked user"]
             end
-          end.to_h
+          end
           expect(block_logs).to match(expected_logs)
         end
       end

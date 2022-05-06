@@ -136,14 +136,12 @@ module Decidim
 
       def handle_success(comment)
         @comment = comment
-        @comments_count = begin
-          case commentable
-          when Decidim::Comments::Comment
-            commentable.root_commentable.comments_count
-          else
-            commentable.comments_count
-          end
-        end
+        @comments_count = case commentable
+                          when Decidim::Comments::Comment
+                            commentable.root_commentable.comments_count
+                          else
+                            commentable.comments_count
+                          end
       end
 
       def commentable_gid
@@ -172,7 +170,7 @@ module Decidim
       end
 
       def commentable_path
-        return commentable.polymorphic_resource_path({}) if commentable&.respond_to?(:polymorphic_resource_path)
+        return commentable.polymorphic_resource_path({}) if commentable.respond_to?(:polymorphic_resource_path)
 
         resource_locator(commentable).path
       end

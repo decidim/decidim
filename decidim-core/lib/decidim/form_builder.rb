@@ -403,16 +403,19 @@ module Decidim
     def attachment(attribute, options = {})
       object_attachment = object.attachment.present?
       record = object_attachment ? object.attachment : object
-
       options = {
         titled: true,
         resource_class: "Decidim::Attachment",
         show_current: false,
         max_file_size: max_file_size(record, :file),
-        help: options[:help] || upload_help(record, attribute, options),
         label: I18n.t("decidim.forms.upload.labels.add_attachment"),
-        button_edit_label: I18n.t("decidim.forms.upload.labels.edit_image")
+        button_edit_label: I18n.t("decidim.forms.upload.labels.edit_image"),
+        extension_allowlist: Decidim.organization_settings(Decidim::Attachment).upload_allowed_file_extensions
       }.merge(options)
+
+      # Upload help uses extension allowlist from the options so we need to call this AFTER setting the defaults.
+      options[:help] = upload_help(record, attribute, options) if options[:help].blank?
+
       upload(attribute, options)
     end
 
@@ -441,6 +444,8 @@ module Decidim
       self.multipart = true
       max_file_size = options[:max_file_size] || max_file_size(object, attribute)
       button_label = options[:button_label] || choose_button_label(attribute)
+      help_messages = options[:help] || upload_help(object, attribute, options)
+
       options = {
         attribute: attribute,
         resource_name: @object_name,
@@ -449,7 +454,7 @@ module Decidim
         titled: false,
         show_current: true,
         max_file_size: max_file_size,
-        help: upload_help(object, attribute, options),
+        help: help_messages,
         label: label_for(attribute),
         button_label: button_label,
         button_edit_label: I18n.t("decidim.forms.upload.labels.replace")
@@ -468,9 +473,11 @@ module Decidim
 
     def choose_button_label(attribute)
       @choose_button_label ||= begin
-        return I18n.t("decidim.forms.upload.labels.add_image") if resource_class(attribute).attached_config[attribute].uploader <= Decidim::ImageUploader
-
-        I18n.t("decidim.forms.upload.labels.add_file")
+        if resource_class(attribute).attached_config[attribute].uploader <= Decidim::ImageUploader
+          I18n.t("decidim.forms.upload.labels.add_image")
+        else
+          I18n.t("decidim.forms.upload.labels.add_file")
+        end
       rescue NoMethodError
         I18n.t("decidim.forms.upload.labels.add_file")
       end
@@ -479,23 +486,19 @@ module Decidim
     def upload_help(record, attribute, options = {})
       humanizer = FileValidatorHumanizer.new(record, attribute)
 
-      help_scope = begin
-        if options[:help_i18n_scope].present?
-          options[:help_i18n_scope]
-        elsif humanizer.uploader.is_a?(Decidim::ImageUploader)
-          "decidim.forms.file_help.image"
-        else
-          "decidim.forms.file_help.file"
-        end
-      end
+      help_scope = if options[:help_i18n_scope].present?
+                     options[:help_i18n_scope]
+                   elsif humanizer.uploader.is_a?(Decidim::ImageUploader)
+                     "decidim.forms.file_help.image"
+                   else
+                     "decidim.forms.file_help.file"
+                   end
 
-      help_messages = begin
-        if options[:help_i18n_messages].present?
-          Array(options[:help_i18n_messages])
-        else
-          %w(message_1 message_2)
-        end
-      end
+      help_messages = if options[:help_i18n_messages].present?
+                        Array(options[:help_i18n_messages])
+                      else
+                        %w(message_1 message_2)
+                      end
 
       help_messages = help_messages.each.map { |msg| I18n.t(msg, scope: help_scope) } + humanizer.messages
       help_messages += extension_allowlist_help(options[:extension_allowlist]) if options[:extension_allowlist]
@@ -664,7 +667,7 @@ module Decidim
     def find_validator(attribute, klass)
       return unless object.respond_to?(:_validators)
 
-      object._validators[attribute.to_sym].find { |validator| validator.class == klass }
+      object._validators[attribute.to_sym].find { |validator| validator.instance_of?(klass) }
     end
 
     # Private: Override method from FoundationRailsHelper to render the text of the

@@ -41,7 +41,7 @@ module Decidim
 
         describe "when the form is not valid" do
           before do
-            expect(form).to receive(:invalid?).and_return(true)
+            allow(form).to receive(:invalid?).and_return(true)
           end
 
           it "broadcasts invalid" do
@@ -104,7 +104,7 @@ module Decidim
               creator = proposal.creator
 
               expect(creator.author).to eq(author)
-              expect(creator.user_group).to eq(nil)
+              expect(creator.user_group).to be_nil
             end
 
             it "adds the author as a follower" do

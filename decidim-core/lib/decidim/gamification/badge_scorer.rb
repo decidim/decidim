@@ -74,6 +74,7 @@ module Decidim
       private
 
       class NegativeScoreException < StandardError; end
+
       class InvalidAmountException < StandardError; end
 
       def with_level_tracking

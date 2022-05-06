@@ -157,9 +157,9 @@ module Decidim::Meetings
     it "properly maps services from model" do
       meeting = create(:meeting, :with_services, services: service_objects)
 
-      services = described_class.from_model(meeting).services
-      expect(services).to all be_an(Admin::MeetingServiceForm)
-      expect(services.map(&:title_en)).to eq(services.map(&:title_en))
+      local_services = described_class.from_model(meeting).services
+      expect(local_services).to all be_an(Admin::MeetingServiceForm)
+      expect(local_services.map(&:title_en)).to eq(services.map { |s| s["title"]["en"] })
     end
 
     describe "services_to_persist" do

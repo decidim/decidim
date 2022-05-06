@@ -45,12 +45,12 @@ describe Decidim::EmailNotificationGenerator do
         end
 
         it "schedules a job for each recipient" do
-          expect(Decidim::NotificationMailer)
+          allow(Decidim::NotificationMailer)
             .to receive(:event_received)
             .with(event, event_class_name, resource, recipient, :affected_user.to_s, extra)
             .and_return(mailer)
 
-          expect(Decidim::NotificationMailer)
+          allow(Decidim::NotificationMailer)
             .to receive(:event_received)
             .with(event, event_class_name, resource, follower, :follower.to_s, extra)
             .and_return(mailer)
@@ -71,12 +71,12 @@ describe Decidim::EmailNotificationGenerator do
 
         context "and the user can participate" do
           it "enqueues the job" do
-            expect(Decidim::NotificationMailer)
+            allow(Decidim::NotificationMailer)
               .to receive(:event_received)
               .with(event, event_class_name, resource, recipient, :affected_user.to_s, extra)
               .and_return(mailer)
 
-            expect(Decidim::NotificationMailer)
+            allow(Decidim::NotificationMailer)
               .to receive(:event_received)
               .with(event, event_class_name, resource, follower, :follower.to_s, extra)
               .and_return(mailer)

@@ -14,5 +14,8 @@
       </div>
     </div>
   <% end %>
-  <%= javascript_pack_tag "decidim_initiatives" %>
+
+  <% content_for :js_content do %>
+    <%= javascript_pack_tag "decidim_initiatives" %>
+  <% end %>
 <% end %>

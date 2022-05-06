@@ -72,7 +72,7 @@ describe Decidim::Elections::Voter::UpdateVoteStatus do
     end
 
     it "sends an email" do
-      expect(Decidim::Elections::VoteAcceptedMailer)
+      allow(Decidim::Elections::VoteAcceptedMailer)
         .to receive(:notification)
         .with(vote, verify_url, I18n.locale.to_s)
         .and_return(mailer)

@@ -103,7 +103,7 @@ module Decidim
 
         it "returns only the enabled settings" do
           expect(subject[:facebook][:app_id]).to eq("overriden-app-id")
-          expect(subject[:twitter]).to be(nil)
+          expect(subject[:twitter]).to be_nil
           expect(subject[:google_oauth2][:client_id]).to eq("overriden-client-id")
         end
       end

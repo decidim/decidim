@@ -160,13 +160,13 @@ module Decidim::Budgets
       context "when the scope does not exist" do
         let(:scope_id) { 3456 }
 
-        it { is_expected.to eq(nil) }
+        it { is_expected.to be_nil }
       end
 
       context "when the scope is from another organization" do
         let(:scope_id) { create(:scope).id }
 
-        it { is_expected.to eq(nil) }
+        it { is_expected.to be_nil }
       end
 
       context "when the participatory space has a scope" do

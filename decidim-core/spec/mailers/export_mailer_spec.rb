@@ -37,12 +37,12 @@ module Decidim
       end
     end
 
-    describe "data portability export " do
+    describe "download your data export" do
       object = "Decidim::DummyResources::DummyResource"
       klass = Object.const_get(object)
       let(:export_data) { [[klass.model_name.name.parameterize.pluralize, Decidim::Exporters.find_exporter("CSV").new(klass.user_collection(user), klass.export_serializer).export]] }
       let(:images) { [] }
-      let(:mail) { described_class.data_portability_export(user, export_data, images) }
+      let(:mail) { described_class.download_your_data_export(user, export_data, images) }
 
       it "sets a subject" do
         expect(mail.subject).to include("Sarah Connor", "ready")

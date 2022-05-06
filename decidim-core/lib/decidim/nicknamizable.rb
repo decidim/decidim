@@ -52,7 +52,7 @@ module Decidim
         candidate = name
 
         2.step do |n|
-          return candidate unless exists?(scope.merge(nickname: candidate))
+          return candidate if Decidim::User.where("nickname ILIKE ?", candidate.downcase).where(scope).empty?
 
           candidate = numbered_variation_of(name, n)
         end

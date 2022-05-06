@@ -10,10 +10,11 @@ module Decidim
 
         attribute :decidim_accountability_result_id, Integer
         attribute :entry_date, Decidim::Attributes::LocalizedDate
+        translatable_attribute :title, String
         translatable_attribute :description, String
 
         validates :entry_date, presence: true
-        validates :description, translatable_presence: true
+        validates :title, translatable_presence: true
       end
     end
   end

@@ -34,8 +34,6 @@ module Decidim
                 .includes(:author, :user_group, :up_votes, :down_votes)
 
         case @options[:order_by]
-        when "older"
-          order_by_older(scope)
         when "recent"
           order_by_recent(scope)
         when "best_rated"

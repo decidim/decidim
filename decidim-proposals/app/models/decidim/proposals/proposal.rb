@@ -18,7 +18,7 @@ module Decidim
       include Decidim::Traceable
       include Decidim::Loggable
       include Decidim::Fingerprintable
-      include Decidim::DataPortability
+      include Decidim::DownloadYourData
       include Decidim::Proposals::ParticipatoryTextSection
       include Decidim::Amendable
       include Decidim::NewsletterParticipant
@@ -130,7 +130,7 @@ module Decidim
       end
 
       # Returns a collection scoped by an author.
-      # Overrides this method in DataPortability to support Coauthorable.
+      # Overrides this method in DownloadYourData to support Coauthorable.
       def self.user_collection(author)
         return unless author.is_a?(Decidim::User)
 
@@ -274,7 +274,7 @@ module Decidim
 
       # Public: Whether the proposal is created in a meeting or not.
       def official_meeting?
-        authors.first.class.name == "Decidim::Meetings::Meeting"
+        authors.first.instance_of?(Decidim::Meetings::Meeting)
       end
 
       # Public: The maximum amount of votes allowed for this proposal.
@@ -413,7 +413,7 @@ module Decidim
         Decidim::Proposals::ProposalSerializer
       end
 
-      def self.data_portability_images(user)
+      def self.download_your_data_images(user)
         user_collection(user).map { |p| p.attachments.collect(&:file) }
       end
 

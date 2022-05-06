@@ -31,7 +31,9 @@ module Decidim
           form = Form.new
           form.errors.add(:base, "Arbitrary error")
 
-          output = helper.decidim_form_for(form, url: "#") {}
+          output = helper.decidim_form_for(form, url: "#") do
+            # empty block
+          end
           expect(output).to include("callout")
           expect(output).to include("Arbitrary error")
         end
