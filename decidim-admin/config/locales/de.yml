@@ -968,6 +968,10 @@ de:
           no_users_count_statistics_yet: Es gibt noch keine Nutzerstatistiken
           participants: Teilnehmer
       view_public_page: Öffentliche Seite anzeigen
+    forms:
+      errors:
+        impersonate_user:
+          reason: Sie müssen einen Grund angeben, weshalb Sie sich als nicht-verwalteten Benutzer ausgeben
     metrics:
       blocked_users:
         object: blockierte Benutzer
