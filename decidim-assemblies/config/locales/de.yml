@@ -61,6 +61,7 @@ de:
         designation_date: Datum der Benennung
         full_name: Vollständiger Name
         gender: Geschlecht
+        non_user_avatar: Profilbild
         position: Position
         user_id: User
       assembly_user_role:
@@ -181,6 +182,9 @@ de:
         update:
           error: Bei einem Fehler ist ein Benutzer für diese Assembly aktualisiert worden.
           success: Der Benutzer wurde für diese Assembly erfolgreich aktualisiert.
+      filters:
+        decidim_assemblies_type_id_eq:
+          label: Versammlungstyp
       menu:
         assemblies: Gremien
         assemblies_settings: Einstellungen
