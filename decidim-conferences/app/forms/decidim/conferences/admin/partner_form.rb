@@ -14,10 +14,9 @@ module Decidim
         attribute :partner_type, String
         attribute :weight, Integer, default: 0
         attribute :logo
-        attribute :remove_logo, Boolean, default: false
 
         validates :name, :partner_type, presence: true, if: ->(form) { form.logo.present? }
-        validates :logo, presence: true
+        validates :logo, presence: true, unless: :persisted?
         validates :logo, passthru: {
           to: Decidim::Conferences::Partner,
           with: {
