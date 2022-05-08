@@ -64,7 +64,7 @@ module Decidim
             menu.add_item :trustees,
                           I18n.t("trustees", scope: "decidim.elections.admin.menu"),
                           link,
-                          if: allowed_to?(:manage, :trustees) || has_election_components && current_user.admin?,
+                          if: has_election_components && (allowed_to?(:manage, :trustees) || current_user.admin?),
                           position: 100,
                           active: is_active_link?(link)
           end
