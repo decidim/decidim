@@ -29,7 +29,7 @@ FactoryBot.define do
     introductory_image { Decidim::Dev.test_file("city.jpeg", "image/jpeg") }
     voting_type { "hybrid" }
     census_contact_information { nil }
-    hide_can_i_vote { false }
+    show_check_census { true }
 
     trait :unpublished do
       published_at { nil }

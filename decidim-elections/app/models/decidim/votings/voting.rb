@@ -139,7 +139,7 @@ module Decidim
       end
 
       def check_census_enabled?
-        dataset.present? && !hide_can_i_vote?
+        dataset.present? && show_check_census?
       end
 
       def elections

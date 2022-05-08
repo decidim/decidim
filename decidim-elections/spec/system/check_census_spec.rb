@@ -38,7 +38,7 @@ describe "Check Census", type: :system do
 
   context "when the page has been hidden" do
     before do
-      voting.update!(hide_can_i_vote: true)
+      voting.update!(show_check_census: false)
     end
 
     it "returns a not found page" do

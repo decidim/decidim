@@ -27,7 +27,7 @@ module Decidim
             promoted: promoted,
             voting_type: voting_type,
             census_contact_information: census_contact_information,
-            hide_can_i_vote: hide_can_i_vote
+            show_check_census: show_check_census
           )
         end
 
@@ -41,7 +41,7 @@ module Decidim
         let(:promoted) { true }
         let(:voting_type) { "online" }
         let(:census_contact_information) { nil }
-        let(:hide_can_i_vote) { false }
+        let(:show_check_census) { true }
 
         let(:voting) { Decidim::Votings::Voting.last }
 
@@ -64,7 +64,7 @@ module Decidim
           expect(voting.organization).to eq organization
           expect(voting.promoted).to eq promoted
           expect(voting.voting_type).to eq voting_type
-          expect(voting.hide_can_i_vote).to eq hide_can_i_vote
+          expect(voting.show_check_census).to eq show_check_census
         end
 
         it "traces the action", versioning: true do

@@ -68,7 +68,7 @@ module Decidim
             promoted: form.promoted,
             voting_type: form.voting_type,
             census_contact_information: form.census_contact_information,
-            hide_can_i_vote: form.hide_can_i_vote
+            show_check_census: form.show_check_census
           }.merge(attachment_attributes(*image_fields))
         end
       end
