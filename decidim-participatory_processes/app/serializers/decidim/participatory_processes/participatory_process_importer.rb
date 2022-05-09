@@ -116,7 +116,7 @@ module Decidim
         attachments["files"].map do |file|
           next unless remote_file_exists?(file["remote_file_url"])
 
-          file_tmp = URI.open(file["remote_file_url"])
+          file_tmp = URI.parse(file["remote_file_url"]).open
 
           Decidim.traceability.perform_action!("create", Attachment, @user) do
             attachment = Attachment.new(

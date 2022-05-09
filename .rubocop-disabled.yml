@@ -13,7 +13,7 @@ Style/OpenStructUse:
 Security/IoMethods:
   Enabled: false
 
-Security/Open:
+Rails/CompactBlank:
   Enabled: false
 
 Gemspec/RequireMFA:
