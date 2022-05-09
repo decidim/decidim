@@ -29,7 +29,7 @@ describe "Import proposal answers", type: :system do
         id: proposal.id,
         state: %w(accepted rejected evaluating).sample,
         "answer/fi": Faker::Lorem.sentence,
-        "hello": "world"
+        hello: "world"
       }
     end
   end

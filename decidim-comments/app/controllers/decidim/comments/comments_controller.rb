@@ -170,7 +170,7 @@ module Decidim
       end
 
       def commentable_path
-        return commentable.polymorphic_resource_path({}) if commentable&.respond_to?(:polymorphic_resource_path)
+        return commentable.polymorphic_resource_path({}) if commentable.respond_to?(:polymorphic_resource_path)
 
         resource_locator(commentable).path
       end

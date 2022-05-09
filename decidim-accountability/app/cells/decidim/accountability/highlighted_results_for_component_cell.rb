@@ -21,7 +21,7 @@ module Decidim
       private
 
       def results
-        @results ||= Decidim::Accountability::Result.where(component: model).order_randomly(rand * 2 - 1)
+        @results ||= Decidim::Accountability::Result.where(component: model).order_randomly((rand * 2) - 1)
       end
 
       def results_to_render

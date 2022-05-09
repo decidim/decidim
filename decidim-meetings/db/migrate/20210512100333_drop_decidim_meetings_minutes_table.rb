@@ -72,7 +72,7 @@ end
 private
 
 def blank_minutes?(meeting)
-  meeting.video_url.blank? &&
+  (meeting.video_url.blank? &&
     meeting.audio_url.blank? &&
-    meeting.minutes_description.blank? || meeting.minutes_description.is_a?(Hash) && meeting.minutes_description.values.all?(&:blank?)
+    meeting.minutes_description.blank?) || (meeting.minutes_description.is_a?(Hash) && meeting.minutes_description.values.all?(&:blank?))
 end

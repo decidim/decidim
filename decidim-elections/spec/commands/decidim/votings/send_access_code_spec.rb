@@ -14,7 +14,7 @@ module Decidim::Votings
     let(:medium) { "email" }
 
     context "when datum is nil" do
-      let(:datum) {}
+      let(:datum) { nil }
 
       it "broadcasts invalid" do
         expect(subject.call).to broadcast(:invalid)

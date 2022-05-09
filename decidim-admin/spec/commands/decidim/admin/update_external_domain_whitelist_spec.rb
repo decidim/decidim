@@ -10,7 +10,7 @@ module Decidim::Admin
     let(:domains) { ["erabaki.pamplona.es", "osallistu.hel.fi", "codefor.fr"] }
     let(:attributes) do
       {
-        "external_domains": {
+        external_domains: {
           "1613404734167" => { "value" => domains[0], "id" => "", "position" => "0", "deleted" => "false" },
           "1613404734172" => { "value" => domains[1], "id" => "", "position" => "1", "deleted" => "false" },
           "1613404734961" => { "value" => domains[2], "id" => "", "position" => "2", "deleted" => "false" }

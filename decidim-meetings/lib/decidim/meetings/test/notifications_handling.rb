@@ -13,7 +13,7 @@ shared_examples_for "emits an upcoming notificaton" do
         .to receive(:generate_checksum).and_return "1234"
 
       expect(Decidim::Meetings::UpcomingMeetingNotificationJob)
-        .to receive_message_chain(:set, :perform_later) # rubocop:disable RSpec/MessageChain
+        .to receive_message_chain(:set, :perform_later)
         .with(set: meeting.start_time - Decidim::Meetings.upcoming_meeting_notification)
         .with(kind_of(Integer), "1234")
 

@@ -105,7 +105,7 @@ module Decidim
               "origin_url" => origin_url,
               "external_voting" => external_voting,
               "i_frame_url" => i_frame_url,
-              "order": order
+              order: order
             }
           }
         end
