@@ -21,7 +21,7 @@ module Decidim
         def call
           return broadcast(:invalid) if @form.invalid?
 
-          Decidim.traceability.perform_action!("update",Decidim::Meetings::Questionnaire,@form.current_user, { meeting: @questionnaire.questionnaire_for.try(:meeting) }) do
+          Decidim.traceability.perform_action!("update", Decidim::Meetings::Questionnaire, @form.current_user, { meeting: @questionnaire.questionnaire_for.try(:meeting) }) do
             Decidim::Meetings::Questionnaire.transaction do
               create_questionnaire_for
               create_questionaire
