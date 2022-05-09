@@ -4,8 +4,8 @@ Naming/VariableNumber:
 #Style/HashConversion:
 #  Enabled: false
 
-Style/QuotedSymbols:
-  Enabled: false
+#Style/QuotedSymbols:
+#  Enabled: false
 
 Style/OpenStructUse:
   Enabled: false

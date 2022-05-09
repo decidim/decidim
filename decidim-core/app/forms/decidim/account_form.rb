@@ -20,7 +20,7 @@ module Decidim
     attribute :about
 
     validates :name, presence: true
-    validates :email, presence: true, 'valid_email_2/email': { disposable: true }
+    validates :email, presence: true, "valid_email_2/email": { disposable: true }
     validates :nickname, presence: true, format: Decidim::User::REGEXP_NICKNAME
 
     validates :nickname, length: { maximum: Decidim::User.nickname_max_length, allow_blank: true }
