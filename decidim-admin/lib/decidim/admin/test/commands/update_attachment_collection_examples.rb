@@ -63,8 +63,8 @@ module Decidim
           it "traces the action", versioning: true do
             expect(Decidim.traceability)
               .to receive(:perform_action!)
-                    .with(:update, Decidim::AttachmentCollection, user, {})
-                    .and_call_original
+              .with(:update, Decidim::AttachmentCollection, user, {})
+              .and_call_original
 
             expect { command.call }.to change(Decidim::ActionLog, :count)
             action_log = Decidim::ActionLog.last
