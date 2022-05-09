@@ -20,7 +20,6 @@
     <%= render partial: "decidim/shared/confirm_modal" %>
     <%= render partial: "decidim/shared/login_modal" unless current_user %>
     <%= render partial: "decidim/shared/authorization_modal" %>
-    <%= render partial: "layouts/decidim/cors" if Decidim.cors_enabled %>
     <%= render partial: "layouts/decidim/decidim_javascript" %>
   </body>
 </html>
