@@ -32,7 +32,6 @@ describe "User edits a debate", type: :system do
 
     it "allows editing my debate", :slow do
       visit_component
-      select_cookies
 
       click_link debate.title.values.first
       click_link "Edit debate"

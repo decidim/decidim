@@ -3,11 +3,11 @@
 require "spec_helper"
 
 describe "Cookies", type: :system do
-  let(:organization) { create(:organization) }
+  let(:orga) { create(:organization) }
   let(:cookies_description) { "We use cookies on our website to improve the performance and content of the site" }
 
   before do
-    switch_to_host(organization.host)
+    switch_to_host(orga.host)
     visit decidim.root_path
   end
 
