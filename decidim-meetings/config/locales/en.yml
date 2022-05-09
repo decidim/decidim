@@ -384,7 +384,7 @@ en:
             organizer_presenter:
               not_found: 'The organizer was not found on the database (ID: %{id})'
         questionnaire:
-          update: "%{user_name} updated the %{resource_name} questionnaire of the %{meeting_name} meeting"
+          update: "%{user_name} updated the questionnaire for the %{meeting_name} meeting"
       application_helper:
         filter_category_values:
           all: All

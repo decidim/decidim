@@ -24,12 +24,15 @@ module Decidim
           end
         end
 
+        def resource_presenter
+          @resource_presenter ||= Decidim::Log::ResourcePresenter.new(action_log.resource.questionnaire_for.meeting, h, action_log.resource.questionnaire_for.meeting)
+        end
+
         # Tries to use the attendee name from the invitation (resource).
         # If invitation does not exist anymore use the one in extras.
         def i18n_params
-          meeting_name = action_log.resource.meeting
           super.merge(
-            meeting_name: meeting_name
+            meeting_name: resource_presenter.try(:present)
           )
         end
       end
