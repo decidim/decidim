@@ -3,7 +3,7 @@
 require "spec_helper"
 
 describe "Cookie scripts", type: :system do
-  let(:organization) { create(:organization) }
+  let(:orga) { create(:organization) }
 
   let(:template_class) do
     Class.new(ActionView::Base) do
@@ -13,7 +13,7 @@ describe "Cookie scripts", type: :system do
     end
   end
   let(:template) { template_class.new(ActionView::LookupContext.new(ActionController::Base.view_paths), {}, []) }
-  let(:modal) { Decidim::ViewModel.cell("decidim/cookie_consent", organization).call.to_s }
+  let(:modal) { Decidim::ViewModel.cell("decidim/cookie_consent", orga).call.to_s }
 
   let(:html_document) do
     cookie_modal = modal
@@ -59,7 +59,7 @@ describe "Cookie scripts", type: :system do
       get "cookie_scripts", to: ->(_) { [200, {}, [final_html]] }
     end
 
-    switch_to_host(organization.host)
+    switch_to_host(orga.host)
     visit "/cookie_scripts"
   end
 
