@@ -1,0 +1,6 @@
+<% if commentable? %>
+  <%= link_to "#{resource_locator(from_context).path}#comments", title: t("decidim.author.comments", count: from_context.comments_count) do %>
+    <%= icon "comment-square", class: "icon--small", role: "img", "aria-hidden": true %>
+    <%= from_context.comments_count %> <%= t("decidim.author.comments", count: from_context.comments_count) %>
+  <% end %>
+<% end %>

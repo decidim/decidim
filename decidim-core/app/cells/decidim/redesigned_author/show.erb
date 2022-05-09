@@ -1,0 +1,20 @@
+<div class="<%= author_classes %>">
+  <span>This is a redesigned cell</span>
+  <div class="author-data__main">
+    <%= render :profile %>
+  </div>
+
+  <% if actionable? %>
+    <div class="author-data__extra">
+      <%= render :date %>
+
+      <%= render :comments %>
+
+      <%= render :endorsements %>
+
+      <%= render :flag %>
+
+      <%= render :withdraw %>
+    </div>
+  <% end %>
+</div>
