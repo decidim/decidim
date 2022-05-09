@@ -61,8 +61,8 @@ jobs:
           node_version: ${{ env.NODE_VERSION }}
       - run: |
           # start xvfb on (default) display :0
-          chromedriver --url-base=/wd/hub &
-          sudo Xvfb -ac :99 -screen 0 1280x1024x24 > /dev/null 2>&1 & # optional
+          #chromedriver --url-base=/wd/hub &
+          sudo Xvfb -ac :99 -screen 0 1920x1084x24 > /dev/null 2>&1 & # optional
           bundle exec rake parallel:spec[^spec/system]
         name: RSpec
         working-directory: ${{ env.DECIDIM_MODULE }}
