@@ -1,0 +1,39 @@
+<span class="author__avatar">
+  <%= image_tag model.avatar_url(:thumb), alt: t("decidim.author.avatar", name: decidim_sanitize(author_name)) %>
+</span>
+
+<% if model.deleted? %>
+  <span class="label label--small label--basic">
+    <%= t("decidim.profile.deleted") %>
+  </span>
+<% elsif has_tooltip? %>
+  <span
+    class="author__name m-none"
+    data-tooltip
+    data-position="top"
+    data-show-on="medium"
+    data-alignment="center"
+    data-click-open="false"
+    data-keep-on-hover="true"
+    data-allow-html="true"
+    data-template-classes="light expanded"
+    data-tip-text='<%= h render(:profile_minicard) %>'>
+    <%= decidim_sanitize author_name %>
+  </span>
+
+  <% if model.badge.present? %>
+    <span class="author__badge">
+      <%= icon model.badge %>
+    </span>
+  <% end %>
+<% else %>
+  <span class="author__name">
+    <%= decidim_sanitize author_name %>
+  </span>
+
+  <% if model.badge.present? %>
+    <span class="author__badge">
+      <%= icon model.badge %>
+    </span>
+  <% end %>
+<% end %>
