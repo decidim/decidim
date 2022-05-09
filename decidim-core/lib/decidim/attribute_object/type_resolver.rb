@@ -41,7 +41,7 @@ module Decidim
             options: options.merge(primitive: type)
           }
         elsif type == Hash
-          resolve_hash(Hash[Symbol => Object], **options)
+          resolve_hash({ Symbol => Object }, **options)
         elsif type == Array
           resolve_array(Array[Object], **options)
         else

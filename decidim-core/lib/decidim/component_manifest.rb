@@ -18,7 +18,7 @@ module Decidim
     attribute :engine, Rails::Engine, **{}
 
     attribute :name, Symbol
-    attribute :hooks, Hash[Symbol => Array[Proc]], default: {}
+    attribute(:hooks, { Symbol => Array[Proc] }, default: {})
 
     attribute :query_type, String, default: "Decidim::Core::ComponentType"
 
