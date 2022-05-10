@@ -9,9 +9,9 @@ Naming/VariableNumber:
 
 Style/OpenStructUse:
   Enabled: false
-
-Security/IoMethods:
-  Enabled: false
+#
+#Security/IoMethods:
+#  Enabled: false
 
 Rails/CompactBlank:
   Enabled: false
