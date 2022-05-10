@@ -594,9 +594,6 @@ gl:
         check_census:
           check_status: Verificar censo
           description: Tes a opción de verificar os datos do censo para saber se tes dereito a participar na votación. Xa terías de ter un código de acceso, porén, se o perdiches podes pedilo de novo se os teus datos son correctos.
-          error:
-            info: 'Por favor, téntao de novo. Se cres que os datos do sistema non so correctos, podes informar aquí: %{census_contact_information}.'
-            title: Os datos do censo non son correctos!
           form_title: 'Enche o seguinte formulario para verificar os teus datos do censo:'
           invalid: Produciuse un problema ao verificar o censo.
           success:
