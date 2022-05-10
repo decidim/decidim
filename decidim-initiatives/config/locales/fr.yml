@@ -238,8 +238,6 @@ fr:
             edit: Modifier
             new: Nouvelle
             photos: Photos
-          show:
-            print: Impression
           update:
             error: Une erreur est survenue
             success: La pétition a été mise à jour avec succès
