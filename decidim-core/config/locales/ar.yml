@@ -102,6 +102,13 @@ ar:
       download_your_data_export:
         file_no_exists: الملف غير موجود
         notice: يتم تنزيل بياناتك حاليًا. ستتلقى بريدًا إلكترونيًا عند اكتماله.
+      email_change:
+        body1: لقد أرسلنا رسالة بريد إلكتروني إلى %{unconfirmed_email} للتحقق من عنوان بريدك الإلكتروني الجديد.
+        body2: هل تحتاج إلينا لإرسال بريد إلكتروني للتحقق مرة أخرى؟ %{resend_link} أو %{cancel_link}.
+        cancel: إلغاء
+        cancel_error: لا يمكن إلغاء طلب تغيير البريد الإلكتروني.
+        cancel_successfully: تم إلغاء تغيير البريد الإلكتروني بنجاح.
+        send_again: إرسل مجددا
       show:
         available_locales_helper: اختر اللغة التي تريد استخدامها لتصفح وتلقي الإشعارات على المنصة
         change_password: غير كلمة السر
