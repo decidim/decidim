@@ -1087,6 +1087,8 @@ es-PY:
         translated_text: 'Texto traducido automáticamente:'
     notifications:
       no_notifications: No hay notificaciones aún.
+      show:
+        missing_event: Vaya, esta notificación pertenece a un elemento que ya no está disponible. Puedes descartarla.
     notifications_settings:
       show:
         administrators: Administradoras
