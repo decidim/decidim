@@ -235,8 +235,6 @@ ja:
             edit: 編集
             new: 新規作成
             photos: 写真
-          show:
-            print: 印刷
           update:
             error: エラーが発生しました
             success: イニシアチブが正常に更新されました
