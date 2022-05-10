@@ -1226,9 +1226,6 @@ pt-BR:
         check_census:
           check_status: Conferir status
           description: Aqui, você tem a opção de verificar os dados do censo para saber se tem o direito de participar nesta votação. Você já deve ter um código de acesso, mas se você o perdeu, você pode pedi-lo novamente, quando seus dados estiverem corretos.
-          error:
-            info: 'Por favor, tente novamente. Se você acha que os dados no sistema estão incorretos, você pode reportá-los aqui: %{census_contact_information}.'
-            title: Os dados do censo estão incorretos!
           form_title: 'Preencha o seguinte formulário para verificar os dados do censo:'
           invalid: Houve um problema ao verificar o censo.
           success:
