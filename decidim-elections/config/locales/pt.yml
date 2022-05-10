@@ -1088,9 +1088,6 @@ pt:
         highlighted_votings:
           name: Votações realçadas
         landing_page:
-          description:
-            show_less: Ler menos
-            show_more: Ler mais
           metrics:
             heading: Métricas
           polling_stations:
