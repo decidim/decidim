@@ -78,7 +78,10 @@ module Decidim
           def destroy
             @attachment = collection.find(params[:id])
             enforce_permission_to :destroy, :attachment, attachment: attachment
-            @attachment.destroy!
+
+            Decidim.traceability.perform_action!("delete",@attachment,current_user) do
+              @attachment.destroy!
+            end
 
             flash[:notice] = I18n.t("attachments.destroy.success", scope: "decidim.admin")
 
