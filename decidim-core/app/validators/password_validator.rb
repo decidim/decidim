@@ -49,6 +49,15 @@ class PasswordValidator < ActiveModel::EachValidator
     I18n.t "password_validator.#{reason}"
   end
 
+  def organization
+    @organization ||= organization_from_record
+  end
+
+  def organization_from_record
+    return record.current_organization if record.respond_to?(:current_organization)
+    return record.organization if record.respond_to?(:organization)
+  end
+
   def strong?
     VALIDATION_METHODS.each do |method|
       @weak_password_reasons << method.to_s.sub(/\?$/, "").to_sym if send(method.to_s)
@@ -96,10 +105,10 @@ class PasswordValidator < ActiveModel::EachValidator
   end
 
   def domain_included_in_password?
-    return false unless record&.current_organization&.host
-    return true if value.include?(record.current_organization.host)
+    return false unless organization && organization.host
+    return true if value.include?(organization.host)
 
-    record.current_organization.host.split(".").each do |part|
+    organization.host.split(".").each do |part|
       next if part.length < IGNORE_SIMILARITY_SHORTER_THAN
 
       return true if value.include?(part)

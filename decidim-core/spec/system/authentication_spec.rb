@@ -363,6 +363,21 @@ describe "Authentication", type: :system do
         expect(page).to have_content("Your password has been successfully changed")
         expect(page).to have_current_path "/"
       end
+
+      it "enforces rules when setting a new password for the user" do
+        visit last_email_link
+
+        within ".new_user" do
+          fill_in :password_user_password, with: "example"
+          fill_in :password_user_password_confirmation, with: "example"
+          find("*[type=submit]").click
+        end
+
+        expect(page).to have_content("10 characters minimum")
+        expect(page).to have_content("must be different from your nickname and your email")
+        expect(page).to have_content("must not be too common")
+        expect(page).to have_current_path "/users/password"
+      end
     end
 
     describe "Sign Out" do
