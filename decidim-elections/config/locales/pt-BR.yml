@@ -1046,9 +1046,6 @@ pt-BR:
         highlighted_votings:
           name: Destaque da votação
         landing_page:
-          description:
-            show_less: Leia menos
-            show_more: Leia mais
           metrics:
             heading: Métricas
           polling_stations:
