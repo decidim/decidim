@@ -266,14 +266,14 @@ ar:
           global:
             amendments_enabled: تم تمكين التعديلات
             comments_enabled: تم تمكين التعليقات
-            dummy_global_attribute_1: السمة الدمية 1
-            dummy_global_attribute_2: السمة الدمية 2
+            dummy_global_attribute1: السمة الدمية 1
+            dummy_global_attribute2: السمة الدمية 2
             enable_pads_creation: تمكين إنشاء منصات
             resources_permissions_enabled: تم تمكين أذونات الموارد
           step:
             comments_blocked: تم حظر التعليقات
-            dummy_step_attribute_1: الخطوة الدمية السمة 1
-            dummy_step_attribute_2: الخطوة الدمية السمة 2
+            dummy_step_attribute1: الخطوة الدمية السمة 1
+            dummy_step_attribute2: الخطوة الدمية السمة 2
     contact: اتصل
     content_blocks:
       footer_sub_hero:

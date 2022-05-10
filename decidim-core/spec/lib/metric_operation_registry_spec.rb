@@ -25,7 +25,7 @@ module Decidim
       it "returns all metrics for that scope" do
         register_metric(:dummy_operation, :users)
         register_metric(:dummy_operation, :more_users)
-        register_metric(:dummy_operation_2, :no_users)
+        register_metric(:dummy_operation2, :no_users)
 
         expect(subject.for(:dummy_operation).map(&:metric_name)).to eq %w(users more_users)
       end

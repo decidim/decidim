@@ -17,7 +17,7 @@ module Decidim
         budget: budget,
         scope: scope1,
         title: Decidim::Faker::Localized.name,
-        description: description_1
+        description: description1
       )
     end
 
@@ -66,7 +66,7 @@ module Decidim
 
     describe "Search" do
       context "when searching by resource resource_type" do
-        let!(:resource_2) do
+        let!(:resource2) do
           create(
             :project,
             budget: budget,
@@ -81,7 +81,7 @@ module Decidim
             on(:ok) do |results_by_type|
               results = results_by_type[resource.class.name]
               expect(results[:count]).to eq 2
-              expect(results[:results]).to match_array [resource, resource_2]
+              expect(results[:results]).to match_array [resource, resource2]
             end
             on(:invalid) { raise("Should not happen") }
           end
@@ -92,7 +92,7 @@ module Decidim
             on(:ok) do |results_by_type|
               results = results_by_type[resource.class.name]
               expect(results[:count]).to eq 1
-              expect(results[:results]).to eq [resource_2]
+              expect(results[:results]).to eq [resource2]
             end
             on(:invalid) { raise("Should not happen") }
           end

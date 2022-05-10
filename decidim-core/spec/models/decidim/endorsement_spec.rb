@@ -77,17 +77,17 @@ module Decidim
       end
 
       let!(:other_user_group) { create(:user_group, verified_at: Time.current, organization: author.organization, users: [author]) }
-      let!(:other_endorsement_1) do
+      let!(:other_endorsement1) do
         create(:endorsement, resource: resource, author: author)
       end
-      let!(:other_endorsement_2) do
+      let!(:other_endorsement2) do
         create(:endorsement, resource: resource, author: author, user_group: other_user_group)
       end
 
       it "sorts user_grup endorsements first and then by created_at" do
         expected_sorting = [
-          endorsement.id, other_endorsement_2.id,
-          other_endorsement_1.id
+          endorsement.id, other_endorsement2.id,
+          other_endorsement1.id
         ]
         expect(resource.endorsements.for_listing.pluck(:id)).to eq(expected_sorting)
       end

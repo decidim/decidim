@@ -68,7 +68,7 @@ module Decidim::Budgets
       let(:order) { create :order, budget: project.budget }
       let(:unfinished_order) { create :order, budget: project.budget }
       let!(:line_item) { create :line_item, project: project, order: order }
-      let!(:line_item_1) { create :line_item, project: project, order: unfinished_order }
+      let!(:line_item1) { create :line_item, project: project, order: unfinished_order }
 
       it "return number of finished orders for this project" do
         order.reload.update!(checked_out_at: Time.current)

@@ -15,7 +15,7 @@ describe "Meeting live event poll administration", type: :system do
            :confirmed,
            organization: organization
   end
-  let(:user_2) do
+  let(:user2) do
     create :user,
            :admin,
            :confirmed,
@@ -94,11 +94,11 @@ describe "Meeting live event poll administration", type: :system do
   context "when there's a published question with answers" do
     let!(:question_multiple_option) { create(:meetings_poll_question, :published, questionnaire: questionnaire, body: body_multiple_option_question, question_type: "multiple_option") }
 
-    let!(:answer_user_1) { create(:meetings_poll_answer, question: question_multiple_option, user: user, questionnaire: questionnaire) }
-    let!(:answer_user_2) { create(:meetings_poll_answer, question: question_multiple_option, user: user_2, questionnaire: questionnaire) }
+    let!(:answer_user1) { create(:meetings_poll_answer, question: question_multiple_option, user: user, questionnaire: questionnaire) }
+    let!(:answer_user2) { create(:meetings_poll_answer, question: question_multiple_option, user: user2, questionnaire: questionnaire) }
 
-    let!(:answer_choice_user_1) { create(:meetings_poll_answer_choice, answer: answer_user_1, answer_option: question_multiple_option.answer_options.first) }
-    let!(:answer_choice_user_2) { create(:meetings_poll_answer_choice, answer: answer_user_2, answer_option: question_multiple_option.answer_options.first) }
+    let!(:answer_choice_user1) { create(:meetings_poll_answer_choice, answer: answer_user1, answer_option: question_multiple_option.answer_options.first) }
+    let!(:answer_choice_user2) { create(:meetings_poll_answer_choice, answer: answer_user2, answer_option: question_multiple_option.answer_options.first) }
 
     it "allows to see question answers" do
       open_first_question

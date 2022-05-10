@@ -11,7 +11,7 @@ describe "Meeting live event poll answer", type: :system do
            :confirmed,
            organization: organization
   end
-  let(:user_2) do
+  let(:user2) do
     create :user,
            :confirmed,
            organization: organization
@@ -82,8 +82,8 @@ describe "Meeting live event poll answer", type: :system do
 
   context "when questions are closed" do
     let!(:question_multiple_option) { create(:meetings_poll_question, :closed, questionnaire: questionnaire, body: body_multiple_option_question, question_type: "multiple_option") }
-    let!(:answer_user_1) { create(:meetings_poll_answer, question: question_multiple_option, user: user, questionnaire: questionnaire) }
-    let!(:answer_choice_user_1) { create(:meetings_poll_answer_choice, answer: answer_user_1) }
+    let!(:answer_user1) { create(:meetings_poll_answer, question: question_multiple_option, user: user, questionnaire: questionnaire) }
+    let!(:answer_choice_user1) { create(:meetings_poll_answer_choice, answer: answer_user1) }
 
     before do
       visit meeting_live_event_path

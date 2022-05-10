@@ -83,7 +83,7 @@ shared_examples "global search of participatory spaces" do
   describe "Search" do
     # trick to force creating participatory_space2 declared in users of this shared_examples
     let!(:spaces) { [participatory_space, participatory_space2] }
-    let(:description_2) do
+    let(:description2) do
       msg = "Chewie, I'll be waiting for your signal. Take care, you two. May the Force be with you. Ow!"
       { ca: "CA:#{msg}", en: "EN:#{msg}", es: "ES:#{msg}" }
     end

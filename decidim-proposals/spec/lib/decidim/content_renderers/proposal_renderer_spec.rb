@@ -38,17 +38,17 @@ module Decidim
         end
 
         context "when content has many links" do
-          let(:proposal_1) { create(:proposal) }
-          let(:proposal_2) { create(:proposal) }
-          let(:proposal_3) { create(:proposal) }
+          let(:proposal1) { create(:proposal) }
+          let(:proposal2) { create(:proposal) }
+          let(:proposal3) { create(:proposal) }
           let(:content) do
-            gid1 = proposal_1.to_global_id
-            gid2 = proposal_2.to_global_id
-            gid3 = proposal_3.to_global_id
+            gid1 = proposal1.to_global_id
+            gid2 = proposal2.to_global_id
+            gid3 = proposal3.to_global_id
             "This content references the following proposals: #{gid1}, #{gid2} and #{gid3}. Great?I like them!"
           end
 
-          it { is_expected.to eq("This content references the following proposals: #{proposal_as_html_link(proposal_1)}, #{proposal_as_html_link(proposal_2)} and #{proposal_as_html_link(proposal_3)}. Great?I like them!") }
+          it { is_expected.to eq("This content references the following proposals: #{proposal_as_html_link(proposal1)}, #{proposal_as_html_link(proposal2)} and #{proposal_as_html_link(proposal3)}. Great?I like them!") }
         end
       end
 

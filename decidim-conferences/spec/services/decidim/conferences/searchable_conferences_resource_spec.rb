@@ -14,11 +14,11 @@ module Decidim
           title: Decidim::Faker::Localized.name,
           short_description: Decidim::Faker::Localized.sentence,
           objectives: Decidim::Faker::Localized.sentence,
-          description: description_1
+          description: description1
         )
       end
       let(:participatory_space) { conference }
-      let(:conference_2) do
+      let(:conference2) do
         create(
           :conference,
           organization: organization,
@@ -26,10 +26,10 @@ module Decidim
           title: Decidim::Faker::Localized.name,
           short_description: Decidim::Faker::Localized.sentence,
           objectives: Decidim::Faker::Localized.sentence,
-          description: description_2
+          description: description2
         )
       end
-      let(:participatory_space2) { conference_2 }
+      let(:participatory_space2) { conference2 }
       let(:searchable_resource_attrs_mapper) do
         lambda { |space, locale|
           d = I18n.transliterate(translated(space.description, locale: locale))

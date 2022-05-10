@@ -344,11 +344,11 @@ shared_examples_for "update questions" do
   end
 
   context "when a questionnaire has multiple existing questions" do
-    let!(:question_1) do
+    let!(:question1) do
       create(:questionnaire_question, questionnaire: questionnaire, body: first_body, position: 0)
     end
 
-    let!(:question_2) do
+    let!(:question2) do
       create(:questionnaire_question, questionnaire: questionnaire, body: second_body, position: 1)
     end
 

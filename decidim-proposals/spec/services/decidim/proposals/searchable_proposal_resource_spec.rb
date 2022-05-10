@@ -17,7 +17,7 @@ module Decidim
         skip_injection: true,
         component: current_component,
         scope: scope1,
-        body: description_1,
+        body: description1,
         users: [author]
       )
     end

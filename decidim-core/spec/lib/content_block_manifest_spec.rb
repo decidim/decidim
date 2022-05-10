@@ -70,11 +70,11 @@ module Decidim
         setup = proc do |content_block|
           content_block.images = [
             {
-              name: :image_1,
+              name: :image1,
               uploader: "Decidim::ImageUploader"
             },
             {
-              name: :image_2,
+              name: :image2,
               uploader: "Decidim::ImageUploader"
             }
           ]
@@ -88,7 +88,7 @@ module Decidim
         expect(subject.cell).to eq cell
         expect(subject.name).to eq name
         image_names = subject.images.pluck(:name)
-        expect(image_names).to match_array [:image_1, :image_2]
+        expect(image_names).to match_array [:image1, :image2]
       end
     end
 

@@ -14,12 +14,12 @@ module Decidim
           title: Decidim::Faker::Localized.name,
           subtitle: Decidim::Faker::Localized.name,
           short_description: Decidim::Faker::Localized.sentence,
-          description: description_1,
+          description: description1,
           users: [author]
         )
       end
       let(:participatory_space) { participatory_process }
-      let(:participatory_process_2) do
+      let(:participatory_process2) do
         create(
           :participatory_process,
           organization: organization,
@@ -27,11 +27,11 @@ module Decidim
           title: Decidim::Faker::Localized.name,
           subtitle: Decidim::Faker::Localized.name,
           short_description: Decidim::Faker::Localized.sentence,
-          description: description_2,
+          description: description2,
           users: [author]
         )
       end
-      let(:participatory_space2) { participatory_process_2 }
+      let(:participatory_space2) { participatory_process2 }
       let(:searchable_resource_attrs_mapper) do
         lambda { |space, locale|
           {

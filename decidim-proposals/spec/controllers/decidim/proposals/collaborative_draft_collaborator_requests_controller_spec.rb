@@ -12,7 +12,7 @@ module Decidim
       let(:user) { create(:user, :confirmed, organization: component.organization) }
       let(:author) { create(:user, :confirmed, organization: component.organization) }
       let!(:collaborative_draft) { create(:collaborative_draft, component: component, users: [author]) }
-      let(:user_2) { create(:user, :confirmed, organization: component.organization) }
+      let(:user2) { create(:user, :confirmed, organization: component.organization) }
 
       before do
         request.env["decidim.current_organization"] = component.organization
@@ -50,7 +50,7 @@ module Decidim
 
       describe "POST request_reject" do
         before do
-          sign_in user_2, scope: :user
+          sign_in user2, scope: :user
           post :request_access, params: { id: collaborative_draft.id, state: collaborative_draft.state }
           sign_in author, scope: :user
         end

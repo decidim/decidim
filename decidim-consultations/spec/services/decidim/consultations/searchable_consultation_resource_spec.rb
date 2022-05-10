@@ -12,20 +12,20 @@ module Decidim
           organization: organization,
           title: Decidim::Faker::Localized.name,
           subtitle: Decidim::Faker::Localized.name,
-          description: description_1
+          description: description1
         )
       end
       let(:participatory_space) { consultation }
-      let(:consultation_2) do
+      let(:consultation2) do
         create(
           :consultation,
           organization: organization,
           title: Decidim::Faker::Localized.name,
           subtitle: Decidim::Faker::Localized.name,
-          description: description_2
+          description: description2
         )
       end
-      let(:participatory_space2) { consultation_2 }
+      let(:participatory_space2) { consultation2 }
       let(:searchable_resource_attrs_mapper) do
         lambda { |space, locale|
           {

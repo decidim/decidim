@@ -281,14 +281,14 @@ cs:
           global:
             amendments_enabled: Změny povoleny
             comments_enabled: Komentáře povoleny
-            dummy_global_attribute_1: Dummy atribut 1
-            dummy_global_attribute_2: Dummy atribut 2
+            dummy_global_attribute1: Dummy atribut 1
+            dummy_global_attribute2: Dummy atribut 2
             enable_pads_creation: Povolit vytvoření podložky
             resources_permissions_enabled: Povolení zdrojů byla povolena
           step:
             comments_blocked: Komentáře byly blokovány
-            dummy_step_attribute_1: Atribut kroku dummy 1
-            dummy_step_attribute_2: Atribut kroku dummy 2
+            dummy_step_attribute1: Atribut kroku dummy 1
+            dummy_step_attribute2: Atribut kroku dummy 2
     contact: Kontakt
     content_blocks:
       footer_sub_hero:
