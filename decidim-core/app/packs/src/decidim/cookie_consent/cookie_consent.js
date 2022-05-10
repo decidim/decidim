@@ -85,6 +85,10 @@ const initDisabledIframes = (manager) => {
 
 document.addEventListener("DOMContentLoaded", () => {
   const modal = document.querySelector("#cc-modal");
+  if (!modal) {
+    return;
+  }
+
   const categories = [...modal.querySelectorAll(".category-wrapper")].map((el) => el.dataset.id)
   const manager = new ConsentManager({
     modal: modal,
