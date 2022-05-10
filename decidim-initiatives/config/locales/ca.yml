@@ -238,8 +238,6 @@ ca:
             edit: Edita
             new: Nou
             photos: Fotografies
-          show:
-            print: Imprimir
           update:
             error: S'ha produït un error
             success: La iniciativa ciutadana s'ha actualitzat correctament
@@ -507,6 +505,7 @@ ca:
             title: 'Títol:'
             type: Tipus d'iniciativa
           legal_text: Les dades personals recollides seran incorporades i tractades confidencialment per l'organització, d'acord amb la legislació actual.
+          members_header: Membres de la comissió promotora de la iniciativa
           phone_number: Número de telèfon
           place_date: Lloc, data
           postal_code: Codi postal
