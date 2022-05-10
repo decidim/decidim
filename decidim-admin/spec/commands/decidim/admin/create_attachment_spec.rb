@@ -56,12 +56,11 @@ module Decidim::Admin
         subject
       end
 
-
       it "traces the action", versioning: true do
         expect(Decidim.traceability)
           .to receive(:perform_action!)
-                .with(:create, Decidim::Attachment, user)
-                .and_call_original
+          .with(:create, Decidim::Attachment, user)
+          .and_call_original
 
         expect { subject }.to change(Decidim::ActionLog, :count)
         action_log = Decidim::ActionLog.last

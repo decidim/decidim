@@ -45,21 +45,21 @@ module Decidim::Admin
       it "traces the action", versioning: true do
         expect(Decidim.traceability)
           .to receive(:perform_action!)
-                .with(:update, attachment, user, {})
-                .and_call_original
+          .with(:update, attachment, user, {})
+          .and_call_original
 
         expect { described_class.call(attachment, form, user) }.to change(Decidim::ActionLog, :count)
         action_log = Decidim::ActionLog.last
         expect(action_log.action).to eq("update")
         expect(action_log.version).to be_present
       end
-
     end
 
     describe "when invalid" do
       before do
         allow(form).to receive(:invalid?).and_return(true)
       end
+
       it "does not update the component" do
         expect do
           described_class.call(attachment, form, user)
