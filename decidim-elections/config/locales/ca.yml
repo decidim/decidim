@@ -1275,8 +1275,8 @@ ca:
           check_status: Comprovar l'estat
           description: Comprova les dades del cens per saber si tens dret a participar en la votació. Si les dades són correctes, hauries de tenir ja un codi d'accés, però si l'has perdut pots demanar-lo de nou si les teves dades són correctes.
           error:
-            info: 'Prova de nou, si us plau. Si creus que les dades que tenim al sistema no són correctes, pots avisar-nos a %{census_contact_information}.'
-            title: Les teves dades del cens no són correctes!
+            info: 'Prova de nou, si us plau. Si creus que les dades que tenim al sistema no són correctes, pots avisar-nos a %{census_contact_information}'
+            title: Les dades que has introduït no es troben al cens d'aquesta votació
           form_title: 'Emplena el formulari següent per comprovar les dades del cens:'
           invalid: Hi ha hagut un problema en comprovar el cens.
           success:
