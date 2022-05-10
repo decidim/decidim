@@ -258,7 +258,6 @@ gl:
           audit: "( Auditar papeleta )"
           back: Comezar o proceso de voto de novo
           ballot_hash: 'O identificador da túa papeleta é:'
-          cast: Enviar papeleta
           description: Aquí tes as opcións para emitir a túa papeleta e que sexa contada de xeito válido ou, alternativamente, podes auditar o correcto cifrado da túa papeleta. Por razóns de seguranza, a auditoría danará a túa papeleta, o que significa, que terás de reiniciar o proceso de votación para emitir o teu voto.
         confirmed:
           experience: Como valoras a túa experiencia?
