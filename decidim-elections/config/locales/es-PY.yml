@@ -58,6 +58,9 @@ es-PY:
       decidim/elections/question:
         one: Pregunta
         other: Preguntas
+      decidim/voting:
+        one: Votación
+        other: Votaciones
       decidim/votings/census/dataset:
         one: Conjunto de datos
         other: Conjuntos de datos
@@ -182,6 +185,11 @@ es-PY:
         exports:
           elections: Elecciones
           feedback_form_answers: Retorno de las respuestas
+        mailers:
+          trustee_mailer:
+            body: "<p>Hola %{user_name},</p><p>se te ha añadido como garante a %{resource_name}.</p>"
+            subject: Se te ha añadido como garante de %{resource_name}
+            trustee_zone: Llévame al espacio de garantes
         menu:
           trustees: Garantes
         models:
@@ -1095,8 +1103,6 @@ es-PY:
           name: Votaciones destacadas
         landing_page:
           description:
-            show_less: Leer menos
-            show_more: Leer más
             title: Sobre esta votación
           metrics:
             heading: Métricas
