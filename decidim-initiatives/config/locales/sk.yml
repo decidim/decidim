@@ -160,8 +160,6 @@ sk:
             actions_title: Akcia
             preview: Náhľad
             print: Tlač
-          show:
-            print: Tlač
           update:
             error: Došlo k chybe
             success: Iniciatíva občanov bola úspešne aktualizovaná
