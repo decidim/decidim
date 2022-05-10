@@ -7,7 +7,10 @@ module Decidim
 
       def perform(meeting_id, checksum)
         meeting = Decidim::Meetings::Meeting.find(meeting_id)
-        send_notification(meeting) if verify_checksum(meeting, checksum)
+        return if meeting.hidden? || meeting.withdrawn?
+        return unless verify_checksum(meeting, checksum)
+
+        send_notification(meeting)
       end
 
       def self.generate_checksum(meeting)
