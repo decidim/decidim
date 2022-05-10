@@ -30,7 +30,7 @@ es-MX:
           step:
             allow_answers: Permitir respuestas
             allow_unregistered: Permitir a las usuarias no registradas responder a la encuesta
-            allow_unregistered_help: Si está activo, no será necesario iniciar sesión para responder a la encuesta. Esto puede llevar a datos pobres o poco confiables y será más vulnerable a ataques automatizados. ¡Úsalo con precaución!
+            allow_unregistered_help: Si está activo, no será necesario iniciar sesión para responder a la encuesta. Esto puede llevar a datos pobres o poco fiables y será más vulnerable a ataques automatizados. ¡Usar con precaución! Es importante que un participante pueda responder a la misma encuesta varias veces, utilizando diferentes navegadores o la función de "navegación privada" de su navegador web.
             announcement: Anuncio
     events:
       surveys:
