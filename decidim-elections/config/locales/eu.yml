@@ -1252,9 +1252,6 @@ eu:
         check_census:
           check_status: Egiaztatu egoera
           description: Hemen, zure erroldako datuak egiaztatzeko aukera duzu, bozketan parte hartzeko eskubidea duzun jakiteko. Sarbide-kode bat izan beharko zenuke, baina galdu baduzu, berriro eska dezakezu, zure datuak zuzenak badira.
-          error:
-            info: 'Mesedez, saiatu berriro. Sistemaren datuak okerrak direla uste baduzu, hemen bidali ahal dituzu: %{census_contact_information}.'
-            title: Zure erroldako datuak okerrak dira!
           form_title: 'Bete ondoko galdetegia zure erroldako datuak egiaztatzeko:'
           invalid: Arazo bat izan da errolda egiaztatzean.
           success:
