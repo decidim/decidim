@@ -1082,6 +1082,8 @@ fr:
         translated_text: 'Traduction automatique du texte :'
     notifications:
       no_notifications: Il n'y a pas encore de notifications.
+      show:
+        missing_event: Oups, cette notification est liée à un élément qui n'est plus disponible. Vous pouvez la supprimer.
     notifications_settings:
       show:
         administrators: Administrateurs
