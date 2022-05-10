@@ -241,8 +241,6 @@ ro:
             edit: Editare
             new: Nou
             photos: Poze
-          show:
-            print: Tipărește
           update:
             error: A apărut o eroare
             success: Inițiativa a fost actualizată cu succes
