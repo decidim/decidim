@@ -1123,6 +1123,8 @@ cs:
         translated_text: 'Automaticky přeložený text:'
     notifications:
       no_notifications: Zatím žádné oznámení.
+      show:
+        missing_event: Jejda, toto oznámení patří k položce, která již není k dispozici. Můžete ho zahodit.
     notifications_settings:
       show:
         administrators: Správci
