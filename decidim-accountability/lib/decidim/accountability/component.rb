@@ -156,13 +156,13 @@ Decidim.register_component(:accountability) do |component|
             visibility: "all"
           )
 
-          # rand(0..5).times do |i|
-          #   child_result.timeline_entries.create!(
-          #     entry_date: child_result.start_date + i.days,
-          #     title: Decidim::Faker::Localized.sentence(word_count: 2),
-          #     description: Decidim::Faker::Localized.paragraph(sentence_count: 1)
-          #   )
-          # end
+          rand(0..5).times do |i|
+            child_result.timeline_entries.create!(
+              entry_date: child_result.start_date + i.days,
+              title: Decidim::Faker::Localized.sentence(word_count: 2),
+              description: Decidim::Faker::Localized.paragraph(sentence_count: 1)
+            )
+          end
 
           Decidim::Comments::Seed.comments_for(child_result)
         end
