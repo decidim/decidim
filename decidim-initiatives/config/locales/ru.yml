@@ -113,8 +113,6 @@ ru:
             actions_title: Действие
             preview: Предпросмотр
             print: Распечатать
-          show:
-            print: Распечатать
           update:
             error: Произошла ошибка
             success: Гражданский почин успешно обновлен
