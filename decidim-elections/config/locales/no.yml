@@ -573,11 +573,6 @@
         menu:
           votings_submenu:
             monitoring_committee: Kontrollgruppe
-      content_blocks:
-        landing_page:
-          description:
-            show_less: Les mindre
-            show_more: Les mer
       polling_officer_zone:
         in_person_votes:
           complete_voting:
