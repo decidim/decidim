@@ -686,6 +686,8 @@ fr-CA:
           email_outro: Vous avez reçu cette notification parce que vous êtes un administrateur de la plateforme.
           email_subject: Un group d'utilisateurs viens de mettre à jour son profil
           notification_title: Le groupe d'utilisateurs %{user_group_name} a mis à jour son profil, le laissant non vérifié. Vous pouvez maintenant le vérifier dans le <a href="%{groups_admin_path}">panneau d'administration</a>.
+      nickname_event:
+        notification_body: Nous avons corrigé la façon dont les pseudonymes sont utilisés pour qu'il n'y ait pas de doublons, quelque soit l'utilisation de majuscules et/ou de minuscules. <br/> Votre pseudonyme a été créé après un autre qui était identique, nous l'avons donc automatiquement renommé. Vous pouvez le modifier depuis <a href="%{link_to_account_settings}">les paramètres de votre compte</a>.
       notification_event:
         notification_title: Un événement a eu lieu à <a href="%{resource_path}">%{resource_title}</a>.
       reports:
@@ -1495,6 +1497,7 @@ fr-CA:
     invitations:
       edit:
         header: Terminer la création de votre compte
+        nickname_help: Cet identifiant est public et unique sur %{organization} ; il permet aux autres utilisateurs de vous suivre, de vous contacter ou de vous mentionner dans leurs commentaires. Il s’affichera précédé d’un « @ » ; il ne peut contenir que des lettres, des chiffres ainsi que les caractères "-" et "_".
         submit_button: Sauvegarder
         subtitle: Si vous acceptez l'invitation, veuillez indiquer votre pseudonyme et votre mot de passe.
       invitation_removed: Votre invitation a été supprimée.
