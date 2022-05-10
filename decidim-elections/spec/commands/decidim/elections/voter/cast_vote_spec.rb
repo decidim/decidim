@@ -20,7 +20,11 @@ describe Decidim::Elections::Voter::CastVote do
     )
   end
   let(:invalid) { false }
-  let(:encrypted_data) { { question_1: "aNsWeR 1" }.to_json }
+  let(:encrypted_data) do
+    # rubocop:disable Naming/VariableNumber
+    { question_1: "aNsWeR 1" }.to_json
+    # rubocop:enable Naming/VariableNumber
+  end
   let(:encrypted_data_hash) { "1234" }
   let(:election) { create(:election) }
   let(:election_id) { election.id }
