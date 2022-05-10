@@ -443,6 +443,14 @@ describe "Admin manages meetings", type: :system, serves_map: true, serves_geoco
       end
     end
 
+    it "doesn't display error message when opening meeting's create form" do
+      find(".card-title a.button").click
+
+      within "label[for='meeting_registration_type']" do
+        expect(page).to have_no_content("There's an error in this field.")
+      end
+    end
+
     it "creates a new meeting", :slow do
       find(".card-title a.button").click
 
