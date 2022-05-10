@@ -588,7 +588,6 @@ it:
           audit: "( Voto di controllo )"
           back: Inizia nuovamente il processo di voto
           ballot_hash: 'Il tuo identificativo elettorale è:'
-          cast: Votare
           description: Qui, hai l'opzione di votare in modo che il tuo voto sia conteggiato correttamente o, in alternativa, di controllare che il tuo voto sia stato crittografato correttamente. Per motivi di sicurezza, controllare il tuo voto lo cancellerá, il che significa, che per esprimerlo, sarà necessario ripetere il processo di votazione.
           header: 'Il voto è criptato: confermalo o controllalo'
         casting:
