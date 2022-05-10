@@ -467,6 +467,7 @@ cs:
             accepted: Přijato
             answer_proposal: Odpovědět
             evaluating: Hodnocení
+            not_answered: Nezodpovězeno
             rejected: Odmítnuto
             title: Odpověď na návrh %{title}
         proposal_notes:
