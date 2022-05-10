@@ -58,6 +58,9 @@ ca:
       decidim/elections/question:
         one: Pregunta
         other: Preguntes
+      decidim/voting:
+        one: Votació
+        other: Votacions
       decidim/votings/census/dataset:
         one: Conjunt de dades
         other: Conjunts de dades
@@ -182,6 +185,11 @@ ca:
         exports:
           elections: Eleccions
           feedback_form_answers: Feedback de les respostes
+        mailers:
+          trustee_mailer:
+            body: "<p>Hola %{user_name},</p><p>Se t'ha afegit com a garant a%{resource_name}.</p>"
+            subject: Se t'ha afegit com a garant de %{resource_name}
+            trustee_zone: Portant a l'espai de garants
         menu:
           trustees: Garants
         models:
@@ -1095,8 +1103,6 @@ ca:
           name: Votacions destacades
         landing_page:
           description:
-            show_less: Llegir menys
-            show_more: Llegir més
             title: Quant a aquesta votació
           metrics:
             heading: Mètriques
