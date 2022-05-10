@@ -238,8 +238,6 @@ de:
             edit: Bearbeiten
             new: Neu
             photos: Fotos
-          show:
-            print: Drucken
           update:
             error: Ein Fehler ist aufgetreten
             success: Die Bürgerinitiative wurde erfolgreich aktualisiert
