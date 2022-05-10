@@ -531,7 +531,6 @@ ro:
           audit: "(scrutin de audit)"
           back: Începe procesul de votare din nou
           ballot_hash: 'Identificatorul dvs. de vot este:'
-          cast: Transmite votul
           description: Aici, aveţi opţiunea de a vota pentru ca acesta să fie numărat corespunzător sau, ca alternativă, puteţi verifica dacă voturile dumneavoastră au fost corect criptate. Din motive de securitate, auditarea buletinului de vot va duce la spargerea lui. Asta înseamnă că, pentru a-ți exprima votul, va trebui să repornești procesul de votare.
         confirm:
           answer: Răspuns
