@@ -36,6 +36,10 @@ en:
               cant_be_changed: can't be changed
             public_key:
               cant_be_changed: can't be changed
+        voting:
+          attributes:
+            voting_type:
+              inclusion: "%{value} is not a valid voting type"
   activerecord:
     errors:
       models:

@@ -19,8 +19,8 @@ Security/Open:
 Gemspec/RequireMFA:
   Enabled: false
 
-Rails/I18nLocaleTexts:
-  Enabled: false
+#Rails/I18nLocaleTexts:
+#  Enabled: false
 
 Naming/MemoizedInstanceVariableName:
   Enabled: false
