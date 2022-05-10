@@ -55,6 +55,8 @@ ja:
         other: 選挙
       decidim/elections/question:
         other: 質問
+      decidim/voting:
+        other: 投票
       decidim/votings/census/dataset:
         other: データセット
       decidim/votings/census/datum:
@@ -174,6 +176,11 @@ ja:
         exports:
           elections: 選挙
           feedback_form_answers: フィードバックフォームの回答
+        mailers:
+          trustee_mailer:
+            body: "<p>こんにちは %{user_name}、</p><p>あなたは %{resource_name} に受託者として追加されました。</p>"
+            subject: あなたは %{resource_name} に受託者として追加されました
+            trustee_zone: 私を受託者ゾーンに連れて行ってください
         menu:
           trustees: 受託者
         models:
@@ -1086,8 +1093,6 @@ ja:
           name: 注目の投票
         landing_page:
           description:
-            show_less: 詳細を閉じる
-            show_more: 続きを読む
             title: この投票について
           metrics:
             heading: メトリクス
