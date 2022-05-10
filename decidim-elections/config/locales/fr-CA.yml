@@ -599,7 +599,7 @@ fr-CA:
           audit: "(Auditer le bulletin de vote)"
           back: Recommencer le processus de vote
           ballot_hash: 'L''identifiant de votre bulletin est:'
-          cast: Valider votre vote
+          cast: Remplir le bulletin pour terminer votre vote
           description: Ici, vous pouvez valider votre vote de sorte qu'il soit correctement compté ou alternativement vous pouvez vérifier que votre bulletin a bien été chiffré. Pour des raisons de sécurité, l’audit de votre bulletin révélera son contenu. Si vous souhaitez valider votre vote, vous devrez donc recommencer le processus de vote.
           header: 'Le bulletin est chiffré: validez-le ou auditez-le'
         casting:
