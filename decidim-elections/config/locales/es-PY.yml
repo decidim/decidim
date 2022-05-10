@@ -992,14 +992,20 @@ es-PY:
             assign_missing_officers: Hay puntos de votación sin presidente y/o administradores. Asígnalos desde la sección de puntos de votación
             update: Actualizar
           form:
+            banner_image: Imagen de cabecera
+            census_contact_information: Datos de contacto del censo
             census_contact_information_help: Esta información de contacto es para una participante que quiere reportar problemas con el censo. Puede ser una dirección de correo electrónico, un formulario de contacto en otro sitio, una encuesta para visitantes, etc.
+            introductory_image: Imagen de presentación
+            promoted: Destacada
             select_a_voting_type: Por favor, selecciona un tipo de votación
+            slug: Nombre corto de URL
             slug_help: 'Los textos cortos de URL se utilizan para generar las URL que apuntan a esta votación. Sólo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
             title: Título
             voting_type:
               hybrid: Hibrida
               in_person: Presencial
               online: En línea
+            voting_type_label: Tipo de votación
           new:
             create: Crear
             title: Nueva votación
@@ -1295,6 +1301,7 @@ es-PY:
           day_placeholder: DD
           document_number: Número de documento
           document_number_placeholder: Número de ID
+          document_type: Tipo de documento
           month: Mes
           month_placeholder: MM
           postal_code: Código postal
