@@ -17,7 +17,7 @@ if $github_token.nil? || $version_number.nil? || $pull_request_id.nil? || $githu
 
     ## Example
 
-        bin/backporter <GITHUB PERSONAL ACCESS TOKEN> <VERSION NUMBER> <PULL REQUEST ID> 
+        bin/backporter <GITHUB PERSONAL ACCESS TOKEN> <VERSION NUMBER> <PULL REQUEST ID>
 
     ## Params
 
