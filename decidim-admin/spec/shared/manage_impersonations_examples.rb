@@ -274,6 +274,35 @@ shared_examples "manage impersonations examples" do
     end
   end
 
+  describe "verifications conflicts" do
+    context "when have verifications conflicts in current organization" do
+      let(:managed_user) { create(:user, :managed, organization: organization) }
+      let(:current_user) { create(:user, name: "Rigoberto", organization: organization) }
+      let!(:conflict) { create(:conflict, current_user: current_user, managed_user: managed_user) }
+
+      it "show only verifications of current organization" do
+        navigate_to_impersonations_page
+        click_link "Verification conflicts"
+
+        expect(page).to have_content("Rigoberto")
+      end
+    end
+
+    context "when have verifications conflicts in other organization" do
+      let(:other_organization) { create(:organization, available_authorizations: available_authorizations) }
+      let(:current_user) { create(:user, name: "Rigoberto", organization: other_organization) }
+      let(:managed_user) { create(:user, :managed, organization: other_organization) }
+      let!(:conflict) { create(:conflict, current_user: current_user, managed_user: managed_user) }
+
+      it "show only verifications of current organization" do
+        navigate_to_impersonations_page
+        click_link "Verification conflicts"
+
+        expect(page).not_to have_content("Rigoberto")
+      end
+    end
+  end
+
   private
 
   def fill_in_the_impersonation_form(document_number, name: nil, reason: nil)
