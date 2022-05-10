@@ -466,8 +466,6 @@ gl:
       content_blocks:
         landing_page:
           description:
-            show_less: Ler menos
-            show_more: Ler máis
             title: Sobre esta votación
           metrics:
             heading: Métricas
