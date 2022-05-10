@@ -381,6 +381,7 @@ hu:
             accepted: Elfogadva
             answer_proposal: Válasz
             evaluating: Értékelés
+            not_answered: Megválaszolatlan
             rejected: Elutasítva
             title: Válasz a(z) %{title} javaslatra
         proposal_notes:
