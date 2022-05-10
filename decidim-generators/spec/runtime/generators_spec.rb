@@ -125,7 +125,7 @@ module Decidim
     private
 
     def repo_root
-      File.expand_path(File.join("..", ".."), __dir__)
+      File.expand_path(File.join("..", "..", ".."), __dir__)
     end
 
     def json_secrets_for(path, env)
