@@ -58,6 +58,9 @@ fi-pl:
       decidim/elections/question:
         one: Kysymys
         other: Kysymykset
+      decidim/voting:
+        one: Äänestys
+        other: Äänestystä
       decidim/votings/census/dataset:
         one: Tietoaineisto
         other: Tietoaineistot
@@ -182,6 +185,11 @@ fi-pl:
         exports:
           elections: Vaalit
           feedback_form_answers: Palautelomakkeen vastaukset
+        mailers:
+          trustee_mailer:
+            body: "<p>Hei %{user_name},</p><p>Sinut on lisätty luottamushenkilöksi kohteeseen %{resource_name}.</p>"
+            subject: Sinut on lisätty luottamushenkilöksi kohteeseen %{resource_name}
+            trustee_zone: Siirry luottamusmiesten osioon
         menu:
           trustees: Luottamushenkilöt
         models:
@@ -1095,8 +1103,6 @@ fi-pl:
           name: Korostetut äänestykset
         landing_page:
           description:
-            show_less: Näytä vähemmän
-            show_more: Lue lisää
             title: Tietoa tästä äänestyksestä
           metrics:
             heading: Tilastomittarit
