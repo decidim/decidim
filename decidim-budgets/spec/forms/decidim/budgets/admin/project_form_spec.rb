@@ -55,9 +55,9 @@ module Decidim::Budgets
       context "when the address is not present" do
         it "does not store the coordinates" do
           expect(subject).to be_valid
-          expect(subject.address).to be(nil)
-          expect(subject.latitude).to be(nil)
-          expect(subject.longitude).to be(nil)
+          expect(subject.address).to be_nil
+          expect(subject.latitude).to be_nil
+          expect(subject.longitude).to be_nil
         end
       end
 
