@@ -1086,6 +1086,8 @@ fi-pl:
         translated_text: 'Automaattisesti käännetty teksti:'
     notifications:
       no_notifications: Ei vielä ilmoituksia.
+      show:
+        missing_event: Hups, tämä ilmoitus kuuluu kohteeseen, joka ei ole enää käytettävissä. Voit merkitä sen luetuksi.
     notifications_settings:
       show:
         administrators: Hallintakäyttäjät
