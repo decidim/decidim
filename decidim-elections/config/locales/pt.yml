@@ -1268,9 +1268,6 @@ pt:
         check_census:
           check_status: Verificar estado
           description: Aqui tem a opção de verificar os dados do seu recenseamento para saber se tem o direito a participar nesta votação. Deve ter já um código de acesso mas se o perdeu pode pedi-lo de novo se os seus dados estiverem correctos.
-          error:
-            info: 'Por favor tente de novo. Se acha que os dados do sistema estão incorrectos pode denunciá-lo aqui: %{census_contact_information}.'
-            title: Os seus dados de recenseamento estão incorrectos!
           form_title: 'Preencha o formulário seguinte para verificar os seus dados de recenseamento:'
           invalid: Ocorreu um problema ao verificar o recenseamento.
           success:
