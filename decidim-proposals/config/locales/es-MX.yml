@@ -455,6 +455,7 @@ es-MX:
             accepted: Aceptadas
             answer_proposal: Respuesta
             evaluating: En evaluación
+            not_answered: No contestada
             rejected: Rechazada
             title: Responder a la propuesta %{title}
         proposal_notes:
