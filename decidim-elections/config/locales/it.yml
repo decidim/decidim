@@ -1083,8 +1083,6 @@ it:
           name: Votazioni evidenziate
         landing_page:
           description:
-            show_less: Mostra meno
-            show_more: Continua a leggere
             title: Informazioni su questa votazione
           metrics:
             heading: Statistiche
