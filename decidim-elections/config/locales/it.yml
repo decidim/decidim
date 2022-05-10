@@ -1263,9 +1263,6 @@ it:
         check_census:
           check_status: Verifica stato
           description: Qui, hai la possibilità di controllare i tuoi dati di censimento per sapere se hai il diritto di partecipare a questa votazione. Dovresti avere già un codice di accesso, ma se lo hai perso, puoi chiederlo di nuovo, quando i tuoi dati sono corretti.
-          error:
-            info: 'Per favore riprova. Se pensi che i dati nel sistema non siano corretti, puoi segnalarli qui: %{census_contact_information}.'
-            title: I dati del censimento non sono corretti!
           form_title: 'Compila il seguente modulo per controllare i dati del censimento:'
           invalid: Si è verificato un errore nel controllare il censimento.
           success:
