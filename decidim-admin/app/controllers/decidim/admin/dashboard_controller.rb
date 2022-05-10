@@ -38,7 +38,7 @@ module Decidim
         last_month = Time.zone.today.prev_month
 
         {
-          total_admins_last_24: users_count(last_day, true),
+          total_admins_last_day: users_count(last_day, true),
           total_admins_last_week: users_count(last_week, true),
           total_admins_last_month: users_count(last_month, true),
           total_participants_last_24: users_count(last_day, false),
