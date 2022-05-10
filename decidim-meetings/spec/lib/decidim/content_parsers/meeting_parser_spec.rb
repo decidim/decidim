@@ -14,7 +14,7 @@ module Decidim
         let(:content) { "" }
 
         it "must call MeetingParser.parse" do
-          expect(described_class).to receive(:new).with(content, context).and_return(parser)
+          allow(described_class).to receive(:new).with(content, context).and_return(parser)
 
           result = Decidim::ContentProcessor.parse(content, context)
 
