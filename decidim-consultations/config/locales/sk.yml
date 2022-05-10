@@ -379,7 +379,6 @@ sk:
         start_voting_date: Hlasovanie začína
       question_components:
         question_menu_item: Otázka
-        unfold: Rozbaliť
       question_header:
         back_to_consultation: Zobraziť všetky konzultácie
         back_to_question: Späť na otázku
