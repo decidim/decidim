@@ -30,7 +30,7 @@ ca:
           step:
             allow_answers: Permetre respostes
             allow_unregistered: Permet a usuàries no registrades contestar l'enquesta
-            allow_unregistered_help: Si s'activa, no caldrà iniciar sessió per a contestar l'enquesta. Això pot comportar que les dades siguin poc fiables i serà més vulnerable a atacs automatitzats. Feu-ho servir amb cura!
+            allow_unregistered_help: Si està activat, no serà necessari iniciar sessió per a respondre l'enquesta. Això pot implicar una recollida de dades pobra o poc fiable i serà més vulnerable a atacs automatitzats. Fes-ho servir amb precaució! És important que una participant pugui respondre a la mateixa enquesta diverses vegades, fent servir diferents navegador o la funció de "navegació privada" del seu navegadro web.
             announcement: Avís
     events:
       surveys:
