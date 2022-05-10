@@ -238,8 +238,6 @@ fi:
             edit: Muokkaa
             new: Uusi
             photos: Kuvat
-          show:
-            print: Tulosta
           update:
             error: Tapahtui virhe
             success: Aloitteen päivitys onnistui
@@ -507,6 +505,7 @@ fi:
             title: 'Otsikko:'
             type: Aloitteen tyyppi
           legal_text: Kerätyt henkilötiedot liitetään aloitteeseesi ja käsitellään luottamuksellisesti ajantasaisen lainsäädännön mukaisesti.
+          members_header: Aloitteen kannatuskomitean jäsenet
           phone_number: Puhelinnumero
           place_date: Paikka, Päivämäärä
           postal_code: Postinumero
