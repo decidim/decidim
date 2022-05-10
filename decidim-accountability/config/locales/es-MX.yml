@@ -21,6 +21,7 @@ es-MX:
       timeline_entry:
         description: Descripción
         entry_date: Fecha
+        title: Título
     models:
       decidim/accountability/proposal_linked_event: Propuesta incluida en un resultado
       decidim/accountability/result_progress_updated_event: Progreso del resultado actualizado
@@ -159,6 +160,7 @@ es-MX:
         timeline_entry:
           fields:
             entry_date: Fecha
+            title: Título
       result_m:
         executed: Ejecutado
         view: Ver
