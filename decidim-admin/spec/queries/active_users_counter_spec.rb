@@ -63,7 +63,7 @@ module Decidim::Admin
             total_admins_last_day: described_class.new(**parameters_last_day_admin).query.count,
             total_admins_last_week: described_class.new(**parameters_last_week_admin).query.count,
             total_admins_last_month: described_class.new(**parameters_last_month_admin).query.count,
-            total_participants_last_24: described_class.new(**parameters_last_day_participants).query.count,
+            total_participants_last_day: described_class.new(**parameters_last_day_participants).query.count,
             total_participants_last_week: described_class.new(**parameters_last_week_participants).query.count,
             total_participants_last_month: described_class.new(**parameters_last_month_participants).query.count
           }
@@ -86,7 +86,7 @@ module Decidim::Admin
         end
 
         it "counts total participants logged last 24 hours - 7" do
-          expect(result[:total_participants_last_24]).to eq(7)
+          expect(result[:total_participants_last_day]).to eq(7)
         end
 
         it "counts total participants logged last week - 12" do
