@@ -127,6 +127,16 @@ fi-pl:
       download_your_data_export:
         file_no_exists: Tiedostoa ei ole olemassa
         notice: Tietojen vienti on käynnissä. Saat sähköpostiviestin, kun se valmistuu.
+      email_change:
+        body1: Olemme lähettäneet viestin osoitteeseen %{unconfirmed_email} vahvistaaksemme uuden sähköpostiosoitteesi.
+        body2: Haluatko tilata vahvistussähköpostin uudestaan? %{resend_link} tai %{cancel_link}.
+        cancel: peruuta
+        cancel_error: Sähköpostin muutosta ei voitu peruuttaa.
+        cancel_successfully: Sähköpostin muuttamisen peruuttaminen onnistui.
+        resend_error: Vahvistussähköpostia ei voitu lähettää uudestaan.
+        resend_successfully: Vahvistussähköpostin lähetys osoitteeseen %{unconfirmed_email} onnistui
+        send_again: Lähetä uudestaan
+        title: Sähköpostin muuttamisen vahvistus
       show:
         available_locales_helper: Valitse haluamasi kieli alustan käyttämiseen ja ilmoitusten vastaanottamiseen
         change_password: Vaihda salasana
@@ -681,6 +691,8 @@ fi-pl:
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet palvelun hallintakäyttäjä.
           email_subject: Ryhmä on päivittänyt profiiliaan
           notification_title: Ryhmä nimeltä %{user_group_name} on päivittänyt profiiliaan, jättäen ryhmän varmentamattomaksi. Voit varmentaa ryhmän <a href="%{groups_admin_path}">hallintapaneelin kautta</a>.
+      nickname_event:
+        notification_body: Olemme muuttaneet nimimerkkien sääntöjä varmistaaksemme, että alustalla ei ole useampaa tiliä samalla nimimerkillä eri tavalla kirjoitettuna. <br/> Tilisi on luotu toisen samaa nimimerkkiä käyttäneen henkilön jälkeen, joten olemme vaihtaneet nimimerkkiäsi automaattisesti. Halutessasi voit vaihtaa nimimerkkiäsi <a href="%{link_to_account_settings}">tilisi asetuksista</a>.
       notification_event:
         notification_title: Kohteelle <a href="%{resource_path}">%{resource_title}</a> järjestettiin tapahtuma.
       reports:
@@ -1188,6 +1200,7 @@ fi-pl:
           agreement: Hyväksyn nämä ehdot
           legend: Hyväksy käyttöehdot
         refuse:
+          modal_body: Jos kieltäydyt hyväksymästä ehtoja, et voi käyttää palvelua. Voit <a href="%{download_your_data_path}">ladata omat tietosi</a> ja/tai <a href="%{delete_path}">poistaa tilisi</a>.
           modal_btn_continue: Hyväksy ehdot ja jatka
           modal_btn_exit: Tarkastan ne myöhemmin
           modal_button: Kieltäydy hyväksymästä ehtoja
@@ -1493,6 +1506,7 @@ fi-pl:
     invitations:
       edit:
         header: Viimeistele tilisi
+        nickname_help: Nimimerkkisi palvelussa %{organization}. Voi sisältää ainoastaan kirjaimia, numeroita sekä yhdysmerkkejä "-" ja alaviivoja "_".
         submit_button: Tallenna
         subtitle: Jos hyväksyt kutsun, aseta käyttäjänimesi ja salasana.
       invitation_removed: Kutsusi peruutettiin.
