@@ -455,6 +455,7 @@ ca:
             accepted: Acceptades
             answer_proposal: Resposta
             evaluating: En avaluació
+            not_answered: No resposta
             rejected: Rebutjada
             title: Respondre a la proposta %{title}
         proposal_notes:
