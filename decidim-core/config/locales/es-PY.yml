@@ -127,6 +127,16 @@ es-PY:
       download_your_data_export:
         file_no_exists: El archivo no existe
         notice: Tus datos están actualmente en progreso. Recibirás un correo electrónico cuando se complete.
+      email_change:
+        body1: Hemos enviado un correo electrónico a %{unconfirmed_email} para verificar tu nueva dirección de correo electrónico.
+        body2: '¿Necesitas que te reenviemos el correo de verificación? %{resend_link} o %{cancel_link}.'
+        cancel: Cancelar
+        cancel_error: No se ha podido cancelar el cambio de Correo electrónico.
+        cancel_successfully: Cambio de correo electrónico cancelado con éxito.
+        resend_error: No se ha podido reenviar el correo de confirmación.
+        resend_successfully: Correo de confirmación reenviado correctamente a %{unconfirmed_email}
+        send_again: Volver a enviar
+        title: Verificación del cambio de correo electrónico
       show:
         available_locales_helper: Elige el idioma que deseas utilizar para navegar y recibir notificaciones en la plataforma
         change_password: Cambia la contraseña
@@ -681,6 +691,8 @@ es-PY:
           email_outro: Has recibido esta notificación porque eres una de las administradoras de la plataforma.
           email_subject: Un grupo de usuarias ha actualizado su perfil
           notification_title: El grupo de usuarias %{user_group_name} ha actualizado su perfil perdiendo la verificación. Puedes volver a verificarlo a través del <a href="%{groups_admin_path}">panel de administración</a>.
+      nickname_event:
+        notification_body: Hemos corregido la forma en que se utilizan los alias para que no haya duplicados, para hacerlo ya no se distingue entre mayúsculas y minúsculas. <br/> Tu alias fue creado después de otro igual, así que lo hemos renombrado automáticamente. Puedes modificarlo desde la <a href="%{link_to_account_settings}">configuración de tu cuenta</a>.
       notification_event:
         notification_title: Un evento ha ocurrido en <a href="%{resource_path}">%{resource_title}</a>.
       reports:
@@ -759,6 +771,11 @@ es-PY:
         file:
           explanation: 'Instrucciones para el archivo:'
           message_1: Tiene que ser una imagen o un documento.
+          message_2: Para las imágenes, utilizar imágenes apaisadas preferiblemente, el servicio recorta la imagen.
+        icon:
+          explanation: 'Instrucciones para el icono:'
+          message_1: Tiene que ser una imagen cuadrada.
+          message_2: El tamaño recomendado para esta imagen es 512x512.
         image:
           explanation: 'Instrucciones para la imagen:'
           message_1: Preferiblemente una imagen de paisaje que no tenga ningún texto.
@@ -1184,6 +1201,7 @@ es-PY:
           agreement: Estoy de acuerdo con estos términos
           legend: Aceptar los Términos y Condiciones de uso
         refuse:
+          modal_body: Si no aceptas, no podrás utilizar la plataforma, puedes <a href="%{download_your_data_path}">descargar tus datos</a> y/o <a href="%{delete_path}">eliminar tu cuenta</a>.
           modal_btn_continue: Aceptar los términos y continuar
           modal_btn_exit: Lo revisaré más tarde
           modal_button: Rechazar los términos
@@ -1489,6 +1507,7 @@ es-PY:
     invitations:
       edit:
         header: Termina de crear tu cuenta
+        nickname_help: Tu alias en %{organization}. Solo puede contener letras, números, '-' y '_'.
         submit_button: Guardar
         subtitle: Si aceptas la invitación, por favor establece tu nombre de usuario/a y contraseña.
       invitation_removed: Tu invitación fue eliminada.
