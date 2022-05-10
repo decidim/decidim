@@ -56,7 +56,7 @@ module Decidim
             enforce_permission_to :update, :attachment, attachment: attachment
             @form = form(::Decidim::Admin::AttachmentForm).from_params(attachment_params, attached_to: attached_to)
 
-            UpdateAttachment.call(@attachment, @form) do
+            UpdateAttachment.call(@attachment, @form, current_user) do
               on(:ok) do
                 flash[:notice] = I18n.t("attachments.update.success", scope: "decidim.admin")
                 redirect_to action: :index
