@@ -1071,6 +1071,8 @@ ja:
         translated_text: '自動翻訳されたテキスト:'
     notifications:
       no_notifications: まだ通知はありません。
+      show:
+        missing_event: この通知は利用できなくなった要素に属しています。破棄してください。
     notifications_settings:
       show:
         administrators: 管理者
