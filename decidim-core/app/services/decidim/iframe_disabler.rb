@@ -28,7 +28,8 @@ module Decidim
     def disable_iframes(node)
       if node.name == "iframe"
         node.name = "div"
-        node.attributes["class"].value = "disabled-iframe #{node.attributes["class"].value}"
+        old_classes = node.attributes["class"].value
+        node.attributes["class"].value = old_classes.present? ? "#{old_classes} disabled-iframe" : "disabled-iframe"
       end
 
       node.children.each do |child|

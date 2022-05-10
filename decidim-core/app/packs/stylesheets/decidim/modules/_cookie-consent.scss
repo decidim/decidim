@@ -81,12 +81,29 @@
   }
 }
 
+.disabled-iframe{
+  background-color: $light-gray;
+  border: 1px solid $medium-gray;
+  cursor: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  &.ql-video{
+    display: flex;
+  }
+}
+
 .cookie-warning{
   display: flex;
   flex-direction: column;
   align-items: center;
   font-size: 2rem;
   font-weight: $global-weight-bold;
-  padding: 1rem;
-  margin: 1rem;
+  padding: 2rem;
+
+  a{
+    margin: 2rem 0;
+  }
 }
