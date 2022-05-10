@@ -353,7 +353,6 @@ zh-CN:
         start_voting_date: 投票开始
       question_components:
         question_menu_item: 问题
-        unfold: 展开...
       question_header:
         back_to_consultation: 查看所有协商
         back_to_question: 回到问题
