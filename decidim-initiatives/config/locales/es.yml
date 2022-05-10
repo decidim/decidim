@@ -238,8 +238,6 @@ es:
             edit: Editar
             new: Nueva
             photos: Fotos
-          show:
-            print: Imprimir
           update:
             error: Se ha producido un error
             success: La iniciativa ciudadana se ha actualizado correctamente
@@ -507,6 +505,7 @@ es:
             title: 'Título:'
             type: Tipo de iniciativa
           legal_text: Los datos personales recogidos serán incorporados y tratados confidencialmente por la organización, de acuerdo con la legislación vigente.
+          members_header: Miembros del comité promotor de la iniciativa
           phone_number: Número de teléfono
           place_date: Lugar, fecha
           postal_code: Código postal
