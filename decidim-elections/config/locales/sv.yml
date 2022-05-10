@@ -566,9 +566,6 @@ sv:
             download: Ladda ner
       content_blocks:
         landing_page:
-          description:
-            show_less: Läs mindre
-            show_more: Läs mer
           metrics:
             heading: Metrik
           polling_stations:
