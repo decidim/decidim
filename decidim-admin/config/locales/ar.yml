@@ -36,6 +36,7 @@ ar:
         alert_color: تنبيه
         available_authorizations: التراخيص المتاحة
         badges_enabled: تمكين الشارات
+        comments_max_length: الحد الأقصى لطول التعليقات (اترك 0 لاستعمال للقيمة الافتراضية)
         cta_button_path: دعوة إلى العمل مسار زر
         cta_button_text: نص زر Call To Action
         customize_welcome_notification: تخصيص إشعار الترحيب
