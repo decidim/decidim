@@ -16,6 +16,7 @@ require "rails"
   action_view/railtie
   action_mailer/railtie
   active_job/railtie
+  sprockets/railtie
 ).each do |railtie|
   require railtie
 end

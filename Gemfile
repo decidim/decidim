@@ -11,6 +11,8 @@ gem "decidim-consultations", path: "."
 gem "decidim-initiatives", path: "."
 gem "decidim-templates", path: "."
 
+gem "sprockets-rails", ">= 2.0.0"
+
 gem "bootsnap", "~> 1.4"
 
 gem "puma", ">= 5.6.2"
