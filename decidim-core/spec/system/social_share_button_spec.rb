@@ -6,6 +6,7 @@ describe "Social share button", type: :system do
   let!(:resource) { create(:dummy_resource) }
   let(:resource_path) { Decidim::ResourceLocatorPresenter.new(resource).path }
   let(:web_driver) { :headless_chrome }
+  let(:organization) { resource.organization }
 
   before do
     driven_by(web_driver)
