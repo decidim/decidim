@@ -52,7 +52,7 @@ describe "Static pages", type: :system do
 
       context "with cookies rejected" do
         before do
-          click_link "Cookie settings"
+          click_link "Change cookie settings"
           click_button "Essential only"
         end
 
@@ -65,7 +65,7 @@ describe "Static pages", type: :system do
 
       context "with cookies accepted" do
         before do
-          click_link "Cookie settings"
+          click_link "Change cookie settings"
           click_button "Accept all"
         end
 

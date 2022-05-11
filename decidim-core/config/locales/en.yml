@@ -1711,7 +1711,7 @@ en:
           toggle: Toggle %{cookie_category}
         warning:
           all_cookies: all cookies
-          cookie_settings: Cookie settings
+          change_cookie_settings: Change cookie settings
           need_cookies: You need to enable %{cookies} in order to see this content.
       edit_link:
         edit: Edit

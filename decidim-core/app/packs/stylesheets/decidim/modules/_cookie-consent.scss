@@ -1,5 +1,6 @@
 #cc-dialog-wrapper{
-  position: fixed;
+  display: flex;
+  justify-content: center;
   z-index: 1000000;
 
   .cc-dialog{
@@ -11,9 +12,11 @@
     width: 100%;
     bottom: 0;
     border: 1px solid #e8e8e8;
+    flex-direction: column;
 
-    @include breakpoint(medium down){
-      flex-direction: column;
+    @include breakpoint(mediumlarge){
+      flex-direction: row;
+      width: 90%;
     }
 
     .cc-content{
@@ -23,11 +26,24 @@
     .cc-button-wrapper{
       display: flex;
       flex: 2 1 0;
-      justify-content: space-evenly;
+      justify-content: flex-end;
       align-items: center;
+      flex-direction: column;
+      margin: 1rem 0;
 
-      *{
-        margin: 0 1rem;
+      > *{
+        width: 100%;
+        margin: .5rem 0;
+      }
+
+      @include breakpoint(mediumlarge){
+        flex-direction: row;
+        margin: 0;
+
+        > *{
+          width: unset;
+          margin: 0 1rem;
+        }
       }
     }
   }

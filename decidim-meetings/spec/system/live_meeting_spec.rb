@@ -52,7 +52,7 @@ describe "Meeting live event", type: :system do
 
     it "can enable all cookies" do
       visit meeting_live_event_path
-      click_link "Cookie settings"
+      click_link "Change cookie settings"
       click_button "Accept all"
       expect(page).to have_selector("iframe")
     end

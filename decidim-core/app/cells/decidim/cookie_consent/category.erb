@@ -25,38 +25,40 @@
       <p><%= category[:description] %></p>
     </div>
 
-    <div class="cookie-details-wrapper">
-      <div class="row detail-titles">
-        <div class="columns small-2">
-          <%= t("layouts.decidim.cookie_consent.cookie_details.columns.type") %>
+    <% if category[:cookies].present? %>
+      <div class="cookie-details-wrapper">
+        <div class="row detail-titles">
+          <div class="columns small-2">
+            <%= t("layouts.decidim.cookie_consent.cookie_details.columns.type") %>
+          </div>
+          <div class="columns small-2">
+            <%= t("layouts.decidim.cookie_consent.cookie_details.columns.name") %>
+          </div>
+          <div class="columns small-2">
+            <%= t("layouts.decidim.cookie_consent.cookie_details.columns.service") %>
+          </div>
+          <div class="columns small-6">
+            <%= t("layouts.decidim.cookie_consent.cookie_details.columns.description") %>
+          </div>
         </div>
-        <div class="columns small-2">
-          <%= t("layouts.decidim.cookie_consent.cookie_details.columns.name") %>
-        </div>
-        <div class="columns small-2">
-          <%= t("layouts.decidim.cookie_consent.cookie_details.columns.service") %>
-        </div>
-        <div class="columns small-6">
-          <%= t("layouts.decidim.cookie_consent.cookie_details.columns.description") %>
-        </div>
-      </div>
 
-      <% category[:cookies].each do |cookie| %>
-      <div class="row cookie-detail-row">
-        <div class="columns small-2">
-          <%= t("layouts.decidim.cookie_consent.cookie_details.types.#{cookie[:type]}") %>
-        </div>
-        <div class="columns small-2">
-          <%= cookie[:name] %>
-        </div>
-        <div class="columns small-2">
-          <%= t("layouts.decidim.cookie_consent.cookie_details.cookies.#{cookie[:name]}.service") %>
-        </div>
-        <div class="columns small-6">
-          <%= t("layouts.decidim.cookie_consent.cookie_details.cookies.#{cookie[:name]}.description") %>
-        </div>
+        <% category[:cookies].each do |cookie| %>
+          <div class="row cookie-detail-row">
+            <div class="columns small-2">
+              <%= t("layouts.decidim.cookie_consent.cookie_details.types.#{cookie[:type]}") %>
+            </div>
+            <div class="columns small-2">
+              <%= cookie[:name] %>
+            </div>
+            <div class="columns small-2">
+              <%= t("layouts.decidim.cookie_consent.cookie_details.cookies.#{cookie[:name]}.service") %>
+            </div>
+            <div class="columns small-6">
+              <%= t("layouts.decidim.cookie_consent.cookie_details.cookies.#{cookie[:name]}.description") %>
+            </div>
+          </div>
+        <% end %>
       </div>
-      <% end %>
-    </div>
+    <% end %>
   </div>
 </div>
