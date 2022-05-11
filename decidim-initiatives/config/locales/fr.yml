@@ -505,6 +505,7 @@ fr:
             title: 'Titre :'
             type: Type de pétition
           legal_text: Les données personnelles recueillies seront incorporées et traitées de façon confidentielle par l'organisation, conformément à la législation en vigueur.
+          members_header: Membres du comité promoteur de l'initiative
           phone_number: Numéro de téléphone
           place_date: Lieu, Date
           postal_code: Code Postal/ZIP
