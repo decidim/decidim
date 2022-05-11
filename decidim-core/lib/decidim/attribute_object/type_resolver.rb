@@ -27,9 +27,7 @@ module Decidim
       end
 
       def exists?(type)
-        # This needs to be changed after upgrade to Rails 7.0 as follows:
-        # ActiveModel::Type.registry.send(:registrations).has_key?(type)
-        ActiveModel::Type.registry.send(:registrations).any? { |t| t.send(:name) == type }
+        ActiveModel::Type.registry.send(:registrations).has_key?(type)
       end
 
       private

@@ -27,10 +27,6 @@ module Decidim
     ActiveModel::Type.register(:"decidim/attributes/localized_date", Decidim::Attributes::LocalizedDate)
     ActiveModel::Type.register(:"decidim/attributes/clean_string", Decidim::Attributes::CleanString)
 
-    # Overrides
-    # The overrides deletion can be omitted after upgrade to Rails 7.0 (delete this after upgrade)
-    ActiveModel::Type.registry.send(:registrations).delete_if { |r| r.send(:name) == :integer }
-
     ActiveModel::Type.register(:integer, Decidim::Attributes::Integer)
   end
 end
