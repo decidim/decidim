@@ -766,6 +766,11 @@ fr:
         file:
           explanation: 'Orientation pour le fichier :'
           message_1: Doit être une image ou un document.
+          message_2: Pour les images, utilisez de préférence des images en format paysage, le service rogne l'image.
+        icon:
+          explanation: 'Manuel pour l''image:'
+          message_1: Doit être une image carrée.
+          message_2: La taille recommandée pour cette image est de 512x512.
         image:
           explanation: 'Orientation pour l''image:'
           message_1: De préférence une image au format paysage qui n'a pas de texte.
