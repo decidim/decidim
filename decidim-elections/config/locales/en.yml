@@ -59,6 +59,9 @@ en:
       decidim/elections/question:
         one: Question
         other: Questions
+      decidim/voting:
+        one: Voting
+        other: Votings
       decidim/votings/census/dataset:
         one: Dataset
         other: Datasets
@@ -183,6 +186,11 @@ en:
         exports:
           elections: Elections
           feedback_form_answers: Feedback form answers
+        mailers:
+          trustee_mailer:
+            body: "<p>Hi %{user_name},</p><p>You've been added as a trustee to %{resource_name}.</p>"
+            subject: You've been added as a trustee to %{resource_name}
+            trustee_zone: Take me to the trustee zone
         menu:
           trustees: Trustees
         models:
@@ -600,7 +608,7 @@ en:
           audit: "( Audit ballot )"
           back: Start voting process again
           ballot_hash: 'Your ballot identifier is:'
-          cast: Cast ballot
+          cast: Cast ballot to finish your vote
           description: Here, you have the options to cast your ballot so that it's properly counted or, alternatively, you can audit that your ballot was correctly encrypted. For security reasons, auditing your ballot will spoil it. That means, to cast your vote, you will need to restart the voting process.
           header: 'Ballot is encrypted: cast it or audit it'
         casting:
@@ -1096,8 +1104,6 @@ en:
           name: Highlighted votings
         landing_page:
           description:
-            show_less: Read less
-            show_more: Read more
             title: About this voting
           metrics:
             heading: Metrics
@@ -1276,8 +1282,8 @@ en:
           check_status: Check status
           description: Here, you have the option to check your census data to know if you have the right to participate in this voting. You should have an access code already but if you lost it, you can ask for it again, when your data is correct.
           error:
-            info: 'Please try again. If you think the data in the system is incorrect, you can report it here: %{census_contact_information}.'
-            title: Your census data is incorrect!
+            info: 'Please try again. If you think the data in the system is incorrect, you can report it here: %{census_contact_information}'
+            title: The data you have entered are not in the census for this vote
           form_title: 'Fill the following form to check your census data:'
           invalid: There was a problem checking the census.
           success:
