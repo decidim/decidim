@@ -7,7 +7,7 @@ describe Decidim::Meetings::DiffRenderer, versioning: true do
   let!(:old_values) { meeting.attributes }
   let(:version) { meeting.versions.last }
 
-  let!(:start_time) { Time.zone.now - 1.day }
+  let!(:start_time) { 1.day.ago }
   let!(:end_time) { Time.zone.now }
   let!(:user_group) { create :user_group, organization: meeting.organization }
   let!(:scope) { create(:scope, organization: meeting.organization) }

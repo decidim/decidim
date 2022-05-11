@@ -20,7 +20,7 @@ describe "Admin filters assemblies private space users", type: :system do
   let(:resource_controller) { Decidim::Assemblies::Admin::ParticipatorySpacePrivateUsersController }
 
   before do
-    invited_user_1.update!(invitation_sent_at: Time.current - 1.day, invitation_accepted_at: Time.current)
+    invited_user_1.update!(invitation_sent_at: 1.day.ago, invitation_accepted_at: Time.current)
 
     switch_to_host(organization.host)
     login_as user, scope: :user
