@@ -50,7 +50,7 @@ describe "Cookies", type: :system do
       end
       click_button "Save settings"
 
-      within ".mini-footer" do
+      within ".footer" do
         click_link "Cookie settings"
       end
 

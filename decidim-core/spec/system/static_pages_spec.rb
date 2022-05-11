@@ -50,9 +50,9 @@ describe "Static pages", type: :system do
         visit decidim.pages_path
       end
 
-      context "with cookies rejected" do
+      context "when cookies are rejected" do
         before do
-          click_link "Change cookie settings"
+          click_link "Cookie settings"
           click_button "Essential only"
         end
 
@@ -63,9 +63,9 @@ describe "Static pages", type: :system do
         end
       end
 
-      context "with cookies accepted" do
+      context "when cookies are accepted" do
         before do
-          click_link "Change cookie settings"
+          click_link "Cookie settings"
           click_button "Accept all"
         end
 
