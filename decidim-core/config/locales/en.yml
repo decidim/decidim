@@ -1674,10 +1674,10 @@ en:
       cookie_consent:
         cookie_details:
           columns:
-            type: Type
+            description: Description
             name: Name
             service: Service
-            description: Description
+            type: Type
           cookies:
             decidim-cookie:
               description: Stores information about the cookies allowed by the user on this website.
