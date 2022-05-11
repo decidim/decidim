@@ -35,6 +35,10 @@ fr-CA:
               cant_be_changed: ne peut pas être modifié
             public_key:
               cant_be_changed: ne peut être modifiée
+        voting:
+          attributes:
+            voting_type:
+              inclusion: "%{value} n'est pas un type de vote valide"
   activerecord:
     errors:
       models:
@@ -185,6 +189,11 @@ fr-CA:
         exports:
           elections: Élections
           feedback_form_answers: Feedbacks des répondants
+        mailers:
+          trustee_mailer:
+            body: "<p>Bonjour %{user_name},</p><p>Vous avez été ajouté en tant que garant à %{resource_name}.</p>"
+            subject: Vous avez été ajouté en tant que garant à %{resource_name}
+            trustee_zone: Emmenez-moi dans la zone des garants
         menu:
           trustees: Garants
         models:
@@ -987,14 +996,20 @@ fr-CA:
             assign_missing_officers: Il reste des bureaux de votes sans président et/ou accesseurs. Veuillez lier ces derniers à partir de la section Bureaux de votes
             update: Mettre à jour
           form:
+            banner_image: Image de la bannière
+            census_contact_information: Coordonnées du recensement
             census_contact_information_help: Cette information de contact est destinée à un participant qui veut signaler des problèmes avec le recensement. Il peut s'agir d'une adresse e-mail, d'un formulaire de contact sur un autre site, d'une enquête pour les visiteurs, etc.
+            introductory_image: Image d'introduction
+            promoted: Promu
             select_a_voting_type: Veuillez sélectionner un type de vote
+            slug: Slug
             slug_help: 'Les identifiants d''URL sont utilisés pour générer les URL qui renvoient vers cette élection. Ils ne contiennent que des lettres, des chiffres et des tirets et doivent commencer par une lettre. Exemple : %{url}'
             title: Titre
             voting_type:
               hybrid: Hybride
               in_person: En présentiel
               online: En ligne
+            voting_type_label: Type de vote
           new:
             create: Créer
             title: Nouvelle élection
@@ -1290,6 +1305,7 @@ fr-CA:
           day_placeholder: JJ
           document_number: Numéro de document
           document_number_placeholder: Numéro de carte d'identité
+          document_type: Type de document
           month: Mois
           month_placeholder: MM
           postal_code: Code postal
