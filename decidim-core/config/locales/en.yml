@@ -1672,6 +1672,18 @@ en:
   layouts:
     decidim:
       cookie_consent:
+        cookie_details:
+          columns:
+            type: Type
+            name: Name
+            service: Service
+            description: Description
+          cookies:
+            decidim-cookie:
+              description: Stores information about the cookies allowed by the user on this website.
+              service: This website
+          types:
+            cookie: Cookie
         dialog:
           accept_all: Accept all
           cookie_settings: Settings

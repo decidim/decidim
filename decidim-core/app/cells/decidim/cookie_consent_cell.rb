@@ -7,29 +7,15 @@ module Decidim
     end
 
     def categories
-      [
+      @categories ||= Decidim.cookie_categories.map do |category|
         {
-          id: "essential",
-          title: t("layouts.decidim.cookie_consent.modal.essential.title"),
-          description: t("layouts.decidim.cookie_consent.modal.essential.description"),
-          mandatory: true
-        },
-        {
-          id: "preferences",
-          title: t("layouts.decidim.cookie_consent.modal.preferences.title"),
-          description: t("layouts.decidim.cookie_consent.modal.preferences.description")
-        },
-        {
-          id: "analytics",
-          title: t("layouts.decidim.cookie_consent.modal.analytics.title"),
-          description: t("layouts.decidim.cookie_consent.modal.analytics.description")
-        },
-        {
-          id: "marketing",
-          title: t("layouts.decidim.cookie_consent.modal.marketing.title"),
-          description: t("layouts.decidim.cookie_consent.modal.marketing.description")
+          slug: category[:slug],
+          title: t("layouts.decidim.cookie_consent.modal.#{category[:slug]}.title"),
+          description: t("layouts.decidim.cookie_consent.modal.#{category[:slug]}.description"),
+          mandatory: category[:mandatory],
+          cookies: category.has_key?(:cookies) ? category[:cookies] : []
         }
-      ]
+      end
     end
   end
 end

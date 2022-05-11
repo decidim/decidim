@@ -399,6 +399,38 @@ module Decidim
     "decidim-cookie"
   end
 
+  # Defines cookie categories. Note that when adding a cookie you need to
+  # add following i18n entries also (change 'foo' with the name of the cookie).
+  #
+  # layouts.decidim.cookie_consent.cookie_details.cookies.foo.service
+  # layouts.decidim.cookie_consent.cookie_details.cookies.foo.description
+  config_accessor :cookie_categories do
+    [
+      {
+        slug: "essential",
+        mandatory: true,
+        cookies: [
+          {
+            type: "cookie",
+            name: Decidim.consent_cookie_name
+          }
+        ]
+      },
+      {
+        slug: "preferences",
+        mandatory: false
+      },
+      {
+        slug: "analytics",
+        mandatory: false
+      },
+      {
+        slug: "marketing",
+        mandatory: false
+      }
+    ]
+  end
+
   # Blacklisted passwords. Array may contain strings and regex entries.
   config_accessor :password_blacklist do
     []

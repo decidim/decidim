@@ -1,4 +1,4 @@
-<div class="category-wrapper" data-id="<%= category[:id] %>">
+<div class="category-wrapper" data-id="<%= category[:slug] %>">
   <div class="category-row">
     <button class="cc-title">
       <span class="h5 cc-category-title">
@@ -10,16 +10,53 @@
       <input
         class="switch-input"
         <%= %(checked="checked") if category[:mandatory] %>
-        id="cc-<%= category[:id] %>"
+        id="cc-<%= category[:slug] %>"
         type="checkbox"
-        name="<%= category[:id] %>"
+        name="<%= category[:slug] %>"
         <%= "disabled" if category[:mandatory] %>>
-      <label class="switch-paddle" for="cc-<%= category[:id] %>">
+
+      <label class="switch-paddle" for="cc-<%= category[:slug] %>">
         <span class="show-for-sr"><%= t("layouts.decidim.cookie_consent.modal.toggle", cookie_category: category[:title]) %></span>
       </label>
     </div>
   </div>
   <div class="cc-description hide">
-    <p><%= category[:description] %></p>
+    <div class="description-text">
+      <p><%= category[:description] %></p>
+    </div>
+
+    <div class="cookie-details-wrapper">
+      <div class="row detail-titles">
+        <div class="columns small-2">
+          <%= t("layouts.decidim.cookie_consent.cookie_details.columns.type") %>
+        </div>
+        <div class="columns small-2">
+          <%= t("layouts.decidim.cookie_consent.cookie_details.columns.name") %>
+        </div>
+        <div class="columns small-2">
+          <%= t("layouts.decidim.cookie_consent.cookie_details.columns.service") %>
+        </div>
+        <div class="columns small-6">
+          <%= t("layouts.decidim.cookie_consent.cookie_details.columns.description") %>
+        </div>
+      </div>
+
+      <% category[:cookies].each do |cookie| %>
+      <div class="row cookie-detail-row">
+        <div class="columns small-2">
+          <%= t("layouts.decidim.cookie_consent.cookie_details.types.#{cookie[:type]}") %>
+        </div>
+        <div class="columns small-2">
+          <%= cookie[:name] %>
+        </div>
+        <div class="columns small-2">
+          <%= t("layouts.decidim.cookie_consent.cookie_details.cookies.#{cookie[:name]}.service") %>
+        </div>
+        <div class="columns small-6">
+          <%= t("layouts.decidim.cookie_consent.cookie_details.cookies.#{cookie[:name]}.description") %>
+        </div>
+      </div>
+      <% end %>
+    </div>
   </div>
 </div>

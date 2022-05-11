@@ -73,6 +73,20 @@
         padding: .5rem 0 0;
       }
     }
+
+    .cookie-details-wrapper{
+      .detail-titles{
+        border-bottom: 1px solid $medium-gray;
+
+        > *{
+          font-weight: 600;
+        }
+      }
+
+      .cookie-detail-row{
+        font-size: .6rem;
+      }
+    }
   }
 
   .cc-buttons-wrapper{
