@@ -93,6 +93,10 @@ module Decidim
         template "database.yml.erb", "config/database.yml", force: true
       end
 
+      def package_json
+        template "package.json"
+      end
+
       def decidim_controller
         template "decidim_controller.rb.erb", "app/controllers/decidim_controller.rb", force: true
       end
