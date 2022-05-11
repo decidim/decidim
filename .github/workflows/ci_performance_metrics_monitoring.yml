@@ -71,7 +71,7 @@ jobs:
             npm-
       - run: bundle exec rake development_app
         name: Create development app
-      - run: bundle exec rails assets:precompile
+      - run: bundle exec rails webpacker:compile
         name: Precompile assets
         working-directory: ./development_app/
       - run: bundle exec rails decidim:lighthouse:prepare_urls
