@@ -185,6 +185,11 @@ fr:
         exports:
           elections: Élections
           feedback_form_answers: Feedbacks des répondants
+        mailers:
+          trustee_mailer:
+            body: "<p>Bonjour %{user_name},</p><p>Vous avez été ajouté en tant que garant à %{resource_name}.</p>"
+            subject: Vous avez été ajouté en tant que garant à %{resource_name}
+            trustee_zone: Emmenez-moi dans la zone des garants
         menu:
           trustees: Garants
         models:
