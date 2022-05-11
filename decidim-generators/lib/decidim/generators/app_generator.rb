@@ -3,7 +3,7 @@
 require "bundler"
 require "rails/generators"
 require "rails/generators/rails/app/app_generator"
-require "decidim/generators/version"
+require "decidim/generators"
 require_relative "install_generator"
 
 module Decidim
@@ -241,7 +241,7 @@ module Decidim
       def branch
         return if options[:path]
 
-        @branch ||= options[:edge] ? "develop" : options[:branch].presence
+        @branch ||= options[:edge] ? Decidim::Generators.edge_git_branch : options[:branch].presence
       end
 
       def app_name
