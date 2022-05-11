@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require "gem_overrides/cells-rails/lib/cell/rails/testing"
+
 require "decidim/core/test/shared_examples/acts_as_author_examples"
 require "decidim/core/test/shared_examples/admin_log_presenter_examples"
 require "decidim/core/test/shared_examples/authorable"
