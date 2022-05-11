@@ -34,7 +34,9 @@ ar:
       organization:
         admin_terms_of_use_body: نص شروط الاستخدام للمدير
         alert_color: تنبيه
+        available_authorizations: التراخيص المتاحة
         badges_enabled: تمكين الشارات
+        comments_max_length: الحد الأقصى لطول التعليقات (اترك 0 لاستعمال للقيمة الافتراضية)
         cta_button_path: دعوة إلى العمل مسار زر
         cta_button_text: نص زر Call To Action
         customize_welcome_notification: تخصيص إشعار الترحيب
@@ -425,7 +427,7 @@ ar:
           error: كانت هناك مشكلة في إدارة المشارك.
           success: تم إنشاء المشارك المُدار بنجاح.
         form:
-          authorization_method: طريقة التفويض
+          authorization_method: طريقة الترخيص
           name: اسم
           reason: السبب
         new:
@@ -531,6 +533,8 @@ ar:
             plural: جمع
         share_token:
           fields:
+            expires_at: تنتهي صلاحيته في
+            token: رمز التشفير - Token
             user: تم الإنشاء بواسطة
         static_page:
           fields:
@@ -585,6 +589,7 @@ ar:
           index:
             content_original_language: لغة المحتوى الأصلية
             participatory_space: المساحة التشاركية
+            reported_content: محتوى تم الإبلاغ عنه
           show:
             report_reason: السبب
       newsletter_templates:
