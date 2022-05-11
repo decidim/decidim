@@ -11,6 +11,7 @@ module Decidim
   # Base module for this engine.
   module Budgets
     autoload :ProjectSerializer, "decidim/budgets/project_serializer"
+    autoload :OrderReminderGenerator, "decidim/budgets/order_reminder_generator"
 
     include ActiveSupport::Configurable
 

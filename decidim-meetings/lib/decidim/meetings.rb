@@ -16,6 +16,7 @@ module Decidim
     autoload :MeetingSerializer, "decidim/meetings/meeting_serializer"
     autoload :UserAnswersSerializer, "decidim/meetings/user_answers_serializer"
     autoload :DownloadYourDataUserAnswersSerializer, "decidim/meetings/download_your_data_user_answers_serializer"
+    autoload :CloseMeetingReminderGenerator, "decidim/meetings/close_meeting_reminder_generator"
 
     include ActiveSupport::Configurable
 
