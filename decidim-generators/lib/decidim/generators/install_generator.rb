@@ -99,7 +99,7 @@ module Decidim
         gsub_file "config/environments/test.rb", /config\.assets.*$/, ""
         gsub_file "config/environments/production.rb", /config\.assets.*$/, ""
       end
-      
+
       def install_decidim_webpacker
         # Copy CSS files
         copy_file "decidim_application.scss", "app/packs/stylesheets/decidim/decidim_application.scss"

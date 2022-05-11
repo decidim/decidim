@@ -122,6 +122,10 @@ module Decidim
         template "LICENSE-AGPLv3.txt", "LICENSE-AGPLv3.txt"
       end
 
+      def remove_gemfile
+        remove_file "Gemfile" if options[:skip_gemfile]
+      end
+
       def gemfile
         return if options[:skip_gemfile]
 
