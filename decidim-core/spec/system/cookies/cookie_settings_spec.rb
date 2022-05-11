@@ -11,7 +11,7 @@ describe "Cookies", type: :system do
     visit decidim.root_path
   end
 
-  describe "cookie dialog" do
+  context "when cookie dialog is shown" do
     it "user see the cookie policy" do
       within "#cc-dialog-wrapper" do
         expect(page).to have_content "Information about the cookies used on the website"
@@ -39,12 +39,22 @@ describe "Cookies", type: :system do
     end
   end
 
-  describe "cookie modal" do
-    it "modal remembers users selection" do
+  context "when cookie modal is open" do
+    before do
       within "#cc-dialog-wrapper" do
         click_button "Settings"
       end
+    end
 
+    it "shows cookie" do
+      expect(page).not_to have_content("decidim-cookie")
+      expect(page).not_to have_content("Stores information about the cookies allowed by the user on this website")
+      find(".category-wrapper[data-id='essential']").find("button.cc-title").click
+      expect(page).to have_content("decidim-cookie")
+      expect(page).to have_content("Stores information about the cookies allowed by the user on this website")
+    end
+
+    it "modal remembers users selection" do
       within "[data-id='analytics']" do
         find(".switch-paddle").click
       end
