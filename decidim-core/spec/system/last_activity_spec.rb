@@ -55,7 +55,7 @@ describe "Last activity", type: :system do
     end
 
     context "when there is a deleted comment" do
-      let(:comment) { create(:comment, body: "This is deleted", deleted_at: 1.hour.ago, created_at: 1.day.ago) }
+      let(:comment) { create(:comment, :deleted, body: "This is deleted") }
 
       it "isn't shown" do
         within "#last_activity" do
