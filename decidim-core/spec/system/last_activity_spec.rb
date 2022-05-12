@@ -54,6 +54,16 @@ describe "Last activity", type: :system do
       expect(page).to have_no_content(another_comment.translated_body)
     end
 
+    context "when there is a deleted comment" do
+      let(:comment) { create(:comment, body: "This is deleted", deleted_at: 1.hour.ago, created_at: 1.day.ago) }
+
+      it "isn't shown" do
+        within "#last_activity" do
+          expect(page).to_not have_content("This is deleted")
+        end
+      end
+    end
+
     context "when viewing all activities" do
       before do
         within "#last_activity" do
