@@ -169,10 +169,12 @@ Cookie consent management has been updated in [\#9271](https://github.com/decidi
 Iframe HTML elements that are added with the editor or meeting forms are disabled until all cookies are accepted. Scripts that require cookies could be added as follows:
 
 ```html
-<script type="text/plain" data-cookiecategory="marketing">
+<script type="text/plain" data-consent="marketing">
   console.log('marketing cookies accepted');
 </script>
 ```
+
+Note that you need to define the `type="text/plain"` for the script that adds cookies in order to prevent the script from being executed before cookies are accepted.
 
 ### Rename data portability to download your data
 
