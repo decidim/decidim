@@ -38,7 +38,7 @@ describe "Last activity", type: :system do
     switch_to_host organization.host
   end
 
-  describe "accessing the last activity page" do
+  describe "accessing the homepage with the last activity content block enabled" do
     before do
       page.visit decidim.root_path
     end
