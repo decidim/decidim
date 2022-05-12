@@ -2,7 +2,7 @@
 
 module Decidim
   class IframeDisabler
-    def initialize(text)
+    def initialize(text, _options = {})
       @text = text
     end
 
