@@ -90,7 +90,9 @@ module Decidim
     end
 
     included do
-      delegate :redesigned_layout, :redesign, :redesign_defined?, :redesign_layout_conditions, to: :class
+      delegate :redesigned_layout, :redesign, :redesign_enabled?, :redesign_defined?, :redesign_layout_conditions, to: :class
+
+      helper_method :redesigned_layout, :redesign_enabled?, :redesign_defined?
 
       helper_method :redesigned_layout, :redesign_enabled?, :redesign_defined?
 
