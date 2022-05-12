@@ -35,6 +35,10 @@ cs:
               cant_be_changed: nelze změnit
             public_key:
               cant_be_changed: nelze změnit
+        voting:
+          attributes:
+            voting_type:
+              inclusion: "%{value} není platný typ hlasování"
   activerecord:
     errors:
       models:
