@@ -43,6 +43,7 @@ ar:
         default_locale: اللغة الافتراضية
         description: الوصف
         enable_omnipresent_banner: عرض لافتة في كل مكان
+        enable_participatory_space_filters: تفعيل أختيارات فرز الفضاء التشاركي
         facebook_handler: مُعرّف حساب فيسبوك
         favicon: أيقونة
         github_handler: مُعرّف حساب غِت هَب
