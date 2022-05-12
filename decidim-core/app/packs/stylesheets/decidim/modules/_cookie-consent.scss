@@ -14,7 +14,7 @@
     border: 1px solid #e8e8e8;
     flex-direction: column;
 
-    @include breakpoint(mediumlarge){
+    @include breakpoint(large){
       flex-direction: row;
       width: 90%;
     }
@@ -26,7 +26,6 @@
     .cc-button-wrapper{
       display: flex;
       flex: 2 1 0;
-      justify-content: flex-end;
       align-items: center;
       flex-direction: column;
       margin: 1rem 0;
@@ -36,14 +35,19 @@
         margin: .5rem 0;
       }
 
-      @include breakpoint(mediumlarge){
+      @include breakpoint(medium){
         flex-direction: row;
-        margin: 0;
+        justify-content: center;
 
         > *{
           width: unset;
           margin: 0 1rem;
         }
+      }
+
+      @include breakpoint(large){
+        justify-content: flex-end;
+        margin: 0;
       }
     }
   }
