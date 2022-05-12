@@ -165,7 +165,7 @@ PR [\#8645](https://github.com/decidim/decidim/pull/8645) we now only allow PNG 
 
 ### Accept and reject cookies
 
-Cookie settings has been updated in [\#9271](https://github.com/decidim/decidim/pull/9271). Supported cookie categories are essential, preferences, analytics and marketing.
+Cookie consent management has been updated in [\#9271](https://github.com/decidim/decidim/pull/9271). Supported cookie categories are essential, preferences, analytics and marketing.
 Iframe HTML elements that are added with the editor or meeting forms are disabled until all cookies are accepted. Scripts that require cookies could be added as follows:
 
 ```html
