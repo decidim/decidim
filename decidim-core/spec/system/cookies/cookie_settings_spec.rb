@@ -47,10 +47,10 @@ describe "Cookies", type: :system do
     end
 
     it "shows cookie" do
-      expect(page).not_to have_content("decidim-cookie")
+      expect(page).not_to have_content("decidim-consent")
       expect(page).not_to have_content("Stores information about the cookies allowed by the user on this website")
       find(".category-wrapper[data-id='essential']").find("button.cc-title").click
-      expect(page).to have_content("decidim-cookie")
+      expect(page).to have_content("decidim-consent")
       expect(page).to have_content("Stores information about the cookies allowed by the user on this website")
     end
 

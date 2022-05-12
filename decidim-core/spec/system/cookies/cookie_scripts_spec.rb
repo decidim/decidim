@@ -74,16 +74,16 @@ describe "Cookie scripts", type: :system do
         <<~HTML.strip
           <div id="test_root">
             <p>Hello cookies</p>
-            <script type="text/plain" data-cookiecategory="essential">
+            <script type="text/plain" data-consent="essential">
               document.querySelector("#test_root").append(' #{essential_cookies_accepted} ');
             </script>
-            <script type="text/plain" data-cookiecategory="preferences">
+            <script type="text/plain" data-consent="preferences">
               document.querySelector("#test_root").append(' #{preferences_cookies_accepted} ');
             </script>
-            <script type="text/plain" data-cookiecategory="analytics">
+            <script type="text/plain" data-consent="analytics">
               document.querySelector("#test_root").append(' #{analytics_cookies_accepted} ');
             </script>
-            <script type="text/plain" data-cookiecategory="marketing">
+            <script type="text/plain" data-consent="marketing">
               document.querySelector("#test_root").append(' #{marketing_cookies_accepted} ');
             </script>
           </div>

@@ -396,7 +396,7 @@ module Decidim
   # Defines the name of the cookie used to check if the user allows Decidim to
   # set cookies.
   config_accessor :consent_cookie_name do
-    "decidim-cookie"
+    "decidim-consent"
   end
 
   # Defines cookie categories. Note that when adding a cookie you need to

@@ -1679,7 +1679,7 @@ en:
             service: Service
             type: Type
           cookies:
-            decidim-cookie:
+            decidim-consent:
               description: Stores information about the cookies allowed by the user on this website.
               service: This website
           types:

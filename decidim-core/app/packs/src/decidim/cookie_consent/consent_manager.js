@@ -4,7 +4,7 @@ class ConsentManager {
   // Options should contain the following keys:
   // - modal - HTML element of the cookie consent modal (e.g. "<div id="cc-modal">Foo bar</div>")
   // - categories - Available cookie categories (e.g. ["essential", "preferences", "analytics", "marketing"])
-  // - cookieName - Name of the cookie saved in browser (e.g. "decidim-cookie")
+  // - cookieName - Name of the cookie saved in browser (e.g. "decidim-consent")
   // - warningElement - HTML element to be shown when user hasn't accepted necessary cookie(s) to display the content.
   constructor(options) {
     this.modal = options.modal;
@@ -20,14 +20,14 @@ class ConsentManager {
 
   updateState(newState) {
     this.state = newState;
-    Cookies.set("decidim-cookie", JSON.stringify(this.state));
+    Cookies.set(this.options.cookieName, JSON.stringify(this.state));
     this.updateModalSelections();
     this.triggerState();
   }
 
   triggerJavaScripts() {
-    document.querySelectorAll("script[type='text/plain'][data-cookiecategory]").forEach((script) => {
-      if (this.state[script.dataset.cookiecategory]) {
+    document.querySelectorAll("script[type='text/plain'][data-consent]").forEach((script) => {
+      if (this.state[script.dataset.consent]) {
         const activeScript = document.createElement("script");
         if (script.src.length > 0) {
           activeScript.src = script.src;
