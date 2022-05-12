@@ -2,16 +2,7 @@
 
 module Decidim
   class IframeDisabler
-    include Decidim::SanitizeHelper
-
-    def initialize(text, options = {})
-      @options = {
-        max_length: options[:max_length] || 30,
-        tail: options[:tail] || "...",
-        count_tags: options[:count_tags] || false,
-        count_tail: options[:count_tail] || false,
-        tail_before_final_tag: options[:tail_before_final_tag] || false
-      }
+    def initialize(text)
       @text = text
     end
 
