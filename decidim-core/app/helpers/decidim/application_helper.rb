@@ -100,7 +100,7 @@ module Decidim
     def cell(name, model, options = {}, &block)
       options = { context: { current_user: current_user } }.deep_merge(options)
 
-      redesigned_name = controller.redesigned_layout(name)
+      redesigned_name = redesigned_layout(name)
       name = redesigned_name if Object.const_defined?(redesigned_name.camelize)
       super(name, model, options, &block)
     end
