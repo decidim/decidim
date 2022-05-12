@@ -14,6 +14,9 @@ module Decidim
       include HttpCachingDisabler
       include DisableRedirectionToExternalHost
 
+      include RedesignLayout
+      redesign active: false
+
       helper Decidim::Admin::ApplicationHelper
       helper Decidim::Admin::AttributesDisplayHelper
       helper Decidim::Admin::SettingsHelper
