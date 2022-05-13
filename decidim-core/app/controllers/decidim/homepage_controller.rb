@@ -2,8 +2,6 @@
 
 module Decidim
   class HomepageController < Decidim::ApplicationController
-    redesign active: true
-
     layout "layouts/decidim/application"
     skip_before_action :store_current_location
 
