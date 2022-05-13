@@ -311,7 +311,6 @@ ca:
             select_a_meeting_type: Si us plau selecciona un tipus de trobada
             select_a_registration_type: Si us plau selecciona un tipus d'inscripció
             select_an_iframe_access_level: Si us plau, selecciona el nivell d'accés a l'iframe
-            show_embedded_iframe_help: Només uns quants serveis es poden incrustar a una trobada o esdeveniment en directe (YouTube, Twitch i Jitsi)
           index:
             title: Trobades
           new:
@@ -508,7 +507,6 @@ ca:
           select_a_meeting_type: Si us plau selecciona un tipus de trobada
           select_a_registration_type: Si us plau selecciona un tipus d'inscripció
           select_an_iframe_access_level: Si us plau, selecciona el nivell d'accés a l'iframe
-          show_embedded_iframe_help: Només uns quants serveis es poden incrustar a una trobada o esdeveniment en directe (YouTube, Twitch i Jitsi)
         index:
           click_here: Veure totes les trobades
           new_meeting: Nova trobada
