@@ -128,13 +128,10 @@ module Decidim
       end
 
       context "with CDN host defined in the secrets" do
-        let!(:base_secrets) { Rails.application.secrets }
-        let(:storage_secrets) { { cdn_host: "https://cdn.example.org" } }
+        let(:cdn_host) { "https://cdn.example.org" }
 
         before do
-          allow(Rails.application).to receive(:secrets).and_return(
-            base_secrets.merge(storage: storage_secrets)
-          )
+          allow(Rails.application.secrets).to receive(:dig).with(:storage, :cdn_host).and_return(cdn_host)
         end
 
         it "returns a hash containing the host only" do
