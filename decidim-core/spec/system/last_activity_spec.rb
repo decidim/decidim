@@ -59,7 +59,7 @@ describe "Last activity", type: :system do
 
       it "isn't shown" do
         within "#last_activity" do
-          expect(page).to_not have_content("This is deleted")
+          expect(page).not_to have_content("This is deleted")
         end
       end
     end
