@@ -305,7 +305,6 @@
             select_a_meeting_type: Vennligst velg en møtetype
             select_a_registration_type: Velg en registreringstype
             select_an_iframe_access_level: Velg et tilgangsnivå for iframe
-            show_embedded_iframe_help: Kun noen få tjenester tillater integrering i møte eller direktearrangement (YouTube, Twitch og Jitsi)
           index:
             title: Møter
           new:
