@@ -311,7 +311,6 @@ sv:
             select_a_meeting_type: Välj mötestyp
             select_a_registration_type: Välj en registreringsmetod
             select_an_iframe_access_level: Välj vem får tillgång till denna iframe
-            show_embedded_iframe_help: Endast ett fåtal tjänster tillåter inbäddning i möten eller live-event (t.ex. YouTube, Twitch och Jitsi)
           index:
             title: Möten
           new:
@@ -496,7 +495,6 @@ sv:
           select_a_meeting_type: Välj mötestyp
           select_a_registration_type: Välj en registreringsmetod
           select_an_iframe_access_level: Välj vem får tillgång till denna iframe
-          show_embedded_iframe_help: Endast ett fåtal tjänster tillåter inbäddning i möten eller live-event (t.ex. YouTube, Twitch och Jitsi)
         index:
           click_here: Se alla möten
           new_meeting: Nytt möte
