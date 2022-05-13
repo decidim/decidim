@@ -101,7 +101,7 @@ en:
           with_any_type:
             label: Type of meeting
             values:
-              hybrid: Both
+              hybrid: Hybrid
               in_person: In Person
               online: Online
       meeting_copies:
@@ -488,7 +488,7 @@ en:
           type: Type
           type_values:
             all: All
-            hybrid: Both
+            hybrid: Hybrid
             in_person: In-person
             online: Online
         filters_small_view:
@@ -630,7 +630,7 @@ en:
           invalid: There was a problem leaving this meeting.
           success: You have left the meeting successfully.
       type_of_meeting:
-        hybrid: Both
+        hybrid: Hybrid
         in_person: In person
         online: Online
       types:
