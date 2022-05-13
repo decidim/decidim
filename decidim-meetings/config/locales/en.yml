@@ -579,7 +579,7 @@ en:
           fields:
             closed: Closed
             end_time: End date
-            id: Id
+            id: ID
             map: Map
             official_meeting: Official meeting
             start_time: Start date
