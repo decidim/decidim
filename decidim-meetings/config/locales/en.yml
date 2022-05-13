@@ -185,7 +185,7 @@ en:
           notification_title: The <a href="%{resource_path}">%{resource_title}</a> meeting will start in less than 48h.
     forms:
       meetings:
-        attendees_count_help_text: Don’t forget to include the total number of participants at your event. Whether in person, hybrid, or online, it’s important that we know how many people are involved.
+        attendees_count_help_text: Don't forget to include the total number of attendees at your meeting, whether in person, online or hybrid.
     gamification:
       badges:
         attended_meetings:
@@ -592,7 +592,7 @@ en:
             empty_questions: Throughout this meeting, some questions will be sent and you will be able to answer them. They will be displayed here.
           index_admin:
             admin_dashboard: Administrator dashboard
-            edit: Edit in the admin
+            edit: Edit in the admin panel
             question: Question
             received_answer: received answer
             received_answers: received answers
