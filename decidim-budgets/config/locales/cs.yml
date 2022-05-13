@@ -87,16 +87,40 @@ cs:
             title: Upravit projekt
             update: Aktualizace
           index:
+            actions: Akce
+            cancel: Zrušit
+            change_category: Změnit kategorii
+            change_scope: Změnit rozsah
+            change_selected: Změnit vybrané
+            deselect_implementation: Zrušit výběr
             finished_orders: Dokončené hlasy
             pending_orders: Čeká na hlasování
+            select_for_implementation: Vybrat
             selected: Vybrané
             title: Projekty
+            update: Aktualizovat
+            update_scope_button: Aktualizovat rozsah
           new:
             create: Vytvořit
             title: Nový projekt
           update:
             invalid: Při aktualizaci tohoto projektu došlo k problému
             success: Projekt byl úspěšně aktualizován
+          update_category:
+            invalid: 'Tyto projekty již mají kategorii %{subject_name}: %{projects}.'
+            select_a_category: Vyberte prosím kategorii
+            select_a_project: Vyberte projekt
+            success: 'Projekty byly úspěšně aktualizovány do kategorie %{subject_name}: %{projects}.'
+          update_scope:
+            invalid: 'Tyto projekty již mají rozsah %{subject_name}: %{projects}.'
+            select_a_project: Vyberte projekt
+            select_a_scope: Vyberte prosím rozsah
+            success: 'Projekty byly úspěšně aktualizovány na rozsah %{subject_name}: %{projects}.'
+          update_selected:
+            invalid: 'Tyto projekty již mají stejný výběr: %{projects}.'
+            select_a_project: Vyberte projekt
+            select_a_selection: Vyberte prosím výběr
+            success: 'Výběr projektů byl úspěšně změněn: %{projects}.'
         proposals_imports:
           create:
             invalid: Při importu návrhů do projektů došlo k problému
@@ -160,6 +184,7 @@ cs:
           fields:
             category: Kategorie
             id: ID
+            scope: Rozsah
             title: Titul
       order_summary_mailer:
         order_summary:
