@@ -311,7 +311,6 @@ fi:
             select_a_meeting_type: Valitse tapaamisen tyyppi
             select_a_registration_type: Valitse ilmoittautumisten tyyppi
             select_an_iframe_access_level: Valitse iframe-upotusten käyttöoikeustaso
-            show_embedded_iframe_help: Vain harvat palvelut sallivat tapaamisen upottamisen reaaliaikaisesti tapahtumasivulle (YouTube, Twitch ja Jitsi)
           index:
             title: Tapaamiset
           new:
@@ -508,7 +507,6 @@ fi:
           select_a_meeting_type: Valitse tapaamisen tyyppi
           select_a_registration_type: Valitse ilmoittautumisten tyyppi
           select_an_iframe_access_level: Valitse iframe-upotusten käyttöoikeustaso
-          show_embedded_iframe_help: Vain harvat palvelut sallivat tapaamisen upottamisen reaaliaikaisesti tapahtumasivulle (YouTube, Twitch ja Jitsi)
         index:
           click_here: Näytä kaikki tapahtumat
           new_meeting: Uusi tapaaminen
