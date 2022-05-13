@@ -482,7 +482,7 @@ de:
       shared:
         newsletter_modal:
           buttons:
-            check: Überprüfen und fortfahren
+            check: Kontakterlaubnis erteilen und fortfahren
             close_modal: Modal schließen
             uncheck: Ohne Kontakterlaubnis fortfahren
           notice: |-
@@ -960,7 +960,7 @@ de:
           new_conversation: Neue Unterhaltung
           next: Weiter
           no_conversations: Du hast noch keine Unterhaltungen
-          title: Gespräche
+          title: Nachrichten
         reply:
           placeholder: Ihre Antwort...
           send: Senden
