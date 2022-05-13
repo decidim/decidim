@@ -311,7 +311,6 @@ es-MX:
             select_a_meeting_type: Por favor, selecciona un tipo de encuentro
             select_a_registration_type: Por favor, seleccione un tipo de inscripción
             select_an_iframe_access_level: Por favor, seleccione un nivel de acceso iframe
-            show_embedded_iframe_help: Solo unos pocos servicios se pueden incrustar en encuentros o eventos en directo (YouTube, Twitch y Jitsi)
           index:
             title: Encuentros
           new:
@@ -508,7 +507,6 @@ es-MX:
           select_a_meeting_type: Por favor, selecciona un tipo de encuentro
           select_a_registration_type: Por favor, selecciona un tipo de inscripción
           select_an_iframe_access_level: Por favor, selecciona un nivel de acceso iframe
-          show_embedded_iframe_help: Solo unos pocos servicios se pueden incrustar en encuentros o eventos en directo (YouTube, Twitch y Jitsi)
         index:
           click_here: Ver todos los encuentros
           new_meeting: Nuevo encuentro
