@@ -85,6 +85,7 @@ es-MX:
             title: Editar proyecto
             update: Actualizar
           index:
+            actions: Acciones
             finished_orders: Votos terminados
             pending_orders: Votos pendientes
             selected: Seleccionado
