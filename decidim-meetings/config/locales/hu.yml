@@ -260,7 +260,6 @@ hu:
             address_help: 'Cím: Geocoder használata a helymeghatározáshoz'
             location_help: 'Helyszín: üzenet az adott felhasználóknak a találkozó helyéről'
             select_an_iframe_access_level: Kérjük, válassz iframe hozzáférési szintet
-            show_embedded_iframe_help: Csak néhány szolgáltatás engedélyezi a beágyazást megbeszélésekbe vagy élő eseményekbe (YouTube, Twitch és Jitsi)
           index:
             title: Találkozók
           new:
@@ -371,8 +370,6 @@ hu:
           filter: Szűrő
           filter_by: 'Szűrés ez alapján:'
           unfold: Kibont
-        form:
-          show_embedded_iframe_help: Csak néhány szolgáltatás engedélyezi a beágyazást megbeszélésekbe vagy élő eseményekbe (YouTube, Twitch és Jitsi)
         meeting_minutes:
           related_information: Kapcsolódó információ
         meetings:
