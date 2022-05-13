@@ -179,7 +179,7 @@ en:
           description: This project exceeds the maximum budget and can not be added. If you want, you can delete a project you have already selected, in order to be able to vote again according to your preferences.
           ok: OK
           projects_excess:
-            description: This project exceeds the maximum number of projects and can not be added. If you want, you can delete a project you have already selected, in order to be able to vote again according to your preferences.
+            description: This project exceeds the maximum number of projects and cannot be added. If you want, you can delete a project you have already selected, in order to be able to vote again according to your preferences.
             title: Maximum projects exceeded
         budget_summary:
           are_you_sure: Are you sure you want to cancel your vote?
