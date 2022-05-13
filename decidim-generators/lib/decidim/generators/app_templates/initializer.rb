@@ -367,6 +367,9 @@ end
 if Decidim.module_installed? :meetings
   Decidim::Meetings.configure do |config|
     config.upcoming_meeting_notification = Rails.application.secrets.dig(:decidim, :meetings, :upcoming_meeting_notification).to_i.days
+    if Rails.application.secrets.dig(:decidim, :meetings, :embeddable_services).present?
+      config.embeddable_services = Rails.application.secrets.dig(:decidim, :meetings, :embeddable_services)
+    end
     unless Rails.application.secrets.dig(:decidim, :meetings, :enable_proposal_linking) == "auto"
       config.enable_proposal_linking = Rails.application.secrets.dig(:decidim, :meetings, :enable_proposal_linking).present?
     end
