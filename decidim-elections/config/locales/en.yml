@@ -914,7 +914,7 @@ en:
           edit:
             change_polling_station: Back to Polling Stations
             monitoring_committee_notes: Remarks
-            monitoring_committee_notes_placeholder: Report any incidence here
+            monitoring_committee_notes_placeholder: Report any incident here
             title: Results for the election <i>%{election_title}</i> in the polling station <i>%{polling_station_title}</i>
           elections:
             title: Choose an election you want to validate
@@ -1056,7 +1056,7 @@ en:
               info_message: "<strong>Please wait</strong>, processed %{processed_count} of %{raw_count} rows from %{file} file."
             delete:
               button: Delete all census data
-              confirm: Delete all the census can not be undone. Are you sure you want to continue?
+              confirm: Deleting all the census data cannot be undone. Are you sure you want to continue?
             destroy:
               error: An error occurred deleting the census, please try again later.
               success: Census data deleted
@@ -1064,7 +1064,7 @@ en:
               button: Export voting Access Codes
               callout: You can now proceed to export the access codes. This can only be done once. Once you launch the exportation, you will receive an email with the instructions to <strong>%{email}</strong>
               confirm: You can only export the access codes once. Make sure you have access to the email account <strong>%{email}</strong>.
-              file_not_exists: This file does not exists
+              file_not_exist: This file does not exist
               launch_error: Problem launching the access codes export
               launch_success: Access codes export launched. Shortly you will receive an email to %{email}
             exporting_access_codes:
@@ -1168,7 +1168,7 @@ en:
             modal_ballots_count_error:
               btn_validate_total: Validate total recount of ballots
               close_modal: Close
-              info_explanation_text: 'Please review the total number of ballots. If the total number is correct, you must provide an explanation for the Monitoring Committee:'
+              info_explanation_text: 'Please review the total number of ballots. If the total number is incorrect, you must provide an explanation for the Monitoring Committee:'
               info_text: The total number of ballots (envelopes) introduced doesn't match the record of people that has voted in this Polling Station.
               message_for_monitoring_committee: Message for the Monitoring Committee
               review_recount: Review the recount
