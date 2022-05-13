@@ -3,7 +3,7 @@
     <%= render partial: "count" %>
   </h1>
   <% if Decidim::Initiatives.creation_enabled %>
-    <% if current_user && available_initiative_types.size>1%>
+    <% if current_user && available_initiative_types.size>1 %>
       <%= link_to create_initiative_path(:select_initiative_type), class: "title-action__action button small" do %>
         <%= t(".new_initiative") %>
         <%= icon "plus", role: "img", "aria-hidden": true %>
