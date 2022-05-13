@@ -711,6 +711,11 @@ Using a very high number (ie: 0.99) can effectively deactivate the comparison st
 |auto
 |No
 
+|MEETINGS_EMBEDDABLE_SERVICES
+|A list (separated by spaces) of allowed services that can be embedded in a iframe when creating an online meeting.
+|www.youtube.com www.twitch.tv meet.jit.si
+|No
+
 |BUDGETS_ENABLE_PROPOSAL_LINKING
 |If true, enables several relationships between budgets and proposals. By default is active if Proposals are active (which is true always at the moment).
 

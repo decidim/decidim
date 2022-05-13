@@ -86,16 +86,40 @@ en:
             title: Edit project
             update: Update
           index:
+            actions: Actions
+            cancel: Cancel
+            change_category: Change category
+            change_scope: Change scope
+            change_selected: Change selected
+            deselect_implementation: Unselect
             finished_orders: Finished votes
             pending_orders: Pending votes
+            select_for_implementation: Select
             selected: Selected
             title: Projects
+            update: Update
+            update_scope_button: Update scope
           new:
             create: Create
             title: New project
           update:
             invalid: There was a problem updating this project
             success: Project successfully updated
+          update_category:
+            invalid: 'These projects already had the %{subject_name} category: %{projects}.'
+            select_a_category: Please select a category
+            select_a_project: Please select a project
+            success: 'Projects successfully updated to the %{subject_name} category: %{projects}.'
+          update_scope:
+            invalid: 'These projects already had the %{subject_name} scope: %{projects}.'
+            select_a_project: Please select a project
+            select_a_scope: Please select a scope
+            success: 'Projects successfully updated to the %{subject_name} scope: %{projects}.'
+          update_selected:
+            invalid: 'These projects already had the same selected: %{projects}.'
+            select_a_project: Please select a project
+            select_a_selection: Please select a selection
+            success: 'Projects selection successfully changed: %{projects}.'
         proposals_imports:
           create:
             invalid: There was a problem importing the proposals into projects
@@ -157,6 +181,7 @@ en:
           fields:
             category: Category
             id: ID
+            scope: Scope
             title: Title
       order_summary_mailer:
         order_summary:

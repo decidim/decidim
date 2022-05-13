@@ -55,7 +55,7 @@ describe "User creates meeting", type: :system do
         let(:meeting_address) { "Some address" }
         let(:latitude) { 40.1234 }
         let(:longitude) { 2.1234 }
-        let!(:meeting_start_time) { Time.current + 2.days }
+        let!(:meeting_start_time) { 2.days.from_now }
         let(:meeting_end_time) { meeting_start_time + 4.hours }
         let(:meeting_available_slots) { 30 }
         let(:meeting_registration_terms) { "These are the registration terms for this meeting" }
