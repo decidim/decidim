@@ -17,8 +17,17 @@ cs:
         min_selections: Žádná z výše uvedených možností
         title: Název
       voting:
+        banner_image: Obrázek banneru
+        census_contact_information: Kontaktní informace pro rejstřík obyvatel
+        description: Popis
         end_time: Hlasování končí
+        introductory_image: Úvodní obrázek
+        promoted: Propagováno
+        scope: Rozsah
+        show_check_census: Zobrazit stránku "zkontrolovat rejstřík"
         start_time: Hlasování začíná
+        title: Název
+        voting_type: Typ hlasování
     errors:
       models:
         answer:
@@ -1026,6 +1035,7 @@ cs:
             introductory_image: Úvodní obrázek
             promoted: Propagováno
             select_a_voting_type: Vyberte prosím typ hlasování
+            show_check_census_help: Zda zobrazit odkaz "Mohu hlasovat?" v nabídce veřejného hlasování
             slug: Slug
             slug_help: 'URL slugů se používají k generování URL, které odkazují na toto hlasování. přijímá pouze písmena, čísla a pomlčky a musí začínat písmenem. Příklad: %{url}'
             title: Název
