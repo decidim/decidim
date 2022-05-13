@@ -311,7 +311,6 @@ fr-CA:
             select_a_meeting_type: Veuillez sélectionner un type de rencontre
             select_a_registration_type: Veuillez sélectionner un type d'inscription
             select_an_iframe_access_level: Veuillez sélectionner un niveau d'accès iframe
-            show_embedded_iframe_help: Seuls quelques services permettent d'intégrer des rencontres ou des événements en direct (YouTube, Twitch et Jitsi)
           index:
             title: Rencontres
           new:
@@ -508,7 +507,6 @@ fr-CA:
           select_a_meeting_type: Veuillez sélectionner un type de rencontre
           select_a_registration_type: Veuillez sélectionner un type d'inscription
           select_an_iframe_access_level: Veuillez sélectionner un niveau d'accès iframe
-          show_embedded_iframe_help: Seuls quelques services permettent d'intégrer des rencontres ou des événements en direct (YouTube, Twitch et Jitsi)
         index:
           click_here: Voir toutes les réunions
           new_meeting: Nouvelle réunion
