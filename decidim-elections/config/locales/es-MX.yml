@@ -35,6 +35,10 @@ es-MX:
               cant_be_changed: no se puede cambiar
             public_key:
               cant_be_changed: no se puede cambiar
+        voting:
+          attributes:
+            voting_type:
+              inclusion: "%{value} no es un tipo de votación válido"
   activerecord:
     errors:
       models:
