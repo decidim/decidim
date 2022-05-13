@@ -35,12 +35,17 @@ fr-CA:
       decidim/demoted_membership: N'est plus un administrateur de groupe
       decidim/gamification/badge_earned_event: Badge gagné
       decidim/gamification/level_up_event: Vous avez progressé d'un niveau
+      decidim/invited_to_group_event: Invitation à rejoindre un groupe
       decidim/join_request_accepted_event: Demande de participation acceptée
       decidim/join_request_rejected_event: Demande de participation rejetée
       decidim/profile_updated_event: Profil mis à jour
       decidim/promote_to_admin: Promu au groupe admin
+      decidim/promoted_to_admin_event: Promotion au rôle d'administrateur de groupe
       decidim/removed_from_group: Retiré du groupe
       decidim/resource_endorsed_event: Ressource soutenue
+      decidim/resource_hidden_event: Modération de votre participation
+      decidim/user_group_created_event: Groupe d'utilisateurs créé
+      decidim/welcome_notification_event: Message de bienvenue
   activerecord:
     attributes:
       decidim/user:
