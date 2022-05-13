@@ -31,12 +31,11 @@ module Decidim
             :finish
 
       def show
-        enforce_permission_to :create, :initiative
         send("#{step}_step", initiative: session_initiative)
       end
 
       def update
-        enforce_permission_to :create, :initiative
+        enforce_permission_to :create, :initiative, {initiative_type: Decidim::InitiativesType.find_by(id: params["initiative"]["type_id"])}
         send("#{step}_step", params)
       end
 

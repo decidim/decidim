@@ -361,6 +361,12 @@ en:
           more_information: "(More information)"
           select: I want to promote this initiative
           select_initiative_type_help: Initiatives are a means by which the participants can intervene so that the organization can undertake actions in defence of the general interest. Which initiative do you want to launch?
+          not_authorized:
+            authorizations_page: View authorizations
+            close: Close
+            explanation: You need to be verified in order to create a new initiative.
+            title: Authorization required
+          verification_required: Verify your account to promote this initiative
         share_committee_link:
           continue: Continue
           invite_to_committee_help: Link to invite people that will be part of the promoter committee
@@ -584,6 +590,7 @@ en:
           comment: Comment
       initiatives_type:
         actions:
+          create: Create
           title: Actions
           vote: Sign
   layouts:

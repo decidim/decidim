@@ -30,7 +30,7 @@ Decidim.register_participatory_space(:initiatives) do |participatory_space|
 
   participatory_space.register_resource(:initiatives_type) do |resource|
     resource.model_class_name = "Decidim::InitiativesType"
-    resource.actions = %w(vote)
+    resource.actions = %w(vote create)
   end
 
   participatory_space.model_class_name = "Decidim::Initiative"

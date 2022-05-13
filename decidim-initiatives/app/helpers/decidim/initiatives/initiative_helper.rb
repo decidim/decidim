@@ -83,6 +83,24 @@ module Decidim
         initiative.percentage >= 100
       end
 
+      def authorized_create_modal_button(type, html_options, &block)
+        return if current_user && action_authorized_to("create",permissions_holder: type).ok?
+
+        tag = "button"
+        html_options ||= {}
+
+        if current_user
+          html_options["data-open"] = "authorizationModal"
+          html_options["data-open-url"] = authorization_create_modal_initiative_path(type)
+        else
+          html_options["data-open"] = "loginModal"
+        end
+
+        html_options["onclick"] = "event.preventDefault();"
+
+        send("#{tag}_to", "", html_options, &block)
+      end
+
       def authorized_vote_modal_button(initiative, html_options, &block)
         return if current_user && action_authorized_to("vote", resource: initiative, permissions_holder: initiative.type).ok?
 

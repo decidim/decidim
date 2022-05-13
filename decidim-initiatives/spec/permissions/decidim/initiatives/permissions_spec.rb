@@ -201,6 +201,9 @@ describe Decidim::Initiatives::Permissions do
     let(:action) do
       { scope: :public, action: :create, subject: :initiative }
     end
+    let(:context) do
+      { initiative_type: initiative.type }
+    end
 
     context "when creation is enabled" do
       before do
@@ -235,6 +238,34 @@ describe Decidim::Initiatives::Permissions do
         end
 
         it { is_expected.to be true }
+      end
+
+      context "when the initiative type has permissions to create" do
+        before do
+          initiative.type.create_resource_permission(
+            permissions: {
+              "create" => {
+                "authorization_handlers" => {
+                  "dummy_authorization_handler" => { "options" => {} },
+                  "another_dummy_authorization_handler" => { "options" => {} }
+                }
+              }
+            }
+          )
+        end
+
+        context "when user is not verified" do
+          it { is_expected.to be false }
+        end
+
+        context "when user is fully verified" do
+          before do
+            create(:authorization, name: "dummy_authorization_handler", user: user, granted_at: 2.seconds.ago)
+            create(:authorization, name: "another_dummy_authorization_handler", user: user, granted_at: 2.seconds.ago)
+          end
+
+          it { is_expected.to be true }
+        end
       end
     end
 
