@@ -21,6 +21,9 @@ module Decidim
       include NeedsSnippets
       include UserBlockedChecker
 
+      include RedesignLayout
+      redesign
+
       helper Decidim::TranslationsHelper
       helper Decidim::MetaTagsHelper
       helper Decidim::DecidimFormHelper
