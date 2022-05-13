@@ -90,7 +90,7 @@ module Decidim
         Decidim::Initiatives.do_not_require_authorization ||
           UserAuthorizations.for(user).any? ||
           Decidim::UserGroups::ManageableUserGroups.for(user).verified.any?
-        ) && authorized?(:create, permissions_holder: initiative_type)
+      ) && authorized?(:create, permissions_holder: initiative_type)
       end
 
       def request_membership?

@@ -35,7 +35,7 @@ module Decidim
       end
 
       def update
-        enforce_permission_to :create, :initiative, {initiative_type: Decidim::InitiativesType.find_by(id: params["initiative"]["type_id"])}
+        enforce_permission_to :create, :initiative, { initiative_type: Decidim::InitiativesType.find_by(id: params["initiative"]["type_id"]) }
         send("#{step}_step", params)
       end
 

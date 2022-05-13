@@ -84,7 +84,7 @@ module Decidim
       end
 
       def authorized_create_modal_button(type, html_options, &block)
-        return if current_user && action_authorized_to("create",permissions_holder: type).ok?
+        return if current_user && action_authorized_to("create", permissions_holder: type).ok?
 
         tag = "button"
         html_options ||= {}
