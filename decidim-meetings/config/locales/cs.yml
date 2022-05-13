@@ -321,7 +321,6 @@ cs:
             select_a_meeting_type: Vyberte prosím typ schůzky
             select_a_registration_type: Vyberte prosím typ registrace
             select_an_iframe_access_level: Vyberte prosím úroveň přístupu iframe
-            show_embedded_iframe_help: Pouze pár služeb umožňuje vložení do schůzky nebo živé události (YouTube, Twitch a Jitsi)
           index:
             title: Setkání
           new:
@@ -522,7 +521,6 @@ cs:
           select_a_meeting_type: Vyberte prosím typ schůzky
           select_a_registration_type: Vyberte prosím typ registrace
           select_an_iframe_access_level: Vyberte prosím úroveň přístupu iframe
-          show_embedded_iframe_help: Pouze pár služeb umožňuje vložení do schůzky nebo živé události (YouTube, Twitch a Jitsi)
         index:
           click_here: Zobrazit všechny schůzky
           new_meeting: Nová schůzka
