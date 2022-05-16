@@ -18,12 +18,15 @@ module Decidim
       # Returns nothing.
       def call
         Decidim::StaticPage::DEFAULT_PAGES.map do |slug|
-          Decidim::StaticPage.find_or_create_by!(organization: organization, slug: slug) do |page|
+          content = slug == "terms-and-conditions" ? {} : localized_attribute(slug, :content)
+          static_page = Decidim::StaticPage.find_or_create_by!(organization: organization, slug: slug) do |page|
             page.title = localized_attribute(slug, :title)
-            page.content = localized_attribute(slug, :content)
+            page.content = content
             page.show_in_footer = true
             page.allow_public_access = true if slug == "terms-and-conditions"
           end
+
+          create_default_content_blocks_for(static_page)
         end
       end
 
@@ -39,6 +42,20 @@ module Decidim
 
           result.update(locale => text)
         end
+      end
+
+      def create_default_content_blocks_for(page)
+        content_block_summary = Decidim::ContentBlock.create(
+          organization: organization,
+          scope_name: :static_page,
+          manifest_name: :summary,
+          weight: 1,
+          scoped_resource_id: page.id,
+          published_at: Time.current
+        )
+
+        content_block_summary.settings = { summary: localized_attribute(page.slug, :summary) }
+        content_block_summary.save!
       end
     end
   end

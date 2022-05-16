@@ -222,17 +222,4 @@ if !Rails.env.production? || ENV.fetch("SEED", nil)
   settings = welcome_text.inject(settings) { |acc, (k, v)| acc.update("welcome_text_#{k}" => v) }
   hero_content_block.settings = settings
   hero_content_block.save!
-
-  terms_and_conditions_page = Decidim::StaticPage.find_by(slug: "terms-and-conditions")
-  terms_and_conditions_content_block_summary = Decidim::ContentBlock.create(
-    organization: organization,
-    scope_name: :static_page,
-    manifest_name: :summary,
-    weight: 1,
-    scoped_resource_id: terms_and_conditions_page.id,
-    published_at: Time.current
-  )
-
-  terms_and_conditions_content_block_summary.settings = { summary: Decidim::Faker::Localized.paragraph(sentence_count: 2) }
-  terms_and_conditions_content_block_summary.save!
 end
