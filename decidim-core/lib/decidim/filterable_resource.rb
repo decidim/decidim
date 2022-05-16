@@ -35,7 +35,7 @@ module Decidim
 
       def scope_search_multi(scope_key, possible_scopes)
         scope scope_key, lambda { |*value_keys|
-          search_values = value_keys.compact.reject(&:blank?)
+          search_values = value_keys.compact.compact_blank
 
           conditions = possible_scopes.map do |scope|
             search_values.member?(scope.to_s) ? try(scope) : nil

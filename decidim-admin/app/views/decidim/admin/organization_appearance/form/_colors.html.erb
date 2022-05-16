@@ -2,13 +2,13 @@
   <div class="card-divider">
     <h2 class="card-title"><%= t ".colors_title" %></h2>
   </div>
-  <div class="callout warning">
-    <p>
-      <%= icon "warning" %>
-      <%= t ".colors_warning_html", link: "https://webaim.org/resources/contrastchecker" %>
-    </p>
-  </div>
   <div class="card-section">
+    <div class="callout warning">
+      <p>
+        <%= icon "warning" %>
+        <%= t ".colors_warning_html", link: "https://webaim.org/resources/contrastchecker" %>
+      </p>
+    </div>
     <div class="organization-colors">
       <%= form.color_field :primary_color, value: current_organization.colors["primary"] %>
       <%= form.color_field :secondary_color, value: current_organization.colors["secondary"] %>

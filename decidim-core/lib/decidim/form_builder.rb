@@ -94,6 +94,13 @@ module Decidim
       safe_join [label_tabs, tabs_content]
     end
 
+    def password_field(attribute, options = {})
+      field attribute, options do |opts|
+        opts[:autocomplete] ||= :off
+        method(__method__).super_method.super_method.call(attribute, opts)
+      end
+    end
+
     def translated_one_locale(type, name, locale, options = {})
       return hashtaggable_text_field(type, name, locale, options) if options.delete(:hashtaggable)
 
@@ -544,7 +551,7 @@ module Decidim
     # inputs inside the label and to automatically inject validations
     # from the object.
     #
-    # attribute    - The String name of the attribute to buidl the field.
+    # attribute    - The String name of the attribute to build the field.
     # options      - A Hash with options to build the field.
     # html_options - An optional Hash with options to pass to the html element.
     #

@@ -8,7 +8,7 @@ module Decidim
 
     def build_gallery(attached_to = nil)
       @gallery = []
-      @form.add_photos.reject(&:blank?).each do |photo|
+      @form.add_photos.compact_blank.each do |photo|
         if photo.is_a?(Hash) && photo.has_key?(:id)
           update_attachment_title_for(photo)
           next
