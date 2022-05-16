@@ -15,9 +15,16 @@
           <%= icon "plus", role: "img", "aria-hidden": true %>
         <% end %>
       <% else %>
-        <%= authorized_create_modal_button(available_initiative_types.first, remote: true, class: "title-action__action button small") do %>
-          <%= icon "plus", role: "img", "aria-hidden": true %>
-          <%= t(".new_initiative") %>
+        <% if authorized_create_modal_button(available_initiative_types.first, remote: true, class: "title-action__action button small") %>
+          <%= authorized_create_modal_button(available_initiative_types.first, remote: true, class: "title-action__action button small") do %>
+            <%= icon "plus", role: "img", "aria-hidden": true %>
+            <%= t(".new_initiative") %>
+          <% end %>
+        <% else %>
+          <button type="button" class="title-action__action button small" data-open="not-authorized-modal" aria-controls="not-authorized-modal" aria-haspopup="true" tabindex="0">
+            <%= t(".new_initiative") %>
+            <%= icon "plus", role: "img", "aria-hidden": true %>
+          </button>
         <% end %>
       <% end %>
     <% else %>
