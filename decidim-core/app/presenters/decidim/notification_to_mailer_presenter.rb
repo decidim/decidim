@@ -14,10 +14,10 @@ module Decidim
     delegate :resource_path, to: :event
 
     def date_time
-      case frequency
-      when :daily then created_at.strftime("%H:%M")
-      when :weekly then I18n.l(created_at, format: :decidim_short)
-      else I18n.l(created_at, format: :decidim_short)
+      if frequency == :daily
+        created_at.strftime("%H:%M")
+      else
+        I18n.l(created_at, format: :decidim_short)
       end
     end
 
