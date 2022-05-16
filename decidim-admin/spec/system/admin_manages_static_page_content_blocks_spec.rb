@@ -29,7 +29,7 @@ describe "Admin manages static page content blocks", type: :system do
   end
 
   context "when editing a persisted content block" do
-    let!(:content_block) { create :content_block, organization: organization, manifest_name: :summary, scope_name: :static_page }
+    let!(:content_block) { create :content_block, organization: organization, manifest_name: :summary, scope_name: :static_page, scoped_resource_id: tos_page.id }
 
     it "updates the settings of the content block" do
       visit decidim_admin.edit_static_page_content_block_path(:summary, static_page_id: tos_page.id)

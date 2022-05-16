@@ -23,6 +23,7 @@ module Decidim
     let(:permissions_class) do
       Decidim::Admin::Permissions.new(build(:user, :admin), action, static_page: form.object)
     end
+    let(:content_blocks?) { false }
 
     before do
       view.extend Decidim::NeedsPermission
@@ -30,6 +31,7 @@ module Decidim
       allow(view).to receive(:form).and_return(form)
       allow(view).to receive(:allowed_to?).and_return(allowed?)
       allow(view).to receive(:permissions_class).and_return(permissions_class)
+      allow(view).to receive(:content_blocks?).and_return(content_blocks?)
     end
 
     context "with a default static page" do
@@ -43,6 +45,7 @@ module Decidim
     context "with the TOS static page" do
       let(:slug) { "terms-and-conditions" }
       let(:allowed?) { false }
+      let(:content_blocks?) { true }
 
       it { is_expected.not_to include("slug") }
       it { is_expected.not_to include("allow_public_access") }

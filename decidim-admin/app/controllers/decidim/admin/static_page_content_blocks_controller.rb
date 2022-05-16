@@ -27,17 +27,6 @@ module Decidim
         end
       end
 
-      def destroy
-        enforce_permission_to :destroy, :static_page, static_page: scoped_resource
-
-        DestroyStaticPageContentBlock.call(content_block, current_user) do
-          on(:ok) do
-            flash[:notice] = I18n.t("static_pages.destroy.success", scope: "decidim.admin")
-            redirect_to static_pages_path
-          end
-        end
-      end
-
       private
 
       def content_block
