@@ -15,7 +15,7 @@ describe "decidim_meetings:clean_registration_forms", type: :task do
   end
 
   context "when a meeting has finished before the given threshold" do
-    let!(:meeting) { create(:meeting, end_time: Time.current - 4.months) }
+    let!(:meeting) { create(:meeting, end_time: 4.months.ago) }
     let(:questionnaire) { meeting.questionnaire }
 
     it "removes related questionnaires and answers but not the meeting itself" do
@@ -28,7 +28,7 @@ describe "decidim_meetings:clean_registration_forms", type: :task do
   end
 
   context "when a meeting has finished after the given threshold" do
-    let!(:meeting) { create(:meeting, end_time: Time.current - 2.months) }
+    let!(:meeting) { create(:meeting, end_time: 2.months.ago) }
     let(:questionnaire) { meeting.questionnaire }
 
     it "does not remove anything" do

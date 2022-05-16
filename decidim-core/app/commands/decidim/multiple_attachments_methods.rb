@@ -6,7 +6,7 @@ module Decidim
 
     def build_attachments
       @documents = []
-      @form.add_documents.reject(&:blank?).each do |attachment|
+      @form.add_documents.compact_blank.each do |attachment|
         if attachment.is_a?(Hash) && attachment.has_key?(:id)
           update_attachment_title_for(attachment)
           next

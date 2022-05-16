@@ -52,7 +52,7 @@ module Decidim
       end
 
       describe "when in previous years" do
-        let(:date) { Time.current - 1.year }
+        let(:date) { 1.year.ago }
 
         it "returns the full date" do
           expect(enhanced_instance.friendly_created_at).to eq("06.02.44")

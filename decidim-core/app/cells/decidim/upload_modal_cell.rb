@@ -119,7 +119,7 @@ module Decidim
     def attachments
       @attachments = begin
         attachments = options[:attachments] || form.object.send(attribute)
-        attachments = Array(attachments).reject(&:blank?)
+        attachments = Array(attachments).compact_blank
         attachments.map { |attachment| attachment.is_a?(String) ? ActiveStorage::Blob.find_signed(attachment) : attachment }
       end
     end
@@ -141,20 +141,22 @@ module Decidim
       return filename if filename.length <= max_length
 
       name = File.basename(filename, File.extname(filename))
-      name.truncate(max_length, omission: "...#{name.last(max_length / 2 - 3)}#{File.extname(filename)}")
+      name.truncate(max_length, omission: "...#{name.last((max_length / 2) - 3)}#{File.extname(filename)}")
     end
 
     def file_name_for(attachment)
-      filename = begin
-        return attachment.filename.to_s if attachment.is_a? ActiveStorage::Blob
-        return blob(attachment).filename.to_s if blob(attachment).present?
-
-        attachment.url.split("/").last
-      end
+      filename = determine_filename(attachment)
 
       return "(#{filename})" if has_title?
 
       filename
+    end
+
+    def determine_filename(attachment)
+      return attachment.filename.to_s if attachment.is_a? ActiveStorage::Blob
+      return blob(attachment).filename.to_s if blob(attachment).present?
+
+      attachment.url.split("/").last
     end
 
     def file_attachment_path(attachment)

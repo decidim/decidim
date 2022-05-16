@@ -34,13 +34,13 @@ module Decidim
       end
 
       context "when no current_user is passed" do
-        let(:current_user) {}
+        let(:current_user) { nil }
 
         it { is_expected.to be_invalid }
       end
 
       context "when no conflict is passed" do
-        let(:conflict) {}
+        let(:conflict) { nil }
 
         it { is_expected.to be_invalid }
       end
