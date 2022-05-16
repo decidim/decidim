@@ -84,16 +84,40 @@ ja:
             title: プロジェクトを編集
             update: 更新
           index:
+            actions: アクション
+            cancel: キャンセル
+            change_category: カテゴリの変更
+            change_scope: スコープの変更
+            change_selected: 選択した項目を変更
+            deselect_implementation: 選択解除
             finished_orders: 完了した投票
             pending_orders: 保留中の投票
+            select_for_implementation: 選択
             selected: 選択済
             title: プロジェクト
+            update: 更新
+            update_scope_button: スコープを更新
           new:
             create: 作成
             title: 新規プロジェクト
           update:
             invalid: このプロジェクトの更新中に問題が発生しました
             success: プロジェクトを更新しました
+          update_category:
+            invalid: 'これらのプロジェクトは既に %{subject_name} カテゴリを持っています: %{projects}'
+            select_a_category: カテゴリを選択してください
+            select_a_project: プロジェクトを選択してください
+            success: 'プロジェクトは %{subject_name} カテゴリに更新されました: %{projects}'
+          update_scope:
+            invalid: 'これらのプロジェクトは既に %{subject_name} スコープを持っています: %{projects}'
+            select_a_project: プロジェクトを選択してください
+            select_a_scope: スコープを選択してください
+            success: 'プロジェクトは %{subject_name} スコープに正常に更新されました: %{projects}'
+          update_selected:
+            invalid: 'これらのプロジェクトは既に選択されています: %{projects}'
+            select_a_project: プロジェクトを選択してください
+            select_a_selection: 選択してください
+            success: 'プロジェクトの選択が変更されました: %{projects}.'
         proposals_imports:
           create:
             invalid: 提案をプロジェクトにインポートする際に問題が発生しました
@@ -154,6 +178,7 @@ ja:
           fields:
             category: カテゴリ
             id: ID
+            scope: スコープ
             title: タイトル
       order_summary_mailer:
         order_summary:
