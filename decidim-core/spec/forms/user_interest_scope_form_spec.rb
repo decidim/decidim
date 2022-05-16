@@ -37,7 +37,7 @@ module Decidim
       it "creates form" do
         expect(subject.id).to eq(scope.id)
         expect(subject.name).to eq(name)
-        expect(subject.checked).to eq(false)
+        expect(subject.checked).to be(false)
         expect(subject.children).to eq(children)
       end
 
@@ -45,7 +45,7 @@ module Decidim
         let(:extended_data) { { "interested_scopes" => [scope.id] } }
 
         it "checks the scope" do
-          expect(subject.checked).to eq(true)
+          expect(subject.checked).to be(true)
         end
       end
     end
