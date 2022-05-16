@@ -258,7 +258,7 @@ module Decidim
         published_at: Time.current,
         state: "published",
         signature_start_date: Date.current,
-        signature_end_date: signature_end_date || Date.current + Decidim::Initiatives.default_signature_time_period_length
+        signature_end_date: signature_end_date || (Date.current + Decidim::Initiatives.default_signature_time_period_length)
       )
     end
 

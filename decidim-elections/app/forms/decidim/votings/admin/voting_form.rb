@@ -29,7 +29,7 @@ module Decidim
         validates :end_time, presence: true, date: { after: :start_time }
         validates :banner_image, passthru: { to: Decidim::Votings::Voting }
         validates :introductory_image, passthru: { to: Decidim::Votings::Voting }
-        validates :voting_type, presence: true, inclusion: { in: Votings::Voting.voting_types, message: "%{value} is not a valid voting type" }
+        validates :voting_type, presence: true, inclusion: { in: Votings::Voting.voting_types }
 
         validates :scope, presence: true, if: proc { |object| object.scope_id.present? }
 

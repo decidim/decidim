@@ -85,7 +85,7 @@ module Decidim
       )
     }
 
-    validates :organization, :user, :action, presence: true
+    validates :action, presence: true
     validates :resource, presence: true, if: ->(log) { log.action != "delete" }
     validates :visibility, presence: true, inclusion: { in: %w(private-only admin-only public-only all) }
 

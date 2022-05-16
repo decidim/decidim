@@ -43,7 +43,9 @@ module Decidim
       def popularity_tag(initiative)
         content_tag(:div, class: "extra__popularity popularity #{popularity_class(initiative)}".strip) do
           5.times do
-            concat(content_tag(:span, class: "popularity__item") {})
+            concat(content_tag(:span, class: "popularity__item") do
+              # empty block
+            end)
           end
 
           concat(content_tag(:span, class: "popularity__desc") do

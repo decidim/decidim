@@ -41,12 +41,7 @@ module Decidim
       # A result percentage relative to the question
       # Returns a Float.
       def blank_votes_percentage
-        @blank_votes_percentage ||= begin
-          return 0 unless results_total.positive?
-
-          result = blank_votes.to_f / results_total * 100.0
-          result.round
-        end
+        @blank_votes_percentage ||= results_total.positive? ? (blank_votes.to_f / results_total * 100.0).round : 0
       end
 
       def slug

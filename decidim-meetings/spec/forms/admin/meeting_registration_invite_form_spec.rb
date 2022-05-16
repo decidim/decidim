@@ -31,13 +31,13 @@ module Decidim::Meetings
     end
 
     context "when name is missing" do
-      let(:name) {}
+      let(:name) { nil }
 
       it { is_expected.to be_invalid }
     end
 
     context "when email is missing" do
-      let(:email) {}
+      let(:email) { nil }
 
       it { is_expected.to be_invalid }
     end

@@ -22,8 +22,8 @@ module Decidim
             ca: "Descripció"
           }
         end
-        let(:start_date) {}
-        let(:end_date) {}
+        let(:start_date) { nil }
+        let(:end_date) { nil }
         let(:cta_path) { nil }
         let(:attributes) do
           {

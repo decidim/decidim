@@ -10,7 +10,7 @@ module Decidim
       let(:organization) { create(:organization) }
       let!(:user) { create(:user, :confirmed, organization: organization) }
       let!(:initiatives) { create_list :initiative, 5, organization: organization }
-      let!(:most_recent_initiative) { create :initiative, published_at: Time.current + 1.day, organization: organization }
+      let!(:most_recent_initiative) { create :initiative, published_at: 1.day.from_now, organization: organization }
 
       context "when querying by default order" do
         let(:order) { "default" }

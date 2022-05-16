@@ -56,7 +56,7 @@ module Decidim
           if type.ids.include?("all")
             object_class.where(organization: @organization)
           else
-            object_class.where(id: type.ids.reject(&:blank?))
+            object_class.where(id: type.ids.compact_blank)
           end
         end.flatten.compact
       end

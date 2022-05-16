@@ -13,6 +13,7 @@ AllCops:
     - "**/Gemfile"
     - "**/Rakefile"
   Exclude:
+    - "**/node_modules/**/*"
     - "**/vendor/**/*"
     - "development_app/**/*"
     - "decidim_app-design/node_modules/**/*"

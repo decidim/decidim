@@ -5,16 +5,18 @@ module Decidim
     module Admin
       class OrderReminderForm < Decidim::Form
         def reminder_amount
-          @reminder_amount ||= begin
-            return 0 if !voting_enabled? || voting_ends_soon?
-
-            user_ids = []
-            unfinished_orders.each do |order|
-              reminder = Decidim::Reminder.find_by(component: current_component, user: order.user)
-              user_ids << order.user.id if !reminder || (reminder.deliveries.present? && reminder.deliveries.last.created_at < minimum_interval_between_reminders.ago)
-            end
-            user_ids.uniq.count
-          end
+          @reminder_amount ||= if !voting_enabled? || voting_ends_soon?
+                                 0
+                               else
+                                 user_ids = []
+                                 unfinished_orders.each do |order|
+                                   reminder = Decidim::Reminder.find_by(component: current_component, user: order.user)
+                                   if !reminder || (reminder.deliveries.present? && reminder.deliveries.last.created_at < minimum_interval_between_reminders.ago)
+                                     user_ids << order.user.id
+                                   end
+                                 end
+                                 user_ids.uniq.count
+                               end
         end
 
         def voting_enabled?
@@ -30,7 +32,7 @@ module Decidim
 
           end_time = current_component.participatory_space.active_step[:end_date].in_time_zone(time_zone).end_of_day
 
-          Time.current + 6.hours >= end_time
+          6.hours.from_now >= end_time
         end
 
         def minimum_interval_between_reminders
@@ -42,9 +44,11 @@ module Decidim
         def minimum_time_before_first_reminder
           @minimum_time_before_first_reminder ||= begin
             reminder_manifest = Decidim.reminders_registry.for(:orders)
-            return minimum_interval_between_reminders if reminder_manifest.blank?
-
-            Array(reminder_manifest.settings.attributes[:reminder_times].default).first
+            if reminder_manifest.blank?
+              minimum_interval_between_reminders
+            else
+              Array(reminder_manifest.settings.attributes[:reminder_times].default).first
+            end
           end
         end
 

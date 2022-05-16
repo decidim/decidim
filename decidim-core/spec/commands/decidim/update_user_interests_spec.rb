@@ -13,12 +13,12 @@ module Decidim
       {
         scopes: {
           ignored_scope.id.to_s => {
-            "checked": "0",
-            "id": ignored_scope.id.to_s
+            checked: "0",
+            id: ignored_scope.id.to_s
           },
           interested_scope.id.to_s => {
-            "checked": "1",
-            "id": interested_scope.id.to_s
+            checked: "1",
+            id: interested_scope.id.to_s
           }
         }
       }

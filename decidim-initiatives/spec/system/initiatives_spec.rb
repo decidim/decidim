@@ -83,7 +83,7 @@ describe "Initiatives", type: :system do
         let!(:closed_initiative) do
           create(:initiative, :discarded, organization: organization)
         end
-        let(:base_initiative) {}
+        let(:base_initiative) { nil }
 
         before do
           visit decidim_initiatives.initiatives_path

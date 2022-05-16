@@ -106,11 +106,11 @@ module Decidim::Admin
 
           context "when interests match the selected scopes" do
             let!(:deliverable_users) do
-              create_list(:user, rand(2..9), :confirmed, organization: organization, newsletter_notifications_at: Time.current, extended_data: { "interested_scopes": scopes.first.id })
+              create_list(:user, rand(2..9), :confirmed, organization: organization, newsletter_notifications_at: Time.current, extended_data: { interested_scopes: scopes.first.id })
             end
 
             let!(:undeliverable_users) do
-              create_list(:user, rand(2..9), :confirmed, organization: organization, newsletter_notifications_at: Time.current, extended_data: { "interested_scopes": scopes.last.id })
+              create_list(:user, rand(2..9), :confirmed, organization: organization, newsletter_notifications_at: Time.current, extended_data: { interested_scopes: scopes.last.id })
             end
 
             it_behaves_like "selective newsletter"
@@ -119,7 +119,7 @@ module Decidim::Admin
           context "when interest do not match the selected scopes" do
             let(:user_interest) { create(:scope, organization: organization) }
             let!(:deliverable_users) do
-              create_list(:user, rand(2..9), :confirmed, organization: organization, newsletter_notifications_at: Time.current, extended_data: { "interested_scopes": user_interest.id })
+              create_list(:user, rand(2..9), :confirmed, organization: organization, newsletter_notifications_at: Time.current, extended_data: { interested_scopes: user_interest.id })
             end
 
             it "is not valid" do
