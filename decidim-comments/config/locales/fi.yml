@@ -3,6 +3,7 @@ fi:
     models:
       decidim/comments/comment_by_followed_user_event: Kommentti
       decidim/comments/comment_created_event: Kommentti
+      decidim/comments/comment_upvoted_event: Kommenttia äänestettiin
       decidim/comments/reply_created_event: Vastaus kommentiin
       decidim/comments/user_group_mentioned_event: Maininta
       decidim/comments/user_mentioned_event: Maininta
