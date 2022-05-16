@@ -30,7 +30,7 @@ self.addEventListener("push", (event) => {
 });
 
 // Event handler for click on the notification event
-self.addEventListener("notificationclick", function(event) {
+self.addEventListener("notificationclick", (event) => {
   event.notification.close();
   // Get all the Window clients
   event.waitUntil(
