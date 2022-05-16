@@ -85,6 +85,10 @@ fi:
             title: Muokkaa suunnitelmaa
             update: Päivitä
           index:
+            actions: Toiminnot
+            cancel: Peruuta
+            change_category: Vaihda aihepiiri
+            change_scope: Vaihda teema
             finished_orders: Valmiit äänet
             pending_orders: Odottavat äänet
             selected: Valittu
