@@ -4,14 +4,9 @@
       <div>
         <%= link_to translated_attribute(budget.title), budgets_path %> &gt;
         <%= t(".title") %>
+        <span id="js-selected-resources-count" class="component-counter component-counter--inline" title="<%= t("decidim.budgets.admin.projects.index.selected") %>"></span>
       </div>
-      <div class="flex--cc flex-gap--1">
-        <%= link_to t("actions.import", scope: "decidim.budgets", name: t("models.project.name", scope: "decidim.budgets.admin")), new_budget_proposals_import_path(budget), class: "button tiny button--title" if allowed_to? :import_proposals, :project %>
-        <% if allowed_to? :export, :budget %>
-          <%= export_dropdown(current_component, budget.id) %>
-        <% end %>
-        <%= link_to t("actions.new", scope: "decidim.budgets", name: t("models.project.name", scope: "decidim.budgets.admin")), new_budget_project_path, class: "button tiny button--title new" if allowed_to? :create, :project %>
-      </div>
+      <%= render partial: "bulk-actions" %>
     </h2>
   </div>
 
@@ -21,6 +16,7 @@
       <table class="table-list">
         <thead>
           <tr>
+            <th><%= check_box_tag "projects_bulk", "all", false, class: "js-check-all" %></th>
             <th><%= sort_link(query, :id, t("models.project.fields.id", scope: "decidim.budgets"), default_order: :desc) %>
             <th><%= sort_link(query, :title, t("models.project.fields.title", scope: "decidim.budgets")) %></th>
             <th><%= sort_link(query, :category_name, t("models.project.fields.category", scope: "decidim.budgets") ) %></th>
@@ -32,53 +28,7 @@
         </thead>
         <tbody>
           <% projects.each do |project| %>
-            <tr data-id="<%= project.id %>">
-              <td>
-                <%= project.id %><br>
-              </td>
-              <td>
-                <%= translated_attribute(project.title) %><br>
-              </td>
-              <td>
-                <% if project.category %>
-                  <%= translated_attribute project.category.name %>
-                <% end %>
-              </td>
-              <%= td_resource_scope_for(project.scope) %>
-              <td>
-               <%= project.confirmed_orders_count %>
-              </td>
-              <td>
-                <% if project.selected? %>
-                  <%= content_tag :strong, t(".selected"), class: "text-success" %>
-                <% else %>
-                  <%= content_tag :span, "×", class: "text-muted" %>
-                <% end %>
-              </td>
-              <td class="table-list__actions">
-                <%= icon_link_to "eye", resource_locator([budget, project]).path, t("actions.preview", scope: "decidim.budgets"), target: :blank, class: "action-icon--preview" %>
-
-                <% if allowed_to? :update, :project, project: project %>
-                  <%= icon_link_to "pencil", resource_locator([budget, project]).edit, t("actions.edit", scope: "decidim.budgets"), class: "action-icon--edit" %>
-                <% end %>
-
-                <% if allowed_to? :update, :project, project: project %>
-                    <%= icon_link_to "folder", project_attachment_collections_path(project), t("actions.attachment_collections", scope: "decidim.budgets"), class: "action-icon--attachment_collections" %>
-                <% end %>
-
-                <% if allowed_to? :update, :project, project: project %>
-                  <%= icon_link_to "paperclip", project_attachments_path(project), t("actions.attachments", scope: "decidim.budgets"), class: "action-icon--attachments" %>
-                <% end %>
-
-                <%= resource_permissions_link(project) %>
-
-                <% if allowed_to? :destroy, :project, project: project %>
-                  <%= icon_link_to "circle-x", resource_locator([budget, project]).show, t("actions.destroy", scope: "decidim.budgets"), method: :delete, class: "action-icon--remove", data: { confirm: t("actions.confirm_destroy", scope: "decidim.budgets") } %>
-                <% else %>
-                  <%= icon "circle-x", class: "action-icon action-icon--disabled", role: "img", aria_label: t("actions.destroy", scope: "decidim.budgets") %>
-                <% end %>
-              </td>
-            </tr>
+            <%= render partial: "project-tr", locals: { project: project } %>
           <% end %>
         </tbody>
       </table>
@@ -91,3 +41,5 @@
     <strong><%= t ".pending_orders" %>:&nbsp;</strong><span><%= pending_orders.count %></span>
   </div>
 </div>
+
+<%= javascript_pack_tag "decidim_budgets_admin" %>

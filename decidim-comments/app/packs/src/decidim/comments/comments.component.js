@@ -1,4 +1,6 @@
 /* eslint id-length: ["error", { "exceptions": ["$"] }] */
+/* eslint max-lines: ["error", {"max": 350, "skipBlankLines": true}] */
+
 
 /**
  * A plain Javascript component that handles the comments.
@@ -23,6 +25,8 @@ export default class CommentsComponent {
     this.order = config.order;
     this.lastCommentId = config.lastCommentId;
     this.pollingInterval = config.pollingInterval || 15000;
+    this.singleComment = config.singleComment;
+    this.toggleTranslations = config.toggleTranslations;
     this.id = this.$element.attr("id") || this._getUID();
     this.mounted = false;
   }
@@ -36,6 +40,9 @@ export default class CommentsComponent {
     if (this.$element.length > 0 && !this.mounted) {
       this.mounted = true;
       this._initializeComments(this.$element);
+      if (!this.singleComment) {
+        this._fetchComments();
+      }
 
       $(".order-by__dropdown .is-submenu-item a", this.$element).on("click.decidim-comments", () => this._onInitOrder());
     }
@@ -133,8 +140,6 @@ export default class CommentsComponent {
         $text.get(0).addEventListener("emoji.added", this._onTextInput);
       }
     });
-
-    this._pollComments();
   }
 
   /**
@@ -200,18 +205,30 @@ export default class CommentsComponent {
     this._stopPolling();
 
     this.pollTimeout = setTimeout(() => {
-      Rails.ajax({
-        url: this.commentsUrl,
-        type: "GET",
-        data: new URLSearchParams({
-          "commentable_gid": this.commentableGid,
-          "root_depth": this.rootDepth,
-          "order": this.order,
-          "after": this.lastCommentId
-        }),
-        success: this._pollComments()
-      })
+      this._fetchComments();
     }, this.pollingInterval);
+  }
+
+  /**
+   * Sends an ajax request based on current
+   * params to get comments for the component
+   * @private
+   * @returns {Void} - Returns nothing
+   */
+  _fetchComments() {
+    Rails.ajax({
+      url: this.commentsUrl,
+      type: "GET",
+      data: new URLSearchParams({
+        "commentable_gid": this.commentableGid,
+        "root_depth": this.rootDepth,
+        "order": this.order,
+        "after": this.lastCommentId,
+        ...(this.toggleTranslations && { "toggle_translations": this.toggleTranslations }),
+        ...(this.lastCommentId && { "after": this.lastCommentId })
+      }),
+      success: this._pollComments()
+    })
   }
 
   /**

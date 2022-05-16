@@ -181,6 +181,7 @@ shared_context "with application env vars" do
       "PROPOSALS_PROCESS_GROUP_HIGHLIGHTED_PROPOSALS_LIMIT" => "5",
       "MEETINGS_UPCOMING_MEETING_NOTIFICATION" => "3",
       "MEETINGS_ENABLE_PROPOSAL_LINKING" => "false",
+      "MEETINGS_EMBEDDABLE_SERVICES" => "www.youtube.com www.twitch.tv meet.jit.si 8x8.vc",
       "BUDGETS_ENABLE_PROPOSAL_LINKING" => "false",
       "ACCOUNTABILITY_ENABLE_PROPOSAL_LINKING" => "false",
       "CONSULTATIONS_STATS_CACHE_EXPIRATION_TIME" => "7",
@@ -303,6 +304,7 @@ shared_examples_for "an application with configurable env vars" do
       %w(decidim proposals process_group_highlighted_proposals_limit) => 3,
       %w(decidim meetings upcoming_meeting_notification) => 2,
       %w(decidim meetings enable_proposal_linking) => "auto",
+      %w(decidim meetings embeddable_services) => [],
       %w(decidim budgets enable_proposal_linking) => "auto",
       %w(decidim accountability enable_proposal_linking) => "auto",
       %w(decidim consultations stats_cache_expiration_time) => 5,
@@ -401,6 +403,7 @@ shared_examples_for "an application with configurable env vars" do
       %w(decidim proposals process_group_highlighted_proposals_limit) => 5,
       %w(decidim meetings upcoming_meeting_notification) => 3,
       %w(decidim meetings enable_proposal_linking) => false,
+      %w(decidim meetings embeddable_services) => %w(www.youtube.com www.twitch.tv meet.jit.si 8x8.vc),
       %w(decidim budgets enable_proposal_linking) => false,
       %w(decidim accountability enable_proposal_linking) => false,
       %w(decidim consultations stats_cache_expiration_time) => 7,
@@ -608,14 +611,16 @@ shared_examples_for "an application with configurable env vars" do
   let(:meetings_initializer_off) do
     {
       "upcoming_meeting_notification" => 172_800, # 2.days
-      "enable_proposal_linking" => true
+      "enable_proposal_linking" => true,
+      "embeddable_services" => %w(www.youtube.com www.twitch.tv meet.jit.si)
     }
   end
 
   let(:meetings_initializer_on) do
     {
       "upcoming_meeting_notification" => 259_200, # 3.days
-      "enable_proposal_linking" => false
+      "enable_proposal_linking" => false,
+      "embeddable_services" => %w(www.youtube.com www.twitch.tv meet.jit.si 8x8.vc)
     }
   end
 
@@ -669,7 +674,6 @@ shared_examples_for "an application with configurable env vars" do
   end
 
   # This is using a big example to avoid recreating the application every time
-  # rubocop:disable RSpec/ExampleLength
   it "env vars generate secrets application" do
     expect(result[1]).to be_success, result[0]
     # Test onto the secret generated when ENV vars are empty strings or undefined
@@ -803,7 +807,6 @@ shared_examples_for "an application with configurable env vars" do
       expect(current).to eq(value), "Rails config (#{key}) = (#{current}) expected to match Env:ON (#{value})"
     end
   end
-  # rubocop:enable RSpec/ExampleLength
 end
 
 shared_examples_for "an application with extra configurable env vars" do
@@ -897,7 +900,6 @@ shared_examples_for "an application with extra configurable env vars" do
     }
   end
 
-  # rubocop:disable RSpec/ExampleLength
   it "env vars generate secrets application" do
     expect(result[1]).to be_success, result[0]
 
@@ -971,7 +973,6 @@ shared_examples_for "an application with extra configurable env vars" do
       expect(current).to eq(value), "Votings::Census Initializer (#{key}) = (#{current}) expected to match Env (#{value})"
     end
   end
-  # rubocop:enable RSpec/ExampleLength
 end
 
 shared_examples_for "an application with wrong cloud storage options" do

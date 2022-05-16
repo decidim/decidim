@@ -18,4 +18,6 @@
   <% end %>
 </div>
 
-<%= javascript_pack_tag "decidim_votings_in_person_vote" %>
+<% content_for :js_content do %>
+  <%= javascript_pack_tag "decidim_votings_in_person_vote" %>
+<% end %>

@@ -26,4 +26,6 @@
   </div>
 </div>
 
-<%= javascript_pack_tag "decidim_consultations" %>
+<% content_for :js_content do %>
+  <%= javascript_pack_tag "decidim_consultations" %>
+<% end %>

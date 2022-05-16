@@ -94,7 +94,7 @@ module Decidim
 
           it "calls the callable object and returns the correct URL" do
             url_result = double
-            expect(url_result).to receive(:to_s).and_return(final_url)
+            allow(url_result).to receive(:to_s).and_return(final_url)
 
             url = lambda do |config|
               expect(config[:latitude]).to be(latitude)

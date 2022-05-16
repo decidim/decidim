@@ -38,7 +38,7 @@
     <%= form.select :iframe_embed_type,
       @form.iframe_embed_type_select,
       { multiple: false } %>
-    <p class="help-text"><%= t(".show_embedded_iframe_help") %></p>
+    <p class="help-text"><%= t(".show_embedded_iframe_help", domains: Decidim::Meetings.embeddable_services&.join(" ")) %></p>
   </div>
 
   <div class="field iframe-fields--access-level" id="meeting_iframe_embed_type" data-meeting-type="online-access-level">
@@ -98,4 +98,6 @@
   ) %>
 </div>
 
-<%= javascript_pack_tag "decidim_meetings" %>
+<% content_for :js_content do %>
+  <%= javascript_pack_tag "decidim_meetings" %>
+<% end %>

@@ -44,7 +44,7 @@ describe Decidim::StatsUsersCount do
   context "with blocked and deleted users" do
     it "will exclude all the users blocked or with deleted account" do
       create(:user, :confirmed, organization: organization, blocked: true)
-      create(:user, :confirmed, organization: organization, deleted_at: Time.current - 1.day)
+      create(:user, :confirmed, organization: organization, deleted_at: 1.day.ago)
       create(:user, :confirmed, organization: organization)
 
       expect(subject.query).to eq(1)

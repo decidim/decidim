@@ -13,7 +13,7 @@ module Decidim
       def query
         Decidim::Query.merge(
           ConferenceProgramMeetings.new(@component, @user)
-        ).query.where(start_time: @day.beginning_of_day..@day.end_of_day).order(start_time: :asc)
+        ).query.where(start_time: @day.all_day).order(start_time: :asc)
       end
     end
   end

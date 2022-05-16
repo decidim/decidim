@@ -77,7 +77,7 @@ module Decidim::ParticipatoryProcesses
       end
 
       before do
-        expect(Decidim::ParticipatoryProcess).to receive(:new).and_return(invalid_process)
+        allow(Decidim::ParticipatoryProcess).to receive(:new).and_return(invalid_process)
       end
 
       it "broadcasts invalid" do

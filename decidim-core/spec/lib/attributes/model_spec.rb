@@ -63,7 +63,7 @@ module Decidim
         let(:value_hash) { { name: "John Doe" } }
 
         before do
-          expect(value).to receive(:to_h).and_return(value_hash)
+          allow(value).to receive(:to_h).and_return(value_hash)
         end
 
         it "returns a new instance of the primitive with the correct values" do
@@ -84,7 +84,7 @@ module Decidim
         let(:attributes) { { name: "John Doe" } }
 
         before do
-          expect(value).to receive(:attributes).and_return(attributes)
+          allow(value).to receive(:attributes).and_return(attributes)
         end
 
         it "returns a new instance of the primitive with the correct values" do

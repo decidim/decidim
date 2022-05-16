@@ -17,7 +17,7 @@ module Decidim::Admin
             badges_enabled: true,
             user_groups_enabled: true,
             send_welcome_notification: false,
-            admin_terms_of_use_body: { "en": Faker::Lorem.paragraph },
+            admin_terms_of_use_body: { en: Faker::Lorem.paragraph },
             rich_text_editor_in_public_views: true,
             machine_translation_display_priority: "translation",
             enable_machine_translations: true
@@ -37,7 +37,7 @@ module Decidim::Admin
 
       describe "when the form is not valid" do
         before do
-          expect(form).to receive(:invalid?).and_return(true)
+          allow(form).to receive(:invalid?).and_return(true)
         end
 
         it "broadcasts invalid" do

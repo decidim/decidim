@@ -1,4 +1,6 @@
-<%= javascript_pack_tag "decidim_accountability" %>
+<% content_for :js_content do %>
+  <%= javascript_pack_tag "decidim_accountability" %>
+<% end %>
 <div class="row accountability">
   <div class="small-12 columns">
     <%= render partial: "decidim/accountability/results/nav_breadcrumb", locals: { category: versioned_resource.parent.try(:category) || versioned_resource.try(:category) } %>

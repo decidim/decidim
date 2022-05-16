@@ -105,7 +105,7 @@ module Decidim
 
       it "calls infer_model_name when the mimicked name is not set" do
         name = double
-        expect(subject).to receive(:infer_model_name).and_return(name)
+        allow(subject).to receive(:infer_model_name).and_return(name)
         expect(subject.mimicked_model_name).to eq(name)
       end
 

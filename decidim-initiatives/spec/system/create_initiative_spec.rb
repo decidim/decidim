@@ -34,7 +34,7 @@ describe "Initiative", type: :system do
       end
 
       context "and they aren't verified" do
-        let(:authorization) {}
+        let(:authorization) { nil }
 
         it "they need to verify" do
           click_button "New initiative"

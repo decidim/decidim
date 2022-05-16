@@ -18,7 +18,7 @@ describe Decidim::NewslettersOptInJob do
     let(:mailer) { double :mailer }
 
     it "send an email to user" do
-      expect(Decidim::NewslettersOptInMailer)
+      allow(Decidim::NewslettersOptInMailer)
         .to receive(:notify)
         .with(user, token)
         .and_return(mailer)

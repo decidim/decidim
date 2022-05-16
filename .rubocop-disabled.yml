@@ -1,34 +1,4 @@
-RSpec/ExcessiveDocstringSpacing:
-  Enabled: false
-
-RSpec/StubbedMock:
-  Enabled: false
-
-Rails/DurationArithmetic:
-  Enabled: false
-
-RSpec/FactoryBot/SyntaxMethods:
-  Enabled: false
-
 Naming/VariableNumber:
-  Enabled: false
-
-Lint/SymbolConversion:
-  Enabled: false
-
-Lint/EmptyClass:
-  Enabled: false
-
-Lint/RedundantSafeNavigation:
-  Enabled: false
-
-Lint/EmptyBlock:
-  Enabled: false
-
-Lint/NoReturnInBeginEndBlocks:
-  Enabled: false
-
-Lint/RedundantCopDisableDirective:
   Enabled: false
 
 Style/HashConversion:
@@ -36,9 +6,6 @@ Style/HashConversion:
 
 Style/QuotedSymbols:
   Enabled: false
-#
-#Style/DocumentDynamicEvalDefinition:
-#  Enabled: false
 
 Style/OpenStructUse:
   Enabled: false
@@ -46,43 +13,10 @@ Style/OpenStructUse:
 Security/IoMethods:
   Enabled: false
 
-Rails/CompactBlank:
-  Enabled: false
-
 Security/Open:
   Enabled: false
 
-Lint/DuplicateBranch:
-  Enabled: false
-
-Lint/AmbiguousOperatorPrecedence:
-  Enabled: false
-
-Rails/EagerEvaluationLogMessage:
-  Enabled: false
-
-Rails/RedundantPresenceValidationOnBelongsTo:
-  Enabled: false
-
-Rails/HasManyOrHasOneDependent:
-  Enabled: false
-
-Lint/UnmodifiedReduceAccumulator:
-  Enabled: false
-
 Gemspec/RequireMFA:
-  Enabled: false
-
-Rails/DuplicateScope:
-  Enabled: false
-
-RSpec/IdenticalEqualityAssertion:
-  Enabled: false
-
-Rails/ExpandedDateRange:
-  Enabled: false
-
-Rails/I18nLocaleTexts:
   Enabled: false
 
 Naming/MemoizedInstanceVariableName:
@@ -91,5 +25,3 @@ Naming/MemoizedInstanceVariableName:
 RSpec/VerifiedDoubleReference:
   Enabled: false
 
-Rails/TransactionExitStatement:
-  Enabled: false

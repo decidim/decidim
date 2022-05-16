@@ -2,8 +2,7 @@
 
 require "spec_helper"
 
-class ::TestPermissions
-end
+class ::TestPermissions < Object; end
 
 module Decidim
   describe ParticipatorySpaceManifest do

@@ -344,6 +344,25 @@ module Decidim
       end
     end
 
+    describe "#password_field" do
+      let(:output) do
+        builder.password_field :password, options
+      end
+      let(:options) { {} }
+
+      it "renders the input type password" do
+        expect(output).to eq('<label for="resource_password">Password<input autocomplete="off" type="password" name="resource[password]" id="resource_password" /></label>')
+      end
+
+      context "when autocomplete attribute is defined" do
+        let(:options) { { autocomplete: "new-password" } }
+
+        it "renders the input type password with given autocomplete attribute" do
+          expect(output).to eq('<label for="resource_password">Password<input autocomplete="new-password" type="password" name="resource[password]" id="resource_password" /></label>')
+        end
+      end
+    end
+
     describe "date_field" do
       context "when the resource has errors" do
         before do
@@ -556,7 +575,7 @@ module Decidim
           end
         end
 
-        context "with min and max length " do
+        context "with min and max length" do
           let(:output) do
             builder.text_field :number
           end
@@ -570,7 +589,7 @@ module Decidim
           end
         end
 
-        context "with min length " do
+        context "with min length" do
           let(:output) do
             builder.text_field :min_number
           end
@@ -580,7 +599,7 @@ module Decidim
           end
         end
 
-        context "with max length " do
+        context "with max length" do
           let(:output) do
             builder.text_field :max_number
           end
@@ -763,7 +782,7 @@ module Decidim
         end
 
         before do
-          expect(helper).to receive(:render).and_return("[rendering]")
+          allow(helper).to receive(:render).and_return("[rendering]")
         end
 
         it "renders a hidden field and a container for the editor" do

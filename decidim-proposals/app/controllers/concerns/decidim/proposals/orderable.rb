@@ -30,12 +30,14 @@ module Decidim
         end
 
         def default_order
-          @default_order ||= begin
-            default_order = current_settings.default_sort_order.presence || component_settings.default_sort_order
-            return order_by_default if default_order == "default"
+          @default_order ||= fetch_default_order
+        end
 
-            possible_orders.include?(default_order) ? default_order : order_by_default
-          end
+        def fetch_default_order
+          default_order = current_settings.default_sort_order.presence || component_settings.default_sort_order
+          return order_by_default if default_order == "default"
+
+          possible_orders.include?(default_order) ? default_order : order_by_default
         end
 
         def order_by_default
