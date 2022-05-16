@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Admin manages organization privacy policy", type: :system do
+describe "Admin manages static page content blocks", type: :system do
   let(:organization) { create(:organization) }
   let(:user) { create(:user, :admin, :confirmed, organization: organization) }
   let!(:tos_page) { Decidim::StaticPage.find_by(slug: "terms-and-conditions", organization: organization) }
@@ -14,7 +14,7 @@ describe "Admin manages organization privacy policy", type: :system do
 
   context "when editing a non-persisted content block" do
     it "creates the content block to the db before editing it" do
-      visit decidim_admin.edit_organization_privacy_policy_path
+      visit decidim_admin.edit_static_page_path(tos_page)
 
       expect(Decidim::ContentBlock.count).to eq 0
 
@@ -29,10 +29,10 @@ describe "Admin manages organization privacy policy", type: :system do
   end
 
   context "when editing a persisted content block" do
-    let!(:content_block) { create :content_block, organization: organization, manifest_name: :summary, scope_name: :privacy_policy }
+    let!(:content_block) { create :content_block, organization: organization, manifest_name: :summary, scope_name: :static_page }
 
     it "updates the settings of the content block" do
-      visit decidim_admin.edit_organization_privacy_policy_content_block_path(:summary)
+      visit decidim_admin.edit_static_page_content_block_path(:summary, static_page_id: tos_page.id)
 
       fill_in_i18n_editor :content_block_settings_summary,
                           "#content_block-settings--summary-tabs",

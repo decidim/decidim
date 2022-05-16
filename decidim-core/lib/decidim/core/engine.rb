@@ -479,15 +479,17 @@ module Decidim
         end
       end
 
-      initializer "decidim.core.privacy_policy_blocks" do
-        Decidim.content_blocks.register(:privacy_policy, :summary) do |content_block|
-          content_block.cell = "decidim/content_blocks/privacy_policy/summary"
-          content_block.settings_form_cell = "decidim/content_blocks/privacy_policy/summary_settings_form"
-          content_block.public_name_key = "decidim.content_blocks.privacy_policy.summary.name"
+      initializer "decidim.core.static_page_blocks" do
+        Decidim.content_blocks.register(:static_page, :summary) do |content_block|
+          content_block.cell = "decidim/content_blocks/static_page/summary"
+          content_block.settings_form_cell = "decidim/content_blocks/static_page/summary_settings_form"
+          content_block.public_name_key = "decidim.content_blocks.static_page.summary.name"
 
           content_block.settings do |settings|
             settings.attribute :summary, type: :text, translated: true
           end
+
+          content_block.default!
         end
       end
 

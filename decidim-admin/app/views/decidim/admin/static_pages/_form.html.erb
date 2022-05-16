@@ -9,9 +9,11 @@
   </div>
 <% end %>
 
-<div class="row column">
-  <%= form.translated :editor, :content, toolbar: :full, lines: 25 %>
-</div>
+<% unless content_blocks? %>
+  <div class="row column">
+    <%= form.translated :editor, :content, toolbar: :full, lines: 25 %>
+  </div>
+<% end %>
 
 <div class="row column">
   <%= form.select :topic_id, form.object.topics.map { |topic| [translated_attribute(topic.title), topic.id] }, include_blank: t(".none") %>

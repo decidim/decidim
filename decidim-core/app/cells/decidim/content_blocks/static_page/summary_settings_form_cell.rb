@@ -2,7 +2,7 @@
 
 module Decidim
   module ContentBlocks
-    module PrivacyPolicy
+    module StaticPage
       class SummarySettingsFormCell < Decidim::ViewModel
         alias form model
 
@@ -11,7 +11,7 @@ module Decidim
         end
 
         def label
-          I18n.t("decidim.content_blocks.privacy_policy.summary.summary_content")
+          I18n.t("decidim.content_blocks.static_page.summary.summary_content")
         end
       end
     end

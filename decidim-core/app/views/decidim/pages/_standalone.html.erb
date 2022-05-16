@@ -11,8 +11,8 @@
     <div class="columns small-12">
       <div class="card">
         <div class="card__content">
-          <% privacy_policy_content_blocks.each do |content_block| %>
-           <%= cell content_block.manifest.cell, content_block %>
+          <% page_content_blocks.each do |content_block| %>
+            <%= cell content_block.manifest.cell, content_block %>
           <% end %>
 
           <%= decidim_sanitize translated_attribute page.content %>

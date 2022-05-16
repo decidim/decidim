@@ -223,15 +223,16 @@ if !Rails.env.production? || ENV.fetch("SEED", nil)
   hero_content_block.settings = settings
   hero_content_block.save!
 
-  privacy_policy_content_block_summary = Decidim::ContentBlock.create(
+  terms_and_conditions_page = Decidim::StaticPage.find_by(slug: "terms-and-conditions")
+  terms_and_conditions_content_block_summary = Decidim::ContentBlock.create(
     organization: organization,
-    scope_name: :privacy_policy,
+    scope_name: :static_page,
     manifest_name: :summary,
     weight: 1,
-    # scoped_resource_id: voting.id,
+    scoped_resource_id: terms_and_conditions_page.id,
     published_at: Time.current
   )
 
-  privacy_policy_content_block_summary.settings = { summary: Decidim::Faker::Localized.paragraph(sentence_count: 2) }
-  privacy_policy_content_block_summary.save!
+  terms_and_conditions_content_block_summary.settings = { summary: Decidim::Faker::Localized.paragraph(sentence_count: 2) }
+  terms_and_conditions_content_block_summary.save!
 end

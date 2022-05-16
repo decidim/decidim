@@ -5,6 +5,8 @@ module Decidim
     # Controller that allows managing all pages at the admin panel.
     #
     class StaticPagesController < Decidim::Admin::ApplicationController
+      include Concerns::HasContentBlocks
+
       layout "decidim/admin/pages"
       before_action :tos_version_formatted, only: [:index, :edit]
 

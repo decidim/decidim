@@ -5,7 +5,7 @@ module Decidim
   class PagesController < Decidim::ApplicationController
     layout "layouts/decidim/application"
 
-    helper_method :page, :pages, :privacy_policy_content_blocks
+    helper_method :page, :pages, :page_content_blocks
     helper CtaButtonHelper
     helper Decidim::SanitizeHelper
 
@@ -30,10 +30,11 @@ module Decidim
       request.format = :html
     end
 
-    def privacy_policy_content_blocks
-      @privacy_policy_content_blocks ||= Decidim::ContentBlock.published
-                                                              .for_scope(:privacy_policy, organization: current_organization)
-                                                              .reject { |content_block| content_block.manifest.nil? }
+    def page_content_blocks
+      @page_content_blocks ||= Decidim::ContentBlock.published
+                                                    .for_scope(:static_page, organization: current_organization)
+                                                    .where(scoped_resource_id: @page.id)
+                                                    .reject { |content_block| content_block.manifest.nil? }
     end
   end
 end

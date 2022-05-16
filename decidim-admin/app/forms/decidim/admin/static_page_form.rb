@@ -18,7 +18,7 @@ module Decidim
       mimic :static_page
 
       validates :slug, presence: true
-      validates :title, :content, translatable_presence: true
+      validates :title, :content, translatable_presence: true, unless: :content_blocks?
       validates :slug, format: { with: %r{\A[a-zA-Z]+[a-zA-Z0-9\-_/]+\z} }, allow_blank: true
 
       validate :slug, :slug_uniqueness
@@ -53,6 +53,10 @@ module Decidim
         return unless organization.static_pages.where(slug: slug).where.not(id: id).any?
 
         errors.add(:slug, :taken)
+      end
+
+      def content_blocks?
+        slug == "terms-and-conditions"
       end
     end
   end

@@ -468,7 +468,7 @@ en:
         view_all: View all
       metrics:
         name: Organization metrics
-      privacy_policy:
+      static_page:
         summary:
           name: Summary
           summary_content: Content

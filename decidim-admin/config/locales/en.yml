@@ -922,6 +922,9 @@ en:
           delete_image: Delete Image
           edit_images: Edit images
           gallery_legend: Add an image gallery (Optional)
+      static_page_content_blocks:
+        edit:
+          update: Update
       static_page_topics:
         create:
           error: There was a problem creating a new topic.
@@ -940,6 +943,10 @@ en:
       static_pages:
         actions:
           view: View public page
+        content_blocks:
+          active_content_blocks: Active content blocks
+          inactive_content_blocks: Inactive content blocks
+          title: Page contents
         create:
           error: There was a problem creating a new page.
           success: Page created successfully.

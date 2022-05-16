@@ -124,13 +124,6 @@ module Decidim
                         if: allowed_to?(:update, :organization, organization: current_organization),
                         active: is_active_link?(decidim_admin.edit_organization_homepage_path, %r{^/admin/organization/homepage})
 
-          menu.add_item :edit_organization_privacy_policy,
-                        I18n.t("menu.privacy_policy", scope: "decidim.admin"),
-                        decidim_admin.edit_organization_privacy_policy_path,
-                        position: 1.2,
-                        if: allowed_to?(:update, :organization, organization: current_organization),
-                        active: is_active_link?(decidim_admin.edit_organization_privacy_policy_path, %r{^/admin/organization/privacy_policy})
-
           menu.add_item :scopes,
                         I18n.t("menu.scopes", scope: "decidim.admin"),
                         decidim_admin.scopes_path,
@@ -198,10 +191,8 @@ module Decidim
                         decidim_admin.static_pages_path,
                         icon_name: "book",
                         position: 4.5,
-                        active: [%w(
-                          decidim/admin/static_pages
-                          decidim/admin/static_page_topics
-                        ), []],
+                        active: is_active_link?(decidim_admin.static_pages_path, :inclusive) ||
+                                is_active_link?(decidim_admin.static_page_topics_path, :inclusive),
                         if: allowed_to?(:read, :static_page)
 
           menu.add_item :impersonatable_users,

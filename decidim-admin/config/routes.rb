@@ -7,9 +7,6 @@ Decidim::Admin::Engine.routes.draw do
       resource :homepage, only: [:edit, :update], controller: "organization_homepage" do
         resources :content_blocks, only: [:edit, :update], controller: "organization_homepage_content_blocks"
       end
-      resource :privacy_policy, only: [:edit, :update], controller: "organization_privacy_policy" do
-        resources :content_blocks, only: [:edit, :update], controller: "organization_privacy_policy_content_blocks"
-      end
       resource :external_domain_whitelist, only: [:edit, :update], controller: "organization_external_domain_whitelist"
 
       member do
@@ -22,7 +19,10 @@ Decidim::Admin::Engine.routes.draw do
       mount manifest.context(:admin).engine, at: "/", as: "decidim_admin_#{manifest.name}"
     end
 
-    resources :static_pages
+    resources :static_pages do
+      put :update_content_blocks, on: :member
+      resources :content_blocks, only: [:edit, :update], controller: "static_page_content_blocks"
+    end
     resources :static_page_topics, except: [:index]
     resources :scope_types, except: [:show]
     resources :scopes, except: [:show] do

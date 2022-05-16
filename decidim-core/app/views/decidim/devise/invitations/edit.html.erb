@@ -42,7 +42,7 @@
             <h3><%= t("tos_title", scope: "decidim.devise.registrations.new") %></h3>
 
             <div class="tos-text">
-              <% privacy_policy_summary_content_blocks.each do |content_block| %>
+              <% terms_and_conditions_summary_content_blocks.each do |content_block| %>
                 <%= cell content_block.manifest.cell, content_block %>
               <% end %>
             </div>
