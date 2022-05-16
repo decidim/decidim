@@ -17,8 +17,17 @@ fi:
         min_selections: Ei mikään edellä mainituista
         title: Otsikko
       voting:
+        banner_image: Bannerikuva
+        census_contact_information: Henkilötietorekisterin vastuutahon yhteystiedot
+        description: Kuvaus
         end_time: Äänestyksen päättymisaika
+        introductory_image: Esittelykuva
+        promoted: Korostettu
+        scope: Teema
+        show_check_census: Näytä "tarkasta henkilötietorekisterin tiedot" -sivu
         start_time: Äänestyksen alkamisaika
+        title: Otsikko
+        voting_type: Äänestystapa
     errors:
       models:
         answer:
@@ -35,6 +44,10 @@ fi:
               cant_be_changed: tietoa ei voi muuttaa
             public_key:
               cant_be_changed: tietoa ei voi muuttaa
+        voting:
+          attributes:
+            voting_type:
+              inclusion: "%{value} ei ole sallittu äänestystyyppi"
   activerecord:
     errors:
       models:
@@ -998,6 +1011,7 @@ fi:
             introductory_image: Esittelykuva
             promoted: Korostettu
             select_a_voting_type: Valitse äänestystapa
+            show_check_census_help: Määrittää, näytetäänkö "Voinko äänestää?" -linkki julkisten äänestysten sivuilla
             slug: Tunniste
             slug_help: 'URL-tunnisteita käytetään luomaan URL-osoitteita, jotka viittaavat tähän äänestykseen. Hyväksyy vain kirjaimet, numerot ja viivat. Kirjaimen on oltava ensimmäinen merkki tunnisteessa. Esimerkki: %{url}'
             title: Otsikko
