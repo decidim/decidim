@@ -9,9 +9,8 @@ window.addEventListener("load", async () => {
       ((navigator.userAgent.indexOf("OPR") > -1) || (navigator.userAgent.indexOf("Opera") > -1)) &&
       (navigator.userAgent.indexOf("Mini") > -1);
 
-
-    if (mandatoryElements && !isOperaMini) {
-      mandatoryElements.style.display = "block";
+    if (mandatoryElements && isOperaMini) {
+      mandatoryElements.classList.add("hide")
     }
   } else {
     console.log("Your browser doesn't support service workers 🤷‍♀️");
