@@ -24,7 +24,7 @@ module Decidim
         # Capture webpush exceptions in order to avoid this call to be repeated by the background job runner
         # Webpush::Error class is the parent class of all defined errors
         begin
-          Webpush.payload_send(payload)
+          Webpush.payload_send(**payload)
         rescue Webpush::Error
           nil
         end
