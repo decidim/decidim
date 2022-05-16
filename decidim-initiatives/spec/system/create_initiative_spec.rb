@@ -174,7 +174,6 @@ describe "Initiative", type: :system do
 
   describe "creating an initiative" do
     context "without validation" do
-
       before do
         click_link "New initiative"
       end
