@@ -19,23 +19,17 @@ module Decidim
             end
           when :project, :projects
             case permission_action.action
-            when :create, :import_proposals
+            when :create, :import_proposals, :project_category
               permission_action.allow!
             when :update, :destroy
               permission_action.allow! if project.present?
-            when :project_category
-              permission_action.allow!
             end
           when :order
             case permission_action.action
             when :remind
               permission_action.allow!
             end
-          when :project_category
-            permission_action.allow!
-          when :project_scope
-            permission_action.allow!
-          when :project_selected
+          when :project_category, :project_scope, :project_selected
             permission_action.allow!
           end
 
