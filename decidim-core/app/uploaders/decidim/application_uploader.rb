@@ -48,9 +48,9 @@ module Decidim
 
       representable = variant(key)
       if representable.is_a? ActiveStorage::Attached
-        Rails.application.routes.url_helpers.rails_blob_url(representable.blob, **protocol_option.merge(options))
+        Rails.application.routes.url_helpers.rails_blob_url(representable.blob, **protocol_options.merge(options))
       else
-        Rails.application.routes.url_helpers.rails_representation_url(representable, **protocol_option.merge(options))
+        Rails.application.routes.url_helpers.rails_representation_url(representable, **protocol_options.merge(options))
       end
     end
 
@@ -74,10 +74,31 @@ module Decidim
       model.errors.add(mounted_as, :invalid)
     end
 
-    def protocol_option
-      return {} unless Rails.application.config.force_ssl
+    def protocol_options
+      return { host: cdn_host } if cdn_host
 
-      { protocol: "https" }
+      local_protocol_options
+    end
+
+    def local_protocol_options
+      @local_protocol_options ||= {}.tap do |options|
+        default_port =
+          if Rails.env.development? || Rails.env.test?
+            3000
+          elsif Rails.application.config.force_ssl
+            443
+          else
+            80
+          end
+        port = ENV.fetch("PORT", default_port)
+
+        options[:port] = port unless [443, 80].include?(port)
+        options[:protocol] = "https" if Rails.application.config.force_ssl || port == 443
+      end
+    end
+
+    def cdn_host
+      @cdn_host ||= Rails.application.secrets.dig(:storage, :cdn_host)
     end
 
     class << self
