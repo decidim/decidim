@@ -4,7 +4,10 @@ window.addEventListener("load", async () => {
     await navigator.serviceWorker.register("/sw.js", { scope: "/" });
 
     const mandatoryElements = document.querySelector(".js-sw-mandatory");
-    const isOperaMini = (navigator.userAgent.indexOf("OPR") > -1) && (navigator.userAgent.indexOf("Mobile") > -1);
+    // Opera uses Opera for versions <= 12 and OPR for versions > 12
+    const isOperaMini =
+      ((navigator.userAgent.indexOf("OPR") > -1) || (navigator.userAgent.indexOf("Opera") > -1)) &&
+      (navigator.userAgent.indexOf("Mini") > -1);
 
 
     if (mandatoryElements && !isOperaMini) {
