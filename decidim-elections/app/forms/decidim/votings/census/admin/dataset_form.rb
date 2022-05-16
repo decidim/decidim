@@ -10,17 +10,16 @@ module Decidim
 
           mimic :dataset
 
-          attribute :file
+          attribute :file, Decidim::Attributes::Blob
 
-          validates_upload :blob
-          validates :file, presence: true
+          validates_upload :file
 
           def organization
             context.current_participatory_space&.organization
           end
 
-          def blob
-            @blob ||= file.blank? ? nil : ActiveStorage::Blob.find_signed(file)
+          def file_path
+            ActiveStorage::Blob.service.path_for(file.key)
           end
         end
       end
