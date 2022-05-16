@@ -298,6 +298,9 @@ fi:
     admin_log:
       participatory_process:
         create: "%{user_name} loi osallistumisprosessin %{resource_name}"
+        duplicate: "%{user_name} kopioi osallistumisprosessin %{resource_name}"
+        export: "%{user_name} vei osallistumisprosessin %{resource_name}"
+        import: "%{user_name} toi osallistumisprosessin %{resource_name}"
         publish: "%{user_name} julkaisi osallistumisprosessin %{resource_name}"
         unpublish: "%{user_name} muutti osallistumisprosessin %{resource_name} julkaisemattomaksi"
         update: "%{user_name} päivitti osallistumisprosessin %{resource_name}"
