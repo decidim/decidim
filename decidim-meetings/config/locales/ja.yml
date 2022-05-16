@@ -306,6 +306,7 @@ ja:
             select_a_meeting_type: ミーティング種別を選択してください
             select_a_registration_type: 登録種別を選択してください
             select_an_iframe_access_level: Iframeアクセスレベルを選択してください
+            show_embedded_iframe_help: 'ミーティングまたはライブイベントに埋め込めるサービスは以下のドメインに限定されています: %{domains}'
           index:
             title: ミーティング
           new:
@@ -500,6 +501,7 @@ ja:
           select_a_meeting_type: ミーティング種別を選択してください
           select_a_registration_type: 登録種別を選択してください
           select_an_iframe_access_level: iframeアクセスレベルを選択してください
+          show_embedded_iframe_help: 'ミーティングまたはライブイベントに埋め込めるサービスは以下のドメインに限定されています: %{domains}'
         index:
           click_here: すべてのミーティングを見る
           new_meeting: 新しいミーティング
