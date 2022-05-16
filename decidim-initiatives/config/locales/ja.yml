@@ -499,6 +499,7 @@ ja:
             title: 'タイトル:'
             type: イニシアチブの種別
           legal_text: 収集された個人データは、現行の法律に基づき、組織によって機密情報として取り扱われます。
+          members_header: 推進委員会のメンバー
           phone_number: 電話番号
           place_date: 場所、日付
           postal_code: 郵便番号
