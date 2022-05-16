@@ -35,12 +35,17 @@ ja:
       decidim/demoted_membership: グループ管理者ではありません
       decidim/gamification/badge_earned_event: バッジを獲得
       decidim/gamification/level_up_event: レベルアップしました
+      decidim/invited_to_group_event: グループに招待しました
       decidim/join_request_accepted_event: 参加リクエストが承認されました
       decidim/join_request_rejected_event: 参加リクエストが拒否されました
       decidim/profile_updated_event: プロフィールが更新されました
       decidim/promote_to_admin: グループ管理者に昇格しました
+      decidim/promoted_to_admin_event: グループ管理者に昇格しました
       decidim/removed_from_group: グループから削除しました
       decidim/resource_endorsed_event: オススメされた
+      decidim/resource_hidden_event: リソースを非表示
+      decidim/user_group_created_event: ユーザーグループが作成されました
+      decidim/welcome_notification_event: ウェルカムメッセージ
   activerecord:
     attributes:
       decidim/user:
@@ -115,6 +120,16 @@ ja:
       download_your_data_export:
         file_no_exists: ファイルが存在しません
         notice: データのダウンロードは現在進行中です。完了するとメールが届きます。
+      email_change:
+        body1: 新しいメールアドレスを確認するため、 %{unconfirmed_email} にメールを送信しました。
+        body2: 確認メールをもう一度送信する必要がありますか？ %{resend_link} または %{cancel_link}
+        cancel: キャンセル
+        cancel_error: メールの変更をキャンセルできませんでした。
+        cancel_successfully: メールの変更が正常にキャンセルされました。
+        resend_error: 確認メールを再送信できませんでした。
+        resend_successfully: '%{unconfirmed_email} に確認メールが再送信されました'
+        send_again: 再送信
+        title: メールアドレスの変更確認
       show:
         available_locales_helper: プラットフォーム上での通知と表示に使用する言語を選択してください
         change_password: パスワードの変更
@@ -421,7 +436,7 @@ ja:
         name: ヒーロー画像
       hero_settings_form:
         background_image: 背景画像
-        welcome_text: ようこそテキスト
+        welcome_text: ウェルカムテキスト
       highlighted_content_banner:
         name: 強調表示されたコンテンツバナー
       highlighted_elements_settings_form:
@@ -665,6 +680,8 @@ ja:
           email_outro: あなたはプラットフォームの管理者であるため、この通知を受け取りました。
           email_subject: ユーザーグループがプロファイルを更新しました
           notification_title: '%{user_group_name} ユーザーグループがプロファイルを更新し、未検証のままにしました。 <a href="%{groups_admin_path}">管理画面</a> で確認できるようになりました。'
+      nickname_event:
+        notification_body: ニックネームの使用方法を修正し、重複がないようにしたため、大文字と小文字の区別のルールをなくしました。<br/> あなたのニックネームは、同じ名前の別のニックネームの後に作成されたため、自動的に名前が変更されました。<a href="%{link_to_account_settings}">アカウント設定</a>から変更することができます。
       notification_event:
         notification_title: <a href="%{resource_path}">%{resource_title}</a> にイベントが発生しました。
       reports:
@@ -742,6 +759,11 @@ ja:
         file:
           explanation: 'ファイルのガイダンス:'
           message_1: 画像またはドキュメントである必要があります。
+          message_2: 画像の場合、ランドスケープ画像が適しています。システムが画像を切り抜きます。
+        icon:
+          explanation: 'アイコンのガイド:'
+          message_1: 正方形の画像でなければなりません。
+          message_2: この画像の推奨サイズは512x512です。
         image:
           explanation: '画像のガイダンス:'
           message_1: テキストを含まない風景画像が適しています。
@@ -1167,6 +1189,7 @@ ja:
           agreement: 上記の規約に同意する
           legend: 利用規約に同意する
         refuse:
+          modal_body: 拒否する場合、プラットフォームをご利用いただけなくなります。 <a href="%{download_your_data_path}">データをダウンロード</a> または <a href="%{delete_path}">アカウントを削除</a> することができます。
           modal_btn_continue: 利用規約に同意して続ける
           modal_btn_exit: 後で確認する
           modal_button: 同意しない
@@ -1471,6 +1494,7 @@ ja:
     invitations:
       edit:
         header: アカウントの作成を完了する
+        nickname_help: ニックネームは %{organization} です。英文字、数字、'-' および '_' のみ使用できます。
         submit_button: 保存
         subtitle: 招待を受け入れる場合は、アカウントIDとパスワードを設定してください。
       invitation_removed: 招待が削除されました。
