@@ -25,7 +25,8 @@ module Decidim
         # Webpush::Error class is the parent class of all defined errors
         begin
           Webpush.payload_send(**payload)
-        rescue Webpush::Error
+        rescue Webpush::Error => e
+          Rails.logger.warn("[ERROR] Push notification delivery failed due to #{e.message}")
           nil
         end
       end.compact
