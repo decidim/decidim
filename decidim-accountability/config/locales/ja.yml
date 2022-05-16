@@ -21,6 +21,7 @@ ja:
       timeline_entry:
         description: 説明
         entry_date: 日付
+        title: タイトル
     models:
       decidim/accountability/proposal_linked_event: 結果に提案を含めます
       decidim/accountability/result_progress_updated_event: 結果の進捗状況が更新されました
@@ -158,6 +159,7 @@ ja:
         timeline_entry:
           fields:
             entry_date: 日付
+            title: タイトル
       result_m:
         executed: 実行日時
         view: 表示
