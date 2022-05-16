@@ -89,16 +89,36 @@ fi:
             cancel: Peruuta
             change_category: Vaihda aihepiiri
             change_scope: Vaihda teema
+            change_selected: Vaihda valittu-tilaa
+            deselect_implementation: Ei toteutukseen
             finished_orders: Valmiit äänet
             pending_orders: Odottavat äänet
+            select_for_implementation: Valittu toteutukseen
             selected: Valittu
             title: Suunnitelmat
+            update: Päivitä
+            update_scope_button: Muuta teema
           new:
             create: Luo
             title: Uusi suunnitelma
           update:
             invalid: Suunnitelman päivitys epäonnistui
             success: Suunnitelman päivitys onnistui
+          update_category:
+            invalid: 'Näillä projekteilla oli jo aihepiiri %{subject_name}: %{projects}.'
+            select_a_category: Valitse aihepiiri
+            select_a_project: Valitse projekti
+            success: 'Seuraavien projektien aihepiirin päivitys onnistui %{subject_name}: %{projects}.'
+          update_scope:
+            invalid: 'Näillä projekteilla oli jo teema %{subject_name}: %{projects}.'
+            select_a_project: Valitse projekti
+            select_a_scope: Valitse teema
+            success: 'Seuraavien projektien teeman päivitys onnistui %{subject_name}: %{projects}.'
+          update_selected:
+            invalid: 'Nämä projektit oli jo merkitty toteutettaviksi: %{projects}.'
+            select_a_project: Valitse projekti
+            select_a_selection: Valitse toteutuksen tila
+            success: 'Toteutuksen tilan päivitys onnistui projekteille: %{projects}.'
         proposals_imports:
           create:
             invalid: Ehdotusten tuonti suunnitelmiksi epäonnistui
@@ -160,6 +180,7 @@ fi:
           fields:
             category: Aihepiiri
             id: ID
+            scope: Teema
             title: Otsikko
       order_summary_mailer:
         order_summary:
