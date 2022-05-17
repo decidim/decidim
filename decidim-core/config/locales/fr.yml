@@ -1131,7 +1131,6 @@ fr:
         allow_public_contact: Permettre à quelqu'un de m'envoyer un message direct, même si je ne les suis pas.
         direct_messages: Recevoir des messages directs de n'importe qui
         email_on_moderations: Je veux recevoir un email chaque fois que quelqu'un ou qu'une ressource a été signalé à des fins de modérations.
-        email_on_notification: Je souhaite recevoir un email à chaque fois que je reçois une notification.
         everything_followed: Tout ce que je suis
         newsletter_notifications: Je souhaite recevoir une newsletter sur l'actualité de la plateforme
         newsletters: Newsletters
@@ -1139,7 +1138,6 @@ fr:
           close_meeting_reminder: Je veux recevoir des rappels par e-mail pour les comptes-rendus de réunions terminées que je n'ai pas encore publiés
         own_activity: Ma propre activité, comme quand quelqu'un commente dans ma proposition ou me mentionne
         receive_notifications_about: Je veux recevoir des notifications sur
-        send_notifications_by_email: Envoyer des notifications par email
         update_notifications_settings: Enregistrer les modifications
       update:
         error: Une erreur s'est produite lors de la mise à jour des paramètres de vos notifications.
