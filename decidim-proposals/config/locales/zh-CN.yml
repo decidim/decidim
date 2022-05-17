@@ -38,10 +38,6 @@ zh-CN:
           valuator_role_id: 值名称
     errors:
       models:
-        participatory_text:
-          attributes:
-            document:
-              invalid_document_type: '无效的文档类型。接受的格式为： %{valid_mime_types}'
         proposal:
           attributes:
             add_documents:
@@ -702,7 +698,6 @@ zh-CN:
             other: 支持
         new:
           send: 继续
-          title: 创建您的提议
         orders:
           label: '排序提议：'
           most_commented: 最多评论
