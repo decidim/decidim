@@ -42,10 +42,6 @@ fr:
           valuator_role_id: Nom de l'évaluateur
     errors:
       models:
-        participatory_text:
-          attributes:
-            document:
-              invalid_document_type: 'Type de document invalide. Les formats acceptés sont: %{valid_mime_types}'
         proposal:
           attributes:
             add_documents:
@@ -817,7 +813,6 @@ fr:
             other: votes
         new:
           send: Continuer
-          title: Créer une proposition
         orders:
           label: 'Classement des propositions par :'
           most_commented: Les plus commentées
