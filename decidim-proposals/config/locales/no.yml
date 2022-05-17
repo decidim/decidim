@@ -39,10 +39,6 @@
         keep_authors: Behold originale forfattere
     errors:
       models:
-        participatory_text:
-          attributes:
-            document:
-              invalid_document_type: 'Ugyldig dokumenttype. Godkjente formater er: %{valid_mime_types}'
         proposal:
           attributes:
             add_documents:
@@ -741,7 +737,6 @@
             other: støtter
         new:
           send: Fortsett
-          title: Opprett Ditt forslag
         orders:
           label: 'Sorter forslag:'
           most_commented: Flest kommentarer
