@@ -42,10 +42,6 @@ cs:
           valuator_role_id: Název hodnotitele
     errors:
       models:
-        participatory_text:
-          attributes:
-            document:
-              invalid_document_type: 'Neplatný typ dokumentu. Přijaté formáty jsou: %{valid_mime_types}'
         proposal:
           attributes:
             add_documents:
@@ -839,7 +835,6 @@ cs:
             other: hlasů
         new:
           send: Pokračovat
-          title: Vytvořte svůj návrh
         orders:
           label: 'Seřadit návrhy podle:'
           most_commented: Nejvíce komentované
