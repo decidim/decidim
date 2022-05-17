@@ -68,12 +68,6 @@ fr:
         email: E-mail
         name: "Nom\n"
         role: Fonction
-    errors:
-      models:
-        assembly:
-          attributes:
-            document:
-              invalid_document_type: 'Type de document invalide. Les formats acceptés sont : %{valid_mime_types}'
   activerecord:
     models:
       decidim/assembly:
@@ -389,7 +383,6 @@ fr:
         related_participatory_processes: Concertations associées
         scope: Périmètre d'application
         social_networks: Réseaux sociaux
-        social_networks_title: Partager cette assemblée sur
         target: Participants
     assembly_members:
       assembly_member:
