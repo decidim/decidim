@@ -165,13 +165,13 @@ en:
           title: Confirm vote
         budget_excess:
           budget_excess:
-            description: This project exceeds the maximum budget and can not be added. If you want, you can delete a project you have already selected to add, or make your vote according to your preferences.
+            description: This project exceeds the maximum budget and can not be added. If you want, you can delete a project you have already selected, in order to be able to vote again according to your preferences.
             title: Maximum budget exceeded
           close: Close
-          description: This project exceeds the maximum budget and can not be added. If you want, you can delete a project you have already selected to add, or make your vote according to your preferences.
+          description: This project exceeds the maximum budget and can not be added. If you want, you can delete a project you have already selected, in order to be able to vote again according to your preferences.
           ok: OK
           projects_excess:
-            description: This project exceeds the maximum number of projects and cannot be added. If you want, you can delete a project you have already selected to add, or make your vote according to your preferences.
+            description: This project exceeds the maximum number of projects and cannot be added. If you want, you can delete a project you have already selected, in order to be able to vote again according to your preferences.
             title: Maximum projects exceeded
         budget_summary:
           are_you_sure: Are you sure you want to cancel your vote?
@@ -279,7 +279,7 @@ en:
             total_budget: Total budget
             vote_minimum_budget_projects_number: Minimum number of projects to vote
             vote_rule_minimum_budget_projects_enabled: 'Enable rule: Minimum number of projects to be voted on'
-            vote_rule_selected_projects_enabled: 'Enable rule: Selected projects with minimum and maximum number of projects to be voted on'
+            vote_rule_selected_projects_enabled: 'Enable rule: Minimum and maximum number of projects to be voted on'
             vote_rule_threshold_percent_enabled: 'Enable rule: Minimum budget percentage'
             vote_selected_projects_maximum: Maximum amount of projects to be selected
             vote_selected_projects_minimum: Minimum amount of projects to be selected
