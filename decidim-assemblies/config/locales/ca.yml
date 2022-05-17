@@ -68,12 +68,6 @@ ca:
         email: Correu electrònic
         name: Nom
         role: Rol de participant
-    errors:
-      models:
-        assembly:
-          attributes:
-            document:
-              invalid_document_type: 'Tipus de document invàlid. Els formats que s''accepten són: %{valid_mime_types}'
   activerecord:
     models:
       decidim/assembly:
@@ -389,7 +383,6 @@ ca:
         related_participatory_processes: Processos participatius relacionats
         scope: Àmbit
         social_networks: Xarxes socials
-        social_networks_title: Compartir aquesta assemblea a
         target: Qui participa
     assembly_members:
       assembly_member:
