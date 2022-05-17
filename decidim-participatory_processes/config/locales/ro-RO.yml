@@ -60,12 +60,6 @@ ro:
         email: E-mail
         name: Nume
         role: Rol
-    errors:
-      models:
-        participatory_process:
-          attributes:
-            document:
-              invalid_document_type: 'Tip de document invalid. Formatele acceptate sunt: %{valid_mime_types}'
     models:
       decidim/participatory_process_step_activated_event: Etapă activată
       decidim/participatory_process_step_changed_event: Etapă modificată
