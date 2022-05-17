@@ -36,10 +36,6 @@ bg:
           valuator_role_id: Име на проверяващ
     errors:
       models:
-        participatory_text:
-          attributes:
-            document:
-              invalid_document_type: 'Невалиден тип документ. Допустимите формати са: %{valid_mime_types}'
         proposal:
           attributes:
             add_documents:
