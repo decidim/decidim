@@ -74,7 +74,7 @@ en:
         assembly:
           attributes:
             document:
-              invalid_document_type: 'Invalid document type. Accepted formats are: %{valid_mime_types}'
+              allowed_file_content_types: 'Invalid document type. Accepted formats are: %{types}'
   activerecord:
     models:
       decidim/assembly:
@@ -390,7 +390,7 @@ en:
         related_participatory_processes: Related participatory processes
         scope: Scope
         social_networks: Social Networks
-        social_networks_title: Share this assembly on
+        social_networks_title: Visit assembly on
         target: Who participates
     assembly_members:
       assembly_member:

@@ -73,6 +73,7 @@ Decidim::Core::Engine.routes.draw do
       end
     end
 
+    resources :notifications_subscriptions, param: :auth, only: [:create, :destroy]
     resource :user_interests, only: [:show, :update]
 
     get "/authorization_modals/:authorization_action/f/:component_id(/:resource_name/:resource_id)", to: "authorization_modals#show", as: :authorization_modal

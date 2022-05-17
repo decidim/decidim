@@ -137,7 +137,7 @@ en:
       email_change:
         body1: We've sent an email to %{unconfirmed_email} to verify your new email address.
         body2: Need us to send the verification email again? %{resend_link} or %{cancel_link}.
-        cancel: Cancel
+        cancel: cancel
         cancel_error: Could not cancel the email change.
         cancel_successfully: Email change cancelled successfully.
         resend_error: Could not resend confirmation email.
@@ -1151,6 +1151,7 @@ en:
       show:
         administrators: Administrators
         allow_public_contact: Allow anyone to send me a direct message, even if I don't follow them.
+        allow_push_notifications: Get push notifications to find out what's going on when you're not on the platform. You can turn them off anytime.
         direct_messages: Receive direct messages from anyone
         email_on_moderations: I want to receive an email every time something or someone is reported for moderation.
         everything_followed: Everything I follow
@@ -1165,6 +1166,8 @@ en:
           weekly: Weekly
         notifications_sending_frequency: How often do you want to receive the notifications email?
         own_activity: My own activity, like when someone comments in my proposal or mentions me
+        push_notifications: Push notifications
+        push_notifications_reminder: To get notifications from the platform, you'll need to allow them in your browser settings first.
         receive_notifications_about: I want to get notifications about
         update_notifications_settings: Save changes
       update:
