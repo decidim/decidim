@@ -836,13 +836,11 @@ gl:
       no_notifications: Aínda non hai notificacións.
     notifications_settings:
       show:
-        email_on_notification: Quero recibir un correo electrónico cada vez que recibo unha notificación.
         everything_followed: Todo o que segue
         newsletter_notifications: Quero recibir boletíns
         newsletters: Boletíns informativos
         own_activity: A miña propia actividade, como cando alguén comenta na miña proposta ou me menciona
         receive_notifications_about: Quero recibir notificacións sobre
-        send_notifications_by_email: Envíe notificacións por correo electrónico
         update_notifications_settings: Gardar cambios
       update:
         error: Produciuse un erro ao actualizar a configuración das notificacións.
