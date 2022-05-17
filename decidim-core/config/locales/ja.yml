@@ -1119,7 +1119,6 @@ ja:
         allow_public_contact: フォローしていない人からもダイレクトメッセージを受信する
         direct_messages: ダイレクトメッセージを受信する
         email_on_moderations: 私はモデレーションの報告がなされたたびに毎回メールを受け取りたいです。
-        email_on_notification: 通知を毎回メールで受け取る
         everything_followed: 自分がフォローしているすべて
         newsletter_notifications: ニュースレターを受け取る
         newsletters: ニュースレター
@@ -1127,7 +1126,6 @@ ja:
           close_meeting_reminder: レポートを未公開で閉じたミーティングのリマインドメールを受信したい
         own_activity: 誰かが提案にコメントしたり、私に言及したりした時など、自分自身の活動
         receive_notifications_about: 通知を受け取りたい
-        send_notifications_by_email: 電子メールで通知を受け取る
         update_notifications_settings: 変更を保存
       update:
         error: 通知設定の更新中に問題が発生しました。
