@@ -207,8 +207,8 @@ module Decidim
             it "traces the action", versioning: true do
               expect(Decidim.traceability)
                 .to receive(:perform_action!)
-                      .with("delete", initiative_type, admin_user)
-                      .and_call_original
+                .with("delete", initiative_type, admin_user)
+                .and_call_original
 
               expect { delete :destroy, params: { id: initiative_type.id } }.to change(Decidim::ActionLog, :count)
               action_log = Decidim::ActionLog.last

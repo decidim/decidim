@@ -72,7 +72,7 @@ module Decidim
         def destroy
           enforce_permission_to :destroy, :initiative_type, initiative_type: current_initiative_type
 
-          Decidim.traceability.perform_action!("delete",current_initiative_type,current_user) do
+          Decidim.traceability.perform_action!("delete", current_initiative_type, current_user) do
             current_initiative_type.destroy!
           end
 
