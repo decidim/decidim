@@ -1027,7 +1027,6 @@ gl:
             hidden_at: Oculto en
             participatory_space: Espazo participativo
             report_count: Conde
-            reportable_id: Id
             reportable_type: Tipo
             reported_content_url: URL de contido reportado
             reports: Informes
