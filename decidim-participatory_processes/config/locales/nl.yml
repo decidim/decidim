@@ -60,12 +60,6 @@ nl:
         email: E-mail
         name: Naam
         role: Rol
-    errors:
-      models:
-        participatory_process:
-          attributes:
-            document:
-              invalid_document_type: 'Ongeldig documenttype. Geaccepteerde formaten zijn: %{valid_mime_types}'
     models:
       decidim/participatory_process_step_activated_event: Stap geactiveerd
       decidim/participatory_process_step_changed_event: Stap veranderd
