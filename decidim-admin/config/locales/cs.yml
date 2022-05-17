@@ -1069,7 +1069,6 @@ cs:
             hidden_at: Skryté u
             participatory_space: Participativní prostor
             report_count: Spočítat
-            reportable_id: Id
             reportable_type: Typ
             reported_content_url: Oznámená adresa URL obsahu
             reports: Zprávy
