@@ -161,13 +161,10 @@ eu:
           title: Baieztatu botoa
         budget_excess:
           budget_excess:
-            description: Proiektu honek gehieneko aurrekontua gainditzen du, eta ezin da gehitu. Nahi baduzu, jada hautatua duzun proiektu bat ezaba dezakezu edo botoa eman zure lehenespenekin bat.
             title: Aurrekontua gainditu da
           close: Itxi
-          description: Proiektu honek gehieneko aurrekontua gainditzen du, eta ezin da gehitu. Nahi baduzu, jada hautatua duzun proiektu bat ezaba dezakezu edo botoa eman zure lehenespenekin bat.
           ok: Ados
           projects_excess:
-            description: Proiektu honek gehieneko aurrekontua gainditzen du, eta ezin da gehitu. Nahi baduzu, jada hautatua duzun proiektu bat ezaba dezakezu edo botoa eman zure lehenespenekin bat.
             title: Gehieneko proiektu kopurua gainditu egin da
         budget_summary:
           are_you_sure: Ziur zaude zure botoa ezeztatu nahi duzula?
@@ -274,7 +271,6 @@ eu:
             total_budget: Aurrekontu osoa
             vote_minimum_budget_projects_number: Bozkatzeko gutxieneko proiektu kopurua
             vote_rule_minimum_budget_projects_enabled: 'Aktibatu araua: Bozkatzeko gutxieneko proiektu kopurua'
-            vote_rule_selected_projects_enabled: 'Gaitu araua: hautatutako proiektuak gutxieneko eta gehieneko proiektu kopurua bozkatzeko'
             vote_rule_threshold_percent_enabled: 'Aktibatu araua: aurrekontuaren gutxieneko ehunekoa'
             vote_selected_projects_maximum: Gehieneko proiektu kopurua hautatzeko
             vote_selected_projects_minimum: Gutxieneko proiektu kopurua hautatzeko
