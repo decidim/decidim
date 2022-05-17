@@ -86,14 +86,16 @@ module Decidim
       end
 
       def authorized_create_modal_button(type, html_options, &block)
-        return if current_user && action_authorized_to("create", permissions_holder: type).ok?
-
         tag = "button"
         html_options ||= {}
 
         if current_user
-          html_options["data-open"] = "authorizationModal"
-          html_options["data-open-url"] = authorization_create_modal_initiative_path(type)
+          if !action_authorized_to("create", permissions_holder: type).ok?
+            html_options["data-open"] = "authorizationModal"
+            html_options["data-open-url"] = authorization_create_modal_initiative_path(type)
+          else
+            html_options["data-open"] = "not-authorized-modal"
+          end
         else
           html_options["data-open"] = "loginModal"
         end

@@ -45,14 +45,8 @@
                     <%= f.submit t(".select"), class: "button" %>
                   <% end %>
                 <% else %>
-                  <% if authorized_create_modal_button(type, remote: true, class: "button") %>
-                    <%= authorized_create_modal_button(type, remote: true, class: "button") do %>
-                      <%= t(".verification_required") %>
-                    <% end %>
-                  <% else %>
-                    <button type="button" class="title-action__action button small" data-open="not-authorized-modal" aria-controls="not-authorized-modal" aria-haspopup="true" tabindex="0">
-                      <%= t(".verification_required") %>
-                    </button>
+                  <%= authorized_create_modal_button(type, remote: true, class: "button") do %>
+                    <%= t(".verification_required") %>
                   <% end %>
                 <% end %>
               </div>
