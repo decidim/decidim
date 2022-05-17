@@ -50,12 +50,6 @@ lv:
         email: E-pasts
         name: Nosaukums
         role: Loma
-    errors:
-      models:
-        participatory_process:
-          attributes:
-            document:
-              invalid_document_type: 'Nederīgs dokumenta tips. Pieņemtie formāti ir: %{valid_mime_types}'
     models:
       decidim/participatory_process_step_activated_event: Fāze aktivizēta
       decidim/participatory_process_step_changed_event: Fāze mainīta
