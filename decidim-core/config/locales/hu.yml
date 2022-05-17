@@ -952,7 +952,6 @@ hu:
         allow_public_contact: Megengedem, hogy bárki közvetlen üzenetet küldjön nekem, akkor is, ha nem követem őket.
         direct_messages: Közvetlen üzenetek fogadása bárkitől
         email_on_moderations: Szeretnék e-mailt kapni, valahányszor valamit vagy valakit jelentenek moderálás miatt.
-        email_on_notification: Mindig, amikor értesítést kapok, egy emailt is küldünk róla.
         everything_followed: Minden, amit követek
         newsletter_notifications: Szeretnék hírleveleket kapni
         newsletters: Hírlevelek
@@ -960,7 +959,6 @@ hu:
           close_meeting_reminder: Szeretnék e-mailben emlékeztetőt kapni a zárt megbeszélésekről és nem nyilvános jelentésekről
         own_activity: Saját tevékenységem - amikor valaki megjegyzést fűz a javaslatomhoz, vagy megemlíti a nevemet
         receive_notifications_about: Értesítést szeretnék kapni
-        send_notifications_by_email: Értesítések küldése e-mailben
         update_notifications_settings: Változások mentése
       update:
         error: Hiba történt az értesítési beállítások frissítése során.
