@@ -68,12 +68,6 @@ nl:
         email: E-mail
         name: Naam
         role: Rol
-    errors:
-      models:
-        assembly:
-          attributes:
-            document:
-              invalid_document_type: 'Ongeldig documenttype. Geaccepteerde formaten zijn: %{valid_mime_types}'
   activerecord:
     models:
       decidim/assembly:
@@ -385,7 +379,6 @@ nl:
         related_participatory_processes: Verwante inspraakprocessen
         scope: Scope
         social_networks: Sociale netwerken
-        social_networks_title: Deze groep delen op
         target: Wie doet mee
     assembly_members:
       assembly_member:
