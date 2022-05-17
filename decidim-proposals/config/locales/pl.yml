@@ -41,10 +41,6 @@ pl:
           valuator_role_id: Imię weryfikatora
     errors:
       models:
-        participatory_text:
-          attributes:
-            document:
-              invalid_document_type: 'Nieprawidłowy typ dokumentu. Akceptowane formaty to: %{valid_mime_types}'
         proposal:
           attributes:
             add_documents:
@@ -755,7 +751,6 @@ pl:
             other: wsparcia
         new:
           send: Dalej
-          title: Utwórz swoją propozycję
         orders:
           label: 'Sortuj propozycje według:'
           most_commented: Najczęściej komentowane
