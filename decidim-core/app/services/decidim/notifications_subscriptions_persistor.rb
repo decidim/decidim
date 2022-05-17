@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Decidim
-  # This class manages the creation and deletionn of user notifications
+  # This class manages the creation and deletion of user notifications
 
   class NotificationsSubscriptionsPersistor
     attr_reader :user
