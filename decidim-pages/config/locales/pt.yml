@@ -29,7 +29,5 @@ pt:
             invalid: Ocorreu um problema ao guardar a página.
             success: Pagina guardada com êxito.
       home:
-        hero:
-          participate_title: Participe nos processos da plataforma
         sub_hero:
           register_title: Registre para criar conta
