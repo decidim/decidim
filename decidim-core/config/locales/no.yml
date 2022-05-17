@@ -1080,13 +1080,11 @@
         administrators: Administratorer
         allow_public_contact: La hvem som helst sende meg direktemelding, selv om jeg ikke følger dem.
         direct_messages: Motta direktemeldinger fra alle
-        email_on_notification: Jeg vil motta en e-post hver gang jeg mottar et varsel.
         everything_followed: Alt jeg følger
         newsletter_notifications: Jeg ønsker å motta nyhetsbrev
         newsletters: Nyhetsbrev
         own_activity: Min egen aktivitet, som når noen kommenterer på forslaget mitt eller omtaler meg
         receive_notifications_about: Jeg ønsker å få varslet om
-        send_notifications_by_email: Send varsler via email
         update_notifications_settings: Lagre endringer
       update:
         error: Det oppstod et problem med å oppdatere varslingsinnstillingene dine.
