@@ -7,7 +7,7 @@ module Decidim::Admin
     subject { described_class.new(scope_type, form, user) }
 
     let(:organization) { create :organization }
-    let(:user) { create(:user, organization: organization)}
+    let(:user) { create(:user, organization: organization) }
     let(:scope_type) { create :scope_type, organization: organization }
     let(:name) { Decidim::Faker::Localized.literal("new name") }
     let(:plural) { Decidim::Faker::Localized.literal("new names") }
@@ -46,8 +46,8 @@ module Decidim::Admin
       it "traces the action", versioning: true do
         expect(Decidim.traceability)
           .to receive(:perform_action!)
-                .with(:update, scope_type, user, {})
-                .and_call_original
+          .with(:update, scope_type, user, {})
+          .and_call_original
 
         expect { subject.call }.to change(Decidim::ActionLog, :count)
         action_log = Decidim::ActionLog.last

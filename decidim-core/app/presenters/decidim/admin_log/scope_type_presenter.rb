@@ -24,7 +24,7 @@ module Decidim
       def action_string
         case action
         when "create", "delete", "update"
-            "decidim.admin_log.scope_type.#{action}"
+          "decidim.admin_log.scope_type.#{action}"
         else
           super
         end
