@@ -201,13 +201,10 @@ cs:
           title: Potvrďte hlasování
         budget_excess:
           budget_excess:
-            description: Tento projekt překračuje maximální rozpočet a nemůže být přidán. Pokud chcete, můžete smazat projekt, který jste již vybrali pro přidání nebo hlasování podle vašich preferencí.
             title: Maximální rozpočet byl překročen
           close: Zavřít
-          description: Tento projekt překračuje maximální rozpočet a nemůže být přidán. Pokud chcete, můžete smazat projekt, který jste již vybrali pro přidání nebo hlasování podle vašich preferencí.
           ok: OK
           projects_excess:
-            description: Tento projekt překračuje maximální počet projektů a nemůže být přidán. Pokud chcete, můžete smazat projekt, který jste již vybrali pro přidání nebo hlasování podle vašich preferencí.
             title: Byl překročen maximální počet projektů
         budget_summary:
           are_you_sure: Opravdu chcete zrušit hlasování?
@@ -332,7 +329,6 @@ cs:
             total_budget: Celkový rozpočet
             vote_minimum_budget_projects_number: Minimální počet projektů k hlasování
             vote_rule_minimum_budget_projects_enabled: 'Povolit pravidlo: Minimální počet projektů, o kterých se má hlasovat'
-            vote_rule_selected_projects_enabled: 'Povolit pravidlo: Vybrané projekty s minimálním a maximálním počtem projektů, o kterých se má hlasovat'
             vote_rule_threshold_percent_enabled: 'Povolit pravidlo: minimální procento rozpočtu'
             vote_selected_projects_maximum: Maximální počet projektů, které mají být vybrány
             vote_selected_projects_minimum: Minimální počet projektů, které mají být vybrány
