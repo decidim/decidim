@@ -100,7 +100,6 @@ fr:
           with_any_type:
             label: Type de rencontre
             values:
-              hybrid: Hybride
               in_person: En présentiel
               online: En ligne
       meeting_copies:
@@ -182,9 +181,6 @@ fr:
           email_outro: Vous avez reçu cette notification, car vous suivez la rencontre "%{resource_title}". Vous pouvez arrêter de la suivre à partir du lien précédent.
           email_subject: La rencontre "%{resource_title}" commencera dans moins de 48h.
           notification_title: La rencontre <a href="%{resource_path}">%{resource_title}</a> débutera dans moins de 48h.
-    forms:
-      meetings:
-        attendees_count_help_text: N’oubliez pas d’inclure le nombre total de participants à votre événement, que ce soit en présentiel, en ligne ou en hybride.
     gamification:
       badges:
         attended_meetings:
@@ -392,11 +388,9 @@ fr:
         calendar_url: URL du calendrier
         close_window: Fermer la fenêtre
         copy_calendar_url: Copier
-        copy_calendar_url_clarification: Copier l'URL du calendrier dans le presse-papiers
         copy_calendar_url_copied: Copié !
         copy_calendar_url_description: Vous pouvez voir toutes les réunions publiées dans votre application de calendrier. Copiez et collez cette URL dans votre calendrier en utilisant l'option "Ajouter un nouveau calendrier à partir d'une URL".
         copy_calendar_url_explanation: Veuillez noter que vous exportez une sélection de réunions, car il y a des filtres actifs. Si vous souhaitez tous les exporter, réinitialisez d'abord tous les filtres.
-        copy_calendar_url_message: Le lien a bien été copié dans le presse-papier.
         export_calendar: Calendrier d'exportation
       close_meeting_reminder_mailer:
         close_meeting_reminder:
@@ -486,7 +480,6 @@ fr:
           type: Type
           type_values:
             all: Tous
-            hybrid: Hybride
             in_person: En présentiel
             online: En ligne
         filters_small_view:
@@ -576,7 +569,6 @@ fr:
           fields:
             closed: Fermée
             end_time: Date de fin
-            id: Id
             map: Carte
             official_meeting: Rencontre officielle
             start_time: Date de début
@@ -589,7 +581,6 @@ fr:
             empty_questions: Tout au long de cette rencontre, certaines questions seront envoyées et vous pourrez y répondre. Elles seront affichées ici.
           index_admin:
             admin_dashboard: Administration du sondage
-            edit: Modifier le sondage dans le panneau d'administration (attention, une fois qu'une question a commencé à recevoir des réponses, vous ne pouvez plus modifier le sondage)
             question: Question
             received_answer: réponse reçue
             received_answers: réponses reçues
@@ -627,7 +618,6 @@ fr:
           invalid: Il y a eu un problème lors de l'annulation de votre inscription.
           success: Vous avez annulé votre inscription avec succès.
       type_of_meeting:
-        hybrid: Hybride
         in_person: En présentiel
         online: En ligne
       types:
