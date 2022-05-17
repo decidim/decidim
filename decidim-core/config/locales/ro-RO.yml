@@ -1067,13 +1067,11 @@ ro:
         administrators: Administratori
         allow_public_contact: Permiteți oricui să îmi trimită un mesaj direct, chiar dacă nu-l urmăresc.
         direct_messages: Primește mesaje directe de la oricine
-        email_on_notification: Vreau să primesc un e-mail de fiecare dată când primesc o notificare.
         everything_followed: Tot ce urmăresc
         newsletter_notifications: Vreau să primesc buletine informative
         newsletters: Newslettere
         own_activity: Propria mea activitate, ca atunci când cineva comentează în propunerea mea sau mă menționează
         receive_notifications_about: Vreau să primesc notificări despre
-        send_notifications_by_email: Trimite notificări prin e-mail
         update_notifications_settings: Salvează modificările
       update:
         error: A apărut o eroare la actualizarea setărilor notificărilor.
