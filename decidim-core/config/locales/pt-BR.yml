@@ -1038,13 +1038,11 @@ pt-BR:
         administrators: Administradores
         allow_public_contact: Permita que qualquer pessoa me envie uma mensagem direta, mesmo que eu não as siga.
         direct_messages: Receber mensagens diretas de qualquer pessoa
-        email_on_notification: Quero receber um email sempre que recebo uma notificação.
         everything_followed: Tudo que eu sigo
         newsletter_notifications: Quero receber boletins informativos
         newsletters: boletins informativos
         own_activity: Minha atividade, como quando alguém comenta minha proposta ou me menciona
         receive_notifications_about: Quero receber notificações sobre
-        send_notifications_by_email: Enviar notificações por email
         update_notifications_settings: Guardar alterações
       update:
         error: Ocorreu um erro ao atualizar suas configurações de notificações.
