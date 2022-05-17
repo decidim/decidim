@@ -13,7 +13,7 @@ module Decidim
       attribute :user_name, String
       attribute :email, String
 
-      validates :file, presence: true
+      validates :file, presence: true, file_content_type: { allow: ["text/csv"] }
       validate :validate_csv
 
       def validate_csv
