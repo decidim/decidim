@@ -110,6 +110,12 @@ You can configure it with `crontab -e`, for instance if you've created your Deci
 
 # Generate reminders
 4 0 * * * cd /home/user/decidim_application && RAILS_ENV=production bundle exec rake decidim:reminders:all
+
+# Send notification mail digest daily
+5 0 * * * cd /home/user/decidim_application && RAILS_ENV=production bundle exec rake decidim:mailers:notifications_digest_daily
+
+# Send notification mail digest weekly on saturdays
+5 0 * * 6 cd /home/user/decidim_application && RAILS_ENV=production bundle exec rake decidim:mailers:notifications_digest_weekly
 ----
 
 === Further configuration
