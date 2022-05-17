@@ -42,10 +42,6 @@ pt-BR:
           valuator_role_id: Nome do Avaliador
     errors:
       models:
-        participatory_text:
-          attributes:
-            document:
-              invalid_document_type: 'Tipo de documento inválido. Formatos aceitos são: %{valid_mime_types}'
         proposal:
           attributes:
             add_documents:
@@ -741,7 +737,6 @@ pt-BR:
             other: votos
         new:
           send: Continuar
-          title: Crie sua proposta
         orders:
           label: 'Ordene propostas por:'
           most_commented: Mais comentados
