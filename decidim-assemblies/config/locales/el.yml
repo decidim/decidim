@@ -67,12 +67,6 @@ el:
         email: Email
         name: Όνομα
         role: Ρόλος
-    errors:
-      models:
-        assembly:
-          attributes:
-            document:
-              invalid_document_type: 'Μη έγκυρος τύπος εγγράφου. Οι αποδεκτές μορφές είναι: %{valid_mime_types}'
   activerecord:
     models:
       decidim/assembly:
@@ -375,7 +369,6 @@ el:
         related_participatory_processes: Σχετικές διαδικασίες συμμετοχής
         scope: Πεδίο εφαρμογής
         social_networks: Κοινωνικά δίκτυα
-        social_networks_title: Κοινοποίηση αυτής της συνέλευσης σε
         target: Ποιος συμμετέχει
     assembly_members:
       assembly_member:
