@@ -68,12 +68,6 @@
         email: Epost
         name: Navn
         role: Rolle
-    errors:
-      models:
-        assembly:
-          attributes:
-            document:
-              invalid_document_type: 'Ugyldig dokumenttype. Godkjente formater er: %{valid_mime_types}'
   activerecord:
     models:
       decidim/assembly:
@@ -385,7 +379,6 @@
         related_participatory_processes: Relaterte deltakerprosesser
         scope: Tema
         social_networks: Sosiale nettverk
-        social_networks_title: Del denne forsamlingen på
         target: Hvem deltar
     assembly_members:
       assembly_member:
