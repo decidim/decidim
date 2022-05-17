@@ -42,10 +42,6 @@ es:
           valuator_role_id: Nombre de la evaluadora
     errors:
       models:
-        participatory_text:
-          attributes:
-            document:
-              invalid_document_type: 'Tipo de documento no válido. Los formatos aceptados son: %{valid_mime_types}'
         proposal:
           attributes:
             add_documents:
@@ -817,7 +813,6 @@ es:
             other: apoyos
         new:
           send: Continuar
-          title: Crear tu propuesta
         orders:
           label: 'Ordenar propuestas por:'
           most_commented: Más comentadas
