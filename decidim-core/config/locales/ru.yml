@@ -542,7 +542,6 @@ ru:
       no_notifications: Пока нет уведомлений.
     notifications_settings:
       show:
-        email_on_notification: Я хочу получать электронное письмо каждый раз, когда приходит уведомление.
         newsletter_notifications: Я хочу получать рассылку новостей
         update_notifications_settings: Сохранить изменения
       update:
