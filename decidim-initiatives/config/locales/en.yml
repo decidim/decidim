@@ -184,8 +184,6 @@ en:
           page: "<p>An <strong>initiative</strong> is a proposal that can be promoted by anyone on their own initiative (independently of other channels or participation spaces) through the collection of (digital) signatures for the organization to carry out a specific action (modify a regulation, initiate a project, change the name of a department or a street, etc.).</p> <p>The promoters of an initiative can define its objectives, gather support, debate, disseminate it and define meeting points where signatures can be collected from the attendees or debates open to other participants.</p> <p>Examples: An initiative can collect signatures to convene a consultation among all the people of an organization, or to create or convene an assembly, or to initiate a process of budget increase for a territory or area of the organization. During the process of collecting signatures, more people can add to this demand and carry it forward in the organization.</p>\n"
           title: What are initiatives?
     initiatives:
-      signature_interval:
-        title: Signature collection period
       actions:
         answer: Answer
       admin:
@@ -568,6 +566,8 @@ en:
           published: Published
           rejected: Not enough signatures
           validating: Technical validation
+      signature_interval:
+        title: Signature collection period
       states:
         accepted: Accepted
         expired: Expired

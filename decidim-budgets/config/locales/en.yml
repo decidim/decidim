@@ -109,14 +109,12 @@ en:
             invalid: 'These projects already had the %{subject_name} category: %{projects}.'
             select_a_category: Please select a category
             select_a_project: Please select a project
-            success: 'Projects successfully updated to the %{subject_name} category:
-              %{projects}.'
+            success: 'Projects successfully updated to the %{subject_name} category: %{projects}.'
           update_scope:
             invalid: 'These projects already had the %{subject_name} scope: %{projects}.'
             select_a_project: Please select a project
             select_a_scope: Please select a scope
-            success: 'Projects successfully updated to the %{subject_name} scope:
-              %{projects}.'
+            success: 'Projects successfully updated to the %{subject_name} scope: %{projects}.'
           update_selected:
             invalid: 'These projects already had the same selected: %{projects}.'
             select_a_project: Please select a project
@@ -128,32 +126,24 @@ en:
             success: "%{number} proposals successfully imported into projects"
           new:
             create: Import proposals to projects
-            no_components: There are no other proposal components in this participatory
-              space to import the proposals into projects.
+            no_components: There are no other proposal components in this participatory space to import the proposals into projects.
             select_component: Please select a component
             title: Import proposals
         reminders:
           orders:
-            description: Users will receive an email with links to the budgets where
-              they have pending order.
+            description: Users will receive an email with links to the budgets where they have pending order.
             title:
               one: You are about to send an email reminder to %{count} user
               other: You are about to send an email reminder to %{count} users
       admin_log:
         budget:
-          create: "%{user_name} created the %{resource_name} budget in the %{space_name}
-            space"
-          delete: "%{user_name} deleted the %{resource_name} budget in the %{space_name}
-            space"
-          update: "%{user_name} updated the %{resource_name} budget in the %{space_name}
-            space"
+          create: "%{user_name} created the %{resource_name} budget in the %{space_name} space"
+          delete: "%{user_name} deleted the %{resource_name} budget in the %{space_name} space"
+          update: "%{user_name} updated the %{resource_name} budget in the %{space_name} space"
         project:
-          create: "%{user_name} created the %{resource_name} project in the %{space_name}
-            space"
-          delete: "%{user_name} deleted the %{resource_name} project in the %{space_name}
-            space"
-          update: "%{user_name} updated the %{resource_name} project in the %{space_name}
-            space"
+          create: "%{user_name} created the %{resource_name} project in the %{space_name} space"
+          delete: "%{user_name} deleted the %{resource_name} project in the %{space_name} space"
+          update: "%{user_name} updated the %{resource_name} project in the %{space_name} space"
       budget:
         view: View all budget projects
       budget_information_modal:
@@ -179,10 +169,8 @@ en:
       last_activity:
         new_vote_at_html: "<span>New budgeting vote at %{link}</span>"
       limit_announcement:
-        cant_vote: You can't vote on this budget. <a href="%{landing_path}">Try on
-          another budget</a>.
-        limit_reached: You have active votes in %{links}. To vote on this budget you
-          must <a href="%{landing_path}">delete your vote and start over</a>.
+        cant_vote: You can't vote on this budget. <a href="%{landing_path}">Try on another budget</a>.
+        limit_reached: You have active votes in %{links}. To vote on this budget you must <a href="%{landing_path}">delete your vote and start over</a>.
       models:
         budget:
           fields:
@@ -199,10 +187,8 @@ en:
         order_summary:
           selected_projects: 'The projects that you have selected are:'
           subject: You have voted on the %{space_name} participatory space
-          voted_on_space: You have voted on the %{budget_name} budget for the %{space_name}
-            participatory space.
-          voted_on_space_with_scope: You have voted on the %{budget_name} budget for
-            the %{space_name} participatory space on %{scope_name} (%{scope_type}).
+          voted_on_space: You have voted on the %{budget_name} budget for the %{space_name} participatory space.
+          voted_on_space_with_scope: You have voted on the %{budget_name} budget for the %{space_name} participatory space on %{scope_name} (%{scope_type}).
       projects:
         budget_confirm:
           are_you_sure: If you change your mind, you can change your vote later.
@@ -212,58 +198,38 @@ en:
           title: Confirm vote
         budget_excess:
           budget_excess:
-            description: This project exceeds the maximum budget and can not be added.
-              If you want, you can delete a project you have already selected, in
-              order to be able to vote again according to your preferences.
+            description: This project exceeds the maximum budget and can not be added. If you want, you can delete a project you have already selected, in order to be able to vote again according to your preferences.
             title: Maximum budget exceeded
           close: Close
-          description: This project exceeds the maximum budget and can not be added.
-            If you want, you can delete a project you have already selected, in order
-            to be able to vote again according to your preferences.
+          description: This project exceeds the maximum budget and can not be added. If you want, you can delete a project you have already selected, in order to be able to vote again according to your preferences.
           ok: OK
           projects_excess:
-            description: This project exceeds the maximum number of projects and cannot
-              be added. If you want, you can delete a project you have already selected,
-              in order to be able to vote again according to your preferences.
+            description: This project exceeds the maximum number of projects and cannot be added. If you want, you can delete a project you have already selected, in order to be able to vote again according to your preferences.
             title: Maximum projects exceeded
         budget_summary:
           are_you_sure: Are you sure you want to cancel your vote?
           assigned: 'Assigned:'
           cancel_order: delete your vote and start over
           checked_out:
-            description: You've already voted for the budget. If you've changed your
-              mind, you can %{cancel_link}.
+            description: You've already voted for the budget. If you've changed your mind, you can %{cancel_link}.
             title: Budget vote completed
           minimum_projects_rule:
-            description: What projects do you think we should allocate budget for?
-              Select at least %{minimum_number} projects you want and vote according
-              to your preferences to define the budget.
-            instruction: "<li>Select at least %{minimum_number} projects you want
-              and vote according to your preferences to define the budget.</li>"
+            description: What projects do you think we should allocate budget for? Select at least %{minimum_number} projects you want and vote according to your preferences to define the budget.
+            instruction: "<li>Select at least %{minimum_number} projects you want and vote according to your preferences to define the budget.</li>"
           projects_rule:
-            description: What projects do you think we should allocate budget for?
-              Select at least %{minimum_number} and up to %{maximum_number} projects
-              you want and vote according to your preferences to define the budget.
-            instruction: "<li>Select at least %{minimum_number} and up to %{maximum_number}
-              projects you want and vote according to your preferences to define the
-              budget.</li>"
+            description: What projects do you think we should allocate budget for? Select at least %{minimum_number} and up to %{maximum_number} projects you want and vote according to your preferences to define the budget.
+            instruction: "<li>Select at least %{minimum_number} and up to %{maximum_number} projects you want and vote according to your preferences to define the budget.</li>"
           projects_rule_maximum_only:
-            description: What projects do you think we should allocate budget for?
-              Select up to %{maximum_number} projects you want and vote according
-              to your preferences to define the budget.
-            instruction: "<li>Select up to %{maximum_number} projects you want and
-              vote according to your preferences to define the budget.</li>"
+            description: What projects do you think we should allocate budget for? Select up to %{maximum_number} projects you want and vote according to your preferences to define the budget.
+            instruction: "<li>Select up to %{maximum_number} projects you want and vote according to your preferences to define the budget.</li>"
           rules:
             title: Budget rules
           title: You decide the budget
           total_budget: Total budget
           total_projects: Total votes
           vote_threshold_percent_rule:
-            description: What projects do you think we should allocate budget for?
-              Assign at least %{minimum_budget} to the projects you want and vote
-              according to your preferences to define the budget.
-            instruction: "<li>Assign at least %{minimum_budget} to the projects you
-              want and vote according to your preferences to define the budget.</li>"
+            description: What projects do you think we should allocate budget for? Assign at least %{minimum_budget} to the projects you want and vote according to your preferences to define the budget.
+            instruction: "<li>Assign at least %{minimum_budget} to the projects you want and vote according to your preferences to define the budget.</li>"
         count:
           projects_count:
             one: 1 project
@@ -272,8 +238,7 @@ en:
           cancel: Return to voting
           close_modal: Close modal
           exit: Exit voting
-          message: Your vote has not been registered because you have not yet completed
-            the voting process. Are you sure you want to exit voting?
+          message: Your vote has not been registered because you have not yet completed the voting process. Are you sure you want to exit voting?
           title: You have not yet voted
         filters:
           category: Category
@@ -325,12 +290,9 @@ en:
       vote_reminder_mailer:
         vote_reminder:
           email_budgets: 'Areas where you have an unfinished vote:'
-          email_intro: You have started the participatory budgeting vote, but have
-            not completed it.
+          email_intro: You have started the participatory budgeting vote, but have not completed it.
           email_link: Go to continue voting
-          email_outro: Please remember to complete the vote. To vote, you must first
-            select the proposal or proposals you want to vote on and then confirm
-            your vote with the "Vote" button.
+          email_outro: Please remember to complete the vote. To vote, you must first select the proposal or proposals you want to vote on and then confirm your vote with the "Vote" button.
           email_subject:
             one: You have an unfinished vote in the participatory budgeting vote
             other: You have unfinished votes in the participatory budgeting vote
@@ -352,17 +314,14 @@ en:
             landing_page_content: Budgets landing page
             more_information_modal: More information modal
             projects_per_page: Projects per page
-            resources_permissions_enabled: Actions permissions can be set for each
-              project
+            resources_permissions_enabled: Actions permissions can be set for each project
             scope_id: Scope
             scopes_enabled: Scopes enabled
             title: Title
             total_budget: Total budget
             vote_minimum_budget_projects_number: Minimum number of projects to vote
-            vote_rule_minimum_budget_projects_enabled: 'Enable rule: Minimum number
-              of projects to be voted on'
-            vote_rule_selected_projects_enabled: 'Enable rule: Minimum and maximum
-              number of projects to be voted on'
+            vote_rule_minimum_budget_projects_enabled: 'Enable rule: Minimum number of projects to be voted on'
+            vote_rule_selected_projects_enabled: 'Enable rule: Minimum and maximum number of projects to be voted on'
             vote_rule_threshold_percent_enabled: 'Enable rule: Minimum budget percentage'
             vote_selected_projects_maximum: Maximum amount of projects to be selected
             vote_selected_projects_minimum: Minimum amount of projects to be selected
@@ -370,8 +329,7 @@ en:
             workflow: Workflow
             workflow_choices:
               all: 'Vote in all: allows participants to vote in all budgets.'
-              one: 'Vote in one: allows participants to vote in any budget, but only
-                in one.'
+              one: 'Vote in one: allows participants to vote in any budget, but only in one.'
           step:
             announcement: Announcement
             comments_blocked: Comments blocked
@@ -389,14 +347,10 @@ en:
     events:
       budgets:
         budget_published:
-          email_intro: 'The %{resource_title} budget is now active for %{participatory_space_title}.
-            You can see it from this page:'
-          email_outro: You have received this notification because you are following
-            %{participatory_space_title}. You can stop receiving notifications following
-            the previous link.
+          email_intro: 'The %{resource_title} budget is now active for %{participatory_space_title}. You can see it from this page:'
+          email_outro: You have received this notification because you are following %{participatory_space_title}. You can stop receiving notifications following the previous link.
           email_subject: The %{resource_title} budget is now active for %{participatory_space_title}.
-          notification_title: The <a href="%{resource_path}">%{resource_title}</a>
-            budget is now active for %{participatory_space_title}.
+          notification_title: The <a href="%{resource_path}">%{resource_title}</a> budget is now active for %{participatory_space_title}.
     orders:
       checkout:
         error: There was a problem processing your vote
