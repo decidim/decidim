@@ -32,7 +32,7 @@ module Decidim
       private
 
       def process_csv
-        CSV.foreach(ActiveStorage::Blob.service.path_for(file.key), encoding: "BOM|UTF-8") do |email, user_name|
+        CSV.foreach(ActiveStorage::Blob.service.path_for(@form.file.key), encoding: "BOM|UTF-8") do |email, user_name|
           ImportParticipatorySpacePrivateUserCsvJob.perform_later(email, user_name, @private_users_to, @current_user) if email.present? && user_name.present?
         end
       end

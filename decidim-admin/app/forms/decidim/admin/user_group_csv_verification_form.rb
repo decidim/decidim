@@ -7,7 +7,7 @@ module Decidim
     class UserGroupCsvVerificationForm < Form
       include Decidim::HasUploadValidations
 
-      attribute :file
+      attribute :file, Decidim::Attributes::Blob
 
       validates :file, presence: true
     end
