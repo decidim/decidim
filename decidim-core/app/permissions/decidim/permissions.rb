@@ -148,7 +148,6 @@ module Decidim
       user_group = context.fetch(:user_group)
 
       if permission_action.action == :leave
-        # user_can_leave_group = Decidim::UserGroupMembership.where(user: user, user_group: user_group).any?
         user_can_leave_group = Decidim::UserGroupMembership.where(user: user, user_group: user_group, role: :member).any?
         user_can_leave_group ||= Decidim::UserGroupMembership.where(user_group: user_group, role: [:creator, :admin]).count > 1
         return toggle_allow(user_can_leave_group)

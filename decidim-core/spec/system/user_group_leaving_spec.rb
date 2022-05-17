@@ -19,16 +19,39 @@ describe "User group leaving", type: :system do
       it "does not show the link to leave" do
         expect(page).to have_no_content("Leave group")
       end
+
+      context "when there is another admin in the group" do
+        let(:another_user) { create(:user, :confirmed, organization: user.organization) }
+
+        before do
+          create :user_group_membership, user: another_user, user_group: user_group, role: :admin
+          visit decidim.profile_path(user_group.nickname)
+        end
+
+        it "can leave the group" do
+          accept_confirm { click_link "Leave group" }
+
+          expect(page).to have_content("Group successfully abandoned")
+        end
+      end
     end
 
-    it "allows the user to join" do
-      create :user_group_membership, user: user, user_group: user_group, role: :admin
-      visit decidim.profile_path(user_group.nickname)
+    context "when there is two admins in the group" do
+      let(:another_user) { create(:user, :confirmed, organization: user.organization) }
 
-      accept_confirm { click_link "Leave group" }
+      before do
+        create :user_group_membership, user: user, user_group: user_group, role: :admin
+        create :user_group_membership, user: another_user, user_group: user_group, role: :admin
+      end
 
-      expect(page).to have_content("Group successfully abandoned")
-      expect(page).to have_content("Request to join group")
+      it "allows the user to leave and join back" do
+        visit decidim.profile_path(user_group.nickname)
+
+        accept_confirm { click_link "Leave group" }
+
+        expect(page).to have_content("Group successfully abandoned")
+        expect(page).to have_content("Request to join group")
+      end
     end
   end
 
