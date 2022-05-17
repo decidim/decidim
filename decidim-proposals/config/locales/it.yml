@@ -42,10 +42,6 @@ it:
           valuator_role_id: Nome del valutatore
     errors:
       models:
-        participatory_text:
-          attributes:
-            document:
-              invalid_document_type: 'Tipo di documento non valido. I formati accettati sono: %{valid_mime_types}'
         proposal:
           attributes:
             add_documents:
@@ -755,7 +751,6 @@ it:
             other: voti
         new:
           send: Continua
-          title: Crea la tua proposta
         orders:
           label: 'Ordina le proposte per:'
           most_commented: I più commentati
