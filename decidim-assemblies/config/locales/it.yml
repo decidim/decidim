@@ -68,12 +68,6 @@ it:
         email: E-mail
         name: Nome
         role: Ruolo
-    errors:
-      models:
-        assembly:
-          attributes:
-            document:
-              invalid_document_type: 'Tipo di documento non valido. I formati accettati sono: %{valid_mime_types}'
   activerecord:
     models:
       decidim/assembly:
@@ -388,7 +382,6 @@ it:
         related_participatory_processes: Processi partecipativi correlati
         scope: Ambito
         social_networks: Social Networks
-        social_networks_title: Condividi questa assemblea su
         target: Chi partecipa
     assembly_members:
       assembly_member:
