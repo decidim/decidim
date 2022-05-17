@@ -59,9 +59,7 @@ pt-BR:
         avatar: Avatar
         conference_meeting_ids: Reuniões relacionadas
         full_name: Nome completo
-        personal_url: Url pessoal
         position: Posição
-        short_bio: Pequena biografia
         twitter_handle: Manipulador do Twitter
         user_id: Usuário
       conference_user_role:
