@@ -418,12 +418,8 @@ describe Decidim::Permissions do
           it { is_expected.to be false }
         end
 
-        context "when the user belongs to the group" do
-          before do
-            membership = Decidim::UserGroupMembership.find_by(user: user, user_group: user_group)
-            membership.role = :admin
-            membership.save
-          end
+        context "and there is another admin in the group" do
+          let!(:another_membership) { create(:user_group_membership, user_group: user_group, role: :admin) }
 
           it { is_expected.to be true }
         end
