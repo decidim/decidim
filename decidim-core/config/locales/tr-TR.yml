@@ -1012,13 +1012,11 @@ tr:
       show:
         allow_public_contact: Takip etmesem bile herkesin bana doğrudan mesaj göndermesine izin ver.
         direct_messages: Herkesten doğrudan mesaj alın
-        email_on_notification: Her bildirim aldığımda bir e-posta almak istiyorum.
         everything_followed: Takip ettiğim her şey
         newsletter_notifications: Bülten almak istiyorum
         newsletters: Bültenler
         own_activity: Birisinin teklifime yorum yapması veya benden bahsetmesi gibi kendi faaliyetim
         receive_notifications_about: Hakkında bildirim almak istiyorum
-        send_notifications_by_email: Bildirimleri e-posta ile gönder
         update_notifications_settings: Değişiklikleri Kaydet
       update:
         error: Bildirim ayarlarınız güncellenirken bir hata oluştu.
