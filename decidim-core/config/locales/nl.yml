@@ -1056,13 +1056,11 @@ nl:
         administrators: Beheerders
         allow_public_contact: Ledereen kan mij een persoonlijk bericht sturen, ook mensen die ik niet volg.
         direct_messages: Ontvang privéberichten van iedereen
-        email_on_notification: Ik wil een e-mail ontvangen telkens als ik een melding krijg.
         everything_followed: Alles wat ik volg
         newsletter_notifications: Ik wil de nieuwsbrief ontvangen
         newsletters: Nieuwsbrieven
         own_activity: Activiteiten gerelateerd aan mijn bijdragen, zoals wanneer iemand opmerkingen maakt in mijn voorstel of mij vermeldt
         receive_notifications_about: Ik wil meldingen ontvangen over
-        send_notifications_by_email: Verstuur meldingen per e-mail
         update_notifications_settings: Wijzigingen opslaan
       update:
         error: Er is een fout opgetreden bij het bijwerken van uw notificatie instellingen.
