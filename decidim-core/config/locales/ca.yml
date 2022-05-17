@@ -130,7 +130,6 @@ ca:
       email_change:
         body1: Hem enviat un correu a %{unconfirmed_email} per a verificar la teva nova adreça de correu electrònic.
         body2: Cal que et reenviem el correu de verificació? %{resend_link} o %{cancel_link}.
-        cancel: Cancel·lar
         cancel_error: No s'ha pogut cancel·lar el canvi de correu electrònic.
         cancel_successfully: Canvi de correu electrònic cancel·lat amb èxit.
         resend_error: No s'ha pogut reenviar el correu de confirmació.
