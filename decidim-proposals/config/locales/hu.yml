@@ -36,10 +36,6 @@ hu:
           valuator_role_id: Értékelő neve
     errors:
       models:
-        participatory_text:
-          attributes:
-            document:
-              invalid_document_type: 'Érvénytelen dokumentumtípus. Az elfogadott formátumok: %{valid_mime_types}'
         proposal:
           attributes:
             add_documents:
@@ -715,7 +711,6 @@ hu:
             other: szavazatok
         new:
           send: Tovább
-          title: Hozz létre javaslatot
         orders:
           label: 'Javaslatok rendezése:'
           most_commented: Legtöbb hozzászólással
