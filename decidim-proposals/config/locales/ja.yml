@@ -42,10 +42,6 @@ ja:
           valuator_role_id: 評価者名
     errors:
       models:
-        participatory_text:
-          attributes:
-            document:
-              invalid_document_type: '無効な種類のドキュメントです。承認されたフォーマットは次のとおりです: %{valid_mime_types}'
         proposal:
           attributes:
             add_documents:
@@ -806,7 +802,6 @@ ja:
             other: サポート
         new:
           send: 続ける
-          title: 提案を作成
         orders:
           label: '提案の順序：'
           most_commented: コメントが多い順
