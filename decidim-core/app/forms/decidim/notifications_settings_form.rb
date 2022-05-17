@@ -51,5 +51,9 @@ module Decidim
       end
       false
     end
+
+    def meet_push_notifications_requirements?
+      Rails.application.secrets.vapid[:enabled]
+    end
   end
 end

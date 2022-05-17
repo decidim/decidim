@@ -28,7 +28,7 @@ module Decidim
       @user.notification_types = @form.notification_types
       @user.direct_message_types = @form.direct_message_types
       @user.email_on_moderations = @form.email_on_moderations
-      @user.notification_settings = @form.notification_settings
+      @user.notification_settings = @user.notification_settings.merge(@form.notification_settings)
       @user.notifications_sending_frequency = @form.notifications_sending_frequency
     end
   end
