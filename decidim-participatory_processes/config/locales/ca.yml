@@ -62,12 +62,6 @@ ca:
         email: Correu electrònic
         name: Nom
         role: Rol
-    errors:
-      models:
-        participatory_process:
-          attributes:
-            document:
-              invalid_document_type: 'Tipus de document no vàlid. Els formats acceptats són: %{valid_mime_types}'
     models:
       decidim/participatory_process_step_activated_event: Fase activada
       decidim/participatory_process_step_changed_event: Fase modificada
