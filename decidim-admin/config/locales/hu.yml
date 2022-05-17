@@ -867,7 +867,6 @@ hu:
             hidden_at: 'Rejtett itt:'
             participatory_space: Részvételi tér
             report_count: Számol
-            reportable_id: Id
             reportable_type: Típus
             reported_content_url: Jelentett URL tartalom
             reports: Jelentések
