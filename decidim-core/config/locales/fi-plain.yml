@@ -135,7 +135,6 @@ fi-pl:
       email_change:
         body1: Olemme lähettäneet viestin osoitteeseen %{unconfirmed_email} vahvistaaksemme uuden sähköpostiosoitteesi.
         body2: Haluatko tilata vahvistussähköpostin uudestaan? %{resend_link} tai %{cancel_link}.
-        cancel: peruuta
         cancel_error: Sähköpostin muutosta ei voitu peruuttaa.
         cancel_successfully: Sähköpostin muuttamisen peruuttaminen onnistui.
         resend_error: Vahvistussähköpostia ei voitu lähettää uudestaan.
