@@ -1059,7 +1059,6 @@ es:
             hidden_at: Fecha de ocultación
             participatory_space: Espacio participativo
             report_count: Recuento
-            reportable_id: Id
             reportable_type: Tipo
             reported_content_url: URL del contenido reportado
             reports: Denuncias
