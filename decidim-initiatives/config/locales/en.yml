@@ -291,6 +291,10 @@ en:
           send_to_technical_validation: "%{user_name} sent the %{resource_name} initiative to technical validation"
           unpublish: "%{user_name} discarded the %{resource_name} initiative"
           update: "%{user_name} updated the %{resource_name} initiative"
+        initiatives_type:
+          create: "%{user_name} created the %{resource_name} initiatives type"
+          delete: "%{user_name} updated the %{resource_name} initiatives type"
+          update: "%{user_name} deleted the %{resource_name} initiatives type"
       admin_states:
         accepted: Enough signatures
         created: Created
