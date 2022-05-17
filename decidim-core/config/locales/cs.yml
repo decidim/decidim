@@ -159,6 +159,7 @@ cs:
       email_change:
         body1: Poslali jsme e-mail na %{unconfirmed_email} k ověření Vaší nové e-mailové adresy.
         body2: Potřebujete poslat znovu ověřovací e-mail? %{resend_link} nebo %{cancel_link}.
+        cancel: zrušit
         cancel_error: Nelze zrušit změnu e-mailu.
         cancel_successfully: Změna e-mailu byla úspěšně zrušena.
         resend_error: Potvrzovací e-mail nelze znovu odeslat.
@@ -1167,10 +1168,19 @@ cs:
       no_notifications: Zatím žádné oznámení.
       show:
         missing_event: Jejda, toto oznámení patří k položce, která již není k dispozici. Můžete ho zahodit.
+    notifications_digest_mailer:
+      hello: Dobrý den %{name},
+      intro:
+        daily: 'Toto jsou oznámení z posledního dne založená na aktivitě, kterou máte:'
+        weekly: 'Toto jsou oznámení z minulého týdne založená na aktivitě, kterou máte:'
+      outro: Obdrželi jste tato oznámení, protože sledujete tento obsah nebo jeho autory. Můžete je zrušit z jejich příslušných stránek.
+      see_more: Zobrazit další oznámení
+      subject: Tohle je váš emailový přehled
     notifications_settings:
       show:
         administrators: Správci
         allow_public_contact: Umožnit komukoli poslat mi přímou zprávu, i když je nesleduji.
+        allow_push_notifications: Získejte oznámení a zjistěte, co se děje, když nejste na platformě. Kdykoli je můžete vypnout.
         direct_messages: Přijímat přímé zprávy od kohokoli
         email_on_moderations: Chci dostávat e-mail pokaždé, když je něco nahlášeno k moderování.
         everything_followed: Všechno, co sleduji
@@ -1178,7 +1188,15 @@ cs:
         newsletters: Zpravodaje
         notification_settings:
           close_meeting_reminder: Chci dostávat e-mailem připomenutí uzavřených schůzek nepublikovaných zpráv
+        notifications_sending_frequencies:
+          daily: Denně
+          none: Vůbec
+          real_time: V reálném čase
+          weekly: Týdně
+        notifications_sending_frequency: Jak často chcete dostávat e-mail s oznámením?
         own_activity: Moje vlastní činnost, jako kdyby někdo komentoval ve svém návrhu nebo mě zmínil
+        push_notifications: Push oznámení
+        push_notifications_reminder: Chcete-li dostávat oznámení z platformy, musíte je nejdříve povolit v nastavení prohlížeče.
         receive_notifications_about: Chci dostávat oznámení
         update_notifications_settings: Uložit změny
       update:
