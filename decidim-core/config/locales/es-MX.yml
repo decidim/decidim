@@ -1131,7 +1131,6 @@ es-MX:
         allow_public_contact: Permitir que cualquiera me envíe un mensaje directo, incluso si no le sigo.
         direct_messages: Recibir mensajes directos de cualquiera
         email_on_moderations: Quiero recibir un correo electrónico cada vez que se reporta algo o a alguien para moderación.
-        email_on_notification: Quiero recibir un correo electrónico cada vez que recibo una notificación.
         everything_followed: Todo lo que sigo
         newsletter_notifications: Quiero recibir boletines informativos
         newsletters: Boletines de noticias
@@ -1139,7 +1138,6 @@ es-MX:
           close_meeting_reminder: Quiero recibir recordatorios por correo electrónico de reuniones pasadas con informes sin publicar
         own_activity: Mi propia actividad, como cuando alguien comenta en mi propuesta o me menciona.
         receive_notifications_about: Quiero recibir notificaciones sobre
-        send_notifications_by_email: Enviar notificaciones por correo electrónico
         update_notifications_settings: Guardar cambios
       update:
         error: Ha habido un error al actualizar la configuración de las notificaciones.
