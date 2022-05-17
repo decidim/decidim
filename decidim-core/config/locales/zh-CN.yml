@@ -938,13 +938,11 @@ zh-CN:
       show:
         allow_public_contact: 允许任何人向我发送一条直接消息，即使我没有关注它们。
         direct_messages: 从任何人接收私信
-        email_on_notification: 每次我收到通知时，我都想收到一封电子邮件。
         everything_followed: 我关注的所有情况
         newsletter_notifications: 我想要收到新闻简报
         newsletters: 新闻通讯
         own_activity: 我自己的活动，例如当有人在我的建议中评论或提到我时
         receive_notifications_about: 我想要获取通知关于
-        send_notifications_by_email: 通过电子邮件发送通知
         update_notifications_settings: 保存更改
       update:
         error: 更新您的通知设置时出现问题。
