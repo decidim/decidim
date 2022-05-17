@@ -421,7 +421,7 @@ ja:
         name: ヒーロー画像
       hero_settings_form:
         background_image: 背景画像
-        welcome_text: ようこそテキスト
+        welcome_text: ウェルカムテキスト
       highlighted_content_banner:
         name: 強調表示されたコンテンツバナー
       highlighted_elements_settings_form:
