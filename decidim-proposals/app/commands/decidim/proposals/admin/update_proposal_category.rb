@@ -5,6 +5,8 @@ module Decidim
     module Admin
       #  A command with all the business logic when an admin batch updates proposals category.
       class UpdateProposalCategory < Decidim::Command
+        include TranslatableAttributes
+
         # Public: Initializes the command.
         #
         # category_id - the category id to update
@@ -33,13 +35,13 @@ module Decidim
           @response[:category_name] = @category.translated_name
           Proposal.where(id: @proposal_ids).find_each do |proposal|
             if @category == proposal.category
-              @response[:errored] << proposal.title
+              @response[:errored] << translated_attribute(proposal.title)
             else
               transaction do
                 update_proposal_category proposal
                 notify_author proposal if proposal.coauthorships.any?
               end
-              @response[:successful] << proposal.title
+              @response[:successful] << translated_attribute(proposal.title)
             end
           end
 

@@ -10,7 +10,7 @@ module Decidim::Proposals
 
     let(:my_cell) { cell("decidim/proposals/proposal_m", proposal, context: { show_space: show_space }) }
     let(:cell_html) { my_cell.call }
-    let(:created_at) { Time.current - 1.month }
+    let(:created_at) { 1.month.ago }
     let(:published_at) { Time.current }
     let(:component) { create(:proposal_component, :with_attachments_allowed) }
     let!(:proposal) { create(:proposal, component: component, created_at: created_at, published_at: published_at) }

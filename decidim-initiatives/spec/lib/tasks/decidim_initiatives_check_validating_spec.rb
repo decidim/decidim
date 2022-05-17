@@ -14,7 +14,7 @@ describe "decidim_initiatives:check_validating", type: :task do
   end
 
   context "when initiatives without changes" do
-    let(:initiative) { create(:initiative, :validating, updated_at: Time.current - 1.year) }
+    let(:initiative) { create(:initiative, :validating, updated_at: 1.year.ago) }
 
     it "Are marked as discarded" do
       expect(initiative.updated_at).to be < threshold

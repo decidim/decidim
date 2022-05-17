@@ -36,12 +36,17 @@ en:
       decidim/demoted_membership: No longer a group admin
       decidim/gamification/badge_earned_event: Badge earned
       decidim/gamification/level_up_event: You've leveled up
+      decidim/invited_to_group_event: Invited to group
       decidim/join_request_accepted_event: Join request accepted
       decidim/join_request_rejected_event: Join request rejected
       decidim/profile_updated_event: Profile updated
       decidim/promote_to_admin: Promoted to group admin
+      decidim/promoted_to_admin_event: Promoted to group admin
       decidim/removed_from_group: Removed from group
       decidim/resource_endorsed_event: Resource endorsed
+      decidim/resource_hidden_event: Resource hidden
+      decidim/user_group_created_event: User group created
+      decidim/welcome_notification_event: Welcome message
   activerecord:
     attributes:
       decidim/user:
@@ -1131,21 +1136,36 @@ en:
       no_notifications: No notifications yet.
       show:
         missing_event: Oops, this notification belongs to an item that is no longer available. You can discard it.
+    notifications_digest_mailer:
+      header:
+        daily: Daily Notification Digest
+        weekly: Weekly Notification Digest
+      hello: Hello %{name},
+      intro:
+        daily: 'These are the notifications from the last day based on the activity you are following:'
+        weekly: 'These are the notifications from the last week based on the activity you are following:'
+      outro: You have received these notifications because you are following this content or its authors. You can unfollow them from their respective pages.
+      see_more: See more notifications
+      subject: This is your mail digest
     notifications_settings:
       show:
         administrators: Administrators
         allow_public_contact: Allow anyone to send me a direct message, even if I don't follow them.
         direct_messages: Receive direct messages from anyone
         email_on_moderations: I want to receive an email every time something or someone is reported for moderation.
-        email_on_notification: I want to receive an email every time I receive a notification.
         everything_followed: Everything I follow
         newsletter_notifications: I want to receive newsletters
         newsletters: Newsletters
         notification_settings:
           close_meeting_reminder: I want to receive email reminders of closed meetings unpublished reports
+        notifications_sending_frequencies:
+          daily: Daily
+          none: None
+          real_time: Real time
+          weekly: Weekly
+        notifications_sending_frequency: How often do you want to receive the notifications email?
         own_activity: My own activity, like when someone comments in my proposal or mentions me
         receive_notifications_about: I want to get notifications about
-        send_notifications_by_email: Send notifications by email
         update_notifications_settings: Save changes
       update:
         error: There was a problem updating your notifications settings.

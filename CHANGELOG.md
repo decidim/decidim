@@ -161,6 +161,17 @@ There are specific things that you need to change regarding your Form or `Virtus
 
 PR [\#8645](https://github.com/decidim/decidim/pull/8645) we now only allow PNG images at Favicon so we can provide higher quality versions to mobile devices.
 
+#### Mail Notifications digest
+
+PR [\#8833](https://github.com/decidim/decidim/pull/8833) Users can now configure if the want to receive a real time email when they receive a notification or a periodic one with the notifications digest.
+
+
+```bash
+# Send notification mail digest daily
+5 0 * * * cd /home/user/decidim_application && RAILS_ENV=production bundle exec rake decidim:mailers:notifications_digest_daily
+# Send notification mail digest weekly on saturdays
+5 0 * * 6 cd /home/user/decidim_application && RAILS_ENV=production bundle exec rake decidim:mailers:notifications_digest_weekly
+
 ### Changed
 
 ### Rename data portability to download your data

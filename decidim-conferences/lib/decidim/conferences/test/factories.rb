@@ -210,7 +210,7 @@ FactoryBot.define do
   factory :conference_invite, class: "Decidim::Conferences::ConferenceInvite" do
     conference
     user
-    sent_at { Time.current - 1.day }
+    sent_at { 1.day.ago }
     accepted_at { nil }
     rejected_at { nil }
     registration_type

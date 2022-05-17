@@ -44,13 +44,13 @@ module Decidim
           @response[:scope_name] = translated_attribute(scope.name, scope.organization)
           Proposal.where(id: proposal_ids).find_each do |proposal|
             if scope == proposal.scope
-              @response[:errored] << proposal.title
+              @response[:errored] << translated_attribute(proposal.title)
             else
               transaction do
                 update_proposal_scope proposal
                 notify_author proposal if proposal.coauthorships.any?
               end
-              @response[:successful] << proposal.title
+              @response[:successful] << translated_attribute(proposal.title)
             end
           end
         end

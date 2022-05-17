@@ -10,9 +10,10 @@ module Decidim
         #
         # form - A form object with the params.
         # participatory_process - A participatory_process we want to duplicate
-        def initialize(form, participatory_process)
+        def initialize(form, participatory_process, current_user)
           @form = form
           @participatory_process = participatory_process
+          @current_user = current_user
         end
 
         # Executes the command. Broadcasts these events:
@@ -24,12 +25,14 @@ module Decidim
         def call
           return broadcast(:invalid) if form.invalid?
 
-          ParticipatoryProcess.transaction do
-            copy_participatory_process
-            copy_participatory_process_attachments
-            copy_participatory_process_steps if @form.copy_steps?
-            copy_participatory_process_categories if @form.copy_categories?
-            copy_participatory_process_components if @form.copy_components?
+          Decidim.traceability.perform_action!("duplicate", @participatory_process, @current_user) do
+            ParticipatoryProcess.transaction do
+              copy_participatory_process
+              copy_participatory_process_attachments
+              copy_participatory_process_steps if @form.copy_steps?
+              copy_participatory_process_categories if @form.copy_categories?
+              copy_participatory_process_components if @form.copy_components?
+            end
           end
 
           broadcast(:ok, @copied_process)

@@ -40,7 +40,7 @@ module Decidim
           event: "decidim.events.verifications.managed_user_error_event",
           event_class: Decidim::Verifications::ManagedUserErrorEvent,
           resource: conflict,
-          affected_users: Decidim::User.where(admin: true, organization: @organization)
+          affected_users: @organization.admins
         )
       end
 

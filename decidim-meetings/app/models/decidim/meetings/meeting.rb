@@ -70,7 +70,7 @@ module Decidim
       }
       scope_search_multi :with_any_date, [:upcoming, :past]
       scope :with_any_space, lambda { |*target_space|
-        target_spaces = target_space.compact.reject(&:blank?)
+        target_spaces = target_space.compact.compact_blank
 
         return self if target_spaces.blank? || target_spaces.include?("all")
 

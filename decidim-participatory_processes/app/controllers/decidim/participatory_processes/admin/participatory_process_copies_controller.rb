@@ -17,7 +17,7 @@ module Decidim
           enforce_permission_to :create, :process
           @form = form(ParticipatoryProcessCopyForm).from_params(params)
 
-          CopyParticipatoryProcess.call(@form, current_participatory_process) do
+          CopyParticipatoryProcess.call(@form, current_participatory_process, current_user) do
             on(:ok) do
               flash[:notice] = I18n.t("participatory_processes_copies.create.success", scope: "decidim.admin")
               redirect_to participatory_processes_path
