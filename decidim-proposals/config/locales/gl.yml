@@ -42,10 +42,6 @@ gl:
           valuator_role_id: Nome do avaliador/a
     errors:
       models:
-        participatory_text:
-          attributes:
-            document:
-              invalid_document_type: 'Tipo de documento non válido. Os formatos aceptados son: %{valid_mime_types}'
         proposal:
           attributes:
             add_documents:
@@ -730,7 +726,6 @@ gl:
             other: votos
         new:
           send: Continuar
-          title: Crea a túa proposta
         orders:
           label: 'Solicitar propostas por:'
           most_commented: Máis comentadas
