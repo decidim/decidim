@@ -71,7 +71,10 @@ module Decidim
         # DELETE /admin/initiatives_types/:id
         def destroy
           enforce_permission_to :destroy, :initiative_type, initiative_type: current_initiative_type
-          current_initiative_type.destroy!
+
+          Decidim.traceability.perform_action!("delete",current_initiative_type,current_user) do
+            current_initiative_type.destroy!
+          end
 
           redirect_to initiatives_types_path, flash: {
             notice: I18n.t("decidim.initiatives.admin.initiatives_types.destroy.success")
