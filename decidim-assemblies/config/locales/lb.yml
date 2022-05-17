@@ -68,12 +68,6 @@ lb:
         email: Email
         name: Name
         role: Rolle
-    errors:
-      models:
-        assembly:
-          attributes:
-            document:
-              invalid_document_type: 'Ungültiger Dokumenttyp. Zulässige Formate sind: %{valid_mime_types}'
   activerecord:
     models:
       decidim/assembly:
@@ -324,7 +318,6 @@ lb:
         related_participatory_processes: Procesos participativos relacionados
         scope: Umfang
         social_networks: Soziale Netzwerke
-        social_networks_title: Diese Versammlung auf teilen
         target: Wer nimmt teil?
     assembly_members:
       assembly_member:
