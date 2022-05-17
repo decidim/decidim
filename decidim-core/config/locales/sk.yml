@@ -889,13 +889,11 @@ sk:
       show:
         allow_public_contact: Povoliť komukoľvek posielať mi priame správy, aj keď ho nesledujem.
         direct_messages: Povoliť priame správy od kohokoľvek
-        email_on_notification: Chcem dostávať e-mail zakaždým, keď dostanem oznámenia.
         everything_followed: Všetko, čo sledujem
         newsletter_notifications: Chcem dostávať informačné bulletiny
         newsletters: Správy
         own_activity: Moje vlastné činnosť, ako keby niekto komentoval vo svojom návrhu alebo ma zmienil
         receive_notifications_about: Chcem dostávať oznámenia
-        send_notifications_by_email: Poslať oznámenia emailom
         update_notifications_settings: Uložiť zmeny
       update:
         error: Pri aktualizácii nastavení oznámenia došlo k chybe.
