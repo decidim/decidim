@@ -66,7 +66,7 @@ sv:
           title: Standardtitel för %{page}
       menu:
         admins: Administratörer
-        dashboard: Kontrollpanel
+        dashboard: Adminpanel
         oauth_applications: OAuth appar
         organizations: Organisationer
       models:
@@ -174,4 +174,4 @@ sv:
           no_organization_warning_html: Kom igång genom att skapa en organisation. Läs %{guide} innan du fortsätter.
           our_getting_started_guide: vår startguide
       titles:
-        dashboard: Kontrollpanel
+        dashboard: Adminpanel
