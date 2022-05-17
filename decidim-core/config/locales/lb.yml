@@ -1034,13 +1034,11 @@ lb:
         administrators: Administrateuren
         allow_public_contact: Allen erlaben, mir Direkt-Noriichten ze schécken, och vun deenen, deenen ech net nofollegen.
         direct_messages: Direkt-Noriichten vun jidderengem zougeschéckt kréien
-        email_on_notification: Ech well all Kéiers enEmail zougeschéckt kréien, wann ech eng Noriicht kritt hunn.
         everything_followed: Vun jidderengem dem ech nofollegen
         newsletter_notifications: Ech well den Newsletter
         newsletters: Newsletter
         own_activity: Meng eegen Aktivitéit, sou wann een mäin Virschlag kommentéiert oder mech ernimmt
         receive_notifications_about: Ech well Noriichten zu
-        send_notifications_by_email: Noriichten via Email schécken
         update_notifications_settings: Ännerungen späicheren
       update:
         error: Et gouf e Problem beim Aktualiséieren vun Astellungen fir Noriichten.
