@@ -1037,13 +1037,11 @@ pt:
         administrators: Administradores
         allow_public_contact: Permitir que qualquer pessoa me envie uma mensagem direta, mesmo que não a siga.
         direct_messages: Receber mensagens diretas de qualquer pessoa
-        email_on_notification: Quero receber um e-mail sempre que recebo uma notificação.
         everything_followed: Tudo o que eu sigo
         newsletter_notifications: Quero receber boletins informativos
         newsletters: Boletins informativos
         own_activity: A minha atividade, como quando alguém comenta a minha proposta ou me menciona
         receive_notifications_about: Quero receber notificações sobre
-        send_notifications_by_email: Enviar notificações por e-mail
         update_notifications_settings: Guardar alterações
       update:
         error: Ocorreu um problema ao atualizar as suas configurações de notificações.
