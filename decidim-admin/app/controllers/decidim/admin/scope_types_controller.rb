@@ -43,7 +43,7 @@ module Decidim
         enforce_permission_to :update, :scope_type, scope_type: scope_type
         @form = form(ScopeTypeForm).from_params(params)
 
-        UpdateScopeType.call(scope_type, @form) do
+        UpdateScopeType.call(scope_type, @form, current_user) do
           on(:ok) do
             flash[:notice] = I18n.t("scope_types.update.success", scope: "decidim.admin")
             redirect_to scope_types_path
