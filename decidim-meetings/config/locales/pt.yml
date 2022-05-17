@@ -173,9 +173,6 @@ pt:
           email_outro: Recebeu esta notificação porque segue a reunião "%{resource_title}". Pode deixar de segui-la a partir da hiperligação anterior.
           email_subject: A reunião "%{resource_title}" começará em menos de 48h.
           notification_title: A reunião <a href="%{resource_path}">%{resource_title}</a> começará em menos de 48h.
-    forms:
-      meetings:
-        attendees_count_help_text: Não se esquece de incluir o número total de participantes no seu evento. Seja presencialmente, híbrido, ou on-line, o importante é saber quantas pessoas estão envolvidas.
     gamification:
       badges:
         attended_meetings:
@@ -442,7 +439,6 @@ pt:
           type: Tipo
           type_values:
             all: Todos
-            hybrid: Ambos
             in_person: Presencial
             online: On-line
         filters_small_view:
@@ -523,7 +519,6 @@ pt:
           fields:
             closed: Encerradas
             end_time: Data final
-            id: Identificação
             map: Mapa
             official_meeting: Reunião oficial
             start_time: Data de início
@@ -536,7 +531,6 @@ pt:
             empty_questions: Durante esta reunião irão ser-lhe enviadas algumas questões e poderá responder-lhes. Serão exibidas aqui.
           index_admin:
             admin_dashboard: Painel de controlo de administrador
-            edit: Editar administrador
             question: Questão
             received_answer: resposta recebida
             received_answers: respostas recebidas
@@ -574,7 +568,6 @@ pt:
           invalid: Ocorreu um problema ao sair desta reunião.
           success: Saiu da reunião corretamente.
       type_of_meeting:
-        hybrid: Ambos
         in_person: Presencial
         online: On-line
       types:
