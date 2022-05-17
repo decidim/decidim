@@ -135,7 +135,6 @@ fr:
       email_change:
         body1: Nous avons envoyé un e-mail à %{unconfirmed_email} pour vérifier votre nouvelle adresse e-mail.
         body2: Envoyer à nouveau l'e-mail de vérification ? %{resend_link} ou %{cancel_link}.
-        cancel: Annuler
         cancel_error: Impossible d'annuler la modification de l'e-mail.
         cancel_successfully: Modification de l'e-mail annulée.
         resend_error: Impossible de renvoyer l'e-mail de confirmation.
