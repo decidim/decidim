@@ -1686,12 +1686,13 @@ en:
             cookie: Cookie
         dialog:
           accept_all: Accept all
+          accept_only_essential: Accept only essential
           cookie_settings: Settings
           description: We use cookies on our website to improve the performance and content of the site. The cookies enable us to provide a more individual user experience and social media channels.
-          essential_only: Essential only
           title: Information about the cookies used on the website
         modal:
           accept_all: Accept all
+          accept_only_essential: Accept only essential
           analytics:
             description: Analytics cookies are cookies that track how users navigate and interact with a website. The information collected is used to help the website owner improve the website.
             title: Analytics and statistics
@@ -1699,7 +1700,6 @@ en:
           essential:
             description: These cookies are essential for the proper functioning of my website. Without these cookies, the website would not work properly.
             title: Essential
-          essential_only: Essential only
           marketing:
             description: These cookies collect information about how you use the website, which pages you visited and which links you clicked on.
             title: Marketing
