@@ -874,13 +874,11 @@ ar:
     notifications_settings:
       show:
         email_on_moderations: أريد أن أتلقى رسالة بريد إلكتروني كلما يتم فيها الإبلاغ عن شيء أو عن شخص ما للإشراف.
-        email_on_notification: أرغب في تلقي رسالة بريد إلكتروني في كل مرة أتلقى فيها إشعارًا.
         everything_followed: كل شيء أتابعه
         newsletter_notifications: أريد أن أتلقى رسائل إخبارية
         newsletters: النشرات الإخبارية
         own_activity: نشاطي الخاص ، مثلما يعلقني أحدهم في اقتراحي أو يذكرني
         receive_notifications_about: أريد الحصول على إشعارات حول
-        send_notifications_by_email: إرسال الإخطارات عن طريق البريد الإلكتروني
         update_notifications_settings: حفظ التغييرات
       update:
         error: حدثت مشكلة أثناء تحديث إعدادات الإشعارات.
