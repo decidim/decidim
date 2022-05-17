@@ -913,13 +913,11 @@ lv:
       show:
         allow_public_contact: Ļauj ikvienam nosūtīt man tiešu ziņojumu, pat ja es viņam nesekoju.
         direct_messages: Saņemiet tiešus ziņojumus no jebkuras personas
-        email_on_notification: Es vēlos saņemt e-pastu katrreiz, kad tiek saņemts paziņojums.
         everything_followed: Viss, kam es sekoju
         newsletter_notifications: Es gribu saņemt informatīvos biļetenus
         newsletters: Informatīvie biļeteni
         own_activity: Mana aktivitāte, piemēram, kad kāds komentē manu priekšlikumu vai piemin mani
         receive_notifications_about: Es vēlos saņemt paziņojumus par
-        send_notifications_by_email: Sūtīt paziņojumus pa e-pastu
         update_notifications_settings: Saglabāt izmaiņas
       update:
         error: Atjauninot jūsu paziņojumu iestatījumus, radās problēma.
