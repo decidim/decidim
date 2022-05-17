@@ -1047,13 +1047,11 @@ it:
         administrators: Amministratori
         allow_public_contact: Permetti a chiunque di inviarmi un messaggio diretto, anche se non lo seguo.
         direct_messages: Ricevi messaggi diretti da chiunque
-        email_on_notification: Voglio ricevere un'e-mail ogni volta che ricevo una notifica.
         everything_followed: Tutto ciò che seguo
         newsletter_notifications: Voglio ricevere le newsletter
         newsletters: Le Newsletter
         own_activity: La mia attività personale, come quando qualcuno commenta la mia proposta o mi menziona
         receive_notifications_about: Voglio ricevere le notifiche
-        send_notifications_by_email: Invia notifiche via email
         update_notifications_settings: Salva le modifiche
       update:
         error: Si è verificato un errore durante l'aggiornamento delle impostazioni di notifica.
