@@ -911,7 +911,6 @@ ca:
           edit:
             change_polling_station: Tornar als punts de votació
             monitoring_committee_notes: Observacions
-            monitoring_committee_notes_placeholder: Informa de qualsevol incidència aquí
             title: Els resultats de l'elecció <i>%{election_title}</i> en el punt de votació <i>%{polling_station_title}</i>
           elections:
             title: Escull una elecció per validar
@@ -1053,7 +1052,6 @@ ca:
               info_message: "<strong>Si us plau espera</strong>, processades %{processed_count} de %{raw_count} fileres al fitxer de %{file}."
             delete:
               button: Eliminar totes les dades del cens
-              confirm: L'eliminació del cens no es pot desfer. Segur que vols continuar?
             destroy:
               error: Hi ha hagut un error en esborrar el cens, prova-ho de nou més tard.
               success: Dades del cens eliminades
@@ -1061,7 +1059,6 @@ ca:
               button: Exportar els codis d'accés de la votació
               callout: Ara ja pots exportar els codis d'accés. Això només es pot fer una sola vegada. Tan bon punt comencis amb l'exportació, rebràs un correu electrònic amb les instruccions a <strong>%{email}</strong>
               confirm: Només pots exportar els codis d'accés una sola vegada. Assegura't de poder rebre'ls correctament a l'adreça de correu electrònic <strong>%{email}</strong>.
-              file_not_exists: El fitxer no existeix
               launch_error: Hi ha hagut un error en exportar els codis d'accés
               launch_success: S'ha iniciat l'exportació dels codis d'accés. En breu rebràs un correu a %{email}
             exporting_access_codes:
@@ -1086,7 +1083,6 @@ ca:
               has_ballot_styles_message: Estàs configurant estils de papereta. Si us plau assegura't de que el camp "%{ballot_style_code_header}" del CSV correspongui al codi de l'estil de papereta que vols.
               info_message: "<strong>Encara no hi ha cap cens.</strong> Si us plau, utilitza el següent formulari per a crear-lo important un fitxer CSV."
               missing_ballot_styles_message: 'Encara no hi ha cap estil de papereta per a aquesta votació. Si vols disposar de preguntes condicionals (com ara que votants puguin rebre diferents preguntes segons el seu districte o la seva regió de residència, per exemple) cal que importis el cens <strong>abans</strong> de configurar l''<a href=%{ballot_styles_admin_path}>estil de papereta</a>. Si el que vols és mostrar les mateixes preguntes a tothom, pots iniciar el procès d''importació del cens.'
-              submit: Enviar csv
               title: Crear el cens
             show:
               heading: Cens de l'espai de votació
@@ -1165,7 +1161,6 @@ ca:
             modal_ballots_count_error:
               btn_validate_total: Validar recompte total de paperetes
               close_modal: Tancar
-              info_explanation_text: 'Si us plau, revisa el nombre total de paperetes. Si el número total és correcte, has de proporcionar una explicació per al Comitè de Seguiment:'
               info_text: El nombre total de paperetes (sobres) introduïdes no coincideix amb el registre de persones que han votat en aquest punt de votació.
               message_for_monitoring_committee: Missatge per al Comitè de Seguiment
               review_recount: Revisar el recompte
