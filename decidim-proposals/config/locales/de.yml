@@ -42,10 +42,6 @@ de:
           valuator_role_id: Name des Schätzers
     errors:
       models:
-        participatory_text:
-          attributes:
-            document:
-              invalid_document_type: 'Ungültiger Dokumenttyp Zulässige Formate sind: %{valid_mime_types}'
         proposal:
           attributes:
             add_documents:
@@ -738,7 +734,6 @@ de:
             other: Stimmen
         new:
           send: Fortsetzen
-          title: Neuen Vorschlag erstellen
         orders:
           label: 'Vorschläge sortieren nach:'
           most_commented: Am meisten kommentiert
