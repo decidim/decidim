@@ -31,7 +31,7 @@ module Decidim
             end
 
             if dataset
-              CSV.foreach(form.file_path, col_sep: ";", headers: true, converters: ->(f) { f&.strip }) do |row|
+              CSV.foreach(file_path, col_sep: ";", headers: true, converters: ->(f) { f&.strip }) do |row|
                 CreateDatumJob.perform_later(current_user, dataset, row.fields)
               end
             end
@@ -57,7 +57,7 @@ module Decidim
           end
 
           def csv_header_invalid?
-            CSV.parse_line(File.open(form.file_path), col_sep: ";", headers: true, header_converters: :symbol).headers != expected_headers
+            CSV.parse_line(File.open(file_path), col_sep: ";", headers: true, header_converters: :symbol).headers != expected_headers
           end
 
           def headers
@@ -73,15 +73,19 @@ module Decidim
           end
 
           def csv_rows
-            @csv_rows ||= CSV.read(form.file_path)
+            @csv_rows ||= CSV.read(file_path)
           end
 
           def csv_row_count
-            @csv_row_count ||= file_lines_count(form.file_path) - 1
+            @csv_row_count ||= file_lines_count - 1
           end
 
-          def file_lines_count(file_path)
+          def file_lines_count
             `wc -l "#{file_path.shellescape}"`.strip.split.first.to_i
+          end
+
+          def file_path
+            ActiveStorage::Blob.service.path_for(form.file.key)
           end
         end
       end
