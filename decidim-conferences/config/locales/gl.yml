@@ -59,9 +59,7 @@ gl:
         avatar: Avatar
         conference_meeting_ids: Xuntanzas relacionadas
         full_name: Nome completo
-        personal_url: Url persoal
         position: Posición
-        short_bio: Pequena biografía
         twitter_handle: Conta do Twitter
         user_id: Usuario
       conference_user_role:
