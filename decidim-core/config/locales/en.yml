@@ -192,6 +192,10 @@ en:
         delete_with_parent: "%{user_name} deleted the %{resource_name} scope inside the %{parent_scope} scope"
         update: "%{user_name} updated the %{resource_name} scope"
         update_with_parent: "%{user_name} updated the %{resource_name} scope inside the %{parent_scope} scope"
+      scope_type:
+        create: "%{user_name} created the %{resource_name} scope type"
+        delete: "%{user_name} deleted the %{resource_name} scope type"
+        update: "%{user_name} updated the %{resource_name} scope type"
       static_page:
         create: "%{user_name} created the %{resource_name} static page"
         delete: "%{user_name} deleted the %{resource_name} static page"

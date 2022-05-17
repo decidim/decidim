@@ -21,7 +21,7 @@ module Decidim
         enforce_permission_to :create, :scope_type
         @form = form(ScopeTypeForm).from_params(params)
 
-        CreateScopeType.call(@form) do
+        CreateScopeType.call(@form, current_user) do
           on(:ok) do
             flash[:notice] = I18n.t("scope_types.create.success", scope: "decidim.admin")
             redirect_to scope_types_path

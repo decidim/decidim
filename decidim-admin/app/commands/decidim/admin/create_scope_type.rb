@@ -7,8 +7,9 @@ module Decidim
       # Public: Initializes the command.
       #
       # form - A form object with the params.
-      def initialize(form)
+      def initialize(form, user)
         @form = form
+        @user = user
       end
 
       # Executes the command. Broadcasts these events:
@@ -29,7 +30,9 @@ module Decidim
       attr_reader :form
 
       def create_scope_type
-        ScopeType.create!(
+        Decidim.traceability.create!(
+          ScopeType,
+          @user,
           name: form.name,
           organization: form.organization,
           plural: form.plural
