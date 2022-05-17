@@ -414,7 +414,6 @@ uk:
       no_notifications: Ще немає сповіщень.
     notifications_settings:
       show:
-        email_on_notification: Я хочу отримувати листа електронною поштою кожного разу, коли отримую сповіщення.
         newsletter_notifications: Я хочу отримувати розсилання
         update_notifications_settings: Зберегти зміни
       update:
