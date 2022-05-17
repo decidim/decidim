@@ -68,12 +68,6 @@ fi-pl:
         email: Sähköposti
         name: Nimi
         role: Rooli
-    errors:
-      models:
-        assembly:
-          attributes:
-            document:
-              invalid_document_type: 'Virheellinen asiakirjan muoto. Hyväksytyt tiedostomuodot ovat: %{valid_mime_types}'
   activerecord:
     models:
       decidim/assembly:
@@ -389,7 +383,6 @@ fi-pl:
         related_participatory_processes: Liittyvät osallisuusprosessit
         scope: Teema
         social_networks: Sosiaalinen media
-        social_networks_title: Jaa tämä ryhmä
         target: Kuka osallistuu
     assembly_members:
       assembly_member:
