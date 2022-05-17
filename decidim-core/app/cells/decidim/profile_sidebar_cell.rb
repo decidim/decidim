@@ -64,7 +64,9 @@ module Decidim
       return false unless current_user
       return false if model.is_a?(Decidim::User)
 
-      Decidim::UserGroupMembership.where(user: current_user, user_group: model).where.not(role: :creator).any?
+      return true if Decidim::UserGroupMembership.where(user: current_user, user_group: model, role: :member).any?
+
+      Decidim::UserGroupMembership.where(user_group: model, role: [:creator, :admin]).count > 1
     end
 
     def user_group_email_to_be_confirmed?
