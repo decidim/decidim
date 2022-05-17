@@ -951,13 +951,11 @@ el:
       show:
         allow_public_contact: Να επιτρέπεται σε οποιονδήποτε να μου στέλνει άμεσο μήνυμα, ακόμα κι αν δεν τον ακολουθώ.
         direct_messages: Να λαμβάνω άμεσα μηνύματα από οποιονδήποτε
-        email_on_notification: Θέλω να λαμβάνω email κάθε φορά που λαμβάνω ειδοποίηση.
         everything_followed: Όλα όσα ακολουθώ
         newsletter_notifications: Θέλω να λαμβάνω ενημερωτικά δελτία
         newsletters: Ενημερωτικά δελτία
         own_activity: Η δική μου δραστηριότητα, όπως όταν κάποιος σχολιάζει την πρότασή μου ή με αναφέρει
         receive_notifications_about: Θέλω να λαμβάνω ειδοποιήσεις για
-        send_notifications_by_email: Αποστολή ειδοποιήσεων μέσω email
         update_notifications_settings: Αποθήκευση αλλαγών
       update:
         error: Υπήρξε ένα πρόβλημα κατά την ενημέρωση των ρυθμίσεων ειδοποιήσεων.
