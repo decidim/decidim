@@ -413,7 +413,6 @@ pt-BR:
           type: Tipo
           type_values:
             all: Tudo
-            hybrid: Ambos
             in_person: Pessoalmente
             online: On-line
         filters_small_view:
@@ -502,7 +501,6 @@ pt-BR:
             empty_questions: Durante esta reunião, algumas perguntas serão enviadas e você poderá respondê-las. Elas serão exibidas aqui.
           index_admin:
             admin_dashboard: Painel de administração
-            edit: Editar no admin
             question: Pergunta
             received_answer: resposta recebida
             received_answers: respostas recebidas
@@ -540,7 +538,6 @@ pt-BR:
           invalid: Tem havido um problema ao sair desta reunião.
           success: Você saiu da reunião com sucesso.
       type_of_meeting:
-        hybrid: Ambos
         in_person: Pessoalmente
         online: On-line
       types:
