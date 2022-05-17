@@ -1135,7 +1135,6 @@ fi:
         allow_public_contact: Salli kenen tahansa lähettää minulle yksityisviestejä, vaikka en seuraisi heitä.
         direct_messages: Vastaanota yksityisviestejä kaikilta
         email_on_moderations: Haluan saada sähköpostia aina, kun jotain tai joku käyttäjä ilmoitetaan moderoitavaksi.
-        email_on_notification: Haluan saada sähköpostia aina, kun saan ilmoituksen.
         everything_followed: Kaikki mitä seuraan
         newsletter_notifications: Haluan vastaanottaa uutiskirjeitä
         newsletters: Uutiskirjeet
@@ -1143,7 +1142,6 @@ fi:
           close_meeting_reminder: Haluan vastaanottaa sähköpostimuistutuksia suljetuista tapaamisista, jotka odottavat raportointia
         own_activity: Oma toiminta, kuten omia ehdotuksia koskevat kommentit tai maininnat
         receive_notifications_about: Haluan saada ilmoituksia
-        send_notifications_by_email: Lähetä ilmoitukset sähköpostitse
         update_notifications_settings: Tallenna muutokset
       update:
         error: Ilmoitusasetustesi päivitys epäonnistui.
