@@ -42,10 +42,6 @@ ca:
           valuator_role_id: Nom de l'avaluadora
     errors:
       models:
-        participatory_text:
-          attributes:
-            document:
-              invalid_document_type: 'Tipus de document no vàlid. Els formats acceptats són: %{valid_mime_types}'
         proposal:
           attributes:
             add_documents:
@@ -817,7 +813,6 @@ ca:
             other: suports
         new:
           send: Continua
-          title: Crea la teva proposta
         orders:
           label: 'Ordenar propostes:'
           most_commented: Més comentades
