@@ -1001,7 +1001,6 @@ it:
             hidden_at: Nascosto a
             participatory_space: Spazio partecipativo
             report_count: Conteggio
-            reportable_id: Id
             reportable_type: Tipo
             reported_content_url: URL del contenuto riportato
             reports: Report
