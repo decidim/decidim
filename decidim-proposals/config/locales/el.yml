@@ -38,10 +38,6 @@ el:
           valuator_role_id: Όνομα εκτιμητή
     errors:
       models:
-        participatory_text:
-          attributes:
-            document:
-              invalid_document_type: 'Μη έγκυρος τύπος εγγράφου. Οι αποδεκτές μορφές είναι: %{valid_mime_types}'
         proposal:
           attributes:
             add_documents:
@@ -693,7 +689,6 @@ el:
             other: υποστηρίξεις
         new:
           send: Συνέχεια
-          title: Δημιουργήστε την Πρότασή σας
         orders:
           label: 'Ταξινόμηση προτάσεων κατά:'
           most_commented: Με τα περισσότερα σχόλια
