@@ -55,7 +55,7 @@ module Decidim
           @form = initiative_type_form
                   .from_params(params, initiative_type: current_initiative_type)
 
-          UpdateInitiativeType.call(current_initiative_type, @form) do
+          UpdateInitiativeType.call(current_initiative_type, @form, current_user) do
             on(:ok) do
               flash[:notice] = I18n.t("decidim.initiatives.admin.initiatives_types.update.success")
               redirect_to edit_initiatives_type_path(current_initiative_type)
