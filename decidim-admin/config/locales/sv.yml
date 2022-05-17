@@ -527,7 +527,7 @@ sv:
         area_types: Typer av område
         areas: Områden
         configuration: Konfiguration
-        dashboard: Kontrollpanel
+        dashboard: Adminpanel
         external_domain_whitelist: Tillåtna externa domäner
         help_sections: Hjälpavsnitt
         homepage: Hemsida
@@ -538,7 +538,7 @@ sv:
         reported_users: Rapporterade användare
         scope_types: Omfattningstyper
         scopes: Omfattningar
-        settings: inställningar
+        settings: Inställningar
         static_pages: Sidor
         user_groups: Grupper
         users: Deltagare
@@ -961,7 +961,7 @@ sv:
         area_types: Områdestyper
         areas: Områden
         authorization_workflows: Verifieringsmetoder
-        dashboard: Kontrollpanel
+        dashboard: Adminpanel
         impersonatable_users: Hanterbara deltagare
         impersonations: Deltagarhantering
         metrics: Metrik
@@ -1080,6 +1080,6 @@ sv:
         newsletters:
           title: Nyhetsbrev
         settings:
-          title: inställningar
+          title: Inställningar
         users:
           title: Deltagare
