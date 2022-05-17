@@ -489,7 +489,7 @@ fi:
             assign_to_valuator_button: Anna tehtäväksi
             cancel: Peruuta
             change_category: Vaihda aihepiiri
-            change_scope: Vaihda teemaa
+            change_scope: Vaihda teema
             merge: Yhdistä uuteen
             merge_button: Yhdistä
             publish: Julkaise
