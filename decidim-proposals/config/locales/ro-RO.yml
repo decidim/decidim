@@ -42,10 +42,6 @@ ro:
           valuator_role_id: Numele evaluatorului
     errors:
       models:
-        participatory_text:
-          attributes:
-            document:
-              invalid_document_type: 'Tip de document invalid. Formatele acceptate sunt: %{valid_mime_types}'
         proposal:
           attributes:
             add_documents:
@@ -809,7 +805,6 @@ ro:
             other: voturi
         new:
           send: Continuă
-          title: Creează propunerea ta
         orders:
           label: 'Ordonează propunerile după:'
           most_commented: Cele mai comentate
