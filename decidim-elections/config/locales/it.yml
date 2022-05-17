@@ -869,7 +869,6 @@ it:
           edit:
             change_polling_station: Torna ai Seggi Elettorali
             monitoring_committee_notes: Commenti
-            monitoring_committee_notes_placeholder: Segnala qualsiasi incidenza qui
             title: Risultati dell'elezione <i>%{election_title}</i> nel seggio elettorale <i>%{polling_station_title}</i>
           elections:
             title: Scegli un'elezione che vuoi convalidare
@@ -1004,7 +1003,6 @@ it:
               info_message: "<strong>Attendere</strong>, elaborato %{processed_count} di %{raw_count} righe dal file %{file}."
             delete:
               button: Elimina tutti i dati del censimento
-              confirm: L'azione di eliminazione di tutti i censimenti non può essere annullato. Sei sicuro di voler continuare?
             destroy:
               error: Si è verificato un errore durante l'eliminazione del censimento, riprova più tardi.
               success: Dati censimento eliminati
@@ -1012,7 +1010,6 @@ it:
               button: Esporta codici di accesso alle votazioni
               callout: Ora puoi procedere all'esportazione dei codici di accesso. Questo può essere fatto solo una volta. Una volta avviata l'esportazione, riceverai un'email con le istruzioni all'indirizzo <strong>%{email}</strong>
               confirm: Puoi esportare i codici di accesso solo una volta. Assicurati di avere accesso all'indirizzo <strong>%{email}</strong>.
-              file_not_exists: Questo file non esiste
               launch_error: Problema nel lanciare l'esportazione dei codici di accesso
               launch_success: Esportazione codici di accesso avviata. A breve riceverai un'email all'indirizzo %{email}
             exporting_access_codes:
@@ -1037,7 +1034,6 @@ it:
               has_ballot_styles_message: Hai impostato la modalità di voto. Assicurati che il campo "%{ballot_style_code_header}" nel CSV corrisponda al codice desiderato della modalità di voto.
               info_message: "<strong>Non c'è ancora nessun censimento.</strong> Si prega di utilizzare il modulo sottostante per crearlo importando un file CSV."
               missing_ballot_styles_message: 'Non c''è ancora una modalità di voto per questa votazione. Se desideri avere domande condizionate (i.e.: mostrare agli elettori domande diverse, in base al quartiere/regione di residenza), è necessario impostare lo stile <a href=%{ballot_styles_admin_path}>Modalità di voto</a> <strong>prima</strong> di importare il censimento. Se si desidera mostrare a tutti gli elettori le stesse domande, è possibile procedere con la procedura di importazione del censimento.'
-              submit: Invia csv
               title: Crea il censimento
             show:
               heading: Censimento dello spazio vuoto
@@ -1116,7 +1112,6 @@ it:
             modal_ballots_count_error:
               btn_validate_total: Convalida il totale delle votazioni
               close_modal: Chiudi
-              info_explanation_text: 'Si prega di rivedere il numero totale di voti. Se il numero totale è corretto, è necessario fornire una spiegazione per il comitato di sorveglianza:'
               info_text: Il numero totale di schede (buste) introdotte non corrisponde al record di persone che hanno votato in questa Polling Station.
               message_for_monitoring_committee: Messaggio per il comitato di sorveglianza
               review_recount: Rivedi il conto
