@@ -982,7 +982,6 @@ pl:
             hidden_at: Ukryto
             participatory_space: Przestrzeń partycypacyjna
             report_count: Liczba
-            reportable_id: Id
             reportable_type: Typ
             reported_content_url: URL zgłoszonej treści
             reports: Zgłoszenia
