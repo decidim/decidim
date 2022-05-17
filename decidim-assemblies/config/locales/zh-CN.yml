@@ -63,12 +63,6 @@ zh-CN:
         email: 电子邮件地址
         name: 名称
         role: 作用
-    errors:
-      models:
-        assembly:
-          attributes:
-            document:
-              invalid_document_type: '无效的文档类型。接受的格式为： %{valid_mime_types}'
   activerecord:
     models:
       decidim/assembly:
@@ -366,7 +360,6 @@ zh-CN:
         related_participatory_processes: 相关的参与进程
         scope: 范围
         social_networks: 社交网络
-        social_networks_title: 分享此程序集
         target: 谁参与
     assembly_members:
       assembly_member:
