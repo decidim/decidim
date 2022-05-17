@@ -67,12 +67,6 @@ pt-BR:
         email: E-mail
         name: Nome
         role: Cargo
-    errors:
-      models:
-        assembly:
-          attributes:
-            document:
-              invalid_document_type: 'Tipo de documento inválido. Formatos aceitos são: %{valid_mime_types}'
   activerecord:
     models:
       decidim/assembly:
@@ -378,7 +372,6 @@ pt-BR:
         related_participatory_processes: Processos participativos relacionados
         scope: Âmbito
         social_networks: Redes sociais
-        social_networks_title: Compartilhar esta assembleia em
         target: Quem pode participar
     assembly_members:
       assembly_member:
