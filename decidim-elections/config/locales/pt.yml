@@ -876,7 +876,6 @@ pt:
           edit:
             change_polling_station: Retroceder para as Secções de Voto
             monitoring_committee_notes: Reparos
-            monitoring_committee_notes_placeholder: Denunciar um incidente aqui
             title: Resultados para a eleição <i>%{election_title}</i> na secção de voto <i>%{polling_station_title}</i>
           elections:
             title: Escolher a eleição que quer validar
@@ -1011,7 +1010,6 @@ pt:
               info_message: "<strong>Por favor</strong>, processadas %{processed_count} de %{raw_count} do ficheiro %{file}"
             delete:
               button: Eliminar todos os dados do censo
-              confirm: Eliminar todo o censo não pode ser desfeito. Tem a certeza que quer continuar?
             destroy:
               error: Ocorreu um erro ao eliminar o recenseamento, por favor tente de novo.
               success: Dados do recenseamento eliminados
@@ -1019,7 +1017,6 @@ pt:
               button: Exportar Códigos de Acesso de votação
               callout: Pode continuar com a exportação dos códigos de acesso. Isto só pode ser feito uma vez. Assim que comece a exportação irá receber um e-mail <strong>%{email}</strong> em com instruções
               confirm: Só pode exportar os códigos de acesso uma vez. Certifique-se que tem acesso à conta de e-mail <strong>%{email}</strong>.
-              file_not_exists: O ficheiro não existe
               launch_error: Problemas ao lançar a exportação dos códigos de acesso
               launch_success: Exportação dos códigos de acesso lançada. Em breve irá receber um e-mail em %{email}
             exporting_access_codes:
@@ -1044,7 +1041,6 @@ pt:
               has_ballot_styles_message: Está a configurar Estilos de Boletim de Voto. Por favor certifique-se de que o campo “%{ballot_style_code_header}” no ficheiro CSV corresponde ao Estilo de Boletim de Voto desejado.
               info_message: "<strong>Não há ainda recenseamento.</strong> Por favor use o formulário abaixo para o criar importando um ficheiro CSV."
               missing_ballot_styles_message: 'Não há ainda um Estilo de Boletim de Voto para esta votação. Se ter questões condicionais (exemplo: apresentar ao eleitor questões diferentes dependendo, entre outros, no distrito/regioão de residência), precisa de configurar os <a href=%{ballot_styles_admin_path}>Estilos de Boletim de Voto</a> <strong>antes</strong> de importar o recenseamento. Se quiser apresentar as mesmas questões a todos os eleitores pode continuar com o procedimento de importação de recenseamento.'
-              submit: Submeter csv
               title: Criar recenseamento
             show:
               heading: Recenseamento do espaço de votação
@@ -1121,7 +1117,6 @@ pt:
             modal_ballots_count_error:
               btn_validate_total: Validar total de recontagem de boletins de voto
               close_modal: Fechar
-              info_explanation_text: 'Por favor reveja o número de boletins de voto. Se o número total estiver correcto, deve fornecer uma explicação à Comissão de Controlo:'
               info_text: Número total de boletins de voto (envelopes) introduzido não corresponde ao registo de pessoas que votou nesta Secção de Voto.
               message_for_monitoring_committee: Mensagem da Comissão de Controlo
               review_recount: Rever a recontagem
