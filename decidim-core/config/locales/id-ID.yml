@@ -754,13 +754,11 @@ id:
       no_notifications: Belum ada pemberitahuan.
     notifications_settings:
       show:
-        email_on_notification: Saya ingin menerima email setiap kali saya menerima pemberitahuan.
         everything_followed: Semua yang saya ikuti
         newsletter_notifications: Saya ingin menerima buletin
         newsletters: Nawala
         own_activity: Aktivitas saya sendiri, seperti ketika seseorang berkomentar di proposal saya atau menyebut saya
         receive_notifications_about: Saya ingin mendapatkan pemberitahuan tentang
-        send_notifications_by_email: Kirim pemberitahuan melalui email
         update_notifications_settings: Simpan perubahan
       update:
         error: Terjadi kesalahan saat memperbarui pengaturan notifikasi Anda.
