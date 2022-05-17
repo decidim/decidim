@@ -62,12 +62,6 @@
         email: Epost
         name: Navn
         role: Rolle
-    errors:
-      models:
-        participatory_process:
-          attributes:
-            document:
-              invalid_document_type: 'Ugyldig filtype. Godkjente formater er: %{valid_mime_types}'
     models:
       decidim/participatory_process_step_activated_event: Fase er aktivert
       decidim/participatory_process_step_changed_event: Fase endret
