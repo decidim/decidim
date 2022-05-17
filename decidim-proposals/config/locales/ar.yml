@@ -36,10 +36,6 @@ ar:
           valuator_role_id: اسم المُقيِّم
     errors:
       models:
-        participatory_text:
-          attributes:
-            document:
-              invalid_document_type: 'نوع المستند غير صالح. التنسيقات المقبولة هي: %{valid_mime_types}'
         proposal:
           attributes:
             add_documents:
@@ -652,7 +648,6 @@ ar:
             other: الدعم
         new:
           send: استمر
-          title: إنشاء اقتراحك
         orders:
           label: 'ترتيب المقترحات حسب:'
           most_commented: الأكثر تعليقًا عليها
