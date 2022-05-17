@@ -68,12 +68,6 @@ ja:
         email: Eメールアドレス
         name: 名前
         role: ロール
-    errors:
-      models:
-        assembly:
-          attributes:
-            document:
-              invalid_document_type: '無効なドキュメントの種類です。承認されたフォーマットは次のとおりです: %{valid_mime_types}'
   activerecord:
     models:
       decidim/assembly:
@@ -386,7 +380,6 @@ ja:
         related_participatory_processes: 関連する参加型プロセス
         scope: スコープ
         social_networks: ソーシャル ネットワーク
-        social_networks_title: この参加スペースを共有
         target: 参加者
     assembly_members:
       assembly_member:
