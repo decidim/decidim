@@ -42,10 +42,6 @@ nl:
           valuator_role_id: Naam beoordelaar
     errors:
       models:
-        participatory_text:
-          attributes:
-            document:
-              invalid_document_type: 'Ongeldig documenttype. Aanvaarde formaten zijn: %{valid_mime_types}'
         proposal:
           attributes:
             add_documents:
@@ -775,7 +771,6 @@ nl:
             other: stemmen
         new:
           send: Doorgaan
-          title: Maak voorstel aan
         orders:
           label: 'Bestelling sorteren op:'
           most_commented: Meeste reacties
