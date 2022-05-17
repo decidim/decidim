@@ -36,10 +36,6 @@ lv:
           valuator_role_id: Vērtētāja vārds
     errors:
       models:
-        participatory_text:
-          attributes:
-            document:
-              invalid_document_type: 'Nederīgs dokumenta tips. Pieņemtie formāti ir: %{valid_mime_types}'
         proposal:
           attributes:
             add_documents:
@@ -693,7 +689,6 @@ lv:
             other: atbalsta
         new:
           send: Turpināt
-          title: Izveidojiet savu priekšlikumu
         orders:
           label: 'Kārtot priekšlikumus pēc:'
           most_commented: Visvairāk komentētie
