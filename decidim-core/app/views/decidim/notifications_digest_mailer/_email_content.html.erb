@@ -1,0 +1,11 @@
+<div class="email-content-notification">
+  <span class="email-notification-date"> <%= notification.date_time %> </span>
+  <p class="email-instructions">
+    <%= notification.email_intro %>
+  </p>
+  <% if notification.resource_path.present? && notification.resource_title.present? %>
+    <p class="email-button email-button__cta">
+      <%= link_to notification.resource_title, notification.resource_url %>
+    </p>
+  <% end %>
+</div>
