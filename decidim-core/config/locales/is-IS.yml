@@ -278,7 +278,6 @@ is-IS:
         unsubscribe: Afskráðu þig
     notifications_settings:
       show:
-        email_on_notification: Ég vil fá tölvupóst í hvert skipti sem ég fá tilkynningu.
         newsletter_notifications: Ég vil fá fréttabréf
         update_notifications_settings: Vista breytingar
     own_user_groups:
