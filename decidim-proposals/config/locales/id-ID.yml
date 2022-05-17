@@ -32,10 +32,6 @@ id:
         keep_authors: Simpan penulis asli
     errors:
       models:
-        participatory_text:
-          attributes:
-            document:
-              invalid_document_type: 'Jenis dokumen tidak valid. Format yang diterima adalah: %{valid_mime_types}'
         proposal:
           attributes:
             add_documents:
@@ -586,7 +582,6 @@ id:
             other: suara
         new:
           send: Terus
-          title: Buat Proposal Anda
         orders:
           label: 'Memesan proposal dengan:'
           most_voted: Sebagian besar memilih
