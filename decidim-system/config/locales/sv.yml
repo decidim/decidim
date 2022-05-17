@@ -62,7 +62,7 @@ sv:
           current_organizations: Nuvarande organisationer
       default_pages:
         placeholders:
-          content: Lägg till relevant innehåll på den statiska sidan %{page} på administratörspanelen.
+          content: Lägg till relevant innehåll på den statiska sidan %{page} på adminpanelen.
           title: Standardtitel för %{page}
       menu:
         admins: Administratörer
