@@ -62,12 +62,6 @@ fr:
         email: Email
         name: Nom
         role: Rôle
-    errors:
-      models:
-        participatory_process:
-          attributes:
-            document:
-              invalid_document_type: 'Type de document invalide. Les formats acceptés sont: %{valid_mime_types}'
     models:
       decidim/participatory_process_step_activated_event: Étape activée
       decidim/participatory_process_step_changed_event: Étape modifiée
