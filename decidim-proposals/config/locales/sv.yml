@@ -42,10 +42,6 @@ sv:
           valuator_role_id: Värderarens namn
     errors:
       models:
-        participatory_text:
-          attributes:
-            document:
-              invalid_document_type: 'Ogiltig dokumenttyp. Godkända format är: %{valid_mime_types}'
         proposal:
           attributes:
             add_documents:
@@ -798,7 +794,6 @@ sv:
             other: stöd
         new:
           send: Fortsätt
-          title: Skapa ditt förslag
         orders:
           label: 'Ordna förslag efter:'
           most_commented: Mest kommenterade
