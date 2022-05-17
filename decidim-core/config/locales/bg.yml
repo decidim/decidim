@@ -911,13 +911,11 @@ bg:
       show:
         allow_public_contact: Позволявам на всеки да ми изпраща директно съобщение, дори и да не го следвам.
         direct_messages: Получавайте директни съобщения от всеки
-        email_on_notification: Желая да получавам ел. поща всеки път, когато получа уведомление.
         everything_followed: Всичко, което следвам
         newsletter_notifications: Желая да получавам бюлетин
         newsletters: Бюлетин с новости
         own_activity: Моята дейност, например когато някой коментира мое предложение или ме спомене
         receive_notifications_about: Искам да получавам известия за
-        send_notifications_by_email: Изпращай известия по ел. поща
         update_notifications_settings: Запази промените
       update:
         error: Има проблем с обновяването на настройките Ви за известия.
