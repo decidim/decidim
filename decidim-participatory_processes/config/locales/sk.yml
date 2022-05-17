@@ -50,12 +50,6 @@ sk:
         email: E-mailom
         name: názov
         role: Úloha
-    errors:
-      models:
-        participatory_process:
-          attributes:
-            document:
-              invalid_document_type: 'Neplatný typ dokumentu. Prijateľné formáty sú:%{valid_mime_types} '
     models:
       decidim/participatory_process_step_activated_event: Krok aktivovaný
       decidim/participatory_process_step_changed_event: Krok zmenený
