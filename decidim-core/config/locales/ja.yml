@@ -123,7 +123,6 @@ ja:
       email_change:
         body1: 新しいメールアドレスを確認するため、 %{unconfirmed_email} にメールを送信しました。
         body2: 確認メールをもう一度送信する必要がありますか？ %{resend_link} または %{cancel_link}
-        cancel: キャンセル
         cancel_error: メールの変更をキャンセルできませんでした。
         cancel_successfully: メールの変更が正常にキャンセルされました。
         resend_error: 確認メールを再送信できませんでした。
