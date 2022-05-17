@@ -59,9 +59,7 @@ fr:
         avatar: Avatar
         conference_meeting_ids: Rencontres associées
         full_name: Nom complet
-        personal_url: Site internet personnel
         position: Profession
-        short_bio: Courte bio
         twitter_handle: Gestionnaire Twitter
         user_id: Utilisateur
       conference_user_role:
