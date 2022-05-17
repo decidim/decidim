@@ -39,10 +39,6 @@ sk:
           valuator_role_id: Meno hodnotiteľa
     errors:
       models:
-        participatory_text:
-          attributes:
-            document:
-              invalid_document_type: 'Neplatný typ dokumentu. Prijateľné formáty sú: %{valid_mime_types} '
         proposal:
           attributes:
             add_documents:
@@ -702,7 +698,6 @@ sk:
             other: hlasov
         new:
           send: Pokračovať
-          title: Vytvorte svoj návrh
         orders:
           label: 'Objednajte návrhy podľa:'
           most_commented: Najviac komentované
