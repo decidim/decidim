@@ -63,6 +63,10 @@ describe Decidim::UserActivityCell, type: :cell do
   end
   let(:controller) { double }
 
+  def redesigned_layout(name)
+    name
+  end
+
   before do
     allow(controller).to receive(:current_organization).and_return(component.organization)
 
