@@ -1031,13 +1031,11 @@ eu:
         administrators: Administratzaileak
         allow_public_contact: Baimentzea edonork bidali diezadala mezu zuzena, nahiz eta nik jarraitu ez.
         direct_messages: Edonoren mezu zuzenak jasotzea
-        email_on_notification: Mezu elektroniko bat jaso nahi dut jakinarazpen bat jasotzen dudan bakoitzean.
         everything_followed: Jarraitzen dudan guztia
         newsletter_notifications: Buletinak jaso nahi ditut
         newsletters: Buletinak
         own_activity: Nire jarduera, norbaiti nire proposamena iruzkindu edo aipatzen dudanean
         receive_notifications_about: Jakinarazpenak jaso nahi ditut
-        send_notifications_by_email: Bidali jakinarazpenak posta elektronikoz
         update_notifications_settings: Gorde aldaketak
       update:
         error: Errore bat gertatu da jakinarazpenen konfigurazioa eguneratzean.
