@@ -818,7 +818,7 @@ en:
             other: supports
         new:
           send: Continue
-          title: Create Your Proposal
+          title: Create your proposal
         orders:
           label: 'Order proposals by:'
           most_commented: Most commented

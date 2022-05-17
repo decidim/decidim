@@ -166,7 +166,7 @@ describe "Account", type: :system do
       it "cancels the email change" do
         expect(Decidim::User.find(user.id).unconfirmed_email).to eq(pending_email)
         within "#email-change-pending" do
-          click_link "Cancel"
+          click_link "cancel"
         end
 
         expect(page).to have_content("Email change cancelled successfully")
