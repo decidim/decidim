@@ -68,12 +68,6 @@ es-MX:
         email: Correo electrónico
         name: Nombre
         role: Rol de usuario
-    errors:
-      models:
-        assembly:
-          attributes:
-            document:
-              invalid_document_type: 'Tipo de documento invalido. Los formatos que se aceptan son: %{valid_mime_types}'
   activerecord:
     models:
       decidim/assembly:
@@ -389,7 +383,6 @@ es-MX:
         related_participatory_processes: Procesos participativos relacionados
         scope: Ámbito
         social_networks: Redes sociales
-        social_networks_title: Compartir esta asamblea en
         target: Quién participa
     assembly_members:
       assembly_member:
