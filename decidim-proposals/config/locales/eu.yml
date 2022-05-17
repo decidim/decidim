@@ -42,10 +42,6 @@ eu:
           valuator_role_id: Ebaluatzailearen izena
     errors:
       models:
-        participatory_text:
-          attributes:
-            document:
-              invalid_document_type: 'Dokumentu mota baliogabea. Onartutako formatuak hauek dira: %{valid_mime_types}'
         proposal:
           attributes:
             add_documents:
@@ -776,7 +772,6 @@ eu:
             other: euskarriak
         new:
           send: Jarraitu
-          title: Sortu zure proposamena
         orders:
           label: 'Antolatu proposamenak honen arabera:'
           most_commented: Iruzkin gehien dituztenak
