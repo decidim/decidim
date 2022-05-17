@@ -41,10 +41,6 @@ tr:
           valuator_role_id: Bilirkişi adı
     errors:
       models:
-        participatory_text:
-          attributes:
-            document:
-              invalid_document_type: 'Geçersiz doküman tipi. Kabul edilen formatlar: %{valid_mime_types}'
         proposal:
           attributes:
             add_documents:
@@ -729,7 +725,6 @@ tr:
             other: destekler
         new:
           send: Devam et
-          title: Teklifinizi Oluşturun
         orders:
           label: 'Teklifleri şuna göre sırala:'
           most_commented: En çok yorum yapılan
