@@ -53,7 +53,7 @@ describe "Static pages", type: :system do
       context "when cookies are rejected" do
         before do
           click_link "Cookie settings"
-          click_button "Essential only"
+          click_button "Accept only essential"
         end
 
         it "disables iframe" do

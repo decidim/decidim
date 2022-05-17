@@ -31,7 +31,7 @@ describe "Cookies", type: :system do
     it "user rejects the cookies and dialog isn't shown anymore'" do
       expect(page).to have_content(cookies_description)
 
-      click_button "Essential only"
+      click_button "Accept only essential"
       expect(page).not_to have_content(cookies_description)
 
       visit decidim.root_path

@@ -30,7 +30,7 @@ module Capybara
         end
         click_button "Save settings"
       elsif [false, "essential"].include?(cookies)
-        click_button "Essential only"
+        click_button "Accept only essential"
       end
     end
   end
