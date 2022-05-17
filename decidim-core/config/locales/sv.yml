@@ -1668,7 +1668,7 @@ sv:
         close_modal: Stäng fönstret
       user_menu:
         account: 'Användarkonto: %{name}'
-        admin_dashboard: Admin kontrollpanel
+        admin_dashboard: Adminpanel
         conversations: Konversationer
         notifications: Meddelanden
         profile: Mitt konto
