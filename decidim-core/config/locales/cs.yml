@@ -159,7 +159,6 @@ cs:
       email_change:
         body1: Poslali jsme e-mail na %{unconfirmed_email} k ověření Vaší nové e-mailové adresy.
         body2: Potřebujete poslat znovu ověřovací e-mail? %{resend_link} nebo %{cancel_link}.
-        cancel: Zrušit
         cancel_error: Nelze zrušit změnu e-mailu.
         cancel_successfully: Změna e-mailu byla úspěšně zrušena.
         resend_error: Potvrzovací e-mail nelze znovu odeslat.
