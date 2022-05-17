@@ -927,7 +927,7 @@ en:
       no_user_groups: Doesn't belong to any group yet.
       roles:
         admin: Administrator
-        creator: Creator
+        creator: Administrator
         member: Member
       update:
         error: There was a problem updating the group
