@@ -35,12 +35,17 @@ ca:
       decidim/demoted_membership: Ja no ets una administradora del grup
       decidim/gamification/badge_earned_event: Insígnia obtinguda
       decidim/gamification/level_up_event: Has pujat de nivell
+      decidim/invited_to_group_event: Convidada al grup
       decidim/join_request_accepted_event: Sol·licitud d'incorporació acceptada
       decidim/join_request_rejected_event: Sol·licitud d'incorporació rebutjada
       decidim/profile_updated_event: Perfil actualitzat
       decidim/promote_to_admin: Promocionada a administradora del grup
+      decidim/promoted_to_admin_event: Promocionada a administradora del grup
       decidim/removed_from_group: Eliminada del grup
       decidim/resource_endorsed_event: Adhesió a recurs feta
+      decidim/resource_hidden_event: Recurs amagat
+      decidim/user_group_created_event: S'ha creat el grup de l'usuari
+      decidim/welcome_notification_event: Missatge de benvinguda
   activerecord:
     attributes:
       decidim/user:
@@ -130,6 +135,7 @@ ca:
       email_change:
         body1: Hem enviat un correu a %{unconfirmed_email} per a verificar la teva nova adreça de correu electrònic.
         body2: Cal que et reenviem el correu de verificació? %{resend_link} o %{cancel_link}.
+        cancel: cancel·lar
         cancel_error: No s'ha pogut cancel·lar el canvi de correu electrònic.
         cancel_successfully: Canvi de correu electrònic cancel·lat amb èxit.
         resend_error: No s'ha pogut reenviar el correu de confirmació.
@@ -1121,10 +1127,22 @@ ca:
       no_notifications: Encara no hi ha notificacions.
       show:
         missing_event: Vaja, aquesta notificació pertany a un element que ja no està disponible. Pots descartar-la.
+    notifications_digest_mailer:
+      header:
+        daily: Resum diari de notificacions
+        weekly: Resum setmanal de notificacions
+      hello: Hola %{name},
+      intro:
+        daily: 'Aquestes són les notificacions del darrer dia basades en l''activitat que segueixes:'
+        weekly: 'Aquestes són les notificacions de la darrera setmana basades en l''activitat que segueixes:'
+      outro: Has rebut aquestes notificacions perquè segueixes aquest contingut o les seves autores. Pots deixar de seguir-les des de les seves respectives pàgines.
+      see_more: Veure més notificacions
+      subject: Aquest és el teu resum de correus
     notifications_settings:
       show:
         administrators: Administradores
         allow_public_contact: Permetre que qualsevol participant m'envïi missatges directes, encara que no la segueixi.
+        allow_push_notifications: Mostrar notificacions emergents per a saber que passa mentre no estàs a la plataforma. Pots deshabilitar-les en qualsevol moment.
         direct_messages: Rebre missatges directes de qualsevol
         email_on_moderations: Vull rebre un correu electrònic cada cop que es reporti algo o a algú per moderació.
         everything_followed: Tot el que segueixo
@@ -1132,7 +1150,15 @@ ca:
         newsletters: Butlletins informatius
         notification_settings:
           close_meeting_reminder: Vull rebre un correu electrònic recordatori de trobades passades amb informes sense publicar
+        notifications_sending_frequencies:
+          daily: Diàriament
+          none: Cap
+          real_time: A temps real
+          weekly: Setmanalment
+        notifications_sending_frequency: Amb quina freqüència vols rebre el correu de notificacions?
         own_activity: La meva pròpia activitat, com quan algú fa comentaris a la meva proposta o em menciona
+        push_notifications: Notificacions emergents
+        push_notifications_reminder: Per rebre notificacions de la plataforma, primer les has de permetre a la configuració del teu navegador.
         receive_notifications_about: Vull rebre notificacions
         update_notifications_settings: Guardar canvis
       update:
