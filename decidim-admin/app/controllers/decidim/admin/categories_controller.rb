@@ -45,7 +45,7 @@ module Decidim
         enforce_permission_to :update, :category, category: @category
         @form = form(CategoryForm).from_params(params, current_participatory_space: current_participatory_space)
 
-        UpdateCategory.call(@category, @form) do
+        UpdateCategory.call(@category, @form, current_user) do
           on(:ok) do
             flash[:notice] = I18n.t("categories.update.success", scope: "decidim.admin")
             redirect_to categories_path(current_participatory_space)
