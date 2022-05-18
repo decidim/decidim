@@ -42,7 +42,7 @@ edit_link(
           <% end %>
           <% if current_initiative.type.comments_enabled %>
             <%= render partial: "interactions" %>
-          <% end %> %>
+          <% end %>
         <% else %>
           <%= link_to t(".edit"),
               edit_initiative_path(current_initiative),
