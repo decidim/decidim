@@ -67,7 +67,7 @@ module Decidim
         @category = collection.find(params[:id])
         enforce_permission_to :destroy, :category, category: @category
 
-        DestroyCategory.call(@category) do
+        DestroyCategory.call(@category, current_user) do
           on(:ok) do
             flash[:notice] = I18n.t("categories.destroy.success", scope: "decidim.admin")
           end
