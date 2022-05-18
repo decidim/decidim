@@ -6,8 +6,7 @@ module Decidim
     class AssembliesController < Decidim::Assemblies::ApplicationController
       include ParticipatorySpaceContext
 
-      redesign active: false
-      redesign_participatory_space_layout only: :show
+      participatory_space_layout only: :show
 
       include FilterResource
 
