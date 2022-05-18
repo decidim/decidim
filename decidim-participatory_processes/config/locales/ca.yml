@@ -300,6 +300,7 @@ ca:
         create: "%{user_name} ha creat el procés participatiu %{resource_name}"
         duplicate: "%{user_name} ha duplicat el procés participatiu %{resource_name}"
         export: "%{user_name} ha exportat el procés participatiu %{resource_name}"
+        import: "%{user_name} ha importat el procés participatiu %{resource_name}"
         publish: "%{user_name} ha publicat el procés participatiu %{resource_name}"
         unpublish: "%{user_name} ha despublicat el procés participatiu %{resource_name}"
         update: "%{user_name} ha actualitzat el procés participatiu %{resource_name}"
