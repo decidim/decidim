@@ -22,7 +22,6 @@ module Decidim
     include DisableRedirectionToExternalHost
 
     include RedesignLayout
-    redesign active: false
 
     helper Decidim::MetaTagsHelper
     helper Decidim::DecidimFormHelper
