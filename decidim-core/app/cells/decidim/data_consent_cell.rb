@@ -1,13 +1,13 @@
 # frozen_string_literal: true
 
 module Decidim
-  class CookieConsentCell < Decidim::ViewModel
+  class DataConsentCell < Decidim::ViewModel
     def show
       render
     end
 
     def categories
-      @categories ||= Decidim.cookie_categories.map do |category|
+      @categories ||= Decidim.consent_categories.map do |category|
         {
           slug: category[:slug],
           title: t("layouts.decidim.cookie_consent.modal.#{category[:slug]}.title"),

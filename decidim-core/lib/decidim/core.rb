@@ -404,7 +404,7 @@ module Decidim
   #
   # layouts.decidim.cookie_consent.cookie_details.cookies.foo.service
   # layouts.decidim.cookie_consent.cookie_details.cookies.foo.description
-  config_accessor :cookie_categories do
+  config_accessor :consent_categories do
     [
       {
         slug: "essential",

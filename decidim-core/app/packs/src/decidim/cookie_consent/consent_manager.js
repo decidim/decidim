@@ -112,7 +112,7 @@ class ConsentManager {
   }
 
   acceptAll() {
-    let newState = {};
+    const newState = {};
     this.categories.forEach((category) => {
       newState[category] = true;
     });
