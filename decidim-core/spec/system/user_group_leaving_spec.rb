@@ -22,13 +22,11 @@ describe "User group leaving", type: :system do
         expect(page).to have_content("You can't remove yourself from this group as you're the last administrator")
       end
 
-      context "when there is another admins in the group" do
+      context "when there is another admin in the group" do
         let(:another_admin) { create(:user, :confirmed, organization: user.organization) }
-        let(:another_admin2) { create(:user, :confirmed, organization: user.organization) }
 
         before do
           create :user_group_membership, user: another_admin, user_group: user_group, role: :admin
-          create :user_group_membership, user: another_admin2, user_group: user_group, role: :admin
           visit decidim.profile_path(user_group.nickname)
         end
 
