@@ -35,6 +35,7 @@ module Decidim
     end
 
     def can_leave?
+      return false if Decidim::UserGroupMembership.where(user: user, user_group: user_group).empty?
       return true if Decidim::UserGroupMembership.where(user: user, user_group: user_group, role: :member).any?
 
       Decidim::UserGroupMembership.where(user_group: user_group, role: [:creator, :admin]).where.not(user: user).any?
