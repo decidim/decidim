@@ -36,7 +36,7 @@ module Decidim
     end
 
     def can_leave?
-      @can_leave ||= Decidim::UserGroupMembership.where(user: user, user_group: user_group).any?
+      Decidim::UserGroupMembership.where(user: user, user_group: user_group).any?
     end
 
     def last_admin?
