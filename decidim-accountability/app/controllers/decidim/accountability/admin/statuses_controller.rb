@@ -18,7 +18,7 @@ module Decidim
 
           @form = form(StatusForm).from_params(params)
 
-          CreateStatus.call(@form) do
+          CreateStatus.call(@form, current_user) do
             on(:ok) do
               flash[:notice] = I18n.t("statuses.create.success", scope: "decidim.accountability.admin")
               redirect_to statuses_path
