@@ -1708,7 +1708,7 @@ en:
             title: Preferences
           save_settings: Save settings
           title: Cookie settings
-          toggle: Toggle %{cookie_category}
+          toggle: Toggle %{consent_category}
         warning:
           all_cookies: all cookies
           change_cookie_settings: Change cookie settings
