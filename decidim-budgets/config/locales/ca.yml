@@ -85,6 +85,10 @@ ca:
             title: Editar projecte
             update: Actualitzar
           index:
+            actions: Accions
+            cancel: Cancel·lar
+            change_category: Canviar categoria
+            change_scope: Canviar àmbit
             finished_orders: Vots finalitzats
             pending_orders: Vots en procés
             selected: Seleccionat
