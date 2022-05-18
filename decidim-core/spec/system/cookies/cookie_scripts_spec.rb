@@ -13,7 +13,7 @@ describe "Cookie scripts", type: :system do
     end
   end
   let(:template) { template_class.new(ActionView::LookupContext.new(ActionController::Base.view_paths), {}, []) }
-  let(:modal) { Decidim::ViewModel.cell("decidim/cookie_consent", orga).call.to_s }
+  let(:modal) { Decidim::ViewModel.cell("decidim/data_consent", orga).call.to_s }
 
   let(:html_document) do
     cookie_modal = modal
