@@ -100,6 +100,7 @@ describe "Initiative", type: :system do
 
       it "has comments" do
         expect(page).to have_css(".comments")
+        expect(page).to have_content("0 comments")
       end
 
       context "when comments are disabled" do
@@ -117,6 +118,7 @@ describe "Initiative", type: :system do
 
         it "does not have comments" do
           expect(page).not_to have_css(".comments")
+          expect(page).not_to have_content("0 comments")
         end
       end
     end
