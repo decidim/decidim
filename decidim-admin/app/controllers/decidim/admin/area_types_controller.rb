@@ -21,7 +21,7 @@ module Decidim
         enforce_permission_to :create, :area_type
         @form = form(AreaTypeForm).from_params(params)
 
-        CreateAreaType.call(@form) do
+        CreateAreaType.call(@form, current_user) do
           on(:ok) do
             flash[:notice] = I18n.t("area_types.create.success", scope: "decidim.admin")
             redirect_to area_types_path
