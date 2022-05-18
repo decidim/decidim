@@ -59,7 +59,9 @@ ca:
         avatar: Imatge de perfil
         conference_meeting_ids: Trobades relacionades
         full_name: Nom complet
+        personal_url: URL personal
         position: Càrrec
+        short_bio: Breu biografia
         twitter_handle: Compte de Twitter
         user_id: Usuària
       conference_user_role:
