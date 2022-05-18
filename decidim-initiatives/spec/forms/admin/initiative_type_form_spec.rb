@@ -13,6 +13,7 @@ module Decidim
         let(:title) { Decidim::Faker::Localized.sentence(word_count: 5) }
         let(:promoting_committee_enabled) { true }
         let(:minimum_committee_members) { 5 }
+        let(:comments_enabled) { true }
         let(:attributes) do
           {
             title: title,
@@ -22,6 +23,7 @@ module Decidim
             custom_signature_end_date_enabled: true,
             undo_online_signatures_enabled: false,
             area_enabled: false,
+            comments_enabled: comments_enabled,
             promoting_committee_enabled: promoting_committee_enabled,
             minimum_committee_members: minimum_committee_members,
             banner_image: Decidim::Dev.test_file("city2.jpeg", "image/jpeg")
@@ -58,6 +60,12 @@ module Decidim
           it "sets 0 as minimum committee members" do
             expect(subject.minimum_committee_members).to eq(0)
           end
+        end
+
+        context "when comments are disabled" do
+          let(:comments_enabled) { false }
+
+          it { is_expected.to be_valid }
         end
       end
     end
