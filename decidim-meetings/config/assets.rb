@@ -9,4 +9,3 @@ Decidim::Webpacker.register_entrypoints(
 )
 
 Decidim::Webpacker.register_stylesheet_import("stylesheets/decidim/meetings/meetings")
-Decidim::Webpacker.register_redesigned_stylesheet_import("stylesheets/decidim/meetings/meetings")
