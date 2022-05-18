@@ -6,35 +6,46 @@ There are occasions you find yourself in a situation that you need to change Dec
 
 This method is easier method, and we discuss it first. In this method, you need to first identify which lines of the code you need to change. Once you find the original file, copy the relative path of that particular file and create the same destination on your Application, and then change the code as you wish. Once you have completed this, save the changes and re-run your server and make sure about your changes.
 Lets have a solid example to make this clear. Currently, admin can create projectst hat have bigger budget amount than total budget. This kind of project can't be voted so disable admin from creating projects that has budget amount greater than total budget. If the admin inadvertently does so, once users want to vote to that project face the error message in.1.
-![image][image.png]
-***Fig.1 A sample notice message that is being shown if the user exceeds the budget limit.***
+
+[#img-sunset]
+.A sample notice message that is being shown if the user exceeds the budget limit
+
+image::max_budget_error.png[Maximum budget error]
+
 We want to add a validation to avoid such issue. Therefore, we go through the following steps:
-1. First, we need to is investigate the original source where the validation for new projects being generated (in this case it is decidim-budgets/App/form/admin/create_proposal).
-2. Therefore, we create the following destination, if it has not already existed, and copy all the contents of the original files there(in this particular example, change the validation for :budget_amount). Please note the version of decidim on github, since it may not be in sync with your local version.
-3. Next, in copied file, lets add a validation for maximum allowable value.
-4. save the file and re-run the server from the console, and check if the changes has taken effect.
+
+. First, we need to is investigate the original source where the validation for new projects being generated (in this case it is decidim-budgets/App/form/admin/create_proposal).
+. Therefore, we create the following destination, if it has not already existed, and copy all the contents of the original files there(in this particular example, change the validation for :budget_amount. Please note the version of decidim on github, since it may not be in sync with your local version.
+. Next, in copied file, lets add a validation for maximum allowable value.
+. save the file and re-run the server from the console, and check if the changes has taken effect.
 
 ## 2. Over-ride logic with concern ##
 
 Concerns allow us to include modules with methods and constants into a class so that the including class can use them. After identifying the original code to be modified, we need to first create a concern. Put it simple, concern means we highlight only the parts of the original code to be changes(This might be a block of a code we need to change, or add/edit an existing method, etc). There is a convention where to put concerns, which is inside a folder which we call it concern. Take the previous example, in which we create a folder named concern inside form folder. Finally, you should make that file available prior to applying changes.
 Now, lets apply this step-by-step in the above example:
-2.  As mentioned, we create forms/concern/my_concern.rb, and there we make desired changes in that file:
-    ```
-    # frozen_string_literal: true
 
-    module MyChange
-      extend ActiveSupport::Concern
+. As mentioned, we create forms/concern/my_concern.rb, and there we make desired changes in that file:
 
-      included do
-        validates :budget_amount, #changes here!
-      end
+  [source,ruby]
+  ----
+  # frozen_string_literal: true
+  module MyChange
+    extend ActiveSupport::Concern
+    included do
+      validates :budget_amount, #changes here!
     end
-    ```
-2. Next, add to_prepare hook in config/application:
-     ```
-    config.to_prepare do
-        Decidim::Budgets::Admin::ProjectForm.include(MyChange)
-    end
-    ```
-3. re-run the server to apply these changes.
->Note: You can also include the concern multiple places if you need(as simply as adding include MyChange).
+  end
+  ----
+
+. Next, add to_prepare hook in config/application:
+
+  [source,ruby]
+  ----
+  config.to_prepare do
+      Decidim::Budgets::Admin::ProjectForm.include(MyChange)
+  end
+  ----
+
+. Re-run the server to apply these changes.
+
+NOTE: You can also include the concern multiple places if needed(as simply as adding include MyChange).
