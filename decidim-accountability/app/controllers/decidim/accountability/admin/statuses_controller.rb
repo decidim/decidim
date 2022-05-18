@@ -58,7 +58,9 @@ module Decidim
         def destroy
           enforce_permission_to :destroy, :status, status: status
 
-          status.destroy!
+          Decidim.traceability.perform_action!("delete", status, current_user) do
+            status.destroy!
+          end
 
           flash[:notice] = I18n.t("statuses.destroy.success", scope: "decidim.accountability.admin")
 

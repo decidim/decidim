@@ -61,8 +61,8 @@ module Decidim::Accountability
       it "traces the action", versioning: true do
         expect(Decidim.traceability)
           .to receive(:perform_action!)
-                .with(:update, status, user, {})
-                .and_call_original
+          .with(:update, status, user, {})
+          .and_call_original
 
         expect { subject.call }.to change(Decidim::ActionLog, :count)
         action_log = Decidim::ActionLog.last
