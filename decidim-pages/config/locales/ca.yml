@@ -29,5 +29,7 @@ ca:
             invalid: S'ha produït un error en desar la pàgina.
             success: Pàgina desada correctament.
       home:
+        hero:
+          participate_title: Participeu en els processos de la plataforma
         sub_hero:
           register_title: Registra't per tenir un compte
