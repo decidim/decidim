@@ -8,7 +8,7 @@
   <body>
     <%= render partial: "layouts/decidim/timeout_modal" %>
     <%= render partial: "layouts/decidim/cookie_warning" %>
-    <%= cell("decidim/cookie_consent", current_organization) %>
+    <%= cell("decidim/data_consent", current_organization) %>
 
     <header class="meeting-polls__header">
       <% if current_user && poll %>
