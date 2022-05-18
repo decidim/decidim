@@ -6,6 +6,7 @@ module Decidim
   class Category < ApplicationRecord
     include Decidim::TranslatableResource
     include Decidim::FilterableResource
+    include Decidim::Traceable
 
     translatable_fields :name
 
@@ -37,6 +38,10 @@ module Decidim
 
     def unused?
       categorizations.empty?
+    end
+
+    def self.log_presenter_class_for(_log)
+      Decidim::AdminLog::CategoryPresenter
     end
 
     # Allow ransacker to search for a key in a hstore column (`name`.`en`)
