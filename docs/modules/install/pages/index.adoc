@@ -27,7 +27,7 @@ You can see the xref:install:manual.adoc[official manual installation tutorial],
 
 === B. Installation script [experimental]
 
-There's also a installation script made by http://www.platoniq.net/[Platoniq] that allows you to install Decidim automatically. You can even check it on a Vagrant virtual machine if you want to. https://platoniq.github.io/decidim-install/script/[More information].
+There's also an installation script made by http://www.platoniq.net/[Platoniq] that allows you to install Decidim automatically. You can even check it on a Vagrant virtual machine if you want to. https://platoniq.github.io/decidim-install/script/[More information].
 
 [source,console]
 ----
