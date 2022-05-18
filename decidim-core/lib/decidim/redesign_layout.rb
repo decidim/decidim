@@ -64,10 +64,6 @@ module Decidim
         end
       end
 
-      def redesign_defined?
-        !@enable_redesign.nil?
-      end
-
       def redesign_enabled?
         Decidim.redesign_active && @@enable_redesign
       end
@@ -92,13 +88,11 @@ module Decidim
     end
 
     included do
-      delegate :redesigned_layout, :redesign, :redesign_enabled?, :redesign_defined?, :redesign_layout_conditions, to: :class
+      delegate :redesigned_layout, :redesign, :redesign_enabled?, :redesign_layout_conditions, to: :class
 
-      helper_method :redesigned_layout, :redesign_enabled?, :redesign_defined?
+      helper_method :redesigned_layout, :redesign_enabled?
 
       def participatory_space_redesign_layout
-        redesign unless redesign_defined?
-
         if conditional_layout?
           redesigned_layout(current_participatory_space_manifest.context(current_participatory_space_context).layout)
         else
