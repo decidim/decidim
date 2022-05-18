@@ -43,7 +43,7 @@ module Decidim
         enforce_permission_to :update, :area_type, area_type: area_type
         @form = form(AreaTypeForm).from_params(params)
 
-        UpdateAreaType.call(area_type, @form) do
+        UpdateAreaType.call(area_type, @form, current_user) do
           on(:ok) do
             flash[:notice] = I18n.t("area_types.update.success", scope: "decidim.admin")
             redirect_to area_types_path
