@@ -20,11 +20,13 @@ describe "User group leaving", type: :system do
         expect(page).to have_no_content("Leave group")
       end
 
-      context "when there is another admin in the group" do
-        let(:another_user) { create(:user, :confirmed, organization: user.organization) }
+      context "when there is another admins in the group" do
+        let(:another_admin) { create(:user, :confirmed, organization: user.organization) }
+        let(:another_admin2) { create(:user, :confirmed, organization: user.organization) }
 
         before do
-          create :user_group_membership, user: another_user, user_group: user_group, role: :admin
+          create :user_group_membership, user: another_admin, user_group: user_group, role: :admin
+          create :user_group_membership, user: another_admin2, user_group: user_group, role: :admin
           visit decidim.profile_path(user_group.nickname)
         end
 
@@ -32,6 +34,7 @@ describe "User group leaving", type: :system do
           accept_confirm { click_link "Leave group" }
 
           expect(page).to have_content("Group successfully abandoned")
+          expect(page).not_to have_content("Leave group")
         end
       end
     end
