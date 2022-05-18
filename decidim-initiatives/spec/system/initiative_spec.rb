@@ -98,9 +98,9 @@ describe "Initiative", type: :system do
 
       it_behaves_like "has attachments"
 
-      it "has comments" do
+      it "displays comments section" do
         expect(page).to have_css(".comments")
-        expect(page).to have_content("0 comments")
+        expect(page).to have_content("0 Comments")
       end
 
       context "when comments are disabled" do
@@ -118,7 +118,7 @@ describe "Initiative", type: :system do
 
         it "does not have comments" do
           expect(page).not_to have_css(".comments")
-          expect(page).not_to have_content("0 comments")
+          expect(page).not_to have_content("0 Comments")
         end
       end
     end
