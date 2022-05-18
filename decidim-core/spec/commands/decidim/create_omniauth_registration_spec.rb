@@ -81,7 +81,6 @@ module Decidim
             expect(user.email).to eq(form.email)
             expect(user.organization).to eq(organization)
             expect(user.newsletter_notifications_at).to be_nil
-            expect(user.email_on_notification).to be(true)
             expect(user).to be_confirmed
             expect(user.valid_password?("decidim123456")).to be(true)
           end

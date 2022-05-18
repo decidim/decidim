@@ -198,7 +198,7 @@ describe "Budgets component" do # rubocop:disable RSpec/DescribeClass
 
       context "when projects rule is checked" do
         before do
-          check "Enable rule: Selected projects with minimum and maximum number of projects to be voted on"
+          check "Enable rule: Minimum and maximum number of projects to be voted on"
         end
 
         it "is shown the number input" do

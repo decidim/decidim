@@ -137,7 +137,7 @@ en:
       email_change:
         body1: We've sent an email to %{unconfirmed_email} to verify your new email address.
         body2: Need us to send the verification email again? %{resend_link} or %{cancel_link}.
-        cancel: Cancel
+        cancel: cancel
         cancel_error: Could not cancel the email change.
         cancel_successfully: Email change cancelled successfully.
         resend_error: Could not resend confirmation email.
@@ -1136,21 +1136,39 @@ en:
       no_notifications: No notifications yet.
       show:
         missing_event: Oops, this notification belongs to an item that is no longer available. You can discard it.
+    notifications_digest_mailer:
+      header:
+        daily: Daily Notification Digest
+        weekly: Weekly Notification Digest
+      hello: Hello %{name},
+      intro:
+        daily: 'These are the notifications from the last day based on the activity you are following:'
+        weekly: 'These are the notifications from the last week based on the activity you are following:'
+      outro: You have received these notifications because you are following this content or its authors. You can unfollow them from their respective pages.
+      see_more: See more notifications
+      subject: This is your mail digest
     notifications_settings:
       show:
         administrators: Administrators
         allow_public_contact: Allow anyone to send me a direct message, even if I don't follow them.
+        allow_push_notifications: Get push notifications to find out what's going on when you're not on the platform. You can turn them off anytime.
         direct_messages: Receive direct messages from anyone
         email_on_moderations: I want to receive an email every time something or someone is reported for moderation.
-        email_on_notification: I want to receive an email every time I receive a notification.
         everything_followed: Everything I follow
         newsletter_notifications: I want to receive newsletters
         newsletters: Newsletters
         notification_settings:
           close_meeting_reminder: I want to receive email reminders of closed meetings unpublished reports
+        notifications_sending_frequencies:
+          daily: Daily
+          none: None
+          real_time: Real time
+          weekly: Weekly
+        notifications_sending_frequency: How often do you want to receive the notifications email?
         own_activity: My own activity, like when someone comments in my proposal or mentions me
+        push_notifications: Push notifications
+        push_notifications_reminder: To get notifications from the platform, you'll need to allow them in your browser settings first.
         receive_notifications_about: I want to get notifications about
-        send_notifications_by_email: Send notifications by email
         update_notifications_settings: Save changes
       update:
         error: There was a problem updating your notifications settings.

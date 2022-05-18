@@ -31,7 +31,7 @@ module Decidim
       return unless resource
       return unless recipient
 
-      notification.save!
+      notification if notification.save!
     end
 
     private
