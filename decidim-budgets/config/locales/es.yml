@@ -85,6 +85,9 @@ es:
             title: Editar proyecto
             update: Actualizar
           index:
+            actions: Acciones
+            cancel: Cancelar
+            change_category: Cambiar categoría
             finished_orders: Votos terminados
             pending_orders: Votos pendientes
             selected: Seleccionado
