@@ -94,8 +94,6 @@ module Decidim
 
       helper_method :redesigned_layout, :redesign_enabled?, :redesign_defined?
 
-      helper_method :redesigned_layout, :redesign_enabled?, :redesign_defined?
-
       def participatory_space_redesign_layout
         redesign unless redesign_defined?
 
