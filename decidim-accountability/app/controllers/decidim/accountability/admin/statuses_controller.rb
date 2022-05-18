@@ -42,7 +42,7 @@ module Decidim
 
           @form = form(StatusForm).from_params(params)
 
-          UpdateStatus.call(@form, status) do
+          UpdateStatus.call(@form, status, current_user) do
             on(:ok) do
               flash[:notice] = I18n.t("statuses.update.success", scope: "decidim.accountability.admin")
               redirect_to statuses_path
