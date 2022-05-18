@@ -28,6 +28,8 @@ module Decidim
     FALLBACK_LAYOUT = "layouts/decidim/application"
 
     class_methods do
+      @@enable_redesign = Decidim.redesign_active
+
       def layout(layout, conditions = {})
         if layout.is_a?(String)
           super(redesigned_layout(layout), **conditions)
@@ -37,7 +39,7 @@ module Decidim
       end
 
       def redesign(opts = {})
-        @enable_redesign = opts.fetch(:active, true)
+        @@enable_redesign = Decidim.redesign_active && opts.fetch(:active, true)
         layout_conditions = opts.slice(:except, :only) || _layout_conditions
 
         layout(_layout, **layout_conditions) if _layout
@@ -51,11 +53,11 @@ module Decidim
       end
 
       def redesigned_layout(layout_value)
-        return layout_value unless layout_value.is_a?(String)
+        return layout_value unless Decidim.redesign_active && layout_value.is_a?(String)
 
-        if @enable_redesign && !redesigned?(layout_value)
+        if @@enable_redesign && !redesigned?(layout_value)
           layout_value.sub(%r{.*\K/(_?)}, "/\\1redesigned_")
-        elsif !@enable_redesign
+        elsif !@@enable_redesign
           layout_value.sub(%r{.*\K/_?redesigned}, "/\\1")
         else
           layout_value
@@ -67,7 +69,7 @@ module Decidim
       end
 
       def redesign_enabled?
-        @enable_redesign
+        Decidim.redesign_active && @@enable_redesign
       end
 
       def redesign_layout_conditions
