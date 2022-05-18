@@ -90,4 +90,4 @@ edit_link(
   </div>
 </div>
 
-<%= comments_for current_initiative if current_initiative.published? %>
+<%= comments_for current_initiative if current_initiative.type.comments_enabled && current_initiative.published? %>

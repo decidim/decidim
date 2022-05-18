@@ -25,6 +25,11 @@ FactoryBot.define do
     minimum_committee_members { 3 }
     child_scope_threshold_enabled { false }
     only_global_scope_enabled { false }
+    comments_enabled { true }
+
+    trait :with_comments_disabled do
+      comments_enabled { false }
+    end
 
     trait :attachments_enabled do
       attachments_enabled { true }
