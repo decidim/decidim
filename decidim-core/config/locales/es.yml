@@ -35,12 +35,17 @@ es:
       decidim/demoted_membership: Ya no eres una administradora de grupo
       decidim/gamification/badge_earned_event: Insignia obtenida
       decidim/gamification/level_up_event: Has subido de nivel
+      decidim/invited_to_group_event: Invitada al grupo
       decidim/join_request_accepted_event: Solicitud de incorporación aceptada
       decidim/join_request_rejected_event: Solicitud de incorporación rechazada
       decidim/profile_updated_event: Perfil actualizado
       decidim/promote_to_admin: Promocionada a administradora del grupo
+      decidim/promoted_to_admin_event: Promocionada a administradora del grupo
       decidim/removed_from_group: Eliminada del grupo
       decidim/resource_endorsed_event: Adhesión a recurso realizada
+      decidim/resource_hidden_event: Recurso oculto
+      decidim/user_group_created_event: Grupo de usuarios creado
+      decidim/welcome_notification_event: Mensaje de bienvenida
   activerecord:
     attributes:
       decidim/user:
@@ -130,6 +135,7 @@ es:
       email_change:
         body1: Hemos enviado un correo electrónico a %{unconfirmed_email} para verificar tu nueva dirección de correo electrónico.
         body2: '¿Necesitas que te reenviemos el correo de verificación? %{resend_link} o %{cancel_link}.'
+        cancel: cancelar
         cancel_error: No se ha podido cancelar el cambio de Correo electrónico.
         cancel_successfully: Cambio de correo electrónico cancelado con éxito.
         resend_error: No se ha podido reenviar el correo de confirmación.
@@ -1121,10 +1127,22 @@ es:
       no_notifications: Aún no hay notificaciones.
       show:
         missing_event: Vaya, esta notificación pertenece a un elemento que ya no está disponible. Puedes descartarla.
+    notifications_digest_mailer:
+      header:
+        daily: Resumen diario de notificaciones
+        weekly: Resumen semanal de notificación
+      hello: Hola %{name},
+      intro:
+        daily: 'Estas son las notificaciones del último día basadas en la actividad que estás siguiendo:'
+        weekly: 'Estas son las notificaciones de la última semana basadas en la actividad que estás siguiendo:'
+      outro: Has recibido estas notificaciones porque sigues este contenido o a sus autoras Puedes dejar de seguirlas des des sus respectivas páginas.
+      see_more: Ver más de notificaciones
+      subject: Este es tu resumen de correos
     notifications_settings:
       show:
         administrators: Administradoras
         allow_public_contact: Permitir que cualquiera me envíe un mensaje directo, incluso si no le sigo.
+        allow_push_notifications: Mostrar notificaciones emergent para saber qué pasa cuando no estás en la plataforma. Puedes desactivarlas en cualquier momento.
         direct_messages: Recibir mensajes directos de cualquiera
         email_on_moderations: Quiero recibir un correo electrónico cada vez que se reporta algo o a alguien para moderación.
         everything_followed: Todo lo que sigo
@@ -1132,7 +1150,15 @@ es:
         newsletters: Boletines informativos
         notification_settings:
           close_meeting_reminder: Quiero recibir recordatorios por correo electrónico de reuniones pasadas con informes sin publicar
+        notifications_sending_frequencies:
+          daily: Diariamente
+          none: Ninguna
+          real_time: En tiempo real
+          weekly: Semanalmente
+        notifications_sending_frequency: '¿Con qué frecuencia quieres recibir el correo de notificaciones?'
         own_activity: Mi propia actividad, como cuando alguien comenta en mi propuesta o me menciona
+        push_notifications: Notificaciones emergentes
+        push_notifications_reminder: Para obtener notificaciones de la plataforma, primero tienes que permitirlas en la configuración de tu navegador.
         receive_notifications_about: Quiero recibir notificaciones
         update_notifications_settings: Guardar cambios
       update:
