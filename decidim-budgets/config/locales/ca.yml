@@ -89,6 +89,7 @@ ca:
             cancel: Cancel·lar
             change_category: Canviar categoria
             change_scope: Canviar àmbit
+            deselect_implementation: No seleccionats
             finished_orders: Vots finalitzats
             pending_orders: Vots en procés
             select_for_implementation: Seleccionat
