@@ -18,7 +18,7 @@ module Decidim
           let(:role) { :creator }
 
           it "broadcasts invalid" do
-            expect { command.call }.to broadcast(:invalid)
+            expect { command.call }.to broadcast(:last_admin)
           end
 
           context "and there is another admin in the group" do
@@ -33,7 +33,7 @@ module Decidim
             let!(:another_membership) { create(:user_group_membership, user_group: user_group, role: :member) }
 
             it "doesnt allow last admin to leave the group" do
-              expect { command.call }.to broadcast(:invalid)
+              expect { command.call }.to broadcast(:last_admin)
             end
           end
         end

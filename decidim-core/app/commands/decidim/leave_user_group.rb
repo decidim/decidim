@@ -20,6 +20,7 @@ module Decidim
     # Returns nothing.
     def call
       return broadcast(:invalid) unless can_leave?
+      return broadcast(:last_admin) if last_admin?
 
       leave_user_group
 
@@ -35,10 +36,13 @@ module Decidim
     end
 
     def can_leave?
-      return false if Decidim::UserGroupMembership.where(user: user, user_group: user_group).empty?
-      return true if Decidim::UserGroupMembership.where(user: user, user_group: user_group, role: :member).any?
+      @can_leave ||= Decidim::UserGroupMembership.where(user: user, user_group: user_group).any?
+    end
 
-      Decidim::UserGroupMembership.where(user_group: user_group, role: [:creator, :admin]).where.not(user: user).any?
+    def last_admin?
+      return false if Decidim::UserGroupMembership.where(user_group: user_group, user: user, role: [:creator, :admin]).empty?
+
+      Decidim::UserGroupMembership.where(user_group: user_group, role: [:creator, :admin]).where.not(user: user).empty?
     end
   end
 end
