@@ -164,6 +164,7 @@ shared_context "with application env vars" do
       "DECIDIM_MAXIMUM_CONVERSATION_MESSAGE_LENGTH" => "1234",
       "DECIDIM_PASSWORD_BLACKLIST" => "i-dont-like-this-password, i-dont,like,this,one,either, password123456",
       "DECIDIM_ALLOW_OPEN_REDIRECTS" => "true",
+      "DECIDIM_REDESIGN_ACTIVE" => "false",
       "RAILS_LOG_LEVEL" => "fatal",
       "RAILS_ASSET_HOST" => "http://assets.example.org",
       "ETHERPAD_SERVER" => "http://a-etherpad-server.com",
