@@ -91,14 +91,31 @@ ca:
             change_scope: Canviar àmbit
             finished_orders: Vots finalitzats
             pending_orders: Vots en procés
+            select_for_implementation: Seleccionat
             selected: Seleccionat
             title: Projectes
+            update: Actualitzar
+            update_scope_button: Actualitzar àmbit
           new:
             create: Crear
             title: Nou projecte
           update:
             invalid: S'ha produït un error en actualitzar aquest projecte
             success: Projecte actualitzat correctament
+          update_category:
+            invalid: 'Aquestes propostes ja tenien la categoria %{subject_name}: %{projects}.'
+            select_a_category: Si us plau, selecciona una categoria
+            select_a_project: Selecciona un projecte
+            success: 'Els projectes s''han actualitzat correctament a la categoria %{subject_name}: %{projects}.'
+          update_scope:
+            invalid: 'Aquests projectes ja tenien l''àmbit %{subject_name}: %{projects}.'
+            select_a_project: Si us plau, selecciona un projecte
+            select_a_scope: Si us plau, selecciona un àmbit
+            success: 'Els projectes s''han actualitzat correctament a l''àmbit %{subject_name}: %{projects}.'
+          update_selected:
+            invalid: 'Aquests projectes ja estaven seleccionats: %{projects}.'
+            select_a_project: Si us plau, selecciona un projecte
+            success: 'Selecció de projectes modificada correctament: %{projects}.'
         proposals_imports:
           create:
             invalid: S'ha produït un error en importar les propostes en projectes
@@ -160,6 +177,7 @@ ca:
           fields:
             category: Categoria
             id: ID
+            scope: Àmbit
             title: Títol
       order_summary_mailer:
         order_summary:
@@ -176,10 +194,13 @@ ca:
           title: Confirmar vot
         budget_excess:
           budget_excess:
+            description: Aquest projecte sobrepassa el pressupost màxim i no es pot afegir. Si ho desitges, pots eliminar un projecte ja seleccionat per afegir aquest o donar suport d'acord amb les teves preferències.
             title: Pressupost excedit
           close: Tancar
+          description: Aquest projecte sobrepassa el pressupost màxim i no es pot afegir. Si ho desitges, pots eliminar un projecte ja seleccionat per afegir aquest o donar suport d'acord amb les teves preferències.
           ok: D'acord
           projects_excess:
+            description: Aquest projecte sobrepassa el pressupost màxim i no es pot afegir. Si ho desitges, pots eliminar un projecte ja seleccionat per afegir aquest o donar suport d'acord amb les teves preferències.
             title: Màxim de projectes excedit
         budget_summary:
           are_you_sure: Segur que vols cancel·lar el teu vot?
@@ -296,6 +317,7 @@ ca:
             total_budget: Pressupost total
             vote_minimum_budget_projects_number: Número mínim de projectes a votar
             vote_rule_minimum_budget_projects_enabled: 'Activar norma: Número mínim de projectes a votar'
+            vote_rule_selected_projects_enabled: 'Activar regla: número mínim i màxim de projectes a votar'
             vote_rule_threshold_percent_enabled: 'Activar norma: percentatge mínim del pressupost'
             vote_selected_projects_maximum: Número màxim de projectes a seleccionar
             vote_selected_projects_minimum: Número màxim de projectes a seleccionar
