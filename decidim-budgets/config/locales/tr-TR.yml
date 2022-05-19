@@ -139,13 +139,10 @@ tr:
           title: Oyu onayla
         budget_excess:
           budget_excess:
-            description: Bu proje maksimum bütçeyi aşıyor ve eklenemez. Dilerseniz daha önce eklemeyi seçmiş olduğunuz bir projeyi silebilir veya tercihlerinize göre oyunuzu verebilirsiniz.
             title: Maksimum bütçe aşıldı
           close: Kapat
-          description: Bu proje maksimum bütçeyi aşıyor ve eklenemez. Dilerseniz daha önce eklemeyi seçmiş olduğunuz bir projeyi silebilir veya tercihlerinize göre oyunuzu verebilirsiniz.
           ok: TAMAM
           projects_excess:
-            description: Bu proje maksimum proje sayısını aşıyor ve eklenemez. Dilerseniz daha önce eklemeyi seçmiş olduğunuz bir projeyi silebilir veya tercihlerinize göre oyunuzu verebilirsiniz.
             title: Maksimum proje sınırını aştı
         budget_summary:
           are_you_sure: Oyunuzu iptal etmek istediğinizden emin misiniz?
@@ -246,7 +243,6 @@ tr:
             total_budget: Toplam bütçe
             vote_minimum_budget_projects_number: Oy verilecek minimum proje sayısı
             vote_rule_minimum_budget_projects_enabled: 'Kuralı etkinleştir: Oylanacak minimum proje sayısı'
-            vote_rule_selected_projects_enabled: 'Kuralı etkinleştir: Oylanacak minimum ve maksimum sayıda projeye sahip seçilen projeler'
             vote_rule_threshold_percent_enabled: 'Kuralı etkinleştir: Minimum bütçe yüzdesi'
             vote_selected_projects_maximum: Seçilecek maksimum proje sayısı
             vote_selected_projects_minimum: Seçilecek minimum proje sayısı
