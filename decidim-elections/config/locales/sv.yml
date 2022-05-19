@@ -553,10 +553,6 @@ sv:
             create: Skapa
             title: Ny omröstning
       census:
-        admin:
-          census:
-            new:
-              submit: Skicka in csv
         document_types:
           dni: ID-kort
           nie: Personnummer
