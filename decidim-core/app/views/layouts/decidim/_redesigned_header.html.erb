@@ -1,14 +1,11 @@
 <div class="container flex justify-between items-center px-12 py-5">
-  <div class="w-1/4 prose prose-img:max-h-16 prose-img:my-0">
+  <div class="w-3/4 md:w-2/5 lg:w-1/4 prose prose-img:max-h-16 prose-img:my-0">
     <%= render partial: "layouts/decidim/logo", locals: { organization: current_organization } %>
   </div>
-  <div class="w-1/6">
+  <div class="hidden md:block md:w-2/5 lg:w-1/6">
     <%= render partial: "layouts/decidim/redesigned_topbar_search" %>
   </div>
   <div class="ml-auto">
-    <span>ajuda</span>
-    <span>trobades</span>
-    <span>activitat</span>
-    <span>entra </span>
+    <%= render partial: "layouts/decidim/redesigned_header_links" %>
   </div>
 </div>

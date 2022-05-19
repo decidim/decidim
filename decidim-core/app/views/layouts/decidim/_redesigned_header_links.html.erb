@@ -1,0 +1,41 @@
+<div class="hidden lg:flex items-center divide-x-2 divide-border-2">
+  <!-- TODO: get the url of the help -->
+  <%= link_to "", class: "flex flex-col items-center text-secondary pr-8", "aria-label": t("decidim.menu.help") do %>
+    <%= icon "question-line", class: "w-5 h-5 fill-current" %><span class="text-sm first-letter:uppercase"><%= t("decidim.menu.help") %></span>
+  <% end %>
+  <div class="flex">
+    <!-- TODO: get the url of the meetings -->
+    <%= link_to "", class: "flex flex-col items-center text-secondary px-8", "aria-label": t("decidim.pages.home.extended.meetings") do %>
+      <%= icon "road-map-line", class: "w-5 h-5 fill-current" %><span class="text-sm first-letter:uppercase"><%= t("decidim.pages.home.extended.meetings") %></span>
+    <% end %>
+    <!-- TODO: get the url of the profile activity -->
+    <%= link_to "", class: "flex flex-col items-center text-secondary px-8", "aria-label": t("decidim.profiles.show.activity") do %>
+      <%= icon "bubble-chart-line", class: "w-5 h-5 fill-current" %><span class="text-sm first-letter:uppercase"><%= t("decidim.profiles.show.activity") %></span>
+    <% end %>
+  </div>
+  <% if !current_user %>
+    <%= link_to decidim.new_user_session_path, class: "flex flex-col items-center text-secondary pl-8", "aria-label": t("layouts.decidim.header.sign_in") do %>
+      <%= icon "login-box-line", class: "w-5 h-5 fill-current" %><span class="text-sm first-letter:uppercase"><%= t("layouts.decidim.header.sign_in") %></span>
+    <% end %>
+  <% else %>
+    <div class="w-full pl-8">
+      <!-- TODO: get the url of the user profile -->
+      <%= link_to "", class: "w-8 h-8 block relative rounded-full border border-secondary bg-background-3", "aria-label": "" do %>
+        <% if current_user.notifications.any? %>
+          <span class="w-2.5 h-2.5 rounded-full block absolute -top-0.5 right-0 bg-primary"></span>
+        <% end %>
+        <div class="w-full h-full rounded-full overflow-hidden">
+          <!-- TODO: get the url of the user avatar -->
+          <%= image_tag "https://www.fillmurray.com/640/360", class: "object-cover w-full h-full", alt: "avatar #{current_user.avatar.name}" %>
+        </div>
+        <!-- TODO: dropdown -->
+      <% end %>
+    </div>
+  <% end %>
+</div>
+<!-- menu mobile trigger -->
+<div class="lg:hidden">
+  <%= link_to "", class: "flex flex-col items-center text-secondary", "aria-label": "menu" do %>
+    <%= icon "menu-line", class: "w-5 h-5 fill-current" %><span class="text-sm first-letter:uppercase"><%= "menu" %></span>
+  <% end %>
+</div>
