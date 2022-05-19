@@ -759,7 +759,6 @@ it:
             other: voti
         new:
           send: Continua
-          title: Crea la tua proposta
         orders:
           label: 'Ordina le proposte per:'
           most_commented: I più commentati
