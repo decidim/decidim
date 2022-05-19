@@ -59,9 +59,7 @@
         avatar: Profilbilde
         conference_meeting_ids: Relaterte møter
         full_name: Fullt navn
-        personal_url: Personlig url
         position: Stilling
-        short_bio: Kort Bio
         twitter_handle: Brukernavn Twitter
         user_id: Bruker
       conference_user_role:
