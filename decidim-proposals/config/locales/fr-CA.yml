@@ -815,7 +815,6 @@ fr-CA:
             other: votes
         new:
           send: Continuer
-          title: Créer une proposition
         orders:
           label: 'Classement des propositions par :'
           most_commented: Les plus commentées
