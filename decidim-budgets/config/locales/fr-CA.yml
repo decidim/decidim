@@ -164,13 +164,10 @@ fr-CA:
           title: Confirmez votre vote
         budget_excess:
           budget_excess:
-            description: Ce projet dépasse le budget maximum et ne peut pas être ajouté. Si vous le souhaitez, vous pouvez supprimer un projet que vous avez déjà sélectionné puis voter de nouveau selon vos préférences.
             title: Budget maximum dépassé
           close: Fermer
-          description: Ce projet dépasse le budget maximum et ne peut pas être ajouté. Si vous le souhaitez, vous pouvez supprimer un projet que vous avez déjà sélectionné puis voter de nouveau selon vos préférences.
           ok: D'accord
           projects_excess:
-            description: Vous avez dépassé le nombre maximum de projets à sélectionner, ce projet ne peut donc être ajouté. Si vous le souhaitez, vous pouvez supprimer un projet que vous avez déjà sélectionné puis voter de nouveau selon vos préférences.
             title: Nombre maximum de projets dépassé
         budget_summary:
           are_you_sure: Êtes-vous certain de vouloir annuler votre vote ?
@@ -278,7 +275,6 @@ fr-CA:
             total_budget: Budget total
             vote_minimum_budget_projects_number: Nombre minimum de projets à voter
             vote_rule_minimum_budget_projects_enabled: 'Activer la règle : Nombre minimum de projets à voter'
-            vote_rule_selected_projects_enabled: 'Activer la règle : Nombre minimum et maximum de projets à voter'
             vote_rule_threshold_percent_enabled: 'Activer la règle : Pourcentage de budget minimum'
             vote_selected_projects_maximum: Nombre maximum de projets à sélectionner
             vote_selected_projects_minimum: Nombre minimum de projets à sélectionner
