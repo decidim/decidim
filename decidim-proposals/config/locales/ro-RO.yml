@@ -813,7 +813,6 @@ ro:
             other: voturi
         new:
           send: Continuă
-          title: Creează propunerea ta
         orders:
           label: 'Ordonează propunerile după:'
           most_commented: Cele mai comentate
