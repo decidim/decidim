@@ -13,6 +13,6 @@ module.exports = {
       },
       stage: 3
     }),
-    require('autoprefixer'),
+    require('autoprefixer')
   ]
 }
