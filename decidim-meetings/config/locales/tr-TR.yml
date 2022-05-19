@@ -75,7 +75,6 @@ tr:
               official: Resmi
           type_eq:
             values:
-              hybrid: Her ikisi
               online: Çevrimiçi
       meeting_copies:
         create:
@@ -389,7 +388,6 @@ tr:
           type: Türü
           type_values:
             all: Tümü
-            hybrid: Her ikisi
             in_person: Şahsen
             online: Çevrimiçi
         filters_small_view:
@@ -487,7 +485,6 @@ tr:
           invalid: Bu toplantıdan ayrılırken bir sorun oluştu.
           success: Toplantıdan başarıyla ayrıldınız.
       type_of_meeting:
-        hybrid: Her ikisi
         in_person: Şahsen
         online: Çevrimiçi
       types:
