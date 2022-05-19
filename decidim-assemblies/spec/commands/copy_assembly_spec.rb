@@ -72,8 +72,8 @@ module Decidim::Assemblies
       it "traces the action", versioning: true do
         expect(Decidim.traceability)
           .to receive(:perform_action!)
-                .with("duplicate", Decidim::Assembly, user)
-                .and_call_original
+          .with("duplicate", Decidim::Assembly, user)
+          .and_call_original
 
         expect { subject.call }.to change(Decidim::ActionLog, :count)
         action_log = Decidim::ActionLog.last

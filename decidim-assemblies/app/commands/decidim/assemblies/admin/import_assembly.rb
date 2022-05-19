@@ -39,7 +39,7 @@ module Decidim
         def import_assembly
           importer = Decidim::Assemblies::AssemblyImporter.new(form.current_organization, form.current_user)
           assemblies.each do |original_assembly|
-            Decidim.traceability.perform_action!("import",Assembly,@user) do ||
+            Decidim.traceability.perform_action!("import", Assembly, @user) do
               @imported_assembly = importer.import(original_assembly, form.current_user, title: form.title, slug: form.slug)
               importer.import_assemblies_type(original_assembly["decidim_assemblies_type_id"])
               importer.import_categories(original_assembly["assembly_categories"]) if form.import_categories?

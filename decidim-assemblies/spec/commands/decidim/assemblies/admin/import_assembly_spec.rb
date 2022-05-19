@@ -56,7 +56,7 @@ module Decidim::Assemblies::Admin
 
       it "traces the action", versioning: true do
         expect(Decidim.traceability)
-          .to receive(:perform_action!).exactly(2).times
+          .to receive(:perform_action!).twice
                                        .and_call_original
 
         expect { subject.call }.to change(Decidim::ActionLog, :count)

@@ -25,7 +25,7 @@ module Decidim
         def call
           return broadcast(:invalid) if form.invalid?
 
-          Decidim.traceability.perform_action!("duplicate",@assembly,@user) do
+          Decidim.traceability.perform_action!("duplicate", @assembly, @user) do
             Assembly.transaction do
               copy_assembly
               copy_assembly_attachments
