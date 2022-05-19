@@ -86,7 +86,6 @@ de:
           type_eq:
             label: Art des Treffens
             values:
-              hybrid: Beides
               in_person: Persönlich
               online: Online
       meeting_copies:
@@ -441,7 +440,6 @@ de:
           type: Art
           type_values:
             all: Alle
-            hybrid: Beides
             in_person: Persönlich
             online: Online
         filters_small_view:
@@ -547,7 +545,6 @@ de:
           invalid: Beim Verlassen dieses Meetings ist ein Problem aufgetreten.
           success: Sie haben das Meeting erfolgreich verlassen.
       type_of_meeting:
-        hybrid: Beides
         in_person: In Person
         online: Online
       types:
