@@ -243,6 +243,9 @@ en:
     admin_log:
       assembly:
         create: "%{user_name} created the %{resource_name} assembly"
+        duplicate: "%{user_name} duplicated the %{resource_name} assembly"
+        export: "%{user_name} exported the %{resource_name} assembly"
+        import: "%{user_name} imported the %{resource_name} assembly"
         publish: "%{user_name} published the %{resource_name} assembly"
         unpublish: "%{user_name} unpublished the %{resource_name} assembly"
         update: "%{user_name} updated the %{resource_name} assembly"
