@@ -157,6 +157,43 @@ describe "Account", type: :system do
       end
     end
 
+    context "when on the interests page" do
+      before do
+        visit decidim.user_interests_path
+      end
+
+      it "doesn't find any scopes" do
+        expect(page).to have_content("My interests")
+        expect(page).to have_content("This organization doesn't have any scope yet")
+      end
+
+      context "when scopes are defined" do
+        let!(:scopes) { create_list(:scope, 3, organization: organization) }
+        let!(:subscopes) { create_list(:subscope, 3, parent: scopes.first) }
+
+        before do
+          visit decidim.user_interests_path
+        end
+
+        it "display translated scope name" do
+          label_field = "label[for='user_scopes_#{scopes.first.id}_checked']"
+          expect(page).to have_content("My interests")
+          expect(find("#{label_field} > span.switch-label").text).to eq(translated(scopes.first.name))
+        end
+
+        it "allows to choose interests" do
+          label_field = "label[for='user_scopes_#{scopes.first.id}_checked']"
+          expect(page).to have_content("My interests")
+          find(label_field).click
+          click_button "Update my interests"
+
+          within_flash_messages do
+            expect(page).to have_content("Your interests have been successfully updated.")
+          end
+        end
+      end
+    end
+
     context "when on the delete my account page" do
       before do
         visit decidim.delete_account_path
