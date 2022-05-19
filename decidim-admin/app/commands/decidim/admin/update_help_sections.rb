@@ -31,6 +31,8 @@ module Decidim
       private
 
       def content_has_changed(section)
+        return if ContextualHelpSection.find_by(organization: @organization, section_id: section.id).nil? && section.content.compact_blank.blank?
+
         section.content != ContextualHelpSection.find_content(@organization, section.id).except("machine_translations")
       end
     end
