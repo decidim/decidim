@@ -743,7 +743,6 @@
             other: støtter
         new:
           send: Fortsett
-          title: Opprett Ditt forslag
         orders:
           label: 'Sorter forslag:'
           most_commented: Flest kommentarer
