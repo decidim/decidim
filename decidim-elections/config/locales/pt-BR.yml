@@ -871,7 +871,6 @@ pt-BR:
           edit:
             change_polling_station: Voltar para estações de votação
             monitoring_committee_notes: Observações
-            monitoring_committee_notes_placeholder: Denuncie qualquer incidência aqui
             title: Resultados para a eleição <i>%{election_title}</i> na estação de voto <i>%{polling_station_title}</i>
           elections:
             title: Escolha uma eleição que deseja validar
@@ -988,7 +987,6 @@ pt-BR:
               info_message: "<strong>Aguarde</strong>, processado %{processed_count} de %{raw_count} linhas de %{file} arquivo."
             delete:
               button: Excluir todos os dados do censo
-              confirm: Excluir todo o censo não pode ser desfeito. Você tem certeza que quer continuar?
             destroy:
               error: Ocorreu um erro ao deletando o censo, por favor tente novamente mais tarde.
               success: Dados Census excluídos
@@ -996,7 +994,6 @@ pt-BR:
               button: Exportar códigos de acesso a votos
               callout: Agora você pode exportar os códigos de acesso. Isso só pode ser feito uma vez. Ao iniciar a exportação, você receberá um e-mail com as instruções para <strong>%{email}</strong>
               confirm: Você só pode exportar os códigos de acesso uma vez. Certifique-se de que você tem acesso à conta de e-mail <strong>%{email}</strong>.
-              file_not_exists: Este arquivo não existe
               launch_error: Problema ao lançar a exportação de códigos de acesso
               launch_success: Códigos de acesso lançado. Em breve, você receberá um e-mail em %{email}
             exporting_access_codes:
@@ -1021,7 +1018,6 @@ pt-BR:
               has_ballot_styles_message: Você configurou estilos de cédulas. Por favor, certifique-se de que o campo "%{ballot_style_code_header}" no CSV corresponde ao código de estilo de cédula desejada.
               info_message: "<strong>Ainda não há censo.</strong> Por favor, use o formulário abaixo para criá-lo importando um arquivo CSV."
               missing_ballot_styles_message: 'Não existe estilo de cédula para esta votação ainda.. Se você deseja ter quetões condicionais (ex.: apresentar ao votante diferentes questões dependendo de, por exemplo, o distrito/região da reidência), e precisa ser adicionado no <a href=%{ballot_styles_admin_path}>Estilo de Cédula</a> <strong>antes</strong> importando o censo. Se você gostaria de apresentar a todos os votantes as mesmas questões, você pode prosseguir com o processo de importação do censo.'
-              submit: Enviar csv
               title: Criar o censo
             show:
               heading: Censo do espaço de votação
@@ -1098,7 +1094,6 @@ pt-BR:
             modal_ballots_count_error:
               btn_validate_total: Validar a recontagem total de votos
               close_modal: Fechar
-              info_explanation_text: 'Por favor, reveja o número total de votos. Se o número total estiver incorreto, você deve fornecer uma explicação para o Comitê de Monitoramento:'
               info_text: O número total de votos (envelopes) introduzidos não corresponde ao registro de pessoas que votaram nesta Estação.
               message_for_monitoring_committee: Mensagem para o Comitê de Monitoramento
               review_recount: Revisar a recontagem
