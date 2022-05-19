@@ -50,7 +50,7 @@ describe "Last activity", type: :system do
     end
 
     it "displays the activities at the home page" do
-      within "#last_activity" do
+      within ".upcoming-events" do
         expect(page).to have_css(".card--activity", count: 3)
       end
     end
@@ -64,7 +64,7 @@ describe "Last activity", type: :system do
       let(:comment) { create(:comment, :deleted, body: "This is deleted") }
 
       it "isn't shown" do
-        within "#last_activity" do
+        within ".upcoming-events" do
           expect(page).not_to have_content("This is deleted")
         end
       end
@@ -72,7 +72,7 @@ describe "Last activity", type: :system do
 
     context "when viewing all activities" do
       before do
-        within "#last_activity" do
+        within ".upcoming-events" do
           click_link "View all"
         end
       end
