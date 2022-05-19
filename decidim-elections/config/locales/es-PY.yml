@@ -17,8 +17,16 @@ es-PY:
         min_selections: Ninguna de las anteriores
         title: Título
       voting:
+        banner_image: Imagen de cabecera
+        description: Descripción
         end_time: La votación finaliza
+        introductory_image: Imagen de presentación
+        promoted: Destacada
+        scope: Ámbito
+        show_check_census: Mostrar la página de "comprobar censo"
         start_time: La votación empieza
+        title: Título
+        voting_type: Tipo de votación
     errors:
       models:
         answer:
@@ -911,6 +919,7 @@ es-PY:
           edit:
             change_polling_station: Volver a los puntos de votación
             monitoring_committee_notes: Observaciones
+            monitoring_committee_notes_placeholder: Reporta cualquier incidencia aquí
             title: Resultados para la elección <i>%{election_title}</i> en el punto de votación <i>%{polling_station_title}</i>
           elections:
             title: Elige una elección para validar
@@ -1001,6 +1010,7 @@ es-PY:
             introductory_image: Imagen de presentación
             promoted: Destacada
             select_a_voting_type: Por favor, selecciona un tipo de votación
+            show_check_census_help: Si quieres mostrar el enlace "¿Puedo votar?" en el menú de votaciones públicas
             slug: Nombre corto de URL
             slug_help: 'Los textos cortos de URL se utilizan para generar las URL que apuntan a esta votación. Sólo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
             title: Título
@@ -1052,6 +1062,7 @@ es-PY:
               info_message: "<strong>Por favor espera</strong>, procesadas %{processed_count} de %{raw_count} filas del fichero %{file}."
             delete:
               button: Borrar todos los datos del censo
+              confirm: Eliminar todo el censo no se puede deshacer. ¿Seguro que quieres continuar?
             destroy:
               error: Se ha producido un error al eliminar el censo, por favor inténtalo de nuevo más tarde.
               success: Datos del censo eliminados
@@ -1059,6 +1070,7 @@ es-PY:
               button: Exportar códigos de acceso de la votación
               callout: Ahora puedes exportar los códigos de acceso. Esto sólo se puede hacer una vez. Una vez que inicies la exportación, recibirás un correo electrónico con las instrucciones en <strong>%{email}</strong>
               confirm: Solo puedes exportar los códigos de acceso una vez. Asegúrate de tener acceso a la cuenta de correo electrónico <strong>%{email}</strong>.
+              file_not_exist: Este archivo no existe
               launch_error: Problema al iniciar la exportación de códigos de acceso
               launch_success: Se ha iniciado la exportación de los códigos de acceso. En breve recibirás un correo en %{email}
             exporting_access_codes:
@@ -1083,6 +1095,7 @@ es-PY:
               has_ballot_styles_message: Has configurado los estilos de papeleta. Por favor, asegúrate de que el campo "%{ballot_style_code_header}" en el CSV corresponde al código de estilo de papeleta deseado.
               info_message: "<strong>Aún no hay ningún censo.</strong> Por favor, utiliza el siguiente formulario para crearlo importando un archivo CSV."
               missing_ballot_styles_message: 'No hay ningún estilo de papeleta para esta votación todavía. Si quieres tener preguntas condicionales (presentar al votante diferentes preguntas dependiendo de, p.ej. el distrito/región de residencia), debes configurar los <a href=%{ballot_styles_admin_path}>estilos de papeleta</a> <strong>antes de</strong> importar el censo. Si quieres presentar a todos los votantes las mismas preguntas, puedes continuar con el procedimiento de importación del censo.'
+              submit: Enviar CSV
               title: Crear el censo
             show:
               heading: Censo del espacio de votación
@@ -1161,6 +1174,7 @@ es-PY:
             modal_ballots_count_error:
               btn_validate_total: Validar recuento total de papeletas
               close_modal: Cerrar
+              info_explanation_text: 'Por favor, revisa el número total de papeletas. Si el número total es incorrecto, debes proporcionar una explicación para el Comité de Seguimiento:'
               info_text: El número total de papeletas (sobres) introducidas no coincide con el registro de personas que han votado en este punto de votación.
               message_for_monitoring_committee: Mensaje para el Comité de Seguimiento
               review_recount: Revisar el recuento
