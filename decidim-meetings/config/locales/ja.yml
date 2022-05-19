@@ -97,7 +97,6 @@ ja:
           type_eq:
             label: ミーティングの種類
             values:
-              hybrid: ハイブリッド
               in_person: 対面
               online: オンライン
       meeting_copies:
@@ -179,9 +178,6 @@ ja:
           email_outro: '「%{resource_title}」ミーティングをフォローしているため、この通知を受け取りました．前のリンクからフォローを解除することができます．'
           email_subject: '"%{resource_title}" のミーティングは48時間以内に開始されます．'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> のミーティングは48時間以内に開始されます．
-    forms:
-      meetings:
-        attendees_count_help_text: イベントに参加者の合計数を含めることを忘れないでください。 対面、ハイブリッド、オンラインに関わらず、何人が関わっているかを知ることが重要です。
     gamification:
       badges:
         attended_meetings:
@@ -469,7 +465,6 @@ ja:
           type: 種別
           type_values:
             all: 全て
-            hybrid: ハイブリッド
             in_person: 対面
             online: オンライン
         filters_small_view:
@@ -559,7 +554,6 @@ ja:
           fields:
             closed: クローズ済み
             end_time: 終了日
-            id: ID
             map: 地図
             official_meeting: 公式ミーティング
             start_time: 開始日
@@ -572,7 +566,6 @@ ja:
             empty_questions: このミーティングを通じて、いくつかの質問が送信され、回答することができます。質問はここに表示されます。
           index_admin:
             admin_dashboard: 管理者ダッシュボード
-            edit: 管理画面で編集
             question: 質問
             received_answer: 受理した回答
             received_answers: 受理した回答
@@ -609,7 +602,6 @@ ja:
           invalid: このミーティングから出発する問題があった。
           success: ミーティングを正常に退会しました。
       type_of_meeting:
-        hybrid: ハイブリッド
         in_person: 対面
         online: オンライン
       types:
