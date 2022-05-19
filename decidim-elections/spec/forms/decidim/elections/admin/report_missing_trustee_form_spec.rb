@@ -16,7 +16,7 @@ describe Decidim::Elections::Admin::ReportMissingTrusteeForm do
   let(:component) { election.component }
   let(:current_step) { election.bb_status }
   let(:attributes) { { trustee_id: trustee_id } }
-  let(:election) { create :election, :tally }
+  let(:election) { create :election, :tally_started }
   let(:trustee) { election.trustees.first }
   let(:trustee_id) { trustee.id }
 

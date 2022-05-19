@@ -61,7 +61,7 @@ module Decidim
 
           it "returns a null value" do
             translation = response["translation"]
-            expect(translation).to eq(nil)
+            expect(translation).to be_nil
           end
         end
       end

@@ -35,11 +35,11 @@ module Decidim
           context "when created" do
             let(:state) { "created" }
 
-            it { is_expected.to eq(false) }
+            it { is_expected.to be(false) }
           end
 
           context "when published" do
-            it { is_expected.to eq(true) }
+            it { is_expected.to be(true) }
           end
         end
       end

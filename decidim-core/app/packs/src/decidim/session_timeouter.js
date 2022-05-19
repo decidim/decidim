@@ -1,5 +1,4 @@
-import moment from "moment"
-import Foundation from "foundation-sites"
+import dayjs from "dayjs"
 
 $(() => {
   let sessionTimeOutEnabled = true;
@@ -8,20 +7,21 @@ $(() => {
   const secondsUntilTimeoutPath = $timeoutModal.data("seconds-until-timeout-path");
   const heartbeatPath = $timeoutModal.data("heartbeat-path");
   const interval = parseInt($timeoutModal.data("session-timeout-interval"), 10);
-  let endsAt = moment().add(timeoutInSeconds, "seconds");
-  let lastAction = moment();
-  const popup = new Foundation.Reveal($timeoutModal);
+  const preventTimeOutSeconds = $timeoutModal.data("prevent-timeout-seconds");
+  let endsAt = dayjs().add(timeoutInSeconds, "seconds");
+  let lastAction = dayjs();
   const $continueSessionButton = $("#continueSession");
-  let lastActivityCheck = moment();
+  let lastActivityCheck = dayjs();
   // 5 * 60 seconds = 5 Minutes
   const activityCheckInterval = 5 * 60;
+  const preventTimeOutUntil = dayjs().add(preventTimeOutSeconds, "seconds");
 
   // Ajax request is made at timeout_modal.html.erb
   $continueSessionButton.on("click", () => {
-    $("#timeoutModal").foundation("close");
+    $timeoutModal.foundation("close");
     // In admin panel we have to hide all overlays
     $(".reveal-overlay").css("display", "none");
-    lastActivityCheck = moment();
+    lastActivityCheck = dayjs();
   })
 
   if (isNaN(interval)) {
@@ -43,7 +43,7 @@ $(() => {
     if (!secondsUntilExpiration) {
       return;
     }
-    endsAt = moment().add(secondsUntilExpiration, "seconds");
+    endsAt = dayjs().add(secondsUntilExpiration, "seconds");
   }
 
   const sessionTimeLeft = () => {
@@ -66,23 +66,28 @@ $(() => {
   }
 
   const userBeenActiveSince = (seconds) => {
-    return (moment() - lastAction) / 1000 < seconds;
+    return (dayjs() - lastAction) / 1000 < seconds;
   }
 
   const exitInterval = setInterval(() => {
-    const timeSinceLastActivityCheckInSeconds = Math.round((moment() - lastActivityCheck) / 1000);
+    const timeSinceLastActivityCheckInSeconds = Math.round((dayjs() - lastActivityCheck) / 1000);
 
     const popupOpen = $("#timeoutModal").parent().css("display") === "block";
     if (!popupOpen && timeSinceLastActivityCheckInSeconds >= activityCheckInterval) {
-      lastActivityCheck = moment();
+      lastActivityCheck = dayjs();
       if (userBeenActiveSince(activityCheckInterval)) {
         heartbeat();
         return;
       }
     }
 
-    const timeRemaining = Math.round((endsAt - moment()) / 1000);
-    if (timeRemaining > 150) {
+    const timeRemaining = Math.round((endsAt - dayjs()) / 1000);
+    if (timeRemaining > 170) {
+      return;
+    }
+
+    if (dayjs() < preventTimeOutUntil) {
+      heartbeat();
       return;
     }
 
@@ -95,19 +100,19 @@ $(() => {
       } else if (secondsUntilSessionExpires <= 90) {
         $timeoutModal.find("#reveal-hidden-sign-out")[0].click();
       } else if (secondsUntilSessionExpires <= 150) {
-        popup.open();
+        $timeoutModal.foundation("open");
       }
     });
   }, interval);
 
   $(document).mousemove(() => {
-    lastAction = moment();
+    lastAction = dayjs();
   })
   $(document).scroll(() => {
-    lastAction = moment();
+    lastAction = dayjs();
   })
   $(document).keypress(() => {
-    lastAction = moment();
+    lastAction = dayjs();
   })
 
   // Devise restarts its own timer on ajax requests,

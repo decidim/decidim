@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require "selenium-webdriver"
-require "system_test_html_screenshots"
 
 module Decidim
   # Helpers meant to be used only during capybara test runs.
@@ -23,28 +22,6 @@ module Decidim
   end
 end
 
-# Customize the screenshot helper to fix the file paths for examples that have
-# unallowed characters in them. Otherwise the artefacts creation and upload
-# fails at GitHub actions. See the list of unallowed characters from:
-# https://github.com/actions/toolkit/blob/main/packages/artifact/docs/additional-information.md#non-supported-characters
-module ActionDispatch::SystemTesting::TestHelpers::ScreenshotHelper
-  # This method is not needed after update to Rails 7.0
-  def _screenshot_counter
-    @_screenshot_counter ||= 0
-    @_screenshot_counter += 1
-  end
-
-  def image_name
-    # By default, this only cleans up the forward and backward slash characters.
-    sanitized_method_name = method_name.tr("/\\()\":<>|*?", "-----------")
-    # The unique method is automatically available after update to Rails 7.0,
-    # so the following line can be removed after upgrade to Rails 7.0.
-    unique = failed? ? "failures" : (_screenshot_counter || 0).to_s
-    name = "#{unique}_#{sanitized_method_name}"
-    name[0...225]
-  end
-end
-
 Capybara.register_driver :headless_chrome do |app|
   options = ::Selenium::WebDriver::Chrome::Options.new
   options.args << "--headless"
@@ -54,11 +31,40 @@ Capybara.register_driver :headless_chrome do |app|
                   else
                     "--window-size=1920,1080"
                   end
+  Capybara::Selenium::Driver.new(
+    app,
+    browser: :chrome,
+    capabilities: [options]
+  )
+end
+
+Capybara.server_port = rand(5000..6999)
+
+# In order to work with PWA apps, Chrome can't be run in headless mode, and requires
+# setting up special prefs and flags
+Capybara.register_driver :pwa_chrome do |app|
+  options = ::Selenium::WebDriver::Chrome::Options.new
+  options.args << "--no-sandbox"
+  # Don't limit browser resources
+  options.args << "--disable-dev-shm-usage"
+  # Add pwa.lvh.me host as a secure origin
+  options.args << "--unsafely-treat-insecure-origin-as-secure=http://pwa.lvh.me:#{Capybara.server_port}"
+  # User data flag is mandatory when preferences and locale state is set
+  options.args << "--user-data-dir=/tmp/decidim_tests_user_data_#{rand(1000)}"
+  options.args << if ENV["BIG_SCREEN_SIZE"].present?
+                    "--window-size=1920,3000"
+                  else
+                    "--window-size=1920,1080"
+                  end
+  # Set notifications allowed in http protocol
+  options.local_state["browser.enabled_labs_experiments"] = ["enable-system-notifications@1", "unsafely-treat-insecure-origin-as-secure"]
+  # Mark notification permission as enabled
+  options.prefs["profile.default_content_setting_values.notifications"] = 1
 
   Capybara::Selenium::Driver.new(
     app,
     browser: :chrome,
-    options: options
+    capabilities: [options]
   )
 end
 
@@ -71,7 +77,7 @@ Capybara.register_driver :iphone do |app|
   Capybara::Selenium::Driver.new(
     app,
     browser: :chrome,
-    options: options
+    capabilities: [options]
   )
 end
 
@@ -102,7 +108,7 @@ RSpec.configure do |config|
   end
 
   config.after(type: :system) do |example|
-    warn page.driver.browser.manage.logs.get(:browser) unless example.metadata[:driver].eql?(:rack_test)
+    warn page.driver.browser.logs.get(:browser) unless example.metadata[:driver].eql?(:rack_test)
   end
 
   config.include Decidim::CapybaraTestHelpers, type: :system

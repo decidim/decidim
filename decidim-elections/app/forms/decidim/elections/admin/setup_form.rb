@@ -40,9 +40,9 @@ module Decidim
         end
 
         def messages
-          @messages ||= validations.map do |message, t_args, _valid|
+          @messages ||= validations.to_h do |message, t_args, _valid|
             [message, I18n.t("steps.create_election.requirements.#{message}", **t_args, scope: "decidim.elections.admin")]
-          end.to_h
+          end
         end
 
         def participatory_space_trustees

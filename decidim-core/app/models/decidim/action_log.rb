@@ -57,6 +57,15 @@ module Decidim
       end
     }
 
+    scope :with_private_resources, lambda {
+      where(
+        "(action <> ? AND resource_type IN (?)) OR (resource_type IN (?))",
+        "create",
+        publicable_public_resource_types,
+        (private_resource_types + public_resource_types - publicable_public_resource_types)
+      )
+    }
+
     scope :with_all_resources, lambda {
       where(
         "(action <> ? AND resource_type IN (?)) OR (resource_type IN (?))",
@@ -76,9 +85,9 @@ module Decidim
       )
     }
 
-    validates :organization, :user, :action, presence: true
+    validates :action, presence: true
     validates :resource, presence: true, if: ->(log) { log.action != "delete" }
-    validates :visibility, presence: true, inclusion: { in: %w(admin-only public-only all) }
+    validates :visibility, presence: true, inclusion: { in: %w(private-only admin-only public-only all) }
 
     # To ensure records can't be deleted
     before_destroy { |_record| raise ActiveRecord::ReadOnlyRecord }
@@ -103,6 +112,14 @@ module Decidim
         Decidim::Consultation
         Decidim::Initiative
         Decidim::ParticipatoryProcess
+      ).select do |klass|
+        klass.safe_constantize.present?
+      end
+    end
+
+    def self.private_resource_types
+      @private_resource_types ||= %w(
+        Decidim::Budgets::Order
       ).select do |klass|
         klass.safe_constantize.present?
       end
@@ -202,6 +219,7 @@ module Decidim
     def visible_for?(user)
       return false if resource_lazy.blank?
       return false if participatory_space_lazy.blank?
+      return false if resource_lazy.respond_to?(:deleted?) && resource_lazy.deleted?
       return false if resource_lazy.respond_to?(:hidden?) && resource_lazy.hidden?
       return false if resource_lazy.respond_to?(:can_participate?) && !resource_lazy.can_participate?(user)
 

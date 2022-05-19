@@ -149,7 +149,7 @@ module Decidim
       # all configurations have values even when the organization settings do
       # not define them.
       super(
-        keys_map.map do |config, method|
+        keys_map.to_h do |config, method|
           [
             config.to_s,
             generate_config(
@@ -157,7 +157,7 @@ module Decidim
               self.class.default(config)
             )
           ]
-        end.to_h
+        end
       )
 
       keys_map.keys.each do |config|
@@ -191,10 +191,10 @@ module Decidim
     # @return [OpenStruct] The configuration struct.
     def generate_config(hash, default = {})
       OpenStruct.new(
-        default.deep_merge(hash).map do |key, value|
+        default.deep_merge(hash).to_h do |key, value|
           value = generate_config(value) if value.is_a?(Hash)
           [key, value]
-        end.to_h
+        end
       )
     end
 

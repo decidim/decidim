@@ -36,20 +36,7 @@ If you want to try changes in this folder and how it'd be shown in https://docs.
 . Build the antora playbook
 . Open the generated website with your web browser
 
-In detail each one of these steps are:
-
-[source,bash]
-----
-# 1. Clone the repository
-git clone https://github.com/decidim/documentation
-# 2. Install dependencies
-npm
-# 3. Change the antora-playbook.yml url key in source
-# 4. Build the antora playbook
-npm run build
-# 5. Open the generated website with your web browser
-xdg-open build/site/index.html
-----
+For instructions on how to clone the repository, install dependencies, build the antora playbook and open the generated webiste, see https://github.com/decidim/documentation[Decidim's documentation repository README file].
 
 Regarding "3. Change the antora-playbook.yml url key in source", if this is the configuration at antora-playbook.yml:
 
@@ -68,6 +55,8 @@ Then the result would be:
      start_path: docs
      branches: develop
 ----
+
+If building locally doesn't show any change, then check also that the branch corresponds with the one that you're working locally.
 
 == Add a new link in the sidebar
 

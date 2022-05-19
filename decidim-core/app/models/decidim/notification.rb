@@ -2,10 +2,13 @@
 
 module Decidim
   class Notification < ApplicationRecord
-    include Decidim::DataPortability
+    include Decidim::DownloadYourData
 
     belongs_to :resource, foreign_key: "decidim_resource_id", foreign_type: "decidim_resource_type", polymorphic: true
     belongs_to :user, foreign_key: "decidim_user_id", class_name: "Decidim::User"
+
+    scope :daily, ->(time: Time.now.utc - 1.day) { where(created_at: time.all_day) }
+    scope :weekly, ->(time: Time.now.utc) { where(created_at: (time - 7.days)..time) }
 
     def event_class_instance
       @event_class_instance ||= event_class.constantize.new(
@@ -26,7 +29,7 @@ module Decidim
     end
 
     def self.export_serializer
-      Decidim::DataPortabilitySerializers::DataPortabilityNotificationSerializer
+      Decidim::DownloadYourDataSerializers::DownloadYourDataNotificationSerializer
     end
   end
 end

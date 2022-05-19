@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-if !Rails.env.production? || ENV["SEED"]
+if !Rails.env.production? || ENV.fetch("SEED", nil)
   print "Creating seeds for decidim-templates...\n" unless Rails.env.test?
 
   require "decidim/faker/localized"

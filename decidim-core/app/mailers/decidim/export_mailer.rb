@@ -27,12 +27,12 @@ module Decidim
     end
 
     # Public: Sends a notification email with a link to retrieve
-    # the result of a data_portability export in a zipped file.
+    # the result of a download_your_data export in a zipped file.
     #
     # user - The user to be notified.
     #
     # Returns nothing.
-    def data_portability_export(user, filename, password)
+    def download_your_data_export(user, filename, password)
       @user = user
       @organization = user.organization
       @filename = filename

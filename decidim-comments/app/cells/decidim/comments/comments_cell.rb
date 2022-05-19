@@ -22,6 +22,12 @@ module Decidim
         render :single_comment_warning
       end
 
+      def comments_loading
+        return if single_comment?
+
+        render :comments_loading
+      end
+
       def blocked_comments_warning
         return unless comments_blocked?
         return unless user_comments_blocked?
@@ -43,11 +49,7 @@ module Decidim
       end
 
       def comments
-        if single_comment?
-          [single_comment]
-        else
-          SortedComments.for(model, order_by: order)
-        end
+        single_comment? ? [single_comment] : []
       end
 
       def comments_count
@@ -97,15 +99,8 @@ module Decidim
           commentableGid: model.to_signed_global_id.to_s,
           commentsUrl: decidim_comments.comments_path,
           rootDepth: root_depth,
-          lastCommentId: last_comment_id,
           order: order
         }
-      end
-
-      def last_comment_id
-        Decidim::Comments::Comment.where(
-          root_commentable: model
-        ).order(:id).pluck(:id).last
       end
 
       def single_comment?

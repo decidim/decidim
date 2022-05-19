@@ -21,7 +21,7 @@ module Decidim::Verifications::IdDocuments::Admin
 
     context "when the form is not authorized" do
       before do
-        expect(form).to receive(:valid?).and_return(false)
+        allow(form).to receive(:valid?).and_return(false)
       end
 
       it "is not valid" do

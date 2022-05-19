@@ -10,7 +10,7 @@ module Decidim::Proposals
 
     let(:my_cell) { cell("decidim/proposals/proposal_m", proposal, context: { show_space: show_space }) }
     let(:cell_html) { my_cell.call }
-    let(:created_at) { Time.current - 1.month }
+    let(:created_at) { 1.month.ago }
     let(:published_at) { Time.current }
     let(:component) { create(:proposal_component, :with_attachments_allowed) }
     let!(:proposal) { create(:proposal, component: component, created_at: created_at, published_at: published_at) }
@@ -79,7 +79,7 @@ module Decidim::Proposals
 
         it "renders the first image in the card whatever the order between attachments" do
           expect(subject).to have_css(".card__image")
-          expect(subject.find(".card__image")[:src]).to eq(attachment_2_img.thumbnail_url)
+          expect(subject.find(".card__image")[:src]).to eq(attachment_2_img.reload.thumbnail_url)
         end
       end
     end

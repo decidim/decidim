@@ -82,7 +82,7 @@ module Decidim
 
           describe "when the form is invalid" do
             before do
-              expect(form).to receive(:invalid?).and_return(true)
+              allow(form).to receive(:invalid?).and_return(true)
             end
 
             it "broadcasts invalid" do
@@ -163,7 +163,7 @@ module Decidim
 
           describe "when the form is invalid" do
             before do
-              expect(form).to receive(:invalid?).and_return(true)
+              allow(form).to receive(:invalid?).and_return(true)
             end
 
             it "broadcasts invalid" do

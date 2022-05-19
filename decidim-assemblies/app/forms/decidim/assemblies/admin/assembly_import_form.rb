@@ -63,9 +63,9 @@ module Decidim
         end
 
         def i18n_invalid_document_type_text
-          I18n.t("invalid_document_type",
+          I18n.t("allowed_file_content_types",
                  scope: "activemodel.errors.models.assembly.attributes.document",
-                 valid_mime_types: i18n_valid_mime_types_text)
+                 types: i18n_valid_mime_types_text)
         end
 
         def i18n_valid_mime_types_text

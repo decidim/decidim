@@ -222,7 +222,6 @@ ga:
         complete:
           send: Seol
         edit:
-          add_images: Comhad
           back: Ar Ais
           select_a_category: Roghnaigh catagóir le do thoil
           send: Seol

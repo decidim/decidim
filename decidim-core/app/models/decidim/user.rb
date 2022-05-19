@@ -7,13 +7,13 @@ require "valid_email2"
 module Decidim
   # A User is a participant that wants to join the platform to engage.
   class User < UserBaseEntity
-    include Decidim::DataPortability
+    include Decidim::DownloadYourData
     include Decidim::Searchable
     include Decidim::ActsAsAuthor
     include Decidim::UserReportable
     include Decidim::Traceable
 
-    REGEXP_NICKNAME = /\A[\w\-]+\z/.freeze
+    REGEXP_NICKNAME = /\A[\w\-]+\z/
 
     class Roles
       def self.all
@@ -51,7 +51,7 @@ module Decidim
 
     validate :all_roles_are_valid
 
-    has_one_attached :data_portability_file
+    has_one_attached :download_your_data_file
 
     scope :not_deleted, -> { where(deleted_at: nil) }
 
@@ -188,10 +188,10 @@ module Decidim
     end
 
     def self.export_serializer
-      Decidim::DataPortabilitySerializers::DataPortabilityUserSerializer
+      Decidim::DownloadYourDataSerializers::DownloadYourDataUserSerializer
     end
 
-    def self.data_portability_images(user)
+    def self.download_your_data_images(user)
       user_collection(user).map(&:avatar)
     end
 
@@ -255,6 +255,10 @@ module Decidim
 
     ransacker :last_sign_in_at do
       Arel.sql(%{("decidim_users"."last_sign_in_at")::text})
+    end
+
+    def notifications_subscriptions
+      notification_settings.fetch("subscriptions", {})
     end
 
     protected

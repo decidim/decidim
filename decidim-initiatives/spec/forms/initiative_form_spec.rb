@@ -105,7 +105,7 @@ module Decidim
 
           let(:initiative) { create(:initiative, organization: organization, state: "created", scoped_type: scope) }
 
-          it { is_expected.to eq(true) }
+          it { is_expected.to be(true) }
         end
 
         context "when current_user is admin" do
@@ -113,13 +113,13 @@ module Decidim
 
           let(:user) { create(:user, :admin) }
 
-          it { is_expected.to eq(true) }
+          it { is_expected.to be(true) }
         end
 
         context "when user is not admin and initiative is not created the area is not updatable" do
           subject { described_class.from_model(initiative).with_context(context).area_updatable? }
 
-          it { is_expected.to eq(false) }
+          it { is_expected.to be(false) }
         end
       end
 
@@ -129,7 +129,7 @@ module Decidim
 
           let(:state) { "created" }
 
-          it { is_expected.to eq(true) }
+          it { is_expected.to be(true) }
         end
 
         context "when not yet created" do
@@ -137,13 +137,13 @@ module Decidim
 
           let(:state) { nil }
 
-          it { is_expected.to eq(true) }
+          it { is_expected.to be(true) }
         end
 
         context "when any other state" do
           subject { described_class.from_model(initiative).with_context(context).signature_type_updatable? }
 
-          it { is_expected.to eq(false) }
+          it { is_expected.to be(false) }
         end
       end
 
@@ -169,7 +169,7 @@ module Decidim
           it "adds an error to the `:attachment` field" do
             expect(subject).not_to be_valid
             expect(subject.errors.full_messages).to match_array(["Title can't be blank", "Attachment Needs to be reattached"])
-            expect(subject.errors.keys).to match_array([:title, :attachment])
+            expect(subject.errors.attribute_names).to match_array([:title, :attachment])
           end
         end
       end

@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-# rubocop:disable Naming/MemoizedInstanceVariableName
 module Decidim
   # Helper that provides convenient methods to deal with the page meta tags.
   module MetaTagsHelper
@@ -16,7 +15,30 @@ module Decidim
       add_decidim_meta_description(tags[:description])
       add_decidim_meta_url(tags[:url])
       add_decidim_meta_twitter_handler(tags[:twitter_handler])
-      add_decidim_meta_image_url(tags[:image_url])
+      add_decidim_meta_image_url(add_base_url_to(tags[:image_url]))
+    end
+
+    # Public: Add base url to path if path doesn't include host.
+    # path - A String containing path (e.g. "/proposals/1" )
+    # Returns a String of URL including base URL and path, or path if it's blank.
+    def add_base_url_to(path)
+      return path if path.blank?
+      return path if URI.parse(path).host.present?
+
+      "#{resolve_base_url}#{path}"
+    end
+
+    # Public: Resolve base url (example: https://www.decidim.org) without url params
+    # Returns a String of base URL
+    def resolve_base_url
+      return request.base_url if respond_to?(:request) && request&.base_url.present?
+
+      uri = URI.parse(decidim.root_url(host: current_organization.host))
+      if uri.port.blank? || [80, 443].include?(uri.port)
+        "#{uri.scheme}://#{uri.host}"
+      else
+        "#{uri.scheme}://#{uri.host}:#{uri.port}"
+      end
     end
 
     # Public: Accumulates the given `title` so that they can be chained. Since Rails views
@@ -105,4 +127,3 @@ module Decidim
     end
   end
 end
-# rubocop:enable Naming/MemoizedInstanceVariableName

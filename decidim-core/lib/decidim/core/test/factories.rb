@@ -17,8 +17,8 @@ FactoryBot.define do
     "#{Faker::Lorem.sentence(word_count: 3)} #{n}".delete("'")
   end
 
-  sequence(:name) do |n|
-    "#{Faker::Name.name} #{n}".delete("'")
+  sequence(:name) do |_|
+    Faker::Name.name.delete("'")
   end
 
   sequence(:nickname) do |n|
@@ -125,7 +125,7 @@ FactoryBot.define do
 
   factory :user, class: "Decidim::User" do
     email { generate(:email) }
-    password { "password1234" }
+    password { "decidim123456" }
     password_confirmation { password }
     name { generate(:name) }
     nickname { generate(:nickname) }
@@ -137,7 +137,7 @@ FactoryBot.define do
     about { "<script>alert(\"ABOUT\");</script>#{Faker::Lorem.paragraph(sentence_count: 2)}" }
     confirmation_sent_at { Time.current }
     accepted_tos_version { organization.tos_version }
-    email_on_notification { true }
+    notifications_sending_frequency { "real_time" }
     email_on_moderations { true }
 
     trait :confirmed do
@@ -147,7 +147,7 @@ FactoryBot.define do
     trait :blocked do
       blocked { true }
       blocked_at { Time.current }
-      extended_data { { "user_name": generate(:name) } }
+      extended_data { { user_name: generate(:name) } }
       name { "Blocked user" }
     end
 

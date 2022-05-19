@@ -21,7 +21,7 @@ on:
 
 env:
   CI: "true"
-  RUBY_VERSION: 2.7.5
+  RUBY_VERSION: 3.0.2
   NODE_VERSION: 16.9.1
   DECIDIM_MODULE: decidim-elections
   PARALLEL_TEST_PROCESSORS: 2
@@ -44,7 +44,7 @@ jobs:
         env:
           POSTGRES_PASSWORD: postgres
       bulletin_board:
-        image: codegram/decidim-bulletin-board:0.22.3
+        image: decidim/decidim-bulletin-board:0.23.0
         ports: ["8000:8000"]
         env:
           DATABASE_URL: postgresql://postgres:postgres@postgres/bb

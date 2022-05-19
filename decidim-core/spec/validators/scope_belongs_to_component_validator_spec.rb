@@ -3,6 +3,8 @@
 require "spec_helper"
 
 describe ScopeBelongsToComponentValidator do
+  subject { validatable.new(scope: scope, component: component) }
+
   let(:validatable) do
     Class.new do
       def self.model_name
@@ -18,8 +20,6 @@ describe ScopeBelongsToComponentValidator do
       validates :scope, scope_belongs_to_component: true
     end
   end
-
-  let(:subject) { validatable.new(scope: scope, component: component) }
   let(:component) { create :component, organization: organization }
   let!(:parent_scope) { create(:scope, organization: organization) }
   let!(:organization) { create :organization }

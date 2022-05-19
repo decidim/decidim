@@ -46,7 +46,7 @@ Decidim.register_component(:budgets) do |component|
 
   component.register_stat :orders_count do |components, start_at, end_at|
     budgets = Decidim::Budgets::Budget.where(component: components)
-    orders = Decidim::Budgets::Order.where(component: budgets)
+    orders = Decidim::Budgets::Order.where(budget: budgets)
     orders = orders.where("created_at >= ?", start_at) if start_at.present?
     orders = orders.where("created_at <= ?", end_at) if end_at.present?
     orders.count
@@ -148,7 +148,7 @@ Decidim.register_component(:budgets) do |component|
           description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
             Decidim::Faker::Localized.paragraph(sentence_count: 3)
           end,
-          budget_amount: Faker::Number.number(digits: 8)
+          budget_amount: Faker::Number.between(from: Integer(budget.total_budget * 0.7), to: budget.total_budget)
         )
 
         attachment_collection = Decidim::AttachmentCollection.create!(
@@ -163,7 +163,7 @@ Decidim.register_component(:budgets) do |component|
           attachment_collection: attachment_collection,
           attached_to: project,
           content_type: "application/pdf",
-          file: ActiveStorage::Blob.create_after_upload!(
+          file: ActiveStorage::Blob.create_and_upload!(
             io: File.open(File.join(__dir__, "seeds", "Exampledocument.pdf")),
             filename: "Exampledocument.pdf",
             content_type: "application/pdf",
@@ -175,7 +175,7 @@ Decidim.register_component(:budgets) do |component|
           description: Decidim::Faker::Localized.sentence(word_count: 5),
           attached_to: project,
           content_type: "image/jpeg",
-          file: ActiveStorage::Blob.create_after_upload!(
+          file: ActiveStorage::Blob.create_and_upload!(
             io: File.open(File.join(__dir__, "seeds", "city.jpeg")),
             filename: "city.jpeg",
             content_type: "image/jpeg",
@@ -187,7 +187,7 @@ Decidim.register_component(:budgets) do |component|
           description: Decidim::Faker::Localized.sentence(word_count: 5),
           attached_to: project,
           content_type: "application/pdf",
-          file: ActiveStorage::Blob.create_after_upload!(
+          file: ActiveStorage::Blob.create_and_upload!(
             io: File.open(File.join(__dir__, "seeds", "Exampledocument.pdf")),
             filename: "Exampledocument.pdf",
             content_type: "application/pdf",

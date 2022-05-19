@@ -12,7 +12,7 @@ module Decidim
         end
 
         def deliver_code
-          Rails.logger.debug("Example SMS gateway service, verification code is: #{code}, should have been delivered to #{mobile_phone_number}")
+          Rails.logger.debug { "Example SMS gateway service, verification code is: #{code}, should have been delivered to #{mobile_phone_number}" }
           true
         end
       end

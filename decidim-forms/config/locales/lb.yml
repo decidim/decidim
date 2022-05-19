@@ -118,10 +118,6 @@ lb:
         extension_allowlist: 'Gültige Formate:'
       images:
         dimensions: "%{width} x %{height} px"
-        dimensions_info: 'Das Bild wird:'
-        processors:
-          resize_and_pad: in der Größe angepasst und gepolstert zu
-          resize_to_fit: in der Größe verändert, damit es passt
       question_types:
         files: Dateien
         long_answer: Lange Antwort

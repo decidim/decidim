@@ -7,7 +7,7 @@ module Decidim
     module Admin
       describe QuestionnaireAnswersHelper do
         describe "display_percentage" do
-          context "when given a number " do
+          context "when given a number" do
             let(:number) { 84.64 }
 
             it "displays the number formatted as percentage with no decimals" do

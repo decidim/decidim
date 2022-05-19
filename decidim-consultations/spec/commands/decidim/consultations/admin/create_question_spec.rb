@@ -12,8 +12,8 @@ module Decidim
         let(:consultation) { create(:consultation, organization: organization) }
         let(:scope) { create(:scope, organization: organization) }
         let(:errors) { double.as_null_object }
-        let(:banner_image) { fixture_file_upload(File.open(Decidim::Dev.asset("city.jpeg")), "image/jpeg") }
-        let(:hero_image) { fixture_file_upload(File.open(Decidim::Dev.asset("city.jpeg")), "image/jpeg") }
+        let(:banner_image) { upload_test_file(Decidim::Dev.test_file("city.jpeg", "image/jpeg")) }
+        let(:hero_image) { upload_test_file(Decidim::Dev.test_file("city.jpeg", "image/jpeg")) }
         let(:params) do
           {
             question: {
@@ -41,7 +41,7 @@ module Decidim
 
         context "when the form is not valid" do
           before do
-            expect(form).to receive(:invalid?).and_return(true)
+            allow(form).to receive(:invalid?).and_return(true)
           end
 
           it "broadcasts invalid" do
@@ -56,15 +56,15 @@ module Decidim
               persisted?: false,
               valid?: false,
               errors: {
-                banner_image: "Image too big",
-                hero_image: "Image too big"
+                banner_image: "File resolution is too large",
+                hero_image: "File resolution is too large"
               }
             ).as_null_object
           end
 
           before do
-            expect(form).to receive(:invalid?).and_return(false)
-            expect(Decidim::Consultations::Question).to receive(:new).and_return(invalid_question)
+            allow(form).to receive(:invalid?).and_return(false)
+            allow(Decidim::Consultations::Question).to receive(:new).and_return(invalid_question)
           end
 
           it "broadcasts invalid" do

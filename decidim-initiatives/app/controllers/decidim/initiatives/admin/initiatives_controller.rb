@@ -22,11 +22,6 @@ module Decidim
           @initiatives = filtered_collection
         end
 
-        # GET /admin/initiatives/:id
-        def show
-          enforce_permission_to :read, :initiative, initiative: current_initiative
-        end
-
         # GET /admin/initiatives/:id/edit
         def edit
           enforce_permission_to :edit, :initiative, initiative: current_initiative
@@ -163,7 +158,8 @@ module Decidim
           output = render_to_string(
             pdf: "votes_#{current_initiative.id}",
             layout: "decidim/admin/initiatives_votes",
-            template: "decidim/initiatives/admin/initiatives/export_pdf_signatures.pdf.erb"
+            template: "decidim/initiatives/admin/initiatives/export_pdf_signatures",
+            format: [:pdf]
           )
           output = pdf_signature_service.new(pdf: output).signed_pdf if pdf_signature_service
 

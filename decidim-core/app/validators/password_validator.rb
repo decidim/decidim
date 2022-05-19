@@ -35,7 +35,7 @@ class PasswordValidator < ActiveModel::EachValidator
     return true if strong?
 
     @weak_password_reasons.each do |reason|
-      record.errors[attribute] << get_message(reason)
+      record.errors.add attribute, get_message(reason)
     end
 
     false
@@ -47,6 +47,15 @@ class PasswordValidator < ActiveModel::EachValidator
 
   def get_message(reason)
     I18n.t "password_validator.#{reason}"
+  end
+
+  def organization
+    @organization ||= organization_from_record
+  end
+
+  def organization_from_record
+    return record.current_organization if record.respond_to?(:current_organization)
+    return record.organization if record.respond_to?(:organization)
   end
 
   def strong?
@@ -73,7 +82,7 @@ class PasswordValidator < ActiveModel::EachValidator
     return false if !record.respond_to?(:name) || record.name.blank?
     return true if value.include?(record.name.delete(" "))
 
-    record.name.split(" ").each do |part|
+    record.name.split.each do |part|
       next if part.length < IGNORE_SIMILARITY_SHORTER_THAN
 
       return true if value.include?(part)
@@ -96,10 +105,10 @@ class PasswordValidator < ActiveModel::EachValidator
   end
 
   def domain_included_in_password?
-    return false unless record&.current_organization&.host
-    return true if value.include?(record.current_organization.host)
+    return false unless organization && organization.host
+    return true if value.include?(organization.host)
 
-    record.current_organization.host.split(".").each do |part|
+    organization.host.split(".").each do |part|
       next if part.length < IGNORE_SIMILARITY_SHORTER_THAN
 
       return true if value.include?(part)

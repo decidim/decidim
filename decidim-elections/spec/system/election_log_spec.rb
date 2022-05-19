@@ -105,7 +105,7 @@ describe "Election log", :slow, type: :system do
   context "when tally has started" do
     include_context "with test bulletin board"
 
-    let(:election) { create(:election, :bb_test, :tally, component: component) }
+    let(:election) { create(:election, :bb_test, :tally_started, component: component) }
 
     it "shows that tally has started" do
       expect(page).to have_content("The election got created and is successfully set up on the Bulletin Board.")

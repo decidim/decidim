@@ -2,7 +2,7 @@
 
 module Decidim
   class Follow < ApplicationRecord
-    include Decidim::DataPortability
+    include Decidim::DownloadYourData
 
     belongs_to :followable, foreign_key: "decidim_followable_id", foreign_type: "decidim_followable_type", polymorphic: true, counter_cache: true
     belongs_to :user, foreign_key: "decidim_user_id", class_name: "Decidim::User"
@@ -20,7 +20,7 @@ module Decidim
     end
 
     def self.export_serializer
-      Decidim::DataPortabilitySerializers::DataPortabilityFollowSerializer
+      Decidim::DownloadYourDataSerializers::DownloadYourDataFollowSerializer
     end
 
     def self.user_follower_ids_for_participatory_spaces(spaces)

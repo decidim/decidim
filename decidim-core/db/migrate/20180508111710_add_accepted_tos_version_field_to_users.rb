@@ -5,6 +5,7 @@ class AddAcceptedTosVersionFieldToUsers < ActiveRecord::Migration[5.1]
     self.table_name = :decidim_organizations
     has_many :users, foreign_key: "decidim_organization_id", class_name: "Decidim::User", dependent: :destroy
   end
+
   class User < ApplicationRecord
     self.table_name = :decidim_users
     belongs_to :organization, foreign_key: "decidim_organization_id", class_name: "Decidim::Organization"

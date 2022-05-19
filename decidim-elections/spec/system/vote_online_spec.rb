@@ -39,6 +39,36 @@ describe "Vote online in an election", type: :system do
 
       uses_the_voting_booth
     end
+
+    context "when there's description in a question" do
+      before do
+        # rubocop:disable Rails/SkipsModelValidations
+        Decidim::Elections::Answer.update_all(description: { en: "Some text" })
+        # rubocop:enable Rails/SkipsModelValidations
+      end
+
+      it "shows a link to view more information about the election" do
+        visit_component
+        click_link translated(election.title)
+        click_link "Start voting"
+        expect(page).to have_content("MORE INFORMATION")
+      end
+    end
+
+    context "when there's no description in a question" do
+      before do
+        # rubocop:disable Rails/SkipsModelValidations
+        Decidim::Elections::Answer.update_all(description: {})
+        # rubocop:enable Rails/SkipsModelValidations
+      end
+
+      it "does not show the more information link" do
+        visit_component
+        click_link translated(election.title)
+        click_link "Start voting"
+        expect(page).not_to have_content("MORE INFORMATION")
+      end
+    end
   end
 
   context "when the election is not published" do

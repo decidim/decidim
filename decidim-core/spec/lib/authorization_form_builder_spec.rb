@@ -8,7 +8,7 @@ module Decidim
     let(:record) do
       DummyAuthorizationHandler.new({})
     end
-    let(:helper) { Class.new(ActionView::Base).new(ActionView::LookupContext.new(nil)) }
+    let(:helper) { Class.new(ActionView::Base).new(ActionView::LookupContext.new(ActionController::Base.view_paths), {}, []) }
     let(:builder) { described_class.new(:authorization_handler, record, helper, {}) }
 
     before do
@@ -34,8 +34,8 @@ module Decidim
       end
 
       it "does not include other handler attributes" do
-        expect(find("input#authorization_handler_id")).to eq(nil)
-        expect(find("input#authorization_handler_user")).to eq(nil)
+        expect(find("input#authorization_handler_id")).to be_nil
+        expect(find("input#authorization_handler_user")).to be_nil
       end
 
       context "when there are scopes" do

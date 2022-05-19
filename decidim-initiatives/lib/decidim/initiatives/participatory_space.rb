@@ -61,7 +61,7 @@ Decidim.register_participatory_space(:initiatives) do |participatory_space|
         title: Decidim::Faker::Localized.sentence(word_count: 5),
         description: Decidim::Faker::Localized.sentence(word_count: 25),
         organization: organization,
-        banner_image: ActiveStorage::Blob.create_after_upload!(
+        banner_image: ActiveStorage::Blob.create_and_upload!(
           io: File.open(File.join(seeds_root, "city2.jpeg")),
           filename: "banner_image.jpeg",
           content_type: "image/jpeg",
@@ -90,7 +90,7 @@ Decidim.register_participatory_space(:initiatives) do |participatory_space|
         signature_type: "online",
         signature_start_date: Date.current - 7.days,
         signature_end_date: Date.current + 7.days,
-        published_at: Time.current - 7.days,
+        published_at: 7.days.ago,
         author: Decidim::User.reorder(Arel.sql("RANDOM()")).first,
         organization: organization
       }
@@ -112,7 +112,7 @@ Decidim.register_participatory_space(:initiatives) do |participatory_space|
         description: Decidim::Faker::Localized.sentence(word_count: 5),
         attached_to: initiative,
         content_type: "image/jpeg",
-        file: ActiveStorage::Blob.create_after_upload!(
+        file: ActiveStorage::Blob.create_and_upload!(
           io: File.open(File.join(seeds_root, "city.jpeg")),
           filename: "city.jpeg",
           content_type: "image/jpeg",

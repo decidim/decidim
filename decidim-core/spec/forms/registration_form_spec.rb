@@ -78,7 +78,7 @@ module Decidim
     end
 
     context "when the nickname already exists" do
-      let!(:user) { create(:user, organization: organization, nickname: nickname) }
+      let!(:user) { create(:user, organization: organization, nickname: nickname.upcase) }
 
       it { is_expected.to be_invalid }
 

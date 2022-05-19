@@ -77,7 +77,7 @@ module Decidim
         let(:user_group) do
           build(
             :user_group,
-            avatar: ActiveStorage::Blob.create_after_upload!(
+            avatar: ActiveStorage::Blob.create_and_upload!(
               io: File.open(avatar_path),
               filename: "malicious.jpeg",
               content_type: "image/jpeg"
@@ -90,7 +90,7 @@ module Decidim
 
       context "with weird characters" do
         let(:weird_characters) do
-          %w(< > ? % & ^ * # @ ( ) [ ] = + : ; " { } \ |)
+          ["<", ">", "?", "%", "&", "^", "*", "#", "@", "(", ")", "[", "]", "=", "+", ":", ";", '"', "{", "}", " |"]
         end
 
         it "doesn't allow them" do

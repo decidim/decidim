@@ -10,7 +10,7 @@ describe Decidim::Elections::Admin::ReportMissingTrustee do
   let(:participatory_process) { create :participatory_process, organization: organization }
   let(:current_component) { create :component, participatory_space: participatory_process, manifest_name: "elections" }
   let(:user) { create :user, :admin, :confirmed, organization: organization }
-  let(:election) { create :election, :tally }
+  let(:election) { create :election, :tally_started }
   let(:trustee) { election.trustees.first }
   let(:form) do
     double(
@@ -35,11 +35,11 @@ describe Decidim::Elections::Admin::ReportMissingTrustee do
 
   before do
     allow(bulletin_board).to receive(:public_key).and_return({
-                                                               "kty": "RSA",
-                                                               "n": "0vx7agoebGcQSuuPiLJXZptN9nndrQmbXEps2aiAFbWhM78LhWx4cbbfAAtVT86zwu1RK7aPFFxuhDR1L6tSoc_BJECPebWKRXjBZCiFV4n3oknjhMstn64tZ_2W-5JsGY4Hc5n9yBXArwl93lqt7_RN5w6Cf0h4QyQ5v-65YGjQR0_FDW2QvzqY368QQMicAtaSqzs8KJZgnYb9c7d0zgdAZHzu6qMQvRL5hajrn1n91CbOpbISD08qNLyrdkt-bFTWhAI4vMQFh6WeZu0fM4lFd2NcRwr3XPksINHaQ-G_xBniIqbw0Ls1jF44-csFCur-kEgU8awapJzKnqDKgw",
-                                                               "e": "AQAB",
-                                                               "alg": "RS256",
-                                                               "kid": "2011-04-29"
+                                                               kty: "RSA",
+                                                               n: "0vx7agoebGcQSuuPiLJXZptN9nndrQmbXEps2aiAFbWhM78LhWx4cbbfAAtVT86zwu1RK7aPFFxuhDR1L6tSoc_BJECPebWKRXjBZCiFV4n3oknjhMstn64tZ_2W-5JsGY4Hc5n9yBXArwl93lqt7_RN5w6Cf0h4QyQ5v-65YGjQR0_FDW2QvzqY368QQMicAtaSqzs8KJZgnYb9c7d0zgdAZHzu6qMQvRL5hajrn1n91CbOpbISD08qNLyrdkt-bFTWhAI4vMQFh6WeZu0fM4lFd2NcRwr3XPksINHaQ-G_xBniIqbw0Ls1jF44-csFCur-kEgU8awapJzKnqDKgw",
+                                                               e: "AQAB",
+                                                               alg: "RS256",
+                                                               kid: "2011-04-29"
                                                              })
     allow(bulletin_board).to receive(:authority_name).and_return("Decidim Test Authority")
     allow(bulletin_board).to receive(:authority_slug).and_return("decidim-test-authority")

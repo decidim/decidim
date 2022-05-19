@@ -74,7 +74,7 @@ en:
         assembly:
           attributes:
             document:
-              invalid_document_type: 'Invalid document type. Accepted formats are: %{valid_mime_types}'
+              allowed_file_content_types: 'Invalid document type. Accepted formats are: %{types}'
   activerecord:
     models:
       decidim/assembly:
@@ -390,7 +390,7 @@ en:
         related_participatory_processes: Related participatory processes
         scope: Scope
         social_networks: Social Networks
-        social_networks_title: Share this assembly on
+        social_networks_title: Visit assembly on
         target: Who participates
     assembly_members:
       assembly_member:
@@ -401,7 +401,7 @@ en:
       assemblies:
         create_assembly_member:
           email_intro: An admin of the <a href="%{resource_url}">%{resource_name}</a> assembly has added you as one of its members.
-          email_outro: You have received this notification because you have been invited to an assembly. Check the <a href="%{resource_path}">assembly page</a> to contribute!
+          email_outro: You have received this notification because you have been invited to an assembly. Check the <a href="%{resource_url}">assembly page</a> to contribute!
           email_subject: You have been invited to be a member of the %{resource_name} assembly!
           notification_title: You have been registered as a member of Assembly <a href="%{resource_path}">%{resource_name}</a>. Check the <a href="%{resource_path}">assembly page</a> to contribute!
       assembly:

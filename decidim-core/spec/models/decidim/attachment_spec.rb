@@ -26,7 +26,7 @@ module Decidim
         subject do
           build(
             :attachment,
-            file: ActiveStorage::Blob.create_after_upload!(
+            file: ActiveStorage::Blob.create_and_upload!(
               io: File.open(attachment_path),
               filename: "image.jpeg",
               content_type: "image/jpeg"
@@ -59,13 +59,13 @@ module Decidim
 
       describe "photo?" do
         it "returns true" do
-          expect(subject.photo?).to eq(true)
+          expect(subject.photo?).to be(true)
         end
       end
 
       describe "document?" do
         it "returns false" do
-          expect(subject.document?).to eq(false)
+          expect(subject.document?).to be(false)
         end
       end
     end
@@ -83,13 +83,13 @@ module Decidim
 
       describe "photo?" do
         it "returns false" do
-          expect(subject.photo?).to eq(false)
+          expect(subject.photo?).to be(false)
         end
       end
 
       describe "document?" do
         it "returns true" do
-          expect(subject.document?).to eq(true)
+          expect(subject.document?).to be(true)
         end
       end
     end

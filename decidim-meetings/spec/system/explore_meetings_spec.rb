@@ -213,11 +213,33 @@ describe "Explore meetings", :slow, type: :system do
 
         expect(page).to have_css(".card--meeting", count: 1)
       end
+
+      it "works with 'back to list' link" do
+        scope = create(:scope, organization: organization)
+        meeting = meetings.first
+        meeting.scope = scope
+        meeting.save
+
+        visit_component
+
+        within ".with_any_scope_check_boxes_tree_filter" do
+          check "All"
+          uncheck "All"
+          check translated(scope.name)
+        end
+
+        expect(page).to have_css(".card--meeting", count: 1)
+
+        find(".card--meeting .card__link").click
+        click_link "Back to list"
+
+        expect(page).to have_css(".card--meeting", count: 1)
+      end
     end
 
     context "when no upcoming meetings scheduled" do
       let!(:meetings) do
-        create_list(:meeting, 2, :published, component: component, start_time: Time.current - 4.days, end_time: Time.current - 2.days)
+        create_list(:meeting, 2, :published, component: component, start_time: 4.days.ago, end_time: 2.days.ago)
       end
 
       it "only shows the past meetings" do

@@ -1,9 +1,15 @@
 /* eslint-disable require-jsdoc, max-lines, id-length, no-invalid-this, no-cond-assign, no-unused-vars, max-params, no-undefined, no-sequences, multiline-ternary, no-ternary */
 /* eslint prefer-reflect: ["error", { "exceptions": ["call"] }] */
 /* eslint dot-location: ["error", "property"] */
-/* global d3, DATACHARTS, fetchDatacharts */
+/* global DATACHARTS, fetchDatacharts */
 
-import * as d3 from "d3"
+import { select, mouse } from "d3-selection";
+import { extent, ascending } from "d3-array";
+import { scaleTime, scaleLinear } from "d3-scale";
+import { axisLeft, axisBottom } from "d3-axis";
+import { timeMonth } from "d3-time";
+import { timeFormat, isoParse } from "d3-time-format";
+import { line } from "d3-shape";
 
 export default function renderLineCharts() {
   // lib
@@ -15,9 +21,9 @@ export default function renderLineCharts() {
     let data = opts.data
     let title = opts.title
     let subtitle = opts.subtitle
-    let container = d3.select(opts.container)
+    let container = select(opts.container)
     let ratio = opts.ratio
-    let xTickFormat = opts.xTickFormat || d3.timeFormat("%b %y")
+    let xTickFormat = opts.xTickFormat || timeFormat("%b %y")
     let showTooltip = opts.tip !== "false"
 
     // precalculation
@@ -40,13 +46,13 @@ export default function renderLineCharts() {
     let height = (width / ratio) - margin.top - margin.bottom
 
     // set the ranges
-    const x = d3.scaleTime().range([0, width])
-    const y = d3.scaleLinear().range([height, 0])
+    const x = scaleTime().range([0, width])
+    const y = scaleLinear().range([height, 0])
 
     // set the scales
-    x.domain(d3.extent([...new Set([].concat(...data.map((f) => f.value.map((d) => d.key))))]))
+    x.domain(extent([...new Set([].concat(...data.map((f) => f.value.map((d) => d.key))))]))
     // group names
-    y.domain(d3.extent([...new Set([].concat(...data.map((f) => f.value.map((d) => d.value))))]))
+    y.domain(extent([...new Set([].concat(...data.map((f) => f.value.map((d) => d.value))))]))
 
     // container
     let svg = container.append("svg")
@@ -103,23 +109,22 @@ export default function renderLineCharts() {
       .attr("transform", `translate(${margin.left},${margin.top - headerHeight})`)
       .attr("class", "group")
 
-    let line = d3.line()
-      // .curve(d3.curveBasis)
+    let _line = line()
       .x((d) => x(d.key))
       .y((d) => y(d.value))
 
     let cat = g.selectAll("path")
       .data(data)
       .enter().append("path")
-      .attr("d", (d) => line(d.value))
+      .attr("d", (d) => _line(d.value))
       .attr("class", (d) =>  `line type-${keys.indexOf(d.key)}`)
 
     // axis
-    let xAxis = d3.axisBottom(x)
-      .ticks(d3.timeMonth.every(4))
+    let xAxis = axisBottom(x)
+      .ticks(timeMonth.every(4))
       .tickSize(-height)
       .tickFormat(xTickFormat)
-    let yAxis = d3.axisLeft(y)
+    let yAxis = axisLeft(y)
       .ticks(5)
 
     let _xAxis = (xg) => {
@@ -146,7 +151,7 @@ export default function renderLineCharts() {
 
     // tooltip
     if (showTooltip) {
-      let tooltip = d3.select("body").append("div")
+      let tooltip = select("body").append("div")
         .attr("id", `${container.node().id}-tooltip`)
         .attr("class", "chart-tooltip")
         .style("opacity", 0)
@@ -159,7 +164,7 @@ export default function renderLineCharts() {
           tooltip.style("opacity", 0)
         })
         .on("mousemove", function() {
-          let x0 = x.invert(d3.mouse(this)[0])
+          let x0 = x.invert(mouse(this)[0])
 
           let ge = []
           data.forEach((o) => {
@@ -225,10 +230,10 @@ export default function renderLineCharts() {
       // format the data
       data.forEach((d) => {
         d.value.forEach((f) => {
-          f.key = d3.isoParse(f.key)
+          f.key = isoParse(f.key)
         })
 
-        d.value.sort((x, y) => d3.ascending(x.key, y.key))
+        d.value.sort((x, y) => ascending(x.key, y.key))
       });
 
       return data

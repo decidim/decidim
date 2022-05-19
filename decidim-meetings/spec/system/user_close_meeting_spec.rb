@@ -56,7 +56,7 @@ describe "User edit meeting", type: :system do
       expect(page).to have_content(closing_report)
       expect(page).not_to have_content "Close meeting"
       expect(page).not_to have_content "ATTENDING ORGANIZATIONS"
-      expect(meeting.reload.closed_at).not_to be nil
+      expect(meeting.reload.closed_at).not_to be_nil
     end
 
     context "when updates the meeting report" do
@@ -92,7 +92,7 @@ describe "User edit meeting", type: :system do
         expect(page).to have_content(edit_closing_report)
         expect(page).not_to have_content "Close meeting"
         expect(page).not_to have_content "ATTENDING ORGANIZATIONS"
-        expect(meeting.reload.closed_at).not_to be nil
+        expect(meeting.reload.closed_at).not_to be_nil
       end
     end
 

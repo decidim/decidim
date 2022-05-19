@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require "rails"
+require "decidim/rails"
 require "active_support/all"
 require "action_view/railtie"
 
@@ -13,7 +13,6 @@ require "devise-i18n"
 require "devise_invitable"
 require "foundation_rails_helper"
 require "active_link_to"
-require "rectify"
 require "carrierwave"
 require "rails-i18n"
 require "date_validator"
@@ -22,6 +21,7 @@ require "omniauth"
 require "omniauth-facebook"
 require "omniauth-twitter"
 require "omniauth-google-oauth2"
+require "omniauth/rails_csrf_protection"
 require "invisible_captcha"
 require "premailer/rails"
 require "premailer/adapter/decidim"
@@ -38,6 +38,7 @@ require "mime-types"
 require "diffy"
 require "social-share-button"
 require "ransack"
+require "wisper"
 require "webpacker"
 
 # Needed for the assets:precompile task, for configuring webpacker instance
@@ -60,6 +61,10 @@ module Decidim
             helper Decidim::LayoutHelper if respond_to?(:helper)
           end
         end
+      end
+
+      initializer "decidim.action_mailer" do |app|
+        app.config.action_mailer.deliver_later_queue_name = :mailers
       end
 
       initializer "decidim.middleware" do |app|
@@ -128,16 +133,15 @@ module Decidim
         next if Decidim.maps.present?
         next if Decidim.geocoder.blank?
 
-        legacy_api_key ||= begin
-          if Decidim.geocoder[:here_api_key].present?
-            Decidim.geocoder.fetch(:here_api_key)
-          elsif Decidim.geocoder[:here_app_id].present?
-            [
-              Decidim.geocoder.fetch(:here_app_id),
-              Decidim.geocoder.fetch(:here_app_code)
-            ]
-          end
-        end
+        legacy_api_key ||= if Decidim.geocoder[:here_api_key].present?
+                             Decidim.geocoder.fetch(:here_api_key)
+                           elsif Decidim.geocoder[:here_app_id].present?
+                             [
+                               Decidim.geocoder.fetch(:here_app_id),
+                               Decidim.geocoder.fetch(:here_app_code)
+                             ]
+                           end
+
         next unless legacy_api_key
 
         ActiveSupport::Deprecation.warn(
@@ -228,9 +232,9 @@ module Decidim
                         decidim.user_interests_path,
                         position: 1.4
 
-          menu.add_item :data_portability,
+          menu.add_item :download_your_data,
                         t("my_data", scope: "layouts.decidim.user_profile"),
-                        decidim.data_portability_path,
+                        decidim.download_your_data_path,
                         position: 1.5
 
           menu.add_item :delete_account,
@@ -322,6 +326,7 @@ module Decidim
 
       initializer "Expire sessions" do
         Rails.application.config.session_store :cookie_store, secure: Decidim.config.force_ssl, expire_after: Decidim.config.expire_session_after
+        Rails.application.config.action_dispatch.cookies_same_site_protection = :lax
       end
 
       initializer "decidim.core.register_resources" do
@@ -567,6 +572,30 @@ module Decidim
           Dir[root.join("spec/mailers/previews/**/*_preview.rb")].each do |file|
             require_dependency file
           end
+        end
+      end
+
+      # These are moved from initializers/devise.rb because we need to run initializers folder before
+      # setting these or Decidim.config variables have default values.
+      initializer "decidim_core.after_initializers_folder", after: "load_config_initializers" do
+        Devise.setup do |config|
+          # ==> Mailer Configuration
+          # Configure the e-mail address which will be shown in Devise::Mailer,
+          # note that it will be overwritten if you use your own mailer class
+          # with default "from" parameter.
+          config.mailer_sender = Decidim.config.mailer_sender
+
+          # A period that the user is allowed to access the website even without
+          # confirming their account. For instance, if set to 2.days, the user will be
+          # able to access the website for two days without confirming their account,
+          # access will be blocked just in the third day. Default is 0.days, meaning
+          # the user cannot access the website without confirming their account.
+          config.allow_unconfirmed_access_for = Decidim.unconfirmed_access_for
+
+          # ==> Configuration for :timeoutable
+          # The time you want to timeout the user session without activity. After this
+          # time the user will be asked for credentials again. Default is 30 minutes.
+          config.timeout_in = Decidim.config.expire_session_after
         end
       end
 

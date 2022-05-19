@@ -56,7 +56,7 @@ shared_examples_for "a translated event" do
       end
 
       context "when translation is not available" do
-        let(:body) { { "en": en_body } }
+        let(:body) { { en: en_body } }
 
         it "does perform translation" do
           expect(subject.perform_translation?).to eq(translatable)
@@ -104,7 +104,7 @@ shared_examples_for "a translated event" do
       end
 
       context "when translation is not available" do
-        let(:body) { { "en": en_body } }
+        let(:body) { { en: en_body } }
 
         it "does perform translation" do
           expect(subject.perform_translation?).to eq(translatable)

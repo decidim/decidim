@@ -76,9 +76,9 @@ shared_examples "a proposal form" do |options|
     it "only adds errors to this field" do
       subject.valid?
       if options[:i18n]
-        expect(subject.errors.keys).to eq [:title_en]
+        expect(subject.errors.attribute_names).to eq [:title_en]
       else
-        expect(subject.errors.keys).to eq [:title]
+        expect(subject.errors.attribute_names).to eq [:title]
       end
     end
   end
@@ -154,9 +154,9 @@ shared_examples "a proposal form" do |options|
       context "when the address is not present" do
         it "does not store the coordinates" do
           expect(subject).to be_valid
-          expect(subject.address).to be(nil)
-          expect(subject.latitude).to be(nil)
-          expect(subject.longitude).to be(nil)
+          expect(subject.address).to be_nil
+          expect(subject.latitude).to be_nil
+          expect(subject.longitude).to be_nil
         end
       end
 
@@ -181,8 +181,8 @@ shared_examples "a proposal form" do |options|
 
         it "is valid" do
           expect(subject).to be_valid
-          expect(subject.latitude).to eq(nil)
-          expect(subject.longitude).to eq(nil)
+          expect(subject.latitude).to be_nil
+          expect(subject.longitude).to be_nil
         end
       end
 
@@ -240,13 +240,13 @@ shared_examples "a proposal form" do |options|
     context "when the category does not exist" do
       let(:category_id) { 7654 }
 
-      it { is_expected.to eq(nil) }
+      it { is_expected.to be_nil }
     end
 
     context "when the category is from another process" do
       let(:category_id) { create(:category).id }
 
-      it { is_expected.to eq(nil) }
+      it { is_expected.to be_nil }
     end
   end
 
@@ -290,10 +290,10 @@ shared_examples "a proposal form" do |options|
 
         if options[:i18n]
           expect(subject.errors.full_messages).to match_array(["Title en can't be blank", "Add photos Needs to be reattached"])
-          expect(subject.errors.keys).to match_array([:title_en, :add_photos])
+          expect(subject.errors.attribute_names).to match_array([:title_en, :add_photos])
         else
           expect(subject.errors.full_messages).to match_array(["Title can't be blank", "Title is too short (under 15 characters)", "Add photos Needs to be reattached"])
-          expect(subject.errors.keys).to match_array([:title, :add_photos])
+          expect(subject.errors.attribute_names).to match_array([:title, :add_photos])
         end
       end
     end
@@ -356,7 +356,7 @@ shared_examples "a proposal form with meeting as author" do |options|
   let(:body) { { en: "Everything would be better" } }
   let(:created_in_meeting) { true }
   let(:meeting_component) { create(:meeting_component, participatory_space: participatory_space) }
-  let(:author) { create(:meeting, component: meeting_component) }
+  let(:author) { create(:meeting, :published, component: meeting_component) }
   let!(:meeting_as_author) { author }
 
   let(:params) do

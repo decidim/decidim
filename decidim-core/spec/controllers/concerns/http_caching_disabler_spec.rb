@@ -8,7 +8,7 @@ module Decidim
     let!(:user) { create :user, :confirmed, organization: organization }
 
     controller do
-      include HttpCachingDisabler
+      include Decidim::HttpCachingDisabler
 
       def show
         render plain: "Hello World"
@@ -22,7 +22,6 @@ module Decidim
 
     it "sets the appropiate headers" do
       get :show
-
       expect(response.headers["Cache-Control"]).to eq("no-cache, no-store")
       expect(response.headers["Pragma"]).to eq("no-cache")
       expect(response.headers["Expires"]).to eq("Fri, 01 Jan 1990 00:00:00 GMT")

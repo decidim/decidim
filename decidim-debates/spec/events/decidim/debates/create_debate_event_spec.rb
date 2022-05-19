@@ -82,7 +82,7 @@ describe Decidim::Debates::CreateDebateEvent do
       it "is generated correctly" do
         expect(subject.email_outro)
           .to eq("You have received this notification because you are following the #{translated(space.title)} participatory space. " \
-          "You can stop receiving notifications following the previous link.")
+                 "You can stop receiving notifications following the previous link.")
       end
     end
 

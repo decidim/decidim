@@ -15,12 +15,11 @@ module Decidim
     include Decidim::ReplaceButtonsHelper
     include Cell::Caching::Notifications
     include Decidim::MarkupHelper
-    include Decidim::FilterParamsHelper
     include ::Webpacker::Helper
 
     delegate :current_organization, to: :controller
 
-    cache :show, if: :perform_caching? do
+    cache :show, if: :perform_caching?, expires_in: :cache_expiry_time do
       cache_hash
     end
 
@@ -58,6 +57,10 @@ module Decidim
     end
 
     def cache_hash
+      nil
+    end
+
+    def cache_expiry_time
       nil
     end
 

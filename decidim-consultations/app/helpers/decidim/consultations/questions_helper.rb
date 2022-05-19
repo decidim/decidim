@@ -34,11 +34,11 @@ module Decidim
         tag = "button"
         html_options ||= {}
 
-        if !current_user
-          html_options["data-open"] = "loginModal"
-        else
+        if current_user
           html_options["data-open"] = "authorizationModal"
           html_options["data-open-url"] = decidim_consultations.authorization_vote_modal_question_path(question)
+        else
+          html_options["data-open"] = "loginModal"
         end
 
         html_options["onclick"] = "event.preventDefault();"

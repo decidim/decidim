@@ -31,4 +31,6 @@ edit_link(
   </div>
 <% end %>
 
-<%= javascript_pack_tag "decidim_consultations" %>
+<% content_for :js_content do %>
+  <%= javascript_pack_tag "decidim_consultations" %>
+<% end %>

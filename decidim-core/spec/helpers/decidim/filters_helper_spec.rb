@@ -30,6 +30,7 @@ module Decidim
           .and_call_original
 
         helper.filter_form_for(filter) do
+          # invoke the helper
         end
       end
 
@@ -39,6 +40,7 @@ module Decidim
           .with(filter, { namespace: match(/^filters_[a-z0-9-]+$/), builder: FilterFormBuilder, url: helper.url_for, as: :filter, method: :get, remote: true, html: { id: nil } }, any_args)
 
         helper.filter_form_for(filter) do
+          # empty block
         end
       end
 
@@ -54,7 +56,7 @@ module Decidim
           helper.filter_form_for(filter) do |form|
             form.text_field :test_attribute
           end
-        end.join("")
+        end.join
 
         expect(dom).to have_tag(
           "input",

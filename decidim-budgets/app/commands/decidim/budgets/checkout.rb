@@ -32,8 +32,15 @@ module Decidim
 
         @order.with_lock do
           SendOrderSummaryJob.perform_later(@order)
-          @order.checked_out_at = Time.current
-          @order.save
+
+          Decidim.traceability.update!(
+            @order,
+            @order.user,
+            { checked_out_at: Time.current },
+            visibility: "private-only"
+          )
+        rescue ActiveRecord::RecordInvalid
+          false
         end
       end
     end

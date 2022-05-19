@@ -16,7 +16,7 @@ module Decidim::Admin
         let(:invalid) { true }
 
         it "broadcast invalid in return" do
-          expect(user_group).to receive(:valid?).and_return(false)
+          allow(user_group).to receive(:valid?).and_return(false)
           expect { subject.call }.to broadcast(:invalid)
 
           expect(user_group.rejected_at).to be_nil
@@ -49,7 +49,7 @@ module Decidim::Admin
         let(:invalid) { true }
 
         it "broadcast invalid in return and do not clean verified_at" do
-          expect(user_group).to receive(:valid?).and_return(false)
+          allow(user_group).to receive(:valid?).and_return(false)
           expect { subject.call }.to broadcast(:invalid)
 
           expect(user_group.verified_at).not_to be_nil

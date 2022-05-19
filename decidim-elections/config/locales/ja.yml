@@ -567,6 +567,7 @@ ja:
               generate_legend_3: コンピュータにファイルのコピーがないことを確認してください(例:ダウンロードフォルダとデスクトップフォルダを確認してください)。
               generate_legend_4: 異なる外部デバイスにファイルの別のコピーを作成し、非常に安全な場所に保存します。
               submit: 送信
+              submit_legend: 上記のすべての手順に従えば、公開識別キーをサーバーに送信するプロセスは完了になります。
               submit_title: 公開識別キーを送信
               title: 受託者の識別キー
               upload: 識別キーをアップロード
@@ -574,6 +575,7 @@ ja:
                 invalid_format: アップロードされたファイルには識別キーが含まれていません。
                 invalid_key: アップロードされたファイルの識別キーは読み込めません。
                 invalid_public_key: アップロードされたファイルの識別キーが公開鍵と一致しません。
+              upload_legend: サーバーには公開鍵がありますが、ブラウザにはまだ公開鍵がありません。 公開鍵を作成後、作成したバックアップから、公開鍵を使用したファイルをコンピュータにインポートする必要があります。
             not_supported_browser_description: 受託者としての活動に使用できないWebブラウザを使用しているようです。最新バージョンのブラウザを使用するか、または一般的なブラウザを使用して、受託者のタスクを完了できるようにしてください。
             not_supported_browser_title: ブラウザをアップグレードして受託者として行動する
             trustee_role_description: あなたは、このプラットフォームで行われる選挙のいくつかで受託者を務めることになっています。
@@ -970,6 +972,7 @@ ja:
             assign_missing_officers: 投票管理者またはマネージャーがいない投票所があります。投票所セクションからアサインしてください
             update: 更新
           form:
+            census_contact_information_help: この連絡先情報は、センサスについて問題を報告したい参加者のためのものです。 電子メールアドレス、別のサイトの連絡先フォーム、訪問者のための調査などが利用できます。
             select_a_voting_type: 投票方式を選択してください
             slug_help: 'URLスラグは、この投票を指すURLを生成するために使用されます。 使用できるのはアルファベット、数字、ダッシュのみで、アルファベットから始める必要があります。例: %{url}'
             title: タイトル
@@ -1056,7 +1059,7 @@ ja:
               submit: CSVを送信
               title: センサスを作成
             show:
-              heading: 空間センサスに投票する
+              heading: センサスに投票する
             upload_info:
               csv_example_with_ballot_style: '投票スタイル<strong>のある</strong>ファイルの例:'
               csv_example_without_ballot_style: '投票スタイル<strong>のない</strong>ファイルの例:'
@@ -1081,6 +1084,7 @@ ja:
           description:
             show_less: 詳細を閉じる
             show_more: 続きを読む
+            title: この投票について
           metrics:
             heading: メトリクス
           polling_stations:

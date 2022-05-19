@@ -31,7 +31,7 @@ describe Decidim::ContentBlocks::HeroCell, type: :cell do
 
   context "when the content block has a background image" do
     let(:background_image) do
-      ActiveStorage::Blob.create_after_upload!(
+      ActiveStorage::Blob.create_and_upload!(
         io: File.open(Decidim::Dev.asset("city.jpeg")),
         filename: "city.jpeg",
         content_type: "image/jpeg"
@@ -50,6 +50,7 @@ describe Decidim::ContentBlocks::HeroCell, type: :cell do
 
   describe "#cache_hash" do
     it "generate a unique hash" do
+      content_block.reload
       old_hash = cell(content_block.cell, content_block).send(:cache_hash)
       content_block.reload
 

@@ -10,7 +10,7 @@ module Decidim
 
         describe "when the form is not valid" do
           before do
-            expect(form).to receive(:invalid?).and_return(true)
+            allow(form).to receive(:invalid?).and_return(true)
           end
 
           it "broadcasts invalid" do
@@ -49,13 +49,13 @@ module Decidim
 
           it "creates a new comment" do
             expect(Comment).to receive(:create!).with(
-              author: author,
-              commentable: commentable,
-              root_commentable: commentable,
-              body: { en: body },
-              alignment: alignment,
-              decidim_user_group_id: user_group_id,
-              participatory_space: form.current_component.try(:participatory_space)
+              { author: author,
+                commentable: commentable,
+                root_commentable: commentable,
+                body: { en: body },
+                alignment: alignment,
+                decidim_user_group_id: user_group_id,
+                participatory_space: form.current_component.try(:participatory_space) }
             ).and_call_original
 
             expect do
@@ -74,7 +74,7 @@ module Decidim
             user_group_parser = instance_double("kind of UserGroupParser", groups: [])
             parsed_metadata = { user: user_parser, user_group: user_group_parser }
             parser = instance_double("kind of parser", rewrite: "whatever", metadata: parsed_metadata)
-            expect(Decidim::ContentProcessor).to receive(:parse).with(
+            allow(Decidim::ContentProcessor).to receive(:parse).with(
               form.body,
               current_organization: form.current_organization
             ).and_return(parser)
@@ -86,7 +86,7 @@ module Decidim
           it "sends the notifications" do
             creator_double = instance_double(NewCommentNotificationCreator, create: true)
 
-            expect(NewCommentNotificationCreator)
+            allow(NewCommentNotificationCreator)
               .to receive(:new)
               .with(kind_of(Comment), [], [])
               .and_return(creator_double)
@@ -121,13 +121,13 @@ module Decidim
 
             it "creates a new comment with user mention replaced" do
               expect(Comment).to receive(:create!).with(
-                author: author,
-                commentable: commentable,
-                root_commentable: commentable,
-                body: { en: Decidim::ContentProcessor.parse(body, parser_context).rewrite },
-                alignment: alignment,
-                decidim_user_group_id: user_group_id,
-                participatory_space: form.current_component.try(:participatory_space)
+                { author: author,
+                  commentable: commentable,
+                  root_commentable: commentable,
+                  body: { en: Decidim::ContentProcessor.parse(body, parser_context).rewrite },
+                  alignment: alignment,
+                  decidim_user_group_id: user_group_id,
+                  participatory_space: form.current_component.try(:participatory_space) }
               ).and_call_original
 
               expect do
@@ -138,7 +138,7 @@ module Decidim
             it "sends the notifications" do
               creator_double = instance_double(NewCommentNotificationCreator, create: true)
 
-              expect(NewCommentNotificationCreator)
+              allow(NewCommentNotificationCreator)
                 .to receive(:new)
                 .with(kind_of(Comment), [mentioned_user], [])
                 .and_return(creator_double)
@@ -157,13 +157,13 @@ module Decidim
 
             it "creates a new comment with user_group mention replaced" do
               expect(Comment).to receive(:create!).with(
-                author: author,
-                commentable: commentable,
-                root_commentable: commentable,
-                body: { en: Decidim::ContentProcessor.parse(body, parser_context).rewrite },
-                alignment: alignment,
-                decidim_user_group_id: user_group_id,
-                participatory_space: form.current_component.try(:participatory_space)
+                { author: author,
+                  commentable: commentable,
+                  root_commentable: commentable,
+                  body: { en: Decidim::ContentProcessor.parse(body, parser_context).rewrite },
+                  alignment: alignment,
+                  decidim_user_group_id: user_group_id,
+                  participatory_space: form.current_component.try(:participatory_space) }
               ).and_call_original
 
               expect do
@@ -174,7 +174,7 @@ module Decidim
             it "sends the notifications" do
               creator_double = instance_double(NewCommentNotificationCreator, create: true)
 
-              expect(NewCommentNotificationCreator)
+              allow(NewCommentNotificationCreator)
                 .to receive(:new)
                 .with(kind_of(Comment), [], [mentioned_group])
                 .and_return(creator_double)

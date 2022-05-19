@@ -44,7 +44,7 @@ module Decidim
         let(:short_bio) { Decidim::Faker::Localized.sentence }
         let(:twitter_handle) { "full_name" }
         let(:personal_url) { "http://decidim.org" }
-        let(:avatar) { fixture_file_upload(File.open(Decidim::Dev.asset("city.jpeg")), "image/jpeg") }
+        let(:avatar) { upload_test_file(Decidim::Dev.test_file("city.jpeg", "image/jpeg")) }
         let(:existing_user) { false }
         let(:user_id) { nil }
         let(:attributes) do
@@ -118,13 +118,13 @@ module Decidim
           context "when the user does not exist" do
             let(:user_id) { 999_999 }
 
-            it { is_expected.to eq(nil) }
+            it { is_expected.to be_nil }
           end
 
           context "when the user is from another organization" do
             let(:user_id) { create(:user).id }
 
-            it { is_expected.to eq(nil) }
+            it { is_expected.to be_nil }
           end
         end
       end

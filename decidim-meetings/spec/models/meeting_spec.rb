@@ -74,13 +74,13 @@ module Decidim::Meetings
       context "when registrations are disabled" do
         let(:meeting) { build :meeting, registrations_enabled: false }
 
-        it { is_expected.to eq false }
+        it { is_expected.to be false }
       end
 
       context "when meeting is closed" do
         let(:meeting) { build :meeting, :closed }
 
-        it { is_expected.to eq false }
+        it { is_expected.to be false }
       end
 
       context "when the user cannot participate to the meeting" do
@@ -90,13 +90,13 @@ module Decidim::Meetings
           allow(meeting).to receive(:can_participate?).and_return(false)
         end
 
-        it { is_expected.to eq false }
+        it { is_expected.to be false }
       end
 
       context "when everything is OK" do
         let(:meeting) { build :meeting, registrations_enabled: true }
 
-        it { is_expected.to eq true }
+        it { is_expected.to be true }
       end
     end
 
@@ -155,13 +155,13 @@ module Decidim::Meetings
       context "when registrations are disabled" do
         let(:meeting) { build :meeting, registrations_enabled: false }
 
-        it { is_expected.to eq false }
+        it { is_expected.to be false }
       end
 
       context "when meeting is closed" do
         let(:meeting) { build :meeting, :closed }
 
-        it { is_expected.to eq false }
+        it { is_expected.to be false }
       end
 
       context "when the user cannot participate to the meeting" do
@@ -171,20 +171,20 @@ module Decidim::Meetings
           allow(meeting).to receive(:can_register_invitation?).and_return(false)
         end
 
-        it { is_expected.to eq false }
+        it { is_expected.to be false }
       end
 
       context "when everything is OK" do
         let(:meeting) { build :meeting, registrations_enabled: true }
 
-        it { is_expected.to eq true }
+        it { is_expected.to be true }
       end
 
       context "when no user on register process" do
         let(:meeting) { build :meeting, registrations_enabled: true, private_meeting: true, transparent: false }
         let(:user) { nil }
 
-        it { is_expected.to eq false }
+        it { is_expected.to be false }
       end
 
       context "when user has invitation to register" do
@@ -193,14 +193,14 @@ module Decidim::Meetings
 
         it "allows the user to join the meeting" do
           meeting.invites << invite
-          expect(subject).to eq true
+          expect(subject).to be true
         end
       end
 
       context "when user has no invitation to register" do
         let(:meeting) { build :meeting, registrations_enabled: true, private_meeting: true, transparent: false }
 
-        it { is_expected.to eq false }
+        it { is_expected.to be false }
       end
     end
 
@@ -355,7 +355,7 @@ module Decidim::Meetings
 
       context "when the pad is not visible" do
         before do
-          expect(meeting).to receive(:pad_is_visible?).and_return(false)
+          allow(meeting).to receive(:pad_is_visible?).and_return(false)
         end
 
         it "returns false" do

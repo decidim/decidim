@@ -66,9 +66,8 @@ module Decidim
 
     validates :title, :description, :state, :signature_type, presence: true
     validates :hashtag,
-              uniqueness: true,
-              allow_blank: true,
-              case_sensitive: false
+              uniqueness: { allow_blank: true, case_sensitive: false }
+
     validate :signature_type_allowed
 
     scope :open, lambda {
@@ -259,7 +258,7 @@ module Decidim
         published_at: Time.current,
         state: "published",
         signature_start_date: Date.current,
-        signature_end_date: signature_end_date || Date.current + Decidim::Initiatives.default_signature_time_period_length
+        signature_end_date: signature_end_date || (Date.current + Decidim::Initiatives.default_signature_time_period_length)
       )
     end
 

@@ -39,7 +39,7 @@ describe Decidim::ParticipatoryProcessGroups::ContentBlocks::TitleCell, type: :c
       expect(subject).to have_content(translated(participatory_process_group.title, locale: :en))
     end
 
-    it "shows the group description " do
+    it "shows the group description" do
       expect(subject).to have_content(
         ActionView::Base.full_sanitizer.sanitize(translated(participatory_process_group.description, locale: :en), tags: [])
       )
@@ -47,7 +47,7 @@ describe Decidim::ParticipatoryProcessGroups::ContentBlocks::TitleCell, type: :c
 
     it "shows some meta attributes" do
       expect(subject).to have_selector("svg.icon--twitter")
-      expect(subject).to have_link("#hashtag", href: "https://twitter.com/hashtag/hashtag")
+      expect(subject).to have_link("#hashtag", href: "https://twitter.com/hashtag/hashtag?src=hash")
       expect(subject).to have_selector("svg.icon--external-link")
       expect(subject).to have_link("www.example.org/group", href: group_url)
       expect(subject).to have_selector("svg.icon--globe")

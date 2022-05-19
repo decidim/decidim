@@ -33,12 +33,12 @@ describe Decidim::Proposals::SimilarProposals do
 
   context "when machine_translations is enabled" do
     let(:enabled) { true }
-    let(:proposal_body) { { "en": "100% match for body" } }
-    let(:proposal_title) { { "en": "100% match for title" } }
+    let(:proposal_body) { { en: "100% match for body" } }
+    let(:proposal_title) { { en: "100% match for title" } }
     let(:matching_body) { missing_body.merge({ machine_translations: proposal_body }) }
     let(:matching_title) { missing_title.merge({ machine_translations: proposal_title }) }
-    let(:missing_body) { { "ro": "Some Random body" } }
-    let(:missing_title) { { "ro": "Some random title" } }
+    let(:missing_body) { { ro: "Some Random body" } }
+    let(:missing_title) { { ro: "Some random title" } }
 
     it "finds the similar proposal" do
       Decidim::Proposals.similarity_threshold = 0.85

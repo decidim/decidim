@@ -15,7 +15,7 @@ module Decidim::Votings::Census::Admin
     let(:form) { DatasetForm.from_params(params).with_context(context) }
 
     context "when the form is not valid" do
-      let(:file) {}
+      let(:file) { nil }
 
       it "broadcasts invalid" do
         expect(subject.call).to broadcast(:invalid)

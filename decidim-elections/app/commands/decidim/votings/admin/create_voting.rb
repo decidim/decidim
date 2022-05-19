@@ -51,7 +51,8 @@ module Decidim
             banner_image: form.banner_image,
             introductory_image: form.introductory_image,
             voting_type: form.voting_type,
-            census_contact_information: form.census_contact_information
+            census_contact_information: form.census_contact_information,
+            show_check_census: form.show_check_census
           )
         end
       end

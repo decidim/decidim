@@ -6,20 +6,18 @@ module Decidim
   module Conferences
     describe CurrentComponent do
       let(:request) { double(params: params, env: env) }
-      let(:subject) { described_class.new(manifest) }
       let(:params) { {} }
       let(:manifest) { Decidim.find_component_manifest("dummy") }
-
       let(:organization) do
         create(:organization)
       end
-
       let(:current_conference) { create(:conference, organization: organization) }
       let(:other_conference) { create(:conference, organization: organization) }
-
       let(:env) do
         { "decidim.current_organization" => organization }
       end
+
+      subject { described_class.new(manifest) }
 
       context "when the params contain an conference id" do
         before do
@@ -28,7 +26,7 @@ module Decidim
 
         context "when the params don't contain a component id" do
           it "doesn't match" do
-            expect(subject.matches?(request)).to eq(false)
+            expect(subject.matches?(request)).to be(false)
           end
         end
 
@@ -41,7 +39,7 @@ module Decidim
             let(:component) { create(:component, participatory_space: other_conference) }
 
             it "matches" do
-              expect(subject.matches?(request)).to eq(false)
+              expect(subject.matches?(request)).to be(false)
             end
           end
 
@@ -49,7 +47,7 @@ module Decidim
             let(:component) { create(:component, participatory_space: current_conference) }
 
             it "matches" do
-              expect(subject.matches?(request)).to eq(true)
+              expect(subject.matches?(request)).to be(true)
             end
           end
         end

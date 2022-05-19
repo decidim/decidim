@@ -27,7 +27,7 @@ describe Decidim::Assemblies::CreateAssemblyMemberEvent do
   describe "email_outro" do
     it "is generated correctly" do
       expect(subject.email_outro)
-        .to eq(%(You have received this notification because you have been invited to an assembly. Check the <a href="#{resource_path}">assembly page</a> to contribute!))
+        .to eq(%(You have received this notification because you have been invited to an assembly. Check the <a href="#{resource_url}">assembly page</a> to contribute!))
     end
   end
 

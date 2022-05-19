@@ -289,8 +289,8 @@ Decidim.register_component(:proposals) do |component|
 
         author = Decidim::User.find_or_initialize_by(email: email)
         author.update!(
-          password: "password1234",
-          password_confirmation: "password1234",
+          password: "decidim123456",
+          password_confirmation: "decidim123456",
           name: name,
           nickname: Faker::Twitter.unique.screen_name,
           organization: component.organization,
@@ -355,8 +355,8 @@ Decidim.register_component(:proposals) do |component|
 
         author = Decidim::User.find_or_initialize_by(email: email)
         author.update!(
-          password: "password1234",
-          password_confirmation: "password1234",
+          password: "decidim123456",
+          password_confirmation: "decidim123456",
           name: name,
           nickname: Faker::Twitter.unique.screen_name,
           organization: component.organization,
@@ -377,8 +377,8 @@ Decidim.register_component(:proposals) do |component|
 
           author = Decidim::User.find_or_initialize_by(email: email)
           author.update!(
-            password: "password1234",
-            password_confirmation: "password1234",
+            password: "decidim123456",
+            password_confirmation: "decidim123456",
             name: name,
             nickname: Faker::Twitter.unique.screen_name,
             organization: component.organization,

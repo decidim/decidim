@@ -14,7 +14,7 @@ describe Decidim::Sortitions::Permissions do
   end
   let(:sortition_component) { create :sortition_component }
   let(:sortition) { create :sortition, component: sortition_component }
-  let(:permission_action) { Decidim::PermissionAction.new(action) }
+  let(:permission_action) { Decidim::PermissionAction.new(**action) }
   let(:registrations_enabled) { true }
 
   context "when scope is admin" do

@@ -28,7 +28,34 @@ Options:
   --help                   display this help and exit
   --version                output version information and exit
   --component [name]       creates a component for Decidim
-  [name]                   creates an application based on Decidim"
+  [name]                   creates an application based on Decidim
+
+App generation extra options (ignored if the --component flag is on):
+  --storage [provider]     Setup the Gemfile with the appropiate gem to handle a storage provider. Supported options are: local (default), s3, gcs, azure
+  --queue [provider]       Setup the Gemfile with the appropiate gem to handle a job queue backend. Only 'sidekiq' is supported as option for now.
+  --force_ssl [true|false] Enables or disables mandatory redirection to HTTPS (defaults to enabled)
+  --locales [locales]      Force the available locales to the ones specified. Separate with comas
+                           Warning: this option disables the ENV var DECIDIM_AVAILABLE_LOCALES used to setup this configuration by default.
+  --profiling              Adds profiling gems for development
+  --path                   Use a local path for the Gemfile instead of the last decidim gem version available
+  --edge                   Use GitHub's develop branch instead of the last decidim gem version available
+  --branch [branch]        Use GitHub's specified branch instead of the last decidim gem version available
+  --repository             Use a custom GIT repository instead of the default https::/github.com/decidim/decidim
+  --skip_gemfile           Skip Gemfile processing
+  --skip_bundle            Do not run bundle install
+  --skip_webpack_install   Do not run webpacker initialization (webpack install)
+  --demo                   Create a demo application, with seeds, all the optional modules enabled and some authorization examples
+  --seed_db [true|false]   Seed the database: generate demo data for each participatory space and component
+  --recreate_db            Recreate the database after installing Decidim
+
+Examples:
+  decidim my-application
+  decidim --storage=s3 my-application
+  decidim --storage=s3,gcs --profiling --force_ssl=false my-application
+  decidim --locales=en,ca,es,fr my-application
+  decidim --queue sidekiq my-application
+  decidim --queue sidekiq --storage s3 my-application
+"
 else
   require "decidim/generators/app_generator"
 

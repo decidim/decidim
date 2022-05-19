@@ -8,7 +8,7 @@ require "spec_helper"
 # the passthru validator uses it for the upload form objects.
 describe UploaderContentTypeValidator do
   subject do
-    dummy_record = validatable.new
+    dummy_record = validatable.new(organization: organization)
     dummy_record.class.validators_on(:file).each do |validator|
       validator.validate_each(dummy_record, :file, file)
     end
@@ -38,14 +38,13 @@ describe UploaderContentTypeValidator do
       end
 
       attr_accessor :file
+      attr_accessor :organization
 
       validates_upload(:file, **validation_options.merge(uploader: mount_class))
-
-      def organization
-        @organization ||= FactoryBot.create(:organization)
-      end
     end
   end
+
+  let(:organization) { create(:organization) }
 
   context "when the file is valid" do
     let(:file) { Decidim::Dev.test_file("city.jpeg", "image/jpeg") }
@@ -54,7 +53,7 @@ describe UploaderContentTypeValidator do
   end
 
   context "when the file is not valid" do
-    let(:file) { fixture_file_upload(Decidim::Dev.test_file("city.jpeg", "application/pdf"), "application/pdf") }
+    let(:file) { Rack::Test::UploadedFile.new(Decidim::Dev.test_file("city.jpeg", "application/pdf")) }
 
     it "adds the content type error" do
       expect(subject.count).to eq(1)

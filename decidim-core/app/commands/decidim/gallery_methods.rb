@@ -8,7 +8,12 @@ module Decidim
 
     def build_gallery(attached_to = nil)
       @gallery = []
-      @form.add_photos.reject(&:blank?).each do |photo|
+      @form.add_photos.compact_blank.each do |photo|
+        if photo.is_a?(Hash) && photo.has_key?(:id)
+          update_attachment_title_for(photo)
+          next
+        end
+
         @gallery << Attachment.new(
           title: photos_title(photo),
           attached_to: attached_to || gallery_attached_to,
@@ -16,6 +21,10 @@ module Decidim
           content_type: photos_content_type(photo)
         )
       end
+    end
+
+    def update_attachment_title_for(photo)
+      Decidim::Attachment.find(photo[:id]).update(title: title_for(photo))
     end
 
     def image?(signed_id)
@@ -50,13 +59,9 @@ module Decidim
 
     def photo_cleanup!
       gallery_attached_to.photos.each do |photo|
-        if @form.photos.map(&:id).exclude?(photo.id)
-          if @form.respond_to?(:documents) && @form.documents.map(&:id).exclude?(photo.id)
-            photo.destroy!
-          elsif !@form.respond_to?(:documents)
-            photo.destroy!
-          end
-        end
+        next unless @form.photos.map(&:id).exclude?(photo.id)
+
+        photo.destroy! if (@form.respond_to?(:documents) && @form.documents.map(&:id).exclude?(photo.id)) || !@form.respond_to?(:documents)
       end
       # manually reset cached photos
       gallery_attached_to.reload
