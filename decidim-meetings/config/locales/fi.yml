@@ -100,7 +100,6 @@ fi:
           type_eq:
             label: Tapaamisen tyyppi
             values:
-              hybrid: Molemmat
               in_person: Fyysinen
               online: Verkossa
       meeting_copies:
@@ -182,9 +181,6 @@ fi:
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat tapaamista "%{resource_title}". Voit lopettaa seuraamisen edellä esitetyn linkin kautta.
           email_subject: Tapaamisen "%{resource_title}" alkuun on alle 48 tuntia.
           notification_title: Tapaaminen <a href="%{resource_path}">%{resource_title}</a> alkaa alle 48 tuntin kuluttua.
-    forms:
-      meetings:
-        attendees_count_help_text: Älä unohda ilmoittaa tapahtuman osallistujamäärää. Tapahtuman tyypistä riippumatta, meille on tärkeä tietää, kuinka moni osallistui tapahtumaan.
     gamification:
       badges:
         attended_meetings:
@@ -476,7 +472,6 @@ fi:
           type: Tyyppi
           type_values:
             all: Kaikki
-            hybrid: Molemmat
             in_person: Fyysinen
             online: Verkossa
         filters_small_view:
@@ -567,7 +562,6 @@ fi:
           fields:
             closed: Suljettu
             end_time: Päättymispäivä
-            id: Id
             map: Kartta
             official_meeting: Virallinen tapaaminen
             start_time: Alkamispäivä
@@ -580,7 +574,6 @@ fi:
             empty_questions: Tämän tapaamisen aikana esitetään kysymyksiä, joihin voit vastata. Kysymykset näytetään tässä.
           index_admin:
             admin_dashboard: Hallintapaneeli
-            edit: Muokkaa hallintapaneelissa
             question: Kysymys
             received_answer: vastaus
             received_answers: vastaukset
@@ -618,7 +611,6 @@ fi:
           invalid: Tapaamisesta poistuminen epäonnistui.
           success: Olet poistunut tapaamisesta onnistuneesti.
       type_of_meeting:
-        hybrid: Molemmat
         in_person: Fyysinen
         online: Verkossa
       types:
