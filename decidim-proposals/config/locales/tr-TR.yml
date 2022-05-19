@@ -734,7 +734,6 @@ tr:
             other: destekler
         new:
           send: Devam et
-          title: Teklifinizi Oluşturun
         orders:
           label: 'Teklifleri şuna göre sırala:'
           most_commented: En çok yorum yapılan
