@@ -671,8 +671,6 @@ ro:
           census:
             create:
               invalid: S-a produs o eroare la încărcarea recensământului, vă rugăm să încercați din nou mai târziu.
-            delete:
-              confirm: Ştergerea recensământului nu poate fi anulată. Sigur dorești să continui?
             destroy:
               error: S-a produs o eroare la ștergerea recensământului, vă rugăm să încercați din nou mai târziu.
             new:
