@@ -58,8 +58,7 @@ module Decidim
     end
 
     def sha_commit_to_backport
-      commit = `git log --format=oneline | grep "##{pull_request_id}"`
-      commit.split.first
+      `git log --format=oneline | grep "(##{pull_request_id})"`.split.first
     end
 
     def exit_if_unstaged_changes
