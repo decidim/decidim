@@ -59,9 +59,7 @@ ar:
         avatar: الصورة الرمزية
         conference_meeting_ids: الاجتماعات ذات الصلة
         full_name: الاسم الكامل
-        personal_url: العنوان الشبكي الشخصي
         position: المنصب
-        short_bio: سيرة ذاتية قصيرة
         twitter_handle: مُعرّف حساب تويتر
         user_id: المستخدم
       conference_user_role:
