@@ -794,7 +794,6 @@ nl:
           edit:
             change_polling_station: Terug naar stembureaus
             monitoring_committee_notes: Opmerkingen
-            monitoring_committee_notes_placeholder: Meld hier een incident
             title: Resultaten voor de verkiezing <i>%{election_title}</i> in het stembureau <i>%{polling_station_title}</i>
           elections:
             title: Kies een verkiezing die je wilt valideren
@@ -915,7 +914,6 @@ nl:
               info_message: "<strong>Gelieve te wachten</strong>, %{processed_count} verwerkt van %{raw_count} rijen uit bestand %{file}."
             delete:
               button: Verwijder alle kiezerslijstgegevens
-              confirm: Het verwijderen van alle registers kan niet ongedaan worden gemaakt. Weet je zeker dat je wil doorgaan?
             destroy:
               error: Er is een fout opgetreden bij het verwijderen van de kiezerslijst, probeer het later opnieuw.
               success: Registergegevens verwijderd
@@ -923,7 +921,6 @@ nl:
               button: Genereer toegangscodes voor de stemronde
               callout: Je kunt nu doorgaan met het exporteren van de toegangscodes. Dit kan slechts één keer gedaan worden. Zodra je de export hebt opgestart, ontvang je een e-mail met de instructies voor <strong>%{email}</strong>
               confirm: Je kunt de toegangscodes slechts één keer exporteren. Controleer of je toegang heeft tot het e-mailadres <strong>%{email}</strong>.
-              file_not_exists: Dit bestand bestaat niet
               launch_error: Probleem bij het starten van de toegangscodes export
               launch_success: Exporteer toegangscodes gestart. Je ontvangt binnenkort een e-mail op %{email}
             exporting_access_codes:
@@ -948,7 +945,6 @@ nl:
               has_ballot_styles_message: Je stelt StembriefStijlen in. Zorg ervoor dat het "%{ballot_style_code_header}" veld in de CSV overeenkomt met de gewenste StembriefStijlcode.
               info_message: "<strong>Er is nog geen register.</strong> Gebruik het formulier hieronder om een CSV-bestand te importeren."
               missing_ballot_styles_message: 'Er is nog geen StembriefStijl voor deze stemming. Als je voorwaardelijke vragen wenst te stellen (wil je de kiezer verschillende vragen voorleggen afhankelijk van bijvoorbeeld de wijk/regio), dan moet je de <a href=%{ballot_styles_admin_path}>Ballot Stijlen</a> <strong>instellen voordat</strong> je de kiezerslijst importeert. Als je alle kiezers dezelfde vragen wilt stellen, kun je doorgaan met de procedure van de kiezerslijstimport.'
-              submit: Dien CSV in
               title: Stel het register op
             show:
               heading: Register van de stemming
@@ -1025,7 +1021,6 @@ nl:
             modal_ballots_count_error:
               btn_validate_total: Bevestig de totale hertelling van de stemmen
               close_modal: Sluit
-              info_explanation_text: 'Gelieve het totale aantal stemmen na te kijken. Als het totale aantal correct is, zal je een verklaring moeten geven voor het toezichtcomité:'
               info_text: Het totale aantal ingevoerde stemmen (enveloppen) komt niet overeen met de lijst van mensen die in dit stembureau hebben gestemd.
               message_for_monitoring_committee: Bericht aan het Comité van toezicht
               review_recount: Controleer de hertelling
