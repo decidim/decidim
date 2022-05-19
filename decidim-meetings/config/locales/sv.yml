@@ -100,7 +100,6 @@ sv:
           type_eq:
             label: Mötestyp
             values:
-              hybrid: Båda
               in_person: Fysiska
               online: Online
       meeting_copies:
@@ -182,9 +181,6 @@ sv:
           email_outro: Du har fått det här meddelandet eftersom du följer mötet "%{resource_title}". Du kan sluta följa det på föregående länk.
           email_subject: Mötet "%{resource_title}" börjar om färre än 48 timmar.
           notification_title: Mötet <a href="%{resource_path}">%{resource_title}</a> startar inom mindre än 48 timmar.
-    forms:
-      meetings:
-        attendees_count_help_text: Glöm inte att inkludera det totala antalet deltagare på ditt evenemang. Det är viktigt att hålla koll på hur många människor, oavsett om de deltog fysiskt eller online.
     gamification:
       badges:
         attended_meetings:
@@ -476,7 +472,6 @@ sv:
           type: Typ
           type_values:
             all: Allt
-            hybrid: Båda
             in_person: Fysiska
             online: Online
         filters_small_view:
@@ -567,7 +562,6 @@ sv:
           fields:
             closed: Stängd
             end_time: Slutdatum
-            id: Id
             map: Karta
             official_meeting: Officiellt möte
             start_time: Startdatum
@@ -580,7 +574,6 @@ sv:
             empty_questions: Under hela mötet kommer några frågor att skickas och du kommer kunna svara på dem. De kommer att visas här.
           index_admin:
             admin_dashboard: Adminpanel
-            edit: Redigera i adminpanelen
             question: Fråga
             received_answer: mottaget svar
             received_answers: mottagna svar
@@ -618,7 +611,6 @@ sv:
           invalid: Det gick inte att lämna mötet.
           success: Du har lämnat mötet.
       type_of_meeting:
-        hybrid: Båda
         in_person: Fysiska
         online: Online
       types:
