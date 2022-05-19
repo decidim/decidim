@@ -1169,6 +1169,8 @@ cs:
       show:
         missing_event: Jejda, toto oznámení patří k položce, která již není k dispozici. Můžete ho zahodit.
     notifications_digest_mailer:
+      header:
+        weekly: Týdenní výběr oznámení
       hello: Dobrý den %{name},
       intro:
         daily: 'Toto jsou oznámení z posledního dne založená na aktivitě, kterou máte:'
