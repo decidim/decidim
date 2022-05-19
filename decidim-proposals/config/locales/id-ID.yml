@@ -587,7 +587,6 @@ id:
             other: suara
         new:
           send: Terus
-          title: Buat Proposal Anda
         orders:
           label: 'Memesan proposal dengan:'
           most_voted: Sebagian besar memilih
