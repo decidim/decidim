@@ -710,7 +710,6 @@ hu:
             other: szavazatok
         new:
           send: Tovább
-          title: Hozz létre javaslatot
         orders:
           label: 'Javaslatok rendezése:'
           most_commented: Legtöbb hozzászólással
