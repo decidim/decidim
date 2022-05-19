@@ -85,16 +85,35 @@ fr:
             title: Éditer un projet
             update: Mettre à jour
           index:
+            actions: Actions
+            cancel: Annuler
+            change_category: Modifier la catégorie
+            change_scope: Changer le secteur
+            change_selected: Changer l'état "sélectionné"
+            deselect_implementation: Annuler la sélection
             finished_orders: Votes terminés
             pending_orders: Votes en cours
+            select_for_implementation: Sélectionné pour implémentation
             selected: Sélectionné
             title: Projets
+            update: Mettre à jour
+            update_scope_button: Mettre à jour le secteur
           new:
             create: Créer
             title: Nouveau projet
           update:
             invalid: Il y a eu un problème lors de la mise à jour de ce projet
             success: Projet mis à jour avec succès
+          update_category:
+            invalid: 'Ces projets avaient déjà la catégorie %{subject_name} : %{projects}.'
+            select_a_category: Veuillez sélectionner une catégorie
+            select_a_project: Veuillez selectionner un projet
+            success: 'Les projets ont été mis à jour avec succès avec la catégorie %{subject_name} : %{projects}.'
+          update_scope:
+            invalid: 'Ces projets avaient déjà le secteur %{subject_name} : %{projects}.'
+            select_a_project: Veuillez selectionner un projet
+            select_a_scope: Veuillez sélectionner un secteur
+            success: 'Les projets ont été mis à jour avec succès avec le secteur %{subject_name} : %{projects}.'
         proposals_imports:
           create:
             invalid: Un problème est survenu lors de l'importation des propositions dans des projets
