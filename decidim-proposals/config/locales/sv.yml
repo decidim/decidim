@@ -802,7 +802,6 @@ sv:
             other: stöd
         new:
           send: Fortsätt
-          title: Skapa ditt förslag
         orders:
           label: 'Ordna förslag efter:'
           most_commented: Mest kommenterade
