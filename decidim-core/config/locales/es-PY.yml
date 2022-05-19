@@ -35,12 +35,17 @@ es-PY:
       decidim/demoted_membership: Ya no es un administrador de grupo.
       decidim/gamification/badge_earned_event: Insignia obtenida
       decidim/gamification/level_up_event: Has subido de nivel
+      decidim/invited_to_group_event: Invitada al grupo
       decidim/join_request_accepted_event: Solicitud de incorporación aceptada
       decidim/join_request_rejected_event: Solicitud de incorporación rechazada
       decidim/profile_updated_event: Perfil actualizado
       decidim/promote_to_admin: Promovido a administrador de grupo
+      decidim/promoted_to_admin_event: Promocionada a administradora del grupo
       decidim/removed_from_group: Eliminado del grupo
       decidim/resource_endorsed_event: Adhesión a recurso realizada
+      decidim/resource_hidden_event: Recurso oculto
+      decidim/user_group_created_event: Grupo de usuarios creado
+      decidim/welcome_notification_event: Mensaje de bienvenida
   activerecord:
     attributes:
       decidim/user:
