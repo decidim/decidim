@@ -815,7 +815,6 @@ fi:
             other: kannatukset
         new:
           send: Jatka
-          title: Luo ehdotuksesi
         orders:
           label: 'Järjestä ehdotukset:'
           most_commented: Eniten kommentoidut
