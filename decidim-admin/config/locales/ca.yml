@@ -1042,7 +1042,7 @@ ca:
             hidden_at: Data d'ocultació
             participatory_space: Espai de participació
             report_count: Recompte
-            reportable_id: Id
+            reportable_id: ID
             reportable_type: Tipus
             reported_content_url: URL contingut del contingut reportat
             reports: Denúncies
