@@ -219,7 +219,6 @@ is-IS:
           view_proposal: Skoða tillögu
         new:
           send: Haltu áfram
-          title: Búðu til tillögu þína
         orders:
           label: 'Panta tillögur með:'
           random: Handahófi
