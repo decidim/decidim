@@ -704,7 +704,6 @@ sk:
             other: hlasov
         new:
           send: Pokračovať
-          title: Vytvorte svoj návrh
         orders:
           label: 'Objednajte návrhy podľa:'
           most_commented: Najviac komentované
