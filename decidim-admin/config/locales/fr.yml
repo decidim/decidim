@@ -1059,6 +1059,7 @@ fr:
             hidden_at: Masqué le
             participatory_space: Espace participatif
             report_count: Compteur
+            reportable_id: ID
             reportable_type: Type
             reported_content_url: URL
             reports: Motif
