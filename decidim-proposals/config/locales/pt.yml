@@ -783,7 +783,6 @@ pt:
             other: votos
         new:
           send: Continuar
-          title: Criar a Sua proposta
         orders:
           label: 'Ordenar propostas por:'
           most_commented: Mais comentadas
