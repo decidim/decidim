@@ -8,8 +8,8 @@
       const node = document.querySelector("[rel=stylesheet][href*='/decidim_core']")
       node.getAttribute('disabled') === "true" ? node.removeAttribute('disabled') : node.setAttribute('disabled', "true")
     }</script>
-    <div class="container">
-      <label class="cursor-pointer" for="tcss"><input type="checkbox" name="tcss" id="tcss" onclick="toggleCSS()">Hide old CSS stylesheet</label>
+    <div class="container border-4 p-4 my-2">
+      <label class="cursor-pointer" for="tcss"><input type="checkbox" name="tcss" id="tcss" onclick="toggleCSS()">Hide legacy CSS stylesheet</label>
     </div>
 
     <%= yield %>
