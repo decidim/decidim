@@ -728,7 +728,6 @@ gl:
             other: votos
         new:
           send: Continuar
-          title: Crea a túa proposta
         orders:
           label: 'Solicitar propostas por:'
           most_commented: Máis comentadas
