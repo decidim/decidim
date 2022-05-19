@@ -1,0 +1,47 @@
+= Install with no seed
+
+Sometimes, you may need to install your instance without no seed, so as to focus mainly on the parts you want, or deploy your application from the scratch.
+Please follow the following steps:
+
+. Follow the steps 1 through 5 of previous section(xref:install:manual.adoc[Manual Installation] section).
+
+. Since you don't need to add the seeds, you are good to go with only running the migrations. run the migrations from the root of your project in the terminal
+
+[source,bash]
+----
+bin/rails db:create db:migrate
+----
+
+[start=3]
+3. Now you need to create your admin user, in order to be able to login to the system. in the terminal type the following:
+
+[source,bash]
+----
+bundle exec rails s
+----
+
+[start=4]
+4. Once you entered the console, copy and paste the following:
+
+[source,bash]
+----
+  admin = Decidim::User.find_or_initialize_by(email: "admin@example.org")
+
+  admin.update!(
+    name: Faker::Name.name,
+    nickname: Faker::Twitter.unique.screen_name,
+    password: "decidim123456",
+    password_confirmation: "decidim123456",
+    organization: organization,
+    confirmed_at: Time.current,
+    locale: I18n.default_locale,
+    admin: true,
+    tos_agreement: true,
+    personal_url: Faker::Internet.url,
+    about: Faker::Lorem.paragraph(sentence_count: 2),
+    accepted_tos_version: organization.tos_version,
+    admin_terms_accepted_at: Time.current
+  )
+----
+
+Now, you will be able to login to the system with the provided credentials((email: "admin@example.org" and password: "decidim123456").

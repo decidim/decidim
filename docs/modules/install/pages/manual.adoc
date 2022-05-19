@@ -121,6 +121,11 @@ bin/rails db:create db:migrate
 bin/rails db:seed
 ----
 
+[NOTE]
+====
+Please refer to xref:install:noseed.adoc[No-seed Installation] section if you want to setup your instance with no seeds
+====
+
 This will also create some default data so you can start testing the app, with an administrator account with email admin@example.org and password `decidim123456`
 
 == 7. Start your web server
