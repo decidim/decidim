@@ -7,7 +7,8 @@ require "decidim/git_backport_manager"
 describe Decidim::GitBackportManager do
   let(:release_branch) { "release/0.99-stable" }
   let(:backport_branch) { "backport/fix-something-9876" }
-  let(:manager) { described_class.new(pull_request_id: 9_876, release_branch: release_branch, backport_branch: backport_branch, working_dir: tmp_repository_dir) }
+  let(:pull_request_id) { 9_876 }
+  let(:manager) { described_class.new(pull_request_id: pull_request_id, release_branch: release_branch, backport_branch: backport_branch, working_dir: tmp_repository_dir) }
 
   let(:tmp_repository_dir) { "/tmp/decidim-git-backport-manager-test-#{rand(1_000)}" }
   let(:working_dir) { File.expand_path("../../..", __dir__) }
@@ -46,14 +47,38 @@ describe Decidim::GitBackportManager do
   end
 
   describe ".create_backport_branch!" do
-    it "creates the backport branch with the cherrypicked commit" do
+    context "when there's a branch already with that name" do
+      it "exits" do
+        `
+          git branch #{backport_branch}
+        `
+
+        expect { manager.send(:create_backport_branch!) }.to raise_error(SystemExit).and output(/Branch already exists locally/).to_stdout
+      end
+    end
+
+    context "when everything its ok" do
+      it "creates the backport branch" do
+        manager.send(:create_backport_branch!)
+
+        expect { system("git branch --show-current") }.to output(/#{backport_branch}/).to_stdout_from_any_process
+      end
+    end
+  end
+
+  describe ".cherrypick_commit!" do
+    it "cherrypicks the commit" do
       `
+        git checkout develop
         touch another_file.txt
         git add another_file.txt
         git commit -m "Fix something (#9876)"
       `
-
-      expect { manager.send(:create_backport_branch!) }.to output(/Cherrypicking commit/).to_stdout_from_any_process
+      sha_commit = `git log --format=oneline | grep "(##{pull_request_id})"`.split.first
+      `
+        git checkout #{release_branch}
+      `
+      manager.send(:cherrypick_commit!, sha_commit)
       expect { system("git diff-tree --no-commit-id --name-only -r HEAD~1..HEAD") }.to output(/another_file.txt/).to_stdout_from_any_process
       expect { system("git log --format=oneline | wc -l") }.to output(/2/).to_stdout_from_any_process
     end

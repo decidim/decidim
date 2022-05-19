@@ -15,7 +15,9 @@ module Decidim
       Dir.chdir(working_dir) do
         exit_if_unstaged_changes
         self.class.checkout_develop
+        sha_commit = sha_commit_to_backport
         create_backport_branch!
+        cherrypick_commit!(sha_commit)
         push_backport_branch!
       end
     end
@@ -29,13 +31,16 @@ module Decidim
     attr_reader :pull_request_id, :release_branch, :backport_branch, :working_dir
 
     def create_backport_branch!
-      sha_commit = sha_commit_to_backport
-
       `git checkout #{release_branch}`
       `git checkout -b #{backport_branch}`
+      exit_with_errors("Branch already exists locally. Delete it with 'git branch -D #{backport_branch}' and rerun the script.") unless $CHILD_STATUS.exitstatus.zero?
+    end
+
+    def cherrypick_commit!(sha_commit)
+      return unless sha_commit
+
       puts "Cherrypicking commit #{sha_commit}"
       `git cherry-pick #{sha_commit}`
-
       unless $CHILD_STATUS.exitstatus.zero?
         puts "Resolve the cherrypick conflict manually and exit your shell to keep with the process."
         system ENV.fetch("SHELL")
