@@ -100,7 +100,7 @@ es-PY:
           type_eq:
             label: Tipo de encuentro
             values:
-              hybrid: Ambos
+              hybrid: Híbrido
               in_person: Presencial
               online: Online
       meeting_copies:
@@ -184,7 +184,7 @@ es-PY:
           notification_title: El encuentro <a href="%{resource_path}">%{resource_title}</a> comenzará en menos de 48 h.
     forms:
       meetings:
-        attendees_count_help_text: No olvides incluir el número total de asistentes a tu encuentro, ya sea presencial, en línea o híbrido.
+        attendees_count_help_text: No te olvides de añadir el número total de asistentes a la reunión, ya sea en persona, en línea o híbrido.
     gamification:
       badges:
         attended_meetings:
@@ -476,7 +476,7 @@ es-PY:
           type: Tipo
           type_values:
             all: Todos
-            hybrid: Ambos
+            hybrid: Híbrida
             in_person: Presencial
             online: Online
         filters_small_view:
@@ -567,7 +567,7 @@ es-PY:
           fields:
             closed: Cerrado
             end_time: Fecha de finalización
-            id: Id
+            id: ID
             map: Mapa
             official_meeting: Encuentro oficial
             start_time: Fecha de inicio
@@ -618,7 +618,7 @@ es-PY:
           invalid: Ha habido un problema al salir de esta encuentro.
           success: Has salido del encuentro con éxito.
       type_of_meeting:
-        hybrid: Ambos
+        hybrid: Hibrida
         in_person: Presencial
         online: En línea
       types:
