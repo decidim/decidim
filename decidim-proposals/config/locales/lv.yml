@@ -695,7 +695,6 @@ lv:
             other: atbalsta
         new:
           send: Turpināt
-          title: Izveidojiet savu priekšlikumu
         orders:
           label: 'Kārtot priekšlikumus pēc:'
           most_commented: Visvairāk komentētie
