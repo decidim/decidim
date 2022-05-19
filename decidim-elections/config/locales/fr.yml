@@ -908,6 +908,7 @@ fr:
           edit:
             change_polling_station: Retourner aux bureaux de vote
             monitoring_committee_notes: Remarques
+            monitoring_committee_notes_placeholder: Signaler tout incident ici
             title: Résultats pour l'élection <i>%{election_title}</i> dans le bureau de vote <i>%{polling_station_title}</i>
           elections:
             title: Choisissez une élection que vous souhaitez valider
@@ -1043,6 +1044,7 @@ fr:
               info_message: "<strong>Veuillez patienter</strong>, %{processed_count} traités sur %{raw_count} lignes à partir du fichier %{file}."
             delete:
               button: Supprimer toutes les données du recensement
+              confirm: La suppression de tout le recensement ne peut pas être annulée. Êtes-vous sûr de vouloir continuer?
             destroy:
               error: Une erreur s'est produite lors de la suppression du recensement, veuillez réessayer plus tard.
               success: Données de recensement supprimées
@@ -1050,6 +1052,7 @@ fr:
               button: Exporter les codes d'accès aux votes
               callout: Vous pouvez maintenant exporter les codes d'accès. Cela ne peut être fait qu'une seule fois. Une fois que vous avez lancé l'exportation, vous recevrez un e-mail avec les instructions sur <strong>%{email}</strong>
               confirm: Vous ne pouvez exporter les codes d'accès qu'une seule fois. Assurez-vous d'avoir accès au compte de messagerie <strong>%{email}</strong>.
+              file_not_exist: Ce fichier n'existe pas
               launch_error: Problème lors du lancement de l'export des codes d'accès
               launch_success: L'export des codes d'accès a été lancée. Vous recevrez sous peu un e-mail à %{email}
             exporting_access_codes:
@@ -1074,6 +1077,7 @@ fr:
               has_ballot_styles_message: Vous avez mis en place des styles de bulletin. Assurez-vous que le champ "%{ballot_style_code_header}" dans le CSV correspond au code du style de bulletin désiré.
               info_message: "<strong>Il n'y a pas encore de recensement.</strong> Veuillez utiliser le formulaire ci-dessous pour le créer en important un fichier CSV."
               missing_ballot_styles_message: 'Il n''y a pas encore de style de bulletin pour ce vote. Si vous souhaitez avoir des questions conditionnelles (ex : présenter à l’électeur des questions différentes en fonction de son quartier/ville de résidence), vous devez configurer les <a href=%{ballot_styles_admin_path}>styles de bulletin</a> <strong>avant</strong> d''importer le recensement. Si vous voulez présenter les mêmes questions à tous les électeurs, vous pouvez passer à la procédure d''import du recensement.'
+              submit: Valider le fichier csv
               title: Créer le recensement
             show:
               heading: Recensement de l'espace de vote
@@ -1152,6 +1156,7 @@ fr:
             modal_ballots_count_error:
               btn_validate_total: Valider le nombre total de bulletins
               close_modal: Fermer
+              info_explanation_text: 'Veuillez examiner le nombre total de bulletins de vote. Si le nombre total est incorrect, vous devez fournir une explication pour le comité de suivi :'
               info_text: Le nombre total de bulletins de vote introduits ne correspond pas au nombre de personnes qui ont voté dans ce Bureau de vote.
               message_for_monitoring_committee: Message pour le comité de suivi
               review_recount: Revoir le comptage
