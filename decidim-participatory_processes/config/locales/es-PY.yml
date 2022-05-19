@@ -62,6 +62,12 @@ es-PY:
         email: Correo electrónico
         name: Nombre
         role: Rol
+    errors:
+      models:
+        participatory_process:
+          attributes:
+            document:
+              allowed_file_content_types: 'Tipo de documento inválido. Los formatos que se aceptan son: %{types}'
     models:
       decidim/participatory_process_step_activated_event: Fase activada
       decidim/participatory_process_step_changed_event: La fase ha cambiado
@@ -292,6 +298,9 @@ es-PY:
     admin_log:
       participatory_process:
         create: "%{user_name} creó el proceso participativo %{resource_name}"
+        duplicate: "%{user_name} ha exportado el proceso participativo %{resource_name}"
+        export: "%{user_name} ha importado el proceso participativo %{resource_name}"
+        import: "%{user_name} ha importado el proceso participativo %{resource_name}"
         publish: "%{user_name} publicó el proceso participativo %{resource_name}"
         unpublish: "%{user_name} despublicó el proceso participativo %{resource_name}"
         update: "%{user_name} actualizó el proceso participativo %{resource_name}"
