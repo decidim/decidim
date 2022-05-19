@@ -15,7 +15,7 @@ namespace :decidim do
       # PostCSS configuration
       copy_file_to_application "decidim-core/lib/decidim/webpacker/postcss.config.js", "postcss.config.js"
       # Tailwind configuration
-      copy_file_to_application "decidim-core/lib/decidim/webpacker/tailwind.config.js", "tailwind.config.js"
+      copy_template_to_application "decidim-core/lib/decidim/webpacker/tailwind.config.js.erb", "tailwind.config.js"
       # Webpacker configuration
       copy_file_to_application "decidim-core/lib/decidim/webpacker/webpacker.yml", "config/webpacker.yml"
       # Webpack JS config files
@@ -134,6 +134,11 @@ namespace :decidim do
 
     def copy_file_to_application(origin_path, destination_path = origin_path)
       FileUtils.cp(decidim_path.join(origin_path), rails_app_path.join(destination_path))
+    end
+
+    def copy_template_to_application(origin_path, destination_path = origin_path)
+      evaluated_template = ERB.new(File.read(decidim_path.join(origin_path))).result(binding)
+      File.write(rails_app_path.join(destination_path), evaluated_template)
     end
 
     def copy_folder_to_application(origin_path, destination_path = origin_path)

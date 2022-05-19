@@ -1,0 +1,7 @@
+module.exports = {
+  content: ["./app/**/*.{html.erb,js}", `<%= Gem.loaded_specs["decidim"].full_gem_path %>/decidim-*/app/**/*.{html.erb,js}`],
+  theme: {
+    extend: {}
+  },
+  plugins: []
+}
