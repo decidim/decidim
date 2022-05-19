@@ -389,7 +389,6 @@ fi:
         related_participatory_processes: Liittyvät osallistumisprosessit
         scope: Teema
         social_networks: Sosiaalinen media
-        social_networks_title: Jaa tämä ryhmä
         target: Kuka osallistuu
     assembly_members:
       assembly_member:
