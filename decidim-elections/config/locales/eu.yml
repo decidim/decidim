@@ -879,7 +879,6 @@ eu:
           edit:
             change_polling_station: Itzuli bozketa-guneetara
             monitoring_committee_notes: Oharrak
-            monitoring_committee_notes_placeholder: Eman edozein gorabeheraren berri hemen
             title: Emaitzak <i>%{election_title}</i> aukerarako <i>%{polling_station_title}</i> bozketa-gunean
           elections:
             title: Hautatu aukera bat baliozkotzeko
@@ -1015,7 +1014,6 @@ eu:
               info_message: "<strong>Mesedez itxaron</strong>, %{processed_count} prozesatuak %{raw_count} tik %{file} fitxeroko ilara."
             delete:
               button: Ezabatu erroldako datu guztiak
-              confirm: Errolda osoa ezabatzea ezin da desegin. Ziur zaude jarraitu nahi duzula?
             destroy:
               error: Arazo bai izan da errolda ezabatzean, mesedez, saiatu berriro geroago.
               success: Erroldako datuak ezabatuta
@@ -1023,7 +1021,6 @@ eu:
               button: Esportatu bozketaren Sartzeko Kodeak
               callout: Orain sartzeko kodeak esportatu ahal dituzu. Hori behin baino ezin da egin. Behin esportazioa hasita, posta elektroniko bat jasoko duzu, bertan jarraibideak <strong>%{email}</strong>
               confirm: Sartzeko kodeak behin baino ezin dituzu esportatu. Ziurtatu <strong>%{email}</strong> posta elektronikoan sarbidea duzula.
-              file_not_exists: Artxibo hau ez dago
               launch_error: Arazoa sartzeko kodeak esportatzen hastean
               launch_success: 'Sartzeko kodeen esportazioa hasi egin da. Laster posta elektroniko bat jasoko duzu hemen: %{email}'
             exporting_access_codes:
@@ -1047,7 +1044,6 @@ eu:
                 message_2: Zutabeen arteko banatzailea puntu eta koma (";") izan behar da.
               has_ballot_styles_message: Boto-paper motak konfiguratu dituzu. Mesedez, ziurtatu CSVren "%{ballot_style_code_header}" eremua eta nahi duzun boto-paper motaren kodea bat datozela.
               info_message: "<strong>Oraindik ez dago erroldarik.</strong> Mesedez, erabili hurrengo galdetegia sortzeko CSV batetik inportatuz."
-              submit: Bidali csv
               title: Sortu errolda
             show:
               heading: Bozketa-gunearen errolda
@@ -1124,7 +1120,6 @@ eu:
             modal_ballots_count_error:
               btn_validate_total: Baliozkotu boto-paperen zenbaketa osoa
               close_modal: Itxi
-              info_explanation_text: 'Mesedez, berrikusi boto-txartel guztiak. Kopuru osoa zuzena bada, azalpen bat eman behar diozu Jarraipen Batzordeari:'
               info_text: Sartutako boto-paperen kopurua (gutun-azalak) gutira, ez dator bat bozketa-gune honetan botoa eman duten pertsonen erregistroarekin.
               message_for_monitoring_committee: Mezua Jarraipen Batzordearentzat
               review_recount: Berrikusi zenbaketa
