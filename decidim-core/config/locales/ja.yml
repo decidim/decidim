@@ -35,12 +35,17 @@ ja:
       decidim/demoted_membership: グループ管理者ではありません
       decidim/gamification/badge_earned_event: バッジを獲得
       decidim/gamification/level_up_event: レベルアップしました
+      decidim/invited_to_group_event: グループに招待しました
       decidim/join_request_accepted_event: 参加リクエストが承認されました
       decidim/join_request_rejected_event: 参加リクエストが拒否されました
       decidim/profile_updated_event: プロフィールが更新されました
       decidim/promote_to_admin: グループ管理者に昇格しました
+      decidim/promoted_to_admin_event: グループ管理者に昇格しました
       decidim/removed_from_group: グループから削除しました
       decidim/resource_endorsed_event: オススメされた
+      decidim/resource_hidden_event: リソースを非表示
+      decidim/user_group_created_event: ユーザーグループが作成されました
+      decidim/welcome_notification_event: ウェルカムメッセージ
   activerecord:
     attributes:
       decidim/user:
