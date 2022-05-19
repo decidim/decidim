@@ -1170,6 +1170,7 @@ cs:
         missing_event: Jejda, toto oznámení patří k položce, která již není k dispozici. Můžete ho zahodit.
     notifications_digest_mailer:
       header:
+        daily: Denní výběr oznámení
         weekly: Týdenní výběr oznámení
       hello: Dobrý den %{name},
       intro:
