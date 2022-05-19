@@ -1,0 +1,7 @@
+<%= form_tag(decidim.search_path, method: :get, id: "form-search_topbar") do %>
+  <label class="block">
+    <span class="sr-only"><%= t("decidim.search.term_input_placeholder") %></span>
+    <input type="text" class="block rounded px-4 py-1.5 text-md bg-background-2" placeholder="<%= t("decidim.search.term_input_placeholder") %>" />
+  </label>
+  <%#= submit_tag icon("magnifying-glass", aria_label: t("decidim.search.term_input_placeholder"), role: "img"), title: t("decidim.search.term_input_placeholder"), id: :submit, class: "button" %>
+<% end %>

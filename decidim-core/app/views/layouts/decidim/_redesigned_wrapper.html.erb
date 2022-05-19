@@ -3,7 +3,29 @@
     <%= render partial: "layouts/decidim/redesigned_header" %>
   </header>
   <main class="grow">
-    <%= yield %>
+    <%#= yield %>
+
+    <!-- EXAMPLES -->
+    <div class="container">
+      <% ["h1", "h2", "h3", "h4", "h5"].each do |tag| %>
+        <<%= tag %> class="<%= tag %>"><code>.<%= tag %></code> -- the quick fox jumped over the lazy dog</<%= tag %>>
+      <% end %>
+
+      <% ["xs","sm","md","lg","xl","2xl","3xl","4xl","5xl","6xl","7xl","8xl"].each do |tag| %>
+        <p class="text-<%= tag %>"><code>.text-<%= tag %></code> -- the quick fox jumped over the lazy dog</p>
+      <% end %>
+
+      <div class="grid grid-flow-col auto-cols-fr gap-4">
+        <% ["primary","secondary","tertiary","green","red","yellow","black","white","gray","gray-2","background","background-2","background-3","border","border-2"].each do |tag| %>
+          <div class="flex flex-col items-center text-center">
+            <div class="border rounded-xl w-20 h-20 bg-<%= tag %>"></div>
+            <code>.bg-<%= tag %></code>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+
   </main>
   <footer class="bg-primary">
     <%= render partial: "layouts/decidim/redesigned_footer" %>

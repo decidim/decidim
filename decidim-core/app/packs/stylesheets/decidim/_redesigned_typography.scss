@@ -1,13 +1,13 @@
 .h1 {
-   @apply font-sans font-bold text-5xl;
+   @apply font-sans font-bold text-[36px] leading-[45px];
 }
 
 .h2 {
-   @apply font-sans font-bold text-4xl;
+   @apply font-sans font-bold text-[32px] leading-[40px];
 }
 
 .h3 {
-   @apply font-sans font-bold text-2xl;
+   @apply font-sans font-bold text-[24px] leading-[30px];
 }
 
 .h4 {
@@ -16,4 +16,8 @@
 
 .h5 {
    @apply font-sans font-bold text-lg;
+}
+
+.h6 {
+   @apply font-sans font-bold text-md ;
 }
