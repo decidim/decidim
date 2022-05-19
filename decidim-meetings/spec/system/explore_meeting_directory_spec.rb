@@ -186,7 +186,7 @@ describe "Explore meeting directory", type: :system do
       it "allows filtering by type 'both'" do
         within ".type_check_boxes_tree_filter" do
           uncheck "All"
-          check "Both"
+          check "Hybrid"
         end
 
         expect(page).to have_css("#meetings-count", text: "1 MEETING")
