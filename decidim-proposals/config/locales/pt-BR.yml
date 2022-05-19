@@ -746,7 +746,6 @@ pt-BR:
             other: votos
         new:
           send: Continuar
-          title: Crie sua proposta
         orders:
           label: 'Ordene propostas por:'
           most_commented: Mais comentados
