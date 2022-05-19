@@ -779,7 +779,6 @@ nl:
             other: stemmen
         new:
           send: Doorgaan
-          title: Maak voorstel aan
         orders:
           label: 'Bestelling sorteren op:'
           most_commented: Meeste reacties
