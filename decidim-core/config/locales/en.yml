@@ -181,6 +181,7 @@ en:
         update: "%{user_name} updated the %{resource_name} OAuth application"
       organization:
         update: "%{user_name} updated the organization settings"
+        update_external_domain: "%{user_name} updated the organization external domains"
       participatory_space_private_user:
         create: "%{user_name} invited %{resource_name} to be a private participant"
         create_via_csv: "%{user_name} invited %{resource_name} via CSV to be a private participant"
