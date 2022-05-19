@@ -1,0 +1,30 @@
+<% if available_locales.length> 1 %>
+  <details class="relative">
+    <summary id="language-chooser-control"
+      class="flex items-center border border-white rounded py-1.5 px-2 cursor-pointer text-md font-semibold"
+      aria-controls="language-chooser-menu">
+      <%= icon "global-line" , class: "w-4 h-4 fill-current" %>
+      <span class="ml-1">
+        <%= t("name", scope: "locale" ) %>
+      </span>
+      <%= icon "arrow-down-s-line" , class: "w-4 h-4 ml-4 fill-current" %>
+      <span class="sr-only">
+        <% available_locales.each do |locale| %>
+          <span lang="<%= locale %>">
+            <%= I18n.with_locale(locale) { t("layouts.decidim.language_chooser.choose_language") } %>
+          </span>
+        <% end %>
+      </span>
+    </summary>
+
+    <ul id="language-chooser-menu" class="absolute top-full left-0 bg-white rounded" role="menu"
+      aria-labelledby="language-chooser-control">
+      <% (available_locales - [I18n.locale.to_s]).each do |locale| %>
+        <li class="p-2 text-black text-md" role="presentation">
+          <%= link_to locale_name(locale), decidim.locale_path(locale: locale), method: :post, role: "menuitem" , lang:
+            locale %>
+        </li>
+        <% end %>
+    </ul>
+  </details>
+<% end %>

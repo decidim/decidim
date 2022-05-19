@@ -6,7 +6,8 @@ module.exports = {
     "../decidim-*/**/app/**/*.{html,erb,js,rb}"
     // `${process.env.GEM_PATH}/**/decidim-*/**/app/**/*.{html,erb,js,rb}`
   ],
-  safelist: [{ pattern: /.*/ }], // Do not purge
+  // Do not purge
+  safelist: [{ pattern: /.*/ }],
   theme: {
     colors: {
       inherit,
@@ -22,20 +23,29 @@ module.exports = {
       black: "#020203",
       gray: {
         DEFAULT: "#C0C6CC",
-        2: "#576075"
+        2: "#576075",
+        3: "#242424"
       },
       background: {
         DEFAULT: "#FAFBFC",
         2: "#F8F8F8",
-        3: "#F3F4F7"
+        3: "#F3F4F7",
+        4: "#EFEFEF",
+        // 60% opacity
+        5: "#E4EEFF99"
       },
       border: {
         DEFAULT: "#C0C6CC",
-        2: "#F3F4F7"
+        2: "#F3F4F7",
+        3: "#E1E5EF"
       }
     },
     container: {
-      center: true
+      center: true,
+      padding: {
+        DEFAULT: "1rem",
+        lg: "4rem"
+      }
     },
     fontFamily: {
       sans: ["Source Sans Pro", "ui-sans-serif", "system-ui", "sans-serif"]

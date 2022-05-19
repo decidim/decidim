@@ -1,0 +1,18 @@
+<div class="bg-black py-5">
+  <div class="container flex justify-between items-center text-white">
+    <div>
+      <a rel="decidim noopener noreferrer" href="https://decidim.org/" target="_blank">
+        <%= image_pack_tag("media/images/decidim-logo.svg", alt: t("layouts.decidim.footer.decidim_logo"), class: "max-h-8 block") %>
+      </a>
+      <div class="text-xs mt-2">
+        <%= t("layouts.decidim.footer.made_with_open_source").html_safe %>
+      </div>
+    </div>
+    <a class="flex gap-1" rel="license noopener noreferrer" href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">
+      <span class="sr-only">t("layouts.decidim.footer.cc_by_license")</span>
+      <%= icon "creative-commons-line", class: "w-6 h-6 fill-current" %>
+      <%= icon "creative-commons-by-line", class: "w-6 h-6 fill-current" %>
+      <%= icon "creative-commons-sa-line", class: "w-6 h-6 fill-current" %>
+    </a>
+  </div>
+</div>

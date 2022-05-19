@@ -1,0 +1,42 @@
+<ul class="flex justify-between md:justify-start gap-4 text-sm text-white">
+  <% if current_organization.twitter_handler.present? %>
+    <li>
+      <a target="_blank" no-external-link rel="noopener noreferrer" href="https://twitter.com/<%= current_organization.twitter_handler %>">
+        <span class="sr-only"><%= t("layouts.decidim.social_media_links.twitter", organization: translated_attribute(current_organization.name)) %></span>
+        <%= icon "twitter-line", class: "w-8 h-8 fill-current", "aria-label": "Twitter" %>
+      </a>
+    </li>
+  <% end %>
+  <% if current_organization.facebook_handler.present? %>
+    <li>
+      <a target="_blank" no-external-link rel="noopener noreferrer" href="https://www.facebook.com/<%= current_organization.facebook_handler %>">
+        <span class="sr-only"><%= t("layouts.decidim.social_media_links.facebook", organization: translated_attribute(current_organization.name)) %></span>
+        <%= icon "facebook-fill", class: "w-8 h-8 fill-current", "aria-label": "Facebook" %>
+      </a>
+    </li>
+  <% end %>
+  <% if current_organization.instagram_handler.present? %>
+    <li>
+      <a target="_blank" no-external-link rel="noopener noreferrer" href="https://www.instagram.com/<%= current_organization.instagram_handler %>">
+        <span class="sr-only"><%= t("layouts.decidim.social_media_links.instagram", organization: translated_attribute(current_organization.name)) %></span>
+        <%= icon "instagram-line", class: "w-8 h-8 fill-current", "aria-label": "Instagram" %>
+      </a>
+    </li>
+  <% end %>
+  <% if current_organization.youtube_handler.present? %>
+    <li>
+      <a target="_blank" no-external-link rel="noopener noreferrer" href="https://www.youtube.com/<%= current_organization.youtube_handler %>">
+        <span class="sr-only"><%= t("layouts.decidim.social_media_links.youtube", organization: translated_attribute(current_organization.name)) %></span>
+        <%= icon "youtube-line", class: "w-8 h-8 fill-current", "aria-label": "Youtube" %>
+      </a>
+    </li>
+  <% end %>
+  <% if current_organization.github_handler.present? %>
+    <li>
+      <a target="_blank" no-external-link rel="noopener noreferrer" href="https://www.github.com/<%= current_organization.github_handler %>">
+        <span class="sr-only"><%= t("layouts.decidim.social_media_links.github", organization: translated_attribute(current_organization.name)) %></span>
+        <%= icon "github-fill", class: "w-8 h-8 fill-current", "aria-label": "Github" %>
+      </a>
+    </li>
+  <% end %>
+</ul>

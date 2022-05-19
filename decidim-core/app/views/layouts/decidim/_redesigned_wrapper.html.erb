@@ -8,13 +8,14 @@
       const node = document.querySelector("[rel=stylesheet][href*='/decidim_core']")
       node.getAttribute('disabled') === "true" ? node.removeAttribute('disabled') : node.setAttribute('disabled', "true")
     }</script>
-    <div class="container border-4 p-4 my-2">
+    <div class="container sticky top-4 z-50 bg-white border-4 p-4 my-2">
       <label class="cursor-pointer" for="tcss"><input type="checkbox" name="tcss" id="tcss" onclick="toggleCSS()">Hide legacy CSS stylesheet</label>
     </div>
 
-    <%= yield %>
+    <%#= yield %>
   </main>
-  <footer class="bg-primary">
-    <%= render partial: "layouts/decidim/redesigned_footer" %>
+  <footer>
+    <%= render partial: "layouts/decidim/redesigned_main_footer" %>
+    <%= render partial: "layouts/decidim/redesigned_mini_footer" %>
   </footer>
 </div>
