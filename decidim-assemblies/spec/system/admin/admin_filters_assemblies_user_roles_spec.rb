@@ -15,7 +15,7 @@ describe "Admin filters user_roles", type: :system do
   let!(:invited_user_2) { create(:assembly_valuator, email: email, assembly: assembly) }
 
   before do
-    invited_user_2.update!(invitation_sent_at: Time.current - 1.day, invitation_accepted_at: Time.current, last_sign_in_at: Time.current)
+    invited_user_2.update!(invitation_sent_at: 1.day.ago, invitation_accepted_at: Time.current, last_sign_in_at: Time.current)
 
     switch_to_host(organization.host)
     login_as admin, scope: :user

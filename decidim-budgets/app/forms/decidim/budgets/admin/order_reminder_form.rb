@@ -32,7 +32,7 @@ module Decidim
 
           end_time = current_component.participatory_space.active_step[:end_date].in_time_zone(time_zone).end_of_day
 
-          Time.current + 6.hours >= end_time
+          6.hours.from_now >= end_time
         end
 
         def minimum_interval_between_reminders

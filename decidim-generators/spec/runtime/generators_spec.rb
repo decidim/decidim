@@ -67,7 +67,7 @@ module Decidim
       end
 
       context "with --branch flag" do
-        let(:default_branch) { "develop" }
+        let(:default_branch) { Decidim::Generators.edge_git_branch }
         let(:command) { "decidim --branch #{default_branch} #{test_app}" }
 
         it_behaves_like "a new production application"
@@ -125,7 +125,7 @@ module Decidim
     private
 
     def repo_root
-      File.expand_path(File.join("..", ".."), __dir__)
+      File.expand_path(File.join("..", "..", ".."), __dir__)
     end
 
     def json_secrets_for(path, env)

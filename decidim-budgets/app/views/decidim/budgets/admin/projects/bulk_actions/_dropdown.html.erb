@@ -1,0 +1,36 @@
+<div id="js-bulk-actions-wrapper">
+  <button
+    id="js-bulk-actions-button"
+    class="button button--nomargin tiny success light dropdown hide"
+    type="button"
+    data-toggle="js-bulk-actions-dropdown">
+    <%= t("decidim.budgets.admin.projects.index.actions") %>
+  </button>
+
+  <div
+    id="js-bulk-actions-dropdown"
+    class="dropdown-pane"
+    data-position="bottom"
+    data-alignment="right"
+    data-dropdown="dropdown"
+    data-auto-focus="false"
+    data-events="resize">
+    <ul class="list-reset">
+      <li>
+        <button type="button" data-action="recategorize-projects">
+          <%= t("decidim.budgets.admin.projects.index.change_category") %>
+        </button>
+      </li>
+      <li>
+        <button type="button" data-action="scope-change-projects">
+          <%= t("decidim.budgets.admin.projects.index.change_scope") %>
+        </button>
+      </li>
+      <li>
+        <button type="button" data-action="change-selected-projects">
+          <%= t("decidim.budgets.admin.projects.index.change_selected") %>
+        </button>
+      </li>
+    </ul>
+  </div>
+</div>

@@ -18,8 +18,17 @@ en:
         min_selections: None of the above option
         title: Title
       voting:
+        banner_image: Banner image
+        census_contact_information: Census contact information
+        description: Description
         end_time: Voting ends
+        introductory_image: Introductory image
+        promoted: Promoted
+        scope: Scope
+        show_check_census: Show "check census" page
         start_time: Voting begins
+        title: Title
+        voting_type: Voting type
     errors:
       models:
         answer:
@@ -36,6 +45,10 @@ en:
               cant_be_changed: can't be changed
             public_key:
               cant_be_changed: can't be changed
+        voting:
+          attributes:
+            voting_type:
+              inclusion: "%{value} is not a valid voting type"
   activerecord:
     errors:
       models:
@@ -910,7 +923,7 @@ en:
           edit:
             change_polling_station: Back to Polling Stations
             monitoring_committee_notes: Remarks
-            monitoring_committee_notes_placeholder: Report any incidence here
+            monitoring_committee_notes_placeholder: Report any incident here
             title: Results for the election <i>%{election_title}</i> in the polling station <i>%{polling_station_title}</i>
           elections:
             title: Choose an election you want to validate
@@ -1001,6 +1014,7 @@ en:
             introductory_image: Introductory image
             promoted: Promoted
             select_a_voting_type: Please select a voting type
+            show_check_census_help: Whether to show the "Can I vote?" link at the public votings menu
             slug: Slug
             slug_help: 'URL slugs are used to generate the URLs that point to this voting. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
             title: Title
@@ -1052,7 +1066,7 @@ en:
               info_message: "<strong>Please wait</strong>, processed %{processed_count} of %{raw_count} rows from %{file} file."
             delete:
               button: Delete all census data
-              confirm: Delete all the census can not be undone. Are you sure you want to continue?
+              confirm: Deleting all the census data cannot be undone. Are you sure you want to continue?
             destroy:
               error: An error occurred deleting the census, please try again later.
               success: Census data deleted
@@ -1060,7 +1074,7 @@ en:
               button: Export voting Access Codes
               callout: You can now proceed to export the access codes. This can only be done once. Once you launch the exportation, you will receive an email with the instructions to <strong>%{email}</strong>
               confirm: You can only export the access codes once. Make sure you have access to the email account <strong>%{email}</strong>.
-              file_not_exists: This file does not exists
+              file_not_exist: This file does not exist
               launch_error: Problem launching the access codes export
               launch_success: Access codes export launched. Shortly you will receive an email to %{email}
             exporting_access_codes:
@@ -1085,7 +1099,7 @@ en:
               has_ballot_styles_message: You set up Ballot Styles. Please make sure that the "%{ballot_style_code_header}" field in the CSV corresponds to the desired Ballot Style's code.
               info_message: "<strong>There is no census yet.</strong> Please use the form below to create it importing a CSV file."
               missing_ballot_styles_message: 'There is no Ballot Style for this voting yet. If you wish to have conditional questions (i.e.: present the voter with different questions depending on, e.g., the district/region of residence), you need to set up the <a href=%{ballot_styles_admin_path}>Ballot Styles</a> <strong>before</strong> importing the census. If you want to present all voters with the same questions, you can proceed with the census import procedure.'
-              submit: Submit csv
+              submit: Submit CSV
               title: Create the census
             show:
               heading: Voting space census
@@ -1164,7 +1178,7 @@ en:
             modal_ballots_count_error:
               btn_validate_total: Validate total recount of ballots
               close_modal: Close
-              info_explanation_text: 'Please review the total number of ballots. If the total number is correct, you must provide an explanation for the Monitoring Committee:'
+              info_explanation_text: 'Please review the total number of ballots. If the total number is incorrect, you must provide an explanation for the Monitoring Committee:'
               info_text: The total number of ballots (envelopes) introduced doesn't match the record of people that has voted in this Polling Station.
               message_for_monitoring_committee: Message for the Monitoring Committee
               review_recount: Review the recount

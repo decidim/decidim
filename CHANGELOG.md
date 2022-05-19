@@ -12,6 +12,10 @@ In the next version (v0.28.0) it will be fully removed from the database.
 
 ### Added
 
+
+#### Push notifications
+PR [\#8774] https://github.com/decidim/decidim/pull/8774 Implements push notifications. Use `rails
+decidim:pwa:generate_vapid_keys` to generate the VAPID keys and copy them to your env vars file.
 #### Javascript load at the bottom of the pages
 
 PR [\#9156] https://github.com/decidim/decidim/pull/9156 moves javascript snippets to the bottom of `body` sections.
@@ -160,6 +164,17 @@ There are specific things that you need to change regarding your Form or `Virtus
 #### Custom icons new uploader
 
 PR [\#8645](https://github.com/decidim/decidim/pull/8645) we now only allow PNG images at Favicon so we can provide higher quality versions to mobile devices.
+
+#### Mail Notifications digest
+
+PR [\#8833](https://github.com/decidim/decidim/pull/8833) Users can now configure if the want to receive a real time email when they receive a notification or a periodic one with the notifications digest.
+
+
+```bash
+# Send notification mail digest daily
+5 0 * * * cd /home/user/decidim_application && RAILS_ENV=production bundle exec rake decidim:mailers:notifications_digest_daily
+# Send notification mail digest weekly on saturdays
+5 0 * * 6 cd /home/user/decidim_application && RAILS_ENV=production bundle exec rake decidim:mailers:notifications_digest_weekly
 
 ### Changed
 

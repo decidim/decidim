@@ -49,7 +49,7 @@ describe "Meeting live event", type: :system do
 
     context "when meeting is live" do
       let(:meeting) { create(:meeting, :published, :online, :embed_in_meeting_page_iframe_embed_type, component: component, start_time: 1.minute.ago, end_time: end_time) }
-      let(:end_time) { Time.current + 1.hour }
+      let(:end_time) { 1.hour.from_now }
 
       it "does not timeout user" do
         travel 5.minutes
@@ -59,12 +59,12 @@ describe "Meeting live event", type: :system do
       end
 
       context "and ends soon" do
-        let(:end_time) { Time.current + 15.seconds }
+        let(:end_time) { 15.seconds.from_now }
 
         it "logouts user" do
           travel 1.minute
           expect(page).to have_content("If you continue being inactive", wait: 30)
-          allow(Time).to receive(:current).and_return(Time.current + 1.minute)
+          allow(Time).to receive(:current).and_return(1.minute.from_now)
           expect(page).to have_content("You are not allowed to view this meeting")
         end
       end
