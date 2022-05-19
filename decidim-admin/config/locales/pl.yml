@@ -43,6 +43,7 @@ pl:
         default_locale: Domyślny język
         description: Opis
         enable_omnipresent_banner: Pokaż stały banner
+        enable_participatory_space_filters: Włącz filtry przestrzeni partycypacyjnej
         facebook_handler: Handler Facebooka
         favicon: Ikona
         force_authentication: Wymuś uwierzytelnianie
