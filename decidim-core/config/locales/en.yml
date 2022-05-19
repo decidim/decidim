@@ -165,6 +165,8 @@ en:
         delete: "%{user_name} removed the %{resource_name} component from the %{space_name} space"
         publish: "%{user_name} published the %{resource_name} component in the %{space_name} space"
         unpublish: "%{user_name} unpublished the %{resource_name} component from the %{space_name} space"
+      contextual_help_section:
+        update: "%{user_name} updated the %{resource_name} help section"
       impersonation_log:
         manage: "%{user_name} has managed %{resource_name} because %{reason}"
       moderation:
