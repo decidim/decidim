@@ -1,0 +1,18 @@
+<div class="container flex justify-between items-center px-12 py-5">
+  <div class="w-1/4 prose prose-img:max-h-16 prose-img:my-0">
+    <%= render partial: "layouts/decidim/logo", locals: { organization: current_organization } %>
+  </div>
+  <div class="grow">
+    <%= render partial: "layouts/decidim/topbar_search" %>
+  </div>
+  <div class="">
+    <span>ajuda</span>
+    <span>trobades</span>
+    <span>activitat</span>
+    <span>entra </span>
+  </div>
+</div>
+
+<% ["h1", "h2", "h3", "h4", "h5"].each do |tag| %>
+  <<%= tag %> class="<%= tag %>">The red fox is faster than green one</<%= tag %>>
+<% end %>

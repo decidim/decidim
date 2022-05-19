@@ -1,5 +1,10 @@
 @import "stylesheets/decidim/redesigned_application.scss";
 
+// IMPORTANT NOTE:
+// In order to override the current styles,
+// tailwind must be placed AFTER the current styles.
+// Once feature/redesign will be finished,
+// this three rules must be placed BEFORE the current styles.
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

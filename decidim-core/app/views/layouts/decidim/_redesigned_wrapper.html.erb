@@ -1,0 +1,11 @@
+<div class="flex flex-col min-h-screen">
+  <header>
+    <%= render partial: "layouts/decidim/redesigned_header" %>
+  </header>
+  <main class="grow">
+    <%= yield %>
+  </main>
+  <footer class="bg-primary">
+    <%= render partial: "layouts/decidim/redesigned_footer" %>
+  </footer>
+</div>
