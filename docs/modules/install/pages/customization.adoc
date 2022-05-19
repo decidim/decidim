@@ -4,20 +4,25 @@ There are occasions you find yourself in a situation that you need to change Dec
 
 ## 1. Direct change from your application ##
 
-This method is easier method, and we discuss it first. In this method, you need to first identify which lines of the code you need to change. Once you find the original file, copy the relative path of that particular file and create the same destination on your Application, and then change the code as you wish. Once you have completed this, save the changes and re-run your server and make sure about your changes.
-Lets have a solid example to make this clear. Currently, admin can create projectst hat have bigger budget amount than total budget. This kind of project can't be voted so disable admin from creating projects that has budget amount greater than total budget. If the admin inadvertently does so, once users want to vote to that project face the error message in.1.
+This method is more straight-forward, and we discuss it here first. To change the logic in decidim, identify which part of the source code you need to change. The best way to achieve this is to identify the module being responsible for handling the task. Next, create the same path on our project, and copy the file to the same destination in our project. Finally, change the code as you wish and make sure that the changes are being applied.
+Lets have an example to make this clear. Lets add a rule to the Admin panel, where Admin can not add projects with budgets more than half the total budget. Once we applied such limitation, admin should not be able to add a proposal with the cost of 5,001 Euros to a budget with total of 10,000 Euros.
+
+We want to add a validation rule to achieve this goal. For that to happen, we go through the following steps:
+
+. First, we need to investigate the original source code, where the validation for new projects being generated(in this case, it is decidim-budgets/App/form/admin/create_proposal).
+. Now that we find the original source code, we need to over-ride this file. For that to happen, we create the following destination(if it has not already existed), and copy all contents of the original files there(in this particular example, change the validation for :budget_amount.
+
+NOTE: Please note the version of decidim on github, since it may not be in sync with your local version.
+
+[start=3]
+. Next, in copied file, lets add/edit a validation for maximum allowable value:
+
+. save the file and re-run the server from the console, and check if the changes has taken effect.
 
 [#img-sunset]
-.A sample notice message that is being shown if the user exceeds the budget limit
+. Trying to create a proposal with the budget of €5,001 for a budget with the total amount of €10,000(My budget) reults in error(buttom-right error message).
 
-image::max_budget_error.png[Maximum budget error]
-
-We want to add a validation to avoid such issue. Therefore, we go through the following steps:
-
-. First, we need to is investigate the original source where the validation for new projects being generated (in this case it is decidim-budgets/App/form/admin/create_proposal).
-. Therefore, we create the following destination, if it has not already existed, and copy all the contents of the original files there(in this particular example, change the validation for :budget_amount. Please note the version of decidim on github, since it may not be in sync with your local version.
-. Next, in copied file, lets add a validation for maximum allowable value.
-. save the file and re-run the server from the console, and check if the changes has taken effect.
+image::maximum_budget.png[Maximum budget error]
 
 ## 2. Over-ride logic with concern ##
 
@@ -26,26 +31,55 @@ Now, lets apply this step-by-step in the above example:
 
 . As mentioned, we create forms/concern/my_concern.rb, and there we make desired changes in that file:
 
-  [source,ruby]
-  ----
-  # frozen_string_literal: true
-  module MyChange
-    extend ActiveSupport::Concern
-    included do
-      validates :budget_amount, #changes here!
-    end
-  end
-  ----
-
+[source,ruby]
+----
+# frozen_string_literal: true
+module MyChange
+extend ActiveSupport::Concern
+included do
+validates :budget_amount, numericality: { less_than_or_equal_to: :maximum_budget }
+end
+private
+def maximum_budget
+  # budget[:total_budget]
+  (budget[:total_budget] * 0.5).round
+end
+end
+----
+[start=2]
 . Next, add to_prepare hook in config/application:
 
-  [source,ruby]
-  ----
-  config.to_prepare do
-      Decidim::Budgets::Admin::ProjectForm.include(MyChange)
-  end
-  ----
+[source,ruby]
+----
+config.to_prepare do
+  Decidim::Budgets::Admin::ProjectForm.include(MyChange)
+end
+----
 
+[start=3]
 . Re-run the server to apply these changes.
 
 NOTE: You can also include the concern multiple places if needed(as simply as adding include MyChange).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
