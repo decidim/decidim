@@ -100,7 +100,7 @@ ca:
           type_eq:
             label: Tipus de trobada
             values:
-              hybrid: Ambdues
+              hybrid: Híbrida
               in_person: Presencial
               online: En línia
       meeting_copies:
@@ -184,7 +184,7 @@ ca:
           notification_title: La trobada <a href="%{resource_path}">%{resource_title}</a> començarà en menys de 48 hores.
     forms:
       meetings:
-        attendees_count_help_text: No oblidis incloure el nombre total d'assistents a la teva trobada, ja sigui presencial, en línia o híbrida.
+        attendees_count_help_text: No t'oblidis d'afegir el número total d'assistents a la trobada, sigui presencial, en línia o híbrida.
     gamification:
       badges:
         attended_meetings:
@@ -476,7 +476,7 @@ ca:
           type: Tipus
           type_values:
             all: Totes
-            hybrid: Ambdues
+            hybrid: Híbrida
             in_person: Presencial
             online: En línia
         filters_small_view:
@@ -567,7 +567,7 @@ ca:
           fields:
             closed: Tancada
             end_time: Data de finalització
-            id: Id
+            id: ID
             map: Mapa
             official_meeting: Trobada oficial
             start_time: Data d'inici
@@ -618,7 +618,7 @@ ca:
           invalid: S'ha produït un error en abandonar aquesta trobada.
           success: Has abandonat la trobada amb èxit.
       type_of_meeting:
-        hybrid: Ambdues
+        hybrid: Híbrida
         in_person: Presencial
         online: Online
       types:
