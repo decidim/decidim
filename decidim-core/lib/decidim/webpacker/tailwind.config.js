@@ -1,8 +1,18 @@
-// GEM_PATH is the shell output of: gem env gemdir
+const { inherit, current, transparent, white } = require("tailwindcss/colors")
+
 module.exports = {
-  content: ["./app/**/*.{html,erb,js,rb}", `${GEM_PATH}/**/decidim-*/app/**/*.{html,erb,js,rb}`],
+  content: [
+    "./app/**/*.{html,erb,js,rb}",
+    "../decidim-*/**/app/**/*.{html,erb,js,rb}"
+    // `${process.env.GEM_PATH}/**/decidim-*/**/app/**/*.{html,erb,js,rb}`
+  ],
+  safelist: [{ pattern: /.*/ }], // Do not purge
   theme: {
     colors: {
+      inherit,
+      current,
+      transparent,
+      white,
       primary: "var(--primary, #FF3333)",
       secondary: "var(--secondary, #155ABF)",
       tertiary: "var(--tertiary, #EBC34B)",
@@ -10,7 +20,6 @@ module.exports = {
       red: "var(--red, #ED1C24)",
       yellow: "var(--yellow, #FFB703)",
       black: "#020203",
-      white: "#FFFFFF",
       gray: {
         DEFAULT: "#C0C6CC",
         2: "#576075"
@@ -29,7 +38,7 @@ module.exports = {
       center: true
     },
     fontFamily: {
-      "sans": ["Source Sans Pro", "ui-sans-serif", "system-ui", "sans-serif"]
+      sans: ["Source Sans Pro", "ui-sans-serif", "system-ui", "sans-serif"]
     },
     fontSize: {
       xs: ["13px", "16px"],
@@ -39,7 +48,5 @@ module.exports = {
       xl: ["20px", "25px"]
     }
   },
-  plugins: [
-    require("@tailwindcss/typography")
-  ]
-}
+  plugins: [require("@tailwindcss/typography")]
+};

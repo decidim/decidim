@@ -7,11 +7,11 @@
 
     <!-- EXAMPLES -->
     <div class="container">
-      <% ["h1", "h2", "h3", "h4", "h5"].each do |tag| %>
+      <% ["h1", "h2", "h3", "h4", "h5", "h6"].each do |tag| %>
         <<%= tag %> class="<%= tag %>"><code>.<%= tag %></code> -- the quick fox jumped over the lazy dog</<%= tag %>>
       <% end %>
 
-      <% ["xs","sm","md","lg","xl","2xl","3xl","4xl","5xl","6xl","7xl","8xl"].each do |tag| %>
+      <% ["xs","sm","md","lg","xl"].each do |tag| %>
         <p class="text-<%= tag %>"><code>.text-<%= tag %></code> -- the quick fox jumped over the lazy dog</p>
       <% end %>
 
