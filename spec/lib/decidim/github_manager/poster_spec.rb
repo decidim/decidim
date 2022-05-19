@@ -4,7 +4,7 @@ require "decidim/github_manager/poster"
 require "webmock/rspec"
 
 describe Decidim::GithubManager::Poster do
-  let(:poster) { described_class.new(token: "abc", params: {title: "Hello world", body: "This is a test"}) }
+  let(:poster) { described_class.new(token: "abc", params: { title: "Hello world", body: "This is a test" }) }
 
   before do
     stub_request(:post, "https://api.github.com/repos/decidim/decidim/pulls")

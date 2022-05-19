@@ -4,7 +4,7 @@ require "decidim/github_manager/querier"
 require "webmock/rspec"
 
 describe Decidim::GithubManager::Querier do
-  let(:querier) { described_class.new(token: "abc", issue_id: 12345) }
+  let(:querier) { described_class.new(token: "abc", issue_id: 12_345) }
 
   before do
     stub_request(:get, "https://api.github.com/repos/decidim/decidim/issues/12345")
@@ -20,7 +20,7 @@ describe Decidim::GithubManager::Querier do
 
   describe ".parse" do
     it "returns a valid response" do
-      metadata = { "number" => 98_765, "title" => "Fix something", "labels" => [{ "name" => "type: fix" }, { "name" => "module: core" }]}
+      metadata = { "number" => 98_765, "title" => "Fix something", "labels" => [{ "name" => "type: fix" }, { "name" => "module: core" }] }
       expected_response = { id: 98_765, labels: ["module: core", "type: fix"], modules: ["module: core"], title: "Fix something", type: ["type: fix"] }
 
       expect(querier.send(:parse, metadata)).to eq expected_response
