@@ -33,8 +33,6 @@ sr:
         home:
           highlighted_assemblies:
             assemblies_button_title: Veza ka strani Veća koja prikazuje sva veća
-      show:
-        social_networks_title: Podelite ovo veće na
     events:
       assemblies:
         create_assembly_member:
