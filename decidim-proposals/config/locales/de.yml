@@ -743,7 +743,6 @@ de:
             other: Stimmen
         new:
           send: Fortsetzen
-          title: Neuen Vorschlag erstellen
         orders:
           label: 'Vorschläge sortieren nach:'
           most_commented: Am meisten kommentiert
