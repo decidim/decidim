@@ -24,8 +24,7 @@ module Decidim::Conferences
           weight: 2,
           partner_type: "collaborator",
           link: Faker::Internet.url,
-          logo: logo,
-          remove_logo: false
+          logo: logo
         }
       }
     end
