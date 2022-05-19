@@ -59,9 +59,7 @@ ro:
         avatar: Avatar
         conference_meeting_ids: Întâlniri asociate
         full_name: Numele complet
-        personal_url: Url personal
         position: Poziție
-        short_bio: Biografie scurtă
         twitter_handle: Responsabil Twitter
         user_id: Utilizator
       conference_user_role:
