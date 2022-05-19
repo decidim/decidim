@@ -35,7 +35,10 @@ describe Decidim::GitBackportManager do
 
   describe "#checkout_develop" do
     it "changes the branch to develop" do
-      `git checkout #{release_branch}`
+      `
+        git checkout #{release_branch}
+      `
+
       described_class.checkout_develop
 
       expect { system("git branch --show-current") }.to output(/develop/).to_stdout_from_any_process
@@ -72,7 +75,9 @@ describe Decidim::GitBackportManager do
     end
 
     it "exits when there's nothing to push" do
-      `git checkout -b #{backport_branch}`
+      `
+        git checkout -b #{backport_branch}
+      `
 
       expect { manager.send(:push_backport_branch!) }.to raise_error(SystemExit).and output(/Nothing to push to remote server/).to_stdout
     end
@@ -106,7 +111,9 @@ describe Decidim::GitBackportManager do
 
   describe ".exit_if_unstaged_changes" do
     it "exit with a warning if there are unstaged changes" do
-      `echo change > a_file.txt`
+      `
+        echo change > a_file.txt
+      `
 
       expect { manager.send(:exit_if_unstaged_changes) }.to raise_error(SystemExit).and output(/Please commit your changes or stash them/).to_stdout
     end
