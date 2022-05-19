@@ -28,6 +28,8 @@ Decidim::Core::Engine.routes.draw do
              }
 
   devise_scope :user do
+    get "edit_admin_password" => "devise/passwords"
+    put "update_admin_password" => "devise/passwords"
     post "omniauth_registrations" => "devise/omniauth_registrations#create"
   end
 

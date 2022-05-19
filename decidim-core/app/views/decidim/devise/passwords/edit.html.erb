@@ -10,7 +10,7 @@
     <div class="columns medium-7 large-5 medium-centered">
       <div class="card">
         <div class="card__content">
-          <%= decidim_form_for(resource, namespace: "password", as: resource_name, url: password_path(resource_name), html: { method: :put, class: "register-form new_user" }) do |f| %>
+          <%= decidim_form_for(resource, namespace: "password", as: resource_name, url: @send_path || password_path(resource_name), html: { method: :put, class: "register-form new_user" }) do |f| %>
             <%= form_required_explanation %>
 
             <%= f.hidden_field :reset_password_token %>

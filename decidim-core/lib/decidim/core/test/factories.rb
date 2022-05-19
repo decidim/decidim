@@ -139,6 +139,8 @@ FactoryBot.define do
     accepted_tos_version { organization.tos_version }
     notifications_sending_frequency { "real_time" }
     email_on_moderations { true }
+    password_updated_at { Time.current }
+    previous_passwords { [] }
 
     trait :confirmed do
       confirmed_at { Time.current }

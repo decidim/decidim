@@ -405,6 +405,19 @@ module Decidim
     []
   end
 
+  # Defines if admins are required to have stronger passwords than other users
+  config_accessor :admin_password_strong_enable do
+    true
+  end
+
+  config_accessor :admin_password_min_characters do
+    15
+  end
+
+  config_accessor :admin_password_repetition_times do
+    5
+  end
+
   # This is an internal key that allow us to properly configure the caching key separator. This is useful for redis cache store
   # as it creates some namespaces within the cached data.
   # use `config.cache_key_separator = ":"` in your initializer to have namespaced data

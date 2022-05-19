@@ -6,7 +6,37 @@ module Decidim
     class PasswordsController < ::Devise::PasswordsController
       include Decidim::DeviseControllers
 
+      prepend_before_action :require_no_authentication, except: [:edit_admin_password, :update_admin_password]
+      skip_before_action :store_current_location
+
       before_action :check_sign_in_enabled
+
+      attr_reader :send_path
+
+      def edit_admin_password
+        self.resource = current_user
+
+        @send_path = update_admin_password_path
+        render :edit
+      end
+
+      def update_admin_password
+        self.resource = current_user
+        @send_path = update_admin_password_path
+        @form = Decidim::AdminPasswordForm.from_params(params["user"])
+
+        Decidim::UpdateAdminPassword.call(current_user, @form) do
+          on(:ok) do
+            flash[:notice] = :TOIMII
+            redirect_to after_sign_in_path_for current_user
+          end
+
+          on(:invalid) do
+            flash.now[:alert] = "NOT GOOD"
+            render action: "edit"
+          end
+        end
+      end
 
       private
 
