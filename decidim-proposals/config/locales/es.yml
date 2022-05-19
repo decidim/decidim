@@ -815,7 +815,7 @@ es:
             other: apoyos
         new:
           send: Continuar
-          title: Crear tu propuesta
+          title: Crea tu propuesta
         orders:
           label: 'Ordenar propuestas por:'
           most_commented: Más comentadas
