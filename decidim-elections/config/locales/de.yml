@@ -858,7 +858,6 @@ de:
           edit:
             change_polling_station: Zurück zu den Wahllokalen
             monitoring_committee_notes: Bemerkungen
-            monitoring_committee_notes_placeholder: Melde jegliche Inzidenz hier
             title: Ergebnisse für die Wahl <i>%{election_title}</i> im Wahllokal <i>%{polling_station_title}</i>
           elections:
             title: Wählen Sie eine Wahl aus, die Sie überprüfen möchten
@@ -975,7 +974,6 @@ de:
               info_message: "<strong>Bitte warten</strong>, %{processed_count} von %{raw_count} Zeilen aus der Datei %{file} wurden verarbeitet."
             delete:
               button: Alle Erhebungsdaten löschen
-              confirm: Dies kann nicht rückgängig gemacht werden. Sind Sie sicher, dass Sie fortfahren möchten?
             destroy:
               error: Beim Löschen der Erhebungsdaten ist ein Fehler aufgetreten, bitte versuchen Sie es später erneut.
               success: Erhebungsdaten gelöscht
@@ -983,7 +981,6 @@ de:
               button: Zugangscodes für die Abstimmung exportieren
               callout: Sie können jetzt die Zugangscodes exportieren. Dies kann nur einmal geschehen. Sobald Sie den Export gestartet haben, werden Sie eine E-Mail mit den Anweisungen unter <strong>%{email}</strong> erhalten
               confirm: Sie können die Zugangscodes nur einmal exportieren. Stellen Sie sicher, dass Sie Zugang zum E-Mail-Konto <strong>%{email}</strong> haben.
-              file_not_exists: Diese Datei existiert nicht
               launch_error: Beim Starten des Zugangscode-Exports ist ein Problem aufgetreten
               launch_success: Der Zugangscode-Export wurde gestartet. Sie werden in Kürze eine E-Mail an %{email} erhalten
             exporting_access_codes:
@@ -1008,7 +1005,6 @@ de:
               has_ballot_styles_message: Sie haben Wahlkategorien eingerichtet. Bitte stellen Sie sicher dass das Feld "%{ballot_style_code_header}" im CSV dem Code der gewünschten Wahlkategorie entspricht.
               info_message: "<strong>Es gibt noch keine Erhebungsdaten.</strong> Bitte verwenden Sie das untenstehende Formular um die Erhebungsdaten aus einer CSV-Datei zu importieren."
               missing_ballot_styles_message: 'Es gibt noch keine Wahlkategorien für diese Abstimmung. Wenn Sie variable Fragen haben möchten (d.h. dem Wähler unterschiedliche Fragen anzeigen, je nach z.B. Wohnort), müssen Sie die <a href=%{ballot_styles_admin_path}>Wahlkategorien</a> einrichten, <strong>bevor</strong> Sie die Erhebungsdaten importieren. Wenn Sie allen Wählern die gleichen Fragen stellen wollen, können Sie mit dem Import für Erhebungsdaten fortfahren.'
-              submit: CSV absenden
               title: Erhebungsdaten erfassen
             show:
               heading: Erhebungsdaten der Abstimmung
@@ -1083,7 +1079,6 @@ de:
             modal_ballots_count_error:
               btn_validate_total: Neue Gesamtzahl der Stimmen überprüfen
               close_modal: Schließen
-              info_explanation_text: 'Bitte überprüfen Sie die Gesamtzahl der Stimmzettel. Falls die Gesamtzahl korrekt ist, müssen Sie eine Erklärung für den Überwachungsausschuss geben:'
               info_text: Die eingegebene Gesamtzahl der Umschläge stimmt nicht mit der Liste der Personen überein, welche in diesem Wahllokal abgestimmt haben.
               message_for_monitoring_committee: Nachricht für den Überwachungsausschuss
               review_recount: Neuzählung überprüfen
