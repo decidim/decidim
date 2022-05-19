@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require "fileutils"
+
 require "decidim/git_backport_manager"
 
 describe Decidim::GitBackportManager do
@@ -26,7 +28,7 @@ describe Decidim::GitBackportManager do
 
   after do
     Dir.chdir(working_dir)
-    `rm -rf #{tmp_repository_dir}`
+    FileUtils.rm_r(Dir.glob(tmp_repository_dir))
   end
 
   describe "#checkout_develop" do
@@ -64,7 +66,7 @@ describe Decidim::GitBackportManager do
 
     after do
       Dir.chdir(working_dir)
-      `rm -rf #{remote_repository_dir}`
+      FileUtils.rm_rf(remote_repository_dir)
     end
 
     it "exits when there's nothing to push" do
