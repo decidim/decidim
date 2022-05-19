@@ -1064,7 +1064,7 @@ cs:
               info_message: "<strong>Počkejte prosím</strong>, zpracováno %{processed_count} z %{raw_count} řádků ze souboru %{file}."
             delete:
               button: Odstranit všechna data ze seznamu obyvatel
-              confirm: Odstranění veškerých seznamů členů nelze vrátit zpět. Opravdu chcete pokračovat?
+              confirm: Odstranění všech dat z rejstříku osob nelze vrátit zpět. Opravdu chcete pokračovat?
             destroy:
               error: Došlo k chybě při odstraňování seznamu osob, opakujte akci později.
               success: Seznam členů byl smazán
@@ -1072,7 +1072,7 @@ cs:
               button: Generovat hlasovací přístupové kódy
               callout: Nyní můžete pokračovat v exportu přístupových kódů. Lze to provést pouze jednou. Jakmile zahájíte export, obdržíte e-mail s pokyny pro <strong>%{email}</strong>
               confirm: Exportovat přístupové kódy můžete pouze jednou. Ujistěte se, že máte přístup k e-mailovému účtu <strong>%{email}</strong>.
-              file_not_exists: Tento soubor neexistuje
+              file_not_exist: Tento soubor neexistuje
               launch_error: Problém se spuštěním exportu přístupových kódů
               launch_success: Export přístupových kódů byl spuštěn. Brzy obdržíte e-mail na %{email}
             exporting_access_codes:
@@ -1097,7 +1097,7 @@ cs:
               has_ballot_styles_message: Nastavili jste styl hlasování. Ujistěte se, že pole "%{ballot_style_code_header}" v CSV odpovídá požadovanému kódu Stylu hlasování.
               info_message: "<strong>Zatím neexistuje žádný seznam osob.</strong> Použijte prosím formulář níže pro vytvoření importu souboru CSV."
               missing_ballot_styles_message: 'Pro toto hlasování zatím neexistuje žádný styl hlasování. Pokud chcete mít podmíněné otázky (tj.: představit voliče s různými otázkami podle např. okresu / regionu bydliště, musíte nastavit <a href=%{ballot_styles_admin_path}>Styly pro hlasování</a> <strong>před</strong> importováním seznamu osob. Pokud chcete všem voličům položit stejné otázky, můžete pokračovat v proceduře importu seznamu osob.'
-              submit: Odeslat csv
+              submit: Odeslat CSV
               title: Vytvořit seznam osob
             show:
               heading: Hlasovací prostor seznamu osob
@@ -1176,7 +1176,7 @@ cs:
             modal_ballots_count_error:
               btn_validate_total: Ověření celkového přepočtu hlasovacích lístků
               close_modal: Zavřít
-              info_explanation_text: 'Zkontrolujte celkový počet hlasovacích lístků. Pokud je celkový počet správný, musíte monitorovacímu výboru poskytnout vysvětlení:'
+              info_explanation_text: 'Zkontrolujte celkový počet hlasovacích lístků. Pokud je celkové číslo nesprávné, musíte monitorovacímu výboru poskytnout vysvětlení:'
               info_text: Celkový počet vložených hlasovacích lístků (obálek) neodpovídá počtu osob, které v této volební místnosti hlasovaly.
               message_for_monitoring_committee: Zpráva pro monitorovací výbor
               review_recount: Zkontrolovat přepočet
