@@ -68,6 +68,12 @@ es-PY:
         email: Correo electrónico
         name: Nombre
         role: Rol de usuario
+    errors:
+      models:
+        assembly:
+          attributes:
+            document:
+              allowed_file_content_types: 'Tipo de documento no válido. Los formatos aceptados son: %{types}'
   activerecord:
     models:
       decidim/assembly:
@@ -383,6 +389,7 @@ es-PY:
         related_participatory_processes: Procesos participativos relacionados
         scope: Ámbito
         social_networks: Redes sociales
+        social_networks_title: Visita la asamblea en
         target: Quién participa
     assembly_members:
       assembly_member:
