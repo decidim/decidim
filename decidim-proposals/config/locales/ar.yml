@@ -657,7 +657,6 @@ ar:
             other: الدعم
         new:
           send: استمر
-          title: إنشاء اقتراحك
         orders:
           label: 'ترتيب المقترحات حسب:'
           most_commented: الأكثر تعليقًا عليها
