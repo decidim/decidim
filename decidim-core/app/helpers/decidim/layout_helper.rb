@@ -43,29 +43,15 @@ module Decidim
     #
     # Returns a String.
     def redesigned_icon(name, options = {})
-      options = options.with_indifferent_access
-      html_properties = {}
+      default_html_properties = {
+        "width" => "1em",
+        "height" => "1em",
+        "role" => "img",
+        "aria-hidden" => "true"
+      }
 
-      html_properties["width"] = options[:width] || "1em"
-      html_properties["height"] = options[:height] || "1em"
-      html_properties["aria-label"] = options[:aria_label] || options[:"aria-label"]
-      html_properties["role"] = options[:role] || "img"
-      html_properties["aria-hidden"] = options[:aria_hidden] || options[:"aria-hidden"]
-
-      html_properties["class"] = _icon_classes(options)
-
-      title = options["title"] || html_properties["aria-label"]
-      if title.blank? && html_properties["role"] == "img"
-        # This will make the accessibility audit tools happy as with the "img"
-        # role, the alternative text (aria-label) and title are required for the
-        # element. This will also force the SVG to be hidden because otherwise
-        # the screen reader would announce the icon name which can be in
-        # different language (English) than the page language which is not
-        # allowed.
-        title = name
-        html_properties["aria-label"] = title
-        html_properties["aria-hidden"] = true
-      end
+      html_properties = options.with_indifferent_access.transform_keys(&:dasherize).slice("width", "height", "aria-label", "role", "aria-hidden", "class")
+      html_properties = default_html_properties.merge(html_properties)
 
       href = Decidim.cors_enabled ? "" : asset_pack_path("media/images/remixicon.symbol.svg")
 
@@ -74,7 +60,7 @@ module Decidim
       end
     end
 
-    def old_icon(name, options = {})
+    def legacy_icon(name, options = {})
       options = options.with_indifferent_access
       html_properties = {}
 
@@ -109,8 +95,8 @@ module Decidim
       end
     end
 
-    def icon(name, options = {})
-      redesigned_icon(name, **options)
+    def icon(*args)
+      redesign_enabled? ? redesigned_icon(*args) : legacy_icon(*args)
     end
 
     # Outputs a SVG icon from an external file. It apparently renders an image

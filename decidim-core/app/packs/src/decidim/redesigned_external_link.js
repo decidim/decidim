@@ -14,12 +14,10 @@ export default class ExternalLink {
   }
 
   setup(node) {
-    node.classList.add("relative", "block");
-
     const span = document.createElement("span");
 
     span.innerHTML = `${this.generateIcon()}${this.generateScreenReaderLabel()}`
-    span.classList.add("absolute", "top-3/4", "left-full");
+    span.classList.add("inline-block", "mx-0.5");
 
     return node.appendChild(span);
   }
