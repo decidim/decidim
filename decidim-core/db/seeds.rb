@@ -119,8 +119,8 @@ if !Rails.env.production? || ENV.fetch("SEED", nil)
   admin.update!(
     name: Faker::Name.name,
     nickname: Faker::Twitter.unique.screen_name,
-    password: "decidim123456",
-    password_confirmation: "decidim123456",
+    password: "decidim123456789",
+    password_confirmation: "decidim123456789",
     organization: organization,
     confirmed_at: Time.current,
     locale: I18n.default_locale,

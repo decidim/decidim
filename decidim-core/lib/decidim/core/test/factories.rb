@@ -166,6 +166,7 @@ FactoryBot.define do
     trait :admin do
       admin { true }
       admin_terms_accepted
+      password { "decidim123456789" }
     end
 
     trait :user_manager do
