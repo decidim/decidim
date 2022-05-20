@@ -6,7 +6,7 @@ class AdminPasswordValidator < PasswordValidator
   REPETITION_TIMES = Decidim.config.admin_password_repetition_times
   VALIDATION_METHODS = [
     :password_too_short?,
-    :password_repeted?
+    :password_repeated?
   ].freeze
 
   private
@@ -21,7 +21,7 @@ class AdminPasswordValidator < PasswordValidator
     value.length < MINIMUM_LENGTH
   end
 
-  def password_repeted?
+  def password_repeated?
     record.previous_passwords.take(REPETITION_TIMES).each do |encrypted_password|
       return true if Devise::Encryptor.compare(Decidim::User, encrypted_password, value)
     end

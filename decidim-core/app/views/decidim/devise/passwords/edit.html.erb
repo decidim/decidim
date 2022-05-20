@@ -16,7 +16,7 @@
             <%= f.hidden_field :reset_password_token %>
 
             <div class="field">
-              <%= f.password_field :password, autocomplete: "new-password", help_text: t("devise.passwords.edit.password_help", minimun_characters: ::PasswordValidator::MINIMUM_LENGTH) %>
+              <%= f.password_field :password, autocomplete: "new-password", help_text: password_help_text(params["reset_password_token"]) %>
             </div>
 
             <div class="field">
@@ -28,7 +28,9 @@
             </div>
           <% end %>
 
-          <%= render "decidim/devise/shared/links" %>
+          <% unless current_user %>
+            <%= render "decidim/devise/shared/links" %>
+          <% end %>
         </div>
       </div>
     </div>

@@ -59,7 +59,7 @@ class PasswordValidator < ActiveModel::EachValidator
   end
 
   def strong?
-    VALIDATION_METHODS.each do |method|
+    self.class::VALIDATION_METHODS.each do |method|
       @weak_password_reasons << method.to_s.sub(/\?$/, "").to_sym if send(method.to_s)
     end
 

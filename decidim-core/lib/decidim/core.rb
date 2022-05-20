@@ -410,6 +410,10 @@ module Decidim
     true
   end
 
+  config_accessor :admin_password_days_expiration do
+    90
+  end
+
   config_accessor :admin_password_min_characters do
     15
   end

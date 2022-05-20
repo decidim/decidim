@@ -69,6 +69,9 @@ en:
       decidim/user_group:
         one: Group
         other: Groups
+  admin_password_validator:
+    password_repeated: can't reuse old password
+    password_too_short: is too short
   booleans:
     'false': 'No'
     'true': 'Yes'
@@ -1604,6 +1607,7 @@ en:
         confirm_new_password: Confirm new password
         new_password: New password
         password_help: "%{minimun_characters} characters minimum, must not be too common (e.g. 123456) and must be different from your nickname and your email."
+        password_help_admin: "%{minimun_characters} characters minimum, must not be too common (e.g. 123456), must be different from your nickname and your email and can't reuse old passwords."
       new:
         forgot_your_password: Forgot your password?
         send_me_reset_password_instructions: Send me reset password instructions
