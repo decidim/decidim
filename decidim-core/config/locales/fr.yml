@@ -1691,7 +1691,7 @@ fr:
         edit: Modifier
       footer:
         cc_by_license: Licence Creative Commons
-        decidim_logo: Logo Decidim
+        decidim_logo: Decidim.org (ouverture dans une nouvelle fenêtre)
         download_open_data: Télécharger les fichiers Open Data
         made_with_open_source: Site réalisé grâce au <a target="_blank" href="https://github.com/decidim/decidim">logiciel libre Decidim</a>.
       header:
