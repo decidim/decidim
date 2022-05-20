@@ -453,12 +453,12 @@ Also some more refined configurations:
 |No
 
 |VAPID_PUBLIC_KEY
-|VAPID public key that will be used to sign the Push API requests. It can be generated running the task: `rake decidim:generate_vapid_keys`
+|VAPID public key that will be used to sign the Push API requests. It can be generated running the task: `rails decidim:pwa:generate_vapid_keys`
 |
 |No
 
 |VAPID_PRIVATE_KEY
-|VAPID private key that will be used to sign the Push API requests. It can be generated running the task: `rake decidim:generate_vapid_keys`
+|VAPID private key that will be used to sign the Push API requests. It can be generated running the task: `rails decidim:pwa:generate_vapid_keys`
 |
 |No
 

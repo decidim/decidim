@@ -141,6 +141,7 @@ FactoryBot.define do
     email_on_moderations { true }
     password_updated_at { Time.current }
     previous_passwords { [] }
+    extended_data { {} }
 
     trait :confirmed do
       confirmed_at { Time.current }

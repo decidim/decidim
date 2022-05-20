@@ -12,6 +12,10 @@ In the next version (v0.28.0) it will be fully removed from the database.
 
 ### Added
 
+
+#### Push notifications
+PR [\#8774] https://github.com/decidim/decidim/pull/8774 Implements push notifications. Use `rails
+decidim:pwa:generate_vapid_keys` to generate the VAPID keys and copy them to your env vars file.
 #### Javascript load at the bottom of the pages
 
 PR [\#9156] https://github.com/decidim/decidim/pull/9156 moves javascript snippets to the bottom of `body` sections.
