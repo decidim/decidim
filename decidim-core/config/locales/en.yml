@@ -1245,6 +1245,10 @@ en:
           title: 'Required: Review updates to our terms of service'
     participatory_space_private_users:
       not_allowed: You are not allowed to view this content
+    passwords:
+      update:
+        error: There was a problem updating the password
+        success: Password successfully updated
     profile:
       deleted: Participant deleted
       inaccessible_message: This profile is inaccessible due to Terms and Conditions violation!

@@ -89,10 +89,16 @@ module Decidim
                       index_on_create: ->(user) { !(user.deleted? || user.blocked?) },
                       index_on_update: ->(user) { !(user.deleted? || user.blocked?) })
 
+    before_validation :setup_previous_passwords, if: -> { needs_to_save_password_change? }
     before_save :ensure_encrypted_password
+    before_save :save_admin_password_change, if: -> { needs_to_save_password_change? }
 
     def user_invited?
       invitation_token_changed? && invitation_accepted_at_changed?
+    end
+
+    def needs_to_save_password_change?
+      admin? && Decidim.config.admin_password_strong_enable
     end
 
     # Public: Allows customizing the invitation instruction email content when
@@ -320,6 +326,20 @@ module Decidim
           class: self.class.to_s
         }
       ).validate_each(self, "password", password)
+    end
+
+    def setup_previous_passwords
+      self.previous_passwords = [encrypted_password_was, *previous_passwords]
+    end
+
+    def save_admin_password_change
+      return unless persisted?
+      return unless encrypted_password_changed?
+
+      # rubocop:disable Rails/SkipsModelValidations
+      update_column(:password_updated_at, Time.current)
+      update_column(:previous_passwords, [encrypted_password_was, *previous_passwords].first(Decidim.config.admin_password_repetition_times))
+      # rubocop:enable Rails/SkipsModelValidations
     end
   end
 end

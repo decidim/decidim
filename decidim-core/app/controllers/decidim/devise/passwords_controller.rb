@@ -15,6 +15,8 @@ module Decidim
       helper_method :password_help_text
 
       def edit_admin_password
+        enforce_permission_to :update, :user, current_user: current_user
+
         self.resource = current_user
 
         @send_path = update_admin_password_path
@@ -22,18 +24,20 @@ module Decidim
       end
 
       def update_admin_password
+        enforce_permission_to :update, :user, current_user: current_user
+
         self.resource = current_user
         @send_path = update_admin_password_path
         @form = Decidim::AdminPasswordForm.from_params(params["user"])
 
         Decidim::UpdateAdminPassword.call(current_user, @form) do
           on(:ok) do
-            flash[:notice] = :TOIMII
+            flash[:notice] = t("passwords.update.success", scope: "decidim")
             redirect_to after_sign_in_path_for current_user
           end
 
           on(:invalid) do
-            flash.now[:alert] = "NOT GOOD"
+            flash.now[:alert] = t("passwords.update.error", scope: "decidim")
             render action: "edit"
           end
         end
@@ -56,6 +60,12 @@ module Decidim
       # `decidim_organization_id` attribute.
       def resource_params
         super.merge(decidim_organization_id: current_organization.id)
+      end
+
+      def user_has_no_permission_path
+        return decidim.new_user_session_path unless user_signed_in?
+
+        decidim.root_path
       end
     end
   end
