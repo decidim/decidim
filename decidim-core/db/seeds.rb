@@ -115,12 +115,9 @@ if !Rails.env.production? || ENV.fetch("SEED", nil)
   end
 
   admin = Decidim::User.find_or_initialize_by(email: "admin@example.org")
-
-  admin.update!(
+  admin_hash = {
     name: Faker::Name.name,
     nickname: Faker::Twitter.unique.screen_name,
-    password: "decidim123456789",
-    password_confirmation: "decidim123456789",
     organization: organization,
     confirmed_at: Time.current,
     locale: I18n.default_locale,
@@ -130,7 +127,9 @@ if !Rails.env.production? || ENV.fetch("SEED", nil)
     about: Faker::Lorem.paragraph(sentence_count: 2),
     accepted_tos_version: organization.tos_version,
     admin_terms_accepted_at: Time.current
-  )
+  }
+  admin_hash.merge!(password: "decidim123456789", password_confirmation: "decidim123456789") if admin.encrypted_password.blank?
+  admin.update!(admin_hash)
 
   ["user@example.org", "user2@example.org"].each do |email|
     Decidim::User.find_or_initialize_by(email: email).update!(

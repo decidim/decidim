@@ -50,7 +50,7 @@ module Decidim
     validates :email, :nickname, uniqueness: { scope: :organization }, unless: -> { deleted? || managed? || nickname.blank? }
 
     validate :all_roles_are_valid
-    validate :strong_admin_password, on: :update
+    validate :strong_admin_password, on: :update, if: -> { needs_to_save_password_change? }
 
     has_one_attached :download_your_data_file
 
@@ -89,7 +89,6 @@ module Decidim
                       index_on_create: ->(user) { !(user.deleted? || user.blocked?) },
                       index_on_update: ->(user) { !(user.deleted? || user.blocked?) })
 
-    before_validation :setup_previous_passwords, if: -> { needs_to_save_password_change? }
     before_save :ensure_encrypted_password
     before_save :save_admin_password_change, if: -> { needs_to_save_password_change? }
 
@@ -98,7 +97,7 @@ module Decidim
     end
 
     def needs_to_save_password_change?
-      admin? && Decidim.config.admin_password_strong_enable
+      admin? && encrypted_password_changed? && Decidim.config.admin_password_strong_enable
     end
 
     # Public: Allows customizing the invitation instruction email content when
@@ -317,9 +316,6 @@ module Decidim
     end
 
     def strong_admin_password
-      return unless admin?
-      return unless Decidim.config.admin_password_strong_enable
-
       ::AdminPasswordValidator.new(
         {
           attributes: [:password],
@@ -328,13 +324,8 @@ module Decidim
       ).validate_each(self, "password", password)
     end
 
-    def setup_previous_passwords
-      self.previous_passwords = [encrypted_password_was, *previous_passwords]
-    end
-
     def save_admin_password_change
       return unless persisted?
-      return unless encrypted_password_changed?
 
       # rubocop:disable Rails/SkipsModelValidations
       update_column(:password_updated_at, Time.current)

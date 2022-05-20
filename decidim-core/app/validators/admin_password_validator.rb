@@ -22,7 +22,7 @@ class AdminPasswordValidator < PasswordValidator
   end
 
   def password_repeated?
-    record.previous_passwords.take(REPETITION_TIMES).each do |encrypted_password|
+    [record.encrypted_password_was, *record.previous_passwords].compact.take(REPETITION_TIMES).each do |encrypted_password|
       return true if Devise::Encryptor.compare(Decidim::User, encrypted_password, value)
     end
 
