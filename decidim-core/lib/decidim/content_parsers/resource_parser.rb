@@ -52,6 +52,7 @@ module Decidim
       def resource_from_url_match(match)
         uri = URI.parse(match)
         return if uri.path.blank?
+        return unless find_organization(uri.host)
 
         resource_id = uri.path.split("/").last
         find_resource_by_id(resource_id)
@@ -73,6 +74,11 @@ module Decidim
           components = Component.where(participatory_space: spaces).published
           model_class.constantize.where(component: components).find_by(id: id)
         end
+      end
+
+      def find_organization(uri_host)
+        current_organization = context[:current_organization]
+        current_organization.secondary_hosts.append(current_organization.host).include?(uri_host)
       end
 
       def url_regex

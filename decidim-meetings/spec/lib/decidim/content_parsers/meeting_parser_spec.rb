@@ -5,7 +5,7 @@ require "spec_helper"
 module Decidim
   module ContentParsers
     describe MeetingParser do
-      let(:organization) { create(:organization) }
+      let(:organization) { create(:organization, host: "my.host") }
       let(:component) { create(:meeting_component, organization: organization) }
       let(:context) { { current_organization: organization } }
       let!(:parser) { Decidim::ContentParsers::MeetingParser.new(content, context) }
@@ -42,6 +42,16 @@ module Decidim
           let(:content) { "whatever content with @mentions but no links." }
 
           it { is_expected.to eq(content) }
+        end
+
+        context "when content has a link with a different host" do
+          let(:meeting) { create(:meeting, component: component) }
+          let(:content) do
+            url = changed_meeting_url(meeting)
+            "This content references meeting #{url}."
+          end
+
+          it { is_expected.to eq("This content references meeting #{changed_meeting_url(meeting)}.") }
         end
 
         context "when content links to an organization different from current" do
@@ -131,6 +141,13 @@ module Decidim
 
       def meeting_url(meeting)
         Decidim::ResourceLocatorPresenter.new(meeting).url
+      end
+
+      def changed_meeting_url(meeting)
+        url = meeting_url(meeting)
+        regex = %r{http(s)?://my.host/(.*)}
+        url_path = regex.match(url)[2]
+        "http://my.another.host/#{url_path}"
       end
     end
   end
