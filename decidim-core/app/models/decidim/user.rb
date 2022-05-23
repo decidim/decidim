@@ -327,6 +327,7 @@ module Decidim
     def save_admin_password_change
       return unless persisted?
 
+      # We don't want to run validations here because that could lead to an endless validation loop.
       # rubocop:disable Rails/SkipsModelValidations
       update_column(:password_updated_at, Time.current)
       update_column(:previous_passwords, [encrypted_password_was, *previous_passwords].first(Decidim.config.admin_password_repetition_times))

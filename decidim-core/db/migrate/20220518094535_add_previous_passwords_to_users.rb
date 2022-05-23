@@ -3,7 +3,6 @@
 class AddPreviousPasswordsToUsers < ActiveRecord::Migration[6.1]
   class User < ApplicationRecord
     self.table_name = :decidim_users
-    self.inheritance_column = nil
   end
 
   def up

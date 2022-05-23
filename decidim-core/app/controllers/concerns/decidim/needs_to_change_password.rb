@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Decidim
-  # Shared behaviour for signed_in users that require the latest TOS accepted
+  # Force user to "Change your password" view when they need to change password
   module NeedsToChangePassword
     extend ActiveSupport::Concern
 
