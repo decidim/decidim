@@ -12,9 +12,11 @@ module Decidim
 
         # Creates the question if valid.
         #
-        # Broadcasts :ok if successful, :invalid otherwise.
+        # Broadcasts :ok if successful, :ongoing_election if the
+        # election already started, and :invalid otherwise.
         def call
           return broadcast(:invalid) if invalid?
+          return broadcast(:election_ongoing) if election_started?
 
           create_question!
 
@@ -26,7 +28,11 @@ module Decidim
         attr_reader :form, :question
 
         def invalid?
-          form.election.started? || form.invalid?
+          form.invalid?
+        end
+
+        def election_started?
+          form.election.started?
         end
 
         def create_question!

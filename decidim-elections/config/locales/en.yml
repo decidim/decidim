@@ -226,7 +226,8 @@ en:
             title: Import proposals
         questions:
           create:
-            invalid: There was a problem creating this question
+            invalid: The question is not valid. Please review the form
+            election_ongoing: You can't create a question for an ongoing election
             success: Question successfully created
           destroy:
             invalid: There was a problem deleting this question
