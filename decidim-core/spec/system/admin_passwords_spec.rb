@@ -19,6 +19,7 @@ describe "Admin passwords", type: :system do
 
     it "can update password successfully" do
       manual_login(user.email, password)
+      expect(page).to have_content("Admins needs to change their password for every 90 days")
       expect(page).to have_content("Change your password")
       fill_in :password_user_password, with: new_password
       fill_in :password_user_password_confirmation, with: new_password

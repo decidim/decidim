@@ -160,6 +160,7 @@ en:
         cancel: Cancel
       password_change:
         alert: You need to change your password before access
+        notification: Admins needs to change their password for every %{days} days.
     admin_log:
       area:
         create: "%{user_name} created the %{resource_name} area"

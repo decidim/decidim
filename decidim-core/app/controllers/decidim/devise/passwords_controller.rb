@@ -20,6 +20,7 @@ module Decidim
         self.resource = current_user
         @send_path = update_admin_password_path
 
+        flash[:secondary] = t("decidim.admin.password_change.notification", days: Decidim.config.admin_password_days_expiration) if flash[:secondary].blank?
         render :edit
       end
 
