@@ -1,5 +1,6 @@
-// @import "stylesheets/decidim/editor";
-// @import "stylesheets/decidim/decidim";
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
 
 @import "stylesheets/decidim/redesigned_fonts.scss";
 @import "stylesheets/decidim/redesigned_typography.scss";
