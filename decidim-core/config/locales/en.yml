@@ -158,6 +158,8 @@ en:
     admin:
       actions:
         cancel: Cancel
+      password_change:
+        alert: You need to change your password before access
     admin_log:
       area:
         create: "%{user_name} created the %{resource_name} area"

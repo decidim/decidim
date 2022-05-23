@@ -15,21 +15,21 @@ module Decidim
       helper_method :password_help_text
 
       def edit_admin_password
-        enforce_permission_to :update, :user, current_user: current_user
+        enforce_permission_to :change_admin_password, :user, current_user: current_user
 
         self.resource = current_user
-
         @send_path = update_admin_password_path
+
         render :edit
       end
 
       def update_admin_password
-        enforce_permission_to :update, :user, current_user: current_user
+        enforce_permission_to :change_admin_password, :user, current_user: current_user
 
         self.resource = current_user
         @send_path = update_admin_password_path
-        @form = Decidim::AdminPasswordForm.from_params(params["user"])
 
+        @form = Decidim::AdminPasswordForm.from_params(params["user"])
         Decidim::UpdateAdminPassword.call(current_user, @form) do
           on(:ok) do
             flash[:notice] = t("passwords.update.success", scope: "decidim")
