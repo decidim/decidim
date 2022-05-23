@@ -90,7 +90,7 @@ module Decidim
                       index_on_update: ->(user) { !(user.deleted? || user.blocked?) })
 
     before_save :ensure_encrypted_password
-    before_save :save_admin_password_change, if: -> { needs_to_save_password_change? }
+    before_save :save_password_change, if: -> { needs_to_save_password_change? }
 
     def user_invited?
       invitation_token_changed? && invitation_accepted_at_changed?
@@ -324,7 +324,7 @@ module Decidim
       ).validate_each(self, "password", password)
     end
 
-    def save_admin_password_change
+    def save_password_change
       return unless persisted?
 
       # We don't want to run validations here because that could lead to an endless validation loop.
