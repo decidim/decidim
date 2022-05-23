@@ -10,7 +10,7 @@ module Decidim
     private
 
     def passwords_match
-      password == password_confirmation
+      errors.add(:password, I18n.t("decidim.forms.errors.decidim/user.password_confirmation")) if password != password_confirmation
     end
   end
 end

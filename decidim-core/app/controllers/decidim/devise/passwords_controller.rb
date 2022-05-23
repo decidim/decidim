@@ -38,6 +38,7 @@ module Decidim
 
           on(:invalid) do
             flash.now[:alert] = t("passwords.update.error", scope: "decidim")
+            resource.errors.errors.concat(@form.errors.errors)
             render action: "edit"
           end
         end
