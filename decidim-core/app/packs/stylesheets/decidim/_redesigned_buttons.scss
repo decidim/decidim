@@ -1,0 +1,35 @@
+.button {
+  @apply flex items-center font-semibold rounded transition cursor-pointer;
+
+  &.sm {
+    @apply text-sm px-4 py-1.5 gap-1.5;
+  }
+
+  &.lg {
+    @apply text-lg px-6 py-3 gap-2;
+  }
+
+  &.xl {
+    @apply text-xl px-8 py-4 gap-4;
+  }
+
+  &.primary {
+    @apply bg-primary text-white;
+  }
+
+  &.secondary {
+    @apply bg-secondary text-white;
+  }
+
+  &.tertiary {
+    @apply bg-tertiary text-white;
+  }
+
+  &.white {
+    @apply bg-white;
+  }
+
+  &.transparent {
+    @apply bg-transparent text-white border border-white;
+  }
+}

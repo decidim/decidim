@@ -1,0 +1,8 @@
+<%= icon "home-2-line", class: "w-6 h-6 fill-current" %>
+
+<% breadcrumb = [["Process", false], ["Imaginem el nou ecobarri de Ca n' Ametller", true]] %>
+
+<% breadcrumb.each do |item| %>
+  <span>/</span>
+  <span class="cursor-pointer <%= 'font-bold' if item[1] %>"><%= item[0] %></span>
+<% end %>
