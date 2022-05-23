@@ -40,7 +40,7 @@ edit_link(
               <%= render partial: "vote_cabin", locals: { initiative: current_initiative } %>
             </div>
           <% end %>
-          <% if current_initiative.type.comments_enabled %>
+          <% if current_initiative.commentable? %>
             <%= render partial: "interactions" %>
           <% end %>
         <% else %>
