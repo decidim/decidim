@@ -981,7 +981,6 @@ pl:
             assign_missing_officers: Wciąż są lokale wyborcze bez przewodniczącego i/lub menedżerów. Proszę przydzielić ich w sekcji lokali wyborczych
             update: Aktualizuj
           form:
-            census_contact_information_help: Te dane kontaktowe dotyczą uczestnika, który chce zgłaszać problemy ze listą wyborców. Może to być adres e-mail, formularz kontaktowy na innej stronie, ankieta Decidim dla odwiedzających itp.
             select_a_voting_type: Wybierz typ głosowania
             slug_help: 'URL slugi służą do generowania adresów URL kierujących bezpośrednio do tego procesu. Należy wpisać tylko to, co ma znaleźć się na końcu po znaku „/”, a nie pełen adres. Można użyć liter, cyfr i myślników. Musi zaczynać się od litery. Przykład: %{url}'
             title: Tytuł
