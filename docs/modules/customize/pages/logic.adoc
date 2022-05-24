@@ -1,4 +1,4 @@
-= Change logic in decdidim-core
+= Change Decidim core logic within your application
 
 There are occasions you find yourself in a situation that you need to change Decidim core logic within your application. There are two ways to accomplish this goal, and we are going through these options here.
 As an example, we will add a new validation rule to the Admin panel, where Admin can not add projects with budgets more than half the total budget. Once we applied such limitation, admins should not be able to add a project with the cost of 5,001 euros to a budget with total of 10,000 euros.
