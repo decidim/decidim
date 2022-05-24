@@ -2,8 +2,9 @@
 /* eslint no-unused-vars: ["error", { "args": "none" }] */
 
 import { Client } from "@decidim/decidim-bulletin_board";
+import { reportingErrors } from "src/decidim/reporting_errors";
 
-$(() => {
+$(reportingErrors(() => {
   const $voteVerifyWrapper = $(".verify-vote-wrapper");
   const $verifySubmitButton = $voteVerifyWrapper.find("a.focus__next.confirm");
 
@@ -69,4 +70,4 @@ $(() => {
   $(document).on("on.zf.toggler", (event) => {
     initStep();
   });
-});
+}));

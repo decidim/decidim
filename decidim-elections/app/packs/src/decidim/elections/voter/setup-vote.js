@@ -1,6 +1,7 @@
 /* eslint-disable require-jsdoc */
 
 import { VoteComponent } from "@decidim/decidim-bulletin_board";
+import reportingErrors from "src/decidim/reporting_errors";
 
 import * as VotingSchemesDummy from "@decidim/voting_schemes-dummy";
 const DummyVoterWrapperAdapter = VotingSchemesDummy.VoterWrapperAdapter;

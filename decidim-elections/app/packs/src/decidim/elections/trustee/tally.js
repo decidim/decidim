@@ -7,8 +7,9 @@ import {
 
 import { TrusteeWrapperAdapter as DummyTrusteeWrapperAdapter } from "@decidim/voting_schemes-dummy";
 import { TrusteeWrapperAdapter as ElectionGuardTrusteeWrapperAdapter } from "@decidim/voting_schemes-electionguard";
+import { reportingErrors } from "src/decidim/reporting_errors";
 
-$(() => {
+$(reportingErrors(() => {
   // UI Elements
   const $tally = $(".trustee-step");
   const $startButton = $tally.find(".start");
@@ -137,4 +138,4 @@ $(() => {
       await bindComponentEvents();
     }
   });
-});
+}));
