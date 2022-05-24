@@ -135,6 +135,7 @@ fr-CA:
       email_change:
         body1: Nous avons envoyé un e-mail à %{unconfirmed_email} pour vérifier votre nouvelle adresse e-mail.
         body2: Envoyer à nouveau l'e-mail de vérification ? %{resend_link} ou %{cancel_link}.
+        cancel: annuler
         cancel_error: Impossible d'annuler la modification de l'e-mail.
         cancel_successfully: Modification de l'e-mail annulée.
         resend_error: Impossible de renvoyer l'e-mail de confirmation.
@@ -1124,10 +1125,22 @@ fr-CA:
       no_notifications: Il n'y a pas encore de notifications.
       show:
         missing_event: Oups, cette notification est liée à un élément qui n'est plus disponible. Vous pouvez la supprimer.
+    notifications_digest_mailer:
+      header:
+        daily: Résumé quotidien des notifications
+        weekly: Résumé hebdomadaire des notifications
+      hello: Bonjour %{name},
+      intro:
+        daily: 'Voici les notifications de la veille, basées sur les ressources que vous suivez :'
+        weekly: 'Voici les notifications de la semaine dernière, basées sur les ressources que vous suivez :'
+      outro: Vous avez reçu ces notifications parce que vous suivez ce contenu ou ses auteurs. Pour arrêter de les suivre, rendez-vous sur la page du contenu ou de l'auteur et cliquez sur "Ne plus suivre".
+      see_more: Voir plus de notifications
+      subject: Résumé de vos notifications mail
     notifications_settings:
       show:
         administrators: Administrateurs
         allow_public_contact: Permettre à quelqu'un de m'envoyer un message direct, même si je ne les suis pas.
+        allow_push_notifications: Recevez des notifications push pour savoir ce qui se passe lorsque vous n'êtes pas sur la plateforme. Vous pouvez les désactiver à tout moment.
         direct_messages: Recevoir des messages directs de n'importe qui
         email_on_moderations: Je veux recevoir un email chaque fois que quelqu'un ou qu'une ressource a été signalé à des fins de modérations.
         everything_followed: Tout ce que je suis
@@ -1135,7 +1148,15 @@ fr-CA:
         newsletters: Newsletters
         notification_settings:
           close_meeting_reminder: Je veux recevoir des rappels par e-mail pour les comptes-rendus de réunions terminées que je n'ai pas encore publiés
+        notifications_sending_frequencies:
+          daily: Une fois par jour
+          none: Jamais
+          real_time: En temps réel
+          weekly: Une fois par semaine
+        notifications_sending_frequency: À quelle fréquence voulez-vous recevoir les notifications par e-mail ?
         own_activity: Ma propre activité, comme quand quelqu'un commente dans ma proposition ou me mentionne
+        push_notifications: Notifications push
+        push_notifications_reminder: Pour recevoir des notifications de la plateforme, vous devez d'abord les autoriser dans les paramètres de votre navigateur.
         receive_notifications_about: Je veux recevoir des notifications sur
         update_notifications_settings: Enregistrer les modifications
       update:
