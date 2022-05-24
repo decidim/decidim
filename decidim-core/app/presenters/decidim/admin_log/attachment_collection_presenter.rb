@@ -2,7 +2,7 @@
 
 module Decidim
   module AdminLog
-    # This class holds the logic to present a `Decidim::Component`
+    # This class holds the logic to present a `Decidim::AttachmentCollection`
     # for the `AdminLog` log.
     #
     # Usage should be automatic and you shouldn't need to call this class
