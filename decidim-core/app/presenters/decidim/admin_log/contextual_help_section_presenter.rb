@@ -2,7 +2,7 @@
 
 module Decidim
   module AdminLog
-    # This class holds the logic to present a `Decidim::Area`
+    # This class holds the logic to present a `Decidim::ContextualHelpSection`
     # for the `AdminLog` log.
     #
     # Usage should be automatic and you shouldn't need to call this class
