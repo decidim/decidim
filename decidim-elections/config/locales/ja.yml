@@ -982,14 +982,20 @@ ja:
             assign_missing_officers: 投票管理者またはマネージャーがいない投票所があります。投票所セクションからアサインしてください
             update: 更新
           form:
-            census_contact_information_help: この連絡先情報は、センサスで問題を報告したい参加者のためのものです。 それは電子メールアドレス、別のサイトの連絡先フォーム、訪問者のためのDecidimアンケートなどである可能性があります。
+            banner_image: バナー画像
+            census_contact_information: センサスの連絡先情報
+            census_contact_information_help: この連絡先情報は、センサスについて問題を報告したい参加者のためのものです。 電子メールアドレス、別のサイトの連絡先フォーム、訪問者のための調査などが利用できます。
+            introductory_image: 導入画像
+            promoted: プロモート
             select_a_voting_type: 投票方式を選択してください
+            slug: スラグ
             slug_help: 'URLスラグは、この投票を指すURLを生成するために使用されます。 使用できるのはアルファベット、数字、ダッシュのみで、アルファベットから始める必要があります。例: %{url}'
             title: タイトル
             voting_type:
               hybrid: ハイブリッド
               in_person: 対面
               online: オンライン
+            voting_type_label: 投票タイプ
           new:
             create: 作成
             title: 新しい投票
@@ -1281,6 +1287,7 @@ ja:
           day_placeholder: DD
           document_number: ドキュメント番号
           document_number_placeholder: ID 番号
+          document_type: ドキュメントの種類
           month: 月
           month_placeholder: MM
           postal_code: 郵便番号
