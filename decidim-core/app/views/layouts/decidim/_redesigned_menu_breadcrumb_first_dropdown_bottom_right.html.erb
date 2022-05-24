@@ -1,0 +1,15 @@
+<div class="bg-background-2 rounded p-4 space-y-3">
+  <% 4.times do %>
+    <div class="flex justify-between gap-4">
+      <time class="text-sm whitespace-nowrap flex-none">Fa 3 hores</time>
+      <div class="flex flex-col text-sm">
+        <span>Nova proposta: <a class="text-secondary" href="">Cal un Hospital amb servei Públic</a></span>
+        <span class="text-gray-2">Pressupostos Participatius 2020-21</span>
+      </div>
+      <div class="overflow-hidden w-6 h-6 rounded-full flex-none">
+        <%= image_tag "https://www.fillmurray.com/640/360", class: "object-cover w-full h-full" %>
+      </div>
+    </div>
+  <% end %>
+</div>
+<%= arrow_link t("decidim.content_blocks.last_activity.name"), "", class: "mt-4 text-secondary" %>

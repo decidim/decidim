@@ -29,19 +29,6 @@ module Decidim
       favicon_link_tag(icon_image.gsub(".png", ".ico"), rel: "icon", sizes: "any", type: nil)
     end
 
-    # Outputs an SVG-based icon.
-    #
-    # name    - The String with the icon name.
-    # options - The Hash options used to customize the icon (default {}):
-    #             :width  - The Number of width in pixels (optional).
-    #             :height - The Number of height in pixels (optional).
-    #             :title - The title for the SVG element (optional, similar to alt for img)
-    #             :aria_label - The String to set as aria label (optional).
-    #             :aria_hidden - The Truthy value to enable aria_hidden (optional).
-    #             :role - The String to set as the role (optional).
-    #             :class - The String to add as a CSS class (optional).
-    #
-    # Returns a String.
     def redesigned_icon(name, options = {})
       default_html_properties = {
         "width" => "1em",
@@ -60,6 +47,19 @@ module Decidim
       end
     end
 
+    # Outputs an SVG-based icon.
+    #
+    # name    - The String with the icon name.
+    # options - The Hash options used to customize the icon (default {}):
+    #             :width  - The Number of width in pixels (optional).
+    #             :height - The Number of height in pixels (optional).
+    #             :title - The title for the SVG element (optional, similar to alt for img)
+    #             :aria_label - The String to set as aria label (optional).
+    #             :aria_hidden - The Truthy value to enable aria_hidden (optional).
+    #             :role - The String to set as the role (optional).
+    #             :class - The String to add as a CSS class (optional).
+    #
+    # Returns a String.
     def legacy_icon(name, options = {})
       options = options.with_indifferent_access
       html_properties = {}
@@ -97,6 +97,14 @@ module Decidim
 
     def icon(*args)
       redesign_enabled? ? redesigned_icon(*args) : legacy_icon(*args)
+    end
+
+    def arrow_link(text, url, args = {})
+      content_tag :a, href: url, class: "arrow-link #{args.with_indifferent_access[:class]}" do
+        inner = text
+        inner += redesigned_icon("arrow-right-line", class: "fill-current")
+        inner.html_safe
+      end
     end
 
     # Outputs a SVG icon from an external file. It apparently renders an image

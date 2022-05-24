@@ -1,4 +1,9 @@
-<%= icon "home-2-line", class: "w-6 h-6 fill-current" %>
+<div class="relative group cursor-pointer">
+  <%= icon "home-2-line", class: "w-6 h-6 fill-current" %>
+  <div class="absolute top-full left-0 z-20 cursor-auto">
+    <%= render partial: "layouts/decidim/redesigned_menu_breadcrumb_first_dropdown" %>
+  </div>
+</div>
 
 <% breadcrumb = [["Process", false], ["Imaginem el nou ecobarri de Ca n' Ametller", true]] %>
 
