@@ -78,7 +78,7 @@ module Decidim
 
       def find_organization(uri_host)
         current_organization = context[:current_organization]
-        current_organization.secondary_hosts.append(current_organization.host).include?(uri_host)
+        (current_organization.host == uri_host) || current_organization.secondary_hosts.include?(uri_host)
       end
 
       def url_regex
