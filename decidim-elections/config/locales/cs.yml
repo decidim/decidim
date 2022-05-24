@@ -1013,14 +1013,20 @@ cs:
             assign_missing_officers: Existují volební místnosti bez předsedy a/nebo manažerů. Prosím, přiřaďte je ze sekce volebních místností
             update: Aktualizovat
           form:
-            census_contact_information_help: Tato kontaktní informace je určena pro účastníka, který chce nahlásit problémy se sčítáním. Může to být e-mailová adresa, kontaktní formulář na jiné stránce, anketa Decidim pro návštěvníky, atd.
+            banner_image: Obrázek banneru
+            census_contact_information: Kontaktní informace pro rejstřík obyvatel
+            census_contact_information_help: Tato kontaktní informace je určena pro účastníka, který chce nahlásit problémy se sčítáním. Může to být e-mailová adresa, kontaktní formulář na jiné stránce, průzkum pro návštěvníky atd.
+            introductory_image: Úvodní obrázek
+            promoted: Propagováno
             select_a_voting_type: Vyberte prosím typ hlasování
+            slug: Slug
             slug_help: 'URL slugů se používají k generování URL, které odkazují na toto hlasování. přijímá pouze písmena, čísla a pomlčky a musí začínat písmenem. Příklad: %{url}'
             title: Název
             voting_type:
               hybrid: Hybridní
               in_person: Osobní
               online: Online
+            voting_type_label: Typ hlasování
           new:
             create: Vytvořit
             title: Nové hlasování
@@ -1316,6 +1322,7 @@ cs:
           day_placeholder: DD
           document_number: Číslo dokumentu
           document_number_placeholder: Číslo občanského průkazu
+          document_type: Typ dokumentu
           month: Měsíc
           month_placeholder: MM
           postal_code: PSČ
