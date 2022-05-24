@@ -59,6 +59,39 @@ describe "Admin manages questions", type: :system do
     end
   end
 
+  context "when the election has already started" do
+    let(:election) { create :election, :started, component: current_component }
+
+    it "doesn't create a new question" do
+      click_on "New Question"
+
+      within ".new_question" do
+        fill_in_i18n(
+          :question_title,
+          "#question-title-tabs",
+          en: "My question",
+          es: "Mi pregunta",
+          ca: "La meva pregunta"
+        )
+        fill_in_i18n_editor(
+          :question_description,
+          "#question-description-tabs",
+          en: "Long description",
+          es: "Descripción más larga",
+          ca: "Descripció més llarga"
+        )
+      end
+
+      within ".new_question" do
+        find("*[type=submit]").click
+      end
+
+      within ".callout-wrapper" do
+        expect(page).to have_content("has already started")
+      end
+    end
+  end
+
   context "when the election has created on the bulletin board" do
     let(:election) { create(:election, :created, component: current_component) }
 
