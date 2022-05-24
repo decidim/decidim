@@ -10,7 +10,7 @@ module Decidim
     #
     #    action_log = Decidim::ActionLog.last
     #    view_helpers # => this comes from the views
-    #    AreaPresenter.new(action_log, view_helpers).present
+    #    ContextualHelpSectionPresenter.new(action_log, view_helpers).present
     class ContextualHelpSectionPresenter < Decidim::Log::BasePresenter
       private
 
