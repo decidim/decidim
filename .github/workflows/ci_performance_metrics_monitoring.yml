@@ -77,6 +77,9 @@ jobs:
       - run: bundle exec rails decidim:lighthouse:prepare_urls
         name: Setup lighthouse urls
         working-directory: ./development_app/
+      - run: bundle exec rails dev:cache
+        name: Activate Rails cache
+        working-directory: ./development_app/
       - run: bundle exec rails server -b localhost -d
         name: Run Rails server
         working-directory: ./development_app/
