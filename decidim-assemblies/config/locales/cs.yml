@@ -248,6 +248,9 @@ cs:
     admin_log:
       assembly:
         create: "%{user_name} vytvořil %{resource_name} shromáždění"
+        duplicate: "%{user_name} zkopíroval shromáždění %{resource_name}"
+        export: "%{user_name} exportoval shromáždění %{resource_name}"
+        import: "%{user_name} importoval shromáždění %{resource_name}"
         publish: "%{user_name} publikoval %{resource_name} shromáždění"
         unpublish: "%{user_name} odebral %{resource_name} shromáždění"
         update: "%{user_name} aktualizoval shromáždění %{resource_name}"
