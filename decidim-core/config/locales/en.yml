@@ -160,6 +160,10 @@ en:
         create: "%{user_name} created the %{resource_name} area"
         delete: "%{user_name} deleted the %{resource_name} area"
         update: "%{user_name} updated the %{resource_name} area"
+      attachment_collection:
+        create: "%{user_name} created the %{resource_name} attachment collection"
+        delete: "%{user_name} deleted the %{resource_name} attachment collection"
+        update: "%{user_name} updated the %{resource_name} attachment collection"
       component:
         create: "%{user_name} added the %{resource_name} component to the %{space_name} space"
         delete: "%{user_name} removed the %{resource_name} component from the %{space_name} space"
