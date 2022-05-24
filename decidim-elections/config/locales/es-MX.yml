@@ -18,6 +18,7 @@ es-MX:
         title: Título
       voting:
         banner_image: Imagen de cabecera
+        census_contact_information: Datos de contacto del censo
         description: Descripción
         end_time: La votación finaliza
         introductory_image: Imagen de presentación
@@ -224,6 +225,7 @@ es-MX:
             title: Importar propuestas
         questions:
           create:
+            election_started: La elección ya ha comenzado
             invalid: Se ha producido un error al crear esta pregunta
             success: Se ha creado la pregunta correctamente
           destroy:
