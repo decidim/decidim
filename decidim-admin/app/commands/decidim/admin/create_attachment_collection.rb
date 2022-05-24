@@ -36,7 +36,7 @@ module Decidim
         Decidim.traceability.create!(
           AttachmentCollection,
           @user,
-          params
+          attributes
         )
       end
 
