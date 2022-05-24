@@ -972,7 +972,6 @@ it:
             assign_missing_officers: Ci sono stazioni di sondaggio senza Presidente e/o Manager. Si prega di assegnarle dalla sezione Postazioni di sondaggio
             update: Aggiorna
           form:
-            census_contact_information_help: Questa informazione di contatto è per un partecipante che vuole segnalare problemi con il censimento. Può essere un indirizzo e-mail, un modulo di contatto su un altro sito, un sondaggio Decidim per i visitatori, ecc.
             select_a_voting_type: Seleziona un tipo di votazione
             slug_help: 'Gli URL slugs sono usati per generare gli URL che puntano a questo voto. Accetta solo lettere, numeri e trattini e deve iniziare con una lettera. Esempio: %{url}'
             title: Titolo
