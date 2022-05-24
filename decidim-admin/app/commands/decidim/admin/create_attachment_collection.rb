@@ -40,7 +40,7 @@ module Decidim
         )
       end
 
-      def params
+      def attributes
         {
           name: form.name,
           weight: form.weight,
