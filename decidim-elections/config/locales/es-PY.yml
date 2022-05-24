@@ -18,6 +18,7 @@ es-PY:
         title: Título
       voting:
         banner_image: Imagen de cabecera
+        census_contact_information: Datos de contacto del censo
         description: Descripción
         end_time: La votación finaliza
         introductory_image: Imagen de presentación
