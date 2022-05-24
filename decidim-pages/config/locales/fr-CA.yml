@@ -29,5 +29,7 @@ fr-CA:
             invalid: Erreurs lors de la sauvegarde de la page.
             success: Page enregistrée avec succès.
       home:
+        hero:
+          participate_title: Participer aux concertations de la plateforme
         sub_hero:
           register_title: Inscrivez-vous pour créer un compte
