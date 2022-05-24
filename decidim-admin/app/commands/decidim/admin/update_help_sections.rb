@@ -16,7 +16,7 @@ module Decidim
 
         ActiveRecord::Base.transaction do
           @form.sections.each do |section|
-            next unless content_has_changed(section)
+            next unless content_has_changed?(section)
 
             Decidim.traceability.perform_action!("update", ContextualHelpSection, @user, { "resource" => { "title" => section.id.humanize } }) do
               ContextualHelpSection.set_content(@organization, section.id, section.content)
