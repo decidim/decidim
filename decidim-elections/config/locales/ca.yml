@@ -18,6 +18,7 @@ ca:
         title: Títol
       voting:
         banner_image: Imatge de capçalera
+        census_contact_information: Dades de contacte del cens
         description: Descripció
         end_time: La votació finalitza
         introductory_image: Imatge de presentació
@@ -224,6 +225,7 @@ ca:
             title: Importar propostes
         questions:
           create:
+            election_started: L'elecció ja ha començat
             invalid: S'ha produït un error en crear aquesta pregunta
             success: S'ha creat la pregunta correctament
           destroy:
