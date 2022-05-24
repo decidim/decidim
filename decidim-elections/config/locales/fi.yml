@@ -992,14 +992,20 @@ fi:
             assign_missing_officers: Joillekin äänestyspaikoille ei ole määrätty esimiehiä ja/tai virkailijoita. Määritä virkailijat Äänestyspaikat-osiosta
             update: Päivitä
           form:
-            census_contact_information_help: Nämä yhteystiedot ovat tarkoitettu osallistujille, jotka haluavat ilmoittaa virheistä henkilötietorekisterissä. Yhteystieto voi olla sähköpostiosoite, yhteydenottolomake toisella sivustolla, avoin kysely Decidimissä, tms.
+            banner_image: Bannerikuva
+            census_contact_information: Henkilötietorekisterin vastuutahon yhteystiedot
+            census_contact_information_help: Nämä yhteystiedot ovat tarkoitettu osallistujille, jotka haluavat ilmoittaa virheistä henkilötietorekisterissä. Yhteystieto voi olla sähköpostiosoite, yhteydenottolomake toisella sivustolla, avoin verkkokysely, tms.
+            introductory_image: Esittelykuva
+            promoted: Korostettu
             select_a_voting_type: Valitse äänestystapa
+            slug: Tunniste
             slug_help: 'URL-tunnisteita käytetään luomaan URL-osoitteita, jotka viittaavat tähän äänestykseen. Hyväksyy vain kirjaimet, numerot ja viivat. Kirjaimen on oltava ensimmäinen merkki tunnisteessa. Esimerkki: %{url}'
             title: Otsikko
             voting_type:
               hybrid: Yhdistetty äänestystapa
               in_person: Fyysinen äänestys
               online: Verkkoäänestys
+            voting_type_label: Äänestystapa
           new:
             create: Luo
             title: Uusi äänestys
@@ -1291,6 +1297,7 @@ fi:
           day_placeholder: PV
           document_number: Asiakirjan numero
           document_number_placeholder: Henkilöllisyystodistuksen numero
+          document_type: Asiakirjan tyyppi
           month: Kuukausi
           month_placeholder: KK
           postal_code: Postinumero
