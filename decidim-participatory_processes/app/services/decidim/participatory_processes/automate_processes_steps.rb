@@ -4,12 +4,10 @@ module Decidim
   module ParticipatoryProcesses
     # This service change the processes steps automatically.
     class AutomateProcessesSteps
-      def initialize
-        @participatory_processes = Decidim::ParticipatoryProcess.published.where("start_date <= ? AND end_date >= ?", Time.zone.now.to_date, Time.zone.now.to_date)
-      end
-
       def change_active_step
-        @participatory_processes.each do |process|
+        participatory_processes = Decidim::ParticipatoryProcess.published.where("start_date <= ? AND end_date >= ?", Time.zone.now.to_date, Time.zone.now.to_date)
+
+        participatory_processes.each do |process|
           steps = Decidim::ParticipatoryProcessStep.unscoped
                                                    .where(decidim_participatory_process_id: process.id)
                                                    .where("start_date <= ? AND end_date >= ?", Time.zone.now, Time.zone.now).order("end_date ASC", :position)
