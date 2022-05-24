@@ -993,14 +993,20 @@ ca:
             assign_missing_officers: Hi ha punts de votació sense president i/o gestors. Si us plau, assigna'ls des de la secció de punts de votació
             update: Actualitzar
           form:
+            banner_image: Imatge de capçalera
+            census_contact_information: Dades de contacte del cens
             census_contact_information_help: La informació de contacte és per a participants que vulguin avisar d'incidències amb el cens. Pot ser una adreça de correu electrònic, un formulari de contacte ubicat en un altre lloc web, una enquesta de Decidim per a visitants, etc.
+            introductory_image: Imatge de presentació
+            promoted: Destacada
             select_a_voting_type: Si us plau selecciona un tipus de votació
+            slug: Nom curt d'URL
             slug_help: 'Els noms curts d''URL s''utilitzen per generar els URL que apunten a aquest procés. Només accepta lletres, números i guions, i ha de començar amb una lletra. Exemple: %{url}'
             title: Títol
             voting_type:
               hybrid: Híbrida
               in_person: Presencial
               online: En línia
+            voting_type_label: Tipus de votació
           new:
             create: Crear
             title: Nova votació
@@ -1296,6 +1302,7 @@ ca:
           day_placeholder: DD
           document_number: Número de document
           document_number_placeholder: Número d'ID
+          document_type: Tipus de document
           month: Mes
           month_placeholder: MM
           postal_code: Codi postal
