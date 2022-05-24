@@ -88,6 +88,8 @@ es-PY:
             actions: Acciones
             cancel: Cancelar
             change_category: Cambiar categoría
+            change_scope: Cambiar ámbito
+            change_selected: Cambiar la selección
             deselect_implementation: No seleccionados
             finished_orders: Votos terminados
             pending_orders: Votos pendientes
