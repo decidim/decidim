@@ -1,13 +1,34 @@
-<div class="group cursor-pointer">
-  <%= icon "home-2-line", class: "w-6 h-6 fill-current" %>
-  <div class="absolute top-full left-8 invisible group-hover:visible z-20 cursor-auto">
-    <%= render partial: "layouts/decidim/header/redesigned_menu_breadcrumb_first_dropdown" %>
+<details>
+  <summary id="main-dropdown-summary"
+    class="flex button p-1"
+    aria-controls="main-dropdown">
+    <%= icon "home-2-line" , class: "w-6 h-6 fill-current" %>
+  </summary>
+  <div id="main-dropdown" aria-labelledby="main-dropdown-summary"
+    class="absolute top-full left-8 z-20">
+    <%= render partial: "layouts/decidim/header/redesigned_menu_breadcrumb_main_dropdown" %>
   </div>
-</div>
+</details>
 
-<% breadcrumb = [["Process", false], ["Imaginem el nou ecobarri de Ca n' Ametller", true]] %>
+<% breadcrumb=[["Process", false], ["Imaginem el nou ecobarri de Ca n' Ametller", true]] %>
 
 <% breadcrumb.each do |item| %>
   <span>/</span>
-  <span class="cursor-pointer <%= 'font-bold' if item[1] %>"><%= item[0] %></span>
+
+  <% has_dropdown = item[1] %>
+  <% if has_dropdown %>
+    <details class="relative">
+      <summary id="main-dropdown-summary"
+        class="flex button p-1 <%= 'font-bold' if has_dropdown %>"
+        aria-controls="main-dropdown">
+        <%= item[0] %>
+      </summary>
+      <div id="main-dropdown" aria-labelledby="main-dropdown-summary"
+        class="absolute top-[calc(100%+1rem)] left-0 z-20">
+        <%= render partial: "layouts/decidim/header/redesigned_menu_breadcrumb_secondary_dropdown" %>
+      </div>
+    </details>
+  <% else %>
+    <span class="cursor-pointer <%= 'font-bold' if has_dropdown %>"><%= item[0] %></span>
+  <% end %>
 <% end %>
