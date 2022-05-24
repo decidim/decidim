@@ -34,6 +34,7 @@ module Decidim
             [:minimum_answers, {}, election.minimum_answers?],
             [:max_selections, {}, election.valid_questions?],
             [:published, {}, election.published_at.present?],
+            [:component_published, {}, election.component.published?],
             [:time_before, { hours: Decidim::Elections.setup_minimum_hours_before_start }, election.minimum_hours_before_start?],
             [:trustees_number, { number: bulletin_board.number_of_trustees }, participatory_space_trustees_with_public_key.size >= bulletin_board.number_of_trustees]
           ].freeze

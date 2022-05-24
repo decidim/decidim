@@ -263,6 +263,7 @@ en:
               minimum_answers: Each question has <strong>at least 2 answers</strong>.
               minimum_questions: The election has <strong>at least 1 question</strong>.
               published: The election is <strong>published</strong>.
+              component_published: The election component is <strong>published</strong>.
               time_before: The setup is being done <strong>at least %{hours} hours</strong> before the election starts.
               trustees_number: The participatory space has <strong>at least %{number} trustees with public key</strong>.
             submit: Setup election
