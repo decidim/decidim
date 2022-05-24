@@ -402,7 +402,6 @@ gl:
             title: Eleccións
         votings:
           form:
-            census_contact_information_help: A información de contacto é para o participante que desexe informar de problemas co censo. Pode ser un enderezo de correo electrónico, un formulario de contacto noutro sitio web, unha enquisa do Decidim para visitantes, etc.
             select_a_voting_type: Por favor, selecciona un tipo de votación
             voting_type:
               hybrid: Híbrido
