@@ -978,7 +978,6 @@ pt:
             assign_missing_officers: Há Secções de Voto sem Presidente e/ou Gestores. Por favor atribua-os a partir da área de Secções de Voto
             update: Actualizar
           form:
-            census_contact_information_help: Esta informação de contacto destina-se a um participante que queira denunciar problemas com o recenseamento. Pode ser um endereço de e-mail, um formulário de contacto noutro sítio internet, um inquérito Decidim para visitantes, etc.
             select_a_voting_type: Por favor seleccione um tipo de votação
             slug_help: 'Os identificadores URL são utilizados para gerar os URLs que direccionam para esta votação. Apenas aceitam letras, números e traços, devendo começar com uma letra. Exemplo: %{url}'
             title: Título
