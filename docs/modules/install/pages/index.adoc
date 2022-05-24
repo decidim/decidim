@@ -59,7 +59,7 @@ This will also create some default data so you can start testing the app:
 
 |Decidim::User
 |admin@example.org
-|decidim123456
+|decidim123456789
 |/admin
 |Administrator for the organization
 
