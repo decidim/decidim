@@ -963,7 +963,6 @@ eu:
             assign_missing_officers: Presidenterik eta/edo administratzailerik gabeko bozketa-guneak daude. Esleitu itzazu bozketa-guneen ataletik
             update: Eguneratu
           form:
-            census_contact_information_help: Harremanetarako informazio hori zentsuarekin izandako arazoen berri eman nahi dituen parte-hartzaile batentzat da. Helbide elektroniko bat, beste leku bateko harremanetarako formulario bat, bisitarientzako Decim-en inkesta bat eta abar izan daitezke.
             select_a_voting_type: Mesedez, hautatu bozketa mota bat
             slug_help: 'URLko testu laburrak erabiltzen dira bozketa hau aipatzen duten URLak sortzeko. Letrak, zenbakiak eta gidoiak baino ez ditu onartzen, eta letra batez hasi behar da. Adibidea: %{url}'
             title: Izenburua
