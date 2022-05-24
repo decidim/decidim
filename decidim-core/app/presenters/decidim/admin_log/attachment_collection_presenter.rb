@@ -10,7 +10,7 @@ module Decidim
     #
     #    action_log = Decidim::ActionLog.last
     #    view_helpers # => this comes from the views
-    #    ComponentPresenter.new(action_log, view_helpers).present
+    #    AttachmentCollectionPresenter.new(action_log, view_helpers).present
     class AttachmentCollectionPresenter < Decidim::Log::BasePresenter
       private
 
