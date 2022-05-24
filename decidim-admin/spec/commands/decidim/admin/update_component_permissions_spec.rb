@@ -4,10 +4,11 @@ require "spec_helper"
 
 module Decidim::Admin
   describe UpdateComponentPermissions do
-    subject(:command) { described_class.call(form, component, resource) }
+    subject(:command) { described_class.call(form, component, resource, user) }
 
     let(:organization) { create(:organization, available_authorizations: ["dummy"]) }
     let(:participatory_process) { create(:participatory_process, :with_steps, organization: organization) }
+    let(:user) { create(:user, organization: organization) }
 
     let(:component) do
       create(
@@ -85,6 +86,18 @@ module Decidim::Admin
       component = results[:component]
 
       expect(component.permissions).to eq(expected_permissions)
+    end
+
+    it "traces the action", versioning: true do
+      expect(Decidim.traceability)
+        .to receive(:perform_action!)
+        .with("update_permissions", Decidim::Component, user)
+        .and_call_original
+
+      expect { subject }.to change(Decidim::ActionLog, :count)
+      action_log = Decidim::ActionLog.last
+      expect(action_log.action).to eq("update_permissions")
+      expect(action_log.version).to be_present
     end
 
     context "when receives a resource" do

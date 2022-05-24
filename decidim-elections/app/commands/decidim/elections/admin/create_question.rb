@@ -14,7 +14,8 @@ module Decidim
         #
         # Broadcasts :ok if successful, :invalid otherwise.
         def call
-          return broadcast(:invalid) if invalid?
+          return broadcast(:election_started) if form.election.started?
+          return broadcast(:invalid) if form.invalid?
 
           create_question!
 
@@ -24,10 +25,6 @@ module Decidim
         private
 
         attr_reader :form, :question
-
-        def invalid?
-          form.election.started? || form.invalid?
-        end
 
         def create_question!
           attributes = {
