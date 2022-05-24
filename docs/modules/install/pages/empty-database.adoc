@@ -1,0 +1,28 @@
+= Install with no seed
+
+You may want to setup your decidim with an empty database.
+In this case, please follow the steps bellow:
+
+. Follow steps 1 through 5 of previous section(xref:install:manual.adoc[Manual Installation] section).
+
+. Run the migrations from the root of your project in the terminal.
+[source,bash]
+----
+  bin/rails db:create db:migrate
+----
+[start=3]
+. Now you need to create your admin user, in order to be able to login to the system. in the terminal type the following:
+[source,bash]
+----
+  bundle exec rails s
+----
+[start=4]
+. Once you entered the console, copy and paste the following:
+[source,bash]
+----
+  $ bin/rails decidim_system:create_admin
+----
+
+Follow the CLI to create your admin user. For the sake of conformity with the rest of ducumentation, you may create a user with email `user@example.org` and password `decidim123456`.
+
+Now, you will be able to login to the system with the provided credentials.
