@@ -1210,11 +1210,12 @@ en:
         in_person_votes:
           complete_voting:
             available_answers: 'Available answers:'
-            census_verified: The participant has not voted yet.
+            census_verified: This participant has not voted in person yet.
+            census_verified_with_online_vote: This participant has already voted online. If they vote in person, the previous votes will be invalidated and this will be the definitive vote.
             complete_voting: Complete voting
             identify_another: Identify another participant
             questions_title: 'They''re entitled to vote in the following questions:'
-            questions_title_voted: 'The participant has already voted online and is entitled to vote in the following questions:'
+            questions_title_voted: 'This participant has already voted online and is entitled to vote in the following questions:'
             voted: The participant has voted
           create:
             error: The vote was not registered. Please try again.
