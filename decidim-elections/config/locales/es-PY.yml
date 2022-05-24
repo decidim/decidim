@@ -224,6 +224,7 @@ es-PY:
             title: Importar propuestas
         questions:
           create:
+            election_started: La elección ya ha comenzado
             invalid: Se ha producido un error al crear esta pregunta
             success: Se ha creado la pregunta correctamente
           destroy:
