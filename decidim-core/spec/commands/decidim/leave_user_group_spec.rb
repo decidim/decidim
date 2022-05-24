@@ -17,7 +17,7 @@ module Decidim
         context "when the user is the creator" do
           let(:role) { :creator }
 
-          it "broadcasts invalid" do
+          it "broadcasts last admin cant leave group" do
             expect { command.call }.to broadcast(:last_admin)
           end
 

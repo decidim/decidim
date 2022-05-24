@@ -40,9 +40,8 @@ module Decidim
     end
 
     def last_admin?
-      return false if Decidim::UserGroupMembership.where(user_group: user_group, user: user, role: [:creator, :admin]).empty?
-
-      Decidim::UserGroupMembership.where(user_group: user_group, role: [:creator, :admin]).where.not(user: user).empty?
+      admin_memberships = Decidim::UserGroupMembership.where(user_group: user_group, role: [:creator, :admin])
+      admin_memberships.length == 1 && admin_memberships.pluck(:decidim_user_id).include?(user.id)
     end
   end
 end
