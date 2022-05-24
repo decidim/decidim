@@ -182,11 +182,16 @@ cs:
         create: "%{user_name} vytvořila oblast %{resource_name}"
         delete: "%{user_name} odstranila oblast %{resource_name}"
         update: "%{user_name} aktualizovala oblast %{resource_name}"
+      attachment_collection:
+        create: "%{user_name} vytvořil/a kolekci příloh %{resource_name}"
+        delete: "%{user_name} odstranil kolekci příloh %{resource_name}"
+        update: "%{user_name} aktualizoval kolekci příloh %{resource_name}"
       component:
         create: "%{user_name} přidal %{resource_name} komponent do prostoru %{space_name}"
         delete: "%{user_name} odstranila %{resource_name} komponentu z %{space_name} místa"
         publish: "%{user_name} publikoval %{resource_name} komponentu ve %{space_name} prostoru"
         unpublish: "%{user_name} nepublikoval %{resource_name} komponentu z %{space_name} místa"
+        update_permissions_with_space: "%{user_name} aktualizoval oprávnění k %{resource_name} v %{space_name}"
       impersonation_log:
         manage: "%{user_name} spravoval %{resource_name}, protože %{reason}"
       moderation:
@@ -214,6 +219,10 @@ cs:
         delete_with_parent: "%{user_name} odstranilo %{resource_name} rozsah uvnitř rozsahu %{parent_scope}"
         update: "%{user_name} aktualizoval oblast působnosti %{resource_name}"
         update_with_parent: "%{user_name} aktualizoval oblast působnosti %{resource_name} uvnitř oblasti působnosti %{parent_scope}"
+      scope_type:
+        create: "%{user_name} vytvořil/a typ rozsahu %{resource_name}"
+        delete: "%{user_name} odstranil typ rozsahu %{resource_name}"
+        update: "%{user_name} aktualizoval typ rozsahu %{resource_name}"
       static_page:
         create: "%{user_name} vytvořila %{resource_name} statickou stránku"
         delete: "%{user_name} odstranila %{resource_name} statickou stránku"
@@ -996,6 +1005,7 @@ cs:
         unknown_action: "%{user_name} provedla nějakou akci na %{resource_name}"
         unknown_action_with_space: "%{user_name} provedlo nějakou akci na %{resource_name} v %{space_name}"
         update: "%{user_name} aktualizováno %{resource_name}"
+        update_permissions_with_space: "%{user_name} aktualizoval oprávnění k %{resource_name} v %{space_name}"
         update_with_space: "%{user_name} aktualizováno %{resource_name} v %{space_name}"
       value_types:
         area_presenter:
