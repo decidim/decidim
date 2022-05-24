@@ -863,7 +863,6 @@ nl:
             assign_missing_officers: Er zijn stembureaus zonder voorzitter en/of manager. Duid deze aan in onderdeel Stembureau
             update: Bijwerken
           form:
-            census_contact_information_help: Deze contactinformatie is bedoeld voor een deelnemer die problemen met de kiezerslijst wil melden. Het kan een e-mailadres, een contactformulier zijn op een andere site, een Decidim enquête voor bezoekers, enz.
             select_a_voting_type: Selecteer een type stemming
             slug_help: 'URL-paden worden gebruikt om de URL''s te genereren die naar dit proces verwijzen. Enkel letters, cijfers en streepjes worden toegestaan en deze moet beginnen met een letter. Voorbeeld: %{url}'
             title: Titel
