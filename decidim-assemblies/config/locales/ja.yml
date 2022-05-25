@@ -240,6 +240,8 @@ ja:
       assembly:
         create: "%{user_name} が %{resource_name} 参加スペースを作成しました"
         duplicate: "%{user_name} が %{resource_name} 参加スペースを複製しました"
+        export: "%{user_name} は %{resource_name} 参加スペースをエクスポートしました"
+        import: "%{user_name} が %{resource_name} 参加スペースをインポートしました"
         publish: "%{user_name} が %{resource_name} 参加スペースを公開しました"
         unpublish: "%{user_name} が %{resource_name} 参加スペースを非公開にしました"
         update: "%{user_name} が %{resource_name} 参加スペースを更新しました"
@@ -387,6 +389,7 @@ ja:
         related_participatory_processes: 関連する参加型プロセス
         scope: スコープ
         social_networks: ソーシャル ネットワーク
+        social_networks_title: 参加スペースを訪問
         target: 参加者
     assembly_members:
       assembly_member:
