@@ -216,6 +216,7 @@ ja:
             title: 提案のインポート
         questions:
           create:
+            election_started: 選挙は既に開始されています
             invalid: この質問を作成中に問題が発生しました
             success: 問題を作成しました
           destroy:
@@ -908,6 +909,7 @@ ja:
           edit:
             change_polling_station: 投票所に戻る
             monitoring_committee_notes: 備考
+            monitoring_committee_notes_placeholder: すべての事件をここで報告してください
             title: 投票所 <i>%{polling_station_title}</i> で行われた 選挙 <i>%{election_title}</i> の結果
           elections:
             title: 承認したい選挙を選択してください
@@ -1050,6 +1052,7 @@ ja:
               info_message: "<strong>しばらくお待ち下さい</strong>, ファイル %{file} の %{raw_count} 行中 %{processed_count} 行目を処理しています."
             delete:
               button: センサスデータをすべて削除する
+              confirm: センサスデータをすべて削除します。元に戻すことはできません。続行してもよろしいですか？
             destroy:
               error: センサスの削除中にエラーが発生しました。後でもう一度お試しください。
               success: センサスデータが削除されました
@@ -1057,6 +1060,7 @@ ja:
               button: 投票アクセスコードをエクスポート
               callout: これで、アクセスコードのエクスポートに進むことができます。これは一度だけ行うことができます。 エクスポートを開始すると、指示が記載されたメールが <strong>%{email}</strong> に届きます。
               confirm: アクセスコードは一度だけエクスポートできます。メールアカウント <strong>%{email}</strong> へのアクセス権があることを確認してください.
+              file_not_exist: このファイルは存在しません
               launch_error: アクセスコードのエクスポートの起動に問題があります
               launch_success: アクセスコードのエクスポートが開始されました。まもなく %{email} にメールが届きます。
             exporting_access_codes:
@@ -1081,6 +1085,7 @@ ja:
               has_ballot_styles_message: 投票スタイルを設定しました。CSVの「%{ballot_style_code_header}」フィールドが、希望する投票スタイルのコードに対応していることを確認してください。
               info_message: "<strong>センサスはまだありません。</strong> 以下のフォームを使用してCSVファイルをインポートしてください。"
               missing_ballot_styles_message: 'この投票の投票スタイルがありません。もし条件付きの質問がある場合 (例: 居住地域などにより投票者に異なる質問を提示する場合), <a href=%{ballot_styles_admin_path}>投票スタイル</a>をセンサスをインポートする <strong>前に</strong> 設定する必要があります。すべての投票者に対して同じ質問を定時したい場合は、センサスのインポート手続きを行ってください。'
+              submit: CSVを送信
               title: センサスを作成
             show:
               heading: センサスに投票する
@@ -1159,6 +1164,7 @@ ja:
             modal_ballots_count_error:
               btn_validate_total: 投票の再集計を検証します。
               close_modal: 閉じる
+              info_explanation_text: '投票の合計数を確認してください。合計数が正しくない場合は、監視委員会に説明する必要があります。'
               info_text: 入力された総投票数(封筒) は、この投票所で投票した人々の記録と一致しません。
               message_for_monitoring_committee: 監視委員会へのメッセージ
               review_recount: 再集計を確認する
@@ -1288,6 +1294,7 @@ ja:
           form_title: 'あなたのセンサスデータを確認するには、次のフォームに記入してください:'
           invalid: センサスの確認中に問題がありました。
           success:
+            access_link: メール経由
             access_link_with_sms: SMSまたは電子メールで
             info: すでに郵便番号でアクセスコードを受け取っているはずです。持っていない場合は、ここでリクエストできます。
             title: あなたのセンサスデータは正しいです！
