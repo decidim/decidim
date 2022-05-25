@@ -13,8 +13,8 @@ en:
         decidim_category_id: Category
         decidim_scope_id: Scope
         description: Description
-        proposals: Proposals
         proposal_ids: Related proposals
+        proposals: Proposals
         selected: Selected for implementation
         title: Title
       proposals_import:
