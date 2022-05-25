@@ -97,6 +97,7 @@ ja:
           with_any_type:
             label: ミーティングの種類
             values:
+              hybrid: ハイブリッド
               in_person: 対面
               online: オンライン
       meeting_copies:
@@ -178,6 +179,9 @@ ja:
           email_outro: '「%{resource_title}」ミーティングをフォローしているため、この通知を受け取りました．前のリンクからフォローを解除することができます．'
           email_subject: '"%{resource_title}" のミーティングは48時間以内に開始されます．'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> のミーティングは48時間以内に開始されます．
+    forms:
+      meetings:
+        attendees_count_help_text: 会議に出席者の総数に、対面・オンライン・ハイブリッドを含めることを忘れないでください
     gamification:
       badges:
         attended_meetings:
@@ -383,9 +387,11 @@ ja:
         calendar_url: カレンダー URL
         close_window: ウィンドウを閉じる
         copy_calendar_url: コピー
+        copy_calendar_url_clarification: カレンダーURLをクリップボードにコピー
         copy_calendar_url_copied: コピーしました
         copy_calendar_url_description: カレンダーアプリケーションまたはプロバイダーで公開されたすべてのミーティングを見ることができます。 「URLから新しいカレンダーを追加」オプションを使用して、このURLをカレンダーにコピーして貼り付けます。
         copy_calendar_url_explanation: アクティブなフィルターがあるため、ミーティングの一部のみをエクスポートしていることに注意してください。すべてエクスポートしたい場合は、最初にすべてのフィルターをリセットしてください。
+        copy_calendar_url_message: URLをクリップボードにコピーしました。
         export_calendar: カレンダーをエクスポート
       close_meeting_reminder_mailer:
         close_meeting_reminder:
@@ -474,6 +480,7 @@ ja:
           type: 種別
           type_values:
             all: 全て
+            hybrid: ハイブリッド
             in_person: 対面
             online: オンライン
         filters_small_view:
@@ -563,6 +570,7 @@ ja:
           fields:
             closed: クローズ済み
             end_time: 終了日
+            id: ID
             map: 地図
             official_meeting: 公式ミーティング
             start_time: 開始日
@@ -575,6 +583,7 @@ ja:
             empty_questions: このミーティングを通じて、いくつかの質問が送信され、回答することができます。質問はここに表示されます。
           index_admin:
             admin_dashboard: 管理者ダッシュボード
+            edit: 管理画面で編集
             question: 質問
             received_answer: 受理した回答
             received_answers: 受理した回答
@@ -611,6 +620,7 @@ ja:
           invalid: このミーティングから出発する問題があった。
           success: ミーティングを正常に退会しました。
       type_of_meeting:
+        hybrid: ハイブリッド
         in_person: 対面
         online: オンライン
       types:
