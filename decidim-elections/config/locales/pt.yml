@@ -1243,7 +1243,7 @@ pt:
           form_title: 'Preencha o formulário seguinte para verificar os seus dados de recenseamento:'
           invalid: Ocorreu um problema ao verificar o recenseamento.
           success:
-            access_link: via SMS ou e-mail.
+            access_link_with_sms: via SMS ou e-mail.
             info: Deve ter já recebido o seu Código de Acesso por correio postal. No caso de não o ter pode pedi-lo aqui
             title: Os seus dados de recenseamento estão correctos!
           title: Posso votar?
