@@ -1,6 +1,6 @@
 = Cookies
 
-With cookie consent we can explain better what cookies do we use, why we’re using these cookies, and let the user choose which cookies they want to use.
+With cookie consent we can explain better what cookies do we use, why we're using these cookies, and let the user choose which cookies they want to use.
 
 == Different cookie categories available in Decidim
 
@@ -76,3 +76,5 @@ For cookie:
 layouts.decidim.cookie_consent.cookie_details.cookies.statistics-cookie.description
 layouts.decidim.cookie_consent.cookie_details.cookies.statistics-cookie.service
 ```
+- Description explains the purpose of using this cookie
+- Service explains the 3rd party service where this cookie is coming from
