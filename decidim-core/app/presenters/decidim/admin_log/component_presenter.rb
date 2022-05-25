@@ -18,7 +18,8 @@ module Decidim
         {
           name: :i18n,
           published_at: :date,
-          weight: :integer
+          weight: :integer,
+          permissions: :jsonb
         }
       end
 
@@ -28,15 +29,24 @@ module Decidim
 
       def action_string
         case action
-        when "create", "delete", "publish", "unpublish"
-          "decidim.admin_log.component.#{action}"
+        when "create", "delete", "publish", "unpublish", "update_permissions"
+          generate_action_string(action)
         else
           super
         end
       end
 
+      def generate_action_string(action)
+        string = if action_log.participatory_space.present?
+                   "#{action}_with_space"
+                 else
+                   action
+                 end
+        "decidim.log.base_presenter.#{string}"
+      end
+
       def diff_actions
-        super + %w(unpublish)
+        super + %w(unpublish update_permissions)
       end
     end
   end

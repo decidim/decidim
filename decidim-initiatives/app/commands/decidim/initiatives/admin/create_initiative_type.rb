@@ -8,8 +8,9 @@ module Decidim
         # Public: Initializes the command.
         #
         # form - A form object with the params.
-        def initialize(form)
+        def initialize(form, user)
           @form = form
+          @user = user
         end
 
         # Executes the command. Broadcasts these events:
@@ -36,7 +37,9 @@ module Decidim
         attr_reader :form
 
         def create_initiative_type
-          initiative_type = InitiativesType.new(
+          initiative_type = Decidim.traceability.create!(
+            InitiativesType,
+            @user,
             organization: form.current_organization,
             title: form.title,
             description: form.description,

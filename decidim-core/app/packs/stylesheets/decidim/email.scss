@@ -1781,3 +1781,69 @@ th,
 td{
   box-sizing: border-box;
 }
+
+.email-notifications-digest{
+  .email-header{
+    margin-bottom: 32px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #2c2930;
+    display: inline-block;
+    width: 49%;
+
+    &--right{
+      text-align: right;
+    }
+  }
+
+  .email-intro{
+    font-size: 16px;
+    line-height: 21px;
+  }
+
+  .email-content-notifications{
+    background-color: #f4f4f4;
+    border-radius: 5px;
+    border: 1px #e5e5e5;
+    padding: 16px;
+    margin: 32px 0;
+  }
+
+  .email-content-notification{
+    p a{
+      color: #327f9b;
+      font-weight: bold;
+      text-decoration: underline;
+    }
+  }
+
+  .email-element-separator{
+    margin: 24px 0;
+    color: #e5e5e5;
+    border-color: #e5e5e5;
+    height: 0;
+    border-style: solid;
+    border-width: 1px;
+  }
+
+  .email-notification-date{
+    color: #666d7a;
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  .email-closing{
+    font-size: 14px;
+  }
+
+  .email-btn{
+    border: solid 1px;
+    margin: 0 33% 30px;
+    width: 33%;
+    text-align: center;
+    display: inline-block;
+    padding: 10px;
+    color: #5295ad;
+    text-decoration: none;
+  }
+}
