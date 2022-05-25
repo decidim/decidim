@@ -13,6 +13,7 @@ en:
         decidim_category_id: Category
         decidim_scope_id: Scope
         description: Description
+        proposals: Proposals
         proposal_ids: Related proposals
         selected: Selected for implementation
         title: Title
