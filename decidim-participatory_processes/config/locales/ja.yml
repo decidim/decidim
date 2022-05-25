@@ -62,6 +62,12 @@ ja:
         email: Eメールアドレス
         name: 名前
         role: ロール
+    errors:
+      models:
+        participatory_process:
+          attributes:
+            document:
+              allowed_file_content_types: '無効なドキュメントタイプです。使用できるフォーマット: %{types}'
     models:
       decidim/participatory_process_step_activated_event: フェーズ有効化
       decidim/participatory_process_step_changed_event: フェーズ変更
