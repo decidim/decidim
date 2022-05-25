@@ -21,7 +21,7 @@ For example if you want to add script that requires marketing consent, you can a
 
 == Adding cookie category and cookie documentation
 
-You are able to modify cookie categories via :consent_gategories configuration option.
+You are able to modify cookie categories via consent_gategories configuration option.
 
 For example if you want to add "statistics" category you need to add following code to your app's initializer:
 
