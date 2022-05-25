@@ -59,7 +59,7 @@ module Decidim
 
     def subcategories_have_same_participatory_space
       return unless parent
-      return if self.participatory_space
+      return if participatory_space
 
       self.participatory_space = parent.participatory_space
     end
