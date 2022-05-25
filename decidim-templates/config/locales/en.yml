@@ -68,6 +68,7 @@ en:
         template:
           create: "%{user_name} created the %{resource_name} template"
           delete: "%{user_name} deleted the %{resource_name} template"
+          duplicate: "%{user_name} duplicated the %{resource_name} questionnaire template"
           update: "%{user_name} updated the %{resource_name} template"
       template_types:
         questionnaires: Questionnaires
