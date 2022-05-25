@@ -128,6 +128,10 @@ cs:
           create: "%{user_name} vytvořil/a stav %{resource_name}"
           delete: "%{user_name} odstranil stav %{resource_name}"
           update: "%{user_name} aktualizoval stav %{resource_name}"
+        timeline_entry:
+          create: "%{user_name} vytvořil záznam %{resource_name} časové osy"
+          delete: "%{user_name} odstranil záznam %{resource_name} časové osy"
+          update: "%{user_name} aktualizoval záznam %{resource_name} časové osy"
         value_types:
           parent_presenter:
             not_found: 'Nadřazený nebyl nalezen v databázi (ID: %{id})'
