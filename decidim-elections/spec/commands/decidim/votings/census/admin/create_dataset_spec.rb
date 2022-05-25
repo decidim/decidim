@@ -46,7 +46,7 @@ module Decidim::Votings::Census::Admin
       expect(subject.call).to broadcast(:ok)
     end
 
-    context "when local file service is not available" do
+    context "when active storage service is not local" do
       before do
         allow(ActiveStorage::Blob.service).to receive(:respond_to?).and_call_original
         # rubocop:disable RSpec/StubbedMock
@@ -54,7 +54,7 @@ module Decidim::Votings::Census::Admin
         # rubocop:enable RSpec/StubbedMock
       end
 
-      it "works anyway" do
+      it "still broadcasts ok" do
         expect(subject.call).to broadcast(:ok)
       end
     end
