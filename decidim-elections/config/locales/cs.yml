@@ -1330,7 +1330,7 @@ cs:
           form_title: 'Vyplňte následující formulář pro kontrolu dat ze seznamu osob:'
           invalid: Při kontrole seznamu osob došlo k chybě.
           success:
-            access_link: prostřednictvím SMS nebo e-mailu.
+            access_link_with_sms: prostřednictvím SMS nebo e-mailu.
             info: Váš přístupový kód jste již měli obdržet poštou. V případě, že ho nemáte k dispozici, můžete o něj požádat zde
             title: Vaše data seznamu osob jsou nesprávná!
           title: Mohu hlasovat?
