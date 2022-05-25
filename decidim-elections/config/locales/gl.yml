@@ -583,7 +583,7 @@ gl:
           form_title: 'Enche o seguinte formulario para verificar os teus datos do censo:'
           invalid: Produciuse un problema ao verificar o censo.
           success:
-            access_link: a través de SMS ou correo electrónico.
+            access_link_with_sms: a través de SMS ou correo electrónico.
             title: Os datos do censo son correctos!
           title: Podo votar?
         check_fields:
