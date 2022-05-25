@@ -127,6 +127,10 @@ en:
           create: "%{user_name} created the %{resource_name} status"
           delete: "%{user_name} deleted the %{resource_name} status"
           update: "%{user_name} updated the %{resource_name} status"
+        timeline_entry:
+          create: "%{user_name} created the %{resource_name} timeline entry"
+          delete: "%{user_name} deleted the %{resource_name} timeline entry"
+          update: "%{user_name} updated the %{resource_name} timeline entry"
         value_types:
           parent_presenter:
             not_found: 'The parent was not found on the database (ID: %{id})'
