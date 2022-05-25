@@ -7,12 +7,16 @@ module Decidim
     # A command with all the business logic when processing the CSV to verify
     # user groups.
     class ProcessUserGroupVerificationCsv < Decidim::Command
+      include Decidim::HasFilePath
+
       # Public: Initializes the command.
       #
       # form - the form object containing the uploaded file
       def initialize(form)
         @form = form
       end
+
+      delegate :file, to: :@form
 
       # Executes the command. Broadcasts these events:
       #
@@ -33,7 +37,7 @@ module Decidim
         verifier = @form.current_user
         organization = @form.current_organization
 
-        CSV.foreach(ActiveStorage::Blob.service.path_for(@form.file.key)) do |row|
+        CSV.foreach(file_path) do |row|
           email = row[0]
           VerifyUserGroupFromCsvJob.perform_later(email, verifier, organization) if email.present?
         end

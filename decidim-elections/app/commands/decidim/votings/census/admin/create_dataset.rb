@@ -9,11 +9,15 @@ module Decidim
         # A command with the business logic to create census dataset for a
         # voting space.
         class CreateDataset < Decidim::Command
+          include Decidim::HasFilePath
+
           def initialize(form, current_user)
             @form = form
             @current_user = current_user
             @dataset = nil
           end
+
+          delegate :file, to: :form
 
           # Executes the command. Broadcast this events:
           # - :ok when everything is valid
@@ -82,10 +86,6 @@ module Decidim
 
           def file_lines_count
             `wc -l "#{file_path.shellescape}"`.strip.split.first.to_i
-          end
-
-          def file_path
-            ActiveStorage::Blob.service.path_for(form.file.key)
           end
         end
       end
