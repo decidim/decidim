@@ -1231,7 +1231,7 @@ pl:
           form_title: 'Wypełnij formularz, aby sprawdzić Twoje dane na liście wyborców:'
           invalid: Wystąpił błąd przy sprawdzaniu listy wyborców.
           success:
-            access_link: poprzez SMS lub e-mail.
+            access_link_with_sms: poprzez SMS lub e-mail.
             info: Powinieneś był już otrzymać swój kod dostępu pocztą. Jeśli go nie posiadasz, możesz poprosić o to tutaj
             title: Twoje dane z listy wyborców nie są prawidłowe!
           title: Mogę głosować?
