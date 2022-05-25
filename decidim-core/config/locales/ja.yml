@@ -123,6 +123,7 @@ ja:
       email_change:
         body1: 新しいメールアドレスを確認するため、 %{unconfirmed_email} にメールを送信しました。
         body2: 確認メールをもう一度送信する必要がありますか？ %{resend_link} または %{cancel_link}
+        cancel: キャンセル
         cancel_error: メールの変更をキャンセルできませんでした。
         cancel_successfully: メールの変更が正常にキャンセルされました。
         resend_error: 確認メールを再送信できませんでした。
@@ -145,11 +146,24 @@ ja:
         create: "%{user_name} が %{resource_name} 領域を作成しました"
         delete: "%{user_name} が %{resource_name} エリアを削除しました"
         update: "%{user_name} が %{resource_name} エリアを更新しました"
+      area_type:
+        create: "%{user_name} が %{resource_name} エリアタイプを作成しました"
+        delete: "%{user_name} が %{resource_name} エリアタイプを削除しました"
+        update: "%{user_name} は %{resource_name} エリアタイプを更新しました"
+      attachment:
+        create: "%{user_name} が %{resource_name} 添付ファイルを作成しました"
+        delete: "%{user_name} が %{resource_name} 添付ファイルを削除しました"
+        update: "%{user_name} が %{resource_name} 添付ファイルを更新しました"
+      attachment_collection:
+        create: "%{user_name} が %{resource_name} 添付ファイルコレクションを作成しました"
+        delete: "%{user_name} が %{resource_name} 添付ファイルコレクションを削除しました"
+        update: "%{user_name} が %{resource_name} 添付ファイルコレクションを更新しました"
       component:
         create: "%{user_name} は、 %{resource_name} コンポーネントを %{space_name} スペースに追加しました"
         delete: "%{user_name} が %{resource_name} スペースから %{space_name} コンポーネントを削除しました"
         publish: "%{user_name} が %{resource_name} スペースで %{space_name} コンポーネントを公開しました"
         unpublish: "%{user_name} は %{resource_name} スペースから %{space_name} コンポーネントを非公開にしました"
+        update_permissions_with_space: "%{user_name} が %{space_name} の %{resource_name} の権限を更新しました"
       impersonation_log:
         manage: "%{user_name} は %{reason} により %{resource_name} を管理しています。"
       moderation:
@@ -177,6 +191,10 @@ ja:
         delete_with_parent: "%{user_name} が %{resource_name} スコープ内の %{parent_scope} スコープを削除しました"
         update: "%{user_name} は %{resource_name} のスコープを更新しました"
         update_with_parent: "%{user_name} が %{resource_name} スコープ内の %{parent_scope} スコープを更新しました"
+      scope_type:
+        create: "%{user_name} が %{resource_name} スコープタイプを作成しました"
+        delete: "%{user_name} が %{resource_name} のスコープタイプを削除しました"
+        update: "%{user_name} は %{resource_name} スコープタイプを更新しました"
       static_page:
         create: "%{user_name} が %{resource_name} の静的ページを作成しました"
         delete: "%{user_name} が %{resource_name} の静的ページを削除しました"
@@ -940,6 +958,7 @@ ja:
         unknown_action: "%{user_name} が %{resource_name} にいくつかのアクションを実行しました"
         unknown_action_with_space: "%{user_name} が %{resource_name} で %{space_name} にアクションを実行しました"
         update: "%{user_name} が %{resource_name} を更新しました"
+        update_permissions_with_space: "%{user_name} が %{space_name} の %{resource_name} の権限を更新しました"
         update_with_space: "%{user_name} さんが %{resource_name} で %{space_name} を更新しました"
       value_types:
         area_presenter:
@@ -1112,10 +1131,22 @@ ja:
       no_notifications: まだ通知はありません。
       show:
         missing_event: この通知は利用できなくなった要素に属しています。破棄してください。
+    notifications_digest_mailer:
+      header:
+        daily: 日次の通知のダイジェスト
+        weekly: 週次の通知のダイジェスト
+      hello: こんにちは %{name} さん、
+      intro:
+        daily: 'あなたがフォローしているアクティビティに基づいた最終日以降の通知です:'
+        weekly: 'これらは、あなたがフォローしているアクティビティに基づいた先週以降の通知です:'
+      outro: このコンテンツまたは著者をフォローしているため、これらの通知を受け取りました。それぞれのページからフォローを解除できます。
+      see_more: 他の通知を見る
+      subject: あなたのメールダイジェストです
     notifications_settings:
       show:
         administrators: 管理者
         allow_public_contact: フォローしていない人からもダイレクトメッセージを受信する
+        allow_push_notifications: プッシュ通知を取得して、プラットフォームにいないときの動作を確認します。いつでもオフにすることができます。
         direct_messages: ダイレクトメッセージを受信する
         email_on_moderations: 私はモデレーションの報告がなされたたびに毎回メールを受け取りたいです。
         everything_followed: 自分がフォローしているすべて
@@ -1123,7 +1154,15 @@ ja:
         newsletters: ニュースレター
         notification_settings:
           close_meeting_reminder: レポートを未公開で閉じたミーティングのリマインドメールを受信したい
+        notifications_sending_frequencies:
+          daily: 1日1回
+          none: なし
+          real_time: リアルタイム
+          weekly: 週1回
+        notifications_sending_frequency: 通知メールを受信する頻度は？
         own_activity: 誰かが提案にコメントしたり、私に言及したりした時など、自分自身の活動
+        push_notifications: プッシュ通知
+        push_notifications_reminder: プラットフォームから通知を受け取るには、まずブラウザの設定で許可する必要があります。
         receive_notifications_about: 通知を受け取りたい
         update_notifications_settings: 変更を保存
       update:
