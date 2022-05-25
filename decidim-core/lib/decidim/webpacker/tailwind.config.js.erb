@@ -1,5 +1,11 @@
 module.exports = {
-  content: ["./app/**/*.{html.erb,js}", "<%= Gem.loaded_specs["decidim"].full_gem_path %>/decidim-*/app/**/*.{html.erb,js}"],
+  // Define paths that don't include the output of the build to prevent infinite loops
+  content: [
+    "./app/views/**/*.{html.erb,erb,js}",
+    "./app/cells/**/*.{html.erb,erb,js}",
+    "<%= Gem.loaded_specs["decidim"].full_gem_path %>/decidim-*/app/cells/**/*.{html.erb,erb,js}",
+    "<%= Gem.loaded_specs["decidim"].full_gem_path %>/decidim-*/app/views/**/*.{html.erb,erb,js}"
+  ],
   theme: {
     extend: {}
   },
