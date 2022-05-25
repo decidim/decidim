@@ -186,6 +186,10 @@ cs:
         create: "%{user_name} vytvořil typ oblasti %{resource_name}"
         delete: "%{user_name} odstranil typ oblasti %{resource_name}"
         update: "%{user_name} aktualizoval typ oblasti %{resource_name}"
+      attachment:
+        create: "%{user_name} vytvořil/a přílohu %{resource_name}"
+        delete: "%{user_name} odstranil přílohu %{resource_name}"
+        update: "%{user_name} aktualizoval přílohu %{resource_name}"
       attachment_collection:
         create: "%{user_name} vytvořil/a kolekci příloh %{resource_name}"
         delete: "%{user_name} odstranil kolekci příloh %{resource_name}"
