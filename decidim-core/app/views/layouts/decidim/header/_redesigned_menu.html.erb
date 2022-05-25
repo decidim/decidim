@@ -3,30 +3,16 @@
 
     <%# secondary dropdown only desktop %>
     <div class="hidden lg:flex justify-between items-center gap-2.5 text-lg text-white">
-      <%= render partial: "layouts/decidim/header/redesigned_menu_breadcrumb" %>
+      <%= render partial: "layouts/decidim/header/redesigned_menu_breadcrumb_desktop" %>
     </div>
     <div class="hidden lg:flex justify-between items-center gap-6">
       <%= render partial: "layouts/decidim/header/redesigned_menu_buttons" %>
     </div>
 
-    <%# secondary dropdown only mobile %>
-    <details class="block lg:hidden w-full">
-      <summary class="flex items-center justify-between text-white">
-        <div class="flex gap-2.5 overflow-hidden">
-          <% breadcrumb=[["Process", false], ["Imaginem el nou ecobarri de Ca n' Ametller", true], ["Sobre el procés", false]] %>
-
-          <!-- TODO: Only displays two last items -->
-          <% breadcrumb.take(2).each_with_index do |item, i| %>
-            <% is_active = item[1] # item[0] could also be "active"  %>
-            <span class="<%= 'hidden' if i == 0 %>">/</span>
-            <span class="cursor-pointer <%= 'truncate' if i != 0 %> <%= 'font-bold' if is_active %>"><%= item[0] %></span>
-          <% end %>
-        </div>
-
-        <%= icon "arrow-down-s-line", class: "flex-none w-6 h-6 fill-current" %>
-      </summary>
-      <%= render partial: "layouts/decidim/header/redesigned_menu_breadcrumb_secondary_dropdown" %>
-    </details>
+    <%# secondary dropdown mobile-tablet %>
+    <div class="block lg:hidden w-full">
+      <%= render partial: "layouts/decidim/header/redesigned_menu_breadcrumb_mobile_tablet" %>
+    </div>
 
   </div>
 </div>
