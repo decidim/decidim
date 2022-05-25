@@ -1,4 +1,4 @@
-<details>
+<details class="hidden lg:block">
   <summary id="main-dropdown-summary"
     class="flex button p-1"
     aria-controls="main-dropdown">
@@ -10,16 +10,18 @@
   </div>
 </details>
 
-<% breadcrumb=[["Process", false], ["Imaginem el nou ecobarri de Ca n' Ametller", true]] %>
+<% breadcrumb=[["Process", false], ["Imaginem el nou ecobarri de Ca n' Ametller", true], ["Sobre el procés", false]] %>
 
-<% breadcrumb.each do |item| %>
-  <span>/</span>
+<% breadcrumb.each_with_index do |item, i| %>
+  <span class="<%= 'hidden lg:block' if i == 0 %>">/</span>
 
-  <% has_dropdown = item[1] %>
+  <% is_active = item[1] # item[0] could also be "active" %>
+  <% has_dropdown = item[1] # Not all items have a secondary dropdown %>
+
   <% if has_dropdown %>
     <details class="relative">
       <summary id="main-dropdown-summary"
-        class="flex button p-1 <%= 'font-bold' if has_dropdown %>"
+        class="flex button p-1 <%= 'font-bold' if is_active %>"
         aria-controls="main-dropdown">
         <%= item[0] %>
       </summary>
@@ -29,6 +31,6 @@
       </div>
     </details>
   <% else %>
-    <span class="cursor-pointer <%= 'font-bold' if has_dropdown %>"><%= item[0] %></span>
+    <span class="cursor-pointer <%= 'font-bold' if is_active %>"><%= item[0] %></span>
   <% end %>
 <% end %>
