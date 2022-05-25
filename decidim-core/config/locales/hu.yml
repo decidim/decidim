@@ -41,6 +41,7 @@ hu:
       decidim/promote_to_admin: A csoport adminisztrátora
       decidim/removed_from_group: Eltávolítva a csoportból
       decidim/resource_endorsed_event: Erőforrás jóváhagyva
+      decidim/welcome_notification_event: Üdvözlő üzenet
   activerecord:
     attributes:
       decidim/user:
@@ -674,6 +675,11 @@ hu:
       file_help:
         file:
           message_1: Képnek vagy dokumentumnak kell lennie.
+          message_2: Képeknél a fekvő elrendezés ajánlott, a kép szélei automatikusan levágásra kerülnek.
+        icon:
+          explanation: 'Útmutató:'
+          message_1: A képnek négyzet alakúnak kell lennie.
+          message_2: A javasolt képméret 512x512 px.
       upload:
         labels:
           add_attachment: Melléklet hozzáadása
