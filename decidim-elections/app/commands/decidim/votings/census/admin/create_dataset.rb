@@ -9,8 +9,6 @@ module Decidim
         # A command with the business logic to create census dataset for a
         # voting space.
         class CreateDataset < Decidim::Command
-          include Decidim::HasBlobFile
-
           def initialize(form, current_user)
             @form = form
             @current_user = current_user
@@ -33,7 +31,7 @@ module Decidim
             end
 
             if dataset
-              CSV.foreach(blob_path, col_sep: ";", headers: true, converters: ->(f) { f&.strip }) do |row|
+              CSV.foreach(file_path, col_sep: ";", headers: true, converters: ->(f) { f&.strip }) do |row|
                 CreateDatumJob.perform_later(current_user, dataset, row.fields)
               end
             end
@@ -50,7 +48,7 @@ module Decidim
               current_user,
               {
                 voting: form.current_participatory_space,
-                file: blob,
+                file: form.file,
                 csv_row_raw_count: csv_row_count,
                 status: :creating_data
               },
@@ -59,7 +57,7 @@ module Decidim
           end
 
           def csv_header_invalid?
-            CSV.parse_line(File.open(blob_path), col_sep: ";", headers: true, header_converters: :symbol).headers != expected_headers
+            CSV.parse_line(File.open(file_path), col_sep: ";", headers: true, header_converters: :symbol).headers != expected_headers
           end
 
           def headers
@@ -75,15 +73,19 @@ module Decidim
           end
 
           def csv_rows
-            @csv_rows ||= CSV.read(blob_path)
+            @csv_rows ||= CSV.read(file_path)
           end
 
           def csv_row_count
-            @csv_row_count ||= file_lines_count(blob_path) - 1
+            @csv_row_count ||= file_lines_count - 1
           end
 
-          def file_lines_count(file_path)
+          def file_lines_count
             `wc -l "#{file_path.shellescape}"`.strip.split.first.to_i
+          end
+
+          def file_path
+            ActiveStorage::Blob.service.path_for(form.file.key)
           end
         end
       end

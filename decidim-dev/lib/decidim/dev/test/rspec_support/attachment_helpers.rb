@@ -21,6 +21,8 @@ module AttachmentHelpers
       filename: filename,
       content_type: content_type
     )
+    return blob if options[:return_blob]
+
     blob.signed_id
   end
 

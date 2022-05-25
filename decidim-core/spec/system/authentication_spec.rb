@@ -274,7 +274,7 @@ describe "Authentication", type: :system do
   end
 
   context "when confirming the account" do
-    let!(:user) { create(:user, email_on_notification: true, organization: organization) }
+    let!(:user) { create(:user, organization: organization) }
 
     before do
       perform_enqueued_jobs { user.confirm }

@@ -10,8 +10,9 @@ namespace :decidim do
 
       puts("VAPID keys correctly generated.")
       puts("*******************************")
-      puts("VAPID private key is #{vapid_key.private_key}")
-      puts("VAPID public key is #{vapid_key.public_key}")
+      puts("You have to set the following env vars:\n\n")
+      puts("VAPID_PUBLIC_KEY=#{vapid_key.public_key}")
+      puts("VAPID_PRIVATE_KEY=#{vapid_key.private_key}")
     end
   end
 end

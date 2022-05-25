@@ -48,10 +48,6 @@ module Decidim
 
         raise ArgumentError, "Invalid uploader configuration keys found for #{attribute} on #{name}: #{unknown_keys.join(",")}. Allowed keys: #{valid_keys.join(",")}"
       end
-
-      def blob
-        @blob ||= ActiveStorage::Blob.find_signed(file)
-      end
     end
 
     delegate :attached_config, to: :class

@@ -7,10 +7,7 @@
       "settings": {
         "chromeFlags": "--disable-gpu --no-sandbox",
         "throttlingMethod": "devtools",
-        "preset": "desktop",
-        "throttling": {
-          "cpuSlowdownMultiplier": 1
-        }
+        "preset": "desktop"
       }
     }
   }

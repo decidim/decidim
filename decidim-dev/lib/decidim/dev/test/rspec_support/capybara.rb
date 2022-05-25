@@ -31,11 +31,40 @@ Capybara.register_driver :headless_chrome do |app|
                   else
                     "--window-size=1920,1080"
                   end
+  Capybara::Selenium::Driver.new(
+    app,
+    browser: :chrome,
+    capabilities: [options]
+  )
+end
+
+Capybara.server_port = rand(5000..6999)
+
+# In order to work with PWA apps, Chrome can't be run in headless mode, and requires
+# setting up special prefs and flags
+Capybara.register_driver :pwa_chrome do |app|
+  options = ::Selenium::WebDriver::Chrome::Options.new
+  options.args << "--no-sandbox"
+  # Don't limit browser resources
+  options.args << "--disable-dev-shm-usage"
+  # Add pwa.lvh.me host as a secure origin
+  options.args << "--unsafely-treat-insecure-origin-as-secure=http://pwa.lvh.me:#{Capybara.server_port}"
+  # User data flag is mandatory when preferences and locale state is set
+  options.args << "--user-data-dir=/tmp/decidim_tests_user_data_#{rand(1000)}"
+  options.args << if ENV["BIG_SCREEN_SIZE"].present?
+                    "--window-size=1920,3000"
+                  else
+                    "--window-size=1920,1080"
+                  end
+  # Set notifications allowed in http protocol
+  options.local_state["browser.enabled_labs_experiments"] = ["enable-system-notifications@1", "unsafely-treat-insecure-origin-as-secure"]
+  # Mark notification permission as enabled
+  options.prefs["profile.default_content_setting_values.notifications"] = 1
 
   Capybara::Selenium::Driver.new(
     app,
     browser: :chrome,
-    options: options
+    capabilities: [options]
   )
 end
 
@@ -48,7 +77,7 @@ Capybara.register_driver :iphone do |app|
   Capybara::Selenium::Driver.new(
     app,
     browser: :chrome,
-    options: options
+    capabilities: [options]
   )
 end
 
@@ -79,7 +108,7 @@ RSpec.configure do |config|
   end
 
   config.after(type: :system) do |example|
-    warn page.driver.browser.manage.logs.get(:browser) unless example.metadata[:driver].eql?(:rack_test)
+    warn page.driver.browser.logs.get(:browser) unless example.metadata[:driver].eql?(:rack_test)
   end
 
   config.include Decidim::CapybaraTestHelpers, type: :system

@@ -54,7 +54,7 @@ module Decidim
     attr_reader :event, :event_class, :resource, :followers, :affected_users, :extra
 
     # Private: sends the notification email to the user if they have the
-    # `email_on_notification` flag active.
+    # `notifications_sending_frequency` set to real_time.
     #
     # recipient - The user that will receive the email.
     # user_role - the role the user takes for this notification (either
@@ -63,7 +63,7 @@ module Decidim
     # Returns nothing.
     def send_email_to(recipient, user_role:)
       return unless recipient
-      return unless recipient.email_on_notification?
+      return unless recipient.notifications_sending_frequency == "real_time"
       return if resource.respond_to?(:can_participate?) && !resource.can_participate?(recipient)
 
       wait_time = 0
