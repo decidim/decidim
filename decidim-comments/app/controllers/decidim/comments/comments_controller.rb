@@ -23,6 +23,12 @@ module Decidim
           order_by: order,
           after: params.fetch(:after, 0).to_i
         )
+        @comments = @comments.reject do |comment|
+          next if comment.depth < 1
+          next if !comment.deleted? && !comment.hidden?
+
+          comment.commentable.descendants.where(decidim_commentable_type: "Decidim::Comments::Comment").not_hidden.not_deleted.blank?
+        end
         @comments_count = commentable.comments_count
 
         respond_to do |format|
@@ -170,7 +176,7 @@ module Decidim
       end
 
       def commentable_path
-        return commentable.polymorphic_resource_path({}) if commentable&.respond_to?(:polymorphic_resource_path)
+        return commentable.polymorphic_resource_path({}) if commentable.respond_to?(:polymorphic_resource_path)
 
         resource_locator(commentable).path
       end

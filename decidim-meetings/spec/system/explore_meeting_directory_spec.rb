@@ -33,7 +33,7 @@ describe "Explore meeting directory", type: :system do
   describe "category filter" do
     context "with a category" do
       let!(:category1) do
-        create(:category, participatory_space: participatory_process, name: { "en": "Category1" })
+        create(:category, participatory_space: participatory_process, name: { en: "Category1" })
       end
       let!(:meeting) do
         meeting = meetings.first
@@ -186,7 +186,7 @@ describe "Explore meeting directory", type: :system do
       it "allows filtering by type 'both'" do
         within ".with_any_type_check_boxes_tree_filter" do
           uncheck "All"
-          check "Both"
+          check "Hybrid"
         end
 
         expect(page).to have_css("#meetings-count", text: "1 MEETING")

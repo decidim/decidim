@@ -23,12 +23,7 @@ module Decidim
     end
 
     def uploader
-      @uploader ||= begin
-        return passthru_uploader if passthru_uploader.present?
-        return record.attached_uploader(attribute) if record.respond_to?(:attached_uploader) && record.attached_uploader(attribute).present?
-
-        record.send(attribute)
-      end
+      @uploader ||= fetch_uploader
     end
 
     def messages
@@ -105,6 +100,13 @@ module Decidim
     private
 
     attr_reader :record, :attribute, :passthru_validator
+
+    def fetch_uploader
+      return passthru_uploader if passthru_uploader.present?
+      return record.attached_uploader(attribute) if record.respond_to?(:attached_uploader) && record.attached_uploader(attribute).present?
+
+      record.send(attribute)
+    end
 
     def passthru_record
       return unless passthru_validator

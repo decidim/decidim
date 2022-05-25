@@ -30,7 +30,7 @@ module Decidim
       def embeddable?
         return nil if parsed_online_meeting_uri.nil?
 
-        EMBEDDABLE_SERVICES.include?(parsed_online_meeting_uri.host)
+        embeddable_services.include?(parsed_online_meeting_uri.host)
       end
 
       def embed_code(request_host)
@@ -48,9 +48,11 @@ module Decidim
 
       private
 
-      EMBEDDABLE_SERVICES = %( www.youtube.com www.twitch.tv meet.jit.si )
-
       attr_accessor :online_meeting_service_url
+
+      def embeddable_services
+        @embeddable_services ||= Meetings.embeddable_services
+      end
 
       # Youtube transformation consists on:
       # 1. extract the video id from the parameter v

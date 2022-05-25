@@ -4,171 +4,204 @@
 require "json"
 require "ruby-progressbar"
 
-# rubocop:disable Style/GlobalVars
+class EmptyTokenError < RuntimeError
+  def full_message
+    <<~HELP
+      Decidim's changelog generator.
 
-$github_token = ARGV[0]
-$since_sha = ARGV[1] || "HEAD~5"
+      ## Example
 
-if $github_token.nil? || $github_token == "--help"
-  puts <<~HELP
-    Decidim's changelog generator.
+          bin/changelog_generator <GITHUB PERSONAL ACCESS TOKEN> <SHA>
 
-    ## Example
+      ## Params
 
-        bin/changelog_generator <GITHUB PERSONAL ACCESS TOKEN> <SHA>
+      The <GITHUB PERSONAL ACCESS TOKEN> can be obtained from https://github.com/settings/tokens/new
+      You'll need to create one with `public_repo` access.
 
-    ## Params
+      The <SHA> is the git commit SHA from which to consider the changes. It's
+      usually the last commit that modified the `.decidim_version` file.
 
-    The <GITHUB PERSONAL ACCESS TOKEN> can be obtained from https://github.com/settings/tokens/new
-    You'll need to create one with `public_repo` access.
+      ## Explanation
 
-    The <SHA> is the git commit SHA from which to consider the changes. It's
-    usually the last commit that modified the `.decidim_version` file.
+      This script will generate the sections needed for the changelog, using the
+      labels of the merged PRs as a source of truth. It will add a section at the
+      end, "Unsorted", with the list of PRs that couldn't be classified.
 
-    ## Explanation
+      It ignores any Crowdin PR.
+    HELP
+  end
+end
 
-    This script will generate the sections needed for the changelog, using the
-    labels of the merged PRs as a source of truth. It will add a section at the
-    end, "Unsorted", with the list of PRs that couldn't be classified.
+class ChangeLogGenerator
+  TYPES = {
+    "Added" => {
+      label: "type: feature",
+      skip_modules: false
+    },
+    "Changed" => {
+      label: "type: change",
+      skip_modules: false
+    },
+    "Fixed" => {
+      label: "type: fix",
+      skip_modules: false
+    },
+    "Removed" => {
+      label: "type: removal",
+      skip_modules: false
+    },
+    "Developer improvements" => {
+      label: "target: developer-experience",
+      skip_modules: true
+    },
+    "Internal" => {
+      label: "type: internal",
+      skip_modules: false
+    }
+  }.freeze
 
-    It ignores any Crowdin PR.
-  HELP
+  def initialize(github_token, since_sha)
+    @github_token = github_token
+    @since_sha = since_sha
+    @output_file = []
+    @handled_ids = []
 
+    @progress_bar = ProgressBar.create(title: "PRs", total: list_of_commits.count)
+  end
+
+  def run
+    raise EmptyTokenError if github_token.nil? || github_token == "--help"
+
+    TYPES.each do |type_title, type_data|
+      type_prs = prs.select do |_commit_title, data|
+        next unless data
+
+        data[:type].include?(type_data[:label])
+      end
+
+      output "### #{type_title}"
+      output ""
+
+      if type_prs.any?
+        type_prs.each do |_pr_title, data|
+          process_single_pr(data, type_data)
+        end
+      else
+        output "Nothing."
+      end
+
+      output ""
+    end
+
+    process_unsorted_prs
+    write_data_file!
+  end
+
+  private
+
+  def write_data_file!
+    File.write("temporary_changelog.md", @output_file.join("\n"))
+    puts "Written file: temporary_changelog.md"
+  end
+
+  def process_single_pr(data, type_data)
+    modules_list = data[:modules].map { |l| "**decidim-#{l.delete_prefix("module: ")}**" }
+    id = data[:id]
+    title = data[:title]
+
+    @handled_ids << id
+
+    if type_data[:skip_modules] || modules_list.empty?
+      output "- #{title} #{pr_link(id)}"
+    else
+      output "- #{modules_list.join(", ")}: #{title} #{pr_link(id)}"
+    end
+  end
+
+  def process_unsorted_prs
+    return unless unsorted_prs.any?
+
+    output "### Unsorted"
+    output ""
+
+    unsorted_prs.map do |title, data|
+      pr_data = data || {}
+      output "- #{title} #{pr_link(pr_data[:id])} || #{data}"
+    end
+  end
+
+  def unsorted_prs
+    @unsorted_prs ||= prs.reject do |_commit_title, data|
+      pr_data = data || {}
+
+      @handled_ids.include?(pr_data[:id])
+    end
+  end
+
+  attr_reader :github_token, :since_sha
+
+  def prs
+    @prs ||= list_of_commits.inject({}) do |acc, commit|
+      next acc if crowdin?(commit)
+
+      acc.update(commit => get_pr_data(commit))
+    end
+  end
+
+  def list_of_commits
+    @list_of_commits ||= `git log #{since_sha}..HEAD --oneline`.split("\n").reverse
+  end
+
+  def crowdin?(commit)
+    !commit.match(/New Crowdin updates/).nil?
+  end
+
+  def get_pr_id(commit)
+    id = commit.scan(/#\d+/).last
+    return unless id
+
+    id.delete_prefix("#")
+  end
+
+  def get_pr_data(commit)
+    @progress_bar.increment
+
+    id = get_pr_id(commit)
+    return nil unless id
+
+    data = get_data_for_pr(id)
+    labels = data["labels"].map { |l| l["name"] }.sort
+    title = data["title"]
+
+    {
+      id: id,
+      title: title,
+      labels: labels,
+      type: labels.select { |l| l.match(/^type: /) || l == "target: developer-experience" },
+      modules: labels.select { |l| l.match(/^module: /) }
+    }
+  end
+
+  def get_data_for_pr(id)
+    uri = "https://api.github.com/repos/decidim/decidim/issues/#{id}"
+    response = `curl -s -H "Authorization: token #{github_token}" "#{uri}"`
+    JSON.parse(response)
+  end
+
+  def pr_link(id)
+    # We need to do this so that it generates the expected Markdown format.
+    # String interpolation messes with the format.
+    "[#{"\\#" + id.to_s}](https://github.com/decidim/decidim/pull/#{id})" # rubocop:disable Style/StringConcatenation
+  end
+
+  def output(str)
+    @output_file << str
+  end
+end
+
+begin
+  ChangeLogGenerator.new(ARGV[0], ARGV[1] || "HEAD~5").run
+rescue EmptyTokenError => e
+  puts e.full_message
   exit 1
 end
-
-list_of_commits = `git log #{$since_sha}..HEAD --oneline`.split("\n").reverse
-
-$output_file = []
-$progressbar = ProgressBar.create(title: "PRs", total: list_of_commits.count)
-
-def crowdin?(commit)
-  !commit.match(/New Crowdin updates/).nil?
-end
-
-def get_pr_id(commit)
-  id = commit.scan(/#\d+/).last
-  return unless id
-
-  id.delete_prefix("#")
-end
-
-def get_pr_data(commit)
-  $progressbar.increment
-
-  id = get_pr_id(commit)
-  return nil unless id
-
-  data = get_data_for_pr(id)
-  labels = data["labels"].map { |l| l["name"] }.sort
-  title = data["title"]
-
-  {
-    id: id,
-    title: title,
-    labels: labels,
-    type: labels.select { |l| l.match(/^type: /) || l == "target: developer-experience" },
-    modules: labels.select { |l| l.match(/^module: /) }
-  }
-end
-
-def get_data_for_pr(id)
-  uri = "https://api.github.com/repos/decidim/decidim/issues/#{id}"
-  response = `curl -s -H "Authorization: token #{$github_token}" "#{uri}"`
-  JSON.parse(response)
-end
-
-def pr_link(id)
-  # We need to do this so that it generates the expected Markdown format.
-  # String interpolation messes with the format.
-  "[#{"\\#" + id.to_s}](https://github.com/decidim/decidim/pull/#{id})" # rubocop:disable Style/StringConcatenation
-end
-
-def output(str)
-  $output_file << str
-end
-
-handled_ids = []
-
-prs = list_of_commits.inject({}) do |acc, commit|
-  next acc if crowdin?(commit)
-
-  acc.update(commit => get_pr_data(commit))
-end
-
-types = {
-  "Added" => {
-    label: "type: feature",
-    skip_modules: false
-  },
-  "Changed" => {
-    label: "type: change",
-    skip_modules: false
-  },
-  "Fixed" => {
-    label: "type: fix",
-    skip_modules: false
-  },
-  "Removed" => {
-    label: "type: removal",
-    skip_modules: false
-  },
-  "Developer improvements" => {
-    label: "target: developer-experience",
-    skip_modules: true
-  },
-  "Internal" => {
-    label: "type: internal",
-    skip_modules: false
-  }
-}
-
-types.each do |type_title, type_data|
-  type_prs = prs.select do |_commit_title, data|
-    next unless data
-
-    data[:type].include?(type_data[:label])
-  end
-
-  output "### #{type_title}"
-  output ""
-
-  if type_prs.any?
-    type_prs.each do |_pr_title, data|
-      modules_list = data[:modules].map { |l| "**decidim-#{l.delete_prefix("module: ")}**" }
-      id = data[:id]
-      title = data[:title]
-
-      handled_ids << id
-
-      if type_data[:skip_modules] || modules_list.empty?
-        output "- #{title} #{pr_link(id)}"
-      else
-        output "- #{modules_list.join(", ")}: #{title} #{pr_link(id)}"
-      end
-    end
-  else
-    output "Nothing."
-  end
-
-  output ""
-end
-
-unsorted_prs = prs.reject do |_commit_title, data|
-  pr_data = data || {}
-
-  handled_ids.include?(pr_data[:id])
-end
-
-if unsorted_prs.any?
-  output "### Unsorted"
-  output ""
-
-  unsorted_prs.map do |title, data|
-    pr_data = data || {}
-    output "- #{title} #{pr_link(pr_data[:id])} || #{data}"
-  end
-end
-
-File.write("temporary_changelog.md", $output_file.join("\n"))
-# rubocop:enable Style/GlobalVars

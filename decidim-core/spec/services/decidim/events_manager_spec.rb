@@ -38,9 +38,7 @@ describe Decidim::EventsManager do
     end
 
     context "when there are invalid values as affected_users" do
-      # rubocop: disable Lint/BinaryOperatorWithIdenticalOperands
       let(:affected_users) { followers + followers + [nil] }
-      # rubocop: enable Lint/BinaryOperatorWithIdenticalOperands
 
       it "sanitizes the recipients" do
         expect(ActiveSupport::Notifications)
@@ -59,9 +57,7 @@ describe Decidim::EventsManager do
     end
 
     context "when there are invalid values as followers" do
-      # rubocop: disable Lint/BinaryOperatorWithIdenticalOperands
       let(:followers) { affected_users + affected_users + [nil] }
-      # rubocop: enable Lint/BinaryOperatorWithIdenticalOperands
 
       it "sanitizes the recipients" do
         expect(ActiveSupport::Notifications)

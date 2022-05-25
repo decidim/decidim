@@ -10,12 +10,7 @@ module Decidim
     class TypeResolver
       def resolve(type, **options)
         case type
-        when Symbol
-          {
-            type: type,
-            options: options
-          }
-        when ActiveModel::Type::Value
+        when Symbol, ActiveModel::Type::Value
           {
             type: type,
             options: options

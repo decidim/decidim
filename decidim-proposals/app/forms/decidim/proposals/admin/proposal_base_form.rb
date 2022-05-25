@@ -129,7 +129,7 @@ module Decidim
         end
 
         def ordered_hashtag_list(string)
-          string.to_s.split.reject(&:blank?).uniq.sort_by(&:parameterize)
+          string.to_s.split.compact_blank.uniq.sort_by(&:parameterize)
         end
       end
     end

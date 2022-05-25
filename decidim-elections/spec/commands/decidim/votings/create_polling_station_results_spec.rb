@@ -57,7 +57,7 @@ module Decidim::Votings
     let(:form) { ClosureResultForm.from_params(params).with_context(context) }
 
     context "when the form is not valid" do
-      let(:polling_station_id) {}
+      let(:polling_station_id) { nil }
 
       it "broadcasts invalid" do
         expect(subject.call).to broadcast(:invalid)

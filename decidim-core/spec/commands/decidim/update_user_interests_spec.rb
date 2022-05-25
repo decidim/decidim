@@ -13,12 +13,12 @@ module Decidim
       {
         scopes: {
           ignored_scope.id.to_s => {
-            "checked": "0",
-            "id": ignored_scope.id.to_s
+            checked: "0",
+            id: ignored_scope.id.to_s
           },
           interested_scope.id.to_s => {
-            "checked": "1",
-            "id": interested_scope.id.to_s
+            checked: "1",
+            id: interested_scope.id.to_s
           }
         }
       }
@@ -43,6 +43,12 @@ module Decidim
         expect { command.call }.to broadcast(:ok)
         user.reload
         expect(user.interested_scopes).to eq [interested_scope]
+      end
+
+      it "saves interested scopes ids as array of Integer" do
+        command.call
+        user.reload
+        expect(user.extended_data["interested_scopes"]).to eq [interested_scope.id]
       end
     end
   end

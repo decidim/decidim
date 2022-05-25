@@ -26,6 +26,11 @@ module Decidim
               flash.now[:alert] = I18n.t("questions.create.invalid", scope: "decidim.elections.admin")
               render action: "new"
             end
+
+            on(:election_started) do
+              flash.now[:alert] = I18n.t("questions.create.election_started", scope: "decidim.elections.admin")
+              render action: "new"
+            end
           end
         end
 

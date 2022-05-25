@@ -137,8 +137,9 @@ FactoryBot.define do
     about { "<script>alert(\"ABOUT\");</script>#{Faker::Lorem.paragraph(sentence_count: 2)}" }
     confirmation_sent_at { Time.current }
     accepted_tos_version { organization.tos_version }
-    email_on_notification { true }
+    notifications_sending_frequency { "real_time" }
     email_on_moderations { true }
+    extended_data { {} }
 
     trait :confirmed do
       confirmed_at { Time.current }
@@ -147,7 +148,7 @@ FactoryBot.define do
     trait :blocked do
       blocked { true }
       blocked_at { Time.current }
-      extended_data { { "user_name": generate(:name) } }
+      extended_data { { user_name: generate(:name) } }
       name { "Blocked user" }
     end
 

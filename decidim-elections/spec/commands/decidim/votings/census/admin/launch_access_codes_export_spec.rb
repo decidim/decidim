@@ -12,7 +12,7 @@ module Decidim::Votings::Census::Admin
     context "when the inputs are not valid" do
       context "when the user in nil" do
         let(:dataset) { create(:dataset) }
-        let(:user) {}
+        let(:user) { nil }
 
         it { expect(subject).to broadcast(:invalid) }
       end

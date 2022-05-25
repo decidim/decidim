@@ -13,6 +13,8 @@ module Decidim
       include Decidim::ComponentPathHelper
       include Decidim::SanitizeHelper
 
+      delegate :created_at, to: :resource
+
       class_attribute :i18n_interpolations
       self.i18n_interpolations = []
 

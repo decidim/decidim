@@ -11,7 +11,9 @@ module Decidim
         def create
           enforce_permission_to :create, :export_space, participatory_space: exportable_space
 
-          ExportParticipatorySpaceJob.perform_later(current_user, exportable_space, manifest_name, default_format)
+          Decidim.traceability.perform_action!("export", exportable_space, current_user) do
+            ExportParticipatorySpaceJob.perform_later(current_user, exportable_space, manifest_name, default_format)
+          end
 
           flash[:notice] = t("decidim.admin.exports.notice")
 
