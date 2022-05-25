@@ -12,7 +12,7 @@ module Decidim
           "file" => file
         }
       end
-      let(:file) { File.new Decidim::Dev.asset("verify_user_groups.csv") }
+      let(:file) { upload_test_file(Decidim::Dev.test_file("verify_user_groups.csv", "text/csv"), return_blob: true) }
 
       context "when everything is OK" do
         it { is_expected.to be_valid }

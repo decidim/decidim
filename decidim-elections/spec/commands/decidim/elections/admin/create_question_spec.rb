@@ -71,7 +71,7 @@ describe Decidim::Elections::Admin::CreateQuestion do
     let(:election) { create :election, :started }
 
     it "is not valid" do
-      expect { subject.call }.to broadcast(:invalid)
+      expect { subject.call }.to broadcast(:election_started)
     end
   end
 end
