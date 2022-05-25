@@ -29,6 +29,21 @@ module Decidim
           end
         end
 
+        context "when the category is a subcategory" do
+          let!(:parent_category) { create :category, participatory_space: participatory_space }
+
+          before do
+            category.parent = parent_category
+          end
+
+          it "destroy the category" do
+            category
+            expect do
+              command.call
+            end.to change(Category, :count).by(-1)
+          end
+        end
+
         describe "when the data is valid" do
           it "broadcasts ok" do
             expect { command.call }.to broadcast(:ok)
