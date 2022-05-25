@@ -18,7 +18,8 @@ module Decidim
         {
           name: :i18n,
           description: :i18n,
-          weight: :integer
+          weight: :integer,
+          parent_id: :integer
         }
       end
 
