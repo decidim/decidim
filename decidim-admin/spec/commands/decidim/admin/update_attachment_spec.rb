@@ -3,9 +3,11 @@
 require "spec_helper"
 
 module Decidim::Admin
-  describe CreateAttachment do
-    subject { described_class.call(form, attached_to, user) }
-    let(:user) { create(:user) }
+  describe UpdateAttachment do
+    let!(:participatory_process) { create(:participatory_process) }
+    let!(:attachment) { create(:attachment, attached_to: participatory_process) }
+    let!(:user) { create(:user) }
+
     let(:form) do
       instance_double(
         AttachmentForm,
@@ -21,50 +23,34 @@ module Decidim::Admin
         },
         file: file,
         attachment_collection: nil,
-        weight: 0
+        weight: 2
       )
     end
     let(:file) { upload_test_file(Decidim::Dev.test_file("city.jpeg", "image/jpeg")) }
-    let(:attached_to) { create(:participatory_process) }
 
     describe "when valid" do
       before do
         allow(form).to receive(:invalid?).and_return(false)
       end
 
-      it "broadcasts :ok and creates the component" do
+      it "broadcasts :ok and updates the attachment" do
         expect do
-          subject
+          described_class.call(attachment, form, user)
         end.to broadcast(:ok)
 
-        expect(Decidim::Attachment.count).to eq(1)
-      end
-
-      it "notifies the followers" do
-        follower = create(:user, organization: attached_to.organization)
-        create(:follow, followable: attached_to, user: follower)
-
-        expect(Decidim::EventsManager)
-          .to receive(:publish)
-          .with(
-            event: "decidim.events.attachments.attachment_created",
-            event_class: Decidim::AttachmentCreatedEvent,
-            resource: kind_of(Decidim::Attachment),
-            followers: [follower]
-          )
-
-        subject
+        expect(attachment["title"]["en"]).to eq("An image")
+        expect(attachment.weight).to eq(2)
       end
 
       it "traces the action", versioning: true do
         expect(Decidim.traceability)
           .to receive(:perform_action!)
-          .with(:create, Decidim::Attachment, user)
+          .with(:update, attachment, user, {})
           .and_call_original
 
-        expect { subject }.to change(Decidim::ActionLog, :count)
+        expect { described_class.call(attachment, form, user) }.to change(Decidim::ActionLog, :count)
         action_log = Decidim::ActionLog.last
-        expect(action_log.action).to eq("create")
+        expect(action_log.action).to eq("update")
         expect(action_log.version).to be_present
       end
     end
@@ -74,12 +60,13 @@ module Decidim::Admin
         allow(form).to receive(:invalid?).and_return(true)
       end
 
-      it "broadcasts invalid" do
+      it "does not update the component" do
         expect do
-          subject
+          described_class.call(attachment, form, user)
         end.to broadcast(:invalid)
 
-        expect(Decidim::Attachment.count).to eq(0)
+        attachment.reload
+        expect(attachment.title["en"]).not_to eq("An image")
       end
     end
   end
