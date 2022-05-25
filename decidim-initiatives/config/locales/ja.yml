@@ -287,6 +287,10 @@ ja:
           send_to_technical_validation: "%{user_name} が %{resource_name} イニシアチブを技術的検証に提出しました"
           unpublish: "%{user_name} が %{resource_name} イニシアチブを破棄しました"
           update: "%{user_name} が %{resource_name} のイニシアチブを更新しました"
+        initiatives_type:
+          create: "%{user_name} が %{resource_name} イニシアチブタイプを作成しました"
+          delete: "%{user_name} が %{resource_name} イニシアチブタイプを削除しました"
+          update: "%{user_name} は %{resource_name} イニシアチブタイプを更新しました"
       admin_states:
         accepted: 十分な署名
         created: 作成済み
