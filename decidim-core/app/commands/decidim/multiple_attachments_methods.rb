@@ -88,7 +88,7 @@ module Decidim
     end
 
     def content_type_for(attachment)
-      return attachment.content_type if attachment.class == ActionDispatch::Http::UploadedFile
+      return attachment.content_type if attachment.instance_of?(ActionDispatch::Http::UploadedFile)
 
       blob(signed_id_for(attachment)).content_type
     end

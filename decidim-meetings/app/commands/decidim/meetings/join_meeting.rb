@@ -26,6 +26,7 @@ module Decidim
           return broadcast(:invalid_form) unless registration_form.valid?
 
           return broadcast(:invalid) if answer_questionnaire == :invalid
+
           create_registration
           accept_invitation
           send_email_confirmation
@@ -52,12 +53,11 @@ module Decidim
           on(:ok) do
             return :valid
           end
-          
+
           on(:invalid) do
             return :invalid
           end
         end
-
       end
 
       def create_registration
