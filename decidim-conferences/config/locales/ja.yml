@@ -59,7 +59,9 @@ ja:
         avatar: アバター
         conference_meeting_ids: 関連するミーティング
         full_name: フルネーム
+        personal_url: 個人URL
         position: 位置
+        short_bio: 略歴
         twitter_handle: Twitterアカウント
         user_id: ユーザー
       conference_user_role:
