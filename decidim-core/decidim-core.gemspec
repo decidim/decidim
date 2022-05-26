@@ -72,4 +72,9 @@ Gem::Specification.new do |s|
   s.add_dependency "decidim-api", Decidim::Core.version
 
   s.add_development_dependency "decidim-dev", Decidim::Core.version
+
+  s.add_dependency 'net-smtp' # to send email
+  s.add_dependency 'net-imap' # for rspec
+  s.add_dependency 'net-pop'  # for rspec
+  s.add_dependency 'psych', '<4' # https://stackoverflow.com/a/71192990/5020256
 end

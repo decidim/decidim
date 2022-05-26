@@ -96,7 +96,8 @@ module Decidim
     end
 
     def icon(*args)
-      redesign_enabled? ? redesigned_icon(*args) : legacy_icon(*args)
+      redesigned_icon(*args)
+      # redesign_enabled? ? redesigned_icon(*args) : legacy_icon(*args)
     end
 
     def arrow_link(text, url, args = {})
