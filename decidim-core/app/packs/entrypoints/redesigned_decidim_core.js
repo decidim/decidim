@@ -66,7 +66,6 @@ import "entrypoints/redesigned_decidim_core.scss"
 // Import from the Rails instance application
 import "src/decidim/decidim_application"
 
-console.log("New design!");
 // Images
 require.context("../images", true)
 

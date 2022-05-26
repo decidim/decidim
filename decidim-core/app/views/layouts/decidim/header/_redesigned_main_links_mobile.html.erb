@@ -1,0 +1,32 @@
+<a href="" class="flex flex-col items-center" aria-label="<%= t("layouts.decidim.header.sign_in") %>">
+  <%= icon "home-2-line", class: "w-8 h-8 fill-current" %>
+  <span class="text-sm first-letter:uppercase">Inici</span>
+</a>
+<a href="" class="flex flex-col items-center" aria-label="<%= t("decidim.search.term_input_placeholder") %>">
+  <%= icon "search-line", class: "w-8 h-8 fill-current" %>
+  <span class="text-sm first-letter:uppercase"><%= t('decidim.search.term_input_placeholder') %></span>
+</a>
+<a href="" class="flex flex-col items-center" aria-label="<%= t("decidim.profiles.show.activity") %>">
+  <%= icon "bubble-chart-line", class: "w-8 h-8 fill-current" %>
+  <span class="text-sm first-letter:uppercase"><%= t("decidim.profiles.show.activity") %></span>
+</a>
+<% if !current_user %>
+  <a href="<%= decidim.new_user_session_path %>" class="flex flex-col items-center" aria-label="<%= t("layouts.decidim.header.sign_in") %>">
+    <%= icon "login-box-line", class: "w-8 h-8 fill-current" %>
+    <span class="text-sm first-letter:uppercase"><%= t("layouts.decidim.header.sign_in") %></span>
+  </a>
+<% else %>
+  <a href="" class="flex flex-col items-center relative" aria-label="<%= t("layouts.decidim.user_profile.account") %>">
+    <% if current_user.notifications.any? %>
+      <span class="w-2.5 h-2.5 rounded-full block absolute top-0 right-2 bg-primary"></span>
+    <% end %>
+    <% if current_user.avatar.any? %>
+      <div class="w-8 h-8 rounded-full overflow-hidden">
+        <%= image_tag "https://www.fillmurray.com/640/360", class: "object-cover w-full h-full", alt: "avatar #{current_user.avatar.name}" %>
+      </div>
+    <% else %>
+      <%= icon "user-smile-line", class: "w-8 h-8 fill-current" %>
+    <% end %>
+    <span class="text-sm first-letter:uppercase"><%= t("layouts.decidim.user_profile.account") %></span>
+  </a>
+<% end %>

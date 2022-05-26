@@ -1,11 +1,32 @@
-<div class="container flex justify-between items-center py-5">
-  <div class="w-3/4 md:w-2/5 lg:w-1/4 prose prose-img:max-h-16 prose-img:my-0">
-    <%= render partial: "layouts/decidim/logo", locals: { organization: current_organization } %>
-  </div>
-  <div class="hidden md:block md:w-2/5 lg:w-1/6">
-    <%= render partial: "layouts/decidim/header/redesigned_main_search" %>
-  </div>
-  <div class="ml-auto">
-    <%= render partial: "layouts/decidim/header/redesigned_main_links" %>
+<div class="relative w-full">
+  <div class="container flex justify-between items-center py-5">
+    <div class="w-3/4 md:w-2/5 lg:w-1/4 prose prose-img:max-h-16 prose-img:my-0">
+      <%= render partial: "layouts/decidim/logo", locals: { organization: current_organization } %>
+    </div>
+    <div class="hidden md:block md:w-2/5 lg:w-1/6">
+      <%= render partial: "layouts/decidim/header/redesigned_main_search" %>
+    </div>
+    <div class="hidden md:flex justify-between text-center divide-x-2 divide-border-2 ml-auto">
+      <%= render partial: "layouts/decidim/header/redesigned_main_links_desktop" %>
+    </div>
+
+    <div class="lg:hidden">
+      <%# Sticky menu mobile %>
+      <div class="fixed bottom-0 left-0 bg-white w-full px-4 py-3 flex items-center justify-evenly text-secondary" style="box-shadow: 0px -4px 6px rgba(198, 198, 198, 0.25);">
+        <%= render partial: "layouts/decidim/header/redesigned_main_links_mobile" %>
+      </div>
+
+      <%# Main dropdown mobile %>
+      <details>
+        <summary id="main-dropdown-summary-mobile" class="flex flex-col items-center text-secondary cursor-pointer"
+          aria-controls="main-dropdown-mobile">
+          <%= icon "menu-line", class: "w-5 h-5 fill-current" %><span class="text-sm first-letter:uppercase"><%= "menu" %></span>
+        </summary>
+
+        <div id="main-dropdown-mobile" aria-labelledby="main-dropdown-summary-mobile" class="absolute top-full left-0 z-20">
+          <%= render partial: "layouts/decidim/header/redesigned_menu_breadcrumb_main_dropdown" %>
+        </div>
+      </details>
+    </div>
   </div>
 </div>

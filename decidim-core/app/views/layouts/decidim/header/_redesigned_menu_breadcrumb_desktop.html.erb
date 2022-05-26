@@ -20,12 +20,12 @@
 
   <% if has_dropdown %>
     <details class="relative">
-      <summary id="main-dropdown-summary"
+      <summary id="secondary-dropdown-summary"
         class="flex button p-1 <%= 'font-bold' if is_active %>"
-        aria-controls="main-dropdown">
+        aria-controls="secondary-dropdown">
         <%= item[0] %>
       </summary>
-      <div id="main-dropdown" aria-labelledby="main-dropdown-summary"
+      <div id="secondary-dropdown" aria-labelledby="secondary-dropdown-summary"
         class="absolute top-[calc(100%+1rem)] left-0 z-20">
         <%= render partial: "layouts/decidim/header/redesigned_menu_breadcrumb_secondary_dropdown" %>
       </div>

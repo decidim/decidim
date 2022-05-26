@@ -1,5 +1,5 @@
 <details>
-  <summary class="flex items-center justify-between text-white">
+  <summary id="secondary-dropdown-summary-mobile" aria-controls="secondary-dropdown-mobile" class="flex items-center justify-between text-white">
     <div class="flex flex-wrap md:flex-nowrap gap-x-2.5 overflow-hidden">
       <% breadcrumb=[["Process", false], ["Imaginem el nou ecobarri de Ca n' Ametller", true], ["Sobre el procés", false]] %>
 
@@ -13,5 +13,7 @@
 
     <%= icon "arrow-down-s-line", class: "flex-none w-6 h-6 fill-current" %>
   </summary>
-  <%= render partial: "layouts/decidim/header/redesigned_menu_breadcrumb_secondary_dropdown" %>
+  <div id="secondary-dropdown-mobile" aria-labelledby="secondary-dropdown-summary-mobile">
+    <%= render partial: "layouts/decidim/header/redesigned_menu_breadcrumb_secondary_dropdown" %>
+  </div>
 </details>
