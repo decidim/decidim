@@ -37,7 +37,13 @@ const overrideSassRule = (modifyConfig) => {
         },
         {
           loader: "postcss-loader",
-          options: { sourceMap: true }
+          options: {
+            sourceMap: true,
+            postcssOptions: {
+              // eslint-disable-next-line no-undef
+              config: path.resolve(__dirname, "../../../postcss.config.js")
+            }
+          }
         },
         {
           loader: sassLoaderPath
