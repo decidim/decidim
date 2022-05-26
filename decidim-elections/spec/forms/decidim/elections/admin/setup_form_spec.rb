@@ -54,6 +54,40 @@ describe Decidim::Elections::Admin::SetupForm do
     end
   end
 
+  context "when validating the census" do
+    let(:election) { create :election }
+
+    context "when the participatory space is not a voting" do
+      it "does not add errors about the census" do
+        expect(subject.errors.messages[:census_not_frozen]).to be_empty
+      end
+    end
+
+    context "when the participatory space is a voting" do
+      let(:election) { create :voting_election }
+      let(:dataset) { create :dataset, voting: election.participatory_space, status: census_status }
+
+      context "when the census is not frozen" do
+        let(:census_status) { "init_data" }
+
+        it { is_expected.to be_invalid }
+
+        it "shows errors" do
+          subject.valid?
+          expect(subject.errors.messages).to match(hash_including({ census_not_frozen: ["The census for this election must be frozen before creating the election"] }))
+        end
+      end
+
+      context "when the census is frozen" do
+        let(:census_status) { "freeze" }
+
+        it "does not add errors about the census" do
+          expect(subject.errors.messages[:census_not_frozen]).to be_empty
+        end
+      end
+    end
+  end
+
   context "when there are no trustees for the election" do
     let(:trustees) { [] }
 

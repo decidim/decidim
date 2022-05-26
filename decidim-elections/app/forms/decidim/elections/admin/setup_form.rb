@@ -36,8 +36,19 @@ module Decidim
             [:published, {}, election.published_at.present?],
             [:component_published, {}, election.component.published?],
             [:time_before, { hours: Decidim::Elections.setup_minimum_hours_before_start }, election.minimum_hours_before_start?],
-            [:trustees_number, { number: bulletin_board.number_of_trustees }, participatory_space_trustees_with_public_key.size >= bulletin_board.number_of_trustees]
-          ].freeze
+            [:trustees_number, { number: bulletin_board.number_of_trustees }, participatory_space_trustees_with_public_key.size >= bulletin_board.number_of_trustees],
+            census_frozen?
+          ].compact.freeze
+        end
+
+        def census_frozen?
+          return nil unless election.participatory_space.respond_to?(:vote_flow_for)
+
+          vote_flow = election.participatory_space.vote_flow_for(election)
+          return nil unless vote_flow.is_a?(Decidim::Votings::CensusVoteFlow)
+
+          census_frozen = election.participatory_space.dataset&.freeze?
+          [:census_not_frozen, {}, census_frozen]
         end
 
         def messages
