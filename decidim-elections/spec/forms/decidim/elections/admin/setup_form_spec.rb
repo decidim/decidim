@@ -47,6 +47,8 @@ describe Decidim::Elections::Admin::SetupForm do
       subject.valid?
       expect(subject.errors.messages).to eq({
                                               minimum_questions: ["The election <strong>must have at least one question</strong>."],
+                                              minimum_answers: ["Questions must have <strong>at least two answers</strong>."],
+                                              max_selections: ["The questions do not have a <strong>correct value for amount of answers</strong>"],
                                               published: ["The election is <strong>not published</strong>."]
                                             })
     end
