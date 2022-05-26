@@ -95,9 +95,8 @@ describe "Check Census", type: :system do
         click_button "via SMS or email"
 
         expect(page).to have_content("Get Access Code")
-        expect(page).to have_content("****@example.com")
 
-        click_button "Send by email to"
+        click_button "Send by email to ****@example.com"
 
         callout = find(:xpath, '//*[@id="content"]/div[1]')
 
