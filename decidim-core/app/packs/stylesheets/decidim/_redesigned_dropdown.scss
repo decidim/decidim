@@ -1,0 +1,11 @@
+.dropdown {
+  @apply absolute bg-white border-2 border-border-3 rounded px-4 divide-y divide-border-3 min-w-max drop-shadow-md text-left;
+
+  & > * {
+    @apply relative z-10;
+  }
+
+  &.top {
+    @apply top-full right-0 mt-3 before:content-[''] before:absolute before:right-8 before:-top-2 before:w-6 before:h-6 before:rotate-45 before:bg-white before:rounded before:border-2 before:border-border-3 after:content-[''] after:absolute after:left-0 after:top-0 after:w-full after:h-full after:bg-white;
+  }
+}

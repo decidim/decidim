@@ -1,8 +1,11 @@
 <details>
+  <!-- TODO: the summary block styles could be simplified using backdrop-filter (i.e. tailwind: backdrop-brightness-75),
+    but still incompatible with firefox: https://caniuse.com/css-backdrop-filter -->
   <summary id="main-dropdown-summary"
-    class="flex button p-1"
+    class="flex rounded overflow-hidden px-2 py-1 cursor-pointer relative group"
     aria-controls="main-dropdown">
-    <%= icon "home-2-line" , class: "w-6 h-6 fill-current" %>
+    <span class="opacity-0 group-hover:opacity-100 transition z-0 absolute top-0 left-0 w-full h-full brightness-75 bg-primary"></span>
+    <span class="relative z-10"><%= icon "home-2-line" , class: "w-6 h-6 fill-current" %></span>
   </summary>
   <div id="main-dropdown" aria-labelledby="main-dropdown-summary"
     class="absolute top-full left-8 z-20">
@@ -20,10 +23,13 @@
 
   <% if has_dropdown %>
     <details class="relative">
+      <!-- TODO: the summary block styles could be simplified using backdrop-filter (i.e. tailwind: backdrop-brightness-75),
+        but still incompatible with firefox: https://caniuse.com/css-backdrop-filter -->
       <summary id="secondary-dropdown-summary"
-        class="flex button p-1 <%= 'font-bold' if is_active %>"
+        class="flex rounded overflow-hidden px-2 py-1 cursor-pointer relative group <%= 'font-bold' if is_active %>"
         aria-controls="secondary-dropdown">
-        <%= item[0] %>
+        <span class="opacity-0 group-hover:opacity-100 transition z-0 absolute top-0 left-0 w-full h-full brightness-75 bg-primary"></span>
+        <span class="relative z-10"><%= item[0] %></span>
       </summary>
       <div id="secondary-dropdown" aria-labelledby="secondary-dropdown-summary"
         class="absolute top-[calc(100%+1rem)] left-0 z-20">

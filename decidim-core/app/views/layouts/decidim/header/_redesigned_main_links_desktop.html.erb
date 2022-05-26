@@ -15,8 +15,8 @@
     <%= icon "login-box-line", class: "w-5 h-5 fill-current" %><span class="text-sm first-letter:uppercase"><%= t("layouts.decidim.header.sign_in") %></span>
   <% end %>
 <% else %>
-  <a href="" class="px-8" aria-label="<%= t("layouts.decidim.user_profile.account") %>">
-    <div class="flex flex-col items-center text-secondary relative">
+  <details class="relative px-8 cursor-pointer">
+    <summary id="dropdown-summary-account" class="flex flex-col items-center text-secondary relative" aria-controls="dropdown-account">
       <% if current_user.notifications.any? %>
         <span class="w-2.5 h-2.5 rounded-full block absolute -top-0.5 right-0 bg-primary"></span>
       <% end %>
@@ -30,7 +30,9 @@
         <%= icon "user-smile-line", class: "w-5 h-5 fill-current" %>
         <span class="text-sm first-letter:uppercase"><%= t("layouts.decidim.user_profile.account") %></span>
       <% end %>
-      <!-- TODO: dropdown -->
-    </div>
-  </a>
+    </summary>
+    <ul id="dropdown-account" class="dropdown top z-20 w-64" aria-labelledby="dropdown-summary-account">
+      <%= render partial: "layouts/decidim/header/redesigned_main_links_dropdown" %>
+    </ul>
+  </details>
 <% end %>

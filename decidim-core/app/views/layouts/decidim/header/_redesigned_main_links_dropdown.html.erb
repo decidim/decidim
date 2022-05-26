@@ -1,0 +1,30 @@
+<li>
+  <a href="<%= decidim.account_path %>" class="p-2 gap-x-2 flex items-center">
+    <%= icon "user-smile-line", class: "w-4 h-4 flex-none text-border fill-current" %>
+    <span class="text-secondary text-sm"><%= t("layouts.decidim.user_menu.profile") %></span>
+  </a>
+</li>
+<li>
+  <a href="<%= decidim.profile_path(current_user.nickname) %>" class="p-2 gap-x-2 flex items-center">
+    <%= icon "account-circle-line", class: "w-4 h-4 flex-none text-border fill-current" %>
+    <span class="text-secondary text-sm"><%= t("layouts.decidim.user_menu.public_profile") %></span>
+  </a>
+</li>
+<li>
+  <a href="<%= decidim.notifications_path %>" class="p-2 gap-x-2 flex items-center">
+    <%= icon "notification-3-line", class: "w-4 h-4 flex-none text-border fill-current" %>
+    <span class="text-secondary text-sm"><%= t("layouts.decidim.user_menu.notifications") %></span>
+  </a>
+</li>
+<li>
+  <a href="<%= decidim.conversations_path %>" class="p-2 gap-x-2 flex items-center">
+    <%= icon "mail-send-line", class: "w-4 h-4 flex-none text-border fill-current" %>
+    <span class="text-secondary text-sm"><%= t("layouts.decidim.user_menu.conversations") %></span>
+  </a>
+</li>
+<li>
+  <a href="<%= decidim.destroy_user_session_path %>" class="p-2 gap-x-2 flex items-center">
+    <%= icon "logout-box-r-line", class: "w-4 h-4 flex-none text-border fill-current" %>
+    <span class="text-secondary text-sm"><%= t("layouts.decidim.user_menu.sign_out") %></span>
+  </a>
+</li>
