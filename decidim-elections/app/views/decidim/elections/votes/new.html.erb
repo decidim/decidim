@@ -57,6 +57,10 @@
   <div id="ballot_decision" class="hide focus__step" data-redirect_url=".hide">
     <%= render("new_ballot_decision_step") %>
   </div>
+
+  <div id="failed" class="hide focus__step" data-toggler=".hide">
+    <%= render("show_failed") %>
+  </div>
 </div>
 
 <% content_for :js_content do %>

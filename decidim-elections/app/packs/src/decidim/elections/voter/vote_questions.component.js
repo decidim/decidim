@@ -35,6 +35,11 @@ export default class VoteQuestionsComponent {
     this.onSelectionChange();
   }
 
+  errored() {
+    this.$currentStep.addClass("hide").removeClass("show")
+    this.$currentStep = this.$voteWrapper.find("#failed").addClass("show").removeClass("hide")
+  }
+
   toggleContinueButton() {
     if (this.checkAnswers()) {
       // next step enabled
