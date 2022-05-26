@@ -1,5 +1,4 @@
 /* eslint-disable require-jsdoc */
-
 // The wait time used to simulate the encryption of the vote during the preview
 const FAKE_ENCRYPTION_TIME = 1000;
 

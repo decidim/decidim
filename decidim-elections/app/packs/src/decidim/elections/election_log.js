@@ -3,9 +3,8 @@
  * for an election for the election log.
  */
 import { Client, MessageParser } from "@decidim/decidim-bulletin_board";
-import { reportingErrorsAsync } from "src/decidim/reporting_errors";
 
-$(reportingErrorsAsync(async () => {
+$(async () => {
   // UI Elements
   const $electionLog = $(".election-log");
   const $createElectionStep = $electionLog.find("#create-election-step");
@@ -159,4 +158,4 @@ $(reportingErrorsAsync(async () => {
     $resultStep.find(".results-published").removeClass("hide");
     addChainedHash(resultsLogEntry, $resultStep);
   }
-}));
+});

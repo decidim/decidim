@@ -3,11 +3,10 @@ import {
   Election,
   MessageParser
 } from "@decidim/decidim-bulletin_board";
-import { reportingErrorsAsync } from "src/decidim/reporting_errors";
 
 const WAIT_TIME_MS = 10 * 1_000;
 
-$(reportingErrorsAsync(async () => {
+$(async () => {
   const $trusteesProcess = $("#trustees_process");
   const $checkingTrustees = $trusteesProcess.find(".trustee");
   const electionUniqueId = $trusteesProcess.data("electionUniqueId");
@@ -123,4 +122,4 @@ $(reportingErrorsAsync(async () => {
   };
 
   await checkTrusteesActivity();
-}));
+});

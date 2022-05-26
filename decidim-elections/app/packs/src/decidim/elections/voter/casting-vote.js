@@ -1,7 +1,6 @@
 import { Client } from "@decidim/decidim-bulletin_board";
-import { reportingErrorsAsync } from "src/decidim/reporting_errors";
 
-$(reportingErrorsAsync(async () => {
+$(async () => {
   const $castingVoteWrapper = $(".casting-vote-wrapper");
 
   const bulletinBoardClient = new Client({
@@ -12,4 +11,4 @@ $(reportingErrorsAsync(async () => {
   await bulletinBoardClient.waitForPendingMessageToBeProcessed(messageId);
 
   $("form.update_vote_status").trigger("submit");
-}));
+});

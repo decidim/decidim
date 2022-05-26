@@ -1,11 +1,10 @@
 /* eslint-disable no-console */
 import VoteQuestionsComponent from "src/decidim/elections/voter/vote_questions.component";
-import { reportingErrorsAsync } from "src/decidim/reporting_errors";
 // The voting component might come from set-preview.js or setup-vote.js, it depends if it's a preview
 // so in the view template we load the component and attach it to window
 const { setupVoteComponent } = window.Decidim;
 
-$(reportingErrorsAsync(async () => {
+$(async () => {
   // UI Elements
   const $voteWrapper = $(".vote-wrapper");
   const $ballotHash = $voteWrapper.find(".ballot-hash");
@@ -81,4 +80,4 @@ $(reportingErrorsAsync(async () => {
       console.log("Something went wrong.");
     }
   });
-}));
+});

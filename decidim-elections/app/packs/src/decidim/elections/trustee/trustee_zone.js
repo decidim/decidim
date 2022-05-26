@@ -1,9 +1,8 @@
 /* eslint-disable require-jsdoc, no-alert, func-style */
 
 import { IdentificationKeys } from "@decidim/decidim-bulletin_board";
-import { reportingErrors } from "src/decidim/reporting_errors";
 
-$(reportingErrors(() => {
+$(() => {
   function identificationKeys() {
     const $form = $(".trustee_zone form");
     const $trusteeSlug = $("#trustee_slug", $form);
@@ -60,4 +59,4 @@ $(reportingErrors(() => {
   $(document).ready(() => {
     identificationKeys();
   });
-}));
+});

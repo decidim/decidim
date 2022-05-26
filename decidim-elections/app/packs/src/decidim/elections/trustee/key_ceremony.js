@@ -7,15 +7,13 @@ import {
 
 import { TrusteeWrapperAdapter as DummyTrusteeWrapperAdapter } from "@decidim/voting_schemes-dummy";
 import { TrusteeWrapperAdapter as ElectionGuardTrusteeWrapperAdapter } from "@decidim/voting_schemes-electionguard";
-import { reportingErrors } from "src/decidim/reporting_errors";
-
 
 /**
  * This file is responsible to generate election keys,
  * create a backup of keys for the trustee and
  * update the election bulletin board status
  */
-$(reportingErrors(() => {
+$(() => {
   // UI Elements
   const $keyCeremony = $(".trustee-step");
   const $startButton = $keyCeremony.find(".start");
@@ -162,4 +160,4 @@ $(reportingErrors(() => {
       $startButton.prop("disabled", false);
     }
   });
-}));
+});
