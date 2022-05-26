@@ -1,4 +1,7 @@
 import AutoCompleteJS from "@tarekraafat/autocomplete.js";
+// Styles from node_modules/@tarekraafat/autocomplete.js
+// It needs to be done in JS because postcss-import doesn't find files in node_modules/
+import "@tarekraafat/autocomplete.js/dist/css/autoComplete.02.css";
 
 export default class AutoComplete {
   constructor(el, options = {}) {
