@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim::Admin::Import::Readers
   describe CSV do
-    subject { described_class.new(blob) }
+    subject { described_class.new(file) }
     let(:csv_data) do
       <<~CSV
         id;title;detail
@@ -16,11 +16,10 @@ module Decidim::Admin::Import::Readers
         10
       CSV
     end
-    let(:blob) { upload_test_file(file_path, return_blob: true) }
-    let(:file_path) do
+    let(:file) do
       path = Rails.application.root.join("tmp/test_csv.csv")
       File.write(path, csv_data)
-      path.to_s
+      path
     end
 
     describe "#read_rows" do

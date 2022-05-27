@@ -9,8 +9,6 @@ module Decidim
         # Imports any exported XLSX file to local objects. It transforms the
         # import data using the creator into the final target objects.
         class XLSX < Base
-          include Decidim::ProcessesFileLocally
-
           MIME_TYPE = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
 
           def self.first_data_index
@@ -18,15 +16,13 @@ module Decidim
           end
 
           def read_rows
-            process_file_locally(file) do |file_path|
-              workbook = RubyXL::Parser.parse(file_path)
-              sheet = workbook.worksheets[0]
-              sheet.each_with_index do |row, index|
-                if row
-                  yield row.cells.map { |c| c && c.value }, index
-                else
-                  yield [], index
-                end
+            workbook = RubyXL::Parser.parse(file)
+            sheet = workbook.worksheets[0]
+            sheet.each_with_index do |row, index|
+              if row
+                yield row.cells.map { |c| c && c.value }, index
+              else
+                yield [], index
               end
             end
           rescue Zip::Error
