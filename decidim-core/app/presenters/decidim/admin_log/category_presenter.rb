@@ -31,10 +31,6 @@ module Decidim
           super
         end
       end
-
-      def diff_actions
-        super + %w(unpublish)
-      end
     end
   end
 end
