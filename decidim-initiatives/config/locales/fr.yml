@@ -134,33 +134,33 @@ fr:
         admin:
           initiative_sent_to_technical_validation:
             email_intro: La pétition "%{resource_title}" a été envoyée à la validation technique. Consultez-la sur <a href="%{admin_initiative_url}">le panneau d'administration</a>
-            email_outro: Vous avez reçu cette notification parce que vous êtes un administrateur de la plateforme.
+            email_outro: Vous avez reçu cette notification parce que vous êtes un administrateur de la plateforme. Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l'onglet “Mon compte” > “Paramètres des notifications”.
             email_subject: La pétition "%{resource_title}" a été envoyée à la validation technique.
             notification_title: La pétition "%{resource_title}" a été envoyée à la validation technique. Consultez-la sur <a href="%{admin_initiative_path}">le panneau d'administration</a>
         initiative_extended:
           email_intro: La date de fin du recueil des signatures pour la pétition %{resource_title} a été prolongée !
-          email_outro: Vous avez reçu cette notification parce que vous suivez %{resource_title}. Vous pouvez arrêter de recevoir des notifications à partir du lien précédent.
+          email_outro: Vous avez reçu cette notification parce que vous suivez %{resource_title}. Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l'onglet “Mon compte” > “Paramètres des notifications”.
           email_subject: La date de fin du recueil des signatures pour la pétition est prolongée !
           notification_title: La date de fin de recueil des signatures pour la pétition <a href="%{resource_path}">%{resource_title}</a> a été prolongée.
         initiative_sent_to_technical_validation:
           email_intro: La pétition "%{resource_title}" a été envoyée à la validation technique. Consultez-la sur <a href="%{admin_initiative_url}">le panneau d'administration,</a>
-          email_outro: Vous avez reçu cette notification parce que vous êtes un administrateur de la plateforme.
+          email_outro: Vous avez reçu cette notification parce que vous êtes un administrateur de la plateforme. Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l'onglet “Mon compte” > “Paramètres des notifications”.
           email_subject: La pétition "%{resource_title}" a été envoyée à la validation technique.
           notification_title: La pétition "%{resource_title}" a été envoyée à la validation technique. Consultez-la sur <a href="%{admin_initiative_path}">le panneau d'administration</a>
         milestone_completed:
           affected_user:
             email_intro: Votre pétition %{resource_title} a atteint les %{percentage}% de signatures!
-            email_outro: Vous avez reçu cette notification car vous êtes l'auteur de la pétition %{resource_title}.
+            email_outro: Vous avez reçu cette notification car vous êtes l'auteur de la pétition %{resource_title}. Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l'onglet “Mon compte” > “Paramètres des notifications”.
             email_subject: Nouvelle étape franchie !
             notification_title: Votre pétition <a href="%{resource_path}">%{resource_title}</a> a atteint les %{percentage}% de signatures.
           follower:
             email_intro: La pétition %{resource_title} a atteint %{percentage}% des signatures requises !
-            email_outro: Vous avez reçu cette notification parce que vous suivez %{resource_title}. Vous pouvez cesser de recevoir des notifications en suivant le lien précédent.
+            email_outro: Vous avez reçu cette notification parce que vous suivez %{resource_title}. Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l'onglet “Mon compte” > “Paramètres des notifications”.
             email_subject: Nouvelle étape franchie !
             notification_title: La pétition <a href="%{resource_path}">%{resource_title}</a> a atteint %{percentage}% des signatures requises.
         support_threshold_reached:
           email_intro: La pétition %{resource_title} a atteint le seuil de signatures
-          email_outro: Vous avez reçu cette notification parce que vous êtes un administrateur de la plateforme.
+          email_outro: Vous avez reçu cette notification parce que vous êtes un administrateur de la plateforme. Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l'onglet “Mon compte” > “Paramètres des notifications”.
           email_subject: Seuil des signatures atteint
           notification_title: La pétition <a href="%{resource_path}">%{resource_title}</a> a atteint le seuil de signatures
     gamification:
@@ -385,27 +385,27 @@ fr:
       events:
         approve_membership_request:
           email_intro: "%{author_nickname} a accepté votre candidature pour faire partie du comité de promotion de la pétition %{resource_title}."
-          email_outro: 'Vous avez reçu cette notification parce que vous avez demandé à faire partie du comité de promotion de cette pétition: %{resource_title}'
+          email_outro: 'Vous avez reçu cette notification parce que vous avez demandé à faire partie du comité de promotion de cette pétition: %{resource_title}. Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l''onglet “Mon compte” > “Paramètres des notifications”.'
           email_subject: "%{author_nickname} a accepté votre demande de rejoindre le comité de promotion"
           notification_title: <a href="%{author_profile_url}">%{author_nickname}</a> a accepté votre candidature pour faire partie du comité de promotion de la pétition suivante <a href="%{resource_url}">%{resource_title}</a>.
         create_initiative_event:
           email_intro: "%{author_name} %{author_nickname}, que vous suivez, a créé une nouvelle pétition, lisez -la et contribuez :"
-          email_outro: Vous avez reçu cette notification, car vous suivez %{author_nickname}. Vous pouvez arrêter de recevoir des notifications à partir du lien précédent.
+          email_outro: Vous avez reçu cette notification, car vous suivez %{author_nickname}. Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l'onglet “Mon compte” > “Paramètres des notifications”.
           email_subject: Nouvelle pétition de %{author_nickname}
           notification_title: La pétition <a href="%{resource_path}">%{resource_title}</a> a été créée par <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
         endorse_initiative_event:
           email_intro: "%{author_name} %{author_nickname}, que vous suivez, a soutenu la pétition suivante; vous pouvez y contribuer si vous le souhaitez :"
-          email_outro: Vous avez reçu cette notification parce que vous suivez %{author_nickname}. Vous pouvez arrêter de recevoir des notifications à partir du lien précédent.
+          email_outro: Vous avez reçu cette notification parce que vous suivez %{author_nickname}. Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l'onglet “Mon compte” > “Paramètres des notifications”.
           email_subject: Pétition soutenue par %{author_nickname}
           notification_title: La pétition <a href="%{resource_path}">%{resource_title}</a> a été soutenue par <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
         revoke_membership_request:
           email_intro: "%{author_nickname} a rejeté votre candidature pour faire partie du comité de promotion de la pétition %{resource_title}."
-          email_outro: 'Vous avez reçu cette notification parce que vous avez demandé à rejoindre cette pétition : %{resource_title}.'
+          email_outro: 'Vous avez reçu cette notification parce que vous avez demandé à rejoindre cette pétition : %{resource_title}. Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l''onglet “Mon compte” > “Paramètres des notifications”.'
           email_subject: "%{author_nickname} a rejeté votre candidature au comité de promotion"
           notification_title: <a href="%{author_profile_url}">%{author_nickname}</a> a rejeté votre candidature pour faire partie du comité de promotion de la pétition suivante <a href="%{resource_url}">%{resource_title}</a>.
         spawn_committee_request_event:
           email_intro: "%{applicant_nickname} a postulé pour faire partie du comité de promotion de votre pétition %{resource_title}. Pour accepter ou rejeter la demande, allez dans le formulaire de modification de votre pétition."
-          email_outro: 'Vous avez reçu cette notification car vous êtes l''auteur de cette pétition : %{resource_title}'
+          email_outro: 'Vous avez reçu cette notification car vous êtes l''auteur de cette pétition : %{resource_title}. Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l''onglet “Mon compte” > “Paramètres des notifications”.'
           email_subject: "%{applicant_nickname} veut rejoindre le comité de promotion de votre pétition"
           notification_title: <a href="%{applicant_profile_url}">%{applicant_nickname}</a> a postulé pour faire partie du comité de promotion de votre pétition <a href="%{resource_url}">%{resource_title}</a>. Pour accepter ou rejeter la demande, cliquez <a href="%{resource_url}/edit">ici</a>.
       form:
