@@ -101,7 +101,7 @@ Please refer to:
 
 == Geocoder configuration
 
-Allows to make geographical mapping in some components, like Proposals or Meetings. It must be configured against a OpenStreetMap provider. See xref:services:geocoder.adoc[Geocoder service documentation].
+Allows to make geographical mapping in some components, like Proposals or Meetings. It must be configured against a OpenStreetMap provider. See xref:services:maps.adoc[Geocoder service documentation].
 
 [source,ruby]
 ....

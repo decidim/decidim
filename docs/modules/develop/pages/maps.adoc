@@ -1,6 +1,6 @@
 = Custom map providers
 
-Decidim can be configured to use multiple different xref:/docs/services/maps.adoc[map service providers] but it can be also extended to use any possible service provider out there.
+Decidim can be configured to use multiple different xref:services:maps.adoc[map service providers] but it can be also extended to use any possible service provider out there.
 
 If you want to create your own provider integration, you will need to find a service provider that provides all the following services:
 
@@ -12,12 +12,12 @@ on the proposal pages.
 This service is optional as Decidim will use the dynamic map tiles to generate a similar map element if the static map image cannot be provided.
 
 One option is to host some or all of these services yourself as there are open source alternatives available for all of these services.
-More information about self hosting is available at the link:/docs/services/maps.md#combining-multiple-service-providers[maps and geocoding configuration] documentation.
+More information about self hosting is available at the xref:services:maps.adoc#combining-multiple-service-providers[maps and geocoding configuration documentation].
 
-You may also decide to link:/docs/services/maps.md#disabling[disable some of the services] that are not available at your service provider but in order to get the full out of Decidim, it is recommended to find a service provider with all these services.
+You may also decide to xref:services:maps.adoc#disabling[disable some of the services] that are not available at your service provider but in order to get the full out of Decidim, it is recommended to find a service provider with all these services.
 
 In case you want to use different service providers for the different categories of map services, that is also possible.
-Instructions for this are provided in the link:/docs/services/maps.md#combining-multiple-service-providers[maps and geocoding configuration] documentation.
+Instructions for this are provided in the xref:services:maps.adoc#combining-multiple-service-providers[maps and geocoding configuration documentation].
 
 == Creating your own map service provider
 
@@ -312,7 +312,7 @@ For the dynamic map functionality, you should primarily use a service provider t
 You can also integrate to services that are not compatible with Leaflet but it will cause you more work and is not covered by this guide.
 
 Please note that you don't necessarily even need to create your own dynamic maps utility if your service provider is already compatible with the link:/decidim-core/lib/decidim/map/provider/dynamic_map/osm.rb[`Decidim::Map::Provider::DynamicMap::Osm`] provider.
-In order to configure your custom OSM compatible service provider take a look at the link:/docs/services/maps.md#configuring-open-street-maps-based-service-providers[maps and geocoding configuration] documentation.
+In order to configure your custom OSM compatible service provider take a look at the xref:services:maps.adoc#configuring-open-street-maps-based-service-providers[maps and geocoding configuration] documentation.
 
 If your service provider is not fully compatible with the default OSM provider, you can start writing your customizations by creating an empty dynamic map provider utility with the following code:
 
@@ -496,4 +496,4 @@ In this case, the static map utility can be empty as you won't need any customiz
 
 After you have finished all the steps shown above, you will need to configure your service provider for Decidim.
 The configuration key for the example service provider referred to in this documentation would be `:your_provider`.
-For configuration, refer to the xref:/docs/services/maps.adoc[maps and geocoding configuration] documentation.
+For configuration, refer to the xref:services:maps.adoc[maps and geocoding configuration documentation].
