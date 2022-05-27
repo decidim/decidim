@@ -242,6 +242,9 @@ fr:
     admin_log:
       assembly:
         create: "%{user_name} a créé l'assemblée %{resource_name}"
+        duplicate: "%{user_name} a dupliqué l'assemblée %{resource_name}"
+        export: "%{user_name} a exporté l'assemblée %{resource_name}"
+        import: "%{user_name} a importé l'assemblée %{resource_name}"
         publish: "%{user_name} a publié l'assemblée %{resource_name}"
         unpublish: "%{user_name} a dépublié l'assemblée %{resource_name}"
         update: "%{user_name} a mis à jour l'assemblée %{resource_name}"
