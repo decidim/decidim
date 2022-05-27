@@ -915,7 +915,7 @@ en:
         success: Join request successfully created. An admin will review your request before accepting you to the group.
       leave:
         error: There was a problem leaving the group
-        last_admin: You can't remove yourself from this group as you're the last administrator. Make another member an administrator in order to leave the group. 
+        last_admin: You can't remove yourself from this group as you're the last administrator. Make another member an administrator in order to leave the group.
         success: Group successfully abandoned.
       members:
         accept_or_reject_join_requests: 'The following users have applied to join this group. Accept or reject their requests:'
