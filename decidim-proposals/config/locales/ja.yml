@@ -804,6 +804,7 @@ ja:
             other: サポート
         new:
           send: 続ける
+          title: 提案を作成
         orders:
           label: '提案の順序：'
           most_commented: コメントが多い順
