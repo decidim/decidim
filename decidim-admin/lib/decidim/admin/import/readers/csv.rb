@@ -9,6 +9,8 @@ module Decidim
         # Imports any exported CSV file to local objects. It transforms the
         # import data using the creator into the final target objects.
         class CSV < Base
+          include Decidim::ProcessesFileLocally
+
           MIME_TYPE = "text/csv"
 
           def self.first_data_index
@@ -16,8 +18,10 @@ module Decidim
           end
 
           def read_rows
-            ::CSV.read(file, col_sep: ";").each_with_index do |row, index|
-              yield row, index
+            process_file_locally(file) do |file_path|
+              ::CSV.read(file_path, col_sep: ";").each_with_index do |row, index|
+                yield row, index
+              end
             end
           end
 

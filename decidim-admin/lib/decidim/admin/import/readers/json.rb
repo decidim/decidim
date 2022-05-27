@@ -9,25 +9,29 @@ module Decidim
         # Imports any exported JSON file to local objects. It transforms the
         # import data using the creator into the final target objects.
         class JSON < Base
+          include Decidim::ProcessesFileLocally
+
           MIME_TYPE = "application/json"
 
           def read_rows
-            json_string = File.read(file)
-            columns = []
-            data = ::JSON.parse(json_string)
-            data.each_with_index do |row, index|
-              row = flat_hash(row)
-              if index.zero?
-                columns = row.keys
-                yield columns.map(&:to_s), index
-              end
+            process_file_locally(file) do |file_path|
+              json_string = File.read(file_path)
+              columns = []
+              data = ::JSON.parse(json_string)
+              data.each_with_index do |row, index|
+                row = flat_hash(row)
+                if index.zero?
+                  columns = row.keys
+                  yield columns.map(&:to_s), index
+                end
 
-              values = columns.map { |c| row[c] }
-              last_present = values.rindex { |v| !v.nil? }
-              if last_present
-                yield values[0..last_present], index + 1
-              else
-                yield [], index + 1
+                values = columns.map { |c| row[c] }
+                last_present = values.rindex { |v| !v.nil? }
+                if last_present
+                  yield values[0..last_present], index + 1
+                else
+                  yield [], index + 1
+                end
               end
             end
           rescue ::JSON::ParserError

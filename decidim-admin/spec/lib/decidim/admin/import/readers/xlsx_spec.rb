@@ -4,7 +4,8 @@ require "spec_helper"
 
 module Decidim::Admin::Import::Readers
   describe XLSX do
-    subject { described_class.new(file) }
+    subject { described_class.new(blob) }
+    let(:blob) { upload_test_file(file, return_blob: true) }
     let(:file) { Decidim::Dev.test_file("test_excel.xlsx", Decidim::Admin::Import::Readers::XLSX::MIME_TYPE) }
 
     describe "#read_rows" do

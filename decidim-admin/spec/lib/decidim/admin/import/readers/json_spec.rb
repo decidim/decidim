@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim::Admin::Import::Readers
   describe JSON do
-    subject { described_class.new(file) }
+    subject { described_class.new(blob) }
     let(:json_data) do
       <<~JSON
         [
@@ -29,10 +29,11 @@ module Decidim::Admin::Import::Readers
         ]
       JSON
     end
-    let(:file) do
+    let(:blob) { upload_test_file(file_path, return_blob: true) }
+    let(:file_path) do
       path = Rails.application.root.join("tmp/test_json.json")
       File.write(path, json_data)
-      path
+      path.to_s
     end
 
     describe "#read_rows" do
