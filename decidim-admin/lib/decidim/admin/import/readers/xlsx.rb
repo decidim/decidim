@@ -16,15 +16,13 @@ module Decidim
           end
 
           def read_rows
-            process_file_locally(file) do |file_path|
-              workbook = RubyXL::Parser.parse(file_path)
-              sheet = workbook.worksheets[0]
-              sheet.each_with_index do |row, index|
-                if row
-                  yield row.cells.map { |c| c && c.value }, index
-                else
-                  yield [], index
-                end
+            workbook = RubyXL::Parser.parse(file)
+            sheet = workbook.worksheets[0]
+            sheet.each_with_index do |row, index|
+              if row
+                yield row.cells.map { |c| c && c.value }, index
+              else
+                yield [], index
               end
             end
           rescue Zip::Error
