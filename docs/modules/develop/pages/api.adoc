@@ -4,7 +4,7 @@ Decidim comes with a powerful API in read-only mode based in the GraphQL specifi
 
 Documentation for this API is auto-generated in each instance of Decidim, usually under the URL:
 
-`some_domain/api/docs`
+`https://example.org/api/docs`
 
 Accessing that URL will give a full details of all the objects that can be requested and how.
 
