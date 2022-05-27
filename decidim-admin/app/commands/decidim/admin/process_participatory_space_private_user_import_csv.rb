@@ -5,7 +5,7 @@ require "csv"
 module Decidim
   module Admin
     class ProcessParticipatorySpacePrivateUserImportCsv < Decidim::Command
-      include Decidim::HasFilePath
+      include Decidim::ProcessesFileLocally
 
       # Public: Initializes the command.
       #
@@ -17,8 +17,6 @@ module Decidim
         @current_user = current_user
         @private_users_to = private_users_to
       end
-
-      delegate :file, to: :@form
 
       # Executes the command. Broadcasts these events:
       #
@@ -36,8 +34,10 @@ module Decidim
       private
 
       def process_csv
-        CSV.foreach(file_path, encoding: "BOM|UTF-8") do |email, user_name|
-          ImportParticipatorySpacePrivateUserCsvJob.perform_later(email, user_name, @private_users_to, @current_user) if email.present? && user_name.present?
+        process_file_locally(@form.file) do |file_path|
+          CSV.foreach(file_path, encoding: "BOM|UTF-8") do |email, user_name|
+            ImportParticipatorySpacePrivateUserCsvJob.perform_later(email, user_name, @private_users_to, @current_user) if email.present? && user_name.present?
+          end
         end
       end
     end

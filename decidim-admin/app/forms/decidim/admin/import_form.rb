@@ -5,7 +5,7 @@ module Decidim
     class ImportForm < Form
       ACCEPTED_MIME_TYPES = Decidim::Admin::Import::Readers::ACCEPTED_MIME_TYPES
       include Decidim::HasUploadValidations
-      include Decidim::HasFilePath
+      include Decidim::ProcessesFileLocally
 
       attribute :name, String
       attribute :file, Decidim::Attributes::Blob
@@ -17,7 +17,7 @@ module Decidim
       validate :verify_import, if: -> { file.present? && accepted_mime_type? && !importer.invalid_file? }
 
       def importer
-        @importer ||= importer_for(file_path, mime_type)
+        @importer ||= importer_for(file, mime_type)
       end
 
       private
