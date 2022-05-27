@@ -290,6 +290,10 @@ fr:
           send_to_technical_validation: "%{user_name} a envoyé la pétition %{resource_name} à la validation technique"
           unpublish: "%{user_name} a dépublié la pétition %{resource_name}"
           update: "%{user_name} a mis à jour la pétition %{resource_name}"
+        initiatives_type:
+          create: "%{user_name} a créé le type de pétition %{resource_name}"
+          delete: "%{user_name} a supprimé le type de pétition %{resource_name}"
+          update: "%{user_name} a mis à jour le type de pétition %{resource_name}"
       admin_states:
         accepted: Assez de signatures
         created: Créée
