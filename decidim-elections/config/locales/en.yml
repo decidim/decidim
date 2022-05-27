@@ -59,6 +59,9 @@ en:
       decidim/elections/question:
         one: Question
         other: Questions
+      decidim/voting:
+        one: Voting
+        other: Votings
       decidim/votings/census/dataset:
         one: Dataset
         other: Datasets
@@ -183,6 +186,11 @@ en:
         exports:
           elections: Elections
           feedback_form_answers: Feedback form answers
+        mailers:
+          trustee_mailer:
+            body: "<p>Hi %{user_name},</p><p>You've been added as a trustee to %{resource_name}.</p>"
+            subject: You've been added as a trustee to %{resource_name}
+            trustee_zone: Take me to the trustee zone
         menu:
           trustees: Trustees
         models:
@@ -600,7 +608,7 @@ en:
           audit: "( Audit ballot )"
           back: Start voting process again
           ballot_hash: 'Your ballot identifier is:'
-          cast: Cast ballot
+          cast: Cast ballot to finish your vote
           description: Here, you have the options to cast your ballot so that it's properly counted or, alternatively, you can audit that your ballot was correctly encrypted. For security reasons, auditing your ballot will spoil it. That means, to cast your vote, you will need to restart the voting process.
           header: 'Ballot is encrypted: cast it or audit it'
         casting:
@@ -901,7 +909,7 @@ en:
           edit:
             change_polling_station: Back to Polling Stations
             monitoring_committee_notes: Remarks
-            monitoring_committee_notes_placeholder: Report any incidence here
+            monitoring_committee_notes_placeholder: Report any incident here
             title: Results for the election <i>%{election_title}</i> in the polling station <i>%{polling_station_title}</i>
           elections:
             title: Choose an election you want to validate
@@ -986,14 +994,20 @@ en:
             assign_missing_officers: There are Polling Stations without President and/or Managers. Please assign them from the Polling stations section
             update: Update
           form:
-            census_contact_information_help: This contact information is for a participant who wants to report issues with the census. It can be an email address, a contact form on another site, a Decidim survey for visitors, etc.
+            banner_image: Banner image
+            census_contact_information: Census contact information
+            census_contact_information_help: This contact information is for a participant who wants to report issues with the census. It can be an email address, a contact form on another site, a survey for visitors, etc.
+            introductory_image: Introductory image
+            promoted: Promoted
             select_a_voting_type: Please select a voting type
+            slug: Slug
             slug_help: 'URL slugs are used to generate the URLs that point to this voting. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
             title: Title
             voting_type:
               hybrid: Hybrid
               in_person: In person
               online: Online
+            voting_type_label: Voting type
           new:
             create: Create
             title: New Voting
@@ -1037,7 +1051,7 @@ en:
               info_message: "<strong>Please wait</strong>, processed %{processed_count} of %{raw_count} rows from %{file} file."
             delete:
               button: Delete all census data
-              confirm: Delete all the census can not be undone. Are you sure you want to continue?
+              confirm: Deleting all the census data cannot be undone. Are you sure you want to continue?
             destroy:
               error: An error occurred deleting the census, please try again later.
               success: Census data deleted
@@ -1045,7 +1059,7 @@ en:
               button: Export voting Access Codes
               callout: You can now proceed to export the access codes. This can only be done once. Once you launch the exportation, you will receive an email with the instructions to <strong>%{email}</strong>
               confirm: You can only export the access codes once. Make sure you have access to the email account <strong>%{email}</strong>.
-              file_not_exists: This file does not exists
+              file_not_exist: This file does not exist
               launch_error: Problem launching the access codes export
               launch_success: Access codes export launched. Shortly you will receive an email to %{email}
             exporting_access_codes:
@@ -1070,7 +1084,7 @@ en:
               has_ballot_styles_message: You set up Ballot Styles. Please make sure that the "%{ballot_style_code_header}" field in the CSV corresponds to the desired Ballot Style's code.
               info_message: "<strong>There is no census yet.</strong> Please use the form below to create it importing a CSV file."
               missing_ballot_styles_message: 'There is no Ballot Style for this voting yet. If you wish to have conditional questions (i.e.: present the voter with different questions depending on, e.g., the district/region of residence), you need to set up the <a href=%{ballot_styles_admin_path}>Ballot Styles</a> <strong>before</strong> importing the census. If you want to present all voters with the same questions, you can proceed with the census import procedure.'
-              submit: Submit csv
+              submit: Submit CSV
               title: Create the census
             show:
               heading: Voting space census
@@ -1096,8 +1110,6 @@ en:
           name: Highlighted votings
         landing_page:
           description:
-            show_less: Read less
-            show_more: Read more
             title: About this voting
           metrics:
             heading: Metrics
@@ -1151,7 +1163,7 @@ en:
             modal_ballots_count_error:
               btn_validate_total: Validate total recount of ballots
               close_modal: Close
-              info_explanation_text: 'Please review the total number of ballots. If the total number is correct, you must provide an explanation for the Monitoring Committee:'
+              info_explanation_text: 'Please review the total number of ballots. If the total number is incorrect, you must provide an explanation for the Monitoring Committee:'
               info_text: The total number of ballots (envelopes) introduced doesn't match the record of people that has voted in this Polling Station.
               message_for_monitoring_committee: Message for the Monitoring Committee
               review_recount: Review the recount
@@ -1276,8 +1288,8 @@ en:
           check_status: Check status
           description: Here, you have the option to check your census data to know if you have the right to participate in this voting. You should have an access code already but if you lost it, you can ask for it again, when your data is correct.
           error:
-            info: 'Please try again. If you think the data in the system is incorrect, you can report it here: %{census_contact_information}.'
-            title: Your census data is incorrect!
+            info: 'Please try again. If you think the data in the system is incorrect, you can report it here: %{census_contact_information}'
+            title: The data you have entered are not in the census for this vote
           form_title: 'Fill the following form to check your census data:'
           invalid: There was a problem checking the census.
           success:
@@ -1291,6 +1303,7 @@ en:
           day_placeholder: DD
           document_number: Document number
           document_number_placeholder: ID number
+          document_type: Document type
           month: Month
           month_placeholder: MM
           postal_code: Postal code

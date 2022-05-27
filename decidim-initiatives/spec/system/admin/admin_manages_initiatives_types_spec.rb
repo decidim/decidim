@@ -2,27 +2,25 @@
 
 require "spec_helper"
 
-describe "InitiativeTypesController", type: :system do
+describe "Admin manages initiatives types", type: :system do
   let(:organization) { create(:organization) }
   let(:user) { create(:user, :admin, :confirmed, organization: organization) }
+  let!(:initiatives_type) { create(:initiatives_type, organization: organization) }
 
   before do
     switch_to_host(organization.host)
     login_as user, scope: :user
+    visit decidim_admin_initiatives.initiatives_types_path
   end
 
   context "when accessing initiative types list" do
-    let!(:initiative_type) { create :initiatives_type, organization: organization }
-
-    it "Shows the initiative type data" do
-      visit decidim_admin_initiatives.initiatives_types_path
-      expect(page).to have_i18n_content(initiative_type.title)
+    it "shows the initiative type data" do
+      expect(page).to have_i18n_content(initiatives_type.title)
     end
   end
 
   context "when creating an initiative type" do
     it "creates the initiative type" do
-      visit decidim_admin_initiatives.initiatives_types_path
       click_link "New initiative type"
 
       fill_in_i18n(
@@ -50,18 +48,10 @@ describe "InitiativeTypesController", type: :system do
   end
 
   context "when updating an initiative type" do
-    let(:initiatives_type) do
-      create(:initiatives_type,
-             :online_signature_enabled,
-             :attachments_disabled,
-             :undo_online_signatures_enabled,
-             :custom_signature_end_date_disabled,
-             :area_disabled,
-             organization: organization)
-    end
-
-    it "Updates the initiative type" do
-      visit decidim_admin_initiatives.edit_initiatives_type_path(initiatives_type)
+    it "updates the initiative type" do
+      within find("tr", text: translated(initiatives_type.title)) do
+        page.find(".action-icon--edit").click
+      end
 
       fill_in_i18n(
         :initiatives_type_title,
@@ -84,12 +74,12 @@ describe "InitiativeTypesController", type: :system do
   end
 
   context "when deleting an initiative type" do
-    let(:initiatives_type) { create :initiatives_type, organization: organization }
-
-    it "Deletes the initiative type" do
-      visit decidim_admin_initiatives.edit_initiatives_type_path(initiatives_type)
-
-      accept_confirm { click_link "Delete" }
+    it "deletes the initiative type" do
+      within find("tr", text: translated(initiatives_type.title)) do
+        accept_confirm do
+          page.find(".action-icon--remove").click
+        end
+      end
 
       within ".callout-wrapper" do
         expect(page).to have_content("The initiative type has been successfully removed")

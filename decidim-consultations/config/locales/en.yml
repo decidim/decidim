@@ -371,7 +371,6 @@ en:
         start_voting_date: Voting begins
       question_components:
         question_menu_item: The question
-        unfold: Unfold
       question_header:
         back_to_consultation: See all consultations
         back_to_question: Back to the question

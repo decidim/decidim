@@ -14,7 +14,7 @@ module Decidim
         attribute :cost, Float
         attribute :internal_state, String
 
-        validates :internal_state, presence: true, inclusion: { in: %w(accepted rejected evaluating) }
+        validates :internal_state, presence: true, inclusion: { in: %w(not_answered accepted rejected evaluating) }
         validates :answer, translatable_presence: true, if: ->(form) { form.state == "rejected" }
 
         with_options if: :costs_required? do

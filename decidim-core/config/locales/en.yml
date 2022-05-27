@@ -36,12 +36,17 @@ en:
       decidim/demoted_membership: No longer a group admin
       decidim/gamification/badge_earned_event: Badge earned
       decidim/gamification/level_up_event: You've leveled up
+      decidim/invited_to_group_event: Invited to group
       decidim/join_request_accepted_event: Join request accepted
       decidim/join_request_rejected_event: Join request rejected
       decidim/profile_updated_event: Profile updated
       decidim/promote_to_admin: Promoted to group admin
+      decidim/promoted_to_admin_event: Promoted to group admin
       decidim/removed_from_group: Removed from group
       decidim/resource_endorsed_event: Resource endorsed
+      decidim/resource_hidden_event: Resource hidden
+      decidim/user_group_created_event: User group created
+      decidim/welcome_notification_event: Welcome message
   activerecord:
     attributes:
       decidim/user:
@@ -1092,6 +1097,8 @@ en:
         translated_text: 'Automatically translated text:'
     notifications:
       no_notifications: No notifications yet.
+      show:
+        missing_event: Oops, this notification belongs to an item that is no longer available. You can discard it.
     notifications_settings:
       show:
         administrators: Administrators

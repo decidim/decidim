@@ -22,11 +22,6 @@ module Decidim
           @initiatives = filtered_collection
         end
 
-        # GET /admin/initiatives/:id
-        def show
-          enforce_permission_to :read, :initiative, initiative: current_initiative
-        end
-
         # GET /admin/initiatives/:id/edit
         def edit
           enforce_permission_to :edit, :initiative, initiative: current_initiative

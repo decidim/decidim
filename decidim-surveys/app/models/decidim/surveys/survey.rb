@@ -10,6 +10,8 @@ module Decidim
 
       component_manifest_name "surveys"
 
+      delegate :title, to: :questionnaire
+
       validates :questionnaire, presence: true
 
       def clean_after_publish?

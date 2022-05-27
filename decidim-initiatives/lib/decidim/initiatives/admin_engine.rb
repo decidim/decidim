@@ -19,7 +19,7 @@ module Decidim
           resources :initiatives_type_scopes, except: [:index, :show]
         end
 
-        resources :initiatives, only: [:index, :show, :edit, :update], param: :slug do
+        resources :initiatives, only: [:index, :edit, :update], param: :slug do
           member do
             get :send_to_technical_validation
             post :publish
