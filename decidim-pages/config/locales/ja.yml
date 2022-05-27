@@ -28,5 +28,7 @@ ja:
             invalid: ページの保存中に問題が発生しました。
             success: ページを保存しました。
       home:
+        hero:
+          participate_title: プラットフォームのプロセスに参加する
         sub_hero:
           register_title: サインアップしてアカウントを作成
