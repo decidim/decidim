@@ -174,7 +174,10 @@ Iframe HTML elements that are added with the editor or meeting forms are disable
 </script>
 ```
 
-Note that you need to define the `type="text/plain"` for the script that adds cookies in order to prevent the script from being executed before cookies are accepted.
+Note that you need to define the `type="text/plain"` for the script that adds cookies in order to prevent the script from being executed before cookies are accepted. You should also define the metadata for all the cookies that you're using on your app initializer. See [cookie documentation](https://docs.decidim.org/en/customize/cookies.html).
+
+
+Mind that we also changed the cookie consent cookie from "decidim-cc" to "decidim-consent" by default. You can change it on your initializer, or update your cookie legal notice accordingly.
 
 ### Rename data portability to download your data
 

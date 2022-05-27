@@ -412,6 +412,10 @@ module Decidim
         cookies: [
           {
             type: "cookie",
+            name: "_session_id"
+          },
+          {
+            type: "cookie",
             name: Decidim.consent_cookie_name
           }
         ]
