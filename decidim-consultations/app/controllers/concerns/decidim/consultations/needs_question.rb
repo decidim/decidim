@@ -83,7 +83,7 @@ module Decidim
 
         def detect_question
           request.env["current_question"] ||
-            OrganizationQuestions.for(current_organization).find_by(slug: params[:question_slug] || params[:slug])
+            OrganizationQuestions.for(current_organization).find_by!(slug: params[:question_slug] || params[:slug])
         end
 
         def detect_consultation
