@@ -953,6 +953,10 @@ hu:
         translated_text: 'Automatikusan lefordított szöveg:'
     notifications:
       no_notifications: Még nincs értesítés.
+    notifications_digest_mailer:
+      header:
+        daily: Napi értesítések
+      see_more: Összes értesítés megjelenítése
     notifications_settings:
       show:
         allow_public_contact: Megengedem, hogy bárki közvetlen üzenetet küldjön nekem, akkor is, ha nem követem őket.
@@ -963,6 +967,11 @@ hu:
         newsletters: Hírlevelek
         notification_settings:
           close_meeting_reminder: Szeretnék e-mailben emlékeztetőt kapni a zárt megbeszélésekről és nem nyilvános jelentésekről
+        notifications_sending_frequencies:
+          daily: Napi
+          real_time: Valósidejű
+          weekly: Heti
+        notifications_sending_frequency: Milyen gyakran szeretne e-mailt kapni az értesítésekről?
         own_activity: Saját tevékenységem - amikor valaki megjegyzést fűz a javaslatomhoz, vagy megemlíti a nevemet
         receive_notifications_about: Értesítést szeretnék kapni
         update_notifications_settings: Változások mentése
