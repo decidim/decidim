@@ -956,6 +956,8 @@ hu:
     notifications_digest_mailer:
       header:
         daily: Napi értesítések
+      hello: Helló %{name}
+      outro: 'Azért kapta ezt az értesítést, mert követi a következőt: %{author_name}. A profiloldalon visszavonhatja a felhasználó követését.'
       see_more: Összes értesítés megjelenítése
     notifications_settings:
       show:
