@@ -169,9 +169,11 @@ module Decidim
                             decidim_organization_id: current_organization.id
                           )
                         ),
-                        active: is_active_link?(decidim_admin_initiatives.edit_initiatives_setting_path(
-                          Decidim::InitiativesSettings.find_or_create_by!(decidim_organization_id: current_organization.id)
-                        )),
+                        active: is_active_link?(
+                          decidim_admin_initiatives.edit_initiatives_setting_path(
+                            Decidim::InitiativesSettings.find_or_create_by!(decidim_organization_id: current_organization.id)
+                          )
+                        ),
                         if: allowed_to?(:update, :initiatives_settings)
         end
       end
