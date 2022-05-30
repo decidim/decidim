@@ -10,6 +10,7 @@ describe Decidim::Initiatives::Admin::Permissions do
   let(:initiative) { create :initiative, organization: organization }
   let(:context) { { initiative: initiative } }
   let(:permission_action) { Decidim::PermissionAction.new(**action) }
+  let(:initiatives_settings) { create :initiatives_settings, organization: organization }
   let(:action) do
     { scope: :admin, action: action_name, subject: action_subject }
   end
@@ -238,6 +239,13 @@ describe Decidim::Initiatives::Admin::Permissions do
         it { is_expected.to be true }
       end
 
+      context "when reading a initiatives settings" do
+        let(:action_subject) { :initiatives_settings }
+        let(:action_name) { :update }
+
+        it { is_expected.to be false }
+      end
+
       context "when any other action" do
         let(:action_name) { :foo }
 
@@ -461,6 +469,13 @@ describe Decidim::Initiatives::Admin::Permissions do
           it { is_expected.to be false }
         end
       end
+    end
+
+    context "when reading a initiatives settings" do
+      let(:action_subject) { :initiatives_settings }
+      let(:action_name) { :update }
+
+      it { is_expected.to be true }
     end
   end
 

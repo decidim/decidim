@@ -19,6 +19,8 @@ module Decidim
           resources :initiatives_type_scopes, except: [:index, :show]
         end
 
+        resources :initiatives_settings, only: [:edit, :update], controller: "initiatives_settings"
+
         resources :initiatives, only: [:index, :edit, :update], param: :slug do
           member do
             get :send_to_technical_validation
@@ -159,6 +161,16 @@ module Decidim
                         decidim_admin_initiatives.initiatives_types_path,
                         active: is_active_link?(decidim_admin_initiatives.initiatives_types_path),
                         if: allowed_to?(:manage, :initiative_type)
+
+          menu.add_item :initiatives_settings,
+                        I18n.t("menu.initiatives_settings", scope: "decidim.admin"),
+                        decidim_admin_initiatives.edit_initiatives_setting_path(
+                          Decidim::InitiativesSettings.find_or_create_by!(
+                            decidim_organization_id: current_organization.id
+                          )
+                        ),
+                        active: is_active_link?(decidim_admin_initiatives.edit_initiatives_setting_path(Decidim::InitiativesSettings.find_or_create_by!(decidim_organization_id: current_organization.id))),
+                        if: allowed_to?(:update, :initiatives_settings)
         end
       end
     end

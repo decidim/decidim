@@ -1,4 +1,5 @@
 ---
+
 en:
   activemodel:
     attributes:
@@ -85,12 +86,16 @@ en:
             label: Type
         search_placeholder:
           title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Search %{collection} by title, description, ID or author name.
+      initiatives_settings:
+        update:
+          success: "The initiatives settings have been successfully updated"
       menu:
         attachments: Attachments
         committee_members: Committee members
         components: Components
         information: Information
         initiatives: Initiatives
+        initiatives_settings: Settings
         initiatives_types: Initiative types
         moderations: Moderations
       models:
@@ -242,6 +247,16 @@ en:
           update:
             error: An error has occurred
             success: The initiative has been successfully updated
+        initiatives_settings:
+          edit:
+            update: "Update"
+          form:
+            title: "Settings for initiatives"
+            random: "Random"
+            date: "Most recent"
+            signatures: "Most signed"
+            comments: "Most commented"
+            publication_date: "Most recently published"
         initiatives_type_scopes:
           create:
             error: An error has occurred
@@ -291,6 +306,8 @@ en:
           send_to_technical_validation: "%{user_name} sent the %{resource_name} initiative to technical validation"
           unpublish: "%{user_name} discarded the %{resource_name} initiative"
           update: "%{user_name} updated the %{resource_name} initiative"
+        initiatives_settings:
+          update: "%{user_name} updated the initiatives settings"
         initiatives_type:
           create: "%{user_name} created the %{resource_name} initiatives type"
           delete: "%{user_name} deleted the %{resource_name} initiatives type"
