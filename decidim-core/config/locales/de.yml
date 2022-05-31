@@ -22,6 +22,7 @@ de:
       user:
         about: Über
         email: Ihre E-Mail
+        locale: Spracheinstellung
         name: Ihr Name
         nickname: Spitzname
         password: Passwort
@@ -34,6 +35,7 @@ de:
       decidim/demoted_membership: Kein Gruppenadministrator mehr
       decidim/gamification/badge_earned_event: Abzeichen verdient
       decidim/gamification/level_up_event: Sie sind um ein Level aufgestiegen
+      decidim/invited_to_group_event: Zur Gruppe eingeladen
       decidim/join_request_accepted_event: Beitrittsanfrage akzeptiert
       decidim/join_request_rejected_event: Beitrittsanfrage abgelehnt
       decidim/profile_updated_event: Profil aktualisiert
