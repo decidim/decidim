@@ -181,6 +181,8 @@ namespace :decidim do
       content_directories = Dir.glob("#{Gem.loaded_specs["decidim"].full_gem_path}/decidim-*").push(".")
 
       # The variable expected by tailwind is a Javascript array of strings
+      # The directory globbing with the star is done in Ruby because it was causing an infinite loop
+      # when processed by Tailwind
       content_directories_as_array_of_strings = content_directories.map { |content_directory| "'#{content_directory}'" }.join(",")
 
       OpenStruct.new(tailwind_content_directories: content_directories_as_array_of_strings)
