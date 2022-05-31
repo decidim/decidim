@@ -1,64 +1,47 @@
-<% is_user_view = false %>
-<% my_user = false %>
-<% my_group = false %>
+<%
+# HELP TO INTEGRATION: Possible screens
+#   - user profile
+#     - self
+#     - other
+#   - group profile
+#     - self
+#     - other
 
-<% if my_user || my_group %>
-  <button class="button white sm border border-secondary w-full text-secondary whitespace-nowrap">
-    <span><%= t("decidim.profiles.user.edit_profile") %></span>
-    <%= icon "pencil-line", class: "fill-current" %>
-  </button>
-<% end %>
+is_user_view = false
+my_user = false
+my_group = false
 
-<% if is_user_view && my_user %>
-<button class="button white sm border border-secondary w-full text-secondary whitespace-nowrap">
-  <span class="first-letter:uppercase"><%= t("decidim.profiles.user.create_user_group") %></span>
-  <%= icon "team-line", class: "fill-current" %>
-</button>
-<% end %>
+# Each item will have an icon, a text, and a link.
+buttons_array = []
 
-<% if (is_user_view && !my_user) || (!is_user_view && !my_group) %>
-  <button class="button white sm border border-secondary w-full text-secondary whitespace-nowrap">
-    <span class="first-letter:uppercase"><%= "seguir" %></span>
-    <%= icon "notification-3-line", class: "fill-current" %>
-  </button>
-  <button class="button white sm border border-secondary w-full text-secondary whitespace-nowrap">
-    <span class="first-letter:uppercase"><%= "mensaje" %></span>
-    <%= icon "mail-send-line", class: "fill-current" %>
-  </button>
-<% end %>
+buttons_array << ["pencil-line", t("decidim.profiles.user.edit_profile")] if my_user || my_group;
+buttons_array << ["team-line", t("decidim.profiles.user.create_user_group")] if is_user_view && my_user;
+buttons_array << ["notification-3-line", "seguir"] if (is_user_view && !my_user) || (!is_user_view && !my_group);
+buttons_array << ["mail-send-line", "mensaje"] if (is_user_view && !my_user) || (!is_user_view && !my_group);
+buttons_array << ["user-settings-line", t("decidim.profiles.user.manage_user_group_users")] if !is_user_view && my_group;
+buttons_array << ["user-star-line", t("decidim.profiles.user.manage_user_group_admins")] if !is_user_view && my_group;
+buttons_array << ["user-add-line", t("decidim.profiles.user.invite_user")] if !is_user_view && my_group;
+buttons_array << ["user-add-line", t("decidim.profiles.user.join_user_group")] if !is_user_view && !my_group;
 
-<% if !is_user_view && my_group %>
+buttons_array.each do |btn| %>
   <button class="button white sm border border-secondary w-full text-secondary whitespace-nowrap">
-    <span class="first-letter:uppercase"><%= t("decidim.profiles.user.manage_user_group_users") %></span>
-    <%= icon "user-settings-line", class: "fill-current" %>
-  </button>
-  <button class="button white sm border border-secondary w-full text-secondary whitespace-nowrap">
-    <span class="first-letter:uppercase"><%= t("decidim.profiles.user.manage_user_group_admins") %></span>
-    <%= icon "user-star-line", class: "fill-current" %>
-  </button>
-  <button class="button white sm border border-secondary w-full text-secondary whitespace-nowrap">
-    <span class="first-letter:uppercase"><%= t("decidim.profiles.user.invite_user") %></span>
-    <%= icon "user-add-line", class: "fill-current" %>
-  </button>
-<% end %>
-
-<% if !is_user_view && !my_group %>
-  <button class="button white sm border border-secondary w-full text-secondary whitespace-nowrap">
-    <span class="first-letter:uppercase"><%= t("decidim.profiles.user.join_user_group") %></span>
-    <%= icon "user-add-line", class: "fill-current" %>
+    <span class="first-letter:uppercase"><%= btn[1] %></span>
+    <%= icon btn[0], class: "fill-current flex-none" %>
   </button>
 <% end %>
 
 <div class="flex justify-between text-xs">
-  <a href="" class="flex items-center text-secondary space-x-1 whitespace-nowrap">
-    <span class="first-letter:uppercase"><%= "Denùncia" %></span>
-    <%= icon "flag-line", class: "fill-current" %>
-  </a>
+  <%
+  # Each item will have an icon, a text, and a link.
+  extra_buttons_array = []
 
-  <% if my_group %>
-    <a href="" class="flex items-center text-secondary space-x-1 whitespace-nowrap">
-      <span class="first-letter:uppercase"><%= t("decidim.profiles.user.leave_user_group") %></span>
-      <%= icon "logout-box-r-line", class: "fill-current" %>
+  extra_buttons_array << ["flag-line", "Denuncia"];
+  extra_buttons_array << ["logout-box-r-line", t("decidim.profiles.user.leave_user_group")] if my_group;
+
+  extra_buttons_array.each do |btn| %>
+    <a href="" class="flex items-center text-secondary space-x-1 whitespace-nowrap only:m-auto">
+      <span class="first-letter:uppercase"><%= "Denùncia" %></span>
+      <%= icon "flag-line", class: "fill-current flex-none" %>
     </a>
   <% end %>
 </div>

@@ -1,0 +1,18 @@
+<%
+# Each item will have an icon, a text, and a link.
+tabs_array = []
+
+tabs_array << ["bubble-chart-line", t("decidim.profiles.show.activity"), profile_activity_path(nickname: profile_holder.nickname) ];
+tabs_array << ["award-line", t("decidim.profiles.show.badges"), profile_badges_path(nickname: profile_holder.nickname) ] if current_organization.badges_enabled?;
+tabs_array << ["notification-3-line", t("decidim.profiles.show.following"), profile_following_path(nickname: profile_holder.nickname) ];
+tabs_array << ["user-received-line", t("decidim.profiles.show.followers"), profile_followers_path(nickname: profile_holder.nickname) ];
+tabs_array << ["team-line", t("decidim.profiles.show.groups"), profile_groups_path(nickname: profile_holder.nickname) ] if user_groups_enabled?;
+tabs_array << ["contacts-line", t("decidim.profiles.show.members"), profile_members_path(nickname: profile_holder.nickname) ];
+tabs_array << ["question-answer-line", t("decidim.profiles.show.conversations"), profile_conversations_path(nickname: profile_holder.nickname) ] if manageable_group?;
+
+tabs_array.each_with_index do |tab, ix| %>
+  <li class="grow p-2.5 cursor-pointer flex items-center justify-center gap-2 rounded-t <%= 'bg-white text-secondary' if ix == 0 %>">
+    <%= icon tab[0], class: "fill-current" %>
+    <%= tab[1] %>
+  </li>
+<% end %>
