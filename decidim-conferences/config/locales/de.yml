@@ -3,6 +3,7 @@ de:
     attributes:
       conference:
         assemblies_ids: Ähnliche Assemblies
+        available_slots: Verfügbare Plätze
         banner_image: Banner-Bild
         consultations_ids: Verwandte Konsultationen
         copy_categories: Kategorien kopieren
@@ -10,26 +11,59 @@ de:
         copy_features: Funktionen kopieren
         decidim_scope_id: Umfang
         description: Beschreibung
+        end_date: Enddatum
         hashtag: Hashtag
         hero_image: Hauptbild
+        location: Ort
+        main_logo: Hauptlogo
+        objectives: Ziele
         participatory_processes_ids: Ähnliche Beteiligungsprozesse
         promoted: Gefördert
         published_at: Veröffentlicht unter
+        registration_terms: Registrierungsbedingungen
+        registrations_enabled: Registrierungen aktiviert
         scope_id: Umfang
         scopes_enabled: Bereiche aktiviert
         short_description: Kurze Beschreibung
         show_statistics: Zeige Statistiken
+        sign_date: Unterzeichnungsdatum
+        signature: Unterschrift
+        signature_name: Signaturname
         slogan: Slogan
         slug: URL-Block
+        start_date: Startdatum
         title: Titel
       conference_media_link:
+        date: Datum
+        link: Link
+        title: Titel
         weight: Gewicht
       conference_partner:
+        link: Link
+        logo: Logo
+        name: Name
+        partner_type: Partnertyp
         weight: Gewicht
+      conference_registration_invite:
+        email: E-Mail
+        name: Name
+        registration_type_id: Registrierungstyp
+        user_id: Nutzer
       conference_registration_type:
+        description: Beschreibung
+        price: Preis
+        title: Titel
         weight: Gewicht
       conference_speaker:
+        affiliation: Zugehörigkeit
+        avatar: Profilbild
+        conference_meeting_ids: Ähnliche Veranstaltungen
         full_name: Vollständiger Name
+        personal_url: Persönliche URL
+        position: Position
+        short_bio: Kurze Beschreibung
+        twitter_handle: Twitter-Handle
+        user_id: Nutzer
       conference_user_role:
         email: Email
         name: Name
