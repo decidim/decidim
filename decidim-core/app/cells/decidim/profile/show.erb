@@ -1,57 +1,49 @@
 <div class="bg-background-3">
   <div class="container">
-    <div class="flex justify-between p-12 gap-6">
-      <div class="flex-none w-24 h-24 rounded-full overflow-hidden drop-shadow-md border-2 border-white">
-        <img class="w-ful h-full object-cover" src="https://www.fillmurray.com/640/360" />
-      </div>
-      <div class="grow divide-y divide-border-3">
-        <div class="pb-3 space-y-2">
-          <h3 class="h3">CB. Club Barna</h3>
-          <div class="flex space-x-6">
-            <div class="flex items-center space-x-1.5">
-              <%= icon "account-pin-circle", class: "w-3.5 h-3.5 text-gray fill-current" %>
-              <span class="text-sm text-gray-2">@CBGRUPBARNA</span>
-            </div>
-            <div class="flex items-center space-x-1.5">
-              <%= icon "account-pin-circle", class: "w-3.5 h-3.5 text-gray fill-current" %>
-              <span class="text-sm text-gray-2">21 miembros</span>
-            </div>
-            <div class="flex items-center space-x-1.5">
-              <%= icon "account-pin-circle", class: "w-3.5 h-3.5 text-gray fill-current" %>
-              <span class="text-sm text-gray-2">345 seguidores</span>
-            </div>
-          </div>
+    <div class="w-2/3 mx-auto grid grid-cols-8 py-12 gap-6">
+      <div class="w-24 h-24 relative">
+        <div class="w-full h-full rounded-full overflow-hidden drop-shadow-md border-2 border-white">
+          <img class="w-full h-full object-cover" src="https://www.fillmurray.com/640/360" />
         </div>
-        <p class="pt-3 text-sm text-gray-2">El CB GRUP BARNA és un Club Esportiu* de bàsquet formatiu, sense ànim de lucre, dedicat a desenvolupar projectes i iniciatives que tractin aspectes relacionats amb la pràctica del bàsquet, sense perdre de vista la formació integral dels seus jugadors i jugadores. El CB GRUP BARNA és un club fundat l’any 1965, al districte de Sant Martí de Barcelona.</p>
+
+        <%# TODO: if current_user.verified %>
+        <div class="absolute top-full right-0 -translate-y-full grid place-items-center w-6 h-6 rounded-full overflow-hidden bg-primary border border-white">
+          <%= icon "star-s-fill", class: "w-4 h-4 text-white fill-current" %>
+        </div>
       </div>
-      <div class="space-y-4">
-        <button class="button white sm border border-secondary">Editar</button>
-        <button class="button white sm border border-secondary">Editar</button>
-        <button class="button white sm border border-secondary">Editar</button>
-        <button class="button white sm border border-secondary">Editar</button>
+      <div class="col-span-5 divide-y divide-border-3">
+        <%= render :details %>
+      </div>
+      <div class="col-span-2 space-y-4">
+        <%= render :buttons %>
       </div>
     </div>
   </div>
 </div>
 <div class="container">
-  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aliquam sit minima quas saepe. Facilis ea illum ullam asperiores quas natus obcaecati enim ipsa commodi pariatur voluptate non, rerum quasi sit?
-</div>
+  <div>
+    <% if current_user && current_user == profile_holder %>
+      <%= user_profile_tab t("decidim.profiles.show.timeline"), profile_timeline_path(nickname: profile_holder.nickname) %>
+    <% end %>
 
-<!--
-<div class="row">
-  <div class="columns medium-9 medium-offset-3">
-    <%= profile_tabs %>
+    <%= user_profile_tab t("decidim.profiles.show.activity"), profile_activity_path(nickname: profile_holder.nickname) %>
+
+    <% if current_organization.badges_enabled? %>
+      <%= user_profile_tab t("decidim.profiles.show.badges"), profile_badges_path(nickname: profile_holder.nickname) %>
+    <% end %>
+
+    <%= user_profile_tab t("decidim.profiles.show.following"), profile_following_path(nickname: profile_holder.nickname) %>
+    <%= user_profile_tab t("decidim.profiles.show.followers"), profile_followers_path(nickname: profile_holder.nickname) %>
+
+    <% if user_groups_enabled? %>
+      <%= user_profile_tab t("decidim.profiles.show.groups"), profile_groups_path(nickname: profile_holder.nickname) %>
+    <% end %>
+
+    <%= user_profile_tab t("decidim.profiles.show.members"), profile_members_path(nickname: profile_holder.nickname) %>
+
+    <% if manageable_group? %>
+      <%= user_profile_tab label_conversations, profile_conversations_path(nickname: profile_holder.nickname) %>
+    <% end %>
+
   </div>
 </div>
-<div class="row">
-  <div class="columns medium-3">
-    <%= cell "decidim/profile_sidebar", profile_holder %>
-  </div>
-  <div class="columns medium-9">
-    <div class="tabs-content" data-tabs-content="profile-tabs">
-      <div class="tabs-panel is-active">
-        <%= cell content_cell, profile_holder, context %>
-      </div>
-    </div>
-  </div>
-</div> -->

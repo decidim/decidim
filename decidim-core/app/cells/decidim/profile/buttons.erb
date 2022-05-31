@@ -1,0 +1,64 @@
+<% is_user_view = false %>
+<% my_user = false %>
+<% my_group = false %>
+
+<% if my_user || my_group %>
+  <button class="button white sm border border-secondary w-full text-secondary whitespace-nowrap">
+    <span><%= t("decidim.profiles.user.edit_profile") %></span>
+    <%= icon "pencil-line", class: "fill-current" %>
+  </button>
+<% end %>
+
+<% if is_user_view && my_user %>
+<button class="button white sm border border-secondary w-full text-secondary whitespace-nowrap">
+  <span class="first-letter:uppercase"><%= t("decidim.profiles.user.create_user_group") %></span>
+  <%= icon "team-line", class: "fill-current" %>
+</button>
+<% end %>
+
+<% if (is_user_view && !my_user) || (!is_user_view && !my_group) %>
+  <button class="button white sm border border-secondary w-full text-secondary whitespace-nowrap">
+    <span class="first-letter:uppercase"><%= "seguir" %></span>
+    <%= icon "notification-3-line", class: "fill-current" %>
+  </button>
+  <button class="button white sm border border-secondary w-full text-secondary whitespace-nowrap">
+    <span class="first-letter:uppercase"><%= "mensaje" %></span>
+    <%= icon "mail-send-line", class: "fill-current" %>
+  </button>
+<% end %>
+
+<% if !is_user_view && my_group %>
+  <button class="button white sm border border-secondary w-full text-secondary whitespace-nowrap">
+    <span class="first-letter:uppercase"><%= t("decidim.profiles.user.manage_user_group_users") %></span>
+    <%= icon "user-settings-line", class: "fill-current" %>
+  </button>
+  <button class="button white sm border border-secondary w-full text-secondary whitespace-nowrap">
+    <span class="first-letter:uppercase"><%= t("decidim.profiles.user.manage_user_group_admins") %></span>
+    <%= icon "user-star-line", class: "fill-current" %>
+  </button>
+  <button class="button white sm border border-secondary w-full text-secondary whitespace-nowrap">
+    <span class="first-letter:uppercase"><%= t("decidim.profiles.user.invite_user") %></span>
+    <%= icon "user-add-line", class: "fill-current" %>
+  </button>
+<% end %>
+
+<% if !is_user_view && !my_group %>
+  <button class="button white sm border border-secondary w-full text-secondary whitespace-nowrap">
+    <span class="first-letter:uppercase"><%= t("decidim.profiles.user.join_user_group") %></span>
+    <%= icon "user-add-line", class: "fill-current" %>
+  </button>
+<% end %>
+
+<div class="flex justify-between text-xs">
+  <a href="" class="flex items-center text-secondary space-x-1 whitespace-nowrap">
+    <span class="first-letter:uppercase"><%= "Denùncia" %></span>
+    <%= icon "flag-line", class: "fill-current" %>
+  </a>
+
+  <% if my_group %>
+    <a href="" class="flex items-center text-secondary space-x-1 whitespace-nowrap">
+      <span class="first-letter:uppercase"><%= t("decidim.profiles.user.leave_user_group") %></span>
+      <%= icon "logout-box-r-line", class: "fill-current" %>
+    </a>
+  <% end %>
+</div>

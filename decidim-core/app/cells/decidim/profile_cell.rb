@@ -44,6 +44,7 @@ module Decidim
       current_user && current_user.manageable_user_groups.include?(profile_holder)
     end
 
+    # deprecated
     def profile_tabs
       return render :user_group_tabs if profile_holder.is_a?(Decidim::UserGroup)
 
