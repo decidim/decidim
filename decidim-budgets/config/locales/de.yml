@@ -21,6 +21,18 @@ de:
         one: Projekt
         other: Projekte
   decidim:
+    admin:
+      filters:
+        projects:
+          category_id_eq:
+            label: Kategorie
+          scope_id_eq:
+            label: Themenbereich
+          selected_at_null:
+            label: Ausgewählt
+            values:
+              'false': Zur Umsetzung ausgewählt
+              'true': Nicht zur Umsetzung ausgewählt
     budgets:
       actions:
         attachment_collections: Ordner
@@ -73,16 +85,29 @@ de:
             title: Projekt bearbeiten
             update: Aktualisieren
           index:
+            actions: Aktionen
+            cancel: Abbrechen
+            change_category: Kategorie ändern
+            change_scope: Themenbereich ändern
+            change_selected: Auswahl ändern
+            deselect_implementation: Auswahl aufheben
             finished_orders: Abgeschlossene Stimmen
             pending_orders: Ausstehende Stimmen
+            select_for_implementation: Auswählen
             selected: Ausgewählt
             title: Projekte
+            update: Aktualisieren
+            update_scope_button: Themenbereich aktualisieren
           new:
             create: Erstellen
             title: Neues Projekt
           update:
             invalid: Beim Aktualisieren dieses Projekts ist ein Problem aufgetreten
             success: Projekt erfolgreich aktualisiert
+          update_category:
+            invalid: 'Diese Projekte gehörten bereits zur Kategorie %{subject_name}: %{projects}.'
+            select_a_category: Bitte wählen Sie eine Kategorie aus
+            select_a_project: Bitte wählen Sie ein Projekt
         proposals_imports:
           create:
             invalid: Beim Importieren der Vorschläge in Projekte ist ein Problem aufgetreten
