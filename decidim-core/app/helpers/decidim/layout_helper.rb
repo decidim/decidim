@@ -113,6 +113,14 @@ module Decidim
       end
     end
 
+    def arrow_link(text, url, args = {})
+      content_tag :a, href: url, class: "arrow-link #{args.with_indifferent_access[:class]}" do
+        inner = text
+        inner += redesigned_icon("arrow-right-line", class: "fill-current")
+        inner.html_safe
+      end
+    end
+
     def icon(*args)
       redesign_enabled? ? redesigned_icon(*args) : legacy_icon(*args)
     end
