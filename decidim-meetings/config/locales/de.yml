@@ -79,6 +79,7 @@ de:
           origin_eq:
             label: Ursprung
             values:
+              citizen: Bürger
               official: Offiziell
               user_group: Benutzergruppen
           scope_id_eq:
@@ -286,6 +287,7 @@ de:
             registration_url_help: 'Link: Erlaubt den Teilnehmern den externen Service zu nutzen, den Sie für die Registrierung verwenden'
             select_a_meeting_type: Bitte eine Meeting-Typ auswählen
             select_a_registration_type: Bitte wählen Sie eine Registrierungsart aus
+            show_embedded_iframe_help: Nur wenige Dienste erlauben das Einbetten einer Veranstaltung oder eines Livestreams (Youtube, Twitch und Jitsi)
           index:
             title: Meetings
           new:
@@ -459,6 +461,7 @@ de:
           select_a_category: Bitte wählen sie eine Kategorie
           select_a_meeting_type: Bitte eine Meeting-Art auswählen
           select_a_registration_type: Bitte wählen Sie eine Registrierungsart aus
+          show_embedded_iframe_help: Nur wenige Dienste erlauben das Einbetten einer Veranstaltung oder eines Livestreams (Youtube, Twitch und Jitsi)
         index:
           new_meeting: Neue Besprechung
         meeting_minutes:
