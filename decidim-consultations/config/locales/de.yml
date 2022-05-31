@@ -251,6 +251,7 @@ de:
       filters:
         active: Aktiv
         all: Alle
+        date: Datum
         finished: Fertig
         search: Suche
         upcoming: Bevorstehende
@@ -358,6 +359,7 @@ de:
     resources:
       consultations:
         actions:
+          comment: Kommentar
           vote: Abstimmung
     statistics:
       consultations_count: Beratungen
