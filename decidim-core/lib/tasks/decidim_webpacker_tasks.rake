@@ -136,14 +136,9 @@ namespace :decidim do
       FileUtils.cp(decidim_path.join(origin_path), rails_app_path.join(destination_path))
     end
 
-<<<<<<< HEAD
     # variables contains the variables to be used in the template, it can be an instance of OpenStruct
     def copy_template_to_application(origin_path, destination_path, variables)
       evaluated_template = ERB.new(File.read(decidim_path.join(origin_path))).result(variables.instance_eval { binding })
-=======
-    def copy_template_to_application(origin_path, destination_path = origin_path)
-      evaluated_template = ERB.new(File.read(decidim_path.join(origin_path))).result(binding)
->>>>>>> 50eb25f5c (Fix decidim gem path in tailwind configuration)
       File.write(rails_app_path.join(destination_path), evaluated_template)
     end
 
