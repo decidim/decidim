@@ -20,11 +20,6 @@ gem "faker", "~> 2.14"
 group :development, :test do
   gem "byebug", "~> 11.0", platform: :mri
 
-  # Use latest simplecov from master until next version of simplecov is
-  # released (greather than 0.18.5)
-  # See https://github.com/decidim/decidim/issues/6230
-  gem "simplecov", "~> 0.19.0"
-
   gem "decidim-dev", path: "."
 
   gem "brakeman", "~> 5.2"
