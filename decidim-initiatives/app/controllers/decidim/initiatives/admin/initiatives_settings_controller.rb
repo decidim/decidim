@@ -37,7 +37,7 @@ module Decidim
         private
 
         def current_initiatives_settings
-          @current_initiatives_settings ||= Decidim::InitiativesSettings.find_or_create_by!(decidim_organization_id: current_organization.id)
+          @current_initiatives_settings ||= Decidim::InitiativesSettings.find_or_create_by!(organization: current_organization)
         end
 
         def initiatives_settings_form

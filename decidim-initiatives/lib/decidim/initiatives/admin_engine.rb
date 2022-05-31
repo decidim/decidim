@@ -166,12 +166,12 @@ module Decidim
                         I18n.t("menu.initiatives_settings", scope: "decidim.admin"),
                         decidim_admin_initiatives.edit_initiatives_setting_path(
                           Decidim::InitiativesSettings.find_or_create_by!(
-                            decidim_organization_id: current_organization.id
+                            organization: current_organization
                           )
                         ),
                         active: is_active_link?(
                           decidim_admin_initiatives.edit_initiatives_setting_path(
-                            Decidim::InitiativesSettings.find_or_create_by!(decidim_organization_id: current_organization.id)
+                            Decidim::InitiativesSettings.find_or_create_by!(organization: current_organization)
                           )
                         ),
                         if: allowed_to?(:update, :initiatives_settings)
