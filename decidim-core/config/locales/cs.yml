@@ -964,6 +964,7 @@ cs:
         success: Žádost o připojení byla úspěšně vytvořena. Před přijetím do skupiny administrátor váš požadavek zkontroluje.
       leave:
         error: Při opouštění skupiny došlo k problému
+        last_admin: Nemůžete se odebrat z této skupiny, protože jste poslední správce. Vytvořte jiného člena administrátora, abyste opustili skupinu.
         success: Skupina úspěšně opustila.
       members:
         accept_or_reject_join_requests: 'Následující uživatelé se připojili k této skupině. Přijmout nebo odmítnout jejich požadavky:'
@@ -976,6 +977,7 @@ cs:
       no_user_groups: Nepatří do žádné skupiny.
       roles:
         admin: Správce
+        creator: Administrátor
         member: Člen
       update:
         error: Při aktualizaci skupiny došlo k problému
