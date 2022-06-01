@@ -918,7 +918,6 @@ es:
       no_user_groups: Aún no perteneces a ningún grupo.
       roles:
         admin: Administradora
-        creator: Creadora
         member: Miembro
       update:
         error: Se ha producido un error al actualizar el grupo
