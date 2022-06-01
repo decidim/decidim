@@ -839,7 +839,6 @@ it:
       no_user_groups: Non appartiene ancora a nessun gruppo.
       roles:
         admin: Amministratore
-        creator: Creatore
         member: Membro
       update:
         error: Si è verificato un problema durante l'aggiornamento del gruppo
