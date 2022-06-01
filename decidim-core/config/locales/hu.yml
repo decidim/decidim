@@ -810,7 +810,6 @@ hu:
       no_user_groups: Még nem tartozik semmiféle csoporthoz.
       roles:
         admin: Adminisztrátor
-        creator: Teremtő
         member: Tag
       update:
         error: Probléma történt a csoport frissítésével
