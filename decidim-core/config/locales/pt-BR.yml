@@ -834,7 +834,6 @@ pt-BR:
       no_user_groups: Não pertence a nenhum grupo ainda.
       roles:
         admin: Administrador
-        creator: Autor
         member: Membro
       update:
         error: Houve um problema ao atualizar o grupo
