@@ -918,7 +918,6 @@ ca:
       no_user_groups: Encara no pertanys a cap grup.
       roles:
         admin: Administradora
-        creator: Creadora
         member: Membre
       update:
         error: S'ha produït un error en actualitzar el grup
