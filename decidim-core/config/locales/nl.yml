@@ -845,7 +845,6 @@ nl:
       no_user_groups: Behoort nog niet tot een groep.
       roles:
         admin: Beheerder
-        creator: Stichtend lid
         member: Lid
       update:
         error: Er is een probleem opgetreden bij het bijwerken van de groep
