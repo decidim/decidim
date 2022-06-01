@@ -158,11 +158,24 @@ fr-CA:
         create: "%{user_name} a créé la zone d'application %{resource_name}"
         delete: "%{user_name} a supprimé la zone d'application %{resource_name}"
         update: "%{user_name} a mis à jour la zone d'application %{resource_name}"
+      area_type:
+        create: "%{user_name} a créé le type de zone d'application %{resource_name}"
+        delete: "%{user_name} a supprimé le type de zone d'application %{resource_name}"
+        update: "%{user_name} a mis à jour le type de zone d'application %{resource_name}"
+      attachment:
+        create: "%{user_name} a créé le document %{resource_name}"
+        delete: "%{user_name} a supprimé le document %{resource_name}"
+        update: "%{user_name} a mis à jour le document %{resource_name}"
+      attachment_collection:
+        create: "%{user_name} a créé le fichier %{resource_name}"
+        delete: "%{user_name} a supprimé le fichier %{resource_name}"
+        update: "%{user_name} a mis à jour le fichier %{resource_name}"
       component:
         create: "%{user_name} a ajouté la fonctionnalité %{resource_name} à l'espace %{space_name}"
         delete: "%{user_name} a supprimé la fonctionnalité %{resource_name} de l'espace %{space_name}"
         publish: "%{user_name} a publié la fonctionnalité %{resource_name} dans l'espace %{space_name}"
         unpublish: "%{user_name} a dépublié la fonctionnalité %{resource_name} de l'espace %{space_name}"
+        update_permissions_with_space: "%{user_name} a mis à jour les permissions de %{resource_name} dans %{space_name}"
       impersonation_log:
         manage: "%{user_name} a représenté %{resource_name} parce que %{reason}"
       moderation:
@@ -190,6 +203,10 @@ fr-CA:
         delete_with_parent: "%{user_name} a supprimé le périmètre d'application %{resource_name} à l'intérieur du périmètre d'application %{parent_scope}"
         update: "%{user_name} a mis à jour le périmètre d'application %{resource_name}"
         update_with_parent: "%{user_name} a mis à jour le périmètre d'application %{resource_name} à l'intérieur du périmètre d'application %{parent_scope}"
+      scope_type:
+        create: "%{user_name} a créé le type de secteur %{resource_name}"
+        delete: "%{user_name} a supprimé le type de secteur %{resource_name}"
+        update: "%{user_name} a mis à jour le type de secteur %{resource_name}"
       static_page:
         create: "%{user_name} a créé la page statique %{resource_name}"
         delete: "%{user_name} a supprimé la page statique %{resource_name}"
@@ -716,7 +733,7 @@ fr-CA:
           notification_title: Le <a href="%{resource_path}">profil public</a> de %{name} (%{nickname}), que vous suivez, a été mis à jour.
         user_officialized:
           email_intro: Le participant %{name} (%{nickname}) a été officialisé.
-          email_outro: Vous avez reçu cette notification parce que vous êtes un administrateur de l'organisation.
+          email_outro: Vous avez reçu cette notification parce que vous êtes un administrateur de l'organisation. Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l'onglet “Mon compte” > “Paramètres des notifications”.
           email_subject: "%{name} a été officialisé"
           notification_title: Le participant %{name} (%{nickname}) a été officialisé.
     export_mailer:
@@ -916,7 +933,6 @@ fr-CA:
       no_user_groups: N'appartient à aucun groupe pour l'instant.
       roles:
         admin: Administrateur
-        creator: Créateur
         member: Membre
       update:
         error: Un problème est survenu lors de la mise à jour du groupe.
@@ -953,6 +969,7 @@ fr-CA:
         unknown_action: "%{user_name} a effectué une action sur %{resource_name}"
         unknown_action_with_space: "%{user_name} a effectué une action sur %{resource_name} dans %{space_name}"
         update: "%{user_name} a mis à jour %{resource_name}"
+        update_permissions_with_space: "%{user_name} a mis à jour les permissions de %{resource_name} dans %{space_name}"
         update_with_space: "%{user_name} a mis à jour %{resource_name} dans %{space_name}"
       value_types:
         area_presenter:
