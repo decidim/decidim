@@ -639,7 +639,6 @@ id:
       no_user_groups: Belum menjadi anggota grup apa pun.
       roles:
         admin: Administrator
-        creator: Pencipta
         member: Anggota
       update:
         error: Terjadi masalah saat memperbarui grup
