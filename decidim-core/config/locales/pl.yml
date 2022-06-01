@@ -848,7 +848,6 @@ pl:
       no_user_groups: Nie należy jeszcze do żadnej grupy.
       roles:
         admin: Administrator
-        creator: Twórca
         member: Członek
       update:
         error: Wystąpił błąd podczas aktualizacji grupy
