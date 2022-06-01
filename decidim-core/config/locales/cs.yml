@@ -976,7 +976,6 @@ cs:
       no_user_groups: Nepatří do žádné skupiny.
       roles:
         admin: Správce
-        creator: Tvůrce
         member: Člen
       update:
         error: Při aktualizaci skupiny došlo k problému
