@@ -1,20 +1,13 @@
 <div class="bg-background-3">
   <div class="container">
-    <div class="w-2/3 mx-auto grid grid-cols-8 py-12 gap-6">
-      <div class="w-24 h-24 relative">
-        <div class="w-full h-full rounded-full overflow-hidden drop-shadow-md border-2 border-white">
-          <img class="w-full h-full object-cover" src="https://www.fillmurray.com/640/360" />
-        </div>
-
-        <%# TODO: if current_user.verified %>
-        <div class="absolute top-full right-0 -translate-y-full grid place-items-center w-6 h-6 rounded-full overflow-hidden bg-primary border border-white">
-          <%= icon "star-s-fill", class: "w-4 h-4 text-white fill-current" %>
-        </div>
+    <div class="w-2/3 mx-auto flex justify-between py-12 gap-6">
+      <div class="flex-none">
+        <%= render :avatar %>
       </div>
-      <div class="col-span-5 divide-y divide-border-3">
+      <div class="grow divide-y divide-border-3">
         <%= render :details %>
       </div>
-      <div class="col-span-2 space-y-4">
+      <div class="max-w-fit space-y-4">
         <%= render :buttons %>
       </div>
     </div>
@@ -28,7 +21,9 @@
   </div>
 </div>
 <div class="border-t-2 border-border-3 -mt-0.5">
-  <div class="container py-12">
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque, soluta labore in, ad voluptatem ipsa, quod maiores beatae explicabo cumque eos fuga recusandae deleniti. Sequi debitis voluptatum nisi optio nam?
+  <div class="container">
+    <div class="w-2/3 mx-auto py-12">
+      <%= cell content_cell, profile_holder, context %>
+    </div>
   </div>
 </div>

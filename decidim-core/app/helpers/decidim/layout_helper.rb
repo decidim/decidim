@@ -116,7 +116,7 @@ module Decidim
     def arrow_link(text, url, args = {})
       content_tag :a, href: url, class: "arrow-link #{args.with_indifferent_access[:class]}" do
         inner = text
-        inner += redesigned_icon("arrow-right-line", class: "fill-current")
+        inner += icon("arrow-right-line", class: "fill-current")
         inner.html_safe
       end
     end
@@ -187,12 +187,12 @@ module Decidim
 
     # Renders a view with the customizable CSS variables in two flavours:
     # 1. as a hexadecimal valid CSS color (ie: #ff0000)
-    # 2. as a disassembled RGB components (ie: 255,0,0)
+    # 2. as a disassembled RGB components (ie: 255 0 0)
     #
     # Example:
     #
     # --primary: #ff0000;
-    # --primary-rgb: 255,0,0
+    # --primary-rgb: 255 0 0
     #
     # Hexadecimal variables can be used as a normal CSS color:
     #
@@ -203,7 +203,7 @@ module Decidim
     #
     # background-color: rgba(var(--primary-rgb), 0.5)
     def organization_colors
-      css = current_organization.colors.each.map { |k, v| "--#{k}: #{v};--#{k}-rgb: #{v[1..2].hex},#{v[3..4].hex},#{v[5..6].hex};" }.join
+      css = current_organization.colors.each.map { |k, v| "--#{k}: #{v};--#{k}-rgb: #{v[1..2].hex} #{v[3..4].hex} #{v[5..6].hex};" }.join
       render partial: "layouts/decidim/organization_colors", locals: { css: }
     end
 

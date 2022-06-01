@@ -9,6 +9,7 @@ module Decidim
     include Decidim::ApplicationHelper
     include Decidim::Core::Engine.routes.url_helpers
     include Decidim::CardHelper
+    include Decidim::LayoutHelper
 
     def show
       render :show

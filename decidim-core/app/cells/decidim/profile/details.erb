@@ -1,22 +1,20 @@
 <div class="pb-3 space-y-2">
-  <h3 class="h3">CB. Club Barna</h3>
+  <h3 class="h3"><%= profile_holder.name %></h3>
   <div class="flex space-x-6">
+    <%
+    details_array = [];
+
+    details_array << ["account-pin-circle-line", profile_holder.nickname] if profile_holder.nickname.present?;
+    details_array << ["link", profile_holder.personal_url] if profile_holder.personal_url.present?;
+    details_array << ["contacts-line", profile_holder.following_count.to_s + " " + t("decidim.profiles.show.following")] if profile_holder.following_count.present?;
+    details_array << ["user-received-line", profile_holder.followers_count.to_s + " " + t("decidim.profiles.show.followers")] if profile_holder.followers_count.present?;
+
+    details_array.each do |detail| %>
     <div class="flex items-center space-x-1.5">
-      <%= icon "account-pin-circle-line", class: "w-3.5 h-3.5 text-gray fill-current" %>
-      <span class="text-sm text-gray-2">@CBGRUPBARNA</span>
+      <%= icon detail[0], class: "w-3.5 h-3.5 text-gray fill-current" %>
+      <span class="text-sm text-gray-2 lowercase"><%= detail[1] %></span>
     </div>
-    <div class="flex items-center space-x-1.5">
-      <%= icon "link", class: "w-3.5 h-3.5 text-gray fill-current" %>
-      <span class="text-sm text-gray-2">emmarod.com</span>
-    </div>
-    <div class="flex items-center space-x-1.5">
-      <%= icon "contacts-line", class: "w-3.5 h-3.5 text-gray fill-current" %>
-      <span class="text-sm text-gray-2">21 miembros</span>
-    </div>
-    <div class="flex items-center space-x-1.5">
-      <%= icon "user-received-line", class: "w-3.5 h-3.5 text-gray fill-current" %>
-      <span class="text-sm text-gray-2">345 seguidores</span>
-    </div>
+    <% end %>
   </div>
 </div>
-<p class="pt-3 text-sm text-gray-2">El CB GRUP BARNA és un Club Esportiu* de bàsquet formatiu, sense ànim de lucre, dedicat a desenvolupar projectes i iniciatives que tractin aspectes relacionats amb la pràctica del bàsquet, sense perdre de vista la formació integral dels seus jugadors i jugadores. El CB GRUP BARNA és un club fundat l’any 1965, al districte de Sant Martí de Barcelona.</p>
+<p class="pt-3 text-sm text-gray-2"><%= profile_holder.about %></p>
