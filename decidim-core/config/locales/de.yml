@@ -840,7 +840,6 @@ de:
       no_user_groups: Gehört noch keiner Gruppe an.
       roles:
         admin: Administrator
-        creator: Schöpfer
         member: Mitglied
       update:
         error: Beim Aktualisieren der Gruppe ist ein Problem aufgetreten
