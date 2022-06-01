@@ -921,6 +921,7 @@ fr:
         success: Demande de jointure créée avec succès. Un administrateur examinera votre demande avant de vous accepter au groupe.
       leave:
         error: Il y a eu un problème pour quitter le groupe
+        last_admin: Vous ne pouvez pas vous retirer de ce groupe car vous êtes le dernier administrateur. Attribuez le rôle d'administrateur à un autre membre afin de pouvoir quitter le groupe.
         success: Le groupe est parti avec succès.
       members:
         accept_or_reject_join_requests: 'Les utilisateurs suivants ont demandé à rejoindre ce groupe. Accepter ou rejeter leurs demandes:'
@@ -933,6 +934,7 @@ fr:
       no_user_groups: N'appartient à aucun groupe pour l'instant.
       roles:
         admin: Administrateur
+        creator: Administrateur
         member: Membre
       update:
         error: Un problème est survenu lors de la mise à jour du groupe.
