@@ -827,7 +827,6 @@ eu:
       no_user_groups: Oraindik ez da talde batekoa.
       roles:
         admin: Administrator
-        creator: Sortzailea
         member: kidea
       update:
         error: Arazo bat izan da taldea eguneratzean
