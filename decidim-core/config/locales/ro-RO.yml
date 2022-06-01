@@ -855,7 +855,6 @@ ro:
       no_user_groups: Încă nu aparține niciunui grup.
       roles:
         admin: Administrator
-        creator: Creator
         member: Membru
       update:
         error: A apărut o eroare la actualizarea grupului
