@@ -919,7 +919,6 @@ fi-pl:
       no_user_groups: Ei kuulu vielä yhteenkään ryhmään.
       roles:
         admin: Ylläpitäjä
-        creator: Luoja
         member: Jäsen
       update:
         error: Ryhmää päivitettäessä esiintyi ongelma
