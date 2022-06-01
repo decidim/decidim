@@ -933,7 +933,6 @@ fr:
       no_user_groups: N'appartient à aucun groupe pour l'instant.
       roles:
         admin: Administrateur
-        creator: Créateur
         member: Membre
       update:
         error: Un problème est survenu lors de la mise à jour du groupe.
