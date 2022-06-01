@@ -742,7 +742,6 @@ ar:
       no_user_groups: لا ينتمي إلى أي مجموعة حتى الآن.
       roles:
         admin: مدير
-        creator: المنشئ
         member: عضو
       update:
         error: حدثت مشكلة أثناء تحديث المجموعة
