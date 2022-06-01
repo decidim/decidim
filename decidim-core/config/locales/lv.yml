@@ -739,7 +739,6 @@ lv:
       no_user_groups: Pagaidām nepieder nevienai grupai.
       roles:
         admin: Administrators
-        creator: Izveidotājs
         member: Dalībnieks
       update:
         error: Šīs grupas atjaunināšanas laikā radās problēma
