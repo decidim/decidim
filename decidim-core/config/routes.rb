@@ -177,6 +177,8 @@ Decidim::Core::Engine.routes.draw do
 
   resources :last_activities, only: [:index]
 
+  resources :short_links, only: [:index, :show], path: "s"
+
   use_doorkeeper do
     skip_controllers :applications, :authorized_applications
   end
