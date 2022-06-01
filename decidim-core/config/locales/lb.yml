@@ -830,7 +830,6 @@ lb:
       no_user_groups: Gehéiert nach kengem Grupp un.
       roles:
         admin: Administrateur
-        creator: Ersteller
         member: Member
       update:
         error: Et gouf e Problem beim Aktualiséieren vum Grupp
