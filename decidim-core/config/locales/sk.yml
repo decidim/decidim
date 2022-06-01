@@ -743,7 +743,6 @@ sk:
       no_user_groups: Nepatří do žádné skupiny.
       roles:
         admin: Správca
-        creator: Tvorca
         member: Člen
       update:
         error: Pri aktualizácii skupiny došlo k problému
