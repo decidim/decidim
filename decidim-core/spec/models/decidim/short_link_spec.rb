@@ -119,6 +119,36 @@ module Decidim
           expect(subject.target_url).to eq("#{resource_url}?baz=biz&foo=bar")
         end
       end
+
+      context "when the target is a participatory space" do
+        let(:target) { create(:participatory_process) }
+        let(:engine_name) { "decidim_participatory_processes" }
+        let(:route_name) { "participatory_process" }
+
+        it "returns the target URL" do
+          expect(subject.target_url).to eq("http://#{target.organization.host}/processes/#{target.slug}")
+        end
+      end
+
+      context "when the target is an organization" do
+        let(:target) { create(:organization) }
+        let(:engine_name) { "decidim" }
+        let(:route_name) { "pages" }
+
+        it "returns the target URL" do
+          expect(subject.target_url).to eq("http://#{target.host}/pages")
+        end
+      end
+
+      context "when the target is a static page" do
+        let(:target) { create(:static_page) }
+        let(:engine_name) { "decidim" }
+        let(:route_name) { "page" }
+
+        it "returns the target URL" do
+          expect(subject.target_url).to eq("http://#{target.organization.host}/pages/#{target.slug}")
+        end
+      end
     end
   end
 end
