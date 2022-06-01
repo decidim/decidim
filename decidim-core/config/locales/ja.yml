@@ -921,7 +921,6 @@ ja:
       no_user_groups: まだどのグループにも属していません。
       roles:
         admin: 管理者
-        creator: 作成者
         member: メンバー
       update:
         error: グループの更新中に問題が発生しました
