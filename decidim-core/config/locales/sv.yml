@@ -886,7 +886,6 @@ sv:
       no_user_groups: Tillhör inte någon grupp än.
       roles:
         admin: Administratör
-        creator: Skapare
         member: Medlem
       update:
         error: Det gick inte att uppdatera gruppen
