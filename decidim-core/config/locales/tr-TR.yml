@@ -819,7 +819,6 @@ tr:
       no_user_groups: Henüz herhangi bir gruba ait değil.
       roles:
         admin: Yönetici
-        creator: Kurucu
         member: Üye
       update:
         error: Grup güncellemede bir hata oluştu
