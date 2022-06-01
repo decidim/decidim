@@ -747,7 +747,6 @@ zh-CN:
       no_user_groups: 尚不属于任何群组。
       roles:
         admin: 管理员
-        creator: 创建者
         member: 成员
       update:
         error: 更新群组时出错
