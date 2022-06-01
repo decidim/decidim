@@ -150,7 +150,7 @@ describe "Proposals component" do # rubocop:disable RSpec/DescribeClass
 
         it "does NOT allow creating new proposals with the proposal form" do
           expect(page.find(".creation_enabled_container")[:class]).to include("readonly")
-          expect(page).to have_content("You have enabled Participatory Texts, so you cannot create proposals manually. To create a new participatory text click in the Participatory Texts button.")
+          expect(page).to have_content("This setting is disabled when you activate the Participatory Texts functionality. To upload proposals as participatory text click on the Participatory Texts button and follow the instructions.")
         end
       end
 
