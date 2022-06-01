@@ -1,36 +1,14 @@
-<div class="column">
-  <div class="card card--badge absolutes badge-<%= badge.name %>">
-    <div class="right badge-tip">
-      <div data-tooltip data-position="top" title="<%= tooltip %>" data-yeti-box="<%= badge.name %>-tooltip" data-toggle="<%= badge.name %>-tooltip" data-resize="<%= badge.name %>-tooltip" class="has-tip" data-t="<%= badge.name %>-t">
-        <%= icon "info", role: "img", "aria-hidden": true %>
+<div>
+  <div class="relative">
+    <div role="progressbar" class="w-full h-full grid place-items-center rounded-full overflow-hidden bg-[radial-gradient(farthest-side,#F3F4F7_90%,transparent_0_100%),conic-gradient(rgb(var(--primary-rgb))_calc(var(--value)*100%),transparent_0)]" style="--value:<%= status.level.to_f / 5 %>">
+      <div class="rounded-full overflow-hidden w-[90%] h-[90%] m-[5%_auto]">
+        <%= image_tag badge.image, alt: "#{badge_name} badge_image" %>
       </div>
     </div>
-    <div class="card__content">
-      <div class="card__header" style="opacity: <%= opacity %>;">
-        <div class="badge-container">
-          <%= image_tag badge.image, class: "badge__logo", alt: "#{badge_name} badge_image" %>
-        </div>
-      </div>
-      <div class="card__text text-center">
-        <strong><%= badge_name %></strong>
-      </div>
-      <div class="card__text text-center">
-        <%= description %>
-      </div>
-    </div>
-    <div class="card__footer card__footer--transparent">
-        <div class="p-xs">
-          <div class="flex--sbc">
-            <strong class="muted">
-              <%= level_title %>
-            </strong>
-            <div class="badge-level">
-              <% badge.levels.each_with_index do |_threshold, level| %>
-                <div class="<%= "is-achieved" if status.level >= (level + 1) %>"></div>
-              <% end %>
-            </div>
-          </div>
-        </div>
+    <div class="absolute rounded text-primary bg-white top-full left-1/2 -translate-y-1/2 -translate-x-1/2 drop-shadow-md z-10 px-1.5 font-semibold">
+      <%= level_title %>
     </div>
   </div>
+  <div class="text-center font-semibold mt-4"><%= badge_name %></div>
+  <div class="text-center mt-2"><%= description %></div>
 </div>
