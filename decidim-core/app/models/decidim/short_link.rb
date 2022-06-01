@@ -125,12 +125,22 @@ module Decidim
     # @return [Hash] The mounted options for the target record that will be used
     #   to generate the final link.
     def mounted_options
-      if target.respond_to?(:mounted_params)
+      if target.is_a?(Decidim::Participable)
+        # The mounted_params method returns always e.g. participatory_space_slug
+        # assembly_slug, etc. But when we want to link to the space itself, we
+        # only need the `slug` parameter.
+        { host: target.organization.host, slug: target.slug }
+      elsif target.respond_to?(:mounted_params)
         target.mounted_params
       elsif target.respond_to?(:component)
         target.component.mounted_params.merge(id: target.id)
       elsif target.respond_to?(:participatory_space)
         target.participatory_space.mounted_params
+      elsif target.respond_to?(:slug)
+        # E.g. Decidim::StaticPage uses the slug as the `:id` parameter.
+        default_url_options.merge(id: target.slug)
+      elsif !target.is_a?(Decidim::Organization)
+        default_url_options.merge(id: target.id)
       else
         default_url_options
       end
