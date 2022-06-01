@@ -1,10 +1,37 @@
-<%= cell "decidim/user_group_pending_invitations_list", model %>
-<div class="callout secondary <%= "hide" if user_groups.any? %>">
-  <p><%= t("decidim.groups.no_user_groups") %></p>
-</div>
-<div class="row small-up-1 medium-up-2 card-grid">
-  <% user_groups.each do |user_group| %>
-    <%= card_for user_group %>
-  <% end %>
-</div>
-<%= decidim_paginate user_groups %>
+<%
+validations = []
+
+validations << t("decidim.groups.no_user_groups") if !user_groups.any?
+
+validations.each do |validation| %>
+  <p><%= validation %></p>
+<% end %>
+
+<% if !validations.length %>
+  <div class="grid grid-cols-2 gap-10">
+    <% user_groups.each do |user_group| %>
+      <!-- TODO: it should be the same cell as following, follower, groups and member -->
+      <a href="" class="group flex items-center space-x-1.5">
+        <div class="w-12 h-12 relative flex-none">
+          <div class="w-full h-full rounded-full overflow-hidden drop-shadow-md border-2 border-white group-hover:border-tertiary">
+            <img class="w-full h-full object-cover" src="https://www.fillmurray.com/640/360" />
+          </div>
+
+          <%# if user_group.badge?.present? %>
+            <div class="absolute top-full right-0 -translate-y-full grid place-items-center w-4 h-4 rounded-full overflow-hidden bg-primary border border-white">
+              <%= icon "star-s-fill", class: "w-2.5 h-2.5 text-white fill-current" %>
+            </div>
+          <%# end %>
+        </div>
+        <div class="space-y-1">
+          <h5 class="h5 text-secondary group-hover:underline">
+            C.B. Grup Barna
+            <small class="inline-block ml-1 px-2 py-0.5 font-normal rounded text-xs text-primary bg-primary/25">Admin</small>
+          </h5>
+          <span class="text-gray-2 lowercase">@CBGRUPBARNA</span>
+        </div>
+      </a>
+    <% end %>
+  </div>
+  <%= decidim_paginate user_groups %>
+<% end %>
