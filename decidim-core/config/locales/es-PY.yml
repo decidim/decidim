@@ -921,7 +921,6 @@ es-PY:
       no_user_groups: Aún no pertenece a ningún grupo.
       roles:
         admin: Administrador
-        creator: Creador
         member: Miembro
       update:
         error: Ha habido un problema al actualizar el grupo.
