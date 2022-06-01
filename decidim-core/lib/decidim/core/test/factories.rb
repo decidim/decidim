@@ -770,4 +770,22 @@ FactoryBot.define do
   factory :reminder_delivery, class: "Decidim::ReminderDelivery" do
     reminder { create(:reminder) }
   end
+
+  factory :short_link, class: "Decidim::ShortLink" do
+    target { create(:component, manifest_name: "dummy") }
+    route_name { nil }
+    params { {} }
+
+    before(:create) do |object|
+      object.organization ||= object.target if object.target.is_a?(Decidim::Organization)
+      object.organization ||= object.target.try(:organization) || create(:organization)
+      object.identifier ||= Decidim::ShortLink.unique_identifier_within(object.organization)
+      object.mounted_engine_name ||=
+        if object.target.respond_to?(:participatory_space)
+          "decidim_#{object.target.participatory_space.underscored_name}_dummy"
+        else
+          "decidim"
+        end
+    end
+  end
 end
