@@ -165,7 +165,6 @@ ga:
         reject_request: Diúltaigh
       roles:
         admin: Riarthóir
-        creator: Cruthaitheoir
         member: Ball
     last_activities:
       index:
