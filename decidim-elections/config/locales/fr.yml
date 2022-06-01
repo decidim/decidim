@@ -694,31 +694,31 @@ fr:
       elections:
         election_published:
           email_intro: 'L''élection %{resource_title} est maintenant active pour %{participatory_space_title}. Vous pouvez la voir sur cette page :'
-          email_outro: Vous avez reçu cette notification parce que vous suivez %{participatory_space_title}. Vous pouvez arrêter de recevoir des notifications en suivant le lien précédent.
+          email_outro: Vous avez reçu cette notification parce que vous suivez %{participatory_space_title}. Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l'onglet “Mon compte” > “Paramètres des notifications”.
           email_subject: L'élection %{resource_title} est maintenant active pour %{participatory_space_title}.
           notification_title: L'élection de <a href="%{resource_path}">%{resource_title}</a> est maintenant active pour %{participatory_space_title}.
         trustees:
           new_election:
             email_intro: Vous avez été ajouté en tant que garant pour l'élection %{resource_title}.
-            email_outro: Vous avez reçu cette notification parce que vous avez été ajouté comme garant de l'élection "%{resource_title}".
+            email_outro: Vous avez reçu cette notification parce que vous avez été ajouté comme garant de l'élection "%{resource_title}". Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l'onglet “Mon compte” > “Paramètres des notifications”.
             email_subject: Vous avez été ajouté en tant que garant pour l'élection %{resource_title}.
             notification_title: Vous êtes garant de l'élection <a href="%{resource_path}">%{resource_title}</a>.
           new_trustee:
             email_intro: Un administrateur vous a ajouté en tant que garant de %{resource_name}. Vous devriez créer votre clé publique <a href='%{trustee_zone_url}'>dans votre espace de garant</a>
-            email_outro: Vous avez reçu cette notification parce que vous avez été ajouté comme garant de l'élection "%{resource_name}".
+            email_outro: Vous avez reçu cette notification parce que vous avez été ajouté comme garant de l'élection "%{resource_name}". Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l'onglet “Mon compte” > “Paramètres des notifications”.
             email_subject: Vous avez été ajouté en tant que garant pour l'élection %{resource_name}.
             notification_title: Vous êtes garant de <a href="%{participatory_space_url}">%{resource_name}</a>.
         votes:
           accepted_votes:
             email_intro: 'Votre vote a été accepté ! En utilisant votre jeton de vote : %{encrypted_vote_hash}, vous pouvez vérifier votre vote <a href="%{verify_url}">ici</a>.'
-            email_outro: Vous avez reçu cette notification parce que vous avez voté pour l'élection %{resource_name}.
+            email_outro: Vous avez reçu cette notification parce que vous avez voté pour l'élection %{resource_name}. Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l'onglet “Mon compte” > “Paramètres des notifications”.
             email_subject: Votre vote pour %{resource_name} a été accepté.
             notification_title: 'Votre vote a été accepté. Vérifiez votre vote <a href="%{verify_url}">ici</a> en utilisant votre jeton de vote : %{encrypted_vote_hash}'
       votings:
         polling_officers:
           polling_station_assigned:
             email_intro: Vous avez été assigné en tant que %{role} du Bureau de vote %{polling_station_name} sur <a href="%{resource_url}">%{resource_title}</a>. Vous pouvez gérer le Bureau de vote à partir de la <a href="%{polling_officer_zone_url}">zones des responsable du scrutin</a>.
-            email_outro: Vous avez reçu cette notification parce que vous avez été assigné au rôle de %{role} sur %{polling_station_name}.
+            email_outro: Vous avez reçu cette notification parce que vous avez été assigné au rôle de %{role} sur %{polling_station_name}. Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l'onglet “Mon compte” > “Paramètres des notifications”.
             email_subject: Vous êtes %{role} du Bureau de vote %{polling_station_name}.
             notification_title: Vous êtes %{role} du Bureau de vote %{polling_station_name} sur le vote <a href="%{resource_path}">%{resource_title}</a>.
         send_access_code:
