@@ -704,7 +704,6 @@ gl:
       no_user_groups: Aínda non pertence a ningún grupo.
       roles:
         admin: Administrador
-        creator: Creador
         member: Membro
       update:
         error: Produciuse un problema ao actualizar o grupo
