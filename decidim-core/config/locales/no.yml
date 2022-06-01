@@ -868,7 +868,6 @@
       no_user_groups: Tilhører ikke en gruppe ennå.
       roles:
         admin: Administrator
-        creator: Forfatter
         member: Medlem
       update:
         error: Det oppstod et problem med å oppdatere gruppen
