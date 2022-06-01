@@ -921,7 +921,6 @@ es-MX:
       no_user_groups: Aún no perteneces a ningún grupo.
       roles:
         admin: Administrador
-        creator: Creador
         member: Miembro
       update:
         error: Ha habido un problema al actualizar el grupo
