@@ -222,6 +222,12 @@ describe Decidim::Meetings::Permissions do
         it { is_expected.to be false }
       end
 
+      context "when user is admin" do
+        let(:user) { admin_user }
+
+        it { is_expected.to be false }
+      end
+
       context "when user is a space admin" do
         before do
           create(:participatory_process_user_role, user: user, participatory_process: participatory_space)
