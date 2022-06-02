@@ -1,9 +1,15 @@
-<p>
-  <%= t "decidim.gamification.description" %>
-  <%= link_to t("decidim.gamification.all_badges_link"), gamification_badges_path %>
-</p>
+<div class="flex gap-3 bg-background-2 rounded p-4">
+  <%= icon "information-line", class: "w-5 h-5 text-tertiary fill-current flex-none" %>
+  <div class="space-y-2">
+    <h4 class="h4"><%= "¿Qué son las insignias?" %></h4>
+    <p class="text-md text-gray-2">
+      <%= t "decidim.gamification.description" %>
+      <%= link_to t("decidim.gamification.all_badges_link"), gamification_badges_path, class: "text-secondary underline" %>
+    </p>
+  </div>
+</div>
 
-<div class="grid grid-cols-4 gap-12">
+<div class="grid grid-cols-4 gap-12 py-12">
   <% available_badges.each do |badge| %>
     <%= cell "decidim/badge", model, badge: badge %>
   <% end %>

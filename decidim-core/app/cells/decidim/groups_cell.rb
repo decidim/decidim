@@ -6,6 +6,7 @@ module Decidim
     include Decidim::CellsPaginateHelper
     include Decidim::LayoutHelper
     include Decidim::ApplicationHelper
+    include Decidim::LayoutHelper
     include Decidim::Core::Engine.routes.url_helpers
     include Decidim::CardHelper
 

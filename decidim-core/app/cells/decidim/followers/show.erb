@@ -7,7 +7,7 @@ validations.each do |validation| %>
   <p><%= validation %></p>
 <% end %>
 
-<% if !validations.length %>
+<% if validations.empty? %>
   <div class="grid grid-cols-2 gap-10">
     <% followers.each do |follower| %>
       <!-- TODO: it should be the same cell as following, follower, groups and member -->
