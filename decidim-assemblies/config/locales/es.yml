@@ -242,6 +242,9 @@ es:
     admin_log:
       assembly:
         create: "%{user_name} creó la asamblea %{resource_name}"
+        duplicate: "%{user_name} ha duplicado la asamblea %{resource_name}"
+        export: "%{user_name} ha exportado la asamblea %{resource_name}"
+        import: "%{user_name} ha importado la asamblea %{resource_name}"
         publish: "%{user_name} publicó la asamblea %{resource_name}"
         unpublish: "%{user_name} despublicó la asamblea %{resource_name}"
         update: "%{user_name} actualizó la asamblea %{resource_name}"
