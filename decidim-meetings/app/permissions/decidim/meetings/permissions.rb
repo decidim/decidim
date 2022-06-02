@@ -72,6 +72,8 @@ module Decidim
       end
 
       def can_create_meetings?
+        return false if user.admin?
+
         component_settings&.creation_enabled_for_participants? && public_space_or_member?
       end
 
