@@ -158,11 +158,24 @@ ca:
         create: "%{user_name} ha creat l'àrea %{resource_name}"
         delete: "%{user_name} ha eliminat l'àrea %{resource_name}"
         update: "%{user_name} ha actualitzat l'àrea %{resource_name}"
+      area_type:
+        create: "%{user_name} ha creat el tipus d'àrea %{resource_name}"
+        delete: "%{user_name} ha eliminat el tipus d'àrea %{resource_name}"
+        update: "%{user_name} ha actualitzat el tipus d'àrea %{resource_name}"
+      attachment:
+        create: "%{user_name} ha creat l'adjunt %{resource_name}"
+        delete: "%{user_name} ha esborrat l'adjunt %{resource_name}"
+        update: "%{user_name} ha actualitzat l'adjunt %{resource_name}"
+      attachment_collection:
+        create: "%{user_name} ha creat la col·lecció d'adjunts %{resource_name}"
+        delete: "%{user_name} ha esborrat la colecció d'adjunts %{resource_name}"
+        update: "%{user_name} ha actualitzat la col·lecció d'adjunts %{resource_name}"
       component:
         create: "%{user_name} ha afegit el component %{resource_name} a l'espai %{space_name}"
         delete: "%{user_name} ha eliminat el component %{resource_name} de l'espai %{space_name}"
         publish: "%{user_name} ha publicat el component %{resource_name} a l'espai %{space_name}"
         unpublish: "%{user_name} ha despublicat el component %{resource_name} de l'espai %{space_name}"
+        update_permissions_with_space: "%{user_name} ha actualitzat els permisos de %{resource_name} a %{space_name}"
       impersonation_log:
         manage: "%{user_name} ha gestionat a %{resource_name} perquè %{reason}"
       moderation:
@@ -190,6 +203,10 @@ ca:
         delete_with_parent: "%{user_name} ha suprimit l'àmbit %{resource_name} dins l'àmbit %{parent_scope}"
         update: "%{user_name} ha actualitzat l'àmbit %{resource_name}"
         update_with_parent: "%{user_name} ha actualitzat l'àmbit %{resource_name} dins l'àmbit %{parent_scope}"
+      scope_type:
+        create: "%{user_name} ha creat el tipus d'àmbit %{resource_name}"
+        delete: "%{user_name} ha esborrat el tipus d'àmbit %{resource_name}"
+        update: "%{user_name} ha actualitzat el tipus d'ámbit %{resource_name}"
       static_page:
         create: "%{user_name} ha creat la pàgina estàtica %{resource_name}"
         delete: "%{user_name} ha esborrat la pàgina estàtica %{resource_name}"
@@ -956,6 +973,7 @@ ca:
         unknown_action: "%{user_name} ha realitzat una acció a %{resource_name}"
         unknown_action_with_space: "%{user_name} ha realitzat una acció a %{resource_name} en %{space_name}"
         update: "%{user_name} ha actualitzat %{resource_name}"
+        update_permissions_with_space: "%{user_name} ha actualtizat els permisos de %{resource_name} a %{space_name}"
         update_with_space: "%{user_name} ha actualitzat %{resource_name} a %{space_name}"
       value_types:
         area_presenter:
