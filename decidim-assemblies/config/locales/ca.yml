@@ -242,6 +242,9 @@ ca:
     admin_log:
       assembly:
         create: "%{user_name} ha creat l'assemblea %{resource_name}"
+        duplicate: "%{user_name} ha duplicat la assemblea %{resource_name}"
+        export: "%{user_name} ha exportat l'assemblea %{resource_name}"
+        import: "%{user_name} ha importat l'assemblea %{resource_name}"
         publish: "%{user_name} ha publicat l'assemblea %{resource_name}"
         unpublish: "%{user_name} ha despublicat l'assemblea %{resource_name}"
         update: "%{user_name} ha actualitzat l'assemblea %{resource_name}"
