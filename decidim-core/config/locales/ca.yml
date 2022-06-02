@@ -906,6 +906,7 @@ ca:
         success: La sol·licitud per a formar-ne part s'ha enviat correctament. Una administradora revisarà la teva sol·licitud abans d'acceptar-te al grup.
       leave:
         error: S'ha produït un error en abandonar el grup
+        last_admin: No et pots esborrar tu mateixa d'aquest grup perquè n'ets la darrera administradora. Fes a una altra membre administrador per a poder abandonar aquest grup.
         success: El grup s'ha abandonat correctament.
       members:
         accept_or_reject_join_requests: 'Les següents participants han sol·licitat unir-se a aquest grup. Accepta o rebutja les seves sol·licituds:'
@@ -918,6 +919,7 @@ ca:
       no_user_groups: Encara no pertanys a cap grup.
       roles:
         admin: Administradora
+        creator: Administradora
         member: Membre
       update:
         error: S'ha produït un error en actualitzar el grup
