@@ -1,32 +1,29 @@
-<div class="user-activity">
-  <div id="activities" class="columns small-12">
-    <% if activities.length == 0 %>
-      <div class="callout warning">
-        <%= t "decidim.user_activity.index.no_activities_warning" %>
-      </div>
-    <% else %>
-      <div class="row">
-        <div class="show-for-mediumlarge filters__left-legend">
-          <%= filter_form_for context[:filter] do |form| %>
-            <div class="columns mediumlarge-6 large-5">
-              <%= form.custom_select :resources,
-                                     :resource_type,
-                                     resource_types,
-                                     legend_title: t("title", scope:"decidim.components.component_order_selector"),
-                                     label: false,
-                                     selected: context[:filter].resource_type,
-                                     include_blank: t("all_types", scope: "decidim.components.component_order_selector.order") %>
-            </div>
-          <% end %>
-        </div>
-      </div>
-      <div class="row" id="activities-container">
-        <%= cell "decidim/activities", activities %>
-      </div>
+<% if activities.length == 0 %>
+  <p><%= t "decidim.user_activity.index.no_activities_warning" %></p>
+<% else %>
+  <div class="grid grid-cols-8 gap-12">
+    <div class="col-span-2 space-y-4">
+      <%
+      buttons = [
+        ["apps-2-line", t("decidim.components.component_order_selector.order.all_types")],
+        ["chat-new-line", t("decidim.components.component_order_selector.order.proposal")],
+        ["discuss-line", t("decidim.components.component_order_selector.order.debate")],
+        ["chat-1-line", t("decidim.components.component_order_selector.order.comment")],
+        ["heart-line", "like it"]
+      ]
 
-      <div class="row" id="decidim-paginate-container">
-        <%= decidim_paginate activities %>
-      </div>
-    <% end %>
+      buttons.each do |btn| %>
+        <a href="" class="flex gap-2 p-1.5 group rounded hover:bg-background-5">
+          <%= icon btn[0], class: "w-4 h-4 text-gray group-hover:text-secondary fill-current" %>
+          <span class="text-sm text-gray-2 first-letter:uppercase group-hover:text-secondary group-hover:font-semibold"><%= btn[1] %></span>
+        </a>
+      <% end %>
+    </div>
+
+    <div class="col-span-6 divide-y divide-border-3 -mt-4">
+      <%= cell "decidim/activities", activities %>
+
+      <%= decidim_paginate activities %>
+    </div>
   </div>
-</div>
+<% end %>

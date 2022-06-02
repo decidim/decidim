@@ -1,27 +1,15 @@
-<div class="card card--activity" id="<%= element_id %>">
-  <div class="card__content">
-    <div class="card__text">
-      <div class="text-medium">
-        <% if title.present? %>
-          <%= title %>
-        <% end %>
-      </div>
-    </div>
-    <div class="card__author inline-block">
-      <%= author_data = author %>
-    </div><div class="card__activity-date inline-block <%= "before-content" if author_data.present? %>">
-      <span class="text-medium mt-xs"><%= created_at %></span>
-    </div>
-    <div class="card__header mb-none">
-      <%= link_to resource_link_path, class: "card__link" do %>
-        <span class="card__title mb-none">
-          <% @sanitized_resource_link_text = html_truncate decidim_sanitize(resource_link_text, strip_tags: true), length: 80 %>
-          <%= @sanitized_resource_link_text %>
-        </span>
-      <% end %>
-      <% if description.present? && @sanitized_resource_link_text.present? %>
-        <%= html_truncate decidim_sanitize(description, strip_tags: true), length: 80 %>
-      <% end %>
-    </div>
+<div class="flex gap-12 py-4" id="<%= element_id %>">
+  <time class="text-gray-2">
+    <%= created_at %>
+  </time>
+  <div class="space-y-2">
+    <span>
+      <!-- TODO: title includes the participatory_space. Remove it -->
+      <%= title if title.present? %>
+      <a href="<%= resource_link_path %>" class="text-secondary font-semibold">
+        <%= html_truncate decidim_sanitize(resource_link_text, strip_tags: true), length: 80 %>
+      </a>
+    </span>
+    <span class="flex items-center gap-1 text-gray-2 text-sm"><%= icon "treasure-map-line", class: "w-3.5 h-3.5 fill-current" %> <%= participatory_space_link %></span>
   </div>
 </div>
