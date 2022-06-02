@@ -290,6 +290,10 @@ ca:
           send_to_technical_validation: "%{user_name} ha enviat la iniciativa %{resource_name} a la validació tècnica"
           unpublish: "%{user_name} ha descartat la iniciativa %{resource_name}"
           update: "%{user_name} ha actualitzat la iniciativa %{resource_name}"
+        initiatives_type:
+          create: "%{user_name} ha creat el tipus d'iniciativa %{resource_name}"
+          delete: "%{user_name} ha esborrat el tipus d'iniciativa %{resource_name}"
+          update: "%{user_name} ha actualitzat el tipus d'iniciativa %{resource_name}"
       admin_states:
         accepted: Ha aconseguit les signatures necessàries
         created: Creada
