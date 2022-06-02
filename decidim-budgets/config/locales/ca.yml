@@ -117,6 +117,7 @@ ca:
           update_selected:
             invalid: 'Aquests projectes ja estaven seleccionats: %{projects}.'
             select_a_project: Si us plau, selecciona un projecte
+            select_a_selection: Si us plau, tria un estat
             success: 'Selecció de projectes modificada correctament: %{projects}.'
         proposals_imports:
           create:
