@@ -1306,6 +1306,7 @@ ca:
           form_title: 'Emplena el formulari següent per comprovar les dades del cens:'
           invalid: Hi ha hagut un problema en comprovar el cens.
           success:
+            access_link: per correu electrònic.
             access_link_with_sms: via SMS o correu electrònic.
             info: Ja hauries d'haver rebut el codi d'accés per correu postal. En cas que no l'hagis rebut, pots demanar-lo de nou aquí
             title: Les teves dades del cens són correctes!
