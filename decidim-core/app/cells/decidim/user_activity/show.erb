@@ -22,8 +22,12 @@
 
     <div class="col-span-6 divide-y divide-border-3 -mt-4">
       <%= cell "decidim/activities", activities %>
-
-      <%= decidim_paginate activities %>
     </div>
+  </div>
+
+  <div class="flex justify-between py-16">
+    <%= render partial: "decidim/shared/results_per_page.html" %>
+
+    <%= decidim_paginate activities %>
   </div>
 <% end %>

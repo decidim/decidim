@@ -1,5 +1,5 @@
 <div class="flex gap-12 py-4" id="<%= element_id %>">
-  <time class="text-gray-2">
+  <time class="flex-none text-gray-2">
     <%= created_at %>
   </time>
   <div class="space-y-2">
@@ -10,6 +10,6 @@
         <%= html_truncate decidim_sanitize(resource_link_text, strip_tags: true), length: 80 %>
       </a>
     </span>
-    <span class="flex items-center gap-1 text-gray-2 text-sm"><%= icon "treasure-map-line", class: "w-3.5 h-3.5 fill-current" %> <%= participatory_space_link %></span>
+    <span class="flex items-center gap-1 text-gray-2 text-sm"><%= icon "treasure-map-line", class: "w-3.5 h-3.5 text-gray fill-current" %> <%= participatory_space_link %></span>
   </div>
 </div>
