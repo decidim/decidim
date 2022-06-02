@@ -906,6 +906,7 @@ es:
         success: La solicitud para formar parte se ha enviado correctamente. Una administradora revisará tu solicitud antes de aceptarte en el grupo.
       leave:
         error: Se ha producido un error al dejar el grupo
+        last_admin: No puedes quitarte de este grupo porque eres la última administradora. Haz que otra miembro sea una administradora para poder abandonar el grupo.
         success: Has dejado el grupo correctamente.
       members:
         accept_or_reject_join_requests: 'Las siguientes participantes han solicitado unirse a este grupo. Acepta o rechaza sus solicitudes:'
@@ -918,6 +919,7 @@ es:
       no_user_groups: Aún no perteneces a ningún grupo.
       roles:
         admin: Administradora
+        creator: Administradora
         member: Miembro
       update:
         error: Se ha producido un error al actualizar el grupo
