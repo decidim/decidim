@@ -1,13 +1,13 @@
 <div class="bg-background-3">
   <div class="container">
-    <div class="w-2/3 mx-auto flex justify-between py-12 gap-6">
+    <div class="lg:w-2/3 mx-auto flex flex-col items-center md:items-start md:flex-row justify-between py-6 md:py-12 gap-6">
       <div class="flex-none">
         <%= render :avatar %>
       </div>
       <div class="grow divide-y divide-border-3">
         <%= render :details %>
       </div>
-      <div class="max-w-fit space-y-4">
+      <div class="max-w-fit flex md:flex-col gap-4">
         <%= render :buttons %>
       </div>
     </div>
@@ -15,14 +15,14 @@
 </div>
 <div class="bg-background-3">
   <div class="container">
-    <ul class="w-2/3 mx-auto flex justify-between text-gray-2">
+    <ul class="lg:w-2/3 mx-auto flex justify-between text-gray-2">
       <%= render :tabs %>
     </ul>
   </div>
 </div>
 <div class="border-t-2 border-border-3 -mt-0.5">
   <div class="container">
-    <div class="w-2/3 mx-auto py-12">
+    <div class="lg:w-2/3 mx-auto py-6 md:py-12">
       <%= cell content_cell, profile_holder, context %>
     </div>
   </div>

@@ -12,9 +12,9 @@ tabs_array << ["question-answer-line", t("decidim.profiles.show.conversations"),
 
 tabs_array.each_with_index do |tab, ix| %>
   <li class="grow rounded-t <%= 'bg-white text-secondary font-semibold' if is_active_link?(tab[2]) %>">
-    <a href="<%= tab[2] %>" class="w-full h-full p-2.5 flex items-center justify-center gap-2">
-      <%= icon tab[0], class: "fill-current" %>
-      <%= tab[1] %>
+    <a href="<%= tab[2] %>" title="<%= tab[1] %>" class="w-full h-full p-2.5 flex items-center justify-center gap-2">
+      <%= icon tab[0], class: "w-6 h-6 md:w-4 md:h-4 fill-current" %>
+      <span class="hidden md:block"><%= tab[1] %></span>
     </a>
   </li>
 <% end %>

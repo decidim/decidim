@@ -9,7 +9,7 @@
   </div>
 </div>
 
-<div class="grid grid-cols-4 gap-12 py-12">
+<div class="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-12 py-6 md:py-12">
   <% available_badges.each do |badge| %>
     <%= cell "decidim/badge", model, badge: badge %>
   <% end %>

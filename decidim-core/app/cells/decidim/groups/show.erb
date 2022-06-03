@@ -8,7 +8,7 @@ validations.each do |validation| %>
 <% end %>
 
 <% if validations.empty? %>
-  <div class="grid grid-cols-2 gap-10">
+  <div class="grid md:grid-cols-2 gap-5 md:gap-10">
     <% user_groups.each do |user_group| %>
       <!-- TODO: it should be the same cell as follower, groups and member -->
       <a href="" class="group flex items-center space-x-1.5">

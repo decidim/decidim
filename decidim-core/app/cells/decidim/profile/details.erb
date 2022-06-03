@@ -1,6 +1,6 @@
 <div class="pb-3 space-y-2">
   <h3 class="h3"><%= profile_holder.name %></h3>
-  <div class="flex space-x-6">
+  <div class="flex justify-between flex-wrap gap-x-6">
     <%
     details_array = [];
 
@@ -10,10 +10,10 @@
     details_array << ["user-received-line", profile_holder.followers_count.to_s + " " + t("decidim.profiles.show.followers")] if profile_holder.followers_count.present?;
 
     details_array.each do |detail| %>
-    <div class="flex items-center space-x-1.5">
-      <%= icon detail[0], class: "w-3.5 h-3.5 text-gray fill-current" %>
-      <span class="text-sm text-gray-2 lowercase"><%= detail[1] %></span>
-    </div>
+      <div class="flex items-center space-x-1.5 whitespace-nowrap">
+        <%= icon detail[0], class: "w-3.5 h-3.5 text-gray fill-current" %>
+        <span class="text-sm text-gray-2 lowercase"><%= detail[1] %></span>
+      </div>
     <% end %>
   </div>
 </div>

@@ -28,8 +28,9 @@ validations.each do |validation| %>
           metadata << ["pulse-line", "Active"];
           metadata << ["user-voice-line", "74 followers"];
 
-          metadata.each do |item| %>
-            <div class="flex items-center gap-1 px-6 first:pl-0 last:pr-0 max-w-xs">
+          # It should display up to 4 icons top
+          metadata.first(4).each do |item| %>
+            <div class="flex items-center gap-1 px-4 lg:px-6 first:pl-0 last:pr-0 max-w-xs">
               <%= icon item[0], class: "w-3.5 h-3.5 flex-none text-gray fill-current" %>
               <span class="text-sm text-gray-2 truncate"><%= item[1] %></span>
             </div>

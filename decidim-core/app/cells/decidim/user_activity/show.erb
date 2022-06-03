@@ -1,8 +1,8 @@
 <% if activities.length == 0 %>
   <p><%= t "decidim.user_activity.index.no_activities_warning" %></p>
 <% else %>
-  <div class="grid grid-cols-8 gap-12">
-    <div class="col-span-2 space-y-4">
+  <div class="grid md:grid-cols-8 items-start gap-4 md:gap-12">
+    <div class="md:col-span-2 flex flex-wrap flex-row md:flex-col justify-center md:justify-start gap-4 sticky top-0 md:top-2 bg-white">
       <%
       buttons = [
         ["apps-2-line", t("decidim.components.component_order_selector.order.all_types")],
@@ -13,19 +13,19 @@
       ]
 
       buttons.each do |btn| %>
-        <a href="" class="flex gap-2 p-1.5 group rounded hover:bg-background-5">
-          <%= icon btn[0], class: "w-4 h-4 text-gray group-hover:text-secondary fill-current" %>
-          <span class="text-sm text-gray-2 first-letter:uppercase group-hover:text-secondary group-hover:font-semibold"><%= btn[1] %></span>
+        <a href="" class="flex gap-2 p-1.5 group rounded hover:bg-background-5" title="<%= btn[1] %>">
+          <%= icon btn[0], class: "w-6 h-6 md:w-4 md:h-4 flex-none text-gray group-hover:text-secondary fill-current" %>
+          <span class="hidden md:block text-sm text-gray-2 first-letter:uppercase group-hover:text-secondary group-hover:font-semibold"><%= btn[1] %></span>
         </a>
       <% end %>
     </div>
 
-    <div class="col-span-6 divide-y divide-border-3 -mt-4">
+    <div class="md:col-span-6 divide-y divide-border-3 -mt-4">
       <%= cell "decidim/activities", activities %>
     </div>
   </div>
 
-  <div class="flex justify-between py-16">
+  <div class="flex flex-col-reverse md:flex-row items-center justify-between gap-1 py-8 md:py-16">
     <%= render partial: "decidim/shared/results_per_page.html" %>
 
     <%= decidim_paginate activities %>
