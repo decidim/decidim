@@ -1,7 +1,7 @@
 <%
 validations = []
 
-validations << t("decidim.following.non_public_followings") if public_followings.any? && non_public_followings?
+#validations << t("decidim.following.non_public_followings") if public_followings.any? && non_public_followings?
 validations << t("decidim.following.no_followings") if !public_followings.any?
 
 validations.each do |validation| %>
@@ -9,31 +9,36 @@ validations.each do |validation| %>
 <% end %>
 
 <% if validations.empty? %>
-  <div class="grid grid-cols-2 gap-10">
+  <div class="divide-y divide-border-2 -my-4">
     <% public_followings.each do |followable| %>
-      <!-- TODO: it should be the same cell as following, follower, groups and member -->
-      <a href="" class="group flex items-center space-x-1.5">
-        <div class="w-12 h-12 relative flex-none">
-          <div class="w-full h-full rounded-full overflow-hidden drop-shadow-md border-2 border-white group-hover:border-tertiary">
-            <img class="w-full h-full object-cover" src="https://www.fillmurray.com/640/360" />
-          </div>
+      <div class="py-4 space-y-2">
+        <!-- TODO: translate attribute -->
+        <a href="" class="text-lg text-secondary font-semibold hover:underline"><%= followable.title["en"] %></a>
+        <div class="flex items-center divide-x divide-border-3">
+          <%
+          # TODO: The content will vary regarding the followable type. Ask for the respective icons
 
-          <%# if followable.badge?.present? %>
-            <div class="absolute top-full right-0 -translate-y-full grid place-items-center w-4 h-4 rounded-full overflow-hidden bg-primary border border-white">
-              <%= icon "star-s-fill", class: "w-2.5 h-2.5 text-white fill-current" %>
+          metadata = [];
+
+          metadata << ["calendar-line", followable.published_at] if followable.published_at;
+          metadata << ["treasure-map-line", "Reurbanització de l'avinguda Madrid i el carrer Berlín"];
+          metadata << ["check-double-line", "1242 votings"];
+          metadata << ["time-line", "2h"];
+          metadata << ["webcam-line", "Online"];
+          metadata << ["pulse-line", "Active"];
+          metadata << ["user-voice-line", "74 followers"];
+
+          metadata.each do |item| %>
+            <div class="flex items-center gap-1 px-6 first:pl-0 last:pr-0 max-w-xs">
+              <%= icon item[0], class: "w-3.5 h-3.5 flex-none text-gray fill-current" %>
+              <span class="text-sm text-gray-2 truncate"><%= item[1] %></span>
             </div>
-          <%# end %>
+          <% end %>
         </div>
-        <div class="space-y-1">
-          <h5 class="h5 text-secondary group-hover:underline">
-            C.B. Grup Barna
-            <small class="inline-block ml-1 px-2 py-0.5 font-normal rounded text-xs text-primary bg-primary/25">Admin</small>
-          </h5>
-          <span class="text-gray-2 lowercase">@CBGRUPBARNA</span>
-        </div>
-      </a>
+      </div>
     <% end %>
   </div>
 
+  <!-- TODO: pagination and results per page now they'll come together -->
   <%= decidim_paginate public_followings %>
 <% end %>
