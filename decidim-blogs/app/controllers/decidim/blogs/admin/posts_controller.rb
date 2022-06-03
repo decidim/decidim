@@ -38,7 +38,7 @@ module Decidim
           enforce_permission_to :update, :blogpost, blogpost: post
           @form = form(PostForm).from_params(params, current_component: current_component)
 
-          UpdatePost.call(@form, post) do
+          UpdatePost.call(@form, post, current_user) do
             on(:ok) do
               flash[:notice] = I18n.t("posts.update.success", scope: "decidim.blogs.admin")
               redirect_to posts_path
@@ -53,7 +53,10 @@ module Decidim
 
         def destroy
           enforce_permission_to :destroy, :blogpost, blogpost: post
-          post.destroy!
+
+          Decidim.traceability.perform_action!("delete", post, current_user) do
+            post.destroy!
+          end
 
           flash[:notice] = I18n.t("posts.destroy.success", scope: "decidim.blogs.admin")
 

@@ -39,6 +39,10 @@ module Decidim
         participatory_space.try(:visible?) && component.try(:published?)
       end
 
+      def self.log_presenter_class_for(_log)
+        Decidim::Blogs::AdminLog::PostPresenter
+      end
+
       # Public: Overrides the `comments_have_alignment?` Commentable concern method.
       def comments_have_alignment?
         true
