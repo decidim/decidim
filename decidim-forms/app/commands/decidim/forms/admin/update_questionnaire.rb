@@ -24,8 +24,7 @@ module Decidim
 
           Decidim.traceability.perform_action!("update",
                                                @questionnaire,
-                                               @user
-          ) do
+                                               @user) do
             Decidim::Forms::Questionnaire.transaction do
               if @questionnaire.questions_editable?
                 update_questionnaire_questions

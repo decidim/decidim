@@ -39,7 +39,6 @@ module Decidim
         Decidim::Forms::AdminLog::QuestionnairePresenter
       end
 
-
       private
 
       # salt is used to generate secure hash in anonymous answers
