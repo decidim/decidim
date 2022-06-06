@@ -1,1 +1,6 @@
 lt:
+  activemodel:
+    attributes:
+      result:
+        start_date: Pradžios data
+        title: Pavadinimas
