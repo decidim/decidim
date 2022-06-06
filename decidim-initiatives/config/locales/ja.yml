@@ -42,8 +42,8 @@ ja:
         postal_code: 郵便番号
       organization_data:
         address: 住所
-        id_document: ID ドキュメント
-        name: 完全な名前
+        id_document: 身分証
+        name: 氏名
     errors:
       models:
         initiative:
@@ -57,7 +57,7 @@ ja:
       decidim/initiative:
         other: イニシアチブ
       decidim/initiative_comittee:
-        other: Comittes
+        other: 委員
       decidim/initiative_vote:
         other: 署名
   decidim:
