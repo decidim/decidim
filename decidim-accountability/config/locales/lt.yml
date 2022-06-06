@@ -4,3 +4,35 @@ lt:
       result:
         start_date: Pradžios data
         title: Pavadinimas
+        updated_at: Atnaujinta
+      status:
+        description: Aprašymas
+        key: Raktas
+        name: Vardas
+        progress: Progresas
+      timeline_entry:
+        description: Aprašymas
+        entry_date: Data
+    models:
+      decidim/accountability/proposal_linked_event: Pasiūlymas įtrauktas į rezultatą
+      decidim/accountability/result_progress_updated_event: Rezultato progresas atnaujintas
+  decidim:
+    accountability:
+      actions:
+        attachment_collections: Aplankai
+        attachments: Priedai
+        confirm_destroy: Ar tikrai norite pašalinti šį %{name}?
+        destroy: Ištrinti
+        edit: Redaguoti
+        import_csv: Importuoti CSV
+        new: Naujas %{name}
+        preview: Peržiūra
+        timeline_entries: Projekto raida
+        title: Veiksmai
+      admin:
+        exports:
+          result_comments: Komentarai
+          results: Rezultatai
+        import_results:
+          new:
+            import: Importuoti
