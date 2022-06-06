@@ -389,7 +389,10 @@ shared_examples "comments" do
       end
 
       it "adds external link css" do
-        expect(page).to have_css(".external-link-container", text: "http://www.debian.org")
+        expect(page).to have_css("a", text: "http://www.debian.org")
+        within("a", text: "http://www.debian.org") do
+          expect(page).to have_text "External link"
+        end
       end
 
       it "changes link to point to /link" do
