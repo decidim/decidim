@@ -29,20 +29,6 @@ module Decidim
         end
       end
 
-      describe "#project_preview_data_for_map" do
-        subject { helper.project_preview_data_for_map(project) }
-
-        let(:marker) { subject[:marker] }
-
-        it "returns preview data" do
-          expect(subject[:type]).to eq("drag-marker")
-          expect(marker["latitude"]).to eq(latitude)
-          expect(marker["longitude"]).to eq(longitude)
-          expect(marker["address"]).to eq(address)
-          expect(marker["icon"]).to match(/<svg.+/)
-        end
-      end
-
       describe "#project_data_for_map" do
         subject { helper.project_data_for_map(project) }
 
