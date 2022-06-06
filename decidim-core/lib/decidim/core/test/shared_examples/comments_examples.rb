@@ -482,7 +482,7 @@ shared_examples "comments" do
         it "the context menu of the comment doesn't show a delete link" do
           within "#comment_#{comment.id}" do
             within ".comment__header__context-menu" do
-              page.find(".icon--ellipses").click
+              page.find("label").click
               expect(page).to have_no_link("Delete")
             end
           end
@@ -495,7 +495,7 @@ shared_examples "comments" do
         it "the context menu of the comment shows a delete link" do
           within "#comment_#{comment.id}" do
             within ".comment__header__context-menu" do
-              page.find(".icon--ellipses").click
+              page.find("label").click
               expect(page).to have_link("Delete")
             end
           end
@@ -506,7 +506,7 @@ shared_examples "comments" do
 
           within "#comment_#{comment.id}" do
             within ".comment__header__context-menu" do
-              page.find(".icon--ellipses").click
+              page.find("label").click
               click_link "Delete"
             end
           end
@@ -544,7 +544,7 @@ shared_examples "comments" do
         it "the context menu of the comment doesn't show an edit button" do
           within "#comment_#{comment.id}" do
             within ".comment__header__context-menu" do
-              page.find(".icon--ellipses").click
+              page.find("label").click
               expect(page).to have_no_button("Edit")
             end
           end
@@ -557,7 +557,7 @@ shared_examples "comments" do
         it "the context menu of the comment show an edit button" do
           within "#comment_#{comment.id}" do
             within ".comment__header__context-menu" do
-              page.find(".icon--ellipses").click
+              page.find("label").click
               expect(page).to have_button("Edit")
             end
           end
@@ -566,7 +566,7 @@ shared_examples "comments" do
         context "when the user edits a comment" do
           before do
             within "#comment_#{comment.id} .comment__header__context-menu" do
-              page.find(".icon--ellipses").click
+              page.find("label").click
               click_button "Edit"
             end
             fill_in "edit_comment_#{comment.id}", with: "This comment has been fixed"
