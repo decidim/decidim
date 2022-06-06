@@ -72,7 +72,7 @@ module Decidim
       def i18n_options
         default_i18n_options.merge(event_interpolations).transform_values do |value|
           if value.is_a?(String)
-            decidim_html_escape(value)
+            decidim_sanitize(decidim_html_escape(value))
           else
             value
           end

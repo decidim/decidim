@@ -3,7 +3,7 @@
 require "spec_helper"
 
 describe Decidim::Proposals::Admin::UpdateProposalScopeEvent do
-  let(:resource) { create :proposal, title: "My super proposal" }
+  let(:resource) { create :proposal, title: "It's my super proposal" }
   let(:resource_title) { translated(resource.title) }
   let(:event_name) { "decidim.events.proposals.proposal_update_scope" }
 

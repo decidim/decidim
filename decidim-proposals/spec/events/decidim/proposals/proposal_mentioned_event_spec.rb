@@ -10,7 +10,7 @@ describe Decidim::Proposals::ProposalMentionedEvent do
   let(:author) { create :user, organization: organization }
 
   let(:source_proposal) { create :proposal, component: create(:proposal_component, organization: organization), title: "Proposal A" }
-  let(:mentioned_proposal) { create :proposal, component: create(:proposal_component, organization: organization), title: "Proposal B" }
+  let(:mentioned_proposal) { create :proposal, component: create(:proposal_component, organization: organization), title: "It's proposal B" }
   let(:resource) { source_proposal }
   let(:extra) do
     {

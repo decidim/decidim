@@ -22,6 +22,14 @@ module Decidim
       end
 
       describe "email_subject" do
+        context "when resource title contains apostrophes" do
+          let(:resource) { create :proposal, title: "It's a nice proposal" }
+
+          it "is generated correctly" do
+            expect(subject.email_subject).to eq("New proposal \"#{resource_title}\" by @#{author.nickname}")
+          end
+        end
+
         it "is generated correctly" do
           expect(subject.email_subject).to eq("New proposal \"#{resource_title}\" by @#{author.nickname}")
         end
