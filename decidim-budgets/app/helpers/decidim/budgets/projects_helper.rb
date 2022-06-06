@@ -99,7 +99,7 @@ module Decidim
           .merge(
             title: decidim_html_escape(translated_attribute(project.title)),
             description: html_truncate(decidim_sanitize_editor(translated_attribute(project.description)), length: 100),
-            icon: icon("projects", width: 40, height: 70, remove_icon_class: true),
+            icon: icon("project", width: 40, height: 70, remove_icon_class: true),
             link: ::Decidim::ResourceLocatorPresenter.new([project.budget, project]).path
           )
       end
@@ -112,7 +112,7 @@ module Decidim
             :longitude,
             :address
           ).merge(
-            icon: icon("projects", width: 40, height: 70, remove_icon_class: true)
+            icon: icon("project", width: 40, height: 70, remove_icon_class: true)
           )
         }
       end
