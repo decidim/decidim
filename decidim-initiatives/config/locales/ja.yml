@@ -101,7 +101,7 @@ ja:
         initiatives_type_scope:
           fields:
             scope: スコープ
-            supports_required: 署名が必要です
+            supports_required: 必要署名数
           name: イニシアチブ種別のスコープ
         initiatives_types:
           fields:
