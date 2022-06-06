@@ -51,8 +51,8 @@ module Decidim
         it "traces the action", versioning: true do
           expect(Decidim.traceability)
             .to receive(:perform_action!)
-                  .with("export_component", component, user, { name: "dummies", format: "json" })
-                  .and_call_original
+            .with("export_component", component, user, { name: "dummies", format: "json" })
+            .and_call_original
 
           expect { post(:create, params: params) }.to change(Decidim::ActionLog, :count)
           action_log = Decidim::ActionLog.last
