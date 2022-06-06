@@ -104,19 +104,6 @@ module Decidim
           )
       end
 
-      def project_preview_data_for_map(project)
-        {
-          type: "drag-marker",
-          marker: project.slice(
-            :latitude,
-            :longitude,
-            :address
-          ).merge(
-            icon: icon("project", width: 40, height: 70, remove_icon_class: true)
-          )
-        }
-      end
-
       def has_position?(project)
         return if project.address.blank?
 
