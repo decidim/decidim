@@ -1207,11 +1207,9 @@ fr:
         in_person_votes:
           complete_voting:
             available_answers: 'Réponses disponibles:'
-            census_verified: Le participant n'a pas encore voté.
             complete_voting: Vote terminé
             identify_another: Identifier un autre participant
             questions_title: 'Ils ont le droit de voter sur les questions suivantes :'
-            questions_title_voted: 'Le participant a déjà voté en ligne et a le droit de voter dans les questions suivantes :'
             voted: Le participant a voté
           create:
             error: Le vote n'a pas été enregistré. Veuillez réessayer.
