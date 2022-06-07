@@ -32,6 +32,7 @@ describe "Polling Officer zone", type: :system do
     include_context "with test bulletin board"
 
     let(:questions_title) { "They're entitled to vote in the following questions:" }
+    let(:census_verified) { "This participant has not voted in person yet." }
 
     it "can identify a person and register their vote", :slow do
       click_link "Identify a person"
@@ -43,6 +44,7 @@ describe "Polling Officer zone", type: :system do
       click_button "Verify document"
 
       election.reload
+      expect(page).to have_content(census_verified)
       expect(page).to have_content(questions_title)
       election.questions.each do |question|
         expect(page).to have_content(translated(question.title))
@@ -74,7 +76,8 @@ describe "Polling Officer zone", type: :system do
     end
 
     it_behaves_like "a polling officer registers an in person vote" do
-      let(:questions_title) { "The participant has already voted online and is entitled to vote in the following questions:" }
+      let(:census_verified) { "This participant has already voted online. If they vote in person, the previous votes will be invalidated and this will be the definitive vote." }
+      let(:questions_title) { "This participant has already voted online and is entitled to vote in the following questions:" }
     end
   end
 
