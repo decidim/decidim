@@ -93,17 +93,17 @@ es-MX:
         other: aproximadamente %{count} meses
       half_a_minute: medio minuto
       less_than_x_minutes:
-        one: menos de 1 minuto
-        other: menos de %{count} minutos
+        one: menos de 1 minuto.
+        other: menos de %{count} minutos.
       less_than_x_seconds:
         one: ahora mismo
-        other: menos de %{count} segundos
+        other: menos de %{count} segundos.
       x_days:
         one: hace 1 día
         other: "hace %{count} días"
       x_hours:
         one: hace 1 hora
-        other: "hace %{count} días"
+        other: "hace %{count} horas"
       x_minutes:
         one: hace 1 minuto
         other: "hace %{count} minutos"
@@ -136,7 +136,7 @@ es-MX:
         body1: Hemos enviado un correo electrónico a %{unconfirmed_email} para verificar tu nueva dirección de correo electrónico.
         body2: '¿Necesitas que te reenviemos el correo de verificación? %{resend_link} o %{cancel_link}.'
         cancel: cancelar
-        cancel_error: No se ha podido cancelar el cambio de Correo electrónico.
+        cancel_error: No se ha podido cancelar el cambio de correo electrónico.
         cancel_successfully: Cambio de correo electrónico cancelado con éxito.
         resend_error: No se ha podido reenviar el correo de confirmación.
         resend_successfully: Correo de confirmación reenviado correctamente a %{unconfirmed_email}
