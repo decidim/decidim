@@ -1201,11 +1201,9 @@ fi:
         in_person_votes:
           complete_voting:
             available_answers: 'Mahdolliset vastaukset:'
-            census_verified: Osallistuja ei ole vielä äänestänyt.
             complete_voting: Viimeistele äänestys
             identify_another: Tunnista toinen osallistuja
             questions_title: 'Osallistujilla on oikeus äänestää seuraavista kysymyksistä:'
-            questions_title_voted: 'Osallistuja on jo äänestänyt verkossa ja hänellä on oikeus äänestää seuraavista kysymyksistä:'
             voted: Osallistuja on äänestänyt
           create:
             error: Ääntä ei tallennettu. Ole hyvä ja yritä uudelleen.
