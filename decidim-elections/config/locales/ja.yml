@@ -1195,9 +1195,12 @@ ja:
         in_person_votes:
           complete_voting:
             available_answers: '利用可能な回答:'
+            census_verified: この参加者はまだ対面投票されていません。
+            census_verified_with_online_vote: この参加者はすでにオンラインで投票しています。参加者が直接投票した場合、以前の投票は無効になり、こちらが最終投票となります。
             complete_voting: 投票を完了
             identify_another: 他の参加者を特定する
             questions_title: '彼女は以下の質問に投票する権利があります:'
+            questions_title_voted: 'この参加者はすでにオンラインに投票しており、次の質問に投票する権利があります：'
             voted: 参加者が投票しました
           create:
             error: 投票は登録されませんでした。もう一度やり直してください。
