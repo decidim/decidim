@@ -1207,11 +1207,9 @@ es-MX:
         in_person_votes:
           complete_voting:
             available_answers: 'Respuestas disponibles:'
-            census_verified: La participante aún no ha votado.
             complete_voting: Completar votación
             identify_another: Identificar a otra participante
             questions_title: 'Tiene derecho a votar en las siguientes preguntas:'
-            questions_title_voted: 'La participante ya ha votado en línea y tiene derecho a votar en las siguientes preguntas:'
             voted: La participante ha votado
           create:
             error: El voto no ha sido registrado. Por favor, inténtalo de nuevo.
@@ -1306,6 +1304,7 @@ es-MX:
           form_title: 'Rellena el siguiente formulario para comprobar tus datos del censo:'
           invalid: Hubo un problema al comprobar el censo.
           success:
+            access_link: por correo electrónico.
             access_link_with_sms: vía SMS o correo electrónico.
             info: Deberías haber recibido tu código de acceso por correo postal ya. En caso de que no lo tengas, puedes solicitarlo aquí
             title: '¡Tus datos del censo son correctos!'
