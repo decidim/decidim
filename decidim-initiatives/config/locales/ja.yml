@@ -42,8 +42,8 @@ ja:
         postal_code: 郵便番号
       organization_data:
         address: 住所
-        id_document: ID ドキュメント
-        name: 完全な名前
+        id_document: 身分証
+        name: 氏名
     errors:
       models:
         initiative:
@@ -57,7 +57,7 @@ ja:
       decidim/initiative:
         other: イニシアチブ
       decidim/initiative_comittee:
-        other: Comittes
+        other: 委員
       decidim/initiative_vote:
         other: 署名
   decidim:
@@ -101,7 +101,7 @@ ja:
         initiatives_type_scope:
           fields:
             scope: スコープ
-            supports_required: 署名が必要です
+            supports_required: 必要署名数
           name: イニシアチブ種別のスコープ
         initiatives_types:
           fields:
@@ -118,7 +118,7 @@ ja:
             initiative_signatures_count: 署名の数
             initiative_start_date: 開始日
             initiative_title: イニシアチブのタイトル
-            name_and_surname: 氏名と姓名
+            name_and_surname: 名前と苗字
             postal_code: 郵便番号
             scope: スコープ
             time_and_date: 日時
@@ -192,14 +192,14 @@ ja:
             description: 説明
             initiative_votes_count: 投票数
             initiatives: イニシアチブ
-            state: 都道府県：
+            state: 都道府県
         committee_requests:
           index:
             approve: 承認
             confirm_revoke: よろしいですか？
             invite_to_committee_help: このリンクを共有して他の参加者を推進委員会に招待します
             no_members_yet: 推進委員会にメンバーがいません。
-            revoke: Revoke
+            revoke: 取り消し
             title: 委員会メンバー
         content_blocks:
           highlighted_initiatives:
