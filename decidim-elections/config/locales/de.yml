@@ -1087,11 +1087,9 @@ de:
         in_person_votes:
           complete_voting:
             available_answers: 'Verfügbare Antworten:'
-            census_verified: Der Teilnehmer hat noch nicht abgestimmt.
             complete_voting: Abstimmung abschliessen
             identify_another: Einen anderen Teilnehmer identifizieren
             questions_title: 'Er hat das Recht, bei folgenden Anfragen abzustimmen:'
-            questions_title_voted: 'Der Teilnehmer hat bereits online abgestimmt und kann bei folgenden Fragen abstimmen:'
             voted: Der Teilnehmer hat abgestimmt
           create:
             error: Die Stimme wurde nicht registriert. Bitte versuchen Sie es erneut.
