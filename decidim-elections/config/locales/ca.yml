@@ -1207,11 +1207,9 @@ ca:
         in_person_votes:
           complete_voting:
             available_answers: 'Respostes disponibles:'
-            census_verified: La participant encara no ha votat.
             complete_voting: Completar el vot
             identify_another: Identificar una altra participant
             questions_title: 'Té dret a votar les següents preguntes:'
-            questions_title_voted: 'La participant ja ha votat en línia i té dret a votar les següents preguntes:'
             voted: La participant ha votat
           create:
             error: El vot no ha estat registrat. Si us plau, prova-ho de nou.
