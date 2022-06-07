@@ -1019,11 +1019,9 @@ nl:
         in_person_votes:
           complete_voting:
             available_answers: 'Beschikbare antwoorden:'
-            census_verified: De gebruiker heeft nog niet gestemd.
             complete_voting: Voltooi het stemmen
             identify_another: Identificeer een andere deelnemer
             questions_title: 'Zij/hij heeft het recht om te stemmen op de volgende vragen:'
-            questions_title_voted: 'De gebruiker heeft al online gestemd en heeft het recht om te stemmen op de volgende vragen:'
             voted: De gebruiker heeft gestemd
           create:
             error: De stemming werd niet geregistreerd. Probeer het opnieuw.
