@@ -158,11 +158,24 @@ es-MX:
         create: "%{user_name} creó el área %{resource_name}"
         delete: "%{user_name} borró el área %{resource_name}"
         update: "%{user_name} actualizó el área %{resource_name}"
+      area_type:
+        create: "%{user_name} ha creado el estado %{resource_name}"
+        delete: "%{user_name} ha eliminado el estado %{resource_name}"
+        update: "%{user_name} ha actualizado tipo de área %{resource_name}"
+      attachment:
+        create: "%{user_name} creó el adjunto %{resource_name}"
+        delete: "%{user_name} ha eliminado lel adjunto %{resource_name}"
+        update: "%{user_name} ha actualizado el adjunto %{resource_name}"
+      attachment_collection:
+        create: "%{user_name} ha creado la colección de adjuntos %{resource_name}"
+        delete: "%{user_name} ha esborrat la colecció d'adjunts %{resource_name}"
+        update: "%{user_name} ha actualitzado la colección de adjuntos %{resource_name}"
       component:
         create: "%{user_name} agregó el componente %{resource_name} al espacio %{space_name}"
         delete: "%{user_name} eliminó el componente %{resource_name} del espacio %{space_name}"
         publish: "%{user_name} publicó el componente %{resource_name} en el espacio %{space_name}"
         unpublish: "%{user_name} ha despublicado el componente %{resource_name} del espacio %{space_name}"
+        update_permissions_with_space: "%{user_name} ha actualtizado los permisos de %{resource_name} en %{space_name}"
       impersonation_log:
         manage: "%{user_name} ha gestionado a %{resource_name} porque %{reason}"
       moderation:
@@ -190,6 +203,10 @@ es-MX:
         delete_with_parent: "%{user_name} eliminó el ámbito %{resource_name} dentro del ámbito %{parent_scope}"
         update: "%{user_name} actualizó el ámbito %{resource_name}"
         update_with_parent: "%{user_name} actualizó el ámbito %{resource_name} dentro del ámbito %{parent_scope}"
+      scope_type:
+        create: "%{user_name} ha creado el tipo de ámbito %{resource_name}"
+        delete: "%{user_name} ha borrado el tipo de ámbito %{resource_name}"
+        update: "%{user_name} ha actualizado el tipo de ámbito %{resource_name}"
       static_page:
         create: "%{user_name} creó la página estática %{resource_name}"
         delete: "%{user_name} eliminó la página estática %{resource_name}"
@@ -909,6 +926,7 @@ es-MX:
         success: Solicitud enviada correctamente. Un administrador la revisará antes de aceptarte en el grupo.
       leave:
         error: Ha habido un problema al dejar el grupo
+        last_admin: No puedes quitarte de este grupo porque eres la última administradora. Haz que otra miembro sea una administradora para poder abandonar el grupo.
         success: Has dejado el grupo correctamente.
       members:
         accept_or_reject_join_requests: 'Los siguientes usuarios han solicitado unirse a este grupo. Acepta o rechaza sus solicitudes:'
@@ -921,6 +939,7 @@ es-MX:
       no_user_groups: Aún no perteneces a ningún grupo.
       roles:
         admin: Administrador
+        creator: Administradora
         member: Miembro
       update:
         error: Ha habido un problema al actualizar el grupo
@@ -957,6 +976,7 @@ es-MX:
         unknown_action: "%{user_name} realizó una acción en %{resource_name}"
         unknown_action_with_space: "%{user_name} realizó una acción en %{resource_name} en %{space_name}"
         update: "%{user_name} actualizó %{resource_name}"
+        update_permissions_with_space: "%{user_name} ha actualitzat els permisos de %{resource_name} en %{space_name}"
         update_with_space: "%{user_name} actualizó %{resource_name} en %{space_name}"
       value_types:
         area_presenter:
