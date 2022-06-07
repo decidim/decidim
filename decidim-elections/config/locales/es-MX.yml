@@ -306,13 +306,13 @@ es-MX:
             title: Resultados calculados
           tally_started:
             continue: Continuar
-            invalid: Hubo un problema al reportar la fideicomisaria faltante
+            invalid: Hubo un problema al reportar la ausencia de la persona garante
             mark_as_missing: Marcar como ausente
-            mark_as_missing_description: Todos los garantes deberían participar en este proceso, pero si uno de ellos no puede tomar parte en él, puedes marcarlo como ausente.
-            success: El reporte del garante que falta fue enviado con éxito al Bulletin Board
-            tally_completion: El proceso se completará cuando todos los garantes estén activos o marcados como ausentes. Se requiere al menos %{quorum} garantes para completar el proceso.
+            mark_as_missing_description: Todas las personas garantes deben participar en este proceso, pero si una de ellas no puede, puedes marcarlo como ausente.
+            success: El reporte de ausencia de la persona garante fue enviada con éxito al estrado
+            tally_completion: El proceso estará completo cuando todas las personas garantes estén registradas como activas o reportadas como ausentes. Se requiere un quorum de %{quorum} personas garantes para completar el proceso.
             title: Proceso de recuento
-            undo_mark_as_missing: Un garante marcado como ausente por error podrá participar antes de completar el proceso. Pueden proceder como de costumbre y la marca de ausente será ignorada.
+            undo_mark_as_missing: Una persona garante reportada como ausente por error podrá participar hasta antes de la finalización del proceso. Puede realizar sus actividades normales y el reporte de ausencia será ignorado.
           vote:
             errors:
               time_after: La elección aún está en curso. Tienes que esperar hasta la hora de finalización (%{end_time}) para terminar el periodo de votación.
