@@ -1135,11 +1135,9 @@ pl:
         in_person_votes:
           complete_voting:
             available_answers: 'Możliwe odpowiedzi:'
-            census_verified: Uczestnik jeszcze nie głosował.
             complete_voting: Zakończ głosowanie
             identify_another: Zidentyfikuj innego uczestnika
             questions_title: 'Ma prawo do głosowania w następujących kwestiach:'
-            questions_title_voted: 'Uczestnik głosował już online i ma prawo głosować w następujących kwestiach:'
             voted: Uczestnik zagłosował
           create:
             error: Głos nie został zarejestrowany. Spróbuj ponownie.
