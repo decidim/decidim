@@ -66,9 +66,9 @@ en:
             tos_agreement: By participating you accept its Terms of Service
       admin_log:
         template:
-          create: "%{user_name} created the %{resource_name} template"
-          delete: "%{user_name} deleted the %{resource_name} template"
+          create: "%{user_name} created the %{resource_name} questionnaire template"
+          delete: "%{user_name} deleted the %{resource_name} questionnaire template"
           duplicate: "%{user_name} duplicated the %{resource_name} questionnaire template"
-          update: "%{user_name} updated the %{resource_name} template"
+          update: "%{user_name} updated the %{resource_name} questionnaire template"
       template_types:
         questionnaires: Questionnaires
