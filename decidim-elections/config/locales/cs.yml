@@ -1231,9 +1231,12 @@ cs:
         in_person_votes:
           complete_voting:
             available_answers: 'Dostupné odpovědi:'
+            census_verified: Tento uživatel zatím nehlasoval osobně.
+            census_verified_with_online_vote: Tento uživatel již hlasoval online. Pokud hlasují osobně, předchozí hlasy budou zneplatněny a bude to konečné hlasování.
             complete_voting: Dokončené hlasování
             identify_another: Identifikovat jiného účastníka
             questions_title: 'Má právo hlasovat v těchto otázkách:'
+            questions_title_voted: 'Tento uživatel již hlasoval on-line a je oprávněn hlasovat v následujících otázkách:'
             voted: Uživatel hlasoval
           create:
             error: Hlasování nebylo zaregistrováno. Zkuste to prosím znovu.
