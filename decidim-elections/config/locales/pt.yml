@@ -1147,11 +1147,9 @@ pt:
         in_person_votes:
           complete_voting:
             available_answers: 'Respostas disponíveis:'
-            census_verified: O participante ainda não votou.
             complete_voting: Completar votação
             identify_another: Identificar outro participante
             questions_title: 'Ela tem o direito de votar nas seguintes questões:'
-            questions_title_voted: 'O participante já voto on-line e tem direito a votar nas seguintes questões:'
             voted: O participante já votou
           create:
             error: O voto não foi registado. Por favor tente de novo.
