@@ -1231,11 +1231,9 @@ cs:
         in_person_votes:
           complete_voting:
             available_answers: 'Dostupné odpovědi:'
-            census_verified: Uživatel ještě nehlasoval.
             complete_voting: Dokončené hlasování
             identify_another: Identifikovat jiného účastníka
             questions_title: 'Má právo hlasovat v těchto otázkách:'
-            questions_title_voted: 'Účastník již hlasoval on-line a je oprávněn hlasovat v následujících otázkách:'
             voted: Uživatel hlasoval
           create:
             error: Hlasování nebylo zaregistrováno. Zkuste to prosím znovu.
