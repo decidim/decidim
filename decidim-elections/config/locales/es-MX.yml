@@ -1207,9 +1207,12 @@ es-MX:
         in_person_votes:
           complete_voting:
             available_answers: 'Respuestas disponibles:'
+            census_verified: Esta participante todavía no ha votado en persona.
+            census_verified_with_online_vote: Esta participante ya votó en línea previamente. Si vota en persona, sus votos anteriores serán invalidados y este será su voto definitivo.
             complete_voting: Completar votación
             identify_another: Identificar a otra participante
             questions_title: 'Tiene derecho a votar en las siguientes preguntas:'
+            questions_title_voted: 'Esta participante ya votó en línea y tiene derecho a votar en las siguientes preguntas:'
             voted: La participante ha votado
           create:
             error: El voto no ha sido registrado. Por favor, inténtalo de nuevo.
