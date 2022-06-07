@@ -117,6 +117,7 @@ es-MX:
           update_selected:
             invalid: 'Estos proyectos ya estaban seleccionado: %{projects}.'
             select_a_project: Por favor, seleccionar un proyecto
+            select_a_selection: Por favor, elige un estado
             success: 'Selección de proyectos cambiada con éxito: %{projects}.'
         proposals_imports:
           create:
