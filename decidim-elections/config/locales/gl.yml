@@ -515,7 +515,6 @@ gl:
         in_person_votes:
           complete_voting:
             available_answers: 'Respostas dispoñibles:'
-            census_verified: O participante aínda non votou.
             complete_voting: Completar votación
             questions_title: 'Teñen dereito a votar nas seguintes preguntas:'
           in_person_form:
