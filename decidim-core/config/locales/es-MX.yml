@@ -92,17 +92,17 @@ es-MX:
         other: aproximadamente %{count} meses
       half_a_minute: medio minuto
       less_than_x_minutes:
-        one: menos de 1 minuto
-        other: menos de %{count} minutos
+        one: menos de 1 minuto.
+        other: menos de %{count} minutos.
       less_than_x_seconds:
         one: ahora mismo
-        other: menos de %{count} segundos
+        other: menos de %{count} segundos.
       x_days:
         one: hace 1 día
         other: "hace %{count} días"
       x_hours:
         one: hace 1 hora
-        other: "hace %{count} días"
+        other: "hace %{count} horas"
       x_minutes:
         one: hace 1 minuto
         other: "hace %{count} minutos"
