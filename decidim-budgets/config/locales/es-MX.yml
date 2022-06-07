@@ -31,8 +31,8 @@ es-MX:
           selected_at_null:
             label: Seleccionado
             values:
-              'false': Seleccionado para implementar
-              'true': No seleccionado para implementar
+              'false': Seleccionado para implementación
+              'true': No seleccionado para la implementación
     budgets:
       actions:
         attachment_collections: Carpetas
@@ -90,10 +90,10 @@ es-MX:
             change_category: Cambiar categoría
             change_scope: Cambiar ámbito
             change_selected: Cambiar la selección
-            deselect_implementation: No seleccionados
+            deselect_implementation: Deseleccionar
             finished_orders: Votos terminados
             pending_orders: Votos pendientes
-            select_for_implementation: Seleccionado
+            select_for_implementation: Seleccionar
             selected: Seleccionado
             title: Proyectos
             update: Actualizar
@@ -107,16 +107,16 @@ es-MX:
           update_category:
             invalid: 'Estas propuestas ya tenían la categoría %{subject_name}: %{projects}.'
             select_a_category: Por favor, selecciona una categoría
-            select_a_project: Seleccione un proyecto
-            success: 'Los proyectos se han actualizado correctamente a la categoría %{subject_name}: %{projects}.'
+            select_a_project: Por favor, selecciona un proyecto
+            success: 'Los siguientes proyectos se han actualizado correctamente a la categoría %{subject_name}: %{projects}.'
           update_scope:
             invalid: 'Estos proyectos ya tenían el ámbito %{subject_name}: %{projects}.'
-            select_a_project: Por favor, seleccionar un proyecto
+            select_a_project: Por favor, selecciona un proyecto
             select_a_scope: Por favor, selecciona un ámbito
-            success: 'Los proyectos se han actualizado correctamente al ámbito %{subject_name}: %{projects}.'
+            success: 'Los siguientes proyectos se han actualizado correctamente al ámbito %{subject_name}: %{projects}.'
           update_selected:
             invalid: 'Estos proyectos ya estaban seleccionado: %{projects}.'
-            select_a_project: Por favor, seleccionar un proyecto
+            select_a_project: Por favor, selecciona un proyecto
             select_a_selection: Por favor, elige un estado
             success: 'Selección de proyectos cambiada con éxito: %{projects}.'
         proposals_imports:
@@ -131,9 +131,6 @@ es-MX:
         reminders:
           orders:
             description: Las usuarias recibirán un correo electrónico con enlaces a los presupuestos en los que tienen un pedido pendiente.
-            title:
-              one: Estás a punto de enviar un recordatorio por correo electrónico a %{count} usuaria
-              other: Estás a punto de enviar un recordatorio por correo electrónico a %{count} usuarias
       admin_log:
         budget:
           create: "%{user_name} creó el presupuesto %{resource_name} en el espacio %{space_name}"
