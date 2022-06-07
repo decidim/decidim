@@ -1124,11 +1124,9 @@ eu:
         in_person_votes:
           complete_voting:
             available_answers: 'Erantzun eskuragarriak:'
-            census_verified: Parte-hartzaileak oraindik ez du botoa eman.
             complete_voting: Osatu bozketa
             identify_another: Identifikatu beste parte-hartzaile bat
             questions_title: 'Botoa emateko eskubidea du ondoko galdera hauetan:'
-            questions_title_voted: 'Parte-hartzaileak dagoeneko lineako botoa eman du eta botoa emateko eskubidea du ondoko galdera hauetan:'
             voted: Parte-hartzaileak botoa eman du
           create:
             error: Botoa ez da erregistratu. Mesedez, saiatu berriro.
