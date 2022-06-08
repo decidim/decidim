@@ -28,6 +28,12 @@ describe "Admin manages meetings", type: :system, serves_map: true, serves_geoco
       expect(page).to have_selector("tbody tr:last-child", text: Decidim::Meetings::MeetingPresenter.new(old_meeting).title)
     end
 
+    it "displays the title with link to the meeting's public page" do
+      visit current_path
+
+      expect(page).to have_link(translated(meeting.title), href: resource_locator(meeting).url)
+    end
+
     it "allows to publish/unpublish meetings" do
       visit current_path
 

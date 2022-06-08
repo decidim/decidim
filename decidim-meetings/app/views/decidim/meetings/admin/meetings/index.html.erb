@@ -48,7 +48,11 @@
                 <%= meeting.id %><br>
               </td>
               <td>
-                <%= present(meeting).title %><br>
+                <%= link_to(
+                      decidim_html_escape(present(meeting).title).html_safe,
+                      resource_locator(meeting).url,
+                      target: "_blank"
+                    ) %><br>
               </td>
               <td>
                 <% if meeting.start_time %>
