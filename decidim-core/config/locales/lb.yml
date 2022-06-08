@@ -1553,10 +1553,6 @@ lb:
     timestamp_error_message: Pardon dat wo ze séier! W. e. g. op en Neits areechen.
   layouts:
     decidim:
-      cookie_warning:
-        description_html: Dës Säit benotzt Cookies. Wann s'du hei weider sichs, stëmms du dem Benotzen vun Cookies zou. Méi heiriwwer %{link}.
-        link_label: Gëff méi gewuer iwwer Cookies
-        ok: Ech sinn averstanen
       edit_link:
         edit: Editéieren
       footer:
