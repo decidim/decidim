@@ -94,7 +94,6 @@ module Decidim
               weight: question.weight,
               max_selections: question.max_selections,
               title: flatten_translations(question.title),
-              description: flatten_translations(question.description),
               answers: question_answers_data(question)
             }
           end
