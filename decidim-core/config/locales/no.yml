@@ -1604,10 +1604,6 @@
     timestamp_error_message: Beklager, det var for raskt! Vennligst, send inn på nytt.
   layouts:
     decidim:
-      cookie_warning:
-        description_html: Denne siden bruker informasjonskapsler. Ved å fortsette å bla gjennom nettstedet, godtar du vår bruk av informasjonskapsler. Finn ut mer om det %{link}.
-        link_label: her
-        ok: Jeg er enig
       edit_link:
         edit: Rediger
       footer:
