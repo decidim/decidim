@@ -1623,10 +1623,6 @@ sv:
     timestamp_error_message: Det gick för snabbt! Försök igen.
   layouts:
     decidim:
-      cookie_warning:
-        description_html: Denna webbplats använder cookies. Genom att fortsätta att använda webbplatsen godkänner du vår användning av cookies. Läs mer %{link}.
-        link_label: här
-        ok: Jag godkänner
       edit_link:
         edit: Redigera
       footer:
