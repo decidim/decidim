@@ -1241,10 +1241,6 @@ gl:
     timestamp_error_message: Sentímolo, iso foi demasiado rápido. Reenvío de novo.
   layouts:
     decidim:
-      cookie_warning:
-        description_html: Este sitio usa cookies. Ao continuar navegando polo sitio, acepta o noso uso das cookies. Máis información %{link}.
-        link_label: aquí
-        ok: Estou de acordo
       edit_link:
         edit: Editar
       footer:
