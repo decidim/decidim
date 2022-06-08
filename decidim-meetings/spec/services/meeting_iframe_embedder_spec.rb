@@ -97,8 +97,9 @@ module Decidim
           embed_code = subject.embed_code(request_host)
 
           expect(embed_code).to include(subject.embed_transformed_url(request_host))
-          expect(embed_code).to include("<iframe")
-          expect(embed_code).to include("</iframe")
+          expect(embed_code).to include(%(<div))
+          expect(embed_code).to include(%(class="disabled-iframe"))
+          expect(embed_code).to include("</div")
         end
       end
     end

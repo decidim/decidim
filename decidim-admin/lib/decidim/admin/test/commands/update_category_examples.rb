@@ -7,6 +7,7 @@ module Decidim
     shared_examples_for "UpdateCategory command" do
       describe "call" do
         let(:organization) { create(:organization) }
+        let(:user) { create(:user, organization: organization) }
         let(:category) { create(:category, participatory_space: participatory_space) }
         let(:form_params) do
           {
@@ -25,7 +26,7 @@ module Decidim
             current_organization: organization
           )
         end
-        let(:command) { described_class.new(category, form) }
+        let(:command) { described_class.new(category, form, user) }
 
         describe "when the form is not valid" do
           before do
@@ -54,6 +55,18 @@ module Decidim
             category.reload
 
             expect(translated(category.name)).to eq("New title")
+          end
+
+          it "traces the action", versioning: true do
+            expect(Decidim.traceability)
+              .to receive(:perform_action!)
+              .with(:update, Decidim::Category, user, {})
+              .and_call_original
+
+            expect { command.call }.to change(Decidim::ActionLog, :count)
+            action_log = Decidim::ActionLog.last
+            expect(action_log.action).to eq("update")
+            expect(action_log.version).to be_present
           end
         end
       end

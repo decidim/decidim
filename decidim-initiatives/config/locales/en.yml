@@ -570,6 +570,8 @@ en:
           published: Published
           rejected: Not enough signatures
           validating: Technical validation
+      signature_interval:
+        title: Signature collection period
       states:
         accepted: Accepted
         expired: Expired

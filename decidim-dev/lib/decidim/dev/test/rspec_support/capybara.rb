@@ -93,6 +93,16 @@ RSpec.configure do |config|
   config.before :each, type: :system do
     driven_by(:headless_chrome)
     switch_to_default_host
+    domain = (try(:organization) || try(:current_organization))&.host
+    if domain
+      page.driver.browser.execute_cdp(
+        "Network.setCookie",
+        domain: domain,
+        name: Decidim.consent_cookie_name,
+        value: { essential: true }.to_json,
+        path: "/"
+      )
+    end
   end
 
   config.before :each, driver: :rack_test do

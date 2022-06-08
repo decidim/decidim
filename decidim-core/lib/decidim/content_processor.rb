@@ -100,7 +100,8 @@ module Decidim
       simple_format(
         render_without_format(content, options),
         {},
-        wrapper_tag: wrapper_tag
+        wrapper_tag: wrapper_tag,
+        sanitize: false
       )
     end
 
