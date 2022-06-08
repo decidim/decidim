@@ -1752,6 +1752,31 @@ cs:
     timestamp_error_message: Promiňte, bylo to příliš rychlé! Znovu odešlete.
   layouts:
     decidim:
+      cookie_consent:
+        cookie_details:
+          columns:
+            description: Popis
+            name: Název
+            service: Služba
+            type: Typ
+          cookies:
+            _session_id:
+              description: Umožňuje webovým stránkám zapamatovat si uživatele na webových stránkách, když se pohybují mezi webovými stránkami.
+              service: Tato stránka
+            decidim-consent:
+              description: Uloží informace o cookies povolených uživatelem na této stránce.
+              service: Tato stránka
+          types:
+            cookie: Cookie
+        dialog:
+          accept_all: Přijmout vše
+          accept_only_essential: Přijmout pouze nezbytné soubory cookie
+          cookie_settings: Nastavení
+          description: Na našich webových stránkách používáme soubory cookie ke zlepšení výkonu a obsahu těchto stránek. Soubory cookie nám umožňují poskytovat individuálnější uživatelské nastavení a sociální kanály.
+          title: Informace o cookies používaných na internetových stránkách
+        modal:
+          accept_all: Přijmout vše
+          accept_only_essential: Přijmout pouze nezbytné soubory cookie
       edit_link:
         edit: Upravit
       footer:
