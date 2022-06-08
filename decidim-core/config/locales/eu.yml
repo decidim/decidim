@@ -1545,10 +1545,6 @@ eu:
     timestamp_error_message: Barkatu, baina azkarregi aritu zara! Mesedez, bidali.
   layouts:
     decidim:
-      cookie_warning:
-        description_html: 'Webgune honek bere cookieak eta hirugarrenenak erabiltzen ditu, nabigazioa hobetu eta intereseko edukiak eta zerbitzuak eskaintze aldera. Nabigatzen jarraituz gero, gure cookie-politika onartzen delakoan gaude. Argibide gehiago jasotzeko, kontsultatu hemen: %{link}.'
-        link_label: hemen
-        ok: Ados nago
       edit_link:
         edit: Editatu
       footer:
