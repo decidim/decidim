@@ -1510,10 +1510,6 @@ tr:
     timestamp_error_message: Üzgünüm, bu çok hızlıydı! Lütfen yeniden gönderin.
   layouts:
     decidim:
-      cookie_warning:
-        description_html: Bu sitede çerezler kullanılıyor. Siteye göz atmaya devam ederek, çerezleri kullanmamızı kabul edersiniz. Hakkında daha fazla bilgi edinin %{link}.
-        link_label: İşte
-        ok: katılıyorum
       edit_link:
         edit: Düzenle
       footer:
