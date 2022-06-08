@@ -31,7 +31,7 @@ edit_link(
           </p>
         </div>
         <% if datum.email.present? || datum.mobile_phone_number.present? %>
-          <%= render partial: "access_code_modal", locals: { datum: datum, email: datum.email ? datum.email.gsub!(/.{4}(?=@)/,"****") : "", sms: datum.mobile_phone_number ? datum.mobile_phone_number.gsub!(/.{3}\d$/,"***") : "" } %>
+          <%= render partial: "access_code_modal", locals: { datum: datum, email: datum.email ? datum.email.gsub!(/^.+@/,"****@") : "", sms: datum.mobile_phone_number ? datum.mobile_phone_number.gsub!(/.{3}\d$/,"***") : "" } %>
         <% end %>
       <% elsif not_found %>
         <div class="verify-census-error callout alert mt-s">

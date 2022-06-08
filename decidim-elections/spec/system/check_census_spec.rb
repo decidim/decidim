@@ -13,7 +13,7 @@ describe "Check Census", type: :system do
   end
   let!(:user) { create :user, :confirmed, organization: organization }
   let(:mobile_phone_number) { "123456789" }
-  let(:email) { "census_email@example.com" }
+  let(:email) { "foo@example.com" }
   let(:memory_store) { ActiveSupport::Cache.lookup_store(:memory_store) }
 
   before do
@@ -123,7 +123,7 @@ describe "Check Census", type: :system do
 
         expect(page).to have_content("Get Access Code")
 
-        click_button "Send by email to"
+        click_button "Send by email to ****@example.com"
 
         callout = find(:xpath, '//*[@id="content"]/div[1]')
 
