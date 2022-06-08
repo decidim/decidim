@@ -13,8 +13,11 @@ cs:
         decidim_scope_id: Oblast působnosti
         description: Popis
         proposal_ids: Související návrhy
+        proposals: Návrhy
         selected: Vybráno pro implementaci
         title: Titul
+      proposals_import:
+        scope_id: Oblast působnosti
   activerecord:
     models:
       decidim/budgets/project:
@@ -127,7 +130,10 @@ cs:
             success: "%{number} projektů úspěšně dovezených do projektů"
           new:
             create: Návrhy na projekty
+            default_budget: Výchozí rozpočet
+            import_all_accepted_proposals: Importovat všechny přijaté návrhy
             no_components: V tomto participativním prostoru neexistují jiné komponenty návrhu, které by mohly importovat návrhy do projektů.
+            origin_component_id: Původ komponenty
             select_component: Vyberte součást
             title: Importovat návrhy
         reminders:
