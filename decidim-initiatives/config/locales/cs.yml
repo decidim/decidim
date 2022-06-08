@@ -585,6 +585,8 @@ cs:
           published: Publikováno
           rejected: Nedostatek podpisů
           validating: Technické ověření
+      signature_interval:
+        title: Doba sběru podpisů
       states:
         accepted: Přijato
         expired: Platnost vypršela
