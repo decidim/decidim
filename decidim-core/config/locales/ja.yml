@@ -163,7 +163,6 @@ ja:
         delete: "%{user_name} が %{resource_name} スペースから %{space_name} コンポーネントを削除しました"
         publish: "%{user_name} が %{resource_name} スペースで %{space_name} コンポーネントを公開しました"
         unpublish: "%{user_name} は %{resource_name} スペースから %{space_name} コンポーネントを非公開にしました"
-        update_permissions_with_space: "%{user_name} が %{space_name} の %{resource_name} の権限を更新しました"
       impersonation_log:
         manage: "%{user_name} は %{reason} により %{resource_name} を管理しています。"
       moderation:
@@ -1686,10 +1685,6 @@ ja:
     timestamp_error_message: 申し訳ありませんが、早すぎます！再提出してください。
   layouts:
     decidim:
-      cookie_warning:
-        description_html: このサイトはCookieを使用しています。引き続きサイトを閲覧することで、Cookieの使用に同意したものとみなされます。 %{link}
-        link_label: Cookie についての詳細
-        ok: 同意します
       edit_link:
         edit: 編集
       footer:
