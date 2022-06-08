@@ -1571,10 +1571,6 @@ pl:
     timestamp_error_message: Przepraszam, to było za szybkie! Proszę przesłać ponownie.
   layouts:
     decidim:
-      cookie_warning:
-        description_html: Ta strona używa plików cookie. Kontynuując przeglądanie witryny, zgadzasz się na korzystanie z plików cookie. Dowiedz się więcej o tym %{link}.
-        link_label: Dowiedz się więcej o plikach cookie
-        ok: Zgadzam się
       edit_link:
         edit: Edytuj
       footer:
