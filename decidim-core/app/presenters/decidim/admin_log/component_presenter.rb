@@ -58,7 +58,7 @@ module Decidim
                         component_name: I18n.t("decidim.admin_log.helpers.comments"),
                         format_name: action_log.extra["format"]
                       })
-        when "projects", "results", "meetings", "answers"
+        when "projects", "results", "answers"
           super.merge({
                         component_name: I18n.t("decidim.admin_log.helpers.#{action_log.extra["name"]}"),
                         format_name: action_log.extra["format"]
