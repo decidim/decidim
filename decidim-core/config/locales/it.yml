@@ -1570,10 +1570,6 @@ it:
     timestamp_error_message: Mi dispiace, troppo veloce! Per favore, invia di nuovo.
   layouts:
     decidim:
-      cookie_warning:
-        description_html: Questo sito utilizza cookies. Se continui la navigazione significa che approvi i nostri termini di utilizzo di cookies. Per saperne di più, leggi %{link}.
-        link_label: qui
-        ok: OK, accetto
       edit_link:
         edit: Modifica
       footer:
