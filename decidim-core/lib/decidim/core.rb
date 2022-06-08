@@ -54,6 +54,7 @@ module Decidim
   autoload :MenuItem, "decidim/menu_item"
   autoload :MenuRegistry, "decidim/menu_registry"
   autoload :ManifestRegistry, "decidim/manifest_registry"
+  autoload :AssetRouter, "decidim/asset_router"
   autoload :EngineRouter, "decidim/engine_router"
   autoload :Events, "decidim/events"
   autoload :ViewHooks, "decidim/view_hooks"
