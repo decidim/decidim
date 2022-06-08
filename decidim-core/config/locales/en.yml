@@ -179,10 +179,17 @@ en:
       component:
         create: "%{user_name} added the %{resource_name} component to the %{space_name} space"
         delete: "%{user_name} removed the %{resource_name} component from the %{space_name} space"
+        export_component: "%{user_name} exported the %{resource_name} %{component_name} in %{space_name} as %{format_name}"
         publish: "%{user_name} published the %{resource_name} component in the %{space_name} space"
         unpublish: "%{user_name} unpublished the %{resource_name} component from the %{space_name} space"
+        update_permissions_with_space: "%{user_name} updated the permissions of %{resource_name} in %{space_name}"
       contextual_help_section:
         update: "%{user_name} updated the %{resource_name} help section"
+      helpers:
+        answers: answers
+        comments: comments
+        projects: projects
+        results: results
       impersonation_log:
         manage: "%{user_name} has managed %{resource_name} because %{reason}"
       moderation:
