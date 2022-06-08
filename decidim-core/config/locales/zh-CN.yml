@@ -1413,10 +1413,6 @@ zh-CN:
     timestamp_error_message: 对不起，这太快了！请重新提交。
   layouts:
     decidim:
-      cookie_warning:
-        description_html: 此网站使用 cookies。通过继续浏览网站，您同意我们使用 cookies。 %{link}。
-        link_label: 了解更多关于 cookie
-        ok: 我同意
       edit_link:
         edit: 编辑
       footer:
