@@ -1,0 +1,32 @@
+= Empty database installation
+
+You may want to setup your decidim with an empty database.
+In this case, please follow the steps bellow:
+
+. Follow steps 1 through 5 of previous section(xref:install:manual.adoc[Manual Installation] section).
+
+. Run the migrations from the root of your project in the terminal.
+[source,bash]
+----
+bin/rails db:create db:migrate
+----
+[start=3]
+. Now you need to create your admin user, in order to be able to login to the system. in the terminal type the following:
+[source,bash]
+----
+bundle exec rails s
+----
+[start=4]
+. Then you can create a system admin account to log in to the system panel with the following command:
+[source,bash]
+----
+bin/rails decidim_system:create_admin
+----
+
+Follow the CLI to create your admin user. For the sake of conformity with the rest of documentation, you may create a user with email `system@example.org` and password `decidim123456`. Of course this is not recommended for a production environment as it isn't secure.
+
+Now, you will be able to login to the system panel with the provided credentials.
+
+== Extra notes
+
+The objective of decidim is to define an organizational and representation system capable of transforming into an autonomous entity or association from which the whole community participate. Therefore, creating the organizational account is centric part of the process (refer to xref:admin:system.adoc[System panel] for more information).

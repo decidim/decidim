@@ -58,6 +58,24 @@ describe "Initiative", type: :system do
         end
       end
 
+      context "when signature interval is defined" do
+        let(:base_initiative) do
+          create(:initiative,
+                 organization: organization,
+                 signature_start_date: 1.day.ago,
+                 signature_end_date: 1.day.from_now,
+                 state: state)
+        end
+
+        it "displays collection period" do
+          within ".process-header__phase" do
+            expect(page).to have_content("Signature collection period")
+            expect(page).to have_content(1.day.ago.strftime("%Y-%m-%d"))
+            expect(page).to have_content(1.day.from_now.strftime("%Y-%m-%d"))
+          end
+        end
+      end
+
       it_behaves_like "initiative shows signatures"
 
       it "shows the author name once in the authors list" do

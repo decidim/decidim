@@ -130,7 +130,6 @@ Decidim::Core::Engine.routes.draw do
   get "/scopes/picker", to: "scopes#picker", as: :scopes_picker
 
   get "/static_map", to: "static_map#show", as: :static_map
-  get "/cookies/accept", to: "cookie_policy#accept", as: :accept_cookies
   put "/pages/terms-and-conditions/accept", to: "tos#accept_tos", as: :accept_tos
 
   match "/404", to: "errors#not_found", via: :all
@@ -176,6 +175,8 @@ Decidim::Core::Engine.routes.draw do
   resources :upload_validations, only: [:create]
 
   resources :last_activities, only: [:index]
+
+  resources :short_links, only: [:index, :show], path: "s"
 
   use_doorkeeper do
     skip_controllers :applications, :authorized_applications

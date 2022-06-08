@@ -14,6 +14,7 @@ module Decidim
 
         describe "Validation failure" do
           let(:organization) { create(:organization) }
+          let(:user) { create(:user, organization: organization) }
           let!(:initiative_type) do
             build(:initiatives_type, organization: organization)
           end
@@ -27,7 +28,7 @@ module Decidim
             ActiveModel::Errors.new(initiative_type)
                                .tap { |e| e.add(:banner_image, "upload error") }
           end
-          let(:command) { described_class.new(form) }
+          let(:command) { described_class.new(form, user) }
 
           it "broadcasts invalid" do
             expect(InitiativesType).to receive(:new).at_least(:once).and_return(initiative_type)

@@ -38,6 +38,26 @@ describe "Meeting live event", type: :system do
     expect(page).to have_current_path meeting_path
   end
 
+  context "with essential cookies only" do
+    before do
+      visit decidim.root_path
+      select_cookies("essential")
+    end
+
+    it "tells that you need to enable cookies" do
+      visit meeting_live_event_path
+      expect(page).not_to have_selector("iframe")
+      expect(page).to have_content("You need to enable all cookies in order to see this content")
+    end
+
+    it "can enable all cookies" do
+      visit meeting_live_event_path
+      click_link "Change cookie settings"
+      click_button "Accept all"
+      expect(page).to have_selector("iframe")
+    end
+  end
+
   context "when user is logged and session is about to timeout" do
     before do
       allow(Decidim.config).to receive(:expire_session_after).and_return(2.minutes)

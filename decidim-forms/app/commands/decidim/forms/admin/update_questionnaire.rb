@@ -10,9 +10,10 @@ module Decidim
         #
         # form - The form from which to get the data.
         # questionnaire - The current instance of the questionnaire to be updated.
-        def initialize(form, questionnaire)
+        def initialize(form, questionnaire, user)
           @form = form
           @questionnaire = questionnaire
+          @user = user
         end
 
         # Updates the questionnaire if valid.
@@ -21,13 +22,17 @@ module Decidim
         def call
           return broadcast(:invalid) if @form.invalid?
 
-          Decidim::Forms::Questionnaire.transaction do
-            if @questionnaire.questions_editable?
-              update_questionnaire_questions
-              delete_answers unless @questionnaire.published?
-            end
+          Decidim.traceability.perform_action!("update",
+                                               @questionnaire,
+                                               @user) do
+            Decidim::Forms::Questionnaire.transaction do
+              if @questionnaire.questions_editable?
+                update_questionnaire_questions
+                delete_answers unless @questionnaire.published?
+              end
 
-            update_questionnaire
+              update_questionnaire
+            end
           end
 
           broadcast(:ok)

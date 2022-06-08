@@ -277,7 +277,7 @@ Also some more refined configurations:
 |MAPS_DYNAMIC_URL
 |If you are using a `osm` as a provider, you need to define this variable. Keep in mind that OpenStreetMap cannot be used directly due its non-commercial license in many cases. See xref:services:maps.adoc[Maps].
 
-*You need to define this variable if using `osm` as a provider, usually the URL goes in the form of `https://tile.openstreetmap.org/{z}/{x}/{y}.png?key={apiKey}&{foo}`*
+*You need to define this variable if using `osm` as a provider, usually the URL goes in the form of `https://tile.openstreetmap.org/\{z}/\{x}/\{y}.png?key=\{apiKey}&\{foo}`*
 |
 |No
 

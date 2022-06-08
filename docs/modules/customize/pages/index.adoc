@@ -1,0 +1,28 @@
+= Customize
+
+Decidim is multiple things:
+
+* A command-line utility, which can create an application
+* A set of libraries, that the application can use
+
+Most of the time, you should work with the generated application. That application (development_app on this docs) should be named as your project, for instance for Barcelona City Council is `DecidimBarcelona`, so for creating it should be:
+
+[source,console]
+----
+decidim DecidimBarcelona
+----
+
+Inside of your application you can customize it in different ways:
+
+* xref:customize:authorizations.adoc[Authorizations]
+* xref:customize:code.adoc[Code]
+* xref:customize:gemfile.adoc[Gemfile]
+* xref:customize:images.adoc[Images]
+* xref:customize:javascript.adoc[Javascript]
+* xref:customize:menu.adoc[Menu]
+* xref:customize:oauth.adoc[OAuth]
+* xref:customize:styles.adoc[Styles]
+* xref:customize:texts.adoc[Texts]
+* xref:customize:users_registration_mode.adoc[User registration mode]
+* xref:customize:views.adoc[Views]
+
