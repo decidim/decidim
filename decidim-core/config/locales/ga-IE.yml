@@ -336,8 +336,6 @@ ga:
         sign_up: Cláraigh
   layouts:
     decidim:
-      cookie_warning:
-        ok: Aontaím
       edit_link:
         edit: Eagar
       header:
