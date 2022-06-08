@@ -1125,10 +1125,6 @@ id:
     timestamp_error_message: Maaf, itu terlalu cepat! Silakan kirim ulang.
   layouts:
     decidim:
-      cookie_warning:
-        description_html: Situs ini menggunakan cookie. Dengan melanjutkan menelusuri situs, Anda menyetujui penggunaan cookie kami. Cari tahu lebih banyak tentang itu %{link}.
-        link_label: sini
-        ok: saya setuju
       edit_link:
         edit: Edit
       footer:
