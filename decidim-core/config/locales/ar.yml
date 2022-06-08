@@ -1282,10 +1282,6 @@ ar:
     timestamp_error_message: آسف ، كان ذلك سريعًا جدًا! يرجى إعادة تقديم.
   layouts:
     decidim:
-      cookie_warning:
-        description_html: يستخدم هذا الموقع ملفات تعريف الارتباط. من خلال الاستمرار في تصفح الموقع ، فإنك توافق على استخدامنا لملفات تعريف الارتباط. اكتشف المزيد عنها %{link}.
-        link_label: هنا
-        ok: أنا موافق
       edit_link:
         edit: تعديل
       footer:
