@@ -1665,10 +1665,6 @@ fi:
     timestamp_error_message: Pahoittelut, olit liian nopea! Lähetä lomake uudestaan.
   layouts:
     decidim:
-      cookie_warning:
-        description_html: Tämä sivusto käyttää evästeitä. Jatkamalla tämän sivuston käyttöä hyväksyt selaimeesi asettamamme evästeet. %{link}.
-        link_label: Lue lisää evästeistä
-        ok: Hyväksyn
       edit_link:
         edit: Muokkaa
       footer:
