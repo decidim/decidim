@@ -194,11 +194,24 @@ cs:
         create: "%{user_name} vytvořil/a kolekci příloh %{resource_name}"
         delete: "%{user_name} odstranil kolekci příloh %{resource_name}"
         update: "%{user_name} aktualizoval kolekci příloh %{resource_name}"
+      category:
+        create: "%{user_name} přidal kategorii %{resource_name} do prostoru %{space_name}"
+        delete: "%{user_name} odstranil kategorii %{resource_name} z prostoru %{space_name}"
+        update: "%{user_name} aktualizoval kategorii %{resource_name} v prostoru %{space_name}"
       component:
         create: "%{user_name} přidal %{resource_name} komponent do prostoru %{space_name}"
         delete: "%{user_name} odstranila %{resource_name} komponentu z %{space_name} místa"
+        export_component: "%{user_name} exportoval %{resource_name} %{component_name} v %{space_name} jako %{format_name}"
         publish: "%{user_name} publikoval %{resource_name} komponentu ve %{space_name} prostoru"
         unpublish: "%{user_name} nepublikoval %{resource_name} komponentu z %{space_name} místa"
+        update_permissions_with_space: "%{user_name} aktualizoval oprávnění %{resource_name} v %{space_name}"
+      contextual_help_section:
+        update: "%{user_name} aktualizoval sekci nápovědy %{resource_name}"
+      helpers:
+        answers: odpovědi
+        comments: komentáře
+        projects: projekty
+        results: výsledky
       impersonation_log:
         manage: "%{user_name} spravoval %{resource_name}, protože %{reason}"
       moderation:
@@ -215,6 +228,7 @@ cs:
         update: "%{user_name} aktualizovala %{resource_name} aplikaci OAuth"
       organization:
         update: "%{user_name} aktualizovala nastavení organizace"
+        update_external_domain: "%{user_name} aktualizoval externí domény organizace"
       participatory_space_private_user:
         create: "%{user_name} pozval %{resource_name} aby se stal soukromým uživatelem"
         create_via_csv: "%{user_name} pozval %{resource_name} prostřednictvím CSV k tomu, aby byl soukromým účastníkem"
@@ -1777,10 +1791,31 @@ cs:
         modal:
           accept_all: Přijmout vše
           accept_only_essential: Přijmout pouze nezbytné soubory cookie
+          analytics:
+            description: Analytické soubory cookie jsou soubory cookie, které sledují, jak se uživatelé pohybují a komunikují s webem. Shromážděné informace slouží k tomu, aby majitel vylepšil webové stránky.
+            title: Analytika a statistiky
+          description: Soubory cookie používáme, abychom zajistili základní funkce webových stránek a zlepšili vaše online zážitky. Pro každou kategorii si můžete vybrat, zda se chcete přihlásit/odhlásit.
+          essential:
+            description: Tyto soubory cookie jsou nezbytné pro správné fungování nešich webových stránek. Bez těchto souborů cookie by tyto stránky nefungovaly správně.
+            title: Zásadní
+          marketing:
+            description: Tyto soubory cookie shromažďují informace o tom, jak používáte webové stránky, které jste navštívili a na které odkazy jste klikli.
+            title: Marketing
+          preferences:
+            description: Tyto soubory cookie umožňují webovým stránkám zapamatovat si vybrání možností, které jste učinili v minulosti
+            title: Předvolby
+          save_settings: Uložit nastavení
+          title: Nastavení cookies
+          toggle: Přepínač %{consent_category}
+        warning:
+          all_cookies: všechny soubory cookie
+          change_cookie_settings: Změnit nastavení cookie
+          need_cookies: Abyste mohli vidět tento obsah, musíte povolit %{cookies}.
       edit_link:
         edit: Upravit
       footer:
         cc_by_license: Licence Creative Commons
+        cookie_settings: Nastavení cookies
         decidim_logo: Logo Decidim
         download_open_data: Stáhněte si soubory s otevřenými daty
         made_with_open_source: Webová stránka vytvořená s <a target="_blank" href="https://github.com/decidim/decidim">svobodným softwarem</a>.
