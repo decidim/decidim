@@ -1595,10 +1595,6 @@ ro:
     timestamp_error_message: Ne pare rău, acest lucru a fost prea rapid! Te rugăm să retrimiți.
   layouts:
     decidim:
-      cookie_warning:
-        description_html: Acest site folosește cookie-uri. Continuând să navigați pe site, sunteți de acord cu utilizarea cookie-urilor. Aflați mai multe despre el %{link}.
-        link_label: aici
-        ok: Sunt de acord
       edit_link:
         edit: Editare
       footer:
