@@ -122,6 +122,9 @@ en:
           update:
             invalid: There was a problem saving the form.
             success: Form successfully saved.
+      admin_log:
+        questionnaire:
+          update: "%{user_name} updated the %{resource_name} questionnaire"
       errors:
         answer:
           body: Body can't be blank
