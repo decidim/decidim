@@ -175,7 +175,6 @@ es-PY:
         delete: "%{user_name} eliminó el componente %{resource_name} del espacio %{space_name}"
         publish: "%{user_name} publicó el componente %{resource_name} en el espacio %{space_name}"
         unpublish: "%{user_name} ha despublicado el componente %{resource_name} del espacio %{space_name}"
-        update_permissions_with_space: "%{user_name} ha actualtizado los permisos de %{resource_name} en %{space_name}"
       impersonation_log:
         manage: "%{user_name} ha gestionado a %{resource_name} porque %{reason}"
       moderation:
@@ -1707,10 +1706,6 @@ es-PY:
     timestamp_error_message: Lo siento, has sido demasiado rápido! Por favor, vuelva a enviar.
   layouts:
     decidim:
-      cookie_warning:
-        description_html: Este sitio web utiliza cookies propias y de terceros para mejorar la experiencia de navegación, y ofrecer contenidos y servicios de interés. Al continuar la navegación entendemos que se acepta nuestra política de cookies. Para más información consulta %{link}.
-        link_label: aquí
-        ok: Estoy de acuerdo
       edit_link:
         edit: Editar
       footer:
