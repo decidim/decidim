@@ -1413,10 +1413,6 @@ el:
     timestamp_error_message: Συγνώμη, αυτό ήταν πολύ γρήγορο! Επαναλάβετε την υποβολή.
   layouts:
     decidim:
-      cookie_warning:
-        description_html: Αυτός ο ιστότοπος χρησιμοποιεί cookies. Συνεχίζοντας την περιήγηση στον ιστότοπο, αποδέχεστε τη χρήση των cookies από εμάς. %{link}.
-        link_label: Μάθετε περισσότερα για τα cookies
-        ok: Συμφωνώ
       edit_link:
         edit: Επεξεργασία
       footer:
