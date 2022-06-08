@@ -181,7 +181,8 @@ en:
         delete: "%{user_name} removed the %{resource_name} component from the %{space_name} space"
         publish: "%{user_name} published the %{resource_name} component in the %{space_name} space"
         unpublish: "%{user_name} unpublished the %{resource_name} component from the %{space_name} space"
-        update_permissions_with_space: "%{user_name} updated the permissions of %{resource_name} in %{space_name}"
+      contextual_help_section:
+        update: "%{user_name} updated the %{resource_name} help section"
       impersonation_log:
         manage: "%{user_name} has managed %{resource_name} because %{reason}"
       moderation:
@@ -198,6 +199,7 @@ en:
         update: "%{user_name} updated the %{resource_name} OAuth application"
       organization:
         update: "%{user_name} updated the organization settings"
+        update_external_domain: "%{user_name} updated the organization external domains"
       participatory_space_private_user:
         create: "%{user_name} invited %{resource_name} to be a private participant"
         create_via_csv: "%{user_name} invited %{resource_name} via CSV to be a private participant"
