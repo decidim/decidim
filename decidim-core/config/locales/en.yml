@@ -1713,14 +1713,56 @@ en:
     timestamp_error_message: Sorry, that was too quick! Please resubmit.
   layouts:
     decidim:
-      cookie_warning:
-        description_html: This site uses cookies. By continuing to browse the site, you agree to our use of cookies. %{link}.
-        link_label: Find out more about cookies
-        ok: I agree
+      cookie_consent:
+        cookie_details:
+          columns:
+            description: Description
+            name: Name
+            service: Service
+            type: Type
+          cookies:
+            _session_id:
+              description: Allows websites to remember user within a website when they move between web pages.
+              service: This website
+            decidim-consent:
+              description: Stores information about the cookies allowed by the user on this website.
+              service: This website
+          types:
+            cookie: Cookie
+        dialog:
+          accept_all: Accept all
+          accept_only_essential: Accept only essential
+          cookie_settings: Settings
+          description: We use cookies on our website to improve the performance and content of the site. The cookies enable us to provide a more individual user experience and social media channels.
+          title: Information about the cookies used on the website
+        modal:
+          accept_all: Accept all
+          accept_only_essential: Accept only essential
+          analytics:
+            description: Analytics cookies are cookies that track how users navigate and interact with a website. The information collected is used to help the website owner improve the website.
+            title: Analytics and statistics
+          description: We use cookies to ensure the basic functionalities of the website and to enhance your online experience. You can choose for each category to opt-in/out whenever you want.
+          essential:
+            description: These cookies are essential for the proper functioning of my website. Without these cookies, the website would not work properly.
+            title: Essential
+          marketing:
+            description: These cookies collect information about how you use the website, which pages you visited and which links you clicked on.
+            title: Marketing
+          preferences:
+            description: These cookies allow the website to remember the choices you have made in the past
+            title: Preferences
+          save_settings: Save settings
+          title: Cookie settings
+          toggle: Toggle %{consent_category}
+        warning:
+          all_cookies: all cookies
+          change_cookie_settings: Change cookie settings
+          need_cookies: You need to enable %{cookies} in order to see this content.
       edit_link:
         edit: Edit
       footer:
         cc_by_license: Creative Commons License
+        cookie_settings: Cookie settings
         decidim_logo: Decidim Logo
         download_open_data: Download Open Data files
         made_with_open_source: Website made with <a target="_blank" href="https://github.com/decidim/decidim">free software</a>.
