@@ -170,7 +170,6 @@ FactoryBot.define do
 
     election
     title { generate_localized_title }
-    description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
     min_selections { 1 }
     max_selections { 1 }
     weight { Faker::Number.number(digits: 1) }

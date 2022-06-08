@@ -20,12 +20,6 @@ describe "Admin manages questions", type: :system do
     end
   end
 
-  describe "admin form" do
-    before { click_on "New Question" }
-
-    it_behaves_like "having a rich text editor", "new_question", "full"
-  end
-
   it "creates a new question" do
     click_on "New Question"
 
@@ -36,13 +30,6 @@ describe "Admin manages questions", type: :system do
         en: "My question",
         es: "Mi pregunta",
         ca: "La meva pregunta"
-      )
-      fill_in_i18n_editor(
-        :question_description,
-        "#question-description-tabs",
-        en: "Long description",
-        es: "Descripción más larga",
-        ca: "Descripció més llarga"
       )
     end
 
@@ -72,13 +59,6 @@ describe "Admin manages questions", type: :system do
           en: "My question",
           es: "Mi pregunta",
           ca: "La meva pregunta"
-        )
-        fill_in_i18n_editor(
-          :question_description,
-          "#question-description-tabs",
-          en: "Long description",
-          es: "Descripción más larga",
-          ca: "Descripció més llarga"
         )
       end
 
