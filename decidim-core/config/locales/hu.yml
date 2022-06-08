@@ -1414,10 +1414,6 @@ hu:
     timestamp_error_message: Sajnos ez túl gyors volt! Kérlek, küldd el újra.
   layouts:
     decidim:
-      cookie_warning:
-        description_html: 'Ez az oldal cookie-kat használ. A böngészés folytatásával elfogadod a cookie-k használatát. Tudjon meg többet: %{link}.'
-        link_label: itt
-        ok: Elfogadom
       edit_link:
         edit: Szerkesztés
       footer:
