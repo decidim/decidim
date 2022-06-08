@@ -1557,10 +1557,6 @@ pt-BR:
     timestamp_error_message: Desculpe, isso foi muito rápido! Reenvie.
   layouts:
     decidim:
-      cookie_warning:
-        description_html: Este site usa cookies. Ao continuar a navegar no site, você concorda com o uso de cookies. Saiba mais sobre isso %{link}.
-        link_label: aqui
-        ok: Concordo
       edit_link:
         edit: Editar
       footer:
