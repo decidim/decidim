@@ -1284,10 +1284,6 @@ sk:
     timestamp_error_message: Prepáčte, bolo to príliš rýchle! Znovu odošlite.
   layouts:
     decidim:
-      cookie_warning:
-        description_html: Tento web používa cookies. Pokračovaním v prehliadaní webu súhlasíte s používaním súborov cookie. Zistite viac o tom %{link}.
-        link_label: tu
-        ok: súhlasím
       edit_link:
         edit: Upraviť
       footer:
