@@ -175,7 +175,6 @@ ca:
         delete: "%{user_name} ha eliminat el component %{resource_name} de l'espai %{space_name}"
         publish: "%{user_name} ha publicat el component %{resource_name} a l'espai %{space_name}"
         unpublish: "%{user_name} ha despublicat el component %{resource_name} de l'espai %{space_name}"
-        update_permissions_with_space: "%{user_name} ha actualitzat els permisos de %{resource_name} a %{space_name}"
       impersonation_log:
         manage: "%{user_name} ha gestionat a %{resource_name} perquè %{reason}"
       moderation:
@@ -1703,10 +1702,6 @@ ca:
     timestamp_error_message: Ho sentim, has estat massa ràpid! Si us plau, torna a enviar-ho.
   layouts:
     decidim:
-      cookie_warning:
-        description_html: Aquest lloc web fa servir cookies pròpies i de tercers per millorar l’experiència de navegació, i oferir continguts i serveis d’interès. En continuar la navegació entenem que acceptes la nostra política de cookies. Per a més informació consulta %{link}.
-        link_label: aquí
-        ok: Hi estic d'acord
       edit_link:
         edit: Edita
       footer:
