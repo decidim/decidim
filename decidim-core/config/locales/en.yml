@@ -188,7 +188,6 @@ en:
       helpers:
         answers: answers
         comments: comments
-        meetings: registrations
         projects: projects
         results: results
       impersonation_log:
