@@ -42,13 +42,24 @@ export default class ExternalLink {
       return;
     }
 
-    this.$link.addClass("external-link-container");
+    let $target = this.$link;
+    if (this.$link[0].hasAttribute("data-external-link-target")) {
+      $target = $(this.$link.data("external-link-target"), this.$link);
+      if ($target.length < 1) {
+        $target = this.$link;
+      }
+    }
+
+    $target.addClass("external-link-container");
     let spacer = "&nbsp;";
-    if (this.$link.text().trim().length < 1) {
+    if (this.$link[0].hasAttribute("data-external-link-spacer")) {
+      spacer = this.$link.data("external-link-spacer");
+    } else if ($target.text().trim().length < 1) {
       // Fixes image links extra space
       spacer = "";
     }
-    this.$link.append(`${spacer}${this.generateElement()}`);
+
+    $target.append(`${spacer}${this.generateElement()}`);
   }
 
   generateElement() {
