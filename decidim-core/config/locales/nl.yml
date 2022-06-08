@@ -1558,10 +1558,6 @@ nl:
     timestamp_error_message: Sorry, dat was te snel! Gelieve opnieuw in te dienen.
   layouts:
     decidim:
-      cookie_warning:
-        description_html: Deze website maakt gebruik van cookies. Door gebruik te blijven maken van de site gaat u hiermee akkoord. Meer informatie via %{link}.
-        link_label: hier
-        ok: Ik ga akkoord
       edit_link:
         edit: Bewerk
       footer:
