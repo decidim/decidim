@@ -199,7 +199,6 @@ cs:
         delete: "%{user_name} odstranila %{resource_name} komponentu z %{space_name} místa"
         publish: "%{user_name} publikoval %{resource_name} komponentu ve %{space_name} prostoru"
         unpublish: "%{user_name} nepublikoval %{resource_name} komponentu z %{space_name} místa"
-        update_permissions_with_space: "%{user_name} aktualizoval oprávnění k %{resource_name} v %{space_name}"
       impersonation_log:
         manage: "%{user_name} spravoval %{resource_name}, protože %{reason}"
       moderation:
@@ -1753,10 +1752,6 @@ cs:
     timestamp_error_message: Promiňte, bylo to příliš rychlé! Znovu odešlete.
   layouts:
     decidim:
-      cookie_warning:
-        description_html: Tento web používá cookies. Pokračováním v procházení webu souhlasíte s používáním souborů cookie. Zjistěte více o tom %{link}.
-        link_label: Zjistěte více o cookies
-        ok: Souhlasím
       edit_link:
         edit: Upravit
       footer:
