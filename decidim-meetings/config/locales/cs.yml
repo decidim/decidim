@@ -394,6 +394,8 @@ cs:
           value_types:
             organizer_presenter:
               not_found: 'Organizátor nebyl nalezen v databázi (ID: %{id})'
+        questionnaire:
+          update: "%{user_name} aktualizoval dotazník pro schůzku %{meeting_name}"
       application_helper:
         filter_category_values:
           all: Vše
