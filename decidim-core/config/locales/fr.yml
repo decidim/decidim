@@ -175,7 +175,6 @@ fr:
         delete: "%{user_name} a supprimé la fonctionnalité %{resource_name} de l'espace %{space_name}"
         publish: "%{user_name} a publié la fonctionnalité %{resource_name} dans l'espace %{space_name}"
         unpublish: "%{user_name} a dépublié la fonctionnalité %{resource_name} de l'espace %{space_name}"
-        update_permissions_with_space: "%{user_name} a mis à jour les permissions de %{resource_name} dans %{space_name}"
       impersonation_log:
         manage: "%{user_name} a représenté %{resource_name} parce que %{reason}"
       moderation:
@@ -1702,10 +1701,6 @@ fr:
     timestamp_error_message: Désolé, c'était trop rapide ! Veuillez le renvoyer.
   layouts:
     decidim:
-      cookie_warning:
-        description_html: Ce site utilise des cookies. En continuant à parcourir le site, vous acceptez notre utilisation des cookies. En savoir plus à ce sujet %{link}.
-        link_label: ici
-        ok: '"J''accepte"'
       edit_link:
         edit: Modifier
       footer:
