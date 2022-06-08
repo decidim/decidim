@@ -229,6 +229,12 @@ module Decidim
         ResourceLocatorPresenter.new(self).url
       end
 
+      # Returns the presenter for this author, to be used in the views.
+      # Required by ResourceRenderer.
+      def presenter
+        Decidim::Proposals::ProposalPresenter.new(self)
+      end
+
       # Public: Overrides the `reported_attributes` Reportable concern method.
       def reported_attributes
         [:title, :body]

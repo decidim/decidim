@@ -94,11 +94,17 @@ module Decidim
       end
     end
 
+    # This method is currently being used only for Proposal and Meeting,
+    # It aims to load the presenter class, and perform some basic sanitization on the content
+    # This method should be used along side simple_format.
+    # @param resource [Object] Resource object
+    # @param method [Symbol] Method name
+    #
+    # @return ActiveSupport::SafeBuffer
     def render_sanitized_content(resource, method)
       content = present(resource).send(method, links: true, strip_tags: !safe_content?)
-      content = simple_format(content, {}, sanitize: false)
 
-      return content unless safe_content?
+      return decidim_sanitize(content, {}) unless safe_content?
 
       decidim_sanitize_editor(content)
     end

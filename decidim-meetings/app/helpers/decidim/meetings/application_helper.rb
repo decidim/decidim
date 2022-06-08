@@ -67,7 +67,7 @@ module Decidim
 
       # If the content is safe, HTML tags are sanitized, otherwise, they are stripped.
       def render_meeting_body(meeting)
-        render_sanitized_content(meeting, :description)
+        Decidim::ContentProcessor.render(render_sanitized_content(meeting, :description), "div")
       end
 
       def prevent_timeout_seconds
