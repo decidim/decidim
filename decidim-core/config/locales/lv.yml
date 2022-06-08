@@ -1350,8 +1350,6 @@ lv:
     timestamp_error_message: Diemžēl tas bija par ātru! Lūdzu, iesniedziet atkārtoti.
   layouts:
     decidim:
-      cookie_warning:
-        ok: Es piekrītu
       edit_link:
         edit: Labot
       footer:
