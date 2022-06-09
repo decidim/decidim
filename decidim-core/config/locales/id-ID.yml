@@ -255,14 +255,14 @@ id:
           global:
             amendments_enabled: Amandemen diaktifkan
             comments_enabled: Komentar diaktifkan
-            dummy_global_attribute_1: Atribut Dummy 1
-            dummy_global_attribute_2: Atribut Dummy 2
+            dummy_global_attribute1: Atribut Dummy 1
+            dummy_global_attribute2: Atribut Dummy 2
             enable_pads_creation: Aktifkan pembuatan bantalan
             resources_permissions_enabled: Izin sumber daya diaktifkan
           step:
             comments_blocked: Komentar diblokir
-            dummy_step_attribute_1: Atribut Langkah Dummy 1
-            dummy_step_attribute_2: Atribut Langkah Dummy 2
+            dummy_step_attribute1: Atribut Langkah Dummy 1
+            dummy_step_attribute2: Atribut Langkah Dummy 2
     contact: Kontak
     content_blocks:
       footer_sub_hero:
