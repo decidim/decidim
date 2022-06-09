@@ -85,6 +85,7 @@ en:
         send_welcome_notification: Send welcome notification
         success_color: Success
         time_zone: Time Zone
+        tertiary_color: Tertiary
         tos_version: Terms of service version
         twitter_handler: Twitter handler
         user_groups_enabled: Enable groups
@@ -791,6 +792,11 @@ en:
           update: Update
         form:
           colors:
+            choose_color: Choose a primary color
+            update_suggested_colors: Update suggested colors
+            saturation: Saturation
+            explanation: This tool helps you out to choose a color scheme, made up of hues equally spaced around the color wheel, that will be used in the organization's website.
+            legend: Main application colors, based on the <a href="https://www.color-meanings.com/triadic-colors/" target="_blank" rel="noopener noreferrer">Triadic algorithm</a>. The <i>secondary</i> color is auto-calculated from the primary color and the saturation you chose.
             colors_title: Organization colors
             colors_warning_html: Warning! Changing these colors can break the accessibility contrasts. You can check the contrast of your choosing with <a href="%{link}">WebAIM Contrast Checker</a> or other similar tools.
             header_snippets_help: Use this field to add things to the HTML head. The most common use is to integrate third-party services that require some extra JavaScript or CSS. Also, you can use it to add extra meta tags to the HTML. Note that this will only be rendered in public pages, not in the admin section.

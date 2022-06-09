@@ -3,6 +3,55 @@
     <h2 class="card-title"><%= t ".colors_title" %></h2>
   </div>
   <div class="card-section">
+
+    <details style="cursor: pointer;margin-bottom: 1rem;">
+      <summary>
+        Decidim color chooser
+      </summary>
+
+      <div style="border-radius: 4px;border: 1px solid #eee;padding: 1rem;">
+        <p><%= t(".explanation") %></p>
+
+        <label style="height: 5rem; display: flex; flex-direction:column;margin-bottom: 1rem">
+          <%= t(".choose_color") %>
+          <div id="primary-selector" style="display: flex; height: 100%;cursor: pointer;"></div>
+        </label>
+
+        <label style="height:3rem; margin-bottom: 1rem" for="primary-sat">
+          <%= t(".saturation") %>
+          <input id="primary-sat" type="range" min="0" max="100" style="display: block"/>
+        </label>
+
+        <fieldset style="display: flex;gap: 1rem;align-items: flex-end;">
+          <legend><%== t(".legend") %></legend>
+
+          <label>
+            <%= t("activemodel.attributes.organization.primary_color") %>
+            <div style="display: grid;place-items: center;width: 12rem;height:2rem;border-radius:4px;background-color: var(--primary);"></div>
+            <input id="preview-primary" type="hidden">
+          </label>
+
+          <label>
+            <%= t("activemodel.attributes.organization.secondary_color") %>
+            <div style="display: grid;place-items: center;width: 12rem;height:2rem;border-radius:4px;background-color: var(--secondary);"></div>
+            <input id="preview-secondary" type="hidden">
+          </label>
+
+          <%# TODO: show when redesign active %>
+          <% if false %>
+            <label>
+              <%= t("activemodel.attributes.organization.tertiary_color") %>
+              <div style="display: grid;place-items: center;width: 12rem;height:2rem;border-radius:4px;background-color: var(--tertiary);"></div>
+              <input id="preview-tertiary" type="hidden">
+            </label>
+          <% end %>
+
+          <button id="set-colors" class="button" style="margin: 0;"><%= t(".update_suggested_colors") %></button>
+        </fieldset>
+      </div>
+
+    </details>
+
     <div class="callout warning">
       <p>
         <%= icon "warning" %>
