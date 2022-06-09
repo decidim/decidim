@@ -48,7 +48,7 @@ module Decidim
             "This content references the following proposals: #{gid1}, #{gid2} and #{gid3}. Great?I like them!"
           end
 
-          it { is_expected.to eq("This content references the following proposals: #{resource_as_html_link(proposal_1)}, #{resource_as_html_link(proposal_2)} and #{resource_as_html_link(proposal_3)}. Great?I like them!") }
+          it { is_expected.to eq("This content references the following proposals: #{resource_as_html_link(proposal1)}, #{resource_as_html_link(proposal2)} and #{resource_as_html_link(proposal3)}. Great?I like them!") }
         end
       end
 
