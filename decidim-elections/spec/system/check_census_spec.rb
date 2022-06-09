@@ -57,9 +57,36 @@ describe "Check Census", type: :system do
       end
     end
 
-    it "shows instructions to ask for access code again" do
+    it "shows instructions to ask for access code again, mentioning email and SMS" do
       within ".wrapper" do
         expect(page).to have_content("You should have received your Access Code by postal mail already. In case, you don't have it, you can request it here via SMS or email")
+      end
+    end
+  end
+
+  context "when census data is correct but there is no SMS gateway configured" do
+    before do
+      Decidim.sms_gateway_service = "FooBar"
+
+      visit decidim_votings.voting_check_census_path(voting)
+      within ".card__content" do
+        select("DNI", from: "Document type")
+        fill_in "Document number", with: "12345678X"
+        fill_in "Postal code", with: "04001"
+        fill_in "Day", with: "11"
+        fill_in "Month", with: "05"
+        fill_in "Year", with: "1980"
+        find("*[type=submit]").click
+      end
+    end
+
+    after do
+      Decidim.sms_gateway_service = "Decidim::Verifications::Sms::ExampleGateway"
+    end
+
+    it "shows instructions to ask for access code again, mentioning only email" do
+      within ".wrapper" do
+        expect(page).to have_content("You should have received your Access Code by postal mail already. In case, you don't have it, you can request it here via email")
       end
     end
   end
