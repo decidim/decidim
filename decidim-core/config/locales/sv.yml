@@ -402,8 +402,8 @@ sv:
             amendments_enabled: Ändringsförslag är möjliga
             comments_enabled: Kommentarer på
             comments_max_length: Maximal längd på kommentarer
-            dummy_global_attribute_1: Dummy Attribut 1
-            dummy_global_attribute_2: Dummy Attribut 2
+            dummy_global_attribute1: Dummy Attribut 1
+            dummy_global_attribute2: Dummy Attribut 2
             dummy_global_translatable_text: Översättningsbar exempeltext
             enable_pads_creation: Aktivera skapande av memo
             resources_permissions_enabled: Resursbehörigheter på
@@ -415,8 +415,8 @@ sv:
             amendment_reaction_enabled: Tillåt reaktioner på ändringsförslag
             amendments_visibility: Synlighet för ändringsförslag
             comments_blocked: Kommentarer blockerade
-            dummy_step_attribute_1: Dummy Step Attribut 1
-            dummy_step_attribute_2: Dummy Step Attribut 2
+            dummy_step_attribute1: Dummy Step Attribut 1
+            dummy_step_attribute2: Dummy Step Attribut 2
             dummy_step_translatable_text: Översättningsbar text för exempelsteg
     contact: Kontakt
     content_blocks:
