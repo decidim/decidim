@@ -177,6 +177,7 @@ ar:
           success: تم تحديث المشرف على هذه الجمعية بنجاح.
       menu:
         assemblies: الجمعيات
+        assemblies_settings: الإعدادات
         assemblies_submenu:
           assembly_admins: مدراء الجمعية
           assembly_members: الأعضاء
