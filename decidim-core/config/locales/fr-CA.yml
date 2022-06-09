@@ -437,8 +437,8 @@ fr-CA:
             amendments_enabled: Modifications activées
             comments_enabled: Activer le module de commentaire
             comments_max_length: Longueur maximale des commentaires
-            dummy_global_attribute_1: Attribut factice 1
-            dummy_global_attribute_2: Attribut factice 2
+            dummy_global_attribute1: Attribut factice 1
+            dummy_global_attribute2: Attribut factice 2
             dummy_global_translatable_text: Texte traduisible factice
             enable_pads_creation: Activer la création de pads
             resources_permissions_enabled: Autorisations de ressources activées
@@ -450,8 +450,8 @@ fr-CA:
             amendment_reaction_enabled: Réaction d'amendement activée
             amendments_visibility: Visibilité des amendements
             comments_blocked: Bloquer la création de nouveaux commentaires
-            dummy_step_attribute_1: Attribut d'étape factice 1
-            dummy_step_attribute_2: Attribut d'étape factice 2
+            dummy_step_attribute1: Attribut d'étape factice 1
+            dummy_step_attribute2: Attribut d'étape factice 2
             dummy_step_translatable_text: Texte traduisible de l'étape factice
     contact: Contact
     content_blocks:
