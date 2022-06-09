@@ -1408,7 +1408,7 @@ sk:
     dropdown:
       choose_diff_view_html: 'Mód zobrazenia HTML:'
       choose_diff_view_mode: 'Mód srovnávacího zobrazení:'
-      option_escaped: Nepoužívané
+      option_escaped: Nepoužívané 
       option_split: Vedle sebe (Sbs)
       option_unescaped: Používané
       option_unified: Sjednocené

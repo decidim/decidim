@@ -798,7 +798,7 @@ nl:
     group_members:
       accept:
         error: Er is een fout opgetreden bij het accepteren van dit deelnameverzoek
-        success: Het deelnameverzoek is geaccepteerd
+        success: Het deelnameverzoek is geaccepteerd 
       actions:
         are_you_sure: Weet je het zeker?
         promote_to_admin: Beheerder maken
