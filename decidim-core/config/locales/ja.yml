@@ -161,8 +161,15 @@ ja:
       component:
         create: "%{user_name} は、 %{resource_name} コンポーネントを %{space_name} スペースに追加しました"
         delete: "%{user_name} が %{resource_name} スペースから %{space_name} コンポーネントを削除しました"
+        export_component: "%{user_name} は%{space_name} の %{resource_name} %{component_name} を %{format_name} としてエクスポートしました"
         publish: "%{user_name} が %{resource_name} スペースで %{space_name} コンポーネントを公開しました"
         unpublish: "%{user_name} は %{resource_name} スペースから %{space_name} コンポーネントを非公開にしました"
+        update_permissions_with_space: "%{user_name} が %{resource_name} の %{space_name} の権限を更新しました"
+      helpers:
+        answers: 回答
+        comments: コメント
+        projects: プロジェクト
+        results: 結果
       impersonation_log:
         manage: "%{user_name} は %{reason} により %{resource_name} を管理しています。"
       moderation:
@@ -1685,6 +1692,13 @@ ja:
     timestamp_error_message: 申し訳ありませんが、早すぎます！再提出してください。
   layouts:
     decidim:
+      cookie_consent:
+        cookie_details:
+          columns:
+            description: 説明
+            name: 名前
+            service: サービス
+            type: タイプ
       edit_link:
         edit: 編集
       footer:
