@@ -384,8 +384,8 @@ ro:
             amendments_enabled: Amendamente activate
             comments_enabled: Comentarii activate
             comments_max_length: Lungimea maximă a comentariilor
-            dummy_global_attribute_1: Mostră de atribut 1
-            dummy_global_attribute_2: Mostră de atribut 2
+            dummy_global_attribute1: Mostră de atribut 1
+            dummy_global_attribute2: Mostră de atribut 2
             dummy_global_translatable_text: Text-test traductibil
             enable_pads_creation: Activează crearea de pad-uri
             resources_permissions_enabled: Drepturi pentru resurse activate
@@ -397,8 +397,8 @@ ro:
             amendment_reaction_enabled: Reacția la amendamente activată
             amendments_visibility: Vizibilitatea amendamentului
             comments_blocked: Comentarii blocate
-            dummy_step_attribute_1: Atribut fictiv 1
-            dummy_step_attribute_2: Mostră de atribut 2 al etapei
+            dummy_step_attribute1: Atribut fictiv 1
+            dummy_step_attribute2: Mostră de atribut 2 al etapei
             dummy_step_translatable_text: Mostră de text traductibil pentru etapă
     contact: Contact
     content_blocks:
