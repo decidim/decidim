@@ -193,6 +193,7 @@ ja:
             automatic_hashtags: すべての提案に下記のハッシュタグを追加する
             comments_blocked: コメントをブロック
             creation_enabled: 参加者は提案を作成できます
+            creation_enabled_readonly: 参加テキスト機能を有効にするとこの設定は無効になります。 参加テキストとして提案をアップロードするには、参加テキストボタンをクリックし、指示に従ってください。
             default_sort_order: デフォルトの提案の並べ替え
             default_sort_order_help: デフォルトは、サポートが有効な場合、提案がランダムでソートされることを意味します。サポートがブロックされている場合は、最もサポートされている順にソートされます。
             default_sort_order_options:
