@@ -182,13 +182,13 @@ uk:
         settings:
           global:
             comments_enabled: Коментарі увімкнено
-            dummy_global_attribute_1: Приклад властивості 1
-            dummy_global_attribute_2: Приклад властивості 2
+            dummy_global_attribute1: Приклад властивості 1
+            dummy_global_attribute2: Приклад властивості 2
             resources_permissions_enabled: Дозволи ресурсів увімкнуто
           step:
             comments_blocked: Коментарі вимкнено
-            dummy_step_attribute_1: Приклад 1 властивості кроку
-            dummy_step_attribute_2: Приклад 2 властивості кроку
+            dummy_step_attribute1: Приклад 1 властивості кроку
+            dummy_step_attribute2: Приклад 2 властивості кроку
     contact: Зв'язатися
     content_blocks:
       footer_sub_hero:
