@@ -1257,7 +1257,7 @@ it:
           form_title: 'Compila il seguente modulo per controllare i dati del censimento:'
           invalid: Si è verificato un errore nel controllare il censimento.
           success:
-            access_link: via SMS o e-mail.
+            access_link_with_sms: via SMS o e-mail.
             info: Avresti già dovuto ricevere il tuo Codice di Accesso per posta postale. Nel caso in cui non lo avessi puoi richiederlo qui
             title: I tuoi dati di censimento sono corretti!
           title: Posso votare?
