@@ -12,7 +12,7 @@ module Decidim
       let(:user) { create(:user, :confirmed, organization: component.organization) }
       let(:author) { create(:user, :confirmed, organization: component.organization) }
       let!(:collaborative_draft) { create(:collaborative_draft, component: component, users: [author]) }
-      let(:user_2) { create(:user, :confirmed, organization: component.organization) }
+      let(:user2) { create(:user, :confirmed, organization: component.organization) }
 
       before do
         request.env["decidim.current_organization"] = component.organization

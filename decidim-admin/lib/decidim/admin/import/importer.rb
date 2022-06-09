@@ -76,11 +76,9 @@ module Decidim
             if index.zero?
               @data_headers = rowdata.map { |d| d.to_s.to_sym }
             else
-              @collection_data << Hash[
-                rowdata.each_with_index.map do |val, ind|
-                  [@data_headers[ind], val]
-                end
-              ]
+              @collection_data << rowdata.each_with_index.to_h do |val, ind|
+                [@data_headers[ind], val]
+              end
             end
           end
 

@@ -7,10 +7,10 @@ module Decidim
     describe OdtToMarkdown do
       context "when libreoffice odt file" do
         it "transforms into markdown" do
-          file = IO.read(Decidim::Dev.asset("participatory_text.odt"))
+          file = File.read(Decidim::Dev.asset("participatory_text.odt"))
           transformer = DocToMarkdown.new(file, DocToMarkdown::ODT_MIME_TYPE)
 
-          expected = IO.read(Decidim::Dev.asset("participatory_text.md"))
+          expected = File.read(Decidim::Dev.asset("participatory_text.md"))
           expected.strip!
           # doc2text does not support ordered lists use - instead
           expected.gsub!(/^\d\. /, "- ")

@@ -35,7 +35,7 @@ module Decidim
       #
       # Returns nothing.
       def translatable_attribute(name, type, **options)
-        attribute name, Hash[String => Object], default: {}
+        attribute(name, { String => Object }, default: {})
 
         locales.each do |locale|
           attribute_name = "#{name}_#{locale}".gsub("-", "__")

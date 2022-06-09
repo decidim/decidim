@@ -54,19 +54,19 @@ module Decidim
       end
 
       context "when the first two identifiers are taken" do
-        let(:taken_identifier_1) { "abcDEF1234" }
-        let(:taken_identifier_2) { "GHIjkl5678" }
-        let!(:existing_link_1) { create(:short_link, target: organization, identifier: taken_identifier_1) }
-        let!(:existing_link_2) { create(:short_link, target: organization, identifier: taken_identifier_2) }
+        let(:taken_identifier1) { "abcDEF1234" }
+        let(:taken_identifier2) { "GHIjkl5678" }
+        let!(:existing_link1) { create(:short_link, target: organization, identifier: taken_identifier1) }
+        let!(:existing_link2) { create(:short_link, target: organization, identifier: taken_identifier2) }
 
         it "generates an available identifier" do
-          expect(SecureRandom).to receive(:alphanumeric).with(10).once.ordered.and_return(taken_identifier_1)
-          expect(SecureRandom).to receive(:alphanumeric).with(10).once.ordered.and_return(taken_identifier_2)
+          expect(SecureRandom).to receive(:alphanumeric).with(10).once.ordered.and_return(taken_identifier1)
+          expect(SecureRandom).to receive(:alphanumeric).with(10).once.ordered.and_return(taken_identifier2)
           expect(SecureRandom).to receive(:alphanumeric).with(10).once.ordered.and_call_original
 
           expect(subject).to match(/[a-zA-Z0-9]{10}/)
-          expect(subject).not_to eq(taken_identifier_1)
-          expect(subject).not_to eq(taken_identifier_2)
+          expect(subject).not_to eq(taken_identifier1)
+          expect(subject).not_to eq(taken_identifier2)
         end
 
         context "and the link is created for another organization" do
@@ -75,9 +75,9 @@ module Decidim
           let(:another_organization) { create(:organization) }
 
           it "returns the identifier already in use in the other organization" do
-            expect(SecureRandom).to receive(:alphanumeric).with(10).once.and_return(taken_identifier_1)
+            expect(SecureRandom).to receive(:alphanumeric).with(10).once.and_return(taken_identifier1)
 
-            expect(subject).to eq(taken_identifier_1)
+            expect(subject).to eq(taken_identifier1)
           end
         end
       end

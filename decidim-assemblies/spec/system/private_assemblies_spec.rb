@@ -8,9 +8,9 @@ describe "Private Assemblies", type: :system do
   let!(:admin) { create(:user, :admin, :confirmed, organization: organization) }
   let!(:user) { create :user, :confirmed, organization: organization }
   let!(:other_user) { create :user, :confirmed, organization: organization }
-  let!(:other_user_2) { create :user, :confirmed, organization: organization }
+  let!(:other_user2) { create :user, :confirmed, organization: organization }
   let!(:assembly_private_user) { create :assembly_private_user, user: other_user, privatable_to: private_assembly }
-  let!(:assembly_private_user_2) { create :assembly_private_user, user: other_user_2, privatable_to: private_assembly }
+  let!(:assembly_private_user2) { create :assembly_private_user, user: other_user2, privatable_to: private_assembly }
 
   context "when there are private assemblies" do
     context "and the assembly is transparent" do

@@ -8,7 +8,7 @@ module Decidim::Assemblies::Admin
 
     let(:organization) { create :organization }
     let(:user) { create :user, organization: organization }
-    let!(:document_file) { IO.read(Decidim::Dev.asset(document_name)) }
+    let!(:document_file) { File.read(Decidim::Dev.asset(document_name)) }
     let(:form_doc) do
       instance_double(File,
                       blank?: false)

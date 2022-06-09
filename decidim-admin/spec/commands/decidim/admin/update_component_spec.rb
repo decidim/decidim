@@ -22,21 +22,21 @@ module Decidim::Admin
         invalid?: !valid,
         valid?: valid,
         settings: {
-          dummy_global_attribute_1: true,
-          dummy_global_attribute_2: false,
+          dummy_global_attribute1: true,
+          dummy_global_attribute2: false,
           readonly_attribute: false
         },
         default_step_settings: {
           step.id.to_s => {
-            dummy_step_attribute_1: true,
-            dummy_step_attribute_2: false,
+            dummy_step_attribute1: true,
+            dummy_step_attribute2: false,
             readonly_step_attribute: false
           }
         },
         step_settings: {
           step.id.to_s => {
-            dummy_step_attribute_1: true,
-            dummy_step_attribute_2: false,
+            dummy_step_attribute1: true,
+            dummy_step_attribute2: false,
             readonly_step_attribute: false
           }
         }
@@ -53,13 +53,13 @@ module Decidim::Admin
 
         expect(component["name"]["en"]).to eq("My component")
         expect(component.weight).to eq(3)
-        expect(component.settings.dummy_global_attribute_1).to be(true)
-        expect(component.settings.dummy_global_attribute_2).to be(false)
+        expect(component.settings.dummy_global_attribute1).to be(true)
+        expect(component.settings.dummy_global_attribute2).to be(false)
         expect(component.settings.readonly_attribute).to be(true)
 
         step_settings = component.step_settings[step.id.to_s]
-        expect(step_settings.dummy_step_attribute_1).to be(true)
-        expect(step_settings.dummy_step_attribute_2).to be(false)
+        expect(step_settings.dummy_step_attribute1).to be(true)
+        expect(step_settings.dummy_step_attribute2).to be(false)
         expect(step_settings.readonly_step_attribute).to be(true)
       end
 
