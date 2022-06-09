@@ -428,8 +428,8 @@ ja:
             amendments_enabled: 修正を有効にする
             comments_enabled: コメントを有効にする
             comments_max_length: コメント最大長
-            dummy_global_attribute_1: ダミーステータス１
-            dummy_global_attribute_2: ダミーステータス2
+            dummy_global_attribute1: ダミーステータス１
+            dummy_global_attribute2: ダミーステータス2
             dummy_global_translatable_text: ダミー翻訳可能なテキスト
             enable_pads_creation: パッドの作成を有効にする
             resources_permissions_enabled: リソースの権限を有効にする
@@ -441,8 +441,8 @@ ja:
             amendment_reaction_enabled: 修正反応は有効です
             amendments_visibility: 修正の表示
             comments_blocked: コメントをブロック
-            dummy_step_attribute_1: ダミーステップ属性１
-            dummy_step_attribute_2: ダミーステップ属性2
+            dummy_step_attribute1: ダミーステップ属性１
+            dummy_step_attribute2: ダミーステップ属性2
             dummy_step_translatable_text: ダミーステップ翻訳可能なテキスト
     contact: お問い合わせ
     content_blocks:
