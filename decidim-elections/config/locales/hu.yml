@@ -244,5 +244,7 @@ hu:
         check_census:
           error:
             info: 'Kérjük, próbálja újra. Amennyiben Ön szerint a rendszerben rögzített adat hibás, itt jelentheti: %{census_contact_information}'
+          success:
+            access_link: e-mailen keresztül.
         login:
           start_voting: Szavazás kezdete
