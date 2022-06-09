@@ -437,8 +437,8 @@ es-MX:
             amendments_enabled: Enmiendas habilitadas
             comments_enabled: Comentarios habilitados
             comments_max_length: Longitud máxima de los comentarios
-            dummy_global_attribute_1: Atributo de prueba 1
-            dummy_global_attribute_2: Atributo de prueba 2
+            dummy_global_attribute1: Atributo de prueba 1
+            dummy_global_attribute2: Atributo de prueba 2
             dummy_global_translatable_text: Texto de ejemplo traducible
             enable_pads_creation: Habilitar la creación de pads
             resources_permissions_enabled: Habilitar permisos de recursos
@@ -450,8 +450,8 @@ es-MX:
             amendment_reaction_enabled: Reacción de enmienda activada
             amendments_visibility: Visibilidad de la enmienda
             comments_blocked: Comentarios bloqueados
-            dummy_step_attribute_1: Atributo de fase de prueba 1
-            dummy_step_attribute_2: Atributo de fase de prueba 2
+            dummy_step_attribute1: Atributo de fase de prueba 1
+            dummy_step_attribute2: Atributo de fase de prueba 2
             dummy_step_translatable_text: Fase de ejemplo traducible
     contact: Contacto
     content_blocks:
