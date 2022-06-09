@@ -203,6 +203,7 @@ ja:
             title: 提案のインポート
         questions:
           create:
+            election_started: 選挙は既に開始されています
             invalid: この質問を作成中に問題が発生しました
             success: 問題を作成しました
           destroy:
