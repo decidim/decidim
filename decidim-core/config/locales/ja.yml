@@ -1699,6 +1699,12 @@ ja:
             name: 名前
             service: サービス
             type: タイプ
+          types:
+            cookie: クッキー
+        dialog:
+          accept_all: すべて受け入れる
+          accept_only_essential: 必須のみを受け入れる
+          cookie_settings: 設定
       edit_link:
         edit: 編集
       footer:
