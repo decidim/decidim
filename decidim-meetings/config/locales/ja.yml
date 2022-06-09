@@ -376,6 +376,8 @@ ja:
           value_types:
             organizer_presenter:
               not_found: '主催者がデータベース上に見つかりませんでした (ID: %{id})'
+        questionnaire:
+          update: "%{user_name} が %{meeting_name} ミーティングのアンケートを更新しました"
       application_helper:
         filter_category_values:
           all: すべて
