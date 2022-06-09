@@ -1287,7 +1287,7 @@ fi:
           form_title: 'Täytä seuraava lomake tarkistaaksesi tietosi henkilötietorekisterissä:'
           invalid: Henkilötietorekisterin tietojen tarkastaminen epäonnistui.
           success:
-            access_link: tekstiviestitse tai sähköpostitse.
+            access_link_with_sms: tekstiviestitse tai sähköpostitse.
             info: Sinun olisi pitänyt saada tunnistautumiskoodisi paperipostissa. Jos sinulla ei ole koodia, voit pyytää sitä täältä
             title: Tietosi henkilötietorekisterissä ovat oikein!
           title: Voinko äänestää?
