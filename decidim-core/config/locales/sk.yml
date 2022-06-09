@@ -340,8 +340,8 @@ sk:
           global:
             amendments_enabled: Zmeny povolené
             comments_enabled: Komentáre povolené
-            dummy_global_attribute_1: Zástupný atribút 1
-            dummy_global_attribute_2: Zástupný atribút 2
+            dummy_global_attribute1: Zástupný atribút 1
+            dummy_global_attribute2: Zástupný atribút 2
             dummy_global_translatable_text: Zástupný text k preloženie
             enable_pads_creation: Povoliť vytvorenie zdieľaného texte
             resources_permissions_enabled: Oprávnenie zdrojov povolené
@@ -351,8 +351,8 @@ sk:
             amendment_reaction_enabled: Reakcia na zmenu bola povolená
             amendments_visibility: Viditeľnosť pozmeňovacieho návrhu
             comments_blocked: Komentáre blokované
-            dummy_step_attribute_1: Atribút 1 zástupného kroku
-            dummy_step_attribute_2: Atribút 2 zástupného kroku
+            dummy_step_attribute1: Atribút 1 zástupného kroku
+            dummy_step_attribute2: Atribút 2 zástupného kroku
             dummy_step_translatable_text: Zástupný krok textu na preloženie
     contact: Kontakt
     content_blocks:
