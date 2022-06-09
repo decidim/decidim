@@ -212,6 +212,7 @@ ca:
             title: Importar propostes
         questions:
           create:
+            election_started: L'elecció ja ha començat
             invalid: S'ha produït un error en crear aquesta pregunta
             success: S'ha creat la pregunta correctament
           destroy:
