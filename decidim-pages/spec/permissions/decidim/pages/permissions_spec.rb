@@ -13,14 +13,14 @@ describe Decidim::Pages::Permissions do
     }
   end
   let(:page_component) { create :page_component }
-  let(:permission_action) { Decidim::PermissionAction.new(action) }
+  let(:permission_action) { Decidim::PermissionAction.new(**action) }
 
   context "when updating a page" do
     let(:action) do
       { scope: :admin, action: :update, subject: :page }
     end
 
-    it { is_expected.to eq true }
+    it { is_expected.to be true }
   end
 
   context "when any other action" do

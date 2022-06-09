@@ -46,7 +46,7 @@ en:
         participatory_text:
           attributes:
             document:
-              invalid_document_type: 'Invalid document type. Accepted formats are: %{valid_mime_types}'
+              allowed_file_content_types: 'Invalid document type. Accepted formats are: %{types}'
         proposal:
           attributes:
             add_documents:
@@ -198,6 +198,7 @@ en:
             automatic_hashtags: Hashtags added to all proposals
             comments_blocked: Comments blocked
             creation_enabled: Participants can create proposals
+            creation_enabled_readonly: This setting is disabled when you activate the Participatory Texts functionality. To upload proposals as participatory text click on the Participatory Texts button and follow the instructions.
             default_sort_order: Default proposal sorting
             default_sort_order_help: Default it means that if the supports are enabled, the proposals will be shown sorted by random, and if the supports are blocked, then they will be sorted by the most supported.
             default_sort_order_options:
@@ -226,33 +227,33 @@ en:
             email_subject: Someone left a note on proposal %{resource_title}.
             notification_title: Someone has left a note on the proposal <a href="%{resource_path}">%{resource_title}</a>. Check it out at <a href="%{admin_proposal_info_path}">the admin panel</a>
         collaborative_draft_access_accepted:
-          email_intro: '%{requester_name} has been accepted to access as a contributor of the <a href="%{resource_path}">%{resource_title}</a> collaborative draft.'
-          email_outro: You have received this notification because you are a collaborator of <a href="%{resource_path}">%{resource_title}</a>.
+          email_intro: '%{requester_name} has been accepted to access as a contributor of the <a href="%{resource_url}">%{resource_title}</a> collaborative draft.'
+          email_outro: You have received this notification because you are a collaborator of <a href="%{resource_url}">%{resource_title}</a>.
           email_subject: "%{requester_name} has been accepted to access as a contributor of the %{resource_title}."
           notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> has been <strong>accepted to access as a contributor</strong> of the <a href="%{resource_path}">%{resource_title}</a> collaborative draft.
         collaborative_draft_access_rejected:
-          email_intro: '%{requester_name} has been rejected to access as a contributor of the <a href="%{resource_path}">%{resource_title}</a> collaborative draft.'
-          email_outro: You have received this notification because you are a collaborator of <a href="%{resource_path}">%{resource_title}</a>.
+          email_intro: '%{requester_name} has been rejected to access as a contributor of the <a href="%{resource_url}">%{resource_title}</a> collaborative draft.'
+          email_outro: You have received this notification because you are a collaborator of <a href="%{resource_url}">%{resource_title}</a>.
           email_subject: "%{requester_name} has been rejected to access as a contributor of the %{resource_title} collaborative draft."
           notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> has been <strong>rejected to access as a contributor</strong> of the <a href="%{resource_path}">%{resource_title}</a> collaborative draft.
         collaborative_draft_access_requested:
-          email_intro: '%{requester_name} requested access as a contributor. You can <strong>accept or reject the request</strong> from the <a href="%{resource_path}">%{resource_title}</a> collaborative draft page.'
-          email_outro: You have received this notification because you are a collaborator of <a href="%{resource_path}">%{resource_title}</a>.
+          email_intro: '%{requester_name} requested access as a contributor. You can <strong>accept or reject the request</strong> from the <a href="%{resource_url}">%{resource_title}</a> collaborative draft page.'
+          email_outro: You have received this notification because you are a collaborator of <a href="%{resource_url}">%{resource_title}</a>.
           email_subject: "%{requester_name} requested access to contribute to %{resource_title}."
           notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> requested access to contribute to the <a href="%{resource_path}">%{resource_title}</a> collaborative draft. Please <strong>accept or reject the request</strong>.
         collaborative_draft_access_requester_accepted:
-          email_intro: You have been accepted to access as a contributor of the <a href="%{resource_path}">%{resource_title}</a> collaborative draft.
-          email_outro: You have received this notification because you requested to become a collaborator of <a href="%{resource_path}">%{resource_title}</a>.
+          email_intro: You have been accepted to access as a contributor of the <a href="%{resource_url}">%{resource_title}</a> collaborative draft.
+          email_outro: You have received this notification because you requested to become a collaborator of <a href="%{resource_url}">%{resource_title}</a>.
           email_subject: You have been accepted as a contributor of %{resource_title}.
           notification_title: You have been <strong>accepted to access as a contributor</strong> of the <a href="%{resource_path}">%{resource_title}</a> collaborative draft.
         collaborative_draft_access_requester_rejected:
-          email_intro: You have been rejected to access as a contributor of the <a href="%{resource_path}">%{resource_title}</a> collaborative draft.
-          email_outro: You have received this notification because you requested to become a collaborator of <a href="%{resource_path}">%{resource_title}</a>.
+          email_intro: You have been rejected to access as a contributor of the <a href="%{resource_url}">%{resource_title}</a> collaborative draft.
+          email_outro: You have received this notification because you requested to become a collaborator of <a href="%{resource_url}">%{resource_title}</a>.
           email_subject: You have been rejected as a contributor of %{resource_title}.
           notification_title: You have been <strong>rejected to access as a contributor</strong> of the <a href="%{resource_path}">%{resource_title}</a> collaborative draft.
         collaborative_draft_withdrawn:
-          email_intro: <a href="%{author_path}">%{author_name} %{author_nickname}</a> withdrawn the <a href="%{resource_path}">%{resource_title}</a> collaborative draft.
-          email_outro: You have received this notification because you are a collaborator of <a href="%{resource_path}">%{resource_title}</a>.
+          email_intro: <a href="%{author_url}">%{author_name} %{author_nickname}</a> withdrawn the <a href="%{resource_url}">%{resource_title}</a> collaborative draft.
+          email_outro: You have received this notification because you are a collaborator of <a href="%{resource_url}">%{resource_title}</a>.
           email_subject: "%{author_name} %{author_nickname} withdrawn the %{resource_title} collaborative draft."
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> <strong>withdrawn</strong> the <a href="%{resource_path}">%{resource_title}</a> collaborative draft.
         creation_enabled:
@@ -456,6 +457,7 @@ en:
             accepted: Accepted
             answer_proposal: Answer
             evaluating: Evaluating
+            not_answered: Not answered
             rejected: Rejected
             title: Answer for proposal %{title}
         proposal_notes:
@@ -658,6 +660,8 @@ en:
           filter_by: Filter by
           unfold: Unfold
         new:
+          add_file: Add file
+          edit_file: Edit file
           send: Continue
         new_collaborative_draft_button:
           new_collaborative_draft: New collaborative draft
@@ -768,12 +772,12 @@ en:
           description: The coordinates will be updated when clicking on 'preview' button. However, the address does not change.
           instructions: You can move the point on the map.
         edit:
-          add_documents: Documents
-          add_images: File
+          add_documents: Add documents
+          add_image: Add image
           attachment_legend: "(Optional) Add an attachment"
           back: Back
-          delete_document: Delete Document
-          delete_image: Delete Image
+          edit_documents: Edit documents
+          edit_image: Edit image
           gallery_legend: "(Optional) Add an image to the proposal card"
           select_a_category: Please select a category
           send: Send
@@ -815,7 +819,7 @@ en:
             other: supports
         new:
           send: Continue
-          title: Create Your Proposal
+          title: Create your proposal
         orders:
           label: 'Order proposals by:'
           most_commented: Most commented

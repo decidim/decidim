@@ -123,6 +123,10 @@ fi:
         file: Tiedosto
     errors:
       models:
+        newsletter:
+          attributes:
+            base:
+              at_least_one_space: Valitse vähintään yksi osallistumistila
         organization:
           attributes:
             official_img_footer:
@@ -172,6 +176,8 @@ fi:
         permissions: Oikeudet
         reject: Hylkää
         share: Jaa
+        user:
+          new: Uusi hallintakäyttäjä
         verify: Vahvista
       admin_terms_of_use:
         accept:
@@ -899,6 +905,7 @@ fi:
         gallery:
           add_images: Lisää kuvia
           delete_image: Poista kuva
+          edit_images: Muokkaa kuvia
           gallery_legend: Lisää kuvagalleria (valinnainen)
       static_page_topics:
         create:
@@ -959,6 +966,7 @@ fi:
         static_pages: Sivut
         statistics: Toiminta
         user_groups: Käyttäjäryhmät
+        users: Hallintakäyttäjät
       user_group:
         csv_verify:
           invalid: CSV-tiedoston käsittely epäonnistui.
@@ -994,6 +1002,7 @@ fi:
           role: Rooli
         new:
           create: Kutsu
+          title: Luo uusi hallintakäyttäjä
       users_statistics:
         users_count:
           admins: Ylläpitäjät

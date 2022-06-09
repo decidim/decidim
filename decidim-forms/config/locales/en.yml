@@ -122,6 +122,9 @@ en:
           update:
             invalid: There was a problem saving the form.
             success: Form successfully saved.
+      admin_log:
+        questionnaire:
+          update: "%{user_name} updated the %{resource_name} questionnaire"
       errors:
         answer:
           body: Body can't be blank
@@ -129,10 +132,9 @@ en:
         extension_allowlist: 'Accepted formats:'
       images:
         dimensions: "%{width} x %{height} px"
-        dimensions_info: 'This image will be:'
         processors:
-          resize_and_pad: Resized and padded to
-          resize_to_fit: Resized to fit
+          resize_and_pad: This image will be resized and padded to %{dimensions}.
+          resize_to_fit: This image will be resized to fit %{dimensions}.
       question_types:
         files: Files
         long_answer: Long answer

@@ -45,8 +45,8 @@ module Decidim
           transaction do
             update_proposal
             update_proposal_author
-            create_attachment if process_attachments?
             create_gallery if process_gallery?
+            create_attachment(weight: first_attachment_weight) if process_attachments?
             photo_cleanup!
           end
 
@@ -59,7 +59,7 @@ module Decidim
 
         def update_proposal
           parsed_title = Decidim::ContentProcessor.parse_with_processor(:hashtag, form.title, current_organization: form.current_organization).rewrite
-          parsed_body = Decidim::ContentProcessor.parse_with_processor(:hashtag, form.body, current_organization: form.current_organization).rewrite
+          parsed_body = Decidim::ContentProcessor.parse(form.body, current_organization: form.current_organization).rewrite
           Decidim.traceability.update!(
             proposal,
             form.current_user,
@@ -79,6 +79,12 @@ module Decidim
           proposal.add_coauthor(form.author)
           proposal.save!
           proposal
+        end
+
+        def first_attachment_weight
+          return 1 if proposal.photos.count.zero?
+
+          proposal.photos.count
         end
       end
     end

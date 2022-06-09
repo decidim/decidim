@@ -26,7 +26,7 @@ module Decidim
           it "assigns the default value for the allow_public_access" do
             post :create, params: {}
 
-            expect(assigns(:form).allow_public_access).to eq(false)
+            expect(assigns(:form).allow_public_access).to be(false)
           end
         end
 
@@ -34,13 +34,13 @@ module Decidim
           it "does not overwrite it when unchecked" do
             put :create, params: { static_page: { allow_public_access: "0" } }.with_indifferent_access
 
-            expect(assigns(:form).allow_public_access).to eq(false)
+            expect(assigns(:form).allow_public_access).to be(false)
           end
 
           it "does not overwrite it when checked" do
             post :create, params: { static_page: { allow_public_access: "1" } }.with_indifferent_access
 
-            expect(assigns(:form).allow_public_access).to eq(true)
+            expect(assigns(:form).allow_public_access).to be(true)
           end
         end
       end
@@ -75,14 +75,14 @@ module Decidim
             page.update!(allow_public_access: true)
             put :update, params: { id: page.id }.with_indifferent_access
 
-            expect(assigns(:form).allow_public_access).to eq(true)
+            expect(assigns(:form).allow_public_access).to be(true)
           end
 
           it "injects it to the form when set to false" do
             page.update!(allow_public_access: false)
             put :update, params: { id: page.id }.with_indifferent_access
 
-            expect(assigns(:form).allow_public_access).to eq(false)
+            expect(assigns(:form).allow_public_access).to be(false)
           end
         end
 
@@ -91,14 +91,14 @@ module Decidim
             page.update!(allow_public_access: true)
             put :update, params: { id: page.id, static_page: { allow_public_access: "0" } }.with_indifferent_access
 
-            expect(assigns(:form).allow_public_access).to eq(false)
+            expect(assigns(:form).allow_public_access).to be(false)
           end
 
           it "does not overwrite it when checked" do
             page.update!(allow_public_access: false)
             put :update, params: { id: page.id, static_page: { allow_public_access: "1" } }.with_indifferent_access
 
-            expect(assigns(:form).allow_public_access).to eq(true)
+            expect(assigns(:form).allow_public_access).to be(true)
           end
         end
       end

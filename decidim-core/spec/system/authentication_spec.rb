@@ -226,6 +226,27 @@ describe "Authentication", type: :system do
       end
     end
 
+    context "when nickname is not unique case insensitively" do
+      let!(:user) { create(:user, nickname: "Nick", organization: organization) }
+
+      it "show an error message" do
+        find(".sign-up-link").click
+
+        within ".new_user" do
+          fill_in :registration_user_email, with: "user@example.org"
+          fill_in :registration_user_name, with: "Responsible Citizen"
+          fill_in :registration_user_nickname, with: "NiCk"
+          fill_in :registration_user_password, with: "DfyvHn425mYAy2HL"
+          fill_in :registration_user_password_confirmation, with: "DfyvHn425mYAy2HL"
+          check :registration_user_tos_agreement
+          check :registration_user_newsletter
+          find("*[type=submit]").click
+        end
+
+        expect(page).to have_content("has already been taken")
+      end
+    end
+
     context "when sign up is disabled" do
       let(:organization) { create(:organization, users_registration_mode: :existing) }
 
@@ -253,7 +274,7 @@ describe "Authentication", type: :system do
   end
 
   context "when confirming the account" do
-    let!(:user) { create(:user, email_on_notification: true, organization: organization) }
+    let!(:user) { create(:user, organization: organization) }
 
     before do
       perform_enqueued_jobs { user.confirm }
@@ -362,6 +383,21 @@ describe "Authentication", type: :system do
 
         expect(page).to have_content("Your password has been successfully changed")
         expect(page).to have_current_path "/"
+      end
+
+      it "enforces rules when setting a new password for the user" do
+        visit last_email_link
+
+        within ".new_user" do
+          fill_in :password_user_password, with: "example"
+          fill_in :password_user_password_confirmation, with: "example"
+          find("*[type=submit]").click
+        end
+
+        expect(page).to have_content("10 characters minimum")
+        expect(page).to have_content("must be different from your nickname and your email")
+        expect(page).to have_content("must not be too common")
+        expect(page).to have_current_path "/users/password"
       end
     end
 

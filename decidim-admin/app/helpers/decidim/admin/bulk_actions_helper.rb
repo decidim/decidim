@@ -3,10 +3,6 @@
 module Decidim
   module Admin
     module BulkActionsHelper
-      def proposal_find(id)
-        Decidim::Proposals::Proposal.find(id)
-      end
-
       # Public: Generates a select field with the categories. Only leaf categories can be set as selected.
       #
       # categories - A collection of categories.

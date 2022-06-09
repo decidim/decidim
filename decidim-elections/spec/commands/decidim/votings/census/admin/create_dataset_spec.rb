@@ -8,14 +8,14 @@ module Decidim::Votings::Census::Admin
 
     let(:voting) { create(:voting) }
     let(:user) { create(:user, :admin, organization: voting.organization) }
-    let(:file) { Decidim::Dev.test_file("import_voting_census.csv", "text/csv") }
+    let(:file) { upload_test_file(Decidim::Dev.test_file("import_voting_census.csv", "text/csv")) }
     let(:params) { { file: file } }
     let(:context) { { current_participatory_space: voting } }
 
     let(:form) { DatasetForm.from_params(params).with_context(context) }
 
     context "when the form is not valid" do
-      let(:file) {}
+      let(:file) { nil }
 
       it "broadcasts invalid" do
         expect(subject.call).to broadcast(:invalid)
@@ -29,7 +29,7 @@ module Decidim::Votings::Census::Admin
     end
 
     context "when headers are invalid" do
-      let(:file) { Decidim::Dev.test_file("import_voting_census_without_headers.csv", "text/csv") }
+      let(:file) { upload_test_file(Decidim::Dev.test_file("import_voting_census_without_headers.csv", "text/csv")) }
 
       it "broadcasts invalid_csv_file" do
         expect(subject.call).to broadcast(:invalid_csv_header)

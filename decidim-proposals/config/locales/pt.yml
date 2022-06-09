@@ -747,12 +747,8 @@ pt:
           description: As coordenadas serão actualizadas quando clicar no botão ‘pré-visualização’. No entanto, o endereço não será alterado.
           instructions: Pode mover o ponto no mapa.
         edit:
-          add_documents: Documentos
-          add_images: Ficheiro
           attachment_legend: "(Opcional) Adicione um anexo"
           back: Voltar
-          delete_document: Apagar Documento
-          delete_image: Apagar Imagem
           gallery_legend: "(Opcional) Adicionar uma imagem ao cartão da proposta"
           select_a_category: Por favor selecione uma categoria
           send: Enviar

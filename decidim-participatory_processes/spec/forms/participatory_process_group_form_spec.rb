@@ -40,7 +40,7 @@ module Decidim
         end
         let(:hashtag) { "hashtag" }
         let(:group_url) { "http://example.org" }
-        let(:attachment) { Decidim::Dev.test_file("city.jpeg", "image/jpeg") }
+        let(:attachment) { upload_test_file(Decidim::Dev.test_file("city.jpeg", "image/jpeg")) }
 
         let(:attributes) do
           {
@@ -66,14 +66,14 @@ module Decidim
             organization.settings.tap do |settings|
               settings.upload.maximum_file_size.default = 5
             end
-            expect(subject.hero_image).to receive(:size).and_return(6.megabytes)
+            ActiveStorage::Blob.find_signed(attachment).update(byte_size: 6.megabytes)
           end
 
           it { is_expected.not_to be_valid }
         end
 
         context "when images are not the expected type" do
-          let(:attachment) { Decidim::Dev.test_file("Exampledocument.pdf", "application/pdf") }
+          let(:attachment) { upload_test_file(Decidim::Dev.test_file("Exampledocument.pdf", "application/pdf")) }
 
           it { is_expected.not_to be_valid }
         end

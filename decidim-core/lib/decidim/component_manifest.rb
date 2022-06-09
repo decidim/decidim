@@ -14,8 +14,8 @@ module Decidim
     include ActiveModel::Model
     include Decidim::AttributeObject::Model
 
-    attribute :admin_engine, Rails::Engine, {}
-    attribute :engine, Rails::Engine, {}
+    attribute :admin_engine, Rails::Engine, **{}
+    attribute :engine, Rails::Engine, **{}
 
     attribute :name, Symbol
     attribute :hooks, Hash[Symbol => Array[Proc]], default: {}
@@ -23,7 +23,7 @@ module Decidim
     attribute :query_type, String, default: "Decidim::Core::ComponentType"
 
     # An array with the name of the classes that will be exported with
-    # the data portability feature for this component. For example, `Decidim::<MyModule>::<MyClass>``
+    # the download your data feature for this component. For example, `Decidim::<MyModule>::<MyClass>``
     attribute :data_portable_entities, Array, default: []
 
     # An array with the name of the classes to know the participants

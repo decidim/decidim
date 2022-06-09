@@ -57,13 +57,11 @@ module Decidim
       end
 
       def base_statuses
-        @base_statuses ||= begin
-          if endorsements_visible?
-            [:endorsements_count, :comments_count]
-          else
-            [:comments_count]
-          end
-        end
+        @base_statuses ||= if endorsements_visible?
+                             [:endorsements_count, :comments_count]
+                           else
+                             [:comments_count]
+                           end
       end
 
       def statuses
@@ -122,7 +120,7 @@ module Decidim
       end
 
       def resource_image_path
-        @resource_image_path ||= has_image? ? model.attachments.find_by("content_type like '%image%'").url : nil
+        @resource_image_path ||= has_image? ? model.attachments.find_by("content_type like '%image%'").thumbnail_url : nil
       end
 
       def cache_hash
@@ -143,6 +141,8 @@ module Decidim
         hash << Digest::MD5.hexdigest(model.authors.map(&:cache_key_with_version).to_s)
         hash << (model.must_render_translation?(model.organization) ? 1 : 0) if model.respond_to?(:must_render_translation?)
         hash << model.component.participatory_space.active_step.id if model.component.participatory_space.try(:active_step)
+        hash << has_footer?
+        hash << has_actions?
 
         hash.join(Decidim.cache_key_separator)
       end

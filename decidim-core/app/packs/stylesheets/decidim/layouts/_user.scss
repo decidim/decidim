@@ -37,6 +37,14 @@
   }
 }
 
+.account-notification{
+  display: flex;
+
+  &.callout.flash{
+    margin-bottom: 1rem;
+  }
+}
+
 .badge-card__content{
   @extend .card__content;
 

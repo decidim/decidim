@@ -27,7 +27,7 @@
     <div class="row column">
       <%= form.select :voting_type,
                   @form.options_for_voting_type_select,
-                  { include_blank: t(".select_a_voting_type") },
+                  { include_blank: t(".select_a_voting_type"), label: t(".voting_type_label") },
                   { multiple: false } %>
     </div>
 
@@ -37,7 +37,7 @@
 
     <div class="row">
       <div class="columns xlarge-6 slug">
-        <%= form.text_field :slug %>
+        <%= form.text_field :slug, label: t(".slug") %>
         <p class="help-text">
           <%== t(".slug_help", url: decidim_form_slug_url(:votings, form.object.slug)) %>
         </p>
@@ -45,8 +45,17 @@
     </div>
 
     <div class="row">
+      <div class="columns xlarge-6 show_check_census">
+        <%= form.check_box :show_check_census %>
+        <p class="help-text">
+          <%== t(".show_check_census_help") %>
+        </p>
+      </div>
+    </div>
+
+    <div class="row">
       <div class="columns xlarge-6 census_contact_information">
-        <%= form.text_field :census_contact_information %>
+        <%= form.text_field :census_contact_information, label: t(".census_contact_information") %>
         <p class="help-text">
           <%== t(".census_contact_information_help") %>
         </p>
@@ -54,16 +63,16 @@
     </div>
 
     <div class="row column">
-      <%= form.check_box :promoted %>
+      <%= form.check_box :promoted, label: t(".promoted") %>
     </div>
 
     <div class="row">
       <div class="columns xlarge-4">
-        <%= form.upload :banner_image %>
+        <%= form.upload :banner_image, label: t(".banner_image") %>
       </div>
 
       <div class="columns xlarge-4">
-        <%= form.upload :introductory_image %>
+        <%= form.upload :introductory_image, label: t(".introductory_image") %>
       </div>
     </div>
   </div>

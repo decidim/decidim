@@ -42,30 +42,101 @@ describe "Edit proposals", type: :system do
       expect(page).to have_content(new_body)
     end
 
-    context "with attachments allowed" do
+    context "when attachments are allowed" do
       let(:component) { create(:proposal_component, :with_attachments_allowed, participatory_space: participatory_process) }
-      let!(:file) { create(:attachment, :with_pdf, attached_to: proposal) }
-      let!(:photo) { create(:attachment, :with_image, attached_to: proposal) }
 
-      it "can delete attachments" do
+      before do
         visit_component
         click_link translated(proposal.title)
-        expect(page).to have_content("RELATED DOCUMENTS")
-        expect(page).to have_content("RELATED IMAGES")
+      end
+
+      it "shows validation error when format is not accepted" do
         click_link "Edit proposal"
+        dynamically_attach_file(:proposal_photos, Decidim::Dev.asset("participatory_text.md"), keep_modal_open: true) do
+          expect(page).to have_content("Accepted formats: #{Decidim::OrganizationSettings.for(organization).upload_allowed_file_extensions_image.join(", ")}")
+        end
+        expect(page).to have_content("file should be one of (?-mix:image\\/.*?), (?-mix:application\\/pdf), (?-mix:application\\/rtf), (?-mix:text\\/plain)")
+      end
 
-        within "#attachment_#{file.id}" do
-          click_button "Delete Document"
+      context "with a file and photo" do
+        let!(:file) { create(:attachment, :with_pdf, weight: 1, attached_to: proposal) }
+        let!(:photo) { create(:attachment, :with_image, weight: 0, attached_to: proposal) }
+
+        it "can delete attachments" do
+          visit current_path
+          expect(page).to have_content("RELATED DOCUMENTS")
+          expect(page).to have_content("RELATED IMAGES")
+          click_link "Edit proposal"
+
+          click_button "Edit documents"
+          within ".upload-modal" do
+            find("button.remove-upload-item").click
+            click_button "Save"
+          end
+          click_button "Edit image"
+          within ".upload-modal" do
+            find("button.remove-upload-item").click
+            click_button "Save"
+          end
+
+          click_button "Send"
+
+          expect(page).to have_no_content("Related documents")
+          expect(page).to have_no_content("Related images")
         end
 
-        within "#attachment_#{photo.id}" do
-          click_button "Delete Image"
+        context "with attachment titles" do
+          let(:attachment_file_title) { ::Faker::Lorem.sentence }
+          let(:attachment_image_title) { ::Faker::Lorem.sentence }
+
+          it "can change attachment titles" do
+            click_link "Edit proposal"
+            click_button "Edit image"
+            within ".upload-modal" do
+              expect(page).to have_content("Preferrably a landscape image that does not have any text")
+              find(".attachment-title").set(attachment_image_title)
+              click_button "Save"
+            end
+            click_button "Edit documents"
+            within ".upload-modal" do
+              expect(page).to have_content("Has to be an image or a document")
+              find(".attachment-title").set(attachment_file_title)
+              click_button "Save"
+            end
+            click_button "Send"
+            expect(page).to have_selector("div.flash.callout.success")
+            expect(Decidim::Attachment.count).to eq(2)
+            expect(translated(Decidim::Attachment.find_by(attached_to_id: proposal.id, content_type: "image/jpeg").title)).to eq(attachment_image_title)
+            expect(translated(Decidim::Attachment.find_by(attached_to_id: proposal.id, content_type: "application/pdf").title)).to eq(attachment_file_title)
+          end
         end
+      end
 
-        click_button "Send"
-
-        expect(page).to have_no_content("Related documents")
-        expect(page).to have_no_content("Related images")
+      context "with multiple images" do
+        it "can add many images many times" do
+          click_link "Edit proposal"
+          dynamically_attach_file(:proposal_photos, Decidim::Dev.asset("city.jpeg"))
+          dynamically_attach_file(:proposal_documents, Decidim::Dev.asset("icon.png"))
+          dynamically_attach_file(:proposal_documents, Decidim::Dev.asset("avatar.jpg"))
+          click_button "Send"
+          click_link "Edit proposal"
+          within ".photos_container" do
+            expect(page).to have_content("city.jpeg")
+          end
+          within ".attachments_container" do
+            expect(page).to have_content("icon.png")
+            expect(page).to have_content("avatar.jpg")
+          end
+          dynamically_attach_file(:proposal_documents, Decidim::Dev.asset("city2.jpeg"))
+          dynamically_attach_file(:proposal_documents, Decidim::Dev.asset("city3.jpeg"))
+          click_button "Send"
+          expect(page).to have_selector("div.flash.callout.success")
+          expect(page).to have_selector(".thumbnail[alt='city']")
+          expect(page).to have_selector(".thumbnail[alt='icon']")
+          expect(page).to have_selector(".thumbnail[alt='avatar']")
+          expect(page).to have_selector(".thumbnail[alt='city2']")
+          expect(page).to have_selector(".thumbnail[alt='city3']")
+        end
       end
     end
 
@@ -150,7 +221,8 @@ describe "Edit proposals", type: :system do
           click_button "Send"
         end
 
-        expect(page).to have_content("At least 15 characters", count: 2)
+        # The character counters are doubled because there is a separate screen reader character counter.
+        expect(page).to have_content("At least 15 characters", count: 4)
 
         within "form.edit_proposal" do
           fill_in :proposal_body, with: "WE DO NOT WANT TO SHOUT IN THE PROPOSAL BODY TEXT!"
@@ -182,18 +254,31 @@ describe "Edit proposals", type: :system do
     context "when rich text editor is enabled on the frontend" do
       before do
         organization.update(rich_text_editor_in_public_views: true)
-        body = proposal.body
-        body["en"] = 'Hello <a href="http://www.linux.org" target="_blank">external link</a> World'
-        proposal.update!(body: body)
       end
 
-      it "doesnt change the href" do
-        visit_component
+      context "when proposal body has link" do
+        let(:link) { "http://www.linux.org" }
+        let(:body_en) { %(Hello <a href="#{link}" target="_blank">this is a link</a> World) }
 
-        click_link proposal_title
-        click_link "Edit proposal"
+        before do
+          body = proposal.body
+          body["en"] = body_en
+          proposal.update!(body: body)
+          visit_component
+          click_link proposal_title
+        end
 
-        expect(page).to have_link("external link", href: "http://www.linux.org")
+        it "doesnt change the href" do
+          click_link "Edit proposal"
+          expect(page).to have_link("this is a link", href: link)
+        end
+
+        it "doesnt add external link container inside the editor" do
+          click_link "Edit proposal"
+          editor = page.find(".editor-container")
+          expect(editor).to have_selector("a[href='#{link}']")
+          expect(editor).not_to have_selector("a.external-link-container")
+        end
       end
     end
   end

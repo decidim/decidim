@@ -15,7 +15,7 @@ Gem::Specification.new do |s|
   s.summary = "The core of the Decidim framework."
   s.description = "Adds core features so other engines can hook into the framework."
   s.license = "AGPL-3.0"
-  s.required_ruby_version = ">= 2.7"
+  s.required_ruby_version = ">= 3.0"
 
   s.files = Dir["{app,config,db,lib,vendor}/**/*", "Rakefile", "README.md"]
 
@@ -27,13 +27,13 @@ Gem::Specification.new do |s|
   s.add_dependency "cells-erb", "~> 0.1.0"
   s.add_dependency "cells-rails", "~> 0.1.3"
   s.add_dependency "charlock_holmes", "~> 0.7"
-  s.add_dependency "date_validator", "~> 0.9.0"
+  s.add_dependency "date_validator", "~> 0.12.0"
   s.add_dependency "devise", "~> 4.7"
   s.add_dependency "devise-i18n", "~> 1.2"
   s.add_dependency "diffy", "~> 3.3"
   s.add_dependency "doorkeeper", "~> 5.1"
   s.add_dependency "doorkeeper-i18n", "~> 4.0"
-  s.add_dependency "file_validators", "~> 2.1"
+  s.add_dependency "file_validators", "~> 3.0"
   s.add_dependency "fog-local", "~> 0.6"
   s.add_dependency "foundation_rails_helper", "~> 4.0"
   s.add_dependency "geocoder", "~> 1.5"
@@ -55,10 +55,9 @@ Gem::Specification.new do |s|
   s.add_dependency "premailer-rails", "~> 1.10"
   s.add_dependency "rack", "~> 2.2", ">= 2.2.3"
   s.add_dependency "rack-attack", "~> 6.0"
-  s.add_dependency "rails", "~> 6.0.4", ">= 6.0.4.6"
+  s.add_dependency "rails", "~> 6.1.0"
   s.add_dependency "rails-i18n", "~> 6.0"
   s.add_dependency "ransack", "~> 2.4.1"
-  s.add_dependency "rectify", "~> 0.13.0"
   s.add_dependency "redis", "~> 4.1"
   s.add_dependency "request_store", "~> 1.5.0"
   s.add_dependency "rubyXL", "~> 3.4"
@@ -67,6 +66,7 @@ Gem::Specification.new do |s|
   s.add_dependency "social-share-button", "~> 1.2", ">= 1.2.1"
   s.add_dependency "valid_email2", "~> 2.1"
   s.add_dependency "webpacker", "= 6.0.0.rc.5"
+  s.add_dependency "webpush", "~> 1.1"
   s.add_dependency "wisper", "~> 2.0"
 
   s.add_dependency "decidim-api", Decidim::Core.version

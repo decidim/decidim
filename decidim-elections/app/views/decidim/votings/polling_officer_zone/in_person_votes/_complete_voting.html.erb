@@ -2,7 +2,11 @@
   <div class="columns">
     <% if vote_check.allowed? %>
       <div class="callout success mt-s">
-        <h5><%= t(".census_verified") %></h5>
+        <% if voted_online? %>
+          <h5><%= t(".census_verified_with_online_vote") %></h5>
+        <% else %>
+          <h5><%= t(".census_verified") %></h5>
+        <% end %>
       </div>
       <div class="row mt-sm">
         <div class="columns large-7">
@@ -56,4 +60,6 @@
   </div>
 </div>
 
-<%= javascript_pack_tag "decidim_votings_voting_polling_officer_zone_in_person_vote" %>
+<% content_for :js_content do %>
+  <%= javascript_pack_tag "decidim_votings_voting_polling_officer_zone_in_person_vote" %>
+<% end %>

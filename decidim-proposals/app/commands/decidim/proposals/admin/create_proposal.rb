@@ -37,8 +37,8 @@ module Decidim
 
           transaction do
             create_proposal
-            create_attachment if process_attachments?
             create_gallery if process_gallery?
+            create_attachment(weight: first_attachment_weight) if process_attachments?
             link_author_meeeting if form.created_in_meeting?
             send_notification
           end
@@ -61,7 +61,7 @@ module Decidim
 
         def attributes
           parsed_title = Decidim::ContentProcessor.parse_with_processor(:hashtag, form.title, current_organization: form.current_organization).rewrite
-          parsed_body = Decidim::ContentProcessor.parse_with_processor(:hashtag, form.body, current_organization: form.current_organization).rewrite
+          parsed_body = Decidim::ContentProcessor.parse(form.body, current_organization: form.current_organization).rewrite
           {
             title: parsed_title,
             body: parsed_body,
@@ -90,6 +90,12 @@ module Decidim
               participatory_space: true
             }
           )
+        end
+
+        def first_attachment_weight
+          return 1 if proposal.photos.count.zero?
+
+          proposal.photos.count
         end
       end
     end

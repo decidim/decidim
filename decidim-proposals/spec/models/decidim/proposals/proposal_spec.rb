@@ -13,6 +13,7 @@ module Decidim
       let(:coauthorable) { proposal }
 
       include_examples "coauthorable"
+      include_examples "endorsable"
       include_examples "has component"
       include_examples "has scope"
       include_examples "has category"
@@ -48,37 +49,6 @@ module Decidim
         it "returns true if the proposal is not voted by the given user" do
           create(:proposal_vote, proposal: subject, author: user)
           expect(subject).to be_voted_by(user)
-        end
-      end
-
-      describe "#endorsed_by?" do
-        let(:user) { create(:user, organization: subject.organization) }
-
-        context "with User endorsement" do
-          it "returns false if the proposal is not endorsed by the given user" do
-            expect(subject).not_to be_endorsed_by(user)
-          end
-
-          it "returns true if the proposal is not endorsed by the given user" do
-            create(:endorsement, resource: subject, author: user)
-            expect(subject).to be_endorsed_by(user)
-          end
-        end
-
-        context "with Organization endorsement" do
-          let!(:user_group) { create(:user_group, verified_at: Time.current, organization: user.organization) }
-          let!(:membership) { create(:user_group_membership, user: user, user_group: user_group) }
-
-          before { user_group.reload }
-
-          it "returns false if the proposal is not endorsed by the given organization" do
-            expect(subject).not_to be_endorsed_by(user, user_group)
-          end
-
-          it "returns true if the proposal is not endorsed by the given organization" do
-            create(:endorsement, resource: subject, author: user, user_group: user_group)
-            expect(subject).to be_endorsed_by(user, user_group)
-          end
         end
       end
 

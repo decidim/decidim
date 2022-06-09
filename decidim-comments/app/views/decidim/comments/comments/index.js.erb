@@ -4,6 +4,7 @@
   var $comments = $("#" + rootCommentableId);
   var component = $comments.data("comments");
 
+  $(".loading-comments").addClass("hide");
 <% @comments.each do |comment| %>
   var commentId = <%= comment.id.to_json %>;
   var commentHtml = '<%== j(render comment).strip %>';

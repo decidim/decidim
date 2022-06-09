@@ -1,5 +1,19 @@
 import AutoComplete from "src/decidim/autocomplete";
 
+const updateSubmitButton = ($fieldContainer, $selectedItems) => {
+  const $form = $fieldContainer.closest("form");
+  if ($form.length < 1) {
+    return;
+  }
+
+  const $submitButton = $form.find("button[type='submit']");
+  if ($selectedItems.children().length === 0) {
+    $submitButton.prop("disabled", true);
+  } else {
+    $submitButton.prop("disabled", false);
+  }
+}
+
 $(() => {
   const $fieldContainer = $(".multiple-mentions");
   if ($fieldContainer.length < 1) {
@@ -16,6 +30,15 @@ $(() => {
   const iconsPath = window.Decidim.config.get("icons_path");
   const removeLabel = messages.removeRecipient || "Remove recipient %name%";
 
+  let emptyFocusElement = $fieldContainer[0].querySelector(".empty-list");
+  if (!emptyFocusElement) {
+    emptyFocusElement = document.createElement("div");
+    emptyFocusElement.tabIndex = "-1";
+    emptyFocusElement.className = "empty-list";
+    $selectedItems.before(emptyFocusElement);
+  }
+
+  updateSubmitButton($fieldContainer, $selectedItems);
   const autoComplete = new AutoComplete($searchInput[0], {
     dataMatchKeys: ["name", "nickname"],
     dataSource: (query, callback) => {
@@ -64,7 +87,7 @@ $(() => {
 
     const label = removeLabel.replace("%name%", selection.value.name);
     $selectedItems.append(`
-      <li>
+      <li tabindex="-1">
         <input type="hidden" name="${options.name}" value="${id}">
         <img src="${selection.value.avatarUrl}" class="author__avatar" alt="${selection.value.name}">
         <b>${selection.value.name}</b>
@@ -74,12 +97,18 @@ $(() => {
 
     autoComplete.setInput("");
     selected.push(id);
+    updateSubmitButton($fieldContainer, $selectedItems);
 
     $selectedItems.find(`*[data-remove="${id}"]`).on("keypress click", (evt) => {
       const target = evt.target.parentNode;
       if (target.tagName === "LI") {
+        const focusElement = target.nextElementSibling || target.previousElementSibling || emptyFocusElement;
+
         selected = selected.filter((identifier) => identifier !== id);
         target.remove();
+
+        updateSubmitButton($fieldContainer, $selectedItems);
+        focusElement.focus();
       }
     })
   })

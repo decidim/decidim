@@ -16,8 +16,8 @@ module Decidim
             es: "Ya para ser feliz quiero un camión"
           }
         end
-        let(:description) {}
-        let(:document) { Decidim::Dev.test_file("participatory_text.md", "text/markdown") }
+        let(:description) { nil }
+        let(:document) { upload_test_file(Decidim::Dev.test_file("participatory_text.md", "text/markdown")) }
 
         let(:params) do
           {

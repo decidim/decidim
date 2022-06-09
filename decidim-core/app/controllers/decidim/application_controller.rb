@@ -26,13 +26,13 @@ module Decidim
     helper Decidim::LanguageChooserHelper
     helper Decidim::ReplaceButtonsHelper
     helper Decidim::TranslationsHelper
-    helper Decidim::CookiesHelper
     helper Decidim::AriaSelectedLinkToHelper
     helper Decidim::MenuHelper
     helper Decidim::ComponentPathHelper
     helper Decidim::ViewHooksHelper
     helper Decidim::CardHelper
     helper Decidim::SanitizeHelper
+    helper Decidim::TwitterSearchHelper
 
     register_permissions(::Decidim::ApplicationController,
                          ::Decidim::Admin::Permissions,

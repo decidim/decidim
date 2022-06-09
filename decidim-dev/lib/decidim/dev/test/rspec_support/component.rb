@@ -89,7 +89,7 @@ module Decidim
       include Followable
       include Traceable
       include Publicable
-      include Decidim::DataPortability
+      include Decidim::DownloadYourData
       include Searchable
       include Paddable
       include Amendable

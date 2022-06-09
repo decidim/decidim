@@ -6,7 +6,7 @@ module Decidim::Amendable
                     :emendation_path, :emendation_author_nickname, :emendation_author_path
 
     def amendable_title
-      @amendable_title ||= amendable_resource.title
+      @amendable_title ||= translated_attribute(amendable_resource.title)
     end
 
     def amendable_type

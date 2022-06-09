@@ -26,7 +26,7 @@ module Decidim
       user = User.find_by(decidim_organization_id: current_organization.id, id: decrypted_string.split("-").first)
       sent_at_time = Time.zone.at(decrypted_string.split("-").second.to_i)
 
-      if sent_at_time > (Time.current - 15.days)
+      if sent_at_time > (15.days.ago)
         UnsubscribeSettings.call(user) do
           on(:ok) do
             flash.now[:notice] = t("newsletters.unsubscribe.success", scope: "decidim")

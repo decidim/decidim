@@ -70,7 +70,7 @@ module Decidim
 
       describe "when the form is invalid" do
         before do
-          expect(form).to receive(:invalid?).and_return(true)
+          allow(form).to receive(:invalid?).and_return(true)
         end
 
         it "broadcasts invalid" do
@@ -116,11 +116,11 @@ module Decidim
             command.call
 
             expect(Answer.first.session_token).to eq(tokenize(current_user.id))
-            expect(Answer.first.ip_hash).to eq(nil)
+            expect(Answer.first.ip_hash).to be_nil
             expect(Answer.second.session_token).to eq(tokenize(current_user.id))
-            expect(Answer.second.ip_hash).to eq(nil)
+            expect(Answer.second.ip_hash).to be_nil
             expect(Answer.third.session_token).to eq(tokenize(current_user.id))
-            expect(Answer.third.ip_hash).to eq(nil)
+            expect(Answer.third.ip_hash).to be_nil
           end
         end
 
@@ -128,8 +128,14 @@ module Decidim
           let(:question_1) { create(:questionnaire_question, questionnaire: questionnaire, question_type: :files) }
           let(:uploaded_files) do
             [
-              Decidim::Dev.test_file("city.jpeg", "image/jpeg"),
-              Decidim::Dev.test_file("Exampledocument.pdf", "application/pdf")
+              {
+                title: "Picture of the city",
+                file: upload_test_file(Decidim::Dev.test_file("city.jpeg", "image/jpeg"))
+              },
+              {
+                title: "Example document",
+                file: upload_test_file(Decidim::Dev.test_file("Exampledocument.pdf", "application/pdf"))
+              }
             ]
           end
           let(:form_params) do
@@ -155,8 +161,14 @@ module Decidim
           context "when attachments are allowed and file is invalid" do
             let(:uploaded_files) do
               [
-                Decidim::Dev.test_file("city.jpeg", "image/jpeg"),
-                Decidim::Dev.test_file("verify_user_groups.csv", "text/csv")
+                {
+                  title: "Picture of the city",
+                  file: upload_test_file(Decidim::Dev.asset("city.jpeg"), content_type: "image/jpeg")
+                },
+                {
+                  title: "CSV document",
+                  file: upload_test_file(Decidim::Dev.asset("verify_user_groups.csv"), content_type: "text/csv")
+                }
               ]
             end
 

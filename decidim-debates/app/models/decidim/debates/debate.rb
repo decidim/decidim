@@ -18,7 +18,7 @@ module Decidim
       include Decidim::HasReference
       include Decidim::Traceable
       include Decidim::Loggable
-      include Decidim::DataPortability
+      include Decidim::DownloadYourData
       include Decidim::NewsletterParticipant
       include Decidim::Searchable
       include Decidim::TranslatableResource
@@ -143,7 +143,7 @@ module Decidim
       end
 
       def self.export_serializer
-        Decidim::Debates::DataPortabilityDebateSerializer
+        Decidim::Debates::DownloadYourDataDebateSerializer
       end
 
       def self.newsletter_participant_ids(component)

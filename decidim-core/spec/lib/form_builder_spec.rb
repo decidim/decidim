@@ -5,7 +5,7 @@ require "nokogiri"
 
 module Decidim
   describe FormBuilder do
-    let(:helper) { Class.new(ActionView::Base).new(ActionView::LookupContext.new(nil)) }
+    let(:helper) { Class.new(ActionView::Base).new(ActionView::LookupContext.new(ActionController::Base.view_paths), {}, []) }
     let(:available_locales) { %w(ca en de-CH) }
     let(:uploader) { Decidim::ApplicationUploader }
     let(:organization) { create(:organization) }
@@ -16,6 +16,14 @@ module Decidim
 
         def self.model_name
           ActiveModel::Name.new(self, nil, "dummy")
+        end
+
+        def self.attached_config
+          attached_config = OpenStruct.new
+          attached_config.uploader = Decidim::ImageUploader
+          {
+            image: attached_config
+          }
         end
 
         extend ActiveModel::Translation
@@ -329,10 +337,29 @@ module Decidim
 
       it "renders the checkbox before the label text" do
         expect(output).to eq(
-          '<label for="resource_name"><input name="resource[name]" type="hidden" value="0" />' \
-            '<input type="checkbox" value="1" name="resource[name]" id="resource_name" />Name' \
+          '<label for="resource_name"><input name="resource[name]" type="hidden" value="0" autocomplete="off" />' \
+          '<input type="checkbox" value="1" name="resource[name]" id="resource_name" />Name' \
           "</label>"
         )
+      end
+    end
+
+    describe "#password_field" do
+      let(:output) do
+        builder.password_field :password, options
+      end
+      let(:options) { {} }
+
+      it "renders the input type password" do
+        expect(output).to eq('<label for="resource_password">Password<input autocomplete="off" type="password" name="resource[password]" id="resource_password" /></label>')
+      end
+
+      context "when autocomplete attribute is defined" do
+        let(:options) { { autocomplete: "new-password" } }
+
+        it "renders the input type password with given autocomplete attribute" do
+          expect(output).to eq('<label for="resource_password">Password<input autocomplete="new-password" type="password" name="resource[password]" id="resource_password" /></label>')
+        end
       end
     end
 
@@ -548,7 +575,7 @@ module Decidim
           end
         end
 
-        context "with min and max length " do
+        context "with min and max length" do
           let(:output) do
             builder.text_field :number
           end
@@ -562,7 +589,7 @@ module Decidim
           end
         end
 
-        context "with min length " do
+        context "with min length" do
           let(:output) do
             builder.text_field :min_number
           end
@@ -572,7 +599,7 @@ module Decidim
           end
         end
 
-        context "with max length " do
+        context "with max length" do
           let(:output) do
             builder.text_field :max_number
           end
@@ -589,7 +616,7 @@ module Decidim
       let(:filename) { "my_image.jpg" }
       let(:image?) { false }
       let(:blob) do
-        ActiveStorage::Blob.create_after_upload!(
+        ActiveStorage::Blob.create_and_upload!(
           io: File.open(Decidim::Dev.asset("city.jpeg")),
           filename: filename
         )
@@ -613,7 +640,7 @@ module Decidim
         }
       end
       let(:output) do
-        builder.upload :image, attributes
+        builder.upload(:image, attributes)
       end
 
       before do
@@ -635,6 +662,7 @@ module Decidim
         let(:image?) { true }
 
         context "and it is not present but uploader has default url" do
+          let(:file) { nil }
           let(:uploader) { Decidim::AvatarUploader }
 
           it "renders the 'Default image' label" do
@@ -657,12 +685,18 @@ module Decidim
 
       context "when it is not an image" do
         let(:filename) { "my_file.pdf" }
+        let(:blob) do
+          ActiveStorage::Blob.create_and_upload!(
+            io: File.open(Decidim::Dev.asset("Exampledocument.pdf")),
+            filename: filename
+          )
+        end
 
         context "and it is present" do
           let(:present?) { true }
 
-          it "renders the 'Current file' label" do
-            expect(output).to include("Current file")
+          it "renders the filename" do
+            expect(output).to include(%(<a href="#{url}">#{filename}</a>))
           end
 
           it "doesn't render an image tag" do
@@ -678,16 +712,8 @@ module Decidim
       context "when the file is present" do
         let(:present?) { true }
 
-        it "renders the delete checkbox" do
-          expect(parsed.css('input[type="checkbox"]')).not_to be_empty
-        end
-
-        context "when the optional argument is false" do
-          let(:optional) { false }
-
-          it "doesn't render the delete checkbox" do
-            expect(parsed.css('input[type="checkbox"]')).to be_empty
-          end
+        it "renders the add file button" do
+          expect(parsed.css("button.add-file")).not_to be_empty
         end
       end
 
@@ -697,10 +723,7 @@ module Decidim
 
         it "renders help message" do
           html = output
-          expect(html).to include("<span>This image will be:</span>")
-          expect(html).to include("<span>Resized to fit</span>")
-          expect(html).to include("<b>100 x 100 px</b>")
-          expect(parsed.css("p.help-text")).not_to be_empty
+          expect(html).to include("<li>This image will be resized to fit 100 x 100 px.</li>")
         end
       end
 
@@ -710,7 +733,9 @@ module Decidim
 
         it "renders calls I18n.t() with the correct scope" do
           # Upload help messages
-          expect(I18n).to receive(:t).with("explanation", scope: "custom.scope")
+          expect(I18n).to receive(:t).with("explanation", scope: "custom.scope", attribute: :image)
+          expect(I18n).to receive(:t).with("decidim.forms.upload.labels.add_image")
+          expect(I18n).to receive(:t).with("decidim.forms.upload.labels.replace")
           expect(I18n).to receive(:t).with("message_1", scope: "custom.scope")
           expect(I18n).to receive(:t).with("message_2", scope: "custom.scope")
           output
@@ -723,7 +748,9 @@ module Decidim
 
         it "renders calls I18n.t() with the correct messages" do
           # Upload help messages
-          expect(I18n).to receive(:t).with("explanation", scope: "decidim.forms.file_help.file")
+          expect(I18n).to receive(:t).with("decidim.forms.upload.labels.add_image")
+          expect(I18n).to receive(:t).with("decidim.forms.upload.labels.replace")
+          expect(I18n).to receive(:t).with("explanation", scope: "decidim.forms.upload_help", attribute: :image)
           expect(I18n).to receive(:t).with("message_1", scope: "decidim.forms.file_help.file")
           expect(I18n).to receive(:t).with("message_2", scope: "decidim.forms.file_help.file")
           expect(I18n).to receive(:t).with("message_3", scope: "decidim.forms.file_help.file")
@@ -736,7 +763,8 @@ module Decidim
 
           it "renders calls I18n.t() with the correct messages" do
             # Upload help messages
-            expect(I18n).to receive(:t).with("explanation", scope: "decidim.forms.file_help.file")
+
+            expect(I18n).to receive(:t).with("explanation", scope: "decidim.forms.upload_help", attribute: :image)
             expect(I18n).to receive(:t).with("message_1", scope: "decidim.forms.file_help.file")
             expect(I18n).not_to receive(:t).with("message_2", scope: "decidim.forms.file_help.file")
             output
@@ -754,7 +782,7 @@ module Decidim
         end
 
         before do
-          expect(helper).to receive(:render).and_return("[rendering]")
+          allow(helper).to receive(:render).and_return("[rendering]")
         end
 
         it "renders a hidden field and a container for the editor" do

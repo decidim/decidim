@@ -50,7 +50,7 @@ module Decidim
         it { is_expected.not_to be_valid }
 
         context "with carriage return characters that cause it to exceed" do
-          let(:body) { "#{("c" * 500)}\r\n#{("c" * 499)}" }
+          let(:body) { "#{"c" * 500}\r\n#{"c" * 499}" }
 
           it { is_expected.to be_valid }
         end
@@ -98,7 +98,7 @@ module Decidim
           let(:settings) { double }
 
           it "returns the organization comments_max_length" do
-            expect(component).to receive(:settings).and_return(settings)
+            allow(component).to receive(:settings).and_return(settings)
             expect(subject.max_length).to eq(organization.comments_max_length)
           end
         end

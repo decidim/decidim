@@ -39,7 +39,18 @@ module Decidim
 
       def self.from_model(model)
         form_attributes = attribute_types.keys.each_with_object({}) do |key, attrs|
-          attrs[key] = model.send(key) if model.respond_to?(key)
+          next unless model.respond_to?(key)
+
+          value = model.send(key)
+          attrs[key] =
+            case value
+            when ActiveStorage::Attached::One
+              value.attachment.try(:blob)
+            when ActiveStorage::Attached::Many
+              value.attachments.map(&:blob)
+            else
+              value
+            end
         end
 
         form = new(form_attributes)
@@ -137,9 +148,7 @@ module Decidim
         super && self.class.attribute_types.none? do |name, type|
           value = public_send(name)
 
-          if value.is_a?(Decidim::AttributeObject::Model)
-            _value_has_errors?(value)
-          elsif type.respond_to?(:validate_nested?) && type.validate_nested?
+          if value.is_a?(Decidim::AttributeObject::Model) || (type.respond_to?(:validate_nested?) && type.validate_nested?)
             _value_has_errors?(value)
           else
             false

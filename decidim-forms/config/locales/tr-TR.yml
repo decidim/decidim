@@ -113,10 +113,6 @@ tr:
         extension_allowlist: 'Kabul edilen biçimler:'
       images:
         dimensions: "%{width} x %{height} px"
-        dimensions_info: 'Bu resim:'
-        processors:
-          resize_and_pad: Yeniden boyutlandırıldı ve dolduruldu
-          resize_to_fit: Sığacak şekilde yeniden boyutlandırıldı
       question_types:
         long_answer: Uzun cevap
         matrix_multiple: Matris (Çoklu seçenek)

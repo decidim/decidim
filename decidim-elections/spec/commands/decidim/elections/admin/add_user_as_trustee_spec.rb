@@ -52,6 +52,10 @@ describe Decidim::Elections::Admin::AddUserAsTrustee do
     expect(trustee.trustees_participatory_spaces.count).to eq 1
   end
 
+  it "sends an email" do
+    expect { subject.call }.to have_enqueued_job(ActionMailer::MailDeliveryJob)
+  end
+
   context "when user and participatory space exist" do
     let!(:trustee) do
       trustee = create(:trustee,

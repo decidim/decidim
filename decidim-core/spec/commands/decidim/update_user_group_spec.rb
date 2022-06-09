@@ -16,7 +16,7 @@ module Decidim
         let(:phone) { "Y1fERVzL2F" }
         let(:document_number) { "123456780X" }
         let(:about) { "This is us." }
-        let(:avatar) { fixture_file_upload(File.open("spec/assets/avatar.jpg"), "image/jpeg") }
+        let(:avatar) { upload_test_file(Decidim::Dev.test_file("avatar.jpg", "image/jpeg")) }
 
         let(:form_params) do
           {
@@ -43,7 +43,7 @@ module Decidim
 
         context "when the form is not valid" do
           before do
-            expect(form).to receive(:invalid?).and_return(true)
+            allow(form).to receive(:invalid?).and_return(true)
           end
 
           it "broadcasts invalid" do

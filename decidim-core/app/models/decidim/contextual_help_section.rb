@@ -3,12 +3,16 @@
 module Decidim
   class ContextualHelpSection < ApplicationRecord
     include Decidim::TranslatableResource
+    include Decidim::Traceable
 
     translatable_fields :content
 
     belongs_to :organization, class_name: "Decidim::Organization"
-    validates :organization, presence: true
     validates :content, presence: true
+
+    def self.log_presenter_class_for(_log)
+      Decidim::AdminLog::ContextualHelpSectionPresenter
+    end
 
     # Public: Finds content given an id
     #

@@ -1,0 +1,12 @@
+= Services
+
+There are multiple services that can be enabled in a Decidim installation. It's important to note that the only mandatory services are the xref:services:activejob.adoc[Active Job] queue and the xref:services:smtp.adoc[SMTP] server. The others are optional and depend on your specific usecase.
+
+* xref:services:activejob.adoc[Active Job]
+* xref:services:elections_bulletin_board.adoc[Elections Bulletin Board]
+* xref:services:etherpad.adoc[Etherpad]
+* xref:services:maps.adoc[Maps]
+* xref:services:sms.adoc[SMS]
+* xref:services:smtp.adoc[SMTP]
+* xref:services:social_providers.adoc[Social Providers]
+

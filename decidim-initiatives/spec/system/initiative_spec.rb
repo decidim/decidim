@@ -4,8 +4,9 @@ require "spec_helper"
 
 describe "Initiative", type: :system do
   let(:organization) { create(:organization) }
+  let(:state) { :published }
   let(:base_initiative) do
-    create(:initiative, organization: organization)
+    create(:initiative, organization: organization, state: state)
   end
 
   before do
@@ -31,6 +32,20 @@ describe "Initiative", type: :system do
         visit decidim_initiatives.initiative_path(initiative)
       end
 
+      shared_examples_for "initiative shows signatures" do
+        it "shows signatures for the state" do
+          expect(page).to have_css(".progress__bar__number")
+          expect(page).to have_css(".progress__bar__text")
+        end
+      end
+
+      shared_examples_for "initiative does not show signatures" do
+        it "does not show signatures for the state" do
+          expect(page).not_to have_css(".progress__bar__number")
+          expect(page).not_to have_css(".progress__bar__text")
+        end
+      end
+
       it "shows the details of the given initiative" do
         within "main" do
           expect(page).to have_content(translated(initiative.title, locale: :en))
@@ -43,10 +58,60 @@ describe "Initiative", type: :system do
         end
       end
 
+      context "when signature interval is defined" do
+        let(:base_initiative) do
+          create(:initiative,
+                 organization: organization,
+                 signature_start_date: 1.day.ago,
+                 signature_end_date: 1.day.from_now,
+                 state: state)
+        end
+
+        it "displays collection period" do
+          within ".process-header__phase" do
+            expect(page).to have_content("Signature collection period")
+            expect(page).to have_content(1.day.ago.strftime("%Y-%m-%d"))
+            expect(page).to have_content(1.day.from_now.strftime("%Y-%m-%d"))
+          end
+        end
+      end
+
+      it_behaves_like "initiative shows signatures"
+
       it "shows the author name once in the authors list" do
         within ".initiative-authors" do
           expect(page).to have_content(initiative.author_name, count: 1)
         end
+      end
+
+      context "when initiative state is rejected" do
+        let(:state) { :rejected }
+
+        it_behaves_like "initiative shows signatures"
+      end
+
+      context "when initiative state is accepted" do
+        let(:state) { :accepted }
+
+        it_behaves_like "initiative shows signatures"
+      end
+
+      context "when initiative state is created" do
+        let(:state) { :created }
+
+        it_behaves_like "initiative does not show signatures"
+      end
+
+      context "when initiative state is validating" do
+        let(:state) { :validating }
+
+        it_behaves_like "initiative does not show signatures"
+      end
+
+      context "when initiative state is discarded" do
+        let(:state) { :discarded }
+
+        it_behaves_like "initiative does not show signatures"
       end
 
       it_behaves_like "has attachments"

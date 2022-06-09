@@ -3,7 +3,7 @@
 module Decidim
   module Proposals
     class CollaborativeDraftWithdrawnEvent < Decidim::Events::SimpleEvent
-      i18n_attributes :author_nickname, :author_name, :author_path
+      i18n_attributes :author_nickname, :author_name, :author_path, :author_url
 
       delegate :nickname, :name, to: :author, prefix: true
 
@@ -13,6 +13,10 @@ module Decidim
 
       def author_path
         author.profile_path
+      end
+
+      def author_url
+        author.profile_url
       end
 
       private

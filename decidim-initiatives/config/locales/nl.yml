@@ -249,7 +249,6 @@ nl:
             destroy: Verwijder
             update: Bijwerken
           form:
-            child_scope_threshold_enabled_help: 'Deze configuratie-vlag biedt geen ondersteuning voor offline stemmen, het maakt subscopes mogelijk en werkt met een autorisatieverwerker die een scope associeert met de gebruiker. Zorg ervoor dat je deze machtiging selecteert, onderaan in de autorisatie-instellingen. Om de toepassingsmogelijkheden te kunnen laten werken moet het op hiërarchische wijze worden geconfigureerd: 1 ouder - N kind. Voor meer informatie over hoe deze configuratie werkt, zie deze <a href="https://docs.decidim.org/admin-manual/en/initiatives/" target="_blank">link</a> .'
             title: Algemene informatie
           initiative_type_scopes:
             title: Scopes voor het initiatieftype

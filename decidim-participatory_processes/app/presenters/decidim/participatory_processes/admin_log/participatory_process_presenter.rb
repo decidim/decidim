@@ -31,13 +31,14 @@ module Decidim
             slug: :string,
             subtitle: :i18n,
             target: :i18n,
-            title: :i18n
+            title: :i18n,
+            decidim_participatory_process_type_id: :participatory_process_type
           }
         end
 
         def action_string
           case action
-          when "create", "publish", "unpublish", "update"
+          when "create", "publish", "unpublish", "update", "import", "export", "duplicate"
             "decidim.admin_log.participatory_process.#{action}"
           else
             super

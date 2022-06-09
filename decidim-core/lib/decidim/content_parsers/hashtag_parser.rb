@@ -18,14 +18,14 @@ module Decidim
 
       # Matches a hashtag if it starts with a letter or number
       # and only contains letters, numbers or underscores.
-      HASHTAG_REGEX = /\B#([[:alnum:]](?:[[:alnum:]]|_)*)\b/i.freeze
+      HASHTAG_REGEX = /\s\K\B#([[:alnum:]](?:[[:alnum:]]|_)*)\b/i
 
       # Replaces hashtags name with new or existing hashtags models global ids.
       #
       # @return [String] the content with the hashtags replaced by global ids
       def rewrite
         content.gsub(HASHTAG_REGEX) do |match|
-          "#{hashtag(match[1..-1]).to_global_id}/#{(extra_hashtags? ? "_" : "")}#{match[1..-1]}"
+          "#{hashtag(match[1..-1]).to_global_id}/#{extra_hashtags? ? "_" : ""}#{match[1..-1]}"
         end
       end
 

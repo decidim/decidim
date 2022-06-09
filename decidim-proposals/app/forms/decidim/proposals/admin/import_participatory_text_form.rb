@@ -15,7 +15,7 @@ module Decidim
 
         translatable_attribute :title, String
         translatable_attribute :description, String
-        attribute :document
+        attribute :document, Decidim::Attributes::Blob
 
         validates :title, translatable_presence: true
         validates :document, presence: true, if: :new_participatory_text?
@@ -44,9 +44,9 @@ module Decidim
         end
 
         def i18n_invalid_document_type_text
-          I18n.t("invalid_document_type",
+          I18n.t("allowed_file_content_types",
                  scope: "activemodel.errors.models.participatory_text.attributes.document",
-                 valid_mime_types: i18n_valid_mime_types_text)
+                 types: i18n_valid_mime_types_text)
         end
 
         def i18n_valid_mime_types_text
@@ -60,7 +60,7 @@ module Decidim
         end
 
         def document_text
-          @document_text ||= document&.read
+          @document_text ||= document&.download
         end
       end
     end

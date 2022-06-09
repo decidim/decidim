@@ -74,7 +74,7 @@ module Decidim
             }
           }
 
-          Decidim::EventsManager.publish(data)
+          Decidim::EventsManager.publish(**data)
         end
 
         def send_vote_email

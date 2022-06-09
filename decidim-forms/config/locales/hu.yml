@@ -68,6 +68,9 @@ hu:
           body: A szövegtörzs nem lehet üres
       files:
         extension_allowlist: 'Elfogadott formátumok:'
+      images:
+        processors:
+          resize_to_fit: 'A kép át lesz méretezve erre a méretre: %{dimensions}.'
       question_types:
         long_answer: Hosszú válasz
         multiple_option: Több választási lehetőség

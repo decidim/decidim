@@ -6,7 +6,7 @@ describe "Explore posts", type: :system do
   include_context "with a component"
   let(:manifest_name) { "blogs" }
 
-  let!(:old_post) { create(:post, component: component, created_at: Time.current - 2.days) }
+  let!(:old_post) { create(:post, component: component, created_at: 2.days.ago) }
   let!(:new_post) { create(:post, component: component, created_at: Time.current) }
 
   let!(:image) { create(:attachment, attached_to: old_post) }

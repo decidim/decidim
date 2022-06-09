@@ -9,7 +9,7 @@ describe Decidim::Permissions do
   let(:context) do
     {}
   end
-  let(:permission_action) { Decidim::PermissionAction.new(action) }
+  let(:permission_action) { Decidim::PermissionAction.new(**action) }
   let(:action_name) { :foo }
   let(:action_subject) { :bar }
   let(:action) do
@@ -21,7 +21,7 @@ describe Decidim::Permissions do
       { scope: :public, action: :read, subject: :public_page }
     end
 
-    it { is_expected.to eq true }
+    it { is_expected.to be true }
   end
 
   context "when action is on a locale" do
@@ -29,7 +29,7 @@ describe Decidim::Permissions do
       { scope: :public, action: :foo, subject: :locales }
     end
 
-    it { is_expected.to eq true }
+    it { is_expected.to be true }
   end
 
   context "when reporting a resource" do
@@ -37,7 +37,7 @@ describe Decidim::Permissions do
       { scope: :public, action: :create, subject: :moderation }
     end
 
-    it { is_expected.to eq true }
+    it { is_expected.to be true }
   end
 
   context "when reading a component" do
@@ -50,7 +50,7 @@ describe Decidim::Permissions do
     context "when the component is published" do
       let(:component) { create :component, :published }
 
-      it { is_expected.to eq true }
+      it { is_expected.to be true }
     end
 
     context "when the component is not published" do
@@ -61,37 +61,37 @@ describe Decidim::Permissions do
           let(:share_token) { create :share_token, token_for: component, organization: component.organization }
           let(:context) { { share_token: share_token.token, current_component: component } }
 
-          it { is_expected.to eq true }
+          it { is_expected.to be true }
         end
 
         context "when an invalid share token is provided" do
           let(:share_token) { create :share_token, :expired, token_for: component, organization: component.organization }
           let(:context) { { share_token: share_token.token, current_component: component } }
 
-          it { is_expected.to eq false }
+          it { is_expected.to be false }
         end
 
         context "when no share token is provided" do
-          it { is_expected.to eq false }
+          it { is_expected.to be false }
         end
       end
 
       context "when the user has no admin access" do
         let(:user) { create :user, organization: organization }
 
-        it { is_expected.to eq false }
+        it { is_expected.to be false }
       end
 
       context "when the user is an admin" do
         let(:user) { create :user, :admin, organization: organization }
 
-        it { is_expected.to eq true }
+        it { is_expected.to be true }
       end
 
       context "when the space gives the user admin access" do
         let(:user) { create :process_admin, participatory_process: component.participatory_space }
 
-        it { is_expected.to eq true }
+        it { is_expected.to be true }
       end
     end
   end
@@ -102,19 +102,19 @@ describe Decidim::Permissions do
     context "when picking" do
       let(:action_name) { :pick }
 
-      it { is_expected.to eq true }
+      it { is_expected.to be true }
     end
 
     context "when searching" do
       let(:action_name) { :search }
 
-      it { is_expected.to eq true }
+      it { is_expected.to be true }
     end
 
     context "when any other action" do
       let(:action_name) { :foo }
 
-      it { is_expected.to eq false }
+      it { is_expected.to be false }
     end
   end
 
@@ -138,7 +138,7 @@ describe Decidim::Permissions do
       let(:authorization) { build(:authorization) }
       let(:action_name) { :create }
 
-      it { is_expected.to eq true }
+      it { is_expected.to be true }
     end
 
     context "with an update action" do
@@ -147,13 +147,13 @@ describe Decidim::Permissions do
       context "and the authorization is granted" do
         let(:authorization) { create(:authorization, :granted) }
 
-        it { is_expected.to eq false }
+        it { is_expected.to be false }
       end
 
       context "and the authorization is pending" do
         let(:authorization) { create(:authorization, :pending) }
 
-        it { is_expected.to eq true }
+        it { is_expected.to be true }
       end
     end
 
@@ -163,13 +163,13 @@ describe Decidim::Permissions do
       context "and the authorization is granted" do
         let(:authorization) { create(:authorization, :granted) }
 
-        it { is_expected.to eq false }
+        it { is_expected.to be false }
       end
 
       context "and the authorization is pending" do
         let(:authorization) { create(:authorization, :pending) }
 
-        it { is_expected.to eq true }
+        it { is_expected.to be true }
       end
     end
 
@@ -183,13 +183,13 @@ describe Decidim::Permissions do
       context "and the authorization is granted" do
         let(:authorization) { create(:authorization, :granted) }
 
-        it { is_expected.to eq true }
+        it { is_expected.to be true }
       end
 
       context "and the authorization is pending" do
         let(:authorization) { create(:authorization, :pending) }
 
-        it { is_expected.to eq false }
+        it { is_expected.to be false }
       end
     end
   end
@@ -211,25 +211,25 @@ describe Decidim::Permissions do
       context "with a create action" do
         let(:action_name) { :create }
 
-        it { is_expected.to eq true }
+        it { is_expected.to be true }
       end
 
       context "with a accept action" do
         let(:action_name) { :accept }
 
-        it { is_expected.to eq true }
+        it { is_expected.to be true }
       end
 
       context "with a reject action" do
         let(:action_name) { :reject }
 
-        it { is_expected.to eq true }
+        it { is_expected.to be true }
       end
 
       context "with a promote action" do
         let(:action_name) { :promote }
 
-        it { is_expected.to eq true }
+        it { is_expected.to be true }
       end
     end
 
@@ -239,25 +239,25 @@ describe Decidim::Permissions do
       context "with a create action" do
         let(:action_name) { :create }
 
-        it { is_expected.to eq false }
+        it { is_expected.to be false }
       end
 
       context "with a accept action" do
         let(:action_name) { :accept }
 
-        it { is_expected.to eq false }
+        it { is_expected.to be false }
       end
 
       context "with a reject action" do
         let(:action_name) { :reject }
 
-        it { is_expected.to eq false }
+        it { is_expected.to be false }
       end
 
       context "with a promote action" do
         let(:action_name) { :promote }
 
-        it { is_expected.to eq false }
+        it { is_expected.to be false }
       end
     end
   end
@@ -273,7 +273,7 @@ describe Decidim::Permissions do
           { scope: :public, action: :read, subject: :admin_dashboard }
         end
 
-        it { is_expected.to eq true }
+        it { is_expected.to be true }
       end
 
       context "when impersonating a managed user" do
@@ -281,7 +281,7 @@ describe Decidim::Permissions do
           { scope: :public, action: :impersonate, subject: :managed_user }
         end
 
-        it { is_expected.to eq true }
+        it { is_expected.to be true }
       end
     end
 
@@ -292,13 +292,13 @@ describe Decidim::Permissions do
       context "when user is self" do
         let(:current_user) { user }
 
-        it { is_expected.to eq true }
+        it { is_expected.to be true }
       end
 
       context "when user is not self" do
         let(:current_user) { create :user }
 
-        it { is_expected.to eq false }
+        it { is_expected.to be false }
       end
     end
 
@@ -308,7 +308,7 @@ describe Decidim::Permissions do
       context "when following a resource" do
         let(:action_name) { :create }
 
-        it { is_expected.to eq true }
+        it { is_expected.to be true }
       end
 
       context "when any other action on a follow" do
@@ -318,13 +318,13 @@ describe Decidim::Permissions do
         context "when the author of the follow is the user" do
           let(:follow) { create :follow, user: user }
 
-          it { is_expected.to eq true }
+          it { is_expected.to be true }
         end
 
         context "when the author of the follow is another user" do
           let(:follow) { create :follow }
 
-          it { is_expected.to eq false }
+          it { is_expected.to be false }
         end
       end
     end
@@ -337,7 +337,7 @@ describe Decidim::Permissions do
       context "when reading a notification" do
         let(:action_name) { :read }
 
-        it { is_expected.to eq true }
+        it { is_expected.to be true }
       end
 
       context "when any other action on a notification" do
@@ -347,13 +347,13 @@ describe Decidim::Permissions do
         context "when the notification is sent to the user" do
           let(:notification) { build :notification, user: user }
 
-          it { is_expected.to eq true }
+          it { is_expected.to be true }
         end
 
         context "when the notification is sent to another user" do
           let(:notification) { build :notification }
 
-          it { is_expected.to eq false }
+          it { is_expected.to be false }
         end
       end
     end
@@ -365,7 +365,7 @@ describe Decidim::Permissions do
       context "when listing conversations" do
         let(:action_name) { :list }
 
-        it { is_expected.to eq true }
+        it { is_expected.to be true }
       end
 
       context "when creating a conversation" do
@@ -393,13 +393,13 @@ describe Decidim::Permissions do
       context "when creating user groups" do
         let(:action_name) { :create }
 
-        it { is_expected.to eq true }
+        it { is_expected.to be true }
       end
 
       context "when joining user groups" do
         let(:action_name) { :join }
 
-        it { is_expected.to eq true }
+        it { is_expected.to be true }
       end
 
       context "when leaving a user group" do
@@ -411,11 +411,11 @@ describe Decidim::Permissions do
         context "when the user does not belong to the user group" do
           let!(:user_group) { create :user_group, organization: user.organization }
 
-          it { is_expected.to eq false }
+          it { is_expected.to be false }
         end
 
         context "when the user is the creator" do
-          it { is_expected.to eq false }
+          it { is_expected.to be true }
         end
 
         context "when the user belongs to the group" do
@@ -425,7 +425,7 @@ describe Decidim::Permissions do
             membership.save
           end
 
-          it { is_expected.to eq true }
+          it { is_expected.to be true }
         end
       end
 
@@ -436,7 +436,7 @@ describe Decidim::Permissions do
         let(:context) { { user_group: user_group } }
 
         context "when the user is the creator" do
-          it { is_expected.to eq true }
+          it { is_expected.to be true }
         end
 
         context "when the user is an admin" do
@@ -446,7 +446,7 @@ describe Decidim::Permissions do
             membership.save
           end
 
-          it { is_expected.to eq true }
+          it { is_expected.to be true }
         end
 
         context "when the user is a basic member" do
@@ -456,7 +456,7 @@ describe Decidim::Permissions do
             membership.save
           end
 
-          it { is_expected.to eq false }
+          it { is_expected.to be false }
         end
       end
     end
@@ -467,13 +467,13 @@ describe Decidim::Permissions do
       context "when action is create" do
         let(:action_name) { :create }
 
-        it { is_expected.to eq true }
+        it { is_expected.to be true }
       end
 
       context "when action is reject" do
         let(:action_name) { :reject }
 
-        it { is_expected.to eq true }
+        it { is_expected.to be true }
       end
     end
   end

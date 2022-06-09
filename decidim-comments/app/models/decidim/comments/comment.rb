@@ -10,12 +10,13 @@ module Decidim
       include Decidim::Authorable
       include Decidim::Comments::Commentable
       include Decidim::FriendlyDates
-      include Decidim::DataPortability
+      include Decidim::DownloadYourData
       include Decidim::Traceable
       include Decidim::Loggable
       include Decidim::Searchable
       include Decidim::TranslatableResource
       include Decidim::TranslatableAttributes
+      include Decidim::ActsAsTree
 
       # Limit the max depth of a comment tree. If C is a comment and R is a reply:
       # C          (depth 0)
@@ -26,6 +27,8 @@ module Decidim
       MAX_DEPTH = 3
 
       translatable_fields :body
+
+      parent_item_foreign_key :decidim_commentable_id
 
       belongs_to :commentable, foreign_key: "decidim_commentable_id", foreign_type: "decidim_commentable_type", polymorphic: true
       belongs_to :root_commentable, foreign_key: "decidim_root_commentable_id", foreign_type: "decidim_root_commentable_type", polymorphic: true, touch: true
@@ -130,7 +133,7 @@ module Decidim
       def reported_content_url
         url_params = { anchor: "comment_#{id}" }
 
-        if root_commentable&.respond_to?(:polymorphic_resource_url)
+        if root_commentable.respond_to?(:polymorphic_resource_url)
           root_commentable.polymorphic_resource_url(url_params)
         else
           ResourceLocatorPresenter.new(root_commentable).url(url_params)
@@ -155,7 +158,7 @@ module Decidim
       # Expects all +resources+ to be of the same "commentable_type".
       # If the result is not `Decidim::Comments::Commentable` returns `nil`.
       def self.user_commentators_ids_in(resources)
-        if resources.first&.kind_of?(Decidim::Comments::Commentable)
+        if resources.first.is_a?(Decidim::Comments::Commentable)
           commentable_type = resources.first.class.name
           Decidim::Comments::Comment.select("DISTINCT decidim_author_id").not_hidden.not_deleted
                                     .where(decidim_commentable_id: resources.pluck(:id))
@@ -167,7 +170,7 @@ module Decidim
       end
 
       def can_participate?(user)
-        return true unless root_commentable&.respond_to?(:can_participate?)
+        return true unless root_commentable.respond_to?(:can_participate?)
 
         root_commentable.can_participate?(user)
       end

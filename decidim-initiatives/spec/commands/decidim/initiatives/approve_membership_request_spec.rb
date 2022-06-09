@@ -31,7 +31,7 @@ module Decidim
           command.call
         end
 
-        it "approves membership requests " do
+        it "approves membership requests" do
           expect do
             command.call
           end.to change(membership_request, :state).from("requested").to("accepted")

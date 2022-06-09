@@ -30,10 +30,9 @@ module Decidim
         attribute :import_categories, Boolean, default: true
         attribute :import_attachments, Boolean, default: true
         attribute :import_components, Boolean, default: true
-        attribute :document
+        attribute :document, Decidim::Attributes::Blob
 
-        validates :document, presence: true
-
+        validates :document, file_content_type: { allow: ACCEPTED_TYPES.values }
         validates :slug, presence: true, format: { with: Decidim::Assembly.slug_format }
         validates :title, translatable_presence: true
         validate :slug_uniqueness
@@ -41,7 +40,7 @@ module Decidim
         validate :document_type_must_be_valid, if: :document
 
         def document_text
-          @document_text ||= document&.read
+          @document_text ||= document&.download
         end
 
         def document_type_must_be_valid
@@ -60,9 +59,9 @@ module Decidim
         end
 
         def i18n_invalid_document_type_text
-          I18n.t("invalid_document_type",
+          I18n.t("allowed_file_content_types",
                  scope: "activemodel.errors.models.assembly.attributes.document",
-                 valid_mime_types: i18n_valid_mime_types_text)
+                 types: i18n_valid_mime_types_text)
         end
 
         def i18n_valid_mime_types_text

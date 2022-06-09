@@ -85,6 +85,8 @@ gl:
         one: hai 1 seg
         other: "hai %{count} seg"
   decidim:
+    accessibility:
+      front_page_link: Ir á páxina principal
     account:
       data_portability_export:
         file_no_exists: O ficheiro non existe
@@ -529,6 +531,11 @@ gl:
           email_outro: Recibiches esta notificación porque estás seguindo %{nickname}. Podes deixar de recibir notificacións seguindo a ligazón anterior.
           email_subject: "%{nickname} actualizou o seu perfil"
           notification_title: O <a href="%{resource_path}">profile páxina</a> de %{name} (%{nickname}), quen está a seguir, foi actualizado.
+        user_officialized:
+          email_intro: O participante %{name} (%{nickname}) foi oficializado.
+          email_outro: Recibiches esta notificación por que es administrador da organización.
+          email_subject: "%{name} foi oficializado"
+          notification_title: O participante %{name} (%{nickname}) foi oficializado.
     export_mailer:
       data_portability_export:
         download: Descarga
@@ -565,7 +572,6 @@ gl:
         button: Deixar de seguir
         error: Houbo un erro ao seguir este recurso.
     forms:
-      current_file: Arquivo actual
       current_image: Imaxe actual
       default_image: Imaxe predeterminada
       errors:
@@ -574,7 +580,26 @@ gl:
         file:
           message_1: Ten que ser unha imaxe cadrada.
           message_2: O tamaño recomendado para esta imaxe é de 512x512.
-      remove_this_file: Elimina este ficheiro
+      upload:
+        labels:
+          add_attachment: Engadir ficheiro anexo
+          add_file: Engadir ficheiro
+          add_image: Engadir imaxe
+          cancel: Cancelar
+          edit_image: Editar imaxe
+          error: Erro!
+          file_too_big: 'O ficheiro e grande de máis! Tamaño máximo: %{megabytes}MB'
+          remove: Eliminar
+          replace: Substituír
+          save: Gardar
+          title: Título
+          title_required: O título é obrigatorio!
+          uploaded: Cargado
+          validating: Validando...
+          validation_error: Erro de validación!
+      upload_help:
+        dropzone: Solta os ficheiros aquí ou preme para cargar
+        explanation: Guía para %{attribute}
     gamification:
       all_badges_link: Consulta todas as insignias dispoñibles.
       badges:
@@ -998,6 +1023,8 @@ gl:
       login_modal:
         please_sign_in: Inicia sesión
         sign_up: Rexistrarse
+      mentions_modal:
+        remove_recipient: Eliminar o destinatario %{name}
       participatory_space_filters:
         filters:
           areas: Ámbitos
@@ -1046,6 +1073,9 @@ gl:
       update:
         error: Produciuse un erro ao actualizar os teus intereses.
         success: Os teus intereses foron actualizados correctamente.
+    user_report_mailer:
+      notify:
+        details: Detalles fornecidos polo usuario
     version_author:
       show:
         deleted: Usuario eliminado
@@ -1248,6 +1278,8 @@ gl:
         mark_all_as_read: Marca todo como lido
       offline_banner:
         cache_version_page: Vaites! A túa rede está desconectada. O que estás a ver é unha versión previa da páxina gardada na caché, é podería non estar actualizada.
+      upload_modal:
+        close_modal: Pechar modal
       user_menu:
         admin_dashboard: Taboleiro de administración
         conversations: Conversas
@@ -1316,6 +1348,9 @@ gl:
           invitation_instructions:
             accept_until_format: "%B %d, %Y %I:%M %p"
       time_of_day: "%H:%M"
+  versions:
+    dropdown:
+      choose_diff_view_mode_menu: Escoller o modo de comparación
   views:
     pagination:
       first: "&laquo; Primeiro"

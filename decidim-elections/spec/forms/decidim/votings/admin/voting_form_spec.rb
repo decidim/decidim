@@ -14,7 +14,7 @@ describe Decidim::Votings::Admin::VotingForm do
   let(:start_time) { 1.day.from_now }
   let(:end_time) { start_time + 1.month }
   let(:promoted) { true }
-  let(:banner_image) { Decidim::Dev.test_file("city2.jpeg", "image/jpeg") }
+  let(:banner_image) { upload_test_file(Decidim::Dev.test_file("city2.jpeg", "image/jpeg")) }
   let(:voting_type) { "online" }
   let(:census_contact_information) { nil }
 
@@ -122,14 +122,14 @@ describe Decidim::Votings::Admin::VotingForm do
       organization.settings.tap do |settings|
         settings.upload.maximum_file_size.default = 5
       end
-      expect(subject.banner_image).to receive(:size).and_return(6.megabytes)
+      ActiveStorage::Blob.find_signed(banner_image).update(byte_size: 6.megabytes)
     end
 
     it { is_expected.not_to be_valid }
   end
 
   context "when images are not the expected type" do
-    let(:banner_image) { Decidim::Dev.test_file("Exampledocument.pdf", "application/pdf") }
+    let(:banner_image) { upload_test_file(Decidim::Dev.test_file("Exampledocument.pdf", "application/pdf")) }
 
     it { is_expected.not_to be_valid }
   end

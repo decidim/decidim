@@ -9,6 +9,7 @@ module Decidim
   autoload :Env, "decidim/env"
   autoload :Deprecations, "decidim/deprecations"
   autoload :ActsAsAuthor, "decidim/acts_as_author"
+  autoload :ActsAsTree, "decidim/acts_as_tree"
   autoload :TranslatableAttributes, "decidim/translatable_attributes"
   autoload :TranslatableResource, "decidim/translatable_resource"
   autoload :JsonbAttributes, "decidim/jsonb_attributes"
@@ -16,6 +17,7 @@ module Decidim
   autoload :AuthorizationFormBuilder, "decidim/authorization_form_builder"
   autoload :FilterFormBuilder, "decidim/filter_form_builder"
   autoload :ComponentManifest, "decidim/component_manifest"
+  autoload :NotificationSettingManifest, "decidim/notification_setting_manifest"
   autoload :ParticipatorySpaceManifest, "decidim/participatory_space_manifest"
   autoload :ResourceManifest, "decidim/resource_manifest"
   autoload :Resourceable, "decidim/resourceable"
@@ -73,9 +75,9 @@ module Decidim
   autoload :ViewModel, "decidim/view_model"
   autoload :FingerprintCalculator, "decidim/fingerprint_calculator"
   autoload :Fingerprintable, "decidim/fingerprintable"
-  autoload :DataPortability, "decidim/data_portability"
-  autoload :DataPortabilitySerializers, "decidim/data_portability_serializers"
-  autoload :DataPortabilityExporter, "decidim/data_portability_exporter"
+  autoload :DownloadYourData, "decidim/download_your_data"
+  autoload :DownloadYourDataSerializers, "decidim/download_your_data_serializers"
+  autoload :DownloadYourDataExporter, "decidim/download_your_data_exporter"
   autoload :Amendable, "decidim/amendable"
   autoload :Gamification, "decidim/gamification"
   autoload :Hashtag, "decidim/hashtag"
@@ -106,6 +108,8 @@ module Decidim
   autoload :AttributeObject, "decidim/attribute_object"
   autoload :Query, "decidim/query"
   autoload :Command, "decidim/command"
+  autoload :EventRecorder, "decidim/event_recorder"
+  autoload :ControllerHelpers, "decidim/controller_helpers"
 
   include ActiveSupport::Configurable
   # Loads seeds from all engines.
@@ -268,8 +272,8 @@ module Decidim
     true
   end
 
-  # Time that data portability files are available in server
-  config_accessor :data_portability_expiry_time do
+  # Time that download your data files are available in server
+  config_accessor :download_your_data_expiry_time do
     7.days
   end
 
@@ -392,7 +396,43 @@ module Decidim
   # Defines the name of the cookie used to check if the user allows Decidim to
   # set cookies.
   config_accessor :consent_cookie_name do
-    "decidim-cc"
+    "decidim-consent"
+  end
+
+  # Defines cookie categories. Note that when adding a cookie you need to
+  # add following i18n entries also (change 'foo' with the name of the cookie).
+  #
+  # layouts.decidim.cookie_consent.cookie_details.cookies.foo.service
+  # layouts.decidim.cookie_consent.cookie_details.cookies.foo.description
+  config_accessor :consent_categories do
+    [
+      {
+        slug: "essential",
+        mandatory: true,
+        cookies: [
+          {
+            type: "cookie",
+            name: "_session_id"
+          },
+          {
+            type: "cookie",
+            name: Decidim.consent_cookie_name
+          }
+        ]
+      },
+      {
+        slug: "preferences",
+        mandatory: false
+      },
+      {
+        slug: "analytics",
+        mandatory: false
+      },
+      {
+        slug: "marketing",
+        mandatory: false
+      }
+    ]
   end
 
   # Blacklisted passwords. Array may contain strings and regex entries.
@@ -480,6 +520,10 @@ module Decidim
     resource_registry.register(name, &block)
   end
 
+  def self.notification_settings(name, &block)
+    notification_settings_registry.register(name, &block)
+  end
+
   # Public: Finds all registered resource manifests via the `register_component`
   # method.
   #
@@ -552,6 +596,10 @@ module Decidim
     @resource_registry ||= ManifestRegistry.new(:resources)
   end
 
+  def self.notification_settings_registry
+    @notification_settings_registry ||= ManifestRegistry.new(:notification_settings)
+  end
+
   # Public: Stores the registry for user permissions
   def self.permissions_registry
     @permissions_registry ||= PermissionsRegistry.new
@@ -607,13 +655,12 @@ module Decidim
   #         organization or a model responding to the `organization` method.
   #
   def self.organization_settings(model)
-    organization = begin
-      if model.is_a?(Decidim::Organization)
-        model
-      elsif model.respond_to?(:organization) && model.organization.present?
-        model.organization
-      end
-    end
+    organization = if model.is_a?(Decidim::Organization)
+                     model
+                   elsif model.respond_to?(:organization) && model.organization.present?
+                     model.organization
+                   end
+
     return Decidim::OrganizationSettings.defaults unless organization
 
     Decidim::OrganizationSettings.for(organization)
@@ -637,5 +684,14 @@ module Decidim
 
   def self.register_assets_path(path)
     Rails.autoloaders.main.ignore(path) if Rails.configuration.autoloader == :zeitwerk
+  end
+
+  # Checks if a particular decidim gem is installed
+  # Note that defined(Decidim::Something) does not work all the times, specially when the
+  # Gemfile uses the "path" parameter to find the module.
+  # This is because the module can be defined by some files searched by Rails automatically
+  # (ie: decidim-initiatives/lib/decidim/initiatives/version.rb automatically defines Decidim::Intiatives even if not required)
+  def self.module_installed?(mod)
+    Gem.loaded_specs.has_key?("decidim-#{mod}")
   end
 end

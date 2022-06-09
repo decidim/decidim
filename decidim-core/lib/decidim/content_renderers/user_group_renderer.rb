@@ -10,7 +10,7 @@ module Decidim
     # @see BaseRenderer Examples of how to use a content renderer
     class UserGroupRenderer < BaseRenderer
       # Matches a global id representing a Decidim::UserGroup
-      GLOBAL_ID_REGEX = %r{gid://[\w-]+/Decidim::UserGroup/\d+}.freeze
+      GLOBAL_ID_REGEX = %r{gid://[\w-]+/Decidim::UserGroup/\d+}
 
       # Replaces found Global IDs matching an existing user with
       # a link to their profile. The Global IDs representing an

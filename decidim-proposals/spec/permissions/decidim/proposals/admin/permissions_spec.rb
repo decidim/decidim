@@ -34,10 +34,10 @@ describe Decidim::Proposals::Admin::Permissions do
   let(:creation_enabled?) { true }
   let(:official_proposals_enabled?) { true }
   let(:component_settings_proposal_answering_enabled?) { true }
-  let(:component_settings_participatory_texts_enabled?) { true }
+  let(:component_settings_participatory_texts_enabled?) { false }
   let(:current_settings_proposal_answering_enabled?) { true }
   let(:current_settings_publish_answers_immediately?) { true }
-  let(:permission_action) { Decidim::PermissionAction.new(action) }
+  let(:permission_action) { Decidim::PermissionAction.new(**action) }
 
   shared_examples "can create proposal notes" do
     describe "proposal note creation" do
@@ -46,7 +46,7 @@ describe Decidim::Proposals::Admin::Permissions do
       end
 
       context "when the space allows it" do
-        it { is_expected.to eq true }
+        it { is_expected.to be true }
       end
     end
   end
@@ -58,19 +58,19 @@ describe Decidim::Proposals::Admin::Permissions do
       end
 
       context "when everything is OK" do
-        it { is_expected.to eq true }
+        it { is_expected.to be true }
       end
 
       context "when answering is disabled in the step level" do
         let(:current_settings_proposal_answering_enabled?) { false }
 
-        it { is_expected.to eq false }
+        it { is_expected.to be false }
       end
 
       context "when answering is disabled in the component level" do
         let(:component_settings_proposal_answering_enabled?) { false }
 
-        it { is_expected.to eq false }
+        it { is_expected.to be false }
       end
     end
   end
@@ -82,7 +82,7 @@ describe Decidim::Proposals::Admin::Permissions do
       end
 
       context "when everything is OK" do
-        it { is_expected.to eq true }
+        it { is_expected.to be true }
       end
     end
   end
@@ -109,7 +109,7 @@ describe Decidim::Proposals::Admin::Permissions do
         end
         let(:extra_context) { { valuator: user } }
 
-        it { is_expected.to eq true }
+        it { is_expected.to be true }
       end
     end
   end
@@ -124,19 +124,25 @@ describe Decidim::Proposals::Admin::Permissions do
     end
 
     context "when everything is OK" do
-      it { is_expected.to eq true }
+      it { is_expected.to be true }
     end
 
     context "when creation is disabled" do
       let(:creation_enabled?) { false }
 
-      it { is_expected.to eq false }
+      it { is_expected.to be false }
     end
 
     context "when official proposals are disabled" do
       let(:official_proposals_enabled?) { false }
 
-      it { is_expected.to eq false }
+      it { is_expected.to be false }
+    end
+
+    context "when participatory texts is enabled" do
+      let(:component_settings_participatory_texts_enabled?) { true }
+
+      it { is_expected.to be false }
     end
   end
 
@@ -155,7 +161,7 @@ describe Decidim::Proposals::Admin::Permissions do
       let(:proposal) { create :proposal, :official, component: current_component }
 
       context "when everything is OK" do
-        it { is_expected.to eq true }
+        it { is_expected.to be true }
       end
 
       context "when it has some votes" do
@@ -173,7 +179,7 @@ describe Decidim::Proposals::Admin::Permissions do
       { scope: :admin, action: :update, subject: :proposal_category }
     end
 
-    it { is_expected.to eq true }
+    it { is_expected.to be true }
   end
 
   describe "import proposals from another component" do
@@ -181,7 +187,7 @@ describe Decidim::Proposals::Admin::Permissions do
       { scope: :admin, action: :import, subject: :proposals }
     end
 
-    it { is_expected.to eq true }
+    it { is_expected.to be true }
   end
 
   describe "split proposals" do
@@ -189,7 +195,7 @@ describe Decidim::Proposals::Admin::Permissions do
       { scope: :admin, action: :split, subject: :proposals }
     end
 
-    it { is_expected.to eq true }
+    it { is_expected.to be true }
   end
 
   describe "merge proposals" do
@@ -197,7 +203,7 @@ describe Decidim::Proposals::Admin::Permissions do
       { scope: :admin, action: :merge, subject: :proposals }
     end
 
-    it { is_expected.to eq true }
+    it { is_expected.to be true }
   end
 
   describe "proposal answers publishing" do
@@ -206,12 +212,12 @@ describe Decidim::Proposals::Admin::Permissions do
       { scope: :admin, action: :publish_answers, subject: :proposals }
     end
 
-    it { is_expected.to eq false }
+    it { is_expected.to be false }
 
     context "when user is an admin" do
       let(:user) { create(:user, :admin) }
 
-      it { is_expected.to eq true }
+      it { is_expected.to be true }
     end
   end
 
@@ -220,7 +226,7 @@ describe Decidim::Proposals::Admin::Permissions do
       { scope: :admin, action: :assign_to_valuator, subject: :proposals }
     end
 
-    it { is_expected.to eq true }
+    it { is_expected.to be true }
   end
 
   describe "unassign proposals from a valuator" do
@@ -228,14 +234,15 @@ describe Decidim::Proposals::Admin::Permissions do
       { scope: :admin, action: :unassign_from_valuator, subject: :proposals }
     end
 
-    it { is_expected.to eq true }
+    it { is_expected.to be true }
   end
 
   describe "manage participatory texts" do
+    let(:component_settings_participatory_texts_enabled?) { true }
     let(:action) do
       { scope: :admin, action: :manage, subject: :participatory_texts }
     end
 
-    it { is_expected.to eq true }
+    it { is_expected.to be true }
   end
 end

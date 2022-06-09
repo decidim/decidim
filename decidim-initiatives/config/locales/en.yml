@@ -239,8 +239,6 @@ en:
             edit: Edit
             new: New
             photos: Photos
-          show:
-            print: Print
           update:
             error: An error has occurred
             success: The initiative has been successfully updated
@@ -275,7 +273,7 @@ en:
             update: Update
           form:
             authorizations: Authorization settings
-            child_scope_threshold_enabled_help: 'This config flag doesn''t support offline votes, it enables sub-scopes and works with an authorization handler that associates a scope to the user, make sure you select that authorization, bellow in authorization settings. For it to work scopes need to be configured in hierarchical way : 1 Parent - N Child. For more info on how this configuration works, see this <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">link</a>.'
+            child_scope_threshold_enabled_help: 'This config flag doesn''t support offline votes. It enables sub-scopes and works with an authorization handler that associates a scope to the user. Make sure you select that authorization, below in authorization settings. For it to work, scopes need to be configured in a hierarchical way: 1 Parent - N Child. For more info on how this configuration works, see <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">initiatives'' admin documentation page</a>.'
             only_global_scope_enabled_help: Tick this flag if you enabled "Child scope signature" and configured the global scope as your parent scope. By enabling this, initiative type selection will be skipped in the initiative creation wizard. For more info on how this configuration works, see this <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">link</a>.
             options: Options
             title: General information
@@ -293,6 +291,10 @@ en:
           send_to_technical_validation: "%{user_name} sent the %{resource_name} initiative to technical validation"
           unpublish: "%{user_name} discarded the %{resource_name} initiative"
           update: "%{user_name} updated the %{resource_name} initiative"
+        initiatives_type:
+          create: "%{user_name} created the %{resource_name} initiatives type"
+          delete: "%{user_name} deleted the %{resource_name} initiatives type"
+          update: "%{user_name} updated the %{resource_name} initiatives type"
       admin_states:
         accepted: Enough signatures
         created: Created
@@ -508,6 +510,7 @@ en:
             title: 'Title:'
             type: Type of initiative
           legal_text: The personal data collected will be incorporated and treated confidentially by the organization, according to current legislation.
+          members_header: Members of the initiative's promoter committee
           phone_number: Phone Number
           place_date: Place, Date
           postal_code: Postal Code/ZIP
@@ -567,6 +570,8 @@ en:
           published: Published
           rejected: Not enough signatures
           validating: Technical validation
+      signature_interval:
+        title: Signature collection period
       states:
         accepted: Accepted
         expired: Expired

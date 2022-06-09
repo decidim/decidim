@@ -4,9 +4,10 @@ require "spec_helper"
 
 module Decidim::Accountability
   describe Admin::CreateStatus do
-    subject { described_class.new(form) }
+    subject { described_class.new(form, user) }
 
     let(:organization) { create :organization, available_locales: [:en] }
+    let(:user) { create(:user, organization: organization) }
     let(:participatory_process) { create :participatory_process, organization: organization }
     let(:current_component) { create :component, manifest_name: "accountability", participatory_space: participatory_process }
 
@@ -60,6 +61,18 @@ module Decidim::Accountability
       it "sets the progress" do
         subject.call
         expect(status.progress).to eq progress
+      end
+
+      it "traces the action", versioning: true do
+        expect(Decidim.traceability)
+          .to receive(:perform_action!)
+          .with(:create, Decidim::Accountability::Status, user, {})
+          .and_call_original
+
+        expect { subject.call }.to change(Decidim::ActionLog, :count)
+        action_log = Decidim::ActionLog.last
+        expect(action_log.action).to eq("create")
+        expect(action_log.version).to be_present
       end
     end
   end

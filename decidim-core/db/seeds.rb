@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-if !Rails.env.production? || ENV["SEED"]
+if !Rails.env.production? || ENV.fetch("SEED", nil)
   print "Creating seeds for decidim-core...\n" unless Rails.env.test?
 
   require "decidim/faker/localized"
@@ -17,8 +17,8 @@ if !Rails.env.production? || ENV["SEED"]
     table.tr("_", "/").classify.safe_constantize
   end.compact.each(&:reset_column_information)
 
-  smtp_label = ENV["SMTP_FROM_LABEL"] || Faker::Twitter.unique.screen_name
-  smtp_email = ENV["SMTP_FROM_EMAIL"] || Faker::Internet.email
+  smtp_label = ENV.fetch("SMTP_FROM_LABEL", Faker::Twitter.unique.screen_name)
+  smtp_email = ENV.fetch("SMTP_FROM_EMAIL", Faker::Internet.email)
 
   organization = Decidim::Organization.first || Decidim::Organization.create!(
     name: Faker::Company.name,
@@ -31,12 +31,12 @@ if !Rails.env.production? || ENV["SEED"]
       from: "#{smtp_label} <#{smtp_email}>",
       from_email: smtp_email,
       from_label: smtp_label,
-      user_name: ENV["SMTP_USERNAME"] || Faker::Twitter.unique.screen_name,
-      encrypted_password: Decidim::AttributeEncryptor.encrypt(ENV["SMTP_PASSWORD"] || Faker::Internet.password(min_length: 8)),
-      address: ENV["SMTP_ADDRESS"] || ENV["DECIDIM_HOST"] || "localhost",
-      port: ENV["SMTP_PORT"] || ENV["DECIDIM_SMTP_PORT"] || "25"
+      user_name: ENV.fetch("SMTP_USERNAME", Faker::Twitter.unique.screen_name),
+      encrypted_password: Decidim::AttributeEncryptor.encrypt(ENV.fetch("SMTP_PASSWORD", Faker::Internet.password(min_length: 8))),
+      address: ENV.fetch("SMTP_ADDRESS", nil) || ENV.fetch("DECIDIM_HOST", "localhost"),
+      port: ENV.fetch("SMTP_PORT", nil) || ENV.fetch("DECIDIM_SMTP_PORT", "25")
     },
-    host: ENV["DECIDIM_HOST"] || "localhost",
+    host: ENV.fetch("DECIDIM_HOST", "localhost"),
     external_domain_whitelist: ["decidim.org", "github.com"],
     description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
       Decidim::Faker::Localized.sentence(word_count: 15)
@@ -66,10 +66,10 @@ if !Rails.env.production? || ENV["SEED"]
       organization: organization
     )
 
-    3.times do
+    3.times do |time|
       parent = Decidim::Scope.create!(
         name: Decidim::Faker::Localized.literal(Faker::Address.unique.state),
-        code: Faker::Address.unique.country_code,
+        code: "#{Faker::Address.country_code}_#{time}",
         scope_type: province,
         organization: organization
       )
@@ -211,7 +211,7 @@ if !Rails.env.production? || ENV["SEED"]
   Decidim::System::CreateDefaultContentBlocks.call(organization)
 
   hero_content_block = Decidim::ContentBlock.find_by(organization: organization, manifest_name: :hero, scope_name: :homepage)
-  hero_content_block.images_container.background_image = ActiveStorage::Blob.create_after_upload!(
+  hero_content_block.images_container.background_image = ActiveStorage::Blob.create_and_upload!(
     io: File.open(File.join(seeds_root, "homepage_image.jpg")),
     filename: "homepage_image.jpg",
     content_type: "image/jpeg",

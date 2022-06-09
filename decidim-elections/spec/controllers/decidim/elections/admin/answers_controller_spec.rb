@@ -36,6 +36,7 @@ module Decidim
               photos: election.photos.map { |a| a.id.to_s }
             }
           end
+
           let(:params) do
             {
               id: answer.id,
@@ -59,13 +60,10 @@ module Decidim
               let(:answer_title) { { en: "" } }
               let(:answer) { create(:election_answer, :with_photos, question: question) }
 
-              before do
-                controller.class_eval do
-                  helper_method :proposals_picker_election_question_answers_path
-
-                  def proposals_picker_election_question_answers_path(_election, _question)
-                    "/"
-                  end
+              controller(AnswersController) do
+                helper_method :proposals_picker_election_question_answers_path
+                def proposals_picker_election_question_answers_path(_foo, _bar)
+                  "/"
                 end
               end
 

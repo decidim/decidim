@@ -27,7 +27,7 @@ You can see the xref:install:manual.adoc[official manual installation tutorial],
 
 === B. Installation script [experimental]
 
-There's also a installation script made by http://www.platoniq.net/[Platoniq] that allows you to install Decidim automatically. You can even check it on a Vagrant virtual machine if you want to. https://platoniq.github.io/decidim-install/script/[More information].
+There's also an installation script made by http://www.platoniq.net/[Platoniq] that allows you to install Decidim automatically. You can even check it on a Vagrant virtual machine if you want to. https://platoniq.github.io/decidim-install/script/[More information].
 
 [source,console]
 ----
@@ -96,8 +96,8 @@ You can configure it with `crontab -e`, for instance if you've created your Deci
 
 [source,console]
 ----
-# Remove expired data portability files
-0 0 * * * cd /home/user/decidim_application && RAILS_ENV=production bundle exec rake decidim:delete_data_portability_files
+# Remove expired download your data files
+0 0 * * * cd /home/user/decidim_application && RAILS_ENV=production bundle exec rake decidim:delete_download_your_data_files
 
 # Compute metrics
 1 0 * * * cd /home/user/decidim_application && RAILS_ENV=production bundle exec rake decidim:metrics:all
@@ -110,6 +110,12 @@ You can configure it with `crontab -e`, for instance if you've created your Deci
 
 # Generate reminders
 4 0 * * * cd /home/user/decidim_application && RAILS_ENV=production bundle exec rake decidim:reminders:all
+
+# Send notification mail digest daily
+5 0 * * * cd /home/user/decidim_application && RAILS_ENV=production bundle exec rake decidim:mailers:notifications_digest_daily
+
+# Send notification mail digest weekly on saturdays
+5 0 * * 6 cd /home/user/decidim_application && RAILS_ENV=production bundle exec rake decidim:mailers:notifications_digest_weekly
 ----
 
 === Further configuration
@@ -117,7 +123,7 @@ You can configure it with `crontab -e`, for instance if you've created your Deci
 We also have other guides on how to configure some extra components:
 
 * xref:services:activejob.adoc[ActiveJob]: For background jobs (like sending emails).
-* xref:services:geocoding.adoc[Geocoding]: How to enable geocoding for proposals and meetings.
+* xref:services:maps.adoc[Maps]: How to enable geocoding for proposals and meetings.
 * xref:services:social_providers.adoc[Social providers integration]: Enable sign up from social networks.
 
 == Deploy

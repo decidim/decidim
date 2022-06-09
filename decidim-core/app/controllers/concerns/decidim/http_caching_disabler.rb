@@ -13,9 +13,9 @@ module Decidim
     end
 
     def disable_http_caching
-      response.headers["Cache-Control"] = "no-cache, no-store"
       response.headers["Pragma"] = "no-cache"
       response.headers["Expires"] = "Fri, 01 Jan 1990 00:00:00 GMT"
+      response.cache_control.replace(no_cache: true, extras: ["no-store"])
     end
   end
 end

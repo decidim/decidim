@@ -96,7 +96,7 @@ module Decidim
 
       describe "avatar" do
         before do
-          form.avatar = fixture_file_upload(File.open("spec/assets/avatar.jpg"))
+          form.avatar = upload_test_file(Decidim::Dev.test_file("avatar.jpg", "image/jpeg"))
         end
 
         it "updates the avatar" do
@@ -106,7 +106,7 @@ module Decidim
       end
 
       describe "remove_avatar" do
-        let(:user) { create(:user, avatar: fixture_file_upload(File.open("spec/assets/avatar.jpg"))) }
+        let(:user) { create(:user, avatar: upload_test_file(Decidim::Dev.test_file("avatar.jpg", "image/jpeg"))) }
 
         before do
           form.remove_avatar = true
@@ -126,7 +126,7 @@ module Decidim
 
         it "updates the password" do
           expect { command.call }.to broadcast(:ok)
-          expect(user.reload.valid_password?("pNY6h9crVtVHZbdE")).to eq(true)
+          expect(user.reload.valid_password?("pNY6h9crVtVHZbdE")).to be(true)
         end
       end
 

@@ -45,4 +45,6 @@
 
 <%= render "modal_ballots_results_count_error" %>
 
-<%= javascript_pack_tag "decidim_votings_voting_polling_officer_zone_edit_closure" %>
+<% content_for :js_content do %>
+  <%= javascript_pack_tag "decidim_votings_voting_polling_officer_zone_edit_closure" %>
+<% end %>

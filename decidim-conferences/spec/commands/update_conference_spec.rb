@@ -87,7 +87,7 @@ module Decidim::Conferences
 
       describe "when the form is not valid" do
         before do
-          expect(form).to receive(:invalid?).and_return(true)
+          allow(form).to receive(:invalid?).and_return(true)
         end
 
         it "broadcasts invalid" do
@@ -104,10 +104,10 @@ module Decidim::Conferences
 
       describe "when the conference is not valid" do
         before do
-          expect(form).to receive(:invalid?).and_return(false)
+          allow(form).to receive(:invalid?).and_return(false)
           expect(my_conference).to receive(:valid?).at_least(:once).and_return(false)
-          my_conference.errors.add(:hero_image, "Image too big")
-          my_conference.errors.add(:banner_image, "Image too big")
+          my_conference.errors.add(:hero_image, "File resolution is too large")
+          my_conference.errors.add(:banner_image, "File resolution is too large")
         end
 
         it "broadcasts invalid" do
@@ -284,7 +284,7 @@ module Decidim::Conferences
           end
 
           it "schedules a upcoming conference notification job 48h before start time" do
-            expect(UpcomingConferenceNotificationJob)
+            allow(UpcomingConferenceNotificationJob)
               .to receive(:generate_checksum).and_return "1234"
 
             expect(UpcomingConferenceNotificationJob)

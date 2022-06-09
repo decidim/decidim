@@ -425,12 +425,38 @@ describe "Orders", type: :system do
             order.destroy!
             order_percent.projects << projects
             order_percent.save!
+            visit_budget
           end
 
           it "can vote" do
-            visit_budget
             within "#order-progress" do
               expect(page).to have_button("Vote", disabled: false)
+            end
+          end
+
+          context "when user has voted" do
+            let(:router) { Decidim::EngineRouter.main_proxy(component) }
+            let(:another_user) { create(:user, :confirmed, organization: organization) }
+
+            before do
+              find("[data-toggle='budget-confirm']").click
+              click_button "Confirm"
+              expect(page).to have_css(".flash.success")
+            end
+
+            it "shows private-only activity log entry" do
+              page.visit decidim.profile_activity_path(nickname: user.nickname)
+              expect(page).to have_content("New budgeting vote at #{translated(budget.participatory_space.title)}")
+              expect(page).to have_link(translated(budget.title), href: router.budget_path(budget))
+            end
+
+            it "does not show activity log entry to another user" do
+              relogin_as another_user, scope: :user
+              page.visit decidim.profile_activity_path(nickname: user.nickname)
+              expect(page).to have_content(user.name)
+              expect(page).to have_current_path "/profiles/#{user.nickname}/activity"
+              expect(page).not_to have_content("New budgeting vote at")
+              expect(page).not_to have_link(translated(budget.title))
             end
           end
         end

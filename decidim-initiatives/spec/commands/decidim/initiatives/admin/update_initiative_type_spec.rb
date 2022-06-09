@@ -14,14 +14,16 @@ module Decidim
 
         context "when validation error" do
           let(:organization) { create(:organization) }
-          let!(:initiative_type) { create(:initiatives_type, organization: organization) }
+          let(:user) { create(:user, organization: organization) }
+          let!(:initiative_type) { create(:initiatives_type, organization: organization, banner_image: banner_image) }
+          let(:banner_image) { upload_test_file(Decidim::Dev.test_file("city2.jpeg", "image/jpeg")) }
           let(:form) do
             form_klass
               .from_model(initiative_type)
               .with_context(current_organization: organization)
           end
 
-          let(:command) { described_class.new(initiative_type, form) }
+          let(:command) { described_class.new(initiative_type, form, user) }
 
           it "broadcasts invalid" do
             expect(initiative_type).to receive(:valid?)

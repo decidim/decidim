@@ -45,12 +45,14 @@ module Decidim
         link: map_url
       }.merge(options))
 
-      unless snippets.any?(:map)
-        snippets.add(:map, builder.stylesheet_snippets)
-        snippets.add(:map, builder.javascript_snippets)
+      unless snippets.any?(:map_styles) || snippets.any?(:map_scripts)
+        snippets.add(:map_styles, builder.stylesheet_snippets)
+        snippets.add(:map_scripts, builder.javascript_snippets)
 
         # This will display the snippets in the <head> part of the page.
-        snippets.add(:head, snippets.for(:map))
+        snippets.add(:head, snippets.for(:map_styles))
+        # This will display the snippets in the bottom part of the page.
+        snippets.add(:foot, snippets.for(:map_scripts))
       end
 
       builder.map_element(
@@ -84,12 +86,14 @@ module Decidim
       # Ideally we would use Rails' native content_for here (which is exactly
       # for this purpose) but unfortunately it does not work in the cells which
       # also need to display maps.
-      unless snippets.any?(:map)
-        snippets.add(:map, builder.stylesheet_snippets)
-        snippets.add(:map, builder.javascript_snippets)
+      unless snippets.any?(:map_styles) || snippets.any?(:map_scripts)
+        snippets.add(:map_styles, builder.stylesheet_snippets)
+        snippets.add(:map_scripts, builder.javascript_snippets)
 
         # This will display the snippets in the <head> part of the page.
-        snippets.add(:head, snippets.for(:map))
+        snippets.add(:head, snippets.for(:map_styles))
+        # This will display the snippets in the bottom part of the page.
+        snippets.add(:foot, snippets.for(:map_scripts))
       end
 
       map_html_options = { id: "map", class: "google-map" }.merge(html_options)

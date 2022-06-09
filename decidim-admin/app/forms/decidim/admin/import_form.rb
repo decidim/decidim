@@ -44,30 +44,34 @@ module Decidim
       def verify_import
         return if importer.verify
 
-        importer.errors.each do |_col, message|
-          errors.add(:file, message)
+        importer.errors.each do |error|
+          errors.add(:file, error.message)
         end
       end
 
       def file_path
-        file&.path
+        ActiveStorage::Blob.service.path_for(blob.key) if blob.respond_to? :key
       end
 
       def mime_type
-        file&.content_type
+        blob&.content_type
       end
 
       def creator_class
         manifest.creator
       end
 
-      def importer_for(filepath, mime_type)
+      def importer_for(path, mime_type)
         Import::ImporterFactory.build(
-          filepath,
+          path,
           mime_type,
           context: importer_context,
           creator: creator_class
         )
+      end
+
+      def blob
+        @blob ||= ActiveStorage::Blob.find_signed(file) if file.presence.is_a?(String)
       end
 
       protected

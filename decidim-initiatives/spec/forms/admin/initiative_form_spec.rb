@@ -98,7 +98,7 @@ module Decidim
           context "when created" do
             let(:state) { "created" }
 
-            it { is_expected.to eq(true) }
+            it { is_expected.to be(true) }
           end
 
           context "when validating" do
@@ -107,16 +107,16 @@ module Decidim
             context "and user current_user is admin" do
               let(:user) { create(:user, :admin, organization: organization) }
 
-              it { is_expected.to eq(true) }
+              it { is_expected.to be(true) }
             end
 
             context "and current_user is not admin" do
-              it { is_expected.to eq(false) }
+              it { is_expected.to be(false) }
             end
           end
 
           context "when any other state" do
-            it { is_expected.to eq(false) }
+            it { is_expected.to be(false) }
           end
         end
 

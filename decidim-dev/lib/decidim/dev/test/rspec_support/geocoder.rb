@@ -17,7 +17,7 @@ module GeocoderHelpers
   # Waits for the front-end geocoding request to finish in order to ensure there
   # are no pending requests when proceeding.
   def fill_in_geocoding(attribute, options = {})
-    fill_in attribute, options
+    fill_in attribute, **options
     expect(page).to have_selector(".autoComplete_wrapper ul#autoComplete_list_1", count: 1)
     find("li#autoComplete_result_0").click
   end
@@ -39,6 +39,7 @@ module Decidim::Map::Provider
   module Geocoding
     class Test < ::Decidim::Map::Geocoding; end
   end
+
   module Autocomplete
     class Test < ::Decidim::Map::Autocomplete
       def self.stubs
@@ -67,9 +68,11 @@ module Decidim::Map::Provider
       end
     end
   end
+
   module DynamicMap
     class Test < ::Decidim::Map::DynamicMap; end
   end
+
   module StaticMap
     class Test < ::Decidim::Map::StaticMap; end
   end

@@ -123,6 +123,10 @@ fr-CA:
         file: Fichier
     errors:
       models:
+        newsletter:
+          attributes:
+            base:
+              at_least_one_space: Sélectionnez au moins une concertation
         organization:
           attributes:
             official_img_footer:
@@ -901,6 +905,7 @@ fr-CA:
         gallery:
           add_images: Ajouter des images
           delete_image: Supprimer l'image
+          edit_images: Modifier les images
           gallery_legend: Ajouter une galerie d'images (facultatif)
       static_page_topics:
         create:

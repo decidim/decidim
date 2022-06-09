@@ -14,7 +14,7 @@ describe Decidim::Budgets::Permissions do
   end
   let(:budgets_component) { create :budgets_component }
   let(:project) { create :project, component: budgets_component }
-  let(:permission_action) { Decidim::PermissionAction.new(action) }
+  let(:permission_action) { Decidim::PermissionAction.new(**action) }
 
   context "when scope is admin" do
     let(:action) do
@@ -53,6 +53,6 @@ describe Decidim::Budgets::Permissions do
       { scope: :public, action: :report, subject: :project }
     end
 
-    it { is_expected.to eq true }
+    it { is_expected.to be true }
   end
 end

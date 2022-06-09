@@ -1,0 +1,67 @@
+<div class="card">
+  <div class="card-divider">
+    <h2 class="card-title"><%= t(".title") %></h2>
+  </div>
+
+  <div id="trustees_process" class="card-section"
+        data-api-endpoint-url="<%= bulletin_board_server %>"
+        data-authority-public-key="<%= authority_public_key %>"
+        data-process-type="tally"
+        data-election-unique-id="<%= election_unique_id %>"
+        data-missing-trustees-allowed="<%= missing_trustees_allowed %>"
+        data-check-pending-action-path="<%= election_step_path(election, current_step, check_pending_action: 1) %>">
+
+    <% if missing_trustees_allowed > 0 %>
+      <ul>
+        <%= content_tag :li, t(".mark_as_missing_description") %>
+        <%= content_tag :li, t(".tally_completion", quorum: quorum) %>
+        <%= content_tag :li, t(".undo_mark_as_missing") %>
+      </ul>
+    <% end %>
+    <div class="table-scroll">
+      <table class="table-list">
+        <thead>
+          <tr>
+            <th><%= t("models.trustees_participatory_space.fields.name", scope: "decidim.elections") %></th>
+            <th><%= t("models.trustees_participatory_space.fields.status", scope: "decidim.elections") %></th>
+            <th><%= t("models.trustees_participatory_space.fields.email", scope: "decidim.elections") %></th>
+            <th><%= t("models.trustees_participatory_space.fields.public_key", scope: "decidim.elections") %></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% election.trustees.each do |trustee| %>
+            <tr class="trustee loading" data-trustee-id="<%= trustee.id %>" data-trustee-slug="<%= trustee.slug %>">
+              <td>
+                <%= trustee.name %>
+              </td>
+              <td>
+                <div class="loading"><span class="loading-spinner"></span></div>
+                <div class="active hide"><%= icon "task", class: "text-success" %></div>
+                <div class="missing hide"><%= icon "x", class: "text-alert" %></div>
+              </td>
+              <td>
+                <%= trustee.user.email %>
+              </td>
+              <td>
+                <%= present(trustee).public_key_thumbprint %>
+              </td>
+              <td class="table-list__actions">
+                <%= f.button type: :button, formaction: election_step_path(election, current_step, trustee_id: trustee.id),
+                             class: "button tiny alert hollow hide js-report-missing-trustee" do %>
+                  <%= icon "circle-x" %> <%= t(".mark_as_missing") %>
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div class="button--double form-general-submit">
+  <%= link_to t("steps.tally_started.continue", scope: "decidim.elections.admin"), election_steps_path(election), class: "button disabled js-continue-link" %>
+</div>
+
+<%= javascript_pack_tag "decidim_elections_admin_trustees_process" %>

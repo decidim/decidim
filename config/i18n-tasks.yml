@@ -132,6 +132,7 @@ ignore_unused:
   - decidim.forms.errors.*
   - decidim.forms.file_help.*
   - decidim.forms.user_answers_serializer.*
+  - decidim.forms.admin_log.questionnaire.update
   - decidim.proposals.answers.*
   - decidim.proposals.collaborative_drafts.show.see_other_versions
   - decidim.proposals.collaborative_drafts.wizard_aside.back
@@ -295,7 +296,7 @@ ignore_unused:
   - decidim.elections.trustee_zone.trustees.show.identification_keys.upload_error.*
   - decidim.elections.feedback.answer.*
   - decidim.elections.trustee_zone.elections.key_ceremony_steps.keys.*
-  - decidim.elections.trustee_zone.elections.tally_steps.keys.*
+  - decidim.elections.trustee_zone.elections.tally_started_steps.keys.*
   - decidim.votings.admin_log.*
   - decidim.votings.admin.content_blocks.landing_page.*
   - decidim.votings.census.admin.census.new.file_help.*
@@ -316,6 +317,7 @@ ignore_unused:
   - decidim.assemblies.admin.assembly_members.form.explanation
   - decidim.assemblies.admin.assembly_members.form.image_guide
   - decidim.assemblies.admin.assembly_members.form.non_user_avatar_help
+  - decidim.templates.admin_log.*
 
 ## Exclude these keys from the `i18n-tasks eq-base' report:
 # ignore_eq_base:

@@ -28,7 +28,7 @@ module Decidim
       end
 
       def description
-        present(model).description(strip_tags: true)
+        present(model).description(strip_tags: true).truncate(120, separator: /\s/)
       end
 
       def badge

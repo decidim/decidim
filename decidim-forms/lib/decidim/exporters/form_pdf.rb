@@ -15,11 +15,11 @@ module Decidim
       end
 
       def template
-        "decidim/forms/admin/questionnaires/answers/export/pdf.html.erb"
+        "decidim/forms/admin/questionnaires/answers/export/pdf"
       end
 
       def layout
-        "decidim/forms/admin/questionnaires/questionnaire_answers.html.erb"
+        "decidim/forms/admin/questionnaires/questionnaire_answers"
       end
 
       def locals

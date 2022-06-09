@@ -20,7 +20,7 @@ module Decidim
       def render(options = {})
         return content unless content.is_a?(String)
 
-        options = { target: "_blank", rel: "nofollow noopener" }.merge(options)
+        options = { target: "_blank", rel: "nofollow noopener noreferrer ugc" }.merge(options)
         auto_link(content, options)
       end
 
@@ -45,12 +45,12 @@ module Decidim
 
       private
 
-      AUTO_LINK_RE = %r{(?: ((?:ftp|http|https):)// | www\. )[^\s<\u00A0"]+}ix.freeze
+      AUTO_LINK_RE = %r{(?: ((?:ftp|http|https):)// | www\. )[^\s<\u00A0"]+}ix
 
       # # regexps for determining context, used high-volume
       AUTO_LINK_CRE = [/<[^>]+$/, /^[^>]*>/, /<a\b.*?>/i, %r{</a>}i].freeze
 
-      PUNCTUATION_RE = %r{[^\p{Word}/=&]$}.freeze
+      PUNCTUATION_RE = %r{[^\p{Word}/=&]$}
 
       BRACKETS = { "]" => "[", ")" => "(", "}" => "{" }.freeze
 

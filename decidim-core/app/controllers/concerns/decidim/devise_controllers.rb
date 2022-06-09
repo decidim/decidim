@@ -25,7 +25,6 @@ module Decidim
       helper Decidim::MetaTagsHelper
       helper Decidim::DecidimFormHelper
       helper Decidim::LanguageChooserHelper
-      helper Decidim::CookiesHelper
       helper Decidim::ReplaceButtonsHelper
       helper Decidim::LayoutHelper
       helper Decidim::MenuHelper

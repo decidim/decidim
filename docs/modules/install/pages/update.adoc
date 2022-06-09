@@ -4,7 +4,7 @@ IMPORTANT: This section was initially copied from https://platoniq.github.io/dec
 
 Because Decidim is a gem in our system, to update it we will have to edit our `Gemfile` and specify the new version number.
 
-To keep our system up to date, we can visit the page https://github.com/decidim/decidim/releases and compare with our `Gemfile`. See if the lines specifying the gem called "decidim-something" are followed by the number corresponding to the latest release:
+To keep our system up to date, we can visit the page https://github.com/decidim/decidim/releases[Releases] and compare with our `Gemfile`. See if the lines specifying the gem called "decidim-something" are followed by the number corresponding to the latest release:
 
 [source,ruby]
 ----
@@ -91,5 +91,5 @@ gem "decidim-dev", DECIDIM_VERSION
 
 . Make a full backup of the database before updating, just in case something unexpected happens.
 . If you are more than update away. Always update from one version to the immediately next one and then repeat the process until you are up to date.
-. Always check the instructions for a certain version upgrade in https://github.com/decidim/decidim/releases. Some releases require to perform certain actions as they may change some database structures. Follow that instructions if you are affected.
-. Check also the file https://github.com/decidim/decidim/blob/develop/CHANGELOG.md It may have relevant information for updates between versions.
+. Always check the instructions for a certain version upgrade in https://github.com/decidim/decidim/releases[Releases]. Some releases require to perform certain actions as they may change some database structures. Follow that instructions if you are affected.
+. Check also the file https://github.com/decidim/decidim/blob/develop/CHANGELOG.md[CHANGELOG] It may have relevant information for updates between versions.

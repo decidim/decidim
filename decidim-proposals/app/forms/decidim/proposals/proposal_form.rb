@@ -6,6 +6,7 @@ module Decidim
     class ProposalForm < Decidim::Proposals::ProposalWizardCreateStepForm
       include Decidim::TranslatableAttributes
       include Decidim::AttachmentAttributes
+      include Decidim::HasUploadValidations
 
       mimic :proposal
 
@@ -41,6 +42,12 @@ module Decidim
         self.scope_id = model.scope.id if model.scope
 
         self.has_address = true if model.address.present?
+
+        # Proposals have the "photos" field reserved for the proposal card image
+        # so we don't want to show all photos there. Instead, only show the
+        # first photo.
+        self.photos = [model.photo].compact.select { |p| p.weight.zero? }
+        self.documents = model.attachments - photos
       end
 
       # Finds the Category from the category_id.
@@ -119,7 +126,7 @@ module Decidim
       end
 
       def ordered_hashtag_list(string)
-        string.to_s.split.reject(&:blank?).uniq.sort_by(&:parameterize)
+        string.to_s.split.compact_blank.uniq.sort_by(&:parameterize)
       end
     end
   end

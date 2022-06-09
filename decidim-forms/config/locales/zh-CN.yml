@@ -112,10 +112,6 @@ zh-CN:
         extension_allowlist: '接受的格式：'
       images:
         dimensions: "%{width} x %{height} px"
-        dimensions_info: '这张图片将是：'
-        processors:
-          resize_and_pad: 缩放并填充到
-          resize_to_fit: 调整到适合的
       question_types:
         long_answer: 长答案
         matrix_multiple: 矩阵(多选项)

@@ -56,8 +56,8 @@ Decidim uses Webpacker to compile assets. There are two ways to customize CSS:
 
 1. if you want to redefine just CSS vars or Foundation settings, use _decidim-settings.scss
 2. if you want to redefine a specific snippet of CSS (let's say a few classes but not a whole file) you can use decidim_application.scss
-3. and of course you can overwrite whole files by copying them into the application i.e: to replace `decidim-core/app/packs/stylesheets/modules/_cookie-bar.scss` you should create in your Rails app a file in
-  `app/packs/stylesheets/modules/_cookie-bar.scss` and it will have more priority over the Decidim file.
+3. and of course you can overwrite whole files by copying them into the application i.e: to replace `decidim-core/app/packs/stylesheets/decidim/modules/_cookie-consent.scss` you should create in your Rails app a file in
+  `app/packs/stylesheets/decidim/modules/_cookie-consent.scss` and it will have more priority over the Decidim file.
 
 We use http://sass-lang.com/guide[SASS, with SCSS syntax] as CSS preprocessor.
 

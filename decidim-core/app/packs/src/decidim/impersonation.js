@@ -1,11 +1,11 @@
-import moment from "moment"
+import dayjs from "dayjs"
 
 $(() => {
   const $impersonationWarning = $(".impersonation-warning");
   if ($impersonationWarning.length) {
-    const endsAt = moment($impersonationWarning.data("session-ends-at"));
+    const endsAt = dayjs($impersonationWarning.data("session-ends-at"));
     const exitInterval = setInterval(() => {
-      const diff = (endsAt - moment()) / 60000;
+      const diff = (endsAt - dayjs()) / 60000;
       const diffInMinutes = Math.round(diff);
       $impersonationWarning.find(".minutes").html(diffInMinutes);
 

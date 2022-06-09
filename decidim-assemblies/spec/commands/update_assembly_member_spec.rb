@@ -11,13 +11,7 @@ module Decidim::Assemblies
     let!(:current_user) { create :user, :confirmed, organization: assembly.organization }
     let(:user) { nil }
     let(:existing_user) { false }
-    let(:non_user_avatar) do
-      ActiveStorage::Blob.create_after_upload!(
-        io: File.open(Decidim::Dev.asset("avatar.jpg")),
-        filename: "avatar.jpeg",
-        content_type: "image/jpeg"
-      )
-    end
+    let(:non_user_avatar) { upload_test_file(Decidim::Dev.test_file("avatar.jpg", "image/jpeg")) }
     let(:form_klass) { Admin::AssemblyMemberForm }
     let(:form_params) do
       {
@@ -55,13 +49,7 @@ module Decidim::Assemblies
 
       context "when image is invalid" do
         let(:existing_user) { false }
-        let(:non_user_avatar) do
-          ActiveStorage::Blob.create_after_upload!(
-            io: File.open(Decidim::Dev.asset("invalid.jpeg")),
-            filename: "avatar.jpeg",
-            content_type: "image/jpeg"
-          )
-        end
+        let(:non_user_avatar) { upload_test_file(Decidim::Dev.asset("invalid.jpeg")) }
 
         it "prevents uploading" do
           expect { subject.call }.not_to raise_error
@@ -77,7 +65,7 @@ module Decidim::Assemblies
         end.to change { assembly_member.reload && assembly_member.full_name }.from(assembly_member.full_name).to("New name")
       end
 
-      it "broadcasts  ok" do
+      it "broadcasts ok" do
         expect { subject.call }.to broadcast(:ok)
       end
 

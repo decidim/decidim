@@ -14,7 +14,9 @@ module Decidim
       end
 
       def more_information?(answer)
-        answer.description || answer.proposals.any? || answer.photos.any?
+        translated_attribute(answer.description).present? ||
+          answer.proposals.any? ||
+          answer.photos.any?
       end
     end
   end

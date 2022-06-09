@@ -128,10 +128,6 @@ ca:
         extension_allowlist: 'Formats d''arxiu acceptats:'
       images:
         dimensions: "%{width} x %{height} px"
-        dimensions_info: 'Aquesta imatge medirà:'
-        processors:
-          resize_and_pad: Redimensionat i ajustat a
-          resize_to_fit: Redimensionada per ajustar-la
       question_types:
         files: Arxius
         long_answer: Resposta llarga

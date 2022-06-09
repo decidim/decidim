@@ -9,7 +9,7 @@
       <div class="card__text">
         <div class="card__text--paragraph">
           <%= render :badge if has_badge? %>
-          <%= description %>
+          <%= Decidim::ContentProcessor.render(description, "div") %>
         </div>
       </div>
 

@@ -58,7 +58,7 @@ module Decidim
       end
 
       it "is not valid if its parent is a comment and cannot accept new comments" do
-        expect(comment.root_commentable).to receive(:accepts_new_comments?).and_return false
+        allow(comment.root_commentable).to receive(:accepts_new_comments?).and_return false
         expect(replies[0]).not_to be_valid
       end
 
@@ -206,7 +206,7 @@ module Decidim
             %(Content with <a href="http://urls.net" onmouseover="alert('hello')">URLs</a> of anchor type and text urls like https://decidim.org. And a malicous <a href="javascript:document.cookies">click me</a>)
           end
           let(:result) do
-            %(<div><p>Content with URLs of anchor type and text urls like <a href="https://decidim.org" target="_blank" rel="nofollow noopener">https://decidim.org</a>. And a malicous click me</p></div>)
+            %(<div><p>Content with URLs of anchor type and text urls like <a href="https://decidim.org" target="_blank" rel="nofollow noopener noreferrer ugc">https://decidim.org</a>. And a malicous click me</p></div>)
           end
 
           it "converts all URLs to links and strips attributes in anchors" do

@@ -41,7 +41,7 @@ module Decidim::System
 
       describe "omniauth_settings" do
         it "contains attributes as plain text" do
-          expect(subject.omniauth_settings_facebook_enabled).to eq(true)
+          expect(subject.omniauth_settings_facebook_enabled).to be(true)
           expect(subject.omniauth_settings_facebook_app_id).to eq(facebook_app_id)
           expect(subject.omniauth_settings_facebook_app_secret).to eq(facebook_app_secret)
         end
@@ -51,7 +51,7 @@ module Decidim::System
         it "encrypts sensible attributes" do
           encrypted_settings = subject.encrypted_omniauth_settings
 
-          expect(encrypted_settings["omniauth_settings_facebook_enabled"]).to eq(true)
+          expect(encrypted_settings["omniauth_settings_facebook_enabled"]).to be(true)
           expect(
             Decidim::AttributeEncryptor.decrypt(encrypted_settings["omniauth_settings_facebook_app_id"])
           ).to eq(facebook_app_id)

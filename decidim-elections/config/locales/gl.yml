@@ -173,6 +173,7 @@ gl:
         filters:
           active: Activa
           all: Todas
+          date: Data
           finished: Finalizada
           search: Procurar
           upcoming: Vindeiras
@@ -241,6 +242,9 @@ gl:
                 bb_status: Estado
             identification_keys:
               submit: Enviar
+              upload_error:
+                invalid_public_key: As claves de identificación no ficheiro a subir non coinciden coas claves públicas almacenadas.
+              upload_legend: O servidor ten as túas claves públicas, mais o teu navegador aínda non. Precisas importar ao teu computador o ficheiro coas túas claves de identificación dende a copia de seguranza creada despois de xerar as chaves.
       votes:
         ballot_decision:
           audit: "( Auditar papeleta )"
@@ -270,9 +274,14 @@ gl:
         onboarding_modal:
           close: Pechar modal
           create_account: Crear conta
+          description: Queres crear unha conta nova na plataforma? Poderás participar nos procesos e ser unha parte activa da organización.
           no_account: Non, grazas.
+          title: Es novo na plataforma?
         update:
           error: Produciuse un problema ao actualizar o estado do voto. Por favor, téntao de novo.
+        verify:
+          form:
+            back: Volver á plataforma
     events:
       elections:
         votes:
@@ -454,6 +463,7 @@ gl:
           description:
             show_less: Ler menos
             show_more: Ler máis
+            title: Sobre esta votación
           metrics:
             heading: Métricas
           polling_stations:
@@ -606,6 +616,8 @@ gl:
           description: O rexistro da elección amosarache toda a información importante sobre cada votación. Por exemplo, o estado da cerimonia de chaves, o reconto ou se os resultados xa están publicados. Fai clic na elección da que desexas a información do rexistro.
           election_log: Rexistro da elección
           title: Rexistro da elección
+        filters:
+          date: Data
         login:
           access_code: Código de acceso
           access_code_placeholder: Código de acceso

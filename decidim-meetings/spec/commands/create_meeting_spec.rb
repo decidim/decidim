@@ -157,15 +157,15 @@ module Decidim::Meetings
 
       it "schedules a upcoming meeting notification job 48h before start time" do
         meeting = instance_double(Meeting, id: 1, start_time: start_time, participatory_space: participatory_process)
-        expect(Decidim.traceability)
+        allow(Decidim.traceability)
           .to receive(:create!)
           .and_return(meeting)
 
         expect(meeting).to receive(:valid?)
         expect(meeting).to receive(:publish!)
-        expect(meeting).to receive(:to_signed_global_id).and_return "gid://Decidim::Meetings::Meeting/1"
+        allow(meeting).to receive(:to_signed_global_id).and_return "gid://Decidim::Meetings::Meeting/1"
 
-        expect(UpcomingMeetingNotificationJob)
+        allow(UpcomingMeetingNotificationJob)
           .to receive(:generate_checksum).and_return "1234"
 
         expect(UpcomingMeetingNotificationJob)
@@ -179,13 +179,13 @@ module Decidim::Meetings
 
       it "doesn't schedule an upcoming meeting notification if start time is in the past" do
         meeting = instance_double(Meeting, id: 1, start_time: 2.days.ago, participatory_space: participatory_process)
-        expect(Decidim.traceability)
+        allow(Decidim.traceability)
           .to receive(:create!)
           .and_return(meeting)
 
         expect(meeting).to receive(:valid?)
         expect(meeting).to receive(:publish!)
-        expect(meeting).to receive(:to_signed_global_id).and_return "gid://Decidim::Meetings::Meeting/1"
+        allow(meeting).to receive(:to_signed_global_id).and_return "gid://Decidim::Meetings::Meeting/1"
 
         expect(UpcomingMeetingNotificationJob).not_to receive(:generate_checksum)
         expect(UpcomingMeetingNotificationJob).not_to receive(:set)

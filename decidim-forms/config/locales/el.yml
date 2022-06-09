@@ -69,10 +69,6 @@ el:
         extension_allowlist: 'Αποδεκτές μορφές:'
       images:
         dimensions: "Π %{width} x Υ %{height} px"
-        dimensions_info: 'Για αυτήν την εικόνα θα:'
-        processors:
-          resize_and_pad: Αλλάξει το μέγεθος και θα συμπληρωθεί σε
-          resize_to_fit: Αλλάξει το μέγεθος για προσαρμογή
       question_types:
         long_answer: Μεγάλη απάντηση
         matrix_multiple: Πίνακας (πολλαπλή επιλογή)

@@ -42,6 +42,12 @@ module Decidim
         end
       end
 
+      initializer "decidim.content_processors" do |_app|
+        Decidim.configure do |config|
+          config.content_processors += [:meeting]
+        end
+      end
+
       initializer "decidim_meetings.view_hooks" do
         Decidim.view_hooks.register(:participatory_space_highlighted_elements, priority: Decidim::ViewHooks::HIGH_PRIORITY) do |view_context|
           view_context.cell("decidim/meetings/highlighted_meetings", view_context.current_participatory_space)
@@ -112,6 +118,20 @@ module Decidim
 
       initializer "decidim_meetings.webpacker.assets_path" do
         Decidim.register_assets_path File.expand_path("app/packs", root)
+      end
+
+      initializer "decidim_meetings.notification_settings" do
+        Decidim.notification_settings(:close_meeting_reminder) { |ns| ns.settings_area = :administrators }
+      end
+
+      initializer "decidim_meetings.register_reminders" do
+        Decidim.reminders_registry.register(:close_meeting) do |reminder_registry|
+          reminder_registry.generator_class_name = "Decidim::Meetings::CloseMeetingReminderGenerator"
+
+          reminder_registry.settings do |settings|
+            settings.attribute :reminder_times, type: :array, default: [3.days, 7.days]
+          end
+        end
       end
     end
   end

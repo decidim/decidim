@@ -82,7 +82,7 @@ module Decidim
         # Finds the Meetings of the current participatory space
         def meetings
           @meetings ||= Decidim.find_resource_manifest(:meetings).try(:resource_scope, current_component)
-                               &.order(title: :asc)
+                          &.published&.order(title: :asc)
         end
 
         # Return the meeting as author
@@ -129,7 +129,7 @@ module Decidim
         end
 
         def ordered_hashtag_list(string)
-          string.to_s.split.reject(&:blank?).uniq.sort_by(&:parameterize)
+          string.to_s.split.compact_blank.uniq.sort_by(&:parameterize)
         end
       end
     end

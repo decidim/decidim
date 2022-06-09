@@ -353,7 +353,7 @@ describe "Admin manages meetings", type: :system, serves_map: true, serves_geoco
       expect(page).to have_no_field(:meeting_location_en)
       expect(page).to have_field("Online meeting URL")
 
-      select "Both", from: :meeting_type_of_meeting
+      select "Hybrid", from: :meeting_type_of_meeting
       expect(page).to have_field("Address")
       expect(page).to have_field(:meeting_location_en)
       expect(page).to have_field("Online meeting URL")
@@ -426,6 +426,14 @@ describe "Admin manages meetings", type: :system, serves_map: true, serves_geoco
 
       within "table" do
         expect(page).to have_content("My new title")
+      end
+    end
+
+    it "doesn't display error message when opening meeting's create form" do
+      find(".card-title a.button").click
+
+      within "label[for='meeting_registration_type']" do
+        expect(page).to have_no_content("There's an error in this field.")
       end
     end
 

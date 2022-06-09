@@ -62,6 +62,10 @@ gl:
           body: O corpo non pode estar en branco
       files:
         extension_allowlist: 'Formatos aceptados:'
+      images:
+        processors:
+          resize_and_pad: A imaxe axustarase para se encadrar a %{dimensions}.
+          resize_to_fit: A imaxe axustarase para se adaptar a %{dimensions}.
       question_types:
         long_answer: Resposta longa
         multiple_option: Múltipla opción
