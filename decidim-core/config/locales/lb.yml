@@ -373,8 +373,8 @@ lb:
             amendments_enabled: Ännerungen aktivéiert
             comments_enabled: Kommentarer aktiv
             comments_max_length: Maximal Längt vun de Kommentären
-            dummy_global_attribute_1: Dummy Attribut 1
-            dummy_global_attribute_2: Dummy Attribut 2
+            dummy_global_attribute1: Dummy Attribut 1
+            dummy_global_attribute2: Dummy Attribut 2
             dummy_global_translatable_text: Dummy Text ze iwwersetzen
             enable_pads_creation: Erstellen vun Pads erméiglechen
             resources_permissions_enabled: Ressourcen-Berechtegung aktivéiert
@@ -386,8 +386,8 @@ lb:
             amendment_reaction_enabled: Reaktioun op Ännerungen aktivéiert
             amendments_visibility: Siichtbarkeet vun Ännerungen
             comments_blocked: Kommentare blockéiert
-            dummy_step_attribute_1: Dummy Schrëtt Attributer 1
-            dummy_step_attribute_2: Dummy Schrëtt Attributer 2
+            dummy_step_attribute1: Dummy Schrëtt Attributer 1
+            dummy_step_attribute2: Dummy Schrëtt Attributer 2
             dummy_step_translatable_text: Dummy Schrëtt ze iwwersetzenden Text
     contact: Kontakt
     content_blocks:
