@@ -656,7 +656,7 @@ shared_examples_for "an application with configurable env vars" do
       "Rails.application.config.log_level" => "info",
       "Rails.application.config.action_controller.asset_host" => nil,
       "Rails.application.config.active_storage.service" => "local",
-      "Decidim::ApplicationUploader.new(nil, :file).protocol_options" => { "protocol" => "https" }
+      "Decidim::EngineRouter.new(nil, {}).send(:configured_default_url_options)" => { "protocol" => "https" }
     }
   end
 
@@ -666,7 +666,7 @@ shared_examples_for "an application with configurable env vars" do
       "Rails.application.config.log_level" => "fatal",
       "Rails.application.config.action_controller.asset_host" => "http://assets.example.org",
       "Rails.application.config.active_storage.service" => "test",
-      "Decidim::ApplicationUploader.new(nil, :file).protocol_options" => { "host" => "https://cdn.example.org" },
+      "Decidim::AssetRouter.new(nil).send(:default_options)" => { "host" => "https://cdn.example.org" },
       "Decidim::Api::Schema.default_max_page_size" => 31,
       "Decidim::Api::Schema.max_complexity" => 3001,
       "Decidim::Api::Schema.max_depth" => 11
