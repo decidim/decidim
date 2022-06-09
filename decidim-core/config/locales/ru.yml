@@ -241,13 +241,13 @@ ru:
         settings:
           global:
             comments_enabled: Комментарии включены
-            dummy_global_attribute_1: Пример свойства 1
-            dummy_global_attribute_2: Пример свойства 2
+            dummy_global_attribute1: Пример свойства 1
+            dummy_global_attribute2: Пример свойства 2
             resources_permissions_enabled: Разрешения ресурсов включены
           step:
             comments_blocked: Комментарии отключены
-            dummy_step_attribute_1: Пример 1 свойства шага
-            dummy_step_attribute_2: Пример 2 свойства шага
+            dummy_step_attribute1: Пример 1 свойства шага
+            dummy_step_attribute2: Пример 2 свойства шага
     contact: Связаться
     content_blocks:
       footer_sub_hero:
