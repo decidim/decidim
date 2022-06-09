@@ -356,8 +356,8 @@ hu:
             amendments_enabled: A módosítások engedélyezve vannak
             comments_enabled: Megjegyzések engedélyezve
             comments_max_length: A hozzászólások maximális hossza
-            dummy_global_attribute_1: Dummy tulajdonság 1
-            dummy_global_attribute_2: Dummy tulajdonság 2
+            dummy_global_attribute1: Dummy tulajdonság 1
+            dummy_global_attribute2: Dummy tulajdonság 2
             dummy_global_translatable_text: Kenyérszöveg - nem valódi fordítható szöveg
             enable_pads_creation: A közös dokumentum létrehozásának engedélyezése
             resources_permissions_enabled: Erőforrás-engedélyek biztosítva
@@ -369,8 +369,8 @@ hu:
             amendment_reaction_enabled: A módosító reakció engedélyezett
             amendments_visibility: A módosítás láthatósága
             comments_blocked: Megjegyzések letiltva
-            dummy_step_attribute_1: Dummy Lépés tulajdonság 1
-            dummy_step_attribute_2: Dummy Lépés tulajdonság 2
+            dummy_step_attribute1: Dummy Lépés tulajdonság 1
+            dummy_step_attribute2: Dummy Lépés tulajdonság 2
             dummy_step_translatable_text: Hamis Lépés Fordítható Szöveg
     contact: Kapcsolat
     content_blocks:
