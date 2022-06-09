@@ -373,8 +373,8 @@ it:
             amendments_enabled: Emendamenti abilitati
             comments_enabled: Commenti abilitati
             comments_max_length: Lunghezza massima dei commenti
-            dummy_global_attribute_1: Attributo fittizio 1
-            dummy_global_attribute_2: Attributo fittizio 2
+            dummy_global_attribute1: Attributo fittizio 1
+            dummy_global_attribute2: Attributo fittizio 2
             dummy_global_translatable_text: Testo traducibile Dummy
             enable_pads_creation: Abilita la creazione di pad
             resources_permissions_enabled: Permessi di risorse abilitati
@@ -386,8 +386,8 @@ it:
             amendment_reaction_enabled: Risposta all'emendamento abilitata
             amendments_visibility: Visibilità dell'emendamento
             comments_blocked: Commenti bloccati
-            dummy_step_attribute_1: Attributo Dummy Step 1
-            dummy_step_attribute_2: Attributo Dummy Step 2
+            dummy_step_attribute1: Attributo Dummy Step 1
+            dummy_step_attribute2: Attributo Dummy Step 2
             dummy_step_translatable_text: Testo traducibile Dummy
     contact: Contatto
     content_blocks:
