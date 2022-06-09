@@ -359,8 +359,8 @@ tr:
             amendments_enabled: Değişiklikler etkinleştirildi
             comments_enabled: Yorumlar etkin
             comments_max_length: Maksimum yorum uzunluğu
-            dummy_global_attribute_1: Sahet Özellik 1
-            dummy_global_attribute_2: Sahte Özellik 2
+            dummy_global_attribute1: Sahet Özellik 1
+            dummy_global_attribute2: Sahte Özellik 2
             dummy_global_translatable_text: Sahte Çevrilebilir Metin
             enable_pads_creation: Altlık oluşturmayı etkinleştirin
             resources_permissions_enabled: Kaynak izinleri etkin
@@ -372,8 +372,8 @@ tr:
             amendment_reaction_enabled: Değişiklik tepkisi etkinleştirildi
             amendments_visibility: Değişiklik görünürlüğü
             comments_blocked: Yorumlar engellendi
-            dummy_step_attribute_1: Sahte Adım Niteliği 1
-            dummy_step_attribute_2: Sahte Adım Niteliği 2
+            dummy_step_attribute1: Sahte Adım Niteliği 1
+            dummy_step_attribute2: Sahte Adım Niteliği 2
             dummy_step_translatable_text: Sahte Çevrilebilir Metin
     contact: İletişim
     content_blocks:
