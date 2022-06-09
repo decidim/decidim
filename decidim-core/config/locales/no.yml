@@ -397,8 +397,8 @@
             amendments_enabled: Endringer aktivert
             comments_enabled: Kommentarer aktivert
             comments_max_length: Maks lengde på kommentarer
-            dummy_global_attribute_1: Dummy Egenskap 1
-            dummy_global_attribute_2: Dummy Egenskap 2
+            dummy_global_attribute1: Dummy Egenskap 1
+            dummy_global_attribute2: Dummy Egenskap 2
             dummy_global_translatable_text: Dummy Oversettbar tekst
             enable_pads_creation: Aktiver oppretting av pads
             resources_permissions_enabled: Ressurs tillatelser aktivert
@@ -410,8 +410,8 @@
             amendment_reaction_enabled: Endrings reaksjon aktivert
             amendments_visibility: Endringens synlighet
             comments_blocked: Kommentarer blokkert
-            dummy_step_attribute_1: Dummy Steg Egenskap 1
-            dummy_step_attribute_2: Dummy Steg Egenskap 2
+            dummy_step_attribute1: Dummy Steg Egenskap 1
+            dummy_step_attribute2: Dummy Steg Egenskap 2
             dummy_step_translatable_text: Dummy Steg Oversettbar Tekst
     contact: Kontakt
     content_blocks:
