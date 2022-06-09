@@ -374,8 +374,8 @@ de:
             amendments_enabled: Änderungen aktiviert
             comments_enabled: Kommentare aktiviert
             comments_max_length: Maximallänge der Kommentare
-            dummy_global_attribute_1: Dummy-Attribut 1
-            dummy_global_attribute_2: Dummy-Attribut 2
+            dummy_global_attribute1: Dummy-Attribut 1
+            dummy_global_attribute2: Dummy-Attribut 2
             dummy_global_translatable_text: Übersetzbarer Blindtext
             enable_pads_creation: Aktivieren Sie die Pads-Erstellung
             resources_permissions_enabled: Ressourcenberechtigungen aktiviert
@@ -387,8 +387,8 @@ de:
             amendment_reaction_enabled: Reaktionen auf Änderungen aktiviert
             amendments_visibility: Sichtbarkeit der Änderungsvorschläge
             comments_blocked: Kommentare blockiert
-            dummy_step_attribute_1: Dummy-Schritt-Attribut 1
-            dummy_step_attribute_2: Dummy-Schritt-Attribut 2
+            dummy_step_attribute1: Dummy-Schritt-Attribut 1
+            dummy_step_attribute2: Dummy-Schritt-Attribut 2
             dummy_step_translatable_text: Übersetzbarer Blindtext des Schritts
     contact: Kontakt
     content_blocks:
