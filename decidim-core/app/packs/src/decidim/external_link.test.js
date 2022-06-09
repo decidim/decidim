@@ -9,7 +9,6 @@ describe("ExternalLink", () => {
       <a href="https://decidim.org/" target="_blank"><img src="/path/to/image.png" alt=""></a>
       <a href="https://decidim.org/" target="_blank" data-external-link-spacer="%%%">Custom spacer link</a>
       <a href="https://decidim.org/" target="_blank" data-external-link-target=".external-wrapper"><span class="external-wrapper"></span>This is the link</a>
-      <a href="/">Link to home</a>
     </div>
   `;
 
