@@ -334,6 +334,36 @@ Decidim.configure do |config|
   # set cookies.
   config.consent_cookie_name = Rails.application.secrets.decidim[:consent_cookie_name] if Rails.application.secrets.decidim[:consent_cookie_name].present?
 
+  # Defines cookie consent categories and cookies.
+  # config.consent_categories = [
+  #   {
+  #     slug: "essential",
+  #     mandatory: true,
+  #     cookies: [
+  #       {
+  #         type: "cookie",
+  #         name: "_session_id"
+  #       },
+  #       {
+  #         type: "cookie",
+  #         name: Decidim.consent_cookie_name
+  #       }
+  #     ]
+  #   },
+  #   {
+  #     slug: "preferences",
+  #     mandatory: false
+  #   },
+  #   {
+  #     slug: "analytics",
+  #     mandatory: false
+  #   },
+  #   {
+  #     slug: "marketing",
+  #     mandatory: false
+  #   }
+  # ]
+
   # Additional optional configurations (see decidim-core/lib/decidim/core.rb)
   config.cache_key_separator = Rails.application.secrets.decidim[:cache_key_separator] if Rails.application.secrets.decidim[:cache_key_separator].present?
   config.expire_session_after = Rails.application.secrets.decidim[:expire_session_after].to_i.minutes if Rails.application.secrets.decidim[:expire_session_after].present?
@@ -367,6 +397,9 @@ end
 if Decidim.module_installed? :meetings
   Decidim::Meetings.configure do |config|
     config.upcoming_meeting_notification = Rails.application.secrets.dig(:decidim, :meetings, :upcoming_meeting_notification).to_i.days
+    if Rails.application.secrets.dig(:decidim, :meetings, :embeddable_services).present?
+      config.embeddable_services = Rails.application.secrets.dig(:decidim, :meetings, :embeddable_services)
+    end
     unless Rails.application.secrets.dig(:decidim, :meetings, :enable_proposal_linking) == "auto"
       config.enable_proposal_linking = Rails.application.secrets.dig(:decidim, :meetings, :enable_proposal_linking).present?
     end

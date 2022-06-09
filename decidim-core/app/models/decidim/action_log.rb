@@ -219,6 +219,7 @@ module Decidim
     def visible_for?(user)
       return false if resource_lazy.blank?
       return false if participatory_space_lazy.blank?
+      return false if resource_lazy.respond_to?(:deleted?) && resource_lazy.deleted?
       return false if resource_lazy.respond_to?(:hidden?) && resource_lazy.hidden?
       return false if resource_lazy.respond_to?(:can_participate?) && !resource_lazy.can_participate?(user)
 

@@ -113,13 +113,17 @@ Be careful where you put the `.rbenv-vars` file, as if you put it in the same fo
 
 == 6. Initializing your app for local development
 
-We should now create your database:
-
+We should now create your database. For a first local installation, we recommend to start with some example contents (also known as seeds).
 [source,bash]
 ----
 bin/rails db:create db:migrate
 bin/rails db:seed
 ----
+
+[NOTE]
+====
+Please refer to xref:install:empty-database.adoc[Empty database installation] section if you want to setup your instance on an empty database (without any seeds)
+====
 
 This will also create some default data so you can start testing the app, with an administrator account with email admin@example.org and password `decidim123456`
 

@@ -1,8 +1,8 @@
-<% unless cookies_accepted? %>
-  <div class="cookie-warning" role="region">
-    <%= t(".description_html", link: link_to(t(".link_label"), decidim.page_path("terms-and-conditions"), title: t(".link_label"), target: "_blank")) %>
-    <div class="cookie-warning__action">
-      <%= button_to t(".ok"), decidim.accept_cookies_path, method: :get, remote: true, class: "button tiny cookie-bar__button" %>
-    </div>
-  </div>
-<% end %>
+<div class="cookie-warning flex-center padding-1 hide">
+  <p>
+  <%= t("layouts.decidim.cookie_consent.warning.need_cookies", cookies: t("layouts.decidim.cookie_consent.warning.all_cookies")) %>
+  </p>
+  <a href="#" class="button margin-vertical-2" data-open="cc-modal">
+    <%= t("change_cookie_settings", scope: "layouts.decidim.cookie_consent.warning") %>
+  </a>
+</div>

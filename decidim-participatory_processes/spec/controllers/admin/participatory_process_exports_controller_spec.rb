@@ -31,6 +31,18 @@ module Decidim
 
             post(:create, params: params)
           end
+
+          it "traces the action", versioning: true do
+            expect(Decidim.traceability)
+              .to receive(:perform_action!)
+              .with("export", Decidim::ParticipatoryProcess, user)
+              .and_call_original
+
+            expect { post(:create, params: params) }.to change(Decidim::ActionLog, :count)
+            action_log = Decidim::ActionLog.last
+            expect(action_log.action).to eq("export")
+            expect(action_log.version).to be_present
+          end
         end
       end
     end

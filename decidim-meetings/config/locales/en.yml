@@ -101,7 +101,7 @@ en:
           with_any_type:
             label: Type of meeting
             values:
-              hybrid: Both
+              hybrid: Hybrid
               in_person: In Person
               online: Online
       meeting_copies:
@@ -185,7 +185,7 @@ en:
           notification_title: The <a href="%{resource_path}">%{resource_title}</a> meeting will start in less than 48h.
     forms:
       meetings:
-        attendees_count_help_text: Don’t forget to include the total number of participants at your event. Whether in person, hybrid, or online, it’s important that we know how many people are involved.
+        attendees_count_help_text: Don't forget to include the total number of attendees at your meeting, whether in person, online or hybrid.
     gamification:
       badges:
         attended_meetings:
@@ -312,7 +312,7 @@ en:
             select_a_meeting_type: Please select a meeting type
             select_a_registration_type: Please select a registration type
             select_an_iframe_access_level: Please select an iframe access level
-            show_embedded_iframe_help: Only a few services allow embedding in meeting or live event (YouTube, Twitch and Jitsi)
+            show_embedded_iframe_help: 'Only a few services allow embedding in meeting or live event from the following domains: %{domains}'
           index:
             title: Meetings
           new:
@@ -383,6 +383,8 @@ en:
           value_types:
             organizer_presenter:
               not_found: 'The organizer was not found on the database (ID: %{id})'
+        questionnaire:
+          update: "%{user_name} updated the questionnaire for the %{meeting_name} meeting"
       application_helper:
         filter_category_values:
           all: All
@@ -394,11 +396,11 @@ en:
         calendar_url: Calendar URL
         close_window: Close window
         copy_calendar_url: Copy
-        copy_calendar_url_clarification: Copy calendar url to clipboard
+        copy_calendar_url_clarification: Copy calendar URL to clipboard
         copy_calendar_url_copied: Copied!
         copy_calendar_url_description: You can see all the published meetings in your calendar application or provider. Copy and paste this URL in your calendar using the "Add new calendar from an URL" option.
         copy_calendar_url_explanation: Please note that you're exporting a selection of meetings, as there are active filters. If you wish to export them all, reset all filters first.
-        copy_calendar_url_message: The url was successfully copied to clipboard.
+        copy_calendar_url_message: The URL was successfully copied to clipboard.
         export_calendar: Export calendar
       close_meeting_reminder_mailer:
         close_meeting_reminder:
@@ -488,7 +490,7 @@ en:
           type: Type
           type_values:
             all: All
-            hybrid: Both
+            hybrid: Hybrid
             in_person: In-person
             online: Online
         filters_small_view:
@@ -509,7 +511,7 @@ en:
           select_a_meeting_type: Please select a meeting type
           select_a_registration_type: Please select a registration type
           select_an_iframe_access_level: Please select an iframe access level
-          show_embedded_iframe_help: Only a few services allow embedding in meeting or live event (YouTube, Twitch and Jitsi)
+          show_embedded_iframe_help: 'Only a few services allow embedding in meeting or live event from the following domains: %{domains}'
         index:
           click_here: See all meetings
           new_meeting: New meeting
@@ -579,7 +581,7 @@ en:
           fields:
             closed: Closed
             end_time: End date
-            id: Id
+            id: ID
             map: Map
             official_meeting: Official meeting
             start_time: Start date
@@ -592,7 +594,7 @@ en:
             empty_questions: Throughout this meeting, some questions will be sent and you will be able to answer them. They will be displayed here.
           index_admin:
             admin_dashboard: Administrator dashboard
-            edit: Edit in the admin
+            edit: Edit in the admin panel
             question: Question
             received_answer: received answer
             received_answers: received answers
@@ -630,7 +632,7 @@ en:
           invalid: There was a problem leaving this meeting.
           success: You have left the meeting successfully.
       type_of_meeting:
-        hybrid: Both
+        hybrid: Hybrid
         in_person: In person
         online: Online
       types:

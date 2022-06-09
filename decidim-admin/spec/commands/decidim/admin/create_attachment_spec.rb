@@ -4,8 +4,8 @@ require "spec_helper"
 
 module Decidim::Admin
   describe CreateAttachment do
-    subject { described_class.call(form, attached_to) }
-
+    subject { described_class.call(form, attached_to, user) }
+    let(:user) { create(:user) }
     let(:form) do
       instance_double(
         AttachmentForm,
@@ -54,6 +54,18 @@ module Decidim::Admin
           )
 
         subject
+      end
+
+      it "traces the action", versioning: true do
+        expect(Decidim.traceability)
+          .to receive(:perform_action!)
+          .with(:create, Decidim::Attachment, user)
+          .and_call_original
+
+        expect { subject }.to change(Decidim::ActionLog, :count)
+        action_log = Decidim::ActionLog.last
+        expect(action_log.action).to eq("create")
+        expect(action_log.version).to be_present
       end
     end
 

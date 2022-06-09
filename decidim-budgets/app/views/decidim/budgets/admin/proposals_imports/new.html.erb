@@ -7,7 +7,7 @@
 
       <div class="card-section">
         <div class="row column">
-          <%= f.select :origin_component_id, @form.origin_components_collection, prompt: t(".select_component") %>
+          <%= f.select :origin_component_id, @form.origin_components_collection, prompt: t(".select_component"), label: t(".origin_component_id") %>
         </div>
         <% if current_component.scopes_enabled? %>
           <div class="row column">
@@ -15,10 +15,10 @@
           </div>
         <% end %>
         <div class="row column">
-          <%= f.number_field :default_budget %>
+          <%= f.number_field :default_budget, label: t(".default_budget") %>
         </div>
         <div class="row column">
-          <%= f.check_box :import_all_accepted_proposals %>
+          <%= f.check_box :import_all_accepted_proposals, label: t(".import_all_accepted_proposals") %>
         </div>
       </div>
     </div>

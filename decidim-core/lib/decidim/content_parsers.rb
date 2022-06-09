@@ -9,5 +9,6 @@ module Decidim
     autoload :NewlineParser, "decidim/content_parsers/newline_parser"
     autoload :LinkParser, "decidim/content_parsers/link_parser"
     autoload :InlineImagesParser, "decidim/content_parsers/inline_images_parser"
+    autoload :ResourceParser, "decidim/content_parsers/resource_parser"
   end
 end

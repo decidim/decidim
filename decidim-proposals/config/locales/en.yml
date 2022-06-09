@@ -46,7 +46,7 @@ en:
         participatory_text:
           attributes:
             document:
-              invalid_document_type: 'Invalid document type. Accepted formats are: %{valid_mime_types}'
+              allowed_file_content_types: 'Invalid document type. Accepted formats are: %{types}'
         proposal:
           attributes:
             add_documents:
@@ -198,6 +198,7 @@ en:
             automatic_hashtags: Hashtags added to all proposals
             comments_blocked: Comments blocked
             creation_enabled: Participants can create proposals
+            creation_enabled_readonly: This setting is disabled when you activate the Participatory Texts functionality. To upload proposals as participatory text click on the Participatory Texts button and follow the instructions.
             default_sort_order: Default proposal sorting
             default_sort_order_help: Default it means that if the supports are enabled, the proposals will be shown sorted by random, and if the supports are blocked, then they will be sorted by the most supported.
             default_sort_order_options:
@@ -818,7 +819,7 @@ en:
             other: supports
         new:
           send: Continue
-          title: Create Your Proposal
+          title: Create your proposal
         orders:
           label: 'Order proposals by:'
           most_commented: Most commented

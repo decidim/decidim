@@ -1,17 +1,5 @@
 = Code
 
-Decidim is multiple things:
-
-* A command-line utility, which can create an application
-* A set of libraries, that the application can use
-
-Most of the time, you should work with the generated application. That application (development_app on this docs) should be named as your project, for instance for Barcelona City Council is `DecidimBarcelona`, so for creating it should be:
-
-[source,console]
-----
-decidim DecidimBarcelona
-----
-
 If you want to override/change anything, you can just do it with the same name of the file, through Monkey Patching. Some real world examples of this method:
 
 * https://github.com/gencat/participa/blob/master/app/decorators/decidim/admin/selective_newsletter_form_decorator.rb[Decidim::Admin::SelectiveNewsletterForm]. As it's a decorator you also need to make it available in the https://github.com/gencat/participa/blob/3416992ae095f6ab1e826fee961253514c4ff0ef/config/application.rb#L48[application config]

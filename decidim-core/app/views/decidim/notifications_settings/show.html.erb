@@ -1,7 +1,7 @@
 <% add_decidim_page_title(t("notifications_settings", scope: "layouts.decidim.user_profile")) %>
 <% content_for(:subtitle) { t("notifications_settings", scope: "layouts.decidim.user_profile") } %>
 
-<div class="row">
+<div class="row mb-m">
   <%= form_for(@notifications_settings, url: notifications_settings_path, method: :put, class: "user-form") do |f| %>
     <p><strong><%= t(".receive_notifications_about") %></strong></p>
     <div class="switch tiny switch-with-label notifications_from_own_activity">
@@ -19,14 +19,8 @@
       <% end %>
     </div>
 
-    <p><strong><%= t(".send_notifications_by_email") %></strong></p>
-    <div class="switch tiny switch-with-label email_on_notification">
-      <%= f.label :email_on_notification do %>
-        <%= f.check_box :email_on_notification, label: false, class: "switch-input" %>
-        <span class="switch-paddle"></span>
-        <span class="switch-label"><%= t(".email_on_notification") %></span>
-      <% end %>
-    </div>
+    <p><strong><%= t(".notifications_sending_frequency") %></strong></p>
+    <%= f.collection_radio_buttons :notifications_sending_frequency, frequencies_collection, :first, :last, { checked: @notifications_settings.notifications_sending_frequency || "daily" } %>
 
     <p><strong><%= t(".newsletters") %></strong></p>
     <div class="switch tiny switch-with-label newsletter_notifications">
@@ -69,6 +63,23 @@
         </div>
       <% end %>
 
+    <% end %>
+
+    <% if @notifications_settings.meet_push_notifications_requirements? %>
+      <div class="push-notifications js-sw-mandatory">
+        <p><strong><%= t(".push_notifications") %></strong></p>
+        <p id="push-notifications-reminder" class="push-notifications__reminder"><i><%= t(".push_notifications_reminder") %></i></p>
+        <div class="switch tiny switch-with-label allow_push_notifications">
+          <label>
+            <%= check_box_tag :allow_push_notifications, 0, false, class: "switch-input" %>
+            <span class="switch-paddle"></span>
+            <span class="switch-label"><%= t(".allow_push_notifications") %></span>
+          </label>
+        </div>
+      </div>
+
+      <input id="vapidPublicKey" name="vapid_public_key" type="hidden" value="<%= Base64.urlsafe_decode64(Rails.application.secrets.vapid[:public_key]).bytes %>">
+      <input id="subKeys" name="sub_key" type="hidden" value="<%= current_user.notifications_subscriptions.keys %>">
     <% end %>
 
     <%= f.submit t(".update_notifications_settings") %>

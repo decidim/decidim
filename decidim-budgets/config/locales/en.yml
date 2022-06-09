@@ -14,8 +14,11 @@ en:
         decidim_scope_id: Scope
         description: Description
         proposal_ids: Related proposals
+        proposals: Proposals
         selected: Selected for implementation
         title: Title
+      proposals_import:
+        scope_id: Scope
   activerecord:
     models:
       decidim/budgets/project:
@@ -86,23 +89,50 @@ en:
             title: Edit project
             update: Update
           index:
+            actions: Actions
+            cancel: Cancel
+            change_category: Change category
+            change_scope: Change scope
+            change_selected: Change selected
+            deselect_implementation: Unselect
             finished_orders: Finished votes
             pending_orders: Pending votes
+            select_for_implementation: Select
             selected: Selected
             title: Projects
+            update: Update
+            update_scope_button: Update scope
           new:
             create: Create
             title: New project
           update:
             invalid: There was a problem updating this project
             success: Project successfully updated
+          update_category:
+            invalid: 'These projects already had the %{subject_name} category: %{projects}.'
+            select_a_category: Please select a category
+            select_a_project: Please select a project
+            success: 'Projects successfully updated to the %{subject_name} category: %{projects}.'
+          update_scope:
+            invalid: 'These projects already had the %{subject_name} scope: %{projects}.'
+            select_a_project: Please select a project
+            select_a_scope: Please select a scope
+            success: 'Projects successfully updated to the %{subject_name} scope: %{projects}.'
+          update_selected:
+            invalid: 'These projects already had the same selected: %{projects}.'
+            select_a_project: Please select a project
+            select_a_selection: Please select a selection
+            success: 'Projects selection successfully changed: %{projects}.'
         proposals_imports:
           create:
             invalid: There was a problem importing the proposals into projects
             success: "%{number} proposals successfully imported into projects"
           new:
             create: Import proposals to projects
+            default_budget: Default budget
+            import_all_accepted_proposals: Import all accepted proposals
             no_components: There are no other proposal components in this participatory space to import the proposals into projects.
+            origin_component_id: Origin component
             select_component: Please select a component
             title: Import proposals
         reminders:
@@ -157,6 +187,7 @@ en:
           fields:
             category: Category
             id: ID
+            scope: Scope
             title: Title
       order_summary_mailer:
         order_summary:
@@ -173,13 +204,13 @@ en:
           title: Confirm vote
         budget_excess:
           budget_excess:
-            description: This project exceeds the maximum budget and can not be added. If you want, you can delete a project you have already selected to add, or make your vote according to your preferences.
+            description: This project exceeds the maximum budget and can not be added. If you want, you can delete a project you have already selected, in order to be able to vote again according to your preferences.
             title: Maximum budget exceeded
           close: Close
-          description: This project exceeds the maximum budget and can not be added. If you want, you can delete a project you have already selected to add, or make your vote according to your preferences.
+          description: This project exceeds the maximum budget and can not be added. If you want, you can delete a project you have already selected, in order to be able to vote again according to your preferences.
           ok: OK
           projects_excess:
-            description: This project exceeds the maximum number of projects and cannot be added. If you want, you can delete a project you have already selected to add, or make your vote according to your preferences.
+            description: This project exceeds the maximum number of projects and cannot be added. If you want, you can delete a project you have already selected, in order to be able to vote again according to your preferences.
             title: Maximum projects exceeded
         budget_summary:
           are_you_sure: Are you sure you want to cancel your vote?
@@ -296,7 +327,7 @@ en:
             total_budget: Total budget
             vote_minimum_budget_projects_number: Minimum number of projects to vote
             vote_rule_minimum_budget_projects_enabled: 'Enable rule: Minimum number of projects to be voted on'
-            vote_rule_selected_projects_enabled: 'Enable rule: Selected projects with minimum and maximum number of projects to be voted on'
+            vote_rule_selected_projects_enabled: 'Enable rule: Minimum and maximum number of projects to be voted on'
             vote_rule_threshold_percent_enabled: 'Enable rule: Minimum budget percentage'
             vote_selected_projects_maximum: Maximum amount of projects to be selected
             vote_selected_projects_minimum: Minimum amount of projects to be selected
