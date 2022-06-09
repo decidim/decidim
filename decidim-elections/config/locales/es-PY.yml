@@ -1293,7 +1293,8 @@ es-PY:
           form_title: 'Rellena el siguiente formulario para comprobar tus datos del censo:'
           invalid: Hubo un problema al comprobar el censo.
           success:
-            access_link: vía SMS o correo electrónico.
+            access_link: por correo electrónico.
+            access_link_with_sms: vía SMS o correo electrónico.
             info: Deberías haber recibido tu código de acceso por correo postal ya. En caso de que no lo tengas, puedes solicitarlo aquí
             title: '¡Tus datos del censo son correctos!'
           title: '¿Puedo votar?'
