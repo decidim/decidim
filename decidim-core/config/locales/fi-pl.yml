@@ -269,14 +269,14 @@ fi-pl:
           global:
             amendments_enabled: Muutokset käytössä
             comments_enabled: Kommentit käytössä
-            dummy_global_attribute1: Esimerkkitietue 1
-            dummy_global_attribute2: Esimerkkitietue 2
+            dummy_global_attribute_1: Esimerkkitietue 1
+            dummy_global_attribute_2: Esimerkkitietue 2
             enable_pads_creation: Ota käyttöön muistioiden luominen
             resources_permissions_enabled: Resurssien käyttöoikeudet ovat käytössä
           step:
             comments_blocked: Kommentit estetty
-            dummy_step_attribute1: Esimerkkivaiheen tietue 1
-            dummy_step_attribute2: Esimerkkivaiheen tietue 2
+            dummy_step_attribute_1: Esimerkkivaiheen tietue 1
+            dummy_step_attribute_2: Esimerkkivaiheen tietue 2
     contact: Ota yhteyttä
     content_blocks:
       footer_sub_hero:
