@@ -483,8 +483,8 @@ cs:
             amendments_enabled: Pozměňovací návrhy povoleny
             comments_enabled: Komentáře povoleny
             comments_max_length: Maximální délka komentářů
-            dummy_global_attribute_1: Zástupný atribut 1
-            dummy_global_attribute_2: Zástupný atribut 2
+            dummy_global_attribute1: Zástupný atribut 1
+            dummy_global_attribute2: Zástupný atribut 2
             dummy_global_translatable_text: Zástupný text k přeložení
             enable_pads_creation: Povolit vytvoření sdíleného textu
             resources_permissions_enabled: Oprávnění zdrojů povoleno
@@ -496,8 +496,8 @@ cs:
             amendment_reaction_enabled: Reakce na změnu byla povolena
             amendments_visibility: Viditelnost pozměňovacího návrhu
             comments_blocked: Komentáře blokovány
-            dummy_step_attribute_1: Atribut 1 zástupného kroku
-            dummy_step_attribute_2: Atribut 2 zástupného kroku
+            dummy_step_attribute1: Atribut 1 zástupného kroku
+            dummy_step_attribute2: Atribut 2 zástupného kroku
             dummy_step_translatable_text: Zástupný krok textu k přeložení
     contact: Kontakt
     content_blocks:
