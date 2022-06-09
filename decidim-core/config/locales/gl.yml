@@ -294,14 +294,14 @@ gl:
           global:
             amendments_enabled: Modificacións habilitadas
             comments_enabled: Comentarios habilitados
-            dummy_global_attribute_1: Atributo maniquí 1
-            dummy_global_attribute_2: Atributo maniquí 2
+            dummy_global_attribute1: Atributo maniquí 1
+            dummy_global_attribute2: Atributo maniquí 2
             enable_pads_creation: Habilita a creación de pastillas
             resources_permissions_enabled: Permisos de recursos habilitados
           step:
             comments_blocked: Comentarios bloqueados
-            dummy_step_attribute_1: Dummy Step Attribute 1
-            dummy_step_attribute_2: Dummy Step Attribute 2
+            dummy_step_attribute1: Dummy Step Attribute 1
+            dummy_step_attribute2: Dummy Step Attribute 2
     contact: Contacto
     content_blocks:
       footer_sub_hero:
