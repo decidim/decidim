@@ -323,8 +323,8 @@ zh-CN:
             amendments_enabled: 修改已启用
             comments_enabled: 评论已启用
             comments_max_length: 评论最大长度
-            dummy_global_attribute_1: 虚拟属性 1
-            dummy_global_attribute_2: 虚拟属性 2
+            dummy_global_attribute1: 虚拟属性 1
+            dummy_global_attribute2: 虚拟属性 2
             dummy_global_translatable_text: 虚拟可翻译文本
             enable_pads_creation: 启用页面创建
             resources_permissions_enabled: 资源权限已启用
@@ -336,8 +336,8 @@ zh-CN:
             amendment_reaction_enabled: 修正反应已启用
             amendments_visibility: 修正可见性
             comments_blocked: 评论已阻止
-            dummy_step_attribute_1: 虚拟步骤属性 1
-            dummy_step_attribute_2: 虚拟步骤属性 2
+            dummy_step_attribute1: 虚拟步骤属性 1
+            dummy_step_attribute2: 虚拟步骤属性 2
             dummy_step_translatable_text: 虚拟步骤可翻译文本
     contact: 聯繫人
     content_blocks:
