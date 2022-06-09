@@ -34,7 +34,7 @@ describe Decidim::Proposals::Admin::Permissions do
   let(:creation_enabled?) { true }
   let(:official_proposals_enabled?) { true }
   let(:component_settings_proposal_answering_enabled?) { true }
-  let(:component_settings_participatory_texts_enabled?) { true }
+  let(:component_settings_participatory_texts_enabled?) { false }
   let(:current_settings_proposal_answering_enabled?) { true }
   let(:current_settings_publish_answers_immediately?) { true }
   let(:permission_action) { Decidim::PermissionAction.new(action) }
@@ -138,6 +138,12 @@ describe Decidim::Proposals::Admin::Permissions do
 
       it { is_expected.to eq false }
     end
+
+    context "when participatory texts is enabled" do
+      let(:component_settings_participatory_texts_enabled?) { true }
+
+      it { is_expected.to be false }
+    end
   end
 
   describe "proposal edition" do
@@ -232,6 +238,7 @@ describe Decidim::Proposals::Admin::Permissions do
   end
 
   describe "manage participatory texts" do
+    let(:component_settings_participatory_texts_enabled?) { true }
     let(:action) do
       { scope: :admin, action: :manage, subject: :participatory_texts }
     end
