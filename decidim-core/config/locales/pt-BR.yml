@@ -373,8 +373,8 @@ pt-BR:
             amendments_enabled: Alterações ativadas
             comments_enabled: Comentários ativados
             comments_max_length: Comprimento máximo de comentários
-            dummy_global_attribute_1: Dummy Atributo 1
-            dummy_global_attribute_2: Dummy Attribute 2
+            dummy_global_attribute1: Dummy Atributo 1
+            dummy_global_attribute2: Dummy Attribute 2
             dummy_global_translatable_text: Texto Tradutor Falso
             enable_pads_creation: Ativar criação de blocos
             resources_permissions_enabled: Permissões de recursos ativadas
@@ -386,8 +386,8 @@ pt-BR:
             amendment_reaction_enabled: Reação da alteração habilitada
             amendments_visibility: Visibilidade das alterações
             comments_blocked: Comentários bloqueados
-            dummy_step_attribute_1: Dummy Step Attribute 1
-            dummy_step_attribute_2: Dummy Step Attribute 2
+            dummy_step_attribute1: Dummy Step Attribute 1
+            dummy_step_attribute2: Dummy Step Attribute 2
             dummy_step_translatable_text: Texto traduzível de Etapa falso
     contact: Contato
     content_blocks:
