@@ -159,6 +159,7 @@ hu:
             title: Javaslatok importálása
         questions:
           create:
+            election_started: A választás megkezdődött
             invalid: Hiba történt a kérdés létrehozása során
             success: Kérdés létrehozása sikeres
           destroy:
