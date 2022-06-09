@@ -129,6 +129,11 @@ ar:
         delete: "%{user_name} إزالة المكون %{resource_name} من %{space_name} الفضاء"
         publish: "%{user_name} نشر المكون %{resource_name} في الفضاء %{space_name}"
         unpublish: "%{user_name} غير منشور المكون %{resource_name} من %{space_name} الفضاء"
+      helpers:
+        answers: أجوبة
+        comments: تعليقات
+        projects: مشاريع
+        results: نتائج
       moderation:
         hide: "%{user_name} اختبأ مورد من النوع %{resource_type} في الفضاء %{space_name}"
         unreport: "%{user_name} الإبلاغ عن مورد من النوع %{resource_type} في %{space_name} الفضاء"
