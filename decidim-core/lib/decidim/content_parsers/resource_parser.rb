@@ -11,7 +11,7 @@ module Decidim
       URL_REGEX_CONTENT = '[\w.-]+[\w\-\._~:\/?#\[\]@!\$&\'\(\)\*\+,;=.]+'
       URL_REGEX_END_CHAR = '[\d]'
       # Matches a mentioned resource ID (~(d)+ expression)
-      ID_REGEX = /~(\d+)/
+      ID_REGEX = /~(\d+)/.freeze
 
       # Replaces found mentions matching an existing
       # Resource with a global id for that Resource. Other mentions found that doesn't
