@@ -1219,7 +1219,7 @@ pt-BR:
           form_title: 'Preencha o seguinte formulário para verificar os dados do censo:'
           invalid: Houve um problema ao verificar o censo.
           success:
-            access_link: por SMS ou e-mail.
+            access_link_with_sms: por SMS ou e-mail.
             info: Você já deve ter recebido seu código de acesso por e-mail. Caso você não o tenha, você pode solicitá-lo aqui
             title: Seus dados do censo estão corretos!
           title: Posso votar?
