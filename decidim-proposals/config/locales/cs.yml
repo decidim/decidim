@@ -205,6 +205,7 @@ cs:
             automatic_hashtags: Do všech návrhů byly přidány značky Hashtags
             comments_blocked: Komentáře byly blokovány
             creation_enabled: Účastníci mohou vytvářet návrhy
+            creation_enabled_readonly: Toto nastavení je zakázáno, pokud aktivujete funkci účastnických textů. Chcete-li nahrát návrhy jako participativní text, klikněte na tlačítko Participatory Texts a postupujte podle pokynů.
             default_sort_order: Výchozí řazení návrhu
             default_sort_order_help: Výchozí znamená, že pokud jsou podporované funkce povoleny, budou návrhy zobrazeny náhodně, a pokud jsou opory blokovány, pak budou seřazeny podle nejpodporovanější.
             default_sort_order_options:
