@@ -1293,7 +1293,8 @@ fr:
           form_title: 'Remplissez le formulaire suivant pour vérifier vos données de recensement:'
           invalid: Un problème est survenu lors de la vérification du recensement.
           success:
-            access_link: par SMS ou e-mail.
+            access_link: par email.
+            access_link_with_sms: par SMS ou e-mail.
             info: Vous devriez déjà avoir reçu votre code d'accès par courrier postal. Si vous ne l'avez pas, vous pouvez le demander ici
             title: Vos données de recensement sont correctes!
           title: Puis-je voter ?
