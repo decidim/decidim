@@ -230,6 +230,7 @@ cs:
             title: Importovat návrhy
         questions:
           create:
+            election_started: Volby již byly zahájeny
             invalid: Při vytváření této otázky došlo k chybě
             success: Otázka byla úspěšně vytvořena
           destroy:
