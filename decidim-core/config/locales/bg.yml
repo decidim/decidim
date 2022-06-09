@@ -326,8 +326,8 @@ bg:
           global:
             amendments_enabled: Поправки разрешени
             comments_enabled: Коментари разрешени
-            dummy_global_attribute_1: Макетен атрибут 1
-            dummy_global_attribute_2: Макетен атрибут 2
+            dummy_global_attribute1: Макетен атрибут 1
+            dummy_global_attribute2: Макетен атрибут 2
             dummy_global_translatable_text: Макетен преводим текст
             enable_pads_creation: Активирай създаване на бележки
             resources_permissions_enabled: Разрешения за ресурс включени
@@ -337,8 +337,8 @@ bg:
             amendment_reaction_enabled: Реагиране на поправки разрешено
             amendments_visibility: Видимост на поправки
             comments_blocked: Коментари блокирани
-            dummy_step_attribute_1: Атрибут 1 на макетната стъпка
-            dummy_step_attribute_2: Атрибут 2 на макетната стъпка
+            dummy_step_attribute1: Атрибут 1 на макетната стъпка
+            dummy_step_attribute2: Атрибут 2 на макетната стъпка
             dummy_step_translatable_text: Преводим текст на макетната стъпка
     contact: Контакт
     content_blocks:
