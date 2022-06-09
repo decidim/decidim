@@ -13,8 +13,11 @@ ja:
         decidim_scope_id: スコープ
         description: 説明
         proposal_ids: 関連する提案
+        proposals: 提案
         selected: 実装の選択
         title: タイトル
+      proposals_import:
+        scope_id: スコープ
   activerecord:
     models:
       decidim/budgets/project:
@@ -124,7 +127,10 @@ ja:
             success: "%{number} 件の提案がプロジェクトにインポートされました"
           new:
             create: プロジェクトへの提案をインポート
+            default_budget: 既定の予算
+            import_all_accepted_proposals: すべての承認済みの提案をインポート
             no_components: この参加型スペースには、プロジェクトにインポートするための他の提案コンポーネントはありません。
+            origin_component_id: 元のコンポーネント
             select_component: コンポーネントを選択してください
             title: 提案のインポート
         reminders:
