@@ -332,8 +332,8 @@ el:
           global:
             amendments_enabled: Οι τροποποιήσεις ενεργοποιήθηκαν
             comments_enabled: Τα σχόλια ενεργοποιήθηκαν
-            dummy_global_attribute_1: Εικονικό χαρακτηριστικό 1
-            dummy_global_attribute_2: Εικονικό χαρακτηριστικό 2
+            dummy_global_attribute1: Εικονικό χαρακτηριστικό 1
+            dummy_global_attribute2: Εικονικό χαρακτηριστικό 2
             dummy_global_translatable_text: Εικονικό μετατρέψιμο κείμενο
             enable_pads_creation: Ενεργοποίηση δημιουργίας πινάκων σημειώσεων
             resources_permissions_enabled: Τα δικαιώματα πόρων ενεργοποιήθηκαν
@@ -343,8 +343,8 @@ el:
             amendment_reaction_enabled: Η αντίδραση στην τροποποίηση ενεργοποιήθηκε
             amendments_visibility: Ορατότητα τροποποίησης
             comments_blocked: Τα σχόλια αποκλείστηκαν
-            dummy_step_attribute_1: Εικονικό χαρακτηριστικό βήματος 1
-            dummy_step_attribute_2: Εικονικό χαρακτηριστικό βήματος 2
+            dummy_step_attribute1: Εικονικό χαρακτηριστικό βήματος 1
+            dummy_step_attribute2: Εικονικό χαρακτηριστικό βήματος 2
             dummy_step_translatable_text: Εικονικό μετατρέψιμο κείμενο βήματος
     contact: Επικοινωνία
     content_blocks:
