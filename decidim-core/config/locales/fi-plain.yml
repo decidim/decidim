@@ -420,8 +420,8 @@ fi-pl:
             amendments_enabled: Muutokset käytössä
             comments_enabled: Kommentit käytössä
             comments_max_length: Kommenttien maksimipituus
-            dummy_global_attribute_1: Esimerkkitietue 1
-            dummy_global_attribute_2: Esimerkkitietue 2
+            dummy_global_attribute1: Esimerkkitietue 1
+            dummy_global_attribute2: Esimerkkitietue 2
             dummy_global_translatable_text: Käännettävän tekstin esimerkki
             enable_pads_creation: Ota käyttöön muistioiden luominen
             resources_permissions_enabled: Resurssien käyttöoikeudet ovat käytössä
@@ -433,8 +433,8 @@ fi-pl:
             amendment_reaction_enabled: Reaktiot käytössä muutoksille
             amendments_visibility: Muutosten näkyvyys
             comments_blocked: Kommentit estetty
-            dummy_step_attribute_1: Esimerkkivaiheen tietue 1
-            dummy_step_attribute_2: Esimerkkivaiheen tietue 2
+            dummy_step_attribute1: Esimerkkivaiheen tietue 1
+            dummy_step_attribute2: Esimerkkivaiheen tietue 2
             dummy_step_translatable_text: Vaiheen käännettävän tekstin esimerkki
     contact: Ota yhteyttä
     content_blocks:
