@@ -1141,7 +1141,7 @@ nl:
           form_title: 'Vul het formulier in om de gegevens van je stemlijst te controleren:'
           invalid: Er is een probleem opgetreden tijdens het controleren van de kiezerslijst.
           success:
-            access_link: via SMS of e-mail.
+            access_link_with_sms: via SMS of e-mail.
             info: Je zou je toegangscode per post moeten hebben ontvangen. Als je ze niet hebt, kun je ze hier aanvragen
             title: Je gegevens op de kiezerslijst zijn juist!
           title: Kan ik stemmen?
