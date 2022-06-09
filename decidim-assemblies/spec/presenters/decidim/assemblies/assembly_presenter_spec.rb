@@ -26,11 +26,11 @@ module Decidim
 
     describe "when images are attached" do
       it "resolves hero_image_url" do
-        expect(subject.hero_image_url).to eq("http://#{organization_host}:3000#{assembly.attached_uploader(:hero_image).path}")
+        expect(subject.hero_image_url).to eq("http://#{organization_host}:#{Capybara.server_port}#{assembly.attached_uploader(:hero_image).path}")
       end
 
       it "resolves banner_image_url" do
-        expect(subject.banner_image_url).to eq("http://#{organization_host}:3000#{assembly.attached_uploader(:banner_image).path}")
+        expect(subject.banner_image_url).to eq("http://#{organization_host}:#{Capybara.server_port}#{assembly.attached_uploader(:banner_image).path}")
       end
     end
   end

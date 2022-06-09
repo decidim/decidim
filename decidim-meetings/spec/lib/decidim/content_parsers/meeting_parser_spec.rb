@@ -145,8 +145,8 @@ module Decidim
 
       def changed_meeting_url(meeting)
         url = meeting_url(meeting)
-        regex = %r{http(s)?://my.host/(.*)}
-        url_path = regex.match(url)[2]
+        regex = %r{http(s)?://my.host(:[0-9]+)?/(.*)}
+        url_path = regex.match(url)[3]
         "http://my.another.host/#{url_path}"
       end
     end

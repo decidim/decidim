@@ -13,7 +13,7 @@ describe Decidim::Elections::Voter::UpdateVoteStatus do
   let(:email) { "an_email@example.org" }
   let(:method_name) { :get_pending_message_status }
   let(:response) { :accepted }
-  let(:verify_url) { "http://#{organization.host}/processes/#{component.participatory_space.slug}/f/#{component.id}/elections/#{election.id}/votes/#{vote.encrypted_vote_hash}/verify" }
+  let(:verify_url) { "http://#{organization.host}:#{Capybara.server_port}/processes/#{component.participatory_space.slug}/f/#{component.id}/elections/#{election.id}/votes/#{vote.encrypted_vote_hash}/verify" }
 
   before do
     allow(Decidim::Elections.bulletin_board).to receive(method_name).and_return(response)

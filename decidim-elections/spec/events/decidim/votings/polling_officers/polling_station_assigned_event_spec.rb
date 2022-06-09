@@ -18,7 +18,7 @@ module Decidim
         let(:polling_station_name) { translated(polling_station.title) }
         let(:voting_title) { translated(voting.title) }
         let(:voting_path) { "/votings/#{voting.slug}?voting_slug=#{voting.slug}" }
-        let(:voting_url) { "http://#{organization.host}#{voting_path}" }
+        let(:voting_url) { "http://#{organization.host}:#{Capybara.server_port}#{voting_path}" }
         let(:polling_officer_zone_url) { "http://#{organization.host}/polling_officers" }
 
         it_behaves_like "a simple event"
