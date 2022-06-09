@@ -370,8 +370,8 @@ eu:
             amendments_enabled: Emendakinak gaituta
             comments_enabled: Iruzkinak gaituta
             comments_max_length: Iruzkinen gehieneko luzera
-            dummy_global_attribute_1: Dummy Atributua 1
-            dummy_global_attribute_2: Dummy Attribute 2
+            dummy_global_attribute1: Dummy Atributua 1
+            dummy_global_attribute2: Dummy Attribute 2
             dummy_global_translatable_text: Itzul daitekeen adibidearen testua
             enable_pads_creation: Gaitu pads sortzea
             resources_permissions_enabled: Baliabideen baimenak gaituta
@@ -383,8 +383,8 @@ eu:
             amendment_reaction_enabled: Zuzenketaren erreakzioa aktibatuta
             amendments_visibility: Zuzenketaren ikusgarritasuna
             comments_blocked: Iruzkinak blokeatuta
-            dummy_step_attribute_1: Dummy Step Attribute 1
-            dummy_step_attribute_2: Dummy Step Attribute 2
+            dummy_step_attribute1: Dummy Step Attribute 1
+            dummy_step_attribute2: Dummy Step Attribute 2
             dummy_step_translatable_text: Itzul daitekeen adibidearen fasea
     contact: Harremanetarako
     content_blocks:
