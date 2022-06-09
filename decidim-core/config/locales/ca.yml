@@ -434,8 +434,8 @@ ca:
             amendments_enabled: Esmenes habilitades
             comments_enabled: Comentaris habilitats
             comments_max_length: Longitud màxima dels comentaris
-            dummy_global_attribute_1: Atribut de prova 1
-            dummy_global_attribute_2: Atribut de prova 2
+            dummy_global_attribute1: Atribut de prova 1
+            dummy_global_attribute2: Atribut de prova 2
             dummy_global_translatable_text: Text traduïble de proves
             enable_pads_creation: Habilitar la creació de pads
             resources_permissions_enabled: Permisos de recursos habilitats
@@ -447,8 +447,8 @@ ca:
             amendment_reaction_enabled: Reacció a esmenes habilitada
             amendments_visibility: Visibilitat de les esmenes
             comments_blocked: Comentaris bloquejats
-            dummy_step_attribute_1: Atribut de fase de prova 1
-            dummy_step_attribute_2: Atribut de fase de prova 2
+            dummy_step_attribute1: Atribut de fase de prova 1
+            dummy_step_attribute2: Atribut de fase de prova 2
             dummy_step_translatable_text: Text de fase traduïble de proves
     contact: Contacte
     content_blocks:
