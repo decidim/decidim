@@ -212,6 +212,7 @@ fr-CA:
             title: Importer des propositions
         questions:
           create:
+            election_started: L'élection a déjà commencé
             invalid: Il y a eu un problème lors de la création de cette question
             success: Question créée avec succès
           destroy:
