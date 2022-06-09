@@ -11,11 +11,12 @@ module Decidim::Votings::Census::Admin
     let!(:ballot_style) { create(:ballot_style, code: ballot_style_code, voting: dataset.voting) }
     let(:ballot_style_code) { "BS1" }
     let(:user) { create(:user, :admin, organization: dataset.voting.organization) }
+    let(:birthdate) { "20010414" }
     let(:params) do
       {
         document_number: document_number,
         document_type: "DNI",
-        birthdate: "20010414",
+        birthdate: birthdate,
         full_name: "Jane Doe",
         full_address: "Nowhere street 1",
         postal_code: "12345",
@@ -40,6 +41,14 @@ module Decidim::Votings::Census::Admin
 
     context "when the form is not valid" do
       let(:document_number) {}
+
+      it "broadcasts invalid" do
+        expect(subject.call).to broadcast(:invalid)
+      end
+    end
+
+    context "when the birthdate is not exactly YYYYmmdd" do
+      let(:birthdate) { "02/12/2001" }
 
       it "broadcasts invalid" do
         expect(subject.call).to broadcast(:invalid)
