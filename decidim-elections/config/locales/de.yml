@@ -1204,7 +1204,7 @@ de:
           form_title: 'Füllen Sie das folgende Formular aus, um Ihre Erhebungsdaten zu überprüfen:'
           invalid: Bei der Überprüfung der Erhebung ist ein Problem aufgetreten.
           success:
-            access_link: via SMS oder E-Mail.
+            access_link_with_sms: via SMS oder E-Mail.
             info: Sie sollten Ihren Zugangscode bereits via Briefpost bekommen haben. Falls nicht, können Sie ihn hier anfordern
             title: Ihre Erhebungsdaten sind korrekt!
           title: Kann ich abstimmen?
