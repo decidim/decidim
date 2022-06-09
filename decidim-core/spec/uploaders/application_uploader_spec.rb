@@ -9,24 +9,10 @@ module Decidim
     let(:model) { create(:organization) }
     let(:mounted_as) { :official_img_header }
 
-    around do |example|
-      original_env = ENV.to_h
-      overrides = {
-        "PORT" => :local_port,
-        "HOSTNAME" => :hostname
-      }
-
-      # Override the defined ENV vars
-      overrides.each do |key, method|
-        ENV[key] = send(method).to_s if respond_to?(method)
-      end
-      example.run
-
-      # Revert back to the original values
-      overrides.each do |key, _method|
-        ENV.delete(key)
-        ENV[key] = original_env[key] if original_env[key]
-      end
+    before do
+      allow(ENV).to receive(:fetch).and_call_original
+      allow(ENV).to receive(:fetch).with("PORT", instance_of(Integer)).and_return(local_port) if respond_to?(:local_port)
+      allow(ENV).to receive(:fetch).with("HOSTNAME", nil).and_return(hostname) if respond_to?(:hostname)
     end
 
     describe "#variant_url" do
