@@ -1245,7 +1245,7 @@ eu:
           form_title: 'Bete ondoko galdetegia zure erroldako datuak egiaztatzeko:'
           invalid: Arazo bat izan da errolda egiaztatzean.
           success:
-            access_link: sMSz edo posta elektronikoz.
+            access_link_with_sms: sMSz edo posta elektronikoz.
             info: Zure sarbide-kodea postaz jasota izan beharko zenuke. Ez baduzu, hemen eska dezakezu
             title: Zure erroldako datuak zuzenak dira!
           title: Botoa eman dezaket?
