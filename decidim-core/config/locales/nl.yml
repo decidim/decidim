@@ -388,8 +388,8 @@ nl:
             amendments_enabled: Wijzigingen toegestaan
             comments_enabled: Reacties ingeschakeld
             comments_max_length: Commentaar maximale lengte
-            dummy_global_attribute_1: Voorbeeld-kenmerk 1
-            dummy_global_attribute_2: Voorbeeld-kenmerk 2
+            dummy_global_attribute1: Voorbeeld-kenmerk 1
+            dummy_global_attribute2: Voorbeeld-kenmerk 2
             dummy_global_translatable_text: Vertaalbare tekst Dummy
             enable_pads_creation: Schakel het maken van notitieblokken in
             resources_permissions_enabled: Resources permissies ingeschakeld
@@ -401,8 +401,8 @@ nl:
             amendment_reaction_enabled: Reageren op amendementen ingeschakeld
             amendments_visibility: Zichtbaarheid van amendement
             comments_blocked: Reacties geblokkeerd
-            dummy_step_attribute_1: Voorbeeld-kenmerk 1
-            dummy_step_attribute_2: Voorbeeld-kenmerk 2
+            dummy_step_attribute1: Voorbeeld-kenmerk 1
+            dummy_step_attribute2: Voorbeeld-kenmerk 2
             dummy_step_translatable_text: Dummy Stap Vertaalbare tekst
     contact: Contact
     content_blocks:
