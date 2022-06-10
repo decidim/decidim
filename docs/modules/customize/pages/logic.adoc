@@ -79,7 +79,7 @@ This applies to almost all classes you want to change in Decidim but controllers
 ----
   initializer "customizations", after: "decidim.action_controller" do
     config.to_prepare do
-      # Add the controller customizations here
+      # Add the controller/helper customizations here
     end
   end
 ----
