@@ -82,28 +82,31 @@ function setTheme(primary, saturation) {
 
 document.addEventListener("DOMContentLoaded", () => {
   const selector = document.querySelector("#primary-selector")
-  const primary = document.querySelector("#preview-primary")
-  const primarySat = document.querySelector("#primary-sat")
-  const updateButton = document.querySelector("#set-colors")
 
-  generateHslaColors(50, 50).forEach((e) => {
-    const div = document.createElement("div")
-    const hex = hslToHex(e.hue, e.saturation, e.lightness)
-    div.style.backgroundColor = hex
-    div.dataset.value = hex
-    div.style.flex = 1
-    selector.appendChild(div)
-  })
+  if (selector) {
+    const primary = document.querySelector("#preview-primary")
+    const primarySat = document.querySelector("#primary-sat")
+    const updateButton = document.querySelector("#set-colors")
 
-  // previous value set or the first color in the palette
-  setTheme(primary.value || selector.firstChild.dataset.value)
+    generateHslaColors(50, 50).forEach((e) => {
+      const div = document.createElement("div")
+      const hex = hslToHex(e.hue, e.saturation, e.lightness)
+      div.style.backgroundColor = hex
+      div.dataset.value = hex
+      div.style.flex = 1
+      selector.appendChild(div)
+    })
 
-  selector.addEventListener("click", ({ target: { dataset: { value }}}) => setTheme(value, Number(primarySat.value)));
-  primarySat.addEventListener("input", ({ target: { value }}) => setTheme(primary.value, Number(value)));
-  updateButton.addEventListener("click", (e) => {
-    e.preventDefault()
+    // previous value set or the first color in the palette
+    setTheme(primary.value || selector.firstChild.dataset.value)
 
-    document.querySelector("#organization_primary_color").value = document.querySelector("#preview-primary").value
-    document.querySelector("#organization_secondary_color").value = document.querySelector("#preview-secondary").value
-  });
+    selector.addEventListener("click", ({ target: { dataset: { value }}}) => setTheme(value, Number(primarySat.value)));
+    primarySat.addEventListener("input", ({ target: { value }}) => setTheme(primary.value, Number(value)));
+    updateButton.addEventListener("click", (e) => {
+      e.preventDefault()
+
+      document.querySelector("#organization_primary_color").value = document.querySelector("#preview-primary").value
+      document.querySelector("#organization_secondary_color").value = document.querySelector("#preview-secondary").value
+    });
+  }
 })
