@@ -56,6 +56,7 @@ module Decidim
   autoload :ManifestRegistry, "decidim/manifest_registry"
   autoload :AssetRouter, "decidim/asset_router"
   autoload :EngineRouter, "decidim/engine_router"
+  autoload :UrlOptionResolver, "decidim/url_option_resolver"
   autoload :Events, "decidim/events"
   autoload :ViewHooks, "decidim/view_hooks"
   autoload :ContentBlockRegistry, "decidim/content_block_registry"
