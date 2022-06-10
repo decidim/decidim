@@ -4,8 +4,8 @@ require "spec_helper"
 
 module Decidim
   module ContentRenderers
-    describe ProposalRenderer do
-      let!(:renderer) { Decidim::ContentRenderers::ProposalRenderer.new(content) }
+    describe MeetingRenderer do
+      let!(:renderer) { Decidim::ContentRenderers::MeetingRenderer.new(content) }
 
       describe "on parse" do
         subject { renderer.render }
@@ -23,32 +23,32 @@ module Decidim
         end
 
         context "when content has no gids" do
-          let(:content) { "whatever content with @mentions and #hashes but no gids." }
+          let(:content) { "whatever content with @mentions but no gids." }
 
           it { is_expected.to eq(content) }
         end
 
         context "when content has one gid" do
-          let(:proposal) { create(:proposal) }
+          let(:meeting) { create(:meeting) }
           let(:content) do
-            "This content references proposal #{proposal.to_global_id}."
+            "This content references meeting #{meeting.to_global_id}."
           end
 
-          it { is_expected.to eq("This content references proposal #{resource_as_html_link(proposal)}.") }
+          it { is_expected.to eq("This content references meeting #{resource_as_html_link(meeting)}.") }
         end
 
         context "when content has many links" do
-          let(:proposal_1) { create(:proposal) }
-          let(:proposal_2) { create(:proposal) }
-          let(:proposal_3) { create(:proposal) }
+          let(:meeting_1) { create(:meeting) }
+          let(:meeting_2) { create(:meeting) }
+          let(:meeting_3) { create(:meeting) }
           let(:content) do
-            gid1 = proposal_1.to_global_id
-            gid2 = proposal_2.to_global_id
-            gid3 = proposal_3.to_global_id
+            gid1 = meeting_1.to_global_id
+            gid2 = meeting_2.to_global_id
+            gid3 = meeting_3.to_global_id
             "This content references the following proposals: #{gid1}, #{gid2} and #{gid3}. Great?I like them!"
           end
 
-          it { is_expected.to eq("This content references the following proposals: #{resource_as_html_link(proposal_1)}, #{resource_as_html_link(proposal_2)} and #{resource_as_html_link(proposal_3)}. Great?I like them!") }
+          it { is_expected.to eq("This content references the following proposals: #{resource_as_html_link(meeting_1)}, #{resource_as_html_link(meeting_2)} and #{resource_as_html_link(meeting_3)}. Great?I like them!") }
         end
       end
 
