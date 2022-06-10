@@ -34,7 +34,7 @@ module Decidim
       end
 
       def email_subject
-        I18n.t("email_subject", **i18n_options).html_safe
+        decidim_sanitize(I18n.t("email_subject", **i18n_options)).html_safe
       end
 
       def email_intro
@@ -72,7 +72,7 @@ module Decidim
       def i18n_options
         default_i18n_options.merge(event_interpolations).transform_values do |value|
           if value.is_a?(String)
-            decidim_sanitize(decidim_html_escape(value))
+            decidim_html_escape(value)
           else
             value
           end
