@@ -158,6 +158,10 @@ ja:
         create: "%{user_name} が %{resource_name} 添付ファイルコレクションを作成しました"
         delete: "%{user_name} が %{resource_name} 添付ファイルコレクションを削除しました"
         update: "%{user_name} が %{resource_name} 添付ファイルコレクションを更新しました"
+      category:
+        create: "%{user_name} が %{resource_name} カテゴリを %{space_name} スペースに追加しました"
+        delete: "%{user_name} が %{resource_name} スペースから %{space_name} カテゴリを削除しました"
+        update: "%{user_name} が %{resource_name} スペースの %{space_name} カテゴリを更新しました"
       component:
         create: "%{user_name} は、 %{resource_name} コンポーネントを %{space_name} スペースに追加しました"
         delete: "%{user_name} が %{resource_name} スペースから %{space_name} コンポーネントを削除しました"
@@ -165,6 +169,8 @@ ja:
         publish: "%{user_name} が %{resource_name} スペースで %{space_name} コンポーネントを公開しました"
         unpublish: "%{user_name} は %{resource_name} スペースから %{space_name} コンポーネントを非公開にしました"
         update_permissions_with_space: "%{user_name} が %{resource_name} の %{space_name} の権限を更新しました"
+      contextual_help_section:
+        update: "%{user_name} が %{resource_name} ヘルプセクションを更新しました"
       helpers:
         answers: 回答
         comments: コメント
@@ -186,6 +192,7 @@ ja:
         update: "%{user_name} が %{resource_name} OAuth アプリケーションを更新しました"
       organization:
         update: "%{user_name} が組織設定を更新しました"
+        update_external_domain: "%{user_name} が組織の外部ドメインを更新しました"
       participatory_space_private_user:
         create: "%{user_name} が %{resource_name} をプライベート参加者に招待しました"
         create_via_csv: "%{user_name} が %{resource_name} をCSV経由でプライベート参加者に招待しました"
@@ -1699,16 +1706,49 @@ ja:
             name: 名前
             service: サービス
             type: タイプ
+          cookies:
+            _session_id:
+              description: ウェブページ間を移動したときにウェブサイト内のユーザーをウェブサイトが記憶できるようにします。
+              service: このウェブサイト
+            decidim-consent:
+              description: このウェブサイトでユーザーが許可するクッキーに関する情報を保存します。
+              service: このウェブサイト
           types:
             cookie: クッキー
         dialog:
           accept_all: すべて受け入れる
           accept_only_essential: 必須のみを受け入れる
           cookie_settings: 設定
+          description: 本サイトは、サイトのパフォーマンスとコンテンツを向上させるために、ウェブサイト上でクッキーを使用しています。 クッキーは、より多くの個々のユーザーエクスペリエンスとソーシャルメディアチャネルを提供することができます。
+          title: ウェブサイトで使用されるクッキーに関する情報
+        modal:
+          accept_all: すべて受け入れる
+          accept_only_essential: 必須のみを受け入れる
+          analytics:
+            description: 分析クッキーは、ユーザーがウェブサイトをどのようにナビゲートして操作するかを追跡するクッキーです。 収集された情報は、ウェブサイトの所有者がウェブサイトを改善するために使用されます。
+            title: 分析と統計
+          description: 本サイトはウェブサイトの基本的な機能を確保し、お客様のオンライン体験を向上させるためにクッキーを使用しています。 いつでもオプトイン/オプトアウトするカテゴリを選択できます。
+          essential:
+            description: これらのクッキーは、本ウェブサイトの基本的な機能に不可欠です。これらのクッキーがなければ、ウェブサイトが正しく機能しません。
+            title: 必須
+          marketing:
+            description: これらのクッキーは、ユーザーがウェブサイトをどのように使用するか、ユーザーが訪問したページ、およびユーザーがクリックしたリンクに関する情報を収集します。
+            title: マーケティング
+          preferences:
+            description: これらのクッキーは、過去に行った選択をウェブサイトが記憶することを可能にします
+            title: 設定
+          save_settings: 設定を保存
+          title: Cookieの設定
+          toggle: '%{consent_category} の切り替え'
+        warning:
+          all_cookies: すべてのクッキー
+          change_cookie_settings: Cookie の設定を変更する
+          need_cookies: このコンテンツを表示するには %{cookies} を有効にする必要があります。
       edit_link:
         edit: 編集
       footer:
         cc_by_license: クリエイティブコモンズライセンス
+        cookie_settings: Cookieの設定
         decidim_logo: Decidim ロゴ
         download_open_data: オープンデータファイルをダウンロード
         made_with_open_source: このサイトは <a target="_blank" href="https://github.com/decidim/decidim">フリーソフトウェア</a>で作られています。
