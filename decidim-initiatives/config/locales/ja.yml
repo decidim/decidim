@@ -561,6 +561,8 @@ ja:
           published: 公開済み
           rejected: 十分な署名がありません
           validating: 技術的検証
+      signature_interval:
+        title: 署名の収集期間
       states:
         accepted: 承認済み
         expired: 期限切れ
