@@ -13,7 +13,7 @@ module Decidim
       end
 
       def i18n_options
-        return super unless author.present?
+        return super if author.blank?
 
         author_path = link_to("@#{author.nickname}", profile_path(author.nickname))
         author_string = "#{author.name} #{author_path}"
