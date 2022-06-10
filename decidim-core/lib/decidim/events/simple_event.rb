@@ -34,7 +34,13 @@ module Decidim
       end
 
       def email_subject
-        decidim_sanitize(I18n.t("email_subject", **i18n_options)).html_safe
+        I18n.t("email_subject", **updated_options).html_safe
+      end
+
+      def updated_options
+        sanitized_values = { resource_title: decidim_sanitize(resource_title) }
+        sanitized_values[:mentioned_proposal_title] = decidim_sanitize(mentioned_proposal_title) if i18n_options.has_key?(:mentioned_proposal_title)
+        i18n_options.merge(sanitized_values)
       end
 
       def email_intro

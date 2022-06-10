@@ -20,7 +20,7 @@ module Decidim
 
       it "escapes the HTML tags from the i18n options" do
         expect(subject.i18n_options[:resource_title])
-          .to eq "&lt;script&gt;alert('Hey');&lt;/script&gt;"
+          .to eq "&lt;script&gt;alert(&#39;Hey&#39;);&lt;/script&gt;"
       end
     end
   end

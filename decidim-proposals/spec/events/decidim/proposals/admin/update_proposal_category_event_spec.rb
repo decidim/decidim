@@ -4,7 +4,6 @@ require "spec_helper"
 
 describe Decidim::Proposals::Admin::UpdateProposalCategoryEvent do
   let(:resource) { create :proposal, title: "It's my super proposal" }
-  let(:resource_title) { translated(resource.title) }
   let(:event_name) { "decidim.events.proposals.proposal_update_category" }
 
   include_context "when a simple event"
@@ -12,14 +11,14 @@ describe Decidim::Proposals::Admin::UpdateProposalCategoryEvent do
 
   describe "email_subject" do
     it "is generated correctly" do
-      expect(subject.email_subject).to eq("The #{resource_title} proposal category has been updated")
+      expect(subject.email_subject).to eq("The #{translated(resource.title)} proposal category has been updated")
     end
   end
 
   describe "email_intro" do
     it "is generated correctly" do
       expect(subject.email_intro)
-        .to eq("An admin has updated the category of your proposal \"#{resource_title}\", check it out in this page:")
+        .to eq("An admin has updated the category of your proposal \"#{decidim_html_escape(translated(resource.title))}\", check it out in this page:")
     end
   end
 
@@ -33,7 +32,7 @@ describe Decidim::Proposals::Admin::UpdateProposalCategoryEvent do
   describe "notification_title" do
     it "is generated correctly" do
       expect(subject.notification_title)
-        .to include("The <a href=\"#{resource_path}\">#{resource_title}</a> proposal category has been updated by an admin.")
+        .to include("The <a href=\"#{resource_path}\">#{decidim_html_escape(translated(resource.title))}</a> proposal category has been updated by an admin.")
     end
   end
 end

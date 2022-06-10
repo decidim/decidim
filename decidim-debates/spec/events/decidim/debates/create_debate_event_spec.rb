@@ -7,12 +7,12 @@ describe Decidim::Debates::CreateDebateEvent do
 
   include_context "when a simple event"
 
-  let(:resource) { create :debate, :participant_author }
+  let(:resource) { create :debate, :participant_author, title: { en: "It's my debate" } }
   let(:space) { resource.participatory_space }
   let(:event_name) { "decidim.events.debates.debate_created" }
   let(:space_path) { resource_locator(space).path }
   let(:extra) { { type: type.to_s } }
-  let(:debate_title) { decidim_sanitize(decidim_html_escape(translated(resource.title))) }
+  let(:debate_title) { decidim_html_escape(translated(resource.title)) }
 
   describe "resource_text" do
     let(:type) { "" }
@@ -30,7 +30,7 @@ describe Decidim::Debates::CreateDebateEvent do
 
     describe "email_subject" do
       it "is generated correctly" do
-        expect(subject.email_subject).to eq("New debate \"#{debate_title}\" by @#{author.nickname}")
+        expect(subject.email_subject).to eq("New debate \"#{decidim_sanitize(debate_title)}\" by @#{author.nickname}")
       end
     end
 
@@ -67,7 +67,7 @@ describe Decidim::Debates::CreateDebateEvent do
 
     describe "email_subject" do
       it "is generated correctly" do
-        expect(subject.email_subject).to eq("New debate \"#{debate_title}\" on #{translated(space.title)}")
+        expect(subject.email_subject).to eq("New debate \"#{decidim_sanitize(debate_title)}\" on #{translated(space.title)}")
       end
     end
 
