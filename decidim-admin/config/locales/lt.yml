@@ -1,1 +1,95 @@
 lt:
+  activemodel:
+    attributes:
+      organization:
+        highlighted_content_banner_short_description: Trumpas aprašymas
+        highlighted_content_banner_title: Pavadinimas
+        host: Šeimininkas
+        instagram_handler: '„Instagram“ tvarkyklė'
+        logo: Logotipas
+        machine_translation_display_priority: Mašininio vertimo pateikimo pirmenybė
+        machine_translation_display_priority_original: Pirma - originalus tekstas
+        machine_translation_display_priority_translation: Pirma - išverstas tekstas
+        name: Pavadinimas
+        official_img_footer: Oficialaus logotipo poraštė
+        official_img_header: Oficialaus logotipo antraštė
+        official_url: Oficialus organizacijos URL
+        omnipresent_banner_short_description: Trumpas aprašymas
+        omnipresent_banner_title: Pavadinimas
+        omnipresent_banner_url: Nuoroda
+        organization_admin_email: Organizacijos administratoriaus el. paštas
+        organization_admin_name: Organizacijos administratoriaus vardas
+        organization_locales: Organizacijos būstinė
+        primary_color: Pagrindinė
+        reference_prefix: Nuorodos priešdėlis
+        rich_text_editor_in_public_views: Įjungti dalyviams papildomas teksto redaktoriaus funkcijas
+        secondary_color: Antrinė
+        secondary_hosts: Antriniai šeimininkai
+        send_welcome_notification: Siųsti pasisveikinimo pranešimą
+        success_color: Atlikta
+        time_zone: Laiko zona
+        tos_version: Paslaugų teikimo sąlygų versija
+        twitter_handler: '„Twitter“ tvarkyklė'
+        user_groups_enabled: Įjungti grupes
+        users_registration_mode: Vartotojo registracijos tipas
+        warning_color: Perspėjimas
+        welcome_notification_body: Pasisveikinimo pranešimo tekstas
+        welcome_notification_subject: Pasisveikinimo pranešimo antraštė
+        youtube_handler: '„YouTube“ tvarkyklė'
+      scope:
+        code: Kodas
+        name: Pavadinimas
+        organization: Organizacija
+        parent_id: Motininis
+        scope_type: Apimties tipas
+        scope_type_id: Apimties tipas
+      scope_type:
+        name: Pavadinimas
+        organization: Organizacija
+        plural: Daugiskaita
+      settings:
+        scope_id: Apimtis
+      static_page:
+        allow_public_access: Leisti priėjima be autentifikacijos
+        changed_notably: Įvyko reikšmingų pokyčių.
+        content: Turinys
+        organization: Organizacija
+        show_in_footer: Rodyti poraštėje
+        slug: URL laukas
+  decidim:
+    admin:
+      attachment_collections:
+        index:
+          attachment_collection_used: Šio aplanko negalima pašalinti, nes jis naudojamas.
+          attachment_collections_title: Priedų aplankai
+        new:
+          create: Sukurti
+          title: Naujas aplankas
+        update:
+          error: Atnaujinant šį aplanką iškilo problema.
+          success: Aplankas sėkmingai atnaujintas.
+      attachments:
+        create:
+          error: Kuriant naują priedą iškilo problema.
+          success: Priedas sukurtas sėkmingai.
+        destroy:
+          success: Priedas sėkingai sunaikintas.
+        edit:
+          title: Redaguoti priedą
+          update: Atnaujinti
+        index:
+          attachments_title: Priedai
+        new:
+          create: Sukurti priedą
+          title: Naujas priedas
+        update:
+          error: Atnaujinant šį priedą iškilo problema.
+          success: Priedas atnaujintas.
+      autocomplete:
+        no_results: Rezultatų nerasta
+        search_prompt: Įveskite bent tris raides paieškai pradėti
+      block_user:
+        new:
+          action: Užblokuoti paskyrą ir išsiųsti paaiškinimą
+          description: Naudotojo užblokavimas pavers paskyrą nenaudojama. Rekomenduojame paaiškinime pasidalinti būdais kaip naudotojas gali būti atblokuotas.
+          justification: Paaiškinimas
