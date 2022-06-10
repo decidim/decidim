@@ -74,7 +74,7 @@ end
     Decidim::Budgets::Admin::ProjectForm.include(Decidim::Budgets::Admin::ProjectForm.include(AdminProjectFormExtensions)
   end
 ----
-This applies to almost all classes you want to change in Decidim but controllers are a bit special case due to order of how things are loaded in the Decidim boot process. If you want to add any changes to controllers, you need to wrap the `config.to_prepare` block within an initializer that is run at the correct phase of the boot process as follows:
+This applies to almost all classes you want to change in Decidim but controllers and helpers are special cases due to order of how things are loaded in the Decidim boot process. If you want to add any changes to controllers or helpers, you need to wrap the `config.to_prepare` block within an initializer that is run at the correct phase of the boot process as follows:
 [source,ruby]
 ----
   initializer "customizations", after: "decidim.action_controller" do
