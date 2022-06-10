@@ -40,6 +40,35 @@ describe "Vote online in an election inside a Voting", type: :system do
     end
   end
 
+  context "when there are different ballot styles" do
+    before do
+      ballot_style = create(:ballot_style, voting: voting)
+      ballot_style2 = create(:ballot_style, voting: voting)
+
+      election.questions.each do |question|
+        create(
+          :ballot_style_question,
+          question: question,
+          ballot_style: ballot_style
+        )
+      end
+
+      dataset.data.each do |datum|
+        datum.update(ballot_style: ballot_style)
+      end
+
+      create(
+        :ballot_style_question,
+        question: create(:question, election: election),
+        ballot_style: ballot_style2
+      )
+    end
+
+    it "lets the user vote the questions from their ballot style" do
+      vote_with_census_data
+    end
+  end
+
   describe "when there is no user logged in" do
     let(:user) { nil }
 
