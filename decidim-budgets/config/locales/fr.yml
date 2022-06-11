@@ -13,8 +13,11 @@ fr:
         decidim_scope_id: Périmètre d'application
         description: Description
         proposal_ids: Propositions liées
+        proposals: Propositions
         selected: Sélectionné pour l'implémentation
         title: Titre
+      proposals_import:
+        scope_id: Périmètre d'application
   activerecord:
     models:
       decidim/budgets/project:
@@ -125,7 +128,10 @@ fr:
             success: "%{number} propositions importées avec succès dans des projets"
           new:
             create: Importer des propositions dans des projets
+            default_budget: Budget par défaut
+            import_all_accepted_proposals: Importer toutes les propositions acceptées
             no_components: Il n'y a pas d'autres modules de proposition dans cet espace participatif pour importer les propositions dans des projets.
+            origin_component_id: Composant d'origine
             select_component: Veuillez sélectionner un module
             title: Importer des propositions
         reminders:
