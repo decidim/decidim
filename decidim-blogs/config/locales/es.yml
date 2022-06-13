@@ -41,7 +41,9 @@ es:
             success: Se ha guardado la publicación correctamente
       admin_log:
         post:
-          create: "%{user_name} creó el post %{resource_name} en el blog %{space_name}"
+          create: "%{user_name} creó el post %{resource_name} en el blog de %{space_name}"
+          delete: "%{user_name} ha eliminado el post %{resource_name} en el blog de %{space_name}"
+          update: "%{user_name} ha actualizado el post %{resource_name} en el blog de %{space_name}"
       last_activity:
         new_post_at_html: "<span>Nueva publicación en %{link}</span>"
       models:
