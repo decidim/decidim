@@ -170,11 +170,24 @@ es:
         create: "%{user_name} ha creado la colección de adjuntos %{resource_name}"
         delete: "%{user_name} ha esborrat la colecció d'adjunts %{resource_name}"
         update: "%{user_name} ha actualitzado la colección de adjuntos %{resource_name}"
+      category:
+        create: "%{user_name} ha añadido la categoria %{resource_name} en el espacio %{space_name}"
+        delete: "%{user_name} ha eliminado la categoria %{resource_name} en el espacio %{space_name}"
+        update: "%{user_name} ha actualizado la categoria %{resource_name} en el espacio %{space_name}"
       component:
         create: "%{user_name} agregó el componente %{resource_name} al espacio %{space_name}"
         delete: "%{user_name} eliminó el componente %{resource_name} del espacio %{space_name}"
+        export_component: "%{user_name} ha exportado %{resource_name} %{component_name} en %{space_name} como %{format_name}"
         publish: "%{user_name} publicó el componente %{resource_name} en el espacio %{space_name}"
         unpublish: "%{user_name} ha despublicado el componente %{resource_name} del espacio %{space_name}"
+        update_permissions_with_space: "%{user_name} ha actualtizado los permisos de %{resource_name} en %{space_name}"
+      contextual_help_section:
+        update: "%{user_name} actualizó la sección de ayuda %{resource_name}"
+      helpers:
+        answers: respuestas
+        comments: comentarios
+        projects: proyectos
+        results: resultados
       impersonation_log:
         manage: "%{user_name} ha gestionado a %{resource_name} porque %{reason}"
       moderation:
@@ -191,6 +204,7 @@ es:
         update: "%{user_name} actualizó la aplicación %{resource_name} OAuth"
       organization:
         update: "%{user_name} actualizó la configuración de la organización"
+        update_external_domain: "%{user_name} actualizó los dominios externos de la organización"
       participatory_space_private_user:
         create: "%{user_name} ha invitado a %{resource_name} como participante privada"
         create_via_csv: "%{user_name} invitó a %{resource_name} vía CSV a ser un participante privada"
@@ -1702,10 +1716,56 @@ es:
     timestamp_error_message: Lo siento, has sido demasiado rápido! Por favor, vuelve a enviar.
   layouts:
     decidim:
+      cookie_consent:
+        cookie_details:
+          columns:
+            description: Descripción
+            name: Nombre
+            service: Servicio
+            type: Tipo
+          cookies:
+            _session_id:
+              description: Permite a los sitios web recordar a la usuaria dentro de un sitio web cuando se mueve entre páginas web.
+              service: Esta página web
+            decidim-consent:
+              description: Almacena información sobre las cookies permitidas por la usuaria en esta página web.
+              service: Esta página web
+          types:
+            cookie: Cookie
+        dialog:
+          accept_all: Aceptar todas
+          accept_only_essential: Aceptar solo lo esencial
+          cookie_settings: Configuración
+          description: Utilizamos cookies en nuestro sitio web para mejorar el rendimiento y el contenido del mismo. Las cookies nos permiten proporcionar una experiencia de usuario más individual y los canales de redes sociales.
+          title: Información sobre las cookies utilizadas en la página web
+        modal:
+          accept_all: Aceptar todas
+          accept_only_essential: Aceptar solo lo esencial
+          analytics:
+            description: Las cookies analíticas son cookies que rastrean cómo las usuarias navegan e interactúan con la página web. La información recopilada se utiliza para ayudar a la propietaria a mejorar la página.
+            title: Analíticas y estadísticas
+          description: Utilizamos cookies para asegurar las funcionalidades básicas de la página web y para mejorar tu experiencia en línea. Puedes elegir activarlas o desactivarlas por cada categoría cuando quieras.
+          essential:
+            description: Estas cookies son esenciales para el buen funcionamiento de esta página web. Sin estas cookies, esta página web no funcionará correctamente.
+            title: Esenciales
+          marketing:
+            description: Estas cookies recopilan información sobre cómo utilizas la plataforma, qué páginas visitaste y a qué enlaces hiciste clic.
+            title: Marketing
+          preferences:
+            description: Estas cookies permiten a la plataforma recordar las opciones que ha hecho en el pasado
+            title: Preferencias
+          save_settings: Guardar configuración
+          title: Configuración de cookies
+          toggle: Cambiar %{consent_category}
+        warning:
+          all_cookies: todas las cookies
+          change_cookie_settings: Cambiar la configuración de cookies
+          need_cookies: Necesitas habilitar %{cookies} para ver este contenido.
       edit_link:
         edit: Edita
       footer:
         cc_by_license: Con licencia Creative Commons
+        cookie_settings: Configuración de cookies
         decidim_logo: Logo Decidim
         download_open_data: Descargar ficheros de datos abiertos
         made_with_open_source: Web creada con <a target="_blank" href="https://github.com/decidim/decidim">software libre</a>.
