@@ -121,6 +121,9 @@ ca:
           update:
             invalid: S'ha produït un error en desar el formulari.
             success: Formulari desat correctament.
+      admin_log:
+        questionnaire:
+          update: "%{user_name} ha actualitzat el qüestionari %{resource_name}"
       errors:
         answer:
           body: El camp no pot estar en blanc
