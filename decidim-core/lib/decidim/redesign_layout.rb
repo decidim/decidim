@@ -28,10 +28,6 @@ module Decidim
     FALLBACK_LAYOUT = "layouts/decidim/application"
 
     class_methods do
-      # rubocop:disable Style/ClassVars
-      @@enable_redesign = Decidim.redesign_active
-      # rubocop:enable Style/ClassVars
-
       def layout(layout, conditions = {})
         if layout.is_a?(String)
           super(redesigned_layout(layout), **conditions)
@@ -41,9 +37,7 @@ module Decidim
       end
 
       def redesign(opts = {})
-        # rubocop:disable Style/ClassVars
-        @@enable_redesign = Decidim.redesign_active && opts.fetch(:active, true)
-        # rubocop:enable Style/ClassVars
+        @enable_redesign = Decidim.redesign_active && opts.fetch(:active, true)
 
         layout_conditions = opts.slice(:except, :only) || _layout_conditions
 
@@ -60,9 +54,9 @@ module Decidim
       def redesigned_layout(layout_value)
         return layout_value unless Decidim.redesign_active && layout_value.is_a?(String)
 
-        if @@enable_redesign && !redesigned?(layout_value)
+        if @enable_redesign && !redesigned?(layout_value)
           layout_value.sub(%r{.*\K/(_?)}, "/\\1redesigned_")
-        elsif !@@enable_redesign
+        elsif !@enable_redesign
           layout_value.sub(%r{.*\K/_?redesigned}, "/\\1")
         else
           layout_value
@@ -70,7 +64,7 @@ module Decidim
       end
 
       def redesign_enabled?
-        Decidim.redesign_active && @@enable_redesign
+        Decidim.redesign_active && @enable_redesign
       end
 
       def redesign_layout_conditions
