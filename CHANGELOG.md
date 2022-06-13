@@ -4,6 +4,85 @@
 
 Nothing.
 
+## [0.26.2](https://github.com/decidim/decidim/tree/v0.26.2)
+
+### Added
+
+Nothing.
+
+### Changed
+
+Nothing.
+
+### Fixed
+
+- **decidim-comments**, **decidim-core**, **decidim-meetings**: Backport "Fix timeout in comment view and during meetings" to v0.26 [\#9091](https://github.com/decidim/decidim/pull/9091)
+- **decidim-core**: Backport "Dont add external link container inside editor" to v0.26 [\#9108](https://github.com/decidim/decidim/pull/9108)
+- **decidim-core**: Backport "Add base URI to meta image URLs" to v0.26 [\#9153](https://github.com/decidim/decidim/pull/9153)
+- **decidim-initiatives**: Backport "Remove 'edit link' in topbar for initiative's authors" to v0.26 [\#9239](https://github.com/decidim/decidim/pull/9239)
+- **decidim-elections**: Backport 'Clarify message to user when checking census' to v0.26 [\#9240](https://github.com/decidim/decidim/pull/9240)
+- **decidim-participatory processes**: Backport 'Fix processes count in processes group title cell' to v0.26 [\#9242](https://github.com/decidim/decidim/pull/9242)
+- **decidim-elections**: Backport 'Improve wording when casting your vote' to v0.26 [\#9243](https://github.com/decidim/decidim/pull/9243)
+- **decidim-proposals**: Backport 'Add 'not answered' as a possible answer in proposals' to v0.26 [\#9246](https://github.com/decidim/decidim/pull/9246)
+- **decidim-meetings**: Backport 'Fix meetings minutes migration' to v0.26 [\#9247](https://github.com/decidim/decidim/pull/9247)
+- **decidim-assemblies**, **decidim-proposals**: Backport "Fix absolute urls on 'assembly member' and 'collaborative drafts' events" to v0.26 [\#9248](https://github.com/decidim/decidim/pull/9248)
+- **decidim-accountability**, **decidim-consultations**: Backport 'Fix components navbar in consultations mobile ' to v0.26 [\#9249](https://github.com/decidim/decidim/pull/9249)
+- **decidim-meetings**: Backport 'Move modal to body and fix condition' to v0.26 [\#9250](https://github.com/decidim/decidim/pull/9250)
+- **decidim-meetings**: Backport 'Do not send upcoming meeting notification for hidden or withdrawn meetings' to v0.26 [\#9251](https://github.com/decidim/decidim/pull/9251)
+- **decidim-core**: Backport 'Show only current organization in verification conflicts with multitenants' to v0.26 [\#9252](https://github.com/decidim/decidim/pull/9252)
+- **decidim-elections**: Backport 'Send email to newly added trustees' to v0.26 [\#9253](https://github.com/decidim/decidim/pull/9253)
+- **decidim-meetings**: Backport 'Fix registration type field highlighted in admin meeting creation form' to v0.26 [\#9254](https://github.com/decidim/decidim/pull/9254)
+- **decidim-surveys**: Backport 'Fix contradictory form errors on survey form' to v0.26 [\#9257](https://github.com/decidim/decidim/pull/9257)
+- **decidim-initiatives**: Backport 'Add edit and delete actions in InitiativeType admin table' to v0.26 [\#9260](https://github.com/decidim/decidim/pull/9260)
+- **decidim-surveys**: Backport 'Clarify unregistered answers on surveys behavior' to v0.26 [\#9261](https://github.com/decidim/decidim/pull/9261)
+- **decidim-elections**: Backport 'Fix voting with single election' to v0.26 [\#9262](https://github.com/decidim/decidim/pull/9262)
+- **decidim-initiatives**: Backport 'Fix initiative print link, margin, and organization logo' to v0.26 [\#9263](https://github.com/decidim/decidim/pull/9263)
+- **decidim-elections**: Backport 'Remove show more button on elections' to v0.26 [\#9264](https://github.com/decidim/decidim/pull/9264)
+- **decidim-surveys**: Backport 'Fix survey activity log entries' to v0.26 [\#9265](https://github.com/decidim/decidim/pull/9265)
+- **decidim-budgets**: Backport 'Remove beforeunload confirmation panel from the budgets voting' to v0.26 [\#9266](https://github.com/decidim/decidim/pull/9266)
+- **decidim-admin**, **decidim-elections**: Backport 'Fix newsletters and Decidim Votings' to v0.26 [\#9258](https://github.com/decidim/decidim/pull/9258)
+- **decidim-core**: Backport 'Fix notifications where resources are missing' to v0.26 [\#9256](https://github.com/decidim/decidim/pull/9256)
+- **decidim-core**: Backport 'Enforce password validation rules on 'Forgot your password?' form' to v0.26 [\#9245](https://github.com/decidim/decidim/pull/9245)
+- **decidim-core**: Backport 'Fix displaying blocked users in account follow pages' to v0.26 [\#9255](https://github.com/decidim/decidim/pull/9255)
+- **decidim-core**: Backport 'Fix Leaflet trying to load "infinite amount of tiles"' to v0.26  [\#9269](https://github.com/decidim/decidim/pull/9269)
+- **decidim-system**: Backport 'Enforce password validation rules on system admins' to v0.26 [\#9259](https://github.com/decidim/decidim/pull/9259)
+- **decidim-meetings**: Backport 'Remove presenters in the meetings admin backoffice' to v0.26 [\#9323](https://github.com/decidim/decidim/pull/9323)
+- **decidim-elections**: Backport 'Correctly show trustees and votings menu' to v0.26 [\#9324](https://github.com/decidim/decidim/pull/9324)
+- **decidim-core**: Backport 'Fix hashtag parsing on URLs with fragments' to v0.26 [\#9326](https://github.com/decidim/decidim/pull/9326)
+- **decidim-comments**, **decidim-core**: Backport 'Add missing events locales' to v0.26 [\#9327](https://github.com/decidim/decidim/pull/9327)
+- **decidim-conferences**: Backport 'Make conference's partners logos always mandatory' to v0.26 [\#9328](https://github.com/decidim/decidim/pull/9328)
+- **decidim-admin**: Backport 'Fix margin around warning message in colour settings' to v0.26 [\#9329](https://github.com/decidim/decidim/pull/9329)
+- **decidim-elections**: Backport 'Hide more information link when there's no description on an election' to v0.26 [\#9331](https://github.com/decidim/decidim/pull/9331)
+- **decidim-admin**, **decidim-assemblies**, **decidim-budgets**, **decidim-core**, **decidim-elections**, **decidim-meetings**, **decidim-pages**, **decidim-proposals**: Backport 'Apply crowdin feedback' to v0.26 [\#9333](https://github.com/decidim/decidim/pull/9333)
+- **decidim-comments**, **decidim-core**: Backport 'Don't show deleted resources in last activities ' to v0.26 [\#9330](https://github.com/decidim/decidim/pull/9330)
+- **decidim-elections**: Backport 'Fix election label translations' to v0.26 [\#9343](https://github.com/decidim/decidim/pull/9343)
+- **decidim-verifications**: Backport 'Allow to renew expired verifications (if renewable)' to v0.26 [\#9344](https://github.com/decidim/decidim/pull/9344)
+- **decidim-elections**: Backport 'Add error message when adding question and election has started' to v0.26 [\#9404](https://github.com/decidim/decidim/pull/9404)
+- **decidim-core**: Backport 'Fix user interests' to v0.26 [\#9406](https://github.com/decidim/decidim/pull/9406)
+- **decidim-elections**: Backport 'Fix regular expression on census check' to v0.26 [\#9408](https://github.com/decidim/decidim/pull/9408)
+- **decidim-elections**: Backport 'Enforce YYYYmmdd format in birthdate when uploading census' to v0.26 [\#9410](https://github.com/decidim/decidim/pull/9410)
+- **decidim-consultations**: Backport 'Return 404 when there isn't a question' to v0.26 [\#9414](https://github.com/decidim/decidim/pull/9414)
+- **decidim-consultations**: Backport 'Return 404 when there isn't a consultation' to v0.26 [\#9413](https://github.com/decidim/decidim/pull/9413)
+- **decidim-elections**: Backport 'Return 404 when there isn't a voting in elections_log' to v0.26 [\#9415](https://github.com/decidim/decidim/pull/9415)
+- **decidim-proposals**: Backport 'Fix proposals creation with Participatory Texts ' to v0.26 [\#9416](https://github.com/decidim/decidim/pull/9416)
+- **decidim-elections**: Backport 'Fix ActionLog when a ballot style is deleted' to v0.26 [\#9411](https://github.com/decidim/decidim/pull/9411)
+- **decidim-elections**: Backport 'Only show that the code can be requested via SMS if its true' to v0.26 [\#9409](https://github.com/decidim/decidim/pull/9409)
+- **decidim-budgets**, **decidim-proposals**: Backport 'Add missing translation keys proposals import and proposals picker' to v0.26 [\#9412](https://github.com/decidim/decidim/pull/9412)
+- **decidim-elections**: Backport 'Fix HTML safe content in election voting' to v0.26 [\#9405](https://github.com/decidim/decidim/pull/9405)
+- **decidim-core**: Backport 'Fix for internal links not displaying on page title' to v0.26 [\#9407](https://github.com/decidim/decidim/pull/9407)
+
+### Removed
+
+Nothing.
+
+### Internal
+
+- Backport 'Fix generators specs target branch' to v0.26 [\#9290](https://github.com/decidim/decidim/pull/9290)
+
+### Developer improvements
+
+Nothing.
+
 ## [0.26.1](https://github.com/decidim/decidim/tree/v0.26.1)
 
 ### Added
