@@ -447,6 +447,11 @@ module Decidim
     "/"
   end
 
+  # Having this on true will change the way the svg assets are being served.
+  config_accessor :service_worker_enabled do
+    true
+  end
+
   # Public: Registers a global engine. This method is intended to be used
   # by component engines that also offer unscoped functionality
   #
