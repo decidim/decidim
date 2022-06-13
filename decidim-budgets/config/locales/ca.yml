@@ -13,8 +13,11 @@ ca:
         decidim_scope_id: Àmbit
         description: Descripció
         proposal_ids: Propostes relacionades
+        proposals: Propostes
         selected: Seleccionat per implementar
         title: Títol
+      proposals_import:
+        scope_id: Àmbit
   activerecord:
     models:
       decidim/budgets/project:
@@ -125,7 +128,10 @@ ca:
             success: "S'ha importat amb èxit %{number} propostes en projectes"
           new:
             create: Importa propostes a projectes
+            default_budget: Pressupost per defecte
+            import_all_accepted_proposals: Importar totes les propostes acceptades
             no_components: No hi ha cap component de propostes en aquest espai participatiu per importar les propostes a projectes.
+            origin_component_id: Component d'origen
             select_component: Selecciona un component
             title: Importar propostes
         reminders:
