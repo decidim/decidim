@@ -170,11 +170,24 @@ ca:
         create: "%{user_name} ha creat la col·lecció d'adjunts %{resource_name}"
         delete: "%{user_name} ha esborrat la colecció d'adjunts %{resource_name}"
         update: "%{user_name} ha actualitzat la col·lecció d'adjunts %{resource_name}"
+      category:
+        create: "%{user_name} ha afegit la categoria %{resource_name} a l'espai %{space_name}"
+        delete: "%{user_name} ha eliminat la categoria %{resource_name} a l'espai %{space_name}"
+        update: "%{user_name} ha actualitzat la categoria %{resource_name} de l'espai %{space_name}"
       component:
         create: "%{user_name} ha afegit el component %{resource_name} a l'espai %{space_name}"
         delete: "%{user_name} ha eliminat el component %{resource_name} de l'espai %{space_name}"
+        export_component: "%{user_name} ha exportat %{resource_name}%{component_name} de %{space_name} com %{format_name}"
         publish: "%{user_name} ha publicat el component %{resource_name} a l'espai %{space_name}"
         unpublish: "%{user_name} ha despublicat el component %{resource_name} de l'espai %{space_name}"
+        update_permissions_with_space: "%{user_name} ha actualitzat els permisos de %{resource_name} a %{space_name}"
+      contextual_help_section:
+        update: "%{user_name} ha actualitzat la secció d'ajuda %{resource_name}"
+      helpers:
+        answers: respostes
+        comments: comentaris
+        projects: projectes
+        results: resultats
       impersonation_log:
         manage: "%{user_name} ha gestionat a %{resource_name} perquè %{reason}"
       moderation:
@@ -191,6 +204,7 @@ ca:
         update: "%{user_name} ha actualitzat la aplicació d'OAuth %{resource_name}"
       organization:
         update: "%{user_name} ha actualitzat la configuració de l'organització"
+        update_external_domain: "%{user_name} ha actualitzat els dominis externs de l'organització"
       participatory_space_private_user:
         create: "%{user_name} ha convidat %{resource_name} com a participant privada"
         create_via_csv: "%{user_name} ha convidat %{resource_name} via CSV per a ser participant privada"
@@ -1702,10 +1716,56 @@ ca:
     timestamp_error_message: Ho sentim, has estat massa ràpid! Si us plau, torna a enviar-ho.
   layouts:
     decidim:
+      cookie_consent:
+        cookie_details:
+          columns:
+            description: Descripció
+            name: Nom
+            service: Servei
+            type: Tipus
+          cookies:
+            _session_id:
+              description: Permetre als llocs web recordar a la usuària dins d'un lloc web quan es mou entre pàgines web.
+              service: Aquesta pàgina web
+            decidim-consent:
+              description: Emmagatzema informació sobre les cookis permeses per la usuària en aquesta pàgina web.
+              service: Aquesta pàgina web
+          types:
+            cookie: Galeta
+        dialog:
+          accept_all: Acceptar totes
+          accept_only_essential: Accepta només l'essencial
+          cookie_settings: Configuració
+          description: Fem servir galetes a la nostra pàgina web per a millorar el rendiment i el contingut d'aquest. Les galetes ens permeten proporcionar una experiència d'usuària més individual i els canals de les xarxes socials.
+          title: Informació sobre les galetes que es fan servir a aquesta pàgina web
+        modal:
+          accept_all: Acceptar totes
+          accept_only_essential: Accepta només l'essencial
+          analytics:
+            description: Les galetes analítiques rastregen com les usuàries naveguen i intercatues amb la pàgina web. La informació recollida es fa servir per ajudar a la propietària a millorar la pàgina.
+            title: Analítiques i estadístiques
+          description: Fem servir galetes per a garantir les funcionalitats bàsiques de la pàgina web i per a millorar la teva experiència en línia. Pots triar activar-les o desactivar-les per cada categoria quan vulguis.
+          essential:
+            description: Aquestes galetes són essencials per al bon funcionament de la pàgina web. Sense aquestes galetes, la pàgina web no funcionarà correctament.
+            title: Essencials
+          marketing:
+            description: Aquestes galetes recullen informació sobre com fas servir la plataforma, quines pàgines has visitat i a quins enllaços has fet clic.
+            title: Màrqueting
+          preferences:
+            description: Aquestes galetes permeten a la plataforma recordar les opcions que vas realitzar en el passat
+            title: Preferències
+          save_settings: Guardar configuració
+          title: Configuració de les galetes
+          toggle: Canviar %{consent_category}
+        warning:
+          all_cookies: totes les galetes
+          change_cookie_settings: Canviar la configuració de les galetes
+          need_cookies: Cal que habilities %{cookies} per veure aquest contingut.
       edit_link:
         edit: Edita
       footer:
         cc_by_license: Amb llicència Creative Commons
+        cookie_settings: Configuració de les galetes
         decidim_logo: Logo Decidim
         download_open_data: Descarrega els fitxers de dades obertes
         made_with_open_source: Web creada amb <a target="_blank" href="https://github.com/decidim/decidim">programari lliure</a>.
