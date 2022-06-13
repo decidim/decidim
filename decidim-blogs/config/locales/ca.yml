@@ -39,6 +39,9 @@ ca:
           update:
             invalid: S'ha produït un error en guardar la publicació.
             success: S'ha desat la publicació correctament
+      admin_log:
+        post:
+          create: "%{user_name} ha creat el post %{resource_name} al blog %{space_name}"
       last_activity:
         new_post_at_html: "<span>Nova publicació a %{link}</span>"
       models:
