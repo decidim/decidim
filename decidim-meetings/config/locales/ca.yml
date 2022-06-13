@@ -382,6 +382,8 @@ ca:
           value_types:
             organizer_presenter:
               not_found: 'L''organitzador no s''ha trobat a la base de dades (identificació: %{id})'
+        questionnaire:
+          update: "%{user_name} ha actualitzat el qüestionari per a la trobada %{meeting_name}"
       application_helper:
         filter_category_values:
           all: Totes
