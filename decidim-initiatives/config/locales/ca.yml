@@ -569,6 +569,8 @@ ca:
           published: Publicada
           rejected: No ha aconseguit les signatures
           validating: Validació tècnica
+      signature_interval:
+        title: Període de recollida de signatures
       states:
         accepted: Acceptat
         expired: Vençut
