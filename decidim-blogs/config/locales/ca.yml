@@ -41,7 +41,9 @@ ca:
             success: S'ha desat la publicació correctament
       admin_log:
         post:
-          create: "%{user_name} ha creat el post %{resource_name} al blog %{space_name}"
+          create: "%{user_name} ha creat el post %{resource_name} al blog de %{space_name}"
+          delete: "%{user_name} ha eliminat el post %{resource_name} del blog de %{space_name}"
+          update: "%{user_name} ha actualitzat el post %{resource_name} en el blog de %{space_name}"
       last_activity:
         new_post_at_html: "<span>Nova publicació a %{link}</span>"
       models:
