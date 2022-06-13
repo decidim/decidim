@@ -75,7 +75,7 @@ PATH
       file_validators (~> 2.1)
       fog-local (~> 0.6)
       foundation_rails_helper
-      geocoder (~> 1.5)
+      geocoder (~> 1.7.5)
       hashdiff (>= 0.4.0, < 2.0.0)
       invisible_captcha (~> 0.12)
       kaminari (~> 1.2, >= 1.2.1)
@@ -440,7 +440,7 @@ GEM
       activemodel (>= 4.1, < 7.1)
       activesupport (>= 4.1, < 7.1)
       railties (>= 4.1, < 7.1)
-    geocoder (1.8.0)
+    geocoder (1.7.5)
     globalid (0.5.2)
       activesupport (>= 5.0)
     graphlient (0.4.0)
