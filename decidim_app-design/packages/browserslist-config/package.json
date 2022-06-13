@@ -1,7 +1,7 @@
 {
   "name": "@decidim/browserslist-config",
   "description": "The Browserslist configuration for Decidim",
-  "version": "0.26.1",
+  "version": "0.26.2",
   "repository": {
     "url": "git@github.com:decidim/decidim.git",
     "type": "git",
