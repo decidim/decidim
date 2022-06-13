@@ -197,6 +197,7 @@ ca:
             automatic_hashtags: Hashtags afegits a totes les propostes
             comments_blocked: Comentaris bloquejats
             creation_enabled: Les participants poden crear propostes
+            creation_enabled_readonly: Aquesta opció es desactiva quan actives la funcionalitat de Textos Participatius. Per a pujar propostes com a text participatiu fes clic al botó de Textos Participatius i segueix les instruccions.
             default_sort_order: Ordre per defecte de propostes
             default_sort_order_help: '''Per defecte'' vol dir que si els suports estan habilitats, les propostes es mostraran aleatòriament, i si els suports estan bloquejats, aleshores es mostraran de més a menys suports.'
             default_sort_order_options:
