@@ -355,9 +355,9 @@ module Decidim
                     "body" => questions[1].body,
                     "position" => 1,
                     "question_type" => "single_option",
-                    "answer_options" => Hash[question_2_answer_options.map do |answer_option|
+                    "answer_options" => question_2_answer_options.to_h do |answer_option|
                       [answer_option.id.to_s, { "id" => answer_option.id, "body" => answer_option.body, "free_text" => answer_option.free_text, "deleted" => false }]
-                    end]
+                    end
                   },
                   "3" => {
                     "id" => questions[2].id,

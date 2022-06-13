@@ -43,7 +43,7 @@ describe "Vote online in an election inside a Voting", type: :system do
   context "when there are different ballot styles" do
     before do
       ballot_style = create(:ballot_style, voting: voting)
-      ballot_style_2 = create(:ballot_style, voting: voting)
+      ballot_style2 = create(:ballot_style, voting: voting)
 
       election.questions.each do |question|
         create(
@@ -60,7 +60,7 @@ describe "Vote online in an election inside a Voting", type: :system do
       create(
         :ballot_style_question,
         question: create(:question, election: election),
-        ballot_style: ballot_style_2
+        ballot_style: ballot_style2
       )
     end
 

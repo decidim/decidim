@@ -317,6 +317,7 @@ ignore_unused:
   - decidim.assemblies.admin.assembly_members.form.explanation
   - decidim.assemblies.admin.assembly_members.form.image_guide
   - decidim.assemblies.admin.assembly_members.form.non_user_avatar_help
+  - decidim.blogs.admin_log.*
   - decidim.templates.admin_log.*
 
 ## Exclude these keys from the `i18n-tasks eq-base' report:

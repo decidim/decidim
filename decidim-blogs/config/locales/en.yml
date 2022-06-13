@@ -40,6 +40,11 @@ en:
           update:
             invalid: There was a problem saving the post.
             success: Post successfully saved
+      admin_log:
+        post:
+          create: "%{user_name} created the %{resource_name} blog post in %{space_name}"
+          delete: "%{user_name} deleted the %{resource_name} blog post from %{space_name}"
+          update: "%{user_name} updated the %{resource_name} blog post in %{space_name}"
       last_activity:
         new_post_at_html: "<span>New post at %{link}</span>"
       models:

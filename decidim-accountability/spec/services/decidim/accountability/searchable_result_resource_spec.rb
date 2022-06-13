@@ -16,7 +16,7 @@ module Decidim
         component: current_component,
         scope: scope1,
         title: Decidim::Faker::Localized.name,
-        description: description_1
+        description: description1
       )
     end
 

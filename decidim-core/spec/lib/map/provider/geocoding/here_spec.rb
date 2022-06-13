@@ -20,7 +20,7 @@ module Decidim
           end
 
           context "with geocoder request stubs" do
-            let(:response) { IO.read(Decidim::Dev.asset("geocoder_result_here.json")) }
+            let(:response) { File.read(Decidim::Dev.asset("geocoder_result_here.json")) }
 
             before do
               stub_request(:get, request_url).with(

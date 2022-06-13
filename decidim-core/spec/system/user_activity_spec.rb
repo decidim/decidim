@@ -11,7 +11,7 @@ describe "User activity", type: :system do
     create(:action_log, action: "create", visibility: "public-only", resource: comment, organization: organization, user: user)
   end
 
-  let!(:action_log_2) do
+  let!(:action_log2) do
     create(:action_log, action: "publish", visibility: "all", resource: resource, organization: organization, participatory_space: component.participatory_space, user: user)
   end
 
