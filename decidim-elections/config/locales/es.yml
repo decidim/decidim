@@ -1207,7 +1207,7 @@ es:
         in_person_votes:
           complete_voting:
             available_answers: 'Respuestas disponibles:'
-            census_verified: Esta participante no ha votado en persona aún.
+            census_verified: Esta participante no ha votado presencialmente aún.
             census_verified_with_online_vote: Esta participante ya ha votado en línea. Si vota en persona, los votos anteriores serán invalidados y este será su voto definitivo.
             complete_voting: Completar votación
             identify_another: Identificar a otra participante
