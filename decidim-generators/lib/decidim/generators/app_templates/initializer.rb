@@ -37,8 +37,8 @@ Decidim.configure do |config|
   # or set it up manually and prevent any ENV manipulation:
   # config.force_ssl = true
 
-  # Enable the service worker
-  config.service_worker_enabled = Rails.env.development? ? false : true
+  # Enable the service worker. By default is disabled in development and enabled in the rest of environments.
+  config.service_worker_enabled = Rails.env.exclude?("development")
 
   # Map and Geocoder configuration
   #
