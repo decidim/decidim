@@ -41,14 +41,6 @@ module Decidim
           expect(subject).not_to be_valid
         end
       end
-
-      context "when user has already answered the question" do
-        let(:another_answer) { create(:answer, questionnaire: questionnaire, question: question, user: user) }
-
-        it "is invalid" do
-          expect(subject).not_to be_valid
-        end
-      end
     end
   end
 end
