@@ -225,6 +225,7 @@ fi-pl:
             title: Tuo ehdotuksia
         questions:
           create:
+            election_started: Tämä äänestys on jo aloitettu
             invalid: Kysymyksen luonti epäonnistui
             success: Kysymyksen luonti onnistui
           destroy:
@@ -920,6 +921,7 @@ fi-pl:
           edit:
             change_polling_station: Takaisin äänestyspaikkoihin
             monitoring_committee_notes: Huomautukset
+            monitoring_committee_notes_placeholder: Ilmoita kaikista huomionarvoisista tapahtumista täällä
             title: Vaalin <i>%{election_title}</i> tulokset äänestyspaikalla <i>%{polling_station_title}</i>
           elections:
             title: Valitse vaali, jonka haluat vahvistaa
@@ -1062,6 +1064,7 @@ fi-pl:
               info_message: "<strong>Odota hetki</strong>, käsitelty %{processed_count} / %{raw_count} riviä tiedostosta %{file}."
             delete:
               button: Poista kaikki henkilötietorekisterin tiedot
+              confirm: Väestörekisterin tietojen poistamista ei voi peruuttaa jälkikäteen. Haluatko varmasti jatkaa?
             destroy:
               error: Henkilötietorekisterin poistaminen epäonnistui, yritä uudestaan myöhemmin.
               success: Henkilötietorekisterin tiedot poistettu
@@ -1069,6 +1072,7 @@ fi-pl:
               button: Vie äänestyksen tunnistautumiskoodit
               callout: Voit nyt viedä tunnistautumiskoodit järjestelmästä. Tämä voidaan tehdä vain kerran. Kun aloitat viennin, sinulle lähetetään tarvittavat ohjeet sähköpostiin <strong>%{email}</strong>
               confirm: Voit viedä tunnistautumiskoodit vain kerran. Varmista, että pääset käsiksi sähköpostitiliin <strong>%{email}</strong>.
+              file_not_exist: Tiedostoa ei ole olemassa
               launch_error: Tunnistautumiskoodien viennin aloittaminen epäonnistui
               launch_success: Tunnistautumiskoodien vienti aloitettu. Saat sähköpostia hetken kuluttua sähköpostiosoitteeseen %{email}
             exporting_access_codes:
@@ -1093,6 +1097,7 @@ fi-pl:
               has_ballot_styles_message: Olet määrittänyt äänestystyylejä. Pidä huolta siitä, että "%{ballot_style_code_header}" -kenttä CSV-tiedostossa vastaa rivin äänestystyylin koodia.
               info_message: "<strong>Henkilötietorekisteriä ei ole vielä olemassa.</strong> Käytä alla olevaa lomaketta luodaksesi rekisterin tuomalla tiedot CSV-tiedostosta."
               missing_ballot_styles_message: 'Tälle äänestykselle ei ole määritetty yhtään äänestystyyliä. Jos haluat lisätä ehdollisia kysymyksiä (ts. esittää äänestäjille eri kysymyksiä esimerkiksi riippuen heidän asuinalueestaan), sinun on määritettävä <a href=%{ballot_styles_admin_path}>äänestystyylit</a> <strong>ennen</strong> henkilötietorekisterin lataamista järjestelmään. Jos haluat esittää kaikille äänestäjille samat kysymykset, voit jatkaa henkilötietorekisterin lataamiseen.'
+              submit: Lähetä CSV
               title: Luo henkilötietorekisteri
             show:
               heading: Äänestystilan henkilötietorekisteri
@@ -1171,6 +1176,7 @@ fi-pl:
             modal_ballots_count_error:
               btn_validate_total: Tarkasta äänten uudelleenlaskenta
               close_modal: Sulje
+              info_explanation_text: 'Tarkasta äänten kokonaismäärä. Jos kokonaismäärä ei ole oikea, sinun on annettava selvitys tarkkailukomitealle:'
               info_text: Syötettyjen äänten (kirjeiden) kokonaismäärä ei täsmää ihmisten määrään, jotka ovat äänestäneet tässä äänestyspaikassa.
               message_for_monitoring_committee: Viesti tarkkailukomitealle
               review_recount: Tarkasta uudelleenlaskenta
@@ -1201,9 +1207,12 @@ fi-pl:
         in_person_votes:
           complete_voting:
             available_answers: 'Mahdolliset vastaukset:'
+            census_verified: Tämä osallistuja ei ole vielä äänestänyt fyysisesti.
+            census_verified_with_online_vote: Tämä osallistuja on jo äänestänyt verkossa. Jos hän äänestää fyysisesti, edelliset äänet mitätöidään ja ainoastaan fyysinen ääni lasketaan.
             complete_voting: Viimeistele äänestys
             identify_another: Tunnista toinen osallistuja
             questions_title: 'Hänellä on oikeus äänestää seuraavista kysymyksistä:'
+            questions_title_voted: 'Osallistuja on jo äänestänyt verkossa ja hänellä on oikeus äänestää seuraavista kysymyksistä:'
             voted: Osallistuja on äänestänyt
           create:
             error: Ääntä ei tallennettu. Ole hyvä ja yritä uudelleen.
@@ -1298,6 +1307,7 @@ fi-pl:
           form_title: 'Täytä seuraava lomake tarkistaaksesi tietosi henkilötietorekisterissä:'
           invalid: Henkilötietorekisterin tietojen tarkastaminen epäonnistui.
           success:
+            access_link: sähköpostitse.
             access_link_with_sms: tekstiviestitse tai sähköpostitse.
             info: Sinun olisi pitänyt saada tunnistautumiskoodisi paperipostissa. Jos sinulla ei ole koodia, voit pyytää sitä täältä
             title: Tietosi henkilötietorekisterissä ovat oikein!
