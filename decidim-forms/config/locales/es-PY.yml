@@ -121,6 +121,9 @@ es-PY:
           update:
             invalid: Ha habido errores al guardar el cuestionario.
             success: Formulario guardado correctamente.
+      admin_log:
+        questionnaire:
+          update: "%{user_name} actualizó el cuestionario %{resource_name}"
       errors:
         answer:
           body: El campo no puede estar en blanco
