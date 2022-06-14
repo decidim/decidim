@@ -170,7 +170,7 @@ describe "Vote online in an election", type: :system do
       election.questions.last.destroy!
       election.questions.last.destroy!
       election.questions.last.destroy!
-      allow(Decidim::BulletinBoard).to receive(:bulletin_board_server).and_return("http://idontexist.test")
+      allow(Decidim::BulletinBoard).to receive(:bulletin_board_server).and_return("http://idontexist.tld")
     end
 
     it "alerts the user about the error" do
