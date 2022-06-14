@@ -1207,9 +1207,12 @@ fi:
         in_person_votes:
           complete_voting:
             available_answers: 'Mahdolliset vastaukset:'
+            census_verified: Tämä osallistuja ei ole vielä äänestänyt fyysisesti.
+            census_verified_with_online_vote: Tämä osallistuja on jo äänestänyt verkossa. Jos hän äänestää fyysisesti, edelliset äänet mitätöidään ja ainoastaan fyysinen ääni lasketaan.
             complete_voting: Viimeistele äänestys
             identify_another: Tunnista toinen osallistuja
             questions_title: 'Osallistujilla on oikeus äänestää seuraavista kysymyksistä:'
+            questions_title_voted: 'Osallistuja on jo äänestänyt verkossa ja hänellä on oikeus äänestää seuraavista kysymyksistä:'
             voted: Osallistuja on äänestänyt
           create:
             error: Ääntä ei tallennettu. Ole hyvä ja yritä uudelleen.
@@ -1304,6 +1307,7 @@ fi:
           form_title: 'Täytä seuraava lomake tarkistaaksesi tietosi henkilötietorekisterissä:'
           invalid: Henkilötietorekisterin tietojen tarkastaminen epäonnistui.
           success:
+            access_link: sähköpostitse.
             access_link_with_sms: tekstiviestitse tai sähköpostitse.
             info: Sinun olisi pitänyt saada tunnistautumiskoodisi paperipostissa. Jos sinulla ei ole koodia, voit pyytää sitä täältä
             title: Tietosi henkilötietorekisterissä ovat oikein!
