@@ -51,6 +51,7 @@ lt:
         import_results:
           new:
             import: Importuoti
+            info: "<p>Rekomenduojame atlikti šiuos veiksmus:</p><ol><li>Sukurti norimų pridėti rezultatų būsenas (<a href='%{link_new_status}' target='_blank'>link</a>)</li><li>Sukurti bent vieną rezultatą rankiniu būdu pasinaudojant šia Administratoriaus panele (<a href='%{link_new_result}' target='_blank'>link</a>) prieš spustelint „Importuoti“, kad geriau suprastumėte formatą ir tai, ką turite užpildyti.</li><li>Parsisiųskite eksporto rinkmeną CSV formatu (%{link_export_csv})</li><li>Atlikite pakeitimus lokaliai. Galite pakeisti tik šias CSV skiltis:</li></ol><ul><li><b>category/id:</b> ID, skirtą kategorijai</li><li><b>scope/id:</b> ID, skirtą sričiai</li><li><b>parent/id:</b> pirminio elemento ID (skirtą susijusiems rezultatams). Neprivaloma</li><li><b>title/I18N:</b> Pavadinimas X kalba</li><li><b>description/I18N:</b> Aprašymas X kalba</li><li><b>start_date:</b> data, kada rezultatas pradedamas generuoti (MMMM-MM-DD formatas)</li><li><b>end_date:</b> data, kada rezultatas baigiamas generuoti (MMMM-MM-DD formatas)</li><li><b>status/id:</b> šio rezultato būsenos ID</li><li><b>progress:</b> Įvykdymo procentinė dalis (nuo 0 iki 100)</li><li><b>proposals_ids:</b> susijusių pasiūlymų vidaus ID (atskirta kableliu). Tai automatiškai pakeičiama į <span class='attribute-name'>proposal_url</span></li></ul>"
             link: nuoroda
             title: Importuoti rezultatus iš CSV
         imports:
@@ -229,8 +230,14 @@ lt:
           email_outro: Šį pranešimą gavote dėl to, kad sekate „%{proposal_title}“. Jeigu nebenorite gauti pranešimų, spustelėkite ankstesnę nuorodą.
           email_subject: '%{proposal_title} atnaujinimas'
           notification_title: Pasiūlymas <a href="%{proposal_path}">%{proposal_title}</a> įtrauktas į <a href="%{resource_path}">%{resource_title}</a> rezultatą.
+        result_progress_updated:
+          email_intro: 'Rezultatas „%{resource_title}“, kuris apima pasiūlymą „%{proposal_title}“, dabar %{progress}% gautas. Jį galite pamatyti šiame puslapyje:'
+          email_outro: Šį pranešimą gavote dėl to, kad sekate „%{proposal_title}“ ir šis pasiūlymas įtrauktas į rezultatą „%{resource_title}“. Jeigu nebenorite gauti pranešimų, spustelėkite ankstesnę nuorodą.
+          email_subject: '%{resource_title} eigos atnaujinimas'
+          notification_title: Rezultatas <a href="%{resource_path}">%{resource_title}</a>, kuris įtraukia pasiūlymą <a href="%{proposal_path}">%{proposal_title}</a>, dabar %{progress}% gautas.
     metrics:
       results:
+        description: Gautų rezultatų skaičius
         object: rezultatai
         title: Rezultatai
     participatory_spaces:
