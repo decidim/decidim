@@ -103,6 +103,8 @@ module Decidim
       end
 
       def elections
+        raise ActionController::RoutingError, "Not Found" unless current_participatory_space
+
         Decidim::Elections::Election.where(component: current_participatory_space.components).where.not(bb_status: nil)
       end
 

@@ -213,6 +213,7 @@ en:
             title: Import proposals
         questions:
           create:
+            election_started: The election has already started
             invalid: There was a problem creating this question
             success: Question successfully created
           destroy:
@@ -1293,7 +1294,8 @@ en:
           form_title: 'Fill the following form to check your census data:'
           invalid: There was a problem checking the census.
           success:
-            access_link: via SMS or email.
+            access_link: via email.
+            access_link_with_sms: via SMS or email.
             info: You should have received your Access Code by postal mail already. In case, you don't have it, you can request it here
             title: Your census data is correct!
           title: Can I vote?

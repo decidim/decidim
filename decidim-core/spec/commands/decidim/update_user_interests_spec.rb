@@ -44,6 +44,12 @@ module Decidim
         user.reload
         expect(user.interested_scopes).to eq [interested_scope]
       end
+
+      it "saves interested scopes ids as array of Integer" do
+        command.call
+        user.reload
+        expect(user.extended_data["interested_scopes"]).to eq [interested_scope.id]
+      end
     end
   end
 end

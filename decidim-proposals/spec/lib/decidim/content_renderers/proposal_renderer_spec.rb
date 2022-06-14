@@ -22,7 +22,7 @@ module Decidim
           it { is_expected.to eq("") }
         end
 
-        context "when conent has no gids" do
+        context "when content has no gids" do
           let(:content) { "whatever content with @mentions and #hashes but no gids." }
 
           it { is_expected.to eq(content) }
@@ -34,7 +34,7 @@ module Decidim
             "This content references proposal #{proposal.to_global_id}."
           end
 
-          it { is_expected.to eq("This content references proposal #{proposal_as_html_link(proposal)}.") }
+          it { is_expected.to eq("This content references proposal #{resource_as_html_link(proposal)}.") }
         end
 
         context "when content has many links" do
@@ -48,17 +48,17 @@ module Decidim
             "This content references the following proposals: #{gid1}, #{gid2} and #{gid3}. Great?I like them!"
           end
 
-          it { is_expected.to eq("This content references the following proposals: #{proposal_as_html_link(proposal_1)}, #{proposal_as_html_link(proposal_2)} and #{proposal_as_html_link(proposal_3)}. Great?I like them!") }
+          it { is_expected.to eq("This content references the following proposals: #{resource_as_html_link(proposal_1)}, #{resource_as_html_link(proposal_2)} and #{resource_as_html_link(proposal_3)}. Great?I like them!") }
         end
       end
 
-      def proposal_url(proposal)
-        Decidim::ResourceLocatorPresenter.new(proposal).path
+      def resource_url(resource)
+        Decidim::ResourceLocatorPresenter.new(resource).path
       end
 
-      def proposal_as_html_link(proposal)
-        href = proposal_url(proposal)
-        title = translated(proposal.title)
+      def resource_as_html_link(resource)
+        href = resource_url(resource)
+        title = translated(resource.title)
         %(<a href="#{href}">#{title}</a>)
       end
     end

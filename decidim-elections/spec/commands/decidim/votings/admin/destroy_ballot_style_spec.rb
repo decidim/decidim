@@ -32,12 +32,13 @@ module Decidim
           it "traces the action", versioning: true do
             expect(Decidim.traceability)
               .to receive(:perform_action!)
-              .with(:delete, ballot_style, user, visibility: "all")
+              .with(:delete, ballot_style, user, { visibility: "all", code: ballot_style.code })
               .and_call_original
 
             expect { subject.call }.to change(Decidim::ActionLog, :count)
             action_log = Decidim::ActionLog.last
             expect(action_log.action).to eq("delete")
+            expect(action_log.extra["code"]).to eq(ballot_style.code)
           end
         end
       end

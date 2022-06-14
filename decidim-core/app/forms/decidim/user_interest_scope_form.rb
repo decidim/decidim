@@ -6,7 +6,7 @@ module Decidim
   class UserInterestScopeForm < Form
     mimic :scope
 
-    attribute :name, String
+    attribute :name, JsonbAttributes
     attribute :checked, Boolean
     attribute :children, Array[UserInterestScopeForm]
 

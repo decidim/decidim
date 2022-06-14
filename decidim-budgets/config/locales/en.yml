@@ -14,8 +14,11 @@ en:
         decidim_scope_id: Scope
         description: Description
         proposal_ids: Related proposals
+        proposals: Proposals
         selected: Selected for implementation
         title: Title
+      proposals_import:
+        scope_id: Scope
   activerecord:
     models:
       decidim/budgets/project:
@@ -102,7 +105,10 @@ en:
             success: "%{number} proposals successfully imported into projects"
           new:
             create: Import proposals to projects
+            default_budget: Default budget
+            import_all_accepted_proposals: Import all accepted proposals
             no_components: There are no other proposal components in this participatory space to import the proposals into projects.
+            origin_component_id: Origin component
             select_component: Please select a component
             title: Import proposals
       admin_log:
