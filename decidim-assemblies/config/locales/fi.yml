@@ -68,6 +68,12 @@ fi:
         email: Sähköposti
         name: Nimi
         role: Rooli
+    errors:
+      models:
+        assembly:
+          attributes:
+            document:
+              allowed_file_content_types: 'Virheellinen asiakirjan tyyppi. Hyväksytyt tiedostomuodot ovat: %{types}'
   activerecord:
     models:
       decidim/assembly:
@@ -236,6 +242,9 @@ fi:
     admin_log:
       assembly:
         create: "%{user_name} loi %{resource_name} ryhmän"
+        duplicate: "%{user_name} kopioi ryhmän %{resource_name}"
+        export: "%{user_name} vei ryhmän %{resource_name}"
+        import: "%{user_name} toi ryhmän %{resource_name}"
         publish: "%{user_name} julkaisi %{resource_name} ryhmän"
         unpublish: "%{user_name} lopetti ryhmän %{resource_name} julkaisun"
         update: "%{user_name} päivitti %{resource_name} ryhmän"
@@ -383,6 +392,7 @@ fi:
         related_participatory_processes: Liittyvät osallistumisprosessit
         scope: Teema
         social_networks: Sosiaalinen media
+        social_networks_title: Vieraile ryhmän sivulla palvelussa
         target: Kuka osallistuu
     assembly_members:
       assembly_member:
