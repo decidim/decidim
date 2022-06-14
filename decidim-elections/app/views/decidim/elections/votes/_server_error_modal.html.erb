@@ -1,0 +1,28 @@
+<div class="reveal" id="server-failure" data-reveal>
+  <div class="reveal__header">
+    <h3 class="reveal__title">
+      <%= t("modal.title", scope: "decidim.elections.votes.failed") %>
+    </h3>
+
+    <button class="close-button" data-close aria-label="<%= t("modal.close", scope: "decidim.elections.votes.failed") %>"
+      type="button">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+
+  <div class="row">
+    <p>
+      <%= t("modal.communication_lost", scope: "decidim.elections.votes.failed").html_safe %>
+    </p>
+
+    <p class="help-text tech-info"></p>
+  </div>
+
+  <div class="row">
+    <div class="column flex-center">
+      <button class="clear button secondary expanded" data-close type="button">
+        <%= t("modal.close", scope: "decidim.elections.votes.failed") %>
+      </button>
+    </div>
+  </div>
+</div>
