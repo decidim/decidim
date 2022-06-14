@@ -13,8 +13,11 @@ es-PY:
         decidim_scope_id: Ámbito
         description: Descripción
         proposal_ids: Propuestas relacionadas
+        proposals: Propuestas
         selected: Seleccionado para implementar
         title: Título
+      proposals_import:
+        scope_id: Ámbito
   activerecord:
     models:
       decidim/budgets/project:
@@ -125,7 +128,10 @@ es-PY:
             success: "%{number} propuestas importadas con éxito en proyectos"
           new:
             create: Importar propuestas a proyectos
+            default_budget: Presupuesto por defecto
+            import_all_accepted_proposals: Importar todas las propuestas aceptadas
             no_components: No hay otros componentes de la propuesta en este espacio participativo para importar las propuestas en los proyectos.
+            origin_component_id: Componente de origen
             select_component: Por favor seleccione un componente
             title: Importar propuestas
         reminders:
