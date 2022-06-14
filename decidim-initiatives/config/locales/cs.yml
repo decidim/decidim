@@ -24,6 +24,7 @@ cs:
         banner_image: Obrázek banneru
         child_scope_threshold_enabled: Povolit podpisy podřízené oblasti působnosti
         collect_user_extra_fields: Sbírejte osobní údaje uživatelů podpisem
+        comments_enabled: Povolit komentáře
         custom_signature_end_date_enabled: Povolit autorům zvolit konec doby sběru podpisů
         description: Popis
         document_number_authorization_handler: Autorizace k ověření čísla dokumentu pro podpisy
