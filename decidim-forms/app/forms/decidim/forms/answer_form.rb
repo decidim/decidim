@@ -69,6 +69,10 @@ module Decidim
         question.has_attachments? && errors[:add_documents].empty? && add_documents.present?
       end
 
+      def has_error_in_attachments?
+        errors[:add_documents].present?
+      end
+
       private
 
       def mandatory_body?
