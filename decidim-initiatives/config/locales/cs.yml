@@ -244,8 +244,6 @@ cs:
             edit: Upravit
             new: Nový
             photos: Fotky
-          show:
-            print: Vytisknout
           update:
             error: Došlo k chybě
             success: Iniciativa občanů byla úspěšně aktualizována
@@ -519,6 +517,7 @@ cs:
             title: 'Titul:'
             type: Typ iniciativy
           legal_text: Shromážděné osobní údaje organizace začlení a bude s nimi nakládat důvěrně v souladu s platnými právními předpisy.
+          members_header: Členové propagačního výboru iniciativy
           phone_number: Telefonní číslo
           place_date: Místo, datum
           postal_code: PSČ/ZIP

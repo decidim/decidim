@@ -61,6 +61,7 @@ de:
         designation_date: Datum der Benennung
         full_name: Vollständiger Name
         gender: Geschlecht
+        non_user_avatar: Profilbild
         position: Position
         user_id: User
       assembly_user_role:
@@ -181,6 +182,9 @@ de:
         update:
           error: Bei einem Fehler ist ein Benutzer für diese Assembly aktualisiert worden.
           success: Der Benutzer wurde für diese Assembly erfolgreich aktualisiert.
+      filters:
+        decidim_assemblies_type_id_eq:
+          label: Versammlungstyp
       menu:
         assemblies: Gremien
         assemblies_settings: Einstellungen
@@ -295,7 +299,10 @@ de:
         assembly_members:
           form:
             existing_user: Existierender Benutzer
+            explanation: 'Hinweise für das Bild:'
+            image_guide: Vorzugsweise ein Bild im Querformat, das keinen Text enthält.
             non_user: Nichtbenutzer
+            non_user_avatar_help: Sie sollten die Zustimmung der Personen einholen, bevor Sie sie als Mitglied veröffentlichen.
             select_a_position: Wählen Sie eine Position
             select_user: Wählen Sie einen Benutzer aus
             user_type: Benutzertyp
@@ -312,6 +319,9 @@ de:
         new_import:
           accepted_types:
             json: JSON
+      assemblies:
+        show:
+          title: Über dieses Gremium
       assembly_members:
         index:
           members: Mitglieder
@@ -379,7 +389,7 @@ de:
         related_participatory_processes: Ähnliche Beteiligungsprozesse
         scope: Umfang
         social_networks: Soziale Netzwerke
-        social_networks_title: Diese Versammlung auf teilen
+        social_networks_title: Gremium besuchen unter
         target: Wer nimmt teil?
     assembly_members:
       assembly_member:
@@ -390,7 +400,7 @@ de:
       assemblies:
         create_assembly_member:
           email_intro: Ein Administrator des Gremiums <a href="%{resource_url}">%{resource_name}</a> hat Sie als Mitglied eingeladen.
-          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie zu einer Versammlung eingeladen wurden. Gehen Sie zur <a href="%{resource_path}">Versammlungsseite</a>, um daran teilzunehmen!
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie zu einem Gremium eingeladen wurden. Gehen Sie zur <a href="%{resource_url}">Gremiumsseite</a>, um mitzumachen!
           email_subject: Sie wurden als Mitglied des Gremiums %{resource_name} eingeladen!
           notification_title: Sie wurden als Mitglied des Gremiums <a href="%{resource_path}">%{resource_name}</a> registriert. Gehen Sie zur <a href="%{resource_path}">Gremiumsseite</a>, um mitzuwirken!
       assembly:

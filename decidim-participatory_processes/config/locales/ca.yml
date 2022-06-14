@@ -435,6 +435,8 @@ ca:
           see: Veure
         index:
           loading: Carregant resultats...
+        show:
+          title: Quant a aquest procés
       show:
         area: Àrea
         belongs_to_group: Aquest procés pertany a

@@ -170,7 +170,7 @@ fr-CA:
           description: Ce projet dépasse le budget maximum et ne peut pas être ajouté. Si vous le souhaitez, vous pouvez supprimer un projet que vous avez déjà sélectionné puis voter de nouveau selon vos préférences.
           ok: D'accord
           projects_excess:
-            description: Vous avez dépassé le nombre maximum de projets à sélectionner, ce projet ne peut donc être ajouté. Si vous le souhaitez, vous pouvez supprimer un projet que vous avez déjà sélectionné puis voter de nouveau selon vos préférences.
+            description: Ce projet dépasse le nombre maximum de projets et ne peut pas être ajouté. Si vous le souhaitez, vous pouvez supprimer un projet que vous avez déjà sélectionné puis voter de nouveau selon vos préférences.
             title: Nombre maximum de projets dépassé
         budget_summary:
           are_you_sure: Êtes-vous certain de vouloir annuler votre vote ?

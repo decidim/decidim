@@ -89,7 +89,7 @@ fr-CA:
         committee_members: Membres de comité
         components: Fonctionnalités
         information: Informations
-        initiatives: Initiatives
+        initiatives: Pétitions
         initiatives_types: Types d'initiatives
         moderations: Modérations
       models:
@@ -100,7 +100,7 @@ fr-CA:
             published_at: Publiée à
             state: État
             supports_count: Signatures
-            title: Initiatives
+            title: Pétitions
         initiatives_type_scope:
           fields:
             scope: Secteur
@@ -127,7 +127,7 @@ fr-CA:
             time_and_date: Heure et date
             timestamp: Horodatage
       titles:
-        initiatives: Initiatives
+        initiatives: Pétitions
         initiatives_types: Types d'initiative
     events:
       initiatives:
@@ -194,7 +194,7 @@ fr-CA:
             created_at: Créé à
             description: Description
             initiative_votes_count: Nombre de votes
-            initiatives: Initiatives
+            initiatives: Pétitions
             state: Etat
         committee_requests:
           index:
@@ -212,7 +212,7 @@ fr-CA:
               label: 'Trier l''élément par :'
               most_recent: Les plus récentes
         exports:
-          initiatives: Initiatives
+          initiatives: Pétitions
         initiatives:
           edit:
             accept: Accepter l'initiative
@@ -238,8 +238,6 @@ fr-CA:
             edit: Modifier
             new: Nouvelle
             photos: Photos
-          show:
-            print: Impression
           update:
             error: Une erreur est survenue
             success: L'initiative a été mise à jour avec succès
@@ -275,7 +273,7 @@ fr-CA:
           form:
             authorizations: Paramètres d'autorisation
             child_scope_threshold_enabled_help: 'Cette option de configuration ne gère pas les votes hors-ligne, elle permet d''activer des sous-secteurs et fonctionne avec un gestionnaire d''autorisation qui associe un secteur à l''utilisateur. Assurez-vous de sélectionner cette autorisation dans les paramètres d''autorisation ci-dessous. Pour que cela fonctionne, les secteurs doivent être configurées de manière hiérarchique : 1 Parent - N Enfants. Pour plus d''informations sur le fonctionnement de cette configuration, cliquez <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">ici</a>.'
-            only_global_scope_enabled_help: Cochez cette case si vous avez activé "Autoriser les signatures par sous-secteur" et configurer la portée globale comme votre portée parente. En activant cette option, la sélection du type d'initiative sera ignorée dans l'assistant de création d'initiative. Pour plus d'informations sur le fonctionnement de cette configuration, voir ce <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">lien</a>.
+            only_global_scope_enabled_help: Cochez cette case si vous avez activé "Autoriser les signatures par sous-secteur" et configurer la portée globale comme votre portée parente. En activant cette option, la sélection du type de pétition sera ignorée dans l'assistant de création d'initiative. Pour plus d'informations sur le fonctionnement de cette configuration, voir ce <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">lien</a>.
             options: Paramètres
             title: informations générales
           initiative_type_scopes:
@@ -411,7 +409,7 @@ fr-CA:
         attachment_legend: "(Facultatif) Ajouter une pièce jointe"
         delete_attachment: Supprimer
       index:
-        title: Initiatives
+        title: Pétitions
       initiative_signatures:
         fill_personal_data:
           continue: Continuer
@@ -455,8 +453,8 @@ fr-CA:
           title: Membres du Comité de promotion
         count:
           title:
-            one: "%{count} initiative"
-            other: "%{count} initiatives"
+            one: "%{count} pétition"
+            other: "%{count} pétitions"
         filters:
           any: Tout
           area: Zone
@@ -507,6 +505,7 @@ fr-CA:
             title: 'Titre :'
             type: Type de pétition
           legal_text: Les données personnelles recueillies seront incorporées et traitées de façon confidentielle par l'organisation, conformément à la législation en vigueur.
+          members_header: Membres du comité de promotion de la pétition
           phone_number: Numéro de téléphone
           place_date: Lieu, Date
           postal_code: Code Postal/ZIP
@@ -577,7 +576,7 @@ fr-CA:
         shared:
           back_to_resource: Retour à l'initiative
     menu:
-      initiatives: Initiatives
+      initiatives: Pétitions
     resources:
       initiative:
         actions:
@@ -599,7 +598,7 @@ fr-CA:
         step: Étape %{current} de %{total}
         title: Créer une nouvelle initiative
       initiative_header:
-        initiative_menu_item: Initiative
+        initiative_menu_item: Pétition
       initiative_signature_creation_header:
         back: Retour
         fill_personal_data: Complétez vos données

@@ -219,33 +219,21 @@ eu:
             email_subject: Norbaitek ohar bat utzi du %{resource_title} proposamenean.
             notification_title: Norbaitek ohar bat utzi du <a href="%{resource_path}">%{resource_title}</a> proposamenean. Berrikusi orain honen bidez <a href="%{admin_proposal_info_path}">panel de administración</a>
         collaborative_draft_access_accepted:
-          email_intro: '%{requester_name} onartu da <a href="%{resource_path}">%{resource_title}</a> lankidetza proiektuaren laguntzaile gisa sartzeko.'
-          email_outro: Jakinarazpen hau jaso duzuelako <a href="%{resource_path}">%{resource_title}</a>.
           email_subject: "%{requester_name} izan da onartu %{resource_title}."
           notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> izan da <strong>sarbidea onartu kolaboratzaile gisa</strong> de <a href="%{resource_path}">%{resource_title}</a> elkarlanerako zirriborroa.
         collaborative_draft_access_rejected:
-          email_intro: '%{requester_name} baztertu egin da <a href="%{resource_path}">%{resource_title}</a> lankidetza proiektuaren laguntzaile gisa sartzeko.'
-          email_outro: Jakinarazpen hau jaso duzuelako <a href="%{resource_path}">%{resource_title}</a>.
           email_subject: "%{requester_name} ez da onartu du kolaboratzaile gisa sartzeko %{resource_title} elkarlanerako zirriborroa."
           notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> izan da <strong>baztertutako <a href="%{resource_path}">%{resource_title}</a> lankidetza zirriborroaren</strong> laguntzaile gisa sartzeko.
         collaborative_draft_access_requested:
-          email_intro: '%{requester_name} eskatutako sarbidea laguntzaile gisa. Ezin duzu <strong>onartzeko edo eskaera ukatzeko</strong> -tik <a href="%{resource_path}">%{resource_title}</a> elkarlanerako zirriborroa orria.'
-          email_outro: Jakinarazpen hau jaso duzuelako <a href="%{resource_path}">%{resource_title}</a>.
           email_subject: "%{requester_name} eskatutako sarbidea izateko %{resource_title}laguntzera."
           notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> eskatutako sarbidea <a href="%{resource_path}">%{resource_title}</a> lankidetza proiektuari laguntzea. <strong>Onartu edo ezetsi eskaera</strong>.
         collaborative_draft_access_requester_accepted:
-          email_intro: <a href="%{resource_path}">%{resource_title}</a> lankidetza zirriborroaren laguntzaile gisa sartzeko onartu duzu.
-          email_outro: Jakinarazpen hau jaso duzu, <a href="%{resource_path}">%{resource_title}</a>laguntzaile izateko eskatu zenuen.
           email_subject: '%{resource_title}laguntzaile gisa onartzen duzu.'
           notification_title: Izan zara <strong>onartu laguntzaile gisa sartzeko</strong> de <a href="%{resource_path}">%{resource_title}</a> elkarlanerako zirriborroa.
         collaborative_draft_access_requester_rejected:
-          email_intro: Baztertu egin zaituzte <a href="%{resource_path}">%{resource_title}</a> lankidetza proiektuaren laguntzaile gisa sartzeko.
-          email_outro: Jakinarazpen hau jaso duzu, <a href="%{resource_path}">%{resource_title}</a>laguntzaile izateko eskatu zenuen.
           email_subject: Baztertu zara %{resource_title}laguntzaile gisa.
           notification_title: Izan zara <strong>baztertu laguntzaile gisa sartzeko</strong> de <a href="%{resource_path}">%{resource_title}</a> elkarlanerako zirriborroa.
         collaborative_draft_withdrawn:
-          email_intro: <a href="%{author_path}">%{author_name} %{author_nickname}</a> <a href="%{resource_path}">%{resource_title}</a> lankidetza-zirriborroa kenduta.
-          email_outro: Jakinarazpen hau jaso duzuelako <a href="%{resource_path}">%{resource_title}</a>.
           email_subject: "%{author_name} %{author_nickname} %{resource_title} lankidetza-zirriborroa kendu."
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> <strong>erretiratu</strong> <a href="%{resource_path}">%{resource_title}</a> lankidetza zirriborroa.
         creation_enabled:
@@ -793,7 +781,6 @@ eu:
             other: euskarriak
         new:
           send: Jarraitu
-          title: Sortu zure proposamena
         orders:
           label: 'Antolatu proposamenak honen arabera:'
           most_commented: Iruzkin gehien dituztenak

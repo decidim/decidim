@@ -236,6 +236,13 @@ gl:
             status:
               pending: Pendente
               processing: Procesando
+          tally_steps:
+            list:
+              task: Tarefa
+            start: Comezar
+            status:
+              pending: Pendente
+              processing: Procesando
         trustees:
           show:
             elections:
@@ -251,7 +258,6 @@ gl:
           audit: "( Auditar papeleta )"
           back: Comezar o proceso de voto de novo
           ballot_hash: 'O identificador da túa papeleta é:'
-          cast: Enviar papeleta
           description: Aquí tes as opcións para emitir a túa papeleta e que sexa contada de xeito válido ou, alternativamente, podes auditar o correcto cifrado da túa papeleta. Por razóns de seguranza, a auditoría danará a túa papeleta, o que significa, que terás de reiniciar o proceso de votación para emitir o teu voto.
         confirmed:
           experience: Como valoras a túa experiencia?
@@ -379,7 +385,6 @@ gl:
           edit:
             change_polling_station: Volver aos puntos de votación
             monitoring_committee_notes: Observacións
-            monitoring_committee_notes_placeholder: Informa de calquera incidencia aquí
             title: Os resultados da elección <i>%{election_title}</i> no punto de votación <i>%{polling_station_title}</i>
           elections:
             title: Escolle unha elección que desexes validar
@@ -397,7 +402,6 @@ gl:
             title: Eleccións
         votings:
           form:
-            census_contact_information_help: A información de contacto é para o participante que desexe informar de problemas co censo. Pode ser un enderezo de correo electrónico, un formulario de contacto noutro sitio web, unha enquisa do Decidim para visitantes, etc.
             select_a_voting_type: Por favor, selecciona un tipo de votación
             voting_type:
               hybrid: Híbrido
@@ -412,14 +416,12 @@ gl:
               info_message: "<strong>Agarda</strong>, procesadas %{processed_count} de %{raw_count} filas do ficheiro %{file}."
             delete:
               button: Eliminar todos os datos do censo
-              confirm: A eliminación do censo non se pode desfacer. Estas certo/a de querer continuar?
             destroy:
               success: Datos do censo eliminados
             export_access_codes:
               button: Exportar códigos de acceso da votación
               callout: Agora xa podes exportar os códigos de acceso. Só é posíbel facelo unha vez. Así que inicies a exportación, recibirás un correo electrónico coas instrucións en <strong>%{email}</strong>
               confirm: Só podes exportar os códigos de acceso unha vez. Asegúrate de ter acceso á conta de correo <strong>%{email}</strong>.
-              file_not_exists: Este ficheiro non existe
               launch_error: Produciuse un problema ao iniciar a exportación dos códigos de acceso
               launch_success: Iniciada a exportación dos códigos de acceso. Nun intre recibirás un correo en %{email}
             exporting_access_codes:
@@ -442,7 +444,6 @@ gl:
                 message_1: Só están permitidos os ficheiros CSV (.csv).
                 message_2: O separador entre columnas ten de ser o punto e coma (";").
               info_message: "<strong>Aínda non hai censo.</strong> Por favor, usa o formulario de abaixo para crear un importando un ficheiro CSV."
-              submit: Enviar csv
               title: Crear o censo
             show:
               heading: Espazo de votación do censo
@@ -460,8 +461,6 @@ gl:
       content_blocks:
         landing_page:
           description:
-            show_less: Ler menos
-            show_more: Ler máis
             title: Sobre esta votación
           metrics:
             heading: Métricas
@@ -500,7 +499,6 @@ gl:
             modal_ballots_count_error:
               btn_validate_total: Validar o reconto total de papeletas
               close_modal: Pechar
-              info_explanation_text: 'Por favor, revisa o número total de papeletas. Se o número total é correcto, tes de dar unha explicación ao comité de seguimento:'
               info_text: O número total de papeletas (sobres) inseridas non coincide co rexistro de persoas que votaron neste punto de votación.
               message_for_monitoring_committee: Mensaxe para o comité de seguimento
               review_recount: Revisar o reconto
@@ -587,13 +585,10 @@ gl:
         check_census:
           check_status: Verificar censo
           description: Tes a opción de verificar os datos do censo para saber se tes dereito a participar na votación. Xa terías de ter un código de acceso, porén, se o perdiches podes pedilo de novo se os teus datos son correctos.
-          error:
-            info: 'Por favor, téntao de novo. Se cres que os datos do sistema non so correctos, podes informar aquí: %{census_contact_information}.'
-            title: Os datos do censo non son correctos!
           form_title: 'Enche o seguinte formulario para verificar os teus datos do censo:'
           invalid: Produciuse un problema ao verificar o censo.
           success:
-            access_link: a través de SMS ou correo electrónico.
+            access_link_with_sms: a través de SMS ou correo electrónico.
             title: Os datos do censo son correctos!
           title: Podo votar?
         check_fields:

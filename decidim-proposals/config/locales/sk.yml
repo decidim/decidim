@@ -157,33 +157,21 @@ sk:
     events:
       proposals:
         collaborative_draft_access_accepted:
-          email_intro: '%{requester_name} má prístup ako prispievateľ k <a href="%{resource_path}">%{resource_title} </a> spoločnému návrhu.'
-          email_outro: Toto oznámenie ste dostali, pretože ste spolupracovníkom používateľa <a href="%{resource_path}"> %{resource_title} </a>.
           email_subject: "%{requester_name} bol prijatý k prístupu ako prispievateľ %{resource_title}."
           notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname} </a> je <strong> má prístup ako prispievateľ </strong> v spoločnom návrhu <a href="%{resource_path}">%{resource_title} </a>.
         collaborative_draft_access_rejected:
-          email_intro: '%{requester_name} mal zamietnutý prístup k projektu <a href="%{resource_path}">%{resource_title} </a>.'
-          email_outro: Toto oznámenie ste dostali, pretože ste spolupracovníkom používateľa <a href="%{resource_path}">%{resource_title} </a>.
           email_subject: "%{requester_name} mal odmietnutý pre prístup ako prispievateľ ku %{resource_title} kolektívnemu návrhu."
           notification_title: <a href="%{requester_path}">%{requester_name}%{requester_nickname} </a><strong> mal odmietnutý prístup ako prispievateľ </strong>ku spoločnému návrhu <a href = "%{resource_path}" >%{resource_title} </a>. 
         collaborative_draft_access_requested:
-          email_intro: '%{requester_name} požadoval prístup ako prispievateľ. Môžete <strong> prijať alebo odmietnuť žiadosť </strong> na <a href="%{resource_path}">%{resource_title} </a> stránke spoločného návrhu.'
-          email_outro: Toto oznámenie ste dostali, pretože ste spolupracovníkom používateľa <a href="%{resource_path}">%{resource_title} </a>.
           email_subject: "%{requester_name} požiadal o prístup ku spolupráci na %{resource_title}."
           notification_title: <a href="%{requester_path}">%{requester_name}%{requester_nickname} </a> požiadal o prístup ku spolupráci na <a href="%{resource_path}">%{resource_title} </a>. Prosíme <strong> prijmite alebo odmietnite žiadosť </strong>.
         collaborative_draft_access_requester_accepted:
-          email_intro: Bol Vám povolený prístup ku prispeniu na spoločnom návrhu <a href="%{resource_path}">%{resource_title} </a>.
-          email_outro: Toto oznámenie ste dostali, pretože ste požiadali, aby ste sa stal spolupracovníkom používateľa <a href="%{resource_path}">%{resource_title} </a>.
           email_subject: Boli ste prijatí ako prispievateľ%{resource_title}.
           notification_title: Máte <strong> prístup ako prispievateľ </strong> na spoločnom návrhu <a href="%{resource_path}">%{resource_title} </a>.
         collaborative_draft_access_requester_rejected:
-          email_intro: Váš prístup ku prispeniu na spoločnom návrhu <a href="%{resource_path}">%{resource_title} </a> bol odmietnutý.
-          email_outro: Toto oznámenie ste dostali, pretože ste požiadali, aby ste sa stal spolupracovníkom používateľa <a href="%{resource_path}">%{resource_title} </a>.
           email_subject: Bol ste odmietnutý ako prispievateľ ku %{resource_title}.
           notification_title: Boli ste <strong> odmietnutý ako prispievateľ ku </strong> spoločnému návrhu <a href="%{resource_path}">%{resource_title} </a>.
         collaborative_draft_withdrawn:
-          email_intro: <a href="%{author_path}">%{author_name} %{author_nickname} </a> zrušil <a href="%{resource_path}">% {resource_title} </a> návrh spolupráce.
-          email_outro: Toto oznámenie ste dostali, pretože ste spolupracovníkom používateľa <a href="%{resource_path}">%{resource_title} </a>.
           email_subject: "% {AUTHOR_NAME}% {author_nickname} stiahol% {resource_title} návrh spolupráce."
           notification_title: <a href="%{author_path}">% {AUTHOR_NAME}% {author_nickname} </a> <strong> stiahnuté </ strong> <a href="%{resource_path}">% {resource_title} </ a> návrh spolupráce.
         creation_enabled:
@@ -716,7 +704,6 @@ sk:
             other: hlasov
         new:
           send: Pokračovať
-          title: Vytvorte svoj návrh
         orders:
           label: 'Objednajte návrhy podľa:'
           most_commented: Najviac komentované

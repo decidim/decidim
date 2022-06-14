@@ -242,7 +242,7 @@ nl:
             mark_as_missing_description: Alle trustees moeten deelnemen aan dit proces, maar als een trustee niet aan het proces kan deelnemen, kan je dit als ontbrekend aanduiden.
             success: Het rapport met de ontbrekende trustees is met succes verzonden naar het Bulletin Board
             tally_completion: Het proces zal worden voltooid wanneer alle trustees actief zijn of als ontbrekend zijn aangeduid. Tenminste %{quorum} trustees zijn vereist om het proces te voltooien.
-            title: Turfproces
+            title: Tellingsproces
             undo_mark_as_missing: Zolang het proces niet is voltooid zal een trustee die per ongeluk is gemarkeerd als ontbrekend kunnen deelnemen. Ze kunnen doorgaan zoals gebruikelijk en de aanduiding als 'ontbrekend' wordt genegeerd.
           tally_ended:
             answer: Antwoord
@@ -450,7 +450,18 @@ nl:
             upload_election_keys: Upload verkiezingssleutels
             upload_icon: Icoon dat een downloadactie aangeeft
           tally_steps:
+            back: Achterzijde
             description: De resultaten voor deze verkiezingen worden berekend in de Bulletin Board. Om dit proces te voltooien, is uw deelname als Trustee nodig.
+            list:
+              status: Status
+              task: Taak
+            process_warning: Zodra het proces is gestart, mag je de pagina niet verlaten totdat het proces is afgerond. Het duurt enkele minuten, omdat alle Trustees verbonden moeten zijn om het te voltooien.
+            start: Begin
+            start_icon: Icoon met startknop om verkiezingssleutels aan te maken
+            status:
+              completed: Voltooid
+              pending: In afwachting
+              processing: In verwerking
           update:
             error: De verkiezingsstatus is niet bijgewerkt.
             success: 'De verkiezingsstatus is: %{status}'
@@ -500,7 +511,6 @@ nl:
         ballot_decision:
           back: Start het stemproces opnieuw
           ballot_hash: 'Je stem identificatie is:'
-          cast: Stem uitbrengen
           description: 'Hier heb je de opties om je stem uit te brengen zodat ze goed geteld wordt, of -ook een optie: controleren of je stem correct is versleuteld. Om veiligheidsredenen vernietigen we stem op het moment dat je deze controleert. In dat geval moet je het stemproces herstarten om je stem uit te brengen.'
           header: 'Stem is versleuteld: uitbrengen of controleren'
         casting:
@@ -784,7 +794,6 @@ nl:
           edit:
             change_polling_station: Terug naar stembureaus
             monitoring_committee_notes: Opmerkingen
-            monitoring_committee_notes_placeholder: Meld hier een incident
             title: Resultaten voor de verkiezing <i>%{election_title}</i> in het stembureau <i>%{polling_station_title}</i>
           elections:
             title: Kies een verkiezing die je wilt valideren
@@ -854,7 +863,6 @@ nl:
             assign_missing_officers: Er zijn stembureaus zonder voorzitter en/of manager. Duid deze aan in onderdeel Stembureau
             update: Bijwerken
           form:
-            census_contact_information_help: Deze contactinformatie is bedoeld voor een deelnemer die problemen met de kiezerslijst wil melden. Het kan een e-mailadres, een contactformulier zijn op een andere site, een Decidim enquête voor bezoekers, enz.
             select_a_voting_type: Selecteer een type stemming
             slug_help: 'URL-paden worden gebruikt om de URL''s te genereren die naar dit proces verwijzen. Enkel letters, cijfers en streepjes worden toegestaan en deze moet beginnen met een letter. Voorbeeld: %{url}'
             title: Titel
@@ -905,7 +913,6 @@ nl:
               info_message: "<strong>Gelieve te wachten</strong>, %{processed_count} verwerkt van %{raw_count} rijen uit bestand %{file}."
             delete:
               button: Verwijder alle kiezerslijstgegevens
-              confirm: Het verwijderen van alle registers kan niet ongedaan worden gemaakt. Weet je zeker dat je wil doorgaan?
             destroy:
               error: Er is een fout opgetreden bij het verwijderen van de kiezerslijst, probeer het later opnieuw.
               success: Registergegevens verwijderd
@@ -913,7 +920,6 @@ nl:
               button: Genereer toegangscodes voor de stemronde
               callout: Je kunt nu doorgaan met het exporteren van de toegangscodes. Dit kan slechts één keer gedaan worden. Zodra je de export hebt opgestart, ontvang je een e-mail met de instructies voor <strong>%{email}</strong>
               confirm: Je kunt de toegangscodes slechts één keer exporteren. Controleer of je toegang heeft tot het e-mailadres <strong>%{email}</strong>.
-              file_not_exists: Dit bestand bestaat niet
               launch_error: Probleem bij het starten van de toegangscodes export
               launch_success: Exporteer toegangscodes gestart. Je ontvangt binnenkort een e-mail op %{email}
             exporting_access_codes:
@@ -938,7 +944,6 @@ nl:
               has_ballot_styles_message: Je stelt StembriefStijlen in. Zorg ervoor dat het "%{ballot_style_code_header}" veld in de CSV overeenkomt met de gewenste StembriefStijlcode.
               info_message: "<strong>Er is nog geen register.</strong> Gebruik het formulier hieronder om een CSV-bestand te importeren."
               missing_ballot_styles_message: 'Er is nog geen StembriefStijl voor deze stemming. Als je voorwaardelijke vragen wenst te stellen (wil je de kiezer verschillende vragen voorleggen afhankelijk van bijvoorbeeld de wijk/regio), dan moet je de <a href=%{ballot_styles_admin_path}>Ballot Stijlen</a> <strong>instellen voordat</strong> je de kiezerslijst importeert. Als je alle kiezers dezelfde vragen wilt stellen, kun je doorgaan met de procedure van de kiezerslijstimport.'
-              submit: Dien CSV in
               title: Stel het register op
             show:
               heading: Register van de stemming
@@ -963,9 +968,6 @@ nl:
         highlighted_votings:
           name: Stemrondes in de kijker
         landing_page:
-          description:
-            show_less: Minder lezen
-            show_more: Lees verder
           metrics:
             heading: Cijfers
           polling_stations:
@@ -1018,7 +1020,6 @@ nl:
             modal_ballots_count_error:
               btn_validate_total: Bevestig de totale hertelling van de stemmen
               close_modal: Sluit
-              info_explanation_text: 'Gelieve het totale aantal stemmen na te kijken. Als het totale aantal correct is, zal je een verklaring moeten geven voor het toezichtcomité:'
               info_text: Het totale aantal ingevoerde stemmen (enveloppen) komt niet overeen met de lijst van mensen die in dit stembureau hebben gestemd.
               message_for_monitoring_committee: Bericht aan het Comité van toezicht
               review_recount: Controleer de hertelling
@@ -1137,13 +1138,10 @@ nl:
         check_census:
           check_status: Status controleren
           description: Hier heb je de mogelijkheid om je gegevens op de kiezerslijst te controleren om te weten of je stemrecht hebt. Je zou al een toegangscode moeten hebben, maar als je die hebt verloren, kun je er opnieuw om vragen, als je gegevens juist zijn.
-          error:
-            info: 'Probeer het opnieuw. Als je denkt dat de gegevens in het systeem onjuist zijn, kunt u het hier melden: %{census_contact_information}.'
-            title: Je gegevens op de kiezerslijst zijn onjuist!
           form_title: 'Vul het formulier in om de gegevens van je stemlijst te controleren:'
           invalid: Er is een probleem opgetreden tijdens het controleren van de kiezerslijst.
           success:
-            access_link: via SMS of e-mail.
+            access_link_with_sms: via SMS of e-mail.
             info: Je zou je toegangscode per post moeten hebben ontvangen. Als je ze niet hebt, kun je ze hier aanvragen
             title: Je gegevens op de kiezerslijst zijn juist!
           title: Kan ik stemmen?

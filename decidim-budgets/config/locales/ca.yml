@@ -13,8 +13,11 @@ ca:
         decidim_scope_id: Àmbit
         description: Descripció
         proposal_ids: Propostes relacionades
+        proposals: Propostes
         selected: Seleccionat per implementar
         title: Títol
+      proposals_import:
+        scope_id: Àmbit
   activerecord:
     models:
       decidim/budgets/project:
@@ -101,7 +104,10 @@ ca:
             success: "S'ha importat amb èxit %{number} propostes en projectes"
           new:
             create: Importa propostes a projectes
+            default_budget: Pressupost per defecte
+            import_all_accepted_proposals: Importar totes les propostes acceptades
             no_components: No hi ha cap component de propostes en aquest espai participatiu per importar les propostes a projectes.
+            origin_component_id: Component d'origen
             select_component: Selecciona un component
             title: Importar propostes
       admin_log:
@@ -170,7 +176,7 @@ ca:
           description: Aquest projecte sobrepassa el pressupost màxim i no es pot afegir. Si ho desitges, pots eliminar un projecte ja seleccionat per afegir aquest o donar suport d'acord amb les teves preferències.
           ok: D'acord
           projects_excess:
-            description: Aquest projecte sobrepassa el número màxim de projectes i no es pot afegir. Si ho desitges, pots eliminar un projecte ja seleccionat per afegir aquest o donar suport d'acord amb les teves preferències.
+            description: Aquest projecte sobrepassa el pressupost màxim i no es pot afegir. Si ho desitges, pots eliminar un projecte ja seleccionat per afegir aquest o donar suport d'acord amb les teves preferències.
             title: Màxim de projectes excedit
         budget_summary:
           are_you_sure: Segur que vols cancel·lar el teu vot?
@@ -278,7 +284,7 @@ ca:
             total_budget: Pressupost total
             vote_minimum_budget_projects_number: Número mínim de projectes a votar
             vote_rule_minimum_budget_projects_enabled: 'Activar norma: Número mínim de projectes a votar'
-            vote_rule_selected_projects_enabled: 'Activar regla: projectes seleccionats amb un número mínim i màxim de projectes a votar'
+            vote_rule_selected_projects_enabled: 'Activar regla: número mínim i màxim de projectes a votar'
             vote_rule_threshold_percent_enabled: 'Activar norma: percentatge mínim del pressupost'
             vote_selected_projects_maximum: Número màxim de projectes a seleccionar
             vote_selected_projects_minimum: Número màxim de projectes a seleccionar

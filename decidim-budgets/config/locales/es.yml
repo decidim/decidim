@@ -13,8 +13,11 @@ es:
         decidim_scope_id: Ámbito
         description: Descripción
         proposal_ids: Propuestas relacionadas
+        proposals: Propuestas
         selected: Seleccionado para implementar
         title: Título
+      proposals_import:
+        scope_id: Ámbito
   activerecord:
     models:
       decidim/budgets/project:
@@ -101,7 +104,10 @@ es:
             success: "%{number} propuestas importadas correctamente en proyectos"
           new:
             create: Importar propuestas a proyectos
+            default_budget: Presupuesto por defecto
+            import_all_accepted_proposals: Importar todas las propuestas aceptadas
             no_components: No hay otros componentes de la propuesta en este espacio participativo para importar las propuestas en los proyectos.
+            origin_component_id: Componente de origen
             select_component: Por favor seleccione un componente
             title: Importar propuestas
       admin_log:
@@ -170,7 +176,7 @@ es:
           description: Este proyecto sobrepasa el presupuesto máximo y no se puede añadir. Si lo deseas, puedes eliminar un proyecto que ya hayas seleccionado, o votar de acuerdo a tus preferencias.
           ok: De acuerdo
           projects_excess:
-            description: Este proyecto sobrepasa el número máximo de proyectos y no se puede añadir. Si lo deseas, puedes eliminar un proyecto que ya hayas seleccionado, o votar de acuerdo a tus preferencias.
+            description: Este proyecto sobrepasa el presupuesto máximo y no se puede añadir. Si lo deseas, puedes eliminar un proyecto que ya hayas seleccionado, o votar de acuerdo a tus preferencias.
             title: Se ha superado el número máximo de proyectos
         budget_summary:
           are_you_sure: '¿Estás seguro de que deseas cancelar tu voto?'
@@ -278,7 +284,7 @@ es:
             total_budget: Presupuesto total
             vote_minimum_budget_projects_number: Número mínimo de proyectos a votar
             vote_rule_minimum_budget_projects_enabled: 'Activar norma: Número mínimo de proyectos a votar'
-            vote_rule_selected_projects_enabled: 'Habilitar regla: proyectos seleccionados con un número mínimo y máximo de proyectos en los que votar'
+            vote_rule_selected_projects_enabled: 'Habilitar regla: número mínimo y máximo de proyectos en los que votar'
             vote_rule_threshold_percent_enabled: 'Activar norma: porcentaje mínimo del presupuesto'
             vote_selected_projects_maximum: Cantidad máxima de proyectos a seleccionar
             vote_selected_projects_minimum: Cantidad mínima de proyectos a seleccionar

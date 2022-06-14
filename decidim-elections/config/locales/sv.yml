@@ -341,7 +341,7 @@ sv:
             start: Start
             status:
               completed: Slutförd
-              pending: Väntande
+              pending: Avvaktande
               processing: Bearbetar
         trustees:
           show:
@@ -361,7 +361,6 @@ sv:
         ballot_decision:
           audit: "( Granska valsedel )"
           back: Starta om omröstningsprocessen
-          cast: Rösta
         confirm:
           answer: Svar
           answer_number: svara %{number}
@@ -554,10 +553,6 @@ sv:
             create: Skapa
             title: Ny omröstning
       census:
-        admin:
-          census:
-            new:
-              submit: Skicka in csv
         document_types:
           dni: ID-kort
           nie: Personnummer
@@ -567,9 +562,6 @@ sv:
             download: Ladda ner
       content_blocks:
         landing_page:
-          description:
-            show_less: Läs mindre
-            show_more: Läs mer
           metrics:
             heading: Metrik
           polling_stations:

@@ -21,6 +21,18 @@ de:
         one: Projekt
         other: Projekte
   decidim:
+    admin:
+      filters:
+        projects:
+          category_id_eq:
+            label: Kategorie
+          scope_id_eq:
+            label: Themenbereich
+          selected_at_null:
+            label: Ausgewählt
+            values:
+              'false': Zur Umsetzung ausgewählt
+              'true': Nicht zur Umsetzung ausgewählt
     budgets:
       actions:
         attachment_collections: Ordner
@@ -134,6 +146,8 @@ de:
             total_budget: Gesamt Budget
         project:
           fields:
+            category: Kategorie
+            id: ID
             title: Titel
       order_summary_mailer:
         order_summary:
@@ -150,13 +164,13 @@ de:
           title: Bestätigung der Abstimmung
         budget_excess:
           budget_excess:
-            description: Dieses Projekt überschreitet das maximale Budget und kann nicht hinzugefügt werden. Wenn Sie möchten können Sie ein bereits gewähltes Projekt wieder entfernen, oder gemäss Ihren Präferenzen abstimmen.
+            description: Mit diesem Projekt überschreiten Sie das maximale Budget. Deshalb kann es nicht hinzugefügt werden. Entfernen Sie ein bereits ausgewähltes Projekt um diesem Projekt eine Stimme zu geben.
             title: Maximales Budget überschritten
           close: Schließen
-          description: Dieses Projekt überschreitet das maximale Budget und kann nicht hinzugefügt werden. Wenn Sie möchten können Sie ein bereits gewähltes Projekt wieder entfernen, oder gemäss Ihren Präferenzen abstimmen.
+          description: Mit diesem Projekt überschreiten Sie das maximale Budget. Deshalb kann es nicht hinzugefügt werden. Entfernen Sie ein bereits ausgewähltes Projekt um diesem Projekt eine Stimme zu geben.
           ok: OK
           projects_excess:
-            description: Dieses Projekt überschreitet die maximale Anzahl Projekte und kann nicht hinzugefügt werden. Wenn Sie möchten können Sie ein bereits gewähltes Projekt wieder entfernen, oder gemäss Ihren Präferenzen abstimmen.
+            description: Mit diesem Projekt überschreiten Sie die maximale Anzahl auszuwählende Projekte. Deshalb kann es nicht hinzugefügt werden. Entfernen Sie ein bereits ausgewähltes Projekt um diesem Projekt eine Stimme zu geben.
             title: Maximale Anzahl Projekte überschritten
         budget_summary:
           are_you_sure: Sind Sie sicher, dass Sie Ihre Stimme zurückziehen wollen?
@@ -264,7 +278,7 @@ de:
             total_budget: Gesamtbudget; Gesamtetat
             vote_minimum_budget_projects_number: Mindestanzahl von Projekten, um abzustimmen
             vote_rule_minimum_budget_projects_enabled: 'Regel aktivieren: Mindestanzahl von Projekten, um abzustimmen'
-            vote_rule_selected_projects_enabled: 'Regel aktivieren: Minimale und maximale Anzahl Projekte, für die gestimmt werden soll'
+            vote_rule_selected_projects_enabled: 'Regel aktivieren: Mindest- und Maximalanzahl abzustimmender Projekte'
             vote_rule_threshold_percent_enabled: 'Regel aktivieren: Minimaler Budgetprozentsatz'
             vote_selected_projects_maximum: Maximale Anzahl auszuwählender Projekte
             vote_selected_projects_minimum: Minimale Anzahl auszuwählender Projekte

@@ -13,8 +13,11 @@ fr:
         decidim_scope_id: Périmètre d'application
         description: Description
         proposal_ids: Propositions liées
+        proposals: Propositions
         selected: Sélectionné pour l'implémentation
         title: Titre
+      proposals_import:
+        scope_id: Périmètre d'application
   activerecord:
     models:
       decidim/budgets/project:
@@ -101,7 +104,10 @@ fr:
             success: "%{number} propositions importées avec succès dans des projets"
           new:
             create: Importer des propositions dans des projets
+            default_budget: Budget par défaut
+            import_all_accepted_proposals: Importer toutes les propositions acceptées
             no_components: Il n'y a pas d'autres modules de proposition dans cet espace participatif pour importer les propositions dans des projets.
+            origin_component_id: Composant d'origine
             select_component: Veuillez sélectionner un module
             title: Importer des propositions
       admin_log:
@@ -170,7 +176,7 @@ fr:
           description: Ce projet dépasse le budget maximum et ne peut pas être ajouté. Si vous le souhaitez, vous pouvez supprimer un projet que vous avez déjà sélectionné puis voter de nouveau selon vos préférences.
           ok: D'accord
           projects_excess:
-            description: Vous avez dépassé le nombre maximum de projets à sélectionner, ce projet ne peut donc être ajouté. Si vous le souhaitez, vous pouvez supprimer un projet que vous avez déjà sélectionné puis voter de nouveau selon vos préférences.
+            description: Ce projet dépasse le nombre maximum de projets et ne peut pas être ajouté. Si vous le souhaitez, vous pouvez supprimer un projet que vous avez déjà sélectionné puis voter de nouveau selon vos préférences.
             title: Nombre maximum de projets dépassé
         budget_summary:
           are_you_sure: Êtes-vous certain de vouloir annuler votre vote ?
@@ -305,7 +311,7 @@ fr:
       budgets:
         budget_published:
           email_intro: 'Le budget %{resource_title} est maintenant actif pour %{participatory_space_title}. Vous pouvez le voir sur cette page :'
-          email_outro: Vous recevez cette notification car vous suivez « %{participatory_space_title} ». Vous pouvez cesser de le suivre en allant sur le lien précédent.
+          email_outro: Vous recevez cette notification car vous suivez « %{participatory_space_title} ». Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l'onglet “Mon compte” > “Paramètres des notifications”.
           email_subject: Le budget %{resource_title} est maintenant actif pour %{participatory_space_title}.
           notification_title: Le budget <a href="%{resource_path}">%{resource_title}</a> est maintenant actif pour %{participatory_space_title}.
     orders:

@@ -159,6 +159,7 @@ hu:
             title: Javaslatok importálása
         questions:
           create:
+            election_started: A választás megkezdődött
             invalid: Hiba történt a kérdés létrehozása során
             success: Kérdés létrehozása sikeres
           destroy:
@@ -185,6 +186,8 @@ hu:
           key_ceremony_ended:
             invalid: Hiba történt a szavazási időszak elindításakor
             title: Készen áll a kezdésre
+          tally:
+            continue: Folytatás
       elections:
         results:
           votes:
@@ -238,5 +241,10 @@ hu:
               role: A te szereped
               voting: Szavazás
       votings:
+        check_census:
+          error:
+            info: 'Kérjük, próbálja újra. Amennyiben Ön szerint a rendszerben rögzített adat hibás, itt jelentheti: %{census_contact_information}'
+          success:
+            access_link: e-mailen keresztül.
         login:
           start_voting: Szavazás kezdete

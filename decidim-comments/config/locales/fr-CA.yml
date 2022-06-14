@@ -3,6 +3,7 @@ fr-CA:
     models:
       decidim/comments/comment_by_followed_user_event: Commentaire
       decidim/comments/comment_created_event: Commentaire
+      decidim/comments/comment_upvoted_event: Vote favorable
       decidim/comments/reply_created_event: Réponse à un commentaire
       decidim/comments/user_group_mentioned_event: Mention
       decidim/comments/user_mentioned_event: Mention

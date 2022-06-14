@@ -22,6 +22,7 @@ ca:
       user:
         about: Quant a
         email: El teu correu electrònic
+        locale: Configuració regional
         name: El teu nom
         nickname: Àlies
         password: Contrasenya
@@ -34,12 +35,17 @@ ca:
       decidim/demoted_membership: Ja no ets una administradora del grup
       decidim/gamification/badge_earned_event: Insígnia obtinguda
       decidim/gamification/level_up_event: Has pujat de nivell
+      decidim/invited_to_group_event: Convidada al grup
       decidim/join_request_accepted_event: Sol·licitud d'incorporació acceptada
       decidim/join_request_rejected_event: Sol·licitud d'incorporació rebutjada
       decidim/profile_updated_event: Perfil actualitzat
       decidim/promote_to_admin: Promocionada a administradora del grup
+      decidim/promoted_to_admin_event: Promocionada a administradora del grup
       decidim/removed_from_group: Eliminada del grup
       decidim/resource_endorsed_event: Adhesió a recurs feta
+      decidim/resource_hidden_event: Recurs amagat
+      decidim/user_group_created_event: S'ha creat el grup de l'usuari
+      decidim/welcome_notification_event: Missatge de benvinguda
   activerecord:
     attributes:
       decidim/user:
@@ -107,6 +113,7 @@ ca:
   decidim:
     accessibility:
       external_link: Enllaç extern
+      front_page_link: Anar a la pàgina principal
       logo: "Logo oficial de %{organization}"
       skip_button: Vés al contingut principal
     account:
@@ -696,6 +703,11 @@ ca:
           email_outro: Has rebut aquesta notificació perquè estàs seguint a %{nickname}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
           email_subject: "%{nickname} ha actualitzat el seu perfil"
           notification_title: El <a href="%{resource_path}"> perfi l</a> de %{name} (%{nickname}), a qui estàs seguint, s'ha actualitzat.
+        user_officialized:
+          email_intro: La participant %{name} (%{nickname}) ha estat oficialitzada.
+          email_outro: Has rebut aquesta notificació perquè ets una de les administradores de la plataforma.
+          email_subject: "S'ha oficialitzat a %{name}"
+          notification_title: La participant %{name} (%{nickname}) ha estat oficialitzada.
     export_mailer:
       data_portability_export:
         click_button: 'Fes clic en el següent enllaç per descarregar les teves dades.<br/>L''arxiu estarà disponible fins %{date}.<br/>Necessitaràs <a href="https://www.7-zip.org/">7-Zip</a> (per a Windows), <a href="https://www.keka.io/en/">Keka</a> (per a MacOS) o <a href="https://peazip.github.io">PeaZip</a> (per a Linux) per obrir-lo. Contrasenya: %{password}'
@@ -1077,6 +1089,8 @@ ca:
         translated_text: 'Text de la traducció automàtica:'
     notifications:
       no_notifications: Encara no hi ha notificacions.
+      show:
+        missing_event: Vaja, aquesta notificació pertany a un element que ja no està disponible. Pots descartar-la.
     notifications_settings:
       show:
         administrators: Administradores
@@ -1718,8 +1732,8 @@ ca:
         mailer:
           invitation_instructions:
             accept_until_format: "%B %d, %Y %I:%M %p"
-      long: "%B %d, %Y %H:%M"
-      long_dashed: "%A-%m-%d %H:%M:%S"
+      long: "%d de %B, %Y %H:%M"
+      long_dashed: "%d-%m-%Y %H:%M:%S"
       short: "%d/%m/%Y %H:%M"
       time_of_day: "%H:%M"
   versions:
@@ -1729,6 +1743,7 @@ ca:
     dropdown:
       choose_diff_view_html: 'Vista HTML:'
       choose_diff_view_mode: 'Mode de vista de comparació:'
+      choose_diff_view_mode_menu: Triar el mode de comparació
       option_escaped: Escapada
       option_split: Costat per costat
       option_unescaped: No escapada

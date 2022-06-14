@@ -123,6 +123,10 @@ es-MX:
         file: Expediente
     errors:
       models:
+        newsletter:
+          attributes:
+            base:
+              at_least_one_space: Seleccione al menos un espacio participativo
         organization:
           attributes:
             official_img_footer:
@@ -1038,7 +1042,7 @@ es-MX:
             hidden_at: Fecha de ocultación
             participatory_space: Espacio participativo
             report_count: Recuento
-            reportable_id: Id
+            reportable_id: ID
             reportable_type: Tipo
             reported_content_url: URL del contenido reportado
             reports: Denuncias

@@ -59,7 +59,6 @@ pl:
         conference_meeting_ids: Powiązane spotkania
         full_name: Pełne imię i nazwisko
         position: Pozycja
-        short_bio: Notka biograficzna
         user_id: Użytkownik
       conference_user_role:
         email: E-mail

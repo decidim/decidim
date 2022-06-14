@@ -184,8 +184,6 @@ ar:
             actions_title: عمل
             preview: معاينة
             print: طباعة
-          show:
-            print: طباعة
           update:
             error: حدث خطأ
             success: تم تحديث المبادرة بنجاح
@@ -219,6 +217,7 @@ ar:
             destroy: حذف
             update: تحديث
           form:
+            child_scope_threshold_enabled_help: 'هذا الاعداد لا يدعم التصويت الغير الكترونى, لكنه يدعم المجالات الفرعيه و يعمل مع مؤثق أصوات مربوط مع مجال المستخدم, تاكد انك قمت بأختيار طرق التوثيق, بالاسفل أعدادات التوثيق. لكى يعمل مع المجالات تحتاج بظبط الأعدادات بشكل هرمى: ١ أب لكل عدد من الأبناء. لمعلومات أكثر عن كيفيه ظبط الاعدادت، قم بتصفح هذا <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">الرابط</a>.'
             title: معلومات عامة
           initiative_type_scopes:
             title: نطاقات لنوع المبادرة

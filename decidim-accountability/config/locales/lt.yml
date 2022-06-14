@@ -1,1 +1,245 @@
 lt:
+  activemodel:
+    attributes:
+      result:
+        decidim_accountability_status_id: Būsena
+        decidim_category_id: Kategorija
+        decidim_scope_id: Apimtis
+        description: Aprašymas
+        end_date: Pabaigos data
+        progress: Progresas
+        project_ids: Įtraukti projektai
+        proposals: Įtraukti pasiūlymai
+        start_date: Pradžios data
+        title: Pavadinimas
+        updated_at: Atnaujinta
+      status:
+        description: Aprašymas
+        key: Raktas
+        name: Vardas
+        progress: Progresas
+      timeline_entry:
+        description: Aprašymas
+        entry_date: Data
+    models:
+      decidim/accountability/proposal_linked_event: Pasiūlymas įtrauktas į rezultatą
+      decidim/accountability/result_progress_updated_event: Rezultato progresas atnaujintas
+  activerecord:
+    models:
+      decidim/accountability/result:
+        one: Rezultatas
+        few: Rezultatai
+        many: Rezultatai
+        other: Rezultatai
+  decidim:
+    accountability:
+      actions:
+        attachment_collections: Aplankai
+        attachments: Priedai
+        confirm_destroy: Ar tikrai norite pašalinti šį %{name}?
+        destroy: Ištrinti
+        edit: Redaguoti
+        import_csv: Importuoti CSV
+        new: Naujas %{name}
+        preview: Peržiūra
+        timeline_entries: Projekto raida
+        title: Veiksmai
+      admin:
+        exports:
+          result_comments: Komentarai
+          results: Rezultatai
+        import_results:
+          new:
+            import: Importuoti
+            link: nuoroda
+            title: Importuoti rezultatus iš CSV
+        imports:
+          create:
+            success: Failas pradėtas importuoti. Po kelių minučių gausite e. laišką su importo rezultatu
+        models:
+          result:
+            name: Rezultatas
+          status:
+            name: Statusas
+          timeline_entry:
+            name: Laiko juostos įrašas
+        results:
+          create:
+            invalid: Kuriant šį rezultatą iškilo problema
+            success: Rezultatas sėkmingai sukurtas
+          destroy:
+            success: Rezultatas sėkmingai ištrintas
+          edit:
+            title: Keisti rezultatą
+            update: Atnaujinti rezultatą
+          index:
+            title: Rezultatai
+          new:
+            create: Sukurti rezultatą
+            title: Naujas rezultatas
+          update:
+            invalid: Atnaujinant šį rezultatą iškilo problema
+            success: Rezultatas sėkmingai atnaujintas
+        shared:
+          subnav:
+            statuses: Būsenos
+        statuses:
+          create:
+            invalid: Kuriant šią būseną iškilo problema
+            success: Būsena sėkmingai sukurta
+          destroy:
+            success: Būsena sėkmingai pašalinta
+          edit:
+            title: Redaguoti būseną
+            update: Atnaujinti būseną
+          index:
+            title: Būsenos
+          new:
+            create: Sukurti būseną
+            title: Nauja būsena
+          update:
+            invalid: Atnaujinant šią būseną iškilo problema
+            success: Būsena sėkmingai atnaujinta
+        timeline_entries:
+          create:
+            invalid: Kuriant šį įrašą iškilo problema
+            success: Įrašas sėkmingai sukurtas
+          destroy:
+            success: Įrašas sėkmingai pašalintas
+          edit:
+            title: Redaguoti įrašą
+            update: Atnaujinti įrašą
+          index:
+            title: Projekto laiko juostos įrašai
+          new:
+            create: Sukurti įrašą
+            title: Naujas įrašas
+          update:
+            invalid: Atnaujinant šį įrašą iškilo problema
+            success: Įrašas sėkmingai atnaujintas
+      admin_log:
+        result:
+          create: "%{user_name} sukūrė rezultatą %{resource_name} erdvėje %{space_name}"
+          delete: "%{user_name} pašalino %{resource_name} rezultatą erdvėje %{space_name}"
+          update: "%{user_name} atnaujino rezultatą %{resource_name} erdvėje %{space_name}"
+        value_types:
+          parent_presenter:
+            not_found: 'Motininis elementas duomenų bazėje nerastas (ID: %{id})'
+      content_blocks:
+        highlighted_results:
+          dates: Datos
+          results: Rezultatai
+          unspecified: Nenurodyta
+      import_mailer:
+        import:
+          errors: Klaidos
+          errors_present: Importuojant rezultatus iškilo problema
+          row_number: Eilutė
+          subject: Rezultatai sėkmingai importuoti
+          success: Rezultatai sėkmingai importuoti. Rezultatus galite peržiūrėti administravimo sąsajoje.
+      last_activity:
+        new_result_at_html: "<span>Naujas rezultatas %{link}</span>"
+      models:
+        result:
+          fields:
+            category: Kategorija
+            created_at: Sukurta
+            end_date: Pabaigos data
+            id: ID
+            progress: Progresas
+            scope: Apimtis
+            start_date: Pradžios data
+            status: Statusas
+            title: Pavadinimas
+        status:
+          fields:
+            description: Aprašymas
+            key: Raktas
+            name: Pavadinimas
+            progress: Progresas
+        timeline_entry:
+          fields:
+            description: Aprašymas
+            entry_date: Data
+      result_m:
+        executed: Įvykdyta
+        view: Rodymas
+      results:
+        count:
+          results_count:
+            one: 1 rezultatas
+            few: "%{count} rezultatai"
+            many: "%{count} rezultatai"
+            other: "%{count} rezultatai"
+        filters:
+          all: Visi
+          scopes: Apimtys
+        home:
+          categories_label: Kategorijos
+          subcategories_label: Subkategorijos
+        home_header:
+          global_status: Bendra vykdymo būsena
+        search:
+          search: Ieškoti veiksmų
+        show:
+          stats:
+            attendees: Dalyviai
+            back_to_resource: Grįžti į rezultatą
+            comments: Komentarai
+            contributions: Indėliai
+            last_edited_by: Paskutinį kartą redaguota
+            last_updated_at: Paskutinį kartą atnaujinta
+            meetings: Susirinkimai
+            proposals: Pasiūlymai
+            votes: Palaikymai
+        timeline:
+          title: Projekto raida
+    admin:
+      filters:
+        results:
+          category_id_eq:
+            label: Kategorija
+          scope_id_eq:
+            label: Apimtis
+          status_id_eq:
+            label: Būsena
+    components:
+      accountability:
+        actions:
+          comment: Komentaras
+        name: Atskaitingumas
+        settings:
+          global:
+            categories_label: '„Kategorijų“ pavadinimas'
+            comments_enabled: Įjungti komentarai
+            comments_max_length: Maksimalus komentaro ilgis (įrašyti 0 įprastam ilgiui)
+            display_progress_enabled: Rodyti progresą
+            heading_leaf_level_results: '„Projektų“ pavadinimai'
+            heading_parent_level_results: '„Rezultatų“ pavadinimai'
+            intro: Įžanga
+            scope_id: Apimtis
+            scopes_enabled: Apimtys įjungtos
+            subcategories_label: '„Subkategorių“ pavadinimai'
+          step:
+            comments_blocked: Komentarai užblokuoti
+    events:
+      accountability:
+        proposal_linked:
+          email_intro: 'Pasiūlymas „%{proposal_title}“ įtrauktas į rezultatą. Jį galite pamatyti šiame puslapyje:'
+          email_outro: Šį pranešimą gavote dėl to, kad sekate „%{proposal_title}“. Jeigu nebenorite gauti pranešimų, spustelėkite ankstesnę nuorodą.
+          email_subject: '%{proposal_title} atnaujinimas'
+          notification_title: Pasiūlymas <a href="%{proposal_path}">%{proposal_title}</a> įtrauktas į <a href="%{resource_path}">%{resource_title}</a> rezultatą.
+    metrics:
+      results:
+        object: rezultatai
+        title: Rezultatai
+    participatory_spaces:
+      highlighted_results:
+        see_all: Žiūrėti visus rezultatus (%{count})
+    resource_links:
+      included_projects:
+        result_project: Į šį rezultatą įtraukti projektai
+      included_proposals:
+        result_proposal: Į šį rezultatą įtraukti pasiūlymai
+    statistics:
+      results_count: Rezultatai

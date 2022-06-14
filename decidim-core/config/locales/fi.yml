@@ -35,12 +35,17 @@ fi:
       decidim/demoted_membership: Ei enää ryhmän ylläpitäjä
       decidim/gamification/badge_earned_event: Kunniamerkki ansaittu
       decidim/gamification/level_up_event: Olet päässyt seuraavalle tasolle
+      decidim/invited_to_group_event: Kutsuttu ryhmään
       decidim/join_request_accepted_event: Liittymispyyntö on hyväksytty
       decidim/join_request_rejected_event: Liittymispyyntö on hylätty
       decidim/profile_updated_event: Profiili päivitetty
       decidim/promote_to_admin: Nimetty ryhmän ylläpitäjäksi
+      decidim/promoted_to_admin_event: Nimetty ryhmän ylläpitäjäksi
       decidim/removed_from_group: Poistettu ryhmästä
       decidim/resource_endorsed_event: Kohdetta suositeltu
+      decidim/resource_hidden_event: Piilotettu asia
+      decidim/user_group_created_event: Käyttäjäryhmä luotu
+      decidim/welcome_notification_event: Tervetuliaisviesti
   activerecord:
     attributes:
       decidim/user:
@@ -1086,6 +1091,8 @@ fi:
         translated_text: 'Automaattisesti käännetty teksti:'
     notifications:
       no_notifications: Ei vielä ilmoituksia.
+      show:
+        missing_event: Hups, tämä ilmoitus kuuluu kohteeseen, joka ei ole enää käytettävissä. Voit merkitä sen luetuksi.
     notifications_settings:
       show:
         administrators: Hallintakäyttäjät

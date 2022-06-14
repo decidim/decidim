@@ -238,8 +238,6 @@ es:
             edit: Editar
             new: Nueva
             photos: Fotos
-          show:
-            print: Imprimir
           update:
             error: Se ha producido un error
             success: La iniciativa ciudadana se ha actualizado correctamente
@@ -274,6 +272,8 @@ es:
             update: Actualizar
           form:
             authorizations: Ajustes de autorización
+            child_scope_threshold_enabled_help: 'Este ajuste de configuración no admite las votaciones sin conexión, habilita los subámbitos y funciona con un gestor de autorizaciones que asocia un ámbito al usuario, asegúrese de seleccionar esa autorización, más abajo en la configuración de autorizaciones. Para que funcione, los ámbitos deben configurarse de forma jerárquica: 1 Padre - N hijos. Para más información sobre cómo funciona esta configuración, <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">ver este enlace</a>.'
+            only_global_scope_enabled_help: Marca esta casilla si habilitaste "Activar firmas por subámbito" y configuraste el ámbito global como el ámbito principal. Al habilitar esta casilla, la selección del tipo de iniciativa se omitirá en el asistente de creación de iniciativas. Para más información sobre cómo funciona esta configuración, consulta este <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">enlace</a>.
             options: Opciones
             title: Información general
           initiative_type_scopes:
@@ -505,6 +505,7 @@ es:
             title: 'Título:'
             type: Tipo de iniciativa
           legal_text: Los datos personales recogidos serán incorporados y tratados confidencialmente por la organización, de acuerdo con la legislación vigente.
+          members_header: Miembros del comité promotor de la iniciativa
           phone_number: Número de teléfono
           place_date: Lugar, fecha
           postal_code: Código postal

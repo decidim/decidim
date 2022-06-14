@@ -106,7 +106,7 @@ cs:
           type_eq:
             label: Typ schůzky
             values:
-              hybrid: Obojí
+              hybrid: Hybridní
               in_person: Osobně
               online: Online
       meeting_copies:
@@ -190,7 +190,7 @@ cs:
           notification_title: Setkání <a href="%{resource_path}">%{resource_title}</a> bude zahájeno za méně než 48 hodin.
     forms:
       meetings:
-        attendees_count_help_text: Nezapomeňte uvést celkový počet účastníků vaší akce. Ať už jde o osobní, kombinovanou nebo on-line, je důležité, abychom věděli, kolik lidí je zapojeno.
+        attendees_count_help_text: Nezapomeňte uvést celkový počet účastníků na vaší schůzce, ať už osobně, online nebo hybridně.
     gamification:
       badges:
         attended_meetings:
@@ -490,7 +490,7 @@ cs:
           type: Typ
           type_values:
             all: Vše
-            hybrid: Obojí
+            hybrid: Hybridní
             in_person: Osobně
             online: Online
         filters_small_view:
@@ -583,7 +583,7 @@ cs:
           fields:
             closed: Zavřeno
             end_time: Datum ukončení
-            id: Id
+            id: ID
             map: Mapa
             official_meeting: Oficiální schůzka
             start_time: Datum zahájení
@@ -596,7 +596,7 @@ cs:
             empty_questions: Během této schůzky budou zaslány některé dotazy a vy na ně budete moci odpovědět. Zobrazí se zde.
           index_admin:
             admin_dashboard: Řídicí panel administrace
-            edit: Upravit v administraci
+            edit: Upravit v panelu administrace
             question: Otázka
             received_answer: přijatá odpověď
             received_answers: přijaté odpovědi
@@ -636,7 +636,7 @@ cs:
           invalid: Při setkání došlo k problému.
           success: Zasedání jste úspěšně opustili.
       type_of_meeting:
-        hybrid: Obojí
+        hybrid: Hybridní
         in_person: Osobně
         online: Online
       types:

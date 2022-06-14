@@ -319,6 +319,9 @@ ca:
         new_import:
           accepted_types:
             json: JSON
+      assemblies:
+        show:
+          title: Sobre aquesta assemblea
       assembly_members:
         index:
           members: Membres
@@ -386,7 +389,7 @@ ca:
         related_participatory_processes: Processos participatius relacionats
         scope: Àmbit
         social_networks: Xarxes socials
-        social_networks_title: Compartir aquesta assemblea a
+        social_networks_title: Visita l'assemblea a
         target: Qui participa
     assembly_members:
       assembly_member:
@@ -397,7 +400,7 @@ ca:
       assemblies:
         create_assembly_member:
           email_intro: Una administradora de l'assemblea <a href="%{resource_url}">%{resource_name}</a> t'ha afegit com a un dels seus membres.
-          email_outro: Reps aquesta notificació perquè t'han convidat a una assemblea. Entra en <a href="%{resource_path}">assembly page</a> per a contribuir-hi!
+          email_outro: Reps aquesta notificació perquè t'han convidat a una assemblea. Entra en <a href="%{resource_url}">assembly page</a> per a contribuir-hi!
           email_subject: T'han convidat a ser membre de l'assemblea %{resource_name}!
           notification_title: T'han registrat com a membre de l'assemblea <a href="%{resource_path}">%{resource_name}</a>. Entra a <a href="%{resource_path}">la pàgina de l'assemblea</a> per a contribuir-hi!
       assembly:

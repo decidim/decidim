@@ -992,7 +992,6 @@ el:
             hidden_at: Αποκρύφτηκε στις
             participatory_space: Συμμετοχικός χώρος
             report_count: Πλήθος
-            reportable_id: Αναγνωριστικό ID
             reportable_type: Τύπος
             reported_content_url: Διεύθυνση URL περιεχομένου που έχει αναφερθεί
             reports: Αναφορές

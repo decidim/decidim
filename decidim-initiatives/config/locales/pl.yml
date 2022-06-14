@@ -244,8 +244,6 @@ pl:
             edit: Edytuj
             new: Nowy
             photos: Zdjęcia
-          show:
-            print: Drukuj
           update:
             error: Wystąpił błąd
             success: Inicjatywa została zaktualizowana

@@ -204,33 +204,21 @@ it:
             email_subject: Qualcuno ha lasciato una nota sulla proposta %{resource_title}.
             notification_title: Qualcuno ha lasciato una nota sulla proposta <a href="%{resource_path}">%{resource_title}</a>. Controllala presso <a href="%{admin_proposal_info_path}">il pannello di amministrazione</a>
         collaborative_draft_access_accepted:
-          email_intro: '%{requester_name} è stato accettato per accedere come collaboratore al progetto collaborativo <a href="%{resource_path}">%{resource_title}</a>.'
-          email_outro: Hai ricevuto questa notifica perché sei un collaboratore di <a href="%{resource_path}">%{resource_title}</a>.
           email_subject: "%{requester_name} è stato accettato per accedere come contributore del %{resource_title}."
           notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> è stato accettato <strong>come contributore</strong> del progetto collaborativo <a href="%{resource_path}">%{resource_title}</a>.
         collaborative_draft_access_rejected:
-          email_intro: '%{requester_name} è stato rifiutato per accedere come contributore alla bozza collaborativa <a href="%{resource_path}">%{resource_title}</a>.'
-          email_outro: Hai ricevuto questa notifica perché sei un collaboratore di <a href="%{resource_path}">%{resource_title}</a>.
           email_subject: "%{requester_name} è stato rifiutato per accedere come contributore della %{resource_title} bozza collaborativa."
           notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> è stato rifiutato <strong>per accedere come contributore</strong> del progetto collaborativo <a href="%{resource_path}">%{resource_title}</a>.
         collaborative_draft_access_requested:
-          email_intro: '%{requester_name} accesso richiesto come contributore. È possibile <strong>accettare o rifiutare la richiesta</strong> dalla bozza di pagina collaborativa <a href="%{resource_path}">%{resource_title}</a>.'
-          email_outro: Hai ricevuto questa notifica perché sei un collaboratore di <a href="%{resource_path}">%{resource_title}</a>.
           email_subject: "%{requester_name} accesso richiesto per contribuire a %{resource_title}."
           notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> richiesto accesso per contribuire alla stesura di collaborazione <a href="%{resource_path}">%{resource_title}</a> . Si prega di <strong>accettare o rifiutare la richiesta</strong>.
         collaborative_draft_access_requester_accepted:
-          email_intro: Sei stato accettato per accedere come collaboratore alla bozza collaborativa <a href="%{resource_path}">%{resource_title}</a>.
-          email_outro: Hai ricevuto questa notifica perché hai richiesto di diventare un collaboratore di <a href="%{resource_path}">%{resource_title}</a>.
           email_subject: Sei stato accettato come contributore di %{resource_title}.
           notification_title: Sei stato accettato a <strong>come collaboratore</strong> del progetto collaborativo <a href="%{resource_path}">%{resource_title}</a>.
         collaborative_draft_access_requester_rejected:
-          email_intro: Sei stato rifiutato di accedere come collaboratore alla bozza collaborativa <a href="%{resource_path}">%{resource_title}</a>.
-          email_outro: Hai ricevuto questa notifica perché hai richiesto di diventare un collaboratore di <a href="%{resource_path}">%{resource_title}</a>.
           email_subject: Sei stato rifiutato come contributore di %{resource_title}.
           notification_title: Sei stato <strong>respinto per accedere come contributore</strong> alla bozza collaborativa <a href="%{resource_path}">%{resource_title}</a>.
         collaborative_draft_withdrawn:
-          email_intro: <a href="%{author_path}">%{author_name} %{author_nickname}</a> ritirato il progetto collaborativo <a href="%{resource_path}">%{resource_title}</a>.
-          email_outro: Hai ricevuto questa notifica perché sei un collaboratore di <a href="%{resource_path}">%{resource_title}</a>.
           email_subject: "%{author_name} %{author_nickname} ritirato il %{resource_title} progetto di collaborazione."
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> <strong>ritirato</strong> il <a href="%{resource_path}">%{resource_title}</a> progetto collaborativo.
         creation_enabled:
@@ -771,7 +759,6 @@ it:
             other: voti
         new:
           send: Continua
-          title: Crea la tua proposta
         orders:
           label: 'Ordina le proposte per:'
           most_commented: I più commentati

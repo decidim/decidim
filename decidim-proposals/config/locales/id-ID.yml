@@ -113,33 +113,21 @@ id:
     events:
       proposals:
         collaborative_draft_access_accepted:
-          email_intro: '%{requester_name} telah diterima untuk diakses sebagai kontributor dari draft kolaboratif <a href="%{resource_path}">%{resource_title}</a>.'
-          email_outro: Anda telah menerima pemberitahuan ini karena Anda adalah kolaborator dari <a href="%{resource_path}">%{resource_title}</a>.
           email_subject: "%{requester_name} telah diterima untuk diakses sebagai kontributor dari %{resource_title}."
           notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> telah <strong>diterima untuk mengakses sebagai kontributor</strong> dari <a href="%{resource_path}">%{resource_title}</a> draf kolaboratif.
         collaborative_draft_access_rejected:
-          email_intro: '%{requester_name} telah ditolak untuk diakses sebagai kontributor dari draf kolaboratif <a href="%{resource_path}">%{resource_title}</a>.'
-          email_outro: Anda telah menerima pemberitahuan ini karena Anda adalah kolaborator dari <a href="%{resource_path}">%{resource_title}</a>.
           email_subject: "%{requester_name} telah ditolak untuk diakses sebagai kontributor dari %{resource_title} draf kolaboratif."
           notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> telah ditolak <strong>sebagai kontributor</strong> dari <a href="%{resource_path}">%{resource_title}</a> draf kolaboratif.
         collaborative_draft_access_requested:
-          email_intro: '%{requester_name} akses yang diminta sebagai kontributor. Anda dapat <strong>menerima atau menolak permintaan</strong> dari halaman draf kolaboratif <a href="%{resource_path}">%{resource_title}</a>.'
-          email_outro: Anda telah menerima pemberitahuan ini karena Anda adalah kolaborator dari <a href="%{resource_path}">%{resource_title}</a>.
           email_subject: "%{requester_name} akses yang diminta untuk berkontribusi ke %{resource_title}."
           notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> meminta akses untuk berkontribusi</a> draf kolaboratif <a href="%{resource_path}">%{resource_title}</a> . Harap <strong>menerima atau menolak permintaan</strong>.
         collaborative_draft_access_requester_accepted:
-          email_intro: Anda telah diterima untuk mengakses sebagai kontributor dari draf kolaboratif <a href="%{resource_path}">%{resource_title}</a>.
-          email_outro: Anda telah menerima pemberitahuan ini karena Anda diminta untuk menjadi kolaborator <a href="%{resource_path}">%{resource_title}</a>.
           email_subject: Anda telah diterima sebagai kontributor %{resource_title}.
           notification_title: Anda telah <strong>diterima untuk mengakses sebagai kontributor</strong> dari draf kolaboratif <a href="%{resource_path}">%{resource_title}</a>.
         collaborative_draft_access_requester_rejected:
-          email_intro: Anda telah ditolak untuk mengakses sebagai kontributor dari draf kolaboratif <a href="%{resource_path}">%{resource_title}</a>.
-          email_outro: Anda telah menerima pemberitahuan ini karena Anda diminta untuk menjadi kolaborator <a href="%{resource_path}">%{resource_title}</a>.
           email_subject: Anda telah ditolak sebagai kontributor %{resource_title}.
           notification_title: Anda telah ditolak <strong>untuk mengakses sebagai kontributor</strong> dari draf kolaboratif <a href="%{resource_path}">%{resource_title}</a>.
         collaborative_draft_withdrawn:
-          email_intro: <a href="%{author_path}">%{author_name} %{author_nickname}</a> menarik draf kolaboratif <a href="%{resource_path}">%{resource_title}</a>.
-          email_outro: Anda telah menerima pemberitahuan ini karena Anda adalah kolaborator dari <a href="%{resource_path}">%{resource_title}</a>.
           email_subject: "%{author_name} %{author_nickname} menarik %{resource_title} draf kolaboratif."
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> <strong>menarik</strong> dari <a href="%{resource_path}">%{resource_title}</a> draft kolaboratif.
         creation_enabled:
@@ -599,7 +587,6 @@ id:
             other: suara
         new:
           send: Terus
-          title: Buat Proposal Anda
         orders:
           label: 'Memesan proposal dengan:'
           most_voted: Sebagian besar memilih
