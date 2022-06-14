@@ -35,7 +35,7 @@ fi:
       actions:
         attachment_collections: Kansiot
         attachments: Liitteet
-        confirm_destroy: Oletko varma, että haluat poistaa tämän tuloksen?
+        confirm_destroy: Oletko varma, että haluat poistaa tämän kohteen nimeltä "%{name}"?
         destroy: Poista
         edit: Muokkaa
         import_csv: Tuo CSV
