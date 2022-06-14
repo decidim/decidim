@@ -42,6 +42,10 @@ fi:
           valuator_role_id: Arvioijan nimi
     errors:
       models:
+        participatory_text:
+          attributes:
+            document:
+              allowed_file_content_types: 'Virheellinen asiakirjan tyyppi. Hyväksytyt tiedostomuodot ovat: %{types}'
         proposal:
           attributes:
             add_documents:
@@ -813,6 +817,7 @@ fi:
             other: kannatukset
         new:
           send: Jatka
+          title: Luo ehdotuksesi
         orders:
           label: 'Järjestä ehdotukset:'
           most_commented: Eniten kommentoidut
