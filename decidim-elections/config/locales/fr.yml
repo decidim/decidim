@@ -17,8 +17,17 @@ fr:
         min_selections: Aucune des options ci-dessus
         title: Titre
       voting:
+        banner_image: Image de bannière
+        census_contact_information: Informations de contact du recensement
+        description: Description
         end_time: Le vote prend fin le
+        introductory_image: Image d'introduction
+        promoted: Mis en avant
+        scope: Secteur
+        show_check_census: Afficher la page "Vérifier le recensement"
         start_time: Le vote commence le
+        title: Titre
+        voting_type: Type de vote
     errors:
       models:
         answer:
@@ -35,6 +44,10 @@ fr:
               cant_be_changed: ne peut pas être modifié
             public_key:
               cant_be_changed: ne peut être modifiée
+        voting:
+          attributes:
+            voting_type:
+              inclusion: "%{value} n'est pas un type de vote valide"
   activerecord:
     errors:
       models:
@@ -58,6 +71,9 @@ fr:
       decidim/elections/question:
         one: Question
         other: Questions
+      decidim/voting:
+        one: Scrutin
+        other: Scrutins
       decidim/votings/census/dataset:
         one: Jeu de données
         other: Jeux de données
@@ -182,6 +198,11 @@ fr:
         exports:
           elections: Élections
           feedback_form_answers: Feedbacks des répondants
+        mailers:
+          trustee_mailer:
+            body: "<p>Bonjour %{user_name},</p><p>Vous avez été ajouté en tant que garant à %{resource_name}.</p>"
+            subject: Vous avez été ajouté en tant que garant à %{resource_name}
+            trustee_zone: Emmenez-moi dans la zone des garants
         menu:
           trustees: Garants
         models:
@@ -204,6 +225,7 @@ fr:
             title: Importer des propositions
         questions:
           create:
+            election_started: L'élection a déjà commencé
             invalid: Il y a eu un problème lors de la création de cette question
             success: Question créée avec succès
           destroy:
@@ -273,15 +295,6 @@ fr:
             selected: Sélectionné
             submit: Envoyer
             title: Résultats publiés
-          tally:
-            continue: Continuer
-            invalid: Une erreur est survenue lors du signalement du garant absent
-            mark_as_missing: Marquer comme absent
-            mark_as_missing_description: Tout les garants doivent participer au processus, mais si un garant ne peut y prendre part, vous pouvez le marquer comme absent.
-            success: Le signalement du garant absent a été envoyé avec succès sur le Tableau d'Affichage
-            tally_completion: Le processus sera terminé lorsque tout les garants seront marqués comme actifs ou absents. Au moins %{quorum} garants sont requis pour compléter le processus.
-            title: Dépouillement
-            undo_mark_as_missing: Un garant marqué comme absent par erreur sera capable de participer avant l'achèvement du processus. Ils peuvent procéder comme d'habitude et le signalement d'absence sera ignoré.
           tally_ended:
             answer: Répondre
             not_selected: Non sélectionné
@@ -291,6 +304,15 @@ fr:
             submit: Publier les résultats
             success: La demande de publication des résultats a bien été envoyée au Panneau d'Affichage
             title: Résultats du calcul
+          tally_started:
+            continue: Continuer
+            invalid: Une erreur est survenue lors du signalement du garant absent
+            mark_as_missing: Marquer comme absent
+            mark_as_missing_description: Tout les garants doivent participer au processus, mais si un garant ne peut y prendre part, vous pouvez le marquer comme absent.
+            success: Le signalement du garant absent a été envoyé avec succès sur le Tableau d'Affichage
+            tally_completion: Le processus sera terminé lorsque tout les garants seront marqués comme actifs ou absents. Au moins %{quorum} garants sont requis pour compléter le processus.
+            title: Dépouillement
+            undo_mark_as_missing: Un garant marqué comme absent par erreur sera capable de participer avant l'achèvement du processus. Ils peuvent procéder comme d'habitude et le signalement d'absence sera ignoré.
           vote:
             errors:
               time_after: L'élection est toujours en cours. Vous devez attendre (%{end_time}) pour terminer la période de vote.
@@ -528,7 +550,7 @@ fr:
             title: Restaurer les clés d'élection pour %{election}
             upload_election_keys: Télécharger les clés d'élection
             upload_icon: Icône indiquant une action de téléchargement
-          tally_steps:
+          tally_started_steps:
             back: Retour
             description: Les résultats de cette élection sont calculés dans le Panneau d'affichage et pour compléter ce processus, votre participation en tant que garant est nécessaire.
             keys:
@@ -597,7 +619,7 @@ fr:
           audit: "(Auditer le bulletin de vote)"
           back: Recommencer le processus de vote
           ballot_hash: 'L''identifiant de votre bulletin est :'
-          cast: Valider votre bulletin
+          cast: Remplir le bulletin pour terminer votre vote
           description: Ici, vous pouvez valider votre vote de sorte qu'il soit correctement comptabilisé ou alternativement vous pouvez vérifier que votre bulletin a bien été chiffré. Pour des raisons de sécurité, l’audit de votre bulletin révélera son contenu. Si vous souhaitez valider votre vote, vous devrez donc recommencer le processus de vote.
           header: 'Le bulletin est chiffré : validez-le ou auditez-le'
         casting:
@@ -669,6 +691,7 @@ fr:
             back: Retour à la plateforme
             submit: Vérifier
             vote_identifier: 'Code d''identification :'
+            vote_identifier_help: C'est l'identifiant qui vous a été donné après que vous avez voté (pas le code pour entrer dans l'isoloir).
           header:
             title: Vérifiez votre vote
           success:
@@ -684,31 +707,31 @@ fr:
       elections:
         election_published:
           email_intro: 'L''élection %{resource_title} est maintenant active pour %{participatory_space_title}. Vous pouvez la voir sur cette page :'
-          email_outro: Vous avez reçu cette notification parce que vous suivez %{participatory_space_title}. Vous pouvez arrêter de recevoir des notifications en suivant le lien précédent.
+          email_outro: Vous avez reçu cette notification parce que vous suivez %{participatory_space_title}. Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l'onglet “Mon compte” > “Paramètres des notifications”.
           email_subject: L'élection %{resource_title} est maintenant active pour %{participatory_space_title}.
           notification_title: L'élection de <a href="%{resource_path}">%{resource_title}</a> est maintenant active pour %{participatory_space_title}.
         trustees:
           new_election:
             email_intro: Vous avez été ajouté en tant que garant pour l'élection %{resource_title}.
-            email_outro: Vous avez reçu cette notification parce que vous avez été ajouté comme garant de l'élection "%{resource_title}".
+            email_outro: Vous avez reçu cette notification parce que vous avez été ajouté comme garant de l'élection "%{resource_title}". Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l'onglet “Mon compte” > “Paramètres des notifications”.
             email_subject: Vous avez été ajouté en tant que garant pour l'élection %{resource_title}.
             notification_title: Vous êtes garant de l'élection <a href="%{resource_path}">%{resource_title}</a>.
           new_trustee:
             email_intro: Un administrateur vous a ajouté en tant que garant de %{resource_name}. Vous devriez créer votre clé publique <a href='%{trustee_zone_url}'>dans votre espace de garant</a>
-            email_outro: Vous avez reçu cette notification parce que vous avez été ajouté comme garant de l'élection "%{resource_name}".
+            email_outro: Vous avez reçu cette notification parce que vous avez été ajouté comme garant de l'élection "%{resource_name}". Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l'onglet “Mon compte” > “Paramètres des notifications”.
             email_subject: Vous avez été ajouté en tant que garant pour l'élection %{resource_name}.
             notification_title: Vous êtes garant de <a href="%{participatory_space_url}">%{resource_name}</a>.
         votes:
           accepted_votes:
             email_intro: 'Votre vote a été accepté ! En utilisant votre jeton de vote : %{encrypted_vote_hash}, vous pouvez vérifier votre vote <a href="%{verify_url}">ici</a>.'
-            email_outro: Vous avez reçu cette notification parce que vous avez voté pour l'élection %{resource_name}.
+            email_outro: Vous avez reçu cette notification parce que vous avez voté pour l'élection %{resource_name}. Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l'onglet “Mon compte” > “Paramètres des notifications”.
             email_subject: Votre vote pour %{resource_name} a été accepté.
             notification_title: 'Votre vote a été accepté. Vérifiez votre vote <a href="%{verify_url}">ici</a> en utilisant votre jeton de vote : %{encrypted_vote_hash}'
       votings:
         polling_officers:
           polling_station_assigned:
             email_intro: Vous avez été assigné en tant que %{role} du Bureau de vote %{polling_station_name} sur <a href="%{resource_url}">%{resource_title}</a>. Vous pouvez gérer le Bureau de vote à partir de la <a href="%{polling_officer_zone_url}">zones des responsable du scrutin</a>.
-            email_outro: Vous avez reçu cette notification parce que vous avez été assigné au rôle de %{role} sur %{polling_station_name}.
+            email_outro: Vous avez reçu cette notification parce que vous avez été assigné au rôle de %{role} sur %{polling_station_name}. Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l'onglet “Mon compte” > “Paramètres des notifications”.
             email_subject: Vous êtes %{role} du Bureau de vote %{polling_station_name}.
             notification_title: Vous êtes %{role} du Bureau de vote %{polling_station_name} sur le vote <a href="%{resource_path}">%{resource_title}</a>.
         send_access_code:
@@ -983,14 +1006,21 @@ fr:
             assign_missing_officers: Il reste des bureaux de votes sans président et/ou directeurs. Veuillez lier ces derniers à partir de la section Bureaux de votes
             update: Mettre à jour
           form:
+            banner_image: Image de la bannière
+            census_contact_information: Coordonnées du recensement
             census_contact_information_help: Cette information de contact est destinée à un participant qui veut signaler des problèmes avec le recensement. Il peut s'agir d'une adresse e-mail, d'un formulaire de contact sur un autre site, d'une enquête pour les visiteurs, etc.
+            introductory_image: Image d'introduction
+            promoted: Mis en avant
             select_a_voting_type: Veuillez sélectionner un type de vote
+            show_check_census_help: Si vous voulez afficher le lien "Puis-je voter?" dans le menu des votes publics
+            slug: Slug
             slug_help: 'Les identifiants d''URL sont utilisés pour générer les URL qui renvoient vers cette élection. Ils ne contiennent que des lettres, des chiffres et des tirets et doivent commencer par une lettre. Exemple : %{url}'
             title: Titre
             voting_type:
               hybrid: Hybride
               in_person: En présentiel
               online: En ligne
+            voting_type_label: Type de vote
           new:
             create: Créer
             title: Nouveau vote
@@ -1034,7 +1064,7 @@ fr:
               info_message: "<strong>Veuillez patienter</strong>, %{processed_count} traités sur %{raw_count} lignes à partir du fichier %{file}."
             delete:
               button: Supprimer toutes les données du recensement
-              confirm: La suppression du recensement est irréversible. Êtes-vous sûr de vouloir continuer ?
+              confirm: La suppression de tout le recensement ne peut pas être annulée. Êtes-vous sûr de vouloir continuer?
             destroy:
               error: Une erreur s'est produite lors de la suppression du recensement, veuillez réessayer plus tard.
               success: Données de recensement supprimées
@@ -1042,7 +1072,7 @@ fr:
               button: Exporter les codes d'accès aux votes
               callout: Vous pouvez maintenant exporter les codes d'accès. Cela ne peut être fait qu'une seule fois. Une fois que vous avez lancé l'exportation, vous recevrez un e-mail avec les instructions sur <strong>%{email}</strong>
               confirm: Vous ne pouvez exporter les codes d'accès qu'une seule fois. Assurez-vous d'avoir accès au compte de messagerie <strong>%{email}</strong>.
-              file_not_exists: Ce fichier n'existe pas
+              file_not_exist: Ce fichier n'existe pas
               launch_error: Problème lors du lancement de l'export des codes d'accès
               launch_success: L'export des codes d'accès a été lancée. Vous recevrez sous peu un e-mail à %{email}
             exporting_access_codes:
@@ -1093,8 +1123,6 @@ fr:
           name: Élections mises en avant
         landing_page:
           description:
-            show_less: Voir moins
-            show_more: Voir plus
             title: À propos de ce vote
           metrics:
             heading: Métriques
@@ -1179,11 +1207,9 @@ fr:
         in_person_votes:
           complete_voting:
             available_answers: 'Réponses disponibles:'
-            census_verified: Le participant n'a pas encore voté.
             complete_voting: Vote terminé
             identify_another: Identifier un autre participant
             questions_title: 'Ils ont le droit de voter sur les questions suivantes :'
-            questions_title_voted: 'Le participant a déjà voté en ligne et a le droit de voter dans les questions suivantes :'
             voted: Le participant a voté
           create:
             error: Le vote n'a pas été enregistré. Veuillez réessayer.
@@ -1273,12 +1299,13 @@ fr:
           check_status: Vérifiez le statut
           description: Ici, vous avez la possibilité de vérifier vos données de recensement pour savoir si vous avez le droit de participer à ce vote. Vous devriez déjà avoir un code d'accès, mais si vous l'avez perdu, vous pouvez le demander à nouveau, lorsque vos données sont correctes.
           error:
-            info: 'Veuillez réessayer. Si vous pensez que les données du système sont incorrectes, vous pouvez les signaler ici : %{census_contact_information}.'
-            title: Les données de recensement sont incorrectes!
+            info: 'Veuillez réessayer. Si vous pensez que les données du système sont incorrectes, vous pouvez le signaler ici : %{census_contact_information}'
+            title: Les données que vous avez saisies ne sont pas dans le recensement pour ce vote
           form_title: 'Remplissez le formulaire suivant pour vérifier vos données de recensement:'
           invalid: Un problème est survenu lors de la vérification du recensement.
           success:
-            access_link: par SMS ou e-mail.
+            access_link: par email.
+            access_link_with_sms: par SMS ou e-mail.
             info: Vous devriez déjà avoir reçu votre code d'accès par courrier postal. Si vous ne l'avez pas, vous pouvez le demander ici
             title: Vos données de recensement sont correctes!
           title: Puis-je voter ?
@@ -1288,6 +1315,7 @@ fr:
           day_placeholder: JJ
           document_number: Numéro de document
           document_number_placeholder: Numéro de carte d'identité
+          document_type: Type de document
           month: Mois
           month_placeholder: MM
           postal_code: Code postal

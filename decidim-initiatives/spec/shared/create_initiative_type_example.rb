@@ -23,6 +23,7 @@ shared_examples "create an initiative type" do
         undo_online_signatures_enabled: true,
         custom_signature_end_date_enabled: true,
         area_enabled: true,
+        comments_enabled: true,
         promoting_committee_enabled: true,
         minimum_committee_members: 7,
         banner_image: Decidim::Dev.test_file("city2.jpeg", "image/jpeg"),

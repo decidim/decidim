@@ -164,16 +164,32 @@ en:
         create: "%{user_name} created the %{resource_name} area type"
         delete: "%{user_name} deleted the %{resource_name} area type"
         update: "%{user_name} updated the %{resource_name} area type"
+      attachment:
+        create: "%{user_name} created the %{resource_name} attachment"
+        delete: "%{user_name} deleted the %{resource_name} attachment"
+        update: "%{user_name} updated the %{resource_name} attachment"
       attachment_collection:
         create: "%{user_name} created the %{resource_name} attachment collection"
         delete: "%{user_name} deleted the %{resource_name} attachment collection"
         update: "%{user_name} updated the %{resource_name} attachment collection"
+      category:
+        create: "%{user_name} added the %{resource_name} category to the %{space_name} space"
+        delete: "%{user_name} deleted the %{resource_name} category from the %{space_name} space"
+        update: "%{user_name} updated the %{resource_name} category in the %{space_name} space"
       component:
         create: "%{user_name} added the %{resource_name} component to the %{space_name} space"
         delete: "%{user_name} removed the %{resource_name} component from the %{space_name} space"
+        export_component: "%{user_name} exported the %{resource_name} %{component_name} in %{space_name} as %{format_name}"
         publish: "%{user_name} published the %{resource_name} component in the %{space_name} space"
         unpublish: "%{user_name} unpublished the %{resource_name} component from the %{space_name} space"
         update_permissions_with_space: "%{user_name} updated the permissions of %{resource_name} in %{space_name}"
+      contextual_help_section:
+        update: "%{user_name} updated the %{resource_name} help section"
+      helpers:
+        answers: answers
+        comments: comments
+        projects: projects
+        results: results
       impersonation_log:
         manage: "%{user_name} has managed %{resource_name} because %{reason}"
       moderation:
@@ -190,6 +206,7 @@ en:
         update: "%{user_name} updated the %{resource_name} OAuth application"
       organization:
         update: "%{user_name} updated the organization settings"
+        update_external_domain: "%{user_name} updated the organization external domains"
       participatory_space_private_user:
         create: "%{user_name} invited %{resource_name} to be a private participant"
         create_via_csv: "%{user_name} invited %{resource_name} via CSV to be a private participant"
@@ -436,8 +453,8 @@ en:
             amendments_enabled: Amendments enabled
             comments_enabled: Comments enabled
             comments_max_length: Comments max length
-            dummy_global_attribute_1: Dummy Attribute 1
-            dummy_global_attribute_2: Dummy Attribute 2
+            dummy_global_attribute1: Dummy Attribute 1
+            dummy_global_attribute2: Dummy Attribute 2
             dummy_global_translatable_text: Dummy Translatable Text
             enable_pads_creation: Enable pads creation
             resources_permissions_enabled: Resources permissions enabled
@@ -449,8 +466,8 @@ en:
             amendment_reaction_enabled: Amendment reaction enabled
             amendments_visibility: Amendment visibility
             comments_blocked: Comments blocked
-            dummy_step_attribute_1: Dummy Step Attribute 1
-            dummy_step_attribute_2: Dummy Step Attribute 2
+            dummy_step_attribute1: Dummy Step Attribute 1
+            dummy_step_attribute2: Dummy Step Attribute 2
             dummy_step_translatable_text: Dummy Step Translatable Text
     contact: Contact
     content_blocks:
@@ -928,6 +945,7 @@ en:
         success: Join request successfully created. An admin will review your request before accepting you to the group.
       leave:
         error: There was a problem leaving the group
+        last_admin: You can't remove yourself from this group as you're the last administrator. Make another member an administrator in order to leave the group.
         success: Group successfully abandoned.
       members:
         accept_or_reject_join_requests: 'The following users have applied to join this group. Accept or reject their requests:'
@@ -940,7 +958,7 @@ en:
       no_user_groups: Doesn't belong to any group yet.
       roles:
         admin: Administrator
-        creator: Creator
+        creator: Administrator
         member: Member
       update:
         error: There was a problem updating the group
@@ -1708,14 +1726,56 @@ en:
     timestamp_error_message: Sorry, that was too quick! Please resubmit.
   layouts:
     decidim:
-      cookie_warning:
-        description_html: This site uses cookies. By continuing to browse the site, you agree to our use of cookies. %{link}.
-        link_label: Find out more about cookies
-        ok: I agree
+      cookie_consent:
+        cookie_details:
+          columns:
+            description: Description
+            name: Name
+            service: Service
+            type: Type
+          cookies:
+            _session_id:
+              description: Allows websites to remember user within a website when they move between web pages.
+              service: This website
+            decidim-consent:
+              description: Stores information about the cookies allowed by the user on this website.
+              service: This website
+          types:
+            cookie: Cookie
+        dialog:
+          accept_all: Accept all
+          accept_only_essential: Accept only essential
+          cookie_settings: Settings
+          description: We use cookies on our website to improve the performance and content of the site. The cookies enable us to provide a more individual user experience and social media channels.
+          title: Information about the cookies used on the website
+        modal:
+          accept_all: Accept all
+          accept_only_essential: Accept only essential
+          analytics:
+            description: Analytics cookies are cookies that track how users navigate and interact with a website. The information collected is used to help the website owner improve the website.
+            title: Analytics and statistics
+          description: We use cookies to ensure the basic functionalities of the website and to enhance your online experience. You can choose for each category to opt-in/out whenever you want.
+          essential:
+            description: These cookies are essential for the proper functioning of my website. Without these cookies, the website would not work properly.
+            title: Essential
+          marketing:
+            description: These cookies collect information about how you use the website, which pages you visited and which links you clicked on.
+            title: Marketing
+          preferences:
+            description: These cookies allow the website to remember the choices you have made in the past
+            title: Preferences
+          save_settings: Save settings
+          title: Cookie settings
+          toggle: Toggle %{consent_category}
+        warning:
+          all_cookies: all cookies
+          change_cookie_settings: Change cookie settings
+          need_cookies: You need to enable %{cookies} in order to see this content.
       edit_link:
         edit: Edit
       footer:
         cc_by_license: Creative Commons License
+        cookie_settings: Cookie settings
         decidim_logo: Decidim Logo
         download_open_data: Download Open Data files
         made_with_open_source: Website made with <a target="_blank" href="https://github.com/decidim/decidim">free software</a>.

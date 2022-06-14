@@ -141,50 +141,50 @@ fr:
         meeting_closed:
           affected_user:
             email_intro: 'La rencontre "%{resource_title}" est terminée. Vous pouvez lire les conclusions de la rencontre sur cette page:'
-            email_outro: Vous avez reçu cette notification parce que vous avez organisé la réunion "%{resource_title}".
+            email_outro: Vous avez reçu cette notification parce que vous avez organisé la réunion "%{resource_title}". Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l'onglet “Mon compte” > “Paramètres des notifications”.
             email_subject: La rencontre "%{resource_title}" est terminée
             notification_title: La rencontre <a href="%{resource_path}">%{resource_title}</a> est terminée.
           follower:
             email_intro: 'La rencontre "%{resource_title}" est terminée. Vous pouvez en lire le compte rendu sur sa page :'
-            email_outro: Vous avez reçu cette notification parce que vous suivez la réunion "%{resource_title}". Vous pouvez le désabonner du lien précédent.
+            email_outro: Vous avez reçu cette notification parce que vous suivez la réunion "%{resource_title}". Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l'onglet “Mon compte” > “Paramètres des notifications”.
             email_subject: La rencontre "%{resource_title}" est terminée
             notification_title: La rencontre <a href="%{resource_path}">%{resource_title}</a> est terminée.
         meeting_created:
           button_text: S'inscrire à la rencontre
           email_intro: La rencontre "%{resource_title}" a été ajoutée à "%{participatory_space_title}" que vous suivez.
-          email_outro: Vous avez reçu cette notification parce que vous suivez "%{participatory_space_title}". Vous pouvez arrêter le suivi à partir du lien précédent.
+          email_outro: Vous avez reçu cette notification parce que vous suivez "%{participatory_space_title}". Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l'onglet “Mon compte” > “Paramètres des notifications”.
           email_subject: Nouvelle rencontre ajoutée à %{participatory_space_title}
           notification_title: La rencontre <a href="%{resource_path}">%{resource_title}</a> a été ajoutée à %{participatory_space_title}
         meeting_registration_confirmed:
           notification_title: Votre inscription à la réunion <a href="%{resource_url}">%{resource_title}</a> a été confirmée. Votre code d'enregistrement est %{registration_code}.
         meeting_registrations_over_percentage:
           email_intro: Les places réservées pour la rencontre "%{resource_title}" dépassent %{percentage}%.
-          email_outro: Vous avez reçu cette notification parce que vous êtes administrateur de la concertation à laquelle est associée la rencontre.
+          email_outro: Vous avez reçu cette notification parce que vous êtes administrateur de la concertation à laquelle est associée la rencontre. Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l'onglet “Mon compte” > “Paramètres des notifications”.
           email_subject: Les places réservées pour la rencontre "%{resource_title}" dépassent %{percentage}%
           notification_title: Les places réservées pour la rencontre <a href="%{resource_path}">%{resource_title}</a> dépassent %{percentage}%.
         meeting_updated:
           email_intro: 'La rencontre "%{resource_title}" a été mise à jour. Vous pouvez accéder aux modifications sur la page de la rencontre :'
-          email_outro: Vous avez reçu cette notification, car vous suivez la rencontre "%{resource_title}". Vous pouvez arrêter de la suivre à partir du lien précédent.
+          email_outro: Vous avez reçu cette notification, car vous suivez la rencontre "%{resource_title}". Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l'onglet “Mon compte” > “Paramètres des notifications”.
           email_subject: La rencontre "%{resource_title}" a été mise à jour
           notification_title: La rencontre <a href="%{resource_path}">%{resource_title}</a> a été mise à jour.
         registration_code_validated:
           email_intro: Votre code d'enregistrement "%{registration_code}" pour la réunion "%{resource_title}" a été validé.
-          email_outro: Vous avez reçu cette notification parce que votre code d'enregistrement pour la réunion "%{resource_title}" a été validé.
+          email_outro: Vous avez reçu cette notification parce que votre code d'enregistrement pour la réunion "%{resource_title}" a été validé. Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l'onglet “Mon compte” > “Paramètres des notifications”.
           email_subject: Votre code d'enregistrement "%{registration_code}" pour la réunion "%{resource_title}" a été validé
           notification_title: Votre code d'enregistrement "%{registration_code}" pour la réunion <a href="%{resource_path}">%{resource_title}</a> a été validé.
         registrations_enabled:
           email_intro: 'Les inscriptions pour la rencontre "%{resource_title}" sont ouvertes. Vous pouvez vous inscrire sur sa page :'
-          email_outro: Vous avez reçu cette notification, car vous suivez la rencontre "%{resource_title}". Vous pouvez arrêter de la suivre à partir du lien précédent.
+          email_outro: Vous avez reçu cette notification, car vous suivez la rencontre "%{resource_title}". Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l'onglet “Mon compte” > “Paramètres des notifications”.
           email_subject: Les inscriptions pour la rencontre "%{resource_title}" sont ouvertes.
           notification_title: Les inscriptions pour la rencontre <a href="%{resource_path}">%{resource_title}</a> sont ouvertes.
         upcoming_meeting:
           email_intro: La rencontre "%{resource_title}" commencera dans moins de 48h.
-          email_outro: Vous avez reçu cette notification, car vous suivez la rencontre "%{resource_title}". Vous pouvez arrêter de la suivre à partir du lien précédent.
+          email_outro: Vous avez reçu cette notification, car vous suivez la rencontre "%{resource_title}". Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l'onglet “Mon compte” > “Paramètres des notifications”.
           email_subject: La rencontre "%{resource_title}" commencera dans moins de 48h.
           notification_title: La rencontre <a href="%{resource_path}">%{resource_title}</a> débutera dans moins de 48h.
     forms:
       meetings:
-        attendees_count_help_text: N’oubliez pas d’inclure le nombre total de participants à votre événement, que ce soit en présentiel, en ligne ou en hybride.
+        attendees_count_help_text: N'oubliez pas d'inclure le nombre total de participants à votre réunion, que ce soit en personne, en ligne ou en hybride.
     gamification:
       badges:
         attended_meetings:
@@ -311,7 +311,7 @@ fr:
             select_a_meeting_type: Veuillez sélectionner un type de rencontre
             select_a_registration_type: Veuillez sélectionner un type d'inscription
             select_an_iframe_access_level: Veuillez sélectionner un niveau d'accès iframe
-            show_embedded_iframe_help: Seuls quelques services permettent d'intégrer des rencontres ou des événements en direct (YouTube, Twitch et Jitsi)
+            show_embedded_iframe_help: 'Seuls quelques services permettent d''intégrer des réunions ou des événements en direct depuis les domaines suivants : %{domains}'
           index:
             title: Rencontres
           new:
@@ -392,7 +392,19 @@ fr:
       calendar_modal:
         calendar_url: URL du calendrier
         close_window: Fermer la fenêtre
+        copy_calendar_url: Copier
+        copy_calendar_url_clarification: Copier l'URL du calendrier dans le presse-papiers
+        copy_calendar_url_copied: Copié !
+        copy_calendar_url_description: Vous pouvez voir toutes les réunions publiées dans votre application de calendrier. Copiez et collez cette URL dans votre calendrier en utilisant l'option "Ajouter un nouveau calendrier à partir d'une URL".
+        copy_calendar_url_explanation: Veuillez noter que vous exportez une sélection de réunions, car il y a des filtres actifs. Si vous souhaitez tous les exporter, réinitialisez d'abord tous les filtres.
+        copy_calendar_url_message: Le lien a bien été copié dans le presse-papier.
         export_calendar: Calendrier d'exportation
+      close_meeting_reminder_mailer:
+        close_meeting_reminder:
+          body: La réunion <a href="%{meeting_path}">"%{meeting_title}"</a> est en attente de fermeture. Veuillez ajouter un compte-rendu de la réunion en utilisant le bouton "Fermer la réunion".
+          greetings: Cordialement, <br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
+          hello: Bonjour %{username},
+          subject: Vous pouvez maintenant clôturer votre réunion en y ajoutant un compte-rendu sur la plateforme %{organization_name}
       conference_venues: Salles de conférence
       content_blocks:
         upcoming_meetings:
@@ -496,7 +508,7 @@ fr:
           select_a_meeting_type: Veuillez sélectionner un type de rencontre
           select_a_registration_type: Veuillez sélectionner un type d'inscription
           select_an_iframe_access_level: Veuillez sélectionner un niveau d'accès iframe
-          show_embedded_iframe_help: Seuls quelques services permettent d'intégrer des rencontres ou des événements en direct (YouTube, Twitch et Jitsi)
+          show_embedded_iframe_help: 'Seuls quelques services permettent d''intégrer des réunions ou des événements en direct depuis les domaines suivants : %{domains}'
         index:
           click_here: Voir toutes les rencontres
           new_meeting: Nouvelle rencontre
@@ -566,7 +578,7 @@ fr:
           fields:
             closed: Fermée
             end_time: Date de fin
-            id: Id
+            id: ID
             map: Carte
             official_meeting: Rencontre officielle
             start_time: Date de début
@@ -579,7 +591,7 @@ fr:
             empty_questions: Tout au long de cette rencontre, certaines questions seront envoyées et vous pourrez y répondre. Elles seront affichées ici.
           index_admin:
             admin_dashboard: Administration du sondage
-            edit: Modifier le sondage dans le panneau d'administration (attention, une fois qu'une question a commencé à recevoir des réponses, vous ne pouvez plus modifier le sondage)
+            edit: Modifier dans le panneau d'administration
             question: Question
             received_answer: réponse reçue
             received_answers: réponses reçues

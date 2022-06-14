@@ -1,0 +1,103 @@
+= Change Decidim core logic within your application
+
+There are occasions you find yourself in a situation that you need to change Decidim core logic within your application. There are two ways to accomplish this goal, and we are going through these options here.
+As an example, we will add a new validation rule to the Admin panel, where Admin can not add projects with budgets more than half the total budget. Once we applied such limitation, admins should not be able to add a project with the cost of 5,001 euros to a budget with total of 10,000 euros.
+
+[#maximum-budget-rule]
+.Trying to create a project with the budget of €5,001 for a budget with the total amount of €10,000(My budget) reults in error(buttom-right error message)
+
+image::maximum_budget.png[Maximum budget error]
+
+==  1. Direct change from your application
+
+This method is more straight-forward, and easier to learn. To change the logic in Decidim, identify which part of the source code you need to change. The best way to achieve this is to identify the module being responsible for handling the functionality you want to change. Next, copy the file you want to change from the Decidim gems to your application and use exactly the same directory structure as the destination as in the original gem. Finally, change the code as you wish and make sure that the changes are being applied by testing it in your browser.
+To achieve the change we want to accomplish, we need to go through the following steps:
+
+. Investigate the original source code, where the validation for new projects are defined; in this case, it is decidim-budgets/app/form/decidim/budgets/admin/project_form.rb(refer to xref:#explanation[Extra notes] for more information).
+. Create the same directory path inside your application `mkdir -p app/forms/decidim/budgets/admin` as for the original file.
+. Copy the file from `decidim-budgets` to the newly created directory `cp $(bundle show decidim-budgets)/app/forms/decidim/budgets/admin/project_form.rb app/forms/decidim/budgets/admin/`.
+. Implement the change in the copied file, in this case add the following validation as explained below.
+. In the copied file, add/edit a validation for maximum allowable value:
+[source,ruby]
+----
+  #...
+  validates :budget_amount, numericality: { less_than_or_equal_to: :maximum_budget }
+  #...
+  private
+    #...
+    def maximum_budget
+      (budget[:total_budget] * 0.5).round
+    end
+----
+[start=6]
+. Save the file and restart the server from the console (just to be sure), and check if the changes has taken effect by trying to submit the form.
+. Try to create a project with the budget of €5,001 for a budget with the total amount of €10,000 (e.g. "My budget").
+. You should see an error under the project budget field after submitting the form if everything went as expected.
+
+[#maximum-budget-error]
+.Error messages indicating the exceeding the maximum budget rule.
+
+image::error_max_budget.png[Error for reaching maximum budget]
+NOTE: Remember to add tests for your coded wherever it is needed.
+
+== 2. Override logic with a concern
+
+Concerns allow us to add functionality into existing classes so that the including class can use the added functionality. This is a pattern provided by the Rails framework and you can learn more about it from the https://api.rubyonrails.org/classes/ActiveSupport/Concern.html[Rails API documentation]
+Simply put, a concern allows developers to change only the parts of the original code that need to be changed. This might be a block of a code we need to change, or add/edit an existing method, etc.
+
+The benefit of using concerns is that when we update Decidim gems to new versions, we do not have to necessarily go through all our customizations and we can just focus on those parts that we really want to change. This is slightly harder to do than the first example but in the long run it will pay you back as you will save a lot of time when updating Decidim.
+
+Concerns should be placed into the `concerns` folder within the top-level folder where you want to apply these concerns. In this case, we are adding a concern for the forms classes, so we should place the concerns related to forms to `app/forms/concerns`. If you do not have this folder available, create it first `mkdir -p app/forms/concerns`.
+
+Now, let's move our modifications from the first copy-paste example into a concern.
+
+. Create the file `app/forms/concerns/admin_project_form_extensions.rb`, and make the desired changes in that file as follows:
+[source,ruby]
+----
+# frozen_string_literal: true
+module AdminProjectFormExtensions
+  extend ActiveSupport::Concern
+    included do
+      validates :budget_amount, numericality: { less_than_or_equal_to: :maximum_budget }
+    end
+  private
+    def maximum_budget
+      (budget[:total_budget] * 0.5).round
+    end
+end
+----
+[start=2]
+. After the concern is created, we need to apply it to the correct class. We can do this in the `to_prepare` hook in `config/application.rb`:
+[source,ruby]
+----
+  config.to_prepare do
+    Decidim::Budgets::Admin::ProjectForm.include(Decidim::Budgets::Admin::ProjectForm.include(AdminProjectFormExtensions)
+  end
+----
+This applies to almost all classes you want to change in Decidim but controllers and helpers are special cases due to order of how things are loaded in the Decidim boot process. If you want to add any changes to controllers or helpers, you need to wrap the `config.to_prepare` block within an initializer that is run at the correct phase of the boot process as follows:
+[source,ruby]
+----
+  initializer "customizations", after: "decidim.action_controller" do
+    config.to_prepare do
+      # Add the controller/helper customizations here
+    end
+  end
+----
+[start=3]
+. Restart the server to apply these changes, as we changed the configuration of the application.
+
+[#explanation]
+== Extra notes
+
+The following step would help you find original source code:
+
+* Because we are changing something in the budgets component, we expect to find this file from the decidim-budgets module
+* To find where the gem is located, run the following command within your application:
+
+[source,ruby]
+----
+  bundle show decidim-budgets
+----
+
+* Look at the URL in the view which you want to change. This should generally provide you a hint where to find the correct file to change if you are already familiar with the Rails framework to begin with.
+* As we are changing a validation rule, we expect these kinds of rules to be defined in the form objects which control the different forms in Decidim (so look into the app/forms folder within decidim-budgets).

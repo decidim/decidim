@@ -176,9 +176,6 @@
           email_outro: Du har mottatt denne varslingen fordi du følger "%{resource_title}" møte. Du kan slutte å følge den fra den forrige lenken.
           email_subject: '"%{resource_title}" møtet starter om mindre enn 48 timer.'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> møtet starter om mindre enn 48 timer.
-    forms:
-      meetings:
-        attendees_count_help_text: Ikke glem å inkludere det totale antallet deltakere ved arrangementet. Hvorvidt det skal være fysisk, hybrid, eller på nett, er det viktig at vi vet hvor mange som er involvert.
     gamification:
       badges:
         attended_meetings:
@@ -305,7 +302,6 @@
             select_a_meeting_type: Vennligst velg en møtetype
             select_a_registration_type: Velg en registreringstype
             select_an_iframe_access_level: Velg et tilgangsnivå for iframe
-            show_embedded_iframe_help: Kun noen få tjenester tillater integrering i møte eller direktearrangement (YouTube, Twitch og Jitsi)
           index:
             title: Møter
           new:
@@ -466,7 +462,6 @@
           type: Type
           type_values:
             all: Alle
-            hybrid: Begge
             in_person: Fysisk
             online: Digitalt
         filters_small_view:
@@ -540,7 +535,6 @@
             empty_questions: Gjennom dette møtet stilles noen spørsmål, og du vil kunne svare på dem. De vil bli vist her.
           index_admin:
             admin_dashboard: Administrators dashbord
-            edit: Rediger i admin
             question: Spørsmål
             received_answer: mottatt svar
             received_answers: mottatt svar

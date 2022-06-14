@@ -100,7 +100,6 @@ fi-pl:
           with_any_type:
             label: Tapaamisen tyyppi
             values:
-              hybrid: Molemmat
               in_person: Fyysinen
               online: Verkossa
       meeting_copies:
@@ -182,9 +181,6 @@ fi-pl:
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat tapahtumaa "%{resource_title}". Voit lopettaa seuraamisen edellä esitetyn linkin kautta.
           email_subject: Tapahtuman "%{resource_title}" alkuun on alle 48 tuntia.
           notification_title: Tapahtuma <a href="%{resource_path}">%{resource_title}</a> alkaa alle 48 tuntin kuluttua.
-    forms:
-      meetings:
-        attendees_count_help_text: Älä unohda ilmoittaa tapahtuman osallistujamäärää. Tapahtuman tyypistä riippumatta, meille on tärkeä tietää, kuinka moni osallistui tapahtumaan.
     gamification:
       badges:
         attended_meetings:
@@ -311,7 +307,7 @@ fi-pl:
             select_a_meeting_type: Valitse tapaamisen tyyppi
             select_a_registration_type: Valitse ilmoittautumisten tyyppi
             select_an_iframe_access_level: Valitse iframe-upotusten käyttöoikeustaso
-            show_embedded_iframe_help: Vain harvat palvelut sallivat tapaamisen upottamisen reaaliaikaisesti tapahtumasivulle (YouTube, Twitch ja Jitsi)
+            show_embedded_iframe_help: 'Vain palvelut näistä osoitteista sallivat tapaamisen upottamisen reaaliaikaisesti tapahtumasivulle: %{domains}'
           index:
             title: Tapahtumat
           new:
@@ -392,7 +388,17 @@ fi-pl:
       calendar_modal:
         calendar_url: Kalenterin URL
         close_window: Sulje ikkuna
+        copy_calendar_url: Kopio
+        copy_calendar_url_copied: Kopioitu!
+        copy_calendar_url_description: Näet kaikki julkaistut tapaamiset oman palveluntarjoajasi kalenteriohjelmassa. Kopioi ja liitä tämä URL-osoite kalenteriisi käyttämällä "Lisää uusi kalenteri URL-osoitteesta" -toimintoa.
+        copy_calendar_url_explanation: Huomioithan, että olet viemässä vain osan tapaamisista, koska tapaamisia on suodatettu näkymässä. Jos haluat viedä kaikki tapaamiset, tyhjennä ensin kaikki suodattimet.
         export_calendar: Vie kalenterin tiedot
+      close_meeting_reminder_mailer:
+        close_meeting_reminder:
+          body: Tapaaminen <a href="%{meeting_path}">"%{meeting_title}"</a> odottaa sulkemista. Ole hyvä ja kirjoita raportti tapaamisesta käyttämällä "Sulje tapaaminen" -painiketta.
+          greetings: Terveisin,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
+          hello: Hei %{username},
+          subject: Voit nyt sulkea tapaamisesi kirjoittamalla siitä raportin alustalla %{organization_name}
       conference_venues: Tapahtumapaikat
       content_blocks:
         upcoming_meetings:
@@ -475,7 +481,6 @@ fi-pl:
           type: Tyyppi
           type_values:
             all: Kaikki
-            hybrid: Molemmat
             in_person: Fyysinen
             online: Verkossa
         filters_small_view:
@@ -496,7 +501,7 @@ fi-pl:
           select_a_meeting_type: Valitse tapaamisen tyyppi
           select_a_registration_type: Valitse ilmoittautumisten tyyppi
           select_an_iframe_access_level: Valitse iframe-upotusten käyttöoikeustaso
-          show_embedded_iframe_help: Vain harvat palvelut sallivat tapaamisen upottamisen reaaliaikaisesti tapahtumasivulle (YouTube, Twitch ja Jitsi)
+          show_embedded_iframe_help: 'Vain palvelut näistä osoitteista sallivat tapaamisen upottamisen reaaliaikaisesti tapahtumasivulle: %{domains}'
         index:
           click_here: Näytä kaikki tapahtumat
           new_meeting: Uusi tapahtuma
@@ -566,7 +571,6 @@ fi-pl:
           fields:
             closed: Suljettu
             end_time: Päättymispäivä
-            id: Id
             map: Kartta
             official_meeting: Virallinen tapahtuma
             start_time: Alkamispäivä
@@ -579,7 +583,6 @@ fi-pl:
             empty_questions: Tämän tapaamisen aikana esitetään kysymyksiä, joihin voit vastata. Kysymykset näytetään tässä.
           index_admin:
             admin_dashboard: Hallintapaneeli
-            edit: Muokkaa hallintapaneelissa
             question: Kysymys
             received_answer: vastaus
             received_answers: vastaukset
@@ -617,7 +620,6 @@ fi-pl:
           invalid: Tapahtumasta poistumisessa on tapahtunut virhe.
           success: Olet poistunut tapahtumasta onnistuneesti.
       type_of_meeting:
-        hybrid: Molemmat
         in_person: Fyysinen
         online: Verkossa
       types:

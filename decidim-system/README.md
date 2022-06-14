@@ -40,21 +40,33 @@ When using Decidim as multi-tenant, you should keep these in mind:
 
 ## Managing System admins
 
-Currently Decidim doesn't provide a way to create the first System Admin in a new deployment. To do it, you should open a Rails console in your application and
-create it:
+For logging in to this dashboard, you'll need to create a system admin account from your terminal:
 
-```ruby
-Decidim::System::Admin.create!(
-  email: "your-email@example.org",
-  password: "your-safe-password",
-  password_confirmation: "your-safe-password"
-)
+```bash
+bin/rails decidim_system:create_admin
 ```
 
-Once you have created your first admin you can access the system dashboard at `https://your-decidim-deployment-host/system` and login with your newly created user.
+You'll be asked for an email and a password. For security, the password will not get displayed back at you and you'll need to confirm it.
+
+Once you have created your first admin you can access the system dashboard at `/system`. For instance, if you have Decidim running at `https://example.org`, this URL would be `https://example.org/system`.
+You'll be able to login with your newly created user.
+
 From the system dashboard you can add new admins.
 
 ⚠️ If you need to reset your administrator password you'll need to do it by entering the Rails console and changing it manually. ⚠️
+
+. Open the rails console:
+```bash
+bin/rails console
+```
+. Run the following instructions, changing them accordingly:
+```ruby
+system_admin = Decidim::System::Admin.order(:id).first                        # for the first system admin
+system_admin = Decidim::System::Admin.find_by_email "system@example.org"      # if you already know the email
+system_admin.password = "decidim1234567890"                                   # change for something secure
+system_admin.password_confirmation = "decidim1234567890"
+system_admin.save
+```
 
 ## Managing organizations
 

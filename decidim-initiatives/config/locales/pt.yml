@@ -238,8 +238,6 @@ pt:
             edit: Editar
             new: Novo
             photos: Fotos
-          show:
-            print: Impressão
           update:
             error: Ocorreu um erro
             success: A iniciativa foi atualizada corretamente

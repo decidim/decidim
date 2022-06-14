@@ -34,6 +34,6 @@ As a technopolitical project, Decidim needs several things to work. This is a no
 . Texts for at least, *terms of use, privacy policy and frequently asked questions*. To show the "Terms and conditions" body text in the "Sign Up Form", it is a requirement that the slug of this page to be equal `terms-and-conditions`.
 . Comply with your current *legal requirements*, like to registrate your privacy policy with the autorities (eg LOPD on Spain).
 . Fill the *Participatory Processes Configuration Form* to prepare your Participatory Process for Decidim.
-. Read the *https://decidim.org/docs/[Administration manual]*.
+. Read the *xref:admin:index.adoc[Administration manual]*.
 . Participate on *http://meta.decidim.org[MetaDecidim]*.
 . Read the Decidim *https://decidim.org/contract/[Social Contract]*.

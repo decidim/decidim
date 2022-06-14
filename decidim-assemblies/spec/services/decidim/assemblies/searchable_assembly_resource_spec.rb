@@ -14,7 +14,7 @@ module Decidim
           title: Decidim::Faker::Localized.name,
           subtitle: Decidim::Faker::Localized.name,
           short_description: Decidim::Faker::Localized.sentence,
-          description: description_1,
+          description: description1,
           users: [author]
         )
       end
@@ -27,7 +27,7 @@ module Decidim
           title: Decidim::Faker::Localized.name,
           subtitle: Decidim::Faker::Localized.name,
           short_description: Decidim::Faker::Localized.sentence,
-          description: description_2,
+          description: description2,
           users: [author]
         )
       end

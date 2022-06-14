@@ -35,12 +35,17 @@ fr-CA:
       decidim/demoted_membership: N'est plus un administrateur de groupe
       decidim/gamification/badge_earned_event: Badge gagné
       decidim/gamification/level_up_event: Vous avez progressé d'un niveau
+      decidim/invited_to_group_event: Invitation à rejoindre un groupe
       decidim/join_request_accepted_event: Demande de participation acceptée
       decidim/join_request_rejected_event: Demande de participation rejetée
       decidim/profile_updated_event: Profil mis à jour
       decidim/promote_to_admin: Promu au groupe admin
+      decidim/promoted_to_admin_event: Promotion au rôle d'administrateur de groupe
       decidim/removed_from_group: Retiré du groupe
       decidim/resource_endorsed_event: Ressource soutenue
+      decidim/resource_hidden_event: Modération de votre participation
+      decidim/user_group_created_event: Groupe d'utilisateurs créé
+      decidim/welcome_notification_event: Message de bienvenue
   activerecord:
     attributes:
       decidim/user:
@@ -68,7 +73,8 @@ fr-CA:
     'true': 'Oui'
   carrierwave:
     errors:
-      image_too_big: L'image est trop grande
+      file_resolution_too_large: La résolution du fichier est trop grande
+      file_size_too_large: Le fichier est trop volumineux
       not_inside_organization: Le fichier n'est relié à aucune organisation
   date:
     formats:
@@ -112,9 +118,6 @@ fr-CA:
       skip_button: Passer au contenu principal
     account:
       blocked: Ce compte a été bloqué en raison d'une violation des Conditions Générales d'Utilisation
-      data_portability_export:
-        file_no_exists: Le fichier n'existe pas
-        notice: Votre export est actuellement en cours. Vous recevrez un email quand il sera complet.
       delete:
         alert: Cette action ne peut être annulée. Si vous supprimez votre compte, vous ne pourrez pas vous connecter avec vos identifiants. La suppression de votre compte entraînera l'anonymisation de vos contributions. Vous serez toujours en mesure de créer un nouveau compte, mais vos anciennes contributions n'y seront plus associées.
         confirm:
@@ -126,6 +129,19 @@ fr-CA:
       destroy:
         error: Une erreur s'est produite lors de la suppression de votre compte.
         success: Votre compte a été supprimé avec succès.
+      download_your_data_export:
+        file_no_exists: Le fichier n'existe pas
+        notice: Votre export est actuellement en cours. Vous recevrez un email quand il sera complet.
+      email_change:
+        body1: Nous avons envoyé un e-mail à %{unconfirmed_email} pour vérifier votre nouvelle adresse e-mail.
+        body2: Envoyer à nouveau l'e-mail de vérification ? %{resend_link} ou %{cancel_link}.
+        cancel: annuler
+        cancel_error: Impossible d'annuler la modification de l'e-mail.
+        cancel_successfully: Modification de l'e-mail annulée.
+        resend_error: Impossible de renvoyer l'e-mail de confirmation.
+        resend_successfully: E-mail de confirmation renvoyé avec succès à %{unconfirmed_email}
+        send_again: Envoyer à nouveau
+        title: Vérification du changement d'adresse e-mail
       show:
         available_locales_helper: Choisissez la langue que vous souhaitez utiliser pour naviguer et recevoir des notifications sur la plateforme
         change_password: Changer de mot de passe
@@ -142,6 +158,18 @@ fr-CA:
         create: "%{user_name} a créé la zone d'application %{resource_name}"
         delete: "%{user_name} a supprimé la zone d'application %{resource_name}"
         update: "%{user_name} a mis à jour la zone d'application %{resource_name}"
+      area_type:
+        create: "%{user_name} a créé le type de zone d'application %{resource_name}"
+        delete: "%{user_name} a supprimé le type de zone d'application %{resource_name}"
+        update: "%{user_name} a mis à jour le type de zone d'application %{resource_name}"
+      attachment:
+        create: "%{user_name} a créé le document %{resource_name}"
+        delete: "%{user_name} a supprimé le document %{resource_name}"
+        update: "%{user_name} a mis à jour le document %{resource_name}"
+      attachment_collection:
+        create: "%{user_name} a créé le fichier %{resource_name}"
+        delete: "%{user_name} a supprimé le fichier %{resource_name}"
+        update: "%{user_name} a mis à jour le fichier %{resource_name}"
       component:
         create: "%{user_name} a ajouté la fonctionnalité %{resource_name} à l'espace %{space_name}"
         delete: "%{user_name} a supprimé la fonctionnalité %{resource_name} de l'espace %{space_name}"
@@ -174,6 +202,10 @@ fr-CA:
         delete_with_parent: "%{user_name} a supprimé le périmètre d'application %{resource_name} à l'intérieur du périmètre d'application %{parent_scope}"
         update: "%{user_name} a mis à jour le périmètre d'application %{resource_name}"
         update_with_parent: "%{user_name} a mis à jour le périmètre d'application %{resource_name} à l'intérieur du périmètre d'application %{parent_scope}"
+      scope_type:
+        create: "%{user_name} a créé le type de secteur %{resource_name}"
+        delete: "%{user_name} a supprimé le type de secteur %{resource_name}"
+        update: "%{user_name} a mis à jour le type de secteur %{resource_name}"
       static_page:
         create: "%{user_name} a créé la page statique %{resource_name}"
         delete: "%{user_name} a supprimé la page statique %{resource_name}"
@@ -390,6 +422,7 @@ fr-CA:
           debate: Débat
           initiative: Pétition
           meeting: Rencontre
+          order: Vote du budget
           post: Publication
           proposal: Proposition
           question: Question
@@ -404,8 +437,8 @@ fr-CA:
             amendments_enabled: Modifications activées
             comments_enabled: Activer le module de commentaire
             comments_max_length: Longueur maximale des commentaires
-            dummy_global_attribute_1: Attribut factice 1
-            dummy_global_attribute_2: Attribut factice 2
+            dummy_global_attribute1: Attribut factice 1
+            dummy_global_attribute2: Attribut factice 2
             dummy_global_translatable_text: Texte traduisible factice
             enable_pads_creation: Activer la création de pads
             resources_permissions_enabled: Autorisations de ressources activées
@@ -417,8 +450,8 @@ fr-CA:
             amendment_reaction_enabled: Réaction d'amendement activée
             amendments_visibility: Visibilité des amendements
             comments_blocked: Bloquer la création de nouveaux commentaires
-            dummy_step_attribute_1: Attribut d'étape factice 1
-            dummy_step_attribute_2: Attribut d'étape factice 2
+            dummy_step_attribute1: Attribut d'étape factice 1
+            dummy_step_attribute2: Attribut d'étape factice 2
             dummy_step_translatable_text: Texte traduisible de l'étape factice
     contact: Contact
     content_blocks:
@@ -462,13 +495,6 @@ fr-CA:
       actions:
         login_before_access: Veuillez vous connecter avec votre compte avant de réaliser cette action
         unauthorized: Vous n'êtes pas autorisé à effectuer cette action
-    data_portability:
-      export:
-        ready: Prêt
-      show:
-        download_data: Télécharger les données
-        download_data_description: Un fichier contenant toutes les informations associées à votre compte sera envoyé à <strong>%{user_email}</strong>. Cet e-mail contiendra un fichier .zip et un mot de passe pour l'ouvrir.<br/><br/>Pour décompresser le fichier, vous aurez besoin de <a href="https://www.7-zip.org/">7-Zip</a> (pour Windows) ou <a href="https://www.keka.io/">Keka</a> (pour MacOS). Si vous utilisez Linux, la plupart du temps, vous l'aurez installé par défaut. Sinon, vous pouvez utiliser <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> ou <a href="https://peazip.github.io">PeaZip</a>.
-        request_data: Demander les données
     datepicker:
       help_text: 'Format attendu : %{datepicker_format}'
     devise:
@@ -531,6 +557,13 @@ fr-CA:
           this_application_will_not_be_able_to: 'Cette application ne sera pas capable de :'
           update_profile: Mettre à jour votre profil
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> veut utiliser votre compte"
+    download_your_data:
+      export:
+        ready: Prêt
+      show:
+        download_data: Télécharger les données
+        download_data_description: Un fichier contenant toutes les informations associées à votre compte sera envoyé à <strong>%{user_email}</strong>. Cet e-mail contiendra un fichier .zip et un mot de passe pour l'ouvrir.<br/><br/>Pour décompresser le fichier, vous aurez besoin de <a href="https://www.7-zip.org/">7-Zip</a> (pour Windows) ou <a href="https://www.keka.io/">Keka</a> (pour MacOS). Si vous utilisez Linux, la plupart du temps, vous l'aurez installé par défaut. Sinon, vous pouvez utiliser <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> ou <a href="https://peazip.github.io">PeaZip</a>.
+        request_data: Demander les données
     editor_images:
       create:
         error: Erreur lors de l'envoi de l'image
@@ -674,6 +707,8 @@ fr-CA:
           email_outro: Vous avez reçu cette notification parce que vous êtes un administrateur de la plateforme.
           email_subject: Un group d'utilisateurs viens de mettre à jour son profil
           notification_title: Le groupe d'utilisateurs %{user_group_name} a mis à jour son profil, le laissant non vérifié. Vous pouvez maintenant le vérifier dans le <a href="%{groups_admin_path}">panneau d'administration</a>.
+      nickname_event:
+        notification_body: Nous avons corrigé la façon dont les pseudonymes sont utilisés pour qu'il n'y ait pas de doublons, quelque soit l'utilisation de majuscules et/ou de minuscules. <br/> Votre pseudonyme a été créé après un autre qui était identique, nous l'avons donc automatiquement renommé. Vous pouvez le modifier depuis <a href="%{link_to_account_settings}">les paramètres de votre compte</a>.
       notification_event:
         notification_title: Un événement a eu lieu à <a href="%{resource_path}">%{resource_title}</a>.
       reports:
@@ -697,11 +732,11 @@ fr-CA:
           notification_title: Le <a href="%{resource_path}">profil public</a> de %{name} (%{nickname}), que vous suivez, a été mis à jour.
         user_officialized:
           email_intro: Le participant %{name} (%{nickname}) a été officialisé.
-          email_outro: Vous avez reçu cette notification parce que vous êtes un administrateur de l'organisation.
+          email_outro: Vous avez reçu cette notification parce que vous êtes un administrateur de l'organisation. Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l'onglet “Mon compte” > “Paramètres des notifications”.
           email_subject: "%{name} a été officialisé"
           notification_title: Le participant %{name} (%{nickname}) a été officialisé.
     export_mailer:
-      data_portability_export:
+      download_your_data_export:
         click_button: 'Cliquez sur le bouton suivant pour télécharger vos données.<br/>Le fichier sera disponible jusqu''au %{date}.<br/>Vous aurez besoin de <a href="https://www.7-zip.org/">7-Zip</a> (Windows), <a href="https://www.keka.io/en/">Keka</a> (MacOS) ou <a href="https://peazip.github.io">PeaZip</a> (Linux) pour l''ouvrir. Mot de passe : %{password}'
         download: Télécharger
       export:
@@ -752,13 +787,18 @@ fr-CA:
         file:
           explanation: 'Orientation pour le fichier :'
           message_1: Doit être une image ou un document.
-          message_2: Pour les images, utilisez de préférence des formats paysage, car le service recadre l'image. Pour les fichiers CSV, le séparateur entre les colonnes doit être une virgule (",")
+          message_2: Pour les images, utilisez de préférence des images en format paysage, le service rogne l'image.
+        icon:
+          explanation: 'Manuel pour l''image:'
+          message_1: Doit être une image carrée.
+          message_2: La taille recommandée pour cette image est de 512x512.
         image:
           explanation: 'Orientation pour l''image:'
           message_1: De préférence une image de paysage qui n'a pas de texte.
           message_2: Le service récolte l'image.
       file_validation:
         allowed_file_extensions: 'Extensions de fichier autorisées : %{extensions}'
+        max_file_dimension: 'Dimensions de fichier maximales : %{resolution} pixels'
         max_file_size: 'Taille maximale du fichier : %{megabytes}Mo'
       upload:
         labels:
@@ -768,7 +808,7 @@ fr-CA:
           cancel: Annuler
           edit_image: Modifier l'Image
           error: Erreur !
-          file_too_big: 'Le fichier est trop volumineux! Taille de fichier maximum: %{megabytes}Mo'
+          file_size_too_large: 'Le fichier est trop volumineux ! Poids de fichier maximum : %{megabytes}Mo'
           remove: Supprimer
           replace: Remplacer
           save: Sauvegarder
@@ -880,6 +920,7 @@ fr-CA:
         success: Demande de jointure créée avec succès. Un administrateur examinera votre demande avant de vous accepter au groupe.
       leave:
         error: Il y a eu un problème pour quitter le groupe
+        last_admin: Vous ne pouvez pas vous retirer de ce groupe car vous êtes le dernier administrateur. Attribuez le rôle d'administrateur à un autre membre afin de pouvoir quitter le groupe.
         success: Le groupe est parti avec succès.
       members:
         accept_or_reject_join_requests: 'Les utilisateurs suivants ont demandé à rejoindre ce groupe. Accepter ou rejeter leurs demandes:'
@@ -892,7 +933,7 @@ fr-CA:
       no_user_groups: N'appartient à aucun groupe pour l'instant.
       roles:
         admin: Administrateur
-        creator: Créateur
+        creator: Administrateur
         member: Membre
       update:
         error: Un problème est survenu lors de la mise à jour du groupe.
@@ -929,6 +970,7 @@ fr-CA:
         unknown_action: "%{user_name} a effectué une action sur %{resource_name}"
         unknown_action_with_space: "%{user_name} a effectué une action sur %{resource_name} dans %{space_name}"
         update: "%{user_name} a mis à jour %{resource_name}"
+        update_permissions_with_space: "%{user_name} a mis à jour les permissions de %{resource_name} dans %{space_name}"
         update_with_space: "%{user_name} a mis à jour %{resource_name} dans %{space_name}"
       value_types:
         area_presenter:
@@ -1099,19 +1141,41 @@ fr-CA:
         translated_text: 'Traduction automatique du texte :'
     notifications:
       no_notifications: Il n'y a pas encore de notifications.
+      show:
+        missing_event: Oups, cette notification est liée à un élément qui n'est plus disponible. Vous pouvez la supprimer.
+    notifications_digest_mailer:
+      header:
+        daily: Résumé quotidien des notifications
+        weekly: Résumé hebdomadaire des notifications
+      hello: Bonjour %{name},
+      intro:
+        daily: 'Voici les notifications de la veille, basées sur les ressources que vous suivez :'
+        weekly: 'Voici les notifications de la semaine dernière, basées sur les ressources que vous suivez :'
+      outro: Vous avez reçu ces notifications parce que vous suivez ce contenu ou ses auteurs. Pour arrêter de les suivre, rendez-vous sur la page du contenu ou de l'auteur et cliquez sur "Ne plus suivre".
+      see_more: Voir plus de notifications
+      subject: Résumé de vos notifications mail
     notifications_settings:
       show:
         administrators: Administrateurs
         allow_public_contact: Permettre à quelqu'un de m'envoyer un message direct, même si je ne les suis pas.
+        allow_push_notifications: Recevez des notifications push pour savoir ce qui se passe lorsque vous n'êtes pas sur la plateforme. Vous pouvez les désactiver à tout moment.
         direct_messages: Recevoir des messages directs de n'importe qui
-        email_on_moderations: Je veux recevoir un email chaque fois que quelque chose est signalé pour modération.
-        email_on_notification: Je souhaite recevoir un email à chaque fois que je reçois une notification.
+        email_on_moderations: Je veux recevoir un email chaque fois que quelqu'un ou qu'une ressource a été signalé à des fins de modérations.
         everything_followed: Tout ce que je suis
         newsletter_notifications: Je souhaite recevoir une newsletter sur l'actualité de la plateforme
         newsletters: Newsletters
+        notification_settings:
+          close_meeting_reminder: Je veux recevoir des rappels par e-mail pour les comptes-rendus de réunions terminées que je n'ai pas encore publiés
+        notifications_sending_frequencies:
+          daily: Une fois par jour
+          none: Jamais
+          real_time: En temps réel
+          weekly: Une fois par semaine
+        notifications_sending_frequency: À quelle fréquence voulez-vous recevoir les notifications par e-mail ?
         own_activity: Ma propre activité, comme quand quelqu'un commente dans ma proposition ou me mentionne
+        push_notifications: Notifications push
+        push_notifications_reminder: Pour recevoir des notifications de la plateforme, vous devez d'abord les autoriser dans les paramètres de votre navigateur.
         receive_notifications_about: Je veux recevoir des notifications sur
-        send_notifications_by_email: Envoyer des notifications par email
         update_notifications_settings: Enregistrer les modifications
       update:
         error: Une erreur s'est produite lors de la mise à jour des paramètres de vos notifications.
@@ -1173,7 +1237,7 @@ fr-CA:
           agreement: J'accepte ces conditions d'utilisation
           legend: Accepter les conditions d'utilisation
         refuse:
-          modal_body: Si vous refusez, vous ne pourrez pas utiliser la plateforme. Vous pouvez <a href="%{data_portability_path}">télécharger vos données</a> et / ou <a href="%{delete_path}">supprimer votre compte</a>.
+          modal_body: Si vous refusez, vous ne pourrez pas utiliser la plateforme. Vous pouvez <a href="%{download_your_data_path}">télécharger vos données</a> ainsi que <a href="%{delete_path}">supprimer votre compte</a>.
           modal_btn_continue: Accepter les conditions et continuer
           modal_btn_exit: Je l'examinerai plus tard
           modal_button: Refuser les conditions d'utilisation
@@ -1479,7 +1543,7 @@ fr-CA:
     invitations:
       edit:
         header: Terminer la création de votre compte
-        nickname_help: Cet identifiant est public et unique sur la plateforme "%{organization}" ; il permet aux autres utilisateurs de vous suivre, de vous contacter ou de vous mentionner dans leurs commentaires. Il s’affichera précédé d’un « @ » ; il ne doit pas contenir d’espace ni de caractère spécial.
+        nickname_help: Cet identifiant est public et unique sur %{organization} ; il permet aux autres utilisateurs de vous suivre, de vous contacter ou de vous mentionner dans leurs commentaires. Il s’affichera précédé d’un « @ » ; il ne peut contenir que des lettres, des chiffres ainsi que les caractères "-" et "_".
         submit_button: Sauvegarder
         subtitle: Si vous acceptez l'invitation, veuillez indiquer votre pseudonyme et votre mot de passe.
       invitation_removed: Votre invitation a été supprimée.
@@ -1637,10 +1701,6 @@ fr-CA:
     timestamp_error_message: Désolé, c'était trop rapide ! Veuillez le renvoyer.
   layouts:
     decidim:
-      cookie_warning:
-        description_html: Ce site utilise des cookies. En continuant à parcourir le site, vous acceptez notre utilisation des cookies. En savoir plus à ce sujet %{link}.
-        link_label: ici
-        ok: '"J''accepte"'
       edit_link:
         edit: Modifier
       footer:

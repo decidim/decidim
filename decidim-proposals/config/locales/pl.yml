@@ -41,10 +41,6 @@ pl:
           valuator_role_id: Imię weryfikatora
     errors:
       models:
-        participatory_text:
-          attributes:
-            document:
-              invalid_document_type: 'Nieprawidłowy typ dokumentu. Akceptowane formaty to: %{valid_mime_types}'
         proposal:
           attributes:
             add_documents:
@@ -199,33 +195,21 @@ pl:
             email_subject: Ktoś zostawił notatkę do propozycji %{resource_title}.
             notification_title: Ktoś zostawił notatkę do propozycji <a href="%{resource_path}">%{resource_title}</a>. Sprawdź ją w <a href="%{admin_proposal_info_path}">panelu administratora</a>
         collaborative_draft_access_accepted:
-          email_intro: '%{requester_name} otrzymał(a) dostęp jako współtwórca wspólnego szkicu <a href="%{resource_path}">%{resource_title}</a>.'
-          email_outro: Otrzymałeś to powiadomienie, ponieważ jesteś współtwórcą <a href="%{resource_path}">%{resource_title}</a>.
           email_subject: "%{requester_name} otrzymał(a) dostęp jako współtwórca %{resource_title}."
           notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> otrzymał(a) <strong>dostęp jako współtwórca</strong> wspólnego szkicu <a href="%{resource_path}">%{resource_title}</a>.
         collaborative_draft_access_rejected:
-          email_intro: '%{requester_name} nie otrzymał(a) dostępu jako współtwórca wspólnego szkicu <a href="%{resource_path}">%{resource_title}</a>.'
-          email_outro: Otrzymałeś to powiadomienie, ponieważ jesteś współtwórcą <a href="%{resource_path}">%{resource_title}</a>.
           email_subject: "%{requester_name} nie otrzymał(a) dostępu jako współtwórca wspólnego szkicu %{resource_title}."
           notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> <strong>nie otrzymał(a) dostępu jako współtwórca</strong> wspólnego szkicu <a href="%{resource_path}">%{resource_title}</a>.
         collaborative_draft_access_requested:
-          email_intro: '%{requester_name} poprosił(a) o dostęp jako współtwórca. Możesz <strong>zaakceptować lub odrzucić prośbę</strong> na stronie wspólnego szkicu <a href="%{resource_path}">%{resource_title}</a>.'
-          email_outro: Otrzymałeś to powiadomienie, ponieważ jesteś współtwórcą <a href="%{resource_path}">%{resource_title}</a>.
           email_subject: "%{requester_name} prosi o dostęp do współtworzenia %{resource_title}."
           notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> prosi o dostęp do współtworzenia wspólnego szkicu <a href="%{resource_path}">%{resource_title}</a>. <strong>Zaakceptuj lub odrzuć prośbę</strong>.
         collaborative_draft_access_requester_accepted:
-          email_intro: Zostałeś zaakceptowany jak współtwórca wspólnego szkicu <a href="%{resource_path}">%{resource_title}</a>.
-          email_outro: Otrzymałeś to powiadomienie, ponieważ poprosiłeś o dostęp jako współtwórca <a href="%{resource_path}">%{resource_title}</a>.
           email_subject: Zostałeś zaakceptowany jak współtwórca %{resource_title}.
           notification_title: Otrzymałeś <strong>zgodę na dostęp jako współtwórca</strong> wspólnego szkicu <a href="%{resource_path}">%{resource_title}</a>.
         collaborative_draft_access_requester_rejected:
-          email_intro: Nie otrzymałeś dostępu jako współtwórca wspólnego szkicu <a href="%{resource_path}">%{resource_title}</a>.
-          email_outro: Otrzymałeś to powiadomienie, ponieważ poprosiłeś o dostęp jako współtwórca <a href="%{resource_path}">%{resource_title}</a>.
           email_subject: Zostałeś odrzucony jako współtwórca %{resource_title}.
           notification_title: <strong>Nie otrzymałeś dostępu jako współtwórca</strong> wspólnego szkicu <a href="%{resource_path}">%{resource_title}</a>.
         collaborative_draft_withdrawn:
-          email_intro: <a href="%{author_path}">%{author_name} %{author_nickname}</a> wycofał(a) wspólny szkic <a href="%{resource_path}">%{resource_title}</a>.
-          email_outro: Otrzymałeś to powiadomienie, ponieważ jesteś współtwórcą <a href="%{resource_path}">%{resource_title}</a>.
           email_subject: "%{author_name} %{author_nickname} wycofał(a) wspólny szkic %{resource_title}."
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> <strong>wycofał(a)</strong> wspólny szkic <a href="%{resource_path}">%{resource_title}</a>.
         creation_enabled:
@@ -767,7 +751,6 @@ pl:
             other: wsparcia
         new:
           send: Dalej
-          title: Utwórz swoją propozycję
         orders:
           label: 'Sortuj propozycje według:'
           most_commented: Najczęściej komentowane

@@ -147,13 +147,10 @@ pt-BR:
           title: Confirmar votação
         budget_excess:
           budget_excess:
-            description: Este projeto excede o orçamento máximo e não pode ser adicionado. Se você quiser, você pode excluir um projeto que você já selecionou para adicionar ou fazer seu voto de acordo com suas preferências.
             title: O orçamento máximo excedeu
           close: Fechar
-          description: Este projeto excede o orçamento máximo e não pode ser adicionado. Se você quiser, você pode excluir um projeto que você já selecionou para adicionar ou fazer seu voto de acordo com suas preferências.
           ok: OK
           projects_excess:
-            description: Este projeto excede o número máximo de projetos e não pode ser adicionado. Se você quiser, você pode excluir um projeto que você já selecionou para adicionar ou fazer seu voto de acordo com suas preferências.
             title: Máximo de projetos excedido
         budget_summary:
           are_you_sure: Deseja mesmo cancelar o seu voto?
@@ -254,7 +251,6 @@ pt-BR:
             total_budget: Orçamento total
             vote_minimum_budget_projects_number: Número mínimo de projetos para votar
             vote_rule_minimum_budget_projects_enabled: 'Habilitar regra: Número mínimo de projetos a serem votados em'
-            vote_rule_selected_projects_enabled: 'Habilitar regra: Projetos selecionados com o número mínimo e máximo de projetos a serem votados'
             vote_rule_threshold_percent_enabled: 'Ativar regra: Porcentagem mínima do orçamento'
             vote_selected_projects_maximum: Quantidade máxima de projetos a serem selecionados
             vote_selected_projects_minimum: Quantidade mínima de projetos a serem selecionados

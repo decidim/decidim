@@ -380,7 +380,6 @@ ro:
         start_voting_date: Votarea începe
       question_components:
         question_menu_item: Întrebarea
-        unfold: Desfășurat
       question_header:
         back_to_consultation: Vezi toate consultările
         back_to_question: Înapoi la întrebare

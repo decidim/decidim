@@ -415,7 +415,7 @@ describe Decidim::Permissions do
         end
 
         context "when the user is the creator" do
-          it { is_expected.to be false }
+          it { is_expected.to be true }
         end
 
         context "when the user belongs to the group" do

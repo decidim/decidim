@@ -60,12 +60,6 @@ pt:
         email: E-mail
         name: Nome
         role: Função
-    errors:
-      models:
-        participatory_process:
-          attributes:
-            document:
-              invalid_document_type: 'Tipo de documento inválido. Formatos aceites: %{valid_mime_types}'
     models:
       decidim/participatory_process_step_activated_event: Fase ativada
       decidim/participatory_process_step_changed_event: Fase modificada

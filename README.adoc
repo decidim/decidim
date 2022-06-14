@@ -113,3 +113,7 @@ Security is very important to us.
 If you have any issue regarding security, please disclose the information responsibly by sending an email to security [at] decidim [dot] org and not by creating a github/metadecidim issue.
 We appreciate your effort to make Decidim more secure.
 See xref:SECURITY.adoc[full security policy].
+
+== Donations
+
+If you want to support the project, consider making a donation through our https://opencollective.com/decidim[OpenCollective profile].

@@ -2,7 +2,11 @@
   <div class="columns">
     <% if vote_check.allowed? %>
       <div class="callout success mt-s">
-        <h5><%= t(".census_verified") %></h5>
+        <% if voted_online? %>
+          <h5><%= t(".census_verified_with_online_vote") %></h5>
+        <% else %>
+          <h5><%= t(".census_verified") %></h5>
+        <% end %>
       </div>
       <div class="row mt-sm">
         <div class="columns large-7">

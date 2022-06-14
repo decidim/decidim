@@ -121,6 +121,9 @@ ca:
           update:
             invalid: S'ha produït un error en desar el formulari.
             success: Formulari desat correctament.
+      admin_log:
+        questionnaire:
+          update: "%{user_name} ha actualitzat el qüestionari %{resource_name}"
       errors:
         answer:
           body: El camp no pot estar en blanc
@@ -128,6 +131,9 @@ ca:
         extension_allowlist: 'Formats d''arxiu acceptats:'
       images:
         dimensions: "%{width} x %{height} px"
+        processors:
+          resize_and_pad: Aquesta imatge serà redimensionada i ajustada a %{dimensions}.
+          resize_to_fit: Aquesta imatge serà redimensionada per ajustar-se a %{dimensions}.
       question_types:
         files: Arxius
         long_answer: Resposta llarga

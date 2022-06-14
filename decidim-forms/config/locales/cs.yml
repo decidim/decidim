@@ -121,6 +121,9 @@ cs:
           update:
             invalid: Při ukládání dotazníku došlo k chybám.
             success: Formulář byl úspěšně uložen.
+      admin_log:
+        questionnaire:
+          update: "%{user_name} aktualizoval dotazník %{resource_name}"
       errors:
         answer:
           body: Tělo nemůže být prázdné

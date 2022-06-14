@@ -100,7 +100,7 @@ es:
           with_any_type:
             label: Tipo de encuentro
             values:
-              hybrid: Ambos
+              hybrid: Híbrido
               in_person: Presencial
               online: Online
       meeting_copies:
@@ -184,7 +184,7 @@ es:
           notification_title: El encuentro <a href="%{resource_path}">%{resource_title}</a> empezará en menos de 48 h.
     forms:
       meetings:
-        attendees_count_help_text: No olvides incluir el número total de asistentes a tu encuentro, ya sea presencial, en línea o híbrido.
+        attendees_count_help_text: No te olvides de añadir el número total de asistentes a la reunión, ya sea en persona, en línea o híbrido.
     gamification:
       badges:
         attended_meetings:
@@ -311,7 +311,7 @@ es:
             select_a_meeting_type: Por favor, selecciona un tipo de encuentro
             select_a_registration_type: Por favor, seleccione un tipo de inscripción
             select_an_iframe_access_level: Por favor, seleccione un nivel de acceso iframe
-            show_embedded_iframe_help: Solo unos pocos servicios se pueden incrustar en encuentros o eventos en directo (YouTube, Twitch y Jitsi)
+            show_embedded_iframe_help: 'Solo unos pocos servicios permiten incrustar en reuniones o eventos en vivo desde los siguientes dominios: %{domains}'
           index:
             title: Encuentros
           new:
@@ -382,6 +382,8 @@ es:
           value_types:
             organizer_presenter:
               not_found: 'El organizador no se encontró en la base de datos (ID: %{id})'
+        questionnaire:
+          update: "%{user_name} ha actualizado el cuestionario del encuentro %{meeting_name}"
       application_helper:
         filter_category_values:
           all: Todas
@@ -392,7 +394,19 @@ es:
       calendar_modal:
         calendar_url: URL del calendario
         close_window: Cerrar ventana
+        copy_calendar_url: Copiar
+        copy_calendar_url_clarification: Copiar la URL del calendario al portapapeles
+        copy_calendar_url_copied: '¡Copiado!'
+        copy_calendar_url_description: Puedes ver todas las reuniones publicadas en tu aplicación o proveedor de calendario. Copia y pega esta URL en tu calendario usando la opción "Añadir nuevo calendario desde una URL".
+        copy_calendar_url_explanation: Ten en cuenta que estás exportando una selección de encuentros, ya que hay filtros activos. Si deseas exportarlos todos, primero elimina todos los filtros.
+        copy_calendar_url_message: Se ha copiado el enlace al portapapeles correctamente.
         export_calendar: Exportar calendario
+      close_meeting_reminder_mailer:
+        close_meeting_reminder:
+          body: El encuentro <a href="%{meeting_path}">"%{meeting_title}"</a> está pendiente de cerrarse. Por favor, agrega un informe de la reunión usando el botón "Cerrar encuentro".
+          greetings: Hola,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
+          hello: Hola %{username},
+          subject: Ahora puedes cerrar el encuentro con un informe en la plataforma %{organization_name}
       conference_venues: Sedes de las jornadas
       content_blocks:
         upcoming_meetings:
@@ -475,7 +489,7 @@ es:
           type: Tipo
           type_values:
             all: Todos
-            hybrid: Ambos
+            hybrid: Híbrida
             in_person: Presencial
             online: Online
         filters_small_view:
@@ -496,7 +510,7 @@ es:
           select_a_meeting_type: Por favor, selecciona un tipo de encuentro
           select_a_registration_type: Por favor, selecciona un tipo de inscripción
           select_an_iframe_access_level: Por favor, selecciona un nivel de acceso iframe
-          show_embedded_iframe_help: Solo unos pocos servicios se pueden incrustar en encuentros o eventos en directo (YouTube, Twitch y Jitsi)
+          show_embedded_iframe_help: 'Solo unos pocos servicios permiten incrustar en reuniones o eventos en vivo desde los siguientes dominios: %{domains}'
         index:
           click_here: Ver todos los encuentros
           new_meeting: Nuevo encuentro
@@ -524,11 +538,11 @@ es:
           edit_close_meeting: Editar informe del encuentro
           edit_meeting: Editar el encuentro
           going: Te has inscrito en este encuentro
-          join: Inscríbete al encuentro
+          join: Unirse al encuentro
           leave: Cancela tu inscripción
           leave_confirmation: '¿Seguro que quieres cancelar tu inscripción para este encuentro?'
           link_available_soon: Enlace disponible próximamente
-          link_closed: El enlace para unirte a la reunión estará disponible unos minutos antes de que comience
+          link_closed: El enlace a la sala de videoconferencia estará disponible unos minutos antes de que comience
           live_event: Este encuentro está sucediendo ahora mismo
           meeting_minutes: Acta del encuentro
           micro_camera_permissions_warning: Cuando hagas clic en el botón de abajo, se te pedirán permisos de micrófono y/o cámara y te unirás a la videoconferencia
@@ -566,7 +580,7 @@ es:
           fields:
             closed: Cerrado
             end_time: Fecha de finalización
-            id: Id
+            id: ID
             map: Mapa
             official_meeting: Encuentro oficial
             start_time: Fecha de inicio
@@ -617,7 +631,7 @@ es:
           invalid: Se ha producido un error al salir de este encuentro.
           success: Has salido del encuentro con éxito.
       type_of_meeting:
-        hybrid: Ambos
+        hybrid: Hibrida
         in_person: Presencial
         online: En línea
       types:

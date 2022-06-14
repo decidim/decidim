@@ -7,17 +7,34 @@ module Decidim
     describe LeaveUserGroup do
       describe "call" do
         let(:organization) { create(:organization) }
-        let(:membership) { create :user_group_membership, role: :admin }
+        let(:membership) { create :user_group_membership, role: role }
+        let(:role) { :admin }
         let(:user) { membership.user }
         let(:user_group) { membership.user_group }
 
         let(:command) { described_class.new(user, user_group) }
 
         context "when the user is the creator" do
-          let(:membership) { create :user_group_membership, role: :creator }
+          let(:role) { :creator }
 
-          it "broadcasts invalid" do
-            expect { command.call }.to broadcast(:invalid)
+          it "broadcasts last admin cant leave group" do
+            expect { command.call }.to broadcast(:last_admin)
+          end
+
+          context "and there is another admin in the group" do
+            let!(:another_membership) { create(:user_group_membership, user_group: user_group, role: :admin) }
+
+            it "broadcasts ok" do
+              expect { command.call }.to broadcast(:ok)
+            end
+          end
+
+          context "and there is another member in the group" do
+            let!(:another_membership) { create(:user_group_membership, user_group: user_group, role: :member) }
+
+            it "doesnt allow last admin to leave the group" do
+              expect { command.call }.to broadcast(:last_admin)
+            end
           end
         end
 
@@ -31,6 +48,8 @@ module Decidim
         end
 
         context "when the data is valid" do
+          let(:role) { :member }
+
           it "broadcasts ok" do
             expect { command.call }.to broadcast(:ok)
           end

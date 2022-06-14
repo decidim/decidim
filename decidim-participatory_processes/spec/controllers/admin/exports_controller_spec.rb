@@ -3,21 +3,21 @@
 require "spec_helper"
 
 module Decidim
-  module Assemblies
+  module ParticipatoryProcesses
     module Admin
       describe ExportsController, type: :controller do
-        routes { Decidim::Assemblies::AdminEngine.routes }
+        routes { Decidim::ParticipatoryProcesses::AdminEngine.routes }
 
         let!(:organization) { create(:organization) }
-        let!(:assembly) { create :assembly, organization: organization }
+        let!(:participatory_process) { create :participatory_process, organization: organization }
         let!(:user) { create(:user, :admin, :confirmed, organization: organization) }
-        let!(:component) { create(:component, participatory_space: assembly, manifest_name: "dummy") }
+        let!(:component) { create(:component, participatory_space: participatory_process, manifest_name: "dummy") }
 
         let(:params) do
           {
             id: "dummies",
             component_id: component.id,
-            assembly_slug: assembly.slug
+            participatory_process_slug: participatory_process.slug
           }
         end
 
@@ -46,6 +46,18 @@ module Decidim
               post(:create, params: params)
             end
           end
+        end
+
+        it "traces the action", versioning: true do
+          expect(Decidim.traceability)
+            .to receive(:perform_action!)
+            .with("export_component", component, user, { name: "dummies", format: "json" })
+            .and_call_original
+
+          expect { post(:create, params: params) }.to change(Decidim::ActionLog, :count)
+          action_log = Decidim::ActionLog.last
+          expect(action_log.action).to eq("export_component")
+          expect(action_log.version).to be_present
         end
       end
     end
