@@ -128,7 +128,7 @@ module Decidim
 
           context "when author is an organization" do
             it "assigns current_organization.id as decidim_author_id" do
-              expect(subject.decidim_author_id).to eq(nil)
+              expect(subject.decidim_author_id).to be_nil
             end
 
             it "assigns current_organization as author" do
