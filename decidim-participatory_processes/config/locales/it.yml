@@ -60,12 +60,6 @@ it:
         email: Email
         name: Titolo
         role: Ruolo
-    errors:
-      models:
-        participatory_process:
-          attributes:
-            document:
-              invalid_document_type: 'Tipo di documento non valido. I formati accettati sono: %{valid_mime_types}'
     models:
       decidim/participatory_process_step_activated_event: Fase attivata
       decidim/participatory_process_step_changed_event: Fase modificata

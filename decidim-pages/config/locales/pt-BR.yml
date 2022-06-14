@@ -29,7 +29,5 @@ pt-BR:
             invalid: Ocorreu erros ao salvar a página.
             success: Página salva com sucesso.
       home:
-        hero:
-          participate_title: Participar dos processos da plataforma
         sub_hero:
           register_title: Cadastre-se para criar uma conta

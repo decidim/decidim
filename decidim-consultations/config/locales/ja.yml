@@ -360,7 +360,6 @@ ja:
         start_voting_date: 投票が始まります
       question_components:
         question_menu_item: 質問
-        unfold: 展開する
       question_header:
         back_to_consultation: すべての議案を見る
         back_to_question: 質問に戻る

@@ -21,6 +21,7 @@ es-MX:
       timeline_entry:
         description: Descripción
         entry_date: Fecha
+        title: Título
     models:
       decidim/accountability/proposal_linked_event: Propuesta incluida en un resultado
       decidim/accountability/result_progress_updated_event: Progreso del resultado actualizado
@@ -121,6 +122,14 @@ es-MX:
           create: "%{user_name} creó el resultado %{resource_name} en %{space_name}"
           delete: "%{user_name} borró el resultado %{resource_name} en %{space_name}"
           update: "%{user_name} actualizó el resultado %{resource_name} en %{space_name}"
+        status:
+          create: "%{user_name} ha creado el estado %{resource_name}"
+          delete: "%{user_name} ha eliminado el estado %{resource_name}"
+          update: "%{user_name} ha actualizado el estado %{resource_name}"
+        timeline_entry:
+          create: "%{user_name} ha creado la entrada %{resource_name} en la línea de tiempo"
+          delete: "%{user_name} ha actualitzado la entrada %{resource_name} en la línea de tiempo"
+          update: "%{user_name} ha actualizado la entrada %{resource_name} en la línea de tiempo"
         value_types:
           parent_presenter:
             not_found: 'El padre no se encontró en la base de datos (ID: %{id})'
@@ -158,8 +167,8 @@ es-MX:
             progress: Progreso
         timeline_entry:
           fields:
-            description: Descripción
             entry_date: Fecha
+            title: Título
       result_m:
         executed: Ejecutado
         view: Ver

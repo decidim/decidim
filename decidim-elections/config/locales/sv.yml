@@ -203,9 +203,6 @@ sv:
             result: Resultat
             selected: Valda
             submit: Skicka in
-          tally:
-            continue: Fortsätt
-            mark_as_missing: Markera som saknad
           tally_ended:
             answer: Svar
             not_selected: Inte vald
@@ -213,6 +210,8 @@ sv:
             result: Resultat
             selected: Valda
             submit: Publicera resultat
+          tally_started:
+            mark_as_missing: Markera som saknad
           vote:
             title: Röstningsperiod
           vote_stats:
@@ -336,16 +335,6 @@ sv:
               completed: Slutförd
               pending: Avvaktande
               processing: Bearbetar
-          tally_steps:
-            back: Tillbaka
-            list:
-              status: Status
-              task: Uppgift
-            start: Start
-            status:
-              completed: Slutförd
-              pending: Väntande
-              processing: Bearbetar
         trustees:
           show:
             elections:
@@ -364,7 +353,6 @@ sv:
         ballot_decision:
           audit: "( Granska valsedel )"
           back: Starta om omröstningsprocessen
-          cast: Rösta
         confirm:
           answer: Svar
           answer_number: svara %{number}
@@ -556,10 +544,6 @@ sv:
             create: Skapa
             title: Ny omröstning
       census:
-        admin:
-          census:
-            new:
-              submit: Skicka in csv
         document_types:
           dni: ID-kort
           nie: Personnummer
@@ -569,9 +553,6 @@ sv:
             download: Ladda ner
       content_blocks:
         landing_page:
-          description:
-            show_less: Läs mindre
-            show_more: Läs mer
           metrics:
             heading: Metrik
           polling_stations:

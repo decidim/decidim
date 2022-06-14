@@ -355,6 +355,10 @@ de:
       calendar_modal:
         calendar_url: Kalender-URL
         close_window: Fenster schließen
+        copy_calendar_url: Kopieren
+        copy_calendar_url_copied: Kopiert!
+        copy_calendar_url_description: Sie können alle veröffentlichten Meetings in Ihrer Kalenderanwendung oder bei Ihrem Kalender-Anbieter sehen. Kopieren und fügen Sie diese URL mit der Option "Neuen Kalender von einer URL hinzufügen" in Ihren Kalender ein.
+        copy_calendar_url_explanation: Bitte beachten Sie, dass Sie eine Auswahl von Meetings exportieren, da es aktive Filter gibt. Wenn Sie alle exportieren möchten, setzen Sie zuerst alle Filter zurück.
         export_calendar: Kalender exportieren
       conference_venues: Tagungsstätten
       content_blocks:
@@ -435,7 +439,6 @@ de:
           type: Art
           type_values:
             all: Alle
-            hybrid: Beides
             in_person: Persönlich
             online: Online
         filters_small_view:
@@ -541,7 +544,6 @@ de:
           invalid: Beim Verlassen dieses Meetings ist ein Problem aufgetreten.
           success: Sie haben das Meeting erfolgreich verlassen.
       type_of_meeting:
-        hybrid: Beides
         in_person: In Person
         online: Online
       types:

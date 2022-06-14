@@ -75,7 +75,6 @@ pl:
     'true': 'Tak'
   carrierwave:
     errors:
-      image_too_big: Obraz jest zbyt duży
       not_inside_organization: Plik nie jest dołączony do żadnej organizacji
   date:
     formats:
@@ -91,9 +90,6 @@ pl:
       skip_button: Przejdź do głównej zawartości
     account:
       blocked: To konto zostało zablokowane z powodu naruszenia Regulaminu
-      data_portability_export:
-        file_no_exists: Plik nie istnieje
-        notice: Twoje dane są obecnie w trakcie procesowania w celu pobrania. Otrzymasz e-mail po zakończeniu.
       delete:
         alert: Tej czynności nie można cofnąć. Jeśli usuniesz swoje konto, nie będziesz mógł zalogować się za pomocą swoich danych. Usunięcie Twojego konta spowoduje, że cała Twoja aktywność w portalu stanie się anonimowa. Nadal będziesz mógł utworzyć nowe konto, ale Twoje dotychczasowe zasoby nie będą już z nim powiązane.
         confirm:
@@ -105,6 +101,9 @@ pl:
       destroy:
         error: Podczas usuwania Twojego konta wystąpił błąd.
         success: Twoje konto zostało pomyślnie usunięte.
+      download_your_data_export:
+        file_no_exists: Plik nie istnieje
+        notice: Twoje dane są obecnie w trakcie procesowania w celu pobrania. Otrzymasz e-mail po zakończeniu.
       show:
         change_password: Zmień hasło
         update_account: Zaktualizuj konto
@@ -386,8 +385,8 @@ pl:
             amendments_enabled: Poprawki dozwolone
             comments_enabled: Komentarze włączone
             comments_max_length: Maksymalna długość komentarzy
-            dummy_global_attribute_1: Przykładowy atrybut 1
-            dummy_global_attribute_2: Przykładowy atrybut 2
+            dummy_global_attribute1: Przykładowy atrybut 1
+            dummy_global_attribute2: Przykładowy atrybut 2
             dummy_global_translatable_text: Przykładowy tekst do tłumaczenia
             enable_pads_creation: Włącz tworzenie padów
             resources_permissions_enabled: Włączono uprawnienia do zasobów
@@ -399,8 +398,8 @@ pl:
             amendment_reaction_enabled: Odpowiadanie na poprawki włączone
             amendments_visibility: Widoczność poprawek
             comments_blocked: Komentarze zablokowane
-            dummy_step_attribute_1: Przykładowy atrybut etapu 1
-            dummy_step_attribute_2: Przykładowy atrybut etapu 2
+            dummy_step_attribute1: Przykładowy atrybut etapu 1
+            dummy_step_attribute2: Przykładowy atrybut etapu 2
             dummy_step_translatable_text: Przykładowy tekst etapu do tłumaczenia
     contact: Kontakt
     content_blocks:
@@ -444,13 +443,6 @@ pl:
       actions:
         login_before_access: Zaloguj się na swoje konto, żeby mieć dostęp
         unauthorized: Nie masz uprawnień do wykonania tej czynności
-    data_portability:
-      export:
-        ready: Gotowy
-      show:
-        download_data: Pobierz dane
-        download_data_description: Plik zawierający wszystkie informacje związane z Twoim kontem zostanie wysłany do <strong>%{user_email}</strong>. E-mail będzie zawierał plik .zip i hasło, aby go otworzyć.<br/><br/>Aby rozpakować plik, będziesz potrzebował <a href="https://www.7-zip.org/">7-Zip</a> (Windows) lub <a href="https://www.keka.io/">Keka</a> (MacOS). Jeśli używasz systemu Linux, w większości przypadków program będziesz miał zainstalowany domyślnie. Jeśli nie, możesz użyć programów <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> lub <a href="https://peazip.github.io">PeaZip</a>.
-        request_data: Poproś o dane
     datepicker:
       help_text: 'Oczekiwany format: %{datepicker_format}'
     devise:
@@ -518,6 +510,13 @@ pl:
           this_application_will_not_be_able_to: 'Ta aplikacja nie będzie mogła:'
           update_profile: Zaktualizuj swój profil
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> chce używać Twojego konta"
+    download_your_data:
+      export:
+        ready: Gotowy
+      show:
+        download_data: Pobierz dane
+        download_data_description: Plik zawierający wszystkie informacje związane z Twoim kontem zostanie wysłany do <strong>%{user_email}</strong>. E-mail będzie zawierał plik .zip i hasło, aby go otworzyć.<br/><br/>Aby rozpakować plik, będziesz potrzebował <a href="https://www.7-zip.org/">7-Zip</a> (Windows) lub <a href="https://www.keka.io/">Keka</a> (MacOS). Jeśli używasz systemu Linux, w większości przypadków program będziesz miał zainstalowany domyślnie. Jeśli nie, możesz użyć programów <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> lub <a href="https://peazip.github.io">PeaZip</a>.
+        request_data: Poproś o dane
     endorsable:
       endorsements: Rekomendacje
       endorsements_count: Liczba rekomendacji
@@ -678,7 +677,7 @@ pl:
           email_subject: "%{nickname} zaktualizował(a) swój profil"
           notification_title: Zaktualizowano <a href="%{resource_path}">stronę profilową</a> użytkownika %{name} (%{nickname}), którego obserwujesz.
     export_mailer:
-      data_portability_export:
+      download_your_data_export:
         click_button: 'Kliknij poniższy przycisk, aby pobrać swoje dane. <br/>Plik będzie dostępny do %{date}. <br/>Będziesz potrzebował <a href=''''https://www.7-zip.org/''''>7-Zip</a> (Windows), <a href="https://www.keka.io/en/">Keka</a> (MacOS) lub <a href="https://peazip.github.io">PeaZip</a> (Linux) do otwarcia pliku. Hasło: %{password}'
         download: Pobieranie
       export:
@@ -730,7 +729,6 @@ pl:
         file:
           explanation: 'Wytyczne dotyczące pliku:'
           message_1: Ma być obrazem lub dokumentem.
-          message_2: Jako obrazów używaj najlepiej krajobrazów, obraz jest docinany automatycznie. Dla plików CSV separatorem kolumn musi być przecinek (",")
         image:
           explanation: 'Wytyczne dotyczące obrazu:'
           message_1: Preferowany obraz krajobrazu, który nie zawiera żadnego tekstu.
@@ -850,7 +848,6 @@ pl:
       no_user_groups: Nie należy jeszcze do żadnej grupy.
       roles:
         admin: Administrator
-        creator: Twórca
         member: Członek
       update:
         error: Wystąpił błąd podczas aktualizacji grupy
@@ -1050,14 +1047,11 @@ pl:
         administrators: Administratorzy
         allow_public_contact: Każdy może wysłać mi prywatną wiadomość, nawet jeśli go nie obserwuję.
         direct_messages: Przyjmuj prywatne wiadomości od każdego
-        email_on_moderations: Chcę otrzymywać e-mail za każdym razem, gdy coś jest zgłaszane do moderacji.
-        email_on_notification: Chcę otrzymywać wiadomości e-mail za każdym razem gdy otrzymuję powiadomienie.
         everything_followed: Dotyczące wszystkiego, co obserwuję
         newsletter_notifications: Chcę otrzymywać newslettery
         newsletters: Newslettery
         own_activity: Dotyczące moich własnych działań, np. kiedy ktoś komentuje moją propozycję lub wspomina o mnie
         receive_notifications_about: Chcę otrzymywać powiadomienia
-        send_notifications_by_email: Wysyłaj powiadomienia pocztą e-mail
         update_notifications_settings: Zapisz zmiany
       update:
         error: Podczas aktualizowania ustawień powiadomień wystąpił błąd.
@@ -1115,7 +1109,6 @@ pl:
           agreement: Akceptuję Regulamin
           legend: Zgadzam się z warunkami użytkowania
         refuse:
-          modal_body: Jeśli odmówisz, nie będziesz mógł korzystać z platformy, możesz <a href="%{data_portability_path}">pobrać swoje dane</a> i/lub <a href="%{delete_path}">usunąć konto</a>.
           modal_btn_continue: Zaakceptuj warunki i kontynuuj
           modal_btn_exit: Sprawdzę to później
           modal_button: Odrzuć warunki
@@ -1415,7 +1408,6 @@ pl:
     invitations:
       edit:
         header: Zakończ tworzenie konta
-        nickname_help: Twój unikalny identyfikator w %{organization}.
         submit_button: Zapisz
         subtitle: Jeśli akceptujesz zaproszenie, ustaw swój pseudonim i hasło.
       invitation_removed: Twoje zaproszenie zostało usunięte.
@@ -1579,10 +1571,6 @@ pl:
     timestamp_error_message: Przepraszam, to było za szybkie! Proszę przesłać ponownie.
   layouts:
     decidim:
-      cookie_warning:
-        description_html: Ta strona używa plików cookie. Kontynuując przeglądanie witryny, zgadzasz się na korzystanie z plików cookie. Dowiedz się więcej o tym %{link}.
-        link_label: Dowiedz się więcej o plikach cookie
-        ok: Zgadzam się
       edit_link:
         edit: Edytuj
       footer:
