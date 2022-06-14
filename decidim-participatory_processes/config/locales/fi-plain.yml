@@ -56,16 +56,12 @@ fi-pl:
         short_description: Lyhyt kuvaus
         start_date: Alkamispäivä
         title: Otsikko
+      participatory_process_type:
+        title: Otsikko
       participatory_process_user_role:
         email: Sähköposti
         name: Nimi
         role: Rooli
-    errors:
-      models:
-        participatory_process:
-          attributes:
-            document:
-              invalid_document_type: 'Virheellinen asiakirjan tyyppi. Hyväksytyt tiedostomuodot ovat: %{valid_mime_types}'
     models:
       decidim/participatory_process_step_activated_event: Vaihe aktivoidaan
       decidim/participatory_process_step_changed_event: Vaihe muutettu
@@ -96,6 +92,7 @@ fi-pl:
         new_process: Uusi prosessi
         new_process_group: Uusi prosessiryhmä
         new_process_step: Uusi vaihe
+        new_process_type: Uusi prosessityyppi
         new_process_user_role: Uusi prosessikäyttäjä
         preview: Esikatsele
         publish: Julkaise
@@ -106,6 +103,7 @@ fi-pl:
         participatory_process_groups_submenu:
           info: Tiedot
           landing_page: Laskeutumissivu
+        participatory_process_types: Prosessityypit
         participatory_processes: Prosessit
         participatory_processes_submenu:
           attachment_collections: Kansiot
@@ -137,6 +135,11 @@ fi-pl:
             start_date: Alkamispäivä
             title: Otsikko
           name: Osallisuusprosessin vaihe
+        participatory_process_type:
+          fields:
+            created_at: Luontiaika
+            title: Otsikko
+          name: Prosessityyppi
         participatory_process_user_role:
           fields:
             email: Sähköposti
@@ -219,6 +222,23 @@ fi-pl:
         update:
           error: Tämän osallisuusprosessin vaiheen päivityksessä tapahtui virhe.
           success: Osallisuusprosessin vaihe päivitetty onnistuneesti.
+      participatory_process_types:
+        create:
+          error: Prosessityypin luonti epäonnistui.
+          success: Prosessityypin luonti onnistui.
+        destroy:
+          success: Prosessityypin poisto onnistui.
+        edit:
+          title: Muokkaa prosessityyppiä
+          update: Päivitä
+        form:
+          title: Otsikko
+        new:
+          create: Luo
+          title: Uusi prosessityyppi
+        update:
+          error: Prosessityypin päivitys epäonnistui.
+          success: Prosessityypin päivittäminen onnistui.
       participatory_process_user_roles:
         create:
           error: Tapahtui virhe lisätessä käyttäjää osallisuusprosessiin.
@@ -263,6 +283,7 @@ fi-pl:
           success: Osallisuusprosessiryhmä luotu onnistuneesti.
       titles:
         participatory_process_groups: Osallisuusprosessiryhmät
+        participatory_process_types: Osallistumisprosessien tyypit
         participatory_processes: Osallisuusprosessit
       users:
         resend_invitation:
@@ -271,6 +292,9 @@ fi-pl:
     admin_log:
       participatory_process:
         create: "%{user_name} loi osallisuusprosessin %{resource_name}"
+        duplicate: "%{user_name} kopioi osallistumisprosessin %{resource_name}"
+        export: "%{user_name} vei osallistumisprosessin %{resource_name}"
+        import: "%{user_name} toi osallistumisprosessin %{resource_name}"
         publish: "%{user_name} julkaisi osallisuusprosessin %{resource_name}"
         unpublish: "%{user_name} muutti osallisuusprosessin %{resource_name} julkaisemattomaksi"
         update: "%{user_name} päivitti osallisuusprosessin %{resource_name}"
@@ -282,6 +306,10 @@ fi-pl:
         create: "%{user_name} loi vaiheen %{resource_name} osallisuusprosessissa %{space_name}"
         delete: "%{user_name} poisti vaiheen %{resource_name} osallisuusprosessissa %{space_name}"
         update: "%{user_name} päivitti vaiheen %{resource_name} osallisuusprosessissa %{space_name}"
+      participatory_process_type:
+        create: "%{user_name} loi prosessityypin %{resource_name}"
+        delete: "%{user_name} poisti prosessityypin %{resource_name}"
+        update: "%{user_name} päivitti prosessityyppiä %{resource_name}"
       participatory_process_user_role:
         create: "%{user_name} kutsui käyttäjän %{resource_name} osallisuusprosessiin %{space_name}"
         delete: "%{user_name} poisti käyttäjän %{resource_name} osallisuusprosessista %{space_name}"
@@ -309,6 +337,10 @@ fi-pl:
           contextual: "<p><strong>Osallisuusprosessi</strong> on osallisuustoimien sarja (esim. täytä ensin kysely, tee sitten ehdotuksia, keskustele niistä kasvokkain tai virtuaalisissa tapaamisissa ja lopuksi priorisoi ne), tavoitteena päättää tietystä aiheesta.</p> <p>Esimerkkejä osallisuusprosesseista ovat komitean jäsenten valintamenettely (jossa ensin esitetään ehdokkaat, sitten keskustellaan ja lopulta valitaan jäsenet), osallistuva budjetointi (joissa tehdään ehdotuksia, arvioidaan niiden toteutushinta ja äänestetään niistä budjetoitujen varojen puitteissa) strateginen suunnitteluprosessi ja asetuksen, säädöksen, kaupunkisuunnitelman tai julkisen toimintasuunnitelman laatimisen yhteistyöstäminen.</p>\n"
           page: "<p><strong>Osallisuusprosessi</strong> on osallisuustoimien sarja (esim. täytä ensin kysely, tee sitten ehdotuksia, keskustele niistä kasvokkain tai virtuaalisissa tapaamisissa ja lopuksi priorisoi ne), tavoitteena päättää tietystä aiheesta.</p> <p>Esimerkkejä osallisuusprosesseista ovat komitean jäsenten valintamenettely (jossa ensin esitetään ehdokkaat, sitten keskustellaan ja lopulta valitaan jäsenet), osallistuva budjetointi (joissa tehdään ehdotuksia, arvioidaan niiden toteutushinta ja äänestetään niistä budjetoitujen varojen puitteissa) strateginen suunnitteluprosessi ja asetuksen, säädöksen, kaupunkisuunnitelman tai julkisen toimintasuunnitelman laatimisen yhteistyöstäminen.</p>"
           title: Mikä on osallisuusprosessi?
+    log:
+      value_types:
+        participatory_process_type_presenter:
+          not_found: 'Prosessityyppiä ei löytynyt tietokannasta (ID: %{id})'
     menu:
       processes: Prosessit
     metrics:
@@ -384,6 +416,7 @@ fi-pl:
             related_processes: Liittyvät prosessit
             scope_type_max_depth_help: Rajaa teemasuodattimen syvyyttä; suodatin näyttää yleisestä teemasta valittuun teematyyppiin saakka.
             select_an_area: Valitse alue
+            select_participatory_process_type: Valitse prosessityyppi
             select_process_group: Valitse prosessiryhmä
             slug_help: 'URL-tunnisteita käytetään tuottamaan URL-tunnisteet, jotka viittaavat tähän prosessiin. Hyväksyy vain kirjaimia, numeroita ja viivoja. Arvon on alettava kirjaimella. Esimerkki: %{url}'
             title: Yleistä tietoa
@@ -410,6 +443,7 @@ fi-pl:
           back_to_process: Takaisin prosessin sivulle
       participatory_processes:
         filters:
+          all_types: Kaikki tyypit
           counters:
             active:
               one: 1 aktiivinen prosessi
@@ -427,6 +461,7 @@ fi-pl:
             no_active: Ei aktiivisia prosesseja
             no_active_nor_upcoming: Ei aktiivisia tai tulevia prosesseja
             no_active_nor_upcoming_callout: Ei ole olemassa aktiivisia tai tulevia prosesseja. Tässä on luettelo menneistä.
+          filter_by: Näytä
           names:
             active: Aktiiviset
             all: Kaikki

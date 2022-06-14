@@ -59,9 +59,7 @@ sv:
         avatar: Avatar
         conference_meeting_ids: Relaterade möten
         full_name: Fullständigt namn
-        personal_url: Personlig URL
         position: Plats
-        short_bio: Kort biographi
         twitter_handle: Twitternamn
         user_id: Användare
       conference_user_role:

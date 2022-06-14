@@ -59,12 +59,6 @@ tr:
         email: E-posta
         name: isim
         role: rol
-    errors:
-      models:
-        participatory_process:
-          attributes:
-            document:
-              invalid_document_type: 'Geçersiz belge türü. Kabul edilen biçimler şunlardır: %{valid_mime_types}'
     models:
       decidim/participatory_process_step_activated_event: Adım aktif
       decidim/participatory_process_step_changed_event: Adım değişti

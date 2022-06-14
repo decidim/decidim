@@ -21,6 +21,7 @@ ja:
       timeline_entry:
         description: 説明
         entry_date: 日付
+        title: タイトル
     models:
       decidim/accountability/proposal_linked_event: 結果に提案を含めます
       decidim/accountability/result_progress_updated_event: 結果の進捗状況が更新されました
@@ -120,6 +121,14 @@ ja:
           create: "%{user_name} が結果 %{resource_name} を %{space_name} に作成しました"
           delete: "%{user_name} が %{resource_name} の結果 %{space_name} を削除しました"
           update: "%{user_name} の結果 %{resource_name} を %{space_name} に更新しました"
+        status:
+          create: "%{user_name} が %{resource_name} ステータスを作成しました"
+          delete: "%{user_name} が %{resource_name} ステータスを削除しました"
+          update: "%{user_name} が %{resource_name} ステータスを更新しました"
+        timeline_entry:
+          create: "%{user_name} が %{resource_name} タイムラインエントリを作成しました"
+          delete: "%{user_name} が %{resource_name} タイムラインエントリを削除しました"
+          update: "%{user_name} が %{resource_name} タイムラインエントリを更新しました"
         value_types:
           parent_presenter:
             not_found: '親がデータベース上に見つかりませんでした (ID: %{id})'
@@ -157,8 +166,8 @@ ja:
             progress: 進捗状況
         timeline_entry:
           fields:
-            description: 説明
             entry_date: 日付
+            title: タイトル
       result_m:
         executed: 実行日時
         view: 表示

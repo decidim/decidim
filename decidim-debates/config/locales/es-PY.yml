@@ -99,10 +99,6 @@ es-PY:
           description: '¿Cuál es el resumen o la conclusión de este debate?'
           send: Cerrar debate
         closed: Cerrado
-        count:
-          debates_count:
-            one: "%{count} debate"
-            other: "%{count} debates"
         create:
           invalid: Ha habido un problema al crear el debate.
           success: Debate creado con éxito.

@@ -60,9 +60,6 @@ el:
   booleans:
     'false': 'Όχι'
     'true': 'Ναι'
-  carrierwave:
-    errors:
-      image_too_big: Η εικόνα είναι πολύ μεγάλη
   date:
     formats:
       decidim_short: "%d/%m/%Y"
@@ -76,9 +73,6 @@ el:
       logo: "Επίσημο λογότυπο του οργανισμού %{organization}"
       skip_button: Μετάβαση στο κύριο περιεχόμενο
     account:
-      data_portability_export:
-        file_no_exists: Το αρχείο δεν υπάρχει
-        notice: Η λήψη των δεδομένων σας είναι σε εξέλιξη. Θα λάβετε email όταν ολοκληρωθεί.
       delete:
         confirm:
           close: Κλείσιμο παραθύρου
@@ -89,6 +83,9 @@ el:
       destroy:
         error: Υπήρξε ένα πρόβλημα κατά τη διαγραφή του λογαριασμού σας.
         success: Ο λογαριασμός σας διαγράφηκε με επιτυχία.
+      download_your_data_export:
+        file_no_exists: Το αρχείο δεν υπάρχει
+        notice: Η λήψη των δεδομένων σας είναι σε εξέλιξη. Θα λάβετε email όταν ολοκληρωθεί.
       show:
         change_password: Αλλαγή κωδικού πρόσβασης
         update_account: Ενημέρωση λογαριασμού
@@ -335,8 +332,8 @@ el:
           global:
             amendments_enabled: Οι τροποποιήσεις ενεργοποιήθηκαν
             comments_enabled: Τα σχόλια ενεργοποιήθηκαν
-            dummy_global_attribute_1: Εικονικό χαρακτηριστικό 1
-            dummy_global_attribute_2: Εικονικό χαρακτηριστικό 2
+            dummy_global_attribute1: Εικονικό χαρακτηριστικό 1
+            dummy_global_attribute2: Εικονικό χαρακτηριστικό 2
             dummy_global_translatable_text: Εικονικό μετατρέψιμο κείμενο
             enable_pads_creation: Ενεργοποίηση δημιουργίας πινάκων σημειώσεων
             resources_permissions_enabled: Τα δικαιώματα πόρων ενεργοποιήθηκαν
@@ -346,8 +343,8 @@ el:
             amendment_reaction_enabled: Η αντίδραση στην τροποποίηση ενεργοποιήθηκε
             amendments_visibility: Ορατότητα τροποποίησης
             comments_blocked: Τα σχόλια αποκλείστηκαν
-            dummy_step_attribute_1: Εικονικό χαρακτηριστικό βήματος 1
-            dummy_step_attribute_2: Εικονικό χαρακτηριστικό βήματος 2
+            dummy_step_attribute1: Εικονικό χαρακτηριστικό βήματος 1
+            dummy_step_attribute2: Εικονικό χαρακτηριστικό βήματος 2
             dummy_step_translatable_text: Εικονικό μετατρέψιμο κείμενο βήματος
     contact: Επικοινωνία
     content_blocks:
@@ -379,12 +376,6 @@ el:
       actions:
         login_before_access: Συνδεθείτε με τον λογαριασμό σας πριν από την πρόσβαση
         unauthorized: Δεν είστε εξουσιοδοτημένοι να εκτελέσετε αυτήν την ενέργεια
-    data_portability:
-      export:
-        ready: Έτοιμο
-      show:
-        download_data: Πραγματοποιήστε λήψη των δεδομένων
-        request_data: Αίτηση για δεδομένα
     datepicker:
       help_text: 'Αναμενόμενη μορφή: %{datepicker_format}'
     devise:
@@ -451,6 +442,12 @@ el:
           this_application_will_not_be_able_to: 'Αυτή η εφαρμογή δεν θα μπορεί να:'
           update_profile: Ενημερώστε το προφίλ σας
           wants_to_use_your_account_html: "Η εφαρμογή <strong>%{application_name}</strong> θέλει να χρησιμοποιήσει τον λογαριασμό σας"
+    download_your_data:
+      export:
+        ready: Έτοιμο
+      show:
+        download_data: Πραγματοποιήστε λήψη των δεδομένων
+        request_data: Αίτηση για δεδομένα
     endorsable:
       endorsements: Επιδοκιμασίες
       endorsements_count: Καταμέτρηση επιδοκιμασιών
@@ -603,7 +600,7 @@ el:
           email_subject: "Ο/η %{nickname} ενημέρωσε το προφίλ του/της"
           notification_title: Η <a href="%{resource_path}">σελίδα προφίλ</a> του υποστηρικτή %{name} (%{nickname}), τον οποίο ακολουθείτε, έχει ενημερωθεί.
     export_mailer:
-      data_portability_export:
+      download_your_data_export:
         download: Λήψη
       export:
         ready: Επισυνάπτεται μια συμπιεσμένη έκδοση της εξαγωγής σας.
@@ -770,7 +767,6 @@ el:
       no_user_groups: Δεν ανήκει σε καμία ομάδα ακόμα.
       roles:
         admin: Διαχειριστής
-        creator: Δημιουργός
         member: Μέλος
       update:
         error: Υπήρξε ένα πρόβλημα κατά την ενημέρωση της ομάδας
@@ -954,13 +950,11 @@ el:
       show:
         allow_public_contact: Να επιτρέπεται σε οποιονδήποτε να μου στέλνει άμεσο μήνυμα, ακόμα κι αν δεν τον ακολουθώ.
         direct_messages: Να λαμβάνω άμεσα μηνύματα από οποιονδήποτε
-        email_on_notification: Θέλω να λαμβάνω email κάθε φορά που λαμβάνω ειδοποίηση.
         everything_followed: Όλα όσα ακολουθώ
         newsletter_notifications: Θέλω να λαμβάνω ενημερωτικά δελτία
         newsletters: Ενημερωτικά δελτία
         own_activity: Η δική μου δραστηριότητα, όπως όταν κάποιος σχολιάζει την πρότασή μου ή με αναφέρει
         receive_notifications_about: Θέλω να λαμβάνω ειδοποιήσεις για
-        send_notifications_by_email: Αποστολή ειδοποιήσεων μέσω email
         update_notifications_settings: Αποθήκευση αλλαγών
       update:
         error: Υπήρξε ένα πρόβλημα κατά την ενημέρωση των ρυθμίσεων ειδοποιήσεων.
@@ -1017,7 +1011,6 @@ el:
         form:
           legend: Αποδοχή των όρων και των προϋποθέσεων χρήσης
         refuse:
-          modal_body: Εάν αρνηθείτε, δεν θα μπορείτε να χρησιμοποιήσετε την πλατφόρμα, μπορείτε να πραγματοποιήσετε <a href="%{data_portability_path}">λήψη των δεδομένων σας</a> ή/και <a href="%{delete_path}">διαγραφή του λογαριασμού σας</a>.
           modal_btn_continue: Αποδοχή των όρων και συνέχεια
           modal_btn_exit: Θα τους διαβάσω αργότερα
           modal_button: Απόρριψη των όρων
@@ -1267,7 +1260,6 @@ el:
     invitations:
       edit:
         header: Ολοκληρώστε τη δημιουργία του λογαριασμού σας
-        nickname_help: Το ψευδώνυμό σας στον οργανισμό %{organization}.
         submit_button: Αποθήκευση
         subtitle: Εάν αποδεχτείτε την πρόσκληση, ορίστε το ψευδώνυμο και τον κωδικό πρόσβασής σας.
       invitation_removed: Η πρόσκλησή σας καταργήθηκε.
@@ -1421,10 +1413,6 @@ el:
     timestamp_error_message: Συγνώμη, αυτό ήταν πολύ γρήγορο! Επαναλάβετε την υποβολή.
   layouts:
     decidim:
-      cookie_warning:
-        description_html: Αυτός ο ιστότοπος χρησιμοποιεί cookies. Συνεχίζοντας την περιήγηση στον ιστότοπο, αποδέχεστε τη χρήση των cookies από εμάς. %{link}.
-        link_label: Μάθετε περισσότερα για τα cookies
-        ok: Συμφωνώ
       edit_link:
         edit: Επεξεργασία
       footer:

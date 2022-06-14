@@ -39,10 +39,6 @@
         keep_authors: Behold originale forfattere
     errors:
       models:
-        participatory_text:
-          attributes:
-            document:
-              invalid_document_type: 'Ugyldig dokumenttype. Godkjente formater er: %{valid_mime_types}'
         proposal:
           attributes:
             add_documents:
@@ -217,33 +213,21 @@
           proposal_note_created:
             email_intro: Noen har lagt ut en merknad på forslaget "%{resource_title}". Sjekk det ut i <a href="%{admin_proposal_info_url}">administratorpanelet</a>
         collaborative_draft_access_accepted:
-          email_intro: '%{requester_name} har blitt akseptert tilgang som bidragsyter til <a href="%{resource_path}">%{resource_title}</a> samarbeids utkastet.'
-          email_outro: Du har mottatt denne varslingen fordi du er en samarbeidspartner av <a href="%{resource_path}">%{resource_title}</a>.
           email_subject: "%{requester_name} har blitt akseptert tilgang som bidragsyter til %{resource_title}."
           notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> har blitt <strong>akseptert tilgang som bidragsyter</strong> av <a href="%{resource_path}">%{resource_title}</a> samarbeids utkastet.
         collaborative_draft_access_rejected:
-          email_intro: '%{requester_name} har blitt avslått tilgang som bidragsyter til <a href="%{resource_path}">%{resource_title}</a> samarbeids utkastet.'
-          email_outro: Du har mottatt denne varslingen fordi du er en samarbeidspartner av <a href="%{resource_path}">%{resource_title}</a>.
           email_subject: "%{requester_name} har blitt avslått tilgang som bidragsyter til %{resource_title} samarbeids utkastet."
           notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> har blitt <strong>avvist tilgang som bidragsyter</strong> av <a href="%{resource_path}">%{resource_title}</a> samarbeids utkastet.
         collaborative_draft_access_requested:
-          email_intro: '%{requester_name} ba om tilgang som bidragsyter. Du kan <strong>godta eller avslå forespørselen</strong> fra <a href="%{resource_path}">%{resource_title}</a> samarbeids utkast siden.'
-          email_outro: Du har mottatt denne varslingen fordi du er en samarbeidspartner av <a href="%{resource_path}">%{resource_title}</a>.
           email_subject: "%{requester_name} ba om tilgang som bidragsyter til %{resource_title}."
           notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> forespurte om tilgang til å bidra til <a href="%{resource_path}">%{resource_title}</a> samarbeids utkastet. Vennligst <strong>godta eller avslå forespørselen</strong>.
         collaborative_draft_access_requester_accepted:
-          email_intro: Du har blitt akseptert tilgang som bidragsgiver av <a href="%{resource_path}">%{resource_title}</a> samarbeids utkastet.
-          email_outro: Du har mottatt denne varslingen fordi du ba om å bli en samarbeidspartner av <a href="%{resource_path}">%{resource_title}</a>.
           email_subject: Du er blitt akseptert som en bidragsgiver av %{resource_title}.
           notification_title: Du har blitt <strong>akseptert tilgang som bidragsgiver</strong> av <a href="%{resource_path}">%{resource_title}</a> samarbeids utkastet.
         collaborative_draft_access_requester_rejected:
-          email_intro: Du har blitt avvist tilgang som bidragsgiver av <a href="%{resource_path}">%{resource_title}</a> samarbeids utkastet.
-          email_outro: Du har mottatt denne varslingen fordi du ba om å bli en samarbeidspartner av <a href="%{resource_path}">%{resource_title}</a>.
           email_subject: Du er blitt avvist som en bidragsgiver av %{resource_title}.
           notification_title: Du har blitt <strong>avvist tilgang som bidragsgiver</strong> av <a href="%{resource_path}">%{resource_title}</a> samarbeids utkastet.
         collaborative_draft_withdrawn:
-          email_intro: <a href="%{author_path}">%{author_name} %{author_nickname}</a> trakk <a href="%{resource_path}">%{resource_title}</a> samarbeids utkastet.
-          email_outro: Du har mottatt denne varslingen fordi du er en samarbeidspartner av <a href="%{resource_path}">%{resource_title}</a>.
           email_subject: "%{author_name}%{author_nickname} trukket tilbake %{resource_title} samarbeids utkast."
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> <strong>trakk</strong> <a href="%{resource_path}">%{resource_title}</a> samarbeids utkastet.
         creation_enabled:
@@ -753,7 +737,6 @@
             other: støtter
         new:
           send: Fortsett
-          title: Opprett Ditt forslag
         orders:
           label: 'Sorter forslag:'
           most_commented: Flest kommentarer

@@ -13,8 +13,11 @@ fi:
         decidim_scope_id: Teema
         description: Kuvaus
         proposal_ids: Liittyvät ehdotukset
+        proposals: Ehdotukset
         selected: Valittu toteutukseen
         title: Otsikko
+      proposals_import:
+        scope_id: Teema
   activerecord:
     models:
       decidim/budgets/project:
@@ -85,23 +88,50 @@ fi:
             title: Muokkaa suunnitelmaa
             update: Päivitä
           index:
+            actions: Toiminnot
+            cancel: Peruuta
+            change_category: Vaihda aihepiiri
+            change_scope: Vaihda teema
+            change_selected: Vaihda valittu-tilaa
+            deselect_implementation: Ei toteutukseen
             finished_orders: Valmiit äänet
             pending_orders: Odottavat äänet
+            select_for_implementation: Valittu toteutukseen
             selected: Valittu
             title: Suunnitelmat
+            update: Päivitä
+            update_scope_button: Muuta teema
           new:
             create: Luo
             title: Uusi suunnitelma
           update:
             invalid: Suunnitelman päivitys epäonnistui
             success: Suunnitelman päivitys onnistui
+          update_category:
+            invalid: 'Näillä projekteilla oli jo aihepiiri %{subject_name}: %{projects}.'
+            select_a_category: Valitse aihepiiri
+            select_a_project: Valitse projekti
+            success: 'Seuraavien projektien aihepiirin päivitys onnistui %{subject_name}: %{projects}.'
+          update_scope:
+            invalid: 'Näillä projekteilla oli jo teema %{subject_name}: %{projects}.'
+            select_a_project: Valitse projekti
+            select_a_scope: Valitse teema
+            success: 'Seuraavien projektien teeman päivitys onnistui %{subject_name}: %{projects}.'
+          update_selected:
+            invalid: 'Nämä projektit oli jo merkitty toteutettaviksi: %{projects}.'
+            select_a_project: Valitse projekti
+            select_a_selection: Valitse toteutuksen tila
+            success: 'Toteutuksen tilan päivitys onnistui projekteille: %{projects}.'
         proposals_imports:
           create:
             invalid: Ehdotusten tuonti suunnitelmiksi epäonnistui
             success: "%{number} ehdotusta tuotu onnistuneesti suunnitelmiksi"
           new:
             create: Tuo ehdotuksia suunnitelmiksi
+            default_budget: Oletusbudjetti
+            import_all_accepted_proposals: Tuo kaikki hyväksytyt ehdotukset
             no_components: Tässä osallistumistilassa ei ole ole muita ehdotuskomponentteja, joista voitaisiin tuoda ehdotuksia suunnitelmiksi.
+            origin_component_id: Lähdekomponentti
             select_component: Valitse komponentti
             title: Tuo ehdotuksia
         reminders:
@@ -156,6 +186,7 @@ fi:
           fields:
             category: Aihepiiri
             id: ID
+            scope: Teema
             title: Otsikko
       order_summary_mailer:
         order_summary:
@@ -172,13 +203,13 @@ fi:
           title: Vahvista ääni
         budget_excess:
           budget_excess:
-            description: Tämä suunnitelma ylittää maksimibudjetin, minkä takia sitä ei voida lisätä. Halutessasi voit poistaa valinnan jostain toisesta suunnitelmasta tai jättää äänesi nykyisten valintojen mukaisesti.
+            description: Tämä projekti ylittää maksimibudjetin, minkä takia sitä ei voida lisätä ääneen. Halutessasi voit poistaa jonkin toisen projektin äänestäsi tai äänestää nykyisten valintojen mukaisesti.
             title: Maksimibudjetti ylitetty
           close: Sulje
-          description: Tämä suunnitelma ylittää maksimibudjetin, minkä takia sitä ei voida lisätä. Halutessasi voit poistaa valinnan jostain toisesta suunnitelmasta tai jättää äänesi nykyisten valintojen mukaisesti.
+          description: Tämä projekti ylittää maksimibudjetin, minkä takia sitä ei voida lisätä ääneen. Halutessasi voit poistaa jonkin toisen projektin äänestäsi tai äänestää nykyisten valintojen mukaisesti.
           ok: OK
           projects_excess:
-            description: Tämä suunnitelma ylittää maksimisuunnitelmien määrän, minkä takia sitä ei voida lisätä. Halutessasi voit poistaa valinnan jostain toisesta suunnitelmasta tai jättää äänesi nykyisten valintojen mukaisesti.
+            description: Tämä projekti ylittää valittavien projektien maksimimäärän, minkä takia sitä ei voida lisätä ääneen. Halutessasi voit poistaa jonkin toisen projektin äänestäsi tai äänestää nykyisten valintojen mukaisesti.
             title: Maksimisuunnitelmien määrä ylitetty
         budget_summary:
           are_you_sure: Haluatko varmasti peruuttaa äänesi?
@@ -295,7 +326,7 @@ fi:
             total_budget: Kokonaisbudjetti
             vote_minimum_budget_projects_number: Valittavien projektien vähimmäismäärä
             vote_rule_minimum_budget_projects_enabled: 'Ota sääntö käyttöön: Valittavien suunnitelmien vähimmäismäärä'
-            vote_rule_selected_projects_enabled: 'Ota sääntö käyttöön: Valittavat suunnitelmat määritettyjen vähimmäis- ja enimmäismäärän mukaisesti'
+            vote_rule_selected_projects_enabled: 'Ota sääntö käyttöön: Valittavien suunnitelmien enimmäis- ja vähimmäismäärä'
             vote_rule_threshold_percent_enabled: 'Ota sääntö käyttöön: Kokonaisbudjetin prosentuaalinen vähimmäismäärä'
             vote_selected_projects_maximum: Valittavien suunnitelmien enimmäismäärä
             vote_selected_projects_minimum: Valittavien suunnitelmien vähimmäismäärä

@@ -58,9 +58,6 @@ bg:
   booleans:
     'false': 'Не'
     'true': 'Да'
-  carrierwave:
-    errors:
-      image_too_big: Изображението е твърде голямо
   date:
     formats:
       decidim_short: "%d/%m/%Y"
@@ -73,9 +70,6 @@ bg:
       logo: "Официално лого на %{organization}"
       skip_button: Към съдържанието
     account:
-      data_portability_export:
-        file_no_exists: Файлът не съществува
-        notice: Свалянето на Вашите данни е в процес. Ще получите ел. писмо когато приключи.
       delete:
         confirm:
           close: Затвори прозореца
@@ -86,6 +80,9 @@ bg:
       destroy:
         error: Възникна проблем с изтриването на профила Ви.
         success: Вашият профил е успешно изтрит.
+      download_your_data_export:
+        file_no_exists: Файлът не съществува
+        notice: Свалянето на Вашите данни е в процес. Ще получите ел. писмо когато приключи.
       show:
         change_password: Смяна на паролата
         update_account: Обнови профил
@@ -329,8 +326,8 @@ bg:
           global:
             amendments_enabled: Поправки разрешени
             comments_enabled: Коментари разрешени
-            dummy_global_attribute_1: Макетен атрибут 1
-            dummy_global_attribute_2: Макетен атрибут 2
+            dummy_global_attribute1: Макетен атрибут 1
+            dummy_global_attribute2: Макетен атрибут 2
             dummy_global_translatable_text: Макетен преводим текст
             enable_pads_creation: Активирай създаване на бележки
             resources_permissions_enabled: Разрешения за ресурс включени
@@ -340,8 +337,8 @@ bg:
             amendment_reaction_enabled: Реагиране на поправки разрешено
             amendments_visibility: Видимост на поправки
             comments_blocked: Коментари блокирани
-            dummy_step_attribute_1: Атрибут 1 на макетната стъпка
-            dummy_step_attribute_2: Атрибут 2 на макетната стъпка
+            dummy_step_attribute1: Атрибут 1 на макетната стъпка
+            dummy_step_attribute2: Атрибут 2 на макетната стъпка
             dummy_step_translatable_text: Преводим текст на макетната стъпка
     contact: Контакт
     content_blocks:
@@ -373,12 +370,6 @@ bg:
       actions:
         login_before_access: Влезте в профила си за достъп
         unauthorized: Нямате права за това действие
-    data_portability:
-      export:
-        ready: Готов
-      show:
-        download_data: Изтегляне на данни
-        request_data: Заяви данни
     datepicker:
       help_text: 'Очакван формат: %{datepicker_format}'
     devise:
@@ -436,6 +427,12 @@ bg:
           this_application_will_not_be_able_to: 'Това приложение не може:'
           update_profile: Обновете профила си
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> желае да ползва профила Ви"
+    download_your_data:
+      export:
+        ready: Готов
+      show:
+        download_data: Изтегляне на данни
+        request_data: Заяви данни
     endorsable:
       endorsements: Одобрявания
     endorsement_buttons_cell:
@@ -587,7 +584,7 @@ bg:
           email_subject: "%{nickname} обнови своя профил"
           notification_title: Профилната <a href="%{resource_path}">страница</a> на %{name} (%{nickname}), който следвате е обновена.
     export_mailer:
-      data_portability_export:
+      download_your_data_export:
         download: Сваляне
       export:
         ready: Ще намерите като прикачен файл, компресирана версия на Вашия експорт.
@@ -740,7 +737,6 @@ bg:
       no_user_groups: Не принадлежи към никоя група.
       roles:
         admin: Администратор
-        creator: Създател
         member: Член
       update:
         error: Възникна проблем при обновяването на групата
@@ -914,13 +910,11 @@ bg:
       show:
         allow_public_contact: Позволявам на всеки да ми изпраща директно съобщение, дори и да не го следвам.
         direct_messages: Получавайте директни съобщения от всеки
-        email_on_notification: Желая да получавам ел. поща всеки път, когато получа уведомление.
         everything_followed: Всичко, което следвам
         newsletter_notifications: Желая да получавам бюлетин
         newsletters: Бюлетин с новости
         own_activity: Моята дейност, например когато някой коментира мое предложение или ме спомене
         receive_notifications_about: Искам да получавам известия за
-        send_notifications_by_email: Изпращай известия по ел. поща
         update_notifications_settings: Запази промените
       update:
         error: Има проблем с обновяването на настройките Ви за известия.
@@ -977,7 +971,6 @@ bg:
         form:
           legend: Съгласявам се с общите условия за ползване
         refuse:
-          modal_body: Ако откажете, не може да използвате платформата, но можете да<a href="%{data_portability_path}">свалите данните си</a> и/или <a href="%{delete_path}">изтриете профила</a>.
           modal_btn_continue: Приемам условията и продължавам
           modal_btn_exit: Ще ги прегледам по-късно
           modal_button: Отказвам условията
@@ -1208,7 +1201,6 @@ bg:
     invitations:
       edit:
         header: Завършете създаването на профила си
-        nickname_help: Вашият псевдоним в %{organization}.
         submit_button: Запази
         subtitle: Ако приемате поканата, моля задайте своя псевдоним и парола.
       invitation_removed: Поканата Ви беше премахната.
@@ -1360,10 +1352,6 @@ bg:
     timestamp_error_message: Извинете, това беше твърде бързо! Моля, изпратете отново.
   layouts:
     decidim:
-      cookie_warning:
-        description_html: Този сайт използва бисквитки. Продължавайки да разглеждате сайта, вие приемате използването на бисквитки. Научете повече за това %{link}.
-        link_label: тук
-        ok: Съгласявам се
       edit_link:
         edit: Редактирай
       footer:

@@ -837,6 +837,12 @@ fi:
           invalid: CSV-tiedostossa on ongelma.
           success: CSV-tiedosto ladattu onnistuneesti. Lähetämme kutsusähköpostin osallistujille. Tämä voi kestää hetken.
         new:
+          destroy:
+            button: Poista kaikki yksityiset osallistujat
+            confirm: Oletko varma, että haluat poistaa kaikki yksityiset osallistujat? Tätä toimintoa ei voi peruuttaa ja poistettuja osallistujia ei voi palauttaa.
+            empty: Tässä osallistumistilassa ei ole yksityisiä osallistujia.
+            explanation: Tässä osallistumistilassa on %{count} yksityistä osallistujaa.
+            title: Poista kaikki yksityiset osallistujat
           explanation: 'Lataa CSV-tiedosto osallistumistilan käyttäjistä. Tiedostossa on oltava kaksi saraketta tuotaville käyttäjille ilman sarakeotsikoita: sähköpostiosoitteet ensimmäisessä ja nimi toisessa sarakkeessa (sähköposti, nimi). Vältä erikoismerkkejä nimessä, kuten `<>?%&^*#@()[]=+:;"{}\|`.'
           title: Lataa CSV-tiedosto
           upload: Lataa
@@ -1053,7 +1059,7 @@ fi:
             hidden_at: Piilotuksen ajankohta
             participatory_space: Osallistumistila
             report_count: Määrä
-            reportable_id: Id
+            reportable_id: ID
             reportable_type: Tyyppi
             reported_content_url: Raportoidun sisällön URL
             reports: Raportit

@@ -50,18 +50,12 @@ ru:
   booleans:
     'false': 'Нет'
     'true': 'Да'
-  carrierwave:
-    errors:
-      image_too_big: Изображение слишком велико
   date:
     formats:
       decidim_short: "%d.%m.%Y"
       decidim_with_month_name: "%d %B %Y"
   decidim:
     account:
-      data_portability_export:
-        file_no_exists: Файла не существует
-        notice: Идет сохранение в виде файла. Вы получите электронное письмо, когда оно будет завершено.
       delete:
         confirm:
           close: Закрыть окно
@@ -72,6 +66,9 @@ ru:
       destroy:
         error: При попытке удалить вашу учетную запись произошла ошибка.
         success: Ваша учетная запись была успешно удалена.
+      download_your_data_export:
+        file_no_exists: Файла не существует
+        notice: Идет сохранение в виде файла. Вы получите электронное письмо, когда оно будет завершено.
       show:
         change_password: Поменять пароль
         update_account: Обновить учетную запись
@@ -244,13 +241,13 @@ ru:
         settings:
           global:
             comments_enabled: Комментарии включены
-            dummy_global_attribute_1: Пример свойства 1
-            dummy_global_attribute_2: Пример свойства 2
+            dummy_global_attribute1: Пример свойства 1
+            dummy_global_attribute2: Пример свойства 2
             resources_permissions_enabled: Разрешения ресурсов включены
           step:
             comments_blocked: Комментарии отключены
-            dummy_step_attribute_1: Пример 1 свойства шага
-            dummy_step_attribute_2: Пример 2 свойства шага
+            dummy_step_attribute1: Пример 1 свойства шага
+            dummy_step_attribute2: Пример 2 свойства шага
     contact: Связаться
     content_blocks:
       footer_sub_hero:
@@ -278,12 +275,6 @@ ru:
       actions:
         login_before_access: Пожалуйста, войдите под вашей учётной записью перед получением доступа
         unauthorized: Вы не имеете прав для выполнения этого действия
-    data_portability:
-      export:
-        ready: Готово
-      show:
-        download_data: Загрузить данные
-        request_data: Запросить данные
     datepicker:
       help_text: 'Ожидаемый формат: %{datepicker_format}'
     devise:
@@ -341,6 +332,12 @@ ru:
           this_application_will_not_be_able_to: 'Это приложение не сможет:'
           update_profile: Обновить свой профиль
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> желает использовать вашу учетную запись"
+    download_your_data:
+      export:
+        ready: Готово
+      show:
+        download_data: Загрузить данные
+        request_data: Запросить данные
     endorsable:
       endorsements: Выражений поддержки
     errors:
@@ -388,7 +385,7 @@ ru:
           email_subject: "%{nickname} обновил свой профиль"
           notification_title: Страница <a href="%{resource_path}">профиля</a> участника %{name} (%{nickname}), за которым вы следите, была обновлена.
     export_mailer:
-      data_portability_export:
+      download_your_data_export:
         download: Скачать
       export:
         ready: К настоящему прилагается в архивированном виде сохраненный вами файл.
@@ -545,7 +542,6 @@ ru:
       no_notifications: Пока нет уведомлений.
     notifications_settings:
       show:
-        email_on_notification: Я хочу получать электронное письмо каждый раз, когда приходит уведомление.
         newsletter_notifications: Я хочу получать рассылку новостей
         update_notifications_settings: Сохранить изменения
       update:
@@ -585,7 +581,6 @@ ru:
         form:
           legend: Согласиться с условиями участия
         refuse:
-          modal_body: Если вы откажетесь, вы не сможете использовать площадку, вы можете <a href="%{data_portability_path}">загрузить свои данные</a> и / или <a href="%{delete_path}">удалить свою учетную запись</a>.
           modal_btn_continue: Принять условия и продолжить
           modal_btn_exit: Я просмотрю это позже
           modal_button: Отказаться от условий участия
@@ -710,7 +705,6 @@ ru:
     invitations:
       edit:
         header: Завершите создание своей учетной записи
-        nickname_help: Ваш уникальный псевдоним в %{organization}.
         submit_button: Сохранить
         subtitle: Если вы принимаете приглашение, укажите, пожалуйста, свой псевдоним и пароль.
       invitation_removed: Ваше приглашение было удалено.
@@ -803,10 +797,6 @@ ru:
     timestamp_error_message: Извините, это было слишком быстро! Отправьте, пожалуйста, еще раз.
   layouts:
     decidim:
-      cookie_warning:
-        description_html: На этом сайте используются файлы "куки". Продолжая просматривать сайт, вы соглашаетесь на использование файлов "куки". Узнайте об этом больше %{link}.
-        link_label: здесь
-        ok: Я согласен
       edit_link:
         edit: Редактировать
       footer:

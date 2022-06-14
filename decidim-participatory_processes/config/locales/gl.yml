@@ -56,12 +56,6 @@ gl:
         email: Correo electrónico
         name: Nome
         role: Rol
-    errors:
-      models:
-        participatory_process:
-          attributes:
-            document:
-              invalid_document_type: 'Tipo de documento non válido. Formatos aceptados: %{valid_mime_types}'
     models:
       decidim/participatory_process_step_activated_event: Paso activado
       decidim/participatory_process_step_changed_event: O paso cambiou

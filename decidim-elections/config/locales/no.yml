@@ -273,15 +273,6 @@
             selected: Valgt
             submit: Send inn
             title: Resultater publisert
-          tally:
-            continue: Fortsett
-            invalid: Kunne ikke rapportere manglende tillitsmann
-            mark_as_missing: Marker som manglende
-            mark_as_missing_description: Alle tillitsmenn bør delta i denne prosessen, men dersom en tillitsmann ikke kan delta i prosessen, kan du merke det som manglende.
-            success: Manglende tillitsmannrapport ble sendt til oppslagstavle
-            tally_completion: Prosessen vil bli fullført når alle tillitsmenn er aktive eller merket som manglende. Minst %{quorum} tillitsmenn er nødvendig for å fullføre prosessen.
-            title: Opptellingsprosess
-            undo_mark_as_missing: En tillitsmann merket som feilaktig merkes som manglende vil kunne delta før prosessen fullføres. De kan fortsette som vanlig og merket for "manglende" vil bli ignorert.
           tally_ended:
             answer: Svar
             not_selected: Ikke valgt
@@ -291,6 +282,13 @@
             submit: Publiser resultater
             success: Forespørsel om publisering av resultater ble sendt til oppslagstavlen
             title: Beregnet resultat
+          tally_started:
+            invalid: Kunne ikke rapportere manglende tillitsmann
+            mark_as_missing: Marker som manglende
+            mark_as_missing_description: Alle tillitsmenn bør delta i denne prosessen, men dersom en tillitsmann ikke kan delta i prosessen, kan du merke det som manglende.
+            success: Manglende tillitsmannrapport ble sendt til oppslagstavle
+            tally_completion: Prosessen vil bli fullført når alle tillitsmenn er aktive eller merket som manglende. Minst %{quorum} tillitsmenn er nødvendig for å fullføre prosessen.
+            undo_mark_as_missing: En tillitsmann merket som feilaktig merkes som manglende vil kunne delta før prosessen fullføres. De kan fortsette som vanlig og merket for "manglende" vil bli ignorert.
           vote:
             errors:
               time_after: Valget pågår enda. Du må vente til det er ferdog (%{end_time}) for å avslutte avstemmingen.
@@ -458,24 +456,13 @@
             title: Gjenopprett valgnøkler for %{election}
             upload_election_keys: Last opp valgnøkler
             upload_icon: Ikon som indikerer en nedlastningshandling
-          tally_steps:
-            back: Tilbake
+          tally_started_steps:
             description: Resultatet av valget utregnes i oppslagstavlen. For å fullføre denne prosessen må du delta som en tillitsmann.
             keys:
               end_tally: Opptelling avsluttet
               tally:
                 cast: Opptelling ferdig
                 share: Opptellingsandel
-            list:
-              status: Status
-              task: Oppgave
-            process_warning: Når prosessen er startet, bør du ikke gå ut av denne siden før prosessen er ferdig. Det vil ta flere minutter fordi alle tillitsmenn skal kobles til dette for å fullføre.
-            start: Start
-            start_icon: Ikon som indikerer en startknapp for å starte generering av valgnøklene
-            status:
-              completed: Fullført
-              pending: Venter
-              processing: Behandler
             title: Opptelling for %{election}
           update:
             error: Valgstatusen ble ikke oppdatert.
@@ -558,6 +545,10 @@
           email_intro: 'Valget %{resource_title} er nå aktivt for %{participatory_space_title}. Du kan se det fra denne siden:'
     votings:
       admin:
+        landing_page:
+          content_blocks:
+            edit:
+              update: Oppdater
         menu:
           votings_submenu:
             monitoring_committee: Kontrollgruppe

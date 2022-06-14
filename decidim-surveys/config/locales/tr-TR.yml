@@ -30,7 +30,6 @@ tr:
           step:
             allow_answers: Cevaplara izin ver
             allow_unregistered: Kayıtlı olmayan kullanıcıların anketi yanıtlamasına izin verin
-            allow_unregistered_help: Etkinse, anketi cevaplamak için oturum açmanız gerekmeyecektir. Bu, zayıf veya güvenilmez verilere yol açabilir ve otomatik saldırılara karşı daha savunmasız hale gelir. Dikkatle kullanın!
             announcement: Duyuru
     events:
       surveys:

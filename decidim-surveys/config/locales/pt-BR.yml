@@ -30,7 +30,6 @@ pt-BR:
           step:
             allow_answers: Permitir respostas
             allow_unregistered: Permitir que usuários não registrados respondam à pesquisa
-            allow_unregistered_help: Se ativo, nenhum login será necessário para responder a pesquisa. Isso pode levar a dados ruins ou não confiáveis e será mais vulnerável a ataques automatizados. Use com cuidado!
             announcement: Anúncio
     events:
       surveys:

@@ -3,6 +3,7 @@ cs:
     models:
       decidim/comments/comment_by_followed_user_event: Komentář
       decidim/comments/comment_created_event: Komentář
+      decidim/comments/comment_upvoted_event: Komentář podpořen výše
       decidim/comments/reply_created_event: Odpověď na komentář
       decidim/comments/user_group_mentioned_event: Zmínka
       decidim/comments/user_mentioned_event: Zmínka

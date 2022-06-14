@@ -144,7 +144,6 @@ zh-CN:
             progress: 进展情况
         timeline_entry:
           fields:
-            description: 描述
             entry_date: 日期
       results:
         count:

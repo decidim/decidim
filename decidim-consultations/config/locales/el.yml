@@ -362,7 +362,6 @@ el:
         start_voting_date: Η ψηφοφορία αρχίζει
       question_components:
         question_menu_item: Η ερώτηση
-        unfold: Αποκάλυψη
       question_header:
         back_to_consultation: Δείτε όλες τις διαβουλεύσεις
         back_to_question: Επιστροφή στην ερώτηση

@@ -3,6 +3,7 @@ ar:
     attributes:
       debate:
         category_id: الفئة
+        closed_at: تم إغلاقه في
         decidim_category_id: الفئة
         description: وصف
         end_time: ينتهي عند
