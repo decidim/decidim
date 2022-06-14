@@ -507,7 +507,7 @@ ca:
           download_example_format: Exemple de %{name}
           file_legend: Afegir un arxiu d'importació que serà processat.
           import: Importar
-        notice: "%{number} %{resource_name} importat correctament"
+        notice: "%{count} %{resource_name} importat correctament"
       logs:
         logs_list:
           no_logs_yet: Encara no hi ha cap registre d'activitat
