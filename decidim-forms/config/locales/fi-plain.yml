@@ -121,6 +121,9 @@ fi-pl:
           update:
             invalid: Kyselylomakkeiden tallentamisessa on tapahtunut virheitä.
             success: Lomake tallennettu onnistuneesti.
+      admin_log:
+        questionnaire:
+          update: "%{user_name} päivitti kyselyä %{resource_name}"
       errors:
         answer:
           body: Runkoteksti ei voi olla tyhjä
