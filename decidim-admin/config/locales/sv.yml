@@ -123,6 +123,10 @@ sv:
         file: Fil
     errors:
       models:
+        newsletter:
+          attributes:
+            base:
+              at_least_one_space: Välj minst ett deltagarutrymme
         organization:
           attributes:
             official_img_footer:
@@ -338,7 +342,7 @@ sv:
       dashboard:
         show:
           view_more_logs: Visa fler loggar
-          welcome: Välkommen till Decidims administratörspanel.
+          welcome: Välkommen till Decidims adminpanel.
       domain_whitelist:
         form:
           domain_too_short: Domänen är för kort
@@ -521,7 +525,7 @@ sv:
         area_types: Typer av område
         areas: Områden
         configuration: Konfiguration
-        dashboard: Kontrollpanel
+        dashboard: Adminpanel
         external_domain_whitelist: Tillåtna externa domäner
         help_sections: Hjälpavsnitt
         homepage: Hemsida
@@ -532,7 +536,7 @@ sv:
         reported_users: Rapporterade användare
         scope_types: Omfattningstyper
         scopes: Omfattningar
-        settings: inställningar
+        settings: Inställningar
         static_pages: Sidor
         user_groups: Grupper
         users: Deltagare
@@ -940,7 +944,7 @@ sv:
         area_types: Områdestyper
         areas: Områden
         authorization_workflows: Verifieringsmetoder
-        dashboard: Kontrollpanel
+        dashboard: Adminpanel
         impersonatable_users: Hanterbara deltagare
         impersonations: Deltagarhantering
         metrics: Metrik
@@ -1038,7 +1042,6 @@ sv:
             hidden_at: Dold
             participatory_space: Deltagarutrymme
             report_count: Antal
-            reportable_id: Id
             reportable_type: Typ
             reported_content_url: Rapporterad innehållsadress
             reports: Rapporter
@@ -1059,6 +1062,6 @@ sv:
         newsletters:
           title: Nyhetsbrev
         settings:
-          title: inställningar
+          title: Inställningar
         users:
           title: Deltagare

@@ -13,8 +13,11 @@ ja:
         decidim_scope_id: スコープ
         description: 説明
         proposal_ids: 関連する提案
+        proposals: 提案
         selected: 実装の選択
         title: タイトル
+      proposals_import:
+        scope_id: スコープ
   activerecord:
     models:
       decidim/budgets/project:
@@ -100,7 +103,10 @@ ja:
             success: "%{number} 件の提案がプロジェクトにインポートされました"
           new:
             create: プロジェクトへの提案をインポート
+            default_budget: 既定の予算
+            import_all_accepted_proposals: すべての承認済みの提案をインポート
             no_components: この参加型スペースには、プロジェクトにインポートするための他の提案コンポーネントはありません。
+            origin_component_id: 元のコンポーネント
             select_component: コンポーネントを選択してください
             title: 提案のインポート
       admin_log:
@@ -163,13 +169,13 @@ ja:
           title: 投票の確認
         budget_excess:
           budget_excess:
-            description: 予算上限を超えてしまうため、このプロジェクトは追加できません。 追加したい場合、すでに選択済みのプロジェクトを削除すると、改めて選択できるようになります。
+            description: 予算上限を超えているため、このプロジェクトは追加できません。 追加したい場合、選択済みのプロジェクトを削除すると、再び投票できるようにすることができます。
             title: 最大予算を超えました
           close: 閉じる
-          description: 予算上限を超えてしまうため、このプロジェクトは追加できません。 追加したい場合、すでに選択済みのプロジェクトを削除すると、改めて選択できるようになります。
+          description: 予算上限を超えているため、このプロジェクトは追加できません。 追加したい場合、選択済みのプロジェクトを削除すると、再び投票できるようにすることができます。
           ok: OK
           projects_excess:
-            description: プロジェクト数の上限を超えてしまうため、このプロジェクトは追加できません。 追加したい場合、すでに選択済みのプロジェクトを削除すると、改めて選択できるようになります。
+            description: プロジェクトの最大数を超えているため、このプロジェクトは追加できません。 追加したい場合、選択済みのプロジェクトを削除すると、再び投票できるようになります。
             title: プロジェクト数の上限を超えました
         budget_summary:
           are_you_sure: 投票をキャンセルしてもよろしいですか？
@@ -274,7 +280,7 @@ ja:
             total_budget: 予算の合計
             vote_minimum_budget_projects_number: 投票するプロジェクトの最小数
             vote_rule_minimum_budget_projects_enabled: 'ルールを有効にします: 投票するプロジェクトの最小数'
-            vote_rule_selected_projects_enabled: 'ルールの有効化: 投票するプロジェクトの最小数と最大数'
+            vote_rule_selected_projects_enabled: 'ルールを有効にします: 投票するプロジェクトの最小数と最大数'
             vote_rule_threshold_percent_enabled: 'ルールを有効にします：予算の最小割合'
             vote_selected_projects_maximum: 選択するプロジェクトの上限
             vote_selected_projects_minimum: 選択するプロジェクトの下限

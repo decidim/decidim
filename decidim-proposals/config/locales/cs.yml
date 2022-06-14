@@ -205,6 +205,7 @@ cs:
             automatic_hashtags: Do všech návrhů byly přidány značky Hashtags
             comments_blocked: Komentáře byly blokovány
             creation_enabled: Účastníci mohou vytvářet návrhy
+            creation_enabled_readonly: Toto nastavení je zakázáno, pokud aktivujete funkci účastnických textů. Chcete-li nahrát návrhy jako participativní text, klikněte na tlačítko Participatory Texts a postupujte podle pokynů.
             default_sort_order: Výchozí řazení návrhu
             default_sort_order_help: Výchozí znamená, že pokud jsou podporované funkce povoleny, budou návrhy zobrazeny náhodně, a pokud jsou opory blokovány, pak budou seřazeny podle nejpodporovanější.
             default_sort_order_options:
@@ -233,33 +234,33 @@ cs:
             email_subject: Někdo zanechal poznámku na návrh %{resource_title}.
             notification_title: Někdo zanechal poznámku k návrhu <a href="%{resource_path}">%{resource_title}</a>. Podívejte se na <a href="%{admin_proposal_info_path}">admin panel</a>
         collaborative_draft_access_accepted:
-          email_intro: '%{requester_name} byl přijat k přístupu jako přispěvatel k <a href="%{resource_path}">%{resource_title}</a> návrh spolupráce.'
-          email_outro: Toto oznámení jste dostali, protože jste spolupracovníkem uživatele <a href="%{resource_path}">%{resource_title}</a>.
+          email_intro: '%{requester_name} byl přijat k přístupu jako přispěvatel konceptu spolupráce <a href="%{resource_url}">%{resource_title}</a>.'
+          email_outro: Obdrželi jste toto oznámení, protože jste spolupracovníkem <a href="%{resource_url}">%{resource_title}</a>.
           email_subject: "%{requester_name} byl přijat k přístupu jako přispěvatel %{resource_title}."
           notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> je <strong>přijat k přístupu jako přispěvatel</strong> ke společnému návrhu <a href="%{resource_path}">%{resource_title}</a>.
         collaborative_draft_access_rejected:
-          email_intro: '%{requester_name} byl odmítnut jako přístupový člen projektu <a href="%{resource_path}">%{resource_title}</a>.'
-          email_outro: Toto oznámení jste dostali, protože jste spolupracovníkem uživatele <a href="%{resource_path}">%{resource_title}</a>.
+          email_intro: '%{requester_name} byl odmítnut přístup jako přispěvatel konceptu spolupráce <a href="%{resource_url}">%{resource_title}</a>.'
+          email_outro: Obdrželi jste toto oznámení, protože jste spolupracovníkem <a href="%{resource_url}">%{resource_title}</a>.
           email_subject: "%{requester_name} byl odmítnut pro přístup jako přispěvatel k %{resource_title} kolektivnímu návrhu."
           notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> byl <strong>odmítnut k přístupu jako přispěvatel</strong> ke společnému návrhu <a href="%{resource_path}">%{resource_title}</a>.
         collaborative_draft_access_requested:
-          email_intro: '%{requester_name} požadoval přístup jako přispěvatel. Můžete <strong>přijmout nebo odmítnout žádost</strong> ze <a href="%{resource_path}">%{resource_title}</a> společném návrhu stránky.'
-          email_outro: Toto oznámení jste dostali, protože jste spolupracovníkem uživatele <a href="%{resource_path}">%{resource_title}</a>.
+          email_intro: '%{requester_name} požádal o přístup jako přispěvatel. Můžete <strong>přijmout nebo odmítnout požadavek</strong> ze stránky společného konceptu <a href="%{resource_url}">%{resource_title}</a>.'
+          email_outro: Obdrželi jste toto oznámení, protože jste spolupracovníkem <a href="%{resource_url}">%{resource_title}</a>.
           email_subject: "%{requester_name} požádal o přístup k příspěvku na %{resource_title}."
           notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> požádal o přístup k přispění ke společnému návrhu <a href="%{resource_path}">%{resource_title}</a>. Prosím, <strong>přijměte nebo odmítněte žádost</strong>.
         collaborative_draft_access_requester_accepted:
-          email_intro: Byli jste přijati k přístupu jako přispěvatel projektu spolupráce <a href="%{resource_path}">%{resource_title}</a>.
-          email_outro: Toto oznámení jste obdrželi, protože jste požádali, abyste se stal spolupracovníkem uživatele <a href="%{resource_path}">%{resource_title}</a>.
+          email_intro: Byl jste přijat k přístupu jako přispěvatel konceptu spolupráce <a href="%{resource_url}">%{resource_title}</a>.
+          email_outro: Obdrželi jste toto oznámení, protože jste požádali o spolupráci <a href="%{resource_url}">%{resource_title}</a>.
           email_subject: Byli jste přijati jako přispěvatel %{resource_title}.
           notification_title: Byl jsi <strong>přijal přístup jako přispěvatel</strong> na <a href="%{resource_path}">%{resource_title}</a> společném návrhu.
         collaborative_draft_access_requester_rejected:
-          email_intro: Byl jste odmítnut jako zprostředkovatel projektu spolupráce <a href="%{resource_path}">%{resource_title}</a>.
-          email_outro: Toto oznámení jste obdrželi, protože jste požádali, abyste se stal spolupracovníkem uživatele <a href="%{resource_path}">%{resource_title}</a>.
+          email_intro: Byl vám odmítnut přístup jako přispěvatel konceptu spolupráce <a href="%{resource_url}">%{resource_title}</a>.
+          email_outro: Obdrželi jste toto oznámení, protože jste požádali o spolupráci <a href="%{resource_url}">%{resource_title}</a>.
           email_subject: Byl jste odmítnut jako přispěvatel %{resource_title}.
           notification_title: Byl jsi <strong>odmítnut přístup jako přispěvatel</strong> na <a href="%{resource_path}">%{resource_title}</a> společném návrhu.
         collaborative_draft_withdrawn:
-          email_intro: <a href="%{author_path}">%{author_name} %{author_nickname}</a> stáhl společný koncept <a href="%{resource_path}">%{resource_title}</a>.
-          email_outro: Toto oznámení jste dostali, protože jste spolupracovníkem uživatele <a href="%{resource_path}">%{resource_title}</a>.
+          email_intro: <a href="%{author_url}">%{author_name} %{author_nickname}</a> stáhl <a href="%{resource_url}">%{resource_title}</a> společný koncept.
+          email_outro: Obdrželi jste toto oznámení, protože jste spolupracovníkem <a href="%{resource_url}">%{resource_title}</a>.
           email_subject: "%{author_name} %{author_nickname} stáhl společný koncept %{resource_title}."
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> <strong>stáhl</strong> <a href="%{resource_path}">%{resource_title}</a> společný koncept.
         creation_enabled:
@@ -467,6 +468,7 @@ cs:
             accepted: Přijato
             answer_proposal: Odpovědět
             evaluating: Hodnocení
+            not_answered: Nezodpovězeno
             rejected: Odmítnuto
             title: Odpověď na návrh %{title}
         proposal_notes:

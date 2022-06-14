@@ -359,6 +359,7 @@ de:
     resources:
       consultations:
         actions:
+          comment: Kommentar
           vote: Abstimmung
     statistics:
       consultations_count: Beratungen
@@ -369,7 +370,6 @@ de:
         start_voting_date: Die Abstimmung beginnt
       question_components:
         question_menu_item: Die Frage
-        unfold: Entfalten
       question_header:
         back_to_consultation: Sehen Sie alle Konsultationen
         back_to_question: Zurück zur Frage

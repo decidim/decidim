@@ -370,7 +370,6 @@ fi-pl:
         start_voting_date: Äänestys alkaa
       question_components:
         question_menu_item: Kysymys
-        unfold: Avaa
       question_header:
         back_to_consultation: Näytä kaikki kuulemiset
         back_to_question: Takaisin kysymykseen

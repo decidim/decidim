@@ -387,7 +387,6 @@ lb:
           fields:
             closed: Geschlossen
             end_time: Schlussdatum
-            id: Id
             map: Kaart
             official_meeting: Offizielle Besprechung
             start_time: Ufanksdatum

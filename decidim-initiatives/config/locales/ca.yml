@@ -238,8 +238,6 @@ ca:
             edit: Edita
             new: Nou
             photos: Fotografies
-          show:
-            print: Imprimir
           update:
             error: S'ha produït un error
             success: La iniciativa ciutadana s'ha actualitzat correctament
@@ -274,6 +272,8 @@ ca:
             update: Actualitza
           form:
             authorizations: Configuració de l'autorització
+            child_scope_threshold_enabled_help: 'Aquest ajust de configuració no admet les votacions sense connexió, habilita els subàmbits i funciona amb un gestor d''autoritzacions que associa un àmbit a la participant, assegureu-vos de seleccionar aquesta autorització, més avall a la configuració d''autoritzacions. Per a que funcioni, els àmbits han de configurar-se de forma jerárquica: 1 Pare - N fills. Per a més informació sobre com funciona aquesta configuració, <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">veure aquest enllaç</a>.'
+            only_global_scope_enabled_help: Marca aquesta casella si has habilitat "Activar signatures per subàmbit" i vas configurar l'àmbit global com l'àmbit principal. En habilitar aquesta casella, la selecció del tipus d'iniciativa s'ometrà en l'assistent de creació d'iniciatives. Per a més informació sobre com funciona aquesta configuració, consulta aquest <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">enllaç</a>.
             options: Opcions
             title: Informació general
           initiative_type_scopes:
@@ -505,6 +505,7 @@ ca:
             title: 'Títol:'
             type: Tipus d'iniciativa
           legal_text: Les dades personals recollides seran incorporades i tractades confidencialment per l'organització, d'acord amb la legislació actual.
+          members_header: Membres de la comissió promotora de la iniciativa
           phone_number: Número de telèfon
           place_date: Lloc, data
           postal_code: Codi postal

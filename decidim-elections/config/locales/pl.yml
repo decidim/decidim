@@ -292,7 +292,7 @@ pl:
           tally:
             continue: Dalej
             mark_as_missing: Oznacz jako brakujący
-            title: Ustalenie wyniku głosowania
+            title: Proces ustalania wyniku głosowania
           tally_ended:
             answer: Odpowiedź
             not_selected: Nie wybrano
@@ -597,7 +597,6 @@ pl:
           audit: "( Sprawdź kartę z oddanym głosem )"
           back: Rozpocznij proces głosowania ponownie
           ballot_hash: 'Numer Twojej karty do głosowania to:'
-          cast: Oddaj głos
           description: "Masz tutaj dwie opcje, albo możesz już oddać głos tak aby został poprawnie zliczony, albo możesz sprawdzić czy Twoja karta do głosowania została prawidłowo zaszyfrowania. Ze względów bezpieczeństwa sprawdzenie poprawności szyfrowania karty zepsuje ją. Oznacza to, że musisz ponownie rozpocząć od nowa proces oddawania głosu aby oddać głos.\n\nHere, you have the options to cast your ballot so that it's properly counted or, alternatively, you can audit that your ballot was correctly encrypted. For security reasons, auditing your ballot will spoil it. That means, to cast your vote, you will need to restart the voting process."
           header: 'Karta do głosowania została zaszyfrowana. Oddaj głos, albo sprawdź poprawność szyfrowania karty'
         casting:
@@ -898,7 +897,6 @@ pl:
           edit:
             change_polling_station: Wróć do lokali wyborczych
             monitoring_committee_notes: Uwagi
-            monitoring_committee_notes_placeholder: Zgłoś tutaj jakiekolwiek incydenty
             title: Wyniki głosowania <i>%{election_title}</i> w lokalu wyborczym <i>%{polling_station_title}</i>
           elections:
             title: Wybierz wybory, które chcesz zatwierdzić
@@ -983,7 +981,6 @@ pl:
             assign_missing_officers: Wciąż są lokale wyborcze bez przewodniczącego i/lub menedżerów. Proszę przydzielić ich w sekcji lokali wyborczych
             update: Aktualizuj
           form:
-            census_contact_information_help: Te dane kontaktowe dotyczą uczestnika, który chce zgłaszać problemy ze listą wyborców. Może to być adres e-mail, formularz kontaktowy na innej stronie, ankieta Decidim dla odwiedzających itp.
             select_a_voting_type: Wybierz typ głosowania
             slug_help: 'URL slugi służą do generowania adresów URL kierujących bezpośrednio do tego procesu. Należy wpisać tylko to, co ma znaleźć się na końcu po znaku „/”, a nie pełen adres. Można użyć liter, cyfr i myślników. Musi zaczynać się od litery. Przykład: %{url}'
             title: Tytuł
@@ -1015,7 +1012,6 @@ pl:
               info_message: "<strong>Poczekaj</strong>, przetworzono %{processed_count} z %{raw_count} wierszy z pliku %{file}."
             delete:
               button: Usuń wszystkie dane listy wyborców
-              confirm: Usunięcia wszystkich danych listy wyborców nie można cofnąć. Chcesz kontynuować mimo to?
             destroy:
               error: Wystąpił błąd przy usuwaniu listy wyborców. Spróbuj ponownie później.
               success: Usunięto dane listy wyborców
@@ -1023,7 +1019,6 @@ pl:
               button: Eksportuj kody dostępu do głosowania
               callout: Możesz teraz przejść do eksportu kodów dostępu. Można to zrobić tylko raz. Po uruchomieniu eksportu, otrzymasz e-mail z instrukcjami na adres <strong>%{email}</strong>
               confirm: Możesz wyeksportować kody dostępu tylko raz. Upewnij się, że masz dostęp do konta e-mail <strong>%{email}</strong>.
-              file_not_exists: Ten plik nie istnieje
               launch_error: Wystąpił problem z uruchomieniem eksportu kodów dostępu
               launch_success: Eksport kodów dostępu został uruchomiony. Wkrótce otrzymasz e-mail na adres %{email}
             exporting_access_codes:
@@ -1048,7 +1043,6 @@ pl:
               has_ballot_styles_message: Ustawiono rodzaje kart wyborczych. Upewnij się, że pole "%{ballot_style_code_header}" w CSV odpowiada żądanemu kodowi rodzaju karty wyborczej.
               info_message: "<strong>Nie ma jeszcze listy wyborców.</strong> Użyj poniższego formularza, aby utworzyć ją i zaimportować dane z pliku CSV."
               missing_ballot_styles_message: 'Nie skonfigurowano jeszcze rodzajów kart wyborczych w tym głosowaniu. Jeśli chcesz mieć pytania warunkowe (i..: przedstawiać wyborcy różne pytania w zależności od np. okręg/region zamieszkania), musisz skonfigurować <a href=%{ballot_styles_admin_path}>Rodzaje kart wyborczych</a> <strong>przed</strong> zaimportowaniem listy wyborców. Jeśli chcecie przedstawić wszystkim wyborcom te same pytania, możesz kontynuować procedurę importu listy wyborców.'
-              submit: Prześlij csv
               title: Utwórz listę wyborców
             show:
               heading: Lista wyborców w przestrzeni głosowania
@@ -1073,9 +1067,6 @@ pl:
         highlighted_votings:
           name: Wyróżnione głosowania
         landing_page:
-          description:
-            show_less: Pokaż mniej
-            show_more: Pokaż więcej
           metrics:
             heading: Partycypacja w liczbach
           polling_stations:
@@ -1128,7 +1119,6 @@ pl:
             modal_ballots_count_error:
               btn_validate_total: Sprawdź sumę przeliczonych głosów
               close_modal: Zamknij
-              info_explanation_text: 'Sprawdź całkowitą liczbę kart. Jeśli całkowita liczba jest poprawna, należy podać wyjaśnienie dla Komisji Wyborczej:'
               info_text: Całkowita liczba kart wyborczych (kopert) nie odpowiada liczbie osób, które zagłosowały w tym lokalu wyborczym.
               message_for_monitoring_committee: Wiadomość dla Komisji Wyborczej
               review_recount: Zweryfikuje przeliczenie głosów
@@ -1252,13 +1242,10 @@ pl:
         check_census:
           check_status: Sprawdź status
           description: Tutaj masz możliwość sprawdzenia danych umieszczonych na liście wyborców, aby wiedzieć, czy masz prawo uczestniczyć w tym głosowaniu. Powinieneś mieć już kod dostępu, ale jeśli go zgubiłeś, możesz ponownie o ten kod poprosić, gdy Twoje dane są poprawne.
-          error:
-            info: 'Spróbuj ponownie. Jeśli uważasz, że dane w systemie są nieprawidłowe, możesz je zgłosić tutaj: %{census_contact_information}.'
-            title: Twoje dane do listy wyborców są nieprawidłowe!
           form_title: 'Wypełnij formularz, aby sprawdzić Twoje dane na liście wyborców:'
           invalid: Wystąpił błąd przy sprawdzaniu listy wyborców.
           success:
-            access_link: poprzez SMS lub e-mail.
+            access_link_with_sms: poprzez SMS lub e-mail.
             info: Powinieneś był już otrzymać swój kod dostępu pocztą. Jeśli go nie posiadasz, możesz poprosić o to tutaj
             title: Twoje dane z listy wyborców nie są prawidłowe!
           title: Mogę głosować?

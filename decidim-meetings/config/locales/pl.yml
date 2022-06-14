@@ -90,7 +90,6 @@ pl:
               official: Oficjalny
           type_eq:
             values:
-              hybrid: Oba
               online: Online
       meeting_copies:
         create:
@@ -436,7 +435,6 @@ pl:
           type: Typ
           type_values:
             all: Wszystko
-            hybrid: Oba
             in_person: Osobiście
             online: Online
         filters_small_view:
@@ -546,7 +544,6 @@ pl:
           invalid: Wystąpił błąd podczas próby opuszczenia tego spotkania.
           success: Opuściłeś spotkanie.
       type_of_meeting:
-        hybrid: Oba
         in_person: Osobiście
         online: Online
       types:

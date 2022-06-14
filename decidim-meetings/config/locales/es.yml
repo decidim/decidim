@@ -100,7 +100,7 @@ es:
           type_eq:
             label: Tipo de encuentro
             values:
-              hybrid: Ambos
+              hybrid: Híbrido
               in_person: Presencial
               online: Online
       meeting_copies:
@@ -184,7 +184,7 @@ es:
           notification_title: El encuentro <a href="%{resource_path}">%{resource_title}</a> empezará en menos de 48 h.
     forms:
       meetings:
-        attendees_count_help_text: No olvides incluir el número total de asistentes a tu encuentro, ya sea presencial, en línea o híbrido.
+        attendees_count_help_text: No te olvides de añadir el número total de asistentes a la reunión, ya sea en persona, en línea o híbrido.
     gamification:
       badges:
         attended_meetings:
@@ -476,7 +476,7 @@ es:
           type: Tipo
           type_values:
             all: Todos
-            hybrid: Ambos
+            hybrid: Híbrida
             in_person: Presencial
             online: Online
         filters_small_view:
@@ -525,11 +525,11 @@ es:
           edit_close_meeting: Editar informe del encuentro
           edit_meeting: Editar el encuentro
           going: Te has inscrito en este encuentro
-          join: Inscríbete al encuentro
+          join: Unirse al encuentro
           leave: Cancela tu inscripción
           leave_confirmation: '¿Seguro que quieres cancelar tu inscripción para este encuentro?'
           link_available_soon: Enlace disponible próximamente
-          link_closed: El enlace para unirte a la reunión estará disponible unos minutos antes de que comience
+          link_closed: El enlace a la sala de videoconferencia estará disponible unos minutos antes de que comience
           live_event: Este encuentro está sucediendo ahora mismo
           meeting_minutes: Acta del encuentro
           micro_camera_permissions_warning: Cuando hagas clic en el botón de abajo, se te pedirán permisos de micrófono y/o cámara y te unirás a la videoconferencia
@@ -567,7 +567,7 @@ es:
           fields:
             closed: Cerrado
             end_time: Fecha de finalización
-            id: Id
+            id: ID
             map: Mapa
             official_meeting: Encuentro oficial
             start_time: Fecha de inicio
@@ -618,7 +618,7 @@ es:
           invalid: Se ha producido un error al salir de este encuentro.
           success: Has salido del encuentro con éxito.
       type_of_meeting:
-        hybrid: Ambos
+        hybrid: Hibrida
         in_person: Presencial
         online: En línea
       types:

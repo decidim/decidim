@@ -389,7 +389,7 @@ fr:
         related_participatory_processes: Concertations associées
         scope: Périmètre d'application
         social_networks: Réseaux sociaux
-        social_networks_title: Partager cette assemblée sur
+        social_networks_title: Visiter l'assemblée sur
         target: Participants
     assembly_members:
       assembly_member:
@@ -400,7 +400,7 @@ fr:
       assemblies:
         create_assembly_member:
           email_intro: Un administrateur de l'assemblée <a href="%{resource_url}">%{resource_name}</a> vous y a ajouté en tant que membre.
-          email_outro: Vous avez reçu cette notification parce que vous avez été invité à rejoindre une assemblée. Consultez <a href="%{resource_path}">la page de l'assemblée</a> pour y contribuer !
+          email_outro: Vous avez reçu cette notification parce que vous avez été invité à rejoindre une assemblée. Consultez <a href="%{resource_url}">la page de l'assemblée</a> pour y contribuer !
           email_subject: Vous avez été invité à être membre de l'assemblée %{resource_name}!
           notification_title: Vous avez été inscrit en tant que membre de l'assemblée <a href="%{resource_path}">%{resource_name}</a>. Consultez la <a href="%{resource_path}">page de l'assemblée</a> pour contribuer !
       assembly:

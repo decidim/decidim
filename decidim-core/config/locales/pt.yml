@@ -21,7 +21,7 @@ pt:
         details: Comentários adicionais
       user:
         about: Sobre
-        email: O seu email
+        email: O seu e-mail
         name: O seu nome
         nickname: Alcunha
         password: Palavra-passe
@@ -44,7 +44,7 @@ pt:
     attributes:
       decidim/user:
         current_password: Senha atual
-        email: Email
+        email: E-mail
         name: Alcunha
         password: Senha
         password_confirmation: Confirmação da senha

@@ -43,6 +43,7 @@ pl:
         default_locale: Domyślny język
         description: Opis
         enable_omnipresent_banner: Pokaż stały banner
+        enable_participatory_space_filters: Włącz filtry przestrzeni partycypacyjnej
         facebook_handler: Handler Facebooka
         favicon: Ikona
         force_authentication: Wymuś uwierzytelnianie
@@ -122,6 +123,10 @@ pl:
         file: Plik
     errors:
       models:
+        newsletter:
+          attributes:
+            base:
+              at_least_one_space: Wybierz co najmniej jedną przestrzeń partycypacyjną
         organization:
           attributes:
             official_img_footer:
@@ -131,6 +136,7 @@ pl:
       new_import:
         attributes:
           file:
+            invalid_file: Podano nieprawidłowy plik, sprawdź czy plik jest poprawnie sformatowany
             invalid_mime_type: Niepoprawny format
   activerecord:
     attributes:
@@ -987,7 +993,6 @@ pl:
             hidden_at: Ukryto
             participatory_space: Przestrzeń partycypacyjna
             report_count: Liczba
-            reportable_id: Id
             reportable_type: Typ
             reported_content_url: URL zgłoszonej treści
             reports: Zgłoszenia

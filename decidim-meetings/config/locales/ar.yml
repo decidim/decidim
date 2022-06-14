@@ -76,6 +76,14 @@ ar:
         meetings:
           category_id_eq:
             label: الفئة
+          origin_eq:
+            values:
+              citizen: المواطن
+              user_group: مجموعات المستخدمين
+          type_eq:
+            label: نوع الاجتماع
+            values:
+              in_person: وجهًا لوجه
       meeting_copies:
         create:
           error: كانت هناك مشكلة في تكرار هذا الاجتماع.
@@ -243,6 +251,8 @@ ar:
             success: تم حذف الاجتماع بنجاح
           edit:
             update: تحديث
+          form:
+            registration_email_help: سيظهر هذا النص في منتصف البريد الإلكتروني الخاص بتأكيد التسجيل مباشرة بعد رمز التسجيل.
           index:
             title: اجتماعات
           new:
@@ -334,6 +344,8 @@ ar:
         filters:
           category: الفئة
           date: تاريخ
+          origin_values:
+            citizens: المواطنون
           search: بحث
         filters_small_view:
           close_modal: إغلاق مشروط

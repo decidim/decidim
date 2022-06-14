@@ -480,16 +480,6 @@ ro:
               tally:
                 cast: Anunțarea rezultatului votului
                 share: Împărtășirea rezultatului votului
-            list:
-              status: Stadiu
-              task: Activitate
-            process_warning: Odată ce procesul este pornit, nu ar trebui să ieși din această pagină până când procesul se încheie. Va dura câteva minute, deoarece toți împuterniciții ar trebui să fie conectați pentru a se finaliza procesul.
-            start: Incepe
-            start_icon: Pictograma care indică un buton de pornire pentru a porni generarea cheilor electorale
-            status:
-              completed: Finalizat
-              pending: În așteptare
-              processing: Se procesează
             title: Numărarea voturilor pentru %{election}
           update:
             error: Statutul alegerilor nu a fost actualizat.
@@ -541,7 +531,6 @@ ro:
           audit: "(scrutin de audit)"
           back: Începe procesul de votare din nou
           ballot_hash: 'Identificatorul dvs. de vot este:'
-          cast: Transmite votul
           description: Aici, aveţi opţiunea de a vota pentru ca acesta să fie numărat corespunzător sau, ca alternativă, puteţi verifica dacă voturile dumneavoastră au fost corect criptate. Din motive de securitate, auditarea buletinului de vot va duce la spargerea lui. Asta înseamnă că, pentru a-ți exprima votul, va trebui să repornești procesul de votare.
         confirm:
           answer: Răspuns
@@ -682,8 +671,6 @@ ro:
           census:
             create:
               invalid: S-a produs o eroare la încărcarea recensământului, vă rugăm să încercați din nou mai târziu.
-            delete:
-              confirm: Ştergerea recensământului nu poate fi anulată. Sigur dorești să continui?
             destroy:
               error: S-a produs o eroare la ștergerea recensământului, vă rugăm să încercați din nou mai târziu.
             new:

@@ -22,6 +22,7 @@ sv:
       user:
         about: Om
         email: Din e-postadress
+        locale: Språk
         name: Ditt namn
         nickname: Användarnamn
         password: Lösenord
@@ -107,6 +108,7 @@ sv:
   decidim:
     accessibility:
       external_link: Extern länk
+      front_page_link: Gå till startsidan
       logo: "%{organization}s logotyp"
       skip_button: Gå till innehåll
     account:
@@ -1651,7 +1653,7 @@ sv:
         title: Vill du fortsätta med din session?
       user_menu:
         account: 'Användarkonto: %{name}'
-        admin_dashboard: Admin kontrollpanel
+        admin_dashboard: Adminpanel
         conversations: Konversationer
         notifications: Meddelanden
         profile: Mitt konto

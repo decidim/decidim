@@ -64,6 +64,11 @@ cs:
         few: Otázek
         many: Otázek
         other: Otázek
+      decidim/voting:
+        one: Hlasování
+        few: Hlasování
+        many: Hlasování
+        other: Hlasování
       decidim/votings/census/dataset:
         one: Datová sada
         few: Datové sady
@@ -198,6 +203,11 @@ cs:
         exports:
           elections: Volby
           feedback_form_answers: Odpovědi na formulář zpětné vazby
+        mailers:
+          trustee_mailer:
+            body: "<p>Dobrý den %{user_name},</p><p>Byli jste přidáni jako správce k %{resource_name}.</p>"
+            subject: Byli jste přidáni jako důvěrník do %{resource_name}
+            trustee_zone: Přejít do zóny důvěrníků
         menu:
           trustees: Volební důvěrníci
         models:
@@ -220,6 +230,7 @@ cs:
             title: Importovat návrhy
         questions:
           create:
+            election_started: Volby již byly zahájeny
             invalid: Při vytváření této otázky došlo k chybě
             success: Otázka byla úspěšně vytvořena
           destroy:
@@ -558,9 +569,9 @@ cs:
                 share: Poměry volebního přepočítávání
             list:
               status: Stav
-              task: Úloha
+              task: Úkol
             process_warning: Po spuštění procesu byste neměli tuto stránku ukončit, dokud proces neskončí. Trvá to několik minut, protože všichni důvěrníci by měli být k dokončení připojeni.
-            start: Spustit
+            start: Začít
             start_icon: Ikona, která označuje tlačítko pro spuštění generování volebních klíčů
             status:
               completed: Dokončeno
@@ -617,7 +628,7 @@ cs:
           audit: "(Audit volebního lístku)"
           back: Zahájit proces hlasování znovu
           ballot_hash: 'Identifikátor vašeho hlasování:'
-          cast: Zahlasování hlasovacího lístku
+          cast: Uložte hlasování, abyste dokončili vaše hlasování
           description: Zde máte možnost odevzdat hlasovací lístek tak, aby byl správně spočítán, nebo případně můžete kontrolovat, zda je vaše hlasování správně šifrované. Z důvodů porušeného zabezpečnení to váš hlasovací lístek může zrušit. To znamená, že abyste mohli hlasovat, budete muset znovu zahájit hlasovací proces.
           header: 'Hlasovací lístek je šifrovaný: zahlasujte s ním nebo jej auditujte'
         casting:
@@ -1003,14 +1014,20 @@ cs:
             assign_missing_officers: Existují volební místnosti bez předsedy a/nebo manažerů. Prosím, přiřaďte je ze sekce volebních místností
             update: Aktualizovat
           form:
-            census_contact_information_help: Tato kontaktní informace je určena pro účastníka, který chce nahlásit problémy se sčítáním. Může to být e-mailová adresa, kontaktní formulář na jiné stránce, anketa Decidim pro návštěvníky, atd.
+            banner_image: Obrázek banneru
+            census_contact_information: Kontaktní informace pro rejstřík obyvatel
+            census_contact_information_help: Tato kontaktní informace je určena pro účastníka, který chce nahlásit problémy se sčítáním. Může to být e-mailová adresa, kontaktní formulář na jiné stránce, průzkum pro návštěvníky atd.
+            introductory_image: Úvodní obrázek
+            promoted: Propagováno
             select_a_voting_type: Vyberte prosím typ hlasování
+            slug: Slug
             slug_help: 'URL slugů se používají k generování URL, které odkazují na toto hlasování. přijímá pouze písmena, čísla a pomlčky a musí začínat písmenem. Příklad: %{url}'
             title: Název
             voting_type:
               hybrid: Hybridní
               in_person: Osobní
               online: Online
+            voting_type_label: Typ hlasování
           new:
             create: Vytvořit
             title: Nové hlasování
@@ -1054,7 +1071,7 @@ cs:
               info_message: "<strong>Počkejte prosím</strong>, zpracováno %{processed_count} z %{raw_count} řádků ze souboru %{file}."
             delete:
               button: Odstranit všechna data ze seznamu obyvatel
-              confirm: Odstranění veškerých seznamů členů nelze vrátit zpět. Opravdu chcete pokračovat?
+              confirm: Odstranění všech dat z rejstříku osob nelze vrátit zpět. Opravdu chcete pokračovat?
             destroy:
               error: Došlo k chybě při odstraňování seznamu osob, opakujte akci později.
               success: Seznam členů byl smazán
@@ -1062,7 +1079,7 @@ cs:
               button: Generovat hlasovací přístupové kódy
               callout: Nyní můžete pokračovat v exportu přístupových kódů. Lze to provést pouze jednou. Jakmile zahájíte export, obdržíte e-mail s pokyny pro <strong>%{email}</strong>
               confirm: Exportovat přístupové kódy můžete pouze jednou. Ujistěte se, že máte přístup k e-mailovému účtu <strong>%{email}</strong>.
-              file_not_exists: Tento soubor neexistuje
+              file_not_exist: Tento soubor neexistuje
               launch_error: Problém se spuštěním exportu přístupových kódů
               launch_success: Export přístupových kódů byl spuštěn. Brzy obdržíte e-mail na %{email}
             exporting_access_codes:
@@ -1087,7 +1104,7 @@ cs:
               has_ballot_styles_message: Nastavili jste styl hlasování. Ujistěte se, že pole "%{ballot_style_code_header}" v CSV odpovídá požadovanému kódu Stylu hlasování.
               info_message: "<strong>Zatím neexistuje žádný seznam osob.</strong> Použijte prosím formulář níže pro vytvoření importu souboru CSV."
               missing_ballot_styles_message: 'Pro toto hlasování zatím neexistuje žádný styl hlasování. Pokud chcete mít podmíněné otázky (tj.: představit voliče s různými otázkami podle např. okresu / regionu bydliště, musíte nastavit <a href=%{ballot_styles_admin_path}>Styly pro hlasování</a> <strong>před</strong> importováním seznamu osob. Pokud chcete všem voličům položit stejné otázky, můžete pokračovat v proceduře importu seznamu osob.'
-              submit: Odeslat csv
+              submit: Odeslat CSV
               title: Vytvořit seznam osob
             show:
               heading: Hlasovací prostor seznamu osob
@@ -1113,8 +1130,6 @@ cs:
           name: Zvýrazněné hlasování
         landing_page:
           description:
-            show_less: Číst méně
-            show_more: Přečtěte si více
             title: O tomto hlasování
           metrics:
             heading: Metriky
@@ -1168,7 +1183,7 @@ cs:
             modal_ballots_count_error:
               btn_validate_total: Ověření celkového přepočtu hlasovacích lístků
               close_modal: Zavřít
-              info_explanation_text: 'Zkontrolujte celkový počet hlasovacích lístků. Pokud je celkový počet správný, musíte monitorovacímu výboru poskytnout vysvětlení:'
+              info_explanation_text: 'Zkontrolujte celkový počet hlasovacích lístků. Pokud je celkové číslo nesprávné, musíte monitorovacímu výboru poskytnout vysvětlení:'
               info_text: Celkový počet vložených hlasovacích lístků (obálek) neodpovídá počtu osob, které v této volební místnosti hlasovaly.
               message_for_monitoring_committee: Zpráva pro monitorovací výbor
               review_recount: Zkontrolovat přepočet
@@ -1293,12 +1308,13 @@ cs:
           check_status: Zkontrolovat stav
           description: Zde máte možnost zkontrolovat údaje ze seznamu osob, abyste věděli, zda máte právo účastnit se tohoto hlasování. Měli byste mít přístupový kód již k dispozici, ale pokud ho ztratíte, můžete ho znovu vyžádat, až budou vaše údaje správné.
           error:
-            info: 'Zkuste to prosím znovu. Pokud si myslíte, že data v systému jsou nesprávná, můžete je nahlásit zde: %{census_contact_information}.'
-            title: Vaše data ze seznamu osob jsou nesprávná!
+            info: 'Zkuste to prosím znovu. Pokud si myslíte, že data v systému jsou nesprávná, můžete je nahlásit zde: %{census_contact_information}'
+            title: Údaje, které jste zadali, nejsou v rejstříku členů pro toto hlasování
           form_title: 'Vyplňte následující formulář pro kontrolu dat ze seznamu osob:'
           invalid: Při kontrole seznamu osob došlo k chybě.
           success:
-            access_link: prostřednictvím SMS nebo e-mailu.
+            access_link: e-mailem.
+            access_link_with_sms: prostřednictvím SMS nebo e-mailu.
             info: Váš přístupový kód jste již měli obdržet poštou. V případě, že ho nemáte k dispozici, můžete o něj požádat zde
             title: Vaše data seznamu osob jsou nesprávná!
           title: Mohu hlasovat?
@@ -1308,6 +1324,7 @@ cs:
           day_placeholder: DD
           document_number: Číslo dokumentu
           document_number_placeholder: Číslo občanského průkazu
+          document_type: Typ dokumentu
           month: Měsíc
           month_placeholder: MM
           postal_code: PSČ

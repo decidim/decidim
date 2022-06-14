@@ -386,7 +386,6 @@
         related_participatory_processes: Relaterte deltakerprosesser
         scope: Tema
         social_networks: Sosiale nettverk
-        social_networks_title: Del denne forsamlingen på
         target: Hvem deltar
     assembly_members:
       assembly_member:
@@ -397,7 +396,6 @@
       assemblies:
         create_assembly_member:
           email_intro: En administrator av <a href="%{resource_url}">%{resource_name}</a> forsamlingen har lagt deg til som en av dets medlemmer.
-          email_outro: Du har mottatt dette varselet fordi du er invitert til en forsamling. Sjekk <a href="%{resource_path}">monteringsside</a> for å bidra!
           email_subject: Du har blitt invitert til å være medlem av forsamlingen %{resource_name}!
           notification_title: Du har blitt registrert som medlem av forsamling <a href="%{resource_path}">%{resource_name}</a>. Sjekk <a href="%{resource_path}">forsamlingssiden</a> for å bidra!
       assembly:

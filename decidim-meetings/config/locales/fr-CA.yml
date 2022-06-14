@@ -184,7 +184,7 @@ fr-CA:
           notification_title: La rencontre <a href="%{resource_path}">%{resource_title}</a> débutera dans moins de 48h.
     forms:
       meetings:
-        attendees_count_help_text: N’oubliez pas d’inclure le nombre total de participants à votre événement, que ce soit en présentiel, en ligne ou en hybride.
+        attendees_count_help_text: N'oubliez pas d'inclure le nombre total de participants à votre réunion, que ce soit en personne, en ligne ou en hybride.
     gamification:
       badges:
         attended_meetings:
@@ -567,7 +567,7 @@ fr-CA:
           fields:
             closed: Fermée
             end_time: Date de fin
-            id: Id
+            id: ID
             map: Carte
             official_meeting: Réunion officielle
             start_time: Date de début
@@ -580,7 +580,7 @@ fr-CA:
             empty_questions: Tout au long de cette rencontre, certaines questions seront envoyées et vous pourrez y répondre. Elles seront affichées ici.
           index_admin:
             admin_dashboard: Tableau de bord d'administration
-            edit: Modifier dans le panneau Admin
+            edit: Modifier dans le panneau d'administration
             question: Question
             received_answer: réponse reçue
             received_answers: réponses reçues

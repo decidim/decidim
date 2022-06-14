@@ -35,12 +35,17 @@ cs:
       decidim/demoted_membership: Již není správcem skupiny
       decidim/gamification/badge_earned_event: Získaný odznak
       decidim/gamification/level_up_event: Vy jste vyrovnali
+      decidim/invited_to_group_event: Pozván do skupiny
       decidim/join_request_accepted_event: Připojit žádost přijatou
       decidim/join_request_rejected_event: Připojit žádost zamítnuta
       decidim/profile_updated_event: Profil aktualizován
       decidim/promote_to_admin: Propagováno na správu skupiny
+      decidim/promoted_to_admin_event: Povýšen na administrátora skupiny
       decidim/removed_from_group: Odstraněna ze skupiny
       decidim/resource_endorsed_event: Zdroj byl schválen
+      decidim/resource_hidden_event: Zdroj skryt
+      decidim/user_group_created_event: Uživatelská skupina vytvořena
+      decidim/welcome_notification_event: Uvítací zpráva
   activerecord:
     attributes:
       decidim/user:
@@ -1123,6 +1128,8 @@ cs:
         translated_text: 'Automaticky přeložený text:'
     notifications:
       no_notifications: Zatím žádné oznámení.
+      show:
+        missing_event: Jejda, toto oznámení patří k položce, která již není k dispozici. Můžete ho zahodit.
     notifications_settings:
       show:
         administrators: Správci

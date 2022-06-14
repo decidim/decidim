@@ -181,7 +181,7 @@ ja:
           notification_title: <a href="%{resource_path}">%{resource_title}</a> のミーティングは48時間以内に開始されます．
     forms:
       meetings:
-        attendees_count_help_text: イベントに参加者の合計数を含めることを忘れないでください。 対面、ハイブリッド、オンラインに関わらず、何人が関わっているかを知ることが重要です。
+        attendees_count_help_text: 会議に出席者の総数に、対面・オンライン・ハイブリッドを含めることを忘れないでください
     gamification:
       badges:
         attended_meetings:

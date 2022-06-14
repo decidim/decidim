@@ -123,6 +123,10 @@ fi-pl:
         file: Tiedosto
     errors:
       models:
+        newsletter:
+          attributes:
+            base:
+              at_least_one_space: Valitse vähintään yksi osallistumistila
         organization:
           attributes:
             official_img_footer:
@@ -1038,7 +1042,6 @@ fi-pl:
             hidden_at: Piilotuksen ajankohta
             participatory_space: Osallistumistila
             report_count: Määrä
-            reportable_id: Id
             reportable_type: Tyyppi
             reported_content_url: Raportoidun sisällön URL
             reports: Raportit

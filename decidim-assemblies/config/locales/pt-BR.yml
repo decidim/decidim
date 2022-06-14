@@ -379,7 +379,6 @@ pt-BR:
         related_participatory_processes: Processos participativos relacionados
         scope: Âmbito
         social_networks: Redes sociais
-        social_networks_title: Compartilhar esta assembleia em
         target: Quem pode participar
     assembly_members:
       assembly_member:
@@ -390,7 +389,6 @@ pt-BR:
       assemblies:
         create_assembly_member:
           email_intro: Um administrador da assembleia<a href="%{resource_url}">%{resource_name}</a> adicionou você como um de seus membros.
-          email_outro: Você recebeu esta notificação porque foi convidado para um assembleia. Verifique a <a href="%{resource_path}">página de assembleia</a> para contribuir!
           email_subject: Você foi convidado para ser um membro da assembleia %{resource_name}!
           notification_title: Você foi registrado como um membro da Assembleia <a href="%{resource_path}">%{resource_name}</a>. Verifique a <a href="%{resource_path}">página do assembleia</a> para contribuir!
       assembly:

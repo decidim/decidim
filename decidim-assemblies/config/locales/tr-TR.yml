@@ -376,7 +376,6 @@ tr:
         related_participatory_processes: İlgili katılımcı süreçleri
         scope: Kapsam
         social_networks: Sosyal ağlar
-        social_networks_title: Bu kurulu paylaş
         target: Katılanlar
     assembly_members:
       assembly_member:
@@ -387,7 +386,6 @@ tr:
       assemblies:
         create_assembly_member:
           email_intro: <a href="%{resource_url}">%{resource_name} </a> kurulun bir yöneticisi sizi üyelerinden biri olarak ekledi.
-          email_outro: Bu bildirimi bir toplantıya davet edildiğiniz için aldınız. Katkıda bulunmak için <a href="%{resource_path}"> kurul sayfasını </a> kontrol edin!
           email_subject: '%{resource_name} kuruluna üye olmak için davet edildiniz!'
           notification_title: <a href="%{resource_path}">%{resource_name}</a> Kurulu üyesi olarak kaydoldunuz. Katkıda bulunmak için <a href="%{resource_path}">kurul sayfasını</a> kontrol edin!
       assembly:

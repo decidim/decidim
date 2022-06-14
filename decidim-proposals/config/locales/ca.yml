@@ -197,6 +197,7 @@ ca:
             automatic_hashtags: Hashtags afegits a totes les propostes
             comments_blocked: Comentaris bloquejats
             creation_enabled: Les participants poden crear propostes
+            creation_enabled_readonly: Aquesta opció es desactiva quan actives la funcionalitat de Textos Participatius. Per a pujar propostes com a text participatiu fes clic al botó de Textos Participatius i segueix les instruccions.
             default_sort_order: Ordre per defecte de propostes
             default_sort_order_help: '''Per defecte'' vol dir que si els suports estan habilitats, les propostes es mostraran aleatòriament, i si els suports estan bloquejats, aleshores es mostraran de més a menys suports.'
             default_sort_order_options:
@@ -225,33 +226,33 @@ ca:
             email_subject: Algú ha deixat una nota a la proposta %{resource_title}.
             notification_title: Algú ha deixat una nota a la proposta <a href="%{resource_path}">%{resource_title}</a>. Revisa-la ara a través del <a href="%{admin_proposal_info_path}">taulell d'admistració</a>
         collaborative_draft_access_accepted:
-          email_intro: 'S''ha acceptat %{requester_name} per accedir com a contribuidora de l''esborrany col·laboratiu <a href="%{resource_path}">%{resource_title}</a>.'
-          email_outro: Has rebut aquesta notificació perquè ets contribuidora de <a href="%{resource_path}">%{resource_title}</a>.
+          email_intro: 'S''ha acceptat %{requester_name} per accedir com a contribuidora de l''esborrany col·laboratiu <a href="%{resource_url}">%{resource_title}</a>.'
+          email_outro: Has rebut aquesta notificació perquè ets una contribuïdora de <a href="%{resource_url}">%{resource_title}</a>.
           email_subject: "S'ha acceptat %{requester_name} per accedir com a contribuidora del %{resource_title}."
           notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> ha estat <strong>acceptat per accedir com a contribuidora</strong> de l'esborrany col·laboratiu <a href="%{resource_path}">%{resource_title}</a>.
         collaborative_draft_access_rejected:
-          email_intro: 'S''ha rebutjat %{requester_name} per accedir com a contribuidora de l''esborrany col·laboratiu <a href="%{resource_path}">%{resource_title}</a>.'
-          email_outro: Has rebut aquesta notificació perquè ets contribuidora de <a href="%{resource_path}">%{resource_title}</a>.
+          email_intro: 'S''ha rebutjat que %{requester_name} accedeixi com a contribuidora de l''esborrany col·laboratiu <a href="%{resource_url}">%{resource_title}</a>.'
+          email_outro: Has rebut aquesta notificació perquè ets una contribuïdora de <a href="%{resource_url}">%{resource_title}</a>.
           email_subject: "S'ha rebutjat %{requester_name} per accedir com a contribuïdora de l'esborrany col·laboratiu %{resource_title}."
           notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a><strong> ha estat rebutjat per accedir com a contribuïdora</strong> de l'esborrany col·laboratiu <a href="%{resource_path}">%{resource_title}</a>.
         collaborative_draft_access_requested:
-          email_intro: '%{requester_name} ha sol·licitat accés com a contribuïdora. Pots <strong>acceptar o rebutjar la sol·licitud</strong> de l''esborrany col·laboratiu <a href="%{resource_path}">%{resource_title}</a>.'
-          email_outro: Has rebut aquesta notificació perquè ets contribuïdora de <a href="%{resource_path}">%{resource_title}</a>.
+          email_intro: '%{requester_name} ha sol·licitat accés com a contribuïdora. Pots <strong>acceptar o rebutjar la sol·licitud</strong> de l''esborrany col·laboratiu <a href="%{resource_url}">%{resource_title}</a>.'
+          email_outro: Has rebut aquesta notificació perquè ets contribuïdora de <a href="%{resource_url}">%{resource_title}</a>.
           email_subject: "%{requester_name} ha demanat accés per contribuir a %{resource_title}."
           notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> ha sol·licitat accés per contribuir a l'esborrany col·laboratiu de <a href="%{resource_path}">%{resource_title}</a>. Si us plau, <strong>accepta o rebutja la sol·licitud</strong>.
         collaborative_draft_access_requester_accepted:
-          email_intro: Has estat acceptada com a contribuïdora de l'esborrany col·laboratiu <a href="%{resource_path}">%{resource_title}</a>.
-          email_outro: Has rebut aquesta notificació perquè has sol·licitat ser contribuïdora de <a href="%{resource_path}">%{resource_title}</a>.
+          email_intro: Has estat acceptada com a contribuïdora de l'esborrany col·laboratiu <a href="%{resource_url}">%{resource_title}</a>.
+          email_outro: Has rebut aquesta notificació perquè has sol·licitat ser contribuïdora de <a href="%{resource_url}">%{resource_title}</a>.
           email_subject: Has estat acceptada com a contribuïdora de %{resource_title}.
           notification_title: Has estat acceptada <strong>com a contribuïdora</strong> de l'esborrany col·laboratiu <a href="%{resource_path}">%{resource_title}</a>.
         collaborative_draft_access_requester_rejected:
-          email_intro: Has estat rebutjada per accedir com a contribuïdora de l'esborrany col·laboratiu <a href="%{resource_path}">%{resource_title}</a>.
-          email_outro: Has rebut aquesta notificació perquè has sol·licitat ser contribuïdora de <a href="%{resource_path}">%{resource_title}</a>.
+          email_intro: Has estat rebutjada per accedir com a contribuïdora de l'esborrany col·laboratiu <a href="%{resource_url}">%{resource_title}</a>.
+          email_outro: Has rebut aquesta notificació perquè has sol·licitat ser contribuïdora de <a href="%{resource_url}">%{resource_title}</a>.
           email_subject: Has estat rebutjada com a contribuïdora de %{resource_title}.
           notification_title: Has estat rebutjada <strong>per accedir com a contribuïdora</strong> de l'esborrany col·laboratiu <a href="%{resource_path}">%{resource_title}</a>.
         collaborative_draft_withdrawn:
-          email_intro: <a href="%{author_path}">%{author_name} %{author_nickname}</a> ha retirat l'esborrany col·laboratiu <a href="%{resource_path}">%{resource_title}</a>.
-          email_outro: Has rebut aquesta notificació perquè ets una contribuïdora de <a href="%{resource_path}">%{resource_title}</a>.
+          email_intro: <a href="%{author_url}">%{author_name} %{author_nickname}</a> ha retirat l'esborrany col·laboratiu <a href="%{resource_url}">%{resource_title}</a>.
+          email_outro: Has rebut aquesta notificació perquè ets contribuïdora de <a href="%{resource_url}">%{resource_title}</a>.
           email_subject: "%{author_name} %{author_nickname} ha retirat l'esborrany col·laboratiu %{resource_title}."
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> <strong>ha retirat</strong> l'esborrany col·laboratiu <a href="%{resource_path}">%{resource_title}</a>.
         creation_enabled:
@@ -455,6 +456,7 @@ ca:
             accepted: Acceptades
             answer_proposal: Resposta
             evaluating: En avaluació
+            not_answered: No resposta
             rejected: Rebutjada
             title: Respondre a la proposta %{title}
         proposal_notes:

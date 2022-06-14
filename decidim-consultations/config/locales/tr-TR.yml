@@ -365,7 +365,6 @@ tr:
         start_voting_date: Oylama başlıyor
       question_components:
         question_menu_item: Soru
-        unfold: açılmak
       question_header:
         back_to_consultation: Tüm istişarelere bakın
         back_to_question: Soruya geri dön

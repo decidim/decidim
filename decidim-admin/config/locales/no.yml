@@ -1018,7 +1018,7 @@
         hide: Skjul
         not_hidden: Ikke skjult
         title: Handlinger
-        unhide: Ikke skjul
+        unhide: Vis
         unreport: Urapporter
       admin:
         reportable:
@@ -1038,7 +1038,6 @@
             hidden_at: Skjult på
             participatory_space: Deltakerrom
             report_count: Antall
-            reportable_id: Id
             reportable_type: Type
             reported_content_url: Rapportert innholds URL
             reports: Rapporter

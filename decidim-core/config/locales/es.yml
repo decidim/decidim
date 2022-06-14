@@ -22,6 +22,7 @@ es:
       user:
         about: Acerca de
         email: Tu correo electrónico
+        locale: Configuración regional
         name: Tu nombre
         nickname: Alias
         password: Contraseña
@@ -34,12 +35,17 @@ es:
       decidim/demoted_membership: Ya no eres una administradora de grupo
       decidim/gamification/badge_earned_event: Insignia obtenida
       decidim/gamification/level_up_event: Has subido de nivel
+      decidim/invited_to_group_event: Invitada al grupo
       decidim/join_request_accepted_event: Solicitud de incorporación aceptada
       decidim/join_request_rejected_event: Solicitud de incorporación rechazada
       decidim/profile_updated_event: Perfil actualizado
       decidim/promote_to_admin: Promocionada a administradora del grupo
+      decidim/promoted_to_admin_event: Promocionada a administradora del grupo
       decidim/removed_from_group: Eliminada del grupo
       decidim/resource_endorsed_event: Adhesión a recurso realizada
+      decidim/resource_hidden_event: Recurso oculto
+      decidim/user_group_created_event: Grupo de usuarios creado
+      decidim/welcome_notification_event: Mensaje de bienvenida
   activerecord:
     attributes:
       decidim/user:
@@ -107,6 +113,7 @@ es:
   decidim:
     accessibility:
       external_link: Enlace externo
+      front_page_link: Ir a la página principal
       logo: "Logo oficial de %{organization}"
       skip_button: Saltar al contenido principal
     account:
@@ -696,6 +703,11 @@ es:
           email_outro: Has recibido esta notificación porque estás siguiendo a %{nickname}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
           email_subject: "%{nickname} ha actualizado su perfil"
           notification_title: La página <a href="%{resource_path}"> de perfil </a> de %{name} (%{nickname}), a quien estás siguiendo, se ha actualizado.
+        user_officialized:
+          email_intro: La participante %{name} (%{nickname}) ha sido oficializada.
+          email_outro: Has recibido esta notificación porque eres una de las administradoras de la plataforma.
+          email_subject: "Se ha oficializado a %{name}"
+          notification_title: La participante %{name} (%{nickname}) ha sido oficializada.
     export_mailer:
       data_portability_export:
         click_button: 'Haz clic en el siguiente enlace para descargar tus datos.<br/>El archivo estará disponible hasta %{date}.<br/>Necesitarás <a href="https://www.7-zip.org/">7-Zip</a> (para Windows), <a href="https://www.keka.io/en/">Keka</a> (para MacOS) o <a href="https://peazip.github.io">PeaZip</a> (para Linux) para abrirlo. Contraseña: %{password}'
@@ -1077,6 +1089,8 @@ es:
         translated_text: 'Texto traducido automáticamente:'
     notifications:
       no_notifications: Aún no hay notificaciones.
+      show:
+        missing_event: Vaya, esta notificación pertenece a un elemento que ya no está disponible. Puedes descartarla.
     notifications_settings:
       show:
         administrators: Administradoras
@@ -1729,6 +1743,7 @@ es:
     dropdown:
       choose_diff_view_html: 'Modo de vista HTML:'
       choose_diff_view_mode: 'Comparar el modo de visualización:'
+      choose_diff_view_mode_menu: Elegir el modo de comparación
       option_escaped: Escapado
       option_split: En paralelo
       option_unescaped: Desescapado

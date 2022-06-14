@@ -41,6 +41,7 @@ hu:
       decidim/promote_to_admin: A csoport adminisztrátora
       decidim/removed_from_group: Eltávolítva a csoportból
       decidim/resource_endorsed_event: Erőforrás jóváhagyva
+      decidim/welcome_notification_event: Üdvözlő üzenet
   activerecord:
     attributes:
       decidim/user:

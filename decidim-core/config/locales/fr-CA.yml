@@ -35,12 +35,17 @@ fr-CA:
       decidim/demoted_membership: N'est plus un administrateur de groupe
       decidim/gamification/badge_earned_event: Badge gagné
       decidim/gamification/level_up_event: Vous avez progressé d'un niveau
+      decidim/invited_to_group_event: Invitation à rejoindre un groupe
       decidim/join_request_accepted_event: Demande de participation acceptée
       decidim/join_request_rejected_event: Demande de participation rejetée
       decidim/profile_updated_event: Profil mis à jour
       decidim/promote_to_admin: Promu au groupe admin
+      decidim/promoted_to_admin_event: Promotion au rôle d'administrateur de groupe
       decidim/removed_from_group: Retiré du groupe
       decidim/resource_endorsed_event: Ressource soutenue
+      decidim/resource_hidden_event: Modération de votre participation
+      decidim/user_group_created_event: Groupe d'utilisateurs créé
+      decidim/welcome_notification_event: Message de bienvenue
   activerecord:
     attributes:
       decidim/user:
@@ -698,7 +703,7 @@ fr-CA:
           notification_title: Le <a href="%{resource_path}">profil public</a> de %{name} (%{nickname}), que vous suivez, a été mis à jour.
         user_officialized:
           email_intro: Le participant %{name} (%{nickname}) a été officialisé.
-          email_outro: Vous avez reçu cette notification parce que vous êtes un administrateur de l'organisation.
+          email_outro: Vous avez reçu cette notification parce que vous êtes un administrateur de l'organisation. Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l'onglet “Mon compte” > “Paramètres des notifications”.
           email_subject: "%{name} a été officialisé"
           notification_title: Le participant %{name} (%{nickname}) a été officialisé.
     export_mailer:
@@ -1082,6 +1087,8 @@ fr-CA:
         translated_text: 'Traduction automatique du texte :'
     notifications:
       no_notifications: Il n'y a pas encore de notifications.
+      show:
+        missing_event: Oups, cette notification est liée à un élément qui n'est plus disponible. Vous pouvez la supprimer.
     notifications_settings:
       show:
         administrators: Administrateurs

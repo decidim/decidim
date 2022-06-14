@@ -185,6 +185,10 @@ zh-CN:
         label: 排序选举方式
         older: 更旧的
         recent: 最近的
+      trustee_zone:
+        elections:
+          tally_steps:
+            back: 后退
       votes:
         confirm:
           answer: 答案
