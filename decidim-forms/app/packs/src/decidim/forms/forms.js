@@ -65,9 +65,8 @@ $(() => {
       event.returnValue = true;
     });
 
-    $form.on("submit", ()=>{
-      $form.find('button[type="submit"]').prop( 'disabled', true );
-      debugger
+    $form.on("submit", () => {
+      $form.find('button[type="submit"]').prop("disabled", true);
     })
   }
 })

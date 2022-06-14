@@ -64,7 +64,7 @@ module Decidim
 
           # Public: return true if the current user (or session visitor) can answer the questionnaire
           def visitor_already_answered?
-            questionnaire.answered_by?(current_user || tokenize(session[:session_id]))
+            questionnaire.reload.answered_by?(current_user || tokenize(session[:session_id]))
           end
 
           # Public: Returns a String or Object that will be passed to `redirect_to` after
