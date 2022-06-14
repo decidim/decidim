@@ -52,7 +52,6 @@ module Decidim
       private
 
       def answer_uniqueness
-        byebug
         return if Answer.where(questionnaire: questionnaire, question: question, user: user)
                         .or(Answer.where(questionnaire: questionnaire, question: question, session_token: session_token))
                         .none?
