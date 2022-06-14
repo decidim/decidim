@@ -10,6 +10,8 @@ module Decidim
       # You can also use the ImporterFactory class to create an Importer
       # instance.
       class Importer
+        include Decidim::ProcessesFileLocally
+
         delegate :errors, to: :verifier
 
         # Public: Initializes an Importer.
@@ -72,12 +74,14 @@ module Decidim
           return @collection_data if @collection_data
 
           @collection_data = []
-          reader.new(file).read_rows do |rowdata, index|
-            if index.zero?
-              @data_headers = rowdata.map { |d| d.to_s.to_sym }
-            else
-              @collection_data << rowdata.each_with_index.to_h do |val, ind|
-                [@data_headers[ind], val]
+          process_file_locally(file) do |file_path|
+            reader.new(file_path).read_rows do |rowdata, index|
+              if index.zero?
+                @data_headers = rowdata.map { |d| d.to_s.to_sym }
+              else
+                @collection_data << rowdata.each_with_index.to_h do |val, ind|
+                  [@data_headers[ind], val]
+                end
               end
             end
           end
