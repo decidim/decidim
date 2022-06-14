@@ -170,20 +170,13 @@ describe "Vote online in an election", type: :system do
       election.questions.last.destroy!
       election.questions.last.destroy!
       election.questions.last.destroy!
-      # stub_request(:any, Decidim::BulletinBoard.bulletin_board_server)
-      #   .to_return(status: 404, body: "failed connection")
-      allow(Decidim::BulletinBoard).to receive(:bulletin_board_server).and_return("http://idontexist.org")
+      allow(Decidim::BulletinBoard).to receive(:bulletin_board_server).and_return("http://idontexist.test")
     end
 
     it "alerts the user about the error" do
       visit_component
       click_link translated(election.title)
       click_link "Start voting"
-      # answers = election.questions.first.answers
-      # choose(translated(answers.first.title), allow_label_click: true)
-      # click_link("Next")
-      # click_link("Confirm")
-      # click_button("Cast ballot to finish your vote")
 
       within "#server-failure" do
         expect(page).to have_content("Something went wrong")
