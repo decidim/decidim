@@ -62,6 +62,12 @@ fi:
         email: Sähköposti
         name: Nimi
         role: Rooli
+    errors:
+      models:
+        participatory_process:
+          attributes:
+            document:
+              allowed_file_content_types: 'Virheellinen asiakirjan tyyppi. Hyväksytyt tiedostomuodot ovat: %{types}'
     models:
       decidim/participatory_process_step_activated_event: Vaihe aktivoitu
       decidim/participatory_process_step_changed_event: Vaihe muutettu
