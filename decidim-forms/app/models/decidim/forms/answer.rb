@@ -20,6 +20,7 @@ module Decidim
 
       validate :user_questionnaire_same_organization
       validate :question_belongs_to_questionnaire
+      validate :answer_uniqueness
 
       scope :not_separator, -> { joins(:question).where.not(decidim_forms_questions: { question_type: Decidim::Forms::Question::SEPARATOR_TYPE }) }
       scope :not_title_and_description, -> { joins(:question).where.not(decidim_forms_questions: { question_type: Decidim::Forms::Question::TITLE_AND_DESCRIPTION_TYPE }) }
@@ -49,6 +50,15 @@ module Decidim
       end
 
       private
+
+      def answer_uniqueness
+        byebug
+        return if Answer.where(questionnaire: questionnaire, question: question, user: user)
+                        .or(Answer.where(questionnaire: questionnaire, question: question, session_token: session_token))
+                        .none?
+
+        errors.add(:questionnaire, :already_answered)
+      end
 
       def user_questionnaire_same_organization
         return if user.nil? || user&.organization == questionnaire.questionnaire_for&.organization

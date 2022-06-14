@@ -1,5 +1,12 @@
 ---
 en:
+  activerecord:
+    errors:
+      models:
+        decidim/forms/answer:
+          attributes:
+            questionnaire:
+              already_answered: has already been answered
   activemodel:
     attributes:
       answer:
