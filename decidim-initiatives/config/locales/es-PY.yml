@@ -569,6 +569,8 @@ es-PY:
           published: Publicada
           rejected: No ha conseguido las firmas
           validating: Validación técnica
+      signature_interval:
+        title: Período de recogida de firmas
       states:
         accepted: Aceptado
         expired: Caducado
