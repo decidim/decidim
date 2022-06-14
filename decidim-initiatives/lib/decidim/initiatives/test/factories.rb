@@ -276,4 +276,25 @@ FactoryBot.define do
       state { "rejected" }
     end
   end
+
+  factory :initiatives_settings, class: "Decidim::InitiativesSettings" do
+    initiatives_order { "random" }
+    organization
+
+    trait :most_recent do
+      initiatives_order { "date" }
+    end
+
+    trait :most_signed do
+      initiatives_order { "signatures" }
+    end
+
+    trait :most_commented do
+      initiatives_order { "comments" }
+    end
+
+    trait :most_recently_published do
+      initiatives_order { "publication_date" }
+    end
+  end
 end
