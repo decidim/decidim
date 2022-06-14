@@ -25,6 +25,7 @@ en:
         banner_image: Banner image
         child_scope_threshold_enabled: Enable child scope signatures
         collect_user_extra_fields: Collect participant personal data on signature
+        comments_enabled: Enable comments
         custom_signature_end_date_enabled: Enable authors to choose the end of signature collection period
         description: Description
         document_number_authorization_handler: Authorization to verify document number on signatures
