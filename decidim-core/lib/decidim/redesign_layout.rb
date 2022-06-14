@@ -29,6 +29,8 @@ module Decidim
 
     class_methods do
       def layout(layout, conditions = {})
+        set_redesign
+
         if layout.is_a?(String)
           super(redesigned_layout(layout), **conditions)
         else
@@ -64,7 +66,9 @@ module Decidim
       end
 
       def redesign_enabled?
-        Decidim.redesign_active && @enable_redesign
+        set_redesign
+
+        @enable_redesign
       end
 
       def redesign_layout_conditions
@@ -76,6 +80,10 @@ module Decidim
       end
 
       private
+
+      def set_redesign
+        @enable_redesign = Decidim.redesign_active unless @enable_redesign.is_a?(FalseClass)
+      end
 
       def redesigned?(layout)
         %r{.*\K/_?redesigned}.match?(layout)
