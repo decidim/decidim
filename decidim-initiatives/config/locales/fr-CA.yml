@@ -24,6 +24,7 @@ fr-CA:
         banner_image: Image d'en-tête
         child_scope_threshold_enabled: Activer les signatures de portée enfant
         collect_user_extra_fields: Collecter les données personnelles de l'utilisateur lors de la signature
+        comments_enabled: Activer les commentaires
         custom_signature_end_date_enabled: Permettre aux auteurs de choisir la fin de la période de collecte des signatures
         description: Description
         document_number_authorization_handler: Niveau d'autorisation nécessaire pour signer les initiatives de ce type d'initiative
