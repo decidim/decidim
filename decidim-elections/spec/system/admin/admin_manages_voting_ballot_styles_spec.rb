@@ -50,7 +50,7 @@ describe "Admin manages ballot styles", type: :system do
 
       within "#ballot_styles table" do
         expect(page).to have_text("NEW CODE")
-        expect(page).to have_selector(".icon--check", count: ballot_style.questions.count + 1)
+        expect(page).to have_selector("li .text-success", count: ballot_style.questions.count + 1)
       end
     end
 
@@ -87,7 +87,7 @@ describe "Admin manages ballot styles", type: :system do
 
       within "#ballot_styles table" do
         expect(page).to have_text("UPDATED CODE")
-        expect(page).to have_selector(".icon--check", count: 1)
+        expect(page).to have_selector("li .text-success", count: 1)
       end
     end
   end

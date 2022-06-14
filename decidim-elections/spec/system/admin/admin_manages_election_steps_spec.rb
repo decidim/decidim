@@ -68,7 +68,7 @@ describe "Admin manages election steps", :slow, type: :system do
       visit_steps_page
       expect(page).to have_content("Key ceremony")
       expect(page).to have_css(".loading-spinner") # It shows the loading icon
-      expect(page).not_to have_css("svg.icon--task") # The trustees didn't participate yet
+      expect(page).not_to have_no_css("div.active.hide") # The trustees didn't participate yet
       expect(page).to have_link("Continue", class: "disabled")
 
       download_election_keys(0)
@@ -78,7 +78,7 @@ describe "Admin manages election steps", :slow, type: :system do
       visit_steps_page
       expect(page).to have_content("Key ceremony")
       expect(page).not_to have_css(".loading-spinner") # It's not waiting for any trustee
-      expect(page).to have_css("svg.icon--task") # All the trustees are active
+      expect(page).not_to have_css("div.active.hide") # All the trustees are active
       expect(page).not_to have_link("Continue", class: "disabled")
       expect(page).to have_link("Continue")
     end
@@ -211,7 +211,7 @@ describe "Admin manages election steps", :slow, type: :system do
 
       # shows the trustee as missing
       within find("tr", text: trustee.name) do
-        expect(page).to have_css("svg.icon--x")
+        expect(page).to have_css("li .text-alert")
       end
 
       # don't allow to mark more trustees as missing
