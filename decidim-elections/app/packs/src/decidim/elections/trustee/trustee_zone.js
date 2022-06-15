@@ -1,5 +1,8 @@
 /* eslint-disable require-jsdoc, no-alert, func-style */
 
+// show a message to the user if comunication is lost
+import "src/decidim/elections/error_handler";
+
 import { IdentificationKeys } from "@decidim/decidim-bulletin_board";
 
 $(() => {

@@ -1,10 +1,12 @@
+<% i18n_scope ||= "decidim.elections.connection.failed" %>
+
 <div class="reveal" id="server-failure" data-reveal>
   <div class="reveal__header">
     <h3 class="reveal__title">
-      <%= t("modal.title", scope: "decidim.elections.votes.failed") %>
+      <%= t("modal.title", scope: i18n_scope) %>
     </h3>
 
-    <button class="close-button" data-close aria-label="<%= t("modal.close", scope: "decidim.elections.votes.failed") %>"
+    <button class="close-button" data-close aria-label="<%= t("modal.close", scope: i18n_scope) %>"
       type="button">
       <span aria-hidden="true">&times;</span>
     </button>
@@ -12,7 +14,7 @@
 
   <div class="row">
     <p>
-      <%= t("modal.communication_lost", scope: "decidim.elections.votes.failed").html_safe %>
+      <%= t("modal.communication_lost", scope: i18n_scope).html_safe %>
     </p>
 
     <p class="help-text tech-info"></p>
@@ -21,7 +23,7 @@
   <div class="row">
     <div class="column flex-center">
       <button class="button primary expanded" data-close type="button">
-        <%= t("modal.close", scope: "decidim.elections.votes.failed") %>
+        <%= t("modal.close", scope: i18n_scope) %>
       </button>
     </div>
   </div>
