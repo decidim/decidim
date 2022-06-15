@@ -82,12 +82,17 @@ ja:
             label: タイプ
         search_placeholder:
           title_or_description_or_id_string_or_author_name_or_author_nickname_cont: '%{collection} をタイトル、説明、ID、または著者名で検索します。'
+      initiatives_settings:
+        update:
+          error: エラーが発生しました
+          success: イニシアチブの設定が正常に更新されました
       menu:
         attachments: 添付ファイル
         committee_members: 委員会メンバー
         components: コンポーネント
         information: 情報
         initiatives: イニシアチブ
+        initiatives_settings: 設定
         initiatives_types: イニシアチブ種別
         moderations: モデレーション
       models:
@@ -239,6 +244,16 @@ ja:
           update:
             error: エラーが発生しました
             success: イニシアチブが正常に更新されました
+        initiatives_settings:
+          edit:
+            update: 更新
+          form:
+            comments: コメント数の多い順
+            date: 新着順
+            publication_date: 公開日の新しい順
+            random: ランダム
+            signatures: 署名数順
+            title: イニシアチブの設定
         initiatives_type_scopes:
           create:
             error: エラーが発生しました
@@ -288,6 +303,8 @@ ja:
           send_to_technical_validation: "%{user_name} が %{resource_name} イニシアチブを技術的検証に提出しました"
           unpublish: "%{user_name} が %{resource_name} イニシアチブを破棄しました"
           update: "%{user_name} が %{resource_name} のイニシアチブを更新しました"
+        initiatives_settings:
+          update: "%{user_name} がイニシアチブの設定を更新しました"
         initiatives_type:
           create: "%{user_name} が %{resource_name} イニシアチブタイプを作成しました"
           delete: "%{user_name} が %{resource_name} イニシアチブタイプを削除しました"
