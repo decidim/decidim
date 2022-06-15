@@ -6,6 +6,7 @@ module Decidim
       # This controller allows the create or update a blog.
       class PostsController < Admin::ApplicationController
         helper UserGroupHelper
+        helper PostsHelper
 
         def new
           enforce_permission_to :create, :blogpost

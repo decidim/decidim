@@ -11,12 +11,12 @@ en:
   decidim:
     blogs:
       actions:
+        author_id: Create post as
         confirm_destroy: Are you sure you want to delete this post?
         destroy: Delete
         edit: Edit
         new: New post
         title: Actions
-        user_group_id: Create post as
       admin:
         models:
           components:
@@ -53,6 +53,7 @@ en:
             author: Author
             body: Body
             created_at: Created at
+            official_blog_post: Official post
             title: title
       posts:
         show:

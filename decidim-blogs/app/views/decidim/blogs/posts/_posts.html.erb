@@ -12,7 +12,8 @@
           </h2>
           <% end %>
           <div class="card__author">
-            <%= cell "decidim/author", present(post.author), from: post, has_actions: true %>
+            <% post_presenter = Decidim::Blogs::PostPresenter.new(post) %>
+            <%= cell "decidim/author", post_presenter.author, from: post, has_actions: true %>
           </div>
         </div>
         <%= decidim_sanitize_editor post_description(post) %>
