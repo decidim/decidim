@@ -1,10 +1,10 @@
 <%= render partial: "decidim/shared/component_announcement" %>
 
 <%= render layout: "layouts/decidim/shared/layout_two_col", locals: { title: "Blog" } do %>
+
+  <%# TODO: sorting component, it requires Turbo %>
+
   <div id="blogs" class="space-y-12">
     <%= render partial: "posts" %>
-  </div>
-  <div id="most-commented">
-    <%= render partial: "sidebar_blog", locals: { posts: posts_most_commented } %>
   </div>
 <% end %>
