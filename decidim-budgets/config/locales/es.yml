@@ -93,10 +93,10 @@ es:
             change_category: Cambiar categoría
             change_scope: Cambiar ámbito
             change_selected: Cambiar la selección
-            deselect_implementation: No seleccionados
+            deselect_implementation: Deseleccionar
             finished_orders: Votos terminados
             pending_orders: Votos pendientes
-            select_for_implementation: Seleccionado
+            select_for_implementation: Seleccionar
             selected: Seleccionado
             title: Proyectos
             update: Actualizar
@@ -110,16 +110,16 @@ es:
           update_category:
             invalid: 'Estas propuestas ya tenían la categoría %{subject_name}: %{projects}.'
             select_a_category: Por favor, selecciona una categoría
-            select_a_project: Seleccione un proyecto
+            select_a_project: Selecciona un proyecto
             success: 'Los proyectos se han actualizado correctamente a la categoría %{subject_name}: %{projects}.'
           update_scope:
-            invalid: 'Estos proyectos ya tenían el ámbito %{subject_name}: %{projects}.'
-            select_a_project: Por favor, seleccionar un proyecto
+            invalid: 'Estos proyectos ya pertenecían al ámbito %{subject_name}: %{projects}.'
+            select_a_project: Por favor, selecciona un proyecto
             select_a_scope: Por favor, selecciona un ámbito
             success: 'Los proyectos se han actualizado correctamente al ámbito %{subject_name}: %{projects}.'
           update_selected:
-            invalid: 'Estos proyectos ya estaban seleccionado: %{projects}.'
-            select_a_project: Por favor, seleccionar un proyecto
+            invalid: 'Estos proyectos ya estaban seleccionados: %{projects}.'
+            select_a_project: Por favor, selecciona un proyecto
             select_a_selection: Por favor, elige un estado
             success: 'Selección de proyectos cambiada con éxito: %{projects}.'
         proposals_imports:
