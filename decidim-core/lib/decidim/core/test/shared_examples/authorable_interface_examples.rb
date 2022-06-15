@@ -51,7 +51,7 @@ shared_examples_for "authorable interface" do
         model.update(author: organization, user_group: nil)
       end
 
-      it "do not return a main author" do
+      it "does not return a main author" do
         expect(response["author"]).to eq(nil)
       end
     end

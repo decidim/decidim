@@ -17,7 +17,7 @@ module Decidim
                  elsif object.respond_to?(:creator_identity)
                    object&.creator_identity
                  end
-        author if author.is_a?(Decidim::User) || author.is_a?(Decidim::UserGroup)
+        author if author.is_a?(Decidim::UserBaseEntity)
       end
     end
   end
