@@ -2,7 +2,7 @@
 
 module Decidim
   # Force user to "Change your password" view when they need to change password
-  module NeedsToChangePassword
+  module NeedsPasswordChange
     extend ActiveSupport::Concern
 
     included do
@@ -17,27 +17,27 @@ module Decidim
       return true unless current_user.admin?
       return unless Decidim.config.admin_password_strong_enable
       return if current_user.password_updated_at.present?
-      return if permitted_paths?
+      return if permitted_path?(request.path)
 
-      redirect_to_edit_admin_password
+      redirect_to_change_password
     end
 
-    def permitted_paths?
-      permitted_paths = [tos_path,
+    def permitted_path?(target_path)
+      permitted_paths = [(tos_path if respond_to?(:tos_path, true)),
                          decidim.delete_account_path,
                          decidim.accept_tos_path,
                          decidim.download_your_data_path,
                          decidim.export_download_your_data_path,
                          decidim.download_file_download_your_data_path,
-                         decidim.edit_admin_password_path]
+                         decidim.change_password_path].compact
       # ensure that path with or without query string pass
-      permitted_paths.find { |el| el.split("?").first == request.path }
+      permitted_paths.find { |el| el.split("?").first == target_path }
     end
 
-    def redirect_to_edit_admin_password
+    def redirect_to_change_password
       flash[:notice] = flash[:notice] if flash[:notice]
       flash[:secondary] = t("decidim.admin.password_change.alert")
-      redirect_to decidim.edit_admin_password_path
+      redirect_to decidim.change_password_path
     end
   end
 end

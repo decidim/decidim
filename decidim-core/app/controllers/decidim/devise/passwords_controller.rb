@@ -30,8 +30,8 @@ module Decidim
         self.resource = current_user
         @send_path = update_admin_password_path
 
-        @form = Decidim::AdminPasswordForm.from_params(params["user"])
-        Decidim::UpdateAdminPassword.call(current_user, @form) do
+        @form = Decidim::PasswordForm.from_params(params["user"])
+        Decidim::UpdatePassword.call(current_user, @form) do
           on(:ok) do
             flash[:notice] = t("passwords.update.success", scope: "decidim")
             redirect_to after_sign_in_path_for current_user

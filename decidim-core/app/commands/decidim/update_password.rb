@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 module Decidim
-  # Decidim command updates (admin) user's password
-  class UpdateAdminPassword < Decidim::Command
+  # Decidim command updates user's password
+  class UpdatePassword < Decidim::Command
     # Updates a user's password.
     #
     # user - The user to be updated.
