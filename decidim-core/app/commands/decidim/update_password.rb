@@ -12,8 +12,6 @@ module Decidim
       @form = form
     end
 
-    attr_reader :form, :user
-
     def call
       return broadcast(:invalid) if form.invalid?
 
@@ -25,5 +23,9 @@ module Decidim
         broadcast(:invalid)
       end
     end
+
+    private
+
+    attr_reader :form, :user
   end
 end
