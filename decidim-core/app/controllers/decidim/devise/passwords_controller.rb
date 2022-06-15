@@ -34,6 +34,7 @@ module Decidim
         Decidim::UpdatePassword.call(current_user, @form) do
           on(:ok) do
             flash[:notice] = t("passwords.update.success", scope: "decidim")
+            bypass_sign_in(current_user)
             redirect_to after_sign_in_path_for current_user
           end
 
