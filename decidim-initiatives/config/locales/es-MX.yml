@@ -24,6 +24,7 @@ es-MX:
         banner_image: Imagen de banner
         child_scope_threshold_enabled: Activar firmas por subámbito
         collect_user_extra_fields: Recopilar datos personales del usuario en la firma
+        comments_enabled: Habilitar comentarios
         custom_signature_end_date_enabled: Permitir a las autoras elegir el final del período de la recogida de firmas
         description: Descripción
         document_number_authorization_handler: Autorización para verificar el número de documento en las votaciones.
@@ -84,12 +85,17 @@ es-MX:
             label: Tipo
         search_placeholder:
           title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Buscar %{collection} por título, descripción, ID o autoría.
+      initiatives_settings:
+        update:
+          error: Se ha producido un error
+          success: La configuración de las iniciativas se ha actualizado correctamente
       menu:
         attachments: Adjuntos
         committee_members: Miembros de la comisión
         components: Componentes
         information: Información
         initiatives: Iniciativas
+        initiatives_settings: Configuración
         initiatives_types: Tipos de Iniciativa
         moderations: Moderaciones
       models:
@@ -241,6 +247,16 @@ es-MX:
           update:
             error: Se ha producido un error
             success: La iniciativa ciudadana se ha actualizado con éxito
+        initiatives_settings:
+          edit:
+            update: Actualizar
+          form:
+            comments: Más comentadas
+            date: Más recientes
+            publication_date: Publicada más recientemente
+            random: Aleatorio
+            signatures: Más firmadas
+            title: Configuración de iniciativas
         initiatives_type_scopes:
           create:
             error: Se ha producido un error
@@ -290,6 +306,8 @@ es-MX:
           send_to_technical_validation: "%{user_name} envió la iniciativa %{resource_name} a validación técnica"
           unpublish: "%{user_name} descartó la iniciativa %{resource_name}"
           update: "%{user_name} actualizó la iniciativa %{resource_name}"
+        initiatives_settings:
+          update: "%{user_name} ha actualizado la configuración de las iniciativas"
         initiatives_type:
           create: "%{user_name} creó el tipo de iniciativa %{resource_name}"
           delete: "%{user_name} borró el tipo de iniciativa %{resource_name}"
