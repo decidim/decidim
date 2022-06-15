@@ -15,47 +15,44 @@
   )
 %>
 
-<div class="row column view-header">
-  <div class="m-bottom">
-    <%= link_to :posts, class: "small hollow" do %>
-      <%= icon "chevron-left", class: "icon--small", role: "img", "aria-hidden": true %>
-      <%= t(".back") %>
-    <% end %>
-  </div>
-  <h2 class="heading2"><%= translated_attribute post.title %></h2>
+<%= render layout: "layouts/decidim/shared/layout_one_col" do %>
 
-  <% post_presenter = Decidim::Blogs::PostPresenter.new(post) %>
-  <%= cell "decidim/author", post_presenter.author, from: post %>
-</div>
-<div class="row">
-  <% if show_endorsements_card? %>
-      <div class="columns section view-side mediumlarge-4 mediumlarge-push-8 large-3 large-push-9">
-        <div class="card">
-          <div class="card__content">
-            <div class="row collapse buttons__row">
-              <% if endorsements_enabled? %>
-                <div class="column small-9 collapse">
-                  <%= endorsement_buttons_cell(post) %>
-                </div>
-              <% end %>
-              <div class="column collapse <%= endorsements_enabled? ? "small-3" : "" %>">
-                <%= link_to "#comments", class: "button small compact hollow button--nomargin expanded" do %>
-                    <%= icon "comment-square", class: "icon--small", aria_label: t(".comments"), role: "img" %> <%= post.comments_count %>
+    <h1 class="h1 decorator my-12"><%= translated_attribute post.title %></h1>
+
+    <% post_presenter = Decidim::Blogs::PostPresenter.new(post) %>
+    <%= cell "decidim/author", post_presenter.author, from: post %>
+
+    <% if show_endorsements_card? %>
+        <div class="columns section view-side mediumlarge-4 mediumlarge-push-8 large-3 large-push-9">
+          <div class="card">
+            <div class="card__content">
+              <div class="row collapse buttons__row">
+                <% if endorsements_enabled? %>
+                  <div class="column small-9 collapse">
+                    <%= endorsement_buttons_cell(post) %>
+                  </div>
                 <% end %>
+                <div class="column collapse <%= endorsements_enabled? ? "small-3" : "" %>">
+                  <%= link_to "#comments", class: "button small compact hollow button--nomargin expanded" do %>
+                      <%#= icon "comment-square", class: "icon--small", aria_label: t(".comments"), role: "img" %> <%= post.comments_count %>
+                  <% end %>
+                </div>
               </div>
+              <br>
+              <%= follow_button_for(post) %>
             </div>
-            <br>
-            <%= follow_button_for(post) %>
           </div>
         </div>
+    <% end %>
+
+    <div class="columns mediumlarge-8 <%= "mediumlarge-pull-4" if show_endorsements_card? %>">
+      <div class="section">
+        <%= decidim_sanitize_editor translated_attribute post.body %>
       </div>
-  <% end %>
-  <div class="columns mediumlarge-8 <%= "mediumlarge-pull-4" if show_endorsements_card? %>">
-    <div class="section">
-      <%= decidim_sanitize_editor translated_attribute post.body %>
+      <%= cell "decidim/endorsers_list", post %>
     </div>
-    <%= cell "decidim/endorsers_list", post %>
-  </div>
-</div>
-<%= attachments_for post %>
-<%= comments_for post %>
+
+    <%= attachments_for post %>
+    <%= comments_for post %>
+
+<% end %>
