@@ -376,6 +376,7 @@ cs:
         few: schválení
         many: schválení
         other: schválení
+      official_author: Oficiální
     authorization_handlers:
       another_dummy_authorization_handler:
         explanation: Ověřte si zavedením čísla pasu začínajícím písmenem "A"
