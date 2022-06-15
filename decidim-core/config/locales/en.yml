@@ -70,7 +70,7 @@ en:
         one: Group
         other: Groups
   admin_password_validator:
-    password_repeated: can't reuse old password
+    password_repeated: cannot reuse old password
     password_too_short: is too short
   booleans:
     'false': 'No'
@@ -159,8 +159,8 @@ en:
       actions:
         cancel: Cancel
       password_change:
-        alert: You need to change your password before access
-        notification: Admins needs to change their password for every %{days} days.
+        alert: You need to change your password in order to proceed further
+        notification: Admin users need to change their password every %{days} days.
     admin_log:
       area:
         create: "%{user_name} created the %{resource_name} area"
@@ -1645,11 +1645,11 @@ en:
     passwords:
       edit:
         change_my_password: Change my password
-        change_your_password: Change your password
         confirm_new_password: Confirm new password
         new_password: New password
         password_help: "%{minimun_characters} characters minimum, must not be too common (e.g. 123456) and must be different from your nickname and your email."
-        password_help_admin: "%{minimun_characters} characters minimum, must not be too common (e.g. 123456), must be different from your nickname and your email and can't reuse old passwords."
+        password_help_admin: "%{minimun_characters} characters minimum, must not be too common (e.g. 123456), must be different from your nickname and your email and must be different from your old passwords."
+        title: Password change
       new:
         forgot_your_password: Forgot your password?
         send_me_reset_password_instructions: Send me reset password instructions
