@@ -5,20 +5,16 @@ class AddPreviousPasswordsToUsers < ActiveRecord::Migration[6.1]
     self.table_name = :decidim_users
   end
 
-  def up
+  def change
     add_column :decidim_users, :password_updated_at, :datetime
     add_column :decidim_users, :previous_passwords, :string, array: true, default: []
 
-    User.find_each do |user|
-      next unless user.admin
-
-      user.password_updated_at = user.updated_at
-      user.save
+    reversible do |direction|
+      direction.up do
+        # rubocop:disable Rails/SkipsModelValidations
+        User.update_all("password_updated_at = updated_at")
+        # rubocop:enable Rails/SkipsModelValidations
+      end
     end
-  end
-
-  def down
-    remove_column :decidim_users, :password_updated_at
-    remove_column :decidim_users, :previous_passwords
   end
 end
