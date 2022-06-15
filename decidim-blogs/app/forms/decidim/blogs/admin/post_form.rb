@@ -11,7 +11,6 @@ module Decidim
         translatable_attribute :body, String
 
         attribute :decidim_author_id, Integer
-        attribute :id, Integer
 
         validates :title, translatable_presence: true
         validates :body, translatable_presence: true
