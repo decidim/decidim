@@ -46,6 +46,7 @@ module Decidim
     end
 
     # Renders the counter of endorsements that appears in m-cards.
+    # deprecated
     def render_endorsements_count
       content = icon("bullhorn", class: "icon--small", aria_label: t("decidim.endorsable.endorsements_count"), role: "img")
       content += resource.endorsements_count.to_s
@@ -71,6 +72,7 @@ module Decidim
       end
     end
 
+    # deprecated
     def render_screen_reader_context_title
       content_tag :span, class: "show-for-sr" do
         decidim_html_escape(resource_title(resource))
@@ -140,6 +142,7 @@ module Decidim
       model
     end
 
+    # deprecated
     def reveal_identities_url
       decidim.identities_endorsement_path(resource.to_gid.to_param)
     end

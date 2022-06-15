@@ -27,7 +27,7 @@
       </div>
     <% end %>
 
-    <div class="col-start-2 col-span-6">
+    <div class="col-start-2 col-span-6 mb-24">
       <%# TODO: this cell should show only profile + date %>
       <% post_presenter = Decidim::Blogs::PostPresenter.new(post) %>
       <%= cell "decidim/author", post_presenter.author, from: post %>
@@ -35,32 +35,39 @@
       <div class="prose max-w-full">
         <%= decidim_sanitize_editor translated_attribute post.body %>
       </div>
-      <%= cell "decidim/endorsers_list", post %>
 
-      <% if !show_endorsements_card? %>
-      <div class="columns section view-side mediumlarge-4 mediumlarge-push-8 large-3 large-push-9">
-        <div class="card">
-          <div class="card__content">
-            <div class="row collapse buttons__row">
-              <% if endorsements_enabled? %>
-                <div class="column small-9 collapse">
-                  <%= endorsement_buttons_cell(post) %>
-                </div>
-              <% end %>
-              <div class="column collapse <%= endorsements_enabled? ? "small-3" : "" %>">
-                <%= link_to "#comments", class: "button small compact hollow button--nomargin expanded" do %>
-                    <%#= icon "comment-square", class: "icon--small", aria_label: t(".comments"), role: "img" %> <%= post.comments_count %>
-                <% end %>
-              </div>
-            </div>
-            <br>
-            <%= follow_button_for(post) %>
-          </div>
+      <div class="flex justify-between">
+        <div class="flex items-center gap-2">
+          <% if endorsements_enabled? %>
+            <%= cell "decidim/endorsers_list", post %>
+            <%= endorsement_buttons_cell(post) %>
+          <% end %>
+
+          <%= link_to "#comments", class: "button text-secondary white sm border" do %>
+            <%= t("decidim.blogs.posts.show.comments") %>
+            <%= icon "chat-1-line", class: "fill-current flex-none" %>
+          <% end %>
+        </div>
+
+        <div class="flex items-center">
+          <%= follow_button_for(post) %>
+
+          <%# TODO: implement the share button %>
+          <button class="button text-secondary white sm">
+            Compartir
+            <%= icon "share-line", class: "fill-current flex-none" %>
+          </button>
+
+          <%# TODO: implement the flag button %>
+          <button class="button text-secondary white sm">
+            Denunciar
+            <%= icon "flag-line", class: "fill-current flex-none" %>
+          </button>
         </div>
       </div>
-  <% end %>
+    </div>
 
-
+    <div class="col-span-8 bg-border">
       <%= attachments_for post %>
       <%= comments_for post %>
     </div>

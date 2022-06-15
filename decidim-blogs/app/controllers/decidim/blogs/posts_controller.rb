@@ -17,7 +17,7 @@ module Decidim
       private
 
       def paginate_posts
-        @paginate_posts ||= posts.created_at_desc.page(params[:page]).per(4)
+        @paginate_posts ||= posts.created_at_desc.page(params[:page]).per(params[:per_page])
       end
 
       def post

@@ -1,16 +1,24 @@
-<div id="list-of-endorsements" class="section">
-  <div class="row">
-    <div class="columns large-12">
-      <h3 class="section-heading"><%= t("decidim.proposals.proposals.show.endorsements_list") %></h3>
-    </div>
-    <div class="columns large-12">
-      <%= cell(
-        "decidim/collapsible_list",
-        endorsers,
-        cell_name: "decidim/author",
-        cell_options: { extra_classes: ["author-data--small"] },
-        hidden_elements_count_i18n_key: "decidim.proposals.proposals.show.hidden_endorsers_count"
-      ) %>
-    </div>
-  </div>
+<%#= cell(
+  "decidim/collapsible_list",
+  endorsers,
+  cell_name: "decidim/author",
+  cell_options: { extra_classes: ["author-data--small"] },
+  hidden_elements_count_i18n_key: "decidim.proposals.proposals.show.hidden_endorsers_count"
+) %>
+<div class="flex -space-x-2">
+  <%
+    # TODO: implement the endorsers_list
+
+    total = Random.rand(5)
+    max_items_stacked = [total, 3].min # Displays up to 3 items top
+
+    max_items_stacked.times do |i| %>
+    <span class="rounded-full overflow-hidden border border-white inline-block w-6 h-6">
+      <img src="<%= 'https://www.fillmurray.com/640/360' %>" class="w-full h-full object-cover">
+    </span>
+  <% end %>
+
+  <span class="rounded-full overflow-hidden border border-white w-6 h-6 bg-background-3 inline-grid place-items-center text-secondary text-xs font-semibold">
+    <%= total %>
+  </span>
 </div>
