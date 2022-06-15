@@ -24,7 +24,7 @@ module Decidim
           check_user_block_status(user)
         elsif needs_to_update_password?(user)
           user.update(password_updated_at: nil)
-          edit_admin_password_path
+          change_password_path
         elsif first_login_and_not_authorized?(user) && !user.admin? && !pending_redirect?(user)
           decidim_verifications.first_login_authorizations_path
         else

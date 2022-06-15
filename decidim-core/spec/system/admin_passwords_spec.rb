@@ -29,13 +29,13 @@ describe "Admin passwords", type: :system do
       expect(user.reload.password_updated_at).to be_between(2.seconds.ago, Time.current)
     end
 
-    it "cant dismiss password change" do
+    it "cannot dismiss password change" do
       manual_login(user.email, password)
       expect(page).to have_content("Change your password")
       click_link "Home"
       expect(page).to have_content("You need to change your password before access")
       expect(page).to have_content("Change your password")
-      expect(page).to have_current_path(decidim.edit_admin_password_path)
+      expect(page).to have_current_path(decidim.change_password_path)
     end
 
     it "shows error when passwords doesnt match" do

@@ -7,28 +7,28 @@ module Decidim
       include Decidim::DeviseControllers
       include Decidim::PasswordsHelper
 
-      prepend_before_action :require_no_authentication, except: [:edit_admin_password, :update_admin_password]
+      prepend_before_action :require_no_authentication, except: [:change_password, :apply_password]
       skip_before_action :store_current_location
 
       before_action :check_sign_in_enabled
 
       helper_method :password_help_text
 
-      def edit_admin_password
+      def change_password
         enforce_permission_to :change_admin_password, :user, current_user: current_user
 
         self.resource = current_user
-        @send_path = update_admin_password_path
+        @send_path = apply_password_path
 
         flash[:secondary] = t("decidim.admin.password_change.notification", days: Decidim.config.admin_password_days_expiration) if flash[:secondary].blank?
         render :edit
       end
 
-      def update_admin_password
+      def apply_password
         enforce_permission_to :change_admin_password, :user, current_user: current_user
 
         self.resource = current_user
-        @send_path = update_admin_password_path
+        @send_path = apply_password_path
 
         @form = Decidim::PasswordForm.from_params(params["user"])
         Decidim::UpdatePassword.call(current_user, @form) do
