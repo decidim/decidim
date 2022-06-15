@@ -373,6 +373,12 @@ en:
           update: "%{user_name} updated the election %{resource_name} of %{space_name}"
         trustee:
           create: "%{user_name} assigned the user %{trustee_user} as Trustee"
+      connection:
+        failed:
+          modal:
+            close: Close
+            communication_lost: Unfortunately, it looks like the communication with the voting server (Bulletin Board) is lost.<br>It might be that the Internet connection is broken or that the destination server is too busy.<br>You can try again later or contact support if this problem persist.
+            title: Something went wrong
       election_m:
         badge_name:
           finished: Finished
@@ -708,12 +714,6 @@ en:
       warnings:
         no_elections_warning: No elections match your search criteria or there isn't any election scheduled.
         no_scheduled_elections_warning: Currently, there are no scheduled elections, but here you can find all the past elections listed.
-      connection:
-        failed:
-          modal:
-            close: Close
-            communication_lost: Unfortunately, it looks like the communication with the voting server (Bulletin Board) is lost.<br>It might be that the Internet connection is broken or that the destination server is too busy.<br>You can try again later or contact support if this problem persist.
-            title: Something went wrong
     events:
       elections:
         election_published:

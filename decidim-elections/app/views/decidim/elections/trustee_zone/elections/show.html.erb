@@ -18,7 +18,7 @@
     <%= render("#{current_step}_steps") %>
   </div>
 
-  <%= render "decidim/elections/shared/server_error_modal" %>
+  <%= render "decidim/elections/shared/broken_promises_modal" %>
 
   <% content_for :js_content do %>
     <%= javascript_pack_tag "decidim_elections_trustee_#{current_step}" %>
