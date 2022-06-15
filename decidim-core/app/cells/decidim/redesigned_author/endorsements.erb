@@ -1,6 +1,5 @@
 <% if endorsable? %>
   <%= link_to "#{resource_locator(from_context).path}#list-of-endorsements", title: t("decidim.author.endorsements",count: from_context.endorsements_count) do %>
-    <%= icon "bullhorn", class: "icon--small", role: "img", "aria-hidden": true %>
     <%= from_context.endorsements_count %> <%= t("decidim.author.endorsements", count: from_context.endorsements_count) %>
   <% end %>
 <% end %>

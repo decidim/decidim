@@ -1,8 +1,18 @@
-<div class="row small-12">
-  <% paginate_posts.each do |post| %>
-    <div class="card card--post">
-      <% if post.photo.present? %>
-        <%= image_tag post.photo.url, class: "card__image" %>
+<% paginate_posts.each do |post| %>
+  <div class="flex gap-4">
+    <% if post.photo.present? %>
+      <%= image_tag post.photo.url %>
+    <% else %>
+      <div class="w-1/4 flex-none rounded overflow-hidden">
+        <img src="https://www.fillmurray.com/640/360" alt="" class="aspect-video">
+      </div>
+    <% end %>
+
+    <div class="flex flex-col">
+      <%= link_to post do %>
+        <h4 class="h4 text-secondary">
+          <%= translated_attribute post.title %>
+        </h4>
       <% end %>
       <div class="card__content">
         <div class="card__header">
@@ -18,7 +28,12 @@
         </div>
         <%= decidim_sanitize_editor post_description(post) %>
       </div>
+
+      <div class="mt-auto">
+        <%= cell "decidim/author", present(post.author), from: post, has_actions: true %>
+      </div>
     </div>
-  <% end %>
-</div>
+  </div>
+<% end %>
+
 <%= decidim_paginate paginate_posts %>

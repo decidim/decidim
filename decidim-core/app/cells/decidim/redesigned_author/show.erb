@@ -1,20 +1,15 @@
-<div class="<%= author_classes %>">
-  <span>This is a redesigned cell</span>
-  <div class="author-data__main">
-    <%= render :profile %>
-  </div>
+<div class="flex items-center gap-8 text-sm text-gray-2">
+  <%= render :profile %>
 
   <% if actionable? %>
-    <div class="author-data__extra">
-      <%= render :date %>
+    <%= render :date %>
 
-      <%= render :comments %>
+    <%= render :comments %>
 
-      <%= render :endorsements %>
+    <%= render :endorsements %>
 
-      <%= render :flag %>
-
-      <%= render :withdraw %>
-    </div>
+    <%#= TODO: perhaps deprecated %>
+    <%#= render :flag %>
+    <%#= render :withdraw %>
   <% end %>
 </div>

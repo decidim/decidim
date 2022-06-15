@@ -109,10 +109,6 @@ module Decidim
       from_context && from_context.class.include?(Decidim::Endorsable)
     end
 
-    def author_classes
-      (["author-data"] + options[:extra_classes].to_a).join(" ")
-    end
-
     def actionable?
       return options[:has_actions] if options.has_key?(:has_actions)
 
