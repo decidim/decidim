@@ -1,9 +1,12 @@
 <%= render partial: "decidim/shared/component_announcement" %>
 
-<%= render layout: "layouts/decidim/shared/layout_two_col", locals: { title: t("decidim.components.blogs.name") } do %>
+<% content_for :aside do %>
+  <h1 class="h1 decorator"><%= t("decidim.components.blogs.name") %></h1>
+<% end %>
+
+<%= render layout: "layouts/decidim/shared/layout_two_col" do %>
 
   <%# TODO: sorting component, it requires Turbo %>
-
   <div id="blogs" class="space-y-12">
     <%= render partial: "posts" %>
   </div>
