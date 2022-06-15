@@ -4,21 +4,12 @@
 class AdminPasswordValidator < PasswordValidator
   MINIMUM_LENGTH = Decidim.config.admin_password_min_characters
   REPETITION_TIMES = Decidim.config.admin_password_repetition_times
-  VALIDATION_METHODS = [
-    :password_too_short?,
-    :password_repeated?
-  ].freeze
+  VALIDATION_METHODS = (PasswordValidator::VALIDATION_METHODS + [:password_repeated?]).freeze
 
-  private
-
-  attr_reader :record, :attribute, :value
+  protected
 
   def get_message(reason)
     I18n.t "admin_password_validator.#{reason}"
-  end
-
-  def password_too_short?
-    value.length < MINIMUM_LENGTH
   end
 
   def password_repeated?

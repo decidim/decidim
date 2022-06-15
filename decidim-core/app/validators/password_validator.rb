@@ -41,7 +41,7 @@ class PasswordValidator < ActiveModel::EachValidator
     false
   end
 
-  private
+  protected
 
   attr_reader :record, :attribute, :value
 
@@ -67,15 +67,15 @@ class PasswordValidator < ActiveModel::EachValidator
   end
 
   def password_too_short?
-    value.length < MINIMUM_LENGTH
+    value.length < self.class::MINIMUM_LENGTH
   end
 
   def password_too_long?
-    value.length > MAX_LENGTH
+    value.length > self.class::MAX_LENGTH
   end
 
   def not_enough_unique_characters?
-    value.chars.uniq.length < MIN_UNIQUE_CHARACTERS
+    value.chars.uniq.length < self.class::MIN_UNIQUE_CHARACTERS
   end
 
   def name_included_in_password?
@@ -83,7 +83,7 @@ class PasswordValidator < ActiveModel::EachValidator
     return true if value.include?(record.name.delete(" "))
 
     record.name.split.each do |part|
-      next if part.length < IGNORE_SIMILARITY_SHORTER_THAN
+      next if part.length < self.class::IGNORE_SIMILARITY_SHORTER_THAN
 
       return true if value.include?(part)
     end
@@ -109,7 +109,7 @@ class PasswordValidator < ActiveModel::EachValidator
     return true if value.include?(organization.host)
 
     organization.host.split(".").each do |part|
-      next if part.length < IGNORE_SIMILARITY_SHORTER_THAN
+      next if part.length < self.class::IGNORE_SIMILARITY_SHORTER_THAN
 
       return true if value.include?(part)
     end
