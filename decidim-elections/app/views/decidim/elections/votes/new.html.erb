@@ -59,6 +59,8 @@
   </div>
 </div>
 
+<%= render "server_error_modal" %>
+
 <% if preview_mode? %>
   <%= javascript_pack_tag "decidim_elections_voter_setup_preview" %>
 <% else %>
