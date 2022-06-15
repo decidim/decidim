@@ -91,12 +91,17 @@ cs:
             label: Typ
         search_placeholder:
           title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Hledat %{collection} podle názvu, popisu, ID nebo jména autora.
+      initiatives_settings:
+        update:
+          error: Došlo k chybě
+          success: Nastavení iniciativ bylo úspěšně aktualizováno
       menu:
         attachments: Přílohy
         committee_members: Členové výboru
         components: Komponenty
         information: Informace
         initiatives: Iniciativy
+        initiatives_settings: Nastavení
         initiatives_types: Typy iniciativ
         moderations: Moderování
       models:
@@ -248,6 +253,16 @@ cs:
           update:
             error: Došlo k chybě
             success: Iniciativa občanů byla úspěšně aktualizována
+        initiatives_settings:
+          edit:
+            update: Aktualizovat
+          form:
+            comments: Nejvíce komentované
+            date: Nejnovější
+            publication_date: Nedávno publikované
+            random: Náhodně
+            signatures: S nejvíce podpisy
+            title: Nastavení pro iniciativy
         initiatives_type_scopes:
           create:
             error: Došlo k chybě
@@ -297,6 +312,8 @@ cs:
           send_to_technical_validation: "%{user_name} zaslala %{resource_name} iniciativu k technickému ověření"
           unpublish: "%{user_name} zrušil iniciativu %{resource_name}"
           update: "%{user_name} aktualizoval iniciativu %{resource_name}"
+        initiatives_settings:
+          update: "%{user_name} aktualizoval nastavení iniciativ"
         initiatives_type:
           create: "%{user_name} vytvořil typ iniciativ %{resource_name}"
           delete: "%{user_name} odstranil typ iniciativ %{resource_name}"
