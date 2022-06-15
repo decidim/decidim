@@ -44,7 +44,7 @@ es:
       decidim/removed_from_group: Eliminada del grupo
       decidim/resource_endorsed_event: Adhesión a recurso realizada
       decidim/resource_hidden_event: Recurso oculto
-      decidim/user_group_created_event: Grupo de usuarios creado
+      decidim/user_group_created_event: Grupo creado
       decidim/welcome_notification_event: Mensaje de bienvenida
   activerecord:
     attributes:
