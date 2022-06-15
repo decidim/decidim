@@ -447,7 +447,7 @@ module Decidim
     "/"
   end
 
-  # Having this on true will change the way the svg assets are being served.
+  # Enable/Disable the service worker
   config_accessor :service_worker_enabled do
     true
   end
