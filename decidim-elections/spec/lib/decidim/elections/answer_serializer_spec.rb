@@ -55,12 +55,6 @@ module Decidim
             expect(translated(serialized[:question_title], locale: locale)).to eq(translated(answer.question.title, locale: locale))
           end
         end
-
-        it "doesn't serialize the question description" do
-          I18n.available_locales.each do |locale|
-            expect(serialized).not_to include(translated(answer.question.description, locale: locale))
-          end
-        end
       end
     end
   end
