@@ -17,42 +17,53 @@
 
 <%= render layout: "layouts/decidim/shared/layout_one_col" do %>
 
-    <h1 class="h1 decorator my-12"><%= translated_attribute post.title %></h1>
+  <div class="grid grid-cols-8">
+    <h1 class="h1 decorator my-12 col-start-2 col-span-6"><%= translated_attribute post.title %></h1>
 
-    <% post_presenter = Decidim::Blogs::PostPresenter.new(post) %>
-    <%= cell "decidim/author", post_presenter.author, from: post %>
-
-    <% if show_endorsements_card? %>
-        <div class="columns section view-side mediumlarge-4 mediumlarge-push-8 large-3 large-push-9">
-          <div class="card">
-            <div class="card__content">
-              <div class="row collapse buttons__row">
-                <% if endorsements_enabled? %>
-                  <div class="column small-9 collapse">
-                    <%= endorsement_buttons_cell(post) %>
-                  </div>
-                <% end %>
-                <div class="column collapse <%= endorsements_enabled? ? "small-3" : "" %>">
-                  <%= link_to "#comments", class: "button small compact hollow button--nomargin expanded" do %>
-                      <%#= icon "comment-square", class: "icon--small", aria_label: t(".comments"), role: "img" %> <%= post.comments_count %>
-                  <% end %>
-                </div>
-              </div>
-              <br>
-              <%= follow_button_for(post) %>
-            </div>
-          </div>
-        </div>
+    <%# TODO: Check if post.image is present %>
+    <% if true %>
+      <div class="col-span-8 rounded-xl overflow-hidden mb-8">
+        <img src="https://www.fillmurray.com/640/360" class="w-full object-cover aspect-[3]">
+      </div>
     <% end %>
 
-    <div class="columns mediumlarge-8 <%= "mediumlarge-pull-4" if show_endorsements_card? %>">
-      <div class="section">
+    <div class="col-start-2 col-span-6">
+      <%# TODO: this cell should show only profile + date %>
+      <% post_presenter = Decidim::Blogs::PostPresenter.new(post) %>
+      <%= cell "decidim/author", post_presenter.author, from: post %>
+
+      <div class="prose max-w-full">
         <%= decidim_sanitize_editor translated_attribute post.body %>
       </div>
       <%= cell "decidim/endorsers_list", post %>
-    </div>
 
-    <%= attachments_for post %>
-    <%= comments_for post %>
+      <% if !show_endorsements_card? %>
+      <div class="columns section view-side mediumlarge-4 mediumlarge-push-8 large-3 large-push-9">
+        <div class="card">
+          <div class="card__content">
+            <div class="row collapse buttons__row">
+              <% if endorsements_enabled? %>
+                <div class="column small-9 collapse">
+                  <%= endorsement_buttons_cell(post) %>
+                </div>
+              <% end %>
+              <div class="column collapse <%= endorsements_enabled? ? "small-3" : "" %>">
+                <%= link_to "#comments", class: "button small compact hollow button--nomargin expanded" do %>
+                    <%#= icon "comment-square", class: "icon--small", aria_label: t(".comments"), role: "img" %> <%= post.comments_count %>
+                <% end %>
+              </div>
+            </div>
+            <br>
+            <%= follow_button_for(post) %>
+          </div>
+        </div>
+      </div>
+  <% end %>
+
+
+      <%= attachments_for post %>
+      <%= comments_for post %>
+    </div>
+  </div>
 
 <% end %>
