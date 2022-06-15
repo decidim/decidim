@@ -25,7 +25,11 @@ image:https://codecov.io/gh/decidim/decidim/branch/develop/graph/badge.svg[codec
 - <<getting-started-with-decidim,Getting started with Decidim>>
 - <<how-to-contribute,Contribute to the project>>
 - <<modules,Modules>>
-- <<browse-decidim,Create & browse development app>>
+- <<authorizations-strategies,Authorizations Strategies>>
+- <<following-our-license,Following our license>>
+- <<example-applications,Example applications>>
+- <<security,Security>>
+- <<donations,Donations>>
 
 '''
 
