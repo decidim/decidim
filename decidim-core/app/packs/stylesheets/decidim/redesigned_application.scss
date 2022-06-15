@@ -2,6 +2,21 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
+:root{
+  --primary: #ff3300;
+  --primary-rgb: 255 51 0;
+  --secondary: #155abf;
+  --secondary-rgb: 21 90 191;
+  --tertiary: #ebc34b;
+  --tertiary-rgb: 235 195 75;
+  --success: #28a745;
+  --success-rgb: 40 167 69;
+  --warning: #ffb703;
+  --warning-rgb: 255 183 3;
+  --alert: #ed1c24;
+  --alert-rgb: 237 28 36;
+}
+
 @import "stylesheets/decidim/redesigned_fonts.scss";
 @import "stylesheets/decidim/redesigned_typography.scss";
 @import "stylesheets/decidim/redesigned_buttons.scss";
