@@ -8,7 +8,6 @@ module Decidim
       class ImportParticipatoryTextForm < Decidim::Form
         include TranslatableAttributes
         include Decidim::HasUploadValidations
-        include Decidim::HasBlobFile
 
         # WARNING: consider adding/removing the relative translation key at
         # decidim.assemblies.admin.new_import.accepted_types when modifying this hash
@@ -16,13 +15,11 @@ module Decidim
 
         translatable_attribute :title, String
         translatable_attribute :description, String
-        attribute :document
+        attribute :document, Decidim::Attributes::Blob
 
         validates :title, translatable_presence: true
         validates :document, presence: true, if: :new_participatory_text?
         validate :document_type_must_be_valid, if: :document
-
-        alias file document
 
         # Assume it's a NEW participatory_text if there are no proposals
         # Validate document presence while CREATING proposals from document
@@ -43,7 +40,7 @@ module Decidim
         end
 
         def document_type
-          blob.content_type
+          document.content_type
         end
 
         def i18n_invalid_document_type_text
@@ -63,7 +60,7 @@ module Decidim
         end
 
         def document_text
-          @document_text ||= blob&.download
+          @document_text ||= document&.download
         end
       end
     end

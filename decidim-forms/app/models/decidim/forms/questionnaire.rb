@@ -7,6 +7,7 @@ module Decidim
       include Decidim::Templates::Templatable if defined? Decidim::Templates::Templatable
       include Decidim::Publicable
       include Decidim::TranslatableResource
+      include Decidim::Traceable
 
       translatable_fields :title, :description, :tos
       belongs_to :questionnaire_for, polymorphic: true
@@ -32,6 +33,10 @@ module Decidim
 
       def pristine?
         created_at.to_i == updated_at.to_i && questions.empty?
+      end
+
+      def self.log_presenter_class_for(_log)
+        Decidim::Forms::AdminLog::QuestionnairePresenter
       end
 
       private

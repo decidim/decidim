@@ -4,9 +4,10 @@ require "spec_helper"
 
 module Decidim::Assemblies
   describe Admin::CopyAssembly do
-    subject { described_class.new(form, assembly) }
+    subject { described_class.new(form, assembly, user) }
 
     let(:organization) { create :organization }
+    let(:user) { create :user, organization: organization }
     let(:scope) { create :scope, organization: organization }
     let(:errors) { double.as_null_object }
     let!(:assembly) { create :assembly }
@@ -66,6 +67,18 @@ module Decidim::Assemblies
 
       it "broadcasts ok" do
         expect { subject.call }.to broadcast(:ok)
+      end
+
+      it "traces the action", versioning: true do
+        expect(Decidim.traceability)
+          .to receive(:perform_action!)
+          .with("duplicate", Decidim::Assembly, user)
+          .and_call_original
+
+        expect { subject.call }.to change(Decidim::ActionLog, :count)
+        action_log = Decidim::ActionLog.last
+        expect(action_log.action).to eq("duplicate")
+        expect(action_log.version).to be_present
       end
     end
 

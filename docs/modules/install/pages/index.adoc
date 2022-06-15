@@ -86,7 +86,7 @@ Visit http://localhost:3000 to see your app running.
 
 == Configuration & setup
 
-Decidim comes pre-configured with some safe defaults, but can be changed through the `config/initializers/decidim.rb` file in your app. Check the comments there or read the comments in https://github.com/decidim/decidim/blob/develop/decidim-core/lib/decidim/core.rb[the source file] (the part with the `config_accessor` calls) for more up-to-date info.
+Decidim comes pre-configured with some safe defaults, but can be changed through xref:configure:environment_variables.adoc[Environment Variables] or the xref:configure:initializer.adoc[Initializer] file in your app.
 
 === Scheduled tasks
 
@@ -120,27 +120,27 @@ You can configure it with `crontab -e`, for instance if you've created your Deci
 
 === Further configuration
 
-We also have other guides on how to configure some extra components:
+We also have other guides on how to configure some extra mandatory components:
 
 * xref:services:activejob.adoc[ActiveJob]: For background jobs (like sending emails).
 * xref:services:maps.adoc[Maps]: How to enable geocoding for proposals and meetings.
+* xref:services:smtp.adoc[SMTP]: For sending emails for account registrations, password reminders, notifications, etc.
 * xref:services:social_providers.adoc[Social providers integration]: Enable sign up from social networks.
 
 == Deploy
 
-Once you've successfully deployed your app to your favorite platform, you'll need to create your `System` user. First you'll need to create your `Decidim::System` user in your production Ruby on Rails console:
+Once you've successfully deployed your app to your favorite platform, you'll need to create your `System` user. First you'll need to create your `Decidim::System` user in your terminal:
 
-[source,ruby]
+[source,console]
 ----
-email = <your email>
-password = <a secure password>
-user = Decidim::System::Admin.new(email: email, password: password, password_confirmation: password)
-user.save!
+bin/rails decidim_system:create_admin
 ----
+
+You'll be asked for an email and a password. For security, the password will not get displayed back at you and you'll need to confirm it.
 
 This will create a system user with the email and password you set. We recommend using a random password generator and saving it to a password manager, so you have a more secure login.
 
-Then, visit the `/system` dashboard and login with the email and passwords you just entered and create your organization. You're done! :tada:
+Then, visit the `/system` dashboard and login with the email and passwords you just entered and create your organization. You're done! 🎉
 
 You can check the https://github.com/decidim/decidim/tree/develop/decidim-system/README.md[`decidim-system` README file] for more info on how organizations work.
 

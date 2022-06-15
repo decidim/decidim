@@ -8,7 +8,7 @@ module Decidim::Admin
 
     let(:user) { create(:user, :admin, organization: organization) }
     let(:organization) { create(:organization) }
-    let(:file) { upload_test_file(Decidim::Dev.test_file("verify_user_groups.csv", "text/csv")) }
+    let(:file) { upload_test_file(Decidim::Dev.test_file("verify_user_groups.csv", "text/csv"), return_blob: true) }
     let(:validity) { true }
 
     let(:form) do

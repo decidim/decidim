@@ -47,9 +47,6 @@ gl:
   booleans:
     'false': 'Non'
     'true': 'Si'
-  carrierwave:
-    errors:
-      image_too_big: A imaxe é demasiado grande
   date:
     formats:
       decidim_short: "%d/%m/%Y"
@@ -88,9 +85,6 @@ gl:
     accessibility:
       front_page_link: Ir á páxina principal
     account:
-      data_portability_export:
-        file_no_exists: O ficheiro non existe
-        notice: Os teus datos están en progreso. Recibirás un correo electrónico cando finalice.
       delete:
         confirm:
           close: Pechar xanela
@@ -101,6 +95,9 @@ gl:
       destroy:
         error: Produciuse un erro ao eliminar a túa conta.
         success: A túa conta eliminouse correctamente.
+      download_your_data_export:
+        file_no_exists: O ficheiro non existe
+        notice: Os teus datos están en progreso. Recibirás un correo electrónico cando finalice.
       show:
         change_password: Cambie o contrasinal
         update_account: Actualizar a conta
@@ -297,14 +294,14 @@ gl:
           global:
             amendments_enabled: Modificacións habilitadas
             comments_enabled: Comentarios habilitados
-            dummy_global_attribute_1: Atributo maniquí 1
-            dummy_global_attribute_2: Atributo maniquí 2
+            dummy_global_attribute1: Atributo maniquí 1
+            dummy_global_attribute2: Atributo maniquí 2
             enable_pads_creation: Habilita a creación de pastillas
             resources_permissions_enabled: Permisos de recursos habilitados
           step:
             comments_blocked: Comentarios bloqueados
-            dummy_step_attribute_1: Dummy Step Attribute 1
-            dummy_step_attribute_2: Dummy Step Attribute 2
+            dummy_step_attribute1: Dummy Step Attribute 1
+            dummy_step_attribute2: Dummy Step Attribute 2
     contact: Contacto
     content_blocks:
       footer_sub_hero:
@@ -331,12 +328,6 @@ gl:
     core:
       actions:
         unauthorized: Non estás autorizado para realizar esta acción
-    data_portability:
-      export:
-        ready: Listo
-      show:
-        download_data: Descarga os datos
-        request_data: Solicitar datos
     datepicker:
       help_text: 'Formato esperado: %{datepicker_format}'
     devise:
@@ -398,6 +389,12 @@ gl:
           this_application_will_not_be_able_to: 'Esta aplicación non poderá:'
           update_profile: Actualiza o teu perfil
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> quere usar a túa conta"
+    download_your_data:
+      export:
+        ready: Listo
+      show:
+        download_data: Descarga os datos
+        request_data: Solicitar datos
     editor_images:
       create:
         error: Erro ó subir a imaxe
@@ -537,7 +534,7 @@ gl:
           email_subject: "%{name} foi oficializado"
           notification_title: O participante %{name} (%{nickname}) foi oficializado.
     export_mailer:
-      data_portability_export:
+      download_your_data_export:
         download: Descarga
       export:
         ready: Atopa unha versión comprimida da túa exportación.
@@ -576,10 +573,6 @@ gl:
       default_image: Imaxe predeterminada
       errors:
         error: Hai un erro neste campo.
-      file_help:
-        file:
-          message_1: Ten que ser unha imaxe cadrada.
-          message_2: O tamaño recomendado para esta imaxe é de 512x512.
       upload:
         labels:
           add_attachment: Engadir ficheiro anexo
@@ -588,7 +581,6 @@ gl:
           cancel: Cancelar
           edit_image: Editar imaxe
           error: Erro!
-          file_too_big: 'O ficheiro e grande de máis! Tamaño máximo: %{megabytes}MB'
           remove: Eliminar
           replace: Substituír
           save: Gardar
@@ -712,7 +704,6 @@ gl:
       no_user_groups: Aínda non pertence a ningún grupo.
       roles:
         admin: Administrador
-        creator: Creador
         member: Membro
       update:
         error: Produciuse un problema ao actualizar o grupo
@@ -844,13 +835,11 @@ gl:
       no_notifications: Aínda non hai notificacións.
     notifications_settings:
       show:
-        email_on_notification: Quero recibir un correo electrónico cada vez que recibo unha notificación.
         everything_followed: Todo o que segue
         newsletter_notifications: Quero recibir boletíns
         newsletters: Boletíns informativos
         own_activity: A miña propia actividade, como cando alguén comenta na miña proposta ou me menciona
         receive_notifications_about: Quero recibir notificacións sobre
-        send_notifications_by_email: Envíe notificacións por correo electrónico
         update_notifications_settings: Gardar cambios
       update:
         error: Produciuse un erro ao actualizar a configuración das notificacións.
@@ -911,7 +900,6 @@ gl:
         form:
           legend: Concorda cos termos e condicións de uso
         refuse:
-          modal_body: Rexeitar, non será capaz de utilizar a plataforma, pode <a href="%{data_portability_path}">Descargar seus datos</a> e / ou <a href="%{delete_path}">eliminar a súa conta</a>.
           modal_btn_continue: Aceptar termos e continuar
           modal_btn_exit: Vou revisalo máis tarde
           modal_button: Rexeitar os termos
@@ -1104,7 +1092,6 @@ gl:
     invitations:
       edit:
         header: Acaba de crear a túa conta
-        nickname_help: O teu identificador único en %{organization}.
         submit_button: Gardar
         subtitle: Se aceptas a invitación, configure o teu alcume e contrasinal.
       invitation_removed: A túa invitación foi eliminada.
@@ -1254,10 +1241,6 @@ gl:
     timestamp_error_message: Sentímolo, iso foi demasiado rápido. Reenvío de novo.
   layouts:
     decidim:
-      cookie_warning:
-        description_html: Este sitio usa cookies. Ao continuar navegando polo sitio, acepta o noso uso das cookies. Máis información %{link}.
-        link_label: aquí
-        ok: Estou de acordo
       edit_link:
         edit: Editar
       footer:

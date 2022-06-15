@@ -9,7 +9,6 @@ module Decidim
       class AssemblyImportForm < Form
         include TranslatableAttributes
         include Decidim::HasUploadValidations
-        include Decidim::HasBlobFile
 
         JSON_MIME_TYPE = "application/json"
         # Accepted mime types
@@ -31,20 +30,17 @@ module Decidim
         attribute :import_categories, Boolean, default: true
         attribute :import_attachments, Boolean, default: true
         attribute :import_components, Boolean, default: true
-        attribute :document
+        attribute :document, Decidim::Attributes::Blob
 
-        validates :document, presence: true
-
+        validates :document, file_content_type: { allow: ACCEPTED_TYPES.values }
         validates :slug, presence: true, format: { with: Decidim::Assembly.slug_format }
         validates :title, translatable_presence: true
         validate :slug_uniqueness
 
         validate :document_type_must_be_valid, if: :document
 
-        alias file document
-
         def document_text
-          @document_text ||= blob&.download
+          @document_text ||= document&.download
         end
 
         def document_type_must_be_valid
@@ -59,7 +55,7 @@ module Decidim
         end
 
         def document_type
-          blob.content_type
+          document.content_type
         end
 
         def i18n_invalid_document_type_text

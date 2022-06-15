@@ -68,7 +68,7 @@ module Decidim
         if form.avatar_url.present?
           url = URI.parse(form.avatar_url)
           filename = File.basename(url.path)
-          file = URI.open(url)
+          file = url.open
           @user.avatar.attach(io: file, filename: filename)
         end
         @user.skip_confirmation! if verified_email

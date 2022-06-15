@@ -100,7 +100,7 @@ es-PY:
           with_any_type:
             label: Tipo de encuentro
             values:
-              hybrid: Ambos
+              hybrid: Híbrido
               in_person: Presencial
               online: Online
       meeting_copies:
@@ -184,7 +184,7 @@ es-PY:
           notification_title: El encuentro <a href="%{resource_path}">%{resource_title}</a> comenzará en menos de 48 h.
     forms:
       meetings:
-        attendees_count_help_text: No olvides incluir el número total de asistentes a tu encuentro, ya sea presencial, en línea o híbrido.
+        attendees_count_help_text: No te olvides de añadir el número total de asistentes a la reunión, ya sea en persona, en línea o híbrido.
     gamification:
       badges:
         attended_meetings:
@@ -311,7 +311,7 @@ es-PY:
             select_a_meeting_type: Por favor, selecciona un tipo de encuentro
             select_a_registration_type: Por favor, seleccione un tipo de inscripción
             select_an_iframe_access_level: Por favor, seleccione un nivel de acceso iframe
-            show_embedded_iframe_help: Solo unos pocos servicios se pueden incrustar en encuentros o eventos en directo (YouTube, Twitch y Jitsi)
+            show_embedded_iframe_help: 'Solo unos pocos servicios permiten incrustar en reuniones o eventos en vivo desde los siguientes dominios: %{domains}'
           index:
             title: Encuentros
           new:
@@ -392,7 +392,19 @@ es-PY:
       calendar_modal:
         calendar_url: URL del calendario
         close_window: Cerrar ventana
+        copy_calendar_url: Copiar
+        copy_calendar_url_clarification: Copiar la URL del calendario al portapapeles
+        copy_calendar_url_copied: '¡Copiado!'
+        copy_calendar_url_description: Puedes ver todas las reuniones publicadas en tu aplicación o proveedor de calendario. Copia y pega esta URL en tu calendario usando la opción "Añadir nuevo calendario desde una URL".
+        copy_calendar_url_explanation: Ten en cuenta que estás exportando una selección de encuentros, ya que hay filtros activos. Si deseas exportarlos todos, primero elimina todos los filtros.
+        copy_calendar_url_message: Se ha copiado el enlace al portapapeles correctamente.
         export_calendar: Exportar calendario
+      close_meeting_reminder_mailer:
+        close_meeting_reminder:
+          body: El encuentro <a href="%{meeting_path}">"%{meeting_title}"</a> está pendiente de cerrarse. Por favor, agrega un informe de la reunión usando el botón "Cerrar encuentro".
+          greetings: Hola,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
+          hello: Hola %{username},
+          subject: Ahora puedes cerrar el encuentro con un informe en la plataforma %{organization_name}
       conference_venues: Lugares de conferencia
       content_blocks:
         upcoming_meetings:
@@ -475,7 +487,7 @@ es-PY:
           type: Tipo
           type_values:
             all: Todos
-            hybrid: Ambos
+            hybrid: Híbrida
             in_person: Presencial
             online: Online
         filters_small_view:
@@ -496,7 +508,7 @@ es-PY:
           select_a_meeting_type: Por favor, selecciona un tipo de encuentro
           select_a_registration_type: Por favor, selecciona un tipo de inscripción
           select_an_iframe_access_level: Por favor, selecciona un nivel de acceso iframe
-          show_embedded_iframe_help: Solo unos pocos servicios se pueden incrustar en encuentros o eventos en directo (YouTube, Twitch y Jitsi)
+          show_embedded_iframe_help: 'Solo unos pocos servicios permiten incrustar en reuniones o eventos en vivo desde los siguientes dominios: %{domains}'
         index:
           click_here: Ver todos los encuentros
           new_meeting: Nuevo encuentro
@@ -566,7 +578,7 @@ es-PY:
           fields:
             closed: Cerrado
             end_time: Fecha de finalización
-            id: Id
+            id: ID
             map: Mapa
             official_meeting: Encuentro oficial
             start_time: Fecha de inicio
@@ -617,7 +629,7 @@ es-PY:
           invalid: Ha habido un problema al salir de esta encuentro.
           success: Has salido del encuentro con éxito.
       type_of_meeting:
-        hybrid: Ambos
+        hybrid: Hibrida
         in_person: Presencial
         online: En línea
       types:

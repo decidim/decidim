@@ -6,7 +6,7 @@ module Decidim
   module Blogs
     module Admin
       describe UpdatePost do
-        subject { described_class.new(form, post) }
+        subject { described_class.new(form, post, current_user) }
 
         let(:organization) { create(:organization) }
         let(:participatory_process) { create :participatory_process, organization: organization }
@@ -59,6 +59,23 @@ module Decidim
 
           it "creates a searchable resource" do
             expect { subject.call }.to change(Decidim::SearchableResource, :count).by_at_least(1)
+          end
+
+          it "traces the action", versioning: true do
+            expect(Decidim.traceability)
+              .to receive(:update!)
+              .with(post, current_user, {
+                      title: { en: title },
+                      body: { en: body },
+                      author: current_user
+                    })
+              .and_call_original
+
+            expect { subject.call }.to change(Decidim::ActionLog, :count)
+
+            action_log = Decidim::ActionLog.last
+            expect(action_log.version).to be_present
+            expect(action_log.version.event).to eq "update"
           end
 
           context "with a group author" do

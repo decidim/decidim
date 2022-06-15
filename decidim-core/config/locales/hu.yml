@@ -41,6 +41,7 @@ hu:
       decidim/promote_to_admin: A csoport adminisztrátora
       decidim/removed_from_group: Eltávolítva a csoportból
       decidim/resource_endorsed_event: Erőforrás jóváhagyva
+      decidim/welcome_notification_event: Üdvözlő üzenet
   activerecord:
     attributes:
       decidim/user:
@@ -68,7 +69,6 @@ hu:
     'true': 'Igen'
   carrierwave:
     errors:
-      image_too_big: A kép mérete túl nagy
       not_inside_organization: A fájl nincs csatolva egyetlen szervezethez sem
   date:
     formats:
@@ -88,9 +88,6 @@ hu:
       skip_button: Ugrás a fő tartalomra
     account:
       blocked: Ezt a fiókot az Általános Szerződési Feltételek megsértése miatt blokkoltuk
-      data_portability_export:
-        file_no_exists: Fájl nem létezik
-        notice: Az adatok letöltése jelenleg folyamatban van. Ha befejeződött, e-mailt fogsz kapni.
       delete:
         alert: Ez a művelet nem visszavonható. Ha törlöd a fiókjod, nem fogsz tudni bejelentkezni a hitelesítő adataiddal. Fiókod törlése a hozzájárulásaid anonimizálását eredményezi. Továbbra is létrehozhatsz új fiókot, de ezek a hozzájárulások nem fognak kapcsolódni hozzá.
         confirm:
@@ -102,6 +99,9 @@ hu:
       destroy:
         error: Hiba történt a fiók törlése során.
         success: Fiók törlése sikeres.
+      download_your_data_export:
+        file_no_exists: Fájl nem létezik
+        notice: Az adatok letöltése jelenleg folyamatban van. Ha befejeződött, e-mailt fogsz kapni.
       show:
         available_locales_helper: Válasszd ki a nyelvet, amelyet használni szeretnél a platform értesítéseinek böngészéshez és fogadásához
         change_password: Jelszó módosítása
@@ -356,8 +356,8 @@ hu:
             amendments_enabled: A módosítások engedélyezve vannak
             comments_enabled: Megjegyzések engedélyezve
             comments_max_length: A hozzászólások maximális hossza
-            dummy_global_attribute_1: Dummy tulajdonság 1
-            dummy_global_attribute_2: Dummy tulajdonság 2
+            dummy_global_attribute1: Dummy tulajdonság 1
+            dummy_global_attribute2: Dummy tulajdonság 2
             dummy_global_translatable_text: Kenyérszöveg - nem valódi fordítható szöveg
             enable_pads_creation: A közös dokumentum létrehozásának engedélyezése
             resources_permissions_enabled: Erőforrás-engedélyek biztosítva
@@ -369,8 +369,8 @@ hu:
             amendment_reaction_enabled: A módosító reakció engedélyezett
             amendments_visibility: A módosítás láthatósága
             comments_blocked: Megjegyzések letiltva
-            dummy_step_attribute_1: Dummy Lépés tulajdonság 1
-            dummy_step_attribute_2: Dummy Lépés tulajdonság 2
+            dummy_step_attribute1: Dummy Lépés tulajdonság 1
+            dummy_step_attribute2: Dummy Lépés tulajdonság 2
             dummy_step_translatable_text: Hamis Lépés Fordítható Szöveg
     contact: Kapcsolat
     content_blocks:
@@ -410,12 +410,6 @@ hu:
       actions:
         login_before_access: Kérlek jelentkezz be a fiókodba a hozzáféréshez
         unauthorized: Nem vagy jogosult a művelet végrehajtására
-    data_portability:
-      export:
-        ready: Kész
-      show:
-        download_data: Töltsd le az adatokat
-        request_data: Adatkérés
     datepicker:
       help_text: 'Várható formátum: %{datepicker_format}'
     devise:
@@ -478,6 +472,12 @@ hu:
           this_application_will_not_be_able_to: 'Ez az alkalmazás nem képes erre:'
           update_profile: Frissítsd a profilod
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> szeretné használni a fiókod"
+    download_your_data:
+      export:
+        ready: Kész
+      show:
+        download_data: Töltsd le az adatokat
+        request_data: Adatkérés
     editor_images:
       create:
         error: Hiba történt a kép feltöltése közben
@@ -631,7 +631,7 @@ hu:
         user_officialized:
           email_outro: Azért kapta ezt az értesítést, mert Ön a szervezet adminisztrátora.
     export_mailer:
-      data_portability_export:
+      download_your_data_export:
         download: Letöltés
       export:
         ready: Mellékelve találod az exportálás tömörített változatát.
@@ -674,7 +674,12 @@ hu:
         error: Hiba van ebben a mezőben.
       file_help:
         file:
-          message_2: A javasolt képméret 512x512 pixel.
+          message_1: Képnek vagy dokumentumnak kell lennie.
+          message_2: Képeknél a fekvő elrendezés ajánlott, a kép szélei automatikusan levágásra kerülnek.
+        icon:
+          explanation: 'Útmutató:'
+          message_1: A képnek négyzet alakúnak kell lennie.
+          message_2: A javasolt képméret 512x512 px.
       upload:
         labels:
           add_attachment: Melléklet hozzáadása
@@ -683,7 +688,6 @@ hu:
           cancel: Mégse
           edit_image: Kép szerkesztése
           error: Hiba!
-          file_too_big: 'A fájl túl nagy! Maximális méret: %{megabytes}MB'
           remove: Eltávolítás
           replace: Csere
           save: Mentés
@@ -806,7 +810,6 @@ hu:
       no_user_groups: Még nem tartozik semmiféle csoporthoz.
       roles:
         admin: Adminisztrátor
-        creator: Teremtő
         member: Tag
       update:
         error: Probléma történt a csoport frissítésével
@@ -949,17 +952,29 @@ hu:
         translated_text: 'Automatikusan lefordított szöveg:'
     notifications:
       no_notifications: Még nincs értesítés.
+    notifications_digest_mailer:
+      header:
+        daily: Napi értesítések
+      hello: Helló %{name}
+      outro: 'Azért kapta ezt az értesítést, mert követi a következőt: %{author_name}. A profiloldalon visszavonhatja a felhasználó követését.'
+      see_more: Összes értesítés megjelenítése
     notifications_settings:
       show:
         allow_public_contact: Megengedem, hogy bárki közvetlen üzenetet küldjön nekem, akkor is, ha nem követem őket.
         direct_messages: Közvetlen üzenetek fogadása bárkitől
-        email_on_notification: Mindig, amikor értesítést kapok, egy emailt is küldünk róla.
+        email_on_moderations: Szeretnék e-mailt kapni, valahányszor valamit vagy valakit jelentenek moderálás miatt.
         everything_followed: Minden, amit követek
         newsletter_notifications: Szeretnék hírleveleket kapni
         newsletters: Hírlevelek
+        notification_settings:
+          close_meeting_reminder: Szeretnék e-mailben emlékeztetőt kapni a zárt megbeszélésekről és nem nyilvános jelentésekről
+        notifications_sending_frequencies:
+          daily: Napi
+          real_time: Valósidejű
+          weekly: Heti
+        notifications_sending_frequency: Milyen gyakran szeretne e-mailt kapni az értesítésekről?
         own_activity: Saját tevékenységem - amikor valaki megjegyzést fűz a javaslatomhoz, vagy megemlíti a nevemet
         receive_notifications_about: Értesítést szeretnék kapni
-        send_notifications_by_email: Értesítések küldése e-mailben
         update_notifications_settings: Változások mentése
       update:
         error: Hiba történt az értesítési beállítások frissítése során.
@@ -1021,7 +1036,6 @@ hu:
           agreement: Elfogadom a feltételeket
           legend: Elfogadom a felhasználási feltételeket
         refuse:
-          modal_body: Ha elutasítod, akkor nem fogod tudni használi a platformot. <a href="%{data_portability_path}">Töltsd le az adataidat</a> és/vagy <a href="%{delete_path}">töröld a fiókod</a>.
           modal_btn_continue: Elfogadom és tovább lépek
           modal_btn_exit: Később átnézem
           modal_button: Elutasítom a feltételeket
@@ -1249,7 +1263,6 @@ hu:
     invitations:
       edit:
         header: Profil létrehozásának befejezése
-        nickname_help: 'Egyedi azonosítód ehhez: %{organization}.'
         submit_button: Mentés
         subtitle: Ha elfogadod a meghívást, állítsd be a beceneved és a jelszavad.
       invitation_removed: Meghívása eltávolításra került.
@@ -1401,10 +1414,6 @@ hu:
     timestamp_error_message: Sajnos ez túl gyors volt! Kérlek, küldd el újra.
   layouts:
     decidim:
-      cookie_warning:
-        description_html: 'Ez az oldal cookie-kat használ. A böngészés folytatásával elfogadod a cookie-k használatát. Tudjon meg többet: %{link}.'
-        link_label: itt
-        ok: Elfogadom
       edit_link:
         edit: Szerkesztés
       footer:

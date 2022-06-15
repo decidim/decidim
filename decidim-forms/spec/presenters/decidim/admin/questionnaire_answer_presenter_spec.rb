@@ -55,21 +55,21 @@ module Decidim
 
       context "when answer has many selected choices" do
         let!(:answer) { create(:answer, body: nil) }
-        let!(:answer_option_1) { create :answer_option, question: answer.question }
-        let!(:answer_option_2) { create :answer_option, question: answer.question }
-        let!(:answer_choice_1) { create :answer_choice, answer: answer, answer_option: answer_option_1, body: translated(answer_option_1.body, locale: I18n.locale) }
-        let!(:answer_choice_2) { create :answer_choice, answer: answer, answer_option: answer_option_2, body: translated(answer_option_2.body, locale: I18n.locale) }
+        let!(:answer_option1) { create :answer_option, question: answer.question }
+        let!(:answer_option2) { create :answer_option, question: answer.question }
+        let!(:answer_choice1) { create :answer_choice, answer: answer, answer_option: answer_option1, body: translated(answer_option1.body, locale: I18n.locale) }
+        let!(:answer_choice2) { create :answer_choice, answer: answer, answer_option: answer_option2, body: translated(answer_option2.body, locale: I18n.locale) }
 
         it "Returns the choices wrapped in <li> elements inside a <ul>" do
-          expect(subject.body).to eq("<ul><li>#{answer_choice_1.body}</li><li>#{answer_choice_2.body}</li></ul>")
+          expect(subject.body).to eq("<ul><li>#{answer_choice1.body}</li><li>#{answer_choice2.body}</li></ul>")
         end
 
         context "and free text is enabled on answer options" do
-          let!(:answer_option_1) { create :answer_option, :free_text_enabled }
-          let!(:answer_option_2) { create :answer_option, :free_text_enabled }
+          let!(:answer_option1) { create :answer_option, :free_text_enabled }
+          let!(:answer_option2) { create :answer_option, :free_text_enabled }
 
           it "returns the choices and question wrapped in <li> elements inside a <ul>" do
-            expect(subject.body).to eq("<ul><li>#{answer_option_1.translated_body}</li><li>#{answer_option_2.translated_body}</li></ul>")
+            expect(subject.body).to eq("<ul><li>#{answer_option1.translated_body}</li><li>#{answer_option2.translated_body}</li></ul>")
           end
         end
       end

@@ -35,12 +35,17 @@ cs:
       decidim/demoted_membership: Již není správcem skupiny
       decidim/gamification/badge_earned_event: Získaný odznak
       decidim/gamification/level_up_event: Vy jste vyrovnali
+      decidim/invited_to_group_event: Pozván do skupiny
       decidim/join_request_accepted_event: Připojit žádost přijatou
       decidim/join_request_rejected_event: Připojit žádost zamítnuta
       decidim/profile_updated_event: Profil aktualizován
       decidim/promote_to_admin: Propagováno na správu skupiny
+      decidim/promoted_to_admin_event: Povýšen na administrátora skupiny
       decidim/removed_from_group: Odstraněna ze skupiny
       decidim/resource_endorsed_event: Zdroj byl schválen
+      decidim/resource_hidden_event: Zdroj skryt
+      decidim/user_group_created_event: Uživatelská skupina vytvořena
+      decidim/welcome_notification_event: Uvítací zpráva
   activerecord:
     attributes:
       decidim/user:
@@ -76,7 +81,8 @@ cs:
     'true': 'Ano'
   carrierwave:
     errors:
-      image_too_big: Obraz je příliš velký
+      file_resolution_too_large: Rozlišení souboru je příliš velké
+      file_size_too_large: Soubor je příliš velký
       not_inside_organization: Soubor není připojen k žádné organizaci
   date:
     formats:
@@ -136,9 +142,6 @@ cs:
       skip_button: Přeskočit na hlavní obsah
     account:
       blocked: Tento účet byl zablokován kvůli porušení smluvních podmínek
-      data_portability_export:
-        file_no_exists: Soubor neexistuje
-        notice: Vaše data jsou momentálně v provozu. Po dokončení e-mailu obdržíte e-mail.
       delete:
         alert: Tuto akci nelze vrátit zpět. Pokud smažete svůj účet, nebudete se moci přihlásit pomocí přihlašovacích údajů. Odstranění vašeho účtu povede k anonymizaci vašich příspěvků. Stále budete moci vytvořit nový účet, ale tyto příspěvky s ním nebudou spojeny.
         confirm:
@@ -150,6 +153,19 @@ cs:
       destroy:
         error: Při mazání účtu došlo k chybě.
         success: Účet byl úspěšně smazán.
+      download_your_data_export:
+        file_no_exists: Soubor neexistuje
+        notice: Vaše data jsou momentálně v provozu. Po dokončení e-mailu obdržíte e-mail.
+      email_change:
+        body1: Poslali jsme e-mail na %{unconfirmed_email} k ověření Vaší nové e-mailové adresy.
+        body2: Potřebujete poslat znovu ověřovací e-mail? %{resend_link} nebo %{cancel_link}.
+        cancel: zrušit
+        cancel_error: Nelze zrušit změnu e-mailu.
+        cancel_successfully: Změna e-mailu byla úspěšně zrušena.
+        resend_error: Potvrzovací e-mail nelze znovu odeslat.
+        resend_successfully: Potvrzovací e-mail byl úspěšně odeslán na %{unconfirmed_email}
+        send_again: Znovu odeslat
+        title: Ověření změny e-mailu
       show:
         available_locales_helper: Vyberte jazyk, který chcete použít k procházení a přijímání oznámení na platformě
         change_password: Změnit heslo
@@ -166,11 +182,36 @@ cs:
         create: "%{user_name} vytvořila oblast %{resource_name}"
         delete: "%{user_name} odstranila oblast %{resource_name}"
         update: "%{user_name} aktualizovala oblast %{resource_name}"
+      area_type:
+        create: "%{user_name} vytvořil typ oblasti %{resource_name}"
+        delete: "%{user_name} odstranil typ oblasti %{resource_name}"
+        update: "%{user_name} aktualizoval typ oblasti %{resource_name}"
+      attachment:
+        create: "%{user_name} vytvořil/a přílohu %{resource_name}"
+        delete: "%{user_name} odstranil přílohu %{resource_name}"
+        update: "%{user_name} aktualizoval přílohu %{resource_name}"
+      attachment_collection:
+        create: "%{user_name} vytvořil/a kolekci příloh %{resource_name}"
+        delete: "%{user_name} odstranil kolekci příloh %{resource_name}"
+        update: "%{user_name} aktualizoval kolekci příloh %{resource_name}"
+      category:
+        create: "%{user_name} přidal kategorii %{resource_name} do prostoru %{space_name}"
+        delete: "%{user_name} odstranil kategorii %{resource_name} z prostoru %{space_name}"
+        update: "%{user_name} aktualizoval kategorii %{resource_name} v prostoru %{space_name}"
       component:
         create: "%{user_name} přidal %{resource_name} komponent do prostoru %{space_name}"
         delete: "%{user_name} odstranila %{resource_name} komponentu z %{space_name} místa"
+        export_component: "%{user_name} exportoval %{resource_name} %{component_name} v %{space_name} jako %{format_name}"
         publish: "%{user_name} publikoval %{resource_name} komponentu ve %{space_name} prostoru"
         unpublish: "%{user_name} nepublikoval %{resource_name} komponentu z %{space_name} místa"
+        update_permissions_with_space: "%{user_name} aktualizoval oprávnění %{resource_name} v %{space_name}"
+      contextual_help_section:
+        update: "%{user_name} aktualizoval sekci nápovědy %{resource_name}"
+      helpers:
+        answers: odpovědi
+        comments: komentáře
+        projects: projekty
+        results: výsledky
       impersonation_log:
         manage: "%{user_name} spravoval %{resource_name}, protože %{reason}"
       moderation:
@@ -187,6 +228,7 @@ cs:
         update: "%{user_name} aktualizovala %{resource_name} aplikaci OAuth"
       organization:
         update: "%{user_name} aktualizovala nastavení organizace"
+        update_external_domain: "%{user_name} aktualizoval externí domény organizace"
       participatory_space_private_user:
         create: "%{user_name} pozval %{resource_name} aby se stal soukromým uživatelem"
         create_via_csv: "%{user_name} pozval %{resource_name} prostřednictvím CSV k tomu, aby byl soukromým účastníkem"
@@ -198,6 +240,10 @@ cs:
         delete_with_parent: "%{user_name} odstranilo %{resource_name} rozsah uvnitř rozsahu %{parent_scope}"
         update: "%{user_name} aktualizoval oblast působnosti %{resource_name}"
         update_with_parent: "%{user_name} aktualizoval oblast působnosti %{resource_name} uvnitř oblasti působnosti %{parent_scope}"
+      scope_type:
+        create: "%{user_name} vytvořil/a typ rozsahu %{resource_name}"
+        delete: "%{user_name} odstranil typ rozsahu %{resource_name}"
+        update: "%{user_name} aktualizoval typ rozsahu %{resource_name}"
       static_page:
         create: "%{user_name} vytvořila %{resource_name} statickou stránku"
         delete: "%{user_name} odstranila %{resource_name} statickou stránku"
@@ -437,8 +483,8 @@ cs:
             amendments_enabled: Pozměňovací návrhy povoleny
             comments_enabled: Komentáře povoleny
             comments_max_length: Maximální délka komentářů
-            dummy_global_attribute_1: Zástupný atribut 1
-            dummy_global_attribute_2: Zástupný atribut 2
+            dummy_global_attribute1: Zástupný atribut 1
+            dummy_global_attribute2: Zástupný atribut 2
             dummy_global_translatable_text: Zástupný text k přeložení
             enable_pads_creation: Povolit vytvoření sdíleného textu
             resources_permissions_enabled: Oprávnění zdrojů povoleno
@@ -450,8 +496,8 @@ cs:
             amendment_reaction_enabled: Reakce na změnu byla povolena
             amendments_visibility: Viditelnost pozměňovacího návrhu
             comments_blocked: Komentáře blokovány
-            dummy_step_attribute_1: Atribut 1 zástupného kroku
-            dummy_step_attribute_2: Atribut 2 zástupného kroku
+            dummy_step_attribute1: Atribut 1 zástupného kroku
+            dummy_step_attribute2: Atribut 2 zástupného kroku
             dummy_step_translatable_text: Zástupný krok textu k přeložení
     contact: Kontakt
     content_blocks:
@@ -495,13 +541,6 @@ cs:
       actions:
         login_before_access: Prosím přihlašte se k účtu abyste mohli vstoupit
         unauthorized: Nemáte oprávnění k provedení této akce
-    data_portability:
-      export:
-        ready: Připraven
-      show:
-        download_data: Stáhnout data
-        download_data_description: Soubor obsahující všechny informace spojené s vaším účtem bude odeslán na adresu <strong>%{user_email}</strong>. Tento e-mail bude obsahovat .zip soubor a heslo pro jeho otevření.<br/><br/>Pro rozbalení souboru budete potřebovat <a href="https://www.7-zip.org/">7-Zip</a> (pro Windows) nebo <a href="https://www.keka.io/">Keku</a> (pro MacOS). Pokud používáte Linux, většinou jej budete mít nainstalovaný ve výchozím nastavení. Pokud ne, můžete použít <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> nebo <a href="https://peazip.github.io">PeaZip</a>).
-        request_data: Vyžádat data
     datepicker:
       help_text: 'Očekávaný formát: %{datepicker_format}'
     devise:
@@ -573,6 +612,13 @@ cs:
           this_application_will_not_be_able_to: 'Tato aplikace nebude moci:'
           update_profile: Aktualizujte svůj profil
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> chce používat váš účet"
+    download_your_data:
+      export:
+        ready: Připraven
+      show:
+        download_data: Stáhnout data
+        download_data_description: Soubor obsahující všechny informace spojené s vaším účtem bude odeslán na adresu <strong>%{user_email}</strong>. Tento e-mail bude obsahovat .zip soubor a heslo pro jeho otevření.<br/><br/>Pro rozbalení souboru budete potřebovat <a href="https://www.7-zip.org/">7-Zip</a> (pro Windows) nebo <a href="https://www.keka.io/">Keku</a> (pro MacOS). Pokud používáte Linux, většinou jej budete mít nainstalovaný ve výchozím nastavení. Pokud ne, můžete použít <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> nebo <a href="https://peazip.github.io">PeaZip</a>).
+        request_data: Vyžádat data
     editor_images:
       create:
         error: Chyba při nahrávání obrázku
@@ -716,6 +762,8 @@ cs:
           email_outro: Toto oznámení jste obdrželi, protože jste administrátor platformy.
           email_subject: Skupina uživatelů aktualizovala svůj profil
           notification_title: Uživatelská skupina %{user_group_name} aktualizovala svůj profil, ponechala jej neověřený. Nyní jej můžete ověřit v <a href="%{groups_admin_path}">admin panelu</a>.
+      nickname_event:
+        notification_body: Opravili jsme způsob, jakým jsou přezdívky používány, aby nedocházelo k duplicitám, a proto jsme odstranili pravidlo citlivého na případ případu. <br/> Vaše přezdívka byla vytvořena po jiné, se stejným jménem, takže jsme ji automaticky přejmenovali. Můžete to změnit z <a href="%{link_to_account_settings}">nastavení účtu</a>.
       notification_event:
         notification_title: Došlo k události <a href="%{resource_path}">%{resource_title}</a>.
       reports:
@@ -743,7 +791,7 @@ cs:
           email_subject: "%{name} byl oficializován"
           notification_title: Uživatel %{name} (%{nickname}) byl oficiálně zveřejněn.
     export_mailer:
-      data_portability_export:
+      download_your_data_export:
         click_button: 'Klikněte na následující odkaz pro stažení vašich dat.<br/>Soubor bude k dispozici do %{date}.<br/>Budete potřebovat <a href="https://www.7-zip.org/">7-Zip</a> (pro Windows), <a href="https://www.keka.io/en/">Keka</a> (pro MacOS) nebo <a href="https://peazip.github.io">PeaZip</a> (pro Linux) pro jeho otevření. Heslo: %{password}'
         download: Stažení
       export:
@@ -796,13 +844,18 @@ cs:
         file:
           explanation: 'Pokyny pro soubor:'
           message_1: Jedná se o obrázek nebo dokument.
-          message_2: Pro obrázky použijte pokud možno orientaci na šířku, služba ořeže obrázek. Pro CSV soubory musí být oddělovač mezi sloupci čárkou (",")
+          message_2: U obrázků použijte pokud možno formát na šířku, obrázek bude oříznut.
+        icon:
+          explanation: 'Pokyny pro ikonu:'
+          message_1: Musí to být čtvercový obrázek.
+          message_2: Doporučená velikost pro tento obrázek je 512 x 512.
         image:
           explanation: 'Pokyny pro obrázek:'
           message_1: Je vhodnější obrázek na šířku, který nemá žádný text.
           message_2: Software tento obrázek ořízne.
       file_validation:
         allowed_file_extensions: 'Povolené přípony souborů: %{extensions}'
+        max_file_dimension: 'Maximální rozměry souboru: %{resolution} pixelů'
         max_file_size: 'Maximální velikost souboru: %{megabytes}MB'
       upload:
         labels:
@@ -812,7 +865,7 @@ cs:
           cancel: Zrušit
           edit_image: Upravit obrázek
           error: Chyba!
-          file_too_big: 'Soubor je příliš velký! Maximun velikost souboru: %{megabytes}MB'
+          file_size_too_large: 'Velikost souboru je příliš velká! Maximální velikost souboru: %{megabytes}MB'
           remove: Odebrat
           replace: Nahradit
           save: Uložit
@@ -924,6 +977,7 @@ cs:
         success: Žádost o připojení byla úspěšně vytvořena. Před přijetím do skupiny administrátor váš požadavek zkontroluje.
       leave:
         error: Při opouštění skupiny došlo k problému
+        last_admin: Nemůžete se odebrat z této skupiny, protože jste poslední správce. Vytvořte jiného člena administrátora, abyste opustili skupinu.
         success: Skupina úspěšně opustila.
       members:
         accept_or_reject_join_requests: 'Následující uživatelé se připojili k této skupině. Přijmout nebo odmítnout jejich požadavky:'
@@ -936,7 +990,7 @@ cs:
       no_user_groups: Nepatří do žádné skupiny.
       roles:
         admin: Správce
-        creator: Tvůrce
+        creator: Administrátor
         member: Člen
       update:
         error: Při aktualizaci skupiny došlo k problému
@@ -973,6 +1027,7 @@ cs:
         unknown_action: "%{user_name} provedla nějakou akci na %{resource_name}"
         unknown_action_with_space: "%{user_name} provedlo nějakou akci na %{resource_name} v %{space_name}"
         update: "%{user_name} aktualizováno %{resource_name}"
+        update_permissions_with_space: "%{user_name} aktualizoval oprávnění k %{resource_name} v %{space_name}"
         update_with_space: "%{user_name} aktualizováno %{resource_name} v %{space_name}"
       value_types:
         area_presenter:
@@ -1143,19 +1198,41 @@ cs:
         translated_text: 'Automaticky přeložený text:'
     notifications:
       no_notifications: Zatím žádné oznámení.
+      show:
+        missing_event: Jejda, toto oznámení patří k položce, která již není k dispozici. Můžete ho zahodit.
+    notifications_digest_mailer:
+      header:
+        daily: Denní výběr oznámení
+        weekly: Týdenní výběr oznámení
+      hello: Dobrý den %{name},
+      intro:
+        daily: 'Toto jsou oznámení z posledního dne založená na aktivitě, kterou máte:'
+        weekly: 'Toto jsou oznámení z minulého týdne založená na aktivitě, kterou máte:'
+      outro: Obdrželi jste tato oznámení, protože sledujete tento obsah nebo jeho autory. Můžete je zrušit z jejich příslušných stránek.
+      see_more: Zobrazit další oznámení
+      subject: Tohle je váš emailový přehled
     notifications_settings:
       show:
         administrators: Správci
         allow_public_contact: Umožnit komukoli poslat mi přímou zprávu, i když je nesleduji.
+        allow_push_notifications: Získejte oznámení a zjistěte, co se děje, když nejste na platformě. Kdykoli je můžete vypnout.
         direct_messages: Přijímat přímé zprávy od kohokoli
-        email_on_moderations: Chci dostávat e-mail pokaždé, když je něco nahlášeno pro moderování.
-        email_on_notification: Chci dostávat e-mail pokaždé, když obdržím oznámení.
+        email_on_moderations: Chci dostávat e-mail pokaždé, když je něco nahlášeno k moderování.
         everything_followed: Všechno, co sleduji
         newsletter_notifications: Chci dostávat zpravodaje
         newsletters: Zpravodaje
+        notification_settings:
+          close_meeting_reminder: Chci dostávat e-mailem připomenutí uzavřených schůzek nepublikovaných zpráv
+        notifications_sending_frequencies:
+          daily: Denně
+          none: Vůbec
+          real_time: V reálném čase
+          weekly: Týdně
+        notifications_sending_frequency: Jak často chcete dostávat e-mail s oznámením?
         own_activity: Moje vlastní činnost, jako kdyby někdo komentoval ve svém návrhu nebo mě zmínil
+        push_notifications: Push oznámení
+        push_notifications_reminder: Chcete-li dostávat oznámení z platformy, musíte je nejdříve povolit v nastavení prohlížeče.
         receive_notifications_about: Chci dostávat oznámení
-        send_notifications_by_email: Poslat oznámení emailem
         update_notifications_settings: Uložit změny
       update:
         error: Při aktualizaci nastavení oznámení došlo k chybě.
@@ -1217,7 +1294,7 @@ cs:
           agreement: Souhlasím s těmito podmínkami
           legend: Souhlasíte s podmínkami používání
         refuse:
-          modal_body: Pokud odmítnete, nebudete moci používat platformu, můžete <a href="%{data_portability_path}">stahovat data</a> a / nebo <a href="%{delete_path}">smazat svůj účet</a>.
+          modal_body: Pokud odmítnete, nebudete moci platformu používat, můžete <a href="%{download_your_data_path}">stáhnout svá data</a> a/nebo <a href="%{delete_path}">smazat svůj účet</a>.
           modal_btn_continue: Přijměte termíny a pokračujte
           modal_btn_exit: Později to přezkoumám
           modal_button: Odmítněte podmínky
@@ -1525,7 +1602,7 @@ cs:
     invitations:
       edit:
         header: Dokončete vytvoření účtu
-        nickname_help: Vaše přezdívka v %{organization}.
+        nickname_help: Vaše přezdívka v %{organization}. Může obsahovat pouze písmena, číslice, '-' a '_'.
         submit_button: Uložit
         subtitle: Pokud přijmete pozvánku, nastavte svou přezdívku a heslo.
       invitation_removed: Vaše pozvánka byla odstraněna.
@@ -1689,14 +1766,56 @@ cs:
     timestamp_error_message: Promiňte, bylo to příliš rychlé! Znovu odešlete.
   layouts:
     decidim:
-      cookie_warning:
-        description_html: Tento web používá cookies. Pokračováním v procházení webu souhlasíte s používáním souborů cookie. Zjistěte více o tom %{link}.
-        link_label: Zjistěte více o cookies
-        ok: Souhlasím
+      cookie_consent:
+        cookie_details:
+          columns:
+            description: Popis
+            name: Název
+            service: Služba
+            type: Typ
+          cookies:
+            _session_id:
+              description: Umožňuje webovým stránkám zapamatovat si uživatele na webových stránkách, když se pohybují mezi webovými stránkami.
+              service: Tato stránka
+            decidim-consent:
+              description: Uloží informace o cookies povolených uživatelem na této stránce.
+              service: Tato stránka
+          types:
+            cookie: Cookie
+        dialog:
+          accept_all: Přijmout vše
+          accept_only_essential: Přijmout pouze nezbytné soubory cookie
+          cookie_settings: Nastavení
+          description: Na našich webových stránkách používáme soubory cookie ke zlepšení výkonu a obsahu těchto stránek. Soubory cookie nám umožňují poskytovat individuálnější uživatelské nastavení a sociální kanály.
+          title: Informace o cookies používaných na internetových stránkách
+        modal:
+          accept_all: Přijmout vše
+          accept_only_essential: Přijmout pouze nezbytné soubory cookie
+          analytics:
+            description: Analytické soubory cookie jsou soubory cookie, které sledují, jak se uživatelé pohybují a komunikují s webem. Shromážděné informace slouží k tomu, aby majitel vylepšil webové stránky.
+            title: Analytika a statistiky
+          description: Soubory cookie používáme, abychom zajistili základní funkce webových stránek a zlepšili vaše online zážitky. Pro každou kategorii si můžete vybrat, zda se chcete přihlásit/odhlásit.
+          essential:
+            description: Tyto soubory cookie jsou nezbytné pro správné fungování nešich webových stránek. Bez těchto souborů cookie by tyto stránky nefungovaly správně.
+            title: Zásadní
+          marketing:
+            description: Tyto soubory cookie shromažďují informace o tom, jak používáte webové stránky, které jste navštívili a na které odkazy jste klikli.
+            title: Marketing
+          preferences:
+            description: Tyto soubory cookie umožňují webovým stránkám zapamatovat si vybrání možností, které jste učinili v minulosti
+            title: Předvolby
+          save_settings: Uložit nastavení
+          title: Nastavení cookies
+          toggle: Přepínač %{consent_category}
+        warning:
+          all_cookies: všechny soubory cookie
+          change_cookie_settings: Změnit nastavení cookie
+          need_cookies: Abyste mohli vidět tento obsah, musíte povolit %{cookies}.
       edit_link:
         edit: Upravit
       footer:
         cc_by_license: Licence Creative Commons
+        cookie_settings: Nastavení cookies
         decidim_logo: Logo Decidim
         download_open_data: Stáhněte si soubory s otevřenými daty
         made_with_open_source: Webová stránka vytvořená s <a target="_blank" href="https://github.com/decidim/decidim">svobodným softwarem</a>.

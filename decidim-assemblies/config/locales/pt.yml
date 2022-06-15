@@ -68,12 +68,6 @@ pt:
         email: E-mail
         name: Nome
         role: Função
-    errors:
-      models:
-        assembly:
-          attributes:
-            document:
-              invalid_document_type: 'Tipo de documento inválido. Os formatos aceites são: %{valid_mime_types}'
   activerecord:
     models:
       decidim/assembly:
@@ -385,7 +379,6 @@ pt:
         related_participatory_processes: Processos participativos relacionados
         scope: Âmbito
         social_networks: Redes sociais
-        social_networks_title: Partilhar esta reunião em
         target: Quem participa
     assembly_members:
       assembly_member:
@@ -396,7 +389,6 @@ pt:
       assemblies:
         create_assembly_member:
           email_intro: Um administrador da reunião <a href="%{resource_url}">%{resource_name}</a> adicionou-o como um dos seus membros.
-          email_outro: Recebeu esta notificação porque foi convidado para uma reunião. Consulte a página da reunião <a href="%{resource_path}"></a> para contribuir!
           email_subject: Foi convidado para ser membro da reunião %{resource_name}!
           notification_title: Foi registado como membro da Reunião <a href="%{resource_path}">%{resource_name}</a>. Consulte a página da reunião <a href="%{resource_path}"></a> para contribuir!
       assembly:

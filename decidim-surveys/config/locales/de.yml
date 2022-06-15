@@ -30,7 +30,7 @@ de:
           step:
             allow_answers: Erlaube Antworten
             allow_unregistered: Nicht registrierten Benutzern die Beantwortung des Fragebogens erlauben
-            allow_unregistered_help: Wenn diese Option aktiviert ist, muss man nicht angemeldet sein, um den Fragebogen zu beantworten. Das kann zu schlechten oder unzuverlässigen Daten führen und ist mehr anfällig für automatisierte Angriffe. Verwenden Sie dies mit Bedacht!
+            allow_unregistered_help: Wenn aktiviert, ist keine Anmeldung erforderlich, um die Umfrage zu beantworten. Dies kann zu schlechten oder unzuverlässigen Daten führen und ist anfälliger für automatisierte Angriffe. Verwenden Sie diese Funktion mit Vorsicht! Beachten Sie, dass ein Teilnehmer die gleiche Umfrage mehrfach beantworten kann, indem er verschiedene Browser oder die "Private Browsing"-Funktion ihres Web-Browsers nutzt.
             announcement: Ankündigung
     events:
       surveys:

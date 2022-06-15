@@ -273,15 +273,6 @@ pt:
             selected: Seleccionado
             submit: Enviar
             title: Resultados publicados
-          tally:
-            continue: Continuar
-            invalid: Ouve um problema ao denunciar o curador ausente
-            mark_as_missing: Assinalar como ausente
-            mark_as_missing_description: Todos os curadores devem participar neste processo, mas se um curador não pode tomar parte no processo pode ser assinalado como ausente.
-            success: O curador ausente foi denunciado com êxito e enviado para o Quadro Informativo
-            tally_completion: O processo será completo quando todos os curadores estiverem activos ou assinalados como ausentes. São necessários pelo menos %{quorum} curadores para completar o processo.
-            title: Processo de contagem
-            undo_mark_as_missing: Um curador assinalado como ausente poderá participar antes do processo estar completo. Pode proceder como usualmente e o assinalar da ausência será ignorado.
           tally_ended:
             answer: Resposta
             not_selected: Não seleccionado
@@ -291,6 +282,13 @@ pt:
             submit: Publicar resultados
             success: Pedido publicação de resultados enviado com êxito para o Quadro Informativo
             title: Resultados calculados
+          tally_started:
+            invalid: Ouve um problema ao denunciar o curador ausente
+            mark_as_missing: Assinalar como ausente
+            mark_as_missing_description: Todos os curadores devem participar neste processo, mas se um curador não pode tomar parte no processo pode ser assinalado como ausente.
+            success: O curador ausente foi denunciado com êxito e enviado para o Quadro Informativo
+            tally_completion: O processo será completo quando todos os curadores estiverem activos ou assinalados como ausentes. São necessários pelo menos %{quorum} curadores para completar o processo.
+            undo_mark_as_missing: Um curador assinalado como ausente poderá participar antes do processo estar completo. Pode proceder como usualmente e o assinalar da ausência será ignorado.
           vote:
             errors:
               time_after: A eleição ainda está a decorrer. Tem que esperar até à hora de fecho (%{end_time}) para poder fechar o período de votação.
@@ -526,24 +524,13 @@ pt:
             title: Restaurar as chaves de eleição para %{election}
             upload_election_keys: Enviar chaves de eleição
             upload_icon: Ícone que indica uma acção de descarregar
-          tally_steps:
-            back: Recuar
+          tally_started_steps:
             description: Os resultados desta eleição estão a ser processados no Quadro Informativo. Para completar este processo é necessária a sua participação como curador.
             keys:
               end_tally: A contagem  terminou
               tally:
                 cast: Registar a contagem
                 share: Partilhar a contagem
-            list:
-              status: Estado
-              task: Tarefa
-            process_warning: Uma vez o processo é iniciado, você não deve sair desta página até que o processo termine. Pode demorar vários minutos, visto que os Curadores todos os curadores devem estar ligados para completá-lo.
-            start: Início
-            start_icon: Ícone que indica um botão de início para iniciar a geração de chaves eleitorais
-            status:
-              completed: Completo
-              pending: Pendente
-              processing: A processar
             title: Contagem para %{election}
           update:
             error: O estado da eleição não foi actualizado.
@@ -592,7 +579,6 @@ pt:
           audit: "( Auditar o boletim de voto )"
           back: Começar o processo de votação de novo
           ballot_hash: 'O seu identificador de boletim de voto é:'
-          cast: Registar o boletim de voto
           description: Aqui tem as opções para registar o seu boletim de voso para que este possa ser contabilizado ou, alternativamente, pode auditar se o seu boletim foi encriptado correctamente. Por razões de segurança, auditar o seu voto pode estragá-lo. Isto significa, que para registar o seu voto, irá necessário recomeçar o processo de votação.
           header: 'O boletim de voto está encriptado: registe-o ou audite-o'
         casting:
@@ -890,7 +876,6 @@ pt:
           edit:
             change_polling_station: Retroceder para as Secções de Voto
             monitoring_committee_notes: Reparos
-            monitoring_committee_notes_placeholder: Denunciar um incidente aqui
             title: Resultados para a eleição <i>%{election_title}</i> na secção de voto <i>%{polling_station_title}</i>
           elections:
             title: Escolher a eleição que quer validar
@@ -1025,7 +1010,6 @@ pt:
               info_message: "<strong>Por favor</strong>, processadas %{processed_count} de %{raw_count} do ficheiro %{file}"
             delete:
               button: Eliminar todos os dados do censo
-              confirm: Eliminar todo o censo não pode ser desfeito. Tem a certeza que quer continuar?
             destroy:
               error: Ocorreu um erro ao eliminar o recenseamento, por favor tente de novo.
               success: Dados do recenseamento eliminados
@@ -1033,7 +1017,6 @@ pt:
               button: Exportar Códigos de Acesso de votação
               callout: Pode continuar com a exportação dos códigos de acesso. Isto só pode ser feito uma vez. Assim que comece a exportação irá receber um e-mail <strong>%{email}</strong> em com instruções
               confirm: Só pode exportar os códigos de acesso uma vez. Certifique-se que tem acesso à conta de e-mail <strong>%{email}</strong>.
-              file_not_exists: O ficheiro não existe
               launch_error: Problemas ao lançar a exportação dos códigos de acesso
               launch_success: Exportação dos códigos de acesso lançada. Em breve irá receber um e-mail em %{email}
             exporting_access_codes:
@@ -1058,7 +1041,6 @@ pt:
               has_ballot_styles_message: Está a configurar Estilos de Boletim de Voto. Por favor certifique-se de que o campo “%{ballot_style_code_header}” no ficheiro CSV corresponde ao Estilo de Boletim de Voto desejado.
               info_message: "<strong>Não há ainda recenseamento.</strong> Por favor use o formulário abaixo para o criar importando um ficheiro CSV."
               missing_ballot_styles_message: 'Não há ainda um Estilo de Boletim de Voto para esta votação. Se ter questões condicionais (exemplo: apresentar ao eleitor questões diferentes dependendo, entre outros, no distrito/regioão de residência), precisa de configurar os <a href=%{ballot_styles_admin_path}>Estilos de Boletim de Voto</a> <strong>antes</strong> de importar o recenseamento. Se quiser apresentar as mesmas questões a todos os eleitores pode continuar com o procedimento de importação de recenseamento.'
-              submit: Submeter csv
               title: Criar recenseamento
             show:
               heading: Recenseamento do espaço de votação
@@ -1083,9 +1065,6 @@ pt:
         highlighted_votings:
           name: Votações realçadas
         landing_page:
-          description:
-            show_less: Ler menos
-            show_more: Ler mais
           metrics:
             heading: Métricas
           polling_stations:
@@ -1138,7 +1117,6 @@ pt:
             modal_ballots_count_error:
               btn_validate_total: Validar total de recontagem de boletins de voto
               close_modal: Fechar
-              info_explanation_text: 'Por favor reveja o número de boletins de voto. Se o número total estiver correcto, deve fornecer uma explicação à Comissão de Controlo:'
               info_text: Número total de boletins de voto (envelopes) introduzido não corresponde ao registo de pessoas que votou nesta Secção de Voto.
               message_for_monitoring_committee: Mensagem da Comissão de Controlo
               review_recount: Rever a recontagem
@@ -1169,11 +1147,9 @@ pt:
         in_person_votes:
           complete_voting:
             available_answers: 'Respostas disponíveis:'
-            census_verified: O participante ainda não votou.
             complete_voting: Completar votação
             identify_another: Identificar outro participante
             questions_title: 'Ela tem o direito de votar nas seguintes questões:'
-            questions_title_voted: 'O participante já voto on-line e tem direito a votar nas seguintes questões:'
             voted: O participante já votou
           create:
             error: O voto não foi registado. Por favor tente de novo.
@@ -1262,13 +1238,10 @@ pt:
         check_census:
           check_status: Verificar estado
           description: Aqui tem a opção de verificar os dados do seu recenseamento para saber se tem o direito a participar nesta votação. Deve ter já um código de acesso mas se o perdeu pode pedi-lo de novo se os seus dados estiverem correctos.
-          error:
-            info: 'Por favor tente de novo. Se acha que os dados do sistema estão incorrectos pode denunciá-lo aqui: %{census_contact_information}.'
-            title: Os seus dados de recenseamento estão incorrectos!
           form_title: 'Preencha o formulário seguinte para verificar os seus dados de recenseamento:'
           invalid: Ocorreu um problema ao verificar o recenseamento.
           success:
-            access_link: via SMS ou e-mail.
+            access_link_with_sms: via SMS ou e-mail.
             info: Deve ter já recebido o seu Código de Acesso por correio postal. No caso de não o ter pode pedi-lo aqui
             title: Os seus dados de recenseamento estão correctos!
           title: Posso votar?

@@ -13,6 +13,7 @@ module Decidim
 
       helper Decidim::WidgetUrlsHelper
       helper Decidim::ResourceVersionsHelper
+      helper Decidim::ShortLinkHelper
 
       helper_method :meetings, :meeting, :registration, :search
 

@@ -123,6 +123,10 @@ ja:
         file: ファイル
     errors:
       models:
+        newsletter:
+          attributes:
+            base:
+              at_least_one_space: 少なくとも1つの参加スペースを選択してください
         organization:
           attributes:
             official_img_footer:
@@ -829,6 +833,12 @@ ja:
           invalid: CSVファイルの読み込みに問題が発生しました。
           success: CSVファイルが正常にアップロードされました。出席者に招待メールを送信します。時間がかかる場合があります。
         new:
+          destroy:
+            button: すべてのプライベート参加者を削除
+            confirm: すべてのプライベート参加者を削除してもよろしいですか？この操作は元に戻せず、削除したデータを復元できません。
+            empty: プライベートの参加者はいません。
+            explanation: '%{count} 人のプライベート参加者がいます。'
+            title: プライベート参加者を削除
           explanation: 'CSV ファイルをアップロードします。ファイルは 1列目に電子メール、2列目に名前を持つ形式である必要があります(email, name)。 ユーザー名に `<>?%&^*#@()[]=+:;"{}\|`のような無効な文字を使用しないでください。'
           title: CSVファイルをアップロード
           upload: アップロード
@@ -1044,7 +1054,7 @@ ja:
             hidden_at: '非表示:'
             participatory_space: 参加型スペース
             report_count: カウント
-            reportable_id: Id
+            reportable_id: ID
             reportable_type: 種別
             reported_content_url: 報告されたコンテンツ URL
             reports: レポート

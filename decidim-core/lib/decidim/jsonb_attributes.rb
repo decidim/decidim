@@ -25,7 +25,7 @@ module Decidim
       #
       # Returns nothing.
       def jsonb_attribute(name, fields, *options)
-        attribute name, Hash[String => Object], default: {}
+        attribute(name, { String => Object }, default: {})
 
         fields.each do |f, type|
           attribute f, type, *options

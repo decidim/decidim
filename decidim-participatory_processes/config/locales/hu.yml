@@ -52,12 +52,6 @@ hu:
         email: Email
         name: Név
         role: Szerep
-    errors:
-      models:
-        participatory_process:
-          attributes:
-            document:
-              invalid_document_type: 'Érvénytelen dokumentumtípus. Elfogadott formátumok: %{valid_mime_types}'
     models:
       decidim/participatory_process_step_activated_event: Lépés aktiválva
       decidim/participatory_process_step_changed_event: Lépés megváltozott

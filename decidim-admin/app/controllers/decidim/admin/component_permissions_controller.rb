@@ -20,7 +20,7 @@ module Decidim
         enforce_permission_to :update, :component, component: component
         @permissions_form = PermissionsForm.from_params(params)
 
-        UpdateComponentPermissions.call(@permissions_form, component, resource) do
+        UpdateComponentPermissions.call(@permissions_form, component, resource, current_user) do
           on(:ok) do
             flash[:notice] = t("component_permissions.update.success", scope: "decidim.admin")
             redirect_to return_path

@@ -85,16 +85,40 @@ es-PY:
             title: Editar proyecto
             update: Actualizar
           index:
+            actions: Acciones
+            cancel: Cancelar
+            change_category: Cambiar categoría
+            change_scope: Cambiar ámbito
+            change_selected: Cambiar la selección
+            deselect_implementation: No seleccionados
             finished_orders: Votos terminados
             pending_orders: Votos pendientes
+            select_for_implementation: Seleccionado
             selected: Seleccionado
             title: Proyectos
+            update: Actualizar
+            update_scope_button: Actualizar ámbito
           new:
             create: Crear
             title: Nuevo proyecto
           update:
             invalid: Ha habido un problema al actualizar este proyecto
             success: Proyecto actualizado correctamente
+          update_category:
+            invalid: 'Estas propuestas ya tenían la categoría %{subject_name}: %{projects}.'
+            select_a_category: Por favor, selecciona una categoría
+            select_a_project: Seleccione un proyecto
+            success: 'Los proyectos se han actualizado correctamente a la categoría %{subject_name}: %{projects}.'
+          update_scope:
+            invalid: 'Estos proyectos ya tenían el ámbito %{subject_name}: %{projects}.'
+            select_a_project: Por favor, seleccionar un proyecto
+            select_a_scope: Por favor, selecciona un ámbito
+            success: 'Los proyectos se han actualizado correctamente al ámbito %{subject_name}: %{projects}.'
+          update_selected:
+            invalid: 'Estos proyectos ya estaban seleccionado: %{projects}.'
+            select_a_project: Por favor, seleccionar un proyecto
+            select_a_selection: Por favor, elige un estado
+            success: 'Selección de proyectos cambiada con éxito: %{projects}.'
         proposals_imports:
           create:
             invalid: Ha habido un problema al importar las propuestas en proyectos
@@ -141,6 +165,8 @@ es-PY:
         show: Ver proyectos
         vote: Votar
         voted_on: Has votado en %{links}
+      last_activity:
+        new_vote_at_html: "<span>Nueva votación presupiestaria en %{link}</span>"
       limit_announcement:
         cant_vote: No puedes votar en este presupuesto. <a href="%{landing_path}"> Prueba con otro presupuesto</a>.
         limit_reached: Tienes votos activos en %{links}. Para votar en este presupuesto debes <a href="%{landing_path}">borrar tu voto y empezar de nuevo</a>.
@@ -154,6 +180,7 @@ es-PY:
           fields:
             category: Categoría
             id: ID
+            scope: Ámbito
             title: Título
       order_summary_mailer:
         order_summary:
@@ -293,7 +320,7 @@ es-PY:
             total_budget: Presupuesto total
             vote_minimum_budget_projects_number: Número mínimo de proyectos a votar
             vote_rule_minimum_budget_projects_enabled: 'Activar norma: Número mínimo de proyectos a votar'
-            vote_rule_selected_projects_enabled: 'Habilitar regla: proyectos seleccionados con un número mínimo y máximo de proyectos en los que votar'
+            vote_rule_selected_projects_enabled: 'Habilitar regla: número mínimo y máximo de proyectos en los que votar'
             vote_rule_threshold_percent_enabled: 'Activar norma: porcentaje mínimo del pressupuesto'
             vote_selected_projects_maximum: Cantidad máxima de proyectos a seleccionar
             vote_selected_projects_minimum: Cantidad mínima de proyectos a seleccionar

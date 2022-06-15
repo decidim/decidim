@@ -27,7 +27,6 @@ module Decidim
     helper Decidim::LanguageChooserHelper
     helper Decidim::ReplaceButtonsHelper
     helper Decidim::TranslationsHelper
-    helper Decidim::CookiesHelper
     helper Decidim::AriaSelectedLinkToHelper
     helper Decidim::MenuHelper
     helper Decidim::ComponentPathHelper

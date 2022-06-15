@@ -30,15 +30,15 @@ module Decidim
         end
 
         context "when conference has speakers" do
-          let!(:speaker_1) { create(:conference_speaker, conference: conference) }
-          let!(:speaker_2) { create(:conference_speaker, conference: conference) }
+          let!(:speaker1) { create(:conference_speaker, conference: conference) }
+          let!(:speaker2) { create(:conference_speaker, conference: conference) }
           let!(:non_speaker) { create(:conference_speaker) }
 
           context "when user has permissions" do
             it "displays list of speakers" do
               get :index, params: { conference_slug: conference.slug }
 
-              expect(controller.helpers.collection).to match_array([speaker_1, speaker_2])
+              expect(controller.helpers.collection).to match_array([speaker1, speaker2])
             end
           end
 

@@ -42,10 +42,6 @@ nl:
           valuator_role_id: Naam beoordelaar
     errors:
       models:
-        participatory_text:
-          attributes:
-            document:
-              invalid_document_type: 'Ongeldig documenttype. Aanvaarde formaten zijn: %{valid_mime_types}'
         proposal:
           attributes:
             add_documents:
@@ -203,33 +199,21 @@ nl:
             email_subject: Iemand heeft een notitie achtergelaten bij het voorstel %{resource_title}.
             notification_title: Iemand heeft een briefje achtergelaten op het voorstel <a href="%{resource_path}">%{resource_title}</a>. Bekijk het op <a href="%{admin_proposal_info_path}">de beheerderspaneel</a>
         collaborative_draft_access_accepted:
-          email_intro: '%{requester_name} is aanvaard om toegang te krijgen als bijdrager voor de <a href="%{resource_path}">%{resource_title}</a> gezamenlijk ontwerp.'
-          email_outro: U ontvangt deze melding omdat u een medewerker bent van <a href="%{resource_path}">%{resource_title}</a>.
           email_subject: "%{requester_name} is geaccepteerd om toegang te krijgen als een bijdrager van de %{resource_title}."
           notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> is <strong> aanvaard om als bijdrager</strong> van de <a href="%{resource_path}">%{resource_title}</a> gezamenlijk ontwerp toegang te krijgen.
         collaborative_draft_access_rejected:
-          email_intro: '%{requester_name} is afgewezen om toegang te krijgen als een bijdrager van de <a href="%{resource_path}">%{resource_title}</a> gezamenlijke ontwerp.'
-          email_outro: U hebt deze melding ontvangen omdat u een bijdrager bent van <a href="%{resource_path}">%{resource_title}</a>.
           email_subject: "%{requester_name} is afgewezen om toegang te krijgen als bijdrager van de %{resource_title} gezamenlijk ontwerp."
           notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> is <strong>afgewezen om toegang te krijgen als bijdrager</strong> van de <a href="%{resource_path}">%{resource_title}</a> gezamenlijk ontwerp.
         collaborative_draft_access_requested:
-          email_intro: '%{requester_name} verzocht toegang als een bijdrager. U kunt <strong>verzoek</strong> van de <a href="%{resource_path}">%{resource_title}</a> pagina met gezamenlijk ontwerp accepteren of weigeren.'
-          email_outro: U heeft deze melding ontvangen omdat u een bijdrager bent van <a href="%{resource_path}">%{resource_title}</a>.
           email_subject: "%{requester_name} vroeg om toegang om bij te dragen aan %{resource_title}."
           notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> verzocht om toegang om bij te dragen aan de <a href="%{resource_path}">%{resource_title}</a> gezamenlijk ontwerp. Gelieve <strong>accepteren of het verzoek af te wijzen</strong>.
         collaborative_draft_access_requester_accepted:
-          email_intro: U bent geaccepteerd om toegang te krijgen als bijdrager voor het gezamenlijk ontwerp <a href="%{resource_path}">%{resource_title}</a>.
-          email_outro: U heeft deze melding ontvangen omdat u heeft verzocht om een ​​medewerker van <a href="%{resource_path}">%{resource_title}</a> te worden.
           email_subject: Je bent geaccepteerd als een bijdrager van %{resource_title}.
           notification_title: U bent <strong>geaccepteerd om als bijdrager</strong> van de <a href="%{resource_path}">%{resource_title}</a> gezamenlijk ontwerp toegang te krijgen.
         collaborative_draft_access_requester_rejected:
-          email_intro: U bent afgewezen om toegang te krijgen als bijdrager voor de gezamenlijk ontwerp <a href="%{resource_path}">%{resource_title}</a>.
-          email_outro: U heeft deze melding ontvangen omdat u heeft verzocht om een ​​medewerker van <a href="%{resource_path}">%{resource_title}</a> te worden.
           email_subject: Je bent afgewezen als een bijdrager van %{resource_title}.
           notification_title: U bent <strong>afgewezen om toegang te krijgen als bijdrager</strong> van de <a href="%{resource_path}">%{resource_title}</a> gezamenlijke ontwerp.
         collaborative_draft_withdrawn:
-          email_intro: <a href="%{author_path}">%{author_name} %{author_nickname}</a> heeft het gezamenlijk ontwerp <a href="%{resource_path}">%{resource_title}</a> ingetrokken.
-          email_outro: U heeft deze melding ontvangen omdat u een bijdrager bent van <a href="%{resource_path}">%{resource_title}</a>.
           email_subject: "%{author_name} %{author_nickname} de %{resource_title} gezamenlijk ontwerp ingetrokken."
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> <strong>teruggetrokken</strong> de <a href="%{resource_path}">%{resource_title}</a> gezamenlijk ontwerp.
         creation_enabled:
@@ -787,7 +771,6 @@ nl:
             other: stemmen
         new:
           send: Doorgaan
-          title: Maak voorstel aan
         orders:
           label: 'Bestelling sorteren op:'
           most_commented: Meeste reacties

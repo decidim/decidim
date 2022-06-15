@@ -123,6 +123,10 @@ es-PY:
         file: Expediente
     errors:
       models:
+        newsletter:
+          attributes:
+            base:
+              at_least_one_space: Seleccione al menos un espacio participativo
         organization:
           attributes:
             official_img_footer:
@@ -833,6 +837,12 @@ es-PY:
           invalid: Se ha producido un error al leer el archivo CSV.
           success: Archivo CSV subido correctamente, estamos enviando un correo electrónico de invitación a las participantes. Esto puede tardar un tiempo.
         new:
+          destroy:
+            button: Borrar todas las participantes privadas
+            confirm: '¿Estás segura que quieres eliminar todas las participantes privadas? Esta acción no se puede deshacer, no podrás recupararlas.'
+            empty: No hay participantes privadas.
+            explanation: Hay %{count} participante/s privada/s.
+            title: Borrar las participantes privadas
           explanation: 'Sube tu archivo CSV. Debe tener dos columnas con correo electrónico en la primera columna del archivo y el nombre en la última columna del archivo (correo electrónico, nombre) de los usuarios que deseas añadir al espacio participativo, sin encabezados. Evitar usar caracteres no válidos como `<>?%&^*#@()[]=+:;"{}\|` en el nombre de usuario.'
           title: Sube tu archivo CSV
           upload: Subir
@@ -901,6 +911,7 @@ es-PY:
         gallery:
           add_images: Añadir imágenes
           delete_image: Borrar la imagen
+          edit_images: Editar imagenes
           gallery_legend: Añadir una galería de imágenes (opccional)
       static_page_topics:
         create:
@@ -1048,7 +1059,7 @@ es-PY:
             hidden_at: Fecha de ocultación
             participatory_space: Espacio participativo
             report_count: Recuento
-            reportable_id: Id
+            reportable_id: ID
             reportable_type: Tipo
             reported_content_url: URL del contenido reportado
             reports: Denuncias

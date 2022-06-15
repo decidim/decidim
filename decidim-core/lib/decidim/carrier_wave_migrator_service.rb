@@ -286,7 +286,7 @@ module Decidim
 
     def self.cw_file(attachment)
       if attachment.file.is_a?(CarrierWave::Storage::Fog::File)
-        URI.open(URI.parse(attachment.url))
+        URI.parse(attachment.url).open
       else
         File.open(attachment.file.file)
       end

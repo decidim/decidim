@@ -7,6 +7,10 @@ $footer-bg: $black;
 .mini-footer{
   color: $medium-gray;
 
+  .link-separator{
+    margin: 0 .5rem;
+  }
+
   a{
     color: darken($medium-gray, 40%);
 

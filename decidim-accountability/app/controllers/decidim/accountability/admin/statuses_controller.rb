@@ -18,7 +18,7 @@ module Decidim
 
           @form = form(StatusForm).from_params(params)
 
-          CreateStatus.call(@form) do
+          CreateStatus.call(@form, current_user) do
             on(:ok) do
               flash[:notice] = I18n.t("statuses.create.success", scope: "decidim.accountability.admin")
               redirect_to statuses_path
@@ -42,7 +42,7 @@ module Decidim
 
           @form = form(StatusForm).from_params(params)
 
-          UpdateStatus.call(@form, status) do
+          UpdateStatus.call(@form, status, current_user) do
             on(:ok) do
               flash[:notice] = I18n.t("statuses.update.success", scope: "decidim.accountability.admin")
               redirect_to statuses_path
@@ -58,7 +58,9 @@ module Decidim
         def destroy
           enforce_permission_to :destroy, :status, status: status
 
-          status.destroy!
+          Decidim.traceability.perform_action!("delete", status, current_user) do
+            status.destroy!
+          end
 
           flash[:notice] = I18n.t("statuses.destroy.success", scope: "decidim.accountability.admin")
 
