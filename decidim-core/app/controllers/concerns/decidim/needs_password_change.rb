@@ -6,23 +6,23 @@ module Decidim
     extend ActiveSupport::Concern
 
     included do
-      before_action :admin_has_strong_password
+      before_action :check_password_update_required
     end
 
     private
 
-    def admin_has_strong_password
-      return true unless request.format.html?
-      return true unless current_user
-      return true unless current_user.admin?
+    def check_password_update_required
+      return unless request.format.html?
+      return unless current_user
+      return unless current_user.admin?
       return unless Decidim.config.admin_password_strong_enable
       return if current_user.password_updated_at.present?
-      return if permitted_path?(request.path)
+      return if password_update_permitted_path?(request.path)
 
       redirect_to_change_password
     end
 
-    def permitted_path?(target_path)
+    def password_update_permitted_path?(target_path)
       permitted_paths = [(tos_path if respond_to?(:tos_path, true)),
                          decidim.delete_account_path,
                          decidim.accept_tos_path,
