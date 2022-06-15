@@ -674,6 +674,9 @@ cs:
         failed:
           header: Hlasování se nezdařilo
           lead: Váš hlas nebyl odeslán!
+          modal:
+            close: Zavřít‏
+            title: Něco se pokazilo
           text: Něco se pokazilo, zkuste to prosím znovu.
           try_again: Zkuste to znovu
         header:
