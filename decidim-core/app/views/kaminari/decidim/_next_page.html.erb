@@ -5,11 +5,12 @@
     total_pages:   total number of pages
     per_page:      number of items to fetch per page
     remote:        data-remote -%>
-<li class="pagination-next">
-  <%= link_to_unless current_page.last?,
-                     t("views.pagination.next").html_safe,
-                     url,
-                     rel: "next",
-                     remote: remote,
-                     title: t("views.pagination.next_title") %>
+<li>
+  <a href="<%= url %>"
+    class="flex items-center gap-2 border border-secondary rounded font-semibold px-4 py-1.5"
+    title="<%= t('views.pagination.next_title') %>"
+    rel="prev">
+    <%= t("views.pagination.next").html_safe %>
+    <%= icon "arrow-right-line", class: "fill-current" %>
+  </a>
 </li>

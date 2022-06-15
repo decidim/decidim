@@ -8,9 +8,9 @@ paginator:     the paginator that renders the pagination tags inside -%>
 
 <% if total_pages > 1 %>
   <nav aria-label="<%= t("views.pagination.pagination") %>">
-    <ul class="pagination text-center">
-      <%= paginator.first_page_tag unless current_page.first? %>
+    <ul class="flex items-center gap-4 text-secondary">
       <%= paginator.prev_page_tag unless current_page.first? %>
+
       <% paginator.each_page do |page| -%>
         <% if page.display_tag? -%>
           <%= paginator.page_tag page %>
@@ -18,9 +18,9 @@ paginator:     the paginator that renders the pagination tags inside -%>
           <%= paginator.gap_tag %>
         <% end -%>
       <% end -%>
+
       <% unless current_page.out_of_range? %>
         <%= paginator.next_page_tag unless current_page.last? %>
-        <%= paginator.last_page_tag unless current_page.last? %>
       <% end %>
     </ul>
   </nav>
