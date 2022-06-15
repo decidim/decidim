@@ -267,6 +267,14 @@ module Decidim
       notification_settings.fetch("subscriptions", {})
     end
 
+    def needs_password_update?
+      return false unless admin?
+      return false unless Decidim.config.admin_password_strong_enable
+      return true if password_updated_at.blank?
+
+      password_updated_at < Decidim.config.admin_password_days_expiration.days.ago
+    end
+
     protected
 
     # Overrides devise email required validation.

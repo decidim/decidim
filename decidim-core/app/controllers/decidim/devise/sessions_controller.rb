@@ -22,8 +22,7 @@ module Decidim
       def after_sign_in_path_for(user)
         if user.present? && user.blocked?
           check_user_block_status(user)
-        elsif needs_to_update_password?(user)
-          user.update(password_updated_at: nil)
+        elsif user.needs_password_update?
           change_password_path
         elsif first_login_and_not_authorized?(user) && !user.admin? && !pending_redirect?(user)
           decidim_verifications.first_login_authorizations_path
@@ -52,14 +51,6 @@ module Decidim
 
       def check_sign_in_enabled
         redirect_to new_user_session_path unless current_organization.sign_in_enabled?
-      end
-
-      def needs_to_update_password?(user)
-        return false unless user.admin?
-        return false unless Decidim.config.admin_password_strong_enable
-        return true if user.password_updated_at.blank?
-
-        user.password_updated_at < Decidim.config.admin_password_days_expiration.days.ago
       end
     end
   end

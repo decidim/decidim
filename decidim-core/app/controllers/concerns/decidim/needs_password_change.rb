@@ -16,7 +16,7 @@ module Decidim
       return unless current_user
       return unless current_user.admin?
       return unless Decidim.config.admin_password_strong_enable
-      return if current_user.password_updated_at.present?
+      return unless current_user.needs_password_update?
       return if password_update_permitted_path?(request.path)
 
       redirect_to_change_password
