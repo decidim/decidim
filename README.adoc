@@ -17,7 +17,7 @@ image:https://img.shields.io/gem/v/decidim.svg[Gem,link=https://rubygems.org/gem
 
 Code quality
 
-image:https://codecov.io/gh/decidim/decidim/branch/develop/graph/badge.svg[codecov,link=https://codecov.io/gh/decidim/decidim] image:https://api.codeclimate.com/v1/badges/ad8fa445086e491486b6/maintainability[Maintainability,link=https://codeclimate.com/github/decidim/decidim/maintainability] image:https://d322cqt584bo4o.cloudfront.net/decidim/localized.svg[Crowdin,link=https://crowdin.com/project/decidim] image:http://inch-ci.org/github/decidim/decidim.svg?branch=develop[Inline docs,link=http://inch-ci.org/github/decidim/decidim] image:https://rocketvalidator.com/badges/a11y_issues.svg?url=http://staging.decidim.codegram.com/[Accessibility issues,link=https://rocketvalidator.com/badges/link?url=http://staging.decidim.codegram.com/&report=a11y] image:https://rocketvalidator.com/badges/html_issues.svg?url=http://staging.decidim.codegram.com/[HTML issues,link=https://rocketvalidator.com/badges/link?url=http://staging.decidim.codegram.com/&report=html]
+image:https://codecov.io/gh/decidim/decidim/branch/develop/graph/badge.svg[codecov,link=https://codecov.io/gh/decidim/decidim] image:https://api.codeclimate.com/v1/badges/ad8fa445086e491486b6/maintainability[Maintainability,link=https://codeclimate.com/github/decidim/decidim/maintainability] image:https://d322cqt584bo4o.cloudfront.net/decidim/localized.svg[Crowdin,link=https://crowdin.com/project/decidim]
 
 Test suite
 
