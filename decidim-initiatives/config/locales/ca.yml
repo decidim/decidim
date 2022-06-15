@@ -24,6 +24,7 @@ ca:
         banner_image: Imatge del bàner
         child_scope_threshold_enabled: Activar signatures per subàmbit
         collect_user_extra_fields: Recopilar les dades personals de la participant amb la signatura
+        comments_enabled: Habilitar comentaris
         custom_signature_end_date_enabled: Permet a les autores triar la fi del període de recollida de signatures
         description: Descripció
         document_number_authorization_handler: Autorització per verificar el número de document en les signatures
@@ -84,12 +85,17 @@ ca:
             label: Tipus
         search_placeholder:
           title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Cercar %{collection} per títol, descripció, ID o autoria.
+      initiatives_settings:
+        update:
+          error: S'ha produït un error
+          success: La configuració de les iniciatives s'ha actualitzat correctament
       menu:
         attachments: Adjunts
         committee_members: Membres de la comissió
         components: Components
         information: Informació
         initiatives: Iniciatives
+        initiatives_settings: Configuració
         initiatives_types: Tipus d'iniciatives
         moderations: Moderacions
       models:
@@ -241,6 +247,16 @@ ca:
           update:
             error: S'ha produït un error
             success: La iniciativa ciutadana s'ha actualitzat correctament
+        initiatives_settings:
+          edit:
+            update: Actualitzar
+          form:
+            comments: Més comentades
+            date: Més recents
+            publication_date: Publicada més recentment
+            random: Aleatori
+            signatures: Més signades
+            title: Configuració d'iniciatives
         initiatives_type_scopes:
           create:
             error: S'ha produït un error
@@ -290,6 +306,8 @@ ca:
           send_to_technical_validation: "%{user_name} ha enviat la iniciativa %{resource_name} a la validació tècnica"
           unpublish: "%{user_name} ha descartat la iniciativa %{resource_name}"
           update: "%{user_name} ha actualitzat la iniciativa %{resource_name}"
+        initiatives_settings:
+          update: "%{user_name} ha actualitzat la configuració de les iniciatives"
         initiatives_type:
           create: "%{user_name} ha creat el tipus d'iniciativa %{resource_name}"
           delete: "%{user_name} ha esborrat el tipus d'iniciativa %{resource_name}"
