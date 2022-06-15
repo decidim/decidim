@@ -12,12 +12,12 @@ cs:
   decidim:
     blogs:
       actions:
+        author_id: Vytvořit příspěvek jako
         confirm_destroy: Opravdu chcete tento příspěvek smazat?
         destroy: Smazat
         edit: Upravit
         new: Nový příspěvek
         title: Akce
-        user_group_id: Vytvořit příspěvek jako
       admin:
         models:
           components:
