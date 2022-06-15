@@ -15,7 +15,6 @@
             <%= link_to per_page_option,
                         url_for(params.to_unsafe_h.merge(page: nil, per_page: per_page_option)),
                         data: { per_page_option: per_page_option },
-                        remote: true,
                         title: t("decidim.shared.results_per_page.title"),
                         role: "menuitem" %>
           </li>
