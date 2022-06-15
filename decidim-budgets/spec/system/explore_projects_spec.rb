@@ -153,13 +153,13 @@ describe "Explore projects", :slow, type: :system do
         visit_budget
       end
 
-      it "displays a map with the projects" do
+      it "displays a map with the projects", :slow do
         expect(page).to have_selector("div[data-decidim-map]")
         expect(find("div[data-decidim-map]")["data-decidim-map"]).to have_content("latitude", count: 5)
         expect(page).to have_selector(".leaflet-marker-icon", count: 5)
       end
 
-      it "can be clicked" do
+      it "can be clicked", :slow do
         find(".leaflet-marker-icon[title='#{project.title["en"]}']").click
         within ".leaflet-popup-content-wrapper" do
           expect(page).to have_content(project.title["en"])
