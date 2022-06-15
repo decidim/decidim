@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe Decidim::AdminPasswordForm do
+describe Decidim::PasswordForm do
   subject do
     described_class.new(
       password: password,
