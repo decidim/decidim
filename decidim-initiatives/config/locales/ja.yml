@@ -24,6 +24,7 @@ ja:
         banner_image: バナー画像
         child_scope_threshold_enabled: 下層スコープの署名を有効にする
         collect_user_extra_fields: 署名に参加者の個人データを収集する
+        comments_enabled: コメントを有効にする
         custom_signature_end_date_enabled: 著者が署名の収集期間の終わりを選択できるようにする
         description: 説明
         document_number_authorization_handler: 署名上のドキュメント番号を検証する権限
