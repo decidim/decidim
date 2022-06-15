@@ -24,7 +24,6 @@ module Decidim
       user_group_action?
       user_group_invitations_action?
       apply_endorsement_permissions if permission_action.subject == :endorsement
-      change_admin_password
 
       permission_action
     end
@@ -198,12 +197,6 @@ module Decidim
 
     def user_manager_permissions
       Decidim::UserManagerPermissions.new(user, permission_action, context).permissions
-    end
-
-    def change_admin_password
-      return if permission_action.action != :change_admin_password
-
-      toggle_allow(user.admin? && Decidim.config.admin_password_strong_enable && user.password_updated_at.nil?)
     end
   end
 end

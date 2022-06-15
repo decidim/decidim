@@ -15,8 +15,6 @@ module Decidim
       helper_method :password_help_text
 
       def change_password
-        enforce_permission_to :change_admin_password, :user, current_user: current_user
-
         self.resource = current_user
         @send_path = apply_password_path
 
@@ -25,8 +23,6 @@ module Decidim
       end
 
       def apply_password
-        enforce_permission_to :change_admin_password, :user, current_user: current_user
-
         self.resource = current_user
         @send_path = apply_password_path
 
