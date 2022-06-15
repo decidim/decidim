@@ -20,7 +20,7 @@ describe "Admin passwords", type: :system do
     it "can update password successfully" do
       manual_login(user.email, password)
       expect(page).to have_content("Admins needs to change their password for every 90 days")
-      expect(page).to have_content("Change your password")
+      expect(page).to have_content("Password change")
       fill_in :password_user_password, with: new_password
       fill_in :password_user_password_confirmation, with: new_password
       click_button "Change my password"
@@ -31,10 +31,10 @@ describe "Admin passwords", type: :system do
 
     it "cannot dismiss password change" do
       manual_login(user.email, password)
-      expect(page).to have_content("Change your password")
+      expect(page).to have_content("Password change")
       click_link "Home"
       expect(page).to have_content("You need to change your password before access")
-      expect(page).to have_content("Change your password")
+      expect(page).to have_content("Password change")
       expect(page).to have_current_path(decidim.change_password_path)
     end
 
@@ -52,7 +52,7 @@ describe "Admin passwords", type: :system do
 
       it "cant reuse old password" do
         manual_login(user.email, password)
-        expect(page).to have_content("Change your password")
+        expect(page).to have_content("Password change")
         fill_in :password_user_password, with: new_password
         fill_in :password_user_password_confirmation, with: new_password
         click_button "Change my password"
@@ -71,7 +71,7 @@ describe "Admin passwords", type: :system do
 
       it "redirects to original path after password update" do
         manual_login(user.email, password)
-        expect(page).to have_content("Change your password")
+        expect(page).to have_content("Password change")
         fill_in :password_user_password, with: new_password
         fill_in :password_user_password_confirmation, with: new_password
         click_button "Change my password"
@@ -86,7 +86,7 @@ describe "Admin passwords", type: :system do
 
     it "redirects to edit password view" do
       manual_login(user.email, password)
-      expect(page).to have_content("Change your password")
+      expect(page).to have_content("Password change")
     end
   end
 
