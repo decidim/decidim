@@ -10,12 +10,12 @@ ca:
   decidim:
     blogs:
       actions:
+        author_id: Crear publicació com
         confirm_destroy: Estàs segura que vols eliminar aquesta publicació?
         destroy: Suprimeix
         edit: Edita
         new: Nova publicació
         title: Accions
-        user_group_id: Crear publicació com
       admin:
         models:
           components:
