@@ -6,6 +6,8 @@ module Decidim
     class PostsController < Decidim::Blogs::ApplicationController
       include Flaggable
 
+      redesign active: true
+
       helper_method :posts, :post, :paginate_posts, :posts_most_commented
 
       def index; end
