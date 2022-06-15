@@ -1,0 +1,15 @@
+module.exports = {
+  // This content is generated automatically by decidim:webpacker:install task, it
+  // shouldn't be updated manually.
+  // The array must contain all the decidim modules active in the application
+  content: [<%= tailwind_content_directories %>].flatMap(directory => [
+    `${directory}/app/views/**/*.html.erb`,
+    `${directory}/app/cells/**/*.erb`,
+    `${directory}/app/helpers/**/*.rb`,
+    `${directory}/app/packs/**/*.js`
+  ]),
+  theme: {
+    extend: {}
+  },
+  plugins: []
+}
