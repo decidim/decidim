@@ -58,7 +58,7 @@ PATH
       decidim-core (= 0.27.0.dev)
     decidim-core (0.27.0.dev)
       active_link_to (~> 1.0)
-      acts_as_list (~> 0.9)
+      acts_as_list (~> 1.0)
       batch-loader (~> 1.2)
       browser (~> 2.7)
       carrierwave (~> 2.2.1)
@@ -260,8 +260,8 @@ GEM
       minitest (>= 5.1)
       tzinfo (~> 2.0)
       zeitwerk (~> 2.3)
-    acts_as_list (0.9.19)
-      activerecord (>= 3.0)
+    acts_as_list (1.0.4)
+      activerecord (>= 4.2)
     addressable (2.8.0)
       public_suffix (>= 2.0.2, < 5.0)
     ast (2.4.2)
@@ -546,7 +546,7 @@ GEM
     mini_magick (4.11.0)
     mini_mime (1.1.2)
     mini_portile2 (2.8.0)
-    minitest (5.15.0)
+    minitest (5.16.0)
     mixlib-cli (2.1.8)
     mixlib-config (3.0.9)
       tomlrb
@@ -832,7 +832,7 @@ GEM
     wkhtmltopdf-binary (0.12.6.5)
     xpath (3.2.0)
       nokogiri (~> 1.8)
-    zeitwerk (2.5.4)
+    zeitwerk (2.6.0)
 
 PLATFORMS
   ruby
