@@ -3,10 +3,10 @@
     <h2 class="card-title">
       <%= t ".title", number: current_idx %>
       <div class="button--title">
-        <%= link_to_unless last?,  t("views.pagination.next").html_safe, next_url, rel: "next", class: "button tiny button--title next" %>
+        <%= link_to_unless last?,  t("actions.next", scope: "decidim.forms.admin.questionnaires.answers").html_safe, next_url, rel: "next", class: "button tiny button--title next" %>
       </div>
       <div class="button--title">
-        <%= link_to_unless first?, t("views.pagination.previous").html_safe, prev_url, rel: "prev", class: "button tiny button--title prev" %>
+        <%= link_to_unless first?, t("actions.previous", scope: "decidim.forms.admin.questionnaires.answers").html_safe, prev_url, rel: "prev", class: "button tiny button--title prev" %>
       </div>
       <div class="button--title">
         <%= link_to t("actions.export", scope: "decidim.forms.admin.questionnaires.answers"), questionnaire_export_response_url(@participant.session_token), class: "button tiny button--title export" %>
