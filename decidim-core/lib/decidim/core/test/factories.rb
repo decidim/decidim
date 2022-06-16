@@ -184,7 +184,7 @@ FactoryBot.define do
       officialized_as { generate_localized_title }
     end
 
-    before(:create) do |user, evaluator|
+    after(:build) do |user, evaluator|
       # We have specs that call e.g. `create(:user, admin: true)` where we need
       # to do this to ensure the user creation does not fail due to the short
       # password.
