@@ -140,8 +140,7 @@ class PasswordValidator < ActiveModel::EachValidator
   end
 
   def password_repeated?
-    return false unless record.respond_to?(:admin?)
-    return false unless record.admin?
+    return false unless record.try(:admin?)
 
     [record.encrypted_password_was, *record.previous_passwords].compact.take(ADMIN_REPETITION_TIMES).each do |encrypted_password|
       return true if Devise::Encryptor.compare(Decidim::User, encrypted_password, value)
