@@ -263,6 +263,7 @@ cs:
         steps:
           create_election:
             errors:
+              component_published: Volební složka <strong>není publikována</strong>.
               max_selections: Otázky nemají <strong>správnou hodnotu pro množství odpovědí</strong>
               minimum_answers: Otázky musí mít <strong>alespoň dvě odpovědi</strong>.
               minimum_questions: Volby <strong>musí mít alespoň jednu otázku</strong>.
@@ -276,6 +277,7 @@ cs:
               'false': nemá <strong>veřejný klíč</strong>
               'true': má <strong>veřejný klíč</strong>
             requirements:
+              component_published: Vilební složka je <strong>publikována</strong>.
               max_selections: Všechny otázky mají správnou hodnotu pro <strong>maximum odpovědí</strong>.
               minimum_answers: Každá otázka má <strong>alespoň 2 odpovědi</strong>.
               minimum_questions: Volba má <strong>alespoň jednu otázku</strong>.
@@ -676,6 +678,7 @@ cs:
           lead: Váš hlas nebyl odeslán!
           modal:
             close: Zavřít‏
+            communication_lost: Bohužel se zdá, že komunikace s hlasovacím serverem (Bulletin Board) je ztracena.<br>Může se stát, že připojení k internetu je přerušeno nebo že cílový server je příliš zaneprázdněný.<br>Pokud tento problém přetrvává, můžete to zkusit později nebo se obraťte na podporu.
             title: Něco se pokazilo
           text: Něco se pokazilo, zkuste to prosím znovu.
           try_again: Zkuste to znovu
