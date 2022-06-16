@@ -32,7 +32,7 @@ Individual workflows with changes:
   name: Test JS files
 ```
 
-- Proposals specs are split in three workflows:
+- Some specs are split in three workflows, so if we need to retry this particular workflow we don't need to retry all the module suite. For instance proposals:
 
   - `ci_proposals_system_admin.yml`: Runs the system specs for the admin section
   - `ci_proposals_system_public.yml`: Runs the system specs for the public section

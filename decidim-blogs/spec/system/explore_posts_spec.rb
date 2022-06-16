@@ -54,10 +54,39 @@ describe "Explore posts", type: :system do
 
   describe "show" do
     let(:posts_count) { 1 }
-    let!(:post) { create(:post, component: component) }
+    let(:author) { organization }
+    let!(:post) { create(:post, component: component, author: author) }
 
     before do
       visit resource_locator(post).path
+    end
+
+    context "when author is an organization" do
+      it "shows 'Official' as the author" do
+        within ".author__name" do
+          expect(page).to have_content("Official")
+        end
+      end
+    end
+
+    context "when author is a user_group" do
+      let(:author) { create(:user_group, :verified, organization: organization) }
+
+      it "shows user group as the author" do
+        within ".author__name" do
+          expect(page).to have_content(author.name)
+        end
+      end
+    end
+
+    context "when author is a user" do
+      let(:author) { user }
+
+      it "shows user as the author" do
+        within ".author__name" do
+          expect(page).to have_content(user.name)
+        end
+      end
     end
 
     it "show post info" do

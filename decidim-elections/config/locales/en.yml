@@ -246,6 +246,7 @@ en:
         steps:
           create_election:
             errors:
+              component_published: The election component is <strong>not published</strong>.
               max_selections: The questions do not have a <strong>correct value for amount of answers</strong>
               minimum_answers: Questions must have <strong>at least two answers</strong>.
               minimum_questions: The election <strong>must have at least one question</strong>.
@@ -259,6 +260,7 @@ en:
               'false': does not have a <strong>public key</strong>
               'true': has a <strong>public key</strong>
             requirements:
+              component_published: The election component is <strong>published</strong>.
               max_selections: All the questions have a correct value for <strong>maximum of answers</strong>.
               minimum_answers: Each question has <strong>at least 2 answers</strong>.
               minimum_questions: The election has <strong>at least 1 question</strong>.
@@ -653,6 +655,10 @@ en:
         failed:
           header: Vote failed
           lead: Your vote has not been casted!
+          modal:
+            close: Close
+            communication_lost: Unfortunately, it looks like the communication with the voting server (Bulletin Board) is lost.<br>It might be that the Internet connection is broken or that the destination server is too busy.<br>You can try again later or contact support if this problem persist.
+            title: Something went wrong
           text: Something went wrong, please try it again.
           try_again: Try again
         header:

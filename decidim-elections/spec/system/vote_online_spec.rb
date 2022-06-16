@@ -164,4 +164,23 @@ describe "Vote online in an election", type: :system do
       expect(page).to have_content("Next")
     end
   end
+
+  context "when the comunication with bulletin board fails" do
+    before do
+      election.questions.last.destroy!
+      election.questions.last.destroy!
+      election.questions.last.destroy!
+      allow(Decidim::Elections.bulletin_board).to receive(:bulletin_board_server).and_return("http://idontexist.tld/api")
+    end
+
+    it "alerts the user about the error" do
+      visit_component
+      click_link translated(election.title)
+      click_link "Start voting"
+
+      within "#server-failure" do
+        expect(page).to have_content("Something went wrong")
+      end
+    end
+  end
 end

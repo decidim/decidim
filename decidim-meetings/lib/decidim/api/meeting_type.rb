@@ -6,6 +6,7 @@ module Decidim
       description "A meeting"
 
       implements Decidim::Comments::CommentableInterface
+      implements Decidim::Core::AuthorableInterface
       implements Decidim::Core::CategorizableInterface
       implements Decidim::Core::ScopableInterface
       implements Decidim::Core::AttachableInterface
@@ -20,7 +21,6 @@ module Decidim
       field :description, Decidim::Core::TranslatedFieldType, "The description of this meeting.", null: true
       field :start_time, Decidim::Core::DateTimeType, "The time this meeting starts", null: false
       field :end_time, Decidim::Core::DateTimeType, "The time this meeting ends", null: false
-      field :author, Decidim::Core::AuthorInterface, "If specified, the author of this meeting", null: true
       field :agenda, Decidim::Meetings::AgendaType, "Agenda for this meeting, if available", null: true
 
       def agenda
