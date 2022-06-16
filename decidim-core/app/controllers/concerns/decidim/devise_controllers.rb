@@ -22,7 +22,7 @@ module Decidim
       include UserBlockedChecker
 
       include RedesignLayout
-      redesign active: false
+      redesign active: true
 
       helper Decidim::TranslationsHelper
       helper Decidim::MetaTagsHelper
