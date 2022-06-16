@@ -12,7 +12,6 @@ ca:
         start_time: La votació comença el
         title: Títol
       question:
-        description: Descripció
         max_selections: Número màxim d'opcions
         min_selections: Cap de les opcions anteriors
         title: Títol
