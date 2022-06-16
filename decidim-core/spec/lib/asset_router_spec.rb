@@ -40,18 +40,18 @@ module Decidim
 
       context "when the CDN host is defined" do
         before do
-          allow(Rails.application.secrets).to receive(:dig).with(:storage, :cdn_host).and_return("https://cdn.decidim.org")
+          allow(Rails.application.secrets).to receive(:dig).with(:storage, :cdn_host).and_return("https://cdn.example.org")
         end
 
         it "creates the route to the CDN blob" do
-          expect(subject).to match(%r{^https://cdn.decidim.org/rails/active_storage/blobs/redirect/.*/avatar.jpg$})
+          expect(subject).to match(%r{^https://cdn.example.org/rails/active_storage/blobs/redirect/.*/avatar.jpg$})
         end
 
         context "with extra URL options" do
           let(:options) { { utm_source: "website", utm_medium: "email", utm_campaign: "testing" } }
 
           it "handles the extra URL options correctly" do
-            expect(subject).to match(%r{^https://cdn.decidim.org/rails/active_storage/blobs/redirect/.*/avatar.jpg\?utm_campaign=testing&utm_medium=email&utm_source=website$})
+            expect(subject).to match(%r{^https://cdn.example.org/rails/active_storage/blobs/redirect/.*/avatar.jpg\?utm_campaign=testing&utm_medium=email&utm_source=website$})
           end
         end
       end
