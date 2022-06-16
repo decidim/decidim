@@ -245,6 +245,7 @@ ca:
         steps:
           create_election:
             errors:
+              component_published: L'elecció <strong>no està publicada</strong>.
               max_selections: Les preguntes no tenen un <strong>valor correcte per quantitat de respostes</strong>
               minimum_answers: Les preguntes han de tenir <strong>almenys dues respostes</strong>.
               minimum_questions: L'elecció <strong>ha de tenir almenys una pregunta</strong>.
@@ -258,6 +259,7 @@ ca:
               'false': no té una <strong>clau pública</strong>
               'true': té una <strong>clau pública</strong>
             requirements:
+              component_published: L'elecció està <strong>publicada</strong>.
               max_selections: Totes les preguntes tenen un valor correcte per <strong>màxim de respostes</strong>.
               minimum_answers: Cada pregunta té <strong>almenys 2 respostes</strong>.
               minimum_questions: L'elecció té <strong>almenys 1 pregunta</strong>.
@@ -650,6 +652,8 @@ ca:
         failed:
           header: Vot fallit
           lead: El teu vot no s'ha enviat!
+          modal:
+            close: Tancar
           text: Alguna cosa ha anat malament. Si us plau, torna-ho a provar.
           try_again: Prova-ho de nou
         header:
