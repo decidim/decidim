@@ -57,6 +57,41 @@ bundle exec rake test_all
 
 But beware, it takes a long time... :)
 
+=== Running specs in parallel
+
+We've configured the https://github.com/grosser/parallel_tests[parallel_tests gem]. For
+using it, you'll need to follow these steps:
+
+. Configure the TEST_ENV_NUMBER environment variable with the number of processes that you want to run in parallel.
+. Run the commands to prepare the test database
+
+[source,bash]
+----
+cd spec/decidim_dummy_app/
+bundle exec rake parallel:create
+bundle exec rake parallel:prepare
+cd -
+----
+
+From now on you can use the `bundle exec rake parallel:spec` task, for instance for running all
+the system specs from any module:
+
+[source,bash]
+----
+cd decidim-participatory_processes
+bundle exec rake parallel:spec[spec/system/]
+----
+
+This same commmand without the parallelization (`cd decidim-participatory_processes && bundle exec rspec spec/system/`)
+took 26 minutes 21 seconds. With parallel_specs, this runs in 10 minutes 27 seconds.
+
+[NOTE]
+-----
+These numbers are depend on your machine, the configuration was:
+* TEST_ENV_NUMBER=4
+* Intel(R) Core(TM) i5-6500T CPU @ 2.50GHz
+-----
+
 == Jest
 
 We use Jest for testing our Javascript code. You can run it locally with:
