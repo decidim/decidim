@@ -43,6 +43,13 @@ module Decidim
         end
       end
 
+      def validate
+        @form = form(RegistrationForm).from_params(params[:input] => params[:value])
+        validator = Registrations::UserAttributeValidator.new(form: @form, attribute: params[:input], suggest: params[:suggest
+        ])
+        render json: { valid: validator.valid?, error: validator.error, input: validator.input, suggestion: validator.suggestion }
+      end
+
       protected
 
       def check_sign_up_enabled
