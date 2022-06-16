@@ -7,7 +7,7 @@ module Decidim
     module Admin
       describe ImportParticipatoryText do
         describe "call" do
-          let!(:document_file) { IO.read(Decidim::Dev.asset(document_name)) }
+          let!(:document_file) { File.read(Decidim::Dev.asset(document_name)) }
           let(:current_component) do
             create(
               :proposal_component,

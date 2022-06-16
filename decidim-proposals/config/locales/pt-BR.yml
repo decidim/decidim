@@ -42,10 +42,6 @@ pt-BR:
           valuator_role_id: Nome do Avaliador
     errors:
       models:
-        participatory_text:
-          attributes:
-            document:
-              invalid_document_type: 'Tipo de documento inválido. Formatos aceitos são: %{valid_mime_types}'
         proposal:
           attributes:
             add_documents:
@@ -192,33 +188,21 @@ pt-BR:
             email_subject: Alguém deixou uma nota na proposta %{resource_title}.
             notification_title: Alguém deixou uma nota na proposta <a href="%{resource_path}">%{resource_title}</a>. Confira no <a href="%{admin_proposal_info_path}">painel de administração</a>
         collaborative_draft_access_accepted:
-          email_intro: '%{requester_name} foi aceito para acessar como colaborador do rascunho colaborativo <a href="%{resource_path}">%{resource_title}</a>.'
-          email_outro: Você recebeu esta notificação porque é colaborador de <a href="%{resource_path}">%{resource_title}</a>.
           email_subject: "%{requester_name} foi aceito para acessar como contribuidor %{resource_title}."
           notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> foi aceito <strong>para acessar como colaborador</strong> do projeto colaborativo <a href="%{resource_path}">%{resource_title}</a>.
         collaborative_draft_access_rejected:
-          email_intro: '%{requester_name} foi rejeitado para acessar como colaborador do projeto de colaboração <a href="%{resource_path}">%{resource_title}</a>.'
-          email_outro: Você recebeu esta notificação porque é colaborador de <a href="%{resource_path}">%{resource_title}</a>.
           email_subject: "%{requester_name} foi rejeitado para acessar como colaborador do %{resource_title} esboço colaborativo."
           notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> foi <strong>rejeitado para acessar como colaborador</strong> do projeto colaborativo <a href="%{resource_path}">%{resource_title}</a>.
         collaborative_draft_access_requested:
-          email_intro: '%{requester_name} solicitou acesso como colaborador. Você pode <strong>aceitar ou rejeitar a solicitação</strong> da página de rascunho colaborativo <a href="%{resource_path}">%{resource_title}</a>.'
-          email_outro: Você recebeu esta notificação porque é colaborador de <a href="%{resource_path}">%{resource_title}</a>.
           email_subject: "%{requester_name} solicitou acesso para contribuir com %{resource_title}."
           notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> solicitou acesso para contribuir para o projeto de colaboração <a href="%{resource_path}">%{resource_title}</a> . Por favor, <strong>aceite ou rejeite o pedido</strong>.
         collaborative_draft_access_requester_accepted:
-          email_intro: Você foi aceito para acessar como colaborador do rascunho colaborativo <a href="%{resource_path}">%{resource_title}</a>.
-          email_outro: Você recebeu esta notificação porque pediu para se tornar um colaborador de <a href="%{resource_path}">%{resource_title}</a>.
           email_subject: Você foi aceito como colaborador de %{resource_title}.
           notification_title: Você foi aceito como <strong>para acessar como colaborador</strong> do projeto colaborativo <a href="%{resource_path}">%{resource_title}</a>.
         collaborative_draft_access_requester_rejected:
-          email_intro: Você foi rejeitado para acessar como colaborador do rascunho colaborativo <a href="%{resource_path}">%{resource_title}</a>.
-          email_outro: Você recebeu esta notificação porque pediu para se tornar um colaborador de <a href="%{resource_path}">%{resource_title}</a>.
           email_subject: Você foi rejeitado como colaborador de %{resource_title}.
           notification_title: Você foi <strong>rejeitado para acessar como colaborador</strong> do projeto colaborativo <a href="%{resource_path}">%{resource_title}</a>.
         collaborative_draft_withdrawn:
-          email_intro: <a href="%{author_path}">%{author_name} %{author_nickname}</a> retirou o esboço de colaboração <a href="%{resource_path}">%{resource_title}</a>.
-          email_outro: Você recebeu esta notificação porque é colaborador de <a href="%{resource_path}">%{resource_title}</a>.
           email_subject: "%{author_name} %{author_nickname} retirou o %{resource_title} rascunho colaborativo."
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> <strong>retirado</strong> o <a href="%{resource_path}">%{resource_title}</a> rascunho colaborativo.
         creation_enabled:
@@ -753,7 +737,6 @@ pt-BR:
             other: votos
         new:
           send: Continuar
-          title: Crie sua proposta
         orders:
           label: 'Ordene propostas por:'
           most_commented: Mais comentados

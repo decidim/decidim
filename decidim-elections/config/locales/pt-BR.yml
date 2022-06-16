@@ -272,8 +272,6 @@ pt-BR:
             selected: Selecionado
             submit: Enviar
             title: Resultados publicados
-          tally:
-            title: Processo de registro
           tally_ended:
             answer: Resposta
             not_selected: Não selecionado
@@ -503,24 +501,13 @@ pt-BR:
             title: Restaurar chaves eleitorais para %{election}
             upload_election_keys: Upload das chaves eleitorais
             upload_icon: Ícone que indica uma ação de download
-          tally_steps:
-            back: Voltar
+          tally_started_steps:
             description: Os resultados para esta eleição estão sendo calculados no Quadro de Notas. Para completar este processo, é necessário a sua participação como um curador.
             keys:
               end_tally: Apuração encerrada
               tally:
                 cast: Transmissão de apuração
                 share: Compartilhar apuração
-            list:
-              status: Status
-              task: Tarefa
-            process_warning: Depois que o processo for iniciado, você não deverá sair desta página até que o processo termine. Levará vários minutos, pois todos os curadores deverão estar conectados para completá-lo.
-            start: Iniciar
-            start_icon: Ícone que indica um botão iniciar para começar a geração de chaves eleitorais
-            status:
-              completed: Concluído
-              pending: Pendente
-              processing: Processando
             title: Apuração para %{election}
           update:
             error: O status da eleição não foi atualizado.
@@ -569,7 +556,6 @@ pt-BR:
           audit: "( Auditar cédula )"
           back: Iniciar o processo de votação novamente
           ballot_hash: 'Seu identificador de voto é:'
-          cast: Transmitir cédula
           description: Aqui, você tem as opções para transmitir a sua cédula de voto para que ela seja devidamente contado ou, em alternativa, poderá auditar, que sua cédula de voto foi corretamente criptografado. Por razões de segurança, a auditoria do seu voto irá estragá-lo. O que significa que, para dar o seu voto, terá de reiniciar o processo de votação.
           header: 'A cédula está criptografada: transmita-a ou auditá-la'
         casting:
@@ -867,7 +853,6 @@ pt-BR:
           edit:
             change_polling_station: Voltar para estações de votação
             monitoring_committee_notes: Observações
-            monitoring_committee_notes_placeholder: Denuncie qualquer incidência aqui
             title: Resultados para a eleição <i>%{election_title}</i> na estação de voto <i>%{polling_station_title}</i>
           elections:
             title: Escolha uma eleição que deseja validar
@@ -983,7 +968,6 @@ pt-BR:
               info_message: "<strong>Aguarde</strong>, processado %{processed_count} de %{raw_count} linhas de %{file} arquivo."
             delete:
               button: Excluir todos os dados do censo
-              confirm: Excluir todo o censo não pode ser desfeito. Você tem certeza que quer continuar?
             destroy:
               error: Ocorreu um erro ao deletando o censo, por favor tente novamente mais tarde.
               success: Dados Census excluídos
@@ -991,7 +975,6 @@ pt-BR:
               button: Exportar códigos de acesso a votos
               callout: Agora você pode exportar os códigos de acesso. Isso só pode ser feito uma vez. Ao iniciar a exportação, você receberá um e-mail com as instruções para <strong>%{email}</strong>
               confirm: Você só pode exportar os códigos de acesso uma vez. Certifique-se de que você tem acesso à conta de e-mail <strong>%{email}</strong>.
-              file_not_exists: Este arquivo não existe
               launch_error: Problema ao lançar a exportação de códigos de acesso
               launch_success: Códigos de acesso lançado. Em breve, você receberá um e-mail em %{email}
             exporting_access_codes:
@@ -1016,7 +999,6 @@ pt-BR:
               has_ballot_styles_message: Você configurou estilos de cédulas. Por favor, certifique-se de que o campo "%{ballot_style_code_header}" no CSV corresponde ao código de estilo de cédula desejada.
               info_message: "<strong>Ainda não há censo.</strong> Por favor, use o formulário abaixo para criá-lo importando um arquivo CSV."
               missing_ballot_styles_message: 'Não existe estilo de cédula para esta votação ainda.. Se você deseja ter quetões condicionais (ex.: apresentar ao votante diferentes questões dependendo de, por exemplo, o distrito/região da reidência), e precisa ser adicionado no <a href=%{ballot_styles_admin_path}>Estilo de Cédula</a> <strong>antes</strong> importando o censo. Se você gostaria de apresentar a todos os votantes as mesmas questões, você pode prosseguir com o processo de importação do censo.'
-              submit: Enviar csv
               title: Criar o censo
             show:
               heading: Censo do espaço de votação
@@ -1041,9 +1023,6 @@ pt-BR:
         highlighted_votings:
           name: Destaque da votação
         landing_page:
-          description:
-            show_less: Leia menos
-            show_more: Leia mais
           metrics:
             heading: Métricas
           polling_stations:
@@ -1096,7 +1075,6 @@ pt-BR:
             modal_ballots_count_error:
               btn_validate_total: Validar a recontagem total de votos
               close_modal: Fechar
-              info_explanation_text: 'Por favor, reveja o número total de votos. Se o número total estiver incorreto, você deve fornecer uma explicação para o Comitê de Monitoramento:'
               info_text: O número total de votos (envelopes) introduzidos não corresponde ao registro de pessoas que votaram nesta Estação.
               message_for_monitoring_committee: Mensagem para o Comitê de Monitoramento
               review_recount: Revisar a recontagem
@@ -1127,11 +1105,9 @@ pt-BR:
         in_person_votes:
           complete_voting:
             available_answers: 'Respostas disponíveis:'
-            census_verified: O usuário ainda não votou.
             complete_voting: Votação concluída
             identify_another: Identificar outro usuário
             questions_title: 'Ela tem o direito de votar nas seguintes perguntas:'
-            questions_title_voted: 'O usuário já votou on-line e tem direito a votar nas seguintes perguntas:'
             voted: O usuário votou
           create:
             error: A votação não foi registrada. Por favor, tente novamente.
@@ -1220,13 +1196,10 @@ pt-BR:
         check_census:
           check_status: Conferir status
           description: Aqui, você tem a opção de verificar os dados do censo para saber se tem o direito de participar nesta votação. Você já deve ter um código de acesso, mas se você o perdeu, você pode pedi-lo novamente, quando seus dados estiverem corretos.
-          error:
-            info: 'Por favor, tente novamente. Se você acha que os dados no sistema estão incorretos, você pode reportá-los aqui: %{census_contact_information}.'
-            title: Os dados do censo estão incorretos!
           form_title: 'Preencha o seguinte formulário para verificar os dados do censo:'
           invalid: Houve um problema ao verificar o censo.
           success:
-            access_link: por SMS ou e-mail.
+            access_link_with_sms: por SMS ou e-mail.
             info: Você já deve ter recebido seu código de acesso por e-mail. Caso você não o tenha, você pode solicitá-lo aqui
             title: Seus dados do censo estão corretos!
           title: Posso votar?

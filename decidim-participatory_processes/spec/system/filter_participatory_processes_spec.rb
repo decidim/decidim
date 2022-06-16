@@ -28,11 +28,11 @@ describe "Filter Participatory Processes", type: :system do
 
   context "when filtering processes by date" do
     let!(:active_process) { create :participatory_process, title: { en: "Started today" }, start_date: Date.current, organization: organization }
-    let!(:active_process_2) { create :participatory_process, title: { en: "Started 1 day ago" }, start_date: 1.day.ago, organization: organization }
+    let!(:active_process2) { create :participatory_process, title: { en: "Started 1 day ago" }, start_date: 1.day.ago, organization: organization }
     let!(:past_process) { create :participatory_process, :past, title: { en: "Ended 1 week ago" }, organization: organization }
-    let!(:past_process_2) { create :participatory_process, :past, title: { en: "Ended 1 month ago" }, end_date: 1.month.ago, organization: organization }
+    let!(:past_process2) { create :participatory_process, :past, title: { en: "Ended 1 month ago" }, end_date: 1.month.ago, organization: organization }
     let!(:upcoming_process) { create :participatory_process, :upcoming, title: { en: "Starts 1 week from now" }, organization: organization }
-    let!(:upcoming_process_2) { create :participatory_process, :upcoming, title: { en: "Starts 1 year from now" }, start_date: 1.year.from_now, organization: organization }
+    let!(:upcoming_process2) { create :participatory_process, :upcoming, title: { en: "Starts 1 year from now" }, start_date: 1.year.from_now, organization: organization }
     let(:titles) { page.all(".card__title") }
 
     before do
@@ -95,7 +95,7 @@ describe "Filter Participatory Processes", type: :system do
 
       before do
         past_process.update(title: { en: "Started 2 weeks ago" })
-        past_process_2.update(title: { en: "Started 3 weeks ago" }, start_date: 3.weeks.ago)
+        past_process2.update(title: { en: "Started 3 weeks ago" }, start_date: 3.weeks.ago)
         allow(Time).to receive(:zone).and_return(time_zone)
         within ".order-by__tabs" do
           click_link "All"
@@ -185,29 +185,29 @@ describe "Filter Participatory Processes", type: :system do
       let!(:past_process_type) { create(:participatory_process_type, :with_past_participatory_processes, organization: organization, title: { en: "Old Type" }) }
       let!(:unpublished_process_type) { create(:participatory_process_type, organization: organization, title: { en: "Unpublished Type" }) }
       let!(:empty_process_type) { create(:participatory_process_type, organization: organization, title: { en: "Empty Type" }) }
-      let!(:processes_group_1) { create(:participatory_process_group, organization: organization, title: { en: "The South Group" }) }
-      let!(:processes_group_2) { create(:participatory_process_group, organization: organization, title: { en: "The North Group" }) }
+      let!(:processes_group1) { create(:participatory_process_group, organization: organization, title: { en: "The South Group" }) }
+      let!(:processes_group2) { create(:participatory_process_group, organization: organization, title: { en: "The North Group" }) }
       let!(:group_1_process_type) { create(:participatory_process_type, :with_active_participatory_processes, organization: organization, title: { en: "The East Type" }) }
       let!(:group_2_process_type) { create(:participatory_process_type, :with_active_participatory_processes, organization: organization, title: { en: "The West Type" }) }
-      let!(:processes_1) do
+      let!(:processes1) do
         create_list(
           :participatory_process,
           3,
           title: { en: "SE Rocks!" },
           start_date: 2.days.ago,
           organization: organization,
-          participatory_process_group: processes_group_1,
+          participatory_process_group: processes_group1,
           participatory_process_type: group_1_process_type
         )
       end
-      let!(:processes_2) do
+      let!(:processes2) do
         create_list(
           :participatory_process,
           3,
           title: { en: "NW Rocks!" },
           start_date: 2.days.ago,
           organization: organization,
-          participatory_process_group: processes_group_2,
+          participatory_process_group: processes_group2,
           participatory_process_type: group_2_process_type
         )
       end
@@ -302,10 +302,10 @@ describe "Filter Participatory Processes", type: :system do
             :content_block,
             organization: organization,
             scope_name: :participatory_process_group_homepage,
-            scoped_resource_id: processes_group_1.id,
+            scoped_resource_id: processes_group1.id,
             manifest_name: :participatory_processes
           )
-          visit decidim_participatory_processes.participatory_process_group_path(processes_group_1)
+          visit decidim_participatory_processes.participatory_process_group_path(processes_group1)
         end
 
         context "and choosing 'active' processes" do

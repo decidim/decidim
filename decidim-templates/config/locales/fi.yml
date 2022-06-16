@@ -63,5 +63,11 @@ fi:
             current_step: Vaihe %{step}
             of_total_steps: / %{total_steps}
             tos_agreement: Osallistumalla hyväksyt käyttöehdot
+      admin_log:
+        template:
+          create: "%{user_name} loi kyselymallin %{resource_name}"
+          delete: "%{user_name} poisti kyselymallin %{resource_name}"
+          duplicate: "%{user_name} kopioi kyselymallin %{resource_name}"
+          update: "%{user_name} päivitti kyselymallia %{resource_name}"
       template_types:
         questionnaires: Kyselyt

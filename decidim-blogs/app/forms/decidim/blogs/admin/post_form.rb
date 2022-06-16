@@ -10,24 +10,44 @@ module Decidim
         translatable_attribute :title, String
         translatable_attribute :body, String
 
-        attribute :user_group_id, Integer
+        attribute :decidim_author_id, Integer
 
         validates :title, translatable_presence: true
         validates :body, translatable_presence: true
+        validate :can_set_author
 
-        def map_model(post)
-          self.user_group_id = post.author.id if post.author.is_a?(Decidim::UserGroup)
+        def map_model(model)
+          self.decidim_author_id = nil if model.author.is_a? Decidim::Organization
         end
 
-        def user_group
-          @user_group ||= Decidim::UserGroup.find_by(
+        def user_or_group
+          @user_or_group ||= Decidim::UserBaseEntity.find_by(
             organization: current_organization,
-            id: user_group_id.to_i
+            id: decidim_author_id
           )
         end
 
         def author
-          user_group || current_user
+          user_or_group || current_organization
+        end
+
+        private
+
+        def can_set_author
+          return if author == current_user.organization
+          return if author == current_user
+          return if user_groups.include? author
+          return if author == post&.author
+
+          errors.add(:decidim_author_id, :invalid)
+        end
+
+        def post
+          @post ||= Post.find_by(id: id)
+        end
+
+        def user_groups
+          @user_groups ||= Decidim::UserGroups::ManageableUserGroups.for(current_user).verified
         end
       end
     end

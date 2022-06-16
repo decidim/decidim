@@ -17,8 +17,17 @@ es-MX:
         min_selections: Ninguna de las anteriores
         title: Título
       voting:
+        banner_image: Imagen de cabecera
+        census_contact_information: Datos de contacto del censo
+        description: Descripción
         end_time: La votación finaliza
+        introductory_image: Imagen de presentación
+        promoted: Destacada
+        scope: Ámbito
+        show_check_census: Mostrar la página de "comprobar censo"
         start_time: La votación empieza
+        title: Título
+        voting_type: Tipo de votación
     errors:
       models:
         answer:
@@ -35,6 +44,10 @@ es-MX:
               cant_be_changed: no se puede cambiar
             public_key:
               cant_be_changed: no se puede cambiar
+        voting:
+          attributes:
+            voting_type:
+              inclusion: "%{value} no es un tipo de votación válido"
   activerecord:
     errors:
       models:
@@ -58,6 +71,9 @@ es-MX:
       decidim/elections/question:
         one: Pregunta
         other: Preguntas
+      decidim/voting:
+        one: Votación
+        other: Votaciones
       decidim/votings/census/dataset:
         one: Conjunto de datos
         other: Conjuntos de datos
@@ -182,6 +198,11 @@ es-MX:
         exports:
           elections: Elecciones
           feedback_form_answers: Retorno de las respuestas
+        mailers:
+          trustee_mailer:
+            body: "<p>Hola %{user_name},</p><p>se te ha añadido como garante a %{resource_name}.</p>"
+            subject: Se te ha añadido como garante de %{resource_name}
+            trustee_zone: Llévame al espacio de garantes
         menu:
           trustees: Garantes
         models:
@@ -204,6 +225,7 @@ es-MX:
             title: Importar propuestas
         questions:
           create:
+            election_started: La elección ya ha comenzado
             invalid: Se ha producido un error al crear esta pregunta
             success: Se ha creado la pregunta correctamente
           destroy:
@@ -273,15 +295,6 @@ es-MX:
             selected: Seleccionado
             submit: Enviar
             title: Resultados publicados
-          tally:
-            continue: Continuar
-            invalid: Hubo un problema al reportar al garante ausente
-            mark_as_missing: Marcar como ausente
-            mark_as_missing_description: Todos los garantes deberían participar en este proceso, pero si uno de ellos no puede tomar parte en él, puedes marcarlo como ausente.
-            success: El reporte del garante que falta fue enviado con éxito al Bulletin Board
-            tally_completion: El proceso se completará cuando todos los garantes estén activos o marcados como ausentes. Se requiere al menos %{quorum} garantes para completar el proceso.
-            title: Proceso de recuento
-            undo_mark_as_missing: Un garante marcado como ausente por error podrá participar antes de completar el proceso. Pueden proceder como de costumbre y la marca de ausente será ignorada.
           tally_ended:
             answer: Respuesta
             not_selected: No seleccionado
@@ -291,6 +304,15 @@ es-MX:
             submit: Publicar resultados
             success: La solicitud de publicación de resultados se envió correctamente al Bulletin Board
             title: Resultados calculados
+          tally_started:
+            continue: Continuar
+            invalid: Hubo un problema al reportar la ausencia de la persona garante
+            mark_as_missing: Marcar como ausente
+            mark_as_missing_description: Todas las personas garantes deben participar en este proceso, pero si una de ellas no puede, puedes marcarlo como ausente.
+            success: El reporte de ausencia de la persona garante fue enviada con éxito al estrado
+            tally_completion: El proceso estará completo cuando todas las personas garantes estén registradas como activas o reportadas como ausentes. Se requiere un quorum de %{quorum} personas garantes para completar el proceso.
+            title: Proceso de recuento
+            undo_mark_as_missing: Una persona garante reportada como ausente por error podrá participar hasta antes de la finalización del proceso. Puede realizar sus actividades normales y el reporte de ausencia será ignorado.
           vote:
             errors:
               time_after: La elección aún está en curso. Tienes que esperar hasta la hora de finalización (%{end_time}) para terminar el periodo de votación.
@@ -528,8 +550,8 @@ es-MX:
             title: Restaurar claves para la elección %{election}
             upload_election_keys: Subir claves de elección
             upload_icon: Icono que indica una acción de descarga
-          tally_steps:
-            back: Volver
+          tally_started_steps:
+            back: Atrás
             description: Los resultados de esta elección están siendo calculados en el Bulletin Board. Para completar este proceso, se necesita tu participación como garante.
             keys:
               end_tally: Recuento finalizado
@@ -539,9 +561,9 @@ es-MX:
             list:
               status: Estado
               task: Tarea
-            process_warning: Una vez iniciado el proceso, no debes salir de esta página hasta que el proceso termine. Tardará varios minutos, ya que todos los garantes deben estar conectados para completarlo.
-            start: Iniciar
-            start_icon: Icono que indica un botón de inicio para iniciar la generación de claves de elección
+            process_warning: Una vez iniciado el proceso, no debes salir de esta página hasta que el proceso termine. Tardará algunos minutos, ya que todas las garantes deben estar conectados para completarlo.
+            start: Empezar
+            start_icon: Icono que indica un botón de inicio para iniciar la generación de claves de una elección
             status:
               completed: Completado
               pending: Pendiente
@@ -597,7 +619,7 @@ es-MX:
           audit: "( Auditar papeleta )"
           back: Comenzar de nuevo el proceso de votación
           ballot_hash: 'El indentificador de la papeleta es:'
-          cast: Emitir papeleta
+          cast: Deposita la papeleta para terminar tu voto
           description: Aquí tienes las opciones de emitir tu papeleta para que sea debidamente contada o, alternativamente, puedes auditar que tu papeleta fue cifrada correctamente. Por razones de seguridad, la auditoría de su papeleta la estropeará, lo que significa, que para emitir tu voto tendrás que reiniciar el proceso de votación.
           header: 'La papeleta se ha cifrado: envíala o audítala'
         casting:
@@ -669,6 +691,7 @@ es-MX:
             back: Volver a la plataforma
             submit: Comprobar
             vote_identifier: 'Código identificador:'
+            vote_identifier_help: Este es el identificador que se te dio después de emitir tu voto (no es el código para entrar la cabina de votación).
           header:
             title: Verifica tu voto
           success:
@@ -983,14 +1006,21 @@ es-MX:
             assign_missing_officers: Hay puntos de votación sin presidente y/o administradores. Asígnalos desde la sección de puntos de votación
             update: Actualizar
           form:
+            banner_image: Imagen de cabecera
+            census_contact_information: Datos de contacto del censo
             census_contact_information_help: Esta información de contacto es para una participante que quiere reportar problemas con el censo. Puede ser una dirección de correo electrónico, un formulario de contacto en otro sitio, una encuesta para visitantes, etc.
+            introductory_image: Imagen de presentación
+            promoted: Destacada
             select_a_voting_type: Por favor, selecciona un tipo de votación
+            show_check_census_help: Si quieres mostrar el enlace "¿Puedo votar?" en el menú de votaciones públicas
+            slug: Nombre corto de URL
             slug_help: 'Los textos cortos de URL se utilizan para generar las URL que apuntan a esta votación. Sólo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
             title: Título
             voting_type:
               hybrid: Hibrida
               in_person: Presencial
               online: En línea
+            voting_type_label: Tipo de votación
           new:
             create: Crear
             title: Nueva votación
@@ -1034,7 +1064,7 @@ es-MX:
               info_message: "<strong>Por favor espera</strong>, procesadas %{processed_count} de %{raw_count} filas del fichero %{file}."
             delete:
               button: Borrar todos los datos del censo
-              confirm: La eliminación de todo el censo no se puede deshacer. ¿Seguro que quieres continuar?
+              confirm: Eliminar todo el censo no se puede deshacer. ¿Seguro que quieres continuar?
             destroy:
               error: Se ha producido un error al eliminar el censo, por favor inténtalo de nuevo más tarde.
               success: Datos del censo eliminados
@@ -1042,7 +1072,7 @@ es-MX:
               button: Exportar códigos de acceso de la votación
               callout: Ahora puedes exportar los códigos de acceso. Esto sólo se puede hacer una vez. Una vez que inicies la exportación, recibirás un correo electrónico con las instrucciones en <strong>%{email}</strong>
               confirm: Solo puedes exportar los códigos de acceso una vez. Asegúrate de tener acceso a la cuenta de correo electrónico <strong>%{email}</strong>.
-              file_not_exists: Este archivo no existe
+              file_not_exist: Este archivo no existe
               launch_error: Problema al iniciar la exportación de códigos de acceso
               launch_success: Se ha iniciado la exportación de los códigos de acceso. En breve recibirás un correo en %{email}
             exporting_access_codes:
@@ -1067,7 +1097,7 @@ es-MX:
               has_ballot_styles_message: Has configurado los estilos de papeleta. Por favor, asegúrate de que el campo "%{ballot_style_code_header}" en el CSV corresponde al código de estilo de papeleta deseado.
               info_message: "<strong>Aún no hay ningún censo.</strong> Por favor, utiliza el siguiente formulario para crearlo importando un archivo CSV."
               missing_ballot_styles_message: 'No hay ningún estilo de papeleta para esta votación todavía. Si quieres tener preguntas condicionales (presentar al votante diferentes preguntas dependiendo de, p.ej. el distrito/región de residencia), debes configurar los <a href=%{ballot_styles_admin_path}>estilos de papeleta</a> <strong>antes de</strong> importar el censo. Si quieres presentar a todos los votantes las mismas preguntas, puedes continuar con el procedimiento de importación del censo.'
-              submit: Enviar csv
+              submit: Enviar CSV
               title: Crear el censo
             show:
               heading: Censo del espacio de votación
@@ -1093,8 +1123,7 @@ es-MX:
           name: Votaciones destacadas
         landing_page:
           description:
-            show_less: Leer menos
-            show_more: Leer más
+            title: Sobre esta votación
           metrics:
             heading: Métricas
           polling_stations:
@@ -1147,7 +1176,7 @@ es-MX:
             modal_ballots_count_error:
               btn_validate_total: Validar recuento total de papeletas
               close_modal: Cerrar
-              info_explanation_text: 'Por favor, revisa el número total de papeletas. Si el número total es correcto, debes proporcionar una explicación para el Comité de Seguimiento:'
+              info_explanation_text: 'Por favor, revisa el número total de papeletas. Si el número total es incorrecto, debes proporcionar una explicación para el Comité de Seguimiento:'
               info_text: El número total de papeletas (sobres) introducidas no coincide con el registro de personas que han votado en este punto de votación.
               message_for_monitoring_committee: Mensaje para el Comité de Seguimiento
               review_recount: Revisar el recuento
@@ -1178,11 +1207,12 @@ es-MX:
         in_person_votes:
           complete_voting:
             available_answers: 'Respuestas disponibles:'
-            census_verified: La participante aún no ha votado.
+            census_verified: Esta participante todavía no ha votado en persona.
+            census_verified_with_online_vote: Esta participante ya votó en línea previamente. Si vota en persona, sus votos anteriores serán invalidados y este será su voto definitivo.
             complete_voting: Completar votación
             identify_another: Identificar a otra participante
             questions_title: 'Tiene derecho a votar en las siguientes preguntas:'
-            questions_title_voted: 'La participante ya ha votado en línea y tiene derecho a votar en las siguientes preguntas:'
+            questions_title_voted: 'Esta participante ya votó en línea y tiene derecho a votar en las siguientes preguntas:'
             voted: La participante ha votado
           create:
             error: El voto no ha sido registrado. Por favor, inténtalo de nuevo.
@@ -1272,12 +1302,13 @@ es-MX:
           check_status: Comprobar estado
           description: Aquí, tienes la opción de comprobar tus datos del censo para saber si tienes derecho a participar en esta votación. Deberías tener ya un código de acceso, pero si lo has perdido, puedes solicitarlo de nuevo, si tus datos son correctos.
           error:
-            info: 'Por favor, inténtalo de nuevo. Si crees que los datos del sistema son incorrectos, puedes reportarlo aquí: %{census_contact_information}.'
-            title: '¡Tus datos del censo son incorrectos!'
+            info: 'Por favor, inténtalo de nuevo. Si crees que los datos del sistema son incorrectos, puedes reportarlo aquí: %{census_contact_information}'
+            title: Los datos que ha introducido no están en el censo de esta votación
           form_title: 'Rellena el siguiente formulario para comprobar tus datos del censo:'
           invalid: Hubo un problema al comprobar el censo.
           success:
-            access_link: vía SMS o correo electrónico.
+            access_link: por correo electrónico.
+            access_link_with_sms: vía SMS o correo electrónico.
             info: Deberías haber recibido tu código de acceso por correo postal ya. En caso de que no lo tengas, puedes solicitarlo aquí
             title: '¡Tus datos del censo son correctos!'
           title: '¿Puedo votar?'
@@ -1287,6 +1318,7 @@ es-MX:
           day_placeholder: DD
           document_number: Número de documento
           document_number_placeholder: Número de ID
+          document_type: Tipo de documento
           month: Mes
           month_placeholder: MM
           postal_code: Código postal

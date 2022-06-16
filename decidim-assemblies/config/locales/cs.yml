@@ -73,7 +73,7 @@ cs:
         assembly:
           attributes:
             document:
-              invalid_document_type: 'Neplatný typ dokumentu. Přijatelné formáty jsou: %{valid_mime_types}'
+              allowed_file_content_types: 'Neplatný typ dokumentu. Přijatelné formáty jsou: %{types}'
   activerecord:
     models:
       decidim/assembly:
@@ -248,6 +248,9 @@ cs:
     admin_log:
       assembly:
         create: "%{user_name} vytvořil %{resource_name} shromáždění"
+        duplicate: "%{user_name} zkopíroval shromáždění %{resource_name}"
+        export: "%{user_name} exportoval shromáždění %{resource_name}"
+        import: "%{user_name} importoval shromáždění %{resource_name}"
         publish: "%{user_name} publikoval %{resource_name} shromáždění"
         unpublish: "%{user_name} odebral %{resource_name} shromáždění"
         update: "%{user_name} aktualizoval shromáždění %{resource_name}"
@@ -395,7 +398,7 @@ cs:
         related_participatory_processes: Související participativní procesy
         scope: Oblast působnosti
         social_networks: Sociální sítě
-        social_networks_title: Sdílet toto shromáždění na
+        social_networks_title: Navštivte shromáždění na
         target: Kdo se účastní
     assembly_members:
       assembly_member:
@@ -406,7 +409,7 @@ cs:
       assemblies:
         create_assembly_member:
           email_intro: Administrátor shromáždění <a href="%{resource_url}">%{resource_name}</a> vás přidal jako jednoho z jeho členů.
-          email_outro: Obdrželi jste toto oznámení, protože jste byli pozváni do shromáždění. Podívejte se na <a href="%{resource_path}">stránku shromáždění</a> a přispějte!
+          email_outro: Obdrželi jste toto oznámení, protože jste byli pozváni do shromáždění. Podívejte se na <a href="%{resource_url}">stránku shromáždění</a> a přispějte!
           email_subject: Byli jste pozváni k členství ve shromáždění %{resource_name}!
           notification_title: Byli jste zaregistrováni jako člen shromáždění <a href="%{resource_path}">%{resource_name}</a>. Podívejte se na <a href="%{resource_path}">stránku shromáždění</a> a přispějte!
       assembly:

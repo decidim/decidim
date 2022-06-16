@@ -370,7 +370,6 @@ es:
         start_voting_date: Empieza la votación
       question_components:
         question_menu_item: La pregunta
-        unfold: Desplegar
       question_header:
         back_to_consultation: Ver todas las consultas
         back_to_question: Volver a la pregunta

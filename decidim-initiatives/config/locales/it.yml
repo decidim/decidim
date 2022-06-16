@@ -238,8 +238,6 @@ it:
             edit: Modifica
             new: Nuovo
             photos: Foto
-          show:
-            print: Stampare
           update:
             error: C'è stato un errore
             success: L'iniziativa cittadina è stata aggiornata con successo

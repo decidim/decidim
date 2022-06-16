@@ -25,6 +25,11 @@ FactoryBot.define do
     minimum_committee_members { 3 }
     child_scope_threshold_enabled { false }
     only_global_scope_enabled { false }
+    comments_enabled { true }
+
+    trait :with_comments_disabled do
+      comments_enabled { false }
+    end
 
     trait :attachments_enabled do
       attachments_enabled { true }
@@ -269,6 +274,27 @@ FactoryBot.define do
 
     trait :rejected do
       state { "rejected" }
+    end
+  end
+
+  factory :initiatives_settings, class: "Decidim::InitiativesSettings" do
+    initiatives_order { "random" }
+    organization
+
+    trait :most_recent do
+      initiatives_order { "date" }
+    end
+
+    trait :most_signed do
+      initiatives_order { "signatures" }
+    end
+
+    trait :most_commented do
+      initiatives_order { "comments" }
+    end
+
+    trait :most_recently_published do
+      initiatives_order { "publication_date" }
     end
   end
 end

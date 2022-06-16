@@ -236,8 +236,8 @@ Decidim.register_component(:dummy) do |component|
     settings.attribute :comments_enabled, type: :boolean, default: true
     settings.attribute :comments_max_length, type: :integer, required: false
     settings.attribute :resources_permissions_enabled, type: :boolean, default: true
-    settings.attribute :dummy_global_attribute_1, type: :boolean
-    settings.attribute :dummy_global_attribute_2, type: :boolean, readonly: ->(_context) { false }
+    settings.attribute :dummy_global_attribute1, type: :boolean
+    settings.attribute :dummy_global_attribute2, type: :boolean, readonly: ->(_context) { false }
     settings.attribute :readonly_attribute, type: :boolean, default: true, readonly: ->(_context) { true }
     settings.attribute :enable_pads_creation, type: :boolean, default: false
     settings.attribute :amendments_enabled, type: :boolean, default: false
@@ -246,8 +246,8 @@ Decidim.register_component(:dummy) do |component|
 
   component.settings(:step) do |settings|
     settings.attribute :comments_blocked, type: :boolean, default: false
-    settings.attribute :dummy_step_attribute_1, type: :boolean
-    settings.attribute :dummy_step_attribute_2, type: :boolean, readonly: ->(_context) { false }
+    settings.attribute :dummy_step_attribute1, type: :boolean
+    settings.attribute :dummy_step_attribute2, type: :boolean, readonly: ->(_context) { false }
     settings.attribute :dummy_step_translatable_text, type: :text, translated: true, editor: true, required: true
     settings.attribute :readonly_step_attribute, type: :boolean, default: true, readonly: ->(_context) { true }
     settings.attribute :amendment_creation_enabled, type: :boolean, default: true

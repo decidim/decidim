@@ -63,5 +63,11 @@ ca:
             current_step: Pas %{step}
             of_total_steps: de %{total_steps}
             tos_agreement: En participar acceptes els Termes i condicions d'ús
+      admin_log:
+        template:
+          create: "%{user_name} ha actualitzat la plantilla del qüestionari %{resource_name}"
+          delete: "%{user_name} ha esborrat la plantilla del qüestionari %{resource_name}"
+          duplicate: "%{user_name} ha duplicat la plantilla del qüestionari %{resource_name}"
+          update: "%{user_name} ha actualitzat la plantilla del qüestionari %{resource_name}"
       template_types:
         questionnaires: Qüestionari

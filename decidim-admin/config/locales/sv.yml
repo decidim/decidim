@@ -123,6 +123,10 @@ sv:
         file: Fil
     errors:
       models:
+        newsletter:
+          attributes:
+            base:
+              at_least_one_space: Välj minst ett deltagarutrymme
         organization:
           attributes:
             official_img_footer:
@@ -523,7 +527,7 @@ sv:
         area_types: Typer av område
         areas: Områden
         configuration: Konfiguration
-        dashboard: Kontrollpanel
+        dashboard: Adminpanel
         external_domain_whitelist: Tillåtna externa domäner
         help_sections: Hjälpavsnitt
         homepage: Hemsida
@@ -534,7 +538,7 @@ sv:
         reported_users: Rapporterade användare
         scope_types: Omfattningstyper
         scopes: Omfattningar
-        settings: inställningar
+        settings: Inställningar
         static_pages: Sidor
         user_groups: Grupper
         users: Deltagare
@@ -833,6 +837,12 @@ sv:
           invalid: Det gick inte att läsa CSV-filen.
           success: CSV-filen har skickats in och vi skickar inbjudningar via e-brev till deltagarna. Det kan ta en stund.
         new:
+          destroy:
+            button: Radera alla privata deltagare
+            confirm: Är du säker på att du vill radera alla privata deltagare? Den här åtgärden kan inte ångras.
+            empty: Det finns inga privata deltagare.
+            explanation: Det finns %{count} privata deltagare.
+            title: Radera privata deltagare
           explanation: 'Skicka in din CSV-fil. Den måste ha två kolumner över de användare som du vill lägga till deltagarutrymmet, utan rubriker, med e-postadressen i den första kolumnen i filen och namnet i den sista kolumnen i filen (e-post, namn). Undvik olämpliga karaktärer som `<>?%&^*#@()[]=+:;"{}\|` i användarnamn.'
           title: Skicka CSV-fil
           upload: Skicka
@@ -901,6 +911,7 @@ sv:
         gallery:
           add_images: Lägg till bilder
           delete_image: Ta bort bild
+          edit_images: Redigera bilder
           gallery_legend: Lägg till ett bildgalleri (Frivilligt)
       static_page_topics:
         create:
@@ -950,7 +961,7 @@ sv:
         area_types: Områdestyper
         areas: Områden
         authorization_workflows: Verifieringsmetoder
-        dashboard: Kontrollpanel
+        dashboard: Adminpanel
         impersonatable_users: Hanterbara deltagare
         impersonations: Deltagarhantering
         metrics: Metrik
@@ -1048,7 +1059,6 @@ sv:
             hidden_at: Dold
             participatory_space: Deltagarutrymme
             report_count: Antal
-            reportable_id: Id
             reportable_type: Typ
             reported_content_url: Rapporterad innehållsadress
             reports: Rapporter
@@ -1069,6 +1079,6 @@ sv:
         newsletters:
           title: Nyhetsbrev
         settings:
-          title: inställningar
+          title: Inställningar
         users:
           title: Deltagare

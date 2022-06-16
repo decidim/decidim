@@ -145,7 +145,6 @@ is-IS:
             progress: Framfarir
         timeline_entry:
           fields:
-            description: Lýsing
             entry_date: Dagsetning
       result_m:
         executed: Framkvæmt

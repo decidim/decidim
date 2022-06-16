@@ -123,6 +123,10 @@ ca:
         file: Fitxer
     errors:
       models:
+        newsletter:
+          attributes:
+            base:
+              at_least_one_space: Selecciona com a mínim un espai de participació
         organization:
           attributes:
             official_img_footer:
@@ -503,7 +507,7 @@ ca:
           download_example_format: Exemple de %{name}
           file_legend: Afegir un arxiu d'importació que serà processat.
           import: Importar
-        notice: "%{number} %{resource_name} importat correctament"
+        notice: "%{count} %{resource_name} importat correctament"
       logs:
         logs_list:
           no_logs_yet: Encara no hi ha cap registre d'activitat
@@ -833,6 +837,12 @@ ca:
           invalid: S'ha produït un error en llegir el fitxer CSV.
           success: Arxiu CSV carregat correctament, s'està enviant un missatge de correu electrònic d'invitació als participants. Pot tardar una mica.
         new:
+          destroy:
+            button: Esborrar totes les participants privades
+            confirm: Estàs segura que vols esborrar totes les participants privades? Aquesta acció no es pot desfer, no podràs recuperar-les.
+            empty: No hi ha participants privades.
+            explanation: Hi ha %{count} participant/s privada/ades.
+            title: Esborrar les participants privades
           explanation: 'Carrega el teu arxiu CSV. Ha de tenir dues columnes amb l''adreça de correu electrònic a la primera columna i el nom a la segona (adreça electrònica, nom) dels usuaris que vulguis afegir a l''espai de participació, sense capçaleres. Evita emprar caràcter invàlids com `<>?%&^*#@()[]=+:;"{}\|` al nom d''usuari.'
           title: Puja el fitxer CSV
           upload: Carrega
@@ -901,6 +911,7 @@ ca:
         gallery:
           add_images: Afegir imatges
           delete_image: Esborrar la imatge
+          edit_images: Editar imatges
           gallery_legend: Afegir una galeria d'imatges (opcional)
       static_page_topics:
         create:
@@ -1048,7 +1059,7 @@ ca:
             hidden_at: Data d'ocultació
             participatory_space: Espai de participació
             report_count: Recompte
-            reportable_id: Id
+            reportable_id: ID
             reportable_type: Tipus
             reported_content_url: URL contingut del contingut reportat
             reports: Denúncies

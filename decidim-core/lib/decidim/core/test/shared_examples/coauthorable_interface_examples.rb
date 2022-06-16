@@ -65,7 +65,7 @@ shared_examples_for "coauthorable interface" do
           expect(response["authors"]).to include("name" => coauthor.name)
         end
 
-        it "do not return a main author" do
+        it "does not return a main author" do
           expect(response["author"]).to eq(nil)
         end
       end
@@ -82,7 +82,7 @@ shared_examples_for "coauthorable interface" do
           expect(response["authors"]).to include("name" => coauthor.name)
         end
 
-        it "do not return a main author" do
+        it "does not return a main author" do
           expect(response["author"]).to eq(nil)
         end
       end

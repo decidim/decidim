@@ -32,10 +32,15 @@ Individual workflows with changes:
   name: Test JS files
 ```
 
-- Proposals specs are split in three workflows:
+- Some specs are split in three workflows, so if we need to retry this particular workflow we don't need to retry all the module suite. For instance proposals:
 
   - `ci_proposals_system_admin.yml`: Runs the system specs for the admin section
   - `ci_proposals_system_public.yml`: Runs the system specs for the public section
   - `ci_proposals_unit_tests.yml`: Runs the unit tests
 
-- `ci_performance_metrics_monitoring.yml`: runs Lighthouse metrics expectations against the app to get performance metrics
+- `ci_performance_metrics_monitoring.yml`: Runs Lighthouse metrics expectations against the app to detect any performance regression. The expectations can be found in `lighthouse_budget.json`, where a time is defined for each metric:
+
+  - [First Contentful Paint](https://web.dev/first-contentful-paint/): 2 seconds
+  - [Speed Index](https://web.dev/speed-index/): 4 seconds
+  - [Time to Interactive](https://web.dev/interactive/): 5 seconds
+  - [Largest Contentful Paint](https://web.dev/lcp/): 2.5 seconds

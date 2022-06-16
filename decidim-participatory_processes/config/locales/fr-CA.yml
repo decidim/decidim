@@ -67,7 +67,7 @@ fr-CA:
         participatory_process:
           attributes:
             document:
-              invalid_document_type: 'Type de document invalide. Les formats acceptés sont: %{valid_mime_types}'
+              allowed_file_content_types: 'Type de document invalide. Les formats acceptés sont: %{types}'
     models:
       decidim/participatory_process_step_activated_event: Étape activée
       decidim/participatory_process_step_changed_event: Étape modifiée
@@ -298,6 +298,9 @@ fr-CA:
     admin_log:
       participatory_process:
         create: "%{user_name} a créé la concertation %{resource_name}"
+        duplicate: "%{user_name} a dupliqué\" la concertation %{resource_name}"
+        export: "%{user_name} a exporté la concertation %{resource_name}"
+        import: "%{user_name} a importé la concertation %{resource_name}"
         publish: "%{user_name} a publié la concertation %{resource_name}"
         unpublish: "%{user_name} n'a pas publié la concertation %{resource_name}"
         update: "%{user_name} a mis à jour la concertation %{resource_name}"

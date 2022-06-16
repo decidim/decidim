@@ -203,8 +203,6 @@ lv:
             edit: Labot
             new: Jauns
             photos: Fotogrāfijas
-          show:
-            print: Drukāt
           update:
             error: Ir radusies kļūda
             success: Iniciatīva tika veiksmīgi atjaunināta

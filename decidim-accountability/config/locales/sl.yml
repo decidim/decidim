@@ -97,7 +97,6 @@ sl:
             progress: Napredek
         timeline_entry:
           fields:
-            description: Opis
             entry_date: Datum
       results:
         filters:

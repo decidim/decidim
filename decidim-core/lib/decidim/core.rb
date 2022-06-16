@@ -112,6 +112,7 @@ module Decidim
   autoload :Command, "decidim/command"
   autoload :EventRecorder, "decidim/event_recorder"
   autoload :ControllerHelpers, "decidim/controller_helpers"
+  autoload :ProcessesFileLocally, "decidim/processes_file_locally"
 
   include ActiveSupport::Configurable
   # Loads seeds from all engines.
