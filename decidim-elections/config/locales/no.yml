@@ -12,7 +12,6 @@
         start_time: Stemmegivning starter
         title: Tittel
       question:
-        description: Beskrivelse
         max_selections: Maksimalt antall valg
         min_selections: Ingen av valgene over
         title: Tittel
