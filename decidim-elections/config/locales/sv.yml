@@ -12,7 +12,6 @@ sv:
         start_time: Röstningsstart vid
         title: Titel
       question:
-        description: Beskrivning
         max_selections: Maximalt antal val
         title: Titel
       voting:
