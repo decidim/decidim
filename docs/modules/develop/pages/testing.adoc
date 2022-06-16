@@ -57,6 +57,15 @@ bundle exec rake test_all
 
 But beware, it takes a long time... :)
 
+== Jest
+
+We use Jest for testing our Javascript code. You can run it locally with:
+
+[source,bash]
+----
+npm run test
+----
+
 == Continuous integration
 
 The tests are also run when a new commit is added to the `develop` or releases
