@@ -1,5 +1,12 @@
 const { inherit, current, transparent, white } = require("tailwindcss/colors")
 
+const withOpacity =
+  (variable) =>
+  ({ opacityValue }) =>
+    opacityValue === undefined
+      ? `rgb(var(${variable}))`
+      : `rgb(var(${variable}) / ${opacityValue})`;
+
 module.exports = {
   // This content is generated automatically by decidim:webpacker:install task, it
   // shouldn't be updated manually.
@@ -18,12 +25,12 @@ module.exports = {
       current,
       transparent,
       white,
-      primary: "var(--primary, #FF3333)",
-      secondary: "var(--secondary, #155ABF)",
-      tertiary: "var(--tertiary, #EBC34B)",
-      green: "var(--green, #28A745)",
-      red: "var(--red, #ED1C24)",
-      yellow: "var(--yellow, #FFB703)",
+      primary: withOpacity("--primary-rgb"),
+      secondary: withOpacity("--secondary-rgb"),
+      tertiary: withOpacity("--tertiary-rgb"),
+      green: withOpacity("--green-rgb"),
+      red: withOpacity("--red-rgb"),
+      yellow: withOpacity("--yellow-rgb"),
       black: "#020203",
       gray: {
         DEFAULT: "#C0C6CC",
