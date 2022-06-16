@@ -12,7 +12,6 @@ pl:
         start_time: Głosowanie rozpoczyna się o
         title: Tytuł
       question:
-        description: Opis
         max_selections: Maksymalna liczba opcji do wybrania
         min_selections: Żadna z powyższych opcji
         title: Tytuł
