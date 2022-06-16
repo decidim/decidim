@@ -50,7 +50,6 @@ module Decidim
     validates :email, :nickname, uniqueness: { scope: :organization }, unless: -> { deleted? || managed? || nickname.blank? }
 
     validate :all_roles_are_valid
-    validate :strong_admin_password, on: :update, if: -> { needs_to_save_password_change? }
 
     has_one_attached :download_your_data_file
 
@@ -321,15 +320,6 @@ module Decidim
 
     def ensure_encrypted_password
       restore_encrypted_password! if will_save_change_to_encrypted_password? && encrypted_password.blank?
-    end
-
-    def strong_admin_password
-      ::AdminPasswordValidator.new(
-        {
-          attributes: [:password],
-          class: self.class.to_s
-        }
-      ).validate_each(self, "password", password)
     end
 
     def save_password_change
