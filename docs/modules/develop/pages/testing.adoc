@@ -76,3 +76,5 @@ This means that the workflows defined for each module in the folder
 `.github/workflows/` should be always updated with the module's dependencies
 list. The script `.github/workflows/dependencies.sh` can be helpful to keep
 those files updated until we have an automatic process to do it.
+
+You can read more about the continuous integration configuration at https://github.com/decidim/decidim/blob/develop/.github/workflows/README.md[GitHub].
