@@ -690,10 +690,11 @@ module Decidim
     def custom_label(attribute, text, options, field_before_label: false, show_required: true)
       return block_given? ? yield.html_safe : "".html_safe if text == false
 
+      required = options.is_a?(Hash) && options.delete(:required)
       text = default_label_text(object, attribute) if text.nil? || text == true
       if show_required
         text +=
-          if options.is_a?(Hash) && options[:required]
+          if required
             required_indicator
           else
             required_for_attribute(attribute)
