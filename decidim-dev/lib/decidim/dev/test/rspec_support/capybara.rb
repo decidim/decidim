@@ -81,7 +81,7 @@ Capybara.register_driver :iphone do |app|
   )
 end
 
-Capybara.server = :puma, { Silent: true, Threads: "1:1" }
+Capybara.server = :puma, { Silent: true, queue_requests: false }
 
 Capybara.asset_host = "http://localhost:3000"
 
