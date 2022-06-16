@@ -19,7 +19,7 @@ describe "Admin passwords", type: :system do
 
     it "can update password successfully" do
       manual_login(user.email, password)
-      expect(page).to have_content("Admins needs to change their password for every 90 days")
+      expect(page).to have_content("Admin users need to change their password every 90 days")
       expect(page).to have_content("Password change")
       fill_in :password_user_password, with: new_password
       fill_in :password_user_password_confirmation, with: new_password
@@ -33,7 +33,7 @@ describe "Admin passwords", type: :system do
       manual_login(user.email, password)
       expect(page).to have_content("Password change")
       click_link "Home"
-      expect(page).to have_content("You need to change your password before access")
+      expect(page).to have_content("You need to change your password in order to proceed further")
       expect(page).to have_content("Password change")
       expect(page).to have_current_path(decidim.change_password_path)
     end
@@ -44,7 +44,8 @@ describe "Admin passwords", type: :system do
       fill_in :password_user_password_confirmation, with: "decidim12345678"
       click_button "Change my password"
       expect(page).to have_css(".callout.alert")
-      expect(page).to have_content("Password confirmation must match the password")
+      expect(page).to have_content("There was a problem updating the password")
+      expect(page).to have_content("doesn't match Password")
     end
 
     context "when user has strong password" do
@@ -58,7 +59,7 @@ describe "Admin passwords", type: :system do
         click_button "Change my password"
         expect(page).to have_css(".callout.alert")
         expect(page).to have_content("There was a problem updating the password")
-        expect(page).to have_content("can't reuse old password")
+        expect(page).to have_content("cannot reuse old password")
       end
     end
 
