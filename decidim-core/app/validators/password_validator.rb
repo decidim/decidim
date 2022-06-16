@@ -140,7 +140,9 @@ class PasswordValidator < ActiveModel::EachValidator
   end
 
   def password_repeated?
+    return false unless Decidim.config.admin_password_strong_enable
     return false unless record.try(:admin?)
+    return false unless record.try(:encrypted_password_changed?)
 
     [record.encrypted_password_was, *record.previous_passwords].compact.take(ADMIN_REPETITION_TIMES).each do |encrypted_password|
       return true if Devise::Encryptor.compare(Decidim::User, encrypted_password, value)
