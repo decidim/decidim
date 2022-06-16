@@ -59,12 +59,6 @@ module Decidim
       def resource_params
         super.merge(decidim_organization_id: current_organization.id)
       end
-
-      def user_has_no_permission_path
-        return decidim.new_user_session_path unless user_signed_in?
-
-        decidim.root_path
-      end
     end
   end
 end
