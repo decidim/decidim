@@ -1,7 +1,9 @@
 # frozen_string_literal: true
 
+require "English"
 require "bundler/gem_tasks"
 require "rspec/core/rake_task"
+
 require "decidim/gem_manager"
 
 RSpec::Core::RakeTask.new(:spec)
@@ -96,6 +98,19 @@ task :webpack do
 
   system!("npm install", root_folder)
   system!("npm install", decidim_app_design_path)
+end
+
+desc "Lint Markdown files"
+task :lint_markdown do
+  status = 0
+  Dir.glob(root_folder.join("**/*.md")).each do |file|
+    next if file.include?("node_modules")
+
+    system("mdl #{file}")
+    status += $CHILD_STATUS.exitstatus
+  end
+
+  exit(status)
 end
 
 def root_folder
