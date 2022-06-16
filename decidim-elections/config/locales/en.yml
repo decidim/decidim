@@ -13,7 +13,6 @@ en:
         start_time: Voting start at
         title: Title
       question:
-        description: Description
         max_selections: Maximum number of selections
         min_selections: None of the above option
         title: Title

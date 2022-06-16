@@ -15,7 +15,6 @@ describe Decidim::Elections::Admin::QuestionForm do
   let(:election) { create :election }
   let(:component) { election.component }
   let(:title) { Decidim::Faker::Localized.sentence(word_count: 3) }
-  let(:description) { Decidim::Faker::Localized.sentence(word_count: 3) }
   let(:max_selections) { 3 }
   let(:weight) { 10 }
   let(:random_answers_order) { true }
@@ -23,7 +22,6 @@ describe Decidim::Elections::Admin::QuestionForm do
   let(:attributes) do
     {
       title: title,
-      description: description,
       max_selections: max_selections,
       min_selections: min_selections,
       weight: weight,
@@ -35,12 +33,6 @@ describe Decidim::Elections::Admin::QuestionForm do
 
   describe "when title is missing" do
     let(:title) { { ca: nil, es: nil } }
-
-    it { is_expected.not_to be_valid }
-  end
-
-  describe "when description is missing" do
-    let(:description) { { ca: nil, es: nil } }
 
     it { is_expected.not_to be_valid }
   end
