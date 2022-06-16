@@ -343,6 +343,7 @@ ca:
       endorsements:
         one: adhesió
         other: adhesions
+      official_author: Oficial
     authorization_handlers:
       another_dummy_authorization_handler:
         explanation: Verifica't introduint un número de passaport que comenci per "A"
