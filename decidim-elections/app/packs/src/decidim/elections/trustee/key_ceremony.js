@@ -1,5 +1,5 @@
 // show a message to the user if comunication is lost
-import "src/decidim/elections/error_handler";
+import "src/decidim/elections/broken_promises_handler";
 
 import {
   KeyCeremonyComponent,
