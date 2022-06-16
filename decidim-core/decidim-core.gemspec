@@ -50,7 +50,7 @@ Gem::Specification.new do |s|
   s.add_dependency "omniauth-rails_csrf_protection", "~> 1.0"
   s.add_dependency "omniauth-twitter", "~> 1.4"
   s.add_dependency "paper_trail", "~> 12.0"
-  s.add_dependency "pg", "~> 1.1.4", "< 2"
+  s.add_dependency "pg", "~> 1.3.0", "< 2"
   s.add_dependency "pg_search", "~> 2.2"
   s.add_dependency "premailer-rails", "~> 1.10"
   s.add_dependency "rack", "~> 2.2", ">= 2.2.3"
