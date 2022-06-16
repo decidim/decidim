@@ -8,14 +8,12 @@ module Decidim
         include TranslatableAttributes
 
         translatable_attribute :title, String
-        translatable_attribute :description, String
         attribute :max_selections, Integer, default: 1
         attribute :weight, Integer, default: 0
         attribute :random_answers_order, Boolean, default: true
         attribute :min_selections, Integer, default: 1
 
         validates :title, translatable_presence: true
-        validates :description, translatable_presence: true
         validates :max_selections, presence: true, numericality: { greater_than_or_equal_to: 1 }
 
         def election
