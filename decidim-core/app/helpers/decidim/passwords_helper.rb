@@ -2,12 +2,33 @@
 
 module Decidim
   module PasswordsHelper
-    def password_help_text(reset_password_token)
-      if needs_admin_password?(current_user || Decidim::User.with_reset_password_token(reset_password_token))
-        return t("devise.passwords.edit.password_help_admin", minimun_characters: ::AdminPasswordValidator::MINIMUM_LENGTH)
-      end
+    def password_field_options_for(user)
+      user =
+        case user
+        when :user
+          Decidim::User.new
+        when :admin
+          Decidim::User.new(admin: true)
+        when String
+          Decidim::User.with_reset_password_token(user)
+        else
+          user
+        end
+      min_length = ::PasswordValidator.minimum_length_for(user)
+      help_text =
+        if needs_admin_password?(user)
+          t("devise.passwords.edit.password_help_admin", minimun_characters: min_length)
+        else
+          t("devise.passwords.edit.password_help", minimun_characters: min_length)
+        end
 
-      t("devise.passwords.edit.password_help", minimun_characters: ::PasswordValidator::MINIMUM_LENGTH)
+      {
+        autocomplete: "new-password",
+        required: true,
+        help_text: help_text,
+        minlength: min_length,
+        maxlength: ::PasswordValidator::MAX_LENGTH
+      }
     end
 
     def needs_admin_password?(user)

@@ -5,14 +5,13 @@ module Decidim
     # Custom Devise PasswordsController to avoid namespace problems.
     class PasswordsController < ::Devise::PasswordsController
       include Decidim::DeviseControllers
-      include Decidim::PasswordsHelper
+
+      helper Decidim::PasswordsHelper
 
       prepend_before_action :require_no_authentication, except: [:change_password, :apply_password]
       skip_before_action :store_current_location
 
       before_action :check_sign_in_enabled
-
-      helper_method :password_help_text
 
       def change_password
         self.resource = current_user

@@ -16,11 +16,11 @@
             <%= f.hidden_field :reset_password_token %>
 
             <div class="field">
-              <%= f.password_field :password, autocomplete: "new-password", required: true, help_text: password_help_text(params["reset_password_token"]) %>
+              <%= f.password_field :password, password_field_options_for(current_user || params["reset_password_token"]) %>
             </div>
 
             <div class="field">
-              <%= f.password_field :password_confirmation, autocomplete: "new-password", required: true %>
+              <%= f.password_field :password_confirmation, password_field_options_for(current_user || params["reset_password_token"]).except(:help_text) %>
             </div>
 
             <div class="actions">
