@@ -631,7 +631,7 @@ es-MX:
           invalid: Ha habido un problema al salir de esta encuentro.
           success: Has salido del encuentro con éxito.
       type_of_meeting:
-        hybrid: Hibrida
+        hybrid: Híbrido
         in_person: Presencial
         online: En línea
       types:
