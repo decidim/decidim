@@ -54,6 +54,7 @@ cs:
             author: Autor
             body: Tělo
             created_at: Vytvořeno v
+            official_blog_post: Oficiální příspěvek
             title: titulek
       posts:
         show:
