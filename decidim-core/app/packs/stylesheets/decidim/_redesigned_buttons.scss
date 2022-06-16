@@ -1,43 +1,43 @@
-.button {
+.button{
   @apply flex items-center font-semibold rounded transition cursor-pointer;
 
-  &.sm {
+  &.sm{
     @apply text-sm px-4 py-1.5 gap-1.5;
   }
 
-  &.lg {
+  &.lg{
     @apply text-lg px-6 py-3 gap-2;
   }
 
-  &.xl {
+  &.xl{
     @apply text-xl px-8 py-4 gap-4;
   }
 
-  &.primary {
+  &.primary{
     @apply bg-primary text-white;
   }
 
-  &.secondary {
+  &.secondary{
     @apply bg-secondary text-white;
   }
 
-  &.tertiary {
+  &.tertiary{
     @apply bg-tertiary text-white;
   }
 
-  &.white {
+  &.white{
     @apply bg-white;
   }
 
-  &.transparent {
+  &.transparent{
     @apply bg-transparent text-white border border-white;
   }
 
   &.white:hover,
   &.transparent:hover,
-  &:hover {
+  &:hover{
     @apply text-white;
 
-    background: linear-gradient(0deg,rgba(0,0,0,0.3),rgba(0,0,0,0.3)), theme('colors.secondary');
+    background: linear-gradient(0deg, rgba(0, 0, 0, .3), rgba(0, 0, 0, .3)), theme('colors.secondary');
   }
 }
