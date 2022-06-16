@@ -533,7 +533,6 @@ en:
           newsletter: Receive an occasional newsletter with relevant information
           newsletter_title: Contact permission
           nickname_help: Your alias in %{organization}. Can only contain letters, numbers, '-' and '_'.
-          password_help: "%{minimun_characters} characters minimum, must not be too common (e.g. 123456) and must be different from your nickname and your email."
           sign_in: Log in
           sign_up: Sign up
           sign_up_as:
