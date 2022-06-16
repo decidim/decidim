@@ -12,7 +12,6 @@ nl:
         start_time: Stemming begint om
         title: Aanspreektitel
       question:
-        description: Beschrijving
         max_selections: Maximum aantal selecties
         title: Aanspreektitel
       voting:
