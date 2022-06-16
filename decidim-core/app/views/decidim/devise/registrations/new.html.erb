@@ -34,18 +34,18 @@
 
             <div class="user-person">
               <div class="field">
-                <%= f.text_field :name, help_text: t(".username_help"), autocomplete: "name", data: { "suggest-nickname": '[name="user[nickname]"]'} %>
+                <%= f.text_field :name, help_text: t(".username_help"), autocomplete: "name", data: { "instant-attribute": "nickname", "instant-target": '[name="user[nickname]"]', 'instant-action': "suggest" } %>
               </div>
             </div>
 
             <div class="user-nickname">
               <div class="field">
-                <%= f.text_field :nickname, help_text: t(".nickname_help", organization: current_organization.name), prefix: { value: "@", small: 1, large: 1 }, autocomplete: "nickname" %>
+                <%= f.text_field :nickname, help_text: t(".nickname_help", organization: current_organization.name), prefix: { value: "@", small: 1, large: 1 }, autocomplete: "nickname", data: { "instant-attribute": "nickname", "instant-target": '[name="user[nickname]"]', 'instant-action': "uniqueness" } %>
               </div>
             </div>
 
             <div class="field">
-              <%= f.email_field :email, autocomplete: "email" %>
+              <%= f.email_field :email, autocomplete: "email", data: { "instant-attribute": "nickname", "instant-target": '[name="user[email]"]', 'instant-action': "uniqueness" } %>
             </div>
 
             <div class="field">

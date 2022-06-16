@@ -44,10 +44,14 @@ module Decidim
       end
 
       def validate
-        @form = form(RegistrationForm).from_params(params[:input] => params[:value])
-        validator = Registrations::UserAttributeValidator.new(form: @form, attribute: params[:input], suggest: params[:suggest
-        ])
-        render json: { valid: validator.valid?, error: validator.error, input: validator.input, suggestion: validator.suggestion }
+        @form = form(RegistrationForm).from_params(params[:attribute] => params[:value])
+        validator = Registrations::UserAttributeValidator.new(form: @form, attribute: params[:attribute])
+        render json: { 
+          valid: validator.valid?, 
+          suggestion: validator.suggestion,
+          error: validator.error,
+          errorWithSuggestion: validator.error_with_suggestion
+        }
       end
 
       protected
