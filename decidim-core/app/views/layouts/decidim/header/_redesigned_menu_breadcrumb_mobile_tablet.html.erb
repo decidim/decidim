@@ -5,9 +5,9 @@
 
       <!-- TODO: Only displays two last items -->
       <% breadcrumb.take(2).each_with_index do |item, i| %>
-        <% is_active = item[1] # item[0] could also be "active"  %>
-        <span class="<%= 'hidden' if i == 0 %>">/</span>
-        <span class="cursor-pointer <%= 'truncate' if i != 0 %> <%= 'font-bold' if is_active %>"><%= item[0] %></span>
+        <% is_active = item[1] # item[0] could also be "active" %>
+        <span class="<%= "hidden" if i == 0 %>">/</span>
+        <span class="cursor-pointer <%= "truncate" if i != 0 %> <%= "font-bold" if is_active %>"><%= item[0] %></span>
       <% end %>
     </div>
 
