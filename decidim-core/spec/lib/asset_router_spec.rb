@@ -40,6 +40,7 @@ module Decidim
 
       context "when the CDN host is defined" do
         before do
+          allow(Rails.application.secrets).to receive(:dig).and_call_original
           allow(Rails.application.secrets).to receive(:dig).with(:storage, :cdn_host).and_return("https://cdn.example.org")
         end
 
