@@ -782,7 +782,7 @@ module Decidim
         options[:class] += " is-invalid-label"
       end
       text +=
-        if options[:required]
+        if options.delete(:required)
           required_indicator
         else
           required_for_attribute(attribute)
