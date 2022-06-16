@@ -12,7 +12,6 @@ cs:
         start_time: Hlasování začíná v
         title: Název
       question:
-        description: Popis
         max_selections: Maximální počet výběrů
         min_selections: Žádná z výše uvedených možností
         title: Název
