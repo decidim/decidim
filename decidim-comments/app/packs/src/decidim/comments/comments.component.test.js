@@ -13,6 +13,10 @@ window.$.ajax = jest.fn().mockImplementation((...args) => $.ajax(...args));
 import Quill from "quill"
 window.Quill = Quill
 
+// Rails.ajax is used by the fetching/polling of the comments
+import Rails from "@rails/ujs";
+jest.mock("@rails/ujs");
+
 // Fake timers for testing polling
 jest.useFakeTimers();
 
@@ -383,16 +387,16 @@ describe("CommentsComponent", () => {
 
     jest.advanceTimersByTime(1000);
 
-    expect(window.$.ajax).toHaveBeenCalledWith({
+    expect(Rails.ajax).toHaveBeenCalledWith({
       url: "/comments",
-      method: "GET",
-      contentType: "application/javascript",
-      data: {
+      type: "GET",
+      data: new URLSearchParams({
         "commentable_gid": "commentable-gid",
         "root_depth": 0,
         order: "older",
         after: 456
-      }
+      }),
+      success: window.undefined
     });
   });
 
