@@ -510,7 +510,7 @@ es:
           select_a_meeting_type: Por favor, selecciona un tipo de encuentro
           select_a_registration_type: Por favor, selecciona un tipo de inscripción
           select_an_iframe_access_level: Por favor, selecciona un nivel de acceso iframe
-          show_embedded_iframe_help: 'Solo unos pocos servicios permiten incrustar en reuniones o eventos en vivo desde los siguientes dominios: %{domains}'
+          show_embedded_iframe_help: 'Solo unos pocos servicios permiten ser incrustados en encuentros o eventos en vivo desde los siguientes dominios: %{domains}'
         index:
           click_here: Ver todos los encuentros
           new_meeting: Nuevo encuentro
@@ -631,7 +631,7 @@ es:
           invalid: Se ha producido un error al salir de este encuentro.
           success: Has salido del encuentro con éxito.
       type_of_meeting:
-        hybrid: Hibrida
+        hybrid: Híbrido
         in_person: Presencial
         online: En línea
       types:
