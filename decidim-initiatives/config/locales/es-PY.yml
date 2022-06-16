@@ -310,7 +310,7 @@ es-PY:
           update: "%{user_name} ha actualizado la configuración de las iniciativas"
         initiatives_type:
           create: "%{user_name} ha creat el tipus d'iniciativa %{resource_name}"
-          delete: "%{user_name} ha borrado el tipo de iniciativa %{resource_name}"
+          delete: "%{user_name} ha eliminado el tipo de iniciativa %{resource_name}"
           update: "%{user_name} ha actualizado el tipo de iniciativa %{resource_name}"
       admin_states:
         accepted: Ha conseguido las firmas
