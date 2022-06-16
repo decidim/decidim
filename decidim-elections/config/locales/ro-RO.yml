@@ -12,7 +12,6 @@ ro:
         start_time: Votarea începe la
         title: Titlu
       question:
-        description: Descriere
         max_selections: Numărul maxim de selecții
         min_selections: Niciuna dintre opțiunile de mai sus
         title: Titlu
