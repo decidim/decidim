@@ -6,6 +6,8 @@ class PasswordValidator < ActiveModel::EachValidator
   MAX_LENGTH = 256
   MIN_UNIQUE_CHARACTERS = 5
   IGNORE_SIMILARITY_SHORTER_THAN = 4
+  ADMIN_MINIMUM_LENGTH = Decidim.config.admin_password_min_characters
+  ADMIN_REPETITION_TIMES = Decidim.config.admin_password_repetition_times
   VALIDATION_METHODS = [
     :password_too_short?,
     :password_too_long?,
@@ -15,8 +17,15 @@ class PasswordValidator < ActiveModel::EachValidator
     :email_included_in_password?,
     :domain_included_in_password?,
     :password_too_common?,
-    :blacklisted?
+    :blacklisted?,
+    :password_repeated?
   ].freeze
+
+  def self.minimum_length_for(record)
+    return ADMIN_MINIMUM_LENGTH if record.try(:admin?)
+
+    MINIMUM_LENGTH
+  end
 
   # Check if user's password is strong enough
   #
@@ -59,7 +68,7 @@ class PasswordValidator < ActiveModel::EachValidator
   end
 
   def strong?
-    self.class::VALIDATION_METHODS.each do |method|
+    VALIDATION_METHODS.each do |method|
       @weak_password_reasons << method.to_s.sub(/\?$/, "").to_sym if send(method.to_s)
     end
 
@@ -67,15 +76,15 @@ class PasswordValidator < ActiveModel::EachValidator
   end
 
   def password_too_short?
-    value.length < self.class::MINIMUM_LENGTH
+    value.length < self.class.minimum_length_for(record)
   end
 
   def password_too_long?
-    value.length > self.class::MAX_LENGTH
+    value.length > MAX_LENGTH
   end
 
   def not_enough_unique_characters?
-    value.chars.uniq.length < self.class::MIN_UNIQUE_CHARACTERS
+    value.chars.uniq.length < MIN_UNIQUE_CHARACTERS
   end
 
   def name_included_in_password?
@@ -83,7 +92,7 @@ class PasswordValidator < ActiveModel::EachValidator
     return true if value.include?(record.name.delete(" "))
 
     record.name.split.each do |part|
-      next if part.length < self.class::IGNORE_SIMILARITY_SHORTER_THAN
+      next if part.length < IGNORE_SIMILARITY_SHORTER_THAN
 
       return true if value.include?(part)
     end
@@ -109,7 +118,7 @@ class PasswordValidator < ActiveModel::EachValidator
     return true if value.include?(organization.host)
 
     organization.host.split(".").each do |part|
-      next if part.length < self.class::IGNORE_SIMILARITY_SHORTER_THAN
+      next if part.length < IGNORE_SIMILARITY_SHORTER_THAN
 
       return true if value.include?(part)
     end
@@ -128,5 +137,16 @@ class PasswordValidator < ActiveModel::EachValidator
 
   def password_too_common?
     Decidim::CommonPasswords.instance.passwords.include?(value)
+  end
+
+  def password_repeated?
+    return false unless record.respond_to?(:admin?)
+    return false unless record.admin?
+
+    [record.encrypted_password_was, *record.previous_passwords].compact.take(ADMIN_REPETITION_TIMES).each do |encrypted_password|
+      return true if Devise::Encryptor.compare(Decidim::User, encrypted_password, value)
+    end
+
+    false
   end
 end
