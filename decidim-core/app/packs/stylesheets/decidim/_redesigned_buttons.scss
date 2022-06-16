@@ -1,5 +1,5 @@
 .button{
-  @apply flex items-center font-semibold rounded transition cursor-pointer;
+  @apply inline-flex items-center font-semibold rounded transition cursor-pointer;
 
   &.sm{
     @apply text-sm px-4 py-1.5 gap-1.5;
