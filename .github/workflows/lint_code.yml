@@ -56,3 +56,5 @@ jobs:
         name: Lint SCSS files
       - run: ./.github/run_erblint.sh
         name: Lint ERB files
+      - run: bundle exec rake lint_markdown
+        name: Lint Markdown files
