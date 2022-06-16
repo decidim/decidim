@@ -19,6 +19,7 @@ class InstantValidator {
 
   validate($input) {
     console.log("validate", $input, this);
+    this.tamper($input)
     if($input.data("suggest-nickname")) {
       this.suggestNickname($input.val(), this.$form.find($input.data("suggest-nickname")))
     }
@@ -40,7 +41,18 @@ class InstantValidator {
 
   setFeedback($input, data) {
     // TODO: only apply if field not tampered by the user, otherwise suggest in the help text
-    if(data.suggestion) $input.val(data.suggestion);
+    if(!this.isTampered($input)) {
+      this.$form.foundation('removeErrorClasses', $input);
+      $input.val(data.suggestion);
+    }
+  }
+
+  tamper($input) {
+    $input.data("tampered", $input.val().trim() != "");
+  }
+
+  isTampered($input) {
+    return $input.val().trim() != "" && $input.data("tampered")
   }
 }
 
@@ -51,7 +63,6 @@ $(() => {
   let checkTimeout;
   $form.find('input[type="text"]').on("keyup", (e) => {
     let $input = $(e.currentTarget);
-    console.log("keydown!", $input.val(), e);
     // Trigger live validation with a delay to avoid throttling
     try { clearTimeout(checkTimeout); } catch {}
     checkTimeout = setTimeout(() => {

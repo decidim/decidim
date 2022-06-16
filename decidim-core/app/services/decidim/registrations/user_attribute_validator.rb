@@ -3,11 +3,11 @@
 module Decidim
   module Registrations
     class UserAttributeValidator
-      def initialize(attribute: "", suggest: "", form: Decidim::RegistrationForm)
+      def initialize(attribute: "", suggest: "", form: nil, model: nil)
         @attribute = attribute
         @suggest = suggest
-        @form = form
-        @model = "Decidim::#{form.model_name.human}".constantize
+        @form = form.presence || Decidim::RegistrationForm
+        @model = model.presence || "Decidim::#{form.model_name.human}".constantize
       end
 
       delegate :current_organization, to: :form
@@ -34,14 +34,14 @@ module Decidim
             break unless valid_suggestor?(suggest)
             break unless model.exists?(organization: current_organization, suggest => @suggestion)
 
-            @suggestion = "#{@suggestion}1"
+            @suggestion.gsub!(/([^\d.]+)(\d*)/) { "#{$1}#{$2.to_i + 1}" }
           end
           @suggestion
         end
       end
 
       def valid_suggestor?(attribute)
-        [:nickname].with_indifferent_access.include? attribute
+        ["nickname"].include? attribute.to_s
       end
     end
   end
