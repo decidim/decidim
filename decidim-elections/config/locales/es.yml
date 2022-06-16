@@ -12,7 +12,6 @@ es:
         start_time: La votación empieza el
         title: Título
       question:
-        description: Descripción
         max_selections: Número máximo de opciones
         min_selections: Ninguna de las opciones anteriores
         title: Título
