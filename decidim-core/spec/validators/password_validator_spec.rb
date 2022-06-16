@@ -17,7 +17,8 @@ describe PasswordValidator do
         errors: errors,
         admin?: admin_record,
         previous_passwords: previous_passwords,
-        encrypted_password_was: ::Devise::Encryptor.digest(Decidim::User, "decidim123456")
+        encrypted_password_was: ::Devise::Encryptor.digest(Decidim::User, "decidim123456"),
+        encrypted_password_changed?: true
       )
     end
     let(:admin_record) { false }
