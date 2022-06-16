@@ -89,14 +89,10 @@ module Decidim
                       index_on_update: ->(user) { !(user.deleted? || user.blocked?) })
 
     before_save :ensure_encrypted_password
-    before_save :save_password_change, if: -> { needs_to_save_password_change? }
+    before_save :save_password_change
 
     def user_invited?
       invitation_token_changed? && invitation_accepted_at_changed?
-    end
-
-    def needs_to_save_password_change?
-      admin? && encrypted_password_changed? && Decidim.config.admin_password_strong_enable
     end
 
     # Public: Allows customizing the invitation instruction email content when
@@ -324,6 +320,9 @@ module Decidim
 
     def save_password_change
       return unless persisted?
+      return unless encrypted_password_changed?
+      return unless admin?
+      return unless Decidim.config.admin_password_strong_enable
 
       # We don't want to run validations here because that could lead to an endless validation loop.
       # rubocop:disable Rails/SkipsModelValidations
