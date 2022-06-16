@@ -1,24 +1,20 @@
-<div class="empty-notifications callout secondary <%= "hide" if notifications.any? %>">
-  <p><%= t("decidim.notifications.no_notifications") %></p>
-</div>
+<%
+validations = [];
 
-<div id="notifications">
-  <div class="mb-s text-right">
-    <% if notifications.any? %>
-      <%= link_to(
-        t("mark_all_as_read", scope: "layouts.decidim.notifications_dashboard"),
-        read_all_notifications_path,
-        class: "button title-action__action hollow mark-all-as-read-button",
-        method: :delete,
-        data: { disable: true },
-        remote: true
-      ) %>
-    <% end %>
+validations << t("decidim.notifications.no_notifications") if !notifications.any?
+
+validations.each do |validation| %>
+  <p><%= validation %></p>
+<% end %>
+
+<div class="p-12">
+  <div class="divide-y divide-border-3 -my-4">
+    <% notifications.select(&:resource).each do |notification| %>
+      <div class="py-4">
+        <%= cell("decidim/notification", notification) %>
+      </div>
+      <% end %>
   </div>
 
-  <% notifications.select(&:resource).each do |notification| %>
-    <%= cell("decidim/notification", notification) %>
-  <% end %>
+  <%= decidim_paginate notifications %>
 </div>
-
-<%= decidim_paginate notifications %>

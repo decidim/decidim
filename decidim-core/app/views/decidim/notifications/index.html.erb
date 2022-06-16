@@ -1,7 +1,14 @@
 <% add_decidim_page_title(t("notifications", scope: "layouts.decidim.user_menu")) %>
 
-<div class="wrapper">
-  <div class="row column">
-    <%= cell "decidim/notifications", current_user %>
-  </div>
-</div>
+<% content_for :aside do %>
+  <h1 class="h1 decorator"><%= t("notifications", scope: "layouts.decidim.user_menu") %></h1>
+
+  <%= link_to read_all_notifications_path, class: "button lg secondary mt-12", method: :delete, data: { disable: true }, remote: true do %>
+    <%= t("mark_all_as_read", scope: "layouts.decidim.notifications_dashboard") %>
+    <%= icon "check-line", class: "fill-current" %>
+  <% end %>
+<% end %>
+
+<%= render layout: "layouts/decidim/shared/layout_two_col" do %>
+  <%= cell "decidim/notifications", current_user %>
+<% end %>
