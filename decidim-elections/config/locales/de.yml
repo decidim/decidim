@@ -12,7 +12,6 @@ de:
         start_time: Die Abstimmung beginnt um
         title: Titel
       question:
-        description: Beschreibung
         max_selections: Maximale Anzahl Antworten
         min_selections: Nichts davon
         title: Titel
