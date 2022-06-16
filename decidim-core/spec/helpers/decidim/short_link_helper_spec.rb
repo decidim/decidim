@@ -24,7 +24,7 @@ module Decidim
       end
 
       shared_examples "working short link" do |target_route_name|
-        let(:organization_url) { "http://#{organization.host}" }
+        let(:organization_url) { "http://#{organization.host}:#{Capybara.server_port}" }
         let(:expected_url_pattern) { %r{^#{organization_url}/s/[a-zA-Z0-9]{10}$} }
         let(:short_link) { Decidim::ShortLink.order(:id).last }
 
