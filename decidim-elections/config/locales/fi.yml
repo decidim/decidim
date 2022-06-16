@@ -12,7 +12,6 @@ fi:
         start_time: Äänestys alkaa
         title: Otsikko
       question:
-        description: Kuvaus
         max_selections: Valintojen enimmäismäärä
         min_selections: Ei mikään edellä mainituista
         title: Otsikko
