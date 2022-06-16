@@ -28,6 +28,13 @@ You can also run a single test by appending its start line number to the command
 bundle exec rspec spec/forms/participatory_process_form_spec.rb:134
 ----
 
+We also have a helper at `bin/rspec` that you can use to run a single spec from the command line:
+
+[source,bash]
+----
+bin/rspec decidim-participatory_processes/spec/forms/participatory_process_form_spec.rb
+----
+
 === Running tests for a specific component
 
 A Decidim engine can be tested running the rake task named after it. For
