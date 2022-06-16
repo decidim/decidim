@@ -12,7 +12,6 @@ gl:
         start_time: A votación comeza ás
         title: Título
       question:
-        description: Descrición
         title: Título
   activerecord:
     models:
