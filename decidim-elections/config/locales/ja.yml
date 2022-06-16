@@ -12,7 +12,6 @@ ja:
         start_time: 投票開始
         title: タイトル
       question:
-        description: 説明
         max_selections: 選択範囲の最大数
         min_selections: 上記のどれでもない
         title: タイトル
