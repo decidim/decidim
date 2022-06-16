@@ -21,6 +21,7 @@ env:
   NODE_VERSION: 16.9.1
   DECIDIM_MODULE: decidim-core
   PARALLEL_TEST_PROCESSORS: 2
+  DECIDIM_SERVICE_WORKER_ENABLED: true
 
 jobs:
   main:
