@@ -7,6 +7,7 @@ module Decidim
         @attribute = attribute
         @form = form.presence || Decidim::RegistrationForm
         @model = model.presence || "Decidim::#{form.model_name.human}".constantize
+        @errors = ["Invalid attribute"] unless valid_attribute?(attribute)
       end
 
       delegate :current_organization, to: :form
@@ -16,6 +17,7 @@ module Decidim
       def valid?
         @valid ||= begin
           form.validate
+          # we don't validate the form but the attribute alone
           errors.blank?
         end
       end
@@ -33,20 +35,27 @@ module Decidim
       end
 
       def error_with_suggestion
+        return error unless suggestion.present?
+
         "#{error}. Try #{suggestion}" unless valid? # TODO: i18n
       end
 
       def suggestion
         @suggestion ||= begin
-          @suggestion = input
+          word = input
           loop do
             break unless valid_suggestor?(attribute)
-            break unless model.exists?(organization: current_organization, attribute => @suggestion)
+            break unless model.exists?(organization: current_organization, attribute => word)
 
-            @suggestion.gsub!(/([^\d.]+)(\d*)/) { "#{$1}#{$2.to_i + 1}" }
+            # reuse and increment a last number if exists
+            word.gsub!(/([^\d.]+)(\d*)/) { "#{$1}#{$2.to_i + 1}" }
           end
-          @suggestion
+          word
         end
+      end
+
+      def valid_attribute?
+        ["nickname", "email", "name", "password"].include? key.to_s
       end
 
       def valid_suggestor?(key)
