@@ -15,6 +15,11 @@ module Decidim
       def call
         response = create_pull_request!
         pull_request_id = JSON.parse(response.body)["number"]
+        unless pull_request_id
+          puts "Pull request could not be created!"
+          puts "Please make sure you have enabled the 'public_repo' scope for the access token"
+          return
+        end
         puts "Pull request created at https://github.com/decidim/decidim/pull/#{pull_request_id}"
 
         # GitHub doesn't support adding labels while creating the PR,
