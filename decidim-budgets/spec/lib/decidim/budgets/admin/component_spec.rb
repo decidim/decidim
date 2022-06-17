@@ -56,7 +56,7 @@ describe "Budgets component" do # rubocop:disable RSpec/DescribeClass
 
       it "updates the component" do
         expect do
-          Decidim::Admin::UpdateComponent.call(form, component)
+          Decidim::Admin::UpdateComponent.call(form, component, current_user)
         end.to broadcast(:ok)
       end
     end
