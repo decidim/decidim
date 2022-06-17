@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim::Admin
   describe CreateParticipatorySpacePrivateUser do
-    subject { described_class.new(form, current_user, privatable_to, via_csv: via_csv) }
+    subject { described_class.new(form, current_user, privatable_to, via_csv:) }
 
     let(:via_csv) { false }
     let(:privatable_to) { create :participatory_process }
@@ -16,8 +16,8 @@ module Decidim::Admin
       double(
         invalid?: invalid,
         delete_current_private_participants?: delete,
-        email: email,
-        name: name
+        email:,
+        name:
       )
     end
     let(:delete) { false }
@@ -35,7 +35,7 @@ module Decidim::Admin
       it "creates the private user" do
         subject.call
 
-        participatory_space_private_users = Decidim::ParticipatorySpacePrivateUser.where(user: user)
+        participatory_space_private_users = Decidim::ParticipatorySpacePrivateUser.where(user:)
 
         expect(participatory_space_private_users.count).to eq 1
       end
@@ -107,7 +107,7 @@ module Decidim::Admin
         it "doesn't get created twice" do
           expect { subject.call }.to broadcast(:ok)
 
-          participatory_space_private_users = Decidim::ParticipatorySpacePrivateUser.where(user: user)
+          participatory_space_private_users = Decidim::ParticipatorySpacePrivateUser.where(user:)
 
           expect(participatory_space_private_users.count).to eq 1
         end

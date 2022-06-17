@@ -83,7 +83,7 @@ module Decidim
             if hashtaggable
               hashtaggable_text_field(type, name, locale, options.merge(label: false))
             elsif type.to_sym == :editor
-              send(type, name_with_locale(name, locale), options.merge(label: false, hashtaggable: hashtaggable))
+              send(type, name_with_locale(name, locale), options.merge(label: false, hashtaggable:))
             else
               send(type, name_with_locale(name, locale), options.merge(label: false))
             end
@@ -199,7 +199,7 @@ module Decidim
         template += label(name, label_text + required_for_attribute(name)) if options.fetch(:label, true)
         template += hidden_field(name, hidden_options)
         template += content_tag(:div, nil, class: "editor-container #{"js-hashtags" if hashtaggable}", data: {
-          toolbar: toolbar,
+          toolbar:,
           disabled: options[:disabled]
         }.merge(editor_images_options(options)), style: "height: #{lines}rem")
         template += error_for(name, options) if error?(name)
@@ -233,7 +233,7 @@ module Decidim
                    []
                  end
 
-      select(name, @template.options_for_select(categories, selected: selected, disabled: disabled), options, html_options)
+      select(name, @template.options_for_select(categories, selected:, disabled:), options, html_options)
     end
 
     # Public: Generates a select field for areas.
@@ -303,7 +303,7 @@ module Decidim
            end
 
       picker_options = {
-        id: id,
+        id:,
         class: "picker-#{options[:multiple] ? "multiple" : "single"}",
         name: "#{@object_name}[#{attribute}]"
       }
@@ -315,9 +315,9 @@ module Decidim
       template = ""
       template += "<label>#{label_for(attribute) + required_for_attribute(attribute)}</label>" unless options[:label] == false
       template += @template.render("decidim/scopes/scopes_picker_input",
-                                   picker_options: picker_options,
-                                   prompt_params: prompt_params,
-                                   scopes: scopes,
+                                   picker_options:,
+                                   prompt_params:,
+                                   scopes:,
                                    values_on_top: !options[:multiple] || options[:checkboxes_on_top])
       template += error_and_help_text(attribute, options)
       template.html_safe
@@ -350,7 +350,7 @@ module Decidim
 
       template = ""
       template += label(attribute, label_for(attribute) + required_for_attribute(attribute)) unless options[:label] == false
-      template += @template.render("decidim/widgets/data_picker", picker_options: picker_options, prompt_params: prompt_params, items: items)
+      template += @template.render("decidim/widgets/data_picker", picker_options:, prompt_params:, items:)
       template += error_and_help_text(attribute, options)
       template.html_safe
     end
@@ -375,10 +375,10 @@ module Decidim
 
       template = text_field(
         attribute,
-        options.merge(data: data)
+        options.merge(data:)
       )
-      help_text = I18n.t("decidim.datepicker.help_text", datepicker_format: datepicker_format)
-      template += error_and_help_text(attribute, options.merge(help_text: help_text))
+      help_text = I18n.t("decidim.datepicker.help_text", datepicker_format:)
+      template += error_and_help_text(attribute, options.merge(help_text:))
       template.html_safe
     end
 
@@ -393,9 +393,9 @@ module Decidim
 
       template = text_field(
         attribute,
-        options.merge(data: data)
+        options.merge(data:)
       )
-      help_text = I18n.t("decidim.datepicker.help_text", datepicker_format: datepicker_format)
+      help_text = I18n.t("decidim.datepicker.help_text", datepicker_format:)
       template += content_tag(:span, help_text, class: "help-text")
       template.html_safe
     end
@@ -454,16 +454,16 @@ module Decidim
       help_messages = options[:help] || upload_help(object, attribute, options)
 
       options = {
-        attribute: attribute,
+        attribute:,
         resource_name: @object_name,
         resource_class: options[:resource_class]&.to_s || resource_class(attribute),
         optional: true,
         titled: false,
         show_current: true,
-        max_file_size: max_file_size,
+        max_file_size:,
         help: help_messages,
         label: label_for(attribute),
-        button_label: button_label,
+        button_label:,
         button_edit_label: I18n.t("decidim.forms.upload.labels.replace")
       }.merge(options)
 
@@ -556,11 +556,11 @@ module Decidim
     # html_options - An optional Hash with options to pass to the html element.
     #
     # Returns a String
-    def field(attribute, options, html_options = nil, &block)
+    def field(attribute, options, html_options = nil, &)
       label = options.delete(:label)
       label_options = options.delete(:label_options)
       custom_label(attribute, label, label_options) do
-        field_with_validations(attribute, options, html_options, &block)
+        field_with_validations(attribute, options, html_options, &)
       end
     end
 
@@ -591,7 +591,7 @@ module Decidim
       content = content.html_safe
 
       html = wrap_prefix_and_postfix(content, prefix, postfix)
-      html + error_and_help_text(attribute, options.merge(help_text: help_text))
+      html + error_and_help_text(attribute, options.merge(help_text:))
     end
 
     # rubocop: disable Metrics/CyclomaticComplexity
@@ -837,7 +837,7 @@ module Decidim
         I18n.t(
           "processors.#{info[:processor]}",
           scope: "decidim.forms.images",
-          dimensions: dimensions
+          dimensions:
         ).html_safe
       end
     end

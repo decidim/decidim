@@ -46,7 +46,7 @@ module Decidim
 
       def questions_for(election)
         if ballot_style.present?
-          ballot_style.questions.where(election: election)
+          ballot_style.questions.where(election:)
         else
           election.questions
         end
@@ -90,9 +90,9 @@ module Decidim
 
       def datum_query
         if login_params
-          { hashed_online_data: Decidim::Votings::Census::LoginForm.from_params(login_params, election: election).hashed_online_data }
+          { hashed_online_data: Decidim::Votings::Census::LoginForm.from_params(login_params, election:).hashed_online_data }
         elsif in_person_params
-          { hashed_in_person_data: Decidim::Votings::Census::InPersonForm.from_params(in_person_params, election: election).hashed_in_person_data }
+          { hashed_in_person_data: Decidim::Votings::Census::InPersonForm.from_params(in_person_params, election:).hashed_in_person_data }
         end
       end
 

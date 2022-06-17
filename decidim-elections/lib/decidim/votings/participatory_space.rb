@@ -8,7 +8,7 @@ Decidim.register_participatory_space(:votings) do |participatory_space|
   participatory_space.query_type = "Decidim::Votings::VotingType"
 
   participatory_space.participatory_spaces do |organization|
-    Decidim::Votings::Voting.where(organization: organization)
+    Decidim::Votings::Voting.where(organization:)
   end
 
   participatory_space.register_resource(:voting) do |resource|
@@ -44,7 +44,7 @@ Decidim.register_participatory_space(:votings) do |participatory_space|
 
     3.times do |n|
       params = {
-        organization: organization,
+        organization:,
         title: Decidim::Faker::Localized.sentence(word_count: 5),
         slug: Decidim::Faker::Internet.unique.slug(words: nil, glue: "-"),
         description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
@@ -77,7 +77,7 @@ Decidim.register_participatory_space(:votings) do |participatory_space|
       unless voting.online_voting?
         3.times do
           params = {
-            voting: voting,
+            voting:,
             title: Decidim::Faker::Localized.sentence(word_count: 5),
             address: Faker::Address.full_address,
             latitude: Faker::Address.latitude,
@@ -95,13 +95,13 @@ Decidim.register_participatory_space(:votings) do |participatory_space|
 
           email = "voting_#{voting.id}_president_#{polling_station.id}@example.org"
 
-          user = Decidim::User.find_or_initialize_by(email: email)
+          user = Decidim::User.find_or_initialize_by(email:)
           user.update!(
             name: Faker::Name.name,
             nickname: Faker::Twitter.unique.screen_name,
             password: "decidim123456",
             password_confirmation: "decidim123456",
-            organization: organization,
+            organization:,
             confirmed_at: Time.current,
             locale: I18n.default_locale,
             tos_agreement: true
@@ -111,8 +111,8 @@ Decidim.register_participatory_space(:votings) do |participatory_space|
             Decidim::Votings::PollingOfficer,
             organization.users.first,
             {
-              voting: voting,
-              user: user,
+              voting:,
+              user:,
               presided_polling_station: polling_station
             },
             visibility: "all"
@@ -124,9 +124,9 @@ Decidim.register_participatory_space(:votings) do |participatory_space|
 
       landing_page_content_blocks.each.with_index(1) do |manifest_name, index|
         Decidim::ContentBlock.create(
-          organization: organization,
+          organization:,
           scope_name: :voting_landing_page,
-          manifest_name: manifest_name,
+          manifest_name:,
           weight: index,
           scoped_resource_id: voting.id,
           published_at: Time.current
@@ -151,8 +151,8 @@ Decidim.register_participatory_space(:votings) do |participatory_space|
         voting.reload.published_elections.finished.each do |election|
           polling_officer = voting.polling_officers.sample
           ps_closure = Decidim::Votings::PollingStationClosure.create!(
-            election: election,
-            polling_officer: polling_officer,
+            election:,
+            polling_officer:,
             polling_station: polling_officer.polling_station,
             signed_at: Time.current,
             phase: :complete
@@ -200,8 +200,8 @@ Decidim.register_participatory_space(:votings) do |participatory_space|
               Decidim::Elections::Result.create!(
                 value: answer_value,
                 closurable: ps_closure,
-                question: question,
-                answer: answer,
+                question:,
+                answer:,
                 result_type: :valid_answers
               )
               question_pending -= answer_value
@@ -212,7 +212,7 @@ Decidim.register_participatory_space(:votings) do |participatory_space|
             Decidim::Elections::Result.create!(
               value: question_pending,
               closurable: ps_closure,
-              question: question,
+              question:,
               answer: nil,
               result_type: :blank_answers
             )
@@ -224,7 +224,7 @@ Decidim.register_participatory_space(:votings) do |participatory_space|
         ballot_style = voting.ballot_styles.create!(code: "DISTRICT#{i}")
         voting.elections.each do |election|
           election.questions.sample(1 + rand(election.questions.count)).each do |question|
-            ballot_style.ballot_style_questions.create!(question: question)
+            ballot_style.ballot_style_questions.create!(question:)
           end
         end
       end

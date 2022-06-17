@@ -14,7 +14,7 @@ describe Decidim::Log::DiffPresenter, type: :helper do
         label: "My field",
         new_value: "New value",
         previous_value: "Previous value",
-        type: type
+        type:
       }
     ]
   end

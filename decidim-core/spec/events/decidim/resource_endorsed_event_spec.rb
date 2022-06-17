@@ -10,7 +10,7 @@ describe Decidim::ResourceEndorsedEvent do
 
   let(:extra) { { endorser_id: author.id } }
   let(:resource) { create :dummy_resource, title: { en: "My super dummy resource" } }
-  let(:endorsement) { create :endorsement, resource: resource, author: author }
+  let(:endorsement) { create :endorsement, resource:, author: }
   let(:resource_path) { resource_locator(resource).path }
   let(:follower) { create(:user, organization: resource.organization) }
   let(:follow) { create(:follow, followable: author, user: follower) }

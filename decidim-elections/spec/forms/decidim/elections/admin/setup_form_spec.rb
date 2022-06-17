@@ -9,7 +9,7 @@ describe Decidim::Elections::Admin::SetupForm do
     {
       current_organization: component.organization,
       current_component: component,
-      election: election,
+      election:,
       current_step: "create_election"
     }
   end
@@ -18,11 +18,11 @@ describe Decidim::Elections::Admin::SetupForm do
   let(:attributes) do
     {
       setup: {
-        trustee_ids: trustee_ids
+        trustee_ids:
       }
     }
   end
-  let!(:trustees) { create_list :trustee, 5, :with_public_key, election: election }
+  let!(:trustees) { create_list :trustee, 5, :with_public_key, election: }
   let(:trustee_ids) { trustees.pluck(:id) }
 
   it { is_expected.to be_valid }

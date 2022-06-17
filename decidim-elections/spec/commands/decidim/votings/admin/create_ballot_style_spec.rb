@@ -16,11 +16,11 @@ module Decidim
         let(:form) do
           double(
             valid?: valid,
-            code: code,
-            question_ids: question_ids,
+            code:,
+            question_ids:,
             current_participatory_space: voting,
             current_user: user,
-            errors: errors
+            errors:
           )
         end
 
@@ -75,7 +75,7 @@ module Decidim
 
         context "when a ballot style with the same code exists" do
           context "when it's in the same voting" do
-            let!(:existing_ballot_style) { create(:ballot_style, voting: voting, code: code) }
+            let!(:existing_ballot_style) { create(:ballot_style, voting:, code:) }
 
             it "is not valid" do
               expect(errors).to receive(:add).with(:code, :taken)
@@ -84,7 +84,7 @@ module Decidim
           end
 
           context "when it's in another voting" do
-            let!(:existing_ballot_style) { create(:ballot_style, code: code) }
+            let!(:existing_ballot_style) { create(:ballot_style, code:) }
 
             it "is valid" do
               expect { subject.call }.to broadcast(:ok)

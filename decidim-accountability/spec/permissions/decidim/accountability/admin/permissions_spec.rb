@@ -83,7 +83,7 @@ describe Decidim::Accountability::Admin::Permissions do
 
   describe "timeline_entry" do
     let(:result) { create :result, component: accountability_component }
-    let(:resource) { create :timeline_entry, result: result }
+    let(:resource) { create :timeline_entry, result: }
     let(:action_subject) { :timeline_entry }
     let(:extra_context) { { timeline_entry: resource } }
 

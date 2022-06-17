@@ -112,7 +112,7 @@ module Decidim
           action_authorized_button_to(
             :endorse,
             destroy_endorsement_url,
-            resource: resource,
+            resource:,
             method: :delete,
             remote: true,
             class: "button #{endorsement_button_classes} active",
@@ -124,7 +124,7 @@ module Decidim
           action_authorized_button_to(
             :endorse,
             path_to_create_endorsement(resource),
-            resource: resource,
+            resource:,
             remote: true,
             class: "button #{endorsement_button_classes}",
             id: "endorsement_button"
@@ -171,7 +171,7 @@ module Decidim
     def render_user_login_button
       action_authorized_button_to(:endorse,
                                   path_to_create_endorsement(resource),
-                                  resource: resource,
+                                  resource:,
                                   class: "button #{endorsement_button_classes}") do
         endorse_translated + render_screen_reader_context_title
       end
@@ -190,7 +190,7 @@ module Decidim
     end
 
     def current_user_and_allowed?
-      current_user && allowed_to?(:create, :endorsement, resource: resource)
+      current_user && allowed_to?(:create, :endorsement, resource:)
     end
 
     def user_has_verified_groups?

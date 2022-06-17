@@ -2,8 +2,8 @@
 
 shared_examples "comments" do
   let!(:organization) { create(:organization) }
-  let!(:user) { create(:user, :confirmed, organization: organization) }
-  let!(:comments) { create_list(:comment, 3, commentable: commentable) }
+  let!(:user) { create(:user, :confirmed, organization:) }
+  let!(:comments) { create_list(:comment, 3, commentable:) }
 
   before do
     switch_to_host(organization.host)
@@ -28,8 +28,8 @@ shared_examples "comments" do
   end
 
   it "allows user to sort the comments", :slow do
-    comment = create(:comment, commentable: commentable, body: "Most Rated Comment")
-    create(:comment_vote, comment: comment, author: user, weight: 1)
+    comment = create(:comment, commentable:, body: "Most Rated Comment")
+    create(:comment_vote, comment:, author: user, weight: 1)
 
     visit resource_path
 
@@ -399,7 +399,7 @@ shared_examples "comments" do
 
     context "when the user is writing a new comment while someone else comments" do
       let(:new_comment_body) { "Hey, I just jumped in the conversation!" }
-      let(:new_comment) { build(:comment, commentable: commentable, body: new_comment_body) }
+      let(:new_comment) { build(:comment, commentable:, body: new_comment_body) }
 
       before do
         within ".add-comment form" do
@@ -450,7 +450,7 @@ shared_examples "comments" do
       let(:user_group) { create(:user_group, :verified) }
 
       before do
-        create(:user_group_membership, user: user, user_group: user_group)
+        create(:user_group_membership, user:, user_group:)
       end
 
       it "adds new comment as a user group" do
@@ -470,14 +470,14 @@ shared_examples "comments" do
 
     context "when a user deletes a comment" do
       let(:comment_body) { "This comment is a mistake" }
-      let!(:comment) { create(:comment, body: comment_body, commentable: commentable, author: comment_author) }
+      let!(:comment) { create(:comment, body: comment_body, commentable:, author: comment_author) }
 
       before do
         visit resource_path
       end
 
       context "when the comment is not authored by user" do
-        let!(:comment_author) { create(:user, :confirmed, organization: organization) }
+        let!(:comment_author) { create(:user, :confirmed, organization:) }
 
         it "the context menu of the comment doesn't show a delete link" do
           within "#comment_#{comment.id}" do
@@ -532,14 +532,14 @@ shared_examples "comments" do
 
     context "when a user edits a comment" do
       let(:comment_body) { "This coment has a typo" }
-      let!(:comment) { create(:comment, body: comment_body, commentable: commentable, author: comment_author) }
+      let!(:comment) { create(:comment, body: comment_body, commentable:, author: comment_author) }
 
       before do
         visit resource_path
       end
 
       context "when the comment is not authored by user" do
-        let!(:comment_author) { create(:user, :confirmed, organization: organization) }
+        let!(:comment_author) { create(:user, :confirmed, organization:) }
 
         it "the context menu of the comment doesn't show an edit button" do
           within "#comment_#{comment.id}" do
@@ -590,8 +590,8 @@ shared_examples "comments" do
     end
 
     context "when a user replies to a comment", :slow do
-      let!(:comment_author) { create(:user, :confirmed, organization: organization) }
-      let!(:comment) { create(:comment, commentable: commentable, author: comment_author) }
+      let!(:comment_author) { create(:user, :confirmed, organization:) }
+      let!(:comment) { create(:comment, commentable:, author: comment_author) }
 
       it "shows reply to the user" do
         visit resource_path
@@ -617,7 +617,7 @@ shared_examples "comments" do
     end
 
     context "when a comment has been moderated" do
-      let!(:parent) { create(:comment, commentable: commentable) }
+      let!(:parent) { create(:comment, commentable:) }
       let!(:reply) { create(:comment, commentable: parent, root_commentable: commentable) }
 
       it "doesn't show additional reply" do
@@ -707,7 +707,7 @@ shared_examples "comments" do
       end
 
       context "when mentioning a valid user" do
-        let!(:mentioned_user) { create(:user, :confirmed, organization: organization) }
+        let!(:mentioned_user) { create(:user, :confirmed, organization:) }
         let(:content) { "A valid user mention: @#{mentioned_user.nickname}" }
 
         context "when text finish with a mention" do
@@ -726,7 +726,7 @@ shared_examples "comments" do
       end
 
       context "when mentioning a non valid user" do
-        let!(:mentioned_user) { create(:user, organization: organization) }
+        let!(:mentioned_user) { create(:user, organization:) }
         let(:content) { "A unconfirmed user mention: @#{mentioned_user.nickname}" }
 
         it "do not show the tribute container" do
@@ -735,7 +735,7 @@ shared_examples "comments" do
       end
 
       context "when mentioning a group" do
-        let!(:mentioned_group) { create(:user_group, :confirmed, organization: organization) }
+        let!(:mentioned_group) { create(:user_group, :confirmed, organization:) }
         let(:content) { "A confirmed user group mention: @#{mentioned_group.nickname}" }
 
         it "shows the tribute container" do
@@ -755,7 +755,7 @@ shared_examples "comments" do
       end
 
       context "when mentioning a valid user" do
-        let!(:mentioned_user) { create(:user, :confirmed, organization: organization) }
+        let!(:mentioned_user) { create(:user, :confirmed, organization:) }
         # do not finish with the mention to avoid trigger the drop-down
         let(:content) { "A valid user mention: @#{mentioned_user.nickname}." }
 

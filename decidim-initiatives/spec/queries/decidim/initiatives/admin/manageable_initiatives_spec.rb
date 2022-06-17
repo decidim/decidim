@@ -10,20 +10,20 @@ module Decidim
 
         let!(:organization) { create(:organization) }
 
-        let!(:author) { create(:user, organization: organization) }
-        let!(:promoter) { create(:user, organization: organization) }
-        let!(:admin) { create(:user, :admin, organization: organization) }
+        let!(:author) { create(:user, organization:) }
+        let!(:promoter) { create(:user, organization:) }
+        let!(:admin) { create(:user, :admin, organization:) }
 
         let!(:author_initiatives) do
-          create_list(:initiative, 3, organization: organization, author: author)
+          create_list(:initiative, 3, organization:, author:)
         end
         let!(:promoter_initiatives) do
-          create_list(:initiative, 3, organization: organization).each do |initiative|
-            create(:initiatives_committee_member, initiative: initiative, user: promoter)
+          create_list(:initiative, 3, organization:).each do |initiative|
+            create(:initiatives_committee_member, initiative:, user: promoter)
           end
         end
         let!(:admin_initiatives) do
-          create_list(:initiative, 3, organization: organization, author: admin)
+          create_list(:initiative, 3, organization:, author: admin)
         end
 
         context "when initiative authors" do

@@ -106,7 +106,7 @@ Decidim.register_component(:meetings) do |component|
       name: Decidim::Components::Namer.new(participatory_space.organization.available_locales, :meetings).i18n_name,
       published_at: Time.current,
       manifest_name: :meetings,
-      participatory_space: participatory_space
+      participatory_space:
     }
 
     component = Decidim.traceability.perform_action!(
@@ -130,7 +130,7 @@ Decidim.register_component(:meetings) do |component|
       start_time = [rand(1..20).weeks.from_now, rand(1..20).weeks.ago].sample
       end_time = start_time + [rand(1..4).hours, rand(1..20).days].sample
       params = {
-        component: component,
+        component:,
         scope: Faker::Boolean.boolean(true_ratio: 0.5) ? global : scopes.sample,
         category: participatory_space.categories.sample,
         title: Decidim::Faker::Localized.sentence(word_count: 2),
@@ -139,8 +139,8 @@ Decidim.register_component(:meetings) do |component|
         end,
         location: Decidim::Faker::Localized.sentence,
         location_hints: Decidim::Faker::Localized.sentence,
-        start_time: start_time,
-        end_time: end_time,
+        start_time:,
+        end_time:,
         address: "#{Faker::Address.street_address} #{Faker::Address.zip} #{Faker::Address.city}",
         latitude: Faker::Address.latitude,
         longitude: Faker::Address.longitude,
@@ -184,7 +184,7 @@ Decidim.register_component(:meetings) do |component|
 
       2.times do
         Decidim::Meetings::Service.create!(
-          meeting: meeting,
+          meeting:,
           title: Decidim::Faker::Localized.sentence(word_count: 2),
           description: Decidim::Faker::Localized.sentence(word_count: 5)
         )
@@ -204,12 +204,12 @@ Decidim.register_component(:meetings) do |component|
       2.times do |n|
         email = "meeting-registered-user-#{meeting.id}-#{n}@example.org"
         name = "#{Faker::Name.name} #{meeting.id} #{n}"
-        user = Decidim::User.find_or_initialize_by(email: email)
+        user = Decidim::User.find_or_initialize_by(email:)
 
         user.update!(
           password: "decidim123456",
           password_confirmation: "decidim123456",
-          name: name,
+          name:,
           nickname: Faker::Twitter.unique.screen_name,
           organization: component.organization,
           tos_agreement: "1",
@@ -219,8 +219,8 @@ Decidim.register_component(:meetings) do |component|
         )
 
         Decidim::Meetings::Registration.create!(
-          meeting: meeting,
-          user: user
+          meeting:,
+          user:
         )
       end
 
@@ -233,7 +233,7 @@ Decidim.register_component(:meetings) do |component|
       Decidim::Attachment.create!(
         title: Decidim::Faker::Localized.sentence(word_count: 2),
         description: Decidim::Faker::Localized.sentence(word_count: 5),
-        attachment_collection: attachment_collection,
+        attachment_collection:,
         attached_to: meeting,
         content_type: "application/pdf",
         file: ActiveStorage::Blob.create_and_upload!(
@@ -284,7 +284,7 @@ Decidim.register_component(:meetings) do |component|
 
       start_time = [rand(1..20).weeks.from_now, rand(1..20).weeks.ago].sample
       params = {
-        component: component,
+        component:,
         scope: Faker::Boolean.boolean(true_ratio: 0.5) ? global : scopes.sample,
         category: participatory_space.categories.sample,
         title: Decidim::Faker::Localized.sentence(word_count: 2),
@@ -293,15 +293,15 @@ Decidim.register_component(:meetings) do |component|
         end,
         location: Decidim::Faker::Localized.sentence,
         location_hints: Decidim::Faker::Localized.sentence,
-        start_time: start_time,
+        start_time:,
         end_time: start_time + rand(1..4).hours,
         address: "#{Faker::Address.street_address} #{Faker::Address.zip} #{Faker::Address.city}",
         latitude: Faker::Address.latitude,
         longitude: Faker::Address.longitude,
         registrations_enabled: [true, false].sample,
         available_slots: (10..50).step(10).to_a.sample,
-        author: author,
-        user_group: user_group
+        author:,
+        user_group:
       }
 
       Decidim.traceability.create!(

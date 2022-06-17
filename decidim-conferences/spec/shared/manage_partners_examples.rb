@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 shared_examples "manage partners examples" do
-  let!(:conference_partner) { create(:partner, conference: conference) }
+  let!(:conference_partner) { create(:partner, conference:) }
 
   before do
     switch_to_host(organization.host)

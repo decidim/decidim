@@ -7,8 +7,8 @@ module Decidim
     shared_examples_for "UpdateCategory command" do
       describe "call" do
         let(:organization) { create(:organization) }
-        let(:user) { create(:user, organization: organization) }
-        let(:category) { create(:category, participatory_space: participatory_space) }
+        let(:user) { create(:user, organization:) }
+        let(:category) { create(:category, participatory_space:) }
         let(:form_params) do
           {
             "category" => {

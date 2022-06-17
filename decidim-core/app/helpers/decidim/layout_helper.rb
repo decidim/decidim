@@ -122,10 +122,10 @@ module Decidim
       active_item = items.find { |item| item[:active] }
 
       controller.view_context.render partial: "decidim/shared/extended_navigation_bar", locals: {
-        items: items,
-        extra_items: extra_items,
-        active_item: active_item,
-        max_items: max_items
+        items:,
+        extra_items:,
+        active_item:,
+        max_items:
       }
     end
 
@@ -148,7 +148,7 @@ module Decidim
     # background-color: rgba(var(--primary-rgb), 0.5)
     def organization_colors
       css = current_organization.colors.each.map { |k, v| "--#{k}: #{v};--#{k}-rgb: #{v[1..2].hex},#{v[3..4].hex},#{v[5..6].hex};" }.join
-      render partial: "layouts/decidim/organization_colors", locals: { css: css }
+      render partial: "layouts/decidim/organization_colors", locals: { css: }
     end
 
     private

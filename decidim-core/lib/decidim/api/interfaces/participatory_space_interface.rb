@@ -23,7 +23,7 @@ module Decidim
       end
 
       def components(filter: {}, order: {})
-        ComponentList.new.call(object, { filter: filter, order: order }, context)
+        ComponentList.new.call(object, { filter:, order: }, context)
       end
 
       field :stats, [Decidim::Core::StatisticType, { null: true }], null: true

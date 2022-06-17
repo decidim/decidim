@@ -4,7 +4,7 @@ require "spec_helper"
 
 describe "Initiative", type: :system do
   let(:organization) { create :organization, available_authorizations: ["dummy_authorization_handler"] }
-  let!(:authorized_user) { create(:user, :confirmed, organization: organization) }
+  let!(:authorized_user) { create(:user, :confirmed, organization:) }
   let!(:authorization) { create(:authorization, user: authorized_user) }
   let(:login) { true }
 
@@ -95,12 +95,12 @@ describe "Initiative", type: :system do
       let(:initiative_type_promoting_committee_enabled) { true }
       let(:initiative_type) do
         create(:initiatives_type,
-               organization: organization,
+               organization:,
                minimum_committee_members: initiative_type_minimum_committee_members,
                promoting_committee_enabled: initiative_type_promoting_committee_enabled,
-               signature_type: signature_type)
+               signature_type:)
       end
-      let!(:other_initiative_type) { create(:initiatives_type, organization: organization) }
+      let!(:other_initiative_type) { create(:initiatives_type, organization:) }
       let!(:initiative_type_scope) { create(:initiatives_type_scope, type: initiative_type) }
       let!(:other_initiative_type_scope) { create(:initiatives_type_scope, type: initiative_type) }
 
@@ -183,7 +183,7 @@ describe "Initiative", type: :system do
       end
 
       context "when Show similar initiatives" do
-        let!(:initiative) { create(:initiative, organization: organization) }
+        let!(:initiative) { create(:initiative, organization:) }
 
         before do
           find_button("I want to promote this initiative").click
@@ -257,7 +257,7 @@ describe "Initiative", type: :system do
 
           context "when only one signature collection and scope are available" do
             let(:other_initiative_type_scope) { nil }
-            let(:initiative_type) { create(:initiatives_type, organization: organization, minimum_committee_members: initiative_type_minimum_committee_members, signature_type: "offline") }
+            let(:initiative_type) { create(:initiatives_type, organization:, minimum_committee_members: initiative_type_minimum_committee_members, signature_type: "offline") }
 
             it "hides and automatically selects the values" do
               expect(page).not_to have_content("Signature collection type")
@@ -282,7 +282,7 @@ describe "Initiative", type: :system do
           end
 
           context "when the initiative type enables custom signature end date" do
-            let(:initiative_type) { create(:initiatives_type, :custom_signature_end_date_enabled, organization: organization, minimum_committee_members: initiative_type_minimum_committee_members, signature_type: "offline") }
+            let(:initiative_type) { create(:initiatives_type, :custom_signature_end_date_enabled, organization:, minimum_committee_members: initiative_type_minimum_committee_members, signature_type: "offline") }
 
             it "shows the signature end date" do
               expect(page).to have_content("End of signature collection period")
@@ -296,7 +296,7 @@ describe "Initiative", type: :system do
           end
 
           context "when the initiative type enables area" do
-            let(:initiative_type) { create(:initiatives_type, :area_enabled, organization: organization, minimum_committee_members: initiative_type_minimum_committee_members, signature_type: "offline") }
+            let(:initiative_type) { create(:initiatives_type, :area_enabled, organization:, minimum_committee_members: initiative_type_minimum_committee_members, signature_type: "offline") }
 
             it "shows the area" do
               expect(page).to have_content("Area")
@@ -306,7 +306,7 @@ describe "Initiative", type: :system do
       end
 
       context "when there's a promoter committee" do
-        let(:initiative) { build(:initiative, organization: organization, scoped_type: initiative_type_scope) }
+        let(:initiative) { build(:initiative, organization:, scoped_type: initiative_type_scope) }
 
         before do
           find_button("I want to promote this initiative").click
@@ -350,7 +350,7 @@ describe "Initiative", type: :system do
         end
 
         context "and it's disabled at the type scope" do
-          let(:initiative_type) { create(:initiatives_type, organization: organization, promoting_committee_enabled: false, signature_type: signature_type) }
+          let(:initiative_type) { create(:initiatives_type, organization:, promoting_committee_enabled: false, signature_type:) }
 
           it "skips the promoting committee settings" do
             expect(page).not_to have_content("Promoter committee")
@@ -398,7 +398,7 @@ describe "Initiative", type: :system do
         end
 
         context "when minimum committee size is zero" do
-          let(:initiative) { build(:initiative, organization: organization, scoped_type: initiative_type_scope) }
+          let(:initiative) { build(:initiative, organization:, scoped_type: initiative_type_scope) }
           let(:initiative_type_minimum_committee_members) { 0 }
 
           it "displays a send to technical validation link" do
@@ -413,7 +413,7 @@ describe "Initiative", type: :system do
         end
 
         context "when promoting committee is not enabled" do
-          let(:initiative) { build(:initiative, organization: organization, scoped_type: initiative_type_scope) }
+          let(:initiative) { build(:initiative, organization:, scoped_type: initiative_type_scope) }
           let(:initiative_type_promoting_committee_enabled) { false }
           let(:initiative_type_minimum_committee_members) { 0 }
 

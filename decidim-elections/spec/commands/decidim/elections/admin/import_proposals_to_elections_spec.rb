@@ -10,15 +10,15 @@ module Decidim
           let!(:proposals) { create_list(:proposal, 3, :accepted) }
           let!(:proposal) { proposals.first }
           let!(:organization) { component.participatory_space.organization }
-          let!(:user) { create :user, :admin, :confirmed, organization: organization }
+          let!(:user) { create :user, :admin, :confirmed, organization: }
           let(:component) do
             create(
               :component, manifest_name: "elections",
                           participatory_space: proposal.component.participatory_space
             )
           end
-          let(:question) { create :question, election: election }
-          let(:election) { create :election, component: component }
+          let(:question) { create :question, election: }
+          let(:election) { create :election, component: }
           let!(:form) do
             instance_double(
               AnswerImportProposalsForm,
@@ -27,8 +27,8 @@ module Decidim
               current_user: user,
               import_all_accepted_proposals?: import_all_accepted_proposals,
               invalid?: invalid,
-              election: election,
-              question: question,
+              election:,
+              question:,
               weight: 10
             )
           end
@@ -59,7 +59,7 @@ module Decidim
             it "creates the answer" do
               expect do
                 command.call
-              end.to change { Decidim::Elections::Answer.where(question: question).count }.by(1)
+              end.to change { Decidim::Elections::Answer.where(question:).count }.by(1)
             end
 
             context "when a proposal was already imported" do
@@ -73,9 +73,9 @@ module Decidim
               it "doesn't import it again" do
                 expect do
                   command.call
-                end.to change { Decidim::Elections::Answer.where(question: question).count }.by(0)
+                end.to change { Decidim::Elections::Answer.where(question:).count }.by(0)
 
-                answers = Decidim::Elections::Answer.where(question: question)
+                answers = Decidim::Elections::Answer.where(question:)
                 first_answer = answers.first
                 last_answer = answers.last
                 expect(first_answer.title).to eq(proposal.title)
@@ -85,7 +85,7 @@ module Decidim
 
             it "links the proposals" do
               command.call
-              last_answer = Decidim::Elections::Answer.where(question: question).last
+              last_answer = Decidim::Elections::Answer.where(question:).last
 
               linked = last_answer.linked_resources(:proposals, "related_proposals")
 
@@ -95,7 +95,7 @@ module Decidim
             it "imports wanted attributes" do
               command.call
 
-              new_answer = Decidim::Elections::Answer.where(question: question).last
+              new_answer = Decidim::Elections::Answer.where(question:).last
               expect(new_answer.title).to eq(proposal.title)
               expect(new_answer.description).to eq(proposal.body)
             end

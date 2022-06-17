@@ -24,7 +24,7 @@ module Decidim
               proposal: Proposal.where(component: current_component)
             ).map(&:proposal)
 
-            expose(proposals: proposals)
+            expose(proposals:)
             render :update_buttons_and_counters
           end
 

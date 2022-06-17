@@ -8,7 +8,7 @@ module Decidim::Conferences
 
     let(:form_klass) { Admin::PartnerForm }
     let!(:conference) { create(:conference) }
-    let(:partner) { create :partner, :main_promotor, conference: conference }
+    let(:partner) { create :partner, :main_promotor, conference: }
     let!(:current_user) { create :user, :confirmed, organization: conference.organization }
     let(:logo) do
       ActiveStorage::Blob.create_and_upload!(
@@ -24,7 +24,7 @@ module Decidim::Conferences
           weight: 2,
           partner_type: "collaborator",
           link: Faker::Internet.url,
-          logo: logo
+          logo:
         }
       }
     end
@@ -32,7 +32,7 @@ module Decidim::Conferences
       form_klass.from_params(
         form_params
       ).with_context(
-        current_user: current_user,
+        current_user:,
         current_organization: conference.organization
       )
     end

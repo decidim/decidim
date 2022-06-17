@@ -5,18 +5,18 @@ require "spec_helper"
 describe Decidim::Initiatives::Permissions do
   subject { described_class.new(user, permission_action, context).permissions.allowed? }
 
-  let(:user) { create :user, organization: organization }
+  let(:user) { create :user, organization: }
   let(:organization) { create :organization }
-  let(:initiative) { create(:initiative, organization: organization) }
+  let(:initiative) { create(:initiative, organization:) }
   let(:context) { {} }
   let(:permission_action) { Decidim::PermissionAction.new(**action) }
 
   shared_examples "votes permissions" do
     let(:organization) { create(:organization, available_authorizations: authorizations) }
     let(:authorizations) { %w(dummy_authorization_handler another_dummy_authorization_handler) }
-    let(:initiative) { create(:initiative, organization: organization) }
+    let(:initiative) { create(:initiative, organization:) }
     let(:context) do
-      { initiative: initiative }
+      { initiative: }
     end
     let(:votes_enabled?) { true }
 
@@ -38,7 +38,7 @@ describe Decidim::Initiatives::Permissions do
 
     context "when user has already voted the initiative" do
       before do
-        create(:initiative_user_vote, initiative: initiative, author: user)
+        create(:initiative_user_vote, initiative:, author: user)
       end
 
       it { is_expected.to be false }
@@ -72,7 +72,7 @@ describe Decidim::Initiatives::Permissions do
 
       context "when user is not fully verified" do
         before do
-          create(:authorization, name: "dummy_authorization_handler", user: user, granted_at: 2.seconds.ago)
+          create(:authorization, name: "dummy_authorization_handler", user:, granted_at: 2.seconds.ago)
         end
 
         it { is_expected.to be false }
@@ -80,8 +80,8 @@ describe Decidim::Initiatives::Permissions do
 
       context "when user is fully verified" do
         before do
-          create(:authorization, name: "dummy_authorization_handler", user: user, granted_at: 2.seconds.ago)
-          create(:authorization, name: "another_dummy_authorization_handler", user: user, granted_at: 2.seconds.ago)
+          create(:authorization, name: "dummy_authorization_handler", user:, granted_at: 2.seconds.ago)
+          create(:authorization, name: "another_dummy_authorization_handler", user:, granted_at: 2.seconds.ago)
         end
 
         it { is_expected.to be true }
@@ -98,47 +98,47 @@ describe Decidim::Initiatives::Permissions do
   end
 
   context "when reading an initiative" do
-    let(:initiative) { create(:initiative, :discarded, organization: organization) }
+    let(:initiative) { create(:initiative, :discarded, organization:) }
     let(:action) do
       { scope: :public, action: :read, subject: :initiative }
     end
     let(:context) do
-      { initiative: initiative }
+      { initiative: }
     end
 
     context "when initiative is published" do
-      let(:initiative) { create(:initiative, :published, organization: organization) }
+      let(:initiative) { create(:initiative, :published, organization:) }
 
       it { is_expected.to be true }
     end
 
     context "when initiative is rejected" do
-      let(:initiative) { create(:initiative, :rejected, organization: organization) }
+      let(:initiative) { create(:initiative, :rejected, organization:) }
 
       it { is_expected.to be true }
     end
 
     context "when initiative is accepted" do
-      let(:initiative) { create(:initiative, :accepted, organization: organization) }
+      let(:initiative) { create(:initiative, :accepted, organization:) }
 
       it { is_expected.to be true }
     end
 
     context "when user is admin" do
-      let(:user) { create :user, :admin, organization: organization }
+      let(:user) { create :user, :admin, organization: }
 
       it { is_expected.to be true }
     end
 
     context "when user is author of the initiative" do
-      let(:initiative) { create(:initiative, author: user, organization: organization) }
+      let(:initiative) { create(:initiative, author: user, organization:) }
 
       it { is_expected.to be true }
     end
 
     context "when user is committee member of the initiative" do
       before do
-        create(:initiatives_committee_member, initiative: initiative, user: user)
+        create(:initiatives_committee_member, initiative:, user:)
       end
 
       it { is_expected.to be true }
@@ -150,48 +150,48 @@ describe Decidim::Initiatives::Permissions do
   end
 
   context "when listing committee members of the initiative as author" do
-    let(:initiative) { create(:initiative, organization: organization, author: user) }
+    let(:initiative) { create(:initiative, organization:, author: user) }
     let(:action) do
       { scope: :public, action: :index, subject: :initiative_committee_member }
     end
     let(:context) do
-      { initiative: initiative }
+      { initiative: }
     end
 
     it { is_expected.to be true }
   end
 
   context "when approving committee member of the initiative as author" do
-    let(:initiative) { create(:initiative, organization: organization, author: user) }
+    let(:initiative) { create(:initiative, organization:, author: user) }
     let(:action) do
       { scope: :public, action: :approve, subject: :initiative_committee_member }
     end
     let(:context) do
-      { initiative: initiative }
+      { initiative: }
     end
 
     it { is_expected.to be true }
   end
 
   context "when revoking committee member of the initiative as author" do
-    let(:initiative) { create(:initiative, organization: organization, author: user) }
+    let(:initiative) { create(:initiative, organization:, author: user) }
     let(:action) do
       { scope: :public, action: :revoke, subject: :initiative_committee_member }
     end
     let(:context) do
-      { initiative: initiative }
+      { initiative: }
     end
 
     it { is_expected.to be true }
   end
 
   context "when sending initiative to technical validation as author" do
-    let(:initiative) { create(:initiative, state: :created, organization: organization) }
+    let(:initiative) { create(:initiative, state: :created, organization:) }
     let(:action) do
       { scope: :public, action: :send_to_technical_validation, subject: :initiative }
     end
     let(:context) do
-      { initiative: initiative }
+      { initiative: }
     end
 
     it { is_expected.to be true }
@@ -223,7 +223,7 @@ describe Decidim::Initiatives::Permissions do
 
       context "when user is authorized" do
         before do
-          create :authorization, :granted, user: user
+          create :authorization, :granted, user:
         end
 
         it { is_expected.to be true }
@@ -258,34 +258,34 @@ describe Decidim::Initiatives::Permissions do
         { scope: :public, action: :edit, subject: :initiative }
       end
       let(:context) do
-        { initiative: initiative }
+        { initiative: }
       end
 
       context "when initiative is not created" do
-        let(:initiative) { create(:initiative, author: user, organization: organization) }
+        let(:initiative) { create(:initiative, author: user, organization:) }
 
         it { is_expected.to be false }
       end
 
       context "when user is a committee member" do
-        let(:initiative) { create(:initiative, :created, organization: organization) }
+        let(:initiative) { create(:initiative, :created, organization:) }
 
         before do
-          create(:initiatives_committee_member, initiative: initiative, user: user)
+          create(:initiatives_committee_member, initiative:, user:)
         end
 
         it { is_expected.to be true }
       end
 
       context "when user is not an initiative author" do
-        let(:initiative) { create(:initiative, :created, organization: organization) }
+        let(:initiative) { create(:initiative, :created, organization:) }
 
         it { is_expected.to be false }
       end
 
       context "when user is admin" do
-        let(:user) { create :user, :admin, organization: organization }
-        let(:initiative) { create(:initiative, :created, author: user, organization: organization) }
+        let(:user) { create :user, :admin, organization: }
+        let(:initiative) { create(:initiative, :created, author: user, organization:) }
 
         it { is_expected.to be true }
       end
@@ -297,34 +297,34 @@ describe Decidim::Initiatives::Permissions do
         { scope: :public, action: :edit, subject: :initiative }
       end
       let(:context) do
-        { initiative: initiative }
+        { initiative: }
       end
 
       context "when initiative is not created" do
-        let(:initiative) { create(:initiative, organization: organization) }
+        let(:initiative) { create(:initiative, organization:) }
 
         it { is_expected.to be false }
       end
 
       context "when user is a committee member" do
-        let(:initiative) { create(:initiative, :created, organization: organization) }
+        let(:initiative) { create(:initiative, :created, organization:) }
 
         before do
-          create(:initiatives_committee_member, user: user, initiative: initiative)
+          create(:initiatives_committee_member, user:, initiative:)
         end
 
         it { is_expected.to be true }
       end
 
       context "when user is not an initiative author" do
-        let(:initiative) { create(:initiative, :created, organization: organization) }
+        let(:initiative) { create(:initiative, :created, organization:) }
 
         it { is_expected.to be false }
       end
 
       context "when user is admin" do
-        let(:user) { create :user, :admin, organization: organization }
-        let(:initiative) { create(:initiative, :created, author: user, organization: organization) }
+        let(:user) { create :user, :admin, organization: }
+        let(:initiative) { create(:initiative, :created, author: user, organization:) }
 
         it { is_expected.to be true }
       end
@@ -335,26 +335,26 @@ describe Decidim::Initiatives::Permissions do
     let(:action) do
       { scope: :public, action: :request_membership, subject: :initiative }
     end
-    let(:initiative) { create(:initiative, :discarded, organization: organization) }
+    let(:initiative) { create(:initiative, :discarded, organization:) }
     let(:context) do
-      { initiative: initiative }
+      { initiative: }
     end
 
     context "when initiative is published" do
-      let(:initiative) { create(:initiative, :published, organization: organization) }
+      let(:initiative) { create(:initiative, :published, organization:) }
 
       it { is_expected.to be false }
     end
 
     context "when initiative is not published" do
       context "when user is member" do
-        let(:initiative) { create(:initiative, :discarded, author: user, organization: organization) }
+        let(:initiative) { create(:initiative, :discarded, author: user, organization:) }
 
         it { is_expected.to be false }
       end
 
       context "when user is not a member" do
-        let(:initiative) { create(:initiative, :discarded, organization: organization) }
+        let(:initiative) { create(:initiative, :discarded, organization:) }
 
         it { is_expected.to be false }
 
@@ -370,7 +370,7 @@ describe Decidim::Initiatives::Permissions do
 
         context "when user is authorized" do
           before do
-            create :authorization, :granted, user: user
+            create :authorization, :granted, user:
           end
 
           it { is_expected.to be true }
@@ -408,7 +408,7 @@ describe Decidim::Initiatives::Permissions do
           { scope: :public, action: :sign_initiative, subject: :initiative }
         end
         let(:context) do
-          { initiative: initiative, signature_has_steps: true }
+          { initiative:, signature_has_steps: true }
         end
       end
     end
@@ -416,13 +416,13 @@ describe Decidim::Initiatives::Permissions do
     context "when initiative signature doesn't have steps" do
       let(:organization) { create(:organization, available_authorizations: authorizations) }
       let(:authorizations) { %w(dummy_authorization_handler another_dummy_authorization_handler) }
-      let(:initiative) { create(:initiative, organization: organization) }
+      let(:initiative) { create(:initiative, organization:) }
       let(:votes_enabled?) { true }
       let(:action) do
         { scope: :public, action: :sign_initiative, subject: :initiative }
       end
       let(:context) do
-        { initiative: initiative, signature_has_steps: false }
+        { initiative:, signature_has_steps: false }
       end
 
       before do
@@ -453,8 +453,8 @@ describe Decidim::Initiatives::Permissions do
 
         context "when user is fully verified" do
           before do
-            create(:authorization, name: "dummy_authorization_handler", user: user, granted_at: 2.seconds.ago)
-            create(:authorization, name: "another_dummy_authorization_handler", user: user, granted_at: 2.seconds.ago)
+            create(:authorization, name: "dummy_authorization_handler", user:, granted_at: 2.seconds.ago)
+            create(:authorization, name: "another_dummy_authorization_handler", user:, granted_at: 2.seconds.ago)
           end
 
           it { is_expected.to be false }
@@ -467,9 +467,9 @@ describe Decidim::Initiatives::Permissions do
     let(:action) do
       { scope: :public, action: :unvote, subject: :initiative }
     end
-    let(:initiative) { create(:initiative, organization: organization) }
+    let(:initiative) { create(:initiative, organization:) }
     let(:context) do
-      { initiative: initiative }
+      { initiative: }
     end
     let(:votes_enabled?) { true }
     let(:accepts_online_unvotes?) { true }
@@ -504,7 +504,7 @@ describe Decidim::Initiatives::Permissions do
     context "when user has verified user groups" do
       before do
         create :user_group, :verified, users: [user], organization: user.organization
-        create(:initiative_user_vote, initiative: initiative, author: user)
+        create(:initiative_user_vote, initiative:, author: user)
       end
 
       it { is_expected.to be true }

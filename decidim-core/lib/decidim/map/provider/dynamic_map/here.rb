@@ -33,7 +33,7 @@ module Decidim
               )
             end
 
-            base_config.merge(api_key: api_key)
+            base_config.merge(api_key:)
           end
 
           # A builder for the HERE maps which needs to be configured differently

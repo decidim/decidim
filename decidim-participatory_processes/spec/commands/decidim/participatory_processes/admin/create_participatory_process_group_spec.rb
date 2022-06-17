@@ -7,7 +7,7 @@ module Decidim::ParticipatoryProcesses
     subject { described_class.new(form) }
 
     let(:organization) { create :organization }
-    let(:current_user) { create :user, :admin, organization: organization }
+    let(:current_user) { create :user, :admin, organization: }
     let(:errors) { double.as_null_object }
     let(:form) do
       instance_double(
@@ -19,7 +19,7 @@ module Decidim::ParticipatoryProcesses
         group_url: "http://example.org",
         hero_image: nil,
         current_organization: organization,
-        current_user: current_user,
+        current_user:,
         participatory_process_ids: [],
         developer_group: { en: "developer group" },
         local_area: { en: "local area" },

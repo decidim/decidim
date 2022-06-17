@@ -174,9 +174,9 @@ class ChangeLogGenerator
     title = data["title"]
 
     {
-      id: id,
-      title: title,
-      labels: labels,
+      id:,
+      title:,
+      labels:,
       type: labels.select { |l| l.match(/^type: /) || l == "target: developer-experience" },
       modules: labels.select { |l| l.match(/^module: /) }
     }

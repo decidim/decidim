@@ -19,7 +19,7 @@ module Decidim
         link = resource_locator(meeting).path
         description = CGI.unescapeHTML present(meeting).description
         tail = "... #{link_to(t("read_more", scope: "decidim.meetings"), link)}".html_safe
-        CGI.unescapeHTML html_truncate(description, max_length: max_length, tail: tail)
+        CGI.unescapeHTML html_truncate(description, max_length:, tail:)
       end
 
       # Public: The css class applied based on the meeting type to

@@ -7,8 +7,8 @@ describe Decidim::RoleAssignedToAssemblyEvent do
 
   let(:resource) { create :assembly }
   let(:event_name) { "decidim.events.assembly.role_assigned" }
-  let(:role) { create :assembly_user_role, user: user, assembly: resource, role: :admin }
-  let(:extra) { { role: role } }
+  let(:role) { create :assembly_user_role, user:, assembly: resource, role: :admin }
+  let(:extra) { { role: } }
 
   it_behaves_like "a simple event"
 

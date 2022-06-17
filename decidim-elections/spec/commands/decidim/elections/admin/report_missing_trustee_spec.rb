@@ -7,20 +7,20 @@ describe Decidim::Elections::Admin::ReportMissingTrustee do
 
   let(:organization) { create :organization, available_locales: [:en, :ca, :es], default_locale: :en }
   let(:invalid) { false }
-  let(:participatory_process) { create :participatory_process, organization: organization }
+  let(:participatory_process) { create :participatory_process, organization: }
   let(:current_component) { create :component, participatory_space: participatory_process, manifest_name: "elections" }
-  let(:user) { create :user, :admin, :confirmed, organization: organization }
+  let(:user) { create :user, :admin, :confirmed, organization: }
   let(:election) { create :election, :tally_started }
   let(:trustee) { election.trustees.first }
   let(:form) do
     double(
       invalid?: invalid,
-      election: election,
+      election:,
       current_user: user,
-      current_component: current_component,
+      current_component:,
       current_organization: organization,
-      bulletin_board: bulletin_board,
-      trustee: trustee,
+      bulletin_board:,
+      trustee:,
       trustee_id: trustee.id
     )
   end

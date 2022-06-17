@@ -10,7 +10,7 @@ FactoryBot.define do
   factory :budgets_component, parent: :component do
     name { Decidim::Components::Namer.new(participatory_space.organization.available_locales, :budgets).i18n_name }
     manifest_name { :budgets }
-    participatory_space { create(:participatory_process, :with_steps, organization: organization) }
+    participatory_space { create(:participatory_process, :with_steps, organization:) }
 
     trait :with_vote_threshold_percent do
       transient do
@@ -22,10 +22,10 @@ FactoryBot.define do
 
       settings do
         {
-          vote_rule_threshold_percent_enabled: vote_rule_threshold_percent_enabled,
-          vote_rule_minimum_budget_projects_enabled: vote_rule_minimum_budget_projects_enabled,
+          vote_rule_threshold_percent_enabled:,
+          vote_rule_minimum_budget_projects_enabled:,
           vote_rule_selected_projects_enabled: vote_rule_projects_enabled,
-          vote_threshold_percent: vote_threshold_percent
+          vote_threshold_percent:
         }
       end
     end
@@ -40,10 +40,10 @@ FactoryBot.define do
 
       settings do
         {
-          vote_rule_threshold_percent_enabled: vote_rule_threshold_percent_enabled,
-          vote_rule_minimum_budget_projects_enabled: vote_rule_minimum_budget_projects_enabled,
+          vote_rule_threshold_percent_enabled:,
+          vote_rule_minimum_budget_projects_enabled:,
           vote_rule_selected_projects_enabled: vote_rule_projects_enabled,
-          vote_minimum_budget_projects_number: vote_minimum_budget_projects_number
+          vote_minimum_budget_projects_number:
         }
       end
     end
@@ -59,8 +59,8 @@ FactoryBot.define do
 
       settings do
         {
-          vote_rule_threshold_percent_enabled: vote_rule_threshold_percent_enabled,
-          vote_rule_minimum_budget_projects_enabled: vote_rule_minimum_budget_projects_enabled,
+          vote_rule_threshold_percent_enabled:,
+          vote_rule_minimum_budget_projects_enabled:,
           vote_rule_selected_projects_enabled: vote_rule_projects_enabled,
           vote_selected_projects_minimum: vote_minimum_budget_projects_number,
           vote_selected_projects_maximum: vote_maximum_budget_projects_number
@@ -112,7 +112,7 @@ FactoryBot.define do
       end
 
       after(:create) do |budget, evaluator|
-        create_list(:project, evaluator.projects_number, budget: budget)
+        create_list(:project, evaluator.projects_number, budget:)
       end
     end
   end

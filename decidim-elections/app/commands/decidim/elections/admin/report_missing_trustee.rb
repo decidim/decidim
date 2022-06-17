@@ -56,9 +56,9 @@ module Decidim
 
         def create_election_action(message_id)
           Decidim::Elections::Action.create!(
-            election: election,
+            election:,
             action: :report_missing_trustee,
-            message_id: message_id,
+            message_id:,
             status: :pending
           )
         end

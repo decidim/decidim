@@ -10,9 +10,9 @@ describe Decidim::Meetings::Permissions do
   let(:context) do
     {
       current_component: meeting_component,
-      component_settings: component_settings,
-      meeting: meeting,
-      question: question
+      component_settings:,
+      meeting:,
+      question:
     }
   end
   let(:component_settings) do
@@ -21,7 +21,7 @@ describe Decidim::Meetings::Permissions do
   let(:meeting_component) { create :meeting_component }
   let(:meeting) { create :meeting, component: meeting_component }
   let(:permission_action) { Decidim::PermissionAction.new(**action) }
-  let(:poll) { create :poll, meeting: meeting }
+  let(:poll) { create :poll, meeting: }
   let(:poll_questionnaire) { create :meetings_poll_questionnaire, questionnaire_for: poll }
   let(:question) { create :meetings_poll_question, questionnaire: poll_questionnaire }
   let(:registrations_enabled) { true }
@@ -60,7 +60,7 @@ describe Decidim::Meetings::Permissions do
     end
 
     context "when question answered" do
-      let!(:answer) { create :meetings_poll_answer, user: user, question: question, questionnaire: poll_questionnaire }
+      let!(:answer) { create :meetings_poll_answer, user:, question:, questionnaire: poll_questionnaire }
 
       it { is_expected.to be false }
     end
@@ -195,7 +195,7 @@ describe Decidim::Meetings::Permissions do
 
     context "when user has been invited" do
       before do
-        meeting.invites << create(:invite, user: user, meeting: meeting)
+        meeting.invites << create(:invite, user:, meeting:)
       end
 
       it { is_expected.to be true }
@@ -263,7 +263,7 @@ describe Decidim::Meetings::Permissions do
       end
 
       context "when user is the author" do
-        let(:meeting) { create :meeting, author: user, component: meeting_component, closed_at: closed_at }
+        let(:meeting) { create :meeting, author: user, component: meeting_component, closed_at: }
 
         context "when meeting is closed" do
           let(:closed_at) { Time.current }

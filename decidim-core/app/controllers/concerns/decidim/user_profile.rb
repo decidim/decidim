@@ -20,7 +20,7 @@ module Decidim
 
       before_action :current_user
       before_action do
-        enforce_permission_to :update_profile, :user, current_user: current_user
+        enforce_permission_to :update_profile, :user, current_user:
       end
     end
 

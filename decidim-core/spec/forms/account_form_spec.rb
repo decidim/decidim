@@ -6,15 +6,15 @@ module Decidim
   describe AccountForm do
     subject do
       described_class.new(
-        name: name,
-        email: email,
-        nickname: nickname,
-        password: password,
-        password_confirmation: password_confirmation,
-        avatar: avatar,
-        remove_avatar: remove_avatar,
-        personal_url: personal_url,
-        about: about,
+        name:,
+        email:,
+        nickname:,
+        password:,
+        password_confirmation:,
+        avatar:,
+        remove_avatar:,
+        personal_url:,
+        about:,
         locale: "es"
       ).with_context(
         current_organization: organization,
@@ -59,7 +59,7 @@ module Decidim
       end
 
       context "when it's already in use in the same organization" do
-        let!(:existing_user) { create(:user, email: email, organization: organization) }
+        let!(:existing_user) { create(:user, email:, organization:) }
 
         it "is invalid" do
           expect(subject).not_to be_valid
@@ -67,7 +67,7 @@ module Decidim
       end
 
       context "when it's already in use in another organization" do
-        let!(:existing_user) { create(:user, email: email) }
+        let!(:existing_user) { create(:user, email:) }
 
         it "is valid" do
           expect(subject).to be_valid
@@ -85,7 +85,7 @@ module Decidim
       end
 
       context "when it's already in use in the same organization" do
-        let!(:existing_user) { create(:user, nickname: nickname, organization: organization) }
+        let!(:existing_user) { create(:user, nickname:, organization:) }
 
         it "is invalid" do
           expect(subject).not_to be_valid
@@ -93,7 +93,7 @@ module Decidim
       end
 
       context "when it's already in use in another organization" do
-        let!(:existing_user) { create(:user, nickname: nickname) }
+        let!(:existing_user) { create(:user, nickname:) }
 
         it "is valid" do
           expect(subject).to be_valid

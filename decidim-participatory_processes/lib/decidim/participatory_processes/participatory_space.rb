@@ -49,7 +49,7 @@ Decidim.register_participatory_space(:participatory_processes) do |participatory
   end
 
   participatory_space.register_on_destroy_account do |user|
-    Decidim::ParticipatoryProcessUserRole.where(user: user).destroy_all
+    Decidim::ParticipatoryProcessUserRole.where(user:).destroy_all
   end
 
   participatory_space.seeds do
@@ -57,7 +57,7 @@ Decidim.register_participatory_space(:participatory_processes) do |participatory
     seeds_root = File.join(__dir__, "..", "..", "..", "db", "seeds")
 
     Decidim::ContentBlock.create(
-      organization: organization,
+      organization:,
       weight: 31,
       scope_name: :homepage,
       manifest_name: :highlighted_processes,
@@ -73,7 +73,7 @@ Decidim.register_participatory_space(:participatory_processes) do |participatory
         end,
         hashtag: Faker::Internet.slug,
         group_url: Faker::Internet.url,
-        organization: organization,
+        organization:,
         hero_image: ActiveStorage::Blob.create_and_upload!(
           io: File.open(File.join(seeds_root, "city.jpeg")),
           filename: "hero_image.jpeg",
@@ -94,9 +94,9 @@ Decidim.register_participatory_space(:participatory_processes) do |participatory
     process_groups.each do |process_group|
       landing_page_content_blocks.each.with_index(1) do |manifest_name, index|
         Decidim::ContentBlock.create(
-          organization: organization,
+          organization:,
           scope_name: :participatory_process_group_homepage,
-          manifest_name: manifest_name,
+          manifest_name:,
           weight: index,
           scoped_resource_id: process_group.id,
           published_at: Time.current
@@ -108,7 +108,7 @@ Decidim.register_participatory_space(:participatory_processes) do |participatory
     2.times do
       process_types << Decidim::ParticipatoryProcessType.create!(
         title: Decidim::Faker::Localized.word,
-        organization: organization
+        organization:
       )
     end
 
@@ -124,7 +124,7 @@ Decidim.register_participatory_space(:participatory_processes) do |participatory
         description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
           Decidim::Faker::Localized.paragraph(sentence_count: 3)
         end,
-        organization: organization,
+        organization:,
         hero_image: ActiveStorage::Blob.create_and_upload!(
           io: File.open(File.join(seeds_root, "city.jpeg")),
           filename: "hero_image.jpeg",
@@ -178,22 +178,22 @@ Decidim.register_participatory_space(:participatory_processes) do |participatory
       Decidim::ParticipatoryProcessUserRole::ROLES.each do |role|
         email = "participatory_process_#{process.id}_#{role}@example.org"
 
-        user = Decidim::User.find_or_initialize_by(email: email)
+        user = Decidim::User.find_or_initialize_by(email:)
         user.update!(
           name: Faker::Name.name,
           nickname: Faker::Twitter.unique.screen_name,
           password: "decidim123456",
           password_confirmation: "decidim123456",
-          organization: organization,
+          organization:,
           confirmed_at: Time.current,
           locale: I18n.default_locale,
           tos_agreement: true
         )
 
         Decidim::ParticipatoryProcessUserRole.find_or_create_by!(
-          user: user,
+          user:,
           participatory_process: process,
-          role: role
+          role:
         )
       end
 
@@ -206,7 +206,7 @@ Decidim.register_participatory_space(:participatory_processes) do |participatory
       Decidim::Attachment.create!(
         title: Decidim::Faker::Localized.sentence(word_count: 2),
         description: Decidim::Faker::Localized.sentence(word_count: 5),
-        attachment_collection: attachment_collection,
+        attachment_collection:,
         content_type: "application/pdf",
         attached_to: process,
         file: ActiveStorage::Blob.create_and_upload!(

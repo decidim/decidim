@@ -9,11 +9,11 @@ module Decidim::Conferences
     let!(:organization) { create(:organization) }
 
     let!(:published_conferences) do
-      create_list(:conference, 3, :published, organization: organization)
+      create_list(:conference, 3, :published, organization:)
     end
 
     let!(:unpublished_conferences) do
-      create_list(:conference, 3, :unpublished, organization: organization)
+      create_list(:conference, 3, :unpublished, organization:)
     end
 
     let!(:foreign_conferences) do

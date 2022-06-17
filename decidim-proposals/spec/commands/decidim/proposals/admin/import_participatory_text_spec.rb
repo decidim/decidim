@@ -21,12 +21,12 @@ module Decidim
           let(:form) do
             instance_double(
               ImportParticipatoryTextForm,
-              current_component: current_component,
+              current_component:,
               title: {},
               description: {},
               document: form_doc,
               document_text: document_file,
-              document_type: document_type,
+              document_type:,
               current_user: create(:user),
               valid?: valid
             )

@@ -14,7 +14,7 @@ describe PasswordValidator do
         email: ::Faker::Internet.email,
         nickname: ::Faker::Internet.username(specifier: 10..15),
         current_organization: organization,
-        errors: errors
+        errors:
       )
     end
     let(:attribute) { "password" }

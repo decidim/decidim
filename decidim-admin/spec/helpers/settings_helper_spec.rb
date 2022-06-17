@@ -5,7 +5,7 @@ require "spec_helper"
 module Decidim
   module Admin
     describe SettingsHelper do
-      let(:options) { { label: "A test", readonly: readonly } }
+      let(:options) { { label: "A test", readonly: } }
       let(:readonly) { false }
       let(:type) { :boolean }
       let(:name) { :test }
@@ -15,10 +15,10 @@ module Decidim
       let(:choices) { [] }
       let(:attribute) do
         Decidim::SettingsManifest::Attribute.new(
-          type: type,
+          type:,
           translated?: false,
           editor?: false,
-          choices: choices
+          choices:
         )
       end
 

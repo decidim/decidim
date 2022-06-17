@@ -43,7 +43,7 @@ module Decidim
       weight = first_weight
       # Add the weights first to the old document
       @form.documents.each do |document|
-        document.update!(weight: weight)
+        document.update!(weight:)
         weight += 1
       end
       @documents.map! do |document|

@@ -18,8 +18,8 @@ module Decidim
         let(:serialized) { subject.serialize }
 
         context "when question is files" do
-          let!(:question) { create :questionnaire_question, questionnaire: questionnaire, question_type: :files }
-          let!(:answer) { create :answer, :with_attachments, questionnaire: questionnaire, question: question, user: user }
+          let!(:question) { create :questionnaire_question, questionnaire:, question_type: :files }
+          let!(:answer) { create :answer, :with_attachments, questionnaire:, question:, user: }
 
           it "includes the answer id" do
             expect(serialized).to include(id: answer.id)
@@ -67,8 +67,8 @@ module Decidim
         end
 
         context "when question is shortanswer" do
-          let!(:question) { create :questionnaire_question, questionnaire: questionnaire }
-          let!(:answer) { create :answer, questionnaire: questionnaire, question: question, user: user }
+          let!(:question) { create :questionnaire_question, questionnaire: }
+          let!(:answer) { create :answer, questionnaire:, question:, user: }
 
           it "includes the answer id" do
             expect(serialized).to include(id: answer.id)
@@ -116,14 +116,14 @@ module Decidim
         end
 
         context "when question is multiple choice" do
-          let!(:multichoice_question) { create :questionnaire_question, questionnaire: questionnaire, question_type: "multiple_option" }
+          let!(:multichoice_question) { create :questionnaire_question, questionnaire:, question_type: "multiple_option" }
           let!(:multichoice_answer_options) { create_list :answer_option, 2, question: multichoice_question }
           let!(:multichoice_answer) do
-            create :answer, questionnaire: questionnaire, question: multichoice_question, user: user, body: nil
+            create :answer, questionnaire:, question: multichoice_question, user:, body: nil
           end
           let!(:multichoice_answer_choices) do
             multichoice_answer_options.map do |answer_option|
-              create :answer_choice, answer: multichoice_answer, answer_option: answer_option, body: answer_option.body[I18n.locale.to_s]
+              create :answer_choice, answer: multichoice_answer, answer_option:, body: answer_option.body[I18n.locale.to_s]
             end
           end
 
@@ -158,14 +158,14 @@ module Decidim
         end
 
         context "when question is single choice" do
-          let!(:singlechoice_question) { create :questionnaire_question, questionnaire: questionnaire, question_type: "single_option" }
+          let!(:singlechoice_question) { create :questionnaire_question, questionnaire:, question_type: "single_option" }
           let!(:singlechoice_answer_options) { create_list :answer_option, 2, question: singlechoice_question }
           let!(:singlechoice_answer) do
-            create :answer, questionnaire: questionnaire, question: singlechoice_question, user: user, body: nil
+            create :answer, questionnaire:, question: singlechoice_question, user:, body: nil
           end
           let!(:singlechoice_answer_choice) do
             answer_option = singlechoice_answer_options.first
-            create :answer_choice, answer: singlechoice_answer, answer_option: answer_option, body: answer_option.body[I18n.locale.to_s]
+            create :answer_choice, answer: singlechoice_answer, answer_option:, body: answer_option.body[I18n.locale.to_s]
           end
 
           it "includes the answer id" do

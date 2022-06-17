@@ -7,13 +7,13 @@ describe Decidim::ActivityCell, type: :cell do
 
   let(:my_cell) { cell("decidim/activity", model) }
   let(:model) do
-    create(:action_log, action: "publish", visibility: "all", resource: resource, organization: component.organization, participatory_space: component.participatory_space)
+    create(:action_log, action: "publish", visibility: "all", resource:, organization: component.organization, participatory_space: component.participatory_space)
   end
   let(:component) do
     create(:component, :published)
   end
   let(:resource) do
-    create(:dummy_resource, component: component, published_at: published_at)
+    create(:dummy_resource, component:, published_at:)
   end
   let(:published_at) { Time.current }
 
@@ -77,7 +77,7 @@ describe Decidim::ActivityCell, type: :cell do
   end
 
   describe "#cache_hash" do
-    subject { described_class.new(model, context: { controller: controller, show_author: show_author }) }
+    subject { described_class.new(model, context: { controller:, show_author: }) }
 
     let(:controller) { double }
     let(:show_author) { false }

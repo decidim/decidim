@@ -8,7 +8,7 @@ module Decidim
       routes { Decidim::ParticipatoryProcesses::Engine.routes }
 
       let(:organization) { create(:organization) }
-      let!(:process_group) { create :participatory_process_group, organization: organization }
+      let!(:process_group) { create :participatory_process_group, organization: }
 
       describe "GET show" do
         before do

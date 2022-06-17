@@ -45,8 +45,8 @@ shared_examples "comments_reports" do
 
     context "and the user has reported the resource previously" do
       before do
-        moderation = create(:moderation, reportable: reportable, participatory_space: participatory_process)
-        create(:report, moderation: moderation, user: user, reason: "spam")
+        moderation = create(:moderation, reportable:, participatory_space: participatory_process)
+        create(:report, moderation:, user:, reason: "spam")
       end
 
       it "cannot report it twice" do

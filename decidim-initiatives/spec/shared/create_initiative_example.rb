@@ -9,7 +9,7 @@ shared_examples "create an initiative" do
       .from_params(form_params)
       .with_context(
         current_organization: initiative_type.organization,
-        initiative_type: initiative_type
+        initiative_type:
       )
   end
   let(:uploaded_files) { [] }

@@ -6,7 +6,7 @@ module Decidim
   describe Attributes::Model do
     subject { type }
 
-    let(:type) { described_class.new(primitive: primitive) }
+    let(:type) { described_class.new(primitive:) }
     let(:primitive) { ::Object }
 
     describe "#type" do

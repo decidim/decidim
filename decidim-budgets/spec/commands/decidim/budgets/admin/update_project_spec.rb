@@ -7,12 +7,12 @@ module Decidim::Budgets
     subject { described_class.new(form, project) }
 
     let(:budget) { create :budget }
-    let(:project) { create :project, budget: budget }
+    let(:project) { create :project, budget: }
     let(:organization) { budget.component.organization }
-    let(:scope) { create :scope, organization: organization }
+    let(:scope) { create :scope, organization: }
     let(:category) { create :category, participatory_space: budget.component.participatory_space }
     let(:participatory_process) { budget.component.participatory_space }
-    let(:current_user) { create :user, :admin, :confirmed, organization: organization }
+    let(:current_user) { create :user, :admin, :confirmed, organization: }
     let(:uploaded_photos) { [] }
     let(:selected) { nil }
     let(:current_photos) { [] }
@@ -29,14 +29,14 @@ module Decidim::Budgets
     let(:form) do
       double(
         invalid?: invalid,
-        current_user: current_user,
+        current_user:,
         title: { en: "title" },
         description: { en: "description" },
         budget_amount: 10_000_000,
         proposal_ids: proposals.map(&:id),
-        scope: scope,
-        category: category,
-        selected: selected,
+        scope:,
+        category:,
+        selected:,
         photos: current_photos,
         add_photos: uploaded_photos
       )

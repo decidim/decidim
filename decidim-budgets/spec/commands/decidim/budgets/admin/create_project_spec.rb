@@ -7,11 +7,11 @@ module Decidim::Budgets
     subject { described_class.new(form) }
 
     let(:organization) { create :organization, available_locales: [:en] }
-    let(:current_user) { create :user, :admin, :confirmed, organization: organization }
-    let(:participatory_process) { create :participatory_process, organization: organization }
+    let(:current_user) { create :user, :admin, :confirmed, organization: }
+    let(:participatory_process) { create :participatory_process, organization: }
     let(:current_component) { create :component, manifest_name: :budgets, participatory_space: participatory_process }
     let(:budget) { create :budget, component: current_component }
-    let(:scope) { create :scope, organization: organization }
+    let(:scope) { create :scope, organization: }
     let(:category) { create :category, participatory_space: participatory_process }
     let(:uploaded_photos) { [] }
     let(:photos) { [] }
@@ -28,17 +28,17 @@ module Decidim::Budgets
     let(:form) do
       double(
         invalid?: invalid,
-        current_component: current_component,
-        current_user: current_user,
+        current_component:,
+        current_user:,
         title: { en: "title" },
         description: { en: "description" },
         budget_amount: 10_000_000,
         proposal_ids: proposals.map(&:id),
-        scope: scope,
-        category: category,
-        photos: photos,
+        scope:,
+        category:,
+        photos:,
         add_photos: uploaded_photos,
-        budget: budget
+        budget:
       )
     end
     let(:invalid) { false }

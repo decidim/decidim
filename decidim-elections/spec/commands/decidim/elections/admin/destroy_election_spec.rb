@@ -7,7 +7,7 @@ describe Decidim::Elections::Admin::DestroyElection do
 
   let!(:election) { create :election }
   let(:organization) { election.component.organization }
-  let(:user) { create :user, :admin, :confirmed, organization: organization }
+  let(:user) { create :user, :admin, :confirmed, organization: }
 
   it "destroys the election" do
     expect { subject.call }.to change { Decidim::Elections::Election.count }.by(-1)

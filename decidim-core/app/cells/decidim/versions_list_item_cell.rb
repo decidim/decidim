@@ -22,7 +22,7 @@ module Decidim
     end
 
     def i18n_version_index
-      i18n("version_index", index: index)
+      i18n("version_index", index:)
     end
 
     def i18n(string, **params)

@@ -4,15 +4,15 @@ require "spec_helper"
 
 describe "Polling Officer zone", type: :system do
   let(:manifest_name) { "elections" }
-  let(:user) { create(:user, :confirmed, organization: organization) }
-  let!(:election) { create(:election, :complete, :bb_test, :vote, component: component) }
-  let(:polling_station) { create(:polling_station, id: 1, voting: voting) }
-  let!(:polling_officer) { create(:polling_officer, voting: voting, user: user, presided_polling_station: polling_station) }
-  let!(:datum) { create(:datum, dataset: dataset, full_name: "Jon Doe", document_type: "DNI", document_number: "12345678X", birthdate: Date.civil(1980, 5, 11)) }
-  let(:dataset) { create(:dataset, voting: voting) }
+  let(:user) { create(:user, :confirmed, organization:) }
+  let!(:election) { create(:election, :complete, :bb_test, :vote, component:) }
+  let(:polling_station) { create(:polling_station, id: 1, voting:) }
+  let!(:polling_officer) { create(:polling_officer, voting:, user:, presided_polling_station: polling_station) }
+  let!(:datum) { create(:datum, dataset:, full_name: "Jon Doe", document_type: "DNI", document_number: "12345678X", birthdate: Date.civil(1980, 5, 11)) }
+  let(:dataset) { create(:dataset, voting:) }
 
   include_context "with a component" do
-    let(:voting) { create(:voting, :published, organization: organization) }
+    let(:voting) { create(:voting, :published, organization:) }
     let(:participatory_space) { voting }
     let(:organization_traits) { [:secure_context] }
   end
@@ -67,7 +67,7 @@ describe "Polling Officer zone", type: :system do
   it_behaves_like "a polling officer registers an in person vote"
 
   context "when the participant already voted online" do
-    let!(:vote) { create :vote, election: election, voter_id: voter_id }
+    let!(:vote) { create :vote, election:, voter_id: }
     let(:voter_id) { vote_flow.voter_id }
     let(:vote_flow) do
       ret = Decidim::Votings::CensusVoteFlow.new(election)
@@ -82,7 +82,7 @@ describe "Polling Officer zone", type: :system do
   end
 
   context "when the participant already voted in person" do
-    let!(:in_person_vote) { create :in_person_vote, :accepted, election: election, polling_officer: polling_officer, voter_id: voter_id }
+    let!(:in_person_vote) { create :in_person_vote, :accepted, election:, polling_officer:, voter_id: }
     let(:voter_id) { vote_flow.voter_id }
     let(:vote_flow) do
       ret = Decidim::Votings::CensusVoteFlow.new(election)
@@ -108,7 +108,7 @@ describe "Polling Officer zone", type: :system do
   end
 
   context "when there is a pending in person vote to be registered" do
-    let!(:in_person_vote) { create :in_person_vote, election: election, polling_officer: polling_officer }
+    let!(:in_person_vote) { create :in_person_vote, election:, polling_officer: }
 
     it "redirects to the waiting page" do
       click_link "Identify a person"

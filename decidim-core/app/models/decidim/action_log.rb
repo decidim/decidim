@@ -194,7 +194,7 @@ module Decidim
     # when it's necessary.
     def self.lazy_relation(id_method, klass_name, cache)
       klass = klass_name.constantize
-      BatchLoader.for(id_method).batch(cache: cache, key: klass.name.underscore) do |relation_ids, loader|
+      BatchLoader.for(id_method).batch(cache:, key: klass.name.underscore) do |relation_ids, loader|
         scope = klass.where(id: relation_ids)
 
         scope = if klass.include?(Decidim::HasComponent)

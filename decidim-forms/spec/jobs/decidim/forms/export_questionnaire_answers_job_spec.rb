@@ -8,8 +8,8 @@ describe Decidim::Forms::ExportQuestionnaireAnswersJob do
   let!(:user) { create(:user, :admin) }
   let!(:title) { "The answers" }
   let!(:questionnaire) { create(:questionnaire) }
-  let!(:questions) { create_list(:questionnaire_question, 3, questionnaire: questionnaire) }
-  let!(:answers) { questions.map { |q| create(:answer, question: q, questionnaire: questionnaire) } }
+  let!(:questions) { create_list(:questionnaire_question, 3, questionnaire:) }
+  let!(:answers) { questions.map { |q| create(:answer, question: q, questionnaire:) } }
   let!(:collection) { [answers] }
 
   describe "queue" do

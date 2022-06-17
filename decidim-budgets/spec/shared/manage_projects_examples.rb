@@ -68,19 +68,19 @@ shared_examples "manage projects" do
   end
 
   context "when seeing finished and pending votes" do
-    let!(:project) { create(:project, budget_amount: 70_000_000, budget: budget) }
+    let!(:project) { create(:project, budget_amount: 70_000_000, budget:) }
 
     let!(:finished_orders) do
-      orders = create_list(:order, 10, budget: budget)
+      orders = create_list(:order, 10, budget:)
       orders.each do |order|
-        order.update!(line_items: [create(:line_item, project: project, order: order)])
+        order.update!(line_items: [create(:line_item, project:, order:)])
         order.reload
         order.update!(checked_out_at: Time.zone.today)
       end
     end
 
     let!(:pending_orders) do
-      create_list(:order, 5, budget: budget, checked_out_at: nil)
+      create_list(:order, 5, budget:, checked_out_at: nil)
     end
 
     it "shows the order count" do
@@ -124,7 +124,7 @@ shared_examples "manage projects" do
   end
 
   context "when deleting a project" do
-    let!(:project2) { create(:project, budget: budget) }
+    let!(:project2) { create(:project, budget:) }
 
     before do
       visit current_path
@@ -144,7 +144,7 @@ shared_examples "manage projects" do
   end
 
   context "when having existing proposals" do
-    let!(:proposal_component) { create(:proposal_component, participatory_space: participatory_space) }
+    let!(:proposal_component) { create(:proposal_component, participatory_space:) }
     let!(:proposals) { create_list :proposal, 5, component: proposal_component, skip_injection: true }
 
     it "updates a project" do

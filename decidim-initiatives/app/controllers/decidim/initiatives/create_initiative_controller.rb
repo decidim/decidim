@@ -140,7 +140,7 @@ module Decidim
       def extra_context
         return {} unless initiative_type_id
 
-        { initiative_type: initiative_type }
+        { initiative_type: }
       end
 
       def scopes
