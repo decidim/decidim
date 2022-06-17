@@ -148,6 +148,11 @@ sv:
         delete: "%{user_name} tog bort komponenten %{resource_name} från utrymmet %{space_name}"
         publish: "%{user_name} publicerade komponenten %{resource_name} i utrymmet %{space_name}"
         unpublish: "%{user_name} avpublicerade komponenten %{resource_name} från utrymmet %{space_name}"
+      helpers:
+        answers: svar
+        comments: kommentarer
+        projects: projekt
+        results: resultat
       impersonation_log:
         manage: "%{user_name} har hanterat %{resource_name} eftersom %{reason}"
       moderation:
@@ -888,6 +893,7 @@ sv:
       no_user_groups: Tillhör inte någon grupp än.
       roles:
         admin: Administratör
+        creator: Administratör
         member: Medlem
       update:
         error: Det gick inte att uppdatera gruppen
@@ -1094,6 +1100,8 @@ sv:
         translated_text: 'Maskinöversatt text:'
     notifications:
       no_notifications: Inga meddelanden ännu.
+    notifications_digest_mailer:
+      hello: Hej %{name},
     notifications_settings:
       show:
         administrators: Administratörer
@@ -1633,7 +1641,14 @@ sv:
         cookie_details:
           columns:
             name: Namn
+            service: Tjänst
             type: Typ
+          types:
+            cookie: Cookie
+        dialog:
+          cookie_settings: Inställningar
+        modal:
+          save_settings: Spara inställningar
       edit_link:
         edit: Redigera
       footer:
