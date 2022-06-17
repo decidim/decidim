@@ -13,14 +13,14 @@
       ]
 
       buttons.each do |btn| %>
-        <a href="" class="flex gap-2 p-1.5 group rounded hover:bg-background-5" title="<%= btn[1] %>">
+        <a href="" class="flex gap-2 p-1.5 group rounded hover:bg-background-4" title="<%= btn[1] %>">
           <%= icon btn[0], class: "w-6 h-6 md:w-4 md:h-4 flex-none text-gray group-hover:text-secondary fill-current" %>
           <span class="hidden md:block text-sm text-gray-2 first-letter:uppercase group-hover:text-secondary group-hover:font-semibold"><%= btn[1] %></span>
         </a>
       <% end %>
     </div>
 
-    <div class="md:col-span-6 divide-y divide-border-3 -mt-4">
+    <div class="md:col-span-6 divide-y divide-gray-3 -mt-4">
       <%= cell "decidim/activities", activities %>
     </div>
   </div>

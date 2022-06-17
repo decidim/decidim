@@ -9,12 +9,12 @@ validations.each do |validation| %>
 <% end %>
 
 <% if validations.empty? %>
-  <div class="divide-y divide-border-2 -my-4">
+  <div class="divide-y divide-gray-3 -my-4">
     <% public_followings.each do |followable| %>
       <div class="py-4 space-y-2">
         <!-- TODO: translate attribute -->
         <a href="" class="text-lg text-secondary font-semibold hover:underline"><%= followable.title["en"] %></a>
-        <div class="flex items-center divide-x divide-border-3">
+        <div class="flex items-center divide-x divide-gray-3">
           <%
           # TODO: The content will vary regarding the followable type. Ask for the respective icons
 
