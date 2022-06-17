@@ -111,7 +111,7 @@ module Decidim
       alias current_initiative current_participatory_space
 
       def current_participatory_space
-        @current_participatory_space ||= Initiative.find_by!(id: id_from_slug(params[:slug]))
+        @current_participatory_space ||= Initiative.find(id_from_slug(params[:slug]))
       end
 
       def current_participatory_space_manifest
