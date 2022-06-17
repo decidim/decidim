@@ -47,7 +47,7 @@ describe "Explore posts", type: :system do
 
       it "lists 4 resources per page by default" do
         expect(page).to have_css(resource_selector, count: 4)
-        expect(page).to have_css(".pagination .page", count: 3)
+        expect(page).to have_css("[data-pages] [data-page]", count: 3)
       end
     end
   end
