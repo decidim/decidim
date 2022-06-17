@@ -1,5 +1,5 @@
 .label{
-  @apply bg-background-3 text-gray-2 rounded inline-flex items-center gap-1 px-2 font-semibold text-sm;
+  @apply bg-background text-gray-2 rounded inline-flex items-center gap-1 px-2 font-semibold text-sm;
 
   &.green{
     @apply bg-green/20 text-green;
