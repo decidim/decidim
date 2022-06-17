@@ -13,8 +13,11 @@
   </div>
 
   <div class="row">
-    <p>
+    <p class="communication_error">
       <%= t("modal.communication_lost", scope: i18n_scope).html_safe %>
+    </p>
+    <p class="generic_error hide">
+      <%= t("modal.generic_error", scope: i18n_scope).html_safe %>
     </p>
 
     <p class="help-text tech-info"></p>
