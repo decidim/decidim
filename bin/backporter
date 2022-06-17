@@ -21,7 +21,7 @@ class BackporterCLI < Thor
   default_task :backport
 
   def backport
-    Backporter.new(
+    Decidim::Backporter.new(
       token: options[:github_token],
       pull_request_id: options[:pull_request_id],
       version_number: options[:version_number],
