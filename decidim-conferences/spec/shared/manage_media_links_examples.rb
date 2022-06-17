@@ -103,8 +103,8 @@ shared_examples "manage media links examples" do
       visit current_path
     end
 
-    it "lists 15 media links per page by default" do
-      expect(page).to have_css(resource_selector, count: 20)
+    it "lists 10 media links per page by default" do
+      expect(page).to have_css(resource_selector, count: 10)
       expect(page).to have_css(".pagination .page", count: 2)
       click_link "Next"
       expect(page).to have_selector(".pagination .current", text: "2")
