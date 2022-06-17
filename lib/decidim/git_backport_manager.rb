@@ -4,16 +4,17 @@ require "English"
 
 module Decidim
   class GitBackportManager
-    def initialize(pull_request_id:, release_branch:, backport_branch:, working_dir: Dir.pwd)
+    def initialize(pull_request_id:, release_branch:, backport_branch:, working_dir: Dir.pwd, exit_with_unstaged_changes: false)
       @pull_request_id = pull_request_id
       @release_branch = release_branch
       @backport_branch = backport_branch
       @working_dir = working_dir
+      @exit_with_unstaged_changes = exit_with_unstaged_changes
     end
 
     def call
       Dir.chdir(working_dir) do
-        exit_if_unstaged_changes
+        exit_if_unstaged_changes if @exit_with_unstaged_changes
         self.class.checkout_develop
         sha_commit = sha_commit_to_backport
         create_backport_branch!

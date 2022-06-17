@@ -2,10 +2,11 @@
 
 module Decidim
   class Backporter
-    def initialize(token:, pull_request_id:, version_number:)
+    def initialize(token:, pull_request_id:, version_number:, exit_with_unstaged_changes:)
       @token = token
       @pull_request_id = pull_request_id
       @version_number = version_number
+      @exit_with_unstaged_changes = exit_with_unstaged_changes
     end
 
     def call
@@ -17,7 +18,7 @@ module Decidim
 
     private
 
-    attr_reader :token, :pull_request_id, :version_number
+    attr_reader :token, :pull_request_id, :version_number, :exit_with_unstaged_changes
 
     def pull_request_metadata
       Decidim::GithubManager::Querier.new(
@@ -30,7 +31,8 @@ module Decidim
       Decidim::GitBackportManager.new(
         pull_request_id: pull_request_id,
         release_branch: release_branch,
-        backport_branch: backport_branch(metadata[:title])
+        backport_branch: backport_branch(metadata[:title]),
+        exit_with_unstaged_changes: exit_with_unstaged_changes
       ).call
     end
 
