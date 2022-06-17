@@ -8,7 +8,7 @@ validations.each do |validation| %>
 <% end %>
 
 <div class="p-12">
-  <div class="divide-y divide-border-3 -my-4">
+  <div class="divide-y divide-gray-3 -my-4">
     <% notifications.select(&:resource).each do |notification| %>
       <div class="py-4">
         <%= cell("decidim/notification", notification) %>

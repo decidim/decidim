@@ -8,7 +8,7 @@
       Pressupostos Participatius 2020-21
     </span>
   </div>
-  <%= link_to model, remote: true, method: :delete, class: "bg-background-3 rounded flex items-center gap-1 py-1 px-2 text-xs text-secondary transition hover:bg-secondary hover:text-white" do %>
+  <%= link_to model, remote: true, method: :delete, class: "bg-background rounded flex items-center gap-1 py-1 px-2 text-xs text-secondary transition hover:bg-secondary hover:text-white" do %>
     <%= t("mark_as_read", scope: "layouts.decidim.notifications_dashboard") %>
     <%= icon "check-line", class: "fill-current" %>
   <% end %>
