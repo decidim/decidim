@@ -16,7 +16,9 @@ sv:
         title: Titel
       voting:
         end_time: Omröstningen avslutas
+        scope: Omfång
         start_time: Omröstningen börjar
+        title: Titel
     errors:
       models:
         answer:
@@ -44,6 +46,9 @@ sv:
       decidim/elections/question:
         one: Fråga
         other: Frågor
+      decidim/voting:
+        one: Omröstning
+        other: Omröstningar
       decidim/votings/census/dataset:
         one: Datamängd
         other: Datamängder
@@ -334,6 +339,12 @@ sv:
               completed: Slutförd
               pending: Avvaktande
               processing: Bearbetar
+          tally_started_steps:
+            back: Tillbaka
+            list:
+              status: Status
+              task: Uppgift
+            start: Start
         trustees:
           show:
             elections:
@@ -369,6 +380,8 @@ sv:
           text: 'Du kan kontrollera att din röst har lagts till i röstsedeln med följande identifierare: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
         failed:
           header: Röst ej framgångsrik
+          modal:
+            close: Stäng
           try_again: Försök igen
         header:
           ballot_decision: Lägg eller granska din röst
@@ -534,6 +547,7 @@ sv:
           edit:
             update: Uppdatera
           form:
+            slug: Slug
             title: Titel
             voting_type:
               hybrid: Hybrid
