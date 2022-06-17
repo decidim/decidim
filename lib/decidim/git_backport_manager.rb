@@ -53,9 +53,13 @@ module Decidim
         self.class.checkout_develop
         exit_with_errors("Nothing to push to remote server. It was probably merged already or the cherry-pick was aborted.")
       else
-        puts "Pushing branch #{backport_branch} to origin"
-        `git push origin #{backport_branch}`
+        puts "Pushing branch #{backport_branch} to #{remote}"
+        `git push #{remote} #{backport_branch}`
       end
+    end
+
+    def remote
+      `git remote -v | grep -e 'decidim/decidim\\([^ ]*\\) (push)' | sed 's/\\s.*//'`.strip
     end
 
     def sha_commit_to_backport

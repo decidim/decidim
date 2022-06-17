@@ -14,8 +14,8 @@ describe Decidim::GitBackportManager do
   let(:working_dir) { File.expand_path("../../..", __dir__) }
 
   before do
-    Dir.mkdir(tmp_repository_dir)
-    Dir.chdir(tmp_repository_dir)
+    FileUtils.mkdir_p("#{tmp_repository_dir}/code")
+    Dir.chdir("#{tmp_repository_dir}/code")
     `
       git init --initial-branch=develop .
       git config user.email "decidim_git_backport_manager_test@example.com"
@@ -85,7 +85,8 @@ describe Decidim::GitBackportManager do
   end
 
   describe ".push_backport_branch!" do
-    let(:remote_repository_dir) { "#{tmp_repository_dir}-remote.git" }
+    # Add /decidim/decidim in the path so it thinks it's in the decidim repository
+    let(:remote_repository_dir) { "#{tmp_repository_dir}/fake-remote/decidim/decidim/repository.git" }
 
     before do
       `
