@@ -54,6 +54,8 @@ Gem::Specification.new do |s|
   s.add_dependency "pg", "~> 1.1.4", "< 2"
   s.add_dependency "pg_search", "~> 2.2"
   s.add_dependency "premailer-rails", "~> 1.10"
+  # psych 4 has a breaking change, see https://stackoverflow.com/questions/71191685/visit-psych-nodes-alias-unknown-alias-default-psychbadalias
+  s.add_dependency "psych", "< 4"
   s.add_dependency "rack", "~> 2.2", ">= 2.2.3"
   s.add_dependency "rack-attack", "~> 6.0"
   s.add_dependency "rails", "~> 6.1.0"
