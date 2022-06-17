@@ -10,7 +10,9 @@ require "./lib/decidim/backporter"
 
 class BackporterCLI < Thor
   desc "", "Backport a pull request to another branch"
-  option :github_token, required: true, desc: "Required. Github Personal Access Token (PAT). It can be obtained from https://github.com/settings/tokens/new. You'll need to create one with `public_repo` access."
+  option :github_token, required: true, desc: <<~HELP
+    Required. Github Personal Access Token (PAT). It can be obtained from https://github.com/settings/tokens/new. You'll need to create one with `public_repo` access.
+  HELP
   option :version_number, required: true, desc: "Required. The version number that you want to do the backport to. It must have the format MAJOR.MINOR."
   option :pull_request_id, required: true, desc: "Required. The ID of the pull request that you want to make the backport from. It should have the \"type: fix\" label."
   option :exit_with_unstaged_changes, type: :boolean, default: true, desc: <<~HELP
