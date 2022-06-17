@@ -45,6 +45,9 @@ sv:
       decidim/elections/question:
         one: Fråga
         other: Frågor
+      decidim/voting:
+        one: Omröstning
+        other: Omröstningar
       decidim/votings/census/dataset:
         one: Datamängd
         other: Datamängder
@@ -80,6 +83,7 @@ sv:
           label: Bekräftad
           values:
             'false': Bekräftad
+            'true': Ej Validerad
     components:
       elections:
         actions:
@@ -491,6 +495,9 @@ sv:
             title: Åtgärder
             view: Visa
           results:
+            result_types:
+              blank_answers: Tomma svar
+              blank_ballots: Tomma röstsedlar
             selected: Valda
             totals: Totalt
           show:
@@ -544,6 +551,8 @@ sv:
           edit:
             update: Uppdatera
           form:
+            promoted: Annonserad
+            slug: Slug
             title: Titel
             voting_type:
               hybrid: Hybrid
@@ -591,6 +600,7 @@ sv:
             heading: Omräkning
             modal_ballots_count_error:
               close_modal: Stäng
+              total_people: 'Totala människor:'
             polling_station: 'Vallokal:'
           show:
             heading: Omräkning
@@ -600,6 +610,7 @@ sv:
             confirm: Fortsätt
         in_person_votes:
           in_person_form:
+            date_of_birth: Födelsedatum
             day: Dag
             day_placeholder: DD
             document_number: Dokumentnummer
