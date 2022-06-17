@@ -47,6 +47,7 @@ sv:
             author: Författare
             body: Innehåll
             created_at: Skapad
+            official_blog_post: Officiellt inlägg
             title: titel
       posts:
         show:
