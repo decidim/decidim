@@ -125,6 +125,8 @@ sv:
       download_your_data_export:
         file_no_exists: Filen finns inte
         notice: Dina uppgifter hämtas för närvarande. Du får ett e-postmeddelande när det är klart.
+      email_change:
+        cancel: avbryt
       show:
         available_locales_helper: Välj det språk du vill använda på plattformen och få i notiserna
         change_password: Ändra lösenord
@@ -1100,6 +1102,10 @@ sv:
         everything_followed: Allt jag följer
         newsletter_notifications: Jag vill få nyhetsbrev
         newsletters: Nyhetsbrev
+        notifications_sending_frequencies:
+          daily: Dagligen
+          none: Ingen
+          weekly: Veckovis
         own_activity: Min egen verksamhet, som när någon kommenterar mitt förslag eller nämner mig
         receive_notifications_about: Jag vill få notiser om
         update_notifications_settings: Spara ändringar
@@ -1623,6 +1629,11 @@ sv:
     timestamp_error_message: Det gick för snabbt! Försök igen.
   layouts:
     decidim:
+      cookie_consent:
+        cookie_details:
+          columns:
+            name: Namn
+            type: Typ
       edit_link:
         edit: Redigera
       footer:
