@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
   s.authors = ["David Rodriguez"]
   s.email = ["deivid.rodriguez@riseup.net"]
   s.homepage = "https://github.com/decidim/decidim"
-  s.required_ruby_version = ">= 3.0"
+  s.required_ruby_version = ">= 3.1"
 
   s.summary = "Decidim verifications module"
   s.description = "Several verification methods for your decidim instance"

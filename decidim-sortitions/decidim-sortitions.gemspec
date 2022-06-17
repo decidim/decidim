@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
   s.email = ["jsperezg@gmail.com"]
   s.license = "AGPL-3.0"
   s.homepage = "https://github.com/decidim/decidim"
-  s.required_ruby_version = ">= 3.0"
+  s.required_ruby_version = ">= 3.1"
 
   s.name = "decidim-sortitions"
   s.summary = "Decidim sortitions module"
