@@ -102,6 +102,7 @@ sv:
         participatory_process_groups_submenu:
           info: Info
           landing_page: Landningssida
+        participatory_process_types: Processtyper
         participatory_processes: Dialoger
         participatory_processes_submenu:
           attachment_collections: Mappar
