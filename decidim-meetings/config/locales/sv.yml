@@ -389,6 +389,7 @@ sv:
         calendar_url: Kalender-URL
         close_window: Stäng fönster
         copy_calendar_url: Kopiera
+        copy_calendar_url_copied: Kopierad!
         export_calendar: Exportera kalender
       conference_venues: Konferenslokaler
       content_blocks:
@@ -612,6 +613,7 @@ sv:
           invalid: Det gick inte att lämna mötet.
           success: Du har lämnat mötet.
       type_of_meeting:
+        hybrid: Hybrid
         in_person: Fysiska
         online: Online
       types:
