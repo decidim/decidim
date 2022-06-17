@@ -94,7 +94,16 @@ These numbers are depend on your machine, the configuration was:
 
 == Jest
 
-We use Jest for testing our Javascript code. You can run it locally with:
+We use Jest for testing our Javascript code.
+
+=== Running a specific test file
+
+[source,bash]
+----
+npx jest decidim-core/app/packs/src/decidim/external_link.test.js
+----
+
+=== Running the whole test suite
 
 [source,bash]
 ----
