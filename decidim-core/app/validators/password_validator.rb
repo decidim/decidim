@@ -50,7 +50,7 @@ class PasswordValidator < ActiveModel::EachValidator
     false
   end
 
-  protected
+  private
 
   attr_reader :record, :attribute, :value
 
