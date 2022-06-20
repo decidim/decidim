@@ -86,7 +86,6 @@ describe "Initiative", type: :system do
         end
 
         context "and an authorization handler has been activated" do
-
           before do
             initiative_type.create_resource_permission(
               permissions: {
@@ -237,7 +236,6 @@ describe "Initiative", type: :system do
         end
 
         context "and an authorization handler has been activated on the first initiative type" do
-
           before do
             initiative_type.create_resource_permission(
               permissions: {
@@ -467,7 +465,6 @@ describe "Initiative", type: :system do
         context "when there is only one initiative type" do
           let!(:other_initiative_type) { nil }
           let!(:other_initiative_type_scope) { nil }
-
 
           before do
             fill_in "Title", with: translated(initiative.title, locale: :en)
