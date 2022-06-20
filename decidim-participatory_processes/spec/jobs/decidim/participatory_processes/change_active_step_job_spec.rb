@@ -207,6 +207,25 @@ describe Decidim::ParticipatoryProcesses::ChangeActiveStepJob do
           expect(step_three.reload).to be_active
         end
       end
+
+      context "and third step start_date > today" do
+        let!(:step_three) do
+          create(
+            :participatory_process_step,
+            participatory_process: participatory_process,
+            start_date: Time.zone.local(2022, 3, 16, 10, 0, 0),
+            end_date: Time.zone.local(2022, 3, 17, 10, 59, 59)
+          )
+        end
+
+        before { subject.perform_now }
+
+        it "still activate step two" do
+          expect(step_one.reload).not_to be_active
+          expect(step_two.reload).to be_active
+          expect(step_three.reload).not_to be_active
+        end
+      end
     end
 
     context "with two steps but not all have dates" do
@@ -258,9 +277,9 @@ describe Decidim::ParticipatoryProcesses::ChangeActiveStepJob do
 
         before { subject.perform_now }
 
-        it "step two stays active" do
-          expect(step_one.reload).not_to be_active
-          expect(step_two.reload).to be_active
+        it "step one stays active" do
+          expect(step_one.reload).to be_active
+          expect(step_two.reload).not_to be_active
         end
       end
     end
