@@ -671,6 +671,12 @@ Additional context: This has been revealed as an issue during a security audit o
 |15
 |No
 
+|*DECIDIM_SERVICE_WORKER_ENABLED*
+|Enable/Disable the service worker. This is used to enable offline support and to deliver push notifications. In development it's recommended to be disabled because its aggresive cache configuration might cause some issues when submitting forms.
+|false
+|No
+
+
 |===
 
 .Optional Env Vars fine tuning some Decidim modules (such the API or Proposal behaviors)

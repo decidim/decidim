@@ -467,6 +467,11 @@ module Decidim
     "/"
   end
 
+  # Enable/Disable the service worker
+  config_accessor :service_worker_enabled do
+    Rails.env.exclude?("development")
+  end
+
   # Public: Registers a global engine. This method is intended to be used
   # by component engines that also offer unscoped functionality
   #
