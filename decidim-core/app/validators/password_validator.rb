@@ -22,7 +22,7 @@ class PasswordValidator < ActiveModel::EachValidator
   ].freeze
 
   def self.minimum_length_for(record)
-    return ADMIN_MINIMUM_LENGTH if record.try(:admin?)
+    return ADMIN_MINIMUM_LENGTH if record.try(:admin?) && Decidim.config.admin_password_strong_enable
 
     MINIMUM_LENGTH
   end
