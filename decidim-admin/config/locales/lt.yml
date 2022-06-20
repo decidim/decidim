@@ -367,6 +367,17 @@ lt:
           created_at: Sukurta
           name: Vardas
           nickname: Slapyvardis
+          show_email: Rodyti el. pašto adresą
+          status: Būsena
+          unblock: Atblokuoti naudotoją
+        show_email_modal:
+          full_name: Vardas, pavardė
+          hidden: paslėptas
+          show: Rodyti
+          title: Rodyti dalyvio el. pašto adresą
+      organization:
+        edit:
+          update: Atnaujinti
       titles:
         users: Dalyviai
       user_groups:
