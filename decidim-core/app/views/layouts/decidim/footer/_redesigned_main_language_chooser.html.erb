@@ -20,9 +20,8 @@
     <ul id="language-chooser-menu" class="absolute top-full left-0 bg-white rounded w-full" role="menu"
       aria-labelledby="language-chooser-control">
       <% (available_locales - [I18n.locale.to_s]).each do |locale| %>
-        <li class="p-2 text-black text-md" role="presentation">
-          <%= link_to locale_name(locale), decidim.locale_path(locale: locale), method: :post, role: "menuitem" , lang:
-            locale %>
+        <li class="text-black text-md hover:bg-secondary hover:text-white transition" role="presentation">
+          <%= link_to locale_name(locale), decidim.locale_path(locale: locale), method: :post, role: "menuitem", lang: locale, class: "p-2 w-full block" %>
         </li>
         <% end %>
     </ul>
