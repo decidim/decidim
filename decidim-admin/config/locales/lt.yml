@@ -308,6 +308,65 @@ lt:
           fields:
             phone: Telefonas
             state: Būsena
+            users_count: Dalyvių skaičius
+      moderated_users:
+        index:
+          actions:
+            block: Blokuoti naudotoją
+            title: Veiksmai
+            unblock: Atblokuoti naudotoją
+          name: Vardas
+          nickname: Slapyvardis
+          reason: Priežastis
+        report:
+          reasons:
+            does_not_belong: Nepriklauso
+            offensive: Įžeidžiamas turinys
+            spam: Šlamštas
+        tabs:
+          blocked: Užblokuota
+          unblocked: Neužblokuota
+      moderations:
+        report:
+          reasons:
+            does_not_belong: Nepriklauso
+            spam: Šlamštas
+        reports:
+          index:
+            author: Autorius(iai)
+            see_original: Matyti orginalą
+          show:
+            report_reason: Priežastis
+      newsletter_templates:
+        index:
+          preview_template: Peržiūra
+          title: Naujienlaiškio šablonai
+          use_template: Naudoti šį šabloną
+        show:
+          use_template: Naudoti šį šabloną
+      newsletters:
+        deliver:
+          success: Naujienlaiškis išsiųstas.
+        edit:
+          save_and_preview: Išsaugoti ir peržiūrėti
+        index:
+          all: visi
+          all_users: 'Visi naudotojai '
+          and: 'ir '
+          confirm_delete: Ar tikrai norite ištrinti šį naujienlaiškį?
+        show:
+          select_recipients_to_deliver: Pasirinkti gavėjus, kuriems išsiųsti
+          subject: Tema
+        update:
+          error: Atnaujinant šį naujienlaiškį iškilo problema.
+          success: Naujienlaiškis atnaujintas. Peržiūrėkite jį prieš išsiųsdami.
+      officializations:
+        index:
+          actions: Veiksmai
+          block: Blokuoti naudotoją
+          created_at: Sukurta
+          name: Vardas
+          nickname: Slapyvardis
       titles:
         users: Dalyviai
       user_groups:
