@@ -272,7 +272,7 @@ shared_examples_for "an application with configurable env vars" do
       %w(decidim base_uploads_path) => nil,
       %w(decidim default_csv_col_sep) => ";",
       %w(decidim cors_enabled) => false,
-      %w(decidim service_worker_enabled) => false,
+      %w(decidim service_worker_enabled) => true,
       %w(decidim consent_cookie_name) => "decidim-consent",
       %w(decidim cache_key_separator) => "/",
       %w(decidim expire_session_after) => 30,
