@@ -57,6 +57,7 @@ describe "Initiative", type: :system do
         context "and creation require a verification" do
           before do
             allow(Decidim::Initiatives.config).to receive(:do_not_require_authorization).and_return(false)
+            visit decidim_initiatives.initiatives_path
           end
 
           context "and they're verified" do
