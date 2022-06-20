@@ -103,6 +103,7 @@ sv:
             success: "%{number} förslag har importerats till projekt"
           new:
             create: Importera förslag till projekt
+            default_budget: Förvald budget
             no_components: Det finns inga andra förslagskomponenter med förslag i deltagarutrymmet som kan importeras till projekt.
             select_component: Välj en komponent
             title: Importera förslag
