@@ -6,7 +6,7 @@ describe Decidim::Proposals::CollaborativeDraftAccessAcceptedEvent do
   include_context "when a simple event"
 
   let(:event_name) { "decidim.events.proposals.collaborative_draft_access_accepted" }
-  let(:resource) { create :collaborative_draft, title: "My collaborative draft" }
+  let(:resource) { create :collaborative_draft, title: "It's my collaborative draft" }
   let(:resource_path) { Decidim::ResourceLocatorPresenter.new(resource).path }
   let(:resource_title) { resource.title }
   let(:author) { resource.authors.first }
@@ -35,21 +35,21 @@ describe Decidim::Proposals::CollaborativeDraftAccessAcceptedEvent do
     describe "email_intro" do
       it "is generated correctly" do
         expect(subject.email_intro)
-          .to eq(%(#{requester_name} has been accepted to access as a contributor of the <a href="#{resource_url}">#{resource_title}</a> collaborative draft.))
+          .to eq(%(#{requester_name} has been accepted to access as a contributor of the <a href="#{resource_url}">#{decidim_html_escape(resource_title)}</a> collaborative draft.))
       end
     end
 
     describe "email_outro" do
       it "is generated correctly" do
         expect(subject.email_outro)
-          .to eq(%(You have received this notification because you are a collaborator of <a href="#{resource_url}">#{resource_title}</a>.))
+          .to eq(%(You have received this notification because you are a collaborator of <a href="#{resource_url}">#{decidim_html_escape(resource_title)}</a>.))
       end
     end
 
     describe "notification_title" do
       it "is generated correctly" do
         expect(subject.notification_title)
-          .to include(%(<a href="#{requester_path}">#{requester_name} #{requester_nickname}</a> has been <strong>accepted to access as a contributor</strong> of the <a href="#{resource_path}">#{resource_title}</a> collaborative draft.))
+          .to include(%(<a href="#{requester_path}">#{requester_name} #{requester_nickname}</a> has been <strong>accepted to access as a contributor</strong> of the <a href="#{resource_path}">#{decidim_html_escape(resource_title)}</a> collaborative draft.))
       end
     end
   end
@@ -68,21 +68,21 @@ describe Decidim::Proposals::CollaborativeDraftAccessAcceptedEvent do
     describe "email_intro" do
       it "is generated correctly" do
         expect(subject.email_intro)
-          .to eq(%(You have been accepted to access as a contributor of the <a href="#{resource_url}">#{resource_title}</a> collaborative draft.))
+          .to eq(%(You have been accepted to access as a contributor of the <a href="#{resource_url}">#{decidim_html_escape(resource_title)}</a> collaborative draft.))
       end
     end
 
     describe "email_outro" do
       it "is generated correctly" do
         expect(subject.email_outro)
-          .to eq(%(You have received this notification because you requested to become a collaborator of <a href="#{resource_url}">#{resource_title}</a>.))
+          .to eq(%(You have received this notification because you requested to become a collaborator of <a href="#{resource_url}">#{decidim_html_escape(resource_title)}</a>.))
       end
     end
 
     describe "notification_title" do
       it "is generated correctly" do
         expect(subject.notification_title)
-          .to eq(%(You have been <strong>accepted to access as a contributor</strong> of the <a href="#{resource_path}">#{resource_title}</a> collaborative draft.))
+          .to eq(%(You have been <strong>accepted to access as a contributor</strong> of the <a href="#{resource_path}">#{decidim_html_escape(resource_title)}</a> collaborative draft.))
       end
     end
   end
