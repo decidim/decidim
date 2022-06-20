@@ -175,6 +175,38 @@ PR [\#8833](https://github.com/decidim/decidim/pull/8833) Users can now configur
 5 0 * * * cd /home/user/decidim_application && RAILS_ENV=production bundle exec rake decidim:mailers:notifications_digest_daily
 # Send notification mail digest weekly on saturdays
 5 0 * * 6 cd /home/user/decidim_application && RAILS_ENV=production bundle exec rake decidim:mailers:notifications_digest_weekly
+```
+
+#### Strong password rules for admin users
+
+PR [\#9347](https://github.com/decidim/decidim/pull/9347) Adds strong password rules for administrator users which are enabled by default. This will also force the current administrators to change their passwords after 90 days has passed from the previous login.
+
+For development/testing/staging environments this also means that the default administrator password has changed to `decidim123456789` to match the minimum length rules.
+
+In case you want to disable this functionality, you can add the following to your `config/initializers/decidim.rb`:
+
+```ruby
+Decidim.configure do |config|
+  # ... other configs ...
+  config.admin_password_strong = false
+  # ... other configs ...
+end
+```
+
+All password rule related configuration variables available for the Decidim initializer are shown in the following snippet with the default values for each configuration option:
+
+```ruby
+Decidim.configure do |config|
+  # ... other configs ...
+  config.admin_password_strong = true
+  config.admin_password_expiration_days = 90
+  config.admin_password_min_length = 15
+  config.admin_password_repetition_times = 5
+  # ... other configs ...
+end
+```
+
+New applications generated with the Decidim generator command will also support configuring these variables through the ENV variables. Please refer to the ENV variable documentation for more information.
 
 ### Changed
 
