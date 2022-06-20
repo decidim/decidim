@@ -3,7 +3,8 @@
 require "spec_helper"
 
 describe "Initiative", type: :system do
-  let(:organization) { create :organization, available_authorizations: ["dummy_authorization_handler"] }
+  let(:organization) { create(:organization, available_authorizations: authorizations) }
+  let(:authorizations) { %w(dummy_authorization_handler) }
   let!(:authorized_user) { create(:user, :confirmed, organization: organization) }
   let!(:authorization) { create(:authorization, user: authorized_user) }
   let(:login) { true }
@@ -18,8 +19,10 @@ describe "Initiative", type: :system do
            signature_type: signature_type)
   end
   let!(:initiative_type_scope) { create(:initiatives_type_scope, type: initiative_type) }
+  let!(:initiative_type_scope2) { create(:initiatives_type_scope, type: initiative_type) }
   let!(:other_initiative_type) { create(:initiatives_type, organization: organization) }
-  let!(:other_initiative_type_scope) { create(:initiatives_type_scope, type: initiative_type) }
+  let!(:other_initiative_type_scope) { create(:initiatives_type_scope, type: other_initiative_type) }
+  let(:third_initiative_type) { create(:initiatives_type, organization: organization) }
 
   shared_examples "initiatives path redirection" do
     it "redirects to initiatives path" do
@@ -35,6 +38,7 @@ describe "Initiative", type: :system do
     switch_to_host(organization.host)
     login_as(authorized_user, scope: :user) if authorized_user && login
     visit decidim_initiatives.initiatives_path
+    allow(Decidim::Initiatives.config).to receive(:do_not_require_authorization).and_return(true)
   end
 
   describe "create initiative verification" do
@@ -43,14 +47,59 @@ describe "Initiative", type: :system do
       let!(:other_initiative_type_scope) { nil }
 
       context "when the user is logged in" do
-        context "and they're verified" do
+        context "and they don't need to be verified" do
           it "they are taken to the initiative form" do
             click_link "New initiative"
             expect(page).to have_content("What does the initiative consist of")
           end
         end
 
-        context "and they aren't verified" do
+        context "and creation require a verification" do
+          before do
+            allow(Decidim::Initiatives.config).to receive(:do_not_require_authorization).and_return(false)
+          end
+
+          context "and they're verified" do
+            it "they are taken to the initiative form" do
+              click_link "New initiative"
+              expect(page).to have_content("What does the initiative consist of?")
+            end
+          end
+
+          context "and they aren't verified" do
+            let(:authorization) { nil }
+
+            it "they need to verify" do
+              click_button "New initiative"
+              expect(page).to have_content("Authorization required")
+            end
+
+            it "they are redirected to the initiative form after verifying" do
+              click_button "New initiative"
+              click_link "View authorizations"
+              click_link "Example authorization"
+              fill_in "Document number", with: "123456789X"
+              click_button "Send"
+              expect(page).to have_content("What does the initiative consist of?")
+            end
+          end
+        end
+
+        context "and an authorization handler has been activated" do
+
+          before do
+            initiative_type.create_resource_permission(
+              permissions: {
+                "create" => {
+                  "authorization_handlers" => {
+                    "dummy_authorization_handler" => { "options" => {} }
+                  }
+                }
+              }
+            )
+            visit decidim_initiatives.initiatives_path
+          end
+
           let(:authorization) { nil }
 
           it "they need to verify" do
@@ -58,13 +107,13 @@ describe "Initiative", type: :system do
             expect(page).to have_content("Authorization required")
           end
 
-          it "they are redirected to the initiative form after verifying" do
+          it "they are authorized to create after verifying" do
             click_button "New initiative"
-            click_link "View authorizations"
-            click_link "Example authorization"
+            click_link 'Authorize with "Example authorization"'
             fill_in "Document number", with: "123456789X"
             click_button "Send"
-            expect(page).to have_content("What does the initiative consist of")
+            click_link "New initiative"
+            expect(page).to have_content("What does the initiative consist of?")
           end
         end
       end
@@ -77,7 +126,7 @@ describe "Initiative", type: :system do
           expect(page).to have_content("Please sign in")
         end
 
-        context "when they are verified" do
+        context "when they don't need to be verified" do
           it "they are redirected to the initiative form after log in" do
             click_button "New initiative"
             fill_in "Email", with: authorized_user.email
@@ -88,10 +137,51 @@ describe "Initiative", type: :system do
           end
         end
 
-        context "when they aren't verified" do
+        context "and creation require a verification" do
           before do
-            Decidim::Authorization.delete_all
+            allow(Decidim::Initiatives.config).to receive(:do_not_require_authorization).and_return(false)
           end
+
+          context "and they're verified" do
+            it "they are redirected to the initiative form after log in" do
+              click_button "New initiative"
+              fill_in "Email", with: authorized_user.email
+              fill_in "Password", with: "decidim123456"
+              click_button "Log in"
+
+              expect(page).to have_content("What does the initiative consist of")
+            end
+          end
+
+          context "and they aren't verified" do
+            let(:authorization) { nil }
+
+            it "they are shown an error" do
+              click_button "New initiative"
+              fill_in "Email", with: authorized_user.email
+              fill_in "Password", with: "decidim123456"
+              click_button "Log in"
+
+              expect(page).to have_content("You are not authorized to perform this action")
+            end
+          end
+        end
+
+        context "and an authorization handler has been activated" do
+          before do
+            initiative_type.create_resource_permission(
+              permissions: {
+                "create" => {
+                  "authorization_handlers" => {
+                    "dummy_authorization_handler" => { "options" => {} }
+                  }
+                }
+              }
+            )
+            visit decidim_initiatives.initiatives_path
+          end
+
+          let(:authorization) { nil }
 
           it "they are shown an error" do
             click_button "New initiative"
@@ -107,28 +197,76 @@ describe "Initiative", type: :system do
 
     context "when there are multiples initiative type" do
       context "when the user is logged in" do
-        context "and they're verified" do
+        context "and they don't need to be verified" do
           it "they are taken to the initiative form" do
             click_link "New initiative"
             expect(page).to have_content("Which initiative do you want to launch")
           end
         end
 
-        context "and they aren't verified" do
+        context "and creation require a verification" do
+          before do
+            allow(Decidim::Initiatives.config).to receive(:do_not_require_authorization).and_return(false)
+          end
+
+          context "and they're verified" do
+            it "they are taken to the initiative form" do
+              click_link "New initiative"
+              expect(page).to have_content("Which initiative do you want to launch")
+            end
+          end
+
+          context "and they aren't verified" do
+            let(:authorization) { nil }
+
+            it "they need to verify" do
+              click_link "New initiative"
+              expect(page).to have_css("button[data-open=not-authorized-modal]", visible: :all, count: 2)
+            end
+
+            it "they are redirected to the initiative form after verifying" do
+              click_link "New initiative"
+              click_button "Verify your account to promote this initiative"
+              click_link "View authorizations"
+              click_link "Example authorization"
+              fill_in "Document number", with: "123456789X"
+              click_button "Send"
+              expect(page).to have_content("Which initiative do you want to launch")
+            end
+          end
+        end
+
+        context "and an authorization handler has been activated on the first initiative type" do
+
+          before do
+            initiative_type.create_resource_permission(
+              permissions: {
+                "create" => {
+                  "authorization_handlers" => {
+                    "dummy_authorization_handler" => { "options" => {} }
+                  }
+                }
+              }
+            )
+            visit decidim_initiatives.initiatives_path
+          end
+
           let(:authorization) { nil }
 
           it "they need to verify" do
-            click_button "New initiative"
+            click_link "New initiative"
+            click_button "Verify your account to promote this initiative"
             expect(page).to have_content("Authorization required")
           end
 
-          it "they are redirected to the initiative form after verifying" do
-            click_button "New initiative"
-            click_link "View authorizations"
-            click_link "Example authorization"
+          it "they are authorized to create after verifying" do
+            click_link "New initiative"
+            click_button "Verify your account to promote this initiative"
+            click_link 'Authorize with "Example authorization"'
             fill_in "Document number", with: "123456789X"
             click_button "Send"
-            expect(page).to have_content("Which initiative do you want to launch")
+            click_button "I want to promote this initiative"
+            expect(page).to have_content("What does the initiative consist of?")
           end
         end
       end
@@ -141,7 +279,7 @@ describe "Initiative", type: :system do
           expect(page).to have_content("Please sign in")
         end
 
-        context "when they are verified" do
+        context "when they don't need to be verified" do
           it "they are redirected to the initiative form after log in" do
             click_button "New initiative"
             fill_in "Email", with: authorized_user.email
@@ -149,23 +287,64 @@ describe "Initiative", type: :system do
             click_button "Log in"
 
             expect(page).to have_content("Which initiative do you want to launch")
-            expect(page).to have_content("I want to promote this initiative")
           end
         end
 
-        context "when they aren't verified" do
+        context "and creation require a verification" do
           before do
-            Decidim::Authorization.delete_all
+            allow(Decidim::Initiatives.config).to receive(:do_not_require_authorization).and_return(false)
           end
 
-          it "they are redirected to the initiative form after log in an error" do
+          context "and they're verified" do
+            it "they are redirected to the initiative form after log in" do
+              click_button "New initiative"
+              fill_in "Email", with: authorized_user.email
+              fill_in "Password", with: "decidim123456"
+              click_button "Log in"
+
+              expect(page).to have_content("Which initiative do you want to launch")
+            end
+          end
+
+          context "and they aren't verified" do
+            let(:authorization) { nil }
+
+            it "they are shown an error" do
+              click_button "New initiative"
+              fill_in "Email", with: authorized_user.email
+              fill_in "Password", with: "decidim123456"
+              click_button "Log in"
+
+              expect(page).to have_css("button[data-open=not-authorized-modal]", visible: :all, count: 2)
+            end
+          end
+        end
+
+        context "and an authorization handler has been activated" do
+          before do
+            initiative_type.create_resource_permission(
+              permissions: {
+                "create" => {
+                  "authorization_handlers" => {
+                    "dummy_authorization_handler" => { "options" => {} }
+                  }
+                }
+              }
+            )
+            visit decidim_initiatives.initiatives_path
+          end
+
+          let(:authorization) { nil }
+
+          it "they are redirected to the initiative form after log in but need to verify" do
             click_button "New initiative"
             fill_in "Email", with: authorized_user.email
             fill_in "Password", with: "decidim123456"
             click_button "Log in"
 
             expect(page).to have_content("Which initiative do you want to launch")
-            expect(page).to have_content("Verify your account to promote this initiative")
+            click_button "Verify your account to promote this initiative"
+            expect(page).to have_content("Authorization required")
           end
         end
       end
@@ -194,8 +373,8 @@ describe "Initiative", type: :system do
 
         it "do not show initiative types without related scopes" do
           within "main" do
-            expect(page).not_to have_content(translated(other_initiative_type.title, locale: :en))
-            expect(page).not_to have_content(ActionView::Base.full_sanitizer.sanitize(translated(other_initiative_type.description, locale: :en), tags: []))
+            expect(page).not_to have_content(translated(third_initiative_type.title, locale: :en))
+            expect(page).not_to have_content(ActionView::Base.full_sanitizer.sanitize(translated(third_initiative_type.description, locale: :en), tags: []))
           end
         end
       end
@@ -224,6 +403,7 @@ describe "Initiative", type: :system do
 
       context "when there is only one initiative type" do
         let!(:other_initiative_type) { nil }
+        let!(:other_initiative_type_scope) { nil }
 
         it "doesn't displays initiative types" do
           expect(page).not_to have_current_path(decidim_initiatives.create_initiative_path(id: :select_initiative_type))
@@ -286,6 +466,8 @@ describe "Initiative", type: :system do
 
         context "when there is only one initiative type" do
           let!(:other_initiative_type) { nil }
+          let!(:other_initiative_type_scope) { nil }
+
 
           before do
             fill_in "Title", with: translated(initiative.title, locale: :en)
@@ -326,7 +508,7 @@ describe "Initiative", type: :system do
           end
 
           context "when only one signature collection and scope are available" do
-            let(:other_initiative_type_scope) { nil }
+            let(:initiative_type_scope2) { nil }
             let(:initiative_type) { create(:initiatives_type, organization: organization, minimum_committee_members: initiative_type_minimum_committee_members, signature_type: "offline") }
 
             it "hides and automatically selects the values" do
