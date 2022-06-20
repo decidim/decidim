@@ -92,15 +92,15 @@ describe "Admin manages assemblies", type: :system do
       context "when filtering by assemblies type" do
         include_context "with filterable context"
 
-        let!(:assemblies_type_1) { create(:assemblies_type) }
-        let!(:assemblies_type_2) { create(:assemblies_type) }
+        let!(:assemblies_type1) { create(:assemblies_type) }
+        let!(:assemblies_type2) { create(:assemblies_type) }
 
         Decidim::AssembliesType.all.each do |assemblies_type|
           i18n_assemblies_type = assemblies_type.name[I18n.locale.to_s]
 
           context "filtering collection by assemblies_type: #{i18n_assemblies_type}" do
-            let!(:assembly_1) { create(:assembly, organization: organization, assemblies_type: assemblies_type_1) }
-            let!(:assembly_2) { create(:assembly, organization: organization, assemblies_type: assemblies_type_2) }
+            let!(:assembly1) { create(:assembly, organization: organization, assemblies_type: assemblies_type1) }
+            let!(:assembly2) { create(:assembly, organization: organization, assemblies_type: assemblies_type2) }
 
             it_behaves_like "a filtered collection", options: "Assembly type", filter: i18n_assemblies_type do
               let(:in_filter) { translated(assembly_with_type(type).title) }

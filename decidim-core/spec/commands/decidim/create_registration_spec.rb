@@ -89,7 +89,6 @@ module Decidim
               password_confirmation: form.password_confirmation,
               tos_agreement: form.tos_agreement,
               newsletter_notifications_at: form.newsletter_at,
-              email_on_notification: true,
               organization: organization,
               accepted_tos_version: organization.tos_version,
               locale: form.current_locale

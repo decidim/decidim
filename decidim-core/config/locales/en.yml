@@ -36,12 +36,17 @@ en:
       decidim/demoted_membership: No longer a group admin
       decidim/gamification/badge_earned_event: Badge earned
       decidim/gamification/level_up_event: You've leveled up
+      decidim/invited_to_group_event: Invited to group
       decidim/join_request_accepted_event: Join request accepted
       decidim/join_request_rejected_event: Join request rejected
       decidim/profile_updated_event: Profile updated
       decidim/promote_to_admin: Promoted to group admin
+      decidim/promoted_to_admin_event: Promoted to group admin
       decidim/removed_from_group: Removed from group
       decidim/resource_endorsed_event: Resource endorsed
+      decidim/resource_hidden_event: Resource hidden
+      decidim/user_group_created_event: User group created
+      decidim/welcome_notification_event: Welcome message
   activerecord:
     attributes:
       decidim/user:
@@ -132,7 +137,7 @@ en:
       email_change:
         body1: We've sent an email to %{unconfirmed_email} to verify your new email address.
         body2: Need us to send the verification email again? %{resend_link} or %{cancel_link}.
-        cancel: Cancel
+        cancel: cancel
         cancel_error: Could not cancel the email change.
         cancel_successfully: Email change cancelled successfully.
         resend_error: Could not resend confirmation email.
@@ -155,11 +160,36 @@ en:
         create: "%{user_name} created the %{resource_name} area"
         delete: "%{user_name} deleted the %{resource_name} area"
         update: "%{user_name} updated the %{resource_name} area"
+      area_type:
+        create: "%{user_name} created the %{resource_name} area type"
+        delete: "%{user_name} deleted the %{resource_name} area type"
+        update: "%{user_name} updated the %{resource_name} area type"
+      attachment:
+        create: "%{user_name} created the %{resource_name} attachment"
+        delete: "%{user_name} deleted the %{resource_name} attachment"
+        update: "%{user_name} updated the %{resource_name} attachment"
+      attachment_collection:
+        create: "%{user_name} created the %{resource_name} attachment collection"
+        delete: "%{user_name} deleted the %{resource_name} attachment collection"
+        update: "%{user_name} updated the %{resource_name} attachment collection"
+      category:
+        create: "%{user_name} added the %{resource_name} category to the %{space_name} space"
+        delete: "%{user_name} deleted the %{resource_name} category from the %{space_name} space"
+        update: "%{user_name} updated the %{resource_name} category in the %{space_name} space"
       component:
         create: "%{user_name} added the %{resource_name} component to the %{space_name} space"
         delete: "%{user_name} removed the %{resource_name} component from the %{space_name} space"
+        export_component: "%{user_name} exported the %{resource_name} %{component_name} in %{space_name} as %{format_name}"
         publish: "%{user_name} published the %{resource_name} component in the %{space_name} space"
         unpublish: "%{user_name} unpublished the %{resource_name} component from the %{space_name} space"
+        update_permissions_with_space: "%{user_name} updated the permissions of %{resource_name} in %{space_name}"
+      contextual_help_section:
+        update: "%{user_name} updated the %{resource_name} help section"
+      helpers:
+        answers: answers
+        comments: comments
+        projects: projects
+        results: results
       impersonation_log:
         manage: "%{user_name} has managed %{resource_name} because %{reason}"
       moderation:
@@ -176,6 +206,7 @@ en:
         update: "%{user_name} updated the %{resource_name} OAuth application"
       organization:
         update: "%{user_name} updated the organization settings"
+        update_external_domain: "%{user_name} updated the organization external domains"
       participatory_space_private_user:
         create: "%{user_name} invited %{resource_name} to be a private participant"
         create_via_csv: "%{user_name} invited %{resource_name} via CSV to be a private participant"
@@ -187,6 +218,10 @@ en:
         delete_with_parent: "%{user_name} deleted the %{resource_name} scope inside the %{parent_scope} scope"
         update: "%{user_name} updated the %{resource_name} scope"
         update_with_parent: "%{user_name} updated the %{resource_name} scope inside the %{parent_scope} scope"
+      scope_type:
+        create: "%{user_name} created the %{resource_name} scope type"
+        delete: "%{user_name} deleted the %{resource_name} scope type"
+        update: "%{user_name} updated the %{resource_name} scope type"
       static_page:
         create: "%{user_name} created the %{resource_name} static page"
         delete: "%{user_name} deleted the %{resource_name} static page"
@@ -313,6 +348,7 @@ en:
       endorsements:
         one: endorsement
         other: endorsements
+      official_author: Official
     authorization_handlers:
       another_dummy_authorization_handler:
         explanation: Get verified by introducing a passport number starting with "A"
@@ -418,8 +454,8 @@ en:
             amendments_enabled: Amendments enabled
             comments_enabled: Comments enabled
             comments_max_length: Comments max length
-            dummy_global_attribute_1: Dummy Attribute 1
-            dummy_global_attribute_2: Dummy Attribute 2
+            dummy_global_attribute1: Dummy Attribute 1
+            dummy_global_attribute2: Dummy Attribute 2
             dummy_global_translatable_text: Dummy Translatable Text
             enable_pads_creation: Enable pads creation
             resources_permissions_enabled: Resources permissions enabled
@@ -431,8 +467,8 @@ en:
             amendment_reaction_enabled: Amendment reaction enabled
             amendments_visibility: Amendment visibility
             comments_blocked: Comments blocked
-            dummy_step_attribute_1: Dummy Step Attribute 1
-            dummy_step_attribute_2: Dummy Step Attribute 2
+            dummy_step_attribute1: Dummy Step Attribute 1
+            dummy_step_attribute2: Dummy Step Attribute 2
             dummy_step_translatable_text: Dummy Step Translatable Text
     contact: Contact
     content_blocks:
@@ -910,6 +946,7 @@ en:
         success: Join request successfully created. An admin will review your request before accepting you to the group.
       leave:
         error: There was a problem leaving the group
+        last_admin: You can't remove yourself from this group as you're the last administrator. Make another member an administrator in order to leave the group.
         success: Group successfully abandoned.
       members:
         accept_or_reject_join_requests: 'The following users have applied to join this group. Accept or reject their requests:'
@@ -922,7 +959,7 @@ en:
       no_user_groups: Doesn't belong to any group yet.
       roles:
         admin: Administrator
-        creator: Creator
+        creator: Administrator
         member: Member
       update:
         error: There was a problem updating the group
@@ -959,6 +996,7 @@ en:
         unknown_action: "%{user_name} performed some action on %{resource_name}"
         unknown_action_with_space: "%{user_name} performed some action on %{resource_name} in %{space_name}"
         update: "%{user_name} updated %{resource_name}"
+        update_permissions_with_space: "%{user_name} updated the permissions of %{resource_name} in %{space_name}"
         update_with_space: "%{user_name} updated %{resource_name} in %{space_name}"
       value_types:
         area_presenter:
@@ -1131,21 +1169,39 @@ en:
       no_notifications: No notifications yet.
       show:
         missing_event: Oops, this notification belongs to an item that is no longer available. You can discard it.
+    notifications_digest_mailer:
+      header:
+        daily: Daily Notification Digest
+        weekly: Weekly Notification Digest
+      hello: Hello %{name},
+      intro:
+        daily: 'These are the notifications from the last day based on the activity you are following:'
+        weekly: 'These are the notifications from the last week based on the activity you are following:'
+      outro: You have received these notifications because you are following this content or its authors. You can unfollow them from their respective pages.
+      see_more: See more notifications
+      subject: This is your mail digest
     notifications_settings:
       show:
         administrators: Administrators
         allow_public_contact: Allow anyone to send me a direct message, even if I don't follow them.
+        allow_push_notifications: Get push notifications to find out what's going on when you're not on the platform. You can turn them off anytime.
         direct_messages: Receive direct messages from anyone
         email_on_moderations: I want to receive an email every time something or someone is reported for moderation.
-        email_on_notification: I want to receive an email every time I receive a notification.
         everything_followed: Everything I follow
         newsletter_notifications: I want to receive newsletters
         newsletters: Newsletters
         notification_settings:
           close_meeting_reminder: I want to receive email reminders of closed meetings unpublished reports
+        notifications_sending_frequencies:
+          daily: Daily
+          none: None
+          real_time: Real time
+          weekly: Weekly
+        notifications_sending_frequency: How often do you want to receive the notifications email?
         own_activity: My own activity, like when someone comments in my proposal or mentions me
+        push_notifications: Push notifications
+        push_notifications_reminder: To get notifications from the platform, you'll need to allow them in your browser settings first.
         receive_notifications_about: I want to get notifications about
-        send_notifications_by_email: Send notifications by email
         update_notifications_settings: Save changes
       update:
         error: There was a problem updating your notifications settings.
@@ -1671,14 +1727,56 @@ en:
     timestamp_error_message: Sorry, that was too quick! Please resubmit.
   layouts:
     decidim:
-      cookie_warning:
-        description_html: This site uses cookies. By continuing to browse the site, you agree to our use of cookies. %{link}.
-        link_label: Find out more about cookies
-        ok: I agree
+      cookie_consent:
+        cookie_details:
+          columns:
+            description: Description
+            name: Name
+            service: Service
+            type: Type
+          cookies:
+            _session_id:
+              description: Allows websites to remember user within a website when they move between web pages.
+              service: This website
+            decidim-consent:
+              description: Stores information about the cookies allowed by the user on this website.
+              service: This website
+          types:
+            cookie: Cookie
+        dialog:
+          accept_all: Accept all
+          accept_only_essential: Accept only essential
+          cookie_settings: Settings
+          description: We use cookies on our website to improve the performance and content of the site. The cookies enable us to provide a more individual user experience and social media channels.
+          title: Information about the cookies used on the website
+        modal:
+          accept_all: Accept all
+          accept_only_essential: Accept only essential
+          analytics:
+            description: Analytics cookies are cookies that track how users navigate and interact with a website. The information collected is used to help the website owner improve the website.
+            title: Analytics and statistics
+          description: We use cookies to ensure the basic functionalities of the website and to enhance your online experience. You can choose for each category to opt-in/out whenever you want.
+          essential:
+            description: These cookies are essential for the proper functioning of my website. Without these cookies, the website would not work properly.
+            title: Essential
+          marketing:
+            description: These cookies collect information about how you use the website, which pages you visited and which links you clicked on.
+            title: Marketing
+          preferences:
+            description: These cookies allow the website to remember the choices you have made in the past
+            title: Preferences
+          save_settings: Save settings
+          title: Cookie settings
+          toggle: Toggle %{consent_category}
+        warning:
+          all_cookies: all cookies
+          change_cookie_settings: Change cookie settings
+          need_cookies: You need to enable %{cookies} in order to see this content.
       edit_link:
         edit: Edit
       footer:
         cc_by_license: Creative Commons License
+        cookie_settings: Cookie settings
         decidim_logo: Decidim Logo
         download_open_data: Download Open Data files
         made_with_open_source: Website made with <a target="_blank" href="https://github.com/decidim/decidim">free software</a>.

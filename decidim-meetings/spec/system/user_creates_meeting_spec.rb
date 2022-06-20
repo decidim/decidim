@@ -277,7 +277,7 @@ describe "User creates meeting", type: :system do
             expect(page).to have_no_field(:meeting_location)
             expect(page).to have_field("Online meeting URL")
 
-            select "Both", from: :meeting_type_of_meeting
+            select "Hybrid", from: :meeting_type_of_meeting
             expect(page).to have_field("Address")
             expect(page).to have_field(:meeting_location)
             expect(page).to have_field("Online meeting URL")

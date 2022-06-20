@@ -274,7 +274,9 @@ export default class InputCharacterCounter {
 }
 
 const createCharacterCounter = ($input) => {
-  $input.data("remaining-characters-counter", new InputCharacterCounter($input));
+  if (typeof $input !== "undefined" && $input.length) {
+    $input.data("remaining-characters-counter", new InputCharacterCounter($input));
+  }
 }
 
 $(() => {

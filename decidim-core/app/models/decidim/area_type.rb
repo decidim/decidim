@@ -5,6 +5,7 @@ module Decidim
   # (terriotrial, sectorial, etc.)
   class AreaType < ApplicationRecord
     include Decidim::TranslatableResource
+    include Decidim::Traceable
 
     translatable_fields :name, :plural
 
@@ -19,6 +20,10 @@ module Decidim
 
     def translated_name
       Decidim::AreaTypePresenter.new(self).translated_name
+    end
+
+    def self.log_presenter_class_for(_log)
+      Decidim::AdminLog::AreaTypePresenter
     end
   end
 end

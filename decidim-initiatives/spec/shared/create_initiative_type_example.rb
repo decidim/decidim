@@ -2,6 +2,7 @@
 
 shared_examples "create an initiative type" do
   let(:organization) { create(:organization) }
+  let(:user) { create(:user, organization: organization) }
 
   let(:form) do
     form_klass.from_params(
@@ -22,6 +23,7 @@ shared_examples "create an initiative type" do
         undo_online_signatures_enabled: true,
         custom_signature_end_date_enabled: true,
         area_enabled: true,
+        comments_enabled: true,
         promoting_committee_enabled: true,
         minimum_committee_members: 7,
         banner_image: Decidim::Dev.test_file("city2.jpeg", "image/jpeg"),
@@ -32,7 +34,7 @@ shared_examples "create an initiative type" do
       }
     end
 
-    let(:command) { described_class.new(form) }
+    let(:command) { described_class.new(form, user) }
 
     describe "when the form is not valid" do
       before do
@@ -59,6 +61,18 @@ shared_examples "create an initiative type" do
         expect do
           command.call
         end.to change { Decidim::InitiativesType.count }.by(1)
+      end
+
+      it "traces the action", versioning: true do
+        expect(Decidim.traceability)
+          .to receive(:perform_action!)
+          .with(:create, Decidim::InitiativesType, user, {})
+          .and_call_original
+
+        expect { command.call }.to change(Decidim::ActionLog, :count)
+        action_log = Decidim::ActionLog.last
+        expect(action_log.action).to eq("create")
+        expect(action_log.version).to be_present
       end
     end
   end

@@ -49,11 +49,15 @@ module Decidim
       end
 
       def show_check_census
+        raise ActionController::RoutingError, "Not Found" unless current_participatory_space.check_census_enabled?
+
         @form = form(Census::CheckForm).instance
         render :check_census, locals: { success: false, not_found: false }
       end
 
       def check_census
+        raise ActionController::RoutingError, "Not Found" unless current_participatory_space.check_census_enabled?
+
         @form = form(Census::CheckForm).from_params(params).with_context(
           current_participatory_space: current_participatory_space
         )
@@ -103,6 +107,8 @@ module Decidim
       end
 
       def elections
+        raise ActionController::RoutingError, "Not Found" unless current_participatory_space
+
         Decidim::Elections::Election.where(component: current_participatory_space.components).where.not(bb_status: nil)
       end
 

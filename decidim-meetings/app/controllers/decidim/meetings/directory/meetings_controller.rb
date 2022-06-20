@@ -15,6 +15,7 @@ module Decidim
         helper Decidim::FiltersHelper
         helper Decidim::Meetings::MapHelper
         helper Decidim::ResourceHelper
+        helper Decidim::ShortLinkHelper
 
         helper_method :meetings, :search
 

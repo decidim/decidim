@@ -13,7 +13,7 @@ module Decidim
           enforce_permission_to :import, :assembly
           @form = form(AssemblyImportForm).from_params(params)
 
-          ImportAssembly.call(@form) do
+          ImportAssembly.call(@form, current_user) do
             on(:ok) do
               flash[:notice] = I18n.t("assembly_imports.create.success", scope: "decidim.admin")
               redirect_to assemblies_path

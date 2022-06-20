@@ -8,6 +8,11 @@ module Decidim
       subject { described_class.new(url) }
 
       let(:request_host) { "decidim.org" }
+      let(:services) { %w(www.youtube.com www.twitch.tv meet.jit.si) }
+
+      before do
+        allow(Decidim::Meetings).to receive(:embeddable_services).and_return services
+      end
 
       describe "#embed_transformed_url" do
         context "with a valid youtube URL" do
@@ -74,6 +79,14 @@ module Decidim
           it "is not embeddable" do
             expect(subject).not_to be_embeddable
           end
+
+          context "and emebeddable services are customized" do
+            let(:services) { %w(www.youtube.com www.twitch.tv meet.jit.si example.org) }
+
+            it "is not embeddable" do
+              expect(subject).to be_embeddable
+            end
+          end
         end
       end
 
@@ -84,8 +97,9 @@ module Decidim
           embed_code = subject.embed_code(request_host)
 
           expect(embed_code).to include(subject.embed_transformed_url(request_host))
-          expect(embed_code).to include("<iframe")
-          expect(embed_code).to include("</iframe")
+          expect(embed_code).to include(%(<div))
+          expect(embed_code).to include(%(class="disabled-iframe"))
+          expect(embed_code).to include("</div")
         end
       end
     end

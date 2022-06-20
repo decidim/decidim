@@ -99,7 +99,7 @@ shared_examples "filterable participatory space user roles" do
         apply_filter("Invite accepted", "Yes")
 
         within ".stack tbody" do
-          expect(page).to have_content(invited_user_2.name)
+          expect(page).to have_content(invited_user2.name)
           expect(page).to have_css("tr", count: 1)
         end
       end
@@ -110,7 +110,7 @@ shared_examples "filterable participatory space user roles" do
         apply_filter("Invite accepted", "No")
 
         within ".stack tbody" do
-          expect(page).to have_content(invited_user_1.name)
+          expect(page).to have_content(invited_user1.name)
           expect(page).to have_css("tr", count: 1)
         end
       end
@@ -123,7 +123,7 @@ shared_examples "filterable participatory space user roles" do
         apply_filter("Ever logged in", "Yes")
 
         within ".stack tbody" do
-          expect(page).to have_content(invited_user_2.name)
+          expect(page).to have_content(invited_user2.name)
           expect(page).to have_css("tr", count: 1)
         end
       end
@@ -134,7 +134,7 @@ shared_examples "filterable participatory space user roles" do
         apply_filter("Ever logged in", "No")
 
         within ".stack tbody" do
-          expect(page).to have_content(invited_user_1.name)
+          expect(page).to have_content(invited_user1.name)
           expect(page).to have_css("tr", count: 1)
         end
       end

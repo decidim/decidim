@@ -7,7 +7,7 @@ module Decidim::ParticipatoryProcesses
     subject { described_class.new(form) }
 
     let(:organization) { create :organization }
-    let!(:document_file) { IO.read(Decidim::Dev.asset(document_name)) }
+    let!(:document_file) { File.read(Decidim::Dev.asset(document_name)) }
     let(:form_doc) do
       instance_double(File,
                       blank?: false)
@@ -51,6 +51,17 @@ module Decidim::ParticipatoryProcesses
         expect(imported_participatory_process.title["en"]).to eq("title")
         expect(imported_participatory_process).not_to be_published
         expect(imported_participatory_process.organization).to eq(organization)
+      end
+
+      it "traces the action", versioning: true do
+        expect(Decidim.traceability)
+          .to receive(:perform_action!).exactly(3).times
+                                       .and_call_original
+
+        expect { subject.call }.to change(Decidim::ActionLog, :count)
+        action_log = Decidim::ActionLog.last
+        expect(action_log.action).to eq("import")
+        expect(action_log.version).to be_present
       end
     end
 

@@ -11,11 +11,11 @@ describe "Admin filters user_roles", type: :system do
   let(:name) { "Dummy Name" }
   let(:email) { "dummy_email@example.org" }
 
-  let!(:invited_user_1) { create(:assembly_valuator, name: name, assembly: assembly) }
-  let!(:invited_user_2) { create(:assembly_valuator, email: email, assembly: assembly) }
+  let!(:invited_user1) { create(:assembly_valuator, name: name, assembly: assembly) }
+  let!(:invited_user2) { create(:assembly_valuator, email: email, assembly: assembly) }
 
   before do
-    invited_user_2.update!(invitation_sent_at: 1.day.ago, invitation_accepted_at: Time.current, last_sign_in_at: Time.current)
+    invited_user2.update!(invitation_sent_at: 1.day.ago, invitation_accepted_at: Time.current, last_sign_in_at: Time.current)
 
     switch_to_host(organization.host)
     login_as admin, scope: :user
@@ -36,6 +36,7 @@ describe "Admin filters user_roles", type: :system do
       let!(:user) do
         create(:assembly_valuator,
                name: "ZZZupper user",
+               email: "zzz@example.org",
                assembly: assembly,
                last_sign_in_at: 30.seconds.ago,
                invitation_accepted_at: Time.current)

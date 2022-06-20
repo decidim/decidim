@@ -18,6 +18,9 @@ describe "Explore meeting directory", type: :system do
   end
 
   before do
+    # Required for the link to be pointing to the correct URL with the server
+    # port since the server port is not defined for the test environment.
+    allow(ActionMailer::Base).to receive(:default_url_options).and_return(port: Capybara.server_port)
     switch_to_host(organization.host)
     visit directory
   end
@@ -160,6 +163,39 @@ describe "Explore meeting directory", type: :system do
         expect(page).to have_content(online_meeting2.title["en"])
         expect(page).to have_css("#meetings-count", text: "2 MEETINGS")
       end
+
+      it "allows linking to the filtered view using a short link" do
+        within ".with_any_type_check_boxes_tree_filter" do
+          uncheck "All"
+          check "Online"
+        end
+
+        expect(page).to have_content(online_meeting1.title["en"])
+        expect(page).to have_content(online_meeting2.title["en"])
+        expect(page).to have_css("#meetings-count", text: "2 MEETINGS")
+
+        filter_params = CGI.parse(URI.parse(page.current_url).query)
+        base_url = "http://#{organization.host}:#{Capybara.server_port}"
+
+        click_button "Export calendar"
+        expect(page).to have_content("Calendar URL:")
+        expect(page).to have_css("#calendarShare", visible: :visible)
+        short_url = nil
+        within "#calendarShare" do
+          input = find("input#urlCalendarUrl[readonly]")
+          short_url = input.value
+          expect(short_url).to match(%r{^#{base_url}/s/[a-zA-Z0-9]{10}$})
+        end
+
+        visit short_url
+        expect(page).to have_content(online_meeting1.title["en"])
+        expect(page).to have_content(online_meeting2.title["en"])
+        expect(page).to have_css("#meetings-count", text: "2 MEETINGS")
+        expect(page).to have_current_path(/^#{directory}/)
+
+        current_params = CGI.parse(URI.parse(page.current_url).query)
+        expect(current_params).to eq(filter_params)
+      end
     end
 
     context "when there are only in-person meetings" do
@@ -186,7 +222,7 @@ describe "Explore meeting directory", type: :system do
       it "allows filtering by type 'both'" do
         within ".with_any_type_check_boxes_tree_filter" do
           uncheck "All"
-          check "Both"
+          check "Hybrid"
         end
 
         expect(page).to have_css("#meetings-count", text: "1 MEETING")

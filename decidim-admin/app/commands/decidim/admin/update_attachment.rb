@@ -13,9 +13,10 @@ module Decidim
       #
       # attachment - the Attachment to update
       # form - A form object with the params.
-      def initialize(attachment, form)
+      def initialize(attachment, form, user)
         @attachment = attachment
         @form = form
+        @user = user
       end
 
       # Executes the command. Broadcasts these events:
@@ -36,7 +37,7 @@ module Decidim
       attr_reader :form
 
       def update_attachment
-        attachment.update!(attributes)
+        Decidim.traceability.update!(@attachment, @user, attributes)
       end
 
       def attributes

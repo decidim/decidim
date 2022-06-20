@@ -17,6 +17,7 @@ module Decidim
       let(:component) { create(:meeting_component) }
       let(:model) { create(:meeting, component: component) }
 
+      include_examples "authorable interface"
       include_examples "categorizable interface"
       include_examples "timestamps interface"
       include_examples "scopable interface"
@@ -286,16 +287,6 @@ module Decidim
 
         it "returns true" do
           expect(response["transparent"]).to be true
-        end
-      end
-
-      describe "author" do
-        let(:model) { create(:meeting, :not_official, author: author, component: component) }
-        let(:author) { create(:user, organization: component.participatory_space.organization) }
-        let(:query) { "{ author { name } }" }
-
-        it "includes the user's name" do
-          expect(response["author"]["name"]).to eq(author.name)
         end
       end
     end

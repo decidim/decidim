@@ -29,7 +29,5 @@ it:
             invalid: C'è stato un errore durante il salvataggio della pagina.
             success: La pagina è stata salvata correttamente.
       home:
-        hero:
-          participate_title: Partecipa ai processi della piattaforma
         sub_hero:
           register_title: Registrati e crea un account

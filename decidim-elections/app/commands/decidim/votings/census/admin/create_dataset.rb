@@ -9,7 +9,7 @@ module Decidim
         # A command with the business logic to create census dataset for a
         # voting space.
         class CreateDataset < Decidim::Command
-          include Decidim::HasBlobFile
+          include Decidim::ProcessesFileLocally
 
           def initialize(form, current_user)
             @form = form
@@ -25,23 +25,28 @@ module Decidim
           def call
             return broadcast(:invalid) unless form.valid?
 
-            dataset = create_census_dataset!
+            process_file_locally(form.file) do |file_path|
+              @file_path = file_path
+              dataset = create_census_dataset!
 
-            if csv_header_invalid?
-              dataset.destroy!
-              return broadcast(:invalid_csv_header)
-            end
+              if csv_header_invalid?
+                dataset.destroy!
+                return broadcast(:invalid_csv_header)
+              end
 
-            if dataset
-              CSV.foreach(blob_path, col_sep: ";", headers: true, converters: ->(f) { f&.strip }) do |row|
-                CreateDatumJob.perform_later(current_user, dataset, row.fields)
+              if dataset
+                CSV.foreach(file_path, col_sep: ";", headers: true, converters: ->(f) { f&.strip }) do |row|
+                  CreateDatumJob.perform_later(current_user, dataset, row.fields)
+                end
               end
             end
 
             broadcast(:ok)
           end
 
-          attr_reader :form, :current_user
+          private
+
+          attr_reader :form, :current_user, :file_path
           attr_accessor :dataset
 
           def create_census_dataset!
@@ -50,7 +55,7 @@ module Decidim
               current_user,
               {
                 voting: form.current_participatory_space,
-                file: blob,
+                file: form.file,
                 csv_row_raw_count: csv_row_count,
                 status: :creating_data
               },
@@ -59,7 +64,7 @@ module Decidim
           end
 
           def csv_header_invalid?
-            CSV.parse_line(File.open(blob_path), col_sep: ";", headers: true, header_converters: :symbol).headers != expected_headers
+            CSV.parse_line(File.open(file_path), col_sep: ";", headers: true, header_converters: :symbol).headers != expected_headers
           end
 
           def headers
@@ -74,15 +79,11 @@ module Decidim
             @expected_headers ||= form.current_participatory_space.has_ballot_styles? ? ballot_style_headers : headers
           end
 
-          def csv_rows
-            @csv_rows ||= CSV.read(blob_path)
-          end
-
           def csv_row_count
-            @csv_row_count ||= file_lines_count(blob_path) - 1
+            @csv_row_count ||= file_lines_count - 1
           end
 
-          def file_lines_count(file_path)
+          def file_lines_count
             `wc -l "#{file_path.shellescape}"`.strip.split.first.to_i
           end
         end

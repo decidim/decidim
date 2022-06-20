@@ -38,10 +38,6 @@ el:
           valuator_role_id: Όνομα εκτιμητή
     errors:
       models:
-        participatory_text:
-          attributes:
-            document:
-              invalid_document_type: 'Μη έγκυρος τύπος εγγράφου. Οι αποδεκτές μορφές είναι: %{valid_mime_types}'
         proposal:
           attributes:
             add_documents:
@@ -157,33 +153,21 @@ el:
             email_subject: Κάποιος άφησε μια σημείωση στην πρόταση %{resource_title}.
             notification_title: Κάποιος άφησε μια σημείωση στην πρόταση <a href="%{resource_path}">%{resource_title}</a>. Δείτε την στον <a href="%{admin_proposal_info_path}">πίνακα διαχειριστή</a>
         collaborative_draft_access_accepted:
-          email_intro: 'Ο αιτών %{requester_name} έγινε δεκτός για πρόσβαση ως συμβάλλων στο <a href="%{resource_path}">%{resource_title}</a> προσχέδιο συνεργασίας.'
-          email_outro: Λάβατε αυτήν την ειδοποίηση επειδή είστε συνεργάτης για το στοιχείο <a href="%{resource_path}">%{resource_title}</a>.
           email_subject: "Ο αιτών %{requester_name} έγινε δεκτός για πρόσβαση ως συμβάλλων για το στοιχείο %{resource_title}."
           notification_title: Ο αιτών <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> έγινε <strong>δεκτός για πρόσβαση ως συμβάλλων</strong> στο <a href="%{resource_path}">%{resource_title}</a> προσχέδιο συνεργασίας.
         collaborative_draft_access_rejected:
-          email_intro: 'Ο αιτών %{requester_name} απορρίφθηκε για πρόσβαση ως συμβάλλων στο προσχέδιο συνεργασίας <a href="%{resource_path}">%{resource_title}</a>.'
-          email_outro: Λάβατε αυτήν την ειδοποίηση επειδή είστε συνεργάτης για το στοιχείο <a href="%{resource_path}">%{resource_title}</a>.
           email_subject: "Ο αιτών %{requester_name} απορρίφθηκε για πρόσβαση ως συμβάλλων στο προσχέδιο συνεργασίας %{resource_title}."
           notification_title: Ο αιτών <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> <strong>απορρίφθηκε για πρόσβαση ως συμβάλλων</strong> στο προσχέδιο συνεργασίας <a href="%{resource_path}">%{resource_title}</a>.
         collaborative_draft_access_requested:
-          email_intro: 'Ο αιτών %{requester_name} ζήτησε πρόσβαση ως συμβάλλων. Μπορείτε να <strong>αποδεχτείτε ή να απορρίψετε τον αιτούντα</strong> από τη σελίδα προσχεδίου συνεργασίας <a href="%{resource_path}">%{resource_title}</a>.'
-          email_outro: Λάβατε αυτήν την ειδοποίηση επειδή είστε συνεργάτης για το στοιχείο <a href="%{resource_path}">%{resource_title}</a>.
           email_subject: "Ο αιτών %{requester_name} ζήτησε πρόσβαση για να συνεισφέρει στο στοιχείο %{resource_title}."
           notification_title: Ο αιτών <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> ζήτησε πρόσβαση για να συνεισφέρει στο προσχέδιο συνεργασίας <a href="%{resource_path}">%{resource_title}</a>. <strong>Αποδεχτείτε ή απορρίψτε το αίτημα</strong>.
         collaborative_draft_access_requester_accepted:
-          email_intro: Γίνατε δεκτοί για πρόσβαση ως συμβάλλων στο προσχέδιο συνεργασίας <a href="%{resource_path}">%{resource_title}</a>.
-          email_outro: Λάβατε αυτήν την ειδοποίηση επειδή ζητήσατε να γίνετε συνεργάτης για το στοιχείο <a href="%{resource_path}">%{resource_title}</a>.
           email_subject: Γίνατε δεκτοί για πρόσβαση ως συμβάλλων για το στοιχείο %{resource_title}.
           notification_title: Γίνατε <strong>δεκτοί για πρόσβαση ως συμβάλλων</strong> στο προσχέδιο συνεργασίας <a href="%{resource_path}">%{resource_title}</a>.
         collaborative_draft_access_requester_rejected:
-          email_intro: Απορριφθήκατε για πρόσβαση ως συμβάλλων στο προσχέδιο συνεργασίας <a href="%{resource_path}">%{resource_title}</a>.
-          email_outro: Λάβατε αυτήν την ειδοποίηση επειδή ζητήσατε να γίνετε συνεργάτης για το στοιχείο <a href="%{resource_path}">%{resource_title}</a>.
           email_subject: Απορριφθήκατε ως συμβάλλων για το στοιχείο %{resource_title}.
           notification_title: <strong>Απορριφθήκατε για πρόσβαση ως συμβάλλων</strong> στο προσχέδιο συνεργασίας <a href="%{resource_path}">%{resource_title}</a>.
         collaborative_draft_withdrawn:
-          email_intro: Ο συντάκτης <a href="%{author_path}">%{author_name} %{author_nickname}</a> απέσυρε το προσχέδιο συνεργασίας <a href="%{resource_path}">%{resource_title}</a>.
-          email_outro: Λάβατε αυτήν την ειδοποίηση επειδή είστε συνεργάτης για το στοιχείο <a href="%{resource_path}">%{resource_title}</a>.
           email_subject: "Ο συντάκτης %{author_name} %{author_nickname} απέσυρε το προσχέδιο συνεργασίας %{resource_title}."
           notification_title: Ο συντάκτης <a href="%{author_path}">%{author_name} %{author_nickname}</a> <strong>απέσυρε</strong> το προσχέδιο συνεργασίας <a href="%{resource_path}">%{resource_title}</a>.
         creation_enabled:
@@ -705,7 +689,6 @@ el:
             other: υποστηρίξεις
         new:
           send: Συνέχεια
-          title: Δημιουργήστε την Πρότασή σας
         orders:
           label: 'Ταξινόμηση προτάσεων κατά:'
           most_commented: Με τα περισσότερα σχόλια

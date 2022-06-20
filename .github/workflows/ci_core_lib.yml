@@ -14,6 +14,7 @@ on:
       - "decidim-api/**"
       - "decidim-core/**"
       - "decidim-dev/**"
+      - "packages/**"
 
 env:
   CI: "true"

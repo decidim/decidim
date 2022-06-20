@@ -21,7 +21,7 @@ module Decidim
       end
 
       c.attribute :drinks, Array[drinkform]
-      c.attribute :foods, Hash[Symbol => foodform]
+      c.attribute(:foods, { Symbol => foodform })
       c.attribute :gadgets, Array[gadgetmodel]
 
       c

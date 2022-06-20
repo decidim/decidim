@@ -277,7 +277,7 @@ Also some more refined configurations:
 |MAPS_DYNAMIC_URL
 |If you are using a `osm` as a provider, you need to define this variable. Keep in mind that OpenStreetMap cannot be used directly due its non-commercial license in many cases. See xref:services:maps.adoc[Maps].
 
-*You need to define this variable if using `osm` as a provider, usually the URL goes in the form of `https://tile.openstreetmap.org/{z}/{x}/{y}.png?key={apiKey}&{foo}`*
+*You need to define this variable if using `osm` as a provider, usually the URL goes in the form of `https://tile.openstreetmap.org/\{z}/\{x}/\{y}.png?key=\{apiKey}&\{foo}`*
 |
 |No
 
@@ -453,12 +453,12 @@ Also some more refined configurations:
 |No
 
 |VAPID_PUBLIC_KEY
-|VAPID public key that will be used to sign the Push API requests. It can be generated running the task: `rake decidim:generate_vapid_keys`
+|VAPID public key that will be used to sign the Push API requests. It can be generated running the task: `rails decidim:pwa:generate_vapid_keys`
 |
 |No
 
 |VAPID_PRIVATE_KEY
-|VAPID private key that will be used to sign the Push API requests. It can be generated running the task: `rake decidim:generate_vapid_keys`
+|VAPID private key that will be used to sign the Push API requests. It can be generated running the task: `rails decidim:pwa:generate_vapid_keys`
 |
 |No
 
@@ -651,6 +651,12 @@ Additional context: This has been revealed as an issue during a security audit o
 |false
 |No
 
+|*DECIDIM_SERVICE_WORKER_ENABLED*
+|Enable/Disable the service worker. This is used to enable offline support and to deliver push notifications. In development it's recommended to be disabled because its aggresive cache configuration might cause some issues when submitting forms.
+|false
+|No
+
+
 |===
 
 .Optional Env Vars fine tuning some Decidim modules (such the API or Proposal behaviors)
@@ -709,6 +715,11 @@ Using a very high number (ie: 0.99) can effectively deactivate the comparison st
 
 *We recommend not to tamper with this setting unless you know what are you doing*
 |auto
+|No
+
+|MEETINGS_EMBEDDABLE_SERVICES
+|A list (separated by spaces) of allowed services that can be embedded in a iframe when creating an online meeting.
+|www.youtube.com www.twitch.tv meet.jit.si
 |No
 
 |BUDGETS_ENABLE_PROPOSAL_LINKING

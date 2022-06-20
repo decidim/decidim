@@ -21,6 +21,7 @@ cs:
       timeline_entry:
         description: Popis
         entry_date: Datum
+        title: Název
     models:
       decidim/accountability/proposal_linked_event: Návrh zahrnutý do výsledku
       decidim/accountability/result_progress_updated_event: Výsledek byl aktualizován
@@ -123,6 +124,14 @@ cs:
           create: "%{user_name} vytvořen výsledek %{resource_name} v %{space_name}"
           delete: "%{user_name} odstranil %{resource_name} výsledek v %{space_name}"
           update: "%{user_name} aktualizovaný výsledek %{resource_name} v %{space_name}"
+        status:
+          create: "%{user_name} vytvořil/a stav %{resource_name}"
+          delete: "%{user_name} odstranil stav %{resource_name}"
+          update: "%{user_name} aktualizoval stav %{resource_name}"
+        timeline_entry:
+          create: "%{user_name} vytvořil záznam %{resource_name} časové osy"
+          delete: "%{user_name} odstranil záznam %{resource_name} časové osy"
+          update: "%{user_name} aktualizoval záznam %{resource_name} časové osy"
         value_types:
           parent_presenter:
             not_found: 'Nadřazený nebyl nalezen v databázi (ID: %{id})'
@@ -160,8 +169,8 @@ cs:
             progress: Průběh
         timeline_entry:
           fields:
-            description: Popis
             entry_date: Datum
+            title: Název
       result_m:
         executed: Provedeno
         view: Zobrazit

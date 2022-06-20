@@ -17,8 +17,12 @@ hu:
         min_selections: Egyik opció sem a fentiek közül
         title: Cím
       voting:
+        banner_image: Banner kép
+        description: Leírás
         end_time: Szavazás vége
+        promoted: Támogatott
         start_time: Szavazás kezdete
+        title: Cím
     errors:
       models:
         answer:
@@ -159,6 +163,7 @@ hu:
             title: Javaslatok importálása
         questions:
           create:
+            election_started: A választás megkezdődött
             invalid: Hiba történt a kérdés létrehozása során
             success: Kérdés létrehozása sikeres
           destroy:
@@ -242,6 +247,11 @@ hu:
               role: A te szereped
               voting: Szavazás
       votings:
+        check_census:
+          error:
+            info: 'Kérjük, próbálja újra. Amennyiben Ön szerint a rendszerben rögzített adat hibás, itt jelentheti: %{census_contact_information}'
+          success:
+            access_link: e-mailen keresztül.
         filters:
           date: Dátum
         login:

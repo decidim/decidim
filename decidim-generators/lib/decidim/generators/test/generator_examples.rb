@@ -82,6 +82,7 @@ shared_context "with application env vars" do
       "DECIDIM_BASE_UPLOADS_PATH" => "",
       "DECIDIM_DEFAULT_CSV_COL_SEP" => "",
       "DECIDIM_CORS_ENABLED" => "",
+      "DECIDIM_SERVICE_WORKER_ENABLED" => "",
       "RAILS_LOG_LEVEL" => "nonsense",
       "STORAGE_PROVIDER" => ""
     }
@@ -111,7 +112,8 @@ shared_context "with application env vars" do
       "DECIDIM_THROTTLING_PERIOD" => "false",
       "DECIDIM_UNCONFIRMED_ACCESS_FOR" => "false",
       "DECIDIM_SYSTEM_ACCESSLIST_IPS" => "false",
-      "DECIDIM_CORS_ENABLED" => "falsE"
+      "DECIDIM_CORS_ENABLED" => "false",
+      "DECIDIM_SERVICE_WORKER_ENABLED" => "false"
     }
   end
 
@@ -152,6 +154,7 @@ shared_context "with application env vars" do
       "DECIDIM_BASE_UPLOADS_PATH" => "some-path/",
       "DECIDIM_DEFAULT_CSV_COL_SEP" => ",",
       "DECIDIM_CORS_ENABLED" => "true",
+      "DECIDIM_SERVICE_WORKER_ENABLED" => "true",
       "DECIDIM_CONSENT_COOKIE_NAME" => ":weird-consent-cookie-name:",
       "DECIDIM_CACHE_KEY_SEPARATOR" => ":",
       "DECIDIM_EXPIRE_SESSION_AFTER" => "45",
@@ -181,6 +184,7 @@ shared_context "with application env vars" do
       "PROPOSALS_PROCESS_GROUP_HIGHLIGHTED_PROPOSALS_LIMIT" => "5",
       "MEETINGS_UPCOMING_MEETING_NOTIFICATION" => "3",
       "MEETINGS_ENABLE_PROPOSAL_LINKING" => "false",
+      "MEETINGS_EMBEDDABLE_SERVICES" => "www.youtube.com www.twitch.tv meet.jit.si 8x8.vc",
       "BUDGETS_ENABLE_PROPOSAL_LINKING" => "false",
       "ACCOUNTABILITY_ENABLE_PROPOSAL_LINKING" => "false",
       "CONSULTATIONS_STATS_CACHE_EXPIRATION_TIME" => "7",
@@ -268,7 +272,8 @@ shared_examples_for "an application with configurable env vars" do
       %w(decidim base_uploads_path) => nil,
       %w(decidim default_csv_col_sep) => ";",
       %w(decidim cors_enabled) => false,
-      %w(decidim consent_cookie_name) => "decidim-cc",
+      %w(decidim service_worker_enabled) => true,
+      %w(decidim consent_cookie_name) => "decidim-consent",
       %w(decidim cache_key_separator) => "/",
       %w(decidim expire_session_after) => 30,
       %w(decidim enable_remember_me) => "auto",
@@ -303,6 +308,7 @@ shared_examples_for "an application with configurable env vars" do
       %w(decidim proposals process_group_highlighted_proposals_limit) => 3,
       %w(decidim meetings upcoming_meeting_notification) => 2,
       %w(decidim meetings enable_proposal_linking) => "auto",
+      %w(decidim meetings embeddable_services) => [],
       %w(decidim budgets enable_proposal_linking) => "auto",
       %w(decidim accountability enable_proposal_linking) => "auto",
       %w(decidim consultations stats_cache_expiration_time) => 5,
@@ -366,6 +372,7 @@ shared_examples_for "an application with configurable env vars" do
       %w(decidim base_uploads_path) => "some-path/",
       %w(decidim default_csv_col_sep) => ",",
       %w(decidim cors_enabled) => true,
+      %w(decidim service_worker_enabled) => true,
       %w(decidim consent_cookie_name) => ":weird-consent-cookie-name:",
       %w(decidim cache_key_separator) => ":",
       %w(decidim expire_session_after) => 45,
@@ -401,6 +408,7 @@ shared_examples_for "an application with configurable env vars" do
       %w(decidim proposals process_group_highlighted_proposals_limit) => 5,
       %w(decidim meetings upcoming_meeting_notification) => 3,
       %w(decidim meetings enable_proposal_linking) => false,
+      %w(decidim meetings embeddable_services) => %w(www.youtube.com www.twitch.tv meet.jit.si 8x8.vc),
       %w(decidim budgets enable_proposal_linking) => false,
       %w(decidim accountability enable_proposal_linking) => false,
       %w(decidim consultations stats_cache_expiration_time) => 7,
@@ -455,7 +463,7 @@ shared_examples_for "an application with configurable env vars" do
       "base_uploads_path" => nil,
       "default_csv_col_sep" => ";",
       "cors_enabled" => false,
-      "consent_cookie_name" => "decidim-cc",
+      "consent_cookie_name" => "decidim-consent",
       "cache_key_separator" => "/",
       "expire_session_after" => 1800, # 30 minutes
       "enable_remember_me" => true,
@@ -608,14 +616,16 @@ shared_examples_for "an application with configurable env vars" do
   let(:meetings_initializer_off) do
     {
       "upcoming_meeting_notification" => 172_800, # 2.days
-      "enable_proposal_linking" => true
+      "enable_proposal_linking" => true,
+      "embeddable_services" => %w(www.youtube.com www.twitch.tv meet.jit.si)
     }
   end
 
   let(:meetings_initializer_on) do
     {
       "upcoming_meeting_notification" => 259_200, # 3.days
-      "enable_proposal_linking" => false
+      "enable_proposal_linking" => false,
+      "embeddable_services" => %w(www.youtube.com www.twitch.tv meet.jit.si 8x8.vc)
     }
   end
 
@@ -651,7 +661,7 @@ shared_examples_for "an application with configurable env vars" do
       "Rails.application.config.log_level" => "info",
       "Rails.application.config.action_controller.asset_host" => nil,
       "Rails.application.config.active_storage.service" => "local",
-      "Decidim::ApplicationUploader.new(nil, :file).protocol_option" => { "protocol" => "https" }
+      "Decidim::EngineRouter.new(nil, {}).send(:configured_default_url_options)" => { "protocol" => "https" }
     }
   end
 
@@ -661,7 +671,7 @@ shared_examples_for "an application with configurable env vars" do
       "Rails.application.config.log_level" => "fatal",
       "Rails.application.config.action_controller.asset_host" => "http://assets.example.org",
       "Rails.application.config.active_storage.service" => "test",
-      "Decidim::ApplicationUploader.new(nil, :file).protocol_option" => { "host" => "https://cdn.example.org" },
+      "Decidim::AssetRouter.new(nil).send(:default_options)" => { "host" => "https://cdn.example.org" },
       "Decidim::Api::Schema.default_max_page_size" => 31,
       "Decidim::Api::Schema.max_complexity" => 3001,
       "Decidim::Api::Schema.max_depth" => 11

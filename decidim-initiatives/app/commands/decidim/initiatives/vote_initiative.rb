@@ -101,12 +101,8 @@ module Decidim
           event: "decidim.events.initiatives.support_threshold_reached",
           event_class: Decidim::Initiatives::Admin::SupportThresholdReachedEvent,
           resource: initiative,
-          followers: organization_admins
+          followers: initiative.organization.admins
         )
-      end
-
-      def organization_admins
-        Decidim::User.where(organization: initiative.organization, admin: true)
       end
     end
   end

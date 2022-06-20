@@ -238,8 +238,6 @@ ca:
             edit: Edita
             new: Nou
             photos: Fotografies
-          show:
-            print: Imprimir
           update:
             error: S'ha produït un error
             success: La iniciativa ciutadana s'ha actualitzat correctament
@@ -274,6 +272,8 @@ ca:
             update: Actualitza
           form:
             authorizations: Configuració de l'autorització
+            child_scope_threshold_enabled_help: 'Aquest ajust de configuració no admet les votacions sense connexió. Habilita els subàmbits i funciona amb un gestor d''autoritzacions que associa un àmbit a la participant. Assegura''t de seleccionar aquesta autorització, més avall a la configuració d''autoritzacions. Per a que funcioni, els àmbits han de configurar-se de forma jerárquica: 1 Pare - N fills. Per a més informació sobre com funciona aquesta configuració, <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">veure la documentació sobre l''administració d''iniciatives</a>.'
+            only_global_scope_enabled_help: Marca aquesta casella si has habilitat "Activar signatures per subàmbit" i vas configurar l'àmbit global com l'àmbit principal. En habilitar aquesta casella, la selecció del tipus d'iniciativa s'ometrà en l'assistent de creació d'iniciatives. Per a més informació sobre com funciona aquesta configuració, consulta aquest <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">enllaç</a>.
             options: Opcions
             title: Informació general
           initiative_type_scopes:
@@ -290,6 +290,10 @@ ca:
           send_to_technical_validation: "%{user_name} ha enviat la iniciativa %{resource_name} a la validació tècnica"
           unpublish: "%{user_name} ha descartat la iniciativa %{resource_name}"
           update: "%{user_name} ha actualitzat la iniciativa %{resource_name}"
+        initiatives_type:
+          create: "%{user_name} ha creat el tipus d'iniciativa %{resource_name}"
+          delete: "%{user_name} ha esborrat el tipus d'iniciativa %{resource_name}"
+          update: "%{user_name} ha actualitzat el tipus d'iniciativa %{resource_name}"
       admin_states:
         accepted: Ha aconseguit les signatures necessàries
         created: Creada
@@ -505,6 +509,7 @@ ca:
             title: 'Títol:'
             type: Tipus d'iniciativa
           legal_text: Les dades personals recollides seran incorporades i tractades confidencialment per l'organització, d'acord amb la legislació actual.
+          members_header: Membres de la comissió promotora de la iniciativa
           phone_number: Número de telèfon
           place_date: Lloc, data
           postal_code: Codi postal
@@ -564,6 +569,8 @@ ca:
           published: Publicada
           rejected: No ha aconseguit les signatures
           validating: Validació tècnica
+      signature_interval:
+        title: Període de recollida de signatures
       states:
         accepted: Acceptat
         expired: Vençut

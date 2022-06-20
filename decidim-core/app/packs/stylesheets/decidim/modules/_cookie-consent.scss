@@ -1,0 +1,115 @@
+#cc-dialog-wrapper{
+  z-index: 1000000;
+
+  .cc-dialog{
+    position: fixed;
+    background-color: $white;
+    bottom: 0;
+    width: 100%;
+
+    @include breakpoint(large){
+      width: unset;
+    }
+
+    .cc-button-wrapper{
+      flex-direction: column;
+      margin: 1rem 0;
+
+      > *{
+        width: 100%;
+        margin: .5rem 0;
+      }
+
+      @include breakpoint(medium){
+        flex-direction: row;
+
+        > *{
+          width: unset;
+          margin: 0 1rem;
+        }
+      }
+
+      @include breakpoint(large){
+        justify-content: flex-end;
+      }
+    }
+  }
+}
+
+#cc-modal{
+  background-color: $white;
+
+  .category-wrapper{
+    background-color: $light-gray;
+    padding: .2rem;
+
+    .category-row{
+      position: relative;
+      justify-content: space-between;
+
+      .cc-title{
+        &::before{
+          border: solid #2d4156;
+          border-width: 0 2px 2px 0;
+          padding: .2em;
+          display: inline-block;
+          content: '';
+          margin-right: 15px;
+          position: absolute;
+          left: 1.2em;
+          top: 50%;
+          transform: translateY(-50%) rotate(45deg);
+        }
+
+        &.open{
+          &::before{
+            transform: translateY(-50%) rotate(225deg);
+          }
+        }
+      }
+
+      .cc-switch{
+        padding: .5rem 0 0;
+      }
+    }
+
+    .cookie-details-wrapper{
+      .detail-titles{
+        border-bottom: 1px solid $medium-gray;
+
+        > *{
+          font-weight: 600;
+        }
+      }
+
+      .cookie-detail-row{
+        font-size: .6rem;
+      }
+    }
+  }
+
+  .cc-buttons-wrapper{
+    justify-content: space-between;
+  }
+}
+
+.disabled-iframe{
+  background-color: $light-gray;
+  border: 1px solid $medium-gray;
+  cursor: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  max-height: 20rem;
+
+  &.ql-video{
+    display: flex;
+  }
+}
+
+.cookie-warning{
+  flex-direction: column;
+  font-size: 2rem;
+  font-weight: $global-weight-bold;
+}

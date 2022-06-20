@@ -38,13 +38,13 @@ describe "Last activity", type: :system do
     switch_to_host organization.host
   end
 
-  describe "accessing the last activity page" do
+  describe "accessing the homepage with the last activity content block enabled" do
     before do
       page.visit decidim.root_path
     end
 
     it "displays the activities at the home page" do
-      within ".upcoming-events" do
+      within "#last_activity" do
         expect(page).to have_css(".card--activity", count: 3)
       end
     end
@@ -54,9 +54,19 @@ describe "Last activity", type: :system do
       expect(page).to have_no_content(another_comment.translated_body)
     end
 
+    context "when there is a deleted comment" do
+      let(:comment) { create(:comment, :deleted, body: "This is deleted") }
+
+      it "isn't shown" do
+        within "#last_activity" do
+          expect(page).not_to have_content("This is deleted")
+        end
+      end
+    end
+
     context "when viewing all activities" do
       before do
-        within ".upcoming-events" do
+        within "#last_activity" do
           click_link "View all"
         end
       end

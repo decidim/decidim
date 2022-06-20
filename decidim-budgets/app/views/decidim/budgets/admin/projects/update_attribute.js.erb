@@ -1,0 +1,26 @@
+<% if flash.now[:error].present? %>
+  $("<%= form_selector %> <%= attribute_selector %>").addClass("is-invalid-input")
+  $("<%= escape_javascript(render partial: %q{decidim/admin/shared/js-callout}, locals: { css: %q{alert}, text: flash.now[:error] }) %>").appendTo(".callout-wrapper");
+<% end %>
+
+<% if flash.now[:alert].present? %>
+  $("<%= form_selector %> <%= attribute_selector %>").removeClass("is-invalid-input")
+  $("<%= escape_javascript(render partial: %q{decidim/admin/shared/js-callout}, locals: { css: %q{warning}, text: flash.now[:alert] }) %>").appendTo(".callout-wrapper");
+<% end %>
+
+<% if flash.now[:notice].present? %>
+  $("<%= escape_javascript(render partial: %q{decidim/admin/shared/js-callout}, locals: { css: %q{success}, text: flash.now[:notice] }) %>").appendTo(".callout-wrapper");
+
+  <% project_ids.each do |id| %>
+    $(".table-list [data-id='<%= id %>']")
+      .replaceWith("<%= escape_javascript(render partial: %q{project-tr}, locals: { project: Decidim::Budgets::Project.find(id) }) %>");
+  <% end %>
+
+  $("<%= form_selector %> <%= attribute_selector %>").removeClass("is-invalid-input")
+  $(".js-check-all").prop('checked', false);
+  $(".js-check-all-resources").prop('checked', false);
+  window.hideBulkActionsButton();
+  window.hideBulkActionForms();
+  window.showOtherActionsButtons();
+  window.selectedResourcesCountUpdate();
+<% end %>

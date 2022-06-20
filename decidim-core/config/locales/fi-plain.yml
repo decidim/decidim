@@ -22,6 +22,7 @@ fi-pl:
       user:
         about: Profiilikuvaus
         email: Sähköpostiosoitteesi
+        locale: Kieli
         name: Nimesi
         nickname: Nimimerkki
         password: Salasana
@@ -34,12 +35,17 @@ fi-pl:
       decidim/demoted_membership: Ei enää ryhmän ylläpitäjä
       decidim/gamification/badge_earned_event: Kunniamerkki ansaittu
       decidim/gamification/level_up_event: Olet päässyt seuraavalle tasolle
+      decidim/invited_to_group_event: Kutsuttu ryhmään
       decidim/join_request_accepted_event: Liittymispyyntö on hyväksytty
       decidim/join_request_rejected_event: Liittymispyyntö on hylätty
       decidim/profile_updated_event: Profiili päivitetty
       decidim/promote_to_admin: Nimetty ryhmän ylläpitäjäksi
+      decidim/promoted_to_admin_event: Nimetty ryhmän ylläpitäjäksi
       decidim/removed_from_group: Poistettu ryhmästä
       decidim/resource_endorsed_event: Kohdetta suositeltu
+      decidim/resource_hidden_event: Piilotettu asia
+      decidim/user_group_created_event: Käyttäjäryhmä luotu
+      decidim/welcome_notification_event: Tervetuliaisviesti
   activerecord:
     attributes:
       decidim/user:
@@ -67,7 +73,8 @@ fi-pl:
     'true': 'Kyllä'
   carrierwave:
     errors:
-      image_too_big: Kuva on liian suuri
+      file_resolution_too_large: Tiedoston resoluutio on liian suuri
+      file_size_too_large: Tiedoston koko on liian suuri
       not_inside_organization: Tiedostoa ei ole liitetty mihinkään organisaatioon
   date:
     formats:
@@ -111,9 +118,6 @@ fi-pl:
       skip_button: Siirry sisältöön
     account:
       blocked: Tämä käyttäjätili on estetty, koska käyttäjä ei noudattanut käyttöehtoja
-      data_portability_export:
-        file_no_exists: Tiedostoa ei ole olemassa
-        notice: Tietojen vienti on käynnissä. Saat sähköpostiviestin, kun se valmistuu.
       delete:
         alert: Tätä toimintoa ei voi peruuttaa. Jos poistat tilisi, et voi enää kirjautua sisään tunnuksillasi. Tilisi poiston yhteydessä nimesi ja tietosi poistuvat kaikkien laatimiesi asioiden yhteydestä. Voit kuitenkin aina luoda uuden tilin, mutta näitä aikaisemmin laadittuja asioita ei voida enää jälkikäteen liittää uuteen tiliisi.
         confirm:
@@ -125,6 +129,18 @@ fi-pl:
       destroy:
         error: Tilin poistossa tapahtui virhe.
         success: Tilisi poistaminen onnistui.
+      download_your_data_export:
+        file_no_exists: Tiedostoa ei ole olemassa
+        notice: Tietojen vienti on käynnissä. Saat sähköpostiviestin, kun se valmistuu.
+      email_change:
+        body1: Olemme lähettäneet viestin osoitteeseen %{unconfirmed_email} vahvistaaksemme uuden sähköpostiosoitteesi.
+        body2: Haluatko tilata vahvistussähköpostin uudestaan? %{resend_link} tai %{cancel_link}.
+        cancel_error: Sähköpostin muutosta ei voitu peruuttaa.
+        cancel_successfully: Sähköpostin muuttamisen peruuttaminen onnistui.
+        resend_error: Vahvistussähköpostia ei voitu lähettää uudestaan.
+        resend_successfully: Vahvistussähköpostin lähetys osoitteeseen %{unconfirmed_email} onnistui
+        send_again: Lähetä uudestaan
+        title: Sähköpostin muuttamisen vahvistus
       show:
         available_locales_helper: Valitse haluamasi kieli alustan käyttämiseen ja ilmoitusten vastaanottamiseen
         change_password: Vaihda salasana
@@ -389,6 +405,7 @@ fi-pl:
           debate: Keskustelu
           initiative: Aloite
           meeting: Tapaaminen
+          order: Budjetointiääni
           post: Artikkeli
           proposal: Ehdotus
           question: Kysymys
@@ -403,8 +420,8 @@ fi-pl:
             amendments_enabled: Muutokset käytössä
             comments_enabled: Kommentit käytössä
             comments_max_length: Kommenttien maksimipituus
-            dummy_global_attribute_1: Esimerkkitietue 1
-            dummy_global_attribute_2: Esimerkkitietue 2
+            dummy_global_attribute1: Esimerkkitietue 1
+            dummy_global_attribute2: Esimerkkitietue 2
             dummy_global_translatable_text: Käännettävän tekstin esimerkki
             enable_pads_creation: Ota käyttöön muistioiden luominen
             resources_permissions_enabled: Resurssien käyttöoikeudet ovat käytössä
@@ -416,8 +433,8 @@ fi-pl:
             amendment_reaction_enabled: Reaktiot käytössä muutoksille
             amendments_visibility: Muutosten näkyvyys
             comments_blocked: Kommentit estetty
-            dummy_step_attribute_1: Esimerkkivaiheen tietue 1
-            dummy_step_attribute_2: Esimerkkivaiheen tietue 2
+            dummy_step_attribute1: Esimerkkivaiheen tietue 1
+            dummy_step_attribute2: Esimerkkivaiheen tietue 2
             dummy_step_translatable_text: Vaiheen käännettävän tekstin esimerkki
     contact: Ota yhteyttä
     content_blocks:
@@ -461,13 +478,6 @@ fi-pl:
       actions:
         login_before_access: Sinun täytyy kirjautua sisään, jotta kuin voit tarkastella tätä sisältöä
         unauthorized: Tiliäsi ei ole varmennettu tämän toiminnon suorittamiseen
-    data_portability:
-      export:
-        ready: Valmis
-      show:
-        download_data: Lataa tiedot
-        download_data_description: Tiedosto sisältää kaikki tiliisi liitetyt tiedot ja se lähetetään osoitteeseen <strong>%{user_email}</strong>. Kyseinen sähköposti sisältää .zip-tiedoston ja salasanan, jolla kyseisen tiedoston voi avata.<br/><br/>Purkaaksesi tiedoston, tarvitset <a href="https://www.7-zip.org/">7-Zip-ohjelmiston</a> (Windows-käyttöjärjestelmille) tai <a href="https://www.keka.io/">Keka-ohjelmiston</a> (MacOS-käyttöjärjestelmille). Jos käytät Linux-käyttöjärjestelmää, useimmiten paketin avaamiseen tarvittava ohjelmisto on valmiiksi asennettuna järjestelmääsi. Jos näin ei kuitenkaan ole, voit käyttää <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller -ohjelmistoa</a> tai <a href="https://peazip.github.io">PeaZip-ohjelmistoa</a> paketin avaamiseen.
-        request_data: Pyydä tietoja
     datepicker:
       help_text: 'Odotettu muoto: %{datepicker_format}'
     devise:
@@ -535,6 +545,13 @@ fi-pl:
           this_application_will_not_be_able_to: 'Tämä sovellus ei voi:'
           update_profile: Päivittää profiiliasi
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> haluaa käyttää tiliäsi"
+    download_your_data:
+      export:
+        ready: Valmis
+      show:
+        download_data: Lataa tiedot
+        download_data_description: Tiedosto sisältää kaikki tiliisi liitetyt tiedot ja se lähetetään osoitteeseen <strong>%{user_email}</strong>. Kyseinen sähköposti sisältää .zip-tiedoston ja salasanan, jolla kyseisen tiedoston voi avata.<br/><br/>Purkaaksesi tiedoston, tarvitset <a href="https://www.7-zip.org/">7-Zip-ohjelmiston</a> (Windows-käyttöjärjestelmille) tai <a href="https://www.keka.io/">Keka-ohjelmiston</a> (MacOS-käyttöjärjestelmille). Jos käytät Linux-käyttöjärjestelmää, useimmiten paketin avaamiseen tarvittava ohjelmisto on valmiiksi asennettuna järjestelmääsi. Jos näin ei kuitenkaan ole, voit käyttää <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller -ohjelmistoa</a> tai <a href="https://peazip.github.io">PeaZip-ohjelmistoa</a> paketin avaamiseen.
+        request_data: Pyydä tietoja
     editor_images:
       create:
         error: Kuvan lähettäminen epäonnistui
@@ -678,6 +695,8 @@ fi-pl:
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet palvelun hallintakäyttäjä.
           email_subject: Ryhmä on päivittänyt profiiliaan
           notification_title: Ryhmä nimeltä %{user_group_name} on päivittänyt profiiliaan, jättäen ryhmän varmentamattomaksi. Voit varmentaa ryhmän <a href="%{groups_admin_path}">hallintapaneelin kautta</a>.
+      nickname_event:
+        notification_body: Olemme muuttaneet nimimerkkien sääntöjä varmistaaksemme, että alustalla ei ole useampaa tiliä samalla nimimerkillä eri tavalla kirjoitettuna. <br/> Tilisi on luotu toisen samaa nimimerkkiä käyttäneen henkilön jälkeen, joten olemme vaihtaneet nimimerkkiäsi automaattisesti. Halutessasi voit vaihtaa nimimerkkiäsi <a href="%{link_to_account_settings}">tilisi asetuksista</a>.
       notification_event:
         notification_title: Kohteelle <a href="%{resource_path}">%{resource_title}</a> järjestettiin tapahtuma.
       reports:
@@ -704,7 +723,7 @@ fi-pl:
           email_subject: "%{name} on virallistettu"
           notification_title: Osallistuja %{name} (%{nickname}) on virallistettu.
     export_mailer:
-      data_portability_export:
+      download_your_data_export:
         click_button: 'Napsauta Seuraava-linkkiä ladataksesi tietosi.<br/>Tiedosto on saatavilla %{date} saakka.<br/>Tarvitset paketin avaamiseen <a href="https://www.7-zip.org/">7-Zip-ohjelmiston</a> (Windows-käyttöjärjestelmille), <a href="https://www.keka.io/en/">Keka-ohjelmiston</a> (MacOS-käyttöjärjestelmille) tai <a href="https://peazip.github.io">PeaZip-ohjelmiston</a> (Linux-käyttöjärjestelmille). Salasana: %{password}'
         download: Lataa
       export:
@@ -755,14 +774,39 @@ fi-pl:
         file:
           explanation: 'Tiedoston ohjeistus:'
           message_1: On oltava kuva tai asiakirja.
-          message_2: Käytä kuvina mieluiten vaakasuuntaisia kuvia, palvelu rajaa kuvaa sopivaksi näkymään. CSV-tiedostojen osalta käytä sarake-erottimena pilkkua (",")
+          message_2: Kuvina käytä mieluiten vaakasuintaisia kuvia, palvelu rajaa kuvaa.
+        icon:
+          explanation: 'Ikonin ohjeistus:'
+          message_1: On oltava neliömuotoinen kuva.
+          message_2: Tämän kuvan suositeltu koko on 512x512.
         image:
           explanation: 'Kuvan ohjeistus:'
           message_1: Käytä mieluiten vaakasuuntaista kuvaa, jossa ei ole tekstiä.
           message_2: Palvelu rajaa kuvaa.
       file_validation:
         allowed_file_extensions: 'Sallitut tiedostopäätteet: %{extensions}'
+        max_file_dimension: 'Tiedoston enimmäismitat: %{resolution} pikseliä'
         max_file_size: 'Tiedoston koon rajoitus: %{megabytes}Mt'
+      upload:
+        labels:
+          add_attachment: Lisää liite
+          add_file: Lisää tiedosto
+          add_image: Lisää kuva
+          cancel: Peruuta
+          edit_image: Muokkaa kuvaa
+          error: Virhe!
+          file_size_too_large: 'Tiedoston koko on liian suuri! Suurin tiedostokoko: %{megabytes}MB'
+          remove: Poista
+          replace: Korvaa
+          save: Tallenna
+          title: Tiedosto-otsikko
+          title_required: Tiedosto-otsikko tarvitaan!
+          uploaded: Ladattu
+          validating: Validoidaan...
+          validation_error: Validointivirhe!
+      upload_help:
+        dropzone: Pudota tiedostot tähän tai napsauta ladataksesi
+        explanation: Ohjeita %{attribute} varten
     gamification:
       all_badges_link: Kaikki saatavilla olevat kunniamerkit.
       badges:
@@ -875,7 +919,6 @@ fi-pl:
       no_user_groups: Ei kuulu vielä yhteenkään ryhmään.
       roles:
         admin: Ylläpitäjä
-        creator: Luoja
         member: Jäsen
       update:
         error: Ryhmää päivitettäessä esiintyi ongelma
@@ -1082,19 +1125,21 @@ fi-pl:
         translated_text: 'Automaattisesti käännetty teksti:'
     notifications:
       no_notifications: Ei vielä ilmoituksia.
+      show:
+        missing_event: Hups, tämä ilmoitus kuuluu kohteeseen, joka ei ole enää käytettävissä. Voit merkitä sen luetuksi.
     notifications_settings:
       show:
         administrators: Hallintakäyttäjät
         allow_public_contact: Salli kenen tahansa lähettää minulle yksityisviestejä, vaikka en seuraisi heitä.
         direct_messages: Vastaanota yksityisviestejä kaikilta
-        email_on_moderations: Haluan saada sähköpostia aina, kun jotain ilmoitetaan moderointiin.
-        email_on_notification: Haluan saada sähköpostia aina, kun saan ilmoituksen.
+        email_on_moderations: Haluan saada sähköpostia aina, kun jotain tai joku käyttäjä ilmoitetaan moderoitavaksi.
         everything_followed: Kaikki mitä seuraan
         newsletter_notifications: Haluan vastaanottaa uutiskirjeitä
         newsletters: Uutiskirjeet
+        notification_settings:
+          close_meeting_reminder: Haluan vastaanottaa sähköpostimuistutuksia suljetuista tapaamisista, jotka odottavat raportointia
         own_activity: Oma toiminta, kuten omia ehdotuksia koskevat kommentit tai maininnat
         receive_notifications_about: Haluan saada ilmoituksia
-        send_notifications_by_email: Lähetä ilmoitukset sähköpostitse
         update_notifications_settings: Tallenna muutokset
       update:
         error: Ilmoitusasetustesi päivityksessä tapahtui virhe.
@@ -1156,7 +1201,7 @@ fi-pl:
           agreement: Hyväksyn nämä ehdot
           legend: Hyväksy käyttöehdot
         refuse:
-          modal_body: Jos kieltäydyt, et voi käyttää palvelua. Voit <a href="%{data_portability_path}">ladata omat tietosi</a> ja/tai <a href="%{delete_path}">poistaa tilisi</a>.
+          modal_body: Jos kieltäydyt hyväksymästä ehtoja, et voi käyttää palvelua. Voit <a href="%{download_your_data_path}">ladata omat tietosi</a> ja/tai <a href="%{delete_path}">poistaa tilisi</a>.
           modal_btn_continue: Hyväksy ehdot ja jatka
           modal_btn_exit: Tarkastan ne myöhemmin
           modal_button: Kieltäydy hyväksymästä ehtoja
@@ -1462,7 +1507,7 @@ fi-pl:
     invitations:
       edit:
         header: Viimeistele tilisi
-        nickname_help: Yksilöllinen käyttäjänimesi organisaatiossa %{organization}.
+        nickname_help: Nimimerkkisi palvelussa %{organization}. Voi sisältää ainoastaan kirjaimia, numeroita sekä yhdysmerkkejä "-" ja alaviivoja "_".
         submit_button: Tallenna
         subtitle: Jos hyväksyt kutsun, aseta käyttäjänimesi ja salasana.
       invitation_removed: Kutsusi peruutettiin.
@@ -1620,10 +1665,6 @@ fi-pl:
     timestamp_error_message: Pahoittelut, olit liian nopea! Lähetä lomake uudestaan.
   layouts:
     decidim:
-      cookie_warning:
-        description_html: Tämä sivusto käyttää evästeitä. Jatkamalla tämän sivuston käyttöä hyväksyt selaimeesi asettamamme evästeet. Lue lisää %{link}.
-        link_label: täältä
-        ok: Hyväksyn
       edit_link:
         edit: Muokkaa
       footer:
@@ -1660,6 +1701,8 @@ fi-pl:
         continue_session: Jatka palvelun käyttöä
         sign_out: Kirjaudu ulos
         title: Haluatko jatkaa palvelun käyttöä?
+      upload_modal:
+        close_modal: Sulje ikkuna
       user_menu:
         account: 'Käyttäjätili: %{name}'
         admin_dashboard: Hallintapaneeli

@@ -67,7 +67,7 @@ fr:
         participatory_process:
           attributes:
             document:
-              invalid_document_type: 'Type de document invalide. Les formats acceptés sont: %{valid_mime_types}'
+              allowed_file_content_types: 'Type de document invalide. Les formats acceptés sont: %{types}'
     models:
       decidim/participatory_process_step_activated_event: Étape activée
       decidim/participatory_process_step_changed_event: Étape modifiée
@@ -298,6 +298,9 @@ fr:
     admin_log:
       participatory_process:
         create: "%{user_name} a créé la concertation %{resource_name}"
+        duplicate: "%{user_name} a dupliqué\" la concertation %{resource_name}"
+        export: "%{user_name} a exporté la concertation %{resource_name}"
+        import: "%{user_name} a importé la concertation %{resource_name}"
         publish: "%{user_name} a publié la concertation %{resource_name}"
         unpublish: "%{user_name} n'a pas publié la concertation %{resource_name}"
         update: "%{user_name} a mis à jour la concertation %{resource_name}"
@@ -321,17 +324,17 @@ fr:
       participatory_process:
         role_assigned:
           email_intro: Vous avez été assigné en tant que %{role} pour la concertation "%{resource_title}".
-          email_outro: Vous avez reçu cette notification parce que vous êtes %{role} de la concertation "%{resource_title}".
+          email_outro: Vous avez reçu cette notification parce que vous êtes %{role} de la concertation "%{resource_title}". Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l'onglet “Mon compte” > “Paramètres des notifications”.
           email_subject: Vous avez été assigné comme %{role} pour "%{resource_title}".
           notification_title: Vous avez été assigné en tant que %{role} pour la concertation <a href="%{resource_url}">%{resource_title}</a>.
         step_activated:
           email_intro: 'L''étape %{resource_title} vient d''être activée pour %{participatory_space_title}. Vous pouvez désormais la consulter sur cette page :'
-          email_outro: Vous venez de recevoir cette notification car vous suivez %{participatory_space_title}. Vous pouvez à tout moment arrêter de recevoir ces notifications en suivant le lien précédent.
+          email_outro: Vous venez de recevoir cette notification car vous suivez %{participatory_space_title}. Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l'onglet “Mon compte” > “Paramètres des notifications”.
           email_subject: Une mise à jour de %{participatory_space_title} vient d'être effectuée ! Nous vous invitons à venir consulter la page afin de découvrir les dernières améliorations
           notification_title: L'étape %{resource_title} est désormais activée pour <a href="%{resource_path}">%{participatory_space_title}</a>
         step_changed:
           email_intro: 'Les dates de l''étape %{resource_title} de %{participatory_space_title} ont été mises à jour. Vous pouvez les retrouver sur cette page :'
-          email_outro: Vous venez de recevoir cette notification car vous suivez %{participatory_space_title}. Vous pouvez à tout moment arrêter de recevoir ces notifications en suivant le lien précédent.
+          email_outro: Vous venez de recevoir cette notification car vous suivez %{participatory_space_title}. Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l'onglet “Mon compte” > “Paramètres des notifications”.
           email_subject: Une mise à jour de %{participatory_space_title} vient d'être réalisée ! Nous vous invitons à venir voir les dernières améliorations
           notification_title: Les dates de l'étape <a href="%{resource_path}">%{resource_title}</a> sur <a href="%{participatory_space_url}">%{participatory_space_title}</a> ont été mises à jour.
     help:

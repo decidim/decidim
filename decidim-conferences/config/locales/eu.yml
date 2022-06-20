@@ -59,9 +59,7 @@ eu:
         avatar: Avatarra
         conference_meeting_ids: Honekin lotutako topaketak
         full_name: Izen osoa
-        personal_url: URL pertsonala
         position: Kokapena
-        short_bio: Biografia laburra
         twitter_handle: Twitter kontua
         user_id: Erabiltzailea
       conference_user_role:

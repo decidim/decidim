@@ -1,0 +1,27 @@
+<div class="email-notifications-digest">
+  <div>
+    <p class="email-header"> <%= @notifications_digest.header %> </p>
+    <p class="email-header email-header--right"> <%= @notifications_digest.formated_date(Date.today) %> </p>
+  </div>
+
+  <p class="email-greeting"><%= @notifications_digest.greeting %></p>
+  <p class="email-intro"><%= @notifications_digest.intro %></p>
+
+  <div class="email-content-notifications">
+    <% length = @notifications.size - 1 %>
+    <% @notifications.each_with_index do |notification, i| %>
+      <%= render("decidim/notifications_digest_mailer/email_content", notification: notification) %>
+      <% if i < length %>
+        <hr class="email-element-separator">
+      <% end %>
+    <% end %>
+  </div>
+
+  <% if(@display_see_more_message) %>
+    <div>
+      <%= link_to @notifications_digest.see_more, decidim.notifications_url(host: @organization.host), class: "email-btn" %>
+    </div>
+  <% end %>
+
+  <p class="email-closing"><%= @notifications_digest.outro %></p>
+</div>

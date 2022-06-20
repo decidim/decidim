@@ -257,6 +257,10 @@ module Decidim
       Arel.sql(%{("decidim_users"."last_sign_in_at")::text})
     end
 
+    def notifications_subscriptions
+      notification_settings.fetch("subscriptions", {})
+    end
+
     protected
 
     # Overrides devise email required validation.

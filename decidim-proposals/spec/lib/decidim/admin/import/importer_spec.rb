@@ -3,7 +3,7 @@
 require "spec_helper"
 
 describe Decidim::Admin::Import::Importer do
-  subject { described_class.new(file: file, reader: reader, creator: creator, context: context) }
+  subject { described_class.new(file: blob, reader: reader, creator: creator, context: context) }
 
   let(:creator) { Decidim::Proposals::Import::ProposalCreator }
 
@@ -21,7 +21,7 @@ describe Decidim::Admin::Import::Importer do
   let(:current_component) { create :component, manifest_name: :proposals, participatory_space: participatory_process }
 
   context "with CSV" do
-    let(:file) { File.new Decidim::Dev.asset("import_proposals.csv") }
+    let(:blob) { upload_test_file(Decidim::Dev.asset("import_proposals.csv"), return_blob: true) }
     let(:reader) { Decidim::Admin::Import::Readers::CSV }
 
     it_behaves_like "proposal importer"
@@ -51,14 +51,14 @@ describe Decidim::Admin::Import::Importer do
   end
 
   context "with JSON" do
-    let(:file) { File.new Decidim::Dev.asset("import_proposals.json") }
+    let(:blob) { upload_test_file(Decidim::Dev.asset("import_proposals.json"), return_blob: true) }
     let(:reader) { Decidim::Admin::Import::Readers::JSON }
 
     it_behaves_like "proposal importer"
   end
 
   context "with XLSX" do
-    let(:file) { File.new Decidim::Dev.asset("import_proposals.xlsx") }
+    let(:blob) { upload_test_file(Decidim::Dev.asset("import_proposals.xlsx"), return_blob: true) }
     let(:reader) { Decidim::Admin::Import::Readers::XLSX }
 
     it_behaves_like "proposal importer"

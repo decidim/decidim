@@ -186,11 +186,11 @@ module Decidim
       end
 
       def has_replies?
-        model.comment_threads.includes(:moderation).collect { |c| !c.deleted? && !c.hidden? }.any?
+        model.comment_threads.not_hidden.not_deleted.exists?
       end
 
       def has_replies_in_children?
-        has_replies? || model.comment_threads.includes(:moderation).collect { |t| t.comment_threads.includes(:moderation).collect { |c| !c.deleted? && !c.hidden? }.any? }.any?
+        model.descendants.where(decidim_commentable_type: "Decidim::Comments::Comment").not_hidden.not_deleted.exists?
       end
 
       # action_authorization_button expects current_component to be available

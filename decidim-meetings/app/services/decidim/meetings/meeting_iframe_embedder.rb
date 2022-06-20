@@ -30,27 +30,30 @@ module Decidim
       def embeddable?
         return nil if parsed_online_meeting_uri.nil?
 
-        EMBEDDABLE_SERVICES.include?(parsed_online_meeting_uri.host)
+        embeddable_services.include?(parsed_online_meeting_uri.host)
       end
 
       def embed_code(request_host)
         return nil if parsed_online_meeting_uri.nil?
 
         %(
-<iframe
+<div
+  class="disabled-iframe"
   allow="camera; microphone; fullscreen; display-capture; autoplay"
   loading="lazy"
   src="#{embed_transformed_url(request_host)}"
   style="height: 100%; width: 100%; border: 0px;"
-></iframe>
+></div>
         )
       end
 
       private
 
-      EMBEDDABLE_SERVICES = %( www.youtube.com www.twitch.tv meet.jit.si )
-
       attr_accessor :online_meeting_service_url
+
+      def embeddable_services
+        @embeddable_services ||= Meetings.embeddable_services
+      end
 
       # Youtube transformation consists on:
       # 1. extract the video id from the parameter v
@@ -59,7 +62,8 @@ module Decidim
       def transform_youtube_url(uri)
         return online_meeting_service_url if uri.query.blank?
 
-        video_id = CGI.parse(uri.query).fetch("v")&.first
+        parsed_query = CGI.parse(uri.query)
+        video_id = parsed_query.has_key?("v") ? CGI.parse(uri.query).fetch("v")&.first : nil
 
         return online_meeting_service_url if video_id.blank?
 

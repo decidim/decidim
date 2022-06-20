@@ -35,12 +35,17 @@ ja:
       decidim/demoted_membership: グループ管理者ではありません
       decidim/gamification/badge_earned_event: バッジを獲得
       decidim/gamification/level_up_event: レベルアップしました
+      decidim/invited_to_group_event: グループに招待しました
       decidim/join_request_accepted_event: 参加リクエストが承認されました
       decidim/join_request_rejected_event: 参加リクエストが拒否されました
       decidim/profile_updated_event: プロフィールが更新されました
       decidim/promote_to_admin: グループ管理者に昇格しました
+      decidim/promoted_to_admin_event: グループ管理者に昇格しました
       decidim/removed_from_group: グループから削除しました
       decidim/resource_endorsed_event: オススメされた
+      decidim/resource_hidden_event: リソースを非表示
+      decidim/user_group_created_event: ユーザーグループが作成されました
+      decidim/welcome_notification_event: ウェルカムメッセージ
   activerecord:
     attributes:
       decidim/user:
@@ -64,7 +69,8 @@ ja:
     'true': 'はい'
   carrierwave:
     errors:
-      image_too_big: 画像が大きすぎます
+      file_resolution_too_large: ファイルの解像度の値が大きすぎます
+      file_size_too_large: ファイルサイズが大きすぎます
       not_inside_organization: ファイルはどの組織にも添付されていません
   date:
     formats:
@@ -100,9 +106,6 @@ ja:
       skip_button: メインコンテンツにスキップ
     account:
       blocked: このアカウントは利用規約違反によりブロックされています
-      data_portability_export:
-        file_no_exists: ファイルが存在しません
-        notice: データのダウンロードは現在進行中です。完了するとメールが届きます。
       delete:
         alert: この操作は元に戻せません。アカウントを削除すると、ログインできなくなります。 アカウントを削除すると、あなたの貢献が匿名化されます。 引き続き新しいアカウントを作成することはできますが、これらの貢献は関連付けられません。
         confirm:
@@ -114,6 +117,19 @@ ja:
       destroy:
         error: アカウントの削除中に問題が発生しました。
         success: アカウントが正常に削除されました。
+      download_your_data_export:
+        file_no_exists: ファイルが存在しません
+        notice: データのダウンロードは現在進行中です。完了するとメールが届きます。
+      email_change:
+        body1: 新しいメールアドレスを確認するため、 %{unconfirmed_email} にメールを送信しました。
+        body2: 確認メールをもう一度送信する必要がありますか？ %{resend_link} または %{cancel_link}
+        cancel: キャンセル
+        cancel_error: メールの変更をキャンセルできませんでした。
+        cancel_successfully: メールの変更が正常にキャンセルされました。
+        resend_error: 確認メールを再送信できませんでした。
+        resend_successfully: '%{unconfirmed_email} に確認メールが再送信されました'
+        send_again: 再送信
+        title: メールアドレスの変更確認
       show:
         available_locales_helper: プラットフォーム上での通知と表示に使用する言語を選択してください
         change_password: パスワードの変更
@@ -130,11 +146,36 @@ ja:
         create: "%{user_name} が %{resource_name} 領域を作成しました"
         delete: "%{user_name} が %{resource_name} エリアを削除しました"
         update: "%{user_name} が %{resource_name} エリアを更新しました"
+      area_type:
+        create: "%{user_name} が %{resource_name} エリアタイプを作成しました"
+        delete: "%{user_name} が %{resource_name} エリアタイプを削除しました"
+        update: "%{user_name} は %{resource_name} エリアタイプを更新しました"
+      attachment:
+        create: "%{user_name} が %{resource_name} 添付ファイルを作成しました"
+        delete: "%{user_name} が %{resource_name} 添付ファイルを削除しました"
+        update: "%{user_name} が %{resource_name} 添付ファイルを更新しました"
+      attachment_collection:
+        create: "%{user_name} が %{resource_name} 添付ファイルコレクションを作成しました"
+        delete: "%{user_name} が %{resource_name} 添付ファイルコレクションを削除しました"
+        update: "%{user_name} が %{resource_name} 添付ファイルコレクションを更新しました"
+      category:
+        create: "%{user_name} が %{resource_name} カテゴリを %{space_name} スペースに追加しました"
+        delete: "%{user_name} が %{resource_name} スペースから %{space_name} カテゴリを削除しました"
+        update: "%{user_name} が %{resource_name} スペースの %{space_name} カテゴリを更新しました"
       component:
         create: "%{user_name} は、 %{resource_name} コンポーネントを %{space_name} スペースに追加しました"
         delete: "%{user_name} が %{resource_name} スペースから %{space_name} コンポーネントを削除しました"
+        export_component: "%{user_name} は%{space_name} の %{resource_name} %{component_name} を %{format_name} としてエクスポートしました"
         publish: "%{user_name} が %{resource_name} スペースで %{space_name} コンポーネントを公開しました"
         unpublish: "%{user_name} は %{resource_name} スペースから %{space_name} コンポーネントを非公開にしました"
+        update_permissions_with_space: "%{user_name} が %{resource_name} の %{space_name} の権限を更新しました"
+      contextual_help_section:
+        update: "%{user_name} が %{resource_name} ヘルプセクションを更新しました"
+      helpers:
+        answers: 回答
+        comments: コメント
+        projects: プロジェクト
+        results: 結果
       impersonation_log:
         manage: "%{user_name} は %{reason} により %{resource_name} を管理しています。"
       moderation:
@@ -151,6 +192,7 @@ ja:
         update: "%{user_name} が %{resource_name} OAuth アプリケーションを更新しました"
       organization:
         update: "%{user_name} が組織設定を更新しました"
+        update_external_domain: "%{user_name} が組織の外部ドメインを更新しました"
       participatory_space_private_user:
         create: "%{user_name} が %{resource_name} をプライベート参加者に招待しました"
         create_via_csv: "%{user_name} が %{resource_name} をCSV経由でプライベート参加者に招待しました"
@@ -162,6 +204,10 @@ ja:
         delete_with_parent: "%{user_name} が %{resource_name} スコープ内の %{parent_scope} スコープを削除しました"
         update: "%{user_name} は %{resource_name} のスコープを更新しました"
         update_with_parent: "%{user_name} が %{resource_name} スコープ内の %{parent_scope} スコープを更新しました"
+      scope_type:
+        create: "%{user_name} が %{resource_name} スコープタイプを作成しました"
+        delete: "%{user_name} が %{resource_name} のスコープタイプを削除しました"
+        update: "%{user_name} は %{resource_name} スコープタイプを更新しました"
       static_page:
         create: "%{user_name} が %{resource_name} の静的ページを作成しました"
         delete: "%{user_name} が %{resource_name} の静的ページを削除しました"
@@ -389,8 +435,8 @@ ja:
             amendments_enabled: 修正を有効にする
             comments_enabled: コメントを有効にする
             comments_max_length: コメント最大長
-            dummy_global_attribute_1: ダミーステータス１
-            dummy_global_attribute_2: ダミーステータス2
+            dummy_global_attribute1: ダミーステータス１
+            dummy_global_attribute2: ダミーステータス2
             dummy_global_translatable_text: ダミー翻訳可能なテキスト
             enable_pads_creation: パッドの作成を有効にする
             resources_permissions_enabled: リソースの権限を有効にする
@@ -402,8 +448,8 @@ ja:
             amendment_reaction_enabled: 修正反応は有効です
             amendments_visibility: 修正の表示
             comments_blocked: コメントをブロック
-            dummy_step_attribute_1: ダミーステップ属性１
-            dummy_step_attribute_2: ダミーステップ属性2
+            dummy_step_attribute1: ダミーステップ属性１
+            dummy_step_attribute2: ダミーステップ属性2
             dummy_step_translatable_text: ダミーステップ翻訳可能なテキスト
     contact: お問い合わせ
     content_blocks:
@@ -420,7 +466,7 @@ ja:
         name: ヒーロー画像
       hero_settings_form:
         background_image: 背景画像
-        welcome_text: ようこそテキスト
+        welcome_text: ウェルカムテキスト
       highlighted_content_banner:
         name: 強調表示されたコンテンツバナー
       highlighted_elements_settings_form:
@@ -447,13 +493,6 @@ ja:
       actions:
         login_before_access: アクセスする前にアカウントでログインしてください
         unauthorized: この操作を実行する権限がありません。
-    data_portability:
-      export:
-        ready: 準備完了
-      show:
-        download_data: データをダウンロード
-        download_data_description: あなたのアカウントに関連付けられたすべての情報を含むファイルを<strong>%{user_email}</strong> に送信します。このメールは.zipファイルとパスワードが添付されています。<br/><br/>ファイルを展開するには、 <a href="https://www.7-zip.org/">7-Zip</a> (Windowsユーザー向け) か <a href="https://www.keka.io/">Keka</a> (MacOSユーザー向け)が必要です。Linuxをお使いの場合、すでにツールがインストールされているはずです。インストールされていない場合、 <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> や <a href="https://peazip.github.io">PeaZip</a> が利用できます。
-        request_data: データを要求する
     datepicker:
       help_text: '期待されるフォーマット: %{datepicker_format}'
     devise:
@@ -521,6 +560,13 @@ ja:
           this_application_will_not_be_able_to: 'このアプリケーションは次のことができません：'
           update_profile: プロフィールを更新
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> があなたのアカウントを使用しようとしています"
+    download_your_data:
+      export:
+        ready: 準備完了
+      show:
+        download_data: データをダウンロード
+        download_data_description: あなたのアカウントに関連付けられたすべての情報を含むファイルを<strong>%{user_email}</strong> に送信します。このメールは.zipファイルとパスワードが添付されています。<br/><br/>ファイルを展開するには、 <a href="https://www.7-zip.org/">7-Zip</a> (Windowsユーザー向け) か <a href="https://www.keka.io/">Keka</a> (MacOSユーザー向け)が必要です。Linuxをお使いの場合、すでにツールがインストールされているはずです。インストールされていない場合、 <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> や <a href="https://peazip.github.io">PeaZip</a> が利用できます。
+        request_data: データを要求する
     editor_images:
       create:
         error: アップロード画像のエラー
@@ -664,6 +710,8 @@ ja:
           email_outro: あなたはプラットフォームの管理者であるため、この通知を受け取りました。
           email_subject: ユーザーグループがプロファイルを更新しました
           notification_title: '%{user_group_name} ユーザーグループがプロファイルを更新し、未検証のままにしました。 <a href="%{groups_admin_path}">管理画面</a> で確認できるようになりました。'
+      nickname_event:
+        notification_body: ニックネームの使用方法を修正し、重複がないようにしたため、大文字と小文字の区別のルールをなくしました。<br/> あなたのニックネームは、同じ名前の別のニックネームの後に作成されたため、自動的に名前が変更されました。<a href="%{link_to_account_settings}">アカウント設定</a>から変更することができます。
       notification_event:
         notification_title: <a href="%{resource_path}">%{resource_title}</a> にイベントが発生しました。
       reports:
@@ -691,7 +739,7 @@ ja:
           email_subject: "%{name} が公式化されました"
           notification_title: 参加者 %{name} (%{nickname}) が公式化されました。
     export_mailer:
-      data_portability_export:
+      download_your_data_export:
         click_button: '次のリンクをクリックするとあなたのデータがダウンロードできます。<br/>このファイルは %{date} まで利用できます。<br/>ファイルを開くには <a href="https://www.7-zip.org/">7-Zip</a> (Windowsユーザー向け), <a href="https://www.keka.io/en/">Keka</a> (MacOSユーザー向け) または <a href="https://peazip.github.io">PeaZip</a> (Linuxユーザー向け)等が必要です。パスワード:%{password}'
         download: ダウンロード
       export:
@@ -741,13 +789,18 @@ ja:
         file:
           explanation: 'ファイルのガイダンス:'
           message_1: 画像またはドキュメントである必要があります。
-          message_2: 画像の場合は、横長画像を使用してください。画像は自動的にトリミングされます。CSV ファイルの場合、列間の区切り文字はカンマ(",") でなければなりません。
+          message_2: 画像の場合、ランドスケープ画像が適しています。システムが画像を切り抜きます。
+        icon:
+          explanation: 'アイコンのガイド:'
+          message_1: 正方形の画像でなければなりません。
+          message_2: この画像の推奨サイズは512x512です。
         image:
           explanation: '画像のガイダンス:'
           message_1: テキストを含まない風景画像が適しています。
           message_2: システムが画像を切り抜きます。
       file_validation:
         allowed_file_extensions: 'アップロード可能なファイル形式: %{extensions}'
+        max_file_dimension: '最大ファイルサイズ: %{resolution} ピクセル'
         max_file_size: '最大ファイルサイズ: %{megabytes}MB'
       upload:
         labels:
@@ -757,7 +810,7 @@ ja:
           cancel: キャンセル
           edit_image: 画像を編集
           error: エラー
-          file_too_big: 'ファイルが大きすぎます。最大ファイルサイズ: %{megabytes}MB'
+          file_size_too_large: 'ファイルサイズが大きすぎます！最大ファイルサイズ: %{megabytes}MB'
           remove: 削除
           replace: 置換
           save: 保存
@@ -869,6 +922,7 @@ ja:
         success: 参加リクエストは正常に作成されました。管理者はあなたをグループに承認する前にリクエストを確認します。
       leave:
         error: グループから脱退中に問題が発生しました
+        last_admin: あなたが最後の管理者であるため、このグループから自分自身を削除することはできません。グループから脱退するためには、別のメンバーを管理者にしてください。
         success: グループを放棄しました。
       members:
         accept_or_reject_join_requests: '次のユーザーがこのグループに参加するために申請しました。リクエストを承認または拒否します。'
@@ -881,7 +935,7 @@ ja:
       no_user_groups: まだどのグループにも属していません。
       roles:
         admin: 管理者
-        creator: 作成者
+        creator: 管理者
         member: メンバー
       update:
         error: グループの更新中に問題が発生しました
@@ -918,6 +972,7 @@ ja:
         unknown_action: "%{user_name} が %{resource_name} にいくつかのアクションを実行しました"
         unknown_action_with_space: "%{user_name} が %{resource_name} で %{space_name} にアクションを実行しました"
         update: "%{user_name} が %{resource_name} を更新しました"
+        update_permissions_with_space: "%{user_name} が %{space_name} の %{resource_name} の権限を更新しました"
         update_with_space: "%{user_name} さんが %{resource_name} で %{space_name} を更新しました"
       value_types:
         area_presenter:
@@ -1088,19 +1143,41 @@ ja:
         translated_text: '自動翻訳されたテキスト:'
     notifications:
       no_notifications: まだ通知はありません。
+      show:
+        missing_event: この通知は利用できなくなった要素に属しています。破棄してください。
+    notifications_digest_mailer:
+      header:
+        daily: 日次の通知のダイジェスト
+        weekly: 週次の通知のダイジェスト
+      hello: こんにちは %{name} さん、
+      intro:
+        daily: 'あなたがフォローしているアクティビティに基づいた最終日以降の通知です:'
+        weekly: 'これらは、あなたがフォローしているアクティビティに基づいた先週以降の通知です:'
+      outro: このコンテンツまたは著者をフォローしているため、これらの通知を受け取りました。それぞれのページからフォローを解除できます。
+      see_more: 他の通知を見る
+      subject: あなたのメールダイジェストです
     notifications_settings:
       show:
         administrators: 管理者
         allow_public_contact: フォローしていない人からもダイレクトメッセージを受信する
+        allow_push_notifications: プッシュ通知を取得して、プラットフォームにいないときの動作を確認します。いつでもオフにすることができます。
         direct_messages: ダイレクトメッセージを受信する
-        email_on_moderations: モデレーションのため何か報告されるたびにメールを受信したいです。
-        email_on_notification: 通知を毎回メールで受け取る
+        email_on_moderations: 私はモデレーションの報告がなされたたびに毎回メールを受け取りたいです。
         everything_followed: 自分がフォローしているすべて
         newsletter_notifications: ニュースレターを受け取る
         newsletters: ニュースレター
+        notification_settings:
+          close_meeting_reminder: レポートを未公開で閉じたミーティングのリマインドメールを受信したい
+        notifications_sending_frequencies:
+          daily: 1日1回
+          none: なし
+          real_time: リアルタイム
+          weekly: 週1回
+        notifications_sending_frequency: 通知メールを受信する頻度は？
         own_activity: 誰かが提案にコメントしたり、私に言及したりした時など、自分自身の活動
+        push_notifications: プッシュ通知
+        push_notifications_reminder: プラットフォームから通知を受け取るには、まずブラウザの設定で許可する必要があります。
         receive_notifications_about: 通知を受け取りたい
-        send_notifications_by_email: 電子メールで通知を受け取る
         update_notifications_settings: 変更を保存
       update:
         error: 通知設定の更新中に問題が発生しました。
@@ -1162,7 +1239,7 @@ ja:
           agreement: 上記の規約に同意する
           legend: 利用規約に同意する
         refuse:
-          modal_body: 拒否した場合は、プラットフォームを使用できなくなります。 <a href="%{data_portability_path}">データをダウンロード</a> または <a href="%{delete_path}">アカウントを削除</a> することができます。
+          modal_body: 拒否する場合、プラットフォームをご利用いただけなくなります。 <a href="%{download_your_data_path}">データをダウンロード</a> または <a href="%{delete_path}">アカウントを削除</a> することができます。
           modal_btn_continue: 利用規約に同意して続ける
           modal_btn_exit: 後で確認する
           modal_button: 同意しない
@@ -1467,7 +1544,7 @@ ja:
     invitations:
       edit:
         header: アカウントの作成を完了する
-        nickname_help: '%{organization} のニックネーム。'
+        nickname_help: ニックネームは %{organization} です。英文字、数字、'-' および '_' のみ使用できます。
         submit_button: 保存
         subtitle: 招待を受け入れる場合は、アカウントIDとパスワードを設定してください。
       invitation_removed: 招待が削除されました。
@@ -1622,14 +1699,56 @@ ja:
     timestamp_error_message: 申し訳ありませんが、早すぎます！再提出してください。
   layouts:
     decidim:
-      cookie_warning:
-        description_html: このサイトはCookieを使用しています。引き続きサイトを閲覧することで、Cookieの使用に同意したものとみなされます。 %{link}
-        link_label: Cookie についての詳細
-        ok: 同意します
+      cookie_consent:
+        cookie_details:
+          columns:
+            description: 説明
+            name: 名前
+            service: サービス
+            type: タイプ
+          cookies:
+            _session_id:
+              description: ウェブページ間を移動したときにウェブサイト内のユーザーをウェブサイトが記憶できるようにします。
+              service: このウェブサイト
+            decidim-consent:
+              description: このウェブサイトでユーザーが許可するクッキーに関する情報を保存します。
+              service: このウェブサイト
+          types:
+            cookie: クッキー
+        dialog:
+          accept_all: すべて受け入れる
+          accept_only_essential: 必須のみを受け入れる
+          cookie_settings: 設定
+          description: 本サイトは、サイトのパフォーマンスとコンテンツを向上させるために、ウェブサイト上でクッキーを使用しています。 クッキーは、より多くの個々のユーザーエクスペリエンスとソーシャルメディアチャネルを提供することができます。
+          title: ウェブサイトで使用されるクッキーに関する情報
+        modal:
+          accept_all: すべて受け入れる
+          accept_only_essential: 必須のみを受け入れる
+          analytics:
+            description: 分析クッキーは、ユーザーがウェブサイトをどのようにナビゲートして操作するかを追跡するクッキーです。 収集された情報は、ウェブサイトの所有者がウェブサイトを改善するために使用されます。
+            title: 分析と統計
+          description: 本サイトはウェブサイトの基本的な機能を確保し、お客様のオンライン体験を向上させるためにクッキーを使用しています。 いつでもオプトイン/オプトアウトするカテゴリを選択できます。
+          essential:
+            description: これらのクッキーは、本ウェブサイトの基本的な機能に不可欠です。これらのクッキーがなければ、ウェブサイトが正しく機能しません。
+            title: 必須
+          marketing:
+            description: これらのクッキーは、ユーザーがウェブサイトをどのように使用するか、ユーザーが訪問したページ、およびユーザーがクリックしたリンクに関する情報を収集します。
+            title: マーケティング
+          preferences:
+            description: これらのクッキーは、過去に行った選択をウェブサイトが記憶することを可能にします
+            title: 設定
+          save_settings: 設定を保存
+          title: Cookieの設定
+          toggle: '%{consent_category} の切り替え'
+        warning:
+          all_cookies: すべてのクッキー
+          change_cookie_settings: Cookie の設定を変更する
+          need_cookies: このコンテンツを表示するには %{cookies} を有効にする必要があります。
       edit_link:
         edit: 編集
       footer:
         cc_by_license: クリエイティブコモンズライセンス
+        cookie_settings: Cookieの設定
         decidim_logo: Decidim ロゴ
         download_open_data: オープンデータファイルをダウンロード
         made_with_open_source: このサイトは <a target="_blank" href="https://github.com/decidim/decidim">フリーソフトウェア</a>で作られています。

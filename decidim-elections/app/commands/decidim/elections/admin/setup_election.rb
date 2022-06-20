@@ -94,7 +94,9 @@ module Decidim
               weight: question.weight,
               max_selections: question.max_selections,
               title: flatten_translations(question.title),
-              description: flatten_translations(question.description),
+              # the bulletin_board gem (ruby client) expects a description for the question
+              # as development is in a separate repository, let's send an empty content for the moment
+              description: {},
               answers: question_answers_data(question)
             }
           end

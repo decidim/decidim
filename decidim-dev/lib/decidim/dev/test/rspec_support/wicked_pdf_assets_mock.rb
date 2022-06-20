@@ -8,6 +8,10 @@ class WickedPdf
       def wicked_pdf_stylesheet_pack_tag(*sources)
         stylesheet_pack_tag(*sources)
       end
+
+      # Disables the images in the PDFs as those requests would be jamming under
+      # the test environment
+      def wicked_pdf_image_tag(img, options = {}); end
     end
   end
 end

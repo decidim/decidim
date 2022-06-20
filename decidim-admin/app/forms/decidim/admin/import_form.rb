@@ -5,9 +5,10 @@ module Decidim
     class ImportForm < Form
       ACCEPTED_MIME_TYPES = Decidim::Admin::Import::Readers::ACCEPTED_MIME_TYPES
       include Decidim::HasUploadValidations
+      include Decidim::ProcessesFileLocally
 
       attribute :name, String
-      attribute :file
+      attribute :file, Decidim::Attributes::Blob
 
       validates :file, presence: true
       validates :name, presence: true
@@ -16,7 +17,7 @@ module Decidim
       validate :verify_import, if: -> { file.present? && accepted_mime_type? && !importer.invalid_file? }
 
       def importer
-        @importer ||= importer_for(file_path, mime_type)
+        @importer ||= importer_for(file, mime_type)
       end
 
       private
@@ -49,12 +50,8 @@ module Decidim
         end
       end
 
-      def file_path
-        ActiveStorage::Blob.service.path_for(blob.key) if blob.respond_to? :key
-      end
-
       def mime_type
-        blob&.content_type
+        file&.content_type
       end
 
       def creator_class
@@ -68,10 +65,6 @@ module Decidim
           context: importer_context,
           creator: creator_class
         )
-      end
-
-      def blob
-        @blob ||= ActiveStorage::Blob.find_signed(file) if file.presence.is_a?(String)
       end
 
       protected

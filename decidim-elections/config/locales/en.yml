@@ -13,13 +13,21 @@ en:
         start_time: Voting start at
         title: Title
       question:
-        description: Description
         max_selections: Maximum number of selections
         min_selections: None of the above option
         title: Title
       voting:
+        banner_image: Banner image
+        census_contact_information: Census contact information
+        description: Description
         end_time: Voting ends
+        introductory_image: Introductory image
+        promoted: Promoted
+        scope: Scope
+        show_check_census: Show "check census" page
         start_time: Voting begins
+        title: Title
+        voting_type: Voting type
     errors:
       models:
         answer:
@@ -217,6 +225,7 @@ en:
             title: Import proposals
         questions:
           create:
+            election_started: The election has already started
             invalid: There was a problem creating this question
             success: Question successfully created
           destroy:
@@ -236,6 +245,7 @@ en:
         steps:
           create_election:
             errors:
+              component_published: The election component is <strong>not published</strong>.
               max_selections: The questions do not have a <strong>correct value for amount of answers</strong>
               minimum_answers: Questions must have <strong>at least two answers</strong>.
               minimum_questions: The election <strong>must have at least one question</strong>.
@@ -249,6 +259,7 @@ en:
               'false': does not have a <strong>public key</strong>
               'true': has a <strong>public key</strong>
             requirements:
+              component_published: The election component is <strong>published</strong>.
               max_selections: All the questions have a correct value for <strong>maximum of answers</strong>.
               minimum_answers: Each question has <strong>at least 2 answers</strong>.
               minimum_questions: The election has <strong>at least 1 question</strong>.
@@ -643,6 +654,10 @@ en:
         failed:
           header: Vote failed
           lead: Your vote has not been casted!
+          modal:
+            close: Close
+            communication_lost: Unfortunately, it looks like the communication with the voting server (Bulletin Board) is lost.<br>It might be that the Internet connection is broken or that the destination server is too busy.<br>You can try again later or contact support if this problem persist.
+            title: Something went wrong
           text: Something went wrong, please try it again.
           try_again: Try again
         header:
@@ -914,7 +929,7 @@ en:
           edit:
             change_polling_station: Back to Polling Stations
             monitoring_committee_notes: Remarks
-            monitoring_committee_notes_placeholder: Report any incidence here
+            monitoring_committee_notes_placeholder: Report any incident here
             title: Results for the election <i>%{election_title}</i> in the polling station <i>%{polling_station_title}</i>
           elections:
             title: Choose an election you want to validate
@@ -1005,6 +1020,7 @@ en:
             introductory_image: Introductory image
             promoted: Promoted
             select_a_voting_type: Please select a voting type
+            show_check_census_help: Whether to show the "Can I vote?" link at the public votings menu
             slug: Slug
             slug_help: 'URL slugs are used to generate the URLs that point to this voting. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
             title: Title
@@ -1056,7 +1072,7 @@ en:
               info_message: "<strong>Please wait</strong>, processed %{processed_count} of %{raw_count} rows from %{file} file."
             delete:
               button: Delete all census data
-              confirm: Delete all the census can not be undone. Are you sure you want to continue?
+              confirm: Deleting all the census data cannot be undone. Are you sure you want to continue?
             destroy:
               error: An error occurred deleting the census, please try again later.
               success: Census data deleted
@@ -1064,7 +1080,7 @@ en:
               button: Export voting Access Codes
               callout: You can now proceed to export the access codes. This can only be done once. Once you launch the exportation, you will receive an email with the instructions to <strong>%{email}</strong>
               confirm: You can only export the access codes once. Make sure you have access to the email account <strong>%{email}</strong>.
-              file_not_exists: This file does not exists
+              file_not_exist: This file does not exist
               launch_error: Problem launching the access codes export
               launch_success: Access codes export launched. Shortly you will receive an email to %{email}
             exporting_access_codes:
@@ -1089,7 +1105,7 @@ en:
               has_ballot_styles_message: You set up Ballot Styles. Please make sure that the "%{ballot_style_code_header}" field in the CSV corresponds to the desired Ballot Style's code.
               info_message: "<strong>There is no census yet.</strong> Please use the form below to create it importing a CSV file."
               missing_ballot_styles_message: 'There is no Ballot Style for this voting yet. If you wish to have conditional questions (i.e.: present the voter with different questions depending on, e.g., the district/region of residence), you need to set up the <a href=%{ballot_styles_admin_path}>Ballot Styles</a> <strong>before</strong> importing the census. If you want to present all voters with the same questions, you can proceed with the census import procedure.'
-              submit: Submit csv
+              submit: Submit CSV
               title: Create the census
             show:
               heading: Voting space census
@@ -1168,7 +1184,7 @@ en:
             modal_ballots_count_error:
               btn_validate_total: Validate total recount of ballots
               close_modal: Close
-              info_explanation_text: 'Please review the total number of ballots. If the total number is correct, you must provide an explanation for the Monitoring Committee:'
+              info_explanation_text: 'Please review the total number of ballots. If the total number is incorrect, you must provide an explanation for the Monitoring Committee:'
               info_text: The total number of ballots (envelopes) introduced doesn't match the record of people that has voted in this Polling Station.
               message_for_monitoring_committee: Message for the Monitoring Committee
               review_recount: Review the recount
@@ -1199,11 +1215,12 @@ en:
         in_person_votes:
           complete_voting:
             available_answers: 'Available answers:'
-            census_verified: The participant has not voted yet.
+            census_verified: This participant has not voted in person yet.
+            census_verified_with_online_vote: This participant has already voted online. If they vote in person, the previous votes will be invalidated and this will be the definitive vote.
             complete_voting: Complete voting
             identify_another: Identify another participant
             questions_title: 'They''re entitled to vote in the following questions:'
-            questions_title_voted: 'The participant has already voted online and is entitled to vote in the following questions:'
+            questions_title_voted: 'This participant has already voted online and is entitled to vote in the following questions:'
             voted: The participant has voted
           create:
             error: The vote was not registered. Please try again.
@@ -1298,7 +1315,8 @@ en:
           form_title: 'Fill the following form to check your census data:'
           invalid: There was a problem checking the census.
           success:
-            access_link: via SMS or email.
+            access_link: via email.
+            access_link_with_sms: via SMS or email.
             info: You should have received your Access Code by postal mail already. In case, you don't have it, you can request it here
             title: Your census data is correct!
           title: Can I vote?

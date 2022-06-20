@@ -20,6 +20,7 @@ module Decidim
         attribute :introductory_image
         attribute :voting_type, String
         attribute :census_contact_information, String
+        attribute :show_check_census, Boolean, default: false
 
         validates :title, translatable_presence: true
         validates :description, translatable_presence: true

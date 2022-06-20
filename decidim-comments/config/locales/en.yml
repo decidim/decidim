@@ -4,6 +4,7 @@ en:
     models:
       decidim/comments/comment_by_followed_user_event: Comment
       decidim/comments/comment_created_event: Comment
+      decidim/comments/comment_upvoted_event: Comment upvoted
       decidim/comments/reply_created_event: Comment reply
       decidim/comments/user_group_mentioned_event: Mention
       decidim/comments/user_mentioned_event: Mention

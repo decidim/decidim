@@ -369,7 +369,6 @@
         start_voting_date: Stemming begynner
       question_components:
         question_menu_item: Spørsmålet
-        unfold: Åpne
       question_header:
         back_to_consultation: Se alle konsultasjonene
         back_to_question: Tilbake til spørsmålet
