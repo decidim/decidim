@@ -8,6 +8,18 @@ lt:
       area_type:
         name: Vardas
         organization: Organizacija
+      attachment:
+        attachment_collection_id: Aplankas
+        description: Aprašymas
+        file: Rinkmena
+        title: Priedo arba paveikslėlio pavadinimas
+      attachment_collection:
+        description: Aprašymas
+        name: Pavadinimas
+      category:
+        description: Aprašymas
+        name: Pavadinimas
+        parent_id: Motininis
       organization:
         highlighted_content_banner_short_description: Trumpas aprašymas
         highlighted_content_banner_title: Pavadinimas
