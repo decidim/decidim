@@ -3,16 +3,16 @@
 module Decidim
   module Registrations
     class UserAttributeValidator
-      def initialize(attribute: "", form: nil, model: nil)
+      def initialize(attribute:, form:, model_class: nil)
         @attribute = attribute
-        @form = form.presence || Decidim::RegistrationForm
-        @model = model.presence || "Decidim::#{form.model_name.human}".constantize
+        @form = form
+        @model_class = model_class.presence || "Decidim::#{@form.model_name.human}".constantize
         @errors = ["Invalid attribute"] unless valid_attribute?(attribute)
       end
 
       delegate :current_organization, to: :form
       attr_reader :attribute
-      attr_accessor :model, :form
+      attr_accessor :model_class, :form
 
       def valid?
         @valid ||= begin
@@ -45,7 +45,7 @@ module Decidim
           word = input
           loop do
             break unless valid_suggestor?(attribute)
-            break unless model.exists?(organization: current_organization, attribute => word)
+            break unless model_class.exists?(organization: current_organization, attribute => word)
 
             # reuse and increment a last number if exists
             word.gsub!(/([^\d.]+)(\d*)/) { "#{$1}#{$2.to_i + 1}" }
@@ -54,7 +54,7 @@ module Decidim
         end
       end
 
-      def valid_attribute?
+      def valid_attribute?(key)
         ["nickname", "email", "name", "password"].include? key.to_s
       end
 
