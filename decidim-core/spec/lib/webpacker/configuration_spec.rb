@@ -36,6 +36,7 @@ module Decidim
         it "adds the core entrypoints to the webpacker runtime configuration" do
           expect(runtime_config["default"]["entrypoints"]).to include(
             "decidim_core" => "#{core_path}/app/packs/entrypoints/decidim_core.js",
+            "decidim_sw" => "#{core_path}/app/packs/entrypoints/decidim_sw.js",
             "decidim_conference_diploma" => "#{core_path}/app/packs/entrypoints/decidim_conference_diploma.js",
             "decidim_email" => "#{core_path}/app/packs/entrypoints/decidim_email.js",
             "decidim_map" => "#{core_path}/app/packs/entrypoints/decidim_map.js",

@@ -79,6 +79,11 @@ describe Decidim::Initiatives::InitiativesController, type: :controller do
         expect(subject.helpers.current_initiative).to eq(initiative)
       end
 
+      it "Returns 404 when there isn't an initiative" do
+        expect { get :show, params: { slug: "invalid-initiative" } }
+          .to raise_error(ActiveRecord::RecordNotFound)
+      end
+
       it "Throws exception on non published initiatives" do
         get :show, params: { slug: created_initiative.slug }
         expect(flash[:alert]).not_to be_empty

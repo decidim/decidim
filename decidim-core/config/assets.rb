@@ -5,6 +5,7 @@ base_path = File.expand_path("..", __dir__)
 Decidim::Webpacker.register_path("#{base_path}/app/packs")
 Decidim::Webpacker.register_entrypoints(
   decidim_core: "#{base_path}/app/packs/entrypoints/decidim_core.js",
+  decidim_sw: "#{base_path}/app/packs/entrypoints/decidim_sw.js",
   decidim_conference_diploma: "#{base_path}/app/packs/entrypoints/decidim_conference_diploma.js",
   decidim_email: "#{base_path}/app/packs/entrypoints/decidim_email.js",
   decidim_map: "#{base_path}/app/packs/entrypoints/decidim_map.js",
