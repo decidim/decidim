@@ -8,6 +8,10 @@ lt:
       area_type:
         name: Vardas
         organization: Organizacija
+      attachment:
+        attachment_collection_id: Aplankas
+        description: Aprašymas
+        file: Rinkmena
       organization:
         highlighted_content_banner_short_description: Trumpas aprašymas
         highlighted_content_banner_title: Pavadinimas
