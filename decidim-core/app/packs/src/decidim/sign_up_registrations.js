@@ -1,14 +1,17 @@
 import InstantValidator from "src/decidim/registrations/instant_validator";
 
 $(() => {
-  const TIMEOUT_INTERVAL = 150; // ms before xhr check
+  // ms before xhr check
+  const TIMEOUT_INTERVAL = 150;
 
   const $form = $("form.instant-validation");
-  let checkTimeout;
-  $form.find('input[type="text"]').on("keyup", (e) => {
-    let $input = $(e.currentTarget);
+  let checkTimeout = null;
+  $form.find('input[type="text"]').on("keyup", (evt) => {
+    let $input = $(evt.currentTarget);
     // Trigger live validation with a delay to avoid throttling
-    try { clearTimeout(checkTimeout); } catch {}
+    if (checkTimeout) {
+      clearTimeout(checkTimeout);
+    }
     checkTimeout = setTimeout(() => {
       const validator = new InstantValidator($input);
       validator.validate($input);
