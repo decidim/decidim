@@ -125,7 +125,7 @@ bin/rails db:seed
 Please refer to xref:install:empty-database.adoc[Empty database installation] section if you want to setup your instance on an empty database (without any seeds)
 ====
 
-This will also create some default data so you can start testing the app, with an administrator account with email admin@example.org and password `decidim123456`
+This will also create some default data so you can start testing the app, with an administrator account with email admin@example.org and password `decidim123456789`
 
 == 7. Start your web server
 
