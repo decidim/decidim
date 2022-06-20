@@ -20,7 +20,32 @@ lt:
         description: Aprašymas
         name: Pavadinimas
         parent_id: Motininis
+      component:
+        name: Pavadinimas
+        published_at: Paskelbta
+      id: ID
+      newsletter:
+        body: Pagrindinė dalis
+        subject: Tema
       organization:
+        alert_color: Įspėjimas
+        badges_enabled: Aktyvinti ženklelius
+        comments_max_length: Maksimalus komentarų ilgis (numatytoji vertė – 0)
+        cta_button_path: Mygtuko „Raginti imtis veiksmų“ kelias
+        cta_button_text: Mygtuko „Raginti imtis veiksmų“ tekstas
+        customize_welcome_notification: Individualizuoti pasisveikinimo pranešimą
+        description: Aprašymas
+        enable_omnipresent_banner: Rodyti visur naudojamą reklamjuostę
+        facebook_handler: '„Facebook“ tvarkyklė'
+        favicon: Piktograma
+        from: Siuntėjo elektroninis paštas
+        github_handler: '„GitHub“ tvarkyklė'
+        header_snippets: Antraštės fragmentai
+        highlighted_content_banner_action_subtitle: Veiksmo mygtuko paantraštė
+        highlighted_content_banner_action_title: Veiksmo mygtuko pavadinimas
+        highlighted_content_banner_action_url: Veiksmo mygtuko URL
+        highlighted_content_banner_enabled: Rodyti paryškintą turinio reklamjuostę
+        highlighted_content_banner_image: Paveikslėlis
         highlighted_content_banner_short_description: Trumpas aprašymas
         highlighted_content_banner_title: Pavadinimas
         host: Šeimininkas
@@ -75,9 +100,43 @@ lt:
         organization: Organizacija
         show_in_footer: Rodyti poraštėje
         slug: URL laukas
+        title: Pavadinimas
+      static_page_topic:
+        description: Aprašymas
+        show_in_footer: Rodyti poraštėje
+        title: Pavadinimas
+      user_group_csv_verification:
+        file: Rinkmena
   decidim:
     admin:
+      admin_terms_of_use:
+        actions:
+          refuse: Nesutikti su administratoriaus nustatytomis sąlygomis
+          title: Sutikti su naudojimosi sąlygomis
+        required_review:
+          alert: 'Reikalavimas: peržiūrėkite mūsų administratoriaus nustatytas naudojimosi sąlygas'
+          callout: Kviečiame peržiūrėti administratoriaus nustatytas naudojimosi sąlygas. Priešingu atveju šios platformos administruoti negalėsite.
+          cta: Peržiūrėkite jas dabar.
+        title: Administratoriaus nustatytos naudojimosi sąlygos
+      area_types:
+        create:
+          success: Vietovės tipas sėkmingai sukurtas.
+        destroy:
+          success: Vietovės tipas sėkmingai panaikintas
+        edit:
+          update: Atnaujinti
+      areas:
+        edit:
+          update: Atnaujinti
       attachment_collections:
+        create:
+          error: Kuriant naują aplanką iškilo problema.
+          success: Aplankas sėkmingai sukurtas.
+        destroy:
+          success: Aplankas sėkmingai panaikintas.
+        edit:
+          title: Redaguoti aplanką
+          update: Atnaujinti
         index:
           attachment_collection_used: Šio aplanko negalima pašalinti, nes jis naudojamas.
           attachment_collections_title: Priedų aplankai
@@ -112,3 +171,113 @@ lt:
           action: Užblokuoti paskyrą ir išsiųsti paaiškinimą
           description: Naudotojo užblokavimas pavers paskyrą nenaudojama. Rekomenduojame paaiškinime pasidalinti būdais kaip naudotojas gali būti atblokuotas.
           justification: Paaiškinimas
+          title: Blokuoti naudotoją %{name}
+      categories:
+        create:
+          error: Kuriant šią kategoriją iškilo problema.
+          success: Kategorija sėkmingai sukurta.
+        destroy:
+          error: Šalinant šią kategoriją iškilo problema. Pirmiausia pašalinkite bet kurią pakategorę, įsitikinkite, kad joks kitas subjektas nesusietas su šia kategorija, ir bandykite dar kartą.
+          success: Kategorija sėkmingai pašalinta.
+        edit:
+          title: Redaguoti kategoriją
+          update: Atnaujinti
+        index:
+          categories_title: Kategorijos
+          category_used: Šios kategorijos negalima pašalinti, nes ji naudojama.
+        new:
+          create: Sukurti kategoriją
+          title: Nauja kategorija
+        update:
+          error: Atnaujinant šią kategoriją iškilo problema.
+          success: Kategorija sėkmingai atnaujinta.
+      component_permissions:
+        update:
+          error: Atnaujinant šio komponento leidimus iškilo problema.
+          success: Leidimai atnaujinti.
+      components:
+        create:
+          error: Kuriant šį komponentą iškilo problema.
+          success: Komponentas sukurtas.
+        destroy:
+          error: Naikinant šį komponentą iškilo problema.
+          success: Komponentas pašalintas.
+      exports:
+        export_as: "%{name} kaip %{export_format}"
+        formats:
+          CSV: CSV
+          Excel: Excel
+          FormPDF: PDF
+          JSON: JSON
+        notice: Jūsų rinkmena šiuo metu eksportuojama. Kai eksportas bus baigtas, gausite el. laišką.
+      filters:
+        category_id_eq:
+          label: Kategorija
+        filter_label: Filtras
+        invitation_accepted_at_present:
+          label: Pakvietimas priimtas
+          values:
+            'false': 'Ne'
+            'true': 'Taip'
+        last_sign_in_at_present:
+          values:
+            'false': 'Ne'
+            'true': 'Taip'
+        moderated_users:
+          reports_reason_eq:
+            label: Raporto priežastis
+            values:
+              does_not_belong: Nepriklauso
+              offensive: Įžeidžiamas turinys
+              spam: Šlamštas
+        moderations:
+          reportable_type_string_eq:
+            label: Tipas
+        officialized_at_null:
+          label: Būsena
+        participatory_space_private_users:
+          user_invitation_accepted_at_not_null:
+            label: Pakvietimas priimtas
+            values:
+              'false': Nepriimtas
+              'true': Priimtas
+          user_invitation_sent_at_not_null:
+            label: Pakvietimas išsiųstas
+            values:
+              'false': Neišsiųstas
+              'true': Išsiųstas
+        private_space_eq:
+          label: Privatus
+          values:
+            'false': Viešas
+            'true': Privatus
+        published_at_null:
+          label: Publikuota
+          values:
+            'false': Publikuota
+        scope_id_eq:
+          label: Apimtis
+        search_label: Ieškoti
+        search_placeholder:
+          name_or_nickname_or_email_cont: Ieškoti %{collection} pagal el. pašto adresą, vardą ir pavardę arba naudotojo vardą.
+        state_eq:
+          label: Būsena
+          values:
+            all: Visi
+            pending: Laukiama
+            rejected: Atmesta
+            verified: Patvirtinta
+      forms:
+        file_help:
+          import:
+            explanation: 'Rinkmenai skirtos gairės:'
+            message_1: CSV, JSON ir Excel (.xlsx) rinkmenos palaikomos
+      imports:
+        new:
+          accepted_mime_types:
+            csv: CSV
+            json: JSON
+            xlsx: Excel (.xlsx)
+          actions:
+            back: Grįžti
+          download_example: Atsisiųsti pavyzdį
