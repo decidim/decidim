@@ -33,7 +33,7 @@ module Decidim
 
     def needs_admin_password?(user)
       return false unless user&.admin?
-      return false unless Decidim.config.admin_password_strong_enable
+      return false unless Decidim.config.admin_password_strong
 
       true
     end

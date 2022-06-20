@@ -15,7 +15,7 @@ module Decidim
       return unless request.format.html?
       return unless current_user
       return unless current_user.admin?
-      return unless Decidim.config.admin_password_strong_enable
+      return unless Decidim.config.admin_password_strong
       return unless current_user.needs_password_update?
       return if password_update_permitted_path?(request.path)
 

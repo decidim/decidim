@@ -6,7 +6,7 @@ class PasswordValidator < ActiveModel::EachValidator
   MAX_LENGTH = 256
   MIN_UNIQUE_CHARACTERS = 5
   IGNORE_SIMILARITY_SHORTER_THAN = 4
-  ADMIN_MINIMUM_LENGTH = Decidim.config.admin_password_min_characters
+  ADMIN_MINIMUM_LENGTH = Decidim.config.admin_password_min_length
   ADMIN_REPETITION_TIMES = Decidim.config.admin_password_repetition_times
   VALIDATION_METHODS = [
     :password_too_short?,
@@ -22,7 +22,7 @@ class PasswordValidator < ActiveModel::EachValidator
   ].freeze
 
   def self.minimum_length_for(record)
-    return ADMIN_MINIMUM_LENGTH if record.try(:admin?) && Decidim.config.admin_password_strong_enable
+    return ADMIN_MINIMUM_LENGTH if record.try(:admin?) && Decidim.config.admin_password_strong
 
     MINIMUM_LENGTH
   end
@@ -140,7 +140,7 @@ class PasswordValidator < ActiveModel::EachValidator
   end
 
   def password_repeated?
-    return false unless Decidim.config.admin_password_strong_enable
+    return false unless Decidim.config.admin_password_strong
     return false unless record.try(:admin?)
     return false unless record.try(:encrypted_password_changed?)
 

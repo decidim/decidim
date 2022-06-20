@@ -444,15 +444,15 @@ module Decidim
   end
 
   # Defines if admins are required to have stronger passwords than other users
-  config_accessor :admin_password_strong_enable do
+  config_accessor :admin_password_strong do
     true
   end
 
-  config_accessor :admin_password_days_expiration do
+  config_accessor :admin_password_expiration_days do
     90
   end
 
-  config_accessor :admin_password_min_characters do
+  config_accessor :admin_password_min_length do
     15
   end
 

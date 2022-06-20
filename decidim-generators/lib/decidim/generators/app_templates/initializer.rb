@@ -367,10 +367,10 @@ Decidim.configure do |config|
   # Admin admin password configurations
   Rails.application.secrets.dig(:decidim, :admin_password, :strong).tap do |strong_pw|
     # When the strong password is not configured, default to true
-    config.admin_password_strong_enable = strong_pw.nil? ? true : strong_pw.present?
+    config.admin_password_strong = strong_pw.nil? ? true : strong_pw.present?
   end
-  config.admin_password_days_expiration = Rails.application.secrets.dig(:decidim, :admin_password, :expiration_days).presence || 90
-  config.admin_password_min_characters = Rails.application.secrets.dig(:decidim, :admin_password, :min_length).presence || 15
+  config.admin_password_expiration_days = Rails.application.secrets.dig(:decidim, :admin_password, :expiration_days).presence || 90
+  config.admin_password_min_length = Rails.application.secrets.dig(:decidim, :admin_password, :min_length).presence || 15
   config.admin_password_repetition_times = Rails.application.secrets.dig(:decidim, :admin_password, :repetition_times).presence || 5
 
   # Additional optional configurations (see decidim-core/lib/decidim/core.rb)
