@@ -283,3 +283,49 @@ lt:
           actions:
             back: Grįžti
           download_example: Atsisiųsti pavyzdį
+          download_example_format: Pavyzdys kaip %{name}
+          file_legend: Pridėkite importo failą, kuris bus analizuojamas.
+          import: Importuoti
+        notice: "%{count} %{resource_name} sėkmingai importuotas"
+      menu:
+        admin_log: Administratoriaus veiklos žurnalas
+        admins: Administratoriai
+        appearance: Išvaizda
+        configuration: Konfigūracija
+        dashboard: Švieslentė
+        help_sections: Pagalbos skyrius
+        homepage: Pradinis puslapis
+        newsletters: Naujienlaiškiai
+        participants: Dalyviai
+        scope_types: Apimties tipai
+        scopes: Apimtys
+        settings: Nustatymai
+        static_pages: Puslapiai
+        user_groups: Grupės
+        users: Dalyviai
+      models:
+        area:
+          fields:
+            name: Pavadinimas
+        area_type:
+          fields:
+            name: Pavadinimas
+        attachment:
+          fields:
+            collection: Aplankas
+            content_type: Tipas
+            file_size: Dydis
+            title: Pavadinimas
+          name: Priedas
+        attachment_collection:
+          name: Aplankas
+        category:
+          name: Kategorija
+        impersonation_log:
+          fields:
+            admin: Administratorius
+            ended_at: Baigėsi
+        user_group:
+          fields:
+            phone: Telefonas
+            state: Būsena
