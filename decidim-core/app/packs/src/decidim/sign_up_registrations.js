@@ -97,7 +97,7 @@ class InstantValidator {
 }
 
 $(() => {
-  const TIMEOUT_INTERVAL = 200; // ms before xhr check
+  const TIMEOUT_INTERVAL = 150; // ms before xhr check
 
   const $form = $("form.instant-validation");
   let checkTimeout;
