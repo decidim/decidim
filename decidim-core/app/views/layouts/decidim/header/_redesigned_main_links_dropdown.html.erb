@@ -22,6 +22,14 @@
     <span class="text-secondary text-sm"><%= t("layouts.decidim.user_menu.conversations") %></span>
   </a>
 </li>
+<% if allowed_to? :read, :admin_dashboard %>
+  <li>
+    <a href="<%= decidim_admin.root_path %>" class="p-2 gap-x-2 flex items-center">
+      <%= icon "dashboard-line", class: "w-4 h-4 flex-none text-gray fill-current" %>
+      <span class="text-secondary text-sm"><%= t("layouts.decidim.user_menu.admin_dashboard") %></span>
+    </a>
+  </li>
+<% end %>
 <li>
   <a href="<%= decidim.destroy_user_session_path %>" class="p-2 gap-x-2 flex items-center">
     <%= icon "logout-box-r-line", class: "w-4 h-4 flex-none text-gray fill-current" %>
