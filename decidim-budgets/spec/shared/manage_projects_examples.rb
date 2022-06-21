@@ -54,6 +54,7 @@ shared_examples "manage projects" do
         let(:geocoded_address_coordinates) { [latitude, longitude] }
 
         before do
+          stub_geocoding(address, [latitude, longitude])
           within ".new_project" do
             fill_in_i18n :project_title, "#project-title-tabs", en: "Make decidim great again"
             fill_in_i18n_editor :project_description, "#project-description-tabs", en: "Decidim is great but it can be better"
