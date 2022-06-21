@@ -304,7 +304,36 @@ lt:
           name: Vardas
           needs_authorization_warning: Jums reikia bent vienos autorizacijos įgalintos šiai organizacijai.
           not_managed: Netvarkoma
+          promote: Reklamuoti
+          search: Ieškoti
+          status: Būsena
+          view_logs: Peržiūrėti įvykių ataskaitą
+      impersonations:
+        close_session:
+          error: Iškilo problema uždarant dabartinę nadotojų tvarkymo sesiją.
+          success: Laikino naudotojo perėmimo sesija baigėsi.
+        create:
+          error: Tvarkant naudotojo duomenis iškilo problema.
+          success: Dalyvis, kurio duomenys tvarkomi, buvo sukurtas.
+        form:
+          authorization_method: Autorizacijos metodas
+          name: Vardas
+          reason: Priežastis
+        new:
+          impersonate: Naudoti pakaitinę tapatybę
+          impersonate_existing_managed_user: Tvarkyti dalyvį "%{name}"
+          impersonate_existing_user: Tvarkyti dalyvį "%{name}"
+          impersonate_new_managed_user: Tvarkyti naują naudotoją
       imports:
+        and: ir
+        data_errors:
+          duplicate_headers:
+            detail: Prašau patikrinkit ar dokumentas turi vieną viršutinę dalį (angl. header) arba vienus stulpelius (angl. columns).
+            message:
+              one: Dublikuoti stulpelį %{columns}.
+              few: Dublikuoti stulpelius %{columns}.
+              many: Dublikuoti stulpelius %{columns}.
+              other: Dublikuoti stulpelius %{columns}.
         new:
           accepted_mime_types:
             csv: CSV
