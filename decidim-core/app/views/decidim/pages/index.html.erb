@@ -24,7 +24,7 @@ edit_link(
         <h3 class="h3 decorator"><%= t "decidim.pages.index.topics" %></h3>
         <% @topics.each do |topic| %>
           <% if topic.pages.any? %>
-            <details class="border-4 border-background rounded p-4">
+            <details class="border-4 border-background rounded p-4 group">
               <summary class="flex justify-between items-center cursor-pointer">
                 <div class="grow">
                   <h4 class="h4 text-secondary text-lg">
@@ -33,7 +33,8 @@ edit_link(
                   <p class="text-gray-2"><%= translated_attribute topic.description %></p>
                 </div>
                 <div class="flex-none">
-                  <%= icon "arrow-down-s-line", class: "w-8 h-8 text-secondary fill-current" %>
+                  <%= icon "arrow-down-s-line", class: "block group-open:hidden w-8 h-8 text-secondary fill-current" %>
+                  <%= icon "arrow-up-s-line", class: "hidden group-open:block w-8 h-8 text-secondary fill-current" %>
                 </div>
               </summary>
 

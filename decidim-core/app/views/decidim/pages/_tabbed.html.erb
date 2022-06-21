@@ -1,45 +1,36 @@
-<div class="wrapper">
-  <div class="row column">
-    <div class="page-title-wrapper">
-      <h1 class="heading1 page-title">
+<%# NOTE: this page does not use a layout %>
+<div class="container grid grid-cols-12 pt-12 pb-36">
+  <div class="col-start-2 col-span-10">
+    <div class="text-center mb-14">
+      <h1 class="h1 decorator inline-block mb-12">
         <%= title %>
       </h1>
-      <p class="intro--text subheading1">
+      <p class="text-lg text-gray-2">
         <%= description %>
       </p>
     </div>
 
-    <div class="main-container tabbed-container">
-      <%= cell "decidim/tos_page", :announcement %>
+    <%= cell "decidim/tos_page", :announcement %>
 
-      <div class="row collapse main-container--side-panel">
-        <div class="columns medium-4 large-3">
-          <div class="side-panel">
-            <ul class="tabs vertical side-panel__tabs">
-              <% pages.each do |sibling| %>
-                <li class="tabs-title <%= page == sibling ? "is-active" : nil %>">
-                  <%= link_to translated_attribute(sibling.title), page_path(sibling.slug) %>
-                </li>
-              <% end %>
-            </ul>
-          </div>
-        </div>
-
-        <div class="columns medium-8 large-9">
-          <div class="main-container__content">
-            <div class="tabs-content vertical">
-              <div class="static__content">
-                <h2>
-                  <%= translated_attribute page.title %>
-                </h2>
-                <%= decidim_sanitize_editor translated_attribute page.content %>
-              </div>
-            </div>
-          </div>
-        </div>
+    <div class="grid grid-cols-10 gap-20">
+      <div class="col-span-3">
+        <ul class="bg-background rounded divide-y divide-gray-3">
+          <% pages.each do |sibling| %>
+            <li>
+              <%= link_to translated_attribute(sibling.title), page_path(sibling.slug), class: "p-4 block w-full h-full text-secondary #{"border-l-4 border-primary font-semibold" if page == sibling}" %>
+            </li>
+          <% end %>
+        </ul>
       </div>
 
-      <%= cell "decidim/tos_page", :form %>
+      <div class="col-span-7">
+        <h3 class="h3"><%= translated_attribute page.title %></h3>
+
+        <div class="prose max-w-full mt-6">
+          <%= decidim_sanitize_editor translated_attribute page.content %>
+        </div>
+      </div>
     </div>
+    <%= cell "decidim/tos_page", :form %>
   </div>
 </div>
