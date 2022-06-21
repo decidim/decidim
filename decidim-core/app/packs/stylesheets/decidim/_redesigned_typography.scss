@@ -26,14 +26,14 @@
   @apply relative after:absolute after:content-[''] after:h-1 after:top-[calc(100%+.25rem)] after:left-0 after:bg-tertiary after:rounded-b;
 
   &.h1,
-  &.h2 {
+  &.h2{
     @apply after:w-24;
   }
 
   &.h3,
   &.h4,
   &.h5,
-  &.h6 {
+  &.h6{
     @apply after:w-10;
   }
 }
