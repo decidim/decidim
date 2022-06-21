@@ -14,20 +14,8 @@
           <%= translated_attribute post.title %>
         </h4>
       <% end %>
-      <div class="card__content">
-        <div class="card__header">
-          <%= link_to post, class: "card__link" do %>
-          <h2 class="card__title">
-            <%= translated_attribute post.title %>
-          </h2>
-          <% end %>
-          <div class="card__author">
-            <% post_presenter = Decidim::Blogs::PostPresenter.new(post) %>
-            <%= cell "decidim/author", post_presenter.author, from: post, has_actions: true %>
-          </div>
-        </div>
-        <%= decidim_sanitize_editor post_description(post) %>
-      </div>
+
+      <%= decidim_sanitize_editor post_description(post) %>
 
       <div class="mt-auto">
         <%= cell "decidim/author", present(post.author), from: post, has_actions: true %>
