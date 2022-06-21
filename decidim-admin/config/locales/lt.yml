@@ -376,14 +376,27 @@ lt:
       logs:
         logs_list:
           no_logs_yet: Dar nėra įrašų
+      managed_users:
+        promotion:
+          error: Įvyko problema paaukštinant tvarkomą naudotoją.
+          success: Tvarkomas naudotojas buvo sėkmingai paaukštintas.
+        promotions:
+          new:
+            explanation: Tvarkomi dalyviai gali būti paaukštinti į standartinius dalyvius. Tai reiškia, kad jie bus pakviesti į platformą ir nebegalėsite jų tvarkyti. Pakviesti naudotojai gaus kvietimą prisijungti el. paštu.
+            new_managed_user_promotion: Naujas tvarkomo naudotojo paaukštinimas
+            promote: Paaukštinti
       menu:
         admin_log: Administratoriaus veiklos žurnalas
         admins: Administratoriai
         appearance: Išvaizda
+        area_types: Erdvės tipas
+        areas: Erdvės
         configuration: Konfigūracija
         dashboard: Švieslentė
+        external_domain_whitelist: Leistini išoriniai domenai
         help_sections: Pagalbos skyrius
         homepage: Pradinis puslapis
+        impersonations: Įsikūnyjimai
         newsletters: Naujienlaiškiai
         participants: Dalyviai
         scope_types: Apimties tipai
