@@ -129,46 +129,6 @@ describe "Explore projects", :slow, type: :system do
       end
     end
 
-    context "when geocoding is enabled" do
-      before do
-        component.update!(settings: { geocoding_enabled: true })
-
-        allow(Decidim.config).to receive(:maps).and_return({
-                                                             provider: :here,
-                                                             api_key: Rails.application.secrets.maps[:api_key],
-                                                             static: { url: "https://image.maps.ls.hereapi.com/mia/1.6/mapview" }
-                                                           })
-        # To make sure there are 5 points distinct
-        projects[0].update!(latitude: -10)
-        projects[0].update!(longitude: -10)
-        projects[1].update!(latitude: -10)
-        projects[1].update!(longitude: 10)
-        projects[2].update!(latitude: 0)
-        projects[2].update!(longitude: 0)
-        projects[3].update!(latitude: 10)
-        projects[3].update!(longitude: -10)
-        projects[4].update!(latitude: 10)
-        projects[4].update!(longitude: 10)
-
-        visit_budget
-      end
-
-      it "displays a map with the projects", :slow do
-        expect(page).to have_selector("div[data-decidim-map]")
-        expect(find("div[data-decidim-map]")["data-decidim-map"]).to have_content("latitude", count: 5)
-        expect(page).to have_selector(".leaflet-marker-icon", count: 5)
-      end
-
-      it "can be clicked", :slow do
-        find(".leaflet-marker-icon[title='#{project.title["en"]}']").click
-        within ".leaflet-popup-content-wrapper" do
-          expect(page).to have_content(project.title["en"])
-          find(".button--sc").click
-        end
-        expect(page).to have_content(project.address)
-      end
-    end
-
     context "when directly accessing from URL with an invalid budget id" do
       it_behaves_like "a 404 page" do
         let(:target_path) { decidim_budgets.budget_projects_path(99_999_999) }
