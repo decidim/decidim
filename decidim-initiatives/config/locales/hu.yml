@@ -437,11 +437,14 @@ hu:
           full_name: Teljes név
           id_number: ID Szám
           initiative:
+            attachments: Csatolt dokumentáció (kérem minden dokumentum nevét írja meg lentebb)
             description: 'Leírás:'
             title: 'Cím:'
+            type: A kezdeményezés típusa
           phone_number: Telefonszám
           place_date: Hely, dátum
           print: Nyomtatás
+          province: Megye
           signature: Aláírás
         result:
           initiative_rejected_reason: A kezdeményezést a támogatás hiánya miatt elutasították.
