@@ -450,11 +450,14 @@ hu:
           full_name: Teljes név
           id_number: ID Szám
           initiative:
+            attachments: Csatolt dokumentáció (kérem minden dokumentum nevét írja meg lentebb)
             description: 'Leírás:'
             title: 'Cím:'
+            type: A kezdeményezés típusa
           phone_number: Telefonszám
           place_date: Hely, dátum
           print: Nyomtatás
+          province: Megye
           signature: Aláírás
         result:
           initiative_rejected_reason: A kezdeményezést a támogatás hiánya miatt elutasították.
@@ -462,6 +465,7 @@ hu:
           edit: Szerkeszt
           follow_description: Értesítést kapjon, ha ebben a kezdeményezésben vannak hírek
           offline_method: E kezdeményezés keretében csak személyes aláírásokat gyűjtenek.
+          send_to_technical_validation: Elküldés technikai ellenőrzésre
         signatures_count:
           one: " aláírás"
           other: " aláírások"
@@ -497,7 +501,10 @@ hu:
             see_all_initiatives: Összes kezdeményezés
       show:
         badge_name:
+          accepted: Elegendő aláírás
+          created: Létrehozva
           discarded: Elvetve
+          published: Közzétéve
           rejected: Nincs elegendő aláírás
           validating: Technikai érvényesítés
       signature_interval:
