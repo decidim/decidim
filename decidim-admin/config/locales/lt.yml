@@ -202,6 +202,29 @@ lt:
         destroy:
           error: Naikinant šį komponentą iškilo problema.
           success: Komponentas pašalintas.
+      conflicts:
+        attempts: Bandymai
+        'false': 'Ne'
+        managed_user_name: Tvarkomas Dalyvis
+        solved: Išspręsta
+        title: Patikros konfliktai
+        transfer:
+          email: El. paštas
+          error: Iškilo problema perkeliant dabartinį dalyvį į tvarkomą dalyvį.
+          name: Vardas
+          reason: Priežastis
+          success: Perkėlimas sėkmingai baigtas.
+          title: Perkelti
+        'true': 'Taip'
+        user_name: Naudotojas
+      dashboard:
+        show:
+          view_more_logs: Peržiūrėti daugiau ataskaitų
+      domain_whitelist:
+        form:
+          domain_too_short: Domenas per trumpas
+        update:
+          error: Nepavyko įkelti domenų baltojo sąrašo ("whitelist")
       exports:
         export_as: "%{name} kaip %{export_format}"
         formats:
@@ -272,6 +295,15 @@ lt:
           import:
             explanation: 'Rinkmenai skirtos gairės:'
             message_1: CSV, JSON ir Excel (.xlsx) rinkmenos palaikomos
+      impersonatable_users:
+        index:
+          filter_by: Filtruoti pagal
+          impersonate: Apsimesti
+          impersonate_new_managed_user: Tvarkyti naujo dalyvio duomenis
+          managed: Valdomas
+          name: Vardas
+          needs_authorization_warning: Jums reikia bent vienos autorizacijos įgalintos šiai organizacijai.
+          not_managed: Netvarkoma
       imports:
         new:
           accepted_mime_types:
