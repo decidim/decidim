@@ -366,7 +366,7 @@ sv:
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> instämde i initiativet <a href="%{resource_path}">%{resource_title}</a>.
       form:
         add_attachments: Dokument
-        attachment_legend: "(Valfritt) Lägg till bilagor"
+        attachment_legend: "(Frivilligt) Lägg till bilagor"
         delete_attachment: Radera
       index:
         title: Initiativ
