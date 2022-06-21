@@ -1,21 +1,21 @@
-<div class="wrapper">
-  <div class="row column">
-    <div class="page-title-wrapper">
-      <h1 class="heading1 page-title">
+<%= render layout:"layouts/decidim/shared/layout_one_col" do %>
+
+<div class="grid grid-cols-8 py-12">
+  <div class="col-start-2 col-span-6">
+    <div class="text-center">
+      <h1 class="h1 decorator inline-block mb-12">
         <%= title %>
       </h1>
     </div>
 
     <%= cell "decidim/tos_page", :announcement %>
 
-    <div class="columns small-12">
-      <div class="card">
-        <div class="card__content"><%= decidim_sanitize_editor translated_attribute page.content %></div>
-      </div>
+    <div class="prose max-w-full mb-24">
+      <%= decidim_sanitize_editor translated_attribute page.content %>
     </div>
 
-    <div class="columns small-12">
-      <%= cell "decidim/tos_page", :form %>
-    </div>
+    <%= cell "decidim/tos_page", :form %>
   </div>
 </div>
+
+<% end %>
