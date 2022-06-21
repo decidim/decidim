@@ -107,6 +107,19 @@ lt:
         title: Pavadinimas
       user_group_csv_verification:
         file: Rinkmena
+    errors:
+      models:
+        organization:
+          attributes:
+            official_img_footer:
+              allowed_file_content_types: Netinkama vaizdo rinkmena
+            official_img_header:
+              allowed_file_content_types: Netinkama vaizdo rinkmena
+  activerecord:
+    attributes:
+      decidim/static_page:
+        content: Turinys
+        title: Pavadinimas
   decidim:
     admin:
       admin_terms_of_use:
