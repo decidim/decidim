@@ -3,8 +3,8 @@
   <%= icon "list-check-2", class: "w-4 h-4 text-gray fill-current" %>
   <span class="text-gray-2"><%= t("decidim.shared.results_per_page.label") %></span>
 
-  <details class="relative" role="menubar">
-      <summary id="<%= menu_id %>-control" class="flex items-center cursor-pointer text-secondary font-semibold" aria-controls="<%= menu_id %>" aria-haspopup="menu" title="<%= t("decidim.shared.results_per_page.title") %>" role="menuitem">
+  <details class="relative">
+      <summary id="<%= menu_id %>-control" class="flex items-center cursor-pointer text-secondary font-semibold" aria-controls="<%= menu_id %>" aria-haspopup="menu" title="<%= t("decidim.shared.results_per_page.title") %>">
         <%= per_page %>
         <%= icon "arrow-down-s-line", class: "w-4 h-4 text-gray fill-current" %>
       </summary>
