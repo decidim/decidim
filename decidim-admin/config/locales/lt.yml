@@ -8,6 +8,7 @@ lt:
       area_type:
         name: Vardas
         organization: Organizacija
+        plural: Pluralistinis
       attachment:
         attachment_collection_id: Aplankas
         description: Aprašymas
@@ -23,12 +24,17 @@ lt:
       component:
         name: Pavadinimas
         published_at: Paskelbta
+        weight: Vieta eilėje
       id: ID
+      import:
+        user_group_id: Sukurti importus kaip
       newsletter:
         body: Pagrindinė dalis
         subject: Tema
       organization:
+        admin_terms_of_use_body: Vieta administratorių naudotojų sąlygoms
         alert_color: Įspėjimas
+        available_authorizations: Leidžiamos autorizacijos
         badges_enabled: Aktyvinti ženklelius
         comments_max_length: Maksimalus komentarų ilgis (numatytoji vertė – 0)
         cta_button_path: Mygtuko „Raginti imtis veiksmų“ kelias
@@ -36,11 +42,16 @@ lt:
         customize_welcome_notification: Individualizuoti pasisveikinimo pranešimą
         description: Aprašymas
         enable_omnipresent_banner: Rodyti visur naudojamą reklamjuostę
+        enable_participatory_space_filters: Leisti dalyvaujamosios erdvės filtrus
         facebook_handler: '„Facebook“ tvarkyklė'
         favicon: Piktograma
+        force_authentication: Priversti autentifikuotis
+        force_users_to_authenticate_before_access_organization: Priversti naudotojus autentifikuotis prieš gaunant prieigą prie organizacijos
         from: Siuntėjo elektroninis paštas
         github_handler: '„GitHub“ tvarkyklė'
         header_snippets: Antraštės fragmentai
+        highlight_alternative_color: Paryškinti, alternatyva
+        highlight_color: Paryškinimai
         highlighted_content_banner_action_subtitle: Veiksmo mygtuko paantraštė
         highlighted_content_banner_action_title: Veiksmo mygtuko pavadinimas
         highlighted_content_banner_action_url: Veiksmo mygtuko URL
@@ -101,14 +112,20 @@ lt:
         show_in_footer: Rodyti poraštėje
         slug: URL laukas
         title: Pavadinimas
+        weight: Vieta eilėje
       static_page_topic:
         description: Aprašymas
         show_in_footer: Rodyti poraštėje
         title: Pavadinimas
+        weight: Vieta eilėje
       user_group_csv_verification:
         file: Rinkmena
     errors:
       models:
+        newsletter:
+          attributes:
+            base:
+              at_least_one_space: Pasirinkite bent vieną dalyvavujamąją erdvę
         organization:
           attributes:
             official_img_footer:
