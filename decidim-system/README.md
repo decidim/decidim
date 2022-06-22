@@ -63,8 +63,8 @@ bin/rails console
 ```ruby
 system_admin = Decidim::System::Admin.order(:id).first                        # for the first system admin
 system_admin = Decidim::System::Admin.find_by_email "system@example.org"      # if you already know the email
-system_admin.password = "decidim1234567890"                                   # change for something secure
-system_admin.password_confirmation = "decidim1234567890"
+system_admin.password = "decidim123456789"                                    # change for something secure
+system_admin.password_confirmation = "decidim123456789"
 system_admin.save
 ```
 
