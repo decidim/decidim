@@ -180,10 +180,12 @@ pl:
           success: Świetnie! Zaakceptowano warunki użytkowania dla administratorów.
         actions:
           accept: Zgadzam się z warunkami użytkowania
+          are_you_sure: Czy na pewno nie wyrażasz zgody na warunki użytkowania dla administratorów?
           refuse: Nie akceptuję warunków dla administratorów
           title: Akceptuję warunki użytkowania
         required_review:
           alert: 'Wymagane: Zapoznaj się z warunkami użytkowania dla administratorów'
+          callout: Poświęć chwilę, aby zapoznać się z Warunkami użytkowania dla administratorów. W przeciwnym razie nie uzyskasz dostępu do administrowania platformą.
           cta: Zapoznaj się teraz.
         title: Warunki użytkowania dla administratorów
       area_types:
@@ -258,6 +260,7 @@ pl:
       block_user:
         new:
           action: Zablokuj konto i wyślij uzasadnienie
+          description: Blokowanie użytkownika sprawi, że jego konto nie będzie użyteczne. Możesz podać w uzasadnieniu wszelkie wytyczne dotyczące sposobu odblokowania użytkownika.
           justification: Uzasadnienie
           title: Zablokuj użytkownika %{name}
       categories:
@@ -320,6 +323,7 @@ pl:
         'false': 'Nie'
         managed_user_name: Zarządzany użytkownik
         solved: Rozwiązane
+        title: Konflikty weryfikacji
         transfer:
           email: Adres e-mail
           error: Podczas transferu bieżącego użytkownika do zarządzanego użytkownika wystąpił błąd.
@@ -338,6 +342,7 @@ pl:
           domain_too_short: Domena jest zbyt krótka
         update:
           error: Nie udało się zaktualizować białej listy domen
+          success: Biała lista domen pomyślnie zaktualizowana
       exports:
         export_as: "%{name} jako %{export_format}"
         formats:
@@ -356,6 +361,7 @@ pl:
             'false': 'Nie'
             'true': 'Tak'
         last_sign_in_at_present:
+          label: Zawsze zalogowany
           values:
             'false': 'Nie'
             'true': 'Tak'
@@ -628,6 +634,7 @@ pl:
       newsletters:
         create:
           error: Podczas tworzenia newslettera wystąpił błąd.
+          success: Newsletter został pomyślnie utworzony. Sprawdź go przed wysłaniem.
         deliver:
           error: Podczas dostarczania tego newslettera wystąpił błąd.
           success: Newsletter został dostarczony pomyślnie.
@@ -710,10 +717,12 @@ pl:
           title: Oficjalizuj użytkownika "%{name}"
         show_email_modal:
           close_modal: Zamknij okno
+          description: Jeśli chcesz skontaktować się bezpośrednio z uczestnikiem, możesz kliknąć przycisk Pokaż aby zobaczyć jego adres e-mail. Ta akcja zostanie zarejestrowana.
           email_address: Adres e-mail
           full_name: Imię i nazwisko
           hidden: ukryty
           show: Pokaż
+          title: Pokaż adres e-mail uczestnika
         unblock:
           error: Wystąpił błąd podczas odblokowywania użytkownika
           success: Użytkownik został odblokowany
