@@ -1,6 +1,6 @@
 <div class="content">
   <div class="row">
-    <%= render partial: "decidim/admin/logs/logs_list", locals: { logs: logs } %>
+    <%= render partial: "decidim/admin/logs/logs_list", locals: { logs: logs, display_filters: true } %>
     <%= paginate logs, theme: "decidim" %>
   </div>
 </div>

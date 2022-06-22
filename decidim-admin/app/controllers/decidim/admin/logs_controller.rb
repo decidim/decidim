@@ -5,6 +5,8 @@ module Decidim
     # Controller that shows a simple dashboard.
     #
     class LogsController < Decidim::Admin::ApplicationController
+      include Decidim::Admin::Logs::Filterable
+
       helper_method :logs
 
       def index
@@ -14,13 +16,15 @@ module Decidim
       private
 
       def logs
-        @logs ||= Decidim::ActionLog
-                  .where(organization: current_organization)
-                  .includes(:participatory_space, :user, :resource, :component, :version)
-                  .for_admin
-                  .order(created_at: :desc)
-                  .page(params[:page])
-                  .per(20)
+        @logs ||= filtered_collection.order(created_at: :desc)
+      end
+
+      def base_query
+        Decidim::ActionLog.where(
+          organization: current_organization
+        ).includes(
+          :participatory_space, :user, :resource, :component, :version
+        ).for_admin
       end
     end
   end

@@ -510,6 +510,10 @@ en:
           import: Import
         notice: "%{count} %{resource_name} successfully imported"
       logs:
+        filters:
+          participatory_space: Select participatory space
+          text: Search by user email, name or nickname.
+          user: User
         logs_list:
           no_logs_yet: There are no logs yet
       managed_users:
