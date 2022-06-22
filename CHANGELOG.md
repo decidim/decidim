@@ -181,7 +181,7 @@ PR [\#8833](https://github.com/decidim/decidim/pull/8833) Users can now configur
 
 PR [\#9347](https://github.com/decidim/decidim/pull/9347) Adds strong password rules for administrator users which are enabled by default. This will also force the current administrators to change their passwords after 90 days has passed from the previous login.
 
-For development/testing/staging environments this also means that the default administrator password has changed to `decidim123456789` to match the minimum length rules.
+For development/testing/staging environments this also means that the default user passwords have changed to `decidim123456789` to match the minimum length rules for admins. For consistency reasons, regular users password has also been changed with the seed data.
 
 In case you want to disable this functionality, you can add the following to your `config/initializers/decidim.rb`:
 

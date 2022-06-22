@@ -53,7 +53,7 @@ This will also create some default data so you can start testing the app:
 
 |Decidim::System::Admin
 |system@example.org
-|decidim123456
+|decidim123456789
 |/system
 |Administrator for the multitenant
 
@@ -65,7 +65,7 @@ This will also create some default data so you can start testing the app:
 
 |Decidim::User
 |user@example.org
-|decidim123456
+|decidim123456789
 |/user/sign_in
 |User for the organization
 

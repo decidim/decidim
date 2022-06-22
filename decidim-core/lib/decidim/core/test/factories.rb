@@ -188,7 +188,7 @@ FactoryBot.define do
       # We have specs that call e.g. `create(:user, admin: true)` where we need
       # to do this to ensure the user creation does not fail due to the short
       # password.
-      user.password ||= evaluator.password || (user.admin? ? "decidim123456789" : "decidim123456")
+      user.password ||= evaluator.password || "decidim123456789"
       user.password_confirmation ||= evaluator.password_confirmation || user.password
     end
   end

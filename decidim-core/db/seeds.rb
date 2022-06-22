@@ -135,8 +135,8 @@ if !Rails.env.production? || ENV.fetch("SEED", nil)
     Decidim::User.find_or_initialize_by(email: email).update!(
       name: Faker::Name.name,
       nickname: Faker::Twitter.unique.screen_name,
-      password: "decidim123456",
-      password_confirmation: "decidim123456",
+      password: "decidim123456789",
+      password_confirmation: "decidim123456789",
       confirmed_at: Time.current,
       locale: I18n.default_locale,
       organization: organization,
@@ -154,8 +154,8 @@ if !Rails.env.production? || ENV.fetch("SEED", nil)
   locked_user.update!(
     name: Faker::Name.name,
     nickname: Faker::Twitter.unique.screen_name,
-    password: "decidim123456",
-    password_confirmation: "decidim123456",
+    password: "decidim123456789",
+    password_confirmation: "decidim123456789",
     confirmed_at: Time.current,
     locale: I18n.default_locale,
     organization: organization,
