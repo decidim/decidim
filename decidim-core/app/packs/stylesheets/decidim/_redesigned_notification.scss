@@ -1,0 +1,15 @@
+.notification{
+  @apply rounded p-4 border-l-4 border-secondary bg-secondary/5 prose max-w-full;
+
+  &.success{
+    @apply border-green bg-green/5;
+  }
+
+  &.alert{
+    @apply border-red bg-red/5;
+  }
+
+  &.warning{
+    @apply border-yellow bg-yellow/5;
+  }
+}
