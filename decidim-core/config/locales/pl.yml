@@ -84,6 +84,12 @@ pl:
       decidim_with_day_and_month_name: "%A %d %b %Y"
       decidim_with_month_name: "%d %B %Y"
       decidim_with_month_name_short: "%d %b"
+  datetime:
+    distance_in_words:
+      x_seconds:
+        one: 1 sekundę temu
+        other: "%{count} sekund temu"
+        zero: właśnie teraz
   decidim:
     accessibility:
       external_link: Link zewnętrzny
