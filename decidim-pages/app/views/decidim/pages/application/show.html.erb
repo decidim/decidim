@@ -4,12 +4,10 @@
 
 <%= render partial: "decidim/shared/component_announcement" %>
 
-<div class="row column">
-  <div class="row">
-    <div class="columns medium-7 mediumlarge-8">
-      <div class="section">
-        <%= decidim_sanitize_editor translated_attribute(@page.body) %>
-      </div>
+<%= render layout:"layouts/decidim/shared/layout_one_col" do %>
+  <div class="grid grid-cols-8 py-12">
+    <div class="col-start-2 col-span-6 prose max-w-full">
+      <%= decidim_sanitize_editor translated_attribute(@page.body) %>
     </div>
   </div>
-</div>
+<% end %>
