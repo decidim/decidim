@@ -107,6 +107,11 @@ module Decidim
       where(
         participatory_space_type: space_manifest.model_class_name,
         participatory_space_id: space_id
+      ).or(
+        where(
+          resource_type: space_manifest.model_class_name,
+          resource_id: space_id
+        )
       )
     }
 
