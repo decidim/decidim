@@ -966,6 +966,10 @@ pl:
           no_users_count_statistics_yet: Nie ma jeszcze statystyk dotyczących liczby użytkowników
           participants: Użytkownicy
       view_public_page: Zobacz stronę publiczną
+    forms:
+      errors:
+        impersonate_user:
+          reason: Aby zarządzać uczestnikiem niezarządzanym należy podać powód
     metrics:
       blocked_users:
         object: zablokowani użytkownicy
