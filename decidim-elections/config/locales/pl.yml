@@ -291,6 +291,7 @@ pl:
             title: Opublikowano wyniki
           tally:
             continue: Dalej
+            invalid: Wystąpił błąd podczas usuwania męża (osoby) zaufania
             mark_as_missing: Oznacz jako brakujący
             title: Proces ustalania wyniku głosowania
           tally_ended:
