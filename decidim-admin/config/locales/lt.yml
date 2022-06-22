@@ -210,8 +210,20 @@ lt:
       areas:
         create:
           error: Iškilo problema kuriant naują erdvę.
+          success: Erdvė sukurta sėkmingai.
+        destroy:
+          has_spaces: Ši aplinka turi priklausomų erdvių. Prašau įsitikinkite, kad jokia Dalyvaujamoji Erdvė nesujungta su šia aplinka prieš ją ištrinant.
+          success: Aplinka sėkmingai panaikinta
         edit:
+          title: Taisyti aplinką
           update: Atnaujinti
+        new:
+          create: Sukurti aplinką
+          title: Nauja aplinka
+        no_areas: Nėra aplinkų
+        update:
+          error: Kilo problema atnaujinant šią aplinką.
+          success: Aplinka atnaujinta sėkmingai
       attachment_collections:
         create:
           error: Kuriant naują aplanką iškilo problema.
@@ -288,6 +300,31 @@ lt:
         destroy:
           error: Naikinant šį komponentą iškilo problema.
           success: Komponentas pašalintas.
+        edit:
+          title: Redaguoti komponentą
+          update: Atnaujinti
+        form:
+          default_step_settings: Numatyti žingsnių nustatymai
+          global_settings: Bendrieji nustatymai
+          step_settings: Žingsnio nustatymai
+        index:
+          add: Pridėti komponentą
+          headers:
+            actions: Veiksmai
+            name: Komponento pavadinimas
+            scope: Komponento apimtis
+            type: Komponento tipas
+        new:
+          add: Pridėti komponentą
+          title: 'Pridėti komponentą: %{name}'
+        publish:
+          success: Komponentas sėkmingai publikuotas.
+        title: Komponentai
+        unpublish:
+          success: Komponentas nebe publikuojamas.
+        update:
+          error: Atnaujinant šį komponentą iškilo problema.
+          success: Komponentas atnaujintas sėkmingai.
       conflicts:
         attempts: Bandymai
         'false': 'Ne'
@@ -312,6 +349,7 @@ lt:
           domain_too_short: Domenas per trumpas
         update:
           error: Nepavyko įkelti domenų baltojo sąrašo ("whitelist")
+          success: Domenų baltasis sąrašas atnaujintas sėkmingai
       exports:
         export_as: "%{name} kaip %{export_format}"
         formats:
