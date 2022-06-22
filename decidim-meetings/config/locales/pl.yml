@@ -296,6 +296,7 @@ pl:
             registration_url_help: 'Link: zezwól użytkownikom na korzystanie z usługi zewnętrznej, której używasz do rejestracji'
             select_a_meeting_type: Wybierz typ spotkania
             select_a_registration_type: Wybierz typ rejestracji
+            show_embedded_iframe_help: Tylko kilka usług pozwala na osadzanie w spotkaniu lub wydarzeniu na żywo (YouTube, Twitch i Jitsi)
           index:
             title: Spotkania
           new:
@@ -454,6 +455,7 @@ pl:
           select_a_category: Wybierz kategorię
           select_a_meeting_type: Wybierz typ spotkania
           select_a_registration_type: Wybierz typ rejestracji
+          show_embedded_iframe_help: Tylko kilka usług pozwala na osadzanie w spotkaniu lub wydarzeniu na żywo (YouTube, Twitch i Jitsi)
         index:
           new_meeting: Nowe spotkanie
         meeting_minutes:
