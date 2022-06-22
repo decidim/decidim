@@ -29,10 +29,12 @@ module Decidim
 
     private
 
+    # deprecated
     def has_title?
       announcement.is_a?(Hash) && announcement.has_key?(:title)
     end
 
+    # deprecated
     def callout_class
       options[:callout_class] ||= "secondary"
     end

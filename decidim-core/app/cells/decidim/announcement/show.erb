@@ -1,11 +1,3 @@
-<div class="row column">
-  <%= content_tag :div, class: "callout announcement mb-sm #{callout_class} cell-announcement" do %>
-    <% if has_title? %>
-      <p class="heading5"><%= clean_title %></p>
-
-      <%= clean_body %>
-    <% else %>
-      <%= clean_announcement %>
-    <% end %>
-  <% end %>
-</div>
+<%= content_tag :div, class: "rounded p-4 border-l-4 border-secondary bg-secondary/5 prose max-w-full" do %>
+  <%= clean_announcement %>
+<% end %>

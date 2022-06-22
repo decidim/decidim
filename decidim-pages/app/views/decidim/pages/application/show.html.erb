@@ -2,11 +2,10 @@
   description: translated_attribute(@page.body),
 }) %>
 
-<%= render partial: "decidim/shared/component_announcement" %>
-
 <%= render layout:"layouts/decidim/shared/layout_one_col" do %>
   <div class="grid grid-cols-8 py-12">
-    <div class="col-start-2 col-span-6 prose max-w-full">
+    <div class="col-start-2 col-span-6 prose max-w-full space-y-12">
+      <%= render partial: "decidim/shared/component_announcement" %>
       <%= decidim_sanitize_editor translated_attribute(@page.body) %>
     </div>
   </div>
