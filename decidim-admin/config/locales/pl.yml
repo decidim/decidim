@@ -796,6 +796,7 @@ pl:
         form:
           colors:
             colors_title: Kolory organizacji
+            colors_warning_html: Uwaga! Zmiana tych kolorów może ograniczyć czytelność. Możesz sprawdzić kontrast wybranych kolorów korzystając z <a href="%{link}">WebAIM Contrast Checker</a> albo innych podobnych narzędzi.
             header_snippets_help: Użyj tego pola, aby dodać elementy do nagłówka kodu HTML. Najczęstszym zastosowaniem jest zintegrowanie usług innych firm, które wymagają dodatkowego kodu JavaScript lub CSS. Można również użyć go do dodawania dodatkowych meta tagów do HTML. Zauważ, że będzie to widoczne tylko na stronach publicznych, a nie w sekcji administracyjnej.
           cta_button_path_help: 'Możesz nadpisać adres do jakiego kieruje przycisk CTA na stronie głównej. Należy wpisać tylko to, co ma znaleźć się na końcu po znaku „/”, a nie pełen adres. Można użyć liter, cyfr, myślników i ukośników. Musi zaczynać się od litery. Przycisk CTA zostanie wyświetlony na stronie głównej między tekstem powitalnym a opisem. Przykład: %{url}'
           cta_button_text_help: Można nadpisać tekst przycisku CTA na stronie głównej dla każdego dostępnego języka organizacji. Jeśli to pole nie zostanie wypełnione, zostanie użyta wartość domyślna. Przycisk CTA zostanie wyświetlony na stronie głównej między tekstem powitalnym a opisem.
@@ -1007,6 +1008,10 @@ pl:
           no_users_count_statistics_yet: Nie ma jeszcze statystyk dotyczących liczby użytkowników
           participants: Użytkownicy
       view_public_page: Zobacz stronę publiczną
+    forms:
+      errors:
+        impersonate_user:
+          reason: Aby zarządzać uczestnikiem niezarządzanym należy podać powód
     metrics:
       blocked_users:
         object: zablokowani użytkownicy
@@ -1044,6 +1049,7 @@ pl:
             hidden_at: Ukryto
             participatory_space: Przestrzeń partycypacyjna
             report_count: Liczba
+            reportable_id: ID
             reportable_type: Typ
             reported_content_url: URL zgłoszonej treści
             reports: Zgłoszenia
