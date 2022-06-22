@@ -408,6 +408,9 @@ lt:
         search_label: Ieškoti
         search_placeholder:
           name_or_nickname_or_email_cont: Ieškoti %{collection} pagal el. pašto adresą, vardą ir pavardę arba naudotojo vardą.
+          title_cont: Ieškoti %{collection} pagal pavadinimą.
+          user_name_or_user_email_cont: Ieškoti %{collection} pagal vardą ar el. paštą.
+          user_name_or_user_nickname_or_user_email_cont: Ieškoti %{collection} pagal el. pašto adresą, vardą arba naudotojo vardą.
         state_eq:
           label: Būsena
           values:
@@ -555,6 +558,34 @@ lt:
           fields:
             admin: Administratorius
             ended_at: Baigėsi
+            reason: Priežastis
+            started_at: Prasidėjo
+            user: Dalyvis
+        newsletter:
+          fields:
+            created_at: Sukurta
+            progress: Progresas
+            sent_at: Išsiųsta
+            sent_to: Išsiųsta
+            subject: Tema
+          name: Naujienlaiškis
+        share_token:
+          fields:
+            created_at: Sukurta
+            expires_at: Nustoja galioti
+            last_used_at: Paskutinį kartą naudota
+            times_used: Kiek kartų naudota
+            user: Sukūrė
+        static_page:
+          fields:
+            created_at: Sukurta
+            title: Pavadinimas
+        user:
+          fields:
+            created_at: Sukūrimo data
+            email: El. paštas
+            last_sign_in_at: Paskutinio prisijungimo data
+            role: Rolė
         user_group:
           fields:
             phone: Telefonas
@@ -585,6 +616,8 @@ lt:
         reports:
           index:
             author: Autorius(iai)
+            participatory_space: Dalyvaujamoji erdvė
+            reported_content: Turinys, apie kurį pranešta
             see_original: Matyti orginalą
           show:
             report_reason: Priežastis
@@ -596,16 +629,42 @@ lt:
         show:
           use_template: Naudoti šį šabloną
       newsletters:
+        create:
+          error: Kuriant šį naujienlaiškį iškilo problema.
+          success: Naujienlaiškis sukurtas. Peržiūrėkite jį prieš išsiųsdami.
         deliver:
+          error: Siunčiant šį naujienlaiškį iškilo problema.
           success: Naujienlaiškis išsiųstas.
+        destroy:
+          error_already_sent: 'Naujienlaiškio negalima panaikinti. Jis jau išsiųstas.'
+          success: Naujienlaiškis panaikintas.
         edit:
           save_and_preview: Išsaugoti ir peržiūrėti
+          title: Redaguoti naujienlaiškį
         index:
           all: visi
           all_users: 'Visi naudotojai '
           and: 'ir '
           confirm_delete: Ar tikrai norite ištrinti šį naujienlaiškį?
+          followers: 'sekėjai '
+          not_sent: Neišsiųstas
+          participants: 'dalyviai '
+          segmented_to: 'Išskaidyta į %{subject}: '
+          subscribed_count: 'Prenumeruojama:'
+          title: Naujienlaiškiai
+        new:
+          save: Išsaugoti
+          title: Naujas naujienlaiškis
+        select_recipients_to_deliver:
+          all_spaces: Visi
+          deliver: Pristatyti naujienlaiškį
+          followers_help: Naujienlaiškis išsiunčiamas visiems patvirtintiems naudotojams, kurie seka sąraše nurodytas pasirinktas dalyvaujamojo proceso erdves.
+          send_to_all_users: Siųsti visiems naudotojams
+          send_to_followers: Siųsti sekėjams
+          send_to_participants: Siųsti dalyviams
+          title: Pasirinkti gavėjus, kuriems išsiųsti
         show:
+          preview: Peržiūra
           select_recipients_to_deliver: Pasirinkti gavėjus, kuriems išsiųsti
           subject: Tema
         update:
@@ -614,6 +673,7 @@ lt:
       officializations:
         index:
           actions: Veiksmai
+          badge: Ženkliukas
           block: Blokuoti naudotoją
           created_at: Sukurta
           name: Vardas
@@ -622,6 +682,7 @@ lt:
           status: Būsena
           unblock: Atblokuoti naudotoją
         show_email_modal:
+          email_address: El. pašto adresas
           full_name: Vardas, pavardė
           hidden: paslėptas
           show: Rodyti
@@ -629,3 +690,132 @@ lt:
       organization:
         edit:
           update: Atnaujinti
+        form:
+          facebook: Facebook
+          github: GitHub
+          instagram: Instagram
+          twitter: Twitter
+          url: Nuoroda
+          youtube: YouTube
+        update:
+          error: Atnaujinant šią organizaciją iškilo problema.
+          success: Organizacija atnaujinta.
+      organization_appearance:
+        edit:
+          update: Atnaujinti
+        form:
+          colors:
+            colors_title: Organizacijos spalvos
+          images:
+            preview: Peržiūra
+          omnipresent_banner_appearance_title: Keisti visur naudojamą reklamjuostę
+      organization_external_domain_whitelist:
+        edit:
+          update: Atnaujinti
+        external_domain:
+          down: Žemyn
+      reminders:
+        new:
+          submit: Siųsti
+      resource_permissions:
+        edit:
+          submit: Pateikti
+          title: Redaguoti leidimus
+        update:
+          success: Leidimai atnaujinti.
+      resources:
+        index:
+          headers:
+            scope: Apimtis
+      scope_types:
+        edit:
+          update: Atnaujinti
+      scopes:
+        edit:
+          update: Atnaujinti
+      share_tokens:
+        actions:
+          destroy: Ištrinti
+          share: Dalintis
+      shared:
+        gallery:
+          add_images: Pridėti paveikslėlių
+          delete_image: Pašalinti paveikslėlį
+          edit_images: Redaguoti paveikslėlį
+          gallery_legend: Pridėti paveikslėlių galeriją (Neprivaloma)
+      static_page_topics:
+        create:
+          error: Kuriant naują temą iškilo problema.
+          success: Tema sukurta.
+      static_pages:
+        new:
+          title: Naujas puslapis
+        topic:
+          destroy: Šalinti temą
+          edit: Redaguoti temą
+          without_topic: Puslapiai be temos
+        update:
+          error: Atnaujinant šį puslapį iškilo problema.
+          success: Puslapis atnaujintas
+      titles:
+        admin_log: Administratoriaus veiklos žurnalas
+        static_pages: Puslapiai
+        users: Administratoriai
+      user_group:
+        csv_verify:
+          invalid: Skaitant CSV rinkmeną iškilo problema.
+          success: CSV rinkmena įkelta, tikriname, kurios grupės atitinka kriterijus. Tai gali užtrukti.
+      user_groups:
+        index:
+          state:
+            pending: Laukiama
+            rejected: Atmesta
+            verified: Patvirtinta
+          verify_via_csv: Patvirtinti naudojant CSV
+      user_groups_csv_verifications:
+        new:
+          upload: Įkelti
+      users:
+        create:
+          success: Dalyvis pakviestas.
+        form:
+          email: El. paštas
+          name: Vardas
+          role: Rolė
+        new:
+          create: Pakviesti
+      users_statistics:
+        users_count:
+          last_day: Paskutinė diena
+    moderations:
+      admin:
+        reportable:
+          unhide:
+            success: Išteklius paslėptas.
+      models:
+        moderation:
+          fields:
+            created_at: Sukūrimo data
+            hidden_at: Paslėpta
+            participatory_space: Dalyvaujamoji erdvė
+            report_count: Kiekis
+            reportable_id: ID
+            reportable_type: Tipas
+            reported_content_url: Turinio, apie kurį pranešta, URL
+        report:
+          fields:
+            details: Priežasties detalės
+            locale: Kalba
+            reason: Priežastis
+  errors:
+    messages:
+      invalid_json: Negaliojantis JSON
+  layouts:
+    decidim:
+      admin:
+        newsletters:
+          title: Naujienlaiškiai
+        settings:
+          title: Nustatymai
+        users:
+          title: Dalyviai
