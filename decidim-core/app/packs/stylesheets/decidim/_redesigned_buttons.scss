@@ -31,6 +31,18 @@
 
   &.transparent{
     @apply bg-transparent text-white border border-white;
+
+    &.primary{
+      @apply border-primary text-primary;
+    }
+
+    &.secondary{
+      @apply border-secondary text-secondary;
+    }
+
+    &.tertiary{
+      @apply border-tertiary text-tertiary;
+    }
   }
 
   &.white:hover,
