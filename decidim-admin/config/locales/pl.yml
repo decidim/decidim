@@ -796,6 +796,7 @@ pl:
         form:
           colors:
             colors_title: Kolory organizacji
+            colors_warning_html: Uwaga! Zmiana tych kolorów może ograniczyć czytelność. Możesz sprawdzić kontrast wybranych kolorów korzystając z <a href="%{link}">WebAIM Contrast Checker</a> albo innych podobnych narzędzi.
             header_snippets_help: Użyj tego pola, aby dodać elementy do nagłówka kodu HTML. Najczęstszym zastosowaniem jest zintegrowanie usług innych firm, które wymagają dodatkowego kodu JavaScript lub CSS. Można również użyć go do dodawania dodatkowych meta tagów do HTML. Zauważ, że będzie to widoczne tylko na stronach publicznych, a nie w sekcji administracyjnej.
           cta_button_path_help: 'Możesz nadpisać adres do jakiego kieruje przycisk CTA na stronie głównej. Należy wpisać tylko to, co ma znaleźć się na końcu po znaku „/”, a nie pełen adres. Można użyć liter, cyfr, myślników i ukośników. Musi zaczynać się od litery. Przycisk CTA zostanie wyświetlony na stronie głównej między tekstem powitalnym a opisem. Przykład: %{url}'
           cta_button_text_help: Można nadpisać tekst przycisku CTA na stronie głównej dla każdego dostępnego języka organizacji. Jeśli to pole nie zostanie wypełnione, zostanie użyta wartość domyślna. Przycisk CTA zostanie wyświetlony na stronie głównej między tekstem powitalnym a opisem.
@@ -841,9 +842,22 @@ pl:
           invalid: Wystąpił błąd podczas odczytu pliku CSV.
           success: Plik CSV został pomyślnie wgrany, wysyłamy e-mail z zaproszeniem do uczestników. To może zająć chwilę.
         new:
+          destroy:
+            button: Usuń wszystkich prywatnych uczestników
+            title: Usuń prywatnych uczestników
           explanation: 'Prześlij swój plik CSV. Plik musi składać się z dwóch kolumn: w pierwszej kolumnie adresy e-mail, w drugiej kolumnie imiona (adres e-mail, imię) użytkowników, których chcesz dodać do przestrzeni partycypacyjnej; bez nagłówków. Unikaj używania niepoprawnych znaków takich jak `<>?%&^*#@()[]=+:;"{}\|` w imieniu użytkownika.'
           title: Prześlij swój plik CSV
           upload: Prześlij
+      reminders:
+        create:
+          error: Wystąpił błąd podczas tworzenia przypomnień.
+          success:
+            one: "%{count} użytkownik otrzyma przypomnienie."
+            few: "%{count} użytkowników otrzyma przypomnienie."
+            many: "%{count} użytkowników otrzyma przypomnienie."
+            other: "%{count} użytkowników otrzyma przypomnienie."
+        new:
+          submit: Wyślij
       resource_permissions:
         edit:
           submit: Zatwierdź
@@ -901,6 +915,7 @@ pl:
         gallery:
           add_images: Dodaj obrazy
           delete_image: Usuń obraz
+          edit_images: Edytuj obrazy
           gallery_legend: Dodaj galerię obrazów (opcjonalnie)
       static_page_topics:
         create:
@@ -961,6 +976,7 @@ pl:
         static_pages: Strony
         statistics: Aktywność
         user_groups: Grupy użytkowników
+        users: Administratorzy
       user_group:
         csv_verify:
           invalid: Wystąpił błąd podczas odczytu pliku CSV.
@@ -996,6 +1012,7 @@ pl:
           role: Rola
         new:
           create: Zaproś
+          title: Zaproś nowego administratora
       users_statistics:
         users_count:
           admins: Administratorzy
@@ -1005,6 +1022,10 @@ pl:
           no_users_count_statistics_yet: Nie ma jeszcze statystyk dotyczących liczby użytkowników
           participants: Użytkownicy
       view_public_page: Zobacz stronę publiczną
+    forms:
+      errors:
+        impersonate_user:
+          reason: Aby zarządzać uczestnikiem niezarządzanym należy podać powód
     metrics:
       blocked_users:
         object: zablokowani użytkownicy
@@ -1042,6 +1063,7 @@ pl:
             hidden_at: Ukryto
             participatory_space: Przestrzeń partycypacyjna
             report_count: Liczba
+            reportable_id: ID
             reportable_type: Typ
             reported_content_url: URL zgłoszonej treści
             reports: Zgłoszenia
