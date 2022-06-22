@@ -1,19 +1,13 @@
-<div class="columns small-12">
-  <div class="card">
-    <div class="card__content">
-      <div class="card__header">
-        <h5 class="card__title text-center">
-          <%= t("form.legend", scope: "decidim.pages.terms_and_conditions") %>
-        </h5>
-      </div>
+<div class="rounded border border-gray p-4">
+  <h5 class="h5 text-center">
+    <%= t("form.legend", scope: "decidim.pages.terms_and_conditions") %>
+  </h5>
 
-      <div class="row column flex-center">
-        <%= cell "decidim/tos_page", :refuse_btn_modal %>
+  <div class="flex items-center justify-center gap-4 mt-4">
+    <%= cell "decidim/tos_page", :refuse_btn_modal %>
 
-        <%= button_to decidim.accept_tos_path, method: :put, class: "button button--nomargin small" do %>
-          <%= t("form.agreement", scope: "decidim.pages.terms_and_conditions") %>
-        <% end %>
-      </div>
-    </div>
+    <%= button_to decidim.accept_tos_path, method: :put, class: "button sm secondary" do %>
+      <%= t("form.agreement", scope: "decidim.pages.terms_and_conditions") %>
+    <% end %>
   </div>
 </div>

@@ -1,3 +1,9 @@
-<%= content_tag :div, class: "rounded p-4 border-l-4 border-secondary bg-secondary/5 prose max-w-full" do %>
-  <%= clean_announcement %>
+<%= content_tag :div, class: "notification #{callout_class}" do %>
+  <% if has_title? %>
+    <h4 class="h4"><%= clean_title %></h4>
+
+    <%= clean_body %>
+  <% else %>
+    <%= clean_announcement %>
+  <% end %>
 <% end %>

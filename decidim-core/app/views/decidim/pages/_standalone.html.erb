@@ -1,16 +1,16 @@
 <%= render layout:"layouts/decidim/shared/layout_one_col" do %>
 
 <div class="grid grid-cols-8 py-12">
-  <div class="col-start-2 col-span-6">
+  <div class="col-start-2 col-span-6 space-y-12">
     <div class="text-center">
-      <h1 class="h1 decorator inline-block mb-12">
+      <h1 class="h1 decorator inline-block">
         <%= title %>
       </h1>
     </div>
 
     <%= cell "decidim/tos_page", :announcement %>
 
-    <div class="prose max-w-full mb-24">
+    <div class="prose max-w-full">
       <%= decidim_sanitize_editor translated_attribute page.content %>
     </div>
 
