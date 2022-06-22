@@ -5,7 +5,7 @@
   <%= link_to Decidim::Meetings::DirectoryEngine.routes.url_helpers.root_path, class: "flex flex-col items-center text-secondary", "aria-label": t("decidim.pages.home.extended.meetings") do %>
     <%= icon "road-map-line", class: "w-5 h-5 fill-current" %><span class="text-sm first-letter:uppercase"><%= t("decidim.pages.home.extended.meetings") %></span>
   <% end %>
-  <%= link_to last_activities_path, class: "flex flex-col items-center text-secondary", "aria-label": t("decidim.profiles.show.activity") do %>
+  <%= link_to decidim.last_activities_path, class: "flex flex-col items-center text-secondary", "aria-label": t("decidim.profiles.show.activity") do %>
     <%= icon "bubble-chart-line", class: "w-5 h-5 fill-current" %><span class="text-sm first-letter:uppercase"><%= t("decidim.profiles.show.activity") %></span>
   <% end %>
 </div>
