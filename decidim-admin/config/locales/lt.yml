@@ -128,15 +128,56 @@ lt:
               allowed_file_content_types: Netinkama vaizdo rinkmena
             official_img_header:
               allowed_file_content_types: Netinkama vaizdo rinkmena
+      new_import:
+        attributes:
+          file:
+            invalid_mime_type: Nevalidus mimo tipas
   activerecord:
     attributes:
       decidim/static_page:
         content: Turinys
+        slug: URL laukas
         title: Pavadinimas
+      doorkeeper/application:
+        authorize_url: Leisti URL
+        client_id: Kliento ID
+        client_secret: Kliento Raktas
+        organization_name: Organizacijos pavadinimas
+        organization_url: Organizacijos URL
+        redirect_uri: Peradresavimo URI
+        site: Tinklalapis
   decidim:
     admin:
+      actions:
+        add: Pridėti
+        attachment:
+          new: Naujas priedas
+        attachment_collection:
+          new: Nauja priedų kolekcija
+        browse: Naršyti
+        category:
+          new: Nauja kategorija
+        export: Eksportuoti viską
+        export-selection: Eksportuoti pasirinktą
+        import: Importuoti
+        manage: Valdyti
+        new: Naujas %{name}
+        newsletter:
+          new: Naujas naujienlaiškis
+        participatory_space_private_user:
+          new: Naujas dalyvaujamosios erdvės privatus naudotojas
+        per_page: Per puslapį
+        permissions: Leidimai
+        reject: Atmesti
+        share: Dalintis
+        verify: Patikrinti
       admin_terms_of_use:
+        accept:
+          error: Sutinkant su administratoriaus naudojimosi sąlygomis įvyko klaida.
+          success: Puiku! Jūs sutikote su administratoriaus naudojimosi sąlygomis.
         actions:
+          accept: Sutinku su šiomis nuostatomis
+          are_you_sure: Ar tikrai norite nesutikti su administratoriaus naudojimosi sąlygomis?
           refuse: Nesutikti su administratoriaus nustatytomis sąlygomis
           title: Sutikti su naudojimosi sąlygomis
         required_review:
@@ -146,12 +187,22 @@ lt:
         title: Administratoriaus nustatytos naudojimosi sąlygos
       area_types:
         create:
+          error: Kuriant naujos erdvės tipą iškilo problema.
           success: Vietovės tipas sėkmingai sukurtas.
         destroy:
           success: Vietovės tipas sėkmingai panaikintas
         edit:
+          title: Keisti erdvės tipą
           update: Atnaujinti
+        new:
+          create: Sukurti erdvės tipą
+          title: Naujas erdvės tipas
+        update:
+          error: Iškilo problema atnaujinant šį erdvės tipą.
+          success: Erdvės tipas atnaujintas sėkmingai
       areas:
+        create:
+          error: Iškilo problema kuriant naują erdvę.
         edit:
           update: Atnaujinti
       attachment_collections:
