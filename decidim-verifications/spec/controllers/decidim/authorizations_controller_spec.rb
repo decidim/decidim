@@ -21,6 +21,61 @@ module Decidim::Verifications
     end
 
     describe "POST create" do
+      context "when the handler is valid" do
+        let(:handler_name) { "dummy_authorization_handler" }
+        let(:document_number) { "12345678X" }
+        let(:handler_params) { { document_number: document_number } }
+        let(:authorization) { Decidim::Authorization.find_by(name: handler_name, user: user) }
+
+        it "creates an authorization and redirects the user" do
+          expect do
+            post :create, params: {
+              handler: "dummy_authorization_handler",
+              authorization_handler: handler_params
+            }
+          end.to change(Decidim::Authorization, :count).by(1)
+
+          expect(authorization).not_to be_blank
+          expect(flash[:notice]).to eq("You've been successfully authorized.")
+          expect(response).to redirect_to(authorizations_path)
+        end
+
+        context "with a duplicate authorization" do
+          let!(:duplicate_authorization) { create(:authorization, :granted, user: other_user, unique_id: document_number, name: handler_name) }
+          let!(:other_user) { create(:user, organization: user.organization) }
+
+          it "fails to create an authorization and renders the new action" do
+            expect do
+              post :create, params: {
+                handler: "dummy_authorization_handler",
+                authorization_handler: handler_params
+              }
+            end.to change(Decidim::Authorization, :count).by(0)
+
+            expect(authorization).to be_blank
+            expect(flash[:alert]).to eq("There was a problem creating the authorization.")
+            expect(response).to render_template(:new)
+          end
+
+          context "when the duplicate authorization user is deleted" do
+            let!(:other_user) { create(:user, :deleted, organization: user.organization) }
+
+            it "transfers the authorization and redirects the user" do
+              expect do
+                post :create, params: {
+                  handler: "dummy_authorization_handler",
+                  authorization_handler: handler_params
+                }
+              end.to change(Decidim::Authorization, :count).by(0)
+
+              expect(authorization).not_to be_blank
+              expect(flash[:notice]).to eq("You've been successfully authorized. We have recovered your old participation data based on your verification.")
+              expect(response).to redirect_to(authorizations_path)
+            end
+          end
+        end
+      end
+
       context "when the handler is not valid" do
         it "redirects the user" do
           post :create, params: { handler: "foo" }

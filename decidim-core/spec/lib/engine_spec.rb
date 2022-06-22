@@ -88,6 +88,21 @@ module Decidim::Core
       end
     end
 
+    describe "decidim.authorization_transfer" do
+      include_context "authorization transfer"
+
+      let(:component) { create(:component, organization: organization) }
+      let(:coauthorable) { build(:dummy_resource, component: component) }
+      let(:original_records) do
+        { coauthorships: create_list(:coauthorship, 3, coauthorable: coauthorable, author: original_user) }
+      end
+      let(:transferred_coauthorships) { Decidim::Coauthorship.where(author: target_user) }
+
+      it "handles authorization transfer correctly" do
+        expect(transferred_coauthorships.count).to eq(3)
+      end
+    end
+
     it "loads engine mailer previews" do
       expect(ActionMailer::Preview.all).to include(Decidim::DeviseMailerPreview)
     end

@@ -7,6 +7,18 @@ module Decidim
     let(:handler) { described_class.new(params) }
     let(:params) { {} }
 
+    shared_context "with a duplicate authorization record" do
+      let(:unique_id) { "12345678X" }
+      let(:current_user) { create(:user) }
+      let(:other_user) { create(:user, organization: current_user.organization) }
+      let(:params) { { user: current_user } }
+      let!(:duplicate) { create(:authorization, name: "authorization_handler", user: other_user, unique_id: unique_id) }
+
+      before do
+        allow(handler).to receive(:unique_id).and_return(unique_id)
+      end
+    end
+
     describe "form_attributes" do
       subject { handler.form_attributes }
 
@@ -39,6 +51,48 @@ module Decidim
       subject { handler.metadata }
 
       it { is_expected.to be_kind_of(Hash) }
+    end
+
+    describe "#unique?" do
+      subject { handler.unique? }
+
+      it { is_expected.to be(true) }
+
+      context "when a duplicate record exists" do
+        include_context "with a duplicate authorization record"
+
+        it { is_expected.to be(false) }
+      end
+    end
+
+    describe "#transferrable?" do
+      subject { handler.transferrable? }
+
+      it { is_expected.to be(false) }
+
+      context "when a duplicate record exists" do
+        include_context "with a duplicate authorization record"
+
+        it { is_expected.to be(false) }
+
+        context "and the other user is deleted" do
+          let(:other_user) { create(:user, :deleted, organization: current_user.organization) }
+
+          it { is_expected.to be(true) }
+        end
+      end
+    end
+
+    describe "#duplicate" do
+      subject { handler.duplicate }
+
+      it { is_expected.to be_nil }
+
+      context "when a duplicate record exists" do
+        include_context "with a duplicate authorization record"
+
+        it { is_expected.to eq(duplicate) }
+      end
     end
 
     describe "handler_for" do

@@ -71,6 +71,43 @@ module Decidim::Verifications
       end
     end
 
+    describe "transfer" do
+      let!(:duplicate_authorization) { create(:authorization, :granted, user: other_user, unique_id: document_number, name: handler.handler_name) }
+      let!(:other_user) { create(:user, organization: user.organization) }
+
+      context "when there's other authorization for an existing user" do
+        it "is not valid" do
+          expect { subject.call }.to broadcast(:invalid)
+        end
+
+        it "does not transfer the authorization" do
+          expect { subject.call }.to change(Decidim::Authorization, :count).by(0)
+
+          duplicate_authorization.reload
+          expect(duplicate_authorization.user).to eq(other_user)
+        end
+
+        it "saves conflicts" do
+          expect { subject.call }.to change(Decidim::Verifications::Conflict, :count).by(1)
+        end
+      end
+
+      context "when there's other authorization for a deleted user" do
+        let!(:other_user) { create(:user, :deleted, organization: user.organization) }
+
+        it "broadcasts :transferred" do
+          expect { subject.call }.to broadcast(:transferred)
+        end
+
+        it "transfers the original authorization to the user being authorized" do
+          expect { subject.call }.to change(Decidim::Authorization, :count).by(0)
+
+          duplicate_authorization.reload
+          expect(duplicate_authorization.user).to eq(user)
+        end
+      end
+    end
+
     describe "managed user" do
       context "when document_id was used by a managed user" do
         let!(:other_user) { create(:user, managed: true, organization: user.organization) }

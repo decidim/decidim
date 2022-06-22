@@ -40,6 +40,21 @@ describe "Authorizations", type: :system, with_authorization_workflows: ["dummy_
         expect(page).to have_current_path decidim.account_path
         expect(page).to have_content("Participant settings")
       end
+
+      context "and a duplicate authorization exists for a deleted user" do
+        let(:document_number) { "123456789X" }
+        let!(:duplicate_authorization) { create(:authorization, :granted, user: other_user, unique_id: document_number, name: authorizations.first) }
+        let!(:other_user) { create(:user, :deleted, organization: user.organization) }
+
+        it "transfers the authorization from the deleted user" do
+          fill_in "Document number", with: document_number
+          page.execute_script("$('#authorization_handler_birthday').focus()")
+          page.find(".datepicker-dropdown .day:not(.new)", text: "12").click
+
+          click_button "Send"
+          expect(page).to have_content("You've been successfully authorized. We have recovered your old participation data based on your verification.")
+        end
+      end
     end
 
     context "when multiple authorizations have been configured", with_authorization_workflows: %w(dummy_authorization_handler dummy_authorization_workflow) do
