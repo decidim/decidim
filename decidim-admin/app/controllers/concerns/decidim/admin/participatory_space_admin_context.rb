@@ -54,7 +54,13 @@ module Decidim
       end
 
       def layout
-        current_participatory_space_manifest.context(current_participatory_space_context).layout
+        space_manifest = if current_participatory_space_manifest.is_a? Decidim::ResourceManifest
+                           Decidim.participatory_space_manifests.find { |manifest| manifest.model_class_name == current_participatory_space.class.name }
+                         else
+                           current_participatory_space_manifest
+                         end
+
+        space_manifest.context(current_participatory_space_context).layout
       end
     end
   end
