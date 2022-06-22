@@ -293,7 +293,11 @@ pl:
             continue: Dalej
             invalid: Wystąpił błąd podczas usuwania męża (osoby) zaufania
             mark_as_missing: Oznacz jako brakujący
+            mark_as_missing_description: Wszyscy mężowie zaufania powinni uczestniczyć w tym procesie, ale jeśli nie może wziąć udziału w tym procesie, możesz oznaczyć go jako brakujący.
+            success: Brakująca uwaga męża zaufania została pomyślnie wysłana do Tablicy
+            tally_completion: 'Proces zostanie zakończony, gdy wszyscy mężowie zaufania będą aktywni lub zostaną oznaczeni jako brakujący. Wymagana ilość mężów zaufania: %{quorum}.'
             title: Proces ustalania wyniku głosowania
+            undo_mark_as_missing: Przed zakończeniem procesu będzie mógł uczestniczyć mąż zaufania oznaczony jako brakujący omyłkowo. Mężowie zaufania mogą postępować jak zwykle, a oznaczenie jako "brakujący" zostanie zignorowane.
           tally_ended:
             answer: Odpowiedź
             not_selected: Nie wybrano
