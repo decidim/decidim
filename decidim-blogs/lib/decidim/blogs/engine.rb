@@ -26,6 +26,16 @@ module Decidim
       initializer "decidim_blogs.webpacker.assets_path" do
         Decidim.register_assets_path File.expand_path("app/packs", root)
       end
+
+      initializer "decidim_blogs.authorization_transfer" do
+        Decidim::AuthorizationTransfer.subscribe do |authorization, target_user|
+          # rubocop:disable Rails/SkipsModelValidations
+          Decidim::Blogs::Post.where(author: authorization.user).update_all(
+            decidim_author_id: target_user.id
+          )
+          # rubocop:enable Rails/SkipsModelValidations
+        end
+      end
     end
   end
 end

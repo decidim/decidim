@@ -136,6 +136,19 @@ module Decidim
           end
         end
       end
+
+      initializer "decidim_initiatives.authorization_transfer" do
+        Decidim::AuthorizationTransfer.subscribe do |authorization, target_user|
+          # rubocop:disable Rails/SkipsModelValidations
+          Decidim::Initiative.where(author: authorization.user).update_all(
+            decidim_author_id: target_user.id
+          )
+          Decidim::InitiativesVote.where(author: authorization.user).update_all(
+            decidim_author_id: target_user.id
+          )
+          # rubocop:enable Rails/SkipsModelValidations
+        end
+      end
     end
   end
 end

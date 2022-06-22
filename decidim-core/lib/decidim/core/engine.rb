@@ -599,6 +599,16 @@ module Decidim
         end
       end
 
+      initializer "decidim.authorization_transfer" do
+        Decidim::AuthorizationTransfer.subscribe do |authorization, target_user|
+          # rubocop:disable Rails/SkipsModelValidations
+          Decidim::Coauthorship.where(author: authorization.user).update_all(
+            decidim_author_id: target_user.id
+          )
+          # rubocop:enable Rails/SkipsModelValidations
+        end
+      end
+
       config.to_prepare do
         FoundationRailsHelper::FlashHelper.include Decidim::FlashHelperExtensions
       end

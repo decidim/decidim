@@ -41,6 +41,11 @@ module Decidim
             redirect_to redirect_url || authorizations_path
           end
 
+          on(:transferred) do
+            flash[:notice] = t("authorizations.create.transferred", scope: "decidim.verifications")
+            redirect_to redirect_url || authorizations_path
+          end
+
           on(:invalid) do
             flash[:alert] = t("authorizations.create.error", scope: "decidim.verifications")
             render action: :new

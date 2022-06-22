@@ -128,6 +128,7 @@ en:
           question: Are you sure you want to delete your account?
           title: Delete my account
         explanation: Please, fill in the reason you want to delete your account (optional).
+        leaving_authorizations_behind: Some data bound to your authorization will be saved for security. If you create another account and authorize again, this data will be recovered to your new account.
       destroy:
         error: There was a problem deleting your account.
         success: Your account was successfully deleted.

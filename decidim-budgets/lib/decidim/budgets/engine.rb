@@ -59,6 +59,16 @@ module Decidim
           end
         end
       end
+
+      initializer "decidim_budgets.authorization_transfer" do
+        Decidim::AuthorizationTransfer.subscribe do |authorization, target_user|
+          # rubocop:disable Rails/SkipsModelValidations
+          Decidim::Budgets::Order.where(user: authorization.user).update_all(
+            decidim_user_id: target_user.id
+          )
+          # rubocop:enable Rails/SkipsModelValidations
+        end
+      end
     end
   end
 end

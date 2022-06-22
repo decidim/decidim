@@ -91,6 +91,7 @@ en:
         create:
           error: There was a problem creating the authorization.
           success: You've been successfully authorized.
+          transferred: You've been successfully authorized. We have recovered your old participation data based on your verification.
           unconfirmed: You need to confirm your email in order to authorize yourself.
         destroy:
           error: There was a problem deleting the authorization.

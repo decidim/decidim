@@ -19,6 +19,8 @@ module Decidim
       #
       # Returns nothing.
       def call
+        return transfer_authorization if !handler.unique? && handler.transferrable?
+
         if handler.invalid?
           conflict = create_verification_conflict
           notify_admins(conflict) if conflict.present?
@@ -34,6 +36,20 @@ module Decidim
       private
 
       attr_reader :handler
+
+      def transfer_authorization
+        transferred = true
+        transaction do
+          authorization = handler.duplicate
+          transferred = authorization.transfer_to!(handler)
+        end
+
+        if transferred
+          broadcast(:transferred)
+        else
+          broadcast(:invalid)
+        end
+      end
 
       def notify_admins(conflict)
         Decidim::EventsManager.publish(
