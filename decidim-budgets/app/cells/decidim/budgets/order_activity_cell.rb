@@ -6,8 +6,8 @@ module Decidim
     class OrderActivityCell < ActivityCell
       def title
         I18n.t(
-          "decidim.budgets.last_activity.new_vote_at_html",
-          link: participatory_space_link
+          "new_vote_at",
+          scope: "decidim.budgets.last_activity"
         )
       end
 
