@@ -862,6 +862,7 @@ DEPENDENCIES
   faker (~> 2.14)
   letter_opener_web (~> 2.0)
   listen (~> 3.1)
+  net-smtp (~> 0.3.1)
   puma (>= 5.0.0)
   spring (~> 2.0)
   spring-watcher-listen (~> 2.0)
