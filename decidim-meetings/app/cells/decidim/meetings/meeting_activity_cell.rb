@@ -5,18 +5,14 @@ module Decidim
     # A cell to display when actions happen on a meeting.
     class MeetingActivityCell < ActivityCell
       def title
-        case action
-        when "update"
-          I18n.t(
-            "decidim.meetings.last_activity.meeting_updated_at_html",
-            link: participatory_space_link
-          )
-        else
-          I18n.t(
-            "decidim.meetings.last_activity.new_meeting_at_html",
-            link: participatory_space_link
-          )
-        end
+        I18n.t(
+          action_key,
+          scope: "decidim.meetings.last_activity"
+        )
+      end
+
+      def action_key
+        action == "update" ? "meeting_updated" : "new_meeting"
       end
 
       def resource_link_text

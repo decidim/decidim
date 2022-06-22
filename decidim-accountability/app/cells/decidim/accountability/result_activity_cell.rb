@@ -6,8 +6,8 @@ module Decidim
     class ResultActivityCell < ActivityCell
       def title
         I18n.t(
-          "decidim.accountability.last_activity.new_result_at_html",
-          link: participatory_space_link
+          "new_result",
+          scope: "decidim.accountability.last_activity"
         )
       end
     end

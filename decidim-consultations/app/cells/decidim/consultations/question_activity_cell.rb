@@ -6,8 +6,8 @@ module Decidim
     class QuestionActivityCell < ActivityCell
       def title
         I18n.t(
-          "decidim.consultations.last_activity.new_question_at_html",
-          link: participatory_space_link
+          "new_question",
+          scope: "decidim.consultations.last_activity"
         )
       end
     end

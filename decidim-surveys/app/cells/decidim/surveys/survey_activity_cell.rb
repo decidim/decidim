@@ -8,8 +8,8 @@ module Decidim
 
       def title
         I18n.t(
-          "decidim.surveys.last_activity.new_survey_at_html",
-          link: participatory_space_link
+          "new_survey",
+          scope: "decidim.surveys.last_activity"
         )
       end
 
