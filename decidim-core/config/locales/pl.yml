@@ -22,6 +22,7 @@ pl:
       user:
         about: O użytkowniku
         email: Twój email
+        locale: Język
         name: Twoje imię
         nickname: Pseudonim
         password: Hasło
@@ -34,12 +35,17 @@ pl:
       decidim/demoted_membership: Nie jest już administratorem grupy
       decidim/gamification/badge_earned_event: Zdobyta odznaka
       decidim/gamification/level_up_event: Awansowałeś
+      decidim/invited_to_group_event: Zaproszono do grupy
       decidim/join_request_accepted_event: Zaakceptowano prośbę o dołączenie
       decidim/join_request_rejected_event: Odrzucono prośbę o dołączenie
       decidim/profile_updated_event: Profil zaktualizowany
       decidim/promote_to_admin: Awansowano na administratora grupy
+      decidim/promoted_to_admin_event: Awansowano na administratora grupy
       decidim/removed_from_group: Usunięto z grupy
       decidim/resource_endorsed_event: Zasoby zatwierdzone
+      decidim/resource_hidden_event: Zasób ukryty
+      decidim/user_group_created_event: Utworzono grupę użytkowników
+      decidim/welcome_notification_event: Wiadomość powitalna
   activerecord:
     attributes:
       decidim/user:
@@ -75,6 +81,8 @@ pl:
     'true': 'Tak'
   carrierwave:
     errors:
+      file_resolution_too_large: Rozdzielczość pliku jest zbyt duża
+      file_size_too_large: Rozmiar pliku jest zbyt duży
       not_inside_organization: Plik nie jest dołączony do żadnej organizacji
   date:
     formats:
@@ -83,9 +91,53 @@ pl:
       decidim_with_day_and_month_name: "%A %d %b %Y"
       decidim_with_month_name: "%d %B %Y"
       decidim_with_month_name_short: "%d %b"
+  datetime:
+    distance_in_words:
+      about_x_hours:
+        one: około 1 godz.
+        few: około %{count} godz.
+        many: około %{count} godz.
+        other: około %{count} godz.
+      about_x_months:
+        one: około 1 mies.
+        few: około %{count} mies.
+        many: około %{count} mies.
+        other: około %{count} mies.
+      half_a_minute: pół minuty
+      less_than_x_minutes:
+        one: mniej niż min.
+        few: mniej niż %{count} min.
+        many: mniej niż %{count} min.
+        other: mniej niż %{count} min.
+      less_than_x_seconds:
+        one: teraz
+        few: mniej niż %{count} min.
+        many: mniej niż %{count} min.
+        other: mniej niż %{count} min.
+      x_days:
+        one: 1 dzień temu
+        few: "%{count} dni temu"
+        many: "%{count} dni temu"
+        other: "%{count} dni temu"
+      x_hours:
+        one: 1 godzinę temu
+        few: "%{count} godzin temu"
+        many: "%{count} godzin temu"
+        other: "%{count} godzin temu"
+      x_minutes:
+        one: 1 min. temu
+        few: "%{count} min. temu"
+        many: "%{count} min. temu"
+        other: "%{count} min. temu"
+      x_seconds:
+        one: 1 sek. temu
+        few: "%{count} sek. temu"
+        many: "%{count} sek. temu"
+        other: "%{count} sek. temu"
   decidim:
     accessibility:
       external_link: Link zewnętrzny
+      front_page_link: Przejdź do strony głównej
       logo: "Oficjalne logo %{organization}"
       skip_button: Przejdź do głównej zawartości
     account:
@@ -104,7 +156,18 @@ pl:
       download_your_data_export:
         file_no_exists: Plik nie istnieje
         notice: Twoje dane są obecnie w trakcie procesowania w celu pobrania. Otrzymasz e-mail po zakończeniu.
+      email_change:
+        body1: Wysłaliśmy wiadomość e-mail do %{unconfirmed_email}, aby zweryfikować Twój nowy adres e-mail.
+        body2: Wysłać e-mail weryfikacyjny ponownie? %{resend_link} lub %{cancel_link}.
+        cancel: anuluj
+        cancel_error: Nie można anulować zmiany adresu e-mail.
+        cancel_successfully: Zmiana adresu e-mail została anulowana.
+        resend_error: Nie można wysłać ponownie e-maila z potwierdzeniem.
+        resend_successfully: E-mail potwierdzający wysłany pomyślnie do %{unconfirmed_email}
+        send_again: Wyślij ponownie
+        title: Weryfikacja zmiany adresu e-mail
       show:
+        available_locales_helper: Wybierz język, którego chcesz używać do przeglądania i odbierania powiadomień na platformie
         change_password: Zmień hasło
         update_account: Zaktualizuj konto
       update:
@@ -119,11 +182,36 @@ pl:
         create: "%{user_name} utworzył(a) kategorię %{resource_name}"
         delete: "%{user_name} usunął/usunęła kategorię %{resource_name}"
         update: "%{user_name} zaktualizował(a) kategorię %{resource_name}"
+      area_type:
+        create: "%{user_name} utworzył typ obszaru %{resource_name}"
+        delete: "%{user_name} usunął typ obszaru %{resource_name}"
+        update: "%{user_name} zaktualizował typ obszaru %{resource_name}"
+      attachment:
+        create: "%{user_name} utworzył załącznik %{resource_name}"
+        delete: "%{user_name} usunął załącznik %{resource_name}"
+        update: "%{user_name} zaktualizował załącznik %{resource_name}"
+      attachment_collection:
+        create: "%{user_name} utworzył kolekcję załączników %{resource_name}"
+        delete: "%{user_name} usunął kolekcję załączników %{resource_name}"
+        update: "%{user_name} zaktualizował kolekcję załączników %{resource_name}"
+      category:
+        create: "%{user_name} dodał kategorię %{resource_name} do przestrzeni %{space_name}"
+        delete: "%{user_name} usunął kategorię %{resource_name} z przestrzeni %{space_name}"
+        update: "%{user_name} zaktualizował kategorię %{resource_name} w przestrzeni %{space_name}"
       component:
         create: "%{user_name} dodał(a) komponent %{resource_name} do przestrzeni %{space_name}"
         delete: "%{user_name} usunął/usunęła komponent %{resource_name} z przestrzeni %{space_name}"
+        export_component: "%{user_name} wyeksportował %{resource_name} %{component_name} w %{space_name} jako %{format_name}"
         publish: "%{user_name} opublikował(a) komponent %{resource_name} w przestrzeni %{space_name}"
         unpublish: "%{user_name} cofnął/cofnęła publikację komponentu %{resource_name} w przestrzeni %{space_name}"
+        update_permissions_with_space: "%{user_name} zaktualizował uprawnienia %{resource_name} w %{space_name}"
+      contextual_help_section:
+        update: "%{user_name} zaktualizował %{resource_name} dział pomocy"
+      helpers:
+        answers: odpowiedzi
+        comments: komentarze
+        projects: projekty
+        results: wyniki
       impersonation_log:
         manage: "%{user_name} zarządził %{resource_name} ponieważ %{reason}"
       moderation:
@@ -140,6 +228,7 @@ pl:
         update: "%{user_name} zaktualizował(a) aplikację OAuth %{resource_name}"
       organization:
         update: "%{user_name} zaktualizował(a) ustawienia organizacji"
+        update_external_domain: "%{user_name} zaktualizował zewnętrzne domeny organizacji"
       participatory_space_private_user:
         create: "%{user_name} zaprosił(a) %{resource_name} jako użytkownika prywatnego"
         create_via_csv: "%{user_name} zaprosił(a) %{resource_name} jako prywatnego użytkownika poprzez CSV"
@@ -151,6 +240,9 @@ pl:
         delete_with_parent: "%{user_name} usunął/usunęła zakres podrzędny %{resource_name} w zakresie %{parent_scope}"
         update: "%{user_name} zaktualizował(a) zakres %{resource_name}"
         update_with_parent: "%{user_name} zaktualizował(a) zakres podrzędny %{resource_name} w zakresie %{parent_scope}"
+      scope_type:
+        create: "%{user_name} utworzył(a) zakres %{resource_name}"
+        delete: "%{user_name} usunął(ęła) zakres %{resource_name}"
       static_page:
         create: "%{user_name} stworzył(a) stronę statyczną %{resource_name}"
         delete: "%{user_name} usunął/usunęła stronę statyczną %{resource_name}"
@@ -1042,6 +1134,10 @@ pl:
         subject: Czy chcesz nadal otrzymywać istotne informacje o %{organization_name}?
     notifications:
       no_notifications: Brak powiadomień.
+    notifications_digest_mailer:
+      header:
+        weekly: Podsumowanie Cotygodniowych Powiadomień
+      hello: Witaj %{name},
     notifications_settings:
       show:
         administrators: Administratorzy
