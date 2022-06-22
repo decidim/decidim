@@ -264,6 +264,10 @@ describe "Account", type: :system do
         visit decidim.delete_account_path
       end
 
+      it "does not display the authorizations message by default" do
+        expect(page).not_to have_content("Some data bound to your authorization will be saved for security.")
+      end
+
       it "the user can delete their account" do
         fill_in :delete_user_delete_account_delete_reason, with: "I just want to delete my account"
 
@@ -285,6 +289,16 @@ describe "Account", type: :system do
 
         expect(page).to have_no_content("Signed in successfully")
         expect(page).to have_no_content(user.name)
+      end
+
+      context "when the user has an authorization" do
+        let!(:authorization) { create(:authorization, :granted, user: user) }
+
+        it "displays the authorizations message" do
+          visit decidim.delete_account_path
+
+          expect(page).to have_content("Some data bound to your authorization will be saved for security.")
+        end
       end
     end
   end
