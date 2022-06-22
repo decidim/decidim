@@ -398,8 +398,14 @@ lt:
           import:
             explanation: 'Rinkmenai skirtos gairės:'
             message_1: CSV, JSON ir Excel (.xlsx) rinkmenos palaikomos
+      help_sections:
+        form:
+          save: Išsaugoti
+        success: Pagalbos skyreliai atnaujinti
       impersonatable_users:
         index:
+          filter:
+            all: Visi
           filter_by: Filtruoti pagal
           impersonate: Apsimesti
           impersonate_new_managed_user: Tvarkyti naujo dalyvio duomenis
@@ -566,5 +572,7 @@ lt:
         users: Dalyviai
       user_groups:
         index:
+          filter:
+            all: Visi
           filter_by: Filtruoti pagal
           search: Ieškoti
