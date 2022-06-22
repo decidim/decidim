@@ -6,9 +6,9 @@ describe Decidim::Proposals::CollaborativeDraftWithdrawnEvent do
   include_context "when a simple event"
 
   let(:event_name) { "decidim.events.proposals.collaborative_draft_withdrawn" }
-  let(:resource) { create :collaborative_draft, title: "My collaborative draft" }
+  let(:resource) { create :collaborative_draft, title: "It's my collaborative draft" }
   let(:resource_path) { Decidim::ResourceLocatorPresenter.new(resource).path }
-  let(:resource_title) { resource.title }
+  let(:resource_title) { decidim_html_escape(resource.title) }
   let(:author) { resource.authors.first }
   let(:author_id) { author.id }
   let(:author_presenter) { Decidim::UserPresenter.new(author) }
@@ -23,7 +23,7 @@ describe Decidim::Proposals::CollaborativeDraftWithdrawnEvent do
 
     describe "email_subject" do
       it "is generated correctly" do
-        expect(subject.email_subject).to eq("#{author_name} #{author_nickname} withdrawn the #{resource_title} collaborative draft.")
+        expect(subject.email_subject).to eq("#{author_name} #{author_nickname} withdrawn the #{decidim_sanitize(resource_title)} collaborative draft.")
       end
     end
 

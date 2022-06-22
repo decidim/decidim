@@ -5,7 +5,7 @@ require "spec_helper"
 describe Decidim::RoleAssignedToAssemblyEvent do
   include_context "when a simple event"
 
-  let(:resource) { create :assembly }
+  let(:resource) { create :assembly, title: { en: "It's my assembly" } }
   let(:event_name) { "decidim.events.assembly.role_assigned" }
   let(:role) { create :assembly_user_role, user:, assembly: resource, role: :admin }
   let(:extra) { { role: } }

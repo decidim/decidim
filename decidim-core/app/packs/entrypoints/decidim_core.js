@@ -57,7 +57,6 @@ import "src/decidim/notifications"
 import "src/decidim/identity_selector_dialog"
 import "src/decidim/gallery"
 import "src/decidim/direct_uploads/upload_field"
-import "src/decidim/sw"
 import "src/decidim/back_to_list"
 import "src/decidim/cookie_consent/cookie_consent"
 

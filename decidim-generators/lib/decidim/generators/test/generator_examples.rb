@@ -82,6 +82,7 @@ shared_context "with application env vars" do
       "DECIDIM_BASE_UPLOADS_PATH" => "",
       "DECIDIM_DEFAULT_CSV_COL_SEP" => "",
       "DECIDIM_CORS_ENABLED" => "",
+      "DECIDIM_SERVICE_WORKER_ENABLED" => "",
       "RAILS_LOG_LEVEL" => "nonsense",
       "STORAGE_PROVIDER" => ""
     }
@@ -111,7 +112,8 @@ shared_context "with application env vars" do
       "DECIDIM_THROTTLING_PERIOD" => "false",
       "DECIDIM_UNCONFIRMED_ACCESS_FOR" => "false",
       "DECIDIM_SYSTEM_ACCESSLIST_IPS" => "false",
-      "DECIDIM_CORS_ENABLED" => "falsE"
+      "DECIDIM_CORS_ENABLED" => "false",
+      "DECIDIM_SERVICE_WORKER_ENABLED" => "false"
     }
   end
 
@@ -152,6 +154,7 @@ shared_context "with application env vars" do
       "DECIDIM_BASE_UPLOADS_PATH" => "some-path/",
       "DECIDIM_DEFAULT_CSV_COL_SEP" => ",",
       "DECIDIM_CORS_ENABLED" => "true",
+      "DECIDIM_SERVICE_WORKER_ENABLED" => "true",
       "DECIDIM_CONSENT_COOKIE_NAME" => ":weird-consent-cookie-name:",
       "DECIDIM_CACHE_KEY_SEPARATOR" => ":",
       "DECIDIM_EXPIRE_SESSION_AFTER" => "45",
@@ -269,6 +272,7 @@ shared_examples_for "an application with configurable env vars" do
       %w(decidim base_uploads_path) => nil,
       %w(decidim default_csv_col_sep) => ";",
       %w(decidim cors_enabled) => false,
+      %w(decidim service_worker_enabled) => true,
       %w(decidim consent_cookie_name) => "decidim-consent",
       %w(decidim cache_key_separator) => "/",
       %w(decidim expire_session_after) => 30,
@@ -368,6 +372,7 @@ shared_examples_for "an application with configurable env vars" do
       %w(decidim base_uploads_path) => "some-path/",
       %w(decidim default_csv_col_sep) => ",",
       %w(decidim cors_enabled) => true,
+      %w(decidim service_worker_enabled) => true,
       %w(decidim consent_cookie_name) => ":weird-consent-cookie-name:",
       %w(decidim cache_key_separator) => ":",
       %w(decidim expire_session_after) => 45,
