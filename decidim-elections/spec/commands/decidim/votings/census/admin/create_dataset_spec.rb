@@ -46,6 +46,19 @@ module Decidim::Votings::Census::Admin
       expect(subject.call).to broadcast(:ok)
     end
 
+    context "when active storage service is not local" do
+      before do
+        allow(ActiveStorage::Blob.service).to receive(:respond_to?).and_call_original
+        # rubocop:disable RSpec/StubbedMock
+        expect(ActiveStorage::Blob.service).to receive(:respond_to?).with(:path_for).and_return(false)
+        # rubocop:enable RSpec/StubbedMock
+      end
+
+      it "still broadcasts ok" do
+        expect(subject.call).to broadcast(:ok)
+      end
+    end
+
     it "enqueues a job for processing the dataset and strips the data from whitespaces" do
       expect { subject.call }.to(have_enqueued_job(CreateDatumJob).at_least(1).times.with do |_user, _dataset, row|
         expect(row[3]).to eq("Hugo Doe") if row.first == "55566677B"

@@ -4,9 +4,10 @@ require "spec_helper"
 
 module Decidim::Admin
   describe CreateAreaType do
-    subject { described_class.new(form) }
+    subject { described_class.new(form, user) }
 
     let(:organization) { create :organization }
+    let(:user) { create(:user, organization: organization) }
     let(:name) { Decidim::Faker::Localized.literal("territorial") }
     let(:plural) { Decidim::Faker::Localized.literal("territorials") }
 
@@ -35,6 +36,18 @@ module Decidim::Admin
 
       it "creates a new scope type for the organization" do
         expect { subject.call }.to change { organization.area_types.count }.by(1)
+      end
+
+      it "traces the action", versioning: true do
+        expect(Decidim.traceability)
+          .to receive(:perform_action!)
+          .with(:create, Decidim::AreaType, user, {})
+          .and_call_original
+
+        expect { subject.call }.to change(Decidim::ActionLog, :count)
+        action_log = Decidim::ActionLog.last
+        expect(action_log.action).to eq("create")
+        expect(action_log.version).to be_present
       end
     end
   end

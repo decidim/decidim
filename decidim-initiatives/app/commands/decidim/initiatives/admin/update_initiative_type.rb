@@ -12,9 +12,10 @@ module Decidim
         #
         # initiative_type: Decidim::InitiativesType
         # form - A form object with the params.
-        def initialize(initiative_type, form)
+        def initialize(initiative_type, form, user)
           @form = form
           @initiative_type = initiative_type
+          @user = user
         end
 
         # Executes the command. Broadcasts these events:
@@ -26,13 +27,15 @@ module Decidim
         def call
           return broadcast(:invalid) if form.invalid?
 
-          initiative_type.update(attributes)
+          Decidim.traceability.perform_action!("update", initiative_type, @user) do
+            initiative_type.update(attributes)
 
-          if initiative_type.valid?
-            upate_initiatives_signature_type
-            broadcast(:ok, initiative_type)
-          else
-            broadcast(:invalid)
+            if initiative_type.valid?
+              update_initiatives_signature_type
+              broadcast(:ok, initiative_type)
+            else
+              broadcast(:invalid)
+            end
           end
         end
 
@@ -46,6 +49,7 @@ module Decidim
             description: form.description,
             signature_type: form.signature_type,
             attachments_enabled: form.attachments_enabled,
+            comments_enabled: form.comments_enabled,
             undo_online_signatures_enabled: form.undo_online_signatures_enabled,
             custom_signature_end_date_enabled: form.custom_signature_end_date_enabled,
             area_enabled: form.area_enabled,
@@ -62,7 +66,7 @@ module Decidim
           )
         end
 
-        def upate_initiatives_signature_type
+        def update_initiatives_signature_type
           initiative_type.initiatives.signature_type_updatable.each do |initiative|
             initiative.update!(signature_type: initiative_type.signature_type)
           end

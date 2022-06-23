@@ -70,6 +70,8 @@ module Decidim
             "This content references proposal #{url}."
           end
 
+          it { is_expected.to eq(content) }
+
           it "does not recognize the proposal" do
             subject
             expect(parser.metadata.linked_proposals).to eq([])

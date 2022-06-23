@@ -21,6 +21,7 @@ pl:
       timeline_entry:
         description: Opis
         entry_date: Data
+        title: Tytuł
     models:
       decidim/accountability/proposal_linked_event: Propozycja zawarta w wyniku
       decidim/accountability/result_progress_updated_event: Aktualizacja postępu wyników
@@ -160,8 +161,8 @@ pl:
             progress: Postęp
         timeline_entry:
           fields:
-            description: Opis
             entry_date: Data
+            title: Tytuł
       result_m:
         executed: Wykonane
         view: Zobacz

@@ -1,11 +1,13 @@
 <div class="vote-wrapper"
-  data-election-id="<%= election.id %>"
-  data-api-endpoint-url="<%= bulletin_board_server %>"
+  data-election-id="<%== election.id %>"
+  data-api-endpoint-url="<%== bulletin_board_server %>"
   data-authority-public-key="<%= authority_public_key %>"
-  data-election-unique-id="<%= election_unique_id %>"
-  data-voter-id="<%= voter_id %>"
-  <%= ballot_style_id.present? ? "data-ballot-style-id=\"#{ballot_style_id}\"" : nil %>
-  data-scheme-name="<%= scheme_name %>">
+  data-election-unique-id="<%== election_unique_id %>"
+  data-voter-id="<%== voter_id %>"
+  data-scheme-name="<%== scheme_name %>"
+  <% if ballot_style_id.present? %>
+  data-ballot-style-id="<%== ballot_style_id %>"
+  <% end %>>
 
   <% questions.each_with_index do |step_question, step_index| %>
     <div id="step-<%= step_index %>" class="focus__step <%= "hide" if step_index.positive? %>"
@@ -56,6 +58,8 @@
     <%= render("new_ballot_decision_step") %>
   </div>
 </div>
+
+<%= render "server_error_modal" %>
 
 <% content_for :js_content do %>
 

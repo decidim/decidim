@@ -152,7 +152,6 @@ ga:
           type: Cineál
           type_values:
             all: Uile
-            hybrid: Araon
             online: Ar líne
         filters_small_view:
           filter: Scag
@@ -181,7 +180,6 @@ ga:
           fields:
             closed: Dúnta
             end_time: Dáta deiridh
-            id: Id
             map: Léarscáil
             title: Teideal
       polls:
@@ -194,7 +192,6 @@ ga:
           published_question:
             question: Ceist
       type_of_meeting:
-        hybrid: Araon
         online: Ar líne
     metrics:
       meetings:

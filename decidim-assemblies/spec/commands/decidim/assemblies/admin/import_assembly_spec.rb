@@ -4,10 +4,11 @@ require "spec_helper"
 
 module Decidim::Assemblies::Admin
   describe ImportAssembly do
-    subject { described_class.new(form) }
+    subject { described_class.new(form, user) }
 
     let(:organization) { create :organization }
-    let!(:document_file) { IO.read(Decidim::Dev.asset(document_name)) }
+    let(:user) { create :user, organization: organization }
+    let!(:document_file) { File.read(Decidim::Dev.asset(document_name)) }
     let(:form_doc) do
       instance_double(File,
                       blank?: false)
@@ -51,6 +52,17 @@ module Decidim::Assemblies::Admin
         expect(imported_assembly.title["en"]).to eq("title")
         expect(imported_assembly).not_to be_published
         expect(imported_assembly.organization).to eq(organization)
+      end
+
+      it "traces the action", versioning: true do
+        expect(Decidim.traceability)
+          .to receive(:perform_action!).twice
+                                       .and_call_original
+
+        expect { subject.call }.to change(Decidim::ActionLog, :count)
+        action_log = Decidim::ActionLog.last
+        expect(action_log.action).to eq("import")
+        expect(action_log.version).to be_present
       end
     end
 

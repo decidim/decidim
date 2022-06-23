@@ -140,14 +140,6 @@ ga:
             start: Tosaigh
             status:
               pending: Ar feitheamh
-          tally_steps:
-            back: Ar Ais
-            list:
-              status: Stádas
-              task: Tasc
-            start: Tosaigh
-            status:
-              pending: Ar feitheamh
         trustees:
           show:
             elections:

@@ -21,6 +21,7 @@ ar:
       timeline_entry:
         description: وصف
         entry_date: تاريخ
+        title: العنوان
     models:
       decidim/accountability/proposal_linked_event: اقتراح المدرجة في النتيجة
       decidim/accountability/result_progress_updated_event: نتيجة التقدم المحدث
@@ -45,7 +46,7 @@ ar:
         new: جديد %{name}
         preview: معاينة
         timeline_entries: تطور المشروع
-        title: أفعال
+        title: الإجراءات
       admin:
         exports:
           result_comments: التعليقات
@@ -53,8 +54,12 @@ ar:
         import_results:
           new:
             import: استيراد
+            info: "<p>نحن ننصح باتباع هذه الخطوات:</p>\n<ol>\n <li>قم بإنشاء حالات النتائج التي تريد إضافتها (<a href=\"%{link_new_status}\" target=\"_blank\">الرابط</a>)</li>\n <li>قم بإنشاء نتيجة واحدة على الأقل يدويًا من خلال لوحة المدير هذه (<a href=\"%{link_new_result}\" target=\"_blank\">link</a>) قبل أستخدام الاستيراد, للحصول على فهم أفضل للتنسيق وما ستحتاج لملئه.</li>\n <li>قم بتنزيل التصدير بتنسيق CSV(%{link_export_csv})</li>\n <li>قم بإجراء التغييرات محليًا على جهازك. يمكنك فقط تغيير الأعمدة التالية من ملف CSV:</li>\n</ol>\n<ul>\n <li><b>category/id:</b>رقم مٌعرف للفئه</li>\n <li><b>scope/id:</b>رقم مٌعرف للمجال</li>\n <li><b>parent/id:</b> رقم مٌعرف بالأب (للنتائج ذات الصلة). اختياري</li>\n <li><b>title/I18N:</b> عنوان اللغه</li>\n <li><b>description/I18N:</b> وصف اللغه</li>\n <li><b>start_date:</b>التاريخ الذي يبدأ فيه تنفيذ النتيجة (التنسيق YYYY-MM-DD)</li>\n <li><b>end_date:</b> التاريخ الذي ينتهى فيه تنفيذ النتيجة (التنسيق YYYY-MM-DD</li>\n <li><b>status/id:</b> رقم مٌعرف لحالة النتيجة</li>\n <li><b>progress:</b> النسبة المئوية (من 0 الى 100) للتنفيذ</li>\n <li><b>proposals_ids:</b> رقم مُعرف داخلى للمقترحات ذات الصلة (مفصولاً بفاصلة). يتم تحويله تلقائيًا إلى <span class=\"attribute-name\">رابط للمقترح</span></li>\n</ul>"
             link: الرابط
-            title: استيراد النتائج من CSV
+            title: استيراد النتائج من ملف CSV
+        imports:
+          create:
+            success: لقد بدأ استيراد الملف. سوف تتلقى رسالة بريد إلكتروني في غصون الدقائق القادمة مع نتيجة الاستيراد
         models:
           result:
             name: نتيجة
@@ -123,7 +128,7 @@ ar:
           update: "%{user_name} نتيجة محدثة %{resource_name} في %{space_name}"
         value_types:
           parent_presenter:
-            not_found: 'لم يتم العثور على الأصل في قاعدة البيانات (المعرف: %{id})'
+            not_found: 'لم يتم العثور على الأصل في قاعدة البيانات (الرقم-المُعرف: %{id})'
       content_blocks:
         highlighted_results:
           dates: التواريخ
@@ -132,7 +137,10 @@ ar:
       import_mailer:
         import:
           errors: أخطاء
+          errors_present: حدثت مشكلة في استيراد النتائج
           row_number: الصف
+          subject: استيراد النتائج بنجاح
+          success: نجاح استيراد النتائج. يمكنك مراجعة النتائج في واجهة الإدارة.
       last_activity:
         new_result_at_html: "<span>نتيجة جديدة في %{link}</span>"
       models:
@@ -155,8 +163,11 @@ ar:
             progress: تقدم
         timeline_entry:
           fields:
-            description: وصف
             entry_date: تاريخ
+            title: العنوان
+      result_m:
+        executed: تم التنفيذ
+        view: عرض
       results:
         count:
           results_count:
@@ -196,6 +207,10 @@ ar:
         results:
           category_id_eq:
             label: الفئة
+          scope_id_eq:
+            label: النطاق
+          status_id_eq:
+            label: الحالة
     components:
       accountability:
         actions:
@@ -205,10 +220,13 @@ ar:
           global:
             categories_label: اسم "الفئات"
             comments_enabled: تم تمكين التعليقات
+            comments_max_length: الحد الأقصى لطول التعليقات (اترك ال0 للقيمة الافتراضية)
             display_progress_enabled: عرض التقدم
             heading_leaf_level_results: اسم "المشاريع"
             heading_parent_level_results: اسم "النتائج"
             intro: مقدمة
+            scope_id: النطاق
+            scopes_enabled: النطاقات مفعلة
             subcategories_label: اسم "الفئات الفرعية"
           step:
             comments_blocked: تم حظر التعليقات
@@ -229,6 +247,9 @@ ar:
         description: عدد النتائج التي تم إنشاؤها
         object: النتائج
         title: النتائج
+    participatory_spaces:
+      highlighted_results:
+        see_all: عرض كل النتائج (%{count})
     resource_links:
       included_projects:
         result_project: المشاريع المدرجة في هذه النتيجة

@@ -77,7 +77,6 @@ hu:
           with_any_type:
             label: Értekezlet típusa
             values:
-              hybrid: Mindkettő
               in_person: Személyesen
               online: Online
       meeting_copies:
@@ -260,7 +259,6 @@ hu:
             address_help: 'Cím: Geocoder használata a helymeghatározáshoz'
             location_help: 'Helyszín: üzenet az adott felhasználóknak a találkozó helyéről'
             select_an_iframe_access_level: Kérjük, válassz iframe hozzáférési szintet
-            show_embedded_iframe_help: Csak néhány szolgáltatás engedélyezi a beágyazást megbeszélésekbe vagy élő eseményekbe (YouTube, Twitch és Jitsi)
           index:
             title: Találkozók
           new:
@@ -321,7 +319,14 @@ hu:
       calendar_modal:
         calendar_url: Naptár URL
         close_window: Ablak bezárása
+        copy_calendar_url: Másolás
+        copy_calendar_url_copied: Lemásolva!
         export_calendar: Naptár exportálása
+      close_meeting_reminder_mailer:
+        close_meeting_reminder:
+          greetings: Üdvözöljük <br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
+          hello: Hello %{username},
+          subject: Lezárhatja a megbeszélést a %{organization_name} platformon beküldött jelentéssel
       conference_venues: Konferencia helyszínek
       content_blocks:
         upcoming_meetings:
@@ -363,8 +368,6 @@ hu:
           filter: Szűrő
           filter_by: 'Szűrés ez alapján:'
           unfold: Kibont
-        form:
-          show_embedded_iframe_help: Csak néhány szolgáltatás engedélyezi a beágyazást megbeszélésekbe vagy élő eseményekbe (YouTube, Twitch és Jitsi)
         meeting_minutes:
           related_information: Kapcsolódó információ
         meetings:

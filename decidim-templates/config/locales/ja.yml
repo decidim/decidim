@@ -63,5 +63,11 @@ ja:
             current_step: ステップ %{step}
             of_total_steps: / %{total_steps}
             tos_agreement: 参加することにより、利用規約に同意します。
+      admin_log:
+        template:
+          create: "%{user_name} が %{resource_name} アンケートテンプレートを作成しました"
+          delete: "%{user_name} が %{resource_name} アンケートテンプレートを削除しました"
+          duplicate: "%{user_name} が %{resource_name} アンケートテンプレートを複製しました"
+          update: "%{user_name} が %{resource_name} アンケートテンプレートを更新しました"
       template_types:
         questionnaires: アンケート

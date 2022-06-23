@@ -113,9 +113,6 @@ Decidim.register_component(:elections) do |component|
           {
             election: upcoming_election,
             title: Decidim::Faker::Localized.sentence(word_count: 2),
-            description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
-              Decidim::Faker::Localized.paragraph(sentence_count: 3)
-            end,
             max_selections: Faker::Number.between(from: 1, to: 3),
             weight: Faker::Number.number(digits: 1),
             random_answers_order: Faker::Boolean.boolean(true_ratio: 0.5),
@@ -213,9 +210,6 @@ Decidim.register_component(:elections) do |component|
           {
             election: finished_election,
             title: Decidim::Faker::Localized.sentence(word_count: 2),
-            description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
-              Decidim::Faker::Localized.paragraph(sentence_count: 3)
-            end,
             max_selections: 2,
             weight: Faker::Number.number(digits: 1),
             random_answers_order: Faker::Boolean.boolean(true_ratio: 0.5),
@@ -336,9 +330,6 @@ Decidim.register_component(:elections) do |component|
           {
             election: election_with_results,
             title: Decidim::Faker::Localized.sentence(word_count: 2),
-            description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
-              Decidim::Faker::Localized.paragraph(sentence_count: 3)
-            end,
             max_selections: 2,
             weight: Faker::Number.number(digits: 1),
             random_answers_order: Faker::Boolean.boolean(true_ratio: 0.5),
@@ -456,9 +447,6 @@ Decidim.register_component(:elections) do |component|
         {
           election: ongoing_election,
           title: Decidim::Faker::Localized.sentence(word_count: 2),
-          description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
-            Decidim::Faker::Localized.paragraph(sentence_count: 3)
-          end,
           max_selections: 2,
           weight: Faker::Number.number(digits: 1),
           random_answers_order: Faker::Boolean.boolean(true_ratio: 0.5),

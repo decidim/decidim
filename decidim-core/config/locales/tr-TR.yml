@@ -62,7 +62,6 @@ tr:
     'true': 'Evet'
   carrierwave:
     errors:
-      image_too_big: Görüntü çok büyük
       not_inside_organization: Dosya herhangi bir kuruluşa eklenmemiş
   date:
     formats:
@@ -78,9 +77,6 @@ tr:
       skip_button: Ana içeriğe geç
     account:
       blocked: Bu hesap, Şartlar ve Koşullar ihlali nedeniyle engellendi
-      data_portability_export:
-        file_no_exists: Dosya bulunmuyor
-        notice: Verilerinizin indirilmesi şu anda devam ediyor. Tamamlandığında bir e-posta alacaksınız.
       delete:
         confirm:
           close: Pencereyi kapat
@@ -91,6 +87,9 @@ tr:
       destroy:
         error: Hesabınız silinirken bir hata oluştu.
         success: Hesabınız başarıyla silindi.
+      download_your_data_export:
+        file_no_exists: Dosya bulunmuyor
+        notice: Verilerinizin indirilmesi şu anda devam ediyor. Tamamlandığında bir e-posta alacaksınız.
       show:
         change_password: Şifre değiştir
         update_account: Hesabı güncelle
@@ -360,8 +359,8 @@ tr:
             amendments_enabled: Değişiklikler etkinleştirildi
             comments_enabled: Yorumlar etkin
             comments_max_length: Maksimum yorum uzunluğu
-            dummy_global_attribute_1: Sahet Özellik 1
-            dummy_global_attribute_2: Sahte Özellik 2
+            dummy_global_attribute1: Sahet Özellik 1
+            dummy_global_attribute2: Sahte Özellik 2
             dummy_global_translatable_text: Sahte Çevrilebilir Metin
             enable_pads_creation: Altlık oluşturmayı etkinleştirin
             resources_permissions_enabled: Kaynak izinleri etkin
@@ -373,8 +372,8 @@ tr:
             amendment_reaction_enabled: Değişiklik tepkisi etkinleştirildi
             amendments_visibility: Değişiklik görünürlüğü
             comments_blocked: Yorumlar engellendi
-            dummy_step_attribute_1: Sahte Adım Niteliği 1
-            dummy_step_attribute_2: Sahte Adım Niteliği 2
+            dummy_step_attribute1: Sahte Adım Niteliği 1
+            dummy_step_attribute2: Sahte Adım Niteliği 2
             dummy_step_translatable_text: Sahte Çevrilebilir Metin
     contact: İletişim
     content_blocks:
@@ -418,12 +417,6 @@ tr:
       actions:
         login_before_access: Lütfen, erişmeden önce hesabınızla giriş yapın
         unauthorized: Bu eylemi gerçekleştirmek için yetkiniz yok
-    data_portability:
-      export:
-        ready: Hazır
-      show:
-        download_data: Verileri indir
-        request_data: Veri talep et
     datepicker:
       help_text: 'Beklenen format: %{datepicker_format}'
     devise:
@@ -493,6 +486,12 @@ tr:
           this_application_will_not_be_able_to: 'Bu uygulama mümkün olmayacaktır:'
           update_profile: profilinizi güncelleyin
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> hesabınızı kullanmak istiyor"
+    download_your_data:
+      export:
+        ready: Hazır
+      show:
+        download_data: Verileri indir
+        request_data: Veri talep et
     endorsable:
       endorsements: Cirolar
       endorsements_count: Onay sayısı
@@ -653,7 +652,7 @@ tr:
           email_subject: "%{nickname} profilini güncelledi"
           notification_title: <a href="%{resource_path}">profil sayfası</a> arasında %{name} (%{nickname} izlediğiniz), güncellendi.
     export_mailer:
-      data_portability_export:
+      download_your_data_export:
         download: İndir
       export:
         ready: Lütfen dışa aktarımınızın sıkıştırılmış bir sürümünü ekte bulun.
@@ -701,7 +700,6 @@ tr:
         file:
           explanation: 'Dosya kılavuzu:'
           message_1: Bir resim veya bir belge olmalı.
-          message_2: Resimler için tercihen yatay resimleri kullanın, bu servis resmi kırpar. CSV dosyaları için, sütunlar arasındaki ayırıcı virgül (",") olmalıdır
         image:
           explanation: 'Dosya kılavuzu:'
           message_1: Tercihen herhangi bir metin içermeyen yatay bir resim.
@@ -821,7 +819,6 @@ tr:
       no_user_groups: Henüz herhangi bir gruba ait değil.
       roles:
         admin: Yönetici
-        creator: Kurucu
         member: Üye
       update:
         error: Grup güncellemede bir hata oluştu
@@ -1014,13 +1011,11 @@ tr:
       show:
         allow_public_contact: Takip etmesem bile herkesin bana doğrudan mesaj göndermesine izin ver.
         direct_messages: Herkesten doğrudan mesaj alın
-        email_on_notification: Her bildirim aldığımda bir e-posta almak istiyorum.
         everything_followed: Takip ettiğim her şey
         newsletter_notifications: Bülten almak istiyorum
         newsletters: Bültenler
         own_activity: Birisinin teklifime yorum yapması veya benden bahsetmesi gibi kendi faaliyetim
         receive_notifications_about: Hakkında bildirim almak istiyorum
-        send_notifications_by_email: Bildirimleri e-posta ile gönder
         update_notifications_settings: Değişiklikleri Kaydet
       update:
         error: Bildirim ayarlarınız güncellenirken bir hata oluştu.
@@ -1078,7 +1073,6 @@ tr:
           agreement: Bu koşulları kabul ediyorum
           legend: Kullanım şartlarını ve koşullarını kabul et
         refuse:
-          modal_body: Eğer kabul ederseniz, platformu kullanmak mümkün olmayacaktır şunları yapabilirsiniz <a href="%{data_portability_path}">verileri indirme</a> ve / veya <a href="%{delete_path}">Hesabınızı silmek</a>.
           modal_btn_continue: Şartları kabul et ve devam et
           modal_btn_exit: Daha sonra inceleyeceğim
           modal_button: Şartları reddet
@@ -1363,7 +1357,6 @@ tr:
     invitations:
       edit:
         header: Hesabınızı oluşturmayı bitirin
-        nickname_help: Benzersiz tanımlayıcınız %{organization}.
         submit_button: Kayıt etmek
         subtitle: Davetiyeyi kabul ederseniz, lütfen takma adınızı ve şifrenizi ayarlayın.
       invitation_removed: Davetiniz kaldırıldı.
@@ -1517,10 +1510,6 @@ tr:
     timestamp_error_message: Üzgünüm, bu çok hızlıydı! Lütfen yeniden gönderin.
   layouts:
     decidim:
-      cookie_warning:
-        description_html: Bu sitede çerezler kullanılıyor. Siteye göz atmaya devam ederek, çerezleri kullanmamızı kabul edersiniz. Hakkında daha fazla bilgi edinin %{link}.
-        link_label: İşte
-        ok: katılıyorum
       edit_link:
         edit: Düzenle
       footer:

@@ -3,6 +3,7 @@ ar:
     attributes:
       conference:
         assemblies_ids: الجمعيات ذات الصلة
+        available_slots: المواعيد المتاحة
         banner_image: صورة بانر
         consultations_ids: المشاورات ذات الصلة
         copy_categories: نسخ الفئات
@@ -10,8 +11,10 @@ ar:
         copy_features: نسخ الميزات
         decidim_scope_id: نطاق
         description: وصف
+        end_date: تاريخ الانتهاء
         hashtag: رابطة هاشتاق
         hero_image: الصورة الرئيسية
+        location: الموقع
         main_logo: الشعار الرئيسي
         objectives: الأهداف
         participatory_processes_ids: العمليات التشاركية ذات الصلة
@@ -45,18 +48,18 @@ ar:
         email: البريد الإلكتروني
         name: الإسم
         registration_type_id: نوع التسجيل
+        user_id: المستخدم
       conference_registration_type:
         description: الوصف
         price: السعر
         title: العنوان
         weight: وزن
       conference_speaker:
+        affiliation: الانتساب
         avatar: الصورة الرمزية
         conference_meeting_ids: الاجتماعات ذات الصلة
         full_name: الاسم الكامل
-        personal_url: العنوان الشبكي الشخصي
         position: المنصب
-        short_bio: سيرة ذاتية قصيرة
         twitter_handle: مُعرّف حساب تويتر
         user_id: المستخدم
       conference_user_role:
@@ -253,6 +256,7 @@ ar:
             price: السعر
             registrations_count: عدد التسجيلات
             title: عنوان
+            weight: موضع الطلب
           name: نوع التسجيل
       partners:
         create:
@@ -312,6 +316,10 @@ ar:
       conferences:
         conference_registration:
           confirm: "%{user_name} أكد تسجيل مؤتمر في مؤتمر %{resource_name}"
+        partner:
+          create: "أنشأ %{user_name} الشريك %{resource_name} في مؤتمر %{space_name}"
+          delete: "قام %{user_name} بإزالة الشريك %{resource_name} من المؤتمر %{space_name}"
+          update: "قام %{user_name} بتحديث الشريك %{resource_name} في مؤتمر %{space_name}"
         registration_type:
           create: "%{user_name} أنشأ نوع التسجيل %{resource_name} في المؤتمر %{space_name}"
           publish: "%{user_name} نشر نوع التسجيل %{resource_name} في المؤتمر %{space_name}"
@@ -448,6 +456,7 @@ ar:
         personal_website: موقع الويب الشخصي
         show:
           more_info: مزيد من المعلومات
+          speaking_at: يتحدث في
       conference_speaker_cell:
         personal_url:
           personal_website: موقع الويب الشخصي
@@ -506,8 +515,12 @@ ar:
         home:
           highlighted_conferences:
             active_conferences: المؤتمرات النشطة
+            conferences_button_title: رابط إلى صفحة المؤتمرات لعرض جميع المؤتمرات
             see_all_conferences: رؤية جميع المؤتمرات
       photo:
+        image:
+          attributes:
+            alt: صورة الوسائط
         show:
           close_modal: إغلاق مشروط
           photo: صورة
@@ -518,6 +531,7 @@ ar:
         index:
           choose_an_option: 'اختر خيار التسجيل الخاص بك:'
           login_as: تم تسجيل دخولك كـ %{name} <%{email}>
+          no_registrations: لا توجد تسجيلات
           register: تسجيل
           title: أنواع التسجيل
       shared:
@@ -554,11 +568,22 @@ ar:
           email_outro: لقد تلقيت هذا الإشعار لأنك تتابع مؤتمر "%{resource_title}". يمكنك إلغاء تتبعه من الرابط السابق.
           email_subject: لقد مكّن المؤتمر "%{resource_title}" التسجيلات.
           notification_title: لقد مكّن المؤتمر <a href="%{resource_path}">%{resource_title}</a> التسجيلات.
+        role_assigned:
+          email_intro: لقد تم تعيينك كـ %{role} للمؤتمر "%{resource_title}".
+          email_outro: لقد تلقيت هذا الإشعار لأنك %{role} لهذا المؤتمر "%{resource_title}".
+          email_subject: لقد تم تعيينك كـ %{role} لـ "%{resource_title}".
+          notification_title: لقد تم تعيينك كـ %{role} للمؤتمر <a href="%{resource_url}">%{resource_title}</a>.
         upcoming_conference:
           email_intro: 'يعقد مؤتمر "%{resource_title}" خلال يومين. يمكنك قراءة الوصف من صفحته:'
           email_outro: لقد تلقيت هذا الإشعار لأنك تتابع مؤتمر "%{resource_title}". يمكنك إلغاء تتبعه من الرابط السابق.
           email_subject: مؤتمر "%{resource_title}" قادم!
           notification_title: المؤتمر <a href="%{resource_path}">%{resource_title}</a> قادم في يومين.
+    help:
+      participatory_spaces:
+        conferences:
+          contextual: "<p>ال<strong>مؤتمر</strong> هو مجموعة من الاجتماعات المرتبة في برنامج ما، مع عدد من الأشخاص المدعوين كمتحدثين، وحقول أدخال نموذجيه للمعلومات الأخرى للمؤتمرات الكبيرة أو المناسبات الاجتماعية (التسجيل، قائمة بالمنظمات التي تدعم الحدث أو ترعاه، إلخ)..</p> <p>أمثلة: يمكن أن يكون المؤتمر حدثا ذا صلة بالنسبة لمنظمة ما وأعضائها، أو يتم في إطار عملية تشاركية أو في أعقاب مشاورات.</p>\n"
+          page: "<p>ال<strong>مؤتمر</strong> هو مجموعة من الاجتماعات المرتبة في برنامج ما، مع عدد من الأشخاص المدعوين كمتحدثين، وحقول أدخال نموذجيه للمعلومات الأخرى للمؤتمرات الكبيرة أو المناسبات الاجتماعية (التسجيل، قائمة بالمنظمات التي تدعم الحدث أو ترعاه، إلخ)..</p> <p>أمثلة: يمكن أن يكون المؤتمر حدثا ذا صلة بالنسبة لمنظمة ما وأعضائها، أو يتم في إطار عملية تشاركية أو في أعقاب مشاورات.</p>\n"
+          title: ما هي المؤتمرات؟
     log:
       value_types:
         conference_presenter:

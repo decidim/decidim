@@ -257,15 +257,6 @@ ro:
             selected: Selectat
             submit: Trimite
             title: Rezultate publicate
-          tally:
-            continue: Continuă
-            invalid: A apărut o problemă la raportarea împuternicitului care lipsește
-            mark_as_missing: Marcheză drept absent
-            mark_as_missing_description: Toți imputerniciții trebuie să ia parte la proces, dar dacă un împuternicit nu poate participa îl poți marca drept absent.
-            success: Raportul privind împuternicitul absent a fost trimis cu succes către Panoul de afișare
-            tally_completion: Procesul va fi finalizat cânt toți împuternicții sunt activi sau marcați drept absenți. Pentru a finaliza procesul sunt necesari cel puțin %{quorum} împuterniciți.
-            title: Procesul de numărare al voturilor
-            undo_mark_as_missing: Un împuternicit marcat din greșeală drept absent va putea participa înainte de finalizarea procesului. Acesta poate proceda ca de obicei, iar marcarea drept absent va fi ingnorată.
           tally_ended:
             answer: Răspuns
             not_selected: Neselectate
@@ -275,6 +266,13 @@ ro:
             submit: Publică rezultatele
             success: Cererea de publicare a rezultatelor a fost trimisă cu succes către Panoul de afișare
             title: Calculează rezultatele
+          tally_started:
+            invalid: A apărut o problemă la raportarea împuternicitului care lipsește
+            mark_as_missing: Marcheză drept absent
+            mark_as_missing_description: Toți imputerniciții trebuie să ia parte la proces, dar dacă un împuternicit nu poate participa îl poți marca drept absent.
+            success: Raportul privind împuternicitul absent a fost trimis cu succes către Panoul de afișare
+            tally_completion: Procesul va fi finalizat cânt toți împuternicții sunt activi sau marcați drept absenți. Pentru a finaliza procesul sunt necesari cel puțin %{quorum} împuterniciți.
+            undo_mark_as_missing: Un împuternicit marcat din greșeală drept absent va putea participa înainte de finalizarea procesului. Acesta poate proceda ca de obicei, iar marcarea drept absent va fi ingnorată.
           vote:
             errors:
               time_after: Alegerile sunt încă în desfășurare. Trebuie să aștepți până se încheie (%{end_time}) pentru încheia perioada de votare.
@@ -468,24 +466,13 @@ ro:
             title: Copie de rezervă chei pentru %{election}
           key_ceremony_steps:
             title: Crează chei electorale pentru %{election}
-          tally_steps:
-            back: Înapoi
+          tally_started_steps:
             description: Rezultatele acestor alegeri sunt în proces de calculare în Panoul de afișare. Pentru a finaliza procesul este necesară participarea ta drept împuternicit.
             keys:
               end_tally: Procesul de numărare al voturilor s-a încheiat
               tally:
                 cast: Anunțarea rezultatului votului
                 share: Împărtășirea rezultatului votului
-            list:
-              status: Stadiu
-              task: Activitate
-            process_warning: Odată ce procesul este pornit, nu ar trebui să ieși din această pagină până când procesul se încheie. Va dura câteva minute, deoarece toți împuterniciții ar trebui să fie conectați pentru a se finaliza procesul.
-            start: Incepe
-            start_icon: Pictograma care indică un buton de pornire pentru a porni generarea cheilor electorale
-            status:
-              completed: Finalizat
-              pending: În așteptare
-              processing: Se procesează
             title: Numărarea voturilor pentru %{election}
           update:
             error: Statutul alegerilor nu a fost actualizat.
@@ -534,7 +521,6 @@ ro:
           audit: "(scrutin de audit)"
           back: Începe procesul de votare din nou
           ballot_hash: 'Identificatorul dvs. de vot este:'
-          cast: Transmite votul
           description: Aici, aveţi opţiunea de a vota pentru ca acesta să fie numărat corespunzător sau, ca alternativă, puteţi verifica dacă voturile dumneavoastră au fost corect criptate. Din motive de securitate, auditarea buletinului de vot va duce la spargerea lui. Asta înseamnă că, pentru a-ți exprima votul, va trebui să repornești procesul de votare.
         confirm:
           answer: Răspuns
@@ -673,8 +659,6 @@ ro:
           census:
             create:
               invalid: S-a produs o eroare la încărcarea recensământului, vă rugăm să încercați din nou mai târziu.
-            delete:
-              confirm: Ştergerea recensământului nu poate fi anulată. Sigur dorești să continui?
             destroy:
               error: S-a produs o eroare la ștergerea recensământului, vă rugăm să încercați din nou mai târziu.
             new:
@@ -703,7 +687,6 @@ ro:
         in_person_votes:
           complete_voting:
             questions_title: 'Are drept de vot pentru umătoarele întrebări:'
-            questions_title_voted: 'Participantul a votat deja online și are drept de vot pentru următoarele întrebări:'
           in_person_form:
             census_not_present_description: Trebuie mers la biroul de reclamații pentru recensământ sau să contacteze echipa de suport.
           update:

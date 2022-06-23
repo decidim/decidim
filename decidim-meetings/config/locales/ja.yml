@@ -181,7 +181,7 @@ ja:
           notification_title: <a href="%{resource_path}">%{resource_title}</a> のミーティングは48時間以内に開始されます．
     forms:
       meetings:
-        attendees_count_help_text: イベントに参加者の合計数を含めることを忘れないでください。 対面、ハイブリッド、オンラインに関わらず、何人が関わっているかを知ることが重要です。
+        attendees_count_help_text: 会議に出席者の総数に、対面・オンライン・ハイブリッドを含めることを忘れないでください
     gamification:
       badges:
         attended_meetings:
@@ -306,7 +306,7 @@ ja:
             select_a_meeting_type: ミーティング種別を選択してください
             select_a_registration_type: 登録種別を選択してください
             select_an_iframe_access_level: Iframeアクセスレベルを選択してください
-            show_embedded_iframe_help: ミーティングやライブイベント( YouTube、Twitch、Jitsi) に埋め込むことができるサービスは限られたもののみです。
+            show_embedded_iframe_help: 'ミーティングまたはライブイベントに埋め込めるサービスは以下のドメインに限定されています: %{domains}'
           index:
             title: ミーティング
           new:
@@ -376,6 +376,8 @@ ja:
           value_types:
             organizer_presenter:
               not_found: '主催者がデータベース上に見つかりませんでした (ID: %{id})'
+        questionnaire:
+          update: "%{user_name} が %{meeting_name} ミーティングのアンケートを更新しました"
       application_helper:
         filter_category_values:
           all: すべて
@@ -386,7 +388,19 @@ ja:
       calendar_modal:
         calendar_url: カレンダー URL
         close_window: ウィンドウを閉じる
+        copy_calendar_url: コピー
+        copy_calendar_url_clarification: カレンダーURLをクリップボードにコピー
+        copy_calendar_url_copied: コピーしました
+        copy_calendar_url_description: カレンダーアプリケーションまたはプロバイダーで公開されたすべてのミーティングを見ることができます。 「URLから新しいカレンダーを追加」オプションを使用して、このURLをカレンダーにコピーして貼り付けます。
+        copy_calendar_url_explanation: アクティブなフィルターがあるため、ミーティングの一部のみをエクスポートしていることに注意してください。すべてエクスポートしたい場合は、最初にすべてのフィルターをリセットしてください。
+        copy_calendar_url_message: URLをクリップボードにコピーしました。
         export_calendar: カレンダーをエクスポート
+      close_meeting_reminder_mailer:
+        close_meeting_reminder:
+          body: ミーティング <a href="%{meeting_path}">"%{meeting_title}"</a> はクローズされます．「ミーティングを閉じる」ボタンを使ってミーティングのレポートを追加してください．
+          greetings: こんにちは、<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
+          hello: こんにちは、 %{username} さん。
+          subject: '%{organization_name} プラットフォーム上のレポートでミーティングを閉じることができます。'
       conference_venues: カンファレンス会場
       content_blocks:
         upcoming_meetings:
@@ -489,7 +503,7 @@ ja:
           select_a_meeting_type: ミーティング種別を選択してください
           select_a_registration_type: 登録種別を選択してください
           select_an_iframe_access_level: iframeアクセスレベルを選択してください
-          show_embedded_iframe_help: ミーティングやライブイベント（YouTube、Twitch、Jitsi）に埋め込むことができるサービスは限られたもののみです。
+          show_embedded_iframe_help: 'ミーティングまたはライブイベントに埋め込めるサービスは以下のドメインに限定されています: %{domains}'
         index:
           click_here: すべてのミーティングを見る
           new_meeting: 新しいミーティング

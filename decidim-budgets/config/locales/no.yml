@@ -170,13 +170,10 @@
           title: Bekreft stemme
         budget_excess:
           budget_excess:
-            description: Prosjektet overskrider det maksimale budsjettet og kan ikke legges til. Hvis du vil, kan du slette et prosjekt du allerede har valgt å legge til, eller avlegg stemme i henhold til de gitte rammene.
             title: Maksimalt budsjett overskredet
           close: Lukk
-          description: Prosjektet overskrider det maksimale budsjettet og kan ikke legges til. Hvis du vil, kan du slette et prosjekt du allerede har valgt å legge til, eller avlegg stemme i henhold til de gitte rammene.
           ok: OK
           projects_excess:
-            description: Prosjektet overskrider maksimalt antall prosjekter og kan ikke legges til. Hvis du vil, kan du slette et prosjekt du allerede har valgt å legge til, eller foreta stemme i henhold til gitte rammene.
             title: Maksimal antall prosjekter overskredet
         budget_summary:
           are_you_sure: Er du sikker på at du vil avbryte din stemme?
@@ -293,7 +290,6 @@
             total_budget: Totalt budsjett
             vote_minimum_budget_projects_number: Minimum antall prosjekter å stemme på
             vote_rule_minimum_budget_projects_enabled: 'Aktiver regel: Minimum antall prosjekter det skal stemmes på'
-            vote_rule_selected_projects_enabled: 'Aktiver regel: Valgte prosjekter med minimum og maksimalt antall prosjekter som skal stemmes på'
             vote_rule_threshold_percent_enabled: 'Aktiver regel: Minimum budsjettprosent'
             vote_selected_projects_maximum: Maksimalt antall prosjekter som skal velges
             vote_selected_projects_minimum: Minste antall prosjekter som skal velges

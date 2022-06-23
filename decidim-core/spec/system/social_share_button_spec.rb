@@ -69,26 +69,38 @@ describe "Social share button", type: :system do
     end
   end
 
-  context "when the user is logged in" do
+  context "without cookie dialog" do
     before do
-      sign_in resource.author
-      visit resource_path
+      page.driver.browser.execute_cdp(
+        "Network.setCookie",
+        domain: resource.organization.host,
+        name: Decidim.consent_cookie_name,
+        value: { essential: true }.to_json,
+        path: "/"
+      )
     end
 
-    context "and clicks on the Share button" do
-      before { click_button "Share" }
+    context "when the user is logged in" do
+      before do
+        sign_in resource.author
+        visit resource_path
+      end
 
-      it_behaves_like "showing the social share buttons"
+      context "and clicks on the Share button" do
+        before { click_button "Share" }
+
+        it_behaves_like "showing the social share buttons"
+      end
     end
-  end
 
-  context "when the user is NOT logged in" do
-    before { visit resource_path }
+    context "when the user is NOT logged in" do
+      before { visit resource_path }
 
-    context "and clicks on the Share button" do
-      before { click_button "Share" }
+      context "and clicks on the Share button" do
+        before { click_button "Share" }
 
-      it_behaves_like "showing the social share buttons"
+        it_behaves_like "showing the social share buttons"
+      end
     end
   end
 end

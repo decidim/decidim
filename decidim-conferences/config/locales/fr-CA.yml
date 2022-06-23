@@ -59,9 +59,9 @@ fr-CA:
         avatar: Image de profil
         conference_meeting_ids: Réunions connexes
         full_name: Nom complet
-        personal_url: URL personnelle
+        personal_url: Site internet personnel
         position: Profession
-        short_bio: Courte bio
+        short_bio: Courte biographie
         twitter_handle: Gestionnaire Twitter
         user_id: Utilisateur
       conference_user_role:

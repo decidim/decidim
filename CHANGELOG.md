@@ -191,6 +191,22 @@ PR [\#8833](https://github.com/decidim/decidim/pull/8833) Users can now configur
 
 ### Changed
 
+### Accept and reject cookies
+
+Cookie consent management has been updated in [\#9271](https://github.com/decidim/decidim/pull/9271). Supported cookie categories are essential, preferences, analytics and marketing.
+Iframe HTML elements that are added with the editor or meeting forms are disabled until all cookies are accepted. Scripts that require cookies could be added as follows:
+
+```html
+<script type="text/plain" data-consent="marketing">
+  console.log('marketing cookies accepted');
+</script>
+```
+
+Note that you need to define the `type="text/plain"` for the script that adds cookies in order to prevent the script from being executed before cookies are accepted. You should also define the metadata for all the cookies that you're using on your app initializer. See [cookie documentation](https://docs.decidim.org/en/customize/cookies.html).
+
+
+Mind that we also changed the cookie consent cookie from "decidim-cc" to "decidim-consent" by default. You can change it on your initializer, or update your cookie legal notice accordingly.
+
 ### Rename data portability to download your data
 
 "Data portability" has been renamed to "Download you data" at [\#9196](https://github.com/decidim/decidim/pull/9196), you should update your cron job via crontab -e.

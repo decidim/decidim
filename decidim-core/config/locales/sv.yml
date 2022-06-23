@@ -22,6 +22,7 @@ sv:
       user:
         about: Om
         email: Din e-postadress
+        locale: Språk
         name: Ditt namn
         nickname: Användarnamn
         password: Lösenord
@@ -67,7 +68,6 @@ sv:
     'true': 'Ja'
   carrierwave:
     errors:
-      image_too_big: Bilden är för stor
       not_inside_organization: Den här filen är inte bifogad till någon organisation
   date:
     formats:
@@ -106,13 +106,11 @@ sv:
   decidim:
     accessibility:
       external_link: Extern länk
+      front_page_link: Gå till startsidan
       logo: "%{organization}s logotyp"
       skip_button: Gå till innehåll
     account:
       blocked: Detta konto har blockerats på grund av överträdelse av användarvillkoren
-      data_portability_export:
-        file_no_exists: Filen finns inte
-        notice: Dina uppgifter hämtas för närvarande. Du får ett e-postmeddelande när det är klart.
       delete:
         alert: Denna åtgärd kan inte ångras. Om du tar bort ditt konto kommer du inte att kunna logga in med dina uppgifter. Raderingen av ditt konto kommer att resultera i anonymiseringen av dina bidrag. Du kommer fortfarande kunna skapa ett nytt konto, men dina gamla bidrag kommer inte förknippas med det.
         confirm:
@@ -124,6 +122,9 @@ sv:
       destroy:
         error: Det gick inte att radera ditt konto.
         success: Ditt konto har raderats.
+      download_your_data_export:
+        file_no_exists: Filen finns inte
+        notice: Dina uppgifter hämtas för närvarande. Du får ett e-postmeddelande när det är klart.
       show:
         available_locales_helper: Välj det språk du vill använda på plattformen och få i notiserna
         change_password: Ändra lösenord
@@ -401,8 +402,8 @@ sv:
             amendments_enabled: Ändringsförslag är möjliga
             comments_enabled: Kommentarer på
             comments_max_length: Maximal längd på kommentarer
-            dummy_global_attribute_1: Dummy Attribut 1
-            dummy_global_attribute_2: Dummy Attribut 2
+            dummy_global_attribute1: Dummy Attribut 1
+            dummy_global_attribute2: Dummy Attribut 2
             dummy_global_translatable_text: Översättningsbar exempeltext
             enable_pads_creation: Aktivera skapande av memo
             resources_permissions_enabled: Resursbehörigheter på
@@ -414,8 +415,8 @@ sv:
             amendment_reaction_enabled: Tillåt reaktioner på ändringsförslag
             amendments_visibility: Synlighet för ändringsförslag
             comments_blocked: Kommentarer blockerade
-            dummy_step_attribute_1: Dummy Step Attribut 1
-            dummy_step_attribute_2: Dummy Step Attribut 2
+            dummy_step_attribute1: Dummy Step Attribut 1
+            dummy_step_attribute2: Dummy Step Attribut 2
             dummy_step_translatable_text: Översättningsbar text för exempelsteg
     contact: Kontakt
     content_blocks:
@@ -459,13 +460,6 @@ sv:
       actions:
         login_before_access: Logga in före åtkomst
         unauthorized: Du har inte behörighet att utföra denna åtgärd
-    data_portability:
-      export:
-        ready: Klar
-      show:
-        download_data: Hämta data
-        download_data_description: En fil som innehåller all information kopplad till ditt konto kommer att skickas till <strong>%{user_email}</strong>. Detta e-postmeddelande kommer att innehålla en .zip-fil och ett lösenord för att öppna den.<br/><br/>För att packa upp filen behöver du <a href="https://www.7-zip.org/">7-Zip</a> (för Windows) eller <a href="https://www.keka.io/">Keka</a> (för MacOS). Om du använder Linux, för det mesta kommer du att ha den installerad som standard. Om inte, kan du använda <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> eller <a href="https://peazip.github.io">PeaZip</a>).
-        request_data: Begär data
     datepicker:
       help_text: 'Förväntat format: %{datepicker_format}'
     devise:
@@ -533,6 +527,13 @@ sv:
           this_application_will_not_be_able_to: 'Det här programmet kommer inte att kunna:'
           update_profile: Uppdatera din profil
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> vill använda ditt konto"
+    download_your_data:
+      export:
+        ready: Klar
+      show:
+        download_data: Hämta data
+        download_data_description: En fil som innehåller all information kopplad till ditt konto kommer att skickas till <strong>%{user_email}</strong>. Detta e-postmeddelande kommer att innehålla en .zip-fil och ett lösenord för att öppna den.<br/><br/>För att packa upp filen behöver du <a href="https://www.7-zip.org/">7-Zip</a> (för Windows) eller <a href="https://www.keka.io/">Keka</a> (för MacOS). Om du använder Linux, för det mesta kommer du att ha den installerad som standard. Om inte, kan du använda <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> eller <a href="https://peazip.github.io">PeaZip</a>).
+        request_data: Begär data
     editor_images:
       create:
         error: Fel vid uppladdning av bild
@@ -699,7 +700,7 @@ sv:
           email_subject: "%{nickname} uppdaterade sin profil"
           notification_title: <a href="%{resource_path}">Profilsidan</a> för %{name} (%{nickname}), som du följer, har uppdaterats.
     export_mailer:
-      data_portability_export:
+      download_your_data_export:
         click_button: 'Hämta dina data genom att klicka på Nästa.<br/>Filen kommer vara tillgänglig till och med %{date}.<br/>Du kan använda <a href="https://www.7-zip.org/">7-Zip</a> (för Windows), <a href="https://www.keka.io/en/">Keka</a> (för MacOS) eller <a href="https://peazip.github.io">PeaZip</a> (för Linux) för att öppna den. Lösenord: %{password}'
         download: Hämta
       export:
@@ -750,7 +751,6 @@ sv:
         file:
           explanation: 'Vägledning för fil:'
           message_1: Måste vara en bild eller ett dokument.
-          message_2: Använd helst landskapsbilder. Tjänsten beskär bilden. För CSV filer måste separatorn mellan kolumner vara ett kommatecken (",")
         image:
           explanation: 'Vägledning för bild:'
           message_1: Helst en landskapsbild som inte har någon text.
@@ -758,6 +758,22 @@ sv:
       file_validation:
         allowed_file_extensions: 'Tillåtna filtillägg: %{extensions}'
         max_file_size: 'Maximal filstorlek: %{megabytes}MB'
+      upload:
+        labels:
+          add_attachment: Lägg till bilaga
+          add_file: Lägg till fil
+          add_image: Lägg till bild
+          cancel: Avbryta
+          edit_image: Redigera bild
+          error: Fel!
+          remove: Ta bort
+          replace: Ersätt
+          save: Spara
+          title: Titel
+          title_required: Titel krävs!
+          uploaded: Uppladdad
+          validating: Bekräftar...
+          validation_error: Valideringsfel!
     gamification:
       all_badges_link: Se alla tillgängliga märken.
       badges:
@@ -870,7 +886,6 @@ sv:
       no_user_groups: Tillhör inte någon grupp än.
       roles:
         admin: Administratör
-        creator: Skapare
         member: Medlem
       update:
         error: Det gick inte att uppdatera gruppen
@@ -1082,14 +1097,11 @@ sv:
         administrators: Administratörer
         allow_public_contact: Tillåt alla att skicka direktmeddelanden till mig, även de som jag inte följer.
         direct_messages: Ta emot direktmeddelanden från alla
-        email_on_moderations: Jag vill få ett e-post varje gång något anmäls för moderering.
-        email_on_notification: Jag vill få ett e-post varje gång jag får en notis.
         everything_followed: Allt jag följer
         newsletter_notifications: Jag vill få nyhetsbrev
         newsletters: Nyhetsbrev
         own_activity: Min egen verksamhet, som när någon kommenterar mitt förslag eller nämner mig
         receive_notifications_about: Jag vill få notiser om
-        send_notifications_by_email: Skicka meddelanden via e-post
         update_notifications_settings: Spara ändringar
       update:
         error: Det gick inte att uppdatera dina meddelandeinställningar.
@@ -1151,7 +1163,6 @@ sv:
           agreement: Jag godkänner villkoren
           legend: Godkänn användarvillkoren
         refuse:
-          modal_body: Om du vägrar kan du inte använda plattformen, men du kan <a href="%{data_portability_path}">hämta dina data</a> eller <a href="%{delete_path}">radera ditt konto</a>.
           modal_btn_continue: Acceptera villkoren och fortsätt
           modal_btn_exit: Jag granskar dem senare
           modal_button: Avvisa villkoren
@@ -1455,7 +1466,6 @@ sv:
     invitations:
       edit:
         header: Slutför att skapa ditt konto
-        nickname_help: Ditt användarnamn i %{organization}.
         submit_button: Spara
         subtitle: Om du godkänner inbjudan väljer du ditt användarnamn och lösenord.
       invitation_removed: Din inbjudan har tagits bort.
@@ -1613,10 +1623,6 @@ sv:
     timestamp_error_message: Det gick för snabbt! Försök igen.
   layouts:
     decidim:
-      cookie_warning:
-        description_html: Denna webbplats använder cookies. Genom att fortsätta att använda webbplatsen godkänner du vår användning av cookies. Läs mer %{link}.
-        link_label: här
-        ok: Jag godkänner
       edit_link:
         edit: Redigera
       footer:
@@ -1653,9 +1659,11 @@ sv:
         continue_session: Förtsätt med din session
         sign_out: Logga ut
         title: Vill du fortsätta med din session?
+      upload_modal:
+        close_modal: Stäng fönstret
       user_menu:
         account: 'Användarkonto: %{name}'
-        admin_dashboard: Admin kontrollpanel
+        admin_dashboard: Adminpanel
         conversations: Konversationer
         notifications: Meddelanden
         profile: Mitt konto
