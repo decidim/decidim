@@ -518,7 +518,6 @@ fr-CA:
           newsletter: Recevoir une newsletter sur l'actualité de la plateforme
           newsletter_title: Autorisation de contact
           nickname_help: Cet identifiant est public et unique sur %{organization} ; il permet aux autres utilisateurs de vous suivre, de vous contacter ou de vous mentionner dans leurs commentaires. Il s’affichera précédé d’un « @ » ; il ne doit pas contenir d’espace ni de caractère spécial.
-          password_help: "%{minimun_characters} caractères minimum, ne doit pas être trop commun (par exemple 123456) et doit être différent de votre pseudo et de votre email."
           sign_in: Se connecter
           sign_up: S'inscrire
           sign_up_as:
@@ -1615,7 +1614,6 @@ fr-CA:
     passwords:
       edit:
         change_my_password: Changer mon mot de passe
-        change_your_password: changez votre mot de passe
         confirm_new_password: Confirmer le nouveau mot de passe
         new_password: Nouveau mot de passe
         password_help: "%{minimun_characters} caractères minimum, ne doit pas être trop commun (par exemple 123456) et doit être différent de votre pseudo et de votre email."
