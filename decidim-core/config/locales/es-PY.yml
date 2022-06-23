@@ -153,6 +153,9 @@ es-PY:
     admin:
       actions:
         cancel: Cancelar
+      password_change:
+        alert: Tienes que cambiar tu contraseña para poder seguir adelante
+        notification: Las usuarias con rol de administración tienen que cambiar su contraseña cada %{days} días.
     admin_log:
       area:
         create: "%{user_name} creó el área %{resource_name}"
@@ -1268,6 +1271,10 @@ es-PY:
           title: 'Obligatorio: revisa las actualizaciones de nuestros Términos de Servicio'
     participatory_space_private_users:
       not_allowed: No puedes ver este contenido
+    passwords:
+      update:
+        error: Ha habido un problema al actualizar la contraseña
+        success: Contraseña actualizada correctamente
     profile:
       deleted: Usuario eliminado
       inaccessible_message: '¡Este perfil es inaccesible debido a la violación de Términos y Condiciones de uso!'
@@ -1632,6 +1639,7 @@ es-PY:
         confirm_new_password: Confirmar nueva contraseña
         new_password: Contraseña
         password_help: "%{minimun_characters} caracteres mínimos, no debe ser demasiado común (por ejemplo, 123456) y debe ser diferente de tu apodo y tu correo electrónico."
+        password_help_admin: "%{minimun_characters} caracteres mínimos, no debe ser demasiado común (por ejemplo, 123456) y debe ser diferente de tu apodo, de tu correo electrónico y de tus antiguas contraseñas."
       new:
         forgot_your_password: '¿Olvidaste tu contraseña?'
         send_me_reset_password_instructions: Enviarme instrucciones para restablecer la contraseña
