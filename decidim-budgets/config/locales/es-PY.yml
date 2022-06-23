@@ -259,6 +259,8 @@ es-PY:
           filter: Filtrar
           filter_by: Filtrar por
           unfold: Desplegar
+        index:
+          view_project: Ver proyecto
         order_progress:
           vote: Dar apoyo
         order_selected_projects:
@@ -316,6 +318,7 @@ es-PY:
               errors:
                 budget_voting_rule_only_one: Hay que activar por lo menos una norma para la votación
                 budget_voting_rule_required: Se requiere una norma para la votación
+            geocoding_enabled: Geolocalización habilitada
             landing_page_content: Página de inicio de presupuestos
             more_information_modal: Modal de "Más información"
             projects_per_page: Proyectos por página
