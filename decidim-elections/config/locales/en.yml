@@ -237,7 +237,7 @@ en:
               minimum_answers: Questions must have <strong>at least two answers</strong>.
               minimum_questions: The election <strong>must have at least one question</strong>.
               published: The election is <strong>not published</strong>.
-              time_before: The start time is in <strong>less than 3 hours</strong> before the election starts.
+              time_before: The start time is in <strong>less than %{hours} hours</strong> before the election starts.
               trustees_number: The participatory space <strong>must have at least %{number} trustees with public key</strong>.
             invalid: There was a problem setting up this election
             no_trustees: There are no Trustees configured for this participatory space
