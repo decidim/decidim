@@ -75,7 +75,7 @@ PATH
       file_validators (~> 3.0)
       fog-local (~> 0.6)
       foundation_rails_helper (~> 4.0)
-      geocoder (~> 1.5)
+      geocoder (~> 1.8)
       hashdiff (>= 0.4.0, < 2.0.0)
       invisible_captcha (~> 0.12)
       kaminari (~> 1.2, >= 1.2.1)
