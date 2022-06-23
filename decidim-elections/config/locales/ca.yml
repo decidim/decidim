@@ -249,7 +249,6 @@ ca:
               minimum_answers: Les preguntes han de tenir <strong>almenys dues respostes</strong>.
               minimum_questions: L'elecció <strong>ha de tenir almenys una pregunta</strong>.
               published: L'elecció <strong>no està publicada</strong>.
-              time_before: L'hora d'inici és en <strong>menys de 3 hores</strong> abans de que comenci l'elecció.
               trustees_number: L'espai de participació <strong>ha de tenir almenys %{number} garants amb clau pública</strong>.
             invalid: S'ha produït un error en configurar aquesta elecció
             no_trustees: No hi ha garants configurats per aquest espai de participació
