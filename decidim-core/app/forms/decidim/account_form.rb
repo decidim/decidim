@@ -50,7 +50,7 @@ module Decidim
     end
 
     def unique_email
-      return true if Decidim::User.where(
+      return true if Decidim::UserBaseEntity.where(
         organization: context.current_organization,
         email: email
       ).where.not(id: context.current_user.id).empty?
@@ -60,9 +60,10 @@ module Decidim
     end
 
     def unique_nickname
-      return true if Decidim::User.where(
-        organization: context.current_organization,
-        nickname: nickname
+      return true if Decidim::UserBaseEntity.where(
+        "decidim_organization_id = ? AND LOWER(nickname) = ? ",
+        context.current_organization.id,
+        nickname.downcase
       ).where.not(id: context.current_user.id).empty?
 
       errors.add :nickname, :taken
