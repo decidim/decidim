@@ -153,6 +153,9 @@ ca:
     admin:
       actions:
         cancel: Cancel·lar
+      password_change:
+        alert: Has de canviar la teva contrasenya per a poder seguir endavant
+        notification: Les usuàries amb rol d'administració han de canviar la seva contrasenya cada %{days} dies.
     admin_log:
       area:
         create: "%{user_name} ha creat l'àrea %{resource_name}"
@@ -1265,6 +1268,10 @@ ca:
           title: 'Obligatori: revisa l''actualització dels nostres Termes de Servei'
     participatory_space_private_users:
       not_allowed: No tens permís per visualitzar aquest contingut
+    passwords:
+      update:
+        error: Hi ha hagut un problema en actualitzar la contrasenya
+        success: La contrasenya s'ha actualitzat correctament
     profile:
       deleted: Participant eliminada
       inaccessible_message: Aquest perfil és inaccessible degut a la violació dels Termes i Condicions d'ús!
@@ -1628,6 +1635,8 @@ ca:
         confirm_new_password: Confirmar la nova contrasenya
         new_password: Nova contrasenya
         password_help: "%{minimun_characters} caràcters mínim, no ha de ser massa comú (per exemple 123456) i ha de ser diferent del teu nom d'usuari i la teva adreça de correu electrònic."
+        password_help_admin: "%{minimun_characters} caràcters mínim, no ha de ser massa comú (per exemple 123456) i ha de ser diferent del teu àlies, de la teva adreça de correu electrònic i de les teves antigues contrasenyes."
+        title: Canvi de contrasenya
       new:
         forgot_your_password: Has oblidat la teva contrasenya?
         send_me_reset_password_instructions: Envia'm les instruccions per restablir la contrasenya
@@ -1831,6 +1840,7 @@ ca:
     nickname_included_in_password: és massa semblant al teu àlies
     not_enough_unique_characters: no té prou caràcters únics
     password_not_allowed: no està permès
+    password_repeated: no pots reutilitzar una antiga contrasenya
     password_too_common: és massa comú
     password_too_long: és massa llarg
     password_too_short: és massa curt
