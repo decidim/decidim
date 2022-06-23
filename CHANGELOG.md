@@ -12,10 +12,11 @@ In the next version (v0.28.0) it will be fully removed from the database.
 
 ### Added
 
-
 #### Push notifications
+
 PR [\#8774] https://github.com/decidim/decidim/pull/8774 Implements push notifications. Use `rails
 decidim:pwa:generate_vapid_keys` to generate the VAPID keys and copy them to your env vars file.
+
 #### Javascript load at the bottom of the pages
 
 PR [\#9156] https://github.com/decidim/decidim/pull/9156 moves javascript snippets to the bottom of `body` sections.
@@ -50,6 +51,7 @@ right after javascript bundles have been loaded.
 PR [\#8452] https://github.com/decidim/decidim/pull/8452 has upgraded the required ruby version to 3.0. Upgrading to this version will require either to install the Ruby Version on your host, or change the decidim docker image to use ruby:3.0.2.
 
 #### Rails Upgrade to 6.1
+
 PR [\#8411] https://github.com/decidim/decidim/pull/8411 changes the following:
 
 - ActionMailer - Change default queue name of the deliver (:mailers) job to be the job adapter's default (:default)
@@ -63,6 +65,7 @@ require "decidim/spring"
 ```
 
 #### Dynamic attachment uploads
+
 PR [\#8681] https://github.com/decidim/decidim/pull/8681 Changes the way file uploads work in Decidim. Files are now dynamically uploaded inside the modal so we can give the user immediate feedback on validation. There are now two different types of file fields: titled and untitled. Titled file fields related to ```Decidim::Attachment``` internally.
 
 **To update your module** you probably have to update forms and commands related to upload field (also views should be updated in case of titled attachments). After successful a upload and submitting a form, request params should contain signed_id of [ActiveStorage::Blob](https://api.rubyonrails.org/classes/ActiveStorage/Blob.html) which you need to find the blob at the backend.
@@ -76,6 +79,7 @@ To update untitled command example: [update_account.rb](https://github.com/decid
 [Learn more about direct uploads](https://edgeguides.rubyonrails.org/active_storage_overview.html#direct-uploads)
 
 #### Moderated content can now be removed from search index
+
 PR [\#8811](https://github.com/decidim/decidim/pull/8811) is addressing an issue when the moderated resources are not removed from the general search index.
 
 This will automatically work for new moderated resources. For already existing ones, we have introduced a new task that will remove the moderated content from being displayed in search:
@@ -210,7 +214,7 @@ New applications generated with the Decidim generator command will also support 
 
 ### Changed
 
-### Accept and reject cookies
+#### Accept and reject cookies
 
 Cookie consent management has been updated in [\#9271](https://github.com/decidim/decidim/pull/9271). Supported cookie categories are essential, preferences, analytics and marketing.
 Iframe HTML elements that are added with the editor or meeting forms are disabled until all cookies are accepted. Scripts that require cookies could be added as follows:
@@ -226,7 +230,7 @@ Note that you need to define the `type="text/plain"` for the script that adds co
 
 Mind that we also changed the cookie consent cookie from "decidim-cc" to "decidim-consent" by default. You can change it on your initializer, or update your cookie legal notice accordingly.
 
-### Rename data portability to download your data
+#### Rename data portability to download your data
 
 "Data portability" has been renamed to "Download you data" at [\#9196](https://github.com/decidim/decidim/pull/9196), you should update your cron job via crontab -e.
 ```
@@ -237,15 +241,8 @@ Changes to:
 0 0 * * * cd /home/user/decidim_application && RAILS_ENV=production bundle exec rake decidim:delete_download_your_data_files
 ```
 
-
-- **decidim-core**: The `Decidim::ActivitySearch` class has been rewritten as `Decidim::PublicActivities` which is now a `Rectify::Query` class instead of `Searchlight::Search` class due to the removal of Searchlight at [\#8748](https://github.com/decidim/decidim/pull/8748).
-- **decidim-core**: The `Decidim::ResourceSearch` class now inherits from `Ransack::Search` instead of `Searchlight::Search` as of [\#8748](https://github.com/decidim/decidim/pull/8748). The new `ResourceSearch` class provides extra search functionality for contextual searches that require context information in addition to the search parameters, such as current user or current component. It has barely anything to do with the `ResourceSearch` class in the previous versions which contained much more logic. Please review all your search classes that were inheriting from this class. You should migrate your search filtering to Ransack.
-- **decidim-debates**, **decidim-initiatives**, **decidim-meetings**: The resource search classes `Decidim::Debates::DebateSearch`, `Decidim::Intitatives::InitiativeSearch` and `Decidim::Meetings::MeetingSearch` are rewritten for the Ransack searches due to Searchlight removal at [\#8748](https://github.com/decidim/decidim/pull/8748). The role of these classes is now to pass contextual information to the searches, such as the current user. All other search filtering should happen directly through Ransack.
-- **decidim-meetings**: The `visible_meetings_for` scope for the `Meeting` model has been renamed to `visible_for` in [\#8748](https://github.com/decidim/decidim/pull/8748) for consistency.
-- **decidim-core**: The `official_origin`, `participants_origin`, `user_group_origin` and `meeting_origin` scopes for the `Decidim::Authorable` and `Decidim::Coauthorable` concerns have been changed to `with_official_origin`, `with_participants_origin`, `with_user_group_origin` and `with_meeting_origin` respectively in [\#8748](https://github.com/decidim/decidim/pull/8748) for consistency. See the Searchlight removal change notes for reasoning.
-- **decidim-core**: Nicknames are now differents case insensitively, a rake task has been created to check every nickname and modify them if some are similar (Launch it with "bundle exec rake decidim:upgrade:fix_nickname_uniqueness"). Routing and mentions has been made case insensitive for every tab in profiles.
-
 #### Deprecation of `Rectify::Presenter`
+
 PR [\#8758](https://github.com/decidim/decidim/pull/8758) is deprecating the implementation of `Rectify::Presenter` in favour of `SimpleDelegator`
 
 #### Searchlight removal causes changes in the participant searches
@@ -265,6 +262,15 @@ Ransack provides a search API that produces the search queries semi-automaticall
 3rd party developers that have developed their own modules or customizations for the core controllers or filtering views, should revisit their customizations and make sure they reflect these changes made for the controllers or filtering views. It is suggested to remove the customizations related to the filtering views/controllers and re-do from scratch what needs to be customized in order to ensure full compatibility with the changed filtering APIs. In case you had created your own `Searchlight::Search` (or `ResourceSearch`) classes, you should scrap those and start over using Ransack.
 
 More information on using Ransack can be found from the [Ransack documentation](https://github.com/activerecord-hackery/ransack). You can find examples for filtering in the core filtering views and controllers.
+
+Related changes include:
+
+- **decidim-core**: The `Decidim::ActivitySearch` class has been rewritten as `Decidim::PublicActivities` which is now a `Rectify::Query` class instead of `Searchlight::Search` class due to the removal of Searchlight at [\#8748](https://github.com/decidim/decidim/pull/8748).
+- **decidim-core**: The `Decidim::ResourceSearch` class now inherits from `Ransack::Search` instead of `Searchlight::Search` as of [\#8748](https://github.com/decidim/decidim/pull/8748). The new `ResourceSearch` class provides extra search functionality for contextual searches that require context information in addition to the search parameters, such as current user or current component. It has barely anything to do with the `ResourceSearch` class in the previous versions which contained much more logic. Please review all your search classes that were inheriting from this class. You should migrate your search filtering to Ransack.
+- **decidim-debates**, **decidim-initiatives**, **decidim-meetings**: The resource search classes `Decidim::Debates::DebateSearch`, `Decidim::Intitatives::InitiativeSearch` and `Decidim::Meetings::MeetingSearch` are rewritten for the Ransack searches due to Searchlight removal at [\#8748](https://github.com/decidim/decidim/pull/8748). The role of these classes is now to pass contextual information to the searches, such as the current user. All other search filtering should happen directly through Ransack.
+- **decidim-meetings**: The `visible_meetings_for` scope for the `Meeting` model has been renamed to `visible_for` in [\#8748](https://github.com/decidim/decidim/pull/8748) for consistency.
+- **decidim-core**: The `official_origin`, `participants_origin`, `user_group_origin` and `meeting_origin` scopes for the `Decidim::Authorable` and `Decidim::Coauthorable` concerns have been changed to `with_official_origin`, `with_participants_origin`, `with_user_group_origin` and `with_meeting_origin` respectively in [\#8748](https://github.com/decidim/decidim/pull/8748) for consistency. See the Searchlight removal change notes for reasoning.
+- **decidim-core**: Nicknames are now differents case insensitively, a rake task has been created to check every nickname and modify them if some are similar (Launch it with "bundle exec rake decidim:upgrade:fix_nickname_uniqueness"). Routing and mentions has been made case insensitive for every tab in profiles.
 
 ### Fixed
 
