@@ -159,7 +159,7 @@ describe "Initiative", type: :system do
             it "they are shown an error" do
               click_button "New initiative"
               fill_in "Email", with: authorized_user.email
-              fill_in "Password", with: "decidim123456"
+              fill_in "Password", with: "decidim123456789"
               click_button "Log in"
 
               expect(page).to have_content("You are not authorized to perform this action")
