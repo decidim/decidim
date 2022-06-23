@@ -528,7 +528,6 @@ es-PY:
           newsletter: Quiero recibir un boletín ocasional con información relevante
           newsletter_title: Permiso de contacto
           nickname_help: Tu alias en %{organization}. Solo puede contener letras, números, '-' y '_'.
-          password_help: "%{minimun_characters} caracteres mínimos, no debe ser demasiado común (por ejemplo, 123456) y debe ser diferente de tu apodo y tu correo electrónico."
           sign_in: Entra
           sign_up: Regístrate
           sign_up_as:
@@ -1630,7 +1629,6 @@ es-PY:
     passwords:
       edit:
         change_my_password: Cambiar mi contraseña
-        change_your_password: cambia tu contraseña
         confirm_new_password: Confirmar nueva contraseña
         new_password: Contraseña
         password_help: "%{minimun_characters} caracteres mínimos, no debe ser demasiado común (por ejemplo, 123456) y debe ser diferente de tu apodo y tu correo electrónico."
