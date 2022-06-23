@@ -464,7 +464,6 @@ nl:
           newsletter: Ontvang af en toe een nieuwsbrief met relevante informatie
           newsletter_title: Contact toestemming
           nickname_help: Je alias in %{organization}. Kan alleen letters, cijfers, '-' en '_' bevatten.
-          password_help: "gebruik minimaal %{minimun_characters} tekens, deze mogen niet te algemeen zijn (bijv. 123456) en moeten anders zijn dan je alias en je e-mail."
           sign_in: Aanmelden
           sign_up: Registratie
           sign_up_as:
@@ -1467,7 +1466,6 @@ nl:
     passwords:
       edit:
         change_my_password: Verander mijn wachtwoord
-        change_your_password: Verander uw wachtwoord
         confirm_new_password: Bevestig nieuw wachtwoord
         new_password: Nieuw wachtwoord
         password_help: "gebruik minimaal %{minimun_characters} tekens, deze mogen niet te algemeen zijn (bijv. 123456) en moeten anders zijn dan je alias en je e-mail."
