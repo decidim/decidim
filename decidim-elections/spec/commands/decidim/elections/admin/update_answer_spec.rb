@@ -57,7 +57,7 @@ describe Decidim::Elections::Admin::UpdateAnswer do
     let(:proposals) { create_list :proposal, 2, component: proposals_component }
 
     it "creates the answer" do
-      expect { subject.call }.to change { Decidim::Elections::Answer.count }.by(1)
+      expect { subject.call }.to change(Decidim::Elections::Answer, :count).by(1)
     end
 
     it "stores the relations with proposals" do

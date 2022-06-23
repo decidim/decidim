@@ -40,7 +40,7 @@ describe "Surveys component" do # rubocop:disable RSpec/DescribeClass
     end
 
     it "create a survey component" do
-      expect { subject.manifest.run_hooks(:copy, old_component: component, new_component: new_component) }.to change { Decidim::Surveys::Survey.count }.by(1)
+      expect { subject.manifest.run_hooks(:copy, old_component: component, new_component: new_component) }.to change(Decidim::Surveys::Survey, :count).by(1)
     end
   end
 end
