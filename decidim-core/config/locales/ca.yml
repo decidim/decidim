@@ -525,7 +525,6 @@ ca:
           newsletter: Vull rebre un butlletí ocasional amb informació rellevant
           newsletter_title: Permís de contacte
           nickname_help: El teu àlies a %{organization}. Només pot contenir lletres, números, '-' and '_'.
-          password_help: "%{minimun_characters} caràcters mínim, no ha de ser massa comú (per exemple 123456) i ha de ser diferent del teu nom d'usuari i la teva adreça de correu electrònic."
           sign_in: Entra
           sign_up: Registra't
           sign_up_as:
@@ -1626,7 +1625,6 @@ ca:
     passwords:
       edit:
         change_my_password: Canvia la meva contrasenya
-        change_your_password: Canvia la teva contrasenya
         confirm_new_password: Confirmar la nova contrasenya
         new_password: Nova contrasenya
         password_help: "%{minimun_characters} caràcters mínim, no ha de ser massa comú (per exemple 123456) i ha de ser diferent del teu nom d'usuari i la teva adreça de correu electrònic."
