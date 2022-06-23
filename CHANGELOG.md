@@ -1,6 +1,6 @@
 # Change Log
 
-## [Unreleased](https://github.com/decidim/decidim/tree/HEAD)
+## [0.27.0.rc1](https://github.com/decidim/decidim/tree/0.27.0.rc1)
 
 DEPRECATION NOTE: The `description` field in the categories admin forms has been removed (this applies to any participatory space using categories). For now it's still available in the database, so you can extract it with the following command in the Rails console:
 
