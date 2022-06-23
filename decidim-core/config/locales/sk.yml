@@ -409,7 +409,7 @@ sk:
           already_have_an_account?: Už máte účet?
           newsletter: Dostávajte príležitostný spravodajca s relevantnými informáciami
           newsletter_title: Povolenie kontaktu
-          password_help: "%{minimun_characters} minimum znakov, nesmie byť príliš bežné (napr. 123456) a musí byť iné ako vaše prezývka a váš e-mail."
+          password_help: "%{minimun_characters} je minimum znakov, nesmie byť príliš bežné (napr. 123456) a musí byť iné ako vaše prezývka a váš e-mail."
           sign_in: Prihlásiť sa
           sign_up: Zaregistrovať sa
           sign_up_as:
