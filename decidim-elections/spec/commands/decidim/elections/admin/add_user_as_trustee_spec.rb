@@ -26,7 +26,7 @@ describe Decidim::Elections::Admin::AddUserAsTrustee do
     let(:trustee) { nil }
 
     it "adds the user to trustees" do
-      expect { subject.call }.to change { Decidim::Elections::Trustee.count }.by(1)
+      expect { subject.call }.to change(Decidim::Elections::Trustee, :count).by(1)
     end
 
     it "adds the user organization to trustee" do

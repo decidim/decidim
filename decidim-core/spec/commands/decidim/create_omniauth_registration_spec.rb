@@ -113,14 +113,14 @@ module Decidim
 
               it "links a previously existing user" do
                 user = create(:user, email: email, organization: organization)
-                expect { command.call }.to change(User, :count).by(0)
+                expect { command.call }.not_to change(User, :count)
 
                 expect(user.identities.length).to eq(1)
               end
 
               it "confirms a previously existing user" do
                 create(:user, email: email, organization: organization)
-                expect { command.call }.to change(User, :count).by(0)
+                expect { command.call }.not_to change(User, :count)
 
                 user = User.find_by(email: email)
                 expect(user).to be_confirmed
