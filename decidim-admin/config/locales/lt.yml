@@ -657,8 +657,11 @@ lt:
           title: Naujas naujienlaiškis
         select_recipients_to_deliver:
           all_spaces: Visi
+          all_users_help: Naujienlaiškis išsiunčiamas visiems patvirtintiems naudotojams.
+          confirm_deliver: Ar tikrai norite išsiųsti šį naujienlaiškį? Šio veiksmo atšaukti negalima.
           deliver: Pristatyti naujienlaiškį
           followers_help: Naujienlaiškis išsiunčiamas visiems patvirtintiems naudotojams, kurie seka sąraše nurodytas pasirinktas dalyvaujamojo proceso erdves.
+          participants_help: Naujienlaiškis išsiunčiamas visiems patvirtintiems naudotojams, kurie dalyvavo bet kurioje sąraše nurodytoje pasirinktoje dalyvaujamojo proceso erdvėje.
           send_to_all_users: Siųsti visiems naudotojams
           send_to_followers: Siųsti sekėjams
           send_to_participants: Siųsti dalyviams
@@ -707,6 +710,7 @@ lt:
           colors:
             colors_title: Organizacijos spalvos
           images:
+            layout_appearance_title: Redaguoti išdėstymą
             preview: Peržiūra
           omnipresent_banner_appearance_title: Keisti visur naudojamą reklamjuostę
       organization_external_domain_whitelist:
@@ -714,6 +718,14 @@ lt:
           update: Atnaujinti
         external_domain:
           down: Žemyn
+          remove: Pašalinti
+          up: Aukštyn
+      organization_homepage_content_blocks:
+        edit:
+          update: Atnaujinti
+      participatory_space_private_users:
+        index:
+          import_via_csv: Importuoti iš CSV
       reminders:
         new:
           submit: Siųsti
@@ -787,9 +799,25 @@ lt:
       users_statistics:
         users_count:
           last_day: Paskutinė diena
+          last_week: Praėjusią savaitę
+          participants: Dalyviai
+    metrics:
+      blocked_users:
+        object: užblokuoti naudotojai
+        title: Užblokuoti naudotojai
     moderations:
+      actions:
+        expand: Išplėsti
+        hidden: Paslėptas
+        hide: Slėpti
+        not_hidden: Nepaslėpta
+        title: Veiksmai
+        unhide: Nebeslėpti
       admin:
         reportable:
+          hide:
+            invalid: Slepiant išteklių iškilo problema.
+            success: Išteklius paslėptas.
           unhide:
             success: Išteklius paslėptas.
       models:
