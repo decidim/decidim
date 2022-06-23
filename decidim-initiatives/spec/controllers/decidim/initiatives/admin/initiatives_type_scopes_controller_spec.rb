@@ -87,7 +87,7 @@ module Decidim
                        initiatives_type_id: initiative_type.id,
                        initiatives_type_scope: invalid_attributes
                      }
-              end.to change(InitiativesTypeScope, :count).by(0)
+              end.not_to change(InitiativesTypeScope, :count)
             end
           end
 
@@ -216,7 +216,7 @@ module Decidim
                          initiatives_type_id: initiative_type.id,
                          id: initiative_type_scope.to_param
                        }
-              end.to change(InitiativesTypeScope, :count).by(0)
+              end.not_to change(InitiativesTypeScope, :count)
             end
           end
 

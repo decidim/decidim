@@ -18,9 +18,9 @@ module Decidim
       #
       # Broadcasts :ok if successful, :invalid otherwise.
       def call
-        @meeting.with_lock do
-          return broadcast(:invalid) unless registration
+        return broadcast(:invalid) unless registration
 
+        @meeting.with_lock do
           destroy_registration
           destroy_questionnaire_answers
           decrement_score

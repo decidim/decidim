@@ -36,7 +36,7 @@ module Decidim
 
         context "when everything is ok" do
           it "creates a response group" do
-            expect { subject.call }.to change { Decidim::Consultations::ResponseGroup.count }.by(1)
+            expect { subject.call }.to change(Decidim::Consultations::ResponseGroup, :count).by(1)
           end
 
           it "broadcasts ok" do
