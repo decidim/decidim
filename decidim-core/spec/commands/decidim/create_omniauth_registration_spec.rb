@@ -70,7 +70,7 @@ module Decidim
           end
 
           it "creates a new user" do
-            allow(SecureRandom).to receive(:hex).and_return("decidim123456")
+            allow(SecureRandom).to receive(:hex).and_return("decidim123456789")
 
             expect do
               command.call
@@ -82,7 +82,7 @@ module Decidim
             expect(user.organization).to eq(organization)
             expect(user.newsletter_notifications_at).to be_nil
             expect(user).to be_confirmed
-            expect(user.valid_password?("decidim123456")).to be(true)
+            expect(user.valid_password?("decidim123456789")).to be(true)
           end
 
           it "notifies about registration with oauth data" do

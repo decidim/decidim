@@ -47,6 +47,11 @@ Decidim::Core::Engine.routes.draw do
   end
 
   authenticate(:user) do
+    devise_scope :user do
+      get "change_password" => "devise/passwords"
+      put "apply_password" => "devise/passwords"
+    end
+
     resource :account, only: [:show, :update, :destroy], controller: "account" do
       member do
         get :delete

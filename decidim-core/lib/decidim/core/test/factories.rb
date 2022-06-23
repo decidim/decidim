@@ -125,8 +125,6 @@ FactoryBot.define do
 
   factory :user, class: "Decidim::User" do
     email { generate(:email) }
-    password { "decidim123456" }
-    password_confirmation { password }
     name { generate(:name) }
     nickname { generate(:nickname) }
     organization
@@ -139,6 +137,8 @@ FactoryBot.define do
     accepted_tos_version { organization.tos_version }
     notifications_sending_frequency { "real_time" }
     email_on_moderations { true }
+    password_updated_at { Time.current }
+    previous_passwords { [] }
     extended_data { {} }
 
     trait :confirmed do
@@ -182,6 +182,14 @@ FactoryBot.define do
     trait :officialized do
       officialized_at { Time.current }
       officialized_as { generate_localized_title }
+    end
+
+    after(:build) do |user, evaluator|
+      # We have specs that call e.g. `create(:user, admin: true)` where we need
+      # to do this to ensure the user creation does not fail due to the short
+      # password.
+      user.password ||= evaluator.password || "decidim123456789"
+      user.password_confirmation ||= evaluator.password_confirmation || user.password
     end
   end
 
