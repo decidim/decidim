@@ -75,6 +75,7 @@ module Decidim
         end
       end
 
+      # deprecated
       describe "#conversation_name_for" do
         let(:user) { create :user, :confirmed }
         let(:participants) { [user] }

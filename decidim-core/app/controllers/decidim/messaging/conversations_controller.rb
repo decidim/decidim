@@ -97,6 +97,7 @@ module Decidim
 
       private
 
+      # deprecated
       def user_groups
         return [] unless current_organization.user_groups_enabled?
 

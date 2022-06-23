@@ -52,7 +52,7 @@ import "src/decidim/comments/comments"
 import "src/decidim/results_listing"
 import "src/decidim/represent_user_group"
 import "src/decidim/impersonation"
-import "src/decidim/start_conversation_dialog"
+// import "src/decidim/start_conversation_dialog" -- deprecated
 import "src/decidim/notifications"
 import "src/decidim/identity_selector_dialog"
 import "src/decidim/gallery"

@@ -1,8 +1,9 @@
-<div class="float-right">
-  <button id="start-conversation-dialog-button" type="button" name="button" class="button small">
-    <%= t("new_conversation", scope: "decidim.messaging.conversations.index") %>
-  </button>
-</div>
+<button type="button" class="button lg secondary mt-12">
+  <%= t("new_conversation", scope: "decidim.messaging.conversations.index") %>
+  <%= icon "question-answer-line", class: "fill-current" %>
+</button>
+
+<%# TODO: missing design %>
 <div class="reveal collapse"
       id="user-conversations-add-modal"
       data-reveal>

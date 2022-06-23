@@ -1,56 +1,29 @@
 <% add_decidim_page_title(t("conversations", scope: "layouts.decidim.user_menu")) %>
 
-<div class="wrapper">
-  <div class="row">
-    <div class="columns">
-      <div class="title-action">
-        <h1 class="heading1 title-action__title">
-          <%= t(".title") %>
-        </h1>
-      </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="columns large-8">
-      <div class="row columns">
-        <%= render partial: "new_conversation_button" %>
-      </div>
+<% content_for :aside do %>
+  <h1 class="h1 decorator">
+    <%= t("decidim.messaging.conversations.index.title") %>
+  </h1>
+  <%= render partial: "new_conversation_button" %>
+<% end %>
 
-      <% if @conversations.empty? %>
-        <div class="callout secondary">
-          <p><%= t(".no_conversations") %></p>
-        </div>
-      <% else %>
-        <div class="tabs-panel is-active conversations" id="conversations" role="tabpanel" aria-label="<%= t(".title") %>">
-          <%= render partial: "conversation", collection: @conversations %>
-        </div>
-      <% end %>
-    </div>
+<%= render layout:"layouts/decidim/shared/layout_two_col" do %>
 
-    <% if user_groups.present? %>
-      <div class="columns large-4 conversation-groups">
-        <div class="row columns title-action">
-          <h4 class="heading4">
-            <%= t(".groups") %>
-          </h4>
-        </div>
-        <div class="tabs-panel is-active">
-          <div class="card card--list user-groups">
-            <% user_groups.each do |group| %>
-              <div class="card--list__item">
-                <%= link_to decidim.profile_conversations_path(nickname: group.nickname), class: "card--list__author" do %>
-                  <%= cell("decidim/user_profile", group).unlinked_user_data.html_safe %>
-                  <% if group.unread_messages_count_for(current_user).positive? %>
-                    <span class="card--list__counter">
-                      <span><%= group.unread_messages_count_for(current_user) %></span>
-                    </span>
-                  <% end %>
-                <% end %>
-              </div>
-            <% end %>
-          </div>
-        </div>
-      </div>
+  <div class="p-12 space-y-10">
+
+    <%
+      validations = []
+
+      validations << t("decidim.messaging.conversations.index.no_conversations") if @conversations.empty?
+
+      validations.each do |validation| %>
+      <p><%= validation %></p>
     <% end %>
+
+    <% if validations.empty? %>
+      <%= render partial: "conversation", collection: @conversations + @conversations %>
+    <% end %>
+
   </div>
-</div>
+
+<% end %>

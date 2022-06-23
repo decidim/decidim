@@ -1,60 +1,34 @@
-<div class="card card--widget">
-  <ul class="card-data">
-    <li class="card-data__item">
-      <div class="card__link text-center">
-        <div class="user-header__avatar">
-          <% if conversation.interlocutors(current_user).count == 1 %>
-            <%= image_tag present(conversation.interlocutors(current_user).first).avatar_url, alt: t("decidim.author.avatar", name: decidim_sanitize(current_user.name)) %>
-          <% else %>
-            <%= image_tag present(current_user).avatar.default_multiuser_url, alt: t("decidim.author.avatar_multiuser") %>
-          <% end %>
-        </div>
-        <span class="text-medium mt-xs"><%= Date::ABBR_DAYNAMES[conversation.created_at.wday] %> <%= conversation.created_at.wday %></span>
-      </div>
-    </li>
-    <li class="card-data__item card--list__item card-data__item--expand absolutes">
-      <div class="mr-s">
-        <% if conversation.messages.last.decidim_sender_id == current_user.id %>
-          <%= t("to", scope: "decidim.messaging.conversations.index") %>:
-        <% else %>
-          <%= t("from", scope: "decidim.messaging.conversations.index") %>:
-        <% end %>
+<div class="flex items-center justify-between rounded border-4 border-background p-4 gap-4">
+  <%= icon "question-answer-line", class: "flex-none w-8 h-8 text-gray fill-current" %>
 
-        <% if conversation.interlocutors(current_user).count == 1 %>
-          <%= conversation_name_for(conversation.interlocutors(current_user)) %>
-        <% else %>
-          <strong><%= username_list(conversation.interlocutors(current_user), shorten: true).html_safe %></strong>
-        <% end %>
-        <br>
-        <span class="muted">
-          <%= truncate conversation.last_message.body, length: 150 %>
-        </span>
-        <br>
-        <span class="text-small">
-          <%= t("last_message", scope: "decidim.messaging.conversations.index") %>:
-          <strong>
-            <% if I18n.locale != :en %>
-              <%= t("ago", scope: "decidim.messaging.conversations.index") %> <%= time_ago_in_words(Time.parse(conversation.last_message.created_at.to_s)) %>
-            <% else %>
-              <%= time_ago_in_words(Time.parse(conversation.last_message.created_at.to_s)) %> <%= t("ago", scope: "decidim.messaging.conversations.index") %>
-            <% end %>
-          </strong>
-        </span>
-      </div>
-      <% if conversation.unread_count(current_user) > 0 %>
-        <span class="unread_message__counter">
-          <span><%= conversation.unread_count(current_user) %></span>
-        </span>
+  <div class="grow space-y-2.5">
+    <h5 class="h5">
+      <% if conversation.messages.last.decidim_sender_id == current_user.id %>
+        <%= t("to", scope: "decidim.messaging.conversations.index") %>:
+      <% else %>
+        <%= t("from", scope: "decidim.messaging.conversations.index") %>:
       <% end %>
-      <div class="right center mr-s">
-        <%= link_to decidim.conversation_path(conversation), id: "conversation-#{conversation.id}", class: "user-header__avatar", "data-tabs-target": "conversation" do %>
-          <% if conversation.interlocutors(current_user).count == 1 %>
-            <%= icon "chevron-right", class: "card__link icon--big", role: "img", aria_label: t(".show", sender: conversation.interlocutors(current_user).first.name) %>
-          <% else %>
-            <%= icon "chevron-right", class: "card__link icon--big", role: "img", aria_label: t(".show", sender: strip_tags(username_list(conversation.interlocutors(current_user)))) %>
-          <% end %>
-        <% end %>
-      </div>
-    </li>
-  </ul>
+
+      <%= username_list(conversation.interlocutors(current_user), shorten: true).html_safe %>
+    </h5>
+
+    <%# TODO: test again the styles once the cell is integrated %>
+    <%= cell "decidim/author", present(current_user) %>
+
+    <p class="text-gray-2"><%= truncate conversation.last_message.body, length: 150 %></p>
+
+    <div class="flex text-sm text-gray-2">
+      <%= t("last_message", scope: "decidim.messaging.conversations.index") %>:
+      <% if I18n.locale != :en %>
+        <%= t("ago", scope: "decidim.messaging.conversations.index") %> <%= time_ago_in_words(Time.parse(conversation.last_message.created_at.to_s)) %>
+      <% else %>
+        <%= time_ago_in_words(Time.parse(conversation.last_message.created_at.to_s)) %>
+      <% end %>
+    </div>
+  </div>
+
+  <%= link_to decidim.conversation_path(conversation), id: "conversation-#{conversation.id}", class: "button sm transparent secondary" do %>
+    <span><%= t("read_conversation", scope: "decidim.messaging.conversations.index") %></span>
+    <%= icon "arrow-right-line", class: "flex-none fill-current" %>
+  <% end %>
 </div>
