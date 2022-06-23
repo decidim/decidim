@@ -38,7 +38,7 @@ module Decidim
 
             expect do
               get :spawn, params: { initiative_slug: initiative.slug }
-            end.to change(InitiativesCommitteeMember, :count).by(0)
+            end.not_to change(InitiativesCommitteeMember, :count)
           end
         end
 
@@ -48,7 +48,7 @@ module Decidim
           it "Membership request is not created" do
             expect do
               get :spawn, params: { initiative_slug: published_initiative.slug }
-            end.to change(InitiativesCommitteeMember, :count).by(0)
+            end.not_to change(InitiativesCommitteeMember, :count)
           end
         end
       end

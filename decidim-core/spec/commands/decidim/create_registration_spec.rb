@@ -64,11 +64,11 @@ module Decidim
             end
 
             it "receives the invitation email again" do
+              expect { command.call }.not_to change(User, :count)
               expect do
                 command.call
                 user.reload
-              end.to change(User, :count).by(0)
-                                         .and broadcast(:invalid)
+              end.to broadcast(:invalid)
                 .and change(user.reload, :invitation_token)
               expect(ActionMailer::MailDeliveryJob).to have_been_enqueued.on_queue("mailers")
             end

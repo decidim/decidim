@@ -20,9 +20,9 @@ module Decidim
       #
       # Broadcasts :ok if successful, :invalid otherwise.
       def call
-        conference.with_lock do
-          return broadcast(:invalid) unless can_join_conference?
+        return broadcast(:invalid) unless can_join_conference?
 
+        conference.with_lock do
           create_registration
           create_meetings_registrations
           accept_invitation

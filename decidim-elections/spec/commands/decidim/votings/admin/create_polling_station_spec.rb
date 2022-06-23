@@ -44,7 +44,7 @@ module Decidim
         let(:polling_station) { Decidim::Votings::PollingStation.last }
 
         it "creates the voting" do
-          expect { subject.call }.to change { Decidim::Votings::PollingStation.count }.by(1)
+          expect { subject.call }.to change(Decidim::Votings::PollingStation, :count).by(1)
         end
 
         it "broadcasts ok" do

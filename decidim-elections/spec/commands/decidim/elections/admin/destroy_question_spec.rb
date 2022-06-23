@@ -11,7 +11,7 @@ describe Decidim::Elections::Admin::DestroyQuestion do
   let(:user) { create :user, :admin, :confirmed, organization: organization }
 
   it "destroys the question" do
-    expect { subject.call }.to change { Decidim::Elections::Question.count }.by(-1)
+    expect { subject.call }.to change(Decidim::Elections::Question, :count).by(-1)
   end
 
   it "traces the action", versioning: true do

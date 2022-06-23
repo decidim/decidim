@@ -77,9 +77,8 @@ module Decidim::Budgets
             it "sends existing reminder but does not re-add record to the reminder" do
               expect(Decidim::Budgets::SendVoteReminderJob).to receive(:perform_later)
 
-              expect { subject.generate }.to change(reminder.records, :count)
-                .by(0)
-                .and change(Decidim::Reminder, :count).by(0)
+              expect { subject.generate }.not_to change(reminder.records, :count)
+              expect { subject.generate }.not_to change(Decidim::Reminder, :count)
             end
 
             context "with confirmed order" do
