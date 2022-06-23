@@ -367,6 +367,9 @@ lt:
             label: Tipas
         officialized_at_null:
           label: Būsena
+          values:
+            'false': Oficializuota
+            'true': Neoficializuota
         participatory_space_private_users:
           user_invitation_accepted_at_not_null:
             label: Pakvietimas priimtas
@@ -387,11 +390,13 @@ lt:
           label: Publikuota
           values:
             'false': Publikuota
+            'true': Nebeskelbiama
         scope_id_eq:
           label: Apimtis
         search_label: Ieškoti
         search_placeholder:
           name_or_nickname_or_email_cont: Ieškoti %{collection} pagal el. pašto adresą, vardą ir pavardę arba naudotojo vardą.
+          reported_id_string_or_reported_content_cont: Ieškoti %{collection} pagal ID arba turinį.
           title_cont: Ieškoti %{collection} pagal pavadinimą.
           user_name_or_user_email_cont: Ieškoti %{collection} pagal vardą ar el. paštą.
         state_eq:
@@ -401,7 +406,9 @@ lt:
           import:
             explanation: 'Rinkmenai skirtos gairės:'
             message_1: CSV, JSON ir Excel (.xlsx) rinkmenos palaikomos
+            message_2: CSV dokumentams, skiriklis tarp stulpelių turėtų būti kabliataškis ";"
       help_sections:
+        error: Atnaujinant pagalbos skyrių iškilo problema
         form:
           save: Išsaugoti
         success: Pagalbos skyreliai atnaujinti
@@ -409,6 +416,8 @@ lt:
         index:
           filter:
             all: Visi
+            managed: Valdomas
+            not_managed: Nevaldomas
           filter_by: Filtruoti pagal
           impersonate: Apsimesti
           impersonate_new_managed_user: Tvarkyti naujo dalyvio duomenis
@@ -467,21 +476,28 @@ lt:
         help_sections: Pagalbos skyrius
         homepage: Pradinis puslapis
         impersonations: Įsikūnyjimai
+        moderation: Globalūs moderavimai
         newsletters: Naujienlaiškiai
         participants: Dalyviai
+        reported_users: Raportuoti Naudotojai
         scope_types: Apimties tipai
         scopes: Apimtys
         settings: Nustatymai
         static_pages: Puslapiai
         user_groups: Grupės
         users: Dalyviai
+      metrics:
+        metrics:
+          see_more_metrics: Žiūrėti daugiau rodiklių
       models:
         area:
           fields:
+            area_type: Erdvės tipas
             name: Pavadinimas
         area_type:
           fields:
             name: Pavadinimas
+            plural: Pluralistinis
         attachment:
           fields:
             collection: Aplankas
@@ -497,6 +513,7 @@ lt:
           fields:
             admin: Administratorius
             ended_at: Baigėsi
+            expired_at: Baigė galioti
             reason: Priežastis
             started_at: Prasidėjo
             user: Dalyvis
@@ -508,12 +525,23 @@ lt:
             sent_to: Išsiųsta
             subject: Tema
           name: Naujienlaiškis
+        participatory_space_private_user:
+          name: Dalivaujamosios erdvės privatus dalyvis
+        scope:
+          fields:
+            name: Vardas
+            scope_type: Apimties tipas
+        scope_type:
+          fields:
+            name: Vardas
+            plural: Pluralistinis
         share_token:
           fields:
             created_at: Sukurta
             expires_at: Nustoja galioti
             last_used_at: Paskutinį kartą naudota
             times_used: Kiek kartų naudota
+            token: Žetonas
             user: Sukūrė
         static_page:
           fields:
@@ -524,9 +552,18 @@ lt:
             created_at: Sukūrimo data
             email: El. paštas
             last_sign_in_at: Paskutinio prisijungimo data
+            name: Pavadinimas
             role: Rolė
+            roles:
+              admin: Administratorius
+              user_manager: Dalyvių tvarkytojas
+          name: Dalyvis
         user_group:
           fields:
+            actions: Veiksmai
+            created_at: Sukurta
+            document_number: Dokumento numeris
+            name: Vardas
             phone: Telefonas
             state: Būsena
             users_count: Dalyvių skaičius
@@ -536,9 +573,12 @@ lt:
             block: Blokuoti naudotoją
             title: Veiksmai
             unblock: Atblokuoti naudotoją
+            unreport: Naikinti raportavimą
           name: Vardas
           nickname: Slapyvardis
           reason: Priežastis
+          reports: Raportavimų skaičius
+          title: Raportuotų dalyvių sąrašas
         report:
           reasons:
             does_not_belong: Nepriklauso
@@ -548,24 +588,35 @@ lt:
           blocked: Užblokuota
           unblocked: Neužblokuota
       moderations:
+        index:
+          title: Moderavimai
         report:
           reasons:
             does_not_belong: Nepriklauso
+            offensive: Įžeidžiantis
             spam: Šlamštas
         reports:
           index:
             author: Autorius(iai)
+            callout_html: Turinys atsiranda moderavimo puslapyje kai jis būna raportuotuotas registruoto naudotojo paspaudus ant %{icon} vėliavėlės prie turinio vieneto.
+            content_original_language: Turinio originali kalba
             participatory_space: Dalyvaujamoji erdvė
             reported_content: Turinys, apie kurį pranešta
+            see_current: Žiūrėti dabartinį
             see_original: Matyti orginalą
+            title: Moderavimo raportai
           show:
+            report_details: Priežasties detalės
+            report_language: Raportuoti kalbą
             report_reason: Priežastis
+            title: Raportuoti detales
       newsletter_templates:
         index:
           preview_template: Peržiūra
           title: Naujienlaiškio šablonai
           use_template: Naudoti šį šabloną
         show:
+          preview: 'Peržiūrėti šabloną: %{template_name}'
           use_template: Naudoti šį šabloną
       newsletters:
         create:
@@ -586,6 +637,8 @@ lt:
           and: 'ir '
           confirm_delete: Ar tikrai norite ištrinti šį naujienlaiškį?
           followers: 'sekėjai '
+          has_been_sent_to: 'Buvo išsiųsta: '
+          no_scopes: Sričių nėra
           not_sent: Neišsiųstas
           participants: 'dalyviai '
           segmented_to: 'Išskaidyta į %{subject}: '
@@ -600,7 +653,11 @@ lt:
           confirm_deliver: Ar tikrai norite išsiųsti šį naujienlaiškį? Šio veiksmo atšaukti negalima.
           deliver: Pristatyti naujienlaiškį
           followers_help: Naujienlaiškis išsiunčiamas visiems patvirtintiems naudotojams, kurie seka sąraše nurodytas pasirinktas dalyvaujamojo proceso erdves.
+          none: Nėra
           participants_help: Naujienlaiškis išsiunčiamas visiems patvirtintiems naudotojams, kurie dalyvavo bet kurioje sąraše nurodytoje pasirinktoje dalyvaujamojo proceso erdvėje.
+          recipients_count: Šis naujienlaiškis bus išsiųstas <strong id='recipients_count'>%{count}</strong> naudotojams.
+          scopes_help: Naujienlaiškis siunčiamas naudotojams, kurių paskyros „Mano interesai“ nuostatose aktyvuota kuri nors pasirinkta sritis.
+          select_scopes: Filtruoti naudotojus, kurie savo paskyros „Mano interesai“ nuostatose aktyvino bet kurią pasirinktą sritį.
           send_to_all_users: Siųsti visiems naudotojams
           send_to_followers: Siųsti sekėjams
           send_to_participants: Siųsti dalyviams
@@ -665,6 +722,11 @@ lt:
       participatory_space_private_users:
         index:
           import_via_csv: Importuoti iš CSV
+      participatory_space_private_users_csv_imports:
+        new:
+          explanation: 'Įkelkite CSV dokumentą. Jis turi turėti du stulpelius su naudotojų el. paštu pirmajame ir vardu paskutiniąjame. Dokumente neturėtų būti laukų pavadinimų ir šių simbolių naudotojų varduose "<>?%&^*#@()[]=+:;"{}\|".'
+          title: Įkelkite CSV dokumentą
+          upload: Įkelti
       resource_permissions:
         edit:
           submit: Pateikti
@@ -676,15 +738,46 @@ lt:
           headers:
             scope: Apimtis
       scope_types:
+        create:
+          error: Kuriant naujo tipo sritį iškilo problema.
+          success: Srities tipas sukurtas sėkmingai.
+        destroy:
+          success: Srities tipas sėkmingai panaikintas
         edit:
+          title: Keisti srities tipą
           update: Atnaujinti
+        new:
+          create: Sukurti srities tipą
+          title: Nauja sritis
+        update:
+          error: Atnaujinant šį srities tipą iškilo problema.
+          success: Srities tipas atnaujintas
       scopes:
+        create:
+          error: Kuriant naują sritį iškilo problema.
+          success: Sritis sukurta.
+        destroy:
+          success: Sritis panaikinta.
         edit:
+          title: Taisyti sritį
           update: Atnaujinti
+        new:
+          create: Sukurti sritį
+          title: Nauja sritis
+        no_scopes: Šiuo lygmeniu nėra sričių.
+        update:
+          error: Atnaujinant šią sritį iškilo problema.
+          success: Sritis atnaujinta
       share_tokens:
         actions:
+          confirm_destroy: Ar tikrai norite pašalinti šį žetoną?
           destroy: Ištrinti
           share: Dalintis
+        destroy:
+          error: Pašalinant žetoną iškilo problema.
+          success: Žetonas pašalintas sėkmingai.
+        share_tokens:
+          empty: Nėra aktyvių žetonų
       shared:
         gallery:
           add_images: Pridėti paveikslėlių
