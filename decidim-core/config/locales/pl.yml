@@ -553,7 +553,6 @@ pl:
           newsletter: Chcę otrzymywać okazjonalne newslettery z istotnymi informacjami
           newsletter_title: Zgoda na subskrybcję
           nickname_help: Twój pseudonim w %{organization}. Może zawierać tylko litery, cyfry, '-' i '_'.
-          password_help: "Minimalna liczba znaków: %{minimun_characters}; nie może być zbyt powszechne (np. 123456) i musi różnić się od Twojego pseudonimu i adresu e-mail."
           sign_in: Zaloguj się
           sign_up: Zarejestruj się
           sign_up_as:
@@ -1570,7 +1569,6 @@ pl:
     passwords:
       edit:
         change_my_password: Zmień moje hasło
-        change_your_password: Zmień swoje hasło
         confirm_new_password: Potwierdź nowe hasło
         new_password: Nowe hasło
         password_help: "Minimalna liczba znaków: %{minimun_characters}; nie może być zbyt powszechne (np. 123456) i musi różnić się od Twojego pseudonimu i adresu e-mail."
