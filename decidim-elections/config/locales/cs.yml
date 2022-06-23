@@ -267,6 +267,7 @@ cs:
               minimum_answers: Otázky musí mít <strong>alespoň dvě odpovědi</strong>.
               minimum_questions: Volby <strong>musí mít alespoň jednu otázku</strong>.
               published: Volby <strong>nejsou publikovány</strong>.
+              time_before: Čas zahájení je v <strong>méně než %{hours} hodin</strong> před začátkem voleb.
               trustees_number: Participační prostor <strong>musí mít alespoň %{number} důvěrníků s veřejným klíčem</strong>.
             invalid: Při zřizování těchto voleb došlo k chybě
             no_trustees: Pro tento participační prostor nejsou nakonfigurováni žádní důvěrníci
