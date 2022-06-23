@@ -153,6 +153,9 @@ fr-CA:
     admin:
       actions:
         cancel: Annuler
+      password_change:
+        alert: Vous devez changer votre mot de passe pour continuer
+        notification: Les administrateurs doivent changer leur mot de passe tous les %{days} jours.
     admin_log:
       area:
         create: "%{user_name} a créé la zone d'application %{resource_name}"
@@ -1253,6 +1256,10 @@ fr-CA:
           title: 'Obligatoire : consultez les conditions d''utilisation mises à jour'
     participatory_space_private_users:
       not_allowed: Vous n'êtes pas autorisé à voir ce contenu
+    passwords:
+      update:
+        error: Il y a eu un problème lors de la mise à jour de votre mot de passe
+        success: Mot de passe mis à jour avec succès
     profile:
       deleted: Utilisateur ayant supprimé son compte
       inaccessible_message: Ce profil est inaccessible en raison d'une violation des Conditions Générales d'Utilisation !
@@ -1617,6 +1624,8 @@ fr-CA:
         confirm_new_password: Confirmer le nouveau mot de passe
         new_password: Nouveau mot de passe
         password_help: "%{minimun_characters} caractères minimum, ne doit pas être trop commun (par exemple 123456) et doit être différent de votre pseudo et de votre email."
+        password_help_admin: "%{minimun_characters} caractères minimum, ne doit pas être trop commun (par exemple 123456) et doit être différent de votre pseudo et de votre email, ainsi que de vos précédents mots de passe."
+        title: Changement de mot de passe
       new:
         forgot_your_password: Mot de passe oublié?
         send_me_reset_password_instructions: Envoyez-moi les instructions de réinitialisation du mot de passe
@@ -1816,6 +1825,7 @@ fr-CA:
     nickname_included_in_password: est trop similaire à votre surnom
     not_enough_unique_characters: n'a pas assez de caractères uniques
     password_not_allowed: n'est pas autorisé
+    password_repeated: impossible de réutiliser un ancien mot de passe
     password_too_common: est trop commun
     password_too_long: est trop long
     password_too_short: est trop court
