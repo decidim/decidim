@@ -153,6 +153,9 @@ es:
     admin:
       actions:
         cancel: Cancelar
+      password_change:
+        alert: Tienes que cambiar tu contraseña para poder seguir adelante
+        notification: Las usuarias con rol de administración tienen que cambiar su contraseña cada %{days} días.
     admin_log:
       area:
         create: "%{user_name} creó el área %{resource_name}"
@@ -1265,6 +1268,10 @@ es:
           title: 'Obligatorio: revisa las actualizaciones de nuestros Términos de Servicio'
     participatory_space_private_users:
       not_allowed: No tienes permiso para visualizar este contenido
+    passwords:
+      update:
+        error: Ha habido un problema al actualizar la contraseña
+        success: Contraseña actualizada correctamente
     profile:
       deleted: Participante eliminada
       inaccessible_message: '¡Este perfil es inaccesible debido a la violación de Términos y Condiciones de uso!'
@@ -1628,6 +1635,8 @@ es:
         confirm_new_password: Confirmar la nueva contraseña
         new_password: Nueva contraseña
         password_help: "%{minimun_characters} caracteres mínimos, no debe ser demasiado común (por ejemplo, 123456) y debe ser diferente de tu apodo y tu correo electrónico."
+        password_help_admin: "%{minimun_characters} caracteres mínimos, no debe ser demasiado común (por ejemplo, 123456) y debe ser diferente de tu apodo, de tu correo electrónico y de tus antiguas contraseñas."
+        title: Cambio de contraseña
       new:
         forgot_your_password: '¿Olvidaste tu contraseña?'
         send_me_reset_password_instructions: Envíame instrucciones para restablecer la contraseña
@@ -1831,6 +1840,7 @@ es:
     nickname_included_in_password: es demasiado similar a tu alias
     not_enough_unique_characters: no tiene suficientes caracteres únicos
     password_not_allowed: no está permitido
+    password_repeated: no puedes reutilizar una vieja contraseña
     password_too_common: es demasiado común
     password_too_long: es demasiado largo
     password_too_short: es demasiado corto
