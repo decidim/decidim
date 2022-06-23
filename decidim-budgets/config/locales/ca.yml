@@ -259,6 +259,8 @@ ca:
           filter: Filtra
           filter_by: Filtra per
           unfold: Desplegar
+        index:
+          view_project: Veure projecte
         order_progress:
           vote: Vota
         order_selected_projects:
@@ -316,6 +318,7 @@ ca:
               errors:
                 budget_voting_rule_only_one: Cal activar com a mínim una norma per a la votació
                 budget_voting_rule_required: Es requereix una norma per a la votació
+            geocoding_enabled: Geolocalització habilitada
             landing_page_content: Pàgina d'inici de pressupostos
             more_information_modal: Finestra de "Més informació"
             projects_per_page: Projectes per pàgina
