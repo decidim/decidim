@@ -239,7 +239,6 @@ ja:
               minimum_answers: 質問には <strong>少なくとも2つの回答</strong>が必要です
               minimum_questions: 選挙には <strong>少なくとも1つの質問</strong>が必要です。
               published: 選挙はが <strong>公開されていません</strong> 。
-              time_before: 開始時刻が、選挙開始まで<strong>3時間未満 </strong> しかありません。
               trustees_number: 参加スペースには <strong>少なくとも %{number} 人の公開鍵を持つ受託者</strong>が必要です。
             invalid: この選挙の設定中に問題が発生しました
             no_trustees: この参加スペースに設定された受託者はいません
