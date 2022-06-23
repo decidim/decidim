@@ -177,6 +177,9 @@ cs:
     admin:
       actions:
         cancel: Zrušit
+      password_change:
+        alert: Abyste mohli pokračovat, musíte změnit heslo
+        notification: Uživatelé správce si musí měnit heslo každých %{days} dní.
     admin_log:
       area:
         create: "%{user_name} vytvořila oblast %{resource_name}"
@@ -1306,6 +1309,10 @@ cs:
           title: 'Požadováno: Zkontrolujte aktualizace našich smluvních podmínek'
     participatory_space_private_users:
       not_allowed: Nemáte oprávnění k zobrazení tohoto obsahu
+    passwords:
+      update:
+        error: Došlo k problému s aktualizací hesla
+        success: Heslo bylo úspěšně změněno
     profile:
       deleted: Vymazaný uživatel
       inaccessible_message: Tento profil je nedostupný z důvodu porušení smluvních podmínek!
@@ -1672,6 +1679,8 @@ cs:
         confirm_new_password: Potvrďte nové heslo
         new_password: Nové heslo
         password_help: "%{minimun_characters} je minimum znaků, nesmí být příliš běžné (např. 123456) a musí být jiné než vaše přezdívka a váš e-mail."
+        password_help_admin: "minimálně %{minimun_characters} znaků, nesmí být příliš časté (např. 123456), musí se lišit od vaší přezdívky a e-mailu a musí se lišit od vašich starých hesel."
+        title: Změna hesla
       new:
         forgot_your_password: Zapomněli jste heslo?
         send_me_reset_password_instructions: Pošlete mi pokyny k resetování hesla
@@ -1881,6 +1890,7 @@ cs:
     nickname_included_in_password: je příliš podobné vaší přezdívce
     not_enough_unique_characters: nemá dostatek jedinečných znaků
     password_not_allowed: není povoleno
+    password_repeated: nelze znovu použít staré heslo
     password_too_common: je příliš běžné
     password_too_long: je to moc dlouhé
     password_too_short: je příliš krátké
