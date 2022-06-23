@@ -67,6 +67,22 @@ Once you've checked the list of changes, it's time to actually generating the ch
 bin/changelog_generator
 ----
 
+In order to generate the changelog, you need to know the SHA hash of the first commit that was not part of the previous release. You can check the commit hash by inspecting the commit log of the `.decidim-version` file as follows when in the correct release branch:
+
+[source,bash]
+----
+git log -1 --format=oneline .decidim-version
+----
+
+Alternatively, you can find the first commit after the point of time that the two release branches have separated from each other as follows:
+
+[source,bash]
+----
+git log --reverse --pretty=format:"%H" $(git merge-base release/0.XX-stable release/0.YY-stable)..release/0.YY-stable | head -1
+----
+
+In the above command, replace `0.XX` with the previous release and `0.YY` with the current release you are generating the change log for. This command works only for major releases, not for patch or bugfix releases.
+
 Running it as is, or passing it the `--help` flag, will render the help section for the script. In order to actually run the script, follow the instructions:
 
 [source,bash]
