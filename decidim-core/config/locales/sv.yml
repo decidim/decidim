@@ -485,7 +485,6 @@ sv:
           newsletter: Få enstaka nyhetsbrev med relevant information
           newsletter_title: Kontakttillstånd
           nickname_help: Ditt alias i %{organization}. Kan bara innehålla bokstäver, siffror, '-' och '_'.
-          password_help: "Minst %{minimun_characters} tecken, får inte vara för vanligt (som 123456) och måste vara skilt från ditt användarnamn och din e-postadress."
           sign_in: Logga in
           sign_up: Registrera dig
           sign_up_as:
@@ -1546,7 +1545,6 @@ sv:
     passwords:
       edit:
         change_my_password: Ändra mitt lösenord
-        change_your_password: Ändra ditt lösenord
         confirm_new_password: Bekräfta nytt lösenord
         new_password: Nytt lösenord
         password_help: "Minst %{minimun_characters} tecken, får inte vara för vanligt (som 123456) och måste vara skilt från ditt användarnamn och din e-postadress."
