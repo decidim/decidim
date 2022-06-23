@@ -381,11 +381,6 @@ en:
           back: Back
           choose_html: I want to create a <strong>%{title}</strong>
           more_information: "(More information)"
-          not_authorized:
-            authorizations_page: View authorizations
-            close: Close
-            explanation: You need to be verified in order to create a new initiative.
-            title: Authorization required
           select: I want to promote this initiative
           select_initiative_type_help: Initiatives are a means by which the participants can intervene so that the organization can undertake actions in defence of the general interest. Which initiative do you want to launch?
           verification_required: Verify your account to promote this initiative
@@ -500,11 +495,6 @@ en:
           unfold: Unfold
         index_header:
           new_initiative: New initiative
-          not_authorized:
-            authorizations_page: View authorizations
-            close: Close
-            explanation: You need to be verified in order to create a new initiative.
-            title: Authorization required
         initiatives:
           closed_initiatives_warning: Currently, there are no open initiatives, but here you can find all the closed initiatives listed.
           no_initiatives_warning: No initiatives match your search criteria.
@@ -581,6 +571,12 @@ en:
         status_change_for: The initiative %{title} has changed its status
       last_activity:
         new_initiative: New initiative
+      modal:
+        not_authorized:
+          authorizations_page: View authorizations
+          close: Close
+          explanation: You need to be verified in order to create a new initiative.
+          title: Authorization required
       pages:
         home:
           highlighted_initiatives:

@@ -57,22 +57,5 @@
     </div>
   </div>
 </div>
-<div class="reveal not-authorized-reveal" id="not-authorized-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="not-authorized-modal-title" data-reveal data-multiple-opened="true">
-  <div class="reveal__header">
-    <h2 class="reveal__title" id="not-authorized-modal-title"><%= t(".not_authorized.title") %></h2>
-    <button class="close-button" data-close aria-label="<%= t(".not_authorized.close") %>"
-            type="button">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
-  <div class="not-authhorized-content">
-    <div class="not-authorized-modal-content">
-      <p>
-        <%= t(".not_authorized.explanation") %>
-      </p>
-    </div>
-  </div>
-  <div class="not-authorized-modal-footer reveal__footer">
-    <%= link_to t(".not_authorized.authorizations_page"), decidim_verifications.authorizations_path(redirect_url: create_initiative_url(:select_initiative_type)), class: "button expanded" %>
-  </div>
-</div>
+<%= render partial: "decidim/initiatives/modal" %>
+
