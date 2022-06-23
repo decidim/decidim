@@ -146,7 +146,7 @@ describe "Initiative", type: :system do
             it "they are redirected to the initiative form after log in" do
               click_button "New initiative"
               fill_in "Email", with: authorized_user.email
-              fill_in "Password", with: "decidim123456"
+              fill_in "Password", with: "decidim123456789"
               click_button "Log in"
 
               expect(page).to have_content("What does the initiative consist of")
