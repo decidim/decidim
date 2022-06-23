@@ -248,7 +248,6 @@ fi-pl:
               minimum_answers: Kysymyksillä on oltava <strong>vähintään kaksi vastausta</strong>.
               minimum_questions: Vaalilla <strong>on oltava vähintään yksi kysymys</strong>.
               published: Vaalia <strong>ei ole julkaistu</strong>.
-              time_before: Alkamisaika on <strong>alle 3 tuntia</strong> ennen vaalin alkua.
               trustees_number: Osallistumistilassa <strong>on oltava vähintään %{number} luottamushenkilöä, joilla on julkinen avain</strong>.
             invalid: Vaalin asetusten määrittäminen epäonnistui
             no_trustees: Tähän osallistumistilaan ei ole määritetty luottamushenkilöitä
