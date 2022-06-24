@@ -50,6 +50,10 @@ module Decidim
       { resource_type: nil }
     end
 
+    def all_value
+      "all"
+    end
+
     def resource_types
       @resource_types = begin
         array = %w(Decidim::Proposals::CollaborativeDraft
