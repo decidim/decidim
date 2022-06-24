@@ -23,8 +23,7 @@
       <% end %>
     </div>
 
-    <!-- TODO: deprecated script related -->
-    <div id="messages" class="scroll-to-last-message space-y-6">
+    <div id="messages" class="space-y-6" data-scroll-bottom>
       <% user_grouped_messages.each do |sender, messages| %>
         <%= render "messages", sender: sender, messages: messages %>
       <% end %>

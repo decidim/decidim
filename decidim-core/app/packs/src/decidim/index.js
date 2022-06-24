@@ -7,7 +7,8 @@ import createQuillEditor from "src/decidim/editor"
 import Configuration from "src/decidim/configuration"
 import ExternalLink from "src/decidim/redesigned_external_link"
 import updateExternalDomainLinks from "src/decidim/external_domain_warning"
-import InputCharacterCounter from "src/decidim/input_character_counter"
+import scrollToBottom from "src/decidim/scroll_to_bottom"
+// import InputCharacterCounter from "src/decidim/input_character_counter"
 import FormValidator from "src/decidim/form_validator"
 import CommentsComponent from "src/decidim/comments/comments.component"
 import DataPicker from "src/decidim/data_picker"
@@ -23,13 +24,17 @@ import Dialogs from "a11y-dialog-component";
 window.Decidim = window.Decidim || {};
 window.Decidim.config = new Configuration()
 window.Decidim.ExternalLink = ExternalLink;
-window.Decidim.InputCharacterCounter = InputCharacterCounter;
+// window.Decidim.InputCharacterCounter = InputCharacterCounter;
 window.Decidim.FormValidator = FormValidator;
 window.Decidim.DataPicker = DataPicker;
 window.Decidim.CommentsComponent = CommentsComponent;
 window.Decidim.addInputEmoji = addInputEmoji;
 
-$(() => {
+/**
+ * Initializer event for those script who require to be triggered
+ * when the page is loaded
+ */
+document.addEventListener("DOMContentLoaded", () => {
   window.theDataPicker = new DataPicker($(".data-picker"));
   window.focusGuard = new FocusGuard(document.querySelector("body"));
 
@@ -93,4 +98,6 @@ $(() => {
     openingSelector: "[data-dialog-open]",
     closingSelector: "[data-dialog-close]"
   })
+
+  scrollToBottom()
 });
