@@ -20,7 +20,7 @@
     <% if current_user.notifications.any? %>
       <span class="w-2.5 h-2.5 rounded-full block absolute top-0 right-2 bg-primary"></span>
     <% end %>
-    <% if current_user.avatar.any? %>
+    <% if current_user.avatar.attached? %>
       <div class="w-8 h-8 rounded-full overflow-hidden">
         <%= image_tag "https://www.fillmurray.com/640/360", class: "object-cover w-full h-full", alt: "avatar #{current_user.avatar.name}" %>
       </div>
