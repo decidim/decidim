@@ -39,6 +39,17 @@ module Decidim
       )
     end
 
+    def filter_items_for_radiobuttons
+      filter_items.map { |e| OpenStruct.new(e.merge(text: text_for(e[:name], e[:translation]))) }
+    end
+
+    def text_for(name, translation)
+      text = ""
+      text += resource_type_icon name, class: "w-6 h-6 md:w-4 md:h-4 flex-none text-gray group-hover:text-secondary fill-current"
+      text += content_tag :span, translation, class: "hidden md:block text-sm text-gray-2 first-letter:uppercase group-hover:text-secondary group-hover:font-semibold"
+      text.html_safe
+    end
+
     def filter
       context[:filter]
     end
