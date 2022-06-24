@@ -12,7 +12,6 @@
       <%= username_list(conversation.interlocutors(current_user), shorten: true).html_safe %>
     </h5>
 
-    <%# TODO: test again the styles once the cell is integrated %>
     <%= cell "decidim/author", present(current_user) %>
 
     <p class="text-gray-2"><%= truncate conversation.last_message.body, length: 150 %></p>

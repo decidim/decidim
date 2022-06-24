@@ -1,21 +1,14 @@
-<div class="conversation-chat<%= " conversation-chat--offset" if sender_is_user?(sender) %>">
-  <% if sender.deleted? %>
-    <span class="label label--small label--basic">
-      <%= t("deleted", scope: "decidim.profile") %>
-    </span>
-  <% else %>
-    <%= link_to profile_path(sender.nickname) do %>
-      <%= image_tag present(sender).avatar_url, alt: t("decidim.author.avatar", name: decidim_sanitize(sender.name)) %>
-    <% end %>
-  <% end %>
-  <div>
+<div class="flex items-start gap-4 w-3/4<%= " flex-row-reverse ml-auto" if sender_is_user?(sender) %>">
+
+  <%# TODO: show alternative user view, only avatar %>
+  <%= cell "decidim/author", present(sender) %>
+
+  <div class="grow bg-background rounded p-4 text-gray-2">
     <% messages.each do |message| %>
-      <div class="card">
-        <div class="p-s">
-          <%= simple_format(message.body_with_links) %>
-        </div>
-      </div>
+      <%= simple_format(message.body_with_links) %>
     <% end %>
-    <span class="text-small<%= " pull-right" if sender_is_user?(sender) %>" title="<%= messages.last.created_at.strftime("%d-%m-%Y %H:%M:%S%z") %>"><%= messages.last.friendly_created_at %></span>
+    <span class="text-xs" title="<%= messages.last.created_at.strftime("%d-%m-%Y %H:%M:%S%z") %>">
+      <%= messages.last.friendly_created_at %>
+    </span>
   </div>
 </div>

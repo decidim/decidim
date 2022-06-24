@@ -1,15 +1,45 @@
-<%= render layout: "show", locals: { participants: conversation.interlocutors(current_user) } do %>
-  <div id="messages" class="scroll-to-last-message">
-    <% user_grouped_messages.each do |sender, messages| %>
+<% add_decidim_page_title(t("conversations", scope: "layouts.decidim.user_menu")) %>
+
+<% content_for :aside do %>
+  <h1 class="h1 decorator">
+    <%= t("decidim.messaging.conversations.index.title") %>
+  </h1>
+  <%= render partial: "new_conversation_button" %>
+<% end %>
+
+<%= render layout: "layouts/decidim/shared/layout_two_col" do %>
+
+  <div class="p-12">
+
+    <% participants = conversation.interlocutors(current_user) %>
+
+    <h4 class="h4 mb-6">
+      <%= t("decidim.messaging.conversations.show.chat_with") %>
+    </h4>
+
+    <div class="bg-background rounded px-4 py-2 flex items-center gap-6 mb-14">
+      <% participants.each do |participant| %>
+        <%= cell "decidim/author", present(participant) %>
+      <% end %>
+    </div>
+
+    <!-- TODO: deprecated script related -->
+    <div id="messages" class="scroll-to-last-message space-y-6">
+      <% user_grouped_messages.each do |sender, messages| %>
         <%= render "messages", sender: sender, messages: messages %>
-    <% end %>
+      <% end %>
+    </div>
+
+    <div class="border-t-2 border-background mt-6 py-12">
+      <% if conversation.with_deleted_users?(current_user) %>
+        <%= cell("decidim/announcement", t("decidim.messaging.conversations.show.deleted_accounts"), callout_class: "warning") %>
+      <% elsif conversation.accept_user?(current_user) %>
+        <%= render "reply", form: @form, conversation: conversation %>
+      <% else %>
+        <%= cell("decidim/announcement", t("decidim.messaging.conversations.show.not_allowed"), callout_class: "warning") %>
+      <% end %>
+    </div>
+
   </div>
 
-  <% if conversation.with_deleted_users?(current_user) %>
-    <div class="callout warning margin-top-2"><%= t ".deleted_accounts" %></div>
-  <% elsif conversation.accept_user?(current_user) %>
-    <%= render "reply", form: @form, conversation: conversation %>
-  <% else %>
-    <div class="callout warning margin-top-2"><%= t ".not_allowed" %></div>
-  <% end %>
 <% end %>
