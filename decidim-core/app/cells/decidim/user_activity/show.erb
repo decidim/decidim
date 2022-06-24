@@ -23,9 +23,6 @@
     </div>
   </div>
 
-  <% unless activities.length == 0 %>
-    <div class="flex flex-col-reverse md:flex-row items-center justify-between gap-1 py-8 md:py-16" id="decidim-paginate-container">
-
-      <%= decidim_paginate activities %>
-    </div>
-  <% end %>
+  <div id="decidim-paginate-container">
+    <%= decidim_paginate activities %>
+  </div>
