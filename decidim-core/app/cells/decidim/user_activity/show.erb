@@ -14,7 +14,7 @@
       <% end %>
     </div>
 
-    <div class="md:col-span-6 divide-y divide-gray-3 -mt-4">
+    <div class="md:col-span-6 divide-y divide-gray-3 -mt-4" id="activities-container">
       <% if activities.length == 0 %>
         <p><%= t "decidim.user_activity.index.no_activities_warning" %></p>
       <% else %>
@@ -23,8 +23,9 @@
     </div>
   </div>
 
-  <div class="flex flex-col-reverse md:flex-row items-center justify-between gap-1 py-8 md:py-16">
-    <%= render partial: "decidim/shared/results_per_page.html" %>
+  <% unless activities.length == 0 %>
+    <div class="flex flex-col-reverse md:flex-row items-center justify-between gap-1 py-8 md:py-16" id="decidim-paginate-container">
 
-    <%= decidim_paginate activities %>
-  </div>
+      <%= decidim_paginate activities %>
+    </div>
+  <% end %>
