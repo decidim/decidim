@@ -4,4 +4,9 @@ var $activitiesContainer = $('#activities-container'),
 <% if(activities_cell = cell("decidim/activities", activities).show) %>
   $activitiesContainer.html('<%= j(activities_cell).strip.html_safe %>');
   $decidimPaginateContainer.html('<%= j(decidim_paginate(activities).to_s).strip.html_safe %>');
+<% else %>
+  $activitiesContainer.html(`
+    <p><%= t "decidim.user_activity.index.no_activities_warning" %></p>
+  `);
+  $decidimPaginateContainer.html('');
 <% end %>
