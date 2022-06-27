@@ -1,3 +1,4 @@
+---
 de:
   activemodel:
     attributes:
@@ -12,7 +13,6 @@ de:
         start_time: Die Abstimmung beginnt um
         title: Titel
       question:
-        description: Beschreibung
         max_selections: Maximale Anzahl Antworten
         min_selections: Nichts davon
         title: Titel
@@ -227,7 +227,6 @@ de:
               minimum_answers: Fragen müssen <strong>mindestens zwei Antworten</strong> haben.
               minimum_questions: Die Wahl <strong>muss mindestens eine Frage</strong> haben.
               published: Die Wahl ist <strong>nicht veröffentlicht</strong>.
-              time_before: Die Startzeit ist in <strong>weniger als 3 Stunden</strong> vor Beginn der Wahl.
               trustees_number: <strong>Mindestens %{number} Wahlhelfer mit Public Key</strong> werden benötigt.
             invalid: Beim Erstellen dieser Wahl ist ein Fehler aufgetreten
             no_trustees: Es sind keine Wahlhelfer eingetragen
