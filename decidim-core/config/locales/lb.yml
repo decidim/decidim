@@ -1,3 +1,4 @@
+---
 lb:
   activemodel:
     attributes:
@@ -449,7 +450,6 @@ lb:
           newsletter: Heiansdo en Newsletter mat relevanten Informatiounen zougeschéckt kréien
           newsletter_title: Erlabnis Kontakt opzehuelen
           nickname_help: Däin Pseudonym an %{organization}. Dierf nëmmen aus Buschtawen, Zuelen, _ an - bestoen.
-          password_help: "Muss op mannst aus %{minimun_characters} Zeechen bestoen, keng ze banal (z.B. 123456) an et dierf net däin Benotzernumm oder deng Email-Adress enthalen."
           sign_in: Umelden
           sign_up: Registréieren
           sign_up_as:
@@ -1462,7 +1462,6 @@ lb:
     passwords:
       edit:
         change_my_password: Mäin Passwuert änneren
-        change_your_password: Ännert Äert Passwuert
         confirm_new_password: Neit Passwuert bestätegen
         new_password: Neit Passwuert
         password_help: "Muss op mannst aus %{minimun_characters} Zeechen bestoen, keng ze banal Zeechen (z.B. 123456) an et dierf weder däin Pseudonym nach deng Email-Adress enthalen."
