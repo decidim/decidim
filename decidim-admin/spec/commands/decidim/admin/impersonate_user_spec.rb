@@ -46,13 +46,13 @@ module Decidim::Admin
         it "creates a impersonation log" do
           expect do
             subject.call
-          end.to change { Decidim::ImpersonationLog.count }.by(1)
+          end.to change(Decidim::ImpersonationLog, :count).by(1)
         end
 
         it "creates a action log" do
           expect do
             subject.call
-          end.to change { Decidim::ActionLog.count }.by(1)
+          end.to change(Decidim::ActionLog, :count).by(1)
         end
 
         it "expires the impersonation session automatically" do
@@ -77,7 +77,7 @@ module Decidim::Admin
       it "creates a action log with reason" do
         expect do
           subject.call
-        end.to change { Decidim::ActionLog.count }.by(1)
+        end.to change(Decidim::ActionLog, :count).by(1)
 
         expect(Decidim::ActionLog.last.action).to eq("manage")
       end

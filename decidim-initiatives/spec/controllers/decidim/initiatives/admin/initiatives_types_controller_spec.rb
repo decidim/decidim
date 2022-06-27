@@ -94,7 +94,7 @@ module Decidim
             it "fails creation" do
               expect do
                 post :create, params: { initiatives_type: invalid_attributes }
-              end.to change(InitiativesType, :count).by(0)
+              end.not_to change(InitiativesType, :count)
             end
           end
 
@@ -201,7 +201,7 @@ module Decidim
 
               expect do
                 delete :destroy, params: { id: initiative_type.id }
-              end.to change(InitiativesType, :count).by(0)
+              end.not_to change(InitiativesType, :count)
             end
 
             it "traces the action", versioning: true do

@@ -47,7 +47,7 @@ shared_examples "create an initiative type scope" do
       it "creates a new initiative type scope" do
         expect do
           command.call
-        end.to change { Decidim::InitiativesTypeScope.count }.by(1)
+        end.to change(Decidim::InitiativesTypeScope, :count).by(1)
       end
     end
   end

@@ -25,7 +25,7 @@ namespace :decidim do
             # Successful compilation!
             puts "SUCCESS"
             Dir.chdir(File.join(__dir__, "../..")) do
-              system "cp -r public/* #{Rails.root.join("public")}"
+              system "cp -r public/* #{Rails.public_path}"
             end
           else
             # Failed compilation
