@@ -1,3 +1,4 @@
+---
 ja:
   activemodel:
     models:
@@ -9,12 +10,12 @@ ja:
   decidim:
     blogs:
       actions:
+        author_id: 次のように投稿を作成
         confirm_destroy: この投稿を削除してもよろしいですか？
         destroy: 削除
         edit: 編集
         new: 新規投稿
         title: アクション
-        user_group_id: 次のように投稿を作成
       admin:
         models:
           components:
