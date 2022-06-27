@@ -1,3 +1,4 @@
+---
 sv:
   activemodel:
     models:
@@ -10,12 +11,12 @@ sv:
   decidim:
     blogs:
       actions:
+        author_id: Skapa inlägg som
         confirm_destroy: Vill du radera inlägget?
         destroy: Radera
         edit: Redigera
         new: Nytt inlägg
         title: Åtgärder
-        user_group_id: Skapa inlägg som
       admin:
         models:
           components:
@@ -47,6 +48,7 @@ sv:
             author: Författare
             body: Innehåll
             created_at: Skapad
+            official_blog_post: Officiellt inlägg
             title: titel
       posts:
         show:
