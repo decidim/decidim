@@ -41,11 +41,11 @@ Lists will be parsed as one block:
 - consensus by imposing whatever the organization wants: to be used at will.
 - consensus by ignoring whatever resulted from the previous consensus: to be used when organization don't like the results of another consensus system.
 
-Ordered lists reset numberings to the correct order (1,2,3,4,5 in this case):
+Ordered lists will be parsed too:
 
 1. one
-2. two
-3. three
+1. two
+1. three
 1. four
 1. five
 

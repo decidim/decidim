@@ -27,8 +27,8 @@ When an organization finishes a co-creation process, the accountability process 
 blah, blah, blah...
 
 1. one
-2. two
-3. three
+1. two
+1. three
 
 ### Following up accounted results
 
