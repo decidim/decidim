@@ -53,8 +53,9 @@ module Decidim
 
       describe "GET assemblies in json format" do
         let!(:first_level) { create(:assembly, :published, :with_parent, parent: published, organization: organization) }
-        let!(:second_level) { create(:assembly, :published, :with_parent, parent: first_level, organization: organization) }
-        let!(:third_level) { create(:assembly, :published, :with_parent, parent: second_level, organization: organization) }
+        let!(:second_level_2) { create(:assembly, :published, :with_parent, parent: first_level, weight: 2, organization: organization) }
+        let!(:second_level_1) { create(:assembly, :published, :with_parent, parent: first_level, weight: 1, organization: organization) }
+        let!(:third_level) { create(:assembly, :published, :with_parent, parent: second_level_1, organization: organization) }
 
         let(:parsed_response) { JSON.parse(response.body, symbolize_names: true) }
 
@@ -71,7 +72,14 @@ module Decidim
                 children: [
                   {
                     name: translated(first_level.title),
-                    children: [{ name: translated(second_level.title) }]
+                    children: [
+                      {
+                        name: translated(second_level_1.title)
+                      },
+                      {
+                        name: translated(second_level_2.title)
+                      }
+                    ]
                   }
                 ]
               }

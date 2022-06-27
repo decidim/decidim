@@ -30,10 +30,10 @@ module Decidim
             render json: published_assemblies.query.includes(:children).where(parent: nil).collect { |assembly|
               {
                 name: assembly.title[I18n.locale.to_s],
-                children: assembly.children.collect do |child|
+                children: assembly.children.order(weight: :asc).collect do |child|
                   {
                     name: child.title[I18n.locale.to_s],
-                    children: child.children.collect { |child_of_child| { name: child_of_child.title[I18n.locale.to_s] } }
+                    children: child.children.order(weight: :asc).collect { |child_of_child| { name: child_of_child.title[I18n.locale.to_s] } }
                   }
                 end
               }
