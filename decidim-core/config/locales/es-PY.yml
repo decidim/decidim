@@ -1640,6 +1640,7 @@ es-PY:
         new_password: Contraseña
         password_help: "%{minimun_characters} caracteres mínimos, no debe ser demasiado común (por ejemplo, 123456) y debe ser diferente de tu apodo y tu correo electrónico."
         password_help_admin: "%{minimun_characters} caracteres mínimos, no debe ser demasiado común (por ejemplo, 123456) y debe ser diferente de tu apodo, de tu correo electrónico y de tus antiguas contraseñas."
+        title: Cambio de contraseña
       new:
         forgot_your_password: '¿Olvidaste tu contraseña?'
         send_me_reset_password_instructions: Enviarme instrucciones para restablecer la contraseña
@@ -1843,6 +1844,7 @@ es-PY:
     nickname_included_in_password: es demasiado similar a tu alias
     not_enough_unique_characters: No tiene suficientes caracteres únicos
     password_not_allowed: No se permite
+    password_repeated: no puedes reutilizar una vieja contraseña
     password_too_common: Es demasiado común
     password_too_long: Es demasiado largo
     password_too_short: Es demasiado corto
