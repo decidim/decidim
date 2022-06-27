@@ -1,3 +1,4 @@
+---
 ar:
   activemodel:
     attributes:
@@ -1203,7 +1204,6 @@ ar:
     passwords:
       edit:
         change_my_password: تغيير كلمة المرور الخاصة بي
-        change_your_password: غير كلمة المرور الخاصة بك
         confirm_new_password: تأكيد كلمة المرور الجديدة
         new_password: كلمة السر الجديدة
       new:
