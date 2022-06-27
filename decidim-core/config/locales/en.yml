@@ -570,6 +570,11 @@ en:
           title: Newsletter notifications
         omniauth_buttons:
           or: Or
+        password_fields:
+          hidden_password: Your password is hidden
+          hide_password: Hide password
+          show_password: Show password
+          shown_password: Your password is shown
     doorkeeper:
       authorizations:
         new:

@@ -1,15 +1,17 @@
 import icon from "src/decidim/icon"
 
 export default class PasswordToggler {
-  constructor($input) {
-    console.log($input)
-    this.$input = $input.first();
+  constructor($password, $confirmation) {
+    this.$password = $password.first();
+    this.$confirmation = $confirmation.first();
+    this.$input = this.$password.find('input[type="password"]');
+    this.$inputConfirmation = this.$confirmation.find('input[type="password"]');
     this.$form = this.$input.closest("form");
     this.texts = {
-      showPassword: "Show password",
-      hidePassword: "Hide password",
-      hiddenPassword: "Your password is hidden",
-      visiblePassword: "Your password is shown"
+      showPassword: this.$password.data("showPassword") || "Show password",
+      hidePassword: this.$password.data("hidePassword") || "Hide password",
+      hiddenPassword: this.$password.data("hiddenPassword") || "Your password is hidden",
+      shownPassword: this.$password.data("shownPassword") || "Your password is shown"
     }
     this.icons = {
       show: icon("eye", {title: this.texts.showPassword}),
@@ -19,9 +21,13 @@ export default class PasswordToggler {
   
   init() {
     this.createControls();
+    this.$confirmation.hide();
     this.$button.on("click", (evt) => this.toggleVisibiliy(evt));
     // to prevent browsers trying to use autocomplete, turn the type back to password before submitting
-    this.$form.on("submit", () => this.hidePassword());
+    this.$form.on("submit", () => {
+      this.$inputConfirmation.val(this.$input.val());
+      this.hidePassword();
+    });
   }
 
   createControls() {
@@ -47,7 +53,7 @@ export default class PasswordToggler {
   }
 
   showPassword() {
-    this.$statusText.text(this.texts.visiblePassword);
+    this.$statusText.text(this.texts.shownPassword);
     this.$button.attr("aria-label", this.texts.hidePassword).html(this.icons.hide);
     this.$input.attr("type", "text");
   }

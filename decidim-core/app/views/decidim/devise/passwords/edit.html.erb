@@ -15,13 +15,7 @@
 
             <%= f.hidden_field :reset_password_token %>
 
-            <div class="field">
-              <%= f.password_field :password, password_field_options_for(current_user || params["reset_password_token"]) %>
-            </div>
-
-            <div class="field">
-              <%= f.password_field :password_confirmation, password_field_options_for(current_user || params["reset_password_token"]).except(:help_text) %>
-            </div>
+            <%= render("decidim/devise/shared/password_fields", form: f, options: password_field_options_for(current_user || params["reset_password_token"])) %>
 
             <div class="actions">
               <%= f.submit t("devise.passwords.edit.change_my_password"), class: "button expanded" %>

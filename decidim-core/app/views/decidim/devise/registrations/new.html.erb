@@ -48,17 +48,7 @@
               <%= f.email_field :email, autocomplete: "email" %>
             </div>
 
-            <div class="user-password">
-              <div class="field">
-                <%= f.password_field :password, password_field_options_for(:user) %>
-              </div>
-            </div>
-
-            <div class="user-password-confirmation">
-              <div class="field">
-                <%= f.password_field :password_confirmation, password_field_options_for(:user).except(:help_text) %>
-              </div>
-            </div>
+            <%= render("decidim/devise/shared/password_fields", form: f, options: password_field_options_for(:user)) %>
           </div>
         </div>
 
@@ -99,7 +89,3 @@
 </div>
 </div>
 <%= render "decidim/devise/shared/newsletter_modal" %>
-
-<% content_for :js_content do %>
-  <%= javascript_pack_tag "decidim_registrations" %>
-<% end %>
