@@ -1,3 +1,4 @@
+---
 ro:
   activemodel:
     attributes:
@@ -12,7 +13,6 @@ ro:
         start_time: Votarea începe la
         title: Titlu
       question:
-        description: Descriere
         max_selections: Numărul maxim de selecții
         min_selections: Niciuna dintre opțiunile de mai sus
         title: Titlu
@@ -227,7 +227,6 @@ ro:
               minimum_answers: Întrebările trebuie să aibă <strong>cel puţin două răspunsuri</strong>.
               minimum_questions: Alegerile <strong>trebuie să aibă cel puţin o întrebare</strong>.
               published: Aceste alegerile <strong>nu sunt publicate</strong>.
-              time_before: Timpul de începere este în <strong>mai puţin de 3 ore</strong> înainte de începerea alegerilor.
               trustees_number: Spațiul participativ <strong>trebuie să aibă cel puțin %{number} împuterniciți cu cheie publică</strong>.
             invalid: A apărut o eroare la organizarea acestor alegeri
             no_trustees: Nu există împuterniciți configurați pentru acest spațiu participativ
