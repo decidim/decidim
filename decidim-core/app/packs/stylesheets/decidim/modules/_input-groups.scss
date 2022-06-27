@@ -1,11 +1,12 @@
-.input-inline-group {
+.input-inline-group{
   position: relative;
-  .input-group {
+
+  .input-group{
     position: absolute;
     top: 0;
     right: 0;
     margin-right: 1.5em;
-    margin-top: 0.9em;
+    margin-top: .9em;
     width: 1%;
   }
 }
