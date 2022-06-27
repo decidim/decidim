@@ -16,7 +16,7 @@ The GraphQL format is a JSON formatted text that is specified in a query. Respon
 
 For instance, you can check the version of a Decidim installation by using `curl` in the terminal:
 
-```
+```bash
 curl -sSH "Content-Type: application/json" \
 -d '{"query": "{ decidim { version } }"}' \
 https://www.decidim.barcelona/api/
@@ -26,7 +26,7 @@ Note that `Content-Type` needs to be specified.
 
 The query can also be used in GraphiQL, in that case you can skip the `"query"` text:
 
-```
+```graphql
 {
   decidim {
     version
@@ -66,7 +66,7 @@ Each "Type" is just a pre-defined structure with fields, or just an Scalar (Stri
 
 For instance, to obtain *all the participatory processes in a Decidim installation published since January 2018* and order them by published date, we could execute the next query:
 
-```
+```graphql
 {
   participatoryProcesses(filter: {publishedSince: "2018-01-01"}, order: {publishedAt: "asc"}) {
     slug
@@ -79,7 +79,7 @@ For instance, to obtain *all the participatory processes in a Decidim installati
 
 Response should look like:
 
-```
+```json
 {
   "data": {
     "participatoryProcesses": [
@@ -130,7 +130,7 @@ Finally, note that the returned object is an array, each item of which is a repr
 >
 > Example (this is not a real Decidim query):
 >
-> ```
+> ```graphql
 >  some_collection(filter: { locale: "en", title: "ideas"}) {
 >    id
 >  }
@@ -142,7 +142,7 @@ Finally, note that the returned object is an array, each item of which is a repr
 >
 > Example of ordering alphabetically by the title content in French language:
 >
-> ```
+> ```graphql
 > some_collection(order: { locale: "en", title: "asc"}) {
 >   id
 > }
@@ -160,7 +160,7 @@ The previous example uses the collection type for participatory processes. You c
 
 As an example for a single item query, you can run:
 
-```
+```graphql
 {
   participatoryProcess(slug: "consectetur-at") {
     slug
@@ -173,7 +173,7 @@ As an example for a single item query, you can run:
 
 And the response will be:
 
-```
+```json
 {
   "data": {
     "participatoryProcess": {
@@ -206,7 +206,7 @@ Every participatory space may (and should) have some components. There are 9 off
 
 If you know the `id`\* of a specific component you can obtain it by querying it directly:
 
-```
+```graphql
 {
   component(id:2) {
     id
@@ -224,7 +224,7 @@ If you know the `id`\* of a specific component you can obtain it by querying it 
 
 Response:
 
-```
+```json
 {
   "data": {
     "component": {
@@ -256,7 +256,7 @@ Glad you asked, component's collections cannot be retrieved directly, the are av
 
 For instance, we can query all the components in an particular Assembly as follows:
 
-```
+```graphql
 {
   assembly(id: 3) {
     components {
@@ -272,7 +272,7 @@ For instance, we can query all the components in an particular Assembly as follo
 
 The response will be similar to:
 
-```
+```json
 {
   "data": {
     "assembly": {
@@ -313,7 +313,7 @@ The response will be similar to:
 
 We can also apply some filters by using the [ComponentFilter](#ComponentFilter) type. In the next query we would like to *find all the components with geolocation enabled in the assembly with id=2*:
 
-```
+```graphql
 {
   assembly(id: 2) {
     components(filter: {withGeolocationEnabled: true}) {
@@ -329,7 +329,7 @@ We can also apply some filters by using the [ComponentFilter](#ComponentFilter) 
 
 The response:
 
-```
+```json
 {
   "data": {
     "assembly": {
@@ -363,8 +363,7 @@ In the previous examples we've queried for this property:
 
 Response fragment:
 
-```
-...
+```json
       "components": [
         {
           "id": "38",
@@ -373,12 +372,11 @@ Response fragment:
           },
           "__typename": "Meetings"
         }
-...
 ```
 
 So, if we want to access the rest of the properties in a polymorphic object, we should do it through the `... on` operator as follows:
 
-```
+```graphql
 {
   assembly(id: 2) {
     components {
@@ -393,7 +391,7 @@ So, if we want to access the rest of the properties in a polymorphic object, we 
 
 Consider this query:
 
-```
+```graphql
 {
   assembly(id: 3) {
     components(filter: {type: "Proposals"}) {
@@ -420,7 +418,7 @@ Consider this query:
 
 The response:
 
-```
+```json
 {
   "data": {
     "assembly": {
@@ -508,7 +506,7 @@ Typically, a connection is used to paginate long results, for this purpose the r
 
 Example:
 
-```
+```graphql
 {
   assembly(id: 3) {
     components(filter: {type: "Proposals"}) {
@@ -541,7 +539,7 @@ Example:
 
 Being the response:
 
-```
+```json
 {
   "data": {
     "assembly": {
