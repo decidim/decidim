@@ -81,7 +81,7 @@ es-PY:
           email_intro: La participante <a href="%{resource_path}">%{resource_title}</a> ha intentado verificarse a si misma con los datos de la participante gestionada <a href="%{managed_user_path}">%{managed_user_name}</a>.
           email_outro: Comprueba la <a href="%{conflicts_path}">lista de conflictos de verificaciones</a> y ponte en contacto con la participante para verificar sus detalles y resolver el problema.
           email_subject: Error al intentar verificarse contra una participante gestionada
-          notification_title: La participante <a href="%{resource_path}">%{resource_title}</a> ha intentado verificarse con los datos de la participante gestionada <a href="%{managed_user_path}">%{managed_user_name}</a>.
+          notification_title: La participante <a href="%{resource_path}">%{resource_title}</a> ha intentado verificarse a si misma con los datos de la participante gestionada <a href="%{managed_user_path}">%{managed_user_name}</a>.
     verifications:
       authorizations:
         authorization_metadata:
