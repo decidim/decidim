@@ -244,10 +244,12 @@ fi:
         steps:
           create_election:
             errors:
+              component_published: Vaalikomponenttia <strong>ei ole julkaistu</strong>.
               max_selections: Kysymyksillä ei ole <strong>oikeaa arvoa vastausten määrälle</strong>
               minimum_answers: Kysymyksillä on oltava <strong>vähintään kaksi vastausta</strong>.
               minimum_questions: Vaalilla <strong>on oltava vähintään yksi kysymys</strong>.
               published: Vaalia <strong>ei ole julkaistu</strong>.
+              time_before: Alkamisaika on <strong>alle %{hours} tuntia</strong> ennen vaalin alkua.
               trustees_number: Osallistumistilassa <strong>on oltava vähintään %{number} luottamushenkilöä, joilla on julkinen avain</strong>.
             invalid: Vaalin asetusten määrittäminen epäonnistui
             no_trustees: Tähän osallistumistilaan ei ole määritetty luottamushenkilöitä
@@ -256,6 +258,7 @@ fi:
               'false': vaalilla ei ole <strong>julkista avainta</strong>
               'true': vaalilla on <strong>julkinen avain</strong>
             requirements:
+              component_published: Vaalikomponentti <strong>on julkaistu</strong>.
               max_selections: Kaikilla kysymyksillä on oikea arvo asetukselle <strong>vastausten maksimimäärä</strong>.
               minimum_answers: Jokaisella kysymyksellä on <strong>vähintään 2 vastausta</strong>.
               minimum_questions: Vaalilla on <strong>vähintään 1 kysymys</strong>.
@@ -648,6 +651,10 @@ fi:
         failed:
           header: Äänestys epäonnistui
           lead: Ääntäsi ei ole annettu!
+          modal:
+            close: Sulje
+            communication_lost: Valitettavasti näyttää siltä, että viestien välitys sähköisen ääniuurnan kanssa ei onnistu.<br>Internet-yhteydessäsi voi olla ongelma tai ääniuurnan palvelin on liian kiireinen.<br>Voit yrittää myöhemmin uudestaan tai ottaa yhteyttä tekniseen tukeen, jos ongelma jatkuu.
+            title: Jokin meni vikaan
           text: Jokin meni pieleen, yritä uudelleen.
           try_again: Yritä uudestaan
         header:
