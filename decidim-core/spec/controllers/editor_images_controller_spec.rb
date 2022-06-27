@@ -24,7 +24,7 @@ module Decidim
         it "doesn't create an editor image" do
           expect do
             post :create, params: valid_params
-          end.not_to(change { Decidim::EditorImage.count })
+          end.not_to(change(Decidim::EditorImage, :count))
 
           expect(response).to have_http_status(:redirect)
         end
@@ -38,7 +38,7 @@ module Decidim
         it "doesn't create an editor image" do
           expect do
             post :create, params: valid_params
-          end.not_to(change { Decidim::EditorImage.count })
+          end.not_to(change(Decidim::EditorImage, :count))
 
           expect(response).to have_http_status(:redirect)
         end
@@ -52,7 +52,7 @@ module Decidim
         it "creates an editor image" do
           expect do
             post :create, params: valid_params
-          end.to change { Decidim::EditorImage.count }.by(1)
+          end.to change(Decidim::EditorImage, :count).by(1)
 
           expect(response).to have_http_status(:ok)
         end
@@ -61,7 +61,7 @@ module Decidim
           it "doesn't create an editor image and returns an error message" do
             expect do
               post :create, params: invalid_params
-            end.not_to(change { Decidim::EditorImage.count })
+            end.not_to(change(Decidim::EditorImage, :count))
 
             expect(response).to have_http_status(:unprocessable_entity)
             expect(response.body).to include("Error uploading image")

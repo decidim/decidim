@@ -67,7 +67,7 @@ module Decidim::Conferences
       let(:partner) { Decidim::Conferences::Partner.last }
 
       it "creates a partner" do
-        expect { subject.call }.to change { Decidim::Conferences::Partner.count }.by(1)
+        expect { subject.call }.to change(Decidim::Conferences::Partner, :count).by(1)
       end
 
       it "broadcasts ok" do

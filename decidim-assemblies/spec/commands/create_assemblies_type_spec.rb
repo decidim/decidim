@@ -34,7 +34,7 @@ module Decidim::Assemblies
       end
 
       it "creates a new assembly type for the organization" do
-        expect { subject.call }.to change { Decidim::AssembliesType.count }.by(1)
+        expect { subject.call }.to change(Decidim::AssembliesType, :count).by(1)
       end
 
       it "traces the action", versioning: true do

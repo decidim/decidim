@@ -61,12 +61,19 @@ pl:
         designation_date: Data wyboru
         full_name: Pełne imię i nazwisko
         gender: Płeć
+        non_user_avatar: Awatar
         position: Pozycja
         user_id: Użytkownik
       assembly_user_role:
         email: E-mail
         name: Imię
         role: Rola
+    errors:
+      models:
+        assembly:
+          attributes:
+            document:
+              allowed_file_content_types: 'Nieprawidłowy typ dokumentu. Akceptowane formaty to: %{types}'
   activerecord:
     models:
       decidim/assembly:

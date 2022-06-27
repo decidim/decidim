@@ -12,6 +12,14 @@ FactoryBot.define do
     manifest_name { :budgets }
     participatory_space { create(:participatory_process, :with_steps, organization:) }
 
+    trait :with_geocoding_enabled do
+      settings do
+        {
+          geocoding_enabled: true
+        }
+      end
+    end
+
     trait :with_vote_threshold_percent do
       transient do
         vote_rule_threshold_percent_enabled { true }
@@ -120,6 +128,9 @@ FactoryBot.define do
   factory :project, class: "Decidim::Budgets::Project" do
     title { generate_localized_title }
     description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
+    address { "#{Faker::Address.street_name}, #{Faker::Address.city}" }
+    latitude { Faker::Address.latitude }
+    longitude { Faker::Address.longitude }
     budget_amount { Faker::Number.number(digits: 8) }
     budget { create(:budget) }
 

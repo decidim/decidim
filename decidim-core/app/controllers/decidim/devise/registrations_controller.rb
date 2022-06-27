@@ -9,6 +9,8 @@ module Decidim
       include Decidim::DeviseControllers
       include NeedsTosAccepted
 
+      helper Decidim::PasswordsHelper
+
       before_action :check_sign_up_enabled
       before_action :configure_permitted_parameters
 

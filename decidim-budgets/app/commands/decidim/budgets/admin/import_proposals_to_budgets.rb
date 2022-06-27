@@ -48,7 +48,10 @@ module Decidim
             description: original_proposal.body,
             budget_amount: budget_for(original_proposal),
             category: original_proposal.category,
-            scope: original_proposal.scope
+            scope: original_proposal.scope,
+            address: original_proposal.address,
+            latitude: original_proposal.latitude,
+            longitude: original_proposal.longitude
           }
 
           @project = Decidim.traceability.create!(

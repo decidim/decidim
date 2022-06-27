@@ -59,10 +59,20 @@ module Decidim
       end
 
       context "when it's already in use in the same organization" do
-        let!(:existing_user) { create(:user, email:, organization:) }
+        context "and belongs to a user" do
+          let!(:existing_user) { create(:user, email:, organization:) }
 
-        it "is invalid" do
-          expect(subject).not_to be_valid
+          it "is invalid" do
+            expect(subject).not_to be_valid
+          end
+        end
+
+        context "and belongs to a group" do
+          let!(:existing_group) { create(:user_group, email:, organization:) }
+
+          it "is invalid" do
+            expect(subject).not_to be_valid
+          end
         end
       end
 
@@ -85,10 +95,20 @@ module Decidim
       end
 
       context "when it's already in use in the same organization" do
-        let!(:existing_user) { create(:user, nickname:, organization:) }
+        context "and belongs to a user" do
+          let!(:existing_user) { create(:user, nickname:, organization:) }
 
-        it "is invalid" do
-          expect(subject).not_to be_valid
+          it "is invalid" do
+            expect(subject).not_to be_valid
+          end
+        end
+
+        context "and belongs to a group" do
+          let!(:existing_group) { create(:user_group, nickname:, organization:) }
+
+          it "is invalid" do
+            expect(subject).not_to be_valid
+          end
         end
       end
 

@@ -38,7 +38,7 @@ describe Decidim::Debates::CreateDebate do
     let(:debate) { Decidim::Debates::Debate.last }
 
     it "creates the debate" do
-      expect { subject.call }.to change { Decidim::Debates::Debate.count }.by(1)
+      expect { subject.call }.to change(Decidim::Debates::Debate, :count).by(1)
     end
 
     it "sets the scope" do

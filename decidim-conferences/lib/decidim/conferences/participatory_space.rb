@@ -99,8 +99,8 @@ Decidim.register_participatory_space(:conferences) do |participatory_space|
         user.update!(
           name: Faker::Name.name,
           nickname: Faker::Twitter.unique.screen_name,
-          password: "decidim123456",
-          password_confirmation: "decidim123456",
+          password: "decidim123456789",
+          password_confirmation: "decidim123456789",
           organization:,
           confirmed_at: Time.current,
           locale: I18n.default_locale,

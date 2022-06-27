@@ -32,11 +32,11 @@ module Decidim
         let(:ballot_style) { Decidim::Votings::BallotStyle.last }
 
         it "creates the ballot style" do
-          expect { subject.call }.to change { Decidim::Votings::BallotStyle.count }.by(1)
+          expect { subject.call }.to change(Decidim::Votings::BallotStyle, :count).by(1)
         end
 
         it "creates the association between ballot style and questions" do
-          expect { subject.call }.to change { Decidim::Votings::BallotStyleQuestion.count }.by(2)
+          expect { subject.call }.to change(Decidim::Votings::BallotStyleQuestion, :count).by(2)
         end
 
         it "broadcasts ok" do

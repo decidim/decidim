@@ -46,7 +46,7 @@ module Decidim::ParticipatoryProcesses
       end
 
       it "creates a participatory process group" do
-        expect { subject.call }.to change { Decidim::ParticipatoryProcessGroup.count }.by(1)
+        expect { subject.call }.to change(Decidim::ParticipatoryProcessGroup, :count).by(1)
       end
 
       it "traces the creation", versioning: true do

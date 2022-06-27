@@ -89,6 +89,7 @@ module Decidim
                       index_on_update: ->(user) { !(user.deleted? || user.blocked?) })
 
     before_save :ensure_encrypted_password
+    before_save :save_password_change
 
     def user_invited?
       invitation_token_changed? && invitation_accepted_at_changed?
@@ -261,6 +262,14 @@ module Decidim
       notification_settings.fetch("subscriptions", {})
     end
 
+    def needs_password_update?
+      return false unless admin?
+      return false unless Decidim.config.admin_password_strong
+      return true if password_updated_at.blank?
+
+      password_updated_at < Decidim.config.admin_password_expiration_days.days.ago
+    end
+
     protected
 
     # Overrides devise email required validation.
@@ -307,6 +316,19 @@ module Decidim
 
     def ensure_encrypted_password
       restore_encrypted_password! if will_save_change_to_encrypted_password? && encrypted_password.blank?
+    end
+
+    def save_password_change
+      return unless persisted?
+      return unless encrypted_password_changed?
+      return unless admin?
+      return unless Decidim.config.admin_password_strong
+
+      # We don't want to run validations here because that could lead to an endless validation loop.
+      # rubocop:disable Rails/SkipsModelValidations
+      update_column(:password_updated_at, Time.current)
+      update_column(:previous_passwords, [encrypted_password_was, *previous_passwords].first(Decidim.config.admin_password_repetition_times))
+      # rubocop:enable Rails/SkipsModelValidations
     end
   end
 end

@@ -34,7 +34,7 @@ describe Decidim::Elections::Admin::CreateElection do
   let(:election) { Decidim::Elections::Election.last }
 
   it "creates the election" do
-    expect { subject.call }.to change { Decidim::Elections::Election.count }.by(1)
+    expect { subject.call }.to change(Decidim::Elections::Election, :count).by(1)
   end
 
   it "stores the given data" do

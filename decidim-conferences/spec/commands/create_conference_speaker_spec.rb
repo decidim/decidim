@@ -91,7 +91,7 @@ module Decidim::Conferences
       let(:conference_speaker) { Decidim::ConferenceSpeaker.last }
 
       it "creates an conference" do
-        expect { subject.call }.to change { Decidim::ConferenceSpeaker.count }.by(1)
+        expect { subject.call }.to change(Decidim::ConferenceSpeaker, :count).by(1)
       end
 
       it "broadcasts ok" do

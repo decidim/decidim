@@ -93,10 +93,10 @@ ca:
             change_category: Canviar categoria
             change_scope: Canviar àmbit
             change_selected: Canviar la selecció
-            deselect_implementation: No seleccionats
+            deselect_implementation: Deseleccionar
             finished_orders: Vots finalitzats
             pending_orders: Vots en procés
-            select_for_implementation: Seleccionat
+            select_for_implementation: Seleccionar
             selected: Seleccionat
             title: Projectes
             update: Actualitzar
@@ -110,17 +110,17 @@ ca:
           update_category:
             invalid: 'Aquestes propostes ja tenien la categoria %{subject_name}: %{projects}.'
             select_a_category: Si us plau, selecciona una categoria
-            select_a_project: Selecciona un projecte
+            select_a_project: Si us plau, selecciona un projecte
             success: 'Els projectes s''han actualitzat correctament a la categoria %{subject_name}: %{projects}.'
           update_scope:
-            invalid: 'Aquests projectes ja tenien l''àmbit %{subject_name}: %{projects}.'
+            invalid: 'Aquests projectes ja estaven assignats a l''àmbit %{subject_name}: %{projects}.'
             select_a_project: Si us plau, selecciona un projecte
             select_a_scope: Si us plau, selecciona un àmbit
             success: 'Els projectes s''han actualitzat correctament a l''àmbit %{subject_name}: %{projects}.'
           update_selected:
             invalid: 'Aquests projectes ja estaven seleccionats: %{projects}.'
             select_a_project: Si us plau, selecciona un projecte
-            select_a_selection: Si us plau, tria un estat
+            select_a_selection: Si us plau, fes una selecció
             success: 'Selecció de projectes modificada correctament: %{projects}.'
         proposals_imports:
           create:
@@ -203,13 +203,13 @@ ca:
           title: Confirmar vot
         budget_excess:
           budget_excess:
-            description: Aquest projecte sobrepassa el pressupost màxim i no es pot afegir. Si ho desitges, pots eliminar un projecte ja seleccionat per afegir aquest o donar suport d'acord amb les teves preferències.
+            description: Aquest projecte sobrepassa el pressupost màxim i no es pot afegir. Si ho desitges, pots eliminar un projecte ja seleccionat per afegir aquest o votar d'acord amb les teves preferències.
             title: Pressupost excedit
           close: Tancar
-          description: Aquest projecte sobrepassa el pressupost màxim i no es pot afegir. Si ho desitges, pots eliminar un projecte ja seleccionat per afegir aquest o donar suport d'acord amb les teves preferències.
+          description: Aquest projecte sobrepassa el pressupost màxim i no es pot afegir. Si ho desitges, pots eliminar un projecte ja seleccionat per afegir aquest o votar d'acord amb les teves preferències.
           ok: D'acord
           projects_excess:
-            description: Aquest projecte sobrepassa el pressupost màxim i no es pot afegir. Si ho desitges, pots eliminar un projecte ja seleccionat per afegir aquest o donar suport d'acord amb les teves preferències.
+            description: Aquest projecte sobrepassa el pressupost màxim i no es pot afegir. Si ho desitges, pots eliminar un projecte ja seleccionat per afegir aquest o votar d'acord amb les teves preferències.
             title: Màxim de projectes excedit
         budget_summary:
           are_you_sure: Segur que vols cancel·lar el teu vot?
@@ -259,6 +259,8 @@ ca:
           filter: Filtra
           filter_by: Filtra per
           unfold: Desplegar
+        index:
+          view_project: Veure projecte
         order_progress:
           vote: Vota
         order_selected_projects:
@@ -316,6 +318,7 @@ ca:
               errors:
                 budget_voting_rule_only_one: Cal activar com a mínim una norma per a la votació
                 budget_voting_rule_required: Es requereix una norma per a la votació
+            geocoding_enabled: Geolocalització habilitada
             landing_page_content: Pàgina d'inici de pressupostos
             more_information_modal: Finestra de "Més informació"
             projects_per_page: Projectes per pàgina

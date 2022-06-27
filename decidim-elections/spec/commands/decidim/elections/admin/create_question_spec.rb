@@ -29,7 +29,7 @@ describe Decidim::Elections::Admin::CreateQuestion do
   let(:question) { Decidim::Elections::Question.last }
 
   it "creates the question" do
-    expect { subject.call }.to change { Decidim::Elections::Question.count }.by(1)
+    expect { subject.call }.to change(Decidim::Elections::Question, :count).by(1)
   end
 
   it "stores the given data" do

@@ -36,7 +36,7 @@ module Decidim::Conferences
       let(:media_link) { Decidim::Conferences::MediaLink.last }
 
       it "creates a media link" do
-        expect { subject.call }.to change { Decidim::Conferences::MediaLink.count }.by(1)
+        expect { subject.call }.to change(Decidim::Conferences::MediaLink, :count).by(1)
       end
 
       it "broadcasts ok" do

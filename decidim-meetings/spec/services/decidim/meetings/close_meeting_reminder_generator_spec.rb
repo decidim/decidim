@@ -38,7 +38,7 @@ module Decidim::Meetings
           it "does not send the reminder" do
             expect(Decidim::Meetings::SendCloseMeetingReminderJob).not_to receive(:perform_later)
 
-            expect { subject.generate }.to change(Decidim::Reminder, :count).by(0)
+            expect { subject.generate }.not_to change(Decidim::Reminder, :count)
           end
         end
 
@@ -61,7 +61,7 @@ module Decidim::Meetings
           it "does not send the reminder" do
             expect(Decidim::Meetings::SendCloseMeetingReminderJob).not_to receive(:perform_later)
 
-            expect { subject.generate }.to change(Decidim::Reminder, :count).by(0)
+            expect { subject.generate }.not_to change(Decidim::Reminder, :count)
             expect(Decidim::Reminder.first).to be_nil
           end
         end
@@ -83,7 +83,7 @@ module Decidim::Meetings
         it "does not send the reminder" do
           expect(Decidim::Meetings::SendCloseMeetingReminderJob).not_to receive(:perform_later)
 
-          expect { subject.generate }.to change(Decidim::Reminder, :count).by(0)
+          expect { subject.generate }.not_to change(Decidim::Reminder, :count)
           expect(Decidim::Reminder.first).to be_nil
         end
       end

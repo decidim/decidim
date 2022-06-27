@@ -80,6 +80,8 @@ $comment-form-bg: $light-gray;
 
 .comment__content{
   padding: 0 $comment-padding;
+  overflow-wrap: break-word;
+  hyphens: auto;
 
   > :last-child{
     margin-bottom: 0;

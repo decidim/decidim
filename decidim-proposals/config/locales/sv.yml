@@ -461,7 +461,7 @@ sv:
             title: Uppdatera förslag
             update: Uppdatera
           form:
-            attachment_legend: "(Valfritt) Lägg till en bilaga"
+            attachment_legend: "(Frivilligt) Lägg till en bilaga"
             created_in_meeting: Detta förslag kommer från ett möte
             delete_attachment: Ta bort bilaga
             select_a_category: Välj en kategori
@@ -619,7 +619,7 @@ sv:
           error: Det gick inte att skapa det gemensamma utkastet
           success: Det gemensamma utkastet har skapats.
         edit:
-          attachment_legend: "(Valfritt) Lägg till en bilaga"
+          attachment_legend: "(Frivilligt) Lägg till en bilaga"
           back: Tillbaka
           select_a_category: Välj en kategori
           send: Skicka
@@ -641,6 +641,7 @@ sv:
           filter_by: Filtrera efter
           unfold: Veckla ut
         new:
+          add_file: Lägg till fil
           send: Fortsätt
         new_collaborative_draft_button:
           new_collaborative_draft: Nytt gemensamt utkast
@@ -751,8 +752,10 @@ sv:
           description: Koordinaterna uppdateras när du klickar på knappen 'Förhandsgranska'. Adressen ändras dock inte.
           instructions: Nu kan du flytta markören på kartan.
         edit:
-          attachment_legend: "(Valfritt) Lägg till en bilaga"
+          add_documents: Lägga till dokument
+          attachment_legend: "(Frivilligt) Lägg till en bilaga"
           back: Tillbaka
+          edit_documents: Ändra dokument
           gallery_legend: "(Frivilligt) Lägg till en bild"
           select_a_category: Välj en kategori
           send: Skicka

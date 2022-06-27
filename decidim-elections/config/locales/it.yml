@@ -12,7 +12,6 @@ it:
         start_time: La votazione inizia il
         title: Titolo
       question:
-        description: Descrizione
         max_selections: Numero massimo di selezioni
         min_selections: Nessuna delle precedenti opzioni
         title: Titolo
@@ -227,7 +226,6 @@ it:
               minimum_answers: Le domande devono avere <strong>almeno due risposte</strong>.
               minimum_questions: Le elezioni <strong>devono avere almeno un quesito</strong>.
               published: L'elezione non è <strong>pubblicata</strong>.
-              time_before: L'ora di inizio è in <strong>meno di 3 ore</strong> prima dell'inizio delle elezioni.
               trustees_number: Lo spazio partecipativo <strong>deve avere almeno %{number} fiduciari con chiave pubblica</strong>.
             invalid: Si è verificato un errore durante la creazione di questa elezione
             no_trustees: Non ci sono Fiduciari configurati per questo spazio partecipativo

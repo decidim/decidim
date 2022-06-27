@@ -56,7 +56,7 @@ describe Decidim::Elections::Admin::StartTally do
     end
 
     it "creates an action" do
-      expect { subject.call }.to change { Decidim::Elections::Action.count }.by(1)
+      expect { subject.call }.to change(Decidim::Elections::Action, :count).by(1)
 
       expect(action.election).to eq(election)
       expect(action.message_id).to eq "a.message+id"

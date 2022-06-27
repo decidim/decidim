@@ -30,6 +30,9 @@ module Decidim::Budgets
     let(:category) { create :category, participatory_space: participatory_process }
     let(:category_id) { category.id }
     let(:selected) { nil }
+    let(:latitude) { 40.1234 }
+    let(:longitude) { 2.1234 }
+    let(:address) { nil }
     let(:attributes) do
       {
         decidim_scope_id: scope_id,
@@ -37,13 +40,41 @@ module Decidim::Budgets
         title_en: title[:en],
         description_en: description[:en],
         budget_amount:,
-        selected:
+        selected:,
+        address:
       }
     end
 
     it_behaves_like "a scopable resource"
 
     it { is_expected.to be_valid }
+
+    context "when geocoding is enabled" do
+      let(:current_component) { create :budgets_component, :with_geocoding_enabled, participatory_space: participatory_process }
+
+      context "when the address is not present" do
+        it "does not store the coordinates" do
+          expect(subject).to be_valid
+          expect(subject.address).to be_nil
+          expect(subject.latitude).to be_nil
+          expect(subject.longitude).to be_nil
+        end
+      end
+
+      context "when the address is present" do
+        let(:address) { "Some address" }
+
+        before do
+          stub_geocoding(address, [latitude, longitude])
+        end
+
+        it "validates the address and store its coordinates" do
+          expect(subject).to be_valid
+          expect(subject.latitude).to eq(latitude)
+          expect(subject.longitude).to eq(longitude)
+        end
+      end
+    end
 
     describe "when title is missing" do
       let(:title) { { en: nil } }

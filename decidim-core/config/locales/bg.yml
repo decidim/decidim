@@ -386,7 +386,6 @@ bg:
           already_have_an_account?: Вече имате профил?
           newsletter: Получавайте извънреден бюлетин с подходяща информация
           newsletter_title: Разрешение за контакт с Вас
-          password_help: "Минимум %{minimun_characters} символа, не трябва да са разпространени (например, 123456) и трябва да са различни от вашите име и ел. поща."
           sign_in: Вход
           sign_up: Регистрация
           sign_up_as:
@@ -1267,7 +1266,6 @@ bg:
     passwords:
       edit:
         change_my_password: Промяна на паролата ми
-        change_your_password: Промени паролата си
         confirm_new_password: Потвърди нова парола
         new_password: Нова парола
         password_help: "Минимум %{minimun_characters} символа, не трябва да са разпространени (например, 123456) и трябва да са различни от вашите име и ел. поща."

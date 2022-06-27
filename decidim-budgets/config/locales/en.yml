@@ -260,6 +260,8 @@ en:
           filter: Filter
           filter_by: Filter by
           unfold: Unfold
+        index:
+          view_project: View project
         order_progress:
           vote: Vote
         order_selected_projects:
@@ -317,6 +319,7 @@ en:
               errors:
                 budget_voting_rule_only_one: Only one voting rule must be enabled
                 budget_voting_rule_required: One voting rule is required
+            geocoding_enabled: Geocoding enabled
             landing_page_content: Budgets landing page
             more_information_modal: More information modal
             projects_per_page: Projects per page

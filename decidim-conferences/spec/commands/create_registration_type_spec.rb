@@ -51,7 +51,7 @@ module Decidim::Conferences
       let(:registration_type) { Decidim::Conferences::RegistrationType.last }
 
       it "creates a registration type" do
-        expect { subject.call }.to change { Decidim::Conferences::RegistrationType.count }.by(1)
+        expect { subject.call }.to change(Decidim::Conferences::RegistrationType, :count).by(1)
       end
 
       it "broadcasts ok" do

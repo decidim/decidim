@@ -50,7 +50,7 @@ module Decidim
             it "doesn't create the project" do
               expect do
                 command.call
-              end.to change(Project, :count).by(0)
+              end.not_to change(Project, :count)
             end
           end
 

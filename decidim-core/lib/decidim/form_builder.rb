@@ -67,7 +67,7 @@ module Decidim
       tabs_id = sanitize_tabs_selector(options[:tabs_id] || "#{object_name}-#{name}-tabs")
 
       label_tabs = content_tag(:div, class: "label--tabs") do
-        field_label = label_i18n(name, options[:label] || label_for(name))
+        field_label = label_i18n(name, options[:label] || label_for(name), required: options[:required])
 
         language_selector = "".html_safe
         language_selector = create_language_selector(locales, tabs_id, name) if options[:label] != false
@@ -142,7 +142,7 @@ module Decidim
       tabs_id = sanitize_tabs_selector(options[:tabs_id] || "#{object_name}-#{name}-tabs")
 
       label_tabs = content_tag(:div, class: "label--tabs") do
-        field_label = label_i18n(name, options[:label] || label_for(name))
+        field_label = label_i18n(name, options[:label] || label_for(name), required: options[:required])
 
         tabs_panels = "".html_safe
         if options[:label] != false
@@ -558,8 +558,8 @@ module Decidim
     # Returns a String
     def field(attribute, options, html_options = nil, &)
       label = options.delete(:label)
-      label_options = options.delete(:label_options)
-      custom_label(attribute, label, label_options) do
+      label_options = options.delete(:label_options) || {}
+      custom_label(attribute, label, { required: options[:required] }.merge(label_options)) do
         field_with_validations(attribute, options, html_options, &)
       end
     end
@@ -690,8 +690,16 @@ module Decidim
     def custom_label(attribute, text, options, field_before_label: false, show_required: true)
       return block_given? ? yield.html_safe : "".html_safe if text == false
 
+      required = options.is_a?(Hash) && options.delete(:required)
       text = default_label_text(object, attribute) if text.nil? || text == true
-      text += required_for_attribute(attribute) if show_required
+      if show_required
+        text +=
+          if required
+            required_indicator
+          else
+            required_for_attribute(attribute)
+          end
+      end
 
       text = if field_before_label && block_given?
                safe_join([yield, text.html_safe])
@@ -773,28 +781,36 @@ module Decidim
         options[:class] ||= ""
         options[:class] += " is-invalid-label"
       end
-      text += required_for_attribute(attribute)
+      text +=
+        if options.delete(:required)
+          required_indicator
+        else
+          required_for_attribute(attribute)
+        end
 
       label(attribute, (text || "").html_safe, options)
     end
 
     def required_for_attribute(attribute)
-      if attribute_required?(attribute)
-        visible_title = content_tag(:span, "*", "aria-hidden": true)
-        screenreader_title = content_tag(
-          :span,
-          I18n.t("required", scope: "forms"),
-          class: "show-for-sr"
-        )
-        return content_tag(
-          :span,
-          visible_title + screenreader_title,
-          title: I18n.t("required", scope: "forms"),
-          data: { tooltip: true, disable_hover: false, keep_on_hover: true },
-          class: "label-required"
-        ).html_safe
-      end
+      return required_indicator if attribute_required?(attribute)
+
       "".html_safe
+    end
+
+    def required_indicator
+      visible_title = content_tag(:span, "*", "aria-hidden": true)
+      screenreader_title = content_tag(
+        :span,
+        I18n.t("required", scope: "forms"),
+        class: "show-for-sr"
+      )
+      content_tag(
+        :span,
+        visible_title + screenreader_title,
+        title: I18n.t("required", scope: "forms"),
+        data: { tooltip: true, disable_hover: false, keep_on_hover: true },
+        class: "label-required"
+      ).html_safe
     end
 
     # Private: Returns an array of scopes related to object attribute

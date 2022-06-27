@@ -12,7 +12,6 @@
         start_time: Stemmegivning starter
         title: Tittel
       question:
-        description: Beskrivelse
         max_selections: Maksimalt antall valg
         min_selections: Ingen av valgene over
         title: Tittel
@@ -227,7 +226,6 @@
               minimum_answers: Spørsmål må ha <strong>minst to svar</strong>.
               minimum_questions: Valget <strong>må ha minst ett spørsmål</strong>.
               published: Valget er <strong>og ikke publisert</strong>.
-              time_before: Starttiden er <strong>mindre enn 3 timer</strong> før valget starter.
               trustees_number: Deltakerområdet <strong>må ha minst %{number} tillitsmenn med offentlig nøkkel</strong>.
             invalid: Det oppstod et problem med opprettelsen av dette valget
             no_trustees: Det er ikke satt opp noen tillitsmenn for dette deltakelsesrommet

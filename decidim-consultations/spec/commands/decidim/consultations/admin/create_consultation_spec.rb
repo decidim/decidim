@@ -70,7 +70,7 @@ module Decidim
 
         context "when everything is ok" do
           it "creates a consultation" do
-            expect { subject.call }.to change { Decidim::Consultation.count }.by(1)
+            expect { subject.call }.to change(Decidim::Consultation, :count).by(1)
           end
 
           it "broadcasts ok" do

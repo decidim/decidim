@@ -37,7 +37,7 @@ module Decidim
       end
 
       it "doesn't create an editor image" do
-        expect { subject.call }.not_to(change { Decidim::EditorImage.count })
+        expect { subject.call }.not_to(change(Decidim::EditorImage, :count))
       end
     end
 
@@ -47,7 +47,7 @@ module Decidim
       end
 
       it "creates an editor image" do
-        expect { subject.call }.to change { Decidim::EditorImage.count }.by(1)
+        expect { subject.call }.to change(Decidim::EditorImage, :count).by(1)
       end
     end
   end

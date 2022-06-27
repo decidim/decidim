@@ -30,7 +30,7 @@ describe Decidim::Budgets::Admin::CreateBudget do
   let(:budget) { Decidim::Budgets::Budget.last }
 
   it "creates the budget" do
-    expect { subject.call }.to change { Decidim::Budgets::Budget.count }.by(1)
+    expect { subject.call }.to change(Decidim::Budgets::Budget, :count).by(1)
   end
 
   it "stores the given data" do

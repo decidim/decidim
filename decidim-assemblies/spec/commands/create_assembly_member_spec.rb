@@ -73,7 +73,7 @@ module Decidim::Assemblies
       let(:assembly_member) { Decidim::AssemblyMember.last }
 
       it "creates an assembly" do
-        expect { subject.call }.to change { Decidim::AssemblyMember.count }.by(1)
+        expect { subject.call }.to change(Decidim::AssemblyMember, :count).by(1)
       end
 
       it "broadcasts ok" do

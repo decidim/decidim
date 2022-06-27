@@ -35,13 +35,17 @@ module Decidim
     private
 
     def email_unique_in_organization
-      errors.add :email, :taken if User.no_active_invitation.find_by(email:, organization: current_organization).present?
+      errors.add :email, :taken if valid_users.find_by(email:, organization: current_organization).present?
     end
 
     def nickname_unique_in_organization
       return false unless nickname
 
-      errors.add :nickname, :taken if User.no_active_invitation.find_by("LOWER(nickname)= ? AND decidim_organization_id = ?", nickname.downcase, current_organization.id).present?
+      errors.add :nickname, :taken if valid_users.find_by("LOWER(nickname)= ? AND decidim_organization_id = ?", nickname.downcase, current_organization.id).present?
+    end
+
+    def valid_users
+      UserBaseEntity.where(invitation_token: nil)
     end
 
     def no_pending_invitations_exist
