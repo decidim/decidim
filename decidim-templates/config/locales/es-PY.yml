@@ -1,3 +1,4 @@
+---
 es-PY:
   activemodel:
     attributes:
@@ -63,5 +64,11 @@ es-PY:
             current_step: Paso %{step}
             of_total_steps: de %{total_steps}
             tos_agreement: Al participar aceptas los Términos y condiciones de uso
+      admin_log:
+        template:
+          create: "%{user_name} ha creado la plantilla del cuestionario %{resource_name}"
+          delete: "%{user_name} ha eliminado la plantilla del cuestionario %{resource_name}"
+          duplicate: "%{user_name} ha duplicado la plantilla del cuestionario %{resource_name}"
+          update: "%{user_name} ha actualizado la platilla del cuestionario %{resource_name}"
       template_types:
         questionnaires: Cuestionarios
