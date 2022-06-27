@@ -1,3 +1,4 @@
+---
 hu:
   activemodel:
     attributes:
@@ -426,7 +427,6 @@ hu:
           already_have_an_account?: Már van egy fiókod?
           newsletter: Hírlevél fogadása a legfontosabb információkkal
           newsletter_title: Kapcsolatfelvételi engedély
-          password_help: "%{minimun_characters} karakter a minimum, nem lehet túl gyakori (pl. 123456), és különböznie kell a becenevétől és az e-mail címétől."
           sign_in: Belépés
           sign_up: Regisztráció
           sign_up_as:
@@ -1329,7 +1329,6 @@ hu:
     passwords:
       edit:
         change_my_password: A jelszó megváltoztatása
-        change_your_password: változtasd meg a jelszavadat
         confirm_new_password: Erősítse meg az új jelszót
         new_password: Új jelszó
         password_help: "%{minimun_characters} karakter a minimum, nem lehet túl gyakori (pl. 123456), és különböznie kell a becenevétől és az e-mail címétől."

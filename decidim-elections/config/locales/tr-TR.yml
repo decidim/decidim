@@ -1,3 +1,4 @@
+---
 tr:
   activemodel:
     attributes:
@@ -12,7 +13,6 @@ tr:
         start_time: Oylama başlangıcı
         title: Başlık
       question:
-        description: Açıklama
         max_selections: Maksimum seçim sayısı
         min_selections: Yukarıdakilerden hiçbiri
         title: Başlık

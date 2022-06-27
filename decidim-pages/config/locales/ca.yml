@@ -1,3 +1,4 @@
+---
 ca:
   activerecord:
     models:
@@ -30,6 +31,6 @@ ca:
             success: Pàgina desada correctament.
       home:
         hero:
-          participate_title: Participeu en els processos de la plataforma
+          participate_title: Participa en els processos de la plataforma
         sub_hero:
           register_title: Registra't per tenir un compte

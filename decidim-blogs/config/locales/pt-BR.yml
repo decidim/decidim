@@ -1,4 +1,5 @@
-pt-BR:
+---
+pt:
   activemodel:
     models:
       decidim/blogs/create_post_event: Nova postagem no blog
@@ -10,12 +11,12 @@ pt-BR:
   decidim:
     blogs:
       actions:
+        author_id: Criar publicação como
         confirm_destroy: Deseja mesmo excluir este post?
         destroy: Excluir
         edit: Editar
         new: Nova postagem
         title: Ações
-        user_group_id: Criar publicação como
       admin:
         models:
           components:

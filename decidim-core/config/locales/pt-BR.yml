@@ -1,4 +1,5 @@
-pt-BR:
+---
+pt:
   activemodel:
     attributes:
       account:
@@ -449,7 +450,6 @@ pt-BR:
           newsletter: Receba um boletim informativo ocasional com informações relevantes
           newsletter_title: Permissão de contato
           nickname_help: Seu alias em %{organization}. Só pode conter letras, números, '-' e '_'.
-          password_help: "O mínimo de %{minimun_characters} caracteres, não deve ser muito comum (por exemplo, 123456) e deve ser diferente do seu apelido e do seu email."
           sign_in: Iniciar sessão
           sign_up: Inscreva-se
           sign_up_as:
@@ -1466,7 +1466,6 @@ pt-BR:
     passwords:
       edit:
         change_my_password: Mudar minha senha
-        change_your_password: Mude sua senha
         confirm_new_password: Confirme a nova senha
         new_password: Nova senha
         password_help: "O mínimo de %{minimun_characters} caracteres, não deve ser muito comum (por exemplo, 123456) e deve ser diferente do seu apelido e do seu email."

@@ -1,3 +1,4 @@
+---
 sv:
   activemodel:
     attributes:
@@ -229,6 +230,12 @@ sv:
           update:
             error: Ett fel har inträffat
             success: Initiativet har uppdaterats
+        initiatives_settings:
+          edit:
+            update: Uppdatera
+          form:
+            comments: Mest kommenterade
+            random: Slumpmässigt
         initiatives_type_scopes:
           create:
             error: Ett fel har inträffat

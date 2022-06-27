@@ -1,3 +1,4 @@
+---
 pt:
   activemodel:
     attributes:
@@ -448,7 +449,6 @@ pt:
           newsletter: Receber um boletim informativo ocasional com informações relevantes
           newsletter_title: Permissão de contacto
           nickname_help: A sua alcunha em %{organization}. Só pode conter letras, números, “-”, e “_”
-          password_help: "%{minimun_characters} caracteres no mínimo, não deverá ser muito comum (por ex. 123456) e deverá ser diferente da sua alcunha e do seu e-mail."
           sign_in: Entrar
           sign_up: Inscreva-se
           sign_up_as:
@@ -1465,7 +1465,6 @@ pt:
     passwords:
       edit:
         change_my_password: Modificar a minha palavra-passe
-        change_your_password: Modificar a sua palavra-passe
         confirm_new_password: Confirme a nova palavra-passe
         new_password: Nova palavra-passe
         password_help: "%{minimun_characters} de caracteres no mínimo, não deverá ser muito comum (por ex. 123456) e deverá ser diferente da sua alcunha e do seu e-mail."

@@ -1,4 +1,5 @@
-pt-BR:
+---
+pt:
   activemodel:
     attributes:
       sortition:

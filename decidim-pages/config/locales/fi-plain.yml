@@ -1,3 +1,4 @@
+---
 fi-pl:
   activerecord:
     models:
@@ -29,5 +30,7 @@ fi-pl:
             invalid: Sivun tallennuksessa tapahtui virheitä.
             success: Sivu tallennettu onnistuneesti.
       home:
+        hero:
+          participate_title: Osallistu alustan prosesseihin
         sub_hero:
           register_title: Luo oma tili alustalle

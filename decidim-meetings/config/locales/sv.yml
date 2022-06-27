@@ -1,3 +1,4 @@
+---
 sv:
   activemodel:
     attributes:
@@ -100,6 +101,7 @@ sv:
           with_any_type:
             label: Mötestyp
             values:
+              hybrid: Hybrid
               in_person: Fysiska
               online: Online
       meeting_copies:
@@ -387,6 +389,8 @@ sv:
       calendar_modal:
         calendar_url: Kalender-URL
         close_window: Stäng fönster
+        copy_calendar_url: Kopiera
+        copy_calendar_url_copied: Kopierad!
         export_calendar: Exportera kalender
       conference_venues: Konferenslokaler
       content_blocks:
@@ -470,6 +474,7 @@ sv:
           type: Typ
           type_values:
             all: Allt
+            hybrid: Hybrid
             in_person: Fysiska
             online: Online
         filters_small_view:
@@ -559,6 +564,7 @@ sv:
           fields:
             closed: Stängd
             end_time: Slutdatum
+            id: ID
             map: Karta
             official_meeting: Officiellt möte
             start_time: Startdatum
@@ -608,6 +614,7 @@ sv:
           invalid: Det gick inte att lämna mötet.
           success: Du har lämnat mötet.
       type_of_meeting:
+        hybrid: Hybrid
         in_person: Fysiska
         online: Online
       types:

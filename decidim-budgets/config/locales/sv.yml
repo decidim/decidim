@@ -1,3 +1,4 @@
+---
 sv:
   activemodel:
     attributes:
@@ -15,6 +16,8 @@ sv:
         proposal_ids: Relaterade förslag
         selected: Valda för genomförande
         title: Titel
+      proposals_import:
+        scope_id: Omfång
   activerecord:
     models:
       decidim/budgets/project:
@@ -85,10 +88,15 @@ sv:
             title: Redigera projekt
             update: Uppdatera
           index:
+            actions: Åtgärder
+            cancel: Avbryt
+            deselect_implementation: Avmarkera
             finished_orders: Avslutade omröstningar
             pending_orders: Pågående omröstningar
+            select_for_implementation: Välj
             selected: Valda
             title: Projekt
+            update: Uppdatera
           new:
             create: Skapa
             title: Nytt projekt
@@ -101,6 +109,7 @@ sv:
             success: "%{number} förslag har importerats till projekt"
           new:
             create: Importera förslag till projekt
+            default_budget: Förvald budget
             no_components: Det finns inga andra förslagskomponenter med förslag i deltagarutrymmet som kan importeras till projekt.
             select_component: Välj en komponent
             title: Importera förslag
@@ -154,6 +163,7 @@ sv:
           fields:
             category: Kategori
             id: ID
+            scope: Omfång
             title: Titel
       order_summary_mailer:
         order_summary:

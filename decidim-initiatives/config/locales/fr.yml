@@ -1,3 +1,4 @@
+---
 fr:
   activemodel:
     attributes:
@@ -24,6 +25,7 @@ fr:
         banner_image: Image d'en-tête
         child_scope_threshold_enabled: Autoriser les signatures par sous-secteur
         collect_user_extra_fields: Collecter les données personnelles de l'utilisateur lors de la signature
+        comments_enabled: Activer les commentaires
         custom_signature_end_date_enabled: Permettre aux auteurs de choisir la fin de la période de collecte des signatures
         description: Description
         document_number_authorization_handler: Niveau d'autorisation nécessaire pour signer les pétitions de ce type de pétition
@@ -84,6 +86,9 @@ fr:
             label: Type de pétition
         search_placeholder:
           title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Rechercher %{collection} par titre, description, ID ou nom de l'auteur.
+      initiatives_settings:
+        update:
+          error: Une erreur s'est produite
       menu:
         attachments: Pièces jointes
         committee_members: Membres du comité

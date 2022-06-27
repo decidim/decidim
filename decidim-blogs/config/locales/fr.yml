@@ -1,3 +1,4 @@
+---
 fr:
   activemodel:
     models:
@@ -10,12 +11,12 @@ fr:
   decidim:
     blogs:
       actions:
+        author_id: Créer un article en tant que
         confirm_destroy: Êtes-vous certain de vouloir supprimer cet article ?
         destroy: Supprimer
         edit: Modifier
         new: Nouvel article
         title: Actions
-        user_group_id: Créer un article en tant que
       admin:
         models:
           components:

@@ -1,3 +1,4 @@
+---
 zh-CN:
   activemodel:
     attributes:
@@ -12,7 +13,6 @@ zh-CN:
         start_time: 投票开始于
         title: 标题
       question:
-        description: 描述
         max_selections: 最大选择数
         min_selections: 上面没有一个选项
         title: 标题

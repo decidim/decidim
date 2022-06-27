@@ -1,4 +1,5 @@
-pt-BR:
+---
+pt:
   activerecord:
     models:
       decidim/pages/page:

@@ -1,3 +1,4 @@
+---
 lv:
   activemodel:
     attributes:
@@ -384,7 +385,6 @@ lv:
           already_have_an_account?: Jums jau ir konts?
           newsletter: Saņemiet neregulāru informatīvo biļetenu ar būtisko informāciju
           newsletter_title: Atļauja sazināties
-          password_help: "Vismaz %{minimun_characters} rakstzīmes, nedrīkst būt pārlieku izplatītas (piem., 123456), un tām jāatšķiras no jūsu segvārda un e-pasta adreses."
           sign_in: Pieteikties
           sign_up: Reģistrēties
           sign_up_as:
@@ -1265,7 +1265,6 @@ lv:
     passwords:
       edit:
         change_my_password: Nomainīt manu paroli
-        change_your_password: Mainiet savu paroli
         confirm_new_password: Apstiprināt jauno paroli
         new_password: Jaunā parole
         password_help: "Vismaz %{minimun_characters} rakstzīmes, nedrīkst būt pārlieku izplatītas (piem., 123456), un tām jāatšķiras no jūsu segvārda un e-pasta adreses."

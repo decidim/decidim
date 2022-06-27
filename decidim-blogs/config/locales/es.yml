@@ -1,3 +1,4 @@
+---
 es:
   activemodel:
     models:
@@ -10,12 +11,12 @@ es:
   decidim:
     blogs:
       actions:
+        author_id: Crear publicación como
         confirm_destroy: '¿Estás segura que quieres eliminar esta publicación?'
         destroy: Borrar
         edit: Editar
         new: Nueva publicación
         title: Acciones
-        user_group_id: Crear publicación como
       admin:
         models:
           components:
@@ -52,6 +53,7 @@ es:
             author: Autora
             body: Cuerpo
             created_at: Creado en
+            official_blog_post: Post oficial
             title: título
       posts:
         show:

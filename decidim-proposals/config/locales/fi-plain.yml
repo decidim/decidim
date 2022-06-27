@@ -1,3 +1,4 @@
+---
 fi-pl:
   activemodel:
     attributes:
@@ -42,6 +43,10 @@ fi-pl:
           valuator_role_id: Arvioijan nimi
     errors:
       models:
+        participatory_text:
+          attributes:
+            document:
+              allowed_file_content_types: 'Virheellinen asiakirjan tyyppi. Hyväksytyt tiedostomuodot ovat: %{types}'
         proposal:
           attributes:
             add_documents:
@@ -193,6 +198,7 @@ fi-pl:
             automatic_hashtags: Hashtagit lisätty kaikkiin ehdotuksiin
             comments_blocked: Kommentit on estetty
             creation_enabled: Osallistujat voivat luoda ehdotuksia
+            creation_enabled_readonly: Tämä asetus on pois päältä, kun olet ottanut ehdotusaineistot käyttöön. Voit ladata uusia ehdotusaineistoja siirtymällä ehdotusaineistot-osioon ja seuraamalla kyseisen osion ohjeistusta.
             default_sort_order: Ehdotuksen oletusjärjestys
             default_sort_order_help: Oletus tarkoittaa, että mikäli kannatukset ovat käytössä, ehdotukset näytetään satunnaisessa järjestyksessä ja mikäli kannatukset on estetty, niin ehdotukset järjestetään eniten kannatuksia saaneet ensin.
             default_sort_order_options:
@@ -813,6 +819,7 @@ fi-pl:
             other: ääntä
         new:
           send: Jatka
+          title: Luo ehdotuksesi
         orders:
           label: 'Järjestä ehdotukset:'
           most_commented: Eniten kommentoidut
