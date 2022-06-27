@@ -1,3 +1,4 @@
+---
 es-PY:
   activemodel:
     attributes:
@@ -298,8 +299,8 @@ es-PY:
     admin_log:
       participatory_process:
         create: "%{user_name} creó el proceso participativo %{resource_name}"
-        duplicate: "%{user_name} ha exportado el proceso participativo %{resource_name}"
-        export: "%{user_name} ha importado el proceso participativo %{resource_name}"
+        duplicate: "%{user_name} ha duplicado el proceso participativo %{resource_name}"
+        export: "%{user_name} ha exportado el proceso participativo %{resource_name}"
         import: "%{user_name} ha importado el proceso participativo %{resource_name}"
         publish: "%{user_name} publicó el proceso participativo %{resource_name}"
         unpublish: "%{user_name} despublicó el proceso participativo %{resource_name}"
