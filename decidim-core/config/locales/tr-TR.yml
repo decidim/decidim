@@ -1,3 +1,4 @@
+---
 tr:
   activemodel:
     attributes:
@@ -435,7 +436,6 @@ tr:
           newsletter: Ara sıra ilgili bilgileri içeren bir haber bülteni alın
           newsletter_title: İletişim izni
           nickname_help: Takma adınız %{organization}. Yalnızca harf, rakam, "-" ve "_" içerebilir.
-          password_help: "Asgari %{minimun_characters} karakter, çok yaygın olmamalı (örnek: 123456) ve takma adınızdan ve eposta adresinizden farklı olmalıdır."
           sign_in: Oturum aç
           sign_up: kaydol
           sign_up_as:
@@ -1423,7 +1423,6 @@ tr:
     passwords:
       edit:
         change_my_password: Şifremi Değiştir
-        change_your_password: Şifreni değiştir
         confirm_new_password: Yeni şifreyi onayla
         new_password: Yeni Şifre
         password_help: "Asgari %{minimun_characters} karakter, çok yaygın olmamalı (örnek: 123456) ve takma adınızdan ve eposta adresinizden farklı olmalıdır."
