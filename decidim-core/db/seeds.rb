@@ -126,6 +126,7 @@ if !Rails.env.production? || ENV.fetch("SEED", nil)
     personal_url: Faker::Internet.url,
     about: Faker::Lorem.paragraph(sentence_count: 2),
     accepted_tos_version: organization.tos_version,
+    password_updated_at: Time.current,
     admin_terms_accepted_at: Time.current
   }
   admin_hash.merge!(password: "decidim123456789", password_confirmation: "decidim123456789") if admin.encrypted_password.blank?
