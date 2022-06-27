@@ -153,6 +153,9 @@ fi-pl:
     admin:
       actions:
         cancel: Peruuta
+      password_change:
+        alert: Sinun täytyy vaihtaa salasanasi, jotta voit jatkaa eteenpäin
+        notification: Hallintakäyttäjien on vaihdettava salasanansa %{days} päivän välein.
     admin_log:
       area:
         create: "%{user_name} loi %{resource_name} alueen"
@@ -346,6 +349,7 @@ fi-pl:
       endorsements:
         one: suositus
         other: suositusta
+      official_author: Virallinen
     authorization_handlers:
       another_dummy_authorization_handler:
         explanation: Vahvista tilisi syöttämällä passin numero, joka alkaa kirjaimella "A"
@@ -1266,6 +1270,10 @@ fi-pl:
           title: 'Pakollinen: Tarkista päivitetyt käyttöehtomme'
     participatory_space_private_users:
       not_allowed: Et voi katsoa tätä sisältöä
+    passwords:
+      update:
+        error: Salasanan päivittäminen epäonnistui
+        success: Salasanan päivitys onnistui
     profile:
       deleted: Poistettu käyttäjä
       inaccessible_message: Tämä käyttäjäprofiili ei ole käytettävissä, koska käyttäjä on rikkonut käyttöehtoja!
@@ -1630,6 +1638,8 @@ fi-pl:
         confirm_new_password: Vahvista uusi salasana
         new_password: Uusi salasana
         password_help: "Tulee sisältää vähintään %{minimun_characters} merkkiä, ei voi olla yleisesti käytetty salasana (esim. 123456), eikä voi vastata nimimerkkiäsi tai sähköpostiosoitettasi."
+        password_help_admin: "Tulee sisältää vähintään %{minimun_characters} merkkiä, ei voi olla yleisesti käytetty salasana (esim. 123456), eikä voi vastata nimimerkkiäsi tai sähköpostiosoitettasi. On myös oltava eri salasana kuin edelliset salasanasi."
+        title: Salasanan vaihto
       new:
         forgot_your_password: Unohditko salasanasi?
         send_me_reset_password_instructions: Lähetä minulle ohjeet salasanan vaihtamiseen
@@ -1833,6 +1843,7 @@ fi-pl:
     nickname_included_in_password: liian samankaltainen nimesi kanssa
     not_enough_unique_characters: ei sisällä tarpeeksi yksilöllisiä merkkejä
     password_not_allowed: ei ole sallittu
+    password_repeated: et voi uudelleenkäyttää vanhaa salasanaa
     password_too_common: liian yleinen
     password_too_long: liian pitkä
     password_too_short: liian lyhyt (alle 10 merkkiä)
