@@ -105,6 +105,10 @@ task :lint_markdown do
   status = 0
   Dir.glob(root_folder.join("**/*.md")).each do |file|
     next if file.include?("node_modules")
+    next if file.include?("decidim_dummy_app")
+    next if file.include?("public/decidim-packs")
+    next if file.include?("dev/assets/iso-8859-15.md")
+    next if file.include?("vendor/bundle")
 
     system("mdl #{file}")
     status += $CHILD_STATUS.exitstatus
