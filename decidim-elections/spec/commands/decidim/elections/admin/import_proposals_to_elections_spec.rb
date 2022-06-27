@@ -47,7 +47,7 @@ module Decidim
             it "doesn't create the answer" do
               expect do
                 command.call
-              end.to change(Decidim::Elections::Answer, :count).by(0)
+              end.not_to change(Decidim::Elections::Answer, :count)
             end
           end
 
@@ -73,7 +73,7 @@ module Decidim
               it "doesn't import it again" do
                 expect do
                   command.call
-                end.to change { Decidim::Elections::Answer.where(question: question).count }.by(0)
+                end.not_to(change { Decidim::Elections::Answer.where(question: question).count })
 
                 answers = Decidim::Elections::Answer.where(question: question)
                 first_answer = answers.first
