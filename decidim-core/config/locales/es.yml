@@ -1,3 +1,4 @@
+---
 es:
   activemodel:
     attributes:
@@ -44,7 +45,7 @@ es:
       decidim/removed_from_group: Eliminada del grupo
       decidim/resource_endorsed_event: Adhesión a recurso realizada
       decidim/resource_hidden_event: Recurso oculto
-      decidim/user_group_created_event: Grupo de usuarios creado
+      decidim/user_group_created_event: Grupo creado
       decidim/welcome_notification_event: Mensaje de bienvenida
   activerecord:
     attributes:
@@ -153,36 +154,39 @@ es:
     admin:
       actions:
         cancel: Cancelar
+      password_change:
+        alert: Tienes que cambiar tu contraseña para poder seguir adelante
+        notification: Las usuarias con rol de administración tienen que cambiar su contraseña cada %{days} días.
     admin_log:
       area:
         create: "%{user_name} creó el área %{resource_name}"
         delete: "%{user_name} eliminó el área %{resource_name}"
         update: "%{user_name} actualizó el área %{resource_name}"
       area_type:
-        create: "%{user_name} ha creado el estado %{resource_name}"
-        delete: "%{user_name} ha eliminado el estado %{resource_name}"
+        create: "%{user_name} ha creado el tipo de área %{resource_name}"
+        delete: "%{user_name} ha eliminado el tipo de área %{resource_name}"
         update: "%{user_name} ha actualizado tipo de área %{resource_name}"
       attachment:
-        create: "%{user_name} creó el adjunto %{resource_name}"
-        delete: "%{user_name} ha eliminado lel adjunto %{resource_name}"
+        create: "%{user_name} ha creado el adjunto %{resource_name}"
+        delete: "%{user_name} ha eliminado el adjunto %{resource_name}"
         update: "%{user_name} ha actualizado el adjunto %{resource_name}"
       attachment_collection:
         create: "%{user_name} ha creado la colección de adjuntos %{resource_name}"
-        delete: "%{user_name} ha esborrat la colecció d'adjunts %{resource_name}"
-        update: "%{user_name} ha actualitzado la colección de adjuntos %{resource_name}"
+        delete: "%{user_name} ha eliminado la colección de adjuntos %{resource_name}"
+        update: "%{user_name} ha actualizado la colección de adjuntos %{resource_name}"
       category:
-        create: "%{user_name} ha añadido la categoria %{resource_name} en el espacio %{space_name}"
-        delete: "%{user_name} ha eliminado la categoria %{resource_name} en el espacio %{space_name}"
-        update: "%{user_name} ha actualizado la categoria %{resource_name} en el espacio %{space_name}"
+        create: "%{user_name} ha añadido la categoria %{resource_name} al espacio %{space_name}"
+        delete: "%{user_name} ha eliminado la categoria %{resource_name} al espacio %{space_name}"
+        update: "%{user_name} ha actualizado la categoria %{resource_name} al espacio %{space_name}"
       component:
         create: "%{user_name} agregó el componente %{resource_name} al espacio %{space_name}"
         delete: "%{user_name} eliminó el componente %{resource_name} del espacio %{space_name}"
         export_component: "%{user_name} ha exportado %{resource_name} %{component_name} en %{space_name} como %{format_name}"
         publish: "%{user_name} publicó el componente %{resource_name} en el espacio %{space_name}"
         unpublish: "%{user_name} ha despublicado el componente %{resource_name} del espacio %{space_name}"
-        update_permissions_with_space: "%{user_name} ha actualtizado los permisos de %{resource_name} en %{space_name}"
+        update_permissions_with_space: "%{user_name} ha actualizado los permisos de %{resource_name} en %{space_name}"
       contextual_help_section:
-        update: "%{user_name} actualizó la sección de ayuda %{resource_name}"
+        update: "%{user_name} ha actualizado la sección de ayuda %{resource_name}"
       helpers:
         answers: respuestas
         comments: comentarios
@@ -204,7 +208,7 @@ es:
         update: "%{user_name} actualizó la aplicación %{resource_name} OAuth"
       organization:
         update: "%{user_name} actualizó la configuración de la organización"
-        update_external_domain: "%{user_name} actualizó los dominios externos de la organización"
+        update_external_domain: "%{user_name} ha actualizado los dominios externos de la organización"
       participatory_space_private_user:
         create: "%{user_name} ha invitado a %{resource_name} como participante privada"
         create_via_csv: "%{user_name} invitó a %{resource_name} vía CSV a ser un participante privada"
@@ -218,7 +222,7 @@ es:
         update_with_parent: "%{user_name} actualizó el ámbito %{resource_name} dentro del ámbito %{parent_scope}"
       scope_type:
         create: "%{user_name} ha creado el tipo de ámbito %{resource_name}"
-        delete: "%{user_name} ha borrado el tipo de ámbito %{resource_name}"
+        delete: "%{user_name} ha eliminado el tipo de ámbito %{resource_name}"
         update: "%{user_name} ha actualizado el tipo de ámbito %{resource_name}"
       static_page:
         create: "%{user_name} creó la página estática %{resource_name}"
@@ -343,6 +347,7 @@ es:
       endorsements:
         one: adhesión
         other: adhesiones
+      official_author: Oficial
     authorization_handlers:
       another_dummy_authorization_handler:
         explanation: Verifícate introduciendo un número de pasaporte que comience por "A"
@@ -524,7 +529,6 @@ es:
           newsletter: Quiero recibir un boletín ocasional con información relevante
           newsletter_title: Permiso de contacto
           nickname_help: Tu alias en %{organization}. Solo puede contener letras, números, '-' y '_'.
-          password_help: "%{minimun_characters} caracteres mínimos, no debe ser demasiado común (por ejemplo, 123456) y debe ser diferente de tu apodo y tu correo electrónico."
           sign_in: Entra
           sign_up: Regístrate
           sign_up_as:
@@ -936,7 +940,7 @@ es:
         success: La solicitud para formar parte se ha enviado correctamente. Una administradora revisará tu solicitud antes de aceptarte en el grupo.
       leave:
         error: Se ha producido un error al dejar el grupo
-        last_admin: No puedes quitarte de este grupo porque eres la última administradora. Haz que otra miembro sea una administradora para poder abandonar el grupo.
+        last_admin: No puedes abandonar este grupo porque eres la última administradora. Haz administradora a otra persona miembro para poder hacerlo.
         success: Has dejado el grupo correctamente.
       members:
         accept_or_reject_join_requests: 'Las siguientes participantes han solicitado unirse a este grupo. Acepta o rechaza sus solicitudes:'
@@ -986,7 +990,7 @@ es:
         unknown_action: "%{user_name} realizó una acción en %{resource_name}"
         unknown_action_with_space: "%{user_name} realizó una acción en %{resource_name} en %{space_name}"
         update: "%{user_name} actualizó %{resource_name}"
-        update_permissions_with_space: "%{user_name} ha actualitzat els permisos de %{resource_name} en %{space_name}"
+        update_permissions_with_space: "%{user_name} ha actualizado los permisos de %{resource_name} en %{space_name}"
         update_with_space: "%{user_name} actualizó %{resource_name} en %{space_name}"
       value_types:
         area_presenter:
@@ -1162,19 +1166,19 @@ es:
     notifications_digest_mailer:
       header:
         daily: Resumen diario de notificaciones
-        weekly: Resumen semanal de notificación
+        weekly: Resumen semanal de notificaciones
       hello: Hola %{name},
       intro:
         daily: 'Estas son las notificaciones del último día basadas en la actividad que estás siguiendo:'
         weekly: 'Estas son las notificaciones de la última semana basadas en la actividad que estás siguiendo:'
-      outro: Has recibido estas notificaciones porque sigues este contenido o a sus autoras Puedes dejar de seguirlas des des sus respectivas páginas.
-      see_more: Ver más de notificaciones
-      subject: Este es tu resumen de correos
+      outro: Has recibido estas notificaciones porque sigues este contenido o a sus autoras. Puedes dejar de seguirlas desde sus respectivas páginas.
+      see_more: Ver más notificaciones
+      subject: Este es tu correo resumen
     notifications_settings:
       show:
         administrators: Administradoras
         allow_public_contact: Permitir que cualquiera me envíe un mensaje directo, incluso si no le sigo.
-        allow_push_notifications: Mostrar notificaciones emergent para saber qué pasa cuando no estás en la plataforma. Puedes desactivarlas en cualquier momento.
+        allow_push_notifications: Mostrar notificaciones emergentes para saber qué pasa cuando no estás en la plataforma. Puedes desactivarlas en cualquier momento.
         direct_messages: Recibir mensajes directos de cualquiera
         email_on_moderations: Quiero recibir un correo electrónico cada vez que se reporta algo o a alguien para moderación.
         everything_followed: Todo lo que sigo
@@ -1187,7 +1191,7 @@ es:
           none: Ninguna
           real_time: En tiempo real
           weekly: Semanalmente
-        notifications_sending_frequency: '¿Con qué frecuencia quieres recibir el correo de notificaciones?'
+        notifications_sending_frequency: '¿Con qué frecuencia quieres recibir el correo resumen de notificaciones?'
         own_activity: Mi propia actividad, como cuando alguien comenta en mi propuesta o me menciona
         push_notifications: Notificaciones emergentes
         push_notifications_reminder: Para obtener notificaciones de la plataforma, primero tienes que permitirlas en la configuración de tu navegador.
@@ -1265,6 +1269,10 @@ es:
           title: 'Obligatorio: revisa las actualizaciones de nuestros Términos de Servicio'
     participatory_space_private_users:
       not_allowed: No tienes permiso para visualizar este contenido
+    passwords:
+      update:
+        error: Ha habido un problema al actualizar la contraseña
+        success: Contraseña actualizada correctamente
     profile:
       deleted: Participante eliminada
       inaccessible_message: '¡Este perfil es inaccesible debido a la violación de Términos y Condiciones de uso!'
@@ -1625,10 +1633,11 @@ es:
     passwords:
       edit:
         change_my_password: Cambiar mi contraseña
-        change_your_password: Cambia tu contraseña
         confirm_new_password: Confirmar la nueva contraseña
         new_password: Nueva contraseña
         password_help: "%{minimun_characters} caracteres mínimos, no debe ser demasiado común (por ejemplo, 123456) y debe ser diferente de tu apodo y tu correo electrónico."
+        password_help_admin: "%{minimun_characters} caracteres mínimos, no debe ser demasiado común (por ejemplo, 123456) y debe ser diferente de tu apodo, de tu correo electrónico y de tus antiguas contraseñas."
+        title: Cambio de contraseña
       new:
         forgot_your_password: '¿Olvidaste tu contraseña?'
         send_me_reset_password_instructions: Envíame instrucciones para restablecer la contraseña
@@ -1734,15 +1743,15 @@ es:
             cookie: Cookie
         dialog:
           accept_all: Aceptar todas
-          accept_only_essential: Aceptar solo lo esencial
+          accept_only_essential: Aceptar solo las esenciales
           cookie_settings: Configuración
-          description: Utilizamos cookies en nuestro sitio web para mejorar el rendimiento y el contenido del mismo. Las cookies nos permiten proporcionar una experiencia de usuario más individual y los canales de redes sociales.
+          description: Utilizamos cookies en nuestro sitio web para mejorar el rendimiento y el contenido del mismo. Las cookies nos permiten ofrecer una experiencia de usuario y unos contenidos más personalizados desde nuestros canales de redes sociales.
           title: Información sobre las cookies utilizadas en la página web
         modal:
           accept_all: Aceptar todas
-          accept_only_essential: Aceptar solo lo esencial
+          accept_only_essential: Aceptar solo las esenciales
           analytics:
-            description: Las cookies analíticas son cookies que rastrean cómo las usuarias navegan e interactúan con la página web. La información recopilada se utiliza para ayudar a la propietaria a mejorar la página.
+            description: Las cookies analíticas son cookies que rastrean cómo las usuarias navegan e interactúan con la página web. La información recopilada se utiliza para ayudar a la propietaria de la web a mejorar la página.
             title: Analíticas y estadísticas
           description: Utilizamos cookies para asegurar las funcionalidades básicas de la página web y para mejorar tu experiencia en línea. Puedes elegir activarlas o desactivarlas por cada categoría cuando quieras.
           essential:
@@ -1752,7 +1761,7 @@ es:
             description: Estas cookies recopilan información sobre cómo utilizas la plataforma, qué páginas visitaste y a qué enlaces hiciste clic.
             title: Marketing
           preferences:
-            description: Estas cookies permiten a la plataforma recordar las opciones que ha hecho en el pasado
+            description: Estas cookies permiten a la plataforma recordar las opciones que has hecho en el pasado
             title: Preferencias
           save_settings: Guardar configuración
           title: Configuración de cookies
@@ -1832,6 +1841,7 @@ es:
     nickname_included_in_password: es demasiado similar a tu alias
     not_enough_unique_characters: no tiene suficientes caracteres únicos
     password_not_allowed: no está permitido
+    password_repeated: no puedes reutilizar una vieja contraseña
     password_too_common: es demasiado común
     password_too_long: es demasiado largo
     password_too_short: es demasiado corto
