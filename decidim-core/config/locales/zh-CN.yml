@@ -1,3 +1,4 @@
+---
 zh-CN:
   activemodel:
     attributes:
@@ -385,7 +386,6 @@ zh-CN:
           already_have_an_account?: 已经有一个帐户？
           newsletter: 接收附带相关信息的时事通讯
           newsletter_title: 联系人权限
-          password_help: "%{minimun_characters} 个字符，必须不要太常见(例如，123456)，并且必须不同于您的昵称和电子邮件。"
           sign_in: 登录
           sign_up: 注册
           sign_up_as:
@@ -1328,7 +1328,6 @@ zh-CN:
     passwords:
       edit:
         change_my_password: 更改我的密码
-        change_your_password: 更改您的密码
         confirm_new_password: 确认新密码
         new_password: 新密码
         password_help: "%{minimun_characters} 个字符，必须不要太常见(例如，123456)，并且必须不同于您的昵称和电子邮件。"
