@@ -7,7 +7,7 @@ import createQuillEditor from "src/decidim/editor"
 import Configuration from "src/decidim/configuration"
 import ExternalLink from "src/decidim/redesigned_external_link"
 import updateExternalDomainLinks from "src/decidim/external_domain_warning"
-import scrollToBottom from "src/decidim/scroll_to_bottom"
+import scrollToLastChild from "src/decidim/scroll_to_last_child"
 import InputCharacterCounter, { createCharacterCounter } from "src/decidim/redesigned_input_character_counter"
 import FormValidator from "src/decidim/form_validator"
 import CommentsComponent from "src/decidim/comments/comments.component"
@@ -111,4 +111,6 @@ document.addEventListener("DOMContentLoaded", () => {
   })
 
   scrollToBottom()
+
+  scrollToLastChild()
 });

@@ -4,10 +4,9 @@
  * @returns {void}
  */
 export default function() {
-  const element = document.querySelector("[data-scroll-bottom]")
+  const element = document.querySelector("[data-scroll-last-child]")
   if (element && element.children.length) {
     const lastChild = [...element.children].pop()
-    const { top } = lastChild.getBoundingClientRect()
-    window.scrollTo({ top: top - 16, behavior: "smooth" });
+    window.scrollTo({ top: lastChild.offsetTop, behavior: "smooth" });
   }
 }
