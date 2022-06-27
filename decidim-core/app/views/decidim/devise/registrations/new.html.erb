@@ -34,13 +34,13 @@
 
             <div class="user-person">
               <div class="field">
-                <%= f.text_field :name, help_text: t(".username_help"), autocomplete: "name" %>
+                <%= f.text_field :name, help_text: t(".username_help"), autocomplete: "off" %>
               </div>
             </div>
 
             <div class="user-nickname">
               <div class="field">
-                <%= f.text_field :nickname, help_text: t(".nickname_help", organization: current_organization.name), prefix: { value: "@", small: 1, large: 1 }, autocomplete: "nickname" %>
+                <%= f.text_field :nickname, help_text: t(".nickname_help", organization: current_organization.name), prefix: { value: "@", small: 1, large: 1 }, autocomplete: "off" %>
               </div>
             </div>
 
@@ -48,12 +48,16 @@
               <%= f.email_field :email, autocomplete: "email" %>
             </div>
 
-            <div class="field">
-              <%= f.password_field :password, password_field_options_for(:user) %>
+            <div class="user-password">
+              <div class="field">
+                <%= f.password_field :password, password_field_options_for(:user) %>
+              </div>
             </div>
 
-            <div class="field">
-              <%= f.password_field :password_confirmation, password_field_options_for(:user).except(:help_text) %>
+            <div class="user-password-confirmation">
+              <div class="field">
+                <%= f.password_field :password_confirmation, password_field_options_for(:user).except(:help_text) %>
+              </div>
             </div>
           </div>
         </div>
@@ -95,3 +99,7 @@
 </div>
 </div>
 <%= render "decidim/devise/shared/newsletter_modal" %>
+
+<% content_for :js_content do %>
+  <%= javascript_pack_tag "decidim_registrations" %>
+<% end %>
