@@ -24,6 +24,7 @@ fi-pl:
         banner_image: Bannerikuva
         child_scope_threshold_enabled: Ota käyttöön alateemojen allekirjoitukset
         collect_user_extra_fields: Kerää käyttäjän henkilötietoja allekirjoituksessa
+        comments_enabled: Ota kommentit käyttöön
         custom_signature_end_date_enabled: Salli laatijoiden valita allekirjoitusten keräyksen loppumisaika
         description: Kuvaus
         document_number_authorization_handler: Valtuutus asiakirjanumeron tarkistamiseen äänestyksessä
@@ -84,12 +85,17 @@ fi-pl:
             label: Tyyppi
         search_placeholder:
           title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Etsi kohteita %{collection} otsikon, kuvauksen, ID-numeron tai laatijan nimellä.
+      initiatives_settings:
+        update:
+          error: Tapahtui virhe
+          success: Aloitteiden asetusten päivitys onnistui
       menu:
         attachments: Liitteet
         committee_members: Komitean jäsenet
         components: Komponentit
         information: Tiedot
         initiatives: Aloitteet
+        initiatives_settings: Asetukset
         initiatives_types: Aloitetyypit
         moderations: Moderoinnit
       models:
@@ -241,6 +247,16 @@ fi-pl:
           update:
             error: Tapahtui virhe
             success: Kansalaisaloite on onnistuneesti päivitetty
+        initiatives_settings:
+          edit:
+            update: Päivitä
+          form:
+            comments: Eniten kommentoidut
+            date: Viimeisimmät
+            publication_date: Viimeisimmäksi julkaistut
+            random: Satunnainen
+            signatures: Allekirjoitetuimmat
+            title: Aloitteiden asetukset
         initiatives_type_scopes:
           create:
             error: Tapahtui virhe
@@ -290,6 +306,8 @@ fi-pl:
           send_to_technical_validation: "%{user_name} lähetti aloitteen %{resource_name} tekniseen validointiin"
           unpublish: "%{user_name} hylkäsi aloitteen %{resource_name}"
           update: "%{user_name} päivitti aloitetta %{resource_name}"
+        initiatives_settings:
+          update: "%{user_name} päivitti aloitteiden asetuksia"
         initiatives_type:
           create: "%{user_name} loi aloitetyypin %{resource_name}"
           delete: "%{user_name} poisti aloitetyypin %{resource_name}"
