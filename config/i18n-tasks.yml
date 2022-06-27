@@ -40,6 +40,11 @@ data:
   #     object_nl: "\n"
   #     array_nl: "\n"
 
+locales:
+  <% (ENV["ENFORCED_LOCALES"].presence&.split(",") || []).each do |path| -%>
+  <%= ENV["ENFORCED_LOCALES"] %>
+  <% end -%>
+
 # Find translate calls
 search:
   ## Paths or `File.find` patterns to search in:
