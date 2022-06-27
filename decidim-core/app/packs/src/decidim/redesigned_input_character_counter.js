@@ -279,16 +279,4 @@ const createCharacterCounter = ($input) => {
   }
 }
 
-$(() => {
-  $("input[type='text'], textarea, .editor>input[type='hidden']").each((_i, elem) => {
-    const $input = $(elem);
-
-    if (!$input.is("[minlength]") && !$input.is("[maxlength]")) {
-      return;
-    }
-
-    createCharacterCounter($input);
-  });
-});
-
 export {InputCharacterCounter, createCharacterCounter};

@@ -8,7 +8,7 @@ import Configuration from "src/decidim/configuration"
 import ExternalLink from "src/decidim/redesigned_external_link"
 import updateExternalDomainLinks from "src/decidim/external_domain_warning"
 import scrollToBottom from "src/decidim/scroll_to_bottom"
-// import InputCharacterCounter from "src/decidim/input_character_counter"
+import InputCharacterCounter, { createCharacterCounter } from "src/decidim/redesigned_input_character_counter"
 import FormValidator from "src/decidim/form_validator"
 import CommentsComponent from "src/decidim/comments/comments.component"
 import DataPicker from "src/decidim/data_picker"
@@ -24,7 +24,7 @@ import Dialogs from "a11y-dialog-component";
 window.Decidim = window.Decidim || {};
 window.Decidim.config = new Configuration()
 window.Decidim.ExternalLink = ExternalLink;
-// window.Decidim.InputCharacterCounter = InputCharacterCounter;
+window.Decidim.InputCharacterCounter = InputCharacterCounter;
 window.Decidim.FormValidator = FormValidator;
 window.Decidim.DataPicker = DataPicker;
 window.Decidim.CommentsComponent = CommentsComponent;
@@ -70,6 +70,17 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   document.querySelectorAll("a[target=\"_blank\"]:not([no-external-link])").forEach((elem) => new ExternalLink(elem))
+
+  // initialize character counter
+  $("input[type='text'], textarea, .editor>input[type='hidden']").each((_i, elem) => {
+    const $input = $(elem);
+
+    if (!$input.is("[minlength]") && !$input.is("[maxlength]")) {
+      return;
+    }
+
+    createCharacterCounter($input);
+  });
 
   // Mount comments component
   $("[data-decidim-comments]").each((_i, el) => {
