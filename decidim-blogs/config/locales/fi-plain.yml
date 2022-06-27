@@ -52,6 +52,7 @@ fi-pl:
             author: Kirjoittaja
             body: Leipäteksti
             created_at: Luotu
+            official_blog_post: Virallinen artikkeli
             title: otsikko
       posts:
         show:
