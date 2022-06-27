@@ -134,18 +134,26 @@ module Decidim
 
       def run_all(command, out: $stdout, include_root: true)
         all_dirs(include_root: include_root) do |dir|
-          status = new(dir).run(command, out: out)
+          status = run_at(dir, command, out: out)
 
-          break unless status || ENV.fetch("FAIL_FAST", nil) == "false"
+          break if !status && fail_fast?
         end
       end
 
       def run_packages(command, out: $stdout)
         package_dirs do |dir|
-          status = new(dir).run(command, out: out)
+          status = run_at(dir, command, out: out)
 
-          break unless status || ENV.fetch("FAIL_FAST", nil) == "false"
+          break if !status && fail_fast?
         end
+      end
+
+      def run_at(dir, command, out: $stdout)
+        until (status = new(dir).run(command, out: out))
+          break unless Decidim::GemManager.retry?
+        end
+
+        status
       end
 
       def version
@@ -177,6 +185,14 @@ module Decidim
 
       def semver_friendly_version(a_version)
         a_version.gsub(/\.pre/, "-pre").gsub(/\.dev/, "-dev").gsub(/.rc(\d*)/, "-rc\\1")
+      end
+
+      def fail_fast?
+        ENV.fetch("FAIL_FAST", nil) != "false"
+      end
+
+      def retry?
+        ENV.fetch("RETRY", true).to_s != "false"
       end
 
       private

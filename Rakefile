@@ -57,14 +57,32 @@ task :uninstall_all do
 end
 
 desc "Pushes a new build for each gem and package."
-task release_all: [:update_versions, :check_locale_completeness] do
-  Decidim::GemManager.run_all("rake release")
-  Decidim::GemManager.run_packages("npm publish --access public")
+task release_all: [:update_versions, :check_uncommitted_changes, :check_locale_completeness] do
+  commands = {}
+  Decidim::GemManager.all_dirs { |dir| commands[dir] = "rake release" }
+  Decidim::GemManager.package_dirs { |dir| commands[dir] = "npm publish --access public" }
+
+  commands.each do |dir, command|
+    status = Decidim::GemManager.run_at(dir, command)
+
+    break if !status && Decidim::GemManager.fail_fast?
+  end
+end
+
+desc "Makes sure there are no uncommitted changes."
+task :check_uncommitted_changes do
+  unless system("git diff --exit-code --quiet")
+    puts "There are uncommitted changes, run `git diff` to see them."
+    abort "Please commit your changes before release!"
+  end
 end
 
 desc "Makes sure all official locales are complete and clean."
 task :check_locale_completeness do
-  system({ "ENFORCED_LOCALES" => "en,ca,es", "SKIP_NORMALIZATION" => "true" }, "rspec spec/i18n_spec.rb")
+  unless system({ "ENFORCED_LOCALES" => "en,ca,es", "SKIP_NORMALIZATION" => "true" }, "rspec spec/i18n_spec.rb")
+    puts "The officially supported locales have problems in them."
+    abort "Please correct these problems by following the instructions from the above outputs before release!"
+  end
 end
 
 load "decidim-dev/lib/tasks/generators.rake"
