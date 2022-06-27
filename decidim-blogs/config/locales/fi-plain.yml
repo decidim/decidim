@@ -1,3 +1,4 @@
+---
 fi-pl:
   activemodel:
     models:
@@ -10,12 +11,12 @@ fi-pl:
   decidim:
     blogs:
       actions:
+        author_id: Luo artikkeli käyttäjänä
         confirm_destroy: Haluatko varmasti poistaa tämän artikkelin?
         destroy: Poista
         edit: Muokkaa
         new: Uusi artikkeli
         title: Toiminnot
-        user_group_id: Luo artikkeli käyttäjänä
       admin:
         models:
           components:
@@ -39,6 +40,11 @@ fi-pl:
           update:
             invalid: Artikkelin tallennuksessa tapahtui virheitä.
             success: Artikkeli tallennettu onnistuneesti
+      admin_log:
+        post:
+          create: "%{user_name} loi blogikirjoituksen %{resource_name} tilassa %{space_name}"
+          delete: "%{user_name} poisti blogikirjoituksen %{resource_name} tilasta %{space_name}"
+          update: "%{user_name} päivitti blogikirjoitusta %{resource_name} tilassa %{space_name}"
       last_activity:
         new_post_at_html: "<span>Uusi artikkeli osoitteessa %{link}</span>"
       models:
@@ -47,6 +53,7 @@ fi-pl:
             author: Kirjoittaja
             body: Leipäteksti
             created_at: Luotu
+            official_blog_post: Virallinen artikkeli
             title: otsikko
       posts:
         show:
