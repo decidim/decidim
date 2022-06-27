@@ -1,11 +1,10 @@
+---
 ar:
   activemodel:
     attributes:
       answer:
         description: الوصف
       election:
-        description: الوصف
-      question:
         description: الوصف
   decidim:
     elections:
