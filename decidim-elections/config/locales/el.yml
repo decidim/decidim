@@ -1,3 +1,4 @@
+---
 el:
   activemodel:
     attributes:
@@ -12,7 +13,6 @@ el:
         start_time: Η ψηφοφορία ξεκινά στις
         title: Τίτλος
       question:
-        description: Περιγραφή
         max_selections: Μέγιστος αριθμός επιλογών
         title: Τίτλος
     errors:
