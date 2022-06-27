@@ -1,3 +1,4 @@
+---
 gl:
   activemodel:
     attributes:
@@ -1158,7 +1159,6 @@ gl:
     passwords:
       edit:
         change_my_password: Cambiar o meu contrasinal
-        change_your_password: Cambia o teu contrasinal
         confirm_new_password: Confirma o contrasinal novo
         new_password: Novo contrasinal
       new:
