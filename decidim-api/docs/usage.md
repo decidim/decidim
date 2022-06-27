@@ -250,7 +250,7 @@ The process is analogue as what has been explained in the case of searching for 
 >
 > In this case, 3257.
 
-#### What about component's collections?
+##### What about component's collections?
 
 Glad you asked, component's collections cannot be retrieved directly, the are available *in the context* of a participatory space.
 
