@@ -1,3 +1,4 @@
+---
 ro:
   activemodel:
     attributes:
@@ -24,6 +25,7 @@ ro:
         banner_image: Imagine banner
         child_scope_threshold_enabled: Activează semnăturile pentru domeniul de interes copil
         collect_user_extra_fields: Colectarea datelor cu caracter personal ale participantului la semnătură
+        comments_enabled: Comentarii activate
         custom_signature_end_date_enabled: Permite autorilor să aleagă sfârșitul perioadei de colectare a semnăturilor
         description: Descriere
         document_number_authorization_handler: Autorizare pentru verificarea numărului documentului pe semnături
