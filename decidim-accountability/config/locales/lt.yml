@@ -189,6 +189,8 @@ lt:
           subcategories_label: Subkategorijos
         home_header:
           global_status: Bendra vykdymo būsena
+        nav_breadcrumb:
+          global: Bendras vykdymas
         search:
           search: Ieškoti veiksmų
         show:

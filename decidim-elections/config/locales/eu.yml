@@ -12,7 +12,6 @@ eu:
         start_time: Bozketaren hasiera-data
         title: Izenburua
       question:
-        description: Deskribapena
         max_selections: Gehieneko aukera kopurua
         min_selections: Aurreko bat ere ez
         title: Izenburua
@@ -227,7 +226,6 @@ eu:
               minimum_answers: Galderek gutxienez eduki behar dituzte <strong> bi erantzun </strong>.
               minimum_questions: <strong>aukerak gutxienez </strong> galdera bat eduki behar du.
               published: <strong>aukera ez dago argitaratuta </strong>.
-              time_before: Hasierako ordua hemen dago <strong>3 ordu baino gutxiago</strong> bozketa hasi baino lehen.
               trustees_number: <strong> espazio parte-hartzaileak gutxienez eduki behar du %{number} bermatzaile gako publikoarekin </strong>.
             invalid: Arazo bat izan da aukera hau konfiguratzean
             no_trustees: Ez dago bermatzaile konfiguraturik espazio parte-hartzaile honetarako

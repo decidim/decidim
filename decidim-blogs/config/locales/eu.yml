@@ -10,12 +10,12 @@ eu:
   decidim:
     blogs:
       actions:
+        author_id: Sortu argitalpena hau bezala
         confirm_destroy: Ziur mezua ezabatu nahi duzula?
         destroy: Ezabatu
         edit: Editatu
         new: Post berria
         title: Ekintzak
-        user_group_id: Sortu argitalpena hau bezala
       admin:
         models:
           components:
