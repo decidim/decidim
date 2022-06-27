@@ -30,10 +30,6 @@ module Decidim
           hash.push(highlighted_conferences.map(&:cache_key_with_version))
           hash.join(Decidim.cache_key_separator)
         end
-
-        def cache_expiry_time
-          10.minutes
-        end
       end
     end
   end
