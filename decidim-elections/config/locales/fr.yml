@@ -1,3 +1,4 @@
+---
 fr:
   activemodel:
     attributes:
@@ -12,7 +13,6 @@ fr:
         start_time: Le vote commence à
         title: Titre
       question:
-        description: Description
         max_selections: Nombre maximum de sélections
         min_selections: Aucune des options ci-dessus
         title: Titre
@@ -249,7 +249,6 @@ fr:
               minimum_answers: Les questions doivent avoir <strong>au moins deux réponses</strong>.
               minimum_questions: L'élection <strong>doit avoir au moins une question</strong>.
               published: L'élection n'est <strong>pas publiée</strong>.
-              time_before: L'heure de début se situe<strong>moins de 3 heures</strong> avant le commencement de l'élection.
               trustees_number: L'espace participatif <strong>doit avoir au moins %{number} garants avec une clé publique</strong>.
             invalid: Une erreur est survenue lors de la création de l'élection
             no_trustees: Il n'y a pas de garants configurés pour cet espace participatif
