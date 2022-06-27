@@ -106,10 +106,10 @@ In the former query, each keyword represents a type, the words `publishedSince`,
 
 The other keywords however, are objects representing certain entities:
 
-- `participatoryProcesses` is a type that represents a collection of participatory spaces. It accepts arguments (`filter` and `order`), which are other object types as well. `slug` and `title` are the fields of the participatory process we are interested in, there are "Types" too.
-- `filter` is a [ParticipatoryProcessFilter](#ParticipatoryProcessFilter)\* input type, it has several properties that allows us to refine our search. One of them is the `publishedSince` property with the initial date from which to list entries.
-- `order ` is a [ParticipatoryProcessSort](#ParticipatoryProcessSort) type, works the same way as the filter but with the goal of ordering the results.
-- `title` is a [TranslatedField](#TranslatedField) type, which allows us to deal with multi-language fields.
+* `participatoryProcesses` is a type that represents a collection of participatory spaces. It accepts arguments (`filter` and `order`), which are other object types as well. `slug` and `title` are the fields of the participatory process we are interested in, there are "Types" too.
+* `filter` is a [ParticipatoryProcessFilter](#ParticipatoryProcessFilter)\* input type, it has several properties that allows us to refine our search. One of them is the `publishedSince` property with the initial date from which to list entries.
+* `order` is a [ParticipatoryProcessSort](#ParticipatoryProcessSort) type, works the same way as the filter but with the goal of ordering the results.
+* `title` is a [TranslatedField](#TranslatedField) type, which allows us to deal with multi-language fields.
 
 Finally, note that the returned object is an array, each item of which is a representation of the object we requested.
 
@@ -499,10 +499,10 @@ The next line is just a property of the type *Proposals* which is a type of coll
 
 Typically, a connection is used to paginate long results, for this purpose the results are not directly available but encapsulated inside the list *edges* in several *node* results. Also there are more arguments available in order to navigate between pages. This are the arguments:
 
-- `first`: Returns the first *n* elements from the list
-- `after`: Returns the elements in the list that come after the specified *cursor*
-- `last`: Returns the last *n* elements from the list
-- `before`: Returns the elements in the list that come before the specified *cursor*
+* `first`: Returns the first *n* elements from the list
+* `after`: Returns the elements in the list that come after the specified *cursor*
+* `last`: Returns the last *n* elements from the list
+* `before`: Returns the elements in the list that come before the specified *cursor*
 
 Example:
 
