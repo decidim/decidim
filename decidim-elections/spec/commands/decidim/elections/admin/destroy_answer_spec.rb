@@ -13,7 +13,7 @@ describe Decidim::Elections::Admin::DestroyAnswer do
   let(:user) { create :user, :admin, :confirmed, organization: organization }
 
   it "destroys the answer" do
-    expect { subject.call }.to change { Decidim::Elections::Answer.count }.by(-1)
+    expect { subject.call }.to change(Decidim::Elections::Answer, :count).by(-1)
   end
 
   it "traces the action", versioning: true do

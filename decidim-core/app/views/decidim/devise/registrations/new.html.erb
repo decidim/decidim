@@ -49,11 +49,11 @@
             </div>
 
             <div class="field">
-              <%= f.password_field :password, help_text: t(".password_help", minimun_characters: ::PasswordValidator::MINIMUM_LENGTH), autocomplete: "new-password" %>
+              <%= f.password_field :password, password_field_options_for(:user) %>
             </div>
 
             <div class="field">
-              <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+              <%= f.password_field :password_confirmation, password_field_options_for(:user).except(:help_text) %>
             </div>
           </div>
         </div>

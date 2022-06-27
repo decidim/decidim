@@ -2,7 +2,7 @@
 <div class="row collapse">
   <div class="row collapse">
     <div class="columns large-8 large-centered text-center page-title">
-      <h1><%= t("devise.passwords.edit.change_your_password") %></h1>
+      <h1><%= t("devise.passwords.edit.title") %></h1>
     </div>
   </div>
 
@@ -10,17 +10,17 @@
     <div class="columns medium-7 large-5 medium-centered">
       <div class="card">
         <div class="card__content">
-          <%= decidim_form_for(resource, namespace: "password", as: resource_name, url: password_path(resource_name), html: { method: :put, class: "register-form new_user" }) do |f| %>
+          <%= decidim_form_for(resource, namespace: "password", as: resource_name, url: @send_path || password_path(resource_name), html: { method: :put, class: "register-form new_user" }) do |f| %>
             <%= form_required_explanation %>
 
             <%= f.hidden_field :reset_password_token %>
 
             <div class="field">
-              <%= f.password_field :password, autocomplete: "new-password", help_text: t("devise.passwords.edit.password_help", minimun_characters: ::PasswordValidator::MINIMUM_LENGTH) %>
+              <%= f.password_field :password, password_field_options_for(current_user || params["reset_password_token"]) %>
             </div>
 
             <div class="field">
-              <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+              <%= f.password_field :password_confirmation, password_field_options_for(current_user || params["reset_password_token"]).except(:help_text) %>
             </div>
 
             <div class="actions">
@@ -28,7 +28,9 @@
             </div>
           <% end %>
 
-          <%= render "decidim/devise/shared/links" %>
+          <% unless current_user %>
+            <%= render "decidim/devise/shared/links" %>
+          <% end %>
         </div>
       </div>
     </div>
