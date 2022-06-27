@@ -1,3 +1,4 @@
+---
 ar:
   activemodel:
     models:
@@ -14,12 +15,12 @@ ar:
   decidim:
     blogs:
       actions:
+        author_id: إنشاء مشاركة كـ
         confirm_destroy: هل أنت متأكد أنك تريد حذف هذه المشاركة؟
         destroy: حذف
         edit: تعديل
         new: منشور جديد
         title: أفعال
-        user_group_id: إنشاء مشاركة كـ
       admin:
         models:
           components:
