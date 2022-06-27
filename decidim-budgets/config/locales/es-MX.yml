@@ -1,3 +1,4 @@
+---
 es-MX:
   activemodel:
     attributes:
@@ -13,8 +14,11 @@ es-MX:
         decidim_scope_id: Ámbito
         description: Descripción
         proposal_ids: Propuestas relacionadas
+        proposals: Propuestas
         selected: Seleccionado para implementar
         title: Título
+      proposals_import:
+        scope_id: Ámbito
   activerecord:
     models:
       decidim/budgets/project:
@@ -115,7 +119,7 @@ es-MX:
             select_a_scope: Por favor, selecciona un ámbito
             success: 'Los siguientes proyectos se han actualizado correctamente al ámbito %{subject_name}: %{projects}.'
           update_selected:
-            invalid: 'Estos proyectos ya estaban seleccionado: %{projects}.'
+            invalid: 'Estos proyectos ya estaban seleccionados: %{projects}.'
             select_a_project: Por favor, selecciona un proyecto
             select_a_selection: Por favor, elige un estado
             success: 'Selección de proyectos cambiada con éxito: %{projects}.'
@@ -125,7 +129,10 @@ es-MX:
             success: "%{number} propuestas importadas con éxito en proyectos"
           new:
             create: Importar propuestas a proyectos
+            default_budget: Presupuesto por defecto
+            import_all_accepted_proposals: Importar todas las propuestas aceptadas
             no_components: No hay otros componentes de la propuesta en este espacio participativo para importar las propuestas en los proyectos.
+            origin_component_id: Componente de origen
             select_component: Por favor seleccione un componente
             title: Importar propuestas
         reminders:
@@ -250,6 +257,8 @@ es-MX:
           filter: Filtrar
           filter_by: Filtrar por
           unfold: Desplegar
+        index:
+          view_project: Ver proyecto
         order_progress:
           vote: Dar apoyo
         order_selected_projects:
@@ -307,6 +316,7 @@ es-MX:
               errors:
                 budget_voting_rule_only_one: Hay que activar por lo menos una norma para la votación
                 budget_voting_rule_required: Se requiere una norma para la votación
+            geocoding_enabled: Geolocalización habilitada
             landing_page_content: Página de inicio de presupuestos
             more_information_modal: Modal de "Más información"
             projects_per_page: Proyectos por página
