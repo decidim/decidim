@@ -1,3 +1,4 @@
+---
 lv:
   activemodel:
     attributes:
@@ -12,7 +13,6 @@ lv:
         start_time: Balsošanas sākas plkst.
         title: Nosaukums
       question:
-        description: Apraksts
         max_selections: Maksimālais izvēļu skaits
         title: Nosaukums
     errors:
