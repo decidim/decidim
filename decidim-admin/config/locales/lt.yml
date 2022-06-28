@@ -829,10 +829,29 @@ lt:
         edit:
           update: Atnaujinti
       participatory_space_private_users:
+        create:
+          error: Pridedant privatų dalyvį į šia dalyvaujamają erdvę kilo problema.
+          success: Dalyvaujamosios erdvės privataus dalyvio prieiga buvo sukurta sėkmingai.
+        destroy:
+          error: Ištrinant privatų dalyvį iš dalyvaujamosios erdvės kilo problema.
+          success: Dalyvaujamojo proceso erdvės privataus dalyvio prieiga panaikinta.
         index:
           import_via_csv: Importuoti iš CSV
-      participatory_space_private_users_csv_imports:
+          title: Dalyvaujamosios erdvės privatus dalyvis
         new:
+          create: Sukurti
+          title: Naujas dalyvaujamosios erdvės privatus dalyvis.
+      participatory_space_private_users_csv_imports:
+        create:
+          invalid: Skaitant CSV dokumentą iškilo problema.
+          success: CSV dokumentas įkeltas sėkmingai, dalyviai kviečiami e. laišku - tai gali užtrukti.
+        new:
+          destroy:
+            button: Ištrinti visus privačius dalyvius
+            confirm: Ar tikrai norite ištrinti visus privačius dalyvius? Atlikus šį veiksmą nebebus įmanoma sugražinti šių dalyvių į platformą.
+            empty: Neturite privačių dalyvių.
+            explanation: Turite %{count} privačių dalyvių.
+            title: Ištrinti privačius dalyvius
           explanation: 'Įkelkite CSV dokumentą. Jis turi turėti du stulpelius su naudotojų el. paštu pirmajame ir vardu paskutiniąjame. Dokumente neturėtų būti laukų pavadinimų ir šių simbolių naudotojų varduose "<>?%&^*#@()[]=+:;"{}\|".'
           title: Įkelkite CSV dokumentą
           upload: Įkelti
@@ -948,6 +967,11 @@ lt:
       blocked_users:
         object: užblokuoti naudotojai
         title: Užblokuoti naudotojai
+      reported_users:
+        title: Raportuoti naudotojai
+      user_reports:
+        object: vartotojo pranešimai
+        title: Naudotojo pranešimai
     moderations:
       actions:
         expand: Išplėsti
@@ -956,13 +980,18 @@ lt:
         not_hidden: Nepaslėpta
         title: Veiksmai
         unhide: Nebeslėpti
+        unreport: Panaikinti raportavimą
       admin:
         reportable:
           hide:
             invalid: Slepiant išteklių iškilo problema.
             success: Išteklius paslėptas.
           unhide:
+            invalid: Atveriant šį išteklį kilo problema.
             success: Išteklius paslėptas.
+          unreport:
+            invalid: Naikinant pranešimą apie šį išteklį kilo problema.
+            success: Pranešimas apie išteklį panaikintas.
       models:
         moderation:
           fields:
@@ -973,6 +1002,8 @@ lt:
             reportable_id: ID
             reportable_type: Tipas
             reported_content_url: Turinio, apie kurį pranešta, URL
+            reports: Pranešimai
+            visit_url: Apsilankykite URL
         report:
           fields:
             details: Priežasties detalės
@@ -984,6 +1015,8 @@ lt:
   layouts:
     decidim:
       admin:
+        global_moderations:
+          title: Globalūs moderavimai
         newsletters:
           title: Naujienlaiškiai
         settings:
