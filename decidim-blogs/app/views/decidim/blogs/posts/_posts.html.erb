@@ -1,19 +1,15 @@
 <% paginate_posts.each do |post| %>
-  <div class="flex gap-4">
+  <div class="flex gap-4 px-4 group rounded overflow-hidden border-l-4 border-background hover:border-tertiary">
     <% if post.photo.present? %>
-      <%= image_tag post.photo.url %>
-    <% else %>
-      <div class="w-1/4 flex-none rounded overflow-hidden">
-        <img src="https://www.fillmurray.com/640/360" alt="" class="aspect-video">
+      <div class="w-1/4 flex-none rounded overflow-hidden aspect-[1.5] -ml-[calc(1rem+4px)]">
+        <%= image_tag post.photo.url, class: "w-full h-full object-cover" %>
       </div>
     <% end %>
 
     <div class="flex flex-col">
-      <%= link_to post do %>
-        <h4 class="h4 text-secondary">
-          <%= translated_attribute post.title %>
-        </h4>
-      <% end %>
+      <h4 class="h4 text-secondary mb-3 group-hover:underline">
+        <%= link_to translated_attribute(post.title), post %>
+      </h4>
 
       <%= decidim_sanitize_editor post_description(post) %>
 

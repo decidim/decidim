@@ -14,7 +14,7 @@ module Decidim
       # max_length - a number to limit the length of the body
       #
       # Returns the post's body truncated.
-      def post_description(post, max_length = 600)
+      def post_description(post, max_length = 300)
         link = post_path(post)
         body = translated_attribute(post.body)
         tail = "... <br/> #{link_to(t("read_more", scope: "decidim.blogs"), link)}".html_safe

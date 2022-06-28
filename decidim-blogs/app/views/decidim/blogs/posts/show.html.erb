@@ -20,10 +20,9 @@
   <div class="grid grid-cols-8">
     <h1 class="h1 decorator my-12 col-start-2 col-span-6"><%= translated_attribute post.title %></h1>
 
-    <%# TODO: Check if post.image is present %>
-    <% if true %>
-      <div class="col-span-8 rounded-xl overflow-hidden mb-8">
-        <img src="https://www.fillmurray.com/640/360" class="w-full object-cover aspect-[3]">
+    <% if post.photo.present? %>
+      <div class="col-span-8 rounded-xl overflow-hidden mb-8 aspect-[3]">
+        <%= image_tag post.photo.url, class: "w-full h-full object-cover" %>
       </div>
     <% end %>
 
