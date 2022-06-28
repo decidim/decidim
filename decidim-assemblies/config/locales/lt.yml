@@ -93,3 +93,26 @@ lt:
           success: Administratorius sėkmingai pridėtas prie asamblėjos.
         destroy:
           success: Administratorius sėkmingai panaikintas iš šios asamblėjos.
+        edit:
+          title: Atnaujinti asamblėjos administratorių.
+          update: Atnaujinti
+        index:
+          assembly_admins_title: Asamblėjos administratoriai
+        new:
+          create: Sukurti
+          title: Naujas asamblėjos administratorius.
+        update:
+          error: Atnaujinant asamblėjos administratorių kilo problema.
+          success: Šios asamblėjos administratorius sėkmingai atnaujintas.
+      filters:
+        decidim_assemblies_type_id_eq:
+          label: Asamblėjos tipas
+      menu:
+        assemblies: Asamblėjos
+        assemblies_settings: Nustatymai
+        assemblies_submenu:
+          assembly_admins: Asamblėjos administratoriai
+          assembly_members: Nariai
+          attachment_collections: Aplankai
+          attachment_files: Dokumentai
+          attachments: Priedai
