@@ -375,14 +375,20 @@ lt:
         included_at: Įtraukta į
         indefinite_duration: Neribota
         internal_organisation: Vidinė organizacija
+        is_transparent:
+          'false': neskaidru
+          'true': skaidru
+        local_area: Organizacijos aplinka
         participatory_scope: Kas nuspręsta
         participatory_structure: Kaip nuspręsta
         private_space: Tai yra uždara asamblėja
+        purpose_of_action: Veiksmo tikslas
         read_less: Suskleisti
         read_more: Išskleisti
         related_participatory_processes: Susiję dalyvaujamieji procesai
         scope: Apimtis
         social_networks: Socialiniai tinklai
+        social_networks_title: Aplankyti asamblėją
         target: Kas dalyvauja
     assembly_members:
       assembly_member:
@@ -393,6 +399,7 @@ lt:
       assemblies:
         create_assembly_member:
           email_intro: <a href="%{resource_url}">%{resource_name}</a> asamblėjos administratorius įtraukė jus kaip vieną iš jos narių.
+          email_outro: Šį pranešimą gavote dėl to, kad esate pakviestas į asamblėją. Norėdami prisidėti, <a href="%{resource_url}"> apsilankykite asamblėjos puslapyje </a>!
           email_subject: Esate pakviestas tapti %{resource_name} asamblėjos nariu!
       assembly:
         role_assigned:
