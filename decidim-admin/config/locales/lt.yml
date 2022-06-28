@@ -40,6 +40,7 @@ lt:
         cta_button_path: Mygtuko „Raginti imtis veiksmų“ kelias
         cta_button_text: Mygtuko „Raginti imtis veiksmų“ tekstas
         customize_welcome_notification: Individualizuoti pasisveikinimo pranešimą
+        default_locale: Numatytoji lokalė
         description: Aprašymas
         enable_omnipresent_banner: Rodyti visur naudojamą reklamjuostę
         enable_participatory_space_filters: Leisti dalyvaujamosios erdvės filtrus
@@ -716,6 +717,8 @@ lt:
           recipients_count: Šis naujienlaiškis bus išsiųstas <strong id='recipients_count'>%{count}</strong> naudotojams.
           scopes_help: Naujienlaiškis siunčiamas naudotojams, kurių paskyros „Mano interesai“ nuostatose aktyvuota kuri nors pasirinkta sritis.
           select_scopes: Filtruoti naudotojus, kurie savo paskyros „Mano interesai“ nuostatose aktyvino bet kurią pasirinktą sritį.
+          select_spaces: Pasirinkite naujienlaiškio segmentacijos vietas
+          select_users: Pasirinkite, kuriems naudotojams norite siųsti naujienlaiškį
           send_to_all_users: Siųsti visiems naudotojams
           send_to_followers: Siųsti sekėjams
           send_to_participants: Siųsti dalyviams
