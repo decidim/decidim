@@ -22,7 +22,7 @@
             <% collection_for.attachment_collections.each do |attachment_collection| %>
               <tr data-id="<%= attachment_collection.id %>">
                 <td>
-                  <%= link_to translated_attribute(attachment_collection.name), edit_polymorphic_path([collection_for, attachment_collection]) %><br>
+                  <%= translated_attribute(attachment_collection.name) %>
                 </td>
                 <td class="table-list__actions">
                   <% if allowed_to? :update, :attachment_collection, attachment_collection: attachment_collection %>

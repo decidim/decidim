@@ -26,17 +26,7 @@
                     <%= icon "star", aria_label: t("models.conference.fields.promoted", scope: "decidim.admin"), role: "img" %>
                   </span>
                 <% end %>
-                <% if allowed_to? :update, :conference, conference: conference %>
-                  <%= link_to translated_attribute(conference.title), edit_conference_path(conference) %><br>
-                <% elsif allowed_to? :read, :component, conference: conference %>
-                  <%= link_to translated_attribute(conference.title), components_path(conference) %><br>
-                <% elsif allowed_to? :preview, :conference, conference: conference %>
-                  <%= link_to translated_attribute(conference.title), decidim_conferences.conference_path(conference) %><br>
-                <% elsif allowed_to? :read, :moderation, conference: conference %>
-                  <%= link_to translated_attribute(conference.title), moderations_path(conference) %><br>
-                <% else %>
-                  <%= translated_attribute(conference.title) %>
-                <% end %>
+                <%= translated_attribute(conference.title) %>
               </td>
               <td>
                 <%= l conference.created_at, format: :short %>

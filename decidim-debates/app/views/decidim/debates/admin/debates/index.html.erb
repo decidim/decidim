@@ -25,7 +25,7 @@
           <% debates.each do |debate| %>
             <tr data-id="<%= debate.id %>">
               <td>
-                <%= link_to present(debate).title(html_escape: true), resource_locator(debate).path, target: :blank %><br>
+                <%= present(debate).title(html_escape: true) %><br>
               </td>
               <td>
                 <% if debate.start_time %>
@@ -39,6 +39,7 @@
               </td>
               <%= td_resource_scope_for(debate.scope) %>
               <td class="table-list__actions">
+                <%= icon_link_to "eye", resource_locator(debate).path, t("actions.preview", scope: "decidim.admin"), class: "action-icon--preview", target: :blank %>
                 <% if allowed_to? :update, :debate, debate: debate %>
                   <%= icon_link_to "pencil", edit_debate_path(debate), t("actions.edit", scope: "decidim.debates"), class: "action-icon--edit" %>
                 <% else %>

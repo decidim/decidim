@@ -1,15 +1,14 @@
 <% if user_role_config.component_is_accessible?(component.manifest_name) %>
   <tr class="component-<%= component.id %>">
     <td>
-      <%= link_to main_component_path(component), target: "_blank" do %>
-        <%= translated_attribute component.name %>
-      <% end %>
+      <%= translated_attribute component.name %>
     </td>
     <td>
       <%= t "decidim.components.#{component.manifest.name}.name" %>
     </td>
     <%= td_resource_scope_for(component.scope) %>
     <td class="table-list__actions">
+      <%= icon_link_to "eye", main_component_path(component), t("actions.preview", scope: "decidim.admin"), class: "action-icon--preview", target: :blank %>
       <% if component.manifest.admin_engine %>
         <%= icon_link_to "pencil", manage_component_path(component), t("actions.manage", scope: "decidim.admin"), class: "action-icon--manage" %>
       <% else %>

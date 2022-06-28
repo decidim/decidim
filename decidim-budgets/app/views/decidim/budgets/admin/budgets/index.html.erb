@@ -34,7 +34,7 @@
           <% budgets.each do |budget| %>
             <tr data-id="<%= budget.id %>">
               <td>
-                <%= link_to translated_attribute(budget.title), resource_locator(budget).path %>
+                <%= translated_attribute(budget.title) %>
               </td>
               <td>
                 <%= number_to_currency budget.total_budget, unit: Decidim.currency_unit, precision: 0 %>

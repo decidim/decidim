@@ -23,14 +23,8 @@
           <% collection.each do |participatory_process_type| %>
           <tr>
             <td>
-              <% if allowed_to?(:update, :participatory_process_type, participatory_process_type: participatory_process_type) %>
-                <%= link_to(
-                      translated_attribute(participatory_process_type.title),
-                      edit_participatory_process_type_path(participatory_process_type)
-                    ) %>
-              <% else %>
-                <%= translated_attribute(participatory_process_type.title) %></td>
-              <% end %>
+              <%= translated_attribute(participatory_process_type.title) %>
+            </td>
             <td><%= l(participatory_process_type.created_at, format: :short) %></td>
             <td class="table-list__actions">
               <% if allowed_to?(:update, :participatory_process_type, participatory_process_type: participatory_process_type) %>

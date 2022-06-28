@@ -74,17 +74,7 @@
                     <%= icon "star" %>
                   </span>
                 <% end %>
-                <% if allowed_to? :update, :process, process: process %>
-                  <%= link_to translated_attribute(process.title), edit_participatory_process_path(process) %><br>
-                <% elsif allowed_to? :read, :component, process: process %>
-                  <%= link_to translated_attribute(process.title), components_path(process) %><br>
-                <% elsif allowed_to? :preview, :process, process: process %>
-                  <%= link_to translated_attribute(process.title), decidim_participatory_processes.participatory_process_path(process) %><br>
-                <% elsif allowed_to? :read, :moderation, process: process %>
-                  <%= link_to translated_attribute(process.title), moderations_path(process) %><br>
-                <% else %>
-                  <%= translated_attribute(process.title) %>
-                <% end %>
+                <%= translated_attribute(process.title) %>
               </td>
               <td>
                 <%= l process.created_at, format: :short %>

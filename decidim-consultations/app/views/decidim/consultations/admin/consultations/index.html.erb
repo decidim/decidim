@@ -24,17 +24,7 @@
           <% @consultations.each do |consultation| %>
             <tr>
               <td>
-                <% if allowed_to? :update, :consultation, consultation: consultation %>
-                  <%= link_to translated_attribute(consultation.title), edit_consultation_path(consultation) %>
-                  <br>
-                <% elsif allowed_to? :preview, :consultation, consultation: consultation %>
-                  <%= link_to translated_attribute(consultation.title),
-                              decidim_consultations.consultation_path(consultation),
-                              target: "_blank" %>
-                  <br>
-                <% else %>
-                  <%= translated_attribute(consultation.title) %>
-                <% end %>
+                <%= translated_attribute(consultation.title) %>
               </td>
               <td>
                 <%= l consultation.created_at, format: :short %>

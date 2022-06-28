@@ -6,10 +6,7 @@
     <%= proposal.id %><br>
   </td>
   <td>
-    <%= link_to(
-     decidim_html_escape(present(proposal).title).html_safe,
-     proposal_path(proposal)
-    ) %><br>
+    <%= decidim_html_escape(present(proposal).title).html_safe %><br>
   </td>
   <td>
     <% if proposal.category %>

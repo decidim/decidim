@@ -51,7 +51,7 @@
                 <%= result.id %><br>
               </td>
               <td>
-                <%= link_to translated_attribute(result.title), results_path(parent_id: result.id) %><br>
+                <%= translated_attribute(result.title) %>
               </td>
               <td>
                 <% if result.category %>

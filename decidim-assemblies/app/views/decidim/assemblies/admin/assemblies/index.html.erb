@@ -52,17 +52,7 @@
                     <%= icon "star", role: "img", "aria-hidden": true %>
                   </span>
                 <% end %>
-                <% if allowed_to? :update, :assembly, assembly: assembly %>
-                  <%= link_to translated_attribute(assembly.title), edit_assembly_path(assembly) %><br>
-                <% elsif allowed_to? :read, :component, assembly: assembly %>
-                  <%= link_to translated_attribute(assembly.title), components_path(assembly) %><br>
-                <% elsif allowed_to? :preview, :assembly, assembly: assembly %>
-                  <%= link_to translated_attribute(assembly.title), decidim_assemblies.assembly_path(assembly) %><br>
-                <% elsif allowed_to? :read, :moderation, assembly: assembly %>
-                  <%= link_to translated_attribute(assembly.title), moderations_path(assembly) %><br>
-                <% else %>
-                  <%= translated_attribute(assembly.title) %>
-                <% end %>
+                <%= translated_attribute(assembly.title) %>
               </td>
               <td>
                 <%= l(assembly.created_at, format: :short) %>

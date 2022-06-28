@@ -30,17 +30,7 @@
                     <%= icon "star" %>
                   </span>
                 <% end %>
-                <% if allowed_to? :edit, :voting, voting: voting %>
-                  <%= link_to translated_attribute(voting.title), edit_voting_path(voting) %>
-                  <br>
-                <% elsif allowed_to? :preview, :voting, voting: voting %>
-                  <%= link_to translated_attribute(voting.title),
-                              decidim_votings.voting_path(voting),
-                              target: "_blank" %>
-                  <br>
-                <% else %>
-                  <%= translated_attribute(voting.title) %>
-                <% end %>
+                <%= translated_attribute(voting.title) %>
               </td>
               <td>
                 <%= l voting.created_at, format: :short %>

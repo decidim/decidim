@@ -23,7 +23,7 @@
           <% elections.each do |election| %>
             <tr data-id="<%= election.id %>">
               <td>
-                <%= link_to translated_attribute(election.title), resource_locator(election).path %>
+                <%= translated_attribute(election.title) %>
               </td>
               <td>
                 <% if election.start_time %>

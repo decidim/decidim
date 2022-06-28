@@ -29,12 +29,7 @@
           <tr>
             <td><%= initiative.id %></td>
             <td>
-              <% if allowed_to? :edit, :initiative, initiative: initiative %>
-                <%= link_to translated_attribute(initiative.title),
-                            decidim_admin_initiatives.edit_initiative_path(initiative.to_param) %>
-              <% else %>
-                <%= translated_attribute(initiative.title) %>
-              <% end %>
+              <%= translated_attribute(initiative.title) %>
             </td>
             <td><%= humanize_admin_state initiative.state %></td>
             <td><%= initiative.supports_count %>/<%= initiative.scoped_type.supports_required %></td>
