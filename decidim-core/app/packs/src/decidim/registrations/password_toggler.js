@@ -23,11 +23,22 @@ export default class PasswordToggler {
     this.createControls();
     this.$confirmation.hide();
     this.$button.on("click", (evt) => this.toggleVisibiliy(evt));
+    this.$input.on("change", () => {
+      this.$inputConfirmation.val(this.$input.val());
+    });
     // to prevent browsers trying to use autocomplete, turn the type back to password before submitting
     this.$form.on("submit", () => {
       this.$inputConfirmation.val(this.$input.val());
       this.hidePassword();
     });
+  }
+
+  destroy() {
+    const $input = this.$input.detach();
+    console.log("destroy", $input)
+    $input.off("change");
+    this.$inputGroup.replaceWith($input);
+    this.$confirmation.show();
   }
 
   createControls() {
@@ -36,11 +47,13 @@ export default class PasswordToggler {
                             aria-label="${this.texts.showPassword}">${this.icons.show}</button>`);
     this.$buttonGroup = $('<div class="input-group"/>');
     this.$statusText = $(`<span class="show-for-sr" aria-live="polite">${this.texts.hiddenPassword}</span>`);
-    this.$inputGroup = $('<div class="input-inline-group"/>');
+    // ensure error message is handled by foundation abide
+    this.$input.next(".form-error").attr("data-form-error-for", this.$input.attr("id"));
     this.$buttonGroup.html(this.$button);
-    this.$input.wrap(this.$inputGroup).
+    this.$input.wrap('<div class="input-inline-group"/>').
       after(this.$statusText).
       after(this.$buttonGroup);
+    this.$inputGroup = this.$input.parent();
   }
 
   toggleVisibiliy(evt) {
