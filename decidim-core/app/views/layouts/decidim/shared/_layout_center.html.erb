@@ -1,0 +1,5 @@
+<%= render layout:"layouts/decidim/shared/layout_one_col" do %>
+  <div class="grid grid-cols-8 [&>*:not(.grow)]:col-start-2 [&>*:not(.grow)]:col-span-6">
+    <%= yield %>
+  </div>
+<% end %>
