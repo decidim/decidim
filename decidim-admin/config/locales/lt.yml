@@ -844,24 +844,64 @@ lt:
         create:
           error: Kuriant naują temą iškilo problema.
           success: Tema sukurta.
-      static_pages:
+        destroy:
+          success: Tema panaikinta
+        edit:
+          title: Redaguoti temą
+          update: Atnaujinti temą
         new:
+          create: Sukurti temą
+          title: Nauja tema
+        update:
+          error: Atnaujinant šią temą iškilo problema.
+          success: Tema atnaujinta
+      static_pages:
+        create:
+          error: Kuriant naują puslapį iškilo problema.
+          success: Puslapis sukurtas.
+        destroy:
+          success: Puslapis panaikintas
+        edit:
+          changed_notably_help: Pažymėjus šį langelį, dalyviai gaus paraginimą sutikti su naujomis sąlygomis.
+          title: Redaguoti puslapį
+          update: Atnaujinti
+        form:
+          none: Nėra
+          slug_help: 'Čia naudokitės daliniais keliais, o ne išsamiais URL. Galima naudoti raides, skaičius, brūkšnius ir pasviruosius brūkšnius, o pradėti būtina raide. Pavyzdys: %{url}'
+        index:
+          last_notable_change: Paskutinis pastebimas pakeitimas
+        new:
+          create: Sukurti puslapį
           title: Naujas puslapis
         topic:
           destroy: Šalinti temą
           edit: Redaguoti temą
+          empty: Šioje temoje puslapių nėra
           without_topic: Puslapiai be temos
         update:
           error: Atnaujinant šį puslapį iškilo problema.
           success: Puslapis atnaujintas
       titles:
         admin_log: Administratoriaus veiklos žurnalas
+        authorization_workflows: Verifikacijos metodai
+        dashboard: Švieslentė
+        metrics: Duomenys
+        panel: Administratorius
+        participants: Dalyviai
+        scope_types: Apimties tipai
         static_pages: Puslapiai
+        user_groups: Grupės
         users: Dalyviai
       user_group:
         csv_verify:
           invalid: Skaitant CSV rinkmeną iškilo problema.
           success: CSV rinkmena įkelta, tikriname, kurios grupės atitinka kriterijus. Tai gali užtrukti.
+        reject:
+          invalid: Atmetant šią grupę iškilo problema.
+          success: Grupė atmesta
+        verify:
+          invalid: Verifikuojant šią grupę iškilo problema.
+          success: Grupė verifikuota
       user_groups:
         index:
           filter:
@@ -878,10 +918,16 @@ lt:
           verify_via_csv: Patvirtinti naudojant CSV
       user_groups_csv_verifications:
         new:
+          explanation: Įkelkite savo CSV rinkmeną. Pirmoje rinkmenos skiltyje turi būti pateikti oficialūs jūsų organizacijos grupių el. pašto adresai, be antraščių. Bus patvirtintos tik tos grupės, kurios patvirtino savo el. pašto adresą ir kurių el. pašto adresai yra matomi CSV rinkmenoje.
+          title: Įkelkite savo CSV rinkmeną
           upload: Įkelti
       users:
         create:
+          error: Kviečiant šį administratorių iškilo problema.
           success: Dalyvis pakviestas.
+        destroy:
+          error: Bandant pašalinti šį administratorių iškilo problema.
+          success: Dalyvis nebėra administratorius.
         form:
           email: El. paštas
           name: Vardas
@@ -890,9 +936,13 @@ lt:
           create: Pakviesti
       users_statistics:
         users_count:
+          admins: Administratoriai
           last_day: Paskutinė diena
+          last_month: Praėjusį mėnesį
           last_week: Praėjusią savaitę
+          no_users_count_statistics_yet: Dar nėra dalyvių skaičiaus statistinių duomenų
           participants: Dalyviai
+      view_public_page: Peržiūrėti viešąjį puslapį
     metrics:
       blocked_users:
         object: užblokuoti naudotojai
