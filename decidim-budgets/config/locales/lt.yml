@@ -1,1 +1,115 @@
 lt:
+  activemodel:
+    attributes:
+      budget:
+        decidim_scope_id: Apimtis
+        description: Aprašymas
+        title: Pavadinimas
+        total_budget: Visas biudžetas
+        weight: Vieta eilėje
+      project:
+        budget_amount: Biudžeto dydis
+        decidim_category_id: Kategorija
+        decidim_scope_id: Apimtis
+        description: Aprašymas
+        proposal_ids: Susiję pasiūlymai
+        proposals: Pasiūlymai
+        selected: Pasirinkti įgyvendinimui
+        title: Pavadinimas
+      proposals_import:
+        scope_id: Apimtis
+  activerecord:
+    models:
+      decidim/budgets/project:
+        one: Projektas
+        few: Projektai
+        many: Projektai
+        other: Projektai
+  decidim:
+    admin:
+      filters:
+        projects:
+          category_id_eq:
+            label: Kategorija
+          scope_id_eq:
+            label: Apimtis
+          selected_at_null:
+            label: Pasirinktas
+            values:
+              'false': Pasirinkta įgyvendinimui
+              'true': Nepasirinkta įgyvendinimui
+    budgets:
+      actions:
+        attachment_collections: Aplankai
+        attachments: Priedai
+        confirm_destroy: Ar tikrai norite ištrinti šį projektą?
+        destroy: Ištrinti
+        edit: Redaguoti
+        edit_projects: Valdyti projektus
+        import: Importuoti pasiūlymus į projektus
+        new: Naujas %{name}
+        preview: Peržiūra
+        title: Veiksmai
+      admin:
+        budgets:
+          create:
+            invalid: Kuriant šį biudžetą iškilo problema
+            success: Biudžetas sukurtas sėkmingai
+          destroy:
+            invalid: Ištrinant šį biudžetą iškilo problema
+            success: Biudžetas sėkmingai ištrintas
+          edit:
+            title: Koreguoti biudžetą
+            update: Atnaujinti biudžetą
+          index:
+            finished_orders: Baigti balsavimai
+            pending_orders: Balsai laukiantys patvirtinimo
+            title: Biudžetai
+            users_with_finished_orders: Naudotojai užbaigę balsavimą
+            users_with_pending_orders: Naudotojai, kurių balsai laukia patvirtinimo
+          new:
+            create: Sukurti biudžetą
+            title: Naujas biudžetas
+          update:
+            invalid: Atnaujinant šį biudžetą iškilo problema
+            success: Biudžetas atnaujintas sėkmingai
+        exports:
+          projects: Projektai
+        models:
+          budget:
+            name: Biudžetas
+          project:
+            name: Projektas
+        projects:
+          create:
+            invalid: Kuriant šį projektą iškilo problema
+            success: Projektas sukurtas sėkmingai
+          destroy:
+            success: Projektas ištrintas sėkmingai
+          edit:
+            title: Redaguoti projektą
+            update: Atnaujinti
+          index:
+            actions: Veiksmai
+            cancel: Atšaukti
+            change_category: Keisti kategoriją
+            change_scope: Keisti sritį
+            change_selected: Pakeisti pasirinkimą
+            deselect_implementation: Atžymėti
+            finished_orders: Baigti balsavimai
+            pending_orders: Balsai laukiantys patvirtinimo
+            select_for_implementation: Pasirinkti
+            selected: Pasirinkta
+      budgets_list:
+        show: Peržiūrėti projektus
+        vote: Balsuoti
+        voted_on: Jūs balsavote dėl %{links}
+      last_activity:
+        new_vote_at_html: "<span>Naujas biudžeto balsavimas nuorodoje %{link}</span>"
+      limit_announcement:
+        cant_vote: Negalite balsuoti šito biudžeto. <a href="%{landing_path}"> Pabandykite kitą biudžetą.</a>
+        limit_reached: Turite aktyvių balsų %{links}. Tam, kad balsuoti šiame biudžete turite <a href="%{landing_path}"> ištrinti balsus ir pradėti iš naujo</a>.
+      models:
+        budget:
+          fields:
+            name: Pavadinimas
