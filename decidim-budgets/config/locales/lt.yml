@@ -197,3 +197,27 @@ lt:
             votes: Balsavimas
             votes_choices:
               disabled: Balsavimas išjungtas
+              enabled: Balsavimas įjungtas
+              finished: Balsavimas baigtas
+    events:
+      budgets:
+        budget_published:
+          email_intro: '%{participatory_space_title} %{resource_title} biudžetas dabar aktyvus. Jį galite pamatyti šiame puslapyje:'
+          email_outro: Šį pranešimą gavote dėl to, kad sekate %{participatory_space_title}. Jeigu nebenorite gauti pranešimų, spustelėkite ankstesnę nuorodą.
+          email_subject: '%{participatory_space_title} %{resource_title} biudžetas dabar aktyvus.'
+          notification_title: <a href="%{resource_path}">%{resource_title} biudžetas dabar aktyvus %{participatory_space_title} erdvėje.
+    orders:
+      checkout:
+        error: Apdorojant jūsų balsą iškilo problema
+        success: Jūsų balsas įskaitytas
+      destroy:
+        error: Atšaukiant jūsų balsą iškilo problema
+        success: Jūsų balsas atšauktas
+    resource_links:
+      included_proposals:
+        project_proposal: Į šį projektą įtraukti pasiūlymai
+    statistics:
+      orders_count: Palaikymai
+      projects_count: Projektai
+  index:
+    confirmed_orders_count: Balsų skaičius
