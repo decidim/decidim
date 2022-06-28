@@ -59,3 +59,14 @@ lt:
           notification_title: Naujas komentaras <a href="%{resource_path}">%{resource_title}</a> iš <a href="%{author_path}">%{author_name}%{author_nickname}</a>.
         comment_by_followed_user_group:
           email_intro: 'Grupė %{author_name} paliko komentarą po %{resource_title}. Galite jį perskaityti šiame puslapyje:'
+          email_outro: Šį pranešimą gavote dėl to, kad sekate %{author_name}. Jūs galite nebesekti šios grupės pasirinkdami šį nustatymą jos profilio puslapyje.
+          email_subject: Naujas komentaras %{resource_title} iš %{author_name}
+          notification_title: Naujas komentaras <a href="%{resource_path}">%{resource_title}</a> iš <a href="%{author_path}">%{author_name}%{author_nickname}</a>.
+        comment_created:
+          email_intro: "%{resource_title} pateiktas komentaras. Komentarą galite perskaityti šiame puslapyje:"
+          email_outro: Šį pranešimą gavote dėl to, kad sekate „%{resource_title}“ arba jo autorių. Jūs galite jo nebesekti spustelėdami aukščiau esančią nuorodą.
+          email_subject: '%{author_name} paliko naują komentarą %{resource_title}'
+          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> paliko naują komentarą <a href="%{resource_path}">%{resource_title}</a>
+        comment_downvoted:
+          email_intro: Jūsų komentaras %{resource_title} buvo nepakaikyas. Komentaras dabar turi %{upvotes} palaikymus ir %{downvotes} nepalaikymus.
+          email_outro: Šį pranešimą gavote dėl to, kad esate pasiūlymo autorius.
