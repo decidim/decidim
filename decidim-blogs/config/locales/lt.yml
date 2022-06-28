@@ -1,2 +1,12 @@
 ---
 lt:
+  decidim:
+    events:
+      blogs:
+        post_created:
+          email_intro: Publikacija%{resource_title} buvo publikuota %{participatory_space_title} kurią sekate.
+          email_outro: Gavote šį pranešimą nes sekate %{participatory_space_title}. Galite nebesekti dėka praėjusios nuorodos.
+          email_subject: Nauja publikacija paskelbta %{participatory_space_title}
+          notification_title: Publikacija <a href="%{resource_path}">%{resource_title}</a> buvo publikuota %{participatory_space_title}
+    statistics:
+      posts_count: Publikacijos
