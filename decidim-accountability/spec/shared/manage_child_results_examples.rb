@@ -73,7 +73,9 @@ RSpec.shared_examples "manage child results" do
   describe "deleting a result" do
     before do
       visit current_path
-      click_link translated(result.title)
+      within ".table-list__actions" do
+        click_link "New Result"
+      end
     end
 
     it "deletes a result" do

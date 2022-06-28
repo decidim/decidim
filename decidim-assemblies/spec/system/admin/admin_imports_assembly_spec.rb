@@ -35,7 +35,9 @@ describe "Admin imports assembly", type: :system do
       expect(page).to have_content("Import assembly")
       expect(page).to have_content("Not published")
 
-      click_link "Import assembly"
+      within find("tr", text: "Import assembly") do
+        click_link "Configure"
+      end
 
       click_link "Categories"
       within ".table-list" do

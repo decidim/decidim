@@ -125,7 +125,9 @@ describe "Admin manages consultations", type: :system do
 
   describe "updating a consultation" do
     before do
-      click_link translated(consultation.title)
+      within find("tr", text: translated(consultation.title)) do
+        click_link "Configure"
+      end
     end
 
     it "updates a consultation" do
@@ -154,7 +156,9 @@ describe "Admin manages consultations", type: :system do
 
   describe "updating a consultation with invalid values" do
     before do
-      click_link translated(consultation.title)
+      within find("tr", text: translated(consultation.title)) do
+        click_link "Configure"
+      end
     end
 
     it "do not updates the consultation" do
@@ -182,7 +186,9 @@ describe "Admin manages consultations", type: :system do
     end
 
     it "update a consultation without images does not delete them" do
-      click_link translated(consultation3.title)
+      within find("tr", text: translated(consultation3.title)) do
+        click_link "Configure"
+      end
 
       within ".edit_consultation" do
         find("*[type=submit]").click
@@ -220,7 +226,9 @@ describe "Admin manages consultations", type: :system do
     let!(:consultation) { create(:consultation, :unpublished, organization: organization) }
 
     before do
-      click_link translated(consultation.title)
+      within find("tr", text: translated(consultation.title)) do
+        click_link "Configure"
+      end
     end
 
     it "publishes the consultation" do
@@ -238,7 +246,9 @@ describe "Admin manages consultations", type: :system do
     let!(:consultation) { create(:consultation, :published, organization: organization) }
 
     before do
-      click_link translated(consultation.title)
+      within find("tr", text: translated(consultation.title)) do
+        click_link "Configure"
+      end
     end
 
     it "unpublishes the consultation" do

@@ -71,7 +71,9 @@ shared_examples "manage conferences" do
     let(:image3_path) { Decidim::Dev.asset(image3_filename) }
 
     before do
-      click_link translated(conference.title)
+      within find("tr", text: translated(conference.title)) do
+        click_link "Configure"
+      end
     end
 
     it "updates a conference" do
@@ -99,7 +101,9 @@ shared_examples "manage conferences" do
 
   describe "updating an conference without images" do
     before do
-      click_link translated(conference.title)
+      within find("tr", text: translated(conference.title)) do
+        click_link "Configure"
+      end
     end
 
     it "update an conference without images does not delete them" do
@@ -150,7 +154,9 @@ shared_examples "manage conferences" do
     let!(:conference) { create(:conference, :unpublished, organization: organization) }
 
     before do
-      click_link translated(conference.title)
+      within find("tr", text: translated(conference.title)) do
+        click_link "Configure"
+      end
     end
 
     it "publishes the conference" do
@@ -168,7 +174,9 @@ shared_examples "manage conferences" do
     let!(:conference) { create(:conference, organization: organization) }
 
     before do
-      click_link translated(conference.title)
+      within find("tr", text: translated(conference.title)) do
+        click_link "Configure"
+      end
     end
 
     it "unpublishes the conference" do
@@ -200,7 +208,9 @@ shared_examples "manage conferences" do
     end
 
     it "disables the scope for the conference" do
-      click_link translated(conference.title)
+      within find("tr", text: translated(conference.title)) do
+        click_link "Configure"
+      end
 
       uncheck :conference_scopes_enabled
 

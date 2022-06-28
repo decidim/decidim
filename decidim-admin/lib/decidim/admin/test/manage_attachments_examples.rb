@@ -19,7 +19,7 @@ shared_examples "manage attachments examples" do
 
     it "can view an attachment details" do
       within "#attachments table" do
-        click_link translated(attachment.title, locale: :en)
+        click_link "Edit"
       end
 
       expect(page).to have_selector("input#attachment_title_en[value='#{translated(attachment.title, locale: :en)}']")
@@ -59,7 +59,7 @@ shared_examples "manage attachments examples" do
       expect(page).to have_admin_callout("successfully")
 
       within "#attachments table" do
-        expect(page).to have_link("Very Important Document")
+        expect(page).to have_text("Very Important Document")
       end
     end
 
@@ -95,7 +95,7 @@ shared_examples "manage attachments examples" do
       expect(page).to have_admin_callout("successfully")
 
       within "#attachments table" do
-        expect(page).to have_link("Document inside a collection")
+        expect(page).to have_text("Document inside a collection")
         expect(page).to have_text(translated(attachment_collection.name, locale: :en))
       end
     end
@@ -153,7 +153,7 @@ shared_examples "manage attachments examples" do
       expect(page).to have_admin_callout("successfully")
 
       within "#attachments table" do
-        expect(page).to have_link("This is a nice photo")
+        expect(page).to have_text("This is a nice photo")
       end
     end
   end

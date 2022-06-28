@@ -60,7 +60,9 @@ shared_examples "copy conferences" do
 
       expect(page).to have_content("successfully")
 
-      click_link "Copy conference"
+      within find("tr", text: "Copy conference") do
+        click_link "Configure"
+      end
       click_link "Categories"
 
       within ".table-list" do
@@ -76,7 +78,9 @@ shared_examples "copy conferences" do
 
       expect(page).to have_content("successfully")
 
-      click_link "Copy conference"
+      within find("tr", text: "Copy conference") do
+        click_link "Configure"
+      end
       click_link "Components"
 
       within ".table-list" do

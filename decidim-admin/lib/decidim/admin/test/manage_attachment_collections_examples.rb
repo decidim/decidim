@@ -15,7 +15,7 @@ shared_examples "manage attachment collections examples" do
 
   it "can view an attachment collection details" do
     within "#attachment_collections table" do
-      click_link translated(attachment_collection.name, locale: :en)
+      click_link "Edit"
     end
 
     expect(page).to have_selector("input#attachment_collection_name_en[value='#{translated(attachment_collection.name, locale: :en)}']")
@@ -49,7 +49,7 @@ shared_examples "manage attachment collections examples" do
     expect(page).to have_admin_callout("successfully")
 
     within "#attachment_collections table" do
-      expect(page).to have_link("Application forms")
+      expect(page).to have_text("Application forms")
     end
   end
 
@@ -75,7 +75,7 @@ shared_examples "manage attachment collections examples" do
     expect(page).to have_admin_callout("successfully")
 
     within "#attachment_collections table" do
-      expect(page).to have_link("Latest application forms")
+      expect(page).to have_text("Latest application forms")
     end
   end
 
