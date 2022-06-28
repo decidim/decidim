@@ -857,6 +857,11 @@ lt:
       reminders:
         create:
           error: Kuriant priminimus iškilo problema.
+          success:
+            one: "%{count} naudotojui bus priminta."
+            few: "%{count} naudotojams bus priminta."
+            many: "%{count} naudotojų bus priminta."
+            other: "%{count} naudotojams bus priminta."
         new:
           submit: Siųsti
       resource_permissions:
@@ -1023,11 +1028,16 @@ lt:
           no_users_count_statistics_yet: Dar nėra dalyvių skaičiaus statistinių duomenų
           participants: Dalyviai
       view_public_page: Peržiūrėti viešąjį puslapį
+    forms:
+      errors:
+        impersonate_user:
+          reason: Turite pateikti priežastį kai valdote dar nevaldytą dalyvį
     metrics:
       blocked_users:
         object: užblokuoti naudotojai
         title: Užblokuoti naudotojai
       reported_users:
+        object: raportuoti naudotojai
         title: Raportuoti naudotojai
       user_reports:
         object: vartotojo pranešimai
