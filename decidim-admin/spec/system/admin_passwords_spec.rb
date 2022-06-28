@@ -22,7 +22,6 @@ describe "Admin passwords", type: :system do
       expect(page).to have_content("Admin users need to change their password every 90 days")
       expect(page).to have_content("Password change")
       fill_in :password_user_password, with: new_password
-      fill_in :password_user_password_confirmation, with: new_password
       click_button "Change my password"
       expect(page).to have_css(".callout.success")
       expect(page).to have_content("Password successfully updated")
@@ -48,7 +47,6 @@ describe "Admin passwords", type: :system do
         manual_login(user.email, password)
         expect(page).to have_content("Password change")
         fill_in :password_user_password, with: new_password
-        fill_in :password_user_password_confirmation, with: new_password
         click_button "Change my password"
         expect(page).to have_css(".callout.success")
         expect(page).to have_current_path(decidim_admin.root_path)
