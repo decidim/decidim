@@ -920,7 +920,18 @@ lt:
         create:
           error: Kuriant naują temą iškilo problema.
           success: Tema sukurta.
+        edit:
+          title: Redaguoti temą
+          update: Atnaujinti temą
+        new:
+          create: Sukurti temą
+          title: Nauja tema
+        update:
+          error: Atnaujinant šią temą iškilo problema.
+          success: Tema atnaujinta
       static_pages:
+        create:
+          error: Kuriant naują puslapį iškilo problema.
         new:
           title: Naujas puslapis
         topic:
