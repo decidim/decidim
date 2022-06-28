@@ -12,10 +12,10 @@ module Decidim
     # Returns a String.
     def decidim_form_for(record, options = {}, &)
       options[:data] ||= {}
-      options[:data].update(abide: true, "live-validate" => true, "validate-on-blur" => true)
+      # options[:data].update(abide: false, "live-validate" => false, "validate-on-blur" => false)
 
       options[:html] ||= {}
-      options[:html].update(novalidate: true)
+      options[:html].update(novalidate: false)
 
       # Generally called by form_for but we need the :url option generated
       # already before that.
