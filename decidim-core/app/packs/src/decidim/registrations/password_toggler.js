@@ -48,12 +48,12 @@ export default class PasswordToggler {
     this.$button = $(`<button type="button" 
                             aria-controls="${this.$input.attr("id")}" 
                             aria-label="${this.texts.showPassword}">${this.icons.show}</button>`);
-    this.$buttonGroup = $('<div class="input-group"/>');
+    this.$buttonGroup = $('<span class="input-group"/>');
     this.$statusText = $(`<span class="show-for-sr" aria-live="polite">${this.texts.hiddenPassword}</span>`);
     // ensure error message is handled by foundation abide
     this.$input.next(".form-error").attr("data-form-error-for", this.$input.attr("id"));
     this.$buttonGroup.html(this.$button);
-    this.$input.wrap('<div class="input-inline-group"/>').
+    this.$input.wrap('<span class="input-inline-group"/>').
       after(this.$statusText).
       after(this.$buttonGroup);
     this.$inputGroup = this.$input.parent();

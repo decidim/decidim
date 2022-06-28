@@ -92,7 +92,6 @@ describe "Account", type: :system do
             page.find(".change-password").click
 
             fill_in :user_password, with: "sekritpass123"
-            fill_in :user_password_confirmation, with: "sekritpass123"
 
             find("*[type=submit]").click
           end
@@ -109,7 +108,8 @@ describe "Account", type: :system do
         it "doesn't update the password" do
           within "form.edit_user" do
             page.find(".change-password").click
-
+            # disable passwordTogler and restore the old behavior
+            page.execute_script("window.Decidim.passwordToggler.destroy()")
             fill_in :user_password, with: "sekritpass123"
             fill_in :user_password_confirmation, with: "oopseytypo"
 
