@@ -363,9 +363,16 @@ lt:
         developer_group: Rėmėjų grupė
         duration: Trukmė
         included_at: Įtraukta į
+        indefinite_duration: Neribota
+        internal_organisation: Vidinė organizacija
+        is_transparent:
+          'false': neskaidru
+          'true': skaidru
+        local_area: Organizacijos aplinka
         participatory_scope: Kas nuspręsta
         participatory_structure: Kaip nuspręsta
         private_space: Tai yra uždara asamblėja
+        purpose_of_action: Veiksmo tikslas
         read_less: Suskleisti
         read_more: Išskleisti
         related_participatory_processes: Susiję dalyvaujamieji procesai
