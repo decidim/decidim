@@ -665,6 +665,9 @@ lt:
           send_to_followers: Siųsti sekėjams
           send_to_participants: Siųsti dalyviams
           title: Pasirinkti gavėjus, kuriems išsiųsti
+          warning: "<strong>Dėmesio:</strong> Šis naujienlaiškis bus išsiųstas tik tiems dalyviams, kurie savo pranešimų nuostatose aktyvino<em> „noriu gauti naujienlaiškius“</em>."
+        send:
+          no_recipients: Niekas nepasirinko gauti pasirinktos srities informacijos
         show:
           preview: Peržiūra
           select_recipients_to_deliver: Pasirinkti gavėjus, kuriems išsiųsti
@@ -673,6 +676,13 @@ lt:
           error: Atnaujinant šį naujienlaiškį iškilo problema.
           success: Naujienlaiškis atnaujintas. Peržiūrėkite jį prieš išsiųsdami.
       officializations:
+        block:
+          error: Blokuojant dalyvį iškilo problema
+          success: Dalyvis sėkmingai užblokuotas
+        create:
+          success: Dalyvis sėkmingai oficializuotas
+        destroy:
+          success: Dalys sėkmingai nebe oficializuotas
         index:
           actions: Veiksmai
           badge: Ženkliukas
@@ -680,22 +690,40 @@ lt:
           created_at: Sukurta
           name: Vardas
           nickname: Slapyvardis
+          not_officialized: Neoficializuotas
+          officialize: Oficializuoti
+          officialized: Oficializuotas
+          reofficialize: Vėl oficializuoti
+          reports: Pranešimai
           show_email: Rodyti el. pašto adresą
           status: Būsena
           unblock: Atblokuoti naudotoją
+          unofficialize: Nebe oficializuoti
+        new:
+          badge: Oficializacijos ženklas
+          officialize: Oficializuoti
+          title: Oficializuoti dalyvį "%{name}"
         show_email_modal:
+          close_modal: Uždaryti modalinį langą
+          description: Jei reikia tiesiogiai susisiekti su dalyviu, galite spustelėti mygtuką „Rodyti“ ir pamatysite e. pašto adresą. Šis veiksmas bus užregistruotas.
           email_address: El. pašto adresas
           full_name: Vardas, pavardė
           hidden: paslėptas
           show: Rodyti
           title: Rodyti dalyvio el. pašto adresą
+        unblock:
+          error: Atblokuojant dalyvį iškilo problema
+          success: Dalyvis sėkmingai atblokuotas
       organization:
         edit:
+          title: Taisyti organizaciją
           update: Atnaujinti
         form:
           facebook: Facebook
           github: GitHub
           instagram: Instagram
+          rich_text_editor_in_public_views_help: Kai kuriose teksto laukuose dalyviai, naudodami raiškiojo teksto redaktoriaus funkciją, galės įterpti HTML žymes.
+          social_handlers: Socialinis
           twitter: Twitter
           url: Nuoroda
           youtube: YouTube
@@ -708,6 +736,11 @@ lt:
         form:
           colors:
             colors_title: Organizacijos spalvos
+            header_snippets_help: Naudokite šį laukelį, kad į HTML antraštę (angl. head) įtraukti elementus. Dažniausiai įtraukiamos trečiųjų šalių paslaugos, kurioms reikia kai kurių papildomų „JavaScript“ arba CSS elementų. Be to, galite naudotis laukeliu ir prie HTML pridėti papildomų meta žymeklių. Atkreipkite dėmesį į tai, kad tai atsivaizduos tik viešuose puslapiuose, o ne administratoriaus skyrelyje.
+          cta_button_path_help: 'Galite pakeisti į kur nukreipia pagrindinis numatytojo puslapio mygtukas. Naudokite dalines nuorodas, o ne URL nuoroda. Mygtuko pavyzdys - %{url}'
+          cta_button_text_help: Galite pakeisti pagrindinio numatytojo puslapio mygtuko tekstą priklausomai nuo kalbos. Jei ne, bus naudojamas numatytasis mygtuko tekstas.
+          homepage_appearance_title: Keisti numatytojo puslapio išvaizdą
+          homepage_highlighted_content_banner_title: Paryškinta turinio juosta
           images:
             layout_appearance_title: Redaguoti išdėstymą
             preview: Peržiūra
@@ -717,8 +750,16 @@ lt:
           update: Atnaujinti
         external_domain:
           down: Žemyn
+          external_domain: Išorinis domenas
           remove: Pašalinti
           up: Aukštyn
+        form:
+          add: Pridėti prie baltojo sąrašo
+          title: Išorinių domenų baltasis sąrašas
+      organization_homepage:
+        edit:
+          active_content_blocks: Aktyvūs turinio blokai
+          inactive_content_blocks: Neaktyvūs turinio blokai
       organization_homepage_content_blocks:
         edit:
           update: Atnaujinti
