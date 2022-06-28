@@ -251,13 +251,31 @@ lt:
         create: "%{user_name} sukūrė %{resource_name} asamblėją"
         duplicate: "%{user_name} dublikavo %{resource_name} asamblėją"
         export: "%{user_name} eksportavo %{resource_name} asamblėją"
+        import: "%{user_name} importavo %{resource_name} asamblėją"
+        publish: "%{user_name} publikavo %{resource_name} asamblėją"
+        unpublish: "%{user_name} depublikavo %{resource_name} asamblėją"
+        update: "%{user_name} atnaujino %{resource_name} asamblėją"
+      assembly_member:
+        create: "%{user_name} sukūrė %{resource_name} naudotoją %{space_name} asamblėjoje"
+        delete: "%{user_name} pašalino %{resource_name} narį iš %{space_name} asamblėjos"
+        update: "%{user_name} atnaujino %{resource_name} narį %{space_name} asamblėjoje"
+      assembly_setting:
+        update: "%{user_name} atnaujino asamblėjos nustatymus"
       assembly_type:
+        create: "%{user_name} sukūrė %{resource_name} asamblėjos tipą"
+        delete: "%{user_name} pašalino %{resource_name} asamblėjos tipą"
         publish: "%{user_name} paskelbė %{resource_name} asamblėjos tipą"
         unpublish: "%{user_name} panaikino %{resource_name} asamblėjos tipą"
+        update: "%{user_name} atnaujino %{resource_name} asamblėjos tipą"
+      assembly_user_role:
+        create: "%{user_name} pakvietė %{resource_name} į %{space_name} asamblėją"
+        delete: "%{user_name} pašalino dalyvį %{resource_name} iš %{space_name} asamblėjos"
+        update: "%{user_name} pakeitė %{resource_name} rolę %{space_name} asamblėjoje"
     assemblies:
       admin:
         assemblies:
           form:
+            announcement_help: Čia įrašytas tekstas naudotojui bus rodomas informacijos apie asamblėją apačioje.
             duration: Trukmė
             duration_help: Jei šios asamblėjos veiklos trukmė ribota, pasirinkite pabaigos datą. Priešingu atveju bus rodoma, kad ji neterminuota.
             filters: Filtrai
@@ -294,10 +312,15 @@ lt:
             explanation: 'Paveikslėliui skirtos gairės:'
             image_guide: Pageidautina, kad tai būtų vertikalaus formato paveikslėlis be teksto.
             non_user: Neturintis dalyvio statuso subjektas
+            non_user_avatar_help: Turite gauti naudotojų sutikimą prieš publikuodami juos kaip narius.
+            select_a_position: Pasirinkti poziciją
+            select_user: Pasirinkti dalyvį
             user_type: Dalyvio tipas
           index:
             filter:
               all: Visi
+              ceased: Nutraukta
+              not_ceased: Nenutraukta
             filter_by: Filtruoti pagal
             search: Ieškoti
         content_blocks:
@@ -316,17 +339,23 @@ lt:
         commission: Komisija
         consultative_advisory: Konsultacinė / Patariamoji
         executive: Vykdomoji
+        government: Vyriausybe
         others: Kita
         participatory: Dalyvaujamoji
         working_group: Darbo grupė
+      content_blocks:
+        highlighted_assemblies:
+          name: Paryškintos asamblėjos
       created_by:
         city_council: Miesto taryba
         others: Kita
+        public: Vieša
       filter:
         all: Visi tipai
         commission: Komisija
         consultative_advisory: Konsultacinė / Patariamoji
         executive: Vykdomoji
+        government: Vyriausybė
         help: 'Rodyti:'
         others: Kita
         participatory: Dalyvaujamoji
@@ -335,12 +364,28 @@ lt:
         title: Asamblėjos
       last_activity:
         new_assembly: Nauja asamblėja
+      pages:
+        home:
+          highlighted_assemblies:
+            active_assemblies: Aktyvios asamblėjos
+            assemblies_button_title: Nuoroda į puslapį „Asamblėjos“, kuriame pateikiamos visos asamblėjos
+            see_all_assemblies: Žiūrėti visas asamblėjas
+        user_profile:
+          member_of:
+            member_of: Narys
       show:
+        area: Aplinka
         assembly_type: Asamblėjos tipas
         children: Asamblėjos
+        closing_date: Pabaigos data
+        composition: Sudėtis
+        created_by: Sukurta
         creation_date: Sukūrimo data
+        developer_group: Rėmėjų grupė
         duration: Trukmė
         included_at: Įtraukta į
+        indefinite_duration: Neribota
+        internal_organisation: Vidinė organizacija
         participatory_scope: Kas nuspręsta
         participatory_structure: Kaip nuspręsta
         private_space: Tai yra uždara asamblėja
