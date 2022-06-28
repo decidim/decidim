@@ -43,6 +43,10 @@ lt:
         published_at: Publikuota
         purpose_of_action: Veiksmo tikslas
         scope_id: Apimtis
+        show_statistics: Rodyti statistiką
+        special_features: Specialiosios ypatybės
+        subtitle: Paantraštė
+        target: Kas dalyvauja
         title: Pavadinimas
         twitter: Twitter
         youtube: YouTube
@@ -70,11 +74,51 @@ lt:
         few: Asamblėjos nariai
         many: Asamblėjos nariai
         other: Asamblėjos nariai
+      decidim/assembly_user_role:
+        one: Asamblėjos naudotojo vaidmuo
+        few: Asamblėjos naudotojo vaidmenys
+        many: Asamblėjos naudotojo vaidmenys
+        other: Asamblėjos naudotojo vaidmenys
   decidim:
     admin:
       actions:
+        import_assembly: Importuoti
         new_assembly: Nauja asamblėja
+        new_assembly_type: Naujas asamblėjos tipas
+      assemblies:
+        create:
+          error: Kuriant naują asamblėją iškilo problema.
+          success: Asamblėja sukurta.
+        edit:
+          update: Atnaujinti
+        index:
+          not_published: Nepublikuota
+          private: Privati
+          public: Vieša
+          published: Publikuota
+        new:
+          create: Sukurti
+          title: Nauja asamblėja
+        update:
+          error: Atnaujinant šią asamblėją iškilo problema.
+          success: Asamblėja atnaujinta.
+      assemblies_copies:
+        create:
+          error: Dubliuojant šią asamblėją iškilo problema.
+          success: Asamblėja dubliuota.
+      assemblies_settings:
+        update:
+          error: Atnaujinant nustatymus iškilo problema.
+          success: Nustatymai sėkmingai atnaujinti.
       assemblies_types:
+        create:
+          error: Kuriant naujos asamblėjos tipą iškilo problema.
+          success: Asamblėjos tipas sukurtas.
+        destroy:
+          success: Asamblėjos tipas pašalintas.
+        new:
+          create: Sukurti
+          title: Naujas asamblėjos tipas
         update:
           error: Atnaujinant asamblėjos tipą iškilo problema.
           success: Asamblėjos tipas atnaujintas.
@@ -152,10 +196,48 @@ lt:
           fields:
             created_at: Sukurta
             title: Pavadinimas
+        assembly:
+          fields:
+            created_at: Sukurta
+            published: Publikuota
+            title: Pavadinimas
+          name: Asamblėja
+        assembly_member:
+          fields:
+            full_name: Vardas
+            position: Pareigos
+          name: Narys
+          positions:
+            other: Kita
+            president: Prezidentas
+            secretary: Sekretorius
+            vice_president: Viceprezidentas
+        assembly_user_role:
+          fields:
+            email: El. paštas
+            name: Vardas
+            role: Rolė
+          name: Asamblėjos administratorius
+          roles:
+            admin: Administratorius
+            collaborator: Bendraautorius
+            moderator: Moderatorius
+            valuator: Vertintojas
+      titles:
+        assemblies: Asamblėjos
+        assemblies_types: Asamblėjų tipai
+    admin_log:
+      assembly_type:
+        publish: "%{user_name} paskelbė %{resource_name} asamblėjos tipą"
+        unpublish: "%{user_name} panaikino %{resource_name} asamblėjos tipą"
     assemblies:
       admin:
         assemblies:
           form:
+            duration: Trukmė
+            duration_help: Jei šios asamblėjos veiklos trukmė ribota, pasirinkite pabaigos datą. Priešingu atveju bus rodoma, kad ji neterminuota.
+            filters: Filtrai
+            images: Vaizdai
             metadata: Metaduomenys
             other: Kita
             select_a_created_by: Pasirinkti pagal kūrėją
@@ -184,3 +266,117 @@ lt:
         assembly_members:
           form:
             existing_user: Egzistuojantis dalyvis
+            non_user: Neturintis dalyvio statuso subjektas
+            user_type: Dalyvio tipas
+          index:
+            filter:
+              all: Visi
+            filter_by: Filtruoti pagal
+            search: Ieškoti
+        content_blocks:
+          highlighted_assemblies:
+            max_results: Didžiausias rodomų elementų skaičius
+        new_import:
+          accepted_types:
+            json: JSON
+      assembly_members:
+        index:
+          members: Nariai
+      assembly_types:
+        commission: Komisija
+        consultative_advisory: Konsultacinė / Patariamoji
+        executive: Vykdomoji
+        others: Kita
+        participatory: Dalyvaujamoji
+        working_group: Darbo grupė
+      created_by:
+        city_council: Miesto taryba
+        others: Kita
+      filter:
+        all: Visi tipai
+        commission: Komisija
+        consultative_advisory: Konsultacinė / Patariamoji
+        executive: Vykdomoji
+        help: 'Rodyti:'
+        others: Kita
+        participatory: Dalyvaujamoji
+        working_group: Darbo grupė
+      index:
+        title: Asamblėjos
+      last_activity:
+        new_assembly: Nauja asamblėja
+      show:
+        assembly_type: Asamblėjos tipas
+        children: Asamblėjos
+        creation_date: Sukūrimo data
+        duration: Trukmė
+        included_at: Įtraukta į
+        participatory_scope: Kas nuspręsta
+        participatory_structure: Kaip nuspręsta
+        private_space: Tai yra uždara asamblėja
+        read_less: Suskleisti
+        read_more: Išskleisti
+        related_participatory_processes: Susiję dalyvaujamieji procesai
+        scope: Apimtis
+        social_networks: Socialiniai tinklai
+        target: Kas dalyvauja
+    assembly_members:
+      assembly_member:
+        designated_on: Paskirtas
+      index:
+        title: Nariai
+    events:
+      assemblies:
+        create_assembly_member:
+          email_intro: <a href="%{resource_url}">%{resource_name}</a> asamblėjos administratorius įtraukė jus kaip vieną iš jos narių.
+          email_subject: Esate pakviestas tapti %{resource_name} asamblėjos nariu!
+      assembly:
+        role_assigned:
+          email_intro: Jūs paskirtas asamblėjos „%{resource_title}“ %{role}.
+          email_outro: Šį pranešimą gavote dėl to, kad esate „%{resource_title}“ asamblėjos %{role}.
+          email_subject: Jūs paskirtas „%{resource_title}“ %{role}.
+          notification_title: Jūs paskirtas <a href="%{resource_url}">%{resource_title}</a> asamblėjos %{role}.
+    help:
+      participatory_spaces:
+        assemblies:
+          title: Kas yra asamblėjos?
+    log:
+      value_types:
+        assembly_presenter:
+          not_found: 'Asamblėja duomenų bazėje nerasta (ID: %{id})'
+        assembly_type_presenter:
+          not_found: 'Asamblėjos tipas duomenų bazėje nerastas (ID: %{id})'
+    menu:
+      assemblies: Asamblėjos
+    metrics:
+      assemblies:
+        description: Sukurtų asamblėjų skaičius
+        object: asamblėjos
+        title: Asamblėjos
+    participatory_processes:
+      show:
+        related_assemblies: Susijusios asamblėjos
+    statistics:
+      assemblies_count: Asamblėjos
+  errors:
+    messages:
+      cannot_be_blank: negali būti tuščia
+  layouts:
+    decidim:
+      assemblies:
+        assembly:
+          more_info: Daugiau informacijos
+          take_part: Dalyvaukite
+        index:
+          children: 'Asamblėjos: '
+          organizational_chart: Organizacinė schema
+          reset_chart: Atkurti
+        promoted_assembly:
+          more_info: Daugiau informacijos
+          take_part: Dalyvaukite
+      assembly_navigation:
+        assembly_member_menu_item: Nariai
+        assembly_menu_item: Asamblėja
+      assembly_widgets:
+        show:
+          take_part: Dalyvaukite
