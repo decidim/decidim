@@ -6,7 +6,24 @@
 
 <%= render layout: "layouts/decidim/shared/layout_two_col" do %>
 
-  <%# TODO: sorting component, it requires Turbo %>
+  <%# TODO: sorting component, it requires Turbo, perhaps a cell or component %>
+  <div class="text-right mb-8">
+    <div class="inline-flex items-center">
+      <label for="filter-1" class="text-sm text-secondary px-2 py-1 cursor-pointer">
+        <input type="radio" name="filter" id="filter-1" class="appearance-none peer" checked>
+        <span class="border-b-2 border-transparent peer-checked:border-secondary peer-checked:font-semibold">Aleatori</span>
+      </label>
+      <label for="filter-2" class="text-sm text-secondary px-2 py-1 cursor-pointer">
+        <input type="radio" name="filter" id="filter-2" class="appearance-none peer">
+        <span class="border-b-2 border-transparent peer-checked:border-secondary peer-checked:font-semibold">Recent</span>
+      </label>
+      <label for="filter-3" class="text-sm text-secondary px-2 py-1 cursor-pointer">
+        <input type="radio" name="filter" id="filter-3" class="appearance-none peer">
+        <span class="border-b-2 border-transparent peer-checked:border-secondary peer-checked:font-semibold">Més comentaris</span>
+      </label>
+    </div>
+  </div>
+
   <div id="blogs" class="space-y-12">
     <%= render partial: "posts" %>
   </div>
