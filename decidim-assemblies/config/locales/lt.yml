@@ -1,2 +1,55 @@
 ---
 lt:
+  activemodel:
+    attributes:
+      assemblies_setting:
+        enable_organization_chart: Įgalinti organizacijos modelį
+      assembly:
+        area_id: Aplinka
+        assembly_type: Asamblėjos tipas
+        assembly_type_other: Kitas asamblėjos tipas
+        banner_image: Turinio juostos paveikslėlis
+        closing_date: Pabaigos data
+        closing_date_reason: Pabaigos datos priežastis
+        composition: Sudėtis
+        copy_categories: Kopijuoti kategorijas
+        copy_components: Kopijuoti komponentus
+        copy_features: Kopijuoti požymius
+        created_by: Sukurta
+        created_by_other: Sukurta kito
+        creation_date: Sukūrimo data
+        decidim_area_id: Aplinka
+        decidim_assemblies_type_id: Asamblėjos tipas
+        decidim_scope_id: Apimtis
+        description: Aprašymas
+        developer_group: Rėmėjų grupė
+        domain: Domenas
+        duration: Trukmė
+        facebook: Facebook
+        github: GitHub
+        hashtag: Grotažymė
+        hero_image: Pradžios paveikslėlis
+        included_at: Įtraukta
+        instagram: Instagram
+        internal_organisation: Vidinė organizacija
+        is_transparent: Yra skaidri
+        local_area: Organizacijos aplinka
+        meta_scope: Srities metaduomenys
+        parent_id: Pagrindinė asamblėja
+        participatory_processes_ids: Susiję dalyvaujamieji procesai
+        participatory_scope: Kas nuspręsta
+        participatory_structure: Kaip nuspręsta
+        private_space: Privati erdvė
+        promoted: Paryškinta
+        published_at: Publikuota
+        purpose_of_action: Veiksmo tikslas
+        scope_id: Apimtis
+  decidim:
+    admin:
+      assemblies_types:
+        update:
+          error: Atnaujinant asamblėjos tipą iškilo problema.
+          success: Asamblėjos tipas atnaujintas.
+      assembly_copies:
+        new:
+          copy: Kopijuoti
