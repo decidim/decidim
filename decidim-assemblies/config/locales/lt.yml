@@ -44,8 +44,53 @@ lt:
         published_at: Publikuota
         purpose_of_action: Veiksmo tikslas
         scope_id: Apimtis
+        title: Pavadinimas
+        twitter: Twitter
+        youtube: YouTube
+      assembly_member:
+        birthday: Gimimo diena
+        birthplace: Gimimo vieta
+        ceased_date: Nutraukimo data
+        designation_date: Paskyrimo data
+        full_name: Vardas, pavardė
+        gender: Lytis
+        non_user_avatar: Avataras
+        user_id: Vartotojas arba grupė
+      assembly_user_role:
+        email: El. paštas
+        name: Vardas
+        role: Rolė
+    errors:
+      models:
+        assembly:
+          attributes:
+            document:
+              allowed_file_content_types: 'Netinkamas dokumento tipas. Priimtini formatai: %{types}'
+  activerecord:
+    models:
+      decidim/assembly:
+        one: Asamblėja
+        few: Asamblėjos
+        many: Asamblėjos
+        other: Asamblėjos
+      decidim/assembly_member:
+        one: Asamblėjos narys
+        few: Asamblėjos nariai
+        many: Asamblėjos nariai
+        other: Asamblėjos nariai
   decidim:
     admin:
+      actions:
+        new_assembly: Nauja asamblėja
+        new_assembly_type: Naujas asamblėjos tipas
+      assemblies:
+        create:
+          error: Kuriant naują asamblėją iškilo problema.
+          success: Asamblėja sukurta.
+        edit:
+          update: Atnaujinti
+        index:
+          not_published: Nepublikuota
       assemblies_types:
         update:
           error: Atnaujinant asamblėjos tipą iškilo problema.
@@ -116,3 +161,46 @@ lt:
           attachment_collections: Aplankai
           attachment_files: Dokumentai
           attachments: Priedai
+          categories: Kategorijos
+          components: Komponentai
+          info: Informacija
+          moderations: Moderavimai
+          private_users: Privatūs naudotojai
+        assemblies_types: Asamblėjų tipai
+      models:
+        assemblies_types:
+          fields:
+            created_at: Sukurta
+            title: Pavadinimas
+    assemblies:
+      admin:
+        assemblies:
+          form:
+            metadata: Metaduomenys
+            other: Kita
+            select_a_created_by: Pasirinkti pagal kūrėją
+            select_an_area: Pasirinkti aplinką
+            select_an_assembly_type: Pasirinkti asamblėjos tipą
+            select_parent_assembly: Pasirinkti pagrindinę asamblėją
+            slug_help: 'Nuorodos priedėliai nukreipia į šią konkrečią asamblėją. Priedėliai sudaromi iš raidžių, skaičių, brukšnių ir turi prasidėti nuo raidės. Pavyzdys: %{url}'
+            social_handlers: Socialiniai
+            title: Bendroji informacija
+            visbility: Matomumas
+        assemblies_settings:
+          edit:
+            update: Atnaujinimas
+          form:
+            title: Asamblėjų nuostatos
+        assemblies_types:
+          form:
+            title: Pavadinimas
+        assembly_copies:
+          form:
+            slug_help: 'Nuorodos priedėliai nukreipia į šią konkrečią asamblėją. Priedėliai sudaromi iš raidžių, skaičių, brukšnių ir turi prasidėti nuo raidės. Pavyzdys: %{url}'
+        assembly_imports:
+          form:
+            document_legend: Pridėti dokumentą
+            slug_help: 'Nuorodos priedėliai nukreipia į šią konkrečią asamblėją. Priedėliai sudaromi iš raidžių, skaičių, brukšnių ir turi prasidėti nuo raidės. Pavyzdys: %{url}'
+        assembly_members:
+          form:
+            existing_user: Egzistuojantis dalyvis
