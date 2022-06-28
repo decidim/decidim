@@ -910,6 +910,8 @@ lt:
           success: Žetonas pašalintas sėkmingai.
         share_tokens:
           empty: Nėra aktyvių žetonų
+          help: Šie prieigos raktai naudojami siekiant pasidalinti nepublikuojamu ištekliu su bet kokiu naudotoju. Jie bus paslėpti kai išteklis bus publikuotas. Paspauskite ant rakto dalinimosi įkonos norėdami gauti dalinimosi nuorodą.
+          title: Bendrinti prieigos raktus
       shared:
         gallery:
           add_images: Pridėti paveikslėlių
@@ -920,6 +922,8 @@ lt:
         create:
           error: Kuriant naują temą iškilo problema.
           success: Tema sukurta.
+        destroy:
+          success: Tema panaikinta
         edit:
           title: Redaguoti temą
           update: Atnaujinti temą
@@ -930,25 +934,60 @@ lt:
           error: Atnaujinant šią temą iškilo problema.
           success: Tema atnaujinta
       static_pages:
+        actions:
+          view: Peržiūrėti viešą puslapį
         create:
           error: Kuriant naują puslapį iškilo problema.
+          success: Puslapis sukurtas.
+        destroy:
+          success: Puslapis panaikintas
+        edit:
+          changed_notably_help: Pažymėjus šį langelį, dalyviai gaus paraginimą sutikti su naujomis sąlygomis.
+          title: Redaguoti puslapį
+          update: Atnaujinti
+        form:
+          none: Nėra
+          slug_help: 'Čia naudokitės daliniais keliais, o ne išsamiais URL. Galima naudoti raides, skaičius, brūkšnius ir pasviruosius brūkšnius, o pradėti būtina raide. Pavyzdys: %{url}'
+        index:
+          last_notable_change: Paskutinis pastebimas pakeitimas
         new:
+          create: Sukurti puslapį
           title: Naujas puslapis
         topic:
           destroy: Šalinti temą
           edit: Redaguoti temą
+          empty: Šioje temoje puslapių nėra
           without_topic: Puslapiai be temos
         update:
           error: Atnaujinant šį puslapį iškilo problema.
           success: Puslapis atnaujintas
       titles:
         admin_log: Administratoriaus veiklos žurnalas
+        area_types: Aplinkos tipai
+        areas: Aplinkos
+        authorization_workflows: Verifikacijos metodai
+        dashboard: Švieslentė
+        impersonatable_users: Dalyviai, kurių duomenis galima tvarkyti
+        impersonations: Dalyvių tvarkymas
+        metrics: Duomenys
+        panel: Administratorius
+        participants: Dalyviai
+        scope_types: Apimties tipai
+        scopes: Apimtys
         static_pages: Puslapiai
+        statistics: Veikla
+        user_groups: Grupės
         users: Administratoriai
       user_group:
         csv_verify:
           invalid: Skaitant CSV rinkmeną iškilo problema.
           success: CSV rinkmena įkelta, tikriname, kurios grupės atitinka kriterijus. Tai gali užtrukti.
+        reject:
+          invalid: Atmetant šią grupę iškilo problema.
+          success: Grupė atmesta
+        verify:
+          invalid: Verifikuojant šią grupę iškilo problema.
+          success: Grupė verifikuota
       user_groups:
         index:
           state:
@@ -958,21 +997,32 @@ lt:
           verify_via_csv: Patvirtinti naudojant CSV
       user_groups_csv_verifications:
         new:
+          explanation: Įkelkite savo CSV rinkmeną. Pirmoje rinkmenos skiltyje turi būti pateikti oficialūs jūsų organizacijos grupių el. pašto adresai, be antraščių. Bus patvirtintos tik tos grupės, kurios patvirtino savo el. pašto adresą ir kurių el. pašto adresai yra matomi CSV rinkmenoje.
+          title: Įkelkite savo CSV rinkmeną
           upload: Įkelti
       users:
         create:
+          error: Kviečiant šį administratorių iškilo problema.
           success: Dalyvis pakviestas.
+        destroy:
+          error: Bandant pašalinti šį administratorių iškilo problema.
+          success: Dalyvis nebėra administratorius.
         form:
           email: El. paštas
           name: Vardas
           role: Rolė
         new:
           create: Pakviesti
+          title: Pakviesti naują administratorių
       users_statistics:
         users_count:
+          admins: Administratoriai
           last_day: Paskutinė diena
+          last_month: Praėjusį mėnesį
           last_week: Praėjusią savaitę
+          no_users_count_statistics_yet: Dar nėra dalyvių skaičiaus statistinių duomenų
           participants: Dalyviai
+      view_public_page: Peržiūrėti viešąjį puslapį
     metrics:
       blocked_users:
         object: užblokuoti naudotojai
