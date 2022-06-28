@@ -114,3 +114,47 @@ lt:
           assembly_members: Nariai
           attachment_collections: Aplankai
           attachment_files: Dokumentai
+          attachments: Priedai
+          categories: Kategorijos
+          components: Komponentai
+          info: Informacija
+          moderations: Moderavimai
+          private_users: Privatūs naudotojai
+        assemblies_types: Asamblėjų tipai
+      models:
+        assemblies_types:
+          fields:
+            created_at: Sukurta
+            title: Pavadinimas
+    assemblies:
+      admin:
+        assemblies:
+          form:
+            metadata: Metaduomenys
+            other: Kita
+            select_a_created_by: Pasirinkti pagal kūrėją
+            select_an_area: Pasirinkti aplinką
+            select_an_assembly_type: Pasirinkti asamblėjos tipą
+            select_parent_assembly: Pasirinkti pagrindinę asamblėją
+            slug_help: 'Nuorodos priedėliai nukreipia į šią konkrečią asamblėją. Priedėliai sudaromi iš raidžių, skaičių, brukšnių ir turi prasidėti nuo raidės. Pavyzdys: %{url}'
+            social_handlers: Socialiniai
+            title: Bendroji informacija
+            visbility: Matomumas
+        assemblies_settings:
+          edit:
+            update: Atnaujinimas
+          form:
+            title: Asamblėjų nuostatos
+        assemblies_types:
+          form:
+            title: Pavadinimas
+        assembly_copies:
+          form:
+            slug_help: 'Nuorodos priedėliai nukreipia į šią konkrečią asamblėją. Priedėliai sudaromi iš raidžių, skaičių, brukšnių ir turi prasidėti nuo raidės. Pavyzdys: %{url}'
+        assembly_imports:
+          form:
+            document_legend: Pridėti dokumentą
+            slug_help: 'Nuorodos priedėliai nukreipia į šią konkrečią asamblėją. Priedėliai sudaromi iš raidžių, skaičių, brukšnių ir turi prasidėti nuo raidės. Pavyzdys: %{url}'
+        assembly_members:
+          form:
+            existing_user: Egzistuojantis dalyvis
