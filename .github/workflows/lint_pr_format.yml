@@ -9,6 +9,7 @@ jobs:
   check_title:
     name: Check PR title
     runs-on: ubuntu-latest
+    timeout-minutes: 60
     steps:
       - uses: rokroskar/workflow-run-cleanup-action@v0.3.2
         if: "github.ref != 'refs/heads/develop'"
