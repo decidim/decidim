@@ -43,12 +43,16 @@ lt:
         published_at: Publikuota
         purpose_of_action: Veiksmo tikslas
         scope_id: Apimtis
+        scopes_enabled: Įgalintos apimtys
+        short_description: Trumpas aprašymas
         show_statistics: Rodyti statistiką
+        slug: URL priedas
         special_features: Specialiosios ypatybės
         subtitle: Paantraštė
         target: Kas dalyvauja
         title: Pavadinimas
         twitter: Twitter
+        weight: Vieta eilėje
         youtube: YouTube
       assembly_member:
         birthday: Gimimo diena
@@ -57,6 +61,7 @@ lt:
         designation_date: Paskyrimo data
         full_name: Vardas, pavardė
         gender: Lytis
+        position: Pozicija
         user_id: Vartotojas arba grupė
       assembly_user_role:
         email: El. paštas
@@ -199,11 +204,15 @@ lt:
         assembly:
           fields:
             created_at: Sukurta
+            private: Privatu
+            promoted: Paryškinta
             published: Publikuota
             title: Pavadinimas
           name: Asamblėja
         assembly_member:
           fields:
+            ceased_date: Nutraukimo data
+            designation_date: Paskyrimo data
             full_name: Vardas
             position: Pareigos
           name: Narys
@@ -227,6 +236,8 @@ lt:
         assemblies: Asamblėjos
         assemblies_types: Asamblėjų tipai
     admin_log:
+      assembly:
+        create: "%{user_name} sukūrė %{resource_name} asamblėją"
       assembly_type:
         publish: "%{user_name} paskelbė %{resource_name} asamblėjos tipą"
         unpublish: "%{user_name} panaikino %{resource_name} asamblėjos tipą"
