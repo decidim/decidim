@@ -18,25 +18,28 @@ export default class PasswordToggler {
       hide: icon("ban", {title: this.texts.hidePassword})
     }
   }
-  
+
+  // Call init() to hide the password confirmation and add a "view password" inline button
   init() {
     this.createControls();
     this.$confirmation.hide();
-    this.$button.on("click", (evt) => this.toggleVisibiliy(evt));
-    this.$input.on("change", () => {
+    this.$button.on("click.password_toggler", (evt) => this.toggleVisibiliy(evt));
+    this.$input.on("change.password_toggler", () => {
       this.$inputConfirmation.val(this.$input.val());
     });
     // to prevent browsers trying to use autocomplete, turn the type back to password before submitting
-    this.$form.on("submit", () => {
+    this.$form.on("submit.password_toggler", () => {
       this.$inputConfirmation.val(this.$input.val());
       this.hidePassword();
     });
   }
 
+  // Call destroy() to switch back to the original password/password confirmation boxes
   destroy() {
+    this.$button.off("click.password_toggler");
+    this.$input.off("change.password_toggler");
+    this.$form.off("submit.password_toggler");
     const $input = this.$input.detach();
-    console.log("destroy", $input)
-    $input.off("change");
     this.$inputGroup.replaceWith($input);
     this.$confirmation.show();
   }

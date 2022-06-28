@@ -37,6 +37,7 @@ describe "Admin passwords", type: :system do
       expect(page).to have_current_path(decidim.change_password_path)
     end
 
+    # we keep this test to ensure the old way is still available (password/password confirmation)
     it "shows error when passwords doesnt match" do
       manual_login(user.email, password)
       # disable passwordTogler and restore the old behavior
@@ -46,6 +47,7 @@ describe "Admin passwords", type: :system do
       click_button "Change my password"
       expect(page).to have_css(".callout.alert")
       expect(page).to have_content("There was a problem updating the password")
+      page.execute_script("window.Decidim.passwordToggler.destroy()")
       expect(page).to have_content("doesn't match Password")
     end
 
