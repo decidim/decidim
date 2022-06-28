@@ -52,3 +52,43 @@ lt:
       assembly_copies:
         new:
           copy: Kopijuoti
+          select: Pasirinkite, kuriuos duomenis norėtumėte dubliuoti
+          title: Dublikuoti asamblėją
+      assembly_imports:
+        create:
+          error: Importuojant asamblėją iškilo problema.
+          success: Asamblėja importuota.
+        new:
+          import: Importuoti
+          select: Pasirinkite, kuriuos duomenis norėtumėte importuoti
+          title: Importuoti asamblėją
+      assembly_members:
+        create:
+          error: Įtraukiant naują šios asamblėjos narį iškilo problema.
+          success: Šios asamblėjos narys sukurtas sėkmingai.
+        destroy:
+          success: Šios asamblėjos narys pašalintas sėkmingai.
+        edit:
+          title: Atnaujinti asamblėjos narį.
+          update: Atnaujinti
+        index:
+          assembly_members_title: Asamblėjos nariai
+        new:
+          create: Sukurti
+          title: Naujas asamblėjos narys.
+        update:
+          error: Atnaujinant šios asamblėjos narį iškilo problema.
+          success: Šios asamblėjos narys atnaujintas sėkmingai.
+      assembly_publications:
+        create:
+          error: Skelbiant šią asamblėją iškilo problema.
+          success: Asamblėja sėkmingai publikuota.
+        destroy:
+          error: Depublikuojant asamblėją kilo problema.
+          success: Asamblėja sėkmingai depublikuota.
+      assembly_user_roles:
+        create:
+          error: Pridedant naują asamblėjos administratorijų kilo problema.
+          success: Administratorius sėkmingai pridėtas prie asamblėjos.
+        destroy:
+          success: Administratorius sėkmingai panaikintas iš šios asamblėjos.
