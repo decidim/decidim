@@ -60,6 +60,24 @@ module Decidim
     #             :class - The String to add as a CSS class (optional).
     #
     # Returns a String.
+    def redesigned_icon(name, options = {})
+      default_html_properties = {
+        "width" => "1em",
+        "height" => "1em",
+        "role" => "img",
+        "aria-hidden" => "true"
+      }
+
+      html_properties = options.with_indifferent_access.transform_keys(&:dasherize).slice("width", "height", "aria-label", "role", "aria-hidden", "class")
+      html_properties = default_html_properties.merge(html_properties)
+
+      href = Decidim.cors_enabled ? "" : asset_pack_path("media/images/remixicon.symbol.svg")
+
+      content_tag :svg, html_properties do
+        content_tag :use, nil, "href" => "#{href}#ri-#{name}"
+      end
+    end
+
     def legacy_icon(name, options = {})
       options = options.with_indifferent_access
       html_properties = {}
