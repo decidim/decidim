@@ -152,7 +152,7 @@ These are one time actions that need to be done after the code is updated in the
 
 We have fixed a bug where moderated resources weren't removed from the general search index. This will automatically work for new moderated resources. For already existing ones, we have introduced a new task that will remove the moderated content from being displayed in search:
 
-```bash
+```console
 bin/rails decidim:upgrade:moderation:remove_from_search
 ```
 
@@ -162,7 +162,7 @@ You can read more about this change on PR [\#8811](https://github.com/decidim/de
 
 We've fixed the stastics of comments in participatory spaces. You'll need to run the task:
 
-```bash
+```console
 bin/rails decidim_comments:update_participatory_process_in_comments
 ```
 
@@ -174,7 +174,7 @@ We've implemented Push Notifications for improving the engagement with the platf
 
 ##### 3.3.1. Generate the VAPID keys by running the command
 
-```bash
+```console
 bin/rails decidim:pwa:generate_vapid_keys
 ```
 
@@ -186,7 +186,7 @@ You can read more about this change on PR [\#8774](https://github.com/decidim/de
 
 The `description` field in the categories admin forms has been removed (this applies to any participatory space using categories). For now it's still available in the database, so you can extract it with the following command:
 
-```bash
+```console
 bin/rails runner -e production 'Decidim::Category.pluck(:id, :name, :description)'
 ```
 
@@ -198,7 +198,7 @@ You can read more about this change on PR [\#8617](https://github.com/decidim/de
 
 We've added the ability to search for a user by nickname. You'll need to update the existing search index by running this in (be aware that it could take a while if your database has a lot of Users!):
 
-```bash
+```console
 bin/rails runner -e production 'Decidim::User.find_each(&:try_update_index_for_search_resource)'
 ```
 
@@ -212,7 +212,7 @@ Implementers need to configure these changes it in your scheduler task system in
 
 We have added the possibility to send reminders for some actions, like pending budgets orders or user generated meetings that weren't closed.
 
-```bash
+```console
 4 0 * * * cd /home/user/decidim_application && RAILS_ENV=production bundle exec rake decidim:reminders:all
 ```
 
@@ -222,7 +222,7 @@ You can read more about this change on PR [\#8621](https://github.com/decidim/de
 
 Participants can configure if they want to receive notifications in real-time (one email by any action that they're notified to), or a daily or weekly notifications digest (a highlight with some of the notifications).
 
-```bash
+```console
 # Send notification mail digest daily
 5 0 * * * cd /home/user/decidim_application && RAILS_ENV=production bundle exec rake decidim:mailers:notifications_digest_daily
 
@@ -236,13 +236,13 @@ You can read more about this change on PR [\#8833](https://github.com/decidim/de
 
 "Data portability" has been renamed to "Download you data". As this was a scheduled task that was already configured you'll need to change it. Where you had:
 
-```bash
+```console
 0 0 * * * cd /home/user/decidim_application && RAILS_ENV=production bundle exec rake decidim:delete_data_portability_files
 ```
 
 Changes to:
 
-```bash
+```console
 0 0 * * * cd /home/user/decidim_application && RAILS_ENV=production bundle exec rake decidim:delete_download_your_data_files
 ```
 
