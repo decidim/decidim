@@ -53,7 +53,7 @@ module Decidim
           it "doesn't create the sortition" do
             expect do
               command.call
-            end.to change { Sortition.where(component: sortition_component).count }.by(0)
+            end.not_to(change { Sortition.where(component: sortition_component).count })
           end
         end
 

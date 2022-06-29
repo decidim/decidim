@@ -43,7 +43,7 @@ module Decidim::Assemblies
 
     context "when everything is ok" do
       it "duplicates an assembly" do
-        expect { subject.call }.to change { Decidim::Assembly.count }.by(1)
+        expect { subject.call }.to change(Decidim::Assembly, :count).by(1)
 
         old_assembly = Decidim::Assembly.first
         new_assembly = Decidim::Assembly.last
@@ -86,7 +86,7 @@ module Decidim::Assemblies
       let(:copy_categories) { true }
 
       it "duplicates a assembly and the categories" do
-        expect { subject.call }.to change { Decidim::Category.count }.by(1)
+        expect { subject.call }.to change(Decidim::Category, :count).by(1)
         expect(Decidim::Category.unscoped.distinct.pluck(:decidim_participatory_space_id).count).to eq 2
 
         old_assembly_category = Decidim::Category.unscoped.first
@@ -106,7 +106,7 @@ module Decidim::Assemblies
         component.manifest.on :copy, &dummy_hook
         expect(dummy_hook).to receive(:call).with({ new_component: an_instance_of(Decidim::Component), old_component: component })
 
-        expect { subject.call }.to change { Decidim::Component.count }.by(1)
+        expect { subject.call }.to change(Decidim::Component, :count).by(1)
 
         last_assembly = Decidim::Assembly.last
         last_component = Decidim::Component.all.reorder(:id).last
@@ -134,7 +134,7 @@ module Decidim::Assemblies
         let!(:assembly) { create :assembly, parent: assembly_parent, organization: organization }
 
         it "duplicates an assembly" do
-          expect { subject.call }.to change { Decidim::Assembly.count }.by(1)
+          expect { subject.call }.to change(Decidim::Assembly, :count).by(1)
 
           old_assembly = Decidim::Assembly.find_by(id: assembly.id)
           new_assembly = Decidim::Assembly.last

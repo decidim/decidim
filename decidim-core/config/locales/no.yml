@@ -473,7 +473,6 @@
           newsletter: Motta et sporadisk nyhetsbrev med relevant informasjon
           newsletter_title: Kontakt tillatelse
           nickname_help: Ditt alias i %{organization}, kan bare inneholde bokstaver, tall, '-' og '_'.
-          password_help: "%{minimun_characters} tegn minimum, må ikke være for vanlig (f.eks. 123456) og må være forskjellig fra kallenavnet og e-postadressen din."
           sign_in: Logg inn
           sign_up: Registrer deg
           sign_up_as:
@@ -1513,7 +1512,6 @@
     passwords:
       edit:
         change_my_password: Endre passordet mitt
-        change_your_password: Endre passordet ditt
         confirm_new_password: Bekreft nytt passord
         new_password: New password
         password_help: "%{minimun_characters} tegn minimum, må ikke være for vanlig (f.eks. 123456) og må være forskjellig fra kallenavnet og e-postadressen din."

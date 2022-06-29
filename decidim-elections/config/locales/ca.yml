@@ -12,7 +12,6 @@ ca:
         start_time: La votació comença el
         title: Títol
       question:
-        description: Descripció
         max_selections: Número màxim d'opcions
         min_selections: Cap de les opcions anteriors
         title: Títol
@@ -245,11 +244,12 @@ ca:
         steps:
           create_election:
             errors:
+              component_published: L'elecció <strong>no està publicada</strong>.
               max_selections: Les preguntes no tenen un <strong>valor correcte per quantitat de respostes</strong>
               minimum_answers: Les preguntes han de tenir <strong>almenys dues respostes</strong>.
               minimum_questions: L'elecció <strong>ha de tenir almenys una pregunta</strong>.
               published: L'elecció <strong>no està publicada</strong>.
-              time_before: L'hora d'inici és en <strong>menys de 3 hores</strong> abans de que comenci l'elecció.
+              time_before: L'hora d'inici és en <strong>menys de %{hours} hores </strong> abans de que comenci l'elecció.
               trustees_number: L'espai de participació <strong>ha de tenir almenys %{number} garants amb clau pública</strong>.
             invalid: S'ha produït un error en configurar aquesta elecció
             no_trustees: No hi ha garants configurats per aquest espai de participació
@@ -258,6 +258,7 @@ ca:
               'false': no té una <strong>clau pública</strong>
               'true': té una <strong>clau pública</strong>
             requirements:
+              component_published: L'elecció està <strong>publicada</strong>.
               max_selections: Totes les preguntes tenen un valor correcte per <strong>màxim de respostes</strong>.
               minimum_answers: Cada pregunta té <strong>almenys 2 respostes</strong>.
               minimum_questions: L'elecció té <strong>almenys 1 pregunta</strong>.
@@ -650,6 +651,10 @@ ca:
         failed:
           header: Vot fallit
           lead: El teu vot no s'ha enviat!
+          modal:
+            close: Tancar
+            communication_lost: Malauradament, sembla que la comunicació amb el servidor de votació (Bulletin Board) s'ha perdut.<br>Pot ser que la connexió a Internet estigui avariada o que el servidor de destí estigui massa ocupat.<br>Pots provar-ho més tard o posar-te en contacte amb el servei d'assistència si aquest problema persisteix.
+            title: Alguna cosa ha anat malament
           text: Alguna cosa ha anat malament. Si us plau, torna-ho a provar.
           try_again: Prova-ho de nou
         header:

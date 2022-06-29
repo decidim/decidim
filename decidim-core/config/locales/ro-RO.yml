@@ -460,7 +460,6 @@ ro:
           newsletter: Primește un buletin informativ ocazional cu informații relevante
           newsletter_title: Drepturi privind contactele
           nickname_help: Pseudonimul tău în %{organization}. Poate conține doar litere, numere, '-' și '_'.
-          password_help: "minim %{minimun_characters} caractere, nu trebuie să fie prea comune (ex. 123456) și trebuie să fie diferite de pseudonimul și adresa ta de e-mail."
           sign_in: Autentificare
           sign_up: Înscrie-te
           sign_up_as:
@@ -1501,7 +1500,6 @@ ro:
     passwords:
       edit:
         change_my_password: Schimbă-mi parola
-        change_your_password: Schimbă-ți parola
         confirm_new_password: Confirmare parolă nouă
         new_password: Parola nouă
         password_help: "minim %{minimun_characters} caractere, nu trebuie să fie prea comune (ex. 123456) și trebuie să fie diferite de porecla și adresa dvs. de e-mail."

@@ -511,7 +511,6 @@ ja:
           newsletter: 関連するお知らせを受け取る
           newsletter_title: ニュースレターを受け取る
           nickname_help: '%{organization} でのニックネームです。文字、数字、''-'' および ''_'' のみを使用できます。'
-          password_help: "半角英数字%{minimun_characters}文字以上で入力してください。単純すぎてはいけません（例：123456）。アカウントIDやメールアドレスと異なる必要があります。"
           sign_in: ログイン
           sign_up: 新規登録
           sign_up_as:
@@ -1611,7 +1610,6 @@ ja:
     passwords:
       edit:
         change_my_password: パスワードを変更する
-        change_your_password: パスワードを変更する
         confirm_new_password: 新しいパスワードを確認
         new_password: 新しいパスワード
         password_help: "半角英数字%{minimun_characters}文字以上で入力してください。単純すぎてはいけません（例：123456）。アカウントIDやメールアドレスと異なる必要があります。"

@@ -153,6 +153,9 @@ fr-CA:
     admin:
       actions:
         cancel: Annuler
+      password_change:
+        alert: Vous devez changer votre mot de passe pour continuer
+        notification: Les administrateurs doivent changer leur mot de passe tous les %{days} jours.
     admin_log:
       area:
         create: "%{user_name} a créé la zone d'application %{resource_name}"
@@ -175,6 +178,11 @@ fr-CA:
         delete: "%{user_name} a supprimé la fonctionnalité %{resource_name} de l'espace %{space_name}"
         publish: "%{user_name} a publié la fonctionnalité %{resource_name} dans l'espace %{space_name}"
         unpublish: "%{user_name} a dépublié la fonctionnalité %{resource_name} de l'espace %{space_name}"
+      helpers:
+        answers: réponses
+        comments: commentaires
+        projects: projets
+        results: résultats
       impersonation_log:
         manage: "%{user_name} a représenté %{resource_name} parce que %{reason}"
       moderation:
@@ -513,7 +521,6 @@ fr-CA:
           newsletter: Recevoir une newsletter sur l'actualité de la plateforme
           newsletter_title: Autorisation de contact
           nickname_help: Cet identifiant est public et unique sur %{organization} ; il permet aux autres utilisateurs de vous suivre, de vous contacter ou de vous mentionner dans leurs commentaires. Il s’affichera précédé d’un « @ » ; il ne doit pas contenir d’espace ni de caractère spécial.
-          password_help: "%{minimun_characters} caractères minimum, ne doit pas être trop commun (par exemple 123456) et doit être différent de votre pseudo et de votre email."
           sign_in: Se connecter
           sign_up: S'inscrire
           sign_up_as:
@@ -1249,6 +1256,10 @@ fr-CA:
           title: 'Obligatoire : consultez les conditions d''utilisation mises à jour'
     participatory_space_private_users:
       not_allowed: Vous n'êtes pas autorisé à voir ce contenu
+    passwords:
+      update:
+        error: Il y a eu un problème lors de la mise à jour de votre mot de passe
+        success: Mot de passe mis à jour avec succès
     profile:
       deleted: Utilisateur ayant supprimé son compte
       inaccessible_message: Ce profil est inaccessible en raison d'une violation des Conditions Générales d'Utilisation !
@@ -1610,10 +1621,11 @@ fr-CA:
     passwords:
       edit:
         change_my_password: Changer mon mot de passe
-        change_your_password: changez votre mot de passe
         confirm_new_password: Confirmer le nouveau mot de passe
         new_password: Nouveau mot de passe
         password_help: "%{minimun_characters} caractères minimum, ne doit pas être trop commun (par exemple 123456) et doit être différent de votre pseudo et de votre email."
+        password_help_admin: "%{minimun_characters} caractères minimum, ne doit pas être trop commun (par exemple 123456) et doit être différent de votre pseudo et de votre email, ainsi que de vos précédents mots de passe."
+        title: Changement de mot de passe
       new:
         forgot_your_password: Mot de passe oublié?
         send_me_reset_password_instructions: Envoyez-moi les instructions de réinitialisation du mot de passe
@@ -1701,10 +1713,52 @@ fr-CA:
     timestamp_error_message: Désolé, c'était trop rapide ! Veuillez le renvoyer.
   layouts:
     decidim:
+      cookie_consent:
+        cookie_details:
+          columns:
+            description: Description
+            name: Nom
+            service: Service
+            type: Type
+          cookies:
+            _session_id:
+              service: Ce site web
+            decidim-consent:
+              description: Stocke des informations sur les cookies autorisés par l'utilisateur sur ce site web.
+              service: Ce site web
+          types:
+            cookie: Cookie
+        dialog:
+          accept_all: Tout accepter
+          accept_only_essential: Accepter seulement l'essentiel
+          cookie_settings: Paramètres
+          description: Nous utilisons des cookies sur notre site Web pour améliorer la performance et le contenu du site. Les cookies nous permettent de fournir une expérience utilisateur plus individuelle et les canaux de médias sociaux.
+          title: Informations sur les cookies utilisés sur le site web
+        modal:
+          accept_all: Tout accepter
+          accept_only_essential: Accepter seulement l'essentiel
+          analytics:
+            title: Analyses et statistiques
+          essential:
+            title: Essentiels
+          marketing:
+            description: Ces cookies recueillent des informations sur la façon dont vous utilisez le site Web, sur les pages que vous avez visitées et sur les liens sur lesquels vous avez cliqués.
+            title: Marketing
+          preferences:
+            description: Ces cookies permettent au site Web de se souvenir des choix que vous avez faits par le passé
+            title: Préférences
+          save_settings: Enregistrer les paramètres
+          title: Paramètres des cookies
+          toggle: Activer/désactiver %{consent_category}
+        warning:
+          all_cookies: tous les cookies
+          change_cookie_settings: Modifier les paramètres des cookies
+          need_cookies: Vous devez activer %{cookies} pour voir ce contenu.
       edit_link:
         edit: Modifier
       footer:
         cc_by_license: Licence Creative Commons
+        cookie_settings: Paramètres des cookies
         decidim_logo: Logo Decidim
         download_open_data: Télécharger les fichiers Open Data
         made_with_open_source: Site réalisé grâce au <a target="_blank" href="https://github.com/decidim/decidim">logiciel libre Decidim</a>.
@@ -1771,6 +1825,7 @@ fr-CA:
     nickname_included_in_password: est trop similaire à votre surnom
     not_enough_unique_characters: n'a pas assez de caractères uniques
     password_not_allowed: n'est pas autorisé
+    password_repeated: impossible de réutiliser un ancien mot de passe
     password_too_common: est trop commun
     password_too_long: est trop long
     password_too_short: est trop court

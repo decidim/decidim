@@ -12,7 +12,6 @@ pt-BR:
         start_time: Votação começa às
         title: Título
       question:
-        description: Descrição
         max_selections: Número máximo de seleções
         min_selections: Nenhuma das opções acima
         title: Título
@@ -227,7 +226,6 @@ pt-BR:
               minimum_answers: As perguntas devem ter <strong>pelo menos duas respostas</strong>.
               minimum_questions: A eleição <strong>deve ter pelo menos uma questão</strong>.
               published: A eleição <strong>não está publicada</strong>.
-              time_before: O horário de início é em <strong>menos de 3 horas</strong> antes do início da eleição.
               trustees_number: O espaço participativo <strong>deve ter pelo menos %{number} administradores com chave pública</strong>.
             invalid: Houve um problema ao configurar essa eleição
             no_trustees: Não há Agentes fiduciários configurados para este espaço participativo

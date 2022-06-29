@@ -18,8 +18,8 @@ describe "Manage admins", type: :system do
 
         within ".new_admin" do
           fill_in :admin_email, with: "admin@foo.bar"
-          fill_in :admin_password, with: "decidim123456"
-          fill_in :admin_password_confirmation, with: "decidim123456"
+          fill_in :admin_password, with: "decidim123456789"
+          fill_in :admin_password_confirmation, with: "decidim123456789"
 
           find("*[type=submit]").click
         end

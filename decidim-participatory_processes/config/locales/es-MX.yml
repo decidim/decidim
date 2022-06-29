@@ -298,7 +298,7 @@ es-MX:
     admin_log:
       participatory_process:
         create: "%{user_name} creó el proceso participativo %{resource_name}"
-        duplicate: "%{user_name} ha exportado el proceso participativo %{resource_name}"
+        duplicate: "%{user_name} ha duplicado el proceso participativo %{resource_name}"
         export: "%{user_name} exportó el proceso participativo %{resource_name}"
         import: "%{user_name} importó el proceso participativo %{resource_name}"
         publish: "%{user_name} publicó el proceso participativo %{resource_name}"

@@ -66,7 +66,7 @@ module Decidim::Verifications
         end
 
         it "is invalid if there's another authorization with the same id" do
-          expect { subject.call }.to change(authorizations, :count).by(0)
+          expect { subject.call }.not_to change(authorizations, :count)
         end
       end
     end

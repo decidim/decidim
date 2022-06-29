@@ -11,12 +11,12 @@ ro:
   decidim:
     blogs:
       actions:
+        author_id: Creează postare ca
         confirm_destroy: Sigur dorești să ştergi această postare?
         destroy: Șterge
         edit: Editează
         new: Postare nouă
         title: Acțiuni
-        user_group_id: Creează postare ca
       admin:
         models:
           components:

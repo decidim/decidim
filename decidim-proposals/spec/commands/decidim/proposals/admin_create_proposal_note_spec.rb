@@ -35,7 +35,7 @@ module Decidim
             it "doesn't create the proposal note" do
               expect do
                 command.call
-              end.to change(ProposalVote, :count).by(0)
+              end.not_to change(ProposalVote, :count)
             end
           end
 
