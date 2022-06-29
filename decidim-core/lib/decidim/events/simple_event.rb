@@ -40,6 +40,7 @@ module Decidim
       def email_subject_i18n_options
         sanitized_values = { resource_title: decidim_sanitize(resource_title) }
         sanitized_values[:mentioned_proposal_title] = decidim_sanitize(mentioned_proposal_title) if i18n_options.has_key?(:mentioned_proposal_title)
+        sanitized_values[:participatory_space_title] = decidim_sanitize(participatory_space_title) if i18n_options.has_key?(:participatory_space_title)
         i18n_options.merge(sanitized_values)
       end
 
