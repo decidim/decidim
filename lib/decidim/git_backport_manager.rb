@@ -25,6 +25,7 @@ module Decidim
 
     def self.checkout_develop
       `git checkout develop`
+      exit_with_errors("Could not checkout the develop branch. Please make sure you don't have any uncommitted changes in the current branch.") unless $CHILD_STATUS.exitstatus.zero?
     end
 
     private
