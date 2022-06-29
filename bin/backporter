@@ -27,6 +27,8 @@ class BackporterCLI < Thor
       version_number: options[:version_number],
       exit_with_unstaged_changes: options[:exit_with_unstaged_changes]
     ).call
+  rescue Decidim::Backporter::InvalidMetadataError
+    puts "Metadata was not returned from the server. Please check that the provided pull request ID and GitHub token are correct."
   end
 
   def help

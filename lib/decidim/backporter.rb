@@ -2,6 +2,8 @@
 
 module Decidim
   class Backporter
+    class InvalidMetadataError < StandardError; end
+
     def initialize(token:, pull_request_id:, version_number:, exit_with_unstaged_changes:)
       @token = token
       @pull_request_id = pull_request_id
@@ -11,6 +13,8 @@ module Decidim
 
     def call
       metadata = pull_request_metadata
+      raise InvalidMetadataError unless metadata
+
       make_cherrypick_and_branch(metadata)
       create_pull_request(metadata)
       Decidim::GitBackportManager.checkout_develop
