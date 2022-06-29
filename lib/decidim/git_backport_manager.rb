@@ -17,6 +17,9 @@ module Decidim
         exit_if_unstaged_changes if @exit_with_unstaged_changes
         self.class.checkout_develop
         sha_commit = sha_commit_to_backport
+        unless sha_commit
+          exit_with_errors("Could not find commit for pull request #{pull_request_id}. Please make sure you have pulled the latest changes.")
+        end
         create_backport_branch!
         cherrypick_commit!(sha_commit)
         push_backport_branch!
