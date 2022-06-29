@@ -20,6 +20,9 @@ module Decidim
       # @return [Hash]
       #
       def call
+        data = issue_metadata
+        return unless data["number"]
+
         parse(issue_metadata)
       end
 
