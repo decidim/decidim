@@ -62,10 +62,10 @@
           status:
             name: Status
           timeline_entry:
-            name: Tidslinje oppføring
+            name: Oppføring i tidslinjen
         results:
           create:
-            invalid: Det oppsto et problem med å opprette dette resultatet
+            invalid: Det oppstod et problem med å opprette dette resultatet
             success: Resultat ble opprettet
           destroy:
             success: Resultat ble slettet
@@ -124,6 +124,12 @@
           update: "%{user_name} oppdaterte rusultat%{resource_name} i %{space_name}"
         status:
           create: "%{user_name} har opprettet statusen %{resource_name}"
+          delete: "%{user_name} slettet statusen %{resource_name}"
+          update: "%{user_name} oppdaterte statusen %{resource_name}"
+        timeline_entry:
+          create: "%{user_name} opprettet %{resource_name} i tidslinjen"
+          delete: "%{user_name} slettet %{resource_name} i tidslinjen"
+          update: "%{user_name} oppdaterte %{resource_name} i tidslinjen"
         value_types:
           parent_presenter:
             not_found: 'Overordnede ble ikke funnet i databasen (ID: %{id})'
@@ -162,6 +168,7 @@
         timeline_entry:
           fields:
             entry_date: Dato
+            title: Tittel
       result_m:
         executed: Utført
         view: Vis
