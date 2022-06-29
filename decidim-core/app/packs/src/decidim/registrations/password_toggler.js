@@ -45,8 +45,8 @@ export default class PasswordToggler {
   }
 
   createControls() {
-    this.$button = $(`<button type="button" 
-                            aria-controls="${this.$input.attr("id")}" 
+    this.$button = $(`<button type="button"
+                            aria-controls="${this.$input.attr("id")}"
                             aria-label="${this.texts.showPassword}">${this.icons.show}</button>`);
     this.$buttonGroup = $('<span class="input-group"/>');
     this.$statusText = $(`<span class="show-for-sr" aria-live="polite">${this.texts.hiddenPassword}</span>`);
@@ -73,7 +73,7 @@ export default class PasswordToggler {
     this.$button.attr("aria-label", this.texts.hidePassword).html(this.icons.hide);
     this.$input.attr("type", "text");
   }
-  
+
   hidePassword() {
     this.$statusText.text(this.texts.hiddenPassword);
     this.$button.attr("aria-label", this.texts.showPassword).html(this.icons.show)
