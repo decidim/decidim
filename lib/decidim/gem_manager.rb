@@ -149,8 +149,11 @@ module Decidim
       end
 
       def run_at(dir, command, out: $stdout)
+        attempts = 0
         until (status = new(dir).run(command, out: out))
-          break unless Decidim::GemManager.retry?
+          attempts += 1
+
+          break if attempts > Decidim::GemManager.retry_times
         end
 
         status
@@ -191,8 +194,8 @@ module Decidim
         ENV.fetch("FAIL_FAST", nil) != "false"
       end
 
-      def retry?
-        ENV.fetch("RETRY", true).to_s != "false"
+      def retry_times
+        ENV.fetch("RETRY_TIMES", 10).to_i
       end
 
       private
