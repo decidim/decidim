@@ -42,7 +42,7 @@ This article will require three paragraphs. This will be the third one.
 
 Well, at the end we required one more paragraph and embedded an image, let's see what happens with this...
 
-## Summary
+# Summary
 
 We use here a main title again for the summary because we don't know what will happen when having many main titles in one document.
 
