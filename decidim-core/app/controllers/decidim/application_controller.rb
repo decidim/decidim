@@ -23,6 +23,7 @@ module Decidim
     include NeedsPasswordChange
 
     include RedesignLayout
+    redesign active: true
 
     helper Decidim::MetaTagsHelper
     helper Decidim::DecidimFormHelper

@@ -478,7 +478,7 @@ describe "Proposals", type: :system do
 
         click_link "Next"
 
-        expect(page).to have_selector(".pagination .current", text: "2")
+        expect(page).to have_selector("[data-pages] [data-page][aria-current='page']", text: "2")
 
         expect(page).to have_css(".card--proposal", count: 5)
       end

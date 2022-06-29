@@ -13,6 +13,7 @@ module Decidim
         before do
           allow(view).to receive(:current_organization).and_return(current_organization)
           allow(view).to receive(:allowed_to?).and_return(true)
+          allow(view).to receive(:redesign_enabled?).and_return(false)
         end
 
         it "renders the default main menu" do

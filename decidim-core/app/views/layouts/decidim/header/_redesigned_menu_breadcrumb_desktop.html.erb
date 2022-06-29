@@ -1,0 +1,42 @@
+<details>
+  <!-- TODO: the summary block styles could be simplified using backdrop-filter (i.e. tailwind: backdrop-brightness-75),
+    but still incompatible with firefox: https://caniuse.com/css-backdrop-filter -->
+  <summary id="main-dropdown-summary"
+    class="flex rounded overflow-hidden px-2 py-1 cursor-pointer relative group"
+    aria-controls="main-dropdown">
+    <span class="opacity-0 group-hover:opacity-100 transition z-0 absolute top-0 left-0 w-full h-full brightness-75 bg-primary"></span>
+    <span class="relative z-10"><%= icon "home-2-line" , class: "w-6 h-6 fill-current" %></span>
+  </summary>
+  <div id="main-dropdown" aria-labelledby="main-dropdown-summary"
+    class="absolute top-full left-8 z-20">
+    <%= render partial: "layouts/decidim/header/redesigned_menu_breadcrumb_main_dropdown" %>
+  </div>
+</details>
+
+<% breadcrumb=[["Process", false], ["Imaginem el nou ecobarri de Ca n' Ametller", true], ["Sobre el procés", false]] %>
+
+<% breadcrumb.each_with_index do |item, i| %>
+  <span>/</span>
+
+  <% is_active = item[1] # item[0] could also be "active" %>
+  <% has_dropdown = item[1] # Not all items have a secondary dropdown %>
+
+  <% if has_dropdown %>
+    <details class="relative">
+      <!-- TODO: the summary block styles could be simplified using backdrop-filter (i.e. tailwind: backdrop-brightness-75),
+        but still incompatible with firefox: https://caniuse.com/css-backdrop-filter -->
+      <summary id="secondary-dropdown-summary"
+        class="flex rounded overflow-hidden px-2 py-1 cursor-pointer relative group <%= "font-bold" if is_active %>"
+        aria-controls="secondary-dropdown">
+        <span class="opacity-0 group-hover:opacity-100 transition z-0 absolute top-0 left-0 w-full h-full brightness-75 bg-primary"></span>
+        <span class="relative z-10"><%= item[0] %></span>
+      </summary>
+      <div id="secondary-dropdown" aria-labelledby="secondary-dropdown-summary"
+        class="absolute top-[calc(100%+1rem)] left-0 z-20">
+        <%= render partial: "layouts/decidim/header/redesigned_menu_breadcrumb_secondary_dropdown" %>
+      </div>
+    </details>
+  <% else %>
+    <span class="cursor-pointer <%= "font-bold" if is_active %>"><%= item[0] %></span>
+  <% end %>
+<% end %>

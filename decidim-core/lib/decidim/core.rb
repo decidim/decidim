@@ -114,6 +114,7 @@ module Decidim
   autoload :ControllerHelpers, "decidim/controller_helpers"
   autoload :ProcessesFileLocally, "decidim/processes_file_locally"
   autoload :RedesignLayout, "decidim/redesign_layout"
+  autoload :DisabledRedesignLayout, "decidim/disabled_redesign_layout"
 
   include ActiveSupport::Configurable
   # Loads seeds from all engines.

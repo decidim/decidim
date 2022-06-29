@@ -5,6 +5,7 @@ module Decidim
   # Lists the members of the given user group.
   class MembersCell < Decidim::ViewModel
     include Decidim::CellsPaginateHelper
+    include Decidim::LayoutHelper
     include Decidim::ApplicationHelper
     include Decidim::Core::Engine.routes.url_helpers
     include Decidim::CardHelper

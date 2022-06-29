@@ -1,0 +1,19 @@
+.label{
+  @apply bg-background text-gray-2 rounded inline-flex items-center gap-1 px-2 font-semibold text-sm;
+
+  &.green{
+    @apply bg-green/20 text-green;
+  }
+
+  &.red{
+    @apply bg-red/20 text-red;
+  }
+
+  &.yellow{
+    @apply bg-yellow/20 text-yellow;
+  }
+
+  &.reverse{
+    @apply bg-gray-2 text-white;
+  }
+}

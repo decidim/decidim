@@ -21,6 +21,7 @@
     "@babel/runtime": "^7.15.4",
     "@rails/ujs": "^6.1.3",
     "@rails/webpacker": "6.0.0-rc.5",
+    "@tailwindcss/typography": "^0.5.2",
     "autoprefixer": "^10.4.1",
     "babel-loader": "^8.2.2",
     "compression-webpack-plugin": "^9.0.0",

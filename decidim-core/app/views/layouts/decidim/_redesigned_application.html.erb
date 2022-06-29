@@ -13,7 +13,16 @@
     <%= render partial: "layouts/decidim/timeout_modal" %>
     <%= render partial: "layouts/decidim/offline_banner" %>
 
-    <%= render "layouts/decidim/wrapper" do %>
+    <!-- DEBUG HELPER -->
+    <script>function toggleCSS() {
+      const node = document.querySelector("[rel=stylesheet][href*='/decidim_core']")
+      node.getAttribute('disabled') === "true" ? node.removeAttribute('disabled') : node.setAttribute('disabled', "true")
+    }</script>
+    <div class="fixed inline-block top-4 z-10 bg-white border-2 p-2 my-2 -ml-2">
+      <label class="cursor-pointer" for="tcss"><input type="checkbox" name="tcss" id="tcss" onclick="toggleCSS()">Hide legacy CSS stylesheet</label>
+    </div>
+
+    <%= render "layouts/decidim/redesigned_wrapper" do %>
       <%= yield %>
     <% end %>
 
