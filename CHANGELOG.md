@@ -20,8 +20,6 @@ gem "decidim-dev", github: "decidim/decidim"
 ```console
 bundle update decidim
 bin/rails decidim:upgrade
-bin/rails decidim:webpacker:install
-bin/webpack
 bin/rails db:migrate
 ```
 
