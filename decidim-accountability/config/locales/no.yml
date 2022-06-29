@@ -22,6 +22,7 @@
       timeline_entry:
         description: Beskrivelse
         entry_date: Dato
+        title: Tittel
     models:
       decidim/accountability/proposal_linked_event: Forslag inkludert i et resultat
       decidim/accountability/result_progress_updated_event: Resultat fremgang oppdatert
@@ -122,6 +123,8 @@
           create: "%{user_name} opprettet resultat %{resource_name} i %{space_name}"
           delete: "%{user_name} slettet %{resource_name} resultatet i %{space_name}"
           update: "%{user_name} oppdaterte rusultat%{resource_name} i %{space_name}"
+        status:
+          create: "%{user_name} har opprettet statusen %{resource_name}"
         value_types:
           parent_presenter:
             not_found: 'Overordnede ble ikke funnet i databasen (ID: %{id})'
