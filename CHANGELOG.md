@@ -15,7 +15,7 @@ gem "decidim", "0.27.0.rc1"
 gem "decidim-dev", "0.27.0.rc1"
 ```
 
-##### 1.2. Run these commands
+#### 1.2. Run these commands
 
 ```console
 bundle update decidim
