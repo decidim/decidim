@@ -11,32 +11,7 @@ validations.each do |validation| %>
 <% if validations.empty? %>
   <div class="divide-y divide-gray-3 -my-4">
     <% public_followings.each do |followable| %>
-      <div class="py-4 space-y-2">
-        <!-- TODO: translate attribute -->
-        <a href="" class="text-lg text-secondary font-semibold hover:underline"><%= followable.title["en"] %></a>
-        <div class="flex items-center divide-x divide-gray-3">
-          <%
-          # TODO: The content will vary regarding the followable type. Ask for the respective icons
-
-          metadata = [];
-
-          metadata << ["calendar-line", followable.published_at] if followable.published_at;
-          metadata << ["treasure-map-line", "Reurbanització de l'avinguda Madrid i el carrer Berlín"];
-          metadata << ["check-double-line", "1242 votings"];
-          metadata << ["time-line", "2h"];
-          metadata << ["webcam-line", "Online"];
-          metadata << ["pulse-line", "Active"];
-          metadata << ["user-voice-line", "74 followers"];
-
-          # It should display up to 4 icons top
-          metadata.first(4).each do |item| %>
-            <div class="flex items-center gap-1 px-4 lg:px-6 first:pl-0 last:pr-0 max-w-xs">
-              <%= icon item[0], class: "w-3.5 h-3.5 flex-none text-gray fill-current" %>
-              <span class="text-sm text-gray-2 truncate"><%= item[1] %></span>
-            </div>
-          <% end %>
-        </div>
-      </div>
+      <%= card_for followable, context: { label: true, show_space: true } %>
     <% end %>
   </div>
 
