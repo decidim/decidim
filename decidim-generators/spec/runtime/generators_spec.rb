@@ -49,13 +49,6 @@ module Decidim
     end
     # rubocop:enable RSpec/BeforeAfterAll
 
-    around do |example|
-      orig_retry = ENV.fetch("RETRY_TIMES", nil)
-      ENV["RETRY_TIMES"] = "0"
-      example.call
-      ENV["RETRY_TIMES"] = orig_retry
-    end
-
     context "with an application" do
       let(:test_app) { "spec/generator_test_app" }
 
