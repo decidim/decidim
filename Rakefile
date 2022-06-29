@@ -103,14 +103,24 @@ end
 desc "Lint Markdown files"
 task :lint_markdown do
   status = 0
-  Dir.glob(root_folder.join("**/*.md")).each do |file|
+  # These rules will be ignored for only this file.
+  # If you want to add a rule to ignore for all files check the .mdl_style.rb file.
+  ignore_rules_for_file = {
+    "decidim-proposals/app/packs/documents/decidim/proposals/participatory_texts/participatory_text.md" => ["single-h1"]
+  }
+
+  Dir[File.join("**/*.md")].each do |file|
     next if file.include?("node_modules")
     next if file.include?("decidim_dummy_app")
     next if file.include?("public/decidim-packs")
     next if file.include?("dev/assets/iso-8859-15.md")
     next if file.include?("vendor/bundle")
 
-    system("mdl #{file}")
+    if ignore_rules_for_file.keys.include?(file)
+      system("mdl --rules #{ignore_rules_for_file[file].map { |f| "~#{f}" }.join(",")} #{file}")
+    else
+      system("mdl #{file}")
+    end
     status += $CHILD_STATUS.exitstatus
   end
 
