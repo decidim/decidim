@@ -190,3 +190,29 @@ lt:
         conference_speakers:
           form:
             existing_user: Esamas dalyvis
+      conference_registrations:
+        create:
+          invalid: Jungiantis prie šios konferencijos iškilo problema.
+          success: Jūs prisijungėte prie konferencijos.
+        decline_invitation:
+          invalid: Atmetant kvietimą iškilo problema.
+          success: Jūs atmetėte kvietimą.
+        destroy:
+          invalid: Paliekant šią konferenciją iškilo problema.
+      conference_speaker:
+        more_info: daugiau informacijos
+        personal_website: Asmeninė interneto svetainė
+        show:
+          more_info: daugiau informacijos
+      conference_speaker_cell:
+        personal_url:
+          personal_website: Asmeninė interneto svetainė
+      conference_speakers:
+        index:
+          speakers: Pranešėjai
+      conferences:
+        partners:
+          collaborators: Partneriai
+          main_promotors: Organizatoriai
+        show:
+          login_as: Jūs prisijungėte kaip %{name} <%{email}>
