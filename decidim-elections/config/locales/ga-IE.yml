@@ -157,6 +157,9 @@ ga:
           confirm: Deimhnigh
           edit: eagar
           nota_option: Bán
+        failed:
+          modal:
+            close: Dún
         modal:
           close: Dún
         verify:
