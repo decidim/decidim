@@ -216,14 +216,20 @@ module Decidim
     # Whether this activity or log is visible for a given user (can also be nil)
     #
     # Returns a True/False.
+    # rubocop:disable Metrics/CyclomaticComplexity
     def visible_for?(user)
-      return false if resource_lazy.blank?
-      return false if participatory_space_lazy.blank?
-      return false if resource_lazy.respond_to?(:deleted?) && resource_lazy.deleted?
-      return false if resource_lazy.respond_to?(:hidden?) && resource_lazy.hidden?
-      return false if resource_lazy.respond_to?(:can_participate?) && !resource_lazy.can_participate?(user)
-
+      begin
+        return false if resource_lazy.blank?
+        return false if participatory_space_lazy.blank?
+        return false if resource_lazy.respond_to?(:deleted?) && resource_lazy.deleted?
+        return false if resource_lazy.respond_to?(:hidden?) && resource_lazy.hidden?
+        return false if resource_lazy.respond_to?(:can_participate?) && !resource_lazy.can_participate?(user)
+      rescue NameError => e
+        Rails.logger.warn "Failed resource for #{self.class.name}(id=#{id}): #{e.message}"
+        return false
+      end
       true
     end
+    # rubocop:enable Metrics/CyclomaticComplexity
   end
 end
