@@ -53,6 +53,8 @@ module Decidim
     def resource_cell
       @resource_cell ||= if resource_card
                            resource_card
+                         elsif group_membership?
+                           "decidim/redesigned_user_profile"
                          elsif official_author? || user_or_user_group?
                            "decidim/redesigned_author"
                          end
@@ -86,6 +88,10 @@ module Decidim
 
     def user_or_user_group?
       ["Decidim::User", "Decidim::UserGroup"].include? model.model_name.name
+    end
+
+    def group_membership?
+      model.instance_of?(::Decidim::UserGroupMembership)
     end
 
     def stats
