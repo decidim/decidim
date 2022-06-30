@@ -5,6 +5,7 @@ module Decidim
   # delegated to the components' cell if specified in the manifest
   # otherwise a primary cell wil be shown.
   class RedesignedCardCell < Decidim::ViewModel
+    include Decidim::ApplicationHelper
     include Decidim::RedesignHelper
     include Decidim::IconHelper
     include ActionView::Helpers::NumberHelper
