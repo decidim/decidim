@@ -14,8 +14,7 @@ export default class PasswordToggler {
       shownPassword: this.$password.data("shownPassword") || "Your password is shown"
     }
     this.icons = {
-      show: icon("eye", {title: this.texts.showPassword}),
-      hide: icon("ban", {title: this.texts.hidePassword})
+      show: icon("eye", {title: this.texts.showPassword})
     }
   }
 
@@ -70,13 +69,13 @@ export default class PasswordToggler {
 
   showPassword() {
     this.$statusText.text(this.texts.shownPassword);
-    this.$button.attr("aria-label", this.texts.hidePassword).html(this.icons.hide);
+    this.$button.attr("aria-label", this.texts.hidePassword).addClass("crossed");
     this.$input.attr("type", "text");
   }
 
   hidePassword() {
     this.$statusText.text(this.texts.hiddenPassword);
-    this.$button.attr("aria-label", this.texts.showPassword).html(this.icons.show)
+    this.$button.attr("aria-label", this.texts.showPassword).removeClass("crossed")
     this.$input.attr("type", "password");
   }
 

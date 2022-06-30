@@ -10,11 +10,34 @@
     margin-top: .5em;
     width: 1%;
 
-    .icon{
-      width: 1.125em;
-      height: 1.125em;
-      margin: 5px;
-      color: $black;
+    button{
+      .icon{
+        width: 1.125em;
+        height: 1.125em;
+        margin: 5px;
+        color: $black;
+      }
+
+      &.crossed{
+        position: relative;
+
+        &::before{
+          content: "";
+          position: absolute;
+          top: 5px;
+          left: 5px;
+          background:
+            linear-gradient(
+              to right bottom,
+              transparent calc(50% - 1px),
+              black calc(50% - 1px),
+              black calc(50% + 1px),
+              transparent calc(50% + 1px)
+            ) no-repeat 0 0 / 100% 100%;
+          width: calc(100% - 10px);
+          height: calc(100% - 10px);
+        }
+      }
     }
   }
 }
