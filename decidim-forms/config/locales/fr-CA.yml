@@ -122,6 +122,9 @@ fr-CA:
           update:
             invalid: Il y a eu des erreurs lors de la sauvegarde du questionnaire.
             success: Le formulaire a bien été sauvegardé.
+      admin_log:
+        questionnaire:
+          update: "%{user_name} a modifié le questionnaire %{resource_name}"
       errors:
         answer:
           body: Le corps ne peut pas être vide
