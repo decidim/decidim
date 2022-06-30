@@ -540,6 +540,8 @@ ro:
           verify_link: Pentru a verifica, copiați identificatorul și lipiți-l pe pagina <a href="%{link}">pentru verificarea votului</a>
         failed:
           header: Vot eșuat
+          modal:
+            close: Inchide
         header:
           confirm: Confirmă votul tău
           confirmed: Votare confirmată
