@@ -601,6 +601,8 @@ it:
         failed:
           header: Votazione fallita
           lead: Il tuo voto non è stato deposto!
+          modal:
+            close: Chiuso
           text: Qualcosa è andato storto. Riprova di nuovo.
           try_again: Riprova
         header:
