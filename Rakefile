@@ -107,6 +107,7 @@ task :lint_markdown do
   # If you want to add a rule to ignore for all files check the .mdl_style.rb file.
   ignore_rules_for_file = {
     "decidim-proposals/app/packs/documents/decidim/proposals/participatory_texts/participatory_text.md" => ["single-h1"],
+    "decidim-api/docs/usage.md" => ["first-header-h1"],
     "decidim-dev/lib/decidim/dev/assets/participatory_text.md" => ["single-h1"]
   }
 
