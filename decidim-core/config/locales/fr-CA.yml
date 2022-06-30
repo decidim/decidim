@@ -174,11 +174,19 @@ fr-CA:
         create: "%{user_name} a créé le fichier %{resource_name}"
         delete: "%{user_name} a supprimé le fichier %{resource_name}"
         update: "%{user_name} a mis à jour le fichier %{resource_name}"
+      category:
+        create: "%{user_name} a ajouté la catégorie %{resource_name} à l'espace %{space_name}"
+        delete: "%{user_name} a supprimé la catégorie %{resource_name} sur l'espace %{space_name}"
+        update: "%{user_name} a mis à jour la catégorie %{resource_name} dans l'espace %{space_name}"
       component:
         create: "%{user_name} a ajouté la fonctionnalité %{resource_name} à l'espace %{space_name}"
         delete: "%{user_name} a supprimé la fonctionnalité %{resource_name} de l'espace %{space_name}"
+        export_component: "%{user_name} a exporté le %{resource_name} %{component_name} dans %{space_name} en tant que %{format_name}"
         publish: "%{user_name} a publié la fonctionnalité %{resource_name} dans l'espace %{space_name}"
         unpublish: "%{user_name} a dépublié la fonctionnalité %{resource_name} de l'espace %{space_name}"
+        update_permissions_with_space: "%{user_name} a mis à jour les permissions de %{resource_name} dans %{space_name}"
+      contextual_help_section:
+        update: "%{user_name} a mis à jour la section d'aide %{resource_name}"
       helpers:
         answers: réponses
         comments: commentaires
@@ -200,6 +208,7 @@ fr-CA:
         update: "%{user_name} a mis à jour l'application OAuth %{resource_name}"
       organization:
         update: "%{user_name} a mis à jour les paramètres de l'organisation"
+        update_external_domain: "%{user_name} a mis à jour les domaines externes de l'organisation"
       participatory_space_private_user:
         create: "%{user_name} invité %{resource_name} pour être un utilisateur privé"
         create_via_csv: "%{user_name} a invité %{resource_name} via CSV à être un utilisateur privé"
@@ -341,6 +350,7 @@ fr-CA:
       endorsements:
         one: soutien
         other: soutiens
+      official_author: Officiel
     authorization_handlers:
       another_dummy_authorization_handler:
         explanation: Obtenir une vérification en saisissant un numéro de passeport commençant par "A"
@@ -1723,6 +1733,7 @@ fr-CA:
             type: Type
           cookies:
             _session_id:
+              description: Permet aux sites Web de se souvenir de l'utilisateur au sein d'un même site lorsqu'ils naviguent d'une page à l'autre.
               service: Ce site web
             decidim-consent:
               description: Stocke des informations sur les cookies autorisés par l'utilisateur sur ce site web.
@@ -1739,8 +1750,11 @@ fr-CA:
           accept_all: Tout accepter
           accept_only_essential: Accepter seulement l'essentiel
           analytics:
+            description: Les cookies d'analyse sont des cookies qui permettent de suivre la navigation et l'interaction des utilisateurs sur un site web. Les informations collectées sont utilisées pour aider le propriétaire du site à améliorer le site web.
             title: Analyses et statistiques
+          description: Nous utilisons des cookies pour assurer les fonctionnalités de base du site Web et pour améliorer votre expérience en ligne. Vous pouvez choisir pour chaque catégorie de vous désinscrire/retirer quand vous le souhaitez.
           essential:
+            description: Ces cookies sont essentiels au bon fonctionnement de mon site. Sans ces cookies, le site web ne fonctionnerait pas correctement.
             title: Essentiels
           marketing:
             description: Ces cookies recueillent des informations sur la façon dont vous utilisez le site Web, sur les pages que vous avez visitées et sur les liens sur lesquels vous avez cliqués.
