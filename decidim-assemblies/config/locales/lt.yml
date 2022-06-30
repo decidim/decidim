@@ -412,6 +412,7 @@ lt:
           email_intro: <a href="%{resource_url}">%{resource_name}</a> asamblėjos administratorius įtraukė jus kaip vieną iš jos narių.
           email_outro: Šį pranešimą gavote dėl to, kad esate pakviestas į asamblėją. Norėdami prisidėti, <a href="%{resource_url}"> apsilankykite asamblėjos puslapyje </a>!
           email_subject: Esate pakviestas tapti %{resource_name} asamblėjos nariu!
+          notification_title: Jūs registravotės kaip Asamblėjos <a href="%{resource_path}">%{resource_name} narys. Peržiūrėkite <a href="%{resource_path}"> asamblėjos puslapį, </a> kad prisidėti!
       assembly:
         role_assigned:
           email_intro: Jūs paskirtas asamblėjos „%{resource_title}“ %{role}.
