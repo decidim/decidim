@@ -127,7 +127,7 @@ Decidim.register_component(:meetings) do |component|
     end
 
     2.times do
-      start_time = [rand(1..20).weeks.from_now, rand(1..20).weeks.ago].sample
+      start_time = Faker::Date.between(from: 20.weeks.ago, to: 20.weeks.from_now)
       end_time = start_time + [rand(1..4).hours, rand(1..20).days].sample
       params = {
         component: component,
@@ -282,7 +282,7 @@ Decidim.register_component(:meetings) do |component|
         author = user_group.users.sample
       end
 
-      start_time = [rand(1..20).weeks.from_now, rand(1..20).weeks.ago].sample
+      start_time = Faker::Date.between(from: 20.weeks.ago, to: 20.weeks.from_now)
       params = {
         component: component,
         scope: Faker::Boolean.boolean(true_ratio: 0.5) ? global : scopes.sample,
