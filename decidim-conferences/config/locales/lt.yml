@@ -128,3 +128,66 @@ lt:
       registration_types:
         new:
           title: Naujas registracijos tipas
+        update:
+          error: Atnaujinant šios konferencijos registracijos tipą iškilo problema.
+          success: Konferencijos registracijos tipas atnaujintas.
+      titles:
+        conferences: Konferencijos
+    admin_log:
+      conference:
+        create: "%{user_name} sukūrė %{resource_name} konferenciją"
+        publish: "%{user_name} publikavo %{resource_name} konferenciją"
+        send_conference_diplomas: "%{user_name} išsiuntė dalyvavimo konferencijoje pažymėjimus %{resource_name} konferencijos dalyviams"
+        unpublish: "%{user_name} panaikino %{resource_name} konferencijos skelbimą"
+        update: "%{user_name} atnaujino %{resource_name} konferenciją"
+      conference_speaker:
+        create: "%{user_name} sukūrė %{space_name} konferencijos %{resource_name} pranešėją"
+        delete: "%{user_name} pašalino %{space_name} konferencijos %{resource_name} pranešėją"
+        update: "%{user_name} atnaujino %{space_name} konferencijos %{resource_name} pranešėją"
+      conference_user_role:
+        create: "%{user_name} pakvietė %{resource_name} į %{space_name} konferenciją"
+        delete: "%{user_name} pašalino administratorių %{resource_name} iš %{space_name} konferencijos"
+        update: "%{user_name} pakeitė %{resource_name} vaidmenį %{space_name} konferencijoje"
+      conferences:
+        conference_registration:
+          confirm: "%{user_name} patvirtino registraciją į %{resource_name} konferenciją"
+        partner:
+          delete: "%{user_name} pašalino partnerį %{resource_name} iš %{space_name} konferencijos"
+          update: "%{user_name} atnaujino partnerį %{resource_name} %{space_name} konferencijoje"
+    conference_program:
+      index:
+        title: Programa
+    conference_speakers:
+      index:
+        title: Pranešėjai
+    conferences:
+      admin:
+        conference_invites:
+          create:
+            error: Kviečiant dalyvį dalyvauti šioje konferencijoje iškilo problema.
+            success: Dalyvis pakviestas dalyvauti konferencijoje.
+          form:
+            attendee_type: Dalyvio tipas
+            existing_user: Esamas dalyvis
+            invite_explanation: Dalyvis bus pakviestas dalyvauti ne tik konferencijoje, bet ir organizacijoje.
+            non_user: Nesamas dalyvis
+            select_user: Pasirinkti dalyvį
+          index:
+            filter:
+              accepted: Priimtas
+              all: Visi
+              rejected: Atmestas
+              sent: Išsiųstas
+            filter_by: Filtruoti pagal
+            invite_attendee: Kviesti dalyvį
+            invites: Pakvietimai
+            search: Ieškoti
+          new:
+            invite: Pakviesti
+            new_invite: Kviesti dalyvį
+        conference_registrations:
+          index:
+            registrations: Registracijos
+        conference_speakers:
+          form:
+            existing_user: Esamas dalyvis
