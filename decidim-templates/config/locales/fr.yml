@@ -64,5 +64,11 @@ fr:
             current_step: Étape %{step}
             of_total_steps: sur %{total_steps}
             tos_agreement: En participant, vous acceptez ces conditions d'utilisation
+      admin_log:
+        template:
+          create: "%{user_name} a créé le modèle de questionnaire %{resource_name}"
+          delete: "%{user_name} a supprimé le modèle de questionnaire %{resource_name}"
+          duplicate: "%{user_name} a dupliqué le modèle de questionnaire %{resource_name}"
+          update: "%{user_name} a modifié le modèle de questionnaire %{resource_name}"
       template_types:
         questionnaires: Questionnaires
