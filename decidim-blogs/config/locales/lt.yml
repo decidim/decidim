@@ -1,5 +1,80 @@
 lt:
+  activemodel:
+    models:
+      decidim/blogs/create_post_event: Naujas tinklaraščio įrašas
+  activerecord:
+    models:
+      decidim/blogs/post:
+        one: Publikacija
+        few: Publikacijos
+        many: Publikacijos
+        other: Publikacijos
   decidim:
+    blogs:
+      actions:
+        confirm_destroy: Ar tikrai norite ištrinti šį įrašą?
+        destroy: Ištrinti
+        edit: Redaguoti
+        new: Naujas įrašas
+        title: Veiksmai
+      admin:
+        models:
+          components:
+            body: Pagrindinė dalis
+          post:
+            name: Publikacija
+        posts:
+          create:
+            invalid: Kuriant šį įrašą iškilo problema
+            success: Įrašas sukurtas sėkmingai
+          destroy:
+            success: Įrašas pašalintas
+          edit:
+            save: Atnaujinimas
+            title: Redaguoti publikaciją
+          index:
+            title: Publikacijos
+          new:
+            create: Sukurti
+            title: Sukurti publikaciją
+          update:
+            invalid: Išsaugant šį įrašą iškilo problema.
+            success: Įrašas išsaugotas
+      last_activity:
+        new_post_at_html: "<span> Naujas įrašas %{link}</span>"
+      models:
+        post:
+          fields:
+            author: Autorė(-ius)
+            body: Pagrindinė dalis
+            created_at: Sukurta
+            title: pavadinimas
+      posts:
+        show:
+          back: Grįžti į sąrašą
+          comments: Komentarai
+          view: Peržiūrėti
+        sidebar_blog:
+          comments: komentarai
+          most_commented_posts: Labiausiai komentuojamos publikacijos
+      read_more: Skaityti daugiau
+    components:
+      blogs:
+        actions:
+          create: Sukurti
+          destroy: Ištrinti
+          update: Atnaujinti
+        name: Tinklaraštis
+        settings:
+          global:
+            announcement: Pranešimas
+            comments_enabled: Komentarai įjungti
+            comments_max_length: Maksimalus komentaro ilgis (įrašyti 0 įprastam ilgiui)
+          step:
+            announcement: Pranešimas
+            comments_blocked: Komentarai užblokuoti
+            endorsements_blocked: Pritarimai užblokuoti
+            endorsements_enabled: Pritarimai aktyvuoti
     events:
       blogs:
         post_created:
