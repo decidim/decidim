@@ -159,3 +159,60 @@ lt:
     conference_speakers:
       index:
         title: Pranešėjai
+    conferences:
+      admin:
+        conference_invites:
+          create:
+            error: Kviečiant dalyvį dalyvauti šioje konferencijoje iškilo problema.
+            success: Dalyvis pakviestas dalyvauti konferencijoje.
+          form:
+            attendee_type: Dalyvio tipas
+            existing_user: Esamas dalyvis
+            invite_explanation: Dalyvis bus pakviestas dalyvauti ne tik konferencijoje, bet ir organizacijoje.
+            non_user: Nesamas dalyvis
+            select_user: Pasirinkti dalyvį
+          index:
+            filter:
+              accepted: Priimtas
+              all: Visi
+              rejected: Atmestas
+              sent: Išsiųstas
+            filter_by: Filtruoti pagal
+            invite_attendee: Kviesti dalyvį
+            invites: Pakvietimai
+            search: Ieškoti
+          new:
+            invite: Pakviesti
+            new_invite: Kviesti dalyvį
+        conference_registrations:
+          index:
+            registrations: Registracijos
+        conference_speakers:
+          form:
+            existing_user: Esamas dalyvis
+      conference_registrations:
+        create:
+          invalid: Jungiantis prie šios konferencijos iškilo problema.
+          success: Jūs prisijungėte prie konferencijos.
+        decline_invitation:
+          invalid: Atmetant kvietimą iškilo problema.
+          success: Jūs atmetėte kvietimą.
+        destroy:
+          invalid: Paliekant šią konferenciją iškilo problema.
+      conference_speaker:
+        more_info: daugiau informacijos
+        personal_website: Asmeninė interneto svetainė
+        show:
+          more_info: daugiau informacijos
+      conference_speaker_cell:
+        personal_url:
+          personal_website: Asmeninė interneto svetainė
+      conference_speakers:
+        index:
+          speakers: Pranešėjai
+      conferences:
+        partners:
+          collaborators: Partneriai
+          main_promotors: Organizatoriai
+        show:
+          login_as: Jūs prisijungėte kaip %{name} <%{email}>
