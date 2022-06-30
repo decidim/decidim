@@ -236,9 +236,8 @@ describe "Explore meeting directory", type: :system do
     end
 
     it "allows filtering by past events" do
-      within ".with_any_date_check_boxes_tree_filter" do
-        uncheck "All"
-        check "Past"
+      within ".with_any_date_collection_radio_buttons_filter" do
+        choose "Past"
       end
 
       expect(page).to have_content(past_meeting.title["en"])
@@ -268,9 +267,8 @@ describe "Explore meeting directory", type: :system do
       # have_content to wait for the card list to change. This is a hack to
       # reset the contents to no meetings at all, and then showing only the upcoming
       # assembly meetings.
-      within ".with_any_date_check_boxes_tree_filter" do
-        uncheck "All"
-        check "Past"
+      within ".with_any_date_collection_radio_buttons_filter" do
+        choose "Past"
       end
 
       expect(page).to have_no_css(".card--meeting")
@@ -279,8 +277,8 @@ describe "Explore meeting directory", type: :system do
         check "Assemblies"
       end
 
-      within ".with_any_date_check_boxes_tree_filter" do
-        check "Upcoming"
+      within ".with_any_date_collection_radio_buttons_filter" do
+        choose "Upcoming"
       end
 
       expect(page).to have_content(assembly_meeting.title["en"])

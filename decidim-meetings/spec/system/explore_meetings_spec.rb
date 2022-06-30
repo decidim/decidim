@@ -184,17 +184,15 @@ describe "Explore meetings", :slow, type: :system do
         past_meeting = create(:meeting, :published, component: component, start_time: 1.day.ago)
         visit_component
 
-        within ".with_any_date_check_boxes_tree_filter" do
-          uncheck "All"
-          check "Past"
+        within ".with_any_date_collection_radio_buttons_filter" do
+          choose "Past"
         end
 
         expect(page).to have_css(".card--meeting", count: 1)
         expect(page).to have_content(translated(past_meeting.title))
 
-        within ".with_any_date_check_boxes_tree_filter" do
-          uncheck "All"
-          check "Upcoming"
+        within ".with_any_date_collection_radio_buttons_filter" do
+          choose "Upcoming"
         end
 
         expect(page).to have_css(".card--meeting", count: 5)
@@ -204,9 +202,8 @@ describe "Explore meetings", :slow, type: :system do
         past_meeting = create(:meeting, :published, component: component, start_time: 1.day.ago)
         visit_component
 
-        within ".with_any_date_check_boxes_tree_filter" do
-          uncheck "All"
-          check "Past"
+        within ".with_any_date_collection_radio_buttons_filter" do
+          choose "Past"
         end
 
         expect(page).to have_css(".card--meeting", count: 1)
