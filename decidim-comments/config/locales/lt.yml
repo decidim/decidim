@@ -82,3 +82,8 @@ lt:
           email_intro: "%{author_name} atsakė į komentarą %{resource_title}. Galite jį perskaityti:"
           email_outro: Gavote šį pranešimą nes į Jūsų komentarą buvo atsakyta.
           email_subject: "%{author_name} atsakė į komentarą %{resource_title}"
+          notification_title: <a href="%{author_path}">%{author_name}%{author_nickname}</a> atsakė į komentarą <a href="%{resource_path}">%{resource_title}</a>
+        user_group_mentioned:
+          email_intro: Grupė, kuriai priklausote, buvo paminėta
+          email_outro: Gavote šį pranešimą nes esate %{resource_title} paminėtos grupės %{group_name} narė(-ys).
+          email_subject: Buvote paminėtas %{resource_title} kaip %{group_name} narys
