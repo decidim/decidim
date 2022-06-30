@@ -581,6 +581,8 @@ de:
         failed:
           header: Abstimmung fehlgeschlagen
           lead: Ihre Stimme wurde nicht abgegeben!
+          modal:
+            close: Schließen
           text: Ein Fehler ist aufgetreten. Bitte versuchen Sie es erneut.
         header:
           ballot_decision: Stimme abgeben oder überprüfen
