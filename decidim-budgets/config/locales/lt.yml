@@ -172,10 +172,87 @@ lt:
           cancel: Grįžti į balsavimą
           close_modal: Uždaryti modalinį langą
           exit: Išeiti iš balsavimo
+          message: Jūsų balsas nebuvo registruotas nes dar neįvykdėte viso balsavimo proceso. Ar tikrai norite išeiti iš balsavimo aplinkos?
+          title: Dar nebasavote
+        filters:
+          category: Kategorija
+          scope: Apimtis
+          search: Ieškoti
+          status: Būsena
+          status_values:
+            all: Visi
+            not_selected: Nepasrinkta
+            selected: Pasirinkta
+        filters_small_view:
+          close_modal: Uždaryti modalinį langą
+          filter: Filtras
+          filter_by: Filtruoti pagal
+          unfold: Išskleisti
+        index:
+          view_project: Peržiūrėti projektą
+        order_progress:
+          vote: Balsuoti
+        order_selected_projects:
+          remove: Pašalinti
+          selected_projects:
+            one: pasirinktas projektas
+            few: pasirinkti projektai
+            many: pasirinkti projektai
+            other: pasirinkti projektai
+          view: Peržiūra
+        orders:
+          highest_cost: Didžiausia kaina
+          label: Rikiuoti projektus pagal
+          lowest_cost: Žemiausią kainą
+          most_voted: Balsų skaičių
+          random: Atsitiktinai
+          selected: Pasirinkta
+        project:
+          add: Pridėti projektą %{resource_name} prie balsų
+          remove: Pašalinti projektą %{resource_name} iš balsų
+          selected: Pasirinkta
+          view: Peržiūrėti
+          votes:
+            one: balsas
+            few: balsai
+            many: balsai
+            other: balsai
+          you_voted: Balsavote už
+        project_budget_button:
+          add: Pridėti prie balsų
+          add_descriptive: Pridėti projektą %{resource_name} prie balsų
+          added: Pridėta prie Jūsų balsų
+          added_descriptive: Projektas %{resource_name} pridėtas prie Jūsų balsų
+        projects_for: Projektai dėl %{name}
+        show:
+          budget: Biudžetas
+          view_all_projects: Peržiūrėti visus projektus
+      vote_reminder_mailer:
+        vote_reminder:
+          email_budgets: 'Aplinkos kuriose nebaigėte balsuoti:'
+          email_intro: Pradėjote balsuoti dalyvaujamajame biudžete, tačiau nebaigėte.
+          email_link: Tęsti balsavimą
+          email_outro: Nepamirškite baigti balsavimo. Tam, kad balsuoti, pasirinkite pasiūlymą ar pasiūlymus už kuriuos norite balsuoti ir paspauskite mygtuką "Balsuoti".
+          email_subject:
+            one: Nebaigėte balsuoti dėl dalyvaujamojo biudžeto
+            few: Nebaigėte balsuoti dėl dalyvaujamojo biudžeto
+            many: Nebaigėte balsuoti dėl dalyvaujamojo biudžeto
+            other: Nebaigėte balsuoti dėl dalyvaujamojo biudžeto
     components:
       budgets:
+        actions:
+          comment: Komentuoti
+          vote: Balsuoti
+        name: Biudžetai
         settings:
           global:
+            announcement: Pranešimas
+            comments_enabled: Komentarai aktyvuoti
+            comments_max_length: Maksimalus komentaro ilgis (įrašyti 0 įprastam ilgiui)
+            form:
+              errors:
+                budget_voting_rule_only_one: Turi būti įjungta tik viena balsavimo taisyklė
+                budget_voting_rule_required: Būtina viena balsavimo taisyklė
             geocoding_enabled: Geokodavimas įjungtas
             landing_page_content: Biudžetų numatytasis puslapis
             more_information_modal: Išsamesnės informacijos modalinis langas
