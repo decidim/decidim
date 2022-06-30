@@ -411,6 +411,7 @@ lt:
           email_intro: <a href="%{resource_url}">%{resource_name}</a> asamblėjos administratorius įtraukė jus kaip vieną iš jos narių.
           email_outro: Šį pranešimą gavote dėl to, kad esate pakviestas į asamblėją. Norėdami prisidėti, <a href="%{resource_url}"> apsilankykite asamblėjos puslapyje </a>!
           email_subject: Esate pakviestas tapti %{resource_name} asamblėjos nariu!
+          notification_title: Jūs registravotės kaip Asamblėjos <a href="%{resource_path}">%{resource_name} narys. Peržiūrėkite <a href="%{resource_path}"> asamblėjos puslapį, </a> kad prisidėti!
       assembly:
         role_assigned:
           email_intro: Jūs paskirtas asamblėjos „%{resource_title}“ %{role}.
@@ -420,6 +421,8 @@ lt:
     help:
       participatory_spaces:
         assemblies:
+          contextual: "<p><strong>Asamblėja</strong> yra grupė organizacijos narių, kurie periodiškai susitinka, kad priimtų sprendimus dėl konkrečios organizacijos srities arba veiklos.</p> <p>Asamblėjos rengia posėdžius, kai kurie iš jų yra uždari, o kai kurie – vieši. Jeigu jie vieši, juose galima dalyvauti (pavyzdžiui, dalyvauti, įtraukti klausimus į darbotvarkę arba komentuoti šios asamblėjos pasiūlymus ir priimamus sprendimus).</p> <p>Pavyzdžiui: generalinė asamblėja (ji susitinka kartą per metus, kad balsuodama nustatytų organizacijos pagrindines veiklos kryptis ir jos vykdomąsias institucijas), patariamoji taryba lygybės klausimu (ji susitinka kas du mėnesius, kad pateiktų pasiūlymų, kaip pagerinti lyčių lygybės situaciją organizacijoje), vertinimo komisija (ji susitinka kiekvieną mėnesį ir stebi procesus) arba garantijų institucija (kuri renka informaciją apie incidentus, piktnaudžiavimą arba pasiūlymus, kaip patobulinti sprendimų priėmimo procedūras).</p>\n"
+          page: "<p><strong>Asamblėja</strong> yra grupė organizacijos narių, kurie periodiškai susitinka, kad priimtų sprendimus dėl konkrečios organizacijos srities arba veiklos.</p> <p>Asamblėjos rengia posėdžius, kai kurie iš jų yra uždari, o kai kurie – vieši. Jeigu jie vieši, juose galima dalyvauti (pavyzdžiui, dalyvauti, įtraukti klausimus į darbotvarkę arba komentuoti šios asamblėjos pasiūlymus ir priimamus sprendimus).</p> <p>Pavyzdžiui: generalinė asamblėja (ji susitinka kartą per metus, kad balsuodama nustatytų organizacijos pagrindines veiklos kryptis ir jos vykdomąsias institucijas), patariamoji taryba lygybės klausimu (ji susitinka kas du mėnesius, kad pateiktų pasiūlymų, kaip pagerinti lyčių lygybės situaciją organizacijoje), vertinimo komisija (ji susitinka kiekvieną mėnesį ir stebi procesus) arba garantijų institucija (kuri renka informaciją apie incidentus, piktnaudžiavimą arba pasiūlymus, kaip patobulinti sprendimų priėmimo procedūras).</p>\n"
           title: Kas yra asamblėjos?
     log:
       value_types:
@@ -451,7 +454,14 @@ lt:
         index:
           children: 'Asamblėjos: '
           organizational_chart: Organizacinė schema
+          promoted_assemblies: Paryškintos asamblėjos
           reset_chart: Atkurti
+        order_by_assemblies:
+          assemblies:
+            one: "%{count} asamblėja"
+            few: "%{count} asamblėjos"
+            many: "%{count} asamblėjos"
+            other: "%{count} asamblėjos"
         promoted_assembly:
           more_info: Daugiau informacijos
           take_part: Dalyvaukite
