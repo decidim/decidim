@@ -1,16 +1,16 @@
 .label{
   @apply bg-background text-gray-2 rounded inline-flex items-center gap-1 px-2 font-semibold text-sm;
 
-  &.green{
-    @apply bg-green/20 text-green;
+  &.success{
+    @apply bg-success/20 text-success;
   }
 
-  &.red{
-    @apply bg-red/20 text-red;
+  &.alert{
+    @apply bg-alert/20 text-alert;
   }
 
-  &.yellow{
-    @apply bg-yellow/20 text-yellow;
+  &.warning{
+    @apply bg-warning/20 text-warning;
   }
 
   &.reverse{
