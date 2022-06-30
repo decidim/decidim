@@ -1,5 +1,5 @@
 .form-defaults{
-  // text-like inputs
+  /* text-like inputs */
   input[type="date"],
   input[type="datetime-local"],
   input[type="email"],
@@ -17,16 +17,18 @@
       @apply inline-block px-4 py-2 border border-gray outline outline-1 outline-transparent rounded bg-background-2 text-black placeholder:text-gray focus:border-0 focus:outline-2 focus:outline-secondary invalid:border-0 invalid:outline-2 invalid:outline-alert disabled:bg-background-3 disabled:text-gray-2;
 
       &.sm{
+        /* stylelint-disable-next-line number-leading-zero */
         @apply px-1 py-0.5 text-sm;
       }
 
       &.sm-icon{
+        /* stylelint-disable-next-line number-leading-zero */
         @apply pr-1 pl-6 py-0.5 text-sm;
       }
     }
   }
 
-  // option-like inputs
+  /* option-like inputs */
   input[type="checkbox"],
   input[type="radio"]{
     &:not(.reset-defaults){
