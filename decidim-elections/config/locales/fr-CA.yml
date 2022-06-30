@@ -244,10 +244,12 @@ fr-CA:
         steps:
           create_election:
             errors:
+              component_published: Le composant élection n'est <strong>pas publiée</strong>.
               max_selections: Les questions n'ont pas de <strong>valeur correcte pour le nombre de réponses</strong>
               minimum_answers: Les questions doivent avoir <strong>au moins deux réponses</strong>.
               minimum_questions: L'élection <strong>doit avoir au moins une question</strong>.
               published: L'élection n'est <strong>pas publiée</strong>.
+              time_before: L'heure de début se situe<strong>moins de %{hours} heures </strong> avant le commencement de l'élection.
               trustees_number: L'espace participatif <strong>doit avoir au moins %{number} garants avec une clé publique</strong>.
             invalid: Une erreur est survenue lors de la création de l'élection
             no_trustees: Il n'y a pas de garants configurés pour cet espace participatif
@@ -256,6 +258,7 @@ fr-CA:
               'false': n'a pas de <strong>clé publique</strong>
               'true': a une <strong>clé publique</strong>
             requirements:
+              component_published: Le composant élection est <strong>publié</strong>.
               max_selections: Toutes les questions ont une valeur correcte pour <strong>le maximum de réponses</strong>.
               minimum_answers: Chaque question a <strong>au moins 2 réponses</strong>.
               minimum_questions: L'élection a <strong>au moins 1 question</strong>.
@@ -368,6 +371,11 @@ fr-CA:
           update: "%{user_name} a mis à jour l'élection %{resource_name} de %{space_name}"
         trustee:
           create: "%{user_name} a nommé l'utilisateur %{trustee_user} en tant que accesseur"
+      connection:
+        failed:
+          modal:
+            communication_lost: Malheureusement, il semble que la communication avec le serveur de vote (Bulletin Board) est perdue.<br>Il se peut que la connexion Internet soit interrompue ou que le serveur de destination soit trop occupé.<br>Vous pouvez réessayer plus tard ou contacter le support si ce problème persiste.
+            title: Un problème est survenu
       election_m:
         badge_name:
           finished: Terminées
@@ -1205,9 +1213,12 @@ fr-CA:
         in_person_votes:
           complete_voting:
             available_answers: 'Réponses disponibles:'
+            census_verified: Ce participant n'a pas encore voté en personne.
+            census_verified_with_online_vote: Ce participant a déjà voté en ligne. S'il vote en personne, les votes précédents seront invalidés et ce sera le vote définitif.
             complete_voting: Vote terminé
             identify_another: Identifier un autre participant
             questions_title: 'Elle a le droit de voter sur les questions suivantes:'
+            questions_title_voted: 'Le participant a déjà voté en ligne et a le droit de voter dans les questions suivantes :'
             voted: Le participant a voté
           create:
             error: Le vote n'a pas été enregistré. Veuillez réessayer.
