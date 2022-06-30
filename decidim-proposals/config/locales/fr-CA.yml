@@ -198,6 +198,7 @@ fr-CA:
             automatic_hashtags: Hashtags ajoutés à toutes les propositions
             comments_blocked: Bloquer la création de nouveaux commentaires
             creation_enabled: Les participants peuvent créer des propositions
+            creation_enabled_readonly: Ce paramètre est désactivé lorsque vous activez la fonctionnalité Textes participatifs. Pour télécharger des propositions sous forme de texte participatif, cliquez sur le bouton Textes participatifs et suivez les instructions.
             default_sort_order: Tri des propositions par défaut
             default_sort_order_help: Par défaut, si les aides sont activés, les propositions seront affichées par ordre aléatoire, et si les aides sont bloqués, alors ils seront triés par l’aide le plus soutenu.
             default_sort_order_options:
