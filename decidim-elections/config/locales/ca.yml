@@ -374,7 +374,9 @@ ca:
       connection:
         failed:
           modal:
+            close: Tancar
             communication_lost: Malauradament, sembla que la comunicació amb el servidor de votació (Bulletin Board) s'ha perdut.<br>Pot ser que la connexió a Internet estigui avariada o que el servidor de destí estigui massa ocupat.<br>Pots provar-ho més tard o posar-te en contacte amb el servei d'assistència si aquest problema persisteix.
+            generic_error: Malauradament, s'ha produït un error desconegut. És probable que el teu navegador no estigui suportat o que estiguis fent servir el mode "d'incògnit" o "privat" que no són compatibles.
             title: Alguna cosa ha anat malament
       election_m:
         badge_name:
