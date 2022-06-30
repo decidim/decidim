@@ -109,7 +109,8 @@ module Decidim
       end
 
       def meetings
-        @meetings ||= paginate(search.result.order(start_time: :desc))
+        is_past_meetings = params.dig("filter", "with_any_date")&.include?("past") || @forced_past_meetings
+        @meetings ||= paginate(search.result.order(start_time: is_past_meetings ? :desc : :asc))
       end
 
       def registration
