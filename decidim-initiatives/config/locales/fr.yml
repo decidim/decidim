@@ -246,6 +246,12 @@ fr:
           update:
             error: Une erreur est survenue
             success: La pétition a été mise à jour avec succès
+        initiatives_settings:
+          form:
+            comments: Les plus commentées
+            date: Les plus récentes
+            publication_date: Publiées le plus récemment
+            random: Aléatoire
         initiatives_type_scopes:
           create:
             error: Une erreur s'est produite
