@@ -392,7 +392,9 @@ cs:
       connection:
         failed:
           modal:
+            close: Zavřít‏
             communication_lost: Bohužel se zdá, že komunikace s hlasovacím serverem (Bulletin Board) je ztracena.<br>Může se stát, že připojení k internetu je přerušeno nebo že cílový server je příliš zaneprázdněný.<br>Pokud tento problém přetrvává, můžete to zkusit později nebo se obraťte na podporu.
+            generic_error: Bohužel došlo k neznámé chybě. Je pravděpodobné, že váš prohlížeč není podporován nebo že používáte "incognito" nebo "privátní" režim, který není podporován.
             title: Něco se pokazilo
       election_m:
         badge_name:
