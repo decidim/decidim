@@ -505,7 +505,7 @@ es:
           download_example_format: Ejemplo como %{name}
           file_legend: Añadir un archivo de importación que será procesado.
           import: Importar
-        notice: "%{number} %{resource_name} importado correctamente"
+        notice: "%{count} %{resource_name} importado correctamente"
       logs:
         logs_list:
           no_logs_yet: Aún no hay ningún registro de actividad

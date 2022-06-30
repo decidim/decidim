@@ -29,5 +29,7 @@ fi:
             invalid: Sivun tallennus epäonnistui.
             success: Sivun tallentaminen onnistui.
       home:
+        hero:
+          participate_title: Osallistu alustan prosesseihin
         sub_hero:
           register_title: Luo oma tili alustalle

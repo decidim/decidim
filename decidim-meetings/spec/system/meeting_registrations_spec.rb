@@ -134,7 +134,7 @@ describe "Meeting registrations", type: :system do
             end
 
             within ".card.extra" do
-              click_button "Inscriu-te a la trobada"
+              click_button "Unir-se a la trobada"
             end
 
             within "#loginModal" do
