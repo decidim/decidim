@@ -70,3 +70,14 @@ lt:
         comment_downvoted:
           email_intro: Jūsų komentaras %{resource_title} buvo nepakaikyas. Komentaras dabar turi %{upvotes} palaikymus ir %{downvotes} nepalaikymus.
           email_outro: Šį pranešimą gavote dėl to, kad esate pasiūlymo autorius.
+          email_subject: Jūsų komentaras %{resource_title} buvo įvertintas neigiamai.
+          notification_title: Jūsų <a href="%{resource_path}"> komentaras</a> %{resource_title} buvo įvertintas neigiamai. Dabar jis turi %{upvotes} teigiamus ir %{downvotes} neigiamus įvertinimus.
+        comment_upvoted:
+          email_intro: Jūsų komentaras %{resource_title} buvo įvertintas teigiamai. Jis turi %{upvotes} teigiamus ir %{downvotes} neigiamus įvertinimus.
+          email_outro: Šį pranešimą gavote nes esate komentaro autorius.
+          email_subject: Komentaras %{resource_title} buvo įvertintas teigiamai.
+          notification_title: Jūsų <a href="%{resource_path}">komentaras</a> %{resource_title} buvo įvertintas teigiamai. Jis turi %{upvotes} teigiamus ir %{downvotes} neigiamus įvertinimus.
+        reply_created:
+          email_intro: "%{author_name} atsakė į komentarą %{resource_title}. Galite jį perskaityti:"
+          email_outro: Gavote šį pranešimą nes į Jūsų komentarą buvo atsakyta.
+          email_subject: "%{author_name} atsakė į komentarą %{resource_title}"
