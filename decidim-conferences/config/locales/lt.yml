@@ -1,1 +1,161 @@
 lt:
+  activemodel:
+    attributes:
+      conference:
+        assemblies_ids: Susijusios Asamblėjos
+        banner_image: Reklamjuostės paveikslėlis
+        consultations_ids: Susijusios Konsultacijos
+        copy_categories: Kopijuoti kategorijas
+        copy_components: Kopijuoti komponentus
+        decidim_scope_id: Apimtis
+        description: Aprašymas
+        end_date: Pabaigos data
+        hashtag: Grotažymė
+        hero_image: Pradžios paveikslėlis
+        main_logo: Pagrindinis logotipas
+        objectives: Tikslai
+        participatory_processes_ids: Susiję dalyvaujamieji procesai
+        promoted: Paryškinta
+        published_at: Publikuota
+        registration_terms: Registracijos sąlygos
+        registrations_enabled: Registracijos įjungtos
+        scope_id: Apimtis
+        short_description: Trumpas aprašymas
+        show_statistics: Rodyti statistiką
+        sign_date: Pasirašymo data
+        signature: Parašas
+        signature_name: parašo pavadinimas
+        slogan: Šūkis
+        slug: URL priedas
+        start_date: Pradžios data
+        title: Pavadinimas
+      conference_media_link:
+        date: Data
+        link: Nuoroda
+        title: Pavadinimas
+        weight: Svoris
+      conference_partner:
+        link: Nuoroda
+        logo: Logotipas
+        name: Vardas
+      conference_registration_invite:
+        email: El. paštas
+        name: Vardas
+        registration_type_id: Registracijos tipas
+        user_id: Naudotojas
+      conference_registration_type:
+        description: Aprašymas
+        price: Kaina
+        title: Pavadinimas
+      conference_speaker:
+        avatar: Avataras
+  decidim:
+    admin:
+      conference_user_roles:
+        new:
+          create: Sukurti
+          title: Naujas konferencijos administratorius.
+        update:
+          error: Atnaujinant šios konferencijos administratorių iškilo problema.
+          success: Konferencijos administratorius atnaujintas.
+      conferences:
+        create:
+          error: Kuriant šią konferenciją iškilo problema.
+          success: Konferencija sukurta.
+        edit:
+          update: Atnaujinti
+        exports:
+          registrations: Registracijos
+        form:
+          title: Bendroji informacija
+        index:
+          not_published: Nepublikuota
+          published: Publikuota
+        new:
+          create: Sukurti
+          title: Konferencija
+        update:
+          error: Atnaujinant šią konferenciją iškilo problema.
+          success: Konferencija atnaujinta.
+      conferences_copies:
+        create:
+          error: Dubliuojant šią konferenciją iškilo problema.
+          success: Konferencija dubliuota.
+      media_links:
+        create:
+          error: Kuriant naują multimedijos nuorodą iškilo problema.
+          success: Multimedijos nuoroda sukurta.
+        destroy:
+          success: Multimedijos nuoroda pašalinta.
+        edit:
+          title: Atnaujinti multimedijos nuorodą.
+          update: Atnaujinti
+        index:
+          media_links_title: Multimedijos Nuorodos
+        new:
+          create: Sukurti
+          title: Multimedijos Nuoroda
+        update:
+          error: Atnaujinant šią multimedijos nuorodą iškilo problema.
+          success: Multimedijos Nuoroda atnaujinta.
+      menu:
+        conferences: Konferencijos
+        conferences_submenu:
+          attachment_collections: Aplankai
+          attachments: Priedai
+          categories: Kategorijos
+          components: Komponentai
+          conference_admins: Konferencijos administratoriai
+          conference_invites: Pakvietimai
+          conference_speakers: Pranešėjai
+          diploma: Dalyvavimo konferencijoje pažymėjimas
+          info: Informacija
+          media_links: Multimedijos Nuorodos
+          partners: Partneriai
+          registration_types: Registracijos tipai
+          registrations: Registracijos
+          user_registrations: Naudotojų registracijos
+      models:
+        conference:
+          fields:
+            created_at: Sukurta
+            published: Publikuota
+            title: Pavadinimas
+        conference_speaker:
+          fields:
+            full_name: Vardas, pavardė
+      registration_types:
+        new:
+          title: Naujas registracijos tipas
+        update:
+          error: Atnaujinant šios konferencijos registracijos tipą iškilo problema.
+          success: Konferencijos registracijos tipas atnaujintas.
+      titles:
+        conferences: Konferencijos
+    admin_log:
+      conference:
+        create: "%{user_name} sukūrė %{resource_name} konferenciją"
+        publish: "%{user_name} publikavo %{resource_name} konferenciją"
+        send_conference_diplomas: "%{user_name} išsiuntė dalyvavimo konferencijoje pažymėjimus %{resource_name} konferencijos dalyviams"
+        unpublish: "%{user_name} panaikino %{resource_name} konferencijos skelbimą"
+        update: "%{user_name} atnaujino %{resource_name} konferenciją"
+      conference_speaker:
+        create: "%{user_name} sukūrė %{space_name} konferencijos %{resource_name} pranešėją"
+        delete: "%{user_name} pašalino %{space_name} konferencijos %{resource_name} pranešėją"
+        update: "%{user_name} atnaujino %{space_name} konferencijos %{resource_name} pranešėją"
+      conference_user_role:
+        create: "%{user_name} pakvietė %{resource_name} į %{space_name} konferenciją"
+        delete: "%{user_name} pašalino administratorių %{resource_name} iš %{space_name} konferencijos"
+        update: "%{user_name} pakeitė %{resource_name} vaidmenį %{space_name} konferencijoje"
+      conferences:
+        conference_registration:
+          confirm: "%{user_name} patvirtino registraciją į %{resource_name} konferenciją"
+        partner:
+          delete: "%{user_name} pašalino partnerį %{resource_name} iš %{space_name} konferencijos"
+          update: "%{user_name} atnaujino partnerį %{resource_name} %{space_name} konferencijoje"
+    conference_program:
+      index:
+        title: Programa
+    conference_speakers:
+      index:
+        title: Pranešėjai
