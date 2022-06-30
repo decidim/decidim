@@ -371,6 +371,11 @@ fi-pl:
           update: "%{user_name} päivitti vaalia %{resource_name} osallistumistilassa %{space_name}"
         trustee:
           create: "%{user_name} määritti käyttäjän %{trustee_user} luottamushenkilöksi"
+      connection:
+        failed:
+          modal:
+            communication_lost: Valitettavasti näyttää siltä, että viestien välitys sähköisen ääniuurnan kanssa ei onnistu.<br>Internet-yhteydessäsi voi olla ongelma tai ääniuurnan palvelin on liian kiireinen.<br>Voit yrittää myöhemmin uudestaan tai ottaa yhteyttä tekniseen tukeen, jos ongelma jatkuu.
+            title: Jokin meni vikaan
       election_m:
         badge_name:
           finished: Valmis
@@ -651,10 +656,6 @@ fi-pl:
         failed:
           header: Äänestys epäonnistui
           lead: Ääntäsi ei ole annettu!
-          modal:
-            close: Sulje
-            communication_lost: Valitettavasti näyttää siltä, että viestien välitys sähköisen ääniuurnan kanssa ei onnistu.<br>Internet-yhteydessäsi voi olla ongelma tai ääniuurnan palvelin on liian kiireinen.<br>Voit yrittää myöhemmin uudestaan tai ottaa yhteyttä tekniseen tukeen, jos ongelma jatkuu.
-            title: Jokin meni vikaan
           text: Jokin meni pieleen, yritä uudelleen.
           try_again: Yritä uudestaan
         header:
