@@ -28,14 +28,15 @@ module.exports = {
       primary: withOpacity("--primary-rgb"),
       secondary: withOpacity("--secondary-rgb"),
       tertiary: withOpacity("--tertiary-rgb"),
-      green: withOpacity("--green-rgb"),
-      red: withOpacity("--red-rgb"),
-      yellow: withOpacity("--yellow-rgb"),
+      success: withOpacity("--success-rgb"),
+      alert: withOpacity("--alert-rgb"),
+      warning: withOpacity("--warning-rgb"),
       black: "#020203",
       gray: {
         DEFAULT: "#6B72804D", // 30% opacity
         2: "#3E4C5C",
-        3: "#E1E5EF"
+        3: "#E1E5EF",
+        4: "#242424",
       },
       background: {
         DEFAULT: "#F3F4F7",
@@ -59,7 +60,10 @@ module.exports = {
       sm: ["14px", "18px"],
       md: ["16px", "20px"],
       lg: ["18px", "23px"],
-      xl: ["20px", "25px"]
+      xl: ["20px", "25px"],
+      2xl: ["24px", "30px"],
+      3xl: ["32px", "40px"],
+      4xl: ["36px", "45px"],
     }
   },
   plugins: [require("@tailwindcss/typography")]

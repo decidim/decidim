@@ -9,20 +9,25 @@
   --secondary-rgb: 21 90 191;
   --tertiary: #ebc34b;
   --tertiary-rgb: 235 195 75;
-  --green: #28a745;
-  --green-rgb: 40 167 69;
-  --yellow: #ffb703;
-  --yellow-rgb: 255 183 3;
-  --red: #ed1c24;
-  --red-rgb: 237 28 36;
+  --success: #28a745;
+  --success-rgb: 40 167 69;
+  --warning: #ffb703;
+  --warning-rgb: 255 183 3;
+  --alert: #ed1c24;
+  --alert-rgb: 237 28 36;
 }
 
-@import "stylesheets/decidim/redesigned_fonts.scss";
-@import "stylesheets/decidim/redesigned_typography.scss";
-@import "stylesheets/decidim/redesigned_buttons.scss";
-@import "stylesheets/decidim/redesigned_labels.scss";
-@import "stylesheets/decidim/redesigned_arrow_link.scss";
-@import "stylesheets/decidim/redesigned_dropdown.scss";
+@layer base{
+  @import "stylesheets/decidim/redesigned_fonts.scss";
+  @import "stylesheets/decidim/redesigned_typography.scss";
+}
+
+@layer components{
+  @import "stylesheets/decidim/redesigned_buttons.scss";
+  @import "stylesheets/decidim/redesigned_labels.scss";
+  @import "stylesheets/decidim/redesigned_arrow_link.scss";
+  @import "stylesheets/decidim/redesigned_dropdown.scss";
+}
 
 // This imports all the Decidim module stylesheet imports registered at
 // `config/assets.rb` of the module for the "app" group.
