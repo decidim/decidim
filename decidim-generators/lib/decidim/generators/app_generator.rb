@@ -221,7 +221,7 @@ module Decidim
         prepend_to_file "config/spring.rb", "require \"decidim/spring\"\n\n"
       end
 
-      def add_ignore_uploads
+      def modify_gitignore
         return if options[:skip_git]
 
         append_file ".gitignore", <<~GITIGNORE
