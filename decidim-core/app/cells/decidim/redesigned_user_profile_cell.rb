@@ -6,6 +6,8 @@ module Decidim
   class RedesignedUserProfileCell < Decidim::RedesignedCardCell
     delegate :nickname, to: :presented_resource
     delegate :name, to: :presented_resource
+    delegate :officialized?, to: :presented_resource
+    delegate :badge, to: :presented_resource
 
     def user
       group_membership? ? model.user : model
@@ -15,15 +17,13 @@ module Decidim
       present(user).avatar_url
     end
 
-    def star_badge?
-      return unless current_user
-
-      current_user.follows?(user)
-    end
-
     def role
       return model.role if group_membership?
       return "admin" if user.admin?
+    end
+
+    def show_badge?
+      user_group? ? badge.present? : officialized?
     end
 
     def resource_path
