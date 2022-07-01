@@ -134,6 +134,14 @@
     }
   }
 
+  &__submit{
+    @apply flex items-center justify-between;
+
+    > *:only-child{
+      @apply ml-auto;
+    }
+  }
+
   // label{
   //   font-size: inherit;
   // }

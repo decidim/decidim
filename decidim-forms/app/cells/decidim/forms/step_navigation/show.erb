@@ -1,19 +1,15 @@
 <div class="form-general-submit answer-questionnaire__submit">
   <% if !first_step? %>
-    <%= link_to(
-      icon("caret-left", class: "icon--small", role: "img", "aria-hidden": true) + " " + t("decidim.forms.step_navigation.show.back"),
-      "#",
-      class: "hollow secondary",
-      data: {
-        toggle: [previous_step_dom_id, current_step_dom_id].join(" ")
-      }
-    ) %>
+    <%= link_to("#", class: "arrow-link text-lg text-secondary", data: { toggle: [previous_step_dom_id, current_step_dom_id].join(" ") }) do %>
+      <%= icon "arrow-left-line", class: "fill-current" %>
+      <%= t("decidim.forms.step_navigation.show.back") %>
+    <% end %>
   <% end %>
 
   <% if last_step? %>
     <%= form.submit(
-      t("decidim.forms.step_navigation.show.submit"),
-      class: "button button--sc",
+      "#{t("decidim.forms.step_navigation.show.submit")}#{icon "mail-send-line", class: "fill-current"}".html_safe,
+      class: "button lg secondary",
       disabled: button_disabled?,
       data: {
         confirm: t("decidim.forms.step_navigation.show.are_you_sure"),
@@ -21,13 +17,9 @@
       }
     ) %>
   <% else %>
-    <%= link_to(
-      t("decidim.forms.step_navigation.show.continue"),
-      "#",
-      class: "button button--sc",
-      data: {
-        toggle: [next_step_dom_id, current_step_dom_id].join(" ")
-      }
-    ) %>
+    <%= link_to("#", class: "button lg secondary", data: { toggle: [next_step_dom_id, current_step_dom_id].join(" ") }) do %>
+      <%= t("decidim.forms.step_navigation.show.continue") %>
+      <%= icon "arrow-right-line", class: "fill-current" %>
+    <% end %>
   <% end %>
 </div>
