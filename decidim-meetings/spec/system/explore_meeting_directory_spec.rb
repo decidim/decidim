@@ -3,14 +3,10 @@
 require "spec_helper"
 
 describe "Explore meeting directory", type: :system do
-  let(:directory) do
-    Decidim::Meetings::DirectoryEngine.routes.url_helpers.root_path
-  end
+  let(:directory) { Decidim::Meetings::DirectoryEngine.routes.url_helpers.root_path }
   let(:organization) { create(:organization) }
   let(:participatory_process) { create :participatory_process, organization: organization }
-  let(:components) do
-    create_list(:meeting_component, 3, organization: organization)
-  end
+  let(:components) { create_list(:meeting_component, 3, organization: organization) }
   let!(:meetings) do
     components.flat_map do |component|
       create_list(:meeting, 2, :published, :not_official, component: component)
@@ -35,9 +31,7 @@ describe "Explore meeting directory", type: :system do
 
   describe "category filter" do
     context "with a category" do
-      let!(:category1) do
-        create(:category, participatory_space: participatory_process, name: { en: "Category1" })
-      end
+      let!(:category1) { create(:category, participatory_space: participatory_process, name: { en: "Category1" }) }
       let!(:meeting) do
         meeting = meetings.first
         meeting.category = category1
@@ -146,12 +140,8 @@ describe "Explore meeting directory", type: :system do
 
   describe "type filter" do
     context "when there are only online meetings" do
-      let!(:online_meeting1) do
-        create(:meeting, :published, :online, component: components.last)
-      end
-      let!(:online_meeting2) do
-        create(:meeting, :published, :online, component: components.last)
-      end
+      let!(:online_meeting1) { create(:meeting, :published, :online, component: components.last) }
+      let!(:online_meeting2) { create(:meeting, :published, :online, component: components.last) }
 
       it "allows filtering by type 'online'" do
         within ".with_any_type_check_boxes_tree_filter" do
@@ -199,9 +189,7 @@ describe "Explore meeting directory", type: :system do
     end
 
     context "when there are only in-person meetings" do
-      let!(:in_person_meeting) do
-        create(:meeting, :published, :in_person, component: components.last)
-      end
+      let!(:in_person_meeting) { create(:meeting, :published, :in_person, component: components.last) }
 
       it "allows filtering by type 'in-person'" do
         within ".with_any_type_check_boxes_tree_filter" do
@@ -215,9 +203,7 @@ describe "Explore meeting directory", type: :system do
     end
 
     context "when there are hybrid meetings" do
-      let!(:online_meeting) do
-        create(:meeting, :published, :hybrid, component: components.last)
-      end
+      let!(:online_meeting) { create(:meeting, :published, :hybrid, component: components.last) }
 
       it "allows filtering by type 'both'" do
         within ".with_any_type_check_boxes_tree_filter" do
@@ -246,15 +232,9 @@ describe "Explore meeting directory", type: :system do
   end
 
   context "with different participatory spaces" do
-    let(:assembly) do
-      create(:assembly, organization: organization)
-    end
-    let(:assembly_component) do
-      create(:meeting_component, participatory_space: assembly, organization: organization)
-    end
-    let!(:assembly_meeting) do
-      create(:meeting, :published, component: assembly_component)
-    end
+    let(:assembly) { create(:assembly, organization: organization) }
+    let(:assembly_component) { create(:meeting_component, participatory_space: assembly, organization: organization) }
+    let!(:assembly_meeting) { create(:meeting, :published, component: assembly_component) }
 
     before do
       visit directory
