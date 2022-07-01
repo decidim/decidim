@@ -120,6 +120,31 @@ lt:
             select_a_project: Pasirinkite projektą
             select_a_scope: Pasirinkite sritį
             success: 'Projektai sėkmingai atnaujinti %{subject_name} srityje: %{projects}.'
+          update_selected:
+            invalid: 'Šie projektai jau buvo pasirinkti įgyvendinimui: %{projects}.'
+            select_a_project: Pasirinkite projektą
+            select_a_selection: Prašau pasirinkite įgyvendinimo būseną
+            success: 'Projektų pasirinkimas sėkmingai pakeistas: %{projects}.'
+        proposals_imports:
+          create:
+            invalid: Importuojant pasiūlymus į projektus kilo problema
+            success: "%{number} pasiūlymai sėkmingai įkelti į projektus"
+          new:
+            create: Importuoti pasiūlymus į projektus
+            default_budget: Numatytasis biudžetas
+            import_all_accepted_proposals: Importuoti visus priimtus projektus
+            no_components: Nėra kitų pasiūlymų komponentų šioje dalyvaujamojoje erdvėje, kuriuos būtų galima importuoti į projektus.
+            origin_component_id: Originalusis komponentas
+            select_component: Pasirinkite komponentą
+            title: Importuoti pasiūlymus
+        reminders:
+          orders:
+            description: Naudotojai gaus el. laišką su nuorodomis į biudžetus, kuriuose laukiami jų balsai.
+            title:
+              one: Ar tikrai norite išsiųsti priminimą laišku %{count} naudotojui?
+              few: Ar tikrai norite išsiųsti priminimą laišku %{count} naudotojams?
+              many: Ar tikrai norite išsiųsti priminimą laišku %{count} naudotojams?
+              other: Ar tikrai norite išsiųsti priminimą laišku %{count} naudotojams?
       budgets_list:
         show: Peržiūrėti projektus
         vote: Balsuoti
