@@ -4,15 +4,18 @@ lt:
     attributes:
       conference:
         assemblies_ids: Susijusios Asamblėjos
+        available_slots: Laisvos vietos
         banner_image: Reklamjuostės paveikslėlis
         consultations_ids: Susijusios Konsultacijos
         copy_categories: Kopijuoti kategorijas
         copy_components: Kopijuoti komponentus
+        copy_features: Kopijuoti požymius
         decidim_scope_id: Apimtis
         description: Aprašymas
         end_date: Pabaigos data
         hashtag: Grotažymė
         hero_image: Pradžios paveikslėlis
+        location: Vieta
         main_logo: Pagrindinis logotipas
         objectives: Tikslai
         participatory_processes_ids: Susiję dalyvaujamieji procesai
@@ -39,6 +42,7 @@ lt:
         link: Nuoroda
         logo: Logotipas
         name: Vardas
+        partner_type: Partnerio tipas
       conference_registration_invite:
         email: El. paštas
         name: Vardas
@@ -50,9 +54,77 @@ lt:
         title: Pavadinimas
       conference_speaker:
         avatar: Avataras
+        conference_meeting_ids: Susiję susitikimai
+        full_name: Vardas, pavardė
+        personal_url: Asmeninis URL
+        position: Pozicija
+        short_bio: Trumpas gyvenimo aprašymas
+        user_id: Naudotojas
+      conference_user_role:
+        email: El. paštas
+        role: Rolė
+    errors:
+      models:
+        conference_registration_invite:
+          attributes:
+            email:
+              already_invited: Šio el. laiško adresatas jau buvo pakviestas
+  activerecord:
+    models:
+      decidim/conference:
+        one: Konferencija
+        few: Konferencijos
+        many: Konferencijos
+        other: Konferencijos
   decidim:
     admin:
+      actions:
+        confirm: Patvirtinti
+        new_conference: Nauja Konferencija
+        send_diplomas: Siųsti dalyvavimo konferencijoje pažymėjimus
+      conference_copies:
+        new:
+          copy: Kopijuoti
+          select: Pasirinkite, kuriuos duomenis norėtumėte dubliuoti
+          title: Dubliuoti konferenciją
+      conference_publications:
+        create:
+          error: Publikuojant šią konferenciją iškilo problema.
+          success: Konferencija paskelbta.
+        destroy:
+          error: Naikinant šios konferencijos skelbimą iškilo problema.
+          success: Konferencijos skelbimas panaikintas.
+      conference_registration:
+        confirm:
+          error: Patvirtinant registraciją į šią konferenciją iškilo problema.
+          success: Registracija į konferenciją patvirtinta.
+      conference_speakers:
+        create:
+          error: Įtraukiant šios konferencijos pranešėją iškilo problema.
+          success: Konferencijos pranešėjas sukurtas.
+        destroy:
+          success: Konferencijos pranešėjas pašalintas.
+        edit:
+          title: Atnaujinti konferencijos pranešėją.
+          update: Atnaujinti
+        index:
+          conference_speakers_title: Konferencijos pranešėjai
+        new:
+          create: Sukurti
+          title: Naujas konferencijos pranešėjas.
+        update:
+          error: Atnaujinant šį konferencijos pranešėją iškilo problema.
+          success: Konferencijos pranešėjas atnaujintas.
       conference_user_roles:
+        create:
+          success: Konferencijos administratorius įtrauktas.
+        destroy:
+          success: Konferencijos administratorius pašalintas.
+        edit:
+          title: Atnaujinti konferencijos administratorių.
+          update: Atnaujinti
+        index:
+          conference_admins_title: konferencijos administratoriai
         new:
           create: Sukurti
           title: Naujas konferencijos administratorius.
@@ -260,3 +332,34 @@ lt:
       value_types:
         conference_presenter:
           not_found: 'Konferencija duomenų bazėje nerasta (ID: %{id})'
+    media:
+      index:
+        description: Nuorodos apie šią konferenciją
+        title: Multimedija ir Nuorodos
+    menu:
+      conferences: Konferencijos
+    statistics:
+      conferences_count: Konferencijos
+  devise:
+    mailer:
+      join_conference:
+        subject: Kvietimas dalyvauti konferencijoje
+  layouts:
+    decidim:
+      conference_hero:
+        register: Registruotis
+      conference_widgets:
+        show:
+          take_part: Dalyvaukite
+      conferences:
+        conference:
+          more_info: Daugiau informacijos
+          take_part: Dalyvaukite
+        promoted_conference:
+          more_info: Daugiau informacijos
+          take_part: Dalyvaukite
+      conferences_nav:
+        conference_menu_item: Informacija
+        conference_partners_menu_item: Partneriai
+        conference_speaker_menu_item: Pranešėjai
+        venues: Vietos
