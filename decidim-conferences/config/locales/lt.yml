@@ -220,3 +220,42 @@ lt:
         conference_invite:
           fields:
             email: El. paštas
+            name: Vardas
+            registration_type: Registracijos tipas
+            status: Būsena
+          status:
+            accepted: Priimta (%{at})
+            rejected: Atmesta (%{at})
+            sent: Išsiųsta
+        conference_registration:
+          fields:
+            email: El. paštas
+            name: Vardas
+            registration_type: Registracijos tipas
+            state: Būsena
+            states:
+              confirmed: Patvirtinta
+              pending: Laukiama
+      pages:
+        home:
+          highlighted_conferences:
+            active_conferences: Aktyvios konferencijos
+            conferences_button_title: Nuoroda į puslapį „Konferencijos“, kuriame pateikiamos visos konferencijos
+            see_all_conferences: Žiūrėti visas konferencijas
+      photo:
+        show:
+          close_modal: Uždaryti modalinį langą
+      registration_types:
+        index:
+          choose_an_option: 'Pasirinkite registracijos būdą:'
+          login_as: Jūs prisijungėte kaip %{name} <%{email}>
+          no_registrations: Nėra registracijų
+          register: Registruotis
+    help:
+      participatory_spaces:
+        conferences:
+          title: Kas yra konferencijos?
+    log:
+      value_types:
+        conference_presenter:
+          not_found: 'Konferencija duomenų bazėje nerasta (ID: %{id})'
