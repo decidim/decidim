@@ -398,6 +398,11 @@ hu:
           email_outro: 'Ezt az értesítést azért kaptad, mert jelentkeztél a %{resource_title} kezdeményezéshez.'
           email_subject: "%{author_nickname} visszautasította a jelentkezésedet az előterjesztő bizottságba"
           notification_title: <a href="%{author_profile_url}">%{author_nickname}</a> visszautasította a jelentkezésedet a <a href="%{resource_url}">%{resource_title}</a> kezdeményezés előterjesztő bizottságába.
+        spawn_committee_request_event:
+          email_intro: "%{applicant_nickname} a %{resource_title} kezdeményezésed előterjesztő bizottságába jelentkezett. Az elfogadást vagy visszautasítását a kezdeményezésed szerkesztésénél teheted meg."
+          email_outro: 'Ezt az értesítést azért kaptad, mert Te vagy a %{resource_title} kezdeményezés elindítója.'
+          email_subject: "%{applicant_nickname} szeretne csatlakozni a kezdeményezésedhez"
+          notification_title: <a href="%{applicant_profile_url}">%{applicant_nickname}</a> a <a href="%{resource_url}"> %{resource_title}</a> kezdeményezésed előterjesztő bizottságába jelentkezett. Az elfogadáshoz vagy elutasításhoz kattints <a href="%{resource_url}/edit">ide</a>.
       form:
         add_attachments: Dokumentumok
         attachment_legend: "(Opcionális) Csatolmány hozzáadása"
@@ -454,6 +459,7 @@ hu:
           area: Terület
           author: Szerző
           myself: Kezdeményezéseim
+          scope: Hatókör
           search: Keresés
           state: Állapot
           type: Típus
@@ -465,6 +471,7 @@ hu:
         index_header:
           new_initiative: Új kezdeményezés
           not_authorized:
+            authorizations_page: Engedélyezések megtekintése
             close: Bezárás
             explanation: Ha új kezdeményezést szeretne létrehozni, el kell végezni az Ön adatainak ellenőrzését.
             title: Engedélyezés szükséges
@@ -485,26 +492,36 @@ hu:
           recently_published: Legfrissebben közzétett
         print:
           address: Cím
+          author_title: A kezdeményezés indítója
           city: Település
           email: Email
           full_name: Teljes név
+          general_title: Kezdeményezés befogadása iránti kérelem
           id_number: ID Szám
           initiative:
             attachments: Csatolt dokumentáció (kérem minden dokumentum nevét írja meg lentebb)
             description: 'Leírás:'
             title: 'Cím:'
             type: A kezdeményezés típusa
+          legal_text: Az összegyűjtött személyes adatokat a szervezet a hatályos jogszabályoknak megfelelően beépíti és bizalmasan kezeli.
+          members_header: A kezdeményezés előterjesztő bizottságának tagjai
           phone_number: Telefonszám
           place_date: Hely, dátum
+          postal_code: Irányítószám
           print: Nyomtatás
           province: Megye
+          section: 'Ha a szervezet kéri, kérjük, nyomtassa ki és töltse ki ezt az űrlapot, és küldje be a megadott helyre:'
           signature: Aláírás
         result:
+          answer_title: A kezdeményezés megválaszolásra került
           initiative_rejected_reason: A kezdeményezést a támogatás hiánya miatt elutasították.
         show:
+          any_vote_method: A kezdeményezés online és személyes úton leadott aláírásokat gyűjt.
+          confirm: A kezdeményezés elküldése egy adminisztrátornak felülvizsgálat és közzététel céljából. A közzététel után már nem lesz lehetőség szerkeszteni. Biztos vagy benne?
           edit: Szerkeszt
           follow_description: Értesítést kapjon, ha ebben a kezdeményezésben vannak hírek
           offline_method: E kezdeményezés keretében csak személyes aláírásokat gyűjtenek.
+          print: Kezdeményezés nyomtatása
           send_to_technical_validation: Elküldés technikai ellenőrzésre
         signatures_count:
           one: " aláírás"
