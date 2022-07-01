@@ -6,7 +6,6 @@ module Decidim
     include Decidim::Core::Engine.routes.url_helpers
     include Decidim::UserProfileHelper
     include Decidim::AriaSelectedLinkToHelper
-    include Decidim::LayoutHelper
     include ActiveLinkTo
 
     delegate :current_organization, :current_user, :user_groups_enabled?, to: :controller
@@ -44,21 +43,18 @@ module Decidim
       current_user && current_user.manageable_user_groups.include?(profile_holder)
     end
 
-    # deprecated
     def profile_tabs
       return render :user_group_tabs if profile_holder.is_a?(Decidim::UserGroup)
 
       render :user_tabs
     end
 
-    # deprecated
     def unread_count
       return profile_holder.unread_messages_count_for(current_user) if profile_holder.is_a?(Decidim::UserGroup)
 
       current_user.unread_messages_count
     end
 
-    # deprecated
     def label_conversations
       label = I18n.t("decidim.profiles.show.conversations")
       label = "#{label} <span class=\"badge\">#{unread_count}</span>" if unread_count.positive?

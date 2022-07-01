@@ -81,19 +81,5 @@ module Decidim
     def tab_items
       profile_holder.is_a?(Decidim::UserGroup) ? group_tabs : user_tabs
     end
-
-    # deprecated
-    def unread_count
-      return profile_holder.unread_messages_count_for(current_user) if profile_holder.is_a?(Decidim::UserGroup)
-
-      current_user.unread_messages_count
-    end
-
-    # deprecated
-    def label_conversations
-      label = I18n.t("decidim.profiles.show.conversations")
-      label = "#{label} <span class=\"badge\">#{unread_count}</span>" if unread_count.positive?
-      label
-    end
   end
 end
