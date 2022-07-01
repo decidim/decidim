@@ -11,8 +11,8 @@ class AutosortableCheckboxesComponent {
 
   // Order by position
   _order() {
-    const max = $(this.wrapperField).find(".collection-input").length;
-    $(this.wrapperField).find(".collection-input").each((idx, el) => {
+    const max = $(this.wrapperField).find(".js-collection-input").length;
+    $(this.wrapperField).find(".js-collection-input").each((idx, el) => {
       const $positionField = $(el).find("input[name$=\\[position\\]]");
       const position = $positionField.val()
         ? parseInt($positionField.val(), 10)
@@ -35,7 +35,7 @@ class AutosortableCheckboxesComponent {
 
   _findLastPosition() {
     let lastPosition = 0;
-    $(this.wrapperField).find(".collection-input").each((idx, el) => {
+    $(this.wrapperField).find(".js-collection-input").each((idx, el) => {
       const $positionField = $(el).find("input[name$=\\[position\\]]");
       const position = parseInt($positionField.val(), 10);
       if (position > lastPosition) {
@@ -46,7 +46,7 @@ class AutosortableCheckboxesComponent {
   }
 
   _normalize() {
-    $(this.wrapperField).find(".collection-input .position").each((idx, el) => {
+    $(this.wrapperField).find(".js-collection-input .position").each((idx, el) => {
       const $positionField = $(el).parent().find("input[name$=\\[position\\]]");
       if ($positionField.val()) {
         $positionField.val(idx);

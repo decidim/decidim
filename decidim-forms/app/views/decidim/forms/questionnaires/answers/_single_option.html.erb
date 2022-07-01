@@ -1,10 +1,10 @@
-<div class="answer-questionnaire__single-option radio-button-collection">
+<div class="answer-questionnaire__single-option js-radio-button-collection">
   <% choice = answer.choices.first %>
 
   <% answer.question.answer_options.each_with_index do |answer_option, idx| %>
     <% choice_id = "#{field_id}_choices_#{idx}" %>
 
-    <div class="collection-input">
+    <div class="js-collection-input">
       <%= label_tag "#{choice_id}_body" do %>
         <%= radio_button_tag "questionnaire[responses][#{answer_idx}][choices][][body]",
                             translated_attribute(answer_option.body),

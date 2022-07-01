@@ -332,7 +332,7 @@ shared_examples_for "has questionnaire" do
         let(:question_type) { "single_option" }
 
         it "renders them as radio buttons with attached text fields disabled by default" do
-          expect(page).to have_selector(".radio-button-collection input[type=radio]", count: 3)
+          expect(page).to have_selector(".js-radio-button-collection input[type=radio]", count: 3)
 
           expect(page).to have_field("questionnaire_responses_0_choices_2_custom_body", disabled: true, count: 1)
 
@@ -380,7 +380,7 @@ shared_examples_for "has questionnaire" do
         let(:question_type) { "multiple_option" }
 
         it "renders them as check boxes with attached text fields disabled by default" do
-          expect(page.first(".check-box-collection")).to have_selector("input[type=checkbox]", count: 3)
+          expect(page.first(".js-check-box-collection")).to have_selector("input[type=checkbox]", count: 3)
 
           expect(page).to have_field("questionnaire_responses_0_choices_2_custom_body", disabled: true, count: 1)
 
@@ -458,7 +458,7 @@ shared_examples_for "has questionnaire" do
       it "renders answers as a collection of radio buttons" do
         visit questionnaire_public_path
 
-        expect(page).to have_selector(".radio-button-collection input[type=radio]", count: 2)
+        expect(page).to have_selector(".js-radio-button-collection input[type=radio]", count: 2)
 
         choose answer_options[0]["body"][:en]
 
@@ -484,7 +484,7 @@ shared_examples_for "has questionnaire" do
       it "renders answers as a collection of radio buttons" do
         visit questionnaire_public_path
 
-        expect(page).to have_selector(".check-box-collection input[type=checkbox]", count: 3)
+        expect(page).to have_selector(".js-check-box-collection input[type=checkbox]", count: 3)
 
         expect(page).to have_no_content("Max choices:")
 
@@ -659,12 +659,12 @@ shared_examples_for "has questionnaire" do
       it "renders the question answers as a collection of radio buttons" do
         visit questionnaire_public_path
 
-        expect(page).to have_selector(".radio-button-collection input[type=radio]", count: 4)
+        expect(page).to have_selector(".js-radio-button-collection input[type=radio]", count: 4)
 
         expect(page).to have_content(matrix_rows.map { |row| row["body"]["en"] }.join("\n"))
         expect(page).to have_content(answer_options.map { |option| option["body"]["en"] }.join(" "))
 
-        radio_buttons = page.all(".radio-button-collection input[type=radio]")
+        radio_buttons = page.all(".js-radio-button-collection input[type=radio]")
 
         choose radio_buttons.first[:id]
         choose radio_buttons.last[:id]
@@ -691,7 +691,7 @@ shared_examples_for "has questionnaire" do
       it "preserves the chosen answers if submission not correct" do
         visit questionnaire_public_path
 
-        radio_buttons = page.all(".radio-button-collection input[type=radio]")
+        radio_buttons = page.all(".js-radio-button-collection input[type=radio]")
         choose radio_buttons[1][:id]
 
         accept_confirm { click_button "Submit" }
@@ -700,7 +700,7 @@ shared_examples_for "has questionnaire" do
           expect(page).to have_content("There was a problem answering")
         end
 
-        radio_buttons = page.all(".radio-button-collection input[type=radio]")
+        radio_buttons = page.all(".js-radio-button-collection input[type=radio]")
         expect(radio_buttons.pluck(:checked)).to eq([nil, "true", nil, nil])
       end
 
@@ -710,7 +710,7 @@ shared_examples_for "has questionnaire" do
         it "shows an error if the question is mandatory and the answer is not complete" do
           visit questionnaire_public_path
 
-          radio_buttons = page.all(".radio-button-collection input[type=radio]")
+          radio_buttons = page.all(".js-radio-button-collection input[type=radio]")
           choose radio_buttons[0][:id]
 
           check "questionnaire_tos_agreement"
@@ -746,12 +746,12 @@ shared_examples_for "has questionnaire" do
       it "renders the question answers as a collection of check boxes" do
         visit questionnaire_public_path
 
-        expect(page).to have_selector(".check-box-collection input[type=checkbox]", count: 6)
+        expect(page).to have_selector(".js-check-box-collection input[type=checkbox]", count: 6)
 
         expect(page).to have_content(matrix_rows.map { |row| row["body"]["en"] }.join("\n"))
         expect(page).to have_content(answer_options.map { |option| option["body"]["en"] }.join(" "))
 
-        checkboxes = page.all(".check-box-collection input[type=checkbox]")
+        checkboxes = page.all(".js-check-box-collection input[type=checkbox]")
 
         check checkboxes[0][:id]
         check checkboxes[1][:id]
@@ -785,7 +785,7 @@ shared_examples_for "has questionnaire" do
 
           expect(page).to have_content("Max choices: 2")
 
-          checkboxes = page.all(".check-box-collection input[type=checkbox]")
+          checkboxes = page.all(".js-check-box-collection input[type=checkbox]")
 
           check checkboxes[0][:id]
           check checkboxes[1][:id]
@@ -814,7 +814,7 @@ shared_examples_for "has questionnaire" do
 
           expect(page).to have_content("are too many")
 
-          checkboxes = page.all(".check-box-collection input[type=checkbox]")
+          checkboxes = page.all(".js-check-box-collection input[type=checkbox]")
 
           uncheck checkboxes[5][:id]
 
@@ -832,7 +832,7 @@ shared_examples_for "has questionnaire" do
         it "shows an error" do
           visit questionnaire_public_path
 
-          checkboxes = page.all(".check-box-collection input[type=checkbox]")
+          checkboxes = page.all(".js-check-box-collection input[type=checkbox]")
           check checkboxes[0][:id]
 
           check "questionnaire_tos_agreement"
@@ -852,7 +852,7 @@ shared_examples_for "has questionnaire" do
         it "preserves the chosen answers" do
           visit questionnaire_public_path
 
-          checkboxes = page.all(".check-box-collection input[type=checkbox]")
+          checkboxes = page.all(".js-check-box-collection input[type=checkbox]")
           check checkboxes[0][:id]
           check checkboxes[1][:id]
           check checkboxes[2][:id]
@@ -865,7 +865,7 @@ shared_examples_for "has questionnaire" do
             expect(page).to have_content("There was a problem answering")
           end
 
-          checkboxes = page.all(".check-box-collection input[type=checkbox]")
+          checkboxes = page.all(".js-check-box-collection input[type=checkbox]")
           expect(checkboxes.pluck(:checked)).to eq(["true", "true", "true", nil, nil, "true"])
         end
       end
