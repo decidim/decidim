@@ -30,6 +30,32 @@ describe "Explore meetings", :slow, type: :system do
       end
     end
 
+    context "with default filter" do
+      let!(:past_meeting) { create(:meeting, :published, start_time: 2.weeks.ago, component: component) }
+      let!(:upcoming_meeting) { create(:meeting, :published, :not_official, component: component) }
+
+      it "shows all the upcoming meetings" do
+        visit_component
+        within ".with_any_date_collection_radio_buttons_filter" do
+          expect(find("input[value='upcoming']").checked?).to be(true)
+        end
+
+        within "#meetings" do
+          expect(page).to have_css(".card--meeting", count: 6)
+        end
+
+        expect(page).to have_css("#meetings-count", text: "6 MEETINGS")
+        expect(page).to have_content(translated(upcoming_meeting.title))
+      end
+
+      it "doesn't show past meetings" do
+        visit_component
+        within "#meetings" do
+          expect(page).not_to have_content(translated(past_meeting.title))
+        end
+      end
+    end
+
     context "when checking withdrawn meetings" do
       context "when there are no withrawn meetings" do
         let!(:meeting) { create_list(:meeting, 3, :published, component: component) }

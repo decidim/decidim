@@ -21,12 +21,30 @@ describe "Explore meeting directory", type: :system do
     visit directory
   end
 
-  it "shows all the upcoming meetings" do
-    within "#meetings" do
-      expect(page).to have_css(".card--meeting", count: 6)
+  describe "with default filter" do
+    let!(:past_meeting) { create(:meeting, :published, start_time: 2.weeks.ago, component: components.first) }
+    let!(:upcoming_meeting) { create(:meeting, :published, :not_official, component: components.first) }
+
+    it "shows all the upcoming meetings" do
+      visit directory
+
+      within ".with_any_date_collection_radio_buttons_filter" do
+        expect(find("input[value='upcoming']").checked?).to be(true)
+      end
+
+      within "#meetings" do
+        expect(page).to have_css(".card--meeting", count: 7)
+      end
+
+      expect(page).to have_css("#meetings-count", text: "7 MEETINGS")
+      expect(page).to have_content(translated(upcoming_meeting.title))
     end
 
-    expect(page).to have_css("#meetings-count", text: "6 MEETINGS")
+    it "doesn't show past meetings" do
+      within "#meetings" do
+        expect(page).not_to have_content(translated(past_meeting.title))
+      end
+    end
   end
 
   describe "category filter" do
