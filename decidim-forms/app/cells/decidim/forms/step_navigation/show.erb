@@ -1,7 +1,5 @@
-<div class="button--double form-general-submit answer-questionnaire__submit">
-  <% if first_step? %>
-    <a></a>
-  <% else %>
+<div class="form-general-submit answer-questionnaire__submit">
+  <% if !first_step? %>
     <%= link_to(
       icon("caret-left", class: "icon--small", role: "img", "aria-hidden": true) + " " + t("decidim.forms.step_navigation.show.back"),
       "#",

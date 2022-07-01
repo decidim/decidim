@@ -31,8 +31,8 @@ module Decidim
         @question ||= Decidim::Forms::Question.find(question_id)
       end
 
-      def label(idx)
-        base = "#{idx + 1}. #{translated_attribute(question.body)}"
+      def label
+        base = translated_attribute(question.body)
         base += " #{mandatory_label}" if question.mandatory?
         base += " (#{max_choices_label})" if question.max_choices
         base
