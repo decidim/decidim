@@ -139,6 +139,14 @@ lt:
         reminders:
           orders:
             description: Naudotojai gaus el. laišką su nuorodomis į biudžetus, kuriuose laukiami jų balsai.
+            title:
+              one: Ar tikrai norite išsiųsti priminimą laišku %{count} naudotojui?
+              few: Ar tikrai norite išsiųsti priminimą laišku %{count} naudotojams?
+              many: Ar tikrai norite išsiųsti priminimą laišku %{count} naudotojams?
+              other: Ar tikrai norite išsiųsti priminimą laišku %{count} naudotojams?
+      admin_log:
+        budget:
+          create: "%{user_name} sukūrė %{resource_name} biudžetą %{space_name} erdvėje"
       budgets_list:
         show: Peržiūrėti projektus
         vote: Balsuoti
