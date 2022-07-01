@@ -378,6 +378,7 @@ hu:
           choose_html: Szeretnék létrehozni egy <strong>%{title}</strong>
           more_information: "(További információk)"
           select: Szeretném támogatni ezt a kezdeményezést
+          select_initiative_type_help: A kezdeményezések olyan eszközök, amelyekkel a résztvevők beavatkozhatnak, hogy a szervezet a közérdek védelmében lépéseket tegyen. Milyen kezdeményezést szeretnél elindítani?
         share_committee_link:
           continue: Tovább
           invite_to_committee_help: Link azok meghívásához, akik részt vesznek a kezdeményező bizottságban
@@ -386,7 +387,22 @@ hu:
           compare_help: Ha az alábbi kezdeményezések valamelyike ​​hasonló a tiedhez, inkább azt támogasd. Így a te ügyednek is több esélye van a megvalósításra.
           continue: Más jellegű kezdeményezés
           more_information: "(További információk)"
+      edit:
+        accept: Kezdeményezés elfogadása
+        back: Vissza
+        confirm: Biztos vagy benne?
+        discard: Kezdeményezés elvetése
+        export_pdf_signatures: Aláírások exportálása PDF-be
+        export_votes: Aláírások exportálása
+        reject: Kezdeményezés elutasítása
+        title: Kezdeményezésem szerkesztése
+        update: Frissítés
       events:
+        approve_membership_request:
+          email_intro: "%{author_nickname} elfogadta a jelentkezésedet, hogy részt vegyen a %{resource_title} kezdeményezést előterjesztő bizottságban."
+          email_outro: 'Ezt az értesítést azért kaptad, mert jelentkeztél a %{resource_title} kezdeményezéshez'
+          email_subject: "%{author_nickname} elfogadta a jelentkezésedet az előterjesztő bizottságba"
+          notification_title: <a href="%{author_profile_url}">%{author_nickname}</a> elfogadta a jelentkezésedet a <a href="%{resource_url}">%{resource_title}</a> kezdeményezés előterjesztő bizottságába.
         create_initiative_event:
           email_intro: "%{author_name} %{author_nickname} (akit követsz) új kezdeményezést hozott létre, nézd meg és tegyél hozzá valamit:"
           email_outro: 'Ezt az értesítést azért kaptad, mert őt követed: "%{author_nickname}". Az értesítéseket a következő linkre kattintva kapcsolhatod ki.'
@@ -397,6 +413,9 @@ hu:
           email_outro: 'Ezt az értesítést azért kaptad, mert őt követed: "%{author_nickname}". Az értesítéseket a következő linkre kattintva kapcsolhatod ki.'
           email_subject: '%{author_nickname} támogatta a kezdeményezést'
           notification_title: 'A(z) <a href="%{resource_path}">%{resource_title}</a>kezdeményezést támogatta: <a href="%{author_path}">%{author_name} %{author_nickname}</a>.'
+        revoke_membership_request:
+          email_intro: "%{author_nickname} visszautasította a jelentkezésedet, hogy részt vegyél a %{resource_title} kezdeményezést előterjesztő bizottságban."
+          email_outro: 'Ezt az értesítést azért kaptad, mert jelentkeztél a %{resource_title} kezdeményezéshez.'
       form:
         add_attachments: Dokumentumok
         attachment_legend: "(Opcionális) Csatolmány hozzáadása"
