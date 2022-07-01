@@ -16,7 +16,8 @@
   <% answer_idx = 0 %>
   <% cleaned_answer_idx = 1 %>
   <% @form.responses_by_step.each_with_index do |step_answers, step_index| %>
-    <div id="step-<%= step_index %>" class="answer-questionnaire__step <%= "hiddenx" if !step_index.zero? %>">
+    <!-- REDESIGN_PENDING: replace foundation toggler -->
+    <div id="step-<%= step_index %>" class="answer-questionnaire__step <%= "hidden" if !step_index.zero? %>" data-toggler=".hidden">
 
       <% if @form.total_steps > 1 %>
         <p class="answer-questionnaire__step-counter">

@@ -36,48 +36,6 @@
   font-weight: normal;
 }
 
-.questionnaire-question-matrix{
-  display: block;
-  overflow-x: auto;
-
-  .collection-input{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-grow: 1;
-    flex-basis: 0;
-
-    input[type="text"]{
-      margin-top: auto;
-      margin-bottom: auto;
-    }
-
-    input[type="checkbox"],
-    input[type="radio"]{
-      margin-bottom: 0;
-
-      & ~ input[type="text"]{
-        margin-left: .5rem;
-      }
-    }
-  }
-
-  tr,
-  tr:nth-child(2n){
-    background: initial;
-    border-bottom: 1px solid #f0f0f0;
-  }
-
-  thead td{
-    text-align: center;
-  }
-
-  td{
-    min-width: 100px;
-    border-right: 1px solid #f0f0f0;
-  }
-}
-
 .answer-questionnaire{
   @apply border-t-4 border-background py-10;
 
@@ -131,6 +89,24 @@
 
     label + *{
       @apply mt-2 w-full;
+    }
+  }
+
+  &__multiple-matrix,
+  &__single-matrix{
+    @apply text-gray-2 text-sm rounded overflow-hidden;
+
+    th,
+    td{
+      @apply border border-background px-2 py-2.5;
+    }
+
+    th{
+      @apply bg-background font-normal;
+    }
+
+    td:not(:first-child){
+      @apply text-center [&>*]:flex [&>*]:items-center [&>*]:justify-center;
     }
   }
 
