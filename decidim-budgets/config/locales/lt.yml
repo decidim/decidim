@@ -93,6 +93,13 @@ lt:
             finished_orders: Baigti balsavimai
             pending_orders: Balsai laukiantys patvirtinimo
             selected: Pasirinkta
+            title: Projektai
+          new:
+            create: Sukurti
+            title: Naujas projektas
+          update:
+            invalid: Atnaujinant šį projektą iškilo problema
+            success: Projektas atnaujintas
       budgets_list:
         show: Peržiūrėti projektus
         vote: Balsuoti
