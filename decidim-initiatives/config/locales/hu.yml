@@ -211,6 +211,8 @@ hu:
           highlighted_initiatives:
             max_results: A megjelenítendő elemek maximális száma
             order:
+              default: Alapértelmezett (Legutóbbi)
+              label: 'Elemek rendezése:'
               most_recent: Legfrissebb
         exports:
           initiatives: Kezdeményezések
@@ -251,6 +253,7 @@ hu:
             publication_date: Legfrissebben közzétett
             random: Véletlenszerű
             signatures: Legtöbb aláírással rendelkező
+            title: Kezdeményezések beállításai
         initiatives_type_scopes:
           create:
             error: Hiba történt
@@ -282,6 +285,9 @@ hu:
             update: Frissítés
           form:
             authorizations: Hitelesítési beállítások
+            child_scope_threshold_enabled_help: 'Ez a konfigurációs jelző nem támogatja az offline szavazást. Engedélyezi az altartományokat, és egy olyan engedélyezési kezelővel működik, amely egy tartományt társít a felhasználóhoz. Győződjön meg róla, hogy ezt a jogosultságot választja ki, alább az engedélyezési beállításoknál. A működéséhez a hatóköröket hierarchikusan kell konfigurálni: 1 Szülő - N gyermek. A konfiguráció működéséről bővebb információért lásd a következő oldalon <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">kezdeményezések admin dokumentációs oldalán</a>.'
+            only_global_scope_enabled_help: Jelölje be ezt a jelölőnégyzetet, ha engedélyezte a "Gyermek hatókör aláírás" opciót, és a globális hatókörét szülő hatókörként konfigurálta. Ennek engedélyezésével a kezdeményezés típusának kiválasztása kihagyásra kerül a kezdeményezés létrehozására szolgáló varázslóban. A konfiguráció működésével kapcsolatos további információkért lásd ezt a cikket<a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">link</a>.
+            options: Opciók
             title: Általános információk
           initiative_type_scopes:
             title: Kezdeményezés típusának hatásköre
@@ -297,19 +303,41 @@ hu:
           send_to_technical_validation: "%{user_name} elküldte a(z) %{resource_name} kezdeményezést technikai érvényesítésre"
           unpublish: "%{user_name} elvetette a(z) %{resource_name} kezdeményezést"
           update: "%{user_name} frissítette a(z) %{resource_name} kezdeményezést"
+        initiatives_settings:
+          update: "%{user_name} frissítette a kezdeményezések beállításait"
+        initiatives_type:
+          create: "%{user_name} létrehozta a(z) %{resource_name} kezdeményezés típust"
+          delete: "%{user_name} törölte a(z) %{resource_name} kezdeményezés típust"
+          update: "%{user_name} frissítette a(z) %{resource_name} kezdeményezés típust"
       admin_states:
+        accepted: Elegendő aláírás
         created: Létrehozva
         discarded: Elvetve
         published: Közzétéve
+        rejected: Nincs elegendő aláírás
         validating: Technikai érvényesítés
       application_helper:
+        filter_area_values:
+          all: Összes
+        filter_scope_values:
+          all: Összes
         filter_state_values:
+          accepted: Elegendő aláírás
+          all: Összes
+          answered: Megválaszolt
           closed: Lezárt
           open: Megnyitás
+          rejected: Nincs elegendő aláírás
+        filter_type_values:
+          all: Összes
       committee_requests:
+        approve:
+          success: A kérés jóváhagyva.
         new:
           continue: Tovább
           help_text: Arra készülsz, hogy csatlakozz az úgynevezett kezdeményező bizottsághoz
+        revoke:
+          success: A kérédés visszavonásra került.
         spawn:
           success: A kérelmet elküldtük a kezdeményezés szerzőjének.
       content_blocks:
@@ -319,14 +347,23 @@ hu:
         fill_data:
           back: Vissza
           continue: Tovább
+          fill_data_help: "<ul><li>Nézd meg a kezdeményezésed tartalmát. Könnyű megérteni? Tiszta a kezdeményezésed célja?</li><li>Az aláírás típusát válaszd ki. Személyes, online vagy a kombinációja mindkettőnek</li><li>Mi a földrajzi hatóköre a kezdeményezésednek?</li></ul>"
           initiative_type: Kezdeményezés típusa
           more_information: "(További információk)"
+          select_area: Válasszon ki egy területet
           select_scope: Válassz hatáskört
         finish:
           back: Vissza
           back_to_initiatives: Vissza a kezdeményezésekhez
+          callout_text: Gratulálunk! A kezdeményezés létrehozása sikeres.
+          confirm: A kezdeményezés elküldése egy adminisztrátornak felülvizsgálat és közzététel céljából. A közzététel után már nem lesz lehetőség szerkeszteni. Biztos vagy benne?
+          edit_my_initiative: Kezdeményezésem szerkesztése
           go_to_my_initiatives: Ugrás a saját kezdeményezéseimhez
           more_information: "(További információk)"
+          send_my_initiative: A kezdeményezésem technikai ellenőrzésre küldése
+        finish_help:
+          access_reminder: A kezdeményezéseidet elérheted a %{link} a kezdeményezések oldalon.
+          publish_helper_text: Emlékeztetünk, hogy a kezdeményezésed publikációjához minden szükséges információt meg kell adjál <strong>és technikai ellenőrzésen kell átesnie</strong> egy adminisztrátor segítségével.
         previous_form:
           back: Vissza
           continue: Tovább
@@ -334,6 +371,7 @@ hu:
           more_information: "(További információk)"
         promotal_committee:
           back: Vissza
+          individual_help_text: Ezt a típusú kezdeményezést csak olyan Előterjesztő Bizottság nyújthatja be, melynek legalább %{committee_size} tagja van. A következő linket oszd meg a kezdeményezést pártolókkal. Amikor megkapják a linket, az abban jelzett lépéseket kell követniük.
           more_information: "(További információk)"
         select_initiative_type:
           back: Vissza
