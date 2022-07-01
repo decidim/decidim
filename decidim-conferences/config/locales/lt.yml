@@ -58,9 +58,11 @@ lt:
         personal_url: Asmeninis URL
         position: Pozicija
         short_bio: Trumpas gyvenimo aprašymas
+        twitter_handle: Twitter tvarkyklė
         user_id: Naudotojas
       conference_user_role:
         email: El. paštas
+        name: Vardas
         role: Rolė
     errors:
       models:
@@ -75,6 +77,16 @@ lt:
         few: Konferencijos
         many: Konferencijos
         other: Konferencijos
+      decidim/conference_speaker:
+        one: Konferencijos kalbėtoja(-s)
+        few: Konferencijos kalbėtojai(-os)
+        many: Konferencijos kalbėtojai(-os)
+        other: Konferencijos kalbėtojai(-os)
+      decidim/conference_user_role:
+        one: Konferencijos naudotojo rolė
+        few: Konferencijos naudotojų rolė
+        many: Konferencijos naudotojų rolė
+        other: Konferencijos naudotojų rolė
   decidim:
     admin:
       actions:
@@ -116,6 +128,7 @@ lt:
           success: Konferencijos pranešėjas atnaujintas.
       conference_user_roles:
         create:
+          error: Pridedant administratorių prie konferencijos kilo problema.
           success: Konferencijos administratorius įtrauktas.
         destroy:
           success: Konferencijos administratorius pašalintas.
@@ -174,6 +187,7 @@ lt:
         conferences: Konferencijos
         conferences_submenu:
           attachment_collections: Aplankai
+          attachment_files: Dokumentai
           attachments: Priedai
           categories: Kategorijos
           components: Komponentai
@@ -183,6 +197,7 @@ lt:
           diploma: Dalyvavimo konferencijoje pažymėjimas
           info: Informacija
           media_links: Multimedijos Nuorodos
+          moderations: Moderavimai
           partners: Partneriai
           registration_types: Registracijos tipai
           registrations: Registracijos
@@ -191,11 +206,69 @@ lt:
         conference:
           fields:
             created_at: Sukurta
+            promoted: Paryškinta
             published: Publikuota
             title: Pavadinimas
         conference_speaker:
           fields:
+            affiliation: Organizacija
             full_name: Vardas, pavardė
+            position: Pareigos
+          name: Konferencijos pranešėja(-s)
+        conference_user_role:
+          fields:
+            email: El. paštas
+            name: Vardas
+            role: Rolė
+          name: Konferencijos administratorius
+          roles:
+            admin: Administratorius
+            collaborator: Bendraautorius
+            moderator: Moderatorius
+            valuator: Vertintojas
+        media_link:
+          fields:
+            date: Data
+            link: Nuoroda
+            title: Pavadinimas
+          name: Multimedijos Nuoroda
+        partner:
+          fields:
+            link: Nuoroda
+            logo: Logotipas
+            name: Vardas
+            partner_type: Tipas
+          name: Partneris
+          types:
+            collaborator: Bendraautorius
+            main_promotor: Pagrindinis rėmėjas
+        registration_type:
+          fields:
+            conference_meetings: Konferencijos susirinkimai
+            price: Kaina
+            registrations_count: Registracijų skaičius
+            title: Pavadinimas
+            weight: Vieta eilėje
+          name: Registracijos tipas
+      partners:
+        create:
+          error: Įtraukiant šios konferencijos partnerį iškilo problema.
+          success: Konferencijos partneris įtrauktas.
+        destroy:
+          success: Konferencijos partneris pašalintas.
+        edit:
+          title: Atnaujinti partnerį.
+          update: Atnaujinti
+        new:
+          create: Sukurti
+          title: Naujas partneris
+        update:
+          error: Atnaujinant šios konferencijos partnerį iškilo problema.
+          success: Konferencijos partneris atnaujintas.
+      registration_type_publications:
+        create:
+          error: Skelbiant šį registracijos tipą iškilo problema.
+          success: Registracijos tipas paskelbtas.
       registration_types:
         create:
           success: Konferencijos registracijos tipas pridėtas.
