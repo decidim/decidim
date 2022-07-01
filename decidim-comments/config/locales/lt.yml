@@ -15,8 +15,38 @@ lt:
         few: Komentarai
         many: Komentarai
         other: Komentarai
+      decidim/comments/comment_vote:
+        one: Balsuoti
+        few: Balsai
+        many: Balsai
+        other: Balsai
   decidim:
+    comments:
+      admin:
+        shared:
+          availability_fields:
+            enabled: Komentarai aktyvuoti
+            end_time: Komentarai aktyvuoti iki
+            start_time: Komentarai aktyvuoti nuo
+      comments:
+        create:
+          error: Kuriant šį komentarą iškilo problema.
+        delete:
+          error: Komentaro ištrinti nepavyko.
+      comments_count: Komentarų skaičius
+      comments_title: Komentarai
+      last_activity:
+        new_comment_at_html: "<span>Naujas komentaras %{link}</span>"
+      view: Rodyti
+      votes:
+        create:
+          error: Balsuojant už komentarą iškilo problema.
     components:
+      add_comment_form:
+        account_message: <a href="%{sign_in_url}">Prisijunkite</a>arba<a href="%{sign_up_url}">registruokitės</a>norėdami komentuoti.
+        form:
+          body:
+            label: Komentaras
       comment_order_selector:
         order:
           best_rated: Geriausiai įvertinti
