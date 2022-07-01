@@ -197,7 +197,15 @@ lt:
           fields:
             full_name: Vardas, pavardė
       registration_types:
+        create:
+          success: Konferencijos registracijos tipas pridėtas.
+        destroy:
+          success: Konferencijos registracijos tipas pašalintas.
+        edit:
+          title: Atnaujinti registracijos tipą.
+          update: Atnaujinti
         new:
+          create: Sukurti
           title: Naujas registracijos tipas
         update:
           error: Atnaujinant šios konferencijos registracijos tipą iškilo problema.
@@ -211,6 +219,7 @@ lt:
         send_conference_diplomas: "%{user_name} išsiuntė dalyvavimo konferencijoje pažymėjimus %{resource_name} konferencijos dalyviams"
         unpublish: "%{user_name} panaikino %{resource_name} konferencijos skelbimą"
         update: "%{user_name} atnaujino %{resource_name} konferenciją"
+        update_diploma: "%{user_name} atnaujino %{resource_name} konferencijos dalyvavimo konferencijoje pažymėjimų konfigūraciją"
       conference_speaker:
         create: "%{user_name} sukūrė %{space_name} konferencijos %{resource_name} pranešėją"
         delete: "%{user_name} pašalino %{space_name} konferencijos %{resource_name} pranešėją"
@@ -223,6 +232,7 @@ lt:
         conference_registration:
           confirm: "%{user_name} patvirtino registraciją į %{resource_name} konferenciją"
         partner:
+          create: "%{user_name} sukūrė partnerį %{resource_name} %{space_name} konferencijoje"
           delete: "%{user_name} pašalino partnerį %{resource_name} iš %{space_name} konferencijos"
           update: "%{user_name} atnaujino partnerį %{resource_name} %{space_name} konferencijoje"
     conference_program:
@@ -262,6 +272,10 @@ lt:
         conference_speakers:
           form:
             existing_user: Esamas dalyvis
+            select_user: Pasirinkti dalyvį
+            user_type: Dalyvio tipas
+          index:
+            search: Ieškoti
       conference_registrations:
         create:
           invalid: Jungiantis prie šios konferencijos iškilo problema.
