@@ -95,6 +95,10 @@ module Decidim
       model.instance_of?(::Decidim::UserGroupMembership)
     end
 
+    def user_group?
+      model.instance_of?(::Decidim::UserGroup)
+    end
+
     def stats
       []
     end
