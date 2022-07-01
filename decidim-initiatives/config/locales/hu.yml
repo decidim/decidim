@@ -22,6 +22,7 @@ hu:
         area_enabled: Lehetővé teszi a szerzők számára, hogy kiválasszák a kezdeményezésük területét
         attachments_enabled: Mellékletek engedélyezése
         banner_image: Banner kép
+        child_scope_threshold_enabled: A gyermek hatókör aláírásainak engedélyezése
         collect_user_extra_fields: Személyes adatok gyűjtése az aláíráskor
         comments_enabled: Hozzászólások engedélyezése
         custom_signature_end_date_enabled: Lehetővé teszi a szerzők számára, hogy kiválasszák az aláírásgyűjtési időszak végét
@@ -30,6 +31,7 @@ hu:
         extra_fields_legal_information: Jogi információk a személyes adatok gyűjtéséről
         minimum_committee_members: Bizottsági tagok minimális száma
         online_signature_enabled: Online aláírás engedélyezve
+        only_global_scope_enabled: Csak globális hatókörű kezdeményezések létrehozását engedélyezze
         promoting_committee_enabled: Előléptetési bizottság engedélyezése
         title: Cím
         undo_online_signatures_enabled: Engedélyezze a felhasználók számára az online aláírások visszavonását
@@ -127,6 +129,7 @@ hu:
             initiative_title: Kezdeményezés címe
             name_and_surname: Keresztnév és Vezetéknév
             postal_code: Irányítószám
+            scope: Hatókör
             time_and_date: Idő és dátum
             timestamp: Időbélyeg
       titles:
@@ -165,6 +168,7 @@ hu:
           email_intro: A(z) %{resource_title} kezdeményezés elérte a támogatási küszöböt
           email_outro: Ezt az értesítést kaptad, mert te vagy a platform adminja.
           email_subject: Támogatási küszöb elérve
+          notification_title: A(z) <a href="%{resource_path}">%{resource_title}</a> kezdeményezés elérte a támogatási küszöböt
     gamification:
       badges:
         initiatives:
