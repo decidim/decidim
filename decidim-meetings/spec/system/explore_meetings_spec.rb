@@ -47,7 +47,7 @@ describe "Explore meetings", :slow, type: :system do
         end
       end
 
-      context "when there are withrawn meetings" do
+      context "when there are withdrawn meetings" do
         let!(:withdrawn_meetings) { create_list(:meeting, 3, :withdrawn, :published, component: component) }
 
         before do
