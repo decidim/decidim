@@ -1,0 +1,29 @@
+<div class="bg-background">
+  <div class="container">
+    <div class="lg:w-2/3 mx-auto flex flex-col items-center md:items-start md:flex-row justify-between py-6 md:py-12 gap-6">
+      <div class="flex-none">
+        <%= render :avatar %>
+      </div>
+      <div class="grow divide-y divide-gray-3">
+        <%= render :details %>
+      </div>
+      <div class="max-w-fit flex md:flex-col gap-4">
+        <%= render :buttons %>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="bg-background">
+  <div class="container">
+    <ul class="lg:w-2/3 mx-auto flex justify-between text-gray-2">
+      <%= render :tabs %>
+    </ul>
+  </div>
+</div>
+<div class="border-t-2 border-gray-3 -mt-0.5">
+  <div class="container">
+    <div class="lg:w-2/3 mx-auto py-6 md:py-12">
+      <%= cell content_cell, profile_holder, context %>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,11 @@
+<div class="w-24 h-24 relative">
+  <div class="w-full h-full rounded-full overflow-hidden drop-shadow-md border-2 border-white">
+    <img class="w-full h-full object-cover" src="<%#= profile_holder.avatar_url(:profile) %>" />
+  </div>
+
+  <%# if profile_holder.badge.present? %>
+    <div class="absolute top-full right-0 -translate-y-full grid place-items-center w-6 h-6 rounded-full overflow-hidden bg-primary border border-white">
+      <%= icon "star-s-fill", class: "w-4 h-4 text-white fill-current" %>
+    </div>
+  <%# end %>
+</div>

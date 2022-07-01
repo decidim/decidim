@@ -117,8 +117,6 @@ Decidim::Core::Engine.routes.draw do
     get "groups", to: "profiles#groups", as: "profile_groups"
     get "members", to: "profiles#members", as: "profile_members"
     get "activity", to: "user_activities#index", as: "profile_activity"
-    # deprecated
-    # get "timeline", to: "user_timeline#index", as: "profile_timeline"
     resources :conversations, except: [:destroy], controller: "user_conversations", as: "profile_conversations"
   end
 
