@@ -85,6 +85,15 @@ lt:
           update:
             invalid: Atnaujinant šį projektą iškilo problema
             success: Projektas atnaujintas
+        proposals_imports:
+          create:
+            invalid: Importuojant pasiūlymus į projektus kilo problema
+            success: "%{number} pasiūlymai sėkmingai įkelti į projektus"
+          new:
+            create: Importuoti pasiūlymus į projektus
+            no_components: Nėra kitų pasiūlymų komponentų šioje dalyvaujamojoje erdvėje, kuriuos būtų galima importuoti į projektus.
+            select_component: Pasirinkite komponentą
+            title: Importuoti pasiūlymus
       budgets_list:
         voted_on: Jūs balsavote dėl %{links}
       limit_announcement:
