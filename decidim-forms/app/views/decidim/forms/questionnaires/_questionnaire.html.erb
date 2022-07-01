@@ -53,11 +53,11 @@
 
       <div class="answer-questionnaire__footer">
         <% if step_index + 1 == @form.total_steps %>
-          <% if !show_represent_user_group? %>
+          <% if show_represent_user_group? %>
             <%= cell("decidim/represent_user_group", form) %>
           <% end %>
 
-          <% if !show_public_participation? %>
+          <% if show_public_participation? %>
             <%= cell("decidim/public_participation", form) %>
           <% end %>
 
