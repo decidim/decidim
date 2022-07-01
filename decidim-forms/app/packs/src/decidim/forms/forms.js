@@ -27,7 +27,7 @@ $(() => {
     }
   });
 
-  $(".sortable-check-box-collection").each((idx, el) => {
+  $(".js-sortable-check-box-collection").each((idx, el) => {
     createAutosortableCheckboxes({
       wrapperField: $(el)
     })

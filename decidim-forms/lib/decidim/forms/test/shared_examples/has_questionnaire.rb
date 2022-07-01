@@ -557,7 +557,7 @@ shared_examples_for "has questionnaire" do
       it "renders the question answers as a collection of check boxes sortable on click" do
         visit questionnaire_public_path
 
-        expect(page).to have_selector(".sortable-check-box-collection input[type=checkbox]", count: 5)
+        expect(page).to have_selector(".js-sortable-check-box-collection input[type=checkbox]", count: 5)
 
         expect(page).to have_content("chocolate\nlike\nWe\ndark\nall")
 
