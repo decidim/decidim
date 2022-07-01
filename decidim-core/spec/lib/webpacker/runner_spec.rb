@@ -57,6 +57,11 @@ module Webpacker
           "stylesheets/decidim/initiatives/initiatives"
         )
       end
+
+      it "calls css compiler generate runtime configuration" do
+        expect(Decidim::CssCompiler::Tailwind).to receive(:write_runtime_configuration)
+        create_instance
+      end
     end
 
     private

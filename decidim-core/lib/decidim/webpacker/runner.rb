@@ -16,6 +16,11 @@ module Decidim
       private
 
       def decidim_initialize(_argv)
+        # Write runtime configuration for tailwind
+        # This method is called here because in Decidim CSS compilation is done via Webpack.
+        # If CSS is decoupled from JS in the future, this call should be removed.
+        Decidim::CssCompiler::Tailwind.write_runtime_configuration
+
         # Write the runtime configuration and override the configuration
         @webpacker_config = Decidim::Webpacker.configuration.configuration_file
       end
