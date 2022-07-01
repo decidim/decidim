@@ -41,13 +41,11 @@ module Decidim
       end
 
       def filter_date_values
-        TreeNode.new(
-          TreePoint.new("", t("decidim.meetings.meetings.filters.date_values.all")),
-          [
-            TreePoint.new("upcoming", t("decidim.meetings.meetings.filters.date_values.upcoming")),
-            TreePoint.new("past", t("decidim.meetings.meetings.filters.date_values.past"))
-          ]
-        )
+        [
+          ["all", t("decidim.meetings.meetings.filters.date_values.all")],
+          ["upcoming", t("decidim.meetings.meetings.filters.date_values.upcoming")],
+          ["past", t("decidim.meetings.meetings.filters.date_values.past")]
+        ]
       end
 
       # Options to filter meetings by activity.

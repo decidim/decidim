@@ -207,7 +207,12 @@ describe "Explore meetings", :slow, type: :system do
       end
 
       context "when filtering by date" do
-        let!(:past_meeting) { create(:meeting, :published, component: component, start_time: 1.day.ago) }
+        let!(:past_meeting1) { create(:meeting, :published, component: component, start_time: 1.week.ago) }
+        let!(:past_meeting2) { create(:meeting, :published, component: component, start_time: 3.months.ago) }
+        let!(:past_meeting3) { create(:meeting, :published, component: component, start_time: 2.days.ago) }
+        let!(:upcoming_meeting1) { create(:meeting, :published, component: component, start_time: 1.week.from_now) }
+        let!(:upcoming_meeting2) { create(:meeting, :published, component: component, start_time: 3.months.from_now) }
+        let!(:upcoming_meeting3) { create(:meeting, :published, component: component, start_time: 2.days.from_now) }
 
         it "lists filtered meetings" do
           visit_component
@@ -216,28 +221,36 @@ describe "Explore meetings", :slow, type: :system do
             choose "Past"
           end
 
-          expect(page).to have_css(".card--meeting", count: 1)
-          expect(page).to have_content(translated(past_meeting.title))
+          expect(page).to have_css(".card--meeting", count: 3)
+          expect(page).to have_content(translated(past_meeting1.title))
+          expect(page).not_to have_content(translated(upcoming_meeting1.title))
 
           within ".with_any_date_collection_radio_buttons_filter" do
             choose "Upcoming"
           end
 
-          expect(page).to have_css(".card--meeting", count: 5)
+          expect(page).to have_content(translated(upcoming_meeting1.title))
+          expect(page).not_to have_content(translated(past_meeting1.title))
+
+          expect(page).to have_css(".card--meeting", count: 8)
+
+          within ".with_any_date_collection_radio_buttons_filter" do
+            choose "All"
+          end
+
+          expect(page).to have_css(".card--meeting", count: 8)
+          expect(page).to have_content(translated(past_meeting1.title))
+          expect(page).to have_content(translated(upcoming_meeting1.title))
         end
 
         context "when there are multiple past meetings" do
-          let!(:past_meeting1) { create(:meeting, :published, component: component, start_time: 1.week.ago) }
-          let!(:past_meeting2) { create(:meeting, :published, component: component, start_time: 3.months.ago) }
-          let!(:past_meeting3) { create(:meeting, :published, component: component, start_time: 2.days.ago) }
-
           it "orders them by start date" do
             visit_component
             within ".with_any_date_collection_radio_buttons_filter" do
               choose "Past"
             end
 
-            expect(page).to have_css("#meetings-count", text: "4 MEETINGS")
+            expect(page).to have_css("#meetings-count", text: "3 MEETINGS")
 
             result = page.find("#meetings .card-grid").text
             expect(result.index(translated(past_meeting3.title))).to be < result.index(translated(past_meeting1.title))
@@ -246,10 +259,6 @@ describe "Explore meetings", :slow, type: :system do
         end
 
         context "when there are multiple upcoming meetings" do
-          let!(:upcoming_meeting1) { create(:meeting, :published, component: component, start_time: 1.week.from_now) }
-          let!(:upcoming_meeting2) { create(:meeting, :published, component: component, start_time: 3.months.from_now) }
-          let!(:upcoming_meeting3) { create(:meeting, :published, component: component, start_time: 2.days.from_now) }
-
           it "orders them by start date" do
             visit_component
             within ".with_any_date_collection_radio_buttons_filter" do
@@ -259,6 +268,24 @@ describe "Explore meetings", :slow, type: :system do
             expect(page).to have_css("#meetings-count", text: "8 MEETINGS")
 
             result = page.find("#meetings .card-grid").text
+            expect(result.index(translated(upcoming_meeting3.title))).to be < result.index(translated(upcoming_meeting1.title))
+            expect(result.index(translated(upcoming_meeting1.title))).to be < result.index(translated(upcoming_meeting2.title))
+          end
+        end
+
+        context "when there are multiple meetings" do
+          it "orders them by start date" do
+            visit_component
+            within ".with_any_date_collection_radio_buttons_filter" do
+              choose "All"
+            end
+
+            expect(page).to have_css("#meetings-count", text: "11 MEETINGS")
+
+            result = page.find("#meetings .card-grid").text
+            expect(result.index(translated(past_meeting2.title))).to be < result.index(translated(past_meeting1.title))
+            expect(result.index(translated(past_meeting1.title))).to be < result.index(translated(past_meeting3.title))
+            expect(result.index(translated(past_meeting2.title))).to be < result.index(translated(upcoming_meeting1.title))
             expect(result.index(translated(upcoming_meeting3.title))).to be < result.index(translated(upcoming_meeting1.title))
             expect(result.index(translated(upcoming_meeting1.title))).to be < result.index(translated(upcoming_meeting2.title))
           end

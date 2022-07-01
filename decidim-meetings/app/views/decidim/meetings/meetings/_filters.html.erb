@@ -17,7 +17,7 @@
   <%= form.hidden_field "with_availability", value: params.dig("filter", "with_availability") %>
 
   <% unless @forced_past_meetings %>
-    <%= form.collection_radio_buttons :with_any_date, [["upcoming", t(".date_values.upcoming")], ["past", t(".date_values.past")]], :first, :last, legend_title: t(".date") %>
+    <%= form.collection_radio_buttons :with_any_date, filter_date_values, :first, :last, legend_title: t(".date") %>
   <% end %>
 
   <%= form.check_boxes_tree :with_any_type, filter_type_values, legend_title: t(".type") %>

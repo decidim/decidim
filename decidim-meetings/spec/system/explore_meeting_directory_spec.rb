@@ -235,26 +235,33 @@ describe "Explore meeting directory", type: :system do
   end
 
   describe "date filter" do
-    context "when there's a past meeting" do
-      let!(:past_meeting) { create(:meeting, :published, component: components.last, start_time: 1.week.ago) }
+    let!(:past_meeting1) { create(:meeting, :published, component: components.last, start_time: 1.week.ago) }
+    let!(:past_meeting2) { create(:meeting, :published, component: components.last, start_time: 3.months.ago) }
+    let!(:past_meeting3) { create(:meeting, :published, component: components.last, start_time: 2.days.ago) }
+    let!(:upcoming_meeting1) { create(:meeting, :published, component: components.last, start_time: 1.week.from_now) }
+    let!(:upcoming_meeting2) { create(:meeting, :published, component: components.last, start_time: 3.months.from_now) }
+    let!(:upcoming_meeting3) { create(:meeting, :published, component: components.last, start_time: 2.days.from_now) }
 
-      it "allows filtering by past meetings" do
+    context "with all meetings" do
+      it "orders them by start date" do
         visit directory
 
         within ".with_any_date_collection_radio_buttons_filter" do
-          choose "Past"
+          choose "All"
         end
 
-        expect(page).to have_css("#meetings-count", text: "1 MEETING")
-        expect(page).to have_content(translated(past_meeting.title))
+        expect(page).to have_css("#meetings-count", text: "12 MEETINGS")
+
+        result = page.find("#meetings .card-grid").text
+        expect(result.index(translated(past_meeting2.title))).to be < result.index(translated(past_meeting1.title))
+        expect(result.index(translated(past_meeting1.title))).to be < result.index(translated(past_meeting3.title))
+        expect(result.index(translated(past_meeting2.title))).to be < result.index(translated(upcoming_meeting1.title))
+        expect(result.index(translated(upcoming_meeting3.title))).to be < result.index(translated(upcoming_meeting1.title))
+        expect(result.index(translated(upcoming_meeting1.title))).to be < result.index(translated(upcoming_meeting2.title))
       end
     end
 
-    context "when there are multiple past meetings" do
-      let!(:past_meeting1) { create(:meeting, :published, component: components.last, start_time: 1.week.ago) }
-      let!(:past_meeting2) { create(:meeting, :published, component: components.last, start_time: 3.months.ago) }
-      let!(:past_meeting3) { create(:meeting, :published, component: components.last, start_time: 2.days.ago) }
-
+    context "with past meetings" do
       it "orders them by start date" do
         visit directory
 
@@ -270,11 +277,7 @@ describe "Explore meeting directory", type: :system do
       end
     end
 
-    context "when there are multiple upcoming meetings" do
-      let!(:upcoming_meeting1) { create(:meeting, :published, component: components.last, start_time: 1.week.from_now) }
-      let!(:upcoming_meeting2) { create(:meeting, :published, component: components.last, start_time: 3.months.from_now) }
-      let!(:upcoming_meeting3) { create(:meeting, :published, component: components.last, start_time: 2.days.from_now) }
-
+    context "with upcoming meetings" do
       it "orders them by start date" do
         visit directory
 
