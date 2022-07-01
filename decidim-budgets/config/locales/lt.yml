@@ -94,6 +94,13 @@ lt:
             no_components: Nėra kitų pasiūlymų komponentų šioje dalyvaujamojoje erdvėje, kuriuos būtų galima importuoti į projektus.
             select_component: Pasirinkite komponentą
             title: Importuoti pasiūlymus
+      admin_log:
+        budget:
+          create: "%{user_name} sukūrė %{resource_name} biudžetą %{space_name} erdvėje"
+          delete: "%{user_name} ištrynė %{resource_name} biudžetą %{space_name} erdvėje"
+          update: "%{user_name} atnaujino %{resource_name} biudžetą %{space_name} erdvėje"
+        project:
+          create: "%{user_name} sukūrė %{resource_name} projektą %{space_name} erdvėje"
       budgets_list:
         voted_on: Jūs balsavote dėl %{links}
       limit_announcement:
