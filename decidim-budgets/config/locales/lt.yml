@@ -101,6 +101,25 @@ lt:
             pending_orders: Balsai laukiantys patvirtinimo
             select_for_implementation: Pasirinkti
             selected: Pasirinkta
+            title: Projektai
+            update: Atnaujinimas
+            update_scope_button: Atnaujinti sritį
+          new:
+            create: Sukurti
+            title: Naujas projektas
+          update:
+            invalid: Atnaujinant šį projektą iškilo problema
+            success: Projektas atnaujintas
+          update_category:
+            invalid: 'Šie projektai turi %{subject_name} kategoriją: %{projects}.'
+            select_a_category: Pasirinkite kategoriją
+            select_a_project: Pasirinkite projektą
+            success: 'Projektai sėkmingai atnaujinti %{subject_name} kategorijoje: %{projects}.'
+          update_scope:
+            invalid: 'Šie projektai jau turi %{subject_name} sritį: %{projects}.'
+            select_a_project: Pasirinkite projektą
+            select_a_scope: Pasirinkite sritį
+            success: 'Projektai sėkmingai atnaujinti %{subject_name} srityje: %{projects}.'
       budgets_list:
         show: Peržiūrėti projektus
         vote: Balsuoti
