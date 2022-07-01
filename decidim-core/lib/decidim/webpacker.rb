@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require "decidim/webpacker/thread_safe_compiler"
+require "decidim/css_compiler"
 
 module Decidim
   module Webpacker
