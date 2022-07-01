@@ -216,3 +216,7 @@ lt:
           main_promotors: Organizatoriai
         show:
           login_as: Jūs prisijungėte kaip %{name} <%{email}>
+      models:
+        conference_invite:
+          fields:
+            email: El. paštas
