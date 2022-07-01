@@ -121,6 +121,19 @@
     }
   }
 
+  &__multiple-option,
+  &__single-option{
+    @apply text-gray-2 space-y-4;
+
+    label{
+      @apply flex cursor-pointer;
+    }
+
+    label + *{
+      @apply mt-2 w-full;
+    }
+  }
+
   // label{
   //   font-size: inherit;
   // }

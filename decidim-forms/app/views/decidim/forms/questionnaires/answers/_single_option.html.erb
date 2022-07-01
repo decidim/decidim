@@ -1,4 +1,4 @@
-<div class="radio-button-collection">
+<div class="answer-questionnaire__single-option radio-button-collection">
   <% choice = answer.choices.first %>
 
   <% answer.question.answer_options.each_with_index do |answer_option, idx| %>
@@ -21,10 +21,10 @@
 
       <% if answer_option.free_text %>
         <%= text_field_tag "questionnaire[responses][#{answer_idx}][choices][][custom_body]",
-        choice.try(:custom_body),
-        id: "#{choice_id}_custom_body",
-        disabled: true,
-        maxlength: maxlength %>
+            choice.try(:custom_body),
+            id: "#{choice_id}_custom_body",
+            disabled: true,
+            maxlength: maxlength %>
       <% end %>
     </div>
   <% end %>
