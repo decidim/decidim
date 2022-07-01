@@ -121,7 +121,25 @@ lt:
           create: "%{user_name} sukūrė %{resource_name} projektą %{space_name} erdvėje"
           delete: "%{user_name} ištrynė %{resource_name} projektą %{space_name} erdvėje"
           update: "%{user_name} atnaujino %{resource_name} projektą %{space_name} erdvėje"
+      budget:
+        view: Peržiūrėti visus biudžeto projektus
+      budget_information_modal:
+        back_to: Atgal į %{component_name}
+        close_modal: Uždaryti modalinį langą
+        continue: Tęsti
+        more_information: Daugiau informacijos
+      budget_list_item:
+        voting_finished: Balsavote šiame biudžete
+        voting_started: Pradėjote balsuoti šiame biudžete
       budgets_list:
+        cancel_order:
+          more_than_one: ištrinkite balsą %{name} ir pradėkite iš naujo
+          only_one: ištrinti balsą ir pradėti iš naujo.
+        finished_message: Jūs baigėte balsuoti. Dėkojame už dalyvavimą!
+        highlighted_cta: Balsuoti dėl %{name}
+        if_change_opinion: Jeigu persigalvojote, galite
+        my_budgets: Mano biudžetai
+        progress: Baigti balsavimą
         show: Peržiūrėti projektus
         vote: Balsuoti
         voted_on: Jūs balsavote dėl %{links}
