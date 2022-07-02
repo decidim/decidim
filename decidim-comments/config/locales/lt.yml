@@ -83,6 +83,9 @@ lt:
           close: Uždaryti
           description: Ar šis turinys netinkamas?
           details: Papildomi komentarai
+          reasons:
+            does_not_belong: Pateikta informacija susijusi su neteisėta veikla, savižudybe, asmenine ar kita informacija netinkančia %{organization_name}.
+            offensive: Pateikiamoje informacijoje yra rasizmo, seksizmo, keiksmažodžių, asmeninių atakų, grasinimų ar kitokios neapykantos kalbos.
       comment_order_selector:
         order:
           best_rated: Geriausiai įvertinti
