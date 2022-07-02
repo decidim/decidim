@@ -49,6 +49,40 @@ lt:
           body:
             label: Komentaras
             placeholder: Ką manote apie tai?
+          form_error: Tekstas būtinais ir negali viršyti %{length} simbolių.
+          submit: Publikuoti
+          user_group_id:
+            label: Komentuoti kaip
+        opinion:
+          label: Jūsų nuomonė šiuo klausimu
+          negative: Negatyvi
+          negative_selected: Jūsų nuomonė apie šią temą yra negatyvi
+          neutral: Neutrali
+          neutral_selected: Jūsų nuomonė apie šią temą yra neutrali
+          positive: Pozityvi
+          positive_selected: Jūsų nuomonė apie šią temą yra pozityvi
+        remaining_characters: "Liko %{count} simbolių"
+        remaining_characters_1: "Liko %{count} simbolių"
+        title: Pridėti komentarą
+      comment:
+        alignment:
+          against: Prieš
+          in_favor: Už
+        confirm_destroy: Ar tikrai norite ištrinti šį komentarą?
+        delete: Ištrinti
+        deleted_at: Komentaras ištrintas %{date}
+        deleted_user: Ištrintas dalyvis
+        edit: Redaguoti
+        edited: Redaguota
+        hide_replies: Paslėpti atsakymus
+        moderated_at: Komentaras moderuotas %{date}
+        reply: Atsakyti
+        report:
+          action: Raportuoti
+          already_reported: Šis turinys jau praneštas ir bus peržiūrėtas administratoriaus.
+          close: Uždaryti
+          description: Ar šis turinys netinkamas?
+          details: Papildomi komentarai
       comment_order_selector:
         order:
           best_rated: Geriausiai įvertinti
