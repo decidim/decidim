@@ -48,6 +48,7 @@ lt:
         form:
           body:
             label: Komentaras
+            placeholder: Ką manote apie tai?
       comment_order_selector:
         order:
           best_rated: Geriausiai įvertinti
