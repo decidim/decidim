@@ -399,9 +399,12 @@ hu:
         copy_calendar_url_clarification: Naptár URL másolása a vágólapra
         copy_calendar_url_copied: Lemásolva!
         copy_calendar_url_description: Az összes közzétett találkozót láthatja a naptáralkalmazásában vagy naptárszolgáltatónál (pl Google Calendar). Másolja ki és illessze be ezt az URL-címet a naptárába az "Új naptár hozzáadása URL-címről" opcióval.
+        copy_calendar_url_explanation: Kérjük, vegye figyelembe, hogy a kiválasztott találkozókat exportálja. Ha az összeset exportálni szeretné, először állítsa vissza az összes szűrőt.
+        copy_calendar_url_message: A hivatkozás vágólapra másolása sikeres.
         export_calendar: Naptár exportálása
       close_meeting_reminder_mailer:
         close_meeting_reminder:
+          body: A találkozó <a href="%{meeting_path}">%{meeting_title}</a> lezárásra vár. A "találkozó lezárása" gomb segítségével adjon jelentést a megbeszélésről.
           greetings: Üdvözöljük <br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
           hello: Hello %{username},
           subject: Lezárhatja a megbeszélést a %{organization_name} platformon beküldött jelentéssel
@@ -430,6 +433,8 @@ hu:
         new_meeting_at_html: "<span>Új találkozó %{link}</span>kor"
       layouts:
         live_event:
+          administrate: Admin
+          close: bezár
           questions: Kérdések
       mailer:
         invite_join_meeting_mailer:
@@ -440,10 +445,36 @@ hu:
             subject: A találkozód regisztrációját megerősítették
       meeting:
         not_allowed: Nincs jogosultságod a találkozó megtekintésére
+      meeting_closes:
+        edit:
+          back: Vissza
+          close: Találkozó lezárása
+          title: Találkozó lezárása
       meetings:
+        calendar_modal:
+          add_to_calendar: Hozzáadás a naptárhoz
+          apple: Küldés Apple Naptárba
+          close_window: Ablak bezárása
+          full_details_html: Az összes részletet itt találja %{link}
+          google: Hozzáadás a Google naptárhoz
+          outlook: Hozzáadás az Outlook naptárhoz
+        create:
+          invalid: Probléma történt a találkozó létrehozása során.
+          success: Sikeresen létrehoztad a találkozót.
+        edit:
+          back: Vissza
+          title: A találkozód szerkesztése
+          update: Frissítés
         filters:
+          activity: Tevékenységeim
+          all: Összes
           category: Kategória
           date: Dátum
+          date_values:
+            all: Összes
+            past: Korábban
+            upcoming: Közelgő
+          my_meetings: Találkozóim
           origin_values:
             participants: Résztvevők
           search: Keresés
