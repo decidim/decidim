@@ -346,6 +346,7 @@ hu:
           form:
             available_slots_help: Hagyd "0" értéken, ha a jelentkezők száma korlátlan.
             invites: Meghívók
+            recommendation_message: Adatvédelmi okokból javasoljuk, hogy törölje ezt az űrlapot, ha már nincs rá szüksége. Alapértelmezés szerint ez 3 hónap az ülés végét követően.
             registration_form: Regisztrációs űrlap
             registrations_count:
               one: '%{count} regisztráció volt.'
@@ -392,7 +393,11 @@ hu:
             search: Keresés
             space_type: Részvételi hely
       last_activity:
+        meeting_updated_at_html: "<span>Találkozó frissítve %{link}</span>"
         new_meeting_at_html: "<span>Új találkozó %{link}</span>kor"
+      layouts:
+        live_event:
+          questions: Kérdések
       mailer:
         invite_join_meeting_mailer:
           invite:
