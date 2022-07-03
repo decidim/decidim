@@ -351,6 +351,7 @@ hu:
           form:
             available_slots_help: Hagyd "0" értéken, ha a jelentkezők száma korlátlan.
             invites: Meghívók
+            recommendation_message: Adatvédelmi okokból javasoljuk, hogy törölje ezt az űrlapot, ha már nincs rá szüksége. Alapértelmezés szerint ez 3 hónap az ülés végét követően.
             registration_form: Regisztrációs űrlap
             registrations_count:
               one: '%{count} regisztráció volt.'
@@ -378,6 +379,13 @@ hu:
           value_types:
             organizer_presenter:
               not_found: 'A szervező nem található az adatbázisban (ID: %{id})'
+      application_helper:
+        filter_category_values:
+          all: Összes
+        filter_meeting_space_values:
+          all: Összes
+        filter_scope_values:
+          all: Összes
       calendar_modal:
         calendar_url: Naptár URL
         close_window: Ablak bezárása
@@ -385,6 +393,8 @@ hu:
       conference_venues: Konferencia helyszínek
       content_blocks:
         upcoming_meetings:
+          name: Közelgő találkozók
+          upcoming_meetings: Közelgő találkozók
           view_all_meetings: Összes megtekintése
       directory:
         meetings:
@@ -401,7 +411,11 @@ hu:
         open_in_live_event_page: Megnyitás az élő esemény oldalán (opcionális szavazásokkal)
         open_in_new_tab: Megnyitás új fülön
       last_activity:
+        meeting_updated_at_html: "<span>Találkozó frissítve %{link}</span>"
         new_meeting_at_html: "<span>Új találkozó %{link}</span>kor"
+      layouts:
+        live_event:
+          questions: Kérdések
       mailer:
         invite_join_meeting_mailer:
           invite:
