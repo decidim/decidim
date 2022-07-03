@@ -415,6 +415,8 @@ hu:
         new_meeting_at_html: "<span>Új találkozó %{link}</span>kor"
       layouts:
         live_event:
+          administrate: Admin
+          close: bezár
           questions: Kérdések
       mailer:
         invite_join_meeting_mailer:
@@ -425,10 +427,36 @@ hu:
             subject: A találkozód regisztrációját megerősítették
       meeting:
         not_allowed: Nincs jogosultságod a találkozó megtekintésére
+      meeting_closes:
+        edit:
+          back: Vissza
+          close: Találkozó lezárása
+          title: Találkozó lezárása
       meetings:
+        calendar_modal:
+          add_to_calendar: Hozzáadás a naptárhoz
+          apple: Küldés Apple Naptárba
+          close_window: Ablak bezárása
+          full_details_html: Az összes részletet itt találja %{link}
+          google: Hozzáadás a Google naptárhoz
+          outlook: Hozzáadás az Outlook naptárhoz
+        create:
+          invalid: Probléma történt a találkozó létrehozása során.
+          success: Sikeresen létrehoztad a találkozót.
+        edit:
+          back: Vissza
+          title: A találkozód szerkesztése
+          update: Frissítés
         filters:
+          activity: Tevékenységeim
+          all: Összes
           category: Kategória
           date: Dátum
+          date_values:
+            all: Összes
+            past: Korábban
+            upcoming: Közelgő
+          my_meetings: Találkozóim
           origin_values:
             citizens: Polgárok
           search: Keresés
