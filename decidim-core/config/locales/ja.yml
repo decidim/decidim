@@ -334,6 +334,7 @@ ja:
         other: コメント
       endorsements:
         other: オススメ
+      official_author: 公式
     authorization_handlers:
       another_dummy_authorization_handler:
         explanation: '「A」で始まるパスポート番号を入力して確認する'
@@ -1620,6 +1621,8 @@ ja:
         confirm_new_password: 新しいパスワードを確認
         new_password: 新しいパスワード
         password_help: "半角英数字%{minimun_characters}文字以上で入力してください。単純すぎてはいけません（例：123456）。アカウントIDやメールアドレスと異なる必要があります。"
+        password_help_admin: "%{minimun_characters} 文字以上であり、過度に一般的ではない文字列 (例: 123456)ではなく, あなたのニックネームやあなたの電子メール、そしてあなたの古いパスワードと異なる文字列を指定してください。"
+        title: パスワードの変更
       new:
         forgot_your_password: パスワードをお忘れですか？
         send_me_reset_password_instructions: パスワードリセット手順を送信してください
@@ -1820,6 +1823,7 @@ ja:
     nickname_included_in_password: ニックネームに類似しすぎています
     not_enough_unique_characters: ユニークな文字が十分ではありません
     password_not_allowed: は許可されていません
+    password_repeated: 古いパスワードは再利用できません
     password_too_common: あまりにも一般的です
     password_too_long: 長すぎます
     password_too_short: 短すぎます
