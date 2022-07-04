@@ -144,6 +144,8 @@ hu:
         per_page: Oldalanként
         permissions: Engedélyek
         reject: Elutasít
+        user:
+          new: Új felhasználó
         verify: Ellenőrzés
       admin_terms_of_use:
         accept:
@@ -390,15 +392,21 @@ hu:
           impersonate_existing_user: '"%{name}" felhasználó kezelése'
           impersonate_new_managed_user: Új résztvevő kezelése
       imports:
+        creators:
+          proposalcreator: Javaslat létrehozója
+        help:
+          proposalcreator: A fájlnak title/en és body/en (vagy egy másik, általad preferált nyelvterület, pl. title/ca és body/ca) oszlopnevekkel kell rendelkeznie. A scope/id és category/id oszlopok is támogatottak.
         import_from_file: Importálás fájlból
         invalid_lines: Hiba található a(z) erőforrásban %{invalid_lines}
         new:
           accepted_mime_types:
             csv: csv
             json: json
+            xlsx: xlsx
           actions:
             back: Vissza
           import: Import
+        notice: "%{number} %{resource_name} sikeresen importálva"
       logs:
         logs_list:
           no_logs_yet: Még nincsenek naplók
@@ -503,6 +511,10 @@ hu:
             phone: Telefon
             state: Állapot
             users_count: Résztvevők száma
+      moderated_users:
+        index:
+          actions:
+            block: Felhasználó tiltása
       moderations:
         index:
           title: Moderálás
