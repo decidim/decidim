@@ -10,6 +10,7 @@ module Decidim
     include ActiveLinkTo
 
     delegate :current_organization, :current_user, :user_groups_enabled?, to: :controller
+    delegate :avatar_url, :nickname, :personal_url, :followers_count, :following_count, to: :presented_profile
 
     TABS_ITEMS = {
       activity: { icon: "bubble-chart-line", path: :profile_activity_path },
@@ -30,6 +31,10 @@ module Decidim
 
     def profile_holder
       model
+    end
+
+    def presented_profile
+      present(profile_holder)
     end
 
     def content_cell
