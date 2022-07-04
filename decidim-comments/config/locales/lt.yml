@@ -172,3 +172,6 @@ lt:
         description: Komentarų sugeneruotų dalyvių skaičius
         object: komentarai
         title: Komentarai
+  errors:
+    messages:
+      cannot_have_comments: negali būti komentuota
