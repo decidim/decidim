@@ -92,6 +92,7 @@ hu:
           origin_eq:
             values:
               citizen: Polgár
+              official: Hivatalos
               user_group: Felhasználói csoportok
           scope_id_eq:
             label: Hatókör
@@ -99,6 +100,7 @@ hu:
             label: Értekezlet típusa
             values:
               in_person: Személyesen
+              online: Online
       meeting_copies:
         create:
           error: Hiba történt a találkozó duplikálása során.
@@ -296,6 +298,7 @@ hu:
             update: Frissítés
           form:
             address_help: 'Cím: Geocoder használata a helymeghatározáshoz'
+            available_slots_help: Hagyd "0" értéken, ha a jelentkezők száma korlátlan
             disclaimer: 'Jogi nyilatkozat: Egy külső regisztrációs rendszer használatával Ön tudatában van annak, hogy a %{organization} szervezői nem felelősek a felhasználók által a külső szolgáltatásnak megadott adatokért.'
             location_help: 'Helyszín: üzenet az adott felhasználóknak a találkozó helyéről'
             location_hints_help: 'Helyszíni tippek: további információk. Példa: az épület emelete ha személyes találkozóról van szó, vagy a találkozó jelszava, ha korlátozott hozzáféréssel rendelkező online találkozóról van szó.'
@@ -442,14 +445,26 @@ hu:
             upcoming: Közelgő
           my_meetings: Találkozóim
           origin_values:
+            all: Összes
             citizens: Polgárok
+            official: Hivatalos
+            user_groups: Csoportok
+          scope: Hatókör
           search: Keresés
+          type: Típus
+          type_values:
+            all: Összes
+            in_person: Személyes
+            online: Online
         filters_small_view:
           close_modal: Modal bezárása
           filter: Szűrő
           filter_by: 'Szűrés ez alapján:'
           unfold: Kibont
         form:
+          address_help: 'Cím: Geocoder használata a helymeghatározáshoz'
+          available_slots_help: Hagyd "0" értéken, ha a jelentkezők száma korlátlan
+          create_as: Ülés létrehozása mint
           show_embedded_iframe_help: Beágyazza-e az iframe-et ehhez a videokonferencia URL-hez. Csak néhány szolgáltatás engedélyezi a beágyazást (például Youtube, Twitch...)
         meeting_minutes:
           related_information: Kapcsolódó információ
@@ -495,12 +510,23 @@ hu:
             map: Térkép
             start_time: Kezdő dátum
             title: Cím
+      polls:
+        questions:
+          published_question:
+            question_replied: Kérdés megválaszolva
+            reply_question: Válasz a kérdésre
+      public_participants_list:
+        attending_participants: Résztvevők
       read_more: "(bővebben)"
       registration_mailer:
         confirmation:
           confirmed_html: Regisztrációd a(z) <a href="%{url}">%{title}</a> találkozóra megerősítve.
           details: A találkozó részletei megtalálhatók a mellékletben.
           registration_code: 'Regisztrációs kódod: %{code}.'
+      registration_type:
+        on_different_platform: Egy másik platformon
+        on_this_platform: Ezen a platformon
+        registration_disabled: Regisztráció kikakpcsolva
       registrations:
         create:
           invalid: Probléma történt a találkozóhoz való csatlakozáskor.
@@ -511,9 +537,14 @@ hu:
         destroy:
           invalid: Probléma történt a találkozó elhagyása közben.
           success: Sikeresen elhagytad a találkozót.
+      type_of_meeting:
+        in_person: Személyesen
+        online: Online
       types:
         private_meeting: Privát találkozó
         transparent: Átlátszó
+      versions:
+        back_to_resource: Vissza a találkozóhoz
     metrics:
       meetings:
         description: A létrehozott találkozók száma
@@ -533,6 +564,8 @@ hu:
       proposals_from_meeting:
         meeting_proposal: 'Kapcsolódó javaslatok:'
         proposal_meeting: 'Kapcsolódó találkozók:'
+    statistics:
+      meetings_count: Találkozók
   devise:
     mailer:
       join_meeting:
