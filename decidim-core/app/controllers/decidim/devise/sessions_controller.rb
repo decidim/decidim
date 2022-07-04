@@ -22,6 +22,8 @@ module Decidim
       def after_sign_in_path_for(user)
         if user.present? && user.blocked?
           check_user_block_status(user)
+        elsif user.needs_password_update?
+          change_password_path
         elsif first_login_and_not_authorized?(user) && !user.admin? && !pending_redirect?(user)
           decidim_verifications.first_login_authorizations_path
         else

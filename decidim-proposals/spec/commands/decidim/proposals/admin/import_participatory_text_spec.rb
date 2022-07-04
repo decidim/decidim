@@ -70,7 +70,7 @@ module Decidim
             it "doesn't create any proposal" do
               expect do
                 command.call
-              end.to change(Proposal, :count).by(0)
+              end.not_to change(Proposal, :count)
             end
           end
 

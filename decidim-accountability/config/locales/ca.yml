@@ -128,7 +128,7 @@ ca:
           update: "%{user_name} ha actualitzat l'estat %{resource_name}"
         timeline_entry:
           create: "%{user_name} ha creat l'entrada %{resource_name} a la línia de temps"
-          delete: "%{user_name} ha esborrat l'entrada %{resource_name} a la línea de temps"
+          delete: "%{user_name} ha eliminat l'entrada %{resource_name} a la línia de temps"
           update: "%{user_name} ha actualitzat l'entrada %{resource_name} a la línia de temps"
         value_types:
           parent_presenter:

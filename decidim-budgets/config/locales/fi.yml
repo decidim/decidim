@@ -259,6 +259,8 @@ fi:
           filter: Suodata
           filter_by: Suodata
           unfold: Avaa
+        index:
+          view_project: Näytä projekti
         order_progress:
           vote: Äänestä
         order_selected_projects:
@@ -316,6 +318,7 @@ fi:
               errors:
                 budget_voting_rule_only_one: Voit valita ainoastaan yhden äänestyssäännön
                 budget_voting_rule_required: Yksi äänestyssääntö vaaditaan
+            geocoding_enabled: Geokoodaus käytössä
             landing_page_content: Budjetoinnin aloitussivun teksti
             more_information_modal: Lisätietoikkunan teksti
             projects_per_page: Suunnitelmat sivua kohden

@@ -14,6 +14,56 @@ shared_examples "manage projects" do
       expect(page).to have_content("Choose proposals")
     end
 
+    context "when geocoding is enabled", :serves_geocoding_autocomplete do
+      let(:address) { "Some address" }
+      let(:latitude) { 40.1234 }
+      let(:longitude) { 2.1234 }
+
+      before do
+        stub_geocoding(address, [latitude, longitude])
+        current_component.update!(settings: { geocoding_enabled: true })
+        visit current_path
+      end
+
+      it "creates a new project" do
+        within ".new_project" do
+          fill_in_i18n :project_title, "#project-title-tabs", en: "Make decidim great again"
+          fill_in_i18n_editor :project_description, "#project-description-tabs", en: "Decidim is great but it can be better"
+          fill_in :project_address, with: address
+          fill_in :project_budget_amount, with: 1234
+          find("*[type=submit]").click
+        end
+
+        expect(page).to have_admin_callout("successfully")
+
+        within "table" do
+          project = Decidim::Budgets::Project.last
+
+          expect(page).to have_content("Make decidim great again")
+          expect(translated(project.description)).to eq("<p>Decidim is great but it can be better</p>")
+        end
+      end
+
+      it_behaves_like(
+        "a record with front-end geocoding address field",
+        Decidim::Budgets::Project,
+        within_selector: ".new_project",
+        address_field: :project_address
+      ) do
+        let(:geocoded_address_value) { address }
+        let(:geocoded_address_coordinates) { [latitude, longitude] }
+
+        before do
+          stub_geocoding(address, [latitude, longitude])
+          within ".new_project" do
+            fill_in_i18n :project_title, "#project-title-tabs", en: "Make decidim great again"
+            fill_in_i18n_editor :project_description, "#project-description-tabs", en: "Decidim is great but it can be better"
+            fill_in :project_budget_amount, with: 1234
+          end
+        end
+      end
+    end
+
     context "when proposal linking is disabled" do
       before do
         allow(Decidim::Budgets).to receive(:enable_proposal_linking).and_return(false)

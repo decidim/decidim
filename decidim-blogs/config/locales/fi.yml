@@ -10,12 +10,12 @@ fi:
   decidim:
     blogs:
       actions:
+        author_id: Luo artikkeli käyttäjänä
         confirm_destroy: Haluatko varmasti poistaa tämän artikkelin?
         destroy: Poista
         edit: Muokkaa
         new: Uusi artikkeli
         title: Toiminnot
-        user_group_id: Luo artikkeli käyttäjänä
       admin:
         models:
           components:
@@ -52,6 +52,7 @@ fi:
             author: Laatija
             body: Leipäteksti
             created_at: Luotu
+            official_blog_post: Virallinen artikkeli
             title: otsikko
       posts:
         show:

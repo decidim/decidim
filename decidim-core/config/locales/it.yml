@@ -449,7 +449,6 @@ it:
           newsletter: Ricevi una newsletter occasionale con informazioni pertinenti
           newsletter_title: Autorizzazione di contatto
           nickname_help: Il tuo alias in %{organization} può contenere solo lettere, numeri, '-' e '_'.
-          password_help: "%{minimun_characters} caratteri minimi, non deve essere troppo comune (ad esempio 123456) e deve essere diverso dal tuo nickname e dalla tua email."
           sign_in: Accedi
           sign_up: Registrati
           sign_up_as:
@@ -1479,7 +1478,6 @@ it:
     passwords:
       edit:
         change_my_password: Cambia la mia password
-        change_your_password: Cambia la tua password
         confirm_new_password: Conferma la nuova password
         new_password: Nuova password
         password_help: "%{minimun_characters} caratteri minimi, non deve essere troppo comune (ad esempio 123456) e deve essere diverso dal tuo nickname e dalla tua email."

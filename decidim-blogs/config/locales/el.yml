@@ -10,12 +10,12 @@ el:
   decidim:
     blogs:
       actions:
+        author_id: Δημιουργία ανάρτησης ως
         confirm_destroy: Είστε βέβαιοι ότι θέλετε να διαγράψετε αυτήν τη δημοσίευση;
         destroy: Διαγραφή
         edit: Επεξεργασία
         new: Νέα δημοσίευση
         title: Ενέργειες
-        user_group_id: Δημιουργία ανάρτησης ως
       admin:
         models:
           components:

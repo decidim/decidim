@@ -207,8 +207,8 @@ Decidim.register_component(:meetings) do |component|
         user = Decidim::User.find_or_initialize_by(email: email)
 
         user.update!(
-          password: "decidim123456",
-          password_confirmation: "decidim123456",
+          password: "decidim123456789",
+          password_confirmation: "decidim123456789",
           name: name,
           nickname: Faker::Twitter.unique.screen_name,
           organization: component.organization,
