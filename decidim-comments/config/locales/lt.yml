@@ -78,6 +78,10 @@ lt:
           reasons:
             does_not_belong: Pateikta informacija susijusi su neteisėta veikla, savižudybe, asmenine ar kita informacija netinkančia %{organization_name}.
             offensive: Pateikiamoje informacijoje yra rasizmo, seksizmo, keiksmažodžių, asmeninių atakų, grasinimų ar kitokios neapykantos kalbos.
+            spam: Pateikiamoje informacijoje yra reklamos, antraščių mąsalo ar apgavysčių.
+          title: Pranešti apie netinkamą turinį
+        show_replies: Rodyti %{replies_count} atsakymus
+        single_comment_link_title: Gauti nuorodą
       comment_order_selector:
         order:
           best_rated: Geriausiai įvertinti
@@ -147,3 +151,14 @@ lt:
           email_intro: Grupė, kuriai priklausote, buvo paminėta
           email_outro: Gavote šį pranešimą nes esate %{resource_title} paminėtos grupės %{group_name} narė(-ys).
           email_subject: Buvote paminėtas %{resource_title} kaip %{group_name} narys
+          notification_title: Buvote paminėtas <a href="%{resource_path}">%{resource_title} <a href="%{author_path}">%{author_name}%{author_nickname}</a> kaip <a href="%{group_path}">%{group_name}%{group_nickname}</a> narį
+        user_mentioned:
+          email_intro: Buvote paminėta(-s)
+          email_outro: Gavote šį pranešimą nes buvote paminėta(-s) %{resource_title}.
+          email_subject: Buvote paminėta(-s) %{resource_title}
+          notification_title: Buvote paminėta(-s) <a href="%{resource_path}"> %{resource_title}</a><a href="%{author_path}">%{author_name}%{author_nickname}</a>
+    metrics:
+      comments:
+        description: Komentarų sugeneruotų dalyvių skaičius
+        object: komentarai
+        title: Komentarai
