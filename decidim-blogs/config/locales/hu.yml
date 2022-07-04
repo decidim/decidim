@@ -15,6 +15,7 @@ hu:
         edit: Szerkesztés
         new: Új bejegyzés
         title: Műveletek
+        user_group_id: Bejegyzés létrehozása
       admin:
         models:
           components:
