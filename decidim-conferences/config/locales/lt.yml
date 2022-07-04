@@ -24,6 +24,7 @@ lt:
         registration_terms: Registracijos sąlygos
         registrations_enabled: Registracijos įjungtos
         scope_id: Apimtis
+        scopes_enabled: Sritys įjungtos
         short_description: Trumpas aprašymas
         show_statistics: Rodyti statistiką
         sign_date: Pasirašymo data
@@ -43,6 +44,7 @@ lt:
         logo: Logotipas
         name: Vardas
         partner_type: Partnerio tipas
+        weight: Svoris
       conference_registration_invite:
         email: El. paštas
         name: Vardas
@@ -52,7 +54,9 @@ lt:
         description: Aprašymas
         price: Kaina
         title: Pavadinimas
+        weight: Svoris
       conference_speaker:
+        affiliation: Organizacija
         avatar: Avataras
         conference_meeting_ids: Susiję susitikimai
         full_name: Vardas, pavardė
@@ -270,8 +274,12 @@ lt:
         create:
           error: Skelbiant šį registracijos tipą iškilo problema.
           success: Registracijos tipas paskelbtas.
+        destroy:
+          error: Išimant šį registracijos tipą iškilo problema.
+          success: Registracijos tipas sėkmingai išimtas.
       registration_types:
         create:
+          error: Pridedant šį registracijos tipą konferencijai kilo problema.
           success: Konferencijos registracijos tipas pridėtas.
         destroy:
           success: Konferencijos registracijos tipas pašalintas.
@@ -309,6 +317,15 @@ lt:
           create: "%{user_name} sukūrė partnerį %{resource_name} %{space_name} konferencijoje"
           delete: "%{user_name} pašalino partnerį %{resource_name} iš %{space_name} konferencijos"
           update: "%{user_name} atnaujino partnerį %{resource_name} %{space_name} konferencijoje"
+        registration_type:
+          create: "%{user_name} sukūrė %{resource_name} registracijos tipą %{space_name} konferencijoje"
+          publish: "%{user_name} sukūrė %{resource_name} registracijos tipą %{space_name} konferencijoje"
+          unpublish: "%{user_name} išėmė %{resource_name} registracijos tipą iš %{space_name} konferencijos"
+          update: "%{user_name} atnaujino %{resource_name} registracijos tipą %{space_name} konferencijoje"
+      media_link:
+        create: "%{user_name} sukūrė %{resource_name} nuorodą %{space_name} konferencijoje"
+        delete: "%{user_name} pašalino %{resource_name} nuorodą iš %{space_name} konferencijos"
+        update: "%{user_name} atnaujino %{resource_name} nuorodą %{space_name} konferencijoje"
     conference_program:
       index:
         title: Programa
@@ -317,6 +334,9 @@ lt:
         title: Pranešėjai
     conferences:
       admin:
+        conference_copies:
+          form:
+            slug_help: 'URL priedėliai naudojami nuorodų į konferenciją sukūrimui. Juose gali būti raidės, skaičiai ir brukšneliai, tačiau privalo prasidėti nuo raidės. Pavyzdys: %{url}'
         conference_invites:
           create:
             error: Kviečiant dalyvį dalyvauti šioje konferencijoje iškilo problema.
@@ -338,6 +358,7 @@ lt:
             invites: Pakvietimai
             search: Ieškoti
           new:
+            explanation: Dalyvis bus pakviestas dalyvauti konferencijoje. Jei e. laiškas nebus užregistruotas, dalyvis bus taip pat pakviestas būti organizacijos dalimi.
             invite: Pakviesti
             new_invite: Kviesti dalyvį
         conference_registrations:
@@ -346,10 +367,70 @@ lt:
         conference_speakers:
           form:
             existing_user: Esamas dalyvis
+            non_user: Ne dalyvis
             select_user: Pasirinkti dalyvį
             user_type: Dalyvio tipas
           index:
             search: Ieškoti
+        conferences:
+          form:
+            available_slots_help: Jei nėra ribojimų įrašykite 0.
+            registrations_count:
+              one: Yra viena registracija.
+              few: Yra %{count} registracijų.
+              many: Yra %{count} registracijų.
+              other: Yra %{count} registracijų.
+            slug_help: 'URL priedėliai naudojami nuorodų į konferenciją sukūrimui. Juose gali būti raidės, skaičiai ir brukšneliai, tačiau privalo prasidėti nuo raidės. Pavyzdys: %{url}'
+        diplomas:
+          edit:
+            save: Išsaugoti
+            title: Dalyvavimo pažymėjimas
+        invite_join_conference_mailer:
+          invite:
+            decline: Atmesti kvietimą į „%{conference_title}“
+            invited_you_to_join_a_conference: "%{invited_by} jus pakvietė dalyvauti konferencijoje %{application}. Kvietimą galite atmesti arba priimti spustelėję toliau pateikiamas nuorodas."
+            registration: Registracija į „%{conference_title}“
+        partners:
+          index:
+            title: Partneriai
+        registration_types:
+          form:
+            select_conference_meetings: Pasirinkti konferencijos susirinkimus
+          index:
+            title: Registracijos tipai
+        send_conference_diploma_mailer:
+          diploma:
+            diploma_html: Rasite konferencijos <a href="%{url}">%{title}</a> dalyvavimo pažymėjimą laiško prieduose.
+          diploma_user:
+            attendance_verified_by: Dalyvavimas patvirtintas
+            certificate_of_attendance: Dalyvavimo pažymėjimas
+            certificate_of_attendance_description: Patvirtiname, kad <strong>%{user}</strong> dalyvavo <strong>%{title}</strong> konferencijoje vykusioje <strong>%{location}</strong> nuo <strong>%{start} iki %{end}</strong>
+        send_diploma:
+          error: Siunčiant dalyvavimo pažymėjimus iškilo problema.
+          success: Dalyvavimo konferencijoje pažymėjimai išsiųsti
+      conference:
+        registration_confirm:
+          cancel: Atšaukti
+          confirm: Patvirtinti
+        show:
+          free: Nemokama
+          going: Dalyvauja
+          no_slots_available: Nebėra vietų
+          registration: Registracija
+      conference_program:
+        program_meeting:
+          content: Turinys
+          location: Vieta
+          speakers: Kalbėtojai
+          streaming: Transliuoti
+        show:
+          day: Diena
+          program: Programa
+      conference_registration_mailer:
+        confirmation:
+          confirmed_html: Jūsų registracija <a href="%{url}">%{title}</a> patvirtinta.
+          details_1: 'Registravotės į konferenciją %{registration_type} būdu. Konferencija kainuoja %{price} ir galite dalyvauti šiuose renginiuose:'
+          details_2: Rasite konferencijos detales priede.
       conference_registrations:
         create:
           invalid: Jungiantis prie šios konferencijos iškilo problema.
