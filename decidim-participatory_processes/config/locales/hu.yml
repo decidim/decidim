@@ -34,9 +34,14 @@ hu:
         subtitle: Felirat
         target: Ki vesz részt benne
         title: Cím
+        weight: Pozíció sorrend
       participatory_process_group:
         description: Leírás
+        developer_group: Előterjesztő csoport
+        group_url: Weboldal
+        hashtag: Hashtag
         hero_image: Kép
+        local_area: Szervezeti terület
         participatory_process_ids: Kapcsolódó folyamatok
       participatory_process_step:
         cta_path: Hívás cselekvés útjára
