@@ -4,7 +4,7 @@ hu:
       result:
         decidim_accountability_status_id: Állapot
         decidim_category_id: Kategória
-        decidim_scope_id: Hatáskör
+        decidim_scope_id: Hatókör
         description: Leírás
         end_date: Befejezés dátuma
         progress: Folyamat
@@ -21,6 +21,7 @@ hu:
       timeline_entry:
         description: Leírás
         entry_date: Dátum
+        title: Cím
     models:
       decidim/accountability/proposal_linked_event: Az eredményhez kapcsolódó javaslat
       decidim/accountability/result_progress_updated_event: Az eredmények frissítve
@@ -94,7 +95,7 @@ hu:
           index:
             title: Állapotok
           new:
-            create: Státusz létrehozása
+            create: Állapot létrehozása
             title: Új állapot
           update:
             invalid: Probléma történt az állapot frissítésekor
@@ -109,7 +110,7 @@ hu:
             title: Bejegyzés szerkesztése
             update: Bejegyzés frissítése
           index:
-            title: Projekt ütemtervének bejegyzései
+            title: Projekt idővonal bejegyzései
           new:
             create: Bejegyzés létrehozása
             title: Új bejegyzés
@@ -121,6 +122,14 @@ hu:
           create: "%{user_name} által létrehozott eredmény: %{resource_name} (itt: %{space_name})"
           delete: "%{user_name} törölte a(z) %{resource_name} eredményt innen: %{space_name}"
           update: "%{user_name} frissítette a(z) %{resource_name} eredmény itt: %{space_name}"
+        status:
+          create: "%{user_name} létrehozta a(z) %{resource_name} állapotot"
+          delete: "%{user_name} törölte a(z) %{resource_name} állapotot"
+          update: "%{user_name} frissítette a(z) %{resource_name} állapotot"
+        timeline_entry:
+          create: "%{user_name} létrehozta az %{resource_name} idővonal bejegyzést"
+          delete: "%{user_name} törölte a(z) %{resource_name} idővonal bejegyzést"
+          update: "%{user_name} frissítette a %{resource_name} idővonal bejegyzést"
         value_types:
           parent_presenter:
             not_found: 'Nem található az adatbázisban (ID: %{id})'
@@ -159,6 +168,7 @@ hu:
         timeline_entry:
           fields:
             entry_date: Dátum
+            title: Cím
       result_m:
         executed: Végrehajtva
         view: Nézet
@@ -169,7 +179,7 @@ hu:
             other: "%{count} találat"
         filters:
           all: Összes
-          scopes: Hatáskörök
+          scopes: Hatókörök
         home:
           categories_label: Kategóriák
           subcategories_label: Alkategóriák
@@ -224,13 +234,13 @@ hu:
       accountability:
         proposal_linked:
           email_intro: 'A "%{proposal_title}" nevű javaslat szerepel az eredményben. Erről az oldalról érhető el:'
-          email_outro: Ezt az értesítést azért kaptad, mert követed a(z) "%{proposal_title}" nevű ajánlást. Az értesítéseket a következő linkre kattintva kapcsolhatod ki.
+          email_outro: 'Ezt az értesítést azért kaptad, mert ezt követed: "%{proposal_title}". Az értesítéseket az előző linkre kattintva kapcsolhatod ki.'
           email_subject: A %{proposal_title} frissítve lett
           notification_title: 'A(z) <a href="%{proposal_path}">%{proposal_title}</a> javaslat szerepel ebben a(z) eredményben: <a href="%{resource_path}">%{resource_title}</a>.'
         result_progress_updated:
           email_intro: 'A "%{resource_title}" eredmény, amely magában foglalja a "%{proposal_title}" javaslatot, most már %{progress}% -ban teljes. Láthatod ezt erről oldalról:'
-          email_outro: Ezt az értesítést azért kaptad, mert "%{proposal_title}" -t követed, és ez a javaslat szerepel a "%{resource_title}" eredményben. Leállíthatoa az értesítések fogadását követve az előző linket.
-          email_subject: '%{resource_title} frissítése'
+          email_outro: Ezt az értesítést azért kaptad, mert "%{proposal_title}" -t követed, és ez a javaslat szerepel a "%{resource_title}" eredményben. Leállíthatod az értesítések fogadását követve az előző linket.
+          email_subject: '%{resource_title} frissítése folyamatban'
           notification_title: Az eredmény <a href="%{resource_path}">%{resource_title}</a>, amely magában foglalja a <a href="%{proposal_path}">%{proposal_title}</a>javaslatot, most %{progress}%-ban teljes.
     metrics:
       results:
@@ -242,8 +252,8 @@ hu:
         see_all: Eredmények megtekintése (%{count})
     resource_links:
       included_projects:
-        result_project: Ebben az eredményben szereplő projektek
+        result_project: Az eredményben szereplő projektek
       included_proposals:
-        result_proposal: Az eredménybe foglalt javaslatok
+        result_proposal: Ebben az eredményben szereplő javaslatok
     statistics:
       results_count: Találatok
