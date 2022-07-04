@@ -3,9 +3,5 @@
     <%= image_tag avatar_url, alt: t("decidim.author.avatar", name: decidim_sanitize(presented_profile.name)), class: "w-full h-full object-cover" %>
   </div>
 
-  <%# if profile_holder.badge.present? %>
-    <div class="absolute top-full right-0 -translate-y-full grid place-items-center w-6 h-6 rounded-full overflow-hidden bg-primary border border-white">
-      <%= icon "star-s-fill", class: "w-4 h-4 text-white fill-current" %>
-    </div>
-  <%# end %>
+  <%= render :badge if show_badge? %>
 </div>

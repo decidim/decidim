@@ -37,6 +37,12 @@ module Decidim
       present(profile_holder)
     end
 
+    def show_badge?
+      return if profile_holder.instance_of?(::Decidim::UserGroup)
+
+      profile_holder.officialized?
+    end
+
     def content_cell
       context[:content_cell]
     end
