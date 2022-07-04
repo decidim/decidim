@@ -144,6 +144,8 @@ hu:
         per_page: Oldalanként
         permissions: Engedélyek
         reject: Elutasít
+        user:
+          new: Új felhasználó
         verify: Ellenőrzés
       admin_terms_of_use:
         accept:
