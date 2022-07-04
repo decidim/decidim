@@ -236,10 +236,12 @@ ja:
         steps:
           create_election:
             errors:
+              component_published: 選挙コンポーネントは <strong>未公開です</strong>。
               max_selections: 質問が <strong>回答の数に対して正しく</strong>ありません
               minimum_answers: 質問には <strong>少なくとも2つの回答</strong>が必要です
               minimum_questions: 選挙には <strong>少なくとも1つの質問</strong>が必要です。
               published: 選挙はが <strong>公開されていません</strong> 。
+              time_before: 開始時刻は選挙が始まる <strong> %{hours} 時間以内</strong> になります。
               trustees_number: 参加スペースには <strong>少なくとも %{number} 人の公開鍵を持つ受託者</strong>が必要です。
             invalid: この選挙の設定中に問題が発生しました
             no_trustees: この参加スペースに設定された受託者はいません
@@ -248,6 +250,7 @@ ja:
               'false': <strong>公開鍵</strong>がありません
               'true': <strong>公開鍵</strong>があります
             requirements:
+              component_published: 選挙コンポーネントは <strong>公開済みです</strong>.
               max_selections: すべての質問は正しい <strong>回答の最大値</strong> を持っています。
               minimum_answers: 各質問には <strong>少なくとも2つの回答</strong>を持ちます。
               minimum_questions: 選挙には <strong>少なくとも1つの質問</strong>があります。
@@ -639,6 +642,8 @@ ja:
           lead: 投票は行われませんでした！
           modal:
             close: 閉じる
+            communication_lost: 投票サーバー (掲示板) との通信が切れているようです。<br>インターネット接続が切れているか、接続先のサーバーが混雑している可能性があります。<br>この問題が続くようでしたら、時間をおいて再度お試しいただくか、サポートまでお問い合わせください。
+            title: 問題が発生しました
           text: 問題が発生しました。もう一度やり直してください。
           try_again: 再実行
         header:
