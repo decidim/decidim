@@ -1,0 +1,7 @@
+<div class="grid grid-cols-2 gap-10">
+  <% followers.each do |user| %>
+    <%= card_for user %>
+  <% end %>
+</div>
+
+<%= decidim_paginate followers %>
