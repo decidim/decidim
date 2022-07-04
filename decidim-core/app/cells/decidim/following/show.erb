@@ -1,20 +1,18 @@
-<%
-validations = []
+<% if public_followings.any? %>
+  <% if non_public_followings? %>
+    <div class="callout secondary">
+      <p><%= t("decidim.following.non_public_followings") %></p>
+    </div>
+  <% end %>
 
-#validations << t("decidim.following.non_public_followings") if public_followings.any? && non_public_followings?
-validations << t("decidim.following.no_followings") if !public_followings.any?
-
-validations.each do |validation| %>
-  <p><%= validation %></p>
-<% end %>
-
-<% if validations.empty? %>
-  <div class="divide-y divide-gray-3 -my-4">
+  <div class="row small-up-1 medium-up-2 card-grid">
     <% public_followings.each do |followable| %>
       <%= card_for followable, context: { label: true, show_space: true } %>
     <% end %>
   </div>
-
-  <!-- TODO: pagination and results per page now they'll come together -->
   <%= decidim_paginate public_followings %>
+<% else %>
+  <div class="callout secondary">
+    <p><%= t("decidim.following.no_followings") %></p>
+  </div>
 <% end %>
