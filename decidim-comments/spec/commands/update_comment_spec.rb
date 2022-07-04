@@ -72,16 +72,8 @@ module Decidim
             expect(comment.body["en"]).to eq body
           end
 
-          it "sends the notifications" do
-            creator_double = instance_double(NewCommentNotificationCreator, create: true)
-
-            allow(NewCommentNotificationCreator)
-              .to receive(:new)
-              .with(kind_of(Comment), [], [])
-              .and_return(creator_double)
-
-            expect(creator_double)
-              .to receive(:create)
+          it "does not notify the followers" do
+            expect(Decidim::EventsManager).not_to receive(:publish)
 
             command.call
           end
