@@ -29,6 +29,7 @@ Decidim::Core::Engine.routes.draw do
 
   devise_scope :user do
     post "omniauth_registrations" => "devise/omniauth_registrations#create"
+    post "users/registration/validate" => "devise/registrations#validate"
   end
 
   resource :manifest, only: [:show]

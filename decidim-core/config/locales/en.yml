@@ -528,6 +528,8 @@ en:
           subtitle: Please fill in the following form in order to complete the sign up
           username_help: Public name that appears on your posts. With the aim of guaranteeing the anonymity, can be any name.
       registrations:
+        attribute_validator:
+          try_instead: Try %{suggestion}
         new:
           already_have_an_account?: Already have an account?
           newsletter: Receive an occasional newsletter with relevant information

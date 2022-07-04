@@ -26,7 +26,7 @@
   <div class="row">
     <div class="columns large-6 medium-10 medium-centered">
 
-      <%= decidim_form_for(@form, namespace: "registration", as: resource_name, url: registration_path(resource_name), html: { class: "register-form new_user", id: "register-form" }) do |f| %>
+      <%= decidim_form_for(@form, namespace: "registration", as: resource_name, url: registration_path(resource_name), html: { class: "register-form new_user instant-validation", id: "register-form" }, data: { "validation-url": users_registration_validate_path }) do |f| %>
         <%= invisible_captcha %>
         <div class="card">
           <div class="card__content">
@@ -45,7 +45,7 @@
             </div>
 
             <div class="field">
-              <%= f.email_field :email, autocomplete: "email" %>
+              <%= f.email_field :email, autocomplete: "email", data: { "instant-attribute": "nickname", "instant-target": '[name="user[email]"]', 'instant-action': "uniqueness" } %>
             </div>
 
             <%= render("decidim/devise/shared/password_fields", form: f, options: password_field_options_for(:user)) %>
@@ -89,3 +89,7 @@
 </div>
 </div>
 <%= render "decidim/devise/shared/newsletter_modal" %>
+
+<% content_for :js_content do %>
+  <%= javascript_pack_tag "decidim_registrations" %>
+<% end %>
