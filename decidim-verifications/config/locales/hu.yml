@@ -27,9 +27,23 @@ hu:
     admin:
       menu:
         authorization_revocation:
+          before_date_info: Hasznos, ha a folyamat már megkezdődött, és vissza szeretné vonni az előző folyamat jogosultságait.
           button: Összes visszavonása
+          button_before: Dátum előtti visszavonás
+          destroy:
+            confirm: A dátum előtti engedélyezések visszavonása nem vonható vissza. Biztosan folytatja?
+            confirm_all: Az összes engedélyezés visszavonása nem vonható vissza. Biztosan folytatja?
           destroy_nok: Probléma merült fel az engedélyek visszavonásakor.
+          destroy_ok: Az összes egyező engedélyt sikeresen visszavonták.
+          info: Összesen %{count} ellenőrzött résztvevő.
           no_data: Nincsenek ellenőrzött résztvevők
+          title: Engedélyezés és visszavonás
+        authorization_workflows: Engedélyezések
+    admin_log:
+      organization:
+        update_id_documents_config: "%{user_name} frissítette az azonosító dokumentumok ellenőrzési konfigurációját"
+      user:
+        grant_id_documents_offline_verification: "%{user_name} hitelesítve %{resource_name} egy offline azonosító dokumentum ellenőrzésével"
     authorization_handlers:
       admin:
         csv_census:
@@ -61,6 +75,13 @@ hu:
       postal_letter:
         explanation: Küldünk egy levelet postán a kóddal, amelyet aztán a lakcím ellenőrzéséhez tudsz majd használni
         name: Kód postai levéllel
+    events:
+      verifications:
+        verify_with_managed_user:
+          email_intro: A résztvevő <a href="%{resource_path}">%{resource_title}</a> megpróbálta azonosítani magát a következő résztvevő adataival <a href="%{managed_user_path}">%{managed_user_name}</a>.
+          email_outro: Ellenőrizze a <a href="%{conflicts_path}">Igazolási konfliktusok listáját</a> és vegye fel a kapcsolatot a résztvevőve hogy adataikat egyeztetésével megoldódjon a probléma.
+          email_subject: Sikertelen hitelesítési kísérlet egy kezelt résztvevővel szemben
+          notification_title: A résztvevő <a href="%{resource_path}">%{resource_title}</a> megpróbálta azonosítani magát a következő résztvevő adataival <a href="%{managed_user_path}">%{managed_user_name}</a>.
     verifications:
       authorizations:
         authorization_metadata:
@@ -117,6 +138,7 @@ hu:
             title: Jelenlegi népszámlálási adatok
           instructions:
             body: Ehhez be kell lépnie a rendszeradminisztrációba, és hozzá kell adnia a csv_census jogosultságokat a szervezethez
+            title: Aktiválnia kell a szervezet CSV-állományadatait
           new:
             file: ".csv fájl e-mail adatokkal"
             info: 'CSV formátumú fájl lehet csak egy oszloppal, amely az email címeket tartalmazza:'
@@ -131,6 +153,8 @@ hu:
           postal_codes:
             one: A részvétel %{postal_codes} irányítószámú felhasználókra korlátozódik.
             other: 'A részvétel %{postal_codes} irányítószámú felhasználókra korlátozódik.'
+          scope: A részvétel kizárólag a(z) %{scope_name} hatókörrel rendelkező résztvevőkre korlátozódik.
+          user_scope: A részvétel a %{scope_name} hatókörrel rendelkező résztvevőkre korlátozódik, és a te hatóköröd %{user_scope_name}.
       id_documents:
         admin:
           config:
