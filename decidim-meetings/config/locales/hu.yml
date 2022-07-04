@@ -475,13 +475,27 @@ hu:
             upcoming: Közelgő
           my_meetings: Találkozóim
           origin_values:
+            all: Összes
+            official: Hivatalos
             participants: Résztvevők
+            user_groups: Csoportok
+          scope: Hatókör
           search: Keresés
+          type: Típus
+          type_values:
+            all: Összes
+            hybrid: Hibrid
+            in_person: Személyes
+            online: Online
         filters_small_view:
           close_modal: Modal bezárása
           filter: Szűrő
           filter_by: 'Szűrés ez alapján:'
           unfold: Kibont
+        form:
+          address_help: 'Cím: Geocoder használata a helymeghatározáshoz'
+          available_slots_help: Hagyd "0" értéken, ha a jelentkezők száma korlátlan
+          create_as: Ülés létrehozása mint
         meeting_minutes:
           related_information: Kapcsolódó információ
         meetings:
@@ -526,12 +540,23 @@ hu:
             map: Térkép
             start_time: Kezdő dátum
             title: Cím
+      polls:
+        questions:
+          published_question:
+            question_replied: Kérdés megválaszolva
+            reply_question: Válasz a kérdésre
+      public_participants_list:
+        attending_participants: Résztvevők
       read_more: "(bővebben)"
       registration_mailer:
         confirmation:
           confirmed_html: Regisztrációd a(z) <a href="%{url}">%{title}</a> találkozóra megerősítve.
           details: A találkozó részletei megtalálhatók a mellékletben.
           registration_code: 'Regisztrációs kódod: %{code}.'
+      registration_type:
+        on_different_platform: Egy másik platformon
+        on_this_platform: Ezen a platformon
+        registration_disabled: Regisztráció kikakpcsolva
       registrations:
         create:
           invalid: Probléma történt a találkozóhoz való csatlakozáskor.
@@ -542,9 +567,19 @@ hu:
         destroy:
           invalid: Probléma történt a találkozó elhagyása közben.
           success: Sikeresen elhagytad a találkozót.
+      type_of_meeting:
+        hybrid: Hibrid
+        in_person: Személyesen
+        online: Online
       types:
         private_meeting: Privát találkozó
         transparent: Átlátszó
+        withdraw: Visszavonva
+      versions:
+        back_to_resource: Vissza a találkozóhoz
+      withdraw:
+        error: A találkozó visszavonása során hiba történt
+        success: A találkozó visszavonása sikeres
     metrics:
       meetings:
         description: A létrehozott találkozók száma
@@ -564,6 +599,8 @@ hu:
       proposals_from_meeting:
         meeting_proposal: 'Kapcsolódó javaslatok:'
         proposal_meeting: 'Kapcsolódó találkozók:'
+    statistics:
+      meetings_count: Találkozók
   devise:
     mailer:
       join_meeting:
