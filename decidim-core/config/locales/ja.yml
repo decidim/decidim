@@ -141,6 +141,9 @@ ja:
     admin:
       actions:
         cancel: キャンセル
+      password_change:
+        alert: 先に進むにはパスワードを変更する必要があります
+        notification: 管理者ユーザーは、 %{days} 日ごとにパスワードを変更する必要があります。
     admin_log:
       area:
         create: "%{user_name} が %{resource_name} 領域を作成しました"
@@ -1250,6 +1253,10 @@ ja:
           title: '必須：サービス利用規約の更新を確認する'
     participatory_space_private_users:
       not_allowed: このコンテンツを表示する権限がありません
+    passwords:
+      update:
+        error: パスワードの更新中に問題が発生しました
+        success: パスワードが正常に更新されました
     profile:
       deleted: 参加者が削除されました
       inaccessible_message: このプロファイルは利用規約違反によりアクセスできません
