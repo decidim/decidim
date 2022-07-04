@@ -22,6 +22,7 @@ hu:
       timeline_entry:
         description: Leírás
         entry_date: Dátum
+        title: Cím
     models:
       decidim/accountability/proposal_linked_event: Az eredményhez kapcsolódó javaslat
       decidim/accountability/result_progress_updated_event: Az eredmények frissítve
