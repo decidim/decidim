@@ -28,3 +28,6 @@ hu:
           update:
             invalid: Hiba történt az oldal mentése során.
             success: Oldal mentése sikeres.
+      home:
+        sub_hero:
+          register_title: A fiók létrehozásához iratkozz fel
