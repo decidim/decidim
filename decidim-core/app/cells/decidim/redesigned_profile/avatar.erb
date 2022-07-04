@@ -1,6 +1,6 @@
 <div class="w-24 h-24 relative">
   <div class="w-full h-full rounded-full overflow-hidden drop-shadow-md border-2 border-white">
-    <img class="w-full h-full object-cover" src="<%#= profile_holder.avatar_url(:profile) %>" />
+    <%= image_tag avatar_url, alt: t("decidim.author.avatar", name: decidim_sanitize(presented_profile.name)), class: "w-full h-full object-cover" %>
   </div>
 
   <%# if profile_holder.badge.present? %>
