@@ -368,8 +368,16 @@ hu:
         metadata:
           developer_group: Kezdeményezve
           name: Metaadatok
+          participatory_scope: Miről születik döntés
+          participatory_structure: Hogyan születik döntés
+          target: Ki vesz részt benne
+        participatory_processes:
+          name: Részvételi folyamatok
         stats:
           name: Tevékenység
+        title:
+          meta_scope: Hatókör
+          name: Cím, leírás és hashtag
       show:
         title: Részvételi folyamat csoportok
     participatory_process_steps:
@@ -381,9 +389,17 @@ hu:
         content_blocks:
           highlighted_processes:
             max_results: A megjelenítendő elemek maximális száma
+        new_import:
+          accepted_types:
+            json: JSON
         participatory_process_copies:
           form:
             slug_help: 'Az URL slugok a folyamatok linkjeinek generáláshoz szükségesek. Csak betűket, számokat és kötőjeleket használhatsz. Betűvel kell kezdened. Példa: %{url}'
+        participatory_process_groups:
+          form:
+            metadata: Metaadat
+            title: Általános információ
+            visibility: Láthatóság
         participatory_process_imports:
           form:
             document_legend: Dokumentum hozzáadása
@@ -403,6 +419,7 @@ hu:
             related_processes: Kapcsolódó folyamatok
             scope_type_max_depth_help: Hatáskör szűrő mélység korlátozása; A szűrő az általánostól a kiválasztott hatáskörtípus típusáig jelenik meg.
             select_an_area: Válasszon egy területet
+            select_participatory_process_type: Válasszon folyamat típust
             select_process_group: Válassza ki a folyamatcsoportot
             slug_help: 'Az URL slugok a folyamatok linkjeinek generáláshoz szükségesek. Csak betűket, számokat és kötőjeleket használhatsz. Betűvel kell kezdened. Példa: %{url}'
             title: Általános információk
@@ -421,9 +438,15 @@ hu:
             active_step: Aktív lépés
             more_information: További információk
             participate: Részvétel
+            participate_in: Részvétel a(z) %{resource_name} folyamatban
+            processes_button_title: Link a Folyamatok oldalra, ahol az összes folyamat látható
             see_all_processes: Összes folyamat
+      participatory_process_steps:
+        index:
+          back_to_process: Vissza a folyamatok oldalára
       participatory_processes:
         filters:
+          all_types: Minden típus
           counters:
             active:
               one: 1 aktív folyamat
@@ -441,6 +464,7 @@ hu:
             no_active: Nincsenek aktív folyamatok
             no_active_nor_upcoming: Nincs aktív vagy közelgő folyamat
             no_active_nor_upcoming_callout: Nincs sem aktív, sem közelgő folyamat. A korrábbiakat itt nézheted meg.
+          filter_by: Mutat
           names:
             active: Aktív
             all: Összes
@@ -449,8 +473,12 @@ hu:
           see: Lásd
         index:
           loading: Eredmények betöltése...
+        show:
+          title: Erről a folyamatról
       show:
         area: Terület
+        belongs_to_group: Ide tartozik ez a folyamat
+        dates: Dátumok
         developer_group: Kezdeményező csoport
         end_date: Befejezés dátuma
         local_area: Szervezet területe
@@ -462,11 +490,14 @@ hu:
         start_date: Kezdő dátum
         target: Ki részt vesz
         unspecified: Nem meghatározott
+    statistics:
+      processes_count: Folyamatok
   layouts:
     decidim:
       participatory_process_groups:
         participatory_process_group:
           browse: Böngészés
+          browse_resource: '%{resource_name} folyamatcsoport böngészése'
           processes_count: 'Folyamatok:'
       participatory_process_widgets:
         show:
@@ -478,11 +509,17 @@ hu:
         participatory_process:
           active_step: 'Aktuális lépés:'
           more_info: Több információ
+          more_info_about: További információ a(z) %{resource_name} folyamatról
           take_part: Vegyél részt
+          take_part_in: Részvétel a(z) %{resource_name} folyamatban
         promoted_process:
           active_step: 'Aktuális lépés:'
           more_info: További információ
+          more_info_about: További információ a(z) %{resource_name} folyamatról
           take_part: Vegyél részt
+          take_part_in: Részvétel a(z) %{resource_name} folyamatban
+        promoted_process_group:
+          more_info: Több információ
       process_header_steps:
         step: '%{current}. lépés ennyiből: %{total}'
         view_steps: Lépések megtekintése
