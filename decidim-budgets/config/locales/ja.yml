@@ -257,6 +257,8 @@ ja:
           filter: フィルター
           filter_by: フィルター
           unfold: 展開する
+        index:
+          view_project: プロジェクトを表示
         order_progress:
           vote: 投票
         order_selected_projects:
@@ -311,6 +313,7 @@ ja:
               errors:
                 budget_voting_rule_only_one: 1つの投票ルールを有効にする必要があります
                 budget_voting_rule_required: 1つの投票ルールが必要です
+            geocoding_enabled: ジオコーディングを有効にする
             landing_page_content: 予算ランディングページ
             more_information_modal: 詳しい情報
             projects_per_page: ページあたりのプロジェクト数
