@@ -799,6 +799,9 @@ en:
         other: "%{count} followers"
       no_followers: No followers yet.
     following:
+      following_count:
+        one: "%{count} follow"
+        other: "%{count} follows"
       no_followings: Doesn't follow anyone or anything yet.
       non_public_followings: Some of the resources followed are not public.
     follows:
