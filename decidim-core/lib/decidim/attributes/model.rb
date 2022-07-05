@@ -15,7 +15,15 @@ module Decidim
         return value if value.is_a?(Decidim::AttributeObject::Model)
         return primitive.new(value) if value.is_a?(::Hash)
         return primitive.new(value.to_h) if value.respond_to?(:to_h)
-        return primitive.new(value.attributes) if value.respond_to?(:attributes)
+
+        if value.respond_to?(:attributes)
+          # In case the primitive is a form object, we also need to call the
+          # `map_model` method in case the target form object defines it for
+          # nested forms to work properly.
+          converted = primitive.new(value.attributes)
+          converted.map_model(value) if converted.respond_to?(:map_model)
+          return converted
+        end
 
         value
       end
