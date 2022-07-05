@@ -715,6 +715,8 @@ de:
           proposals_count:
             one: "%{count} Vorschlag"
             other: "%{count} Vorschläge"
+        dynamic_map_instructions:
+          instructions: Sie können den Marker auf der Karte verschieben.
         edit:
           add_documents: Unterlagen
           add_images: Datei
