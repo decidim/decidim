@@ -57,10 +57,18 @@ de:
         short_description: Kurzbeschreibung
         start_date: Startdatum
         title: Titel
+      participatory_process_type:
+        title: Titel
       participatory_process_user_role:
         email: E-Mail
         name: Name
         role: Rolle
+    errors:
+      models:
+        participatory_process:
+          attributes:
+            document:
+              allowed_file_content_types: 'Ungültiger Dokumenttyp. Zulässige Formate sind: %{types}'
     models:
       decidim/participatory_process_step_activated_event: Phase aktiviert
       decidim/participatory_process_step_changed_event: Phase geändert
@@ -91,6 +99,7 @@ de:
         new_process: Neuer Beteiligungsprozess
         new_process_group: Neue Prozessgruppe
         new_process_step: Neue Phase
+        new_process_type: Neuer Prozesstyp
         new_process_user_role: Neuer Prozess-Administrator
         preview: Vorschau
         publish: Veröffentlichen
@@ -101,6 +110,7 @@ de:
         participatory_process_groups_submenu:
           info: Info
           landing_page: Startseite
+        participatory_process_types: Prozesstypen
         participatory_processes: Beteiligungsprozesse
         participatory_processes_submenu:
           attachment_collections: Ordner
@@ -132,6 +142,11 @@ de:
             start_date: Anfangsdatum
             title: Titel
           name: Partizipativer Prozessschritt
+        participatory_process_type:
+          fields:
+            created_at: Erstellt am
+            title: Titel
+          name: Prozesstyp
         participatory_process_user_role:
           fields:
             email: Email
@@ -214,6 +229,23 @@ de:
         update:
           error: Beim Aktualisieren dieses partizipativen Prozessschritts ist ein Fehler aufgetreten.
           success: Partizipativer Prozessschritt erfolgreich aktualisiert.
+      participatory_process_types:
+        create:
+          error: Beim Erstellen eines neuen Prozesstyps ist ein Fehler aufgetreten.
+          success: Prozesstyp erfolgreich erstellt.
+        destroy:
+          success: Prozesstyp erfolgreich gelöscht.
+        edit:
+          title: Prozesstyp bearbeiten
+          update: Aktualisieren
+        form:
+          title: Titel
+        new:
+          create: Erstellen
+          title: Neuer Prozesstyp
+        update:
+          error: Beim Aktualisieren dieses Prozesstyps ist ein Fehler aufgetreten.
+          success: Prozesstyp erfolgreich aktualisiert.
       participatory_process_user_roles:
         create:
           error: Beim Hinzufügen eines Benutzers für diesen partizipativen Prozess ist ein Fehler aufgetreten.
@@ -258,6 +290,7 @@ de:
           success: Partizipative Prozessgruppe erfolgreich erstellt.
       titles:
         participatory_process_groups: Partizipative Prozessgruppen
+        participatory_process_types: Beteiligungsprozesstypen
         participatory_processes: Beteiligungsprozesse
       users:
         resend_invitation:
@@ -379,6 +412,7 @@ de:
             related_processes: Ähnliche Beteiligungsprozesse
             scope_type_max_depth_help: Beschränken Sie die Bereichs-Filtertiefe; der Filter zeigt nur Ergebnisse von Allgemein bis zum ausgewählten Bereichstyp an.
             select_an_area: Wählen Sie einen Bereich aus
+            select_participatory_process_type: Wählen Sie einen Prozesstyp aus
             select_process_group: Wählen Sie eine Prozessgruppe aus
             slug_help: 'URL-Slugs werden zum Generieren der URLs verwendet, die auf diesen Prozess verweisen. Akzeptiert nur Buchstaben, Zahlen und Bindestriche und muss mit einem Buchstaben beginnen. Beispiel: %{url}'
             title: Allgemeine Information
@@ -405,6 +439,7 @@ de:
           back_to_process: Zurück zur Prozessseite
       participatory_processes:
         filters:
+          all_types: Alle Typen
           counters:
             active:
               one: 1 aktiver Beteiligungsprozess
@@ -422,6 +457,7 @@ de:
             no_active: Keine aktiven Prozesse
             no_active_nor_upcoming: Keine aktiven oder zukünftigen Beteiligungsprozesse
             no_active_nor_upcoming_callout: Es gibt keine aktiven oder zukünftigen Beteiligungsprozesse. Hier ist eine Liste der vergangenen.
+          filter_by: Anzeigen
           names:
             active: Aktiv
             all: Alle
