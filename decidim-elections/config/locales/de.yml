@@ -284,6 +284,9 @@ de:
             invalid: Es ist ein Problem beim Melden des Stimmenzählers aufgetreten
             mark_as_missing: Als fehlend markieren
             mark_as_missing_description: Alle Wahlhelfer sollten an diesem Prozess teilnehmen. Wenn ein Wahlhelfer nicht am Prozess teilnehmen kann, können Sie ihn als fehlend markieren.
+            success: Eine Meldung über das Fehlen des Wahlhelfers wurde erfolgreich ans Forum gesendet
+            tally_completion: Der Prozess wird abgeschlossen, wenn alle Wahlhelfer aktiv sind oder als fehlend markiert wurden. Mindestens %{quorum} Wahlhelfer sind erforderlich, um den Prozess abzuschließen.
+            undo_mark_as_missing: Ein Wahlhelfer, der versehentlich als fehlend markiert wurde, kann vor Abschluss des Prozesses teilnehmen. Sie können wie gewohnt fortfahren und die fehlend-Markierung wird ignoriert.
           vote:
             errors:
               time_after: Die Wahl läuft noch. Sie müssen bis zum Ende (%{end_time}) warten, um die Abstimmungsperiode zu schließen.
