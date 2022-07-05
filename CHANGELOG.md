@@ -221,6 +221,7 @@ Implementers need to configure these changes it in your scheduler task system in
 We have added the possibility to send reminders for some actions, like pending budgets orders or user generated meetings that weren't closed.
 
 ```console
+# Generate reminders
 4 0 * * * cd /home/user/decidim_application && RAILS_ENV=production bundle exec rake decidim:reminders:all
 ```
 
@@ -245,12 +246,14 @@ You can read more about this change on PR [\#8833](https://github.com/decidim/de
 "Data portability" has been renamed to "Download you data". As this was a scheduled task that was already configured you'll need to change it. Where you had:
 
 ```console
+# Remove expired download your data files
 0 0 * * * cd /home/user/decidim_application && RAILS_ENV=production bundle exec rake decidim:delete_data_portability_files
 ```
 
 Changes to:
 
 ```console
+# Remove expired download your data files
 0 0 * * * cd /home/user/decidim_application && RAILS_ENV=production bundle exec rake decidim:delete_download_your_data_files
 ```
 
