@@ -86,6 +86,12 @@ de:
       decidim_with_month_name_short: "%d. %b"
   datetime:
     distance_in_words:
+      about_x_hours:
+        one: etwa eine Stunde
+        other: etwa %{count} Stunden
+      about_x_months:
+        one: etwa ein Monat
+        other: etwa %{count} Monate
       half_a_minute: eine halbe Minute
       less_than_x_minutes:
         one: weniger als eine Minute
@@ -771,6 +777,7 @@ de:
       no_followers: Noch keine Follower.
     following:
       no_followings: Folgt noch niemandem oder irgendetwas.
+      non_public_followings: Einige der gefolgten Ressourcen sind nicht öffentlich.
     follows:
       create:
         button: Folgen
@@ -819,6 +826,11 @@ de:
           title: Titel
           title_required: Titel ist erforderlich!
           uploaded: Hochgeladen
+          validating: Wird validiert...
+          validation_error: Validierungsfehler!
+      upload_help:
+        dropzone: Zum Hochladen hier klicken oder Dateien hierher ziehen
+        explanation: Anleitung für %{attribute}
     gamification:
       all_badges_link: Sieh dir alle verfügbaren Abzeichen an.
       badges:
@@ -1149,6 +1161,7 @@ de:
       show:
         administrators: Administratoren
         allow_public_contact: Allen erlauben, mir Direktnachrichten zu senden, selbst wenn ich ihnen nicht folge.
+        allow_push_notifications: Erhalten Sie Push-Benachrichtigungen, um herauszufinden, was vor sich geht, wenn Sie nicht auf der Plattform sind. Sie können diese jederzeit ausschalten.
         direct_messages: Direktnachrichten von allen erhalten
         email_on_moderations: Ich möchte jedes Mal, wenn etwas oder jemand zur Moderation gemeldet wird, eine E-Mail erhalten.
         everything_followed: Alles was ich folge
@@ -1157,6 +1170,7 @@ de:
         notifications_sending_frequencies:
           daily: Täglich
           none: Keine
+          real_time: In Echtzeit
           weekly: Wöchentlich
         notifications_sending_frequency: Wie oft möchten Sie die Benachrichtigungs-E-Mail erhalten?
         own_activity: Meine eigene Tätigkeit, etwa wenn sich jemand in meinem Vorschlag äußert oder mich erwähnt
@@ -1224,6 +1238,7 @@ de:
           agreement: Ich stimme diesen Bedingungen zu
           legend: Stimme den Nutzungsbedingungen zu
         refuse:
+          modal_body: Wenn Sie Ihre Zustimmung nicht erteilen, werden Sie nicht in der Lage sein, die Plattform zu nutzen; Sie können <a href="%{download_your_data_path}">Ihre Daten herunterladen</a> und/oder <a href="%{delete_path}">Ihr Konto löschen</a>.
           modal_btn_continue: Bedingungen akzeptieren und fortfahren
           modal_btn_exit: Ich werde es später überprüfen
           modal_button: Bedingungen ablehnen
@@ -1389,6 +1404,8 @@ de:
         filters:
           areas: Bereiche
           select_an_area: Wählen Sie einen Bereich aus
+      public_participation:
+        public_participation: Meine Teilnahme öffentlich anzeigen
       reference:
         reference: 'Referenz: %{reference}'
       represent_user_group:
@@ -1697,6 +1714,7 @@ de:
             type: Typ
           cookies:
             _session_id:
+              description: Ermöglicht es Websites, sich an Benutzer zu erinnern, wenn diese verschiedene Seiten aufrufen.
               service: Diese Website
             decidim-consent:
               description: Speichert Informationen über die vom Benutzer erlaubten Cookies auf dieser Website.
@@ -1707,6 +1725,7 @@ de:
           accept_all: Alle akzeptieren
           accept_only_essential: Nur essentielle Cookies akzeptieren
           cookie_settings: Einstellungen
+          description: Wir verwenden Cookies auf unserer Website, um die Leistung und den Inhalt der Website zu verbessern. Die Cookies ermöglichen uns, Ihnen eine individuellere Nutzererfahrung und Social-Media-Kanäle zu bieten.
           title: Informationen über die auf dieser Website verwendeten Cookies
         modal:
           accept_all: Alle akzeptieren
@@ -1714,15 +1733,23 @@ de:
           analytics:
             description: Analytics-Cookies sind Cookies, die verfolgen, wie Benutzer navigieren und mit einer Website interagieren. Die gesammelten Informationen werden verwendet, um dem Website-Eigentümer zu helfen, die Website zu verbessern.
             title: Analysen und Statistiken
+          description: Wir verwenden Cookies, um die grundlegenden Funktionalitäten der Website zu gewährleisten und Ihr Online-Erlebnis zu verbessern. Sie können die einzelnen Kategorien jederzeit aktivieren oder deaktivieren.
+          essential:
+            description: Diese Cookies sind für das einwandfreie Funktionieren dieser Website unerlässlich. Ohne diese Cookies würde die Website nicht richtig funktionieren.
+            title: Notwendige
           marketing:
+            description: Diese Cookies sammeln Informationen darüber, wie Sie die Website nutzen, welche Seiten Sie besucht haben und welche Links Sie angeklickt haben.
             title: Marketing
           preferences:
+            description: Diese Cookies ermöglichen es der Website, sich an die von Ihnen in der Vergangenheit getroffenen Auswahlen zu erinnern
             title: Präferenzen
           save_settings: Einstellungen speichern
           title: Cookie Einstellungen
+          toggle: '%{consent_category} umschalten'
         warning:
           all_cookies: alle Cookies
           change_cookie_settings: Cookie Einstellungen ändern
+          need_cookies: Sie müssen %{cookies} aktivieren, um diesen Inhalt sehen zu können.
       edit_link:
         edit: Bearbeiten
       footer:
@@ -1789,8 +1816,10 @@ de:
     email_included_in_password: ist Ihrer E-Mail zu ähnlich
     fallback: ist ungültig
     name_included_in_password: ist Ihrem Namen zu ähnlich
+    nickname_included_in_password: ist Ihrem Nicknamen zu ähnlich
     not_enough_unique_characters: hat nicht genug eindeutige Zeichen
     password_not_allowed: ist nicht erlaubt
+    password_repeated: ein früheres Passwort kann nicht wieder verwendet werden
     password_too_common: ist zu allgemein
     password_too_long: es ist zu lang
     password_too_short: ist zu kurz
@@ -1823,6 +1852,8 @@ de:
       day_of_week: "%a"
       day_of_week_long: "%a %e."
       day_of_year: "%d.%m.%y"
+      ddmm: "%d.%m"
+      ddmmyyyy: "%d.%m.%Y"
       decidim_day_of_year: "%d. %B %Y"
       decidim_short: "%d.%m.%Y %H:%M"
       default: "%a, %d. %b %Y %H:%M:%S %z"
