@@ -849,6 +849,9 @@ de:
       reminders:
         create:
           error: Beim Erstellen dieser Erinnerungen ist ein Problem aufgetreten.
+          success:
+            one: "%{count} Benutzer wird erinnert."
+            other: "%{count} Benutzer werden erinnert."
         new:
           submit: Senden
       resource_permissions:
