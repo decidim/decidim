@@ -103,11 +103,11 @@ describe "User activity", type: :system do
     end
 
     it "displays activities filter with the correct options" do
-      expect(page).to have_select(
-        "filter[resource_type]",
-        selected: "All types",
-        options: resource_types.push("All types")
-      )
+      within("div.resource_type_collection_radio_buttons_filter") do
+        resource_types.push("All types").each do |type|
+          expect(page).to have_css("label", text: type)
+        end
+      end
     end
 
     context "when accessing a non existing profile" do
