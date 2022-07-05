@@ -38,7 +38,7 @@ module Decidim
       end
 
       def notification_title
-        i18n_key = author.present? ? "notification_title" : "notification_title_official"
+        i18n_key = resource.official? ? "notification_title_official" : "notification_title"
 
         I18n.t(i18n_key, **i18n_options).html_safe
       end
