@@ -427,6 +427,8 @@ lt:
           confirmed_html: Jūsų registracija <a href="%{url}">%{title}</a> patvirtinta.
           details_1: 'Registravotės į konferenciją %{registration_type} būdu. Konferencija kainuoja %{price} ir galite dalyvauti šiuose renginiuose:'
           details_2: Rasite konferencijos detales priede.
+        pending_validation:
+          confirmation_pending: Netrukus gausite elektroninį laišką su patvirtinimu
       conference_registrations:
         create:
           invalid: Jungiantis prie šios konferencijos iškilo problema.
