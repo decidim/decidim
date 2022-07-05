@@ -493,6 +493,7 @@ de:
           click_here: Alle Treffen anzeigen
           new_meeting: Neue Besprechung
           see_all: Alle Treffen anzeigen
+          see_all_withdrawn: Alle zurückgezogenen Treffen ansehen
         meeting_minutes:
           related_information: Zugehörige Informationen
         meetings:
@@ -516,6 +517,8 @@ de:
           join: Tritt dem Treffen bei
           leave: Registrierung stornieren
           leave_confirmation: Sind Sie sicher dass Sie Ihre Registrierung für diese Sitzung stornieren möchten?
+          link_available_soon: Link in Kürze verfügbar
+          link_closed: Der Link, um an dem Treffen teilzunehmen, wird einige Minuten vor dem Start verfügbar sein
           live_event: Dieses Meeting findet gerade statt
           meeting_minutes: Sitzungsprotokolle
           no_slots_available: Keine Steckplätze verfügbar
@@ -528,6 +531,9 @@ de:
             one: "%{count} Slot bleibt übrig"
             other: "Noch %{count} Slots"
           view: Anzeigen
+          visit_finished: Vergangene Treffen anzeigen
+          withdraw_btn_hint: Sie können Ihr Treffen zurückziehen, wenn Sie Ihre Meinung ändern. Das Meeting wird nicht gelöscht, es wird in der Liste der zurückgezogenen Meetings angezeigt.
+          withdraw_meeting: Treffen zurückziehen
         update:
           invalid: Beim Aktualisieren der Besprechung ist ein Fehler aufgetreten.
           success: Sie haben die Sitzung erfolgreich aktualisiert.
@@ -548,15 +554,21 @@ de:
           fields:
             closed: Geschlossen
             end_time: Endtermin
+            id: ID
             map: Karte
             official_meeting: Offizielle Besprechung
             start_time: Anfangsdatum
             title: Titel
       polls:
         questions:
+          index:
+            empty_questions: Während dieses Treffens werden einige Fragen gesendet und Sie werden sie beantworten können. Sie werden hier angezeigt.
           index_admin:
+            admin_dashboard: Administrations-Dashboard
+            edit: Im Adminbereich bearbeiten
             question: Frage
             received_answer: Antwort erhalten
+            received_answers: erhaltene Antworten
             results: Ergebnisse
             send: Senden
             sent: Gesendet
