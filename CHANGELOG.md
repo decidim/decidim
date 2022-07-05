@@ -179,6 +179,14 @@ bin/rails decidim:pwa:generate_vapid_keys
 ```
 
 ##### 3.3.2. Copy them to your [Environment Variables](https://docs.decidim.org/en/configure/environment_variables/) file
+The relevant [Environment Variables](https://docs.decidim.org/en/configure/environment_variables/) are:
+
+| Name | Value | Default value |
+| -------- | -------- | -------- |
+| VAPID_PUBLIC_KEY | VAPID public key that will be used to sign the Push API requests. |  |
+| VAPID_PRIVATE_KEY | VAPID private key that will be used to sign the Push API requests. |  |
+
+These will be printed to the console when you run the command instructed in the previous step.
 
 You can read more about this change on PR [\#8774](https://github.com/decidim/decidim/pull/8774).
 
