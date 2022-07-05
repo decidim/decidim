@@ -577,6 +577,9 @@ de:
     menu:
       initiatives: Initiativen
     resources:
+      initiative:
+        actions:
+          comment: Kommentar
       initiatives_type:
         actions:
           title: Aktionen
