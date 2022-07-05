@@ -24,6 +24,7 @@ de:
         decidim_user_group_id: Benutzergruppe
         description: Beschreibung
         end_time: Endzeit
+        id: ID
         location: Ort
         location_hints: Standorthinweise
         online_meeting_url: Online Meeting URL
@@ -35,6 +36,7 @@ de:
         registration_terms: Registrierungsbedingungen
         registration_url: Registrierungs-URL
         registrations_enabled: Registrierungen aktiviert
+        show_embedded_iframe: Eingebetteten Iframe für diese URL anzeigen
         start_time: Startzeit
         title: Titel
         transparent: Transparent
@@ -72,6 +74,13 @@ de:
     admin:
       filters:
         meetings:
+          category_id_eq:
+            label: Kategorie
+          closed_at_present:
+            label: Status
+            values:
+              'false': Offen
+              'true': Geschlossen
           is_upcoming_true:
             label: Datum
             values:
@@ -80,12 +89,17 @@ de:
           scope_id_eq:
             label: Umfang
           with_any_origin:
+            label: Ursprung
             values:
+              official: Offiziell
+              participants: Teilnehmer
               user_group: Benutzergruppen
           with_any_type:
             label: Art des Treffens
             values:
+              hybrid: Hybrid
               in_person: Persönlich
+              online: Online
       meeting_copies:
         create:
           error: Es gab einen Fehler beim Duplizieren dieses Meetings.
@@ -97,6 +111,7 @@ de:
     components:
       meetings:
         actions:
+          comment: Kommentar
           join: Beitreten
         name: Meetings
         settings:
@@ -107,6 +122,7 @@ de:
             creation_enabled_for_participants: Teilnehmer können Besprechungen erstellen
             default_registration_terms: Standard-Registrierungsbedingungen
             enable_pads_creation: Aktivieren Sie die Pads-Erstellung
+            maps_enabled: Karten aktiviert
             registration_code_enabled: Registrierungscode aktiviert
             resources_permissions_enabled: Aktionsberechtigungen können für jedes Meeting festgelegt werden
             scope_id: Bereich
@@ -131,6 +147,7 @@ de:
             email_subject: Die Sitzung "%{resource_title}" wurde geschlossen
             notification_title: Die Sitzung <a href="%{resource_path}">%{resource_title}</a> wurde geschlossen.
         meeting_created:
+          button_text: Für das Treffen anmelden
           email_intro: Die Sitzung "%{resource_title}" wurde zu "%{participatory_space_title}" hinzugefügt, welchem Sie folgen.
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie "%{participatory_space_title}" folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
           email_subject: Neue Sitzung zu %{participatory_space_title} hinzugefügt
@@ -162,6 +179,9 @@ de:
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie der Sitzung "%{resource_title}" folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
           email_subject: Die Sitzung "%{resource_title}" beginnt in weniger als 48 Stunden.
           notification_title: Die Sitzung <a href="%{resource_path}">%{resource_title}</a> beginnt in weniger als 48 Stunden.
+    forms:
+      meetings:
+        attendees_count_help_text: Vergessen Sie nicht, die Gesamtzahl der Teilnehmer an Ihrem Meeting anzugeben, egal ob dies persönlich, online oder hybrid stattgefunden hat.
     gamification:
       badges:
         attended_meetings:
@@ -187,6 +207,7 @@ de:
           proposals_count:
             one: 'Die Besprechung kann nicht gelöscht werden, da %{count} Vorschlag mit dieser verbunden ist:'
             other: 'Die Besprechung kann nicht gelöscht werden, da %{count} Vorschläge mit dieser verbunden sind:'
+        manage_poll: Umfrage verwalten
         new: Neue Sitzung
         preview: Vorschau
         registrations: Anmeldungen
@@ -223,6 +244,7 @@ de:
             invalid: Beim Aktualisieren dieser Agenda ist ein Problem aufgetreten
             success: Agenda erfolgreich aktualisiert
         exports:
+          answers: Antworten
           meeting_comments: Kommentare
           meetings: Treffen
           registrations: Anmeldungen
@@ -257,6 +279,9 @@ de:
           edit:
             close: Schließen
             title: Sitzung beenden
+        meeting_copies:
+          form:
+            select_a_meeting_type: Bitte eine Meeting-Typ auswählen
         meetings:
           close:
             invalid: Beim Schließen dieses Meetings ist ein Problem aufgetreten
@@ -306,6 +331,9 @@ de:
           update:
             invalid: Beim Aktualisieren dieses Meetings ist ein Problem aufgetreten
             success: Sitzung erfolgreich aktualisiert
+        meetings_poll:
+          form:
+            title: Fragebogen für %{questionnaire_for} bearbeiten
         models:
           meeting:
             name: Treffen
@@ -357,10 +385,15 @@ de:
         calendar_url: Kalender-URL
         close_window: Fenster schließen
         copy_calendar_url: Kopieren
+        copy_calendar_url_clarification: Kalender-URL in Zwischenablage kopieren
         copy_calendar_url_copied: Kopiert!
         copy_calendar_url_description: Sie können alle veröffentlichten Meetings in Ihrer Kalenderanwendung oder bei Ihrem Kalender-Anbieter sehen. Kopieren und fügen Sie diese URL mit der Option "Neuen Kalender von einer URL hinzufügen" in Ihren Kalender ein.
         copy_calendar_url_explanation: Bitte beachten Sie, dass Sie eine Auswahl von Meetings exportieren, da es aktive Filter gibt. Wenn Sie alle exportieren möchten, setzen Sie zuerst alle Filter zurück.
+        copy_calendar_url_message: Die URL wurde erfolgreich in die Zwischenablage kopiert.
         export_calendar: Kalender exportieren
+      close_meeting_reminder_mailer:
+        close_meeting_reminder:
+          hello: Hallo %{username},
       conference_venues: Tagungsstätten
       content_blocks:
         upcoming_meetings:
@@ -409,6 +442,8 @@ de:
           apple: Zu Apple Kalender hinzufügen
           close_window: Fenster schließen
           full_details_html: Für alle Details gehen Sie zu %{link}
+          google: Zum Google-Kalender hinzufügen
+          outlook: Zum Outlook-Kalender hinzufügen
         count:
           meetings_count:
             one: "%{count} Besprechung"
@@ -434,12 +469,14 @@ de:
           origin_values:
             all: Alle
             official: Offiziell
+            participants: Teilnehmer
             user_groups: Gruppen
           scope: Umfang
           search: Suche
           type: Art
           type_values:
             all: Alle
+            hybrid: Hybrid
             in_person: Persönlich
             online: Online
         filters_small_view:
@@ -460,7 +497,9 @@ de:
           select_a_meeting_type: Bitte eine Meeting-Art auswählen
           select_a_registration_type: Bitte wählen Sie eine Registrierungsart aus
         index:
+          click_here: Alle Treffen anzeigen
           new_meeting: Neue Besprechung
+          see_all: Alle Treffen anzeigen
         meeting_minutes:
           related_information: Zugehörige Informationen
         meetings:
@@ -484,6 +523,7 @@ de:
           join: Tritt dem Treffen bei
           leave: Registrierung stornieren
           leave_confirmation: Sind Sie sicher dass Sie Ihre Registrierung für diese Sitzung stornieren möchten?
+          live_event: Dieses Meeting findet gerade statt
           meeting_minutes: Sitzungsprotokolle
           no_slots_available: Keine Steckplätze verfügbar
           organizations: Teilnahme an Organisationen
@@ -521,9 +561,20 @@ de:
             title: Titel
       polls:
         questions:
+          index_admin:
+            question: Frage
+            received_answer: Antwort erhalten
+            results: Ergebnisse
+            send: Senden
+            sent: Gesendet
           published_question:
+            max_choices_alert: Es wurden zu viele Auswahlmöglichkeiten ausgewählt
             question: Frage
             question_replied: Frage beantwortet
+      public_participants_list:
+        hidden_participants_count:
+          one: und %{count} weitere Person
+          other: und %{count} weitere Personen
       read_more: "(Weiterlesen)"
       registration_mailer:
         confirmation:
@@ -545,14 +596,17 @@ de:
           invalid: Beim Verlassen dieses Meetings ist ein Problem aufgetreten.
           success: Sie haben das Meeting erfolgreich verlassen.
       type_of_meeting:
+        hybrid: Hybrid
         in_person: In Person
         online: Online
       types:
         private_meeting: Private Sitzung
         transparent: Transparent
+        withdraw: Zurückgezogen
       versions:
         back_to_resource: Zurück zur Besprechung
       withdraw:
+        error: Beim Zurückziehen des Meetings ist ein Fehler aufgetreten
         success: Das Meeting wurde erfolgreich zurückgezogen
     metrics:
       meetings:
