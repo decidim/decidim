@@ -11,14 +11,46 @@ describe "Instant validations", type: :system do
   end
 
   context "when in registration form" do
-    it "Nickname is suggested on writing the name" do
-      within("#register-form") do
-        expect(page).not_to have_content("agentsmith")
+    let!(:user) { create(:user, organization: organization, email: "bot@matrix.org", nickname: "agentsmith") }
 
-        fill_in "Your name", with: " Agent Smith"
+    it "Email is validated while writing" do
+      within("#register-form") do
+        expect(page).not_to have_content("Is invalid")
+
+        fill_in "Your email", with: " bot@matrix"
         sleep 0.2 # wait for the delayed triggering fetcher
 
-        expect(page.evaluate_script("document.getElementById('registration_user_nickname').value")).to eq("agentsmith")
+        expect(page).to have_content("Is invalid")
+      end
+    end
+
+    it "Password is validated while writing" do
+      within("#register-form") do
+        expect(page).not_to have_content("Is too short")
+
+        fill_in "Password", with: "mypas"
+        sleep 0.2 # wait for the delayed triggering fetcher
+
+        expect(page).to have_content("Is too short")
+      end
+    end
+
+    it "Password validates against dynamic content" do
+      within("#register-form") do
+        expect(page).not_to have_content("Is too similar to your name")
+
+        fill_in "Your name", with: "Agent Smith 1984"
+        fill_in "Password", with: "agentsmith1984"
+        sleep 0.2 # wait for the delayed triggering fetcher
+
+        expect(page).to have_content("Is too similar to your name")
+
+        expect(page).not_to have_content("Is too common")
+
+        fill_in "Password", with: "password11"
+        sleep 0.2 # wait for the delayed triggering fetcher
+
+        expect(page).to have_content("Is too common")
       end
     end
   end

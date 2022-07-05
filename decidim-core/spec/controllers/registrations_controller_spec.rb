@@ -76,7 +76,7 @@ module Decidim
       let(:params) do
         {
           attribute: "nickname",
-          value: "agentsmith"
+          nickname: "agentsmith"
         }
       end
 
@@ -108,7 +108,7 @@ module Decidim
 
           json = JSON.parse(response.body)
           expect(json["valid"]).to be(false)
-          expect(json["suggestion"]).to eq("agentsmith1")
+          expect(json["error"]).to eq("Has already been taken")
         end
       end
 
@@ -122,7 +122,7 @@ module Decidim
 
           json = JSON.parse(response.body)
           expect(json["valid"]).to be(false)
-          expect(json["suggestion"]).to be_nil
+          expect(json["error"]).to eq("Invalid attribute")
         end
       end
     end
