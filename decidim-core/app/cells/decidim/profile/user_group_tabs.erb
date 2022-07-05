@@ -1,0 +1,10 @@
+<div class="responsive-tab-block">
+  <ul class="tabs" id="profile-tabs">
+    <%= user_profile_tab t("decidim.profiles.show.members"), profile_members_path(nickname: profile_holder.nickname) %>
+    <% if manageable_group? %>
+      <%= user_profile_tab label_conversations, profile_conversations_path(nickname: profile_holder.nickname) %>
+    <% end %>
+    <%= user_profile_tab t("decidim.profiles.show.followers"), profile_followers_path(nickname: profile_holder.nickname) %>
+    <%= user_profile_tab t("decidim.profiles.show.badges"), profile_badges_path(nickname: profile_holder.nickname) %>
+  </ul>
+</div>
