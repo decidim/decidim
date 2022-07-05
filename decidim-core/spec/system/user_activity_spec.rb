@@ -74,8 +74,8 @@ describe "User activity", type: :system do
         # rubocop:enable RSpec/AnyInstance
 
         page.visit decidim.profile_activity_path(nickname: user.nickname)
-        within ".user-activity" do
-          expect(page).to have_css(".card--activity", count: 3)
+        within "#activities-container" do
+          expect(page).to have_css("[data-activity]", count: 3)
 
           expect(page).to have_content(translated(resource.title))
           expect(page).to have_content(translated(comment.commentable.title))
@@ -92,8 +92,8 @@ describe "User activity", type: :system do
     end
 
     it "displays the activities at the home page" do
-      within ".user-activity" do
-        expect(page).to have_css(".card--activity", count: 2)
+      within "#activities-container" do
+        expect(page).to have_css("[data-activity]", count: 2)
 
         expect(page).to have_content(translated(resource.title))
         expect(page).to have_content(translated(comment.commentable.title))
