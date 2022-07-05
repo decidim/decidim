@@ -27,6 +27,7 @@ de:
     components:
       debates:
         actions:
+          comment: Kommentar
           create: Erstellen
           endorse: Bestätigen
         name: Debatten
@@ -119,6 +120,7 @@ de:
           my_debates: Meine Debatten
           official: Offiziell
           origin: Ursprung
+          participants: Teilnehmer
           scope: Bereich
           search: Suche
           state: Status
