@@ -327,6 +327,11 @@ de:
           update:
             invalid: Es ist ein Problem beim Aktualisieren des Wahlhelfers %{trustee} aufgetreten
             success: Wahlhelfer %{trustee} erfolgreich aktualisiert
+      connection:
+        failed:
+          modal:
+            communication_lost: Leider scheint die Kommunikation mit dem Abstimmungsserver (Bulletin Board) unterbrochen.<br>Möglicherweise ist die Internetverbindung gestört oder der Server ist überlastet.<br>Bitte versuche es später noch einmal oder kontaktiere den Support, falls das Problem weiterhin besteht.
+            title: Etwas ist schiefgelaufen
       election_m:
         badge_name:
           finished: Abgeschlossen
