@@ -586,6 +586,8 @@ de:
           lead: Ihre Stimme wurde nicht abgegeben!
           modal:
             close: Schließen
+            communication_lost: Leider scheint die Kommunikation mit dem Abstimmungsserver (Bulletin Board) unterbrochen.<br>Möglicherweise ist die Internetverbindung gestört oder der Server ist überlastet.<br>Bitte versuche es später noch einmal oder kontaktiere den Support, falls das Problem weiterhin besteht.
+            title: Etwas ist schiefgelaufen
           text: Ein Fehler ist aufgetreten. Bitte versuchen Sie es erneut.
         header:
           ballot_decision: Stimme abgeben oder überprüfen
