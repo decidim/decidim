@@ -43,6 +43,10 @@ de:
           valuator_role_id: Name des Schätzers
     errors:
       models:
+        participatory_text:
+          attributes:
+            document:
+              allowed_file_content_types: 'Ungültiger Dokumenttyp. Zulässige Formate sind: %{types}'
         proposal:
           attributes:
             add_documents:
@@ -131,6 +135,16 @@ de:
             collaborative_drafts_enabled: Kollaborative Entwürfe aktiviert
             comments_enabled: Kommentare aktiviert
             comments_max_length: Maximale Länge der Kommentare (0 für Standardwert)
+            default_sort_order: Standardsortierung für Vorschläge
+            default_sort_order_options:
+              default: Standard
+              most_commented: Am häufigsten kommentiert
+              most_endorsed: Am häufigsten befürwortet
+              most_followed: Am häufigsten gefolgt
+              most_voted: Am meisten unterstützt
+              random: Zufällig
+              recent: Neueste
+              with_more_authors: Mit mehr Autoren
             geocoding_enabled: Geocoding aktiviert
             minimum_votes_per_user: Mindeststimmen pro Nutzer
             new_proposal_body_template: Textvorlage für neuen Vorschlag
@@ -172,6 +186,16 @@ de:
             answers_with_costs: Kosten für Vorschlagsantworten aktivieren
             automatic_hashtags: Hashtags wurden allen Vorschlägen hinzugefügt
             comments_blocked: Kommentare blockiert
+            creation_enabled: Teilnehmer können Vorschläge erstellen
+            default_sort_order_options:
+              default: Standard
+              most_commented: Am meisten kommentiert
+              most_endorsed: Am meisten befürwortet
+              most_followed: Am häufigsten gefolgt
+              most_voted: Am häufigsten unterstützt
+              random: Zufällig
+              recent: Neueste
+              with_more_authors: Mit mehr Autoren
             endorsements_blocked: Zustimmungen blockiert
             endorsements_enabled: Bestätigungen aktiviert
             proposal_answering_enabled: Vorschlagsantworten aktiviert
@@ -348,6 +372,15 @@ de:
         exports:
           proposal_comments: Kommentare
           proposals: Vorschläge
+        imports:
+          label:
+            proposals: Vorschläge aus einer Datei importieren
+          resources:
+            proposals:
+              one: Vorschlag
+              other: Vorschläge
+          title:
+            proposals: Vorschläge importieren
         models:
           proposal:
             name: Vorschlag
@@ -389,6 +422,7 @@ de:
             accepted: Angenommen
             answer_proposal: Antworten
             evaluating: In Bewertung
+            not_answered: Unbeantwortet
             rejected: Abgelehnt
             title: Antwort auf Vorschlag %{title}
         proposal_notes:
@@ -526,6 +560,7 @@ de:
           all: Alle
           meetings: Meetings
           official: Offiziell
+          participants: Teilnehmer
           user_groups: Benutzergruppen
         filter_scope_values:
           all: Alle
@@ -588,6 +623,8 @@ de:
           filter_by: Filtern nach
           unfold: Aufklappen
         new:
+          add_file: Datei hinzufügen
+          edit_file: Datei bearbeiten
           send: Fortsetzen
         new_collaborative_draft_button:
           new_collaborative_draft: Neuer gemeinsamer Entwurf
@@ -694,9 +731,15 @@ de:
           proposals_count:
             one: "%{count} Vorschlag"
             other: "%{count} Vorschläge"
+        dynamic_map_instructions:
+          instructions: Sie können den Marker auf der Karte verschieben.
         edit:
+          add_documents: Dokumente hinzufügen
+          add_image: Bild hinzufügen
           attachment_legend: "(Optional) Fügen Sie einen Anhang hinzu"
           back: Zurück
+          edit_documents: Dokumente bearbeiten
+          edit_image: Bild bearbeiten
           gallery_legend: "(Optional) Ein Bild zur Vorschlagskarte hinzufügen"
           select_a_category: Bitte wählen sie eine Kategorie
           send: Abschicken
@@ -725,8 +768,10 @@ de:
           filter_by: Filtern nach
           unfold: Aufklappen
         index:
+          click_here: Alle Vorschläge ansehen
           collaborative_drafts_list: Greifen Sie auf gemeinsame Entwürfe zu
           new_proposal: Neuer Vorschlag
+          see_all: Alle Vorschläge ansehen
           see_all_withdrawn: Sehen Sie sich alle zurückgezogenen Vorschläge an
           view_proposal: Vorschlag anzeigen
         linked_proposals:
@@ -735,6 +780,7 @@ de:
             other: Stimmen
         new:
           send: Fortsetzen
+          title: Ihren Vorschlag erstellen
         orders:
           label: 'Vorschläge sortieren nach:'
           most_commented: Am meisten kommentiert
