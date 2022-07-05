@@ -187,7 +187,7 @@ You can read more about this change on PR [\#8774](https://github.com/decidim/de
 The `description` field in the categories admin forms has been removed (this applies to any participatory space using categories). For now it's still available in the database, so you can extract it with the following command:
 
 ```console
-bin/rails runner -e production 'Decidim::Category.pluck(:id, :name, :description)'
+bin/rails runner -e production 'Decidim::Category.pluck(:id, :name, :description).map { |row| puts row.join(";") }'
 ```
 
 In the next version (v0.28.0) it will be fully removed from the database.
