@@ -13,6 +13,7 @@ de:
         decidim_scope_id: Umfang
         description: Beschreibung
         proposal_ids: Ähnliche Vorschläge
+        proposals: Vorschläge
         selected: Zur Implementierung ausgewählt
         title: Titel
   activerecord:
@@ -125,6 +126,7 @@ de:
             success: "%{number} Vorschläge wurden erfolgreich in Projekte importiert"
           new:
             create: Importieren Sie Vorschläge in Projekte
+            import_all_accepted_proposals: Alle akzeptierten Vorschläge importieren
             no_components: Es gibt keine weiteren Vorschlagskomponenten in diesem partizipativen Raum, um die Vorschläge in Projekte zu importieren.
             select_component: Bitte wählen Sie eine Komponente aus
             title: Vorschläge importieren
@@ -253,6 +255,8 @@ de:
           filter: Filter
           filter_by: Filtern nach
           unfold: Aufklappen
+        index:
+          view_project: Projekt anzeigen
         order_progress:
           vote: Abstimmung
         order_selected_projects:
@@ -310,6 +314,7 @@ de:
               errors:
                 budget_voting_rule_only_one: Nur eine Abstimmungsregel kann aktiviert sein
                 budget_voting_rule_required: Es ist eine Abstimmungsregel notwendig
+            geocoding_enabled: Geocoding aktiviert
             landing_page_content: Budgets Landingpage
             more_information_modal: Weitere Informationen
             projects_per_page: Projekte pro Seite
