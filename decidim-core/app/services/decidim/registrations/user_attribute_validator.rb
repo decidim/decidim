@@ -28,7 +28,7 @@ module Decidim
       end
 
       def error
-        errors.flatten.join(". ") unless valid?
+        errors.flatten.map(&:upcase_first).join(". ") unless valid?
       end
 
       private

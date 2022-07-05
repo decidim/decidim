@@ -15,6 +15,10 @@ export default class InstantValidator {
   }
 
   init() {
+    // this final validation prevents abide from resetting the field when user loses focus
+    this.$inputs.on("blur", (evt) => {
+      this.validate($(evt.currentTarget));
+    });
     this.$inputs.on("keyup", (evt) => {
       let $input = $(evt.currentTarget);
       let checkTimeout = $input.data("checkTimeout");
@@ -69,7 +73,7 @@ export default class InstantValidator {
   addErrors($dest, msg) {
     this.$form.foundation("addErrorClasses", $dest);
     if (msg) {
-      $dest.next(".form-error").text(msg);
+      $dest.closest("label").find(".form-error").text(msg);
     }
   }
 
@@ -79,12 +83,8 @@ export default class InstantValidator {
 
   post($input) {
     return $.ajax(this.url, {
-      method: "post",
-      data: {
-        "attribute": this.attribute($input),
-        "value": this.value($input)
-      },
-      dataType: "json"
+      method: "POST",
+      data: `${this.$form.serialize()}&attribute=${this.attribute($input)}`
     });
   }
 }
