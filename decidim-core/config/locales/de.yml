@@ -695,6 +695,7 @@ de:
       no_followers: Noch keine Follower.
     following:
       no_followings: Folgt noch niemandem oder irgendetwas.
+      non_public_followings: Einige der gefolgten Ressourcen sind nicht öffentlich.
     follows:
       create:
         button: Folgen
@@ -1267,6 +1268,8 @@ de:
         filters:
           areas: Bereiche
           select_an_area: Wählen Sie einen Bereich aus
+      public_participation:
+        public_participation: Meine Teilnahme öffentlich anzeigen
       reference:
         reference: 'Referenz: %{reference}'
       represent_user_group:
