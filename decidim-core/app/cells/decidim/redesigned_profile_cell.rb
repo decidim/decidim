@@ -51,6 +51,10 @@ module Decidim
       end
     end
 
+    def description
+      decidim_html_escape presented_profile.about.to_s
+    end
+
     def content_cell
       context[:content_cell]
     end
