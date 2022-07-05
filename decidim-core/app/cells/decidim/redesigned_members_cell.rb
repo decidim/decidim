@@ -3,9 +3,10 @@
 module Decidim
   # This cell is intended to be used on profiles.
   # Lists the members of the given user group.
-  class MembersCell < Decidim::ViewModel
+  class RedesignedMembersCell < Decidim::ViewModel
     include Decidim::CellsPaginateHelper
     include Decidim::ApplicationHelper
+    include Decidim::LayoutHelper
     include Decidim::Core::Engine.routes.url_helpers
     include Decidim::CardHelper
 
@@ -28,6 +29,10 @@ module Decidim
                        else
                          Decidim::UserGroups::AcceptedMemberships.for(model).page(params[:page]).per(20)
                        end
+    end
+
+    def validation_messages
+      [t("decidim.members.no_members")] if memberships.blank?
     end
   end
 end
