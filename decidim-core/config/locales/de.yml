@@ -1599,6 +1599,7 @@ de:
         confirm_new_password: Bestätige neues Passwort
         new_password: Neues Passwort
         password_help: "Mindestens %{minimun_characters} Zeichen, nicht zu gewöhnlich (z. B. 123456) und darf nicht Ihr Benutzername oder Ihre E-Mail-Adresse sein."
+        title: Passwort ändern
       new:
         forgot_your_password: Haben Sie Ihr Passwort vergessen?
         send_me_reset_password_instructions: Senden Sie mir das Passwort zurück
@@ -1675,6 +1676,10 @@ de:
       too_short: ist zu kurz (unter 15 Zeichen)
   forms:
     correct_errors: Es gibt Fehler auf dem Formular, bitte korrigieren Sie sie, um fortzufahren.
+    length_validator:
+      minimum:
+        one: Mindestens %{count} Zeichen
+        other: Mindestens %{count} Zeichen
     required: Erforderlich
     required_explanation: "* Pflichtfelder sind mit einem Stern gekennzeichnet"
   invisible_captcha:
@@ -1682,6 +1687,34 @@ de:
     timestamp_error_message: Entschuldigung, das war zu schnell! Bitte erneut einreichen
   layouts:
     decidim:
+      cookie_consent:
+        cookie_details:
+          columns:
+            description: Beschreibung
+            name: Name
+            service: Service
+            type: Typ
+          cookies:
+            _session_id:
+              service: Diese Website
+            decidim-consent:
+              description: Speichert Informationen über die vom Benutzer erlaubten Cookies auf dieser Website.
+              service: Diese Website
+          types:
+            cookie: Cookie
+        dialog:
+          accept_all: Alle akzeptieren
+          accept_only_essential: Nur essentielle Cookies akzeptieren
+          cookie_settings: Einstellungen
+          title: Informationen über die auf dieser Website verwendeten Cookies
+        modal:
+          accept_all: Alle akzeptieren
+          accept_only_essential: Nur essentielle Cookies akzeptieren
+          analytics:
+            description: Analytics-Cookies sind Cookies, die verfolgen, wie Benutzer navigieren und mit einer Website interagieren. Die gesammelten Informationen werden verwendet, um dem Website-Eigentümer zu helfen, die Website zu verbessern.
+            title: Analysen und Statistiken
+          marketing:
+            title: Marketing
       edit_link:
         edit: Bearbeiten
       footer:
