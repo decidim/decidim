@@ -299,6 +299,9 @@ de:
     admin_log:
       participatory_process:
         create: "%{user_name} hat den Partizipationsprozess %{resource_name} erstellt"
+        duplicate: "%{user_name} hat den Beteiligungsprozess %{resource_name} dupliziert"
+        export: "%{user_name} hat den Beteiligungsprozess %{resource_name} exportiert"
+        import: "%{user_name} hat den Beteiligungsprozess %{resource_name} importiert"
         publish: "%{user_name} hat den Partizipationsprozess %{resource_name} veröffentlicht"
         unpublish: "%{user_name} hat den Partizipationsprozess %{resource_name} auf \"unveröffentlicht\" gesetzt"
         update: "%{user_name} hat den Partizipationsprozess %{resource_name} aktualisiert"
@@ -310,6 +313,9 @@ de:
         create: "%{user_name} hat den Schritt %{resource_name} in %{space_name} erstellt"
         delete: "%{user_name} hat den Schritt %{resource_name} aus %{space_name} gelöscht"
         update: "%{user_name} hat den Schritt %{resource_name} in %{space_name} aktualisiert"
+      participatory_process_type:
+        create: "%{user_name} hat den Beteiligungsprozesstyp %{resource_name} erstellt"
+        delete: "%{user_name} hat den Beteiligungsprozesstyp %{resource_name} gelöscht"
       participatory_process_user_role:
         create: "%{user_name} lud den Benutzer %{resource_name} zu dem %{space_name} Partizipationsprozess ein"
         delete: "%{user_name} entfernte den Benutzer %{resource_name} aus dem %{space_name} Partizipationsprozess"
