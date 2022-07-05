@@ -23,6 +23,7 @@ de:
         decidim_user_group_id: Benutzergruppe
         description: Beschreibung
         end_time: Endzeit
+        id: ID
         location: Ort
         location_hints: Standorthinweise
         online_meeting_url: Online Meeting URL
@@ -34,6 +35,7 @@ de:
         registration_terms: Registrierungsbedingungen
         registration_url: Registrierungs-URL
         registrations_enabled: Registrierungen aktiviert
+        show_embedded_iframe: Eingebetteten Iframe für diese URL anzeigen
         start_time: Startzeit
         title: Titel
         transparent: Transparent
@@ -75,6 +77,13 @@ de:
     admin:
       filters:
         meetings:
+          category_id_eq:
+            label: Kategorie
+          closed_at_present:
+            label: Status
+            values:
+              'false': Offen
+              'true': Geschlossen
           is_upcoming_true:
             label: Datum
             values:
@@ -105,6 +114,7 @@ de:
     components:
       meetings:
         actions:
+          comment: Kommentar
           join: Beitreten
         name: Meetings
         settings:
@@ -115,6 +125,7 @@ de:
             creation_enabled_for_participants: Teilnehmer können Besprechungen erstellen
             default_registration_terms: Standard-Registrierungsbedingungen
             enable_pads_creation: Aktivieren Sie die Pads-Erstellung
+            maps_enabled: Karten aktiviert
             registration_code_enabled: Registrierungscode aktiviert
             resources_permissions_enabled: Aktionsberechtigungen können für jedes Meeting festgelegt werden
             scope_id: Bereich
@@ -139,6 +150,7 @@ de:
             email_subject: Die Sitzung "%{resource_title}" wurde geschlossen
             notification_title: Die Sitzung <a href="%{resource_path}">%{resource_title}</a> wurde geschlossen.
         meeting_created:
+          button_text: Für das Treffen anmelden
           email_intro: Die Sitzung "%{resource_title}" wurde zu "%{participatory_space_title}" hinzugefügt, welchem Sie folgen.
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie "%{participatory_space_title}" folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
           email_subject: Neue Sitzung zu %{participatory_space_title} hinzugefügt
@@ -198,6 +210,7 @@ de:
           proposals_count:
             one: 'Die Besprechung kann nicht gelöscht werden, da %{count} Vorschlag mit dieser verbunden ist:'
             other: 'Die Besprechung kann nicht gelöscht werden, da %{count} Vorschläge mit dieser verbunden sind:'
+        manage_poll: Umfrage verwalten
         new: Neue Sitzung
         preview: Vorschau
         registrations: Anmeldungen
@@ -234,6 +247,7 @@ de:
             invalid: Beim Aktualisieren dieser Agenda ist ein Problem aufgetreten
             success: Agenda erfolgreich aktualisiert
         exports:
+          answers: Antworten
           meeting_comments: Kommentare
           meetings: Treffen
           registrations: Anmeldungen
@@ -268,6 +282,9 @@ de:
           edit:
             close: Schließen
             title: Sitzung beenden
+        meeting_copies:
+          form:
+            select_a_meeting_type: Bitte eine Meeting-Typ auswählen
         meetings:
           close:
             invalid: Beim Schließen dieses Meetings ist ein Problem aufgetreten
@@ -320,6 +337,9 @@ de:
           update:
             invalid: Beim Aktualisieren dieses Meetings ist ein Problem aufgetreten
             success: Sitzung erfolgreich aktualisiert
+        meetings_poll:
+          form:
+            title: Fragebogen für %{questionnaire_for} bearbeiten
         models:
           meeting:
             name: Treffen
@@ -407,6 +427,8 @@ de:
           apple: Zu Apple Kalender hinzufügen
           close_window: Fenster schließen
           full_details_html: Für alle Details gehen Sie zu %{link}
+          google: Zum Google-Kalender hinzufügen
+          outlook: Zum Outlook-Kalender hinzufügen
         count:
           meetings_count:
             one: "%{count} Besprechung"
@@ -485,6 +507,7 @@ de:
           join: Tritt dem Treffen bei
           leave: Registrierung stornieren
           leave_confirmation: Sind Sie sicher dass Sie Ihre Registrierung für diese Sitzung stornieren möchten?
+          live_event: Dieses Meeting findet gerade statt
           meeting_minutes: Sitzungsprotokolle
           no_slots_available: Keine Steckplätze verfügbar
           organizations: Teilnahme an Organisationen
@@ -525,9 +548,19 @@ de:
         questions:
           index_admin:
             edit: Im Adminbereich bearbeiten
+            question: Frage
+            received_answer: Antwort erhalten
+            results: Ergebnisse
+            send: Senden
+            sent: Gesendet
           published_question:
+            max_choices_alert: Es wurden zu viele Auswahlmöglichkeiten ausgewählt
             question: Frage
             question_replied: Frage beantwortet
+      public_participants_list:
+        hidden_participants_count:
+          one: und %{count} weitere Person
+          other: und %{count} weitere Personen
       read_more: "(Weiterlesen)"
       registration_mailer:
         confirmation:
