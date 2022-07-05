@@ -45,10 +45,10 @@
             </div>
 
             <div class="field">
-              <%= f.email_field :email, autocomplete: "email", data: { "instant-attribute": "nickname", "instant-target": '[name="user[email]"]', 'instant-action': "uniqueness" } %>
+              <%= f.email_field :email, autocomplete: "email", data: { "instant-attribute": "email" } %>
             </div>
 
-            <%= render("decidim/devise/shared/password_fields", form: f, options: password_field_options_for(:user)) %>
+            <%= render("decidim/devise/shared/password_fields", form: f, options: password_field_options_for(:user).merge(data: { "instant-attribute": "password" })) %>
           </div>
         </div>
 

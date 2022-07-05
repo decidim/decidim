@@ -3,67 +3,58 @@
 // Instant, server-side validation
 // compatible with abide classes https://get.foundation/sites/docs/abide.html
 export default class InstantValidator {
-  static slugify(string, separator = "-") {
-    // From the glorious Stackoverflow!
-    return string.
-      toString().
-      normalize("NFD").                // split an accented letter in the base letter and the accent
-      replace(/[\u0300-\u036f]/g, ""). // remove all previously split accents
-      toLowerCase().
-      trim().
-      replace(/[^a-z0-9_\- ]/g, "").   // remove all chars not letters, numbers and spaces (to be replaced)
-      replace(/\s+/g, separator);
+  // ms before xhr check
+  static get TIMEOUT() {
+    return 150;
   }
 
-  constructor($input) {
-    this.$input = $input;
-    this.$form = $input.closest("form.instant-validation");
+  constructor($form) {
+    this.$form = $form;
+    this.$inputs = $form.find("[data-instant-attribute]");
     this.url = this.$form.data("validationUrl");
   }
 
-  value() {
-    if (this.action() === "suggest") {
-      return InstantValidator.slugify(this.$input.val(), "");
-    }
-    return this.$input.val().trim();
-  }
-
-  attribute() {
-    return this.$input.data("instantAttribute");
-  }
-
-  action() {
-    return this.$input.data("instantAction") || "check";
-  }
-
-  target() {
-    return this.$form.find(this.$input.data("instantTarget")) || this.$input;
-  }
-
-  validate() {
-    this.tamper(this.$input);
-    this.clearErrors(this.$input);
-    this.post().done((response) => {
-      if (this.action() === "suggest") {
-        this.setValue(response);
-      } else {
-        this.setFeedback(response);
+  init() {
+    this.$inputs.on("keyup", (evt) => {
+      let $input = $(evt.currentTarget);
+      let checkTimeout = $input.data("checkTimeout");
+      // Trigger live validation with a delay to avoid throttling
+      if (checkTimeout) {
+        clearTimeout(checkTimeout);
       }
+      $input.data("checkTimeout", setTimeout(() => {
+        this.validate($input);
+      }, this.TIMEOUT)
+      );
     });
   }
 
-  setValue(data) {
-    if (!this.isTampered(this.target())) {
-      this.clearErrors(this.target());
-      this.target().val(data.suggestion);
-    }
+  value($input) {
+    return $input.val().trim();
   }
 
-  setFeedback(data) {
+  attribute($input) {
+    return $input.data("instantAttribute");
+  }
+
+  target($input) {
+    const $target = this.$form.find($input.data("instantTarget"));
+    return $target.length
+      ? $target
+      : $input;
+  }
+
+  validate($input) {
+    this.tamper($input);
+    this.clearErrors($input);
+    this.post($input).done((response) => {
+      this.setFeedback(response, $input);
+    });
+  }
+
+  setFeedback(data, $input) {
     if (!data.valid) {
-      this.addErrors(this.target(), this.action() === "uniqueness"
-        ? data.errorWithSuggestion
-        : data.error);
+      this.addErrors(this.target($input), data.error);
     }
   }
 
@@ -78,7 +69,7 @@ export default class InstantValidator {
   addErrors($dest, msg) {
     this.$form.foundation("addErrorClasses", $dest);
     if (msg) {
-      this.target().next(".form-error").text(msg);
+      $dest.next(".form-error").text(msg);
     }
   }
 
@@ -86,12 +77,12 @@ export default class InstantValidator {
     this.$form.foundation("removeErrorClasses", $dest);
   }
 
-  post() {
+  post($input) {
     return $.ajax(this.url, {
       method: "post",
       data: {
-        "attribute": this.attribute(),
-        "value": this.value()
+        "attribute": this.attribute($input),
+        "value": this.value($input)
       },
       dataType: "json"
     });

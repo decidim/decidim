@@ -31,26 +31,6 @@ module Decidim
         errors.flatten.join(". ") unless valid?
       end
 
-      def error_with_suggestion
-        return error if suggestion.blank?
-
-        "#{error}. #{I18n.t("decidim.devise.registrations.attribute_validator.try_instead", suggestion: suggestion)}" unless valid?
-      end
-
-      def suggestion
-        @suggestion ||= begin
-          word = input
-          loop do
-            break unless valid_suggestor?
-            break unless valid_users.exists?(organization: current_organization, attribute => word)
-
-            # reuse and increment a last number if exists
-            word.gsub!(/([^\d.]+)(\d*)/) { "#{Regexp.last_match(1)}#{Regexp.last_match(2).to_i + 1}" }
-          end
-          word
-        end
-      end
-
       private
 
       def valid_attribute?
@@ -62,7 +42,7 @@ module Decidim
       end
 
       def valid_users
-        Decidim::UserBaseEntity.where(invitation_token: nil)
+        Decidim::UserBaseEntity.where(invitation_token: nil, organization: current_organization)
       end
     end
   end
