@@ -84,6 +84,12 @@ de:
       decidim_with_month_name_short: "%d. %b"
   datetime:
     distance_in_words:
+      about_x_hours:
+        one: etwa eine Stunde
+        other: etwa %{count} Stunden
+      about_x_months:
+        one: etwa ein Monat
+        other: etwa %{count} Monate
       half_a_minute: eine halbe Minute
       less_than_x_minutes:
         one: weniger als eine Minute
@@ -733,6 +739,7 @@ de:
       no_followers: Noch keine Follower.
     following:
       no_followings: Folgt noch niemandem oder irgendetwas.
+      non_public_followings: Einige der gefolgten Ressourcen sind nicht öffentlich.
     follows:
       create:
         button: Folgen
@@ -1310,6 +1317,8 @@ de:
         filters:
           areas: Bereiche
           select_an_area: Wählen Sie einen Bereich aus
+      public_participation:
+        public_participation: Meine Teilnahme öffentlich anzeigen
       reference:
         reference: 'Referenz: %{reference}'
       represent_user_group:
@@ -1676,6 +1685,7 @@ de:
     email_included_in_password: ist Ihrer E-Mail zu ähnlich
     fallback: ist ungültig
     name_included_in_password: ist Ihrem Namen zu ähnlich
+    nickname_included_in_password: ist Ihrem Nicknamen zu ähnlich
     not_enough_unique_characters: hat nicht genug eindeutige Zeichen
     password_not_allowed: ist nicht erlaubt
     password_too_common: ist zu allgemein
@@ -1710,6 +1720,8 @@ de:
       day_of_week: "%a"
       day_of_week_long: "%a %e."
       day_of_year: "%d.%m.%y"
+      ddmm: "%d.%m"
+      ddmmyyyy: "%d.%m.%Y"
       decidim_day_of_year: "%d. %B %Y"
       decidim_short: "%d.%m.%Y %H:%M"
       default: "%a, %d. %b %Y %H:%M:%S %z"
