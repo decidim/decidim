@@ -611,10 +611,12 @@ de:
           header: Abstimmung fehlgeschlagen
           lead: Ihre Stimme wurde nicht abgegeben!
           text: Ein Fehler ist aufgetreten. Bitte versuchen Sie es erneut.
+          try_again: Erneut versuchen
         header:
           ballot_decision: Stimme abgeben oder überprüfen
           confirm: Bestätige deine Stimme
           confirmed: Abstimmung bestätigt
+          failed: Abstimmung fehlgeschlagen
         messages:
           invalid_token: Ihre Sitzung in der Abstimmung ist nicht gültig. Versuchen Sie, erneut abzustimmen.
           not_allowed: Sie dürfen zur Zeit nicht an dieser Wahl teilnehmen.
