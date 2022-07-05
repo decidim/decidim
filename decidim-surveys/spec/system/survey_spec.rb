@@ -100,7 +100,8 @@ describe "Answer a survey", type: :system do
 
     it "shows action log entry" do
       page.visit decidim.profile_activity_path(nickname: user.nickname)
-      expect(page).to have_content("New survey at #{translated(survey.component.participatory_space.title)}")
+      expect(page).to have_content("New survey: #{translated(survey.questionnaire.title)}")
+      expect(page).to have_content(translated(survey.component.participatory_space.title))
       expect(page).to have_link(translated(survey.questionnaire.title), href: router.survey_path(survey))
     end
   end
