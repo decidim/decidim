@@ -40,8 +40,12 @@ de:
       decidim/join_request_rejected_event: Beitrittsanfrage abgelehnt
       decidim/profile_updated_event: Profil aktualisiert
       decidim/promote_to_admin: Zum Gruppenadministrator hochgestuft
+      decidim/promoted_to_admin_event: Zum Gruppenadministrator hochgestuft
       decidim/removed_from_group: Aus der Gruppe entfernt
       decidim/resource_endorsed_event: Ressource befürwortet
+      decidim/resource_hidden_event: Ressource versteckt
+      decidim/user_group_created_event: Benutzergruppe erstellt
+      decidim/welcome_notification_event: Willkommensnachricht
   activerecord:
     attributes:
       decidim/user:
@@ -81,6 +85,18 @@ de:
   datetime:
     distance_in_words:
       half_a_minute: eine halbe Minute
+      less_than_x_seconds:
+        one: gerade eben
+        other: weniger als %{count} Sekunden
+      x_days:
+        one: Vor 1 Tag
+        other: "Vor %{count} Tagen"
+      x_hours:
+        one: Vor 1 Stunde
+        other: "Vor %{count} Stunden"
+      x_minutes:
+        one: Vor 1 Minute
+        other: "Vor %{count} Minuten"
       x_seconds:
         one: vor 1 Sekunde
         other: "Vor %{count} Sekunden"
@@ -88,6 +104,7 @@ de:
   decidim:
     accessibility:
       external_link: Externer Link
+      front_page_link: Zur Startseite gehen
       logo: "Offizielles Logo von %{organization}"
       skip_button: Zu Hauptinhalten überspringen
     account:
@@ -267,6 +284,8 @@ de:
         download: Datei herunterladen
       documents:
         related_documents: Zugehörige Dokumente
+      geocoding:
+        geocoded_address: Adresse
       photos:
         related_photos: Zugehörige Bilder
     author:
