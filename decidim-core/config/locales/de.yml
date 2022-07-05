@@ -85,6 +85,9 @@ de:
   datetime:
     distance_in_words:
       half_a_minute: eine halbe Minute
+      less_than_x_minutes:
+        one: weniger als eine Minute
+        other: weingier als %{count} Minuten
       less_than_x_seconds:
         one: gerade eben
         other: weniger als %{count} Sekunden
@@ -531,6 +534,10 @@ de:
           this_application_will_not_be_able_to: 'Diese Anwendung kann nicht:'
           update_profile: Profil aktualisieren
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> möchte Ihr Konto verwenden"
+    editor_images:
+      create:
+        error: Fehler beim Hochladen des Bildes
+        success: Bild erfolgreich hochgeladen
     endorsable:
       endorsements: Empfehlungen
       endorsements_count: Anzahl Befürworter
@@ -887,6 +894,15 @@ de:
       index:
         last_activity: Letzte Aktivität
         resource_type: Art
+    links:
+      invalid_url: Ungültige URL
+      warning:
+        body_1: Sie sind dabei einen externen Link zu besuchen und wir möchten, dass Sie hinsichtlich der Inhalte auf der externen Seite vorsichtig sind.
+        body_2: Bitte überprüfen Sie den Link und stellen Sie sicher, dass es sich um eine vertrauenswürdige Seite handelt, bevor Sie fortfahren.
+        cancel: Abbrechen
+        close_modal: Dialog schließen
+        proceed: Fortfahren
+        title: Externen Link öffnen
     log:
       base_presenter:
         create: "%{user_name} hat %{resource_name} erstellt"
@@ -982,6 +998,7 @@ de:
           next: Weiter
           no_conversations: Du hast noch keine Unterhaltungen
           title: Nachrichten
+          to: An
         reply:
           placeholder: Ihre Antwort...
           send: Senden
@@ -989,6 +1006,7 @@ de:
         show:
           back: Zurück zu allen Unterhaltungen
           chat_with: Unterhaltung mit
+          deleted_accounts: Sie können keine Unterhaltung mit gelöschten Konten führen.
           not_allowed: Dieser Teilnehmer akzeptiert keine direkten Nachrichten.
           title: Gespräch mit %{usernames}
         start:
@@ -1056,6 +1074,10 @@ de:
         greetings: Grüße,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Hallo,
         subject: Möchten Sie weiterhin relevante Informationen über %{organization_name} erhalten?
+    notification_mailer:
+      event_received:
+        original_text: 'Originaltext:'
+        translated_text: 'Automatisch übersetzter Text:'
     notifications:
       no_notifications: Noch keine Benachrichtigungen
     notifications_settings:
@@ -1351,6 +1373,7 @@ de:
         title_reply: Antworten
       show:
         back: Alle Unterhaltungen anzeigen
+        deleted_accounts: Sie können keine Unterhaltung mit gelöschten Konten führen.
         not_allowed: Dieser Benutzer akzeptiert keine Direktnachrichten mehr.
         title: Unterhaltung mit %{usernames}
       update:
