@@ -158,6 +158,7 @@ PATH
       decidim-core (= 0.27.0.rc1)
       decidim-verifications (= 0.27.0.rc1)
       origami (~> 2.1)
+      rexml (~> 3.2.5)
       wicked (~> 1.3)
       wicked_pdf (~> 2.1)
       wkhtmltopdf-binary (~> 0.12)
