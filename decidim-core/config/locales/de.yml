@@ -73,6 +73,7 @@ de:
     'true': 'Ja'
   carrierwave:
     errors:
+      file_resolution_too_large: Die Datei-Auflösung ist zu groß
       file_size_too_large: Datei ist zu groß
       not_inside_organization: Die Datei ist keiner Organisation hinzugefügt
   date:
@@ -85,6 +86,9 @@ de:
   datetime:
     distance_in_words:
       half_a_minute: eine halbe Minute
+      less_than_x_minutes:
+        one: weniger als eine Minute
+        other: weingier als %{count} Minuten
       less_than_x_seconds:
         one: gerade eben
         other: weniger als %{count} Sekunden
@@ -169,8 +173,12 @@ de:
       component:
         create: "%{user_name} hat die Komponente %{resource_name} zu %{space_name} hinzugefügt"
         delete: "%{user_name} hat die Komponente %{resource_name} aus %{space_name} entfernt"
+        export_component: "%{user_name} hat %{resource_name} %{component_name} in %{space_name} als %{format_name} exportiert"
         publish: "%{user_name} hat die Komponente %{resource_name} in %{space_name} veröffentlicht"
         unpublish: "%{user_name} hat die Komponente %{resource_name} in %{space_name} auf \"unveröffentlicht\" gesetzt"
+        update_permissions_with_space: "%{user_name} hat die Berechtigungen für %{resource_name} in %{space_name} aktualisiert"
+      contextual_help_section:
+        update: "%{user_name} hat den Hilfebereich %{resource_name} aktualisiert"
       helpers:
         answers: antworten
         comments: kommentare
@@ -329,6 +337,7 @@ de:
       endorsements:
         one: Befürwortung
         other: Befürwortungen
+      official_author: Offiziell
     authorization_handlers:
       another_dummy_authorization_handler:
         explanation: Lassen Sie sich verifizieren, indem Sie eine Reisepassnummer eingeben, die mit "A" beginnt
@@ -562,6 +571,10 @@ de:
         download_data: Daten herunterladen
         download_data_description: Eine Datei, die alle mit Ihrem Konto verknüpften Informationen enthält, wird an <strong>%{user_email}</strong> gesendet. Diese E-Mail enthält eine .zip-Datei und ein Passwort, um sie zu öffnen.<br/><br/>Um die Datei zu entpacken, benötigen Sie <a href="https://www.7-zip.org/">7-Zip</a> (für Windows) oder <a href="https://www.keka.io/">Keka</a> (für MacOS). Wenn Sie Linux verwenden, wird es meistens standardmäßig installiert. Wenn nicht, können Sie <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> oder <a href="https://peazip.github.io">PeaZip</a> verwenden.
         request_data: Daten anfordern
+    editor_images:
+      create:
+        error: Fehler beim Hochladen des Bildes
+        success: Bild erfolgreich hochgeladen
     endorsable:
       endorsements: Empfehlungen
       endorsements_count: Anzahl Befürworter
@@ -777,13 +790,34 @@ de:
         file:
           explanation: 'Anleitung für Datei:'
           message_1: Muss ein Bild oder ein Dokument sein.
+          message_2: Verwenden Sie für Bilder vorzugsweise das Querformat, der Dienst beschneidet das Bild.
+        icon:
+          explanation: 'Hinweise für das Bild:'
+          message_1: Muss ein quadratisches Bild sein.
+          message_2: Die empfohlene Größe für dieses Bild ist 512x512 Pixel.
         image:
           explanation: 'Anleitung für Bild:'
           message_1: Vorzugsweise ein Querformat ohne Text.
           message_2: Der Dienst schneidet die Datei zu.
       file_validation:
         allowed_file_extensions: 'Erlaubte Dateiendungen: %{extensions}'
+        max_file_dimension: 'Maximale Dateigröße: %{resolution} Pixel'
         max_file_size: 'Maximale Dateigröße: %{megabytes}MB'
+      upload:
+        labels:
+          add_attachment: Anhang hinzufügen
+          add_file: Datei hinzufügen
+          add_image: Bild hinzufügen
+          cancel: Abbrechen
+          edit_image: Bild bearbeiten
+          error: Fehler!
+          file_size_too_large: 'Datei ist zu groß! Maximale Dateigröße: %{megabytes}MB'
+          remove: Entfernen
+          replace: Ersetzen
+          save: Speichern
+          title: Titel
+          title_required: Titel ist erforderlich!
+          uploaded: Hochgeladen
     gamification:
       all_badges_link: Sieh dir alle verfügbaren Abzeichen an.
       badges:
@@ -884,6 +918,7 @@ de:
         success: Join-Anforderung wurde erfolgreich erstellt. Ein Administrator überprüft Ihre Anfrage, bevor er Sie für die Gruppe akzeptiert.
       leave:
         error: Es gab ein Problem, die Gruppe zu verlassen
+        last_admin: Sie können sich nicht von dieser Gruppe entfernen, da Sie der letzte Administrator sind. Machen Sie ein anderes Mitglied zum Administrator, um die Gruppe zu verlassen.
         success: Gruppe erfolgreich verlassen.
       members:
         accept_or_reject_join_requests: 'Die folgenden Benutzer haben sich angemeldet, um dieser Gruppe beizutreten. Akzeptieren oder ablehnen ihrer Anfragen:'
@@ -896,6 +931,7 @@ de:
       no_user_groups: Gehört noch keiner Gruppe an.
       roles:
         admin: Administrator
+        creator: Administrator
         member: Mitglied
       update:
         error: Beim Aktualisieren der Gruppe ist ein Problem aufgetreten
@@ -914,6 +950,15 @@ de:
       index:
         last_activity: Letzte Aktivität
         resource_type: Art
+    links:
+      invalid_url: Ungültige URL
+      warning:
+        body_1: Sie sind dabei einen externen Link zu besuchen und wir möchten, dass Sie hinsichtlich der Inhalte auf der externen Seite vorsichtig sind.
+        body_2: Bitte überprüfen Sie den Link und stellen Sie sicher, dass es sich um eine vertrauenswürdige Seite handelt, bevor Sie fortfahren.
+        cancel: Abbrechen
+        close_modal: Dialog schließen
+        proceed: Fortfahren
+        title: Externen Link öffnen
     log:
       base_presenter:
         create: "%{user_name} hat %{resource_name} erstellt"
@@ -923,6 +968,7 @@ de:
         unknown_action: "%{user_name} hat eine Aktion an %{resource_name} ausgeführt"
         unknown_action_with_space: "%{user_name} hat eine Aktion an %{resource_name} in %{space_name} ausgeführt"
         update: "%{user_name} hat %{resource_name} aktualisiert"
+        update_permissions_with_space: "%{user_name} hat die Berechtigungen für %{resource_name} in %{space_name} aktualisiert"
         update_with_space: "%{user_name} hat %{resource_name} in %{space_name} aktualisiert"
       value_types:
         area_presenter:
@@ -1009,6 +1055,7 @@ de:
           next: Weiter
           no_conversations: Du hast noch keine Unterhaltungen
           title: Nachrichten
+          to: An
         reply:
           placeholder: Ihre Antwort...
           send: Senden
@@ -1016,6 +1063,7 @@ de:
         show:
           back: Zurück zu allen Unterhaltungen
           chat_with: Unterhaltung mit
+          deleted_accounts: Sie können keine Unterhaltung mit gelöschten Konten führen.
           not_allowed: Dieser Teilnehmer akzeptiert keine direkten Nachrichten.
           title: Gespräch mit %{usernames}
         start:
@@ -1083,8 +1131,19 @@ de:
         greetings: Grüße,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Hallo,
         subject: Möchten Sie weiterhin relevante Informationen über %{organization_name} erhalten?
+    notification_mailer:
+      event_received:
+        original_text: 'Originaltext:'
+        translated_text: 'Automatisch übersetzter Text:'
     notifications:
       no_notifications: Noch keine Benachrichtigungen
+    notifications_digest_mailer:
+      header:
+        daily: Tägliche Zusammenfassung
+        weekly: Wöchentliche Zusammenfassung
+      hello: Hallo %{name}
+      see_more: Weitere Benachrichtigungen ansehen
+      subject: Dies ist deine E-Mail-Zusammenfassung
     notifications_settings:
       show:
         administrators: Administratoren
@@ -1094,7 +1153,14 @@ de:
         everything_followed: Alles was ich folge
         newsletter_notifications: Ich möchte Newsletter erhalten
         newsletters: Newsletter
+        notifications_sending_frequencies:
+          daily: Täglich
+          none: Keine
+          weekly: Wöchentlich
+        notifications_sending_frequency: Wie oft möchten Sie die Benachrichtigungs-E-Mail erhalten?
         own_activity: Meine eigene Tätigkeit, etwa wenn sich jemand in meinem Vorschlag äußert oder mich erwähnt
+        push_notifications: Push-Benachrichtigungen
+        push_notifications_reminder: Um Benachrichtigungen von der Plattform zu erhalten, müssen Sie diese zuerst in den Browser-Einstellungen zulassen.
         receive_notifications_about: Ich möchte Benachrichtigungen erhalten über
         update_notifications_settings: Änderungen speichern
       update:
@@ -1102,6 +1168,7 @@ de:
         success: Ihre Benachrichtigungseinstellungen wurden erfolgreich aktualisiert.
     offline:
       show:
+        message: Es sieht so aus, als ob du momentan offline bist. Bitte versuche es später erneut.
         retry: Wiederholen
     open_data:
       not_available_yet: Die Open Data-Dateien sind noch nicht verfügbar. Bitte versuchen Sie es in einigen Minuten erneut.
@@ -1167,6 +1234,10 @@ de:
           title: 'Erforderlich: Überprüfen Sie die Aktualisierungen unserer Nutzungsbedingungen'
     participatory_space_private_users:
       not_allowed: Sie dürfen diesen Inhalt nicht sehen
+    passwords:
+      update:
+        error: Es gab ein Problem bei der Aktualisierung des Passwortes
+        success: Passwort erfolgreich aktualisiert
     profile:
       deleted: Teilnehmer gelöscht
       inaccessible_message: Dieses Profil ist wegen Verletzung der Nutzungsbedingungen nicht zugänglich!
@@ -1380,6 +1451,7 @@ de:
         title_reply: Antworten
       show:
         back: Alle Unterhaltungen anzeigen
+        deleted_accounts: Sie können keine Unterhaltung mit gelöschten Konten führen.
         not_allowed: Dieser Benutzer akzeptiert keine Direktnachrichten mehr.
         title: Unterhaltung mit %{usernames}
       update:
