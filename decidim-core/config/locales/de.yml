@@ -41,8 +41,12 @@ de:
       decidim/join_request_rejected_event: Beitrittsanfrage abgelehnt
       decidim/profile_updated_event: Profil aktualisiert
       decidim/promote_to_admin: Zum Gruppenadministrator hochgestuft
+      decidim/promoted_to_admin_event: Zum Gruppenadministrator hochgestuft
       decidim/removed_from_group: Aus der Gruppe entfernt
       decidim/resource_endorsed_event: Ressource befürwortet
+      decidim/resource_hidden_event: Ressource versteckt
+      decidim/user_group_created_event: Benutzergruppe erstellt
+      decidim/welcome_notification_event: Willkommensnachricht
   activerecord:
     attributes:
       decidim/user:
@@ -70,6 +74,7 @@ de:
     'true': 'Ja'
   carrierwave:
     errors:
+      file_size_too_large: Datei ist zu groß
       not_inside_organization: Die Datei ist keiner Organisation hinzugefügt
   date:
     formats:
@@ -81,9 +86,25 @@ de:
   datetime:
     distance_in_words:
       half_a_minute: eine halbe Minute
+      less_than_x_seconds:
+        one: gerade eben
+        other: weniger als %{count} Sekunden
+      x_days:
+        one: Vor 1 Tag
+        other: "Vor %{count} Tagen"
+      x_hours:
+        one: Vor 1 Stunde
+        other: "Vor %{count} Stunden"
+      x_minutes:
+        one: Vor 1 Minute
+        other: "Vor %{count} Minuten"
+      x_seconds:
+        one: Vor 1 Sekunde
+        other: "Vor %{count} Sekunden"
   decidim:
     accessibility:
       external_link: Externer Link
+      front_page_link: Zur Startseite gehen
       logo: "Offizielles Logo von %{organization}"
       skip_button: Zu Hauptinhalten überspringen
     account:
@@ -102,7 +123,17 @@ de:
       download_your_data_export:
         file_no_exists: Diese Datei existiert nicht
         notice: Ihre Daten werden gerade bereitgestellt. Sie erhalten nach Fertigstellung eine E-Mail.
+      email_change:
+        body1: Wir haben eine E-Mail an %{unconfirmed_email} gesendet, um Ihre neue E-Mail-Adresse zu verifizieren.
+        body2: Möchten Sie die Verifizierungs-E-Mail erneut senden? %{resend_link} oder %{cancel_link}.
+        cancel: stornieren
+        cancel_error: Die Änderung der E-Mail-Adresse konnte nicht storniert werden.
+        cancel_successfully: Die Änderung der E-Mail-Adresse wurde erfolgreich storniert.
+        resend_error: Bestätigungs-E-Mail konnte nicht erneut gesendet werden.
+        resend_successfully: Die Bestätigungs-E-Mail wurde erfolgreich an %{unconfirmed_email} gesendet
+        send_again: Erneut senden
       show:
+        available_locales_helper: Wählen Sie die Sprache aus, in der Sie Decidim verwenden und Benachrichtigungen erhalten möchten
         change_password: Passwort ändern
         update_account: Konto aktualisieren
       update:
@@ -112,16 +143,40 @@ de:
     admin:
       actions:
         cancel: Stornieren
+      password_change:
+        alert: Sie müssen Ihr Passwort ändern, um fortzufahren
+        notification: Administratoren müssen ihr Passwort alle %{days} Tage ändern.
     admin_log:
       area:
         create: "%{user_name} hat den Bereich %{resource_name} erstellt"
         delete: "%{user_name} hat den Bereich %{resource_name} gelöscht"
         update: "%{user_name} hat den Bereich %{resource_name} aktualisiert"
+      area_type:
+        create: "%{user_name} hat den Bereichstyp %{resource_name} erstellt"
+        delete: "%{user_name} hat den Bereichstyp %{resource_name} gelöscht"
+        update: "%{user_name} hat den Bereichstyp %{resource_name} aktualisiert"
+      attachment:
+        create: "%{user_name} hat den Anhang %{resource_name} erstellt"
+        delete: "%{user_name} hat den Anhang %{resource_name} gelöscht"
+        update: "%{user_name} hat den Anhang %{resource_name} aktualisiert"
+      attachment_collection:
+        create: "%{user_name} hat den Ordner %{resource_name} erstellt"
+        delete: "%{user_name} hat den Ordner %{resource_name} gelöscht"
+        update: "%{user_name} hat den Ordner %{resource_name} aktualisiert"
+      category:
+        create: "%{user_name} hat die Kategorie %{resource_name} im Bereich %{space_name} hinzugefügt"
+        delete: "%{user_name} hat die Kategorie %{resource_name} im Bereich %{space_name} gelöscht"
+        update: "%{user_name} hat die Kategorie %{resource_name} im Bereich %{space_name} aktualisiert"
       component:
         create: "%{user_name} hat die Komponente %{resource_name} zu %{space_name} hinzugefügt"
         delete: "%{user_name} hat die Komponente %{resource_name} aus %{space_name} entfernt"
         publish: "%{user_name} hat die Komponente %{resource_name} in %{space_name} veröffentlicht"
         unpublish: "%{user_name} hat die Komponente %{resource_name} in %{space_name} auf \"unveröffentlicht\" gesetzt"
+      helpers:
+        answers: antworten
+        comments: kommentare
+        projects: projekte
+        results: ergebnisse
       impersonation_log:
         manage: "%{user_name} hat %{resource_name} verwaltet, weil %{reason}"
       moderation:
@@ -262,6 +317,8 @@ de:
         download: Datei herunterladen
       documents:
         related_documents: Zugehörige Dokumente
+      geocoding:
+        geocoded_address: Adresse
       photos:
         related_photos: Zugehörige Bilder
     author:
@@ -273,6 +330,7 @@ de:
       endorsements:
         one: Befürwortung
         other: Befürwortungen
+      official_author: Offiziell
     authorization_handlers:
       another_dummy_authorization_handler:
         explanation: Lassen Sie sich verifizieren, indem Sie eine Reisepassnummer eingeben, die mit "A" beginnt
