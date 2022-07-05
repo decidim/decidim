@@ -204,6 +204,7 @@ de:
             title: Vorschläge importieren
         questions:
           create:
+            election_started: Die Wahl hat bereits begonnen
             invalid: Beim Erstellen dieser Frage ist ein Fehler aufgetreten
             success: Frage wurde erfolgreich erstellt
           destroy:
@@ -253,6 +254,7 @@ de:
             title: Wahl erstellt
             trustees: Wahlhelfer
           key_ceremony:
+            continue: Fortfahren
             title: Schlüsselzeremonie
           key_ceremony_ended:
             errors:
@@ -273,6 +275,7 @@ de:
             submit: Absenden
             title: Ergebnisse veröffentlicht
           tally:
+            continue: Fortfahren
             invalid: Es ist ein Problem beim Melden des Stimmenzählers aufgetreten
             mark_as_missing: Als fehlend markieren
             mark_as_missing_description: Alle Wahlhelfer sollten an diesem Prozess teilnehmen. Wenn ein Wahlhelfer nicht am Prozess teilnehmen kann, können Sie ihn als fehlend markieren.
@@ -604,10 +607,12 @@ de:
           header: Abstimmung fehlgeschlagen
           lead: Ihre Stimme wurde nicht abgegeben!
           text: Ein Fehler ist aufgetreten. Bitte versuchen Sie es erneut.
+          try_again: Erneut versuchen
         header:
           ballot_decision: Stimme abgeben oder überprüfen
           confirm: Bestätige deine Stimme
           confirmed: Abstimmung bestätigt
+          failed: Abstimmung fehlgeschlagen
         messages:
           invalid_token: Ihre Sitzung in der Abstimmung ist nicht gültig. Versuchen Sie, erneut abzustimmen.
           not_allowed: Sie dürfen zur Zeit nicht an dieser Wahl teilnehmen.
@@ -945,6 +950,7 @@ de:
             assign_missing_officers: Es gibt noch Wahllokale ohne Präsident und/oder Wahlleiter. Bitte ordnen Sie diese im Wahllokal-Abschnitt zu
             update: Aktualisieren
           form:
+            banner_image: Kopf-Bild
             select_a_voting_type: Bitte einen Abstimmungs-Typ auswählen
             slug_help: 'URL-Slugs werden zum Generieren der URLs verwendet, die auf diese Abstimmung verweisen. Akzeptiert nur Buchstaben, Zahlen und Bindestriche und muss mit einem Buchstaben beginnen. Beispiel: %{url}'
             title: Titel
@@ -1207,6 +1213,7 @@ de:
           form_title: 'Füllen Sie das folgende Formular aus, um Ihre Erhebungsdaten zu überprüfen:'
           invalid: Bei der Überprüfung der Erhebung ist ein Problem aufgetreten.
           success:
+            access_link: per E-Mail.
             access_link_with_sms: via SMS oder E-Mail.
             info: Sie sollten Ihren Zugangscode bereits via Briefpost bekommen haben. Falls nicht, können Sie ihn hier anfordern
             title: Ihre Erhebungsdaten sind korrekt!
@@ -1217,6 +1224,7 @@ de:
           day_placeholder: TT
           document_number: Dokumentennummer
           document_number_placeholder: ID-Nummer
+          document_type: Dokumenttyp
           month: Monat
           month_placeholder: MM
           postal_code: Postleitzahl
