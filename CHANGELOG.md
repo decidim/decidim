@@ -207,7 +207,7 @@ You can read more about this change on PR [\#8617](https://github.com/decidim/de
 We've added the ability to search for a user by nickname. You'll need to update the existing search index by running this in (be aware that it could take a while if your database has a lot of Users!):
 
 ```console
-bin/rails runner -e production 'Decidim::User.find_each(&:try_update_index_for_search_resource)'
+bin/rails runner -e production 'Decidim::User.find_each { |u| puts "Processing user #{u.id}" ; u.try_update_index_for_search_resource }'
 ```
 
 You can read more about this change on PR [\#8658](https://github.com/decidim/decidim/pull/8658).
