@@ -58,6 +58,9 @@ de:
       decidim/elections/question:
         one: Frage
         other: Fragen
+      decidim/voting:
+        one: Abstimmung
+        other: Abstimmungen
       decidim/votings/census/dataset:
         one: Datensatz
         other: Datensätze
@@ -951,13 +954,16 @@ de:
             update: Aktualisieren
           form:
             banner_image: Kopf-Bild
+            promoted: Hervorgehoben
             select_a_voting_type: Bitte einen Abstimmungs-Typ auswählen
+            slug: URL-Segment
             slug_help: 'URL-Slugs werden zum Generieren der URLs verwendet, die auf diese Abstimmung verweisen. Akzeptiert nur Buchstaben, Zahlen und Bindestriche und muss mit einem Buchstaben beginnen. Beispiel: %{url}'
             title: Titel
             voting_type:
               hybrid: Hybrid
               in_person: Persönlich
               online: Online
+            voting_type_label: Art der Abstimmung
           new:
             create: Erstellen
             title: Neue Abstimmung
@@ -989,6 +995,7 @@ de:
               button: Zugangscodes für die Abstimmung exportieren
               callout: Sie können jetzt die Zugangscodes exportieren. Dies kann nur einmal geschehen. Sobald Sie den Export gestartet haben, werden Sie eine E-Mail mit den Anweisungen unter <strong>%{email}</strong> erhalten
               confirm: Sie können die Zugangscodes nur einmal exportieren. Stellen Sie sicher, dass Sie Zugang zum E-Mail-Konto <strong>%{email}</strong> haben.
+              file_not_exist: Diese Datei existiert nicht
               launch_error: Beim Starten des Zugangscode-Exports ist ein Problem aufgetreten
               launch_success: Der Zugangscode-Export wurde gestartet. Sie werden in Kürze eine E-Mail an %{email} erhalten
             exporting_access_codes:
@@ -1035,6 +1042,8 @@ de:
         highlighted_votings:
           name: Hervorgehobene Abstimmungen
         landing_page:
+          description:
+            title: Über diese Abstimmung
           metrics:
             heading: Metriken
           polling_stations:
@@ -1087,6 +1096,7 @@ de:
             modal_ballots_count_error:
               btn_validate_total: Neue Gesamtzahl der Stimmen überprüfen
               close_modal: Schließen
+              info_explanation_text: 'Bitte überprüfen Sie die Gesamtzahl der Stimmzettel. Wenn die Gesamtzahl falsch ist, müssen Sie dem Wahlausschuss eine Erklärung abgeben:'
               info_text: Die eingegebene Gesamtzahl der Umschläge stimmt nicht mit der Liste der Personen überein, welche in diesem Wahllokal abgestimmt haben.
               message_for_monitoring_committee: Nachricht für den Überwachungsausschuss
               review_recount: Neuzählung überprüfen
