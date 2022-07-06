@@ -17,9 +17,13 @@ module Decidim
         exit_if_unstaged_changes if @exit_with_unstaged_changes
         self.class.checkout_develop
         sha_commit = sha_commit_to_backport
-        unless sha_commit
-          exit_with_errors("Could not find commit for pull request #{pull_request_id}. Please make sure you have pulled the latest changes.")
-        end
+
+        error_message = <<-EOERROR
+        Could not find commit for pull request #{pull_request_id}.
+        Please make sure you have pulled the latest changes.
+        EOERROR
+        exit_with_errors(error_message) unless sha_commit
+
         create_backport_branch!
         cherrypick_commit!(sha_commit)
         push_backport_branch!
@@ -28,7 +32,12 @@ module Decidim
 
     def self.checkout_develop
       `git checkout develop`
-      exit_with_errors("Could not checkout the develop branch. Please make sure you don't have any uncommitted changes in the current branch.") unless $CHILD_STATUS.exitstatus.zero?
+
+      error_message = <<-EOERROR
+      Could not checkout the develop branch.
+      Please make sure you don't have any uncommitted changes in the current branch.
+      EOERROR
+      exit_with_errors(error_message) unless $CHILD_STATUS.exitstatus.zero?
     end
 
     private
@@ -38,7 +47,12 @@ module Decidim
     def create_backport_branch!
       `git checkout #{release_branch}`
       `git checkout -b #{backport_branch}`
-      exit_with_errors("Branch already exists locally. Delete it with 'git branch -D #{backport_branch}' and rerun the script.") unless $CHILD_STATUS.exitstatus.zero?
+
+      error_message = <<-EOERROR
+      Branch already exists locally.
+      Delete it with 'git branch -D #{backport_branch}' and rerun the script.
+      EOERROR
+      exit_with_errors(error_message) unless $CHILD_STATUS.exitstatus.zero?
     end
 
     def cherrypick_commit!(sha_commit)
@@ -55,7 +69,12 @@ module Decidim
     def push_backport_branch!
       if `git diff #{backport_branch}..#{release_branch}`.empty?
         self.class.checkout_develop
-        exit_with_errors("Nothing to push to remote server. It was probably merged already or the cherry-pick was aborted.")
+
+        error_message = <<-EOERROR
+        Nothing to push to remote server.
+        It was probably merged already or the cherry-pick was aborted.
+        EOERROR
+        exit_with_errors(error_message)
       else
         puts "Pushing branch #{backport_branch} to #{remote}"
         `git push #{remote} #{backport_branch}`
@@ -73,7 +92,11 @@ module Decidim
     def exit_if_unstaged_changes
       return if `git diff`.empty?
 
-      exit_with_errors("There are changes not staged in your project. Please commit your changes or stash them.")
+      error_message = <<-EOERROR
+      There are changes not staged in your project.
+      Please commit your changes or stash them.
+      EOERROR
+      exit_with_errors(error_message)
     end
 
     def exit_with_errors(message)
