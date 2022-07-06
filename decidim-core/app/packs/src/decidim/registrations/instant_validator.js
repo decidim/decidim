@@ -15,6 +15,8 @@ export default class InstantValidator {
   }
 
   init() {
+    // Disable abide validations, they might block the submitting
+    this.$form.foundation('disableValidation');
     // this final validation prevents abide from resetting the field when user loses focus
     this.$inputs.on("blur", (evt) => {
       this.validate($(evt.currentTarget));
@@ -71,6 +73,10 @@ export default class InstantValidator {
   }
 
   addErrors($dest, msg) {
+    if($dest.closest("label").find(".form-error").length > 1) {
+      // Decidim may add and additional error class that does not play well with abide
+      $dest.closest("label").find(".form-error:last").remove();
+    }
     this.$form.foundation("addErrorClasses", $dest);
     if (msg) {
       $dest.closest("label").find(".form-error").text(msg);
