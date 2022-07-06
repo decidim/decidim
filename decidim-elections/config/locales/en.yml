@@ -372,6 +372,13 @@ en:
           update: "%{user_name} updated the election %{resource_name} of %{space_name}"
         trustee:
           create: "%{user_name} assigned the user %{trustee_user} as Trustee"
+      connection:
+        failed:
+          modal:
+            close: Close
+            communication_lost: Unfortunately, it looks like the communication with the voting server (Bulletin Board) is lost.<br>It might be that the Internet connection is broken or that the destination server is too busy.<br>You can try again later or contact support if this problem persist.
+            generic_error: Unfortunately, an unknown error has occurred. It is likely that your browser is not supported or that you are using the "incognito" or "private" mode which is not supported.
+            title: Something went wrong
       election_m:
         badge_name:
           finished: Finished
@@ -654,10 +661,6 @@ en:
         failed:
           header: Vote failed
           lead: Your vote has not been casted!
-          modal:
-            close: Close
-            communication_lost: Unfortunately, it looks like the communication with the voting server (Bulletin Board) is lost.<br>It might be that the Internet connection is broken or that the destination server is too busy.<br>You can try again later or contact support if this problem persist.
-            title: Something went wrong
           text: Something went wrong, please try it again.
           try_again: Try again
         header:
