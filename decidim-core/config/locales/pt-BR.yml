@@ -1611,7 +1611,7 @@ pt-BR:
         see_more: Ver mais
   locale:
     name: Português
-    name_with_error: Inglês (erro!)
+    name_with_error: Português (erro!)
   password_validator:
     domain_included_in_password: é muito semelhante a este nome de domínio
     email_included_in_password: é muito parecido com o seu email

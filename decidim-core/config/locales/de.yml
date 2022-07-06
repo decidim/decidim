@@ -1611,7 +1611,7 @@ de:
         see_more: Mehr sehen
   locale:
     name: Deutsch
-    name_with_error: Englisch (Fehler!)
+    name_with_error: Deutsch (Fehler!)
   password_validator:
     blacklisted: ist gesperrt
     domain_included_in_password: ist diesem Domainnamen zu ähnlich

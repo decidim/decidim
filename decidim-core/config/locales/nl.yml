@@ -794,7 +794,7 @@ nl:
     group_members:
       accept:
         error: Er is een fout opgetreden bij het accepteren van dit deelnameverzoek
-        success: Het deelnameverzoek is geaccepteerd 
+        success: Het deelnameverzoek is geaccepteerd
       actions:
         are_you_sure: Weet je het zeker?
         promote_to_admin: Beheerder maken
@@ -1609,7 +1609,7 @@ nl:
         see_more: Zie meer
   locale:
     name: Nederlands
-    name_with_error: Engels (fout!)
+    name_with_error: Nederlands (fout!)
   password_validator:
     blacklisted: staat op de zwarte lijst
     domain_included_in_password: lijkt te veel op deze domeinnaam

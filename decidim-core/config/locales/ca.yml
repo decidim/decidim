@@ -1830,7 +1830,7 @@ ca:
         see_more: Veure més
   locale:
     name: Català
-    name_with_error: Anglès (error!)
+    name_with_error: Català (error!)
   password_validator:
     blacklisted: a la llista negra
     domain_included_in_password: és massa semblant a aquest nom de domini
