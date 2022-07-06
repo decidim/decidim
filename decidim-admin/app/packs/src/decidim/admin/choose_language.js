@@ -1,6 +1,6 @@
 /* eslint-disable no-invalid-this */
 
-$(() => {
+export default function initLanguageChangeSelect() {
   $("select.language-change").change(function () {
     let $select = $(this);
     let targetTabPaneSelector = $select.val();
@@ -9,4 +9,8 @@ $(() => {
     $tabsContent.children(".is-active").removeClass("is-active");
     $tabsContent.children(targetTabPaneSelector).addClass("is-active");
   })
+}
+
+$(() => {
+  initLanguageChangeSelect();
 });
