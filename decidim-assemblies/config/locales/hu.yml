@@ -1,6 +1,8 @@
 hu:
   activemodel:
     attributes:
+      assemblies_setting:
+        enable_organization_chart: Szervezeti ábra engedélyezése
       assembly:
         area_id: Terület
         assembly_type: Gyűlés típusa
@@ -50,6 +52,7 @@ hu:
         target: Ki vesz részt
         title: Cím
         twitter: Twitter
+        weight: Pozíció sorrend
         youtube: Youtube
       assembly_member:
         birthday: Születésnap
@@ -60,6 +63,7 @@ hu:
         full_name: Teljes név
         gender: Neme
         position: Pozíció
+        user_id: Felhasználó vagy csoport
       assembly_user_role:
         email: Email
         name: Név
@@ -246,6 +250,7 @@ hu:
         update: "%{user_name} frissítette a gyűlések beállításait"
       assembly_type:
         create: "%{user_name} létrehozta a(z) %{resource_name} gyűlés típust"
+        delete: "%{user_name} áthelyezte a(z) %{resource_name} gyűlés típust"
         publish: "%{user_name} közzétette a(z) %{resource_name} gyűlés típust"
         unpublish: "%{user_name} visszavonta a(z) %{resource_name} gyűlés típus közzétételét"
         update: "%{user_name} frissítette a(z) %{resource_name} gyűlés típust"
@@ -257,6 +262,7 @@ hu:
       admin:
         assemblies:
           form:
+            announcement_help: Az itt megadott szöveg a gyűlés információs oldalán fog megjelenni a felhasználók számára. 
             duration: Időtartam
             duration_help: Ha a gyűlés időtartama korlátozott, válassz befejező dátumot. Ellenkező esetben határozatlan idejű lesz.
             filters: Szűrők
@@ -286,6 +292,7 @@ hu:
         assembly_imports:
           form:
             document_legend: Dokumentum hozzáadása
+            slug_help: 'Az URL slugok a gyűlések linkjeinek generáláshoz szükségesek. Csak betűket, számokat és kötőjeleket használhatsz. Betűvel kell kezdeni. Példa: %{url}'
         assembly_members:
           form:
             existing_user: Meglévő résztvevő
@@ -303,6 +310,9 @@ hu:
         content_blocks:
           highlighted_assemblies:
             max_results: A megjelenítendő elemek maximális száma
+        new_import:
+          accepted_types:
+            json: JSON
       assembly_members:
         index:
           members: Tagok
@@ -377,6 +387,14 @@ hu:
         designated_on: Kijelölt
       index:
         title: Tagok
+    events:
+      assemblies:
+        create_assembly_member:
+          email_subject: Ön meghívást kapott, hogy a(z) %{resource_name} gyűlés tagja legyen!
+          notification_title: Ön regisztrált a(z) <a href="%{resource_path}">%{resource_name}</a> gyűlés tagjaként. Látogasson el a <a href="%{resource_path}">gyűlés oldalára</a> a részvételhez!
+      assembly:
+        role_assigned:
+          email_intro: 'Önt a(z) %{role} szerephez rendelték a következő gyűlésben: "%{resource_title}".'
     help:
       participatory_spaces:
         assemblies:
@@ -399,6 +417,8 @@ hu:
     participatory_processes:
       show:
         related_assemblies: Kapcsolódó gyűlések
+    statistics:
+      assemblies_count: Gyűlések
   errors:
     messages:
       cannot_be_blank: nem lehet üres
