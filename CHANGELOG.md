@@ -181,6 +181,7 @@ bin/rails decidim:pwa:generate_vapid_keys
 ```
 
 ##### 3.3.2. Copy them to your [Environment Variables](https://docs.decidim.org/en/configure/environment_variables/) file
+
 The relevant [Environment Variables](https://docs.decidim.org/en/configure/environment_variables/) are:
 
 | Name | Value | Default value |
@@ -311,9 +312,9 @@ Learn more about [Direct Uploads at Rails Documentation](https://edgeguides.ruby
 Module developers should also notice that when using `<%= form.upload :file %>` in your views, these fields are now automatically converted to dynamic upload fields. Regarding this, you will need to do a couple of changes in your code:
 
 1. In your form classes, specify the attribute type as `Decidim::Attributes::Blob`, e.g. `attribute :file, Decidim::Attributes::Blob`
-2. In your system tests, you might have previously used something like `attach_file(:your_form_file, file_fixture("your-test-file.xyz"))` to attach your file. Change these to `dynamically_attach_file(:your_form_file, file_fixture("your-test-file.xyz"))` in order to let the test helper handle the attachment for you as it has a few steps.
-3. In other tests (such as commands, controllers, etc.), you might have previously used something like `fixture_file_upload(file_fixture("your-test-file.xyz"), "text/plain")`. This will not work anymore after you do the changes in the forms as they now expect either blobs or blob signed ID references. To fix this, replace these with `upload_test_file(Rack::Test::UploadedFile.new(file_fixture("your-test-file.xyz"), "text/plain"))`.
-4. If you need to process files locally within your form classes or commands, you need to include the `Decidim::ProcessesFileLocally` concern and use the method it provides `process_file_locally(blob)` to get local access to the files that may be stored at 3rd party file storages. The method takes the ActiveStorage Blob as an argument and yields the path to the local file for the provided block argument.
+1. In your system tests, you might have previously used something like `attach_file(:your_form_file, file_fixture("your-test-file.xyz"))` to attach your file. Change these to `dynamically_attach_file(:your_form_file, file_fixture("your-test-file.xyz"))` in order to let the test helper handle the attachment for you as it has a few steps.
+1. In other tests (such as commands, controllers, etc.), you might have previously used something like `fixture_file_upload(file_fixture("your-test-file.xyz"), "text/plain")`. This will not work anymore after you do the changes in the forms as they now expect either blobs or blob signed ID references. To fix this, replace these with `upload_test_file(Rack::Test::UploadedFile.new(file_fixture("your-test-file.xyz"), "text/plain"))`.
+1. If you need to process files locally within your form classes or commands, you need to include the `Decidim::ProcessesFileLocally` concern and use the method it provides `process_file_locally(blob)` to get local access to the files that may be stored at 3rd party file storages. The method takes the ActiveStorage Blob as an argument and yields the path to the local file for the provided block argument.
 
 #### 5.3. `Decidim::Form`s no longer use `Rectify::Form` and `Virtus` should be no longer used
 
