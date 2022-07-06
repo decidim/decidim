@@ -431,6 +431,8 @@ lt:
           details_2: Rasite konferencijos detales priede.
         pending_validation:
           confirmation_pending: Netrukus gausite elektroninį laišką su patvirtinimu
+          details: 'Jūsų registracijos tipas – %{registration_type}, kaina – %{price} ir galite dalyvauti šiuose renginiuose:'
+          pending_html: Jūsų registracija į konferenciją <a href="%{url}">%{title}</a> dar nepatvirtinta.
       conference_registrations:
         create:
           invalid: Jungiantis prie šios konferencijos iškilo problema.
@@ -440,14 +442,19 @@ lt:
           success: Jūs atmetėte kvietimą.
         destroy:
           invalid: Paliekant šią konferenciją iškilo problema.
+          success: Jūs sėkmingai palikote konferenciją.
       conference_speaker:
+        go_to_twitter: Eiti į Twitter
         more_info: daugiau informacijos
         personal_website: Asmeninė interneto svetainė
         show:
           more_info: daugiau informacijos
+          speaking_at: Kalba
       conference_speaker_cell:
         personal_url:
           personal_website: Asmeninė interneto svetainė
+        twitter_handle:
+          go_to_twitter: Eiti į Twitter
       conference_speakers:
         index:
           speakers: Pranešėjai
@@ -457,6 +464,11 @@ lt:
           main_promotors: Organizatoriai
         show:
           login_as: Jūs prisijungėte kaip %{name} <%{email}>
+          make_conference_registration: 'Užsiregistruokite konferencijoje:'
+          register: Registruotis
+      content_blocks:
+        highlighted_conferences:
+          name: Paryškintos konferencijos
       models:
         conference_invite:
           fields:
