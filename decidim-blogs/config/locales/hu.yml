@@ -59,11 +59,16 @@ hu:
       read_more: Bővebben
     components:
       blogs:
+        actions:
+          create: Létrehozás
+          destroy: Törlés
+          update: Frissítés
         name: Blog
         settings:
           global:
             announcement: Közlemény
             comments_enabled: Megjegyzések engedélyezve
+            comments_max_length: Kommentek maximális hossza (Hagyjon 0 -t az alapértékhez)
           step:
             announcement: Közlemény
             comments_blocked: Megjegyzések letiltva
@@ -76,3 +81,5 @@ hu:
           email_outro: 'Ezt az értesítést azért kaptad, mert ezt követed: "%{participatory_space_title}". Leiratkozás az előző link segítségével.'
           email_subject: 'Új bejegyzés ehhez: %{participatory_space_title}'
           notification_title: 'A(z) <a href="%{resource_path}">%{resource_title}</a> bejegyzés közzétéve itt: %{participatory_space_title}'
+    statistics:
+      posts_count: Bejegyzések
