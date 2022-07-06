@@ -86,7 +86,7 @@ module Decidim
     #
     # @return [String] name of the backport branch
     def backport_branch(pull_request_title)
-      "backport/#{slugify(pull_request_title).slice!(0, 30)}-#{pull_request_id}"
+      "backport/#{version_number}/#{slugify(pull_request_title).slice!(0, 30)}-#{pull_request_id}"
     end
 
     # Converts a string with spaces to a slug
