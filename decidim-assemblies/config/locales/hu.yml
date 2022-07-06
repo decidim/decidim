@@ -2,6 +2,8 @@
 hu:
   activemodel:
     attributes:
+      assemblies_setting:
+        enable_organization_chart: Szervezeti ábra engedélyezése
       assembly:
         area_id: Terület
         assembly_type: Gyűlés típusa
@@ -51,6 +53,7 @@ hu:
         target: Ki vesz részt
         title: Cím
         twitter: Twitter
+        weight: Pozíció sorrend
         youtube: Youtube
       assembly_member:
         birthday: Születésnap
@@ -59,11 +62,19 @@ hu:
         designation_date: Kijelölés dátuma
         full_name: Teljes név
         gender: Neme
+        non_user_avatar: Profilkép
         position: Pozíció
+        user_id: Felhasználó vagy csoport
       assembly_user_role:
         email: Email
         name: Név
         role: Szerep
+    errors:
+      models:
+        assembly:
+          attributes:
+            document:
+              allowed_file_content_types: 'Érvénytelen dokumentumtípus. Az elfogadott formátumok: %{types}'
   activerecord:
     models:
       decidim/assembly:
@@ -172,6 +183,9 @@ hu:
         update:
           error: Hiba történt a gyűlés adminjának frissítése során.
           success: Gyűlés adminjának frissítése sikeres.
+      filters:
+        decidim_assemblies_type_id_eq:
+          label: Gyűlés típusa
       menu:
         assemblies: Gyűlések
         assemblies_settings: Beállítások
@@ -229,6 +243,9 @@ hu:
     admin_log:
       assembly:
         create: "%{user_name} létrehozta a(z) %{resource_name} gyűlést"
+        duplicate: "%{user_name} duplikálta a(z) %{resource_name} gyűlést"
+        export: "%{user_name} exportálta a(z) %{resource_name} gyűlést"
+        import: "%{user_name} importálta a(z) %{resource_name} gyűlést"
         publish: "%{user_name} közzétette a(z) %{resource_name} gyűlést"
         unpublish: "%{user_name} visszavonta a(z) %{resource_name} gyűlés közzétételét"
         update: "%{user_name} frissítette a(z) %{resource_name} gyűlést"
@@ -240,6 +257,7 @@ hu:
         update: "%{user_name} frissítette a gyűlések beállításait"
       assembly_type:
         create: "%{user_name} létrehozta a(z) %{resource_name} gyűlés típust"
+        delete: "%{user_name} áthelyezte a(z) %{resource_name} gyűlés típust"
         publish: "%{user_name} közzétette a(z) %{resource_name} gyűlés típust"
         unpublish: "%{user_name} visszavonta a(z) %{resource_name} gyűlés típus közzétételét"
         update: "%{user_name} frissítette a(z) %{resource_name} gyűlés típust"
@@ -251,6 +269,7 @@ hu:
       admin:
         assemblies:
           form:
+            announcement_help: Az itt megadott szöveg a gyűlés információs oldalán fog megjelenni a felhasználók számára. 
             duration: Időtartam
             duration_help: Ha a gyűlés időtartama korlátozott, válassz befejező dátumot. Ellenkező esetben határozatlan idejű lesz.
             filters: Szűrők
@@ -280,10 +299,14 @@ hu:
         assembly_imports:
           form:
             document_legend: Dokumentum hozzáadása
+            slug_help: 'Az URL slugok a gyűlések linkjeinek generáláshoz szükségesek. Csak betűket, számokat és kötőjeleket használhatsz. Betűvel kell kezdeni. Példa: %{url}'
         assembly_members:
           form:
             existing_user: Meglévő résztvevő
+            explanation: 'Útmutató a képhez:'
+            image_guide: Olyan fekvő képek használata ajánlott, amelyek nem tartalmaznak szöveget.
             non_user: Nem résztvevő
+            non_user_avatar_help: A tagként való szerepléshez hozzájárulást kell szerezni a személyektől.
             select_a_position: Válassz pozíciót
             select_user: Válasszon ki egy résztvevőt
             user_type: Résztvevő típusa
@@ -297,6 +320,12 @@ hu:
         content_blocks:
           highlighted_assemblies:
             max_results: A megjelenítendő elemek maximális száma
+        new_import:
+          accepted_types:
+            json: JSON
+      assemblies:
+        show:
+          title: Erről a gyűlésről
       assembly_members:
         index:
           members: Tagok
@@ -364,12 +393,22 @@ hu:
         related_participatory_processes: Kapcsolódó részvételi folyamatok
         scope: Hatáskör
         social_networks: Közösségi háló
+        social_networks_title: Látogasd meg a gyűlést itt
         target: Ki vesz részt benne
     assembly_members:
       assembly_member:
         designated_on: Kijelölt
       index:
         title: Tagok
+    events:
+      assemblies:
+        create_assembly_member:
+          email_outro: Ön azért kapta ezt az értesítést, mert meghívták egy gyűlésbe. Látogasson el a <a href="%{resource_url}">gyűlés oldalára</a> a részvételhez!
+          email_subject: Ön meghívást kapott, hogy a(z) %{resource_name} gyűlés tagja legyen!
+          notification_title: Ön regisztrált a(z) <a href="%{resource_path}">%{resource_name}</a> gyűlés tagjaként. Látogasson el a <a href="%{resource_path}">gyűlés oldalára</a> a részvételhez!
+      assembly:
+        role_assigned:
+          email_intro: 'Önt a(z) %{role} szerephez rendelték a következő gyűlésben: "%{resource_title}".'
     help:
       participatory_spaces:
         assemblies:
@@ -392,6 +431,8 @@ hu:
     participatory_processes:
       show:
         related_assemblies: Kapcsolódó gyűlések
+    statistics:
+      assemblies_count: Gyűlések
   errors:
     messages:
       cannot_be_blank: nem lehet üres
