@@ -582,6 +582,7 @@ de:
       create:
         error: Fehler beim Hochladen des Bildes
         success: Bild erfolgreich hochgeladen
+      drag_and_drop_help: Sie können Bilder per Drag & Drop hinzufügen oder per Copy & Paste.
     endorsable:
       endorsements: Empfehlungen
       endorsements_count: Anzahl Befürworter
