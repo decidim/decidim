@@ -40,6 +40,7 @@ module Decidim
 
         create_backport_branch!
         cherrypick_commit!(sha_commit)
+        clean_commit_message!
         push_backport_branch!
       end
     end
@@ -92,6 +93,19 @@ module Decidim
         puts "Resolve the cherrypick conflict manually and exit your shell to keep with the process."
         system ENV.fetch("SHELL")
       end
+    end
+
+    # Clean the commit message to remove the pull request ID of the last commit
+    # This is mostly cosmetic, but if we don´t do this, we will have the two IDs on the final commit:
+    # the ID of the original PR and the id of the backported PR.
+    #
+    # @return [void]
+    def clean_commit_message!
+      message = `git log --pretty=format:"%B" -1`
+      message = message.lines[0].gsub!(/ \(#[0-9]+\)$/, "").concat(*message.lines[1..-1])
+      message.gsub!('"', '"\""') # Escape the double quotes for bash as they are the message delimiters
+
+      `git commit --amend -m "#{message}"`
     end
 
     # Push the branch to a git remote repository
