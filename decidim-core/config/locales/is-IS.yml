@@ -438,8 +438,4 @@ is-IS:
       time_of_day: "%H:%M"
   views:
     pagination:
-      first: "&laquo; fyrst"
-      last: Síðasta &raquo;
-      next: Næsta &rsaquo;
-      previous: "&lsaquo; Prev"
       truncate: "&hellip;"
