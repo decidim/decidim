@@ -1784,14 +1784,8 @@ pl:
       option_unified: Ujednolicony
   views:
     pagination:
-      first: "&laquo; Pierwsze"
-      first_title: Link do pierwszej strony
-      last: Ostatnie &raquo;
-      last_title: Link do ostatniej strony
-      next: Następne &rsaquo;
       next_title: Link do następnej strony
       pagination: Strony
-      previous: "&lsaquo; Poprzedni"
       previous_title: Link do poprzedniej strony
       title: 'Numer strony: '
       truncate: "&hellip;"
