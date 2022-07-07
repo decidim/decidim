@@ -1,4 +1,84 @@
 lt:
+  activemodel:
+    attributes:
+      account:
+        delete_reason: Paskyros pašalinimo priežastis
+      common:
+        created_at: Sukurta
+      conversation:
+        body: Pagrindinė dalis
+      group:
+        about: Apie
+        avatar: Avataras
+        document_number: Dokumento numeris
+        email: El. paštas
+        name: Pavadinimas
+        nickname: Slapyvardis
+        phone: Telefonas
+      message:
+        body: Pagrindinė dalis
+      report:
+        details: Papildomi komentarai
+      user:
+        about: Apie
+        email: El. paštas
+        locale: Kalba
+        name: Jūsų vardas
+        nickname: Slapyvardis
+        password: Slaptažodis
+        password_confirmation: Pakartokite slaptažodį
+        personal_url: Asmeninis URL
+        remove_avatar: Pašalinti avatarą
+    models:
+      decidim/attachment_created_event: Priedas
+      decidim/component_published_event: Aktyvusis komponentas
+      decidim/demoted_membership: Nebėra grupės administratorius
+      decidim/gamification/badge_earned_event: Ženklas gautas
+      decidim/gamification/level_up_event: Pakilote lygiu
+      decidim/invited_to_group_event: Pakvietimas prisijungti prie grupės
+      decidim/join_request_accepted_event: Prisijungimo užklausa patvirtinta
+      decidim/join_request_rejected_event: Prisijungimo užklausa atmesta
+      decidim/profile_updated_event: Profilis atnaujintas
+      decidim/promote_to_admin: Paaukštintas(-a) į grupės administratorius
+      decidim/promoted_to_admin_event: Paaukštintas(-a) į grupės administratorius
+      decidim/removed_from_group: Pašalinta iš grupės
+      decidim/resource_endorsed_event: Išteklis palaikytas
+      decidim/resource_hidden_event: Išteklis paslėptas
+      decidim/user_group_created_event: Naudotojų grupė sukurta
+      decidim/welcome_notification_event: Sveikinimo prisijungus žinutė
+  activerecord:
+    attributes:
+      decidim/user:
+        current_password: Dabartinis slaptažodis
+        email: El. paštas
+        name: Slapyvardis
+        password: Slaptažodis
+        password_confirmation: Slaptažodžio patvirtinimas
+        remember_me: Prisiminti mane
+    models:
+      decidim/amendment:
+        one: Pataisa
+        few: Pataisos
+        many: Pataisos
+        other: Pataisos
+      decidim/endorsement:
+        one: Palaikymas
+        few: Palaikymai
+        many: Palaikymai
+        other: Palaikymai
+      decidim/user:
+        one: Dalyvis
+        few: Dalyviai
+        many: Dalyviai
+        other: Dalyviai
+      decidim/user_group:
+        one: Grupė
+        few: Grupės
+        many: Grupės
+        other: Grupės
+  booleans:
+    'false': 'Ne'
+    'true': 'Taip'
   carrierwave:
     errors:
       file_resolution_too_large: Dokumento rezoliucija per aukšta
@@ -96,3 +176,20 @@ lt:
         cancel: Atšaukti
       password_change:
         alert: Norėdami tęsti turite pasikeisti slaptažodį
+        notification: Administratoriai turi pakeisti savo slaptažodį kas %{days} dienas.
+    admin_log:
+      area:
+        create: "%{user_name} sukūrė %{resource_name} erdvę"
+        delete: "%{user_name} ištrynė %{resource_name} erdvę"
+      static_page:
+        update: "%{user_name} atnaujino %{resource_name} puslapį"
+      user:
+        block: "%{user_name} užblokavo %{resource_name}"
+        invite: "%{user_name} pakvietė naudotoją %{resource_name} su role: %{role}"
+        officialize: "%{user_name} oficializavo dalyvį %{resource_name}"
+        promote: "%{user_name} paaukštino %{resource_name}"
+        remove_from_admin: "%{user_name} pašalino dalyvį %{resource_name} su role: %{role}"
+        show_email: "%{user_name} gavo dalyvio %{resource_name} el. paštą"
+        transfer: "%{user_name} perkėlė dalyvį %{resource_name}"
+        unblock: "%{user_name} atblokavo naudotoją %{resource_name}"
+        unofficialize: "%{user_name} nuėmė dalyvio %{resource_name} patvirtinimą"
