@@ -1664,14 +1664,8 @@ eu:
       option_unified: Bateratua
   views:
     pagination:
-      first: "&laquo; Lehena"
-      first_title: Lotura lehen orrialdearekin
-      last: Azkena &raquo;
-      last_title: Lotura azken orrialdearekin
-      next: Hurrengoa &rsaquo;
       next_title: Lotura hurrengo orrialdearekin
       pagination: Orri-zenbaketa
-      previous: "&lsaquo; Aurrekoa"
       previous_title: Lotura aurreko orrialdearekin
       title: 'Orrialde zenbakia: '
       truncate: "&hellip;"
