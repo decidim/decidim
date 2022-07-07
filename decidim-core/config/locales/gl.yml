@@ -1335,8 +1335,4 @@ gl:
       choose_diff_view_mode_menu: Escoller o modo de comparación
   views:
     pagination:
-      first: "&laquo; Primeiro"
-      last: Último &raquo;
-      next: Seguinte &rsaquo;
-      previous: "&lsaquo; Anterior"
       truncate: "&hellip;"
