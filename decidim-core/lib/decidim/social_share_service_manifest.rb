@@ -52,7 +52,7 @@ module Decidim
     # @param args [Hash] the hash with the values to be escaped
     # @return [Hash]
     def escape_args(args)
-      args.reject { |_k, v| v.nil? }.transform_values { |v| url_escape(v) }
+      args.compact.transform_values { |v| url_escape(v) }
     end
 
     # Escape a string so it has characters compatible with URLs
