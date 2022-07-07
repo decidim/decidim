@@ -1900,14 +1900,8 @@ es:
       option_unified: Unificado
   views:
     pagination:
-      first: "&laquo; Primera"
-      first_title: Enlace a la primera página
-      last: Última &raquo;
-      last_title: Enlace a la última página
-      next: Siguiente &rsaquo;
       next_title: Enlace a la página siguiente
       pagination: Paginación
-      previous: "&lsaquo; Anterior"
       previous_title: Enlace a la página anterior
       title: 'Número de página: '
       truncate: "&hellip;"
