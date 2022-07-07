@@ -96,21 +96,6 @@ describe "Explore posts", type: :system do
       expect(page).to have_content(post.created_at.strftime("%d/%m/%Y %H:%M "))
     end
 
-    it "shows the back button" do
-      expect(page).to have_link(href: "#{main_component_path(component)}posts")
-    end
-
-    context "when clicking the back button" do
-      before do
-        click_link(href: "#{main_component_path(component)}posts")
-      end
-
-      it "redirect the user to component index" do
-        expect(page).to have_current_path("#{main_component_path(component)}posts")
-      end
-    end
-  end
-
   describe "most commented" do
     context "when ordering by 'most_commented'" do
       let!(:post_more_comments) { create(:post, component:) }
