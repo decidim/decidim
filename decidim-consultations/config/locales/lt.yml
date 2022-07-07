@@ -97,14 +97,17 @@ lt:
           error: Publikuojant šios konsultacijos rezultatus kilo problema.
           success: Konsultacijos rezultatai sėmingai paskelbti.
         destroy:
+          error: Depublikuojant konsultacjos rezultatus kilo problema.
           success: Konsultacijos rezultatų skelbimas panaikintas.
       consultations:
         create:
           error: Kuriant naują konsultaciją iškilo problema.
           success: Konsultacija sukurta.
+        deprecation_warning: Konsultacijų modulis greitu metu bus išimtas. Šiuo metu dirbame prie kitos, kriptografiškai saugios versijos pavadinimu Balsavimai.
         edit:
           update: Atnaujinti
         form:
+          slug_help: 'URL priedėliai naudojami nuorodų į konferenciją sukūrimui. Juose gali būti raidės, skaičiai ir brukšneliai, tačiau privalo prasidėti nuo raidės. Pavyzdys: %{url}'
           title: Bendra informacija
         index:
           not_published: Nepublikuota
@@ -139,18 +142,39 @@ lt:
             created_at: Sukurta
             published: Publikuota
             title: Pavadinimas
+          name:
+            one: Konsultacija
+            few: Konsultacijos
+            many: Konsultacijos
+            other: Konsultacijos
         question:
           fields:
             created_at: Sukurta
             published: Publikuota
             title: Pavadinimas
+          name:
+            one: Klausimas
+            few: Klausimai
+            many: Klausimai
+            other: Klausimai
         response:
           fields:
             created_at: Sukurta
             response_group: Grupė
             title: Pavadinimas
+          name:
+            one: Atsakymas
+            few: Atsakymai (-ų)
+            many: Atsakymai (-ų)
+            other: Atsakymai (-ų)
+      question_configuration:
+        disable_external_voting: Dėl išplėstinės konfigūracijos išjunkite išorės balsavimą
+        form:
+          help: Sudarykite klausimus su keliais pasirenkamais atsakymais, padidindami didžiausią atsakymų, kuriuos dalyvis gali pasirinkti, skaičių. Numatytoji didžiausia vertė yra 1, o tai reiškia, kad galima pasirinkti tik vieną atsakymą.
+          title: Papildomi nustatymai
       question_publications:
         create:
+          error: Skelbiant šį klausimą iškilo problema.
           success: Klausimas paskelbtas.
         destroy:
           error: Naikinant šio klausimo skelbimą iškilo problema.
@@ -235,7 +259,14 @@ lt:
       content_blocks:
         highlighted_consultations:
           name: Paryškintos konsultacijos
+      count:
+        title:
+          one: "%{count} konsultacija"
+          few: "%{count} konsultacijos"
+          many: "%{count} konsultacijos"
+          other: "%{count} konsultacijos"
       filters:
+        active: Aktyvios
         all: Visi
         date: Data
         finished: Užbaigta
@@ -267,7 +298,91 @@ lt:
       question:
         take_part: Dalyvaukite
         view_results: Peržiūrėti rezultatus
+        votes_out_of:
+          one: balsavimas iš
+          few: balsavimai iš
+          many: balsavimai iš
+          other: balsavimai iš
+      question_multiple_votes:
+        results_rules:
+          minimum_votes_per_user:
+            description: Dalyviai įvairiems variantams galėjo paskirstyti ne mažiau kaip %{votes} balsų.
+          title: Į šį klausimą galimi keli atsakymai
+          total_participants: Iš viso %{count} žmonės dalyvavo balsavime.
+          vote_limit:
+            description: Dalyviai gali pasirinkti ne daugiau kaip %{limit} variantų.
+        voting_rules:
+          minimum_votes_per_user:
+            description: Įvairiems variantams turite paskirstyti ne mažiau kaip %{votes} balsų.
+          title: 'Balsams taikomos šios taisyklės:'
+          vote_limit:
+            description: Galite pasirinkti ne daugiau kaip %{limit} variantų.
+            left: Liko
+            votes: Balsai
+      question_votes:
+        create:
+          error: Balsuojant dėl klausimo iškilo problema
+          success: Galite tai keisti iki konsultacijos pabaigos. Įskaitytas bus tik paskutinis balsas.
+          title_error: Balsavimo klaida!
+          title_success: Balsas įskaitytas
+      regular_questions:
+        title: Šios konsultacijos klausimai
+      show:
+        badge_name:
+          finished: Užbaigta
+          open: Atidaryta
+          open_votes: Atviri balsai
+          published_results: Rezultatai publikuoti
+        footer_button_text:
+          debate: Debatas
+          view: Peržiūrėti
+          view_results: Peržiūrėti rezultatus
+          vote: Balsuoti
+        unspecified: Nepatikslinta
+    help:
+      participatory_spaces:
+        consultations:
+          contextual: "<p><strong>Konsultacijos</strong> yra erdvė, kurioje galite užduoti aiškų klausimą visiems organizacijos žmonėms, pakviesti dalyvauti konsultacijoje, pradėti ir valdyti diskusiją už arba prieš atsakymų variantus. Atėjus konsultacijos pradžios datai, galite balsuoti ir paskelbti balsavimo rezultatus.</p> <p>Pavyzdžiai: Konsultacijos gali vykti dėl beveik visų aspektų, turinčių poveikio organizacijai: galima balsuoti dėl pavadinimo ar logotipo, nuspręsti, ar tapti didesnės organizacijos dalimi, patvirtinti arba atmesti naują strateginį planą arba darbo grupės rezultatus, ir t. t.</p>\n"
+          page: "<p><strong>Konsultacijos</strong> yra erdvė, kurioje galite užduoti aiškų klausimą visiems organizacijos žmonėms, pakviesti dalyvauti konsultacijoje, pradėti ir valdyti diskusiją už arba prieš atsakymų variantus. Atėjus konsultacijos pradžios datai, galite balsuoti ir paskelbti balsavimo rezultatus.</p> <p>Pavyzdžiai: Konsultacijos gali vykti dėl beveik visų aspektų, turinčių poveikio organizacijai: galima balsuoti dėl pavadinimo ar logotipo, nuspręsti, ar tapti didesnės organizacijos dalimi, patvirtinti arba atmesti naują strateginį planą arba darbo grupės rezultatus, ir t. t.</p>\n"
+          title: Kas yra konsultacijos?
+    menu:
+      consultations: Konsultacijos
+    questions:
+      next_button: Kitas klausimas
+      previous_button: Praeitas klausimas
+      results:
+        title: Rezultatai
+      show:
+        read_more: Skaityti toliau
+      statistics:
+        assistants_count_title: Padėjėjai
+        comments_count_title: Komentarai
+        meetings_count_title: Susirinkimai
+        supports_count_title: Balsai
+      technical_info:
+        technical_data: Techniniai duomenys
+      vote_button:
+        already_voted: Jau balsuota
+        already_voted_hover: Atšaukti balsą
+        starting_from: Prasideda nuo %{date}
+        verification_required: Norėdami balsuoti turite patvirtinti savo tapatybę
+        vote: Balsuoti
+      vote_modal:
+        close_modal: Uždaryti modalinį langą
+        contextual_help: Pasirinkite variantą.
+      vote_modal_confirm:
+        change: Keisti
+        close_modal: Uždaryti modalinį langą
+        confirm: Patvirtinti
+        contextual_help: Patvirtinkite pasirinktą variantą.
+        title: 'Konsultacija: patvirtinti balsą'
+    resources:
+      consultations:
+        actions:
+          comment: Komentuoti
+          vote: Balsuoti
     statistics:
+      consultations_count: Konsultacijos
       votes_count: Balsai
   layouts:
     decidim:
