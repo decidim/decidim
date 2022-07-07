@@ -1903,14 +1903,8 @@ fi-pl:
       option_unified: Yhdistetty
   views:
     pagination:
-      first: "&laquo; Ensimmäinen"
-      first_title: Linkki ensimmäiselle sivulle
-      last: Viimeinen &raquo;
-      last_title: Linkki viimeiselle sivulle
-      next: Seuraava &rsaquo;
       next_title: Linkki seuraavalle sivulle
       pagination: Sivutus
-      previous: "&lsaquo; Edellinen"
       previous_title: Linkki edelliselle sivulle
       title: 'Sivunumero: '
       truncate: "&hellip;"
