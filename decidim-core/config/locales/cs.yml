@@ -1950,8 +1950,10 @@ cs:
       option_unified: Sjednocené
   views:
     pagination:
+      next: Další
       next_title: Odkaz na další stránku
       pagination: Stránkování
+      previous: Předchozí
       previous_title: Odkaz na předchozí stránku
       title: 'Číslo strany: '
       truncate: "&hellip;"
