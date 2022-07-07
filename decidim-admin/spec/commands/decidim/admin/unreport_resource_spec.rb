@@ -17,7 +17,7 @@ module Decidim::Admin
 
       it "deletes the moderation" do
         command.call
-        expect(reportable.reload.moderation).to be(nil)
+        expect(reportable.reload.moderation).to be_nil
       end
 
       it "traces the action", versioning: true do

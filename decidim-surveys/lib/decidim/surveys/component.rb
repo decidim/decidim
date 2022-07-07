@@ -36,6 +36,10 @@ Decidim.register_component(:surveys) do |component|
     raise "Can't destroy this component when there are survey answers" if survey_answers_for_component.any?
   end
 
+  component.register_resource(:survey) do |resource|
+    resource.model_class_name = "Decidim::Surveys::Survey"
+  end
+
   component.register_stat :surveys_count do |components, start_at, end_at|
     surveys = Decidim::Surveys::Survey.where(component: components)
     surveys = surveys.where("created_at >= ?", start_at) if start_at.present?

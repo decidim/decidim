@@ -25,7 +25,7 @@ shared_examples "create an initiative type scope" do
 
     describe "when the form is not valid" do
       before do
-        expect(form).to receive(:invalid?).and_return(true)
+        allow(form).to receive(:invalid?).and_return(true)
       end
 
       it "broadcasts invalid" do
@@ -47,7 +47,7 @@ shared_examples "create an initiative type scope" do
       it "creates a new initiative type scope" do
         expect do
           command.call
-        end.to change { Decidim::InitiativesTypeScope.count }.by(1)
+        end.to change(Decidim::InitiativesTypeScope, :count).by(1)
       end
     end
   end

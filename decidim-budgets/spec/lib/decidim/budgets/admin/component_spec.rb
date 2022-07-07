@@ -27,6 +27,7 @@ describe "Budgets component" do # rubocop:disable RSpec/DescribeClass
     let(:percent) { 70 }
     let(:minimum_enabled) { false }
     let(:projects_enabled) { false }
+    let(:geocoding_enabled) { false }
     let(:minimum_number) { 3 }
     let(:maximum_number) { 6 }
 
@@ -39,12 +40,25 @@ describe "Budgets component" do # rubocop:disable RSpec/DescribeClass
         vote_minimum_budget_projects_number: minimum_number,
         vote_rule_selected_projects_enabled: projects_enabled,
         vote_selected_projects_minimum: minimum_number,
-        vote_selected_projects_maximum: maximum_number
+        vote_selected_projects_maximum: maximum_number,
+        geocoding_enabled: geocoding_enabled
       }
     end
 
     def new_settings(name, data)
       Decidim::Component.build_settings(manifest, name, data, organization)
+    end
+
+    describe "with geocoding enabled" do
+      let(:geocoding_enabled) { true }
+      # One budget rule must me activated
+      let(:percent_enabled) { true }
+
+      it "updates the component" do
+        expect do
+          Decidim::Admin::UpdateComponent.call(form, component, current_user)
+        end.to broadcast(:ok)
+      end
     end
 
     describe "with minimum projects number to vote" do
@@ -53,7 +67,7 @@ describe "Budgets component" do # rubocop:disable RSpec/DescribeClass
       context "when the minimum projects number is valid" do
         it "updates the component" do
           expect do
-            Decidim::Admin::UpdateComponent.call(form, component)
+            Decidim::Admin::UpdateComponent.call(form, component, current_user)
           end.to broadcast(:ok)
         end
       end
@@ -63,7 +77,7 @@ describe "Budgets component" do # rubocop:disable RSpec/DescribeClass
 
         it "does NOT update the component" do
           expect do
-            Decidim::Admin::UpdateComponent.call(form, component)
+            Decidim::Admin::UpdateComponent.call(form, component, current_user)
           end.to broadcast(:invalid)
         end
       end
@@ -75,7 +89,7 @@ describe "Budgets component" do # rubocop:disable RSpec/DescribeClass
       context "when the projects rule is valid" do
         it "updates the component" do
           expect do
-            Decidim::Admin::UpdateComponent.call(form, component)
+            Decidim::Admin::UpdateComponent.call(form, component, current_user)
           end.to broadcast(:ok)
         end
       end
@@ -85,7 +99,7 @@ describe "Budgets component" do # rubocop:disable RSpec/DescribeClass
 
         it "does NOT update the component" do
           expect do
-            Decidim::Admin::UpdateComponent.call(form, component)
+            Decidim::Admin::UpdateComponent.call(form, component, current_user)
           end.to broadcast(:invalid)
         end
       end
@@ -95,7 +109,7 @@ describe "Budgets component" do # rubocop:disable RSpec/DescribeClass
 
         it "updates the component" do
           expect do
-            Decidim::Admin::UpdateComponent.call(form, component)
+            Decidim::Admin::UpdateComponent.call(form, component, current_user)
           end.to broadcast(:ok)
         end
       end
@@ -105,7 +119,7 @@ describe "Budgets component" do # rubocop:disable RSpec/DescribeClass
 
         it "does NOT update the component" do
           expect do
-            Decidim::Admin::UpdateComponent.call(form, component)
+            Decidim::Admin::UpdateComponent.call(form, component, current_user)
           end.to broadcast(:invalid)
         end
       end
@@ -117,7 +131,7 @@ describe "Budgets component" do # rubocop:disable RSpec/DescribeClass
       context "when the threshold percent number is valid" do
         it "updates the component" do
           expect do
-            Decidim::Admin::UpdateComponent.call(form, component)
+            Decidim::Admin::UpdateComponent.call(form, component, current_user)
           end.to broadcast(:ok)
         end
       end
@@ -127,7 +141,7 @@ describe "Budgets component" do # rubocop:disable RSpec/DescribeClass
 
         it "does NOT update the component" do
           expect do
-            Decidim::Admin::UpdateComponent.call(form, component)
+            Decidim::Admin::UpdateComponent.call(form, component, current_user)
           end.to broadcast(:invalid)
         end
       end
@@ -140,7 +154,7 @@ describe "Budgets component" do # rubocop:disable RSpec/DescribeClass
 
       it "does NOT update the component" do
         expect do
-          Decidim::Admin::UpdateComponent.call(form, component)
+          Decidim::Admin::UpdateComponent.call(form, component, current_user)
         end.to broadcast(:invalid)
       end
     end
@@ -152,7 +166,7 @@ describe "Budgets component" do # rubocop:disable RSpec/DescribeClass
 
       it "does NOT update the component" do
         expect do
-          Decidim::Admin::UpdateComponent.call(form, component)
+          Decidim::Admin::UpdateComponent.call(form, component, current_user)
         end.to broadcast(:invalid)
       end
     end
@@ -198,7 +212,7 @@ describe "Budgets component" do # rubocop:disable RSpec/DescribeClass
 
       context "when projects rule is checked" do
         before do
-          check "Enable rule: Selected projects with minimum and maximum number of projects to be voted on"
+          check "Enable rule: Minimum and maximum number of projects to be voted on"
         end
 
         it "is shown the number input" do

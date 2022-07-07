@@ -45,7 +45,7 @@ module Decidim
 
         describe "when the form is not valid" do
           before do
-            expect(form).to receive(:invalid?).and_return(true)
+            allow(form).to receive(:invalid?).and_return(true)
           end
 
           it "broadcasts invalid" do
@@ -62,9 +62,9 @@ module Decidim
 
         describe "when the consultation is not valid" do
           before do
-            expect(form).to receive(:invalid?).and_return(false)
+            allow(form).to receive(:invalid?).and_return(false)
             expect(consultation).to receive(:valid?).at_least(:once).and_return(false)
-            consultation.errors.add(:banner_image, "Image too big")
+            consultation.errors.add(:banner_image, "File resolution is too large")
           end
 
           it "broadcasts invalid" do

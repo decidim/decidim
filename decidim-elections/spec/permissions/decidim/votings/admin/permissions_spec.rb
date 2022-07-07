@@ -10,7 +10,7 @@ describe Decidim::Votings::Admin::Permissions do
   let(:voting) { create :voting, organization: organization }
   let(:context) { { participatory_space: voting }.merge(extra_context) }
   let(:extra_context) { {} }
-  let(:permission_action) { Decidim::PermissionAction.new(action) }
+  let(:permission_action) { Decidim::PermissionAction.new(**action) }
   let(:action) do
     { scope: :admin, action: action_name, subject: action_subject }
   end
@@ -29,14 +29,14 @@ describe Decidim::Votings::Admin::Permissions do
       { scope: :admin, action: :foo, subject: :bar }
     end
 
-    it { is_expected.to eq false }
+    it { is_expected.to be false }
   end
 
   describe "participatory spaces" do
     let(:action_subject) { :participatory_space }
     let(:action_name) { :read }
 
-    it { is_expected.to eq true }
+    it { is_expected.to be true }
   end
 
   describe "components" do
@@ -46,7 +46,7 @@ describe Decidim::Votings::Admin::Permissions do
       { participatory_space: voting }
     end
 
-    it { is_expected.to eq true }
+    it { is_expected.to be true }
   end
 
   describe "votings" do
@@ -55,13 +55,13 @@ describe Decidim::Votings::Admin::Permissions do
     context "when creating a voting" do
       let(:action_name) { :create }
 
-      it { is_expected.to eq true }
+      it { is_expected.to be true }
     end
 
     context "when reading a voting" do
       let(:action_name) { :read }
 
-      it { is_expected.to eq true }
+      it { is_expected.to be true }
     end
   end
 
@@ -71,7 +71,7 @@ describe Decidim::Votings::Admin::Permissions do
     context "when managing a census" do
       let(:action_name) { :manage }
 
-      it { is_expected.to eq true }
+      it { is_expected.to be true }
     end
   end
 
@@ -81,14 +81,14 @@ describe Decidim::Votings::Admin::Permissions do
         let(:action_subject) { :monitoring_committee_members }
         let(:action_name) { :read }
 
-        it { is_expected.to eq true }
+        it { is_expected.to be true }
       end
 
       context "when reading the Certificates" do
         let(:action_subject) { :monitoring_committee_polling_station_closures }
         let(:action_name) { :read }
 
-        it { is_expected.to eq false }
+        it { is_expected.to be false }
       end
     end
 
@@ -100,21 +100,21 @@ describe Decidim::Votings::Admin::Permissions do
         let(:action_subject) { :admin_dashboard }
         let(:action_name) { :read }
 
-        it { is_expected.to eq true }
+        it { is_expected.to be true }
       end
 
       context "when reading the votings" do
         let(:action_subject) { :votings }
         let(:action_name) { :read }
 
-        it { is_expected.to eq true }
+        it { is_expected.to be true }
       end
 
       context "when listing their voting" do
         let(:action_subject) { :voting }
         let(:action_name) { :list }
 
-        it { is_expected.to eq true }
+        it { is_expected.to be true }
       end
 
       context "when listing another voting" do
@@ -123,28 +123,28 @@ describe Decidim::Votings::Admin::Permissions do
         let(:action_subject) { :voting }
         let(:action_name) { :list }
 
-        it { is_expected.to eq false }
+        it { is_expected.to be false }
       end
 
       context "when reading their voting's Polling Officers" do
         let(:action_subject) { :polling_officers }
         let(:action_name) { :read }
 
-        it { is_expected.to eq false }
+        it { is_expected.to be false }
       end
 
       context "when reading their voting's Committee Members" do
         let(:action_subject) { :monitoring_committee_members }
         let(:action_name) { :read }
 
-        it { is_expected.to eq false }
+        it { is_expected.to be false }
       end
 
       context "when reading their voting's Certificates" do
         let(:action_subject) { :monitoring_committee_polling_station_closures }
         let(:action_name) { :read }
 
-        it { is_expected.to eq true }
+        it { is_expected.to be true }
       end
     end
   end
@@ -160,23 +160,23 @@ describe Decidim::Votings::Admin::Permissions do
       context "when census ballot style is not present" do
         let(:ballot_style) { nil }
 
-        it { is_expected.to eq false }
+        it { is_expected.to be false }
       end
 
       context "when census dataset is not present" do
-        it { is_expected.to eq true }
+        it { is_expected.to be true }
       end
 
       context "when census dataset is in init_data status" do
         let!(:dataset) { create(:dataset, voting: voting, status: :init_data) }
 
-        it { is_expected.to eq true }
+        it { is_expected.to be true }
       end
 
       context "when census dataset is in another status" do
         let!(:dataset) { create(:dataset, voting: voting, status: :data_created) }
 
-        it { is_expected.to eq false }
+        it { is_expected.to be false }
       end
     end
   end

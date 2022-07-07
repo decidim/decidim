@@ -31,6 +31,6 @@ en:
             success: Page successfully saved.
       home:
         hero:
-          participate_title: Participate to the platform's processes
+          participate_title: Participate in the platform's processes
         sub_hero:
           register_title: Sign up to create an account

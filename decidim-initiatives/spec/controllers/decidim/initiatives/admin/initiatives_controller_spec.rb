@@ -73,64 +73,6 @@ describe Decidim::Initiatives::Admin::InitiativesController, type: :controller d
     end
   end
 
-  context "when show" do
-    context "and Users without initiatives" do
-      before do
-        sign_in user, scope: :user
-      end
-
-      it "are not not allowed" do
-        get :show, params: { slug: initiative.to_param }
-        expect(flash[:alert]).not_to be_empty
-        expect(response).to have_http_status(:found)
-      end
-    end
-
-    context "and anonymous users" do
-      it "are not allowed" do
-        get :show, params: { slug: initiative.to_param }
-        expect(flash[:alert]).not_to be_empty
-        expect(response).to have_http_status(:found)
-      end
-    end
-
-    context "and admin users" do
-      before do
-        sign_in admin_user, scope: :user
-      end
-
-      it "are allowed" do
-        get :show, params: { slug: initiative.to_param }
-        expect(flash[:alert]).to be_nil
-        expect(response).to have_http_status(:ok)
-      end
-    end
-
-    context "and initiative author" do
-      before do
-        sign_in initiative.author, scope: :user
-      end
-
-      it "are allowed" do
-        get :show, params: { slug: initiative.to_param }
-        expect(flash[:alert]).to be_nil
-        expect(response).to have_http_status(:ok)
-      end
-    end
-
-    context "and promotal committee members" do
-      before do
-        sign_in initiative.committee_members.approved.first.user, scope: :user
-      end
-
-      it "initiative list is allowed" do
-        get :show, params: { slug: initiative.to_param }
-        expect(flash[:alert]).to be_nil
-        expect(response).to have_http_status(:ok)
-      end
-    end
-  end
-
   context "when edit" do
     context "and Users without initiatives" do
       before do

@@ -35,11 +35,7 @@ module Decidim
       end
 
       def reader
-        @reader ||= begin
-          return unless reader_klass
-
-          reader_klass.new("/dev/null")
-        end
+        @reader ||= reader_klass ? reader_klass.new("/dev/null") : nil
       end
 
       def reader_klass

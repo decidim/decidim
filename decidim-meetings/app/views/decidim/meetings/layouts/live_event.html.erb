@@ -3,12 +3,13 @@
   <head>
     <title><%= decidim_page_title %></title>
     <%= render partial: "layouts/decidim/head" %>
-    <%= javascript_pack_tag "decidim_meetings" %>
-    <%= render partial: "layouts/decidim/js_configuration" %>
   </head>
 
   <body>
     <%= render partial: "layouts/decidim/timeout_modal" %>
+    <%= render partial: "layouts/decidim/cookie_warning" %>
+    <%= cell("decidim/data_consent", current_organization) %>
+
     <header class="meeting-polls__header">
       <% if current_user && poll %>
         <div class="flex--cc">
@@ -47,5 +48,8 @@
       <aside class="meeting-polls__aside" id="admin-meeting-poll-aside" data-decidim-admin-meetings-poll='{"questionsUrl":"<%= meeting_polls_questions_path(meeting, admin: true) %>"}'></aside>
       <%= yield %>
     </main>
+
+    <%= render partial: "layouts/decidim/decidim_javascript" %>
+    <%= javascript_pack_tag "decidim_meetings" %>
   </body>
 </html>

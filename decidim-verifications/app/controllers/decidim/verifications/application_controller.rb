@@ -22,7 +22,7 @@ module Decidim
       private
 
       def confirmed_user
-        return true if !current_user || current_user && current_user.verifiable?
+        return true if !current_user || (current_user && current_user.verifiable?)
 
         redirect_back(
           fallback_location: root_path,

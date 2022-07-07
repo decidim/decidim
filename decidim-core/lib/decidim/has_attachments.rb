@@ -26,14 +26,14 @@ module Decidim
       #
       # Returns an Array<Attachment>
       def photos
-        @photos ||= attachments.order(:weight).select(&:photo?)
+        @photos ||= attachments.with_attached_file.order(:weight).select(&:photo?)
       end
 
       # All the attachments that are documents for this model.
       #
       # Returns an Array<Attachment>
       def documents
-        @documents ||= attachments.order(:weight).includes(:attachment_collection).select(&:document?)
+        @documents ||= attachments.with_attached_file.order(:weight).includes(:attachment_collection).select(&:document?)
       end
 
       # All the attachments that are documents for this model that has a collection.

@@ -7,6 +7,7 @@ module Decidim
     module Admin
       describe UpdateQuestionnaire do
         let(:current_organization) { create(:organization) }
+        let(:user) { create :user, organization: current_organization }
         let(:participatory_process) { create(:participatory_process, organization: current_organization) }
         let(:current_component) { create :component, participatory_space: participatory_process, manifest_name: "meetings" }
         let(:meeting) { create :meeting, component: current_component }
@@ -71,18 +72,19 @@ module Decidim
           QuestionnaireForm.from_params(
             questionnaire: form_params
           ).with_context(
-            current_organization: current_organization
+            current_organization: current_organization,
+            current_user: user
           )
         end
         let(:command) { described_class.new(form, questionnaire) }
 
         context "with a persisted poll and questionnaire" do
-          let(:poll) { create(:poll) }
+          let(:poll) { create(:poll, meeting: meeting) }
           let(:questionnaire) { create(:meetings_poll_questionnaire, questionnaire_for: poll) }
 
           describe "when the form is invalid" do
             before do
-              expect(form).to receive(:invalid?).and_return(true)
+              allow(form).to receive(:invalid?).and_return(true)
             end
 
             it "broadcasts invalid" do
@@ -110,6 +112,18 @@ module Decidim
 
               expect(questionnaire.questions[1].question_type).to eq("multiple_option")
               expect(questionnaire.questions[1].max_choices).to eq(2)
+            end
+
+            it "traces the action", versioning: true do
+              expect(Decidim.traceability)
+                .to receive(:perform_action!)
+                .with("update", Decidim::Meetings::Questionnaire, user, { meeting: meeting })
+                .and_call_original
+
+              expect { command.call }.to change(Decidim::ActionLog, :count)
+              action_log = Decidim::ActionLog.last
+              expect(action_log.action).to eq("update")
+              expect(action_log.version).to be_present
             end
           end
 
@@ -163,7 +177,7 @@ module Decidim
 
           describe "when the form is invalid" do
             before do
-              expect(form).to receive(:invalid?).and_return(true)
+              allow(form).to receive(:invalid?).and_return(true)
             end
 
             it "broadcasts invalid" do

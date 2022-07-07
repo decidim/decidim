@@ -160,7 +160,7 @@ describe "Decidim::Api::QueryType" do
       let!(:other_post) { create(:post, created_at: 2.weeks.ago, updated_at: 1.week.ago, component: current_component) }
       let(:edges) { response["participatoryProcess"]["components"].first["posts"]["edges"] }
 
-      context "when ordered by " do
+      context "when ordered by" do
         context "with createdAt" do
           let(:criteria) { "order: { createdAt: \"asc\" }" }
 

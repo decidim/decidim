@@ -90,7 +90,7 @@ module Decidim
 
       context "with weird characters" do
         let(:weird_characters) do
-          %w(< > ? % & ^ * # @ ( ) [ ] = + : ; " { } \ |)
+          ["<", ">", "?", "%", "&", "^", "*", "#", "@", "(", ")", "[", "]", "=", "+", ":", ";", '"', "{", "}", " |"]
         end
 
         it "doesn't allow them" do

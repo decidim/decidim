@@ -153,7 +153,7 @@ describe "Meeting", type: :system, download: true do
     end
 
     context "when meeting is live" do
-      let(:meeting) { create(:meeting, :published, component: component, start_time: 1.minute.ago, end_time: Time.current + 1.hour) }
+      let(:meeting) { create(:meeting, :published, component: component, start_time: 1.minute.ago, end_time: 1.hour.from_now) }
 
       it "does not timeout user" do
         visit_meeting
@@ -164,7 +164,7 @@ describe "Meeting", type: :system, download: true do
     end
 
     context "when meeting is in future" do
-      let(:meeting) { create(:meeting, :published, component: component, start_time: Time.current + 1.day, end_time: Time.current + 1.day + 2.hours) }
+      let(:meeting) { create(:meeting, :published, component: component, start_time: 1.day.from_now, end_time: 1.day.from_now + 2.hours) }
 
       it "timeouts user normally" do
         visit_meeting

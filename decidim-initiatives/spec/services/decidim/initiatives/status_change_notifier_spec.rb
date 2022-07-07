@@ -32,7 +32,7 @@ module Decidim
         )
       end
 
-      let!(:subject) { described_class.new(initiative: initiative) }
+      subject { described_class.new(initiative: initiative) }
 
       before do
         allow(message_delivery).to receive(:deliver_later)

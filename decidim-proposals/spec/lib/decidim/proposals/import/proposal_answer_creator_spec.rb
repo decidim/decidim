@@ -63,7 +63,7 @@ describe Decidim::Proposals::Import::ProposalAnswerCreator do
       it "does not produce a record" do
         record = subject.produce
 
-        expect(record).to be(nil)
+        expect(record).to be_nil
       end
     end
   end

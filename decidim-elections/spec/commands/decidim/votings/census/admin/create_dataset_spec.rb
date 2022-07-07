@@ -15,7 +15,7 @@ module Decidim::Votings::Census::Admin
     let(:form) { DatasetForm.from_params(params).with_context(context) }
 
     context "when the form is not valid" do
-      let(:file) {}
+      let(:file) { nil }
 
       it "broadcasts invalid" do
         expect(subject.call).to broadcast(:invalid)
@@ -44,6 +44,19 @@ module Decidim::Votings::Census::Admin
 
     it "broadcasts ok" do
       expect(subject.call).to broadcast(:ok)
+    end
+
+    context "when active storage service is not local" do
+      before do
+        allow(ActiveStorage::Blob.service).to receive(:respond_to?).and_call_original
+        # rubocop:disable RSpec/StubbedMock
+        expect(ActiveStorage::Blob.service).to receive(:respond_to?).with(:path_for).and_return(false)
+        # rubocop:enable RSpec/StubbedMock
+      end
+
+      it "still broadcasts ok" do
+        expect(subject.call).to broadcast(:ok)
+      end
     end
 
     it "enqueues a job for processing the dataset and strips the data from whitespaces" do

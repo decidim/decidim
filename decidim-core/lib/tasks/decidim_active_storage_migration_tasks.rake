@@ -21,9 +21,7 @@ namespace :decidim do
       path = Rails.root.join("tmp/attachment_mappings.csv")
       dirname = File.dirname(path)
       FileUtils.mkdir_p(dirname) unless File.directory?(dirname)
-      File.open(path, "wb") do |file|
-        file.write(Decidim::Exporters::CSV.new(routes_mappings).export.read)
-      end
+      File.binwrite(path, Decidim::Exporters::CSV.new(routes_mappings).export.read)
     end
 
     desc "Checks attachments migrated from Carrierwave to ActiveStorage"

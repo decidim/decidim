@@ -838,6 +838,12 @@ en:
           invalid: There was a problem reading the CSV file.
           success: CSV file uploaded successfully, we're sending an invitation email to participants. This might take a while.
         new:
+          destroy:
+            button: Delete all private participants
+            confirm: Are you sure you want to delete all private participants? This action can't be undone, you will not be able to recover them.
+            empty: You have no private participants.
+            explanation: You have %{count} private participants.
+            title: Delete private participants
           explanation: Upload your CSV file. It must have two columns with email in the first column of the file and name in the last column of the file (email, name) of the users that you want to add to the participatory space, without headers. Avoid using invalid chars like `<>?%&^*#@()[]=+:;"{}\|` in user name.
           title: Upload your CSV file
           upload: Upload
@@ -1054,7 +1060,7 @@ en:
             hidden_at: Hidden at
             participatory_space: Participatory space
             report_count: Count
-            reportable_id: Id
+            reportable_id: ID
             reportable_type: Type
             reported_content_url: Reported content URL
             reports: Reports

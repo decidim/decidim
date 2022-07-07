@@ -5,8 +5,8 @@ require "spec_helper"
 describe "Sessions", type: :system do
   let!(:admin) do
     create(:admin, email: "admin@example.org",
-                   password: "123456",
-                   password_confirmation: "123456")
+                   password: "decidim123456789",
+                   password_confirmation: "decidim123456789")
   end
 
   before do
@@ -17,7 +17,7 @@ describe "Sessions", type: :system do
     it "lets you into the system panel" do
       within ".new_admin" do
         fill_in :admin_email, with: "admin@example.org"
-        fill_in :admin_password, with: "123456"
+        fill_in :admin_password, with: "decidim123456789"
         find("*[type=submit]").click
       end
 

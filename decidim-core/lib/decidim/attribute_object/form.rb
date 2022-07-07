@@ -148,9 +148,7 @@ module Decidim
         super && self.class.attribute_types.none? do |name, type|
           value = public_send(name)
 
-          if value.is_a?(Decidim::AttributeObject::Model)
-            _value_has_errors?(value)
-          elsif type.respond_to?(:validate_nested?) && type.validate_nested?
+          if value.is_a?(Decidim::AttributeObject::Model) || (type.respond_to?(:validate_nested?) && type.validate_nested?)
             _value_has_errors?(value)
           else
             false

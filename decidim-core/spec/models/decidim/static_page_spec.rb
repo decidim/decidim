@@ -92,7 +92,7 @@ module Decidim
 
         context "when destroying" do
           it "cannot be destroyed" do
-            expect(page.destroy).to eq(false)
+            expect(page.destroy).to be(false)
             expect(page).not_to be_destroyed
           end
         end

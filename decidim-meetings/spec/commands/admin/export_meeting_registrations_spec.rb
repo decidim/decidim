@@ -14,7 +14,7 @@ module Decidim::Meetings
       it "exports the meeting registrations" do
         exporter_double = double(export: true)
         class_double = double(new: exporter_double)
-        expect(Decidim::Exporters)
+        allow(Decidim::Exporters)
           .to receive(:find_exporter)
           .with(format)
           .and_return(class_double)

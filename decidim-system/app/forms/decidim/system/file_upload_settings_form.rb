@@ -10,18 +10,16 @@ module Decidim
 
       mimic :organization_file_uploads
 
-      attribute :allowed_file_extensions, Hash[Symbol => String]
-      attribute :allowed_content_types, Hash[Symbol => String]
-      attribute :maximum_file_size, Hash[Symbol => Float]
+      attribute(:allowed_file_extensions, { Symbol => String })
+      attribute(:allowed_content_types, { Symbol => String })
+      attribute(:maximum_file_size, { Symbol => Float })
 
       def map_model(settings_hash)
-        settings_hash = begin
-          if settings_hash.is_a?(Hash)
-            default_settings.deep_merge(settings_hash.deep_stringify_keys)
-          else
-            default_settings
-          end
-        end
+        settings_hash = if settings_hash.is_a?(Hash)
+                          default_settings.deep_merge(settings_hash.deep_stringify_keys)
+                        else
+                          default_settings
+                        end
 
         csv_attributes.each do |attr|
           next unless settings_hash.has_key?(attr.to_s)

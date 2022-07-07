@@ -3,12 +3,13 @@
   <head>
     <title><%= Decidim::GraphiQL::Rails.config.title || "Decidim API" %></title>
     <%= stylesheet_pack_tag("decidim_api_graphiql") %>
-    <%= javascript_pack_tag("decidim_api_graphiql", defer: false) %>
   </head>
   <body>
     <div id="graphiql-container">
       Loading...
     </div>
+
+    <%= javascript_pack_tag "decidim_api_graphiql", defer: false %>
 
     <%
       js_configs = {
@@ -17,6 +18,7 @@
         request_headers: JSON.pretty_generate(Decidim::GraphiQL::Rails.config.resolve_headers(self))
       }
     %>
+
     <script>
       window.Decidim.config.set(<%== js_configs.to_json %>);
     </script>

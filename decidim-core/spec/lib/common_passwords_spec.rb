@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim
   describe CommonPasswords do
-    let(:subject) do
+    subject do
       Class.new(described_class) do
         def self.common_passwords_path
           Rails.root.join("tmp/common-passwords.txt")

@@ -43,7 +43,7 @@ module Decidim
 
         describe "when the form is not valid" do
           before do
-            expect(form).to receive(:invalid?).and_return(true)
+            allow(form).to receive(:invalid?).and_return(true)
           end
 
           it "broadcasts invalid" do
@@ -53,7 +53,7 @@ module Decidim
           it "doesn't create the sortition" do
             expect do
               command.call
-            end.to change { Sortition.where(component: sortition_component).count }.by(0)
+            end.not_to(change { Sortition.where(component: sortition_component).count })
           end
         end
 
@@ -65,7 +65,7 @@ module Decidim
           end
 
           before do
-            expect(form).to receive(:invalid?).and_return(false)
+            allow(form).to receive(:invalid?).and_return(false)
           end
 
           it "broadcasts ok" do
@@ -104,7 +104,7 @@ module Decidim
           it "has no category" do
             command.call
             sortition = Sortition.where(component: sortition_component).last
-            expect(sortition.category).to eq(nil)
+            expect(sortition.category).to be_nil
           end
 
           context "when restricted to a category without proposals" do

@@ -12,7 +12,7 @@ describe Decidim::Surveys::Admin::Permissions do
     }
   end
   let(:survey_component) { create :surveys_component }
-  let(:permission_action) { Decidim::PermissionAction.new(action) }
+  let(:permission_action) { Decidim::PermissionAction.new(**action) }
 
   context "when scope is not admin" do
     let(:action) do
@@ -43,7 +43,7 @@ describe Decidim::Surveys::Admin::Permissions do
       { scope: :admin, action: :export_answers, subject: :questionnaire }
     end
 
-    it { is_expected.to eq true }
+    it { is_expected.to be true }
   end
 
   context "when updating a survey" do
@@ -51,7 +51,7 @@ describe Decidim::Surveys::Admin::Permissions do
       { scope: :admin, action: :update, subject: :questionnaire }
     end
 
-    it { is_expected.to eq true }
+    it { is_expected.to be true }
   end
 
   context "when indexing a survey's answers" do
@@ -59,7 +59,7 @@ describe Decidim::Surveys::Admin::Permissions do
       { scope: :admin, action: :index, subject: :questionnaire_answers }
     end
 
-    it { is_expected.to eq true }
+    it { is_expected.to be true }
   end
 
   context "when showing a participant's survey answers" do
@@ -67,7 +67,7 @@ describe Decidim::Surveys::Admin::Permissions do
       { scope: :admin, action: :show, subject: :questionnaire_answers }
     end
 
-    it { is_expected.to eq true }
+    it { is_expected.to be true }
   end
 
   context "when exporting a participant's survey answers" do
@@ -75,6 +75,6 @@ describe Decidim::Surveys::Admin::Permissions do
       { scope: :admin, action: :export_response, subject: :questionnaire_answers }
     end
 
-    it { is_expected.to eq true }
+    it { is_expected.to be true }
   end
 end

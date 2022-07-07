@@ -4,7 +4,6 @@
     <title><%= decidim_page_title %></title>
     <%= csrf_meta_tags %>
     <%= stylesheet_pack_tag "decidim_core" %>
-    <%= javascript_pack_tag "decidim_core", defer: false %>
   </head>
 
   <body class="widget">
@@ -27,8 +26,9 @@
       <%= render partial: "layouts/decidim/logo", locals: { organization: current_organization } %>
     </div>
 
-    <%= javascript_pack_tag "decidim_widget" %>
+    <%= javascript_pack_tag "decidim_core", defer: false %>
     <%= render partial: "layouts/decidim/js_configuration" %>
+    <%= javascript_pack_tag "decidim_widget" %>
     <%= render partial: "layouts/decidim/cors" if Decidim.cors_enabled %>
   </body>
 </html>

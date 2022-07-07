@@ -3,7 +3,7 @@
 require "bundler"
 require "rails/generators"
 require "rails/generators/rails/app/app_generator"
-require "decidim/generators/version"
+require "decidim/generators"
 require_relative "install_generator"
 
 module Decidim
@@ -178,7 +178,7 @@ module Decidim
         route <<~RUBY
           authenticate :user, ->(u) { u.admin? } do
             mount Sidekiq::Web => "/sidekiq"
-          end      
+          end
         RUBY
 
         add_production_gems do
@@ -332,7 +332,7 @@ module Decidim
       def branch
         return if options[:path]
 
-        @branch ||= options[:edge] ? "develop" : options[:branch].presence
+        @branch ||= options[:edge] ? Decidim::Generators.edge_git_branch : options[:branch].presence
       end
 
       def repository

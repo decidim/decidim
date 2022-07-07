@@ -74,13 +74,11 @@ module Decidim
       # Private: This method is used by the `Filterable` concern as the base query
       #          without applying filtering and/or sorting options.
       def collection
-        @collection ||= begin
-          if params[:hidden]
-            participatory_space_moderations.hidden
-          else
-            participatory_space_moderations.not_hidden
-          end
-        end
+        @collection ||= if params[:hidden]
+                          participatory_space_moderations.hidden
+                        else
+                          participatory_space_moderations.not_hidden
+                        end
       end
 
       # Private: Returns a collection of `Moderation` filtered and/or sorted by

@@ -35,7 +35,7 @@ module Decidim::Comments
       end
 
       context "when deleted" do
-        let(:comment) { create(:comment, commentable: commentable, deleted_at: 1.hour.ago, created_at: 1.day.ago) }
+        let(:comment) { create(:comment, :deleted, commentable: commentable) }
 
         it "renders the card with a deletion message and replies" do
           expect(subject).to have_css("#comment_#{comment.id}")

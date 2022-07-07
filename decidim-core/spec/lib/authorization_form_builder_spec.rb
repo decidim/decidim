@@ -34,8 +34,8 @@ module Decidim
       end
 
       it "does not include other handler attributes" do
-        expect(find("input#authorization_handler_id")).to eq(nil)
-        expect(find("input#authorization_handler_user")).to eq(nil)
+        expect(find("input#authorization_handler_id")).to be_nil
+        expect(find("input#authorization_handler_user")).to be_nil
       end
 
       context "when there are scopes" do

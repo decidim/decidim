@@ -33,7 +33,7 @@ module Decidim
         when "not_equal"
           answer_form.choices.pluck(:answer_option_id).exclude?(answer_option.id)
         when "match"
-          condition_value.values.reject(&:blank?).any? { |value| answer_form_matches?(answer_form, value) }
+          condition_value.values.compact_blank.any? { |value| answer_form_matches?(answer_form, value) }
         end
       end
 

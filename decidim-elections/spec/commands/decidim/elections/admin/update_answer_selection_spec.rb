@@ -12,7 +12,7 @@ describe Decidim::Elections::Admin::UpdateAnswerSelection do
 
   it "updates the selected answer attribute" do
     subject.call
-    expect(answer.selected).to eq(false)
+    expect(answer.selected).to be(false)
   end
 
   context "when answer has no votes" do

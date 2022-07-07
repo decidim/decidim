@@ -60,12 +60,10 @@ module Decidim
         case state
         when "accepted"
           ["success"]
-        when "rejected"
+        when "rejected", "withdrawn"
           ["alert"]
         when "evaluating"
           ["warning"]
-        when "withdrawn"
-          ["alert"]
         else
           ["muted"]
         end

@@ -8,20 +8,22 @@ module Decidim
     #
     class ParticipatorySpacePrivateUserCsvImportForm < Form
       include Decidim::HasUploadValidations
-      include Decidim::HasBlobFile
+      include Decidim::ProcessesFileLocally
 
-      attribute :file
+      attribute :file, Decidim::Attributes::Blob
       attribute :user_name, String
       attribute :email, String
 
-      validates :file, presence: true
+      validates :file, presence: true, file_content_type: { allow: ["text/csv"] }
       validate :validate_csv
 
       def validate_csv
         return if file.blank?
 
-        CSV.foreach(blob_path) do |_email, user_name|
-          errors.add(:user_name, :invalid) unless user_name.match?(UserBaseEntity::REGEXP_NAME)
+        process_file_locally(file) do |file_path|
+          CSV.foreach(file_path) do |_email, user_name|
+            errors.add(:user_name, :invalid) unless user_name.match?(UserBaseEntity::REGEXP_NAME)
+          end
         end
       end
     end

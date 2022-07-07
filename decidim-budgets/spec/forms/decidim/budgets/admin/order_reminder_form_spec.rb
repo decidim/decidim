@@ -40,7 +40,7 @@ describe Decidim::Budgets::Admin::OrderReminderForm do
       before { allow(Time.zone).to receive(:now).and_return(Time.zone.now.end_of_day - 5.hours) }
 
       it "voting_ends_soon? returns true" do
-        expect(subject.voting_ends_soon?).to eq(true)
+        expect(subject.voting_ends_soon?).to be(true)
       end
     end
 
@@ -48,7 +48,7 @@ describe Decidim::Budgets::Admin::OrderReminderForm do
       before { allow(Time.zone).to receive(:now).and_return(Time.zone.now.end_of_day - 10.hours) }
 
       it "voting_ends_soon? returns false" do
-        expect(subject.voting_ends_soon?).to eq(false)
+        expect(subject.voting_ends_soon?).to be(false)
       end
     end
   end
@@ -60,7 +60,7 @@ describe Decidim::Budgets::Admin::OrderReminderForm do
       before { allow(Time.zone).to receive(:now).and_return(Time.zone.now.end_of_day - 2.hours) }
 
       it "we dont know that ending is ending soon" do
-        expect(subject.voting_ends_soon?).to eq(false)
+        expect(subject.voting_ends_soon?).to be(false)
       end
     end
   end

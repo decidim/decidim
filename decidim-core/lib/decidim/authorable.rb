@@ -27,7 +27,7 @@ module Decidim
       }
 
       scope :with_any_origin, lambda { |*origin_keys|
-        search_values = origin_keys.compact.reject(&:blank?)
+        search_values = origin_keys.compact.compact_blank
 
         conditions = [:official, :participants, :user_group].map do |key|
           search_values.member?(key.to_s) ? try("with_#{key}_origin") : nil
@@ -42,7 +42,6 @@ module Decidim
         scoped_query
       }
 
-      validates :author, presence: true
       validate :verified_user_group, :user_group_membership
       validate :author_belongs_to_organization
 
@@ -51,7 +50,7 @@ module Decidim
       #
       # user - the user to check for authorship
       def authored_by?(other_author)
-        other_author == author || other_author.respond_to?(:user_groups) && other_author.user_groups.include?(user_group)
+        other_author == author || (other_author.respond_to?(:user_groups) && other_author.user_groups.include?(user_group))
       end
 
       # Returns the normalized author, whether it's a user group or a user. Ideally this should be
@@ -86,7 +85,7 @@ module Decidim
       def author_belongs_to_organization
         return if !author || !organization
 
-        errors.add(:author, :invalid) unless author == organization || author.respond_to?(:organization) && author.organization == organization
+        errors.add(:author, :invalid) unless author == organization || (author.respond_to?(:organization) && author.organization == organization)
       end
     end
   end

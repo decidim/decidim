@@ -78,13 +78,12 @@ class PassthruValidator < ActiveModel::EachValidator
   end
 
   def target_instance(record)
-    instance_attributes = begin
-      if options[:with].respond_to?(:call)
-        options[:with].call(record)
-      else
-        options[:with] || {}
-      end
-    end
+    instance_attributes = if options[:with].respond_to?(:call)
+                            options[:with].call(record)
+                          else
+                            options[:with] || {}
+                          end
+
     instance_attributes.each do |key, val|
       instance_attributes[key] = val.call(record) if val.respond_to?(:call)
     end
@@ -96,24 +95,22 @@ class PassthruValidator < ActiveModel::EachValidator
 
   def check_validator_conditions(record, validator)
     if (condition = validator.options[:if])
-      if_result = begin
-        if condition.respond_to?(:call)
-          condition.call(record)
-        else
-          record.public_send(condition)
-        end
-      end
+      if_result = if condition.respond_to?(:call)
+                    condition.call(record)
+                  else
+                    record.public_send(condition)
+                  end
+
       return false unless if_result
     end
 
     if (condition = validator.options[:unless])
-      unless_result = begin
-        if condition.respond_to?(:call)
-          condition.call(record)
-        else
-          record.public_send(condition)
-        end
-      end
+      unless_result = if condition.respond_to?(:call)
+                        condition.call(record)
+                      else
+                        record.public_send(condition)
+                      end
+
       return false if unless_result
     end
 

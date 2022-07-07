@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim::Admin::Import::Readers
   describe Base do
-    let(:subject) { described_class.new(file) }
+    subject { described_class.new(file) }
     let(:file) { Decidim::Dev.test_file("Exampledocument.pdf", "application/pdf") }
 
     describe "#read_rows" do

@@ -6,10 +6,10 @@ module Decidim
   module Comments
     describe CommentVoteSerializer do
       let(:comment) { create(:comment) }
+      let(:serialized) { subject.serialize }
       let(:resource) { create(:comment_vote, comment: comment) }
 
-      let(:subject) { described_class.new(resource) }
-      let(:serialized) { subject.serialize }
+      subject { described_class.new(resource) }
 
       describe "#serialize" do
         it "includes the id" do

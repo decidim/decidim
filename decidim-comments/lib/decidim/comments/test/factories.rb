@@ -19,6 +19,11 @@ FactoryBot.define do
       comment.body = Decidim::ContentProcessor.parse_with_processor(:hashtag, comment.body, current_organization: comment.root_commentable.organization).rewrite
     end
 
+    trait :deleted do
+      created_at { 1.day.ago }
+      deleted_at { 1.hour.ago }
+    end
+
     trait :comment_on_comment do
       author { build(:user, organization: root_commentable.organization) }
       commentable do

@@ -3,6 +3,8 @@
 require "spec_helper"
 
 describe TimeZoneValidator do
+  subject { validatable.new(time_zone: time_zone) }
+
   let(:validatable) do
     Class.new do
       def self.model_name
@@ -17,8 +19,6 @@ describe TimeZoneValidator do
       validates :time_zone, time_zone: true
     end
   end
-
-  let(:subject) { validatable.new(time_zone: time_zone) }
 
   context "when the time zone is valid" do
     let(:time_zone) { "Tijuana" }

@@ -3,7 +3,8 @@
 require "spec_helper"
 
 describe Decidim::HtmlTruncation do
-  let(:subject) { described_class.new(text, options).perform }
+  subject { described_class.new(text, options).perform }
+
   let(:options) do
     {
       max_length: max_length,
@@ -85,7 +86,7 @@ describe Decidim::HtmlTruncation do
       end
     end
 
-    describe "sequential void elements " do
+    describe "sequential void elements" do
       let(:text) { %(<img src="some/path/foo/bar" alt="foobar"><input id="bar" type="text"><br>) }
 
       it "cuts between elements" do

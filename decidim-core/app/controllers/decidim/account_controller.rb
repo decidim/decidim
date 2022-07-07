@@ -5,6 +5,8 @@ module Decidim
   class AccountController < Decidim::ApplicationController
     include Decidim::UserProfile
 
+    helper Decidim::PasswordsHelper
+
     def show
       enforce_permission_to :show, :user, current_user: current_user
       @account = form(AccountForm).from_model(current_user)
@@ -56,7 +58,50 @@ module Decidim
       redirect_to decidim.root_path
     end
 
+    def resend_confirmation_instructions
+      enforce_permission_to :update, :user, current_user: current_user
+
+      ResendConfirmationInstructions.call(current_user) do
+        on(:ok) do
+          respond_to do |format|
+            handle_alert(:success, t("resend_successfully", scope: "decidim.account.email_change", unconfirmed_email: current_user.unconfirmed_email))
+            format.js
+          end
+        end
+
+        on(:invalid) do
+          respond_to do |format|
+            handle_alert(:alert, t("resend_error", scope: "decidim.account.email_change"))
+            format.js
+          end
+        end
+      end
+    end
+
+    def cancel_email_change
+      enforce_permission_to :update, :user, current_user: current_user
+
+      if current_user.unconfirmed_email
+        current_user.update(unconfirmed_email: nil)
+
+        respond_to do |format|
+          handle_alert(:success, t("cancel_successfully", scope: "decidim.account.email_change"))
+          format.js
+        end
+      else
+        respond_to do |format|
+          handle_alert(:alert, t("cancel_error", scope: "decidim.account.email_change"))
+          format.js
+        end
+      end
+    end
+
     private
+
+    def handle_alert(alert_class, text)
+      @alert_class = alert_class
+      @text = text
+    end
 
     def account_params
       params[:user].to_unsafe_h

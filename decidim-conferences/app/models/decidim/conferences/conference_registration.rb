@@ -4,7 +4,7 @@ module Decidim
   module Conferences
     # The data store for a Registration in the Decidim::Conferences component.
     class ConferenceRegistration < ApplicationRecord
-      include Decidim::DataPortability
+      include Decidim::DownloadYourData
 
       belongs_to :conference, foreign_key: "decidim_conference_id", class_name: "Decidim::Conference"
       belongs_to :user, foreign_key: "decidim_user_id", class_name: "Decidim::User"
@@ -19,7 +19,7 @@ module Decidim
       end
 
       def self.export_serializer
-        Decidim::Conferences::DataPortabilityConferenceRegistrationSerializer
+        Decidim::Conferences::DownloadYourDataConferenceRegistrationSerializer
       end
 
       def confirmed?

@@ -68,12 +68,6 @@ nl:
         email: E-mail
         name: Naam
         role: Rol
-    errors:
-      models:
-        assembly:
-          attributes:
-            document:
-              invalid_document_type: 'Ongeldig documenttype. Geaccepteerde formaten zijn: %{valid_mime_types}'
   activerecord:
     models:
       decidim/assembly:
@@ -385,7 +379,6 @@ nl:
         related_participatory_processes: Verwante inspraakprocessen
         scope: Scope
         social_networks: Sociale netwerken
-        social_networks_title: Deze groep delen op
         target: Wie doet mee
     assembly_members:
       assembly_member:
@@ -396,7 +389,6 @@ nl:
       assemblies:
         create_assembly_member:
           email_intro: Een beheerder van de <a href="%{resource_url}">%{resource_name}</a> groep heeft je toegevoegd als een van haar leden.
-          email_outro: Je hebt deze melding ontvangen omdat je uitgenodigd bent voor een vergadering. Bekijk de <a href="%{resource_path}">vergaderpagina</a> om bij te dragen!
           email_subject: Je bent uitgenodigd om lid te worden van de %{resource_name} Buurderij!
           notification_title: Je bent geregistreerd als lid van de Buurderij <a href="%{resource_path}">%{resource_name}</a>. Bekijk de <a href="%{resource_path}">pagina</a> om bij te dragen!
       assembly:

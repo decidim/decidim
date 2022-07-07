@@ -73,7 +73,7 @@ module Decidim
 
     describe "Search" do
       context "when searching by Debate resource_type" do
-        let!(:debate_2) do
+        let!(:debate2) do
           create(
             :debate,
             component: current_component,
@@ -84,7 +84,7 @@ module Decidim
 
         before do
           debate.update(title: "#{debate.title}+1")
-          debate_2.update(title: "#{debate.title}+2")
+          debate2.update(title: "#{debate.title}+2")
         end
 
         it "returns Debate results" do
@@ -92,7 +92,7 @@ module Decidim
             on(:ok) do |results_by_type|
               results = results_by_type[debate.class.name]
               expect(results[:count]).to eq 2
-              expect(results[:results]).to match_array [debate, debate_2]
+              expect(results[:results]).to match_array [debate, debate2]
             end
             on(:invalid) { raise("Should not happen") }
           end
@@ -103,7 +103,7 @@ module Decidim
             on(:ok) do |results_by_type|
               results = results_by_type[debate.class.name]
               expect(results[:count]).to eq 1
-              expect(results[:results]).to eq [debate_2]
+              expect(results[:results]).to eq [debate2]
             end
             on(:invalid) { raise("Should not happen") }
           end

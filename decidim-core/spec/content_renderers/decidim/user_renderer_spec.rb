@@ -49,7 +49,7 @@ module Decidim
       end
     end
 
-    context "when markdown is rendered " do
+    context "when markdown is rendered" do
       let(:content) { "<p>#{user.to_global_id}</p><p>#{user.to_global_id}</p>" }
 
       it "ensure regex does not match across multiple gids" do

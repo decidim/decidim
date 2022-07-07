@@ -12,6 +12,9 @@ describe "Explore meetings", :slow, type: :system do
   end
 
   before do
+    # Required for the link to be pointing to the correct URL with the server
+    # port since the server port is not defined for the test environment.
+    allow(ActionMailer::Base).to receive(:default_url_options).and_return(port: Capybara.server_port)
     component_scope = create :scope, parent: participatory_process.scope
     component_settings = component["settings"]["global"].merge!(scopes_enabled: true, scope_id: component_scope.id)
     component.update!(settings: component_settings)
@@ -197,6 +200,40 @@ describe "Explore meetings", :slow, type: :system do
         expect(page).to have_css(".card--meeting", count: 5)
       end
 
+      it "allows linking to the filtered view using a short link" do
+        past_meeting = create(:meeting, :published, component: component, start_time: 1.day.ago)
+        visit_component
+
+        within ".with_any_date_check_boxes_tree_filter" do
+          uncheck "All"
+          check "Past"
+        end
+
+        expect(page).to have_css(".card--meeting", count: 1)
+        expect(page).to have_content(translated(past_meeting.title))
+
+        filter_params = CGI.parse(URI.parse(page.current_url).query)
+        base_url = "http://#{organization.host}:#{Capybara.server_port}"
+
+        click_button "Export calendar"
+        expect(page).to have_content("Calendar URL:")
+        expect(page).to have_css("#calendarShare", visible: :visible)
+        short_url = nil
+        within "#calendarShare" do
+          input = find("input#urlCalendarUrl[readonly]")
+          short_url = input.value
+          expect(short_url).to match(%r{^#{base_url}/s/[a-zA-Z0-9]{10}$})
+        end
+
+        visit short_url
+        expect(page).to have_css(".card--meeting", count: 1)
+        expect(page).to have_content(translated(past_meeting.title))
+        expect(page).to have_current_path(/^#{main_component_path(component)}/)
+
+        current_params = CGI.parse(URI.parse(page.current_url).query)
+        expect(current_params).to eq(filter_params)
+      end
+
       it "allows filtering by scope" do
         scope = create(:scope, organization: organization)
         meeting = meetings.first
@@ -239,7 +276,7 @@ describe "Explore meetings", :slow, type: :system do
 
     context "when no upcoming meetings scheduled" do
       let!(:meetings) do
-        create_list(:meeting, 2, :published, component: component, start_time: Time.current - 4.days, end_time: Time.current - 2.days)
+        create_list(:meeting, 2, :published, component: component, start_time: 4.days.ago, end_time: 2.days.ago)
       end
 
       it "only shows the past meetings" do

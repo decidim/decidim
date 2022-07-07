@@ -36,11 +36,11 @@ describe "User timeline", type: :system do
     create(:action_log, action: "create", visibility: "public-only", resource: comment, organization: organization, user: user2)
   end
 
-  let!(:action_log_2) do
+  let!(:action_log2) do
     create(:action_log, action: "publish", visibility: "all", resource: resource, organization: organization, participatory_space: component.participatory_space)
   end
 
-  let!(:action_log_3) do
+  let!(:action_log3) do
     create(:action_log, action: "publish", visibility: "all", resource: resource2, organization: organization)
   end
 
@@ -49,7 +49,7 @@ describe "User timeline", type: :system do
   end
 
   let(:resource_types) do
-    %w(Collaborative\ Draft Comment Debate Initiative Meeting Post Proposal Question)
+    ["Collaborative Draft", "Comment", "Debate", "Initiative", "Meeting", "Post", "Proposal", "Question"]
   end
 
   before do
@@ -64,7 +64,7 @@ describe "User timeline", type: :system do
     )
 
     Decidim::Follow.create!(user: user, followable: user2)
-    Decidim::Follow.create!(user: user, followable: action_log_2.participatory_space)
+    Decidim::Follow.create!(user: user, followable: action_log2.participatory_space)
     Decidim::Follow.create!(user: user, followable: resource2)
     login_as user, scope: :user
     switch_to_host organization.host

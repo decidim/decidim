@@ -8,7 +8,7 @@ module Decidim::Comments
 
     let(:user) { nil }
     let(:context) { {} }
-    let(:permission_action) { Decidim::PermissionAction.new(action) }
+    let(:permission_action) { Decidim::PermissionAction.new(**action) }
     let(:action_name) { :foo }
     let(:action_subject) { :bar }
     let(:action) do
@@ -39,17 +39,17 @@ module Decidim::Comments
       let(:context) { { commentable: commentable } }
 
       # Without any user
-      it { is_expected.to eq false }
+      it { is_expected.to be false }
 
       context "with a user who is allowed to comment" do
         let(:user) { create(:user, :confirmed, locale: "en", organization: organization) }
 
-        it { is_expected.to eq true }
+        it { is_expected.to be true }
 
         context "with comments disabled for the component" do
           let(:component) { create(:component, :with_comments_disabled, participatory_space: participatory_process) }
 
-          it { is_expected.to eq false }
+          it { is_expected.to be false }
         end
       end
 
@@ -57,7 +57,7 @@ module Decidim::Comments
         let(:participatory_process) { create :participatory_process, :private, organization: organization }
         let(:user) { create(:user, :confirmed, locale: "en", organization: organization) }
 
-        it { is_expected.to eq false }
+        it { is_expected.to be false }
       end
     end
 
@@ -67,12 +67,12 @@ module Decidim::Comments
       let(:context) { { comment: comment } }
 
       # Without any user
-      it { is_expected.to eq false }
+      it { is_expected.to be false }
 
       context "with a user who is allowed to comment" do
         let(:user) { create(:user, :confirmed, locale: "en", organization: organization) }
 
-        it { is_expected.to eq true }
+        it { is_expected.to be true }
 
         context "with comments disabled for the component" do
           before do
@@ -83,7 +83,7 @@ module Decidim::Comments
             component.save!
           end
 
-          it { is_expected.to eq true }
+          it { is_expected.to be true }
         end
       end
 
@@ -91,7 +91,7 @@ module Decidim::Comments
         let(:participatory_process) { create :participatory_process, :private, organization: organization }
         let(:user) { create(:user, :confirmed, locale: "en", organization: organization) }
 
-        it { is_expected.to eq false }
+        it { is_expected.to be false }
       end
     end
   end

@@ -73,7 +73,8 @@
         label: t("decidim.proposals.proposals.edit.add_image"),
         button_label: t("decidim.proposals.proposals.edit.add_image"),
         button_edit_label: t("decidim.proposals.proposals.edit.edit_image"),
-        help_i18n_scope: "decidim.forms.file_help.image" %>
+        help_i18n_scope: "decidim.forms.file_help.image",
+        extension_allowlist: Decidim::OrganizationSettings.for(current_organization).upload_allowed_file_extensions_image %>
     </div>
   </fieldset>
 

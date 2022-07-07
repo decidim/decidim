@@ -154,7 +154,7 @@ module Decidim
       describe "startDate" do
         let(:query) { "{ startDate }" }
 
-        it "returns the start date of the conference " do
+        it "returns the start date of the conference" do
           expect(response["startDate"]).to eq(model.start_date.to_date.iso8601)
         end
       end

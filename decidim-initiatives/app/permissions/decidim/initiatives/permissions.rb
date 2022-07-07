@@ -107,7 +107,7 @@ module Decidim
       end
 
       def access_request_without_user?
-        !initiative.published? && initiative.promoting_committee_enabled? || Decidim::Initiatives.do_not_require_authorization
+        (!initiative.published? && initiative.promoting_committee_enabled?) || Decidim::Initiatives.do_not_require_authorization
       end
 
       def access_request_membership?

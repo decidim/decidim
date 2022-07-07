@@ -126,7 +126,7 @@ module Decidim
 
         it "updates the password" do
           expect { command.call }.to broadcast(:ok)
-          expect(user.reload.valid_password?("pNY6h9crVtVHZbdE")).to eq(true)
+          expect(user.reload.valid_password?("pNY6h9crVtVHZbdE")).to be(true)
         end
       end
 

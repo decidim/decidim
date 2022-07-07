@@ -5,14 +5,19 @@ module Decidim
     # This cell renders the results
     # for a given instance of an Election
     class ElectionVoteCtaCell < Decidim::ViewModel
+      include Decidim::Elections::HasVoteFlow
+
       delegate :current_user,
                :current_participatory_space,
-               :preview_mode?,
-               :can_preview?,
-               :vote_flow,
+               :allowed_to?,
                to: :controller
 
       private
+
+      # This is needed by HasVoteFlow
+      def election
+        model
+      end
 
       def last_vote
         @last_vote ||= Decidim::Elections::Votes::LastVoteForVoter.for(model, vote_flow.voter_id) if vote_flow.has_voter?

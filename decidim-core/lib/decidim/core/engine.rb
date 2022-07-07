@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require "rails"
+require "decidim/rails"
 require "active_support/all"
 require "action_view/railtie"
 
@@ -13,7 +13,6 @@ require "devise-i18n"
 require "devise_invitable"
 require "foundation_rails_helper"
 require "active_link_to"
-require "rectify"
 require "carrierwave"
 require "rails-i18n"
 require "date_validator"
@@ -38,6 +37,7 @@ require "batch-loader"
 require "mime-types"
 require "diffy"
 require "ransack"
+require "wisper"
 require "webpacker"
 
 # Needed for the assets:precompile task, for configuring webpacker instance
@@ -46,7 +46,6 @@ require "decidim/webpacker"
 require "decidim/api"
 require "decidim/middleware/strip_x_forwarded_host"
 require "decidim/middleware/current_organization"
-require "decidim/rectify_query_extension"
 
 module Decidim
   module Core
@@ -65,10 +64,6 @@ module Decidim
 
       initializer "decidim.action_mailer" do |app|
         app.config.action_mailer.deliver_later_queue_name = :mailers
-      end
-
-      initializer "decidim.rectify_extension", after: "decidim.action_controller" do
-        ::Rectify::Query.include Decidim::RectifyQueryExtension
       end
 
       initializer "decidim.middleware" do |app|
@@ -137,16 +132,15 @@ module Decidim
         next if Decidim.maps.present?
         next if Decidim.geocoder.blank?
 
-        legacy_api_key ||= begin
-          if Decidim.geocoder[:here_api_key].present?
-            Decidim.geocoder.fetch(:here_api_key)
-          elsif Decidim.geocoder[:here_app_id].present?
-            [
-              Decidim.geocoder.fetch(:here_app_id),
-              Decidim.geocoder.fetch(:here_app_code)
-            ]
-          end
-        end
+        legacy_api_key ||= if Decidim.geocoder[:here_api_key].present?
+                             Decidim.geocoder.fetch(:here_api_key)
+                           elsif Decidim.geocoder[:here_app_id].present?
+                             [
+                               Decidim.geocoder.fetch(:here_app_id),
+                               Decidim.geocoder.fetch(:here_app_code)
+                             ]
+                           end
+
         next unless legacy_api_key
 
         ActiveSupport::Deprecation.warn(
@@ -237,9 +231,9 @@ module Decidim
                         decidim.user_interests_path,
                         position: 1.4
 
-          menu.add_item :data_portability,
+          menu.add_item :download_your_data,
                         t("my_data", scope: "layouts.decidim.user_profile"),
-                        decidim.data_portability_path,
+                        decidim.download_your_data_path,
                         position: 1.5
 
           menu.add_item :delete_account,

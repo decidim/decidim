@@ -39,7 +39,7 @@ describe Decidim::ParticipatoryProcessGroups::ContentBlocks::TitleCell, type: :c
       expect(subject).to have_content(translated(participatory_process_group.title, locale: :en))
     end
 
-    it "shows the group description " do
+    it "shows the group description" do
       expect(subject).to have_content(
         ActionView::Base.full_sanitizer.sanitize(translated(participatory_process_group.description, locale: :en), tags: [])
       )

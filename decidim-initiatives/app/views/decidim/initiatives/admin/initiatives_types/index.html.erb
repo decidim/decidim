@@ -27,7 +27,29 @@
                 <%= translated_attribute initiative_type.title %></td>
               <% end %>
             <td><%= l initiative_type.created_at, format: :short %></td>
-            <td class="table-list__actions"><%= free_resource_permissions_link(initiative_type) %></td>
+            <td class="table-list__actions">
+              <% if allowed_to? :update, :initiative_type, initiative_type: initiative_type %>
+                <%= icon_link_to "pencil",
+                                 edit_initiatives_type_path(initiative_type),
+                                 t("actions.configure", scope: "decidim.admin"),
+                                 class: "action-icon--edit" %>
+              <% else %>
+                <span class="action-space icon"></span>
+              <% end %>
+
+              <%= free_resource_permissions_link(initiative_type) %>
+
+              <% if allowed_to? :destroy, :initiative_type, initiative_type: initiative_type %>
+                <%= icon_link_to "circle-x",
+                                 initiative_type,
+                                 t("actions.destroy", scope: "decidim.admin"),
+                                 class: "action-icon--remove",
+                                 method: :delete,
+                                 data: { confirm: t("actions.confirm_destroy", scope: "decidim.admin") } %>
+              <% else %>
+                <span class="action-space icon"></span>
+              <% end %>
+            </td>
           <% end %>
         </tbody>
       </table>

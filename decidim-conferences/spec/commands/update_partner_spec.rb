@@ -24,8 +24,7 @@ module Decidim::Conferences
           weight: 2,
           partner_type: "collaborator",
           link: Faker::Internet.url,
-          logo: logo,
-          remove_logo: false
+          logo: logo
         }
       }
     end
@@ -76,7 +75,7 @@ module Decidim::Conferences
         end.to change { partner.reload && partner.partner_type }.from(partner.partner_type).to("collaborator")
       end
 
-      it "broadcasts  ok" do
+      it "broadcasts ok" do
         expect { subject.call }.to broadcast(:ok)
       end
 

@@ -44,6 +44,15 @@ module Decidim
       def upcoming_meetings_count
         @upcoming_meetings_count ||= meetings.upcoming.count
       end
+
+      def cache_hash
+        hash = []
+        hash << "decidim/meetings/highlighted_meetings_for_component"
+        hash << meetings.cache_key_with_version
+        hash.push(current_user.try(:id))
+        hash << I18n.locale.to_s
+        hash.join(Decidim.cache_key_separator)
+      end
     end
   end
 end

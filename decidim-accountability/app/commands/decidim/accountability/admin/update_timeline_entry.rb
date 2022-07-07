@@ -10,9 +10,10 @@ module Decidim
         #
         # form - The form from which to get the data.
         # timeline_entry - The current instance of the timeline_entry to be updated.
-        def initialize(form, timeline_entry)
+        def initialize(form, timeline_entry, user)
           @form = form
           @timeline_entry = timeline_entry
+          @user = user
         end
 
         # Updates the timeline_entry if valid.
@@ -33,9 +34,12 @@ module Decidim
         attr_reader :timeline_entry, :form
 
         def update_timeline_entry
-          timeline_entry.update!(
-            entry_date: @form.entry_date,
-            description: @form.description
+          Decidim.traceability.update!(
+            timeline_entry,
+            @user,
+            entry_date: form.entry_date,
+            title: form.title,
+            description: form.description
           )
         end
       end

@@ -152,7 +152,7 @@ module Decidim
       describe "#control_public_access?" do
         context "when organization does not require authentication" do
           it "returns false" do
-            expect(subject.control_public_access?).to eq(false)
+            expect(subject.control_public_access?).to be(false)
           end
         end
 
@@ -160,7 +160,7 @@ module Decidim
           let(:organization) { create(:organization, force_users_to_authenticate_before_access_organization: true) }
 
           it "returns true" do
-            expect(subject.control_public_access?).to eq(true)
+            expect(subject.control_public_access?).to be(true)
           end
         end
       end

@@ -19,4 +19,6 @@
   </div>
 </div>
 
-<%= javascript_pack_tag "decidim_participatory_processes" %>
+<% content_for :js_content do %>
+  <%= javascript_pack_tag "decidim_participatory_processes" %>
+<% end %>

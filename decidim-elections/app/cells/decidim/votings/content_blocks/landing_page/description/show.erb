@@ -5,20 +5,9 @@
         <img src="<%= introductory_image.path %>" alt="">
       </div>
     <% end %>
-    <div class="columns medium-8 mediumlarge-7 content">
+    <div class="columns medium-8 mediumlarge-7">
       <h2 class="show-for-sr"><%= t("decidim.votings.content_blocks.landing_page.description.title") %></h2>
       <div><%= description_text %></div>
-    </div>
-    <div class="content-height-toggler show-more">
-      <button class="button button--muted tiny">
-        <span class="button-text show-more-content">
-          <%= button_show_more_text %>
-        </span>
-
-        <span class="button-text show-less-content hide">
-          <%= button_show_less_text %>
-        </span>
-      </button>
     </div>
   </div>
 </div>

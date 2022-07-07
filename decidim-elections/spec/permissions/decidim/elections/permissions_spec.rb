@@ -15,7 +15,7 @@ describe Decidim::Elections::Permissions do
   end
   let(:elections_component) { create :elections_component }
   let(:election) { create :election, :published, component: elections_component }
-  let(:permission_action) { Decidim::PermissionAction.new(action) }
+  let(:permission_action) { Decidim::PermissionAction.new(**action) }
 
   context "when scope is admin" do
     let(:action) do

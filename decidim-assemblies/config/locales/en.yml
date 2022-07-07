@@ -74,7 +74,7 @@ en:
         assembly:
           attributes:
             document:
-              invalid_document_type: 'Invalid document type. Accepted formats are: %{valid_mime_types}'
+              allowed_file_content_types: 'Invalid document type. Accepted formats are: %{types}'
   activerecord:
     models:
       decidim/assembly:
@@ -243,6 +243,9 @@ en:
     admin_log:
       assembly:
         create: "%{user_name} created the %{resource_name} assembly"
+        duplicate: "%{user_name} duplicated the %{resource_name} assembly"
+        export: "%{user_name} exported the %{resource_name} assembly"
+        import: "%{user_name} imported the %{resource_name} assembly"
         publish: "%{user_name} published the %{resource_name} assembly"
         unpublish: "%{user_name} unpublished the %{resource_name} assembly"
         update: "%{user_name} updated the %{resource_name} assembly"
@@ -390,7 +393,7 @@ en:
         related_participatory_processes: Related participatory processes
         scope: Scope
         social_networks: Social Networks
-        social_networks_title: Share this assembly on
+        social_networks_title: Visit assembly on
         target: Who participates
     assembly_members:
       assembly_member:

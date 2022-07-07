@@ -4,6 +4,10 @@ module Decidim
   module Proposals
     module Admin
       module ProposalBulkActionsHelper
+        def proposal_find(id)
+          Decidim::Proposals::Proposal.find(id)
+        end
+
         # Public: Generates a select field with the valuators of the given participatory space.
         #
         # participatory_space - A participatory space instance.

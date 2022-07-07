@@ -25,7 +25,7 @@ namespace :decidim do
             # Successful compilation!
             puts "SUCCESS"
             Dir.chdir(File.join(__dir__, "../..")) do
-              system "cp -r public/* #{Rails.root.join("public")}"
+              system "cp -r public/* #{Rails.public_path}"
             end
           else
             # Failed compilation
@@ -54,7 +54,7 @@ def enhance_assets_precompile
 end
 
 # Compile packs after we've compiled all other assets during precompilation
-skip_webpacker_precompile = %w(no false n f).include?(ENV["WEBPACKER_PRECOMPILE"])
+skip_webpacker_precompile = %w(no false n f).include?(ENV.fetch("WEBPACKER_PRECOMPILE", nil))
 
 unless skip_webpacker_precompile
   if Rake::Task.task_defined?("assets:precompile")

@@ -38,7 +38,7 @@ describe "Index Proposal Notes", type: :system do
   end
 
   context "when the form has a text inside body" do
-    it "creates a proposal note ", :slow do
+    it "creates a proposal note", :slow do
       within ".new_proposal_note" do
         fill_in :proposal_note_body, with: body
 

@@ -22,6 +22,7 @@ pl:
       user:
         about: O użytkowniku
         email: Twój email
+        locale: Język
         name: Twoje imię
         nickname: Pseudonim
         password: Hasło
@@ -34,12 +35,17 @@ pl:
       decidim/demoted_membership: Nie jest już administratorem grupy
       decidim/gamification/badge_earned_event: Zdobyta odznaka
       decidim/gamification/level_up_event: Awansowałeś
+      decidim/invited_to_group_event: Zaproszono do grupy
       decidim/join_request_accepted_event: Zaakceptowano prośbę o dołączenie
       decidim/join_request_rejected_event: Odrzucono prośbę o dołączenie
       decidim/profile_updated_event: Profil zaktualizowany
       decidim/promote_to_admin: Awansowano na administratora grupy
+      decidim/promoted_to_admin_event: Awansowano na administratora grupy
       decidim/removed_from_group: Usunięto z grupy
       decidim/resource_endorsed_event: Zasoby zatwierdzone
+      decidim/resource_hidden_event: Zasób ukryty
+      decidim/user_group_created_event: Utworzono grupę użytkowników
+      decidim/welcome_notification_event: Wiadomość powitalna
   activerecord:
     attributes:
       decidim/user:
@@ -75,7 +81,8 @@ pl:
     'true': 'Tak'
   carrierwave:
     errors:
-      image_too_big: Obraz jest zbyt duży
+      file_resolution_too_large: Rozdzielczość pliku jest zbyt duża
+      file_size_too_large: Rozmiar pliku jest zbyt duży
       not_inside_organization: Plik nie jest dołączony do żadnej organizacji
   date:
     formats:
@@ -84,16 +91,57 @@ pl:
       decidim_with_day_and_month_name: "%A %d %b %Y"
       decidim_with_month_name: "%d %B %Y"
       decidim_with_month_name_short: "%d %b"
+  datetime:
+    distance_in_words:
+      about_x_hours:
+        one: około 1 godz.
+        few: około %{count} godz.
+        many: około %{count} godz.
+        other: około %{count} godz.
+      about_x_months:
+        one: około 1 mies.
+        few: około %{count} mies.
+        many: około %{count} mies.
+        other: około %{count} mies.
+      half_a_minute: pół minuty
+      less_than_x_minutes:
+        one: mniej niż min.
+        few: mniej niż %{count} min.
+        many: mniej niż %{count} min.
+        other: mniej niż %{count} min.
+      less_than_x_seconds:
+        one: teraz
+        few: mniej niż %{count} min.
+        many: mniej niż %{count} min.
+        other: mniej niż %{count} min.
+      x_days:
+        one: 1 dzień temu
+        few: "%{count} dni temu"
+        many: "%{count} dni temu"
+        other: "%{count} dni temu"
+      x_hours:
+        one: 1 godzinę temu
+        few: "%{count} godzin temu"
+        many: "%{count} godzin temu"
+        other: "%{count} godzin temu"
+      x_minutes:
+        one: 1 min. temu
+        few: "%{count} min. temu"
+        many: "%{count} min. temu"
+        other: "%{count} min. temu"
+      x_seconds:
+        one: 1 sek. temu
+        few: "%{count} sek. temu"
+        many: "%{count} sek. temu"
+        other: "%{count} sek. temu"
   decidim:
     accessibility:
       external_link: Link zewnętrzny
+      front_page_link: Przejdź do strony głównej
       logo: "Oficjalne logo %{organization}"
       skip_button: Przejdź do głównej zawartości
     account:
       blocked: To konto zostało zablokowane z powodu naruszenia Regulaminu
-      data_portability_export:
-        file_no_exists: Plik nie istnieje
-        notice: Twoje dane są obecnie w trakcie procesowania w celu pobrania. Otrzymasz e-mail po zakończeniu.
       delete:
         alert: Tej czynności nie można cofnąć. Jeśli usuniesz swoje konto, nie będziesz mógł zalogować się za pomocą swoich danych. Usunięcie Twojego konta spowoduje, że cała Twoja aktywność w portalu stanie się anonimowa. Nadal będziesz mógł utworzyć nowe konto, ale Twoje dotychczasowe zasoby nie będą już z nim powiązane.
         confirm:
@@ -105,7 +153,21 @@ pl:
       destroy:
         error: Podczas usuwania Twojego konta wystąpił błąd.
         success: Twoje konto zostało pomyślnie usunięte.
+      download_your_data_export:
+        file_no_exists: Plik nie istnieje
+        notice: Twoje dane są obecnie w trakcie procesowania w celu pobrania. Otrzymasz e-mail po zakończeniu.
+      email_change:
+        body1: Wysłaliśmy wiadomość e-mail do %{unconfirmed_email}, aby zweryfikować Twój nowy adres e-mail.
+        body2: Wysłać e-mail weryfikacyjny ponownie? %{resend_link} lub %{cancel_link}.
+        cancel: anuluj
+        cancel_error: Nie można anulować zmiany adresu e-mail.
+        cancel_successfully: Zmiana adresu e-mail została anulowana.
+        resend_error: Nie można wysłać ponownie e-maila z potwierdzeniem.
+        resend_successfully: E-mail potwierdzający wysłany pomyślnie do %{unconfirmed_email}
+        send_again: Wyślij ponownie
+        title: Weryfikacja zmiany adresu e-mail
       show:
+        available_locales_helper: Wybierz język, którego chcesz używać do przeglądania i odbierania powiadomień na platformie
         change_password: Zmień hasło
         update_account: Zaktualizuj konto
       update:
@@ -120,11 +182,36 @@ pl:
         create: "%{user_name} utworzył(a) kategorię %{resource_name}"
         delete: "%{user_name} usunął/usunęła kategorię %{resource_name}"
         update: "%{user_name} zaktualizował(a) kategorię %{resource_name}"
+      area_type:
+        create: "%{user_name} utworzył typ obszaru %{resource_name}"
+        delete: "%{user_name} usunął typ obszaru %{resource_name}"
+        update: "%{user_name} zaktualizował typ obszaru %{resource_name}"
+      attachment:
+        create: "%{user_name} utworzył załącznik %{resource_name}"
+        delete: "%{user_name} usunął załącznik %{resource_name}"
+        update: "%{user_name} zaktualizował załącznik %{resource_name}"
+      attachment_collection:
+        create: "%{user_name} utworzył kolekcję załączników %{resource_name}"
+        delete: "%{user_name} usunął kolekcję załączników %{resource_name}"
+        update: "%{user_name} zaktualizował kolekcję załączników %{resource_name}"
+      category:
+        create: "%{user_name} dodał kategorię %{resource_name} do przestrzeni %{space_name}"
+        delete: "%{user_name} usunął kategorię %{resource_name} z przestrzeni %{space_name}"
+        update: "%{user_name} zaktualizował kategorię %{resource_name} w przestrzeni %{space_name}"
       component:
         create: "%{user_name} dodał(a) komponent %{resource_name} do przestrzeni %{space_name}"
         delete: "%{user_name} usunął/usunęła komponent %{resource_name} z przestrzeni %{space_name}"
+        export_component: "%{user_name} wyeksportował %{resource_name} %{component_name} w %{space_name} jako %{format_name}"
         publish: "%{user_name} opublikował(a) komponent %{resource_name} w przestrzeni %{space_name}"
         unpublish: "%{user_name} cofnął/cofnęła publikację komponentu %{resource_name} w przestrzeni %{space_name}"
+        update_permissions_with_space: "%{user_name} zaktualizował uprawnienia %{resource_name} w %{space_name}"
+      contextual_help_section:
+        update: "%{user_name} zaktualizował %{resource_name} dział pomocy"
+      helpers:
+        answers: odpowiedzi
+        comments: komentarze
+        projects: projekty
+        results: wyniki
       impersonation_log:
         manage: "%{user_name} zarządził %{resource_name} ponieważ %{reason}"
       moderation:
@@ -141,6 +228,7 @@ pl:
         update: "%{user_name} zaktualizował(a) aplikację OAuth %{resource_name}"
       organization:
         update: "%{user_name} zaktualizował(a) ustawienia organizacji"
+        update_external_domain: "%{user_name} zaktualizował zewnętrzne domeny organizacji"
       participatory_space_private_user:
         create: "%{user_name} zaprosił(a) %{resource_name} jako użytkownika prywatnego"
         create_via_csv: "%{user_name} zaprosił(a) %{resource_name} jako prywatnego użytkownika poprzez CSV"
@@ -152,6 +240,9 @@ pl:
         delete_with_parent: "%{user_name} usunął/usunęła zakres podrzędny %{resource_name} w zakresie %{parent_scope}"
         update: "%{user_name} zaktualizował(a) zakres %{resource_name}"
         update_with_parent: "%{user_name} zaktualizował(a) zakres podrzędny %{resource_name} w zakresie %{parent_scope}"
+      scope_type:
+        create: "%{user_name} utworzył(a) zakres %{resource_name}"
+        delete: "%{user_name} usunął(ęła) zakres %{resource_name}"
       static_page:
         create: "%{user_name} stworzył(a) stronę statyczną %{resource_name}"
         delete: "%{user_name} usunął/usunęła stronę statyczną %{resource_name}"
@@ -386,8 +477,8 @@ pl:
             amendments_enabled: Poprawki dozwolone
             comments_enabled: Komentarze włączone
             comments_max_length: Maksymalna długość komentarzy
-            dummy_global_attribute_1: Przykładowy atrybut 1
-            dummy_global_attribute_2: Przykładowy atrybut 2
+            dummy_global_attribute1: Przykładowy atrybut 1
+            dummy_global_attribute2: Przykładowy atrybut 2
             dummy_global_translatable_text: Przykładowy tekst do tłumaczenia
             enable_pads_creation: Włącz tworzenie padów
             resources_permissions_enabled: Włączono uprawnienia do zasobów
@@ -399,8 +490,8 @@ pl:
             amendment_reaction_enabled: Odpowiadanie na poprawki włączone
             amendments_visibility: Widoczność poprawek
             comments_blocked: Komentarze zablokowane
-            dummy_step_attribute_1: Przykładowy atrybut etapu 1
-            dummy_step_attribute_2: Przykładowy atrybut etapu 2
+            dummy_step_attribute1: Przykładowy atrybut etapu 1
+            dummy_step_attribute2: Przykładowy atrybut etapu 2
             dummy_step_translatable_text: Przykładowy tekst etapu do tłumaczenia
     contact: Kontakt
     content_blocks:
@@ -444,13 +535,6 @@ pl:
       actions:
         login_before_access: Zaloguj się na swoje konto, żeby mieć dostęp
         unauthorized: Nie masz uprawnień do wykonania tej czynności
-    data_portability:
-      export:
-        ready: Gotowy
-      show:
-        download_data: Pobierz dane
-        download_data_description: Plik zawierający wszystkie informacje związane z Twoim kontem zostanie wysłany do <strong>%{user_email}</strong>. E-mail będzie zawierał plik .zip i hasło, aby go otworzyć.<br/><br/>Aby rozpakować plik, będziesz potrzebował <a href="https://www.7-zip.org/">7-Zip</a> (Windows) lub <a href="https://www.keka.io/">Keka</a> (MacOS). Jeśli używasz systemu Linux, w większości przypadków program będziesz miał zainstalowany domyślnie. Jeśli nie, możesz użyć programów <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> lub <a href="https://peazip.github.io">PeaZip</a>.
-        request_data: Poproś o dane
     datepicker:
       help_text: 'Oczekiwany format: %{datepicker_format}'
     devise:
@@ -469,7 +553,6 @@ pl:
           newsletter: Chcę otrzymywać okazjonalne newslettery z istotnymi informacjami
           newsletter_title: Zgoda na subskrybcję
           nickname_help: Twój pseudonim w %{organization}. Może zawierać tylko litery, cyfry, '-' i '_'.
-          password_help: "Minimalna liczba znaków: %{minimun_characters}; nie może być zbyt powszechne (np. 123456) i musi różnić się od Twojego pseudonimu i adresu e-mail."
           sign_in: Zaloguj się
           sign_up: Zarejestruj się
           sign_up_as:
@@ -518,6 +601,13 @@ pl:
           this_application_will_not_be_able_to: 'Ta aplikacja nie będzie mogła:'
           update_profile: Zaktualizuj swój profil
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> chce używać Twojego konta"
+    download_your_data:
+      export:
+        ready: Gotowy
+      show:
+        download_data: Pobierz dane
+        download_data_description: Plik zawierający wszystkie informacje związane z Twoim kontem zostanie wysłany do <strong>%{user_email}</strong>. E-mail będzie zawierał plik .zip i hasło, aby go otworzyć.<br/><br/>Aby rozpakować plik, będziesz potrzebował <a href="https://www.7-zip.org/">7-Zip</a> (Windows) lub <a href="https://www.keka.io/">Keka</a> (MacOS). Jeśli używasz systemu Linux, w większości przypadków program będziesz miał zainstalowany domyślnie. Jeśli nie, możesz użyć programów <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> lub <a href="https://peazip.github.io">PeaZip</a>.
+        request_data: Poproś o dane
     endorsable:
       endorsements: Rekomendacje
       endorsements_count: Liczba rekomendacji
@@ -678,7 +768,7 @@ pl:
           email_subject: "%{nickname} zaktualizował(a) swój profil"
           notification_title: Zaktualizowano <a href="%{resource_path}">stronę profilową</a> użytkownika %{name} (%{nickname}), którego obserwujesz.
     export_mailer:
-      data_portability_export:
+      download_your_data_export:
         click_button: 'Kliknij poniższy przycisk, aby pobrać swoje dane. <br/>Plik będzie dostępny do %{date}. <br/>Będziesz potrzebował <a href=''''https://www.7-zip.org/''''>7-Zip</a> (Windows), <a href="https://www.keka.io/en/">Keka</a> (MacOS) lub <a href="https://peazip.github.io">PeaZip</a> (Linux) do otwarcia pliku. Hasło: %{password}'
         download: Pobieranie
       export:
@@ -730,7 +820,6 @@ pl:
         file:
           explanation: 'Wytyczne dotyczące pliku:'
           message_1: Ma być obrazem lub dokumentem.
-          message_2: Jako obrazów używaj najlepiej krajobrazów, obraz jest docinany automatycznie. Dla plików CSV separatorem kolumn musi być przecinek (",")
         image:
           explanation: 'Wytyczne dotyczące obrazu:'
           message_1: Preferowany obraz krajobrazu, który nie zawiera żadnego tekstu.
@@ -850,7 +939,6 @@ pl:
       no_user_groups: Nie należy jeszcze do żadnej grupy.
       roles:
         admin: Administrator
-        creator: Twórca
         member: Członek
       update:
         error: Wystąpił błąd podczas aktualizacji grupy
@@ -1045,19 +1133,20 @@ pl:
         subject: Czy chcesz nadal otrzymywać istotne informacje o %{organization_name}?
     notifications:
       no_notifications: Brak powiadomień.
+    notifications_digest_mailer:
+      header:
+        weekly: Podsumowanie Cotygodniowych Powiadomień
+      hello: Witaj %{name},
     notifications_settings:
       show:
         administrators: Administratorzy
         allow_public_contact: Każdy może wysłać mi prywatną wiadomość, nawet jeśli go nie obserwuję.
         direct_messages: Przyjmuj prywatne wiadomości od każdego
-        email_on_moderations: Chcę otrzymywać e-mail za każdym razem, gdy coś jest zgłaszane do moderacji.
-        email_on_notification: Chcę otrzymywać wiadomości e-mail za każdym razem gdy otrzymuję powiadomienie.
         everything_followed: Dotyczące wszystkiego, co obserwuję
         newsletter_notifications: Chcę otrzymywać newslettery
         newsletters: Newslettery
         own_activity: Dotyczące moich własnych działań, np. kiedy ktoś komentuje moją propozycję lub wspomina o mnie
         receive_notifications_about: Chcę otrzymywać powiadomienia
-        send_notifications_by_email: Wysyłaj powiadomienia pocztą e-mail
         update_notifications_settings: Zapisz zmiany
       update:
         error: Podczas aktualizowania ustawień powiadomień wystąpił błąd.
@@ -1115,7 +1204,6 @@ pl:
           agreement: Akceptuję Regulamin
           legend: Zgadzam się z warunkami użytkowania
         refuse:
-          modal_body: Jeśli odmówisz, nie będziesz mógł korzystać z platformy, możesz <a href="%{data_portability_path}">pobrać swoje dane</a> i/lub <a href="%{delete_path}">usunąć konto</a>.
           modal_btn_continue: Zaakceptuj warunki i kontynuuj
           modal_btn_exit: Sprawdzę to później
           modal_button: Odrzuć warunki
@@ -1415,7 +1503,6 @@ pl:
     invitations:
       edit:
         header: Zakończ tworzenie konta
-        nickname_help: Twój unikalny identyfikator w %{organization}.
         submit_button: Zapisz
         subtitle: Jeśli akceptujesz zaproszenie, ustaw swój pseudonim i hasło.
       invitation_removed: Twoje zaproszenie zostało usunięte.
@@ -1482,7 +1569,6 @@ pl:
     passwords:
       edit:
         change_my_password: Zmień moje hasło
-        change_your_password: Zmień swoje hasło
         confirm_new_password: Potwierdź nowe hasło
         new_password: Nowe hasło
         password_help: "Minimalna liczba znaków: %{minimun_characters}; nie może być zbyt powszechne (np. 123456) i musi różnić się od Twojego pseudonimu i adresu e-mail."
@@ -1563,7 +1649,7 @@ pl:
         other: 'Podczas przetwarzania Twojego żądania wystąpiły błędy:'
       too_many_marks: używa zbyt wielu kolejnych znaków interpunkcyjnych (np.! i?)
       too_much_caps: używa zbyt dużej liczby wielkich liter (ponad 25% tekstu)
-      too_short: jest za krótki (poniżej 15 znaków)
+      too_short: jest za krótkie
   forms:
     correct_errors: Wystąpiły błędy w formularzu, popraw je, aby kontynuować.
     length_validator:
@@ -1579,10 +1665,6 @@ pl:
     timestamp_error_message: Przepraszam, to było za szybkie! Proszę przesłać ponownie.
   layouts:
     decidim:
-      cookie_warning:
-        description_html: Ta strona używa plików cookie. Kontynuując przeglądanie witryny, zgadzasz się na korzystanie z plików cookie. Dowiedz się więcej o tym %{link}.
-        link_label: Dowiedz się więcej o plikach cookie
-        ok: Zgadzam się
       edit_link:
         edit: Edytuj
       footer:

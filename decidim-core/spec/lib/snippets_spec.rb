@@ -22,7 +22,7 @@ module Decidim
 
     describe "#for" do
       it "returns nil when there are no snippets" do
-        expect(subject.for(:foo)).to be(nil)
+        expect(subject.for(:foo)).to be_nil
       end
 
       it "returns the snippets when they exist" do
@@ -44,7 +44,7 @@ module Decidim
 
     describe "#display" do
       it "returns nil when there are no snippets" do
-        expect(subject.display(:foo)).to be(nil)
+        expect(subject.display(:foo)).to be_nil
       end
 
       it "returns the snippets joined with a new line when they exist" do

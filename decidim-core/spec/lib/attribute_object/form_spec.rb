@@ -21,7 +21,7 @@ module Decidim
       end
 
       c.attribute :drinks, Array[drinkform]
-      c.attribute :foods, Hash[Symbol => foodform]
+      c.attribute(:foods, { Symbol => foodform })
       c.attribute :gadgets, Array[gadgetmodel]
 
       c
@@ -33,6 +33,12 @@ module Decidim
         attribute :name, String
 
         validates :name, presence: true
+
+        attr_reader :secret_sauce
+
+        def map_model(model)
+          @secret_sauce = model.custom_sauce
+        end
       end
     end
     let(:foodform) do
@@ -105,7 +111,7 @@ module Decidim
 
       it "calls infer_model_name when the mimicked name is not set" do
         name = double
-        expect(subject).to receive(:infer_model_name).and_return(name)
+        allow(subject).to receive(:infer_model_name).and_return(name)
         expect(subject.mimicked_model_name).to eq(name)
       end
 
@@ -179,6 +185,27 @@ module Decidim
         expect(subject.foods[:voner].name).to eq("Vöner")
         expect(subject.foods[:voner].vegan).to be(true)
         expect(subject.gadgets.empty?).to be(true)
+      end
+
+      context "when Active Record objects are provided as nested attribute values" do
+        let(:drink_class) do
+          Class.new(ApplicationRecord) do
+            self.table_name = :decidim_dummy_resources_dummy_resources
+
+            def custom_sauce
+              "foobar"
+            end
+          end
+        end
+        let(:drink) { drink_class.new }
+
+        let(:model) do
+          OpenStruct.new(id: 1, drinks: [drink])
+        end
+
+        it "calls the map_model method on the created nested form object" do
+          expect(subject.drinks.first.secret_sauce).to eq("foobar")
+        end
       end
     end
 

@@ -11,43 +11,84 @@ describe "Manage admins", type: :system do
     visit decidim_system.admins_path
   end
 
-  it "creates a new admin" do
-    find(".actions .new").click
+  describe "when creating a new admin" do
+    context "with a valid password" do
+      it "is created" do
+        find(".actions .new").click
 
-    within ".new_admin" do
-      fill_in :admin_email, with: "admin@foo.bar"
-      fill_in :admin_password, with: "fake123"
-      fill_in :admin_password_confirmation, with: "fake123"
+        within ".new_admin" do
+          fill_in :admin_email, with: "admin@foo.bar"
+          fill_in :admin_password, with: "decidim123456789"
+          fill_in :admin_password_confirmation, with: "decidim123456789"
 
-      find("*[type=submit]").click
+          find("*[type=submit]").click
+        end
+
+        within ".success.flash" do
+          expect(page).to have_content("successfully")
+        end
+
+        within "table" do
+          expect(page).to have_content("admin@foo.bar")
+        end
+      end
     end
 
-    within ".success.flash" do
-      expect(page).to have_content("successfully")
-    end
+    context "with an invalid password" do
+      it "gives an error" do
+        find(".actions .new").click
 
-    within "table" do
-      expect(page).to have_content("admin@foo.bar")
+        within ".new_admin" do
+          fill_in :admin_email, with: "admin@foo.bar"
+          fill_in :admin_password, with: "password1234"
+          fill_in :admin_password_confirmation, with: "password1234"
+
+          find("*[type=submit]").click
+        end
+
+        expect(page).to have_css(".form-error.is-visible", text: "is too common")
+      end
     end
   end
 
-  it "updates an admin" do
-    within find("tr", text: admin.email) do
-      click_link "Edit"
+  describe "when updating an admin" do
+    context "with a valid password" do
+      it "is updated" do
+        within find("tr", text: admin.email) do
+          click_link "Edit"
+        end
+
+        within ".edit_admin" do
+          fill_in :admin_email, with: "admin@another.domain"
+
+          find("*[type=submit]").click
+        end
+
+        within ".success.flash" do
+          expect(page).to have_content("successfully")
+        end
+
+        within "table" do
+          expect(page).to have_content("admin@another.domain")
+        end
+      end
     end
 
-    within ".edit_admin" do
-      fill_in :admin_email, with: "admin@another.domain"
+    context "with an invalid password" do
+      it "gives an error" do
+        within find("tr", text: admin.email) do
+          click_link "Edit"
+        end
 
-      find("*[type=submit]").click
-    end
+        within ".edit_admin" do
+          fill_in :admin_password, with: "password1234"
+          fill_in :admin_password_confirmation, with: "password1234"
 
-    within ".success.flash" do
-      expect(page).to have_content("successfully")
-    end
+          find("*[type=submit]").click
+        end
 
-    within "table" do
-      expect(page).to have_content("admin@another.domain")
+        expect(page).to have_css(".form-error.is-visible", text: "is too common")
+      end
     end
   end
 

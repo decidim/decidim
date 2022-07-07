@@ -4,10 +4,11 @@ require "spec_helper"
 
 module Decidim::Assemblies::Admin
   describe ImportAssembly do
-    subject { described_class.new(form) }
+    subject { described_class.new(form, user) }
 
     let(:organization) { create :organization }
-    let!(:document_file) { IO.read(Decidim::Dev.asset(document_name)) }
+    let(:user) { create :user, organization: organization }
+    let!(:document_file) { File.read(Decidim::Dev.asset(document_name)) }
     let(:form_doc) do
       instance_double(File,
                       blank?: false)
@@ -52,6 +53,17 @@ module Decidim::Assemblies::Admin
         expect(imported_assembly).not_to be_published
         expect(imported_assembly.organization).to eq(organization)
       end
+
+      it "traces the action", versioning: true do
+        expect(Decidim.traceability)
+          .to receive(:perform_action!).twice
+                                       .and_call_original
+
+        expect { subject.call }.to change(Decidim::ActionLog, :count)
+        action_log = Decidim::ActionLog.last
+        expect(action_log.action).to eq("import")
+        expect(action_log.version).to be_present
+      end
     end
 
     describe "when the form is not valid" do
@@ -64,7 +76,7 @@ module Decidim::Assemblies::Admin
       it "doesn't create any assembly" do
         expect do
           subject.call
-        end.to change(::Decidim::Assembly, :count).by(0)
+        end.not_to change(::Decidim::Assembly, :count)
       end
     end
 
@@ -80,7 +92,7 @@ module Decidim::Assemblies::Admin
       let(:import_categories) { true }
 
       it "imports an assembly and the categories" do
-        expect { subject.call }.to change { Decidim::Category.count }.by(8)
+        expect { subject.call }.to change(Decidim::Category, :count).by(8)
         expect(Decidim::Category.distinct.select(:decidim_participatory_space_id).count).to eq 1
 
         imported_assembly_category = Decidim::Category.first
@@ -98,7 +110,7 @@ module Decidim::Assemblies::Admin
 
       context "when attachment collections exists" do
         it "imports a assembly and the collections" do
-          expect { subject.call }.to change { Decidim::AttachmentCollection.count }.by(1)
+          expect { subject.call }.to change(Decidim::AttachmentCollection, :count).by(1)
           imported_assembly_collection = Decidim::AttachmentCollection.first
           expect(imported_assembly_collection.name).to eq("ca" => "deleniti", "en" => "laboriosam", "es" => "quia")
           expect(imported_assembly_collection.collection_for).to eq(Decidim::Assembly.last)

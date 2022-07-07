@@ -5,8 +5,9 @@ require "spec_helper"
 module Decidim
   module ParticipatoryProcesses
     describe CurrentComponent do
+      subject { described_class.new(manifest) }
+
       let(:request) { double(params: params, env: env) }
-      let(:subject) { described_class.new(manifest) }
       let(:params) { {} }
       let(:manifest) { Decidim.find_component_manifest("dummy") }
 
@@ -31,7 +32,7 @@ module Decidim
 
         context "when the params don't contain a component id" do
           it "doesn't match" do
-            expect(subject.matches?(request)).to eq(false)
+            expect(subject.matches?(request)).to be(false)
           end
         end
 
@@ -44,7 +45,7 @@ module Decidim
             let(:component) { create(:component) }
 
             it "matches" do
-              expect(subject.matches?(request)).to eq(false)
+              expect(subject.matches?(request)).to be(false)
             end
           end
 
@@ -52,7 +53,7 @@ module Decidim
             let(:component) { create(:component, participatory_space: current_participatory_process) }
 
             it "matches" do
-              expect(subject.matches?(request)).to eq(true)
+              expect(subject.matches?(request)).to be(true)
             end
           end
         end

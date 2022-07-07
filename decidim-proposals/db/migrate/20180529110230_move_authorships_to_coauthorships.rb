@@ -4,6 +4,7 @@ class MoveAuthorshipsToCoauthorships < ActiveRecord::Migration[5.1]
   class Proposal < ApplicationRecord
     self.table_name = :decidim_proposals_proposals
   end
+
   class Coauthorship < ApplicationRecord
     self.table_name = :decidim_coauthorships
   end

@@ -39,7 +39,7 @@ module Decidim::Meetings
 
         it "returns an empty array and does not call authored_proposals" do
           expect(meeting).not_to receive(:authored_proposals)
-          expect(subject).to be nil
+          expect(subject).to be_nil
         end
       end
     end

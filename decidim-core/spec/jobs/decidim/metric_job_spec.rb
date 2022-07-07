@@ -20,12 +20,12 @@ describe Decidim::MetricJob do
     let(:manager_object) { double :manager_object }
 
     it "executes manager actions" do
-      expect(manager_class)
+      allow(manager_class)
         .to receive(:new)
         .with(day, organization)
         .and_return(manager_object)
 
-      expect(manager_object)
+      allow(manager_object)
         .to receive(:valid?)
         .and_return(true)
 

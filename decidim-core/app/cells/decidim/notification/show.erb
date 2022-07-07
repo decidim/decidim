@@ -13,7 +13,7 @@
         <span class="text-small"><%= notification.event_class.constantize.model_name.human %></span>
         <br>
         <span>
-          <%= notification.event_class_instance.notification_title %>
+          <%= notification_title %>
         </span>
         <% if notification.display_resource_text? %>
           <p>

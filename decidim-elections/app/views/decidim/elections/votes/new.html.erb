@@ -1,11 +1,13 @@
 <div class="vote-wrapper"
-  data-election-id="<%= election.id %>"
-  data-api-endpoint-url="<%= bulletin_board_server %>"
+  data-election-id="<%== election.id %>"
+  data-api-endpoint-url="<%== bulletin_board_server %>"
   data-authority-public-key="<%= authority_public_key %>"
-  data-election-unique-id="<%= election_unique_id %>"
-  data-voter-id="<%= voter_id %>"
-  <%= ballot_style_id.present? ? "data-ballot-style-id=\"#{ballot_style_id}\"" : nil %>
-  data-scheme-name="<%= scheme_name %>">
+  data-election-unique-id="<%== election_unique_id %>"
+  data-voter-id="<%== voter_id %>"
+  data-scheme-name="<%== scheme_name %>"
+  <% if ballot_style_id.present? %>
+  data-ballot-style-id="<%== ballot_style_id %>"
+  <% end %>>
 
   <% questions.each_with_index do |step_question, step_index| %>
     <div id="step-<%= step_index %>" class="focus__step <%= "hide" if step_index.positive? %>"
@@ -57,9 +59,15 @@
   </div>
 </div>
 
-<% if preview_mode? %>
-  <%= javascript_pack_tag "decidim_elections_voter_setup_preview" %>
-<% else %>
-  <%= javascript_pack_tag "decidim_elections_voter_setup_vote" %>
+<%= render "decidim/elections/shared/broken_promises_modal" %>
+
+<% content_for :js_content do %>
+
+  <% if preview_mode? %>
+    <%= javascript_pack_tag "decidim_elections_voter_setup_preview" %>
+  <% else %>
+    <%= javascript_pack_tag "decidim_elections_voter_setup_vote" %>
+  <% end %>
+
+  <%= javascript_pack_tag "decidim_elections_voter_new_vote" %>
 <% end %>
-<%= javascript_pack_tag "decidim_elections_voter_new_vote" %>

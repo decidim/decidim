@@ -32,7 +32,7 @@ module Decidim::Admin
 
       describe "when the form is not valid" do
         before do
-          expect(form).to receive(:invalid?).and_return(true)
+          allow(form).to receive(:invalid?).and_return(true)
         end
 
         it "broadcasts invalid" do
@@ -49,10 +49,10 @@ module Decidim::Admin
 
       describe "when the organization is not valid" do
         before do
-          expect(form).to receive(:invalid?).and_return(false)
+          allow(form).to receive(:invalid?).and_return(false)
           expect(organization).to receive(:valid?).at_least(:once).and_return(false)
-          organization.errors.add(:official_img_header, "Image too big")
-          organization.errors.add(:official_img_footer, "Image too big")
+          organization.errors.add(:official_img_header, "File resolution is too large")
+          organization.errors.add(:official_img_footer, "File resolution is too large")
         end
 
         it "broadcasts invalid" do

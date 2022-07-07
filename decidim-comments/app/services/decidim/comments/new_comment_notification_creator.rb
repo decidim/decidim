@@ -117,7 +117,7 @@ module Decidim
           }
         }.deep_merge(users)
 
-        Decidim::EventsManager.publish(data)
+        Decidim::EventsManager.publish(**data)
       end
     end
   end

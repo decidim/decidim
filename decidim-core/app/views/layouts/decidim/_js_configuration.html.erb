@@ -10,7 +10,8 @@ js_configs = {
       "removeRecipient": t("decidim.shared.mentions_modal.remove_recipient", name: "%name%")
     }
   },
-  external_domain_whitelist: [current_organization.host] + current_organization.external_domain_whitelist
+  external_domain_whitelist: [current_organization.host] + current_organization.external_domain_whitelist,
+  consent_cookie_name: Decidim.consent_cookie_name
 }
 character_messages = {
   "charactersAtLeast": {

@@ -52,9 +52,7 @@ shared_examples "Managing component permissions" do
 
   context "when failing to set permissions" do
     before do
-      # rubocop:disable RSpec/AnyInstance
       allow_any_instance_of(Decidim::Admin::PermissionsForm).to receive(:valid?).and_return(false)
-      # rubocop:enable RSpec/AnyInstance
       within ".component-#{component.id}" do
         click_link "Permissions"
       end

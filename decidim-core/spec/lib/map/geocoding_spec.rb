@@ -78,7 +78,7 @@ module Decidim
         let(:options) { { foo: "bar" } }
 
         it "calls the Geocoder.search method with correct arguments" do
-          expect(Geocoder).to receive(:search).with(
+          allow(Geocoder).to receive(:search).with(
             query,
             { lookup: :test, language: "en" }.merge(options)
           ).and_return([])

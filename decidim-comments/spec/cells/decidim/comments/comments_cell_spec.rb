@@ -19,7 +19,7 @@ module Decidim::Comments
       it "renders the thread" do
         expect(subject).to have_css(".section-heading", text: "1 comment")
         expect(subject).to have_css(".callout.primary.loading-comments p", text: "Loading comments ...")
-        expect(subject).to have_content(comment.body.values.first)
+        expect(subject).to have_no_content(comment.body.values.first)
         expect(subject).to have_css(".add-comment")
         expect(subject).to have_content("Sign in with your account or sign up to add your comment.")
 

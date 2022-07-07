@@ -97,9 +97,7 @@ module Decidim
       end
 
       def valid_token_flow_data?
-        @valid_token_flow_data ||= begin
-          has_voter? && received_voter_token_data[:flow].as_json == voter_data.as_json
-        end
+        @valid_token_flow_data ||= has_voter? && received_voter_token_data[:flow].as_json == voter_data.as_json
       end
     end
   end

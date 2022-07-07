@@ -25,7 +25,7 @@ shared_examples_for "authorable interface" do
         model.update(author: author, user_group: nil)
       end
 
-      it "includes the user's ID" do
+      it "includes the user's name" do
         expect(response["author"]["name"]).to eq(author.name)
       end
     end
@@ -38,8 +38,21 @@ shared_examples_for "authorable interface" do
         model.update(user_group: user_group, author: nil)
       end
 
-      it "includes the user's ID" do
+      it "includes the user group's name" do
         expect(response["author"]["name"]).to eq(user_group.name)
+      end
+    end
+
+    describe "with an organization" do
+      let(:organization) { model.participatory_space.organization }
+      let(:query) { "{ author { name } }" }
+
+      before do
+        model.update(author: organization, user_group: nil)
+      end
+
+      it "does not return a main author" do
+        expect(response["author"]).to eq(nil)
       end
     end
   end

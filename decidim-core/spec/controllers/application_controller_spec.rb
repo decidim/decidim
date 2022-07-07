@@ -59,7 +59,7 @@ module Decidim
       it "doesn't allow other URLs" do
         get :show, params: { redirect_url: "http://www.example.org" }
 
-        expect(controller.helpers.redirect_url).to eq(nil)
+        expect(controller.helpers.redirect_url).to be_nil
       end
     end
 

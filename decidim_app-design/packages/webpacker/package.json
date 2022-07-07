@@ -1,7 +1,7 @@
 {
   "name": "@decidim/webpacker",
   "description": "The webpacker dependencies for Decidim",
-  "version": "0.27.0-dev",
+  "version": "0.28.0-dev",
   "repository": {
     "url": "git@github.com:decidim/decidim.git",
     "type": "git",
@@ -37,8 +37,7 @@
     "postcss-preset-env": "^7.1.0",
     "postcss-scss": "^4.0.2",
     "pnp-webpack-plugin": "^1.7.0",
-    "sass": "^1.45.2",
-    "sass-loader": ">= 12.4.0",
+    "sass-embedded": "^1.49.9",
     "source-map-loader": "^0.2.4",
     "style-loader": "^3.0.0",
     "terser-webpack-plugin": "^5.2.4",

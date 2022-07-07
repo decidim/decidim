@@ -21,7 +21,7 @@ module Decidim::Comments
     let!(:author) { create(:user, organization: organization) }
     let!(:commentable) { create(:dummy_resource, component: component) }
     let!(:comment) { create(:comment, commentable: commentable, author: author) }
-    let!(:order_by) {}
+    let!(:order_by) { nil }
 
     it "returns the commentable's comments" do
       expect(subject.query).to eq [comment]

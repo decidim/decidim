@@ -15,7 +15,7 @@ describe Decidim::Elections::Result do
     expect(result.answer).to be_a(Decidim::Elections::Answer)
   end
 
-  context "when the result comes from the bulletin board " do
+  context "when the result comes from the bulletin board" do
     it "has an associated bulletin board closure" do
       expect(result.closurable).to be_a(Decidim::Elections::BulletinBoardClosure)
     end

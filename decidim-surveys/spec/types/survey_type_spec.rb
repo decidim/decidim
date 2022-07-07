@@ -36,7 +36,7 @@ module Decidim
       describe "questionnaire" do
         let(:query) { "{ questionnaire { id }} " }
 
-        it "returns the questionnaire " do
+        it "returns the questionnaire" do
           expect(response["questionnaire"]["id"]).to eq(model.questionnaire.id.to_s)
         end
       end

@@ -27,17 +27,17 @@ module Decidim
             request.set_header k, [Mime[:js], Mime[:html], Mime[:xml], "text/xml", "*/*"].join(", ")
           end
           allow(controller).to receive(:request).and_return(request)
-          expect(controller.send(:check_impersonation_log_expired)).to eq(nil)
+          expect(controller.send(:check_impersonation_log_expired)).to be_nil
         end
 
         it "returns nil on non HTML responses" do
           request.set_header "HTTP_ACCEPT", [Mime[:js], Mime[:xml]].join(",")
           allow(controller).to receive(:request).and_return(request)
-          expect(controller.send(:check_impersonation_log_expired)).to eq(nil)
+          expect(controller.send(:check_impersonation_log_expired)).to be_nil
         end
 
         it "redirects when impersonated session is expired" do
-          expect(controller.send(:check_impersonation_log_expired)).to eq(nil)
+          expect(controller.send(:check_impersonation_log_expired)).to be_nil
           request.set_header "HTTP_ACCEPT", [Mime[:html], "text/html"].join(",")
 
           allow(controller).to receive(:real_user).and_return(user)

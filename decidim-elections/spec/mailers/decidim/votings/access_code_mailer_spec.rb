@@ -16,14 +16,14 @@ module Decidim::Votings
       let(:translated_title) { translated(voting.title, locale: locale || organization.default_locale) }
 
       context "when using the organization default locale" do
-        let(:subject) { "Your Access Code to participate in #{translated_title}" }
+        let(:mail_subject) { "Your Access Code to participate in #{translated_title}" }
         let(:body) do
           ["Hello #{datum.full_name},",
            "Here is your Access Code that you asked for: #{access_code}. With this you will be able to participate in #{translated_title}."]
         end
 
         it "sends an email with the right subject" do
-          expect(mail.subject).to eq(subject)
+          expect(mail.subject).to eq(mail_subject)
         end
 
         it "sends an email with the right body" do

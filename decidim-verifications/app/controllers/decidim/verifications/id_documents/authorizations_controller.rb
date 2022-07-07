@@ -77,11 +77,9 @@ module Decidim
 
         private
 
-        # rubocop:disable Naming/MemoizedInstanceVariableName
         def authorization
           @authorization_presenter ||= AuthorizationPresenter.new(@authorization)
         end
-        # rubocop:enable Naming/MemoizedInstanceVariableName
 
         def load_authorization
           @authorization = Decidim::Authorization.find_or_initialize_by(

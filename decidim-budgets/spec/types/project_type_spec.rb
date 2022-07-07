@@ -55,7 +55,7 @@ module Decidim
         context "when the project is selected" do
           let(:model) { create(:project, :selected) }
 
-          it "returns true " do
+          it "returns true" do
             expect(response["selected"]).to be true
           end
         end

@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-# rubocop:disable Naming/MemoizedInstanceVariableName
 module Decidim
   # Helper that provides convenient methods to deal with the page meta tags.
   module MetaTagsHelper
@@ -128,4 +127,3 @@ module Decidim
     end
   end
 end
-# rubocop:enable Naming/MemoizedInstanceVariableName

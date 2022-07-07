@@ -47,11 +47,7 @@ module Decidim
       return unless attached?
 
       representable = variant(key)
-      if representable.is_a? ActiveStorage::Attached
-        Rails.application.routes.url_helpers.rails_blob_url(representable.blob, **protocol_option.merge(options))
-      else
-        Rails.application.routes.url_helpers.rails_representation_url(representable, **protocol_option.merge(options))
-      end
+      AssetRouter.new(representable).url(**options)
     end
 
     def path(options = {})
@@ -68,21 +64,10 @@ module Decidim
     def remote_url=(url)
       uri = URI.parse(url)
       filename = File.basename(uri.path)
-      file = URI.open(url)
+      file = URI.parse(url).open
       model.send(mounted_as).attach(io: file, filename: filename)
     rescue URI::InvalidURIError
       model.errors.add(mounted_as, :invalid)
-    end
-
-    def protocol_option
-      return { host: cdn_host } if cdn_host
-      return {} unless Rails.application.config.force_ssl
-
-      { protocol: "https" }
-    end
-
-    def cdn_host
-      @cdn_host ||= Rails.application.secrets.dig(:storage, :cdn_host)
     end
 
     class << self

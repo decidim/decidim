@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-if !Rails.env.production? || ENV["SEED"]
+if !Rails.env.production? || ENV.fetch("SEED", nil)
   print "Creating seeds for decidim-core...\n" unless Rails.env.test?
 
   require "decidim/faker/localized"
@@ -17,8 +17,8 @@ if !Rails.env.production? || ENV["SEED"]
     table.tr("_", "/").classify.safe_constantize
   end.compact.each(&:reset_column_information)
 
-  smtp_label = ENV["SMTP_FROM_LABEL"] || Faker::Twitter.unique.screen_name
-  smtp_email = ENV["SMTP_FROM_EMAIL"] || Faker::Internet.email
+  smtp_label = ENV.fetch("SMTP_FROM_LABEL", Faker::Twitter.unique.screen_name)
+  smtp_email = ENV.fetch("SMTP_FROM_EMAIL", Faker::Internet.email)
 
   organization = Decidim::Organization.first || Decidim::Organization.create!(
     name: Faker::Company.name,
@@ -31,12 +31,12 @@ if !Rails.env.production? || ENV["SEED"]
       from: "#{smtp_label} <#{smtp_email}>",
       from_email: smtp_email,
       from_label: smtp_label,
-      user_name: ENV["SMTP_USERNAME"] || Faker::Twitter.unique.screen_name,
-      encrypted_password: Decidim::AttributeEncryptor.encrypt(ENV["SMTP_PASSWORD"] || Faker::Internet.password(min_length: 8)),
-      address: ENV["SMTP_ADDRESS"] || ENV["DECIDIM_HOST"] || "localhost",
-      port: ENV["SMTP_PORT"] || ENV["DECIDIM_SMTP_PORT"] || "25"
+      user_name: ENV.fetch("SMTP_USERNAME", Faker::Twitter.unique.screen_name),
+      encrypted_password: Decidim::AttributeEncryptor.encrypt(ENV.fetch("SMTP_PASSWORD", Faker::Internet.password(min_length: 8))),
+      address: ENV.fetch("SMTP_ADDRESS", nil) || ENV.fetch("DECIDIM_HOST", "localhost"),
+      port: ENV.fetch("SMTP_PORT", nil) || ENV.fetch("DECIDIM_SMTP_PORT", "25")
     },
-    host: ENV["DECIDIM_HOST"] || "localhost",
+    host: ENV.fetch("DECIDIM_HOST", "localhost"),
     external_domain_whitelist: ["decidim.org", "github.com"],
     description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
       Decidim::Faker::Localized.sentence(word_count: 15)
@@ -115,12 +115,9 @@ if !Rails.env.production? || ENV["SEED"]
   end
 
   admin = Decidim::User.find_or_initialize_by(email: "admin@example.org")
-
-  admin.update!(
+  admin_hash = {
     name: Faker::Name.name,
     nickname: Faker::Twitter.unique.screen_name,
-    password: "decidim123456",
-    password_confirmation: "decidim123456",
     organization: organization,
     confirmed_at: Time.current,
     locale: I18n.default_locale,
@@ -128,23 +125,26 @@ if !Rails.env.production? || ENV["SEED"]
     tos_agreement: true,
     personal_url: Faker::Internet.url,
     about: Faker::Lorem.paragraph(sentence_count: 2),
-    accepted_tos_version: organization.tos_version,
+    accepted_tos_version: organization.tos_version + 1.hour,
+    password_updated_at: Time.current,
     admin_terms_accepted_at: Time.current
-  )
+  }
+  admin_hash.merge!(password: "decidim123456789", password_confirmation: "decidim123456789") if admin.encrypted_password.blank?
+  admin.update!(admin_hash)
 
   ["user@example.org", "user2@example.org"].each do |email|
     Decidim::User.find_or_initialize_by(email: email).update!(
       name: Faker::Name.name,
       nickname: Faker::Twitter.unique.screen_name,
-      password: "decidim123456",
-      password_confirmation: "decidim123456",
+      password: "decidim123456789",
+      password_confirmation: "decidim123456789",
       confirmed_at: Time.current,
       locale: I18n.default_locale,
       organization: organization,
       tos_agreement: true,
       personal_url: Faker::Internet.url,
       about: Faker::Lorem.paragraph(sentence_count: 2),
-      accepted_tos_version: organization.tos_version
+      accepted_tos_version: organization.tos_version + 1.hour
     )
   end
 
@@ -155,15 +155,15 @@ if !Rails.env.production? || ENV["SEED"]
   locked_user.update!(
     name: Faker::Name.name,
     nickname: Faker::Twitter.unique.screen_name,
-    password: "decidim123456",
-    password_confirmation: "decidim123456",
+    password: "decidim123456789",
+    password_confirmation: "decidim123456789",
     confirmed_at: Time.current,
     locale: I18n.default_locale,
     organization: organization,
     tos_agreement: true,
     personal_url: Faker::Internet.url,
     about: Faker::Lorem.paragraph(sentence_count: 2),
-    accepted_tos_version: organization.tos_version
+    accepted_tos_version: organization.tos_version + 1.hour
   )
 
   locked_user.lock_access!

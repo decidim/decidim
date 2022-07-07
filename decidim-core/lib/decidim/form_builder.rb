@@ -67,7 +67,7 @@ module Decidim
       tabs_id = sanitize_tabs_selector(options[:tabs_id] || "#{object_name}-#{name}-tabs")
 
       label_tabs = content_tag(:div, class: "label--tabs") do
-        field_label = label_i18n(name, options[:label] || label_for(name))
+        field_label = label_i18n(name, options[:label] || label_for(name), required: options[:required])
 
         language_selector = "".html_safe
         language_selector = create_language_selector(locales, tabs_id, name) if options[:label] != false
@@ -92,6 +92,13 @@ module Decidim
       end
 
       safe_join [label_tabs, tabs_content]
+    end
+
+    def password_field(attribute, options = {})
+      field attribute, options do |opts|
+        opts[:autocomplete] ||= :off
+        method(__method__).super_method.super_method.call(attribute, opts)
+      end
     end
 
     def translated_one_locale(type, name, locale, options = {})
@@ -135,7 +142,7 @@ module Decidim
       tabs_id = sanitize_tabs_selector(options[:tabs_id] || "#{object_name}-#{name}-tabs")
 
       label_tabs = content_tag(:div, class: "label--tabs") do
-        field_label = label_i18n(name, options[:label] || label_for(name))
+        field_label = label_i18n(name, options[:label] || label_for(name), required: options[:required])
 
         tabs_panels = "".html_safe
         if options[:label] != false
@@ -403,16 +410,19 @@ module Decidim
     def attachment(attribute, options = {})
       object_attachment = object.attachment.present?
       record = object_attachment ? object.attachment : object
-
       options = {
         titled: true,
         resource_class: "Decidim::Attachment",
         show_current: false,
         max_file_size: max_file_size(record, :file),
-        help: options[:help] || upload_help(record, attribute, options),
         label: I18n.t("decidim.forms.upload.labels.add_attachment"),
-        button_edit_label: I18n.t("decidim.forms.upload.labels.edit_image")
+        button_edit_label: I18n.t("decidim.forms.upload.labels.edit_image"),
+        extension_allowlist: Decidim.organization_settings(Decidim::Attachment).upload_allowed_file_extensions
       }.merge(options)
+
+      # Upload help uses extension allowlist from the options so we need to call this AFTER setting the defaults.
+      options[:help] = upload_help(record, attribute, options) if options[:help].blank?
+
       upload(attribute, options)
     end
 
@@ -441,6 +451,8 @@ module Decidim
       self.multipart = true
       max_file_size = options[:max_file_size] || max_file_size(object, attribute)
       button_label = options[:button_label] || choose_button_label(attribute)
+      help_messages = options[:help] || upload_help(object, attribute, options)
+
       options = {
         attribute: attribute,
         resource_name: @object_name,
@@ -449,7 +461,7 @@ module Decidim
         titled: false,
         show_current: true,
         max_file_size: max_file_size,
-        help: upload_help(object, attribute, options),
+        help: help_messages,
         label: label_for(attribute),
         button_label: button_label,
         button_edit_label: I18n.t("decidim.forms.upload.labels.replace")
@@ -468,9 +480,11 @@ module Decidim
 
     def choose_button_label(attribute)
       @choose_button_label ||= begin
-        return I18n.t("decidim.forms.upload.labels.add_image") if resource_class(attribute).attached_config[attribute].uploader <= Decidim::ImageUploader
-
-        I18n.t("decidim.forms.upload.labels.add_file")
+        if resource_class(attribute).attached_config[attribute].uploader <= Decidim::ImageUploader
+          I18n.t("decidim.forms.upload.labels.add_image")
+        else
+          I18n.t("decidim.forms.upload.labels.add_file")
+        end
       rescue NoMethodError
         I18n.t("decidim.forms.upload.labels.add_file")
       end
@@ -479,23 +493,19 @@ module Decidim
     def upload_help(record, attribute, options = {})
       humanizer = FileValidatorHumanizer.new(record, attribute)
 
-      help_scope = begin
-        if options[:help_i18n_scope].present?
-          options[:help_i18n_scope]
-        elsif humanizer.uploader.is_a?(Decidim::ImageUploader)
-          "decidim.forms.file_help.image"
-        else
-          "decidim.forms.file_help.file"
-        end
-      end
+      help_scope = if options[:help_i18n_scope].present?
+                     options[:help_i18n_scope]
+                   elsif humanizer.uploader.is_a?(Decidim::ImageUploader)
+                     "decidim.forms.file_help.image"
+                   else
+                     "decidim.forms.file_help.file"
+                   end
 
-      help_messages = begin
-        if options[:help_i18n_messages].present?
-          Array(options[:help_i18n_messages])
-        else
-          %w(message_1 message_2)
-        end
-      end
+      help_messages = if options[:help_i18n_messages].present?
+                        Array(options[:help_i18n_messages])
+                      else
+                        %w(message_1 message_2)
+                      end
 
       help_messages = help_messages.each.map { |msg| I18n.t(msg, scope: help_scope) } + humanizer.messages
       help_messages += extension_allowlist_help(options[:extension_allowlist]) if options[:extension_allowlist]
@@ -541,15 +551,15 @@ module Decidim
     # inputs inside the label and to automatically inject validations
     # from the object.
     #
-    # attribute    - The String name of the attribute to buidl the field.
+    # attribute    - The String name of the attribute to build the field.
     # options      - A Hash with options to build the field.
     # html_options - An optional Hash with options to pass to the html element.
     #
     # Returns a String
     def field(attribute, options, html_options = nil, &block)
       label = options.delete(:label)
-      label_options = options.delete(:label_options)
-      custom_label(attribute, label, label_options) do
+      label_options = options.delete(:label_options) || {}
+      custom_label(attribute, label, { required: options[:required] }.merge(label_options)) do
         field_with_validations(attribute, options, html_options, &block)
       end
     end
@@ -664,7 +674,7 @@ module Decidim
     def find_validator(attribute, klass)
       return unless object.respond_to?(:_validators)
 
-      object._validators[attribute.to_sym].find { |validator| validator.class == klass }
+      object._validators[attribute.to_sym].find { |validator| validator.instance_of?(klass) }
     end
 
     # Private: Override method from FoundationRailsHelper to render the text of the
@@ -680,8 +690,16 @@ module Decidim
     def custom_label(attribute, text, options, field_before_label: false, show_required: true)
       return block_given? ? yield.html_safe : "".html_safe if text == false
 
+      required = options.is_a?(Hash) && options.delete(:required)
       text = default_label_text(object, attribute) if text.nil? || text == true
-      text += required_for_attribute(attribute) if show_required
+      if show_required
+        text +=
+          if required
+            required_indicator
+          else
+            required_for_attribute(attribute)
+          end
+      end
 
       text = if field_before_label && block_given?
                safe_join([yield, text.html_safe])
@@ -763,28 +781,36 @@ module Decidim
         options[:class] ||= ""
         options[:class] += " is-invalid-label"
       end
-      text += required_for_attribute(attribute)
+      text +=
+        if options.delete(:required)
+          required_indicator
+        else
+          required_for_attribute(attribute)
+        end
 
       label(attribute, (text || "").html_safe, options)
     end
 
     def required_for_attribute(attribute)
-      if attribute_required?(attribute)
-        visible_title = content_tag(:span, "*", "aria-hidden": true)
-        screenreader_title = content_tag(
-          :span,
-          I18n.t("required", scope: "forms"),
-          class: "show-for-sr"
-        )
-        return content_tag(
-          :span,
-          visible_title + screenreader_title,
-          title: I18n.t("required", scope: "forms"),
-          data: { tooltip: true, disable_hover: false, keep_on_hover: true },
-          class: "label-required"
-        ).html_safe
-      end
+      return required_indicator if attribute_required?(attribute)
+
       "".html_safe
+    end
+
+    def required_indicator
+      visible_title = content_tag(:span, "*", "aria-hidden": true)
+      screenreader_title = content_tag(
+        :span,
+        I18n.t("required", scope: "forms"),
+        class: "show-for-sr"
+      )
+      content_tag(
+        :span,
+        visible_title + screenreader_title,
+        title: I18n.t("required", scope: "forms"),
+        data: { tooltip: true, disable_hover: false, keep_on_hover: true },
+        class: "label-required"
+      ).html_safe
     end
 
     # Private: Returns an array of scopes related to object attribute

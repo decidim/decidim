@@ -7,7 +7,7 @@ Free Open-Source participatory democracy, citizen participation and open governm
 ____
 
 https://decidim.org[Decidim] is a participatory democracy framework, written in Ruby on Rails, originally developed for the Barcelona City government online and offline participation website.
-Installing these libraries will provide you a generator and gems to help you develop web applications like the ones found on <<example-applications,example applications>> or like http://staging.decidim.codegram.com[our demo application].
+Installing these libraries will provide you a generator and gems to help you develop web applications like the ones found on <<example-applications,example applications>> or like https://try.decidim.org[our demo application].
 
 All members of the Decidim community agree with http://www.decidim.org/contract/[Decidim Social Contract or Code of Democratic Guarantees].
 
@@ -17,38 +17,7 @@ image:https://img.shields.io/gem/v/decidim.svg[Gem,link=https://rubygems.org/gem
 
 Code quality
 
-image:https://codecov.io/gh/decidim/decidim/branch/develop/graph/badge.svg[codecov,link=https://codecov.io/gh/decidim/decidim] image:https://api.codeclimate.com/v1/badges/ad8fa445086e491486b6/maintainability[Maintainability,link=https://codeclimate.com/github/decidim/decidim/maintainability] image:https://d322cqt584bo4o.cloudfront.net/decidim/localized.svg[Crowdin,link=https://crowdin.com/project/decidim] image:http://inch-ci.org/github/decidim/decidim.svg?branch=develop[Inline docs,link=http://inch-ci.org/github/decidim/decidim] image:https://rocketvalidator.com/badges/a11y_issues.svg?url=http://staging.decidim.codegram.com/[Accessibility issues,link=https://rocketvalidator.com/badges/link?url=http://staging.decidim.codegram.com/&report=a11y] image:https://rocketvalidator.com/badges/html_issues.svg?url=http://staging.decidim.codegram.com/[HTML issues,link=https://rocketvalidator.com/badges/link?url=http://staging.decidim.codegram.com/&report=html]
-
-Test suite
-
-+++<details>++++++<summary>+++See all+++</summary>+++
-image:https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20Accountability/develop.svg?label=%5BCI%5D%20Accountability[Accountability,link=https://github.com/decidim/decidim/actions]
-image:https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20Api/develop.svg?label=%5BCI%5D%20Api[Api,link=https://github.com/decidim/decidim/actions]
-image:https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20Assemblies/develop.svg?label=%5BCI%5D%20Assemblies[Assemblies,link=https://github.com/decidim/decidim/actions]
-image:https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20Blogs/develop.svg?label=%5BCI%5D%20Blogs[Blogs,link=https://github.com/decidim/decidim/actions]
-image:https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20Budgets/develop.svg?label=%5BCI%5D%20Budgets[Budgets,link=https://github.com/decidim/decidim/actions]
-image:https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20Comments/develop.svg?label=%5BCI%5D%20Comments[Comments,link=https://github.com/decidim/decidim/actions]
-image:https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20Conferences/develop.svg?label=%5BCI%5D%20Conferences[Conferences,link=https://github.com/decidim/decidim/actions]
-image:https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20Consultations/develop.svg?label=%5BCI%5D%20Consultations[Consultations,link=https://github.com/decidim/decidim/actions]
-image:https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20Core/develop.svg?label=%5BCI%5D%20Core[Core,link=https://github.com/decidim/decidim/actions]
-image:https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20Debates/develop.svg?label=%5BCI%5D%20Debates[Debates,link=https://github.com/decidim/decidim/actions]
-image:https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20Forms/develop.svg?label=%5BCI%5D%20Forms[Forms,link=https://github.com/decidim/decidim/actions]
-image:https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20Generators/develop.svg?label=%5BCI%5D%20Generators[Generators,link=https://github.com/decidim/decidim/actions]
-image:https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20Initiatives/develop.svg?label=%5BCI%5D%20Initiatives[Initiatives,link=https://github.com/decidim/decidim/actions]
-image:https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20Main%20folder/develop.svg?label=%5BCI%5D%20Main[Main,link=https://github.com/decidim/decidim/actions]
-image:https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20Meetings/develop.svg?label=%5BCI%5D%20Meetings[Meetings,link=https://github.com/decidim/decidim/actions]
-image:https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20Pages/develop.svg?label=%5BCI%5D%20Pages[Pages,link=https://github.com/decidim/decidim/actions]
-image:https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20Participatory%20processes/develop.svg?label=%5BCI%5D%20Participatory%20processes[Participatory processes,link=https://github.com/decidim/decidim/actions]
-image:https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20Proposals%20(system%20admin)/develop.svg?label=%5BCI%5D%20Proposals%20(system%20admin)[Proposals (system admin),link=https://github.com/decidim/decidim/actions]
-image:https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20Proposals%20(system%20public)/develop.svg?label=%5BCI%5D%20Proposals%20(system%20public)[Proposals (system admin),link=https://github.com/decidim/decidim/actions]
-image:https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20Proposals%20(unit%20tests)/develop.svg?label=%5BCI%5D%20Proposals%20(unit%20tests)[Proposals (unit tests),link=https://github.com/decidim/decidim/actions]
-image:https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20Sortitions/develop.svg?label=%5BCI%5D%20Sortitions[Sortitions,link=https://github.com/decidim/decidim/actions]
-image:https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20Surveys/develop.svg?label=%5BCI%5D%20Surveys[Surveys,link=https://github.com/decidim/decidim/actions]
-image:https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20System/develop.svg?label=%5BCI%5D%20System[System,link=https://github.com/decidim/decidim/actions]
-image:https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20Verifications/develop.svg?label=%5BCI%5D%20Verifications[Verifications,link=https://github.com/decidim/decidim/actions]
-+++</details>+++
-
-'''
+image:https://codecov.io/gh/decidim/decidim/branch/develop/graph/badge.svg[codecov,link=https://codecov.io/gh/decidim/decidim] image:https://api.codeclimate.com/v1/badges/ad8fa445086e491486b6/maintainability[Maintainability,link=https://codeclimate.com/github/decidim/decidim/maintainability] image:https://d322cqt584bo4o.cloudfront.net/decidim/localized.svg[Crowdin,link=https://crowdin.com/project/decidim]
 
 = What do you need to do?
 
@@ -56,7 +25,11 @@ image:https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20V
 - <<getting-started-with-decidim,Getting started with Decidim>>
 - <<how-to-contribute,Contribute to the project>>
 - <<modules,Modules>>
-- <<browse-decidim,Create & browse development app>>
+- <<authorizations-strategies,Authorizations Strategies>>
+- <<following-our-license,Following our license>>
+- <<example-applications,Example applications>>
+- <<security,Security>>
+- <<donations,Donations>>
 
 '''
 
@@ -113,3 +86,7 @@ Security is very important to us.
 If you have any issue regarding security, please disclose the information responsibly by sending an email to security [at] decidim [dot] org and not by creating a github/metadecidim issue.
 We appreciate your effort to make Decidim more secure.
 See xref:SECURITY.adoc[full security policy].
+
+== Donations
+
+If you want to support the project, consider making a donation through our https://opencollective.com/decidim[OpenCollective profile].

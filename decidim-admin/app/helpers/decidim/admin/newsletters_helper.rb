@@ -102,7 +102,7 @@ module Decidim
                                                               .find_participatory_space_manifest(manifest_name)
                                                               .participatory_spaces.call(current_organization)
                                                               .published
-                                                              .sort_by { |space| [space.closed? ? 1 : 0, space.title[current_locale]] }
+                                                              .sort_by { |space| [space.try(:closed?) ? 1 : 0, space.title[current_locale]] }
       end
 
       def spaces_user_can_admin

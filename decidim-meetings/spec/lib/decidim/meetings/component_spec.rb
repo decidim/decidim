@@ -12,7 +12,7 @@ describe "Meetings component" do # rubocop:disable RSpec/DescribeClass
       it "destroys the component" do
         expect do
           Decidim::Admin::DestroyComponent.call(component, current_user)
-        end.to change { Decidim::Component.count }.by(-1)
+        end.to change(Decidim::Component, :count).by(-1)
 
         expect(component).to be_destroyed
       end
@@ -76,14 +76,14 @@ describe "Meetings component" do # rubocop:disable RSpec/DescribeClass
       let(:stats_name) { :followers_count }
 
       before do
-        # rubocop:disable FactoryBot/CreateList
+        # rubocop:disable RSpec/FactoryBot/CreateList
         2.times do
           create(:follow, followable: meeting, user: build(:user, organization: organization))
         end
         3.times do
           create(:follow, followable: hidden_meeting, user: build(:user, organization: organization))
         end
-        # rubocop:enable FactoryBot/CreateList
+        # rubocop:enable RSpec/FactoryBot/CreateList
       end
 
       it "counts the followers from visible meetings" do

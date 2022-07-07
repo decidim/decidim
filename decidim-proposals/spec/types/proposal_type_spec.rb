@@ -53,7 +53,7 @@ module Decidim
           let(:component) { create(:proposal_component, :with_votes_hidden) }
 
           it "returns nil" do
-            expect(response["voteCount"]).to eq(nil)
+            expect(response["voteCount"]).to be_nil
           end
         end
       end

@@ -16,6 +16,12 @@ export default class MapStaticController extends MapController {
       this.map.tap.disable();
     }
 
+    if (this.config.zoom) {
+      this.map.setZoom(this.config.zoom);
+    } else {
+      this.map.setZoom(15);
+    }
+
     if (this.config.latitude && this.config.longitude) {
       const coordinates = [this.config.latitude, this.config.longitude];
 
@@ -26,11 +32,6 @@ export default class MapStaticController extends MapController {
         title: this.config.title
       }).addTo(this.map);
       marker._icon.removeAttribute("tabindex");
-    }
-    if (this.config.zoom) {
-      this.map.setZoom(this.config.zoom);
-    } else {
-      this.map.setZoom(15);
     }
 
     if (this.config.link) {

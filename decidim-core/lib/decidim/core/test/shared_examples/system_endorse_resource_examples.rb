@@ -6,11 +6,11 @@ shared_context "with resources to be endorsed or not" do
   include_context "with a component"
 
   # Should be overriden and create one main resource
-  let!(:resource) {}
+  let!(:resource) { nil }
   # the name of the resource to be clicked from the component view
-  let(:resource_name) {}
+  let(:resource_name) { nil }
   # Should be overriden and create 3 extra resources in the current component
-  let!(:resources) {}
+  let!(:resources) { nil }
 end
 
 shared_examples "Endorse resource system specs" do

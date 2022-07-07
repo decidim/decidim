@@ -6,7 +6,9 @@ module Decidim
       layout "decidim/admin/users"
 
       def index
-        @conflicts = Decidim::Verifications::Conflict.all
+        @conflicts = Decidim::Verifications::Conflict.joins(:current_user).where(
+          decidim_users: { decidim_organization_id: current_organization.id }
+        )
       end
 
       def edit

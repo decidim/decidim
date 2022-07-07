@@ -13,7 +13,7 @@ describe Decidim::Comments::UserMentionedEvent do
   let(:author_link) { "<a class=\"user-mention\" href=\"http://#{organization.host}/profiles/#{author.nickname}\">@#{author.nickname}</a>" }
   let(:parsed_body) { Decidim::ContentProcessor.parse("Comment mentioning some user, @#{author.nickname}", current_organization: organization) }
   let(:parsed_ca_body) { Decidim::ContentProcessor.parse("Un commentaire pour @#{author.nickname}", current_organization: organization) }
-  let(:body) { { en: parsed_body.rewrite, "machine_translations": { "ca": parsed_ca_body.rewrite } } }
+  let(:body) { { en: parsed_body.rewrite, machine_translations: { ca: parsed_ca_body.rewrite } } }
 
   let(:participatory_process) { create :participatory_process, organization: organization }
   let(:component) { create(:component, participatory_space: participatory_process) }
@@ -64,7 +64,7 @@ describe Decidim::Comments::UserMentionedEvent do
   describe "translated notifications" do
     let(:en_body) { parsed_body.rewrite }
 
-    let(:body) { { en: en_body, "machine_translations": { "ca": parsed_ca_body.rewrite } } }
+    let(:body) { { en: en_body, machine_translations: { ca: parsed_ca_body.rewrite } } }
 
     let(:participatory_process) { create :participatory_process, organization: organization }
     let(:component) { create(:component, participatory_space: participatory_process) }

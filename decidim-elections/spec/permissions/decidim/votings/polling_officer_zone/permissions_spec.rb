@@ -19,7 +19,7 @@ module Decidim
         let(:other_voting) { create(:voting, organization: voting.organization) }
         let(:polling_officer) { create(:polling_officer, user: user, voting: voting) }
         let(:polling_officers) { [polling_officer, create(:polling_officer, user: user, voting: other_voting)] }
-        let(:permission_action) { Decidim::PermissionAction.new(action) }
+        let(:permission_action) { Decidim::PermissionAction.new(**action) }
 
         shared_examples "not allowed when a polling officer is not attached to the current user" do
           context "when a polling officer is not attached to a user" do
@@ -58,7 +58,7 @@ module Decidim
             { scope: :polling_officer_zone, action: :view, subject: :polling_officers }
           end
 
-          it { is_expected.to eq true }
+          it { is_expected.to be true }
 
           it_behaves_like "not allowed when a polling officer is not attached to the current user"
         end
@@ -68,7 +68,7 @@ module Decidim
             { scope: :polling_officer_zone, action: :manage, subject: :polling_station_results }
           end
 
-          it { is_expected.to eq true }
+          it { is_expected.to be true }
 
           it_behaves_like "not allowed when a polling officer is not attached to the current user"
         end
@@ -78,7 +78,7 @@ module Decidim
             { scope: :polling_officer_zone, action: :manage, subject: :in_person_vote }
           end
 
-          it { is_expected.to eq true }
+          it { is_expected.to be true }
 
           it_behaves_like "not allowed when a polling officer is not attached to the current user"
         end

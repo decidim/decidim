@@ -94,7 +94,7 @@ module Decidim
     describe "#expired?" do
       context "when share_token has not expired" do
         it "returns true" do
-          expect(subject.expired?).to eq false
+          expect(subject.expired?).to be false
         end
       end
 
@@ -102,7 +102,7 @@ module Decidim
         let(:share_token) { expired_token }
 
         it "returns true" do
-          expect(subject.expired?).to eq true
+          expect(subject.expired?).to be true
         end
       end
     end

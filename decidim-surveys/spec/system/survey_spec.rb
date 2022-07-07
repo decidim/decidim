@@ -94,6 +94,17 @@ describe "Answer a survey", type: :system do
     end
   end
 
+  context "when survey has action log entry" do
+    let!(:action_log) { create(:action_log, user: user, organization: component.organization, resource: survey, component: component, participatory_space: component.participatory_space, visibility: "all") }
+    let(:router) { Decidim::EngineRouter.main_proxy(component) }
+
+    it "shows action log entry" do
+      page.visit decidim.profile_activity_path(nickname: user.nickname)
+      expect(page).to have_content("New survey at #{translated(survey.component.participatory_space.title)}")
+      expect(page).to have_link(translated(survey.questionnaire.title), href: router.survey_path(survey))
+    end
+  end
+
   def questionnaire_public_path
     main_component_path(component)
   end

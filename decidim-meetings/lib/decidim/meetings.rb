@@ -15,7 +15,7 @@ module Decidim
     autoload :Registrations, "decidim/meetings/registrations"
     autoload :MeetingSerializer, "decidim/meetings/meeting_serializer"
     autoload :UserAnswersSerializer, "decidim/meetings/user_answers_serializer"
-    autoload :DataPortabilityUserAnswersSerializer, "decidim/meetings/data_portability_user_answers_serializer"
+    autoload :DownloadYourDataUserAnswersSerializer, "decidim/meetings/download_your_data_user_answers_serializer"
 
     include ActiveSupport::Configurable
 
@@ -28,5 +28,17 @@ module Decidim
     config_accessor :upcoming_meeting_notification do
       2.days
     end
+
+    config_accessor :embeddable_services do
+      %w(www.youtube.com www.twitch.tv meet.jit.si)
+    end
+  end
+
+  module ContentParsers
+    autoload :MeetingParser, "decidim/content_parsers/meeting_parser"
+  end
+
+  module ContentRenderers
+    autoload :MeetingRenderer, "decidim/content_renderers/meeting_renderer"
   end
 end

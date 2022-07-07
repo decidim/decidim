@@ -10,7 +10,7 @@ describe Decidim::Budgets::Admin::DestroyBudget do
   let(:user) { create :user, :admin, :confirmed, organization: organization }
 
   it "destroys the budget" do
-    expect { subject.call }.to change { Decidim::Budgets::Budget.count }.by(-1)
+    expect { subject.call }.to change(Decidim::Budgets::Budget, :count).by(-1)
   end
 
   it "traces the action", versioning: true do

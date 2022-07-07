@@ -14,7 +14,7 @@ module Decidim
         Decidim::Query.merge(
           OrganizationPublishedConferences.new(@organization, @user),
           PrioritizedConferences.new
-        ).query
+        ).query.with_attached_hero_image
       end
     end
   end

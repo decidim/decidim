@@ -11,12 +11,12 @@ module Decidim
 
       let(:organization) { create(:organization) }
       let!(:city) { create(:scope, organization: organization) }
-      let!(:district_1) { create(:subscope, parent: city) }
-      let!(:district_2) { create(:subscope, parent: city) }
-      let!(:neighbourhood_1) { create(:subscope, parent: district_1) }
-      let!(:neighbourhood_2) { create(:subscope, parent: district_2) }
-      let!(:neighbourhood_3) { create(:subscope, parent: district_1) }
-      let!(:neighbourhood_4) { create(:subscope, parent: district_2) }
+      let!(:district1) { create(:subscope, parent: city) }
+      let!(:district2) { create(:subscope, parent: city) }
+      let!(:neighbourhood1) { create(:subscope, parent: district1) }
+      let!(:neighbourhood2) { create(:subscope, parent: district2) }
+      let!(:neighbourhood3) { create(:subscope, parent: district1) }
+      let!(:neighbourhood4) { create(:subscope, parent: district2) }
       let!(:initiative_type) do
         create(
           :initiatives_type,
@@ -28,11 +28,11 @@ module Decidim
       end
       let!(:global_initiative_type_scope) { create(:initiatives_type_scope, scope: nil, type: initiative_type) }
       let!(:city_initiative_type_scope) { create(:initiatives_type_scope, scope: city, type: initiative_type) }
-      let!(:district_1_initiative_type_scope) { create(:initiatives_type_scope, scope: district_1, type: initiative_type) }
-      let!(:district_2_initiative_type_scope) { create(:initiatives_type_scope, scope: district_2, type: initiative_type) }
-      let!(:neighbourhood_1_initiative_type_scope) { create(:initiatives_type_scope, scope: neighbourhood_1, type: initiative_type) }
-      let!(:neighbourhood_2_initiative_type_scope) { create(:initiatives_type_scope, scope: neighbourhood_2, type: initiative_type) }
-      let!(:neighbourhood_3_initiative_type_scope) { create(:initiatives_type_scope, scope: neighbourhood_3, type: initiative_type) }
+      let!(:district_1_initiative_type_scope) { create(:initiatives_type_scope, scope: district1, type: initiative_type) }
+      let!(:district_2_initiative_type_scope) { create(:initiatives_type_scope, scope: district2, type: initiative_type) }
+      let!(:neighbourhood_1_initiative_type_scope) { create(:initiatives_type_scope, scope: neighbourhood1, type: initiative_type) }
+      let!(:neighbourhood_2_initiative_type_scope) { create(:initiatives_type_scope, scope: neighbourhood2, type: initiative_type) }
+      let!(:neighbourhood_3_initiative_type_scope) { create(:initiatives_type_scope, scope: neighbourhood3, type: initiative_type) }
       let!(:authorization) do
         create(
           :authorization,
@@ -43,7 +43,7 @@ module Decidim
           metadata: { document_number: document_number, postal_code: postal_code, scope_id: user_scope.id }
         )
       end
-      let(:user_scope) { district_1 }
+      let(:user_scope) { district1 }
       let(:scoped_type) { district_1_initiative_type_scope }
 
       let(:initiative) do
@@ -147,7 +147,7 @@ module Decidim
               authorization.save!
             end
 
-            it { is_expected.to eq(nil) }
+            it { is_expected.to be_nil }
           end
         end
 
@@ -175,7 +175,7 @@ module Decidim
           let(:scoped_type) { district_1_initiative_type_scope }
 
           it "returns the scope descendants" do
-            expect(form.authorized_scope_candidates).to match_array([neighbourhood_1, neighbourhood_3, district_1])
+            expect(form.authorized_scope_candidates).to match_array([neighbourhood1, neighbourhood3, district1])
           end
         end
       end
@@ -208,15 +208,15 @@ module Decidim
               let(:child_scope_threshold_enabled) { true }
 
               context "when the user scope has children" do
-                let(:user_scope) { district_1 }
+                let(:user_scope) { district1 }
 
-                it { is_expected.to match_array([nil, city, district_1]) }
+                it { is_expected.to match_array([nil, city, district1]) }
               end
 
               context "when the user scope is a leaf" do
-                let(:user_scope) { neighbourhood_1 }
+                let(:user_scope) { neighbourhood1 }
 
-                it { is_expected.to match_array([nil, city, district_1, neighbourhood_1]) }
+                it { is_expected.to match_array([nil, city, district1, neighbourhood1]) }
               end
             end
 
@@ -234,22 +234,22 @@ module Decidim
               let(:child_scope_threshold_enabled) { true }
 
               context "when the user scope has children" do
-                let(:user_scope) { district_1 }
+                let(:user_scope) { district1 }
 
-                it { is_expected.to match_array([district_1]) }
+                it { is_expected.to match_array([district1]) }
               end
 
               context "when the user scope is a leaf" do
-                let(:user_scope) { neighbourhood_1 }
+                let(:user_scope) { neighbourhood1 }
 
-                it { is_expected.to match_array([district_1, neighbourhood_1]) }
+                it { is_expected.to match_array([district1, neighbourhood1]) }
               end
             end
 
             context "when child scope voting is disabled" do
               let(:child_scope_threshold_enabled) { false }
 
-              it { is_expected.to eq([district_1]) }
+              it { is_expected.to eq([district1]) }
             end
           end
         end

@@ -27,12 +27,10 @@ module Decidim
         return unless permission_action.scope == :public
 
         case permission_action.subject
-        when :votings
+        when :votings, :participatory_space
           allow!
         when :voting
           toggle_allow(voting.published? || user&.admin?)
-        when :participatory_space
-          allow!
         end
       end
 

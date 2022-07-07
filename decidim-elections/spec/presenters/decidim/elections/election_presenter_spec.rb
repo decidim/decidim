@@ -34,8 +34,8 @@ module Decidim
 
         it "returns the description with html tags" do
           expect(subject).to eq "Election description and some spam links:<ul>\n" \
-                            "<li><a href='http://example.org'>this is for SEO</a></li>\n" \
-                            "<li><strong><a href='http://example.org'>visit this</a></strong></li></ul>"
+                                "<li><a href='http://example.org'>this is for SEO</a></li>\n" \
+                                "<li><strong><a href='http://example.org'>visit this</a></strong></li></ul>"
         end
 
         context "when stripping tags" do

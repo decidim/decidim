@@ -151,4 +151,6 @@
   </div>
 </div>
 
-<%= javascript_pack_tag "decidim_forms" %>
+<% content_for :js_content do %>
+  <%= javascript_pack_tag "decidim_forms" %>
+<% end %>

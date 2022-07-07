@@ -18,7 +18,7 @@ module Decidim
         end
 
         context "with different reportable authors types" do
-          describe "when it's a dummy resource author " do
+          describe "when it's a dummy resource author" do
             let(:reportable) { create(:dummy_resource, title: { "en" => "<p>Dummy<br> Title</p>" }) }
 
             it "returns the author's name" do

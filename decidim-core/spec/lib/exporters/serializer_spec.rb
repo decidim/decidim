@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim
   describe Exporters::Serializer do
-    let(:subject) { described_class.new(resource) }
+    subject { described_class.new(resource) }
     let(:resource) { OpenStruct.new(id: 1, name: "John") }
 
     describe "#serialize" do

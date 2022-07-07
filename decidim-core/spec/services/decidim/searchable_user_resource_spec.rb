@@ -81,7 +81,7 @@ module Decidim
               user.update!({
                              blocked: true,
                              blocked_at: Time.current,
-                             extended_data: { "user_name": user.name },
+                             extended_data: { user_name: user.name },
                              name: "Blocked user"
                            })
 

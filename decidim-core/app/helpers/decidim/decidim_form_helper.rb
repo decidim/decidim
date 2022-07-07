@@ -190,7 +190,7 @@ module Decidim
           request.protocol,
           request.host_with_port,
           prepend_slug_path
-        ].join("").html_safe +
+        ].join.html_safe +
           content_tag(:span, value, class: "slug-url-value")
       end
     end

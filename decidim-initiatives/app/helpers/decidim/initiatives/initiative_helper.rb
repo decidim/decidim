@@ -43,7 +43,9 @@ module Decidim
       def popularity_tag(initiative)
         content_tag(:div, class: "extra__popularity popularity #{popularity_class(initiative)}".strip) do
           5.times do
-            concat(content_tag(:span, class: "popularity__item") {})
+            concat(content_tag(:span, class: "popularity__item") do
+              # empty block
+            end)
           end
 
           concat(content_tag(:span, class: "popularity__desc") do
@@ -89,11 +91,11 @@ module Decidim
         tag = "button"
         html_options ||= {}
 
-        if !current_user
-          html_options["data-open"] = "loginModal"
-        else
+        if current_user
           html_options["data-open"] = "authorizationModal"
           html_options["data-open-url"] = authorization_sign_modal_initiative_path(initiative)
+        else
+          html_options["data-open"] = "loginModal"
         end
 
         html_options["onclick"] = "event.preventDefault();"

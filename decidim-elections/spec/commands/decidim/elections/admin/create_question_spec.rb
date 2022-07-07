@@ -14,7 +14,6 @@ describe Decidim::Elections::Admin::CreateQuestion do
     double(
       invalid?: invalid,
       title: { en: "title" },
-      description: { en: "description" },
       max_selections: 3,
       weight: 10,
       random_answers_order: true,
@@ -30,13 +29,12 @@ describe Decidim::Elections::Admin::CreateQuestion do
   let(:question) { Decidim::Elections::Question.last }
 
   it "creates the question" do
-    expect { subject.call }.to change { Decidim::Elections::Question.count }.by(1)
+    expect { subject.call }.to change(Decidim::Elections::Question, :count).by(1)
   end
 
   it "stores the given data" do
     subject.call
     expect(translated(question.title)).to eq "title"
-    expect(translated(question.description)).to eq "description"
     expect(question.max_selections).to eq(3)
     expect(question.weight).to eq(10)
     expect(question.random_answers_order).to be_truthy
@@ -48,7 +46,7 @@ describe Decidim::Elections::Admin::CreateQuestion do
       .with(
         Decidim::Elections::Question,
         user,
-        hash_including(:title, :description, :max_selections, :weight, :random_answers_order),
+        hash_including(:title, :max_selections, :weight, :random_answers_order),
         visibility: "all"
       )
       .and_call_original
@@ -71,7 +69,7 @@ describe Decidim::Elections::Admin::CreateQuestion do
     let(:election) { create :election, :started }
 
     it "is not valid" do
-      expect { subject.call }.to broadcast(:invalid)
+      expect { subject.call }.to broadcast(:election_started)
     end
   end
 end

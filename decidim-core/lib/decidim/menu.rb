@@ -102,7 +102,7 @@ module Decidim
     #
     def items
       @items.reject! { |item| @removed_items.include?(item.identifier) }
-      @ordered_elements.each { |item| move_element(item) }
+      @ordered_elements.each { |item| move_element(**item) }
       @items.select(&:visible?).sort_by(&:position)
     end
 

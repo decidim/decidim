@@ -23,7 +23,7 @@ module Decidim
       describe "text" do
         let(:query) { "{ text }" }
 
-        it "returns the text " do
+        it "returns the text" do
           expect(response).to include("text" => "A test locale.")
         end
       end

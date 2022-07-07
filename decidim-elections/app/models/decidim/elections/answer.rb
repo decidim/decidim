@@ -39,12 +39,7 @@ module Decidim
       # A result percentage relative to the question
       # Returns a Float.
       def results_percentage
-        @results_percentage ||= begin
-          return 0 unless results_total.positive?
-
-          result = results_total.to_f / question.results_total * 100.0
-          result.round
-        end
+        @results_percentage ||= results_total.positive? ? (results_total.to_f / question.results_total * 100.0).round : 0
       end
     end
   end

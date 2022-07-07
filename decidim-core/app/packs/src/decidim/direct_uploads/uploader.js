@@ -9,7 +9,7 @@ export class Uploader {
     this.fileTooBig = false;
     if (modal.options.maxFileSize && options.file.size > modal.options.maxFileSize) {
       this.fileTooBig = true;
-      this.showError([modal.locales.file_too_big]);
+      this.showError([modal.locales.file_size_too_large]);
     } else {
       this.upload = new DirectUpload(options.file, options.url, this);
     }
@@ -46,9 +46,13 @@ export class Uploader {
     }
 
     if (!this.validationSent) {
+      let property = this.modal.options.addAttribute;
+      if (this.modal.options.titled) {
+        property = "file"
+      }
       const params = new URLSearchParams({
         resourceClass: this.modal.options.resourceClass,
-        property: this.modal.options.addAttribute,
+        property: property,
         blob: blobId,
         formClass: this.modal.options.formObjectClass
       });

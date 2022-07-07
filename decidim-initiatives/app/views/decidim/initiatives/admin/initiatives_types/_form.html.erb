@@ -14,7 +14,7 @@
 
     <div class="row">
       <div class="columns xlarge-6">
-        <%= form.upload :banner_image %>
+        <%= form.upload :banner_image, optional: false %>
       </div>
     </div>
   </div>
@@ -62,6 +62,10 @@
       <div class="row column minimum-committee-members-details">
         <%= form.number_field :minimum_committee_members, min: 0, step: 1 %>
       </div>
+    </div>
+
+    <div class="row column">
+      <%= form.check_box :comments_enabled %>
     </div>
 
     <div class="row column">

@@ -98,7 +98,7 @@ module Decidim
             if current_census.access_codes_file.attached?
               redirect_to Rails.application.routes.url_helpers.rails_blob_url(current_census.access_codes_file.blob, only_path: true)
             else
-              flash[:error] = t("export_access_codes.file_not_exists", scope: "decidim.votings.census.admin.census")
+              flash[:error] = t("export_access_codes.file_not_exist", scope: "decidim.votings.census.admin.census")
               redirect_to admin_voting_census_path
             end
           end

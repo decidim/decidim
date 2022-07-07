@@ -12,7 +12,7 @@ describe Decidim::OpenDataExporter do
     it "generates a zip file at the path" do
       subject.export
 
-      expect(File.exist?(path)).to eq(true)
+      expect(File.exist?(path)).to be(true)
     end
 
     describe "contents" do

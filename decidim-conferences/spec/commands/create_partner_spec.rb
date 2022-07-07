@@ -27,8 +27,7 @@ module Decidim::Conferences
           weight: 1,
           partner_type: partner_type,
           link: Faker::Internet.url,
-          logo: logo,
-          remove_logo: false
+          logo: logo
         }
       }
     end
@@ -68,7 +67,7 @@ module Decidim::Conferences
       let(:partner) { Decidim::Conferences::Partner.last }
 
       it "creates a partner" do
-        expect { subject.call }.to change { Decidim::Conferences::Partner.count }.by(1)
+        expect { subject.call }.to change(Decidim::Conferences::Partner, :count).by(1)
       end
 
       it "broadcasts ok" do
@@ -83,7 +82,7 @@ module Decidim::Conferences
       it "traces the action", versioning: true do
         expect(Decidim.traceability)
           .to receive(:perform_action!)
-          .with(:create, Decidim::Conferences::Partner, current_user, participatory_space: { title: conference.title }, resource: { title: form.name })
+          .with(:create, Decidim::Conferences::Partner, current_user, { participatory_space: { title: conference.title }, resource: { title: form.name } })
           .and_call_original
 
         expect { subject.call }.to change(Decidim::ActionLog, :count)

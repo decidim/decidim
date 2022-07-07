@@ -22,6 +22,14 @@ module Decidim
       end
 
       describe "email_subject" do
+        context "when resource title contains apostrophes" do
+          let(:resource) { create :proposal, title: "It's a nice proposal" }
+
+          it "is generated correctly" do
+            expect(subject.email_subject).to eq("New proposal \"#{resource_title}\" by @#{author.nickname}")
+          end
+        end
+
         it "is generated correctly" do
           expect(subject.email_subject).to eq("New proposal \"#{resource_title}\" by @#{author.nickname}")
         end
@@ -87,11 +95,11 @@ module Decidim
 
       describe "translated notifications" do
         let(:en_body) { "A nice proposal" }
-        let(:body) { { "en": en_body, "machine_translations": { "ca": "Une belle idee" } } }
+        let(:body) { { en: en_body, machine_translations: { ca: "Une belle idee" } } }
         let(:resource) do
           create :proposal,
                  component: proposal_component,
-                 title: { "en": "A nice proposal", "machine_translations": { "ca": "Une belle idee" } },
+                 title: { en: "A nice proposal", machine_translations: { ca: "Une belle idee" } },
                  body: body
         end
 

@@ -29,7 +29,7 @@ describe "Import proposal answers", type: :system do
         id: proposal.id,
         state: %w(accepted rejected evaluating).sample,
         "answer/fi": Faker::Lorem.sentence,
-        "hello": "world"
+        hello: "world"
       }
     end
   end
@@ -55,9 +55,7 @@ describe "Import proposal answers", type: :system do
     end
 
     it "adds proposal answers after succesfully import" do
-      File.open(json_file, "w") do |f|
-        f.write(JSON.pretty_generate(answers))
-      end
+      File.write(json_file, JSON.pretty_generate(answers))
       dynamically_attach_file(:import_file, json_file)
 
       expect(Decidim::Proposals::Admin::NotifyProposalAnswer).to receive(:call).exactly(amount).times
@@ -74,9 +72,7 @@ describe "Import proposal answers", type: :system do
     end
 
     it "doesnt accept file without required headers" do
-      File.open(json_file, "w") do |f|
-        f.write(JSON.pretty_generate(missing_answers))
-      end
+      File.write(json_file, JSON.pretty_generate(missing_answers))
       dynamically_attach_file(:import_file, json_file)
       click_button "Import"
       expect(page).to have_content("Missing column answer/en. Please check that the file contains required columns.")
@@ -98,9 +94,7 @@ describe "Import proposal answers", type: :system do
       end
 
       it "adds proposal answers after succesfully import" do
-        File.open(json_file, "w") do |f|
-          f.write(JSON.pretty_generate(answers))
-        end
+        File.write(json_file, JSON.pretty_generate(answers))
         dynamically_attach_file(:import_file, json_file)
 
         expect(Decidim::Proposals::Admin::NotifyProposalAnswer).to receive(:call).exactly(amount).times

@@ -30,7 +30,5 @@ ro:
             invalid: A apărut o eroare la salvarea paginii.
             success: Pagina a fost salvată cu succes.
       home:
-        hero:
-          participate_title: Participă la procesele platformei
         sub_hero:
           register_title: Înregistrează-te pentru a crea un cont

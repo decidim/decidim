@@ -18,7 +18,7 @@ describe Decidim::Conferences::Admin::SendConferenceDiplomaJob do
     let(:mailer) { double :mailer }
 
     it "send an email to user" do
-      expect(Decidim::Conferences::Admin::SendConferenceDiplomaMailer)
+      allow(Decidim::Conferences::Admin::SendConferenceDiplomaMailer)
         .to receive(:diploma)
         .with(conference, conference_registration.user)
         .and_return(mailer)

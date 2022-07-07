@@ -5,7 +5,7 @@ module Decidim
     # The data store for a Order in the Decidim::Budgets component. It is unique for each
     # user and component and contains a collection of projects
     class Order < Budgets::ApplicationRecord
-      include Decidim::DataPortability
+      include Decidim::DownloadYourData
       include Decidim::NewsletterParticipant
 
       belongs_to :user, class_name: "Decidim::User", foreign_key: "decidim_user_id"
@@ -15,7 +15,6 @@ module Decidim
       has_many :projects, through: :line_items, class_name: "Decidim::Budgets::Project", foreign_key: "decidim_project_id"
 
       validates :user, uniqueness: { scope: :budget }
-      validates :budget, presence: true
       validate :user_belongs_to_organization
 
       # Rules active for the budget threshold and minimum budgets rules.
@@ -171,7 +170,7 @@ module Decidim
       end
 
       def self.export_serializer
-        Decidim::Budgets::DataPortabilityBudgetsOrderSerializer
+        Decidim::Budgets::DownloadYourDataBudgetsOrderSerializer
       end
 
       def self.newsletter_participant_ids(component)

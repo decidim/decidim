@@ -65,7 +65,7 @@ module Decidim::Assemblies
         end.to change { assembly_member.reload && assembly_member.full_name }.from(assembly_member.full_name).to("New name")
       end
 
-      it "broadcasts  ok" do
+      it "broadcasts ok" do
         expect { subject.call }.to broadcast(:ok)
       end
 

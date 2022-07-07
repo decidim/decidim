@@ -1,73 +1,84 @@
 import UploadModal from "src/decidim/direct_uploads/upload_modal";
-import { truncateFilename } from "src/decidim/direct_uploads/upload_utility";
+import { truncateFilename, createHiddenInput } from "src/decidim/direct_uploads/upload_utility";
 
-const loadAttachments = (um) => {
-  Array.from(um.activeAttachments.children).forEach((child) => {
-    um.createUploadItem(child.dataset.filename, child.dataset.title, "validated");
+const loadAttachments = (modal) => {
+  Array.from(modal.activeAttachments.children).forEach((child) => {
+    modal.createUploadItem(child.dataset.filename, child.dataset.title, "validated");
   })
 }
 
-const addInputEventListener = (um) => {
-  um.input.addEventListener("change", (event) => {
+const addInputEventListener = (modal) => {
+  modal.input.addEventListener("change", (event) => {
     event.preventDefault();
     const files = event.target.files;
-    Array.from(files).forEach((file) => um.uploadFile(file));
+    Array.from(files).forEach((file) => modal.uploadFile(file));
   })
 }
 
-const addButtonEventListener = (um) => {
-  um.button.addEventListener("click", (event) => {
+const addButtonEventListener = (modal) => {
+  modal.button.addEventListener("click", (event) => {
     event.preventDefault();
-    Array.from(um.trashCan.children).forEach((item) => {
-      um.uploadItems.append(item);
+    Array.from(modal.trashCan.children).forEach((item) => {
+      modal.uploadItems.append(item);
     })
-    if (um.uploadItems.children.length === 0) {
-      um.modalTitle.innerHTML = um.modalTitle.dataset.addlabel;
+    if (modal.uploadItems.children.length === 0) {
+      modal.modalTitle.innerHTML = modal.modalTitle.dataset.addlabel;
     } else {
-      um.modalTitle.innerHTML = um.modalTitle.dataset.editlabel;
+      modal.modalTitle.innerHTML = modal.modalTitle.dataset.editlabel;
     }
-    um.updateDropZone();
+    modal.updateDropZone();
   })
 }
 
-const addDropZoneEventListeners = (um) => {
-  um.dropZone.addEventListener("dragenter", (event) => {
+const addDropZoneEventListeners = (modal) => {
+  modal.dropZone.addEventListener("dragenter", (event) => {
     event.preventDefault();
   })
 
-  um.dropZone.addEventListener("dragover", (event) => {
+  modal.dropZone.addEventListener("dragover", (event) => {
     event.preventDefault();
-    um.dropZone.classList.add("is-dragover");
+    modal.dropZone.classList.add("is-dragover");
   })
 
-  um.dropZone.addEventListener("dragleave", () => {
-    um.dropZone.classList.remove("is-dragover");
+  modal.dropZone.addEventListener("dragleave", () => {
+    modal.dropZone.classList.remove("is-dragover");
   })
 
-  um.dropZone.addEventListener("drop", (event) => {
+  modal.dropZone.addEventListener("drop", (event) => {
     event.preventDefault();
     const files = event.dataTransfer.files;
-    Array.from(files).forEach((file) => um.uploadFile(file));
+    Array.from(files).forEach((file) => modal.uploadFile(file));
   })
 }
 
-const addSaveButtonEventListener = (um) => {
-  um.saveButton.addEventListener("click", (event) => {
+const addSaveButtonEventListener = (modal) => {
+  modal.saveButton.addEventListener("click", (event) => {
     event.preventDefault();
-    const validatedItems = um.uploadItems.querySelectorAll(".upload-item[data-state='validated']")
+    const validatedItems = modal.uploadItems.querySelectorAll(".upload-item[data-state='validated']")
     const validatedItemsCount = validatedItems.length;
     validatedItems.forEach((item) => {
       let details = item.querySelector(".attachment-details");
       if (details) {
-        um.activeAttachments.appendChild(details);
+        modal.activeAttachments.appendChild(details);
       } else {
-        details = um.activeAttachments.querySelector(`.attachment-details[data-filename='${item.dataset.filename}'`);
+        details = modal.activeAttachments.querySelector(`.attachment-details[data-filename='${item.dataset.filename}'`);
       }
       const span = details.querySelector("span");
       span.classList.add("filename");
-      if (um.options.titled) {
+      if (modal.options.titled) {
         const title = item.querySelector("input[type='text']").value;
         details.dataset.title = title;
+        let hiddenTitle = details.querySelector(".hidden-title")
+        if (hiddenTitle) {
+          hiddenTitle.value = title;
+        } else {
+          const attachmentId = details.querySelector(`[name='${modal.options.resourceName}[${modal.name}][]'`).value
+          const ordinalNumber = modal.getOrdinalNumber()
+          const hiddenTitleField = createHiddenInput("hidden-title", `${modal.options.resourceName}[${modal.options.addAttribute}][${ordinalNumber}][title]`, title)
+          const hiddenIdField = createHiddenInput("hidden-id", `${modal.options.resourceName}[${modal.options.addAttribute}][${ordinalNumber}][id]`, attachmentId)
+          details.appendChild(hiddenTitleField);
+          details.appendChild(hiddenIdField);
+        }
         span.innerHTML = `${title} (${truncateFilename(item.dataset.filename)})`;
       } else {
         span.innerHTML = truncateFilename(item.dataset.filename, 19);
@@ -75,20 +86,20 @@ const addSaveButtonEventListener = (um) => {
       span.style.display = "block";
     });
 
-    if (!um.options.titled && um.trashCan.children.length > 0) {
-      um.activeAttachments.innerHTML = `<input name='${um.options.resourceName}[remove_${um.name}]' type="hidden" value="true">`;
+    if (!modal.options.titled && modal.trashCan.children.length > 0) {
+      modal.activeAttachments.innerHTML = `<input name='${modal.options.resourceName}[remove_${modal.name}]' type="hidden" value="true">`;
     }
 
     if (validatedItemsCount > 0) {
       // Foundation helper does some magic with error fields, so these must be triggered using jQuery.
-      const $el = $(um.uploadContainer.querySelector("input[type='checkbox']"));
+      const $el = $(modal.uploadContainer.querySelector("input[type='checkbox']"));
       if ($el) {
         $el.prop("checked", true);
         $el.trigger("change");
       }
     }
-    um.cleanTrashCan();
-    um.updateAddAttachmentsButton();
+    modal.cleanTrashCan();
+    modal.updateAddAttachmentsButton();
   });
 }
 
@@ -96,11 +107,11 @@ document.addEventListener("DOMContentLoaded", () => {
   const attachmentButtons = document.querySelectorAll("button.add-file");
 
   attachmentButtons.forEach((attachmentButton) => {
-    const um = new UploadModal(attachmentButton);
-    loadAttachments(um);
-    addInputEventListener(um);
-    addButtonEventListener(um);
-    addDropZoneEventListeners(um);
-    addSaveButtonEventListener(um);
+    const modal = new UploadModal(attachmentButton);
+    loadAttachments(modal);
+    addInputEventListener(modal);
+    addButtonEventListener(modal);
+    addDropZoneEventListeners(modal);
+    addSaveButtonEventListener(modal);
   })
 })

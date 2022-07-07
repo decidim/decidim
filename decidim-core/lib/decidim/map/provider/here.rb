@@ -7,12 +7,15 @@ module Decidim
       module Autocomplete
         autoload :Here, "decidim/map/provider/autocomplete/here"
       end
+
       module Geocoding
         autoload :Here, "decidim/map/provider/geocoding/here"
       end
+
       module DynamicMap
         autoload :Here, "decidim/map/provider/dynamic_map/here"
       end
+
       module StaticMap
         autoload :Here, "decidim/map/provider/static_map/here"
       end

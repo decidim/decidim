@@ -26,7 +26,7 @@ describe Decidim::Tokenizer do
 
     it "generates an hexadecimal key" do
       expect(subject.hex_digest(string)).to be_a(String)
-      expect(subject.hex_digest(string).size <= 20).to eq(true)
+      expect(subject.hex_digest(string).size <= 20).to be(true)
     end
 
     it "generates random secrets" do

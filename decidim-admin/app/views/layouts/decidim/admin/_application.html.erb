@@ -29,5 +29,7 @@
     <%= render partial: "decidim/shared/confirm_modal" %>
     <%= render partial: "layouts/decidim/admin/js_configuration" %>
     <%= render partial: "layouts/decidim/cors" if Decidim.cors_enabled %>
+
+    <%= snippets.display(:foot) %>
   </body>
 </html>

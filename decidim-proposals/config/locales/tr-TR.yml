@@ -41,10 +41,6 @@ tr:
           valuator_role_id: Bilirkişi adı
     errors:
       models:
-        participatory_text:
-          attributes:
-            document:
-              invalid_document_type: 'Geçersiz doküman tipi. Kabul edilen formatlar: %{valid_mime_types}'
         proposal:
           attributes:
             add_documents:
@@ -185,33 +181,21 @@ tr:
             email_subject: Birisi %{resource_title} teklifine not bıraktı.
             notification_title: Birisi teklif <a href="%{resource_path}">%{resource_title} </a> hakkında bir not bıraktı. <a href="%{admin_proposal_info_path}"> Yönetici panelinden </a> kontrol edin
         collaborative_draft_access_accepted:
-          email_intro: '%{requester_name}, <a href="%{resource_path}">%{resource_title} </a> ortak çalışma taslağına katkıda bulunan kişi olarak erişim için kabul edildi.'
-          email_outro: Bu bildirimi, <a href="%{resource_path}">%{resource_title} </a> ortak çalışanı olduğunuz için aldınız.
           email_subject: "%{requester_name}, %{resource_title} katkı sağlayıcısı olarak erişim için kabul edildi."
           notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname} </a> için <strong> katkıda bulunan </strong> olarak erişim için kabul edildi <a href = "%{resource_path}">%{resource_title} </a> ortak çalışma taslağı.
         collaborative_draft_access_rejected:
-          email_intro: '<a href="%{resource_path}">%{resource_title}</a> işbirlikçi taslağın katılımcısı olarak erişim için %{requester_name} reddedildi.'
-          email_outro: Bu bildirimi, <a href="%{resource_path}">%{resource_title} </a> ortak çalışanı olduğunuz için aldınız.
           email_subject: "%{requester_name}, %{resource_title} ortak çalışma taslağına katkıda bulunan kişi olarak erişimi reddedildi."
           notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> , <a href="%{resource_path}">%{resource_title}</a> işbirlikçi taslağın bir katkıcısı</strong> olarak erişmek için <strong>reddedilmiştir.
         collaborative_draft_access_requested:
-          email_intro: '%{requester_name} katkıda bulunan olarak erişim istedi. <a href="%{resource_path}">%{resource_title} </a> ortak çalışma taslak sayfasından <strong> isteği kabul edebilir veya reddedebilirsiniz </strong>.'
-          email_outro: Bu bildirimi, <a href="%{resource_path}">%{resource_title} </a> ortak çalışanı olduğunuz için aldınız.
           email_subject: "%{requester_name}, %{resource_title} kaynağına katkıda bulunmak için erişim istedi."
           notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname} </a>, <a href="%{resource_path}">%{resource_title} </a> ortak çalışma taslağına katkıda bulunmak için erişim istedi. Lütfen <strong> isteği kabul edin veya reddedin </strong>.
         collaborative_draft_access_requester_accepted:
-          email_intro: <a href="%{resource_path}">%{resource_title} </a> ortak çalışma taslağına katkıda bulunan olarak erişmeniz kabul edildi.
-          email_outro: Bu bildirimi, <a href="%{resource_path}">%{resource_title} </a> ortak çalışanı olmayı talep ettiğiniz için aldınız.
           email_subject: '%{resource_title} katılımcısı olarak kabul edildiniz.'
           notification_title: <a href="%{resource_path}">%{resource_title} </a> ortak çalışma taslağına <strong> katkıda bulunan kişi olarak erişmeniz kabul edildi </strong>.
         collaborative_draft_access_requester_rejected:
-          email_intro: <a href="%{resource_path}">%{resource_title} </a> ortak çalışma taslağına katkıda bulunan olarak erişiminiz reddedildi.
-          email_outro: Bu bildirimi, <a href="%{resource_path}">%{resource_title} </a> ortak çalışanı olmayı talep ettiğiniz için aldınız.
           email_subject: '%{resource_title} katılımcısı olarak reddedildiniz.'
           notification_title: <a href="%{resource_path}">%{resource_title} </a> ortak çalışma taslağına <strong> katkıda bulunan olarak erişiminiz reddedildi </strong>.
         collaborative_draft_withdrawn:
-          email_intro: <a href="%{author_path}">%{author_name} %{author_nickname} </a>, <a href="%{resource_path}">%{resource_title} </a> ortak çalışma taslağını geri çekti.
-          email_outro: Bu bildirimi, <a href="%{resource_path}">%{resource_title} </a> ortak çalışanı olduğunuz için aldınız.
           email_subject: "%{author_name} %{author_nickname}, %{resource_title} ortak çalışma taslağını geri çekti."
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname} </a> <a href="%{resource_path}">%{resource_title} </a> işbirlikçi taslak öğesini <strong> geri çekti </strong>.
         creation_enabled:
@@ -741,7 +725,6 @@ tr:
             other: destekler
         new:
           send: Devam et
-          title: Teklifinizi Oluşturun
         orders:
           label: 'Teklifleri şuna göre sırala:'
           most_commented: En çok yorum yapılan

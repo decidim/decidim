@@ -18,15 +18,23 @@ module Decidim
       def set_asset_host
         return if Rails.application.config.action_mailer.asset_host.present?
 
-        self.asset_host = ->(_mail) { "#{protocol}://#{@organization.host}" }
+        self.asset_host = ->(_mail) { "#{protocol}://#{@organization.host}#{port_fragment}" }
       end
 
       private
 
       def protocol
-        return "https" if Decidim.force_ssl
+        asset_url_options.protocol
+      end
 
-        "http"
+      def port_fragment
+        return if asset_url_options.default_port?
+
+        ":#{asset_url_options.port}"
+      end
+
+      def asset_url_options
+        @asset_url_options ||= UrlOptionResolver.new
       end
     end
   end

@@ -7,13 +7,13 @@
     <% if @granted_authorizations.any? %>
       <div class="card card--list">
         <% @granted_authorizations.each do |authorization| %>
-          <% if authorization.expired? %>
-            <%= link_to authorization_method(authorization).root_path(**url_params), title: t(".expired_verification"), class: "card--list__item" do %>
-              <% render partial: "granted_authorization", locals: { authorization: authorization } %>
-            <% end %>
-          <% elsif authorization.renewable? %>
+          <% if authorization.renewable? %>
             <%= link_to "#", title: t(".show_renew_info"), data: { open: "renew-modal", "open-url": renew_modal_authorizations_path(handler: authorization.name) }, class: "card--list__item authorization-renewable" do %>
                <%= render partial: "granted_authorization", locals: { authorization: authorization } %>
+            <% end %>
+          <% elsif authorization.expired? %>
+            <%= link_to authorization_method(authorization).root_path(**url_params), title: t(".expired_verification"), class: "card--list__item" do %>
+              <% render partial: "granted_authorization", locals: { authorization: authorization } %>
             <% end %>
           <% else %>
             <div class="card--list__item">

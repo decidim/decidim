@@ -30,12 +30,10 @@ module Decidim
       # Returns a String.
       def meeting_type_badge_css_class(type)
         case type
-        when "private"
+        when "private", "withdraw"
           "alert"
         when "transparent"
           "secondary"
-        when "withdraw"
-          "alert"
         end
       end
 

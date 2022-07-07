@@ -36,14 +36,12 @@ module Decidim
         return unless permission_action.scope == :public
 
         case permission_action.subject
-        when :consultation_list
+        when :consultation_list, :participatory_space
           allow!
         when :consultation
           toggle_allow(consultation.published? || user&.admin?)
         when :question
           toggle_allow(question.published? || user&.admin?)
-        when :participatory_space
-          allow!
         end
       end
 

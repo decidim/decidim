@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim::Admin::Import
   describe Creator do
-    let(:subject) { described_class.new(unknown_resource) }
+    subject { described_class.new(unknown_resource) }
     let(:unknown_resource) { { field: "foo" } }
 
     it "cant finish without implementation for a resource" do

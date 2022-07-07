@@ -1,156 +1,158 @@
-<div class="initiative-letterhead">
-  <% if current_organization.logo.present? %>
-    <%= image_tag current_organization.logo.url, title: current_organization.name %>
-  <% end %>
+<div class="wrapper">
+  <div class="initiative-letterhead">
+    <% if current_organization.logo.present? %>
+      <%= image_tag current_organization.attached_uploader(:logo).path(variant: :medium), title: current_organization.name %>
+    <% end %>
 
-  <%= current_organization.name %>
-</div>
-<h3 class="print-section-title"><%= t ".section" %></h3>
-<div class="initiative-print-title">
-  <%= t ".general_title" %>
-</div>
-
-<div class="print-table">
-  <div class="print-table-header">
-    <%= t ".author_title" %>
+    <%= current_organization.name %>
+  </div>
+  <h3 class="print-section-title"><%= t ".section" %></h3>
+  <div class="initiative-print-title">
+    <%= t ".general_title" %>
   </div>
 
-  <div class="print-table-row">
-    <div class="print-table-cell">
-      <div class="cell-header"><%= t ".id_number" %></div>
-      <div class="cell-content"></div>
-    </div>
-  </div>
-
-  <div class="print-table-row">
-    <div class="print-table-cell">
-      <div class="cell-header"><%= t ".full_name" %></div>
-      <div class="cell-content"></div>
-    </div>
-  </div>
-
-  <div class="print-table-row">
-    <div class="print-table-cell">
-      <div class="cell-header"><%= t ".address" %></div>
-      <div class="cell-content"></div>
-    </div>
-  </div>
-
-  <div class="print-table-row">
-    <div class="print-table-cell w33">
-      <div class="cell-header"><%= t ".city" %></div>
-      <div class="cell-content"></div>
-    </div>
-    <div class="print-table-cell w33">
-      <div class="cell-header"><%= t ".province" %></div>
-      <div class="cell-content"></div>
-    </div>
-    <div class="print-table-cell w33">
-      <div class="cell-header"><%= t ".postal_code" %></div>
-      <div class="cell-content"></div>
-    </div>
-  </div>
-
-  <div class="print-table-row">
-    <div class="print-table-cell w33">
-      <div class="cell-header"><%= t ".phone_number" %></div>
-      <div class="cell-content"></div>
+  <div class="print-table">
+    <div class="print-table-header">
+      <%= t ".author_title" %>
     </div>
 
-    <div class="print-table-cell">
-      <div class="cell-header"><%= t ".email" %></div>
-      <div class="cell-content"><%= current_initiative.author.email %></div>
-    </div>
-  </div>
-</div>
-<br><br>
-<div class="print-table">
-  <div class="print-table-header">
-    Members of the initiative's promoter committee
-  </div>
-
-  <div class="print-table-row">
-    <div class="print-table-cell w33"><%= t ".full_name" %></div>
-    <div class="print-table-cell w33"><%= t ".id_number" %></div>
-    <div class="print-table-cell w33"><%= t ".address" %></div>
-  </div>
-
-  <% 4.times do %>
     <div class="print-table-row">
-      <div class="print-table-cell w33"></div>
-      <div class="print-table-cell w33"></div>
-      <div class="print-table-cell w33"></div>
+      <div class="print-table-cell">
+        <div class="cell-header"><%= t ".id_number" %></div>
+        <div class="cell-content"></div>
+      </div>
     </div>
-  <% end %>
+
+    <div class="print-table-row">
+      <div class="print-table-cell">
+        <div class="cell-header"><%= t ".full_name" %></div>
+        <div class="cell-content"></div>
+      </div>
+    </div>
+
+    <div class="print-table-row">
+      <div class="print-table-cell">
+        <div class="cell-header"><%= t ".address" %></div>
+        <div class="cell-content"></div>
+      </div>
+    </div>
+
+    <div class="print-table-row">
+      <div class="print-table-cell w33">
+        <div class="cell-header"><%= t ".city" %></div>
+        <div class="cell-content"></div>
+      </div>
+      <div class="print-table-cell w33">
+        <div class="cell-header"><%= t ".province" %></div>
+        <div class="cell-content"></div>
+      </div>
+      <div class="print-table-cell w33">
+        <div class="cell-header"><%= t ".postal_code" %></div>
+        <div class="cell-content"></div>
+      </div>
+    </div>
+
+    <div class="print-table-row">
+      <div class="print-table-cell w33">
+        <div class="cell-header"><%= t ".phone_number" %></div>
+        <div class="cell-content"></div>
+      </div>
+
+      <div class="print-table-cell">
+        <div class="cell-header"><%= t ".email" %></div>
+        <div class="cell-content"><%= current_initiative.author.email %></div>
+      </div>
+    </div>
+  </div>
+  <br><br>
+  <div class="print-table">
+    <div class="print-table-header">
+      <%= t ".members_header" %>
+    </div>
+
+    <div class="print-table-row">
+      <div class="print-table-cell w33"><%= t ".full_name" %></div>
+      <div class="print-table-cell w33"><%= t ".id_number" %></div>
+      <div class="print-table-cell w33"><%= t ".address" %></div>
+    </div>
+
+    <% 4.times do %>
+      <div class="print-table-row">
+        <div class="print-table-cell w33"></div>
+        <div class="print-table-cell w33"></div>
+        <div class="print-table-cell w33"></div>
+      </div>
+    <% end %>
+  </div>
+
+  <h2 class="print-section-title"><%= t ".initiative.type" %></h2>
+  <%= translated_attribute(current_initiative.type.title) %>
+
+  <h2 class="print-section-title"><%= t ".initiative.title" %></h2>
+  <%= translated_attribute(current_initiative.title) %>
+
+  <h2 class="print-section-title"><%= t ".initiative.description" %></h2>
+  <%= decidim_sanitize_editor translated_attribute(current_initiative.description) %>
+
+  <div class="print-table">
+    <div class="print-table-header">
+      <%= t ".initiative.attachments" %>
+    </div>
+
+    <div class="print-table-row">
+      <div class="print-table-cell checkbox-cell"></div>
+      <div class="print-table-cell">
+        <div class="cell-content"></div>
+      </div>
+    </div>
+
+    <div class="print-table-row">
+      <div class="print-table-cell checkbox-cell"></div>
+      <div class="print-table-cell">
+        <div class="cell-content"><div class="cell-content"></div></div>
+      </div>
+    </div>
+
+    <div class="print-table-row">
+      <div class="print-table-cell checkbox-cell"></div>
+      <div class="print-table-cell">
+        <div class="cell-content"></div>
+      </div>
+    </div>
+
+    <div class="print-table-row">
+      <div class="print-table-cell checkbox-cell"></div>
+      <div class="print-table-cell">
+        <div class="cell-content"></div>
+      </div>
+    </div>
+
+    <div class="print-table-row">
+      <div class="print-table-cell checkbox-cell"></div>
+      <div class="print-table-cell">
+        <div class="cell-content"></div>
+      </div>
+    </div>
+
+    <div class="print-table-row">
+      <div class="print-table-cell checkbox-cell"></div>
+      <div class="print-table-cell">
+        <div class="cell-content"></div>
+      </div>
+    </div>
+  </div>
+  <br>
+  <div class="print-table no-border">
+    <div class="print-table-row no-border">
+      <div class="print-table-cell w50 no-border" style="font-weight: bold"><%= t ".place_date" %></div>
+      <div class="print-table-cell w50 no-border" style="font-weight: bold"><%= t ".signature" %></div>
+    </div>
+  </div>
+
+  <p class="print-initiative-legal-text">
+    <%= t ".legal_text" %>
+  </p>
+
+  <a href="#" onclick="window.print();return false;" class="button expanded"><%= t ".print" %></a>
+  <%= stylesheet_pack_tag "decidim_initiatives_print", media: "all" %>
 </div>
-
-<h2 class="print-section-title"><%= t ".initiative.type" %></h2>
-<%= translated_attribute(current_initiative.type.title) %>
-
-<h2 class="print-section-title"><%= t ".initiative.title" %></h2>
-<%= translated_attribute(current_initiative.title) %>
-
-<h2 class="print-section-title"><%= t ".initiative.description" %></h2>
-<%= decidim_sanitize_editor translated_attribute(current_initiative.description) %>
-
-<div class="print-table">
-  <div class="print-table-header">
-    <%= t ".initiative.attachments" %>
-  </div>
-
-  <div class="print-table-row">
-    <div class="print-table-cell checkbox-cell"></div>
-    <div class="print-table-cell">
-      <div class="cell-content"></div>
-    </div>
-  </div>
-
-  <div class="print-table-row">
-    <div class="print-table-cell checkbox-cell"></div>
-    <div class="print-table-cell">
-      <div class="cell-content"><div class="cell-content"></div></div>
-    </div>
-  </div>
-
-  <div class="print-table-row">
-    <div class="print-table-cell checkbox-cell"></div>
-    <div class="print-table-cell">
-      <div class="cell-content"></div>
-    </div>
-  </div>
-
-  <div class="print-table-row">
-    <div class="print-table-cell checkbox-cell"></div>
-    <div class="print-table-cell">
-      <div class="cell-content"></div>
-    </div>
-  </div>
-
-  <div class="print-table-row">
-    <div class="print-table-cell checkbox-cell"></div>
-    <div class="print-table-cell">
-      <div class="cell-content"></div>
-    </div>
-  </div>
-
-  <div class="print-table-row">
-    <div class="print-table-cell checkbox-cell"></div>
-    <div class="print-table-cell">
-      <div class="cell-content"></div>
-    </div>
-  </div>
-</div>
-<br>
-<div class="print-table no-border">
-  <div class="print-table-row no-border">
-    <div class="print-table-cell w50 no-border" style="font-weight: bold"><%= t ".place_date" %></div>
-    <div class="print-table-cell w50 no-border" style="font-weight: bold"><%= t ".signature" %></div>
-  </div>
-</div>
-
-<p class="print-initiative-legal-text">
-  <%= t ".legal_text" %>
-</p>
-
-<a href="#" onclick="window.print();return false;" class="button expanded"><%= t ".print" %></a>
-<%= stylesheet_pack_tag "decidim_initiatives_print", media: "all" %>

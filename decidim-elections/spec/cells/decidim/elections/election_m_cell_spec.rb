@@ -29,7 +29,7 @@ module Decidim::Elections
         expect(subject).to have_css(".card--election")
       end
 
-      it "renders the start and end time " do
+      it "renders the start and end time" do
         election_start = I18n.l(start_time.to_date, format: :decidim_short)
         election_end = I18n.l(end_time.to_date, format: :decidim_short)
 

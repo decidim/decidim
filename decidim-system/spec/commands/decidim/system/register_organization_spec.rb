@@ -58,7 +58,7 @@ module Decidim
             expect(organization.external_domain_whitelist).to match_array(["decidim.org", "github.com"])
             expect(organization.smtp_settings["from"]).to eq("Decide Gotham <decide@gotham.gov>")
             expect(organization.smtp_settings["from_email"]).to eq("decide@gotham.gov")
-            expect(organization.omniauth_settings["omniauth_settings_facebook_enabled"]).to eq(true)
+            expect(organization.omniauth_settings["omniauth_settings_facebook_enabled"]).to be(true)
             expect(organization.file_upload_settings).to eq(upload_settings)
             expect(
               Decidim::AttributeEncryptor.decrypt(organization.omniauth_settings["omniauth_settings_facebook_app_id"])
@@ -155,7 +155,7 @@ module Decidim
         private
 
         def params_for_uploads(hash)
-          hash.map do |key, value|
+          hash.to_h do |key, value|
             case value
             when Hash
               value = params_for_uploads(value)
@@ -164,7 +164,7 @@ module Decidim
             end
 
             [key, value]
-          end.to_h
+          end
         end
       end
     end

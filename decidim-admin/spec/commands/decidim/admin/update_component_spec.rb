@@ -8,6 +8,7 @@ module Decidim::Admin
     let(:step) { participatory_process.steps.first }
     let!(:component) { create(:component, :with_one_step, participatory_space: participatory_process) }
     let(:manifest) { component.manifest }
+    let(:user) { create :user }
 
     let(:form) do
       instance_double(
@@ -21,21 +22,21 @@ module Decidim::Admin
         invalid?: !valid,
         valid?: valid,
         settings: {
-          dummy_global_attribute_1: true,
-          dummy_global_attribute_2: false,
+          dummy_global_attribute1: true,
+          dummy_global_attribute2: false,
           readonly_attribute: false
         },
         default_step_settings: {
           step.id.to_s => {
-            dummy_step_attribute_1: true,
-            dummy_step_attribute_2: false,
+            dummy_step_attribute1: true,
+            dummy_step_attribute2: false,
             readonly_step_attribute: false
           }
         },
         step_settings: {
           step.id.to_s => {
-            dummy_step_attribute_1: true,
-            dummy_step_attribute_2: false,
+            dummy_step_attribute1: true,
+            dummy_step_attribute2: false,
             readonly_step_attribute: false
           }
         }
@@ -47,19 +48,19 @@ module Decidim::Admin
 
       it "broadcasts :ok and updates the component (except the readonly attribute)" do
         expect do
-          described_class.call(form, component)
+          described_class.call(form, component, user)
         end.to broadcast(:ok)
 
         expect(component["name"]["en"]).to eq("My component")
         expect(component.weight).to eq(3)
-        expect(component.settings.dummy_global_attribute_1).to eq(true)
-        expect(component.settings.dummy_global_attribute_2).to eq(false)
-        expect(component.settings.readonly_attribute).to eq(true)
+        expect(component.settings.dummy_global_attribute1).to be(true)
+        expect(component.settings.dummy_global_attribute2).to be(false)
+        expect(component.settings.readonly_attribute).to be(true)
 
         step_settings = component.step_settings[step.id.to_s]
-        expect(step_settings.dummy_step_attribute_1).to eq(true)
-        expect(step_settings.dummy_step_attribute_2).to eq(false)
-        expect(step_settings.readonly_step_attribute).to eq(true)
+        expect(step_settings.dummy_step_attribute1).to be(true)
+        expect(step_settings.dummy_step_attribute2).to be(false)
+        expect(step_settings.readonly_step_attribute).to be(true)
       end
 
       it "fires the hooks" do
@@ -69,7 +70,7 @@ module Decidim::Admin
           results[:component] = component
         end
 
-        described_class.call(form, component)
+        described_class.call(form, component, user)
 
         component = results[:component]
         expect(component.name["en"]).to eq("My component")
@@ -78,7 +79,7 @@ module Decidim::Admin
 
       it "broadcasts the previous and current settings" do
         expect do
-          described_class.call(form, component)
+          described_class.call(form, component, user)
         end.to broadcast(
           :ok,
           true,
@@ -93,6 +94,18 @@ module Decidim::Admin
           )
         )
       end
+
+      it "traces the action", versioning: true do
+        expect(Decidim.traceability)
+          .to receive(:perform_action!)
+          .with("update", Decidim::Component, user)
+          .and_call_original
+
+        expect { described_class.call(form, component, user) }.to change(Decidim::ActionLog, :count)
+        action_log = Decidim::ActionLog.last
+        expect(action_log.action).to eq("update")
+        expect(action_log.version).to be_present
+      end
     end
 
     describe "when invalid" do
@@ -100,7 +113,7 @@ module Decidim::Admin
 
       it "does not update the component" do
         expect do
-          described_class.call(form, component)
+          described_class.call(form, component, user)
         end.to broadcast(:invalid)
 
         component.reload

@@ -66,11 +66,11 @@ Decidim.register_component(:proposals) do |component|
     settings.attribute :votes_blocked, type: :boolean
     settings.attribute :votes_hidden, type: :boolean, default: false
     settings.attribute :comments_blocked, type: :boolean, default: false
-    settings.attribute :creation_enabled, type: :boolean
+    settings.attribute :creation_enabled, type: :boolean, readonly: ->(context) { context[:component].settings[:participatory_texts_enabled] }
     settings.attribute :proposal_answering_enabled, type: :boolean, default: true
-    settings.attribute :default_sort_order, type: :select, include_blank: true, choices: -> { POSSIBLE_SORT_ORDERS }
     settings.attribute :publish_answers_immediately, type: :boolean, default: true
     settings.attribute :answers_with_costs, type: :boolean, default: false
+    settings.attribute :default_sort_order, type: :select, include_blank: true, choices: -> { POSSIBLE_SORT_ORDERS }
     settings.attribute :amendment_creation_enabled, type: :boolean, default: true
     settings.attribute :amendment_reaction_enabled, type: :boolean, default: true
     settings.attribute :amendment_promotion_enabled, type: :boolean, default: true
@@ -289,8 +289,8 @@ Decidim.register_component(:proposals) do |component|
 
         author = Decidim::User.find_or_initialize_by(email: email)
         author.update!(
-          password: "decidim123456",
-          password_confirmation: "decidim123456",
+          password: "decidim123456789",
+          password_confirmation: "decidim123456789",
           name: name,
           nickname: Faker::Twitter.unique.screen_name,
           organization: component.organization,
@@ -355,8 +355,8 @@ Decidim.register_component(:proposals) do |component|
 
         author = Decidim::User.find_or_initialize_by(email: email)
         author.update!(
-          password: "decidim123456",
-          password_confirmation: "decidim123456",
+          password: "decidim123456789",
+          password_confirmation: "decidim123456789",
           name: name,
           nickname: Faker::Twitter.unique.screen_name,
           organization: component.organization,
@@ -377,8 +377,8 @@ Decidim.register_component(:proposals) do |component|
 
           author = Decidim::User.find_or_initialize_by(email: email)
           author.update!(
-            password: "decidim123456",
-            password_confirmation: "decidim123456",
+            password: "decidim123456789",
+            password_confirmation: "decidim123456789",
             name: name,
             nickname: Faker::Twitter.unique.screen_name,
             organization: component.organization,

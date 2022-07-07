@@ -134,7 +134,7 @@ describe "Meeting registrations", type: :system do
             end
 
             within ".card.extra" do
-              click_button "Inscriu-te a la trobada"
+              click_button "Unir-se a la trobada"
             end
 
             within "#loginModal" do
@@ -315,6 +315,31 @@ describe "Meeting registrations", type: :system do
           expect(page).to have_button("Submit")
         end
       end
+
+      context "when the registration form has file question and file is invalid" do
+        let!(:question) { create(:questionnaire_question, questionnaire: questionnaire, position: 0, question_type: :files) }
+
+        before do
+          login_as user, scope: :user
+        end
+
+        it "shows errors for invalid file" do
+          visit questionnaire_public_path
+
+          input_element = find("input[type='file']", visible: :all)
+          input_element.attach_file(Decidim::Dev.asset("verify_user_groups.csv"))
+
+          expect(page).to have_field("public_participation", checked: false)
+          find(".tos-agreement").set(true)
+          click_button "Submit"
+
+          within ".confirm-modal-footer" do
+            find("a.button[data-confirm-ok]").click
+          end
+
+          expect(page).to have_content("Needs to be reattached")
+        end
+      end
     end
 
     context "and the user is going to the meeting" do
@@ -382,7 +407,7 @@ describe "Meeting registrations", type: :system do
         it "shows validation pending if not validated" do
           visit_meeting
 
-          expect(registration.validated_at).to be(nil)
+          expect(registration.validated_at).to be_nil
           expect(page).to have_content("VALIDATION PENDING")
         end
       end
@@ -395,7 +420,7 @@ describe "Meeting registrations", type: :system do
         it "shows validation pending if not validated" do
           visit_meeting
 
-          expect(registration.validated_at).to be(nil)
+          expect(registration.validated_at).to be_nil
           expect(page).to have_no_content("VALIDATION PENDING")
         end
       end
@@ -409,7 +434,7 @@ describe "Meeting registrations", type: :system do
           registration.update validated_at: Time.current
           visit_meeting
 
-          expect(registration.validated_at).not_to be(nil)
+          expect(registration.validated_at).not_to be_nil
           expect(page).to have_content("VALIDATED")
         end
       end
@@ -423,7 +448,7 @@ describe "Meeting registrations", type: :system do
           registration.update validated_at: Time.current
           visit_meeting
 
-          expect(registration.validated_at).not_to be(nil)
+          expect(registration.validated_at).not_to be_nil
           expect(page).to have_no_content("VALIDATED")
         end
       end

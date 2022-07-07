@@ -21,7 +21,7 @@ module Decidim
       private
 
       def results
-        @results ||= Decidim::Accountability::Result.where(component: model).order_randomly(rand * 2 - 1)
+        @results ||= Decidim::Accountability::Result.where(component: model).order_randomly((rand * 2) - 1)
       end
 
       def results_to_render
@@ -30,6 +30,18 @@ module Decidim
 
       def results_count
         @results_count ||= results.count
+      end
+
+      def cache_hash
+        hash = []
+        hash << "decidim/accountability/highlighted_results_for_component"
+        hash << results.cache_key_with_version
+        hash << I18n.locale.to_s
+        hash.join(Decidim.cache_key_separator)
+      end
+
+      def cache_expiry_time
+        10.minutes
       end
     end
   end

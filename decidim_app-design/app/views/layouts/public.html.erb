@@ -4,7 +4,6 @@
     <title><%= @title || "Decidim Design" %></title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <%= stylesheet_pack_tag "public", media: "all", 'data-turbolinks-track': "reload" %>
-    <%= javascript_pack_tag "public", defer: false, 'data-turbolinks-track': "reload" %>
     <%= favicon_pack_tag "media/images/favicon.png" %>
     <%= snippets.display(:head) %>
   </head>
@@ -12,8 +11,11 @@
   <body>
     <%= yield %>
 
+    <%= snippets.display(:foot) %>
     <script>
-    Decidim.config.set(<%== { icons_path: asset_pack_path("media/images/icons.svg") }.to_json %>);
+      Decidim.config.set(<%== { icons_path: asset_pack_path("media/images/icons.svg") }.to_json %>);
     </script>
+
+    <%= javascript_pack_tag "public", defer: false, 'data-turbolinks-track': "reload" %>
   </body>
 </html>

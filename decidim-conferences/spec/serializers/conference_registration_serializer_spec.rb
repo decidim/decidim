@@ -5,7 +5,8 @@ require "spec_helper"
 module Decidim::Conferences
   describe ConferenceRegistrationSerializer do
     let(:conference_registration) { create(:conference_registration) }
-    let(:subject) { described_class.new(conference_registration) }
+
+    subject { described_class.new(conference_registration) }
 
     describe "#serialize" do
       it "includes the id" do

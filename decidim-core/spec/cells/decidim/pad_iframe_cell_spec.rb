@@ -32,7 +32,7 @@ describe Decidim::PadIframeCell, type: :cell do
 
     context "when the pad is not visible" do
       before do
-        expect(model).to receive(:pad_is_visible?).and_return(false)
+        allow(model).to receive(:pad_is_visible?).and_return(false)
       end
 
       it "renders nothing" do
@@ -69,7 +69,7 @@ describe Decidim::PadIframeCell, type: :cell do
   describe "iframe_url" do
     context "when the pad is writable" do
       before do
-        expect(model).to receive(:pad_is_writable?).and_return(true)
+        allow(model).to receive(:pad_is_writable?).and_return(true)
       end
 
       it "includes the writable url" do
@@ -79,7 +79,7 @@ describe Decidim::PadIframeCell, type: :cell do
 
     context "when the pad is only readable" do
       before do
-        expect(model).to receive(:pad_is_writable?).and_return(false)
+        allow(model).to receive(:pad_is_writable?).and_return(false)
       end
 
       it "includes the read only url" do

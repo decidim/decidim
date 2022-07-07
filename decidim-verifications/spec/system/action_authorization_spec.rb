@@ -33,7 +33,7 @@ describe "Action Authorization", type: :system do
 
     context "and action authorized" do
       let(:permissions) do
-        { create: { authorization_handlers: { "dummy_authorization_handler": {} } } }
+        { create: { authorization_handlers: { dummy_authorization_handler: {} } } }
       end
 
       before do
@@ -67,7 +67,7 @@ describe "Action Authorization", type: :system do
         {
           create: {
             authorization_handlers: {
-              "dummy_authorization_handler": {
+              dummy_authorization_handler: {
                 options: {
                   allowed_postal_codes: "1234, 4567",
                   allowed_scope_id: scope.id
@@ -151,7 +151,7 @@ describe "Action Authorization", type: :system do
 
         context "when the scope and postal code is missing" do
           let(:user_scope) { nil }
-          let(:postal_code) {}
+          let(:postal_code) { nil }
 
           it "prompts user to check their authorization status" do
             click_link "New proposal"
@@ -167,7 +167,7 @@ describe "Action Authorization", type: :system do
 
     context "and action authorized and authorization expired" do
       let(:permissions) do
-        { create: { authorization_handlers: { "dummy_authorization_handler": {} } } }
+        { create: { authorization_handlers: { dummy_authorization_handler: {} } } }
       end
 
       before do
@@ -208,7 +208,7 @@ describe "Action Authorization", type: :system do
 
     context "and action authorized" do
       let(:permissions) do
-        { create: { authorization_handlers: { "dummy_authorization_workflow": {} } } }
+        { create: { authorization_handlers: { dummy_authorization_workflow: {} } } }
       end
 
       before do
@@ -230,7 +230,7 @@ describe "Action Authorization", type: :system do
 
     context "and action authorized and authorization already started" do
       let(:permissions) do
-        { create: { authorization_handlers: { "dummy_authorization_workflow": {} } } }
+        { create: { authorization_handlers: { dummy_authorization_workflow: {} } } }
       end
 
       before do
@@ -254,7 +254,7 @@ describe "Action Authorization", type: :system do
 
     context "and action authorized and authorization expired" do
       let(:permissions) do
-        { create: { authorization_handlers: { "dummy_authorization_workflow": {} } } }
+        { create: { authorization_handlers: { dummy_authorization_workflow: {} } } }
       end
 
       before do

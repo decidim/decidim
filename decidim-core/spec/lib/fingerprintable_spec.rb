@@ -18,9 +18,7 @@ module Decidim
       end
     end
 
-    let(:subject) do
-      klass.new
-    end
+    subject { klass.new }
 
     context "when provided with fields" do
       before do

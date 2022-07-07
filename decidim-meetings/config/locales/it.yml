@@ -173,9 +173,6 @@ it:
           email_outro: Hai ricevuto questa notifica perché stai seguendo la riunione "%{resource_title}". Puoi smettere di seguirlo dal link precedente.
           email_subject: La riunione "%{resource_title}" inizierà tra meno di 48 ore.
           notification_title: La riunione <a href="%{resource_path}">%{resource_title}</a> inizierà tra meno di 48 ore.
-    forms:
-      meetings:
-        attendees_count_help_text: Non dimenticare di includere il numero totale di partecipanti al tuo evento. Sia fisiche, ibrido o online, è importante sapere quante persone sono coinvolte.
     gamification:
       badges:
         attended_meetings:
@@ -443,7 +440,6 @@ it:
           type: Tipo
           type_values:
             all: Tutti
-            hybrid: Entrambi
             in_person: Faccia a faccia
             online: Online
         filters_small_view:
@@ -525,7 +521,6 @@ it:
           fields:
             closed: Chiuso
             end_time: Data di fine
-            id: Id
             map: Mappa
             official_meeting: Riunione ufficiale
             start_time: Data di inizio
@@ -538,7 +533,6 @@ it:
             empty_questions: Durante questa riunione, alcune domande saranno inviate e sarete in grado di rispondere. Verranno visualizzate qui.
           index_admin:
             admin_dashboard: Pannello di amministrazione
-            edit: Modifica nell'amministratore
             question: Domanda
             received_answer: risposta ricevuta
             received_answers: risposte ricevute
@@ -576,7 +570,6 @@ it:
           invalid: C'è stato un problema lasciare questa riunione.
           success: Hai lasciato l'incontro con successo.
       type_of_meeting:
-        hybrid: Entrambi
         in_person: Di persona
         online: Online
       types:

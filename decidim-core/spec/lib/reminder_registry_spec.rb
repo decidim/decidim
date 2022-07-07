@@ -38,6 +38,7 @@ module Decidim
     end
   end
 
-  class DummyGenerator; end
-  class DummyGenerator2; end
+  class DummyGenerator < Object; end
+
+  class DummyGenerator2 < Object; end
 end

@@ -2,6 +2,7 @@
 
 shared_examples "update an initiative type" do
   let(:organization) { create(:organization) }
+  let(:user) { create(:user) }
   let(:initiative_type) do
     create(:initiatives_type,
            :online_signature_enabled,
@@ -30,6 +31,7 @@ shared_examples "update an initiative type" do
         undo_online_signatures_enabled: false,
         custom_signature_end_date_enabled: true,
         area_enabled: true,
+        comments_enabled: true,
         promoting_committee_enabled: true,
         minimum_committee_members: 7,
         banner_image: Decidim::Dev.test_file("city2.jpeg", "image/jpeg"),
@@ -41,11 +43,11 @@ shared_examples "update an initiative type" do
       }
     end
 
-    let(:command) { described_class.new(initiative_type, form) }
+    let(:command) { described_class.new(initiative_type, form, user) }
 
     describe "when the form is not valid" do
       before do
-        expect(form).to receive(:invalid?).and_return(true)
+        allow(form).to receive(:invalid?).and_return(true)
       end
 
       it "broadcasts invalid" do
@@ -101,6 +103,18 @@ shared_examples "update an initiative type" do
         initiative.reload
 
         expect(initiative.signature_type).to eq("online")
+      end
+
+      it "traces the action", versioning: true do
+        expect(Decidim.traceability)
+          .to receive(:perform_action!)
+          .with("update", initiative_type, user)
+          .and_call_original
+
+        expect { command.call }.to change(Decidim::ActionLog, :count)
+        action_log = Decidim::ActionLog.last
+        expect(action_log.action).to eq("update")
+        expect(action_log.version).to be_present
       end
     end
   end

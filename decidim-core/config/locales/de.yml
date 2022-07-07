@@ -22,6 +22,7 @@ de:
       user:
         about: Über
         email: Ihre E-Mail
+        locale: Spracheinstellung
         name: Ihr Name
         nickname: Spitzname
         password: Passwort
@@ -34,6 +35,7 @@ de:
       decidim/demoted_membership: Kein Gruppenadministrator mehr
       decidim/gamification/badge_earned_event: Abzeichen verdient
       decidim/gamification/level_up_event: Sie sind um ein Level aufgestiegen
+      decidim/invited_to_group_event: Zur Gruppe eingeladen
       decidim/join_request_accepted_event: Beitrittsanfrage akzeptiert
       decidim/join_request_rejected_event: Beitrittsanfrage abgelehnt
       decidim/profile_updated_event: Profil aktualisiert
@@ -67,7 +69,6 @@ de:
     'true': 'Ja'
   carrierwave:
     errors:
-      image_too_big: Das Bild ist zu groß
       not_inside_organization: Die Datei ist keiner Organisation hinzugefügt
   date:
     formats:
@@ -86,9 +87,6 @@ de:
       skip_button: Zu Hauptinhalten überspringen
     account:
       blocked: Dieses Konto wurde wegen Verletzung der Allgemeinen Geschäftsbedingungen gesperrt
-      data_portability_export:
-        file_no_exists: Diese Datei existiert nicht
-        notice: Ihre Daten werden gerade bereitgestellt. Sie erhalten nach Fertigstellung eine E-Mail.
       delete:
         alert: Diese Aktion kann nicht rückgängig gemacht werden. Wenn Sie Ihr Konto löschen, können Sie sich nicht mehr einloggen. Mit der Löschung ihres Accounts werden all Ihre Beiträge anonymisiert. Sie können später wieder ein neues Konto erstellen, aber diese Beiträge werden nicht mehr mit dem neuen Konto verknüpft sein.
         confirm:
@@ -100,6 +98,9 @@ de:
       destroy:
         error: Beim Löschen Ihres Kontos ist ein Fehler aufgetreten.
         success: Ihr Konto wurde erfolgreich gelöscht.
+      download_your_data_export:
+        file_no_exists: Diese Datei existiert nicht
+        notice: Ihre Daten werden gerade bereitgestellt. Sie erhalten nach Fertigstellung eine E-Mail.
       show:
         change_password: Passwort ändern
         update_account: Konto aktualisieren
@@ -373,8 +374,8 @@ de:
             amendments_enabled: Änderungen aktiviert
             comments_enabled: Kommentare aktiviert
             comments_max_length: Maximallänge der Kommentare
-            dummy_global_attribute_1: Dummy-Attribut 1
-            dummy_global_attribute_2: Dummy-Attribut 2
+            dummy_global_attribute1: Dummy-Attribut 1
+            dummy_global_attribute2: Dummy-Attribut 2
             dummy_global_translatable_text: Übersetzbarer Blindtext
             enable_pads_creation: Aktivieren Sie die Pads-Erstellung
             resources_permissions_enabled: Ressourcenberechtigungen aktiviert
@@ -386,8 +387,8 @@ de:
             amendment_reaction_enabled: Reaktionen auf Änderungen aktiviert
             amendments_visibility: Sichtbarkeit der Änderungsvorschläge
             comments_blocked: Kommentare blockiert
-            dummy_step_attribute_1: Dummy-Schritt-Attribut 1
-            dummy_step_attribute_2: Dummy-Schritt-Attribut 2
+            dummy_step_attribute1: Dummy-Schritt-Attribut 1
+            dummy_step_attribute2: Dummy-Schritt-Attribut 2
             dummy_step_translatable_text: Übersetzbarer Blindtext des Schritts
     contact: Kontakt
     content_blocks:
@@ -431,13 +432,6 @@ de:
       actions:
         login_before_access: Bitte melden Sie sich mit Ihrem Konto an, um auf diese Seite zuzugreifen
         unauthorized: Sie sind nicht berechtigt, diese Aktion auszuführen
-    data_portability:
-      export:
-        ready: Bereit
-      show:
-        download_data: Daten herunterladen
-        download_data_description: Eine Datei, die alle mit Ihrem Konto verknüpften Informationen enthält, wird an <strong>%{user_email}</strong> gesendet. Diese E-Mail enthält eine .zip-Datei und ein Passwort, um sie zu öffnen.<br/><br/>Um die Datei zu entpacken, benötigen Sie <a href="https://www.7-zip.org/">7-Zip</a> (für Windows) oder <a href="https://www.keka.io/">Keka</a> (für MacOS). Wenn Sie Linux verwenden, wird es meistens standardmäßig installiert. Wenn nicht, können Sie <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> oder <a href="https://peazip.github.io">PeaZip</a> verwenden.
-        request_data: Daten anfordern
     datepicker:
       help_text: 'Erwartetes Format: %{datepicker_format}'
     devise:
@@ -456,7 +450,6 @@ de:
           newsletter: Gelegentlich einen Newsletter mit relevanten Informationen erhalten
           newsletter_title: Kontakterlaubnis
           nickname_help: Ihr Pseudonym in %{organization}. Kann nur Buchstaben, Zahlen, '-' und '_' enthalten.
-          password_help: "Mindestens %{minimun_characters} Zeichen, nicht zu gewöhnlich (z.B. 123456) und darf nicht Ihr Benutzername oder Ihre E-Mail-Adresse sein."
           sign_in: Anmelden
           sign_up: Registrieren
           sign_up_as:
@@ -477,7 +470,7 @@ de:
       shared:
         newsletter_modal:
           buttons:
-            check: Überprüfen und fortfahren
+            check: Kontakterlaubnis erteilen und fortfahren
             close_modal: Modal schließen
             uncheck: Ohne Kontakterlaubnis fortfahren
           notice: |-
@@ -505,6 +498,13 @@ de:
           this_application_will_not_be_able_to: 'Diese Anwendung kann nicht:'
           update_profile: Profil aktualisieren
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> möchte Ihr Konto verwenden"
+    download_your_data:
+      export:
+        ready: Bereit
+      show:
+        download_data: Daten herunterladen
+        download_data_description: Eine Datei, die alle mit Ihrem Konto verknüpften Informationen enthält, wird an <strong>%{user_email}</strong> gesendet. Diese E-Mail enthält eine .zip-Datei und ein Passwort, um sie zu öffnen.<br/><br/>Um die Datei zu entpacken, benötigen Sie <a href="https://www.7-zip.org/">7-Zip</a> (für Windows) oder <a href="https://www.keka.io/">Keka</a> (für MacOS). Wenn Sie Linux verwenden, wird es meistens standardmäßig installiert. Wenn nicht, können Sie <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> oder <a href="https://peazip.github.io">PeaZip</a> verwenden.
+        request_data: Daten anfordern
     endorsable:
       endorsements: Empfehlungen
       endorsements_count: Anzahl Befürworter
@@ -670,7 +670,7 @@ de:
           email_subject: "%{name} wurde offiziell bestätigt"
           notification_title: Teilnehmer %{name} (%{nickname}) wurde offiziell bestätigt.
     export_mailer:
-      data_portability_export:
+      download_your_data_export:
         click_button: 'Klicken Sie auf den Link, um Ihre Daten herunterzuladen.<br/>Die Datei steht bis zum %{date} zur Verfügung.<br/>Sie benötigen <a href="https://www.7-zip.org/">7-Zip</a> (für Windows), <a href="https://www.keka.io/en/">Keka</a> (für MacOS) oder <a href="https://peazip.github.io">PeaZip</a> (für Linux) um die Datei zu öffnen. Passwort: %{password}'
         download: Herunterladen
       export:
@@ -720,7 +720,6 @@ de:
         file:
           explanation: 'Anleitung für Datei:'
           message_1: Muss ein Bild oder ein Dokument sein.
-          message_2: Für Bilder, verwenden Sie vorzugsweise Landschaftsbilder, der Dienst erzeugt das Bild. Für CSV-Dateien muss der Trenner zwischen Spalten ein Komma (",") sein
         image:
           explanation: 'Anleitung für Bild:'
           message_1: Vorzugsweise ein Querformat ohne Text.
@@ -840,7 +839,6 @@ de:
       no_user_groups: Gehört noch keiner Gruppe an.
       roles:
         admin: Administrator
-        creator: Schöpfer
         member: Mitglied
       update:
         error: Beim Aktualisieren der Gruppe ist ein Problem aufgetreten
@@ -953,7 +951,7 @@ de:
           new_conversation: Neue Unterhaltung
           next: Weiter
           no_conversations: Du hast noch keine Unterhaltungen
-          title: Gespräche
+          title: Nachrichten
         reply:
           placeholder: Ihre Antwort...
           send: Senden
@@ -1035,14 +1033,12 @@ de:
         administrators: Administratoren
         allow_public_contact: Allen erlauben, mir Direktnachrichten zu senden, selbst wenn ich ihnen nicht folge.
         direct_messages: Direktnachrichten von allen erhalten
-        email_on_moderations: Ich möchte eine E-Mail erhalten, wenn etwas zur Moderation gemeldet wird.
-        email_on_notification: Ich möchte jedes Mal eine E-Mail erhalten, wenn ich eine Benachrichtigung erhalte.
+        email_on_moderations: Ich möchte jedes Mal, wenn etwas oder jemand zur Moderation gemeldet wird, eine E-Mail erhalten.
         everything_followed: Alles was ich folge
         newsletter_notifications: Ich möchte Newsletter erhalten
         newsletters: Newsletter
         own_activity: Meine eigene Tätigkeit, etwa wenn sich jemand in meinem Vorschlag äußert oder mich erwähnt
         receive_notifications_about: Ich möchte Benachrichtigungen erhalten über
-        send_notifications_by_email: Senden Sie Benachrichtigungen per E-Mail
         update_notifications_settings: Änderungen speichern
       update:
         error: Beim Aktualisieren der Benachrichtigungseinstellungen ist ein Fehler aufgetreten.
@@ -1103,7 +1099,6 @@ de:
           agreement: Ich stimme diesen Bedingungen zu
           legend: Stimme den Nutzungsbedingungen zu
         refuse:
-          modal_body: Wenn Sie sich weigern, werden Sie nicht in der Lage sein , die Plattform zu nutzen, können Sie <a href="%{data_portability_path}">laden Sie Ihre Daten</a> und / oder <a href="%{delete_path}">Ihr Konto löschen</a>.
           modal_btn_continue: Bedingungen akzeptieren und fortfahren
           modal_btn_exit: Ich werde es später überprüfen
           modal_button: Bedingungen ablehnen
@@ -1406,7 +1401,6 @@ de:
     invitations:
       edit:
         header: Beenden Sie die Erstellung Ihres Kontos
-        nickname_help: Ihre eindeutige ID in %{organization}.
         submit_button: Speichern
         subtitle: Wenn Sie die Einladung annehmen, geben Sie bitte Ihren Benutzernamen und Ihr Passwort ein.
       invitation_removed: Ihre Einladung wurde entfernt.
@@ -1473,7 +1467,6 @@ de:
     passwords:
       edit:
         change_my_password: Ändere mein Passwort
-        change_your_password: Ändern Sie Ihr Passwort
         confirm_new_password: Bestätige neues Passwort
         new_password: Neues Passwort
         password_help: "Mindestens %{minimun_characters} Zeichen, nicht zu gewöhnlich (z. B. 123456) und darf nicht Ihr Benutzername oder Ihre E-Mail-Adresse sein."
@@ -1560,10 +1553,6 @@ de:
     timestamp_error_message: Entschuldigung, das war zu schnell! Bitte erneut einreichen
   layouts:
     decidim:
-      cookie_warning:
-        description_html: Diese Seite verwendet Cookies. Indem Sie die Seite weiter durchsuchen, stimmen Sie der Verwendung von Cookies zu. Erfahren Sie mehr darüber %{link}.
-        link_label: Hier
-        ok: Ich stimme zu
       edit_link:
         edit: Bearbeiten
       footer:

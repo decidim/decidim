@@ -26,9 +26,9 @@ module Decidim
       it "generates a static map image data using the StaticMapGenerator" do
         generator = double
 
-        expect(StaticMapGenerator).to receive(:new).with(resource).and_return(generator)
-        expect(generator).to receive(:data).and_return(data)
-        expect(controller).to receive(:send_data).with(data, type: "image/jpeg", disposition: "inline")
+        allow(StaticMapGenerator).to receive(:new).with(resource).and_return(generator)
+        allow(generator).to receive(:data).and_return(data)
+        allow(controller).to receive(:send_data).with(data, type: "image/jpeg", disposition: "inline")
         expect(controller).not_to receive(:store_current_location)
 
         get :show, format: "image/jpeg", params: params

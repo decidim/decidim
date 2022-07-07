@@ -6,9 +6,9 @@ RSpec.describe "Consultation search", type: :request do
   subject { response.body }
 
   let(:organization) { create(:organization) }
-  let!(:consultation1) { create(:consultation, :published, title: { 'en': "A doggo in the title" }, organization: organization) }
-  let!(:consultation2) { create(:consultation, :published, subtitle: { 'en': "A doggo in the subtitle" }, organization: organization) }
-  let!(:consultation3) { create(:consultation, :published, description: { 'en': "There is a doggo in the office" }, organization: organization) }
+  let!(:consultation1) { create(:consultation, :published, title: { en: "A doggo in the title" }, organization: organization) }
+  let!(:consultation2) { create(:consultation, :published, subtitle: { en: "A doggo in the subtitle" }, organization: organization) }
+  let!(:consultation3) { create(:consultation, :published, description: { en: "There is a doggo in the office" }, organization: organization) }
   let!(:active_consultation) { create(:consultation, :published, :active, organization: organization) }
   let!(:upcoming_consultation) { create(:consultation, :published, :upcoming, organization: organization) }
   let!(:finished_consultation) { create(:consultation, :published, :finished, organization: organization) }

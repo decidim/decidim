@@ -13,7 +13,7 @@ describe Decidim::Accountability::Admin::Permissions do
   end
   let(:extra_context) { {} }
   let(:accountability_component) { create :accountability_component }
-  let(:permission_action) { Decidim::PermissionAction.new(action) }
+  let(:permission_action) { Decidim::PermissionAction.new(**action) }
 
   shared_examples "crud permissions" do
     describe "create" do
@@ -21,7 +21,7 @@ describe Decidim::Accountability::Admin::Permissions do
         { scope: :admin, action: :create, subject: action_subject }
       end
 
-      it { is_expected.to eq true }
+      it { is_expected.to be true }
     end
 
     describe "update" do
@@ -30,7 +30,7 @@ describe Decidim::Accountability::Admin::Permissions do
       end
 
       context "when the resource is present" do
-        it { is_expected.to eq true }
+        it { is_expected.to be true }
       end
 
       context "when the resource is not present" do
@@ -46,7 +46,7 @@ describe Decidim::Accountability::Admin::Permissions do
       end
 
       context "when the resource is present" do
-        it { is_expected.to eq true }
+        it { is_expected.to be true }
       end
 
       context "when the resource is not present" do

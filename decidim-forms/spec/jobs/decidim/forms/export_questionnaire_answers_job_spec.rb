@@ -22,7 +22,7 @@ describe Decidim::Forms::ExportQuestionnaireAnswersJob do
     let(:mailer) { double :mailer }
 
     it "sends an email" do
-      expect(Decidim::ExportMailer)
+      allow(Decidim::ExportMailer)
         .to receive(:export)
         .and_return(mailer)
       expect(mailer)
@@ -33,7 +33,7 @@ describe Decidim::Forms::ExportQuestionnaireAnswersJob do
   end
 
   describe "when no answers" do
-    it " doesn't send the email" do
+    it "doesn't send the email" do
       collection = []
 
       expect(Decidim::ExportMailer)
@@ -44,7 +44,7 @@ describe Decidim::Forms::ExportQuestionnaireAnswersJob do
   end
 
   describe "when no user" do
-    it " doesn't send the email" do
+    it "doesn't send the email" do
       user = nil
 
       expect(Decidim::ExportMailer)
@@ -55,7 +55,7 @@ describe Decidim::Forms::ExportQuestionnaireAnswersJob do
   end
 
   describe "when user has no email" do
-    it " doesn't send the email" do
+    it "doesn't send the email" do
       user.update(email: "")
 
       expect(Decidim::ExportMailer)

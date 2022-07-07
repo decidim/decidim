@@ -6,6 +6,7 @@
   component.unmountComponent();
 
   var commentsHtml = '<%== j(render partial: "comments").strip %>';
+  $(".loading-comments").addClass("hide");
   $comments.replaceWith(commentsHtml);
 
   $comments = $("#" + rootCommentableId);

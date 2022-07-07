@@ -31,7 +31,7 @@ module Decidim::Votings
     let(:form) { Census::CheckForm.from_params(params).with_context(context) }
 
     context "when the form is not valid" do
-      let(:document_number) {}
+      let(:document_number) { nil }
 
       it "broadcasts invalid" do
         expect(subject.call).to broadcast(:invalid)

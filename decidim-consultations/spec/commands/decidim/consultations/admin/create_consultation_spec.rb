@@ -49,13 +49,13 @@ module Decidim
               persisted?: false,
               valid?: false,
               errors: {
-                banner_image: "Image too big"
+                banner_image: "File resolution is too large"
               }
             ).as_null_object
           end
 
           before do
-            expect(Decidim::Consultation).to receive(:new).and_return(invalid_consultation)
+            allow(Decidim::Consultation).to receive(:new).and_return(invalid_consultation)
           end
 
           it "broadcasts invalid" do
@@ -63,14 +63,14 @@ module Decidim
           end
 
           it "adds errors to the form" do
-            expect(errors).to receive(:add).with(:banner_image, "Image too big")
+            expect(errors).to receive(:add).with(:banner_image, "File resolution is too large")
             subject.call
           end
         end
 
         context "when everything is ok" do
           it "creates a consultation" do
-            expect { subject.call }.to change { Decidim::Consultation.count }.by(1)
+            expect { subject.call }.to change(Decidim::Consultation, :count).by(1)
           end
 
           it "broadcasts ok" do

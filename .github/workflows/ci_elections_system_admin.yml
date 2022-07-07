@@ -21,7 +21,7 @@ on:
 
 env:
   CI: "true"
-  RUBY_VERSION: 2.7.5
+  RUBY_VERSION: 3.0.2
   NODE_VERSION: 16.9.1
   DECIDIM_MODULE: decidim-elections
   PARALLEL_TEST_PROCESSORS: 2
@@ -75,7 +75,7 @@ jobs:
           processor_count: ${{ env.PARALLEL_TEST_PROCESSORS }}
           ruby_version: ${{ env.RUBY_VERSION }}
           node_version: ${{ env.NODE_VERSION }}
-      - run: bundle exec rake parallel:spec[^spec/system/admin]
+      - run: bundle exec rspec spec/system/admin
         name: RSpec
         working-directory: ${{ env.DECIDIM_MODULE }}
         env:

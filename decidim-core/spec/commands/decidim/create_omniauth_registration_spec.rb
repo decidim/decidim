@@ -50,7 +50,7 @@ module Decidim
 
         context "when the form is not valid" do
           before do
-            expect(form).to receive(:invalid?).and_return(true)
+            allow(form).to receive(:invalid?).and_return(true)
           end
 
           it "broadcasts invalid" do
@@ -70,7 +70,7 @@ module Decidim
           end
 
           it "creates a new user" do
-            expect(SecureRandom).to receive(:hex).and_return("decidim123456")
+            allow(SecureRandom).to receive(:hex).and_return("decidim123456789")
 
             expect do
               command.call
@@ -81,15 +81,14 @@ module Decidim
             expect(user.email).to eq(form.email)
             expect(user.organization).to eq(organization)
             expect(user.newsletter_notifications_at).to be_nil
-            expect(user.email_on_notification).to eq(true)
             expect(user).to be_confirmed
-            expect(user.valid_password?("decidim123456")).to eq(true)
+            expect(user.valid_password?("decidim123456789")).to be(true)
           end
 
           it "notifies about registration with oauth data" do
             user = create(:user, email: email, organization: organization)
             identity = Decidim::Identity.new(id: 1234)
-            expect(command).to receive(:create_identity).and_return(identity)
+            allow(command).to receive(:create_identity).and_return(identity)
 
             expect(ActiveSupport::Notifications)
               .to receive(:publish)
@@ -114,14 +113,14 @@ module Decidim
 
               it "links a previously existing user" do
                 user = create(:user, email: email, organization: organization)
-                expect { command.call }.to change(User, :count).by(0)
+                expect { command.call }.not_to change(User, :count)
 
                 expect(user.identities.length).to eq(1)
               end
 
               it "confirms a previously existing user" do
                 create(:user, email: email, organization: organization)
-                expect { command.call }.to change(User, :count).by(0)
+                expect { command.call }.not_to change(User, :count)
 
                 user = User.find_by(email: email)
                 expect(user).to be_confirmed

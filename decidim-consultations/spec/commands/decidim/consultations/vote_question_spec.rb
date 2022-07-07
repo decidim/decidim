@@ -5,7 +5,7 @@ require "spec_helper"
 module Decidim
   module Consultations
     describe VoteQuestion do
-      let(:subject) { described_class.new(form) }
+      subject { described_class.new(form) }
 
       let(:organization) { create :organization }
       let(:consultation) { create :consultation, organization: organization }

@@ -4,6 +4,7 @@ module Decidim
   # Categories serve as a taxonomy for attachments to use for while in the
   # context of a participatory space.
   class AttachmentCollection < ApplicationRecord
+    include Traceable
     include Decidim::TranslatableResource
 
     translatable_fields :name, :description
@@ -14,6 +15,10 @@ module Decidim
 
     def unused?
       attachments.empty?
+    end
+
+    def self.log_presenter_class_for(_log)
+      Decidim::AdminLog::AttachmentCollectionPresenter
     end
   end
 end

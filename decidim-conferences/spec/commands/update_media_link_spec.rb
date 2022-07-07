@@ -41,7 +41,7 @@ module Decidim::Conferences
         end.to change { media_link.reload && media_link.title }.from(media_link.title).to("en" => "New title", "machine_translations" => kind_of(Hash))
       end
 
-      it "broadcasts  ok" do
+      it "broadcasts ok" do
         expect { subject.call }.to broadcast(:ok)
       end
 

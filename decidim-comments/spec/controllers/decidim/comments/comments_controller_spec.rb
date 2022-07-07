@@ -23,9 +23,9 @@ module Decidim
         end
 
         it "tells devise not to reset timeout counter" do
-          expect(request.env["devise.skip_timeoutable"]).to eq(nil)
+          expect(request.env["devise.skip_timeoutable"]).to be_nil
           get :index, xhr: true, params: { commentable_gid: commentable.to_signed_global_id.to_s }
-          expect(request.env["devise.skip_timeoutable"]).to eq(true)
+          expect(request.env["devise.skip_timeoutable"]).to be(true)
         end
 
         context "when requested without an XHR request" do
@@ -81,7 +81,7 @@ module Decidim
           it "creates the comment" do
             expect do
               post :create, xhr: true, params: { comment: comment_params }
-            end.to change { Decidim::Comments::Comment.count }.by(1)
+            end.to change(Decidim::Comments::Comment, :count).by(1)
 
             expect(comment.body.values.first).to eq("This is a new comment")
             expect(comment.alignment).to eq(comment_alignment)
@@ -122,7 +122,7 @@ module Decidim
             it "creates the comment with the alignment defined as 1" do
               expect do
                 post :create, xhr: true, params: { comment: comment_params }
-              end.to change { Decidim::Comments::Comment.count }.by(1)
+              end.to change(Decidim::Comments::Comment, :count).by(1)
 
               expect(comment.alignment).to eq(comment_alignment)
               expect(subject).to render_template(:create)
@@ -135,7 +135,7 @@ module Decidim
             it "creates the comment with the alignment defined as -1" do
               expect do
                 post :create, xhr: true, params: { comment: comment_params }
-              end.to change { Decidim::Comments::Comment.count }.by(1)
+              end.to change(Decidim::Comments::Comment, :count).by(1)
 
               expect(comment.alignment).to eq(comment_alignment)
               expect(subject).to render_template(:create)

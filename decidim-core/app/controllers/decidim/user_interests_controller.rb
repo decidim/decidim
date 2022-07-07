@@ -5,8 +5,6 @@ module Decidim
   class UserInterestsController < Decidim::ApplicationController
     include Decidim::UserProfile
 
-    helper_method :scopes
-
     def show
       enforce_permission_to :read, :user, current_user: current_user
       @user_interests = form(UserInterestsForm).from_model(current_user)

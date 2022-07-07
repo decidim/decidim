@@ -38,6 +38,26 @@ describe "Meeting live event", type: :system do
     expect(page).to have_current_path meeting_path
   end
 
+  context "with essential cookies only" do
+    before do
+      visit decidim.root_path
+      select_cookies("essential")
+    end
+
+    it "tells that you need to enable cookies" do
+      visit meeting_live_event_path
+      expect(page).not_to have_selector("iframe")
+      expect(page).to have_content("You need to enable all cookies in order to see this content")
+    end
+
+    it "can enable all cookies" do
+      visit meeting_live_event_path
+      click_link "Change cookie settings"
+      click_button "Accept all"
+      expect(page).to have_selector("iframe")
+    end
+  end
+
   context "when user is logged and session is about to timeout" do
     before do
       allow(Decidim.config).to receive(:expire_session_after).and_return(2.minutes)
@@ -49,7 +69,7 @@ describe "Meeting live event", type: :system do
 
     context "when meeting is live" do
       let(:meeting) { create(:meeting, :published, :online, :embed_in_meeting_page_iframe_embed_type, component: component, start_time: 1.minute.ago, end_time: end_time) }
-      let(:end_time) { Time.current + 1.hour }
+      let(:end_time) { 1.hour.from_now }
 
       it "does not timeout user" do
         travel 5.minutes
@@ -59,12 +79,12 @@ describe "Meeting live event", type: :system do
       end
 
       context "and ends soon" do
-        let(:end_time) { Time.current + 15.seconds }
+        let(:end_time) { 15.seconds.from_now }
 
         it "logouts user" do
           travel 1.minute
           expect(page).to have_content("If you continue being inactive", wait: 30)
-          allow(Time).to receive(:current).and_return(Time.current + 1.minute)
+          allow(Time).to receive(:current).and_return(1.minute.from_now)
           expect(page).to have_content("You are not allowed to view this meeting")
         end
       end

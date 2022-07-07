@@ -18,7 +18,7 @@ on:
 env:
   CI: "true"
   SIMPLECOV: "true"
-  RUBY_VERSION: 2.7.5
+  RUBY_VERSION: 3.0.2
   NODE_VERSION: 16.9.1
   RAILS_ENV: development
 
@@ -76,6 +76,9 @@ jobs:
         working-directory: ./development_app/
       - run: bundle exec rails decidim:lighthouse:prepare_urls
         name: Setup lighthouse urls
+        working-directory: ./development_app/
+      - run: bundle exec rails dev:cache
+        name: Activate Rails cache
         working-directory: ./development_app/
       - run: bundle exec rails server -b localhost -d
         name: Run Rails server

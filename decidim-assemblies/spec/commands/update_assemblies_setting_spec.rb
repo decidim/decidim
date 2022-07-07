@@ -28,7 +28,7 @@ module Decidim::Assemblies
     end
 
     context "when the form is valid" do
-      it "broadcasts  ok" do
+      it "broadcasts ok" do
         expect { subject.call }.to broadcast(:ok)
       end
 

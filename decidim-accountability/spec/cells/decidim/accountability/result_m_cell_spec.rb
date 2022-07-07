@@ -24,7 +24,7 @@ module Decidim::Accountability
         expect(subject).to have_css(".card--result")
       end
 
-      it "renders the start and end time " do
+      it "renders the start and end time" do
         result_start = I18n.l(start_date.to_date, format: :decidim_short)
         result_end = I18n.l(end_date.to_date, format: :decidim_short)
 

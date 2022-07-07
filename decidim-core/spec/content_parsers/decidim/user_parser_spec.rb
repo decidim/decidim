@@ -62,5 +62,18 @@ module Decidim
         expect(parser.metadata.users).to eq([])
       end
     end
+
+    context "when mentioning a user with a wrong case" do
+      let(:content) { "This text mentions a user with wrong case : @#{user.nickname.upcase}" }
+
+      it "rewrite the good user" do
+        expect(parser.rewrite).to eq("This text mentions a user with wrong case : #{user.to_global_id}")
+      end
+
+      it "returns the correct metadata" do
+        expect(parser.metadata).to be_a(Decidim::ContentParsers::UserParser::Metadata)
+        expect(parser.metadata.users).to eq([user])
+      end
+    end
   end
 end

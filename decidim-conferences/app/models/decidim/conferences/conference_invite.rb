@@ -6,7 +6,7 @@ module Decidim
     class ConferenceInvite < ApplicationRecord
       include Decidim::Traceable
       include Decidim::Loggable
-      include Decidim::DataPortability
+      include Decidim::DownloadYourData
 
       belongs_to :conference, foreign_key: "decidim_conference_id", class_name: "Decidim::Conference"
       belongs_to :user, foreign_key: "decidim_user_id", class_name: "Decidim::User"
@@ -15,7 +15,7 @@ module Decidim
       validates :user, uniqueness: { scope: :conference }
 
       def self.export_serializer
-        Decidim::Conferences::DataPortabilityConferenceInviteSerializer
+        Decidim::Conferences::DownloadYourDataConferenceInviteSerializer
       end
 
       def self.log_presenter_class_for(_log)

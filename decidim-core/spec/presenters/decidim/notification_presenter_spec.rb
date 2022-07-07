@@ -7,7 +7,8 @@ module Decidim
     include ActiveSupport::Testing::TimeHelpers
     let(:creating_date) { Time.parse("Wed, 1 Sep 2021 21:00:00 UTC +00:00").in_time_zone }
     let(:notification) { create(:notification, created_at: creating_date) }
-    let(:subject) { described_class.new(notification) }
+
+    subject { described_class.new(notification) }
 
     context "with a valid notification" do
       describe "#created_at_in_words" do
@@ -61,7 +62,7 @@ module Decidim
 
       describe "#display_resource_text?" do
         it "returns false if the notification hasn't to display the content of the comment" do
-          expect(subject.display_resource_text?).to eq(false)
+          expect(subject.display_resource_text?).to be(false)
         end
       end
     end
@@ -72,11 +73,12 @@ module Decidim
       let(:extra) { { comment_id: create(:comment).id } }
 
       let(:notification) { create(:notification, event_class: event_class, event_name: event_name, extra: extra) }
-      let(:subject) { described_class.new(notification) }
+
+      subject { described_class.new(notification) }
 
       describe "#display_resource_text?" do
         it "returns true if the notification has to display the content of the comment" do
-          expect(subject.display_resource_text?).to eq(true)
+          expect(subject.display_resource_text?).to be(true)
         end
       end
     end

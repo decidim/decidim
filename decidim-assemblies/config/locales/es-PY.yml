@@ -73,7 +73,7 @@ es-PY:
         assembly:
           attributes:
             document:
-              invalid_document_type: 'Tipo de documento invalido. Los formatos que se aceptan son: %{valid_mime_types}'
+              allowed_file_content_types: 'Tipo de documento no válido. Los formatos aceptados son: %{types}'
   activerecord:
     models:
       decidim/assembly:
@@ -242,6 +242,9 @@ es-PY:
     admin_log:
       assembly:
         create: "%{user_name} creó la asamblea %{resource_name}"
+        duplicate: "%{user_name} ha duplicado la asamblea %{resource_name}"
+        export: "%{user_name} ha exportado la asamblea %{resource_name}"
+        import: "%{user_name} ha importado la asamblea %{resource_name}"
         publish: "%{user_name} publicó la asamblea %{resource_name}"
         unpublish: "%{user_name} despublicó la asamblea %{resource_name}"
         update: "%{user_name} actualizó la asamblea %{resource_name}"
@@ -319,6 +322,9 @@ es-PY:
         new_import:
           accepted_types:
             json: JSON
+      assemblies:
+        show:
+          title: Acerca de esta asamblea
       assembly_members:
         index:
           members: Miembros
@@ -386,7 +392,7 @@ es-PY:
         related_participatory_processes: Procesos participativos relacionados
         scope: Ámbito
         social_networks: Redes sociales
-        social_networks_title: Compartir esta asamblea en
+        social_networks_title: Visita la asamblea en
         target: Quién participa
     assembly_members:
       assembly_member:
@@ -397,7 +403,7 @@ es-PY:
       assemblies:
         create_assembly_member:
           email_intro: Una administradora de la asamblea <a href="%{resource_url}">%{resource_name}</a> te ha añadido como uno de sus miembros.
-          email_outro: Recibes esta notificación porque te han invitado a una asamblea. ¡Entra en <a href="%{resource_path}">assembly page</a> para contribuir!
+          email_outro: Recibes esta notificación porque te han invitado a una asamblea. ¡Entra en <a href="%{resource_url}">assembly page</a> para contribuir!
           email_subject: '¡Te han invitado a ser miembro de la asamblea %{resource_name}!'
           notification_title: Te han registrado como miembro de la asamblea<a href="%{resource_path}">%{resource_name}</a>. ¡Entra en <a href="%{resource_path}">assembly page</a> para contribuir!
       assembly:

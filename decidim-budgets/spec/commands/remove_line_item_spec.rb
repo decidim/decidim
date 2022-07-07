@@ -11,7 +11,7 @@ module Decidim::Budgets
     let(:component) do
       create(:budgets_component,
              organization: user.organization,
-             settings: { "vote_threshold_percent": 50 })
+             settings: { vote_threshold_percent: 50 })
     end
 
     let(:budget) { create(:budget, component: component, total_budget: 100_000) }

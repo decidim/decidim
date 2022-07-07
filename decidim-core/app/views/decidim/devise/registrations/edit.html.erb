@@ -16,11 +16,11 @@
   <% end %>
 
   <div class="field">
-    <%= f.password_field :password, autocomplete: "new-password" %>
+    <%= f.password_field :password, password_field_options_for(current_user) %>
   </div>
 
   <div class="field">
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+    <%= f.password_field :password_confirmation, password_field_options_for(current_user).except(:help_text) %>
   </div>
 
   <div class="field">

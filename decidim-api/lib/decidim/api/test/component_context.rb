@@ -12,8 +12,8 @@ shared_context "with a graphql decidim component" do
   let(:participatory_process) { create :participatory_process, organization: current_organization }
   let(:category) { create(:category, participatory_space: participatory_process) }
 
-  let(:component_type) {}
-  let(:component_fragment) {}
+  let(:component_type) { nil }
+  let(:component_fragment) { nil }
 
   let(:participatory_process_query) do
     %(

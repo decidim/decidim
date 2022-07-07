@@ -7,7 +7,7 @@ module Decidim
     class ManagedUserPromotionForm < Form
       attribute :email, String
 
-      validates :email, presence: true, 'valid_email_2/email': { disposable: true }
+      validates :email, presence: true, "valid_email_2/email": { disposable: true }
       validate :unique_email
 
       private

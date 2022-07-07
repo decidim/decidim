@@ -9,7 +9,7 @@ module Decidim
         let(:voting) { create(:voting) }
         let(:user) { create(:user, organization: voting.organization) }
 
-        describe "access codes export " do
+        describe "access codes export" do
           let(:filename) { "an_encrypted_zip_archive" }
           let(:password) { "secret" }
           let(:mail) { described_class.access_codes_export(user, voting, filename, password) }

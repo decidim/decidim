@@ -42,7 +42,7 @@ module Decidim
           organization1.static_pages.find_by(
             slug: "terms-and-conditions"
           ).allow_public_access
-        ).to eq(true)
+        ).to be(true)
       end
     end
   end

@@ -25,7 +25,7 @@ module Decidim
           params[:help_sections]
         )
 
-        UpdateHelpSections.call(@form, current_organization) do
+        UpdateHelpSections.call(@form, current_organization, current_user) do
           on(:ok) do
             flash[:notice] = t("help_sections.success", scope: "decidim.admin")
             redirect_to action: :show

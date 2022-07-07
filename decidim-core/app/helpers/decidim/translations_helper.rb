@@ -14,10 +14,10 @@ module Decidim
     # options - Any other option to delegate to the individual I18n.t calls
     #
     # Returns a Hash with the locales as keys and the translations as values.
-    def multi_translation(key, locales = Decidim.available_locales, *options)
+    def multi_translation(key, locales = Decidim.available_locales, **options)
       locales.each_with_object({}) do |locale, result|
         I18n.with_locale(locale) do
-          result[locale.to_sym] = I18n.t(key, *options)
+          result[locale.to_sym] = I18n.t(key, **options)
         end
       end
     end

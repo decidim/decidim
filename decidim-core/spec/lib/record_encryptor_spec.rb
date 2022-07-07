@@ -196,10 +196,10 @@ module Decidim
       end
 
       it "returns nil for all getters" do
-        expect(subject.name).to be(nil)
-        expect(subject.year).to be(nil)
-        expect(subject.coverage).to be(nil)
-        expect(subject.metadata).to be(nil)
+        expect(subject.name).to be_nil
+        expect(subject.year).to be_nil
+        expect(subject.coverage).to be_nil
+        expect(subject.metadata).to be_nil
       end
     end
 

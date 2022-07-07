@@ -27,8 +27,8 @@ module Decidim
     def self.publish(event:, resource:, event_class: Decidim::Events::BaseEvent, affected_users: [], followers: [], extra: {}, force_send: false)
       ActiveSupport::Notifications.publish(
         event,
-        event_class: event_class.name,
         resource: resource,
+        event_class: event_class.name,
         affected_users: affected_users.uniq.compact,
         followers: followers.uniq.compact,
         force_send: force_send,

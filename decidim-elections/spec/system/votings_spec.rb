@@ -18,7 +18,7 @@ describe "Votings", type: :system do
     end
 
     it "redirects to the voting" do
-      expect(page).to have_content(translated(title: single_voting))
+      expect(page).to have_content(translated(single_voting.title))
       expect(page).not_to have_selector("#votings")
     end
   end

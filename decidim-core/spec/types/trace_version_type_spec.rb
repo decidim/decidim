@@ -52,7 +52,7 @@ module Decidim
           let(:user) { "test suite" }
 
           it "returns nil" do
-            expect(response["editor"]).to eq(nil)
+            expect(response["editor"]).to be_nil
           end
         end
       end

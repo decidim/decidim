@@ -45,22 +45,12 @@ const allowExitFrom = ($el) => {
   return false;
 }
 
-// Don't show browser's default confirmation panel when visit current_path is called in tests.
-const testReload = (initialLocation) => {
-  if (navigator && navigator.webdriver && initialLocation === location.href) {
-    return true;
-  }
-
-  return false;
-}
-
 $(() => {
   const $exitNotification = $("#exit-notification");
   const $exitLink = $("#exit-notification-link");
   const defaultExitUrl = $exitLink.attr("href");
   const defaultExitLinkText = $exitLink.text();
   let exitLinkText = defaultExitLinkText;
-  const initialLocation = location.href;
 
   if ($exitNotification.length < 1) {
     // Do not apply when not inside the voting pipeline
@@ -79,16 +69,11 @@ $(() => {
     $exitNotification.foundation("open");
   };
 
-  // Handle "beforeunload"
-  window.allowExit = false;
   $(document).on("click", "a", (event) => {
     exitLinkText = defaultExitLinkText;
-    window.allowExit = false;
 
     const $link = $(event.currentTarget);
-    if (allowExitFrom($link)) {
-      window.allowExit = true;
-    } else {
+    if (!allowExitFrom($link)) {
       event.preventDefault();
       openExitNotification($link.attr("href"), $link.data("method"));
     }
@@ -111,21 +96,5 @@ $(() => {
   $("a[data-open='exit-notification']").on("click", () => {
     exitLinkText = defaultExitLinkText;
     openExitNotification(defaultExitUrl);
-  });
-  // Allow all form submits on the page, including language change and sign
-  // out form (when triggered by the exit link click).
-  $(document).on("submit", "form", () => {
-    window.allowExit = true;
-  });
-
-  window.addEventListener("beforeunload", (event) => {
-    const allowExit = window.allowExit;
-    window.allowExit = false;
-
-    if (allowExit || testReload(initialLocation)) {
-      return;
-    }
-
-    event.returnValue = true;
   });
 });

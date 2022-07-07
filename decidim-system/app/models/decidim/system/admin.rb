@@ -8,6 +8,8 @@ module Decidim
 
       validates :email, uniqueness: true
 
+      validates :password, password: { email: :email }
+
       private
 
       # Changes default Devise behaviour to use ActiveJob to send async emails.

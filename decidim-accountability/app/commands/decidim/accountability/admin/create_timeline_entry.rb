@@ -6,8 +6,9 @@ module Decidim
       # This command is executed when the user creates a TimelineEntry
       # for a Result from the admin panel.
       class CreateTimelineEntry < Decidim::Command
-        def initialize(form)
+        def initialize(form, user)
           @form = form
+          @user = user
         end
 
         # Creates the timeline_entry if valid.
@@ -25,13 +26,16 @@ module Decidim
 
         private
 
-        attr_reader :timeline_entry
+        attr_reader :timeline_entry, :form
 
         def create_timeline_entry
-          @timeline_entry = TimelineEntry.create!(
-            decidim_accountability_result_id: @form.decidim_accountability_result_id,
-            entry_date: @form.entry_date,
-            description: @form.description
+          @timeline_entry = Decidim.traceability.create!(
+            TimelineEntry,
+            @user,
+            decidim_accountability_result_id: form.decidim_accountability_result_id,
+            entry_date: form.entry_date,
+            title: form.title,
+            description: form.description
           )
         end
       end

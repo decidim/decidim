@@ -4,9 +4,10 @@ require "spec_helper"
 
 module Decidim::ParticipatoryProcesses
   describe Admin::CopyParticipatoryProcess do
-    subject { described_class.new(form, participatory_process) }
+    subject { described_class.new(form, participatory_process, user) }
 
     let(:organization) { create :organization }
+    let(:user) { create :user, organization: organization }
     let(:participatory_process_group) { create :participatory_process_group, organization: organization }
     let(:scope) { create :scope, organization: organization }
     let(:errors) { double.as_null_object }
@@ -45,7 +46,7 @@ module Decidim::ParticipatoryProcesses
 
     context "when everything is ok" do
       it "duplicates a participatory process" do
-        expect { subject.call }.to change { Decidim::ParticipatoryProcess.count }.by(1)
+        expect { subject.call }.to change(Decidim::ParticipatoryProcess, :count).by(1)
 
         old_participatory_process = Decidim::ParticipatoryProcess.first
         new_participatory_process = Decidim::ParticipatoryProcess.last
@@ -72,13 +73,25 @@ module Decidim::ParticipatoryProcesses
       it "broadcasts ok" do
         expect { subject.call }.to broadcast(:ok)
       end
+
+      it "traces the action", versioning: true do
+        expect(Decidim.traceability)
+          .to receive(:perform_action!)
+          .with("duplicate", Decidim::ParticipatoryProcess, user)
+          .and_call_original
+
+        expect { subject.call }.to change(Decidim::ActionLog, :count)
+        action_log = Decidim::ActionLog.last
+        expect(action_log.action).to eq("duplicate")
+        expect(action_log.version).to be_present
+      end
     end
 
     context "when copy_steps exists" do
       let(:copy_steps) { true }
 
       it "duplicates a participatory process and the steps" do
-        expect { subject.call }.to change { Decidim::ParticipatoryProcessStep.count }.by(1)
+        expect { subject.call }.to change(Decidim::ParticipatoryProcessStep, :count).by(1)
         expect(Decidim::ParticipatoryProcessStep.distinct.pluck(:decidim_participatory_process_id).count).to eq 2
 
         old_participatory_process_step = Decidim::ParticipatoryProcessStep.first
@@ -95,7 +108,7 @@ module Decidim::ParticipatoryProcesses
       let(:copy_categories) { true }
 
       it "duplicates a participatory process and the categories" do
-        expect { subject.call }.to change { Decidim::Category.count }.by(1)
+        expect { subject.call }.to change(Decidim::Category, :count).by(1)
         expect(Decidim::Category.unscoped.distinct.pluck(:decidim_participatory_space_id).count).to eq 2
 
         old_participatory_process_category = Decidim::Category.unscoped.first
@@ -110,7 +123,7 @@ module Decidim::ParticipatoryProcesses
         let!(:subcategory) { create(:category, parent: category, participatory_space: participatory_process) }
 
         it "duplicates the parent and its children" do
-          expect { subject.call }.to change { Decidim::Category.count }.by(2)
+          expect { subject.call }.to change(Decidim::Category, :count).by(2)
           new_participatory_process = Decidim::ParticipatoryProcess.last
 
           expect(participatory_process.categories.count).to eq(2)
@@ -125,9 +138,9 @@ module Decidim::ParticipatoryProcesses
       it "duplicates a participatory process and the components" do
         dummy_hook = proc {}
         component.manifest.on :copy, &dummy_hook
-        expect(dummy_hook).to receive(:call).with(new_component: an_instance_of(Decidim::Component), old_component: component)
+        expect(dummy_hook).to receive(:call).with({ new_component: an_instance_of(Decidim::Component), old_component: component })
 
-        expect { subject.call }.to change { Decidim::Component.count }.by(1)
+        expect { subject.call }.to change(Decidim::Component, :count).by(1)
 
         last_participatory_process = Decidim::ParticipatoryProcess.last
         last_component = Decidim::Component.all.reorder(:id).last

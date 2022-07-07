@@ -21,6 +21,18 @@ de:
         one: Projekt
         other: Projekte
   decidim:
+    admin:
+      filters:
+        projects:
+          category_id_eq:
+            label: Kategorie
+          scope_id_eq:
+            label: Themenbereich
+          selected_at_null:
+            label: Ausgewählt
+            values:
+              'false': Zur Umsetzung ausgewählt
+              'true': Nicht zur Umsetzung ausgewählt
     budgets:
       actions:
         attachment_collections: Ordner
@@ -73,16 +85,40 @@ de:
             title: Projekt bearbeiten
             update: Aktualisieren
           index:
+            actions: Aktionen
+            cancel: Abbrechen
+            change_category: Kategorie ändern
+            change_scope: Themenbereich ändern
+            change_selected: Auswahl ändern
+            deselect_implementation: Auswahl aufheben
             finished_orders: Abgeschlossene Stimmen
             pending_orders: Ausstehende Stimmen
+            select_for_implementation: Auswählen
             selected: Ausgewählt
             title: Projekte
+            update: Aktualisieren
+            update_scope_button: Themenbereich aktualisieren
           new:
             create: Erstellen
             title: Neues Projekt
           update:
             invalid: Beim Aktualisieren dieses Projekts ist ein Problem aufgetreten
             success: Projekt erfolgreich aktualisiert
+          update_category:
+            invalid: 'Diese Projekte gehörten bereits zur Kategorie %{subject_name}: %{projects}.'
+            select_a_category: Bitte wählen Sie eine Kategorie aus
+            select_a_project: Bitte wählen Sie ein Projekt
+            success: 'Die folgenden Projekte wurden erfolgreich zur Kategorie %{subject_name} hinzugefügt: %{projects}.'
+          update_scope:
+            invalid: 'Diese Projekte gehörten bereits zum Themenbereich %{subject_name}: %{projects}.'
+            select_a_project: Bitte wählen Sie ein Projekt
+            select_a_scope: Bitte wählen Sie einen Themenbereich
+            success: 'Die folgenden Projekte wurden erfolgreich zum Themenbereich %{subject_name} hinzugefügt: %{projects}.'
+          update_selected:
+            invalid: 'Diese Projekte wurden bereits zur Umsetzung ausgewählt: %{projects}.'
+            select_a_project: Bitte wählen Sie ein Projekt
+            select_a_selection: Bitte wähle einen Umsetzungsstatus
+            success: 'Ausgewählte Projekte erfolgreich geändert: %{projects}.'
         proposals_imports:
           create:
             invalid: Beim Importieren der Vorschläge in Projekte ist ein Problem aufgetreten
@@ -92,6 +128,12 @@ de:
             no_components: Es gibt keine weiteren Vorschlagskomponenten in diesem partizipativen Raum, um die Vorschläge in Projekte zu importieren.
             select_component: Bitte wählen Sie eine Komponente aus
             title: Vorschläge importieren
+        reminders:
+          orders:
+            description: Benutzer erhalten eine E-Mail mit Links zu den Budgets, in denen sie ausstehende Stimmen haben.
+            title:
+              one: Sie werden eine Erinnerungs-E-Mail an %{count} Benutzer zu senden
+              other: Sie werden eine Erinnerungs-E-Mail an %{count} Benutzer zu senden
       admin_log:
         budget:
           create: "%{user_name} hat das Budget %{resource_name} in %{space_name} erstellt"
@@ -123,6 +165,8 @@ de:
         show: Projekte ansehen
         vote: Abstimmen
         voted_on: Sie haben über %{links} abgestimmt
+      last_activity:
+        new_vote_at_html: "<span>Neue Budgetverteilung unter %{link}</span>"
       limit_announcement:
         cant_vote: Sie können nicht über dieses Budget abstimmen. <a href="%{landing_path}">Versuchen Sie es mit einem anderen Budget</a>.
         limit_reached: Sie haben aktive Stimmen in %{links}. Um über dieses Budget abstimmen zu können, müssen Sie <a href="%{landing_path}">Ihre Stimme löschen und neu </a> beginnen.
@@ -134,6 +178,9 @@ de:
             total_budget: Gesamt Budget
         project:
           fields:
+            category: Kategorie
+            id: ID
+            scope: Themenbereich
             title: Titel
       order_summary_mailer:
         order_summary:
@@ -150,13 +197,13 @@ de:
           title: Bestätigung der Abstimmung
         budget_excess:
           budget_excess:
-            description: Dieses Projekt überschreitet das maximale Budget und kann nicht hinzugefügt werden. Wenn Sie möchten können Sie ein bereits gewähltes Projekt wieder entfernen, oder gemäss Ihren Präferenzen abstimmen.
+            description: Mit diesem Projekt überschreiten Sie das maximale Budget. Deshalb kann es nicht hinzugefügt werden. Entfernen Sie ein bereits ausgewähltes Projekt um diesem Projekt eine Stimme zu geben.
             title: Maximales Budget überschritten
           close: Schließen
-          description: Dieses Projekt überschreitet das maximale Budget und kann nicht hinzugefügt werden. Wenn Sie möchten können Sie ein bereits gewähltes Projekt wieder entfernen, oder gemäss Ihren Präferenzen abstimmen.
+          description: Mit diesem Projekt überschreiten Sie das maximale Budget. Deshalb kann es nicht hinzugefügt werden. Entfernen Sie ein bereits ausgewähltes Projekt um diesem Projekt eine Stimme zu geben.
           ok: OK
           projects_excess:
-            description: Dieses Projekt überschreitet die maximale Anzahl Projekte und kann nicht hinzugefügt werden. Wenn Sie möchten können Sie ein bereits gewähltes Projekt wieder entfernen, oder gemäss Ihren Präferenzen abstimmen.
+            description: Mit diesem Projekt überschreiten Sie die maximale Anzahl auszuwählende Projekte. Deshalb kann es nicht hinzugefügt werden. Entfernen Sie ein bereits ausgewähltes Projekt um diesem Projekt eine Stimme zu geben.
             title: Maximale Anzahl Projekte überschritten
         budget_summary:
           are_you_sure: Sind Sie sicher, dass Sie Ihre Stimme zurückziehen wollen?
@@ -239,6 +286,15 @@ de:
         show:
           budget: Budget
           view_all_projects: Alle Projekte anzeigen
+      vote_reminder_mailer:
+        vote_reminder:
+          email_budgets: 'Bereiche, in denen Sie eine unvollendete Abstimmung haben:'
+          email_intro: Sie haben Ihre begonnene Abstimmung zur Verteilung des partizipativen Budgets noch nicht abgeschlossen.
+          email_link: Mit der Abstimmung fortfahren
+          email_outro: Denken Sie daran, die Abstimmung vollständig abzuschließen. Wählen Sie dazu den gewünschten Vorschlag oder die gewünschten Vorschläge aus, denen Sie Ihre Stimme geben möchten. Bestätigen Sie anschliessend Ihre Auswahl, indem Sie auf "Abstimmen" klicken.
+          email_subject:
+            one: Sie haben Ihre Abstimmung bei der Verteilung des partizipativen Budgets noch nicht abgeschlossen
+            other: Sie haben Ihre Abstimmung bei der Verteilung des partizipativen Budgets noch nicht abgeschlossen
     components:
       budgets:
         actions:
@@ -264,7 +320,7 @@ de:
             total_budget: Gesamtbudget; Gesamtetat
             vote_minimum_budget_projects_number: Mindestanzahl von Projekten, um abzustimmen
             vote_rule_minimum_budget_projects_enabled: 'Regel aktivieren: Mindestanzahl von Projekten, um abzustimmen'
-            vote_rule_selected_projects_enabled: 'Regel aktivieren: Minimale und maximale Anzahl Projekte, für die gestimmt werden soll'
+            vote_rule_selected_projects_enabled: 'Regel aktivieren: Mindest- und Maximalanzahl abzustimmender Projekte'
             vote_rule_threshold_percent_enabled: 'Regel aktivieren: Minimaler Budgetprozentsatz'
             vote_selected_projects_maximum: Maximale Anzahl auszuwählender Projekte
             vote_selected_projects_minimum: Minimale Anzahl auszuwählender Projekte

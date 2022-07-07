@@ -13,6 +13,8 @@ module Decidim
       include Decidim::ComponentPathHelper
       include Decidim::SanitizeHelper
 
+      delegate :created_at, to: :resource
+
       class_attribute :i18n_interpolations
       self.i18n_interpolations = []
 
@@ -32,19 +34,26 @@ module Decidim
       end
 
       def email_subject
-        I18n.t("email_subject", i18n_options).html_safe
+        I18n.t("email_subject", **email_subject_i18n_options).html_safe
+      end
+
+      def email_subject_i18n_options
+        sanitized_values = { resource_title: decidim_sanitize(resource_title) }
+        sanitized_values[:mentioned_proposal_title] = decidim_sanitize(mentioned_proposal_title) if i18n_options.has_key?(:mentioned_proposal_title)
+        sanitized_values[:participatory_space_title] = decidim_sanitize(participatory_space_title) if i18n_options.has_key?(:participatory_space_title)
+        i18n_options.merge(sanitized_values)
       end
 
       def email_intro
-        I18n.t("email_intro", i18n_options).html_safe
+        I18n.t("email_intro", **i18n_options).html_safe
       end
 
       def email_outro
-        I18n.t("email_outro", i18n_options).html_safe
+        I18n.t("email_outro", **i18n_options).html_safe
       end
 
       def notification_title
-        I18n.t("notification_title", i18n_options).html_safe
+        I18n.t("notification_title", **i18n_options).html_safe
       end
 
       # Public: The String to use as scope to search for the keys

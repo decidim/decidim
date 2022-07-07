@@ -17,7 +17,7 @@ module Decidim
         end
 
         it "calls UpVoteComment command" do
-          expect(model).to receive(:up_voted_by?).with(current_user).and_return(true)
+          allow(model).to receive(:up_voted_by?).with(current_user).and_return(true)
           expect(response["upVote"]).to include("upVoted" => true)
         end
       end
@@ -30,7 +30,7 @@ module Decidim
         end
 
         it "calls UpVoteComment command" do
-          expect(model).to receive(:down_voted_by?).with(current_user).and_return(true)
+          allow(model).to receive(:down_voted_by?).with(current_user).and_return(true)
           expect(response["downVote"]).to include("downVoted" => true)
         end
       end

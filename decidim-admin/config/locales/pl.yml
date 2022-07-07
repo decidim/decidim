@@ -43,6 +43,7 @@ pl:
         default_locale: Domyślny język
         description: Opis
         enable_omnipresent_banner: Pokaż stały banner
+        enable_participatory_space_filters: Włącz filtry przestrzeni partycypacyjnej
         facebook_handler: Handler Facebooka
         favicon: Ikona
         force_authentication: Wymuś uwierzytelnianie
@@ -122,6 +123,10 @@ pl:
         file: Plik
     errors:
       models:
+        newsletter:
+          attributes:
+            base:
+              at_least_one_space: Wybierz co najmniej jedną przestrzeń partycypacyjną
         organization:
           attributes:
             official_img_footer:
@@ -131,6 +136,7 @@ pl:
       new_import:
         attributes:
           file:
+            invalid_file: Podano nieprawidłowy plik, sprawdź czy plik jest poprawnie sformatowany
             invalid_mime_type: Niepoprawny format
   activerecord:
     attributes:
@@ -170,6 +176,8 @@ pl:
         permissions: Uprawnienia
         reject: Odrzuć
         share: Udostępnij
+        user:
+          new: Nowy administrator
         verify: Zweryfikuj
       admin_terms_of_use:
         accept:
@@ -177,10 +185,12 @@ pl:
           success: Świetnie! Zaakceptowano warunki użytkowania dla administratorów.
         actions:
           accept: Zgadzam się z warunkami użytkowania
+          are_you_sure: Czy na pewno nie wyrażasz zgody na warunki użytkowania dla administratorów?
           refuse: Nie akceptuję warunków dla administratorów
           title: Akceptuję warunki użytkowania
         required_review:
           alert: 'Wymagane: Zapoznaj się z warunkami użytkowania dla administratorów'
+          callout: Poświęć chwilę, aby zapoznać się z Warunkami użytkowania dla administratorów. W przeciwnym razie nie uzyskasz dostępu do administrowania platformą.
           cta: Zapoznaj się teraz.
         title: Warunki użytkowania dla administratorów
       area_types:
@@ -255,6 +265,7 @@ pl:
       block_user:
         new:
           action: Zablokuj konto i wyślij uzasadnienie
+          description: Blokowanie użytkownika sprawi, że jego konto nie będzie użyteczne. Możesz podać w uzasadnieniu wszelkie wytyczne dotyczące sposobu odblokowania użytkownika.
           justification: Uzasadnienie
           title: Zablokuj użytkownika %{name}
       categories:
@@ -317,6 +328,7 @@ pl:
         'false': 'Nie'
         managed_user_name: Zarządzany użytkownik
         solved: Rozwiązane
+        title: Konflikty weryfikacji
         transfer:
           email: Adres e-mail
           error: Podczas transferu bieżącego użytkownika do zarządzanego użytkownika wystąpił błąd.
@@ -329,11 +341,13 @@ pl:
       dashboard:
         show:
           view_more_logs: Zobacz więcej logów
+          welcome: Witamy w Panelu Administracyjnym.
       domain_whitelist:
         form:
           domain_too_short: Domena jest zbyt krótka
         update:
           error: Nie udało się zaktualizować białej listy domen
+          success: Biała lista domen pomyślnie zaktualizowana
       exports:
         export_as: "%{name} jako %{export_format}"
         formats:
@@ -352,9 +366,17 @@ pl:
             'false': 'Nie'
             'true': 'Tak'
         last_sign_in_at_present:
+          label: Zawsze zalogowany
           values:
             'false': 'Nie'
             'true': 'Tak'
+        moderated_users:
+          reports_reason_eq:
+            label: Powód zgłoszenia
+            values:
+              does_not_belong: Nie należy
+              offensive: Ofensywny
+              spam: Spam
         moderations:
           reportable_type_string_eq:
             label: Typ
@@ -389,9 +411,11 @@ pl:
         search_label: Szukaj
         search_placeholder:
           name_or_nickname_or_email_cont: Przeszukaj %{collection} według adresu e-mail, nazwiska lub nazwy użytkownika.
+          report_count_eq: Licznik raportów
           reported_id_string_or_reported_content_cont: Przeszukaj %{collection} według identyfikatora lub treści zgłoszenia.
           title_cont: Przeszukaj %{collection} według tytułu.
           user_name_or_user_email_cont: Przeszukaj %{collection} według nazwy lub e-maila.
+          user_name_or_user_nickname_or_user_email_cont: Szukaj %{collection} według adresu e-mail, nazwy lub pseudonimu.
         state_eq:
           label: Stan
           values:
@@ -445,7 +469,38 @@ pl:
           impersonate_new_managed_user: Zarządzaj nowym uczestnikiem
       imports:
         and: i
+        data_errors:
+          duplicate_headers:
+            detail: Proszę sprawdzić, czy plik zawiera wymagane kolumny lub nagłówki tylko raz.
+            message:
+              one: Duplikuj kolumnę %{columns}.
+              few: Duplikuj kolumny %{columns}.
+              many: Duplikuj kolumny %{columns}.
+              other: Duplikuj kolumny %{columns}.
+          invalid_indexes:
+            lines:
+              detail: Sprawdź, czy te dane są sformatowane poprawnie i zawierają prawidłowe rekordy.
+              message:
+                one: Znaleziono błąd w pliku importu. linia %{indexes}.
+                few: Znaleziono błąd w pliku importu. linie %{indexes}.
+                many: Znaleziono błąd w pliku importu. linie %{indexes}.
+                other: Znaleziono błędy w pliku importu w liniach %{indexes}.
+            records:
+              detail: Sprawdź, czy te rekordy są sformatowane poprawnie i zawierają prawidłowe rekordy.
+              message:
+                one: Znaleziono błąd w pliku importu dla rekordów o numerach porządkowych %{indexes}.
+                few: Znaleziono błąd w pliku importu dla rekordów o numerach porządkowych %{indexes}.
+                many: Znaleziono błąd w pliku importu dla rekordów o numerach porządkowych %{indexes}.
+                other: Znaleziono błędy w pliku importu dla rekordów o numerach porządkowych %{indexes}.
+          missing_headers:
+            detail: Proszę sprawdzić, czy plik zawiera wymagane kolumny.
+            message:
+              one: Brakująca kolumna %{columns}.
+              few: Brakujące kolumny %{columns}.
+              many: Brakujące kolumny %{columns}.
+              other: Brakujące kolumny %{columns}.
         error: Podczas importowania wystąpił błąd
+        example_error: Nie można utworzyć przykładu dla podanego typu
         new:
           accepted_mime_types:
             csv: csv
@@ -453,6 +508,8 @@ pl:
             xlsx: xlsx
           actions:
             back: Wróć
+          download_example: Pobierz przykład
+          download_example_format: Przykład jako %{name}
           file_legend: Zaimportuj plik, który zostanie przetworzony.
           import: Importuj
         notice: "Zaimportowano %{resource_name} %{number}"
@@ -625,6 +682,7 @@ pl:
       newsletters:
         create:
           error: Podczas tworzenia newslettera wystąpił błąd.
+          success: Newsletter został pomyślnie utworzony. Sprawdź go przed wysłaniem.
         deliver:
           error: Podczas dostarczania tego newslettera wystąpił błąd.
           success: Newsletter został dostarczony pomyślnie.
@@ -707,10 +765,12 @@ pl:
           title: Oficjalizuj użytkownika "%{name}"
         show_email_modal:
           close_modal: Zamknij okno
+          description: Jeśli chcesz skontaktować się bezpośrednio z uczestnikiem, możesz kliknąć przycisk Pokaż aby zobaczyć jego adres e-mail. Ta akcja zostanie zarejestrowana.
           email_address: Adres e-mail
           full_name: Imię i nazwisko
           hidden: ukryty
           show: Pokaż
+          title: Pokaż adres e-mail uczestnika
         unblock:
           error: Wystąpił błąd podczas odblokowywania użytkownika
           success: Użytkownik został odblokowany
@@ -736,6 +796,7 @@ pl:
         form:
           colors:
             colors_title: Kolory organizacji
+            colors_warning_html: Uwaga! Zmiana tych kolorów może ograniczyć czytelność. Możesz sprawdzić kontrast wybranych kolorów korzystając z <a href="%{link}">WebAIM Contrast Checker</a> albo innych podobnych narzędzi.
             header_snippets_help: Użyj tego pola, aby dodać elementy do nagłówka kodu HTML. Najczęstszym zastosowaniem jest zintegrowanie usług innych firm, które wymagają dodatkowego kodu JavaScript lub CSS. Można również użyć go do dodawania dodatkowych meta tagów do HTML. Zauważ, że będzie to widoczne tylko na stronach publicznych, a nie w sekcji administracyjnej.
           cta_button_path_help: 'Możesz nadpisać adres do jakiego kieruje przycisk CTA na stronie głównej. Należy wpisać tylko to, co ma znaleźć się na końcu po znaku „/”, a nie pełen adres. Można użyć liter, cyfr, myślników i ukośników. Musi zaczynać się od litery. Przycisk CTA zostanie wyświetlony na stronie głównej między tekstem powitalnym a opisem. Przykład: %{url}'
           cta_button_text_help: Można nadpisać tekst przycisku CTA na stronie głównej dla każdego dostępnego języka organizacji. Jeśli to pole nie zostanie wypełnione, zostanie użyta wartość domyślna. Przycisk CTA zostanie wyświetlony na stronie głównej między tekstem powitalnym a opisem.
@@ -781,9 +842,22 @@ pl:
           invalid: Wystąpił błąd podczas odczytu pliku CSV.
           success: Plik CSV został pomyślnie wgrany, wysyłamy e-mail z zaproszeniem do uczestników. To może zająć chwilę.
         new:
+          destroy:
+            button: Usuń wszystkich prywatnych uczestników
+            title: Usuń prywatnych uczestników
           explanation: 'Prześlij swój plik CSV. Plik musi składać się z dwóch kolumn: w pierwszej kolumnie adresy e-mail, w drugiej kolumnie imiona (adres e-mail, imię) użytkowników, których chcesz dodać do przestrzeni partycypacyjnej; bez nagłówków. Unikaj używania niepoprawnych znaków takich jak `<>?%&^*#@()[]=+:;"{}\|` w imieniu użytkownika.'
           title: Prześlij swój plik CSV
           upload: Prześlij
+      reminders:
+        create:
+          error: Wystąpił błąd podczas tworzenia przypomnień.
+          success:
+            one: "%{count} użytkownik otrzyma przypomnienie."
+            few: "%{count} użytkowników otrzyma przypomnienie."
+            many: "%{count} użytkowników otrzyma przypomnienie."
+            other: "%{count} użytkowników otrzyma przypomnienie."
+        new:
+          submit: Wyślij
       resource_permissions:
         edit:
           submit: Zatwierdź
@@ -841,6 +915,7 @@ pl:
         gallery:
           add_images: Dodaj obrazy
           delete_image: Usuń obraz
+          edit_images: Edytuj obrazy
           gallery_legend: Dodaj galerię obrazów (opcjonalnie)
       static_page_topics:
         create:
@@ -901,6 +976,7 @@ pl:
         static_pages: Strony
         statistics: Aktywność
         user_groups: Grupy użytkowników
+        users: Administratorzy
       user_group:
         csv_verify:
           invalid: Wystąpił błąd podczas odczytu pliku CSV.
@@ -936,6 +1012,7 @@ pl:
           role: Rola
         new:
           create: Zaproś
+          title: Zaproś nowego administratora
       users_statistics:
         users_count:
           admins: Administratorzy
@@ -945,6 +1022,10 @@ pl:
           no_users_count_statistics_yet: Nie ma jeszcze statystyk dotyczących liczby użytkowników
           participants: Użytkownicy
       view_public_page: Zobacz stronę publiczną
+    forms:
+      errors:
+        impersonate_user:
+          reason: Aby zarządzać uczestnikiem niezarządzanym należy podać powód
     metrics:
       blocked_users:
         object: zablokowani użytkownicy
@@ -982,7 +1063,7 @@ pl:
             hidden_at: Ukryto
             participatory_space: Przestrzeń partycypacyjna
             report_count: Liczba
-            reportable_id: Id
+            reportable_id: ID
             reportable_type: Typ
             reported_content_url: URL zgłoszonej treści
             reports: Zgłoszenia

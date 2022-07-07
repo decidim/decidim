@@ -9,6 +9,7 @@ module Decidim
   autoload :Env, "decidim/env"
   autoload :Deprecations, "decidim/deprecations"
   autoload :ActsAsAuthor, "decidim/acts_as_author"
+  autoload :ActsAsTree, "decidim/acts_as_tree"
   autoload :TranslatableAttributes, "decidim/translatable_attributes"
   autoload :TranslatableResource, "decidim/translatable_resource"
   autoload :JsonbAttributes, "decidim/jsonb_attributes"
@@ -53,7 +54,9 @@ module Decidim
   autoload :MenuItem, "decidim/menu_item"
   autoload :MenuRegistry, "decidim/menu_registry"
   autoload :ManifestRegistry, "decidim/manifest_registry"
+  autoload :AssetRouter, "decidim/asset_router"
   autoload :EngineRouter, "decidim/engine_router"
+  autoload :UrlOptionResolver, "decidim/url_option_resolver"
   autoload :Events, "decidim/events"
   autoload :ViewHooks, "decidim/view_hooks"
   autoload :ContentBlockRegistry, "decidim/content_block_registry"
@@ -74,9 +77,9 @@ module Decidim
   autoload :ViewModel, "decidim/view_model"
   autoload :FingerprintCalculator, "decidim/fingerprint_calculator"
   autoload :Fingerprintable, "decidim/fingerprintable"
-  autoload :DataPortability, "decidim/data_portability"
-  autoload :DataPortabilitySerializers, "decidim/data_portability_serializers"
-  autoload :DataPortabilityExporter, "decidim/data_portability_exporter"
+  autoload :DownloadYourData, "decidim/download_your_data"
+  autoload :DownloadYourDataSerializers, "decidim/download_your_data_serializers"
+  autoload :DownloadYourDataExporter, "decidim/download_your_data_exporter"
   autoload :Amendable, "decidim/amendable"
   autoload :Gamification, "decidim/gamification"
   autoload :Hashtag, "decidim/hashtag"
@@ -99,7 +102,6 @@ module Decidim
   autoload :RecordEncryptor, "decidim/record_encryptor"
   autoload :AttachmentAttributes, "decidim/attachment_attributes"
   autoload :CarrierWaveMigratorService, "decidim/carrier_wave_migrator_service"
-  autoload :HasBlobFile, "decidim/has_blob_file"
   autoload :ReminderRegistry, "decidim/reminder_registry"
   autoload :ReminderManifest, "decidim/reminder_manifest"
   autoload :ManifestMessages, "decidim/manifest_messages"
@@ -109,6 +111,9 @@ module Decidim
   autoload :Query, "decidim/query"
   autoload :Command, "decidim/command"
   autoload :SocialShareServiceManifest, "decidim/social_share_service_manifest"
+  autoload :EventRecorder, "decidim/event_recorder"
+  autoload :ControllerHelpers, "decidim/controller_helpers"
+  autoload :ProcessesFileLocally, "decidim/processes_file_locally"
 
   include ActiveSupport::Configurable
   # Loads seeds from all engines.
@@ -271,8 +276,8 @@ module Decidim
     true
   end
 
-  # Time that data portability files are available in server
-  config_accessor :data_portability_expiry_time do
+  # Time that download your data files are available in server
+  config_accessor :download_your_data_expiry_time do
     7.days
   end
 
@@ -400,7 +405,43 @@ module Decidim
   # Defines the name of the cookie used to check if the user allows Decidim to
   # set cookies.
   config_accessor :consent_cookie_name do
-    "decidim-cc"
+    "decidim-consent"
+  end
+
+  # Defines cookie categories. Note that when adding a cookie you need to
+  # add following i18n entries also (change 'foo' with the name of the cookie).
+  #
+  # layouts.decidim.cookie_consent.cookie_details.cookies.foo.service
+  # layouts.decidim.cookie_consent.cookie_details.cookies.foo.description
+  config_accessor :consent_categories do
+    [
+      {
+        slug: "essential",
+        mandatory: true,
+        cookies: [
+          {
+            type: "cookie",
+            name: "_session_id"
+          },
+          {
+            type: "cookie",
+            name: Decidim.consent_cookie_name
+          }
+        ]
+      },
+      {
+        slug: "preferences",
+        mandatory: false
+      },
+      {
+        slug: "analytics",
+        mandatory: false
+      },
+      {
+        slug: "marketing",
+        mandatory: false
+      }
+    ]
   end
 
   # Blacklisted passwords. Array may contain strings and regex entries.
@@ -408,11 +449,33 @@ module Decidim
     []
   end
 
+  # Defines if admins are required to have stronger passwords than other users
+  config_accessor :admin_password_strong do
+    true
+  end
+
+  config_accessor :admin_password_expiration_days do
+    90
+  end
+
+  config_accessor :admin_password_min_length do
+    15
+  end
+
+  config_accessor :admin_password_repetition_times do
+    5
+  end
+
   # This is an internal key that allow us to properly configure the caching key separator. This is useful for redis cache store
   # as it creates some namespaces within the cached data.
   # use `config.cache_key_separator = ":"` in your initializer to have namespaced data
   config_accessor :cache_key_separator do
     "/"
+  end
+
+  # Enable/Disable the service worker
+  config_accessor :service_worker_enabled do
+    Rails.env.exclude?("development")
   end
 
   # Public: Registers a global engine. This method is intended to be used
@@ -640,13 +703,12 @@ module Decidim
   #         organization or a model responding to the `organization` method.
   #
   def self.organization_settings(model)
-    organization = begin
-      if model.is_a?(Decidim::Organization)
-        model
-      elsif model.respond_to?(:organization) && model.organization.present?
-        model.organization
-      end
-    end
+    organization = if model.is_a?(Decidim::Organization)
+                     model
+                   elsif model.respond_to?(:organization) && model.organization.present?
+                     model.organization
+                   end
+
     return Decidim::OrganizationSettings.defaults unless organization
 
     Decidim::OrganizationSettings.for(organization)

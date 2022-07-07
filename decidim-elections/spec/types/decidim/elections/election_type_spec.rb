@@ -72,7 +72,7 @@ module Decidim
         context "when the election's parameters are blocked" do
           let!(:model) { create(:election, :created) }
 
-          it "returns true " do
+          it "returns true" do
             expect(response["blocked"]).to be true
           end
         end

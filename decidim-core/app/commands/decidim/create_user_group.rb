@@ -63,7 +63,7 @@ module Decidim
         affected_users: Decidim::User.org_admins_except_me(form.current_user)
       }
 
-      Decidim::EventsManager.publish(data)
+      Decidim::EventsManager.publish(**data)
     end
   end
 end

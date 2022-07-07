@@ -51,11 +51,12 @@ module Decidim
         @spaces ||= @form.participatory_space_types.map do |type|
           next if type.ids.blank?
 
-          object_class = "Decidim::#{type.manifest_name.classify}"
+          object_class = Decidim.participatory_space_registry.find(type.manifest_name).model_class_name.constantize
+
           if type.ids.include?("all")
-            object_class.constantize.where(organization: @organization)
+            object_class.where(organization: @organization)
           else
-            object_class.constantize.where(id: type.ids.reject(&:blank?))
+            object_class.where(id: type.ids.compact_blank)
           end
         end.flatten.compact
       end

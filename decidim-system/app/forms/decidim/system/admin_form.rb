@@ -15,6 +15,8 @@ module Decidim
       validates :password, presence: true, unless: :admin_exists?
       validates :password_confirmation, presence: true, unless: :admin_exists?
 
+      validates :password, password: { email: :email }
+
       validate :email, :email_uniqueness
 
       private

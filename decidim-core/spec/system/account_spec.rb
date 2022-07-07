@@ -50,7 +50,7 @@ describe "Account", type: :system do
           input_element = find("input[type='file']", visible: :all)
           input_element.attach_file(Decidim::Dev.asset("5000x5000.png"))
 
-          expect(page).to have_content("The image is too big", count: 1)
+          expect(page).to have_content("File resolution is too large", count: 1)
           expect(page).to have_css(".upload-errors .form-error", count: 1)
         end
       end
@@ -101,7 +101,7 @@ describe "Account", type: :system do
             expect(page).to have_content("successfully")
           end
 
-          expect(user.reload.valid_password?("sekritpass123")).to eq(true)
+          expect(user.reload.valid_password?("sekritpass123")).to be(true)
         end
       end
 
@@ -120,22 +120,58 @@ describe "Account", type: :system do
             expect(page).to have_content("There was a problem")
           end
 
-          expect(user.reload.valid_password?("sekritpass123")).to eq(false)
+          expect(user.reload.valid_password?("sekritpass123")).to be(false)
+        end
+      end
+    end
+
+    context "when updating the email" do
+      let(:pending_email) { "foo@bar.com" }
+
+      before do
+        within "form.edit_user" do
+          fill_in :user_email, with: pending_email
+
+          perform_enqueued_jobs { find("*[type=submit]").click }
+        end
+
+        within_flash_messages do
+          expect(page).to have_content("You'll receive an email to confirm your new email address")
         end
       end
 
-      context "when updating the email" do
-        it "needs to confirm it" do
-          within "form.edit_user" do
-            fill_in :user_email, with: "foo@bar.com"
+      after do
+        clear_enqueued_jobs
+      end
 
-            find("*[type=submit]").click
-          end
+      it "tells user to confirm new email" do
+        expect(page).to have_content("Email change verification")
+        expect(page).to have_selector("#user_email[disabled='disabled']")
+        expect(page).to have_content("We've sent an email to #{pending_email} to verify your new email address")
+      end
 
-          within_flash_messages do
-            expect(page).to have_content("email to confirm")
-          end
+      it "resend confirmation" do
+        within "#email-change-pending" do
+          click_link "Send again"
         end
+        expect(page).to have_content("Confirmation email resent successfully to #{pending_email}")
+        perform_enqueued_jobs
+        perform_enqueued_jobs
+
+        expect(emails.count).to eq(2)
+        visit last_email_link
+        expect(page).to have_content("Your email address has been successfully confirmed")
+      end
+
+      it "cancels the email change" do
+        expect(Decidim::User.find(user.id).unconfirmed_email).to eq(pending_email)
+        within "#email-change-pending" do
+          click_link "cancel"
+        end
+
+        expect(page).to have_content("Email change cancelled successfully")
+        expect(page).not_to have_content("Email change verification")
+        expect(Decidim::User.find(user.id).unconfirmed_email).to be_nil
       end
     end
 
@@ -186,6 +222,43 @@ describe "Account", type: :system do
       end
     end
 
+    context "when on the interests page" do
+      before do
+        visit decidim.user_interests_path
+      end
+
+      it "doesn't find any scopes" do
+        expect(page).to have_content("My interests")
+        expect(page).to have_content("This organization doesn't have any scope yet")
+      end
+
+      context "when scopes are defined" do
+        let!(:scopes) { create_list(:scope, 3, organization: organization) }
+        let!(:subscopes) { create_list(:subscope, 3, parent: scopes.first) }
+
+        before do
+          visit decidim.user_interests_path
+        end
+
+        it "display translated scope name" do
+          label_field = "label[for='user_scopes_#{scopes.first.id}_checked']"
+          expect(page).to have_content("My interests")
+          expect(find("#{label_field} > span.switch-label").text).to eq(translated(scopes.first.name))
+        end
+
+        it "allows to choose interests" do
+          label_field = "label[for='user_scopes_#{scopes.first.id}_checked']"
+          expect(page).to have_content("My interests")
+          find(label_field).click
+          click_button "Update my interests"
+
+          within_flash_messages do
+            expect(page).to have_content("Your interests have been successfully updated.")
+          end
+        end
+      end
+    end
+
     context "when on the delete my account page" do
       before do
         visit decidim.delete_account_path
@@ -212,6 +285,66 @@ describe "Account", type: :system do
 
         expect(page).to have_no_content("Signed in successfully")
         expect(page).to have_no_content(user.name)
+      end
+    end
+  end
+
+  context "when on the notifications page in a PWA browser" do
+    let(:organization) { create(:organization, host: "pwa.lvh.me") }
+    let(:user) { create(:user, :confirmed, password: password, password_confirmation: password, organization: organization) }
+    let(:password) { "dqCFgjfDbC7dPbrv" }
+    let(:vapid_keys) do
+      {
+        enabled: true,
+        public_key: "BKmjw_A8tJCcZNQ72uG8QW15XHQnrGJjHjsmoUILUUFXJ1VNhOnJLc3ywR3eZKibX4HSqhB1hAzZFj__3VqzcPQ=",
+        private_key: "TF_MRbSSs_4BE1jVfOsILSJemND8cRMpiznWHgdsro0="
+      }
+    end
+
+    context "when VAPID keys are set" do
+      before do
+        allow(Rails.application.secrets).to receive("vapid").and_return(vapid_keys)
+        driven_by(:pwa_chrome)
+        switch_to_host(organization.host)
+        login_as user, scope: :user
+        visit decidim.notifications_settings_path
+      end
+
+      context "when on the account page" do
+        it "enables push notifications if supported browser" do
+          sleep 2
+          within ".push-notifications" do
+            # Check allow push notifications
+            find(".switch-paddle").click
+          end
+
+          # Wait for the browser to be subscribed
+          sleep 5
+
+          within "form.edit_user" do
+            find("*[type=submit]").click
+          end
+
+          within_flash_messages do
+            expect(page).to have_content("successfully")
+          end
+
+          expect(page.find("#allow_push_notifications", visible: false)).to be_checked
+        end
+      end
+    end
+
+    context "when VAPID keys are not set" do
+      before do
+        allow(Rails.application.secrets).to receive("vapid").and_return({})
+        driven_by(:pwa_chrome)
+        switch_to_host(organization.host)
+        login_as user, scope: :user
+        visit decidim.notifications_settings_path
+      end
+
+      it "does not show the push notifications switch" do
+        expect(page).to have_no_selector(".push-notifications")
       end
     end
   end

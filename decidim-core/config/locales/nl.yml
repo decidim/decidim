@@ -65,9 +65,6 @@ nl:
   booleans:
     'false': 'Nee'
     'true': 'Ja'
-  carrierwave:
-    errors:
-      image_too_big: De afbeelding is te groot
   date:
     formats:
       decidim_short: "%d/%m/%Y"
@@ -109,9 +106,6 @@ nl:
       skip_button: Ga naar de hoofdinhoud
     account:
       blocked: Dit account is geblokkeerd vanwege schending van de Algemene Voorwaarden
-      data_portability_export:
-        file_no_exists: Bestand bestaat niet
-        notice: Uw gegevens worden momenteel verwerkt. Je ontvangt een e-mail als deze is voltooid.
       delete:
         alert: Deze actie kan niet ongedaan worden gemaakt. Als je je account verwijdert, kan je niet meer inloggen met je inloggegevens. Het verwijderen van je account zal leiden tot het anonimiseren van je bijdragen. Je kunt nog steeds een nieuw account aanmaken, maar eerdere bijdragen worden daar niet aan gekoppeld.
         confirm:
@@ -123,6 +117,9 @@ nl:
       destroy:
         error: Er is een fout opgetreden bij het verwijderen van uw account.
         success: Uw account is succesvol verwijderd.
+      download_your_data_export:
+        file_no_exists: Bestand bestaat niet
+        notice: Uw gegevens worden momenteel verwerkt. Je ontvangt een e-mail als deze is voltooid.
       show:
         change_password: Wachtwoord wijzigen
         update_account: Account bijwerken
@@ -391,8 +388,8 @@ nl:
             amendments_enabled: Wijzigingen toegestaan
             comments_enabled: Reacties ingeschakeld
             comments_max_length: Commentaar maximale lengte
-            dummy_global_attribute_1: Voorbeeld-kenmerk 1
-            dummy_global_attribute_2: Voorbeeld-kenmerk 2
+            dummy_global_attribute1: Voorbeeld-kenmerk 1
+            dummy_global_attribute2: Voorbeeld-kenmerk 2
             dummy_global_translatable_text: Vertaalbare tekst Dummy
             enable_pads_creation: Schakel het maken van notitieblokken in
             resources_permissions_enabled: Resources permissies ingeschakeld
@@ -404,8 +401,8 @@ nl:
             amendment_reaction_enabled: Reageren op amendementen ingeschakeld
             amendments_visibility: Zichtbaarheid van amendement
             comments_blocked: Reacties geblokkeerd
-            dummy_step_attribute_1: Voorbeeld-kenmerk 1
-            dummy_step_attribute_2: Voorbeeld-kenmerk 2
+            dummy_step_attribute1: Voorbeeld-kenmerk 1
+            dummy_step_attribute2: Voorbeeld-kenmerk 2
             dummy_step_translatable_text: Dummy Stap Vertaalbare tekst
     contact: Contact
     content_blocks:
@@ -449,13 +446,6 @@ nl:
       actions:
         login_before_access: Log in met uw account voor toegang
         unauthorized: U bent niet gemachtigd dit te doen
-    data_portability:
-      export:
-        ready: Klaar
-      show:
-        download_data: Download de gegevens
-        download_data_description: Een bestand met alle gegevens van uw account zal worden verzonden naar <strong>%{user_email}</strong>. Deze e-mail bevat een .zip-bestand en een wachtwoord om het te openen.<br/><br/>Om het bestand uit te pakken heeft u <a href="https://www.7-zip.org/">7-Zip</a> (voor Windows) of <a href="https://www.keka.io/">Keka</a> nodig (voor MacOS). Als u Linux gebruikt, zal deze meestal standaard geïnstalleerd worden. Als dit niet het geval is, kan je <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> of <a href="https://peazip.github.io">PeaZip</a> gebruiken).
-        request_data: Gegevens aanvragen
     datepicker:
       help_text: 'Verwacht formaat: %{datepicker_format}'
     devise:
@@ -474,7 +464,6 @@ nl:
           newsletter: Ontvang af en toe een nieuwsbrief met relevante informatie
           newsletter_title: Contact toestemming
           nickname_help: Je alias in %{organization}. Kan alleen letters, cijfers, '-' en '_' bevatten.
-          password_help: "gebruik minimaal %{minimun_characters} tekens, deze mogen niet te algemeen zijn (bijv. 123456) en moeten anders zijn dan je alias en je e-mail."
           sign_in: Aanmelden
           sign_up: Registratie
           sign_up_as:
@@ -521,6 +510,13 @@ nl:
           this_application_will_not_be_able_to: 'Deze applicatie krijgt geen toegang tot:'
           update_profile: update je profiel
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> wil toegang tot je account"
+    download_your_data:
+      export:
+        ready: Klaar
+      show:
+        download_data: Download de gegevens
+        download_data_description: Een bestand met alle gegevens van uw account zal worden verzonden naar <strong>%{user_email}</strong>. Deze e-mail bevat een .zip-bestand en een wachtwoord om het te openen.<br/><br/>Om het bestand uit te pakken heeft u <a href="https://www.7-zip.org/">7-Zip</a> (voor Windows) of <a href="https://www.keka.io/">Keka</a> nodig (voor MacOS). Als u Linux gebruikt, zal deze meestal standaard geïnstalleerd worden. Als dit niet het geval is, kan je <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> of <a href="https://peazip.github.io">PeaZip</a> gebruiken).
+        request_data: Gegevens aanvragen
     editor_images:
       create:
         error: Fout bij het uploaden van een afbeelding
@@ -678,7 +674,7 @@ nl:
           email_subject: "%{nickname} heeft zijn/haar profiel bijgewerkt"
           notification_title: De <a href="%{resource_path}">profile page</a> van %{name} (%{nickname}), die je volgt, is bijgewerkt.
     export_mailer:
-      data_portability_export:
+      download_your_data_export:
         click_button: 'Klik op de volgende link om je gegevens te downloaden. <br/> Het bestand is beschikbaar tot %{date}. <br/> Je hebt <a href="https://www.7-zip.org/">7-Zip</a>(for Windows), <a href="https://www.keka.io/en/">Keka</a> (for MacOS) or <a href="https://peazip.github.io">PeaZip</a> (for Linux) nodig om het te openen. Wachtwoord: %{password}'
         download: Download
       export:
@@ -848,7 +844,6 @@ nl:
       no_user_groups: Behoort nog niet tot een groep.
       roles:
         admin: Beheerder
-        creator: Stichtend lid
         member: Lid
       update:
         error: Er is een probleem opgetreden bij het bijwerken van de groep
@@ -1059,14 +1054,11 @@ nl:
         administrators: Beheerders
         allow_public_contact: Ledereen kan mij een persoonlijk bericht sturen, ook mensen die ik niet volg.
         direct_messages: Ontvang privéberichten van iedereen
-        email_on_moderations: Ik wil een e-mail ontvangen telkens wanneer iets wordt gerapporteerd voor moderatie.
-        email_on_notification: Ik wil een e-mail ontvangen telkens als ik een melding krijg.
         everything_followed: Alles wat ik volg
         newsletter_notifications: Ik wil de nieuwsbrief ontvangen
         newsletters: Nieuwsbrieven
         own_activity: Activiteiten gerelateerd aan mijn bijdragen, zoals wanneer iemand opmerkingen maakt in mijn voorstel of mij vermeldt
         receive_notifications_about: Ik wil meldingen ontvangen over
-        send_notifications_by_email: Verstuur meldingen per e-mail
         update_notifications_settings: Wijzigingen opslaan
       update:
         error: Er is een fout opgetreden bij het bijwerken van uw notificatie instellingen.
@@ -1128,7 +1120,6 @@ nl:
           agreement: Ik ga akkoord met deze voorwaarden
           legend: Ga akkoord met de gebruiksvoorwaarden
         refuse:
-          modal_body: Als u weigert, kunt u het platform niet gebruiken, kunt u <a href="%{data_portability_path}">uw gegevens downloaden</a> en / of <a href="%{delete_path}">uw account verwijderen</a>.
           modal_btn_continue: Voorwaarden accepteren en doorgaan
           modal_btn_exit: Ik zal het later bekijken
           modal_button: Weigeren de voorwaarden
@@ -1409,7 +1400,6 @@ nl:
     invitations:
       edit:
         header: Voltooi het aanmaken van je account
-        nickname_help: Je bijnaam in %{organization}.
         submit_button: Opslaan
         subtitle: Als u de uitnodiging accepteert, stelt u uw bijnaam en wachtwoord in.
       invitation_removed: Je uitnodiging is verwijderd.
@@ -1476,7 +1466,6 @@ nl:
     passwords:
       edit:
         change_my_password: Verander mijn wachtwoord
-        change_your_password: Verander uw wachtwoord
         confirm_new_password: Bevestig nieuw wachtwoord
         new_password: Nieuw wachtwoord
         password_help: "gebruik minimaal %{minimun_characters} tekens, deze mogen niet te algemeen zijn (bijv. 123456) en moeten anders zijn dan je alias en je e-mail."
@@ -1567,10 +1556,6 @@ nl:
     timestamp_error_message: Sorry, dat was te snel! Gelieve opnieuw in te dienen.
   layouts:
     decidim:
-      cookie_warning:
-        description_html: Deze website maakt gebruik van cookies. Door gebruik te blijven maken van de site gaat u hiermee akkoord. Meer informatie via %{link}.
-        link_label: hier
-        ok: Ik ga akkoord
       edit_link:
         edit: Bewerk
       footer:

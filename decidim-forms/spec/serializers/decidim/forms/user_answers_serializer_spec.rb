@@ -76,14 +76,14 @@ module Decidim
             )
           end
 
-          serialized_matrix_answer = matrixmultiple_rows.map do |row|
+          serialized_matrix_answer = matrixmultiple_rows.to_h do |row|
             key = translated(row.body, locale: I18n.locale)
             choices = matrixmultiple_answer_options.map do |option|
               matrixmultiple_answer_choices.find { |choice| choice.matrix_row == row && choice.answer_option == option }
             end
 
             [key, choices.map { |choice| choice&.body }]
-          end.to_h
+          end
 
           serialized_files_answer = files_answer.attachments.map(&:url)
 

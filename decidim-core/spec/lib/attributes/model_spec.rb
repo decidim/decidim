@@ -63,7 +63,7 @@ module Decidim
         let(:value_hash) { { name: "John Doe" } }
 
         before do
-          expect(value).to receive(:to_h).and_return(value_hash)
+          allow(value).to receive(:to_h).and_return(value_hash)
         end
 
         it "returns a new instance of the primitive with the correct values" do
@@ -84,12 +84,30 @@ module Decidim
         let(:attributes) { { name: "John Doe" } }
 
         before do
-          expect(value).to receive(:attributes).and_return(attributes)
+          allow(value).to receive(:attributes).and_return(attributes)
         end
 
         it "returns a new instance of the primitive with the correct values" do
           expect(subject).to be_a(primitive)
           expect(subject.name).to eq("John Doe")
+        end
+      end
+
+      context "when the value is an Active Record object and the primitive is a form" do
+        let(:primitive) do
+          Class.new(Decidim::Form) do
+            attr_reader :provided_model
+
+            def map_model(model)
+              @provided_model = model
+            end
+          end
+        end
+        let(:value) { create(:organization) }
+
+        it "calls the map_model method on the created primitive record" do
+          expect(subject).to be_a(primitive)
+          expect(subject.provided_model).to be(value)
         end
       end
 

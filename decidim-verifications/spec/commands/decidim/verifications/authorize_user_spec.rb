@@ -20,7 +20,7 @@ module Decidim::Verifications
 
     context "when the form is not authorized" do
       before do
-        expect(handler).to receive(:valid?).and_return(false)
+        allow(handler).to receive(:valid?).and_return(false)
       end
 
       it "is not valid" do
@@ -66,7 +66,7 @@ module Decidim::Verifications
         end
 
         it "is invalid if there's another authorization with the same id" do
-          expect { subject.call }.to change(authorizations, :count).by(0)
+          expect { subject.call }.not_to change(authorizations, :count)
         end
       end
     end

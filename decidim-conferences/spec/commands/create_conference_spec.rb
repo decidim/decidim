@@ -80,15 +80,15 @@ module Decidim::Conferences
           persisted?: false,
           valid?: false,
           errors: {
-            hero_image: "Image too big",
-            banner_image: "Image too big"
+            hero_image: "File resolution is too large",
+            banner_image: "File resolution is too large"
           }
         ).as_null_object
       end
 
       before do
         allow(Decidim::ActionLogger).to receive(:log).and_return(true)
-        expect(Decidim::Conference).to receive(:create).and_return(invalid_conference)
+        allow(Decidim::Conference).to receive(:create).and_return(invalid_conference)
       end
 
       it "broadcasts invalid" do
@@ -96,8 +96,8 @@ module Decidim::Conferences
       end
 
       it "adds errors to the form" do
-        expect(errors).to receive(:add).with(:hero_image, "Image too big")
-        expect(errors).to receive(:add).with(:banner_image, "Image too big")
+        expect(errors).to receive(:add).with(:hero_image, "File resolution is too large")
+        expect(errors).to receive(:add).with(:banner_image, "File resolution is too large")
         subject.call
       end
     end
@@ -106,7 +106,7 @@ module Decidim::Conferences
       let(:conference) { Decidim::Conference.last }
 
       it "creates an conference" do
-        expect { subject.call }.to change { Decidim::Conference.count }.by(1)
+        expect { subject.call }.to change(Decidim::Conference, :count).by(1)
       end
 
       it "broadcasts ok" do

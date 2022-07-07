@@ -10,7 +10,7 @@ module Decidim
     class Conversation < ApplicationRecord
       self.table_name = "decidim_messaging_conversations"
 
-      include Decidim::DataPortability
+      include Decidim::DownloadYourData
 
       has_many :participations, foreign_key: :decidim_conversation_id,
                                 class_name: "Decidim::Messaging::Participation",
@@ -173,7 +173,7 @@ module Decidim
       end
 
       def self.export_serializer
-        Decidim::DataPortabilitySerializers::DataPortabilityConversationSerializer
+        Decidim::DownloadYourDataSerializers::DownloadYourDataConversationSerializer
       end
     end
   end

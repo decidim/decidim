@@ -62,7 +62,7 @@ describe "rake decidim:right_to_be_forgotten", type: :task do
 
   context "when file do not exists" do
     it "raise a FILE NOT FOUND error" do
-      expect(ENV).to receive(:[]).with("FILE_PATH").and_return("tmp/not_found_file")
+      allow(ENV).to receive(:[]).with("FILE_PATH").and_return("tmp/not_found_file")
       task.execute
       check_error_printed("File not found")
     end

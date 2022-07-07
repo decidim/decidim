@@ -20,12 +20,6 @@ describe "Admin manages questions", type: :system do
     end
   end
 
-  describe "admin form" do
-    before { click_on "New Question" }
-
-    it_behaves_like "having a rich text editor", "new_question", "full"
-  end
-
   it "creates a new question" do
     click_on "New Question"
 
@@ -36,13 +30,6 @@ describe "Admin manages questions", type: :system do
         en: "My question",
         es: "Mi pregunta",
         ca: "La meva pregunta"
-      )
-      fill_in_i18n_editor(
-        :question_description,
-        "#question-description-tabs",
-        en: "Long description",
-        es: "Descripción más larga",
-        ca: "Descripció més llarga"
       )
     end
 
@@ -56,6 +43,32 @@ describe "Admin manages questions", type: :system do
 
     within "table" do
       expect(page).to have_content("My question")
+    end
+  end
+
+  context "when the election has already started" do
+    let(:election) { create :election, :started, component: current_component }
+
+    it "doesn't create a new question" do
+      click_on "New Question"
+
+      within ".new_question" do
+        fill_in_i18n(
+          :question_title,
+          "#question-title-tabs",
+          en: "My question",
+          es: "Mi pregunta",
+          ca: "La meva pregunta"
+        )
+      end
+
+      within ".new_question" do
+        find("*[type=submit]").click
+      end
+
+      within ".callout-wrapper" do
+        expect(page).to have_content("has already started")
+      end
     end
   end
 

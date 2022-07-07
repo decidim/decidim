@@ -60,7 +60,7 @@ module Decidim
 
         describe "when sent_at is between 15 days and today" do
           let(:decrypted_string) { encryptor.sent_at_decrypted(params[:u]) }
-          let(:time) { (Time.current - 2.days).to_i }
+          let(:time) { 2.days.ago.to_i }
           let(:sent_at_time) { Time.zone.at(decrypted_string.split("-").second.to_i) }
 
           context "and newsletter notifications is true" do
@@ -88,7 +88,7 @@ module Decidim
 
         describe "when sent_at is before than 15 days" do
           let(:decrypted_string) { encryptor.sent_at_decrypted(params[:u]) }
-          let(:time) { (Time.current - 17.days).to_i }
+          let(:time) { 17.days.ago.to_i }
           let(:sent_at_time) { Time.zone.at(decrypted_string.split("-").second.to_i) }
 
           it "say token has expired" do

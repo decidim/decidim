@@ -24,19 +24,19 @@ module Decidim
 
       let(:participatory_process) { create(:participatory_process, organization: current_organization) }
       let(:questionnaire) { create(:questionnaire, questionnaire_for: participatory_process) }
-      let(:question_1) { create(:questionnaire_question, questionnaire: questionnaire) }
-      let(:question_2) { create(:questionnaire_question, questionnaire: questionnaire) }
-      let(:question_3) { create(:questionnaire_question, questionnaire: questionnaire) }
-      let(:answer_options) { create_list(:answer_option, 5, question: question_2) }
+      let(:question1) { create(:questionnaire_question, questionnaire: questionnaire) }
+      let(:question2) { create(:questionnaire_question, questionnaire: questionnaire) }
+      let(:question3) { create(:questionnaire_question, questionnaire: questionnaire) }
+      let(:answer_options) { create_list(:answer_option, 5, question: question2) }
       let(:answer_option_ids) { answer_options.pluck(:id).map(&:to_s) }
-      let(:matrix_rows) { create_list(:question_matrix_row, 3, question: question_2) }
+      let(:matrix_rows) { create_list(:question_matrix_row, 3, question: question2) }
       let(:matrix_row_ids) { matrix_rows.pluck(:id).map(&:to_s) }
       let(:form_params) do
         {
           "responses" => [
             {
               "body" => "This is my first answer",
-              "question_id" => question_1.id
+              "question_id" => question1.id
             },
             {
               "choices" => [
@@ -44,14 +44,14 @@ module Decidim
                 { "answer_option_id" => answer_option_ids[1], "body" => "second", "matrix_row_id" => matrix_row_ids[1] },
                 { "answer_option_id" => answer_option_ids[2], "body" => "answer", "matrix_row_id" => matrix_row_ids[2] }
               ],
-              "question_id" => question_2.id
+              "question_id" => question2.id
             },
             {
               "choices" => [
                 { "answer_option_id" => answer_option_ids[3], "body" => "Third", "position" => 0 },
                 { "answer_option_id" => answer_option_ids[4], "body" => "answer", "position" => 1 }
               ],
-              "question_id" => question_3.id
+              "question_id" => question3.id
             }
           ],
           "tos_agreement" => "1"
@@ -70,7 +70,7 @@ module Decidim
 
       describe "when the form is invalid" do
         before do
-          expect(form).to receive(:invalid?).and_return(true)
+          allow(form).to receive(:invalid?).and_return(true)
         end
 
         it "broadcasts invalid" do
@@ -116,16 +116,16 @@ module Decidim
             command.call
 
             expect(Answer.first.session_token).to eq(tokenize(current_user.id))
-            expect(Answer.first.ip_hash).to eq(nil)
+            expect(Answer.first.ip_hash).to be_nil
             expect(Answer.second.session_token).to eq(tokenize(current_user.id))
-            expect(Answer.second.ip_hash).to eq(nil)
+            expect(Answer.second.ip_hash).to be_nil
             expect(Answer.third.session_token).to eq(tokenize(current_user.id))
-            expect(Answer.third.ip_hash).to eq(nil)
+            expect(Answer.third.ip_hash).to be_nil
           end
         end
 
         context "with attachments" do
-          let(:question_1) { create(:questionnaire_question, questionnaire: questionnaire, question_type: :files) }
+          let(:question1) { create(:questionnaire_question, questionnaire: questionnaire, question_type: :files) }
           let(:uploaded_files) do
             [
               {
@@ -143,7 +143,7 @@ module Decidim
               "responses" => [
                 {
                   "add_documents" => uploaded_files,
-                  "question_id" => question_1.id
+                  "question_id" => question1.id
                 }
               ],
               "tos_agreement" => "1"
@@ -173,7 +173,7 @@ module Decidim
             end
 
             it "does not create atachments for the proposal" do
-              expect { command.call }.to change(Decidim::Attachment, :count).by(0)
+              expect { command.call }.not_to change(Decidim::Attachment, :count)
             end
 
             it "broadcasts invalid" do
@@ -182,7 +182,7 @@ module Decidim
           end
 
           context "when the user has answered the survey" do
-            let!(:answer) { create(:answer, questionnaire: questionnaire, question: question_1, user: current_user) }
+            let!(:answer) { create(:answer, questionnaire: questionnaire, question: question1, user: current_user) }
 
             it "doesn't create questionnaire answers" do
               expect { command.call }.not_to change(Answer, :count)
@@ -216,7 +216,7 @@ module Decidim
         end
 
         context "and visitor has answered the survey" do
-          let!(:answer) { create(:answer, questionnaire: questionnaire, question: question_1, session_token: tokenize(session_id)) }
+          let!(:answer) { create(:answer, questionnaire: questionnaire, question: question1, session_token: tokenize(session_id)) }
 
           it "doesn't create questionnaire answers" do
             expect { command.call }.not_to change(Answer, :count)

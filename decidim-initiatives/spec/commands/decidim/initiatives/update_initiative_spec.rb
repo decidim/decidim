@@ -44,7 +44,7 @@ module Decidim
 
         describe "when the form is not valid" do
           before do
-            expect(form).to receive(:invalid?).and_return(true)
+            allow(form).to receive(:invalid?).and_return(true)
           end
 
           it "broadcasts invalid" do
@@ -119,7 +119,7 @@ module Decidim
             end
 
             it "does not create atachments for the initiative" do
-              expect { command.call }.to change(Decidim::Attachment, :count).by(0)
+              expect { command.call }.not_to change(Decidim::Attachment, :count)
             end
 
             it "broadcasts invalid" do

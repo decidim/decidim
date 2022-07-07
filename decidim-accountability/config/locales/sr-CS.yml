@@ -130,7 +130,6 @@ sr:
             progress: Napredak
         timeline_entry:
           fields:
-            description: Opis
             entry_date: Datum
       results:
         count:

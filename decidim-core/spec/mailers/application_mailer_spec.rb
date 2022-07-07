@@ -18,10 +18,10 @@ module Decidim
           "from" => from
         }
       end
-      let(:mail) { described_class.send_email(user, organization, subject, reply_to) }
+      let(:mail) { described_class.send_email(user, organization, mail_subject, reply_to) }
       let(:from) { "" }
       let(:reply_to) { nil }
-      let(:subject) { "Test subject" }
+      let(:mail_subject) { "Test subject" }
 
       it "update correctly mail.delivery_method.settings" do
         expect(mail.delivery_method.settings[:address]).to eq("mail.gotham.gov")
@@ -31,12 +31,12 @@ module Decidim
       end
 
       context "when there is no organization at all" do
-        let(:mail) { described_class.send_email(user, nil, subject, reply_to) }
+        let(:mail) { described_class.send_email(user, nil, mail_subject, reply_to) }
 
         it "returns default values" do
           expect(mail.from).to eq(["change-me@example.org"])
-          expect(mail.reply_to).to eq(nil)
-          expect(mail.subject).to eq(subject)
+          expect(mail.reply_to).to be_nil
+          expect(mail.subject).to eq(mail_subject)
         end
       end
 
@@ -80,7 +80,7 @@ module Decidim
       end
 
       context "when subject is set" do
-        let(:subject) { "Custom subject" }
+        let(:mail_subject) { "Custom subject" }
 
         it "sets subject" do
           expect(mail.subject).to eq("Custom subject")

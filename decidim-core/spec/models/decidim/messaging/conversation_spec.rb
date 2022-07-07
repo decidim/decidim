@@ -39,13 +39,13 @@ describe Decidim::Messaging::Conversation do
         end
 
         it "accept_user? returns false" do
-          expect(conversation.accept_user?(originator)).to eq(false)
+          expect(conversation.accept_user?(originator)).to be(false)
         end
       end
 
       context "and all the interlocutor accept the originator" do
         it "accept_user? returns true" do
-          expect(conversation.accept_user?(originator)).to eq(true)
+          expect(conversation.accept_user?(originator)).to be(true)
         end
       end
 
@@ -56,7 +56,7 @@ describe Decidim::Messaging::Conversation do
         end
 
         it "with_deleted_users? returns true" do
-          expect(conversation.with_deleted_users?(originator)).to eq(true)
+          expect(conversation.with_deleted_users?(originator)).to be(true)
         end
       end
 
@@ -66,7 +66,7 @@ describe Decidim::Messaging::Conversation do
         end
 
         it "with_deleted_users? returns false" do
-          expect(conversation.with_deleted_users?(originator)).to eq(false)
+          expect(conversation.with_deleted_users?(originator)).to be(false)
         end
       end
     end

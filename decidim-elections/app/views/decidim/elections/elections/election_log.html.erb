@@ -179,4 +179,6 @@
   </div>
 </div>
 
-<%= javascript_pack_tag "decidim_elections_election_log" %>
+<% content_for :js_content do %>
+  <%= javascript_pack_tag "decidim_elections_election_log" %>
+<% end %>

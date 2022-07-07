@@ -5,14 +5,15 @@ require "spec_helper"
 module Decidim::Budgets
   describe ProjectSerializer do
     let(:budget) { create(:budget) }
-    let(:category) { create(:category, participatory_space: budget.component.participatory_space) }
-    let(:scope) { create(:scope, organization: category.participatory_space.organization) }
-    let(:project) { create(:project, budget: budget, category: category, scope: scope) }
-    let(:subject) { described_class.new(project) }
     let(:serialized) { subject.run }
     let(:attachment) { create :attachment, attached_to: project }
     let(:proposals_component) { create(:component, manifest_name: "proposals", participatory_space: project.participatory_space) }
     let(:proposals) { create_list(:proposal, 3, component: proposals_component) }
+    let(:category) { create(:category, participatory_space: budget.component.participatory_space) }
+    let(:scope) { create(:scope, organization: category.participatory_space.organization) }
+    let(:project) { create(:project, budget: budget, category: category, scope: scope) }
+
+    subject { described_class.new(project) }
 
     describe "#serializer" do
       before { project.link_resources(proposals, "included_proposals") }

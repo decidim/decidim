@@ -90,7 +90,7 @@ Decidim.register_participatory_space(:initiatives) do |participatory_space|
         signature_type: "online",
         signature_start_date: Date.current - 7.days,
         signature_end_date: Date.current + 7.days,
-        published_at: Time.current - 7.days,
+        published_at: 7.days.ago,
         author: Decidim::User.reorder(Arel.sql("RANDOM()")).first,
         organization: organization
       }

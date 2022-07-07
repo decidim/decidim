@@ -7,7 +7,7 @@ module Decidim
   # A UserGroup is an organization of participants
   class UserGroup < UserBaseEntity
     include Decidim::Traceable
-    include Decidim::DataPortability
+    include Decidim::DownloadYourData
     include Decidim::ActsAsAuthor
     include Decidim::UserReportable
     include Decidim::Searchable
@@ -87,7 +87,7 @@ module Decidim
     end
 
     def self.export_serializer
-      Decidim::DataPortabilitySerializers::DataPortabilityUserGroupSerializer
+      Decidim::DownloadYourDataSerializers::DownloadYourDataUserGroupSerializer
     end
 
     def document_number

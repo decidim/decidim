@@ -12,7 +12,7 @@ describe Decidim::Accountability::Permissions do
     }
   end
   let(:accountability_component) { create :accountability_component }
-  let(:permission_action) { Decidim::PermissionAction.new(action) }
+  let(:permission_action) { Decidim::PermissionAction.new(**action) }
 
   context "when scope is admin" do
     let(:action) do

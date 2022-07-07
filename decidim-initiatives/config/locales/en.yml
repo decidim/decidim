@@ -25,6 +25,7 @@ en:
         banner_image: Banner image
         child_scope_threshold_enabled: Enable child scope signatures
         collect_user_extra_fields: Collect participant personal data on signature
+        comments_enabled: Enable comments
         custom_signature_end_date_enabled: Enable authors to choose the end of signature collection period
         description: Description
         document_number_authorization_handler: Authorization to verify document number on signatures
@@ -85,12 +86,17 @@ en:
             label: Type
         search_placeholder:
           title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Search %{collection} by title, description, ID or author name.
+      initiatives_settings:
+        update:
+          error: An error has occured
+          success: The initiatives settings have been successfully updated
       menu:
         attachments: Attachments
         committee_members: Committee members
         components: Components
         information: Information
         initiatives: Initiatives
+        initiatives_settings: Settings
         initiatives_types: Initiative types
         moderations: Moderations
       models:
@@ -239,11 +245,19 @@ en:
             edit: Edit
             new: New
             photos: Photos
-          show:
-            print: Print
           update:
             error: An error has occurred
             success: The initiative has been successfully updated
+        initiatives_settings:
+          edit:
+            update: Update
+          form:
+            comments: Most commented
+            date: Most recent
+            publication_date: Most recently published
+            random: Random
+            signatures: Most signed
+            title: Settings for initiatives
         initiatives_type_scopes:
           create:
             error: An error has occurred
@@ -275,7 +289,7 @@ en:
             update: Update
           form:
             authorizations: Authorization settings
-            child_scope_threshold_enabled_help: 'This config flag doesn''t support offline votes, it enables sub-scopes and works with an authorization handler that associates a scope to the user, make sure you select that authorization, bellow in authorization settings. For it to work scopes need to be configured in hierarchical way : 1 Parent - N Child. For more info on how this configuration works, see this <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">link</a>.'
+            child_scope_threshold_enabled_help: 'This config flag doesn''t support offline votes. It enables sub-scopes and works with an authorization handler that associates a scope to the user. Make sure you select that authorization, below in authorization settings. For it to work, scopes need to be configured in a hierarchical way: 1 Parent - N Child. For more info on how this configuration works, see <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">initiatives'' admin documentation page</a>.'
             only_global_scope_enabled_help: Tick this flag if you enabled "Child scope signature" and configured the global scope as your parent scope. By enabling this, initiative type selection will be skipped in the initiative creation wizard. For more info on how this configuration works, see this <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">link</a>.
             options: Options
             title: General information
@@ -293,6 +307,12 @@ en:
           send_to_technical_validation: "%{user_name} sent the %{resource_name} initiative to technical validation"
           unpublish: "%{user_name} discarded the %{resource_name} initiative"
           update: "%{user_name} updated the %{resource_name} initiative"
+        initiatives_settings:
+          update: "%{user_name} updated the initiatives settings"
+        initiatives_type:
+          create: "%{user_name} created the %{resource_name} initiatives type"
+          delete: "%{user_name} deleted the %{resource_name} initiatives type"
+          update: "%{user_name} updated the %{resource_name} initiatives type"
       admin_states:
         accepted: Enough signatures
         created: Created
@@ -508,6 +528,7 @@ en:
             title: 'Title:'
             type: Type of initiative
           legal_text: The personal data collected will be incorporated and treated confidentially by the organization, according to current legislation.
+          members_header: Members of the initiative's promoter committee
           phone_number: Phone Number
           place_date: Place, Date
           postal_code: Postal Code/ZIP
@@ -567,6 +588,8 @@ en:
           published: Published
           rejected: Not enough signatures
           validating: Technical validation
+      signature_interval:
+        title: Signature collection period
       states:
         accepted: Accepted
         expired: Expired

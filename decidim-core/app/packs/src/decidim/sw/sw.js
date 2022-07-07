@@ -24,6 +24,31 @@ self.__WB_DISABLE_DEV_LOGS = true
 // eslint-disable-next-line no-unused-vars
 const dummy = self.__WB_MANIFEST;
 
+self.addEventListener("push", (event) => {
+  const { title, ...opts } = event.data.json();
+  event.waitUntil(self.registration.showNotification(title, { ...opts }));
+});
+
+// Event handler for click on the notification event
+self.addEventListener("notificationclick", (event) => {
+  event.notification.close();
+  // Get all the Window clients
+  event.waitUntil(
+    self.clients.matchAll({ type: "window" }).then((clientsArr) => {
+      const windowToFocus = clientsArr.find((windowClient) => windowClient.url === event.notification.data.url);
+      if (windowToFocus) {
+        // If a Window tab matching the targeted URL already exists, focus that
+        windowToFocus.focus()
+      } else {
+        // Otherwise, open a new tab to the applicable URL and focus it
+        self.clients.
+          openWindow(event.notification.data.url).
+          then((windowClient) => windowClient && windowClient.focus());
+      }
+    })
+  );
+});
+
 // avoid caching admin or users paths
 registerRoute(
   ({ url }) => ["/admin/", "/users/"].some((path) => url.pathname.startsWith(path)),

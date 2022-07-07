@@ -22,8 +22,8 @@ module Decidim
             ca: "Descripció"
           }
         end
-        let(:start_date) {}
-        let(:end_date) {}
+        let(:start_date) { nil }
+        let(:end_date) { nil }
         let(:cta_path) { nil }
         let(:attributes) do
           {
@@ -55,8 +55,8 @@ module Decidim
 
           context "when no dates" do
             it "returns nil" do
-              expect(subject.start_date).to eq(nil)
-              expect(subject.end_date).to eq(nil)
+              expect(subject.start_date).to be_nil
+              expect(subject.end_date).to be_nil
             end
           end
         end

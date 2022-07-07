@@ -8,7 +8,7 @@ describe Decidim::Admin::UserManagerPermissions do
   let(:user) { build :user, :user_manager, organization: organization }
   let(:organization) { build :organization }
   let(:context) { {} }
-  let(:permission_action) { Decidim::PermissionAction.new(action) }
+  let(:permission_action) { Decidim::PermissionAction.new(**action) }
   let(:space_permissions) { instance_double(Decidim::ParticipatoryProcesses::Permissions, allowed?: space_allows) }
   let(:registrations_enabled) { true }
   let(:action) do
@@ -25,7 +25,7 @@ describe Decidim::Admin::UserManagerPermissions do
     let(:action_name) { :read }
     let(:action_subject) { :admin_dashboard }
 
-    it { is_expected.to eq true }
+    it { is_expected.to be true }
   end
 
   describe "managed users" do
@@ -50,12 +50,12 @@ describe Decidim::Admin::UserManagerPermissions do
       context "when organization available authorizations are not empty" do
         let(:authorizations) { [:foo] }
 
-        it { is_expected.to eq true }
+        it { is_expected.to be true }
       end
     end
 
     context "when any other action" do
-      it { is_expected.to eq true }
+      it { is_expected.to be true }
     end
   end
 
@@ -68,7 +68,7 @@ describe Decidim::Admin::UserManagerPermissions do
       let(:action_name) { :destroy }
 
       context "when destroying another user" do
-        it { is_expected.to eq true }
+        it { is_expected.to be true }
       end
 
       context "when destroying itself" do
@@ -97,7 +97,7 @@ describe Decidim::Admin::UserManagerPermissions do
         end
 
         context "when there are no active impersonation logs" do
-          it { is_expected.to eq true }
+          it { is_expected.to be true }
         end
       end
     end
@@ -135,12 +135,12 @@ describe Decidim::Admin::UserManagerPermissions do
       end
 
       context "when there are no active impersonation logs" do
-        it { is_expected.to eq true }
+        it { is_expected.to be true }
       end
     end
 
     context "when any other action" do
-      it { is_expected.to eq true }
+      it { is_expected.to be true }
     end
   end
 end

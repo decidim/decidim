@@ -2,8 +2,6 @@
 
 module Decidim
   class ShareToken < ApplicationRecord
-    validates :organization, presence: true
-    validates :user, presence: true
     validates :token, presence: true, uniqueness: { scope: [:decidim_organization_id, :token_for_type, :token_for_id] }
 
     belongs_to :organization, foreign_key: "decidim_organization_id", class_name: "Decidim::Organization"

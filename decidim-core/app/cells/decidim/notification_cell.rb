@@ -11,6 +11,12 @@ module Decidim
       render :show
     end
 
+    def notification_title
+      notification.event_class_instance.notification_title
+    rescue StandardError
+      I18n.t("decidim.notifications.show.missing_event")
+    end
+
     private
 
     def notification

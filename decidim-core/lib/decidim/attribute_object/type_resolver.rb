@@ -10,12 +10,7 @@ module Decidim
     class TypeResolver
       def resolve(type, **options)
         case type
-        when Symbol
-          {
-            type: type,
-            options: options
-          }
-        when ActiveModel::Type::Value
+        when Symbol, ActiveModel::Type::Value
           {
             type: type,
             options: options
@@ -46,7 +41,7 @@ module Decidim
             options: options.merge(primitive: type)
           }
         elsif type == Hash
-          resolve_hash(Hash[Symbol => Object], **options)
+          resolve_hash({ Symbol => Object }, **options)
         elsif type == Array
           resolve_array(Array[Object], **options)
         else

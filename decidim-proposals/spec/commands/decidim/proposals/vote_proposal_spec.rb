@@ -36,13 +36,13 @@ module Decidim
           it "doesn't create a new vote for the proposal" do
             expect do
               command.call
-            end.to change(ProposalVote, :count).by(0)
+            end.not_to change(ProposalVote, :count)
           end
         end
 
         context "when the threshold have been reached" do
           before do
-            expect(proposal).to receive(:maximum_votes_reached?).and_return(true)
+            allow(proposal).to receive(:maximum_votes_reached?).and_return(true)
           end
 
           it "broadcasts invalid" do
@@ -52,8 +52,8 @@ module Decidim
 
         context "when the threshold have been reached but proposal can accumulate more votes" do
           before do
-            expect(proposal).to receive(:maximum_votes_reached?).and_return(true)
-            expect(proposal).to receive(:can_accumulate_supports_beyond_threshold).and_return(true)
+            allow(proposal).to receive(:maximum_votes_reached?).and_return(true)
+            allow(proposal).to receive(:can_accumulate_supports_beyond_threshold).and_return(true)
           end
 
           it "creates a new vote for the proposal" do

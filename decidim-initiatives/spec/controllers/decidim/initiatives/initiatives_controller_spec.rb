@@ -20,6 +20,18 @@ describe Decidim::Initiatives::InitiativesController, type: :controller do
       expect(subject.helpers.initiatives).not_to include(created_initiative)
     end
 
+    context "when no order is given" do
+      let(:voted_initiative) { create(:initiative, organization: organization) }
+      let!(:vote) { create(:initiative_user_vote, initiative: voted_initiative) }
+      let!(:initiatives_settings) { create(:initiatives_settings, :most_signed) }
+
+      it "return in the default order" do
+        get :index, params: { order: "most_voted" }
+
+        expect(subject.helpers.initiatives.first).to eq(voted_initiative)
+      end
+    end
+
     context "when order by most_voted" do
       let(:voted_initiative) { create(:initiative, organization: organization) }
       let!(:vote) { create(:initiative_user_vote, initiative: voted_initiative) }
@@ -65,6 +77,11 @@ describe Decidim::Initiatives::InitiativesController, type: :controller do
       it "Shows published initiatives" do
         get :show, params: { slug: initiative.slug }
         expect(subject.helpers.current_initiative).to eq(initiative)
+      end
+
+      it "Returns 404 when there isn't an initiative" do
+        expect { get :show, params: { slug: "invalid-initiative" } }
+          .to raise_error(ActiveRecord::RecordNotFound)
       end
 
       it "Throws exception on non published initiatives" do

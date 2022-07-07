@@ -125,7 +125,7 @@ shared_examples "manage impersonations examples" do
       expect(Decidim::Admin::ExpireImpersonationJob).to have_been_enqueued.with(impersonated_user, user)
       travel Decidim::ImpersonationLog::SESSION_TIME_IN_MINUTES.minutes / 2
       visit current_path
-      travel Decidim::ImpersonationLog::SESSION_TIME_IN_MINUTES.minutes / 2 + 1.second
+      travel (Decidim::ImpersonationLog::SESSION_TIME_IN_MINUTES.minutes / 2) + 1.second
       visit current_path
       expect(page).to have_content("expired")
       expect(page).to have_link("Impersonate")
@@ -255,8 +255,8 @@ shared_examples "manage impersonations examples" do
       visit last_email_link
 
       within "form.new_user" do
-        fill_in :invitation_user_password, with: "decidim123456"
-        fill_in :invitation_user_password_confirmation, with: "decidim123456"
+        fill_in :invitation_user_password, with: "decidim123456789"
+        fill_in :invitation_user_password_confirmation, with: "decidim123456789"
         check :invitation_user_tos_agreement
         find("*[type=submit]").click
       end
@@ -270,6 +270,35 @@ shared_examples "manage impersonations examples" do
 
       within find("tr", text: managed_user.name) do
         expect(page).to have_no_link("Promote")
+      end
+    end
+  end
+
+  describe "verifications conflicts" do
+    context "when have verifications conflicts in current organization" do
+      let(:managed_user) { create(:user, :managed, organization: organization) }
+      let(:current_user) { create(:user, name: "Rigoberto", organization: organization) }
+      let!(:conflict) { create(:conflict, current_user: current_user, managed_user: managed_user) }
+
+      it "show only verifications of current organization" do
+        navigate_to_impersonations_page
+        click_link "Verification conflicts"
+
+        expect(page).to have_content("Rigoberto")
+      end
+    end
+
+    context "when have verifications conflicts in other organization" do
+      let(:other_organization) { create(:organization, available_authorizations: available_authorizations) }
+      let(:current_user) { create(:user, name: "Rigoberto", organization: other_organization) }
+      let(:managed_user) { create(:user, :managed, organization: other_organization) }
+      let!(:conflict) { create(:conflict, current_user: current_user, managed_user: managed_user) }
+
+      it "show only verifications of current organization" do
+        navigate_to_impersonations_page
+        click_link "Verification conflicts"
+
+        expect(page).not_to have_content("Rigoberto")
       end
     end
   end

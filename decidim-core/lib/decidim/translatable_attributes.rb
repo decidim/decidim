@@ -34,12 +34,12 @@ module Decidim
       #   end
       #
       # Returns nothing.
-      def translatable_attribute(name, type, *options)
-        attribute name, Hash[String => Object], default: {}
+      def translatable_attribute(name, type, **options)
+        attribute(name, { String => Object }, default: {})
 
         locales.each do |locale|
           attribute_name = "#{name}_#{locale}".gsub("-", "__")
-          attribute attribute_name, type, *options
+          attribute attribute_name, type, **options
 
           define_method attribute_name do
             field = public_send(name) || {}

@@ -20,7 +20,7 @@ describe Decidim::Meetings::Permissions do
   end
   let(:meeting_component) { create :meeting_component }
   let(:meeting) { create :meeting, component: meeting_component }
-  let(:permission_action) { Decidim::PermissionAction.new(action) }
+  let(:permission_action) { Decidim::PermissionAction.new(**action) }
   let(:poll) { create :poll, meeting: meeting }
   let(:poll_questionnaire) { create :meetings_poll_questionnaire, questionnaire_for: poll }
   let(:question) { create :meetings_poll_question, questionnaire: poll_questionnaire }
@@ -56,13 +56,13 @@ describe Decidim::Meetings::Permissions do
     end
 
     context "when question not answered" do
-      it { is_expected.to eq true }
+      it { is_expected.to be true }
     end
 
     context "when question answered" do
       let!(:answer) { create :meetings_poll_answer, user: user, question: question, questionnaire: poll_questionnaire }
 
-      it { is_expected.to eq false }
+      it { is_expected.to be false }
     end
   end
 
@@ -72,13 +72,13 @@ describe Decidim::Meetings::Permissions do
     end
 
     context "when user is not admin" do
-      it { is_expected.to eq false }
+      it { is_expected.to be false }
     end
 
     context "when user is admin" do
       let(:user) { admin_user }
 
-      it { is_expected.to eq true }
+      it { is_expected.to be true }
     end
   end
 
@@ -97,13 +97,13 @@ describe Decidim::Meetings::Permissions do
     context "when meeting can't be joined" do
       let(:can_be_joined) { false }
 
-      it { is_expected.to eq false }
+      it { is_expected.to be false }
     end
 
     context "when meeting can be joined" do
       let(:can_be_joined) { true }
 
-      it { is_expected.to eq true }
+      it { is_expected.to be true }
     end
   end
 
@@ -122,13 +122,13 @@ describe Decidim::Meetings::Permissions do
     context "when meeting can't be joined" do
       let(:can_be_registered) { false }
 
-      it { is_expected.to eq false }
+      it { is_expected.to be false }
     end
 
     context "when meeting can be joined" do
       let(:can_be_registered) { true }
 
-      it { is_expected.to eq true }
+      it { is_expected.to be true }
     end
   end
 
@@ -140,13 +140,13 @@ describe Decidim::Meetings::Permissions do
     context "when meeting author is the user trying to withdraw" do
       let(:meeting) { create :meeting, author: user, component: meeting_component }
 
-      it { is_expected.to eq true }
+      it { is_expected.to be true }
     end
 
     context "when trying by another user" do
       let(:user) { build :user }
 
-      it { is_expected.to eq false }
+      it { is_expected.to be false }
     end
   end
 
@@ -164,11 +164,11 @@ describe Decidim::Meetings::Permissions do
     context "when registrations are disabled" do
       let(:registrations_enabled) { false }
 
-      it { is_expected.to eq false }
+      it { is_expected.to be false }
     end
 
     context "when user is authorized" do
-      it { is_expected.to eq true }
+      it { is_expected.to be true }
     end
   end
 
@@ -186,11 +186,11 @@ describe Decidim::Meetings::Permissions do
     context "when registrations are disabled" do
       let(:registrations_enabled) { false }
 
-      it { is_expected.to eq false }
+      it { is_expected.to be false }
     end
 
     context "when user has not been invited" do
-      it { is_expected.to eq false }
+      it { is_expected.to be false }
     end
 
     context "when user has been invited" do
@@ -198,7 +198,7 @@ describe Decidim::Meetings::Permissions do
         meeting.invites << create(:invite, user: user, meeting: meeting)
       end
 
-      it { is_expected.to eq true }
+      it { is_expected.to be true }
     end
   end
 
@@ -208,7 +208,7 @@ describe Decidim::Meetings::Permissions do
     end
 
     context "when setting is enabled" do
-      it { is_expected.to eq true }
+      it { is_expected.to be true }
     end
 
     context "when setting is disabled" do
@@ -216,7 +216,7 @@ describe Decidim::Meetings::Permissions do
         double(creation_enabled_for_participants?: false)
       end
 
-      it { is_expected.to eq false }
+      it { is_expected.to be false }
     end
   end
 
@@ -227,18 +227,18 @@ describe Decidim::Meetings::Permissions do
 
     context "when setting is enabled" do
       context "when user is not the author" do
-        it { is_expected.to eq false }
+        it { is_expected.to be false }
       end
 
       context "when user is the author" do
         let(:meeting) { create :meeting, author: user, component: meeting_component }
 
-        it { is_expected.to eq true }
+        it { is_expected.to be true }
 
         context "when meeting is closed" do
           let(:meeting) { create :meeting, :closed, author: user, component: meeting_component }
 
-          it { is_expected.to eq false }
+          it { is_expected.to be false }
         end
       end
     end
@@ -248,7 +248,7 @@ describe Decidim::Meetings::Permissions do
         double(creation_enabled_for_participants?: false)
       end
 
-      it { is_expected.to eq false }
+      it { is_expected.to be false }
     end
   end
 
@@ -259,7 +259,7 @@ describe Decidim::Meetings::Permissions do
 
     context "when setting is enabled" do
       context "when user is not the author" do
-        it { is_expected.to eq false }
+        it { is_expected.to be false }
       end
 
       context "when user is the author" do
@@ -268,7 +268,7 @@ describe Decidim::Meetings::Permissions do
         context "when meeting is closed" do
           let(:closed_at) { Time.current }
 
-          it { is_expected.to eq false }
+          it { is_expected.to be false }
         end
 
         context "when meeting is not closed" do
@@ -279,7 +279,7 @@ describe Decidim::Meetings::Permissions do
               allow(meeting).to receive(:past?).and_return(false)
             end
 
-            it { is_expected.to eq false }
+            it { is_expected.to be false }
           end
 
           context "when meeting did finish" do
@@ -287,7 +287,7 @@ describe Decidim::Meetings::Permissions do
               allow(meeting).to receive(:past?).and_return(true)
             end
 
-            it { is_expected.to eq true }
+            it { is_expected.to be true }
           end
         end
       end
@@ -298,7 +298,7 @@ describe Decidim::Meetings::Permissions do
         double(creation_enabled_for_participants?: false)
       end
 
-      it { is_expected.to eq false }
+      it { is_expected.to be false }
     end
   end
 end

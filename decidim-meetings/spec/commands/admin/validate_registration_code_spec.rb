@@ -17,7 +17,7 @@ module Decidim::Meetings
 
     context "when the form is not valid" do
       before do
-        expect(form).to receive(:invalid?).and_return(true)
+        allow(form).to receive(:invalid?).and_return(true)
       end
 
       it "broadcasts invalid" do

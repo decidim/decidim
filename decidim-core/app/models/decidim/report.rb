@@ -3,7 +3,7 @@
 module Decidim
   # A reportable can be reported one time for each user.
   class Report < ApplicationRecord
-    include Decidim::DataPortability
+    include Decidim::DownloadYourData
 
     REASONS = %w(spam offensive does_not_belong).freeze
 
@@ -20,7 +20,7 @@ module Decidim
     end
 
     def self.export_serializer
-      Decidim::DataPortabilitySerializers::DataPortabilityReportSerializer
+      Decidim::DownloadYourDataSerializers::DownloadYourDataReportSerializer
     end
 
     private

@@ -50,6 +50,7 @@ describe "Decidim::Api::QueryType" do
       "timelineEntries" => [
         {
           "createdAt" => result.timeline_entries.first.created_at.iso8601.to_s.gsub("Z", "+00:00"),
+          "title" => { "translation" => result.timeline_entries.first.title[locale] },
           "description" => { "translation" => result.timeline_entries.first.description[locale] },
           "entryDate" => result.timeline_entries.first.entry_date.to_s,
           "id" => result.timeline_entries.first.id.to_s,
@@ -159,6 +160,9 @@ describe "Decidim::Api::QueryType" do
               timelineEntries {
                 id
                 createdAt
+                title {
+                  translation(locale:"#{locale}")
+                }
                 description {
                   translation(locale:"#{locale}")
                 }
@@ -265,6 +269,9 @@ describe "Decidim::Api::QueryType" do
           timelineEntries {
             id
             createdAt
+            title {
+              translation(locale:"#{locale}")
+            }
             description {
               translation(locale:"#{locale}")
             }

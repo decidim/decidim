@@ -40,26 +40,28 @@ module Decidim
         private
 
         def resource
-          @resource ||= begin
-            proposal = Decidim::Proposals::Proposal.find_by(id: id)
-            return nil unless proposal
-            return nil if proposal.emendation?
+          @resource ||= fetch_resource
+        end
 
-            if proposal.component != component
-              proposal.errors.add(:component, :invalid)
-              return proposal
-            end
+        def fetch_resource
+          proposal = Decidim::Proposals::Proposal.find_by(id: id)
+          return nil unless proposal
+          return nil if proposal.emendation?
 
-            proposal.answer = answer
-            proposal.answered_at = Time.current
-            if POSSIBLE_ANSWER_STATES.include?(state)
-              proposal.state = state
-              proposal.state_published_at = Time.current if component.current_settings.publish_answers_immediately?
-            else
-              proposal.errors.add(:state, :invalid)
-            end
-            proposal
+          if proposal.component != component
+            proposal.errors.add(:component, :invalid)
+            return proposal
           end
+
+          proposal.answer = answer
+          proposal.answered_at = Time.current
+          if POSSIBLE_ANSWER_STATES.include?(state)
+            proposal.state = state
+            proposal.state_published_at = Time.current if component.current_settings.publish_answers_immediately?
+          else
+            proposal.errors.add(:state, :invalid)
+          end
+          proposal
         end
 
         def id

@@ -8,7 +8,7 @@ module Decidim
       described_class.from_params(
         notifications_from_followed: notifications_from_followed,
         notifications_from_own_activity: notifications_from_own_activity,
-        email_on_notification: email_on_notification,
+        notifications_sending_frequency: notifications_sending_frequency,
         email_on_moderations: email_on_moderations,
         newsletter_notifications: newsletter_notifications,
         allow_public_contact: allow_public_contact
@@ -21,10 +21,10 @@ module Decidim
 
     let(:notifications_from_followed) { "1" }
     let(:notifications_from_own_activity) { "1" }
-    let(:email_on_notification) { "1" }
     let(:email_on_moderations) { "1" }
     let(:newsletter_notifications) { "1" }
     let(:allow_public_contact) { "1" }
+    let(:notifications_sending_frequency) { "real_time" }
 
     context "with correct data" do
       it "is valid" do
@@ -88,8 +88,8 @@ module Decidim
         let(:user) { create :user, notification_types: :all }
 
         it "maps the fields correctly" do
-          expect(subject.notifications_from_followed).to eq true
-          expect(subject.notifications_from_own_activity).to eq true
+          expect(subject.notifications_from_followed).to be true
+          expect(subject.notifications_from_own_activity).to be true
         end
       end
 
@@ -97,8 +97,8 @@ module Decidim
         let(:user) { create :user, notification_types: "followed-only" }
 
         it "maps the fields correctly" do
-          expect(subject.notifications_from_followed).to eq true
-          expect(subject.notifications_from_own_activity).to eq false
+          expect(subject.notifications_from_followed).to be true
+          expect(subject.notifications_from_own_activity).to be false
         end
       end
 
@@ -106,8 +106,8 @@ module Decidim
         let(:user) { create :user, notification_types: "own-only" }
 
         it "maps the fields correctly" do
-          expect(subject.notifications_from_followed).to eq false
-          expect(subject.notifications_from_own_activity).to eq true
+          expect(subject.notifications_from_followed).to be false
+          expect(subject.notifications_from_own_activity).to be true
         end
       end
 
@@ -115,8 +115,8 @@ module Decidim
         let(:user) { create :user, notification_types: :none }
 
         it "maps the fields correctly" do
-          expect(subject.notifications_from_followed).to eq false
-          expect(subject.notifications_from_own_activity).to eq false
+          expect(subject.notifications_from_followed).to be false
+          expect(subject.notifications_from_own_activity).to be false
         end
       end
 
@@ -124,7 +124,7 @@ module Decidim
         let(:user) { create :user, newsletter_notifications_at: Time.current }
 
         it "maps the fields correctly" do
-          expect(subject.newsletter_notifications).to eq true
+          expect(subject.newsletter_notifications).to be true
         end
       end
 
@@ -132,7 +132,7 @@ module Decidim
         let(:user) { create :user, newsletter_notifications_at: nil }
 
         it "maps the fields correctly" do
-          expect(subject.newsletter_notifications).to eq false
+          expect(subject.newsletter_notifications).to be false
         end
       end
 
@@ -140,7 +140,7 @@ module Decidim
         let(:user) { create :user, direct_message_types: "all" }
 
         it "maps the fields correctly" do
-          expect(subject.allow_public_contact).to eq true
+          expect(subject.allow_public_contact).to be true
         end
       end
 
@@ -148,13 +148,21 @@ module Decidim
         let(:user) { create :user, direct_message_types: "followed-only" }
 
         it "maps the fields correctly" do
-          expect(subject.allow_public_contact).to eq false
+          expect(subject.allow_public_contact).to be false
+        end
+      end
+
+      context "with notifications_sending_frequency present" do
+        let(:user) { create :user, notifications_sending_frequency: "real_time" }
+
+        it "maps the fields correctly" do
+          expect(subject.notifications_sending_frequency).to eq "real_time"
         end
       end
     end
 
     describe "#user_is_moderator?" do
-      context "when an organization has a moderator and a regular user " do
+      context "when an organization has a moderator and a regular user" do
         let(:organization) { create :organization, available_locales: [:en] }
         let(:participatory_space) { create :participatory_process, organization: organization }
         let(:moderator) do
@@ -168,11 +176,33 @@ module Decidim
         let(:user) { create :user, organization: organization }
 
         it "returns false when user isnt a moderator" do
-          expect(subject.user_is_moderator?(user)).to eq false
+          expect(subject.user_is_moderator?(user)).to be false
         end
 
         it "returns true when user is a moderator" do
-          expect(subject.user_is_moderator?(moderator)).to eq true
+          expect(subject.user_is_moderator?(moderator)).to be true
+        end
+      end
+    end
+
+    describe "#meet_push_notifications_requirements?" do
+      context "when the notifications requirements are met" do
+        before do
+          allow(Rails.application.secrets).to receive("vapid").and_return({ enabled: true })
+        end
+
+        it "returns true" do
+          expect(subject.meet_push_notifications_requirements?).to be true
+        end
+      end
+
+      context "when the notifications requirements aren't met" do
+        before do
+          allow(Rails.application.secrets).to receive("vapid").and_return({ enabled: false })
+        end
+
+        it "returns false" do
+          expect(subject.meet_push_notifications_requirements?).to be false
         end
       end
     end

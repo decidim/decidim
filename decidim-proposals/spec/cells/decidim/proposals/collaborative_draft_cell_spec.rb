@@ -14,7 +14,7 @@ describe Decidim::Proposals::CollaborativeDraftCell, type: :cell do
   let!(:collaborative_draft) { create(:collaborative_draft, component: component) }
   let(:authors) { create_list(:user, 5, organization: component.organization) }
   let(:collaborative_draft_va) { create(:collaborative_draft, component: component, users: authors) }
-  let(:context) {}
+  let(:context) { nil }
 
   let(:card_label) { subject.find(".card__label") }
   let(:card_content) { subject.find(".card__content") }

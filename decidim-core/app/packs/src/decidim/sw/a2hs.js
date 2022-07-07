@@ -1,10 +1,9 @@
 const visitedPages = JSON.parse(sessionStorage.getItem("visitedPages")) || []
-const userChoice = sessionStorage.getItem("userChoice")
 const DELAYED_VISITS = 2
 let deferredPrompt = null
 
-const shouldCountVisitedPages = () => userChoice !== "dismissed" && visitedPages.length < DELAYED_VISITS && !visitedPages.includes(location.pathname)
-const shouldPrompt = () => deferredPrompt && userChoice !== "dismissed" && visitedPages.length >= DELAYED_VISITS
+const shouldCountVisitedPages = () => sessionStorage.getItem("userChoice") !== "dismissed" && visitedPages.length < DELAYED_VISITS && !visitedPages.includes(location.pathname)
+const shouldPrompt = () => deferredPrompt && sessionStorage.getItem("userChoice") !== "dismissed" && visitedPages.length >= DELAYED_VISITS
 
 window.addEventListener("beforeinstallprompt", (event) => {
   deferredPrompt = event
@@ -16,12 +15,12 @@ window.addEventListener("beforeinstallprompt", (event) => {
 });
 
 // to trigger the prompt, it must be a "user gesture"
-window.addEventListener("click", async () => {
+window.addEventListener("click", async (event) => {
   if (shouldPrompt()) {
+    event.preventDefault()
     deferredPrompt.prompt()
 
     const { outcome } = await deferredPrompt.userChoice;
-
     // store the user choice to avoid asking again in the current session
     sessionStorage.setItem("userChoice", outcome)
     sessionStorage.removeItem("visitedPages")

@@ -13,11 +13,13 @@ AllCops:
     - "**/Gemfile"
     - "**/Rakefile"
   Exclude:
+    - "**/node_modules/**/*"
     - "**/vendor/**/*"
     - "development_app/**/*"
     - "decidim_app-design/node_modules/**/*"
     - "spec/decidim_dummy_app/**/*"
     - "node_modules/**/*"
+    - "decidim-initiatives/lib/gem_overrides/origami/date.rb"
   # Default formatter will be used if no -f/--format option is given.
   DefaultFormatter: progress
   # Cop names are not displayed in offense messages by default. Change behavior
@@ -68,12 +70,12 @@ AllCops:
   # If a value is specified for TargetRubyVersion then it is used.
   # Else if .ruby-version exists and it contains an MRI version it is used.
   # Otherwise we fallback to the oldest officially supported Ruby version (2.0).
-  TargetRubyVersion: 2.7
+  TargetRubyVersion: 3.0
 
-  RSpec:
-    Patterns:
-      - "(?:^|/)spec/"
-      - "(?:^|/)test/"
+#  RSpec:
+#    Patterns:
+#      - "(?:^|/)spec/"
+#      - "(?:^|/)test/"
 
 # Indent private/protected/public as deep as method definitions
 Layout/AccessModifierIndentation:

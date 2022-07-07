@@ -51,7 +51,7 @@ module Decidim::Conferences
       let(:registration_type) { Decidim::Conferences::RegistrationType.last }
 
       it "creates a registration type" do
-        expect { subject.call }.to change { Decidim::Conferences::RegistrationType.count }.by(1)
+        expect { subject.call }.to change(Decidim::Conferences::RegistrationType, :count).by(1)
       end
 
       it "broadcasts ok" do
@@ -66,7 +66,7 @@ module Decidim::Conferences
       it "traces the action", versioning: true do
         expect(Decidim.traceability)
           .to receive(:perform_action!)
-          .with(:create, Decidim::Conferences::RegistrationType, current_user, participatory_space: { title: conference.title }, resource: { title: form.title })
+          .with(:create, Decidim::Conferences::RegistrationType, current_user, { participatory_space: { title: conference.title }, resource: { title: form.title } })
           .and_call_original
 
         expect { subject.call }.to change(Decidim::ActionLog, :count)

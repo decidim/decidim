@@ -2,7 +2,7 @@
 
 module Decidim
   class SearchesController < Decidim::ApplicationController
-    include Rectify::ControllerHelpers
+    include Decidim::ControllerHelpers
     include FormFactory
     include FilterResource
     include Paginable

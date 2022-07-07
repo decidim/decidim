@@ -22,13 +22,13 @@ describe Decidim::Elections::Admin::Permissions do
   let(:answer) { nil }
   let(:trustee_participatory_space) { create :trustees_participatory_space }
   let(:questionnaire) { election&.questionnaire }
-  let(:permission_action) { Decidim::PermissionAction.new(action) }
+  let(:permission_action) { Decidim::PermissionAction.new(**action) }
 
   shared_examples "not allowed when election was created on the bulletin board" do
     context "when election was created on the bulletin board" do
       let(:election) { create :election, :created, component: elections_component }
 
-      it { is_expected.to eq false }
+      it { is_expected.to be false }
     end
   end
 
@@ -37,7 +37,7 @@ describe Decidim::Elections::Admin::Permissions do
       let(:election) { create :election, component: elections_component }
       let(:question) { create :question, :candidates, max_selections: 11, election: election }
 
-      it { is_expected.to eq false }
+      it { is_expected.to be false }
     end
   end
 
@@ -46,7 +46,7 @@ describe Decidim::Elections::Admin::Permissions do
       let(:trustee) { create :trustee, :with_elections }
       let(:trustee_participatory_space) { create :trustees_participatory_space, trustee: trustee }
 
-      it { is_expected.to eq false }
+      it { is_expected.to be false }
     end
   end
 
@@ -80,7 +80,7 @@ describe Decidim::Elections::Admin::Permissions do
     end
     let(:election) { nil }
 
-    it { is_expected.to eq true }
+    it { is_expected.to be true }
   end
 
   describe "election update" do
@@ -88,7 +88,7 @@ describe Decidim::Elections::Admin::Permissions do
       { scope: :admin, action: :update, subject: :election }
     end
 
-    it { is_expected.to eq true }
+    it { is_expected.to be true }
 
     it_behaves_like "not allowed when election was created on the bulletin board"
   end
@@ -99,7 +99,7 @@ describe Decidim::Elections::Admin::Permissions do
       { scope: :admin, action: :publish, subject: :election }
     end
 
-    it { is_expected.to eq true }
+    it { is_expected.to be true }
 
     it_behaves_like "not allowed when election was created on the bulletin board"
     it_behaves_like "not allowed when election has invalid questions"
@@ -110,7 +110,7 @@ describe Decidim::Elections::Admin::Permissions do
       { scope: :admin, action: :delete, subject: :election }
     end
 
-    it { is_expected.to eq true }
+    it { is_expected.to be true }
 
     it_behaves_like "not allowed when election was created on the bulletin board"
   end
@@ -120,7 +120,7 @@ describe Decidim::Elections::Admin::Permissions do
       { scope: :admin, action: :unpublish, subject: :election }
     end
 
-    it { is_expected.to eq true }
+    it { is_expected.to be true }
 
     it_behaves_like "not allowed when election was created on the bulletin board"
   end
@@ -134,7 +134,7 @@ describe Decidim::Elections::Admin::Permissions do
       end
       let(:question) { nil }
 
-      it { is_expected.to eq true }
+      it { is_expected.to be true }
 
       it_behaves_like "not allowed when election was created on the bulletin board"
     end
@@ -144,7 +144,7 @@ describe Decidim::Elections::Admin::Permissions do
         { scope: :admin, action: :update, subject: :question }
       end
 
-      it { is_expected.to eq true }
+      it { is_expected.to be true }
 
       it_behaves_like "not allowed when election was created on the bulletin board"
     end
@@ -154,7 +154,7 @@ describe Decidim::Elections::Admin::Permissions do
         { scope: :admin, action: :delete, subject: :question }
       end
 
-      it { is_expected.to eq true }
+      it { is_expected.to be true }
 
       it_behaves_like "not allowed when election was created on the bulletin board"
     end
@@ -170,7 +170,7 @@ describe Decidim::Elections::Admin::Permissions do
       end
       let(:answer) { nil }
 
-      it { is_expected.to eq true }
+      it { is_expected.to be true }
 
       it_behaves_like "not allowed when election was created on the bulletin board"
     end
@@ -180,7 +180,7 @@ describe Decidim::Elections::Admin::Permissions do
         { scope: :admin, action: :update, subject: :answer }
       end
 
-      it { is_expected.to eq true }
+      it { is_expected.to be true }
 
       it_behaves_like "not allowed when election was created on the bulletin board"
     end
@@ -190,7 +190,7 @@ describe Decidim::Elections::Admin::Permissions do
         { scope: :admin, action: :delete, subject: :answer }
       end
 
-      it { is_expected.to eq true }
+      it { is_expected.to be true }
 
       it_behaves_like "not allowed when election was created on the bulletin board"
     end
@@ -202,7 +202,7 @@ describe Decidim::Elections::Admin::Permissions do
         { scope: :admin, action: :select, subject: :answer }
       end
 
-      it { is_expected.to eq true }
+      it { is_expected.to be true }
     end
 
     describe "import proposals" do
@@ -210,7 +210,7 @@ describe Decidim::Elections::Admin::Permissions do
         { scope: :admin, action: :import_proposals, subject: :answer }
       end
 
-      it { is_expected.to eq true }
+      it { is_expected.to be true }
 
       it_behaves_like "not allowed when election was created on the bulletin board"
     end
@@ -221,7 +221,7 @@ describe Decidim::Elections::Admin::Permissions do
       end
       let(:trustee) { nil }
 
-      it { is_expected.to eq true }
+      it { is_expected.to be true }
     end
 
     describe "remove trustee from participatory space" do
@@ -229,7 +229,7 @@ describe Decidim::Elections::Admin::Permissions do
         { scope: :admin, action: :delete, subject: :trustee_participatory_space }
       end
 
-      it { is_expected.to eq true }
+      it { is_expected.to be true }
 
       it_behaves_like "not allowed when trustee has elections"
     end
@@ -239,7 +239,7 @@ describe Decidim::Elections::Admin::Permissions do
         { scope: :admin, action: :update, subject: :trustee_participatory_space }
       end
 
-      it { is_expected.to eq true }
+      it { is_expected.to be true }
     end
 
     context "when subject is a questionnaire" do
@@ -248,13 +248,13 @@ describe Decidim::Elections::Admin::Permissions do
       end
 
       context "when feedback form is present" do
-        it { is_expected.to eq true }
+        it { is_expected.to be true }
       end
 
       context "when feedback form is missing" do
         let(:questionnaire) { nil }
 
-        it { is_expected.to eq false }
+        it { is_expected.to be false }
       end
     end
 
@@ -263,7 +263,7 @@ describe Decidim::Elections::Admin::Permissions do
         { scope: :admin, action: :read, subject: :steps }
       end
 
-      it { is_expected.to eq true }
+      it { is_expected.to be true }
     end
 
     describe "update election steps" do
@@ -271,7 +271,7 @@ describe Decidim::Elections::Admin::Permissions do
         { scope: :admin, action: :update, subject: :steps }
       end
 
-      it { is_expected.to eq true }
+      it { is_expected.to be true }
     end
   end
 end

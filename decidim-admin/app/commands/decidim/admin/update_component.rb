@@ -10,10 +10,11 @@ module Decidim
       #
       # form    - The form from which the data in this component comes from.
       # component - The component to update.
-      def initialize(form, component)
+      def initialize(form, component, user)
         @manifest = component.manifest
         @form = form
         @component = component
+        @user = user
       end
 
       # Public: Creates the Component.
@@ -22,9 +23,11 @@ module Decidim
       def call
         return broadcast(:invalid) if form.invalid?
 
-        transaction do
-          update_component
-          run_hooks
+        Decidim.traceability.perform_action!("update", @component, @user) do
+          transaction do
+            update_component
+            run_hooks
+          end
         end
 
         broadcast(:ok, settings_changed?, previous_settings, current_settings)

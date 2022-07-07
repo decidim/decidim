@@ -41,7 +41,7 @@ data = {
   followers: [user3, user4]
 }
 
-Decidim::EventsManager.publish(data)
+Decidim::EventsManager.publish(**data)
 ----
 
 Both, `EmailNotificationGenerator` and `NotificationGenerator` are use the same arguments:

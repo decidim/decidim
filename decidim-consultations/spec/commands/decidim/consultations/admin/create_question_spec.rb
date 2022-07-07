@@ -41,7 +41,7 @@ module Decidim
 
         context "when the form is not valid" do
           before do
-            expect(form).to receive(:invalid?).and_return(true)
+            allow(form).to receive(:invalid?).and_return(true)
           end
 
           it "broadcasts invalid" do
@@ -56,15 +56,15 @@ module Decidim
               persisted?: false,
               valid?: false,
               errors: {
-                banner_image: "Image too big",
-                hero_image: "Image too big"
+                banner_image: "File resolution is too large",
+                hero_image: "File resolution is too large"
               }
             ).as_null_object
           end
 
           before do
-            expect(form).to receive(:invalid?).and_return(false)
-            expect(Decidim::Consultations::Question).to receive(:new).and_return(invalid_question)
+            allow(form).to receive(:invalid?).and_return(false)
+            allow(Decidim::Consultations::Question).to receive(:new).and_return(invalid_question)
           end
 
           it "broadcasts invalid" do
@@ -84,7 +84,7 @@ module Decidim
 
         context "when everything is ok" do
           it "creates a question" do
-            expect { subject.call }.to change { Decidim::Consultations::Question.count }.by(1)
+            expect { subject.call }.to change(Decidim::Consultations::Question, :count).by(1)
           end
 
           it "broadcasts ok" do

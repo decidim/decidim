@@ -20,8 +20,7 @@ module Decidim
                inverse_of: :areas,
                optional: true
 
-    validates :name, :organization, presence: true
-    validates :name, uniqueness: { scope: [:organization, :area_type] }
+    validates :name, presence: true, uniqueness: { scope: [:organization, :area_type] }
 
     before_destroy :abort_if_dependencies
 

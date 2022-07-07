@@ -23,11 +23,13 @@ module Decidim
       # Returns nothing.
       def call
         transaction do
-          return broadcast(:invalid) if voting_not_enabled? || order.checked_out? || exceeds_budget?
+          raise ActiveRecord::RecordInvalid if voting_not_enabled? || order.checked_out? || exceeds_budget?
 
           add_line_item
           broadcast(:ok, order)
         end
+      rescue ActiveRecord::RecordInvalid
+        broadcast(:invalid)
       end
 
       private

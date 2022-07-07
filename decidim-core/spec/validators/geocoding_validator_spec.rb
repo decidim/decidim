@@ -3,6 +3,8 @@
 require "spec_helper"
 
 describe GeocodingValidator do
+  subject { validatable.new(address: address, component: component) }
+
   let(:validatable) do
     Class.new do
       def self.model_name
@@ -15,20 +17,16 @@ describe GeocodingValidator do
       attribute :address
       attribute :latitude
       attribute :longitude
+      attribute :component
 
       validates :address, geocoding: true
-
-      def component
-        FactoryBot.create(:component)
-      end
     end
   end
 
   let(:address) { "Some address" }
   let(:latitude) { 40.1234 }
   let(:longitude) { 2.1234 }
-
-  let(:subject) { validatable.new(address: address) }
+  let(:component) { create(:component) }
 
   context "when the address is valid" do
     before do

@@ -4,7 +4,7 @@ module Decidim
   module Forms
     # The data store for an Answer in the Decidim::Forms
     class Answer < Forms::ApplicationRecord
-      include Decidim::DataPortability
+      include Decidim::DownloadYourData
       include Decidim::NewsletterParticipant
       include Decidim::HasAttachments
 
@@ -29,7 +29,7 @@ module Decidim
       end
 
       def self.export_serializer
-        Decidim::Forms::DataPortabilityUserAnswersSerializer
+        Decidim::Forms::DownloadYourDataUserAnswersSerializer
       end
 
       def self.newsletter_participant_ids(component)

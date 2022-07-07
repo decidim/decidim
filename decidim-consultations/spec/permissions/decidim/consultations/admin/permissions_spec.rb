@@ -11,7 +11,7 @@ describe Decidim::Consultations::Admin::Permissions do
   let(:question) { create :question, consultation: consultation }
   let(:context) { { consultation: consultation, question: question }.merge(extra_context) }
   let(:extra_context) { {} }
-  let(:permission_action) { Decidim::PermissionAction.new(action) }
+  let(:permission_action) { Decidim::PermissionAction.new(**action) }
   let(:action) do
     { scope: :admin, action: action_name, subject: action_subject }
   end
@@ -30,7 +30,7 @@ describe Decidim::Consultations::Admin::Permissions do
       { scope: :admin, action: :foo, subject: :bar }
     end
 
-    it { is_expected.to eq false }
+    it { is_expected.to be false }
   end
 
   describe "consultations" do
@@ -39,27 +39,27 @@ describe Decidim::Consultations::Admin::Permissions do
     context "when creating a consultation" do
       let(:action_name) { :create }
 
-      it { is_expected.to eq true }
+      it { is_expected.to be true }
     end
 
     context "when reading a consultation" do
       let(:action_name) { :read }
 
-      it { is_expected.to eq true }
+      it { is_expected.to be true }
     end
 
     context "when updating a consultation" do
       let(:action_name) { :update }
 
       context "when consultation is present" do
-        it { is_expected.to eq true }
+        it { is_expected.to be true }
       end
 
       context "when consultation is not present" do
         let(:consultation) { nil }
         let(:question) { nil }
 
-        it { is_expected.to eq false }
+        it { is_expected.to be false }
       end
     end
 
@@ -67,14 +67,14 @@ describe Decidim::Consultations::Admin::Permissions do
       let(:action_name) { :preview }
 
       context "when consultation is present" do
-        it { is_expected.to eq true }
+        it { is_expected.to be true }
       end
 
       context "when consultation is not present" do
         let(:consultation) { nil }
         let(:question) { nil }
 
-        it { is_expected.to eq false }
+        it { is_expected.to be false }
       end
     end
 
@@ -84,19 +84,19 @@ describe Decidim::Consultations::Admin::Permissions do
       context "when consultation is not finished" do
         let(:consultation) { create :consultation, :active, organization: organization }
 
-        it { is_expected.to eq false }
+        it { is_expected.to be false }
       end
 
       context "when consultation is finished and results not published" do
         let(:consultation) { create :consultation, :finished, :unpublished_results, organization: organization }
 
-        it { is_expected.to eq true }
+        it { is_expected.to be true }
       end
 
       context "when consultation is finished and results published" do
         let(:consultation) { create :consultation, :finished, :published_results, organization: organization }
 
-        it { is_expected.to eq false }
+        it { is_expected.to be false }
       end
     end
 
@@ -106,13 +106,13 @@ describe Decidim::Consultations::Admin::Permissions do
       context "when results are not published" do
         let(:consultation) { create :consultation, :unpublished_results, organization: organization }
 
-        it { is_expected.to eq false }
+        it { is_expected.to be false }
       end
 
       context "when results are published" do
         let(:consultation) { create :consultation, :published_results, organization: organization }
 
-        it { is_expected.to eq true }
+        it { is_expected.to be true }
       end
     end
   end
@@ -123,26 +123,26 @@ describe Decidim::Consultations::Admin::Permissions do
     context "when creating a question" do
       let(:action_name) { :create }
 
-      it { is_expected.to eq true }
+      it { is_expected.to be true }
     end
 
     context "when reading a question" do
       let(:action_name) { :read }
 
-      it { is_expected.to eq true }
+      it { is_expected.to be true }
     end
 
     context "when updating a question" do
       let(:action_name) { :update }
 
       context "when question is present" do
-        it { is_expected.to eq true }
+        it { is_expected.to be true }
       end
 
       context "when question is not present" do
         let(:question) { nil }
 
-        it { is_expected.to eq false }
+        it { is_expected.to be false }
       end
     end
 
@@ -150,13 +150,13 @@ describe Decidim::Consultations::Admin::Permissions do
       let(:action_name) { :destroy }
 
       context "when question is present" do
-        it { is_expected.to eq true }
+        it { is_expected.to be true }
       end
 
       context "when question is not present" do
         let(:question) { nil }
 
-        it { is_expected.to eq false }
+        it { is_expected.to be false }
       end
     end
 
@@ -164,13 +164,13 @@ describe Decidim::Consultations::Admin::Permissions do
       let(:action_name) { :preview }
 
       context "when question is present" do
-        it { is_expected.to eq true }
+        it { is_expected.to be true }
       end
 
       context "when question is not present" do
         let(:question) { nil }
 
-        it { is_expected.to eq false }
+        it { is_expected.to be false }
       end
     end
 
@@ -180,17 +180,17 @@ describe Decidim::Consultations::Admin::Permissions do
       context "when question has external voting" do
         let(:question) { create :question, :external_voting, consultation: consultation }
 
-        it { is_expected.to eq true }
+        it { is_expected.to be true }
       end
 
       context "when question has some responses" do
         let!(:response) { create :response, question: question }
 
-        it { is_expected.to eq true }
+        it { is_expected.to be true }
       end
 
       context "when conditions are not met" do
-        it { is_expected.to eq false }
+        it { is_expected.to be false }
       end
     end
   end
@@ -203,26 +203,26 @@ describe Decidim::Consultations::Admin::Permissions do
     context "when creating a response" do
       let(:action_name) { :create }
 
-      it { is_expected.to eq true }
+      it { is_expected.to be true }
     end
 
     context "when reading a response" do
       let(:action_name) { :read }
 
-      it { is_expected.to eq true }
+      it { is_expected.to be true }
     end
 
     context "when updating a response" do
       let(:action_name) { :update }
 
       context "when response is present" do
-        it { is_expected.to eq true }
+        it { is_expected.to be true }
       end
 
       context "when response is not present" do
         let(:response) { nil }
 
-        it { is_expected.to eq false }
+        it { is_expected.to be false }
       end
     end
 
@@ -230,13 +230,13 @@ describe Decidim::Consultations::Admin::Permissions do
       let(:action_name) { :destroy }
 
       context "when response is present" do
-        it { is_expected.to eq true }
+        it { is_expected.to be true }
       end
 
       context "when response is not present" do
         let(:response) { nil }
 
-        it { is_expected.to eq false }
+        it { is_expected.to be false }
       end
     end
   end
@@ -250,26 +250,26 @@ describe Decidim::Consultations::Admin::Permissions do
     context "when creating a response_group" do
       let(:action_name) { :create }
 
-      it { is_expected.to eq true }
+      it { is_expected.to be true }
     end
 
     context "when reading a response_group" do
       let(:action_name) { :read }
 
-      it { is_expected.to eq true }
+      it { is_expected.to be true }
     end
 
     context "when updating a response_group" do
       let(:action_name) { :update }
 
       context "when response_group is present" do
-        it { is_expected.to eq true }
+        it { is_expected.to be true }
       end
 
       context "when response_group is not present" do
         let(:response_group) { nil }
 
-        it { is_expected.to eq false }
+        it { is_expected.to be false }
       end
     end
 
@@ -277,13 +277,13 @@ describe Decidim::Consultations::Admin::Permissions do
       let(:action_name) { :destroy }
 
       context "when response_group is present" do
-        it { is_expected.to eq true }
+        it { is_expected.to be true }
       end
 
       context "when response_group is not present" do
         let(:response_group) { nil }
 
-        it { is_expected.to eq false }
+        it { is_expected.to be false }
       end
     end
 
@@ -291,7 +291,7 @@ describe Decidim::Consultations::Admin::Permissions do
       let(:question) { create :question, consultation: consultation }
       let(:action_name) { :create }
 
-      it { is_expected.to eq false }
+      it { is_expected.to be false }
     end
   end
 
@@ -299,7 +299,7 @@ describe Decidim::Consultations::Admin::Permissions do
     let(:action_subject) { :participatory_space }
     let(:action_name) { :read }
 
-    it { is_expected.to eq true }
+    it { is_expected.to be true }
   end
 
   describe "components" do
@@ -309,6 +309,6 @@ describe Decidim::Consultations::Admin::Permissions do
       { consultation: nil, participatory_space: question }
     end
 
-    it { is_expected.to eq true }
+    it { is_expected.to be true }
   end
 end

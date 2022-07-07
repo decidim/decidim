@@ -60,7 +60,7 @@ module Decidim
           affected_users: @reportable.try(:authors) || [@reportable.try(:normalized_author)]
         }
 
-        Decidim::EventsManager.publish(data)
+        Decidim::EventsManager.publish(**data)
       end
 
       def report_reasons

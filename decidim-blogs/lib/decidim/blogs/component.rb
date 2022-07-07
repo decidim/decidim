@@ -72,8 +72,14 @@ Decidim.register_component(:blogs) do |component|
       Decidim::Component.create!(params)
     end
 
-    5.times do
-      author = Decidim::User.where(organization: component.organization).all.first
+    6.times do |n|
+      author = if n >= 3
+                 Decidim::User.where(organization: component.organization).order(Arel.sql("RANDOM()")).first
+               elsif n <= 1
+                 Decidim::UserGroup.where(organization: component.organization).order(Arel.sql("RANDOM()")).first
+               else
+                 component.organization
+               end
 
       params = {
         component: component,

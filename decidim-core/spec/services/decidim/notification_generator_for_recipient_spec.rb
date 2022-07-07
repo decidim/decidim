@@ -24,5 +24,9 @@ describe Decidim::NotificationGeneratorForRecipient do
       expect(notification.resource).to eq resource
       expect(notification.extra["received_as"]).to eq "affected_user"
     end
+
+    it "returns the generated notification" do
+      expect(subject.generate).to eq(Decidim::Notification.last)
+    end
   end
 end

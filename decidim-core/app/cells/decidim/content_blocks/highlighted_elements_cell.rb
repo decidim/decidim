@@ -44,7 +44,7 @@ module Decidim
       end
 
       def random_seed
-        rand * 2 - 1
+        (rand * 2) - 1
       end
     end
   end

@@ -14,14 +14,14 @@ module Decidim
         attribute :str, String
         attribute :int, Integer
         attribute :flt, Float
-        attribute :eng, Rails::Engine, {}
+        attribute :eng, Rails::Engine, **{}
         attribute :arr, Array[OpenStruct]
-        attribute :hsh, Hash[String => OpenStruct]
+        attribute(:hsh, { String => OpenStruct })
       end
 
       c.attribute :sub, submodel
       c.attribute :sar, Array[submodel]
-      c.attribute :shs, Hash[String => submodel]
+      c.attribute(:shs, { String => submodel })
 
       c
     end
@@ -87,7 +87,7 @@ module Decidim
         Class.new do
           include Decidim::AttributeObject::Model
 
-          attribute :date, Hash[Integer => String]
+          attribute(:date, { Integer => String })
         end
       end
       let(:attributes) do
@@ -145,7 +145,7 @@ module Decidim
       end
 
       it "returns nil when the provided attribute does not exist" do
-        expect(subject[:unexisting]).to be(nil)
+        expect(subject[:unexisting]).to be_nil
       end
     end
 
@@ -157,7 +157,7 @@ module Decidim
 
       it "does nothing when trying to assign an unexisting attribute through #[]=" do
         subject[:unexisting] = "foo"
-        expect(subject[:unexisting]).to be(nil)
+        expect(subject[:unexisting]).to be_nil
       end
     end
 

@@ -39,6 +39,36 @@ describe "Vote online in an election", type: :system do
 
       uses_the_voting_booth
     end
+
+    context "when there's description in a question" do
+      before do
+        # rubocop:disable Rails/SkipsModelValidations
+        Decidim::Elections::Answer.update_all(description: { en: "Some text" })
+        # rubocop:enable Rails/SkipsModelValidations
+      end
+
+      it "shows a link to view more information about the election" do
+        visit_component
+        click_link translated(election.title)
+        click_link "Start voting"
+        expect(page).to have_content("MORE INFORMATION")
+      end
+    end
+
+    context "when there's no description in a question" do
+      before do
+        # rubocop:disable Rails/SkipsModelValidations
+        Decidim::Elections::Answer.update_all(description: {})
+        # rubocop:enable Rails/SkipsModelValidations
+      end
+
+      it "does not show the more information link" do
+        visit_component
+        click_link translated(election.title)
+        click_link "Start voting"
+        expect(page).not_to have_content("MORE INFORMATION")
+      end
+    end
   end
 
   context "when the election is not published" do
@@ -132,6 +162,25 @@ describe "Vote online in an election", type: :system do
       end
 
       expect(page).to have_content("Next")
+    end
+  end
+
+  context "when the comunication with bulletin board fails" do
+    before do
+      election.questions.last.destroy!
+      election.questions.last.destroy!
+      election.questions.last.destroy!
+      allow(Decidim::Elections.bulletin_board).to receive(:bulletin_board_server).and_return("http://idontexist.tld/api")
+    end
+
+    it "alerts the user about the error" do
+      visit_component
+      click_link translated(election.title)
+      click_link "Start voting"
+
+      within "#server-failure" do
+        expect(page).to have_content("Something went wrong")
+      end
     end
   end
 end

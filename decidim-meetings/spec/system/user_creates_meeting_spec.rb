@@ -55,7 +55,7 @@ describe "User creates meeting", type: :system do
         let(:meeting_address) { "Some address" }
         let(:latitude) { 40.1234 }
         let(:longitude) { 2.1234 }
-        let!(:meeting_start_time) { Time.current + 2.days }
+        let!(:meeting_start_time) { 2.days.from_now }
         let(:meeting_end_time) { meeting_start_time + 4.hours }
         let(:meeting_available_slots) { 30 }
         let(:meeting_registration_terms) { "These are the registration terms for this meeting" }
@@ -277,7 +277,7 @@ describe "User creates meeting", type: :system do
             expect(page).to have_no_field(:meeting_location)
             expect(page).to have_field("Online meeting URL")
 
-            select "Both", from: :meeting_type_of_meeting
+            select "Hybrid", from: :meeting_type_of_meeting
             expect(page).to have_field("Address")
             expect(page).to have_field(:meeting_location)
             expect(page).to have_field("Online meeting URL")

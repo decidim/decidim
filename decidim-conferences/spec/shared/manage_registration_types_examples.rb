@@ -46,7 +46,7 @@ shared_examples "manage registration types examples" do
       end
     end
 
-    it "deletes the conference registration type " do
+    it "deletes the conference registration type" do
       within find("#registration_types tr", text: translated(registration_type.title)) do
         accept_confirm { find("a.action-icon--remove").click }
       end

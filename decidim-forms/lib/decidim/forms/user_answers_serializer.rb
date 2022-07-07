@@ -79,7 +79,7 @@ module Decidim
       end
 
       def normalize_matrix_choices(answer, choices)
-        answer.question.matrix_rows.map do |matrix_row|
+        answer.question.matrix_rows.to_h do |matrix_row|
           row_body = translated_attribute(matrix_row.body)
 
           row_choices = answer.question.answer_options.map do |answer_option|
@@ -88,7 +88,7 @@ module Decidim
           end
 
           [row_body, row_choices]
-        end.to_h
+        end
       end
 
       def answer_translated_attribute_name(attribute)

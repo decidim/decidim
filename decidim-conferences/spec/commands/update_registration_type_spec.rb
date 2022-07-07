@@ -56,7 +56,7 @@ module Decidim::Conferences
         end.to change { registration_type.reload && registration_type.description }.from(registration_type.description).to("en" => "New description", "machine_translations" => kind_of(Hash))
       end
 
-      it "broadcasts  ok" do
+      it "broadcasts ok" do
         expect { subject.call }.to broadcast(:ok)
       end
 

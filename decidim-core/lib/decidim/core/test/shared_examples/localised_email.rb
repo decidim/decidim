@@ -9,7 +9,7 @@ shared_examples "localised email" do
     let(:locale) { "ca" }
 
     it "uses the user's locale" do
-      expect(mail.subject).to eq(subject)
+      expect(mail.subject).to eq(mail_subject)
       expect(mail.body.encoded).to match(body)
     end
   end

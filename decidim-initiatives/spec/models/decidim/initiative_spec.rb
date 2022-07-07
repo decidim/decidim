@@ -254,13 +254,13 @@ module Decidim
       context "when enough members" do
         before { create_list(:initiatives_committee_member, initiatives_type_minimum_committee_members, initiative: initiative) }
 
-        it { is_expected.to eq true }
+        it { is_expected.to be true }
       end
 
       context "when not enough members" do
         before { create_list(:initiatives_committee_member, initiatives_type_minimum_committee_members - 1, initiative: initiative) }
 
-        it { is_expected.to eq false }
+        it { is_expected.to be false }
       end
     end
 

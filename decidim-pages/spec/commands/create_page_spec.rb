@@ -12,7 +12,7 @@ module Decidim
         describe "when the page is not saved" do
           before do
             # rubocop:disable RSpec/AnyInstance
-            expect_any_instance_of(Page).to receive(:save).and_return(false)
+            allow_any_instance_of(Page).to receive(:save).and_return(false)
             # rubocop:enable RSpec/AnyInstance
           end
 

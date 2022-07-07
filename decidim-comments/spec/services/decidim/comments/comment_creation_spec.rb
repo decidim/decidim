@@ -26,7 +26,7 @@ module Decidim
         let(:block) { proc { |_data| "The block that is expected to be subscribed" } }
 
         it "subscribes to comment created" do
-          expect(ActiveSupport::Notifications)
+          allow(ActiveSupport::Notifications)
             .to receive(:subscribe)
             .with(described_class::EVENT_NAME, &block)
 

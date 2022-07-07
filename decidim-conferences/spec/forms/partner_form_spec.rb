@@ -42,6 +42,12 @@ module Decidim
           it { is_expected.to be_invalid }
         end
 
+        context "when logo is missing" do
+          let(:logo) { nil }
+
+          it { is_expected.to be_invalid }
+        end
+
         context "when weight is missing" do
           let(:weight) { nil }
 

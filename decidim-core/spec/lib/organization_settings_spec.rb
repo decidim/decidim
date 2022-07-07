@@ -188,10 +188,10 @@ module Decidim
     private
 
     def struct_to_hash(struct)
-      struct.to_h.map do |key, value|
+      struct.to_h.to_h do |key, value|
         value = struct_to_hash(value) if value.is_a?(OpenStruct)
         [key.to_s, value]
-      end.to_h
+      end
     end
   end
 end

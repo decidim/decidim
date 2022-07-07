@@ -22,11 +22,6 @@ module Decidim
           @initiatives = filtered_collection
         end
 
-        # GET /admin/initiatives/:id
-        def show
-          enforce_permission_to :read, :initiative, initiative: current_initiative
-        end
-
         # GET /admin/initiatives/:id/edit
         def edit
           enforce_permission_to :edit, :initiative, initiative: current_initiative
@@ -115,7 +110,7 @@ module Decidim
               redirect_to EngineRouter.main_proxy(current_initiative).initiatives_path(initiative_slug: nil), flash: {
                 notice: I18n.t(
                   "success",
-                  scope: %w(decidim initiatives admin initiatives edit)
+                  scope: "decidim.initiatives.admin.initiatives.edit"
                 )
               }
             end

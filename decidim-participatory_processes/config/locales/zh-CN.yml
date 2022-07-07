@@ -50,12 +50,6 @@ zh-CN:
         email: 电子邮件地址
         name: 名称
         role: 作用
-    errors:
-      models:
-        participatory_process:
-          attributes:
-            document:
-              invalid_document_type: '无效的文档类型。接受的格式为： %{valid_mime_types}'
     models:
       decidim/participatory_process_step_activated_event: 相位激活
       decidim/participatory_process_step_changed_event: 相位已更改

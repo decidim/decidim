@@ -180,7 +180,7 @@ describe "Explore debates", type: :system do
           expect(page).to have_css(".card--debate", count: 1)
         end
 
-        it "works with 'back to list' link " do
+        it "works with 'back to list' link" do
           within ".filters .with_any_category_check_boxes_tree_filter" do
             uncheck "All"
             check category.name[I18n.locale.to_s]

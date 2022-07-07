@@ -14,7 +14,7 @@ module Decidim
         let(:content) { "" }
 
         it "must call ProposalParser.parse" do
-          expect(described_class).to receive(:new).with(content, context).and_return(parser)
+          allow(described_class).to receive(:new).with(content, context).and_return(parser)
 
           result = Decidim::ContentProcessor.parse(content, context)
 
@@ -69,6 +69,8 @@ module Decidim
             url = proposal_url(external_proposal)
             "This content references proposal #{url}."
           end
+
+          it { is_expected.to eq(content) }
 
           it "does not recognize the proposal" do
             subject

@@ -3,6 +3,8 @@
 require "spec_helper"
 
 describe EtiquetteValidator do
+  subject { validatable.new(body: body) }
+
   let(:validatable) do
     Class.new do
       def self.model_name
@@ -17,8 +19,6 @@ describe EtiquetteValidator do
       validates :body, etiquette: true
     end
   end
-
-  let(:subject) { validatable.new(body: body) }
 
   context "when the body is reasonable" do
     [

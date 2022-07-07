@@ -19,7 +19,7 @@ on:
 
 env:
   CI: "true"
-  RUBY_VERSION: 2.7.5
+  RUBY_VERSION: 3.0.2
   NODE_VERSION: 16.9.1
   DECIDIM_MODULE: decidim-debates
   PARALLEL_TEST_PROCESSORS: 2

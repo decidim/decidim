@@ -45,6 +45,7 @@ FactoryBot.define do
   factory :timeline_entry, class: "Decidim::Accountability::TimelineEntry" do
     result { create(:result) }
     entry_date { "12/7/2017" }
+    title { generate_localized_title }
     description { generate_localized_title }
   end
 end

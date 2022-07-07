@@ -22,7 +22,9 @@ module Decidim
 
         expect(helper).to receive(:decidim_form_for).with(record, options)
 
-        helper.authorization_form_for(record) { |f| }
+        helper.authorization_form_for(record) do
+          # empty block to invoke the helper
+        end
       end
 
       it "allows custom options" do
@@ -37,7 +39,9 @@ module Decidim
 
         expect(helper).to receive(:decidim_form_for).with(record, options)
 
-        helper.authorization_form_for(record, html: { class: "custom_form" }) { |f| }
+        helper.authorization_form_for(record, html: { class: "custom_form" }) do
+          # empty block to invoke the helper
+        end
       end
     end
   end

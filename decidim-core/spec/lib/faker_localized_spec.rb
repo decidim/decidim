@@ -166,7 +166,7 @@ module Decidim
           end
 
           it "does not generate machine translations" do
-            expect(subject[:machine_translations]).to be nil
+            expect(subject[:machine_translations]).to be_nil
           end
         end
 
@@ -178,7 +178,7 @@ module Decidim
           end
 
           it "does not generate machine translations" do
-            expect(subject[:machine_translations]).to be nil
+            expect(subject[:machine_translations]).to be_nil
           end
         end
       end

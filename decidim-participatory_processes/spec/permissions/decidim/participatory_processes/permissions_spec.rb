@@ -9,7 +9,7 @@ describe Decidim::ParticipatoryProcesses::Permissions do
   let(:organization) { create :organization }
   let(:process) { create :participatory_process, organization: organization }
   let(:context) { {} }
-  let(:permission_action) { Decidim::PermissionAction.new(action) }
+  let(:permission_action) { Decidim::PermissionAction.new(**action) }
   let(:process_admin) { create :process_admin, participatory_process: process }
   let(:process_collaborator) { create :process_collaborator, participatory_process: process }
   let(:process_moderator) { create :process_moderator, participatory_process: process }
@@ -21,18 +21,18 @@ describe Decidim::ParticipatoryProcesses::Permissions do
         { scope: :admin, action: :foo, subject: action_subject }
       end
 
-      it { is_expected.to eq true }
+      it { is_expected.to be true }
     end
   end
 
   shared_examples "access for role" do |access|
     case access
     when true
-      it { is_expected.to eq true }
+      it { is_expected.to be true }
     when :not_set
       it_behaves_like "permission is not set"
     else
-      it { is_expected.to eq false }
+      it { is_expected.to be false }
     end
   end
 
@@ -91,13 +91,13 @@ describe Decidim::ParticipatoryProcesses::Permissions do
       context "when the user is an admin" do
         let(:user) { create :user, :admin }
 
-        it { is_expected.to eq true }
+        it { is_expected.to be true }
       end
 
       context "when the process is published" do
         let(:user) { create :user, organization: organization }
 
-        it { is_expected.to eq true }
+        it { is_expected.to be true }
       end
 
       context "when the process is not published" do
@@ -105,7 +105,7 @@ describe Decidim::ParticipatoryProcesses::Permissions do
         let(:process) { create :participatory_process, :unpublished, organization: organization }
 
         context "when the user doesn't have access to it" do
-          it { is_expected.to eq false }
+          it { is_expected.to be false }
         end
 
         context "when the user has access to it" do
@@ -113,7 +113,7 @@ describe Decidim::ParticipatoryProcesses::Permissions do
             create :participatory_process_user_role, user: user, participatory_process: process
           end
 
-          it { is_expected.to eq true }
+          it { is_expected.to be true }
         end
       end
     end
@@ -123,7 +123,7 @@ describe Decidim::ParticipatoryProcesses::Permissions do
         { scope: :public, action: :list, subject: :process }
       end
 
-      it { is_expected.to eq true }
+      it { is_expected.to be true }
     end
 
     context "when listing process groups" do
@@ -131,7 +131,7 @@ describe Decidim::ParticipatoryProcesses::Permissions do
         { scope: :public, action: :list, subject: :process_group }
       end
 
-      it { is_expected.to eq true }
+      it { is_expected.to be true }
     end
 
     context "when any other action" do
@@ -358,7 +358,7 @@ describe Decidim::ParticipatoryProcesses::Permissions do
           { scope: :admin, action: :preview, subject: :dummy }
         end
 
-        it { is_expected.to eq true }
+        it { is_expected.to be true }
       end
 
       context "when action is a random one" do
@@ -378,7 +378,7 @@ describe Decidim::ParticipatoryProcesses::Permissions do
           { scope: :admin, action: :create, subject: :process }
         end
 
-        it { is_expected.to eq false }
+        it { is_expected.to be false }
       end
 
       it_behaves_like "allows any action on subject", :attachment
@@ -398,7 +398,7 @@ describe Decidim::ParticipatoryProcesses::Permissions do
           { scope: :admin, action: :create, subject: :process }
         end
 
-        it { is_expected.to eq true }
+        it { is_expected.to be true }
       end
 
       it_behaves_like "allows any action on subject", :attachment
@@ -420,7 +420,7 @@ describe Decidim::ParticipatoryProcesses::Permissions do
           { scope: :admin, action: :read, subject: :component }
         end
 
-        it { is_expected.to eq true }
+        it { is_expected.to be true }
       end
     end
   end

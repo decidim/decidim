@@ -6,7 +6,12 @@ module Decidim
 
     def build_attachments
       @documents = []
-      @form.add_documents.reject(&:blank?).each do |attachment|
+      @form.add_documents.compact_blank.each do |attachment|
+        if attachment.is_a?(Hash) && attachment.has_key?(:id)
+          update_attachment_title_for(attachment)
+          next
+        end
+
         @documents << Attachment.new(
           title: title_for(attachment),
           attached_to: @attached_to || documents_attached_to,
@@ -14,6 +19,10 @@ module Decidim
           content_type: content_type_for(attachment)
         )
       end
+    end
+
+    def update_attachment_title_for(attachment)
+      Decidim::Attachment.find(attachment[:id]).update(title: title_for(attachment))
     end
 
     def attachments_invalid?
@@ -79,6 +88,8 @@ module Decidim
     end
 
     def content_type_for(attachment)
+      return attachment.content_type if attachment.instance_of?(ActionDispatch::Http::UploadedFile)
+
       blob(signed_id_for(attachment)).content_type
     end
 

@@ -63,13 +63,12 @@ module Decidim
         @user.name = form.name
         @user.nickname = form.normalized_nickname
         @user.newsletter_notifications_at = nil
-        @user.email_on_notification = true
         @user.password = generated_password
         @user.password_confirmation = generated_password
         if form.avatar_url.present?
           url = URI.parse(form.avatar_url)
           filename = File.basename(url.path)
-          file = URI.open(url)
+          file = url.open
           @user.avatar.attach(io: file, filename: filename)
         end
         @user.skip_confirmation! if verified_email

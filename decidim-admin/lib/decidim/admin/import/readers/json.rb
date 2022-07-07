@@ -39,7 +39,7 @@ module Decidim
             columns = data.shift
             json_data = data.map do |row|
               deep_hash(
-                columns.each_with_index.map { |col, ind| [col, row[ind]] }.to_h
+                columns.each_with_index.to_h { |col, ind| [col, row[ind]] }
               )
             end
 

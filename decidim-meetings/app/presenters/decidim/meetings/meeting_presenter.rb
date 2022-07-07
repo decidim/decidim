@@ -7,10 +7,19 @@ module Decidim
     #
     class MeetingPresenter < Decidim::ResourcePresenter
       include Decidim::ResourceHelper
+      include ActionView::Helpers::UrlHelper
       include Decidim::SanitizeHelper
 
       def meeting
         __getobj__
+      end
+
+      def meeting_path
+        Decidim::ResourceLocatorPresenter.new(meeting).path
+      end
+
+      def display_mention
+        link_to title, meeting_path
       end
 
       def title(links: false, html_escape: false, all_locales: false)

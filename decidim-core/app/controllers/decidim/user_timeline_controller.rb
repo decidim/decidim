@@ -18,10 +18,9 @@ module Decidim
     private
 
     def user
-      @user ||= Decidim::User.find_by(
-        organization: current_organization,
-        nickname: params[:nickname]
-      )
+      return unless params[:nickname]
+
+      @user ||= current_organization.users.find_by("LOWER(nickname) = ?", params[:nickname].downcase)
     end
 
     def activities

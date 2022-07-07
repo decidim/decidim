@@ -32,7 +32,7 @@ describe "decidim_initiatives:notify_progress", type: :task do
     let(:initiative) do
       initiative = create(:initiative)
 
-      votes_needed = initiative.supports_required * (Decidim::Initiatives.first_notification_percentage / 100.0) + 1
+      votes_needed = (initiative.supports_required * (Decidim::Initiatives.first_notification_percentage / 100.0)) + 1
       initiative.online_votes["total"] = votes_needed
       initiative.save!
 
@@ -71,7 +71,7 @@ describe "decidim_initiatives:notify_progress", type: :task do
     let(:initiative) do
       initiative = create(:initiative, first_progress_notification_at: Time.current)
 
-      votes_needed = initiative.supports_required * (Decidim::Initiatives.second_notification_percentage / 100.0) + 1
+      votes_needed = (initiative.supports_required * (Decidim::Initiatives.second_notification_percentage / 100.0)) + 1
 
       initiative.online_votes["total"] = votes_needed
       initiative.save!

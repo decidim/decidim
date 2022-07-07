@@ -42,7 +42,7 @@ module Decidim
       let(:block) { proc { |_data| "Hello world" } }
 
       it "subscribes to setting changes" do
-        expect(ActiveSupport::Notifications)
+        allow(ActiveSupport::Notifications)
           .to receive(:subscribe)
           .with(/^decidim\.settings_change\.dummy/, &block)
 

@@ -30,7 +30,7 @@ module Decidim::Admin
         end
 
         it "returns 0 matches" do
-          query = described_class.new(parameters)
+          query = described_class.new(**parameters)
 
           expect(query.count).to eq(0)
         end
@@ -60,12 +60,12 @@ module Decidim::Admin
 
         let(:result) do
           {
-            total_admins_last_24: described_class.new(parameters_last_day_admin).query.count,
-            total_admins_last_week: described_class.new(parameters_last_week_admin).query.count,
-            total_admins_last_month: described_class.new(parameters_last_month_admin).query.count,
-            total_participants_last_24: described_class.new(parameters_last_day_participants).query.count,
-            total_participants_last_week: described_class.new(parameters_last_week_participants).query.count,
-            total_participants_last_month: described_class.new(parameters_last_month_participants).query.count
+            total_admins_last_day: described_class.new(**parameters_last_day_admin).query.count,
+            total_admins_last_week: described_class.new(**parameters_last_week_admin).query.count,
+            total_admins_last_month: described_class.new(**parameters_last_month_admin).query.count,
+            total_participants_last_day: described_class.new(**parameters_last_day_participants).query.count,
+            total_participants_last_week: described_class.new(**parameters_last_week_participants).query.count,
+            total_participants_last_month: described_class.new(**parameters_last_month_participants).query.count
           }
         end
 
@@ -74,7 +74,7 @@ module Decidim::Admin
         end
 
         it "counts total admins logged last 24 hours - 10" do
-          expect(result[:total_admins_last_24]).to eq(10)
+          expect(result[:total_admins_last_day]).to eq(10)
         end
 
         it "counts total admins logged last week - 14" do
@@ -86,7 +86,7 @@ module Decidim::Admin
         end
 
         it "counts total participants logged last 24 hours - 7" do
-          expect(result[:total_participants_last_24]).to eq(7)
+          expect(result[:total_participants_last_day]).to eq(7)
         end
 
         it "counts total participants logged last week - 12" do

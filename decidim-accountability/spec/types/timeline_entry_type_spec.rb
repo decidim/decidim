@@ -26,6 +26,14 @@ module Decidim
         end
       end
 
+      describe "title" do
+        let(:query) { '{ title { translation(locale:"en")}}' }
+
+        it "returns the title field" do
+          expect(response["title"]["translation"]).to eq(model.title["en"])
+        end
+      end
+
       describe "description" do
         let(:query) { '{ description { translation(locale:"en")}}' }
 

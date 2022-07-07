@@ -9,6 +9,7 @@ module Decidim
         let(:current_organization) { create(:organization) }
         let(:participatory_process) { create(:participatory_process, organization: current_organization) }
         let(:questionnaire) { create(:questionnaire, questionnaire_for: participatory_process) }
+        let(:user) { create(:user, organization: current_organization) }
         let(:published_at) { nil }
         let(:form_params) do
           {
@@ -202,11 +203,11 @@ module Decidim
             current_organization: current_organization
           )
         end
-        let(:command) { described_class.new(form, questionnaire) }
+        let(:command) { described_class.new(form, questionnaire, user) }
 
         describe "when the form is invalid" do
           before do
-            expect(form).to receive(:invalid?).and_return(true)
+            allow(form).to receive(:invalid?).and_return(true)
           end
 
           it "broadcasts invalid" do
@@ -246,23 +247,35 @@ module Decidim
             expect(questionnaire.questions[2].max_characters).to eq(0)
 
             expect(questionnaire.questions[3].question_type).to eq("multiple_option")
-            expect(questionnaire.questions[2].answer_options[0].free_text).to eq(false)
+            expect(questionnaire.questions[2].answer_options[0].free_text).to be(false)
             expect(questionnaire.questions[2].max_choices).to be_nil
 
             expect(questionnaire.questions[3].question_type).to eq("multiple_option")
-            expect(questionnaire.questions[3].answer_options[0].free_text).to eq(true)
+            expect(questionnaire.questions[3].answer_options[0].free_text).to be(true)
             expect(questionnaire.questions[3].max_choices).to eq(2)
 
             expect(questionnaire.questions[4].question_type).to eq("matrix_single")
-            expect(questionnaire.questions[4].answer_options[0].free_text).to eq(true)
+            expect(questionnaire.questions[4].answer_options[0].free_text).to be(true)
             (0..1).each do |idx|
               expect(questionnaire.questions[4].matrix_rows[idx].body["en"]).to eq(form_params["questions"]["4"]["matrix_rows"][idx.to_s]["body"]["en"])
               expect(questionnaire.questions[4].matrix_rows[idx].position).to eq(idx)
             end
 
             expect(questionnaire.questions[5].question_type).to eq("matrix_multiple")
-            expect(questionnaire.questions[5].answer_options[0].free_text).to eq(true)
+            expect(questionnaire.questions[5].answer_options[0].free_text).to be(true)
             expect(questionnaire.questions[5].matrix_rows[0].body["en"]).to eq(form_params["questions"]["5"]["matrix_rows"]["0"]["body"]["en"])
+          end
+
+          it "traces the action", versioning: true do
+            expect(Decidim.traceability)
+              .to receive(:perform_action!)
+              .with("update", questionnaire, user)
+              .and_call_original
+
+            expect { command.call }.to change(Decidim::ActionLog, :count)
+            action_log = Decidim::ActionLog.last
+            expect(action_log.action).to eq("update")
+            expect(action_log.version).to be_present
           end
         end
 
@@ -342,9 +355,9 @@ module Decidim
                     "body" => questions[1].body,
                     "position" => 1,
                     "question_type" => "single_option",
-                    "answer_options" => Hash[question_2_answer_options.map do |answer_option|
+                    "answer_options" => question_2_answer_options.to_h do |answer_option|
                       [answer_option.id.to_s, { "id" => answer_option.id, "body" => answer_option.body, "free_text" => answer_option.free_text, "deleted" => false }]
-                    end]
+                    end
                   },
                   "3" => {
                     "id" => questions[2].id,

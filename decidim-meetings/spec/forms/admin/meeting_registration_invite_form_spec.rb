@@ -31,13 +31,13 @@ module Decidim::Meetings
     end
 
     context "when name is missing" do
-      let(:name) {}
+      let(:name) { nil }
 
       it { is_expected.to be_invalid }
     end
 
     context "when email is missing" do
-      let(:email) {}
+      let(:email) { nil }
 
       it { is_expected.to be_invalid }
     end
@@ -73,13 +73,13 @@ module Decidim::Meetings
         context "when the user does not exist" do
           let(:user_id) { 999_999 }
 
-          it { is_expected.to eq(nil) }
+          it { is_expected.to be_nil }
         end
 
         context "when the user is from another organization" do
           let(:user_id) { create(:user).id }
 
-          it { is_expected.to eq(nil) }
+          it { is_expected.to be_nil }
         end
       end
     end

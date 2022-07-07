@@ -33,7 +33,7 @@ shared_examples "create an initiative" do
 
     describe "when the form is not valid" do
       before do
-        expect(form).to receive(:invalid?).and_return(true)
+        allow(form).to receive(:invalid?).and_return(true)
       end
 
       it "broadcasts invalid" do
@@ -55,7 +55,7 @@ shared_examples "create an initiative" do
       it "creates a new initiative" do
         expect do
           command.call
-        end.to change { Decidim::Initiative.count }.by(1)
+        end.to change(Decidim::Initiative, :count).by(1)
       end
 
       context "when attachment is present" do

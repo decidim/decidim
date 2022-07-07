@@ -60,9 +60,9 @@ en:
         avatar: Avatar
         conference_meeting_ids: Related meetings
         full_name: Full name
-        personal_url: Personal url
+        personal_url: Personal URL
         position: Position
-        short_bio: Short Bio
+        short_bio: Short bio
         twitter_handle: Twitter handle
         user_id: User
       conference_user_role:

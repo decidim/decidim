@@ -26,7 +26,7 @@ describe Decidim::Elections::Admin::AddUserAsTrustee do
     let(:trustee) { nil }
 
     it "adds the user to trustees" do
-      expect { subject.call }.to change { Decidim::Elections::Trustee.count }.by(1)
+      expect { subject.call }.to change(Decidim::Elections::Trustee, :count).by(1)
     end
 
     it "adds the user organization to trustee" do
@@ -50,6 +50,10 @@ describe Decidim::Elections::Admin::AddUserAsTrustee do
   it "adds a participatory space to trustee" do
     subject.call
     expect(trustee.trustees_participatory_spaces.count).to eq 1
+  end
+
+  it "sends an email" do
+    expect { subject.call }.to have_enqueued_job(ActionMailer::MailDeliveryJob)
   end
 
   context "when user and participatory space exist" do

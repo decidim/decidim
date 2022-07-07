@@ -13,7 +13,7 @@ module Decidim
     it "strips the header" do
       _code, new_env = middleware.call(env)
 
-      expect(new_env["HTTP_X_FORWARDED_HOST"]).to eq(nil)
+      expect(new_env["HTTP_X_FORWARDED_HOST"]).to be_nil
     end
 
     context "when the follow_http_x_forwarded_host param is set to true" do

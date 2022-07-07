@@ -20,67 +20,67 @@ module Decidim
       it "coerces options" do
         subject.attribute "something", "type" => :boolean, "default" => true
         expect(subject.attributes[:something].type).to eq(:boolean)
-        expect(subject.attributes[:something].default_value).to eq(true)
+        expect(subject.attributes[:something].default_value).to be(true)
       end
 
       it "stores presenceness" do
         subject.attribute :something # default: false
-        expect(subject.attributes[:something].required).to eq(false)
+        expect(subject.attributes[:something].required).to be(false)
 
         subject.attribute :something, required: true
-        expect(subject.attributes[:something].required).to eq(true)
+        expect(subject.attributes[:something].required).to be(true)
 
         subject.attribute :something, required: false
-        expect(subject.attributes[:something].required).to eq(false)
+        expect(subject.attributes[:something].required).to be(false)
       end
 
       it "stores `translated`" do
         subject.attribute :something # default: false
-        expect(subject.attributes[:something].translated).to eq(false)
+        expect(subject.attributes[:something].translated).to be(false)
 
         subject.attribute :something, translated: true
-        expect(subject.attributes[:something].translated).to eq(true)
+        expect(subject.attributes[:something].translated).to be(true)
 
         subject.attribute :something, translated: false
-        expect(subject.attributes[:something].translated).to eq(false)
+        expect(subject.attributes[:something].translated).to be(false)
       end
 
       it "stores `editor`" do
         subject.attribute :something # default: false
-        expect(subject.attributes[:something].editor).to eq(false)
+        expect(subject.attributes[:something].editor).to be(false)
 
         subject.attribute :something, editor: true
-        expect(subject.attributes[:something].editor).to eq(true)
+        expect(subject.attributes[:something].editor).to be(true)
 
         subject.attribute :something, editor: false
-        expect(subject.attributes[:something].editor).to eq(false)
+        expect(subject.attributes[:something].editor).to be(false)
       end
 
       it "stores `required_for_authorization`" do
         subject.attribute :something # default: false
-        expect(subject.attributes[:something].required_for_authorization).to eq(false)
+        expect(subject.attributes[:something].required_for_authorization).to be(false)
 
         subject.attribute :something, required_for_authorization: true
-        expect(subject.attributes[:something].required_for_authorization).to eq(true)
+        expect(subject.attributes[:something].required_for_authorization).to be(true)
 
         subject.attribute :something, required_for_authorization: false
-        expect(subject.attributes[:something].required_for_authorization).to eq(false)
+        expect(subject.attributes[:something].required_for_authorization).to be(false)
       end
 
       it "stores `readonly`" do
         subject.attribute :something
-        expect(subject.attributes[:something].readonly?({})).to eq(nil)
+        expect(subject.attributes[:something].readonly?({})).to be_nil
 
         subject.attribute :something, readonly: ->(_context) { true }
-        expect(subject.attributes[:something].readonly?({})).to eq(true)
+        expect(subject.attributes[:something].readonly?({})).to be(true)
 
         subject.attribute :something, readonly: ->(_context) { false }
-        expect(subject.attributes[:something].readonly?({})).to eq(false)
+        expect(subject.attributes[:something].readonly?({})).to be(false)
       end
 
       it "stores `choices`" do
         subject.attribute :something
-        expect(subject.attributes[:something].build_choices).to eq(nil)
+        expect(subject.attributes[:something].build_choices).to be_nil
 
         subject.attribute :something, choices: %w(a b c)
         expect(subject.attributes[:something].build_choices).to eq(%w(a b c))
@@ -93,7 +93,7 @@ module Decidim
         it "supports booleans" do
           attribute = SettingsManifest::Attribute.new(type: :boolean)
           expect(attribute.type_class).to eq(:boolean)
-          expect(attribute.default_value).to eq(false)
+          expect(attribute.default_value).to be(false)
         end
 
         it "supports integers" do
@@ -105,13 +105,13 @@ module Decidim
         it "supports strings" do
           attribute = SettingsManifest::Attribute.new(type: :string)
           expect(attribute.type_class).to eq(String)
-          expect(attribute.default_value).to eq(nil)
+          expect(attribute.default_value).to be_nil
         end
 
         it "supports texts" do
           attribute = SettingsManifest::Attribute.new(type: :text)
           expect(attribute.type_class).to eq(String)
-          expect(attribute.default_value).to eq(nil)
+          expect(attribute.default_value).to be_nil
         end
 
         it "supports arrays" do
@@ -123,19 +123,19 @@ module Decidim
         it "supports enums" do
           attribute = SettingsManifest::Attribute.new(type: :enum)
           expect(attribute.type_class).to eq(String)
-          expect(attribute.default_value).to eq(nil)
+          expect(attribute.default_value).to be_nil
         end
 
         it "supports select" do
           attribute = SettingsManifest::Attribute.new(type: :select)
           expect(attribute.type_class).to eq(String)
-          expect(attribute.default_value).to eq(nil)
+          expect(attribute.default_value).to be_nil
         end
 
         it "supports scopes" do
           attribute = SettingsManifest::Attribute.new(type: :scope)
           expect(attribute.type_class).to eq(Integer)
-          expect(attribute.default_value).to eq(nil)
+          expect(attribute.default_value).to be_nil
         end
       end
 
@@ -157,8 +157,8 @@ module Decidim
           invalid_option: true
         )
 
-        expect(settings.something_enabled).to eq(true)
-        expect(settings.comments_enabled).to eq(false)
+        expect(settings.something_enabled).to be(true)
+        expect(settings.comments_enabled).to be(false)
 
         expect(settings.attributes).to include("something_enabled" => true)
         expect(settings.attributes).to include("comments_enabled" => false)
@@ -181,7 +181,7 @@ module Decidim
         expect(settings.default_locale).to eq("en")
 
         settings = subject.schema.new({})
-        expect(settings.default_locale).to eq(nil)
+        expect(settings.default_locale).to be_nil
       end
 
       context "when adding presence validation to the model from a translated setting" do

@@ -12,14 +12,14 @@ describe Decidim::Blog::Permissions do
     }
   end
   let(:blog_component) { create :post_component }
-  let(:permission_action) { Decidim::PermissionAction.new(action) }
+  let(:permission_action) { Decidim::PermissionAction.new(**action) }
 
   context "when scope is public" do
     let(:action) do
       { scope: :public, action: :foo, subject: :blogpost }
     end
 
-    it { is_expected.to eq true }
+    it { is_expected.to be true }
   end
 
   context "when scope is admin" do
@@ -27,7 +27,7 @@ describe Decidim::Blog::Permissions do
       { scope: :admin, action: :foo, subject: :blogpost }
     end
 
-    it { is_expected.to eq true }
+    it { is_expected.to be true }
   end
 
   context "when scope is a random one" do

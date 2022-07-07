@@ -5,7 +5,8 @@ require "spec_helper"
 module Decidim::Assemblies
   describe AssemblySerializer do
     let(:resource) { create(:assembly) }
-    let(:subject) { described_class.new(resource) }
+
+    subject { described_class.new(resource) }
 
     describe "#serialize" do
       it "includes the assembly data" do
