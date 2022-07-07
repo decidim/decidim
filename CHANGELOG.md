@@ -249,7 +249,7 @@ You can read more about this change on PR [\#8833](https://github.com/decidim/de
 "Data portability" has been renamed to "Download you data". As this was a scheduled task that was already configured you'll need to change it. Where you had:
 
 ```console
-# Remove expired download your data files
+# Remove expired data portability files
 0 0 * * * cd /home/user/decidim_application && RAILS_ENV=production bundle exec rake decidim:delete_data_portability_files
 ```
 
