@@ -1714,14 +1714,8 @@ ro:
       option_unified: Unificat
   views:
     pagination:
-      first: "&laquo; Primul"
-      first_title: Link către prima pagină
-      last: Ultima &raquo;
-      last_title: Link către ultima pagină
-      next: Următoarea &rsaquo;
       next_title: Link către pagina următoare
       pagination: Paginare
-      previous: "&lsaquo; Anterior"
       previous_title: Link către pagina anterioară
       title: 'Numărul paginii: '
       truncate: "&hellip;"
