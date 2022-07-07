@@ -90,6 +90,7 @@ describe "Filter Initiatives", :slow, type: :system do
 
     context "when selecting all states" do
       it "lists all initiatives", :slow do
+        stub_const("Decidim::Paginable::OPTIONS", [100])
         within ".filters .with_any_state_check_boxes_tree_filter" do
           uncheck "All"
           check "All"

@@ -8,7 +8,7 @@ shared_examples "comments_reports" do
       expect(page).to have_no_css("html.is-reveal-open")
 
       within ".comment__header__context-menu" do
-        page.find(".icon--ellipses").click
+        page.find("label").click
       end
 
       click_button "Report"
@@ -29,7 +29,7 @@ shared_examples "comments_reports" do
         expect(page).to have_selector(".comment__header__context-menu")
 
         within ".comment__header__context-menu" do
-          page.find(".icon--ellipses").click
+          page.find("label").click
           click_button "Report"
         end
 
@@ -55,7 +55,7 @@ shared_examples "comments_reports" do
         expect(page).to have_selector(".comment__header__context-menu")
 
         within ".comment__header__context-menu" do
-          page.find(".icon--ellipses").click
+          page.find("label").click
           click_button "Report"
         end
 
