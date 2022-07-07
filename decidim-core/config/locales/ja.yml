@@ -1883,14 +1883,8 @@ ja:
       option_unified: 統合された
   views:
     pagination:
-      first: "&laquo; 最初"
-      first_title: 最初のページへのリンク
-      last: 最終 &raquo;
-      last_title: 最後のページへのリンク
-      next: 次へ &rsaquo;
       next_title: 次のページへのリンク
       pagination: 改ページ
-      previous: "&lsaquo; 前"
       previous_title: 前のページへのリンク
       title: 'ページ番号: '
       truncate: "&hellip;"
