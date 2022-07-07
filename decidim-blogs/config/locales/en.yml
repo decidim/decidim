@@ -57,12 +57,8 @@ en:
             title: title
       posts:
         show:
-          back: Back to list
           comments: Comments
           view: View
-        sidebar_blog:
-          comments: comments
-          most_commented_posts: Most commented posts
       read_more: Read more
     components:
       blogs:
