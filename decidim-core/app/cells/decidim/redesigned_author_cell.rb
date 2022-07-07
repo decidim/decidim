@@ -113,10 +113,6 @@ module Decidim
       profile_path.present?
     end
 
-    def raw_model
-      model.try(:__getobj__) || model
-    end
-
     def resource_i18n_scope
       @resource_i18n_scope ||= [
         from_context.class.name.deconstantize.underscore.gsub("/", "."),
