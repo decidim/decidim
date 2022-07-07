@@ -512,6 +512,9 @@ lt:
             conferences_button_title: Nuoroda į puslapį „Konferencijos“, kuriame pateikiamos visos konferencijos
             see_all_conferences: Žiūrėti visas konferencijas
       photo:
+        image:
+          attributes:
+            alt: Nuotrauka multimedijos formatu
         show:
           close_modal: Uždaryti modalinį langą
           photo: Paveikslėlis
@@ -544,9 +547,36 @@ lt:
           notification_title: Jūsų registracija į konferenciją <a href="%{resource_url}">%{resource_title}</a> buvo patvirtinta.
         conference_registration_validation_pending:
           notification_title: Jūsų registracija į konferenciją <a href="%{resource_url}">%{resource_title}</a> dar nepatvirtinta.
+        conference_registrations_over_percentage:
+          email_intro: Užimta daugiau nei %{percentage}% konferencijos „%{resource_title}“ laiko tarpsnių.
+          email_outro: Šį pranešimą gavote dėl to, kad esate konferencijos dalyvaujamojo proceso erdvės administratorius.
+          email_subject: Užimta daugiau nei %{percentage}% konferencijos „%{resource_title}“ laiko tarpsnių
+          notification_title: Užimta daugiau nei %{percentage}% konferencijos <a href="%{resource_path}">%{resource_title}</a> laiko tarpsnių.
+        conference_updated:
+          email_intro: '„%{resource_title}“ konferencija buvo atnaujinta. Naująją versiją galite perskaityti jos puslapyje:'
+          email_outro: Šį pranešimą gavote dėl to, kad sekate „%{resource_title}“ konferenciją. Jūs galite jos nebesekti spustelėdami ankstesnę nuorodą.
+          email_subject: '„%{resource_title}“ konferencija buvo atnaujinta'
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> konferencija buvo atnaujinta.
+        registrations_enabled:
+          email_intro: 'Registracija į „%{resource_title}“ konferenciją įjungta. Galite užsiregistruoti jos tinklalapyje:'
+          email_outro: Šį pranešimą gavote dėl to, kad sekate „%{resource_title}“ konferenciją. Jūs galite jos nebesekti spustelėdami ankstesnę nuorodą.
+          email_subject: Registracija į „%{resource_title}“ konferenciją įjungta.
+          notification_title: Registracija į <a href="%{resource_path}">%{resource_title}</a> konferenciją įjungta.
+        role_assigned:
+          email_intro: Jūs paskirtas „%{resource_title}“ konferencijos %{role}.
+          email_outro: Šį pranešimą gavote dėl to, kad esate „%{resource_title}“ konferencijos %{role}.
+          email_subject: Jūs paskirtas „%{resource_title}“ %{role}.
+          notification_title: Jūs paskirtas <a href="%{resource_url}">%{resource_title}</a> konferencijos %{role}.
+        upcoming_conference:
+          email_intro: '„%{resource_title}“ konferencija įvyks po dviejų dienų. Aprašymą galite perskaityti jos puslapyje:'
+          email_outro: Šį pranešimą gavote dėl to, kad sekate „%{resource_title}“ konferenciją. Jūs galite jos nebesekti spustelėdami ankstesnę nuorodą.
+          email_subject: '„%{resource_title}“ konferencija artėja!'
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> konferencija įvyks po dviejų dienų.
     help:
       participatory_spaces:
         conferences:
+          contextual: "<p> <strong>Konferencija</strong> yra susitikimų, surengtų pagal programą, rinkinys, į kurį pakviečiama daug kalbėtojų. Konferencijoms, kaip ir kitiems dideliems susirinkimams ar socialiniams renginiams, būdingi ypatumai yra registracijos, renginį remiančių ar kitaip padedančių organizacijų sąrašas ir kt.</p><p>Pavyzdžiui, konferencija gali būti svarbus įvykis organizacijai ir jos nariams, vykti kaip dalyvaujamojo proceso dalis arba tai gali būti renginys po konsultacijos.</p>\n"
+          page: "<p> <strong>Konferencija</strong> yra susitikimų, surengtų pagal programą, rinkinys, į kurį pakviečiama daug kalbėtojų. Konferencijoms, kaip ir kitiems dideliems susirinkimams ar socialiniams renginiams, būdingi ypatumai yra registracijos, renginį remiančių ar kitaip padedančių organizacijų sąrašas ir kt.</p><p>Pavyzdžiui, konferencija gali būti svarbus įvykis organizacijai ir jos nariams, vykti kaip dalyvaujamojo proceso dalis arba tai gali būti renginys po konsultacijos.</p>\n"
           title: Kas yra konferencijos?
     log:
       value_types:
@@ -575,6 +605,14 @@ lt:
         conference:
           more_info: Daugiau informacijos
           take_part: Dalyvaukite
+        index:
+          promoted_conferences: Paryškintos konferencijos
+        order_by_conferences:
+          conferences:
+            one: "%{count} konferencija"
+            few: "%{count} konferencijos"
+            many: "%{count} konferencijos"
+            other: "%{count} konferencijos"
         promoted_conference:
           more_info: Daugiau informacijos
           take_part: Dalyvaukite
@@ -582,4 +620,5 @@ lt:
         conference_menu_item: Informacija
         conference_partners_menu_item: Partneriai
         conference_speaker_menu_item: Pranešėjai
+        media: Medija
         venues: Vietos
