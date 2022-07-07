@@ -664,8 +664,4 @@ uk:
       time_of_day: "%H:%M"
   views:
     pagination:
-      first: "&laquo; Перша"
-      last: Остання &raquo;
-      next: Далі &rsaquo;
-      previous: "Попередня &lsaquo;"
       truncate: "&hellip;"
