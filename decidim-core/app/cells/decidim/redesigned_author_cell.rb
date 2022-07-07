@@ -27,32 +27,8 @@ module Decidim
       render
     end
 
-    def profile
-      render
-    end
-
-    def profile_inline
-      render
-    end
-
-    def date
-      render
-    end
-
-    def flag_user_modal
-      render
-    end
-
-    def flag
-      render
-    end
-
     def flag_user
       render unless current_user == model
-    end
-
-    def withdraw
-      render
     end
 
     def perform_caching?
@@ -60,6 +36,18 @@ module Decidim
     end
 
     private
+
+    def context_actions
+      return [] unless actionable?
+
+      [].tap do |list|
+        list << :date if creation_date?
+        list << :comments if commentable?
+        list << :endorsements if endorsable?
+        list << :flag if flaggable?
+        list << :withdraw if withdrawable?
+      end
+    end
 
     def cache_hash
       hash = []

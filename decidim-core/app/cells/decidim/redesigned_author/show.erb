@@ -1,15 +1,7 @@
 <div class="flex items-center gap-8 text-sm text-gray-2">
   <%= render :profile %>
 
-  <% if actionable? %>
-    <%= render :date %>
-
-    <%= render :comments %>
-
-    <%= render :endorsements %>
-
-    <%#= TODO: perhaps deprecated %>
-    <%#= render :flag %>
-    <%#= render :withdraw %>
+  <% context_actions.each do |action| %>
+    <%= render action %>
   <% end %>
 </div>

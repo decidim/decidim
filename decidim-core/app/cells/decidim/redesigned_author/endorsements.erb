@@ -1,5 +1,3 @@
-<% if endorsable? %>
-  <%= link_to "#{resource_locator(from_context).path}#list-of-endorsements", title: t("decidim.author.endorsements",count: from_context.endorsements_count) do %>
-    <%= from_context.endorsements_count %> <%= t("decidim.author.endorsements", count: from_context.endorsements_count) %>
-  <% end %>
+<%= link_to "#{resource_locator(from_context).path}#list-of-endorsements", title: t("decidim.author.endorsements",count: from_context.endorsements_count) do %>
+  <%= from_context.endorsements_count %> <%= t("decidim.author.endorsements", count: from_context.endorsements_count) %>
 <% end %>
