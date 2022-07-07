@@ -1899,14 +1899,8 @@ fr:
       option_unified: Unifié
   views:
     pagination:
-      first: "&laquo; Première"
-      first_title: Lien vers la première page
-      last: Dernière &raquo;
-      last_title: Lien vers la dernière page
-      next: Suivant &rsaquo;
       next_title: Lien vers la page suivante
       pagination: Pagination
-      previous: "&lsaquo; Précédent"
       previous_title: Lien vers la page précédente
       title: 'Numéro de page : '
       truncate: "&hellip;"
