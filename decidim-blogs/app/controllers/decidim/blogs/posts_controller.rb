@@ -5,6 +5,7 @@ module Decidim
     # Exposes the blog resource so users can view them
     class PostsController < Decidim::Blogs::ApplicationController
       include Flaggable
+      include Paginable
 
       redesign active: true
 
@@ -17,7 +18,7 @@ module Decidim
       private
 
       def paginate_posts
-        @paginate_posts ||= posts.created_at_desc.page(params[:page]).per(params[:per_page])
+        @paginate_posts ||= paginate(posts.created_at_desc)
       end
 
       def post
