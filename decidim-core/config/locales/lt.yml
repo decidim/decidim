@@ -1,1 +1,98 @@
 lt:
+  carrierwave:
+    errors:
+      file_resolution_too_large: Dokumento rezoliucija per aukšta
+      file_size_too_large: Dokumento dydis per didelis
+      not_inside_organization: Dokumentas nepririštas prie jokios organizacijos
+  date:
+    formats:
+      decidim_short: "%Y/%m/%d"
+      decidim_short_with_month_name_short: "%Y %b %d"
+      decidim_with_day_and_month_name: "%Y %A %b %d"
+      decidim_with_month_name: "%Y %B %d"
+      decidim_with_month_name_short: "%d %b"
+  datetime:
+    distance_in_words:
+      about_x_hours:
+        one: apie 1 valanda
+        few: apie %{count} valandos
+        many: apie %{count} valandos
+        other: apie %{count} valandos
+      about_x_months:
+        one: apie 1 mėnesis
+        few: apie %{count} mėnesiai
+        many: apie %{count} mėnesiai
+        other: apie %{count} mėnesiai
+      half_a_minute: pusė minutės
+      less_than_x_minutes:
+        one: mažiau nei minutė.
+        few: mažiau nei %{count} minutės.
+        many: mažiau nei %{count} minutės.
+        other: mažiau nei %{count} minutės.
+      less_than_x_seconds:
+        one: dabar
+        few: mažiau nei %{count} sek.
+        many: mažiau nei %{count} sek.
+        other: mažiau nei %{count} sek.
+      x_days:
+        one: prieš 1 dieną
+        few: "prieš %{count} dienas"
+        many: "prieš %{count} dienas"
+        other: "prieš %{count} dienas"
+      x_hours:
+        one: prieš vieną valandą
+        few: "prieš %{count} valandas"
+        many: "prieš %{count} valandų"
+        other: "prieš %{count} valandas"
+      x_minutes:
+        one: prieš 1 min.
+        few: "prieš %{count} min."
+        many: "prieš %{count} min."
+        other: "prieš %{count} min."
+      x_seconds:
+        one: prieš 1 sekundę
+        few: "prieš %{count} sekundes"
+        many: "prieš %{count} sekundes"
+        other: "prieš %{count} sekundes"
+  decidim:
+    accessibility:
+      external_link: Išorinė nuoroda
+      front_page_link: Eiti į pagrindinį puslapį
+      logo: "%{organization} oficialus logotipas"
+      skip_button: Perieti į pagrindinį turinį
+    account:
+      blocked: Ši paskyra užblokuota dėl sąlygų pažeidimų
+      delete:
+        alert: Šis veiksmas negali būti pakeistas vėliau. Jei ištrinate paskyrą nebegalėsite prie jos prisijungti. Paskyros ištrynis anonimizuos Jūsų indėlius. Galėsite susikurti naują paskyrą, tačiau indėliai nebus jai priskirti.
+        confirm:
+          close: Uždaryti langą
+          ok: Taip, noriu ištrinti paskyrą
+          question: Ar tikrai norite ištrinti paskyrą?
+          title: Ištrinti paskyrą
+        explanation: Įrašykite priežastį, dėl kurios norite pašalinti savo paskyrą (neprivaloma).
+      destroy:
+        error: Ištrinant Jūsų paskyrą iškilo problema.
+        success: Jūsų paskyra ištrinta.
+      email_change:
+        body1: Išsiuntėme laišką į %{unconfirmed_email} el. pašto patvirtinimui.
+        body2: Ar reikėtų naujo el. pašto patvirtinimo laiško? %{resend_link} arba %{cancel_link}.
+        cancel: atšaukti
+        cancel_error: El. pašto pakeitimo nepavyko atšaukti.
+        cancel_successfully: El. pašto pakeitimas atšauktas sėkmingai.
+        resend_error: Neįmanoma išsiųsti patvirtinimo laiško.
+        resend_successfully: Patvirtinimo laiškas sėkmingai išsiųstas į %{unconfirmed_email}
+        send_again: Siųsti dar kartą
+        title: El. pašto pakeitimo patvirtinimas
+      show:
+        available_locales_helper: Pasirinkite kalbą, kuria norite naršyti platformą ir gauti pranešimus
+        change_password: Pakeisti slaptažodį
+        update_account: Atnaujinti paskyrą
+      update:
+        error: Atnaujinant paskyrą kilo problema.
+        success: Paskyra sėkmingai atnaujinta.
+        success_with_email_confirmation: Paskyra sėkmingai atnaujinta. Gausite el. laišką naujo el. pašto patvirtinimui.
+    admin:
+      actions:
+        cancel: Atšaukti
+      password_change:
+        alert: Norėdami tęsti turite pasikeisti slaptažodį
