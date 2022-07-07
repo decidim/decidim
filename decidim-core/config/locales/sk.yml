@@ -1381,13 +1381,7 @@ sk:
       option_unified: Sjednocené
   views:
     pagination:
-      first: "&laquo; První"
-      first_title: Číslo na prvú stránku
-      last: Poslední &raquo;
-      last_title: Číslo na poslednú stránku
-      next: Další &rsaquo;
       next_title: Číslo na ďalšiu stránku
-      previous: "&lsaquo; Předchozí"
       previous_title: Späť na predošlú stránku
       title: 'Číslo stránky: '
       truncate: "&hellip;"
