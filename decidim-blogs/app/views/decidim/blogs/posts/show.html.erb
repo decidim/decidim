@@ -27,7 +27,7 @@
   <% end %>
 
   <div class="mb-24">
-    <%# TODO: this cell should show only profile + date %>
+    <%# REDESIGN_PENDING: this cell should show only profile + date %>
     <% post_presenter = Decidim::Blogs::PostPresenter.new(post) %>
     <%= cell "decidim/author", post_presenter.author, from: post %>
 
@@ -51,13 +51,13 @@
       <div class="flex items-center">
         <%= follow_button_for(post) %>
 
-        <%# TODO: implement the share button %>
+        <%# REDESIGN_PENDING: implement the share button %>
         <button class="button text-secondary white sm">
           Compartir
           <%= icon "share-line", class: "fill-current flex-none" %>
         </button>
 
-        <%# TODO: implement the flag button %>
+        <%# REDESIGN_PENDING: implement the flag button %>
         <button class="button text-secondary white sm">
           Denunciar
           <%= icon "flag-line", class: "fill-current flex-none" %>
