@@ -101,8 +101,6 @@ sr:
       choose_diff_view_html: 'HTML režim gledanja:'
   views:
     pagination:
-      first_title: Veza ka prvoj stranici
-      last_title: Veza ka poslednjoj stranici
       next_title: Veza ka sledećoj stranici
       previous_title: Veza ka prethodnoj stranici
       title: 'Redni broj stranice: '
