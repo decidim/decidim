@@ -7,6 +7,7 @@ describe Decidim::Verifications::ManagedUserErrorEvent do
 
   let(:event_name) { "decidim.events.verifications.managed_user_error_event" }
   let(:resource) { create :conflict }
+  let(:organization_host) { resource.current_user.organization.host }
 
   describe "resource_title" do
     it "is generated correctly" do
@@ -22,7 +23,7 @@ describe Decidim::Verifications::ManagedUserErrorEvent do
 
   describe "resource_url" do
     it "is generated correctly" do
-      expect(subject.resource_url).to eq("http://#{resource.current_user.organization.host}/profiles/#{resource.current_user.nickname}")
+      expect(subject.resource_url).to eq("http://#{organization_host}/profiles/#{resource.current_user.nickname}")
     end
   end
 
@@ -50,13 +51,13 @@ describe Decidim::Verifications::ManagedUserErrorEvent do
 
   describe "email_intro" do
     it "is generated correctly" do
-      expect(subject.email_intro).to eq("The participant <a href=\"/profiles/#{resource.current_user.nickname}\">#{resource.current_user.name}</a> has tried to verify themself with the data of the managed participant <a href=\"/profiles/#{resource.managed_user.nickname}\">#{resource.managed_user.name}</a>.")
+      expect(subject.email_intro).to eq("The participant <a href=\"http://#{organization_host}/profiles/#{resource.current_user.nickname}\">#{resource.current_user.name}</a> has tried to verify themself with the data of the managed participant <a href=\"http://#{organization_host}/profiles/#{resource.managed_user.nickname}\">#{resource.managed_user.name}</a>.")
     end
   end
 
   describe "email_outro" do
     it "is generated correctly" do
-      expect(subject.email_outro).to eq("Check the <a href=\"/admin/conflicts\">Verifications's conflicts list</a> and contact the participant to verify their details and solve the issue.")
+      expect(subject.email_outro).to eq("Check the <a href=\"http://#{organization_host}/admin/conflicts\">Verifications's conflicts list</a> and contact the participant to verify their details and solve the issue.")
     end
   end
 end
