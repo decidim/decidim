@@ -1620,14 +1620,8 @@ tr:
       option_unified: Birleşik
   views:
     pagination:
-      first: "&laquo; İlk"
-      first_title: İlk sayfaya git
-      last: Son &raquo;
-      last_title: Son sayfaya git
-      next: Sonraki &rsaquo;
       next_title: Sonraki sayfaya git
       pagination: Sayfalandırma
-      previous: "&lsaquo; Önceki"
       previous_title: Önceki sayfaya geri dön
       title: 'Sayfa numarası: '
       truncate: "&hellip;"
