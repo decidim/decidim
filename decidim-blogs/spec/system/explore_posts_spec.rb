@@ -37,7 +37,7 @@ describe "Explore posts", type: :system do
     end
 
     context "when paginating" do
-      let(:collection_size) { 10 }
+      let(:collection_size) { 15 }
       let!(:collection) { create_list :post, collection_size, component: }
       let!(:resource_selector) { "div[data-post]" }
 
@@ -45,9 +45,9 @@ describe "Explore posts", type: :system do
         visit_component
       end
 
-      it "lists 4 resources per page by default" do
-        expect(page).to have_css(resource_selector, count: 4)
-        expect(page).to have_css("[data-pages] [data-page]", count: 3)
+      it "lists 10 resources per page by default" do
+        expect(page).to have_css(resource_selector, count: 10)
+        expect(page).to have_css("[data-pages] [data-page]", count: 2)
       end
     end
   end
