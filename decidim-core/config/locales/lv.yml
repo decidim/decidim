@@ -1428,12 +1428,6 @@ lv:
       option_unified: Vienoti
   views:
     pagination:
-      first: "&laquo; Pirmais"
-      first_title: Saite uz pirmo lapu
-      last: Pēdējais &raquo;
-      last_title: Saite uz pēdējo lapu
-      next: Nākamais &rsaquo;
       next_title: Saite uz nākamo lapu
-      previous: "&lsaquo; Priekšskats"
       previous_title: Saite uz iepriekšējo lapu
       title: 'Lapas numurs:'
