@@ -1522,14 +1522,8 @@ zh-CN:
       option_unified: 统一的
   views:
     pagination:
-      first: "&laquo; 前"
-      first_title: 链接到第一页
-      last: 最后 &raquo;
-      last_title: 链接到最后一页
-      next: 下一个 &rsaquo;
       next_title: 链接到下一页
       pagination: 分页
-      previous: "&lsaquo; 上一个"
       previous_title: 链接到前一页
       title: '页面号码： '
       truncate: "&hellip;"
