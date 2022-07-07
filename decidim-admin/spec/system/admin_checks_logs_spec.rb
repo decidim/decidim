@@ -25,9 +25,15 @@ describe "Admin checks logs", type: :system do
 
   context "when filtering" do
     context "with participatory space" do
+      let(:space_title) { translated(action_logs.first.participatory_space.title) }
+      let(:search_term) { space_title[0..2].downcase }
+      let(:autocomplete_result) { "Participatory processes - #{space_title}" }
+
       it "lists only logs from that participatory space" do
         within ".filters__section" do
-          select(translated(action_logs.first.participatory_space.title), from: "q_with_participatory_space")
+          fill_in "participatory_space_search_0", with: search_term
+          expect(page).to have_content(autocomplete_result)
+          find(".autoComplete_wrapper li", text: autocomplete_result).click
           find("*[type=submit]").click
         end
 
