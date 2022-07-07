@@ -240,6 +240,12 @@ lt:
           vote_threshold_percent_rule:
             description: Kokiems projektams, jūsų nuomone, turėtume skirti biudžetą? Projektams, kuriuos norite paremti, skirkite ne mažiau kaip %{minimum_budget} ir, norėdami nustatyti biudžetą, balsuokite pagal tai kam teikiate pirmenybę.
             instruction: "<li>Pasirinkite bent %{minimum_budget} projektus ir balsuokite pagal savo prioritetus tam, kad numatyti biudžeto išlaidas.</li>"
+        count:
+          projects_count:
+            one: 1 projektas
+            few: "%{count} projektai (-ų)"
+            many: "%{count} projektai (-ų)"
+            other: "%{count} projektai"
         exit_modal:
           cancel: Grįžti į balsavimą
           close_modal: Uždaryti modalinį langą
