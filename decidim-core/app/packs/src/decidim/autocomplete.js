@@ -1,3 +1,5 @@
+/* eslint max-lines: ["error", 350] */
+
 import AutoCompleteJS from "@tarekraafat/autocomplete.js";
 
 export default class AutoComplete {
