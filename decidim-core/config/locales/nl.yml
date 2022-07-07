@@ -1677,14 +1677,8 @@ nl:
       option_unified: Verenigd
   views:
     pagination:
-      first: "&laquo; Eerste"
-      first_title: Link naar de eerste pagina
-      last: Laatste &raquo;
-      last_title: Link naar de laatste pagina
-      next: Volgende &rsaquo;
       next_title: Link naar de volgende pagina
       pagination: Paginering
-      previous: "&lsaquo; Vorige"
       previous_title: Link naar de vorige pagina
       title: 'Pagina nummer: '
       truncate: "&hellip;"
