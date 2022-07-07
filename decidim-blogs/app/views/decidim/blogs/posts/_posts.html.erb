@@ -14,7 +14,8 @@
       <%= decidim_sanitize_editor post_description(post) %>
 
       <div class="mt-auto">
-        <%= cell "decidim/author", present(post.author), from: post, has_actions: true %>
+        <% post_presenter = Decidim::Blogs::PostPresenter.new(post) %>
+        <%= cell "decidim/author", post_presenter.author, from: post, has_actions: true %>
       </div>
     </div>
   </div>
