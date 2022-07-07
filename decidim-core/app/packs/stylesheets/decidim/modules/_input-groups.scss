@@ -10,7 +10,10 @@
     margin-top: .5em;
     width: 1%;
 
-    button{
+    .input-suffix{
+      display: inline-block;
+      line-height: 1;
+
       .icon{
         width: 1.125em;
         height: 1.125em;

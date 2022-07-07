@@ -44,9 +44,9 @@ export default class PasswordToggler {
   }
 
   createControls() {
-    this.$button = $(`<button type="button"
+    this.$button = $(`<span class="input-suffix"
                             aria-controls="${this.$input.attr("id")}"
-                            aria-label="${this.texts.showPassword}">${this.icons.show}</button>`);
+                            aria-label="${this.texts.showPassword}">${this.icons.show}</span>`);
     this.$buttonGroup = $('<span class="input-group"/>');
     this.$statusText = $(`<span class="show-for-sr" aria-live="polite">${this.texts.hiddenPassword}</span>`);
     // ensure error message is handled by foundation abide
