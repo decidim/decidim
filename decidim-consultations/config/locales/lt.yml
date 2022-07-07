@@ -1,1 +1,273 @@
 lt:
+  activemodel:
+    attributes:
+      consultation:
+        banner_image: Turinio juostos paveikslėlis
+        decidim_highlighted_scope_id: Paryškinta sritis
+        description: Aprašymas
+        end_voting_date: Balsavimas baigiasi
+        introductory_image: Įvadinis paveikslėlis
+        introductory_video_url: Įvadinio vaizdo įrašo URL
+        questions: Klausimai
+        slug: URL priedas
+        start_voting_date: Balsavimas prasideda
+        subtitle: Paantraštė
+        title: Pavadinimas
+      question:
+        banner_image: Reklamjuostės paveikslėlis
+        decidim_scope_id: Savivaldybės aplinka
+        hashtag: Grotažymė
+        hero_image: Pradžios paveikslėlis
+        i_frame_url: Išorės balsavimo sistemos URL
+        instructions: Papildomos balsavimo instrukcijos
+        max_votes: Didžiausias balsų skaičius
+        min_votes: Mažiausias balsų skaičius
+        origin_scope: Apimtis
+        origin_title: Kilmė
+        origin_url: Kilmės URL
+        participatory_scope: Dalyvaujamoji sritis
+        promoter_group: Rėmėjų grupė
+        question_context: Kontekstas
+        reference: Nuoroda
+        scope: Savivaldybės sritis
+        slug: URL priedas
+        subtitle: Paantraštė
+        vote: Išorės balsavimo sistema
+        what_is_decided: Kas nuspręsta
+      response:
+        decidim_consultations_response_group_id: Grupė
+    errors:
+      models:
+        question:
+          attributes:
+            max_votes:
+              lower_than_min: Didžiausias balsų skaičius turėtų būti didesnis už mažiausią balsų skaičių arba jam lygus.
+      vote:
+        decidim_consultations_response_id:
+          not_found: Atsakymo nerasta.
+  activerecord:
+    errors:
+      models:
+        decidim/consultations/vote:
+          attributes:
+            question:
+              invalid_num_votes: Negaliojantis balsų skaičius
+    models:
+      decidim/consultation:
+        one: Konsultacija
+        few: Konsultacijos (-ų)
+        many: Konsultacijos (-ų)
+        other: Konsultacijos (-ų)
+      decidim/consultations/question:
+        one: Klausimas
+        few: Klausimai (-ų)
+        many: Klausimai (-ų)
+        other: Klausimai (-ų)
+      decidim/consultations/response:
+        one: Atsakymas
+        few: Atsakymai (-ų)
+        many: Atsakymai (-ų)
+        other: Atsakymai (-ų)
+      decidim/consultations/vote:
+        one: Balsas
+        few: Balsai (-ų)
+        many: Balsai (-ų)
+        other: Balsai (-ų)
+  decidim:
+    admin:
+      actions:
+        back_to_responses: Grįžti į atsakymus
+        new_consultation: Nauja konsultacija
+        new_question: Naujas klausimas
+        new_response: Naujas atsakymas
+        new_response_group: Nauja grupė
+        publish_results: Skelbti rezultatus
+        response_groups: Tvarkyti atsakymų grupes
+        unpublish_results: Panaikinti rezultatų skelbimą
+      consultation_publications:
+        create:
+          error: Skelbiant šią konsultaciją iškilo problema.
+          success: Konsultacija paskelbta.
+        destroy:
+          error: Depublikuojant šią konsultaciją kilo problema.
+          success: Konsultacija sėkmingai depublikuota.
+      consultation_results_publications:
+        create:
+          error: Publikuojant šios konsultacijos rezultatus kilo problema.
+          success: Konsultacijos rezultatai sėmingai paskelbti.
+        destroy:
+          success: Konsultacijos rezultatų skelbimas panaikintas.
+      consultations:
+        create:
+          error: Kuriant naują konsultaciją iškilo problema.
+          success: Konsultacija sukurta.
+        edit:
+          update: Atnaujinti
+        form:
+          title: Bendra informacija
+        index:
+          not_published: Nepublikuota
+          published: Publikuota
+        new:
+          create: Sukurti
+          title: Nauja konsultacija
+        results:
+          not_visible: Rezultatai bus paskelbti pasibaigus konsultacijai
+          participants: "%{count} dalyviai (-ų)"
+          total_votes: 'Iš viso: %{count} balsai (-ų)'
+        update:
+          error: Atnaujinant šią konsultaciją iškilo problema.
+          success: Konsultacija atnaujinta.
+      menu:
+        consultations: Konsultacijos
+        consultations_submenu:
+          info: Informacija
+          questions: Klausimai
+          results: Rezultatai
+        questions_submenu:
+          attachments: Priedai
+          categories: Kategorijos
+          components: Komponentai
+          configuration: Konfigūracija
+          consultation: Konsultacija
+          info: Informacija
+          responses: Atsakymai
+      models:
+        consultation:
+          fields:
+            created_at: Sukurta
+            published: Publikuota
+            title: Pavadinimas
+        question:
+          fields:
+            created_at: Sukurta
+            published: Publikuota
+      question_publications:
+        create:
+          success: Klausimas paskelbtas.
+        destroy:
+          error: Naikinant šio klausimo skelbimą iškilo problema.
+          success: Klausimo skelbimas panaikintas.
+      questions:
+        create:
+          error: Kuriant naują klausimą iškilo problema.
+          success: Klausimas sukurtas.
+        destroy:
+          success: Klausimas pašalintas.
+        edit:
+          update: Atnaujinti
+        form:
+          title: Bendra informacija
+        index:
+          not_published: Nepaskelbta
+          published: Publikuota
+        new:
+          create: Sukurti
+          title: Naujas klausimas
+        update:
+          error: Atnaujinant šį klausimą iškilo problema.
+          success: Klausimas atnaujintas.
+      response_groups:
+        create:
+          error: Kuriant naują atsakymų grupę iškilo problema.
+          success: Atsakymų grupė sukurta.
+        destroy:
+          error: Šalinant šią atsakymų grupę iškilo problema. Patikrinkite, ar su ja nesusietas nė vienas atsakymas.
+          success: Atsakymų grupė pašalinta.
+        edit:
+          update: Atnaujinti
+        form:
+          title: Bendra informacija
+        help: Naudokitės grupėmis, kad galėtumėte rinkiniuose susiteminti klausimus su keliais pasirenkamais atsakymais.
+        new:
+          create: Sukurti
+          title: Nauja atsakymų grupė
+        update:
+          error: Atnaujinant šį atsakymą iškilo problema.
+          success: Atsakymas atnaujintas.
+      responses:
+        create:
+          error: Kuriant naują atsakymą iškilo problema.
+          success: Atsakymas sukurtas.
+        destroy:
+          error: Šalinant šį atsakymą iškilo problema.
+          success: Atsakymas pašalintas.
+        edit:
+          update: Atnaujinti
+        form:
+          title: Bendra informacija
+        new:
+          create: Sukurti
+          title: Naujas atsakymas
+        update:
+          error: Atnaujinant šį atsakymą iškilo problema.
+          success: Atsakymas atnaujintas.
+      titles:
+        consultations: Konsultacijos
+        questions: Klausimai
+        response_groups: Atsakymų grupės
+        responses: Atsakymai
+        results: Rezultatai
+    consultations:
+      admin:
+        content_blocks:
+          highlighted_consultations:
+            max_results: Didžiausias rodomų elementų skaičius
+      consultation:
+        start_voting_date: Balsavimas prasideda
+        view_results: Peržiūrėti rezultatus
+      consultation_card:
+        view_results: Peržiūrėti rezultatus
+      consultations:
+        orders:
+          label: 'Konsultacijas rūšiuoti pagal:'
+          random: Atsitiktinis
+          recent: Naujausia
+        show:
+          dates: Datos
+      content_blocks:
+        highlighted_consultations:
+          name: Paryškintos konsultacijos
+      filters:
+        all: Visi
+        finished: Užbaigta
+        search: Ieškoti
+        upcoming: Artėjančios
+      filters_small_view:
+        close_modal: Uždaryti langą
+        filter: Filtruoti
+        filter_by: Filtruoti pagal
+        unfold: Išskleisti
+      highlighted_questions:
+        title: '%{scope_name} pateikti klausimai'
+      index:
+        title: Konsultacijos
+      last_activity:
+        new_consultation: Nauja konsultacija
+        new_question_at_html: "<span>Naujas klausimas %{link}</span>"
+      pages:
+        home:
+          highlighted_consultations:
+            active_consultations: Aktyvios konsultacijos
+            see_all_consultations: Žiūrėti visas konsultacijas
+            voting_ends_in:
+              one: Balsavimas baigiasi <strong>rytoj</strong>
+              few: Balsavimas baigiasi už <strong>%{count} dienų</strong>
+              many: Balsavimas baigiasi už <strong>%{count} dienų</strong>
+              other: Balsavimas baigiasi už <strong>%{count} dienų</strong>
+            voting_ends_today: Balsavimas baigiasi <strong>šiandien</strong>
+      question:
+        take_part: Dalyvaukite
+        view_results: Peržiūrėti rezultatus
+    statistics:
+      votes_count: Balsai
+  layouts:
+    decidim:
+      consultation_voting_data:
+        start_voting_date: Balsavimas prasideda
+      question_components:
+        question_menu_item: Klausimas
+        unfold: Išskleisti
+      question_header:
+        back_to_consultation: Žiūrėti visas konsultacijas
+        back_to_question: Atgal į klausimą
