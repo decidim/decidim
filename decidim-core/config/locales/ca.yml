@@ -1900,14 +1900,8 @@ ca:
       option_unified: Unificat
   views:
     pagination:
-      first: "&laquo; Primera"
-      first_title: Enllaç a la primera pàgina
-      last: Última &raquo;
-      last_title: Enllaç a la darrera pàgina
-      next: Següent &rsaquo;
       next_title: Enllaç a la pàgina següent
       pagination: Paginació
-      previous: "&lsaquo; Anterior"
       previous_title: Enllaç a la pàgina anterior
       title: 'Número de pàgina: '
       truncate: "&hellip;"
