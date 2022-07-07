@@ -1728,14 +1728,8 @@
       option_unified: Udefinert
   views:
     pagination:
-      first: "&laquo; Først"
-      first_title: Lenke til første side
-      last: Siste &raquo;
-      last_title: Lenke til siste side
-      next: Neste &rsaquo;
       next_title: Lenke til neste side
       pagination: Paginering
-      previous: "&lsaquo; Tidligere"
       previous_title: Lenke til forrige side
       title: 'Sidenummer: '
       truncate: "&hellip;"
