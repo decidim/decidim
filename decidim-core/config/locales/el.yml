@@ -1522,14 +1522,8 @@ el:
       option_unified: Ενοποιημένο
   views:
     pagination:
-      first: "&laquo; Πρώτη"
-      first_title: Σύνδεσμος προς την πρώτη σελίδα
-      last: Τελευταία &raquo;
-      last_title: Σύνδεσμος προς την τελευταία σελίδα
-      next: Επόμενη &rsaquo;
       next_title: Σύνδεσμος προς την επόμενη σελίδα
       pagination: Σελιδοποίηση
-      previous: "&lsaquo; Προηγούμενη"
       previous_title: Σύνδεσμος προς την προηγούμενη σελίδα
       title: 'Αριθμός σελίδας:'
       truncate: "&hellip;"
