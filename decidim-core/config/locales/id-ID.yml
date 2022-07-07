@@ -1205,8 +1205,4 @@ id:
       time_of_day: "%H:%M"
   views:
     pagination:
-      first: "&laquo; Pertama"
-      last: '&raquo;Terakhir'
-      next: Berikutnya &rsaquo;
-      previous: "&lsaquo; Sebelumnya"
       truncate: "&hellip;"
