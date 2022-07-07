@@ -8,7 +8,7 @@ module Decidim
         class CensusController < Admin::ApplicationController
           helper_method :votings, :current_participatory_space, :current_census, :census_steps, :current_census_action_view,
                         :user_email, :ballot_style_callout_text, :ballot_style_callout_level, :ballot_style_code_header
-          helper_method :admin_voting_census_path, :admin_status_voting_census_path, :generate_access_codes_path, :export_access_codes_path
+          helper_method :admin_voting_census_path, :admin_status_voting_census_path, :generate_access_codes_path, :export_access_codes_path, :waiting_status?
 
           def show
             enforce_permission_to :manage, :census, voting: current_participatory_space
@@ -183,6 +183,10 @@ module Decidim
 
           def ballot_style_code_header
             "Ballot Style Code"
+          end
+
+          def waiting_status?
+            current_census.creating_data? || current_census.generating_codes? || current_census.exporting_codes?
           end
         end
       end

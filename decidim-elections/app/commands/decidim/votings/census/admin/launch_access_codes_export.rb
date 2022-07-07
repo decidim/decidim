@@ -19,6 +19,8 @@ module Decidim
           def call
             return broadcast(:invalid) unless valid?
 
+            UpdateDataset.call(dataset, { status: :exporting_codes }, user)
+
             ExportAccessCodesJob.perform_later(dataset, user)
 
             broadcast(:ok)
