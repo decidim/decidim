@@ -470,12 +470,27 @@ lt:
       content_blocks:
         highlighted_conferences:
           name: Paryškintos konferencijos
+      index:
+        title: Konferencijos
+      mailer:
+        conference_registration_mailer:
+          confirmation:
+            subject: Jūsų registracija į konferenciją buvo patvirtinta
+          pending_validation:
+            subject: Jūsų registracija į konferenciją dar nepatvirtinta
+        invite_join_conference_mailer:
+          invite:
+            subject: Kvietimas dalyvauti konferencijoje
+        send_conference_diploma_mailer:
+          diploma:
+            subject: Jūsų dalyvavimo konferencijoje pažymėjimas išsiųstas
       models:
         conference_invite:
           fields:
             email: El. paštas
             name: Vardas
             registration_type: Registracijos tipas
+            sent_at: Išsiųsta
             status: Būsena
           status:
             accepted: Priimta (%{at})
@@ -499,12 +514,36 @@ lt:
       photo:
         show:
           close_modal: Uždaryti modalinį langą
+          photo: Paveikslėlis
+      photos_list:
+        show:
+          related_photos: Paveikslėliai
       registration_types:
         index:
           choose_an_option: 'Pasirinkite registracijos būdą:'
           login_as: Jūs prisijungėte kaip %{name} <%{email}>
           no_registrations: Nėra registracijų
           register: Registruotis
+          title: Registracijos tipai
+      shared:
+        conference_user_login:
+          already_account: Ar jau turite paskyrą „Decidim“ puslapyje?
+          new_user: Naujas naudotojas?
+          sign_in: Prisijunkite, kad galėtumėte užsiregistruoti į konferenciją
+          sign_up: Susikurkite paskyrą „Decidim“ puslapyje, kad galėtumėte užsiregistruoti į konferenciją
+      show:
+        details: Išsamiau
+        introduction: Įžanga
+        objectives: Tikslai
+        related_assemblies: Susijusios asamblėjos
+        related_consultations: Susijusios Konsultacijos
+        related_participatory_processes: Susiję dalyvaujamieji procesai
+    events:
+      conferences:
+        conference_registration_confirmed:
+          notification_title: Jūsų registracija į konferenciją <a href="%{resource_url}">%{resource_title}</a> buvo patvirtinta.
+        conference_registration_validation_pending:
+          notification_title: Jūsų registracija į konferenciją <a href="%{resource_url}">%{resource_title}</a> dar nepatvirtinta.
     help:
       participatory_spaces:
         conferences:
