@@ -8,7 +8,7 @@ module Decidim
       let(:initiative) { create(:initiative) }
 
       context "when notifies creation" do
-        let(:mail) { InitiativesMailer.notify_creation(initiative) }
+        let(:mail) { described_class.notify_creation(initiative) }
 
         it "renders the headers" do
           expect(mail.subject).to eq("Your initiative '#{initiative.title["en"]}' has been created")
@@ -21,7 +21,7 @@ module Decidim
       end
 
       context "when notifies state change" do
-        let(:mail) { InitiativesMailer.notify_state_change(initiative, initiative.author) }
+        let(:mail) { described_class.notify_state_change(initiative, initiative.author) }
 
         it "renders the headers" do
           expect(mail.subject).to eq("The initiative #{initiative.title["en"]} has changed its status")
@@ -34,7 +34,7 @@ module Decidim
       end
 
       context "when notifies progress" do
-        let(:mail) { InitiativesMailer.notify_progress(initiative, initiative.author) }
+        let(:mail) { described_class.notify_progress(initiative, initiative.author) }
 
         it "renders the headers" do
           expect(mail.subject).to eq("Summary about the initiative: #{initiative.title["en"]}")
