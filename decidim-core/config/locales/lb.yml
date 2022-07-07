@@ -1671,14 +1671,8 @@ lb:
       option_unified: Eenheetlech
   views:
     pagination:
-      first: "&laquo; fir d'éischt"
-      first_title: Link op d'éischt Säit
-      last: Lescht &raquo;
-      last_title: Link op di lescht Säit
-      next: Nächst &rsaquo;
       next_title: Link op déi nächst Säit
       pagination: Säitenzuelen
-      previous: "&lsaquo; virdrun"
       previous_title: Link op déi nächst Säit
       title: 'Säit Nummer: '
       truncate: "&hellip;"
