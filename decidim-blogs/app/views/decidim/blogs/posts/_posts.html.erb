@@ -1,5 +1,5 @@
 <% paginate_posts.each do |post| %>
-  <div class="flex gap-4 px-4 group rounded overflow-hidden border-l-4 border-background hover:border-tertiary">
+  <div class="flex gap-4 px-4 group rounded overflow-hidden border-l-4 border-background hover:border-tertiary" data-post>
     <% if post.photo.present? %>
       <div class="w-1/4 flex-none rounded overflow-hidden aspect-[1.5] -ml-[calc(1rem+4px)]">
         <%= image_tag post.photo.url, class: "w-full h-full object-cover" %>

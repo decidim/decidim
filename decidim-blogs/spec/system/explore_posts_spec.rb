@@ -14,9 +14,9 @@ describe "Explore posts", type: :system do
   describe "index" do
     it "shows all posts for the given process" do
       visit_component
-      expect(page).to have_selector(".card", count: 2)
-      expect(page).to have_selector(".card--post", text: translated(new_post.title))
-      expect(page).to have_selector(".card--post", text: translated(old_post.title))
+      expect(page).to have_selector("div[data-post]", count: 2)
+      expect(page).to have_selector("div[data-post]", text: translated(new_post.title))
+      expect(page).to have_selector("div[data-post]", text: translated(old_post.title))
     end
 
     it "shows comment counts" do
@@ -33,13 +33,13 @@ describe "Explore posts", type: :system do
 
     it "shows images" do
       visit_component
-      expect(page).to have_selector(".card--post img.card__image")
+      expect(page).to have_selector("div[data-post] img")
     end
 
     context "when paginating" do
       let(:collection_size) { 10 }
       let!(:collection) { create_list :post, collection_size, component: }
-      let!(:resource_selector) { ".card--post" }
+      let!(:resource_selector) { "div[data-post]" }
 
       before do
         visit_component
