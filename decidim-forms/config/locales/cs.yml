@@ -44,6 +44,8 @@ cs:
             actions:
               back: Zpět na odpovědi
               export: Export
+              next: Další &rsaquo;
+              previous: "&lsaquo; Předchozí"
               show: Zobrazit odpovědi
             empty: Zatím žádné odpovědi
             export:
