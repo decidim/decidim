@@ -1695,14 +1695,8 @@ it:
       option_unified: Unificato
   views:
     pagination:
-      first: "&laquo; Primo"
-      first_title: Vai alla prima pagina
-      last: Ultimo &raquo;
-      last_title: Vai alla prima pagina
-      next: Successivo &rsaquo;
       next_title: Va alla pagina successiva
       pagination: Paginazione
-      previous: "&lsaquo; Precedente"
       previous_title: Vai alla pagina precedente
       title: 'Numero di pagina: '
       truncate: "&hellip;"
