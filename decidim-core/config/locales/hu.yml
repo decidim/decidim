@@ -1525,8 +1525,4 @@ hu:
       option_unified: Egyesített
   views:
     pagination:
-      first: "&laquo; Első"
-      last: Utolsó &raquo;
-      next: Következő &rsaquo;
-      previous: "&lsaquo; Előző"
       truncate: "&hellip;"
