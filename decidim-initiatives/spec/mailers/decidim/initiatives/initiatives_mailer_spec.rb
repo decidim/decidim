@@ -5,7 +5,10 @@ require "spec_helper"
 module Decidim
   module Initiatives
     describe InitiativesMailer, type: :mailer do
-      let(:initiative) { create(:initiative) }
+      let(:organization) { create(:organization, host: "1.lvh.me") }
+      let(:initiative) { create(:initiative, organization: organization) }
+      let(:router) { Decidim::Initiatives::Engine.routes.url_helpers }
+      let(:admin_router) { Decidim::Initiatives::AdminEngine.routes.url_helpers }
 
       context "when notifies creation" do
         let(:mail) { described_class.notify_creation(initiative) }
@@ -17,6 +20,11 @@ module Decidim
 
         it "renders the body" do
           expect(mail.body.encoded).to match(initiative.title["en"])
+        end
+
+        it "renders the correct link" do
+          expect(mail).to have_link(router.initiative_url(initiative, host: initiative.organization.host))
+          expect(mail).not_to have_link(admin_router.initiative_url(initiative, host: initiative.organization.host))
         end
       end
 
