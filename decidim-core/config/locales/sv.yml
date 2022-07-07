@@ -1775,14 +1775,8 @@ sv:
       option_unified: Sammanslagen
   views:
     pagination:
-      first: "&laquo; Första"
-      first_title: Länk till första sidan
-      last: Sista &raquo;
-      last_title: Länk till sista sidan
-      next: Nästa &rsaquo;
       next_title: Länk till nästa sida
       pagination: Sidnumrering
-      previous: "&lsaquo; Föregående"
       previous_title: Länk till föregående sida
       title: 'Sidnummer: '
       truncate: "&hellip;"
