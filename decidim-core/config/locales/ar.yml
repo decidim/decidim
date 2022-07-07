@@ -1386,8 +1386,4 @@ ar:
       option_unified: مُوَحَّدة
   views:
     pagination:
-      first: "&laquo; أولاً"
-      last: آخر &raquo;
-      next: التالي &rsaquo;
-      previous: "&lsaquo; السابق"
       truncate: "&hellip;"
