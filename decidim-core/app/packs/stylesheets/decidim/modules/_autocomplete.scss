@@ -4,10 +4,14 @@ $autocomplete-item-color: $secondary !default;
 $autocomplete-item-hover-bg: #ededed !default;
 $autocomplete-multiselect-bg: $white !default;
 $autocomplete-multiselect-border-color: $medium-gray !default;
-$autocomplete-multiselect-search-prompt-color: $dark-gray;
+$autocomplete-input-height: ($input-font-size * unitless-calc($input-line-height)) + (get-side($input-padding, 'top') + get-side($input-padding, 'bottom')) - rem-calc(1) !default;
+$autocomplete-input-line-height: $input-line-height !default;
+$autocomplete-input-padding: $input-padding !default;
+$autocomplete-multiselect-search-prompt-color: $dark-gray !default;
 
 .autoComplete_wrapper{
   width: 100%;
+  position: relative;
 
   input{
     color: $black;
@@ -16,7 +20,7 @@ $autocomplete-multiselect-search-prompt-color: $dark-gray;
   }
 
   ul{
-    position: relative;
+    position: absolute;
     margin: 0;
 
     li{
@@ -47,9 +51,10 @@ $autocomplete-multiselect-search-prompt-color: $dark-gray;
   span{
     &.autocomplete__selected-item.sticky{
       position: absolute;
-      height: 3rem;
-      line-height: 3rem;
-      padding: 0 1rem;
+      overflow: hidden;
+      height: $autocomplete-input-height;
+      line-height: $autocomplete-input-line-height;
+      padding: $autocomplete-input-padding;
     }
   }
 
@@ -59,6 +64,8 @@ $autocomplete-multiselect-search-prompt-color: $dark-gray;
     font-size: 1.3rem;
     cursor: pointer;
     right: 1rem;
+    height: $autocomplete-input-height;
+    line-height: $autocomplete-input-height;
   }
 
   .clear-multi-selection{

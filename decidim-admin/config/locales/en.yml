@@ -511,7 +511,7 @@ en:
         notice: "%{count} %{resource_name} successfully imported"
       logs:
         filters:
-          participatory_space: Select participatory space
+          participatory_space: Find participatory space
           text: Search by user email, name or nickname.
           user: User
         logs_list:

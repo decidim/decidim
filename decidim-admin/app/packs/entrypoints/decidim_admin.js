@@ -35,6 +35,7 @@ import "src/decidim/session_timeouter"
 import "src/decidim/slug_form"
 import "src/decidim/direct_uploads/upload_field"
 import "src/decidim/admin/admin_autocomplete"
+import "src/decidim/admin/participatory_space_search"
 
 // CSS
 import "entrypoints/decidim_admin.scss";
