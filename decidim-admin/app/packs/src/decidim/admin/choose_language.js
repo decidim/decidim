@@ -1,4 +1,5 @@
 /* eslint-disable no-invalid-this */
+/* eslint-disable require-jsdoc */
 
 export default function initLanguageChangeSelect() {
   $("select.language-change").change(function () {
