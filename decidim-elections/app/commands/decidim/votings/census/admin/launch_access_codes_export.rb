@@ -31,7 +31,7 @@ module Decidim
           private
 
           def valid?
-            user.present? && dataset&.data&.present? && dataset.codes_generated?
+            user.present? && dataset&.data&.exists? && dataset.codes_generated?
           end
         end
       end
