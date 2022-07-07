@@ -95,24 +95,5 @@ describe "Explore posts", type: :system do
       expect(page).to have_content(post.author.name)
       expect(page).to have_content(post.created_at.strftime("%d/%m/%Y %H:%M "))
     end
-
-  describe "most commented" do
-    context "when ordering by 'most_commented'" do
-      let!(:post_more_comments) { create(:post, component:) }
-      let!(:post_less_comments) { create(:post, component:) }
-      let!(:more_comments) { create_list(:comment, 7, commentable: post_more_comments) }
-      let!(:less_comments) { create_list(:comment, 3, commentable: post_less_comments) }
-
-      before do
-        visit_component
-      end
-
-      it "lists the posts ordered by comments count" do
-        within "#most-commented" do
-          expect(page).to have_content(translated(post_more_comments.title))
-          expect(page).to have_content(translated(post_less_comments.title))
-        end
-      end
-    end
   end
 end
