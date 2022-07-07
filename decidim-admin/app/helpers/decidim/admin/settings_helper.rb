@@ -90,6 +90,9 @@ module Decidim
 
       # Returns a translation or nil. If nil, ZURB Foundation won't add the help_text.
       def text_for_setting(name, suffix, i18n_scope)
+        html_key = "#{i18n_scope}.#{name}_#{suffix}_html"
+        return t(html_key) if I18n.exists?(html_key)
+
         key = "#{i18n_scope}.#{name}_#{suffix}"
         return t(key) if I18n.exists?(key)
       end
