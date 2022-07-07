@@ -1879,14 +1879,8 @@ de:
       option_unified: Zusammengefasst
   views:
     pagination:
-      first: "&laquo; zuerst"
-      first_title: Verknüpfung zur ersten Seite
-      last: Letzte &raquo;
-      last_title: Verknüpfung zur letzten Seite
-      next: Nächste &rsaquo;
       next_title: Verknüpfung zur nächsten Seite
       pagination: Paginierung
-      previous: "&lsaquo; Zurück"
       previous_title: Verknüpfung zur vorherigen Seite
       title: 'Seitenzahl:'
       truncate: "&hellip;"
