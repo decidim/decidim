@@ -1449,13 +1449,7 @@ bg:
       option_unified: Обединен
   views:
     pagination:
-      first: "&laquo; Първа"
-      first_title: Връзка към първата страница
-      last: Последна &raquo;
-      last_title: Връзка към последната страница
-      next: Следваща &rsaquo;
       next_title: Връзка към следващата страница
-      previous: "&lsaquo; Предна"
       previous_title: Връзка към предходната страница
       title: 'Страница номер: '
       truncate: "&hellip;"
