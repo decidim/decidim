@@ -15,8 +15,6 @@ export default class InstantValidator {
   }
 
   init() {
-    // Disable abide validations, they might block the submitting
-    this.$form.foundation('disableValidation');
     // this final validation prevents abide from resetting the field when user loses focus
     this.$inputs.on("blur", (evt) => {
       this.validate($(evt.currentTarget));
