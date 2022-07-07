@@ -12,7 +12,7 @@ module Decidim
     include ApplicationHelper
 
     def show
-      #return unless endorsers.any?
+      return unless endorsers.any?
 
       render
     end
