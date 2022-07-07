@@ -370,6 +370,7 @@ lt:
       vote_modal:
         close_modal: Uždaryti modalinį langą
         contextual_help: Pasirinkite variantą.
+        title: 'Konsultacija: balsavimas dėl klausimo'
       vote_modal_confirm:
         change: Keisti
         close_modal: Uždaryti modalinį langą
