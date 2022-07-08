@@ -44,6 +44,8 @@ es:
             actions:
               back: Volver a las respuestas
               export: Exportar
+              next: Siguiente &rsaquo;
+              previous: "&lsaquo; Anterior"
               show: Mostrar las respuestas
             empty: Aún no hay respuestas
             export:
