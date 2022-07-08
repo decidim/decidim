@@ -515,9 +515,6 @@
           feedback: Gi oss en tilbakemelding
           header: Avstemning bekreftet
           text: 'Du kan sjekke at stemmen din har blitt lagt til i stemmeboksen med følgende identifikator: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
-        failed:
-          modal:
-            close: Lukk
         header:
           confirm: Bekreft stemmen din
           confirmed: Avstemning bekreftet
