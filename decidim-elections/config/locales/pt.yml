@@ -12,7 +12,6 @@ pt:
         start_time: Votação inicia-se às
         title: Título
       question:
-        description: Descrição
         max_selections: Número máximo de seleções
         min_selections: Nenhuma das opções acima
         title: Título
@@ -624,6 +623,8 @@ pt:
         failed:
           header: Votação falhou
           lead: O seu voto não foi registado!
+          modal:
+            close: Fechar
           text: Algo correu mal, por favor tente de novo.
           try_again: Tente de novo
         header:
