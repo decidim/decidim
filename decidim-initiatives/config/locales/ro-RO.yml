@@ -475,11 +475,6 @@ ro:
           unfold: Desfășurat
         index_header:
           new_initiative: Inițiativă nouă
-          not_authorized:
-            authorizations_page: Vezi autorizațiile
-            close: Inchide
-            explanation: Trebuie să fii verificat pentru a crea o nouă inițiativă.
-            title: Autorizare necesară
         initiatives:
           closed_initiatives_warning: În prezent, nu există inițiative deschise, dar aici poți găsi toate inițiativele anterioare.
           no_initiatives_warning: Nicio inițiativă nu corespunde criteriilor de căutare.
@@ -558,6 +553,12 @@ ro:
         status_change_for: Inițiativa %{title} și-a schimbat statutul
       last_activity:
         new_initiative: Inițiativă nouă
+      modal:
+        not_authorized:
+          authorizations_page: Vezi autorizațiile
+          close: Inchide
+          explanation: Trebuie să fii verificat pentru a crea o nouă inițiativă.
+          title: Autorizare necesară
       pages:
         home:
           highlighted_initiatives:
