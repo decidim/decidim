@@ -41,7 +41,7 @@ describe Decidim::Elections::Admin::SetupForm do
   end
 
   it "does not validate census presence" do
-    expect(subject.needs_census?).to be_falsey
+    expect(subject).not_to be_needs_census
     expect(subject.census_validations).to be_blank
   end
 
@@ -116,7 +116,7 @@ describe Decidim::Elections::Admin::SetupForm do
     it { is_expected.not_to be_valid }
 
     it "validates census presence" do
-      expect(subject.needs_census?).to be_truthy
+      expect(subject).to be_needs_census
       expect(subject.census_validations).not_to be_blank
     end
 
