@@ -363,6 +363,13 @@ ja:
           update: "%{user_name} が %{space_name} の選挙 %{resource_name} を更新しました"
         trustee:
           create: "%{user_name} がユーザー %{trustee_user} を受託者に割り当てました"
+      connection:
+        failed:
+          modal:
+            close: 閉じる
+            communication_lost: 投票サーバー (掲示板) との通信が切れているようです。<br>インターネット接続が切れているか、接続先のサーバーが混雑している可能性があります。<br>この問題が続くようでしたら、時間をおいて再度お試しいただくか、サポートまでお問い合わせください。
+            generic_error: 不明なエラーが発生しました。 お使いのブラウザがサポートされていないか、サポートされていない「シークレット」または「プライベート」モードを使用している可能性があります。
+            title: 問題が発生しました
       election_m:
         badge_name:
           finished: 完了
@@ -640,10 +647,6 @@ ja:
         failed:
           header: 投票に失敗しました
           lead: 投票は行われませんでした！
-          modal:
-            close: 閉じる
-            communication_lost: 投票サーバー (掲示板) との通信が切れているようです。<br>インターネット接続が切れているか、接続先のサーバーが混雑している可能性があります。<br>この問題が続くようでしたら、時間をおいて再度お試しいただくか、サポートまでお問い合わせください。
-            title: 問題が発生しました
           text: 問題が発生しました。もう一度やり直してください。
           try_again: 再実行
         header:
