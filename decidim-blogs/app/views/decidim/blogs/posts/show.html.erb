@@ -27,9 +27,8 @@
   <% end %>
 
   <div class="mb-24">
-    <%# REDESIGN_PENDING: this cell should show only profile + date %>
     <% post_presenter = Decidim::Blogs::PostPresenter.new(post) %>
-    <%= cell "decidim/author", post_presenter.author, from: post %>
+    <%= cell "decidim/author", post_presenter.author, from: post, context_actions: [:date] %>
 
     <div class="prose max-w-full">
       <%= decidim_sanitize_editor translated_attribute post.body %>

@@ -35,18 +35,32 @@ module Decidim
       true
     end
 
+    def context_actions_options
+      return unless options.has_key?(:context_actions)
+      return [] if options[:context_actions].blank?
+
+      @context_actions_options ||= options[:context_actions].map(&:to_sym)
+    end
+
     private
 
     def context_actions
       return [] unless actionable?
 
-      [].tap do |list|
+      actions = [].tap do |list|
         list << :date if creation_date?
         list << :comments if commentable?
         list << :endorsements if endorsable?
         list << :flag if flaggable?
         list << :withdraw if withdrawable?
       end
+      return actions unless has_context_actions_options?
+
+      actions & context_actions_options
+    end
+
+    def has_context_actions_options?
+      context_actions_options.is_a?(Array)
     end
 
     def cache_hash
