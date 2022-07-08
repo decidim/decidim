@@ -12,7 +12,6 @@ nl:
         start_time: Stemming begint om
         title: Aanspreektitel
       question:
-        description: Beschrijving
         max_selections: Maximum aantal selecties
         title: Aanspreektitel
       voting:
@@ -540,6 +539,8 @@ nl:
         failed:
           header: Stem mislukt
           lead: Je stem is niet uitgebracht!
+          modal:
+            close: Afsluiten
           text: Er is iets mis gegaan, probeer het alsjeblief nog een keer.
           try_again: Probeer opnieuw
         header:
