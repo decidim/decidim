@@ -493,11 +493,6 @@ es:
           unfold: Desplegar
         index_header:
           new_initiative: Nueva iniciativa
-          not_authorized:
-            authorizations_page: Ver autorizaciones
-            close: Cerrar
-            explanation: Debes estar verificado para crear una nueva iniciativa.
-            title: Autorización requerida
         initiatives:
           closed_initiatives_warning: Actualmente no hay iniciativas abiertas, pero aquí puedes encontrar todas las iniciativas cerradas listadas.
           no_initiatives_warning: Ninguna iniciativa coincide con los criterios de búsqueda.
@@ -574,6 +569,12 @@ es:
         status_change_for: La iniciativa %{title} ha cambiado su estado
       last_activity:
         new_initiative: Nueva iniciativa
+      modal:
+        not_authorized:
+          authorizations_page: Ver autorizaciones
+          close: Cerrar
+          explanation: Debes estar verificado para crear una nueva iniciativa.
+          title: Autorización requerida
       pages:
         home:
           highlighted_initiatives:
