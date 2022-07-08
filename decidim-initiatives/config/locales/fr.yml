@@ -493,11 +493,6 @@ fr:
           unfold: Voir la suite
         index_header:
           new_initiative: Nouvelle pétition
-          not_authorized:
-            authorizations_page: Voir les autorisations
-            close: Fermer
-            explanation: Votre compte doit être vérifié pour créer une nouvelle pétition.
-            title: Autorisation requise
         initiatives:
           closed_initiatives_warning: À l'heure actuelle, il n'y a pas de pétitions publiées, mais vous trouverez ici une liste de toutes les pétitions fermées.
           no_initiatives_warning: Aucune pétition ne correspond à vos critères de recherche.
@@ -574,6 +569,12 @@ fr:
         status_change_for: La pétition %{title} a changé de statut
       last_activity:
         new_initiative: Nouvelle pétition
+      modal:
+        not_authorized:
+          authorizations_page: Voir les autorisations
+          close: Fermer
+          explanation: Votre compte doit être vérifié pour créer une nouvelle pétition.
+          title: Autorisation requise
       pages:
         home:
           highlighted_initiatives:
