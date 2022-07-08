@@ -231,11 +231,12 @@ es-MX:
         steps:
           create_election:
             errors:
+              component_published: La elección <strong>no está publicada</strong>.
               max_selections: Las preguntas no tienen un valor <strong>correcto para la cantidad de respuestas</strong>
               minimum_answers: Las preguntas deben tener <strong>al menos dos respuestas</strong>.
               minimum_questions: La elección <strong>debe tener al menos una pregunta</strong>.
               published: La elección <strong>no está publicada</strong>.
-              time_before: La hora de inicio está en <strong>menos de 3 horas</strong> antes de que comience la elección.
+              time_before: La hora de inicio está en <strong>menos de %{hours} horas</strong> antes de que comience la elección.
               trustees_number: El espacio participativo <strong>debe tener al menos %{number} garantes con clave pública</strong>.
             invalid: Hubo un problema al configurar esta elección
             no_trustees: No hay garantes configurados para este espacio participativo
@@ -244,6 +245,7 @@ es-MX:
               'false': no tiene una <strong>clave pública</strong>
               'true': tiene una <strong> clave pública</strong>
             requirements:
+              component_published: La elección está <strong>publicada</strong>.
               max_selections: Todas las preguntas tienen un valor correcto para <strong>máximo de respuestas</strong>.
               minimum_answers: Cada pregunta tiene <strong>al menos 2 respuestas</strong>.
               minimum_questions: La elección tiene <strong>al menos 1 pregunta</strong>.
@@ -356,6 +358,13 @@ es-MX:
           update: "%{user_name} actualizó la elección %{resource_name} de %{space_name}"
         trustee:
           create: "%{user_name} asignó al usuario %{trustee_user} como garante"
+      connection:
+        failed:
+          modal:
+            close: Cerrar
+            communication_lost: Desafortunadamente, parece que la comunicación con el servidor de votación (Bulletin Board) se ha perdido.<br>Puede ser que la conexión a Internet esté averiada o que el servidor de destino esté demasiado ocupado.<br>Puedes intentarlo más tarde o ponerte en contacto con el servicio de asistencia si este problema persiste.
+            generic_error: Desafortunadamente, se ha producido un error desconocido. Es probable que tu navegador no esté soportado o que estés usando el modo "incognito" o "privado" que no es compatible.
+            title: Algo salió mal
       election_m:
         badge_name:
           finished: Finalizada
