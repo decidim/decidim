@@ -7,7 +7,7 @@
           <div class="column">
             <%= link_to decidim_initiatives.initiative_path(initiative), class: "card card--initiative card--mini" do %>
               <div aria-hidden="true" class="card__image-top"
-                style="background-image:url(<%= initiative.banner_image.path %>)"></div>
+                style="background-image:url('<%= initiative.banner_image.path %>')"></div>
               <span class="show-for-sr"><%= translated_attribute initiative.title %></span>
               <div class="card__content">
                 <span class="card__title card__link"><%= decidim_html_escape(translated_attribute(initiative.title)) %></span>
