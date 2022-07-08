@@ -12,7 +12,6 @@ pl:
         start_time: Głosowanie rozpoczyna się o
         title: Tytuł
       question:
-        description: Opis
         max_selections: Maksymalna liczba opcji do wybrania
         min_selections: Żadna z powyższych opcji
         title: Tytuł
@@ -632,6 +631,8 @@ pl:
         failed:
           header: Oddanie głosu nie powiodło się
           lead: Twój głos nie został oddany!
+          modal:
+            close: Zamknij
           text: Coś poszło nie tak. Spróbuj ponownie.
           try_again: Spróbuj ponownie
         header:
