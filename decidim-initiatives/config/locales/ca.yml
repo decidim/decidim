@@ -382,6 +382,7 @@ ca:
           more_information: "(Més informació)"
           select: Vull promoure aquesta iniciativa
           select_initiative_type_help: Les iniciatives són un mitjà pel qual les participants poden intervenir perquè l'organització pugui emprendre accions en defensa de l'interès general. Quina iniciativa vols iniciar?
+          verification_required: Verifica el teu compte per a impulsar la iniciativa
         share_committee_link:
           continue: Continua
           invite_to_committee_help: Enllaç per convidar a les persones que formaran part de la Comisió Promotora
@@ -608,6 +609,7 @@ ca:
           comment: Comentar
       initiatives_type:
         actions:
+          create: Crear
           title: Accions
           vote: Signar
   layouts:
