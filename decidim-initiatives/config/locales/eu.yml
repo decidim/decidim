@@ -467,11 +467,6 @@ eu:
           unfold: Zabaldu
         index_header:
           new_initiative: Ekimen berria
-          not_authorized:
-            authorizations_page: Ikusi baimenak
-            close: Itxi
-            explanation: Egiaztatuta egon behar zara ekimen berri bat sortzeko.
-            title: Baimena behar da
         initiatives:
           closed_initiatives_warning: Gaur egun ez dago ekimen irekirik, baina hemen aurki ditzakezu ekimen itxi guztiak zerrendatuta.
           no_initiatives_warning: Ez dago bilaketa-irizpideekin bat datorren ekimenik.
@@ -547,6 +542,12 @@ eu:
         status_change_for: '%{title} ekimena bere egoera aldatu du'
       last_activity:
         new_initiative: Ekimen berria
+      modal:
+        not_authorized:
+          authorizations_page: Ikusi baimenak
+          close: Itxi
+          explanation: Egiaztatuta egon behar zara ekimen berri bat sortzeko.
+          title: Baimena behar da
       pages:
         home:
           highlighted_initiatives:
