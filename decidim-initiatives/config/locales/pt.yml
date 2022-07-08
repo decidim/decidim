@@ -468,11 +468,6 @@ pt:
           unfold: Desdobrar
         index_header:
           new_initiative: Nova iniciativa
-          not_authorized:
-            authorizations_page: Ver autorizações
-            close: FECHAR
-            explanation: Você precisa ser verificado para criar uma nova iniciativa.
-            title: Autorização necessária
         initiatives:
           closed_initiatives_warning: Actualmente, não há iniciativas abertas, mas aqui pode encontrar listadas todas as iniciativas fechadas.
           no_initiatives_warning: Nenhuma iniciativa corresponde aos seus critérios de pesquisa.
@@ -548,6 +543,12 @@ pt:
         status_change_for: A iniciativa %{title} mudou o seu estado
       last_activity:
         new_initiative: Nova iniciativa
+      modal:
+        not_authorized:
+          authorizations_page: Ver autorizações
+          close: FECHAR
+          explanation: Você precisa ser verificado para criar uma nova iniciativa.
+          title: Autorização necessária
       pages:
         home:
           highlighted_initiatives:
