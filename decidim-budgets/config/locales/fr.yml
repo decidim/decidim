@@ -18,7 +18,7 @@ fr:
         selected: Sélectionné pour l'implémentation
         title: Titre
       proposals_import:
-        scope_id: Périmètre d'application
+        scope_id: Secteur
   activerecord:
     models:
       decidim/budgets/project:
