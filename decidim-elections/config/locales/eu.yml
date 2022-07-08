@@ -588,8 +588,6 @@ eu:
         failed:
           header: Boto okerra
           lead: Ez duzu eman botoa!
-          modal:
-            close: Itxi
           text: Zerbait txarto irten da, mesedez, saiatu berriro.
           try_again: Saiatu berriro
         header:
