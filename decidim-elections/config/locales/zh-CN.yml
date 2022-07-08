@@ -201,9 +201,6 @@ zh-CN:
           feedback: 给我们一些反馈
           header: 已确认投票
           text: '您可以检查您的投票是否已成功地添加到选票箱，其标识符如下： <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
-        failed:
-          modal:
-            close: 关闭
         header:
           confirm: 确认您的投票
           confirmed: 已确认投票
