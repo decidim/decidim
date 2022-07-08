@@ -231,7 +231,7 @@ fr:
         steps:
           create_election:
             errors:
-              component_published: Le composant élection n'est <strong>pas publiée</strong>.
+              component_published: La fonctionnalité élection n'est <strong>pas publiée</strong>.
               max_selections: Les questions n'ont pas de <strong>valeur correcte pour le nombre de réponses</strong>
               minimum_answers: Les questions doivent avoir <strong>au moins deux réponses</strong>.
               minimum_questions: L'élection <strong>doit avoir au moins une question</strong>.
@@ -245,7 +245,7 @@ fr:
               'false': n'a pas de <strong>clé publique</strong>
               'true': a une <strong>clé publique</strong>
             requirements:
-              component_published: Le composant élection est <strong>publié</strong>.
+              component_published: La fonctionnalité élection est <strong>publiée</strong>.
               max_selections: Toutes les questions ont une valeur correcte pour <strong>le maximum de réponses</strong>.
               minimum_answers: Chaque question a <strong>au moins 2 réponses</strong>.
               minimum_questions: L'élection a <strong>au moins 1 question</strong>.
