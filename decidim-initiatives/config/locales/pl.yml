@@ -478,11 +478,6 @@ pl:
           unfold: Rozwiń
         index_header:
           new_initiative: Nowa inicjatywa
-          not_authorized:
-            authorizations_page: Zobacz autoryzacje
-            close: Zamknij
-            explanation: Musisz zostać zweryfikowany/-a, aby stworzyć nową inicjatywę.
-            title: Wymagana autoryzacja
         initiatives:
           closed_initiatives_warning: Obecnie nie ma aktualnych inicjatyw, ale tutaj możesz zobaczyć wszystkie poprzednie inicjatywy.
           no_initiatives_warning: Brak inicjatyw spełniających kryteria wyszukiwania.
@@ -564,6 +559,12 @@ pl:
         status_change_for: Inicjatywa %{title} zmieniła swój status
       last_activity:
         new_initiative: Nowa inicjatywa
+      modal:
+        not_authorized:
+          authorizations_page: Zobacz autoryzacje
+          close: Zamknij
+          explanation: Musisz zostać zweryfikowany/-a, aby stworzyć nową inicjatywę.
+          title: Wymagana autoryzacja
       pages:
         home:
           highlighted_initiatives:
