@@ -382,6 +382,7 @@ es:
           more_information: "(Más información)"
           select: Quiero promover esta iniciativa
           select_initiative_type_help: Las iniciativas son un medio por el que las participantes pueden intervenir para que la organización emprenda acciones en defensa del interés general. ¿Qué iniciativa quieres lanzar?
+          verification_required: Verifica tu cuenta para impulsar la iniciativa
         share_committee_link:
           continue: Continuar
           invite_to_committee_help: Enlace para invitar a personas que formarán parte del Comisión Promotora.
@@ -608,6 +609,7 @@ es:
           comment: Comentar
       initiatives_type:
         actions:
+          create: Crear
           title: Acciones
           vote: Firmar
   layouts:
