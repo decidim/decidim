@@ -165,6 +165,7 @@ ignore_unused:
   - decidim.accountability.models.project.valid_statuses.*
   - decidim.accountability.admin_log.*
   - decidim.elections.admin_log.*
+  - decidim.elections.connection.failed.*
   - decidim.elections.orders.*
   - decidim.elections.election_m.*
   - decidim.proposals.admin_log.*
