@@ -156,9 +156,6 @@ ga:
         filters_small_view:
           filter: Scag
           unfold: Oscail
-        index_header:
-          not_authorized:
-            close: Dún
         orders:
           random: Randamach
         print:
@@ -176,6 +173,9 @@ ga:
       initiatives_mailer:
         initiative_link:
           here: anseo
+      modal:
+        not_authorized:
+          close: Dún
       show:
         badge_name:
           created: Cruthaithe
