@@ -433,11 +433,6 @@ sv:
           unfold: Veckla ut
         index_header:
           new_initiative: Nytt initiativ
-          not_authorized:
-            authorizations_page: Visa behörigheter
-            close: Stäng
-            explanation: Du måste verifieras för att skapa ett nytt initiativ.
-            title: Auktorisering krävs
         initiatives:
           closed_initiatives_warning: För närvarande finns det inga öppna initiativ, men här hittar du alla stängda initiativ listade.
           no_initiatives_warning: Inga initiativ matchar dina sökkriterier.
@@ -508,6 +503,12 @@ sv:
         status_change_for: Initiativet %{title} har ändrat status
       last_activity:
         new_initiative: Nytt initiativ
+      modal:
+        not_authorized:
+          authorizations_page: Visa behörigheter
+          close: Stäng
+          explanation: Du måste verifieras för att skapa ett nytt initiativ.
+          title: Auktorisering krävs
       pages:
         home:
           highlighted_initiatives:
