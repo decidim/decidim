@@ -13,6 +13,12 @@ module Decidim
           validations.each do |message, t_args, valid|
             errors.add(message, I18n.t("steps.create_election.errors.#{message}", **t_args, scope: "decidim.elections.admin")) unless valid
           end
+
+          if needs_census?
+            census_validations.each do |message, t_args, valid|
+              errors.add(message, I18n.t("steps.create_election.errors.#{message}", **t_args, scope: "decidim.elections.admin")) unless valid
+            end
+          end
         end
 
         def current_step; end
@@ -31,16 +37,32 @@ module Decidim
         def validations
           @validations ||= [
             [:minimum_questions, {}, election.questions.any?],
-            [:minimum_answers, {}, election.questions.any? && election.minimum_answers?],
-            [:max_selections, {}, election.questions.any? && election.valid_questions?],
+            [:minimum_answers, {}, election.minimum_answers?],
+            [:max_selections, {}, election.valid_questions?],
             [:published, {}, election.published_at.present?],
             [:time_before, { hours: Decidim::Elections.setup_minimum_hours_before_start }, election.minimum_hours_before_start?],
             [:trustees_number, { number: bulletin_board.number_of_trustees }, participatory_space_trustees_with_public_key.size >= bulletin_board.number_of_trustees]
           ].freeze
         end
 
+        def census_validations
+          return [] unless needs_census?
+
+          @census_validations ||= [
+            [:census_uploaded, {}, census.present? && census.data.exists?],
+            [:census_codes_generated, {}, census&.codes_generated? || census&.exporting_codes? || census.freeze?],
+            [:census_frozen, {}, census&.freeze?],
+          ].freeze
+        end
+
         def messages
           @messages ||= validations.to_h do |message, t_args, _valid|
+            [message, I18n.t("steps.create_election.requirements.#{message}", **t_args, scope: "decidim.elections.admin")]
+          end
+        end
+
+        def census_messages
+          @census_messages ||= census_validations.to_h do |message, t_args, _valid|
             [message, I18n.t("steps.create_election.requirements.#{message}", **t_args, scope: "decidim.elections.admin")]
           end
         end
@@ -55,6 +77,16 @@ module Decidim
 
         def bulletin_board
           @bulletin_board ||= context[:bulletin_board] || Decidim::Elections.bulletin_board
+        end
+
+        def needs_census?
+          election.component.participatory_space.respond_to?(:dataset)
+        end
+
+        def census
+          return unless needs_census?
+
+          @census ||= election.component.participatory_space.dataset
         end
 
         def main_button?

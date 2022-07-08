@@ -54,6 +54,20 @@ describe Decidim::Elections::Admin::SetupForm do
     end
   end
 
+  context "when there are no questions created" do
+    let(:election) { create :election, :ready_for_setup, trustee_keys: [], questions: [] }
+
+    it { is_expected.to be_invalid }
+
+    it "shows errors" do
+      subject.valid?
+      expect(subject.errors.messages).to eq({
+                                              minimum_questions: ["The election <strong>must have at least one question</strong>."],
+                                              minimum_answers: ["Questions must have <strong>at least two answers</strong>."]
+                                            })
+    end
+  end
+
   context "when there are no trustees for the election" do
     let(:trustees) { [] }
 

@@ -89,6 +89,7 @@ module Decidim
       #
       # Returns a boolean.
       def minimum_answers?
+        # questions.any? && 
         questions.all? { |question| question.answers.size > 1 }
       end
 
@@ -110,6 +111,7 @@ module Decidim
       #
       # Returns a boolean.
       def valid_questions?
+        # questions.any? && 
         questions.all?(&:valid_max_selection?)
       end
 

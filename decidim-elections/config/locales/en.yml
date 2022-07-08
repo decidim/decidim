@@ -252,6 +252,9 @@ en:
               published: The election is <strong>not published</strong>.
               time_before: The start time is in <strong>less than 3 hours</strong> before the election starts.
               trustees_number: The participatory space <strong>must have at least %{number} trustees with public key</strong>.
+              census_uploaded: There is no census uploaded for this election
+              census_codes_generated: Election codes for the census are not generated
+              census_frozen: Election codes are not exported
             invalid: There was a problem setting up this election
             no_trustees: There are no Trustees configured for this participatory space
             not_used_trustee: "(not used)"
@@ -265,10 +268,15 @@ en:
               published: The election is <strong>published</strong>.
               time_before: The setup is being done <strong>at least %{hours} hours</strong> before the election starts.
               trustees_number: The participatory space has <strong>at least %{number} trustees with public key</strong>.
+              census_uploaded: Census is uploaded
+              census_codes_generated: Census codes are generated
+              census_frozen: Codes are exported and census is frozen
             submit: Setup election
             success: Election successfully sent to the Bulletin Board
             title: Setup election
             trustees: Election Trustees
+            census: Census
+            census: Census
           created:
             invalid: There was a problem starting the key ceremony
             submit: Start the key ceremony
