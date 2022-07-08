@@ -372,6 +372,13 @@ ca:
           update: "%{user_name} ha actualitzat l'elecció %{resource_name} a %{space_name}"
         trustee:
           create: "%{user_name} ha assignat a la usuària %{trustee_user} com a garant"
+      connection:
+        failed:
+          modal:
+            close: Tancar
+            communication_lost: Malauradament, sembla que la comunicació amb el servidor de votació (Bulletin Board) s'ha perdut.<br>Pot ser que la connexió a Internet estigui avariada o que el servidor de destí estigui massa ocupat.<br>Pots provar-ho més tard o posar-te en contacte amb el servei d'assistència si aquest problema persisteix.
+            generic_error: Malauradament, s'ha produït un error desconegut. És probable que el teu navegador no estigui suportat o que estiguis fent servir el mode "d'incògnit" o "privat" que no són compatibles.
+            title: Alguna cosa ha anat malament
       election_m:
         badge_name:
           finished: Acabada
@@ -652,10 +659,6 @@ ca:
         failed:
           header: Vot fallit
           lead: El teu vot no s'ha enviat!
-          modal:
-            close: Tancar
-            communication_lost: Malauradament, sembla que la comunicació amb el servidor de votació (Bulletin Board) s'ha perdut.<br>Pot ser que la connexió a Internet estigui avariada o que el servidor de destí estigui massa ocupat.<br>Pots provar-ho més tard o posar-te en contacte amb el servei d'assistència si aquest problema persisteix.
-            title: Alguna cosa ha anat malament
           text: Alguna cosa ha anat malament. Si us plau, torna-ho a provar.
           try_again: Prova-ho de nou
         header:
