@@ -585,8 +585,6 @@ pt-BR:
         failed:
           header: Votação falhou
           lead: Seu voto não foi transmitido!
-          modal:
-            close: Fechado
           text: Algo deu errado, por favor, tente novamente.
           try_again: Tente novamente
         header:
