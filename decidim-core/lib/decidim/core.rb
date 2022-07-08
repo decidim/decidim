@@ -113,6 +113,8 @@ module Decidim
   autoload :EventRecorder, "decidim/event_recorder"
   autoload :ControllerHelpers, "decidim/controller_helpers"
   autoload :ProcessesFileLocally, "decidim/processes_file_locally"
+  autoload :RedesignLayout, "decidim/redesign_layout"
+  autoload :DisabledRedesignLayout, "decidim/disabled_redesign_layout"
 
   include ActiveSupport::Configurable
   # Loads seeds from all engines.
@@ -360,6 +362,12 @@ module Decidim
   #
   config_accessor :machine_translation_service do
     # "MyTranslationService"
+  end
+
+  # If set to true redesigned versions of layouts and cells will be used by
+  # default
+  config_accessor :redesign_active do
+    false
   end
 
   # The Decidim::Exporters::CSV's default column separator
