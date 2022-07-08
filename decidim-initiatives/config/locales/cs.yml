@@ -503,11 +503,6 @@ cs:
           unfold: Rozvinout
         index_header:
           new_initiative: Nová iniciativa
-          not_authorized:
-            authorizations_page: Zobrazit autorizace
-            close: Zavřít
-            explanation: Musíte být ověřen, abyste mohli vytvořit novou iniciativu.
-            title: Vyžadována autorizace
         initiatives:
           closed_initiatives_warning: V současné době neexistují žádné otevřené iniciativy, ale zde najdete všechny uzavřené iniciativy uvedené v seznamu.
           no_initiatives_warning: Žádná iniciativa neodpovídá vašim kritériím vyhledávání.
@@ -590,6 +585,12 @@ cs:
         status_change_for: Iniciativa %{title} změnila svůj stav
       last_activity:
         new_initiative: Nová iniciativa
+      modal:
+        not_authorized:
+          authorizations_page: Zobrazit autorizace
+          close: Zavřít
+          explanation: Musíte být ověřen, abyste mohli vytvořit novou iniciativu.
+          title: Vyžadována autorizace
       pages:
         home:
           highlighted_initiatives:
