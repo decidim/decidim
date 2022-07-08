@@ -230,7 +230,6 @@ de:
               minimum_answers: Fragen müssen <strong>mindestens zwei Antworten</strong> haben.
               minimum_questions: Die Wahl <strong>muss mindestens eine Frage</strong> haben.
               published: Die Wahl ist <strong>nicht veröffentlicht</strong>.
-              time_before: Die Startzeit ist in <strong>weniger als 3 Stunden</strong> vor Beginn der Wahl.
               trustees_number: <strong>Mindestens %{number} Wahlhelfer mit Public Key</strong> werden benötigt.
             invalid: Beim Erstellen dieser Wahl ist ein Fehler aufgetreten
             no_trustees: Es sind keine Wahlhelfer eingetragen
@@ -335,6 +334,13 @@ de:
           update:
             invalid: Es ist ein Problem beim Aktualisieren des Wahlhelfers %{trustee} aufgetreten
             success: Wahlhelfer %{trustee} erfolgreich aktualisiert
+      connection:
+        failed:
+          modal:
+            close: Schliessen
+            communication_lost: Leider scheint die Kommunikation mit dem Abstimmungsserver (Bulletin Board) unterbrochen.<br>Möglicherweise ist die Internetverbindung gestört oder der Server ist überlastet.<br>Bitte versuche es später noch einmal oder kontaktiere den Support, falls das Problem weiterhin besteht.
+            generic_error: Leider ist ein unbekannter Fehler aufgetreten. Es ist wahrscheinlich, dass Ihr Browser nicht unterstützt wird oder dass Sie den Modus "incognito" oder "private" verwenden, der nicht unterstützt wird.
+            title: Etwas ist schiefgelaufen
       election_m:
         badge_name:
           finished: Abgeschlossen
