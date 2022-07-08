@@ -44,6 +44,8 @@ ca:
             actions:
               back: Tornar a les respostes
               export: Exportar
+              next: Següent &rsaquo;
+              previous: "&lsaquo; Anterior"
               show: Mostrar les respostes
             empty: Encara no hi ha respostes
             export:
