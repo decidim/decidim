@@ -620,8 +620,6 @@ pl:
         failed:
           header: Oddanie głosu nie powiodło się
           lead: Twój głos nie został oddany!
-          modal:
-            close: Zamknij
           text: Coś poszło nie tak. Spróbuj ponownie.
           try_again: Spróbuj ponownie
         header:
