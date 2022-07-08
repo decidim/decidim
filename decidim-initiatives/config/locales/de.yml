@@ -491,11 +491,6 @@ de:
           unfold: Entfalten
         index_header:
           new_initiative: Neue Initiative
-          not_authorized:
-            authorizations_page: Autorisierungen anzeigen
-            close: Schließen
-            explanation: Sie müssen überprüft werden, um eine neue Initiative zu schaffen.
-            title: Autorisierung erforderlich
         initiatives:
           closed_initiatives_warning: Derzeit gibt es keine offenen Initiativen, aber hier finden Sie alle abgeschlossenen Initiativen aufgelistet.
           no_initiatives_warning: Keine Initiativen entsprechen Ihren Suchkriterien.
@@ -571,6 +566,12 @@ de:
         status_change_for: Die Initiative %{title} hat ihren Status geändert
       last_activity:
         new_initiative: Neue Initiative
+      modal:
+        not_authorized:
+          authorizations_page: Autorisierungen anzeigen
+          close: Schließen
+          explanation: Sie müssen überprüft werden, um eine neue Initiative zu schaffen.
+          title: Autorisierung erforderlich
       pages:
         home:
           highlighted_initiatives:
