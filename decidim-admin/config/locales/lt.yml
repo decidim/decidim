@@ -8,7 +8,55 @@ lt:
       area_type:
         name: Vardas
         organization: Organizacija
+        plural: Pluralistinis
+      attachment:
+        attachment_collection_id: Aplankas
+        description: Aprašymas
+        file: Rinkmena
+        title: Priedo arba paveikslėlio pavadinimas
+      attachment_collection:
+        description: Aprašymas
+        name: Pavadinimas
+      category:
+        description: Aprašymas
+        name: Pavadinimas
+        parent_id: Motininis
+      component:
+        name: Pavadinimas
+        published_at: Paskelbta
+        weight: Vieta eilėje
+      id: ID
+      import:
+        user_group_id: Sukurti importus kaip
+      newsletter:
+        body: Pagrindinė dalis
+        subject: Tema
       organization:
+        admin_terms_of_use_body: Vieta administratorių naudotojų sąlygoms
+        alert_color: Įspėjimas
+        available_authorizations: Leidžiamos autorizacijos
+        badges_enabled: Aktyvinti ženklelius
+        comments_max_length: Maksimalus komentarų ilgis (numatytoji vertė – 0)
+        cta_button_path: Mygtuko „Raginti imtis veiksmų“ kelias
+        cta_button_text: Mygtuko „Raginti imtis veiksmų“ tekstas
+        customize_welcome_notification: Individualizuoti pasisveikinimo pranešimą
+        description: Aprašymas
+        enable_omnipresent_banner: Rodyti visur naudojamą reklamjuostę
+        enable_participatory_space_filters: Leisti dalyvaujamosios erdvės filtrus
+        facebook_handler: '„Facebook“ tvarkyklė'
+        favicon: Piktograma
+        force_authentication: Priversti autentifikuotis
+        force_users_to_authenticate_before_access_organization: Priversti naudotojus autentifikuotis prieš gaunant prieigą prie organizacijos
+        from: Siuntėjo elektroninis paštas
+        github_handler: '„GitHub“ tvarkyklė'
+        header_snippets: Antraštės fragmentai
+        highlight_alternative_color: Paryškinti, alternatyva
+        highlight_color: Paryškinimai
+        highlighted_content_banner_action_subtitle: Veiksmo mygtuko paantraštė
+        highlighted_content_banner_action_title: Veiksmo mygtuko pavadinimas
+        highlighted_content_banner_action_url: Veiksmo mygtuko URL
+        highlighted_content_banner_enabled: Rodyti paryškintą turinio reklamjuostę
+        highlighted_content_banner_image: Paveikslėlis
         highlighted_content_banner_short_description: Trumpas aprašymas
         highlighted_content_banner_title: Pavadinimas
         host: Šeimininkas
@@ -63,9 +111,128 @@ lt:
         organization: Organizacija
         show_in_footer: Rodyti poraštėje
         slug: URL laukas
+        title: Pavadinimas
+        weight: Vieta eilėje
+      static_page_topic:
+        description: Aprašymas
+        show_in_footer: Rodyti poraštėje
+        title: Pavadinimas
+        weight: Vieta eilėje
+      user_group_csv_verification:
+        file: Rinkmena
+    errors:
+      models:
+        newsletter:
+          attributes:
+            base:
+              at_least_one_space: Pasirinkite bent vieną dalyvavujamąją erdvę
+        organization:
+          attributes:
+            official_img_footer:
+              allowed_file_content_types: Netinkama vaizdo rinkmena
+            official_img_header:
+              allowed_file_content_types: Netinkama vaizdo rinkmena
+      new_import:
+        attributes:
+          file:
+            invalid_file: Pateiktas nevalidus dokumentas, prašau patikrinkite ar dokumentas teisingai suformatuotas
+            invalid_mime_type: Nevalidus mimo tipas
+  activerecord:
+    attributes:
+      decidim/static_page:
+        content: Turinys
+        slug: URL laukas
+        title: Pavadinimas
+      doorkeeper/application:
+        authorize_url: Leisti URL
+        client_id: Kliento ID
+        client_secret: Kliento Raktas
+        organization_name: Organizacijos pavadinimas
+        organization_url: Organizacijos URL
+        redirect_uri: Peradresavimo URI
+        site: Tinklalapis
   decidim:
     admin:
+      actions:
+        add: Pridėti
+        attachment:
+          new: Naujas priedas
+        attachment_collection:
+          new: Nauja priedų kolekcija
+        browse: Naršyti
+        category:
+          new: Nauja kategorija
+        export: Eksportuoti viską
+        export-selection: Eksportuoti pasirinktą
+        import: Importuoti
+        manage: Valdyti
+        new: Naujas %{name}
+        newsletter:
+          new: Naujas naujienlaiškis
+        participatory_space_private_user:
+          new: Naujas dalyvaujamosios erdvės privatus naudotojas
+        per_page: Per puslapį
+        permissions: Leidimai
+        reject: Atmesti
+        share: Dalintis
+        user:
+          new: Naujas administratorius
+        verify: Patikrinti
+      admin_terms_of_use:
+        accept:
+          error: Sutinkant su administratoriaus naudojimosi sąlygomis įvyko klaida.
+          success: Puiku! Jūs sutikote su administratoriaus naudojimosi sąlygomis.
+        actions:
+          accept: Sutinku su šiomis nuostatomis
+          are_you_sure: Ar tikrai norite nesutikti su administratoriaus naudojimosi sąlygomis?
+          refuse: Nesutikti su administratoriaus nustatytomis sąlygomis
+          title: Sutikti su naudojimosi sąlygomis
+        required_review:
+          alert: 'Reikalavimas: peržiūrėkite mūsų administratoriaus nustatytas naudojimosi sąlygas'
+          callout: Kviečiame peržiūrėti administratoriaus nustatytas naudojimosi sąlygas. Priešingu atveju šios platformos administruoti negalėsite.
+          cta: Peržiūrėkite jas dabar.
+        title: Administratoriaus nustatytos naudojimosi sąlygos
+      area_types:
+        create:
+          error: Kuriant naujos erdvės tipą iškilo problema.
+          success: Vietovės tipas sėkmingai sukurtas.
+        destroy:
+          success: Vietovės tipas sėkmingai panaikintas
+        edit:
+          title: Keisti erdvės tipą
+          update: Atnaujinti
+        new:
+          create: Sukurti erdvės tipą
+          title: Naujas erdvės tipas
+        update:
+          error: Iškilo problema atnaujinant šį erdvės tipą.
+          success: Erdvės tipas atnaujintas sėkmingai
+      areas:
+        create:
+          error: Iškilo problema kuriant naują erdvę.
+          success: Erdvė sukurta sėkmingai.
+        destroy:
+          has_spaces: Ši aplinka turi priklausomų erdvių. Prašau įsitikinkite, kad jokia Dalyvaujamoji Erdvė nesujungta su šia aplinka prieš ją ištrinant.
+          success: Aplinka sėkmingai panaikinta
+        edit:
+          title: Taisyti aplinką
+          update: Atnaujinti
+        new:
+          create: Sukurti aplinką
+          title: Nauja aplinka
+        no_areas: Nėra aplinkų
+        update:
+          error: Kilo problema atnaujinant šią aplinką.
+          success: Aplinka atnaujinta sėkmingai
       attachment_collections:
+        create:
+          error: Kuriant naują aplanką iškilo problema.
+          success: Aplankas sėkmingai sukurtas.
+        destroy:
+          success: Aplankas sėkmingai panaikintas.
+        edit:
+          title: Redaguoti aplanką
+          update: Atnaujinti
         index:
           attachment_collection_used: Šio aplanko negalima pašalinti, nes jis naudojamas.
           attachment_collections_title: Priedų aplankai
@@ -102,3 +269,678 @@ lt:
           action: Užblokuoti paskyrą ir išsiųsti paaiškinimą
           description: Naudotojo užblokavimas pavers paskyrą nenaudojama. Rekomenduojame paaiškinime pasidalinti būdais kaip naudotojas gali būti atblokuotas.
           justification: Paaiškinimas
+          title: Blokuoti naudotoją %{name}
+      categories:
+        create:
+          error: Kuriant šią kategoriją iškilo problema.
+          success: Kategorija sėkmingai sukurta.
+        destroy:
+          error: Šalinant šią kategoriją iškilo problema. Pirmiausia pašalinkite bet kurią pakategorę, įsitikinkite, kad joks kitas subjektas nesusietas su šia kategorija, ir bandykite dar kartą.
+          success: Kategorija sėkmingai pašalinta.
+        edit:
+          title: Redaguoti kategoriją
+          update: Atnaujinti
+        index:
+          categories_title: Kategorijos
+          category_used: Šios kategorijos negalima pašalinti, nes ji naudojama.
+        new:
+          create: Sukurti kategoriją
+          title: Nauja kategorija
+        update:
+          error: Atnaujinant šią kategoriją iškilo problema.
+          success: Kategorija sėkmingai atnaujinta.
+      component_permissions:
+        update:
+          error: Atnaujinant šio komponento leidimus iškilo problema.
+          success: Leidimai atnaujinti.
+      components:
+        create:
+          error: Kuriant šį komponentą iškilo problema.
+          success: Komponentas sukurtas.
+        destroy:
+          error: Naikinant šį komponentą iškilo problema.
+          success: Komponentas pašalintas.
+        edit:
+          title: Redaguoti komponentą
+          update: Atnaujinti
+        form:
+          default_step_settings: Numatyti žingsnių nustatymai
+          global_settings: Bendrieji nustatymai
+          step_settings: Žingsnio nustatymai
+        index:
+          add: Pridėti komponentą
+          headers:
+            actions: Veiksmai
+            name: Komponento pavadinimas
+            scope: Komponento apimtis
+            type: Komponento tipas
+        new:
+          add: Pridėti komponentą
+          title: 'Pridėti komponentą: %{name}'
+        publish:
+          success: Komponentas sėkmingai publikuotas.
+        title: Komponentai
+        unpublish:
+          success: Komponentas nebe publikuojamas.
+        update:
+          error: Atnaujinant šį komponentą iškilo problema.
+          success: Komponentas atnaujintas sėkmingai.
+      conflicts:
+        attempts: Bandymai
+        'false': 'Ne'
+        managed_user_name: Tvarkomas Dalyvis
+        solved: Išspręsta
+        title: Patikros konfliktai
+        transfer:
+          email: El. paštas
+          error: Iškilo problema perkeliant dabartinį dalyvį į tvarkomą dalyvį.
+          name: Vardas
+          reason: Priežastis
+          success: Perkėlimas sėkmingai baigtas.
+          title: Perkelti
+        'true': 'Taip'
+        user_name: Naudotojas
+      dashboard:
+        show:
+          view_more_logs: Peržiūrėti daugiau ataskaitų
+          welcome: Sveiki atvykę į administratorių puslapį.
+      domain_whitelist:
+        form:
+          domain_too_short: Domenas per trumpas
+        update:
+          error: Nepavyko įkelti domenų baltojo sąrašo ("whitelist")
+          success: Domenų baltasis sąrašas atnaujintas sėkmingai
+      exports:
+        export_as: "%{name} kaip %{export_format}"
+        formats:
+          CSV: CSV
+          Excel: Excel
+          FormPDF: PDF
+          JSON: JSON
+        notice: Jūsų rinkmena šiuo metu eksportuojama. Kai eksportas bus baigtas, gausite el. laišką.
+      filters:
+        category_id_eq:
+          label: Kategorija
+        filter_label: Filtras
+        invitation_accepted_at_present:
+          label: Pakvietimas priimtas
+          values:
+            'false': 'Ne'
+            'true': 'Taip'
+        last_sign_in_at_present:
+          label: Ar yra prisijungę
+          values:
+            'false': 'Ne'
+            'true': 'Taip'
+        moderated_users:
+          reports_reason_eq:
+            label: Raporto priežastis
+            values:
+              does_not_belong: Nepriklauso
+              offensive: Įžeidžiamas turinys
+              spam: Šlamštas
+        moderations:
+          reportable_type_string_eq:
+            label: Tipas
+        officialized_at_null:
+          label: Būsena
+          values:
+            'false': Oficializuota
+            'true': Neoficializuota
+        participatory_space_private_users:
+          user_invitation_accepted_at_not_null:
+            label: Pakvietimas priimtas
+            values:
+              'false': Nepriimtas
+              'true': Priimtas
+          user_invitation_sent_at_not_null:
+            label: Pakvietimas išsiųstas
+            values:
+              'false': Neišsiųstas
+              'true': Išsiųstas
+        private_space_eq:
+          label: Privatus
+          values:
+            'false': Viešas
+            'true': Privatus
+        published_at_null:
+          label: Publikuota
+          values:
+            'false': Publikuota
+            'true': Nebeskelbiama
+        scope_id_eq:
+          label: Apimtis
+        search_label: Ieškoti
+        search_placeholder:
+          name_or_nickname_or_email_cont: Ieškoti %{collection} pagal el. pašto adresą, vardą ir pavardę arba naudotojo vardą.
+          report_count_eq: Raportuoti skaičių
+          reported_id_string_or_reported_content_cont: Ieškoti %{collection} pagal ID arba turinį.
+          title_cont: Ieškoti %{collection} pagal pavadinimą.
+          user_name_or_user_email_cont: Ieškoti %{collection} pagal vardą ar el. paštą.
+          user_name_or_user_nickname_or_user_email_cont: Ieškoti %{collection} pagal el. pašto adresą, vardą arba naudotojo vardą.
+        state_eq:
+          label: Būsena
+          values:
+            all: Visi
+            pending: Laukiama
+            rejected: Atmesta
+            verified: Patvirtinta
+      forms:
+        file_help:
+          import:
+            explanation: 'Rinkmenai skirtos gairės:'
+            message_1: CSV, JSON ir Excel (.xlsx) rinkmenos palaikomos
+            message_2: CSV dokumentams, skiriklis tarp stulpelių turėtų būti kabliataškis ";"
+      help_sections:
+        error: Atnaujinant pagalbos skyrių iškilo problema
+        form:
+          save: Išsaugoti
+        success: Pagalbos skyreliai atnaujinti
+      impersonatable_users:
+        index:
+          filter:
+            all: Visi
+            managed: Valdomas
+            not_managed: Nevaldomas
+          filter_by: Filtruoti pagal
+          impersonate: Apsimesti
+          impersonate_new_managed_user: Tvarkyti naujo dalyvio duomenis
+          managed: Valdomas
+          name: Vardas
+          needs_authorization_warning: Jums reikia bent vienos autorizacijos įgalintos šiai organizacijai.
+          not_managed: Netvarkoma
+          promote: Reklamuoti
+          search: Ieškoti
+          status: Būsena
+          view_logs: Peržiūrėti įvykių ataskaitą
+      impersonations:
+        close_session:
+          error: Iškilo problema uždarant dabartinę nadotojų tvarkymo sesiją.
+          success: Laikino naudotojo perėmimo sesija baigėsi.
+        create:
+          error: Tvarkant naudotojo duomenis iškilo problema.
+          success: Dalyvis, kurio duomenys tvarkomi, buvo sukurtas.
+        form:
+          authorization_method: Autorizacijos metodas
+          name: Vardas
+          reason: Priežastis
+        new:
+          impersonate: Naudoti pakaitinę tapatybę
+          impersonate_existing_managed_user: Tvarkyti dalyvį "%{name}"
+          impersonate_existing_user: Tvarkyti dalyvį "%{name}"
+          impersonate_new_managed_user: Tvarkyti naują naudotoją
+      imports:
+        and: ir
+        data_errors:
+          duplicate_headers:
+            detail: Prašau patikrinkit ar dokumentas turi vieną viršutinę dalį (angl. header) arba vienus stulpelius (angl. columns).
+            message:
+              one: Dublikuoti stulpelį %{columns}.
+              few: Dublikuoti stulpelius %{columns}.
+              many: Dublikuoti stulpelius %{columns}.
+              other: Dublikuoti stulpelius %{columns}.
+          invalid_indexes:
+            lines:
+              detail: Prašau patikrinkit ar šios eilutės suformatuotos teisingai ir turi teisingus įrašus.
+              message:
+                one: Importuoto dokumento %{indexes} eilutėje rasta klaida.
+                few: Importuoto dokumento %{indexes} eilutėje rastos klaidos.
+                many: Importuoto dokumento %{indexes} eilutėje rastos klaidos.
+                other: Importuoto dokumento %{indexes} eilutėje rastos klaidos.
+            records:
+              detail: Prašau patikrinkit ar šie įrašai suformatuoti teisingai ir turi teisingus įrašus.
+              message:
+                one: Importuotame dokumente su įrašais rasta klaida su eilės numeriais %{indexes}.
+                few: Importuotame dokumente su įrašais rasta klaida su eilės numeriais %{indexes}.
+                many: Importuotame dokumente su įrašais rasta klaida su eilės numeriais %{indexes}.
+                other: Importuotame dokumente su įrašais rasta klaida su eilės numeriais %{indexes}.
+          missing_headers:
+            detail: Prašau patikrinkit ar dokumentas turi būtinus stulpelius.
+            message:
+              one: Trūksta stulpelio %{columns}.
+              few: Trūksta stulpelių %{columns}.
+              many: Trūksta stulpelių %{columns}.
+              other: Trūksta stulpelių %{columns}.
+        error: Importuojant iškilo problema
+        example_error: Nepavyko sukurti pavyzdžio duotajam tipui
+        new:
+          accepted_mime_types:
+            csv: CSV
+            json: JSON
+            xlsx: Excel (.xlsx)
+          actions:
+            back: Grįžti
+          download_example: Atsisiųsti pavyzdį
+          download_example_format: Pavyzdys kaip %{name}
+          file_legend: Pridėkite importo failą, kuris bus analizuojamas.
+          import: Importuoti
+        notice: "%{count} %{resource_name} sėkmingai importuotas"
+      logs:
+        logs_list:
+          no_logs_yet: Dar nėra įrašų
+      managed_users:
+        promotion:
+          error: Įvyko problema paaukštinant tvarkomą naudotoją.
+          success: Tvarkomas naudotojas buvo sėkmingai paaukštintas.
+        promotions:
+          new:
+            explanation: Tvarkomi dalyviai gali būti paaukštinti į standartinius dalyvius. Tai reiškia, kad jie bus pakviesti į platformą ir nebegalėsite jų tvarkyti. Pakviesti naudotojai gaus kvietimą prisijungti el. paštu.
+            new_managed_user_promotion: Naujas tvarkomo naudotojo paaukštinimas
+            promote: Paaukštinti
+      menu:
+        admin_log: Administratoriaus veiklos žurnalas
+        admins: Administratoriai
+        appearance: Išvaizda
+        area_types: Erdvės tipas
+        areas: Erdvės
+        configuration: Konfigūracija
+        dashboard: Švieslentė
+        external_domain_whitelist: Leistini išoriniai domenai
+        help_sections: Pagalbos skyrius
+        homepage: Pradinis puslapis
+        impersonations: Įsikūnyjimai
+        moderation: Globalūs moderavimai
+        newsletters: Naujienlaiškiai
+        participants: Dalyviai
+        reported_users: Raportuoti Naudotojai
+        scope_types: Apimties tipai
+        scopes: Apimtys
+        settings: Nustatymai
+        static_pages: Puslapiai
+        user_groups: Grupės
+        users: Dalyviai
+      metrics:
+        metrics:
+          see_more_metrics: Žiūrėti daugiau rodiklių
+      models:
+        area:
+          fields:
+            area_type: Erdvės tipas
+            name: Pavadinimas
+        area_type:
+          fields:
+            name: Pavadinimas
+            plural: Pluralistinis
+        attachment:
+          fields:
+            collection: Aplankas
+            content_type: Tipas
+            file_size: Dydis
+            title: Pavadinimas
+          name: Priedas
+        attachment_collection:
+          name: Aplankas
+        category:
+          name: Kategorija
+        impersonation_log:
+          fields:
+            admin: Administratorius
+            ended_at: Baigėsi
+            expired_at: Baigė galioti
+            reason: Priežastis
+            started_at: Prasidėjo
+            user: Dalyvis
+        newsletter:
+          fields:
+            created_at: Sukurta
+            progress: Progresas
+            sent_at: Išsiųsta
+            sent_to: Išsiųsta
+            subject: Tema
+          name: Naujienlaiškis
+        participatory_space_private_user:
+          name: Dalivaujamosios erdvės privatus dalyvis
+        scope:
+          fields:
+            name: Vardas
+            scope_type: Apimties tipas
+        scope_type:
+          fields:
+            name: Vardas
+            plural: Pluralistinis
+        share_token:
+          fields:
+            created_at: Sukurta
+            expires_at: Nustoja galioti
+            last_used_at: Paskutinį kartą naudota
+            times_used: Kiek kartų naudota
+            token: Žetonas
+            user: Sukūrė
+        static_page:
+          fields:
+            created_at: Sukurta
+            title: Pavadinimas
+        user:
+          fields:
+            created_at: Sukūrimo data
+            email: El. paštas
+            last_sign_in_at: Paskutinio prisijungimo data
+            name: Pavadinimas
+            role: Rolė
+            roles:
+              admin: Administratorius
+              user_manager: Dalyvių tvarkytojas
+          name: Dalyvis
+        user_group:
+          fields:
+            actions: Veiksmai
+            created_at: Sukurta
+            document_number: Dokumento numeris
+            name: Vardas
+            phone: Telefonas
+            state: Būsena
+            users_count: Dalyvių skaičius
+      moderated_users:
+        index:
+          actions:
+            block: Blokuoti naudotoją
+            title: Veiksmai
+            unblock: Atblokuoti naudotoją
+            unreport: Naikinti raportavimą
+          name: Vardas
+          nickname: Slapyvardis
+          reason: Priežastis
+          reports: Raportavimų skaičius
+          title: Raportuotų dalyvių sąrašas
+        report:
+          reasons:
+            does_not_belong: Nepriklauso
+            offensive: Įžeidžiamas turinys
+            spam: Šlamštas
+        tabs:
+          blocked: Užblokuota
+          unblocked: Neužblokuota
+      moderations:
+        index:
+          title: Moderavimai
+        report:
+          reasons:
+            does_not_belong: Nepriklauso
+            offensive: Įžeidžiantis
+            spam: Šlamštas
+        reports:
+          index:
+            author: Autorius(iai)
+            callout_html: Turinys atsiranda moderavimo puslapyje kai jis būna raportuotuotas registruoto naudotojo paspaudus ant %{icon} vėliavėlės prie turinio vieneto.
+            content_original_language: Turinio originali kalba
+            participatory_space: Dalyvaujamoji erdvė
+            reported_content: Turinys, apie kurį pranešta
+            see_current: Žiūrėti dabartinį
+            see_original: Matyti orginalą
+            title: Moderavimo raportai
+          show:
+            report_details: Priežasties detalės
+            report_language: Raportuoti kalbą
+            report_reason: Priežastis
+            title: Raportuoti detales
+      newsletter_templates:
+        index:
+          preview_template: Peržiūra
+          title: Naujienlaiškio šablonai
+          use_template: Naudoti šį šabloną
+        show:
+          preview: 'Peržiūrėti šabloną: %{template_name}'
+          use_template: Naudoti šį šabloną
+      newsletters:
+        create:
+          error: Kuriant šį naujienlaiškį iškilo problema.
+          success: Naujienlaiškis sukurtas. Peržiūrėkite jį prieš išsiųsdami.
+        deliver:
+          error: Siunčiant šį naujienlaiškį iškilo problema.
+          success: Naujienlaiškis išsiųstas.
+        destroy:
+          error_already_sent: 'Naujienlaiškio negalima panaikinti. Jis jau išsiųstas.'
+          success: Naujienlaiškis panaikintas.
+        edit:
+          save_and_preview: Išsaugoti ir peržiūrėti
+          title: Redaguoti naujienlaiškį
+        index:
+          all: visi
+          all_users: 'Visi naudotojai '
+          and: 'ir '
+          confirm_delete: Ar tikrai norite ištrinti šį naujienlaiškį?
+          followers: 'sekėjai '
+          has_been_sent_to: 'Buvo išsiųsta: '
+          no_scopes: Sričių nėra
+          not_sent: Neišsiųstas
+          participants: 'dalyviai '
+          segmented_to: 'Išskaidyta į %{subject}: '
+          subscribed_count: 'Prenumeruojama:'
+          title: Naujienlaiškiai
+        new:
+          save: Išsaugoti
+          title: Naujas naujienlaiškis
+        select_recipients_to_deliver:
+          all_spaces: Visi
+          all_users_help: Naujienlaiškis išsiunčiamas visiems patvirtintiems naudotojams.
+          confirm_deliver: Ar tikrai norite išsiųsti šį naujienlaiškį? Šio veiksmo atšaukti negalima.
+          deliver: Pristatyti naujienlaiškį
+          followers_help: Naujienlaiškis išsiunčiamas visiems patvirtintiems naudotojams, kurie seka sąraše nurodytas pasirinktas dalyvaujamojo proceso erdves.
+          none: Nėra
+          participants_help: Naujienlaiškis išsiunčiamas visiems patvirtintiems naudotojams, kurie dalyvavo bet kurioje sąraše nurodytoje pasirinktoje dalyvaujamojo proceso erdvėje.
+          recipients_count: Šis naujienlaiškis bus išsiųstas <strong id='recipients_count'>%{count}</strong> naudotojams.
+          scopes_help: Naujienlaiškis siunčiamas naudotojams, kurių paskyros „Mano interesai“ nuostatose aktyvuota kuri nors pasirinkta sritis.
+          select_scopes: Filtruoti naudotojus, kurie savo paskyros „Mano interesai“ nuostatose aktyvino bet kurią pasirinktą sritį.
+          send_to_all_users: Siųsti visiems naudotojams
+          send_to_followers: Siųsti sekėjams
+          send_to_participants: Siųsti dalyviams
+          title: Pasirinkti gavėjus, kuriems išsiųsti
+        show:
+          preview: Peržiūra
+          select_recipients_to_deliver: Pasirinkti gavėjus, kuriems išsiųsti
+          subject: Tema
+        update:
+          error: Atnaujinant šį naujienlaiškį iškilo problema.
+          success: Naujienlaiškis atnaujintas. Peržiūrėkite jį prieš išsiųsdami.
+      officializations:
+        index:
+          actions: Veiksmai
+          badge: Ženkliukas
+          block: Blokuoti naudotoją
+          created_at: Sukurta
+          name: Vardas
+          nickname: Slapyvardis
+          show_email: Rodyti el. pašto adresą
+          status: Būsena
+          unblock: Atblokuoti naudotoją
+        show_email_modal:
+          email_address: El. pašto adresas
+          full_name: Vardas, pavardė
+          hidden: paslėptas
+          show: Rodyti
+          title: Rodyti dalyvio el. pašto adresą
+      organization:
+        edit:
+          update: Atnaujinti
+        form:
+          facebook: Facebook
+          github: GitHub
+          instagram: Instagram
+          twitter: Twitter
+          url: Nuoroda
+          youtube: YouTube
+        update:
+          error: Atnaujinant šią organizaciją iškilo problema.
+          success: Organizacija atnaujinta.
+      organization_appearance:
+        edit:
+          update: Atnaujinti
+        form:
+          colors:
+            colors_title: Organizacijos spalvos
+          images:
+            layout_appearance_title: Redaguoti išdėstymą
+            preview: Peržiūra
+          omnipresent_banner_appearance_title: Keisti visur naudojamą reklamjuostę
+      organization_external_domain_whitelist:
+        edit:
+          update: Atnaujinti
+        external_domain:
+          down: Žemyn
+          remove: Pašalinti
+          up: Aukštyn
+      organization_homepage_content_blocks:
+        edit:
+          update: Atnaujinti
+      participatory_space_private_users:
+        index:
+          import_via_csv: Importuoti iš CSV
+      participatory_space_private_users_csv_imports:
+        new:
+          explanation: 'Įkelkite CSV dokumentą. Jis turi turėti du stulpelius su naudotojų el. paštu pirmajame ir vardu paskutiniąjame. Dokumente neturėtų būti laukų pavadinimų ir šių simbolių naudotojų varduose "<>?%&^*#@()[]=+:;"{}\|".'
+          title: Įkelkite CSV dokumentą
+          upload: Įkelti
+      reminders:
+        create:
+          error: Kuriant priminimus iškilo problema.
+        new:
+          submit: Siųsti
+      resource_permissions:
+        edit:
+          submit: Pateikti
+          title: Redaguoti leidimus
+        update:
+          success: Leidimai atnaujinti.
+      resources:
+        index:
+          headers:
+            scope: Apimtis
+      scope_types:
+        create:
+          error: Kuriant naujo tipo sritį iškilo problema.
+          success: Srities tipas sukurtas sėkmingai.
+        destroy:
+          success: Srities tipas sėkmingai panaikintas
+        edit:
+          title: Keisti srities tipą
+          update: Atnaujinti
+        new:
+          create: Sukurti srities tipą
+          title: Nauja sritis
+        update:
+          error: Atnaujinant šį srities tipą iškilo problema.
+          success: Srities tipas atnaujintas
+      scopes:
+        create:
+          error: Kuriant naują sritį iškilo problema.
+          success: Sritis sukurta.
+        destroy:
+          success: Sritis panaikinta.
+        edit:
+          title: Taisyti sritį
+          update: Atnaujinti
+        new:
+          create: Sukurti sritį
+          title: Nauja sritis
+        no_scopes: Šiuo lygmeniu nėra sričių.
+        update:
+          error: Atnaujinant šią sritį iškilo problema.
+          success: Sritis atnaujinta
+      share_tokens:
+        actions:
+          confirm_destroy: Ar tikrai norite pašalinti šį žetoną?
+          destroy: Ištrinti
+          share: Dalintis
+        destroy:
+          error: Pašalinant žetoną iškilo problema.
+          success: Žetonas pašalintas sėkmingai.
+        share_tokens:
+          empty: Nėra aktyvių žetonų
+      shared:
+        gallery:
+          add_images: Pridėti paveikslėlių
+          delete_image: Pašalinti paveikslėlį
+          edit_images: Redaguoti paveikslėlį
+          gallery_legend: Pridėti paveikslėlių galeriją (Neprivaloma)
+      static_page_topics:
+        create:
+          error: Kuriant naują temą iškilo problema.
+          success: Tema sukurta.
+      static_pages:
+        new:
+          title: Naujas puslapis
+        topic:
+          destroy: Šalinti temą
+          edit: Redaguoti temą
+          without_topic: Puslapiai be temos
+        update:
+          error: Atnaujinant šį puslapį iškilo problema.
+          success: Puslapis atnaujintas
+      titles:
+        admin_log: Administratoriaus veiklos žurnalas
+        static_pages: Puslapiai
+        users: Administratoriai
+      user_group:
+        csv_verify:
+          invalid: Skaitant CSV rinkmeną iškilo problema.
+          success: CSV rinkmena įkelta, tikriname, kurios grupės atitinka kriterijus. Tai gali užtrukti.
+      user_groups:
+        index:
+          state:
+            pending: Laukiama
+            rejected: Atmesta
+            verified: Patvirtinta
+          verify_via_csv: Patvirtinti naudojant CSV
+      user_groups_csv_verifications:
+        new:
+          upload: Įkelti
+      users:
+        create:
+          success: Dalyvis pakviestas.
+        form:
+          email: El. paštas
+          name: Vardas
+          role: Rolė
+        new:
+          create: Pakviesti
+      users_statistics:
+        users_count:
+          last_day: Paskutinė diena
+          last_week: Praėjusią savaitę
+          participants: Dalyviai
+    metrics:
+      blocked_users:
+        object: užblokuoti naudotojai
+        title: Užblokuoti naudotojai
+    moderations:
+      actions:
+        expand: Išplėsti
+        hidden: Paslėptas
+        hide: Slėpti
+        not_hidden: Nepaslėpta
+        title: Veiksmai
+        unhide: Nebeslėpti
+      admin:
+        reportable:
+          hide:
+            invalid: Slepiant išteklių iškilo problema.
+            success: Išteklius paslėptas.
+          unhide:
+            success: Išteklius paslėptas.
+      models:
+        moderation:
+          fields:
+            created_at: Sukūrimo data
+            hidden_at: Paslėpta
+            participatory_space: Dalyvaujamoji erdvė
+            report_count: Kiekis
+            reportable_id: ID
+            reportable_type: Tipas
+            reported_content_url: Turinio, apie kurį pranešta, URL
+        report:
+          fields:
+            details: Priežasties detalės
+            locale: Kalba
+            reason: Priežastis
+  errors:
+    messages:
+      invalid_json: Negaliojantis JSON
+  layouts:
+    decidim:
+      admin:
+        newsletters:
+          title: Naujienlaiškiai
+        settings:
+          title: Nustatymai
+        users:
+          title: Dalyviai

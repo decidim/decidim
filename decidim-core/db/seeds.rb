@@ -115,12 +115,9 @@ if !Rails.env.production? || ENV.fetch("SEED", nil)
   end
 
   admin = Decidim::User.find_or_initialize_by(email: "admin@example.org")
-
-  admin.update!(
+  admin_hash = {
     name: Faker::Name.name,
     nickname: Faker::Twitter.unique.screen_name,
-    password: "decidim123456",
-    password_confirmation: "decidim123456",
     organization: organization,
     confirmed_at: Time.current,
     locale: I18n.default_locale,
@@ -128,23 +125,26 @@ if !Rails.env.production? || ENV.fetch("SEED", nil)
     tos_agreement: true,
     personal_url: Faker::Internet.url,
     about: Faker::Lorem.paragraph(sentence_count: 2),
-    accepted_tos_version: organization.tos_version,
+    accepted_tos_version: organization.tos_version + 1.hour,
+    password_updated_at: Time.current,
     admin_terms_accepted_at: Time.current
-  )
+  }
+  admin_hash.merge!(password: "decidim123456789", password_confirmation: "decidim123456789") if admin.encrypted_password.blank?
+  admin.update!(admin_hash)
 
   ["user@example.org", "user2@example.org"].each do |email|
     Decidim::User.find_or_initialize_by(email: email).update!(
       name: Faker::Name.name,
       nickname: Faker::Twitter.unique.screen_name,
-      password: "decidim123456",
-      password_confirmation: "decidim123456",
+      password: "decidim123456789",
+      password_confirmation: "decidim123456789",
       confirmed_at: Time.current,
       locale: I18n.default_locale,
       organization: organization,
       tos_agreement: true,
       personal_url: Faker::Internet.url,
       about: Faker::Lorem.paragraph(sentence_count: 2),
-      accepted_tos_version: organization.tos_version
+      accepted_tos_version: organization.tos_version + 1.hour
     )
   end
 
@@ -155,15 +155,15 @@ if !Rails.env.production? || ENV.fetch("SEED", nil)
   locked_user.update!(
     name: Faker::Name.name,
     nickname: Faker::Twitter.unique.screen_name,
-    password: "decidim123456",
-    password_confirmation: "decidim123456",
+    password: "decidim123456789",
+    password_confirmation: "decidim123456789",
     confirmed_at: Time.current,
     locale: I18n.default_locale,
     organization: organization,
     tos_agreement: true,
     personal_url: Faker::Internet.url,
     about: Faker::Lorem.paragraph(sentence_count: 2),
-    accepted_tos_version: organization.tos_version
+    accepted_tos_version: organization.tos_version + 1.hour
   )
 
   locked_user.lock_access!

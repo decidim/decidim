@@ -128,7 +128,7 @@ es:
           update: "%{user_name} ha actualizado el estado %{resource_name}"
         timeline_entry:
           create: "%{user_name} ha creado la entrada %{resource_name} en la línea de tiempo"
-          delete: "%{user_name} ha actualitzado la entrada %{resource_name} en la línea de tiempo"
+          delete: "%{user_name} ha eliminado la entrada %{resource_name} en la línea de tiempo"
           update: "%{user_name} ha actualizado la entrada %{resource_name} en la línea de tiempo"
         value_types:
           parent_presenter:

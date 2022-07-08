@@ -5,7 +5,8 @@ require "spec_helper"
 describe Decidim::ActivityCell, type: :cell do
   subject { my_cell.call }
 
-  let(:my_cell) { cell("decidim/activity", model) }
+  let(:cell_name) { "decidim/activity" }
+  let(:my_cell) { cell(cell_name, model) }
   let(:model) do
     create(:action_log, action: "publish", visibility: "all", resource: resource, organization: component.organization, participatory_space: component.participatory_space)
   end
@@ -84,6 +85,10 @@ describe Decidim::ActivityCell, type: :cell do
 
     before do
       allow(controller).to receive(:current_user).and_return(nil)
+      allow(controller).to receive(:redesigned_layout).with(:cell_name).and_return(cell_name)
+      allow(controller).to receive(:redesigned_layout) do |name|
+        name
+      end
     end
 
     context "when the author is shown" do

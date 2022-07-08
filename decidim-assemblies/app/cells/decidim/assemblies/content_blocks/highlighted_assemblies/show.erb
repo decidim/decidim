@@ -8,7 +8,7 @@
           <div class="column">
             <%= link_to decidim_assemblies.assembly_path(assembly), class: "card card--assembly card--mini" do %>
               <div aria-hidden="true" class="card__image-top"
-                style="background-image:url(<%= assembly.attached_uploader(:hero_image).path %>)"></div>
+                style="background-image:url('<%= assembly.attached_uploader(:hero_image).path %>')"></div>
               <div class="card__content">
                 <span class="card__title card__link"><%= translated_attribute assembly.title %></span>
               </div>

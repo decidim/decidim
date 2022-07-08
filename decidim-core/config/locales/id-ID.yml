@@ -1047,7 +1047,6 @@ id:
     passwords:
       edit:
         change_my_password: Ubah kata sandi saya
-        change_your_password: Ubah kata sandi Anda
         confirm_new_password: Konfirmasi password baru
         new_password: Kata sandi baru
       new:

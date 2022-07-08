@@ -265,6 +265,8 @@ cs:
           filter: Filtr
           filter_by: Filtrovat podle
           unfold: Rozbalit
+        index:
+          view_project: Zobrazit projekt
         order_progress:
           vote: Hlasovat
         order_selected_projects:
@@ -328,6 +330,7 @@ cs:
               errors:
                 budget_voting_rule_only_one: Pouze jedno hlasovací pravidlo musí být povoleno
                 budget_voting_rule_required: Je vyžadováno jedno pravidlo hlasování
+            geocoding_enabled: Geokódování aktivováno
             landing_page_content: Úvodní stránka rozpočtů
             more_information_modal: Více informací
             projects_per_page: Počet projektů na stránku

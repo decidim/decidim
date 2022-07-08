@@ -155,6 +155,9 @@ en:
     admin:
       actions:
         cancel: Cancel
+      password_change:
+        alert: You need to change your password in order to proceed further
+        notification: Admin users need to change their password every %{days} days.
     admin_log:
       area:
         create: "%{user_name} created the %{resource_name} area"
@@ -530,7 +533,6 @@ en:
           newsletter: Receive an occasional newsletter with relevant information
           newsletter_title: Contact permission
           nickname_help: Your alias in %{organization}. Can only contain letters, numbers, '-' and '_'.
-          password_help: "%{minimun_characters} characters minimum, must not be too common (e.g. 123456) and must be different from your nickname and your email."
           sign_in: Log in
           sign_up: Sign up
           sign_up_as:
@@ -1275,6 +1277,10 @@ en:
           title: 'Required: Review updates to our terms of service'
     participatory_space_private_users:
       not_allowed: You are not allowed to view this content
+    passwords:
+      update:
+        error: There was a problem updating the password
+        success: Password successfully updated
     profile:
       deleted: Participant deleted
       inaccessible_message: This profile is inaccessible due to Terms and Conditions violation!
@@ -1636,10 +1642,11 @@ en:
     passwords:
       edit:
         change_my_password: Change my password
-        change_your_password: Change your password
         confirm_new_password: Confirm new password
         new_password: New password
         password_help: "%{minimun_characters} characters minimum, must not be too common (e.g. 123456) and must be different from your nickname and your email."
+        password_help_admin: "%{minimun_characters} characters minimum, must not be too common (e.g. 123456), must be different from your nickname and your email and must be different from your old passwords."
+        title: Password change
       new:
         forgot_your_password: Forgot your password?
         send_me_reset_password_instructions: Send me reset password instructions
@@ -1843,6 +1850,7 @@ en:
     nickname_included_in_password: is too similar to your nickname
     not_enough_unique_characters: does not have enough unique characters
     password_not_allowed: is not allowed
+    password_repeated: cannot reuse old password
     password_too_common: is too common
     password_too_long: is too long
     password_too_short: is too short
@@ -1902,14 +1910,10 @@ en:
       option_unified: Unified
   views:
     pagination:
-      first: "&laquo; First"
-      first_title: Link to the first page
-      last: Last &raquo;
-      last_title: Link to the last page
-      next: Next &rsaquo;
+      next: Next
       next_title: Link to the next page
       pagination: Pagination
-      previous: "&lsaquo; Prev"
+      previous: Prev
       previous_title: Link to the previous page
       title: 'Page number: '
       truncate: "&hellip;"
