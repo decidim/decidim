@@ -51,20 +51,20 @@ After that, the header with the current version and link with the same beforemen
 == Create the stable branch in Crowdin
 
 . You'll need to first create the version branch in Crowdin
-  . Sign in as manager in Crowdin.
-  . Go to the https://translate.decidim.org/project/decidim/content/files[Content tab in the Decidim project]
-  . Click on the dropdown of the "New folder" button (top right) and select "New Version Branch"
-  . On the modal, add the name of the branch. As it doesn't allow the slash character in the name ("/") you'll need to change it to a dot ("."). So, for instance, "release/0.20-stable" would become "release.0.20-stable". See other releases if in doubt, it should be consistent.
-  . After creating the version branch, edit it and change the "Title as it appears to translators" to the name with the slash ("release/0.20-stable")
+ .. Sign in as manager in Crowdin.
+ .. Go to the https://translate.decidim.org/project/decidim/content/files[Content tab in the Decidim project]
+ .. Click on the dropdown of the "New folder" button (top right) and select "New Version Branch"
+ .. On the modal, add the name of the branch. As it doesn't allow the slash character in the name ("/") you'll need to change it to a dot ("."). So, for instance, "release/0.20-stable" would become "release.0.20-stable". See other releases if in doubt, it should be consistent.
+ .. After creating the version branch, edit it and change the "Title as it appears to translators" to the name with the slash ("release/0.20-stable")
 . Then you'll be able to setup the GitHub integration in Crowdin
-  . Sign in as user "Decidim" in Crowdin. NOTE: this user is the only one that can do this.
-  . Go to the https://translate.decidim.org/project/decidim/apps[Integrations tab in the Decidim project]
-  . Click on GitHub
-  . Click on the "Edit" button
-  . In the "Select Branches for Translation", search the branch. Click on it.
-  . Change the "Service Branch Name" to be consistent with the other branches. So, for instance, "release/0.20-stable" would become "chore/l10n/release/0.20-stable".
-  . Click on "Save"
-  . In less than one hour, if there are any changes in Crowdin that would involve this branch, you'll see the correspondent "Decidim bot" Pull Request in GitHub.
+ .. Sign in as user "Decidim" in Crowdin. NOTE: this user is the only one that can do this.
+ .. Go to the https://translate.decidim.org/project/decidim/apps[Integrations tab in the Decidim project]
+ .. Click on GitHub
+ .. Click on the "Edit" button
+ .. In the "Select Branches for Translation", search the branch. Click on it.
+ .. Change the "Service Branch Name" to be consistent with the other branches. So, for instance, "release/0.20-stable" would become "chore/l10n/release/0.20-stable".
+ .. Click on "Save"
+ .. In less than one hour, if there are any changes in Crowdin that would involve this branch, you'll see the correspondent "Decidim bot" Pull Request in GitHub.
 
 == Producing the CHANGELOG.md
 
