@@ -18,6 +18,7 @@ describe "Admin manages election steps", :slow, type: :system do
         expect(page).to have_content("Each question has at least 2 answers.")
         expect(page).to have_content("All the questions have a correct value for maximum of answers.")
         expect(page).to have_content("The election is published.")
+        expect(page).to have_content("The election component is published.")
         expect(page).to have_content("The setup is being done at least 3 hours before the election starts.")
         expect(page).to have_content("The participatory space has at least 3 trustees with public key.")
         expect(page).to have_content("has a public key", minimum: 2)
