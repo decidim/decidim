@@ -89,8 +89,7 @@ module Decidim
       #
       # Returns a boolean.
       def minimum_answers?
-        # questions.any? && 
-        questions.all? { |question| question.answers.size > 1 }
+        questions.any? && questions.all? { |question| question.answers.size > 1 }
       end
 
       # Public: Checks if the election results are published and election finished
@@ -111,8 +110,7 @@ module Decidim
       #
       # Returns a boolean.
       def valid_questions?
-        # questions.any? && 
-        questions.all?(&:valid_max_selection?)
+        questions.any? && questions.all?(&:valid_max_selection?)
       end
 
       # Public: Gets the voting period status of the election

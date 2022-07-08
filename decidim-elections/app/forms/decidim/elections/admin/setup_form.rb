@@ -51,8 +51,8 @@ module Decidim
 
           @census_validations ||= [
             [:census_uploaded, {}, census.present? && census.data.exists?],
-            [:census_codes_generated, {}, census&.codes_generated? || census&.exporting_codes? || census.freeze?],
-            [:census_frozen, {}, census&.freeze?],
+            [:census_codes_generated, {}, census_codes_generated?],
+            [:census_frozen, {}, census&.freeze?]
           ].freeze
         end
 
@@ -82,6 +82,12 @@ module Decidim
 
         def needs_census?
           election.component.participatory_space.respond_to?(:dataset)
+        end
+
+        def census_codes_generated?
+          return unless needs_census?
+
+          census&.codes_generated? || census&.exporting_codes? || census&.freeze?
         end
 
         def census
