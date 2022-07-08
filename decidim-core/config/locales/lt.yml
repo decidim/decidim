@@ -115,6 +115,7 @@ lt:
       area:
         create: "%{user_name} sukūrė %{resource_name} erdvę"
         delete: "%{user_name} ištrynė %{resource_name} erdvę"
+        update: "%{user_name} sukūrė %{resource_name} erdvę"
       static_page:
         update: "%{user_name} atnaujino %{resource_name} puslapį"
       user:
