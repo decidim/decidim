@@ -159,13 +159,13 @@ fr:
         notification: Les administrateurs doivent changer leur mot de passe tous les %{days} jours.
     admin_log:
       area:
-        create: "%{user_name} a créé la zone d'application %{resource_name}"
-        delete: "%{user_name} a supprimé la zone d'application %{resource_name}"
-        update: "%{user_name} a mis à jour la zone d'application %{resource_name}"
+        create: "%{user_name} a créé le périmètre d'assemblée %{resource_name}"
+        delete: "%{user_name} a supprimé le périmètre d'assemblée %{resource_name}"
+        update: "%{user_name} a mis à jour le périmètre d'assemblée %{resource_name}"
       area_type:
-        create: "%{user_name} a créé le type de zone d'application %{resource_name}"
-        delete: "%{user_name} a supprimé le type de zone d'application %{resource_name}"
-        update: "%{user_name} a mis à jour le type de zone d'application %{resource_name}"
+        create: "%{user_name} a créé le type de périmètre d'assemblée %{resource_name}"
+        delete: "%{user_name} a supprimé le type de périmètre d'assemblée %{resource_name}"
+        update: "%{user_name} a mis à jour le type de périmètre d'assemblée %{resource_name}"
       attachment:
         create: "%{user_name} a créé le document %{resource_name}"
         delete: "%{user_name} a supprimé le document %{resource_name}"
@@ -1341,7 +1341,7 @@ fr:
         currently_selected: Secteur actuellement sélectionné
         title: Sélectionnez %{field}
       prompt: Sélectionnez un périmètre d'application
-      scopes: Périmètre d'application
+      scopes: Secteurs
       scopes_picker_input:
         select_scope: 'Sélectionnez un secteur (actuellement: %{current})'
     search:
@@ -1419,8 +1419,8 @@ fr:
         remove_recipient: Supprimer le destinataire %{name}
       participatory_space_filters:
         filters:
-          areas: Zones d'application
-          select_an_area: Sélectionnez une zone d'application
+          areas: Périmètres d'assemblée
+          select_an_area: Sélectionnez un périmètre d'assemblée
       public_participation:
         public_participation: Afficher ma présence publiquement
       reference:
@@ -1653,7 +1653,7 @@ fr:
         currently_waiting_confirmation_for_email: 'En attente de confirmation pour: %{email}'
         leave_blank_if_you_don_t_want_to_change_it: laisser vide si vous ne voulez pas le changer
         title: Modifier %{resource}
-        unhappy: Pas satisfait ? 
+        unhappy: Pas satisfait ?
         update: Mettre à jour
         we_need_your_current_password_to_confirm_your_changes: nous avons besoin de votre mot de passe actuel pour confirmer vos modifications
       new:
@@ -1696,7 +1696,7 @@ fr:
       already_confirmed: était déjà confirmé, s'il vous plaît essayez de vous connecter
       confirmation_period_expired: doit être confirmé dans les %{period}, s'il vous plaît demander un nouveau
       content_type_allowlist_error: le type de fichier n'est pas valide
-      cycle_detected: un périmètre d'application ne peut pas être du même niveau que ses descendants
+      cycle_detected: un périmètre d'assemblée parent ne peut pas être du même niveau que ses descendants
       expired: a expiré, s'il vous plaît demander un nouveau
       file_size_is_less_than_or_equal_to: la taille du fichier doit être inférieure ou égale à %{count}
       invalid_time_zone: n'est pas un fuseau horaire valide
@@ -1733,7 +1733,7 @@ fr:
             type: Type
           cookies:
             _session_id:
-              description: Permet aux sites Web de se souvenir de l'utilisateur au sein d'un même site lorsqu'ils naviguent d'une page à l'autre.
+              description: Permet aux sites Web de se souvenir de l'utilisateur au sein d'un même site lorsqu'il navigue d'une page à l'autre.
               service: Ce site web
             decidim-consent:
               description: Stocke des informations sur les cookies autorisés par l'utilisateur sur ce site web.
@@ -1742,19 +1742,19 @@ fr:
             cookie: Cookie
         dialog:
           accept_all: Tout accepter
-          accept_only_essential: Accepter seulement l'essentiel
+          accept_only_essential: Accepter seulement les cookies essentiels
           cookie_settings: Paramètres
-          description: Nous utilisons des cookies sur notre site Web pour améliorer la performance et le contenu du site. Les cookies nous permettent de fournir une expérience utilisateur plus individuelle et les canaux de médias sociaux.
+          description: Nous utilisons des cookies sur notre site Web pour améliorer la performance et les contenus du site. Les cookies nous permettent de fournir une expérience utilisateur et un contenu plus personnalisés à partir de nos canaux de médias sociaux.
           title: Informations sur les cookies utilisés sur le site web
         modal:
           accept_all: Tout accepter
-          accept_only_essential: Accepter seulement l'essentiel
+          accept_only_essential: Accepter seulement les cookies essentiels
           analytics:
             description: Les cookies d'analyse sont des cookies qui permettent de suivre la navigation et l'interaction des utilisateurs sur un site web. Les informations collectées sont utilisées pour aider le propriétaire du site à améliorer le site web.
             title: Analyses et statistiques
           description: Nous utilisons des cookies pour assurer les fonctionnalités de base du site Web et pour améliorer votre expérience en ligne. Vous pouvez choisir pour chaque catégorie de vous désinscrire/retirer quand vous le souhaitez.
           essential:
-            description: Ces cookies sont essentiels au bon fonctionnement de mon site. Sans ces cookies, le site web ne fonctionnerait pas correctement.
+            description: Ces cookies sont essentiels au bon fonctionnement du site. Sans ces cookies, le site web ne fonctionnerait pas correctement.
             title: Essentiels
           marketing:
             description: Ces cookies recueillent des informations sur la façon dont vous utilisez le site Web, sur les pages que vous avez visitées et sur les liens sur lesquels vous avez cliqués.
@@ -1830,7 +1830,7 @@ fr:
         see_more: Voir plus
   locale:
     name: Français
-    name_with_error: Anglais (erreur !)
+    name_with_error: Français (erreur !)
   password_validator:
     blacklisted: sur liste noire
     domain_included_in_password: est trop similaire au nom de domaine de cette plateforme
