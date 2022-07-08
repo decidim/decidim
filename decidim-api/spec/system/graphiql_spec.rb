@@ -32,7 +32,6 @@ describe "GraphiQL", type: :system do
     # Wait for the page to finish loading and the GraphiQL interface to start
     # before clicking the button for it to actually work.
     expect(page).to have_content("participatoryProcesses {")
-    expect(page).not_to have_content("Loading...")
     find(".execute-button").click
     within ".result-window" do
       expect(page).to have_content("\"id\": \"#{participatory_process.id}\"")
