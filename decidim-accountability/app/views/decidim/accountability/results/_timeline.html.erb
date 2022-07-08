@@ -10,7 +10,7 @@
           <div class="timeline__info">
             <div class="timeline__description">
               <span class="timeline__date text-small">
-                <%= timeline_entry.entry_date %>
+                <%= l timeline_entry.entry_date, format: :decidim_short %>
               </span>
               <h4 class="timeline__title">
                 <%= translated_attribute timeline_entry.description %>
