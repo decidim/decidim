@@ -345,6 +345,13 @@ de:
           update:
             invalid: Es ist ein Problem beim Aktualisieren des Wahlhelfers %{trustee} aufgetreten
             success: Wahlhelfer %{trustee} erfolgreich aktualisiert
+      connection:
+        failed:
+          modal:
+            close: Schliessen
+            communication_lost: Leider scheint die Kommunikation mit dem Abstimmungsserver (Bulletin Board) unterbrochen.<br>Möglicherweise ist die Internetverbindung gestört oder der Server ist überlastet.<br>Bitte versuche es später noch einmal oder kontaktiere den Support, falls das Problem weiterhin besteht.
+            generic_error: Leider ist ein unbekannter Fehler aufgetreten. Es ist wahrscheinlich, dass Ihr Browser nicht unterstützt wird oder dass Sie den Modus "incognito" oder "private" verwenden, der nicht unterstützt wird.
+            title: Etwas ist schiefgelaufen
       election_m:
         badge_name:
           finished: Abgeschlossen
@@ -611,10 +618,6 @@ de:
         failed:
           header: Abstimmung fehlgeschlagen
           lead: Ihre Stimme wurde nicht abgegeben!
-          modal:
-            close: Schließen
-            communication_lost: Leider scheint die Kommunikation mit dem Abstimmungsserver (Bulletin Board) unterbrochen.<br>Möglicherweise ist die Internetverbindung gestört oder der Server ist überlastet.<br>Bitte versuche es später noch einmal oder kontaktiere den Support, falls das Problem weiterhin besteht.
-            title: Etwas ist schiefgelaufen
           text: Ein Fehler ist aufgetreten. Bitte versuchen Sie es erneut.
           try_again: Erneut versuchen
         header:
