@@ -12,7 +12,6 @@ es:
         start_time: La votación empieza el
         title: Título
       question:
-        description: Descripción
         max_selections: Número máximo de opciones
         min_selections: Ninguna de las opciones anteriores
         title: Título
@@ -639,6 +638,10 @@ es:
         failed:
           header: Voto fallido
           lead: '¡Tu voto no ha sido emitido!'
+          modal:
+            close: Cerrar
+            communication_lost: Desafortunadamente, parece que la comunicación con el servidor de votación (Bulletin Board) se ha perdido.<br>Puede ser que la conexión a Internet esté averiada o que el servidor de destino esté demasiado ocupado.<br>Puedes intentarlo más tarde o ponerte en contacto con el servicio de asistencia si este problema persiste.
+            title: Algo salió mal
           text: Algo salió mal, por favor inténtalo de nuevo.
           try_again: Inténtalo de nuevo
         header:
