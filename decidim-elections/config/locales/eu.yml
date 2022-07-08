@@ -12,7 +12,6 @@ eu:
         start_time: Bozketaren hasiera-data
         title: Izenburua
       question:
-        description: Deskribapena
         max_selections: Gehieneko aukera kopurua
         min_selections: Aurreko bat ere ez
         title: Izenburua
@@ -611,6 +610,8 @@ eu:
         failed:
           header: Boto okerra
           lead: Ez duzu eman botoa!
+          modal:
+            close: Itxi
           text: Zerbait txarto irten da, mesedez, saiatu berriro.
           try_again: Saiatu berriro
         header:
