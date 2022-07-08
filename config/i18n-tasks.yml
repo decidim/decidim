@@ -42,7 +42,7 @@ data:
 
 locales:
   <% (ENV["ENFORCED_LOCALES"].presence&.split(",") || []).each do |locale| -%>
-  <%= locale %>
+  <%= "- '#{locale}'" %>
   <% end -%>
 
 # Find translate calls
