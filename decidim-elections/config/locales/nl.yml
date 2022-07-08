@@ -511,8 +511,6 @@ nl:
         failed:
           header: Stem mislukt
           lead: Je stem is niet uitgebracht!
-          modal:
-            close: Afsluiten
           text: Er is iets mis gegaan, probeer het alsjeblief nog een keer.
           try_again: Probeer opnieuw
         header:
