@@ -493,11 +493,6 @@ hu:
           unfold: Kibont
         index_header:
           new_initiative: Új kezdeményezés
-          not_authorized:
-            authorizations_page: Engedélyezések megtekintése
-            close: Bezárás
-            explanation: Ha új kezdeményezést szeretne létrehozni, el kell végezni az Ön adatainak ellenőrzését.
-            title: Engedélyezés szükséges
         initiatives:
           closed_initiatives_warning: Jelenleg nincs nyitott találkozó, de itt megtalálhatod az összes zárt találkozó listáját.
           no_initiatives_warning: Egyik kezdeményezés sem felel meg a keresési feltételnek.
@@ -574,6 +569,12 @@ hu:
         status_change_for: A(z) %{title} kezdeményezés állapota változott
       last_activity:
         new_initiative: Új kezdeményezés
+      modal:
+        not_authorized:
+          authorizations_page: Engedélyezések megtekintése
+          close: Bezárás
+          explanation: Ha új kezdeményezést szeretne létrehozni, el kell végezni az Ön adatainak ellenőrzését.
+          title: Engedélyezés szükséges
       pages:
         home:
           highlighted_initiatives:
