@@ -479,11 +479,6 @@
           unfold: Åpne
         index_header:
           new_initiative: Nytt initiativ
-          not_authorized:
-            authorizations_page: Vis godkjennelser
-            close: Lukk
-            explanation: Du må verifiseres for å opprette et nytt initiativ.
-            title: Autorisasjon kreves
         initiatives:
           closed_initiatives_warning: Det er foreløpig ingen åpne initiativer, men her kan du finne alle tidligere initiativer.
           no_initiatives_warning: Ingen initiativer samsvarer med dine søkekriterier.
@@ -559,6 +554,12 @@
         status_change_for: Initiativet %{title} har endret sin status
       last_activity:
         new_initiative: Nytt initiativ
+      modal:
+        not_authorized:
+          authorizations_page: Vis godkjennelser
+          close: Lukk
+          explanation: Du må verifiseres for å opprette et nytt initiativ.
+          title: Autorisasjon kreves
       pages:
         home:
           highlighted_initiatives:
