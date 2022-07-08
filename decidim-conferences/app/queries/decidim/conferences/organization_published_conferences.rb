@@ -14,7 +14,7 @@ module Decidim
           OrganizationConferences.new(@organization),
           VisibleConferences.new(@user),
           PublishedConferences.new
-        ).query
+        ).query.order(start_date: :desc)
       end
     end
   end
