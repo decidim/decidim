@@ -182,6 +182,55 @@ lt:
         create: "%{user_name} sukūrė %{resource_name} erdvę"
         delete: "%{user_name} ištrynė %{resource_name} erdvę"
         update: "%{user_name} sukūrė %{resource_name} erdvę"
+      area_type:
+        create: "%{user_name} sukūrė %{resource_name} erdvės tipą"
+        update: "%{user_name} atnaujino %{resource_name} erdvės tipą"
+      attachment:
+        create: "%{user_name} sukūrė %{resource_name} prisegimą"
+        delete: "%{user_name} ištrynė %{resource_name} prisegimą"
+        update: "%{user_name} atnaujino %{resource_name} prisegimą"
+      attachment_collection:
+        create: "%{user_name} sukūrė %{resource_name} prisegimų kolekciją"
+        delete: "%{user_name} ištrynė %{resource_name} prisegimų kolekciją"
+        update: "%{user_name} atnaujino %{resource_name} prisegimų kolekciją"
+      category:
+        create: "%{user_name} pridėjo %{resource_name} kategoriją į %{space_name} erdvę"
+        delete: "%{user_name} ištrynė %{resource_name} kategoriją iš %{space_name} erdvės"
+        update: "%{user_name} atnaujino %{resource_name} kategoriją %{space_name} erdvėje"
+      component:
+        create: "%{user_name} pridėjo %{resource_name} komponentą %{space_name} erdvėje"
+        delete: "%{user_name} išėmė %{resource_name} komponentą iš %{space_name} erdvės"
+        export_component: "%{user_name} eksportavo %{resource_name}%{component_name} iš %{space_name} kaip %{format_name}"
+        publish: "%{user_name} paskelbė %{resource_name} komponentą %{space_name} erdvėje"
+        unpublish: "%{user_name} depublikavo %{resource_name} komponentą iš %{space_name} erdvės"
+        update_permissions_with_space: "%{user_name} atnaujino %{resource_name} %{space_name} leidimus"
+      contextual_help_section:
+        update: "%{user_name} atnaujino %{resource_name} pagalbos dalį"
+      helpers:
+        answers: atsakymai
+        comments: komentarai
+        projects: projektai
+        results: rezultatai
+      impersonation_log:
+        manage: "%{user_name} tvarkė %{resource_name} dėl %{reason}"
+      moderation:
+        hide: "%{user_name} paslėpė išteklio tipą %{resource_type} %{space_name} erdvėje"
+        unreport: "%{user_name} panaikino pranešimą apie %{resource_type} tipo išteklį %{space_name} erdvėje"
+      newsletter:
+        create: "%{user_name} sukūrė %{resource_name} naujienlaiškį"
+        delete: "%{user_name} pašalino %{resource_name} naujienlaiškį"
+        deliver: "%{user_name} išsiuntė %{resource_name} naujienlaiškį"
+        update: "%{user_name} atnaujino %{resource_name} naujienlaiškį"
+      oauth_application:
+        create: "%{user_name} sukūrė %{resource_name} „OAuth“ programą"
+        delete: "%{user_name} ištrynė %{resource_name} „OAuth“ programą"
+        update: "%{user_name} atnaujino %{resource_name} „OAuth“ programą"
+      organization:
+        update: "%{user_name} atnaujino organizacijos nustatymus"
+        update_external_domain: "%{user_name} atnaujino organizacijos išorinius domenus"
+      participatory_space_private_user:
+        create: "%{user_name} pakvietė %{resource_name} būti privačiu dalyviu"
+        create_via_csv: "%{user_name} pakvietė %{resource_name} per CSV tapti privačiu dalyviu"
       static_page:
         update: "%{user_name} atnaujino %{resource_name} puslapį"
       user:
