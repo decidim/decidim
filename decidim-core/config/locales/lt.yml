@@ -185,7 +185,16 @@ lt:
       participatory_space_private_user:
         create: "%{user_name} pakvietė %{resource_name} būti privačiu dalyviu"
         create_via_csv: "%{user_name} pakvietė %{resource_name} per CSV tapti privačiu dalyviu"
+        delete: "%{user_name} pašalino %{resource_name} dalyvį iš privačių dalyvių"
+      scope:
+        create: "%{user_name} sukūrė %{resource_name} sritį"
+        create_with_parent: "%{user_name} sukūrė %{resource_name} sritį %{parent_scope} srityje"
+        delete: "%{user_name} pašalino %{resource_name} sritį"
+        delete_with_parent: "%{user_name} pašalino %{resource_name} sritį %{parent_scope} srityje"
+        update: "%{user_name} atnaujino %{resource_name} sritį"
       static_page:
+        create: "%{user_name} sukūrė %{resource_name} statinį puslapį"
+        delete: "%{user_name} pašalino %{resource_name} statinį puslapį"
         update: "%{user_name} atnaujino %{resource_name} puslapį"
       user:
         block: "%{user_name} užblokavo %{resource_name}"
@@ -197,3 +206,41 @@ lt:
         transfer: "%{user_name} perkėlė dalyvį %{resource_name}"
         unblock: "%{user_name} atblokavo naudotoją %{resource_name}"
         unofficialize: "%{user_name} nuėmė dalyvio %{resource_name} patvirtinimą"
+      user_group:
+        reject: "%{user_name} atmetė %{resource_name} grupės patvirtinimą"
+        verify: "%{user_name} patvirtino %{resource_name} grupę"
+        verify_via_csv: "%{user_name} patvirtino %{resource_name} grupę per CSV rinkmeną"
+    admin_terms_of_use:
+      default_body: "<h2>ADMIN TERMS OF USE</h2><p>Tikimės, kad gavote įprastą pamokymą iš vietos Sistemos Administratoriaus. Paprastai apsiribojama trimis dalykais:</p><ol><li>Gerbkite kitų privatumą.</li><li>Prieš spustelėdami pagalvokite.</li><li>Didelė galia – didelė atsakomybė.</li></ol>"
+    alert:
+      dismiss: Atmesti pranešimą
+    amendments:
+      accepted:
+        error: Priimant pakeitimą įvyko klaida.
+        success: Pakeitimas priimtas.
+      amendable:
+        amended_by: Pakeitė
+        button: Pakeisti %{model_name}
+        error: Keičiant šį išteklių įvyko klaida.
+        help_text: Patobulinkite šį %{model_name} pakeisdami jo %{amendable_fields}
+        promote_button: Pakelti iki %{model_name}
+        section_heading: Pakeitimai (%{count})
+      compare_draft:
+        continue: Tęsti
+        no_similars_found: Panašių pataisymų nerasta.
+        title: Panašūs pataisymai
+      created:
+        error: Kuriant pakeitimo juodraštį įvyko klaida.
+        success: Pakeitimo juodraštis sukurtas.
+      destroy_draft:
+        error: Šalinant šį pakeitimo juodraštį iškilo problema.
+        success: Pakeitimo juodraštis pašalintas.
+      edit_draft:
+        discard: Ištrinti šį juodraštį
+        discard_confirmation: Ar tikrai norite ištrinti šį pakeitimo juodraštį?
+        send: Peržiūra
+        title: Redaguoti Pakeitimo Juodraštį
+      emendation:
+        actions:
+          button_accept: Sutikti
+          button_reject: Atmesti
