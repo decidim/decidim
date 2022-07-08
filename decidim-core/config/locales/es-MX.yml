@@ -1904,8 +1904,10 @@ es-MX:
       option_unified: Unificado
   views:
     pagination:
+      next: Siguiente
       next_title: Enlace a la página siguiente
       pagination: Paginación
+      previous: Anterior
       previous_title: Enlace a la página anterior
       title: 'Número de página: '
       truncate: "&hellip;"
