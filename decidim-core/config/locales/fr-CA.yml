@@ -1829,7 +1829,7 @@ fr-CA:
         see_more: Voir plus
   locale:
     name: Français
-    name_with_error: Anglais (erreur !)
+    name_with_error: Français (erreur !)
   password_validator:
     blacklisted: sur liste noire
     domain_included_in_password: est trop similaire au nom de domaine de cette plateforme
@@ -1899,8 +1899,10 @@ fr-CA:
       option_unified: Unifié
   views:
     pagination:
+      next: Suivant
       next_title: Lien vers la page suivante
       pagination: Pagination
+      previous: Précédent
       previous_title: Lien vers la page précédente
       title: 'Numéro de page : '
       truncate: "&hellip;"
