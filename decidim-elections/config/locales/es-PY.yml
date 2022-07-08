@@ -372,6 +372,13 @@ es-PY:
           update: "%{user_name} actualizó la elección %{resource_name} de %{space_name}"
         trustee:
           create: "%{user_name} asignó al usuario %{trustee_user} como garante"
+      connection:
+        failed:
+          modal:
+            close: Cerrar
+            communication_lost: Desafortunadamente, parece que la comunicación con el servidor de votación (Bulletin Board) se ha perdido.<br>Puede ser que la conexión a Internet esté averiada o que el servidor de destino esté demasiado ocupado.<br>Puedes intentarlo más tarde o ponerte en contacto con el servicio de asistencia si este problema persiste.
+            generic_error: Desafortunadamente, se ha producido un error desconocido. Es probable que tu navegador no esté soportado o que estés usando el modo "incognito" o "privado" que no es compatible.
+            title: Algo salió mal
       election_m:
         badge_name:
           finished: Finalizada
@@ -652,10 +659,6 @@ es-PY:
         failed:
           header: Voto fallido
           lead: '¡Tu voto no ha sido emitido!'
-          modal:
-            close: Cerrar
-            communication_lost: Desafortunadamente, parece que la comunicación con el servidor de votación (Bulletin Board) se ha perdido.<br>Puede ser que la conexión a Internet esté averiada o que el servidor de destino esté demasiado ocupado.<br>Puedes intentarlo más tarde o ponerte en contacto con el servicio de asistencia si este problema persiste.
-            title: Algo salió mal
           text: Algo salió mal, por favor inténtalo de nuevo.
           try_again: Inténtalo de nuevo
         header:
