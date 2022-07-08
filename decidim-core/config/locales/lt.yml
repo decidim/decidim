@@ -116,6 +116,30 @@ lt:
         create: "%{user_name} sukūrė %{resource_name} erdvę"
         delete: "%{user_name} ištrynė %{resource_name} erdvę"
         update: "%{user_name} sukūrė %{resource_name} erdvę"
+      component:
+        create: "%{user_name} pridėjo %{resource_name} komponentą %{space_name} erdvėje"
+        delete: "%{user_name} išėmė %{resource_name} komponentą iš %{space_name} erdvės"
+        publish: "%{user_name} paskelbė %{resource_name} komponentą %{space_name} erdvėje"
+        unpublish: "%{user_name} depublikavo %{resource_name} komponentą iš %{space_name} erdvės"
+      impersonation_log:
+        manage: "%{user_name} tvarkė %{resource_name} dėl %{reason}"
+      moderation:
+        hide: "%{user_name} paslėpė išteklio tipą %{resource_type} %{space_name} erdvėje"
+        unreport: "%{user_name} panaikino pranešimą apie %{resource_type} tipo išteklį %{space_name} erdvėje"
+      newsletter:
+        create: "%{user_name} sukūrė %{resource_name} naujienlaiškį"
+        delete: "%{user_name} pašalino %{resource_name} naujienlaiškį"
+        deliver: "%{user_name} išsiuntė %{resource_name} naujienlaiškį"
+        update: "%{user_name} atnaujino %{resource_name} naujienlaiškį"
+      oauth_application:
+        create: "%{user_name} sukūrė %{resource_name} „OAuth“ programą"
+        delete: "%{user_name} ištrynė %{resource_name} „OAuth“ programą"
+        update: "%{user_name} atnaujino %{resource_name} „OAuth“ programą"
+      organization:
+        update: "%{user_name} atnaujino organizacijos nustatymus"
+      participatory_space_private_user:
+        create: "%{user_name} pakvietė %{resource_name} būti privačiu dalyviu"
+        create_via_csv: "%{user_name} pakvietė %{resource_name} per CSV tapti privačiu dalyviu"
       static_page:
         update: "%{user_name} atnaujino %{resource_name} puslapį"
       user:
