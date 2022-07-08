@@ -12,7 +12,6 @@ ja:
         start_time: 投票開始
         title: タイトル
       question:
-        description: 説明
         max_selections: 選択範囲の最大数
         min_selections: 上記のどれでもない
         title: タイトル
@@ -629,6 +628,10 @@ ja:
         failed:
           header: 投票に失敗しました
           lead: 投票は行われませんでした！
+          modal:
+            close: 閉じる
+            communication_lost: 投票サーバー (掲示板) との通信が切れているようです。<br>インターネット接続が切れているか、接続先のサーバーが混雑している可能性があります。<br>この問題が続くようでしたら、時間をおいて再度お試しいただくか、サポートまでお問い合わせください。
+            title: 問題が発生しました
           text: 問題が発生しました。もう一度やり直してください。
           try_again: 再実行
         header:
