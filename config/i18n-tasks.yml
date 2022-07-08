@@ -41,8 +41,8 @@ data:
   #     array_nl: "\n"
 
 locales:
-  <% (ENV["ENFORCED_LOCALES"].presence&.split(",") || []).each do |path| -%>
-  <%= ENV["ENFORCED_LOCALES"] %>
+  <% (ENV["ENFORCED_LOCALES"].presence&.split(",") || []).each do |locale| -%>
+  <%= locale %>
   <% end -%>
 
 # Find translate calls
