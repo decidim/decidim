@@ -12,7 +12,6 @@ ro:
         start_time: Votarea începe la
         title: Titlu
       question:
-        description: Descriere
         max_selections: Numărul maxim de selecții
         min_selections: Niciuna dintre opțiunile de mai sus
         title: Titlu
@@ -551,6 +550,8 @@ ro:
           verify_link: Pentru a verifica, copiați identificatorul și lipiți-l pe pagina <a href="%{link}">pentru verificarea votului</a>
         failed:
           header: Vot eșuat
+          modal:
+            close: Inchide
         header:
           confirm: Confirmă votul tău
           confirmed: Votare confirmată
