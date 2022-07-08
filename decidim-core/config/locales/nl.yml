@@ -1609,7 +1609,7 @@ nl:
         see_more: Zie meer
   locale:
     name: Nederlands
-    name_with_error: Engels (fout!)
+    name_with_error: Nederlands (fout!)
   password_validator:
     blacklisted: staat op de zwarte lijst
     domain_included_in_password: lijkt te veel op deze domeinnaam
