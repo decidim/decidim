@@ -9,6 +9,7 @@ end
 
 require "spec_helper"
 require "json"
+require "fileutils"
 require "decidim/gem_manager"
 require "decidim/generators/test/generator_examples"
 

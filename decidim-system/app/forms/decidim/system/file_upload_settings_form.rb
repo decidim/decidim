@@ -10,9 +10,9 @@ module Decidim
 
       mimic :organization_file_uploads
 
-      attribute :allowed_file_extensions, Hash[Symbol => String]
-      attribute :allowed_content_types, Hash[Symbol => String]
-      attribute :maximum_file_size, Hash[Symbol => Float]
+      attribute(:allowed_file_extensions, { Symbol => String })
+      attribute(:allowed_content_types, { Symbol => String })
+      attribute(:maximum_file_size, { Symbol => Float })
 
       def map_model(settings_hash)
         settings_hash = if settings_hash.is_a?(Hash)

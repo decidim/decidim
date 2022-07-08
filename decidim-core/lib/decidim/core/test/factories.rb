@@ -125,8 +125,6 @@ FactoryBot.define do
 
   factory :user, class: "Decidim::User" do
     email { generate(:email) }
-    password { "decidim123456" }
-    password_confirmation { password }
     name { generate(:name) }
     nickname { generate(:nickname) }
     organization
@@ -139,6 +137,8 @@ FactoryBot.define do
     accepted_tos_version { organization.tos_version }
     notifications_sending_frequency { "real_time" }
     email_on_moderations { true }
+    password_updated_at { Time.current }
+    previous_passwords { [] }
     extended_data { {} }
 
     trait :confirmed do
@@ -182,6 +182,14 @@ FactoryBot.define do
     trait :officialized do
       officialized_at { Time.current }
       officialized_as { generate_localized_title }
+    end
+
+    after(:build) do |user, evaluator|
+      # We have specs that call e.g. `create(:user, admin: true)` where we need
+      # to do this to ensure the user creation does not fail due to the short
+      # password.
+      user.password ||= evaluator.password || "decidim123456789"
+      user.password_confirmation ||= evaluator.password_confirmation || user.password
     end
   end
 
@@ -769,5 +777,23 @@ FactoryBot.define do
 
   factory :reminder_delivery, class: "Decidim::ReminderDelivery" do
     reminder { create(:reminder) }
+  end
+
+  factory :short_link, class: "Decidim::ShortLink" do
+    target { create(:component, manifest_name: "dummy") }
+    route_name { nil }
+    params { {} }
+
+    before(:create) do |object|
+      object.organization ||= object.target if object.target.is_a?(Decidim::Organization)
+      object.organization ||= object.target.try(:organization) || create(:organization)
+      object.identifier ||= Decidim::ShortLink.unique_identifier_within(object.organization)
+      object.mounted_engine_name ||=
+        if object.target.respond_to?(:participatory_space)
+          "decidim_#{object.target.participatory_space.underscored_name}_dummy"
+        else
+          "decidim"
+        end
+    end
   end
 end

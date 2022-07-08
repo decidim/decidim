@@ -1,19 +1,4 @@
-Naming/VariableNumber:
-  Enabled: false
-
-Style/HashConversion:
-  Enabled: false
-
-Style/QuotedSymbols:
-  Enabled: false
-
 Style/OpenStructUse:
-  Enabled: false
-
-Security/IoMethods:
-  Enabled: false
-
-Security/Open:
   Enabled: false
 
 Gemspec/RequireMFA:
@@ -24,4 +9,3 @@ Naming/MemoizedInstanceVariableName:
 
 RSpec/VerifiedDoubleReference:
   Enabled: false
-

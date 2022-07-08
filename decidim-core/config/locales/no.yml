@@ -67,7 +67,6 @@
     'true': 'Ja'
   carrierwave:
     errors:
-      image_too_big: Dette bilde er for stort
       not_inside_organization: Filen er ikke tilknyttet noen organisasjon
   date:
     formats:
@@ -110,9 +109,6 @@
       skip_button: Gå til hovedinnhold
     account:
       blocked: Denne kontoen er sperret på grunn av brudd på vilkår og betingelser
-      data_portability_export:
-        file_no_exists: Filen finnes ikke
-        notice: Opplastingen av dataen din pågår. Du vil få en e-mail når den er ferdig.
       delete:
         alert: Denne handlingen kan ikke angres. Hvis du sletter kontoen din, vil du ikke kunne logge inn igjen med denne innloggingsinformasjonen. Slettingen av din konto vil resultere i at dine bidrag blir anonymisert. Du vil fortsatt kunne lage en ny konto, men disse bidragene vil ikke bli knyttet til den.
         confirm:
@@ -124,6 +120,9 @@
       destroy:
         error: Det oppsto et problem med å slette kontoen din.
         success: Kontoen din ble slettet.
+      download_your_data_export:
+        file_no_exists: Filen finnes ikke
+        notice: Opplastingen av dataen din pågår. Du vil få en e-mail når den er ferdig.
       show:
         change_password: Endre passord
         update_account: Oppdater konto
@@ -398,8 +397,8 @@
             amendments_enabled: Endringer aktivert
             comments_enabled: Kommentarer aktivert
             comments_max_length: Maks lengde på kommentarer
-            dummy_global_attribute_1: Dummy Egenskap 1
-            dummy_global_attribute_2: Dummy Egenskap 2
+            dummy_global_attribute1: Dummy Egenskap 1
+            dummy_global_attribute2: Dummy Egenskap 2
             dummy_global_translatable_text: Dummy Oversettbar tekst
             enable_pads_creation: Aktiver oppretting av pads
             resources_permissions_enabled: Ressurs tillatelser aktivert
@@ -411,8 +410,8 @@
             amendment_reaction_enabled: Endrings reaksjon aktivert
             amendments_visibility: Endringens synlighet
             comments_blocked: Kommentarer blokkert
-            dummy_step_attribute_1: Dummy Steg Egenskap 1
-            dummy_step_attribute_2: Dummy Steg Egenskap 2
+            dummy_step_attribute1: Dummy Steg Egenskap 1
+            dummy_step_attribute2: Dummy Steg Egenskap 2
             dummy_step_translatable_text: Dummy Steg Oversettbar Tekst
     contact: Kontakt
     content_blocks:
@@ -456,13 +455,6 @@
       actions:
         login_before_access: Vennligst logg inn med kontoen din før tilgang
         unauthorized: Du er ikke autorisert til å utføre denne handlingen
-    data_portability:
-      export:
-        ready: Klar
-      show:
-        download_data: Last ned informasjonen
-        download_data_description: En fil som inneholder all informasjon tilknyttet kontoen din vil bli sendt til <strong>%{user_email}</strong>. Denne e-posten inneholder en .zip-fil og et passord for å åpne den.<br/><br/>For å pakke ut filen vil du trenge <a href="https://www.7-zip.org/">7-Zip</a> (for Windows) eller <a href="https://www.keka.io/">Keka</a> (for MacOS). Hvis du bruker Linux vil du i de fleste tilfeller ha den installert som standard. Dersom dette ikke stemmer, kan du bruke <a href="https://gitlab.gnome.org/GNOME/file-roller">filroller</a> eller <a href="https://peazip.github.io">PeaZip</a>).
-        request_data: Etterspør informasjonen
     datepicker:
       help_text: 'Forventet format: %{datepicker_format}'
     devise:
@@ -481,7 +473,6 @@
           newsletter: Motta et sporadisk nyhetsbrev med relevant informasjon
           newsletter_title: Kontakt tillatelse
           nickname_help: Ditt alias i %{organization}, kan bare inneholde bokstaver, tall, '-' og '_'.
-          password_help: "%{minimun_characters} tegn minimum, må ikke være for vanlig (f.eks. 123456) og må være forskjellig fra kallenavnet og e-postadressen din."
           sign_in: Logg inn
           sign_up: Registrer deg
           sign_up_as:
@@ -534,6 +525,13 @@
           this_application_will_not_be_able_to: 'Dette programmet vil ikke kunne:'
           update_profile: Oppdater profilen din
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> ønsker å bruke profilen din"
+    download_your_data:
+      export:
+        ready: Klar
+      show:
+        download_data: Last ned informasjonen
+        download_data_description: En fil som inneholder all informasjon tilknyttet kontoen din vil bli sendt til <strong>%{user_email}</strong>. Denne e-posten inneholder en .zip-fil og et passord for å åpne den.<br/><br/>For å pakke ut filen vil du trenge <a href="https://www.7-zip.org/">7-Zip</a> (for Windows) eller <a href="https://www.keka.io/">Keka</a> (for MacOS). Hvis du bruker Linux vil du i de fleste tilfeller ha den installert som standard. Dersom dette ikke stemmer, kan du bruke <a href="https://gitlab.gnome.org/GNOME/file-roller">filroller</a> eller <a href="https://peazip.github.io">PeaZip</a>).
+        request_data: Etterspør informasjonen
     editor_images:
       create:
         error: Feil ved opplasting av bilde
@@ -699,7 +697,7 @@
           email_subject: "%{nickname} oppdaterte profilens sin"
           notification_title: <a href="%{resource_path}">Profilsiden</a> til %{name} (%{nickname}), som du følger er blitt oppdatert.
     export_mailer:
-      data_portability_export:
+      download_your_data_export:
         click_button: 'Klikk på neste link for å laste ned dataen.<br/>Filen vil være tilgjengelig til %{date}.<br/>Du vil trenge <a href="https://www.7-zip.org/">7-Zip</a> (for Windows), <a href="https://www.keka.io/en/">Keka</a> (for MacOS) eller <a href="https://peazip.github.io">PeaZip</a> (for Linux) for å åpne den. Passord: %{password}'
         download: Last ned
       export:
@@ -750,7 +748,6 @@
         file:
           explanation: 'Veiledning for fil:'
           message_1: Må være et bilde eller et dokument.
-          message_2: Den anbefalte størrelsen for dette bildet er 512x512.
         image:
           explanation: 'Veiledning for bilde:'
           message_1: Et landskapsbilde uten tekst er å anbefale.
@@ -870,7 +867,6 @@
       no_user_groups: Tilhører ikke en gruppe ennå.
       roles:
         admin: Administrator
-        creator: Forfatter
         member: Medlem
       update:
         error: Det oppstod et problem med å oppdatere gruppen
@@ -1082,14 +1078,11 @@
         administrators: Administratorer
         allow_public_contact: La hvem som helst sende meg direktemelding, selv om jeg ikke følger dem.
         direct_messages: Motta direktemeldinger fra alle
-        email_on_moderations: Jeg ønsker å få en e-post hver gang noe rapporteres til moderasjon.
-        email_on_notification: Jeg vil motta en e-post hver gang jeg mottar et varsel.
         everything_followed: Alt jeg følger
         newsletter_notifications: Jeg ønsker å motta nyhetsbrev
         newsletters: Nyhetsbrev
         own_activity: Min egen aktivitet, som når noen kommenterer på forslaget mitt eller omtaler meg
         receive_notifications_about: Jeg ønsker å få varslet om
-        send_notifications_by_email: Send varsler via email
         update_notifications_settings: Lagre endringer
       update:
         error: Det oppstod et problem med å oppdatere varslingsinnstillingene dine.
@@ -1151,7 +1144,6 @@
           agreement: Jeg godtar vilkårene
           legend: Godta vilkårene for bruk
         refuse:
-          modal_body: Hvis du nekter, vil du ikke kunne bruke platformen, du kan <a href="%{data_portability_path}"> laste ned dataen din</a> og/eller <a href="%{delete_path}">slette brukeren din</a>.
           modal_btn_continue: Aksepter vilkår og fortsett
           modal_btn_exit: Jeg vil vurdere det senere
           modal_button: Avslå vilkårene
@@ -1454,7 +1446,6 @@
     invitations:
       edit:
         header: Fullfør oppretting av kontoen din
-        nickname_help: Kallenavnet ditt i %{organization}.
         submit_button: Lagre
         subtitle: Hvis du godtar invitasjonen, må du angi kallenavnet og passordet ditt.
       invitation_removed: Invitasjonen din ble fjernet.
@@ -1521,7 +1512,6 @@
     passwords:
       edit:
         change_my_password: Endre passordet mitt
-        change_your_password: Endre passordet ditt
         confirm_new_password: Bekreft nytt passord
         new_password: New password
         password_help: "%{minimun_characters} tegn minimum, må ikke være for vanlig (f.eks. 123456) og må være forskjellig fra kallenavnet og e-postadressen din."
@@ -1612,10 +1602,6 @@
     timestamp_error_message: Beklager, det var for raskt! Vennligst, send inn på nytt.
   layouts:
     decidim:
-      cookie_warning:
-        description_html: Denne siden bruker informasjonskapsler. Ved å fortsette å bla gjennom nettstedet, godtar du vår bruk av informasjonskapsler. Finn ut mer om det %{link}.
-        link_label: her
-        ok: Jeg er enig
       edit_link:
         edit: Rediger
       footer:

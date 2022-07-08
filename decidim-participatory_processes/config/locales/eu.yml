@@ -60,12 +60,6 @@ eu:
         email: Helbide elektronikoa
         name: Izena
         role: Rola
-    errors:
-      models:
-        participatory_process:
-          attributes:
-            document:
-              invalid_document_type: 'Dokumentu-mota baliogabea da. Formatu hauek onartzen dira: %{valid_mime_types}'
     models:
       decidim/participatory_process_step_activated_event: Urratsera aktibatuta
       decidim/participatory_process_step_changed_event: Pasartea aldatu da

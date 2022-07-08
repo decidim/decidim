@@ -21,6 +21,7 @@ fi-pl:
       timeline_entry:
         description: Kuvaus
         entry_date: Päivämäärä
+        title: Otsikko
     models:
       decidim/accountability/proposal_linked_event: Ehdotus sisältyy tulokseen
       decidim/accountability/result_progress_updated_event: Tuloksen edistyminen päivitetty
@@ -121,6 +122,14 @@ fi-pl:
           create: "%{user_name} loi tuloksen %{resource_name} tilassa %{space_name}"
           delete: "%{user_name} poisti tuloksen %{resource_name} tilassa %{space_name}"
           update: "%{user_name} päivitti tuloksen %{resource_name} tilassa %{space_name}"
+        status:
+          create: "%{user_name} loi tilan %{resource_name}"
+          delete: "%{user_name} poisti tilan %{resource_name}"
+          update: "%{user_name} päivitti tilaa %{resource_name}"
+        timeline_entry:
+          create: "%{user_name} loi aikajanan merkinnän %{resource_name}"
+          delete: "%{user_name} poisti aikajanan merkinnän %{resource_name}"
+          update: "%{user_name} päivitti aikajanan merkintää %{resource_name}"
         value_types:
           parent_presenter:
             not_found: 'Pääelementtiä ei löytynyt tietokannasta (ID: %{id})'
@@ -158,8 +167,8 @@ fi-pl:
             progress: Edistyminen
         timeline_entry:
           fields:
-            description: Kuvaus
             entry_date: Päivämäärä
+            title: Otsikko
       result_m:
         executed: Valmistunut
         view: Näytä

@@ -18,6 +18,7 @@ describe "Admin manages election steps", :slow, type: :system do
         expect(page).to have_content("Each question has at least 2 answers.")
         expect(page).to have_content("All the questions have a correct value for maximum of answers.")
         expect(page).to have_content("The election is published.")
+        expect(page).to have_content("The election component is published.")
         expect(page).to have_content("The setup is being done at least 3 hours before the election starts.")
         expect(page).to have_content("The participatory space has at least 3 trustees with public key.")
         expect(page).to have_content("has a public key", minimum: 2)
@@ -122,10 +123,10 @@ describe "Admin manages election steps", :slow, type: :system do
     end
 
     context "with vote statistics" do
-      let!(:user_1) { create :user, :confirmed }
-      let!(:user_2) { create :user, :confirmed }
-      let!(:user_1_votes) { create_list :vote, 3, election: election, status: "accepted", voter_id: "voter_#{user_1.id}" }
-      let!(:user_2_votes) { create :vote, election: election, status: "accepted", voter_id: "voter_#{user_2.id}" }
+      let!(:user1) { create :user, :confirmed }
+      let!(:user2) { create :user, :confirmed }
+      let!(:user1_votes) { create_list :vote, 3, election: election, status: "accepted", voter_id: "voter_#{user1.id}" }
+      let!(:user2_votes) { create :vote, election: election, status: "accepted", voter_id: "voter_#{user2.id}" }
 
       it "shows votes and unique voters" do
         visit_steps_page

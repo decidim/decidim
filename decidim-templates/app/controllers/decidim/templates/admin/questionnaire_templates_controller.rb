@@ -54,7 +54,7 @@ module Decidim
         def copy
           enforce_permission_to :copy, :template
 
-          CopyQuestionnaireTemplate.call(template) do
+          CopyQuestionnaireTemplate.call(template, current_user) do
             on(:ok) do
               flash[:notice] = I18n.t("templates.copy.success", scope: "decidim.admin")
               redirect_to action: :index

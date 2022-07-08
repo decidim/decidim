@@ -12,13 +12,21 @@ ja:
         start_time: 投票開始
         title: タイトル
       question:
-        description: 説明
         max_selections: 選択範囲の最大数
         min_selections: 上記のどれでもない
         title: タイトル
       voting:
+        banner_image: バナー画像
+        census_contact_information: センサスの連絡先情報
+        description: 説明
         end_time: 投票終了
+        introductory_image: 導入画像
+        promoted: プロモート
+        scope: スコープ
+        show_check_census: '「センサスの確認」ページを表示'
         start_time: 投票開始
+        title: タイトル
+        voting_type: 投票タイプ
     errors:
       models:
         answer:
@@ -35,6 +43,10 @@ ja:
               cant_be_changed: 変更できません
             public_key:
               cant_be_changed: 変更できません
+        voting:
+          attributes:
+            voting_type:
+              inclusion: "%{value} は有効な投票タイプではありません"
   activerecord:
     errors:
       models:
@@ -55,6 +67,8 @@ ja:
         other: 選挙
       decidim/elections/question:
         other: 質問
+      decidim/voting:
+        other: 投票
       decidim/votings/census/dataset:
         other: データセット
       decidim/votings/census/datum:
@@ -174,6 +188,11 @@ ja:
         exports:
           elections: 選挙
           feedback_form_answers: フィードバックフォームの回答
+        mailers:
+          trustee_mailer:
+            body: "<p>こんにちは %{user_name}、</p><p>あなたは %{resource_name} に受託者として追加されました。</p>"
+            subject: あなたは %{resource_name} に受託者として追加されました
+            trustee_zone: 私を受託者ゾーンに連れて行ってください
         menu:
           trustees: 受託者
         models:
@@ -196,6 +215,7 @@ ja:
             title: 提案のインポート
         questions:
           create:
+            election_started: 選挙は既に開始されています
             invalid: この質問を作成中に問題が発生しました
             success: 問題を作成しました
           destroy:
@@ -219,7 +239,6 @@ ja:
               minimum_answers: 質問には <strong>少なくとも2つの回答</strong>が必要です
               minimum_questions: 選挙には <strong>少なくとも1つの質問</strong>が必要です。
               published: 選挙はが <strong>公開されていません</strong> 。
-              time_before: 開始時刻が、選挙開始まで<strong>3時間未満 </strong> しかありません。
               trustees_number: 参加スペースには <strong>少なくとも %{number} 人の公開鍵を持つ受託者</strong>が必要です。
             invalid: この選挙の設定中に問題が発生しました
             no_trustees: この参加スペースに設定された受託者はいません
@@ -265,15 +284,6 @@ ja:
             selected: 選択済み
             submit: 送信
             title: 結果を公開しました
-          tally:
-            continue: 続ける
-            invalid: 受託者が見つからない報告する際に問題が発生しました
-            mark_as_missing: missing としてマーク
-            mark_as_missing_description: すべての受託者は、このプロセスに参加する必要がありますが、受託者がプロセスに参加できない場合は、missing とマークすることができます。
-            success: 不足していた受託者の報告は正しく掲示板に送信されました
-            tally_completion: すべての受託者がアクティブまたは missing とマークされた場合、プロセスは完了します。少なくとも %{quorum} 人の受託者がプロセスを完了する必要があります。
-            title: 集計処理
-            undo_mark_as_missing: 受託者は、プロセスが完了する前に、間違ってmissingとマークされていることができます。 その場合、通常通りに進行することができ、missingのマークは無視されます。
           tally_ended:
             answer: 回答
             not_selected: 未選択
@@ -283,6 +293,15 @@ ja:
             submit: 結果を公開
             success: 結果公開のリクエストは正常に掲示板に送信されました
             title: 計算結果
+          tally_started:
+            continue: 続ける
+            invalid: 受託者が見つからない報告する際に問題が発生しました
+            mark_as_missing: missing としてマーク
+            mark_as_missing_description: すべての受託者は、このプロセスに参加する必要がありますが、受託者がプロセスに参加できない場合は、missing とマークすることができます。
+            success: 不足していた受託者の報告は正しく掲示板に送信されました
+            tally_completion: すべての受託者がアクティブまたは missing とマークされた場合、プロセスは完了します。少なくとも %{quorum} 人の受託者がプロセスを完了する必要があります。
+            title: 集計処理
+            undo_mark_as_missing: 受託者は、プロセスが完了する前に、間違ってmissingとマークされていることができます。 その場合、通常通りに進行することができ、missingのマークは無視されます。
           vote:
             errors:
               time_after: 選挙はまだ進行中です。投票期間を終了するには、終了時間（%{end_time}）まで待つ必要があります。
@@ -517,7 +536,7 @@ ja:
             title: '%{election} の選挙用キーを復元'
             upload_election_keys: 選挙用キーをアップロード
             upload_icon: ダウンロードアクションを示すアイコン
-          tally_steps:
+          tally_started_steps:
             back: 戻る
             description: この選挙の結果は、掲示板上で計算されます。この処理を完了するには、受託者として参加すること必要があります。
             keys:
@@ -528,12 +547,12 @@ ja:
             list:
               status: ステータス
               task: タスク
-            process_warning: プロセスが開始されると、プロセスが終了するまでこのページを閉じないでください。 すべての受託者が接続し完了するまで、しばらくかかることがあります。
+            process_warning: 処理が開始された後は、処理が終了するまでこのページを閉じないでください。 すべての受託者が接続し完了するまで、しばらくかかることがあります。
             start: 開始
             start_icon: アイコンは、選挙キーの生成を開始するためのスタートボタンを示します
             status:
               completed: 完了
-              pending: 保留中
+              pending: 保留
               processing: 処理中
             title: '%{election} の合計'
           update:
@@ -586,7 +605,7 @@ ja:
           audit: "(監査投票)"
           back: 投票プロセスを再度開始
           ballot_hash: '投票用紙の識別子:'
-          cast: 投票用紙のキャスト
+          cast: 投票を完了するには投票を行ってください
           description: ここでは、投票用紙を適切にカウントするか、または投票用紙が正しく暗号化されていることを監査することができます。 セキュリティ上の理由から、投票の監査はそれを台無しにします。つまり、投票を行うには、投票プロセスを再開する必要があります。
           header: '投票は暗号化されています：キャストまたは監査されます'
         casting:
@@ -658,6 +677,7 @@ ja:
             back: プラットフォームに戻る
             submit: チェック
             vote_identifier: '識別コード:'
+            vote_identifier_help: これは投票後に与えられた識別子です (投票ブースに入るためのコードではありません)。
           header:
             title: 投票を確認
           success:
@@ -887,7 +907,7 @@ ja:
           edit:
             change_polling_station: 投票所に戻る
             monitoring_committee_notes: 備考
-            monitoring_committee_notes_placeholder: インシデントをここで報告します
+            monitoring_committee_notes_placeholder: すべての事件をここで報告してください
             title: 投票所 <i>%{polling_station_title}</i> で行われた 選挙 <i>%{election_title}</i> の結果
           elections:
             title: 承認したい選挙を選択してください
@@ -972,14 +992,21 @@ ja:
             assign_missing_officers: 投票管理者またはマネージャーがいない投票所があります。投票所セクションからアサインしてください
             update: 更新
           form:
+            banner_image: バナー画像
+            census_contact_information: センサスの連絡先情報
             census_contact_information_help: この連絡先情報は、センサスについて問題を報告したい参加者のためのものです。 電子メールアドレス、別のサイトの連絡先フォーム、訪問者のための調査などが利用できます。
+            introductory_image: 導入画像
+            promoted: プロモート
             select_a_voting_type: 投票方式を選択してください
+            show_check_census_help: 公開投票メニューに「投票できますか?」リンクを表示するかどうか
+            slug: スラグ
             slug_help: 'URLスラグは、この投票を指すURLを生成するために使用されます。 使用できるのはアルファベット、数字、ダッシュのみで、アルファベットから始める必要があります。例: %{url}'
             title: タイトル
             voting_type:
               hybrid: ハイブリッド
               in_person: 対面
               online: オンライン
+            voting_type_label: 投票タイプ
           new:
             create: 作成
             title: 新しい投票
@@ -1023,7 +1050,7 @@ ja:
               info_message: "<strong>しばらくお待ち下さい</strong>, ファイル %{file} の %{raw_count} 行中 %{processed_count} 行目を処理しています."
             delete:
               button: センサスデータをすべて削除する
-              confirm: センサスをすべて削除することはできません。続行してもよろしいですか？
+              confirm: センサスデータをすべて削除します。元に戻すことはできません。続行してもよろしいですか？
             destroy:
               error: センサスの削除中にエラーが発生しました。後でもう一度お試しください。
               success: センサスデータが削除されました
@@ -1031,7 +1058,7 @@ ja:
               button: 投票アクセスコードをエクスポート
               callout: これで、アクセスコードのエクスポートに進むことができます。これは一度だけ行うことができます。 エクスポートを開始すると、指示が記載されたメールが <strong>%{email}</strong> に届きます。
               confirm: アクセスコードは一度だけエクスポートできます。メールアカウント <strong>%{email}</strong> へのアクセス権があることを確認してください.
-              file_not_exists: このファイルは存在しません
+              file_not_exist: このファイルは存在しません
               launch_error: アクセスコードのエクスポートの起動に問題があります
               launch_success: アクセスコードのエクスポートが開始されました。まもなく %{email} にメールが届きます。
             exporting_access_codes:
@@ -1082,8 +1109,6 @@ ja:
           name: 注目の投票
         landing_page:
           description:
-            show_less: 詳細を閉じる
-            show_more: 続きを読む
             title: この投票について
           metrics:
             heading: メトリクス
@@ -1137,7 +1162,7 @@ ja:
             modal_ballots_count_error:
               btn_validate_total: 投票の再集計を検証します。
               close_modal: 閉じる
-              info_explanation_text: '投票の合計数を確認してください。合計数が正しい場合は、監視委員会に説明する必要があります。'
+              info_explanation_text: '投票の合計数を確認してください。合計数が正しくない場合は、監視委員会に説明する必要があります。'
               info_text: 入力された総投票数(封筒) は、この投票所で投票した人々の記録と一致しません。
               message_for_monitoring_committee: 監視委員会へのメッセージ
               review_recount: 再集計を確認する
@@ -1168,11 +1193,12 @@ ja:
         in_person_votes:
           complete_voting:
             available_answers: '利用可能な回答:'
-            census_verified: 参加者はまだ投票していません。
+            census_verified: この参加者はまだ対面投票されていません。
+            census_verified_with_online_vote: この参加者はすでにオンラインで投票しています。参加者が直接投票した場合、以前の投票は無効になり、こちらが最終投票となります。
             complete_voting: 投票を完了
             identify_another: 他の参加者を特定する
             questions_title: '彼女は以下の質問に投票する権利があります:'
-            questions_title_voted: '参加者はすでにオンラインに投票しており、次の質問に投票する権利があります:'
+            questions_title_voted: 'この参加者はすでにオンラインに投票しており、次の質問に投票する権利があります：'
             voted: 参加者が投票しました
           create:
             error: 投票は登録されませんでした。もう一度やり直してください。
@@ -1262,12 +1288,13 @@ ja:
           check_status: ステータスの確認
           description: ここでは、あなたがこの投票に参加する権利があるかどうかを知るためにあなたのセンサスデータをチェックするオプションがあります。 すでにアクセスコードを持っているはずですが、紛失した場合は、データが正しいときにもう一度それを求めることができます。
           error:
-            info: 'もう一度やり直してください。システム内のデータが正しくないと思われる場合は、こちらから報告できます: %{census_contact_information}.'
-            title: あなたのセンサスデータが正しくありません！
+            info: 'もう一度やり直してください。システム内のデータが正しくないと思われる場合は、こちらから報告できます: %{census_contact_information}'
+            title: 入力したデータはこの投票のためのセンサスにありません
           form_title: 'あなたのセンサスデータを確認するには、次のフォームに記入してください:'
           invalid: センサスの確認中に問題がありました。
           success:
-            access_link: SMSまたは電子メールで
+            access_link: メール経由
+            access_link_with_sms: SMSまたは電子メールで
             info: すでに郵便番号でアクセスコードを受け取っているはずです。持っていない場合は、ここでリクエストできます。
             title: あなたのセンサスデータは正しいです！
           title: 投票できますか？
@@ -1277,6 +1304,7 @@ ja:
           day_placeholder: DD
           document_number: ドキュメント番号
           document_number_placeholder: ID 番号
+          document_type: ドキュメントの種類
           month: 月
           month_placeholder: MM
           postal_code: 郵便番号

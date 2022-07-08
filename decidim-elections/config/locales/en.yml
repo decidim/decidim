@@ -13,7 +13,6 @@ en:
         start_time: Voting start at
         title: Title
       question:
-        description: Description
         max_selections: Maximum number of selections
         min_selections: None of the above option
         title: Title
@@ -246,11 +245,12 @@ en:
         steps:
           create_election:
             errors:
+              component_published: The election component is <strong>not published</strong>.
               max_selections: The questions do not have a <strong>correct value for amount of answers</strong>
               minimum_answers: Questions must have <strong>at least two answers</strong>.
               minimum_questions: The election <strong>must have at least one question</strong>.
               published: The election is <strong>not published</strong>.
-              time_before: The start time is in <strong>less than 3 hours</strong> before the election starts.
+              time_before: The start time is in <strong>less than %{hours} hours</strong> before the election starts.
               trustees_number: The participatory space <strong>must have at least %{number} trustees with public key</strong>.
               census_uploaded: There is no census uploaded for this election
               census_codes_generated: Election codes for the census are not generated
@@ -262,6 +262,7 @@ en:
               'false': does not have a <strong>public key</strong>
               'true': has a <strong>public key</strong>
             requirements:
+              component_published: The election component is <strong>published</strong>.
               max_selections: All the questions have a correct value for <strong>maximum of answers</strong>.
               minimum_answers: Each question has <strong>at least 2 answers</strong>.
               minimum_questions: The election has <strong>at least 1 question</strong>.
@@ -379,6 +380,13 @@ en:
           update: "%{user_name} updated the election %{resource_name} of %{space_name}"
         trustee:
           create: "%{user_name} assigned the user %{trustee_user} as Trustee"
+      connection:
+        failed:
+          modal:
+            close: Close
+            communication_lost: Unfortunately, it looks like the communication with the voting server (Bulletin Board) is lost.<br>It might be that the Internet connection is broken or that the destination server is too busy.<br>You can try again later or contact support if this problem persist.
+            generic_error: Unfortunately, an unknown error has occurred. It is likely that your browser is not supported or that you are using the "incognito" or "private" mode which is not supported.
+            title: Something went wrong
       election_m:
         badge_name:
           finished: Finished
@@ -1218,11 +1226,12 @@ en:
         in_person_votes:
           complete_voting:
             available_answers: 'Available answers:'
-            census_verified: The participant has not voted yet.
+            census_verified: This participant has not voted in person yet.
+            census_verified_with_online_vote: This participant has already voted online. If they vote in person, the previous votes will be invalidated and this will be the definitive vote.
             complete_voting: Complete voting
             identify_another: Identify another participant
             questions_title: 'They''re entitled to vote in the following questions:'
-            questions_title_voted: 'The participant has already voted online and is entitled to vote in the following questions:'
+            questions_title_voted: 'This participant has already voted online and is entitled to vote in the following questions:'
             voted: The participant has voted
           create:
             error: The vote was not registered. Please try again.
@@ -1317,7 +1326,8 @@ en:
           form_title: 'Fill the following form to check your census data:'
           invalid: There was a problem checking the census.
           success:
-            access_link: via SMS or email.
+            access_link: via email.
+            access_link_with_sms: via SMS or email.
             info: You should have received your Access Code by postal mail already. In case, you don't have it, you can request it here
             title: Your census data is correct!
           title: Can I vote?

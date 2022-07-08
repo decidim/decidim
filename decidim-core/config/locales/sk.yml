@@ -66,9 +66,6 @@ sk:
   booleans:
     'false': 'Nie'
     'true': 'Áno'
-  carrierwave:
-    errors:
-      image_too_big: Obrázok je príliš veľký
   date:
     formats:
       decidim_short: "%d/%m/%Y"
@@ -81,9 +78,6 @@ sk:
       logo: "Oficiálne logo organizácie %{organization}"
       skip_button: Prejsť na hlavný obsah
     account:
-      data_portability_export:
-        file_no_exists: Súbor neexistuje
-        notice: Sťahovanie Vašich dát momentálne prebieha. Po dokončení dostanete e-mail.
       delete:
         confirm:
           close: Zavrieť okno
@@ -94,6 +88,9 @@ sk:
       destroy:
         error: Pri mazaní účtu došlo k chybe.
         success: Účet bol úspešne zmazaný.
+      download_your_data_export:
+        file_no_exists: Súbor neexistuje
+        notice: Sťahovanie Vašich dát momentálne prebieha. Po dokončení dostanete e-mail.
       show:
         change_password: Zmeniť heslo
         update_account: Aktualizovať účet
@@ -343,8 +340,8 @@ sk:
           global:
             amendments_enabled: Zmeny povolené
             comments_enabled: Komentáre povolené
-            dummy_global_attribute_1: Zástupný atribút 1
-            dummy_global_attribute_2: Zástupný atribút 2
+            dummy_global_attribute1: Zástupný atribút 1
+            dummy_global_attribute2: Zástupný atribút 2
             dummy_global_translatable_text: Zástupný text k preloženie
             enable_pads_creation: Povoliť vytvorenie zdieľaného texte
             resources_permissions_enabled: Oprávnenie zdrojov povolené
@@ -354,8 +351,8 @@ sk:
             amendment_reaction_enabled: Reakcia na zmenu bola povolená
             amendments_visibility: Viditeľnosť pozmeňovacieho návrhu
             comments_blocked: Komentáre blokované
-            dummy_step_attribute_1: Atribút 1 zástupného kroku
-            dummy_step_attribute_2: Atribút 2 zástupného kroku
+            dummy_step_attribute1: Atribút 1 zástupného kroku
+            dummy_step_attribute2: Atribút 2 zástupného kroku
             dummy_step_translatable_text: Zástupný krok textu na preloženie
     contact: Kontakt
     content_blocks:
@@ -387,12 +384,6 @@ sk:
       actions:
         login_before_access: Prosím prihláste sa k účtu pred prístupom
         unauthorized: Nemáte povolenie na vykonanie tejto akcie
-    data_portability:
-      export:
-        ready: Pripravený
-      show:
-        download_data: Stiahnuť dáta
-        request_data: Vyžiadať dáta
     datepicker:
       help_text: 'Očakávaný formát:%{datepicker_format}'
     devise:
@@ -409,7 +400,6 @@ sk:
           already_have_an_account?: Už máte účet?
           newsletter: Dostávajte príležitostný spravodajca s relevantnými informáciami
           newsletter_title: Povolenie kontaktu
-          password_help: "%{minimun_characters} minimum znakov, nesmie byť príliš bežné (napr. 123456) a musí byť iné ako vaše prezývka a váš e-mail."
           sign_in: Prihlásiť sa
           sign_up: Zaregistrovať sa
           sign_up_as:
@@ -450,6 +440,12 @@ sk:
           this_application_will_not_be_able_to: 'Táto aplikácia nebude môcť:'
           update_profile: Aktualizujte svoj profil
           wants_to_use_your_account_html: "<strong>%{application_name} </strong> chce používať váš účet"
+    download_your_data:
+      export:
+        ready: Pripravený
+      show:
+        download_data: Stiahnuť dáta
+        request_data: Vyžiadať dáta
     endorsable:
       endorsements: Potvrdenie
     endorsement_buttons_cell:
@@ -593,7 +589,7 @@ sk:
           email_subject: "%{nickname} aktualizoval svoj profil"
           notification_title: <a href="%{resource_path}"> profilová stránka </a> od%{name} (%{nickname}), ktorú sledujete, bola aktualizovaná.
     export_mailer:
-      data_portability_export:
+      download_your_data_export:
         download: Stiahnutie
       export:
         ready: V prílohe nájdete exportovanú exportovanú verziu.
@@ -746,7 +742,6 @@ sk:
       no_user_groups: Nepatří do žádné skupiny.
       roles:
         admin: Správca
-        creator: Tvorca
         member: Člen
       update:
         error: Pri aktualizácii skupiny došlo k problému
@@ -892,13 +887,11 @@ sk:
       show:
         allow_public_contact: Povoliť komukoľvek posielať mi priame správy, aj keď ho nesledujem.
         direct_messages: Povoliť priame správy od kohokoľvek
-        email_on_notification: Chcem dostávať e-mail zakaždým, keď dostanem oznámenia.
         everything_followed: Všetko, čo sledujem
         newsletter_notifications: Chcem dostávať informačné bulletiny
         newsletters: Správy
         own_activity: Moje vlastné činnosť, ako keby niekto komentoval vo svojom návrhu alebo ma zmienil
         receive_notifications_about: Chcem dostávať oznámenia
-        send_notifications_by_email: Poslať oznámenia emailom
         update_notifications_settings: Uložiť zmeny
       update:
         error: Pri aktualizácii nastavení oznámenia došlo k chybe.
@@ -955,7 +948,6 @@ sk:
         form:
           legend: Souhlasíte s podmínkami používání
         refuse:
-          modal_body: Ak odmietnete, nebudete môcť používať platformu, môžete <a href="%{data_portability_path}"> sťahovať dáta </a> a / alebo <a href="%{delete_path}"> zmazať svoj účet </a>.
           modal_btn_continue: Prijmite termíny a pokračujte
           modal_btn_exit: Neskôr to preskúmam
           modal_button: Odmietnite podmienky
@@ -1137,7 +1129,6 @@ sk:
     invitations:
       edit:
         header: Dokončite vytvorenie účtu
-        nickname_help: Vaša prezývka v %{organization}.
         submit_button: Uložiť
         subtitle: Ak prijmete pozvánku, nastavte svoju prezývku a heslo.
       invitation_removed: Vaša pozvánka bola odstránená.
@@ -1203,7 +1194,6 @@ sk:
     passwords:
       edit:
         change_my_password: Zmeňte heslo
-        change_your_password: Zmeňte si svoje heslo
         confirm_new_password: Potvrďte nové heslo
         new_password: Nové heslo
         password_help: "%{minimun_characters} je minimum znakov, nesmie byť príliš bežné (napr. 123456) a musí byť iné ako vaše prezývka a váš e-mail."
@@ -1292,10 +1282,6 @@ sk:
     timestamp_error_message: Prepáčte, bolo to príliš rýchle! Znovu odošlite.
   layouts:
     decidim:
-      cookie_warning:
-        description_html: Tento web používa cookies. Pokračovaním v prehliadaní webu súhlasíte s používaním súborov cookie. Zistite viac o tom %{link}.
-        link_label: tu
-        ok: súhlasím
       edit_link:
         edit: Upraviť
       footer:

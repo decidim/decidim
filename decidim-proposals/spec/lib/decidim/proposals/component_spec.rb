@@ -12,7 +12,7 @@ describe "Proposals component" do # rubocop:disable RSpec/DescribeClass
       it "destroys the component" do
         expect do
           Decidim::Admin::DestroyComponent.call(component, current_user)
-        end.to change { Decidim::Component.count }.by(-1)
+        end.to change(Decidim::Component, :count).by(-1)
 
         expect(component).to be_destroyed
       end
@@ -140,6 +140,18 @@ describe "Proposals component" do # rubocop:disable RSpec/DescribeClass
 
       before do
         visit edit_component_path
+      end
+
+      context "when it's enabled" do
+        before do
+          component.update(settings: { participatory_texts_enabled: true })
+          visit edit_component_path
+        end
+
+        it "does NOT allow creating new proposals with the proposal form" do
+          expect(page.find(".creation_enabled_container")[:class]).to include("readonly")
+          expect(page).to have_content("This setting is disabled when you activate the Participatory Texts functionality. To upload proposals as participatory text click on the Participatory Texts button and follow the instructions.")
+        end
       end
 
       context "when there are no proposals for the component" do

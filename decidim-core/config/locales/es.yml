@@ -22,6 +22,7 @@ es:
       user:
         about: Acerca de
         email: Tu correo electrónico
+        locale: Configuración regional
         name: Tu nombre
         nickname: Alias
         password: Contraseña
@@ -34,12 +35,17 @@ es:
       decidim/demoted_membership: Ya no eres una administradora de grupo
       decidim/gamification/badge_earned_event: Insignia obtenida
       decidim/gamification/level_up_event: Has subido de nivel
+      decidim/invited_to_group_event: Invitada al grupo
       decidim/join_request_accepted_event: Solicitud de incorporación aceptada
       decidim/join_request_rejected_event: Solicitud de incorporación rechazada
       decidim/profile_updated_event: Perfil actualizado
       decidim/promote_to_admin: Promocionada a administradora del grupo
+      decidim/promoted_to_admin_event: Promocionada a administradora del grupo
       decidim/removed_from_group: Eliminada del grupo
       decidim/resource_endorsed_event: Adhesión a recurso realizada
+      decidim/resource_hidden_event: Recurso oculto
+      decidim/user_group_created_event: Grupo creado
+      decidim/welcome_notification_event: Mensaje de bienvenida
   activerecord:
     attributes:
       decidim/user:
@@ -67,7 +73,8 @@ es:
     'true': 'Sí'
   carrierwave:
     errors:
-      image_too_big: La imagen es demasiado grande
+      file_resolution_too_large: La resolución del archivo es demasiado grande
+      file_size_too_large: El tamaño del archivo es demasiado grande
       not_inside_organization: El archivo no está relacionado con ninguna organización
   date:
     formats:
@@ -106,13 +113,11 @@ es:
   decidim:
     accessibility:
       external_link: Enlace externo
+      front_page_link: Ir a la página principal
       logo: "Logo oficial de %{organization}"
       skip_button: Saltar al contenido principal
     account:
       blocked: Esta cuenta ha sido bloqueada por una violación de los Términos y Condiciones de uso
-      data_portability_export:
-        file_no_exists: El archivo no existe
-        notice: La descarga de tus datos está en curso. Recibirás un correo electrónico cuando se complete.
       delete:
         alert: Esta acción no se puede deshacer. Si eliminas tu cuenta no podrás iniciar sesión con tus credenciales. La eliminación de tu cuenta resultará en la anonimización de tus contribuciones. Aún podrás crear una nueva cuenta, pero estas contribuciones no se asociarán a ella.
         confirm:
@@ -124,6 +129,19 @@ es:
       destroy:
         error: Se ha producido un error al eliminar tu cuenta.
         success: Tu cuenta se ha eliminado correctamente.
+      download_your_data_export:
+        file_no_exists: El archivo no existe
+        notice: La descarga de tus datos está en curso. Recibirás un correo electrónico cuando se complete.
+      email_change:
+        body1: Hemos enviado un correo electrónico a %{unconfirmed_email} para verificar tu nueva dirección de correo electrónico.
+        body2: '¿Necesitas que te reenviemos el correo de verificación? %{resend_link} o %{cancel_link}.'
+        cancel: cancelar
+        cancel_error: No se ha podido cancelar el cambio de Correo electrónico.
+        cancel_successfully: Cambio de correo electrónico cancelado con éxito.
+        resend_error: No se ha podido reenviar el correo de confirmación.
+        resend_successfully: Correo de confirmación reenviado correctamente a %{unconfirmed_email}
+        send_again: Volver a enviar
+        title: Verificación del cambio de correo electrónico
       show:
         available_locales_helper: Elige el idioma que deseas utilizar para navegar y recibir notificaciones en la plataforma
         change_password: Cambia la contraseña
@@ -135,16 +153,44 @@ es:
     admin:
       actions:
         cancel: Cancelar
+      password_change:
+        alert: Tienes que cambiar tu contraseña para poder seguir adelante
+        notification: Las usuarias con rol de administración tienen que cambiar su contraseña cada %{days} días.
     admin_log:
       area:
         create: "%{user_name} creó el área %{resource_name}"
         delete: "%{user_name} eliminó el área %{resource_name}"
         update: "%{user_name} actualizó el área %{resource_name}"
+      area_type:
+        create: "%{user_name} ha creado el tipo de área %{resource_name}"
+        delete: "%{user_name} ha eliminado el tipo de área %{resource_name}"
+        update: "%{user_name} ha actualizado tipo de área %{resource_name}"
+      attachment:
+        create: "%{user_name} ha creado el adjunto %{resource_name}"
+        delete: "%{user_name} ha eliminado el adjunto %{resource_name}"
+        update: "%{user_name} ha actualizado el adjunto %{resource_name}"
+      attachment_collection:
+        create: "%{user_name} ha creado la colección de adjuntos %{resource_name}"
+        delete: "%{user_name} ha eliminado la colección de adjuntos %{resource_name}"
+        update: "%{user_name} ha actualizado la colección de adjuntos %{resource_name}"
+      category:
+        create: "%{user_name} ha añadido la categoria %{resource_name} al espacio %{space_name}"
+        delete: "%{user_name} ha eliminado la categoria %{resource_name} al espacio %{space_name}"
+        update: "%{user_name} ha actualizado la categoria %{resource_name} al espacio %{space_name}"
       component:
         create: "%{user_name} agregó el componente %{resource_name} al espacio %{space_name}"
         delete: "%{user_name} eliminó el componente %{resource_name} del espacio %{space_name}"
+        export_component: "%{user_name} ha exportado %{resource_name} %{component_name} en %{space_name} como %{format_name}"
         publish: "%{user_name} publicó el componente %{resource_name} en el espacio %{space_name}"
         unpublish: "%{user_name} ha despublicado el componente %{resource_name} del espacio %{space_name}"
+        update_permissions_with_space: "%{user_name} ha actualizado los permisos de %{resource_name} en %{space_name}"
+      contextual_help_section:
+        update: "%{user_name} ha actualizado la sección de ayuda %{resource_name}"
+      helpers:
+        answers: respuestas
+        comments: comentarios
+        projects: proyectos
+        results: resultados
       impersonation_log:
         manage: "%{user_name} ha gestionado a %{resource_name} porque %{reason}"
       moderation:
@@ -161,6 +207,7 @@ es:
         update: "%{user_name} actualizó la aplicación %{resource_name} OAuth"
       organization:
         update: "%{user_name} actualizó la configuración de la organización"
+        update_external_domain: "%{user_name} ha actualizado los dominios externos de la organización"
       participatory_space_private_user:
         create: "%{user_name} ha invitado a %{resource_name} como participante privada"
         create_via_csv: "%{user_name} invitó a %{resource_name} vía CSV a ser un participante privada"
@@ -172,6 +219,10 @@ es:
         delete_with_parent: "%{user_name} eliminó el ámbito %{resource_name} dentro del ámbito %{parent_scope}"
         update: "%{user_name} actualizó el ámbito %{resource_name}"
         update_with_parent: "%{user_name} actualizó el ámbito %{resource_name} dentro del ámbito %{parent_scope}"
+      scope_type:
+        create: "%{user_name} ha creado el tipo de ámbito %{resource_name}"
+        delete: "%{user_name} ha eliminado el tipo de ámbito %{resource_name}"
+        update: "%{user_name} ha actualizado el tipo de ámbito %{resource_name}"
       static_page:
         create: "%{user_name} creó la página estática %{resource_name}"
         delete: "%{user_name} eliminó la página estática %{resource_name}"
@@ -295,6 +346,7 @@ es:
       endorsements:
         one: adhesión
         other: adhesiones
+      official_author: Oficial
     authorization_handlers:
       another_dummy_authorization_handler:
         explanation: Verifícate introduciendo un número de pasaporte que comience por "A"
@@ -385,6 +437,7 @@ es:
           debate: Debate
           initiative: Iniciativa
           meeting: Encuentro
+          order: Votación presupuestaria
           post: Publicar
           proposal: Propuesta
           question: Pregunta
@@ -399,8 +452,8 @@ es:
             amendments_enabled: Enmiendas habilitadas
             comments_enabled: Comentarios habilitados
             comments_max_length: Longitud máxima de los comentarios
-            dummy_global_attribute_1: Atributo de prueba 1
-            dummy_global_attribute_2: Atributo de prueba 2
+            dummy_global_attribute1: Atributo de prueba 1
+            dummy_global_attribute2: Atributo de prueba 2
             dummy_global_translatable_text: Texto de ejemplo traducible
             enable_pads_creation: Habilitar la creación de pads
             resources_permissions_enabled: Permisos de recursos habilitados
@@ -412,8 +465,8 @@ es:
             amendment_reaction_enabled: Reacción de enmienda activada
             amendments_visibility: Visibilidad de la enmienda
             comments_blocked: Comentarios bloqueados
-            dummy_step_attribute_1: Atributo de fase de prueba 1
-            dummy_step_attribute_2: Atributo de fase de prueba 2
+            dummy_step_attribute1: Atributo de fase de prueba 1
+            dummy_step_attribute2: Atributo de fase de prueba 2
             dummy_step_translatable_text: Fase de ejemplo traducible
     contact: Contacto
     content_blocks:
@@ -457,13 +510,6 @@ es:
       actions:
         login_before_access: Por favor, inicia sesión con tu cuenta antes de acceder
         unauthorized: No tienes permisos para realizar esta acción
-    data_portability:
-      export:
-        ready: Listo
-      show:
-        download_data: Descárgate los datos
-        download_data_description: Se enviará un archivo con toda la información asociada a tu cuenta a <strong>%{user_email}</strong>. Este correo electrónico contendrá un archivo .zip y una contraseña para abrirlo.<br/><br/>Para descomprimir el archivo, necesitarás <a href="https://www.7-zip.org/">7-Zip</a> (para Windows) o <a href="https://www.keka.io/">Keka</a> (para MacOS). Si usas Linux, la mayoría de las veces lo tendrás instalado por defecto. Si no, puedes utilizar <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> o <a href="https://peazip.github.io">PeaZip</a>).
-        request_data: Solicita datos
     datepicker:
       help_text: 'Formato esperado: %{datepicker_format}'
     devise:
@@ -482,7 +528,6 @@ es:
           newsletter: Quiero recibir un boletín ocasional con información relevante
           newsletter_title: Permiso de contacto
           nickname_help: Tu alias en %{organization}. Solo puede contener letras, números, '-' y '_'.
-          password_help: "%{minimun_characters} caracteres mínimos, no debe ser demasiado común (por ejemplo, 123456) y debe ser diferente de tu apodo y tu correo electrónico."
           sign_in: Entra
           sign_up: Regístrate
           sign_up_as:
@@ -531,6 +576,13 @@ es:
           this_application_will_not_be_able_to: 'Esta aplicación no podrá:'
           update_profile: Actualiza tu perfil
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> quiere usar tu cuenta"
+    download_your_data:
+      export:
+        ready: Listo
+      show:
+        download_data: Descárgate los datos
+        download_data_description: Se enviará un archivo con toda la información asociada a tu cuenta a <strong>%{user_email}</strong>. Este correo electrónico contendrá un archivo .zip y una contraseña para abrirlo.<br/><br/>Para descomprimir el archivo, necesitarás <a href="https://www.7-zip.org/">7-Zip</a> (para Windows) o <a href="https://www.keka.io/">Keka</a> (para MacOS). Si usas Linux, la mayoría de las veces lo tendrás instalado por defecto. Si no, puedes utilizar <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> o <a href="https://peazip.github.io">PeaZip</a>).
+        request_data: Solicita datos
     editor_images:
       create:
         error: Error al subir la imagen
@@ -674,6 +726,8 @@ es:
           email_outro: Has recibido esta notificación porque eres una de las administradoras de la plataforma.
           email_subject: Un grupo ha actualizado su perfil
           notification_title: El grupo %{user_group_name} ha actualizado su perfil perdiendo la verificación. Puedes volver a verificarlo a través del <a href="%{groups_admin_path}">panel de administración</a>.
+      nickname_event:
+        notification_body: Hemos corregido la forma en que se utilizan los alias para que no haya duplicados, para hacerlo ya no se distingue entre mayúsculas y minúsculas. <br/> Tu alias fue creado después de otro igual, así que lo hemos renombrado automáticamente. Puedes modificarlo desde la <a href="%{link_to_account_settings}">configuración de tu cuenta</a>.
       notification_event:
         notification_title: Se ha producido un evento a <a href="%{resource_path}">%{resource_title}</a>.
       reports:
@@ -695,8 +749,13 @@ es:
           email_outro: Has recibido esta notificación porque estás siguiendo a %{nickname}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
           email_subject: "%{nickname} ha actualizado su perfil"
           notification_title: La página <a href="%{resource_path}"> de perfil </a> de %{name} (%{nickname}), a quien estás siguiendo, se ha actualizado.
+        user_officialized:
+          email_intro: La participante %{name} (%{nickname}) ha sido oficializada.
+          email_outro: Has recibido esta notificación porque eres una de las administradoras de la plataforma.
+          email_subject: "Se ha oficializado a %{name}"
+          notification_title: La participante %{name} (%{nickname}) ha sido oficializada.
     export_mailer:
-      data_portability_export:
+      download_your_data_export:
         click_button: 'Haz clic en el siguiente enlace para descargar tus datos.<br/>El archivo estará disponible hasta %{date}.<br/>Necesitarás <a href="https://www.7-zip.org/">7-Zip</a> (para Windows), <a href="https://www.keka.io/en/">Keka</a> (para MacOS) o <a href="https://peazip.github.io">PeaZip</a> (para Linux) para abrirlo. Contraseña: %{password}'
         download: Descargar
       export:
@@ -746,6 +805,10 @@ es:
       file_help:
         file:
           explanation: 'Instrucciones para el archivo:'
+          message_1: Tiene que ser una imagen o un documento.
+          message_2: Para las imágenes, utilizar imágenes apaisadas preferiblemente, el servicio recorta la imagen.
+        icon:
+          explanation: 'Instrucciones para el icono:'
           message_1: Tiene que ser una imagen cuadrada.
           message_2: El tamaño recomendado para esta imagen es 512x512.
         image:
@@ -754,7 +817,28 @@ es:
           message_2: El servicio recorta la imagen.
       file_validation:
         allowed_file_extensions: 'Formatos de archivo permitidos: %{extensions}'
+        max_file_dimension: 'Medidas máximas de archivo: %{resolution} píxeles'
         max_file_size: 'Tamaño máximo del archivo: %{megabytes}MB'
+      upload:
+        labels:
+          add_attachment: Añadir adjunto
+          add_file: Añadir archivo
+          add_image: Añadir imagen
+          cancel: Cancelar
+          edit_image: Editar imagen
+          error: '¡Error!'
+          file_size_too_large: '¡El archivo es demasiado grande! Peso de archivo máximo: %{megabytes}MB'
+          remove: Eliminar
+          replace: Reemplazar
+          save: Guardar
+          title: Título
+          title_required: '¡Se requiere un título!'
+          uploaded: Subido
+          validating: Validando...
+          validation_error: '¡Error de validación!'
+      upload_help:
+        dropzone: Arrastrar archivos aquí o haz clic para subirlos
+        explanation: Guía para %{attribute}
     gamification:
       all_badges_link: Ver todas las insígnias disponibles.
       badges:
@@ -855,6 +939,7 @@ es:
         success: La solicitud para formar parte se ha enviado correctamente. Una administradora revisará tu solicitud antes de aceptarte en el grupo.
       leave:
         error: Se ha producido un error al dejar el grupo
+        last_admin: No puedes abandonar este grupo porque eres la última administradora. Haz administradora a otra persona miembro para poder hacerlo.
         success: Has dejado el grupo correctamente.
       members:
         accept_or_reject_join_requests: 'Las siguientes participantes han solicitado unirse a este grupo. Acepta o rechaza sus solicitudes:'
@@ -867,7 +952,7 @@ es:
       no_user_groups: Aún no perteneces a ningún grupo.
       roles:
         admin: Administradora
-        creator: Creadora
+        creator: Administradora
         member: Miembro
       update:
         error: Se ha producido un error al actualizar el grupo
@@ -904,6 +989,7 @@ es:
         unknown_action: "%{user_name} realizó una acción en %{resource_name}"
         unknown_action_with_space: "%{user_name} realizó una acción en %{resource_name} en %{space_name}"
         update: "%{user_name} actualizó %{resource_name}"
+        update_permissions_with_space: "%{user_name} ha actualizado los permisos de %{resource_name} en %{space_name}"
         update_with_space: "%{user_name} actualizó %{resource_name} en %{space_name}"
       value_types:
         area_presenter:
@@ -1074,19 +1160,41 @@ es:
         translated_text: 'Texto traducido automáticamente:'
     notifications:
       no_notifications: Aún no hay notificaciones.
+      show:
+        missing_event: Vaya, esta notificación pertenece a un elemento que ya no está disponible. Puedes descartarla.
+    notifications_digest_mailer:
+      header:
+        daily: Resumen diario de notificaciones
+        weekly: Resumen semanal de notificaciones
+      hello: Hola %{name},
+      intro:
+        daily: 'Estas son las notificaciones del último día basadas en la actividad que estás siguiendo:'
+        weekly: 'Estas son las notificaciones de la última semana basadas en la actividad que estás siguiendo:'
+      outro: Has recibido estas notificaciones porque sigues este contenido o a sus autoras. Puedes dejar de seguirlas desde sus respectivas páginas.
+      see_more: Ver más notificaciones
+      subject: Este es tu correo resumen
     notifications_settings:
       show:
         administrators: Administradoras
         allow_public_contact: Permitir que cualquiera me envíe un mensaje directo, incluso si no le sigo.
+        allow_push_notifications: Mostrar notificaciones emergentes para saber qué pasa cuando no estás en la plataforma. Puedes desactivarlas en cualquier momento.
         direct_messages: Recibir mensajes directos de cualquiera
-        email_on_moderations: Quiero recibir un correo electrónico cada vez que se reporta algo por moderación.
-        email_on_notification: Quiero recibir un correo electrónico cada vez que reciba una notificación.
+        email_on_moderations: Quiero recibir un correo electrónico cada vez que se reporta algo o a alguien para moderación.
         everything_followed: Todo lo que sigo
         newsletter_notifications: Quiero recibir boletines informativos
         newsletters: Boletines informativos
+        notification_settings:
+          close_meeting_reminder: Quiero recibir recordatorios por correo electrónico de reuniones pasadas con informes sin publicar
+        notifications_sending_frequencies:
+          daily: Diariamente
+          none: Ninguna
+          real_time: En tiempo real
+          weekly: Semanalmente
+        notifications_sending_frequency: '¿Con qué frecuencia quieres recibir el correo resumen de notificaciones?'
         own_activity: Mi propia actividad, como cuando alguien comenta en mi propuesta o me menciona
+        push_notifications: Notificaciones emergentes
+        push_notifications_reminder: Para obtener notificaciones de la plataforma, primero tienes que permitirlas en la configuración de tu navegador.
         receive_notifications_about: Quiero recibir notificaciones
-        send_notifications_by_email: Enviar notificaciones por correo electrónico
         update_notifications_settings: Guardar cambios
       update:
         error: Se ha producido un error al actualizar la configuración de las notificaciones.
@@ -1148,7 +1256,7 @@ es:
           agreement: Estoy de acuerdo con estos términos
           legend: Acepto los Términos y Condiciones de uso
         refuse:
-          modal_body: Si no aceptas, no podrás utilizar la plataforma, puedes <a href="%{data_portability_path}">descargar tus datos</a> y / o <a href="%{delete_path}">eliminar tu cuenta</a>.
+          modal_body: Si no aceptas, no podrás utilizar la plataforma, puedes <a href="%{download_your_data_path}">descargar tus datos</a> y/o <a href="%{delete_path}">eliminar tu cuenta</a>.
           modal_btn_continue: Aceptar los términos y continuar
           modal_btn_exit: Lo revisaré más tarde
           modal_button: Rechazar los términos
@@ -1160,6 +1268,10 @@ es:
           title: 'Obligatorio: revisa las actualizaciones de nuestros Términos de Servicio'
     participatory_space_private_users:
       not_allowed: No tienes permiso para visualizar este contenido
+    passwords:
+      update:
+        error: Ha habido un problema al actualizar la contraseña
+        success: Contraseña actualizada correctamente
     profile:
       deleted: Participante eliminada
       inaccessible_message: '¡Este perfil es inaccesible debido a la violación de Términos y Condiciones de uso!'
@@ -1304,6 +1416,8 @@ es:
         close_modal: Cerrar el modal
         please_sign_in: Por favor, inicia sesión
         sign_up: Regístrate
+      mentions_modal:
+        remove_recipient: Eliminar destinataria %{name}
       participatory_space_filters:
         filters:
           areas: Áreas
@@ -1452,7 +1566,7 @@ es:
     invitations:
       edit:
         header: Termina de crear tu cuenta
-        nickname_help: Tu alias en %{organization}.
+        nickname_help: Tu alias en %{organization}. Solo puede contener letras, números, '-' y '_'.
         submit_button: Guardar
         subtitle: Si aceptas la invitación, por favor establece tu alias y contraseña.
       invitation_removed: Se ha eliminado tu invitación.
@@ -1518,10 +1632,11 @@ es:
     passwords:
       edit:
         change_my_password: Cambiar mi contraseña
-        change_your_password: Cambia tu contraseña
         confirm_new_password: Confirmar la nueva contraseña
         new_password: Nueva contraseña
         password_help: "%{minimun_characters} caracteres mínimos, no debe ser demasiado común (por ejemplo, 123456) y debe ser diferente de tu apodo y tu correo electrónico."
+        password_help_admin: "%{minimun_characters} caracteres mínimos, no debe ser demasiado común (por ejemplo, 123456) y debe ser diferente de tu apodo, de tu correo electrónico y de tus antiguas contraseñas."
+        title: Cambio de contraseña
       new:
         forgot_your_password: '¿Olvidaste tu contraseña?'
         send_me_reset_password_instructions: Envíame instrucciones para restablecer la contraseña
@@ -1609,14 +1724,56 @@ es:
     timestamp_error_message: Lo siento, has sido demasiado rápido! Por favor, vuelve a enviar.
   layouts:
     decidim:
-      cookie_warning:
-        description_html: Este sitio web utiliza cookies propias y de terceros para mejorar la experiencia de navegación, y ofrecer contenidos y servicios de interés. Al continuar la navegación entendemos que aceptas nuestra política de cookies. Para más información consulta %{link}.
-        link_label: aquí
-        ok: Estoy de acuerdo
+      cookie_consent:
+        cookie_details:
+          columns:
+            description: Descripción
+            name: Nombre
+            service: Servicio
+            type: Tipo
+          cookies:
+            _session_id:
+              description: Permite a los sitios web recordar a la usuaria dentro de un sitio web cuando se mueve entre páginas web.
+              service: Esta página web
+            decidim-consent:
+              description: Almacena información sobre las cookies permitidas por la usuaria en esta página web.
+              service: Esta página web
+          types:
+            cookie: Cookie
+        dialog:
+          accept_all: Aceptar todas
+          accept_only_essential: Aceptar solo las esenciales
+          cookie_settings: Configuración
+          description: Utilizamos cookies en nuestro sitio web para mejorar el rendimiento y el contenido del mismo. Las cookies nos permiten ofrecer una experiencia de usuario y unos contenidos más personalizados desde nuestros canales de redes sociales.
+          title: Información sobre las cookies utilizadas en la página web
+        modal:
+          accept_all: Aceptar todas
+          accept_only_essential: Aceptar solo las esenciales
+          analytics:
+            description: Las cookies analíticas son cookies que rastrean cómo las usuarias navegan e interactúan con la página web. La información recopilada se utiliza para ayudar a la propietaria de la web a mejorar la página.
+            title: Analíticas y estadísticas
+          description: Utilizamos cookies para asegurar las funcionalidades básicas de la página web y para mejorar tu experiencia en línea. Puedes elegir activarlas o desactivarlas por cada categoría cuando quieras.
+          essential:
+            description: Estas cookies son esenciales para el buen funcionamiento de esta página web. Sin estas cookies, esta página web no funcionará correctamente.
+            title: Esenciales
+          marketing:
+            description: Estas cookies recopilan información sobre cómo utilizas la plataforma, qué páginas visitaste y a qué enlaces hiciste clic.
+            title: Marketing
+          preferences:
+            description: Estas cookies permiten a la plataforma recordar las opciones que has hecho en el pasado
+            title: Preferencias
+          save_settings: Guardar configuración
+          title: Configuración de cookies
+          toggle: Cambiar %{consent_category}
+        warning:
+          all_cookies: todas las cookies
+          change_cookie_settings: Cambiar la configuración de cookies
+          need_cookies: Necesitas habilitar %{cookies} para ver este contenido.
       edit_link:
         edit: Edita
       footer:
         cc_by_license: Con licencia Creative Commons
+        cookie_settings: Configuración de cookies
         decidim_logo: Logo Decidim
         download_open_data: Descargar ficheros de datos abiertos
         made_with_open_source: Web creada con <a target="_blank" href="https://github.com/decidim/decidim">software libre</a>.
@@ -1649,6 +1806,8 @@ es:
         continue_session: Continuar sesión
         sign_out: Cerrar sesión
         title: '¿Quieres continuar con la sesión?'
+      upload_modal:
+        close_modal: Cerrar ventana
       user_menu:
         account: 'Cuenta de usuario: %{name}'
         admin_dashboard: Tablero de administración
@@ -1681,6 +1840,7 @@ es:
     nickname_included_in_password: es demasiado similar a tu alias
     not_enough_unique_characters: no tiene suficientes caracteres únicos
     password_not_allowed: no está permitido
+    password_repeated: no puedes reutilizar una vieja contraseña
     password_too_common: es demasiado común
     password_too_long: es demasiado largo
     password_too_short: es demasiado corto
@@ -1733,6 +1893,7 @@ es:
     dropdown:
       choose_diff_view_html: 'Modo de vista HTML:'
       choose_diff_view_mode: 'Comparar el modo de visualización:'
+      choose_diff_view_mode_menu: Elegir el modo de comparación
       option_escaped: Escapado
       option_split: En paralelo
       option_unescaped: Desescapado

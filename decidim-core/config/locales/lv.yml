@@ -62,9 +62,6 @@ lv:
   booleans:
     'false': 'Nē'
     'true': 'Jā'
-  carrierwave:
-    errors:
-      image_too_big: Attēls ir pārāk liels
   date:
     formats:
       decidim_short: "%d/%m/%G"
@@ -76,9 +73,6 @@ lv:
       logo: "%{organization} oficiālais logotips"
       skip_button: Pāriet uz galveno saturu
     account:
-      data_portability_export:
-        file_no_exists: Fails neeksistē
-        notice: Pašlaik notiek jūsu datu lejupielāde. Kad tā būs pabeigta, jūs saņemsiet e-pastu.
       delete:
         confirm:
           close: Aizvērt logu
@@ -89,6 +83,9 @@ lv:
       destroy:
         error: Dzēšot jūsu kontu, radās problēma.
         success: Jūsu konts tika veiksmīgi dzēsts.
+      download_your_data_export:
+        file_no_exists: Fails neeksistē
+        notice: Pašlaik notiek jūsu datu lejupielāde. Kad tā būs pabeigta, jūs saņemsiet e-pastu.
       show:
         change_password: Mainīt paroli
         update_account: Atjaunināt kontu
@@ -327,8 +324,8 @@ lv:
           global:
             amendments_enabled: Grozījumi ir iespējoti
             comments_enabled: Komentāri ir iespējoti
-            dummy_global_attribute_1: Viettura apzīmētājs 1
-            dummy_global_attribute_2: Viettura apzīmētājs 2
+            dummy_global_attribute1: Viettura apzīmētājs 1
+            dummy_global_attribute2: Viettura apzīmētājs 2
             dummy_global_translatable_text: Viettura tulkojamais teksts
             enable_pads_creation: Iespējot kopdokumentu izveidi
             resources_permissions_enabled: Vienumu atļaujas ir iespējotas
@@ -338,8 +335,8 @@ lv:
             amendment_reaction_enabled: Reaģēšana uz grozījumiem ir iespējota
             amendments_visibility: Grozījumu redzamība
             comments_blocked: Komentāri ir bloķēti
-            dummy_step_attribute_1: 1. Viettura solis
-            dummy_step_attribute_2: 2. Viettura solis
+            dummy_step_attribute1: 1. Viettura solis
+            dummy_step_attribute2: 2. Viettura solis
             dummy_step_translatable_text: Viettura soļa tulkojamais teksts
     contact: Kontaktinformācija
     content_blocks:
@@ -371,12 +368,6 @@ lv:
       actions:
         login_before_access: Pirms piekļuves, lūdzu, piesakieties savā kontā
         unauthorized: Jūs neesat autorizēts veikt šo darbību
-    data_portability:
-      export:
-        ready: Gatavs
-      show:
-        download_data: Lejupielādēt datus
-        request_data: Pieprasīt datus
     datepicker:
       help_text: 'Paredzētais formāts: %{datepicker_format}'
     devise:
@@ -393,7 +384,6 @@ lv:
           already_have_an_account?: Jums jau ir konts?
           newsletter: Saņemiet neregulāru informatīvo biļetenu ar būtisko informāciju
           newsletter_title: Atļauja sazināties
-          password_help: "Vismaz %{minimun_characters} rakstzīmes, nedrīkst būt pārlieku izplatītas (piem., 123456), un tām jāatšķiras no jūsu segvārda un e-pasta adreses."
           sign_in: Pieteikties
           sign_up: Reģistrēties
           sign_up_as:
@@ -439,6 +429,12 @@ lv:
           this_application_will_not_be_able_to: 'Lietojumprogramma nevarēs:'
           update_profile: Atjaunināt profilu
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> vēlas izmantot jūsu kontu"
+    download_your_data:
+      export:
+        ready: Gatavs
+      show:
+        download_data: Lejupielādēt datus
+        request_data: Pieprasīt datus
     endorsable:
       endorsements: Atbalsts
     endorsement_buttons_cell:
@@ -590,7 +586,7 @@ lv:
           email_subject: "%{nickname} atjaunināja savu profilu"
           notification_title: '%{name} (%{nickname}) <a href="%{resource_path}">profila lapa</a>, kam jūs sekojat, ir atjaunināta.'
     export_mailer:
-      data_portability_export:
+      download_your_data_export:
         download: Lejupielādēt
       export:
         ready: Lūdzu, jūsu eksportēto datu saspiestā versija.
@@ -742,7 +738,6 @@ lv:
       no_user_groups: Pagaidām nepieder nevienai grupai.
       roles:
         admin: Administrators
-        creator: Izveidotājs
         member: Dalībnieks
       update:
         error: Šīs grupas atjaunināšanas laikā radās problēma
@@ -916,13 +911,11 @@ lv:
       show:
         allow_public_contact: Ļauj ikvienam nosūtīt man tiešu ziņojumu, pat ja es viņam nesekoju.
         direct_messages: Saņemiet tiešus ziņojumus no jebkuras personas
-        email_on_notification: Es vēlos saņemt e-pastu katrreiz, kad tiek saņemts paziņojums.
         everything_followed: Viss, kam es sekoju
         newsletter_notifications: Es gribu saņemt informatīvos biļetenus
         newsletters: Informatīvie biļeteni
         own_activity: Mana aktivitāte, piemēram, kad kāds komentē manu priekšlikumu vai piemin mani
         receive_notifications_about: Es vēlos saņemt paziņojumus par
-        send_notifications_by_email: Sūtīt paziņojumus pa e-pastu
         update_notifications_settings: Saglabāt izmaiņas
       update:
         error: Atjauninot jūsu paziņojumu iestatījumus, radās problēma.
@@ -977,7 +970,6 @@ lv:
         form:
           legend: Piekrist lietošanas noteikumiem
         refuse:
-          modal_body: Ja atteiksieties, nevarēsiet izmantot platformu, varat <a href="%{data_portability_path}"> lejupielādēt savus datus </a> un/vai <a href="%{delete_path}"> izdzēst savu kontu </a>.
           modal_btn_continue: Pieņemt noteikumus un turpināt
           modal_btn_exit: Es tos pārskatīšu vēlāk
           modal_button: Atteikties no noteikumu pieņemšanas
@@ -1207,7 +1199,6 @@ lv:
     invitations:
       edit:
         header: Pabeidziet sava konta izveidi
-        nickname_help: Jūsu segvārds %{organization}.
         submit_button: Saglabāt
         subtitle: Ja pieņemat ielūgumu, lūdzu, izvēlieties savu segvārdu un paroli.
       invitation_removed: Jūsu ielūgums tika noņemts.
@@ -1273,7 +1264,6 @@ lv:
     passwords:
       edit:
         change_my_password: Nomainīt manu paroli
-        change_your_password: Mainiet savu paroli
         confirm_new_password: Apstiprināt jauno paroli
         new_password: Jaunā parole
         password_help: "Vismaz %{minimun_characters} rakstzīmes, nedrīkst būt pārlieku izplatītas (piem., 123456), un tām jāatšķiras no jūsu segvārda un e-pasta adreses."
@@ -1358,8 +1348,6 @@ lv:
     timestamp_error_message: Diemžēl tas bija par ātru! Lūdzu, iesniedziet atkārtoti.
   layouts:
     decidim:
-      cookie_warning:
-        ok: Es piekrītu
       edit_link:
         edit: Labot
       footer:

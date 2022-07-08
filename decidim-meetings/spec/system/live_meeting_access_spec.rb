@@ -80,6 +80,23 @@ describe "Meeting live event access", type: :system do
               expect(page).to have_content("JOIN MEETING")
             end
           end
+
+          context "when cookies rejected" do
+            before { select_cookies(false, visit_root: true) }
+
+            it "shows cookie warning" do
+              visit_meeting
+
+              expect(page).to have_content("This meeting is happening right now")
+              case embedding_type
+              when :embedded
+                expect(page).to have_content("You need to enable all cookies in order to see this content")
+                expect(page).not_to have_css("iframe")
+              else
+                expect(page).to have_content("JOIN MEETING")
+              end
+            end
+          end
         end
       end
 
@@ -218,14 +235,18 @@ describe "Meeting live event access", type: :system do
         end
       end
 
-      it "shows the meeting link embedded" do
-        visit_meeting
+      context "when cookies accepted" do
+        before { select_cookies(true, visit_root: true) }
 
-        expect(page).to have_css("iframe")
+        it "shows the meeting link embedded" do
+          visit_meeting
+
+          expect(page).to have_css("iframe")
+        end
+
+        it_behaves_like "iframe access levels", :embedded
+        it_behaves_like "belonging to an assembly which is a transparent private space"
       end
-
-      it_behaves_like "iframe access levels", :embedded
-      it_behaves_like "belonging to an assembly which is a transparent private space"
     end
 
     context "and the iframe_embed_type is 'open_in_live_event_page'" do
@@ -255,8 +276,14 @@ describe "Meeting live event access", type: :system do
         end
       end
 
-      it_behaves_like "iframe access levels", :live_event_page
-      it_behaves_like "belonging to an assembly which is a transparent private space"
+      context "when cookies accepted" do
+        before do
+          select_cookies(true, visit_root: true)
+        end
+
+        it_behaves_like "iframe access levels", :live_event_page
+        it_behaves_like "belonging to an assembly which is a transparent private space"
+      end
     end
 
     context "and the iframe_embed_type is 'open_in_new_tab'" do

@@ -7,7 +7,13 @@ module Decidim
     #
     class PostPresenter < SimpleDelegator
       def author
-        @author ||= Decidim::UserPresenter.new(super)
+        @author ||= if official?
+                      Decidim::Blogs::OfficialAuthorPresenter.new
+                    elsif user_group?
+                      Decidim::UserGroupPresenter.new(super)
+                    else
+                      Decidim::UserPresenter.new(super)
+                    end
       end
     end
   end

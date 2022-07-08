@@ -29,7 +29,7 @@ module Decidim::ParticipatoryProcesses
 
     context "when everything is ok" do
       it "creates a participatory process type" do
-        expect { subject.call }.to change { Decidim::ParticipatoryProcessType.count }.by(1)
+        expect { subject.call }.to change(Decidim::ParticipatoryProcessType, :count).by(1)
       end
 
       it "broadcasts ok" do

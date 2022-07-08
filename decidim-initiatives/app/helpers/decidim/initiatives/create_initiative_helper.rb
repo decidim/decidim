@@ -27,7 +27,7 @@ module Decidim
           [
             I18n.t(
               "online",
-              scope: %w(activemodel attributes initiative signature_type_values)
+              scope: "activemodel.attributes.initiative.signature_type_values"
             ), "online"
           ]
         ]
@@ -38,7 +38,7 @@ module Decidim
           [
             I18n.t(
               "offline",
-              scope: %w(activemodel attributes initiative signature_type_values)
+              scope: "activemodel.attributes.initiative.signature_type_values"
             ), "offline"
           ]
         ]
@@ -49,7 +49,7 @@ module Decidim
           [
             I18n.t(
               type,
-              scope: %w(activemodel attributes initiative signature_type_values)
+              scope: "activemodel.attributes.initiative.signature_type_values"
             ), type
           ]
         end

@@ -128,7 +128,6 @@ id:
             progress: Kemajuan
         timeline_entry:
           fields:
-            description: Deskripsi
             entry_date: Tanggal
       results:
         count:

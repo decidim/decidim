@@ -72,7 +72,7 @@ module Decidim
 
     context "when translation name is hyphenated" do
       let(:available_locales) { ["en", "ca", "es-MX"] }
-      let(:default_locale) { :'es-MX' }
+      let(:default_locale) { :"es-MX" }
       let(:description) do
         {
           "es-MX": "Descripción"

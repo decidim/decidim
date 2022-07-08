@@ -172,9 +172,6 @@ nl:
           email_outro: Je ontvangt deze melding omdat je het event "%{resource_title}" volgt. Ontvolgen kan door te klikken op de voorgaande link.
           email_subject: Het "%{resource_title}" event start in minder dan 48 uur.
           notification_title: Het <a href="%{resource_path}">%{resource_title}</a> event begint over minder dan 48 uur.
-    forms:
-      meetings:
-        attendees_count_help_text: Vergeet niet het totale aantal deelnemers op je evenement toe te voegen. Of het nu een fysieke, hybride of online bijeenkomst is, het is handig om het aantal mensen te kennen.
     gamification:
       badges:
         attended_meetings:
@@ -445,7 +442,6 @@ nl:
           type: Type
           type_values:
             all: Alle
-            hybrid: Beide
             in_person: Fysiek
             online: Online
         filters_small_view:
@@ -534,7 +530,6 @@ nl:
           fields:
             closed: Gesloten
             end_time: Einddatum
-            id: Id
             map: Kaart
             official_meeting: Officiële vergadering
             start_time: Startdatum
@@ -547,7 +542,6 @@ nl:
             empty_questions: Tijdens deze vergadering worden er enkele vragen verzonden en je kan ze beantwoorden. Ze zullen hier worden weergegeven.
           index_admin:
             admin_dashboard: Beheer Dashboard
-            edit: Bewerk in admin
             question: Vraag
             received_answer: antwoord ontvangen
             received_answers: ontvangen antwoorden
@@ -585,7 +579,6 @@ nl:
           invalid: Er is een probleem opgetreden bij het verlaten van deze vergadering.
           success: U heeft de vergadering succesvol verlaten.
       type_of_meeting:
-        hybrid: Beide
         in_person: Fysiek
         online: Online
       types:

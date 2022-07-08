@@ -45,7 +45,7 @@ es:
         participatory_text:
           attributes:
             document:
-              invalid_document_type: 'Tipo de documento no válido. Los formatos aceptados son: %{valid_mime_types}'
+              allowed_file_content_types: 'Tipo de documento inválido. Los formatos que se aceptan son: %{types}'
         proposal:
           attributes:
             add_documents:
@@ -197,6 +197,7 @@ es:
             automatic_hashtags: Hashtags añadidos a todas las propuestas.
             comments_blocked: Comentarios bloqueados
             creation_enabled: Las participantes pueden crear propuestas
+            creation_enabled_readonly: Esta opción se desactiva cuando activas la funcionalidad de Textos Participativos. Para subir propuestas como texto participativo haz clic en el botón Textos Participativos y sigue las instrucciones.
             default_sort_order: Orden predeterminado de propuestas
             default_sort_order_help: Por defecto significa que si los apoyos están habilitados, las propuestas se mostrarán en orden aleatorio, y si los apoyos están bloqueados, se ordenarán por las más apoyadas.
             default_sort_order_options:
@@ -225,33 +226,33 @@ es:
             email_subject: Alguien dejó una nota en la propuesta %{resource_title}.
             notification_title: Alguien ha dejado una nota en la propuesta <a href="%{resource_path}">%{resource_title}</a>. Revísala ahora a través del <a href="%{admin_proposal_info_path}">panel de administración</a>
         collaborative_draft_access_accepted:
-          email_intro: '%{requester_name} ha sido aceptada para acceder como contribuidora del borrador colaborativo de <a href="%{resource_path}">%{resource_title}</a>.'
-          email_outro: Has recibido esta notificación porque eres contribuidora de <a href="%{resource_path}">%{resource_title}</a>.
+          email_intro: '%{requester_name} ha sido aceptada para acceder como contribuidora del borrador colaborativo <a href="%{resource_url}">%{resource_title}</a>.'
+          email_outro: Has recibido esta notificación porque eres una contribuidora de <a href="%{resource_url}">%{resource_title}</a>.
           email_subject: "%{requester_name} ha sido aceptada para acceder como contribuidora de %{resource_title}."
           notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> ha sido <strong>aceptada para acceder como contribuidora</strong> del borrador colaborativo <a href="%{resource_path}">%{resource_title}</a>.
         collaborative_draft_access_rejected:
-          email_intro: '%{requester_name} ha sido rechazado para acceder como contribuidora del borrador colaborativo de <a href="%{resource_path}">%{resource_title}</a>.'
-          email_outro: Has recibido esta notificación porque eres contribuidora de <a href="%{resource_path}">%{resource_title}</a>.
+          email_intro: 'Se ha denegado que %{requester_name} acceda como contribuidora del borrador colaborativo <a href="%{resource_url}">%{resource_title}</a>.'
+          email_outro: Has recibido esta notificación porque eres una contribuidora de <a href="%{resource_url}">%{resource_title}</a>.
           email_subject: "%{requester_name} ha sido rechazado para acceder como contribuidora del borrador colaborativo %{resource_title}."
           notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> ha sido <strong>rechazado para acceder como contribuidora</strong> del borrador colaborativo <a href="%{resource_path}">%{resource_title}</a>.
         collaborative_draft_access_requested:
-          email_intro: '%{requester_name} ha solicitado acceso como contribuidora. Puede <strong>aceptar o rechazar la solicitud</strong> de la página de borrador colaborativo de <a href="%{resource_path}">%{resource_title}</a>.'
-          email_outro: Has recibido esta notificación porque eres contribuidora de <a href="%{resource_path}">%{resource_title}</a>.
+          email_intro: '%{requester_name} ha solicitado acceso como contribuidora. Puede <strong>aceptar o rechazar la solicitud</strong> de la página de borrador colaborativo de <a href="%{resource_url}">%{resource_title}</a>.'
+          email_outro: Has recibido esta notificación porque eres contribuidora de <a href="%{resource_url}">%{resource_title}</a>.
           email_subject: "%{requester_name} ha solicitado acceso para contribuir a %{resource_title}."
           notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> solicitó acceso para contribuir al borrador colaborativo <a href="%{resource_path}">%{resource_title}</a>. Por favor, <strong>acepta o rechaza la solicitud</strong>.
         collaborative_draft_access_requester_accepted:
-          email_intro: Has sido aceptada para acceder como contribuidora del borrador colaborativo <a href="%{resource_path}">%{resource_title}</a>.
-          email_outro: Has recibido esta notificación porqué has solicitado ser contribuidora de <a href="%{resource_path}">%{resource_title}</a>.
+          email_intro: Has sido aceptada para acceder como contribuidora del borrador colaborativo <a href="%{resource_url}">%{resource_title}</a>.
+          email_outro: Has recibido esta notificación porque has solicitado ser contribuidora de <a href="%{resource_url}">%{resource_title}</a>.
           email_subject: Has sido aceptada como contribuidora de %{resource_title}.
           notification_title: Has sido aceptada <strong>acceder como contribuidora</strong> del borrador colaborativo <a href="%{resource_path}">%{resource_title}</a>.
         collaborative_draft_access_requester_rejected:
-          email_intro: Ha sido rechazada para acceder como contribuidora del borrador colaborativo <a href="%{resource_path}">%{resource_title}</a>.
-          email_outro: Has recibido esta notificación porque has solicitado ser contribuidora de <a href="%{resource_path}">%{resource_title}</a>.
+          email_intro: Ha sido rechazada para acceder como contribuidora del borrador colaborativo <a href="%{resource_url}">%{resource_title}</a>.
+          email_outro: Has recibido esta notificación porque has solicitado ser contribuidora de <a href="%{resource_url}">%{resource_title}</a>.
           email_subject: Has sido rechazada como contribuidora de %{resource_title}.
           notification_title: Has sido <strong>rechazada como contribuidora</strong> del borrador colaborativo <a href="%{resource_path}">%{resource_title}</a>.
         collaborative_draft_withdrawn:
-          email_intro: <a href="%{author_path}">%{author_name} %{author_nickname}</a> ha retirado el borrador colaborativo <a href="%{resource_path}">%{resource_title}</a>.
-          email_outro: Has recibido esta notificación porque eres una contribuidora de <a href="%{resource_path}">%{resource_title}</a>.
+          email_intro: <a href="%{author_url}">%{author_name} %{author_nickname}</a> ha retirado el borrador colaborativo <a href="%{resource_url}">%{resource_title}</a>.
+          email_outro: Has recibido esta notificación porque eres contribuidora de <a href="%{resource_url}">%{resource_title}</a>.
           email_subject: "%{author_name} %{author_nickname} ha retirado el borrador colaborativo %{resource_title}."
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> <strong>ha retirado</strong> el borrador colaborativo <a href="%{resource_path}">%{resource_title}</a>.
         creation_enabled:
@@ -455,6 +456,7 @@ es:
             accepted: Aceptadas
             answer_proposal: Respuesta
             evaluating: En evaluación
+            not_answered: No contestada
             rejected: Rechazada
             title: Responder a la propuesta %{title}
         proposal_notes:
@@ -657,6 +659,8 @@ es:
           filter_by: Filtrar por
           unfold: Desplegar
         new:
+          add_file: Añadir archivo
+          edit_file: Editar fichero
           send: Continuar
         new_collaborative_draft_button:
           new_collaborative_draft: Nuevo borrador colaborativo
@@ -767,8 +771,12 @@ es:
           description: Las coordenadas se actualizarán cuando hagas clic en el botón 'previsualizar'. Sin embargo, la dirección no cambia.
           instructions: Puedes mover la ubicación en el mapa.
         edit:
+          add_documents: Añadir documentos
+          add_image: Añadir imagen
           attachment_legend: "(Opcional) Agregar un archivo adjunto"
           back: Volver
+          edit_documents: Editar documentos
+          edit_image: Editar imagen
           gallery_legend: "(Opcional) Añadir una imagen a la tarjeta de propuesta"
           select_a_category: Por favor, selecciona una categoría
           send: Enviar
@@ -810,7 +818,7 @@ es:
             other: apoyos
         new:
           send: Continuar
-          title: Crear tu propuesta
+          title: Crea tu propuesta
         orders:
           label: 'Ordenar propuestas por:'
           most_commented: Más comentadas

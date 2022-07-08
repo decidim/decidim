@@ -73,7 +73,7 @@ fr:
         assembly:
           attributes:
             document:
-              invalid_document_type: 'Type de document invalide. Les formats acceptés sont : %{valid_mime_types}'
+              allowed_file_content_types: 'Type de document invalide. Les formats acceptés sont: %{types}'
   activerecord:
     models:
       decidim/assembly:
@@ -242,6 +242,9 @@ fr:
     admin_log:
       assembly:
         create: "%{user_name} a créé l'assemblée %{resource_name}"
+        duplicate: "%{user_name} a dupliqué l'assemblée %{resource_name}"
+        export: "%{user_name} a exporté l'assemblée %{resource_name}"
+        import: "%{user_name} a importé l'assemblée %{resource_name}"
         publish: "%{user_name} a publié l'assemblée %{resource_name}"
         unpublish: "%{user_name} a dépublié l'assemblée %{resource_name}"
         update: "%{user_name} a mis à jour l'assemblée %{resource_name}"
@@ -389,7 +392,7 @@ fr:
         related_participatory_processes: Concertations associées
         scope: Périmètre d'application
         social_networks: Réseaux sociaux
-        social_networks_title: Partager cette assemblée sur
+        social_networks_title: Visiter l'assemblée sur
         target: Participants
     assembly_members:
       assembly_member:
@@ -400,7 +403,7 @@ fr:
       assemblies:
         create_assembly_member:
           email_intro: Un administrateur de l'assemblée <a href="%{resource_url}">%{resource_name}</a> vous y a ajouté en tant que membre.
-          email_outro: Vous avez reçu cette notification parce que vous avez été invité à rejoindre une assemblée. Consultez <a href="%{resource_path}">la page de l'assemblée</a> pour y contribuer !
+          email_outro: Vous avez reçu cette notification parce que vous avez été invité à rejoindre une assemblée. Consultez <a href="%{resource_url}">la page de l'assemblée</a> pour y contribuer !
           email_subject: Vous avez été invité à être membre de l'assemblée %{resource_name}!
           notification_title: Vous avez été inscrit en tant que membre de l'assemblée <a href="%{resource_path}">%{resource_name}</a>. Consultez la <a href="%{resource_path}">page de l'assemblée</a> pour contribuer !
       assembly:

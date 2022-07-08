@@ -21,12 +21,15 @@ module Decidim
         def call
           return broadcast(:invalid) if @form.invalid?
 
-          Decidim::Meetings::Questionnaire.transaction do
-            create_questionnaire_for
-            create_questionaire
-            if @questionnaire.questions_editable?
-              update_questionnaire_questions
-              delete_answers
+          Decidim.traceability.perform_action!("update", Decidim::Meetings::Questionnaire, @form.current_user, { meeting: @questionnaire.questionnaire_for.try(:meeting) }) do
+            Decidim::Meetings::Questionnaire.transaction do
+              create_questionnaire_for
+              create_questionaire
+              if @questionnaire.questions_editable?
+                update_questionnaire_questions
+                delete_answers
+              end
+              @questionnaire
             end
           end
 

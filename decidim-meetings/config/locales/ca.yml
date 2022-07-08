@@ -100,7 +100,7 @@ ca:
           with_any_type:
             label: Tipus de trobada
             values:
-              hybrid: Ambdós
+              hybrid: Híbrida
               in_person: Presencial
               online: En línia
       meeting_copies:
@@ -184,7 +184,7 @@ ca:
           notification_title: La trobada <a href="%{resource_path}">%{resource_title}</a> començarà en menys de 48 hores.
     forms:
       meetings:
-        attendees_count_help_text: No oblidis incloure el nombre total d'assistents a la teva trobada, ja sigui presencial, en línia o híbrida.
+        attendees_count_help_text: No t'oblidis d'afegir el número total d'assistents a la trobada, sigui presencial, en línia o híbrida.
     gamification:
       badges:
         attended_meetings:
@@ -311,7 +311,7 @@ ca:
             select_a_meeting_type: Si us plau selecciona un tipus de trobada
             select_a_registration_type: Si us plau selecciona un tipus d'inscripció
             select_an_iframe_access_level: Si us plau, selecciona el nivell d'accés a l'iframe
-            show_embedded_iframe_help: Només uns quants serveis es poden incrustar a una trobada o esdeveniment en directe (YouTube, Twitch i Jitsi)
+            show_embedded_iframe_help: 'Només uns quants serveis es poden incrustar a una trobada o esdeveniment en directe des dels següents dominis: %{domains}'
           index:
             title: Trobades
           new:
@@ -382,6 +382,8 @@ ca:
           value_types:
             organizer_presenter:
               not_found: 'L''organitzador no s''ha trobat a la base de dades (identificació: %{id})'
+        questionnaire:
+          update: "%{user_name} ha actualitzat el qüestionari per a la trobada %{meeting_name}"
       application_helper:
         filter_category_values:
           all: Totes
@@ -392,7 +394,19 @@ ca:
       calendar_modal:
         calendar_url: URL del calendari
         close_window: Tanca la finestra
+        copy_calendar_url: Copiar
+        copy_calendar_url_clarification: Copiar l'URL del calendari al porta-retalls
+        copy_calendar_url_copied: Copiat!
+        copy_calendar_url_description: Pots veure totes les reunions publicades a la teva aplicació o preveïdor de calendari. Copia i enganxa aquesta URL al teu calendari fent servir l'opció "Afegir nou calendari des d'una URL".
+        copy_calendar_url_explanation: Tingues en compte que estàs exportant una selecció de reunions, ja que hi ha filtres activats. Si vols exportar-les totes, primer elimina tots els filtres.
+        copy_calendar_url_message: S'ha copiat l'enllaç al porta-retalls correctament.
         export_calendar: Exporta el calendari
+      close_meeting_reminder_mailer:
+        close_meeting_reminder:
+          body: La trobada <a href="%{meeting_path}">"%{meeting_title}"</a> està pendent de tancar-se. Si us plau, afegiu un informe de la reunió fent servir el botó "Tancar trobada".
+          greetings: Hola,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
+          hello: Hola %{username},
+          subject: Ara pots tancar la trobada amb un informe a la plataforma %{organization_name}
       conference_venues: Seus de les jornades
       content_blocks:
         upcoming_meetings:
@@ -475,7 +489,7 @@ ca:
           type: Tipus
           type_values:
             all: Totes
-            hybrid: Ambdues
+            hybrid: Híbrida
             in_person: Presencial
             online: En línia
         filters_small_view:
@@ -496,7 +510,7 @@ ca:
           select_a_meeting_type: Si us plau selecciona un tipus de trobada
           select_a_registration_type: Si us plau selecciona un tipus d'inscripció
           select_an_iframe_access_level: Si us plau, selecciona el nivell d'accés a l'iframe
-          show_embedded_iframe_help: Només uns quants serveis es poden incrustar a una trobada o esdeveniment en directe (YouTube, Twitch i Jitsi)
+          show_embedded_iframe_help: 'Només uns quants serveis es poden incrustar a una trobada o esdeveniment en directe des dels següents dominis: %{domains}'
         index:
           click_here: Veure totes les trobades
           new_meeting: Nova trobada
@@ -524,11 +538,11 @@ ca:
           edit_close_meeting: Editeu l'informe de la reunió
           edit_meeting: Editar la trobada
           going: T'has inscrit en aquesta trobada
-          join: Inscriu-te a la trobada
+          join: Unir-se a la trobada
           leave: Cancel·la la teva inscripció
           leave_confirmation: Segur que vols cancel·lar la teva inscripció a aquesta trobada?
           link_available_soon: Enllaç disponible pròximament
-          link_closed: L'enllaç a la trobada estarà disponible uns minuts abans de que comenci
+          link_closed: L'enllaç a la sala de videoconferència estarà disponible uns minuts abans que comenci
           live_event: Aquesta trobada està succeint ara mateix
           meeting_minutes: Acta de la trobada
           micro_camera_permissions_warning: Quan facis clic en el botó de sota, se't demanaran permisos per al micròfon i/o la càmera, i t'uniràs a la videoconferència
@@ -566,7 +580,7 @@ ca:
           fields:
             closed: Tancada
             end_time: Data de finalització
-            id: Id
+            id: ID
             map: Mapa
             official_meeting: Trobada oficial
             start_time: Data d'inici
@@ -617,7 +631,7 @@ ca:
           invalid: S'ha produït un error en abandonar aquesta trobada.
           success: Has abandonat la trobada amb èxit.
       type_of_meeting:
-        hybrid: Ambdues
+        hybrid: Híbrida
         in_person: Presencial
         online: Online
       types:

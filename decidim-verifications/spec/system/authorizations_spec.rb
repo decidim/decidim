@@ -21,7 +21,7 @@ describe "Authorizations", type: :system, with_authorization_workflows: ["dummy_
 
         within "form.new_user" do
           fill_in :session_user_email, with: user.email
-          fill_in :session_user_password, with: "decidim123456"
+          fill_in :session_user_password, with: "decidim123456789"
           find("*[type=submit]").click
         end
       end
@@ -51,7 +51,7 @@ describe "Authorizations", type: :system, with_authorization_workflows: ["dummy_
 
         within "form.new_user" do
           fill_in :session_user_email, with: user.email
-          fill_in :session_user_password, with: "decidim123456"
+          fill_in :session_user_password, with: "decidim123456789"
           find("*[type=submit]").click
         end
       end

@@ -20,7 +20,7 @@ module Decidim
     attribute :about
 
     validates :name, presence: true
-    validates :email, presence: true, 'valid_email_2/email': { disposable: true }
+    validates :email, presence: true, "valid_email_2/email": { disposable: true }
     validates :nickname, presence: true, format: Decidim::User::REGEXP_NICKNAME
 
     validates :nickname, length: { maximum: Decidim::User.nickname_max_length, allow_blank: true }
@@ -50,7 +50,7 @@ module Decidim
     end
 
     def unique_email
-      return true if Decidim::User.where(
+      return true if Decidim::UserBaseEntity.where(
         organization: context.current_organization,
         email: email
       ).where.not(id: context.current_user.id).empty?
@@ -60,7 +60,7 @@ module Decidim
     end
 
     def unique_nickname
-      return true if Decidim::User.where(
+      return true if Decidim::UserBaseEntity.where(
         "decidim_organization_id = ? AND LOWER(nickname) = ? ",
         context.current_organization.id,
         nickname.downcase

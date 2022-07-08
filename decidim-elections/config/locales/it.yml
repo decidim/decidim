@@ -12,7 +12,6 @@ it:
         start_time: La votazione inizia il
         title: Titolo
       question:
-        description: Descrizione
         max_selections: Numero massimo di selezioni
         min_selections: Nessuna delle precedenti opzioni
         title: Titolo
@@ -227,7 +226,6 @@ it:
               minimum_answers: Le domande devono avere <strong>almeno due risposte</strong>.
               minimum_questions: Le elezioni <strong>devono avere almeno un quesito</strong>.
               published: L'elezione non è <strong>pubblicata</strong>.
-              time_before: L'ora di inizio è in <strong>meno di 3 ore</strong> prima dell'inizio delle elezioni.
               trustees_number: Lo spazio partecipativo <strong>deve avere almeno %{number} fiduciari con chiave pubblica</strong>.
             invalid: Si è verificato un errore durante la creazione di questa elezione
             no_trustees: Non ci sono Fiduciari configurati per questo spazio partecipativo
@@ -273,8 +271,6 @@ it:
             selected: Selezionato
             submit: Invia
             title: Risultati pubblicati
-          tally:
-            title: Conteggio
           tally_ended:
             answer: Risposta
             not_selected: Non selezionato
@@ -519,24 +515,13 @@ it:
             title: Ripristina le chiavi elettorali per %{election}
             upload_election_keys: Carica chiavi elettorali
             upload_icon: Icona che indica un'azione di download
-          tally_steps:
-            back: Indietro
+          tally_started_steps:
             description: I risultati di queste elezioni sono in fase di elaborazione nel Bulletin Board. Per completare questo processo, è necessaria la tua partecipazione come Garante.
             keys:
               end_tally: Conteggio terminato
               tally:
                 cast: Invio del conteggio
                 share: Condivisione del conteggio
-            list:
-              status: Stato
-              task: Task
-            process_warning: Una volta avviato il processo, non si dovrebbe uscire da questa pagina fino alla fine dello stesso. Ci vorranno diversi minuti, poiché tutti i Garanti dovrebbero essere collegati per completarlo.
-            start: Avvia
-            start_icon: Icona che indica un pulsante avvia per avviare la generazione delle chiavi elettorali
-            status:
-              completed: Completato
-              pending: In attesa di completamento
-              processing: Elaborazione in corso
             title: Conteggio di %{election}
           update:
             error: Lo stato delle elezioni non è stato aggiornato.
@@ -585,7 +570,6 @@ it:
           audit: "( Voto di controllo )"
           back: Inizia nuovamente il processo di voto
           ballot_hash: 'Il tuo identificativo elettorale è:'
-          cast: Votare
           description: Qui, hai l'opzione di votare in modo che il tuo voto sia conteggiato correttamente o, in alternativa, di controllare che il tuo voto sia stato crittografato correttamente. Per motivi di sicurezza, controllare il tuo voto lo cancellerá, il che significa, che per esprimerlo, sarà necessario ripetere il processo di votazione.
           header: 'Il voto è criptato: confermalo o controllalo'
         casting:
@@ -883,7 +867,6 @@ it:
           edit:
             change_polling_station: Torna ai Seggi Elettorali
             monitoring_committee_notes: Commenti
-            monitoring_committee_notes_placeholder: Segnala qualsiasi incidenza qui
             title: Risultati dell'elezione <i>%{election_title}</i> nel seggio elettorale <i>%{polling_station_title}</i>
           elections:
             title: Scegli un'elezione che vuoi convalidare
@@ -1018,7 +1001,6 @@ it:
               info_message: "<strong>Attendere</strong>, elaborato %{processed_count} di %{raw_count} righe dal file %{file}."
             delete:
               button: Elimina tutti i dati del censimento
-              confirm: L'azione di eliminazione di tutti i censimenti non può essere annullato. Sei sicuro di voler continuare?
             destroy:
               error: Si è verificato un errore durante l'eliminazione del censimento, riprova più tardi.
               success: Dati censimento eliminati
@@ -1026,7 +1008,6 @@ it:
               button: Esporta codici di accesso alle votazioni
               callout: Ora puoi procedere all'esportazione dei codici di accesso. Questo può essere fatto solo una volta. Una volta avviata l'esportazione, riceverai un'email con le istruzioni all'indirizzo <strong>%{email}</strong>
               confirm: Puoi esportare i codici di accesso solo una volta. Assicurati di avere accesso all'indirizzo <strong>%{email}</strong>.
-              file_not_exists: Questo file non esiste
               launch_error: Problema nel lanciare l'esportazione dei codici di accesso
               launch_success: Esportazione codici di accesso avviata. A breve riceverai un'email all'indirizzo %{email}
             exporting_access_codes:
@@ -1051,7 +1032,6 @@ it:
               has_ballot_styles_message: Hai impostato la modalità di voto. Assicurati che il campo "%{ballot_style_code_header}" nel CSV corrisponda al codice desiderato della modalità di voto.
               info_message: "<strong>Non c'è ancora nessun censimento.</strong> Si prega di utilizzare il modulo sottostante per crearlo importando un file CSV."
               missing_ballot_styles_message: 'Non c''è ancora una modalità di voto per questa votazione. Se desideri avere domande condizionate (i.e.: mostrare agli elettori domande diverse, in base al quartiere/regione di residenza), è necessario impostare lo stile <a href=%{ballot_styles_admin_path}>Modalità di voto</a> <strong>prima</strong> di importare il censimento. Se si desidera mostrare a tutti gli elettori le stesse domande, è possibile procedere con la procedura di importazione del censimento.'
-              submit: Invia csv
               title: Crea il censimento
             show:
               heading: Censimento dello spazio vuoto
@@ -1077,8 +1057,6 @@ it:
           name: Votazioni evidenziate
         landing_page:
           description:
-            show_less: Mostra meno
-            show_more: Continua a leggere
             title: Informazioni su questa votazione
           metrics:
             heading: Statistiche
@@ -1132,7 +1110,6 @@ it:
             modal_ballots_count_error:
               btn_validate_total: Convalida il totale delle votazioni
               close_modal: Chiudi
-              info_explanation_text: 'Si prega di rivedere il numero totale di voti. Se il numero totale è corretto, è necessario fornire una spiegazione per il comitato di sorveglianza:'
               info_text: Il numero totale di schede (buste) introdotte non corrisponde al record di persone che hanno votato in questa Polling Station.
               message_for_monitoring_committee: Messaggio per il comitato di sorveglianza
               review_recount: Rivedi il conto
@@ -1163,11 +1140,9 @@ it:
         in_person_votes:
           complete_voting:
             available_answers: 'Risposte disponibili:'
-            census_verified: L'utente non ha ancora votato.
             complete_voting: Completa la votazione
             identify_another: Identificare un altro utente
             questions_title: 'Ha diritto di voto nelle seguenti domande:'
-            questions_title_voted: 'Il partecipante ha già votato online e ha diritto a votare nelle seguenti domande:'
             voted: L'utente ha votato
           create:
             error: La votazione non è stata registrata. Per favore riprova.
@@ -1256,13 +1231,10 @@ it:
         check_census:
           check_status: Verifica stato
           description: Qui, hai la possibilità di controllare i tuoi dati di censimento per sapere se hai il diritto di partecipare a questa votazione. Dovresti avere già un codice di accesso, ma se lo hai perso, puoi chiederlo di nuovo, quando i tuoi dati sono corretti.
-          error:
-            info: 'Per favore riprova. Se pensi che i dati nel sistema non siano corretti, puoi segnalarli qui: %{census_contact_information}.'
-            title: I dati del censimento non sono corretti!
           form_title: 'Compila il seguente modulo per controllare i dati del censimento:'
           invalid: Si è verificato un errore nel controllare il censimento.
           success:
-            access_link: via SMS o e-mail.
+            access_link_with_sms: via SMS o e-mail.
             info: Avresti già dovuto ricevere il tuo Codice di Accesso per posta postale. Nel caso in cui non lo avessi puoi richiederlo qui
             title: I tuoi dati di censimento sono corretti!
           title: Posso votare?

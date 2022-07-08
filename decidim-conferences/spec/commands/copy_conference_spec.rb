@@ -42,7 +42,7 @@ module Decidim::Conferences
 
     context "when everything is ok" do
       it "duplicates an conference" do
-        expect { subject.call }.to change { Decidim::Conference.count }.by(1)
+        expect { subject.call }.to change(Decidim::Conference, :count).by(1)
 
         old_conference = Decidim::Conference.first
         new_conference = Decidim::Conference.last
@@ -71,7 +71,7 @@ module Decidim::Conferences
       let(:copy_categories) { true }
 
       it "duplicates a conference and the categories" do
-        expect { subject.call }.to change { Decidim::Category.count }.by(1)
+        expect { subject.call }.to change(Decidim::Category, :count).by(1)
         expect(Decidim::Category.unscoped.distinct.pluck(:decidim_participatory_space_id).count).to eq 2
 
         old_conference_category = Decidim::Category.unscoped.first
@@ -91,7 +91,7 @@ module Decidim::Conferences
         component.manifest.on :copy, &dummy_hook
         expect(dummy_hook).to receive(:call).with({ new_component: an_instance_of(Decidim::Component), old_component: component })
 
-        expect { subject.call }.to change { Decidim::Component.count }.by(1)
+        expect { subject.call }.to change(Decidim::Component, :count).by(1)
 
         last_conference = Decidim::Conference.last
         last_component = Decidim::Component.all.reorder(:id).last

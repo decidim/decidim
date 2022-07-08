@@ -12,7 +12,6 @@ eu:
         start_time: Bozketaren hasiera-data
         title: Izenburua
       question:
-        description: Deskribapena
         max_selections: Gehieneko aukera kopurua
         min_selections: Aurreko bat ere ez
         title: Izenburua
@@ -227,7 +226,6 @@ eu:
               minimum_answers: Galderek gutxienez eduki behar dituzte <strong> bi erantzun </strong>.
               minimum_questions: <strong>aukerak gutxienez </strong> galdera bat eduki behar du.
               published: <strong>aukera ez dago argitaratuta </strong>.
-              time_before: Hasierako ordua hemen dago <strong>3 ordu baino gutxiago</strong> bozketa hasi baino lehen.
               trustees_number: <strong> espazio parte-hartzaileak gutxienez eduki behar du %{number} bermatzaile gako publikoarekin </strong>.
             invalid: Arazo bat izan da aukera hau konfiguratzean
             no_trustees: Ez dago bermatzaile konfiguraturik espazio parte-hartzaile honetarako
@@ -273,10 +271,6 @@ eu:
             selected: Hautatua
             submit: Bidali
             title: Argitaratutako emaitzak
-          tally:
-            continue: Jarraitu
-            mark_as_missing: Marka desagertu da
-            title: Zenbatzeko prozesua
           tally_ended:
             answer: Erantzuna
             not_selected: Ez hautatua
@@ -286,6 +280,8 @@ eu:
             submit: Argitaratu emaitzak
             success: 'Emaitzak argitaratzeko eskaera zuzen bidali da hona: Iragarki Taula'
             title: Kalkulatutako emaitzak
+          tally_started:
+            mark_as_missing: Marka desagertu da
           vote:
             errors:
               time_after: Bozketa oraindik ez dago martxan. (%{end_time}) amaierako ordura arte itxaron behar duzu bozketaldia amaitzeko.
@@ -506,24 +502,13 @@ eu:
             title: Berriztu gakoak %{election} aukerarako
             upload_election_keys: Igo aukeraren gakoak
             upload_icon: Ikonoak deskargatzeko ekintza adierazten du
-          tally_steps:
-            back: Atzera
+          tally_started_steps:
             description: Aukera horren emaitzak Iragarki Taulan kalkulatzen ari dira. Prozesu hori osatzeko, bermatzaile gisa parte hartu behar duzu.
             keys:
               end_tally: Zenbaketa amaituta
               tally:
                 cast: Zenbaketa bidaltzea
                 share: Zenbaketa partekatzea
-            list:
-              status: Egoera
-              task: Eginkizuna
-            process_warning: Prozesua hasi ondoren, ez duzu orrialde honetatik atera behar prozesua amaitu arte. Zenbait minutu beharko ditu, bermatzaile guztiek konektatuta egon behar baitute hura osatzeko.
-            start: Hasi
-            start_icon: Ikonoak hasteko botoia adierazten du aukera bateko gakoak sortzen hasteko
-            status:
-              completed: Osatuta
-              pending: Zain
-              processing: Prozesatzen
             title: Zenbaketa %{election} aukerarako
           update:
             error: Aukeraketaren egoera ez zen eguneratu.
@@ -572,7 +557,6 @@ eu:
           audit: "( Ikuskatu boto-papera )"
           back: Hasi berriro bozkatzeko prozesua
           ballot_hash: 'Boto-paperaren identifikatzailea hau da:'
-          cast: Egin boto-papera
           description: Hemen dituzu zure boto-papera emateko aukerak, behar bezala zenbatzeko edo, bestela, zure boto-papera behar bezala zifratu zela auditatu dezakezu. Segurtasun-arrazoiak direla eta, boto-txartelaren ikuskaritzak hondatu egingo du, eta horrek esan nahi du bozketa-prozesua berriz hasi beharko duzula botoa emateko.
           header: 'Boto-papera zifratu da: bidali edo ikuskatu'
         casting:
@@ -868,7 +852,6 @@ eu:
           edit:
             change_polling_station: Itzuli bozketa-guneetara
             monitoring_committee_notes: Oharrak
-            monitoring_committee_notes_placeholder: Eman edozein gorabeheraren berri hemen
             title: Emaitzak <i>%{election_title}</i> aukerarako <i>%{polling_station_title}</i> bozketa-gunean
           elections:
             title: Hautatu aukera bat baliozkotzeko
@@ -1003,7 +986,6 @@ eu:
               info_message: "<strong>Mesedez itxaron</strong>, %{processed_count} prozesatuak %{raw_count} tik %{file} fitxeroko ilara."
             delete:
               button: Ezabatu erroldako datu guztiak
-              confirm: Errolda osoa ezabatzea ezin da desegin. Ziur zaude jarraitu nahi duzula?
             destroy:
               error: Arazo bai izan da errolda ezabatzean, mesedez, saiatu berriro geroago.
               success: Erroldako datuak ezabatuta
@@ -1011,7 +993,6 @@ eu:
               button: Esportatu bozketaren Sartzeko Kodeak
               callout: Orain sartzeko kodeak esportatu ahal dituzu. Hori behin baino ezin da egin. Behin esportazioa hasita, posta elektroniko bat jasoko duzu, bertan jarraibideak <strong>%{email}</strong>
               confirm: Sartzeko kodeak behin baino ezin dituzu esportatu. Ziurtatu <strong>%{email}</strong> posta elektronikoan sarbidea duzula.
-              file_not_exists: Artxibo hau ez dago
               launch_error: Arazoa sartzeko kodeak esportatzen hastean
               launch_success: 'Sartzeko kodeen esportazioa hasi egin da. Laster posta elektroniko bat jasoko duzu hemen: %{email}'
             exporting_access_codes:
@@ -1035,7 +1016,6 @@ eu:
                 message_2: Zutabeen arteko banatzailea puntu eta koma (";") izan behar da.
               has_ballot_styles_message: Boto-paper motak konfiguratu dituzu. Mesedez, ziurtatu CSVren "%{ballot_style_code_header}" eremua eta nahi duzun boto-paper motaren kodea bat datozela.
               info_message: "<strong>Oraindik ez dago erroldarik.</strong> Mesedez, erabili hurrengo galdetegia sortzeko CSV batetik inportatuz."
-              submit: Bidali csv
               title: Sortu errolda
             show:
               heading: Bozketa-gunearen errolda
@@ -1060,9 +1040,6 @@ eu:
         highlighted_votings:
           name: Bozketa nabarmenduak
         landing_page:
-          description:
-            show_less: Irakurri gutxiago
-            show_more: Irakurri gehiago
           metrics:
             heading: Metrikak
           polling_stations:
@@ -1115,7 +1092,6 @@ eu:
             modal_ballots_count_error:
               btn_validate_total: Baliozkotu boto-paperen zenbaketa osoa
               close_modal: Itxi
-              info_explanation_text: 'Mesedez, berrikusi boto-txartel guztiak. Kopuru osoa zuzena bada, azalpen bat eman behar diozu Jarraipen Batzordeari:'
               info_text: Sartutako boto-paperen kopurua (gutun-azalak) gutira, ez dator bat bozketa-gune honetan botoa eman duten pertsonen erregistroarekin.
               message_for_monitoring_committee: Mezua Jarraipen Batzordearentzat
               review_recount: Berrikusi zenbaketa
@@ -1146,11 +1122,9 @@ eu:
         in_person_votes:
           complete_voting:
             available_answers: 'Erantzun eskuragarriak:'
-            census_verified: Parte-hartzaileak oraindik ez du botoa eman.
             complete_voting: Osatu bozketa
             identify_another: Identifikatu beste parte-hartzaile bat
             questions_title: 'Botoa emateko eskubidea du ondoko galdera hauetan:'
-            questions_title_voted: 'Parte-hartzaileak dagoeneko lineako botoa eman du eta botoa emateko eskubidea du ondoko galdera hauetan:'
             voted: Parte-hartzaileak botoa eman du
           create:
             error: Botoa ez da erregistratu. Mesedez, saiatu berriro.
@@ -1239,13 +1213,10 @@ eu:
         check_census:
           check_status: Egiaztatu egoera
           description: Hemen, zure erroldako datuak egiaztatzeko aukera duzu, bozketan parte hartzeko eskubidea duzun jakiteko. Sarbide-kode bat izan beharko zenuke, baina galdu baduzu, berriro eska dezakezu, zure datuak zuzenak badira.
-          error:
-            info: 'Mesedez, saiatu berriro. Sistemaren datuak okerrak direla uste baduzu, hemen bidali ahal dituzu: %{census_contact_information}.'
-            title: Zure erroldako datuak okerrak dira!
           form_title: 'Bete ondoko galdetegia zure erroldako datuak egiaztatzeko:'
           invalid: Arazo bat izan da errolda egiaztatzean.
           success:
-            access_link: sMSz edo posta elektronikoz.
+            access_link_with_sms: sMSz edo posta elektronikoz.
             info: Zure sarbide-kodea postaz jasota izan beharko zenuke. Ez baduzu, hemen eska dezakezu
             title: Zure erroldako datuak zuzenak dira!
           title: Botoa eman dezaket?

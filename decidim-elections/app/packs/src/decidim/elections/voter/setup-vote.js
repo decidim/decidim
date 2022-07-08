@@ -1,5 +1,7 @@
 /* eslint-disable require-jsdoc */
 
+// show a message to the user if comunication is lost
+import "src/decidim/elections/broken_promises_handler";
 import { VoteComponent } from "@decidim/decidim-bulletin_board";
 
 import * as VotingSchemesDummy from "@decidim/voting_schemes-dummy";
@@ -48,3 +50,4 @@ export default function setupVoteComponent($voteWrapper) {
 
 window.Decidim = window.Decidim || {};
 window.Decidim.setupVoteComponent = setupVoteComponent;
+

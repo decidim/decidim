@@ -13,8 +13,11 @@ ca:
         decidim_scope_id: Àmbit
         description: Descripció
         proposal_ids: Propostes relacionades
+        proposals: Propostes
         selected: Seleccionat per implementar
         title: Títol
+      proposals_import:
+        scope_id: Àmbit
   activerecord:
     models:
       decidim/budgets/project:
@@ -85,23 +88,50 @@ ca:
             title: Editar projecte
             update: Actualitzar
           index:
+            actions: Accions
+            cancel: Cancel·lar
+            change_category: Canviar categoria
+            change_scope: Canviar àmbit
+            change_selected: Canviar la selecció
+            deselect_implementation: Deseleccionar
             finished_orders: Vots finalitzats
             pending_orders: Vots en procés
+            select_for_implementation: Seleccionar
             selected: Seleccionat
             title: Projectes
+            update: Actualitzar
+            update_scope_button: Actualitzar àmbit
           new:
             create: Crear
             title: Nou projecte
           update:
             invalid: S'ha produït un error en actualitzar aquest projecte
             success: Projecte actualitzat correctament
+          update_category:
+            invalid: 'Aquestes propostes ja tenien la categoria %{subject_name}: %{projects}.'
+            select_a_category: Si us plau, selecciona una categoria
+            select_a_project: Si us plau, selecciona un projecte
+            success: 'Els projectes s''han actualitzat correctament a la categoria %{subject_name}: %{projects}.'
+          update_scope:
+            invalid: 'Aquests projectes ja estaven assignats a l''àmbit %{subject_name}: %{projects}.'
+            select_a_project: Si us plau, selecciona un projecte
+            select_a_scope: Si us plau, selecciona un àmbit
+            success: 'Els projectes s''han actualitzat correctament a l''àmbit %{subject_name}: %{projects}.'
+          update_selected:
+            invalid: 'Aquests projectes ja estaven seleccionats: %{projects}.'
+            select_a_project: Si us plau, selecciona un projecte
+            select_a_selection: Si us plau, fes una selecció
+            success: 'Selecció de projectes modificada correctament: %{projects}.'
         proposals_imports:
           create:
             invalid: S'ha produït un error en importar les propostes en projectes
             success: "S'ha importat amb èxit %{number} propostes en projectes"
           new:
             create: Importa propostes a projectes
+            default_budget: Pressupost per defecte
+            import_all_accepted_proposals: Importar totes les propostes acceptades
             no_components: No hi ha cap component de propostes en aquest espai participatiu per importar les propostes a projectes.
+            origin_component_id: Component d'origen
             select_component: Selecciona un component
             title: Importar propostes
         reminders:
@@ -141,6 +171,8 @@ ca:
         show: Mostra els projectes
         vote: Vota
         voted_on: Has votat a %{links}
+      last_activity:
+        new_vote_at_html: "<span>Nova votació pressupostària a %{link}</span>"
       limit_announcement:
         cant_vote: No pots votar a aquests pressupostos. <a href="%{landing_path}"> Prova amb un altre pressupost </a>.
         limit_reached: Tens vots actius a %{links}. Per votar en aquest pressupot has d' <a href="%{landing_path}">esborrar el teu vot i començar de nou</a>.
@@ -154,6 +186,7 @@ ca:
           fields:
             category: Categoria
             id: ID
+            scope: Àmbit
             title: Títol
       order_summary_mailer:
         order_summary:
@@ -170,13 +203,13 @@ ca:
           title: Confirmar vot
         budget_excess:
           budget_excess:
-            description: Aquest projecte sobrepassa el pressupost màxim i no es pot afegir. Si ho desitges, pots eliminar un projecte ja seleccionat per afegir aquest o donar suport d'acord amb les teves preferències.
+            description: Aquest projecte sobrepassa el pressupost màxim i no es pot afegir. Si ho desitges, pots eliminar un projecte ja seleccionat per afegir aquest o votar d'acord amb les teves preferències.
             title: Pressupost excedit
           close: Tancar
-          description: Aquest projecte sobrepassa el pressupost màxim i no es pot afegir. Si ho desitges, pots eliminar un projecte ja seleccionat per afegir aquest o donar suport d'acord amb les teves preferències.
+          description: Aquest projecte sobrepassa el pressupost màxim i no es pot afegir. Si ho desitges, pots eliminar un projecte ja seleccionat per afegir aquest o votar d'acord amb les teves preferències.
           ok: D'acord
           projects_excess:
-            description: Aquest projecte sobrepassa el número màxim de projectes i no es pot afegir. Si ho desitges, pots eliminar un projecte ja seleccionat per afegir aquest o donar suport d'acord amb les teves preferències.
+            description: Aquest projecte sobrepassa el pressupost màxim i no es pot afegir. Si ho desitges, pots eliminar un projecte ja seleccionat per afegir aquest o votar d'acord amb les teves preferències.
             title: Màxim de projectes excedit
         budget_summary:
           are_you_sure: Segur que vols cancel·lar el teu vot?
@@ -226,6 +259,8 @@ ca:
           filter: Filtra
           filter_by: Filtra per
           unfold: Desplegar
+        index:
+          view_project: Veure projecte
         order_progress:
           vote: Vota
         order_selected_projects:
@@ -283,6 +318,7 @@ ca:
               errors:
                 budget_voting_rule_only_one: Cal activar com a mínim una norma per a la votació
                 budget_voting_rule_required: Es requereix una norma per a la votació
+            geocoding_enabled: Geolocalització habilitada
             landing_page_content: Pàgina d'inici de pressupostos
             more_information_modal: Finestra de "Més informació"
             projects_per_page: Projectes per pàgina
@@ -293,7 +329,7 @@ ca:
             total_budget: Pressupost total
             vote_minimum_budget_projects_number: Número mínim de projectes a votar
             vote_rule_minimum_budget_projects_enabled: 'Activar norma: Número mínim de projectes a votar'
-            vote_rule_selected_projects_enabled: 'Activar regla: projectes seleccionats amb un número mínim i màxim de projectes a votar'
+            vote_rule_selected_projects_enabled: 'Activar regla: número mínim i màxim de projectes a votar'
             vote_rule_threshold_percent_enabled: 'Activar norma: percentatge mínim del pressupost'
             vote_selected_projects_maximum: Número màxim de projectes a seleccionar
             vote_selected_projects_minimum: Número màxim de projectes a seleccionar

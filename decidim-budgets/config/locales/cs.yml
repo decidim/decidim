@@ -13,8 +13,11 @@ cs:
         decidim_scope_id: Oblast působnosti
         description: Popis
         proposal_ids: Související návrhy
+        proposals: Návrhy
         selected: Vybráno pro implementaci
         title: Titul
+      proposals_import:
+        scope_id: Oblast působnosti
   activerecord:
     models:
       decidim/budgets/project:
@@ -87,23 +90,50 @@ cs:
             title: Upravit projekt
             update: Aktualizace
           index:
+            actions: Akce
+            cancel: Zrušit
+            change_category: Změnit kategorii
+            change_scope: Změnit rozsah
+            change_selected: Změnit vybrané
+            deselect_implementation: Zrušit výběr
             finished_orders: Dokončené hlasy
             pending_orders: Čeká na hlasování
+            select_for_implementation: Vybrat
             selected: Vybrané
             title: Projekty
+            update: Aktualizovat
+            update_scope_button: Aktualizovat rozsah
           new:
             create: Vytvořit
             title: Nový projekt
           update:
             invalid: Při aktualizaci tohoto projektu došlo k problému
             success: Projekt byl úspěšně aktualizován
+          update_category:
+            invalid: 'Tyto projekty již mají kategorii %{subject_name}: %{projects}.'
+            select_a_category: Vyberte prosím kategorii
+            select_a_project: Vyberte projekt
+            success: 'Projekty byly úspěšně aktualizovány do kategorie %{subject_name}: %{projects}.'
+          update_scope:
+            invalid: 'Tyto projekty již mají rozsah %{subject_name}: %{projects}.'
+            select_a_project: Vyberte projekt
+            select_a_scope: Vyberte prosím rozsah
+            success: 'Projekty byly úspěšně aktualizovány na rozsah %{subject_name}: %{projects}.'
+          update_selected:
+            invalid: 'Tyto projekty již mají stejný výběr: %{projects}.'
+            select_a_project: Vyberte projekt
+            select_a_selection: Vyberte prosím výběr
+            success: 'Výběr projektů byl úspěšně změněn: %{projects}.'
         proposals_imports:
           create:
             invalid: Při importu návrhů do projektů došlo k problému
             success: "%{number} projektů úspěšně dovezených do projektů"
           new:
             create: Návrhy na projekty
+            default_budget: Výchozí rozpočet
+            import_all_accepted_proposals: Importovat všechny přijaté návrhy
             no_components: V tomto participativním prostoru neexistují jiné komponenty návrhu, které by mohly importovat návrhy do projektů.
+            origin_component_id: Původ komponenty
             select_component: Vyberte součást
             title: Importovat návrhy
         reminders:
@@ -160,6 +190,7 @@ cs:
           fields:
             category: Kategorie
             id: ID
+            scope: Rozsah
             title: Titul
       order_summary_mailer:
         order_summary:
@@ -176,13 +207,13 @@ cs:
           title: Potvrďte hlasování
         budget_excess:
           budget_excess:
-            description: Tento projekt překračuje maximální rozpočet a nemůže být přidán. Pokud chcete, můžete smazat projekt, který jste již vybrali pro přidání nebo hlasování podle vašich preferencí.
+            description: Tento projekt překračuje maximální rozpočet a nemůže být přidán. Pokud chcete, můžete smazat již vybraný projekt, abyste mohli hlasovat znovu podle vašich preferencí.
             title: Maximální rozpočet byl překročen
           close: Zavřít
-          description: Tento projekt překračuje maximální rozpočet a nemůže být přidán. Pokud chcete, můžete smazat projekt, který jste již vybrali pro přidání nebo hlasování podle vašich preferencí.
+          description: Tento projekt překračuje maximální rozpočet a nemůže být přidán. Pokud chcete, můžete smazat již vybraný projekt, abyste mohli hlasovat znovu podle vašich preferencí.
           ok: OK
           projects_excess:
-            description: Tento projekt překračuje maximální počet projektů a nemůže být přidán. Pokud chcete, můžete smazat projekt, který jste již vybrali pro přidání nebo hlasování podle vašich preferencí.
+            description: Tento projekt překračuje maximální počet projektů a nemůže být přidán. Pokud chcete, můžete smazat již vybraný projekt, abyste mohli hlasovat znovu podle vašich preferencí.
             title: Byl překročen maximální počet projektů
         budget_summary:
           are_you_sure: Opravdu chcete zrušit hlasování?
@@ -234,6 +265,8 @@ cs:
           filter: Filtr
           filter_by: Filtrovat podle
           unfold: Rozbalit
+        index:
+          view_project: Zobrazit projekt
         order_progress:
           vote: Hlasovat
         order_selected_projects:
@@ -297,6 +330,7 @@ cs:
               errors:
                 budget_voting_rule_only_one: Pouze jedno hlasovací pravidlo musí být povoleno
                 budget_voting_rule_required: Je vyžadováno jedno pravidlo hlasování
+            geocoding_enabled: Geokódování aktivováno
             landing_page_content: Úvodní stránka rozpočtů
             more_information_modal: Více informací
             projects_per_page: Počet projektů na stránku
@@ -307,7 +341,7 @@ cs:
             total_budget: Celkový rozpočet
             vote_minimum_budget_projects_number: Minimální počet projektů k hlasování
             vote_rule_minimum_budget_projects_enabled: 'Povolit pravidlo: Minimální počet projektů, o kterých se má hlasovat'
-            vote_rule_selected_projects_enabled: 'Povolit pravidlo: Vybrané projekty s minimálním a maximálním počtem projektů, o kterých se má hlasovat'
+            vote_rule_selected_projects_enabled: 'Povolit pravidlo: Minimální a maximální počet projektů, o kterých se má hlasovat'
             vote_rule_threshold_percent_enabled: 'Povolit pravidlo: minimální procento rozpočtu'
             vote_selected_projects_maximum: Maximální počet projektů, které mají být vybrány
             vote_selected_projects_minimum: Minimální počet projektů, které mají být vybrány

@@ -11,6 +11,8 @@
 module Decidim
   module Templates
     class Template < ApplicationRecord
+      include Decidim::Traceable
+
       belongs_to :organization,
                  foreign_key: "decidim_organization_id",
                  class_name: "Decidim::Organization"
@@ -27,6 +29,10 @@ module Decidim
 
       def destroy_templatable
         templatable.destroy
+      end
+
+      def self.log_presenter_class_for(_log)
+        Decidim::Templates::AdminLog::TemplatePresenter
       end
     end
   end

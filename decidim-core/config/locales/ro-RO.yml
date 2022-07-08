@@ -71,7 +71,6 @@ ro:
     'true': 'Da'
   carrierwave:
     errors:
-      image_too_big: Imaginea este prea mare
       not_inside_organization: Fișierul nu este atașat niciunei organizații
   date:
     formats:
@@ -90,9 +89,6 @@ ro:
       skip_button: Salt la conținutul principal
     account:
       blocked: Acest cont a fost blocat din cauza încălcării termenilor și condițiilor
-      data_portability_export:
-        file_no_exists: Fișierul nu există
-        notice: Descărcarea datelor dvs. este în curs de desfășurare. Veți primi un e-mail atunci când este completă.
       delete:
         alert: Această acțiune nu poate fi anulată. Dacă vă ștergeți contul, nu veți mai putea să vă autentificați cu datele de autentificare. Ștergerea contului dvs. va duce la anonimizarea contribuțiilor dvs. Veți putea crea în continuare un cont nou, dar aceste contribuții nu vor fi asociate cu acesta.
         confirm:
@@ -104,6 +100,9 @@ ro:
       destroy:
         error: A apărut o eroare la ștergerea contului tău.
         success: Contul tău a fost șters cu succes.
+      download_your_data_export:
+        file_no_exists: Fișierul nu există
+        notice: Descărcarea datelor dvs. este în curs de desfășurare. Veți primi un e-mail atunci când este completă.
       show:
         change_password: Schimbă parola
         update_account: Actualizați contul
@@ -385,8 +384,8 @@ ro:
             amendments_enabled: Amendamente activate
             comments_enabled: Comentarii activate
             comments_max_length: Lungimea maximă a comentariilor
-            dummy_global_attribute_1: Mostră de atribut 1
-            dummy_global_attribute_2: Mostră de atribut 2
+            dummy_global_attribute1: Mostră de atribut 1
+            dummy_global_attribute2: Mostră de atribut 2
             dummy_global_translatable_text: Text-test traductibil
             enable_pads_creation: Activează crearea de pad-uri
             resources_permissions_enabled: Drepturi pentru resurse activate
@@ -398,8 +397,8 @@ ro:
             amendment_reaction_enabled: Reacția la amendamente activată
             amendments_visibility: Vizibilitatea amendamentului
             comments_blocked: Comentarii blocate
-            dummy_step_attribute_1: Atribut fictiv 1
-            dummy_step_attribute_2: Mostră de atribut 2 al etapei
+            dummy_step_attribute1: Atribut fictiv 1
+            dummy_step_attribute2: Mostră de atribut 2 al etapei
             dummy_step_translatable_text: Mostră de text traductibil pentru etapă
     contact: Contact
     content_blocks:
@@ -443,13 +442,6 @@ ro:
       actions:
         login_before_access: Te rugăm să te conectezi cu contul tău înainte de a accesa conținutul
         unauthorized: Nu sunteți autorizat să efectuați această acțiune
-    data_portability:
-      export:
-        ready: Gata
-      show:
-        download_data: Descarcă datele
-        download_data_description: Un fișier care conține toate informațiile asociate contului tău va fi trimis la <strong>%{user_email}</strong>. Acest e-mail va conține un fișier .zip și o parolă pentru a-l deschide.<br/><br/>Pentru a dezarhiva fişierul, aveţi nevoie de <a href="https://www.7-zip.org/">7-Zip</a> (pentru Windows) sau <a href="https://www.keka.io/">Keka</a> (pentru MacOS). Dacă utilizați Linux, de cele mai multe ori îl veți instala în mod implicit. Dacă nu, puteți utiliza <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> sau <a href="https://peazip.github.io">PeaZip</a>).
-        request_data: Cere date
     datepicker:
       help_text: 'Format preconizat: %{datepicker_format}'
     devise:
@@ -468,7 +460,6 @@ ro:
           newsletter: Primește un buletin informativ ocazional cu informații relevante
           newsletter_title: Drepturi privind contactele
           nickname_help: Pseudonimul tău în %{organization}. Poate conține doar litere, numere, '-' și '_'.
-          password_help: "minim %{minimun_characters} caractere, nu trebuie să fie prea comune (ex. 123456) și trebuie să fie diferite de pseudonimul și adresa ta de e-mail."
           sign_in: Autentificare
           sign_up: Înscrie-te
           sign_up_as:
@@ -520,6 +511,13 @@ ro:
           this_application_will_not_be_able_to: 'Această aplicație nu va putea să:'
           update_profile: Actualizeză-ți profilul
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> vrea să folosească contul tău"
+    download_your_data:
+      export:
+        ready: Gata
+      show:
+        download_data: Descarcă datele
+        download_data_description: Un fișier care conține toate informațiile asociate contului tău va fi trimis la <strong>%{user_email}</strong>. Acest e-mail va conține un fișier .zip și o parolă pentru a-l deschide.<br/><br/>Pentru a dezarhiva fişierul, aveţi nevoie de <a href="https://www.7-zip.org/">7-Zip</a> (pentru Windows) sau <a href="https://www.keka.io/">Keka</a> (pentru MacOS). Dacă utilizați Linux, de cele mai multe ori îl veți instala în mod implicit. Dacă nu, puteți utiliza <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> sau <a href="https://peazip.github.io">PeaZip</a>).
+        request_data: Cere date
     editor_images:
       create:
         error: Eroare la încărcarea imaginii
@@ -685,7 +683,7 @@ ro:
           email_subject: "%{nickname} și-a actualizat profilul"
           notification_title: Pagina de profil <a href="%{resource_path}"></a> din %{name} (%{nickname}), pe care o urmărești, a fost actualizată.
     export_mailer:
-      data_portability_export:
+      download_your_data_export:
         click_button: 'Dă-i clic pe următorul link pentru a descărca datele.<br/>Fișierul va fi disponibil până la %{date}.<br/>Vei avea nevoie de <a href="https://www.7-zip.org/">7-Zip</a> (pentru Windows), <a href="https://www.keka.io/en/">Keka</a> (pentru MacOS) sau <a href="https://peazip.github.io">PeaZip</a> (pentru Linux) pentru a-l deschide. Parola: %{password}'
         download: Descărcare
       export:
@@ -737,7 +735,6 @@ ro:
         file:
           explanation: 'Orientări pentru fișier:'
           message_1: Are o imagine sau un document.
-          message_2: Pentru imagini, utiilizează preferabil formatul landscape, serviciul va decupa imaginea. Pentru fișierele CSV, separatorul de coloane trebuie să fie virgula
         image:
           explanation: 'Orientări pentru imagine:'
           message_1: De preferință o imagine landscape care să nu conțină vreun text.
@@ -857,7 +854,6 @@ ro:
       no_user_groups: Încă nu aparține niciunui grup.
       roles:
         admin: Administrator
-        creator: Creator
         member: Membru
       update:
         error: A apărut o eroare la actualizarea grupului
@@ -1069,14 +1065,11 @@ ro:
         administrators: Administratori
         allow_public_contact: Permiteți oricui să îmi trimită un mesaj direct, chiar dacă nu-l urmăresc.
         direct_messages: Primește mesaje directe de la oricine
-        email_on_moderations: Vreau să primesc un e-mail de fiecare dată când se raportează ceva pentru moderare.
-        email_on_notification: Vreau să primesc un e-mail de fiecare dată când primesc o notificare.
         everything_followed: Tot ce urmăresc
         newsletter_notifications: Vreau să primesc buletine informative
         newsletters: Newslettere
         own_activity: Propria mea activitate, ca atunci când cineva comentează în propunerea mea sau mă menționează
         receive_notifications_about: Vreau să primesc notificări despre
-        send_notifications_by_email: Trimite notificări prin e-mail
         update_notifications_settings: Salvează modificările
       update:
         error: A apărut o eroare la actualizarea setărilor notificărilor.
@@ -1138,7 +1131,6 @@ ro:
           agreement: Sunt de acord cu acești termeni și condiţii
           legend: Sunt de acord cu termenii și condițiile de utilizare
         refuse:
-          modal_body: Dacă refuzați, nu veți putea utiliza platforma, puteți <a href="%{data_portability_path}">descărca datele</a> și/sau <a href="%{delete_path}">șterge contul dvs</a>.
           modal_btn_continue: Acceptați termenii și continuați
           modal_btn_exit: O voi revizui mai târziu
           modal_button: Refuza termenii
@@ -1442,7 +1434,6 @@ ro:
     invitations:
       edit:
         header: Finalizează crearea contului tău
-        nickname_help: Pseudonimul tău în %{organization}.
         submit_button: Salvează
         subtitle: Dacă acceptați invitația, vă rugăm să vă setați porecla și parola.
       invitation_removed: Invitația ta a fost eliminată.
@@ -1509,7 +1500,6 @@ ro:
     passwords:
       edit:
         change_my_password: Schimbă-mi parola
-        change_your_password: Schimbă-ți parola
         confirm_new_password: Confirmare parolă nouă
         new_password: Parola nouă
         password_help: "minim %{minimun_characters} caractere, nu trebuie să fie prea comune (ex. 123456) și trebuie să fie diferite de porecla și adresa dvs. de e-mail."
@@ -1603,10 +1593,6 @@ ro:
     timestamp_error_message: Ne pare rău, acest lucru a fost prea rapid! Te rugăm să retrimiți.
   layouts:
     decidim:
-      cookie_warning:
-        description_html: Acest site folosește cookie-uri. Continuând să navigați pe site, sunteți de acord cu utilizarea cookie-urilor. Aflați mai multe despre el %{link}.
-        link_label: aici
-        ok: Sunt de acord
       edit_link:
         edit: Editare
       footer:
