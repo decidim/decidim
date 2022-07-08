@@ -12,7 +12,6 @@ fr:
         start_time: Le vote commence à
         title: Titre
       question:
-        description: Description
         max_selections: Nombre maximum de sélections
         min_selections: Aucune des options ci-dessus
         title: Titre
@@ -639,6 +638,10 @@ fr:
         failed:
           header: Le vote a échoué
           lead: Votre vote n'a pas été exprimé !
+          modal:
+            close: Fermer
+            communication_lost: Malheureusement, il semble que la communication avec le serveur de vote (Bulletin Board) est perdue.<br>Il se peut que la connexion Internet soit interrompue ou que le serveur de destination soit trop occupé.<br>Vous pouvez réessayer plus tard ou contacter le support si ce problème persiste.
+            title: Un problème est survenu
           text: Une erreur est survenue, veuillez réessayer.
           try_again: Réessayez
         header:
