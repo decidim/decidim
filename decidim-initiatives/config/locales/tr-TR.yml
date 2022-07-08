@@ -439,11 +439,6 @@ tr:
           unfold: Aç
         index_header:
           new_initiative: Yeni girişim
-          not_authorized:
-            authorizations_page: İzinleri görüntüle
-            close: Kapat
-            explanation: Yeni bir girişim oluşturabilmek için doğrulanmanız gerekiyor.
-            title: Yetkilendirme gerekli
         initiatives:
           closed_initiatives_warning: Şu anda açık girişim yok, ancak burada listelenen tüm kapalı girişimleri bulabilirsiniz.
           no_initiatives_warning: Arama kriterlerinizle eşleşen hiçbir girişim yok.
@@ -519,6 +514,12 @@ tr:
         status_change_for: Girişim %{title} durumu değişti
       last_activity:
         new_initiative: Yeni girişim
+      modal:
+        not_authorized:
+          authorizations_page: İzinleri görüntüle
+          close: Kapat
+          explanation: Yeni bir girişim oluşturabilmek için doğrulanmanız gerekiyor.
+          title: Yetkilendirme gerekli
       pages:
         home:
           highlighted_initiatives:
