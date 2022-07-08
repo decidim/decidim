@@ -415,11 +415,6 @@ nl:
           unfold: Uitvouwen
         index_header:
           new_initiative: Nieuw initiatief
-          not_authorized:
-            authorizations_page: Bekijk autorisaties
-            close: Afsluiten
-            explanation: Je moet geverifieerd worden om een nieuw initiatief te kunnen maken.
-            title: Autorisatie vereist
         initiatives:
           no_initiatives_warning: De zoekopdracht heeft geen resultaten opgeleverd.
         interactions:
@@ -469,6 +464,12 @@ nl:
         status_change_for: Het initiatief %{title} is van status veranderd
       last_activity:
         new_initiative: Nieuw initiatief
+      modal:
+        not_authorized:
+          authorizations_page: Bekijk autorisaties
+          close: Afsluiten
+          explanation: Je moet geverifieerd worden om een nieuw initiatief te kunnen maken.
+          title: Autorisatie vereist
       pages:
         home:
           highlighted_initiatives:
