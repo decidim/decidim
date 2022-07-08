@@ -240,6 +240,9 @@ lt:
         delete: "%{user_name} pašalino %{resource_name} sritį"
         delete_with_parent: "%{user_name} pašalino %{resource_name} sritį %{parent_scope} srityje"
         update: "%{user_name} atnaujino %{resource_name} sritį"
+        update_with_parent: "%{user_name} atnaujino %{resource_name} sritį %{parent_scope} srityje"
+      scope_type:
+        create: "%{user_name} sukūrė %{resource_name} srities tipą"
       static_page:
         create: "%{user_name} sukūrė %{resource_name} statinį puslapį"
         delete: "%{user_name} pašalino %{resource_name} statinį puslapį"
