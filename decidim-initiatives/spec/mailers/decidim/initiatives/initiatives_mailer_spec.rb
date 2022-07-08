@@ -13,13 +13,39 @@ module Decidim
       context "when notifies creation" do
         let(:mail) { described_class.notify_creation(initiative) }
 
-        it "renders the headers" do
-          expect(mail.subject).to eq("Your initiative '#{initiative.title["en"]}' has been created")
-          expect(mail.to).to eq([initiative.author.email])
+        context "when the promoting committee is enabled" do
+          it "renders the headers" do
+            expect(mail.subject).to eq("Your initiative '#{initiative.title["en"]}' has been created")
+            expect(mail.to).to eq([initiative.author.email])
+          end
+
+          it "renders the body" do
+            expect(mail.body.encoded).to match(initiative.title["en"])
+          end
+
+          it "renders the promoter committee help" do
+            expect(mail.body).to match("Forward the following link to invite people to the promoter committee")
+          end
         end
 
-        it "renders the body" do
-          expect(mail.body.encoded).to match(initiative.title["en"])
+        context "when the promoting committee is disabled" do
+          let(:organization) { create(:organization) }
+          let(:initiatives_type) { create(:initiatives_type, organization: organization, promoting_committee_enabled: false) }
+          let(:scoped_type) { create(:initiatives_type_scope, type: initiatives_type) }
+          let(:initiative) { create(:initiative, organization: organization, scoped_type: scoped_type) }
+
+          it "renders the headers" do
+            expect(mail.subject).to eq("Your initiative '#{initiative.title["en"]}' has been created")
+            expect(mail.to).to eq([initiative.author.email])
+          end
+
+          it "renders the body" do
+            expect(mail.body.encoded).to match(initiative.title["en"])
+          end
+
+          it "doesn't render the promoter committee help" do
+            expect(mail.body).not_to match("Forward the following link to invite people to the promoter committee")
+          end
         end
 
         it "renders the correct link" do
