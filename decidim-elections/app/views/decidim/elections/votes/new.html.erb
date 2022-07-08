@@ -59,11 +59,12 @@
   </div>
 </div>
 
-<%= render "server_error_modal" %>
+<%= render "decidim/elections/shared/broken_promises_modal" %>
 
 <% if preview_mode? %>
   <%= javascript_pack_tag "decidim_elections_voter_setup_preview" %>
 <% else %>
   <%= javascript_pack_tag "decidim_elections_voter_setup_vote" %>
 <% end %>
+
 <%= javascript_pack_tag "decidim_elections_voter_new_vote" %>
