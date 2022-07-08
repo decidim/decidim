@@ -12,7 +12,6 @@ it:
         start_time: La votazione inizia il
         title: Titolo
       question:
-        description: Descrizione
         max_selections: Numero massimo di selezioni
         min_selections: Nessuna delle precedenti opzioni
         title: Titolo
@@ -618,6 +617,8 @@ it:
         failed:
           header: Votazione fallita
           lead: Il tuo voto non è stato deposto!
+          modal:
+            close: Chiuso
           text: Qualcosa è andato storto. Riprova di nuovo.
           try_again: Riprova
         header:
