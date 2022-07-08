@@ -12,7 +12,6 @@ fi:
         start_time: Äänestys alkaa
         title: Otsikko
       question:
-        description: Kuvaus
         max_selections: Valintojen enimmäismäärä
         min_selections: Ei mikään edellä mainituista
         title: Otsikko
@@ -639,6 +638,10 @@ fi:
         failed:
           header: Äänestys epäonnistui
           lead: Ääntäsi ei ole annettu!
+          modal:
+            close: Sulje
+            communication_lost: Valitettavasti näyttää siltä, että viestien välitys sähköisen ääniuurnan kanssa ei onnistu.<br>Internet-yhteydessäsi voi olla ongelma tai ääniuurnan palvelin on liian kiireinen.<br>Voit yrittää myöhemmin uudestaan tai ottaa yhteyttä tekniseen tukeen, jos ongelma jatkuu.
+            title: Jokin meni vikaan
           text: Jokin meni pieleen, yritä uudelleen.
           try_again: Yritä uudestaan
         header:
