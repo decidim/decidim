@@ -158,13 +158,13 @@ fr:
         notification: Les administrateurs doivent changer leur mot de passe tous les %{days} jours.
     admin_log:
       area:
-        create: "%{user_name} a créé la zone d'application %{resource_name}"
-        delete: "%{user_name} a supprimé la zone d'application %{resource_name}"
-        update: "%{user_name} a mis à jour la zone d'application %{resource_name}"
+        create: "%{user_name} a créé le périmètre d'assemblée %{resource_name}"
+        delete: "%{user_name} a supprimé le périmètre d'assemblée %{resource_name}"
+        update: "%{user_name} a mis à jour le périmètre d'assemblée %{resource_name}"
       area_type:
-        create: "%{user_name} a créé le type de zone d'application %{resource_name}"
-        delete: "%{user_name} a supprimé le type de zone d'application %{resource_name}"
-        update: "%{user_name} a mis à jour le type de zone d'application %{resource_name}"
+        create: "%{user_name} a créé le type de périmètre d'assemblée %{resource_name}"
+        delete: "%{user_name} a supprimé le type de périmètre d'assemblée %{resource_name}"
+        update: "%{user_name} a mis à jour le type de périmètre d'assemblée %{resource_name}"
       attachment:
         create: "%{user_name} a créé le document %{resource_name}"
         delete: "%{user_name} a supprimé le document %{resource_name}"
@@ -1340,7 +1340,7 @@ fr:
         currently_selected: Secteur actuellement sélectionné
         title: Sélectionnez %{field}
       prompt: Sélectionnez un périmètre d'application
-      scopes: Périmètre d'application
+      scopes: Secteurs
       scopes_picker_input:
         select_scope: 'Sélectionnez un secteur (actuellement: %{current})'
     search:
@@ -1418,8 +1418,8 @@ fr:
         remove_recipient: Supprimer le destinataire %{name}
       participatory_space_filters:
         filters:
-          areas: Zones d'application
-          select_an_area: Sélectionnez une zone d'application
+          areas: Périmètres d'assemblée
+          select_an_area: Sélectionnez un périmètre d'assemblée
       public_participation:
         public_participation: Afficher ma présence publiquement
       reference:
@@ -1652,7 +1652,7 @@ fr:
         currently_waiting_confirmation_for_email: 'En attente de confirmation pour: %{email}'
         leave_blank_if_you_don_t_want_to_change_it: laisser vide si vous ne voulez pas le changer
         title: Modifier %{resource}
-        unhappy: Pas satisfait ? 
+        unhappy: Pas satisfait ?
         update: Mettre à jour
         we_need_your_current_password_to_confirm_your_changes: nous avons besoin de votre mot de passe actuel pour confirmer vos modifications
       new:
@@ -1695,7 +1695,7 @@ fr:
       already_confirmed: était déjà confirmé, s'il vous plaît essayez de vous connecter
       confirmation_period_expired: doit être confirmé dans les %{period}, s'il vous plaît demander un nouveau
       content_type_allowlist_error: le type de fichier n'est pas valide
-      cycle_detected: un périmètre d'application ne peut pas être du même niveau que ses descendants
+      cycle_detected: un périmètre d'assemblée parent ne peut pas être du même niveau que ses descendants
       expired: a expiré, s'il vous plaît demander un nouveau
       file_size_is_less_than_or_equal_to: la taille du fichier doit être inférieure ou égale à %{count}
       invalid_time_zone: n'est pas un fuseau horaire valide
@@ -1829,7 +1829,7 @@ fr:
         see_more: Voir plus
   locale:
     name: Français
-    name_with_error: Anglais (erreur !)
+    name_with_error: Français (erreur !)
   password_validator:
     blacklisted: sur liste noire
     domain_included_in_password: est trop similaire au nom de domaine de cette plateforme
@@ -1899,8 +1899,10 @@ fr:
       option_unified: Unifié
   views:
     pagination:
+      next: Suivant
       next_title: Lien vers la page suivante
       pagination: Pagination
+      previous: Précédent
       previous_title: Lien vers la page précédente
       title: 'Numéro de page : '
       truncate: "&hellip;"
