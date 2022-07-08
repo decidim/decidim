@@ -493,11 +493,6 @@ fi:
           unfold: Avaa
         index_header:
           new_initiative: Uusi aloite
-          not_authorized:
-            authorizations_page: Näytä vahvistukset
-            close: Sulje
-            explanation: Tilisi tulee vahvistaa luodaksesi uuden aloitteen.
-            title: Vahvistus vaaditaan
         initiatives:
           closed_initiatives_warning: Tällä hetkellä yhtään aloitetta ei ole avoimena, mutta tästä listasta löydät kaikki suljetut aloitteet.
           no_initiatives_warning: Yhtään aloitetta ei löytynyt hakukriteereilläsi.
@@ -574,6 +569,12 @@ fi:
         status_change_for: Aloitteen %{title} tila on muuttunut
       last_activity:
         new_initiative: Uusi aloite
+      modal:
+        not_authorized:
+          authorizations_page: Näytä vahvistukset
+          close: Sulje
+          explanation: Tilisi tulee vahvistaa luodaksesi uuden aloitteen.
+          title: Vahvistus vaaditaan
       pages:
         home:
           highlighted_initiatives:
