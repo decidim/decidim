@@ -249,11 +249,12 @@ cs:
         steps:
           create_election:
             errors:
+              component_published: Volební složka <strong>není publikována</strong>.
               max_selections: Otázky nemají <strong>správnou hodnotu pro množství odpovědí</strong>
               minimum_answers: Otázky musí mít <strong>alespoň dvě odpovědi</strong>.
               minimum_questions: Volby <strong>musí mít alespoň jednu otázku</strong>.
               published: Volby <strong>nejsou publikovány</strong>.
-              time_before: Počáteční čas je za <strong>méně než 3 hodiny</strong> před zahájením voleb.
+              time_before: Čas zahájení je v <strong>méně než %{hours} hodin</strong> před začátkem voleb.
               trustees_number: Participační prostor <strong>musí mít alespoň %{number} důvěrníků s veřejným klíčem</strong>.
             invalid: Při zřizování těchto voleb došlo k chybě
             no_trustees: Pro tento participační prostor nejsou nakonfigurováni žádní důvěrníci
@@ -262,6 +263,7 @@ cs:
               'false': nemá <strong>veřejný klíč</strong>
               'true': má <strong>veřejný klíč</strong>
             requirements:
+              component_published: Vilební složka je <strong>publikována</strong>.
               max_selections: Všechny otázky mají správnou hodnotu pro <strong>maximum odpovědí</strong>.
               minimum_answers: Každá otázka má <strong>alespoň 2 odpovědi</strong>.
               minimum_questions: Volba má <strong>alespoň jednu otázku</strong>.
@@ -374,6 +376,13 @@ cs:
           update: "%{user_name} aktualizoval volbu %{resource_name} z %{space_name}"
         trustee:
           create: "%{user_name} přiřadil uživatele %{trustee_user} jako důvěrníka"
+      connection:
+        failed:
+          modal:
+            close: Zavřít‏
+            communication_lost: Bohužel se zdá, že komunikace s hlasovacím serverem (Bulletin Board) je ztracena.<br>Může se stát, že připojení k internetu je přerušeno nebo že cílový server je příliš zaneprázdněný.<br>Pokud tento problém přetrvává, můžete to zkusit později nebo se obraťte na podporu.
+            generic_error: Bohužel došlo k neznámé chybě. Je pravděpodobné, že váš prohlížeč není podporován nebo že používáte "incognito" nebo "privátní" režim, který není podporován.
+            title: Něco se pokazilo
       election_m:
         badge_name:
           finished: Dokončeno
