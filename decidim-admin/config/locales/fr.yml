@@ -210,21 +210,21 @@ fr:
           success: Le type de périmètre d'assemblée a été mis à jour avec succès
       areas:
         create:
-          error: Une erreur s'est produite lors de la création d'une nouvelle zone d'application.
-          success: Zone d'application créée avec succès.
+          error: Une erreur s'est produite lors de la création d'un nouveau périmètre d'assemblée.
+          success: Périmètre d'assemblée créé avec succès.
         destroy:
-          has_spaces: Des espaces dépendent de cette zone d'application. Veuillez vous assurer qu'aucun espace participatif n'est lié à cette zone avant de la supprimer.
-          success: La zone d'application a bien été supprimée
+          has_spaces: Des espaces dépendent de ce périmètre d'assemblée. Veuillez vous assurer qu'aucun espace participatif n'est lié à périmètre avant de la supprimer.
+          success: Le périmètre d'assemblée a bien été supprimé
         edit:
-          title: Modifier la zone d'application
+          title: Modifier le périmètre d'assemblée
           update: Mettre à jour
         new:
-          create: Créer une zone d'application
-          title: Nouvelle zone d'application
-        no_areas: Aucune zone d'application
+          create: Créer un périmètre d'assemblée
+          title: Nouveau périmètre d'assemblée
+        no_areas: Aucun périmètre d'assemblée
         update:
-          error: Une erreur s'est produite lors de la mise à jour de cette zone d'application.
-          success: Zone d'application mise à jour avec succès
+          error: Une erreur s'est produite lors de la mise à jour de ce périmètre d'assemblée.
+          success: Périmètre d'assemblée mise à jour avec succès
       attachment_collections:
         create:
           error: Une erreur s'est produite lors de la création d'un nouveau dossier.
@@ -525,7 +525,7 @@ fr:
         admins: Administrateurs
         appearance: Apparence
         area_types: Types de périmètre d'assemblée
-        areas: Zones d'application
+        areas: Périmètres d'assemblée
         configuration: Configuration
         dashboard: Tableau de bord
         external_domain_whitelist: Domaines externes autorisés
@@ -537,7 +537,7 @@ fr:
         participants: Participants
         reported_users: Utilisateurs signalés
         scope_types: Types de secteur
-        scopes: Périmètres d’application
+        scopes: Secteurs
         settings: Paramètres
         static_pages: Pages
         user_groups: Groupes d'utilisateurs
@@ -959,7 +959,7 @@ fr:
       titles:
         admin_log: Journal d'administration
         area_types: Types de périmètre d'assemblée
-        areas: Zones d'application
+        areas: Périmètres d'assemblée
         authorization_workflows: Méthodes de vérification
         dashboard: Tableau de bord
         impersonatable_users: Utilisateurs pouvant être représentés
@@ -968,7 +968,7 @@ fr:
         panel: Administrateur
         participants: Utilisateurs
         scope_types: Types de secteur
-        scopes: Périmètres d'application
+        scopes: Secteurs
         static_pages: Pages
         statistics: Activité
         user_groups: Groupes d'utilisateurs
