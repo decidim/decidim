@@ -1,24 +1,15 @@
-<%#= cell(
-  "decidim/collapsible_list",
-  endorsers,
-  cell_name: "decidim/author",
-  cell_options: { extra_classes: ["author-data--small"] },
-  hidden_elements_count_i18n_key: "decidim.proposals.proposals.show.hidden_endorsers_count"
-) %>
 <div class="flex -space-x-2">
-  <%
-    # REDESIGN_PENDING: implement the endorsers_list
-
-    total = Random.rand(5)
-    max_items_stacked = [total, 3].min # Displays up to 3 items top
-
-    max_items_stacked.times do |i| %>
+  <% visible_endorsers.each do |visible_endorser| %>
     <span class="rounded-full overflow-hidden border border-white inline-block w-6 h-6">
-      <img src="<%= 'https://www.fillmurray.com/640/360' %>" class="w-full h-full object-cover">
+      <%= image_tag(
+            visible_endorser.avatar_url(:thumb),
+            alt: t("decidim.author.avatar", name: decidim_sanitize(visible_endorser.name)),
+            class: "w-full h-full object-cover"
+          ) %>
     </span>
   <% end %>
 
   <span class="rounded-full overflow-hidden border border-white w-6 h-6 bg-background inline-grid place-items-center text-secondary text-xs font-semibold">
-    <%= total %>
+    <%= endorsers_count %>
   </span>
 </div>
