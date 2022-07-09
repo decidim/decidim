@@ -5,7 +5,7 @@ import formDatePicker from "src/decidim/form_datepicker"
 import fixDropdownMenus from "src/decidim/dropdowns_menus"
 import createQuillEditor from "src/decidim/editor"
 import Configuration from "src/decidim/configuration"
-import ExternalLink from "src/decidim/external_link"
+import ExternalLink from "src/decidim/redesigned_external_link"
 import updateExternalDomainLinks from "src/decidim/external_domain_warning"
 import InputCharacterCounter from "src/decidim/input_character_counter"
 import FormValidator from "src/decidim/form_validator"
@@ -61,10 +61,7 @@ $(() => {
     createQuillEditor(container);
   });
 
-  $('a[target="_blank"]').each((_i, elem) => {
-    const $link = $(elem);
-    $link.data("external-link", new ExternalLink($link));
-  });
+  document.querySelectorAll("a[target=\"_blank\"]:not([no-external-link])").forEach((elem) => new ExternalLink(elem))
 
   // Mount comments component
   $("[data-decidim-comments]").each((_i, el) => {

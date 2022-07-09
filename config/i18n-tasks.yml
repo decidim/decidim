@@ -166,6 +166,7 @@ ignore_unused:
   - decidim.accountability.models.project.valid_statuses.*
   - decidim.accountability.admin_log.*
   - decidim.elections.admin_log.*
+  - decidim.elections.connection.failed.*
   - decidim.elections.orders.*
   - decidim.elections.election_m.*
   - decidim.proposals.admin_log.*
@@ -317,6 +318,7 @@ ignore_unused:
   - decidim.assemblies.admin.assembly_members.form.explanation
   - decidim.assemblies.admin.assembly_members.form.image_guide
   - decidim.assemblies.admin.assembly_members.form.non_user_avatar_help
+  - decidim.initiatives.create_initiative.select_initiative_type.*
   - decidim.blogs.admin_log.*
   - decidim.templates.admin_log.*
 

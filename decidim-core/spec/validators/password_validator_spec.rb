@@ -14,9 +14,15 @@ describe PasswordValidator do
         email: ::Faker::Internet.email,
         nickname: ::Faker::Internet.username(specifier: 10..15),
         current_organization: organization,
-        errors: errors
+        errors: errors,
+        admin?: admin_record,
+        previous_passwords: previous_passwords,
+        encrypted_password_was: ::Devise::Encryptor.digest(Decidim::User, "decidim123456"),
+        encrypted_password_changed?: true
       )
     end
+    let(:admin_record) { false }
+    let(:previous_passwords) { [] }
     let(:attribute) { "password" }
     let(:options) do
       {
@@ -30,6 +36,16 @@ describe PasswordValidator do
       it "just works" do
         expect(validator).to be(true)
         expect(record.errors[attribute]).to be_empty
+      end
+
+      context "when the record is an admin" do
+        let(:admin_record) { true }
+        let(:value) { "decidim123456789" }
+
+        it "just works" do
+          expect(validator).to be(true)
+          expect(record.errors[attribute]).to be_empty
+        end
       end
     end
 
@@ -79,6 +95,21 @@ describe PasswordValidator do
       it "is too short" do
         expect(validator).to be(false)
         expect(record.errors[attribute]).to eq(["is too short"])
+      end
+
+      context "when the record is an admin" do
+        let(:admin_record) { true }
+        let(:value) do
+          ::Faker::Internet.password(
+            min_length: ::PasswordValidator::MINIMUM_LENGTH,
+            max_length: ::PasswordValidator::ADMIN_MINIMUM_LENGTH - 1
+          )
+        end
+
+        it "is too short" do
+          expect(validator).to be(false)
+          expect(record.errors[attribute]).to eq(["is too short"])
+        end
       end
     end
 
@@ -142,6 +173,39 @@ describe PasswordValidator do
       it "is too common" do
         expect(validator).to be(false)
         expect(record.errors[attribute]).to eq(["is too common"])
+      end
+    end
+
+    describe "repeated password" do
+      let(:admin_record) { true }
+      let(:previous_passwords) { plain_passwords.map { |password| ::Devise::Encryptor.digest(Decidim::User, password) } }
+      let(:plain_passwords) { Array.new(6) { ::Faker::Internet.password(min_length: ::PasswordValidator::ADMIN_MINIMUM_LENGTH) } }
+
+      context "when password is last used" do
+        let(:value) { plain_passwords[0] }
+
+        it "cannot reuse" do
+          expect(validator).to be(false)
+          expect(record.errors[attribute]).to eq(["cannot reuse old password"])
+        end
+      end
+
+      context "when password has used before" do
+        let(:value) { plain_passwords[2] }
+
+        it "cannot reuse" do
+          expect(validator).to be(false)
+          expect(record.errors[attribute]).to eq(["cannot reuse old password"])
+        end
+      end
+
+      context "when password is used but repetition times is less" do
+        let(:value) { plain_passwords[5] }
+
+        it "can reuse" do
+          expect(validator).to be(true)
+          expect(record.errors[attribute]).to be_empty
+        end
       end
     end
   end

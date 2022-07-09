@@ -651,6 +651,26 @@ Additional context: This has been revealed as an issue during a security audit o
 |false
 |No
 
+|DECIDIM_ADMIN_PASSWORD_STRONG
+|Enable strong password rules for admin users.
+|true
+|No
+
+|DECIDIM_ADMIN_PASSWORD_EXPIRATION_DAYS
+|Defines how many days admin passwords are valid before they need to be reset.
+|90
+|No
+
+|DECIDIM_ADMIN_PASSWORD_REPETITION_TIMES
+|Defines how many previous passwords are compared against new admin user passwords.
+|5
+|No
+
+|DECIDIM_ADMIN_PASSWORD_MIN_LENGTH
+|The minimum character length for admin user passwords.
+|15
+|No
+
 |*DECIDIM_SERVICE_WORKER_ENABLED*
 |Enable/Disable the service worker. This is used to enable offline support and to deliver push notifications. In development it's recommended to be disabled because its aggresive cache configuration might cause some issues when submitting forms.
 |false

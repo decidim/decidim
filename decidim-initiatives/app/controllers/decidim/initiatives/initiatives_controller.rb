@@ -28,7 +28,7 @@ module Decidim
       include SingleInitiativeType
 
       helper_method :collection, :initiatives, :filter, :stats
-      helper_method :initiative_type
+      helper_method :initiative_type, :available_initiative_types
 
       # GET /initiatives
       def index
@@ -60,7 +60,7 @@ module Decidim
             redirect_to EngineRouter.main_proxy(current_initiative).initiatives_path(initiative_slug: nil), flash: {
               notice: I18n.t(
                 "success",
-                scope: %w(decidim initiatives admin initiatives edit)
+                scope: "decidim.initiatives.admin.initiatives.edit"
               )
             }
           end

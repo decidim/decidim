@@ -118,13 +118,15 @@ sv:
           ok: Ja, radera mitt konto
           question: Är du säker på att du vill radera ditt konto?
           title: Radera mitt konto
-        explanation: Ange skälet till varför du vill radera ditt konto (valfritt).
+        explanation: Ange skälet till varför du vill radera ditt konto (frivilligt).
       destroy:
         error: Det gick inte att radera ditt konto.
         success: Ditt konto har raderats.
       download_your_data_export:
         file_no_exists: Filen finns inte
         notice: Dina uppgifter hämtas för närvarande. Du får ett e-postmeddelande när det är klart.
+      email_change:
+        cancel: avbryt
       show:
         available_locales_helper: Välj det språk du vill använda på plattformen och få i notiserna
         change_password: Ändra lösenord
@@ -146,6 +148,11 @@ sv:
         delete: "%{user_name} tog bort komponenten %{resource_name} från utrymmet %{space_name}"
         publish: "%{user_name} publicerade komponenten %{resource_name} i utrymmet %{space_name}"
         unpublish: "%{user_name} avpublicerade komponenten %{resource_name} från utrymmet %{space_name}"
+      helpers:
+        answers: svar
+        comments: kommentarer
+        projects: projekt
+        results: resultat
       impersonation_log:
         manage: "%{user_name} har hanterat %{resource_name} eftersom %{reason}"
       moderation:
@@ -478,7 +485,6 @@ sv:
           newsletter: Få enstaka nyhetsbrev med relevant information
           newsletter_title: Kontakttillstånd
           nickname_help: Ditt alias i %{organization}. Kan bara innehålla bokstäver, siffror, '-' och '_'.
-          password_help: "Minst %{minimun_characters} tecken, får inte vara för vanligt (som 123456) och måste vara skilt från ditt användarnamn och din e-postadress."
           sign_in: Logga in
           sign_up: Registrera dig
           sign_up_as:
@@ -886,6 +892,7 @@ sv:
       no_user_groups: Tillhör inte någon grupp än.
       roles:
         admin: Administratör
+        creator: Administratör
         member: Medlem
       update:
         error: Det gick inte att uppdatera gruppen
@@ -1092,6 +1099,8 @@ sv:
         translated_text: 'Maskinöversatt text:'
     notifications:
       no_notifications: Inga meddelanden ännu.
+    notifications_digest_mailer:
+      hello: Hej %{name},
     notifications_settings:
       show:
         administrators: Administratörer
@@ -1100,6 +1109,10 @@ sv:
         everything_followed: Allt jag följer
         newsletter_notifications: Jag vill få nyhetsbrev
         newsletters: Nyhetsbrev
+        notifications_sending_frequencies:
+          daily: Dagligen
+          none: Ingen
+          weekly: Veckovis
         own_activity: Min egen verksamhet, som när någon kommenterar mitt förslag eller nämner mig
         receive_notifications_about: Jag vill få notiser om
         update_notifications_settings: Spara ändringar
@@ -1532,7 +1545,6 @@ sv:
     passwords:
       edit:
         change_my_password: Ändra mitt lösenord
-        change_your_password: Ändra ditt lösenord
         confirm_new_password: Bekräfta nytt lösenord
         new_password: Nytt lösenord
         password_help: "Minst %{minimun_characters} tecken, får inte vara för vanligt (som 123456) och måste vara skilt från ditt användarnamn och din e-postadress."
@@ -1623,6 +1635,18 @@ sv:
     timestamp_error_message: Det gick för snabbt! Försök igen.
   layouts:
     decidim:
+      cookie_consent:
+        cookie_details:
+          columns:
+            name: Namn
+            service: Tjänst
+            type: Typ
+          types:
+            cookie: Cookie
+        dialog:
+          cookie_settings: Inställningar
+        modal:
+          save_settings: Spara inställningar
       edit_link:
         edit: Redigera
       footer:

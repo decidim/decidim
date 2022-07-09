@@ -30,5 +30,11 @@ module Decidim
       configuration.stylesheet_imports[type][key] ||= []
       configuration.stylesheet_imports[type][key].push(import)
     end
+
+    def self.register_redesigned_stylesheet_import(import, type: :imports, group: :redesigned_app)
+      import = import.sub(%r{.*\K/(_?)}, "/\\1redesigned_") unless %r{.*\K/_?redesigned}.match?(import)
+
+      register_stylesheet_import(import, type: type, group: group)
+    end
   end
 end

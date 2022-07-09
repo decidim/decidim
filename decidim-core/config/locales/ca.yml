@@ -153,6 +153,9 @@ ca:
     admin:
       actions:
         cancel: Cancel·lar
+      password_change:
+        alert: Has de canviar la teva contrasenya per a poder seguir endavant
+        notification: Les usuàries amb rol d'administració han de canviar la seva contrasenya cada %{days} dies.
     admin_log:
       area:
         create: "%{user_name} ha creat l'àrea %{resource_name}"
@@ -164,15 +167,15 @@ ca:
         update: "%{user_name} ha actualitzat el tipus d'àrea %{resource_name}"
       attachment:
         create: "%{user_name} ha creat l'adjunt %{resource_name}"
-        delete: "%{user_name} ha esborrat l'adjunt %{resource_name}"
+        delete: "%{user_name} ha eliminat l'adjunt %{resource_name}"
         update: "%{user_name} ha actualitzat l'adjunt %{resource_name}"
       attachment_collection:
         create: "%{user_name} ha creat la col·lecció d'adjunts %{resource_name}"
-        delete: "%{user_name} ha esborrat la colecció d'adjunts %{resource_name}"
+        delete: "%{user_name} ha eliminat la col·lecció d'adjunts %{resource_name}"
         update: "%{user_name} ha actualitzat la col·lecció d'adjunts %{resource_name}"
       category:
         create: "%{user_name} ha afegit la categoria %{resource_name} a l'espai %{space_name}"
-        delete: "%{user_name} ha eliminat la categoria %{resource_name} a l'espai %{space_name}"
+        delete: "%{user_name} ha eliminat la categoria %{resource_name} de l'espai %{space_name}"
         update: "%{user_name} ha actualitzat la categoria %{resource_name} de l'espai %{space_name}"
       component:
         create: "%{user_name} ha afegit el component %{resource_name} a l'espai %{space_name}"
@@ -218,8 +221,8 @@ ca:
         update_with_parent: "%{user_name} ha actualitzat l'àmbit %{resource_name} dins l'àmbit %{parent_scope}"
       scope_type:
         create: "%{user_name} ha creat el tipus d'àmbit %{resource_name}"
-        delete: "%{user_name} ha esborrat el tipus d'àmbit %{resource_name}"
-        update: "%{user_name} ha actualitzat el tipus d'ámbit %{resource_name}"
+        delete: "%{user_name} ha eliminat el tipus d'àmbit %{resource_name}"
+        update: "%{user_name} ha actualitzat el tipus d'àmbit %{resource_name}"
       static_page:
         create: "%{user_name} ha creat la pàgina estàtica %{resource_name}"
         delete: "%{user_name} ha esborrat la pàgina estàtica %{resource_name}"
@@ -343,6 +346,7 @@ ca:
       endorsements:
         one: adhesió
         other: adhesions
+      official_author: Oficial
     authorization_handlers:
       another_dummy_authorization_handler:
         explanation: Verifica't introduint un número de passaport que comenci per "A"
@@ -524,7 +528,6 @@ ca:
           newsletter: Vull rebre un butlletí ocasional amb informació rellevant
           newsletter_title: Permís de contacte
           nickname_help: El teu àlies a %{organization}. Només pot contenir lletres, números, '-' and '_'.
-          password_help: "%{minimun_characters} caràcters mínim, no ha de ser massa comú (per exemple 123456) i ha de ser diferent del teu nom d'usuari i la teva adreça de correu electrònic."
           sign_in: Entra
           sign_up: Registra't
           sign_up_as:
@@ -936,7 +939,7 @@ ca:
         success: La sol·licitud per a formar-ne part s'ha enviat correctament. Una administradora revisarà la teva sol·licitud abans d'acceptar-te al grup.
       leave:
         error: S'ha produït un error en abandonar el grup
-        last_admin: No et pots esborrar tu mateixa d'aquest grup perquè n'ets la darrera administradora. Fes a una altra membre administrador per a poder abandonar aquest grup.
+        last_admin: No et pots esborrar tu mateixa d'aquest grup perquè n'ets la darrera administradora. Fes a una altra membre administradora per a poder abandonar aquest grup.
         success: El grup s'ha abandonat correctament.
       members:
         accept_or_reject_join_requests: 'Les següents participants han sol·licitat unir-se a aquest grup. Accepta o rebutja les seves sol·licituds:'
@@ -986,7 +989,7 @@ ca:
         unknown_action: "%{user_name} ha realitzat una acció a %{resource_name}"
         unknown_action_with_space: "%{user_name} ha realitzat una acció a %{resource_name} en %{space_name}"
         update: "%{user_name} ha actualitzat %{resource_name}"
-        update_permissions_with_space: "%{user_name} ha actualtizat els permisos de %{resource_name} a %{space_name}"
+        update_permissions_with_space: "%{user_name} ha actualitzat els permisos de %{resource_name} a %{space_name}"
         update_with_space: "%{user_name} ha actualitzat %{resource_name} a %{space_name}"
       value_types:
         area_presenter:
@@ -1169,7 +1172,7 @@ ca:
         weekly: 'Aquestes són les notificacions de la darrera setmana basades en l''activitat que segueixes:'
       outro: Has rebut aquestes notificacions perquè segueixes aquest contingut o les seves autores. Pots deixar de seguir-les des de les seves respectives pàgines.
       see_more: Veure més notificacions
-      subject: Aquest és el teu resum de correus
+      subject: Aquest és el teu correu resum
     notifications_settings:
       show:
         administrators: Administradores
@@ -1185,7 +1188,7 @@ ca:
         notifications_sending_frequencies:
           daily: Diàriament
           none: Cap
-          real_time: A temps real
+          real_time: En temps real
           weekly: Setmanalment
         notifications_sending_frequency: Amb quina freqüència vols rebre el correu de notificacions?
         own_activity: La meva pròpia activitat, com quan algú fa comentaris a la meva proposta o em menciona
@@ -1265,6 +1268,10 @@ ca:
           title: 'Obligatori: revisa l''actualització dels nostres Termes de Servei'
     participatory_space_private_users:
       not_allowed: No tens permís per visualitzar aquest contingut
+    passwords:
+      update:
+        error: Hi ha hagut un problema en actualitzar la contrasenya
+        success: La contrasenya s'ha actualitzat correctament
     profile:
       deleted: Participant eliminada
       inaccessible_message: Aquest perfil és inaccessible degut a la violació dels Termes i Condicions d'ús!
@@ -1625,10 +1632,11 @@ ca:
     passwords:
       edit:
         change_my_password: Canvia la meva contrasenya
-        change_your_password: Canvia la teva contrasenya
         confirm_new_password: Confirmar la nova contrasenya
         new_password: Nova contrasenya
         password_help: "%{minimun_characters} caràcters mínim, no ha de ser massa comú (per exemple 123456) i ha de ser diferent del teu nom d'usuari i la teva adreça de correu electrònic."
+        password_help_admin: "%{minimun_characters} caràcters mínim, no ha de ser massa comú (per exemple 123456) i ha de ser diferent del teu àlies, de la teva adreça de correu electrònic i de les teves antigues contrasenyes."
+        title: Canvi de contrasenya
       new:
         forgot_your_password: Has oblidat la teva contrasenya?
         send_me_reset_password_instructions: Envia'm les instruccions per restablir la contrasenya
@@ -1725,24 +1733,24 @@ ca:
             type: Tipus
           cookies:
             _session_id:
-              description: Permetre als llocs web recordar a la usuària dins d'un lloc web quan es mou entre pàgines web.
+              description: Permet als llocs web recordar a la usuària dins d'un lloc web quan es mou entre pàgines web.
               service: Aquesta pàgina web
             decidim-consent:
-              description: Emmagatzema informació sobre les cookis permeses per la usuària en aquesta pàgina web.
+              description: Emmagatzema informació sobre les galetes permeses per la usuària en aquesta pàgina web.
               service: Aquesta pàgina web
           types:
             cookie: Galeta
         dialog:
           accept_all: Acceptar totes
-          accept_only_essential: Accepta només l'essencial
+          accept_only_essential: Acceptar només les essencials
           cookie_settings: Configuració
-          description: Fem servir galetes a la nostra pàgina web per a millorar el rendiment i el contingut d'aquest. Les galetes ens permeten proporcionar una experiència d'usuària més individual i els canals de les xarxes socials.
+          description: Utilitzem galetes en el nostre lloc web per a millorar el rendiment i el contingut d'aquest. Les galetes ens permeten oferir una experiència d'usuari i uns continguts més personalitzats des dels nostres canals de xarxes socials.
           title: Informació sobre les galetes que es fan servir a aquesta pàgina web
         modal:
           accept_all: Acceptar totes
-          accept_only_essential: Accepta només l'essencial
+          accept_only_essential: Acceptar només les essencials
           analytics:
-            description: Les galetes analítiques rastregen com les usuàries naveguen i intercatues amb la pàgina web. La informació recollida es fa servir per ajudar a la propietària a millorar la pàgina.
+            description: Les galetes analítiques són galetes que rastregen com els usuaris naveguen i interactuen amb un lloc web. La informació recollida s'utilitza per a ajudar el propietari del lloc web a millorar-lo.
             title: Analítiques i estadístiques
           description: Fem servir galetes per a garantir les funcionalitats bàsiques de la pàgina web i per a millorar la teva experiència en línia. Pots triar activar-les o desactivar-les per cada categoria quan vulguis.
           essential:
@@ -1760,7 +1768,7 @@ ca:
         warning:
           all_cookies: totes les galetes
           change_cookie_settings: Canviar la configuració de les galetes
-          need_cookies: Cal que habilities %{cookies} per veure aquest contingut.
+          need_cookies: Cal que habilitis %{cookies} per veure aquest contingut.
       edit_link:
         edit: Edita
       footer:
@@ -1832,6 +1840,7 @@ ca:
     nickname_included_in_password: és massa semblant al teu àlies
     not_enough_unique_characters: no té prou caràcters únics
     password_not_allowed: no està permès
+    password_repeated: no pots reutilitzar una antiga contrasenya
     password_too_common: és massa comú
     password_too_long: és massa llarg
     password_too_short: és massa curt

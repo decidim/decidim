@@ -1459,7 +1459,6 @@ eu:
     passwords:
       edit:
         change_my_password: Aldatu nire pasahitza
-        change_your_password: Aldatu zure pasahitza
         confirm_new_password: Berretsi pasahitz berria
         new_password: Pasahitza
       new:

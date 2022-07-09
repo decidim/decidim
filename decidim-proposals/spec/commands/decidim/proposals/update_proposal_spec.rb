@@ -94,7 +94,7 @@ module Decidim
           end
         end
 
-        context "when the author changinng the author to one that has reached the proposal limit" do
+        context "when the author changing the author to one that has reached the proposal limit" do
           let!(:other_proposal) { create :proposal, component: component, users: [author], user_groups: [user_group] }
           let(:component) { create(:proposal_component, :with_proposal_limit) }
 
@@ -217,7 +217,7 @@ module Decidim
             end
 
             it "does not create atachments for the proposal" do
-              expect { command.call }.to change(Decidim::Attachment, :count).by(0)
+              expect { command.call }.not_to change(Decidim::Attachment, :count)
             end
 
             it "broadcasts invalid" do

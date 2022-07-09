@@ -60,7 +60,7 @@ shared_examples "create an initiative type" do
       it "creates a new initiative type" do
         expect do
           command.call
-        end.to change { Decidim::InitiativesType.count }.by(1)
+        end.to change(Decidim::InitiativesType, :count).by(1)
       end
 
       it "traces the action", versioning: true do

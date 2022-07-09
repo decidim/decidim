@@ -113,6 +113,8 @@ module Decidim
   autoload :EventRecorder, "decidim/event_recorder"
   autoload :ControllerHelpers, "decidim/controller_helpers"
   autoload :ProcessesFileLocally, "decidim/processes_file_locally"
+  autoload :RedesignLayout, "decidim/redesign_layout"
+  autoload :DisabledRedesignLayout, "decidim/disabled_redesign_layout"
 
   include ActiveSupport::Configurable
   # Loads seeds from all engines.
@@ -362,6 +364,12 @@ module Decidim
     # "MyTranslationService"
   end
 
+  # If set to true redesigned versions of layouts and cells will be used by
+  # default
+  config_accessor :redesign_active do
+    false
+  end
+
   # The Decidim::Exporters::CSV's default column separator
   config_accessor :default_csv_col_sep do
     ";"
@@ -441,6 +449,23 @@ module Decidim
   # Blacklisted passwords. Array may contain strings and regex entries.
   config_accessor :password_blacklist do
     []
+  end
+
+  # Defines if admins are required to have stronger passwords than other users
+  config_accessor :admin_password_strong do
+    true
+  end
+
+  config_accessor :admin_password_expiration_days do
+    90
+  end
+
+  config_accessor :admin_password_min_length do
+    15
+  end
+
+  config_accessor :admin_password_repetition_times do
+    5
   end
 
   # This is an internal key that allow us to properly configure the caching key separator. This is useful for redis cache store

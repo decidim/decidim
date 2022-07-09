@@ -20,6 +20,10 @@ module Decidim
     include NeedsSnippets
     include UserBlockedChecker
     include DisableRedirectionToExternalHost
+    include NeedsPasswordChange
+
+    include RedesignLayout
+    redesign active: true
 
     helper Decidim::MetaTagsHelper
     helper Decidim::DecidimFormHelper
