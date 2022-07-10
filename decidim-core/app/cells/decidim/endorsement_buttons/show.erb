@@ -1,6 +1,4 @@
-<%# REDESIGN_PENDING: reply a similar logic of decidim-core/app/cells/decidim/follow_button/show.erb %>
-<button type="button" name="button" class="button text-secondary white sm border">
-  <%= endorse_translated %>
-  <%= icon "heart-add-line", class: "fill-current" %>
-  <%# REDESIGN_PENDING: When subscribed, then show the icon "dislike-line" %>
-</button>
+<div class="button-group button-group--collapse button--nomargin small">
+  <%= render_endorsements_count %>
+  <%= render_endorsements_button %>
+</div>

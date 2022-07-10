@@ -1,0 +1,14 @@
+<% path = resource.endorsed_by?(current_user) ? path_to_destroy_endorsement(resource) : path_to_create_endorsement(resource) %>
+<% label = resource.endorsed_by?(current_user) ? t("decidim.endorsement_buttons_cell.already_endorsed") : endorse_translated %>
+<%= action_authorized_button_to(
+      :endorse,
+      path,
+      resource: resource,
+      remote: true,
+      class: "button text-secondary white sm border",
+      id: "endorsement_button"
+    ) do %>
+  <%= label %>
+  <%= render_screen_reader_context_title %>
+  <%= icon "heart-add-line", class: "fill-current" %>
+<% end %>

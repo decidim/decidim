@@ -1,0 +1,11 @@
+<div id="resource-<%= resource&.id %>-endorsement-button">
+  <button id="select-identity-button" type="button" name="button" class="button text-secondary white sm border">
+    <%= endorse_translated %>
+    <%= icon "heart-add-line", class: "fill-current" %>
+  </button>
+
+  <div class="reveal collapse"
+       id="user-identities"
+       data-reveal data-reveal-identities-url="<%= reveal_identities_url %>">
+  </div>
+</div>
