@@ -27,6 +27,10 @@ module Decidim
       render
     end
 
+    def profile
+      render
+    end
+
     def flag_user
       render unless current_user == model
     end
