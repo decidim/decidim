@@ -243,6 +243,8 @@ lt:
         update_with_parent: "%{user_name} atnaujino %{resource_name} sritį %{parent_scope} srityje"
       scope_type:
         create: "%{user_name} sukūrė %{resource_name} srities tipą"
+        delete: "%{user_name} ištrynė %{resource_name} srities tipą"
+        update: "%{user_name} atnaujino %{resource_name} srities tipą"
       static_page:
         create: "%{user_name} sukūrė %{resource_name} statinį puslapį"
         delete: "%{user_name} pašalino %{resource_name} statinį puslapį"
@@ -261,6 +263,8 @@ lt:
         reject: "%{user_name} atmetė %{resource_name} grupės patvirtinimą"
         verify: "%{user_name} patvirtino %{resource_name} grupę"
         verify_via_csv: "%{user_name} patvirtino %{resource_name} grupę per CSV rinkmeną"
+      user_moderation:
+        unreport: "%{user_name} panaikino pranešimą dėl %{resource_type} publikuotą %{unreported_user_name}"
     admin_terms_of_use:
       default_body: "<h2>ADMIN TERMS OF USE</h2><p>Tikimės, kad gavote įprastą pamokymą iš vietos Sistemos Administratoriaus. Paprastai apsiribojama trimis dalykais:</p><ol><li>Gerbkite kitų privatumą.</li><li>Prieš spustelėdami pagalvokite.</li><li>Didelė galia – didelė atsakomybė.</li></ol>"
     alert:
@@ -275,6 +279,8 @@ lt:
         error: Keičiant šį išteklių įvyko klaida.
         help_text: Patobulinkite šį %{model_name} pakeisdami jo %{amendable_fields}
         promote_button: Pakelti iki %{model_name}
+        promote_confirm_text: Ar tikrai norite palaikyti šią pataisą?
+        promote_help_text: Galite paremti šią pataisą ir ją paskelbti kaip nepriklausomą %{model_name}
         section_heading: Pakeitimai (%{count})
       compare_draft:
         continue: Tęsti
@@ -295,3 +301,21 @@ lt:
         actions:
           button_accept: Sutikti
           button_reject: Atmesti
+          help_text: Peržiūrėti pakeitimus ir priimti arba atmesti šią pataisą. Jo autoriui(-iams) bus išsiųstas pranešimas.
+        announcement:
+          accepted: |-
+            Pataisa dėl %{amendable_type}%{proposal_link} buvo priimta <strong>%{date}</strong>.
+          evaluating: |-
+            Pataisa dėl %{amendable_type}%{proposal_link} yra vertinama.
+          promoted: Paaukštinta į %{amendable_type}.
+          rejected: Ši pataisa %{amendable_type}%{proposal_link} buvo atmesta <strong>%{date}</strong>.
+          withdrawn: |-
+            Ši pataisa dėl %{amendable_type}%{proposal_link} buvo išimta autoriaus(-ės).
+      new:
+        amendment_author: Pataisos autorius(-ė)
+        send: Sukurti
+        title: Sukurti Pataisos Juodraštį
+      preview_draft:
+        modify: Redaguoti
+        publish: Publikuoti
+        title: Publikuoti Pataisos Juodraštį
