@@ -1454,7 +1454,12 @@ hu:
       too_short: túl rövid (15 karakterig)
   forms:
     correct_errors: Az űrlap hibákat tartalmaz, kérjük, javítsa ezeket a folytatáshoz.
+    length_validator:
+      minimum:
+        one: Legalább %{count} karakter
+        other: Legalább %{count} karakter
     required: Kötelező
+    required_explanation: "* A kötelező mezőket csillaggal jelöltük"
   invisible_captcha:
     sentence_for_humans: Hagyd figyelmen kívül ezt a mezőt
     timestamp_error_message: Sajnos ez túl gyors volt! Kérlek, küldd el újra.
@@ -1467,6 +1472,7 @@ hu:
       edit_link:
         edit: Szerkesztés
       footer:
+        cc_by_license: A Creative Commons licence
         decidim_logo: Decidim-logó
         download_open_data: Töltse le a Nyílt Adat fájlokat
         made_with_open_source: Az oldal <a target="_blank" href="https://github.com/decidim/decidim">nyílt forráskódú szoftverrel</a> készült.
@@ -1486,17 +1492,26 @@ hu:
       notifications_dashboard:
         mark_all_as_read: Összes megjelölése olvasottként
         mark_as_read: Megjelölés olvasottként
+      social_media_links:
+        facebook: "%{organization} a Facebookon"
+        github: "%{organization} a GitHubon"
+        instagram: "%{organization} az Instagramon"
+        twitter: "%{organization} a Twitteren"
+        youtube: "%{organization} a YouTube-on"
       timeout_modal:
+        body: Ön %{minutes} percig inaktív volt. Ha továbbra is inaktív marad, a saját biztonsága érdekében automatikusan kijelentkeztetjük.
         continue_session: Munkamenet folytatása
         sign_out: Kijelentkezés
         title: Folytatod a munkameneted?
       user_menu:
+        account: 'Felhasználói fiók: %{name}'
         admin_dashboard: Admin vezérlőpult
         conversations: Beszélgetések
         notifications: Értesítések
         profile: Fiókom
         public_profile: Nyilvános profilom
         sign_out: Kijelentkezés
+        title: Profil linkek
       user_profile:
         account: Fiók
         authorizations: Engedélyezések
@@ -1510,6 +1525,7 @@ hu:
         see_more: Tovább
   locale:
     name: Magyar
+    name_with_error: Angol (hiba!)
   password_validator:
     domain_included_in_password: túl hasonló a domain névhez
     email_included_in_password: túl hasonló az email címhez
@@ -1557,6 +1573,7 @@ hu:
           invitation_instructions:
             accept_until_format: "%B %d, %Y %I:%M %p"
       long: "%B %d, %Y %H:%M"
+      long_dashed: "%Y-%m-%d %H:%M:%S"
       short: "%d/%m/%Y %H:%M"
       time_of_day: "%H:%M"
   versions:
@@ -1575,5 +1592,9 @@ hu:
       first: "&laquo; Első"
       last: Utolsó &raquo;
       next: Következő &rsaquo;
+      next_title: Lépés a következő oldalra
+      pagination: Lapozó
       previous: "&lsaquo; Előző"
+      previous_title: Vissza az előző oldalra
+      title: 'Oldalszám: '
       truncate: "&hellip;"
