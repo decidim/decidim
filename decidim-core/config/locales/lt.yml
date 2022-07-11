@@ -573,3 +573,17 @@ lt:
         demoted_membership:
           email_outro: Šį pranešimą gavote dėl to, kad esate tos grupės narys.
           email_subject: Jūs nebesate %{user_group_name} grupės administratorius!
+          notification_title: Jūs nebesate <a href="%{resource_path}">%{user_group_name}</a> grupės administratorius.
+        invited_to_group:
+          email_intro: <a href="%{resource_url}">%{user_group_name}</a> grupės administratorius pakvietė jus prisijungti prie grupės.
+          email_outro: Šį pranešimą gavote dėl to, kad esate pakviestas į grupę. Patikrinkite puslapį „Grupės“ savo profilyje, jeigu norite priimti kvietimą.
+          email_subject: Esate pakviestas prisijungti prie %{user_group_name} grupės!
+          notification_title: Esate pakviestas prisijungti prie <a href="%{resource_path}">%{user_group_name}</a> grupės. Jeigu norite priimti kvietimą, spustelėkite puslapį „Grupės“ <a href="%{groups_profile_tab_path}"> </a> savo profilyje!
+        join_request_accepted:
+          email_intro: Sveikiname! <a href="%{resource_url}">%{user_group_name}</a> grupės administratorius priėmė jūsų prašymą prisijungti prie grupės.
+          email_outro: Šį pranešimą gavote, nes jūsų prisijungimo prašymas atnaujintas.
+          email_subject: Esate priimtas į %{user_group_name} grupę!
+          notification_title: Esate priimtas į <a href="%{resource_path}">%{user_group_name}</a> grupę.
+        join_request_created:
+          email_intro: Kažkas atsiuntė prašymą prisijungti prie %{user_group_name} grupės. Prašymą galite priimti arba atmesti <a href="%{resource_url}">grupės narių puslapyje</a>.
+          email_outro: Šį pranešimą gavote dėl to, kad galite valdyti %{user_group_name} grupę.
