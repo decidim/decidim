@@ -52,6 +52,19 @@ module Decidim
       # class.
       delegate :register, :unregister, :registrations, to: :registry
 
+      # Disables the authorization transfer functionality for the instance.
+      # After this method is called, the functionality cannot be re-enabled
+      # unless the block are registered again.
+      #
+      # @return [Hash<Symbol, Proc>] A hash of the originally registered blocks
+      #   with their keys.
+      def disable!
+        original_registrations = registrations.dup
+        registry.unregister(*registrations.keys)
+
+        original_registrations
+      end
+
       # Performs the authorization transfer for the provided authorization object
       # with the provided handler which is authorizing the user.
       #

@@ -50,6 +50,31 @@ module Decidim
       end
     end
 
+    describe ".disable!" do
+      subject { described_class.disable! }
+
+      let(:foo_block) { ->(_tr) {} }
+      let(:bar_block) { ->(_tr) {} }
+
+      include_context "with local block registry"
+
+      before do
+        registry.register(:foo, &foo_block)
+        registry.register(:bar, &bar_block)
+
+        # Make sure the method is called
+        subject
+      end
+
+      it "clears the registered handlers from the registry" do
+        expect(described_class.registrations).to be_empty
+      end
+
+      it "returns a hash of the originally registered blocks with their keys" do
+        expect(subject).to eq(foo: foo_block, bar: bar_block)
+      end
+    end
+
     describe ".perform!" do
       subject { described_class.perform!(authorization, authorization_handler) }
 
