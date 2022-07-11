@@ -113,6 +113,9 @@ module DecidimYourCity
       Decidim::AuthorizationTransfer.unregister(:initiatives) # initiatives and initiative votes/signatures
       Decidim::AuthorizationTransfer.unregister(:meetings) # meetings, meeting registrations and meeting poll answers
       Decidim::AuthorizationTransfer.unregister(:proposals) # proposal votes/supports
+
+      # Or if you want to unregister multiple modules at once
+      Decidim::AuthorizationTransfer.unregister(:blogs, :forms, :comments)
     end
     # ...
   end
