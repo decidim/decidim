@@ -284,3 +284,93 @@ lt:
           passport_number: Paso numeris
           postal_code: Pašto kodas
         name: Kita pavyzdinė autorizacija
+      dummy_authorization_handler:
+        explanation: Patvirtinkite tapatybę įvesdami dokumento numerį pasibaigianti su "X"
+        fields:
+          allowed_postal_codes: Leistini pašto kodai (atskirti kableliais)
+          allowed_scope_id: Leidžiama sritis
+          document_number: Dokumento numeris
+          postal_code: Pašto kodas
+          scope_id: Sritis
+        name: Autorizacijos pavyzdys
+      dummy_authorization_workflow:
+        name: Testinė autorizacijos procedūra
+      errors:
+        duplicate_authorization: Dalyvis su šiais duomenimis jau autorizuotas. Administratorius su Jumis susisieks duomenų patikrinimui.
+      expired_at: Išėjo iš galiojimo %{timestamp}
+      expires_at: Baigia galioti %{timestamp}
+      granted_at: Suteikta %{timestamp}
+      sms:
+        name: SMS žinute siunčiamas kodas
+      started_at: Pradėta %{timestamp}
+    authorization_modals:
+      content:
+        expired:
+          authorize: Autorizuoti iš naujo su „%{authorization}“
+          explanation: Jūsų leidimas baigė galioti. Kad galėtumėte atlikti šį veiksmą, turite iš naujo gauti leidimą „%{authorization}“.
+        incomplete:
+          cancel: Atšaukti
+          explanation: 'Nors jums šiuo metu suteiktas leidimas „%{authorization}“, turite būti iš naujo gauti leidimą, nes neturime šių duomenų:'
+          invalid_field: "%{field}"
+          reauthorize: Autorizuoti iš naujo
+        unauthorized:
+          invalid_field: "%{field} vertė %{value} negalioja."
+          ok: Gerai
+        unconfirmed:
+          confirmation_instructions: 'Jeigu negavote patvirtinimo nurodymų, galite jų dar kartą paprašyti:'
+          explanation_html: Kad galėtumėte atlikti šį veiksmą, turite gauti leidimą, o prieš atlikdami šį veiksmą turite patvirtinti savo el. pašto adresą <strong>%{email}</strong>.
+          request_confirmation_instructions: Paprašyti patvirtinimo instrukcijų
+          title: Patvirtinkite savo el. pašto adresą
+      show:
+        close_modal: Uždaryti modalinį langą
+    block_user_mailer:
+      notify:
+        body_1: Jūsų paskyra užblokuota.
+        body_2: 'Priežastis:%{justification}'
+        greetings: Sveiki,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
+        hello: Sveiki,
+        subject: Jūsų paskyra buvo užblokuota %{organization_name}
+    collapsible_list:
+      see_less: "(žr. mažiau)"
+      see_more: "(žr. daugiau)"
+    components:
+      component_order_selector:
+        no_content: Mes negalėjome rasti jokio turinio pagal šiuos kriterijus
+        order:
+          all_types: Visi tipai
+          collaborative_draft: Bendras Juodraštis
+          initiative: Iniciatyva
+          meeting: Susitikimas
+          post: Įrašas
+          proposal: Pasiūlymas
+          question: Klausimas
+    content_blocks:
+      highlighted_elements_settings_form:
+        orders:
+          random: Atsitiktinis
+          recent: Naujausia
+      how_to_participate:
+        name: Kaip dalyvauti
+      html:
+        html_content: HTML turinys
+        name: HTML blokas
+      last_activity:
+        name: Paskutinė veikla
+        title: Paskutinė veikla
+        view_all: Peržiūrėti visus
+      metrics:
+        name: Organizacijos metrika
+      stats:
+        name: Organizacijos statistiniai duomenys
+    core:
+      actions:
+        unauthorized: Jūs neturite teisės atlikti šio veiksmo
+    datepicker:
+      help_text: 'Pageidaujamas formatas: %{datepicker_format}'
+    devise:
+      omniauth_registrations:
+        create:
+          email_already_exists: Kitoje paskyroje naudojamas tas pats el. pašto adresas
+        new:
+          complete_profile: Užbaigti profilį
+          subtitle: Kad galėtumėte baigti registraciją, užpildykite šią formą
