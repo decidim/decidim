@@ -90,7 +90,7 @@ const resolveParticipatorySpaceTypes = () => {
 };
 
 /**
- * Resovles the different participatory space root queries and sends an API
+ * Resolves the different participatory space root queries and sends an API
  * request for each of them to resolve the list of available spaces of each
  * type.
  *
