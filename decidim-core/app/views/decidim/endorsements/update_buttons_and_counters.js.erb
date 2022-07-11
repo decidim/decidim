@@ -1,20 +1,26 @@
+<% render_endorsement_cell_method = redesign_enabled? ? :show : :render_user_identity_endorse_button %>
+
 <% if Decidim::UserGroups::ManageableUserGroups.for(current_user).verified.empty? %>
-update_main_page_button();
+  update_main_page_button();
 <% end %>
-update_identities_rows();
+
+<% unless redesign_enabled? %>
+ update_identities_rows();
+
+  function update_identities_rows() {
+    <% fully_endorsed= fully_endorsed?(resource, current_user) %>
+    var $endorsementsRowCount = $('#resource-<%= resource.id %>-endorsements-count');
+    morphdom($endorsementsRowCount[0], '<%= j(endorsement_buttons_cell(resource).render_endorsements_count).strip.html_safe %>');
+    var $endorsementsRowButton = $($('#select-identity-button')[0]);
+    <% if fully_endorsed %>
+      $endorsementsRowButton.addClass('active')
+    <% else %>
+      $endorsementsRowButton.removeClass('active')
+    <% end %>
+  }
+<% end %>
 
 function update_main_page_button() {
   var $endorsementButton = $('#resource-<%= resource.id %>-endorsement-button');
-  morphdom($endorsementButton[0], '<%= j(endorsement_buttons_cell(resource).render_user_identity_endorse_button).strip.html_safe %>');
-}
-function update_identities_rows() {
-  <% fully_endorsed= fully_endorsed?(resource, current_user) %>
-  var $endorsementsRowCount = $('#resource-<%= resource.id %>-endorsements-count');
-  morphdom($endorsementsRowCount[0], '<%= j(endorsement_buttons_cell(resource).render_endorsements_count).strip.html_safe %>');
-  var $endorsementsRowButton = $($('#select-identity-button')[0]);
-  <% if fully_endorsed %>
-    $endorsementsRowButton.addClass('active')
-  <% else %>
-    $endorsementsRowButton.removeClass('active')
-  <% end %>
+  morphdom($endorsementButton[0], '<%= j(endorsement_buttons_cell(resource).send(render_endorsement_cell_method)).strip.html_safe %>');
 }
