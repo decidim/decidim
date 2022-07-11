@@ -20,7 +20,7 @@ shared_context "authorization transfer" do
       source_user: original_user
     )
   end
-  let(:transferred_resources) { transfer.records.map(&:resource).sort_by! { |r| "#{r.class.name}##{r.id}" } }
+  let(:transferred_resources) { transfer.records.map(&:resource).sort_by! { |r| "#{r.class.name}##{format("%010d", r.id)}" } }
 
   before do
     # Make sure the original records exist before publishing the notification
