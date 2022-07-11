@@ -96,7 +96,7 @@ module Decidim::Verifications
         let!(:other_user) { create(:user, :deleted, organization: user.organization) }
 
         it "broadcasts :transferred" do
-          expect { subject.call }.to broadcast(:transferred)
+          expect { subject.call }.to broadcast(:transferred, an_instance_of(Decidim::AuthorizationTransfer))
         end
 
         it "transfers the original authorization to the user being authorized" do
