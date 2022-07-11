@@ -451,7 +451,28 @@ lt:
           global:
             amendments_enabled: Pataisos leidžiamos
             comments_enabled: Komentarai leidžiami
+            comments_max_length: Komentarų maksimalus ilgis
+            dummy_global_translatable_text: Testinis verčiamas tekstas
+            enable_pads_creation: Leisti bendrų dokumentų kūrimą
+            resources_permissions_enabled: Išteklių leidimai įjungti
+            scope_id: Sritis
+            scopes_enabled: Sritys įjungtos
+          step:
+            amendment_creation_enabled: Pataisų kūrimas leidžiamas
+            amendment_promotion_enabled: Pataisų paaukštinimai įjungti
+            amendment_reaction_enabled: Pataisų reakcijos įjungtos
+            amendments_visibility: Pataisų matomumas
+            comments_blocked: Komentarai užblokuoti
+            dummy_step_translatable_text: Testinis Verčiamas Tekstas
+    contact: Kontaktas
     content_blocks:
+      cta:
+        name: Paveikslėlis, tekstas ir veiksmo mygtukas
+      cta_settings_form:
+        background_image: Foninis paveikslėlis
+        button_text: Veiksmo mygtuko tekstas
+        button_url: Veiksmo mygtuko nuoroda
+        description: Aprašymas
       highlighted_elements_settings_form:
         orders:
           random: Atsitiktinis
