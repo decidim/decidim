@@ -92,16 +92,27 @@ module Decidim::Core
       include_context "authorization transfer"
 
       let(:component) { create(:component, organization: organization) }
-      let(:coauthorable) { build(:dummy_resource, component: component) }
+      let(:coauthorables) { build_list(:dummy_resource, 5, component: component) }
+      let(:endorsables) { build_list(:dummy_resource, 10, component: component) }
+      let(:amendable) { build(:dummy_resource, component: component) }
+      let(:emendation) { build(:dummy_resource, component: component) }
       let(:original_records) do
-        { coauthorships: create_list(:coauthorship, 3, coauthorable: coauthorable, author: original_user) }
+        {
+          amendments: create_list(:amendment, 3, amendable: amendable, emendation: emendation, amender: original_user),
+          coauthorships: coauthorables.map { |coauthorable| create(:coauthorship, coauthorable: coauthorable, author: original_user) },
+          endorsements: endorsables.map { |endorsable| create(:endorsement, resource: endorsable, author: original_user) }
+        }
       end
+      let(:transferred_amendments) { Decidim::Amendment.where(amender: target_user).order(:id) }
       let(:transferred_coauthorships) { Decidim::Coauthorship.where(author: target_user).order(:id) }
+      let(:transferred_endorsements) { Decidim::Endorsement.where(author: target_user).order(:id) }
 
       it "handles authorization transfer correctly" do
-        expect(transferred_coauthorships.count).to eq(3)
-        expect(transfer.records.count).to eq(3)
-        expect(transferred_resources).to eq(transferred_coauthorships)
+        expect(transferred_amendments.count).to eq(3)
+        expect(transferred_coauthorships.count).to eq(5)
+        expect(transferred_endorsements.count).to eq(10)
+        expect(transfer.records.count).to eq(18)
+        expect(transferred_resources).to eq(transferred_amendments + transferred_coauthorships + transferred_endorsements)
       end
     end
 
