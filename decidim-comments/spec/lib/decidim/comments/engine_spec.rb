@@ -11,10 +11,12 @@ describe Decidim::Comments::Engine do
     let(:original_records) do
       { comments: create_list(:comment, 3, commentable: commentable, author: original_user) }
     end
-    let(:transferred_comments) { Decidim::Comments::Comment.where(author: target_user) }
+    let(:transferred_comments) { Decidim::Comments::Comment.where(author: target_user).order(:id) }
 
     it "handles authorization transfer correctly" do
       expect(transferred_comments.count).to eq(3)
+      expect(transfer.records.count).to eq(3)
+      expect(transferred_resources).to eq(transferred_comments)
     end
   end
 end

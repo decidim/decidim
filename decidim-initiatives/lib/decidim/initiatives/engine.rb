@@ -139,15 +139,9 @@ module Decidim
       end
 
       initializer "decidim_initiatives.authorization_transfer" do
-        Decidim::AuthorizationTransfer.subscribe do |authorization, target_user|
-          # rubocop:disable Rails/SkipsModelValidations
-          Decidim::Initiative.where(author: authorization.user).update_all(
-            decidim_author_id: target_user.id
-          )
-          Decidim::InitiativesVote.where(author: authorization.user).update_all(
-            decidim_author_id: target_user.id
-          )
-          # rubocop:enable Rails/SkipsModelValidations
+        Decidim::AuthorizationTransfer.register(:initiatives) do |transfer|
+          transfer.move_records(Decidim::Initiative, :decidim_author_id)
+          transfer.move_records(Decidim::InitiativesVote, :decidim_author_id)
         end
       end
     end

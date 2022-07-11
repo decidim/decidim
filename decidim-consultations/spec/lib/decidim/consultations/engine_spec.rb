@@ -19,10 +19,12 @@ describe Decidim::Consultations::Engine do
         ]
       }
     end
-    let(:transferred_votes) { Decidim::Consultations::Vote.where(author: target_user) }
+    let(:transferred_votes) { Decidim::Consultations::Vote.where(author: target_user).order(:id) }
 
     it "handles authorization transfer correctly" do
       expect(transferred_votes.count).to eq(3)
+      expect(transfer.records.count).to eq(3)
+      expect(transferred_resources).to eq(transferred_votes)
     end
   end
 end

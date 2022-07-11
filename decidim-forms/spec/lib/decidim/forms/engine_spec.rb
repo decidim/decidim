@@ -11,10 +11,12 @@ describe Decidim::Forms::Engine do
     let(:original_records) do
       { answers: create_list(:answer, 3, questionnaire: questionnaire, user: original_user) }
     end
-    let(:transferred_answers) { Decidim::Forms::Answer.where(user: target_user) }
+    let(:transferred_answers) { Decidim::Forms::Answer.where(user: target_user).order(:id) }
 
     it "handles authorization transfer correctly" do
       expect(transferred_answers.count).to eq(3)
+      expect(transfer.records.count).to eq(3)
+      expect(transferred_resources).to eq(transferred_answers)
     end
   end
 end

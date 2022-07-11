@@ -10,10 +10,12 @@ describe Decidim::Elections::Engine do
     let(:original_records) do
       { votes: create_list(:vote, 3, election: election, user: original_user) }
     end
-    let(:transferred_votes) { Decidim::Elections::Vote.where(user: target_user) }
+    let(:transferred_votes) { Decidim::Elections::Vote.where(user: target_user).order(:id) }
 
     it "handles authorization transfer correctly" do
       expect(transferred_votes.count).to eq(3)
+      expect(transfer.records.count).to eq(3)
+      expect(transferred_resources).to eq(transferred_votes)
     end
   end
 end

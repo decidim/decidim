@@ -96,10 +96,12 @@ module Decidim::Core
       let(:original_records) do
         { coauthorships: create_list(:coauthorship, 3, coauthorable: coauthorable, author: original_user) }
       end
-      let(:transferred_coauthorships) { Decidim::Coauthorship.where(author: target_user) }
+      let(:transferred_coauthorships) { Decidim::Coauthorship.where(author: target_user).order(:id) }
 
       it "handles authorization transfer correctly" do
         expect(transferred_coauthorships.count).to eq(3)
+        expect(transfer.records.count).to eq(3)
+        expect(transferred_resources).to eq(transferred_coauthorships)
       end
     end
 

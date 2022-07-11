@@ -16,14 +16,16 @@ describe Decidim::Meetings::Engine do
         answers: create_list(:meetings_poll_answer, 10, questionnaire: questionnaire, user: original_user)
       }
     end
-    let(:transferred_meetings) { Decidim::Meetings::Meeting.where(author: target_user) }
-    let(:transferred_registrations) { Decidim::Meetings::Registration.where(user: target_user) }
-    let(:transferred_answers) { Decidim::Meetings::Answer.where(user: target_user) }
+    let(:transferred_meetings) { Decidim::Meetings::Meeting.where(author: target_user).order(:id) }
+    let(:transferred_registrations) { Decidim::Meetings::Registration.where(user: target_user).order(:id) }
+    let(:transferred_answers) { Decidim::Meetings::Answer.where(user: target_user).order(:id) }
 
     it "handles authorization transfer correctly" do
       expect(transferred_meetings.count).to eq(3)
       expect(transferred_registrations.count).to eq(5)
       expect(transferred_answers.count).to eq(10)
+      expect(transfer.records.count).to eq(18)
+      expect(transferred_resources).to eq(transferred_answers + transferred_meetings + transferred_registrations)
     end
   end
 end

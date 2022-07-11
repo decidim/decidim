@@ -12,9 +12,23 @@ shared_context "authorization transfer" do
       user: target_user
     )
   end
+  let(:transfer) do
+    create(
+      :authorization_transfer,
+      authorization: authorization,
+      user: authorization_handler.user,
+      source_user: original_user
+    )
+  end
+  let(:transferred_resources) { transfer.records.map(&:resource).sort_by! { |r| "#{r.class.name}##{r.id}" } }
 
   before do
-    original_records # Make sure the original records exist before publishing the notification
-    Decidim::AuthorizationTransfer.publish(authorization, authorization_handler)
+    # Make sure the original records exist before publishing the notification
+    original_records
+
+    # The initializer should have already been run when the test starts, so when
+    # the transfer is announced, it should handle the event subscription
+    # correctly if it has run and works as expected.
+    transfer.announce!(authorization_handler)
   end
 end

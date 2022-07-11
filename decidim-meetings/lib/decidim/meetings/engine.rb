@@ -135,18 +135,10 @@ module Decidim
       end
 
       initializer "decidim_meetings.authorization_transfer" do
-        Decidim::AuthorizationTransfer.subscribe do |authorization, target_user|
-          # rubocop:disable Rails/SkipsModelValidations
-          Decidim::Meetings::Meeting.where(author: authorization.user).update_all(
-            decidim_author_id: target_user.id
-          )
-          Decidim::Meetings::Registration.where(user: authorization.user).update_all(
-            decidim_user_id: target_user.id
-          )
-          Decidim::Meetings::Answer.where(user: authorization.user).update_all(
-            decidim_user_id: target_user.id
-          )
-          # rubocop:enable Rails/SkipsModelValidations
+        Decidim::AuthorizationTransfer.register(:meetings) do |transfer|
+          transfer.move_records(Decidim::Meetings::Meeting, :decidim_author_id)
+          transfer.move_records(Decidim::Meetings::Registration, :decidim_user_id)
+          transfer.move_records(Decidim::Meetings::Answer, :decidim_user_id)
         end
       end
     end

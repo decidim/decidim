@@ -17,12 +17,14 @@ describe Decidim::Initiatives::Engine do
         votes: create_list(:initiative_user_vote, 5, author: original_user)
       }
     end
-    let(:transferred_initiatives) { Decidim::Initiative.where(author: target_user) }
-    let(:transferred_votes) { Decidim::InitiativesVote.where(author: target_user) }
+    let(:transferred_initiatives) { Decidim::Initiative.where(author: target_user).order(:id) }
+    let(:transferred_votes) { Decidim::InitiativesVote.where(author: target_user).order(:id) }
 
     it "handles authorization transfer correctly" do
       expect(transferred_initiatives.count).to eq(3)
       expect(transferred_votes.count).to eq(5)
+      expect(transfer.records.count).to eq(8)
+      expect(transferred_resources).to eq(transferred_initiatives + transferred_votes)
     end
   end
 end
