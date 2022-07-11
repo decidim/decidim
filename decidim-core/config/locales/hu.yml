@@ -86,7 +86,31 @@ hu:
       decidim_with_month_name_short: "%d %b"
   datetime:
     distance_in_words:
+      about_x_hours:
+        one: kb. 1 óra
+        other: kb %{count} óra
+      about_x_months:
+        one: kb. 1 hónapja
+        other: kb %{count} hónapja
       half_a_minute: fél perce
+      less_than_x_minutes:
+        one: kevesebb, mint 1 perce.
+        other: levesebb mint %{count} perce.
+      less_than_x_seconds:
+        one: épp most
+        other: levesebb mint %{count} másodperce.
+      x_days:
+        one: 1 napja
+        other: "%{count} napja"
+      x_hours:
+        one: 1 órája
+        other: "%{count} órája"
+      x_minutes:
+        one: 1 perce
+        other: "%{count} perccel ezelőtt"
+      x_seconds:
+        one: 1 másodperce
+        other: "%{count} másodperce"
   decidim:
     accessibility:
       external_link: Külső hivatkozás
@@ -1589,9 +1613,46 @@ hu:
           cookies:
             _session_id:
               description: Lehetővé teszi a weboldalak számára, hogy emlékezzenek a felhasználóra a weboldalon belül, amikor az a weboldalak között mozog.
+              service: Ez a weboldal
+            decidim-consent:
+              description: Tárolja a felhasználó által a weboldalon engedélyezett sütikre vonatkozó információkat.
+              service: Ez a weboldal
+          types:
+            cookie: Süti
+        dialog:
+          accept_all: Összes elfogadása
+          accept_only_essential: Csak a szükséges elfogadása
+          cookie_settings: Beállítások
+          description: 'A jelenlegi angol nyelvű szöveg kissé zavaros. Talán így kellene olvasni: "Weboldalunkon sütiket használunk a weboldal teljesítményének és tartalmának javítása érdekében. A sütik lehetővé teszik számunkra, hogy személyre szabottabb felhasználói élményt és tartalmat nyújtsunk a közösségi média csatornáinkról.'
+          title: Információ a weboldalon felhasznált sütikről
+        modal:
+          accept_all: Összes elfogadása
+          accept_only_essential: Csak a szükségesek elfogadása
+          analytics:
+            description: Az analitikai sütik olyan sütik, amelyek nyomon követik, hogy a felhasználók hogyan navigálnak egy weboldalon és hogyan lépnek kapcsolatba vele. Az összegyűjtött információkat a weboldal tulajdonosának a weboldal fejlesztésére használják fel.
+            title: Analitika & statisztika
+          description: Sütiket használunk a weboldal alapvető funkcióinak biztosítása és az Ön online élményének javítása érdekében. Minden egyes kategória esetében bármikor választhat, hogy ki/bejelentkezik-e vagy sem.
+          essential:
+            description: Ezek a sütik elengedhetetlenek a weboldalam megfelelő működéséhez. E sütik nélkül a weboldal nem működne megfelelően.
+            title: Szükséges
+          marketing:
+            description: Ezek a sütik információkat gyűjtenek arról, hogyan használja a weboldalt, mely oldalakat látogatta meg, és mely linkekre kattintott.
+            title: Marketing
+          preferences:
+            description: Ezek a sütik lehetővé teszik a weboldal számára, hogy emlékezzen az Ön által a múltban meghozott döntésekre
+            title: Preferenciák
+          save_settings: Beállítások mentése
+          title: Süti beállítások
+          toggle: Váltás %{consent_category}
+        warning:
+          all_cookies: összes süti
+          change_cookie_settings: A süti beállítások módosítása
+          need_cookies: A tartalom megtekintéséhez engedályezni kell a %{cookies} sütiket.
       edit_link:
         edit: Szerkesztés
       footer:
+        cc_by_license: A Creative Commons licence
+        cookie_settings: Süti beállítások
         decidim_logo: Decidim-logó
         download_open_data: Töltse le a Nyílt Adat fájlokat
         made_with_open_source: Az oldal <a target="_blank" href="https://github.com/decidim/decidim">nyílt forráskódú szoftverrel</a> készült.
@@ -1613,17 +1674,28 @@ hu:
         mark_as_read: Megjelölés olvasottként
       offline_banner:
         cache_version_page: Upsz! Nem kapcsolódik az internetre. Most az oldal egy régebbi, eltárolt változatát látja, ami lehet, hogy nem teljesen friss.
+      social_media_links:
+        facebook: "%{organization} a Facebookon"
+        github: "%{organization} a GitHubon"
+        instagram: "%{organization} az Instagramon"
+        twitter: "%{organization} a Twitteren"
+        youtube: "%{organization} a YouTube-on"
       timeout_modal:
+        body: Ön %{minutes} percig inaktív volt. Ha továbbra is inaktív marad, a saját biztonsága érdekében automatikusan kijelentkeztetjük.
         continue_session: Munkamenet folytatása
         sign_out: Kijelentkezés
         title: Folytatod a munkameneted?
+      upload_modal:
+        close_modal: Ablak bezárás
       user_menu:
+        account: 'Felhasználói fiók: %{name}'
         admin_dashboard: Admin vezérlőpult
         conversations: Beszélgetések
         notifications: Értesítések
         profile: Fiókom
         public_profile: Nyilvános profilom
         sign_out: Kijelentkezés
+        title: Profil linkek
       user_profile:
         account: Fiók
         authorizations: Engedélyezések
@@ -1637,13 +1709,17 @@ hu:
         see_more: Tovább
   locale:
     name: Magyar
+    name_with_error: Angol (hiba!)
   password_validator:
+    blacklisted: tiltólistára került
     domain_included_in_password: túl hasonló a domain névhez
     email_included_in_password: túl hasonló az email címhez
     fallback: érvénytelen
     name_included_in_password: túlságosan hasonlít a nevedhez
+    nickname_included_in_password: túlságosan hasonlít a becenevéhez
     not_enough_unique_characters: nem tartalmaz elegendő egyedi karaktert
     password_not_allowed: nem engedélyezett
+    password_repeated: korábban már használt jelszó nem megfelelő
     password_too_common: túl gyakori
     password_too_long: túl hosszú
     password_too_short: túl rövid
@@ -1686,6 +1762,7 @@ hu:
           invitation_instructions:
             accept_until_format: "%B %d, %Y %I:%M %p"
       long: "%B %d, %Y %H:%M"
+      long_dashed: "%Y-%m-%d %H:%M:%S"
       short: "%d/%m/%Y %H:%M"
       time_of_day: "%H:%M"
   versions:
@@ -1705,5 +1782,9 @@ hu:
       first: "&laquo; Első"
       last: Utolsó &raquo;
       next: Következő &rsaquo;
+      next_title: Lépés a következő oldalra
+      pagination: Lapozó
       previous: "&lsaquo; Előző"
+      previous_title: Vissza az előző oldalra
+      title: 'Oldalszám: '
       truncate: "&hellip;"
