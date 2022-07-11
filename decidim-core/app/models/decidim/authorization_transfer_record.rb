@@ -16,8 +16,8 @@ module Decidim
     end
 
     # Returns the resource type for the records which is the value of the
-    # resource_type column stored for the record or the resource_type for the
-    # resource if it responds to that method.
+    # resource_type column stored for the record or the mapped_resource_type for
+    # the resource if it responds to that method.
     #
     # For example, Decidim::Coauthorable records need to report a model that
     # they represent instead of "Coauthorable" because otherwise e.g. proposal
@@ -25,7 +25,7 @@ module Decidim
     #
     # @return [String] The resource type as string.
     def type
-      resource.try(:resource_type) || resource_type
+      resource.try(:mapped_resource_type) || resource_type
     end
   end
 end

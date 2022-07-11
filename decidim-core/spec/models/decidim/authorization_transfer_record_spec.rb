@@ -42,7 +42,7 @@ module Decidim
         expect(subject).to eq("Decidim::DummyResources::DummyResource")
       end
 
-      context "when the resource responds to resource_type" do
+      context "when the resource responds to mapped_resource_type" do
         let(:record) { build(:authorization_transfer_record, resource: coauthorship) }
         let(:coauthorship) { build(:coauthorship) }
 
