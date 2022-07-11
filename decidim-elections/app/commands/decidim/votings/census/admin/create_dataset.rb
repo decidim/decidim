@@ -56,7 +56,7 @@ module Decidim
               current_user,
               {
                 voting: form.current_participatory_space,
-                file: form.file.filename.to_s,
+                filename: form.file.filename.to_s,
                 csv_row_raw_count: csv_row_count,
                 status: :creating_data
               },

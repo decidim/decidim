@@ -3,14 +3,14 @@
                       scope: "decidim.votings.census.admin.census",
                       data_count: current_census.data.size,
                       raw_count: current_census.csv_row_raw_count,
-                      file: current_census.file) %>
+                      file: current_census.filename) %>
   <% callout_class = "warning" %>
 <% else %>
   <% info_message = t("generate_access_codes.info_message_all",
                       scope: "decidim.votings.census.admin.census",
                       data_count: current_census.data.size,
                       raw_count: current_census.csv_row_raw_count,
-                      file: current_census.file) %>
+                      file: current_census.filename) %>
   <% callout_class = "success" %>
 <% end %>
 

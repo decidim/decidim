@@ -13,7 +13,7 @@ module Decidim
           def show
             enforce_permission_to :manage, :census, voting: current_participatory_space
 
-            flash[:notice] = "Finished processing #{current_census.file}" if current_census.data_created?
+            flash[:notice] = "Finished processing #{current_census.filename}" if current_census.data_created?
 
             @form = form(DatasetForm).instance
           end
