@@ -60,10 +60,10 @@ RSpec.describe "Debate search", type: :request do
   it_behaves_like "a resource search with origin", :debate
 
   it "displays all debates without any filters" do
-    expect(subject).to include(translated(debate1.title))
-    expect(subject).to include(translated(debate2.title))
-    expect(subject).to include(translated(debate3.title))
-    expect(subject).to include(translated(debate4.title))
+    expect(subject).to have_escaped_html(translated(debate1.title))
+    expect(subject).to have_escaped_html(translated(debate2.title))
+    expect(subject).to have_escaped_html(translated(debate3.title))
+    expect(subject).to have_escaped_html(translated(debate4.title))
   end
 
   context "when searching by text" do
@@ -81,10 +81,10 @@ RSpec.describe "Debate search", type: :request do
     end
 
     it "displays all debates without any filters" do
-      expect(subject).to include(translated(debate1.title))
-      expect(subject).not_to include(translated(debate2.title))
-      expect(subject).not_to include(translated(debate3.title))
-      expect(subject).not_to include(translated(debate4.title))
+      expect(subject).to have_escaped_html(translated(debate1.title))
+      expect(subject).not_to have_escaped_html(translated(debate2.title))
+      expect(subject).not_to have_escaped_html(translated(debate3.title))
+      expect(subject).not_to have_escaped_html(translated(debate4.title))
     end
   end
 
@@ -95,10 +95,10 @@ RSpec.describe "Debate search", type: :request do
       let(:state) { %w(open) }
 
       it "returns the open debates" do
-        expect(subject).to include(translated(debate1.title))
-        expect(subject).to include(translated(debate2.title))
-        expect(subject).not_to include(translated(debate3.title))
-        expect(subject).to include(translated(debate4.title))
+        expect(subject).to have_escaped_html(translated(debate1.title))
+        expect(subject).to have_escaped_html(translated(debate2.title))
+        expect(subject).not_to have_escaped_html(translated(debate3.title))
+        expect(subject).to have_escaped_html(translated(debate4.title))
       end
     end
 
@@ -106,10 +106,10 @@ RSpec.describe "Debate search", type: :request do
       let(:state) { %w(closed) }
 
       it "returns the closed debates" do
-        expect(subject).not_to include(translated(debate1.title))
-        expect(subject).not_to include(translated(debate2.title))
-        expect(subject).to include(translated(debate3.title))
-        expect(subject).not_to include(translated(debate4.title))
+        expect(subject).not_to have_escaped_html(translated(debate1.title))
+        expect(subject).not_to have_escaped_html(translated(debate2.title))
+        expect(subject).to have_escaped_html(translated(debate3.title))
+        expect(subject).not_to have_escaped_html(translated(debate4.title))
       end
     end
   end
@@ -135,10 +135,10 @@ RSpec.describe "Debate search", type: :request do
       end
 
       it "returns the debates commented by the current user" do
-        expect(subject).not_to include(translated(debate1.title))
-        expect(subject).not_to include(translated(debate2.title))
-        expect(subject).not_to include(translated(debate3.title))
-        expect(subject).to include(translated(debate4.title))
+        expect(subject).not_to have_escaped_html(translated(debate1.title))
+        expect(subject).not_to have_escaped_html(translated(debate2.title))
+        expect(subject).not_to have_escaped_html(translated(debate3.title))
+        expect(subject).to have_escaped_html(translated(debate4.title))
       end
     end
 
@@ -163,11 +163,11 @@ RSpec.describe "Debate search", type: :request do
       end
 
       it "returns the debates commented by the current user" do
-        expect(subject).not_to include(translated(debate1.title))
-        expect(subject).not_to include(translated(debate2.title))
-        expect(subject).not_to include(translated(debate3.title))
-        expect(subject).not_to include(translated(debate4.title))
-        expect(subject).to include(translated(debate5.title))
+        expect(subject).not_to have_escaped_html(translated(debate1.title))
+        expect(subject).not_to have_escaped_html(translated(debate2.title))
+        expect(subject).not_to have_escaped_html(translated(debate3.title))
+        expect(subject).not_to have_escaped_html(translated(debate4.title))
+        expect(subject).to have_escaped_html(translated(debate5.title))
       end
     end
   end
