@@ -16,9 +16,17 @@ module Decidim
       let(:meetings) { create_list(:meeting, 3) }
       let(:proposals) { create_list(:proposal, 2) }
       let(:coauthorships) { proposals.map(&:coauthorships).reduce([], :+) }
+      let(:amendments) do
+        proposals.map do |amendable|
+          create(:amendment, amendable: amendable, emendation: create(:proposal, component: amendable.component))
+        end.flatten
+      end
+      let(:endorsements) do
+        proposals.map { |endorsable| create(:endorsement, resource: endorsable) }.flatten
+      end
 
       let!(:records) do
-        (coauthorships + meetings + comments).map do |resource|
+        (coauthorships + amendments + endorsements + meetings + comments).map do |resource|
           create(:authorization_transfer_record, transfer: transfer, resource: resource)
         end
       end
@@ -39,8 +47,9 @@ module Decidim
         it "returns the record types with their translated messages in sorted order" do
           expect(subject).to eq(
             "Decidim::Comments::Comment" => "Comments: 10",
+            "Decidim::Endorsement" => "Endorsements: 2",
             "Decidim::Meetings::Meeting" => "Meetings: 3",
-            "Decidim::Proposals::Proposal" => "Proposals: 2"
+            "Decidim::Proposals::Proposal" => "Proposals: 4" # proposals + amendments
           )
         end
       end
@@ -58,7 +67,8 @@ module Decidim
 
         it "returns the record types with their translated messages in sorted order" do
           expect(subject).to eq(
-            ["Comments: 10", "Meetings: 3", "Proposals: 2"]
+            # proposals = proposals + amendments
+            ["Comments: 10", "Endorsements: 2", "Meetings: 3", "Proposals: 4"]
           )
         end
       end
@@ -79,7 +89,8 @@ module Decidim
         include_context "with actual records"
 
         it "returns the record types with their translated messages in sorted order" do
-          items = ["Comments: 10", "Meetings: 3", "Proposals: 2"].map { |msg| "<li>#{msg}</li>" }
+          # proposals = proposals + amendments
+          items = ["Comments: 10", "Endorsements: 2", "Meetings: 3", "Proposals: 4"].map { |msg| "<li>#{msg}</li>" }
           expect(subject).to eq(
             "<ul>#{items.join}</ul>"
           )
