@@ -38,14 +38,11 @@ module Decidim
       attr_reader :handler
 
       def transfer_authorization
-        transferred = true
-        transaction do
-          authorization = handler.duplicate
-          transferred = authorization.transfer_to!(handler)
-        end
+        authorization = handler.duplicate
+        transfer = authorization.transfer!(handler)
 
-        if transferred
-          broadcast(:transferred)
+        if transfer
+          broadcast(:transferred, transfer)
         else
           broadcast(:invalid)
         end

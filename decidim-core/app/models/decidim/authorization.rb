@@ -84,19 +84,10 @@ module Decidim
     # Transfers the authorization and data bound to the authorization to the
     # other user provided as an argument.
     #
-    # Returns a Boolean.
-    def transfer_to!(handler)
-      # First publish the event to let any modules transfer their data
-      # accordingly to the new user.
-      Decidim::AuthorizationTransfer.publish(self, handler)
-
-      # Update the metadata, transfer to the new user and grant.
-      self.attributes = {
-        metadata: handler.metadata,
-        user: handler.user
-      }
-
-      grant!
+    # @return [Decidim::AuthorizationTransfer] The authorization transfer that
+    #   was just processed with its information.
+    def transfer!(handler)
+      Decidim::AuthorizationTransfer.perform!(self, handler)
     end
 
     private
