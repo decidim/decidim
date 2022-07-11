@@ -14,17 +14,45 @@ This means that some participation data bound to the previous deleted user accou
 
 The transferred data can differ between the different modules but the core modules handle the following data automatically:
 
-- **decidim-core**: Coauthorships meaning any coauthorable records in different modules, such as proposals and collaborative drafts at `decidim-proposals`
-- **decidim-blogs**: Blog posts
-- **decidim-budgets**: Budgeting votes (or orders as we call them in the code)
-- **decidim-comments**: Comments
-- **decidim-consultations**: Consultation votes
-- **decidim-debates**: Debates
-- **decidim-elections**: Election votes
-- **decidim-forms**: Form answers for different forms, such as survey form answers at `decidim-surveys` or registration form answers at `decidim-meetings`
-- **decidim-initiatives**: Initiatives and initiative votes/signatures
-- **decidim-meetings**: Meetings, meeting registrations and meeting poll answers
-- **decidim-proposals**: Proposal votes/supports
+- **decidim-core**
+  - Amendments (meaning any amendments for amendable records in different modules, such as proposals at `decidim-proposals`)
+  - Coauthorships (meaning any coauthorable records in different modules, such as proposals and collaborative drafts at `decidim-proposals`)
+  - Endorsements (for any records, e.g. blog posts at `decidim-blogs`, debates at `decidim-debates` and proposals at `decidim-proposals`)
+- **decidim-blogs**
+  - Blog posts
+  - Endorsements for blog posts (through endorsement transfers at `decidim-core`)
+- **decidim-budgets**
+  - Budgeting votes (or orders as we call them in the code)
+- **decidim-comments**
+  - Comments
+  - Comment votes
+- **decidim-consultations**
+  - Consultation votes
+- **decidim-debates**
+  - Debates
+  - Endorsements for debates (through endorsement transfers at `decidim-core`)
+- **decidim-elections**
+  - Election votes
+  - Election form answers (through form answer transfers at `decidim-forms`)
+  - Feedback form answers (through form answer transfers at `decidim-forms`)
+- **decidim-forms**
+  - Form answers (for different forms, such as survey form answers at `decidim-surveys` or registration form answers at `decidim-meetings`)
+- **decidim-initiatives**
+  - Initiatives
+  - Initiative votes/signatures
+- **decidim-meetings**
+  - Meetings
+  - Meeting registrations
+  - Meeting poll answers
+  - Meeting registration form answers (through form answer transfers at `decidim-forms`)
+- **decidim-proposals**
+  - Proposal votes/supports
+  - Proposals (through coauthorship transfers at `decidim-core`)
+  - Collaborative drafts (through coauthorship transfers at `decidim-core`)
+  - Proposal amendments (through amendment transfers at `decidim-core`)
+  - Endorsements for proposals (through endorsement transfers at `decidim-core`)
+- **decidim-surveys**
+  - Survey form answers (through form answer transfers at `decidim-forms`)
 
 If external modules need to transfer records between accounts during the authorization transfers, module developers can define the following initializer at their modules (note that coauthorable records are automatically already handled):
 
