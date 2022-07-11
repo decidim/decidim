@@ -115,6 +115,7 @@ module Decidim
   autoload :ProcessesFileLocally, "decidim/processes_file_locally"
   autoload :RedesignLayout, "decidim/redesign_layout"
   autoload :DisabledRedesignLayout, "decidim/disabled_redesign_layout"
+  autoload :BlockRegistry, "decidim/block_registry"
 
   include ActiveSupport::Configurable
   # Loads seeds from all engines.
@@ -636,6 +637,11 @@ module Decidim
   # Public: Stores the registry for user permissions
   def self.permissions_registry
     @permissions_registry ||= PermissionsRegistry.new
+  end
+
+  # Public: Stores the registry for authorization transfer handlers
+  def self.authorization_transfer_registry
+    @authorization_transfer_registry ||= BlockRegistry.new
   end
 
   # Public: Stores an instance of StatsRegistry
