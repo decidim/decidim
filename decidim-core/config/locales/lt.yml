@@ -319,3 +319,70 @@ lt:
         modify: Redaguoti
         publish: Publikuoti
         title: Publikuoti Pataisos Juodraštį
+      promoted:
+        error: Publikuojant pataisą kaip naują pasiūlymą iškilo problema
+        success: Pataisa sėkmingai publikuota kaip naujas pasiūlymas
+      publish_draft:
+        error: Publikuojant pataisą iškilo problema.
+        success: Pataisa sėkmingai publikuota.
+      rejected:
+        error: Atmetant pataisą kilo problema. Pabandykite dar kartą vėliau
+        success: Pataisa sėkmingai atmesta
+      review:
+        back: Atgal
+        heading: Peržiūrėti pataisą
+        help_text: Peržiūrite %{model_name} pataisą
+        send: Priimti pataisą
+      update_draft:
+        error: Atnaujinant pataisos juodraštį iškilo problema.
+        success: Pataisos juodraštis sėkmingai atnaujintas.
+      withdraw:
+        error: Išimant pataisą įvyko klaida
+        success: Pataisa sėkmingai išimta
+      wizard_step_form:
+        steps:
+          '1': Sukurkite savo pataisą
+          '2': Palyginkite savo pataisą
+          '3': Užbaikite savo pataisą
+          '4': Paskalbkite savo pataisą
+    anonymous_user: Anonimas
+    application:
+      collection:
+        documents:
+          one: Dokumentas
+          few: Dokumentai
+          many: Dokumentai
+          other: Dokumentai
+      document:
+        download: Atsisiųsti dokumentą
+      documents:
+        related_documents: Susiję dokumentai
+      geocoding:
+        geocoded_address: Adresas
+      photos:
+        related_photos: Susiję paveikslėliai
+    author:
+      avatar: 'Avataras: %{name}'
+      avatar_multiuser: Avataras keliems naudotojams
+      comments:
+        one: komentaras
+        few: komentarai
+        many: komentarai
+        other: komentarai
+      endorsements:
+        one: palaikymas
+        few: palaikymai
+        many: palaikymai
+        other: palaikymai
+      official_author: Oficialus
+    authorization_handlers:
+      another_dummy_authorization_handler:
+        explanation: Patvirtinkite savo tapatybę įvesdami savo paso numerį po "A" raidės
+        fields:
+          passport_number: Paso numeris
+          postal_code: Pašto kodas
+        name: Kita pavyzdinė autorizacija
+      dummy_authorization_handler:
+        explanation: Patvirtinkite tapatybę įvesdami dokumento numerį pasibaigianti su "X"
+        fields:
+          allowed_postal_codes: Leistini pašto kodai (atskirti kableliais)
