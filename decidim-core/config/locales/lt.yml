@@ -396,8 +396,15 @@ lt:
         duplicate_authorization: Dalyvis su šiais duomenimis jau autorizuotas. Administratorius su Jumis susisieks duomenų patikrinimui.
       expired_at: Išėjo iš galiojimo %{timestamp}
       expires_at: Baigia galioti %{timestamp}
+      foo_authorization:
+        fields:
+          bar: Bar
+          foo: Foo
+        name: Foo leidimas
       granted_at: Suteikta %{timestamp}
+      renew: Atnaujinti tapatybės patikrinimą
       sms:
+        explanation: Įveskite telefono numerį tam, kad patikrinti Jūsų tapatybę.
         name: SMS žinute siunčiamas kodas
       started_at: Pradėta %{timestamp}
     authorization_modals:
@@ -405,14 +412,28 @@ lt:
         expired:
           authorize: Autorizuoti iš naujo su „%{authorization}“
           explanation: Jūsų leidimas baigė galioti. Kad galėtumėte atlikti šį veiksmą, turite iš naujo gauti leidimą „%{authorization}“.
+          title: Autorizacija išėjo iš galiojimo
         incomplete:
           cancel: Atšaukti
           explanation: 'Nors jums šiuo metu suteiktas leidimas „%{authorization}“, turite būti iš naujo gauti leidimą, nes neturime šių duomenų:'
           invalid_field: "%{field}"
           reauthorize: Autorizuoti iš naujo
+          title: Prašau autorizuokitės dar kartą
+        missing:
+          authorize: Autorizuokite su "%{authorization}"
+          explanation: Kad galėtumėte atlikti šį veiksmą, turite gauti autorizaciją „%{authorization}“.
+          title: Reikalinga autorizacija
+        ok:
+          title: Būdami šiame puslapyje buvote autorizuoti. Prašau perkraukite puslapį tam, kad įvykdyti veiksmą
+        pending:
+          explanation: Kad galėtumėte atlikti šį veiksmą, turite autorizuotis su „%{authorization}“, tačiau tai dar progrese
+          resume: Patikrinkite savo %{authorization} autorizacijos progresą
+          title: Autorizacija vyksta
         unauthorized:
+          explanation: Deja, šio veiksmo negalite atlikti, nes kai kurie jūsų autorizacijos duomenys nesutampa.
           invalid_field: "%{field} vertė %{value} negalioja."
           ok: Gerai
+          title: Neautorizuota
         unconfirmed:
           confirmation_instructions: 'Jeigu negavote patvirtinimo nurodymų, galite jų dar kartą paprašyti:'
           explanation_html: Kad galėtumėte atlikti šį veiksmą, turite gauti leidimą, o prieš atlikdami šį veiksmą turite patvirtinti savo el. pašto adresą <strong>%{email}</strong>.
@@ -537,3 +558,18 @@ lt:
           cancel: Atšaukti
           see_email: Žiūrėti savo el. paštą
           see_name: Žiūrėti savo vardą ir pavardę
+    events:
+      gamification:
+        badge_earned:
+          email_outro: Šį pranešimą gavote dėl to, kad mūsų interneto svetainėje pradėjote veiklą.
+          email_subject: 'Jūs pelnėte naują ženklelį – %{badge_name}!'
+          notification_title: Sveikiname! Jūs pelnėte <a href="%{resource_path}">%{badge_name} ženklelį </a> (lygis %{current_level}).
+        level_up:
+          email_intro: Sveikiname! Jūs pasiekėte %{current_level} lygio <a href="%{resource_url}">%{badge_name} ženklelį</a>!
+          email_outro: Šį pranešimą gavote dėl to, kad mūsų interneto svetainėje pradėjote veiklą.
+          email_subject: Jūs pasiekėte %{current_level} lygio ženklelį %{badge_name}!
+          notification_title: Sveikiname! Jūs pasiekėte %{current_level} lygio <a href="%{resource_path}">%{badge_name} ženklelį</a>!
+      groups:
+        demoted_membership:
+          email_outro: Šį pranešimą gavote dėl to, kad esate tos grupės narys.
+          email_subject: Jūs nebesate %{user_group_name} grupės administratorius!
