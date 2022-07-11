@@ -105,6 +105,23 @@ module Decidim::Verifications
           duplicate_authorization.reload
           expect(duplicate_authorization.user).to eq(user)
         end
+
+        context "and the authorization transfers are disabled" do
+          before { Decidim::AuthorizationTransfer.disable! }
+
+          after { Decidim::AuthorizationTransfer.enable! }
+
+          it "broadcasts invalid" do
+            expect { subject.call }.to broadcast(:invalid)
+          end
+
+          it "does not transfer the authorization" do
+            expect { subject.call }.not_to change(Decidim::Authorization, :count)
+
+            duplicate_authorization.reload
+            expect(duplicate_authorization.user).to eq(other_user)
+          end
+        end
       end
     end
 

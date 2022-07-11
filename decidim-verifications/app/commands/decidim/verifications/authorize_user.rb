@@ -46,6 +46,8 @@ module Decidim
         else
           broadcast(:invalid)
         end
+      rescue Decidim::AuthorizationTransfer::DisabledError
+        broadcast(:invalid)
       end
 
       def notify_admins(conflict)
