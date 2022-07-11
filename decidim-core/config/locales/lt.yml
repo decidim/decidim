@@ -491,3 +491,18 @@ lt:
           email_intro: Kažkas atsiuntė prašymą prisijungti prie %{user_group_name} grupės. Prašymą galite priimti arba atmesti <a href="%{resource_url}">grupės narių puslapyje</a>.
           email_outro: Šį pranešimą gavote dėl to, kad galite valdyti %{user_group_name} grupę.
           email_subject: Kažkas atsiuntė prašymą prisijungti prie %{user_group_name} grupės!
+          notification_title: Kažkas atsiuntė prašymą prisijungti prie %{user_group_name} grupės. Prašymą galite priimti arba atmesti <a href="%{resource_path}">grupės narių puslapyje</a>.
+        join_request_rejected:
+          email_intro: <a href="%{resource_url}">%{user_group_name}</a> grupės administratorius atmetė jūsų prašymą prisijungti prie grupės.
+    forms:
+      default_image: Numatytas atvaizdas
+      errors:
+        decidim/user:
+          password: Slaptažodis yra per trumpas.
+          password_confirmation: Slaptažodžio patvirtinimas turi sutapti su įvestu slaptažodžiu.
+        error: Šiame laukelyje įvyko klaida.
+      file_help:
+        file:
+          explanation: 'Rinkmenai skirtos gairės:'
+        image:
+          explanation: 'Paveikslėliui skirtos gairės:'
