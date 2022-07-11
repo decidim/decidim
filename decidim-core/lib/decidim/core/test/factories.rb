@@ -284,6 +284,34 @@ FactoryBot.define do
     end
   end
 
+  factory :authorization_transfer, class: "Decidim::AuthorizationTransfer" do
+    transient do
+      organization { create(:organization) }
+    end
+
+    user { create(:user, :confirmed, organization: organization) }
+    source_user { create(:user, :confirmed, :deleted, organization: user.try(:organization) || organization) }
+    authorization do
+      create(
+        :authorization,
+        user: source_user || create(:user, :confirmed, :deleted, organization: user.try(:organization) || organization)
+      )
+    end
+
+    trait :transferred do
+      authorization { create(:authorization, user: user) }
+    end
+  end
+
+  factory :authorization_transfer_record, class: "Decidim::AuthorizationTransferRecord" do
+    transient do
+      organization { resource.try(:organization) || create(:organization) }
+    end
+
+    transfer { create(:authorization_transfer, organization: organization) }
+    resource { create(:dummy_resource) }
+  end
+
   factory :static_page, class: "Decidim::StaticPage" do
     slug { generate(:slug) }
     title { generate_localized_title }
