@@ -118,6 +118,8 @@ hu:
         delete: "%{user_name} eltávolította a(z) %{resource_name} elemet innen: %{space_name}"
         publish: "%{user_name} közzétette a(z) %{resource_name} elemet itt: %{space_name}"
         unpublish: "%{user_name} visszavonta a(z) %{resource_name} elem közzétetelét innen: %{space_name}"
+      impersonation_log:
+        manage: "%{user_name} kezelte a %{resource_name} erőforrást ebből az okból %{reason}"
       moderation:
         hide: "%{user_name} elrejtette a(z) %{resource_type} típusú erőforrást itt: %{space_name}"
         unreport: "%{user_name} visszavonta a(z) %{resource_type} típusú erőforrás bejelentését itt: %{space_name}"
@@ -134,6 +136,7 @@ hu:
         update: "%{user_name} frissítette a szervezet beállításait"
       participatory_space_private_user:
         create: "%{user_name} meghívott %{resource_name} privát felhasználónak"
+        create_via_csv: "%{user_name} meghívta %{resource_name} önt, hogy privát résztvevő legyen"
         delete: "%{user_name} eltávolította a felhasználót %{resource_name} privát felhasználóként"
       scope:
         create: "%{user_name} létrehozta a(z) %{resource_name} hatáskört"
@@ -147,17 +150,25 @@ hu:
         delete: "%{user_name} törölte a(z) %{resource_name} statikus oldalt"
         update: "%{user_name} frissítette a(z) %{resource_name} statikus oldalt"
       user:
+        block: "%{user_name} blokkolt felhasználó itt %{resource_name}"
         invite: "%{user_name} meghívta %{resource_name} felhasználót (szerep: %{role})"
         officialize: "%{user_name} hivatalossá tette %{resource_name} felhasználót"
+        promote: "%{user_name} előléptetve %{resource_name}"
         remove_from_admin: "%{user_name} eltávolította %{resource_name} felhasználót, %{role} szereppel"
         show_email: "%{user_name} lekérdezte a(z) %{resource_name} résztvevő e-mailjét"
+        transfer: "%{user_name} átmozgatta a résztvevőt %{resource_name}"
+        unblock: "%{user_name} megszűntette a felhasználó blokkolását %{resource_name}"
         unofficialize: "%{user_name} visszavonta %{resource_name} hivatalosságát"
       user_group:
         reject: "%{user_name} elutasította a(z) %{resource_name} felhasználói csoport ellenőrzését"
         verify: "%{user_name} ellenőrizte a(z) %{resource_name} felhasználói csoportot"
         verify_via_csv: "%{user_name} az %{resource_name} felhasználói csoportot CSV-fájlon keresztül ellenőrizte"
+      user_moderation:
+        unreport: "%{user_name} visszavonta a %{resource_type} - %{unreported_user_name}"
     admin_terms_of_use:
       default_body: "<h2>ADMIN FELHASZNÁLÓI FELTÉTELEK</h2><p>Bízunk benne, hogy a szokásos előadást megkaptad a helyi rendszergazdától. Ez rendszerint e három dologra bontható le:</p><ol><li>Tiszteld mások magánéletét.</li><li>Gondolkodj, mielőtt kattintasz.</li><li>A nagy hatalommal, nagy felelősségvállalás is jár!</li></ol>"
+    alert:
+      dismiss: Értesítés elvetése
     amendments:
       accepted:
         error: A módosítás elfogadása közben hiba történt.
@@ -277,6 +288,8 @@ hu:
         name: Példa feljogosításra
       dummy_authorization_workflow:
         name: Dummy feljogosítási folyamat
+      errors:
+        duplicate_authorization: A résztvevő már hitelesítve lett ugyanezzal az adattal. Egy adminisztrátor felveszi a kapcsolatot a részletek pontosítása okán.
       expired_at: 'Lejárat: %{timestamp}'
       expires_at: 'Lejárat: %{timestamp}'
       foo_authorization:
@@ -819,6 +832,13 @@ hu:
           not_found: 'A hatáskör típus nem található az adatbázisban (ID: %{id})'
     managed_users:
       expired_session: A jelenlegi megszemélyesítő munkamenet lejárt.
+    map:
+      dynamic:
+        screen_reader_explanation: A következő elem egy olyan térkép, amely az ezen az oldalon található elemeket térképpontként jeleníti meg. Az elem használható képernyőolvasóval, azonban előfordulhat, hogy így nehézséget okoz az értelmezése.
+        skip_button: Térkép átugrása
+      static:
+        latlng_text: 'földrajzi szélesség: %{latitude}, földrajzi hosszúság: %{longitude}'
+        map_service_brand: OpenStreetMap
     members:
       no_members: Ennek a felhasználói csoportnak még nincs tagja.
     menu:
@@ -826,11 +846,35 @@ hu:
       home: Kezdőlap
     messaging:
       conversation_mailer:
+        comanagers_new_conversation:
+          admin_in_group: Azért kapta ezt, mert a(z) %{group} csoport adminisztrátora.
+          greeting: Kedves %{recipient}!
+          intro: "%{manager} egy új beszélgetést indított a(z) %{group} csoport nevében. Kattintson ide a megtekintéshez:"
+          outro: Használd örömmel a szolgáltatást!
+          subject: "%{manager} egy új beszélgetést indított a(z) %{group} nevében"
+        comanagers_new_message:
+          admin_in_group: Azért kapta ezt, mert a(z) %{group} csoport adminisztrátora.
+          greeting: Kedves %{recipient}!
+          intro: "%{manager} egy új üzenetet tett közzé egy beszélgetésben a(z) %{group} csoport nevében. Kattintson ide a megtekintéshez:"
+          outro: Használd örömmel a szolgáltatást!
+          subject: "%{manager} új üzeneteket küldött a(z) %{group} nevében"
         new_conversation:
           greeting: Szia %{recipient}!
           intro: "%{sender} új beszélgetést kezdett veled. Ide kattintva elolvashatod:"
           outro: Üdvözlünk a Decidimen!
           subject: "%{sender} beszélgetést kezdett veled"
+        new_group_conversation:
+          admin_in_group: Azért kapta ezt, mert a(z) %{group} csoport adminisztrátora.
+          greeting: Kedves %{recipient}!
+          intro: "%{sender} egy új beszélgetést indított a(z) %{group} csoport nevében. Kattintson ide a megtekintéshez:"
+          outro: Használd örömmel a szolgáltatást!
+          subject: "%{sender} új beszélgetést indított a(z) %{group} csoporttal"
+        new_group_message:
+          admin_in_group: Azért kapta ezt, mert a(z) %{group} csoport adminisztrátora.
+          greeting: Kedves %{recipient}!
+          intro: "%{sender} új üzeneteket tett közzé a(z) %{group} csoporttal folytatott beszélgetésben. Kattintson ide a megtekintéshez:"
+          outro: Használd örömmel a szolgáltatást!
+          subject: "%{group} csoportba új üzenetet küldött %{sender}"
         new_message:
           greeting: Szia %{recipient}!
           intro: "%{sender} új üzeneteket küldött neked. Ide kattintva megtekintheted őket:"
@@ -843,12 +887,21 @@ hu:
           modal_title: Új beszélgetés
           no_results: Nincs eredmény
           participant_with_disabled_message_reception: Ez a résztvevő letiltotta az üzenetek fogadását
+        conversation:
+          show: Beszélgetés megjelenítése vele %{sender}
         create:
           error: A beszélgetés megakadt. Próbáld újra később
+        error_modal:
+          close: Ablak bezárás
+          correct_errors: Kérjük javítsa a hibákat és próbálja újra.
+          intro: 'A következő hibákat tartalmazza az üzenet:'
+          ok: OK
         index:
           ago: óta
           close: Modal bezárása
           from: Feladó
+          groups: Csoportjaim
+          last_message: Utolsó üzenet
           new_conversation: Új beszélgetés
           next: Következő
           no_conversations: Még nincsenek beszélgetések
@@ -858,12 +911,19 @@ hu:
           send: Elküld
           title: Válasz
         show:
+          back: Vissza az összes beszélgetéshez
           chat_with: Beszélgetés vele
+          deleted_accounts: Törölt fiókkal nem lehet beszélgetni itt.
+          not_allowed: Ez a résztvevő nem fogad közvetlen üzeneteket.
           title: 'Beszélgetés vele: %{usernames}'
         start:
           send: Küldés
           title: Beszélgetés indítása
+        update:
+          error: Hiba folytán nem került kiküldésre az üzenet
     metrics:
+      download:
+        csv: Adatok letöltése (CSV)
       followers:
         description: A résztvevők száma, akik ezt a részvételi teret követik
         object: követők
@@ -882,14 +942,22 @@ hu:
         see_on_website: Nem jelenik meg rendesen? Nézd meg a <a href="%{link}" target="_blank">honlapunkon</a>.
         unsubscribe: Az ilyen emailek fogadásának kikapcsolása, <a href="%{link}" target="_blank" class="unsubscribe">Leiratkozás</a>.
     newsletter_templates:
+      basic_only_text:
+        body_preview: 'A fő szöveg helyőrző szövege: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque fringilla nisl tellus. Donec sed mi dui. Sed efficitur libero a felis tempor sollicitudin. Nullam vestibulum fringilla felis, id efficitur lorem sagittis et. Vivamus aliquam maximus velit vel dapibus. Mauris pellentesque, enim eu varius lacinia, risus ante rutrum ipsum, non lobortis augue lorem quis urna. Aenean et malesuada arcu.'
+        name: Alapvető (csak szöveg)
       basic_only_text_settings_form:
         body: Törzs
+        interpolations_hint: 'Tipp: a(z) "%{name}" nevet a tárgyban és a szövegben is használhatod, az helyettesítve lesz a címzett nevével.'
       image_text_cta:
+        body_preview: 'A fő szöveg helyőrző szövege: Maecenas ac nisl vitae lectus pretium facilisis. Etiam facilisis sem nibh, sit amet rutrum mi aliquam nec. Sed id urna at nisl pretium mollis eu vel velit. Proin vitae suscipit urna, sed faucibus urna. Pellentesque id libero vulputate ipsum scelerisque suscipit. Nam aliquam sodales mi sit amet cursus. Donec mattis faucibus purus. Aenean tincidunt porta lorem ac commodo. Vestibulum in mollis mi. Morbi eros erat, cursus ut tortor sit amet, imperdiet dapibus arcu. Suspendisse id egestas enim. In eget magna sed enim efficitur elementum sit amet aliquam quam. Donec fermentum metus eget urna luctus pulvinar.'
         cta_text_preview: Felhívás szövege
+        introduction_preview: 'A bevezetés helyőrző szövege: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque fringilla nisl tellus. Donec sed mi dui. Sed efficitur libero a felis tempor sollicitudin. Nullam vestibulum fringilla felis, id efficitur lorem sagittis et. Vivamus aliquam maximus velit vel dapibus. Mauris pellentesque, enim eu varius lacinia, risus ante rutrum ipsum, non lobortis augue lorem quis urna. Aenean et malesuada arcu.'
+        name: Kép, szöveg és cselekvésre hívó gomb
       image_text_cta_settings_form:
         body: Törzs
         cta_text: Felhívás gomb szövege
         cta_url: Felhívás gomb elérési útvonala
+        interpolations_hint: 'Tipp: A "%{name}" lehetőséget bárhol használhatja a bevezetésben, a cselekvésre hívó szövegben, a fő szövegben vagy a tárgyban, és a helyére a címzett neve kerül.'
         introduction: Bevezetés
         main_image: Fő kép
     newsletters:
@@ -917,6 +985,7 @@ hu:
       no_notifications: Még nincs értesítés.
     notifications_settings:
       show:
+        administrators: Adminisztrátorok
         allow_public_contact: Megengedem, hogy bárki közvetlen üzenetet küldjön nekem, akkor is, ha nem követem őket.
         direct_messages: Közvetlen üzenetek fogadása bárkitől
         email_on_notification: Mindig, amikor értesítést kapok, egy emailt is küldünk róla.
@@ -1141,6 +1210,17 @@ hu:
     user_conversations:
       create:
         success: A beszélgetés sikeresen elindult!
+      index:
+        conversations_info: A beszélgetések privátak. Senki más nem láthatja őket. Bármelyik, a platformon regisztrált résztvevővel vagy csoporttal beszélgetést kezdeményezhet.
+        from: Feladó
+        last_message: Utolsó üzenet
+        modal_title: Új beszélgetés
+        new_conversation: Új beszélgetés
+        next: Következő
+        no_conversations_warning: Még nincsenek beszélgetések.
+        no_results: Nincs eredmény
+        participant_with_disabled_message_reception: Ez a résztvevő letiltotta az üzenetek fogadását
+        time_ago: "%{time} ideje"
       new:
         title: Beszélgetés indítása
       reply:
@@ -1149,6 +1229,8 @@ hu:
         title_reply: Válasz
       show:
         back: Beszélgetések megtekintése
+        deleted_accounts: Törölt fiókkal nem lehet beszélgetni itt.
+        not_allowed: Ez a felhasználó nem fogad el több közvetlen üzenetet.
         title: Beszélgetés %{usernames} nevű felhasználóval
       update:
         error: Üzenet elküldése sikertelen. Próbáld újra később
@@ -1161,22 +1243,41 @@ hu:
       update:
         error: Hiba történt az érdeklődési körök frissítése közben.
         success: Az érdeklődési köreid sikeresen frissültek.
+    user_report_mailer:
+      notify:
+        body_1: '%{user} felhasználót jelentette %{token}'
+        body_2: 'Indok: %{reason}'
+        greetings: Üdvözöljük, <br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
+        hello: Hello %{admin},
+        subject: 'Felhasználó jelentésre került itt: %{organization_name}'
     version:
       show:
+        back_to_resource: Visszalépés
+        changes_at_title: Változások itt "%{title}"
         number_of_versions: Verziók
         show_all_versions: Összes verzió megjelenítése
         version_author: Verzió szerzője
         version_created_at: A verzió létrehozásának ideje
         version_number: Verziószám
+        version_number_out_of_total: "%{current_version} ennyiből: %{total_count}"
     version_author:
       show:
         deleted: Törölt résztvevő
     versions:
       resource_version:
+        of_versions: "(ennyiből: %{number})"
         see_other_versions: lásd a többi verziót
+        version: 'Verziószám: %{number}'
     versions_list:
       show:
         back_to_resource: Visszalépés
+        changes_at_title: Változások itt "%{title}"
+        number_of_versions: Verziók
+        title: Verziók
+    versions_list_item:
+      back: Összes verzió megjelenítése
+      show:
+        version_index: '%{index} verzió'
     welcome_notification:
       default_body: <p>Szia{{name}}, üdvözöllek és köszönöm, hogy csatlakoztál a {{organization}} szervezethez</p><ul><li>Ha gyorsan meg szeretnéd tudni, hogy mit tehetsz itt, nézd meg a <a href="{{help_url}}">Súgó</a> részt.</li><li>Miután elolvastad, megkapod az első jelvényed. Itt van egy <a href="{{badges_url}}">lista a</a> jelvényekről, melyeket akkor érdemelsz ki, ha részt veszel a {{organization}} által biztosított lehetőségekben. </li></ul> Végül, de nem utolsósorban, a platform lehetőséget biztosít, hogy kapcsolódj más emberekhez is! Oszd meg velük a tapasztalatodat a {{organization}} részvételében. Tegyél javaslatokat, megjegyzéseket, generálj konstruktív vitákat és gondold végig, hogyan járulj hozzá a közjó előmozdításához. Gyűjts érveket, hogy meggyőzz másokat, hallgass meg és olvasd el mások meggyőződést, fejezd ki ötleteidet konkrét és közvetlen módon, válaszolj türelemmel és határozottan, védd meg ötleteidet és hagyd nyitva elmédet, hogy elősegítsd az együttműködést és lehetőséget teremts más emberek ötleteinek befogadásához.</p>
       default_subject: Köszönjük, hogy csatlakoztál a {{organization}} szervezethez!
@@ -1352,6 +1453,7 @@ hu:
       too_much_caps: túl sok nagybetűt használ (a szöveg több mint 25% -a)
       too_short: túl rövid (15 karakterig)
   forms:
+    correct_errors: Az űrlap hibákat tartalmaz, kérjük, javítsa ezeket a folytatáshoz.
     required: Kötelező
   invisible_captcha:
     sentence_for_humans: Hagyd figyelmen kívül ezt a mezőt
