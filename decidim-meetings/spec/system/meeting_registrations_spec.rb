@@ -339,6 +339,26 @@ describe "Meeting registrations", type: :system do
 
           expect(page).to have_content("Needs to be reattached")
         end
+
+        context "and the announcement for the meeting is configured" do
+          before do
+            component.update!(
+              settings: {
+                announcement: {
+                  en: "An important announcement",
+                  es: "Un aviso muy importante",
+                  ca: "Un avís molt important"
+                }
+              }
+            )
+          end
+
+          it "the user should not see it" do
+            visit questionnaire_public_path
+
+            expect(page).not_to have_content("An important announcement")
+          end
+        end
       end
     end
 
