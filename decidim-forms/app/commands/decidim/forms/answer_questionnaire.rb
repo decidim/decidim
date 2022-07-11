@@ -43,7 +43,7 @@ module Decidim
       # of this problem.
       def reset_form_attachments
         @form.responses.each do |answer|
-          answer.errors.add(:add_documents, :needs_to_be_reattached) if answer.has_attachments?
+          answer.errors.add(:add_documents, :needs_to_be_reattached) if answer.has_attachments? || answer.has_error_in_attachments?
         end
       end
 
@@ -51,7 +51,7 @@ module Decidim
         @main_form = @form
         @errors = nil
 
-        Answer.transaction do
+        Answer.transaction(requires_new: true) do
           form.responses_by_step.flatten.select(&:display_conditions_fulfilled?).each do |form_answer|
             answer = Answer.new(
               user: @current_user,

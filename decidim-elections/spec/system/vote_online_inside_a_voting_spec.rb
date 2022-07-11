@@ -182,7 +182,24 @@ describe "Vote online in an election inside a Voting", type: :system do
     end
   end
 
-  def vote_with_census_data
+  context "when the comunication with bulletin board fails" do
+    before do
+      election.questions.last.destroy!
+      election.questions.last.destroy!
+      election.questions.last.destroy!
+      allow(Decidim::Elections.bulletin_board).to receive(:bulletin_board_server).and_return("http://idontexist.tld/api")
+    end
+
+    it "alerts the user about the error" do
+      fill_census_data
+
+      within "#server-failure" do
+        expect(page).to have_content("Something went wrong")
+      end
+    end
+  end
+
+  def fill_census_data
     visit_component
     click_link translated(election.title)
     click_link "Start voting"
@@ -197,6 +214,10 @@ describe "Vote online in an election inside a Voting", type: :system do
       fill_in "Access code", with: "1234"
       find("*[type=submit]").click
     end
+  end
+
+  def vote_with_census_data
+    fill_census_data
 
     expect(page).not_to have_content("This is a preview of the voting booth.")
 

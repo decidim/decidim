@@ -19,12 +19,12 @@
             <div class="text-small card--meta">
               <% if result.start_date %>
                 <strong><%= t("models.result.fields.start_date", scope: "decidim.accountability") %></strong>
-                <span><%= result.start_date %></span>
+                <span><%= l result.start_date, format: :decidim_short %></span>
               <% end %>
 
               <% if result.end_date %>
                 <strong><%= t("models.result.fields.end_date", scope: "decidim.accountability") %></strong>
-                <span><%= result.end_date %></span>
+                <span><%= l result.end_date, format: :decidim_short %></span>
               <% end %>
 
               <% if result.status %>
