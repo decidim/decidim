@@ -394,7 +394,7 @@ export default function createEditableForm() {
       autoLabelByPosition.run();
       autoButtonsByPosition.run();
 
-      initLanguageChangeSelect();
+      initLanguageChangeSelect($field.find("select.language-change").toArray());
     },
     onRemoveField: ($field) => {
       autoLabelByPosition.run();

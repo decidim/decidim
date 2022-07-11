@@ -1,17 +1,14 @@
 /* eslint-disable no-invalid-this */
 /* eslint-disable require-jsdoc */
 
-export default function initLanguageChangeSelect() {
-  $("select.language-change").change(function () {
-    let $select = $(this);
-    let targetTabPaneSelector = $select.val();
-    let $tabsContent = $select.parent().parent().siblings();
+export default function initLanguageChangeSelect(elements) {
+  elements.forEach((select) => {
+    select.onchange = function () {
+      let targetTabPaneSelector = this.value;
+      let $tabsContent = this.parentElement.parentElement.nextElementSibling;
 
-    $tabsContent.children(".is-active").removeClass("is-active");
-    $tabsContent.children(targetTabPaneSelector).addClass("is-active");
-  })
+      $tabsContent.querySelector(".is-active").classList.remove("is-active");
+      $tabsContent.querySelector(targetTabPaneSelector).classList.add("is-active");
+    }
+  });
 }
-
-$(() => {
-  initLanguageChangeSelect();
-});
