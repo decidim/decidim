@@ -8,6 +8,6 @@ $(() => {
     }
   }
 
-  // 30 seconds
-  setInterval(updateCensusDatasetStatus, 30000);
+  // 10 seconds
+  setInterval(updateCensusDatasetStatus, 10000);
 });
