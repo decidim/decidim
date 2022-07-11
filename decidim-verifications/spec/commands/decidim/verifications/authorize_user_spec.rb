@@ -81,7 +81,7 @@ module Decidim::Verifications
         end
 
         it "does not transfer the authorization" do
-          expect { subject.call }.to change(Decidim::Authorization, :count).by(0)
+          expect { subject.call }.not_to change(Decidim::Authorization, :count)
 
           duplicate_authorization.reload
           expect(duplicate_authorization.user).to eq(other_user)
@@ -100,7 +100,7 @@ module Decidim::Verifications
         end
 
         it "transfers the original authorization to the user being authorized" do
-          expect { subject.call }.to change(Decidim::Authorization, :count).by(0)
+          expect { subject.call }.not_to change(Decidim::Authorization, :count)
 
           duplicate_authorization.reload
           expect(duplicate_authorization.user).to eq(user)
