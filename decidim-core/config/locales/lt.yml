@@ -608,3 +608,45 @@ lt:
           message_2: Rekomenduojamas paveikslėlio dydis yra 512x512.
         image:
           explanation: 'Paveikslėliui skirtos gairės:'
+          message_1: Pageidautinas horizontalaus formato paveikslėlis be teksto.
+          message_2: Programa apkarpo paveikslėlį.
+      file_validation:
+        allowed_file_extensions: 'Leidžiami rinkmenų plėtiniai: %{extensions}'
+        max_file_dimension: 'Maksimalūs rinkmenos matmenys: %{resolution} pikselių'
+        max_file_size: 'Maksimalus rinkmenos dydis: %{megabytes} MB'
+      upload:
+        labels:
+          add_attachment: Prisegti priedą
+          add_file: Pridėti failą
+          add_image: Pridėti paveikslėlį
+          cancel: Atšaukti
+          edit_image: Redaguoti atvaizdą
+          error: Klaida!
+          file_size_too_large: 'Per didelė rinkemena! Didžiausias leistinas rinkemos dydis: %{megabytes} MB'
+          remove: Pašalinti
+          replace: Pakeisti
+          save: Išsaugoti
+          title: Pavadinimas
+          title_required: Reikalingas pavadinimas!
+          uploaded: Įkelta
+          validating: Tvirtinama...
+          validation_error: Tvirtinimo klaida!
+      upload_help:
+        dropzone: Numeskite rinkmeną čia arba spauskite įkėlimo mygtuką
+        explanation: Instrukcijos %{attribute}
+    gamification:
+      all_badges_link: Žiūrėti visus prieinamus ženklelius.
+      badges:
+        followers:
+          conditions:
+            - Jei būsite aktyvūs ir seksite kitus žmones, be abejo, kiti seks ir jus.
+          description: Šis ženklelis suteikiamas, kai pasiekiate tam tikrą skaičių sekėjų. %{organization_name} – tai socialinis ir politinis tinklas, kuriame galite megzti savo tinklą ir bendrauti su kitais platformos žmonėmis.
+          description_another: Šis dalyvis turi %{score} sekėjus (-ų).
+          description_own: "Jus seka %{score} žmonės (-ių)."
+          name: Sekėjai
+          unearned_another: Šis dalyvis dar neturi sekėjų.
+          unearned_own: Jūs dar neturite sekėjų.
+        index:
+          badge_title: "%{name} ženklelis"
+          how: Kaip jį užsitarnauti
+          title: Ženkleliai
