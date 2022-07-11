@@ -52,7 +52,41 @@ describe "Authorizations", type: :system, with_authorization_workflows: ["dummy_
           page.find(".datepicker-dropdown .day:not(.new)", text: "12").click
 
           click_button "Send"
-          expect(page).to have_content("You've been successfully authorized. We have recovered your old participation data based on your verification.")
+          expect(page).to have_content("You've been successfully authorized.")
+          expect(page).not_to have_content("We have recovered the following participation data based on your authorization:")
+        end
+
+        context "and the deleted user for the duplicate authorization had transferrable data" do
+          let(:commentable) do
+            create(
+              :dummy_resource,
+              component: create(:component, manifest_name: "dummy", organization: user.organization)
+            )
+          end
+
+          before do
+            create_list(:comment, 10, author: other_user, commentable: commentable)
+            create_list(:proposal, 5, users: [other_user], component: create(:proposal_component, organization: user.organization))
+
+            within_user_menu do
+              click_link "My account"
+            end
+
+            click_link "Authorizations"
+            click_link "Example authorization"
+          end
+
+          it "reports the transferred participation data" do
+            fill_in "Document number", with: document_number
+            page.execute_script("$('#authorization_handler_birthday').focus()")
+            page.find(".datepicker-dropdown .day:not(.new)", text: "12").click
+
+            click_button "Send"
+            expect(page).to have_content("You've been successfully authorized.")
+            expect(page).to have_content("We have recovered the following participation data based on your authorization:")
+            expect(page).to have_content("Comments: 10")
+            expect(page).to have_content("Proposals: 5")
+          end
         end
       end
     end

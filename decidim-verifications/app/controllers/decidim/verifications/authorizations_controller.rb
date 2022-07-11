@@ -9,6 +9,7 @@ module Decidim
       before_action :valid_handler, only: [:new, :create]
 
       include Decidim::UserProfile
+      include Decidim::HtmlSafeFlash
       include Decidim::Verifications::Renewable
       helper Decidim::DecidimFormHelper
       helper Decidim::CtaButtonHelper
@@ -41,8 +42,18 @@ module Decidim
             redirect_to redirect_url || authorizations_path
           end
 
-          on(:transferred) do
-            flash[:notice] = t("authorizations.create.transferred", scope: "decidim.verifications")
+          on(:transferred) do |transfer|
+            message = t("authorizations.create.success", scope: "decidim.verifications")
+            if transfer.records.any?
+              flash[:html_safe] = true
+              message = <<~HTML
+                <p>#{CGI.escapeHTML(message)}</p>
+                <p>#{CGI.escapeHTML(t("authorizations.create.transferred", scope: "decidim.verifications"))}</p>
+                #{transfer.presenter.records_list_html}
+              HTML
+            end
+
+            flash[:notice] = message
             redirect_to redirect_url || authorizations_path
           end
 

@@ -50,7 +50,7 @@ module Decidim::Verifications
                 handler: "dummy_authorization_handler",
                 authorization_handler: handler_params
               }
-            end.to change(Decidim::Authorization, :count).by(0)
+            end.not_to change(Decidim::Authorization, :count)
 
             expect(authorization).to be_blank
             expect(flash[:alert]).to eq("There was a problem creating the authorization.")
@@ -66,11 +66,45 @@ module Decidim::Verifications
                   handler: "dummy_authorization_handler",
                   authorization_handler: handler_params
                 }
-              end.to change(Decidim::Authorization, :count).by(0)
+              end.not_to change(Decidim::Authorization, :count)
 
               expect(authorization).not_to be_blank
-              expect(flash[:notice]).to eq("You've been successfully authorized. We have recovered your old participation data based on your verification.")
+              expect(flash[:notice]).to eq("You've been successfully authorized.")
               expect(response).to redirect_to(authorizations_path)
+            end
+
+            context "and the source user had records to be transferred" do
+              let(:component) { create(:component, manifest_name: "dummy", organization: user.organization) }
+              let(:registry) { Decidim::BlockRegistry.new }
+
+              before do
+                allow(Decidim::AuthorizationTransfer).to receive(:registry).and_return(registry)
+
+                registry.register(:dummy) do |tr|
+                  tr.move_records(Decidim::DummyResources::DummyResource, :decidim_author_id)
+                end
+
+                create_list(:dummy_resource, 5, author: other_user, component: component)
+              end
+
+              it "transfers the authorization and the records" do
+                expect do
+                  post :create, params: {
+                    handler: "dummy_authorization_handler",
+                    authorization_handler: handler_params
+                  }
+                end.not_to change(Decidim::Authorization, :count)
+
+                expect(authorization).not_to be_blank
+                expect(flash[:notice]).to eq(
+                  <<~HTML
+                    <p>#{CGI.escapeHTML("You've been successfully authorized.")}</p>
+                    <p>We have recovered the following participation data based on your authorization:</p>
+                    <ul><li>Dummy resource: 5</li></ul>
+                  HTML
+                )
+                expect(response).to redirect_to(authorizations_path)
+              end
             end
           end
         end
