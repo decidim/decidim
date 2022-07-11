@@ -77,7 +77,9 @@ module Decidim
 end
 ```
 
-If you would like to disable the authorization transfers altogether, you can define the following code in your application class located at `config/application.rb` of your instance:
+By default you should handle transfer of all records that can require an authorization and leave instance implementers the possibility to disable those transfers if they want to as explained below.
+
+If you would like to disable the authorization transfers feature altogether, you can define the following code in your application class located at `config/application.rb` of your instance:
 
 ```ruby
 module DecidimYourCity
