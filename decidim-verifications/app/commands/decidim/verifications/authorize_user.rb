@@ -22,8 +22,7 @@ module Decidim
         return transfer_authorization if !handler.unique? && handler.transferrable?
 
         if handler.invalid?
-          conflict = create_verification_conflict
-          notify_admins(conflict) if conflict.present?
+          register_conflict
 
           return broadcast(:invalid)
         end
@@ -47,7 +46,14 @@ module Decidim
           broadcast(:invalid)
         end
       rescue Decidim::AuthorizationTransfer::DisabledError
+        register_conflict
+
         broadcast(:invalid)
+      end
+
+      def register_conflict
+        conflict = create_verification_conflict
+        notify_admins(conflict) if conflict.present?
       end
 
       def notify_admins(conflict)

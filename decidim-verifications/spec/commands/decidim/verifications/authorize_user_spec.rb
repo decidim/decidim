@@ -121,6 +121,10 @@ module Decidim::Verifications
             duplicate_authorization.reload
             expect(duplicate_authorization.user).to eq(other_user)
           end
+
+          it "saves conflicts" do
+            expect { subject.call }.to change(Decidim::Verifications::Conflict, :count).by(1)
+          end
         end
       end
     end
