@@ -791,6 +791,9 @@ en:
       title: Fingerprint
       value: Value
     followers:
+      followers_count:
+        one: "%{count} follower"
+        other: "%{count} followers"
       no_followers: No followers yet.
     following:
       no_followings: Doesn't follow anyone or anything yet.

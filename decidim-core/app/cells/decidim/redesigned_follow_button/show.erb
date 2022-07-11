@@ -1,0 +1,32 @@
+<div id="<%= dom_id(model, :follow) %>">
+  <% if current_user %>
+    <% if current_user.follows?(model) %>
+      <%= button_to decidim.follow_path, class: button_classes, params: { follow: { followable_gid: model.to_sgid.to_s, inline: inline? } }, data: { disable: true }, method: :delete, remote: true do %>
+        <%= t("follows.destroy.button", scope: "decidim") %>
+        <%= icon "notification-off-line", class: "fill-current" %>
+      <% end %>
+    <% else %>
+      <%= button_to decidim.follow_path, class: button_classes, params: { follow: { followable_gid: model.to_sgid.to_s, inline: inline? } }, data: { disable: true }, remote: true do %>
+        <% if current_user.follows?(model.try(:participatory_space)) %>
+          <%= t("follows.create.participatory_space", resource_name: resource_title(model.participatory_space), scope: "decidim") %>
+        <% else %>
+          <%= t("follows.create.button", scope: "decidim") %>
+        <% end %>
+        <%= icon "notification-line", class: "fill-current" %>
+      <% end %>
+    <% end %>
+  <% else %>
+    <%= action_authorized_button_to(
+      :follow,
+      decidim.follow_path,
+      resource: model,
+      class: button_classes,
+      params: { follow: { followable_gid: model.to_sgid.to_s, inline: inline? } },
+      :'aria-haspopup' => true,
+      title: t("decidim.shared.follow_button.sign_in_before_follow"),
+      remote: true) do %>
+        <%= t("follows.create.button", scope: "decidim") %>
+        <%= icon "notification-line", class: "fill-current" %>
+    <% end %>
+  <% end %>
+</div>

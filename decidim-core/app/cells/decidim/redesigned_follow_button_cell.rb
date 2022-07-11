@@ -2,7 +2,7 @@
 
 module Decidim
   # This cell renders the button to follow the given resource.
-  class FollowButtonCell < Decidim::ViewModel
+  class RedesignedFollowButtonCell < Decidim::ViewModel
     include LayoutHelper
     include Decidim::SanitizeHelper
     include Decidim::ResourceHelper
@@ -15,6 +15,7 @@ module Decidim
 
     private
 
+    # deprecated
     def followers_count
       if model.respond_to?(:followers_count)
         model.followers_count
@@ -24,19 +25,10 @@ module Decidim
     end
 
     def button_classes
-      return "card__button secondary text-uppercase follow-button mb-none has-tip" if inline?
-
-      extra_classes = ""
-      extra_classes += " active" if current_user_follows?
-      extra_classes += if large?
-                         " button--sc"
-                       else
-                         " small"
-                       end
-
-      "button expanded button--icon follow-button secondary hollow #{extra_classes}"
+      "button text-secondary white sm whitespace-nowrap"
     end
 
+    # deprecated
     def icon_options
       icon_base_options = { aria_hidden: true }
       return icon_base_options.merge(class: "icon--small", role: "img", "aria-hidden": true) if inline?
@@ -44,6 +36,7 @@ module Decidim
       icon_base_options
     end
 
+    # deprecated
     def render_screen_reader_title_for(resource)
       content_tag :span, class: "show-for-sr" do
         decidim_html_escape(resource_title(resource))
