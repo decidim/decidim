@@ -12,6 +12,10 @@ module Decidim
       user_group || author
     end
 
+    def resource_type
+      coauthorable_type
+    end
+
     private
 
     # As it is used to validate by comparing to author.organization
