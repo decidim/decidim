@@ -551,3 +551,24 @@ lt:
           explanation: 'Rinkmenai skirtos gairės:'
         image:
           explanation: 'Paveikslėliui skirtos gairės:'
+          message_1: Pageidautinas horizontalaus formato paveikslėlis be teksto.
+          message_2: Programa apkarpo paveikslėlį.
+      file_validation:
+        allowed_file_extensions: 'Leidžiami rinkmenų plėtiniai: %{extensions}'
+        max_file_size: 'Maksimalus rinkmenos dydis: %{megabytes} MB'
+    gamification:
+      all_badges_link: Žiūrėti visus prieinamus ženklelius.
+      badges:
+        followers:
+          conditions:
+            - Jei būsite aktyvūs ir seksite kitus žmones, be abejo, kiti seks ir jus.
+          description: Šis ženklelis suteikiamas, kai pasiekiate tam tikrą skaičių sekėjų. %{organization_name} – tai socialinis ir politinis tinklas, kuriame galite megzti savo tinklą ir bendrauti su kitais platformos žmonėmis.
+          description_another: Šis dalyvis turi %{score} sekėjus (-ų).
+          description_own: "Jus seka %{score} žmonės (-ių)."
+          name: Sekėjai
+          unearned_another: Šis dalyvis dar neturi sekėjų.
+          unearned_own: Jūs dar neturite sekėjų.
+        index:
+          badge_title: "%{name} ženklelis"
+          how: Kaip jį užsitarnauti
+          title: Ženkleliai
