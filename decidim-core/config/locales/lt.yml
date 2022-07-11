@@ -485,3 +485,18 @@ lt:
           cancel: Atšaukti
           see_email: Žiūrėti savo el. paštą
           see_name: Žiūrėti savo vardą ir pavardę
+    events:
+      gamification:
+        badge_earned:
+          email_outro: Šį pranešimą gavote dėl to, kad mūsų interneto svetainėje pradėjote veiklą.
+          email_subject: 'Jūs pelnėte naują ženklelį – %{badge_name}!'
+          notification_title: Sveikiname! Jūs pelnėte <a href="%{resource_path}">%{badge_name} ženklelį </a> (lygis %{current_level}).
+        level_up:
+          email_intro: Sveikiname! Jūs pasiekėte %{current_level} lygio <a href="%{resource_url}">%{badge_name} ženklelį</a>!
+          email_outro: Šį pranešimą gavote dėl to, kad mūsų interneto svetainėje pradėjote veiklą.
+          email_subject: Jūs pasiekėte %{current_level} lygio ženklelį %{badge_name}!
+          notification_title: Sveikiname! Jūs pasiekėte %{current_level} lygio <a href="%{resource_path}">%{badge_name} ženklelį</a>!
+      groups:
+        demoted_membership:
+          email_outro: Šį pranešimą gavote dėl to, kad esate tos grupės narys.
+          email_subject: Jūs nebesate %{user_group_name} grupės administratorius!
