@@ -527,3 +527,49 @@ lt:
           badge_title: "%{name} ženklelis"
           how: Kaip jį užsitarnauti
           title: Ženkleliai
+        invitations:
+          conditions:
+            - Norėdami pakviesti savo draugus prisijugti pasinaudokite "pakviesti draugus" nuoroda savo naudotojo puslapyje
+            - Jeigu norite, siunčiamą žinutę galite patinkinti
+            - Savo lygį pakelsite siųsdami kvietimus ir juos registruodami.
+          description: Šis ženklelis suteikiamas, kai pakviečiate žmonių, jie užsiregistruoja %{organization_name} ir tampa dalyviais. Dėkojame, kad supažindinate kitus su %{organization_name} ir padedate plėsti bendruomenę!
+          description_another: Šis dalyvis pakvietė %{score} žmones (-ių).
+    groups:
+      form:
+        phone_help: Nenaudokite nei brūkšnių, nei tarpų
+      join:
+        error: Prisijungiant prie šios grupės iškilo problema
+        success: Prisijungimo prašymas sukurtas. Administratorius peržiūrės jūsų prašymą prieš priimdamas jus į grupę.
+      leave:
+        error: Paliekant šią grupę iškilo problema
+        success: Grupė palikta.
+      members:
+        accept_or_reject_join_requests: 'Toliau nurodyti naudotojai pateikė prašymą prisijungti prie šios grupės. Priimkite arba atmeskite jų prašymus:'
+        accept_request: Sutikti
+        reject_request: Atmesti
+      new:
+        create_user_group: Sukurti grupę
+        new_user_group: Nauja grupė
+        subtitle: Sukurti grupę ir pakviesti kitus naudotojus dalyvauti bendru lygmeniu.
+      no_user_groups: Dar nepriklauso nė vienai grupei.
+      roles:
+        admin: Administratorius
+        member: Narys
+      update:
+        error: Atnaujinant šią grupę iškilo problema
+        success: Grupė atnaujinta
+    help:
+      main_topic:
+        default_page:
+          title: Ką galiu daryti %{organization}?
+        description: Daugiau informacijos apie %{organization}
+        title: Bendroji Pagalba
+    last_activities:
+      activities:
+        no_activities_warning: Nėra veiklų
+      all: Visos veiklos rūšys
+      index:
+        last_activity: Paskutinė veikla
+        resource_type: Tipas
+    links:
+      invalid_url: Klaidingas URL
