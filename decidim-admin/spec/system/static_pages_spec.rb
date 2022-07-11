@@ -26,10 +26,20 @@ describe "Content pages", type: :system do
 
       it "shows the list of all the pages" do
         decidim_pages.each do |decidim_page|
+          topic_title = decidim_page.topic.title[I18n.locale.to_s]
+          page_title = decidim_page.title[I18n.locale.to_s]
+
           expect(page).to have_css(
             "a[href=\"#{decidim.page_path(decidim_page)}\"]",
-            text: decidim_page.title[I18n.locale.to_s]
+            text: topic_title
           )
+          within("details", text: topic_title) do
+            find("div.flex-none").click
+            expect(page).to have_css(
+              "a[href=\"#{decidim.page_path(decidim_page)}\"]",
+              text: page_title
+            )
+          end
         end
       end
     end
