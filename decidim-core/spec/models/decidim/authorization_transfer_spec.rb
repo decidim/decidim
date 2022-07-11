@@ -28,6 +28,12 @@ module Decidim
       end
     end
 
+    shared_context "with transfers disabled" do
+      before { described_class.disable! }
+
+      after { described_class.enable! }
+    end
+
     it { is_expected.to be_valid }
 
     describe "validations" do
@@ -50,28 +56,44 @@ module Decidim
       end
     end
 
+    describe ".enabled?" do
+      subject { described_class.enabled? }
+
+      it { is_expected.to be(true) }
+
+      context "when disabled" do
+        include_context "with transfers disabled"
+
+        it { is_expected.to be(false) }
+      end
+    end
+
+    describe ".enable!" do
+      include_context "with transfers disabled"
+
+      subject { described_class.enable! }
+
+      before { subject }
+
+      it { is_expected.to be(true) }
+
+      it "changes the enabled state of the class" do
+        expect(described_class.enabled?).to be(true)
+      end
+    end
+
     describe ".disable!" do
       subject { described_class.disable! }
 
-      let(:foo_block) { ->(_tr) {} }
-      let(:bar_block) { ->(_tr) {} }
+      # Make sure the method is called before the tests
+      before { subject }
 
-      include_context "with local block registry"
+      after { described_class.enable! }
 
-      before do
-        registry.register(:foo, &foo_block)
-        registry.register(:bar, &bar_block)
+      it { is_expected.to be(false) }
 
-        # Make sure the method is called
-        subject
-      end
-
-      it "clears the registered handlers from the registry" do
-        expect(described_class.registrations).to be_empty
-      end
-
-      it "returns a hash of the originally registered blocks with their keys" do
-        expect(subject).to eq(foo: foo_block, bar: bar_block)
+      it "changes the enabled state of the class" do
+        expect(described_class.enabled?).to be(false)
       end
     end
 
@@ -96,34 +118,44 @@ module Decidim
           tr.move_records(Decidim::DummyResources::DummyResource, :decidim_author_id)
           tr.move_records(Decidim::Coauthorship, :decidim_author_id)
         end
+      end
 
+      context "when the functionality is enabled" do
         # Initiate the transfer
-        subject
-      end
+        before { subject }
 
-      it "performs the transfer correctly and calls the registerd handlers" do
-        expect(subject.records.count).to eq(8)
-        expect(Decidim::DummyResources::DummyResource.where(decidim_author_id: user.id).order(:id)).to eq(
-          dummy_resources.sort_by!(&:id)
-        )
-        expect(Decidim::Coauthorship.where(decidim_author_id: user.id).order(:id)).to eq(
-          coauthorable_dummy_resources.map(&:coauthorships).reduce([], :+).sort_by!(&:id)
-        )
-        expect(Decidim::DummyResources::DummyResource.where(decidim_author_id: source_user.id).count).to be(0)
-        expect(Decidim::Coauthorship.where(decidim_author_id: source_user.id).count).to be(0)
+        it "performs the transfer correctly and calls the registerd handlers" do
+          expect(subject.records.count).to eq(8)
+          expect(Decidim::DummyResources::DummyResource.where(decidim_author_id: user.id).order(:id)).to eq(
+            dummy_resources.sort_by!(&:id)
+          )
+          expect(Decidim::Coauthorship.where(decidim_author_id: user.id).order(:id)).to eq(
+            coauthorable_dummy_resources.map(&:coauthorships).reduce([], :+).sort_by!(&:id)
+          )
+          expect(Decidim::DummyResources::DummyResource.where(decidim_author_id: source_user.id).count).to be(0)
+          expect(Decidim::Coauthorship.where(decidim_author_id: source_user.id).count).to be(0)
 
-        # Check that authorization is correctly transferred and metadata is
-        # updated
-        expect(authorization.user).to be(user)
-        expect(authorization.granted?).to be(true)
-        expect(authorization.metadata["postal_code"]).to eq("08001")
-      end
-
-      context "with a pending authorization" do
-        let(:authorization) { create(:authorization, :pending, user: source_user, unique_id: "12345678X") }
-
-        it "grants the authorization during the transfer" do
+          # Check that authorization is correctly transferred and metadata is
+          # updated
+          expect(authorization.user).to be(user)
           expect(authorization.granted?).to be(true)
+          expect(authorization.metadata["postal_code"]).to eq("08001")
+        end
+
+        context "with a pending authorization" do
+          let(:authorization) { create(:authorization, :pending, user: source_user, unique_id: "12345678X") }
+
+          it "grants the authorization during the transfer" do
+            expect(authorization.granted?).to be(true)
+          end
+        end
+      end
+
+      context "when the functionality is disabled" do
+        include_context "with transfers disabled"
+
+        it "raises a DisabledError" do
+          expect { subject }.to raise_error(Decidim::AuthorizationTransfer::DisabledError)
         end
       end
     end
@@ -166,6 +198,14 @@ module Decidim
         end
 
         subject
+      end
+
+      context "when the functionality is disabled" do
+        include_context "with transfers disabled"
+
+        it "raises a DisabledError" do
+          expect { subject }.to raise_error(Decidim::AuthorizationTransfer::DisabledError)
+        end
       end
     end
 

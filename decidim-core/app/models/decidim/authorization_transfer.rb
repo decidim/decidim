@@ -32,6 +32,8 @@ module Decidim
     belongs_to :source_user, class_name: "Decidim::User"
     has_many :records, class_name: "Decidim::AuthorizationTransferRecord", foreign_key: :transfer_id, dependent: :destroy
 
+    class DisabledError < StandardError; end
+
     class << self
       # Provides access to the registry instance that stores the transfer
       # handlers for each module.
@@ -52,17 +54,33 @@ module Decidim
       # class.
       delegate :register, :unregister, :registrations, to: :registry
 
-      # Disables the authorization transfer functionality for the instance.
-      # After this method is called, the functionality cannot be re-enabled
-      # unless the block are registered again.
+      # Returns the enabled status for the authorization transfers. True by
+      # default.
       #
-      # @return [Hash<Symbol, Proc>] A hash of the originally registered blocks
-      #   with their keys.
-      def disable!
-        original_registrations = registrations.dup
-        registry.unregister(*registrations.keys)
+      # @return [Boolean] True if the authorization transfers are enabled and
+      #   false if they are disabled.
+      def enabled?
+        enable! if @enabled.nil?
 
-        original_registrations
+        @enabled
+      end
+
+      # Enables the authorization transfer functionality. By default the
+      # functionality is already enabled, so this method is only needed in case
+      # the enabled state is changed e.g. during tests.
+      #
+      # @return [Boolean] Returns the enabled status after the enabling, i.e.
+      #   true.
+      def enable!
+        @enabled = true
+      end
+
+      # Disables the authorization transfer functionality.
+      #
+      # @return [Boolean] Returns the enabled status after the disabling, i.e.
+      #   false.
+      def disable!
+        @enabled = false
       end
 
       # Performs the authorization transfer for the provided authorization object
@@ -75,9 +93,12 @@ module Decidim
       #   object with all the necessary information for authorizing the new
       #   user. The target user for which the authorization is transferred over
       #   to is fetched from the handler.
+      # @raise [DisabledError] If the functionality is disabled.
       # @return [Decidim::AuthorizationTransfer] The created authorization
       #   transfer object.
       def perform!(authorization, handler)
+        raise DisabledError unless enabled?
+
         transaction do
           transfer = create!(
             authorization: authorization,
@@ -124,9 +145,12 @@ module Decidim
     # @param handler [Decidim::AuthorizationHandler] The authorization handler
     #   for the transfer procedure which contains all the necessary information
     #   about the data that was submitted from the authorization action.
+    # @raise [DisabledError] If the functionality is disabled.
     # @return [Array<Proc>] An array of the blocks that were processed during
     #   the transfer.
     def announce!(handler)
+      raise DisabledError unless self.class.enabled?
+
       # Temporarily store the handler object in case the transfer handler
       # requires some information from it.
       self.handler = handler
