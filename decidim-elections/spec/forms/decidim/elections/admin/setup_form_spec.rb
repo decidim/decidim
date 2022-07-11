@@ -144,9 +144,9 @@ describe Decidim::Elections::Admin::SetupForm do
       it "shows errors" do
         subject.valid?
         expect(subject.errors.messages).to eq({
-                                                census_uploaded: ["There is no census uploaded for this election"],
-                                                census_codes_generated: ["Election codes for the census are not generated"],
-                                                census_frozen: ["Election codes are not exported"]
+                                                census_uploaded: ["There is no census uploaded for this election."],
+                                                census_codes_generated: ["Election codes for the census are not generated."],
+                                                census_frozen: ["Election codes are not exported."]
                                               })
       end
     end
@@ -159,8 +159,8 @@ describe Decidim::Elections::Admin::SetupForm do
       it "shows errors" do
         subject.valid?
         expect(subject.errors.messages).to eq({
-                                                census_codes_generated: ["Election codes for the census are not generated"],
-                                                census_frozen: ["Election codes are not exported"]
+                                                census_codes_generated: ["Election codes for the census are not generated."],
+                                                census_frozen: ["Election codes are not exported."]
                                               })
       end
     end
@@ -173,7 +173,7 @@ describe Decidim::Elections::Admin::SetupForm do
       it "shows errors" do
         subject.valid?
         expect(subject.errors.messages).to eq({
-                                                census_frozen: ["Election codes are not exported"]
+                                                census_frozen: ["Election codes are not exported."]
                                               })
       end
     end
