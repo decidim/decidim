@@ -81,7 +81,11 @@ module Decidim
         end
 
         def needs_census?
-          election.component.participatory_space.respond_to?(:dataset)
+          vote_flow.is_a?(Decidim::Votings::CensusVoteFlow)
+        end
+
+        def vote_flow
+          @vote_flow ||= election.participatory_space.try(:vote_flow_for, election)
         end
 
         def census_codes_generated?
