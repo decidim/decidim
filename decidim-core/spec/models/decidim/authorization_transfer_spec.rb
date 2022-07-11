@@ -224,8 +224,19 @@ module Decidim
       let(:dummy_resources) { create_list(:dummy_resource, 3, author: user, component: component) }
       let(:coauthorable_dummy_resources) { create_list(:coauthorable_dummy_resource, 5, authors_list: [user], component: component) }
 
+      let(:amendments) do
+        dummy_resources.map do |amendable|
+          create(:amendment, amendable: amendable, emendation: create(:dummy_resource, author: user, component: amendable.component))
+        end.flatten
+      end
+      let(:endorsements) do
+        dummy_resources.map { |endorsable| create(:endorsement, resource: endorsable, author: user) }.flatten
+      end
+
       before do
-        dummy_resources.each { |r| create(:authorization_transfer_record, transfer: transfer, resource: r) }
+        (dummy_resources + amendments + endorsements).each do |r|
+          create(:authorization_transfer_record, transfer: transfer, resource: r)
+        end
         coauthorable_dummy_resources.each do |r|
           r.coauthorships.each { |c| create(:authorization_transfer_record, transfer: transfer, resource: c) }
         end
@@ -235,11 +246,15 @@ module Decidim
         expect(subject).to eq(
           "Decidim::DummyResources::DummyResource" => {
             class: Decidim::DummyResources::DummyResource,
-            count: dummy_resources.count
+            count: dummy_resources.count + amendments.count
           },
           "Decidim::DummyResources::CoauthorableDummyResource" => {
             class: Decidim::DummyResources::CoauthorableDummyResource,
             count: coauthorable_dummy_resources.count
+          },
+          "Decidim::Endorsement" => {
+            class: Decidim::Endorsement,
+            count: endorsements.count
           }
         )
       end
