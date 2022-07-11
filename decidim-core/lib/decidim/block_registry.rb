@@ -20,9 +20,12 @@ module Decidim
 
     # Unregister registered handlers with the provided names.
     def unregister(*names)
-      names.map do |name|
+      blocks = names.map do |name|
         registrations.delete(name)
       end
+      return blocks.first if names.length == 1
+
+      blocks
     end
   end
 end
