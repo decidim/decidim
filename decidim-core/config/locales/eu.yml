@@ -1600,7 +1600,7 @@ eu:
         see_more: Ikusi gehiago
   locale:
     name: Euskera
-    name_with_error: Euskera (akatsa!)
+    name_with_error: Ingelesa (akatsa!)
   password_validator:
     domain_included_in_password: domeinu izen honen antzekoa da
     email_included_in_password: zure posta elektronikoaren antzekoa da

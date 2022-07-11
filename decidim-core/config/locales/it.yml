@@ -1626,7 +1626,7 @@ it:
         see_more: vedi di più
   locale:
     name: Italiano
-    name_with_error: Italiano (errore!)
+    name_with_error: Inglese (errore!)
   password_validator:
     blacklisted: è nella blacklist
     domain_included_in_password: è troppo simile a questo nome di dominio
