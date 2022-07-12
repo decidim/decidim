@@ -1,4 +1,4 @@
-import ConsentManager from "src/decidim/cookie_consent/consent_manager";
+import ConsentManager from "src/decidim/data_consent/consent_manager";
 
 const initDialog = (manager) => {
   if (Object.keys(manager.state).length > 0) {
