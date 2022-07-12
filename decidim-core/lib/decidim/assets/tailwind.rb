@@ -1,12 +1,12 @@
 # frozen_string_literal: true
 
-require "decidim/css_compiler/tailwind/instance"
-
 module Decidim
-  module CssCompiler
+  module Assets
     module Tailwind
+      autoload :Instance, "decidim/assets/tailwind/instance"
+
       def write_runtime_configuration
-        instance = ::Decidim::CssCompiler::Tailwind::Instance.new
+        instance = ::Decidim::Assets::Tailwind::Instance.new
         instance.write_runtime_configuration
       end
 

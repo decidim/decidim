@@ -58,8 +58,8 @@ module Webpacker
         )
       end
 
-      it "calls css compiler generate runtime configuration" do
-        expect(Decidim::CssCompiler::Tailwind).to receive(:write_runtime_configuration)
+      it "calls assets generate runtime configuration for Tailwind" do
+        expect(Decidim::Assets::Tailwind).to receive(:write_runtime_configuration)
         create_instance
       end
     end

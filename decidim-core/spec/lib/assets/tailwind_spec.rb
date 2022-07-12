@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
 require "spec_helper"
-require "decidim/css_compiler/tailwind"
+require "decidim/assets/tailwind"
 
 module Decidim
-  module CssCompiler
+  module Assets
     describe Tailwind do
       let(:app_path) { Rails.application.root.to_s }
 

@@ -4,7 +4,7 @@ require "ostruct"
 require "erb"
 
 module Decidim
-  module CssCompiler
+  module Assets
     module Tailwind
       class Instance
         def write_runtime_configuration
@@ -16,7 +16,10 @@ module Decidim
         private
 
         def tailwind_variables
-          content_directories = Dir.glob("#{Gem.loaded_specs["decidim"].full_gem_path}/decidim-*").push(".")
+          # The directories where Tailwind should search for templates are the installed
+          # decidim gems and the current directory (which is the Rails app)
+          decidim_gems = Bundler.load.specs.select { |spec| spec.name =~ /^decidim-/ }
+          content_directories = decidim_gems.push(".")
 
           # The variable expected by tailwind is a Javascript array of strings
           # The directory globbing with the star is done in Ruby because it was causing an infinite loop
