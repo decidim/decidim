@@ -12,7 +12,7 @@ In previous Decidim versions authorization conflicts (i.e. authorizing the user 
 
 This means that some participation data bound to the previous deleted user account is now automatically transferred over to the new account during the authorization process to prevent e.g. duplicate votes in budgeting votings. This includes any data that may or may not require an authorization through the component permissions because in Decidim we cannot be always perfectly sure when an authorization is required for the action or not. As an example, budget voting can start without an authorization and if the admin decides to configure an authorization for the component one day after the voting started, we need to assume that the all votes in that component required an authorization. Otherwise we would potentially allow multiple votes from the users that voted before the authorization was configured if they decided to create a new account to vote for a second time or deleted their original account and did that.
 
-The transferred data can differ between the different modules but the core modules handle the following data automatically:
+The transferred data can differ between the different modules but the official modules handle the following data automatically:
 
 - **decidim-core**
   - Amendments (meaning any amendments for amendable records in different modules, such as proposals at `decidim-proposals`)
@@ -62,12 +62,14 @@ module Decidim
     class Engine < ::Rails::Engine
       # ...
       initializer "decidim_your_module.authorization_transfer" do
-        Decidim::AuthorizationTransfer.register(:your_module) do |transfer|
+        Decidim::AuthorizationTransfer.register(:your_module) do |transfer, auth_hander|
           # Define the record class as the first argument to be moved to the
           # new user and the column name as the second argument that maps the
           # record to the original user. This will update all records that match
           # the old deleted account to the new user that was authorized using
-          # conflicting authorization data.
+          # conflicting authorization data. If you need access to the
+          # authorization handler that caused the transfer to be initiated, it
+          # is available as the second yielded argument (auth_hander).
           transfer.move_records(Decidim::YourModule::Foo, :decidim_author_id)
         end
       end

@@ -11,11 +11,15 @@ module Decidim
   # transfer handler in a specific module, use the following code example.
   #
   # @example Register authorization handler
-  #   Decidim::AuthorizationTransfer.register(:my_module) do |transfer|
+  #   Decidim::AuthorizationTransfer.register(:my_module) do |transfer, auth_handler|
   #     # The move_records method updates the provided active record objects
   #     # to be mapped to the new user for which the authorization is being
   #     # transferred to. Provide the record class and the column name which
   #     # maps the user records to these records as its arguments.
+  #     #
+  #     # If you need access to the authorization handler that caused the
+  #     # transfer to be initiated, it is available as the second yielded
+  #     # argument (auth_hander).
   #     transfer.move_records(Decidim::MyModule::FooBar, :decidim_user_id)
   #   end
   #
@@ -53,12 +57,10 @@ module Decidim
       # @!method register(name)
       # Registers an authorization transfer handler for a specific use case in
       # any modules that need to handle authorization transfers.
-      #
       # @example
-      #   Decidim::AuthorizationTransfer.register(:my_module) do |transfer, authorization_handler|
-      #     transfer.move_records(Decidim::MyModule::MyRecord, :decidim_user_id)
+      #   Decidim::AuthorizationTransfer.register(:my_module) do |transfer, auth_handler|
+      #     transfer.move_records(Decidim::MyModule::FooBar, :decidim_user_id)
       #   end
-      #
       # @param name [Symbol] The name for the block, e.g. `:proposals`.
       # @yield [transfer, authorization_handler] Handles the authorization
       #   transfer for the given context. This is called before the
@@ -169,7 +171,9 @@ module Decidim
     #
     # @param handler [Decidim::AuthorizationHandler] The authorization handler
     #   for the transfer procedure which contains all the necessary information
-    #   about the data that was submitted from the authorization action.
+    #   about the data that was submitted from the authorization action. It is
+    #   yielded to the registered transfer handlers as the second argument of
+    #   the registered block.
     # @raise [DisabledError] If the functionality is disabled.
     # @return [Array<Proc>] An array of the blocks that were processed during
     #   the transfer.
