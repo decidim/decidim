@@ -382,6 +382,7 @@ fr-CA:
           more_information: "(Plus d'informations)"
           select: Créer une initiative
           select_initiative_type_help: Les pétitions sont un moyen par lequel les participants peuvent intervenir afin que l'organisation puisse entreprendre des actions en faveur de l'intérêt général. Quelle pétition voulez-vous lancer?
+          verification_required: Vérifiez votre compte pour créer une pétition
         share_committee_link:
           continue: Continuer
           invite_to_committee_help: Lien pour inviter des personnes à faire partie du Comité de promotion
@@ -608,6 +609,7 @@ fr-CA:
           comment: Commenter
       initiatives_type:
         actions:
+          create: Créer
           title: Actions
           vote: Vote
   layouts:
