@@ -14,7 +14,7 @@ module Decidim
   #        YourRecord.create!(record_params)
   #
   #        flash[:html_safe] = true
-  #        flash[:success] = t(".record_created")
+  #        flash[:success] = t(".record_created_html")
   #      end
   #    end
   module HtmlSafeFlash
