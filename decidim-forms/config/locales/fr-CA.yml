@@ -44,6 +44,8 @@ fr-CA:
             actions:
               back: Retour aux réponses
               export: Exporter
+              next: Suivant &rsaquo;
+              previous: "&lsaquo; Précédent"
               show: Afficher les réponses
             empty: Pas encore de réponses
             export:
