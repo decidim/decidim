@@ -90,10 +90,9 @@ module Decidim
 
           # count lines in the most resource-efficient way using ruby, handles milions of lines with minimal memory footprint
           def file_lines_count
-            # rubocop:disable Lint/EmptyBlock
-            File.foreach(file_path) {}
-            # rubocop:enable Lint/EmptyBlock
-            $INPUT_LINE_NUMBER
+            lines = 0
+            File.foreach(file_path) { lines += 1 }
+            lines
           end
         end
       end
