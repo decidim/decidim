@@ -1661,7 +1661,7 @@
         see_more: Se mer
   locale:
     name: Engelsk
-    name_with_error: Engelsk (feil!)
+    name_with_error: Norsk (feil!)
   password_validator:
     blacklisted: er svartelistet
     domain_included_in_password: er for lik dette domenenavnet
