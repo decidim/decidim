@@ -846,3 +846,11 @@ lt:
           modal_btn_exit: Peržiūrėsiu vėliau
           modal_button: Nesutikti su sąlygomis
           modal_close: Uždaryti modalinį langą
+    reported_mailer:
+      report:
+        authors: Autoriai
+        content: Turinys, apie kurį pranešta
+        content_original_language: Turinio originali kalba
+        date: Pranešta
+        details: Išsamiau
+        reason: Priežastis
