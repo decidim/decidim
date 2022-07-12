@@ -3,7 +3,7 @@
 
 export default function initLanguageChangeSelect(elements) {
   elements.forEach((select) => {
-    select.addEventListener("click", () => {
+    select.addEventListener("change", () => {
       let targetTabPaneSelector = select.value;
       let tabsContent = select.parentElement.parentElement.nextElementSibling;
 
