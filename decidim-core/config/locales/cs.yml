@@ -1729,7 +1729,7 @@ cs:
         see_more: Vidět víc
   locale:
     name: Čeština
-    name_with_error: Čeština
+    name_with_error: Čeština (chyba!)
   password_validator:
     blacklisted: je na černé listině
     domain_included_in_password: je příliš podobné tomuto názvu domény
