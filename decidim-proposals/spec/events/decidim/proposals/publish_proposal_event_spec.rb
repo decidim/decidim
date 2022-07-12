@@ -65,7 +65,7 @@ module Decidim
         describe "notification_title" do
           it "is generated correctly" do
             expect(subject.notification_title)
-              .to include("The <a href=\"#{resource_path}\">#{resource_title}</a> official proposal was published.")
+              .to include("The official proposal <a href=\"#{resource_path}\">#{resource_title}</a> was published.")
           end
         end
       end
