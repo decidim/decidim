@@ -3,17 +3,14 @@
     <%= search_form_for(query, url: url_for) do |form| %>
       <div class="grid-x grid-margin-x">
         <div class="cell medium-6 large-3">
-          <%= form.label :with_participatory_space %>
           <%= form.text_field :with_participatory_space, placeholder: t(".participatory_space"), class: "participatory-space-search", value: nil, data: {
             selected: form.object.with_participatory_space
           } %>
         </div>
         <div class="cell medium-6 large-3">
-          <%= form.label :created_at_dtgteq %>
           <%= form.datetime_field :created_at_dtgteq %>
         </div>
         <div class="cell medium-6 large-3">
-          <%= form.label :created_at_dtlteq %>
           <%= form.datetime_field :created_at_dtlteq %>
         </div>
         <div class="cell medium-6 large-3">
