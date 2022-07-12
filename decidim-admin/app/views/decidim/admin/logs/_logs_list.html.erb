@@ -15,7 +15,7 @@
         </ul>
       <% else %>
         <div class="logs table">
-          <p class="logs--no-logs"><%= t(".no_logs_yet") %></p>
+          <p class="logs--no-logs"><%= defined?(empty_logs) && empty_logs ? t(".no_logs_yet") : t(".no_matching_logs") %></p>
         </div>
       <% end %>
     </div>

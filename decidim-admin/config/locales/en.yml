@@ -515,7 +515,8 @@ en:
           text: Search by user email, name or nickname.
           user: User
         logs_list:
-          no_logs_yet: There are no logs yet
+          no_logs_yet: There are no logs yet.
+          no_matching_logs: There are no logs with the provided search filters. Try to change them and retry.
       managed_users:
         promotion:
           error: There was a problem promoting the managed participant.

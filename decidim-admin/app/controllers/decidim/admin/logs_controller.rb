@@ -7,7 +7,7 @@ module Decidim
     class LogsController < Decidim::Admin::ApplicationController
       include Decidim::Admin::Logs::Filterable
 
-      helper_method :logs
+      helper_method :logs, :no_logs_available?
 
       def index
         enforce_permission_to :read, :admin_log
@@ -19,11 +19,19 @@ module Decidim
         @logs ||= filtered_collection.order(created_at: :desc)
       end
 
+      def no_logs_available?
+        root_query.none?
+      end
+
       def base_query
+        root_query.includes(
+          :participatory_space, :user, :resource, :component, :version
+        )
+      end
+
+      def root_query
         Decidim::ActionLog.where(
           organization: current_organization
-        ).includes(
-          :participatory_space, :user, :resource, :component, :version
         ).for_admin
       end
     end
