@@ -1251,7 +1251,6 @@ en:
         sub_hero:
           register: Register
       index:
-        read_more: Read more
         standalone_pages: Pages
         subheading: Navigate through the help pages of %{name}
         title: Help
