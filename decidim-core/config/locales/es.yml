@@ -1627,7 +1627,7 @@ es:
         see_more: Ver más
   locale:
     name: Castellano
-    name_with_error: Inglés (¡error!)
+    name_with_error: Castellano (¡error!)
   password_validator:
     domain_included_in_password: es demasiado similar a este nombre de dominio
     email_included_in_password: es demasiado similar a tu correo electrónico
