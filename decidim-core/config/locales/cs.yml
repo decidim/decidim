@@ -1661,7 +1661,7 @@ cs:
         see_more: Vidět víc
   locale:
     name: Čeština
-    name_with_error: Čeština
+    name_with_error: Čeština (chyba!)
   password_validator:
     domain_included_in_password: je příliš podobné tomuto názvu domény
     email_included_in_password: je příliš podobný e-mailu
