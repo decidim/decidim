@@ -1835,7 +1835,7 @@ es-MX:
         see_more: Ver más
   locale:
     name: Español
-    name_with_error: Inglés (¡error!)
+    name_with_error: Español (¡error!)
   password_validator:
     blacklisted: en la lista negra
     domain_included_in_password: Es muy similar a este nombre de dominio
