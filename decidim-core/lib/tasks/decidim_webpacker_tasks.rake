@@ -14,6 +14,8 @@ namespace :decidim do
       copy_file_to_application "babel.config.json"
       # PostCSS configuration
       copy_file_to_application "decidim-core/lib/decidim/webpacker/postcss.config.js", "postcss.config.js"
+      # Tailwind configuration
+      copy_template_to_application "decidim-core/lib/decidim/webpacker/tailwind.config.js.erb", "tailwind.config.js", tailwind_variables
       # Webpacker configuration
       copy_file_to_application "decidim-core/lib/decidim/webpacker/webpacker.yml", "config/webpacker.yml"
       # Webpack JS config files
@@ -134,6 +136,12 @@ namespace :decidim do
       FileUtils.cp(decidim_path.join(origin_path), rails_app_path.join(destination_path))
     end
 
+    # variables contains the variables to be used in the template, it can be an instance of OpenStruct
+    def copy_template_to_application(origin_path, destination_path, variables)
+      evaluated_template = ERB.new(File.read(decidim_path.join(origin_path))).result(variables.instance_eval { binding })
+      File.write(rails_app_path.join(destination_path), evaluated_template)
+    end
+
     def copy_folder_to_application(origin_path, destination_path = origin_path)
       FileUtils.cp_r(decidim_path.join(origin_path), rails_app_path.join(destination_path))
     end
@@ -166,6 +174,18 @@ namespace :decidim do
 
     def system!(command)
       system("cd #{rails_app_path} && #{command}") || abort("\n== Command #{command} failed ==")
+    end
+
+    def tailwind_variables
+      # Get the list of Decidim gems installed and adds the current folder ('.')
+      content_directories = Dir.glob("#{Gem.loaded_specs["decidim"].full_gem_path}/decidim-*").push(".")
+
+      # The variable expected by tailwind is a Javascript array of strings
+      # The directory globbing with the star is done in Ruby because it was causing an infinite loop
+      # when processed by Tailwind
+      content_directories_as_array_of_strings = content_directories.map { |content_directory| "'#{content_directory}'" }.join(",")
+
+      OpenStruct.new(tailwind_content_directories: content_directories_as_array_of_strings)
     end
   end
 end
