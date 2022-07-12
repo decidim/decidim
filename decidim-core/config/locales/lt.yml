@@ -699,3 +699,10 @@ lt:
         resource_type: Tipas
     links:
       invalid_url: Klaidingas URL
+      warning:
+        body_1: Ketinate apsilankyti išoriniame tinklapyje tad norėtume, kad būtumėte apdairūs dėl išorinės svetainės turinio.
+        body_2: Prieš tęsdami patikrinkite nuorodą, kurią ketinate aplankyti, ir įsitikinkite, kad ją atpažįstate kaip saugią.
+        cancel: Atšaukti
+        close_modal: Uždaryti modalinį langą
+        proceed: Tęsti
+        title: Atverti išorinę nuorodą
