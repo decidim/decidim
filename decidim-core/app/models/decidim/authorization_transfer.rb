@@ -23,9 +23,6 @@ module Decidim
   # transfer and a block which handles the specific transfer. The block is
   # called with the transfer record, i.e. instance of this class with access to
   # all necessary information required for handling the transfer.
-  #
-  # @attr_reader handler [Decidim::AuthorizationHandler] The authorization
-  #   handler instance during the authorization transfer.
   class AuthorizationTransfer < ApplicationRecord
     belongs_to :authorization, class_name: "Decidim::Authorization"
     belongs_to :user, class_name: "Decidim::User"
@@ -121,11 +118,6 @@ module Decidim
       end
     end
 
-    # The handler object is the Decidim::AuthorizationHandler insance that is in
-    # charge of the current authorization action. This is only available when
-    # the transfer is being performed.
-    attr_reader :handler
-
     # Overwrites the method so that records cannot be modified.
     #
     # @return [Boolean] A boolean indicating whether the record is read only.
@@ -151,12 +143,8 @@ module Decidim
     def announce!(handler)
       raise DisabledError unless self.class.enabled?
 
-      # Temporarily store the handler object in case the transfer handler
-      # requires some information from it.
-      self.handler = handler
-
       self.class.registrations.values.each do |block|
-        block.call(self)
+        block.call(self, handler)
       end
     end
 
@@ -228,9 +216,5 @@ module Decidim
         end
       )
     end
-
-    private
-
-    attr_writer :handler
   end
 end

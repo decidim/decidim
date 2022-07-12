@@ -192,9 +192,10 @@ module Decidim
         subject
       end
 
-      it "allows access to the provided handler" do
-        registry.register(:foo) do |tr|
-          expect(tr.handler).to be(handler)
+      it "yields also the handler object" do
+        registry.register(:foo) do |tr, authorization_handler|
+          expect(tr).to be_a(Decidim::AuthorizationTransfer)
+          expect(authorization_handler).to be(handler)
         end
 
         subject
