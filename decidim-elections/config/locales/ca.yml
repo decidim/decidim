@@ -243,7 +243,11 @@ ca:
             success: La pregunta s'ha actualitzat correctament
         steps:
           create_election:
+            census: Cens
             errors:
+              census_codes_generated: No es generen codi electorals per al cens.
+              census_frozen: No s'exporten els codis electorals.
+              census_uploaded: No s'ha pujat el cens per a aquestes eleccions.
               component_published: L'elecció <strong>no està publicada</strong>.
               max_selections: Les preguntes no tenen un <strong>valor correcte per quantitat de respostes</strong>
               minimum_answers: Les preguntes han de tenir <strong>almenys dues respostes</strong>.
@@ -258,6 +262,9 @@ ca:
               'false': no té una <strong>clau pública</strong>
               'true': té una <strong>clau pública</strong>
             requirements:
+              census_codes_generated: Es generen codis de cens.
+              census_frozen: Els codis s'exporten i el cens es congela.
+              census_uploaded: El cens s'ha pujat.
               component_published: L'elecció està <strong>publicada</strong>.
               max_selections: Totes les preguntes tenen un valor correcte per <strong>màxim de respostes</strong>.
               minimum_answers: Cada pregunta té <strong>almenys 2 respostes</strong>.
