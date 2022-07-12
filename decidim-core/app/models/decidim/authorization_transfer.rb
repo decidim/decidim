@@ -49,6 +49,39 @@ module Decidim
 
       # Expose the methods provided by the registry singleton through the model
       # class.
+      #
+      # @!method register(name)
+      # Registers an authorization transfer handler for a specific use case in
+      # any modules that need to handle authorization transfers.
+      #
+      # @example
+      #   Decidim::AuthorizationTransfer.register(:my_module) do |transfer, authorization_handler|
+      #     transfer.move_records(Decidim::MyModule::MyRecord, :decidim_user_id)
+      #   end
+      #
+      # @param name [Symbol] The name for the block, e.g. `:proposals`.
+      # @yield [transfer, authorization_handler] Handles the authorization
+      #   transfer for the given context. This is called before the
+      #   authorization is transferred over to the new user and granted.
+      # @yieldparam [Decidim::AuthorizationTransfer] The authorization transfer
+      #   being processed which stores all the necessary information about the
+      #   transfer, related authorization and related user and source user (i.e.
+      #   the user from which the authorization is transferred from).
+      # @yieldparam [Decidim::AuthorizationHandler] The authorization handler
+      #   in charge of the current authorization action which initiated the
+      #   transfer due to the duplicate unique ID it detected. This handler can
+      #   provide access to the metadata from the new authorization action that
+      #   caused the conflict to happen.
+      # @return [Proc] The registered block itself.
+      #
+      # @!method unregister(name)
+      # @see Decidim::BlockRegistry#unregister(name)
+      #
+      # @!method unregister(*names)
+      # @see Decidim::BlockRegistry#unregister(*names)
+      #
+      # @!method registrations
+      # @see Decidim::BlockRegistry#registrations
       delegate :register, :unregister, :registrations, to: :registry
 
       # Returns the enabled status for the authorization transfers. True by
