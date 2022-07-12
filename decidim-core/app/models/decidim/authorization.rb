@@ -84,6 +84,9 @@ module Decidim
     # Transfers the authorization and data bound to the authorization to the
     # other user provided as an argument.
     #
+    # @param hendler [Decidim::AuthorizationHandler] The authorization handler
+    #   that caused the conflicting situation to happen and which stores the
+    #   authorizing user's information with the latest authorization data.
     # @return [Decidim::AuthorizationTransfer] The authorization transfer that
     #   was just processed with its information.
     def transfer!(handler)
