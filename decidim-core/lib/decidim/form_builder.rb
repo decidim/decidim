@@ -729,7 +729,7 @@ module Decidim
       options = { count: 1, default: defaults }
 
       text = I18n.t(defaults.shift, **options)
-      content_tag(:span, text, class: "mt-2 hidden peer-invalid:block text-sm text-red")
+      content_tag(:span, text, class: "form-error mt-2 hidden peer-invalid:block text-sm text-red")
     end
 
     def categories_for_select(scope)
