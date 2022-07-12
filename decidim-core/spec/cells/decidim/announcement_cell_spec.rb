@@ -11,7 +11,7 @@ module Decidim
 
       it "renders the card" do
         html = cell("decidim/announcement", announcement).call
-        expect(html).to have_css(".callout.announcement.cell-announcement")
+        expect(html).to have_css("div.notification.js-announcement")
         expect(html).to have_text(announcement)
       end
     end
@@ -39,7 +39,7 @@ module Decidim
 
       it "renders the card" do
         html = cell("decidim/announcement", announcement).call
-        expect(html).to have_css(".callout.announcement.cell-announcement")
+        expect(html).to have_css("div.notification.js-announcement")
         expect(html).to have_text("My announcement")
       end
     end
