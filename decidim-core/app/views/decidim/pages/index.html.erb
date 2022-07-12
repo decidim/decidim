@@ -21,15 +21,15 @@ edit_link(
   <div class="space-y-16 mb-36">
     <% if @topics.any? %>
       <div class="space-y-6">
-        <h3 class="h3 decorator"><%= t "decidim.pages.index.topics" %></h3>
+        <h2 class="h2 decorator"><%= t "decidim.pages.index.topics" %></h3>
         <% @topics.each do |topic| %>
           <% if topic.pages.any? %>
             <details class="border-4 border-background rounded p-4 group">
               <summary class="flex justify-between items-center cursor-pointer">
                 <div class="grow">
-                  <h4 class="h4 text-secondary text-lg">
+                  <h3 class="h3 text-secondary text-lg">
                     <%= link_to translated_attribute(topic.title), page_path(topic.pages.first) %>
-                  </h4>
+                  </h3>
                   <p class="text-gray-2"><%= translated_attribute topic.description %></p>
                 </div>
                 <div class="flex-none">
@@ -51,13 +51,13 @@ edit_link(
 
     <% if @orphan_pages.any? %>
       <div class="space-y-6">
-        <h3 class="h3 decorator"><%= t "decidim.pages.index.standalone_pages" %></h3>
+        <h2 class="h2 decorator"><%= t "decidim.pages.index.standalone_pages" %></h3>
         <div class="grid grid-cols-2 gap-6">
           <% @orphan_pages.each do |page| %>
             <div class="border-4 border-background rounded p-4">
-              <h4 class="h4 text-secondary text-lg">
+              <h3 class="h3 text-secondary text-lg">
                 <%= link_to translated_attribute(page.title), page_path(page) %>
-              </h4>
+              </h3>
               <%== strip_tags html_truncate(translated_attribute(page.content), length: 140, separator: "...") %>
             </div>
           <% end %>
