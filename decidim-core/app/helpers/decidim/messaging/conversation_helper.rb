@@ -3,7 +3,6 @@
 module Decidim
   module Messaging
     module ConversationHelper
-
       # deprecated
       def conversation_name_for(users)
         return content_tag(:span, t("decidim.profile.deleted"), class: "label label--small label--basic") if users.first.deleted?
