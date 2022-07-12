@@ -1072,8 +1072,6 @@ en:
           modal_title: New conversation
           no_results: No results
           participant_with_disabled_message_reception: This participant has disabled message reception
-        conversation:
-          show: Show conversation with %{sender}
         create:
           error: Conversation not started. Try again later
         error_modal:
@@ -1085,20 +1083,17 @@ en:
           ago: ago
           close: Close modal
           from: From
-          groups: My groups
           last_message: Last message
           new_conversation: New conversation
-          read_conversation: Read conversation
           next: Next
           no_conversations: You have no conversations yet
+          read_conversation: Read conversation
           title: Conversations
           to: To
         reply:
           placeholder: Your reply...
           send: Send
-          title: Reply
         show:
-          back: Back to all conversations
           chat_with: Conversation with
           deleted_accounts: You can't have a conversation with deleted accounts.
           not_allowed: This participant does not accept direct messages.
