@@ -40,7 +40,7 @@ edit_link(
 
               <ul class="border-t border-gray-3 mt-4 pt-4 space-y-4" role="menu">
                 <% topic.pages.each do |page| %>
-                  <li role="presentation"><%= link_to translated_attribute(page.title), page_path(page), class: "text-secondary" %></li>
+                  <li role="menuitem"><%= link_to translated_attribute(page.title), page_path(page), class: "text-secondary" %></li>
                 <% end %>
               </ul>
             </details>
