@@ -1,17 +1,10 @@
-<% add_decidim_page_title(t(".title")) %>
-
-<div class="add-message">
-  <h2 class="section-heading">
-    <%= t(".title") %>
-  </h2>
-
-  <%= decidim_form_for form, url: decidim.conversations_path, remote: true do |f| %>
-    <% @form.recipient.each do |recipient| %>
-      <%= f.hidden_field :recipient_id, id: nil, name: "conversation[recipient_id][]", value: recipient.id %>
-    <% end %>
-    <%= f.label :body, nil, class: "show-for-sr" %>
-    <%= f.text_area :body, label: false, rows: 4, required: true, data: { input_emoji: true } %>
-
-    <%= f.submit t(".send") %>
-  <% end %>
-</div>
+<%= decidim_form_for form, url: decidim.conversations_path, remote: true do |f| %>
+  <div class="flex flex-col w-2/3 mx-auto">
+    <%= f.label :body, nil, class: "sr-only" %>
+    <!-- REDESIGN_PENDING: add input_emoji -->
+    <div class="relative">
+      <%= f.text_area :body, label: false, rows: 4, required: true, autofocus: true, placeholder: t(".placeholder"), class: "peer w-full border border-gray rounded-lg px-4 py-2" %>
+    </div>
+    <%= f.submit "#{t(".send")} #{icon "arrow-right-line", class: "fill-current"}".html_safe, class: "button sm secondary self-end mt-4" %>
+  </div>
+<% end %>

@@ -1099,8 +1099,8 @@ en:
           not_allowed: This participant does not accept direct messages.
           title: Conversation with %{usernames}
         start:
+          placeholder: Your message...
           send: Send
-          title: Start a conversation
         update:
           error: Message was not sent due to an error
     metrics:

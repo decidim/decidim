@@ -1,0 +1,24 @@
+<% add_decidim_page_title(t("conversations", scope: "layouts.decidim.user_menu")) %>
+
+<% content_for :aside do %>
+  <h1 class="h1 decorator">
+    <%= t("decidim.messaging.conversations.index.title") %>
+  </h1>
+  <%= render partial: "new_conversation_button" %>
+<% end %>
+
+<%= render layout: "layouts/decidim/shared/layout_two_col" do %>
+  <div class="p-12">
+    <h4 class="h4 mb-6">
+      <%= t("decidim.messaging.conversations.show.chat_with") %>
+    </h4>
+
+    <div class="bg-background rounded px-4 py-2 flex items-center gap-6 mb-14">
+      <% participants.each do |participant| %>
+        <%= cell "decidim/author", present(participant) %>
+      <% end %>
+    </div>
+
+    <%= yield %>
+  </div>
+<% end %>
