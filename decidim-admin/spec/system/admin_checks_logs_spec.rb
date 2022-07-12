@@ -54,7 +54,7 @@ describe "Admin checks logs", type: :system do
 
       it "lists only logs after the start time or at the same minute" do
         within ".filters__section" do
-          find('input[id="q_created_at_dtgteq"]').set(Time.zone.local(2022, 6, 22, 9, 10))
+          fill_in_datetime(:q_created_at_dtgteq, Time.zone.local(2022, 6, 22, 9, 10))
           find("*[type=submit]").click
         end
 
@@ -65,7 +65,7 @@ describe "Admin checks logs", type: :system do
 
       it "lists only logs before the end time or at the same minute" do
         within ".filters__section" do
-          find('input[id="q_created_at_dtlteq"]').set(Time.zone.local(2022, 6, 22, 9, 10))
+          fill_in_datetime(:q_created_at_dtlteq, Time.zone.local(2022, 6, 22, 9, 10))
           find("*[type=submit]").click
         end
 
@@ -76,8 +76,8 @@ describe "Admin checks logs", type: :system do
 
       it "lists only logs between the start time and the end time or at the same minutes" do
         within ".filters__section" do
-          find('input[id="q_created_at_dtgteq"]').set(Time.zone.local(2022, 6, 22, 8, 9))
-          find('input[id="q_created_at_dtlteq"]').set(Time.zone.local(2022, 6, 22, 9, 10))
+          fill_in_datetime(:q_created_at_dtgteq, Time.zone.local(2022, 6, 22, 8, 9))
+          fill_in_datetime(:q_created_at_dtlteq, Time.zone.local(2022, 6, 22, 9, 10))
           find("*[type=submit]").click
         end
 
