@@ -592,6 +592,16 @@ lt:
           notification_title: Kažkas atsiuntė prašymą prisijungti prie %{user_group_name} grupės. Prašymą galite priimti arba atmesti <a href="%{resource_path}">grupės narių puslapyje</a>.
         join_request_rejected:
           email_intro: <a href="%{resource_url}">%{user_group_name}</a> grupės administratorius atmetė jūsų prašymą prisijungti prie grupės.
+        user_group_created:
+          email_subject: Sukurta nauja naudotojų grupė
+          notification_title: Sukurta %{user_group_name} naudotojų grupė. Dabar galite ją patvirtinti <a href="%{groups_admin_path}">administratoriaus srityje</a>.
+        user_group_updated:
+          email_intro: Naudotojų grupė pavadinimu %{user_group_name} atnaujino savo profilį, bet jo nepatvirtino. Galite jį patvirtinti <a href="%{groups_admin_url}">administratoriaus srityje</a>.
+          email_outro: Šį pranešimą gavote dėl to, kad esate platformos administratorius.
+          email_subject: Naudotojų grupė atnaujino savo profilį
+          notification_title: Naudotojų grupė pavadinimu %{user_group_name} atnaujino savo profilį, bet jo nepatvirtino. Galite jį patvirtinti <a href="%{groups_admin_path}">administratoriaus srityje</a>.
+      nickname_event:
+        notification_body: Pataisėme slapyvardžių naudojimo būdą, kad nebūtų dublikatų, todėl pašalinome didžiųjų ir mažųjų raidžių skyrimo taisyklę. <br/> Jūsų slapyvardis buvo sukurtas po kitu tokiu pačiu pavadinimu, todėl jį automatiškai pervardijome. Jį galite pakeisti <a href="%{link_to_account_settings}">savo paskyros nustatymuose</a>.
     forms:
       default_image: Numatytas atvaizdas
       errors:
