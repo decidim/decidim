@@ -698,3 +698,50 @@ lt:
         resource_type: Tipas
     links:
       invalid_url: Klaidingas URL
+      warning:
+        body_1: Ketinate apsilankyti išoriniame tinklapyje tad norėtume, kad būtumėte apdairūs dėl išorinės svetainės turinio.
+        body_2: Prieš tęsdami patikrinkite nuorodą, kurią ketinate aplankyti, ir įsitikinkite, kad ją atpažįstate kaip saugią.
+        cancel: Atšaukti
+        close_modal: Uždaryti modalinį langą
+        proceed: Tęsti
+        title: Atverti išorinę nuorodą
+    log:
+      base_presenter:
+        create: "%{user_name} sukūrė %{resource_name}"
+        create_with_space: "%{user_name} sukūrė %{resource_name} %{space_name} erdvėje"
+        delete: "%{user_name} pašalino %{resource_name}"
+        delete_with_space: "%{user_name} pašalino %{resource_name} %{space_name} erdvėje"
+        unknown_action: "%{user_name} atliko tam tikrus veiksmus %{resource_name}"
+        unknown_action_with_space: "%{user_name} atliko tam tikrus veiksmus %{resource_name} %{space_name} erdvėje"
+        update: "%{user_name} atnaujino %{resource_name}"
+        update_permissions_with_space: "%{user_name} atnaujino %{resource_name} leidimus %{space_name} erdvėje"
+        update_with_space: "%{user_name} atnaujino %{resource_name} %{space_name} erdvėje"
+      value_types:
+        area_presenter:
+          not_found: 'Aplinka duomenų bazėje nerasta (ID: %{id})'
+        area_type_presenter:
+          not_found: 'Aplinkos tipas duomenų bazėje nerastas (ID: %{id})'
+    managed_users:
+      expired_session: Dabartinė dalyvio administravimo sesija baigėsi.
+    map:
+      dynamic:
+        screen_reader_explanation: Toliau pateikiamas žemėlapis, kuriame šio puslapio elementai pateikiami kaip žemėlapio punktai. Elementą galima naudoti su ekrano skaitytuvu, tačiau jį gali būti sunku suprasti.
+        skip_button: Praleisti žemėlapį
+      static:
+        latlng_text: 'platuma: %{latitude}, ilguma: %{longitude}'
+    messaging:
+      conversations:
+        index:
+          last_message: Paskutinė žinutė
+          new_conversation: Naujas pokalbis
+          next: Kitas
+          no_conversations: Dar neturite pokalbių
+          title: Pokalbiai
+          to: Kam
+        reply:
+          placeholder: Jūsų atsakymas...
+          send: Siųsti
+          title: Atsakyti
+        show:
+          back: Grįžti į visus pokalbius
+          chat_with: Pokalbis su
