@@ -104,6 +104,12 @@
                 <% else %>
                   <span class="action-space icon"></span>
                 <% end %>
+
+                <% if allowed_to? :read, :moderation, assembly: assembly %>
+                  <%= icon_link_to "flag", moderations_path(assembly), t("actions.moderate", scope: "decidim.admin"), class: "action-icon--moderate" %>
+                <% else %>
+                  <span class="action-space icon"></span>
+                <% end %>
               </td>
             </tr>
           <% end %>

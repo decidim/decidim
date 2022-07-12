@@ -66,7 +66,9 @@ describe "Valuator manages proposals", type: :system do
 
   context "when in the proposal page" do
     before do
-      click_link translated(assigned_proposal.title)
+      within find("tr", text: translated(assigned_proposal.title)) do
+        click_link "Valuate"
+      end
     end
 
     it "can only unassign themselves" do

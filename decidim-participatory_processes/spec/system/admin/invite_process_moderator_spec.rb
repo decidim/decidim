@@ -35,7 +35,7 @@ describe "Invite process moderator", type: :system do
 
       within "#processes" do
         expect(page).to have_i18n_content(participatory_process.title)
-        click_link translated(participatory_process.title)
+        click_link "Moderate"
       end
 
       within ".secondary-nav" do

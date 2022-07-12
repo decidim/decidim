@@ -129,8 +129,9 @@ describe "Admin manages proposals valuators", type: :system do
       create :valuation_assignment, proposal: proposal, valuator_role: valuator_role
 
       visit current_path
-
-      find("a", text: translated(proposal.title)).click
+      within find("tr", text: translated(proposal.title)) do
+        click_link "Valuate"
+      end
     end
 
     it "can unassign a valuator" do

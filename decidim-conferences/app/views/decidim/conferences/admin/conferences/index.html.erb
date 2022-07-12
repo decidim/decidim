@@ -42,11 +42,17 @@
                 <% if allowed_to? :create, :conference, conference: conference %>
                   <%= icon_link_to "clipboard", new_conference_copy_path(conference), t("actions.duplicate", scope: "decidim.admin"), class: "action-icon--copy" %>
                 <% end %>
+
                 <% if allowed_to? :update, :conference, conference: conference %>
                   <%= icon_link_to "pencil", edit_conference_path(conference), t("actions.configure", scope: "decidim.admin"), class: "action-icon--new" %>
                 <% end %>
+
                 <% if allowed_to? :preview, :conference, conference: conference %>
                   <%= icon_link_to "eye", decidim_conferences.conference_path(conference), t("actions.preview", scope: "decidim.admin"), class: "action-icon--preview" %>
+                <% end %>
+
+                <% if allowed_to? :read, :moderation, conference: conference %>
+                  <%= icon_link_to "flag", moderations_path(conference), t("actions.moderate", scope: "decidim.admin"), class: "action-icon--moderate" %>
                 <% end %>
               </td>
             </tr>
