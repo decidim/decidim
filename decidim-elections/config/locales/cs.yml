@@ -261,7 +261,11 @@ cs:
             success: Otázka byla úspěšně aktualizována
         steps:
           create_election:
+            census: Rejstřík obyvatel
             errors:
+              census_codes_generated: Volební kódy pro rejstřík obyvatel nejsou generovány.
+              census_frozen: Volební kódy nejsou exportovány.
+              census_uploaded: Pro tyto volby není nahrán žádný rejstřík obyvatel.
               component_published: Volební složka <strong>není publikována</strong>.
               max_selections: Otázky nemají <strong>správnou hodnotu pro množství odpovědí</strong>
               minimum_answers: Otázky musí mít <strong>alespoň dvě odpovědi</strong>.
@@ -276,6 +280,9 @@ cs:
               'false': nemá <strong>veřejný klíč</strong>
               'true': má <strong>veřejný klíč</strong>
             requirements:
+              census_codes_generated: Vytvářejí se kódy pro rejstřík obyvatel.
+              census_frozen: Kódy jsou exportovány a rejstřík obyvatel je zmrazen.
+              census_uploaded: Rejstřík obyvatel je nahrán.
               component_published: Vilební složka je <strong>publikována</strong>.
               max_selections: Všechny otázky mají správnou hodnotu pro <strong>maximum odpovědí</strong>.
               minimum_answers: Každá otázka má <strong>alespoň 2 odpovědi</strong>.
