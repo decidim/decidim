@@ -21,7 +21,7 @@ class ConsentManager {
 
   updateState(newState) {
     this.state = newState;
-    Cookies.set(this.cookieName, JSON.stringify(this.state));
+    Cookies.set(this.cookieName, JSON.stringify(this.state), { expires: 365 });
     this.updateModalSelections();
     this.triggerState();
   }
