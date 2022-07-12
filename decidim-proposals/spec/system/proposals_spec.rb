@@ -254,7 +254,7 @@ describe "Proposals", type: :system do
 
         expect(page).to have_content("Evaluating")
 
-        within ".callout.warning" do
+        within ".notification.warning.js-announcement" do
           expect(page).to have_content("This proposal is being evaluated")
           expect(page).to have_i18n_content(proposal.answer)
         end
@@ -274,7 +274,7 @@ describe "Proposals", type: :system do
 
         expect(page).to have_content("Rejected")
 
-        within ".callout.alert" do
+        within ".notification.alert.js-announcement" do
           expect(page).to have_content("This proposal has been rejected")
           expect(page).to have_i18n_content(proposal.answer)
         end
@@ -290,7 +290,7 @@ describe "Proposals", type: :system do
 
         expect(page).to have_content("Accepted")
 
-        within ".callout.success" do
+        within ".notification.success.js-announcement" do
           expect(page).to have_content("This proposal has been accepted")
           expect(page).to have_i18n_content(proposal.answer)
         end
