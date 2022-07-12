@@ -494,6 +494,8 @@ lt:
           notification_title: Kažkas atsiuntė prašymą prisijungti prie %{user_group_name} grupės. Prašymą galite priimti arba atmesti <a href="%{resource_path}">grupės narių puslapyje</a>.
         join_request_rejected:
           email_intro: <a href="%{resource_url}">%{user_group_name}</a> grupės administratorius atmetė jūsų prašymą prisijungti prie grupės.
+        user_group_created:
+          email_subject: Sukurta nauja naudotojų grupė
     forms:
       default_image: Numatytas atvaizdas
       errors:
