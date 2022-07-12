@@ -1733,7 +1733,7 @@ fr-CA:
             type: Type
           cookies:
             _session_id:
-              description: Permet aux sites Web de se souvenir de l'utilisateur au sein d'un même site lorsqu'ils naviguent d'une page à l'autre.
+              description: Permet aux sites Web de se souvenir de l'utilisateur au sein d'un même site lorsqu'il navigue d'une page à l'autre.
               service: Ce site web
             decidim-consent:
               description: Stocke des informations sur les cookies autorisés par l'utilisateur sur ce site web.
@@ -1754,7 +1754,7 @@ fr-CA:
             title: Analyses et statistiques
           description: Nous utilisons des cookies pour assurer les fonctionnalités de base du site Web et pour améliorer votre expérience en ligne. Vous pouvez choisir pour chaque catégorie de vous désinscrire/retirer quand vous le souhaitez.
           essential:
-            description: Ces cookies sont essentiels au bon fonctionnement de mon site. Sans ces cookies, le site web ne fonctionnerait pas correctement.
+            description: Ces cookies sont essentiels au bon fonctionnement du site. Sans ces cookies, le site web ne fonctionnerait pas correctement.
             title: Essentiels
           marketing:
             description: Ces cookies recueillent des informations sur la façon dont vous utilisez le site Web, sur les pages que vous avez visitées et sur les liens sur lesquels vous avez cliqués.
@@ -1830,7 +1830,7 @@ fr-CA:
         see_more: Voir plus
   locale:
     name: Français
-    name_with_error: Anglais (erreur !)
+    name_with_error: Français (erreur !)
   password_validator:
     blacklisted: sur liste noire
     domain_included_in_password: est trop similaire au nom de domaine de cette plateforme
