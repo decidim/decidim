@@ -58,7 +58,7 @@ import "src/decidim/identity_selector_dialog"
 import "src/decidim/gallery"
 import "src/decidim/direct_uploads/upload_field"
 import "src/decidim/back_to_list"
-import "src/decidim/cookie_consent/cookie_consent"
+import "src/decidim/data_consent/cookie_consent"
 
 // CSS
 import "entrypoints/decidim_core.scss"
