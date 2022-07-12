@@ -496,6 +496,65 @@ lt:
           email_intro: <a href="%{resource_url}">%{user_group_name}</a> grupės administratorius atmetė jūsų prašymą prisijungti prie grupės.
         user_group_created:
           email_subject: Sukurta nauja naudotojų grupė
+          notification_title: Sukurta %{user_group_name} naudotojų grupė. Dabar galite ją patvirtinti <a href="%{groups_admin_path}">administratoriaus srityje</a>.
+        user_group_updated:
+          email_intro: Naudotojų grupė pavadinimu %{user_group_name} atnaujino savo profilį, bet jo nepatvirtino. Galite jį patvirtinti <a href="%{groups_admin_url}">administratoriaus srityje</a>.
+          email_outro: Šį pranešimą gavote dėl to, kad esate platformos administratorius.
+          email_subject: Naudotojų grupė atnaujino savo profilį
+          notification_title: Naudotojų grupė pavadinimu %{user_group_name} atnaujino savo profilį, bet jo nepatvirtino. Galite jį patvirtinti <a href="%{groups_admin_path}">administratoriaus srityje</a>.
+      notification_event:
+        notification_title: Kažkas įvyko <a href="%{resource_path}">%{resource_title}</a>.
+      reports:
+        resource_hidden:
+          email_intro: Administratorius pašalino jūsų %{resource_type}, nes buvo pranešta apie tai kaip %{report_reasons}.
+          email_outro: Gavote šį pranešimą, nes esate pašalinto turinio autorius.
+          email_subject: Jūsų %{resource_type} buvo pašalintas
+          notification_title: |-
+            Administratorius pašalino jūsų %{resource_type}, nes buvo pranešta apie tai kaip %{report_reasons}.
+            </br>
+            <i>%{resource_content}</i>
+      resource_endorsed:
+        email_intro: '%{endorser_name} %{endorser_nickname}, kurį sekate, ką tik pritarė „%{resource_title}“ ir, manome, kad tai galėtų jus sudominti. Pažiūrėkite ir prisidėkite:'
+        email_outro: Šį pranešimą gavote dėl to, kad sekate %{endorser_nickname}. Jeigu nebenorite gauti pranešimų, spustelėkite ankstesnę nuorodą.
+        email_subject: "%{endorser_nickname} išreiškė naują pritarimą"
+        notification_title: <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a> pritarė <a href="%{resource_path}">%{resource_title}</a> %{resource_type}.
+      users:
+        profile_updated:
+          email_outro: Šį pranešimą gavote dėl to, kad sekate %{nickname}. Jeigu nebenorite gauti pranešimų, spustelėkite ankstesnę nuorodą.
+          email_subject: "%{nickname} atnaujino savo profilį"
+    export_mailer:
+      export:
+        ready: Pridedame jūsų eksporto suspaustos rinkmenos variantą.
+      subject: Jūsų eksportuojamas „%{name}“ yra parengtas
+    filters:
+      linked_classes:
+        all: Visi
+        collaborative_draft: Bendras juodraštis
+        dummy_resource: Fiktyvūs ištekliai
+        meeting: Susitikimai
+        project: Projektai
+        proposal: Pasiūlymai
+        result: Rezultatai
+    fingerprint:
+      check: Patikrinti piršto atspaudą
+      online_calculator_name: MD5 internetinė skaičiuoklė
+      replicate_help: Šis piršto atspaudas apskaičiuojamas naudojant SHA256 maišos algoritmą. Kad galėtumėte jį atkartoti, galite naudoti %{online_calculator_link} ir kopijuoti bei įklijuoti šaltinio duomenis.
+      source: Šaltinis
+      title: Pirštų atspaudas
+      value: Vertė
+    followers:
+      no_followers: Dar nėra sekėjų.
+    following:
+      no_followings: Dar nieko neseka.
+      non_public_followings: Kai kurie sekami ištekliai nėra vieši.
+    follows:
+      create:
+        button: Sekti
+        error: Sekant šį išteklių iškilo problema.
+        participatory_space: Sekate <span class="show-for-sr">%{resource_name}</span>
+      destroy:
+        button: Nebesekti
+        error: Nutraukiant šio ištekliaus sekimą iškilo problema.
     forms:
       default_image: Numatytas atvaizdas
       errors:
@@ -537,7 +596,17 @@ lt:
           description: Šis ženklelis suteikiamas, kai pakviečiate žmonių, jie užsiregistruoja %{organization_name} ir tampa dalyviais. Dėkojame, kad supažindinate kitus su %{organization_name} ir padedate plėsti bendruomenę!
           description_another: Šis dalyvis pakvietė %{score} žmones (-ių).
     groups:
+      create:
+        success: Grupė sukurta
+      edit:
+        edit_user_group: Redaguoti grupę
+        update_user_group: Atnaujinti grupę
       form:
+        document_number_help: Nenaudokite nei brūkšnių, nei tarpų
+        email_help: Jūsų organizacijos, asociacijos, kolektyvo, grupės ir kt. el. pašto adresas.
+        fill_in_for_verification: 'Jei norite, kad jūsų grupė būtų patvirtinta, užpildykite šiuos laukelius:'
+        name_help: Jūsų organizacijos, asociacijos, kolektyvo, grupės ir kt. pavadinimas.
+        nickname_help: Jūsų organizacijos, asociacijos, kolektyvo, grupės ir kt. naudotojo vardas. Nenaudokite nei tarpų, nei diakritinių ženklų.
         phone_help: Nenaudokite nei brūkšnių, nei tarpų
       join:
         error: Prisijungiant prie šios grupės iškilo problema
@@ -605,8 +674,57 @@ lt:
         skip_button: Praleisti žemėlapį
       static:
         latlng_text: 'platuma: %{latitude}, ilguma: %{longitude}'
+        map_service_brand: 'OpenStreetMap: Žemėlapis'
+    members:
+      no_members: Šioje grupėje dar nėra narių.
+    menu:
+      help: Pagalba
+      home: Pagrindinis
     messaging:
+      conversation_mailer:
+        comanagers_new_conversation:
+          admin_in_group: Šią informaciją gaunate dėl to, kad esate %{group} administratorius.
+          greeting: Sveiki, %{recipient}!
+          intro: "%{manager} pradėjo naują pokalbį %{group} vardu. Spustelėkite čia ir pamatysite:"
+          outro: Mėgaukitės „Decidim“!
+          subject: "%{manager} pradėjo naują pokalbį kaip %{group}"
+        comanagers_new_message:
+          admin_in_group: Šią informaciją gaunate dėl to, kad esate %{group} administratorius.
+          greeting: Sveiki, %{recipient}!
+          outro: Mėgaukitės „Decidim“!
+          subject: "%{manager} išsiuntė naujas žinutes kaip %{group}"
+        new_conversation:
+          greeting: Sveiki, %{recipient}!
+          intro: "%{sender} pradėjo naują pokalbį su jumis. Spustelėkite čia ir pamatysite:"
+          outro: Mėgaukitės „Decidim“!
+          subject: "%{sender} pradėjo pokalbį su jumis"
+        new_group_conversation:
+          admin_in_group: Šią informaciją gaunate dėl to, kad esate %{group} administratorius.
+          greeting: Sveiki, %{recipient}!
+          intro: "%{sender} pradėjo naują pokalbį su grupe %{group}. Spustelėkite čia ir pamatysite:"
+          outro: Mėgaukitės „Decidim“!
+          subject: "%{sender} pradėjo pokalbį su %{group}"
+        new_group_message:
+          admin_in_group: Šią informaciją gaunate dėl to, kad esate %{group} administratorius.
+          greeting: Sveiki, %{recipient}!
+          intro: "%{sender} paskelbė naujų pranešimų pokalbyje su grupe %{group}. Spustelėkite čia ir pamatysite:"
+          outro: Mėgaukitės „Decidim“!
+          subject: "%{group} gavo naujų pranešimų iš %{sender}"
+        new_message:
+          greeting: Sveiki, %{recipient}!
+          intro: "%{sender} paskelbė naujų pranešimų jūsų pokalbyje. Spustelėkite čia ir pamatysite:"
+          outro: Mėgaukitės „Decidim“!
+          subject: Gavote naujų pranešimų iš %{sender}
       conversations:
+        add_conversation_users:
+          add_max_users: 'Į pokalbį įtraukite naudotojus: ne daugaiu kaip 9'
+          modal_title: Naujas pokalbis
+          no_results: Rezultatų nerasta
+          participant_with_disabled_message_reception: Šis dalyvis išjungė pranešimų gavimo funkciją
+        conversation:
+          show: Rodyti pokalbį su %{sender}
+        create:
+          error: Pokalbis neprasidėjo. Bandykite dar kartą vėliau
         index:
           last_message: Paskutinė žinutė
           new_conversation: Naujas pokalbis
@@ -675,3 +793,56 @@ lt:
         unsubscribe: Atsisakyti prenumeratos
     newsletters_opt_in:
       unathorized: Atsiprašome, šios nuorodos nebėra
+    notifications_settings:
+      show:
+        own_activity: Mano veikla, pvz., kai kas nors pakomentuoja mano pasiūlymą arba pamini mane
+        receive_notifications_about: Aš noriu gauti pranešimus apie
+        update_notifications_settings: Išsaugoti pakeitimus
+      update:
+        error: Atnaujinant jūsų pranešimų nuostatas iškilo problema.
+        success: Jūsų pranešimų nuostatos atnaujintos.
+    open_data:
+      not_available_yet: Atvirųjų duomenų rinkmenomis dabar negalima naudotis. Bandykite dar kartą po kelių minučių.
+    own_user_groups:
+      index:
+        pending: Laukiama
+        rejected: Atmesta
+        verified: Patvirtinta
+    pages:
+      home:
+        extended:
+          how_to_participate: Kaip dalyvauti procese?
+          meetings: Susitikimai
+          meetings_explanation: Sužinokite, kur ir kada galite dalyvauti viešuose posėdžiuose.
+          more_info: Daugiau informacijos apie %{resource_name}
+          proposals: Pasiūlymai
+          proposals_explanation: Teikite pasiūlymus, remkite esamus ir skatinkite pakeitimus, kuriuos norite matyti.
+        footer_sub_hero:
+          footer_sub_hero_body: Sukurkime atviresnę, skaidresnę ir bendradarbiavimu grindžiamą visuomenę. <br /> Prisijunkite, dalyvaukite ir priimkite sprendimus.
+          footer_sub_hero_headline: Sveiki atvykę į %{organization} dalyvavimo platformą.
+          register: Registruotis
+        hero:
+          participate: Dalyvauti
+          welcome: Sveiki atvykę į %{organization}!
+        statistics:
+          headline: Dabartinė %{organization} padėtis
+        sub_hero:
+          register: Registruotis
+      index:
+        read_more: Skaityti toliau
+        standalone_pages: Puslapiai
+        subheading: Naršyti %{name} pagalbos puslapiuose
+        title: Pagalba
+        topics: Temos
+      terms_and_conditions:
+        accept:
+          error: Sutinkant su sąlygomis iškilo problema.
+          success: Puiku! Jūs sutikote su sąlygomis.
+        form:
+          agreement: Aš sutinku su šiomis sąlygomis
+          legend: Sutikti su naudojimosi nuostatomis ir sąlygomis
+        refuse:
+          modal_btn_continue: Sutikti su sąlygomis ir tęsti
+          modal_btn_exit: Peržiūrėsiu vėliau
+          modal_button: Nesutikti su sąlygomis
+          modal_close: Uždaryti modalinį langą
