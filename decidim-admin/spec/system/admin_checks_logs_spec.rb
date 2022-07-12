@@ -23,7 +23,29 @@ describe "Admin checks logs", type: :system do
     end
   end
 
+  context "when there are no logs" do
+    let!(:action_logs) { [] }
+
+    it "shows the correct message" do
+      expect(page).to have_content("There are no logs yet.")
+    end
+  end
+
   context "when filtering" do
+    context "and there are no matching logs" do
+      let(:admin1) { create(:user, :admin, organization: organization, name: "John Doe", nickname: "joe", email: "jdoe@example.org") }
+      let!(:action_logs) { [create(:action_log, user: admin1, organization: organization)] }
+
+      it "shows the correct message" do
+        within ".filters__section" do
+          fill_in(:q_user_name_or_user_nickname_or_user_email_cont, with: "mickey mouse")
+          find("*[type=submit]").click
+        end
+
+        expect(page).to have_content("There are no logs with the provided search filters. Try to change them and retry.")
+      end
+    end
+
     context "with participatory space" do
       let(:space_title) { translated(action_logs.first.participatory_space.title) }
       let(:search_term) { space_title[0..2].downcase }
