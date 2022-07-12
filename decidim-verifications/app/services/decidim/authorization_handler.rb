@@ -32,7 +32,8 @@ module Decidim
     # Defines whether the authorization is unique or if there is a duplicate for
     # this particular authorization that matches the same unique_id.
     #
-    # Returns a Boolean.
+    # @return [Boolean] A boolean indicating if the authorization has a
+    #   duplicate.
     def unique?
       unique_id.nil? || duplicate.blank?
     end
@@ -40,7 +41,8 @@ module Decidim
     # Defines whether the duplicate authorizations can be transferred to a new
     # user.
     #
-    # Returns a Boolean.
+    # @return [Boolean] A boolean indicating whether the authorization can be
+    #   transferred.
     def transferrable?
       duplicate.present? && duplicate.user.deleted?
     end
@@ -48,7 +50,8 @@ module Decidim
     # Fetches the duplicate record of the same authorization currently belonging
     # to other user than the user being authorized.
     #
-    # Returns a Decidim::Authorization or nil when no duplicate exists.
+    # @return [Decidim::Authorization, nil] The duplicate authorization record
+    #   based on the unique ID or nil if there is no duplicate.
     def duplicate
       return unless user
 
