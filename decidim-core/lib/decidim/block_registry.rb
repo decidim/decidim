@@ -8,7 +8,7 @@ module Decidim
   class BlockRegistry
     # Provides access to the registered blocks with their names.
     #
-    # @return [Hash<Symbol, Proc>] A hash of the currently registered blocks
+    # @return [Hash<Symbol => Proc>] A hash of the currently registered blocks
     #   with their keys as the hash keys and the blocks as the hash values.
     def registrations
       @registrations ||= {}

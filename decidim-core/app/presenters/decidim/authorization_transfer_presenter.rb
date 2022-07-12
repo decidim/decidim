@@ -20,7 +20,7 @@ module Decidim
     #      "Decidim::Bar" => "Bars: 456"
     #   }
     #
-    # @return [Hash<String, String>] The translated resource counts with the
+    # @return [Hash<String => String>] The translated resource counts with the
     #   resource type as its keys and the translated text with the record count
     #   as its values.
     def translated_record_counts

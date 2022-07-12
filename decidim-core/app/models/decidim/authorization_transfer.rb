@@ -214,7 +214,7 @@ module Decidim
     #     }
     #   }
     #
-    # @return [Hash<String, Hash<Symbol => Integer, ActiveModel::Name>>] The
+    # @return [Hash<String => Hash<Symbol => Integer, ActiveModel::Name>>] The
     #   information hash created for the transfer.
     def information
       {}.tap do |types|
