@@ -243,7 +243,11 @@ es-PY:
             success: La pregunta se ha actualizado correctamente
         steps:
           create_election:
+            census: Censo
             errors:
+              census_codes_generated: No se generan códigos electorales para el censo.
+              census_frozen: No se exportan lo códigos electorales.
+              census_uploaded: No se ha subido el censo para estas elecciones.
               component_published: La elección <strong>no está publicada</strong>.
               max_selections: Las preguntas no tienen un valor <strong>correcto para la cantidad de respuestas</strong>
               minimum_answers: Las preguntas deben tener <strong>al menos dos respuestas</strong>.
@@ -258,6 +262,9 @@ es-PY:
               'false': no tiene una <strong>clave pública</strong>
               'true': tiene una <strong> clave pública</strong>
             requirements:
+              census_codes_generated: Se generan códigos de censo.
+              census_frozen: Los códigos se exportan y el censo se congela.
+              census_uploaded: El censo está subido.
               component_published: La elección está <strong>publicada</strong>.
               max_selections: Todas las preguntas tienen un valor correcto para <strong>máximo de respuestas</strong>.
               minimum_answers: Cada pregunta tiene <strong>al menos 2 respuestas</strong>.
