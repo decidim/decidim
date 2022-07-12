@@ -1665,7 +1665,7 @@ ja:
         see_more: もっと見る
   locale:
     name: 日本語
-    name_with_error: 英語 (エラー!)
+    name_with_error: 日本語 (エラー!)
   password_validator:
     blacklisted: ブラックリストに登録済み
     domain_included_in_password: このドメイン名に似ています
