@@ -8,6 +8,7 @@ describe "Static pages", type: :system do
   let!(:page2) { create(:static_page, :with_topic, organization:) }
   let!(:page3) { create(:static_page, organization:) }
   let(:user) { nil }
+  let(:pages_selector) { Decidim.redesign_active ? "div.container" : "#content" }
 
   before do
     switch_to_host(organization.host)
@@ -22,7 +23,7 @@ describe "Static pages", type: :system do
     it "lists all the standalone pages" do
       visit decidim.pages_path
 
-      within find(".row", text: "PAGES") do
+      within find(pages_selector, text: "Pages") do
         expect(page).to have_content translated(page3.title)
       end
     end
