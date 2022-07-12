@@ -706,3 +706,98 @@ lt:
         close_modal: Uždaryti modalinį langą
         proceed: Tęsti
         title: Atverti išorinę nuorodą
+    log:
+      base_presenter:
+        create: "%{user_name} sukūrė %{resource_name}"
+        create_with_space: "%{user_name} sukūrė %{resource_name} %{space_name} erdvėje"
+        delete: "%{user_name} pašalino %{resource_name}"
+        delete_with_space: "%{user_name} pašalino %{resource_name} %{space_name} erdvėje"
+        unknown_action: "%{user_name} atliko tam tikrus veiksmus %{resource_name}"
+        unknown_action_with_space: "%{user_name} atliko tam tikrus veiksmus %{resource_name} %{space_name} erdvėje"
+        update: "%{user_name} atnaujino %{resource_name}"
+        update_permissions_with_space: "%{user_name} atnaujino %{resource_name} leidimus %{space_name} erdvėje"
+        update_with_space: "%{user_name} atnaujino %{resource_name} %{space_name} erdvėje"
+      value_types:
+        area_presenter:
+          not_found: 'Aplinka duomenų bazėje nerasta (ID: %{id})'
+        area_type_presenter:
+          not_found: 'Aplinkos tipas duomenų bazėje nerastas (ID: %{id})'
+    managed_users:
+      expired_session: Dabartinė dalyvio administravimo sesija baigėsi.
+    map:
+      dynamic:
+        screen_reader_explanation: Toliau pateikiamas žemėlapis, kuriame šio puslapio elementai pateikiami kaip žemėlapio punktai. Elementą galima naudoti su ekrano skaitytuvu, tačiau jį gali būti sunku suprasti.
+        skip_button: Praleisti žemėlapį
+      static:
+        latlng_text: 'platuma: %{latitude}, ilguma: %{longitude}'
+    messaging:
+      conversations:
+        index:
+          last_message: Paskutinė žinutė
+          new_conversation: Naujas pokalbis
+          next: Kitas
+          no_conversations: Dar neturite pokalbių
+          title: Pokalbiai
+          to: Kam
+        reply:
+          placeholder: Jūsų atsakymas...
+          send: Siųsti
+          title: Atsakyti
+        show:
+          back: Grįžti į visus pokalbius
+          chat_with: Pokalbis su
+          deleted_accounts: Negalite megzti pokalbių su ištrintomis paskyromis.
+          not_allowed: Šis dalyvis nepriima tiesioginių žinučių.
+          title: Pokalbis su %{usernames}
+        start:
+          send: Siųsti
+          title: Pradėti pokalbį
+        update:
+          error: Žinutė nebuvo išsiųsta dėl įvykusios klaidos
+    metrics:
+      download:
+        csv: Parsisiųsti duomenis (CSV)
+      followers:
+        description: Dalyvių, kurie seka šią dalyvaujamojo proceso erdvę, skaičius
+        object: sekėjai
+        title: Sekėjai
+      participants:
+        description: Aktyvių dalyvių skaičius organizacijoje
+        object: dalyviai
+        title: Dalyviai
+      users:
+        description: Dalyvių skaičius organizacijoje
+        object: dalyviai
+        title: Dalyviai
+    newsletter_mailer:
+      newsletter:
+        note: Šį el. laišką gavote, nes užsiprenumeravote %{organization_name} naujienlaiškius. Galite pakeisti nuostatas savo <a href="%{link}">pranešimų puslapyje</a>.
+        see_on_website: Negalite teisingai matyti šio el. laiško? Peržiūrėkite jį <a href="%{link}" target="_blank">interneto svetainėje</a>.
+        unsubscribe: Jei nenorite gauti tokio tipo el. laiško, <a href="%{link}" target="_blank" class="unsubscribe">Atsisakykite prenumeratos</a>.
+    newsletter_templates:
+      basic_only_text:
+        body_preview: 'Fiktyvus tekstas pagrindinei daliai: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque fringilla nisl tellus. Donec sed mi dui. Sed efficitur libero a felis tempor sollicitudin. Nullam vestibulum fringilla felis, id efficitur lorem sagittis et. Vivamus aliquam maximus velit vel dapibus. Mauris pellentesque, enim eu varius lacinia, risus ante rutrum ipsum, non lobortis augue lorem quis urna. Aenean et malesuada arcu.'
+      basic_only_text_settings_form:
+        body: Pagrindinė dalis
+        interpolations_hint: 'Užuomina: „%{name}“ galite naudoti bet kur pagrindinėje dalyje arba temoje ir jis bus pakeistas gavėjo vardu, pavarde.'
+      image_text_cta:
+        body_preview: 'Fiktyvus tekstas pagrindinei daliai: Maecenas ac nisl vitae lectus pretium facilisis. Etiam facilisis sem nibh, sit amet rutrum mi aliquam nec. Sed id urna at nisl pretium mollis eu vel velit. Proin vitae suscipit urna, sed faucibus urna. Pellentesque id libero vulputate ipsum scelerisque suscipit. Nam aliquam sodales mi sit amet cursus. Donec mattis faucibus purus. Aenean tincidunt porta lorem ac commodo. Vestibulum in mollis mi. Morbi eros erat, cursus ut tortor sit amet, imperdiet dapibus arcu. Suspendisse id egestas enim. In eget magna sed enim efficitur elementum sit amet aliquam quam. Donec fermentum metus eget urna luctus pulvinar.'
+        cta_text_preview: Mygtuko „Raginti imtis veiksmų“ tekstas
+        introduction_preview: 'Fiktyvus tekstas įvadui: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque fringilla nisl tellus. Donec sed mi dui. Sed efficitur libero a felis tempor sollicitudin. Nullam vestibulum fringilla felis, id efficitur lorem sagittis et. Vivamus aliquam maximus velit vel dapibus. Mauris pellentesque, enim eu varius lacinia, risus ante rutrum ipsum, non lobortis augue lorem quis urna. Aenean et malesuada arcu.'
+        name: Atvaizdas, tekstas ir mygtukas „Raginti imtis veiksmų“
+      image_text_cta_settings_form:
+        body: Pagrindinė dalis
+        cta_text: Mygtuko „Raginti imtis veiksmų“ tekstas
+        cta_url: Mygtuko „Raginti imtis veiksmų“ URL
+        interpolations_hint: 'Užuomina: „%{name}“ galite naudoti įvade, pagrindinėje dalyje, „Raginti imtis veiksmų“ tekste arba temoje ir jis bus pakeistas gavėjo vardu, pavarde.'
+        introduction: Įžanga
+        main_image: Pagrindinis atvaizdas
+    newsletters:
+      unsubscribe:
+        check_subscription: Jei norite pakeisti savo parinktis, galite tai padaryti <a href="%{link}" target="_blank">konfigūracijos puslapyje</a>
+        error: Atsisakant prenumeratos iškilo problema
+        success: Jūs atsisakėte prenumeratos.
+        token_error: Nuorodos galiojimo laikas baigėsi.
+        unsubscribe: Atsisakyti prenumeratos
+    newsletters_opt_in:
+      unathorized: Atsiprašome, šios nuorodos nebėra
