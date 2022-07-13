@@ -508,9 +508,6 @@
           file_legend: Legg til en importfil som vil bli analysert.
           import: Importer
         notice: "%{count} %{resource_name} ble importert"
-      logs:
-        logs_list:
-          no_logs_yet: Det er ingen logger ennå
       managed_users:
         promotion:
           error: Det oppstod et problem med å promotere den administrerte deltakeren.
