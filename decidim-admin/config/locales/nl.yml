@@ -480,9 +480,6 @@ nl:
           file_legend: Een importbestand toevoegen dat zal worden verwerkt.
           import: Importeren
         notice: "%{number} %{resource_name} succesvol geïmporteerd"
-      logs:
-        logs_list:
-          no_logs_yet: Er zijn nog geen logs
       managed_users:
         promotion:
           error: Er was een probleem met het promoten van de beheerde deelnemer.
