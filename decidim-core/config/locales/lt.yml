@@ -716,6 +716,7 @@ lt:
           email_intro: Dalyvis %{name} (%{nickname}) buvo oficializuotas.
           email_outro: Šį pranešimą gavote dėl to, kad esate organizacijos administratorius.
           email_subject: "%{name} buvo oficializuotas"
+          notification_title: Dalyvis %{name} (%{nickname}) buvo oficializuotas.
     export_mailer:
       export:
         ready: Pridedame jūsų eksporto suspaustos rinkmenos variantą.
@@ -731,12 +732,18 @@ lt:
         result: Rezultatai
     fingerprint:
       check: Patikrinti piršto atspaudą
+      explanation: Tekstas yra sutrumpintas ir apibendrintas jo turinys. Būtinai įsitikinkite, kad turinys nebūtų pažeistas, nes padarius vieną pakeitimą duomenys netektų vertės.
       online_calculator_name: MD5 internetinė skaičiuoklė
       replicate_help: Šis piršto atspaudas apskaičiuojamas naudojant SHA256 maišos algoritmą. Kad galėtumėte jį atkartoti, galite naudoti %{online_calculator_link} ir kopijuoti bei įklijuoti šaltinio duomenis.
       source: Šaltinis
       title: Pirštų atspaudas
       value: Vertė
     followers:
+      followers_count:
+        one: "%{count} sekėjas"
+        few: "%{count} sekėjai"
+        many: "%{count} sekėjai"
+        other: "%{count} sekėjai"
       no_followers: Dar nėra sekėjų.
     following:
       no_followings: Dar nieko neseka.
@@ -750,6 +757,7 @@ lt:
         button: Nebesekti
         error: Nutraukiant šio ištekliaus sekimą iškilo problema.
     forms:
+      current_image: Dabartinis paveikslėlis
       default_image: Numatytas atvaizdas
       errors:
         decidim/user:
@@ -776,6 +784,7 @@ lt:
           description_another: Šis dalyvis turi %{score} sekėjus (-ų).
           description_own: "Jus seka %{score} žmonės (-ių)."
           name: Sekėjai
+          next_level_in: Būkite sekamas %{count} dalyvių, kad pasiekti kitą lygį!
           unearned_another: Šis dalyvis dar neturi sekėjų.
           unearned_own: Jūs dar neturite sekėjų.
         index:
