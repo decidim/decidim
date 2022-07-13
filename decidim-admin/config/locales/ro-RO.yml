@@ -506,9 +506,6 @@ ro:
           file_legend: Adaugă un fișier de import care va fi analizat.
           import: Importă
         notice: "%{number} %{resource_name} importate cu succes"
-      logs:
-        logs_list:
-          no_logs_yet: Nu există încă înregistrări
       managed_users:
         promotion:
           error: A apărut o problemă la promovarea participantului gestionat.
