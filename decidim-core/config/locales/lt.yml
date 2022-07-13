@@ -632,8 +632,10 @@ lt:
         email_greeting: Sveiki %{user_name},
         email_intro: '„%{resource_title}“ atnaujintas. Jį galite pamatyti šiame puslapyje:'
         email_outro: Gavote šį pranešimą nes sekate %{resource_title}. Galite nebesekti paspaudę ant aukščiau esančios nuorodos.
+        email_subject: '%{resource_title} atnaujinimas'
       gamification:
         badge_earned:
+          email_intro: Sveikiname! Jūs gavote <a href="%{resource_url}">%{badge_name} ženklelį </a> (lygis %{current_level}).
           email_outro: Šį pranešimą gavote dėl to, kad mūsų interneto svetainėje pradėjote veiklą.
           email_subject: 'Jūs pelnėte naują ženklelį – %{badge_name}!'
           notification_title: Sveikiname! Jūs pelnėte <a href="%{resource_path}">%{badge_name} ženklelį </a> (lygis %{current_level}).
@@ -644,6 +646,7 @@ lt:
           notification_title: Sveikiname! Jūs pasiekėte %{current_level} lygio <a href="%{resource_path}">%{badge_name} ženklelį</a>!
       groups:
         demoted_membership:
+          email_intro: <a href="%{resource_url}">%{user_group_name}</a> grupės administratorius pašalino jūsų administratoriaus teises, susijusias su šia grupe.
           email_outro: Šį pranešimą gavote dėl to, kad esate tos grupės narys.
           email_subject: Jūs nebesate %{user_group_name} grupės administratorius!
           notification_title: Jūs nebesate <a href="%{resource_path}">%{user_group_name}</a> grupės administratorius.
@@ -664,7 +667,22 @@ lt:
           notification_title: Kažkas atsiuntė prašymą prisijungti prie %{user_group_name} grupės. Prašymą galite priimti arba atmesti <a href="%{resource_path}">grupės narių puslapyje</a>.
         join_request_rejected:
           email_intro: <a href="%{resource_url}">%{user_group_name}</a> grupės administratorius atmetė jūsų prašymą prisijungti prie grupės.
+          email_outro: Šį pranešimą gavote, nes jūsų prisijungimo prašymas buvo atnaujintas.
+          email_subject: Jūsų prašymas prisijungti prie %{user_group_name} grupės buvo atmestas!
+          notification_title: Jūsų prašymas prisijungti prie <a href="%{resource_path}">%{user_group_name}</a> grupės buvo atmestas.
+        promoted_to_admin:
+          email_intro: <a href="%{resource_url}">%{user_group_name}</a> grupės administratorius suteikė jums tos grupės administratoriaus teises.
+          email_outro: Šį pranešimą gavote dėl to, kad esate tos grupės narys.
+          email_subject: Tapote %{user_group_name} grupės administratoriumi(-e)!
+          notification_title: Dabar esate <a href="%{resource_path}">%{user_group_name}</a> grupės administratorius(-ė).
+        removed_from_group:
+          email_intro: <a href="%{resource_url}">%{user_group_name}</a> grupės administratorius pašalino jus iš grupės.
+          email_outro: Šį pranešimą gavote dėl to, kad buvote tos grupės narys.
+          email_subject: Buvote pašalintas iš %{user_group_name} grupės!
+          notification_title: Buvote pašalintas(-a) iš <a href="%{resource_path}">%{user_group_name}</a> grupės.
         user_group_created:
+          email_intro: Sukurta nauja naudotojų grupė ir jai suteiktas vardas %{user_group_name}. Galite tai patikrinti <a href="%{groups_admin_url}">administratorių erdvėje</a>.
+          email_outro: Šį pranešimą gavote dėl to, kad esate platformos administratorius.
           email_subject: Sukurta nauja naudotojų grupė
           notification_title: Sukurta %{user_group_name} naudotojų grupė. Dabar galite ją patvirtinti <a href="%{groups_admin_path}">administratoriaus srityje</a>.
         user_group_updated:
@@ -690,10 +708,14 @@ lt:
         notification_title: <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a> pritarė <a href="%{resource_path}">%{resource_title}</a> %{resource_type}.
       users:
         profile_updated:
+          email_intro: '%{name} (%{nickname}), profilio puslapis, <a href="%{resource_url}">, kurį sekate</a> buvo atnaujintas.'
           email_outro: Šį pranešimą gavote dėl to, kad sekate %{nickname}. Jeigu nebenorite gauti pranešimų, spustelėkite ankstesnę nuorodą.
           email_subject: "%{nickname} atnaujino savo profilį"
+          notification_title: '%{name} (%{nickname}) profilio puslapis, <a href="%{resource_path}">, kurį sekate</a> buvo atnaujintas.'
         user_officialized:
+          email_intro: Dalyvis %{name} (%{nickname}) buvo oficializuotas.
           email_outro: Šį pranešimą gavote dėl to, kad esate organizacijos administratorius.
+          email_subject: "%{name} buvo oficializuotas"
     export_mailer:
       export:
         ready: Pridedame jūsų eksporto suspaustos rinkmenos variantą.
