@@ -90,6 +90,7 @@ hu:
               'false': Előzmények
               'true': Közelgő
           origin_eq:
+            label: Származás
             values:
               citizen: Polgár
               official: Hivatalos
@@ -99,6 +100,7 @@ hu:
           type_eq:
             label: Értekezlet típusa
             values:
+              hybrid: Mindkettő
               in_person: Személyesen
               online: Online
       meeting_copies:
@@ -180,6 +182,9 @@ hu:
           email_outro: 'Ezt az értesítést azért kaptad, mert követed ezt a találkozót: "%{resource_title}". Leiratkozás az előző link segítségével.'
           email_subject: A(z) "%{resource_title}" találkozó kevesebb, mint 48 óra múlva kezdődik.
           notification_title: A(z) <a href="%{resource_path}">%{resource_title}</a> találkozó kevesebb, mint 48 óra múlva kezdődik.
+    forms:
+      meetings:
+        attendees_count_help_text: Ne felejtse el megadni az eseményen résztvevők teljes számát. Akár személyesen, akár hibrid, akár online, fontos, hogy tudjuk, hányan vesznek részt.
     gamification:
       badges:
         attended_meetings:
@@ -454,6 +459,7 @@ hu:
           type: Típus
           type_values:
             all: Összes
+            hybrid: Mindkettő
             in_person: Személyes
             online: Online
         filters_small_view:
@@ -507,11 +513,14 @@ hu:
           fields:
             closed: Lezárt
             end_time: Befejezés dátuma
+            id: Id
             map: Térkép
             start_time: Kezdő dátum
             title: Cím
       polls:
         questions:
+          index_admin:
+            edit: Szerkesztés az admin felületen
           published_question:
             question_replied: Kérdés megválaszolva
             reply_question: Válasz a kérdésre
@@ -538,6 +547,7 @@ hu:
           invalid: Probléma történt a találkozó elhagyása közben.
           success: Sikeresen elhagytad a találkozót.
       type_of_meeting:
+        hybrid: Mindkettő
         in_person: Személyesen
         online: Online
       types:
