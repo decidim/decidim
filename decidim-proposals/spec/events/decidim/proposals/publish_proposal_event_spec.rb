@@ -61,11 +61,12 @@ module Decidim
 
       context "when the proposal is official" do
         let(:resource) { create :proposal, :official, title: "A nice proposal" }
+        let(:extra) { { participatory_space: resource.participatory_space } }
 
         describe "notification_title" do
           it "is generated correctly" do
             expect(subject.notification_title)
-              .to include("The official proposal <a href=\"#{resource_path}\">#{resource_title}</a> was published.")
+              .to include("The official proposal <a href=\"#{resource_path}\">#{resource_title}</a> has been added to #{participatory_space_title}")
           end
         end
       end
