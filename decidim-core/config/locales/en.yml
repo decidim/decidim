@@ -1779,9 +1779,9 @@ en:
           title: Cookie settings
           toggle: Toggle %{consent_category}
         warning:
-          all_cookies: all cookies
-          change_cookie_settings: Change cookie settings
-          need_cookies: You need to enable %{cookies} in order to see this content.
+          all_categories: all cookies
+          change_settings: Change cookie settings
+          consent_required: You need to enable %{categories} in order to see this content.
       edit_link:
         edit: Edit
       footer:
