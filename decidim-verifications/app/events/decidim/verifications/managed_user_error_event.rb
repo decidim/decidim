@@ -27,7 +27,7 @@ module Decidim
       def default_i18n_options
         super.merge({
                       conflicts_path: conflicts_path,
-                      conflicts_url: conflicts_url(host: managed_user.organization.host),
+                      conflicts_url: router_conflicts_url,
                       managed_user_path: managed_user.profile_path,
                       managed_user_url: managed_user.profile_url,
                       managed_user_name: managed_user.name
@@ -42,6 +42,10 @@ module Decidim
 
       def managed_user
         @managed_user ||= Decidim::UserPresenter.new(resource.managed_user)
+      end
+
+      def router_conflicts_url
+        Decidim::EngineRouter.new("decidim_admin", { host: managed_user.organization.host }).conflicts_url
       end
     end
   end

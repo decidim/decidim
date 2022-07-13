@@ -57,7 +57,7 @@ describe Decidim::Verifications::ManagedUserErrorEvent do
 
   describe "email_outro" do
     it "is generated correctly" do
-      expect(subject.email_outro).to eq("Check the <a href=\"http://#{organization_host}/admin/conflicts\">Verifications's conflicts list</a> and contact the participant to verify their details and solve the issue.")
+      expect(subject.email_outro).to eq("Check the <a href=\"http://#{organization_host}:#{Capybara.server_port}/admin/conflicts\">Verifications's conflicts list</a> and contact the participant to verify their details and solve the issue.")
     end
   end
 end
