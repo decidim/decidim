@@ -577,6 +577,11 @@ lt:
           email_intro: '%{resource_title} komponentas įjungtas %{participatory_space_title}. Jį galite pamatyti šiame puslapyje:'
           email_outro: Šį pranešimą gavote dėl to, kad sekate %{participatory_space_title}. Jeigu nebenorite gauti pranešimų, spustelėkite ankstesnę nuorodą.
           email_subject: '%{participatory_space_title} atnaujinimas'
+          notification_title: '%{resource_title} komponentas įjungtas <a href="%{resource_path}">%{participatory_space_title}</a>'
+      email_event:
+        email_greeting: Sveiki %{user_name},
+        email_intro: '„%{resource_title}“ atnaujintas. Jį galite pamatyti šiame puslapyje:'
+        email_outro: Gavote šį pranešimą nes sekate %{resource_title}. Galite nebesekti paspaudę ant aukščiau esančios nuorodos.
       gamification:
         badge_earned:
           email_outro: Šį pranešimą gavote dėl to, kad mūsų interneto svetainėje pradėjote veiklą.
