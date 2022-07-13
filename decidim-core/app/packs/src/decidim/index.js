@@ -34,7 +34,10 @@ window.Decidim.addInputEmoji = addInputEmoji;
  * Initializer event for those script who require to be triggered
  * when the page is loaded
  */
-document.addEventListener("DOMContentLoaded", () => {
+// If no jQuery is used the Tribute feature used in comments to autocomplete
+// mentions stops working
+// document.addEventListener("DOMContentLoaded", () => {
+$(() => {
   window.theDataPicker = new DataPicker($(".data-picker"));
   window.focusGuard = new FocusGuard(document.querySelector("body"));
 
