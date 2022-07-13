@@ -481,9 +481,6 @@ eu:
           file_legend: Gehitu prozesatuko den inportazio-artxibo bat.
           import: Inportatu
         notice: "%{number} %{resource_name} zuzen inportatu da"
-      logs:
-        logs_list:
-          no_logs_yet: Ez dago oraindik erregistroik
       managed_users:
         promotion:
           error: Errorea gertatu da kudeatutako erabiltzailea mailaz igotzean.
