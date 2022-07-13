@@ -508,6 +508,13 @@ fr:
           file_legend: Ajouter un fichier d'import qui sera analysé.
           import: Importer
         notice: "%{count} %{resource_name} importées avec succès"
+      logs:
+        filters:
+          text: Recherche par adresse e-mail, nom ou pseudonyme.
+          user: Utilisateur
+        logs_list:
+          no_logs_yet: Il n'y a pas encore de journaux.
+          no_matching_logs: Il n'y a pas de journaux avec les filtres de recherche fournis. Essayez de les modifier et réessayez.
       managed_users:
         promotion:
           error: Une erreur s'est produite lors de la promotion de l'utilisateur représenté.
