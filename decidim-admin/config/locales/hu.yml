@@ -402,9 +402,6 @@ hu:
           actions:
             back: Vissza
           import: Import
-      logs:
-        logs_list:
-          no_logs_yet: Még nincsenek naplók
       managed_users:
         promotion:
           error: Hiba történt a résztvevő előléptetésekor.
