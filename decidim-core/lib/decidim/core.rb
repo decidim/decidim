@@ -413,8 +413,8 @@ module Decidim
   # Defines cookie categories. Note that when adding a cookie you need to
   # add following i18n entries also (change 'foo' with the name of the cookie).
   #
-  # layouts.decidim.cookie_consent.cookie_details.cookies.foo.service
-  # layouts.decidim.cookie_consent.cookie_details.cookies.foo.description
+  # layouts.decidim.data_consent.details.cookies.foo.service
+  # layouts.decidim.data_consent.details.cookies.foo.description
   config_accessor :consent_categories do
     [
       {

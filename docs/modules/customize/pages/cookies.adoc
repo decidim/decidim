@@ -74,16 +74,16 @@ For category:
 
 [listing]
 ----
-layouts.decidim.cookie_consent.modal.statistics.title
-layouts.decidim.cookie_consent.modal.statistics.description
+layouts.decidim.data_consent.modal.statistics.title
+layouts.decidim.data_consent.modal.statistics.description
 ----
 
 For cookie:
 
 [listing]
 ----
-layouts.decidim.cookie_consent.cookie_details.cookies.statistics-cookie.description
-layouts.decidim.cookie_consent.cookie_details.cookies.statistics-cookie.service
+layouts.decidim.data_consent.details.cookies.statistics-cookie.description
+layouts.decidim.data_consent.details.cookies.statistics-cookie.service
 ----
 
 * Description explains the purpose of using this cookie
@@ -96,12 +96,12 @@ So, for instance for the English language (`en`), it would look like this:
 en:
   layouts:
     decidim:
-      cookie_consent:
+      data_consent:
         modal:
           statistics:
             title: The title for the statistics
             description: The description for the statistics
-        cookie_details:
+        details:
           cookies:
             statistics-cookie:
               description: The purpose of the cookie

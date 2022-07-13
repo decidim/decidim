@@ -1734,8 +1734,8 @@ en:
     timestamp_error_message: Sorry, that was too quick! Please resubmit.
   layouts:
     decidim:
-      cookie_consent:
-        cookie_details:
+      data_consent:
+        details:
           columns:
             description: Description
             name: Name
