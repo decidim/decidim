@@ -48,6 +48,9 @@ es-MX:
       decidim/welcome_notification_event: Mensaje de bienvenida
   activerecord:
     attributes:
+      decidim/action_log:
+        created_at: Hora
+        with_participatory_space: Espacio de participación
       decidim/user:
         current_password: Contraseña actual
         email: Correo electrónico
@@ -1848,6 +1851,12 @@ es-MX:
     password_too_common: Es demasiado común
     password_too_long: Es demasiado largo
     password_too_short: Es demasiado corto
+  ransack:
+    predicates:
+      dtgt: después
+      dtgteq: posterior o igual a
+      dtlt: antes
+      dtlteq: anterior o igual a
   social_share_button:
     delicious: Delicious
     douban: Douban
