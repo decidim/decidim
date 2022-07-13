@@ -10,6 +10,11 @@
 # rspec failure tracking
 .rspec-failures
 
+# env configuration files
+.env
+.envrc
+.rbenv-vars
+
 # default test application
 spec/decidim_dummy_app
 

@@ -100,6 +100,15 @@ module Decidim
           # See: https://github.com/activerecord-hackery/ransack/issues/593
           # See: https://github.com/activerecord-hackery/ransack/pull/742
           config.sanitize_custom_scope_booleans = false
+
+          # Datetime predicates
+          value_presence = ->(v) { v.present? }
+          minute_start = ->(v) { v.to_time.strftime("%Y-%m-%dT%H:%M:00") }
+          minute_end = ->(v) { v.to_time.strftime("%Y-%m-%dT%H:%M:59") }
+          config.add_predicate("dtgt", arel_predicate: "gt", formatter: minute_start, validator: value_presence, type: :datetime)
+          config.add_predicate("dtlt", arel_predicate: "lt", formatter: minute_end, validator: value_presence, type: :datetime)
+          config.add_predicate("dtgteq", arel_predicate: "gteq", formatter: minute_start, validator: value_presence, type: :datetime)
+          config.add_predicate("dtlteq", arel_predicate: "lteq", formatter: minute_end, validator: value_presence, type: :datetime)
         end
       end
 
