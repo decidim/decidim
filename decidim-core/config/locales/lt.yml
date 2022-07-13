@@ -445,7 +445,7 @@ lt:
           email_already_exists: Kitoje paskyroje naudojamas tas pats el. pašto adresas
         new:
           complete_profile: Užbaigti profilį
-          nickname_help: Jūsų slapyvardis %{organization}. Gali būti tik raidės, skaičiai, „-“ ir „_“.
+          nickname_help: Jūsų slapyvardis %{organization}. Gali būti tik raidės, skaičiai ir brūkšneliai.
           sign_up: Užbaikite profilio pildymą
           subtitle: Kad galėtumėte baigti registraciją, užpildykite šią formą
           username_help: Viešas vardas, kuris bus rodomas jūsų įrašuose. Tai gali būti bet koks vardas, nes siekame užtikrinti anonimiškumą.
@@ -478,16 +478,79 @@ lt:
             check: Pažymėti ir tęsti
             close_modal: Uždaryti modalinį langą
             uncheck: Palikti nepažymėtą
+          notice: |-
+            <p>Ar tikrai nenorite gauti naujienlaiškio?<br>
+            <br>
+            Labai rekomenduojame pažymėti langelį - siunčiame tik svarbią infromaciją dalyvavimui.</p>
+            <p>Naujienlaiškių bet kada galite atsisakyti.</p>
           title: Pranešimai apie naujienlaiškį (-ius)
         omniauth_buttons:
           or: Arba
     doorkeeper:
       authorizations:
         new:
+          authorize: Leisti naudoti programą
+          by_organization_link_html: <small class="heading-small"> %{link}</small>
           cancel: Atšaukti
+          connect_your_account_html: Prijunkite savo paskyrą prisijungtami prie <strong>%{organization}</strong>
+          publish_content: Skelbti turinį už Jus
           see_email: Žiūrėti savo el. paštą
           see_name: Žiūrėti savo vardą ir pavardę
+          see_username: Matyti Jūsų slapyvardį
+          this_application_will_be_able_to: 'Ši programa galės:'
+          this_application_will_not_be_able_to: 'Ši programa negalės:'
+          update_profile: Atnaujinkite savo profilį
+          wants_to_use_your_account_html: "<strong>%{application_name}</strong> nori naudoti Jūsų paskyrą"
+    endorsable:
+      endorsements: Palaikymai
+      endorsements_count: Palaikymų skaičius
+    endorsement_buttons_cell:
+      already_endorsed: Palaikyta
+      endorse: Palaikyti
+    endorsements:
+      identities:
+        done: Atlikta
+        select_identity: Pasirinkite tapatybę
+    errors:
+      internal_server_error:
+        title: Serveryje kilo problema
+        try_later: Bandykite dar kartą vėliau.
+      not_found:
+        back_home: Grįžti į pagrindinį puslapį
+        content_doesnt_exist: Šis adresas neteisingas arba pašalintas.
+        title: Puslapio, kurio ieškote, nerandame
     events:
+      amendments:
+        amendment_accepted:
+          affected_user:
+            email_intro: 'Pataisa %{amendable_title} buvo priimta. Galite tai pamatyti:'
+            email_outro: Šį pranešimą gavote dėl to, kad esate %{amendable_title} autorius(-ė).
+            email_subject: '%{amendable_title} pataisa priimta iš %{emendation_author_nickname}'
+            notification_title: <a href="%{emendation_path}"><a href="%{emendation_path}">Pataisa</a> sukurta <a href="%{emendation_author_path}"><a href="%{emendation_author_path}">%{emendation_author_nickname}</a> buvo priimta <a href="%{amendable_path}">%{amendable_title}</a>.
+          follower:
+            email_intro: 'Pataisa %{amendable_title} buvo priimta. Galite tai pamatyti:'
+            email_outro: Šį pranešimą gavote dėl to, kad sekate %{amendable_title}. Jeigu nebenorite gauti pranešimų, spustelėkite aukščiau esančią nuorodą.
+            email_subject: '%{amendable_title} pataisa priimta iš %{emendation_author_nickname}'
+            notification_title: <a href="%{emendation_path}"><a href="%{emendation_path}">Pataisa</a> sukurta <a href="%{emendation_author_path}"><a href="%{emendation_author_path}">%{emendation_author_nickname}</a> buvo priimta <a href="%{amendable_path}">%{amendable_title}</a>.
+        amendment_created:
+          affected_user:
+            email_intro: 'Nauja pataisa buvo sukurta %{amendable_title}. Galite ją pamatyti šiame puslapyje:'
+            email_outro: Šį pranešimą gavote dėl to, kad esate %{amendable_title} autorius(-ė).
+            email_subject: Nauja pataisa %{amendable_title}
+            notification_title: Nauja pataisa buvo sukurta <a href="%{amendable_path}"><a href="%{amendable_path}">%{amendable_title}</a>.
+          follower:
+            email_intro: 'Nauja pataisa buvo sukurta %{amendable_title}. Galite ją pamatyti šiame puslapyje:'
+            email_outro: Šį pranešimą gavote dėl to, kad sekate %{amendable_title}. Jeigu nebenorite gauti pranešimų, spustelėkite aukščiau esančią nuorodą.
+            email_subject: Nauja pataisa %{amendable_title}
+            notification_title: Nauja pataisa buvo sukurta <a href="%{amendable_path}"><a href="%{amendable_path}">%{amendable_title}</a>.
+        amendment_promoted:
+          affected_user:
+            email_intro: 'Atmesta pataisa %{amendable_title} buvo paskelbta kaip nauja %{amendable_type}. Galite tai pamatyti šiame puslapyje:'
+            email_outro: Šį pranešimą gavote dėl to, kad esate %{amendable_title} autorius(-ė).
+            email_subject: '%{emendation_author_nickname} parengtas pakeitimas paskelbtas kaip naujas %{amendable_type}'
+            notification_title: <a href="%{emendation_path}">Atmesta pataisa</a>dėl<a href="%{amendable_path}">%{amendable_title} buvo publikuota kaip nauja%{amendable_type}<a href="%{emendation_author_path}">%{emendation_author_nickname}.
+          follower:
+            email_intro: 'Atmesta pataisa %{amendable_title} buvo paskelbta kaip nauja %{amendable_type}. Galite tai pamatyti šiame puslapyje:'
       gamification:
         badge_earned:
           email_outro: Šį pranešimą gavote dėl to, kad mūsų interneto svetainėje pradėjote veiklą.
@@ -659,8 +722,20 @@ lt:
       index:
         current_members_without_admins: 'Dabartiniai nariai (be administratorių):'
         manage_members: Valdyti narius
+      promote:
+        error: Paaukštinant šį dalyvį iškilo problema
+        success: Dalyvis paaukštintas
+      reject:
+        error: Atmetant šį prisijungimo kvietimą iškilo problema
+        success: Prisijungimo kvietimas atmestas
+      remove:
+        error: Šalinant šį dalyvį iš grupės iškilo problema
+        success: Dalyvis pašalintas iš grupės
     groups:
+      actions:
+        are_you_sure: Ar esate tikri?
       create:
+        error: Kuriant grupę iškilo problema
         success: Grupė sukurta
       edit:
         edit_user_group: Redaguoti grupę
@@ -696,6 +771,7 @@ lt:
     help:
       main_topic:
         default_page:
+          content: "<p>%{organization} galite dalyvauti ir spręsti dėl įvairių temų pasinaudodami puslapiais, kuriuos matote viršutiniame meniu: „Procesai“, „Asamblėjos“, „Iniciatyvos“, „Konsultacijos“.</p> <p>Kiekviename iš jų rasite įvairių dalyvavimo galimybių: individualiai arba su kitais žmonėmis teikti pasiūlymus, dalyvauti diskusijose, nustatyti, kurie įgyvendintini projektai, yra prioritetiniai, dalyvauti tiesioginiuose susitikimuose ir kituose veiksmuose.</p>\n"
           title: Ką galiu daryti %{organization}?
         description: Daugiau informacijos apie %{organization}
         title: Bendroji Pagalba
@@ -782,6 +858,7 @@ lt:
       conversations:
         add_conversation_users:
           add_max_users: 'Į pokalbį įtraukite naudotojus: ne daugaiu kaip 9'
+          add_users_placeholder: Ieškoti...
           modal_title: Naujas pokalbis
           no_results: Rezultatų nerasta
           participant_with_disabled_message_reception: Šis dalyvis išjungė pranešimų gavimo funkciją
@@ -789,7 +866,15 @@ lt:
           show: Rodyti pokalbį su %{sender}
         create:
           error: Pokalbis neprasidėjo. Bandykite dar kartą vėliau
+        error_modal:
+          close: Uždaryti modalinį langą
+          correct_errors: Ištaisykite klaidas ir bandykite dar kartą.
+          intro: 'Jūsų pranešime aptiktos šios klaidos:'
+          ok: Gerai
         index:
+          close: Uždaryti modalinį langą
+          from: Nuo
+          groups: Mano grupės
           last_message: Paskutinė žinutė
           new_conversation: Naujas pokalbis
           next: Kitas
@@ -857,6 +942,12 @@ lt:
         unsubscribe: Atsisakyti prenumeratos
     newsletters_opt_in:
       unathorized: Atsiprašome, šios nuorodos nebėra
+      update:
+        error: Kažkas ne taip
+        success: Naujienlaiškio nuostatos atnaujintos
+    newsletters_opt_in_mailer:
+      notify:
+        body_1: Asmens duomenų tvarkymas ir jų apsauga mums visiems tampa vis svarbesni. 2018 m. gegužės 25 d. priėmus naują Bendrąjį duomenų apsaugos reglamentą (BDAR), asmenys geriau kontroliuoja savo asmens duomenis. Dėl šios priežasties jums reikia spustelėti „Gerai“, kad galėtume ir toliau siųsti reikiamą informaciją apie %{organization_name} veiklą.
     notifications_settings:
       show:
         own_activity: Mano veikla, pvz., kai kas nors pakomentuoja mano pasiūlymą arba pamini mane
@@ -911,10 +1002,23 @@ lt:
           modal_button: Nesutikti su sąlygomis
           modal_close: Uždaryti modalinį langą
     reported_mailer:
+      hide:
+        report_html: <p>Toliau pateikiamas <a href="%{url}">turinys</a> paslėptas automatiškai.</p>
+        subject: Išteklius paslėptas automatiškai
       report:
         authors: Autoriai
         content: Turinys, apie kurį pranešta
         content_original_language: Turinio originali kalba
         date: Pranešta
         details: Išsamiau
+        hello: Sveiki %{name},
+        id: ID
+        participatory_space: Dalyvaujamoji erdvė
         reason: Priežastis
+        report_html: <p>Apie toliau pateikiamą <a href="%{url}">turinį</a> pranešta.</p>
+        see_report: Žiūrėti ataskaitą
+        subject: Apie išteklių pranešta
+    reports:
+      create:
+        error: Kuriant ataskaitą įvyko klaida. Bandykite dar kartą.
+        success: Ataskaita sukurta ir ją peržiūrės administratorius.
