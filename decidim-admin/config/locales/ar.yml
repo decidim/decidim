@@ -455,9 +455,6 @@ ar:
           file_legend: إضافة ملف استيراد سيتم تحليله.
           import: استيراد
         notice: "تم استيراد %{count} %{resource_name} بنجاح"
-      logs:
-        logs_list:
-          no_logs_yet: لا توجد سجلات حتى الآن
       managed_users:
         promotion:
           error: كانت هناك مشكلة في تعزيز المشارك المُدار.
