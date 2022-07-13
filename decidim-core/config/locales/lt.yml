@@ -455,6 +455,7 @@ lt:
           newsletter: Kartais gauti naujienlaiškį su aktualia informacija
           newsletter_title: Leidimas susisiekti
           nickname_help: Jūsų slapyvardis %{organization}. Gali būti tik raidės, skaičiai, „-“ ir „_“.
+          password_help: "%{minimun_characters} minimalus rašmenų skaičius, rašmenys neturi būti pernelyg įprasti (pvz., 123456) ir turi skirtis nuo jūsų naudotojo vardo ir e. pašto adreso."
           sign_in: Prisijungti
           sign_up: Užsiregistruoti
           sign_up_as:
@@ -1022,3 +1023,193 @@ lt:
       create:
         error: Kuriant ataskaitą įvyko klaida. Bandykite dar kartą.
         success: Ataskaita sukurta ir ją peržiūrės administratorius.
+    resource_endorsements:
+      create:
+        error: Atliekant šį pritarimo veiksmą iškilo problema.
+    scopes:
+      picker:
+        cancel: Atšaukti
+        change: Keisti pasirinktą apimtį
+        choose: Pasirinkti
+        currently_selected: Šiuo metu pasirinkta apimtis
+        title: Žymėti %{field}
+      prompt: Pasirinkti apimtį
+    search:
+      results: Paieškos rezultatai
+      term_input_placeholder: Ieškoti
+    searches:
+      filters:
+        back: Grįžti į rezultatų puslapį
+        jump_to: 'Pereiti į:'
+        state:
+          active: Aktyvūs
+          all: Visi
+      filters_small_view:
+        close_modal: Uždaryti modalinį langą
+        filter: Filtruoti
+        filter_by: Filtruoti pagal
+        unfold: Išskleisti
+      results:
+        view_all: Peržiūrėti viską (%{count})
+    security:
+      selfxss_warning:
+        description: Ši naršyklės funkcija skirta kūrėjams ir neturėtumėte nieko čia įklijuoti, jei jūsų paprašys tai padaryti. Turinio įklijavimas šiame lange gali pakenkti jūsų privatumui ir suteikti įsilaužėliams prieigą prie jūsų paskyros.
+        title: Stop!
+    shared:
+      confirm_modal:
+        cancel: Atšaukti
+        close_modal: Uždaryti modalinį langą
+        ok: Gerai
+        title: Patvirtinti
+      embed_modal:
+        close_window: Uždaryti langą
+        embed: Įklijuokite šį kodą savo puslapyje
+        embed_link: Įterpti
+      extended_navigation_bar:
+        more: Daugiau
+        unfold: Išskleisti
+      filter_form_help:
+        help: Toliau pateikiamoje formoje paieškos rezultatai filtuojami dinamiškai, kai pasikeičia paieškos sąlygos.
+        skip: Pereiti į rezultatus
+      flag_modal:
+        already_reported: Šis turinys jau praneštas ir bus peržiūrėtas administratoriaus.
+        close: Uždaryti
+    user_conversations:
+      create:
+        error: Pranešimo nepavyko sukurti. Bandykite dar kartą vėliau
+        existing_error: Pranešimo nepavyko sukurti. Pokalbis jau egzistuoja, dabar bandykite dar kartą.
+        success: Pokalbis pradėtas!
+      index:
+        add_max_users: 'Į pokalbį įtraukite naudotojus: ne daugaiu kaip 9'
+        add_users_placeholder: Ieškoti...
+        close: Uždaryti
+        conversations_info: Pokalbiai yra privatūs. Niekas kitas jų negali matyti. Pokalbį galima pradėti su bet kuriuo registruotu platformos dalyviu arba grupe.
+        from: Nuo
+        last_message: Paskutinė žinutė
+        modal_title: Naujas pokalbis
+        new_conversation: Naujas pokalbis
+        next: Kitas
+        no_conversations_warning: Pokalbių dar nėra.
+        no_results: Nėra rezultatų
+        participant_with_disabled_message_reception: Šis dalyvis išjungė pranešimų gavimo funkciją
+        time_ago: "Prieš %{time}"
+      new:
+        title: Pradėti pokalbį
+      reply:
+        placeholder: Jūsų atsakymas...
+        send: Siųsti
+        title_reply: Atsakyti
+      show:
+        back: Rodyti visus pokalbius
+        deleted_accounts: Negalite megzti pokalbių su ištrintomis paskyromis.
+        not_allowed: Šis naudotojas nebepriima tiesioginių pranešimų.
+        title: Pokalbis su %{usernames}
+      update:
+        error: Pranešimas neišsiųstas. Bandykite dar kartą vėliau
+    user_interests:
+      show:
+        my_interests: Mano interesai
+        select_your_interests: Pasirinkite jus dominančias temas, kad savo profilio kortelėje „Laiko juosta“ gautumėte su jomis susijusių renginių nuorodų.
+        update_my_interests: Atnaujinti mane dominančias temas
+      update:
+        error: Atnaujinant jūs dominančias temas iškilo problema.
+        success: Jus dominančios temos atnaujintos.
+    user_report_mailer:
+      notify:
+        body_1: '%{token} pranešė apie naudotoją %{user}'
+        body_2: 'Priežastis:%{reason}'
+        greetings: Sveiki,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
+        hello: Sveiki %{admin},
+        subject: Apie naują vartotoją pranešta %{organization_name}
+    version:
+      show:
+        back_to_resource: Grįžti atgal
+        changes_at_title: '„%{title}“ pakeitimai'
+        number_of_versions: Versijos
+        show_all_versions: Rodyti visas versijas
+        version_author: Versijos autorius
+        version_created_at: Versija sukurta
+        version_number: Versijos numeris
+        version_number_out_of_total: "%{current_version} iš %{total_count}"
+    version_author:
+      show:
+        deleted: Ištrintas dalyvis
+    versions:
+      resource_version:
+        of_versions: "(iš%{number})"
+        see_other_versions: žr. kitas versijas
+        version: Versijos numeris %{number}
+    versions_list:
+      show:
+        back_to_resource: Grįžti atgal
+  devise:
+    mailer:
+      invitation_instructions:
+        someone_invited_you: Kažkas pakvietė jus į %{application}. Kvietimą galite priimti spustelėję toliau pateikiamą nuorodą.
+        someone_invited_you_as_admin: Kažkas pakvietė jus kaip %{application} administratorių. Kvietimą galite priimti spustelėję toliau pateikiamą nuorodą.
+        someone_invited_you_as_private_user: Kažkas pakvietė jus kaip %{application} privatų dalyvį. Kvietimą galite priimti spustelėję toliau pateikiamą nuorodą.
+        subject: Kvietimo nurodymai
+      invite_admin:
+        subject: Esate pakviestas valdyti %{organization}
+      invite_collaborator:
+        subject: Esate pakviestas bendradarbiauti %{organization}
+      invite_private_user:
+        subject: Esate pakviestas į %{organization} uždarą dalyvaujamąjį procesą
+      organization_admin_invitation_instructions:
+        subject: Esate pakviestas valdyti %{organization}
+      password_change:
+        greeting: Sveiki %{recipient}!
+        message: Susisiekiame su jumis norėdami pranešti, kad jūsų slaptažodis buvo pakeistas.
+        subject: Slaptažodis pakeistas
+      reset_password_instructions:
+        action: Keisti slaptažodį
+        greeting: Sveiki %{recipient}!
+        instruction: Kažkas paprašė slaptažodžio pakeitimo nuorodos. Jūs galite tai padaryti paspaudę žemiau esančią nuorodą.
+        instruction_2: Jei to neprašėte, nekreipkite dėmesio į šį el. laišką.
+        instruction_3: Jūsų slaptažodis nepasikeis tol, kol nesukursite naujo. Tą padaryti galite paspaudę aukščiau pateiktą nuorodą.
+        subject: Slaptažodžio atstatymo nurodymai
+      unlock_instructions:
+        action: Atblokuoti mano paskyrą
+        greeting: Sveiki %{recipient}!
+        instruction: 'Norėdami atblokuoti savo paskyrą, spustelėkite toliau pateikiamą nuorodą:'
+        message: Jūsų paskyra buvo užrakinta dėl pernelyg daug nepavykusių bandymų prisijungti.
+        subject: Paskyros atrakinimo instrukcijos
+    omniauth_callbacks:
+      failure: Jūsų nepavyko autentifikuoti pagal %{kind}. Priežastis – "%{reason}".
+      success: Autentifikuota pagal %{kind} paskyrą.
+    passwords:
+      edit:
+        change_my_password: Keisti slaptažodį
+        confirm_new_password: Patvirtinkite naują slaptažodį
+        new_password: Naujas slaptažodis
+        password_help: "%{minimun_characters} minimalus rašmenų skaičius, rašmenys neturi būti pernelyg įprasti (pvz., 123456) ir turi skirtis nuo jūsų naudotojo vardo ir e. pašto adreso."
+      new:
+        forgot_your_password: Pamiršote savo slaptažodį?
+        send_me_reset_password_instructions: Atsiųskite slaptažodžio atstatymo instrukciją
+      no_token: Šis puslapis negali būti pasiektas atėjus ne iš slaptažodžio atkūrimo el. laiško. Jeigu jūs atvykstate iš slaptažodžio atkūrimo el. laiško, įsitikinkite, kad naudojote visą pateiktą URL.
+      send_instructions: Per kelias minutes Jūs gausite elektroninį laišką su instrukcijomis, kaip iš naujo nustatyti savo slaptažodį.
+      send_paranoid_instructions: Jei jūsų el. pašto adresas yra mūsų duomenų bazėje, per kelias minutes savo el. pašto adresu gausite nuorodą su slaptažodžio atkūrimo nurodymais.
+      updated: Jūsų slaptažodis buvo sėkmingai pakeistas. Dabar esate prisijungę.
+      updated_not_active: Jūsų slaptažodis pakeistas.
+    registrations:
+      destroyed: Jūsų sąskaita buvo sėkmingai panaikinta. Mes tikimės netrukus Jus vėl pamatyti.
+      edit:
+        are_you_sure: Ar esate tikri?
+        cancel_my_account: Panaikinti mano paskyrą
+        currently_waiting_confirmation_for_email: 'Dabar laukiama patvirtinimo dėl: %{email}'
+        leave_blank_if_you_don_t_want_to_change_it: jei nenorite jo keisti, palikite tuščią
+        title: Redaguoti %{resource}
+        unhappy: Nepatenkinti?
+        update: Atnaujinti
+        we_need_your_current_password_to_confirm_your_changes: kad galėtume patvirtinti jūsų pakeitimus, mums reikia jūsų dabartinio slaptažodžio
+      new:
+        sign_up: Užsiregistruoti
+      signed_up: Sveiki atvykę! Jūs sėkmingai užsiregistravote.
+      signed_up_but_inactive: Jūs užsiregistravote sėkmingai. Tačiau negalėjome jūsų prijungti, nes jūsų sąskaita dar neaktyvuota.
+      signed_up_but_locked: Jūs sėkmingai užsiregistravote. Tačiau mes negalėjome jūsų prijungti, nes jūsų sąskaita yra užrakinta.
+  layouts:
+    decidim:
+      edit_link:
+        edit: Redaguoti
+      footer:
+        decidim_logo: '„Decidim“ logotipas'
