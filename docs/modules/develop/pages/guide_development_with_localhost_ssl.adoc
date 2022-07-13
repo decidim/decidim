@@ -1,46 +1,43 @@
 = Testing SSL in localhost
 
-In some cases is useful to access the `localhost` environment under SSL (ie: `https://localhost:3000/`).
+In some cases is useful to access the `localhost` environment under SSL (ie: `https://localhost:3443/`).
 
 A typical use case is when you want to test login integration with 3rd party systems using OAuth (which in the latest versions only the HTTPS protocol is allowed).
 
-Using Puma, the default server for Rails, you can easily do the trick by creating a self-signed certificate and using it when starting your development environment.
-
-== Create a self-signed certificate for localhost
-
-First you need a SSL certificate for the `localhost` domain (you only need to execute this command once):
-
-[source,bash]
-----
-openssl req -x509 -out localhost.crt -keyout localhost.key \
-  -newkey rsa:2048 -nodes -sha256 \
-  -subj '/CN=localhost' -extensions EXT -config <( \
-   printf "[dn]\nCN=localhost\n[req]\ndistinguished_name = dn\n[EXT]\nsubjectAltName=DNS:localhost\nkeyUsage=digitalSignature\nextendedKeyUsage=serverAuth")
-----
-
-This will generate two files: `localhost.crt` and `localhost.key`, you can store them anywhere you want to use them later. In this example we'll suppose we have them in the folder `certs` in our root user home:
-
-[source,bash]
-----
-mkdir ~/certs/
-mv localhost.crt ~/certs/
-mv localhost.key ~/certs/
-----
+Using Puma, the default server for Rails, you can easily do the trick by creating a self-signed certificate and using it when starting your development environment. A dummy certificate is shipped within the `decidim-dev` module which is usually included in the `:development` group of your `Gemfile`.
 
 == Starting development in SSL mode
 
-Once you have your certificate is generated, just use the next command in order to start puma instead of the typical `bin/rails s`:
+If you created the Decidim development app using the default development app generator, you already should have the necessary configurations for starting the development server under SSL. If you created the development app using older versions of the Decidim generators, you need to add the following code at the end of your `config/puma.rb`:
 
 [source,bash]
 ----
-bin/rails s -b "ssl://127.0.0.1:3000?key=$HOME/certs/localhost.key&cert=$HOME/certs/localhost.crt"
+# Development SSL
+if ENV["DEV_SSL"] && defined?(Bundler) && (dev_gem = Bundler.load.specs.find { |spec| spec.name == "decidim-dev" })
+  cert_dir = ENV.fetch("DEV_SSL_DIR") { "#{dev_gem.full_gem_path}/lib/decidim/dev/assets" }
+  ssl_bind(
+    "0.0.0.0",
+    ENV.fetch("DEV_SSL_PORT") { 3443 },
+    cert_pem: File.read("#{cert_dir}/ssl-cert.pem"),
+    key_pem: File.read("#{cert_dir}/ssl-key.pem")
+  )
+end
 ----
 
-Now you are ready to visit your favorite browser at the address `https://localhost:3000/` (note "https").
+For newer Decidim versions, this code should already exist there.
+
+Also make sure that the `decidim-dev` gem is included in the `:development` group of your `Gemfile` as it should be unless you changed it.
+
+After that, you can start the development server under SSL at port 3443 (default) using the following command:
+
+[source,bash]
+----
+DEV_SSL=true bin/rails s
+----
+
+Now you are ready to visit your favorite browser at the address `https://localhost:3443/` (note "https" and port 3443). If you would like to test the non-SSL "http" version, it is also running normally at port 3000, so you can access that as you normally would.
 
 Note: Your browser is going to complain as this is a self-signed certificate, that's ok for development, just add an exception and accept the certificate.
-
-Also take into account that starting Puma in SSL mode will disable accessing it in non-ssl mode (normal `http` protocol).
 
 == Testing tenants using lvh.me
 
@@ -61,3 +58,39 @@ Finally remember to add the port as `lvh.me` do not forwards anything, for insta
 `https://anotherorg.lvh.me:3000/`
 
 etc.
+
+== Optional: Create your own self-signed certificate for localhost
+
+If you don't want to rely on the dummy certificate shipped with the `decidim-dev` gem, you can also create the certificates yourself.
+
+First you need a SSL certificate for the `localhost` domain (you only need to execute this command once):
+
+[source,bash]
+----
+openssl req -x509 -out localhost.crt -keyout localhost.key \
+  -newkey rsa:2048 -nodes -sha256 \
+  -subj '/CN=localhost' -extensions EXT -config <( \
+   printf "[dn]\nCN=localhost\n[req]\ndistinguished_name = dn\n[EXT]\nsubjectAltName=DNS:localhost\nkeyUsage=digitalSignature\nextendedKeyUsage=serverAuth")
+----
+
+This will generate two files: `localhost.crt` and `localhost.key`, you can store them anywhere you want to use them later. In this example we'll suppose we have them in the folder `certs` in our root user home:
+
+[source,bash]
+----
+mkdir ~/certs/
+mv localhost.crt ~/certs/
+mv localhost.key ~/certs/
+----
+
+== Optional: Manually starting development server in SSL mode
+
+Once you have your certificate is generated, just use the next command in order to start puma instead of the typical `bin/rails s`:
+
+[source,bash]
+----
+bin/rails s -b "ssl://127.0.0.1:3443?key=$HOME/certs/localhost.key&cert=$HOME/certs/localhost.crt"
+----
+
+Now you are ready to visit your favorite browser at the address `https://localhost:3443/` (note "https" and port 3443).
+
+Take into account that starting Puma in SSL mode manually will disable accessing it in non-ssl mode (normal `http` protocol).
