@@ -452,9 +452,6 @@ pt-BR:
           file_legend: Adicionar um arquivo de importação que será analisado.
           import: Importar
         notice: "%{number} %{resource_name} importado com sucesso"
-      logs:
-        logs_list:
-          no_logs_yet: Ainda não há registros
       managed_users:
         promotion:
           error: Ocorreu um erro ao promover o usuário gerenciado.
