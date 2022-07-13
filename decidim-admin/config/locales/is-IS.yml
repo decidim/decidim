@@ -286,9 +286,6 @@ is-IS:
           reason: Ástæða
         new:
           impersonate: Líkjast notanda
-      logs:
-        logs_list:
-          no_logs_yet: Það eru engar skrár ennþá
       managed_users:
         promotions:
           new:
