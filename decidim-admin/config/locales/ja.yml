@@ -504,9 +504,6 @@ ja:
           file_legend: 解析されるインポート ファイルを追加します。
           import: インポート
         notice: "%{number} %{resource_name} を正常にインポートしました"
-      logs:
-        logs_list:
-          no_logs_yet: ログはまだありません
       managed_users:
         promotion:
           error: 管理対象参加者の昇格に問題が発生しました。
