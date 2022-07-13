@@ -83,9 +83,7 @@ You can read more about this change on PR [\#XXXX](https://github.com/decidim/de
 
 ### Removed
 
-## [v0.XX.0](https://github.com/decidim/decidim/releases/tag/v0.XX.0)
 
-### Added
 ...
 
 ## Previous versions
