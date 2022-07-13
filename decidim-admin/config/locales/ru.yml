@@ -297,9 +297,6 @@ ru:
           impersonate_existing_managed_user: Выступить в роли управляемого участника "%{name}"
           impersonate_existing_user: Выступить в роли участника "%{name}"
           impersonate_new_managed_user: Выступить в роли нового управляемого участника
-      logs:
-        logs_list:
-          no_logs_yet: Пока нет журналов
       managed_users:
         promotion:
           error: При повышении управляемого участника произошла ошибка.
