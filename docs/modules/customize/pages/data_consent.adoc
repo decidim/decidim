@@ -2,7 +2,9 @@
 
 With data consent we can explain better what local data we store in the user's browser, why we are storing this data, and let the user choose which data they allow to store in their browser.
 
-This feature is many times referred to as "cookie consent" due to historic reasons but in Decidim we prefer to call it "data consent" because this can also other data stored in the user's browser, such as data added to LocalStorage.
+This feature is many times referred to as "cookie consent" due to historic reasons but in Decidim we prefer to call it "data consent" because this can also include other data stored in the user's browser using its APIs, such as data added to LocalStorage.
+
+As many non-technical people are still more familiar with the "cookie" terminology, the user interface talks only about "Cookie consent" to make it easier to understand for non-technical participants.
 
 == Different data consent categories available in Decidim
 
