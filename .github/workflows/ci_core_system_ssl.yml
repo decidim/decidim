@@ -62,7 +62,7 @@ jobs:
           node_version: ${{ env.NODE_VERSION }}
       - run: |
           sudo Xvfb -ac $DISPLAY -screen 0 1920x1084x24 > /dev/null 2>&1 & # optional
-          bundle exec rake parallel:spec[spec/system/data_consent_spec.rb]
+          bundle exec rake parallel:spec[spec/system/data_consent/organization_spec.rb]
         name: RSpec
         working-directory: ${{ env.DECIDIM_MODULE }}
         env:
