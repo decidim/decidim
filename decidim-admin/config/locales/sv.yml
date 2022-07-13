@@ -508,9 +508,6 @@ sv:
           file_legend: Lägg till en fil som kommer importeras.
           import: Importera
         notice: "%{number} %{resource_name} har importerats"
-      logs:
-        logs_list:
-          no_logs_yet: Det finns inga loggar än
       managed_users:
         promotion:
           error: Det gick inte att befordra den hanterade användaren.
