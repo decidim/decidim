@@ -450,6 +450,11 @@ lt:
         hello: Sveiki,
         subject: Jūsų paskyra buvo užblokuota %{organization_name}
     collapsible_list:
+      hidden_elements_count:
+        one: ir %{count} daugiau
+        few: ir %{count} daugiau
+        many: ir %{count} daugiau
+        other: ir %{count} daugiau
       see_less: "(žr. mažiau)"
       see_more: "(žr. daugiau)"
     components:
@@ -458,8 +463,11 @@ lt:
         order:
           all_types: Visi tipai
           collaborative_draft: Bendras Juodraštis
+          comment: Komentaras
+          debate: Diskusija
           initiative: Iniciatyva
           meeting: Susitikimas
+          order: Biudžeto balsavimas
           post: Įrašas
           proposal: Pasiūlymas
           question: Klausimas
@@ -495,8 +503,18 @@ lt:
         button_text: Veiksmo mygtuko tekstas
         button_url: Veiksmo mygtuko nuoroda
         description: Aprašymas
+      footer_sub_hero:
+        name: Apatinės dalies reklamjuostė
+      hero:
+        name: Pagrindinis vaizdas
+      hero_settings_form:
+        background_image: Foninis paveikslėlis
+        welcome_text: Pasveikinimo tekstas
+      highlighted_content_banner:
+        name: Paryškinta turinio juosta
       highlighted_elements_settings_form:
         orders:
+          label: 'Rūšiuoti elementus pagal:'
           random: Atsitiktinis
           recent: Naujausia
       how_to_participate:
@@ -512,8 +530,11 @@ lt:
         name: Organizacijos metrika
       stats:
         name: Organizacijos statistiniai duomenys
+      sub_hero:
+        name: Turinio juosta po paveikslėliu
     core:
       actions:
+        login_before_access: Prašau prisijunkite prie savo paskyros
         unauthorized: Jūs neturite teisės atlikti šio veiksmo
     datepicker:
       help_text: 'Pageidaujamas formatas: %{datepicker_format}'
