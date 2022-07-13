@@ -49,6 +49,9 @@ en:
       decidim/welcome_notification_event: Welcome message
   activerecord:
     attributes:
+      decidim/action_log:
+        created_at: Time
+        with_participatory_space: Participatory space
       decidim/user:
         current_password: Current password
         email: Email
@@ -1854,6 +1857,12 @@ en:
     password_too_common: is too common
     password_too_long: is too long
     password_too_short: is too short
+  ransack:
+    predicates:
+      dtgt: after
+      dtgteq: after or equal to
+      dtlt: before
+      dtlteq: before or equal to
   social_share_button:
     delicious: Delicious
     douban: Douban
