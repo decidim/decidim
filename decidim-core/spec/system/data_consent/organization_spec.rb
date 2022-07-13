@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Data consent", type: :system do
+describe "Data consent within organization", type: :system do
   let(:organization) { create(:organization) }
   let(:cookie) { page.driver.browser.manage.cookie_named(Decidim.consent_cookie_name) }
 
