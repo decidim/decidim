@@ -13,7 +13,7 @@ import "src/decidim/foundation_datepicker_locales"
 import "jquery-serializejson"
 
 import "src/decidim/admin/tab_focus"
-import "src/decidim/admin/choose_language"
+import initLanguageChangeSelect from "src/decidim/admin/choose_language"
 import "src/decidim/admin/application"
 import "src/decidim/admin/resources_permissions"
 import "src/decidim/admin/welcome_notification"
@@ -42,3 +42,7 @@ import "entrypoints/decidim_admin.scss";
 
 // This needs to be loaded after confirm dialog to bind properly
 Rails.start()
+
+window.addEventListener("DOMContentLoaded", () => {
+  initLanguageChangeSelect(document.querySelectorAll("select.language-change"));
+});
