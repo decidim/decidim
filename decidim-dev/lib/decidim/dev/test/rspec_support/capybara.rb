@@ -113,10 +113,12 @@ RSpec.configure do |config|
     if domain
       page.driver.browser.execute_cdp(
         "Network.setCookie",
-        domain: domain,
+        domain: ".#{domain}", # Javascript sets the cookie also for all subdomains
         name: Decidim.consent_cookie_name,
         value: { essential: true }.to_json,
-        path: "/"
+        path: "/",
+        expires: 1.day.from_now.to_i,
+        same_site: "Lax"
       )
     end
   end
