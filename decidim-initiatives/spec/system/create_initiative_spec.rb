@@ -521,7 +521,8 @@ describe "Initiative", type: :system do
             it "shows an error" do
               select("Online", from: "Signature collection type")
               find_button("Continue").click
-              expect(page).to have_content("There's an error in this field")
+
+              expect_blank_field_validation_message("#initiative_scope_id", type: :select)
             end
           end
 
