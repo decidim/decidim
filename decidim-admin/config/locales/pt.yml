@@ -463,9 +463,6 @@ pt:
           file_legend: Adicionar ficheiro para importar a analisar.
           import: Importar
         notice: "%{number} %{resource_name} importado(s) com êxito"
-      logs:
-        logs_list:
-          no_logs_yet: Ainda não há registos
       managed_users:
         promotion:
           error: Ocorreu um problema ao promover o participante gerido.
