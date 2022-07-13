@@ -8,7 +8,7 @@ module Decidim
     def switch_to_host(host = "lvh.me")
       raise "Can't switch to a custom host unless it really exists. Use `whatever.lvh.me` as a workaround." unless /lvh\.me$/.match?(host)
 
-      app_host = (host ? "http://#{host}" : nil)
+      app_host = (host ? "#{protocol}://#{host}" : nil)
       Capybara.app_host = app_host
     end
 
@@ -17,7 +17,13 @@ module Decidim
     end
 
     def switch_to_secure_context_host
-      Capybara.app_host = "http://localhost"
+      Capybara.app_host = "#{protocol}://localhost"
+    end
+
+    def protocol
+      return "https" if ENV["TEST_SSL"]
+
+      "http"
     end
   end
 end
@@ -31,6 +37,7 @@ Capybara.register_driver :headless_chrome do |app|
                   else
                     "--window-size=1920,1080"
                   end
+  options.args << "--ignore-certificate-errors" if ENV["TEST_SSL"]
   Capybara::Selenium::Driver.new(
     app,
     browser: :chrome,
@@ -81,9 +88,18 @@ Capybara.register_driver :iphone do |app|
   )
 end
 
-Capybara.server = :puma, { Silent: true, queue_requests: false }
-
-Capybara.asset_host = "http://localhost:3000"
+server_options = { Silent: true, queue_requests: false }
+if ENV["TEST_SSL"]
+  dev_gem = Bundler.load.specs.find { |spec| spec.name == "decidim-dev" }
+  cert_dir = "#{dev_gem.full_gem_path}/lib/decidim/dev/assets"
+  server_options.merge!(
+    Host: "ssl://#{Capybara.server_host}:#{Capybara.server_port}?key=#{cert_dir}/ssl-key.pem&cert=#{cert_dir}/ssl-cert.pem"
+  )
+  Capybara.asset_host = "https://localhost:3000"
+else
+  Capybara.asset_host = "http://localhost:3000"
+end
+Capybara.server = :puma, server_options
 
 Capybara.server_errors = [SyntaxError, StandardError]
 
