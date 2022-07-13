@@ -463,9 +463,6 @@ it:
           file_legend: Aggiungi un file da importare che verrà analizzato.
           import: Importazione
         notice: "%{number} %{resource_name} importati con successo"
-      logs:
-        logs_list:
-          no_logs_yet: Non ci sono ancora i log
       managed_users:
         promotion:
           error: Si è verificato un problema nella promozione del partecipante gestito.
