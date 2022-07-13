@@ -508,6 +508,14 @@ ca:
           file_legend: Afegir un arxiu d'importació que serà processat.
           import: Importar
         notice: "%{count} %{resource_name} importat correctament"
+      logs:
+        filters:
+          participatory_space: Trobar espai de particiació
+          text: Cerca per correu electrònic, nom o àlies.
+          user: Usuària
+        logs_list:
+          no_logs_yet: Encara no hi ha cap registre d'activitat.
+          no_matching_logs: No hi ha cap registre d'activitat amb els filtres de cerca seleccionats. Prova de canviar-los i intenta-ho de nou.
       managed_users:
         promotion:
           error: S'ha produït un error en promoure aquesta participant.
