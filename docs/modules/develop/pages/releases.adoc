@@ -6,7 +6,7 @@ Remember to follow the Gitflow branching workflow.
 
 == Create the stable branch for the release
 
-. Merge all the https://github.com/decidim/decidim/pulls?q=is%3Apr+is%3Aopen+author%3Adecidim-bot+sort%3Aupdated-desc[Crowdin pull requests created by the user `decidim-bot`], specially the one that's going to be marged against `develop`.
+. Merge all the https://github.com/decidim/decidim/pulls?q=is%3Apr+is%3Aopen+author%3Adecidim-bot+sort%3Aupdated-desc+base%3Adevelop[Crowdin pull requests created by the user `decidim-bot`], specially the one that's going to be marged against `develop` that should be returned by the provided example search.
 . Go to develop with `git checkout develop`
 . Create the release branch `git checkout -b release/x.y-stable && git push origin release/x.y-stable`.
 . Add the release branch to Crowdin so that any pending translations will generate a PR to this branch. This needs to be done with the generic user `decidim` in the GitHub's Crowdin integration, as this is the user that initially configured the installation and other admins in the Crowdin organization can't change it. See instructions for this on the "Create the stable branch in Crowdin".
