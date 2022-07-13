@@ -454,9 +454,6 @@ el:
           file_legend: Προσθέστε ένα αρχείο εισαγωγής που θα αναλυθεί.
           import: Εισαγωγή
         notice: "%{number} %{resource_name} επιτυχώς εισαχθείσα"
-      logs:
-        logs_list:
-          no_logs_yet: Δεν υπάρχουν ακόμη αρχεία καταγραφής
       managed_users:
         promotion:
           error: Υπήρξε ένα πρόβλημα κατά την προώθηση του διαχειριζόμενου συμμετέχοντα.
