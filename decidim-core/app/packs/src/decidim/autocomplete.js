@@ -1,4 +1,4 @@
-/* eslint max-lines: ["error", {"max": 350}] */
+/* eslint max-lines: ["error", 350] */
 
 import AutoCompleteJS from "@tarekraafat/autocomplete.js";
 // Styles from node_modules/@tarekraafat/autocomplete.js
@@ -64,6 +64,9 @@ export default class AutoComplete {
       // Delay in milliseconds how long to wait after user action before
       // doing a backend request.
       delay: 200,
+      // Allows modifying the suggested list before they are displayed
+      // Signature: (element: HTMLElement, value: Object)
+      modifyList: null,
       // Allows modifying the suggested items before they are displayed in the list
       // Signature: (element: HTMLElement, value: Object)
       modifyResult: null
@@ -99,7 +102,14 @@ export default class AutoComplete {
         }
       },
       resultsList: {
-        maxResults: this.options.maxResults
+        maxResults: this.options.maxResults,
+        element: (item, data) => {
+          if (!this.options.modifyList) {
+            return;
+          }
+
+          this.options.modifyList(item, data);
+        }
       },
       resultItem: {
         element: (item, data) => {
