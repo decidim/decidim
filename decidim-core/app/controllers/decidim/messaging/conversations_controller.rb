@@ -60,6 +60,8 @@ module Decidim
 
         @conversations = UserConversations.for(current_user)
         @form = MessageForm.new
+
+        validation_messages << t("decidim.messaging.conversations.index.no_conversations") if @conversations.blank?
       end
 
       def show
@@ -102,6 +104,10 @@ module Decidim
         return [] unless current_organization.user_groups_enabled?
 
         current_user.manageable_user_groups
+      end
+
+      def validation_messages
+        @validation_messages ||= []
       end
 
       def conversation

@@ -8,22 +8,13 @@
 <% end %>
 
 <%= render layout:"layouts/decidim/shared/layout_two_col" do %>
-
   <div class="p-12 space-y-10">
-
-    <%
-      validations = []
-
-      validations << t("decidim.messaging.conversations.index.no_conversations") if @conversations.empty?
-
-      validations.each do |validation| %>
-      <p><%= validation %></p>
+    <% if validation_messsages.present? %>
+      <% validation_messages.each do |message| %>
+        <p><%= message %></p>
+      <% end %>
+    <% else %>
+      <%= render partial: "conversation", collection: @conversations %>
     <% end %>
-
-    <% if validations.empty? %>
-      <%= render partial: "conversation", collection: @conversations + @conversations %>
-    <% end %>
-
   </div>
-
 <% end %>
