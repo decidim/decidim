@@ -22,6 +22,8 @@ class ConsentManager {
   updateState(newState) {
     this.state = newState;
     Cookies.set(this.cookieName, JSON.stringify(this.state), {
+      domain: document.location.host.split(":")[0],
+      sameSite: "Lax",
       expires: 365,
       secure: window.location.protocol === "https:"
     });
