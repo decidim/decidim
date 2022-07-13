@@ -516,9 +516,6 @@ cs:
           file_legend: Přidat importovaný soubor, který bude analyzován.
           import: Importovat
         notice: "%{number} %{resource_name} úspěšně importováno"
-      logs:
-        logs_list:
-          no_logs_yet: Dosud nejsou žádné protokoly
       managed_users:
         promotion:
           error: Při propagaci spravovaného účastníka se vyskytl problém.
