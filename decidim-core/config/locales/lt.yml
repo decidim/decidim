@@ -500,6 +500,7 @@ lt:
           newsletter: Kartais gauti naujienlaiškį su aktualia informacija
           newsletter_title: Leidimas susisiekti
           nickname_help: Jūsų slapyvardis %{organization}. Gali būti tik raidės, skaičiai, „-“ ir „_“.
+          password_help: "%{minimun_characters} minimalus rašmenų skaičius, rašmenys neturi būti pernelyg įprasti (pvz., 123456) ir turi skirtis nuo jūsų naudotojo vardo ir e. pašto adreso."
           sign_in: Prisijungti
           sign_up: Užsiregistruoti
           sign_up_as:
@@ -601,6 +602,15 @@ lt:
             notification_title: <a href="%{emendation_path}">Atmesta pataisa</a>dėl<a href="%{amendable_path}">%{amendable_title} buvo publikuota kaip nauja%{amendable_type}<a href="%{emendation_author_path}">%{emendation_author_nickname}.
           follower:
             email_intro: 'Atmesta pataisa %{amendable_title} buvo paskelbta kaip nauja %{amendable_type}. Galite tai pamatyti šiame puslapyje:'
+            email_outro: Šį pranešimą gavote dėl to, kad sekate %{amendable_title}. Jeigu nebenorite gauti pranešimų, spustelėkite aukščiau esančią nuorodą.
+            email_subject: '%{emendation_author_nickname} publikavo naują pataisą kaip %{amendable_type}'
+            notification_title: <a href="%{emendation_path}">Atmesta pataisa</a>dėl<a href="%{amendable_path}">%{amendable_title} buvo publikuota kaip nauja%{amendable_type}<a href="%{emendation_author_path}">%{emendation_author_nickname}.
+        amendment_rejected:
+          affected_user:
+            email_intro: 'Atmesta %{amendable_title} pataisa. Ją galite pamatyti šiame puslapyje:'
+            email_outro: Šį pranešimą gavote dėl to, kad esate %{amendable_title} autorius(-ė).
+            email_subject: Atmesta %{emendation_author_nickname} parengta %{amendable_title} pataisa
+            notification_title: <a href="%{emendation_path}">Pataisa</a>sukurta<a href="%{emendation_author_path}">%{emendation_author_nickname}</a>buvo atmesta dėl<a href="%{amendable_path}">%{amendable_title}</a>.
       gamification:
         badge_earned:
           email_outro: Šį pranešimą gavote dėl to, kad mūsų interneto svetainėje pradėjote veiklą.
@@ -1219,3 +1229,49 @@ lt:
         instruction: Kažkas paprašė slaptažodžio pakeitimo nuorodos. Jūs galite tai padaryti paspaudę žemiau esančią nuorodą.
         instruction_2: Jei to neprašėte, nekreipkite dėmesio į šį el. laišką.
         instruction_3: Jūsų slaptažodis nepasikeis tol, kol nesukursite naujo. Tą padaryti galite paspaudę aukščiau pateiktą nuorodą.
+        subject: Slaptažodžio atstatymo nurodymai
+      unlock_instructions:
+        action: Atblokuoti mano paskyrą
+        greeting: Sveiki %{recipient}!
+        instruction: 'Norėdami atblokuoti savo paskyrą, spustelėkite toliau pateikiamą nuorodą:'
+        message: Jūsų paskyra buvo užrakinta dėl pernelyg daug nepavykusių bandymų prisijungti.
+        subject: Paskyros atrakinimo instrukcijos
+    omniauth_callbacks:
+      failure: Jūsų nepavyko autentifikuoti pagal %{kind}. Priežastis – "%{reason}".
+      success: Autentifikuota pagal %{kind} paskyrą.
+    passwords:
+      edit:
+        change_my_password: Keisti slaptažodį
+        confirm_new_password: Patvirtinkite naują slaptažodį
+        new_password: Naujas slaptažodis
+        password_help: "%{minimun_characters} minimalus rašmenų skaičius, rašmenys neturi būti pernelyg įprasti (pvz., 123456) ir turi skirtis nuo jūsų naudotojo vardo ir e. pašto adreso."
+      new:
+        forgot_your_password: Pamiršote savo slaptažodį?
+        send_me_reset_password_instructions: Atsiųskite slaptažodžio atstatymo instrukciją
+      no_token: Šis puslapis negali būti pasiektas atėjus ne iš slaptažodžio atkūrimo el. laiško. Jeigu jūs atvykstate iš slaptažodžio atkūrimo el. laiško, įsitikinkite, kad naudojote visą pateiktą URL.
+      send_instructions: Per kelias minutes Jūs gausite elektroninį laišką su instrukcijomis, kaip iš naujo nustatyti savo slaptažodį.
+      send_paranoid_instructions: Jei jūsų el. pašto adresas yra mūsų duomenų bazėje, per kelias minutes savo el. pašto adresu gausite nuorodą su slaptažodžio atkūrimo nurodymais.
+      updated: Jūsų slaptažodis buvo sėkmingai pakeistas. Dabar esate prisijungę.
+      updated_not_active: Jūsų slaptažodis pakeistas.
+    registrations:
+      destroyed: Jūsų sąskaita buvo sėkmingai panaikinta. Mes tikimės netrukus Jus vėl pamatyti.
+      edit:
+        are_you_sure: Ar esate tikri?
+        cancel_my_account: Panaikinti mano paskyrą
+        currently_waiting_confirmation_for_email: 'Dabar laukiama patvirtinimo dėl: %{email}'
+        leave_blank_if_you_don_t_want_to_change_it: jei nenorite jo keisti, palikite tuščią
+        title: Redaguoti %{resource}
+        unhappy: Nepatenkinti?
+        update: Atnaujinti
+        we_need_your_current_password_to_confirm_your_changes: kad galėtume patvirtinti jūsų pakeitimus, mums reikia jūsų dabartinio slaptažodžio
+      new:
+        sign_up: Užsiregistruoti
+      signed_up: Sveiki atvykę! Jūs sėkmingai užsiregistravote.
+      signed_up_but_inactive: Jūs užsiregistravote sėkmingai. Tačiau negalėjome jūsų prijungti, nes jūsų sąskaita dar neaktyvuota.
+      signed_up_but_locked: Jūs sėkmingai užsiregistravote. Tačiau mes negalėjome jūsų prijungti, nes jūsų sąskaita yra užrakinta.
+  layouts:
+    decidim:
+      edit_link:
+        edit: Redaguoti
+      footer:
+        decidim_logo: '„Decidim“ logotipas'
