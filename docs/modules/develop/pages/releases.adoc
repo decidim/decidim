@@ -64,7 +64,7 @@ After that, the header with the current version and link with the same beforemen
  .. In the "Select Branches for Translation", search the branch. Click on it.
  .. Change the "Service Branch Name" to be consistent with the other branches. So, for instance, "release/0.20-stable" would become "chore/l10n/release/0.20-stable".
  .. Click on "Save"
- .. In less than one hour, if there are any changes in Crowdin that would involve this branch, you'll see the correspondent "Decidim bot" Pull Request in GitHub.
+ .. After a couple of hours, if there are any changes in Crowdin that would involve this branch, you'll see the correspondent "Decidim bot" Pull Request in GitHub.
 
 == Producing the CHANGELOG.md
 
