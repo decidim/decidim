@@ -83,7 +83,6 @@ You can read more about this change on PR [\#XXXX](https://github.com/decidim/de
 
 ### Removed
 
-
 ...
 
 ## Previous versions
