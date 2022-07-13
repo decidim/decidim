@@ -243,8 +243,25 @@ module Decidim
         CONFIG
       end
 
-      def add_ignore_uploads
-        append_file ".gitignore", "\n# Ignore public uploads\npublic/uploads" unless options["skip_git"]
+      def modify_gitignore
+        return if options[:skip_git]
+
+        append_file ".gitignore", <<~GITIGNORE
+
+          # Ignore env configuration files
+          .env
+          .envrc
+          .rbenv-vars
+
+          # Ignore the files and folders generated through Webpack
+          /public/decidim-packs
+          /public/packs-test
+          /public/sw.js
+          /public/sw.js.map
+
+          # Ignore node modules
+          /node_modules
+        GITIGNORE
       end
 
       def remove_default_error_pages

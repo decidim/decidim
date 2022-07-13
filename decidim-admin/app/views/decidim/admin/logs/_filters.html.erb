@@ -1,0 +1,38 @@
+<div class="filters__section">
+  <div class="fcell search">
+    <%= search_form_for(query, url: url_for) do |form| %>
+      <div class="grid-x grid-margin-x">
+        <div class="cell medium-6 large-3">
+          <%= form.text_field :with_participatory_space, placeholder: t(".participatory_space"), class: "participatory-space-search", value: nil, data: {
+            selected: form.object.with_participatory_space
+          } %>
+        </div>
+        <div class="cell medium-6 large-3">
+          <%= form.datetime_field :created_at_dtgteq %>
+        </div>
+        <div class="cell medium-6 large-3">
+          <%= form.datetime_field :created_at_dtlteq %>
+        </div>
+        <div class="cell medium-6 large-3">
+          <div class="grid-x grid-margin-x">
+            <div class="cell auto">
+              <%= form.search_field(search_field_predicate, class: "input-group-field", label: t(".user"), placeholder: t(".text")) %>
+            </div>
+            <div class="cell medium-3 large-4 xlarge-3 medium-text-right">
+              &nbsp;<br>
+              <button type="submit" class="button">
+                <%= icon "magnifying-glass", aria_label: t("search_label", scope: "decidim.admin.filters") %>
+                <span class="hide-for-medium"><%= t("search_label", scope: "decidim.admin.filters") %></span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+<div class="card-section fcell grid-x">
+  <div class="cell auto text-right">
+    <%= admin_filters_pagination %>
+  </div>
+</div>
