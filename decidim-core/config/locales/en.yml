@@ -1741,7 +1741,7 @@ en:
             name: Name
             service: Service
             type: Type
-          cookies:
+          items:
             _session_id:
               description: Allows websites to remember user within a website when they move between web pages.
               service: This website
@@ -1753,8 +1753,8 @@ en:
         dialog:
           accept_all: Accept all
           accept_only_essential: Accept only essential
-          cookie_settings: Settings
           description: We use cookies on our website to improve the performance and content of the site. The cookies enable us to provide a more individual user experience and social media channels.
+          settings: Settings
           title: Information about the cookies used on the website
         modal:
           accept_all: Accept all

@@ -25,7 +25,7 @@
       <p><%= category[:description] %></p>
     </div>
 
-    <% if category[:cookies].present? %>
+    <% if category[:items].present? %>
       <div class="cookie-details-wrapper">
         <div class="row detail-titles">
           <div class="columns small-2">
@@ -42,19 +42,19 @@
           </div>
         </div>
 
-        <% category[:cookies].each do |cookie| %>
+        <% category[:items].each do |item| %>
           <div class="row cookie-detail-row">
             <div class="columns small-2">
-              <%= t("layouts.decidim.data_consent.details.types.#{cookie[:type]}") %>
+              <%= t("layouts.decidim.data_consent.details.types.#{item[:type]}") %>
             </div>
             <div class="columns small-2">
-              <%= cookie[:name] %>
+              <%= item[:name] %>
             </div>
             <div class="columns small-2">
-              <%= t("layouts.decidim.data_consent.details.cookies.#{cookie[:name]}.service") %>
+              <%= t("layouts.decidim.data_consent.details.items.#{item[:name]}.service") %>
             </div>
             <div class="columns small-6">
-              <%= t("layouts.decidim.data_consent.details.cookies.#{cookie[:name]}.description") %>
+              <%= t("layouts.decidim.data_consent.details.items.#{item[:name]}.description") %>
             </div>
           </div>
         <% end %>

@@ -13,7 +13,7 @@ module Decidim
           title: t("layouts.decidim.data_consent.modal.#{category[:slug]}.title"),
           description: t("layouts.decidim.data_consent.modal.#{category[:slug]}.description"),
           mandatory: category[:mandatory],
-          cookies: category.has_key?(:cookies) ? category[:cookies] : []
+          items: category.has_key?(:items) ? category[:items] : []
         }
       end
     end
