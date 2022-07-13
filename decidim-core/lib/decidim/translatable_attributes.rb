@@ -43,7 +43,14 @@ module Decidim
 
           define_method attribute_name do
             field = public_send(name) || {}
-            value = field[locale.to_s] || field[locale.to_sym]
+            value =
+              if field.is_a?(Hash)
+                field[locale.to_s] || field[locale.to_sym]
+              else
+                # The value may not be a hash in case the attribute type was
+                # changed and the old value is still stored against the record.
+                field
+              end
             attribute_set[attribute_name].coerce(value)
           end
 
