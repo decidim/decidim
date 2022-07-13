@@ -330,9 +330,6 @@ sk:
           impersonate_existing_managed_user: Spravovanie účastníka "%{name}"
           impersonate_existing_user: Spravovanie účastníka "%{name}"
           impersonate_new_managed_user: Správa nového používateľa
-      logs:
-        logs_list:
-          no_logs_yet: Zatiaľ nie sú žiadne záznamy
       managed_users:
         promotion:
           error: Došlo k chybe pri povýšení spravovaného používateľa.
