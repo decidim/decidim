@@ -552,6 +552,31 @@ lt:
             notification_title: <a href="%{emendation_path}">Atmesta pataisa</a>dėl<a href="%{amendable_path}">%{amendable_title} buvo publikuota kaip nauja%{amendable_type}<a href="%{emendation_author_path}">%{emendation_author_nickname}.
           follower:
             email_intro: 'Atmesta pataisa %{amendable_title} buvo paskelbta kaip nauja %{amendable_type}. Galite tai pamatyti šiame puslapyje:'
+            email_outro: Šį pranešimą gavote dėl to, kad sekate %{amendable_title}. Jeigu nebenorite gauti pranešimų, spustelėkite aukščiau esančią nuorodą.
+            email_subject: '%{emendation_author_nickname} publikavo naują pataisą kaip %{amendable_type}'
+            notification_title: <a href="%{emendation_path}">Atmesta pataisa</a>dėl<a href="%{amendable_path}">%{amendable_title} buvo publikuota kaip nauja%{amendable_type}<a href="%{emendation_author_path}">%{emendation_author_nickname}.
+        amendment_rejected:
+          affected_user:
+            email_intro: 'Atmesta %{amendable_title} pataisa. Ją galite pamatyti šiame puslapyje:'
+            email_outro: Šį pranešimą gavote dėl to, kad esate %{amendable_title} autorius(-ė).
+            email_subject: Atmesta %{emendation_author_nickname} parengta %{amendable_title} pataisa
+            notification_title: <a href="%{emendation_path}">Pataisa</a>sukurta<a href="%{emendation_author_path}">%{emendation_author_nickname}</a>buvo atmesta dėl<a href="%{amendable_path}">%{amendable_title}</a>.
+          follower:
+            email_intro: 'Atmesta %{amendable_title} pataisa. Ją galite pamatyti šiame puslapyje:'
+            email_outro: Šį pranešimą gavote dėl to, kad sekate %{amendable_title}. Jeigu nebenorite gauti pranešimų, spustelėkite aukščiau esančią nuorodą.
+            email_subject: Atmesta %{emendation_author_nickname} parengta %{amendable_title} pataisa
+            notification_title: <a href="%{emendation_path}">Pataisa</a>sukurta<a href="%{emendation_author_path}">%{emendation_author_nickname}</a>buvo atmesta dėl<a href="%{amendable_path}">%{amendable_title}</a>.
+      attachments:
+        attachment_created:
+          email_intro: 'Prie %{resource_title} pridėtas naujas dokumentas. Jį galite pamatyti šiame puslapyje:'
+          email_outro: Šį pranešimą gavote dėl to, kad sekate %{resource_title}. Jeigu nebenorite gauti pranešimų, spustelėkite aukščiau esančią nuorodą.
+          email_subject: '%{resource_title} atnaujinimas'
+          notification_title: Prie <a href="%{attached_to_url}">%{resource_title}</a> pridėtas <a href="%{resource_path}">naujas dokumentas</a>
+      components:
+        component_published:
+          email_intro: '%{resource_title} komponentas įjungtas %{participatory_space_title}. Jį galite pamatyti šiame puslapyje:'
+          email_outro: Šį pranešimą gavote dėl to, kad sekate %{participatory_space_title}. Jeigu nebenorite gauti pranešimų, spustelėkite ankstesnę nuorodą.
+          email_subject: '%{participatory_space_title} atnaujinimas'
       gamification:
         badge_earned:
           email_outro: Šį pranešimą gavote dėl to, kad mūsų interneto svetainėje pradėjote veiklą.
