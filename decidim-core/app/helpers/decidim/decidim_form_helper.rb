@@ -15,7 +15,7 @@ module Decidim
       # options[:data].update(abide: false, "live-validate" => false, "validate-on-blur" => false)
 
       options[:html] ||= {}
-      options[:html].update(novalidate: false) unless options[:html].has_key?(:novalidate)
+      options[:html].update(novalidate: true) unless options[:html].has_key?(:novalidate)
 
       # Generally called by form_for but we need the :url option generated
       # already before that.
