@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Cookie scripts", type: :system do
+describe "Data consent scripts", type: :system do
   let(:orga) { create(:organization) }
 
   let(:template_class) do

@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Cookies", type: :system do
+describe "Data consent", type: :system do
   let(:orga) { create(:organization) }
   let(:cookies_description) { "We use cookies on our website to improve the performance and content of the site" }
 
