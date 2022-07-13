@@ -664,6 +664,27 @@ lt:
             email_outro: Šį pranešimą gavote dėl to, kad esate %{amendable_title} autorius(-ė).
             email_subject: Atmesta %{emendation_author_nickname} parengta %{amendable_title} pataisa
             notification_title: <a href="%{emendation_path}">Pataisa</a>sukurta<a href="%{emendation_author_path}">%{emendation_author_nickname}</a>buvo atmesta dėl<a href="%{amendable_path}">%{amendable_title}</a>.
+          follower:
+            email_intro: 'Atmesta %{amendable_title} pataisa. Ją galite pamatyti šiame puslapyje:'
+            email_outro: Šį pranešimą gavote dėl to, kad sekate %{amendable_title}. Jeigu nebenorite gauti pranešimų, spustelėkite aukščiau esančią nuorodą.
+            email_subject: Atmesta %{emendation_author_nickname} parengta %{amendable_title} pataisa
+            notification_title: <a href="%{emendation_path}">Pataisa</a>sukurta<a href="%{emendation_author_path}">%{emendation_author_nickname}</a>buvo atmesta dėl<a href="%{amendable_path}">%{amendable_title}</a>.
+      attachments:
+        attachment_created:
+          email_intro: 'Prie %{resource_title} pridėtas naujas dokumentas. Jį galite pamatyti šiame puslapyje:'
+          email_outro: Šį pranešimą gavote dėl to, kad sekate %{resource_title}. Jeigu nebenorite gauti pranešimų, spustelėkite aukščiau esančią nuorodą.
+          email_subject: '%{resource_title} atnaujinimas'
+          notification_title: Prie <a href="%{attached_to_url}">%{resource_title}</a> pridėtas <a href="%{resource_path}">naujas dokumentas</a>
+      components:
+        component_published:
+          email_intro: '%{resource_title} komponentas įjungtas %{participatory_space_title}. Jį galite pamatyti šiame puslapyje:'
+          email_outro: Šį pranešimą gavote dėl to, kad sekate %{participatory_space_title}. Jeigu nebenorite gauti pranešimų, spustelėkite ankstesnę nuorodą.
+          email_subject: '%{participatory_space_title} atnaujinimas'
+          notification_title: '%{resource_title} komponentas įjungtas <a href="%{resource_path}">%{participatory_space_title}</a>'
+      email_event:
+        email_greeting: Sveiki %{user_name},
+        email_intro: '„%{resource_title}“ atnaujintas. Jį galite pamatyti šiame puslapyje:'
+        email_outro: Gavote šį pranešimą nes sekate %{resource_title}. Galite nebesekti paspaudę ant aukščiau esančios nuorodos.
       gamification:
         badge_earned:
           email_outro: Šį pranešimą gavote dėl to, kad mūsų interneto svetainėje pradėjote veiklą.
