@@ -495,9 +495,6 @@ gl:
           file_legend: Engadir un ficheiro de importación para o análise.
           import: Importar
         notice: "%{number}%{resource_name} importados con éxito"
-      logs:
-        logs_list:
-          no_logs_yet: Aínda non hai rexistros
       managed_users:
         promotion:
           error: Produciuse un erro ao promover o usuario xestor.
