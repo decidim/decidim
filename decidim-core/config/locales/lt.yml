@@ -490,6 +490,8 @@ lt:
           email_already_exists: Kitoje paskyroje naudojamas tas pats el. pašto adresas
         new:
           complete_profile: Užbaigti profilį
+          nickname_help: Jūsų slapyvardis %{organization}. Gali būti tik raidės, skaičiai ir brūkšneliai.
+          sign_up: Užbaikite profilio pildymą
           subtitle: Kad galėtumėte baigti registraciją, užpildykite šią formą
           username_help: Viešas vardas, kuris bus rodomas jūsų įrašuose. Tai gali būti bet koks vardas, nes siekame užtikrinti anonimiškumą.
       registrations:
@@ -497,6 +499,7 @@ lt:
           already_have_an_account?: Jau turite paskyrą?
           newsletter: Kartais gauti naujienlaiškį su aktualia informacija
           newsletter_title: Leidimas susisiekti
+          nickname_help: Jūsų slapyvardis %{organization}. Gali būti tik raidės, skaičiai, „-“ ir „_“.
           sign_in: Prisijungti
           sign_up: Užsiregistruoti
           sign_up_as:
@@ -508,25 +511,71 @@ lt:
           username_help: Viešas vardas, kuris bus rodomas jūsų įrašuose. Tai gali būti bet koks vardas, nes siekame užtikrinti anonimiškumą.
       sessions:
         new:
+          are_you_new?: Naujas platformos naudotojas?
           register: Sukurti paskyrą
           sign_in_disabled: Galite prisijungti su išorine paskyra
           sign_up_disabled: Registracija išjungta, norėdami prisijungti, naudokite jau egzistuojančią paskyrą
+        user:
+          timed_out: Per ilgai buvote neaktyvus ir buvote automatiškai atjungtas nuo paslaugos. Jei norite ir toliau naudotis paslauga, prisijunkite dar kartą.
       shared:
         newsletter_modal:
           buttons:
             check: Pažymėti ir tęsti
             close_modal: Uždaryti modalinį langą
             uncheck: Palikti nepažymėtą
+          notice: |-
+            <p>Ar tikrai nenorite gauti naujienlaiškio?<br>
+            <br>
+            Labai rekomenduojame pažymėti langelį - siunčiame tik svarbią infromaciją dalyvavimui.</p>
+            <p>Naujienlaiškių bet kada galite atsisakyti.</p>
           title: Pranešimai apie naujienlaiškį (-ius)
         omniauth_buttons:
           or: Arba
     doorkeeper:
       authorizations:
         new:
+          authorize: Leisti naudoti programą
+          by_organization_link_html: <small class="heading-small"> %{link}</small>
           cancel: Atšaukti
+          connect_your_account_html: Prijunkite savo paskyrą prisijungtami prie <strong>%{organization}</strong>
+          publish_content: Skelbti turinį už Jus
           see_email: Žiūrėti savo el. paštą
           see_name: Žiūrėti savo vardą ir pavardę
+          see_username: Matyti Jūsų slapyvardį
+          this_application_will_be_able_to: 'Ši programa galės:'
+          this_application_will_not_be_able_to: 'Ši programa negalės:'
+          update_profile: Atnaujinkite savo profilį
+          wants_to_use_your_account_html: "<strong>%{application_name}</strong> nori naudoti Jūsų paskyrą"
+    editor_images:
+      create:
+        error: Klaida įkeliant paveikslėlį
+        success: Paveikslėlis įkeltas sėkmingai
+      drag_and_drop_help: Pridėkite paveikslėlius juos užvesdami ant lango arba juos įklijuodami.
+    endorsable:
+      endorsements: Palaikymai
+      endorsements_count: Palaikymų skaičius
+    endorsement_buttons_cell:
+      already_endorsed: Palaikyta
+      endorse: Palaikyti
+    endorsements:
+      identities:
+        done: Atlikta
+        select_identity: Pasirinkite tapatybę
+    errors:
+      internal_server_error:
+        title: Serveryje kilo problema
+        try_later: Bandykite dar kartą vėliau.
+      not_found:
+        back_home: Grįžti į pagrindinį puslapį
+        content_doesnt_exist: Šis adresas neteisingas arba pašalintas.
+        title: Puslapio, kurio ieškote, nerandame
     events:
+      amendments:
+        amendment_accepted:
+          affected_user:
+            email_intro: 'Pataisa %{amendable_title} buvo priimta. Galite tai pamatyti:'
+            email_outro: Šį pranešimą gavote dėl to, kad esate %{amendable_title} autorius(-ė).
+            email_subject: '%{amendable_title} pataisa priimta iš %{emendation_author_nickname}'
       gamification:
         badge_earned:
           email_outro: Šį pranešimą gavote dėl to, kad mūsų interneto svetainėje pradėjote veiklą.
@@ -662,8 +711,58 @@ lt:
             - Savo lygį pakelsite siųsdami kvietimus ir juos registruodami.
           description: Šis ženklelis suteikiamas, kai pakviečiate žmonių, jie užsiregistruoja %{organization_name} ir tampa dalyviais. Dėkojame, kad supažindinate kitus su %{organization_name} ir padedate plėsti bendruomenę!
           description_another: Šis dalyvis pakvietė %{score} žmones (-ių).
+      reached_top: Pasiekėte aukščiausią šio ženklelio lygį.
+    group_admins:
+      actions:
+        are_you_sure: Ar jūs tuo tikri? Tai nepašalins dalyvio iš grupės.
+        demote_admin: Pašalinti administratorių
+      demote:
+        error: Šalinant šį dalyvį iš administratorių sąrašo iškilo problema
+        success: Dalyvis pašalintas iš administratorių
+      index:
+        current_admins: 'Dabartiniai administratoriai:'
+        manage_admins: Valdyti administratorių duomenis
+    group_invites:
+      accept:
+        error: Priimant šį kvietimą iškilo problema
+        success: Kvietimas priimtas
+      accept_invitation: Sutikti
+      accept_or_reject_group_invitations: 'Šios grupės jus pakvietė prie jų prisijungti. Priimkite arba atmeskite jų prašymus:'
+      index:
+        invite: Pakviesti
+        invite_user: Pakviesti dalyvį
+      invite:
+        error: Kviečiant šį dalyvį iškilo problema
+        success: Dalyvis pakviestas
+      reject:
+        error: Atmetant šį kvietimą iškilo problema
+        success: Kvietimas atmestas
+      reject_invitation: Atmesti
+    group_members:
+      accept:
+        error: Priimant šį prisijungimo kvietimą iškilo problema
+        success: Prisijungimo kvietimas priimtas
+      actions:
+        are_you_sure: Ar esate tikri?
+        promote_to_admin: Padaryti administratoriumi
+        remove_from_group: Pašalinti dalyvį
+      index:
+        current_members_without_admins: 'Dabartiniai nariai (be administratorių):'
+        manage_members: Valdyti narius
+      promote:
+        error: Paaukštinant šį dalyvį iškilo problema
+        success: Dalyvis paaukštintas
+      reject:
+        error: Atmetant šį prisijungimo kvietimą iškilo problema
+        success: Prisijungimo kvietimas atmestas
+      remove:
+        error: Šalinant šį dalyvį iš grupės iškilo problema
+        success: Dalyvis pašalintas iš grupės
     groups:
+      actions:
+        are_you_sure: Ar esate tikri?
       create:
+        error: Kuriant grupę iškilo problema
         success: Grupė sukurta
       edit:
         edit_user_group: Redaguoti grupę
@@ -699,6 +798,7 @@ lt:
     help:
       main_topic:
         default_page:
+          content: "<p>%{organization} galite dalyvauti ir spręsti dėl įvairių temų pasinaudodami puslapiais, kuriuos matote viršutiniame meniu: „Procesai“, „Asamblėjos“, „Iniciatyvos“, „Konsultacijos“.</p> <p>Kiekviename iš jų rasite įvairių dalyvavimo galimybių: individualiai arba su kitais žmonėmis teikti pasiūlymus, dalyvauti diskusijose, nustatyti, kurie įgyvendintini projektai, yra prioritetiniai, dalyvauti tiesioginiuose susitikimuose ir kituose veiksmuose.</p>\n"
           title: Ką galiu daryti %{organization}?
         description: Daugiau informacijos apie %{organization}
         title: Bendroji Pagalba
@@ -785,6 +885,7 @@ lt:
       conversations:
         add_conversation_users:
           add_max_users: 'Į pokalbį įtraukite naudotojus: ne daugaiu kaip 9'
+          add_users_placeholder: Ieškoti...
           modal_title: Naujas pokalbis
           no_results: Rezultatų nerasta
           participant_with_disabled_message_reception: Šis dalyvis išjungė pranešimų gavimo funkciją
@@ -792,7 +893,15 @@ lt:
           show: Rodyti pokalbį su %{sender}
         create:
           error: Pokalbis neprasidėjo. Bandykite dar kartą vėliau
+        error_modal:
+          close: Uždaryti modalinį langą
+          correct_errors: Ištaisykite klaidas ir bandykite dar kartą.
+          intro: 'Jūsų pranešime aptiktos šios klaidos:'
+          ok: Gerai
         index:
+          close: Uždaryti modalinį langą
+          from: Nuo
+          groups: Mano grupės
           last_message: Paskutinė žinutė
           new_conversation: Naujas pokalbis
           next: Kitas
@@ -861,6 +970,9 @@ lt:
         unsubscribe: Atsisakyti prenumeratos
     newsletters_opt_in:
       unathorized: Atsiprašome, šios nuorodos nebėra
+      update:
+        error: Kažkas ne taip
+        success: Naujienlaiškio nuostatos atnaujintos
     notifications_settings:
       show:
         own_activity: Mano veikla, pvz., kai kas nors pakomentuoja mano pasiūlymą arba pamini mane
