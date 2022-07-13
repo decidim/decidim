@@ -63,14 +63,14 @@ module Decidim
         end
 
         it "includes the user name" do
-          expect(helper.username_list(participants)).to eq "<strong>#{user.name}</strong>"
+          expect(helper.username_list(participants)).to eq user.name
         end
 
         context "when user is deleted" do
           let(:user) { create :user, :deleted }
 
           it "doesn't include the user name" do
-            expect(helper.username_list(participants)).to eq "<span class=\"label label--small label--basic\">Participant deleted</span>"
+            expect(helper.username_list(participants)).to eq "Participant deleted"
           end
         end
       end
