@@ -1090,10 +1090,10 @@ en:
               info_message: "<strong>Please wait</strong>, the export is being prepared, you will receive it shortly to %{email} (this may take several minutes)."
             freeze:
               callout: The census is frozen and cannot be modified.
-              help: |
+              help_html: |
                 The census data has been uploaded, the codes generated and exported successfully.<br>
                 <strong>You are now ready to start the election.</strong><br>
-                Use the exported csv with the individual codes to distribute it along your census using you own means or activate the "Can i vote" tab to let anyone retrieve this code using their own census data.
+                Use the exported CSV with the individual codes to distribute it along your census using you own means or activate the "Can I vote" tab to let anyone retrieve this code using their own census data.
             generate_access_codes:
               button: Generate voting Access Codes
               callout: You can now proceed to generate the access codes. Mind that after generating the access codes you will not be able to modify the census anymore.
