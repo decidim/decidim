@@ -295,9 +295,6 @@ id:
           impersonate_existing_managed_user: Meniru pengguna terkelola "%{name}"
           impersonate_existing_user: Meniru pengguna "%{name}"
           impersonate_new_managed_user: Meniru pengguna yang dikelola baru
-      logs:
-        logs_list:
-          no_logs_yet: Belum ada catatan
       managed_users:
         promotion:
           error: Terjadi kesalahan saat mempromosikan pengguna yang dikelola.
