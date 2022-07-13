@@ -9,7 +9,7 @@ describe "Data consent within organization", type: :system do
   before do
     page.driver.browser.execute_cdp(
       "Network.deleteCookies",
-      domain: organization.host,
+      domain: ".#{organization.host}",
       name: Decidim.consent_cookie_name,
       path: "/"
     )
