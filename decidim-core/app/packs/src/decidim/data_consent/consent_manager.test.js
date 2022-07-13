@@ -22,7 +22,7 @@ Reflect.deleteProperty(global.window, "location");
 global.window = Object.create(window);
 global.window.location = {
   protocol: "https:",
-  hostname: "decidim.dev",
+  hostname: "decidim.dev"
 };
 
 describe("ConsentManager", () => {
