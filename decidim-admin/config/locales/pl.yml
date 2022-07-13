@@ -513,9 +513,6 @@ pl:
           file_legend: Zaimportuj plik, który zostanie przetworzony.
           import: Importuj
         notice: "Zaimportowano %{resource_name} %{number}"
-      logs:
-        logs_list:
-          no_logs_yet: Nie ma jeszcze logów
       managed_users:
         promotion:
           error: Podczas awansowania zarządzanego użytkownika wystąpił błąd.
