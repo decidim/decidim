@@ -48,6 +48,9 @@ fr:
       decidim/welcome_notification_event: Message de bienvenue
   activerecord:
     attributes:
+      decidim/action_log:
+        created_at: Heure
+        with_participatory_space: Espace participatif
       decidim/user:
         current_password: Mot de passe actuel
         email: Email
