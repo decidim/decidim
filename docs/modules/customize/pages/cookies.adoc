@@ -1,12 +1,12 @@
 = Cookies
 
-With cookie consent we can explain better what cookies do we use, why we're using these cookies, and let the user choose which cookies they want to use.
+With data consent we can explain better what local data we store in the user's browser, why we are storing this data, and let the user choose which data they allow to store in their browser.
 
-== Different cookie categories available in Decidim
+== Different data consent categories available in Decidim
 
-By default there are four (4) cookie categories: **essential**, **preferences**, **analytics** and **marketing**. To display embedded iframes properly user has to give consent to all categories.
+By default there are four (4) data consent categories: **essential**, **preferences**, **analytics** and **marketing**. To display embedded iframes properly user has to give consent to all categories.
 
-== Adding scripts which require cookie consent
+== Adding scripts which require data consent
 
 The recommended place for scripts is ```app/views/layouts/decidim/_head_extra.html.erb```.
 For example, if you want to add a script that requires marketing consent, you can add the following code:
@@ -14,15 +14,15 @@ For example, if you want to add a script that requires marketing consent, you ca
 [source,javascript]
 ----
 <script type="text/plain" data-consent="marketing">
-  console.log('marketing cookies accepted');
+  console.log("marketing data consent given");
 </script>
 ----
 
-NOTE: Script type should be "text/plain". Without that, user's cookie consent setting doesn't affect.
+NOTE: Script type should be "text/plain". Without that, user's data consent setting does not have any effect.
 
-== Adding cookie category and cookie documentation
+== Adding data consent category and related documentation
 
-You are able to modify cookie categories via the `consent_gategories` configuration option.
+You are able to modify data consent categories via the `consent_gategories` configuration option.
 
 For example if you want to add a "statistics" category you need to add following code to your app's initializer:
 
@@ -33,7 +33,7 @@ Decidim.configure do |config|
     {
       slug: "essential",
       mandatory: true,
-      cookies: [
+      items: [
         {
           type: "cookie",
           name: "_session_id"
@@ -59,7 +59,7 @@ Decidim.configure do |config|
     {
       slug: "statistics",
       mandatory: false,
-      cookies: [
+      items: [
         type: "cookie",
         name: "statistics-cookie"
       ]
@@ -68,7 +68,7 @@ Decidim.configure do |config|
 end
 ----
 
-When adding cookie categories and cookies also remember to add the following xref:admin:texts.adoc[translations]:
+When adding categories and items also remember to add the following xref:admin:texts.adoc[translations]:
 
 For category:
 
@@ -78,16 +78,16 @@ layouts.decidim.data_consent.modal.statistics.title
 layouts.decidim.data_consent.modal.statistics.description
 ----
 
-For cookie:
+For data items (e.g. cookies):
 
 [listing]
 ----
-layouts.decidim.data_consent.details.cookies.statistics-cookie.description
-layouts.decidim.data_consent.details.cookies.statistics-cookie.service
+layouts.decidim.data_consent.details.items.statistics-cookie.description
+layouts.decidim.data_consent.details.items.statistics-cookie.service
 ----
 
-* Description explains the purpose of using this cookie
-* Service explains the 3rd party service where this cookie is coming from
+* Description explains the purpose of using this data
+* Service explains the 3rd party service where this data is coming from
 
 So, for instance for the English language (`en`), it would look like this:
 
@@ -102,7 +102,7 @@ en:
             title: The title for the statistics
             description: The description for the statistics
         details:
-          cookies:
+          items:
             statistics-cookie:
               description: The purpose of the cookie
               service: The 3rd party service of the cookie
