@@ -352,6 +352,11 @@ lt:
         hello: Sveiki,
         subject: Jūsų paskyra buvo užblokuota %{organization_name}
     collapsible_list:
+      hidden_elements_count:
+        one: ir %{count} daugiau
+        few: ir %{count} daugiau
+        many: ir %{count} daugiau
+        other: ir %{count} daugiau
       see_less: "(žr. mažiau)"
       see_more: "(žr. daugiau)"
     components:
@@ -360,6 +365,8 @@ lt:
         order:
           all_types: Visi tipai
           collaborative_draft: Bendras Juodraštis
+          comment: Komentaras
+          debate: Diskusija
           initiative: Iniciatyva
           meeting: Susitikimas
           post: Įrašas
@@ -397,8 +404,18 @@ lt:
         button_text: Veiksmo mygtuko tekstas
         button_url: Veiksmo mygtuko nuoroda
         description: Aprašymas
+      footer_sub_hero:
+        name: Apatinės dalies reklamjuostė
+      hero:
+        name: Pagrindinis vaizdas
+      hero_settings_form:
+        background_image: Foninis paveikslėlis
+        welcome_text: Pasveikinimo tekstas
+      highlighted_content_banner:
+        name: Paryškinta turinio juosta
       highlighted_elements_settings_form:
         orders:
+          label: 'Rūšiuoti elementus pagal:'
           random: Atsitiktinis
           recent: Naujausia
       how_to_participate:
@@ -414,8 +431,11 @@ lt:
         name: Organizacijos metrika
       stats:
         name: Organizacijos statistiniai duomenys
+      sub_hero:
+        name: Turinio juosta po paveikslėliu
     core:
       actions:
+        login_before_access: Prašau prisijunkite prie savo paskyros
         unauthorized: Jūs neturite teisės atlikti šio veiksmo
     datepicker:
       help_text: 'Pageidaujamas formatas: %{datepicker_format}'
@@ -425,6 +445,8 @@ lt:
           email_already_exists: Kitoje paskyroje naudojamas tas pats el. pašto adresas
         new:
           complete_profile: Užbaigti profilį
+          nickname_help: Jūsų slapyvardis %{organization}. Gali būti tik raidės, skaičiai, „-“ ir „_“.
+          sign_up: Užbaikite profilio pildymą
           subtitle: Kad galėtumėte baigti registraciją, užpildykite šią formą
           username_help: Viešas vardas, kuris bus rodomas jūsų įrašuose. Tai gali būti bet koks vardas, nes siekame užtikrinti anonimiškumą.
       registrations:
@@ -432,6 +454,7 @@ lt:
           already_have_an_account?: Jau turite paskyrą?
           newsletter: Kartais gauti naujienlaiškį su aktualia informacija
           newsletter_title: Leidimas susisiekti
+          nickname_help: Jūsų slapyvardis %{organization}. Gali būti tik raidės, skaičiai, „-“ ir „_“.
           sign_in: Prisijungti
           sign_up: Užsiregistruoti
           sign_up_as:
@@ -443,9 +466,12 @@ lt:
           username_help: Viešas vardas, kuris bus rodomas jūsų įrašuose. Tai gali būti bet koks vardas, nes siekame užtikrinti anonimiškumą.
       sessions:
         new:
+          are_you_new?: Naujas platformos naudotojas?
           register: Sukurti paskyrą
           sign_in_disabled: Galite prisijungti su išorine paskyra
           sign_up_disabled: Registracija išjungta, norėdami prisijungti, naudokite jau egzistuojančią paskyrą
+        user:
+          timed_out: Per ilgai buvote neaktyvus ir buvote automatiškai atjungtas nuo paslaugos. Jei norite ir toliau naudotis paslauga, prisijunkite dar kartą.
       shared:
         newsletter_modal:
           buttons:
@@ -595,6 +621,44 @@ lt:
             - Savo lygį pakelsite siųsdami kvietimus ir juos registruodami.
           description: Šis ženklelis suteikiamas, kai pakviečiate žmonių, jie užsiregistruoja %{organization_name} ir tampa dalyviais. Dėkojame, kad supažindinate kitus su %{organization_name} ir padedate plėsti bendruomenę!
           description_another: Šis dalyvis pakvietė %{score} žmones (-ių).
+      reached_top: Pasiekėte aukščiausią šio ženklelio lygį.
+    group_admins:
+      actions:
+        are_you_sure: Ar jūs tuo tikri? Tai nepašalins dalyvio iš grupės.
+        demote_admin: Pašalinti administratorių
+      demote:
+        error: Šalinant šį dalyvį iš administratorių sąrašo iškilo problema
+        success: Dalyvis pašalintas iš administratorių
+      index:
+        current_admins: 'Dabartiniai administratoriai:'
+        manage_admins: Valdyti administratorių duomenis
+    group_invites:
+      accept:
+        error: Priimant šį kvietimą iškilo problema
+        success: Kvietimas priimtas
+      accept_invitation: Sutikti
+      accept_or_reject_group_invitations: 'Šios grupės jus pakvietė prie jų prisijungti. Priimkite arba atmeskite jų prašymus:'
+      index:
+        invite: Pakviesti
+        invite_user: Pakviesti dalyvį
+      invite:
+        error: Kviečiant šį dalyvį iškilo problema
+        success: Dalyvis pakviestas
+      reject:
+        error: Atmetant šį kvietimą iškilo problema
+        success: Kvietimas atmestas
+      reject_invitation: Atmesti
+    group_members:
+      accept:
+        error: Priimant šį prisijungimo kvietimą iškilo problema
+        success: Prisijungimo kvietimas priimtas
+      actions:
+        are_you_sure: Ar esate tikri?
+        promote_to_admin: Padaryti administratoriumi
+        remove_from_group: Pašalinti dalyvį
+      index:
+        current_members_without_admins: 'Dabartiniai nariai (be administratorių):'
+        manage_members: Valdyti narius
     groups:
       create:
         success: Grupė sukurta
