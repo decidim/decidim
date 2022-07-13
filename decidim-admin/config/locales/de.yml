@@ -508,9 +508,6 @@ de:
           file_legend: Datei zum Importieren hinzufügen.
           import: Importieren
         notice: "%{number}%{resource_name} erfolgreich importiert"
-      logs:
-        logs_list:
-          no_logs_yet: Es gibt noch keine Protokolle
       managed_users:
         promotion:
           error: Es ist ein Fehler aufgetreten, der den verwalteten Benutzer unterstützt.
