@@ -29,8 +29,7 @@ describe "Data consent within organization", type: :system do
 
   it "sets the correct expiration for the cookie" do
     diff = cookie[:expires].to_time - Time.zone.now
-    expect(diff > 364.days).to be(true)
-    expect(diff < 366.days).to be(true)
+    expect(diff).to be_within(30).of(365.days)
   end
 
   it "sets the correct domain for the cookie" do
