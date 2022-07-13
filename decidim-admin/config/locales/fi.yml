@@ -508,9 +508,6 @@ fi:
           file_legend: Lisää tuontitiedosto, josta tiedot luetaan.
           import: Tuo
         notice: "%{count} %{resource_name} tuotu onnistuneesti"
-      logs:
-        logs_list:
-          no_logs_yet: Ei vielä lokitietoja
       managed_users:
         promotion:
           error: Hallitun käyttäjän oikeuksien korotus epäonnistui.
