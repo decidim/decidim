@@ -516,6 +516,14 @@ lt:
           file_legend: Pridėkite importo failą, kuris bus analizuojamas.
           import: Importuoti
         notice: "%{count} %{resource_name} sėkmingai importuotas"
+      logs:
+        filters:
+          participatory_space: Rasti dalyvaujamąją erdvę
+          text: Ieškoti pagal el. pašto adresą, vardą arba naudotojo vardą.
+          user: Naudotojas
+        logs_list:
+          no_logs_yet: Dar nėra įrašų.
+          no_matching_logs: Nėra įrašų su Jūsų nurodytais filtrais. Pabandykite pakeisti filtrus.
       managed_users:
         promotion:
           error: Įvyko problema paaukštinant tvarkomą naudotoją.
