@@ -1,4 +1,4 @@
-name: "[CI] Core (SSL system specs)"
+name: "[CI] Core (system specs SSL)"
 on:
   push:
     branches:
