@@ -48,6 +48,9 @@ ca:
       decidim/welcome_notification_event: Missatge de benvinguda
   activerecord:
     attributes:
+      decidim/action_log:
+        created_at: Hora
+        with_participatory_space: Espai de participació
       decidim/user:
         current_password: Contrasenya actual
         email: Correu electrònic
@@ -1844,6 +1847,12 @@ ca:
     password_too_common: és massa comú
     password_too_long: és massa llarg
     password_too_short: és massa curt
+  ransack:
+    predicates:
+      dtgt: després
+      dtgteq: posterior o igual a
+      dtlt: abans
+      dtlteq: anterior o igual a
   social_share_button:
     delicious: Delicious
     douban: Douban
