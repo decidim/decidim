@@ -29,5 +29,7 @@ hu:
             invalid: Hiba történt az oldal mentése során.
             success: Oldal mentése sikeres.
       home:
+        hero:
+          participate_title: Részvétel a platform folyamataiban
         sub_hero:
           register_title: A fiók létrehozásához iratkozz fel
