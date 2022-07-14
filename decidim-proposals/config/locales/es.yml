@@ -302,6 +302,7 @@ es:
           email_outro: Recibiste esta notificación porque estás siguiendo "%{participatory_space_title}". Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
           email_subject: Nueva propuesta "%{resource_title}" añadida a %{participatory_space_title}
           notification_title: La propuesta <a href="%{resource_path}">%{resource_title}</a> ha sido añadida a %{participatory_space_title} por %{author}
+          notification_title_official: Se ha añadido la propuesta oficial <a href="%{resource_path}">%{resource_title}</a> en %{participatory_space_title}
         proposal_rejected:
           affected_user:
             email_intro: 'Tu propuesta "%{resource_title}" ha sido rechazada. Puedes leer la respuesta en esta página:'
