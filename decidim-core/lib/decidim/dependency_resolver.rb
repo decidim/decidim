@@ -42,10 +42,8 @@ module Decidim
         lookup = Lookup.new
         return lookup.spec(gem) if cache.include?(gem)
 
-        # Only match the decidim gems. Skip the decidim-dev gem because it has
-        # "decidim" as a runtime dependency which would cause all the default
-        # gems to be always reported as available. Keep a local cache of the
-        # already processed gems in order to avoid double lookups.
+        # Keep a local cache of the already processed gems in order to avoid
+        # double lookups.
         lookup.find(Bundler.definition.dependencies, gem) do |dependency|
           if potential_module?(dependency.name)
             cache_miss = cache.exclude?(dependency.name)
@@ -147,8 +145,7 @@ module Decidim
 
     # Only match the decidim gems. Skip the decidim-dev gem because it has
     # "decidim" as a runtime dependency which would cause all the default
-    # gems to be always reported as available. Keep a local cache of the
-    # already processed gems in order to avoid double lookups.
+    # gems to be always reported as available.
     def potential_module?(name)
       name != "decidim-dev" && name =~ /decidim(-.*)?/
     end
