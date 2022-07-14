@@ -130,7 +130,7 @@ describe "Admin manages proposals valuators", type: :system do
 
       visit current_path
       within find("tr", text: translated(proposal.title)) do
-        click_link "Valuate"
+        click_link "Answer proposal"
       end
     end
 

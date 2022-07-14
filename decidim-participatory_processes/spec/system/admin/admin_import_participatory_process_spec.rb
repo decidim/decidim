@@ -36,7 +36,9 @@ describe "Admin imports participatory process", type: :system do
       expect(page).to have_content("Import participatory process")
       expect(page).to have_content("Not published")
 
-      click_link "Import participatory process"
+      within find("tr", text: "Import participatory process") do
+        click_link "Configure"
+      end
 
       click_link "Phases"
       within ".table-list" do

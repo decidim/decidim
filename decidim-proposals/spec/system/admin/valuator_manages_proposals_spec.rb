@@ -67,7 +67,7 @@ describe "Valuator manages proposals", type: :system do
   context "when in the proposal page" do
     before do
       within find("tr", text: translated(assigned_proposal.title)) do
-        click_link "Valuate"
+        click_link "Answer proposal"
       end
     end
 

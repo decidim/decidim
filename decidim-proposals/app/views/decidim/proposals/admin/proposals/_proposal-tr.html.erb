@@ -64,8 +64,6 @@
       <span class="action-space icon"></span>
     <% end %>
 
-    <%= icon_link_to "magnifying-glass", proposal_path(proposal), t("actions.valuate", scope: "decidim.proposals"), class: "action-icon--valuate-proposal" %>
-
     <%= icon_with_link_to_proposal(proposal) %>
 
     <%= resource_permissions_link(proposal) %>
