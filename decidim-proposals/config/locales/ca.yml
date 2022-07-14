@@ -302,6 +302,7 @@ ca:
           email_outro: Has rebut aquesta notificació perquè estàs seguint "%{participatory_space_title}". Pots deixar de rebre notificacions seguint l'enllaç anterior.
           email_subject: Nova proposta "%{resource_title}" afegida a %{participatory_space_title}
           notification_title: '%{author} ha afegit la proposta <a href="%{resource_path}">%{resource_title}</a> a %{participatory_space_title}'
+          notification_title_official: S'ha afegit la proposta oficial <a href="%{resource_path}">%{resource_title}</a> a %{participatory_space_title}
         proposal_rejected:
           affected_user:
             email_intro: 'La teva proposta "%{resource_title}" ha estat rebutjada. Pots llegir la resposta en aquesta pàgina:'
