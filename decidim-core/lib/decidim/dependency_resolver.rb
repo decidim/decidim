@@ -198,7 +198,6 @@ module Decidim
           log(dependency)
 
           found ||= spec if spec.name == gem
-          # found ||= sub_find(spec, gem, &block)
 
           @current_level += 1
           # Do not se the found value directly here because otherwise the
