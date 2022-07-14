@@ -379,6 +379,7 @@ ja:
           more_information: "(詳細)"
           select: 私はこのイニシアチブを推進したいです
           select_initiative_type_help: イニシアチブとは、一般的な利益を守るために組織が行動を起こすよう、参加者が介入するための手段です。 どのようなイニシアチブを立ち上げたいですか？
+          verification_required: このイニシアチブを推進するためにあなたのアカウントを確認してください
         share_committee_link:
           continue: 続ける
           invite_to_committee_help: 推進委員会に参加する人を招待するためのリンク
@@ -600,6 +601,7 @@ ja:
           comment: コメント
       initiatives_type:
         actions:
+          create: 作成
           title: アクション
           vote: サイン
   layouts:
