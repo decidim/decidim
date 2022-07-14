@@ -57,6 +57,8 @@ describe "Account", type: :system do
     end
 
     describe "updating personal data" do
+      let!(:encrypted_password) { user.encrypted_password }
+
       it "updates the user's data" do
         within "form.edit_user" do
           select "Castellano", from: :user_locale
@@ -82,6 +84,9 @@ describe "Account", type: :system do
 
         expect(page).to have_content("example.org")
         expect(page).to have_content("Serbian-American")
+
+        # The user's password should not change when they did not update it
+        expect(user.reload.encrypted_password).to eq(encrypted_password)
       end
     end
 
