@@ -39,19 +39,19 @@ describe Decidim::Verifications::ManagedUserErrorEvent do
 
   describe "notification_title" do
     it "is generated correctly" do
-      expect(subject.notification_title).to eq("The participant <a href=\"/profiles/#{resource.current_user.nickname}\">#{resource.current_user.name}</a> has tried to verify themself with the data of the managed participant <a href=\"/profiles/#{resource.managed_user.nickname}\">#{resource.managed_user.name}</a>.")
+      expect(subject.notification_title).to eq("The participant <a href=\"/profiles/#{resource.current_user.nickname}\">#{resource.current_user.name}</a> has tried to verify themself with the data of another participant (<a href=\"/profiles/#{resource.managed_user.nickname}\">#{resource.managed_user.name}</a>).")
     end
   end
 
   describe "email_subject" do
     it "is generated correctly" do
-      expect(subject.email_subject).to eq("Failed verification attempt against a managed participant")
+      expect(subject.email_subject).to eq("Failed verification attempt against another participant")
     end
   end
 
   describe "email_intro" do
     it "is generated correctly" do
-      expect(subject.email_intro).to eq("The participant <a href=\"http://#{organization_host}/profiles/#{resource.current_user.nickname}\">#{resource.current_user.name}</a> has tried to verify themself with the data of the managed participant <a href=\"http://#{organization_host}/profiles/#{resource.managed_user.nickname}\">#{resource.managed_user.name}</a>.")
+      expect(subject.email_intro).to eq("The participant <a href=\"http://#{organization_host}/profiles/#{resource.current_user.nickname}\">#{resource.current_user.name}</a> has tried to verify themself with the data of another participant (<a href=\"http://#{organization_host}/profiles/#{resource.managed_user.nickname}\">#{resource.managed_user.name}</a>).")
     end
   end
 
