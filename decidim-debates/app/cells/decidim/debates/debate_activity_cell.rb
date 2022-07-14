@@ -5,14 +5,7 @@ module Decidim
     # A cell to display when actions happen on a debate.
     class DebateActivityCell < ActivityCell
       def title
-        I18n.t(
-          action_key,
-          scope: "decidim.debates.last_activity"
-        )
-      end
-
-      def action_key
-        action == "update" ? "debate_updated" : "new_debate"
+        action == "update" ? I18n.t("decidim.debates.last_activity.debate_updated") : I18n.t("decidim.debates.last_activity.new_debate")
       end
 
       def resource_link_text

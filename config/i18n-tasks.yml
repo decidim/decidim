@@ -327,9 +327,6 @@ ignore_unused:
   - decidim.blogs.admin_log.*
   - decidim.templates.admin_log.*
   - ransack.predicates.*
-  - decidim.debates.last_activity.*
-  - decidim.meetings.last_activity.*
-  - decidim.proposals.last_activity.*
 
 ## Exclude these keys from the `i18n-tasks eq-base' report:
 # ignore_eq_base:

@@ -5,10 +5,7 @@ module Decidim
     # A cell to display when a post has been created.
     class PostActivityCell < ActivityCell
       def title
-        I18n.t(
-          "new_post",
-          scope: "decidim.blogs.last_activity"
-        )
+        I18n.t("decidim.blogs.last_activity.new_post")
       end
     end
   end

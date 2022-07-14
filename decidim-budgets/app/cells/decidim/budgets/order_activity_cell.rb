@@ -5,10 +5,7 @@ module Decidim
     # A cell to display when actions happen on an order.
     class OrderActivityCell < ActivityCell
       def title
-        I18n.t(
-          "new_vote_at",
-          scope: "decidim.budgets.last_activity"
-        )
+        I18n.t("decidim.budgets.last_activity.new_vote_at")
       end
 
       def resource_link_path

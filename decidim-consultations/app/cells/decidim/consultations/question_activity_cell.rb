@@ -5,10 +5,7 @@ module Decidim
     # A cell to display when a Question in a consultation has been published.
     class QuestionActivityCell < ActivityCell
       def title
-        I18n.t(
-          "new_question",
-          scope: "decidim.consultations.last_activity"
-        )
+        I18n.t("decidim.consultations.last_activity.new_question")
       end
     end
   end

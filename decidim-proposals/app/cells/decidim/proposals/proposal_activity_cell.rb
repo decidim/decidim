@@ -5,14 +5,7 @@ module Decidim
     # A cell to display when actions happen on a proposal.
     class ProposalActivityCell < ActivityCell
       def title
-        I18n.t(
-          action_key,
-          scope: "decidim.proposals.last_activity"
-        )
-      end
-
-      def action_key
-        action == "update" ? "proposal_updated" : "new_proposal"
+        action == "update" ? I18n.t("decidim.proposals.last_activity.proposal_updated") : I18n.t("decidim.proposals.last_activity.new_proposal")
       end
 
       def resource_link_text
