@@ -115,6 +115,7 @@ module Decidim
   autoload :ProcessesFileLocally, "decidim/processes_file_locally"
   autoload :RedesignLayout, "decidim/redesign_layout"
   autoload :DisabledRedesignLayout, "decidim/disabled_redesign_layout"
+  autoload :DependencyResolver, "decidim/dependency_resolver"
 
   include ActiveSupport::Configurable
   # Loads seeds from all engines.
@@ -719,14 +720,45 @@ module Decidim
     Rails.autoloaders.main.ignore(path) if Rails.configuration.autoloader == :zeitwerk
   end
 
-  # Checks if a particular decidim gem is installed
-  # Note that defined(Decidim::Something) does not work all the times, specially when the
-  # Gemfile uses the "path" parameter to find the module.
-  # This is because the module can be defined by some files searched by Rails automatically
-  # (ie: decidim-initiatives/lib/decidim/initiatives/version.rb automatically defines Decidim::Intiatives even if not required)
-  # for extra safety, we check if the module is defined (via safe_constantize), this should enable situations
-  # like adding a line like 'gem "decidim-consultations", require: false' where the gem is loaded but not required
+  # Checks if a particular decidim gem is installed and needed by this
+  # particular instance. Preferrably this happens through bundler by inspecting
+  # the Gemfile of the instance but when Decidim is used without bundler, this
+  # will check:
+  # 1. If the gem is globally available or not in the loaded specs, i.e. the
+  #    gems available in the gem install directory/directories.
+  # 2. If the gem has been required through `require "decidim/foo"`.
+  #
+  # Using bundler is suggested as it will provide more accurate results
+  # regarding what is actually needed. It will resolve all the gems listed in
+  # the Gemfile and also their dependencies which provides us accurate
+  # information whether a gem is needed by the instance or not.
+  #
+  # Note that using something like defined?(Decidim::Foo) will not work because
+  # the way the Decidim handles version definitions for each gem. After the gems
+  # are loaded, this would always return true because the version definition
+  # files of each module define that module which means it is available at
+  # runtime if the gem is installed in the gem load path. In some situations it
+  # can be installed there through other projects or through the command line
+  # even if the instance does not require that module or even through
+  # installing gems from git sources or from file paths.
+  #
+  # When a gem is reported as "needed" by the dependency resolver, this will
+  # also require that module ensuring its availability for the initialization
+  # code.
+  #
+  # @param mod [Symbol, String] The module name to check, e.g. `:proposals`.
+  # @return [Boolean] A boolean indicating whether the module is installed.
   def self.module_installed?(mod)
-    Gem.loaded_specs.has_key?("decidim-#{mod}") && "Decidim::#{mod.to_s.camelize}".safe_constantize
+    return false unless Decidim::DependencyResolver.instance.needed?("decidim-#{mod}")
+
+    # The dependency may not be automatically loaded through the Gemfile if the
+    # user lists e.g. "decidim-core" and "decidim-budgets" in it. In this
+    # situation, "decidim-comments" is also needed because it is a dependency
+    # for "decidim-budgets".
+    require "decidim/#{mod}"
+
+    true
+  rescue LoadError
+    false
   end
 end
