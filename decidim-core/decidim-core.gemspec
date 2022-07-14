@@ -11,7 +11,14 @@ Gem::Specification.new do |s|
   s.version = Decidim::Core.version
   s.authors = ["Josep Jaume Rey Peroy", "Marc Riera Casals", "Oriol Gual Oliva"]
   s.email = ["josepjaume@gmail.com", "mrc2407@gmail.com", "oriolgual@gmail.com"]
-  s.homepage = "https://github.com/decidim/decidim"
+  s.homepage = "https://decidim.org"
+  s.metadata = {
+    "bug_tracker_uri" => "https://github.com/decidim/decidim/issues",
+    "documentation_uri" => "https://docs.decidim.org/",
+    "funding_uri" => "https://opencollective.com/decidim",
+    "homepage_uri" => "https://decidim.org",
+    "source_code_uri" => "https://github.com/decidim/decidim"
+  }
   s.summary = "The core of the Decidim framework."
   s.description = "Adds core features so other engines can hook into the framework."
   s.license = "AGPL-3.0"
