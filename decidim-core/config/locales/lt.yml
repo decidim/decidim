@@ -1439,6 +1439,18 @@ lt:
       already_authenticated: Jūs jau esate prisijungę.
       inactive: Jūsų paskyra dar nėra aktyvuota.
       invalid: Netinkamas %{authentication_keys} arba slaptažodis.
+      locked: Jūsų paskyra užrakinta.
+      not_found_in_database: Netinkamas %{authentication_keys} arba slaptažodis.
+      timeout: Jūsų sesijos laikas baigėsi. Kad galėtumėte tęsti, prisijunkite iš naujo.
+      unauthenticated: Norėdami tęsti, turite prisijungti arba užsiregistruoti.
+    invitations:
+      edit:
+        header: Baikite kurti savo paskyrą
+        nickname_help: Jūsų slapyvardis %{organization}. Gali būti tik raidės, skaičiai, „-“ ir „_“.
+        submit_button: Išsaugoti
+        subtitle: Jei priimate kvietimą, nustatykite savo naudotojo vardą ir slaptažodį.
+      invitation_removed: Jūsų kvietimas pašalintas.
+      invitation_token_invalid: Pateiktas kvietimo raktas nebegalioja!
     mailer:
       invitation_instructions:
         someone_invited_you: Kažkas pakvietė jus į %{application}. Kvietimą galite priimti spustelėję toliau pateikiamą nuorodą.
@@ -1505,10 +1517,40 @@ lt:
       signed_up: Sveiki atvykę! Jūs sėkmingai užsiregistravote.
       signed_up_but_inactive: Jūs užsiregistravote sėkmingai. Tačiau negalėjome jūsų prijungti, nes jūsų sąskaita dar neaktyvuota.
       signed_up_but_locked: Jūs sėkmingai užsiregistravote. Tačiau mes negalėjome jūsų prijungti, nes jūsų sąskaita yra užrakinta.
+  errors:
+    messages:
+      expired: nustojo galioti, prašykite iš naujo
+      file_size_is_less_than_or_equal_to: rinkmenos dydis turi būti ne didesnis kaip %{count} arba jam lygus
+      invalid_time_zone: netinkama laiko juosta
+      long_words: yra per ilgų žodžių (daugiau kaip 35 ženklai)
+      must_start_with_caps: pradėti būtina didžąja raide
+      nesting_too_deep: negali priklausyti pakategorei
+      not_found: nepavyko rasti. Ar užsiregistravote anksčiau?
+      not_locked: nebuvo užrakintas
+      too_many_marks: naudojama per daug skyrybos ženklų iš eilės (pvz., ! ir ?)
+      too_much_caps: naudojama per daug didžiųjų raidžių (daugiau kaip 25 proc. teksto)
+      too_short: per trumpas (mažiau nei 15 ženklų)
+  forms:
+    correct_errors: Formoje yra klaidų, ištaisykite jas ir tęskite.
+    required: Privalomas laukas
+    required_explanation: "* Privalomi laukai pažymėti žvaigždute"
+  invisible_captcha:
+    sentence_for_humans: Jei esate žmogus, nekreipkite dėmesio į šį laukelį
+    timestamp_error_message: Atsiprašome, tai buvo per greitai! Pateikite iš naujo.
   layouts:
     decidim:
       cookie_consent:
         cookie_details:
+          columns:
+            description: Aprašymas
+            service: Paslauga
+            type: Tipas
+          cookies:
+            _session_id:
+              description: Leidžia svetainėms prisiminti vartotoją svetainėje, kai jie pereina iš vieno tinklalapio į kitą.
+              service: Ši svetainė
+            decidim-consent:
+              service: Ši svetainė
           types:
             cookie: Slapukas
         dialog:
@@ -1529,3 +1571,41 @@ lt:
       footer:
         cookie_settings: Slapukų nustatymai
         decidim_logo: '„Decidim“ logotipas'
+      user_menu:
+        sign_out: Atsijungti
+        title: Profilio nuorodos
+      user_profile:
+        account: Paskyra
+        authorizations: Autorizacijos
+        delete_my_account: Ištrinti mano paskyrą
+        my_data: Mano duomenys
+        notifications_settings: Pranešimų nustatymai
+        title: Dalyvio nuostatos
+        user_groups: Grupės
+      widget:
+        see_more: Žr. daugiau
+  locale:
+    name: Lietuvių
+    name_with_error: Lietuvių (klaida!)
+  password_validator:
+    blacklisted: yra įtrauktas į juodąjį sąrašą
+    domain_included_in_password: per daug panašus į šio domeno vardą
+    email_included_in_password: per daug panašus į jūsų el. pašto adresą
+    fallback: negalioja
+    name_included_in_password: per daug panašus į jūsų vardą, pavardę
+    nickname_included_in_password: yra per daug panašus į jūsų slapyvardį
+    not_enough_unique_characters: neturi pakankamai unikalių simbolių
+    password_not_allowed: draudžiama
+    password_repeated: seno slaptažodžio naudoti negalima
+    password_too_common: per daug įprastas
+    password_too_long: per ilgas
+    password_too_short: per trumpas
+  ransack:
+    predicates:
+      dtgt: po
+      dtlt: prieš
+  social_share_button:
+    delicious: Delicious
+    douban: '„Douban“'
+    email: El. paštas
+    facebook: Facebook
