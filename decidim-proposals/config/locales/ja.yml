@@ -298,6 +298,7 @@ ja:
           email_outro: '「%{participatory_space_title}」をフォローしているため、この通知を受け取りました。前のリンクに続く通知の受信を停止できます。'
           email_subject: 新しい提案 "%{resource_title}" が %{participatory_space_title} に追加されました
           notification_title: 提案 <a href="%{resource_path}">%{resource_title}</a> が %{author} によって %{participatory_space_title} に追加されました
+          notification_title_official: 公式の提案 <a href="%{resource_path}">%{resource_title}</a> が %{participatory_space_title} に追加されました
         proposal_rejected:
           affected_user:
             email_intro: 'あなたの提案 "%{resource_title}" は拒否されました。このページで回答を読むことができます:'
