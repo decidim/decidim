@@ -743,6 +743,13 @@ lt:
             - Savo lygį pakelsite siųsdami kvietimus ir juos registruodami.
           description: Šis ženklelis suteikiamas, kai pakviečiate žmonių, jie užsiregistruoja %{organization_name} ir tampa dalyviais. Dėkojame, kad supažindinate kitus su %{organization_name} ir padedate plėsti bendruomenę!
           description_another: Šis dalyvis pakvietė %{score} žmones (-ių).
+          description_own: Jūs pakvietėte %{score} žmones (-ių).
+          name: Pakvietimai
+          next_level_in: Pakvieskite dar %{score} sekėjų ir pasieksite kitą lygį!
+          unearned_another: Šis dalyvis dar nieko nepakvietė.
+          unearned_own: Jūs dar nieko nepakvietėte.
+      description: Ženkleliai – tai dalyvių veiksmų ir veiklos platformoje pripažinimas. Susipažindami su platforma, joje dalyvaudami ir bendraudami, pelnysite įvairių ženklelių.
+      level: '%{level} lygis'
       reached_top: Pasiekėte aukščiausią šio ženklelio lygį.
     group_admins:
       actions:
@@ -931,6 +938,7 @@ lt:
           intro: 'Jūsų pranešime aptiktos šios klaidos:'
           ok: Gerai
         index:
+          ago: prieš
           close: Uždaryti modalinį langą
           from: Nuo
           groups: Mano grupės
@@ -1007,6 +1015,10 @@ lt:
     newsletters_opt_in_mailer:
       notify:
         body_1: Asmens duomenų tvarkymas ir jų apsauga mums visiems tampa vis svarbesni. 2018 m. gegužės 25 d. priėmus naują Bendrąjį duomenų apsaugos reglamentą (BDAR), asmenys geriau kontroliuoja savo asmens duomenis. Dėl šios priežasties jums reikia spustelėti „Gerai“, kad galėtume ir toliau siųsti reikiamą informaciją apie %{organization_name} veiklą.
+        hello: Sveiki,
+        subject: Ar norite ir toliau gauti aktualią informaciją apie %{organization_name}?
+    notifications:
+      no_notifications: Dar nėra pranešimų.
     notifications_settings:
       show:
         own_activity: Mano veikla, pvz., kai kas nors pakomentuoja mano pasiūlymą arba pamini mane
