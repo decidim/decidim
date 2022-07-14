@@ -1396,9 +1396,45 @@ lt:
     password_too_short: per trumpas
   social_share_button:
     delicious: Delicious
-    douban: '„Douban“'
+    douban: Douban
     email: El. paštas
     facebook: Facebook
     google_bookmark: Google Bookmark
     google_plus: Google+
     hacker_news: Hacker News
+    linkedin: LinkedIn
+    pinterest: Pinterest
+    qq: Qzone
+    reddit: Reddit
+    share_to: Dalintis %{name}
+    telegram: Telegram
+    tumblr: Tumblr
+    twitter: Twitter
+    vkontakte: Vkontakte
+    wechat: WeChat
+    wechat_footer: Atidarykite savo „WeChat“, spustelėkite mygtuką „Discover“, tada spustelėkite „Nuskaityti QR kodą“ meniu.
+    weibo: Sina Weibo
+    whatsapp_app: WhatsApp
+    whatsapp_web: WhatsApp
+    xing: Xing
+  time:
+    formats:
+      day_of_month: "%b%d"
+      day_of_week: "%a"
+      day_of_week_long: "%a %e"
+      day_of_year: "%d.%m.%y"
+      decidim_day_of_year: "%d %B %Y"
+      decidim_short: "%d/%m/%Y %H:%M"
+      default: "%a, %d %b %Y %H:%M:%S %z"
+      devise:
+        mailer:
+          invitation_instructions:
+            accept_until_format: "%B %d, %Y %I:%M %p"
+      long: "%B %d, %Y %H:%M"
+      long_dashed: "%Y-%m-%d %H:%M:%S"
+      short: "%d/%m/%Y %H:%M"
+      time_of_day: "%H:%M"
+  versions:
+    directions:
+      left: Ištrynimai
+      right: Papildymai
