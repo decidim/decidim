@@ -155,6 +155,8 @@ en:
         error: There was a problem updating your account.
         success: Your account was successfully updated.
         success_with_email_confirmation: Your account was successfully updated. You'll receive an email to confirm your new email address.
+    activity:
+      time_ago: "%{time} ago"
     admin:
       actions:
         cancel: Cancel
