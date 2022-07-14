@@ -1175,8 +1175,21 @@ lt:
       intro:
         daily: 'Tai yra paskutinės dienos pranešimai, pagrįsti jūsų stebima veikla:'
         weekly: 'Tai yra paskutinės savaitės pranešimai, pagrįsti jūsų stebima veikla:'
+      see_more: Daugiau pranešimų
     notifications_settings:
       show:
+        administrators: Administratoriai
+        allow_public_contact: Leiskite bet kam jums siųsti tiesiogines žinutes, net jeigu jų nesekate.
+        allow_push_notifications: Gaukite tiesioginius pranešimus, kad sužinotumėte, kas vyksta, kai nesate platformoje. Galite bet kada juos išjungti.
+        direct_messages: Gauti tiesioginius pranešimus iš bet kurio asmens
+        everything_followed: Viskas, ką seku
+        newsletter_notifications: Noriu gauti naujienlaiškius
+        newsletters: Naujienlaiškiai
+        notifications_sending_frequencies:
+          daily: Kasdien
+          none: Jokio
+          real_time: Realiu laiku
+          weekly: Kas savaitę
         notifications_sending_frequency: Kaip dažnai norite gauti pranešimus el. paštu?
         own_activity: Mano veikla, pvz., kai kas nors pakomentuoja mano pasiūlymą arba pamini mane
         push_notifications_reminder: Norėdami gauti pranešimus iš platformos, pirmiausia turėsite juos leisti naršyklės nustatymuose.
@@ -1306,6 +1319,29 @@ lt:
       flag_modal:
         already_reported: Šis turinys jau praneštas ir bus peržiūrėtas administratoriaus.
         close: Uždaryti
+      share_modal:
+        copy_share_link_copied: Nukopijuota!
+        share: Dalintis
+        share_link: Dalintis nuoroda
+    statistics:
+      comments_count: Komentarai
+      endorsements_count: Pritarimai
+      followers_count: Sekėjai
+      headline: Statistika
+      no_stats: Statistinių duomenų dar nėra.
+      pages_count: Puslapiai
+      participants_count: Dalyviai
+      users_count: Dalyviai
+    tags:
+      filter_results_for_category: 'Filtruoti nurodytos kategorijos rezultatus: %{resource}'
+    translation_bar:
+      help_text: "<strong>Dėmesio:</strong> Turinys gali būti išverstas automatiškai, bet nebus visiškai tikslus."
+      show_original: Rodyti teksto originalą
+      show_translated: Rodyti automatiškai išverstą tekstą
+    user_activity:
+      index:
+        no_activities_warning: Šis dalyvis dar nesiėmė jokios veiklos.
+    user_contact_disabled: Šis dalyvis nepriima tiesioginių žinučių.
     user_conversations:
       create:
         error: Pranešimo nepavyko sukurti. Bandykite dar kartą vėliau
@@ -1375,7 +1411,32 @@ lt:
     versions_list:
       show:
         back_to_resource: Grįžti atgal
+        changes_at_title: '„%{title}“ pakeitimai'
+        number_of_versions: Versijos
+        title: Versijos
+    versions_list_item:
+      back: Rodyti visas versijas
+      show:
+        version_index: Versija %{index}
+    welcome_notification:
+      default_subject: Dėkojame, kad prisijungėte prie {{organization}}!
+    wizard_step_form:
+      wizard_aside:
+        back: Atgal
+      wizard_header:
+        see_steps: peržiūrėti žingsnius
+        step_of: '%{current_step} veiksmas iš %{total_steps}'
   devise:
+    confirmations:
+      confirmed: Jūsų el. pašto adresas buvo patvirtintas.
+      new:
+        resend_confirmation_instructions: Persiųsti patvirtinimo nurodymus
+      send_instructions: Per kelias minutes gausite el. laišką su nurodymais, kaip patvirtinti savo el. pašto adresą.
+      send_paranoid_instructions: Jei jūsų el. pašto adresas yra mūsų duomenų bazėje, po kelių minučių gausite el. laišką su instrukcijomis, kaip patvirtinti savo el. pašto adresą.
+    failure:
+      already_authenticated: Jūs jau esate prisijungę.
+      inactive: Jūsų paskyra dar nėra aktyvuota.
+      invalid: Netinkamas %{authentication_keys} arba slaptažodis.
     mailer:
       invitation_instructions:
         someone_invited_you: Kažkas pakvietė jus į %{application}. Kvietimą galite priimti spustelėję toliau pateikiamą nuorodą.
