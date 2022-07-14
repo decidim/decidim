@@ -228,6 +228,19 @@ module Decidim
 
       attr_reader :logger, :current_level
 
+      # Decides whether a dependency needs to be processed, i.e. compared
+      # whether it is the gem to be found.
+      #
+      # @param dependency [Gem::Dependency] The dependency being processed.
+      # @yield [dependency] Yields each dependency to be processed to the
+      #   provided block to check if that dependency needs to be processed or
+      #   not.
+      # @yieldparam [Gem::Dependency] The runtime dependency being processed.
+      # @yieldreturn [Boolean] A boolean indicating whether this dependency
+      #   needs to be processed or not. True indicates it needs to be processed
+      #   and false indicates processing is not needed.
+      # @return [Boolean] A boolean indicating whether the dependency needs to
+      #   be processed, i.e. compared whether it is the gem to be found.
       def process?(dependency)
         return false unless dependency.type == :runtime
         return true unless block_given?
