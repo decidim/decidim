@@ -48,6 +48,9 @@ ja:
       decidim/welcome_notification_event: ウェルカムメッセージ
   activerecord:
     attributes:
+      decidim/action_log:
+        created_at: 時刻
+        with_participatory_space: 参加型スペース
       decidim/user:
         current_password: 現在のパスワード
         email: メールアドレス
@@ -1827,6 +1830,12 @@ ja:
     password_too_common: あまりにも一般的です
     password_too_long: 長すぎます
     password_too_short: 短すぎます
+  ransack:
+    predicates:
+      dtgt: 後
+      dtgteq: 後または同時刻
+      dtlt: 前
+      dtlteq: 前または同時刻
   social_share_button:
     delicious: Delicious
     douban: Douban
@@ -1883,8 +1892,10 @@ ja:
       option_unified: 統合された
   views:
     pagination:
+      next: 次
       next_title: 次のページへのリンク
       pagination: 改ページ
+      previous: 前
       previous_title: 前のページへのリンク
       title: 'ページ番号: '
       truncate: "&hellip;"
