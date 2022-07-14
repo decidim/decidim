@@ -15,6 +15,10 @@ en:
       dummy:
         settings:
           global:
+            guided: Guided input
+            guided_help: Help text
+            guided_rich: Guided rich input
+            guided_rich_help_html: HTML <strong>help</strong> text
             readonly_attribute: Readonly attribute
             test: A test
             test_choices:

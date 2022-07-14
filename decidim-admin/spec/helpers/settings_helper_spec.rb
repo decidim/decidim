@@ -161,6 +161,25 @@ module Decidim
           render_input
         end
       end
+
+      describe "help texts" do
+        let(:form) { Decidim::Admin::FormBuilder.new(:foo, double(name => value), template, {}) }
+        let(:template) { Class.new(ActionView::Base).new(ActionView::LookupContext.new(ActionController::Base.view_paths), {}, []) }
+        let(:type) { :boolean }
+        let(:name) { :guided }
+
+        it "renders the help text" do
+          expect(render_input).to include(%(<span class="help-text">Help text</span>))
+        end
+
+        context "with HTML enriched help text" do
+          let(:name) { :guided_rich }
+
+          it "renders the HTML formatted help text" do
+            expect(render_input).to include(%(<span class="help-text">HTML <strong>help</strong> text</span>))
+          end
+        end
+      end
     end
   end
 end
