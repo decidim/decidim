@@ -234,7 +234,11 @@ ja:
             success: 問題が正常に更新されました
         steps:
           create_election:
+            census: センサス
             errors:
+              census_codes_generated: センサスの選挙コードは生成されません。
+              census_frozen: 選挙コードはエクスポートされません。
+              census_uploaded: この選挙にアップロードされたセンサスはありません。
               component_published: 選挙コンポーネントは <strong>未公開です</strong>。
               max_selections: 質問が <strong>回答の数に対して正しく</strong>ありません
               minimum_answers: 質問には <strong>少なくとも2つの回答</strong>が必要です
@@ -249,6 +253,9 @@ ja:
               'false': <strong>公開鍵</strong>がありません
               'true': <strong>公開鍵</strong>があります
             requirements:
+              census_codes_generated: センサスコードが生成されます。
+              census_frozen: コードはエクスポートされセンサスは凍結されます
+              census_uploaded: センサスがアップロードされました。
               component_published: 選挙コンポーネントは <strong>公開済みです</strong>.
               max_selections: すべての質問は正しい <strong>回答の最大値</strong> を持っています。
               minimum_answers: 各質問には <strong>少なくとも2つの回答</strong>を持ちます。
