@@ -10,6 +10,14 @@ module Decidim
     let(:resolver) { Decidim::DependencyResolver.instance }
     let(:root_path) { File.dirname(ENV.fetch("ENGINE_ROOT")) }
 
+    # Make sure the resolver cache won't be messed up during these tests
+    around do |example|
+      original_cache = resolver.instance_variable_get(:@cache)
+      resolver.instance_variable_set(:@cache, [])
+      example.run
+      resolver.instance_variable_set(:@cache, original_cache)
+    end
+
     shared_examples "existing module" do
       describe "#module_path" do
         subject { resolver.module_path(gem) }
