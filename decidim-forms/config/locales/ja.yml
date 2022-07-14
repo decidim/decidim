@@ -44,6 +44,8 @@ ja:
             actions:
               back: 返信に戻る
               export: エクスポート
+              next: 次 &rsaquo;
+              previous: "&lsaquo; 前"
               show: 回答を表示
             empty: まだ回答がありません
             export:
