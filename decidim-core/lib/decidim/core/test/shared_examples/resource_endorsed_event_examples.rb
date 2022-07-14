@@ -53,8 +53,8 @@ shared_examples_for "resource endorsed event" do
   end
 
   describe "resource_text" do
-    it "shows the resource body" do
-      expect(subject.resource_text).to eq resource.body
+    it "shows the resource text" do
+      expect(subject.resource_text).to eq resource_text
     end
   end
 end
