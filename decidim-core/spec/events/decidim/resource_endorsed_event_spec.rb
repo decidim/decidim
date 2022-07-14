@@ -10,6 +10,7 @@ describe Decidim::ResourceEndorsedEvent do
 
   let(:extra) { { endorser_id: author.id } }
   let(:resource) { create :dummy_resource, title: { en: "My super dummy resource" } }
+  let(:resource_type) { "Dummy resource" }
   let(:endorsement) { create :endorsement, resource: resource, author: author }
   let(:resource_path) { resource_locator(resource).path }
   let(:follower) { create(:user, organization: resource.organization) }
@@ -46,7 +47,7 @@ describe Decidim::ResourceEndorsedEvent do
   describe "notification_title" do
     it "is generated correctly" do
       expect(subject.notification_title)
-        .to include("The <a href=\"#{resource_path}\">#{translated resource.title}</a> Dummy resource has been endorsed by ")
+        .to include("The <a href=\"#{resource_path}\">#{translated resource.title}</a> #{resource_type} has been endorsed by ")
 
       expect(subject.notification_title)
         .to include("<a href=\"/profiles/#{author.nickname}\">#{author.name} #{author_presenter.nickname}</a>.")
