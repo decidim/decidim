@@ -4,7 +4,9 @@ shared_examples "manage processes announcements" do
   let!(:participatory_process) { create(:participatory_process, organization: organization) }
 
   it "can customize a general announcement for the process" do
-    click_link translated(participatory_process.title)
+    within find("tr", text: translated(participatory_process.title)) do
+      click_link "Configure"
+    end
 
     fill_in_i18n_editor(
       :participatory_process_announcement,

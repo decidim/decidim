@@ -90,7 +90,9 @@ shared_examples "manage processes examples" do
     let(:image3_path) { Decidim::Dev.asset(image3_filename) }
 
     before do
-      click_link translated(participatory_process.title)
+      within find("tr", text: translated(participatory_process.title)) do
+        click_link "Configure"
+      end
     end
 
     it "updates a participatory_process" do
@@ -123,7 +125,9 @@ shared_examples "manage processes examples" do
     let!(:participatory_process) { create(:participatory_process, :unpublished, organization: organization) }
 
     before do
-      click_link translated(participatory_process.title)
+      within find("tr", text: translated(participatory_process.title)) do
+        click_link "Configure"
+      end
     end
 
     it "publishes the process" do
@@ -141,7 +145,9 @@ shared_examples "manage processes examples" do
     let!(:participatory_process) { create(:participatory_process, organization: organization) }
 
     before do
-      click_link translated(participatory_process.title)
+      within find("tr", text: translated(participatory_process.title)) do
+        click_link "Configure"
+      end
     end
 
     it "unpublishes the process" do
@@ -177,7 +183,9 @@ shared_examples "manage processes examples" do
     end
 
     it "disables the scope for a participatory process" do
-      click_link translated(participatory_process.title)
+      within find("tr", text: translated(participatory_process.title)) do
+        click_link "Configure"
+      end
 
       uncheck :participatory_process_scopes_enabled
 
