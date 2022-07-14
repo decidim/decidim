@@ -504,6 +504,14 @@ ja:
           file_legend: 解析されるインポート ファイルを追加します。
           import: インポート
         notice: "%{number} %{resource_name} を正常にインポートしました"
+      logs:
+        filters:
+          participatory_space: 参加型スペースを探す
+          text: ユーザーのメールアドレス、名前、ニックネームで検索します。
+          user: ユーザー
+        logs_list:
+          no_logs_yet: ログはまだありません。
+          no_matching_logs: 指定された検索フィルターにはログがありません。変更して再試行してください。
       managed_users:
         promotion:
           error: 管理対象参加者の昇格に問題が発生しました。
