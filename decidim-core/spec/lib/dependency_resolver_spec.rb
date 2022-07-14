@@ -194,7 +194,7 @@ module Decidim
       end
       let(:gems) { %w(decidim-core decidim-budgets) }
 
-      before do
+      before do |example|
         # Silence the bundler output
         allow(Bundler.ui).to receive(:info)
 
@@ -207,6 +207,17 @@ module Decidim
         # Return the mocked definition instead of the actual one for the resolver
         definition.specs_for([:default]) # Materializes the spec
         allow(Bundler).to receive(:definition).and_return(definition)
+
+        # CI DEBUG
+        debug_lookup = Decidim::DependencyResolver::Lookup.new(debug: true)
+        allow(Decidim::DependencyResolver::Lookup).to receive(:new).and_return(debug_lookup)
+        puts "#{example.description} # #{example.metadata[:full_description]}"
+        puts ">>>>> dependencies"
+        definition.dependencies.each { |dep| puts dep.name }
+        puts "<<<<< dependencies"
+        puts ">>>>> locked_gems"
+        Bundler.definition.locked_gems.specs.find { |s| puts s.name if s.name =~ /^decidim/ }
+        puts "<<<<< locked_gems"
       end
 
       context "with decidim-core" do
