@@ -47,55 +47,48 @@ module Decidim
 
           private
 
-          # rubocop: disable Metrics/CyclomaticComplexity
-          # rubocop: disable Lint/DuplicateBranch
           def language_code
-            case I18n.locale.to_s
-            when "ar" then "ara" # Arabic
-            when "eu" then "baq" # Basque
-            when "ca" then "cat" # Catalan
-            when "zh-cn" then "chi" # Chinese (simplified)
-            # when "" then "cht" # Chinese (traditional)
-            when "cs" then "cze" # Czech
-            when "da" then "dan" # Danish
-            when "nl" then "dut" # Dutch
-            when "en" then "eng" # English
-            when "fi" then "fin" # Finnish
-            when "fi-pl" then "fin"
-            when "fi-plain" then "fin"
-            when "fr" then "fre" # French
-            when "fr-ca" then "fre"
-            when "fr-lu" then "fre"
-            when "de" then "ger" # German
-            when "ga" then "gle" # Gaelic
-            when "el" then "gre" # Greek
-            # when "he" then "heb" # Hebrew
-            # when "hi" then "hin" # Hindi
-            when "id" then "ind" # Indonesian
-            when "it" then "ita" # Italian
-            when "no" then "nor" # Norwegian
-            # when "fa" then "per" # Persian
-            when "pl" then "pol" # Polish
-            when "pt" then "por"; # Portuguese
-            when "pt-br" then "por"
-            when "ru" then "rus" # Russian
-            when "si" then "sin" # Sinhalese
-            when "es" then "spa" # Spanish
-            when "es-mx" then "spa"
-            when "es-py" then "spa"
-            when "sv" then "swe" # Swedish
-            # when "th" then "tha" # Thai
-            when "tr" then "tur" # Turkish
-            when "uk" then "ukr" # Ukrainian
-            # when "ur" then "urd" # Urdu
-            when "vi" then "vie" # Vietnamese
-            # when "cy" then "wel" # Welsh
-            else
-              ""
-            end
+            primary = I18n.locale.to_s
+            secondary = primary.split("-")[0]
+            available_language_codes[primary] || available_language_codes[secondary] || ""
           end
-          # rubocop: enable Lint/DuplicateBranch
-          # rubocop: enable Metrics/CyclomaticComplexity
+
+          def available_language_codes
+            @available_language_codes ||= {
+              "ar" => "ara", # Arabic
+              "eu" => "baq", # Basque
+              "ca" => "cat", # Catalan
+              "zh" => "chi", # Chinese (simplified)
+              # "" => "cht", # Chinese (traditional)
+              "cs" => "cze", # Czech
+              "da" => "dan", # Danish
+              "nl" => "dut", # Dutch
+              "en" => "eng", # English
+              "fi" => "fin", # Finnish
+              "fr" => "fre", # French
+              "de" => "ger", # German
+              "ga" => "gle", # Gaelic
+              "el" => "gre", # Greek
+              "he" => "heb", # Hebrew
+              "hi" => "hin", # Hindi
+              "id" => "ind", # Indonesian
+              "it" => "ita", # Italian
+              "no" => "nor", # Norwegian
+              "fa" => "per", # Persian
+              "pl" => "pol", # Polish
+              "pt" => "por", # Portuguese
+              "ru" => "rus", # Russian
+              "si" => "sin", # Sinhalese
+              "es" => "spa", # Spanish
+              "sv" => "swe", # Swedish
+              "th" => "tha", # Thai
+              "tr" => "tur", # Turkish
+              "uk" => "ukr", # Ukrainian
+              "ur" => "urd", # Urdu
+              "vi" => "vie", # Vietnamese
+              "cy" => "wel" # Welsh
+            }
+          end
         end
       end
     end
