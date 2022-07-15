@@ -15,6 +15,7 @@
   "scripts": {
     "lint": "eslint -c .eslintrc.json --no-error-on-unmatched-pattern --ext .js,.jsx decidim-*",
     "lint_markdown": "markdownlint .",
+    "stylelint": "stylelint decidim-*/**/*.scss",
     "test": "jest",
     "test:watch": "npm run test -- --watch",
     "test:ci": "npm run lint && npm run test"
