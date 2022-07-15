@@ -225,6 +225,23 @@ module Decidim
           end
         end
       end
+
+      describe "HTML comments are ignored" do
+        let(:paragraph) { "<!-- This should be ignored --> \nThis should be kept." }
+
+        before do
+          items << "#{paragraph}\n"
+        end
+
+        it "ignores the comment" do
+          should_parse_and_produce_proposals(1)
+
+          proposal = Proposal.last
+          # proposal titled with its numbering (position)
+          expect(translated(proposal.title)).to eq("1")
+          expect(translated(proposal.body)).to eq("This should be kept.")
+        end
+      end
     end
   end
 end
