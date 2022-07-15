@@ -83,14 +83,14 @@ describe("ConsentManager", () => {
             <div class="description-text">
               <p>These cookies are essential for the proper functioning of my website. Without these cookies, the website would not work properly.</p>
             </div>
-            <div class="cookie-details-wrapper">
+            <div class="dataconsent-details-wrapper">
               <div class="row detail-titles">
                 <div class="columns small-2">Type</div>
                 <div class="columns small-2">Name</div>
                 <div class="columns small-2">Service</div>
                 <div class="columns small-6">Description</div>
               </div>
-              <div class="row cookie-detail-row">
+              <div class="row dataconsent-detail-row">
                 <div class="columns small-2">Cookie</div>
                 <div class="columns small-2">_session_id</div>
                 <div class="columns small-2">This website</div>
@@ -98,7 +98,7 @@ describe("ConsentManager", () => {
                   Allows websites to remember user within a website when they move between web pages.
                 </div>
               </div>
-              <div class="row cookie-detail-row">
+              <div class="row dataconsent-detail-row">
                 <div class="columns small-2">Cookie</div>
                 <div class="columns small-2">decidim-consent</div>
                 <div class="columns small-2">This website</div>
@@ -182,7 +182,7 @@ describe("ConsentManager", () => {
     </div>
   `;
   const cookieWarningContent = `
-    <div class="cookie-warning flex-center padding-1 hide">
+    <div class="dataconsent-warning flex-center padding-1 hide">
       <p>You need to enable all cookies in order to see this content.</p>
       <a href="#" class="button margin-vertical-2" data-open="cc-modal">
         Change cookie settings
@@ -226,7 +226,7 @@ describe("ConsentManager", () => {
       modal: modal,
       categories: categories,
       cookieName: "decidim-consent",
-      warningElement: document.querySelector(".cookie-warning")
+      warningElement: document.querySelector(".dataconsent-warning")
     });
   });
 

@@ -77,7 +77,7 @@ class ConsentManager {
 
   triggerWarnings() {
     document.querySelectorAll(".disabled-iframe").forEach((original) => {
-      if (original.querySelector(".cookie-warning")) {
+      if (original.querySelector(".dataconsent-warning")) {
         return;
       }
 

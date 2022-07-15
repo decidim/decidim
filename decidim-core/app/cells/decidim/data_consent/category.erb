@@ -26,7 +26,7 @@
     </div>
 
     <% if category[:items].present? %>
-      <div class="cookie-details-wrapper">
+      <div class="dataconsent-details-wrapper">
         <div class="row detail-titles">
           <div class="columns small-2">
             <%= t("layouts.decidim.data_consent.details.columns.type") %>
@@ -43,7 +43,7 @@
         </div>
 
         <% category[:items].each do |item| %>
-          <div class="row cookie-detail-row">
+          <div class="row dataconsent-detail-row">
             <div class="columns small-2">
               <%= t("layouts.decidim.data_consent.details.types.#{item[:type]}") %>
             </div>

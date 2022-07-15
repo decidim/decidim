@@ -73,7 +73,7 @@
       }
     }
 
-    .cookie-details-wrapper{
+    .dataconsent-details-wrapper{
       .detail-titles{
         border-bottom: 1px solid $medium-gray;
 
@@ -82,7 +82,7 @@
         }
       }
 
-      .cookie-detail-row{
+      .dataconsent-detail-row{
         font-size: .6rem;
       }
     }
@@ -108,7 +108,7 @@
   }
 }
 
-.cookie-warning{
+.dataconsent-warning{
   flex-direction: column;
   font-size: 2rem;
   font-weight: $global-weight-bold;
