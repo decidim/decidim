@@ -213,6 +213,7 @@ ca:
             endorsements_enabled: Adhesions habilitades
             proposal_answering_enabled: Resposta a propostes activada
             publish_answers_immediately: Publica les respostes a les propostes immediatament
+            publish_answers_immediately_help_html: 'Tingues present que si respons alguna proposta sense que això estigui habilitat, l''hauràs de publicar-les manualment seleccionant-les i fent servir l''acció de publicar. Per a més informació sobre el funcionament, consulta la <a href="https://docs.decidim.org/en/admin/components/proposals/answers#_publication" target="_blank">pàgina de documentació de les respostes a les propostes</a>.'
             suggested_hashtags: Hashtags suggerits a les participants per a noves propostes
             votes_blocked: Suports bloquejats
             votes_enabled: Suports habilitats
