@@ -3,23 +3,23 @@
 module Decidim
   # A Helper that reimplements the SocialShareButton gem helpers, so that we don't depend on it anymore.
   module SocialShareButtonHelper
-    def social_share_button_tag(title, **args)
+    def social_share_button_tag(title, args)
       return unless enabled_services.length.positive?
 
       content_tag :div, class: "social-share-button" do
-        render_social_share_buttons(enabled_services, title, **args)
+        render_social_share_buttons(enabled_services, title, args)
       end
     end
 
-    def render_social_share_buttons(services, title, **args)
+    def render_social_share_buttons(services, title, args)
       services.map do |service|
-        render_social_share_button(service, title, **args)
+        render_social_share_button(service, title, args)
       end.join.html_safe
     end
 
-    def render_social_share_button(service, title, **args)
+    def render_social_share_button(service, title, args)
       link_to(
-        service.formatted_share_uri(title, **args),
+        service.formatted_share_uri(title, args),
         rel: "nofollow",
         data: { site: service.name.downcase },
         class: "ssb-icon ssb-#{service.name.downcase}",
