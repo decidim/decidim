@@ -207,11 +207,12 @@ module Decidim
         # Return the mocked definition instead of the actual one for the resolver
         definition.specs_for([:default]) # Materializes the spec
         allow(Bundler).to receive(:definition).and_return(definition)
+      end
 
+      it "debug" do
         # CI DEBUG
         debug_lookup = Decidim::DependencyResolver::Lookup.new(debug: true)
         allow(Decidim::DependencyResolver::Lookup).to receive(:new).and_return(debug_lookup)
-        puts "#{example.description} # #{example.metadata[:full_description]}"
         puts ">>>>> Gemfile.lock"
         puts lockfile.inspect
         puts "<<<<< Gemfile.lock"
