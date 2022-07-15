@@ -185,7 +185,7 @@ module Decidim
         <<~GEMFILE
           source "https://rubygems.org"
 
-          #{gems.map { |gem| %(gem "#{gem}", path: "#{root_path}") }.join("\n")}
+          #{gems.map { |gem| %(gem "#{gem}", path: "..") }.join("\n")}
         GEMFILE
       end
       let(:lockfile) do
