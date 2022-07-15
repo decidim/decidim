@@ -48,6 +48,9 @@ cs:
       decidim/welcome_notification_event: Uvítací zpráva
   activerecord:
     attributes:
+      decidim/action_log:
+        created_at: Čas
+        with_participatory_space: Účastnický prostor
       decidim/user:
         current_password: Aktuální heslo
         email: E-mail
@@ -1894,6 +1897,9 @@ cs:
     password_too_common: je příliš běžné
     password_too_long: je to moc dlouhé
     password_too_short: je příliš krátké
+  ransack:
+    predicates:
+      dtgt: po
   social_share_button:
     delicious: Delicious
     douban: Douban
