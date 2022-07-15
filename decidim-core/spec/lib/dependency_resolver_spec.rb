@@ -195,7 +195,7 @@ module Decidim
       end
       let(:gems) { %w(decidim-core decidim-budgets) }
 
-      before
+      before do
         # Silence the bundler output
         allow(Bundler.ui).to receive(:info)
 
