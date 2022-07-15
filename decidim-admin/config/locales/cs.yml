@@ -516,6 +516,14 @@ cs:
           file_legend: Přidat importovaný soubor, který bude analyzován.
           import: Importovat
         notice: "%{number} %{resource_name} úspěšně importováno"
+      logs:
+        filters:
+          participatory_space: Najít participační prostor
+          text: Hledat podle e-mailu, jména nebo přezdívky.
+          user: Uživatel
+        logs_list:
+          no_logs_yet: Zatím nejsou žádné logy.
+          no_matching_logs: Nebyly nalezeny žádné záznamy s poskytnutými vyhledávacími filtry. Zkuste je změnit a zkuste to znovu.
       managed_users:
         promotion:
           error: Při propagaci spravovaného účastníka se vyskytl problém.
