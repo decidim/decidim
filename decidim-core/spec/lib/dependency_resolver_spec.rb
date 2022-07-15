@@ -222,6 +222,15 @@ module Decidim
           puts @sources.inspect
         end
         puts "<<<<< builder"
+        puts ">>>>> bundler"
+        puts "FROZEN BUNDLE? => #{Bundler.frozen_bundle?.inspect}"
+        puts "<<<<< bundler"
+        puts ">>>>> dummy resolve"
+        dummy_definition.instance_eval do
+          puts "UNLOCKING?: #{unlocking?}"
+          puts "NOTHING CHANGED?: #{nothing_changed?}"
+        end
+        puts "<<<<< dummy resolve"
         puts ">>>>> dummy sources"
         dummy_definition.send(:sources).path_sources.each do |source|
           puts "SOURCE: #{source.path}"
