@@ -1,0 +1,6 @@
+node_modules/
+decidim_dummy_app/
+public/decidim-packs/
+dev/assets/iso-8859-15.md
+vendor/bundle
+development_app/
