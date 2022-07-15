@@ -248,16 +248,16 @@ module Decidim
     end
 
     # Whether this activity or log is visible for a given user (can also be nil)
-    #
-    # Returns a True/False.
     def visible_for?(user)
-      return false if resource_lazy.blank?
-      return false if participatory_space_lazy.blank?
-      return false if resource_lazy.respond_to?(:deleted?) && resource_lazy.deleted?
-      return false if resource_lazy.respond_to?(:hidden?) && resource_lazy.hidden?
-      return false if resource_lazy.respond_to?(:can_participate?) && !resource_lazy.can_participate?(user)
+      resource_lazy.present? &&
+        participatory_space_lazy.present? &&
+        !resource_lazy.try(:deleted?) &&
+        !resource_lazy.try(:hidden?) &&
+        (!resource_lazy.respond_to?(:can_participate?) || resource_lazy.try(:can_participate?, user))
+    rescue NameError => e
+      Rails.logger.warn "Failed resource for #{self.class.name}(id=#{id}): #{e.message}"
 
-      true
+      false
     end
   end
 end
