@@ -24,5 +24,16 @@ module Decidim
         label: t("layouts.decidim.user_menu.title")
       )
     end
+
+    def footer_menu
+      @footer_menu ||= ::Decidim::FooterMenuPresenter.new(
+        :menu,
+        self,
+        element_class: "font-semibold",
+        active_class: "is-active",
+        container_options: { class: "space-y-4 break-inside-avoid" },
+        label: t("layouts.decidim.footer.decidim_title")
+      )
+    end
   end
 end
