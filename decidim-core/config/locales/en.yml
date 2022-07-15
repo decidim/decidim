@@ -1911,14 +1911,10 @@ en:
       option_unified: Unified
   views:
     pagination:
-      first: "&laquo; First"
-      first_title: Link to the first page
-      last: Last &raquo;
-      last_title: Link to the last page
-      next: Next &rsaquo;
+      next: Next
       next_title: Link to the next page
       pagination: Pagination
-      previous: "&lsaquo; Prev"
+      previous: Prev
       previous_title: Link to the previous page
       title: 'Page number: '
       truncate: "&hellip;"

@@ -40,6 +40,11 @@ data:
   #     object_nl: "\n"
   #     array_nl: "\n"
 
+locales:
+  <% (ENV["ENFORCED_LOCALES"].presence&.split(",") || []).each do |locale| -%>
+  <%= "- '#{locale}'" %>
+  <% end -%>
+
 # Find translate calls
 search:
   ## Paths or `File.find` patterns to search in:
@@ -318,6 +323,7 @@ ignore_unused:
   - decidim.assemblies.admin.assembly_members.form.explanation
   - decidim.assemblies.admin.assembly_members.form.image_guide
   - decidim.assemblies.admin.assembly_members.form.non_user_avatar_help
+  - decidim.initiatives.create_initiative.select_initiative_type.*
   - decidim.blogs.admin_log.*
   - decidim.templates.admin_log.*
 

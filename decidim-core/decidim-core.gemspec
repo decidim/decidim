@@ -20,7 +20,7 @@ Gem::Specification.new do |s|
   s.files = Dir["{app,config,db,lib,vendor}/**/*", "Rakefile", "README.md"]
 
   s.add_dependency "active_link_to", "~> 1.0"
-  s.add_dependency "acts_as_list", "~> 0.9"
+  s.add_dependency "acts_as_list", "~> 1.0"
   s.add_dependency "batch-loader", "~> 1.2"
   s.add_dependency "browser", "~> 2.7"
   s.add_dependency "carrierwave", "~> 2.2.1"
@@ -50,7 +50,7 @@ Gem::Specification.new do |s|
   s.add_dependency "omniauth-rails_csrf_protection", "~> 1.0"
   s.add_dependency "omniauth-twitter", "~> 1.4"
   s.add_dependency "paper_trail", "~> 12.0"
-  s.add_dependency "pg", "~> 1.1.4", "< 2"
+  s.add_dependency "pg", "~> 1.4.0", "< 2"
   s.add_dependency "pg_search", "~> 2.2"
   s.add_dependency "premailer-rails", "~> 1.10"
   s.add_dependency "rack", "~> 2.2", ">= 2.2.3"
@@ -63,7 +63,7 @@ Gem::Specification.new do |s|
   s.add_dependency "rubyXL", "~> 3.4"
   s.add_dependency "rubyzip", "~> 2.0"
   s.add_dependency "seven_zip_ruby", "~> 1.3"
-  s.add_dependency "valid_email2", "~> 2.1"
+  s.add_dependency "valid_email2", "~> 4.0"
   s.add_dependency "webpacker", "= 6.0.0.rc.5"
   s.add_dependency "webpush", "~> 1.1"
   s.add_dependency "wisper", "~> 2.0"

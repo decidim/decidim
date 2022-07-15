@@ -3,6 +3,8 @@
 require "spec_helper"
 
 describe Decidim::AddressCell, type: :cell do
+  controller Decidim::ApplicationController
+
   subject { my_cell.call }
 
   let(:my_cell) { cell("decidim/address", model) }

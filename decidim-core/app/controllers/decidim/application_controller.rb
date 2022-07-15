@@ -22,6 +22,9 @@ module Decidim
     include DisableRedirectionToExternalHost
     include NeedsPasswordChange
 
+    include RedesignLayout
+    redesign active: true
+
     helper Decidim::MetaTagsHelper
     helper Decidim::DecidimFormHelper
     helper Decidim::LanguageChooserHelper

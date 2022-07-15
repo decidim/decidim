@@ -30,15 +30,21 @@ module Decidim
 
         def can_perform_actions_on?(subject, resource)
           return unless permission_action.subject == subject
+          return false if can_create_grandchildren_results?
 
           case permission_action.action
-          when :create
+          when :create, :create_children
             true
           when :update, :destroy
             resource.present?
           else
             false
           end
+        end
+
+        def can_create_grandchildren_results?
+          result&.parent&.present? &&
+            permission_action.action == :create_children
         end
       end
     end
