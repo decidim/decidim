@@ -1284,8 +1284,49 @@ lt:
           title: 'Būtina: Peržiūrėkite naudojimo sąlygų atnaujinimus'
     participatory_space_private_users:
       not_allowed: Jūs negalite peržiūrėti šio turinio
+    passwords:
+      update:
+        error: Atnaujinant slaptažodį iškilo problema
+        success: Slaptažodis buvo sėkmingai atnaujintas
+    profile:
+      deleted: Dalyvis pašalintas
+      inaccessible_message: Profilis neprieinamas dėl naudojimo sąlygų pažeidimų!
+      view: Rodyti
+    profiles:
+      default_officialization_text_for_user_groups: Ši grupė yra patikrinta, jos pavadinimas atitinka realybę
+      default_officialization_text_for_users: Šis dalyvis yra patikrintas, jo vardas ir pavardė arba pareigos buvo patikrintos ir atitinka jo tikrąjį vardą ir pavardę bei pareigas
+      show:
+        activity: Veikla
+        badges: Ženkleliai
+        conversations: Pokalbiai
+        followers: Sekėjai
+        following: Seka
+        groups: Grupės
+        members: Nariai
+        officialized: Patikrintas dalyvis
+        send_private_message: Siųsti asmeninę žinutę
+        timeline: Laiko juosta
+        view_full_profile: Žiūrėti visą profilį
+      sidebar:
+        badges:
+          info: Ženkleliai pelnomi vykdant konkrečias veiklas platformoje.
+          title: Ženkleliai
+      user:
+        confirmation_instructions_sent: Patvirtinimo el. laiškas išsiųstas
+        create_user_group: Sukurti grupę
+        edit_profile: Redaguoti profilį
+        edit_user_group: Redaguoti grupės profilį
+        fill_in_email_to_confirm_it: Prašau įveskite grupės el. paštą tam, kad jį patvirtinti
+        invite_user: Kviesti dalyvį
+        join_user_group: Prašyti prisijungti prie grupės
+        leave_user_group: Palikti grupę
+        manage_user_group_admins: Tvarkyti administratorius
+        manage_user_group_users: Valdyti narius
+        resend_email_confirmation_instructions: Persiųsti patvirtinimo nurodymus el. paštu
     reported_mailer:
       hide:
+        hello: Sveiki %{name},
+        manage_moderations: Tvarkyti vedamas diskusijas
         report_html: <p>Toliau pateikiamas <a href="%{url}">turinys</a> paslėptas automatiškai.</p>
         subject: Išteklius paslėptas automatiškai
       report:
@@ -1309,6 +1350,7 @@ lt:
       create:
         error: Atliekant šį pritarimo veiksmą iškilo problema.
     scopes:
+      global: Globali sritis
       picker:
         cancel: Atšaukti
         change: Keisti pasirinktą apimtį
@@ -1316,6 +1358,9 @@ lt:
         currently_selected: Šiuo metu pasirinkta apimtis
         title: Žymėti %{field}
       prompt: Pasirinkti apimtį
+      scopes: Sritys
+      scopes_picker_input:
+        select_scope: 'Pasirinkite sritį (dabar: %{current})'
     search:
       results: Paieškos rezultatai
       term_input_placeholder: Ieškoti
@@ -1355,6 +1400,16 @@ lt:
         skip: Pereiti į rezultatus
       flag_modal:
         already_reported: Šis turinys jau praneštas ir bus peržiūrėtas administratoriaus.
+        close: Uždaryti
+        description: Ar šis turinys netinkamas?
+        does_not_belong: Yra nelegalios veiklos, grasinimų nusižudyti, asmeninės informacijos arba kitokio, jūsų nuomone, %{organization_name} netinkamo turinio.
+        offensive: Pateikiamame turinyje yra rasizmo, seksizmo, užgauliojimų, asmeninių išpuolių, grasinimų mirtimi, savižudybės prašymų ar bet kokios formos neapykantos kurstymo.
+        reason: Priežastis
+        report: Pranešti
+        spam: Pateikiamoje informacijoje yra reklamos, antraščių mąsalo ar apgavysčių.
+        title: Pranešti apie netinkamą turinį
+      flag_user_modal:
+        already_reported: Apie šį turinį jau pranešta ir jį peržiūrės administratorius.
         close: Uždaryti
       share_modal:
         copy_share_link_copied: Nukopijuota!
@@ -1648,6 +1703,12 @@ lt:
         modal:
           accept_all: Priimti visus
           accept_only_essential: Sutikti tik su būtinaisiais slapukais
+          analytics:
+            description: '„Analytics“ slapukai yra slapukai, kurie seka, kaip vartotojai naršo ir sąveikauja su svetaine. Surinkta informacija naudojama siekiant padėti svetainės savininkui tobulinti svetainę.'
+            title: Analitika ir statistika
+          description: Naudojame slapukus siekdami užtikrinti pagrindines svetainės funkcijas ir pagerinti jūsų patirtį. Kiekvienai kategorijai galite pasirinkti, kada norite jų atsisakyti.
+          essential:
+            description: Šie slapukai yra būtini tinkamam mūsų svetainės veikimui.
           marketing:
             title: Marketingas
           title: Slapukų nustatymai
