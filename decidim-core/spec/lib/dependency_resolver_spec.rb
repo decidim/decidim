@@ -225,6 +225,10 @@ module Decidim
         puts ">>>>> locked_gems"
         Bundler.definition.locked_gems.specs.find { |s| puts s.name if s.name =~ /^decidim/ }
         puts "<<<<< locked_gems"
+
+        ENV.each do |key, val|
+          puts "#{key}=#{val}" if key =~ /^(BUNDLE|GEM)/
+        end
       end
 
       context "with decidim-core" do
