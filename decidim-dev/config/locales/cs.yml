@@ -14,6 +14,8 @@ cs:
       dummy:
         settings:
           global:
+            guided_help: Text nápovědy
+            guided_rich_help_html: HTML textová <strong>nápověda</strong>
             readonly_attribute: Atribut pouze pro čtení
             test: Zkouška A
             test_choices:
