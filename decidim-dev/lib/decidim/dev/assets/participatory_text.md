@@ -1,3 +1,5 @@
+<!-- markdown-lint-disable-file single-h1 -->
+
 # The great title for a new law
 
 ## A co-creation process to create creative creations

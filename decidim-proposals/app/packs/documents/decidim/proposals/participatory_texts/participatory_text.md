@@ -1,3 +1,5 @@
+<!-- markdown-lint-disable-file single-h1 -->
+
 # Section title 1: grouping content
 
 Participatory texts relay on the parsing of Markdown texts to produce a structured document.
