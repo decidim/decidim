@@ -88,4 +88,57 @@ describe Decidim do
       end
     end
   end
+
+  describe ".module_installed?" do
+    subject { described_class.module_installed?(mod) }
+
+    context "with default configurations" do
+      %w(
+        accountability
+        admin
+        api
+        assemblies
+        blogs
+        budgets
+        comments
+        core
+        debates
+        forms
+        generators
+        meetings
+        pages
+        participatory_processes
+        proposals
+        sortitions
+        surveys
+        system
+        templates
+        verifications
+        conferences
+        consultations
+        elections
+        initiatives
+        templates
+      ).each do |decidim_gem|
+        context decidim_gem do
+          let(:mod) { decidim_gem }
+
+          it { is_expected.to be(true) }
+        end
+      end
+    end
+
+    context "when the module is needed but does not define a module load file" do
+      let(:mod) { :foo }
+
+      before do
+        allow(Decidim::DependencyResolver.instance).to receive(:needed?).with("decidim-#{mod}").and_return(true)
+      end
+
+      it "does not raise an exception and returns false" do
+        expect { subject }.not_to raise_error
+        expect(subject).to be(false)
+      end
+    end
+  end
 end
