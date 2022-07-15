@@ -37,7 +37,7 @@ describe "Data consent scripts", type: :system do
           #{cookie_modal}
           #{document_inner}
           <div class="footer">
-            <a href="#" class="button" data-open="cc-modal">
+            <a href="#" class="button" data-open="dc-modal">
               Cookie settings
             </a>
           </div>

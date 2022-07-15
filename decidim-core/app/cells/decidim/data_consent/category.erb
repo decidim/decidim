@@ -1,26 +1,26 @@
 <div class="category-wrapper margin-vertical-1" data-id="<%= category[:slug] %>">
   <div class="category-row flex-center">
-    <button class="cc-title padding-left-3">
-      <span class="h5 cc-category-title">
+    <button class="dc-title padding-left-3">
+      <span class="h5 dc-category-title">
         <strong><%= category[:title] %></strong>
       </span>
     </button>
 
-    <div class="cc-switch">
+    <div class="dc-switch">
       <input
         class="switch-input"
         <%= %(checked="checked") if category[:mandatory] %>
-        id="cc-<%= category[:slug] %>"
+        id="dc-<%= category[:slug] %>"
         type="checkbox"
         name="<%= category[:slug] %>"
         <%= "disabled" if category[:mandatory] %>>
 
-      <label class="switch-paddle" for="cc-<%= category[:slug] %>">
+      <label class="switch-paddle" for="dc-<%= category[:slug] %>">
         <span class="show-for-sr"><%= t("layouts.decidim.data_consent.modal.toggle", consent_category: category[:title]) %></span>
       </label>
     </div>
   </div>
-  <div class="cc-description hide">
+  <div class="dc-description hide">
     <div class="description-text">
       <p><%= category[:description] %></p>
     </div>

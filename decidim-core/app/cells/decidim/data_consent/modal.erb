@@ -1,4 +1,4 @@
-<div class="reveal cc-modal" id="cc-modal" role="dialog" data-close-on-click="false" data-close-on-esc="false" aria-modal="true" data-reveal>
+<div class="reveal dc-modal" id="dc-modal" role="dialog" data-close-on-click="false" data-close-on-esc="false" aria-modal="true" data-reveal>
   <div class="reveal__header">
     <h3 class="reveal__title">
       <%= t("layouts.decidim.data_consent.modal.title") %>
@@ -8,7 +8,7 @@
     </p>
   </div>
 
-  <div class="cc-categories">
+  <div class="dc-categories">
     <% categories.each do |category| %>
       <%= render(
         {
@@ -21,17 +21,17 @@
     <% end %>
   </div>
 
-  <div class="cc-buttons-wrapper flex-center">
-    <div class="cc-buttons-left">
-      <button id="cc-modal-accept" class="button" data-close>
+  <div class="dc-buttons-wrapper flex-center">
+    <div class="dc-buttons-left">
+      <button id="dc-modal-accept" class="button" data-close>
         <%= t("layouts.decidim.data_consent.modal.accept_all") %>
       </button>
-      <button id="cc-modal-reject" class="button hollow" data-close>
+      <button id="dc-modal-reject" class="button hollow" data-close>
         <%= t("layouts.decidim.data_consent.modal.accept_only_essential") %>
       </button>
     </div>
-    <div class="cc-buttons-right">
-      <button id="cc-modal-save" class="button clear" data-close>
+    <div class="dc-buttons-right">
+      <button id="dc-modal-save" class="button clear" data-close>
         <%= t("layouts.decidim.data_consent.modal.save_settings") %>
       </button>
     </div>

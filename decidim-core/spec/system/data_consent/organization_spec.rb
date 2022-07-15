@@ -23,7 +23,7 @@ describe "Data consent within organization", type: :system do
   end
 
   it "discards the data consent" do
-    click_button(id: "cc-dialog-accept")
+    click_button(id: "dc-dialog-accept")
     expect(page).not_to have_content("Information about the cookies used on the website")
   end
 
@@ -49,13 +49,13 @@ describe "Data consent within organization", type: :system do
   if ENV["TEST_SSL"]
     it "sets the cookie with the secure flag" do
       expect(page).to have_content("Information about the cookies used on the website")
-      click_button(id: "cc-dialog-accept")
+      click_button(id: "dc-dialog-accept")
       expect(cookie[:secure]).to be(true)
     end
   else
     it "sets the cookie without the secure flag" do
       expect(page).to have_content("Information about the cookies used on the website")
-      click_button(id: "cc-dialog-accept")
+      click_button(id: "dc-dialog-accept")
       expect(cookie[:secure]).to be(false)
     end
   end

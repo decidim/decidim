@@ -27,11 +27,11 @@ global.window.location = {
 
 describe("ConsentManager", () => {
   const dialogContent = `
-    <div id="cc-dialog-wrapper" class="flex-center" role="region">
-      <div class="cc-dialog padding-vertical-1">
+    <div id="dc-dialog-wrapper" class="flex-center" role="region">
+      <div class="dc-dialog padding-vertical-1">
         <div class="row expanded">
           <div class="columns medium-12 large-8">
-            <div class="cc-content">
+            <div class="dc-content">
               <div class="h5">Information about the cookies used on the website</div>
               <div>
                 We use cookies on our website to improve the performance and content of the site. The cookies enable us to provide a more individual user experience and social media channels.
@@ -39,14 +39,14 @@ describe("ConsentManager", () => {
             </div>
           </div>
           <div class="columns medium-12 large-4">
-            <div class="cc-button-wrapper flex-center">
-              <button id="cc-dialog-accept" class="button">
+            <div class="dc-button-wrapper flex-center">
+              <button id="dc-dialog-accept" class="button">
                 Accept all
               </button>
-              <button id="cc-dialog-reject" class="button hollow">
+              <button id="dc-dialog-reject" class="button hollow">
                 Accept only essential
               </button>
-              <button id="cc-dialog-settings" class="button clear" data-open="cc-modal" aria-controls="cc-modal" aria-haspopup="dialog" tabindex="0">
+              <button id="dc-dialog-settings" class="button clear" data-open="dc-modal" aria-controls="dc-modal" aria-haspopup="dialog" tabindex="0">
                 Settings
               </button>
             </div>
@@ -56,7 +56,7 @@ describe("ConsentManager", () => {
     </div>
   `;
   const modalContent = `
-    <div class="reveal cc-modal" id="cc-modal" role="dialog" data-close-on-click="false" data-close-on-esc="false" aria-modal="true" aria-hidden="true">
+    <div class="reveal dc-modal" id="dc-modal" role="dialog" data-close-on-click="false" data-close-on-esc="false" aria-modal="true" aria-hidden="true">
       <div class="reveal__header">
         <h3 class="reveal__title">Cookie settings</h3>
         <p>
@@ -64,22 +64,22 @@ describe("ConsentManager", () => {
         </p>
       </div>
 
-      <div class="cc-categories">
+      <div class="dc-categories">
         <div class="category-wrapper margin-vertical-1" data-id="essential">
           <div class="category-row flex-center">
-            <button class="cc-title padding-left-3">
-              <span class="h5 cc-category-title">
+            <button class="dc-title padding-left-3">
+              <span class="h5 dc-category-title">
                 <strong>Essential</strong>
               </span>
             </button>
-            <div class="cc-switch">
-              <input class="switch-input" checked="checked" id="cc-essential" type="checkbox" name="essential" disabled="">
-              <label class="switch-paddle" for="cc-essential">
+            <div class="dc-switch">
+              <input class="switch-input" checked="checked" id="dc-essential" type="checkbox" name="essential" disabled="">
+              <label class="switch-paddle" for="dc-essential">
                 <span class="show-for-sr">Toggle Essential</span>
               </label>
             </div>
           </div>
-          <div class="cc-description hide">
+          <div class="dc-description hide">
             <div class="description-text">
               <p>These cookies are essential for the proper functioning of my website. Without these cookies, the website would not work properly.</p>
             </div>
@@ -111,19 +111,19 @@ describe("ConsentManager", () => {
         </div>
         <div class="category-wrapper margin-vertical-1" data-id="preferences">
           <div class="category-row flex-center">
-            <button class="cc-title padding-left-3">
-              <span class="h5 cc-category-title">
+            <button class="dc-title padding-left-3">
+              <span class="h5 dc-category-title">
                 <strong>Preferences</strong>
               </span>
             </button>
-            <div class="cc-switch">
-              <input class="switch-input" id="cc-preferences" type="checkbox" name="preferences">
-              <label class="switch-paddle" for="cc-preferences">
+            <div class="dc-switch">
+              <input class="switch-input" id="dc-preferences" type="checkbox" name="preferences">
+              <label class="switch-paddle" for="dc-preferences">
                 <span class="show-for-sr">Toggle Preferences</span>
               </label>
             </div>
           </div>
-          <div class="cc-description hide">
+          <div class="dc-description hide">
             <div class="description-text">
               <p>These cookies allow the website to remember the choices you have made in the past</p>
             </div>
@@ -131,19 +131,19 @@ describe("ConsentManager", () => {
         </div>
         <div class="category-wrapper margin-vertical-1" data-id="analytics">
           <div class="category-row flex-center">
-            <button class="cc-title padding-left-3">
-              <span class="h5 cc-category-title">
+            <button class="dc-title padding-left-3">
+              <span class="h5 dc-category-title">
                 <strong>Analytics and statistics</strong>
               </span>
             </button>
-            <div class="cc-switch">
-              <input class="switch-input" id="cc-analytics" type="checkbox" name="analytics">
-              <label class="switch-paddle" for="cc-analytics">
+            <div class="dc-switch">
+              <input class="switch-input" id="dc-analytics" type="checkbox" name="analytics">
+              <label class="switch-paddle" for="dc-analytics">
                 <span class="show-for-sr">Toggle Analytics and statistics</span>
               </label>
             </div>
           </div>
-          <div class="cc-description hide">
+          <div class="dc-description hide">
             <div class="description-text">
               <p>Analytics cookies are cookies that track how users navigate and interact with a website. The information collected is used to help the website owner improve the website.</p>
             </div>
@@ -151,32 +151,32 @@ describe("ConsentManager", () => {
         </div>
         <div class="category-wrapper margin-vertical-1" data-id="marketing">
           <div class="category-row flex-center">
-            <button class="cc-title padding-left-3">
-              <span class="h5 cc-category-title">
+            <button class="dc-title padding-left-3">
+              <span class="h5 dc-category-title">
                 <strong>Marketing</strong>
               </span>
             </button>
-            <div class="cc-switch">
-              <input class="switch-input" id="cc-marketing" type="checkbox" name="marketing">
-              <label class="switch-paddle" for="cc-marketing">
+            <div class="dc-switch">
+              <input class="switch-input" id="dc-marketing" type="checkbox" name="marketing">
+              <label class="switch-paddle" for="dc-marketing">
                 <span class="show-for-sr">Toggle Marketing</span>
               </label>
             </div>
           </div>
-          <div class="cc-description hide">
+          <div class="dc-description hide">
             <div class="description-text">
               <p>These cookies collect information about how you use the website, which pages you visited and which links you clicked on.</p>
             </div>
           </div>
         </div>
       </div>
-      <div class="cc-buttons-wrapper flex-center">
-        <div class="cc-buttons-left">
-          <button id="cc-modal-accept" class="button" data-close="">Accept all</button>
-          <button id="cc-modal-reject" class="button hollow" data-close="">Accept only essential</button>
+      <div class="dc-buttons-wrapper flex-center">
+        <div class="dc-buttons-left">
+          <button id="dc-modal-accept" class="button" data-close="">Accept all</button>
+          <button id="dc-modal-reject" class="button hollow" data-close="">Accept only essential</button>
         </div>
-        <div class="cc-buttons-right">
-          <button id="cc-modal-save" class="button clear" data-close="">Save settings</button>
+        <div class="dc-buttons-right">
+          <button id="dc-modal-save" class="button clear" data-close="">Save settings</button>
         </div>
       </div>
     </div>
@@ -184,7 +184,7 @@ describe("ConsentManager", () => {
   const cookieWarningContent = `
     <div class="dataconsent-warning flex-center padding-1 hide">
       <p>You need to enable all cookies in order to see this content.</p>
-      <a href="#" class="button margin-vertical-2" data-open="cc-modal">
+      <a href="#" class="button margin-vertical-2" data-open="dc-modal">
         Change cookie settings
       </a>
     </div>
@@ -220,7 +220,7 @@ describe("ConsentManager", () => {
 
     document.body.innerHTML = dialogContent + modalContent + cookieWarningContent;
 
-    const modal = document.querySelector("#cc-modal");
+    const modal = document.querySelector("#dc-modal");
     const categories = [...modal.querySelectorAll(".category-wrapper")].map((el) => el.dataset.id);
     manager = new ConsentManager({
       modal: modal,

@@ -2,7 +2,7 @@ import Cookies from "js-cookie";
 
 class ConsentManager {
   // Options should contain the following keys:
-  // - modal - HTML element of the data consent modal (e.g. "<div id="cc-modal">Foo bar</div>")
+  // - modal - HTML element of the data consent modal (e.g. "<div id="dc-modal">Foo bar</div>")
   // - categories - Available data consent categories (e.g. ["essential", "preferences", "analytics", "marketing"])
   // - cookieName - Name of the cookie saved in the browser (e.g. "decidim-consent")
   // - warningElement - HTML element to be shown when user has not given the necessary data consent to display the content.

@@ -1,7 +1,7 @@
-#cc-dialog-wrapper{
+#dc-dialog-wrapper{
   z-index: 1000000;
 
-  .cc-dialog{
+  .dc-dialog{
     position: fixed;
     background-color: $white;
     bottom: 0;
@@ -11,7 +11,7 @@
       width: unset;
     }
 
-    .cc-button-wrapper{
+    .dc-button-wrapper{
       flex-direction: column;
       margin: 1rem 0;
 
@@ -36,7 +36,7 @@
   }
 }
 
-#cc-modal{
+#dc-modal{
   background-color: $white;
 
   .category-wrapper{
@@ -47,7 +47,7 @@
       position: relative;
       justify-content: space-between;
 
-      .cc-title{
+      .dc-title{
         &::before{
           border: solid #2d4156;
           border-width: 0 2px 2px 0;
@@ -68,7 +68,7 @@
         }
       }
 
-      .cc-switch{
+      .dc-switch{
         padding: .5rem 0 0;
       }
     }
@@ -88,7 +88,7 @@
     }
   }
 
-  .cc-buttons-wrapper{
+  .dc-buttons-wrapper{
     justify-content: space-between;
   }
 }

@@ -7,7 +7,7 @@ module Capybara
       visit decidim.root_path if options[:visit_root]
 
       dialog_present = begin
-        find("#cc-dialog-wrapper")
+        find("#dc-dialog-wrapper")
       rescue Capybara::ElementNotFound => _e
         false
       end
