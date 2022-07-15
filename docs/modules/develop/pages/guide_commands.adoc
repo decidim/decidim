@@ -82,5 +82,5 @@ bundle exec rubocop -a
 
 == Markdown linter
 
-This project uses https://github.com/markdownlint/markdownlint[markdownlint] to check markdown files and flag style issues.
+This project uses https://github.com/igorshubovych/markdownlint-cli[markdownlint-cli] to check markdown files and flag style issues.
 
