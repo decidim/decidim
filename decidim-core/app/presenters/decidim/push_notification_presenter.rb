@@ -10,7 +10,8 @@ module Decidim
     end
 
     def body
-      ActionView::Base.full_sanitizer.sanitize(event_class_instance.notification_title)
+      # Not using Rails sanitizers here because they escape HTML entities (i.e &amp;) and we want to keep them
+      event_class_instance.notification_title.gsub(%r{</?[^>]*>}, "") if event_class_instance.notification_title.present?
     end
 
     def icon
