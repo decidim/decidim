@@ -6,9 +6,10 @@ Remember to follow the Gitflow branching workflow.
 
 == Create the stable branch for the release
 
+. Merge all the https://github.com/decidim/decidim/pulls?q=is%3Apr+is%3Aopen+author%3Adecidim-bot+sort%3Aupdated-desc+base%3Adevelop[Crowdin pull requests created by the user `decidim-bot`], specially the one that's going to be marged against `develop` that should be returned by the provided example search.
 . Go to develop with `git checkout develop`
 . Create the release branch `git checkout -b release/x.y-stable && git push origin release/x.y-stable`.
-. If required, add the release branch to Crowdin so that any pending translations will generate a PR to this branch. This needs to be done with the generic user `decidim` in the GitHub's Crowdin integration, as this is the user that initially configured the installation and other admins in the Crowdin organization can't change it.
+. Add the release branch to Crowdin so that any pending translations will generate a PR to this branch. This needs to be done with the generic user `decidim` in the GitHub's Crowdin integration, as this is the user that initially configured the installation and other admins in the Crowdin organization can't change it. See instructions for this on the "Create the stable branch in Crowdin". Note that after the branch is configured at Crowdin, it takes some time for the synchronization to happen, so be prepared to wait a couple of hours.
 
 Mark `develop` as the reference to the next release:
 
@@ -25,27 +26,90 @@ After that, the header with the current version and link with the same beforemen
 
 [source,markdown]
 ----
-  ## [Unreleased](https://github.com/decidim/decidim/tree/HEAD)
+## [Unreleased](https://github.com/decidim/decidim/tree/HEAD)
 
-  ### Added
+### 1. Upgrade notes
 
-  ### Changed
+As usual, we recommend that you have a full backup, of the database, application code and static files.
 
-  ### Fixed
+To update, follow these steps:
 
-  ### Removed
+#### 1.1. Update your Gemfile
 
-  ## [v0.XX.0](https://github.com/decidim/decidim/releases/tag/v0.XX.0)
+```ruby
+gem "decidim", github: "decidim/decidim"
+gem "decidim-dev", github: "decidim/decidim"
+```
 
-  ### Added
-  ...
+#### 1.2. Run these commands
 
-  ## Previous versions
+```console
+bundle update decidim
+bin/rails decidim:upgrade
+bin/rails db:migrate
+```
 
-  Please check [0.XX-stable](https://github.com/decidim/decidim/blob/release/0.XX-stable/CHANGELOG.md) for previous changes.
+#### 1.3. Follow the steps and commands detailed in these notes
+
+### 2. General notes
+
+### 3. One time actions
+
+These are one time actions that need to be done after the code is updated in the production database.
+
+#### 3.1. [[TITLE OF THE ACTION]]
+
+You can read more about this change on PR [\#XXXX](https://github.com/decidim/decidim/pull/XXXX).
+
+### 4. Scheduled tasks
+
+Implementers need to configure these changes it in your scheduler task system in the production server. We give the examples
+ with `crontab`, although alternatively you could use `whenever` gem or the scheduled jobs of your hosting provider.
+
+#### 4.1. [[TITLE OF THE TASK]]
+
+```bash
+4 0 * * * cd /home/user/decidim_application && RAILS_ENV=production bundle exec rails decidim:TASK
+```
+
+You can read more about this change on PR [\#XXXX](https://github.com/decidim/decidim/pull/XXXX).
+
+### 5. Changes in APIs
+
+### Added
+
+### Changed
+
+### Fixed
+
+### Removed
+
+...
+
+## Previous versions
+
+Please check [0.XX-stable](https://github.com/decidim/decidim/blob/release/0.XX-stable/CHANGELOG.md) for previous changes.
 ----
 
 . Push the changes `git add . && git commit -m "Bump develop to next release version" && git push origin develop`
+
+== Create the stable branch in Crowdin
+
+. You'll need to first create the version branch in Crowdin
+ .. Sign in as manager in Crowdin.
+ .. Go to the https://translate.decidim.org/project/decidim/content/files[Content tab in the Decidim project]
+ .. Click on the dropdown of the "New folder" button (top right) and select "New Version Branch"
+ .. On the modal, add the name of the branch. As it doesn't allow the slash character in the name ("/") you'll need to change it to a dot ("."). So, for instance, "release/0.20-stable" would become "release.0.20-stable". See other releases if in doubt, it should be consistent.
+ .. After creating the version branch, edit it and change the "Title as it appears to translators" to the name with the slash ("release/0.20-stable")
+. Then you'll be able to setup the GitHub integration in Crowdin
+ .. Sign in as user "Decidim" in Crowdin. NOTE: this user is the only one that can do this.
+ .. Go to the https://translate.decidim.org/project/decidim/apps[Integrations tab in the Decidim project]
+ .. Click on GitHub
+ .. Click on the "Edit" button
+ .. In the "Select Branches for Translation", search the branch. Click on it.
+ .. Change the "Service Branch Name" to be consistent with the other branches. So, for instance, "release/0.20-stable" would become "chore/l10n/release/0.20-stable".
+ .. Click on "Save"
+ .. After a couple of hours, if there are any changes in Crowdin that would involve this branch, you'll see the correspondent "Decidim bot" Pull Request in GitHub.
 
 == Producing the CHANGELOG.md
 
@@ -66,6 +130,22 @@ Once you've checked the list of changes, it's time to actually generating the ch
 ----
 bin/changelog_generator
 ----
+
+In order to generate the changelog, you need to know the SHA hash of the first commit that was not part of the previous release. You can check the commit hash by inspecting the commit log of the `.decidim-version` file as follows when in the correct release branch:
+
+[source,bash]
+----
+git log -1 --format=oneline .decidim-version
+----
+
+Alternatively, you can find the first commit after the point of time that the two release branches have separated from each other as follows:
+
+[source,bash]
+----
+git log --reverse --pretty=format:"%H" $(git merge-base release/0.XX-stable release/0.YY-stable)..release/0.YY-stable | head -1
+----
+
+In the above command, replace `0.XX` with the previous release and `0.YY` with the current release you are generating the change log for. This command works only for major releases, not for patch or bugfix releases.
 
 Running it as is, or passing it the `--help` flag, will render the help section for the script. In order to actually run the script, follow the instructions:
 

@@ -12,7 +12,6 @@ pl:
         start_time: Głosowanie rozpoczyna się o
         title: Tytuł
       question:
-        description: Opis
         max_selections: Maksymalna liczba opcji do wybrania
         min_selections: Żadna z powyższych opcji
         title: Tytuł
@@ -243,7 +242,6 @@ pl:
               minimum_answers: Pytania muszą mieć <strong>co najmniej dwie odpowiedzi</strong>.
               minimum_questions: Wybory <strong>muszą mieć co najmniej jedno pytanie</strong>.
               published: Wybory <strong>nie zostały opublikowane</strong>.
-              time_before: Godzina rozpoczęcia jest <strong>mniej niż 3 godziny</strong> przed rozpoczęciem wyborów.
               trustees_number: Przestrzeń partycypacyjna <strong>musi mieć co najmniej %{number} mężów (osób) zaufania z kluczem publicznym</strong>.
             invalid: Wystąpił problem z konfiguracją tych wyborów
             no_trustees: Nie skonfigurowano mężów (osób) zaufania dla tej przestrzeni partycypacyjnej
@@ -299,7 +297,12 @@ pl:
             success: Prośba o publikację wyników została pomyślnie przesłana do Tablicy danych wyborczych
             title: Obliczone wyniki
           tally_started:
+            invalid: Wystąpił błąd podczas usuwania męża (osoby) zaufania
             mark_as_missing: Oznacz jako brakujący
+            mark_as_missing_description: Wszyscy mężowie zaufania powinni uczestniczyć w tym procesie, ale jeśli nie może wziąć udziału w tym procesie, możesz oznaczyć go jako brakujący.
+            success: Brakująca uwaga męża zaufania została pomyślnie wysłana do Tablicy
+            tally_completion: 'Proces zostanie zakończony, gdy wszyscy mężowie zaufania będą aktywni lub zostaną oznaczeni jako brakujący. Wymagana ilość mężów zaufania: %{quorum}.'
+            undo_mark_as_missing: Przed zakończeniem procesu będzie mógł uczestniczyć mąż zaufania oznaczony jako brakujący omyłkowo. Mężowie zaufania mogą postępować jak zwykle, a oznaczenie jako "brakujący" zostanie zignorowane.
           vote:
             errors:
               time_after: Wybory nadal trwają. Musisz poczekać do daty zakończenia (%{end_time}) aby zamknąć głosowanie.

@@ -14,7 +14,7 @@
       </div>
     </div>
     <div class="columns mediumlarge-8 large-6 card--process__column">
-      <div class="card--full__image" style="background-image:url(<%= cta_settings&.image_url || promoted_process_group.attached_uploader(:hero_image).path %>)">
+      <div class="card--full__image" style="background-image:url('<%= cta_settings&.image_url || promoted_process_group.attached_uploader(:hero_image).path %>')">
         <% if cta_settings.present? %>
           <div class="card__content row collapse">
             <div class="large-6 large-offset-6 columns">

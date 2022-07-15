@@ -12,7 +12,6 @@ nl:
         start_time: Stemming begint om
         title: Aanspreektitel
       question:
-        description: Beschrijving
         max_selections: Maximum aantal selecties
         title: Aanspreektitel
       voting:
@@ -205,7 +204,6 @@ nl:
               minimum_answers: Vragen moeten <strong>minstens twee antwoorden</strong> hebben.
               minimum_questions: De stemronde <strong>moet ten minste één vraag</strong> hebben.
               published: De stemronde is <strong>niet gepubliceerd</strong>.
-              time_before: De starttijd van de stemronde is over <strong>minder dan 3 uur</strong>.
               trustees_number: De participatieve ruimte <strong>moet ten minste %{number} trustees met publieke sleutel</strong> hebben.
             invalid: Er is een fout opgetreden bij het aanmaken van deze stemronde
             no_trustees: Er zijn geen Trustees geconfigureerd voor deze participatieve ruimte

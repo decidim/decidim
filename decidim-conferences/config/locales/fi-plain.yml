@@ -59,7 +59,9 @@ fi-pl:
         avatar: Avatar
         conference_meeting_ids: Liittyvät tapaamiset
         full_name: Koko nimi
+        personal_url: Henkilökohtainen URL-osoite
         position: Asema
+        short_bio: Lyhyt henkilökuvaus
         twitter_handle: Twitter-käyttäjänimi
         user_id: Käyttäjä
       conference_user_role:

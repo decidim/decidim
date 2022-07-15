@@ -290,6 +290,10 @@ fi-pl:
           send_to_technical_validation: "%{user_name} lähetti aloitteen %{resource_name} tekniseen validointiin"
           unpublish: "%{user_name} hylkäsi aloitteen %{resource_name}"
           update: "%{user_name} päivitti aloitetta %{resource_name}"
+        initiatives_type:
+          create: "%{user_name} loi aloitetyypin %{resource_name}"
+          delete: "%{user_name} poisti aloitetyypin %{resource_name}"
+          update: "%{user_name} päivitti aloitetyyppiä %{resource_name}"
       admin_states:
         accepted: Tarpeeksi allekirjoituksia
         created: Luotu
@@ -565,6 +569,8 @@ fi-pl:
           published: Julkaistu
           rejected: Liian vähän allekirjoituksia
           validating: Teknisessä tarkastuksessa
+      signature_interval:
+        title: Allekirjoituksen keräysaika
       states:
         accepted: Hyväksytyt
         expired: Vanhentuneet

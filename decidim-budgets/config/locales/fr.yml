@@ -259,6 +259,8 @@ fr:
           filter: Filtrer
           filter_by: Filtrer par
           unfold: Voir la suite
+        index:
+          view_project: Voir le projet
         order_progress:
           vote: Voter
         order_selected_projects:

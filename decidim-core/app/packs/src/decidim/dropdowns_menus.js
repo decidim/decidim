@@ -1,12 +1,16 @@
-/* eslint-disable require-jsdoc */
+/* eslint-disable valid-jsdoc */
 
-// This will apply some fixes for the Foundation dropdown menu element
-// according to W3C instructions at:
-// https://www.w3.org/TR/wai-aria-practices/examples/menu-button/menu-button-links.html
-//
-// NOTE:
-// This needs to run AFTER Foundation has been initialized because those
-// initializers will affect the drop down menu elements.
+/**
+ * @deprecated since feature/redesign
+ *
+ * This will apply some fixes for the Foundation dropdown menu element
+ * according to W3C instructions at:
+ * https://www.w3.org/TR/wai-aria-practices/examples/menu-button/menu-button-links.html
+ *
+ * NOTE:
+ * This needs to run AFTER Foundation has been initialized because those
+ * initializers will affect the drop down menu elements.
+ */
 export default function fixDropdownMenus() {
   $("[data-dropdown-menu]").each((_i, element) => {
     // This will break navigation on macOS VoiceOver app since it will let the

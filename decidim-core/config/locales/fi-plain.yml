@@ -135,6 +135,7 @@ fi-pl:
       email_change:
         body1: Olemme lähettäneet viestin osoitteeseen %{unconfirmed_email} vahvistaaksemme uuden sähköpostiosoitteesi.
         body2: Haluatko tilata vahvistussähköpostin uudestaan? %{resend_link} tai %{cancel_link}.
+        cancel: peruuta
         cancel_error: Sähköpostin muutosta ei voitu peruuttaa.
         cancel_successfully: Sähköpostin muuttamisen peruuttaminen onnistui.
         resend_error: Vahvistussähköpostia ei voitu lähettää uudestaan.
@@ -157,11 +158,36 @@ fi-pl:
         create: "%{user_name} loi %{resource_name} alueen"
         delete: "%{user_name} poisti %{resource_name} -alueen"
         update: "%{user_name} päivitti %{resource_name} -alueen"
+      area_type:
+        create: "%{user_name} loi aluetyypin %{resource_name}"
+        delete: "%{user_name} poisti aluetyypin %{resource_name}"
+        update: "%{user_name} päivitti aluetyyppiä %{resource_name}"
+      attachment:
+        create: "%{user_name} loi liitteen %{resource_name}"
+        delete: "%{user_name} poisti liitteen %{resource_name}"
+        update: "%{user_name} päivitti liitettä %{resource_name}"
+      attachment_collection:
+        create: "%{user_name} loi liitekansion %{resource_name}"
+        delete: "%{user_name} poisti liitekansion %{resource_name}"
+        update: "%{user_name} päivitti liitekansiota %{resource_name}"
+      category:
+        create: "%{user_name} lisäsi aihepiirin %{resource_name} tilaan %{space_name}"
+        delete: "%{user_name} poisti aihepiirin %{resource_name} tilasta %{space_name}"
+        update: "%{user_name} päivitti aihepiiriä %{resource_name} tilassa %{space_name}"
       component:
         create: "%{user_name} lisäsi %{resource_name} -komponentin %{space_name} -tilaan"
         delete: "%{user_name} poisti %{resource_name} -komponentin %{space_name} -tilasta"
+        export_component: "%{user_name} vei komponentin %{component_name} %{resource_name} tilassa %{space_name} tiedostomuodossa %{format_name}"
         publish: "%{user_name} julkaisi %{resource_name} -komponentin %{space_name} -tilassa"
         unpublish: "%{user_name} lopetti %{resource_name} -komponentin julkaisemisen %{space_name} -tilassa"
+        update_permissions_with_space: "%{user_name} päivitti oikeuksia kohteessa %{resource_name} tilassa %{space_name}"
+      contextual_help_section:
+        update: "%{user_name} päivitti ohjeosiota %{resource_name}"
+      helpers:
+        answers: vastaukset
+        comments: kommentit
+        projects: projektit
+        results: tulokset
       impersonation_log:
         manage: "%{user_name} hallinnoi käyttäjää %{resource_name}, koska %{reason}"
       moderation:
@@ -178,6 +204,7 @@ fi-pl:
         update: "%{user_name} päivitti %{resource_name} OAuth-sovellusta"
       organization:
         update: "%{user_name} päivitti organisaation asetuksia"
+        update_external_domain: "%{user_name} päivitti organisaation ulkoisia verkkotunnuksia"
       participatory_space_private_user:
         create: "%{user_name} kutsui %{resource_name} yksityiseksi käyttäjaksi"
         create_via_csv: "%{user_name} kutsui yksityisen osallistujan %{resource_name} CSV-tuonnin kautta"
@@ -189,6 +216,10 @@ fi-pl:
         delete_with_parent: "%{user_name} poisti %{resource_name} teeman %{parent_scope} teeman alta"
         update: "%{user_name} päivitti %{resource_name} teemaa"
         update_with_parent: "%{user_name} päivitti %{resource_name} teemaa %{parent_scope} teeman alla"
+      scope_type:
+        create: "%{user_name} loi teematyypin %{resource_name}"
+        delete: "%{user_name} poisti teematyypin %{resource_name}"
+        update: "%{user_name} päivitti teematyyppiä %{resource_name}"
       static_page:
         create: "%{user_name} loi staattisen sivun %{resource_name}"
         delete: "%{user_name} poisti staattisen sivun %{resource_name}"
@@ -496,7 +527,6 @@ fi-pl:
           newsletter: Vastaanota silloin tällöin olennaista tietoa sisältävä uutiskirje
           newsletter_title: Yhteydenottolupa
           nickname_help: Nimimerkkisi palvelussa %{organization}. Voi sisältää ainoastaan kirjaimia, numeroita sekä yhdysmerkkejä "-" ja alaviivoja "_".
-          password_help: "Tulee sisältää vähintään %{minimun_characters} merkkiä, ei voi olla yleisesti käytetty salasana (esim. 123456), eikä voi vastata nimimerkkiäsi tai sähköpostiosoitettasi."
           sign_in: Kirjaudu sisään
           sign_up: Rekisteröidy
           sign_up_as:
@@ -907,6 +937,7 @@ fi-pl:
         success: Liittymispyyntö luotu onnistuneesti. Ylläpitäjä tarkistaa pyyntösi ennen hyväksymistäsi ryhmään.
       leave:
         error: Ryhmästä poistuttaessa esiintyi ongelma
+        last_admin: Et voi poistaa itseäsi tästä ryhmästä, koska olet sen ainoa hallinnoija. Tee toisesta ryhmän jäsenestä hallinnoija, mikäli haluat poistua ryhmästä.
         success: Ryhmästä poistuminen onnistui.
       members:
         accept_or_reject_join_requests: 'Seuraavat käyttäjät ovat tehneet liittymispyynnön tähän ryhmään. Hyväksy tai hylkää heidän pyyntönsä:'
@@ -919,6 +950,7 @@ fi-pl:
       no_user_groups: Ei kuulu vielä yhteenkään ryhmään.
       roles:
         admin: Ylläpitäjä
+        creator: Hallinnoija
         member: Jäsen
       update:
         error: Ryhmää päivitettäessä esiintyi ongelma
@@ -955,6 +987,7 @@ fi-pl:
         unknown_action: "%{user_name} suoritti toimenpiteen koskien kohdetta %{resource_name}"
         unknown_action_with_space: "%{user_name} suoritti toimenpiteen koskien kohdetta %{resource_name} tilassa %{space_name}"
         update: "%{user_name} päivitti %{resource_name}"
+        update_permissions_with_space: "%{user_name} päivitti kohteen %{resource_name} oikeuksia tilassa %{space_name}"
         update_with_space: "%{user_name} päivitti %{resource_name} tilassa %{space_name}"
       value_types:
         area_presenter:
@@ -1127,10 +1160,22 @@ fi-pl:
       no_notifications: Ei vielä ilmoituksia.
       show:
         missing_event: Hups, tämä ilmoitus kuuluu kohteeseen, joka ei ole enää käytettävissä. Voit merkitä sen luetuksi.
+    notifications_digest_mailer:
+      header:
+        daily: Päivittäinen ilmoitusyhteenveto
+        weekly: Viikottainen ilmoitusyhteenveto
+      hello: Hei %{name},
+      intro:
+        daily: 'Tässä on lista edellisen päivän ilmoituksista niistä asioista, joita seuraat:'
+        weekly: 'Tässä on lista edellisen viikon ilmoituksista niistä asioista, joita seuraat:'
+      outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat ilmoitukseen liittyviä sisältöjä tai niiden tekijöitä. Voit lopettaa seuraamisen näiden sisältöjen sivuilta.
+      see_more: Näytä lisää ilmoituksia
+      subject: Tämä on sähköpostiyhteenvetosi
     notifications_settings:
       show:
         administrators: Hallintakäyttäjät
         allow_public_contact: Salli kenen tahansa lähettää minulle yksityisviestejä, vaikka en seuraisi heitä.
+        allow_push_notifications: Vastaanota push-ilmoituksia, mikäli haluat tietää, mitä alustalla tapahtuu, kun et ole paikalla. Voit poistaa ne käytöstä milloin tahansa.
         direct_messages: Vastaanota yksityisviestejä kaikilta
         email_on_moderations: Haluan saada sähköpostia aina, kun jotain tai joku käyttäjä ilmoitetaan moderoitavaksi.
         everything_followed: Kaikki mitä seuraan
@@ -1138,7 +1183,15 @@ fi-pl:
         newsletters: Uutiskirjeet
         notification_settings:
           close_meeting_reminder: Haluan vastaanottaa sähköpostimuistutuksia suljetuista tapaamisista, jotka odottavat raportointia
+        notifications_sending_frequencies:
+          daily: Päivittäin
+          none: En koskaan
+          real_time: Reaaliajassa
+          weekly: Viikoittain
+        notifications_sending_frequency: Kuinka usein haluat vastaanottaa ilmoituksia sähköpostitse?
         own_activity: Oma toiminta, kuten omia ehdotuksia koskevat kommentit tai maininnat
+        push_notifications: Push-ilmoitukset
+        push_notifications_reminder: Mikäli haluat vastaanottaa push-ilmoituksia alustalta, sinun on sallittava ne ensin selaimesi asetuksista tälle sivustolle.
         receive_notifications_about: Haluan saada ilmoituksia
         update_notifications_settings: Tallenna muutokset
       update:
@@ -1574,7 +1627,6 @@ fi-pl:
     passwords:
       edit:
         change_my_password: Vaihda salasanani
-        change_your_password: Vaihda salasanasi
         confirm_new_password: Vahvista uusi salasana
         new_password: Uusi salasana
         password_help: "Tulee sisältää vähintään %{minimun_characters} merkkiä, ei voi olla yleisesti käytetty salasana (esim. 123456), eikä voi vastata nimimerkkiäsi tai sähköpostiosoitettasi."
@@ -1665,10 +1717,56 @@ fi-pl:
     timestamp_error_message: Pahoittelut, olit liian nopea! Lähetä lomake uudestaan.
   layouts:
     decidim:
+      cookie_consent:
+        cookie_details:
+          columns:
+            description: Kuvaus
+            name: Nimi
+            service: Palvelu
+            type: Tyyppi
+          cookies:
+            _session_id:
+              description: Mahdollistaa verkkosivuston muistavan käyttäjän, kun käyttäjä liikkuu sivuston eri sivujen välillä.
+              service: Tämä sivusto
+            decidim-consent:
+              description: Tallentaa tietoja sallimistasi evästeistä tällä sivustolla.
+              service: Tämä sivusto
+          types:
+            cookie: Eväste
+        dialog:
+          accept_all: Hyväksy kaikki
+          accept_only_essential: Vain välttämättömät
+          cookie_settings: Asetukset
+          description: Käytämme sivustollamme evästeitä sivuston suorituskyvyn ja sisällön parantamiseksi. Evästeiden avulla voimme tarjota yksilöllisemmän käyttäjäkokemuksen ja sisältöjä sosiaalisen median kanavista.
+          title: Tietoa verkkosivustolla käytetyistä evästeistä
+        modal:
+          accept_all: Hyväksy kaikki
+          accept_only_essential: Vain välttämättömät
+          analytics:
+            description: Analytiikkaevästeet keräävät tietoja siitä, kuinka käyttäjät selaavat verkkosivustoa ja käyttävät sen eri ominaisuuksia. Kerättyjä tietoja käytetään auttamaan sivuston omistajaa parantamaan sivustoa.
+            title: Analytiikka ja tilastot
+          description: Käytämme evästeitä varmistaaksemme sivuston perustoiminnot ja parantaaksemme sen käyttökokemusta. Voit hyväksyä tai estää evästekategorioita haluamallasi tavalla koska tahansa.
+          essential:
+            description: Nämä evästeet ovat välttämättömiä verkkosivuston toiminnan kannalta. Ilman näitä evästeitä sivusto ei toimi kunnolla.
+            title: Välttämättömät
+          marketing:
+            description: Nämä evästeet keräävät tietoa siitä, miten käytät verkkosivustoa, millä sivuilla vierailet ja mitä linkkejä olet klikannut.
+            title: Markkinointi
+          preferences:
+            description: Näiden evästeiden avulla verkkosivusto muistaa aikaisemmin tekemäsi henkilökohtaiset valinnat ja mieltymykset
+            title: Mieltymykset
+          save_settings: Tallenna asetukset
+          title: Evästeasetukset
+          toggle: Muuta tilaa kohteelle %{consent_category}
+        warning:
+          all_cookies: kaikki evästeet
+          change_cookie_settings: Muuta evästeasetuksiasi
+          need_cookies: Sinun täytyy sallia %{cookies}-evästeet nähdäksesi tämän sisällön.
       edit_link:
         edit: Muokkaa
       footer:
         cc_by_license: Creative Commons -lisenssi
+        cookie_settings: Evästeasetukset
         decidim_logo: Decidim-logo
         download_open_data: Lataa avoimet datatiedostot
         made_with_open_source: Verkkosivusto luotu <a target="_blank" href="https://github.com/decidim/decidim">vapaan ohjelmiston</a> avulla.

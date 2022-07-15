@@ -20,6 +20,7 @@ module Decidim
         request.env["decidim.current_organization"] = component.organization
         request.env["decidim.current_participatory_space"] = component.participatory_space
         request.env["decidim.current_component"] = component
+        stub_const("Decidim::Paginable::OPTIONS", [100])
       end
 
       describe "GET index" do
