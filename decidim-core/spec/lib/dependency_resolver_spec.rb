@@ -196,6 +196,12 @@ module Decidim
       let(:gems) { %w(decidim-core decidim-budgets) }
 
       before do
+        # In CI the default bundle is frozen which would cause the dummy
+        # lockfile generation not to work properly as it would skip the local
+        # gemspecs. Locally you can try this running the specs with
+        # `BUNDLE_FROZEN=true`.
+        allow(Bundler).to receive(:frozen_bundle?).and_return(false)
+
         # Silence the bundler output
         allow(Bundler.ui).to receive(:info)
 
