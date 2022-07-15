@@ -218,14 +218,6 @@ module Decidim
         puts ">>>>> root"
         puts root_path
         puts "<<<<< root"
-        puts ">>>>> root dirs"
-        Dir.entries(root_path).each do |item|
-          path = File.join(root_path, item)
-          next if !File.directory?(path) || item == "." || item == ".."
-
-          puts path
-        end
-        puts "<<<<< root dirs"
         puts ">>>>> dependencies"
         definition.dependencies.each { |dep| puts dep.name }
         puts "<<<<< dependencies"
