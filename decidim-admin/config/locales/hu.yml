@@ -265,6 +265,8 @@ hu:
       block_user:
         new:
           action: Fiók blokkolása és igazolás küldése
+          description: Egy felhasználó letiltása használhatatlanná teszi a fiókját. Az indoklásban megadhat bármilyen iránymutatást arra vonatkozóan, hogy miként lehetne feloldani a felhasználó blokkolását.
+          title: '%{name} felhasználó blokkolása'
       categories:
         create:
           error: Hiba történt a kategória létrehozása során.
@@ -307,6 +309,7 @@ hu:
           headers:
             actions: Műveletek
             name: Elem neve
+            scope: Komponens hatóköre
             type: Elem típusa
         new:
           add: Elem hozzáadása
@@ -324,11 +327,13 @@ hu:
         'false': 'Nincs'
         managed_user_name: Kezelt felhasználó
         solved: Megoldva
+        title: Ellenőrzési konfliktusok
         transfer:
           email: Email
           error: Hiba történt a jelenlegi résztvevő kezelt résztvevővé transzferálása során.
           name: Név
           reason: Ok
+          success: Az átvitel sikeresen befejezve.
           title: Átvezetés
         'true': 'Igen'
         user_name: Felhasználó
@@ -336,6 +341,12 @@ hu:
         show:
           view_more_logs: További naplók megtekintése
           welcome: Üdvözöljük a Decidim Admin Panelben.
+      domain_whitelist:
+        form:
+          domain_too_short: Túl rövid domain
+        update:
+          error: Nem lehetett frissíteni a domain whitelistet
+          success: A domain whiteliste sikeresen frissítésre került
       exports:
         export_as: "%{name} mint %{export_format}"
         formats:
@@ -349,6 +360,7 @@ hu:
           label: Kategória
         filter_label: Szűrés
         invitation_accepted_at_present:
+          label: Meghívás elfogadva
           values:
             'false': 'Nem'
             'true': 'Igen'
@@ -357,6 +369,13 @@ hu:
           values:
             'false': 'Nincs'
             'true': 'Igen'
+        moderated_users:
+          reports_reason_eq:
+            label: A jelentés oka
+            values:
+              does_not_belong: Nem tartozik hozzá
+              offensive: Offenzív
+              spam: Spam
         moderations:
           reportable_type_string_eq:
             label: Típus
@@ -373,6 +392,9 @@ hu:
               'true': Elfogadva
           user_invitation_sent_at_not_null:
             label: Meghívó kiküldve
+            values:
+              'false': Nincs elküldve
+              'true': Elküldve
         private_space_eq:
           label: Magán
           values:
@@ -388,9 +410,14 @@ hu:
         search_label: Keresés
         search_placeholder:
           name_or_nickname_or_email_cont: Keresés %{collection} email, név vagy becenév alapján.
+          report_count_eq: Jelentések száma
           title_cont: Keresés %{collection} cím alapján.
         state_eq:
           label: Állapot
+          values:
+            all: Összes
+            pending: Függőben levő
+            rejected: Elutasított
       help_sections:
         error: Hiba történt a súgószakaszok frissítésekor
         form:
@@ -542,6 +569,10 @@ hu:
             phone: Telefon
             state: Állapot
             users_count: Résztvevők száma
+      moderated_users:
+        tabs:
+          blocked: Letiltva
+          unblocked: Nincs letiltva
       moderations:
         index:
           title: Moderálás
@@ -576,6 +607,7 @@ hu:
       newsletters:
         create:
           error: Hiba történt a hírlevél létrehozása során.
+          success: A hírlevél létrehozása sikeres. Kérjük, ellenőrizze a hírlevelet, mielőtt elküldené.
         deliver:
           error: Hiba történt a hírlevél kézbesítése során.
           success: Hírlevél kézbesítése sikeres.
@@ -658,12 +690,15 @@ hu:
           title: '"%{name}" hivatalossá tétele'
         show_email_modal:
           close_modal: Ablak bezárás
+          description: Ha közvetlenül kapcsolatba kell lépnie egy résztvevővel, akkor kattintson a Megjelenítés gombra az e-mail cím megtekintéséhez. Ez a művelet naplózásra kerül.
           email_address: E-mail cím
           full_name: Teljes név
           hidden: rejtett
           show: Megjelenítés
+          title: A résztvevő e-mail címének megjelenítése
         unblock:
           error: Hiba történt a résztvevő feloldásának feloldása során
+          success: Sikeresen feloldotta a résztvevő tiltását
       organization:
         edit:
           title: Szervezet szerkesztése
@@ -675,6 +710,7 @@ hu:
           rich_text_editor_in_public_views_help: Néhány szövegmezőbe, a résztvevők HTML tag-eket tudnak majd beilleszteni a szövegszerkesztő segítségével.
           social_handlers: Social
           twitter: Twitter
+          url: URL
           youtube: Youtube
         update:
           error: Hiba történt a szervezet frissítése során.
@@ -694,6 +730,14 @@ hu:
             layout_appearance_title: Elrendezés szerkesztése
             preview: Előnézet
           omnipresent_banner_appearance_title: Mindenhol megjelenő banner szerkesztése
+      organization_external_domain_whitelist:
+        edit:
+          update: Frissítés
+        external_domain:
+          down: Le
+          external_domain: Külső domain
+          remove: Eltávolítás
+          up: Fel
       organization_homepage:
         edit:
           active_content_blocks: Aktív tartalomblokkok
@@ -709,6 +753,7 @@ hu:
           error: Hiba történt egy privát felhasználó törlésével a részvételi helyen.
           success: Privát felhasználó részvételi helyhez való hozzáférése törölve.
         index:
+          import_via_csv: Importálás CSV -ből
           title: Részvételi tér privát felhasználója
         new:
           create: Létrehozás
@@ -726,6 +771,10 @@ hu:
           title: Engedélyek szerkesztése
         update:
           success: Engedélyek frissítése sikeres.
+      resources:
+        index:
+          headers:
+            scope: Hatókör
       scope_types:
         create:
           error: Hiba történt az új hatáskör-típus létrehozásakor.
@@ -757,6 +806,18 @@ hu:
         update:
           error: Hiba történt a hatáskör frissítése során.
           success: Hatáskör frissítése sikeres
+      share_tokens:
+        actions:
+          confirm_destroy: Biztosan törlöd ezt a tokent?
+          destroy: Törlés
+          share: Megosztás
+        destroy:
+          error: Hiba történt a token törlése során.
+          success: A token törlése sikeres.
+        share_tokens:
+          empty: Nincs aktív token
+          help: Ezeket a tokeneket arra használják, hogy ezt a nem közzétett erőforrást nyilvánosan megosszák valamely felhasználóval. Az erőforrás közzétételekor elrejtésre kerülnek. Kattintson a token megosztási ikonjára a megosztható URL-cím megtekintéséhez.
+          title: Tokenek megosztása
       shared:
         gallery:
           add_images: Képek hozzáadása
@@ -814,6 +875,7 @@ hu:
         impersonatable_users: Kezelhető résztvevők
         impersonations: Résztvevők kezelése
         metrics: Mérőszámok
+        panel: Admin
         participants: Résztvevők
         scope_types: Hatáskör típusok
         scopes: Hatáskörök
@@ -867,6 +929,9 @@ hu:
           participants: Résztvevők
       view_public_page: Nyilvános oldal megtekintése
     metrics:
+      blocked_users:
+        object: Letiltott felhasználók
+        title: Letiltott felhasználók
       user_reports:
         object: felhasználói jelentések
         title: Felhasználói jelentések
