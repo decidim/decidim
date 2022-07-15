@@ -1900,6 +1900,9 @@ cs:
   ransack:
     predicates:
       dtgt: po
+      dtgteq: po nebo rovno
+      dtlt: před
+      dtlteq: před nebo rovno
   social_share_button:
     delicious: Delicious
     douban: Douban
