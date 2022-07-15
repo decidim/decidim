@@ -433,14 +433,14 @@ ca:
             info_1: Les seccions següents s'han convertit a propostes. Ara pots revisar-les i ajustar-les abans de publicar.
             publish_document: Publicar el document
             save_draft: Desa l'esborrany
-            title: PREVISUALITZAR EL TEXT PARTICIPATIU
+            title: Previsualitzar el text participatiu
           new_import:
             accepted_mime_types:
               md: Markdown
               odt: ODT
             bottom_hint: "(Podràs previsualitzar i ordenar les seccions del document)"
             document_legend: 'Afegeix un document de menys de 2 Mb, cadascuna de les seccions (fins a 3 nivells de profunditat) es convertiran a propostes. Els formats suportats són: %{valid_mime_types}'
-            title: AFEGIR DOCUMENT
+            title: Afegir document
             upload_document: Puja el document
           publish:
             invalid: No s'han pogut publicar propostes
