@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-require "English"
 require "bundler/gem_tasks"
 require "rspec/core/rake_task"
 
@@ -98,35 +97,6 @@ task :webpack do
 
   system!("npm install", root_folder)
   system!("npm install", decidim_app_design_path)
-end
-
-desc "Lint Markdown files"
-task :lint_markdown do
-  status = 0
-  # These rules will be ignored for only this file.
-  # If you want to add a rule to ignore for all files check the .mdl_style.rb file.
-  ignore_rules_for_file = {
-    "decidim-proposals/app/packs/documents/decidim/proposals/participatory_texts/participatory_text.md" => ["single-h1"],
-    "decidim-api/docs/usage.md" => ["first-header-h1"],
-    "decidim-dev/lib/decidim/dev/assets/participatory_text.md" => ["single-h1"]
-  }
-
-  Dir[File.join("**/*.md")].each do |file|
-    next if file.include?("node_modules")
-    next if file.include?("decidim_dummy_app")
-    next if file.include?("public/decidim-packs")
-    next if file.include?("dev/assets/iso-8859-15.md")
-    next if file.include?("vendor/bundle")
-
-    if ignore_rules_for_file.keys.include?(file)
-      system("mdl --rules #{ignore_rules_for_file[file].map { |f| "~#{f}" }.join(",")} #{file}")
-    else
-      system("mdl #{file}")
-    end
-    status += $CHILD_STATUS.exitstatus
-  end
-
-  exit(status)
 end
 
 def root_folder
