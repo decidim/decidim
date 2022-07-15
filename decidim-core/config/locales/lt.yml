@@ -873,6 +873,7 @@ lt:
         index:
           badge_title: "%{name} ženklelis"
           how: Kaip jį užsitarnauti
+          page_description: Ženkleliai – tai dalyvių veiklumo platformoje pripažinimas. Susipažindami su platforma, joje dalyvaudami ir bendraudami, pelnysite įvairių ženklelių. Štai ženklelių sąrašas ir keletas būdų, kaip juos pelnyti.
           title: Ženkleliai
         invitations:
           conditions:
@@ -1013,6 +1014,10 @@ lt:
           not_found: 'Aplinka duomenų bazėje nerasta (ID: %{id})'
         area_type_presenter:
           not_found: 'Aplinkos tipas duomenų bazėje nerastas (ID: %{id})'
+        scope_presenter:
+          not_found: 'Sritis duomenų bazėje nerasta (ID: %{id})'
+        scope_type_presenter:
+          not_found: 'Srities tipas duomenų bazėje nerastas (ID: %{id})'
     managed_users:
       expired_session: Dabartinė dalyvio administravimo sesija baigėsi.
     map:
@@ -1038,6 +1043,7 @@ lt:
         comanagers_new_message:
           admin_in_group: Šią informaciją gaunate dėl to, kad esate %{group} administratorius.
           greeting: Sveiki, %{recipient}!
+          intro: "%{manager} paskelbė naujų žinučių pokalbyje %{group} vardu. Spustelkite čia norėdami juos pamatyti:"
           outro: Mėgaukitės „Decidim“!
           subject: "%{manager} išsiuntė naujas žinutes kaip %{group}"
         new_conversation:
@@ -1127,6 +1133,7 @@ lt:
     newsletter_templates:
       basic_only_text:
         body_preview: 'Fiktyvus tekstas pagrindinei daliai: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque fringilla nisl tellus. Donec sed mi dui. Sed efficitur libero a felis tempor sollicitudin. Nullam vestibulum fringilla felis, id efficitur lorem sagittis et. Vivamus aliquam maximus velit vel dapibus. Mauris pellentesque, enim eu varius lacinia, risus ante rutrum ipsum, non lobortis augue lorem quis urna. Aenean et malesuada arcu.'
+        name: Paprastas (tik tekstas)
       basic_only_text_settings_form:
         body: Pagrindinė dalis
         interpolations_hint: 'Užuomina: „%{name}“ galite naudoti bet kur pagrindinėje dalyje arba temoje ir jis bus pakeistas gavėjo vardu, pavarde.'
@@ -1157,6 +1164,10 @@ lt:
     newsletters_opt_in_mailer:
       notify:
         body_1: Asmens duomenų tvarkymas ir jų apsauga mums visiems tampa vis svarbesni. 2018 m. gegužės 25 d. priėmus naują Bendrąjį duomenų apsaugos reglamentą (BDAR), asmenys geriau kontroliuoja savo asmens duomenis. Dėl šios priežasties jums reikia spustelėti „Gerai“, kad galėtume ir toliau siųsti reikiamą informaciją apie %{organization_name} veiklą.
+        body_2: 'Kaip duoti sutikimą? Spustelkite ant šio mygtuko:'
+        body_3: Davę šį sutikimą galėsite ir toliau gauti informaciją apie platformos paslaugas. Kita vertus, jeigu negausime Jūsų sutikimo, Jums nebesiųsime pranešimų. Patvirtinę, kad norite ir toliau gauti informaciją, visada turėsite galimybę bet kuriuo metu sutikimą atšaukti.
+        button: Taip, aš noriu ir toliau gauti aktualią informaciją
+        greetings: Sveiki,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Sveiki,
         subject: Ar norite ir toliau gauti aktualią informaciją apie %{organization_name}?
     notification_mailer:
@@ -1177,16 +1188,21 @@ lt:
       intro:
         daily: 'Tai yra paskutinės dienos pranešimai, pagrįsti jūsų stebima veikla:'
         weekly: 'Tai yra paskutinės savaitės pranešimai, pagrįsti jūsų stebima veikla:'
+      outro: Šiuos pranešimus gavote, nes sekate šį turinį arba jo autorius. Galite atsisakyti juos sekti turinio ir autorių atitinkamuose puslapiuose.
       see_more: Daugiau pranešimų
+      subject: Tai yra jūsų laiškų santrauka
     notifications_settings:
       show:
         administrators: Administratoriai
         allow_public_contact: Leiskite bet kam jums siųsti tiesiogines žinutes, net jeigu jų nesekate.
         allow_push_notifications: Gaukite tiesioginius pranešimus, kad sužinotumėte, kas vyksta, kai nesate platformoje. Galite bet kada juos išjungti.
         direct_messages: Gauti tiesioginius pranešimus iš bet kurio asmens
+        email_on_moderations: Noriu gauti el. laišką kiekvieną kartą kai kažkas (turinys ar naudotojas) raportuojami.
         everything_followed: Viskas, ką seku
         newsletter_notifications: Noriu gauti naujienlaiškius
         newsletters: Naujienlaiškiai
+        notification_settings:
+          close_meeting_reminder: Noriu gauti el. pašto laiškus su priminimais dėl uždarytų susitikimų su nepublikuotomis ataskaitomis
         notifications_sending_frequencies:
           daily: Kasdien
           none: Jokio
@@ -1194,6 +1210,7 @@ lt:
           weekly: Kas savaitę
         notifications_sending_frequency: Kaip dažnai norite gauti pranešimus el. paštu?
         own_activity: Mano veikla, pvz., kai kas nors pakomentuoja mano pasiūlymą arba pamini mane
+        push_notifications: Pranešimai
         push_notifications_reminder: Norėdami gauti pranešimus iš platformos, pirmiausia turėsite juos leisti naršyklės nustatymuose.
         receive_notifications_about: Aš noriu gauti pranešimus apie
         update_notifications_settings: Išsaugoti pakeitimus
@@ -1211,9 +1228,15 @@ lt:
         pending: Laukiama
         rejected: Atmesta
         verified: Patvirtinta
+    pad_iframe:
+      disclaimer: Šio rinkiklio turinį rašo registruoti naudotojai ir jis atspindi jų nuomonę. %{organization} neatsako už turinį.
+      explanation: Naudokitės šiuo rinkikliu, kad galėtumėte per posėdį užsirašyti informaciją ir po to būtų lengviau parengti protokolą.
+      pad: Rinkiklis
     pages:
       home:
         extended:
+          debates: Diskusijos
+          debates_explanation: Diskutuokite ir debatuokite, pasidalinkite mintimis ir praturtinkite diskusijas.
           how_to_participate: Kaip dalyvauti procese?
           meetings: Susitikimai
           meetings_explanation: Sužinokite, kur ir kada galite dalyvauti viešuose posėdžiuose.
@@ -1227,6 +1250,8 @@ lt:
         hero:
           participate: Dalyvauti
           welcome: Sveiki atvykę į %{organization}!
+        metrics:
+          headline: Rodikliai
         statistics:
           headline: Dabartinė %{organization} padėtis
         sub_hero:
@@ -1237,6 +1262,10 @@ lt:
         subheading: Naršyti %{name} pagalbos puslapiuose
         title: Pagalba
         topics: Temos
+      participatory_space:
+        metrics:
+          headline: Rodikliai
+          link: Rodyti visus rodiklius
       terms_and_conditions:
         accept:
           error: Sutinkant su sąlygomis iškilo problema.
@@ -1245,10 +1274,18 @@ lt:
           agreement: Aš sutinku su šiomis sąlygomis
           legend: Sutikti su naudojimosi nuostatomis ir sąlygomis
         refuse:
+          modal_body: Jeigu nesutiksite, negalėsite naudotis platforma. Galite <a href="%{data_portability_path}">pasisiųsti savo duomenis</a> ir (arba) <a href="%{delete_path}">pašalinti savo paskyrą</a>.
           modal_btn_continue: Sutikti su sąlygomis ir tęsti
           modal_btn_exit: Peržiūrėsiu vėliau
           modal_button: Nesutikti su sąlygomis
           modal_close: Uždaryti modalinį langą
+          modal_title: Ar iš tikrųjų nesutinkate su atnaujintomis naudojimo sąlygomis?
+        required_review:
+          alert: Mes atnaujinome naudojimo sąlygas, kviečiame jas peržiūrėti.
+          body: Kviečiame peržiūrėti naujimo sąlygu atnaujinimus. Kitu atveju negalėsite naudotis platforma.
+          title: 'Būtina: Peržiūrėkite naudojimo sąlygų atnaujinimus'
+    participatory_space_private_users:
+      not_allowed: Jūs negalite peržiūrėti šio turinio
     reported_mailer:
       hide:
         report_html: <p>Toliau pateikiamas <a href="%{url}">turinys</a> paslėptas automatiškai.</p>
@@ -1451,8 +1488,27 @@ lt:
         subtitle: Jei priimate kvietimą, nustatykite savo naudotojo vardą ir slaptažodį.
       invitation_removed: Jūsų kvietimas pašalintas.
       invitation_token_invalid: Pateiktas kvietimo raktas nebegalioja!
+      updated: Jūsų slaptažodis buvo sėkmingai nustatytas. Dabar esate prisijungę.
+      updated_not_active: Jūsų slaptažodis nustatytas.
     mailer:
+      confirmation_instructions:
+        action: Patvirtinti mano paskyrą
+        greeting: Sveiki, %{recipient}!
+        instruction: 'Savo el. pašto paskyrą galite patvirtinti naudodami žemiau pateiktą nuorodą:'
+        subject: Patvirtinimo instrukcijos
+      email_changed:
+        greeting: Sveiki %{recipient}!
+        message: Mes susisiekiame su jumis norėdami pranešti, kad jūsų el. paštas keičiamas į %{email}.
+        subject: El. pašto adresas pakeistas
       invitation_instructions:
+        accept: Priimti kvietimą
+        decline: Atmesti kvietimą
+        hello: Sveiki %{email},
+        ignore: |-
+          Jei nenorite priimti kvietimo, nekreipkite dėmesio į šį el. laišką. <br />
+          Jūsų paskyra nebus sukurta tol, kol nespustelėsite anskčiau pateiktos nuorodos ir nenustatysite savo naudotojo vardo ir slaptažodžio.
+        invited_you_as_admin: "%{invited_by} pakvietė jus kaip %{application} administratorių. Kvietimą galite priimti spustelėję toliau pateikiamą nuorodą."
+        invited_you_as_private_user: "%{invited_by} pakvietė jus kaip %{application} privatų dalyvį. Kvietimą galite priimti spustelėję toliau pateikiamą nuorodą."
         someone_invited_you: Kažkas pakvietė jus į %{application}. Kvietimą galite priimti spustelėję toliau pateikiamą nuorodą.
         someone_invited_you_as_admin: Kažkas pakvietė jus kaip %{application} administratorių. Kvietimą galite priimti spustelėję toliau pateikiamą nuorodą.
         someone_invited_you_as_private_user: Kažkas pakvietė jus kaip %{application} privatų dalyvį. Kvietimą galite priimti spustelėję toliau pateikiamą nuorodą.
@@ -1517,8 +1573,38 @@ lt:
       signed_up: Sveiki atvykę! Jūs sėkmingai užsiregistravote.
       signed_up_but_inactive: Jūs užsiregistravote sėkmingai. Tačiau negalėjome jūsų prijungti, nes jūsų sąskaita dar neaktyvuota.
       signed_up_but_locked: Jūs sėkmingai užsiregistravote. Tačiau mes negalėjome jūsų prijungti, nes jūsų sąskaita yra užrakinta.
+      signed_up_but_unconfirmed: Žinutė su patvirtinimo nuoroda buvo išsiųsta į jūsų el. paštą. Prašome sekite nuorodą norėdami aktyvuoti paskyrą.
+      update_needs_confirmation: Sėkmingai atnaujinote paskyrą, bet turime patvirtinti jūsų naują el. pašto adresą. Prašome patikrinkite savo el. paštą ir spustelėkite patvirtinimo nuorodą.
+      updated: Jūsų paskyra atnaujinta.
+    sessions:
+      already_signed_out: Atsijungėte.
+      new:
+        sign_in: Prisijungti
+      signed_in: Prisijungta sėkmingai.
+      signed_out: Atsijungta sėkmingai.
+    shared:
+      links:
+        back: Atgal
+        didn_t_receive_confirmation_instructions: Negavote patvirtinimo nurodymų?
+        didn_t_receive_unlock_instructions: Negavote atrakinimo nurodymų?
+        forgot_your_password: Pamiršote savo slaptažodį?
+        sign_in: Prisijungti
+        sign_in_with_provider: Prisijunkite su %{provider}
+        sign_up: Užsiregistruoti
+    unlocks:
+      new:
+        resend_unlock_instructions: Dar kartą siųsti atrakinimo nurodymus
+      send_instructions: Per kelias minutes gausite el. laišką su nurodymais, kaip atrakinti savo paskyrą.
+      send_paranoid_instructions: Jei jūsų paskyra egzistuoja, per kelias minutes gausite elektroninį laišką su instrukcijomis, kaip ją atrakinti.
+      unlocked: Jūsų paskyra atrakinta. Kad galėtumėte tęsti, prisijunkite.
+  doorkeeper:
+    scopes:
+      public: Jūsų vieši duomenys.
   errors:
     messages:
+      already_confirmed: jau patvirtinta, pabandykite prisijungti
+      confirmation_period_expired: turi būti patvirtintas per %{period}, prašome paprašyti naujo
+      content_type_allowlist_error: rinkmenos tipas netinkamas
       expired: nustojo galioti, prašykite iš naujo
       file_size_is_less_than_or_equal_to: rinkmenos dydis turi būti ne didesnis kaip %{count} arba jam lygus
       invalid_time_zone: netinkama laiko juosta
@@ -1543,6 +1629,7 @@ lt:
         cookie_details:
           columns:
             description: Aprašymas
+            name: Pavadinimas
             service: Paslauga
             type: Tipas
           cookies:
@@ -1550,6 +1637,7 @@ lt:
               description: Leidžia svetainėms prisiminti vartotoją svetainėje, kai jie pereina iš vieno tinklalapio į kitą.
               service: Ši svetainė
             decidim-consent:
+              description: Saugo informaciją apie vartotojo leidžiamus slapukus šioje svetainėje.
               service: Ši svetainė
           types:
             cookie: Slapukas
