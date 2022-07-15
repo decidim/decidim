@@ -590,5 +590,3 @@ As you can see, a part from the *edges* list, you can access to the object *page
 For more info on how connections work, you can check the official guide:
 
 https://graphql.org/learn/pagination/
-
-
