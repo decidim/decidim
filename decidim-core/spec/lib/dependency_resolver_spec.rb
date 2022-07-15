@@ -212,6 +212,9 @@ module Decidim
         debug_lookup = Decidim::DependencyResolver::Lookup.new(debug: true)
         allow(Decidim::DependencyResolver::Lookup).to receive(:new).and_return(debug_lookup)
         puts "#{example.description} # #{example.metadata[:full_description]}"
+        puts ">>>>> Gemfile.lock"
+        puts lockfile.inspect
+        puts "<<<<< Gemfile.lock"
         puts ">>>>> root"
         puts root_path
         puts "<<<<< root"
