@@ -188,8 +188,9 @@ module Decidim
           #{gems.map { |gem| %(gem "#{gem}", path: "#{root_path}") }.join("\n")}
         GEMFILE
       end
+      let(:dummy_definition) { builder.to_definition("Dummy.lock", {}) }
       let(:lockfile) do
-        dummy_definition = builder.to_definition("Dummy.lock", {})
+        # dummy_definition = builder.to_definition("Dummy.lock", {})
         Bundler::LockfileGenerator.generate(dummy_definition)
       end
       let(:gems) { %w(decidim-core decidim-budgets) }
@@ -216,8 +217,26 @@ module Decidim
         puts ">>>>> Gemfile.lock"
         puts lockfile.inspect
         puts "<<<<< Gemfile.lock"
+        puts ">>>>> builder"
+        builder.instance_eval do
+          puts @sources.inspect
+        end
+        puts "<<<<< builder"
+        puts ">>>>> dummy sources"
+        dummy_definition.send(:sources).path_sources.each do |source|
+          puts "SOURCE: #{source.path}"
+          definition.resolve.each do |spec|
+            next unless spec.name =~ /^decidim/
+
+            puts "#{spec.name} can_lock? -> #{source.can_lock?(spec)}"
+          end
+        end
+        puts "======"
+        puts "<<<<< dummy sources"
         puts ">>>>> root"
         puts root_path
+        puts Bundler::SharedHelpers.in_bundle?.inspect
+        puts Bundler.root
         puts "<<<<< root"
         puts ">>>>> dependencies"
         definition.dependencies.each { |dep| puts dep.name }
