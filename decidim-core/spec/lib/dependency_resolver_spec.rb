@@ -188,9 +188,8 @@ module Decidim
           #{gems.map { |gem| %(gem "#{gem}", path: "#{root_path}") }.join("\n")}
         GEMFILE
       end
-      let(:dummy_definition) { builder.to_definition("Dummy.lock", {}) }
       let(:lockfile) do
-        # dummy_definition = builder.to_definition("Dummy.lock", {})
+        dummy_definition = builder.to_definition("Dummy.lock", {})
         Bundler::LockfileGenerator.generate(dummy_definition)
       end
       let(:gems) { %w(decidim-core decidim-budgets) }
@@ -214,55 +213,6 @@ module Decidim
         # Return the mocked definition instead of the actual one for the resolver
         definition.specs_for([:default]) # Materializes the spec
         allow(Bundler).to receive(:definition).and_return(definition)
-      end
-
-      it "debug" do
-        # CI DEBUG
-        debug_lookup = Decidim::DependencyResolver::Lookup.new(debug: true)
-        allow(Decidim::DependencyResolver::Lookup).to receive(:new).and_return(debug_lookup)
-        puts ">>>>> Gemfile.lock"
-        puts lockfile.inspect
-        puts "<<<<< Gemfile.lock"
-        puts ">>>>> builder"
-        builder.instance_eval do
-          puts @sources.inspect
-        end
-        puts "<<<<< builder"
-        puts ">>>>> bundler"
-        puts "FROZEN BUNDLE? => #{Bundler.frozen_bundle?.inspect}"
-        puts "<<<<< bundler"
-        puts ">>>>> dummy resolve"
-        dummy_definition.instance_eval do
-          puts "UNLOCKING?: #{unlocking?}"
-          puts "NOTHING CHANGED?: #{nothing_changed?}"
-        end
-        puts "<<<<< dummy resolve"
-        puts ">>>>> dummy sources"
-        dummy_definition.send(:sources).path_sources.each do |source|
-          puts "SOURCE: #{source.path}"
-          definition.resolve.each do |spec|
-            next unless spec.name =~ /^decidim/
-
-            puts "#{spec.name} can_lock? -> #{source.can_lock?(spec)}"
-          end
-        end
-        puts "======"
-        puts "<<<<< dummy sources"
-        puts ">>>>> root"
-        puts root_path
-        puts Bundler::SharedHelpers.in_bundle?.inspect
-        puts Bundler.root
-        puts "<<<<< root"
-        puts ">>>>> dependencies"
-        definition.dependencies.each { |dep| puts dep.name }
-        puts "<<<<< dependencies"
-        puts ">>>>> locked_gems"
-        Bundler.definition.locked_gems.specs.find { |s| puts s.name if s.name =~ /^decidim/ }
-        puts "<<<<< locked_gems"
-
-        ENV.each do |key, val|
-          puts "#{key}=#{val}" if key =~ /^(BUNDLE|GEM)/
-        end
       end
 
       context "with decidim-core" do
