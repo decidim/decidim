@@ -42,6 +42,7 @@ sv:
       decidim/promote_to_admin: Befordrad till gruppadministratör
       decidim/removed_from_group: Borttagen från gruppen
       decidim/resource_endorsed_event: Resurs instämd
+      decidim/welcome_notification_event: Välkomstmeddelande
   activerecord:
     attributes:
       decidim/user:
@@ -69,6 +70,8 @@ sv:
     'true': 'Ja'
   carrierwave:
     errors:
+      file_resolution_too_large: Filupplösningen är för stor
+      file_size_too_large: Filen är för stor
       not_inside_organization: Den här filen är inte bifogad till någon organisation
   date:
     formats:
@@ -127,7 +130,10 @@ sv:
         file_no_exists: Filen finns inte
         notice: Dina uppgifter hämtas för närvarande. Du får ett e-postmeddelande när det är klart.
       email_change:
+        body1: Vi har skickat ett e-postmeddelande till %{unconfirmed_email} för att bekräfta din nya e-postadress.
+        body2: Vill du att vi ska skicka verifieringsmailet igen? %{resend_link} eller %{cancel_link}.
         cancel: avbryt
+        cancel_error: Kunde inte avbryta ändringen av e-postadressen.
       show:
         available_locales_helper: Välj det språk du vill använda på plattformen och få i notiserna
         change_password: Ändra lösenord
