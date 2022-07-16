@@ -41,6 +41,7 @@ sv:
       decidim/promote_to_admin: Befordrad till gruppadministratör
       decidim/removed_from_group: Borttagen från gruppen
       decidim/resource_endorsed_event: Resurs instämd
+      decidim/welcome_notification_event: Välkomstmeddelande
   activerecord:
     attributes:
       decidim/user:
