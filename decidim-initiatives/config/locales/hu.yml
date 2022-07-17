@@ -272,6 +272,7 @@ hu:
             update: Frissítés
           form:
             authorizations: Hitelesítési beállítások
+            child_scope_threshold_enabled_help: 'Ez a konfigurációs zászló nem támogatja az offline szavazást, engedélyezi az al-hatóköröket, és egy olyan engedélyezési kezelővel működik, amely egy hatókört társít a felhasználóhoz, győződjön meg róla, hogy ezt az engedélyezést választja ki, az engedélyezési beállításoknál. Ahhoz, hogy működjön, a hatóköröket hierarchikusan kell beállítani : 1 szülő - N gyermek. További információért arról, hogy hogyan működik ez a konfiguráció, lásd ezt a cikket<a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">link</a>.'
             only_global_scope_enabled_help: Jelölje be ezt a jelölőnégyzetet, ha engedélyezte a "Gyermek hatókör aláírás" opciót, és a globális hatókörét szülő hatókörként konfigurálta. Ennek engedélyezésével a kezdeményezés típusának kiválasztása kihagyásra kerül a kezdeményezés létrehozására szolgáló varázslóban. A konfiguráció működésével kapcsolatos további információkért lásd ezt a cikket<a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">link</a>.
             options: Opciók
             title: Általános információk
