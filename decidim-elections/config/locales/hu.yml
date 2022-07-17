@@ -187,6 +187,12 @@ hu:
             title: Készen áll a kezdésre
           tally:
             continue: Folytatás
+            invalid: Probléma volt a hiányzó megbízott bejelentésével
+            mark_as_missing: Hiányzóként megjelölt
+            mark_as_missing_description: Minden megbízottnaik részt kell vennie ebben a folyamatban, de ha egy megbízott nem tud részt venni a folyamatban, akkor jelölheti hiányzónak.
+            success: Hiányzó megbízottról szóló jelentést elküldtük a Hirdetőtáblára
+            tally_completion: A folyamat akkor fejeződik be, ha az összes megbízott aktív vagy hiányzónak van jelölve. A folyamat befejezéséhez legalább %{quorum} megbízottra van szükség.
+            undo_mark_as_missing: A tévedésből hiányzónak megjelölt megbízott az eljárás befejezése előtt részt vehet. A szokásos módon folytathatja a folyamatot, és a hiányzó jelölést figyelmen kívül hagyják.
       elections:
         results:
           votes:
