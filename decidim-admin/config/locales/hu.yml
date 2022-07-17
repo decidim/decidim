@@ -737,6 +737,9 @@ hu:
           external_domain: Külső domain
           remove: Eltávolítás
           up: Fel
+        form:
+          add: Hozzáadás a kivétellistához
+          title: Külső domain kivétellista
       organization_homepage:
         edit:
           active_content_blocks: Aktív tartalomblokkok
@@ -762,6 +765,11 @@ hu:
           invalid: Hiba történt a CSV fájl olvasásakor.
           success: A CSV-fájl sikeresen feltöltődött, meghívó e-mailt küldünk a résztvevőknek. Ez eltarthat egy ideig.
         new:
+          destroy:
+            button: Az összes privát felhasználó törlése
+            explanation: '%{count} privát résztvevője van.'
+            title: Privát felhasználók törlése
+          explanation: 'Töltse fel a CSV-fájlt. Két oszlopnak kell lennie, e-mail címmel a fájl első oszlopában, és a fájl utolsó oszlopában (e-mail, név) azoknak a felhasználóknak az adataival, akiket fel akar venni a részvételi térbe, fejlécek nélkül. Kerülje az olyan érvénytelen karakterek használatát, mint a `<>?%&^*#@()[]=+:;"{}\|` a felhasználónévben.'
           title: Töltse fel a CSV fájlod
           upload: Feltölt
       reminders:
