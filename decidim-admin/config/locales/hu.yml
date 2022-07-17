@@ -213,6 +213,7 @@ hu:
           error: Hiba történt az új terület létrehozásakor.
           success: Terület létrehozása sikeres.
         destroy:
+          has_spaces: Ez a terület mással összefüggő terekkel rendelkezik. Kérjük, győződjön meg róla, hogy egyetlen Részvételi tér sem hivatkozik erre a területre, mielőtt törölné.
           success: Terület eltávolítása sikeres
         edit:
           title: Terület szerkesztése
@@ -266,6 +267,7 @@ hu:
         new:
           action: Fiók blokkolása és igazolás küldése
           description: Egy felhasználó letiltása használhatatlanná teszi a fiókját. Az indoklásban megadhat bármilyen iránymutatást arra vonatkozóan, hogy miként lehetne feloldani a felhasználó blokkolását.
+          justification: Indoklás
           title: '%{name} felhasználó blokkolása'
       categories:
         create:
@@ -411,13 +413,23 @@ hu:
         search_placeholder:
           name_or_nickname_or_email_cont: Keresés %{collection} email, név vagy becenév alapján.
           report_count_eq: Jelentések száma
+          reported_id_string_or_reported_content_cont: Keresés %{gyűjtemény} a jelentendő azonosító vagy tartalom alapján.
           title_cont: Keresés %{collection} cím alapján.
+          user_name_or_user_email_cont: Keresés itt %{collection} néva vagy emailcím alapján.
+          user_name_or_user_nickname_or_user_email_cont: Keresés %{collection} email, név vagy becenév alapján.
         state_eq:
           label: Állapot
           values:
             all: Összes
             pending: Függőben levő
             rejected: Elutasított
+            verified: Ellenőrizve
+      forms:
+        file_help:
+          import:
+            explanation: 'Útmutató a fájlhoz:'
+            message_1: A CSV, JSON és Excel (.xls) fájlok támogatottak
+            message_2: CSV fájlok esetén az oszlopok közötti elválasztójelnek pontosvesszőnek (";") kell lennie
       help_sections:
         error: Hiba történt a súgószakaszok frissítésekor
         form:
@@ -457,6 +469,21 @@ hu:
           impersonate_existing_user: '"%{name}" felhasználó kezelése'
           impersonate_new_managed_user: Új résztvevő kezelése
       imports:
+        and: és
+        data_errors:
+          duplicate_headers:
+            detail: Kérjük, csak egyszer ellenőrizze, hogy a fájl tartalmazza-e a szükséges oszlopokat vagy fejléceket.
+            message:
+              one: Oszlop megkettőzése %{columns}.
+              other: '%{columns} Oszlopok megkettőzése.'
+          invalid_indexes:
+            lines:
+              detail: Ellenőrizze a sorok helyes formázását, valamint hogy érvényes rekordokat tartalmaznak.
+            records:
+              detail: Ellenőrizze a sorok helyes formázását, valamint hogy érvényes rekordokat tartalmaznak.
+          missing_headers:
+            detail: Kérjük, ellenőrizze, hogy a fájl tartalmazza-e a szükséges oszlopokat.
+        error: Hiba történt az importálás során
         new:
           accepted_mime_types:
             csv: csv
@@ -464,7 +491,10 @@ hu:
             xlsx: xlsx
           actions:
             back: Vissza
+          download_example: Példa letöltése
+          download_example_format: Példa mint %{name}
           import: Import
+        notice: "%{count} %{resource_name} sikeresen importálva"
       logs:
         logs_list:
           no_logs_yet: Még nincsenek naplók
@@ -485,11 +515,14 @@ hu:
         areas: Területek
         configuration: Beállítások
         dashboard: Vezérlőpult
+        external_domain_whitelist: Engedélyezett külső domainek
         help_sections: Súgó szakaszok
         homepage: Homepage
         impersonations: Felhatalmazások
+        moderation: Globális moderációk
         newsletters: Hírlevelek
         participants: Résztvevők
+        reported_users: Jelentett felhasználók
         scope_types: Hatáskör típusok
         scopes: Hatáskörök
         settings: Beállítások
@@ -545,6 +578,14 @@ hu:
           fields:
             name: Név
             plural: Plurális
+        share_token:
+          fields:
+            created_at: Létrehozva
+            expires_at: Lejárat ekkor
+            last_used_at: Utoljára használva
+            times_used: Ennyiszer volt használva
+            token: Token
+            user: Létrehozta
         static_page:
           fields:
             created_at: 'Létrehozva:'
@@ -570,6 +611,22 @@ hu:
             state: Állapot
             users_count: Résztvevők száma
       moderated_users:
+        index:
+          actions:
+            block: Felhasználó tiltása
+            title: Műveletek
+            unblock: Felhasználó feloldása
+            unreport: Jelentés visszavonása
+          name: Név
+          nickname: Felhasználónév
+          reason: Indok
+          reports: Jelentések száma
+          title: Jelentett felhasználók listája
+        report:
+          reasons:
+            does_not_belong: Nem tartozik hozzá
+            offensive: Offenzív
+            spam: Spam
         tabs:
           blocked: Letiltva
           unblocked: Nincs letiltva
@@ -721,6 +778,7 @@ hu:
         form:
           colors:
             colors_title: Szervezet színei
+            colors_warning_html: Óvatosan! A színek megváltoztatása megtörik az akadálymentes kontrasztokat. Ellenőrizheti a kontrasztot a <a href="%{link}">WebAIM Contrast Checker</a> vagy más, hasonló eszköz segítségével.
             header_snippets_help: Ebben a mezőben a HTML fejlécet szerkesztheted. Ennek akkor van jelentősége, ha olyan külső szolgáltatásokat szeretnél intergálni, amelyekhez JavaScript vagy CSS szükséges. Sőt, metacímkéket is hozzáadhatsz. Ez az adminban nem, csak a nyilvános oldalakon jelenik majd meg.
           cta_button_path_help: 'Felülírhatod, hogy a kezdőlap felhívás gombja link hova mutasson. Részleges, ne pedig teljes URL címeket használj. A megengedett karakterek: betű, szám, kötőjel vagy perjel, de mindig betűvel kell kezdődnie. A felhívás gomb az üdvözlő szöveg és a leírás között jelenik meg a nyitólapon. Példa: %{url}'
           cta_button_text_help: A felhívás gomb szövegét a szervezethez tartozó minden egyes nyelven megjelenítheted. Amennyiben nincs beállítva, akkor akkor az alapértelmezett értéket fogja használni. A felhívás gomb az üdvözlő szöveg és a leírás között jelenik meg a nyitólapon.
@@ -932,10 +990,17 @@ hu:
           no_users_count_statistics_yet: Nincsenek felhasználói statisztikák még
           participants: Résztvevők
       view_public_page: Nyilvános oldal megtekintése
+    forms:
+      errors:
+        impersonate_user:
+          reason: Indokolnod kell a nem menedzselt résztvevők kezelését
     metrics:
       blocked_users:
         object: Letiltott felhasználók
         title: Letiltott felhasználók
+      reported_users:
+        object: Jelentett felhasználók
+        title: Jelentett felhasználók
       user_reports:
         object: felhasználói jelentések
         title: Felhasználói jelentések
@@ -966,6 +1031,7 @@ hu:
             hidden_at: 'Rejtett itt:'
             participatory_space: Részvételi tér
             report_count: Számol
+            reportable_id: ID
             reportable_type: Típus
             reported_content_url: Jelentett URL tartalom
             reports: Jelentések
