@@ -208,6 +208,7 @@ hu:
           error: Hiba történt az új terület létrehozásakor.
           success: Terület létrehozása sikeres.
         destroy:
+          has_spaces: Ez a terület mással összefüggő terekkel rendelkezik. Kérjük, győződjön meg róla, hogy egyetlen Részvételi tér sem hivatkozik erre a területre, mielőtt törölné.
           success: Terület eltávolítása sikeres
         edit:
           title: Terület szerkesztése
@@ -261,6 +262,7 @@ hu:
         new:
           action: Fiók blokkolása és igazolás küldése
           description: Egy felhasználó letiltása használhatatlanná teszi a fiókját. Az indoklásban megadhat bármilyen iránymutatást arra vonatkozóan, hogy miként lehetne feloldani a felhasználó blokkolását.
+          justification: Indoklás
           title: '%{name} felhasználó blokkolása'
       categories:
         create:
@@ -398,9 +400,17 @@ hu:
         search_label: Keresés
         search_placeholder:
           name_or_nickname_or_email_cont: Keresés %{collection} email, név vagy becenév alapján.
+          reported_id_string_or_reported_content_cont: Keresés %{gyűjtemény} a jelentendő azonosító vagy tartalom alapján.
           title_cont: Keresés %{collection} cím alapján.
+          user_name_or_user_email_cont: Keresés itt %{collection} néva vagy emailcím alapján.
         state_eq:
           label: Állapot
+      forms:
+        file_help:
+          import:
+            explanation: 'Útmutató a fájlhoz:'
+            message_1: A CSV, JSON és Excel (.xls) fájlok támogatottak
+            message_2: CSV fájlok esetén az oszlopok közötti elválasztójelnek pontosvesszőnek (";") kell lennie
       help_sections:
         error: Hiba történt a súgószakaszok frissítésekor
         form:
@@ -442,6 +452,7 @@ hu:
       imports:
         creators:
           proposalcreator: Javaslat létrehozója
+        error: Hiba történt az importálás során
         help:
           proposalcreator: A fájlnak title/en és body/en (vagy egy másik, általad preferált nyelvterület, pl. title/ca és body/ca) oszlopnevekkel kell rendelkeznie. A scope/id és category/id oszlopok is támogatottak.
         import_from_file: Importálás fájlból
@@ -475,11 +486,14 @@ hu:
         areas: Területek
         configuration: Beállítások
         dashboard: Vezérlőpult
+        external_domain_whitelist: Engedélyezett külső domainek
         help_sections: Súgó szakaszok
         homepage: Homepage
         impersonations: Felhatalmazások
+        moderation: Globális moderációk
         newsletters: Hírlevelek
         participants: Résztvevők
+        reported_users: Jelentett felhasználók
         scope_types: Hatáskör típusok
         scopes: Hatáskörök
         settings: Beállítások
@@ -535,6 +549,14 @@ hu:
           fields:
             name: Név
             plural: Plurális
+        share_token:
+          fields:
+            created_at: Létrehozva
+            expires_at: Lejárat ekkor
+            last_used_at: Utoljára használva
+            times_used: Ennyiszer volt használva
+            token: Token
+            user: Létrehozta
         static_page:
           fields:
             created_at: 'Létrehozva:'
@@ -563,6 +585,19 @@ hu:
         index:
           actions:
             block: Felhasználó tiltása
+            title: Műveletek
+            unblock: Felhasználó feloldása
+            unreport: Jelentés visszavonása
+          name: Név
+          nickname: Felhasználónév
+          reason: Indok
+          reports: Jelentések száma
+          title: Jelentett felhasználók listája
+        report:
+          reasons:
+            does_not_belong: Nem tartozik hozzá
+            offensive: Offenzív
+            spam: Spam
         tabs:
           blocked: Letiltva
           unblocked: Nincs letiltva
@@ -932,10 +967,17 @@ hu:
           no_users_count_statistics_yet: Nincsenek felhasználói statisztikák még
           participants: Résztvevők
       view_public_page: Nyilvános oldal megtekintése
+    forms:
+      errors:
+        impersonate_user:
+          reason: Indokolnod kell a nem menedzselt résztvevők kezelését
     metrics:
       blocked_users:
         object: Letiltott felhasználók
         title: Letiltott felhasználók
+      reported_users:
+        object: Jelentett felhasználók
+        title: Jelentett felhasználók
       user_reports:
         object: felhasználói jelentések
         title: Felhasználói jelentések
