@@ -75,6 +75,10 @@ hu:
       postal_letter:
         explanation: Küldünk egy levelet postán a kóddal, amelyet aztán a lakcím ellenőrzéséhez tudsz majd használni
         name: Kód postai levéllel
+    events:
+      verifications:
+        verify_with_managed_user:
+          notification_title: A résztvevő <a href="%{resource_path}">%{resource_title}</a> megpróbálta azonosítani magát a következő résztvevő adataival <a href="%{managed_user_path}">%{managed_user_name}</a>
     verifications:
       authorizations:
         authorization_metadata:
@@ -147,6 +151,9 @@ hu:
             one: A részvétel %{postal_codes} irányítószámú felhasználókra korlátozódik.
             other: 'A részvétel %{postal_codes} irányítószámú felhasználókra korlátozódik.'
           scope: A részvétel kizárólag a(z) %{scope_name} hatókörrel rendelkező résztvevőkre korlátozódik.
+          user_postal_codes:
+            one: A részvétel a %{postal_codes} irányítószámmall rendelkező résztvevőkre korlátozódik, az ön irányítószáma %{user_postal_code}.
+            other: 'A részvétel a következő irányítószámok bármelyikével rendelkező résztvevőkre korlátozódik: %{postal_codes}. Az Ön postai irányítószáma %{user_postal_code}.'
           user_scope: A részvétel a %{scope_name} hatókörrel rendelkező résztvevőkre korlátozódik, és a te hatóköröd %{user_scope_name}.
       id_documents:
         admin:
