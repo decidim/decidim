@@ -13,6 +13,8 @@ module Decidim
     include Messaging::ConversationHelper
     include ERB::Util
 
+    LAYOUTS = [:default, :blog].freeze
+
     property :profile_path
     property :can_be_contacted?
     property :has_tooltip?
@@ -24,7 +26,7 @@ module Decidim
     end
 
     def show
-      render
+      render layout
     end
 
     def profile
@@ -47,6 +49,10 @@ module Decidim
     end
 
     private
+
+    def layout
+      LAYOUTS.include?(options[:layout]) ? options[:layout] : :default
+    end
 
     def context_actions
       return [] unless actionable?
