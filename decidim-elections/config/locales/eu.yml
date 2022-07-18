@@ -982,8 +982,6 @@ eu:
             create:
               invalid: Arazo bai izan da errolda igotzean, mesedez, saiatu berriro geroago.
               invalid_csv_header: CSV goiburuak galdu dira edo ez dira zuzenak - mesedez, irakurri arretaz jarraibideak
-            creating_data:
-              info_message: "<strong>Mesedez itxaron</strong>, %{processed_count} prozesatuak %{raw_count} tik %{file} fitxeroko ilara."
             delete:
               button: Ezabatu erroldako datu guztiak
             destroy:
@@ -995,8 +993,6 @@ eu:
               confirm: Sartzeko kodeak behin baino ezin dituzu esportatu. Ziurtatu <strong>%{email}</strong> posta elektronikoan sarbidea duzula.
               launch_error: Arazoa sartzeko kodeak esportatzen hastean
               launch_success: 'Sartzeko kodeen esportazioa hasi egin da. Laster posta elektroniko bat jasoko duzu hemen: %{email}'
-            exporting_access_codes:
-              info_message: "<strong>Mesedez, itxaron</strong>, esportazioa prestatzen ari da, laster jasoko duzu hemen %{email}"
             freeze:
               callout: Errolda itxita dago eta ezin da aldatu.
             generate_access_codes:
@@ -1007,8 +1003,6 @@ eu:
               info_message_warn: Mesedez, egiaztatu daturik ez dela falta, %{data_count} erregistro sortu baitira, baina igo den (%{file}) fitxategiak %{raw_count} ilara zituen.
               launch_error: Arazo bat izan da sartzeko kodeak sortzean
               launch_success: Kodeak sortzen hasi da.
-            generating_access_codes:
-              info_message: "<strong>Mesedez, itxaron</strong>, bozketan sartzeko kodeak sortzen ari dira..."
             new:
               file_help:
                 explanation: 'Jarraibideak artxiborako:'
