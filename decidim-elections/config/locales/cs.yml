@@ -1099,8 +1099,6 @@ cs:
             create:
               invalid: Při nahrávání seznamu osob došlo k chybě, opakujte akci později.
               invalid_csv_header: Hlavičky CSV chybí nebo nejsou správné - přečtěte si prosím pečlivě pokyny
-            creating_data:
-              info_message: "<strong>Počkejte prosím</strong>, zpracováno %{processed_count} z %{raw_count} řádků ze souboru %{file}."
             delete:
               button: Odstranit všechna data ze seznamu obyvatel
               confirm: Odstranění všech dat z rejstříku osob nelze vrátit zpět. Opravdu chcete pokračovat?
@@ -1114,8 +1112,6 @@ cs:
               file_not_exist: Tento soubor neexistuje
               launch_error: Problém se spuštěním exportu přístupových kódů
               launch_success: Export přístupových kódů byl spuštěn. Brzy obdržíte e-mail na %{email}
-            exporting_access_codes:
-              info_message: "<strong>Počkejte prosím</strong>, export se připravuje, brzy ho obdržíte na %{email}"
             freeze:
               callout: Seznam osob je zmrazen a nelze jej upravit.
             generate_access_codes:
@@ -1126,8 +1122,6 @@ cs:
               info_message_warn: Zkontrolujte, že žádná data nechybí, protože byly vytvořeno %{data_count} záznamů a nahraný soubor %{file} měl %{raw_count} řádků.
               launch_error: Problém při spuštění generování přístupových kódů
               launch_success: Vytváření kódů bylo spuštěno.
-            generating_access_codes:
-              info_message: "<strong>Počkejte prosím</strong>, přístupové kódy hlasování jsou generovány..."
             new:
               file_help:
                 explanation: 'Pokyny pro soubor:'
