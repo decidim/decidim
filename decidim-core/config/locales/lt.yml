@@ -1183,6 +1183,7 @@ lt:
         select_scope: 'Pasirinkite sritį (dabar: %{current})'
     search:
       results: Paieškos rezultatai
+      results_found_for_term: '%{count} rezultatai atlikus paiešką: "%{term}"'
       term_input_placeholder: Ieškoti
     searches:
       filters:
@@ -1191,12 +1192,19 @@ lt:
         state:
           active: Aktyvūs
           all: Visi
+          future: Ateitis
+          past: Praėję
       filters_small_view:
         close_modal: Uždaryti modalinį langą
         filter: Filtruoti
         filter_by: Filtruoti pagal
         unfold: Išskleisti
       results:
+        results:
+          one: "%{count} rezultatas"
+          few: "%{count} rezultatai"
+          many: "%{count} rezultatai"
+          other: "%{count} rezultatai"
         view_all: Peržiūrėti viską (%{count})
     security:
       selfxss_warning:
@@ -1231,6 +1239,7 @@ lt:
       flag_user_modal:
         already_reported: Apie šį turinį jau pranešta ir jį peržiūrės administratorius.
         close: Uždaryti
+        description: Kas netinka apie naudotoją?
       share_modal:
         copy_share_link_copied: Nukopijuota!
         share: Dalintis
