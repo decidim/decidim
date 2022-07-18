@@ -1,1 +1,6 @@
+---
 lt:
+  activemodel:
+    attributes:
+      voting:
+        scope: Apimtis
