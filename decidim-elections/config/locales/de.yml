@@ -991,8 +991,6 @@ de:
           census:
             create:
               invalid: Beim Hochladen der Erhebung ist ein Problem aufgetreten, bitte versuchen Sie es später erneut.
-            creating_data:
-              info_message: "<strong>Bitte warten</strong>, %{processed_count} von %{raw_count} Zeilen aus der Datei %{file} wurden verarbeitet."
             delete:
               button: Alle Erhebungsdaten löschen
             destroy:
@@ -1005,8 +1003,6 @@ de:
               file_not_exist: Diese Datei existiert nicht
               launch_error: Beim Starten des Zugangscode-Exports ist ein Problem aufgetreten
               launch_success: Der Zugangscode-Export wurde gestartet. Sie werden in Kürze eine E-Mail an %{email} erhalten
-            exporting_access_codes:
-              info_message: "<strong>Bitte warten</strong>, der Export wird gerade vorbereitet. Sie werden ihn in Kürze an %{email} erhalten"
             freeze:
               callout: Die Erhebung ist geschlossen und kann nicht verändert werden.
             generate_access_codes:
@@ -1017,8 +1013,6 @@ de:
               info_message_warn: Bitte überprüfen Sie, dass keine Daten fehlen, denn es wurden %{data_count} Datensätze erstellt und die hochgeladene Datei %{file} enthielt %{raw_count} Zeilen.
               launch_error: Problem beim Starten der Zugangscodes Generierung
               launch_success: Codegenerierung gestartet.
-            generating_access_codes:
-              info_message: "<strong>Bitte warten Sie</strong>, die Stimmzugriffscodes werden generiert..."
             new:
               file_help:
                 explanation: 'Hinweise für die Datei:'
