@@ -1,1 +1,20 @@
 lt:
+  activemodel:
+    attributes:
+      meeting:
+        decidim_scope_id: Apimtis
+  decidim:
+    admin:
+      filters:
+        meetings:
+          scope_id_eq:
+            label: Apimtis
+    components:
+      meetings:
+        settings:
+          global:
+            scope_id: Apimtis
+    meetings:
+      meetings:
+        filters:
+          scope: Apimtis
