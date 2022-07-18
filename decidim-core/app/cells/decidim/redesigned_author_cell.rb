@@ -87,6 +87,8 @@ module Decidim
       hash.push(withdrawable?)
       hash.push(flaggable?)
       hash.push(profile_path?)
+      hash.push(layout)
+      hash.push(context_actions.join)
       hash.join(Decidim.cache_key_separator)
     end
 
