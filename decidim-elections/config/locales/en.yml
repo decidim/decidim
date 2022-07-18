@@ -1102,6 +1102,7 @@ en:
               info_message_warn: Please check that no data is missing, because %{data_count} records were created and the uploaded file %{file} had %{raw_count} rows.
               launch_error: Problem launching the access codes generation
               launch_success: Codes generation launched.
+              start_over: Please delete the current census and start over again with a proper CSV file with valid rows.
             generating_access_codes:
               info_message: "<strong>Please wait</strong>, the voting access codes are being generated (this may take several minutes)..."
             new:

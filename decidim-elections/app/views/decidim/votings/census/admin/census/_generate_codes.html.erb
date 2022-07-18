@@ -17,9 +17,19 @@
 <div class="card-section">
   <%= cell("decidim/announcement", info_message, callout_class: callout_class ) %>
 
-  <%= cell("decidim/announcement", t("generate_access_codes.callout", scope: "decidim.votings.census.admin.census"), callout_class: "warning" ) %>
-  <%= link_to t("generate_access_codes.button", scope: "decidim.votings.census.admin.census"),
+  <% if current_census.data.size.zero? %>
+    <%= cell("decidim/announcement", t("generate_access_codes.start_over", scope: "decidim.votings.census.admin.census"), callout_class: "warning" ) %>
+      <%= link_to t("delete.button", scope: "decidim.votings.census.admin.census"),
+                admin_voting_census_path,
+                class: "button alert destroy",
+                method: :delete,
+                data: { confirm: t("delete.confirm", scope: "decidim.votings.census.admin.census") } %>
+
+  <% else %>
+    <%= cell("decidim/announcement", t("generate_access_codes.callout", scope: "decidim.votings.census.admin.census"), callout_class: "warning" ) %>
+    <%= link_to t("generate_access_codes.button", scope: "decidim.votings.census.admin.census"),
                     generate_access_codes_path,
                     class: "button",
                     data: { confirm: t("generate_access_codes.confirm", scope: "decidim.votings.census.admin.census") } %>
+  <% end %>
 </div>
