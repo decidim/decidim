@@ -1075,8 +1075,6 @@ ca:
             create:
               invalid: Hi ha hagut un error en pujar el cens, prova-ho de nou més tard.
               invalid_csv_header: Les capçaleres al CSV manquen o no son correctes. Si us plau, rellegeix atentament les instruccions
-            creating_data:
-              info_message: "<strong>Si us plau espera</strong>, processades %{processed_count} de %{raw_count} fileres al fitxer de %{file}."
             delete:
               button: Eliminar totes les dades del cens
               confirm: L'eliminació del cens no es pot desfer. Segur que vols continuar?
@@ -1090,8 +1088,6 @@ ca:
               file_not_exist: Aquest fitxer no existeix
               launch_error: Hi ha hagut un error en exportar els codis d'accés
               launch_success: S'ha iniciat l'exportació dels codis d'accés. En breu rebràs un correu a %{email}
-            exporting_access_codes:
-              info_message: "<strong>Si us plau espera</strong>, s'està preparant l'exportació. En breu rebràs un correu a %{email}"
             freeze:
               callout: El cens està tancat i no es pot modificar.
             generate_access_codes:
@@ -1102,8 +1098,6 @@ ca:
               info_message_warn: Si us plau, comprova que no s'hagi perdut cap dada, s'han creat %{data_count} registres i el fitxer pujat %{file} té %{raw_count} fileres.
               launch_error: Hi ha hagut un error en generar els codis d'accés
               launch_success: S'ha iniciat la generació dels codis.
-            generating_access_codes:
-              info_message: "<strong>Si us plau, espera</strong>, s'estan generant el codis d'accés a la votació..."
             new:
               file_help:
                 explanation: 'Instruccions per al fitxer:'
