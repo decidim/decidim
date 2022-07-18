@@ -1004,8 +1004,6 @@ pt:
             create:
               invalid: Ocorreu um erro ao enviar o recenseamento, por favor tente de novo.
               invalid_csv_header: Os cabeçalhos CSV não estão presentes ou estão incorrectos - por favor leia as instruções com cuidado
-            creating_data:
-              info_message: "<strong>Por favor</strong>, processadas %{processed_count} de %{raw_count} do ficheiro %{file}"
             delete:
               button: Eliminar todos os dados do censo
             destroy:
@@ -1017,8 +1015,6 @@ pt:
               confirm: Só pode exportar os códigos de acesso uma vez. Certifique-se que tem acesso à conta de e-mail <strong>%{email}</strong>.
               launch_error: Problemas ao lançar a exportação dos códigos de acesso
               launch_success: Exportação dos códigos de acesso lançada. Em breve irá receber um e-mail em %{email}
-            exporting_access_codes:
-              info_message: "<strong>Por favor aguarde</strong>, a exportação está a ser preparada, irá recebe-la em breve em %{email}"
             freeze:
               callout: O recenseamento está congelado e não pode ser modificado
             generate_access_codes:
@@ -1029,8 +1025,6 @@ pt:
               info_message_warn: Por favor verifique que não há dados em falta, porque %{data_count} registos foram criados e o ficheiro %{file} enviado tinha %{raw_count} linhas.
               launch_error: Problemas ao lançar a geração dos códigos de acesso
               launch_success: Geração de códigos lançada.
-            generating_access_codes:
-              info_message: "<strong>Por favor</strong> aguarde, os código de acesso para a votação estão a ser gerados..."
             new:
               file_help:
                 explanation: 'Orientação para o ficheiro:'
