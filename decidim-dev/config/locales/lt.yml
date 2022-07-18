@@ -1,1 +1,23 @@
+---
 lt:
+  activemodel:
+    attributes:
+      dummy_resource:
+        created_at: Sukurta
+        decidim_scope_id: Apimtis
+        field: Mano laukas
+        start_date: Pradžios data
+        title: Pavadinimas
+        translatable_text: Verčiamas tekstas
+        updated_at: Atnaujinta
+  decidim:
+    components:
+      dummy:
+        settings:
+          global:
+            readonly_attribute: Tik skaitomas atributas
+            test: Bandymas
+            test_choices:
+              a: A pasirinkimas
+              b: B pasirinkimas
+              c: C pasirinkimas
