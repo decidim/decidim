@@ -1068,8 +1068,6 @@ fr:
             create:
               invalid: Une erreur s'est produite lors de la mise à jour du recensement, veuillez réessayer plus tard.
               invalid_csv_header: Les en-têtes CSV sont manquants ou incorrects - veuillez lire attentivement les instructions
-            creating_data:
-              info_message: "<strong>Veuillez patienter</strong>, %{processed_count} traités sur %{raw_count} lignes à partir du fichier %{file}."
             delete:
               button: Supprimer toutes les données du recensement
               confirm: La suppression de tout le recensement ne peut pas être annulée. Êtes-vous sûr de vouloir continuer?
@@ -1083,8 +1081,6 @@ fr:
               file_not_exist: Ce fichier n'existe pas
               launch_error: Problème lors du lancement de l'export des codes d'accès
               launch_success: L'export des codes d'accès a été lancée. Vous recevrez sous peu un e-mail à %{email}
-            exporting_access_codes:
-              info_message: "<strong>Veuillez patienter</strong>, l'export est en cours de préparation, vous le recevrez sous peu sur %{email}"
             freeze:
               callout: Le recensement est gelé et ne peut pas être modifié.
             generate_access_codes:
@@ -1095,8 +1091,6 @@ fr:
               info_message_warn: Veuillez vérifier qu'aucune donnée n'est manquante, car %{data_count} enregistrements ont été créés et le fichier téléchargé %{file} a %{raw_count} lignes.
               launch_error: Problème lors du lancement de la génération des codes d'accès
               launch_success: Génération de codes lancée.
-            generating_access_codes:
-              info_message: "<strong>Veuillez patienter</strong>, les codes d'accès au vote sont en cours de génération..."
             new:
               file_help:
                 explanation: 'Instructions concernant le fichier :'
