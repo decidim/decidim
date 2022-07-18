@@ -1,1 +1,19 @@
+---
 lt:
+  activemodel:
+    attributes:
+      initiative:
+        scope_id: Apimtis
+  decidim:
+    admin:
+      models:
+        initiatives_type_scope:
+          fields:
+            scope: Apimtis
+        initiatives_votes:
+          fields:
+            scope: Apimtis
+    initiatives:
+      initiatives:
+        filters:
+          scope: Apimtis
