@@ -1,1 +1,32 @@
+---
 lt:
+  activemodel:
+    attributes:
+      collaborative_draft:
+        decidim_scope_id: Apimtis
+        scope_id: Apimtis
+      proposal:
+        decidim_scope_id: Apimtis
+        scope_id: Apimtis
+  decidim:
+    admin:
+      filters:
+        proposals:
+          scope_id_eq:
+            label: Apimtis
+    components:
+      proposals:
+        settings:
+          global:
+            scope_id: Apimtis
+    proposals:
+      collaborative_drafts:
+        filters:
+          scope: Apimtis
+      models:
+        proposal:
+          fields:
+            scope: Apimtis
+      proposals:
+        filters:
+          scope: Apimtis
