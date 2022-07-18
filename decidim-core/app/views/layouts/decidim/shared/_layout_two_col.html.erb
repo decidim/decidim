@@ -1,8 +1,10 @@
-<div class="grow grid grid-cols-12">
-  <aside class="col-span-3 bg-background p-12">
-    <%= yield :aside %>
-  </aside>
-  <main class="col-span-9 px-16 py-12">
-    <%= yield %>
-  </main>
+<div class="layout-2col">
+  <div>
+    <aside>
+      <%= yield :aside %>
+    </aside>
+    <main>
+      <%= yield %>
+    </main>
+  </div>
 </div>
