@@ -129,6 +129,29 @@ describe Decidim::SendPushNotification do
         expect(responses.all? { |response| response.code == "201" }).to be(true)
         expect(responses.all? { |response| response.message == "Created" }).to be(true)
       end
+
+      it "builds notification in user locale" do
+        # Pick other locale from organization
+        alternative_locale = (user.organization.available_locales - [user.locale]).sample
+        user.update(locale: alternative_locale)
+
+        I18n.with_locale(user.locale) do
+          presented_notification = Decidim::PushNotificationPresenter.new(notification)
+          message = JSON.generate({
+                                    title: presented_notification.title,
+                                    body: presented_notification.body,
+                                    icon: presented_notification.icon,
+                                    data: { url: presented_notification.url }
+                                  })
+
+          notification_payload = a_hash_including(message: message)
+          expect(Webpush).to receive(:payload_send).with(notification_payload).ordered.and_return(double("result", message: "Created", code: "201"))
+        end
+
+        responses = subject.perform(notification)
+        expect(responses.all? { |response| response.code == "201" }).to be(true)
+        expect(responses.all? { |response| response.message == "Created" }).to be(true)
+      end
     end
   end
 end
