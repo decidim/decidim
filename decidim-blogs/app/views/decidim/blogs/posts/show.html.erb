@@ -15,27 +15,31 @@
   )
 %>
 
+<% content_for :css_content do %>
+  <%= stylesheet_pack_tag "decidim_blogs", media: "all" %>
+<% end %>
+
 <%= render layout: "layouts/decidim/shared/layout_center" do %>
 
   <h1 class="h1 decorator my-12"><%= translated_attribute post.title %></h1>
 
-  <% if !post.photo.present? %>
-    <div class="grow rounded-xl overflow-hidden mb-8 aspect-[3]">
-      <%= image_tag "https://picsum.photos/640/360", class: "w-full h-full object-cover" %>
-      <%#= image_tag post.photo.url, class: "w-full h-full object-cover" %>
+  <% if post.photo.present? %>
+    <div class="blog__image grow">
+      <%# REDESIGN_PENDING: currently post.photo has no url attribute. Uncomment next line then %>
+      <%#= image_tag post.photo.url %>
     </div>
   <% end %>
 
-  <div class="mb-24">
+  <div class="blog__container">
     <% post_presenter = Decidim::Blogs::PostPresenter.new(post) %>
     <%= cell "decidim/author", post_presenter.author, from: post, context_actions: [:date] %>
 
-    <div class="prose max-w-full">
+    <div class="blog__text">
       <%= decidim_sanitize_editor translated_attribute post.body %>
     </div>
 
-    <div class="flex justify-between">
-      <div class="flex items-center gap-2">
+    <div class="blog__actions">
+      <div class="blog__actions-left">
         <% if endorsements_enabled? %>
           <%= cell "decidim/endorsers_list", post %>
           <%= endorsement_buttons_cell(post) %>
@@ -47,7 +51,7 @@
         <% end %>
       </div>
 
-      <div class="flex items-center">
+      <div class="blog__actions-right">
         <%= follow_button_for(post) %>
 
         <%# REDESIGN_PENDING: implement the share button %>

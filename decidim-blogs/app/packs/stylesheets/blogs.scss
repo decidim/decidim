@@ -8,6 +8,10 @@
 
     &__image{
       @apply w-1/4 flex-none rounded overflow-hidden aspect-[1.5] -ml-[calc(1rem+4px)];
+
+      img{
+        @apply w-full h-full object-cover;
+      }
     }
 
     &__content{
@@ -28,6 +32,35 @@
 
     &:hover &__title{
       @apply underline;
+    }
+  }
+}
+
+.blog{
+  &__image{
+    @apply grow rounded overflow-hidden mb-8 aspect-[3];
+
+    img{
+      @apply w-full h-full object-cover;
+    }
+  }
+
+  &__container{
+    @apply flex flex-col gap-8 mb-24;
+  }
+
+  &__text{
+    @apply prose max-w-full text-black text-lg;
+  }
+
+  &__actions{
+    @apply flex justify-between;
+
+    &-left{
+      @apply flex items-center gap-2;
+    }
+    &-right{
+      @apply flex items-center;
     }
   }
 }
