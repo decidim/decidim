@@ -32,7 +32,7 @@
 
   <div class="blog__container">
     <% post_presenter = Decidim::Blogs::PostPresenter.new(post) %>
-    <%= cell "decidim/author", post_presenter.author, from: post, context_actions: [:date], layout: :blog %>
+    <%= cell "decidim/author", post_presenter.author, from: post, context_actions: [:date], layout: :compact %>
 
     <div class="blog__text">
       <%= decidim_sanitize_editor translated_attribute post.body %>

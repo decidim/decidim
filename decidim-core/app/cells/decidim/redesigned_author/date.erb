@@ -1,4 +1,4 @@
-<span class="flex items-center gap-1">
-  <%= icon "calendar-line", class: "text-gray fill-current flex-none" %>
+<span class="<%= actions_class %>">
+  <%= icon("calendar-line", class: "text-gray fill-current flex-none") if show_icons? %>
   <%= creation_date %>
 </span>

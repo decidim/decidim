@@ -1,4 +1,4 @@
-<%= link_to "#{resource_locator(from_context).path}#comments", title: t("decidim.author.comments", count: from_context.comments_count), class: "flex items-center gap-1" do %>
-  <%= icon "chat-1-line", class: "text-gray fill-current flex-none" %>
+<%= link_to "#{resource_locator(from_context).path}#comments", title: t("decidim.author.comments", count: from_context.comments_count), class: actions_class do %>
+  <%= icon("chat-1-line", class: "text-gray fill-current flex-none") if show_icons? %>
   <%= from_context.comments_count %> <%= t("decidim.author.comments", count: from_context.comments_count) %>
 <% end %>

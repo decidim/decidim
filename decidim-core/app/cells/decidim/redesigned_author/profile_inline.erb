@@ -1,9 +1,5 @@
 <span class="rounded-full overflow-hidden inline-block w-6 h-6">
-  <%= image_tag model.avatar_url(:thumb), alt: t("decidim.author.avatar", name: decidim_sanitize(author_name)) %>
+  <%= render :avatar %>
 </span>
 
-<% if model.deleted? %>
-  <span><%= t("decidim.profile.deleted") %></span>
-<% else %>
-  <span><%= decidim_sanitize author_name %></span>
-<% end %>
+<%= render :name %>

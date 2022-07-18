@@ -13,7 +13,7 @@ module Decidim
     include Messaging::ConversationHelper
     include ERB::Util
 
-    LAYOUTS = [:default, :blog].freeze
+    LAYOUTS = [:default, :compact].freeze
 
     property :profile_path
     property :can_be_contacted?
@@ -51,7 +51,15 @@ module Decidim
     private
 
     def layout
-      LAYOUTS.include?(options[:layout]) ? options[:layout] : :default
+      @layout ||= LAYOUTS.include?(options[:layout]) ? options[:layout] : :default
+    end
+
+    def actions_class
+      layout == :compact ? "text-gray-2 text-sm" : "flex items-center gap-1"
+    end
+
+    def show_icons?
+      layout != :compact
     end
 
     def context_actions
