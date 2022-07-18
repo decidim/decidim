@@ -1,1 +1,5 @@
 lt:
+  activemodel:
+    attributes:
+      dummy_resource:
+        decidim_scope_id: Apimtis
