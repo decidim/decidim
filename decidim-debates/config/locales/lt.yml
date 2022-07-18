@@ -1,1 +1,175 @@
 lt:
+  activemodel:
+    attributes:
+      debate:
+        closed_at: Uždaryta
+        conclusions: Išvados
+        decidim_category_id: Kategorija
+        description: Aprašymas
+        end_time: Biagiasi
+        information_updates: Informacijos atnaujinimai
+        instructions: Dalyvavimo instrukcija
+        start_time: Prasideda
+        title: Pavadinimas
+        user_group_id: Sukurti diskusiją kaip
+    models:
+      decidim/debates/close_debate_event: Diskusija uždaryta
+      decidim/debates/create_debate_event: Diskusija
+      decidim/debates/creation_disabled_event: Diskuijos išjungtos
+      decidim/debates/creation_enabled_event: Dirbtuvių kūrimas leidžiamas
+  activerecord:
+    models:
+      decidim/debates/debate:
+        one: Diskusija
+        few: Diskusijos
+        many: Diskusijos
+        other: Diskusijos
+  decidim:
+    components:
+      debates:
+        actions:
+          comment: Komentaras
+          create: Sukurti
+          endorse: Pritarti
+        name: Diskusijos
+        settings:
+          global:
+            announcement: Pranešimas
+            comments_enabled: Komentarai įjungti
+            comments_max_length: Maksimalus komentarų ilgis (numatytoji vertė – 0)
+            scope_id: Apimtis
+            scopes_enabled: Sritys įjungtos
+          step:
+            announcement: Pranešimas
+            comments_blocked: Komentarai užblokuoti
+            creation_enabled: Dalyviai gali sukurti diskusijas
+            endorsements_blocked: Pritarimai užblokuoti
+            endorsements_enabled: Pritarimai aktyvuoti
+    debates:
+      actions:
+        close: Uždaryti
+        confirm_destroy: Ar esate tikri?
+        destroy: Ištrinti
+        edit: Redaguoti
+        new: Naujas %{name}
+        title: Veiksmai
+      admin:
+        debate_closes:
+          edit:
+            close: Uždaryti
+            title: Uždaryti diskusiją
+        debates:
+          create:
+            invalid: Kuriant diskusiją iškilo problema.
+            success: Diskusija sukurta.
+          destroy:
+            success: Diskusija pašalinta.
+          edit:
+            title: Redaguoti diskusiją
+            update: Atnaujinti diskusiją
+          form:
+            debate_type: Diskusijos tipas
+            finite: Baigtina (su pradžios ir finišo laikais)
+            open: Atvira (be nustatytos pradžios ir pabaigos)
+          index:
+            title: Diskusijos
+          new:
+            create: Sukurti diskusiją
+            title: Nauja diskusija
+          update:
+            invalid: Atnaujinant šią diskusiją iškilo problema.
+            success: Diskusija atnaujinta.
+        exports:
+          comments: Komentarai
+        models:
+          debate:
+            name: Diskusija
+      admin_log:
+        debate:
+          close: "%{user_name} uždarė %{resource_name} diskusiją %{space_name} erdvėje"
+          create: "%{user_name} sukūrė %{resource_name} diskusiją %{space_name} erdvėje"
+          update: "%{user_name} atnaujino %{resource_name} diskusiją %{space_name} erdvėje"
+      debate_m:
+        commented_time_ago: Pakomentuota prieš %{time}
+      debates:
+        close:
+          invalid: Baigiant diskusiją iškilo problema.
+          success: Diskusija baigta.
+        close_debate_modal:
+          close: Uždaryti
+          description: Kokia šios diskusijos santrauka ar išvada?
+          send: Uždaryti diskusiją
+        closed: Uždaryta
+        count:
+          debates_count:
+            one: "%{count} diskusija"
+            few: "%{count} diskusijos"
+            many: "%{count} diskusijos"
+            other: "%{count} diskusijos"
+        create:
+          invalid: Kuriant šią diskusiją iškilo problema.
+          success: Diskusija sukurta sėkmingai.
+        debate:
+          participate: Dalyvauti
+        edit:
+          back: Atgal
+          save: Išsaugoti pakeitimus
+          title: Redaguoti diskusiją
+        filters:
+          activity: Mano veikla
+          all: Visos
+          category: Kategorija
+          category_prompt: Pasirinkite kategoriją
+          scope: Apimtis
+    events:
+      debates:
+        create_debate_event:
+          space_followers:
+            notification_title: <a href="%{resource_path}">%{resource_title}</a> diskusija sukurta <a href="%{space_path}">%{space_title}</a>.
+          user_followers:
+            email_intro: |-
+              Sveiki,
+              %{author_name} %{author_nickname}, kurį(-ią) sekate, sukūrė naują diskusiją „%{resource_title}“. Peržiūrėkite ir prisidėkite:
+            email_outro: Šį pranešimą gavote dėl to, kad sekate %{author_nickname}. Jeigu nebenorite gauti pranešimų, spustelėkite aukščiau esančią nuorodą.
+            email_subject: Nauja %{author_nickname} diskusija "%{resource_title}"
+            notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> sukūrė <a href="%{resource_path}">%{resource_title}</a> diskusiją.
+        creation_disabled:
+          email_intro: 'Diskusijos kūrimas %{participatory_space_title} nebėra aktyvus. Vis dar galite dalyvauti atvirose diskusijose iš šio puslapio:'
+          email_outro: Šį pranešimą gavote dėl to, kad sekate %{participatory_space_title}. Jeigu nebenorite gauti pranešimų, spustelėkite ankstesnę nuorodą.
+          email_subject: Diskusijos kūrimas %{participatory_space_title} neaktyvus
+          notification_title: Diskusijos kūrimas <a href="%{participatory_space_url}">%{participatory_space_title}</a> neaktyvus
+        creation_enabled:
+          email_intro: 'Dabar galite pradėti naujas diskusijas %{participatory_space_title}! Pradėti dalyvauti šiame puslapyje:'
+          email_outro: Šį pranešimą gavote dėl to, kad sekate %{participatory_space_title}. Jeigu nebenorite gauti pranešimų, spustelėkite ankstesnę nuorodą.
+          email_subject: Diskusijos nuo šiol prieinamos %{participatory_space_title}
+          notification_title: Dabar galite pradėti <a href="%{resource_path}">naujas diskusijas</a> <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+        debate_closed:
+          affected_user:
+            email_intro: '"%{resource_title}" diskusija uždaryta. Išvadas galite perskaityti jos puslapyje:'
+            email_outro: Šį pranešimą gavote dėl to, kad sekate "%{resource_title}“ diskusiją. Jūs galite jos nebesekti spustelėdami ankstesnę nuorodą.
+            email_subject: '"%{resource_title}" diskusija uždaryta'
+            notification_title: <a href="%{resource_path}">%{resource_title}</a> diskusija uždaryta.
+          follower:
+            email_intro: '"%{resource_title}" diskusija uždaryta. Išvadas galite perskaityti jos puslapyje:'
+            email_outro: Šį pranešimą gavote dėl to, kad sekate "%{resource_title}“ diskusiją. Jūs galite jos nebesekti spustelėdami ankstesnę nuorodą.
+            email_subject: '"%{resource_title}" diskusija uždaryta'
+            notification_title: <a href="%{resource_path}">%{resource_title}</a> diskusija uždaryta.
+    gamification:
+      badges:
+        commented_debates:
+          conditions:
+            - Pasirinkite atvirą diskusiją ir dalyvaukite
+          description: Šis ženklelis suteikiamas, kai aktyviai dalyvaujate įvairiose diskusijose pateikdami komentarus.
+          description_another: Šis dalyvis dalyvavo %{score} diskusijose.
+          description_own: Jūs dalyvavote %{score} diskusijose.
+          name: Diskusijos
+          next_level_in: Įsitraukite į %{score} daugiau diskusijų ir pasiekite kitą lygį!
+          unearned_another: Šis dalyvis dar nedalyvavo nė vienoje diskusijoje.
+          unearned_own: Jūs dar nedalyvavote nė vienoje diskusijoje.
+    metrics:
+      debates:
+        description: Sukurtų diskusijų skaičius
+        object: diskusijos
+        title: Diskusijos
+    statistics:
+      debates_count: Diskusijos
