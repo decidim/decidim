@@ -59,7 +59,6 @@ en:
         show:
           comments: Comments
           view: View
-      read_more: Read more
     components:
       blogs:
         actions:
