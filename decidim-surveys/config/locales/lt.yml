@@ -1,1 +1,7 @@
 lt:
+  decidim:
+    components:
+      surveys:
+        settings:
+          global:
+            scope_id: Apimtis
