@@ -8,32 +8,16 @@ Using Puma, the default server for Rails, you can easily do the trick by creatin
 
 == Starting development in SSL mode
 
-If you created the Decidim development app using the default development app generator, you already should have the necessary configurations for starting the development server under SSL. If you created the development app using older versions of the Decidim generators, you need to add the following code at the end of your `config/puma.rb`:
-
-[source,bash]
-----
-# Development SSL
-if ENV["DEV_SSL"] && defined?(Bundler) && (dev_gem = Bundler.load.specs.find { |spec| spec.name == "decidim-dev" })
-  cert_dir = ENV.fetch("DEV_SSL_DIR") { "#{dev_gem.full_gem_path}/lib/decidim/dev/assets" }
-  ssl_bind(
-    "0.0.0.0",
-    ENV.fetch("DEV_SSL_PORT") { 3443 },
-    cert_pem: File.read("#{cert_dir}/ssl-cert.pem"),
-    key_pem: File.read("#{cert_dir}/ssl-key.pem")
-  )
-end
-----
-
-For newer Decidim versions, this code should already exist there.
-
-Also make sure that the `decidim-dev` gem is included in the `:development` group of your `Gemfile` as it should be unless you changed it.
-
-After that, you can start the development server under SSL at port 3443 (default) using the following command:
+If you created the Decidim development app using the default development app generator, you already should have the necessary configurations for starting the development server under SSL. You can start the development server under SSL at port 3443 (default) using the following command:
 
 [source,bash]
 ----
 DEV_SSL=true bin/rails s
 ----
+
+Also make sure that the `decidim-dev` gem is included in the `:development` group of your `Gemfile` as it should be unless you changed it.
+
+After that, you can start the development server under SSL at port 3443 (default) using the following command:
 
 Now you are ready to visit your favorite browser at the address `https://localhost:3443/` (note "https" and port 3443). If you would like to test the non-SSL "http" version, it is also running normally at port 3000, so you can access that as you normally would.
 
