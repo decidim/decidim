@@ -1066,8 +1066,6 @@ fi-pl:
             create:
               invalid: Henkilötietorekisterin lataaminen epäonnistui, yritä uudestaan myöhemmin.
               invalid_csv_header: CSV-otsakkeet puuttuvat puuttuvat tai ovat virheellisiä - lue ohjeet huolellisesti
-            creating_data:
-              info_message: "<strong>Odota hetki</strong>, käsitelty %{processed_count} / %{raw_count} riviä tiedostosta %{file}."
             delete:
               button: Poista kaikki henkilötietorekisterin tiedot
               confirm: Väestörekisterin tietojen poistamista ei voi peruuttaa jälkikäteen. Haluatko varmasti jatkaa?
@@ -1081,8 +1079,6 @@ fi-pl:
               file_not_exist: Tiedostoa ei ole olemassa
               launch_error: Tunnistautumiskoodien viennin aloittaminen epäonnistui
               launch_success: Tunnistautumiskoodien vienti aloitettu. Saat sähköpostia hetken kuluttua sähköpostiosoitteeseen %{email}
-            exporting_access_codes:
-              info_message: "<strong>Odota hetki</strong>, vientiä valmistellaan, saat pian tiedon viennistä sähköpostiosoitteeseen %{email}"
             freeze:
               callout: Henkilötietorekisteri on jäädytetty, minkä takia sitä ei voi muokata.
             generate_access_codes:
@@ -1093,8 +1089,6 @@ fi-pl:
               info_message_warn: Tarkasta, että mitään tietoja ei puutu, koska %{data_count} tietuetta luotiin ja ladatussa tiedostossa %{file} on %{raw_count} riviä.
               launch_error: Tunnistautumiskoodien luonnin aloittaminen epäonnistui
               launch_success: Koodien luonti aloitettu.
-            generating_access_codes:
-              info_message: "<strong>Odota hetki</strong>, äänestyksen tunnistautumiskoodeja luodaan parhaillaan..."
             new:
               file_help:
                 explanation: 'Tiedoston ohjeistus:'
