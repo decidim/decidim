@@ -1420,8 +1420,42 @@ lt:
         already_reported: Apie šį turinį jau pranešta ir jį peržiūrės administratorius.
         close: Uždaryti
         description: Kas netinka apie naudotoją?
+        does_not_belong: Pateikta informacija susijusi su neteisėta veikla, savižudybe, asmenine ar kita informacija netinkančia %{organization_name}.
+        offensive: Pateikiamoje informacijoje yra rasizmo, seksizmo, keiksmažodžių, asmeninių atakų, grasinimų ar kitokios neapykantos kalbos.
+        report: Pranešti
+        spam: Pateikiamoje informacijoje yra reklamos, antraščių mąsalo ar apgavysčių.
+        title: Pranešti apie netinkamą turinį
+      floating_help:
+        close: Uždaryti pagalbos langą
+        help: Pagalba
+      follow_button:
+        sign_in_before_follow: Prašome prisijunkite norėdami atlikti šį veiksmą
+      login_modal:
+        close_modal: Uždaryti modalinį langą
+        please_sign_in: Prašome prisijungti
+        sign_up: Užsiregistruoti
+      mentions_modal:
+        remove_recipient: Išimti gavėją %{name}
+      participatory_space_filters:
+        filters:
+          areas: Erdvės
+          select_an_area: Pasirinkti erdvę
+      public_participation:
+        public_participation: Rodyti mano dalyvavimą viešai
+      reference:
+        reference: 'Nuoroda: %{reference}'
+      represent_user_group:
+        represent_user_group: Aš atstovauju grupei
+        select_user_group: Pasirinkti grupę
+      results_per_page:
+        label: 'Rezultatų skaičius puslapyje:'
+        title: Pasirinkti rezultatų skaičių puslapyje
       share_modal:
+        close_window: Uždaryti langą
+        copy_share_link: Kopijuoti
+        copy_share_link_clarification: Kopijuoti nuorodą į iškarpinę
         copy_share_link_copied: Nukopijuota!
+        copy_share_link_message: Kodas sėkmingai nukopijuotas į iškarpinę.
         share: Dalintis
         share_link: Dalintis nuoroda
     statistics:
@@ -1435,6 +1469,7 @@ lt:
       users_count: Dalyviai
     tags:
       filter_results_for_category: 'Filtruoti nurodytos kategorijos rezultatus: %{resource}'
+      filter_results_for_scope: 'Filtruoti srities rezultatus: %{resource}'
     translation_bar:
       help_text: "<strong>Dėmesio:</strong> Turinys gali būti išverstas automatiškai, bet nebus visiškai tikslus."
       show_original: Rodyti teksto originalą
@@ -1478,6 +1513,7 @@ lt:
     user_interests:
       show:
         my_interests: Mano interesai
+        no_scopes: Organizacija dar neturi srities!
         select_your_interests: Pasirinkite jus dominančias temas, kad savo profilio kortelėje „Laiko juosta“ gautumėte su jomis susijusių renginių nuorodų.
         update_my_interests: Atnaujinti mane dominančias temas
       update:
@@ -1520,6 +1556,7 @@ lt:
       show:
         version_index: Versija %{index}
     welcome_notification:
+      default_body: <p>Sveiki {{name}}, dėkojame, kad prisijungėte prie {{organization}}. Sveikiname!</p><ul><li>Jeigu norite greitai sužinoti, ką čia galite nuveikti, peržiūrėkite <a href="{{help_url}}">Pagalbos</a> skyrelį.</li><li>Jį perskaitę, gausite savo pirmąjį ženklelį. Čia <a href="{{badges_url}}">pateikiamas sąrašas visų ženklelių,</a> kuriuos galite gauti dalyvaudami {{organization}}</li><li>Galiausiai, prisijunkite prie kitų žmonių, dalykitės su jais veiklos ir dalyvavimo {{organization}} patirtimi. Teikite pasiūlymus, komentuokite, diskutuokite, galvokite, kaip prisidėti prie bendros gerovės, teikite argumentus, kad įtikintumėte, klausykitės ir skaitykite, kad įsitikintumėte, reikškite savo idėjas konkrečiai ir tiesiogiai, atsakykite kantriai ir siūlykite sprendimą, ginkite savo idėjas ir likite atviri bendradarbiauti ir paremti kitų žmonių idėjas.</li></ul>
       default_subject: Dėkojame, kad prisijungėte prie {{organization}}!
     wizard_step_form:
       wizard_aside:
@@ -1538,6 +1575,8 @@ lt:
       already_authenticated: Jūs jau esate prisijungę.
       inactive: Jūsų paskyra dar nėra aktyvuota.
       invalid: Netinkamas %{authentication_keys} arba slaptažodis.
+      invited: Turite nepriimtą kvietimą, priimkite jį ir finalizuokite paskyros kūrimą.
+      last_attempt: Jums liko dar vienas pabandymas, iki kol jūsų paskyra bus užblokuota.
       locked: Jūsų paskyra užrakinta.
       not_found_in_database: Netinkamas %{authentication_keys} arba slaptažodis.
       timeout: Jūsų sesijos laikas baigėsi. Kad galėtumėte tęsti, prisijunkite iš naujo.
@@ -1550,6 +1589,11 @@ lt:
         subtitle: Jei priimate kvietimą, nustatykite savo naudotojo vardą ir slaptažodį.
       invitation_removed: Jūsų kvietimas pašalintas.
       invitation_token_invalid: Pateiktas kvietimo raktas nebegalioja!
+      new:
+        header: Siųsti pakvietimą
+        submit_button: Siųsti pakvietimą
+      no_invitations_remaining: Kvietimų neliko
+      send_instructions: Kvietimo e. laiškas išsiųstas %{email}.
       updated: Jūsų slaptažodis buvo sėkmingai nustatytas. Dabar esate prisijungę.
       updated_not_active: Jūsų slaptažodis nustatytas.
     mailer:
@@ -1564,6 +1608,7 @@ lt:
         subject: El. pašto adresas pakeistas
       invitation_instructions:
         accept: Priimti kvietimą
+        accept_until: Šis kvietimas turi būti priimtas iki %{due_date}.
         decline: Atmesti kvietimą
         hello: Sveiki %{email},
         ignore: |-
@@ -1653,6 +1698,11 @@ lt:
         sign_in: Prisijungti
         sign_in_with_provider: Prisijunkite su %{provider}
         sign_up: Užsiregistruoti
+      minimum_password_length:
+        one: "(bent %{count} simbolis)"
+        few: "(bent %{count} simboliai)"
+        many: "(bent %{count} simboliai)"
+        other: "(bent %{count} simboliai)"
     unlocks:
       new:
         resend_unlock_instructions: Dar kartą siųsti atrakinimo nurodymus
@@ -1667,6 +1717,7 @@ lt:
       already_confirmed: jau patvirtinta, pabandykite prisijungti
       confirmation_period_expired: turi būti patvirtintas per %{period}, prašome paprašyti naujo
       content_type_allowlist_error: rinkmenos tipas netinkamas
+      cycle_detected: srities pirminis elementas, negali būti vienas iš jos poelemenčių
       expired: nustojo galioti, prašykite iš naujo
       file_size_is_less_than_or_equal_to: rinkmenos dydis turi būti ne didesnis kaip %{count} arba jam lygus
       invalid_time_zone: netinkama laiko juosta
@@ -1675,11 +1726,22 @@ lt:
       nesting_too_deep: negali priklausyti pakategorei
       not_found: nepavyko rasti. Ar užsiregistravote anksčiau?
       not_locked: nebuvo užrakintas
+      not_saved:
+        one: 'Vykdant jūsų prašymą įvyko klaida:'
+        few: 'Vykdant jūsų prašymus įvyko klaida:'
+        many: 'Vykdant jūsų prašymus įvyko klaida:'
+        other: 'Vykdant jūsų prašymus įvyko klaida:'
       too_many_marks: naudojama per daug skyrybos ženklų iš eilės (pvz., ! ir ?)
       too_much_caps: naudojama per daug didžiųjų raidžių (daugiau kaip 25 proc. teksto)
       too_short: per trumpas (mažiau nei 15 ženklų)
   forms:
     correct_errors: Formoje yra klaidų, ištaisykite jas ir tęskite.
+    length_validator:
+      minimum:
+        one: Bent %{count} ženklas
+        few: Bent %{count} ženklai
+        many: Bent %{count} ženklai
+        other: Bent %{count} ženklai
     required: Privalomas laukas
     required_explanation: "* Privalomi laukai pažymėti žvaigždute"
   invisible_captcha:
@@ -1718,6 +1780,7 @@ lt:
           description: Naudojame slapukus siekdami užtikrinti pagrindines svetainės funkcijas ir pagerinti jūsų patirtį. Kiekvienai kategorijai galite pasirinkti, kada norite jų atsisakyti.
           essential:
             description: Šie slapukai yra būtini tinkamam mūsų svetainės veikimui.
+            title: Esminiai
           marketing:
             title: Marketingas
           title: Slapukų nustatymai
