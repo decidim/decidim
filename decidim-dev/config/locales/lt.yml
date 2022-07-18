@@ -2,4 +2,27 @@ lt:
   activemodel:
     attributes:
       dummy_resource:
+        created_at: Sukurta
         decidim_scope_id: Apimtis
+        field: Mano laukas
+        start_date: Pradžios data
+        title: Pavadinimas
+        translatable_text: Verčiamas tekstas
+        updated_at: Atnaujinta
+  decidim:
+    components:
+      dummy:
+        settings:
+          global:
+            guided: Vedama įvestis
+            guided_help: Pagalbos tekstas
+            guided_readonly: Išjungta įvestis
+            guided_rich: Vedama turtinga įvestis
+            guided_rich_help_html: HTML <strong>pagalbos</strong> tekstas
+            guided_rich_readonly_html: HTML <strong>pagalbos</strong>tekstas išjungtai įvesčiai
+            readonly_attribute: Tik skaitomas atributas
+            test: Bandymas
+            test_choices:
+              a: A pasirinkimas
+              b: B pasirinkimas
+              c: C pasirinkimas
