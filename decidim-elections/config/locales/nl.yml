@@ -876,8 +876,6 @@ nl:
             create:
               invalid: Er is een fout opgetreden bij het uploaden van de kiezerslijst, probeer het later opnieuw.
               invalid_csv_header: De CSV-headers ontbreken of zijn niet correct - lees de instructies zorgvuldig door
-            creating_data:
-              info_message: "<strong>Gelieve te wachten</strong>, %{processed_count} verwerkt van %{raw_count} rijen uit bestand %{file}."
             delete:
               button: Verwijder alle kiezerslijstgegevens
             destroy:
@@ -889,8 +887,6 @@ nl:
               confirm: Je kunt de toegangscodes slechts één keer exporteren. Controleer of je toegang heeft tot het e-mailadres <strong>%{email}</strong>.
               launch_error: Probleem bij het starten van de toegangscodes export
               launch_success: Exporteer toegangscodes gestart. Je ontvangt binnenkort een e-mail op %{email}
-            exporting_access_codes:
-              info_message: "<strong>Gelieve te wachten</strong>, de export wordt voorbereid, je ontvangt deze binnenkort op %{email}"
             freeze:
               callout: De kiezerslijst is bevroren, en kan niet worden gewijzigd.
             generate_access_codes:
@@ -901,8 +897,6 @@ nl:
               info_message_warn: Controleer of er geen gegevens ontbreken, omdat %{data_count} records zijn gemaakt en het geüploade bestand %{file} %{raw_count} rijen had.
               launch_error: Probleem bij het starten van de toegangscodes export
               launch_success: Codes genereren gestart.
-            generating_access_codes:
-              info_message: "<strong>Even geduld</strong>, de codes voor stemtoegang worden gegenereerd..."
             new:
               file_help:
                 explanation: 'Instructie bij het bestand:'
