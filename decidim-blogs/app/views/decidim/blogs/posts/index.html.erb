@@ -1,5 +1,9 @@
 <%= render partial: "decidim/shared/component_announcement" %>
 
+<% content_for :css_content do %>
+  <%= stylesheet_pack_tag "decidim_blogs", media: "all" %>
+<% end %>
+
 <% content_for :aside do %>
   <h1 class="h1 decorator"><%= t("decidim.components.blogs.name") %></h1>
 <% end %>
@@ -24,7 +28,7 @@
     </div>
   </div>
 
-  <div id="blogs" class="space-y-12">
+  <div id="blogs" class="blogs__list-container">
     <%= render partial: "posts" %>
   </div>
 

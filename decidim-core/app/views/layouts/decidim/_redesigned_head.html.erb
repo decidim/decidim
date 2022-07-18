@@ -27,6 +27,8 @@
 <link rel="manifest" href="/manifest.webmanifest">
 
 <%= stylesheet_pack_tag "redesigned_decidim_core", media: "all" %>
+<%= yield :css_content %>
+
 <%= invisible_captcha_styles %>
 <%= organization_colors %>
 

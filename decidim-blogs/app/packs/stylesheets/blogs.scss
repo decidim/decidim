@@ -1,0 +1,33 @@
+.blogs__list{
+  &-container{
+    @apply space-y-12;
+  }
+
+  &-item{
+    @apply flex gap-4 px-4 rounded overflow-hidden border-l-4 border-background hover:border-tertiary;
+
+    &__image{
+      @apply w-1/4 flex-none rounded overflow-hidden aspect-[1.5] -ml-[calc(1rem+4px)];
+    }
+
+    &__content{
+      @apply flex flex-col;
+    }
+
+    &__title{
+      @apply h4 text-secondary mb-3;
+    }
+
+    &__text{
+      @apply text-gray-2 mb-3;
+    }
+
+    &__author{
+      @apply mt-auto;
+    }
+
+    &:hover &__title{
+      @apply underline;
+    }
+  }
+}
