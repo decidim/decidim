@@ -1,9 +1,9 @@
-.layout-2col{
-  @apply bg-gradient-to-r from-background via-background to-white;
+.layout-1col{
+  @apply grow container grid grid-cols-12 [&>*]:col-span-12 md:[&>*]:col-start-2 md:[&>*]:col-span-10 lg:[&>*]:col-start-3 lg:[&>*]:col-span-8;
+}
 
-  > *{
-    @apply grow grid grid-cols-12 container;
-  }
+.layout-2col{
+  @apply bg-gradient-to-r from-background via-background to-white [&>*]:grow [&>*]:grid [&>*]:grid-cols-12 [&>*]:container;
 
   aside{
     @apply col-span-3 py-12;
@@ -12,4 +12,8 @@
   main{
     @apply col-span-9 bg-white pl-16 py-12;
   }
+}
+
+.layout-center{
+  @apply grid grid-cols-8 [&>*]:col-span-8 lg:[&>*:not(.grow)]:col-start-2 lg:[&>*:not(.grow)]:col-span-6;
 }
