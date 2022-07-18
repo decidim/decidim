@@ -166,3 +166,10 @@ lt:
           next_level_in: Įsitraukite į %{score} daugiau diskusijų ir pasiekite kitą lygį!
           unearned_another: Šis dalyvis dar nedalyvavo nė vienoje diskusijoje.
           unearned_own: Jūs dar nedalyvavote nė vienoje diskusijoje.
+    metrics:
+      debates:
+        description: Sukurtų diskusijų skaičius
+        object: diskusijos
+        title: Diskusijos
+    statistics:
+      debates_count: Diskusijos
