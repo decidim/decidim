@@ -1,1 +1,14 @@
+---
 lt:
+  activemodel:
+    attributes:
+      participatory_process:
+        scope_id: Apimtis
+  decidim:
+    participatory_process_groups:
+      content_blocks:
+        title:
+          meta_scope: Apimtis
+    participatory_processes:
+      show:
+        scope: Apimtis
