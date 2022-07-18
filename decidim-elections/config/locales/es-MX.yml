@@ -1075,8 +1075,6 @@ es-MX:
             create:
               invalid: Se ha producido un error al subir el censo, por favor inténtalo de nuevo más tarde.
               invalid_csv_header: Los encabezados CSV faltan o no son correctos - por favor lee las instrucciones cuidadosamente
-            creating_data:
-              info_message: "<strong>Por favor espera</strong>, procesadas %{processed_count} de %{raw_count} filas del fichero %{file}."
             delete:
               button: Borrar todos los datos del censo
               confirm: Eliminar todo el censo no se puede deshacer. ¿Seguro que quieres continuar?
@@ -1090,8 +1088,6 @@ es-MX:
               file_not_exist: Este archivo no existe
               launch_error: Problema al iniciar la exportación de códigos de acceso
               launch_success: Se ha iniciado la exportación de los códigos de acceso. En breve recibirás un correo en %{email}
-            exporting_access_codes:
-              info_message: "<strong>Por favor, espera</strong>, se está preparando la exportación. La recibirás en breve en %{email}"
             freeze:
               callout: El censo está cerrado y no se puede modificar.
             generate_access_codes:
@@ -1102,8 +1098,6 @@ es-MX:
               info_message_warn: Por favor, comprueba que no falten datos, ya que se han creado %{data_count} registros, pero el fichero que se ha subido (%{file}) tenía %{raw_count} filas.
               launch_error: Ha habido un problema al generar los códigos de acceso
               launch_success: Se ha iniciado la generación de códigos.
-            generating_access_codes:
-              info_message: "<strong>Por favor espera</strong>, se están generando los códigos de acceso a la votación..."
             new:
               file_help:
                 explanation: 'Instrucciones para el archivo:'
