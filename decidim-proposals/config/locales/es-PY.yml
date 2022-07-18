@@ -213,6 +213,7 @@ es-PY:
             endorsements_enabled: Adhesiones habilitados
             proposal_answering_enabled: Contestación de propuesta habilitada
             publish_answers_immediately: Publicar respuestas a las propuestas inmediatamente
+            publish_answers_immediately_help_html: 'Ten en cuenta que si respondes a alguna propuesta sin que esto esté habilitado, tendrás que publicarlas manualmente seleccionándolas y utilizando la acción de publicar. Para más información sobre el funcionamiento, consulta la <a href="https://docs.decidim.org/en/admin/components/proposals/answers#_publication" target="_blank">página de documentación de las respuestas a las propuestas</a>.'
             suggested_hashtags: Hashtags sugeridos a los usuarios para nuevas propuestas.
             votes_blocked: Votación bloqueada
             votes_enabled: Votación habilitada
