@@ -28,7 +28,7 @@ module Decidim
       include SingleInitiativeType
 
       helper_method :collection, :initiatives, :filter, :stats
-      helper_method :initiative_type
+      helper_method :initiative_type, :available_initiative_types
 
       # GET /initiatives
       def index

@@ -57,6 +57,11 @@ module Webpacker
           "stylesheets/decidim/initiatives/initiatives"
         )
       end
+
+      it "calls assets generate runtime configuration for Tailwind" do
+        expect(Decidim::Assets::Tailwind).to receive(:write_runtime_configuration)
+        create_instance
+      end
     end
 
     private
