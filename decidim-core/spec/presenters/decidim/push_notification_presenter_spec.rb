@@ -20,10 +20,10 @@ module Decidim
         it "returns text without links and with HTML entities unescaped" do
           # rubocop:disable RSpec/AnyInstance
           allow_any_instance_of(event_class).to receive(:notification_title).and_return(
-            "There is a new comment from <a href='/path/to/profile'>Foo & Bar</a>"
+            "There is a new comment from <a href='/path/to/profile'>Foo & Bar 1 < 2 & 2 > 3</a>"
           )
 
-          expect(subject.body).to eq("There is a new comment from Foo & Bar")
+          expect(subject.body).to eq("There is a new comment from Foo & Bar 1 < 2 & 2 > 3")
           # rubocop:enable RSpec/AnyInstance
         end
       end
