@@ -54,17 +54,13 @@ You can read more about this change on PR [\#XXXX](https://github.com/decidim/de
 
 ### Changed
 
-#### Generate Tailwind configuration on runtime
+#### Tailwind CSS introduction
 
-Decidim redesign has introduced Tailwind CSS framework to compile CSS. Decidim Webpacker integration
-generates Tailwind configuration dynamically when Webpacker is invoked.
+Decidim redesign has introduced Tailwind CSS framework to compile CSS. It integrates with Webpacker,
+which generates Tailwind configuration dynamically when Webpacker is invoked. More details in the PR [#9480](https://github.com/decidim/decidim/pull/9480/).
 
-The technical reasons are in the content of the configuration file, it requires to specify a path to
-all templates where CSS classes are used. Because of the Decidim gem configuration system, the list
-of decidim gems installed can only be read on execution time.
-
-Therefore, in case that your application has a `tailwind.config.js` file at the root folder, it
-should be removed and ignored in git, because Decidim will overwrite it when assets are compiled.
+You'll need to add `tailwind.config.js` to your app `.gitignore`. If you generate a new Decidim app
+from scratch, that entry will already be included in the `.gitignore`.
 
 ### Fixed
 
