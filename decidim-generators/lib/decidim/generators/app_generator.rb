@@ -242,6 +242,10 @@ module Decidim
         GITIGNORE
       end
 
+      def add_ignore_tailwind_configuration
+        append_file ".gitignore", "\n\n# Ignore Tailwind configuration\ntailwind.config.js" unless options["skip_git"]
+      end
+
       def remove_default_error_pages
         remove_file "public/404.html"
         remove_file "public/500.html"

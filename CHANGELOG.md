@@ -54,6 +54,14 @@ You can read more about this change on PR [\#XXXX](https://github.com/decidim/de
 
 ### Changed
 
+#### Tailwind CSS introduction
+
+Decidim redesign has introduced Tailwind CSS framework to compile CSS. It integrates with Webpacker,
+which generates Tailwind configuration dynamically when Webpacker is invoked. More details in the PR [#9480](https://github.com/decidim/decidim/pull/9480/).
+
+You'll need to add `tailwind.config.js` to your app `.gitignore`. If you generate a new Decidim app
+from scratch, that entry will already be included in the `.gitignore`.
+
 ### Fixed
 
 ### Removed
