@@ -5,6 +5,9 @@ on:
       - "chore/l10n*"
     types: [opened, edited, synchronize, reopened]
 
+env:
+  DEBUG: true
+
 jobs:
   check_title:
     name: Check PR title
