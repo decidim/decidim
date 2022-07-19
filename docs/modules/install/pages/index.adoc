@@ -107,6 +107,9 @@ You can configure it with `crontab -e`, for instance if you've created your Deci
 
 # Delete old registrations forms
 3 0 * * * cd /home/user/decidim_application && RAILS_ENV=production bundle exec rake decidim_meetings:clean_registration_forms
+
+# Change active step in participatory processes
+*/15 * * * * cd /home/user/decidim_application && RAILS_ENV=production bundle exec rake decidim_participatory_processes:change_active_step
 ----
 
 === Further configuration
