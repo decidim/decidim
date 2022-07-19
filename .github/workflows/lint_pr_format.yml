@@ -6,7 +6,7 @@ on:
     types: [opened, edited, synchronize, reopened]
 
 env:
-  DEBUG: true
+  DEBUG: TRUE
 
 jobs:
   check_title:
