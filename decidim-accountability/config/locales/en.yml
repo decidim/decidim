@@ -68,10 +68,11 @@ en:
         projects_import:
           new:
             create: Import
-            title: Import Projects to Accountability
+            no_components: There are no budgets components in this participatory space to import the projects into results.
+            origin_component_id: Origin component
             select_component: Select a component
             success: "%{number} projects successfully imported into results"
-            origin_component_id: Origin component
+            title: Import Projects to Accountability
         results:
           create:
             invalid: There was a problem creating this result

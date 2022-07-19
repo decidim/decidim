@@ -25,17 +25,24 @@ module Decidim
 
         def results_from_projects
           transaction do
-            projects(form.budget_component).map do |project|
-              next if project_already_copied?(project, form.accountability_component)
+            projects.map do |original_project|
+              next if project_already_copied?(original_project)
 
-              new_result = create_result_from_project!(project, statuses.first)
+              new_result = create_result_from_project!(original_project, statuses.first)
 
-              new_result.link_resources([project], "included_projects")
-              new_result.link_resources(project.linked_resources(:proposals, "included_proposals"), "included_proposals")
+              new_result.link_resources([original_project], "included_projects")
+              new_result.link_resources(
+                original_project.linked_resources(:proposals, "included_proposals"),
+                "included_proposals"
+              )
 
-              copy_attachments(project, new_result)
+              copy_attachments(original_project, new_result)
             end.compact
           end
+        end
+
+        def origin_component
+          form.origin_component
         end
 
         def create_result_from_project!(project, status)
@@ -44,7 +51,7 @@ module Decidim
             description: project.description,
             category: project.category,
             scope: project.scope || project.budget.scope,
-            component: form.accountability_component,
+            component: current_component,
             status: status,
             progress: status.progress || 0
           }
@@ -56,13 +63,18 @@ module Decidim
           )
         end
 
-        def project_already_copied?(project, target_component)
-          project.resource_links_to.where(
-            name: "included_projects",
-            from_type: "Decidim::Accountability::Result"
-          ).any? do |link|
-            # link.from == target_component
-            false
+        def project_already_copied?(original_project)
+          # project.resource_links_to.where(
+          #   resource_links_to: {
+          #     name: "included_projects",
+          #     from_type: "Decidim::Accountability::Result"
+          #   }
+          # ).any? do |link|
+          #   link.from == target_component
+          # end
+
+          original_project.linked_resources(:results, "included_projects").any? do |result|
+            result.component == current_component
           end
         end
 
@@ -88,11 +100,13 @@ module Decidim
         end
 
         def statuses
-          Decidim::Accountability::Status.where(component: form.accountability_component).order(:progress)
+          Decidim::Accountability::Status.where(component: current_component).order(:progress)
         end
 
-        def projects(budget_component)
-          Decidim::Budgets::Project.joins(:budget).where.not(selected_at: nil).where(budget: { component: budget_component })
+        def projects
+          Decidim::Budgets::Project.joins(:budget).selected.where(
+            budget: { component: origin_component }
+          )
         end
 
         def budgets
