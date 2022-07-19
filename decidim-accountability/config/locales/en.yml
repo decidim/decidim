@@ -70,8 +70,8 @@ en:
             create: Import
             import_all_selected_projects: Import all selected projects
             new_items:
-              zero: There are no selected projects in this original component
-              one: There is 1 selected project in this original component
+              zero: There are no selected projects in this origin component
+              one: There is 1 selected project in this origin component
               other: "%{count} selected projects will be imported"
             new_items_other: "%{items} projects are selected"
             no_components: There are no budgets components in this participatory space to import the projects into results.
