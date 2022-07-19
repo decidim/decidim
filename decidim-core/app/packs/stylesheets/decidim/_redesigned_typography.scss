@@ -37,3 +37,8 @@
     @apply after:w-10;
   }
 }
+
+/* default styles for those dynamic text blocks */
+.editor-content{
+  @apply prose max-w-full text-black text-lg;
+}

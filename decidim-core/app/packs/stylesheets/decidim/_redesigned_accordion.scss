@@ -1,0 +1,23 @@
+.accordion{
+  @apply border-4 border-background rounded p-4;
+
+  &__title{
+    @apply h3 text-secondary text-lg;
+  }
+
+  &__snippet{
+    @apply text-gray-2 mt-2;
+  }
+
+  &__arrow{
+    @apply w-8 h-8 text-secondary fill-current first:block last:hidden;
+  }
+
+  &[open] &__arrow{
+    @apply first:hidden last:block;
+  }
+
+  &__hidden-list{
+    @apply border-t border-gray-3 mt-4 pt-4 space-y-4;
+  }
+}
