@@ -102,6 +102,26 @@
     }
   }
 
+  &__sorting{
+    @apply flex items-center justify-between relative text-gray-2 pl-8 pr-2 py-2.5 border-2 border-background rounded cursor-pointer before:content-[counter(item)] before:absolute before:left-0 before:top-0 before:bg-background before:w-5 before:h-full before:grid before:place-items-center before:text-gray-2 before:font-bold;
+
+    counter-increment: item;
+
+    &-container{
+      @apply space-y-4;
+
+      counter-reset: item;
+    }
+
+    input{
+      @apply hidden;
+    }
+
+    svg{
+      @apply text-gray fill-current w-5 h-5;
+    }
+  }
+
   &__file{
     /* REDESIGN_PENDING: add 'button--transparent-secondary' when available. See https://github.com/PopulateTools/issues/issues/1634 */
     @apply button w-full justify-center;
