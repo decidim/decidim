@@ -2,10 +2,18 @@
   description: translated_attribute(@page.body),
 }) %>
 
-<%= render layout:"layouts/decidim/shared/layout_one_col" do %>
-  <div class="grid grid-cols-8 py-12">
-    <div class="col-start-2 col-span-6 prose max-w-full space-y-12">
-      <%= render partial: "decidim/shared/component_announcement" %>
+<%= render layout:"layouts/decidim/shared/layout_center" do %>
+  <div class="py-12 space-y-12">
+
+    <div class="text-center">
+      <h1 class="h1 decorator inline-block text-left">
+        <%= translated_attribute(@page.title) %>
+      </h1>
+    </div>
+
+    <%= render partial: "decidim/shared/component_announcement" %>
+
+    <div class="editor-content">
       <%= decidim_sanitize_editor translated_attribute(@page.body) %>
     </div>
   </div>
