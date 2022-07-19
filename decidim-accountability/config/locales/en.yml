@@ -39,6 +39,7 @@ en:
         confirm_destroy: Are you sure you want to delete this %{name}?
         destroy: Delete
         edit: Edit
+        import: Import projects to results
         import_csv: Import CSV
         new: New %{name}
         preview: Preview
@@ -64,6 +65,13 @@ en:
             name: Status
           timeline_entry:
             name: Timeline entry
+        projects_import:
+          new:
+            create: Import
+            title: Import Projects to Accountability
+            select_component: Select a component
+            success: "%{number} projects successfully imported into results"
+            origin_component_id: Origin component
         results:
           create:
             invalid: There was a problem creating this result
@@ -98,6 +106,7 @@ en:
           new:
             create: Create status
             title: New status
+            accountability_component_id: Result's component
           update:
             invalid: There was a problem updating this status
             success: Status successfully updated

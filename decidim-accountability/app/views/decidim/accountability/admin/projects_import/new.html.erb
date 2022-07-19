@@ -1,0 +1,19 @@
+<%= form_for(@form, url: projects_import_index_path(@accountability), html: { class: "form import_projects" }) do |f| %>
+  <% if @form.accountability_component.present? %>
+    <div class="card">
+      <div class="card-divider">
+        <h2 class="card-title"><%= t(".title") %></h2>
+      </div>
+
+      <div class="row column">
+          <%= f.select :budget_component_id, @form.budget_components_collection, prompt: t(".select_component"), label: t(".origin_component_id") %>
+        </div>
+    </div>
+
+    <div class="button--double form-general-submit">
+      <%= f.submit t(".create") %>
+    </div>
+  <% else %>
+      <p><%= t(".no_projects") %></p>
+  <% end %>
+<% end %>
