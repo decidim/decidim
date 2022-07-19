@@ -18,7 +18,7 @@ module Decidim
         def tailwind_variables
           # The directories where Tailwind should search for templates are the installed
           # decidim gems and the current directory (which is the Rails app)
-          decidim_gems = Bundler.load.specs.select { |spec| spec.name =~ /^decidim-/ }
+          decidim_gems = Bundler.load.specs.select { |spec| spec.name =~ /^decidim-/ }.map(&:full_gem_path)
           content_directories = decidim_gems.push(".")
 
           # The variable expected by tailwind is a Javascript array of strings
