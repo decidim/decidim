@@ -64,15 +64,6 @@ module Decidim
         end
 
         def project_already_copied?(original_project)
-          # project.resource_links_to.where(
-          #   resource_links_to: {
-          #     name: "included_projects",
-          #     from_type: "Decidim::Accountability::Result"
-          #   }
-          # ).any? do |link|
-          #   link.from == target_component
-          # end
-
           original_project.linked_resources(:results, "included_projects").any? do |result|
             result.component == current_component
           end
