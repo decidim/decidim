@@ -3,7 +3,7 @@ on:
   pull_request:
     branches-ignore:
       - "chore/l10n*"
-    types: [opened, edited, reopened]
+    types: [opened, edited, synchronize, reopened]
 
 env:
   DEBUG: TRUE
