@@ -31,9 +31,39 @@ module Decidim
               expect(subject.builder_options).to eq(
                 marker_color: "#ef604d",
                 tile_layer: {
-                  api_key: "key1234", foo: "bar"
+                  api_key: "key1234", foo: "bar", language: "eng"
                 }
               )
+            end
+
+            context "with different locale configuration" do
+              before do
+                allow(I18n.config).to receive(:enforce_available_locales).and_return(false)
+              end
+
+              after do
+                I18n.locale = "en"
+              end
+
+              it "returns the correct builder options for CA" do
+                I18n.locale = "ca"
+                expect(subject.builder_options).to eq(
+                  marker_color: "#ef604d",
+                  tile_layer: {
+                    api_key: "key1234", foo: "bar", language: "cat"
+                  }
+                )
+              end
+
+              it "returns the correct builder options for ES" do
+                I18n.locale = "es"
+                expect(subject.builder_options).to eq(
+                  marker_color: "#ef604d",
+                  tile_layer: {
+                    api_key: "key1234", foo: "bar", language: "spa"
+                  }
+                )
+              end
             end
 
             context "with legacy style API key configuration" do

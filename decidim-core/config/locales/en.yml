@@ -49,6 +49,9 @@ en:
       decidim/welcome_notification_event: Welcome message
   activerecord:
     attributes:
+      decidim/action_log:
+        created_at: Time
+        with_participatory_space: Participatory space
       decidim/user:
         current_password: Current password
         email: Email
@@ -1854,6 +1857,12 @@ en:
     password_too_common: is too common
     password_too_long: is too long
     password_too_short: is too short
+  ransack:
+    predicates:
+      dtgt: after
+      dtgteq: after or equal to
+      dtlt: before
+      dtlteq: before or equal to
   social_share_button:
     delicious: Delicious
     douban: Douban
@@ -1910,14 +1919,10 @@ en:
       option_unified: Unified
   views:
     pagination:
-      first: "&laquo; First"
-      first_title: Link to the first page
-      last: Last &raquo;
-      last_title: Link to the last page
-      next: Next &rsaquo;
+      next: Next
       next_title: Link to the next page
       pagination: Pagination
-      previous: "&lsaquo; Prev"
+      previous: Prev
       previous_title: Link to the previous page
       title: 'Page number: '
       truncate: "&hellip;"

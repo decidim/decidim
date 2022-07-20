@@ -1,0 +1,19 @@
+.label{
+  @apply bg-background text-gray-2 rounded inline-flex items-center gap-1 px-2 font-semibold text-sm;
+
+  &.success{
+    @apply bg-success/20 text-success;
+  }
+
+  &.alert{
+    @apply bg-alert/20 text-alert;
+  }
+
+  &.warning{
+    @apply bg-warning/20 text-warning;
+  }
+
+  &.reverse{
+    @apply bg-gray-2 text-white;
+  }
+}

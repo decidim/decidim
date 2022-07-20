@@ -52,10 +52,10 @@ describe "Admin manages trustees", type: :system do
 
     it "lists 15 trustees per page by default" do
       expect(page).to have_css(resource_selector, count: 15)
-      expect(page).to have_css(".pagination .page", count: 2)
+      expect(page).to have_css("[data-pages] [data-page]", count: 2)
       click_link "Next"
 
-      expect(page).to have_selector(".pagination .current", text: "2")
+      expect(page).to have_selector("[data-pages] [data-page][aria-current='page']", text: "2")
 
       expect(page).to have_css(resource_selector, count: 5)
     end
