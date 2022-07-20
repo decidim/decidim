@@ -2,7 +2,6 @@
 
 require "bundler/gem_tasks"
 require "rspec/core/rake_task"
-
 require "decidim/gem_manager"
 
 RSpec::Core::RakeTask.new(:spec)
