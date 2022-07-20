@@ -91,4 +91,42 @@
       }
     }
   }
+
+  &__user{
+    @apply flex items-center space-x-1.5;
+
+    &-avatar{
+      @apply w-full h-full rounded-full overflow-hidden drop-shadow-md border-2 border-white;
+
+      &-container{
+        @apply w-12 h-12 relative flex-none;
+      }
+
+      &-badge{
+        @apply absolute top-full right-0 -translate-y-full grid place-items-center w-4 h-4 rounded-full overflow-hidden bg-primary border border-white;
+      }
+    }
+
+    &-name{
+      @apply h5 text-secondary;
+    }
+
+    &-nick{
+      @apply text-gray-2 lowercase;
+    }
+
+    &-role{
+      @apply inline-block ml-1 px-2 py-0.5 font-normal rounded text-xs text-primary bg-primary/25;
+    }
+
+    &:hover{
+      &-avatar{
+        @apply border-tertiary;
+      }
+
+      &-name{
+        @apply underline;
+      }
+    }
+  }
 }
