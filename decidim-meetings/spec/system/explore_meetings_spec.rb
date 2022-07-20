@@ -275,7 +275,7 @@ describe "Explore meetings", :slow, type: :system do
 
         context "when there are multiple meetings" do
           it "orders them by start date" do
-            visit_component
+            page.visit "#{main_component_path(component)}?per_page=20"
             within ".with_any_date_collection_radio_buttons_filter" do
               choose "All"
             end

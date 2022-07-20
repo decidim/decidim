@@ -244,7 +244,7 @@ describe "Explore meeting directory", type: :system do
 
     context "with all meetings" do
       it "orders them by start date" do
-        visit directory
+        visit "#{directory}?per_page=20"
 
         within ".with_any_date_collection_radio_buttons_filter" do
           choose "All"
