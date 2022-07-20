@@ -7,7 +7,3 @@ line-length: false
 no-bare-urls: false
 
 no-inline-html: false
-
-strong-style: false
-
-emphasis-style: false

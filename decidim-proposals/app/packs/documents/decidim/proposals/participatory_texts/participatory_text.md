@@ -1,4 +1,4 @@
-<!-- markdownlint-disable-file single-h1 -->
+<!-- markdownlint-disable-file single-h1 strong-style emphasis-style -->
 
 # Section title 1: grouping content
 
