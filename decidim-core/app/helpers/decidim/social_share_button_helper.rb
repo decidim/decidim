@@ -18,8 +18,11 @@ module Decidim
     end
 
     def render_social_share_button(service, title, args)
+      uri = service.formatted_share_uri(title, args)
+      return unless uri
+
       link_to(
-        service.formatted_share_uri(title, args),
+        uri,
         rel: "nofollow",
         data: { site: service.name.downcase },
         class: "ssb-icon ssb-#{service.name.downcase}",

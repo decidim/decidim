@@ -78,6 +78,14 @@ module Decidim
           expect(result).to include("https://twitter.com/intent/tweet?url=http%3A%2F%2Fexample.org&amp;text=Hello&amp;hashtags=Hello&amp;via=Decidim")
           expect(result).to include(".svg")
         end
+
+        context "when the arguments do not define all the required parameters in the URL" do
+          let(:args) { { hashtags: "Hello" } }
+
+          it "renders the correct HTML" do
+            expect(result).to eq(%(<div class="social-share-button"></div>))
+          end
+        end
       end
     end
   end
