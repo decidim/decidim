@@ -10,7 +10,7 @@ module Decidim
     include ActiveLinkTo
 
     delegate :current_organization, :current_user, :user_groups_enabled?, to: :controller
-    delegate :avatar_url, :nickname, :personal_url, :followers_count, :following_count, to: :presented_profile
+    delegate :avatar_url, :nickname, :personal_url, :followers_count, :public_users_followings, :following_count, to: :presented_profile
 
     TABS_ITEMS = {
       activity: { icon: "bubble-chart-line", path: :profile_activity_path },
@@ -46,7 +46,7 @@ module Decidim
     def details_items
       [{ icon: "account-pin-circle-line", text: nickname }].tap do |items|
         items.append(icon: "link", text: personal_url) if personal_url.present?
-        items.append(icon: "contacts-line", text: t("decidim.following.following_count", count: following_count)) if profile_holder.following_count.positive?
+        items.append(icon: "contacts-line", text: t("decidim.following.following_count", count: public_users_followings.count)) if profile_holder.public_users_followings.count.positive?
         items.append(icon: "user-received-line", text: t("decidim.followers.followers_count", count: followers_count)) if profile_holder.followers_count.positive?
       end
     end
