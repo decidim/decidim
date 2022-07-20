@@ -24,8 +24,8 @@ buttons_array << ["user-add-line", t("decidim.profiles.user.invite_user")] if !i
 buttons_array << ["user-add-line", t("decidim.profiles.user.join_user_group")] if !is_user_view && !my_group
 %>
 <% buttons_array.each do |btn| %>
-  <a href="" class="button white sm border border-secondary w-full text-secondary whitespace-nowrap" title="<%= btn[1] %>">
-    <span class="hidden md:block first-letter:uppercase"><%= btn[1] %></span>
+  <a href="" class="button button__sm button__transparent-secondary" title="<%= btn[1] %>">
+    <span class="sr-only sm:not-sr-only first-letter:uppercase"><%= btn[1] %></span>
     <%= icon btn[0], class: "fill-current flex-none" %>
   </a>
 <% end %>
@@ -40,9 +40,9 @@ buttons_array << ["user-add-line", t("decidim.profiles.user.join_user_group")] i
   %>
 
   <% extra_buttons_array.each do |btn| %>
-    <a href="" class="flex items-center text-secondary space-x-1 whitespace-nowrap only:m-auto">
-      <span class="hidden md:block first-letter:uppercase"><%= "Denùncia" %></span>
-      <%= icon "flag-line", class: "fill-current flex-none" %>
+    <a href="" class="flex items-center text-secondary space-x-1 whitespace-nowrap only:m-auto" title="<%= btn[1] %>">
+      <span class="sr-only sm:not-sr-only first-letter:uppercase"><%= btn[1] %></span>
+      <%= icon btn[0], class: "fill-current flex-none" %>
     </a>
   <% end %>
 </div>
