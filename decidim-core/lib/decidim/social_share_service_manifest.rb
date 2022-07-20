@@ -26,6 +26,13 @@ module Decidim
     def formatted_share_uri(title, args)
       formatted_args = escape_args(args)
       format(full_share_uri(formatted_args.keys), title: url_escape(title), **formatted_args)
+    rescue KeyError
+      # This happens when all the arguments needed for the `format()` call are
+      # not provided in the `formatted_args` array. E.g. the URL of the page
+      # can be nil in some dummy views during the tests when they do not define
+      # the meta URL, i.e. `add_decidim_meta_tags` hasn't been called in these
+      # views or it has been called with an empty URL.
+      nil
     end
 
     # Path of the icon file

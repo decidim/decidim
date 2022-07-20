@@ -79,6 +79,12 @@ module Decidim
         end
       end
 
+      context "when one of the required parameters is not defined" do
+        it "returns nil" do
+          expect(subject.formatted_share_uri("Bar", {})).to be_nil
+        end
+      end
+
       context "when there are other parameters" do
         before do
           subject.share_uri = "https://example.com/share?title=%{title}&url=%{url}&desc=%{desc}"
