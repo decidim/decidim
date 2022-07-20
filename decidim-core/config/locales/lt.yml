@@ -1797,9 +1797,49 @@ lt:
       edit_link:
         edit: Redaguoti
       footer:
+        cc_by_license: '„Creative Commons“ licencija'
         cookie_settings: Slapukų nustatymai
         decidim_logo: '„Decidim“ logotipas'
+        download_open_data: Parsisiųsti atvirųjų duomenų rinkmenas
+        made_with_open_source: Interneto svetainė sukurta naudojant <a target="_blank" href="https://github.com/decidim/decidim">atvirą programinę įrangą</a>.
+      header:
+        close_menu: Uždaryti meniu
+        main_menu: Pagrindinis meniu
+        navigation: Naršymas
+        sign_in: Prisijungti
+        sign_up: Registruotis
+        user_menu: Naudotojo meniu
+      impersonation_warning:
+        close_session: Uždaryti seansą
+        description_html: Jūs administruojate dalyvį <b>%{user_name}</b>.
+        expire_time_html: Jūsų seansas baigsis po <b><span class="minutes">%{minutes}</span> minučių</b>.
+      language_chooser:
+        choose_language: Pasirinkti kalbą
+      notifications_dashboard:
+        mark_all_as_read: Visus žymėti kaip skaitytus
+        mark_as_read: Žymėti kaip skaitytą
+      offline_banner:
+        cache_version_page: Regis nebeturite prieigos prie interneto! Šis puslapis - anksčiau išsaugotas vaizdas, tad gali būti, kad jame nėra naujausių atnaujinimų.
+      social_media_links:
+        facebook: "%{organization} – „Facebook“"
+        github: "%{organization} – „GitHub“"
+        instagram: "%{organization} – „Instagram“"
+        twitter: "%{organization} – „Twitter“"
+        youtube: "%{organization} – „YouTube“"
+      timeout_modal:
+        body: Nebuvote aktyvus(-i) %{minutes} minučių. Jei nenorite grįžti į platformą, dėl Jūsų saugumo paprašysime Jūsų prisijungti iš naujo.
+        continue_session: Tęsti seansą
+        sign_out: Atsijungti
+        title: Ar norite tęsti seansą?
+      upload_modal:
+        close_modal: Uždaryti modalinį langą
       user_menu:
+        account: 'Naudotojo paskyra: %{name}'
+        admin_dashboard: Administratoriaus skydelis
+        conversations: Pokalbiai
+        notifications: Pranešimai
+        profile: Mano paskyra
+        public_profile: Mano viešas profilis
         sign_out: Atsijungti
         title: Profilio nuorodos
       user_profile:
@@ -1807,6 +1847,7 @@ lt:
         authorizations: Autorizacijos
         delete_my_account: Ištrinti mano paskyrą
         my_data: Mano duomenys
+        my_interests: Mano interesai
         notifications_settings: Pranešimų nustatymai
         title: Dalyvio nuostatos
         user_groups: Grupės
@@ -1874,3 +1915,8 @@ lt:
     directions:
       left: Ištrynimai
       right: Papildymai
+    dropdown:
+      choose_diff_view_html: 'HTML rodymo tipas:'
+      choose_diff_view_mode: 'Palyginti rodymo tipus:'
+      choose_diff_view_mode_menu: Pasirinkti lyginimo tipą
+      option_escaped: Pabėgę
