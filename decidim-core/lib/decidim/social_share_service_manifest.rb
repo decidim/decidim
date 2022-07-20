@@ -22,7 +22,8 @@ module Decidim
     #
     # @param title [String] the title of the resource that we want to share
     # @param args [Hash] all the parameters that will be added on the url
-    # @return [String]
+    # @return [String, nil] The formatted URL or nil when some or one of the
+    #   required parameters is missing
     def formatted_share_uri(title, args)
       formatted_args = escape_args(args)
       format(full_share_uri(formatted_args.keys), title: url_escape(title), **formatted_args)
