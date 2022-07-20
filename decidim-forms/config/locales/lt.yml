@@ -1,1 +1,25 @@
 lt:
+  decidim:
+    forms:
+      admin:
+        questionnaires:
+          answer_option:
+            answer_option: Atsakymo variantas
+            free_text: Laisva forma
+            remove: Pašalinti
+            statement: Pareiškimas
+          answers:
+            actions:
+              back: Grįžti į atsakymus
+              export: Eksportuoti
+              next: Kitas &rsaquo;
+              previous: "&lsaquo; Ankst."
+              show: Rodyti atsakymus
+            empty: Atsakymų dar nėra
+            export:
+              answer:
+                title: 'Atsakymas #%{number}'
+            export_response:
+              title: apklausa_naudotoju_atsakymai_%{token}
+            index:
+              title: "%{total} iš viso atsakymų"
