@@ -15,7 +15,7 @@ module Decidim
     TABS_ITEMS = {
       activity: { icon: "bubble-chart-line", path: :profile_activity_path },
       badges: { icon: "award-line", path: :profile_badges_path },
-      following: { icon: "user-received-line", path: :profile_following_path },
+      following: { icon: "user-shared-line", path: :profile_following_path },
       followers: { icon: "user-received-line", path: :profile_followers_path },
       groups: { icon: "team-line", path: :profile_groups_path },
       members: { icon: "contacts-line", path: :profile_members_path },
