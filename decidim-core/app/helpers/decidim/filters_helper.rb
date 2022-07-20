@@ -24,7 +24,8 @@ module Decidim
           remote: true,
           html: { id: nil }.merge(html_options)
         ) do |form|
-          yield form
+          concat(hidden_field_tag("per_page", params[:per_page], id: nil)) if params[:per_page]
+          concat(capture { yield form })
         end
       end
     end
