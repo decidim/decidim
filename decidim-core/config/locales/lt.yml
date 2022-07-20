@@ -1678,3 +1678,13 @@ lt:
       choose_diff_view_html: 'HTML rodymo tipas:'
       choose_diff_view_mode: 'Palyginti rodymo tipus:'
       option_escaped: Pabėgę
+      option_split: Rodoma greta
+      option_unescaped: Unescaped
+      option_unified: Vieningas
+  views:
+    pagination:
+      next_title: Nuoroda į kitą puslapį
+      pagination: Puslapių numeravimas
+      previous_title: Nuoroda į ankstesnį puslapį
+      title: 'Puslapio numeris: '
+      truncate: "&hellip;"
