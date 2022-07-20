@@ -10,6 +10,7 @@
   "author": "Decidim Contributors",
   "license": "AGPL-3.0",
   "dependencies": {
-    "axe-core": "^4.1.4"
+    "axe-core": "^4.1.4",
+    "markdownlint-cli": "^0.32.0"
   }
 }
