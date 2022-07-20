@@ -747,7 +747,9 @@ module Decidim
   # Gemfile uses the "path" parameter to find the module.
   # This is because the module can be defined by some files searched by Rails automatically
   # (ie: decidim-initiatives/lib/decidim/initiatives/version.rb automatically defines Decidim::Intiatives even if not required)
+  # for extra safety, we check if the module is defined (via safe_constantize), this should enable situations
+  # like adding a line like 'gem "decidim-consultations", require: false' where the gem is loaded but not required
   def self.module_installed?(mod)
-    Gem.loaded_specs.has_key?("decidim-#{mod}")
+    Gem.loaded_specs.has_key?("decidim-#{mod}") && "Decidim::#{mod.to_s.camelize}".safe_constantize
   end
 end
