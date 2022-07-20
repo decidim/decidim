@@ -1,5 +1,6 @@
 <div class="flex -space-x-2">
   <% visible_endorsers.each do |visible_endorser| %>
+    <%# REDESIGN_PENDING: Use cell/author %>
     <span class="rounded-full overflow-hidden border border-white inline-block w-6 h-6">
       <%= image_tag(
             visible_endorser.avatar_url(:thumb),
