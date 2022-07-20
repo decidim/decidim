@@ -1,5 +1,5 @@
 <% tab_items.each do |tab_item| %>
-  <li class="grow rounded-t <%= "bg-white z-10 text-secondary font-semibold" if is_active_link?(tab_item[:path]) %>">
+  <li class="profile__tab<%= " is-active" if is_active_link?(tab_item[:path]) %>">
     <%= link_to tab_item[:path], title: tab_item[:text], class: "w-full h-full p-2.5 flex items-center justify-center gap-2" do %>
       <%= icon tab_item[:icon], class: "w-6 h-6 md:w-4 md:h-4 fill-current" %>
       <span class="sr-only sm:not-sr-only"><%= tab_item[:text] %></span>

@@ -11,6 +11,30 @@
     }
   }
 
+  &__details{
+    @apply pb-3 space-y-2;
+
+    &-data{
+      @apply flex justify-between flex-wrap gap-x-6;
+    }
+
+    &-item{
+      @apply flex items-center space-x-1.5 whitespace-nowrap;
+    }
+  }
+
+  &__description{
+    @apply pt-3 text-sm text-gray-2;
+  }
+
+  &__tab{
+    @apply grow rounded-t;
+
+    &.is-active{
+      @apply bg-white z-10 text-secondary font-semibold;
+    }
+  }
+
   &__activity{
     @apply grid md:grid-cols-8 items-start gap-4 md:gap-12;
 
@@ -30,7 +54,7 @@
       }
 
       &-container [type="radio"]:checked + &,
-      &:hover {
+      &:hover{
         @apply bg-background-4;
 
         svg{
@@ -65,7 +89,6 @@
           @apply flex items-center gap-1 text-gray-2 text-sm;
         }
       }
-
     }
   }
 }
