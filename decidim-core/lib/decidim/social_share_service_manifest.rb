@@ -24,7 +24,8 @@ module Decidim
     # @param args [Hash] all the parameters that will be added on the url
     # @return [String]
     def formatted_share_uri(title, args)
-      format(full_share_uri(args.keys), title: url_escape(title), **escape_args(args))
+      formatted_args = escape_args(args)
+      format(full_share_uri(formatted_args.keys), title: url_escape(title), **formatted_args)
     end
 
     # Path of the icon file

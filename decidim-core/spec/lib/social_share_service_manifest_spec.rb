@@ -102,6 +102,18 @@ module Decidim
           params = { url: "https://other.example.org", desc: "Hello world", hashtags: "Baz" }
           expect(subject.formatted_share_uri("Bar", params)).to eq(expected_url)
         end
+
+        context "and one of their values is nil" do
+          before do
+            subject.optional_params = %w(hashtags via)
+          end
+
+          it "returns the correct formatted uri" do
+            expected_url = "https://example.com/share?title=Bar&url=https%3A%2F%2Fother.example.org&desc=Hello+world&hashtags=Baz"
+            params = { url: "https://other.example.org", desc: "Hello world", hashtags: "Baz", via: nil }
+            expect(subject.formatted_share_uri("Bar", params)).to eq(expected_url)
+          end
+        end
       end
     end
 
