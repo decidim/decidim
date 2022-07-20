@@ -75,13 +75,6 @@ ja:
       postal_letter:
         explanation: 住所を確認するために入力するコードを記載した郵便物をお送りします。
         name: 郵便物によるコード
-    events:
-      verifications:
-        verify_with_managed_user:
-          email_intro: 参加者 <a href="%{resource_path}">%{resource_title}</a> が管理対象参加者 <a href="%{managed_user_path}">%{managed_user_name}</a>のデータで検証しようとしました。
-          email_outro: <a href="%{conflicts_path}">検証の競合リスト</a> を確認し、参加者に連絡して詳細を調査し、問題を解決します。
-          email_subject: 管理対象参加者に対する検証の試みに失敗しました
-          notification_title: 参加者 <a href="%{resource_path}">%{resource_title}</a> が管理参加者 <a href="%{managed_user_path}">%{managed_user_name}</a>のデータでそれらを確認しようとしました。
     verifications:
       authorizations:
         authorization_metadata:
