@@ -146,6 +146,9 @@ module Decidim
     # Only match the decidim gems. Skip the decidim-dev gem because it has
     # "decidim" as a runtime dependency which would cause all the default
     # gems to be always reported as available.
+    #
+    # @return [Boolean] A boolean indicating if the given gem name is a
+    #   potential Decidim module to be processed.
     def potential_module?(name)
       name != "decidim-dev" && name =~ /decidim(-.*)?/
     end
