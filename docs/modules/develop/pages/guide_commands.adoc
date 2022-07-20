@@ -84,3 +84,16 @@ bundle exec rubocop -a
 
 This project uses https://github.com/igorshubovych/markdownlint-cli[markdownlint-cli] to check markdown files and flag style issues.
 
+Linting an `.md` file:
+
+[source,console]
+----
+npx markdownlint [path-to-file]
+----
+
+With `--fix` option https://github.com/igorshubovych/markdownlint-cli[markdownlint-cli] will fix as many errors as possible. The fixes are made to the actual source files. All unfixed errors will be reported.
+
+[source,console]
+----
+npx markdownlint [path-to-file] --fix
+----
