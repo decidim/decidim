@@ -2,6 +2,7 @@ lt:
   activemodel:
     attributes:
       debate:
+        category_id: Kategorija
         closed_at: Uždaryta
         conclusions: Išvados
         decidim_category_id: Kategorija
@@ -118,7 +119,55 @@ lt:
           all: Visos
           category: Kategorija
           category_prompt: Pasirinkite kategoriją
+          commented: Komentuota
+          my_debates: Mano diskusijos
+          official: Oficialūs
+          origin: Kilmė
           scope: Apimtis
+          search: Ieškoti
+          state: Būsena
+          state_values:
+            closed: Uždaryta
+            open: Atidaryta
+          user_groups: Grupės
+        filters_small_view:
+          close_modal: Uždaryti modalinį langą
+          filter: Filtras
+          filter_by: Filtruoti pagal
+          unfold: Išskleisti
+        form:
+          select_a_category: Pasirinkite kategoriją
+        index:
+          new_debate: Nauja diskusija
+        new:
+          back: Atgal
+          create: Sukurti
+          title: Nauja diskusija
+        orders:
+          commented: Labiausiai komentuota
+          label: Rikiuoti debatus pagal
+          random: Atsitiktinė tvarka
+          recent: Naujausia
+          updated: Neseniai atnaujinta
+        show:
+          back: Grįžti į sąrašą
+          close_debate: Uždaryti diskusiją
+          date: Data
+          debate_closed: Uždaryta
+          debate_conclusions_are: 'Diskusija uždaryta %{date} ir padarytos šios išvados:'
+          edit_conclusions: Keisti išvadas
+          edit_debate: Redaguoti diskusiją
+          groups_count: Grupės
+          last_comment_by: Paskutinį kartą komentavo
+          no_comments_yet: Dar komentarų nėra
+          open: Atverti diskusiją
+          participants_count: Dalyviai
+        update:
+          invalid: Atnaujinant diskusiją iškilo problema.
+          success: Diskusija atnaujinta.
+        versions:
+          debates:
+            back_to_resource: Grįžti į diskusiją
     events:
       debates:
         create_debate_event:
