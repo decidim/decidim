@@ -1,4 +1,16 @@
 .profile{
+  &__avatar{
+    @apply w-full h-full rounded-full overflow-hidden drop-shadow-md border-2 border-white;
+
+    &-container{
+      @apply w-24 h-24 relative;
+    }
+
+    &-badge{
+      @apply absolute top-full right-0 -translate-y-full grid place-items-center w-6 h-6 rounded-full overflow-hidden bg-primary border border-white;
+    }
+  }
+
   &__activity{
     @apply grid md:grid-cols-8 items-start gap-4 md:gap-12;
 
