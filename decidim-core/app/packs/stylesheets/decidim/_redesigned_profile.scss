@@ -1,132 +1,130 @@
-.profile{
-  &__avatar{
-    @apply w-full h-full rounded-full overflow-hidden drop-shadow-md border-2 border-white;
-
-    &-container{
-      @apply w-24 h-24 relative;
-    }
-
-    &-badge{
-      @apply absolute top-full right-0 -translate-y-full grid place-items-center w-6 h-6 rounded-full overflow-hidden bg-primary border border-white;
-    }
-  }
-
-  &__details{
-    @apply pb-3 space-y-2;
-
-    &-data{
-      @apply flex justify-between flex-wrap gap-x-6;
-    }
-
-    &-item{
-      @apply flex items-center space-x-1.5 whitespace-nowrap;
-    }
-  }
-
-  &__description{
-    @apply pt-3 text-sm text-gray-2;
-  }
-
-  &__tab{
-    @apply grow rounded-t;
-
-    &.is-active{
-      @apply bg-white z-10 text-secondary font-semibold;
-    }
-  }
-
-  &__activity{
-    @apply grid md:grid-cols-8 items-start gap-4 md:gap-12;
-
-    &__filter{
-      @apply flex items-center gap-2 p-1.5 rounded cursor-pointer;
-
-      &-container{
-        @apply md:col-span-2 flex flex-wrap flex-row md:flex-col justify-center md:justify-start gap-4 sticky top-0 md:top-2 bg-white;
-      }
-
-      svg{
-        @apply w-6 h-6 md:w-4 md:h-4 flex-none text-gray fill-current;
-      }
-
-      span{
-        @apply sr-only md:not-sr-only text-sm text-gray-2 first-letter:uppercase;
-      }
-
-      &-container [type="radio"]:checked + &,
-      &:hover{
-        @apply bg-background-4;
-
-        svg{
-          @apply text-secondary;
-        }
-
-        span{
-          @apply text-secondary font-semibold;
-        }
-      }
-    }
-
-    &__container{
-      @apply md:col-span-6 divide-y divide-gray-3 -mt-4;
-    }
-
-    &__item{
-      @apply flex flex-col md:flex-row gap-2 md:gap-12 py-4;
-
-      &-time{
-        @apply flex-none text-gray-2;
-      }
-
-      &-content{
-        @apply space-y-2;
-
-        > span:first-child a{
-          @apply text-secondary font-semibold;
-        }
-
-        > span:last-child{
-          @apply flex items-center gap-1 text-gray-2 text-sm;
-        }
-      }
-    }
-  }
-
-  &__user{
-    @apply flex items-center space-x-1.5;
-
-    &-avatar{
+  .profile{
+    &__avatar{
       @apply w-full h-full rounded-full overflow-hidden drop-shadow-md border-2 border-white;
 
       &-container{
-        @apply w-12 h-12 relative flex-none;
+        @apply w-24 h-24 relative;
       }
 
       &-badge{
-        @apply absolute top-full right-0 -translate-y-full grid place-items-center w-4 h-4 rounded-full overflow-hidden bg-primary border border-white;
+        @apply absolute top-full right-0 -translate-y-full grid place-items-center w-6 h-6 rounded-full overflow-hidden bg-primary border border-white;
       }
     }
 
-    &-name{
-      @apply h5 text-secondary;
+    &__details{
+      @apply pb-3 space-y-2;
+
+      &-data{
+        @apply flex justify-between flex-wrap gap-x-6;
+      }
+
+      &-item{
+        @apply flex items-center space-x-1.5 whitespace-nowrap;
+      }
     }
 
-    &-nick{
-      @apply text-gray-2 lowercase;
+    &__description{
+      @apply pt-3 text-sm text-gray-2;
     }
 
-    &-role{
-      @apply inline-block ml-1 px-2 py-0.5 font-normal rounded text-xs text-primary bg-primary/25;
+    &__tab{
+      @apply grow rounded-t;
+
+      &.is-active{
+        @apply bg-white z-10 text-secondary font-semibold;
+      }
     }
 
-    &:hover{
+    &__activity{
+      @apply grid md:grid-cols-8 items-start gap-4 md:gap-12;
+
+      &__filter{
+        @apply flex items-center gap-2 p-1.5 rounded cursor-pointer;
+
+        &-container{
+          @apply md:col-span-2 flex flex-wrap flex-row md:flex-col justify-center md:justify-start gap-4 sticky top-0 md:top-2 bg-white;
+        }
+
+        svg{
+          @apply w-6 h-6 md:w-4 md:h-4 flex-none text-gray fill-current;
+        }
+
+        span{
+          @apply sr-only md:not-sr-only text-sm text-gray-2 first-letter:uppercase;
+        }
+
+        &-container [type="radio"]:checked + &,
+        &:hover{
+          @apply bg-background-4;
+
+          svg{
+            @apply text-secondary;
+          }
+
+          span{
+            @apply text-secondary font-semibold;
+          }
+        }
+      }
+
+      &__container{
+        @apply md:col-span-6 divide-y divide-gray-3 -mt-4;
+      }
+
+      &__item{
+        @apply flex flex-col md:flex-row gap-2 md:gap-12 py-4;
+
+        &-time{
+          @apply flex-none text-gray-2;
+        }
+
+        &-content{
+          @apply space-y-2;
+
+          > span:first-child a{
+            @apply text-secondary font-semibold;
+          }
+
+          > span:last-child{
+            @apply flex items-center gap-1 text-gray-2 text-sm;
+          }
+        }
+      }
+    }
+
+    &__user{
+      @apply flex items-center space-x-1.5;
+
       &-avatar{
-        @apply border-tertiary;
+        @apply w-full h-full rounded-full overflow-hidden drop-shadow-md border-2 border-white;
+
+        &-container{
+          @apply w-12 h-12 relative flex-none;
+        }
+
+        &-badge{
+          @apply absolute top-full right-0 -translate-y-full grid place-items-center w-4 h-4 rounded-full overflow-hidden bg-primary border border-white;
+        }
       }
 
       &-name{
+        @apply h5 text-secondary;
+      }
+
+      &-nick{
+        @apply text-gray-2 lowercase;
+      }
+
+      &-role{
+        @apply inline-block ml-1 px-2 py-0.5 font-normal rounded text-xs text-primary bg-primary/25;
+      }
+
+      &:hover &-avatar{
+        @apply border-tertiary;
+      }
+
+      &:hover &-name{
         @apply underline;
       }
     }
   }
-}
