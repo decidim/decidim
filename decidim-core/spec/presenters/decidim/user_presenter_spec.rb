@@ -12,6 +12,12 @@ module Decidim
       it { is_expected.to eq("@#{user.nickname}") }
     end
 
+    describe "#profile_url" do
+      subject { described_class.new(user).profile_url }
+
+      it { is_expected.to eq("http://#{user.organization.host}:#{Capybara.server_port}/profiles/#{user.nickname}") }
+    end
+
     context "when user is not officialized" do
       describe "#badge" do
         subject { described_class.new(user).badge }
