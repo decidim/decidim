@@ -1,0 +1,47 @@
+.conversation{
+  &__item{
+    @apply flex items-center justify-between rounded border-4 border-background p-4 gap-4;
+
+    &-snippet{
+      @apply grow space-y-2.5;
+
+      &-title{
+        @apply h5 text-secondary;
+      }
+
+      &-description{
+        @apply text-gray-2;
+      }
+
+      &-time{
+        @apply flex text-sm text-gray-2;
+      }
+    }
+  }
+
+  @apply p-12;
+
+  &__title{
+    @apply h4 mb-6;
+  }
+
+  &__participants{
+    @apply bg-background rounded px-4 py-2 flex items-center gap-6 mb-14;
+  }
+
+  &__message{
+    @apply flex items-start gap-4 w-3/4;
+
+    &-text{
+      @apply grow bg-background rounded p-4 text-gray-2;
+    }
+  }
+
+  &__reply{
+    @apply flex flex-col w-2/3 mx-auto;
+
+    textarea{
+      @apply w-full border border-gray rounded-lg px-4 py-2;
+    }
+  }
+}

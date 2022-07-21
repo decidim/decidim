@@ -1,11 +1,11 @@
-<div class="flex items-start gap-4 w-3/4<%= " flex-row-reverse ml-auto" if sender_is_user?(sender) %>">
+<div class="conversation__message<%= " flex-row-reverse ml-auto" if sender_is_user?(sender) %>">
 
   <%# REDESIGN_PENDING: show alternative user view, only avatar. This will work after feature/redesign-blogs merge %>
   <div class="flex-none">
     <%= cell "decidim/author", present(sender), context_actions: [] %>
   </div>
 
-  <div class="grow bg-background rounded p-4 text-gray-2">
+  <div class="conversation__message-text">
     <% messages.each do |message| %>
       <%= simple_format(message.body_with_links) %>
     <% end %>

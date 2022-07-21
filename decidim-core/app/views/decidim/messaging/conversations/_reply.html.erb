@@ -1,10 +1,10 @@
 <%= decidim_form_for form, url: decidim.conversation_path(conversation.id), method: :put, remote: true do |f| %>
-  <div class="flex flex-col w-2/3 mx-auto">
+  <div class="conversation__reply">
     <%= f.label :body, nil, class: "sr-only" %>
     <!-- REDESIGN_PENDING: add input_emoji -->
     <div class="relative">
-      <%= f.text_area :body, label: false, rows: 4, required: true, autofocus: true, placeholder: t(".placeholder"), class: "peer w-full border border-gray rounded-lg px-4 py-2" %>
+      <%= f.text_area :body, label: false, rows: 4, required: true, autofocus: true, placeholder: t(".placeholder") %>
     </div>
-    <%= f.submit "#{t(".send")} #{icon "arrow-right-line", class: "fill-current"}".html_safe, class: "button sm secondary self-end mt-4" %>
+    <%= f.submit "#{t(".send")} #{icon "arrow-right-line", class: "fill-current"}".html_safe, class: "button button__sm button__secondary self-end mt-4" %>
   </div>
 <% end %>

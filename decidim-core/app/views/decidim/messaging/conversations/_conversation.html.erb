@@ -1,8 +1,8 @@
-<div class="flex items-center justify-between rounded border-4 border-background p-4 gap-4">
+<div class="conversation__item">
   <%= icon "question-answer-line", class: "flex-none w-8 h-8 text-gray fill-current" %>
 
-  <div class="grow space-y-2.5">
-    <h5 class="h5">
+  <div class="conversation__item-snippet">
+    <h5 class="conversation__item-snippet-title">
       <% if conversation.messages.last.decidim_sender_id == current_user.id %>
         <%= t("to", scope: "decidim.messaging.conversations.index") %>:
       <% else %>
@@ -14,9 +14,9 @@
 
     <%= cell "decidim/author", present(current_user) %>
 
-    <p class="text-gray-2"><%= truncate conversation.last_message.body, length: 150 %></p>
+    <p class="conversation__item-snippet-description"><%= truncate conversation.last_message.body, length: 150 %></p>
 
-    <div class="flex text-sm text-gray-2">
+    <div class="conversation__item-snippet-time">
       <%= t("last_message", scope: "decidim.messaging.conversations.index") %>:
       <% if I18n.locale != :en %>
         <%= t("ago", scope: "decidim.messaging.conversations.index") %> <%= time_ago_in_words(Time.parse(conversation.last_message.created_at.to_s)) %>
@@ -26,7 +26,7 @@
     </div>
   </div>
 
-  <%= link_to decidim.conversation_path(conversation), id: "conversation-#{conversation.id}", class: "button sm transparent secondary" do %>
+  <%= link_to decidim.conversation_path(conversation), id: "conversation-#{conversation.id}", class: "button button__sm button__transparent-secondary" do %>
     <span><%= t("read_conversation", scope: "decidim.messaging.conversations.index") %></span>
     <%= icon "arrow-right-line", class: "flex-none fill-current" %>
   <% end %>

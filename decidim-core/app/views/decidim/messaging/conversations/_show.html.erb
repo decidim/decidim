@@ -8,12 +8,12 @@
 <% end %>
 
 <%= render layout: "layouts/decidim/shared/layout_two_col" do %>
-  <div class="p-12">
-    <h4 class="h4 mb-6">
+  <div class="conversation">
+    <h4 class="conversation__title">
       <%= t("decidim.messaging.conversations.show.chat_with") %>
     </h4>
 
-    <div class="bg-background rounded px-4 py-2 flex items-center gap-6 mb-14">
+    <div class="conversation__participants">
       <% participants.each do |participant| %>
         <%= cell "decidim/author", present(participant) %>
       <% end %>
