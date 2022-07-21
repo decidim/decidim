@@ -1,14 +1,14 @@
 <div data-badge="<%= badge.name %>">
-  <div class="relative">
-    <div class="w-full h-full grid place-items-center rounded-full overflow-hidden bg-[radial-gradient(farthest-side,#F3F4F7_90%,transparent_0_100%),conic-gradient(var(--tertiary)_calc(var(--value)*100%),transparent_0)]" style="--value:<%= status.level.to_f / 5 %>">
-      <div class="rounded-full overflow-hidden w-[90%] h-[90%] m-[5%_auto]">
+  <div class="profile__badge">
+    <div class="profile__badge-outline" style="--value:<%= status.level.to_f / 5 %>;<%= "--color:var(--primary)" if status.level.to_f / 5 == 1 %>">
+      <div class="profile__badge-circle">
         <%= image_tag badge.image, alt: "#{badge_name} badge_image" %>
       </div>
     </div>
-    <div class="absolute rounded text-primary bg-white top-full left-1/2 -translate-y-1/2 -translate-x-1/2 drop-shadow-md z-10 px-1.5 font-semibold">
+    <div class="profile__badge-title">
       <%= level_title %>
     </div>
   </div>
-  <div class="text-center font-semibold mt-4"><%= badge_name %></div>
-  <div class="text-center mt-2"><%= description %></div>
+  <div class="profile__badge-name"><%= badge_name %></div>
+  <div class="profile__badge-description"><%= description %></div>
 </div>
