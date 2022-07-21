@@ -26,3 +26,39 @@ lt:
               a: A pasirinkimas
               b: B pasirinkimas
               c: C pasirinkimas
+            test_options:
+              bar: Juosta
+              baz: Baz
+              foo: Foo
+          step:
+            endorsements_blocked: Pritarimai užblokuoti
+            endorsements_enabled: Pritarimai aktyvuoti
+            readonly_step_attribute: Tik skaitomas veiksmo atributas
+            test_options:
+              bar: Juosta
+              baz: Baz
+              foo: Foo
+    dummy:
+      admin:
+        exports:
+          dummies: Fiktyvūs elementai
+    gamification:
+      badges:
+        test:
+          conditions:
+            - Naudokite testinę aplinką.
+          description: Dalyviai šį ženklelį pelno kurdami testus.
+          description_another: Šis dalyvis sukūrė %{score} testus.
+          description_own: Jūs sukūrėte %{score} testus.
+          name: Testai
+          next_level_in: Parenkite dar %{score} testus ir pasiekite kitą lygį!
+          unearned_another: Šis dalyvis dar nesukūrė jokių testų.
+          unearned_own: Jūs dar nesukūrėte jokių testų.
+    resource_links:
+      test_link:
+        dummy_resource_dummy: Susijęs fiktyvus elementas
+    statistics:
+      bar: Bar
+      dummies_count_high: Daug fiktyvių elementų
+      dummies_count_medium: Vidutiniškai fiktyvių elementų
+      foo: Foo
