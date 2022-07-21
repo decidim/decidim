@@ -24,6 +24,10 @@ module Decidim
       end
     end
 
+    def button_classes
+      "button button__sm button__text-secondary"
+    end
+
     # deprecated
     def icon_options
       icon_base_options = { aria_hidden: true }

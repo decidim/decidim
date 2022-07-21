@@ -33,6 +33,10 @@ module Decidim
       render
     end
 
+    def button_classes
+      "button button__sm button__transparent-secondary"
+    end
+
     # The resource being un/endorsed is the Cell's model.
     def resource
       model

@@ -65,7 +65,7 @@
 
       button{
         /* stylelint-disable-next-line number-leading-zero */
-        @apply flex items-center gap-1 px-2.5 py-0.5 text-secondary text-sm whitespace-nowrap;
+        @apply flex items-center gap-1;
       }
     }
 
