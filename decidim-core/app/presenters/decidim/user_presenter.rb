@@ -38,7 +38,7 @@ module Decidim
     end
 
     def default_avatar_url
-      attached_uploader.default_url
+      avatar.default_url
     end
 
     def profile_path
