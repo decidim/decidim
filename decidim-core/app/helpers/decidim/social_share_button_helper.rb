@@ -28,7 +28,7 @@ module Decidim
         class: "ssb-icon ssb-#{service.name.downcase}",
         title: t("decidim.shared.share_modal.share_to", service: service.name)
       ) do
-        image_tag service.icon_path
+        image_tag service.icon_path, alt: t("decidim.shared.share_modal.share_to", service: service.name)
       end
     end
 
