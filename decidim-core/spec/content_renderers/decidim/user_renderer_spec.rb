@@ -7,7 +7,7 @@ module Decidim
     let(:user) { create(:user, :confirmed) }
     let(:renderer) { described_class.new(content) }
     let(:presenter) { Decidim::UserPresenter.new(user) }
-    let(:profile_url) { "http://#{user.organization.host}/profiles/#{user.nickname}" }
+    let(:profile_url) { "http://#{user.organization.host}:#{Capybara.server_port}/profiles/#{user.nickname}" }
 
     context "when content has a valid Decidim::User Global ID" do
       let(:content) { "This text contains a valid Decidim::User Global ID: #{user.to_global_id}" }
