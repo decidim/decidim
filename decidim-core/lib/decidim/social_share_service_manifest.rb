@@ -25,7 +25,7 @@ module Decidim
     # @return [String, nil] The formatted URL or nil when some or one of the
     #   required parameters is missing
     def formatted_share_uri(title, args)
-      formatted_args = escape_args(args)
+      formatted_args = escape_args(args.compact)
       format(full_share_uri(formatted_args.keys), title: url_escape(title), **formatted_args)
     rescue KeyError
       # This happens when all the arguments needed for the `format()` call are
@@ -61,7 +61,7 @@ module Decidim
     # @param args [Hash] the hash with the values to be escaped
     # @return [Hash]
     def escape_args(args)
-      args.compact.transform_values { |v| url_escape(v) }
+      args.transform_values { |v| url_escape(v) }
     end
 
     # Escape a string so it has characters compatible with URLs
