@@ -24,10 +24,6 @@ module Decidim
       end
     end
 
-    def button_classes
-      "button text-secondary white sm whitespace-nowrap"
-    end
-
     # deprecated
     def icon_options
       icon_base_options = { aria_hidden: true }
