@@ -6,14 +6,152 @@ lt:
         scope_id: Apimtis
   decidim:
     admin:
+      filters:
+        initiatives:
+          state_eq:
+            label: Būsena
+            values:
+              accepted: Parašų užtenka
+              created: Sukurta
+              discarded: Atmesta
+              published: Publikuota
+              rejected: Parašų neužtenka
+              validating: Techninis patvirtinimas
+          type_id_eq:
+            label: Tipas
+        search_placeholder:
+          title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Ieškoti %{collection} pagal pavadinimą, aprašymą, ID ar autoriaus vardą ir pavardę.
+      initiatives_settings:
+        update:
+          error: Įvyko klaida
+          success: Iniciatyvų nustatymai atnaujinti
+      menu:
+        attachments: Priedai
+        committee_members: Komiteto nariai
+        components: Komponentai
+        information: Informacija
+        initiatives: Iniciatyvos
+        initiatives_settings: Nustatymai
+        initiatives_types: Iniciatyvų tipai
+        moderations: Moderavimai
       models:
+        initiatives:
+          fields:
+            created_at: Sukurta
+            id: ID
+            published_at: Publikuota
+            state: Būsena
+            supports_count: Parašai
+            title: Iniciatyvos
         initiatives_type_scope:
           fields:
             scope: Apimtis
+            supports_required: Reikalingi parašai
+          name: Iniciatyvos tipo sritis
+        initiatives_types:
+          fields:
+            created_at: Sukurta
+            title: Iniciatyvų tipai
+          name: Iniciatyvos tipas
         initiatives_votes:
           fields:
+            date_of_birth: Gimimo data
+            document_number: Dokumento numeris
+            hash: '"Hash" kodas'
+            initiative_end_date: Pabaigos data
+            initiative_id: Iniciatyvos ID
+            initiative_signatures_count: Parašų skaičius
+            initiative_start_date: Pradžios data
+            initiative_title: Iniciatyvos pavadinimas
+            name_and_surname: Vardas ir pavardė
+            postal_code: Pašto kodas
             scope: Apimtis
+            time_and_date: Laikas ir data
+            timestamp: Laiko žymė
+      titles:
+        initiatives: Iniciatyvos
+        initiatives_types: Iniciatyvų tipai
+    events:
+      initiatives:
+        admin:
+          initiative_sent_to_technical_validation:
+            email_intro: Iniciatyva „%{resource_title}“ išsiųsta techniniam patvirtinimui. Peržiūrėkite tai <a href="%{admin_initiative_url}">administratoriaus srityje</a>
+            email_outro: Šį pranešimą gavote dėl to, kad esate platformos administratorius.
+            email_subject: Iniciatyva „%{resource_title}“ išsiųsta techniniam patvirtinimui.
+            notification_title: Iniciatyva „%{resource_title}“ išsiųsta techniniam patvirtinimui. Peržiūrėkite tai <a href="%{admin_initiative_path}">administratoriaus srityje</a>
+        initiative_extended:
+          email_intro: Pratęsta %{resource_title} iniciatyvos pasirašymo pabaigos data!
+          email_outro: Šį pranešimą gavote dėl to, kad sekate %{resource_title}. Jeigu nebenorite gauti pranešimų, spustelėkite aukščiau esančią nuorodą.
     initiatives:
+      admin:
+        initiatives:
+          edit:
+            confirm: Ar esate tikri?
+            confirm_send_to_technical_validation: Ar esate tikri?
+            discard: Atmesti iniciatyvą
+            export_pdf_signatures: Eksportuoti parašus PDF formatu
+            export_votes: Eksportuoti parašus
+            reject: Atmesti iniciatyvą
+            send_to_technical_validation: Siųsti techniniam patvirtinimui
+            success: Iniciatyva išsiųsta techniniam patvirtinimui
+            update: Atnaujinti
+          form:
+            attachments: Priedai
+            settings: Nustatymai
+            title: Bendra informacija
+          index:
+            actions_title: Veiksmas
+            preview: Peržiūra
+            print: Spausdinti
+          initiative_attachments:
+            documents: Dokumentai
+            edit: Redaguoti
+            new: Naujas
+            photos: Nuotraukos
+          update:
+            error: Įvyko klaida
+            success: Iniciatyva sėkmingai atnaujinta
+        initiatives_settings:
+          edit:
+            update: Atnaujinti
+          form:
+            comments: Labiausiai komentuota
+            date: Naujausia
+            publication_date: Naujausiai publikuota
+            random: Atsitiktinai
+            signatures: Surinko daugiausia parašų
+            title: Nustatymai iniciatyvoms
+        initiatives_type_scopes:
+          create:
+            error: Įvyko klaida
+            success: Sukurta nauja sritis šiam iniciatyvų tipui
+          destroy:
+            success: Sritis sėkmingai pašalinta
+          edit:
+            back: Atgal
+            confirm_destroy: Ar esate tikri?
+            destroy: Ištrinti
+            title: Redaguoti iniciatyvos tipo sritį
+            update: Atnaujinti
+          new:
+            back: Atgal
+            create: Sukurti
+            title: Sukurti iniciatyvos tipo sritį
+          update:
+            error: Įvyko klaida
+            success: Sritis atnaujinta
+        initiatives_types:
+          create:
+            error: Įvyko klaida
+            success: Naujas iniciatyvos tipas sukurtas
+          destroy:
+            success: Iniciatyvos tipas sėkmingai pašalintas
+          edit:
+            confirm_destroy: Ar esate tikri?
+            destroy: Ištrinti
+            update: Atnaujinti
+          form:
+            authorizations: Autorizacijos nustatymai
       initiatives:
         filters:
           scope: Apimtis
