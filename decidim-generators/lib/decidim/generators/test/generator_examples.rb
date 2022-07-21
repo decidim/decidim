@@ -688,7 +688,7 @@ shared_examples_for "an application with configurable env vars" do
       "Rails.application.config.log_level" => "fatal",
       "Rails.application.config.action_controller.asset_host" => "http://assets.example.org",
       "Rails.application.config.active_storage.service" => "test",
-      "Decidim::AssetRouter.new(nil).send(:default_options)" => { "host" => "https://cdn.example.org" },
+      "Decidim::AssetRouter::Storage.new(nil).send(:default_options)" => { "host" => "https://cdn.example.org" },
       "Decidim::Api::Schema.default_max_page_size" => 31,
       "Decidim::Api::Schema.max_complexity" => 3001,
       "Decidim::Api::Schema.max_depth" => 11

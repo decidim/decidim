@@ -2,8 +2,8 @@
 
 require "spec_helper"
 
-module Decidim
-  describe AssetRouter do
+module Decidim::AssetRouter
+  describe Storage do
     subject { router }
 
     let(:router) { described_class.new(asset) }
