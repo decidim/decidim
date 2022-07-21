@@ -63,7 +63,7 @@ module Decidim
       end
 
       context "when the port is defined in the PORT environment variable" do
-        before { allow(ENV).to receive(:fetch).with("PORT", instance_of(Integer)).and_return("8080") }
+        before { allow(ENV).to receive(:fetch).with("HTTP_PORT", instance_of(Integer)).and_return("8080") }
 
         it { is_expected.to eq(8080) }
       end
