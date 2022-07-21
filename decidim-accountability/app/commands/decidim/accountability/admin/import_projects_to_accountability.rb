@@ -14,7 +14,7 @@ module Decidim
         end
 
         def call
-          return broadcast(:invalid) unless @form.valid?
+          return broadcast(:invalid) unless form.valid?
 
           broadcast(:ok, results_from_projects)
         end
@@ -51,9 +51,9 @@ module Decidim
             description: project.description,
             category: project.category,
             scope: project.scope || project.budget.scope,
-            component: current_component,
+            component: form.current_component,
             status: status,
-            progress: status.progress || 0
+            progress: status&.progress || 0
           }
           @result = Decidim.traceability.create!(
             Result,
@@ -91,7 +91,7 @@ module Decidim
         end
 
         def statuses
-          Decidim::Accountability::Status.where(component: current_component).order(:progress)
+          Decidim::Accountability::Status.where(component: form.current_component).order(:progress)
         end
 
         def projects
