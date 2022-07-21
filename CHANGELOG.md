@@ -102,6 +102,7 @@ decidim_default: &decidim_default
 And define your own services in the environment variable `DECIDIM_SOCIAL_SHARE_SERVICES` with the services that you want.
 
 With this change you can also define your own services. See [documentation for social share services customization](https://docs.decidim.org/en/customize/social_shares/).
+
 #### Tailwind CSS introduction
 
 Decidim redesign has introduced Tailwind CSS framework to compile CSS. It integrates with Webpacker,
