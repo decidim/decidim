@@ -1,6 +1,6 @@
 <div class="conversation__message<%= " flex-row-reverse ml-auto" if sender_is_user?(sender) %>">
 
-  <%# REDESIGN_PENDING: show alternative user view, only avatar. This will work after feature/redesign-blogs merge %>
+  <%# REDESIGN_PENDING: show only avatar, not name %>
   <div class="flex-none">
     <%= cell "decidim/author", present(sender), context_actions: [] %>
   </div>
