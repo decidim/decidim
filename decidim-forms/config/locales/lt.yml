@@ -53,3 +53,70 @@ lt:
               title: apklausa_naudotoju_atsakymai_%{token}
             index:
               title: "%{total} iš viso atsakymų"
+          title_and_description:
+            down: Žemyn
+            expand: Išplėsti
+            remove: Pašalinti
+            title: Pavadinimas
+            title_and_description: Pavadinimas ir aprašymas
+            up: Aukštyn
+          update:
+            invalid: Išsaugant šią formą iškilo problema.
+            success: Forma sėkmingai išsaugota.
+      errors:
+        answer:
+          body: Pagrindinė dalis negali būti tuščia
+      files:
+        extension_allowlist: 'Priimtini formatai:'
+      images:
+        dimensions: "%{width} x %{height} px"
+      question_types:
+        files: Dokumentai
+        long_answer: Ilgas atsakymas
+        matrix_multiple: Matrica (su keliais variantais)
+        matrix_single: Matrica (vienas variantas)
+        multiple_option: Keli variantai
+        short_answer: Trumpas atsakymas
+        single_option: Vienas variantas
+        sorting: Rūšiavimas
+        title_and_description: Pavadinimas ir aprašymas
+      questionnaires:
+        answer:
+          invalid: Atsakant į šią formą iškilo problema.
+          max_choices_alert: Per daug pasirinktų variantų
+          success: Į formos klausimus atsakyta.
+        question:
+          max_choices: 'Didžiausias pasirinkčių skaičius: %{n}'
+        show:
+          answer_questionnaire:
+            anonymous_user_message: <a href="%{sign_in_link}">Prisijunkite su savo paskyra</a> arba <a href="%{sign_up_link}">užsiregistruokite</a> norėdami užpildyti formą.
+            title: Atsakyti į formos klausimus
+          current_step: Žingsnis %{step}
+          of_total_steps: iš%{total_steps}
+          questionnaire_answered:
+            body: Jau atsakėte iš šios formos klausimus.
+            title: Jau atsakyta
+          questionnaire_closed:
+            body: Forma uždaryta ir į ją atsakyti negalima.
+            title: Forma uždaryta
+          questionnaire_for_private_users:
+            body: Forma pateikiama tik privatiems naudotojams
+            title: Forma uždaryta
+          questionnaire_js_disabled:
+            body: Kai kurie šios formos funkcionalumai bus neaktyvūs. Kad pagerintumėte naudojimo patirtį, naršyklėje įjunkite „JavaScript“.
+            title: '„JavaScript“ išjungta'
+          questionnaire_not_published:
+            body: Ši forma dar nepaskelbta.
+          tos_agreement: Dalyvaudami sutinkate su paslaugos teikimo sąlygomis
+      step_navigation:
+        show:
+          are_you_sure: Šio veiksmo atšaukti negalima ir savo atsakymų keisti negalėsite. Ar esate įsitikinę?
+          back: Atgal
+          continue: Tęsti
+          submit: Pateikti
+      user_answers_serializer:
+        body: Atsakymas
+        completion: Užbaigimas
+        created_at: Atsakyta
+        id: Atsakymo ID
+        ip_hash: IP adreso "hash" kodas
