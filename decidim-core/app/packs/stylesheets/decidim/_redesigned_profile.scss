@@ -1,156 +1,157 @@
-  .profile{
-    &__avatar{
-      @apply w-full h-full rounded-full overflow-hidden drop-shadow-md border-2 border-white;
+.profile{
+  &__avatar{
+    @apply w-full h-full rounded-full overflow-hidden drop-shadow-md border-2 border-white;
+
+    &-container{
+      @apply w-24 h-24 relative;
+    }
+
+    &-badge{
+      @apply absolute top-full right-0 -translate-y-full grid place-items-center w-6 h-6 rounded-full overflow-hidden bg-primary border border-white;
+    }
+  }
+
+  &__details{
+    @apply pb-3 space-y-2;
+
+    &-data{
+      @apply flex justify-between flex-wrap gap-x-6;
+    }
+
+    &-item{
+      @apply flex items-center space-x-1.5 whitespace-nowrap;
+    }
+  }
+
+  &__description{
+    @apply pt-3 text-sm text-gray-2;
+  }
+
+  &__tab{
+    @apply grow rounded-t;
+
+    &.is-active{
+      @apply bg-white z-10 text-secondary font-semibold;
+    }
+  }
+
+  &__activity{
+    @apply grid md:grid-cols-8 items-start gap-4 md:gap-12;
+
+    &__filter{
+      @apply flex items-center gap-2 p-1.5 rounded cursor-pointer;
 
       &-container{
-        @apply w-24 h-24 relative;
+        @apply md:col-span-2 flex flex-wrap flex-row md:flex-col justify-center md:justify-start gap-4 sticky top-0 md:top-2 bg-white;
       }
 
-      &-badge{
-        @apply absolute top-full right-0 -translate-y-full grid place-items-center w-6 h-6 rounded-full overflow-hidden bg-primary border border-white;
-      }
-    }
-
-    &__details{
-      @apply pb-3 space-y-2;
-
-      &-data{
-        @apply flex justify-between flex-wrap gap-x-6;
+      svg{
+        @apply w-6 h-6 md:w-4 md:h-4 flex-none text-gray fill-current;
       }
 
-      &-item{
-        @apply flex items-center space-x-1.5 whitespace-nowrap;
+      span{
+        @apply sr-only md:not-sr-only text-sm text-gray-2 first-letter:uppercase;
       }
-    }
 
-    &__description{
-      @apply pt-3 text-sm text-gray-2;
-    }
-
-    &__tab{
-      @apply grow rounded-t;
-
-      &.is-active{
-        @apply bg-white z-10 text-secondary font-semibold;
-      }
-    }
-
-    &__activity{
-      @apply grid md:grid-cols-8 items-start gap-4 md:gap-12;
-
-      &__filter{
-        @apply flex items-center gap-2 p-1.5 rounded cursor-pointer;
-
-        &-container{
-          @apply md:col-span-2 flex flex-wrap flex-row md:flex-col justify-center md:justify-start gap-4 sticky top-0 md:top-2 bg-white;
-        }
+      &-container [type="radio"]:checked + &,
+      &:hover{
+        @apply bg-background-4;
 
         svg{
-          @apply w-6 h-6 md:w-4 md:h-4 flex-none text-gray fill-current;
+          @apply text-secondary;
         }
 
         span{
-          @apply sr-only md:not-sr-only text-sm text-gray-2 first-letter:uppercase;
-        }
-
-        &-container [type="radio"]:checked + &,
-        &:hover{
-          @apply bg-background-4;
-
-          svg{
-            @apply text-secondary;
-          }
-
-          span{
-            @apply text-secondary font-semibold;
-          }
-        }
-      }
-
-      &__container{
-        @apply md:col-span-6 divide-y divide-gray-3 -mt-4;
-      }
-
-      &__item{
-        @apply flex flex-col md:flex-row gap-2 md:gap-12 py-4;
-
-        &-time{
-          @apply flex-none text-gray-2;
-        }
-
-        &-content{
-          @apply space-y-2;
-
-          > span:first-child a{
-            @apply text-secondary font-semibold;
-          }
-
-          > span:last-child{
-            @apply flex items-center gap-1 text-gray-2 text-sm;
-          }
+          @apply text-secondary font-semibold;
         }
       }
     }
 
-    &__badge{
-      @apply relative;
-
-      &-outline{
-        --color: var(--tertiary);
-
-        @apply w-full h-full grid place-items-center rounded-full overflow-hidden bg-[radial-gradient(farthest-side,#F3F4F7_90%,transparent_0_100%),conic-gradient(var(--color)_calc(var(--value)*100%),transparent_0)];
-      }
-
-      &-circle{
-        @apply rounded-full overflow-hidden w-[90%] h-[90%] m-[5%_auto];
-      }
-
-      &-title{
-        @apply absolute rounded text-primary bg-white top-full left-1/2 -translate-y-1/2 -translate-x-1/2 drop-shadow-md z-10 px-1.5 font-semibold;
-      }
-
-      &-name{
-        @apply text-center font-semibold mt-4;
-      }
-
-      &-description{
-        @apply text-center mt-2;
-      }
+    &__container{
+      @apply md:col-span-6 divide-y divide-gray-3 -mt-4;
     }
 
-    &__user{
-      @apply flex items-center space-x-1.5;
+    &__item{
+      @apply flex flex-col md:flex-row gap-2 md:gap-12 py-4;
 
-      &-avatar{
-        @apply w-full h-full rounded-full overflow-hidden drop-shadow-md border-2 border-white;
+      &-time{
+        @apply flex-none text-gray-2;
+      }
 
-        &-container{
-          @apply w-12 h-12 relative flex-none;
+      &-content{
+        @apply space-y-2;
+
+        > span:first-child a{
+          @apply text-secondary font-semibold;
         }
 
-        &-badge{
-          @apply absolute top-full right-0 -translate-y-full grid place-items-center w-4 h-4 rounded-full overflow-hidden bg-primary border border-white;
+        > span:last-child{
+          @apply flex items-center gap-1 text-gray-2 text-sm;
         }
-      }
-
-      &-name{
-        @apply h5 text-secondary;
-      }
-
-      &-nick{
-        @apply text-gray-2 lowercase;
-      }
-
-      &-role{
-        @apply inline-block ml-1 px-2 py-0.5 font-normal rounded text-xs text-primary bg-primary/25;
-      }
-
-      &:hover &-avatar{
-        @apply border-tertiary;
-      }
-
-      &:hover &-name{
-        @apply underline;
       }
     }
   }
+
+  &__badge{
+    @apply relative;
+
+    &-outline{
+      --color: var(--tertiary);
+
+      @apply w-full h-full grid place-items-center rounded-full overflow-hidden bg-[radial-gradient(farthest-side,#F3F4F7_90%,transparent_0_100%),conic-gradient(var(--color)_calc(var(--value)*100%),transparent_0)];
+    }
+
+    &-circle{
+      @apply rounded-full overflow-hidden w-[90%] h-[90%] m-[5%_auto];
+    }
+
+    &-title{
+      @apply absolute rounded text-primary bg-white top-full left-1/2 -translate-y-1/2 -translate-x-1/2 drop-shadow-md z-10 px-1.5 font-semibold;
+    }
+
+    &-name{
+      @apply text-center font-semibold mt-4;
+    }
+
+    &-description{
+      @apply text-center mt-2;
+    }
+  }
+
+  &__user{
+    @apply flex items-center space-x-1.5;
+
+    &-avatar{
+      @apply w-full h-full rounded-full overflow-hidden drop-shadow-md border-2 border-white;
+
+      &-container{
+        @apply w-12 h-12 relative flex-none;
+      }
+
+      &-badge{
+        @apply absolute top-full right-0 -translate-y-full grid place-items-center w-4 h-4 rounded-full overflow-hidden bg-primary border border-white;
+      }
+    }
+
+    &-name{
+      @apply h5 text-secondary;
+    }
+
+    &-nick{
+      @apply text-gray-2 lowercase;
+    }
+
+    &-role{
+      /* stylelint-disable-next-line number-leading-zero */
+      @apply inline-block ml-1 px-2 py-0.5 font-normal rounded text-xs text-primary bg-primary/25;
+    }
+
+    &:hover &-avatar{
+      @apply border-tertiary;
+    }
+
+    &:hover &-name{
+      @apply underline;
+    }
+  }
+}
