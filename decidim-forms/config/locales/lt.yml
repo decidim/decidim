@@ -1,4 +1,29 @@
 lt:
+  activemodel:
+    attributes:
+      answer:
+        body: Atsakymas
+        choices: Pasirinkimai
+        selected_choices: Pasirinkti pasirinkimai
+      question:
+        max_choices: Maksimalus pasirinkimų skaičius
+        question_type: Tipas
+      questionnaire_question:
+        mandatory: Privaloma
+        max_characters: Simbolių limitas (palikti 0 jei limito nėra)
+    errors:
+      models:
+        answer:
+          attributes:
+            add_documents:
+              needs_to_be_reattached: Reikia pridėti iš naujo
+            body:
+              too_long: per ilgas
+            choices:
+              missing: nepilnas - trūksta elementų
+              too_many: per daug
+        questionnaire:
+          request_invalid: Tvarkant prašymą įvyko klaida. Bandykite dar kartą
   decidim:
     forms:
       admin:
