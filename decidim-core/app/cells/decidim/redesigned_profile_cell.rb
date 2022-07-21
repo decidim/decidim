@@ -29,6 +29,8 @@ module Decidim
       render :show
     end
 
+    private
+
     def profile_holder
       model
     end
@@ -38,7 +40,7 @@ module Decidim
     end
 
     def show_badge?
-      return if profile_holder.instance_of?(::Decidim::UserGroup)
+      return if user_group?
 
       profile_holder.officialized?
     end
@@ -72,7 +74,7 @@ module Decidim
     end
 
     def manageable_group?
-      return false unless profile_holder.is_a?(Decidim::UserGroup)
+      return false unless user_group?
 
       current_user && current_user.manageable_user_groups.include?(profile_holder)
     end
@@ -102,7 +104,11 @@ module Decidim
     end
 
     def tab_items
-      profile_holder.is_a?(Decidim::UserGroup) ? group_tabs : user_tabs
+      user_group? ? group_tabs : user_tabs
+    end
+
+    def user_group?
+      profile_holder.is_a?(Decidim::UserGroup)
     end
   end
 end
