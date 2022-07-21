@@ -18,7 +18,6 @@ module Decidim::Accountability
     let(:category) { create :category, participatory_space: participatory_space }
     let(:start_date) { Date.yesterday }
     let(:end_date) { Date.tomorrow }
-    let(:status) { create :status, component: accountability_component, key: "ongoing", name: { en: "Ongoing" } }
 
     let(:budget_component) { create(:component, manifest_name: "budgets", participatory_space: participatory_space) }
     let(:budget) { create(:budget, component: budget_component, total_budget: 26_000_000) }
@@ -45,13 +44,7 @@ module Decidim::Accountability
       )
     end
     let(:form) do
-      # Decidim::Accountability::Admin::ResultImportProjectsForm.from_params(
-      #   origin_component_id: budget_component.id,
-      #   import_all_selected_projects: true
-      # )
-
       double(
-        # Admin::ResultImportProjectsForm,
         valid?: valid,
         current_component: current_component,
         origin_component: budget_component,
@@ -84,10 +77,58 @@ module Decidim::Accountability
           expect { subject }.to broadcast(:ok)
         end
 
-        it "creates the Results" do
-          expect do
+        context "when status is not set" do
+          it "creates the Results" do
+            expect do
+              subject
+            end.to change { Result.where(component: current_component).count }.by(1)
+          end
+        end
+
+        context "when the status is set" do
+          let!(:status) { create :status, component: current_component, key: "ongoing", name: { en: "Ongoing" } }
+
+          it "creates the result properly" do
+            expect do
+              subject
+            end.to change { Result.where(component: current_component).count }.by(1)
+            expect(Result.where(component: current_component).first.status).to eq(status)
+          end
+        end
+
+        context "when a project has already copied" do
+          let!(:second_project) { create(:project, budget: budget, selected_at: selected_at) }
+
+          before do
             subject
-          end.to change { Result.count }.by(1)
+          end
+
+          it "does not copy the project" do
+            expect { subject }.not_to change(Result.where(component: current_component), :count)
+          end
+        end
+
+        context "when the project is not selected" do
+          before do
+            project.selected_at = nil
+            project.save
+          end
+
+          it "does not copy them as result" do
+            expect { subject }.not_to change(Result.where(component: current_component), :count)
+          end
+        end
+
+        context "when copying project with linked proposals" do
+          before do
+            project.link_resources(proposals, "included_proposals")
+            subject
+          end
+
+          it "links proposals and the project" do
+            result = Result.first
+            expect(result.linked_resources(:proposals, "included_proposals")).to match_array(proposals)
+          end
         end
       end
     end
