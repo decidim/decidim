@@ -11,7 +11,7 @@ module Decidim
 
       before_action :authenticate_user!
 
-      helper_method :conversation, :user_grouped_messages, :sender_is_user?, :user_groups
+      helper_method :conversation, :user_grouped_messages, :sender_is_user?, :user_groups, :validation_messages
 
       # Shows the form to initiate a conversation with an user (the recipient)
       # recipient is passed via GET parameter:
