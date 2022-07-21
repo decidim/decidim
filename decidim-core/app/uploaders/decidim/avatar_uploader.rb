@@ -12,11 +12,11 @@ module Decidim
     end
 
     def default_url(*)
-      ActionController::Base.helpers.asset_pack_path("media/images/default-avatar.svg")
+      AssetRouter::Pipeline.new("media/images/default-avatar.svg", model: model).url
     end
 
     def default_multiuser_url(*)
-      ActionController::Base.helpers.asset_pack_path("media/images/avatar-multiuser.png")
+      AssetRouter::Pipeline.new("media/images/avatar-multiuser.png", model: model).url
     end
   end
 end
