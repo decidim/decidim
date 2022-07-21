@@ -10,7 +10,7 @@ describe Decidim::Comments::UserMentionedEvent do
   let(:event_name) { "decidim.events.comments.user_mentioned" }
   let(:ca_comment_content) { "<div><p>Un commentaire pour #{author_link}</p></div>" }
   let(:en_comment_content) { "<div><p>Comment mentioning some user, #{author_link}</p></div>" }
-  let(:author_link) { "<a class=\"user-mention\" href=\"http://#{organization.host}/profiles/#{author.nickname}\">@#{author.nickname}</a>" }
+  let(:author_link) { "<a class=\"user-mention\" href=\"http://#{organization.host}:#{Capybara.server_port}/profiles/#{author.nickname}\">@#{author.nickname}</a>" }
   let(:parsed_body) { Decidim::ContentProcessor.parse("Comment mentioning some user, @#{author.nickname}", current_organization: organization) }
   let(:parsed_ca_body) { Decidim::ContentProcessor.parse("Un commentaire pour @#{author.nickname}", current_organization: organization) }
   let(:body) { { en: parsed_body.rewrite, machine_translations: { ca: parsed_ca_body.rewrite } } }
