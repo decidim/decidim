@@ -100,6 +100,7 @@ module Decidim
           )
         end
 
+        # Needs to be removed after tests
         def budgets
           Budget.where(component: current_component).order(weight: :asc)
         end
