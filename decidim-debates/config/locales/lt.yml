@@ -170,10 +170,29 @@ lt:
         versions:
           debates:
             back_to_resource: Grįžti į diskusiją
+          index:
+            title: Versijos
+        versions_list:
+          back_to_resource: Grįžti į diskusiją
+      last_activity:
+        debate_updated_at_html: "<span>Diskusija atnaujinta %{link}</span>"
+        new_debate_at_html: "<span>Nauja diskusija %{link}</span>"
+      models:
+        debate:
+          fields:
+            end_time: Pabaigos data
+            official_debate: Oficiali diskusija
+            start_time: Pradžios data
+            title: Pavadinimas
     events:
       debates:
         create_debate_event:
           space_followers:
+            email_intro: |-
+              Sveiki,
+              Dalyvaujamojo proceso erdvėje %{space_title} sukurta nauja diskusija „%{resource_title}“, peržiūrėkite ir prisidėkite:
+            email_outro: Šį pranešimą gavote dėl to, kad sekate dalyvaujamojo proceso erdvę %{space_title}. Jeigu nebenorite gauti pranešimų, spustelėkite ankstesnę nuorodą.
+            email_subject: Nauja diskusija "%{resource_title}" %{space_title} erdvėje
             notification_title: <a href="%{resource_path}">%{resource_title}</a> diskusija sukurta <a href="%{space_path}">%{space_title}</a>.
           user_followers:
             email_intro: |-
