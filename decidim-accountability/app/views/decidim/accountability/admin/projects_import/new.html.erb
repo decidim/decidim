@@ -10,7 +10,10 @@
         </div>
         <div class="row column">
           <% @form.origin_components.each do |component|%>
-            <p id="component_<%= component.id %>" class="help-text" style="color: red; margin-top: -1.5em; margin-left:.5em; display: none;"><%= t(".new_items", count: @form.selceted_projects_count(component)) %></p>
+            <p id="component_<%= component.id %>" class="help-text" style="margin-top: -1.5em; margin-left:.5em; display: none;
+            <%= "color: red;" if @form.selceted_projects_count(component).zero? %>">
+              <%= t(".new_items", count: @form.selceted_projects_count(component)) %>
+            </p>
           <% end %>
         </div>
         <div class="row column">
