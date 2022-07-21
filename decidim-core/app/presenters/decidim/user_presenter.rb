@@ -5,7 +5,6 @@ module Decidim
   # Decorator for users
   #
   class UserPresenter < SimpleDelegator
-    include Rails.application.routes.mounted_helpers
     include ActionView::Helpers::UrlHelper
     include Decidim::TranslatableAttributes
 
@@ -25,7 +24,7 @@ module Decidim
     def profile_url
       return "" if respond_to?(:deleted?) && deleted?
 
-      decidim.profile_url(__getobj__.nickname, host: __getobj__.organization.host)
+      decidim.profile_url(__getobj__.nickname)
     end
 
     def avatar
@@ -73,6 +72,12 @@ module Decidim
 
     def has_tooltip?
       true
+    end
+
+    private
+
+    def decidim
+      @decidim ||= Decidim::EngineRouter.new("decidim", { host: __getobj__.organization.host })
     end
   end
 end

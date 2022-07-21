@@ -51,7 +51,7 @@ module Decidim
 
       it do
         expect(subject).to \
-          have_link(user.nickname, href: "http://#{user.organization.host}/profiles/#{user.nickname}") &
+          have_link(user.nickname, href: "http://#{user.organization.host}:#{Capybara.server_port}/profiles/#{user.nickname}") &
           have_selector(".user-mention")
       end
     end
@@ -70,7 +70,7 @@ module Decidim
 
         let(:host) { user.organization.host }
 
-        it { is_expected.to eq("http://#{host}/profiles/#{user.nickname}") }
+        it { is_expected.to eq("http://#{host}:#{Capybara.server_port}/profiles/#{user.nickname}") }
       end
     end
   end
