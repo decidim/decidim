@@ -1,19 +1,23 @@
 <div class="row">
   <div class="columns medium-7 mediumlarge-8">
-    <% if !voting_finished? && (voted?) %>
+    <div class="section">
+      <h2 class="section-heading">
+        <%= t(:budgets, scope: i18n_scope) %>
+      </h2>
+
+      <div class="columns mediumlarge-12">
+        <%= render :card_list %>
+      </div>
+    </div>
+
+    <% if !voting_finished? && voted? %>
       <div class="section">
         <h2 class="section-heading">
-          <%= t(:my_budgets, scope: i18n_scope) %>
+          <%= t(:voted_budgets, scope: i18n_scope) %>
         </h2>
 
         <%= render :voted %>
       </div>
     <% end %>
-
-    <div class="row">
-      <div class="columns mediumlarge-12">
-        <%= render :card_list %>
-      </div>
-    </div>
   </div>
 </div>

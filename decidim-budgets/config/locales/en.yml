@@ -131,16 +131,17 @@ en:
         voting_finished: You have voted in this budget
         voting_started: You have started to vote in this budget
       budgets_list:
+        budgets: Budgets
         cancel_order:
           more_than_one: delete your vote on %{name} and start over
           only_one: delete your vote and start over.
         finished_message: You've finished the voting process. Thanks for participating!
         highlighted_cta: Vote on %{name}
         if_change_opinion: If you've changed your mind, you can
-        my_budgets: My budgets
         progress: Finish voting
         show: See projects
         vote: Vote
+        voted_budgets: Voted budgets
         voted_on: You've voted on %{links}
       limit_announcement:
         cant_vote: You can't vote on this budget. <a href="%{landing_path}">Try on another budget</a>.
