@@ -7,7 +7,6 @@ module Decidim
       class ProjectsImportController < Admin::ApplicationController
         def new
           enforce_permission_to :create, :projects_import
-          # @budget_component_id = budget_component_id
           @form = form(Admin::ResultImportProjectsForm).instance
         end
 
@@ -26,12 +25,6 @@ module Decidim
             end
           end
         end
-
-        # private
-
-        # def accountability_component
-        #   Decidim::Component.find_by(id: current_component, manifest_name: "accountability")
-        # end
       end
     end
   end
