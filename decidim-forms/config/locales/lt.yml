@@ -55,6 +55,28 @@ lt:
               title: apklausa_naudotoju_atsakymai_%{token}
             index:
               title: "%{total} iš viso atsakymų"
+            show:
+              title: 'Atsakymas #%{number}'
+          display_condition:
+            answer_option: Atsakymo variantas
+            condition_question: Klausimas
+            condition_type: Sąlyga
+            condition_types:
+              answered: Atsakyta
+              equal: Lygu
+              match: Įskaitant tekstą
+              not_answered: Neatsakyta
+              not_equal: Nelygu
+            condition_value: Įskaitytas tekstas
+            display_condition: Rodymo sąlyga
+            mandatory: Ši sąlyga turi būti patenkinta visada, neatsižvelgiant į kitų sąlygų statusą
+            remove: Pašalinti
+            save_warning: Prieš konfigūruodami rodymo sąlygas, nepamirškite išsaugoti formos
+            select_answer_option: Pasirinkite atsakymo variantą
+            select_condition_question: Pasirinkite klausimą
+            select_condition_type: Pasirinkti sąlygos tipą
+          edit:
+            save: Išsaugoti
           title_and_description:
             down: Žemyn
             expand: Išplėsti
