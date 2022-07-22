@@ -26,16 +26,16 @@ edit_link(
           <% if topic.pages.any? %>
             <details class="accordion" data-autoclose="false">
               <summary class="flex justify-between items-center cursor-pointer">
-                <div class="grow">
+                <span class="grow">
                   <h3 class="accordion__title">
                     <%= link_to translated_attribute(topic.title), page_path(topic.pages.first) %>
                   </h3>
                   <p class="accordion__snippet"><%= translated_attribute topic.description %></p>
-                </div>
-                <div class="flex-none">
+                </span>
+                <span class="flex-none">
                   <%= icon "arrow-down-s-line", class: "accordion__arrow" %>
                   <%= icon "arrow-up-s-line", class: "accordion__arrow" %>
-                </div>
+                </span>
               </summary>
 
               <ul class="accordion__hidden-list" role="menu">
