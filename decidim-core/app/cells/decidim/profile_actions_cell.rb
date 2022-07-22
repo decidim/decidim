@@ -17,8 +17,6 @@ module Decidim
       manage_user_group_admins: { icon: "user-star-line", path: :group_manage_admins_path },
       invite_user: { icon: "user-add-line", path: :group_invites_path },
       join_user_group: { icon: "user-add-line", path: :group_join_requests_path, options: { method: :post } }
-      # join_group: { cell: "decidim/join_group_button" } # icon: "user-add-line", path:  }
-      # leave_group: {icon: "user-unfollow-line", path: nil}
     }.freeze
 
     private
@@ -90,7 +88,6 @@ module Decidim
 
     def group_member?
       Decidim::UserGroupMembership.exists?(user: current_user, user_group: model)
-
     end
 
     def can_contact_user?
