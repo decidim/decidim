@@ -16,16 +16,26 @@ module Decidim
     def show
       return unless base_relation.exists?
 
+      return render :full if full_list?
+
       render
     end
 
     private
+
+    def full_list?
+      options[:layout] == :full
+    end
 
     # Finds the correct author for each endorsement.
     #
     # Returns an Array of presented Users/UserGroups
     def visible_endorsers
       @visible_endorsers ||= base_relation.limit(MAX_ITEMS_STACKED).map { |identity| present(identity.normalized_author) }
+    end
+
+    def full_endorsers
+      @full_endorsers ||= base_relation.map { |identity| present(identity.normalized_author) }
     end
 
     def base_relation

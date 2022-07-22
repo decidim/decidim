@@ -1,0 +1,11 @@
+<div id="endorsers_list" class="blog__endorsers" data-toggler=".block" hidden>
+  <div class="blog__endorsers-text"><%= t(".endorsed_by") %></div>
+  <div class="blog__endorsers-grid">
+    <% full_endorsers.each do |endorser| %>
+      <span class="rounded-full overflow-hidden border border-white inline-block w-6 h-6">
+        <%= cell "decidim/author", endorser, layout: :avatar %>
+      </span>
+    <% end %>
+  </div>
+  <div class="blog__endorsers-button" data-toggle="endorsers_list-trigger endorsers_list" role="button"><%= t(".close") %></div>
+</div>

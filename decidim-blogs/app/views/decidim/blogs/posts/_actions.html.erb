@@ -30,20 +30,4 @@
   </div>
 </div>
 
-<%# REDESIGN_PENDING: Do a cell if needed %>
-<div id="endorsers_list" class="blog__endorsers" data-toggler=".block" hidden>
-  <div class="blog__endorsers-text">Li agrada a...</div>
-  <div class="blog__endorsers-grid">
-    <% post.endorsements.map { |identity| present(identity.normalized_author) }.each do |endorser| %>
-      <%# REDESIGN_PENDING: Use cell/author %>
-      <span class="rounded-full overflow-hidden border border-white inline-block w-6 h-6">
-        <%= image_tag(
-              endorser.avatar_url(:thumb),
-              alt: t("decidim.author.avatar", name: decidim_sanitize(endorser.name)),
-              class: "w-full h-full object-cover"
-            ) %>
-      </span>
-    <% end %>
-  </div>
-  <div class="blog__endorsers-button" data-toggle="endorsers_list-trigger endorsers_list" role="button">Tancar</div>
-</div>
+<%= cell "decidim/endorsers_list", post, layout: :full %>
