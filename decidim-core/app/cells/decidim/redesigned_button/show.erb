@@ -1,16 +1,5 @@
-<%= link_to(
-      path,
-      class: button_classes,
-      title: text,
-      method: method,
-      remote: remote,
-      **html_options
-    ) do %>
-  <% if text.present? %>
-    <span class="<%= text_classes %>"><%= text %></span>
-  <% end %>
-
-  <% if icon_name.present? %>
-    <%= icon icon_name, class: icon_classes %>
-  <% end %>
+<% if path.present? %>
+  <%= render :link %>
+<% else %>
+  <%= render :button %>
 <% end %>
