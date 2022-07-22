@@ -118,4 +118,20 @@ describe Decidim::Accountability::Admin::Permissions do
 
     it_behaves_like "permission is not set"
   end
+
+  describe "projects_import" do
+    let(:resource) { create :result, component: accountability_component }
+    let(:action_subject) { :projects_import }
+    let(:extra_context) { { projects_import: resource } }
+
+    it_behaves_like "crud permissions"
+
+    context "when any other action" do
+      let(:action) do
+        { scope: :admin, action: :foo, subject: :action_subject }
+      end
+
+      it_behaves_like "permission is not set"
+    end
+  end
 end
