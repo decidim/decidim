@@ -73,6 +73,10 @@ module Decidim::Accountability
       describe "when the form is valid" do
         let(:valid) { true }
 
+        before do
+          allow(form).to receive(:project_already_copied?)
+        end
+
         it "broadcasts ok" do
           expect { subject }.to broadcast(:ok)
         end
