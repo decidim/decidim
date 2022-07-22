@@ -12,8 +12,6 @@ module Decidim
     private
 
     def text
-      return t("decidim.shared.follow_button.sign_in_before_follow") if current_user.blank?
-
       current_user_follows? ? t("decidim.follows.destroy.button") : t("decidim.follows.create.button")
     end
 
