@@ -1,1 +1,7 @@
-<%= image_tag model.avatar_url(:thumb), alt: t("decidim.author.avatar", name: decidim_sanitize(author_name)) %>
+<% if profile_path? %>
+  <%= link_to profile_path do %>
+    <%= render :avatar_image %>
+  <% end %>
+<% else %>
+  <%= render :avatar_image %>
+<% end %>

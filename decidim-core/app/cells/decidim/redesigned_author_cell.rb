@@ -13,7 +13,7 @@ module Decidim
     include Messaging::ConversationHelper
     include ERB::Util
 
-    LAYOUTS = [:default, :compact].freeze
+    LAYOUTS = [:default, :compact, :avatar].freeze
 
     property :profile_path
     property :can_be_contacted?
