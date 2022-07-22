@@ -11,7 +11,7 @@ module Decidim
 
         Checkout.call(current_order) do
           on(:ok) do
-            flash[:notice] = I18n.t("orders.checkout.success", scope: "decidim")
+            flash[:notice] = I18n.t("orders.checkout.success_html", scope: "decidim", rest_of_budgets_link: "#budgets-to-vote")
             redirect_to budgets_path
           end
 
