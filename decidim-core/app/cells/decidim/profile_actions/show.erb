@@ -1,7 +1,7 @@
 <% profile_actions.each do |item| %>
   <% if item[:cell].present? %>
     <%= cell item[:cell], profile_holder %>
-  <% elsif item[:path].present? %>
+  <% else %>
     <%= cell "decidim/button", item, item[:options] %>
   <% end %>
 <% end %>

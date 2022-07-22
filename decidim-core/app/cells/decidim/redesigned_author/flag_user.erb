@@ -1,7 +1,7 @@
 <% if user_flaggable? && model.try(:id) != current_user.try(:id) %>
   <%= cell(
     "decidim/redesigned_button",
-    { icon: "flag-line", text: t("decidim.shared.flag_modal.report"), path: "" },
+    { icon: "flag-line", text: t("decidim.shared.flag_modal.report") },
     button_classes: "button button__sm button__text-secondary only:m-auto",
     text_classes: "sr-only sm:not-sr-only first-letter:uppercase",
     html_options: {
