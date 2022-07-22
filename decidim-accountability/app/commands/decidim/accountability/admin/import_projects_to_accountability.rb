@@ -26,7 +26,7 @@ module Decidim
         def results_from_projects
           transaction do
             projects.map do |original_project|
-              next if project_already_copied?(original_project)
+              next if form.project_already_copied?(original_project)
 
               new_result = create_result_from_project!(original_project, statuses.first)
 
@@ -63,12 +63,6 @@ module Decidim
           )
         end
 
-        def project_already_copied?(original_project)
-          original_project.linked_resources(:results, "included_projects").any? do |result|
-            result.component == current_component
-          end
-        end
-
         def copy_attachments(project, result)
           project.attachments.each do |attachment|
             new_attachment = Decidim::Attachment.new(
@@ -98,11 +92,6 @@ module Decidim
           Decidim::Budgets::Project.joins(:budget).selected.where(
             budget: { component: origin_component }
           )
-        end
-
-        # Needs to be removed after tests
-        def budgets
-          Budget.where(component: current_component).order(weight: :asc)
         end
       end
     end
