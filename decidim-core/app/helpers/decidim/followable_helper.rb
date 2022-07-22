@@ -7,7 +7,7 @@ module Decidim
     def follow_button_for(model, large = nil, opts = {})
       controller.view_context.render(
         partial: "decidim/shared/follow_button",
-        locals: { followable: model, large: , opts: opts.slice(:button_classes, :text_classes, :icon_classes) }
+        locals: { followable: model, large:, opts: opts.slice(:button_classes, :text_classes, :icon_classes) }
       )
     end
   end
