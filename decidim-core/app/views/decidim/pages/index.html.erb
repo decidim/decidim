@@ -24,7 +24,7 @@ edit_link(
         <h2 class="h2 decorator"><%= t "decidim.pages.index.topics" %></h2>
         <% @topics.each do |topic| %>
           <% if topic.pages.any? %>
-            <details class="accordion" autoclose="false">
+            <details class="accordion" data-autoclose="false">
               <summary class="flex justify-between items-center cursor-pointer">
                 <div class="grow">
                   <h3 class="accordion__title">
