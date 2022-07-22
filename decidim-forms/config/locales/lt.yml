@@ -75,6 +75,10 @@ lt:
             select_condition_type: Pasirinkti sąlygos tipą
           edit:
             save: Išsaugoti
+            title: Redaguoti klausimyną
+          form:
+            add_question: Pridėti klausimą
+            add_separator: Pridėti skyriklį
           update:
             invalid: Išsaugant šią formą iškilo problema.
             success: Forma sėkmingai išsaugota.
