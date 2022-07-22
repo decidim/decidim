@@ -1,6 +1,6 @@
 <% profile_actions.each do |item| %>
   <% if item[:cell].present? %>
-    <%= cell item[:cell], profile_holder %>
+    <%= cell item[:cell], profile_holder, item[:options] %>
   <% else %>
     <%= cell "decidim/button", item, item[:options] %>
   <% end %>

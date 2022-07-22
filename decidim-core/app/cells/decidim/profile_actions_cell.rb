@@ -25,9 +25,11 @@ module Decidim
       return if ACTIONS_ITEMS[key].blank?
 
       values = ACTIONS_ITEMS[key].dup
+      values[:options] = values.delete(:options) || {}
+      return values if values.has_key?(:cell)
+
       values[:path] = send(values[:path], profile_holder.nickname) if values[:path].present?
       values[:text] = t(key, scope: translations_scope)
-      values[:options] = values.delete(:options) || {}
       values
     end
 
