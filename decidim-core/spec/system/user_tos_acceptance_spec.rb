@@ -24,7 +24,7 @@ describe "UserTosAcceptance", type: :system do
       it "redirects to the TOS page" do
         expect(page).to have_current_path(decidim.page_path(tos_page))
         expect(page).to have_content translated(tos_page.title)
-        expect(page.find("div.prose", obscured: false)).to have_content strip_tags(translated(tos_page.content))
+        expect(page.find("div.editor-content", obscured: false)).to have_content strip_tags(translated(tos_page.content))
       end
 
       it "renders an announcement requiring to review the TOS" do
