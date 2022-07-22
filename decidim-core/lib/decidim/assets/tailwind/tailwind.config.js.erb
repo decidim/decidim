@@ -13,7 +13,7 @@ module.exports = {
   // The array must contain all the decidim modules active in the application
   content: [<%= tailwind_content_directories %>].flatMap(directory => [
     `${directory}/app/views/**/*.html.erb`,
-    `${directory}/app/cells/**/*.erb`,
+    `${directory}/app/cells/**/*.{rb,erb}`,
     `${directory}/app/helpers/**/*.rb`,
     `${directory}/app/packs/**/*.js`,
     `${directory}/lib/**/*.rb`
