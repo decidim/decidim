@@ -21,7 +21,7 @@ module Decidim
 
     private
 
-    def action_item(key, translations_scope: "decidim.profiles.show")
+    def action_item(key, translations_scope: "decidim.profiles.user.actions")
       return if ACTIONS_ITEMS[key].blank?
 
       values = ACTIONS_ITEMS[key].dup
@@ -65,7 +65,7 @@ module Decidim
         keys.append(:manage_user_group_users, :manage_user_group_admins, :invite_user) if can_edit_user_group_profile?
         keys << :join_user_group if can_join_user_group?
       end
-      items.map { |key| action_item(key, translations_scope: "decidim.profiles.user") }.compact
+      items.map { |key| action_item(key) }.compact
     end
 
     def user_group?
