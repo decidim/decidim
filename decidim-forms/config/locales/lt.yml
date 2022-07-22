@@ -76,6 +76,11 @@ lt:
             select_condition_type: Pasirinkti sąlygos tipą
           edit:
             save: Išsaugoti
+            title: Redaguoti klausimyną
+          form:
+            add_question: Pridėti klausimą
+            add_separator: Pridėti skyriklį
+            add_title_and_description: Pridėti pavadinimą ir aprašymą
           title_and_description:
             down: Žemyn
             expand: Išplėsti
