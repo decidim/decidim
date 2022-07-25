@@ -14,10 +14,10 @@ module Decidim::Accountability
     let(:current_component) { create(:component, manifest_name: "accountability", participatory_space: participatory_space, published_at: accountability_component_published_at) }
     let(:accountability_component_published_at) { nil }
 
-    let(:scope) { create :scope, organization: organization }
-    let(:category) { create :category, participatory_space: participatory_space }
-    let(:start_date) { Date.yesterday }
-    let(:end_date) { Date.tomorrow }
+    # let(:scope) { create :scope, organization: organization }
+    # let(:category) { create :category, participatory_space: participatory_space }
+    # let(:start_date) { Date.yesterday }
+    # let(:end_date) { Date.tomorrow }
 
     let(:budget_component) { create(:component, manifest_name: "budgets", participatory_space: participatory_space) }
     let(:budget) { create(:budget, component: budget_component, total_budget: 26_000_000) }
