@@ -119,6 +119,12 @@ module Decidim
   include ActiveSupport::Configurable
   # Loads seeds from all engines.
   def self.seed!
+    # After running the migrations, some records may have loaded their column
+    # caches at different stages of the migration process, so in order to
+    # prevent any "undefined method" errors if these tasks are run
+    # consecutively, reset the column cache before the migrations.
+    reset_all_column_information
+
     # Faker needs to have the `:en` locale in order to work properly, so we
     # must enforce it during the seeds.
     original_locale = I18n.available_locales
@@ -156,6 +162,16 @@ module Decidim
     end
 
     I18n.available_locales = original_locale
+  end
+
+  # Finds all currently loaded Decidim ActiveRecord classes and resets their
+  # column information.
+  def self.reset_all_column_information
+    ActiveRecord::Base.descendants.each do |cls|
+      next if cls.abstract_class? || !cls.name.match?(/^Decidim::/)
+
+      cls.reset_column_information
+    end
   end
 
   # Exposes a configuration option: The application name String.
