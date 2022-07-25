@@ -48,6 +48,9 @@ fi:
       decidim/welcome_notification_event: Tervetuliaisviesti
   activerecord:
     attributes:
+      decidim/action_log:
+        created_at: Aika
+        with_participatory_space: Osallistumistila
       decidim/user:
         current_password: Nykyinen salasana
         email: Sähköposti
@@ -1847,6 +1850,12 @@ fi:
     password_too_common: liian yleinen
     password_too_long: liian pitkä
     password_too_short: liian lyhyt (alle 10 merkkiä)
+  ransack:
+    predicates:
+      dtgt: jälkeen
+      dtgteq: jälkeen tai yhtä suuri kuin
+      dtlt: ennen
+      dtlteq: ennen tai yhtä suuri kuin
   social_share_button:
     delicious: Delicious
     douban: Douban
@@ -1903,8 +1912,10 @@ fi:
       option_unified: Yhdistetty
   views:
     pagination:
+      next: Seuraava
       next_title: Linkki seuraavalle sivulle
       pagination: Sivutus
+      previous: Edellinen
       previous_title: Linkki edelliselle sivulle
       title: 'Sivunumero: '
       truncate: "&hellip;"
