@@ -1,4 +1,4 @@
- const tuggleInfo = (val) => {
+const tuggleInfo = (val) => {
   document.querySelectorAll(".help-text").forEach((toBeHidden) => {
     if (val === toBeHidden.id && toBeHidden.style.display === "none") {
       toBeHidden.style.display = null;
