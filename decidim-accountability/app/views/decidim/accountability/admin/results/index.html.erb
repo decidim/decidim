@@ -4,7 +4,7 @@
       <%= link_to "#{translated_attribute(parent_result.title)} > ", edit_result_path(parent_result) if parent_result %>
       <%= t(".title") %>
       <div class="button--title">
-        <%= link_to t("actions.import", scope: "decidim.accountability", name: t("models.result.name", scope: "decidim.accountability.admin")), new_projects_import_path, class: "button tiny button--simple" if allowed_to? :create, :result %>
+        <%= link_to t("actions.import", scope: "decidim.accountability", name: t("models.result.name", scope: "decidim.accountability.admin")), new_projects_import_path, class: "button tiny button--simple" if allowed_to? :create, :result unless parent_result%>
         <%= link_to t("actions.new", scope: "decidim.accountability", name: t("models.result.name", scope: "decidim.accountability.admin")), new_result_path(parent_id: parent_result), class: "button tiny button--simple" if allowed_to? :create, :result %>
         <%= render partial: "decidim/accountability/admin/shared/subnav" unless parent_result %>
         <%= export_dropdown %>

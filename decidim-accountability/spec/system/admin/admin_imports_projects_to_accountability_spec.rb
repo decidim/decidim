@@ -28,6 +28,18 @@ describe "Admin imports projects to accountability", type: :system do
     end
   end
 
+  describe "import" do
+    let!(:result_sets) { create_list(:result, 5, created_at: Time.current, component: component) }
+
+    before { visit current_path }
+
+    it "link exists only in main list" do
+      expect(page).to have_content(t("decidim.accountability.actions.import"))
+      page.find(".table-list tr:nth-child(1) td:nth-child(2)").click
+      expect(page).not_to have_content(t("decidim.accountability.actions.import"))
+    end
+  end
+
   context "when there are budgets components" do
     let!(:budget_component) { create(:component, manifest_name: "budgets", participatory_space: participatory_space) }
     let!(:budget) { create(:budget, component: budget_component, total_budget: 26_000_000) }
