@@ -44,6 +44,8 @@ fi:
             actions:
               back: Takaisin vastauksiin
               export: Vie
+              next: Seuraava &rsaquo;
+              previous: "&lsaquo; Edellinen"
               show: Näytä vastaukset
             empty: Ei vielä yhtään vastausta
             export:
