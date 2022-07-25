@@ -1063,6 +1063,8 @@ ja:
             create:
               invalid: センサスのアップロード中にエラーが発生しました。後でもう一度お試しください。
               invalid_csv_header: CSVヘッダーが見つからないか正しくありません。手順をよくお読みください。
+            creating_data:
+              info_message: "<strong>しばらくお待ち下さい</strong>, ファイル %{file} の %{raw_count} 行中 %{processed_count} 行目を処理しています (数分かかる場合もあります)."
             delete:
               button: センサスデータをすべて削除する
               confirm: センサスデータをすべて削除します。元に戻すことはできません。続行してもよろしいですか？
@@ -1076,8 +1078,13 @@ ja:
               file_not_exist: このファイルは存在しません
               launch_error: アクセスコードのエクスポートの起動に問題があります
               launch_success: アクセスコードのエクスポートが開始されました。まもなく %{email} にメールが届きます。
+            exporting_access_codes:
+              info_message: "<strong>しばらくお待ち下さい</strong>, エクスポートを準備しており, 間もなく %{email} に送信されます (数分かかる場合があります)"
             freeze:
               callout: センサスは凍結しており、変更することはできません。
+              help_html: |
+                センサスデータのアップロード、コードの生成、およびエクスポートが正常に行われました。<br> <strong>これで選挙を開始する準備が整いました。</strong><br>
+                エクスポートされた個人のコード付きの CSV を使用して、独自の方法でセンサスに沿って配布するか、「投票できる」タブを有効にして、誰でも自分のセンサスデータでこのコードを取得できるようにします。
             generate_access_codes:
               button: 投票アクセスコードを生成する
               callout: アクセスコードの生成に進めることができるようになりました。 アクセスコードを生成すると、センサスを変更することができなくなります。
@@ -1086,6 +1093,9 @@ ja:
               info_message_warn: '%{data_count} レコードが作成されましたが、アップロードされたファイル %{file} は %{raw_count} 行だったため、データが失われていないことを確認してください。'
               launch_error: アクセスコードの生成中に問題が発生しました
               launch_success: コードの生成が開始されました
+              start_over: 現在のセンサスを削除し、有効な行からなる適切なCSVファイルでやり直してください。
+            generating_access_codes:
+              info_message: "<strong>しばらくお待ちください</strong>, 投票アクセスコードを生成しています (数分かかることがあります)。"
             new:
               file_help:
                 explanation: 'ファイルのガイダンス:'
