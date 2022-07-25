@@ -43,7 +43,7 @@ If you have the need, you can enable your own service. To do that, as an example
 
 [source,ruby]
 ----
-Decidim.social_share_services("Foo") do |service|
+Decidim.register_social_share_service("Foo") do |service|
   service.icon = "foo.svg"
   service.share_uri = "https://foo.example.com/share?url=%{url}"
 end

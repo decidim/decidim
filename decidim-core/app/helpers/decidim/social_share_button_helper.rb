@@ -35,7 +35,7 @@ module Decidim
     private
 
     def enabled_services
-      Decidim.config.social_share_services.map { |service_name| Decidim.social_share_service_registry.find(service_name) }
+      Decidim.config.social_share_services.map { |service_name| Decidim.social_share_services_registry.find(service_name) }
     end
   end
 end
