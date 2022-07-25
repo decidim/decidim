@@ -209,6 +209,7 @@ ja:
             endorsements_enabled: オススメを有効にする
             proposal_answering_enabled: 提案への回答を有効にする
             publish_answers_immediately: 提案の回答をすぐに公開
+            publish_answers_immediately_help_html: 'これが有効になっていない提案に答える場合は、公開する項目を選択し、アクションを使用して手動で公開する必要があることに注意してください。 これがどのように機能するかについての詳細は、 <a href="https://docs.decidim.org/en/admin/components/proposals/answers#_publication" target="_blank">提案の回答ドキュメント ページ</a> を参照してください。'
             suggested_hashtags: 提案作成時に参加者に提案するハッシュタグ
             votes_blocked: サポートをブロック
             votes_enabled: サポートを有効にする
