@@ -382,6 +382,7 @@ fi:
           more_information: "(Lisää tietoa)"
           select: Haluan tukea tätä aloitetta
           select_initiative_type_help: Aloitteita käytetään vaikuttamiseen organisaation tarkoitusperien edistämiseksi. Millaisen aloitteen haluat aloittaa?
+          verification_required: Vahvista tilisi allekirjoittaaksesi tämän aloitteen
         share_committee_link:
           continue: Jatka
           invite_to_committee_help: Kutsulinkki lähetettäväksi kannatuskomitean jäsenille
@@ -608,6 +609,7 @@ fi:
           comment: Kommentoi
       initiatives_type:
         actions:
+          create: Luo
           title: Toimet
           vote: Allekirjoita
   layouts:
