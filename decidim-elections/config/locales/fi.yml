@@ -243,7 +243,11 @@ fi:
             success: Kysymyksen päivitys onnistui
         steps:
           create_election:
+            census: Henkilötietorekisteri
             errors:
+              census_codes_generated: Henkilötietorekisterin äänestyskoodeja ei ole luotu.
+              census_frozen: Äänestyskoodeja ei ole viety.
+              census_uploaded: Tälle äänestykselle ei ole luotu henkilötietorekisteriä.
               component_published: Vaalikomponenttia <strong>ei ole julkaistu</strong>.
               max_selections: Kysymyksillä ei ole <strong>oikeaa arvoa vastausten määrälle</strong>
               minimum_answers: Kysymyksillä on oltava <strong>vähintään kaksi vastausta</strong>.
@@ -258,6 +262,9 @@ fi:
               'false': vaalilla ei ole <strong>julkista avainta</strong>
               'true': vaalilla on <strong>julkinen avain</strong>
             requirements:
+              census_codes_generated: Henkilötietorekisterin koodit on luotu.
+              census_frozen: Henkilötietorekisterin koodit on viety ja henkilötietorekisteri on lukittu.
+              census_uploaded: Henkilötietorekisteri on ladattu palveluun.
               component_published: Vaalikomponentti <strong>on julkaistu</strong>.
               max_selections: Kaikilla kysymyksillä on oikea arvo asetukselle <strong>vastausten maksimimäärä</strong>.
               minimum_answers: Jokaisella kysymyksellä on <strong>vähintään 2 vastausta</strong>.
@@ -374,7 +381,9 @@ fi:
       connection:
         failed:
           modal:
+            close: Sulje
             communication_lost: Valitettavasti näyttää siltä, että viestien välitys sähköisen ääniuurnan kanssa ei onnistu.<br>Internet-yhteydessäsi voi olla ongelma tai ääniuurnan palvelin on liian kiireinen.<br>Voit yrittää myöhemmin uudestaan tai ottaa yhteyttä tekniseen tukeen, jos ongelma jatkuu.
+            generic_error: Valitettavasti on tapahtunut tuntematon virhe. On todennäköistä, että selaintasi ei tueta tai käytät selaimen "näkymättömyystilaa" tai "yksityisen selauksen tilaa", joita ei tueta.
             title: Jokin meni vikaan
       election_m:
         badge_name:
@@ -1066,6 +1075,8 @@ fi:
             create:
               invalid: Henkilötietorekisterin lataaminen epäonnistui, yritä uudestaan myöhemmin.
               invalid_csv_header: CSV-otsakkeet puuttuvat puuttuvat tai ovat virheellisiä - lue ohjeet huolellisesti
+            creating_data:
+              info_message: "<strong>Odota hetki</strong>, käsitelty %{processed_count} / %{raw_count} riviä tiedostosta %{file} (tämä voi kestää useita minuutteja)."
             delete:
               button: Poista kaikki henkilötietorekisterin tiedot
               confirm: Väestörekisterin tietojen poistamista ei voi peruuttaa jälkikäteen. Haluatko varmasti jatkaa?
@@ -1079,8 +1090,14 @@ fi:
               file_not_exist: Tiedostoa ei ole olemassa
               launch_error: Tunnistautumiskoodien viennin aloittaminen epäonnistui
               launch_success: Tunnistautumiskoodien vienti aloitettu. Saat sähköpostia hetken kuluttua sähköpostiosoitteeseen %{email}
+            exporting_access_codes:
+              info_message: "<strong>Odota hetki</strong>, vientiä valmistellaan, saat hetken kuluttua viestin sähköpostiisi osoitteeseen %{email} (tämä voi kestää useita minuutteja)."
             freeze:
               callout: Henkilötietorekisteri on jäädytetty, minkä takia sitä ei voi muokata.
+              help_html: |
+                Henkilötietorekisterin tiedot on ladattu, äänestyskoodien luonti ja vienti on onnistunut.<br>
+                <strong>Voit nyt aloittaa äänestyksen.</strong><br>
+                Käytä vietyä CSV-tiedostoa ja toimita siinä näkyvät äänestyskoodit henkilötietorekisterin henkilöille haluamallasi tavalla tai ota käyttöön "Voinko äänestää" -välilehti mahdollistaaksesi osallistujille heidän omien koodiensa tilaaminen henkilötietorekisteriin merkittyjen tietojen perusteella.
             generate_access_codes:
               button: Luo äänestyksen tunnistautumiskoodit
               callout: Voit nyt jatkaa tunnistautumiskoodien luontiin. Huomioithan, että tunnistautumiskoodien luonnin jälkeen, et voi enää muokata henkilötietorekisteriä.
@@ -1089,6 +1106,9 @@ fi:
               info_message_warn: Tarkasta, että mitään tietoja ei puutu, koska %{data_count} tietuetta luotiin ja ladatussa tiedostossa %{file} on %{raw_count} riviä.
               launch_error: Tunnistautumiskoodien luonnin aloittaminen epäonnistui
               launch_success: Koodien luonti aloitettu.
+              start_over: Poista nykyinen henkilötietorekisteri ja aloita alusta oikeamuotoisella CSV-tiedostolla, joka sisältää ohjeiden mukaan muotointuja rivejä.
+            generating_access_codes:
+              info_message: "<strong>Odota hetki</strong>, äänestyskoodeja luodaan (tämä voi kestää useita minuutteja)..."
             new:
               file_help:
                 explanation: 'Tiedoston ohjeistus:'
