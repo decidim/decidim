@@ -1075,6 +1075,8 @@ ca:
             create:
               invalid: Hi ha hagut un error en pujar el cens, prova-ho de nou més tard.
               invalid_csv_header: Les capçaleres al CSV manquen o no son correctes. Si us plau, rellegeix atentament les instruccions
+            creating_data:
+              info_message: "<strong>Si us plau espera</strong>, processades %{processed_count} de %{raw_count} fileres al fitxer de %{file} (això pot trigar alguns minuts)."
             delete:
               button: Eliminar totes les dades del cens
               confirm: L'eliminació del cens no es pot desfer. Segur que vols continuar?
@@ -1088,8 +1090,13 @@ ca:
               file_not_exist: Aquest fitxer no existeix
               launch_error: Hi ha hagut un error en exportar els codis d'accés
               launch_success: S'ha iniciat l'exportació dels codis d'accés. En breu rebràs un correu a %{email}
+            exporting_access_codes:
+              info_message: "<strong>Si us plau espera</strong>, s'està preparant l'exportació, aviat la rebràs a %{email} (això pot trigar alguns minuts)."
             freeze:
               callout: El cens està tancat i no es pot modificar.
+              help_html: |
+                Les dades del cens s'han pujat correctament, els codis s'han generat i exportat correctament.<br><strong>Ara ja estàs llesta per a començar les eleccions.</strong><br>
+                Fes servir el CSV exportat que inclou els codis individuals per a distribuir-les al cens fent servir els teus propis mitjans o activant la pestanya "Puc votar?" per a permetre que qualsevol pugui recuperar aquest codi fent servir les seves dades censals.
             generate_access_codes:
               button: Generar els codis d'accés de la votació
               callout: Ara ja pots generar els codis d'accés. Tingues en compte que, un cop els hagis generat, ja no podràs modificar el cens.
@@ -1098,6 +1105,9 @@ ca:
               info_message_warn: Si us plau, comprova que no s'hagi perdut cap dada, s'han creat %{data_count} registres i el fitxer pujat %{file} té %{raw_count} fileres.
               launch_error: Hi ha hagut un error en generar els codis d'accés
               launch_success: S'ha iniciat la generació dels codis.
+              start_over: Si us plau, elimineu el cens actual i tornar a començar amb un arxiu CSV apropiat amb files vàlides.
+            generating_access_codes:
+              info_message: "<strong>Si us plau, espera</strong>, els codis d'accés a la votació s'estan generant (això pot trigar uns minuts)..."
             new:
               file_help:
                 explanation: 'Instruccions per al fitxer:'
