@@ -79,6 +79,18 @@ lt:
           form:
             add_question: Pridėti klausimą
             add_separator: Pridėti skyriklį
+            already_answered_warning: Kai kurie naudotojai jau atsakė į formos klausimus, todėl jos klausimų keisti nebegalite.
+            collapse: Suskleisti visus klausimus
+            expand: Išskleisti visus klausimus
+            preview: Peržiūra
+            title: Taisyti %{questionnaire_for} formą
+            unpublished_warning: Forma nepaskelbta. Galite keisti klausimus, tačiau tai darydami pašalinsite esamus atsakymus.
+          matrix_row:
+            matrix_row: Eilutė
+            remove: Pašalinti
+            statement: Pareiškimas
+          question:
+            add_answer_option: Pridėti atsakymo variantą
           update:
             invalid: Išsaugant šią formą iškilo problema.
             success: Forma sėkmingai išsaugota.
