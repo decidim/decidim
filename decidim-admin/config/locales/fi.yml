@@ -508,6 +508,14 @@ fi:
           file_legend: Lisää tuontitiedosto, josta tiedot luetaan.
           import: Tuo
         notice: "%{count} %{resource_name} tuotu onnistuneesti"
+      logs:
+        filters:
+          participatory_space: Etsi osallistumistila
+          text: Etsi käyttäjän sähköpostin, nimen tai nimimerkin perusteella.
+          user: Käyttäjä
+        logs_list:
+          no_logs_yet: Ei vielä lokitietoja.
+          no_matching_logs: Lokitietoja ei löytynyt annetuilla hakukriteereillä. Yritä muuttaa hakua ja kokeile uudestaan.
       managed_users:
         promotion:
           error: Hallitun käyttäjän oikeuksien korotus epäonnistui.
