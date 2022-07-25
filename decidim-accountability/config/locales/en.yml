@@ -70,10 +70,9 @@ en:
             create: Import
             import_all_selected_projects: Import all selected projects
             new_items:
-              zero: There are no selected projects in this origin component
               one: There is 1 selected project in this origin component
               other: "%{count} selected projects will be imported"
-            new_items_other: "%{items} projects are selected"
+              zero: There are no selected projects in this origin component
             no_components: There are no budgets components in this participatory space to import the projects into results.
             origin_component_id: Origin component
             select_component: Select a component
@@ -113,7 +112,6 @@ en:
           new:
             create: Create status
             title: New status
-            accountability_component_id: Result's component
           update:
             invalid: There was a problem updating this status
             success: Status successfully updated
