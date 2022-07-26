@@ -2,7 +2,7 @@
   @apply border-4 border-background rounded p-4;
 
   &__title{
-    @apply h3 text-secondary text-lg;
+    @apply h4 text-secondary hover:underline;
   }
 
   &__snippet{
