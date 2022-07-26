@@ -15,5 +15,5 @@
 }
 
 .layout-center{
-  @apply grid grid-cols-8 [&>*]:col-span-8 lg:[&>*:not(.grow)]:col-start-2 lg:[&>*:not(.grow)]:col-span-6;
+  @apply grid grid-cols-8 [&>*]:col-span-8 lg:[&>*:not(.grow)]:col-start-2 lg:[&>*:not(.grow)]:col-span-6 mb-28;
 }
