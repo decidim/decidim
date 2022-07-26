@@ -260,8 +260,8 @@ describe Decidim::Initiatives::Permissions do
 
         context "when user is fully verified" do
           before do
-            create(:authorization, name: "dummy_authorization_handler", user: user, granted_at: 2.seconds.ago)
-            create(:authorization, name: "another_dummy_authorization_handler", user: user, granted_at: 2.seconds.ago)
+            create(:authorization, name: "dummy_authorization_handler", user:, granted_at: 2.seconds.ago)
+            create(:authorization, name: "another_dummy_authorization_handler", user:, granted_at: 2.seconds.ago)
           end
 
           it { is_expected.to be true }

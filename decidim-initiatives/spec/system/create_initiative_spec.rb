@@ -13,16 +13,16 @@ describe "Initiative", type: :system do
   let(:initiative_type_promoting_committee_enabled) { true }
   let(:initiative_type) do
     create(:initiatives_type,
-           organization: organization,
+           organization:,
            minimum_committee_members: initiative_type_minimum_committee_members,
            promoting_committee_enabled: initiative_type_promoting_committee_enabled,
-           signature_type: signature_type)
+           signature_type:)
   end
   let!(:initiative_type_scope) { create(:initiatives_type_scope, type: initiative_type) }
   let!(:initiative_type_scope2) { create(:initiatives_type_scope, type: initiative_type) }
-  let!(:other_initiative_type) { create(:initiatives_type, organization: organization) }
+  let!(:other_initiative_type) { create(:initiatives_type, organization:) }
   let!(:other_initiative_type_scope) { create(:initiatives_type_scope, type: other_initiative_type) }
-  let(:third_initiative_type) { create(:initiatives_type, organization: organization) }
+  let(:third_initiative_type) { create(:initiatives_type, organization:) }
 
   shared_examples "initiatives path redirection" do
     it "redirects to initiatives path" do

@@ -38,7 +38,7 @@ describe "Admin manages election steps", :slow, type: :system do
     end
 
     context "when census is required" do
-      let!(:voting) { create(:voting, organization: organization) }
+      let!(:voting) { create(:voting, organization:) }
       let(:participatory_space) { voting }
 
       it "shows invalid census messages" do
@@ -60,7 +60,7 @@ describe "Admin manages election steps", :slow, type: :system do
       end
 
       context "with valid census" do
-        let!(:dataset) { create(:dataset, :codes_generated, :frozen, voting: voting) }
+        let!(:dataset) { create(:dataset, :codes_generated, :frozen, voting:) }
 
         it "shows valid census messages" do
           visit_steps_page

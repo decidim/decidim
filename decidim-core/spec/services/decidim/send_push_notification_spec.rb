@@ -144,7 +144,7 @@ describe Decidim::SendPushNotification do
                                     data: { url: presented_notification.url }
                                   })
 
-          notification_payload = a_hash_including(message: message)
+          notification_payload = a_hash_including(message:)
           expect(Webpush).to receive(:payload_send).with(notification_payload).ordered.and_return(double("result", message: "Created", code: "201"))
         end
 

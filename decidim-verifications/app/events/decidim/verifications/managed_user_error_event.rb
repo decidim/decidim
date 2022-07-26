@@ -25,7 +25,8 @@ module Decidim
       end
 
       def default_i18n_options
-        super.merge({ conflicts_path:, conflicts_url:,managed_user_path: managed_user.profile_path, managed_user_url: managed_user.profile_url, managed_user_name: managed_user.name })
+        super.merge({ conflicts_path:, conflicts_url:, managed_user_path: managed_user.profile_path, managed_user_url: managed_user.profile_url,
+                      managed_user_name: managed_user.name })
       end
 
       private
