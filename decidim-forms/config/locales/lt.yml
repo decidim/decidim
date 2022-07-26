@@ -91,6 +91,23 @@ lt:
             statement: Pareiškimas
           question:
             add_answer_option: Pridėti atsakymo variantą
+            add_display_condition: Pridėti rodymo sąlygą
+            add_display_condition_info: Išsaugokite formą, kad galėtumėt konfiguruoti rodymo sąlygas
+            add_matrix_row: Pridėti eilutę
+            any: Bet koks
+            collapse: Suskleisti
+            description: Aprašymas
+            down: Žemyn
+            expand: Išplėsti
+            question: Klausimas
+            remove: Pašalinti
+            statement: Pareiškimas
+            up: Į viršų
+          separator:
+            down: Žemyn
+            remove: Pašalinti
+            separator: Skirtukas
+            up: Į viršų
           update:
             invalid: Išsaugant šią formą iškilo problema.
             success: Forma sėkmingai išsaugota.
@@ -150,3 +167,8 @@ lt:
         created_at: Atsakyta
         id: Atsakymo ID
         ip_hash: IP adreso "hash" kodas
+        question: Klausimas
+        registered: Užregistruota
+        session_token: Naudotojo identifikatorius
+        unregistered: Neregistruoti
+        user_status: Naudotojo būsena
