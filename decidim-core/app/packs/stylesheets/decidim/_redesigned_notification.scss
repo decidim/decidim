@@ -1,5 +1,5 @@
 .notification{
-  @apply rounded p-4 border-l-4 border-secondary bg-secondary/5 prose max-w-full;
+  @apply rounded p-4 border-l-4 border-secondary bg-secondary/5;
 
   &.success{
     @apply border-success bg-success/5;
