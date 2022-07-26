@@ -34,10 +34,51 @@ lt:
         online_signature_enabled: Pasirašymas internetu įjungtas
         only_global_scope_enabled: Leisti tik globalių apimčių iniciatyvų kūrimą
         promoting_committee_enabled: Leisti sklaidos komitetus
+        title: Pavadinimas
+        undo_online_signatures_enabled: Suteikti dalyviams galimybę panaikinti savo skaitmeninius parašus
+        validate_sms_code_on_votes: Į pasirašymo procesą įtraukti SMS kodo patvirtinimo etapą
+      initiatives_vote:
+        date_of_birth: Gimimo data
+        document_number: Dokumento numeris
+        name_and_surname: Vardas ir pavardė
+        postal_code: Pašto kodas
+      organization_data:
+        address: Adresas
+        id_document: Asmens tapatybės dokumentas
+        name: Pilnas vardas
+    errors:
+      models:
+        initiative:
+          attributes:
+            attachment:
+              file: Rinkmena netinkama
+              needs_to_be_reattached: Reikia pridėti iš naujo
+              title: Pavadinimo laukas neturėtų būti tuščias
+  activerecord:
+    models:
+      decidim/initiative:
+        one: Iniciatyva
+        few: Iniciatyvos
+        many: Iniciatyvos
+        other: Iniciatyvos
+      decidim/initiative_comittee:
+        one: Komitetas
+        few: Komitetai
+        many: Komitetai
+        other: Komitetai
+      decidim/initiative_vote:
+        one: Parašas
+        few: Prašai
+        many: Prašai
+        other: Prašai
   decidim:
     admin:
+      actions:
+        new_initiative_type: Naujas iniciatyvos tipas
       filters:
         initiatives:
+          decidim_area_id_eq:
+            label: Aplinka
           state_eq:
             label: Būsena
             values:
@@ -112,6 +153,12 @@ lt:
         initiative_extended:
           email_intro: Pratęsta %{resource_title} iniciatyvos pasirašymo pabaigos data!
           email_outro: Šį pranešimą gavote dėl to, kad sekate %{resource_title}. Jeigu nebenorite gauti pranešimų, spustelėkite aukščiau esančią nuorodą.
+          email_subject: Iniciatyvos pasirašymo pabaigos data pratęsta!
+          notification_title: Pratęsta iniciatyvos <a href="%{resource_path}">%{resource_title}</a> pasirašymo pabaigos data.
+        initiative_sent_to_technical_validation:
+          email_intro: Iniciatyva „%{resource_title}“ išsiųsta techniniam patvirtinimui. Peržiūrėkite tai <a href="%{admin_initiative_url}">administratoriaus srityje</a>
+          email_outro: Šį pranešimą gavote dėl to, kad esate platformos administratorius.
+          email_subject: Iniciatyva „%{resource_title}“ išsiųsta techniniam patvirtinimui.
     initiatives:
       admin:
         answers:
