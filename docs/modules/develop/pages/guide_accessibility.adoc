@@ -61,6 +61,7 @@ Regardless of the technology being used, a good general advice is to follow the 
 
 Some examples of accessible elements you can find through internet searches:
 
+- https://kittygiraudel.com/2020/12/10/accessible-icon-links/[Accessible icon links]
 - https://www.w3.org/WAI/ARIA/apg/example-index/dialog-modal/dialog[Accessible modal dialog]
 - https://a11y-guidelines.orange.com/en/web/components-examples/dropdown-menu/[Accessible dropdown]
 - https://multiselect.vue-a11y.com/[Accessible multiselect]
