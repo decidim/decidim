@@ -10,6 +10,30 @@ lt:
         scope_id: Apimtis
         signature_end_date: Parašų rinkimų periodo pabaiga
         signature_start_date: Parašų rinkimo periodo pradžia
+        signature_type: Parašų rinkimo tipas
+        signature_type_values:
+          any: Mišrūs
+          offline: Fiziniai
+          online: Internetiniai
+        state: Būsena
+        title: Pavadinimas
+      initiatives_committee_member:
+        user: Komiteto narys
+      initiatives_type:
+        area_enabled: Leisti autoriams pasirinkti savo iniciatyvos erdvę
+        attachments_enabled: Leisti priedus
+        banner_image: Reklamjuostės paveikslėlis
+        child_scope_threshold_enabled: Leisti parašus posritėse
+        collect_user_extra_fields: Surinkti dalyvio asmens duomenis gavus parašą
+        comments_enabled: Įjungti komentarus
+        custom_signature_end_date_enabled: Suteikti autoriams galimybę pasirinkti parašų rinkimo periodo pabaigą
+        description: Aprašymas
+        document_number_authorization_handler: Leidimas tikrinti dokumento numerį gavus parašą
+        extra_fields_legal_information: Teisinė informacija apie asmens duomenų rinkimą
+        minimum_committee_members: Mažiausias komiteto narių skaičius
+        online_signature_enabled: Pasirašymas internetu įjungtas
+        only_global_scope_enabled: Leisti tik globalių apimčių iniciatyvų kūrimą
+        promoting_committee_enabled: Leisti sklaidos komitetus
   decidim:
     admin:
       filters:
@@ -90,8 +114,35 @@ lt:
           email_outro: Šį pranešimą gavote dėl to, kad sekate %{resource_title}. Jeigu nebenorite gauti pranešimų, spustelėkite aukščiau esančią nuorodą.
     initiatives:
       admin:
+        answers:
+          edit:
+            title: '%{title} atsakymas'
+          info_initiative:
+            created_at: Sukurta
+            description: Aprašymas
+            initiative_votes_count: Balsų skaičius
+            initiatives: Iniciatyvos
+            state: Būsena
+        committee_requests:
+          index:
+            approve: Patvirtinti
+            confirm_revoke: Ar esate tikri?
+            invite_to_committee_help: Bendrinkite šią nuorodą ir į projekto rėmėjų komitetą pakvieskite kitų dalyvių
+            no_members_yet: Rėmėjų komitete nėra narių
+            revoke: Atšaukti
+            title: Komiteto nariai
+        content_blocks:
+          highlighted_initiatives:
+            max_results: Didžiausias rodomų elementų skaičius
+            order:
+              default: Numatytasis (seniausias)
+              label: 'Rikiuoti elementus pagal:'
+              most_recent: Naujausia
+        exports:
+          initiatives: Iniciatyvos
         initiatives:
           edit:
+            accept: Priimti iniciatyvą
             confirm: Ar esate tikri?
             confirm_send_to_technical_validation: Ar esate tikri?
             discard: Atmesti iniciatyvą
@@ -158,6 +209,12 @@ lt:
             update: Atnaujinti
           form:
             authorizations: Autorizacijos nustatymai
+            options: Variantai
+            title: Bendra informacija
+          initiative_type_scopes:
+            title: Iniciatyvos rūšies sritys
+          new:
+            create: Sukurti
       initiatives:
         filters:
           scope: Apimtis
