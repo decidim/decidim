@@ -90,7 +90,9 @@ module Decidim
           let(:command) { "decidim #{test_app} --demo --path #{repo_root}" }
 
           let(:subcommand) { "bundle exec rails db:drop db:create db:migrate db:seed" }
-          let(:subresult) { GemManager.new(test_app).capture(subcommand, env: env) }
+          let(:subresult) do
+            Bundler.with_original_env { GemManager.new(test_app).capture(subcommand, env: {}) }
+          end
 
           it "creates the app without errors" do
             expect(result[1]).to be_success, result[0]
