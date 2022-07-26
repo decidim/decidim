@@ -31,6 +31,8 @@
   @import "stylesheets/decidim/redesigned_accordion.scss";
 }
 
+@import "stylesheets/decidim/redesigned_pages.scss";
+
 // This imports all the Decidim module stylesheet imports registered at
 // `config/assets.rb` of the module for the "app" group.
 // @import "!decidim-style-imports[app]";

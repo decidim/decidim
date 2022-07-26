@@ -14,6 +14,8 @@
     "@rails/activestorage": "^6.0.4",
     "@tarekraafat/autocomplete.js": "^10.2.6",
     "@zeitiger/appendaround": "^1.0.0",
+    "a11y-accordion-component": "^1.2.6",
+    "a11y-dropdown-component": "^1.2.0",
     "axios": "^0.21.4",
     "bootstrap-tagsinput": "^0.7.1",
     "classnames": "^2.2.5",

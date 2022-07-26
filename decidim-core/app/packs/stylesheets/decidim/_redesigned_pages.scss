@@ -1,0 +1,37 @@
+.page{
+  &__accordion{
+    @apply border-4 border-background rounded p-4;
+
+    &-trigger{
+      @apply flex justify-between items-center cursor-pointer;
+
+      > :first-child{
+        @apply grow;
+      }
+
+      > :last-child{
+        @apply flex-none;
+      }
+
+      &-title{
+        @apply h4 text-secondary hover:underline;
+      }
+
+      &-snippet{
+        @apply text-gray-2 mt-2;
+      }
+
+      &-arrow{
+        @apply w-8 h-8 text-secondary fill-current first:block last:hidden;
+      }
+
+      &[aria-expanded="true"] &-arrow{
+        @apply first:hidden last:block;
+      }
+    }
+
+    &-panel{
+      @apply border-t border-gray-3 mt-4 pt-4 space-y-4;
+    }
+  }
+}

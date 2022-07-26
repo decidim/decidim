@@ -22,30 +22,33 @@ edit_link(
     <% if @topics.any? %>
       <div class="space-y-6">
         <h2 class="h2 decorator"><%= t "decidim.pages.index.topics" %></h2>
-        <% @topics.each do |topic| %>
-          <% if topic.pages.any? %>
-            <details class="accordion" data-autoclose="false">
-              <summary class="flex justify-between items-center cursor-pointer">
-                <span class="grow">
-                  <h3 class="accordion__title">
-                    <%= link_to translated_attribute(topic.title), page_path(topic.pages.first) %>
-                  </h3>
-                  <p class="accordion__snippet"><%= translated_attribute topic.description %></p>
-                </span>
-                <span class="flex-none">
-                  <%= icon "arrow-down-s-line", class: "accordion__arrow" %>
-                  <%= icon "arrow-up-s-line", class: "accordion__arrow" %>
-                </span>
-              </summary>
 
-              <ul class="accordion__hidden-list" role="menu">
-                <% topic.pages.each do |page| %>
-                  <li role="menuitem"><%= link_to translated_attribute(page.title), page_path(page), class: "text-secondary" %></li>
-                <% end %>
-              </ul>
-            </details>
+        <div class="space-y-6" data-component="accordion">
+          <% @topics.each_with_index do |topic, ix| %>
+            <% if topic.pages.any? %>
+              <div class="page__accordion">
+                <div id="accordion-trigger-<%= ix %>" data-controls="accordion-panel-<%= ix %>" class="page__accordion-trigger">
+                  <div>
+                    <h3 class="page__accordion-trigger-title">
+                      <%= link_to translated_attribute(topic.title), page_path(topic.pages.first) %>
+                    </h3>
+                    <p class="page__accordion-trigger-snippet"><%= translated_attribute topic.description %></p>
+                  </div>
+                  <div>
+                    <%= icon "arrow-down-s-line", class: "page__accordion-trigger-arrow" %>
+                    <%= icon "arrow-up-s-line", class: "page__accordion-trigger-arrow" %>
+                  </div>
+                </div>
+
+                <ul id="accordion-panel-<%= ix %>" class="page__accordion-panel" role="menu">
+                  <% topic.pages.each do |page| %>
+                    <li role="menuitem"><%= link_to translated_attribute(page.title), page_path(page), class: "text-secondary" %></li>
+                  <% end %>
+                </ul>
+              </div>
+            <% end %>
           <% end %>
-        <% end %>
+        </div>
       </div>
     <% end %>
 
@@ -54,11 +57,11 @@ edit_link(
         <h2 class="h2 decorator"><%= t "decidim.pages.index.standalone_pages" %></h2>
         <div class="grid grid-cols-2 gap-6">
           <% @orphan_pages.each do |page| %>
-            <div class="accordion">
-              <h3 class="accordion__title">
+            <div class="page__accordion">
+              <h3 class="page__accordion-trigger-title">
                 <%= link_to translated_attribute(page.title), page_path(page) %>
               </h3>
-              <p class="accordion__snippet"><%== strip_tags html_truncate(translated_attribute(page.content), length: 140, separator: "...") %></p>
+              <p class="page__accordion-trigger-snippet"><%== strip_tags html_truncate(translated_attribute(page.content), length: 140, separator: "...") %></p>
             </div>
           <% end %>
         </div>

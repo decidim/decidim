@@ -59,7 +59,6 @@ import "src/decidim/gallery"
 import "src/decidim/direct_uploads/upload_field"
 import "src/decidim/sw"
 import "src/decidim/back_to_list"
-import "src/decidim/dropdowns_handler"
 
 // CSS
 import "entrypoints/redesigned_decidim_core.scss"
