@@ -8,13 +8,13 @@ Decidim follows the latest version of the Web Content Accessibility Guidelines (
 
 Most websites built on Decidim are under different regulations that require these services to follow accessibility guidelines. Therefore, following the guidelines and making your Decidim based websites accessible are often requirements, not suggestions. Any core contributions have to follow the accessibility guidelines and individual services need to follow them most of the times.
 
-Note that while we try to make Decidim as accessible as possible, implementers can easily break accessibility e.g. by changing the colors or customizing the Decidim user interface with their Decidim instances. It is therefore important to for everyone working with Decidim to have at least the basic level of understanding regarding accessibility, even when you are not a core contributor.
+Note that while we try to make Decidim as accessible as possible, implementers can easily break accessibility e.g. by changing the colors or customizing the Decidim user interface with their Decidim instances. It is therefore important for everyone working with Decidim to have at least the basic level of understanding regarding accessibility, even when you are not a core contributor.
 
 == General advice
 
 Accessibility of websites is based on the https://www.w3.org/WAI/standards-guidelines/wcag/[Web Content Accessibility Guidelines (WCAG)]. Although they are broad and extensive, you will bump into them when involved in different accessibility evaluations, as the evaluators are following these guidelines.
 
-These guidelines are constantly evolving and new versions can come out that may require changes in the already implemented functionality. Some of the violations can be noticed automatically but some violations require a real human testing the website with the common assistive technologies used for browsing the internet (see the "Testing" section below).
+These guidelines are constantly evolving and new versions can come out that may require changes in already implemented functionality. Some of the violations can be noticed automatically but some violations require a real person testing the website with the common assistive technologies used for browsing the internet (see the "Testing" section below).
 
 === Technical accessibility
 
@@ -26,7 +26,7 @@ In case your page has some technical accessibility violations, you should see th
 
 image::wcag-badge-error.png[WCAG error badge]
 
-You can see the different inaccessible elements indicated by this tool by clicking the indicator when a side panel is opened displaying the different violation categories and the different elements that have violations in these categories. The inaccessible elements should be hightlighted on the page when the side panel is open and you can jump into these elements by clicking the links in the side panel indicating the inaccessible element selectors.
+You can see the different inaccessible elements indicated by this tool by clicking the indicator when a side panel is opened displaying the different violation categories and the different elements that have violations in these categories. The inaccessible elements should be highlighted on the page when the side panel is open and you can jump into these elements by clicking the links in the side panel indicating the inaccessible element selectors.
 
 The automated accessibility auditing tools only cover about 50% of the total accessibility requirements. Although a good starting point, the functionality always needs to be tested these with the real tools and compared to working examples. See the "Testing" section below for more information on how to test your service or the elements you are building with different accessibility tools.
 
@@ -38,12 +38,12 @@ Always ensure the web pages have valid HTML. You can test this by copying at the
 
 Once you are done developing some page or fixing its accessibility issues, you should add the following shared examples for the system specs of that page:
 
-[source,console]
+[source,ruby]
 ----
 it_behaves_like "accessible page"
 ----
 
-This checks if the page passes the technical accessibility evaluation and contains valid HTML. It will also ensure that when other people are implementing changes on the pages covered by these tests, they will stay accessible also after the changes. Otherwise accessibility can be easily broken as these kinds of issues can be hard to notice for code reviewers.
+This checks if the page passes the technical accessibility evaluation and contains valid HTML. It will also ensure that when other people are implementing changes on the pages covered by these tests, they will likely stay accessible also after the changes. Otherwise accessibility can be easily broken as these kinds of issues can be hard to notice for code reviewers.
 
 === Avoid browser's built-in functionality
 
@@ -80,7 +80,7 @@ Screen readers are mostly used by people with visual disabilities. To test the s
 - Linux: ORCA
 - Android: TalkBack
 
-=== Voice control (use the computer just by speaking)
+=== Voice control
 
 Some people may need to use their devices using speech in case they have physical disabilities that make it hard for them to use the common pointing devices, such as touch screen or mouse. To test the service with voice control, try using it without a keyboard, mouse or touch screen, just by using your mouth to speak. Common software used for voice control includes:
 
