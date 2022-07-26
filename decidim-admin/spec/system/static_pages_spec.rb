@@ -34,7 +34,7 @@ describe "Content pages", type: :system do
             text: topic_title
           )
           within("details", text: topic_title) do
-            find("div.flex-none").click
+            find("svg", match: :first).click
             expect(page).to have_css(
               "a[href=\"#{decidim.page_path(decidim_page)}\"]",
               text: page_title
