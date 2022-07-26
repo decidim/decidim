@@ -2,7 +2,13 @@ lt:
   activemodel:
     attributes:
       initiative:
+        decidim_user_group_id: Autorė(-ius)
+        description: Aprašymas
+        offline_votes: Fiziniai parašai
+        offline_votes_for_scope: Fiziniai parašai%{scope_name}
         scope_id: Apimtis
+        signature_end_date: Parašų rinkimų periodo pabaiga
+        signature_start_date: Parašų rinkimo periodo pradžia
   decidim:
     admin:
       filters:
