@@ -21,10 +21,12 @@ module Decidim
         return if file.blank?
 
         process_file_locally(file) do |file_path|
-          CSV.foreach(file_path) do |_email, user_name|
+          CSV.foreach(file_path, encoding: "BOM|UTF-8") do |_email, user_name|
             errors.add(:user_name, :invalid) unless user_name.match?(UserBaseEntity::REGEXP_NAME)
           end
         end
+      rescue CSV::MalformedCSVError
+        errors.add(:file, :malformed)
       end
     end
   end
