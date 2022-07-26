@@ -215,6 +215,7 @@ export default class CommentsComponent {
    * @returns {Void} - Returns nothing
    */
   _fetchComments() {
+    $(".add-comment textarea", this.$element).prop("disabled", true);
     Rails.ajax({
       url: this.commentsUrl,
       type: "GET",
@@ -226,7 +227,10 @@ export default class CommentsComponent {
         ...(this.toggleTranslations && { "toggle_translations": this.toggleTranslations }),
         ...(this.lastCommentId && { "after": this.lastCommentId })
       }),
-      success: this._pollComments()
+      success: () => {
+        $(".add-comment textarea", this.$element).prop("disabled", false);
+        this._pollComments();
+      }
     })
   }
 
