@@ -160,6 +160,18 @@ lt:
             success: Susirinkimas uždarytas
           create:
             invalid: Kuriant šį susirinkimą iškilo problema
+            success: Susirinkimas sėkmingai sukurtas. Jis dar nepublikuotas, tai turite padaryti rankiniu būdu.
+          destroy:
+            invalid:
+              proposals_count:
+                one: Susirinkimo negalima panaikinti, nes su juo susietas %{count} pasiūlymas
+                few: Susirinkimo negalima panaikinti, nes su juo susietas %{count} pasiūlymai
+                many: Susirinkimo negalima panaikinti, nes su juo susietas %{count} pasiūlymai
+                other: Susirinkimo negalima panaikinti, nes su juo susietas %{count} pasiūlymai
+            success: Susirinkimas sėkmingai pašalintas
+          edit:
+            title: Redaguoti susirinkimą
+            update: Atnaujinti
       meetings:
         filters:
           scope: Apimtis
