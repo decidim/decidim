@@ -1,0 +1,90 @@
+= Accessibility (a11y)
+
+Decidim, just like the World Wide Web, is built for everyone regardless of individual abilities or disabilities, and for any software and hardware capable of connecting to the internet. Developing services in accessible way ensures that the services can reach as wide audiences as possible which is the most important principle of democracy.
+
+Decidim follows the latest version of the Web Content Accessibility Guidelines (WCAG) but we have seen that these guidelines may be quite broad, complex, and hard to understand for many developers. The purpose of this guide is to provide some simple tips on how to follow the accessibility guidelines when developing the Decidim user interface.
+
+== Is it necessary?
+
+Most websites built on Decidim are under different regulations that require these services to follow accessibility guidelines. Therefore, following the guidelines and making your Decidim based websites accessible are often requirements, not suggestions. Any core contributions have to follow the accessibility guidelines and individual services need to follow them most of the times.
+
+Note that while we try to make Decidim as accessible as possible, implementers can easily break accessibility e.g. by changing the colors or customizing the Decidim user interface with their Decidim instances. It is therefore important to for everyone working with Decidim to have at least the basic level of understanding regarding accessibility, even when you are not a core contributor.
+
+== General advice
+
+Accessibility of websites is based on the https://www.w3.org/WAI/standards-guidelines/wcag/[Web Content Accessibility Guidelines (WCAG)]. Although they are broad and extensive, you will bump into them when involved in different accessibility evaluations, as the evaluators are following these guidelines.
+
+These guidelines are constantly evolving and new versions can come out that may require changes in the already implemented functionality. Some of the violations can be noticed automatically but some violations require a real human testing the website with the common assistive technologies used for browsing the internet (see the "Testing" section below).
+
+=== Technical accessibility
+
+The Decidim development environment ships with an automated accessibility evaluation tool (with the `decidim-dev` module) that you may have seen at the top left corner of the page in case you have been developing Decidim recently. When the page passes the technical evaluation, you should see the following indicator at the top left corner of the page:
+
+image::wcag-badge-success.png[WCAG success badge]
+
+In case your page has some technical accessibility violations, you should see the following indicator where the number indicates the different violation categories for the page that you are looking at:
+
+image::wcag-badge-error.png[WCAG error badge]
+
+You can see the different inaccessible elements indicated by this tool by clicking the indicator when a side panel is opened displaying the different violation categories and the different elements that have violations in these categories. The inaccessible elements should be hightlighted on the page when the side panel is open and you can jump into these elements by clicking the links in the side panel indicating the inaccessible element selectors.
+
+The automated accessibility auditing tools only cover about 50% of the total accessibility requirements. Although a good starting point, the functionality always needs to be tested these with the real tools and compared to working examples. See the "Testing" section below for more information on how to test your service or the elements you are building with different accessibility tools.
+
+=== Valid HTML
+
+Always ensure the web pages have valid HTML. You can test this by copying at the source of the page and pasting it into the https://validator.w3.org/#validate_by_input[HTML validator tool].
+
+=== Accessibility tests
+
+Once you are done developing some page or fixing its accessibility issues, you should add the following shared examples for the system specs of that page:
+
+[source,console]
+----
+it_behaves_like "accessible page"
+----
+
+This checks if the page passes the technical accessibility evaluation and contains valid HTML. It will also ensure that when other people are implementing changes on the pages covered by these tests, they will stay accessible also after the changes. Otherwise accessibility can be easily broken as these kinds of issues can be hard to notice for code reviewers.
+
+=== Avoid browser's built-in functionality
+
+Always avoid relying on the browser's built-in functionality *everywhere* for special use cases, as they are known to have problems with the accessibility tools. Some examples on inaccessible elements built into the browsers include:
+
+. Built-in alert/confirm dialogs, these are not supported e.g. by all screen readers
+. Default file input elements, these are not translated according to the currently selected language on the page but instead the language of the browser or the operating system
+. Default `<select>` elements can fail accessibility evaluations under specific devices and color schemes as they may not provide enough color contrast and this cannot be controlled through the stylesheets so they are also hard to fix
+. `<details>` and `<summary>` for "toggles" or "dropdowns" because these have problems with some screen readers and these issues can be hard to fix with such special elements
+. Any HTML element that has not been widely adopted (such as the mentioned `<details>` and `<summary>`), as accessibility tools are always behind the fast pace of browser development
+
+== How to build accessible elements?
+
+Regardless of the technology being used, a good general advice is to follow the guidelines for accessible elements by searching from the internet with "accessible X element" where you replace the "X" with what you are implementing.
+
+Some examples of accessible elements you can find through internet searches:
+
+- https://www.w3.org/WAI/ARIA/apg/example-index/dialog-modal/dialog[Accessible modal dialog]
+- https://a11y-guidelines.orange.com/en/web/components-examples/dropdown-menu/[Accessible dropdown]
+- https://multiselect.vue-a11y.com/[Accessible multiselect]
+- https://alphagov.github.io/accessible-autocomplete/examples/[Accessible autocomplete]
+
+== Testing
+
+Different accessibility auditors can also have varying levels of expertise, some may notice even the smallest details in your application and some may be happy as long as you fulfil the minimum requirements. Always do your best regarding accessibility which includes ensuring the website fulfils the necessary technical requirements and testing the service as a whole or the elements that you are building with the actual tools used by people with disabilities.
+
+=== Screen readers
+
+Screen readers are mostly used by people with visual disabilities. To test the service with a screen reader, try using it with your eyes closed or blindfolded. Common software used for screen reading includes:
+
+- Windows: NVDA, JAWS
+- Apple (macOS, iOS): VoiceOver
+- Linux: ORCA
+- Android: TalkBack
+
+=== Voice control (use the computer just by speaking)
+
+Some people may need to use their devices using speech in case they have physical disabilities that make it hard for them to use the common pointing devices, such as touch screen or mouse. To test the service with voice control, try using it without a keyboard, mouse or touch screen, just by using your mouth to speak. Common software used for voice control includes:
+
+- Windows: Speech Recognition (built-in some Windows versions, limited language support)
+- Apple (macOS, iOS): Voice Control
+- Chrome browser: Speech Recognition Anywhere
+- Linux: varies, just use browser extensions
+- Android: Voice Access
