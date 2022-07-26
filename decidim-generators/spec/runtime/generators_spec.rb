@@ -89,7 +89,7 @@ module Decidim
         context "when running the db commands consecutively" do
           let(:command) { "decidim #{test_app} --demo --path #{repo_root}" }
 
-          let(:subcommand) { "rails db:drop db:create db:migrate db:seed" }
+          let(:subcommand) { "bundle exec rails db:drop db:create db:migrate db:seed" }
           let(:subresult) { GemManager.new(test_app).capture(subcommand, env: env) }
 
           it "creates the app without errors" do
