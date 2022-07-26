@@ -79,7 +79,87 @@ lt:
             email_outro: Šį pranešimą gavote dėl to, kad organizavote susirinkimą „%{resource_title}“.
             email_subject: '"%{resource_title}" susirinkimas uždarytas'
             notification_title: <a href="%{resource_path}">%{resource_title}</a> susirinkimas uždarytas.
+          follower:
+            email_intro: '%{resource_title} susitikimas uždarytas. Išvadas galite perskaityti šiame puslapyje:'
+            email_outro: Šį pranešimą gavote dėl to, kad sekate „%{resource_title}“ susirinkimą. Jūs galite jo nebesekti spustelėdami ankstesnę nuorodą.
+            email_subject: '"%{resource_title}" susirinkimas uždarytas'
+            notification_title: <a href="%{resource_path}">%{resource_title}</a> susirinkimas uždarytas.
+        meeting_created:
+          button_text: Registruotis į susirinkimą
+          email_intro: Erdvėje „%{participatory_space_title}“, kurią sekate, pridėtas susirinkimas „%{resource_title}“.
+          email_outro: Gavote šį pranešimą nes sekate %{participatory_space_title}. Galite nebesekti paspaudę and ankstesnės nuorodos.
+          email_subject: '%{participatory_space_title} pridėtas naujas posėdis'
+          notification_title: Susirinkimas<a href="%{resource_path}"><a href="%{resource_path}">%{resource_title}</a> pridėtas prie %{participatory_space_title}
+        meeting_registration_confirmed:
+          notification_title: Jūsų registracija į susirinkimą <a href="%{resource_url}">%{resource_title}</a> buvo patvirtinta. Jūsų registracijos kodas yra %{registration_code}.
     meetings:
+      admin:
+        agenda:
+          agenda_item_child:
+            remove: Pašalinti
+            up: Aukštyn
+          create:
+            invalid: Kuriant šią darbotvarkę iškilo problema
+            success: Darbotvarkė sukurta
+          edit:
+            title: Redaguoti darbotvarkę
+            update: Atnaujinti
+          form:
+            add_agenda_item: Pridėti darbotvarkės klausimą
+            agenda_items: Darbotvarkės klausimai
+            end_date: Pabaigos data
+            start_date: Pradžios data
+          new:
+            create: Sukurti
+            title: Nauja darbotvarkė
+          update:
+            invalid: Atnaujinant šią darbotvarkę iškilo problema
+            success: Darbotvarkė atnaujinta
+        exports:
+          answers: Atsakymai
+          meeting_comments: Komentarai
+          meetings: Susirinkimai
+          registrations: Registracijos
+        invite_join_meeting_mailer:
+          invite:
+            decline: Atmesti kvietimą
+            invited_you_to_join_a_meeting: "%{invited_by} jus pakvietė dalyvauti susirinkime %{application}. Kvietimą galite atmesti arba priimti spustelėję toliau pateikiamą nuorodą."
+            join: Dalyvauti susirinkime „%{meeting_title}“
+        invites:
+          create:
+            error: Kviečiant dalyvį dalyvauti susirinkime iškilo problema.
+            success: Dalyvis pakviestas dalyvauti susirinkime.
+          form:
+            attendee_type: Dalyvio tipas
+            existing_user: Egzistuojantis dalyvis
+            invite: Pakviesti
+            invite_explanation: Dalyvis bus pakviestas dalyvauti ne tik susirinkime, bet ir organizacijoje.
+            non_user: Neegzistuojantis dalyvis
+            select_user: Pasirinkti dalyvį
+          index:
+            filter:
+              accepted: Priimtas
+              all: Visi
+              rejected: Atmestas
+              sent: Išsiųstas
+            filter_by: Filtruoti pagal
+            invite_attendee: Kviesti dalyvį
+            invites: Pakvietimai
+            registrations_disabled: Negalite kviesti dalyvio, nes registracija išjungta.
+            search: Ieškoti
+        meeting_closes:
+          edit:
+            close: Uždaryti
+            title: Baigti susirinkimą
+        meeting_copies:
+          form:
+            select_a_meeting_type: Prašome pasirinkti susirinkimo tipą
+        meetings:
+          close:
+            invalid: Užbaigiant šį susirinkimą iškilo problema
+            success: Susirinkimas uždarytas
+          create:
+            invalid: Kuriant šį susirinkimą iškilo problema
       meetings:
         filters:
           scope: Apimtis
