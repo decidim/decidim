@@ -358,7 +358,14 @@ lt:
           select: Noriu paremti šią iniciatyvą
         share_committee_link:
           continue: Tęsti
+          invite_to_committee_help: Nuoroda, skirta dalyviams į rėmėjų komitetą pakviesti
+        show_similar_initiatives:
+          back: Atgal
+          compare_help: Jei kuri nors iš toliau nurodomų iniciatyvų yra panaši į jūsų iniciatyvą, raginame ją pasirašyti. Bus daugiau galimybių įgyvendinti jūsų pasiūlymus.
+          continue: Mano iniciatyva skiriasi
+          more_information: "(Daugiau informacijos)"
       edit:
+        accept: Priimti iniciatyvą
         back: Atgal
         confirm: Ar esate tikri?
         discard: Atmesti iniciatyvą
@@ -460,6 +467,26 @@ lt:
         filters_small_view:
           close_modal: Uždaryti langą
           filter: Filtruoti
+        show:
+          print: Spausdinti Iniciatyvą
+          send_to_technical_validation: Siųsti techniniam patvirtinimui
+        signatures_count:
+          one: " parašas"
+          few: " parašai"
+          many: " parašai"
+          other: " parašai"
+        vote_cabin:
+          already_voted: Jau pasirašyta
+          supports_required: "%{total_supports} – reikalingas parašų skaičius"
+          verification_required: Norėdami pasirašyti iniciatyvą, patvirtinkite savo paskyrą
+          vote: Pasirašyti
+          votes_blocked: Pasirašymas išjungtas
+        votes_count:
+          count:
+            one: Parašas
+            few: Parašai
+            many: Parašai
+            other: Parašai
       initiatives_mailer:
         creation_subject: Jūsų iniciatyva „%{title}“ sukurta
         initiative_link:
