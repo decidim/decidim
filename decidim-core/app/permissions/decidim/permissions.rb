@@ -116,7 +116,8 @@ module Decidim
     end
 
     def apply_endorsement_permissions
-      is_allowed = (current_settings.endorsements_enabled || !current_settings.endorsements_blocked) &&
+      is_allowed = current_settings.endorsements_enabled &&
+                   !current_settings.endorsements_blocked &&
                    authorized?(:endorse, resource: context.fetch(:resource, nil))
 
       toggle_allow(is_allowed)
