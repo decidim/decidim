@@ -103,7 +103,7 @@ describe "User activity", type: :system do
     end
 
     it "displays activities filter with the correct options" do
-      within("div.resource_type_collection_radio_buttons_filter") do
+      within("form.profile__activity__filter-container") do
         resource_types.push("All types").each do |type|
           expect(page).to have_css("label", text: type)
         end

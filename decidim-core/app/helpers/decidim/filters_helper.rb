@@ -33,6 +33,21 @@ module Decidim
       end
     end
 
+    def redesigned_filter_form_for(filter, url = url_for, html_options = {})
+      form_for(
+        filter,
+        namespace: filter_form_namespace,
+        builder: FormBuilder,
+        url: url,
+        as: :filter,
+        method: :get,
+        remote: true,
+        html: { id: nil }.merge(html_options)
+      ) do |form|
+        yield form
+      end
+    end
+
     private
 
     # Creates a unique namespace for a filter form to prevent dupliacte IDs in
