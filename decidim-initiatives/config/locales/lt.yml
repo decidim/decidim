@@ -182,10 +182,17 @@ lt:
           next_level_in: Paskelbkite dar %{score} iniciatyvas (-ų) ir pasiekite kitą lygį!
           unearned_another: Šis dalyvis dar nepaskelbė nė vienos iniciatyvos.
           unearned_own: Jūs nepaskelbėte nė vienos iniciatyvos.
+    help:
+      participatory_spaces:
+        initiatives:
+          title: Kas yra iniciatyvos?
     initiatives:
+      actions:
+        answer: Atsakymas
       admin:
         answers:
           edit:
+            answer: Atsakymas
             title: '%{title} atsakymas'
           info_initiative:
             created_at: Sukurta
@@ -308,6 +315,51 @@ lt:
           rejected: Parašų neužtenka
         filter_type_values:
           all: Visi
+      committee_requests:
+        approve:
+          success: Užklausa patenkinta.
+        new:
+          continue: Tęsti
+          help_text: Jūs pateiksite prašymą tapti šios iniciatyvos rėmimo komiteto nariu
+        revoke:
+          success: Užklausa atsiimta.
+        spawn:
+          success: Jūsų prašymas išsiųstas iniciatyvos autoriui.
+      content_blocks:
+        highlighted_initiatives:
+          name: Paryškintos iniciatyvos
+      create_initiative:
+        fill_data:
+          back: Atgal
+          continue: Tęsti
+          initiative_type: Iniciatyvos tipas
+          more_information: "(Daugiau informacijos)"
+          select_area: Pasirinkti erdvę
+          select_scope: Pasirinkti apimtį
+        finish:
+          back: Atgal
+          back_to_initiatives: Grįžti į iniciatyvas
+          callout_text: Sveikiname! Jūsų iniciatyva sukurta.
+          edit_my_initiative: Redaguoti mano iniciatyvas
+          go_to_my_initiatives: Eiti į mano iniciatyvas
+          more_information: "(Daugiau informacijos)"
+          send_my_initiative: Siųsti mano iniciatyvą techniniam patvirtinimui
+        finish_help:
+          access_reminder: Galite pasiekti savo iniciatyvas per %{link} filtrą iniciatyvų puslapyje.
+        previous_form:
+          back: Atgal
+          continue: Tęsti
+          more_information: "(Daugiau informacijos)"
+        promotal_committee:
+          back: Atgal
+          more_information: "(Daugiau informacijos)"
+        select_initiative_type:
+          back: Atgal
+          choose_html: Noriu sukurti <strong>%{title}</strong>
+          more_information: "(Daugiau informacijos)"
+          select: Noriu paremti šią iniciatyvą
+        share_committee_link:
+          continue: Tęsti
       edit:
         back: Atgal
         confirm: Ar esate tikri?
