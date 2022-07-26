@@ -17,8 +17,9 @@ shared_examples "sorted moderations" do
   end
 
   it "sorts the most recent first" do
-    within ".pagination" do
-      click_link "Last"
+    link_text = find("ul[data-pages]").text.split("\n")[-2]
+    within "ul[data-pages]" do
+      click_link link_text
     end
     all("tbody tr").each_with_index do |row, _index|
       expect(row.find("td:first-child")).to have_content(reportables.first.id)

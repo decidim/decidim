@@ -113,6 +113,8 @@ module Decidim
   autoload :EventRecorder, "decidim/event_recorder"
   autoload :ControllerHelpers, "decidim/controller_helpers"
   autoload :ProcessesFileLocally, "decidim/processes_file_locally"
+  autoload :RedesignLayout, "decidim/redesign_layout"
+  autoload :DisabledRedesignLayout, "decidim/disabled_redesign_layout"
 
   include ActiveSupport::Configurable
   # Loads seeds from all engines.
@@ -360,6 +362,12 @@ module Decidim
   #
   config_accessor :machine_translation_service do
     # "MyTranslationService"
+  end
+
+  # If set to true redesigned versions of layouts and cells will be used by
+  # default
+  config_accessor :redesign_active do
+    false
   end
 
   # The Decidim::Exporters::CSV's default column separator
@@ -716,7 +724,9 @@ module Decidim
   # Gemfile uses the "path" parameter to find the module.
   # This is because the module can be defined by some files searched by Rails automatically
   # (ie: decidim-initiatives/lib/decidim/initiatives/version.rb automatically defines Decidim::Intiatives even if not required)
+  # for extra safety, we check if the module is defined (via safe_constantize), this should enable situations
+  # like adding a line like 'gem "decidim-consultations", require: false' where the gem is loaded but not required
   def self.module_installed?(mod)
-    Gem.loaded_specs.has_key?("decidim-#{mod}")
+    Gem.loaded_specs.has_key?("decidim-#{mod}") && "Decidim::#{mod.to_s.camelize}".safe_constantize
   end
 end

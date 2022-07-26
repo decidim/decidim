@@ -63,7 +63,7 @@ describe "Explore Budgets", :slow, type: :system do
         it "shows the bookmark icon" do
           visit_component
 
-          expect(item).to have_selector(".budget-list__icon .icon--bookmark")
+          expect(item).to have_selector(".budget-list__icon span.warning")
           expect(item).to have_link("Finish voting", href: budget_path(budget))
         end
       end
@@ -82,7 +82,7 @@ describe "Explore Budgets", :slow, type: :system do
         it "shows the check icon" do
           visit_component
 
-          expect(item).to have_selector(".budget-list__icon .icon--check")
+          expect(item).to have_selector(".budget-list__icon span.success")
           expect(item).to have_link("See projects", href: budget_path(budget))
         end
       end

@@ -45,6 +45,8 @@ en:
             actions:
               back: Back to responses
               export: Export
+              next: Next &rsaquo;
+              previous: "&lsaquo; Prev"
               show: Show answers
             empty: No answers yet
             export:

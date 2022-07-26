@@ -20,6 +20,6 @@ describe "Admin checks pagination on participatory space private users", type: :
   end
 
   it "shows private users of the participatory space and changes page correctly" do
-    find("li[class='pagination-next']").click
+    find("li a", text: "Next").click
   end
 end

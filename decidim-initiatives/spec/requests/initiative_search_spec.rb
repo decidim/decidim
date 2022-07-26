@@ -37,6 +37,7 @@ RSpec.describe "Initiative search", type: :request do
   let(:request_path) { decidim_initiatives.initiatives_path }
 
   before do
+    stub_const("Decidim::Paginable::OPTIONS", [100])
     get(
       request_path,
       params: { filter: filter_params },

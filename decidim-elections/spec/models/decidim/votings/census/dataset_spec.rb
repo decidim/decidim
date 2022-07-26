@@ -20,7 +20,7 @@ describe Decidim::Votings::Census::Dataset do
   end
 
   context "without file" do
-    let(:dataset) { build(:dataset, file: nil) }
+    let(:dataset) { build(:dataset, filename: nil) }
 
     it { is_expected.not_to be_valid }
   end

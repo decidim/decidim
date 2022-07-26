@@ -9,7 +9,14 @@ Gem::Specification.new do |s|
   s.authors = ["Leonardo Diez", "Agustí B.R."]
   s.email = ["leo@codegram.com", "agusti@codegram.com"]
   s.license = "AGPL-3.0"
-  s.homepage = "https://github.com/decidim/decidim-elections"
+  s.homepage = "https://decidim.org"
+  s.metadata = {
+    "bug_tracker_uri" => "https://github.com/decidim/decidim/issues",
+    "documentation_uri" => "https://docs.decidim.org/",
+    "funding_uri" => "https://opencollective.com/decidim",
+    "homepage_uri" => "https://decidim.org",
+    "source_code_uri" => "https://github.com/decidim/decidim"
+  }
   s.required_ruby_version = ">= 3.1"
 
   s.name = "decidim-elections"

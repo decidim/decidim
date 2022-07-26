@@ -93,6 +93,24 @@ module Decidim
         end
       end
 
+      context "when the value is an Active Record object and the primitive is a form" do
+        let(:primitive) do
+          Class.new(Decidim::Form) do
+            attr_reader :provided_model
+
+            def map_model(model)
+              @provided_model = model
+            end
+          end
+        end
+        let(:value) { create(:organization) }
+
+        it "calls the map_model method on the created primitive record" do
+          expect(subject).to be_a(primitive)
+          expect(subject.provided_model).to be(value)
+        end
+      end
+
       context "when the value does not match any of the expected value conditions" do
         let(:value) { double }
 

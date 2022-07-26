@@ -52,11 +52,16 @@ module Decidim
       let(:resource) { create(:dummy_resource, component:) }
       let(:user) { create(:user, :confirmed, organization:) }
       let(:user_group) { nil }
+      let(:redesign_enabled) { false }
 
       before do
         allow(helper).to receive(:endorsements_path).and_return(Decidim::Core::Engine.routes.url_helpers.endorsements_path(id: resource))
         allow(helper).to receive(:endorsement_path).and_return(Decidim::Core::Engine.routes.url_helpers.endorsement_path(id: resource))
         allow(controller).to receive(:current_user).and_return(user)
+        allow(controller).to receive(:redesign_enabled?).and_return(redesign_enabled)
+        # rubocop:disable RSpec/AnyInstance
+        allow_any_instance_of(ActionView::Base).to receive(:redesign_enabled?).and_return(redesign_enabled)
+        # rubocop:enable RSpec/AnyInstance
       end
 
       context "when it's a user" do

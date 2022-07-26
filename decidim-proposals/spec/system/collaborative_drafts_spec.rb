@@ -286,7 +286,7 @@ describe "Explore Collaborative Drafts", versioning: true, type: :system do
 
             it "shows the button to reject the request" do
               within ".card.extra" do
-                expect(page).to have_css(".icon--x")
+                expect(page).to have_button("Reject")
               end
             end
 

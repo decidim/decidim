@@ -71,6 +71,27 @@ describe Decidim::Accountability::Admin::Permissions do
     let(:extra_context) { { result: resource } }
 
     it_behaves_like "crud permissions"
+
+    describe "creating a children" do
+      let(:resource) { create :result, component: accountability_component }
+      let(:action_subject) { :result }
+      let(:extra_context) { { result: resource } }
+      let(:action) do
+        { scope: :admin, action: :create_children, subject: action_subject }
+      end
+
+      it { is_expected.to be true }
+    end
+
+    describe "creating a grandchildren" do
+      let(:parent_result) { create :result, component: accountability_component }
+      let(:resource) { create :result, parent: parent_result }
+      let(:action) do
+        { scope: :admin, action: :create_children, subject: action_subject }
+      end
+
+      it_behaves_like "permission is not set"
+    end
   end
 
   describe "status" do

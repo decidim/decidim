@@ -22,9 +22,18 @@ module Decidim
       end
 
       def call(_obj, args, ctx)
-        @query = model_class.public_spaces.where(
+        base_query = model_class.where(
           organization: ctx[:current_organization]
         )
+
+        @query =
+          if ctx[:current_user]&.admin?
+            base_query
+          elsif base_query.respond_to?(:visible_for)
+            base_query.visible_for(ctx[:current_user])
+          else
+            base_query.public_spaces
+          end
 
         add_filter_keys(args[:filter])
         add_order_keys(args[:order].to_h)
