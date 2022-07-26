@@ -231,7 +231,7 @@ export default class CommentsComponent {
         $(".add-comment textarea", this.$element).prop("disabled", false);
         this._pollComments();
       }
-    })
+    });
   }
 
   /**
