@@ -3,17 +3,72 @@ lt:
     attributes:
       meeting:
         decidim_scope_id: Apimtis
+  activerecord:
+    models:
+      decidim/meetings/registration:
+        one: Registracija
+        few: Registracijos
+        many: Registracijos
+        other: Registracijos
   decidim:
     admin:
       filters:
         meetings:
+          category_id_eq:
+            label: Kategorija
+          closed_at_present:
+            label: Būsena
+            values:
+              'false': Atidaryta
+              'true': Uždaryta
+          is_upcoming_true:
+            label: Data
+            values:
+              'false': Praėję
+              'true': Artėjantys
           scope_id_eq:
             label: Apimtis
+      meeting_copies:
+        create:
+          error: Dubliuojant šį susitikimą iškilo problema.
+          success: Susitikimas dubliuotas.
+        new:
+          copy: Kopijuoti
+          select: Pasirinkite, kuriuos duomenis norėtumėte dubliuoti
+          title: Dubliuoti susirinkimą
     components:
       meetings:
+        actions:
+          comment: Komentuoti
+          join: Prisijungti
+        name: Susirinkimai
         settings:
           global:
+            announcement: Pranešimas
+            comments_enabled: Komentarai aktyvuoti
+            comments_max_length: Maksimalus komentarų ilgis (numatytoji vertė – 0)
+            creation_enabled_for_participants: Dalyviai gali sukurti susitikimus
+            default_registration_terms: Numatytos registracijos sąlygos
+            enable_pads_creation: Leisti bendrų dokumentų kūrimą
+            maps_enabled: Žemėlapiai įjungti
+            registration_code_enabled: Registracijos kodas įjungtas
+            resources_permissions_enabled: Kiekvienam posėdžiui galima nustatyti leistinus veiksmus
             scope_id: Apimtis
+            scopes_enabled: Sritys įjungtos
+            terms_and_conditions_url_for_meeting_creators: Naudojimo taisyklių ir sąlygų URL susirinkimų kūrėjams
+          step:
+            announcement: Pranešimas
+            comments_blocked: Komentarai užblokuoti
+            creation_enabled_for_participants: Galimybė dalyviams rengti susirinkimus įjungta
+            creation_enabled_for_user_groups: Galimybė dalyvių grupėms rengti susirinkimus įjungta
+    events:
+      meetings:
+        meeting_closed:
+          affected_user:
+            email_intro: 'Jūsų susirinkimas "%{resource_title}" uždarytas. Išvadas galite perskaityti jo puslapyje:'
+            email_outro: Šį pranešimą gavote dėl to, kad organizavote susirinkimą „%{resource_title}“.
+            email_subject: '"%{resource_title}" susirinkimas uždarytas'
+            notification_title: <a href="%{resource_path}">%{resource_title}</a> susirinkimas uždarytas.
     meetings:
       meetings:
         filters:
