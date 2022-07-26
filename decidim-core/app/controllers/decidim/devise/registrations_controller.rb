@@ -60,6 +60,10 @@ module Decidim
         super(hash)
         resource.organization = current_organization
       end
+
+      def devise_mapping
+        ::Devise.mappings[:user]
+      end
     end
   end
 end
