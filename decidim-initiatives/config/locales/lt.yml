@@ -159,6 +159,36 @@ lt:
           email_intro: Iniciatyva „%{resource_title}“ išsiųsta techniniam patvirtinimui. Peržiūrėkite tai <a href="%{admin_initiative_url}">administratoriaus srityje</a>
           email_outro: Šį pranešimą gavote dėl to, kad esate platformos administratorius.
           email_subject: Iniciatyva „%{resource_title}“ išsiųsta techniniam patvirtinimui.
+          notification_title: Iniciatyva „%{resource_title}“ išsiųsta techniniam patvirtinimui. Peržiūrėkite tai <a href="%{admin_initiative_path}">administratoriaus srityje</a>
+        milestone_completed:
+          affected_user:
+            email_intro: Jūsų iniciatyva %{resource_title} surinko %{percentage}% parašų!
+            email_outro: Šį pranešimą gavote dėl to, kad esate %{resource_title} iniciatyvos autorius.
+            email_subject: Užbaigtas naujas etapas!
+            notification_title: Jūsų iniciatyva <a href="%{resource_path}">%{resource_title}</a> surinko %{percentage}% parašų.
+          follower:
+            email_intro: Iniciatyva %{resource_title} surinko %{percentage}% parašų!
+            email_outro: Šį pranešimą gavote dėl to, kad sekate %{resource_title}. Jeigu nebenorite gauti pranešimų, spustelėkite aukščiau esančią nuorodą.
+            email_subject: Užbaigtas naujas etapas!
+            notification_title: Iniciatyva <a href="%{resource_path}">%{resource_title}</a> surinko %{percentage}% parašų.
+        support_threshold_reached:
+          email_intro: Iniciatyva %{resource_title} pasiekė parašų slenkstį
+          email_outro: Šį pranešimą gavote dėl to, kad esate platformos administratorius.
+          email_subject: Prašų slenkstis pasiektas
+          notification_title: Iniciatyvos <a href="%{resource_path}">%{resource_title}</a> parašų slenkstis pasiektas
+    gamification:
+      badges:
+        initiatives:
+          conditions:
+            - Eiti į iniciatyvų dalyvaujamąją erdvę
+            - Sekti žingsnius naujos iniciatyvos sukūrimui
+          description: Šis ženklelis suteikiamas, kai pradedate naujas iniciatyvas ir bendradarbiaujate su kitais, kad jas įgyvendintumėte.
+          description_another: Šis dalyvis paskelbė %{score} iniciatyvas (-ų).
+          description_own: Jūs paskelbėte %{score} iniciatyvas (-ų).
+          name: Paskelbtos iniciatyvos
+          next_level_in: Paskelbkite dar %{score} iniciatyvas (-ų) ir pasiekite kitą lygį!
+          unearned_another: Šis dalyvis dar nepaskelbė nė vienos iniciatyvos.
+          unearned_own: Jūs nepaskelbėte nė vienos iniciatyvos.
     initiatives:
       admin:
         answers:
@@ -300,6 +330,11 @@ lt:
         filter_type_values:
           all: Visi
       edit:
+        back: Atgal
+        confirm: Ar esate tikri?
+        discard: Atmesti iniciatyvą
+        export_pdf_signatures: Eksportuoti parašus PDF formatu
+        export_votes: Eksportuoti parašus
         reject: Atmesti iniciatyvą
         title: Redaguoti iniciatyvą
         update: Atnaujinti
@@ -321,6 +356,151 @@ lt:
           notification_title: Iniciatyvai <a href="%{resource_path}">%{resource_title}</a> pritarė <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
         revoke_membership_request:
           email_intro: "%{author_nickname} atmetė Jūsų aplikaciją tapti remėjų komiteto nariu %{resource_title} iniciatyvai."
+          email_outro: 'Ši pranešimą gavote nes aplikavote į iniciatyvą: %{resource_title}.'
+          email_subject: "%{author_nickname} priėmė Jūsų aplikaciją į remėjų komitetą"
+          notification_title: <a href="%{author_profile_url}">%{author_nickname}</a> atmetė Jūsų aplikaciją tapti remėjų komiteto dalimi šiai iniciatyvai:<a href="%{resource_url}">%{resource_title}</a>.
+        spawn_committee_request_event:
+          email_intro: "%{applicant_nickname} pateikė paraišką prisijungti prie %{resource_title} iniciatyvos remėjų komiteto. Norėdami priimti ar atmesti paraišką, eikite į iniciatyvos redagavimo formą."
+          email_outro: 'Šį pranešimą gavote dėl to, kad esate %{resource_title} iniciatyvos autorius'
+          email_subject: "%{applicant_nickname} nori prisijungti prie Jūsų iniciatyvos"
+          notification_title: <a href="%{applicant_profile_url}">%{applicant_nickname}</a> pateikė paraišką prisijungti prie <a href="%{resource_url}">%{resource_title}</a> iniciatyvos remėjų komiteto. Norėdami priimti ar atmesti paraišką, spauskite <a href="%{resource_url}/edit">čia</a>.
+      form:
+        add_attachments: Dokumentai
+        attachment_legend: "(Neprivaloma) Pridėti priedą"
+        delete_attachment: Ištrinti
+      index:
+        title: Iniciatyvos
+      initiative_signatures:
+        fill_personal_data:
+          continue: Tęsti
+          date_select:
+            day: Diena
+            month: Mėnuo
+            year: Metai
+          help: Kad pasirašytumėte iniciatyvą, įrašykite savo asmens duomenis toliau nurodomuose laukeliuose
+        finish:
+          back_to_initiative: Grįžti į iniciatyvą
+        sms_code:
+          continue: Patikrinkite kodą ir tęskite
+          help: Pasitikrinkite telefone gautą SMS žinutę
+        sms_phone_number:
+          continue: Atsisiųsti SMS
+          help: Užpildykite formą su patikrintu telefono numeriu tam, kad gautumėte patvirtinimo kodą
+      initiative_votes:
+        create:
+          error: Pasirašant iniciatyvą kilo problema.
+          invalid: Iniciatyvai pasirašyti pateikti duomenys - neteisingi
+          success_html: Sveikiname! Iniciatyva <strong> %{title}</strong> pasirašyta
+        personal_data:
+          invalid: Asmens duomenys neatitinka leidimui gauti pateiktų duomenų.
+        sms_code:
+          invalid: Jūsų tikrinimo kodas nesutampa su mūsų kodu. Dar kartą patikrinkite jums atsiųstą SMS žinutę.
+        sms_phone:
+          invalid: Telefono numeris neteisingas arba laukiama leidimo. Patikrinkite savo leidimus.
       initiatives:
+        author:
+          deleted: Ištrinta
+        author_list:
+          hidden_authors_count:
+            one: ir dar 1 žmogus
+            few: ir dar %{count} žmonės (-ių)
+            many: ir dar %{count} žmonės (-ių)
+            other: ir dar %{count} žmonės (-ių)
+        committee_members:
+          approve: Patvirtinti
+          confirm_revoke: Ar esate tikri?
+          invite_to_committee_help: Pasidalinkite šia nuoroda norėdami pakvieti kitus į remėjų komitetą
+          no_members_yet: Rėmėjų komitete nėra narių
+          revoke: Atšaukti
+          title: Komiteto nariai
+        count:
+          title:
+            one: "%{count} iniciatyva"
+            few: "%{count} iniciatyvos"
+            many: "%{count} iniciatyvos"
+            other: "%{count} iniciatyvos"
         filters:
+          any: Bet kas
+          area: Aplinka
+          author: Autorė(-ius)
+          myself: Mano iniciatyvos
           scope: Apimtis
+          search: Ieškoti
+          state: Būsena
+          type: Tipas
+        filters_small_view:
+          close_modal: Uždaryti langą
+          filter: Filtruoti
+      initiatives_mailer:
+        creation_subject: Jūsų iniciatyva „%{title}“ sukurta
+        initiative_link:
+          check_initiative_details: Galite matyti iniciatyvos detales
+          here: čia
+        more_information: Čia rasite daugiau informacijos apie iniciatyvos kūrimo procesą.
+        progress_report_body_for: Iniciatyva %{title} surinko %{percentage}% reikiamų parašų.
+        progress_report_for: 'Iniciatyvos santrauka: %{title}'
+        promotal_committee_help: Atminkite, kad į rėmimo komitetą turite pakviesti bent %{member_count} narius. Persiųskite šią nuorodą ir pakvieskite narių į rėmėjų komitetą
+        status_change_body_for: 'Iniciatyvos %{title} būsena pasikeitė į: %{state}'
+        status_change_for: Iniciatyvos %{title} būsena pasikeitė
+      last_activity:
+        new_initiative: Nauja iniciatyva
+      pages:
+        home:
+          highlighted_initiatives:
+            active_initiatives: Aktyvios iniciatyvos
+            see_all_initiatives: Žiūrėti visas iniciatyvas
+      show:
+        badge_name:
+          accepted: Parašų užtenka
+          created: Sukurta
+          discarded: Atmesta
+          published: Publikuota
+          rejected: Parašų neužtenka
+          validating: Techninis patvirtinimas
+      signature_interval:
+        title: Parašų rinkimo periodas
+      states:
+        accepted: Priimta
+        expired: Nebegalioja
+      unavailable_scope: Sritis nepasiekiama
+      update:
+        error: Įvyko klaida
+        success: Iniciatyva sėkmingai atnaujinta
+      versions:
+        shared:
+          back_to_resource: Grįžti į iniciatyvą
+    menu:
+      initiatives: Iniciatyvos
+    resources:
+      initiative:
+        actions:
+          comment: Komentaras
+      initiatives_type:
+        actions:
+          title: Veiksmai
+          vote: Pasirašyti
+  layouts:
+    decidim:
+      initiative_creation_header:
+        back: Atgal
+        fill_data: Sukurti
+        finish: Baigti
+        previous_form: Pradėti
+        promotal_committee: Rėmėjų komitetas
+        select_initiative_type: Pasirinkti
+        show_similar_initiatives: Palyginti
+        step: '%{current} žingsnis iš %{total}'
+        title: Sukurti naują iniciatyvą
+      initiative_header:
+        initiative_menu_item: Iniciatyva
+      initiative_signature_creation_header:
+        back: Atgal
+        fill_personal_data: Užpildyti savo duomenis
+        finish: Baigti
+        finished: Iniciatyvos parašas sukurtas
+        see_steps: peržiūrėti žingsnius
+        select_identity: Pasirinkite tapatybę
+        sms_code: SMS kodo tikrinimas
+        sms_phone_number: Mobilaus telefono numeris
+        step: '%{current} žingsnis iš %{total}'
+        title: Pasirašyti %{initiative_title}
