@@ -21,13 +21,8 @@
 
 <% else %>
 
-  <div class="answer-questionnaire__question" data-answer-idx="<%= cleaned_answer_idx %>">
-    <% case answer.question.question_type %>
-    <% when "single_option", "multiple_option", "sorting" %>
-      <label class="answer-questionnaire__question-label questionnaire-question"><%= answer.label %></label>
-    <% else %>
-      <%= label_tag field_id, answer.label, class: "answer-questionnaire__question-label questionnaire-question" %>
-    <% end %>
+  <div class="answer-questionnaire__question">
+    <%= label_tag field_id, answer.label, class: "answer-questionnaire__question-label questionnaire-question", data: { "answer-idx": cleaned_answer_idx } %>
 
     <% if translated_attribute(answer.question.description).present? %>
       <div class="answer-questionnaire__question-description">
