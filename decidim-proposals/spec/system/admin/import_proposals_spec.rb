@@ -8,7 +8,7 @@ describe "Import proposals", type: :system do
 
   let(:manifest_name) { "proposals" }
   let(:participatory_space) { component.participatory_space }
-  let(:user) { create :user, organization: organization }
+  let(:user) { create :user, organization: }
 
   include_context "when managing a component as an admin"
 
@@ -44,8 +44,8 @@ describe "Import proposals", type: :system do
   end
 
   context "when the user is in user group" do
-    let(:user_group) { create :user_group, :confirmed, :verified, organization: organization }
-    let!(:membership) { create(:user_group_membership, user: user, user_group: user_group) }
+    let(:user_group) { create :user_group, :confirmed, :verified, organization: }
+    let!(:membership) { create(:user_group_membership, user:, user_group:) }
 
     before do
       visit "#{current_path}?name=proposals"

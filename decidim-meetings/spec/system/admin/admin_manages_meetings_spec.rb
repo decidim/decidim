@@ -5,7 +5,7 @@ require "decidim/proposals/test/capybara_proposals_picker"
 
 describe "Admin manages meetings", type: :system, serves_map: true, serves_geocoding_autocomplete: true do
   let(:manifest_name) { "meetings" }
-  let!(:meeting) { create :meeting, :published, scope: scope, services: [], component: current_component }
+  let!(:meeting) { create :meeting, :published, scope:, services: [], component: current_component }
   let(:address) { "Some address" }
   let(:latitude) { 40.1234 }
   let(:longitude) { 2.1234 }
@@ -108,9 +108,9 @@ describe "Admin manages meetings", type: :system, serves_map: true, serves_geoco
 
     context "when there is only one locale" do
       let(:organization) { create :organization, available_locales: [:en] }
-      let(:component) { create(:component, manifest_name: manifest_name, organization: organization) }
+      let(:component) { create(:component, manifest_name:, organization:) }
       let!(:meeting) do
-        create(:meeting, scope: scope, services: [], component: component,
+        create(:meeting, scope:, services: [], component:,
                          title: { en: "Title" }, description: { en: "Description" })
       end
 

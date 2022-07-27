@@ -7,12 +7,12 @@ module Decidim
     describe InviteUserToGroup do
       describe "call" do
         let(:organization) { create(:organization) }
-        let(:user) { create :user, :confirmed, organization: organization }
-        let(:user_group) { create :user_group, users: [], organization: organization }
+        let(:user) { create :user, :confirmed, organization: }
+        let(:user_group) { create :user_group, users: [], organization: }
         let(:nickname) { user.nickname }
         let(:form) do
           Decidim::InviteUserToGroupForm.new(
-            nickname: nickname
+            nickname:
           ).with_context(
             current_organization: organization
           )
@@ -22,7 +22,7 @@ module Decidim
 
         context "when the user already has a membership with the group" do
           let!(:membership) do
-            create :user_group_membership, user: user, user_group: user_group, role: "requested"
+            create :user_group_membership, user:, user_group:, role: "requested"
           end
 
           it "broadcasts ok" do

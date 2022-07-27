@@ -9,10 +9,10 @@ module Decidim
       # they would be generated using Ransack::Helpers::FormHelper which does
       # not provide all the same features that the Decidim form builders, such
       # as datetime pickers.
-      def search_form_for(record, options = {}, &proc)
+      def search_form_for(record, options = {}, &)
         options[:builder] ||= SearchFormBuilder
 
-        super(record, options, &proc)
+        super(record, options, &)
       end
     end
   end

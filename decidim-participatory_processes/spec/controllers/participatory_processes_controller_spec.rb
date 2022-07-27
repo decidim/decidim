@@ -13,7 +13,7 @@ module Decidim
         create(
           :participatory_process,
           :unpublished,
-          organization: organization
+          organization:
         )
       end
 
@@ -27,7 +27,7 @@ module Decidim
             :participatory_process,
             2,
             :published,
-            organization: organization
+            organization:
           )
 
           expect(controller.helpers.participatory_processes.count).to eq(2)
@@ -55,21 +55,21 @@ module Decidim
             :participatory_process,
             2,
             :published,
-            organization: organization
+            organization:
           )
 
           _unpublished = create_list(
             :participatory_process,
             2,
             :unpublished,
-            organization: organization
+            organization:
           )
 
           organization_groups = create_list(
             :participatory_process_group,
             2,
             :with_participatory_processes,
-            organization: organization
+            organization:
           )
 
           _other_groups = create_list(
@@ -81,7 +81,7 @@ module Decidim
 
           _manipulated_other_groups = create(
             :participatory_process_group,
-            participatory_processes: [create(:participatory_process, organization: organization)]
+            participatory_processes: [create(:participatory_process, organization:)]
           )
 
           expect(controller.helpers.collection)
@@ -90,9 +90,9 @@ module Decidim
       end
 
       describe "default_date_filter" do
-        let!(:active) { create(:participatory_process, :published, :active, organization: organization) }
-        let!(:upcoming) { create(:participatory_process, :published, :upcoming, organization: organization) }
-        let!(:past) { create(:participatory_process, :published, :past, organization: organization) }
+        let!(:active) { create(:participatory_process, :published, :active, organization:) }
+        let!(:upcoming) { create(:participatory_process, :published, :upcoming, organization:) }
+        let!(:past) { create(:participatory_process, :published, :past, organization:) }
 
         it "defaults to active if there are active published processes" do
           expect(controller.helpers.default_date_filter).to eq("active")
@@ -119,7 +119,7 @@ module Decidim
           end
 
           context "with signed in user" do
-            let!(:user) { create(:user, :confirmed, organization: organization) }
+            let!(:user) { create(:user, :confirmed, organization:) }
 
             before do
               sign_in user, scope: :user
@@ -135,7 +135,7 @@ module Decidim
       end
 
       describe "GET statistics" do
-        let!(:active) { create(:participatory_process, :published, :active, organization: organization) }
+        let!(:active) { create(:participatory_process, :published, :active, organization:) }
 
         before do
           request.env["decidim.current_organization"] = organization

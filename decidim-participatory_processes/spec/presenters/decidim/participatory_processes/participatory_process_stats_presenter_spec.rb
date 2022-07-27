@@ -7,8 +7,8 @@ module Decidim
     subject { described_class.new(participatory_process: process) }
 
     let!(:organization) { create(:organization) }
-    let!(:user) { create(:user, :confirmed, organization: organization) }
-    let!(:process) { create(:participatory_process, organization: organization) }
+    let!(:user) { create(:user, :confirmed, organization:) }
+    let!(:process) { create(:participatory_process, organization:) }
 
     describe "#collection" do
       let(:manifest) do

@@ -19,7 +19,7 @@ module Decidim
 
         # Specify where to redirect after exporting a user response
         def questionnaire_participant_answers_url(session_token)
-          Decidim::EngineRouter.admin_proxy(survey.component).show_survey_path(session_token: session_token)
+          Decidim::EngineRouter.admin_proxy(survey.component).show_survey_path(session_token:)
         end
 
         def edit_questionnaire_title

@@ -5,10 +5,10 @@ require "spec_helper"
 module Decidim
   describe ResourceHelper do
     let(:component) { create(:component) }
-    let(:resource) { create(:dummy_resource, component: component) }
+    let(:resource) { create(:dummy_resource, component:) }
 
     describe "linked_resources_for" do
-      let(:linked_resource) { create(:dummy_resource, component: component, title: { en: "Dummy title" }) }
+      let(:linked_resource) { create(:dummy_resource, component:, title: { en: "Dummy title" }) }
 
       before do
         resource.link_resources(linked_resource, "test_link")

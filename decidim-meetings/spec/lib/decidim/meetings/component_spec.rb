@@ -5,7 +5,7 @@ require "spec_helper"
 describe "Meetings component" do # rubocop:disable RSpec/DescribeClass
   let!(:component) { create(:meeting_component) }
   let(:organization) { component.organization }
-  let!(:current_user) { create(:user, :admin, organization: organization) }
+  let!(:current_user) { create(:user, :admin, organization:) }
 
   describe "on destroy" do
     context "when there are no meetings for the component" do
@@ -20,7 +20,7 @@ describe "Meetings component" do # rubocop:disable RSpec/DescribeClass
 
     context "when there are meetings for the component" do
       before do
-        create(:meeting, component: component)
+        create(:meeting, component:)
       end
 
       it "raises an error" do
@@ -48,8 +48,8 @@ describe "Meetings component" do # rubocop:disable RSpec/DescribeClass
 
     let!(:meeting) { create :meeting, :published }
     let(:component) { meeting.component }
-    let!(:another_meeting) { create :meeting, :published, component: component }
-    let!(:hidden_meeting) { create :meeting, :published, component: component }
+    let!(:another_meeting) { create :meeting, :published, component: }
+    let!(:hidden_meeting) { create :meeting, :published, component: }
     let!(:moderation) { create :moderation, reportable: hidden_meeting, hidden_at: 1.day.ago }
 
     let(:current_stat) { stats.find { |stat| stat[1] == stats_name } }
@@ -58,15 +58,15 @@ describe "Meetings component" do # rubocop:disable RSpec/DescribeClass
       let(:stats_name) { :meetings_count }
 
       it "only counts published and not hidden meetings" do
-        expect(Decidim::Meetings::Meeting.where(component: component).count).to eq 3
+        expect(Decidim::Meetings::Meeting.where(component:).count).to eq 3
         expect(subject).to eq 2
       end
 
       context "when having withdrawn meeting" do
-        let!(:withdrawn_meeting) { create :meeting, :withdrawn, component: component }
+        let!(:withdrawn_meeting) { create :meeting, :withdrawn, component: }
 
         it "will exclude the withdrawn one" do
-          expect(Decidim::Meetings::Meeting.where(component: component).count).to eq 4
+          expect(Decidim::Meetings::Meeting.where(component:).count).to eq 4
           expect(subject).to eq 2
         end
       end
@@ -78,10 +78,10 @@ describe "Meetings component" do # rubocop:disable RSpec/DescribeClass
       before do
         # rubocop:disable RSpec/FactoryBot/CreateList
         2.times do
-          create(:follow, followable: meeting, user: build(:user, organization: organization))
+          create(:follow, followable: meeting, user: build(:user, organization:))
         end
         3.times do
-          create(:follow, followable: hidden_meeting, user: build(:user, organization: organization))
+          create(:follow, followable: hidden_meeting, user: build(:user, organization:))
         end
         # rubocop:enable RSpec/FactoryBot/CreateList
       end
@@ -119,13 +119,13 @@ describe "Meetings component" do # rubocop:disable RSpec/DescribeClass
 
     let!(:first_meeting) { create :meeting, :published }
     let(:component) { first_meeting.component }
-    let!(:second_meeting) { create :meeting, :published, component: component }
-    let!(:unpublished_meeting) { create :meeting, component: component }
+    let!(:second_meeting) { create :meeting, :published, component: }
+    let!(:unpublished_meeting) { create :meeting, component: }
     let(:participatory_process) { component.participatory_space }
     let(:organization) { participatory_process.organization }
 
     context "when the user is an admin" do
-      let!(:user) { create :user, admin: true, organization: organization }
+      let!(:user) { create :user, admin: true, organization: }
 
       it "exports all meetings from the component" do
         expect(subject).to match_array([first_meeting, second_meeting, unpublished_meeting])

@@ -9,8 +9,8 @@ module Decidim
 
       let(:questionnaire) { create(:questionnaire) }
       let(:question_type) { "matrix_single" }
-      let(:question) { create(:questionnaire_question, questionnaire: questionnaire, question_type: question_type) }
-      let(:question_matrix_row) { build(:question_matrix_row, question: question) }
+      let(:question) { create(:questionnaire_question, questionnaire:, question_type:) }
+      let(:question_matrix_row) { build(:question_matrix_row, question:) }
 
       it { is_expected.to be_valid }
 
@@ -19,8 +19,8 @@ module Decidim
       end
 
       it "has an association of answer_options" do
-        subject.answer_options << create(:answer_option, question: question)
-        subject.answer_options << create(:answer_option, question: question)
+        subject.answer_options << create(:answer_option, question:)
+        subject.answer_options << create(:answer_option, question:)
         expect(subject.answer_options.count).to eq(2)
       end
 

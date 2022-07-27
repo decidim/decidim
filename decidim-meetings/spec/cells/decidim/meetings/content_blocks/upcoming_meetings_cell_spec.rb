@@ -10,7 +10,7 @@ module Decidim
 
         let(:html) { cell("decidim/meetings/content_blocks/upcoming_meetings").call }
         let(:organization) { create(:organization) }
-        let(:current_user) { create :user, :confirmed, organization: organization }
+        let(:current_user) { create :user, :confirmed, organization: }
 
         before do
           expect(controller).to receive(:current_organization).at_least(:once).and_return(organization)
@@ -27,7 +27,7 @@ module Decidim
           describe "upcoming meetings" do
             subject { cell.upcoming_meetings }
 
-            let(:cell) { described_class.new(nil, context: { controller: controller }) }
+            let(:cell) { described_class.new(nil, context: { controller: }) }
             let!(:past_meeting) do
               create(:meeting, :published, start_time: 1.week.ago, component: meeting.component)
             end
@@ -74,7 +74,7 @@ module Decidim
                 create(:meeting, :published, start_time: meeting.start_time.advance(weeks: 1), component: meeting.component, private_meeting: true, transparent: false)
               end
               let!(:meeting_registration) do
-                create(:registration, meeting: meeting, user: current_user)
+                create(:registration, meeting:, user: current_user)
               end
 
               it "renders only user's invited upcoming private meeting correctly" do

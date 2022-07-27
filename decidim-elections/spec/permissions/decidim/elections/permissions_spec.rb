@@ -6,11 +6,11 @@ describe Decidim::Elections::Permissions do
   subject { described_class.new(user, permission_action, context).permissions.allowed? }
 
   let(:organization) { elections_component.organization }
-  let(:user) { create :user, organization: organization }
+  let(:user) { create :user, organization: }
   let(:context) do
     {
       current_component: elections_component,
-      election: election
+      election:
     }
   end
   let(:elections_component) { create :elections_component }
@@ -182,7 +182,7 @@ describe Decidim::Elections::Permissions do
         it { is_expected.to be_falsey }
 
         context "when user is not authorized to vote" do
-          let!(:authorization) { create(:authorization, name: "dummy_authorization_handler", user: user) }
+          let!(:authorization) { create(:authorization, name: "dummy_authorization_handler", user:) }
 
           it { is_expected.to be_truthy }
         end

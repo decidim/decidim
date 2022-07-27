@@ -4,8 +4,8 @@ require "spec_helper"
 
 describe "Member of assemblies", type: :system do
   let(:organization) { create(:organization) }
-  let!(:assembly) { create(:assembly, organization: organization) }
-  let!(:assembly_member) { create(:assembly_member, :with_user, assembly: assembly) }
+  let!(:assembly) { create(:assembly, organization:) }
+  let!(:assembly_member) { create(:assembly_member, :with_user, assembly:) }
 
   before do
     switch_to_host(organization.host)

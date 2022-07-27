@@ -86,7 +86,7 @@ module Decidim
           end
 
           context "and user exists" do
-            let(:user_id) { create(:user, organization: organization).id }
+            let(:user_id) { create(:user, organization:).id }
 
             it { is_expected.to be_valid }
           end
@@ -122,7 +122,7 @@ module Decidim
           subject { form.user }
 
           context "when the user exists" do
-            let(:user_id) { create(:user, organization: organization).id }
+            let(:user_id) { create(:user, organization:).id }
 
             it { is_expected.to be_kind_of(Decidim::User) }
           end

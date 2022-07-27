@@ -35,7 +35,7 @@ module Decidim
             .url_helpers.download_access_codes_file_voting_census_url(
               host: user.organization.host,
               voting_slug: voting.slug,
-              filename: filename
+              filename:
             )
         end
       end

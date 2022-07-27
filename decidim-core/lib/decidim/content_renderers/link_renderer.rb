@@ -24,10 +24,10 @@ module Decidim
         auto_link(content, options)
       end
 
-      def auto_link(text, options = {}, &block)
+      def auto_link(text, options = {}, &)
         return "" if text.to_s.empty?
 
-        auto_link_urls(text, options, &block)
+        auto_link_urls(text, options, &)
       end
 
       # remove_target_if_local("http://same.com/x", "same.com", target: "_blank")

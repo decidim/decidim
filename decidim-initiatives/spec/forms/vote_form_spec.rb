@@ -10,7 +10,7 @@ module Decidim
       let(:form) { described_class.from_params(attributes).with_context(context) }
 
       let(:organization) { create(:organization) }
-      let!(:city) { create(:scope, organization: organization) }
+      let!(:city) { create(:scope, organization:) }
       let!(:district1) { create(:subscope, parent: city) }
       let!(:district2) { create(:subscope, parent: city) }
       let!(:neighbourhood1) { create(:subscope, parent: district1) }
@@ -20,10 +20,10 @@ module Decidim
       let!(:initiative_type) do
         create(
           :initiatives_type,
-          organization: organization,
-          document_number_authorization_handler: document_number_authorization_handler,
-          child_scope_threshold_enabled: child_scope_threshold_enabled,
-          collect_user_extra_fields: collect_user_extra_fields
+          organization:,
+          document_number_authorization_handler:,
+          child_scope_threshold_enabled:,
+          collect_user_extra_fields:
         )
       end
       let!(:global_initiative_type_scope) { create(:initiatives_type_scope, scope: nil, type: initiative_type) }
@@ -40,7 +40,7 @@ module Decidim
           name: "dummy_authorization_handler",
           user: current_user,
           unique_id: document_number,
-          metadata: { document_number: document_number, postal_code: postal_code, scope_id: user_scope.id }
+          metadata: { document_number:, postal_code:, scope_id: user_scope.id }
         )
       end
       let(:user_scope) { district1 }
@@ -49,8 +49,8 @@ module Decidim
       let(:initiative) do
         create(
           :initiative,
-          organization: organization,
-          scoped_type: scoped_type
+          organization:,
+          scoped_type:
         )
       end
       let(:document_number_authorization_handler) { "dummy_authorization_handler" }
@@ -64,15 +64,15 @@ module Decidim
       let(:personal_data) do
         {
           name_and_surname: "James Morgan McGill",
-          document_number: document_number,
+          document_number:,
           date_of_birth: 40.years.ago.to_date,
-          postal_code: postal_code
+          postal_code:
         }
       end
 
       let(:vote_attributes) do
         {
-          initiative: initiative,
+          initiative:,
           signer: current_user
         }
       end

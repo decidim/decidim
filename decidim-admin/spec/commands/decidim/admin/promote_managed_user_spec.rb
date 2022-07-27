@@ -7,11 +7,11 @@ module Decidim::Admin
     subject { described_class.new(form, user, current_user) }
 
     let(:organization) { create :organization }
-    let!(:current_user) { create :user, :admin, organization: organization }
+    let!(:current_user) { create :user, :admin, organization: }
     let(:email) { "foo@example.org" }
     let(:form_params) do
       {
-        email: email
+        email:
       }
     end
     let(:form) do
@@ -19,10 +19,10 @@ module Decidim::Admin
         form_params
       ).with_context(
         current_organization: organization,
-        current_user: current_user
+        current_user:
       )
     end
-    let!(:user) { create :user, :managed, organization: organization }
+    let!(:user) { create :user, :managed, organization: }
 
     context "when everything is ok" do
       before do
@@ -56,7 +56,7 @@ module Decidim::Admin
     end
 
     context "when the user is not managed" do
-      let(:user) { create :user, organization: organization }
+      let(:user) { create :user, organization: }
 
       it "broadcasts invalid" do
         expect { subject.call }.to broadcast(:invalid)
@@ -64,7 +64,7 @@ module Decidim::Admin
     end
 
     context "when the email address already exists" do
-      let!(:other_user) { create(:user, email: email, organization: organization) }
+      let!(:other_user) { create(:user, email:, organization:) }
 
       it "broadcasts invalid" do
         expect { subject.call }.to broadcast(:invalid)

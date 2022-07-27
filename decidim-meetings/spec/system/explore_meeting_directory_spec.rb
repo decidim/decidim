@@ -9,7 +9,7 @@ describe "Explore meeting directory", type: :system do
   let(:components) { create_list(:meeting_component, 3, organization: organization) }
   let!(:meetings) do
     components.flat_map do |component|
-      create_list(:meeting, 2, :published, :not_official, component: component)
+      create_list(:meeting, 2, :published, :not_official, component:)
     end
   end
 
@@ -81,7 +81,7 @@ describe "Explore meeting directory", type: :system do
   end
 
   context "with a scope" do
-    let!(:scope) { create(:scope, organization: organization) }
+    let!(:scope) { create(:scope, organization:) }
     let!(:meeting) do
       meeting = meetings.first
       meeting.scope = scope

@@ -8,16 +8,16 @@ module Decidim::Proposals
 
     subject { cell_html }
 
-    let(:my_cell) { cell("decidim/proposals/proposal_m", proposal, context: { show_space: show_space }) }
+    let(:my_cell) { cell("decidim/proposals/proposal_m", proposal, context: { show_space: }) }
     let(:cell_html) { my_cell.call }
     let(:created_at) { 1.month.ago }
     let(:published_at) { Time.current }
     let(:component) { create(:proposal_component, :with_attachments_allowed) }
-    let!(:proposal) { create(:proposal, component: component, created_at: created_at, published_at: published_at) }
+    let!(:proposal) { create(:proposal, component:, created_at:, published_at:) }
     let(:model) { proposal }
     let(:user) { create :user, organization: proposal.participatory_space.organization }
     let!(:emendation) { create(:proposal) }
-    let!(:amendment) { create :amendment, amendable: proposal, emendation: emendation }
+    let!(:amendment) { create :amendment, amendable: proposal, emendation: }
 
     before do
       allow(controller).to receive(:current_user).and_return(user)
@@ -50,7 +50,7 @@ module Decidim::Proposals
       context "and is an emendation" do
         subject { cell_html }
 
-        let(:my_cell) { cell("decidim/proposals/proposal_m", emendation, context: { show_space: show_space }) }
+        let(:my_cell) { cell("decidim/proposals/proposal_m", emendation, context: { show_space: }) }
         let(:cell_html) { my_cell.call }
 
         it "renders the emendation state (evaluating by default)" do
@@ -125,7 +125,7 @@ module Decidim::Proposals
       context "when new vote" do
         it "generate a different hash" do
           old_hash = my_cell.send(:cache_hash)
-          create(:proposal_vote, proposal: proposal)
+          create(:proposal_vote, proposal:)
           my_cell.model.reload
 
           expect(my_cell.send(:cache_hash)).not_to eq(old_hash)
@@ -180,7 +180,7 @@ module Decidim::Proposals
       context "when user follows proposal" do
         it "generate a different hash" do
           old_hash = my_cell.send(:cache_hash)
-          create(:follow, followable: proposal, user: user)
+          create(:follow, followable: proposal, user:)
 
           expect(my_cell.send(:cache_hash)).not_to eq(old_hash)
         end
@@ -207,7 +207,7 @@ module Decidim::Proposals
       end
 
       context "when caching multiple proposals" do
-        let!(:proposals) { create_list(:proposal, 5, component: component, created_at: created_at, published_at: published_at) }
+        let!(:proposals) { create_list(:proposal, 5, component:, created_at:, published_at:) }
 
         let(:cached_proposals) do
           proposals.map { |proposal| cell("decidim/proposals/proposal_m", proposal).send(:cache_hash) }
@@ -228,11 +228,11 @@ module Decidim::Proposals
       end
 
       context "when the active participatory space step change" do
-        let(:step1) { create(:participatory_process_step, participatory_process: participatory_process, active: step_1_active) }
+        let(:step1) { create(:participatory_process_step, participatory_process:, active: step_1_active) }
         let(:step_1_active) { true }
-        let(:step2) { create(:participatory_process_step, participatory_process: participatory_process, active: step_2_active) }
+        let(:step2) { create(:participatory_process_step, participatory_process:, active: step_2_active) }
         let(:step_2_active) { false }
-        let(:step3) { create(:participatory_process_step, participatory_process: participatory_process, active: step_3_active) }
+        let(:step3) { create(:participatory_process_step, participatory_process:, active: step_3_active) }
         let(:step_3_active) { false }
         let(:component) do
           create(:proposal_component,

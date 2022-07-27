@@ -21,7 +21,7 @@ module Decidim
           presenters_for_speakers(list),
           cell_name: "decidim/author",
           cell_options: options.merge(has_actions: false),
-          size: size
+          size:
         )
       end
 

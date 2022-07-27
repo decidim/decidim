@@ -4,10 +4,10 @@ require "spec_helper"
 
 describe Decidim::Accountability::Metrics::ResultsMetricManage do
   let(:organization) { create(:organization) }
-  let(:participatory_space) { create(:participatory_process, organization: organization) }
-  let(:component) { create(:accountability_component, :published, participatory_space: participatory_space) }
+  let(:participatory_space) { create(:participatory_process, organization:) }
+  let(:component) { create(:accountability_component, :published, participatory_space:) }
   let(:day) { Time.zone.yesterday }
-  let!(:results) { create_list(:result, 5, created_at: day, component: component) }
+  let!(:results) { create_list(:result, 5, created_at: day, component:) }
 
   include_context "when managing metrics"
 
@@ -28,7 +28,7 @@ describe Decidim::Accountability::Metrics::ResultsMetricManage do
     end
 
     it "updates metric records" do
-      create(:metric, metric_type: "results", day: day, cumulative: 1, quantity: 1, organization: organization, category: nil, participatory_space: participatory_space, related_object_type: component.class.name, related_object_id: component.id)
+      create(:metric, metric_type: "results", day:, cumulative: 1, quantity: 1, organization:, category: nil, participatory_space:, related_object_type: component.class.name, related_object_id: component.id)
       registry = generate_metric_registry
 
       expect(Decidim::Metric.count).to eq(1)

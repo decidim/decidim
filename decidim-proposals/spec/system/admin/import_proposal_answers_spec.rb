@@ -4,12 +4,12 @@ require "spec_helper"
 
 describe "Import proposal answers", type: :system do
   let(:organization) { create(:organization, available_locales: [:en, :ca, :es]) }
-  let(:component) { create(:proposal_component, organization: organization) }
-  let(:proposals) { create_list(:proposal, amount, component: component) }
+  let(:component) { create(:proposal_component, organization:) }
+  let(:proposals) { create_list(:proposal, amount, component:) }
 
   let(:manifest_name) { "proposals" }
   let(:participatory_space) { component.participatory_space }
-  let(:user) { create :user, organization: organization }
+  let(:user) { create :user, organization: }
 
   let(:answers) do
     proposals.map do |proposal|

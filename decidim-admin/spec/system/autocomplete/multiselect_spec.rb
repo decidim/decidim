@@ -4,7 +4,7 @@ require "spec_helper"
 
 describe "Autocomplete multiselect", type: :system do
   let(:organization) { create(:organization) }
-  let(:user) { create(:user, :admin, :confirmed, organization: organization) }
+  let(:user) { create(:user, :admin, :confirmed, organization:) }
   let(:path) { URI.parse(decidim_admin.user_entities_organization_url).path }
   let(:url) { "http://#{organization.host}:#{Capybara.current_session.server.port}#{path}" }
   let(:selected) { '""' }
@@ -89,9 +89,9 @@ describe "Autocomplete multiselect", type: :system do
     end
 
     context "when there is participants" do
-      let!(:participant) { create(:user, :confirmed, organization: organization, name: "Andrea Kuhlman") }
-      let!(:participant2) { create(:user, :confirmed, organization: organization, name: "Jenae Walsh") }
-      let!(:participant3) { create(:user, :confirmed, organization: organization, name: "John Connor") }
+      let!(:participant) { create(:user, :confirmed, organization:, name: "Andrea Kuhlman") }
+      let!(:participant2) { create(:user, :confirmed, organization:, name: "Jenae Walsh") }
+      let!(:participant3) { create(:user, :confirmed, organization:, name: "John Connor") }
 
       describe "select one participant" do
         it "shows selected participant and creates hidden input" do

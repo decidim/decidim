@@ -6,20 +6,20 @@ describe Decidim::Initiatives::ApproveMembershipRequestEvent do
   subject do
     described_class.new(
       resource: initiative,
-      event_name: event_name,
+      event_name:,
       user: [membership_request.user],
       user_role: :affected_user,
-      extra: { author: author }
+      extra: { author: }
     )
   end
 
   let(:event_name) { "decidim.events.initiatives.approve_membership_request" }
   let(:organization) { create(:organization) }
-  let!(:initiative) { create(:initiative, :created, organization: organization) }
+  let!(:initiative) { create(:initiative, :created, organization:) }
   let(:author) { initiative.author }
   let(:author_profile_url) { Decidim::UserPresenter.new(author).profile_url }
   let(:author_nickname) { Decidim::UserPresenter.new(author).nickname }
-  let(:membership_request) { create(:initiatives_committee_member, initiative: initiative, state: "requested") }
+  let(:membership_request) { create(:initiatives_committee_member, initiative:, state: "requested") }
   let(:resource_url) { resource_locator(initiative).url }
   let(:resource_title) { translated(initiative.title) }
 

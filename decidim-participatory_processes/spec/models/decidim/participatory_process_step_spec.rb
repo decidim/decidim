@@ -7,7 +7,7 @@ module Decidim
     describe ParticipatoryProcessStep do
       subject { participatory_process_step }
 
-      let(:participatory_process_step) { build(:participatory_process_step, position: position) }
+      let(:participatory_process_step) { build(:participatory_process_step, position:) }
       let(:position) { nil }
 
       it { is_expected.to be_valid }
@@ -84,7 +84,7 @@ module Decidim
         context "when there are more steps in the same process" do
           let(:other_step) { create :participatory_process_step, :active, position: 3 }
           let(:participatory_process_step) do
-            build(:participatory_process_step, participatory_process: other_step.participatory_process, position: position)
+            build(:participatory_process_step, participatory_process: other_step.participatory_process, position:)
           end
 
           context "and position is automatically set" do
