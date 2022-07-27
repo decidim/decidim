@@ -6,7 +6,7 @@ module Decidim::AssetRouter
   describe Pipeline do
     subject { router }
 
-    let(:router) { described_class.new(asset, model: model) }
+    let(:router) { described_class.new(asset, model:) }
     let(:asset) { "media/images/decidim-logo.svg" }
     let(:model) { nil }
 

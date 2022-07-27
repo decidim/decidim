@@ -12,11 +12,11 @@ module Decidim
     end
 
     def default_url(*)
-      AssetRouter::Pipeline.new("media/images/default-avatar.svg", model: model).url
+      AssetRouter::Pipeline.new("media/images/default-avatar.svg", model:).url
     end
 
     def default_multiuser_url(*)
-      AssetRouter::Pipeline.new("media/images/avatar-multiuser.png", model: model).url
+      AssetRouter::Pipeline.new("media/images/avatar-multiuser.png", model:).url
     end
   end
 end
