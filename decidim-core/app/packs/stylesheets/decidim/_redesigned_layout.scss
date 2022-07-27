@@ -5,7 +5,7 @@
 .layout-2col{
   @apply bg-gradient-to-r from-background via-background to-white [&>*]:grow [&>*]:grid [&>*]:grid-cols-12 [&>*]:container;
 
-  --tw-gradient-stops: var(--tw-gradient-from) 0%,  var(--tw-gradient-from) 50%, var(--tw-gradient-to) 50%;
+  --tw-gradient-stops: var(--tw-gradient-from) 0%, var(--tw-gradient-from) 50%, var(--tw-gradient-to) 50%;
 
   aside{
     @apply col-span-3 py-12;
