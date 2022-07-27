@@ -45,7 +45,7 @@ module Decidim
       weight = first_weight
       # Add the weights first to the old photos
       @form.photos.each do |photo|
-        photo.update!(weight: weight)
+        photo.update!(weight:)
         weight += 1
       end
       @gallery.map! do |photo|

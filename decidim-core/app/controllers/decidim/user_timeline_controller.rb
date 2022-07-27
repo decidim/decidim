@@ -28,14 +28,14 @@ module Decidim
         PublicActivities.new(
           current_organization,
           scopes: current_user.interested_scopes,
-          follows: follows,
+          follows:,
           resource_name: filter.resource_type
         ).query.with_resource_type("all")
       )
     end
 
     def follows
-      @follows ||= Decidim::Follow.where(user: user)
+      @follows ||= Decidim::Follow.where(user:)
     end
 
     def default_filter_params

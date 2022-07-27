@@ -6,7 +6,7 @@ describe "Follow debates", type: :system do
   let(:manifest_name) { "debates" }
 
   let!(:followable) do
-    create(:debate, component: component)
+    create(:debate, component:)
   end
 
   let(:followable_path) { resource_locator(followable).path }

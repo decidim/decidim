@@ -7,7 +7,7 @@ module Decidim
     describe Export do
       subject { described_class }
       let!(:component) { create(:component, manifest_name: "dummy") }
-      let!(:dummy_resources) { create_list(:dummy_resource, 2, component: component) }
+      let!(:dummy_resources) { create_list(:dummy_resource, 2, component:) }
       let!(:comments) { create_list(:comment, 5, commentable: dummy_resources[1], root_commentable: dummy_resources[1]) }
       let!(:other_comments) { create_list(:comment, 5) }
 

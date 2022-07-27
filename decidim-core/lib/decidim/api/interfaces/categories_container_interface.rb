@@ -12,7 +12,7 @@ module Decidim
       end
 
       def categories(filter: {})
-        CategoryList.new.call(object, { filter: filter }, context)
+        CategoryList.new.call(object, { filter: }, context)
       end
     end
   end

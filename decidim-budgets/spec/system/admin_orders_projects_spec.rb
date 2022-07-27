@@ -10,20 +10,20 @@ describe "Admin orders projects", type: :system do
     [
       create(:project,
              scope: create(:scope, organization: component.organization, name: { "ca" => "Scope2", "en" => "Scope3" }),
-             budget: budget,
-             category: create(:category, participatory_space: participatory_space),
+             budget:,
+             category: create(:category, participatory_space:),
              created_at: 2.days.ago,
              budget_amount: 10_000),
       create(:project,
              scope: create(:scope, organization: component.organization, name: { "ca" => "Scope3", "en" => "Scope1" }),
-             budget: budget,
-             category: create(:category, participatory_space: participatory_space),
+             budget:,
+             category: create(:category, participatory_space:),
              created_at: 1.day.ago,
              budget_amount: 75_000),
       create(:project,
              scope: create(:scope, organization: component.organization, name: { "ca" => "Scope1", "en" => "Scope2" }),
-             budget: budget,
-             category: create(:category, participatory_space: participatory_space),
+             budget:,
+             category: create(:category, participatory_space:),
              created_at: Time.current,
              budget_amount: 80_000,
              selected_at: Time.current)
@@ -91,12 +91,12 @@ describe "Admin orders projects", type: :system do
 
     let(:orders) do
       [
-        create(:order, user: users[0], budget: budget),
-        create(:order, user: users[1], budget: budget),
-        create(:order, user: users[2], budget: budget),
-        create(:order, user: users[3], budget: budget),
-        create(:order, user: users[4], budget: budget),
-        create(:order, user: users[5], budget: budget)
+        create(:order, user: users[0], budget:),
+        create(:order, user: users[1], budget:),
+        create(:order, user: users[2], budget:),
+        create(:order, user: users[3], budget:),
+        create(:order, user: users[4], budget:),
+        create(:order, user: users[5], budget:)
       ]
     end
 

@@ -72,7 +72,7 @@ module Decidim
               from: self,
               to: resource,
               name: link_name,
-              data: data
+              data:
             )
           end
         end

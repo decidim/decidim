@@ -10,7 +10,7 @@ module Decidim
         let(:user) { create(:user, organization: current_organization) }
         let(:participatory_process) { create(:participatory_process, organization: current_organization) }
         let(:component) { create(:component, manifest_name: "pages", participatory_space: participatory_process) }
-        let(:page) { create(:page, component: component) }
+        let(:page) { create(:page, component:) }
         let(:form_params) do
           {
             "body" => { "en" => "My new body" }
@@ -21,7 +21,7 @@ module Decidim
             form_params
           ).with_context(
             current_user: user,
-            current_organization: current_organization
+            current_organization:
           )
         end
         let(:command) { described_class.new(form, page) }

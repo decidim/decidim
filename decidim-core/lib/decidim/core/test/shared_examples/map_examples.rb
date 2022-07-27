@@ -6,7 +6,7 @@ shared_context "with map utility" do
   let(:config) { {} }
 
   let(:utility_class) { described_class }
-  let(:utility) { utility_class.new(organization: organization, config: config, locale: locale) }
+  let(:utility) { utility_class.new(organization:, config:, locale:) }
 end
 
 shared_context "with frontend map builder" do

@@ -5,7 +5,7 @@ require "spec_helper"
 module Decidim
   describe DownloadYourDataExportJob do
     let(:organization) { create :organization }
-    let!(:user) { create(:user, organization: organization) }
+    let!(:user) { create(:user, organization:) }
 
     it "sends an email with the result of the export" do
       perform_enqueued_jobs do

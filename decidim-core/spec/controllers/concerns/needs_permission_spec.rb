@@ -5,8 +5,8 @@ require "spec_helper"
 module Decidim
   describe "NeedsPermission", type: :controller do
     let!(:organization) { create :organization }
-    let!(:user) { create :user, :confirmed, organization: organization }
-    let!(:another_user) { create :user, :confirmed, organization: organization }
+    let!(:user) { create :user, :confirmed, organization: }
+    let!(:another_user) { create :user, :confirmed, organization: }
 
     controller do
       include Decidim::NeedsPermission

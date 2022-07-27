@@ -6,7 +6,7 @@ module Decidim
   module ContentParsers
     describe MeetingParser do
       let(:organization) { create(:organization, host: "my.host") }
-      let(:component) { create(:meeting_component, organization: organization) }
+      let(:component) { create(:meeting_component, organization:) }
       let(:context) { { current_organization: organization } }
       let!(:parser) { Decidim::ContentParsers::MeetingParser.new(content, context) }
 
@@ -45,7 +45,7 @@ module Decidim
         end
 
         context "when content has a link with a different host" do
-          let(:meeting) { create(:meeting, component: component) }
+          let(:meeting) { create(:meeting, component:) }
           let(:content) do
             url = changed_meeting_url(meeting)
             "This content references meeting #{url}."
@@ -55,7 +55,7 @@ module Decidim
         end
 
         context "when content links to an organization different from current" do
-          let(:meeting) { create(:meeting, component: component) }
+          let(:meeting) { create(:meeting, component:) }
           let(:other_component) { create(:meeting_component, organization: create(:organization)) }
           let(:external_meeting) { create(:meeting, component: other_component) }
           let(:content) do
@@ -67,7 +67,7 @@ module Decidim
         end
 
         context "when content has one link" do
-          let(:meeting) { create(:meeting, component: component) }
+          let(:meeting) { create(:meeting, component:) }
           let(:content) do
             url = meeting_url(meeting)
             "This content references meeting #{url}."
@@ -86,9 +86,9 @@ module Decidim
         end
 
         context "when content has many links" do
-          let(:meeting1) { create(:meeting, component: component) }
-          let(:meeting2) { create(:meeting, component: component) }
-          let(:meeting3) { create(:meeting, component: component) }
+          let(:meeting1) { create(:meeting, component:) }
+          let(:meeting2) { create(:meeting, component:) }
+          let(:meeting3) { create(:meeting, component:) }
           let(:content) do
             url1 = meeting_url(meeting1)
             url2 = meeting_url(meeting2)
@@ -100,7 +100,7 @@ module Decidim
         end
 
         context "when content has a link that is not in a meeting component" do
-          let(:meeting) { create(:meeting, component: component) }
+          let(:meeting) { create(:meeting, component:) }
           let(:content) do
             url = meeting_url(meeting).sub(%r{/meetings/}, "/something-else/")
             "This content references a non-meeting with same ID as a meeting #{url}."
@@ -121,7 +121,7 @@ module Decidim
         end
 
         context "when meeting in content does not exist" do
-          let(:meeting) { create(:meeting, component: component) }
+          let(:meeting) { create(:meeting, component:) }
           let(:url) { meeting_url(meeting) }
           let(:content) do
             meeting.destroy
@@ -132,7 +132,7 @@ module Decidim
         end
 
         context "when meeting is linked via ID" do
-          let(:meeting) { create(:meeting, component: component) }
+          let(:meeting) { create(:meeting, component:) }
           let(:content) { "This content references meeting ~#{meeting.id}." }
 
           it { is_expected.to eq("This content references meeting #{meeting.to_global_id}.") }

@@ -37,7 +37,7 @@ module Decidim
       def reminder_form_from_params(params)
         form(reminder_manifest.form_class).from_params(
           params,
-          current_component: current_component
+          current_component:
         )
       end
 

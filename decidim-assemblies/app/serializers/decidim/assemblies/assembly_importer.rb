@@ -24,8 +24,8 @@ module Decidim
         Decidim.traceability.perform_action!(:create, Assembly, @user, visibility: "all") do
           @imported_assembly = Assembly.new(
             organization: @organization,
-            title: title,
-            slug: slug,
+            title:,
+            slug:,
             hashtag: attributes["hashtag"],
             subtitle: attributes["subtitle"],
             short_description: attributes["short_description"],

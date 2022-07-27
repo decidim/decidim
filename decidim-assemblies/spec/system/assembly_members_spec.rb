@@ -4,7 +4,7 @@ require "spec_helper"
 
 describe "Assembly members", type: :system do
   let(:organization) { create(:organization) }
-  let(:assembly) { create(:assembly, organization: organization) }
+  let(:assembly) { create(:assembly, organization:) }
 
   before do
     switch_to_host(organization.host)
@@ -34,7 +34,7 @@ describe "Assembly members", type: :system do
 
   context "when there are some assembly members and all are ceased" do
     before do
-      create(:assembly_member, :ceased, assembly: assembly)
+      create(:assembly_member, :ceased, assembly:)
       create(:assembly_member)
     end
 
@@ -56,8 +56,8 @@ describe "Assembly members", type: :system do
   end
 
   context "when there are some published assembly members" do
-    let!(:assembly_members) { create_list(:assembly_member, 2, assembly: assembly) }
-    let!(:ceased_assembly_member) { create(:assembly_member, :ceased, assembly: assembly) }
+    let!(:assembly_members) { create_list(:assembly_member, 2, assembly:) }
+    let!(:ceased_assembly_member) { create(:assembly_member, :ceased, assembly:) }
 
     before do
       visit decidim_assemblies.assembly_assembly_members_path(assembly)

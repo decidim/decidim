@@ -8,11 +8,11 @@ module Decidim
     module Admin
       describe DisplayConditionForm do
         subject do
-          described_class.new(decidim_question_id: decidim_question_id,
-                              decidim_condition_question_id: decidim_condition_question_id,
-                              condition_value: condition_value,
-                              condition_type: condition_type,
-                              decidim_answer_option_id: decidim_answer_option_id,
+          described_class.new(decidim_question_id:,
+                              decidim_condition_question_id:,
+                              condition_value:,
+                              condition_type:,
+                              decidim_answer_option_id:,
                               mandatory: true).with_context(current_organization: organization)
         end
 

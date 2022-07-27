@@ -34,7 +34,7 @@ module Decidim
     def avatar_url(variant = nil)
       return avatar.default_url unless avatar.attached?
 
-      avatar.path(variant: variant)
+      avatar.path(variant:)
     end
 
     def default_avatar_url

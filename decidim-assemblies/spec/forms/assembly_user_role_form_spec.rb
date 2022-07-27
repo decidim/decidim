@@ -10,8 +10,8 @@ module Decidim
           described_class.from_params(
             attributes
           ).with_context(
-            current_user: current_user,
-            current_organization: current_organization
+            current_user:,
+            current_organization:
           )
         end
 

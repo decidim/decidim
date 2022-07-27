@@ -11,7 +11,7 @@ describe "Votings", type: :system do
   end
 
   context "with only one voting in the votings space" do
-    let!(:single_voting) { create :voting, :published, organization: organization }
+    let!(:single_voting) { create :voting, :published, organization: }
 
     before do
       visit decidim_votings.votings_path
@@ -24,7 +24,7 @@ describe "Votings", type: :system do
   end
 
   context "with many votings" do
-    let!(:votings) { create_list(:voting, 2, :published, organization: organization) }
+    let!(:votings) { create_list(:voting, 2, :published, organization:) }
 
     it_behaves_like "shows contextual help" do
       let(:index_path) { decidim_votings.votings_path }
@@ -33,11 +33,11 @@ describe "Votings", type: :system do
 
     context "when ordering by 'Most recent'" do
       let!(:older_voting) do
-        create(:voting, :published, organization: organization, created_at: 1.month.ago)
+        create(:voting, :published, organization:, created_at: 1.month.ago)
       end
 
       let!(:recent_voting) do
-        create(:voting, :published, organization: organization, created_at: Time.now.utc)
+        create(:voting, :published, organization:, created_at: Time.now.utc)
       end
 
       before do
@@ -67,7 +67,7 @@ describe "Votings", type: :system do
     end
 
     context "when ordering by 'Random'" do
-      let!(:votings) { create_list(:voting, 2, :published, organization: organization) }
+      let!(:votings) { create_list(:voting, 2, :published, organization:) }
 
       before do
         switch_to_host(organization.host)
@@ -86,8 +86,8 @@ describe "Votings", type: :system do
     end
 
     context "when there are promoted votings" do
-      let!(:highlighted_voting) { create(:voting, :published, :promoted, organization: organization) }
-      let!(:other_voting) { create(:voting, :published, organization: organization) }
+      let!(:highlighted_voting) { create(:voting, :published, :promoted, organization:) }
+      let!(:other_voting) { create(:voting, :published, organization:) }
 
       before do
         switch_to_host(organization.host)
@@ -103,7 +103,7 @@ describe "Votings", type: :system do
     end
 
     context "when filtering" do
-      let!(:voting) { create(:voting, :published, organization: organization) }
+      let!(:voting) { create(:voting, :published, organization:) }
 
       it "allows searching by text" do
         visit decidim_votings.votings_path
@@ -122,9 +122,9 @@ describe "Votings", type: :system do
       end
 
       describe "when by different dates" do
-        let!(:finished_voting) { create(:voting, :finished, organization: organization) }
-        let!(:upcoming_voting) { create(:voting, :upcoming, organization: organization) }
-        let!(:ongoing_voting) { create(:voting, :ongoing, organization: organization) }
+        let!(:finished_voting) { create(:voting, :finished, organization:) }
+        let!(:upcoming_voting) { create(:voting, :upcoming, organization:) }
+        let!(:ongoing_voting) { create(:voting, :ongoing, organization:) }
 
         before do
           visit decidim_votings.votings_path
@@ -170,7 +170,7 @@ describe "Votings", type: :system do
     end
 
     context "when all votings are finished" do
-      let!(:votings) { create_list(:voting, 2, :finished, organization: organization) }
+      let!(:votings) { create_list(:voting, 2, :finished, organization:) }
 
       before do
         switch_to_host(organization.host)

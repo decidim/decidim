@@ -23,9 +23,9 @@ describe Decidim::OpenDataExporter do
       describe "election results" do
         let(:csv_file_name) { "*open-data-elections.csv" }
         let(:component) do
-          create(:elections_component, organization: organization, published_at: Time.current)
+          create(:elections_component, organization:, published_at: Time.current)
         end
-        let!(:election) { create(:election, :results_published, component: component) }
+        let!(:election) { create(:election, :results_published, component:) }
         let!(:question) { election.questions.first }
         let!(:answer) { question.answers.first }
 
@@ -43,7 +43,7 @@ describe Decidim::OpenDataExporter do
 
         context "with unpublished components" do
           let(:component) do
-            create(:elections_component, organization: organization, published_at: nil)
+            create(:elections_component, organization:, published_at: nil)
           end
 
           it "includes the election results data" do
@@ -73,9 +73,9 @@ describe Decidim::OpenDataExporter do
       describe "proposals" do
         let(:csv_file_name) { "*open-data-proposals.csv" }
         let(:component) do
-          create(:proposal_component, organization: organization, published_at: Time.current)
+          create(:proposal_component, organization:, published_at: Time.current)
         end
-        let!(:proposal) { create(:proposal, :published, component: component, title: { en: "My super proposal" }) }
+        let!(:proposal) { create(:proposal, :published, component:, title: { en: "My super proposal" }) }
 
         before do
           subject.export
@@ -91,7 +91,7 @@ describe Decidim::OpenDataExporter do
 
         context "with unpublished components" do
           let(:component) do
-            create(:proposal_component, organization: organization, published_at: nil)
+            create(:proposal_component, organization:, published_at: nil)
           end
 
           it "includes the proposals data" do
@@ -103,9 +103,9 @@ describe Decidim::OpenDataExporter do
       describe "results" do
         let(:csv_file_name) { "*open-data-results.csv" }
         let(:component) do
-          create(:accountability_component, organization: organization, published_at: Time.current)
+          create(:accountability_component, organization:, published_at: Time.current)
         end
-        let!(:result) { create(:result, component: component) }
+        let!(:result) { create(:result, component:) }
 
         before do
           subject.export
@@ -121,7 +121,7 @@ describe Decidim::OpenDataExporter do
 
         context "with unpublished components" do
           let(:component) do
-            create(:accountability_component, organization: organization, published_at: nil)
+            create(:accountability_component, organization:, published_at: nil)
           end
 
           it "includes the results data" do
@@ -133,9 +133,9 @@ describe Decidim::OpenDataExporter do
       describe "meetings" do
         let(:csv_file_name) { "*open-data-meetings.csv" }
         let(:component) do
-          create(:meeting_component, organization: organization, published_at: Time.current)
+          create(:meeting_component, organization:, published_at: Time.current)
         end
-        let!(:meeting) { create(:meeting, :published, component: component) }
+        let!(:meeting) { create(:meeting, :published, component:) }
 
         before do
           subject.export
@@ -151,7 +151,7 @@ describe Decidim::OpenDataExporter do
 
         context "with unpublished components" do
           let(:component) do
-            create(:meeting_component, organization: organization, published_at: nil)
+            create(:meeting_component, organization:, published_at: nil)
           end
 
           it "includes the meetings data" do

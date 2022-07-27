@@ -4,10 +4,10 @@ require "spec_helper"
 
 describe "Question vote", type: :system do
   let(:organization) { create(:organization) }
-  let(:question) { create :question, :published, consultation: consultation }
+  let(:question) { create :question, :published, consultation: }
 
   context "when upcoming consultation" do
-    let(:consultation) { create(:consultation, :published, :upcoming, organization: organization) }
+    let(:consultation) { create(:consultation, :published, :upcoming, organization:) }
 
     before do
       switch_to_host(organization.host)
@@ -24,8 +24,8 @@ describe "Question vote", type: :system do
   end
 
   context "when finished consultation" do
-    let(:consultation) { create(:consultation, :finished, organization: organization) }
-    let(:user) { create :user, :confirmed, organization: organization }
+    let(:consultation) { create(:consultation, :finished, organization:) }
+    let(:user) { create :user, :confirmed, organization: }
 
     context "and guest user" do
       before do
@@ -60,7 +60,7 @@ describe "Question vote", type: :system do
       end
 
       context "and voted before" do
-        let!(:vote) { create :vote, author: user, question: question }
+        let!(:vote) { create :vote, author: user, question: }
 
         before do
           switch_to_host(organization.host)
@@ -77,8 +77,8 @@ describe "Question vote", type: :system do
   end
 
   context "when active consultation" do
-    let(:consultation) { create(:consultation, :active, organization: organization) }
-    let(:user) { create :user, :confirmed, organization: organization }
+    let(:consultation) { create(:consultation, :active, organization:) }
+    let(:user) { create :user, :confirmed, organization: }
 
     context "and guest user" do
       before do
@@ -97,7 +97,7 @@ describe "Question vote", type: :system do
     end
 
     context "and authenticated user" do
-      let!(:response) { create :response, question: question }
+      let!(:response) { create :response, question: }
 
       context "and never voted before" do
         before do
@@ -120,7 +120,7 @@ describe "Question vote", type: :system do
 
       context "and voted before" do
         let!(:vote) do
-          create :vote, author: user, question: question, response: response
+          create :vote, author: user, question:, response:
         end
 
         before do
@@ -142,9 +142,9 @@ describe "Question vote", type: :system do
   end
 
   context "when verification is required" do
-    let(:consultation) { create(:consultation, :active, organization: organization) }
-    let(:user) { create :user, :confirmed, organization: organization }
-    let!(:response) { create :response, question: question }
+    let(:consultation) { create(:consultation, :active, organization:) }
+    let(:user) { create :user, :confirmed, organization: }
+    let!(:response) { create :response, question: }
     let(:permissions) do
       {
         vote: {
@@ -158,7 +158,7 @@ describe "Question vote", type: :system do
     before do
       organization.available_authorizations = ["dummy_authorization_handler"]
       organization.save!
-      question.create_resource_permission(permissions: permissions)
+      question.create_resource_permission(permissions:)
     end
 
     context "when user is NOT verified" do
@@ -178,7 +178,7 @@ describe "Question vote", type: :system do
 
     context "when user IS verified" do
       before do
-        handler_params = { user: user }
+        handler_params = { user: }
         handler_name = "dummy_authorization_handler"
         handler = Decidim::AuthorizationHandler.handler_for(handler_name, handler_params)
 

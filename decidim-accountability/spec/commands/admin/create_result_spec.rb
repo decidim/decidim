@@ -7,10 +7,10 @@ module Decidim::Accountability
     subject { described_class.new(form) }
 
     let(:organization) { create :organization, available_locales: [:en] }
-    let(:user) { create :user, organization: organization }
-    let(:participatory_process) { create :participatory_process, organization: organization }
+    let(:user) { create :user, organization: }
+    let(:participatory_process) { create :participatory_process, organization: }
     let(:current_component) { create :accountability_component, participatory_space: participatory_process }
-    let(:scope) { create :scope, organization: organization }
+    let(:scope) { create :scope, organization: }
     let(:category) { create :category, participatory_space: participatory_process }
 
     let(:start_date) { Date.yesterday }
@@ -52,21 +52,21 @@ module Decidim::Accountability
     let(:form) do
       double(
         invalid?: invalid,
-        current_component: current_component,
+        current_component:,
         title: { en: "title" },
         description: { en: "description" },
         proposal_ids: proposals.map(&:id),
         project_ids: projects.map(&:id),
-        scope: scope,
-        category: category,
-        start_date: start_date,
-        end_date: end_date,
+        scope:,
+        category:,
+        start_date:,
+        end_date:,
         decidim_accountability_status_id: status.id,
-        progress: progress,
+        progress:,
         current_user: user,
         parent_id: nil,
-        external_id: external_id,
-        weight: weight
+        external_id:,
+        weight:
       )
     end
     let(:invalid) { false }
@@ -131,7 +131,7 @@ module Decidim::Accountability
       end
 
       it "notifies the linked proposals followers" do
-        follower = create(:user, organization: organization)
+        follower = create(:user, organization:)
         create(:follow, followable: proposals.first, user: follower)
 
         expect(Decidim::EventsManager)

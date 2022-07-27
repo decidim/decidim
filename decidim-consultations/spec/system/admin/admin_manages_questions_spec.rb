@@ -227,7 +227,7 @@ describe "Admin manages questions", type: :system do
   end
 
   describe "publishing a question" do
-    let!(:question) { create(:question, :unpublished, consultation: consultation) }
+    let!(:question) { create(:question, :unpublished, consultation:) }
 
     it "publishes the question" do
       switch_to_host(organization.host)
@@ -245,7 +245,7 @@ describe "Admin manages questions", type: :system do
   end
 
   describe "unpublishing a question" do
-    let!(:question) { create(:question, :published, consultation: consultation) }
+    let!(:question) { create(:question, :published, consultation:) }
 
     it "unpublishes the question" do
       switch_to_host(organization.host)

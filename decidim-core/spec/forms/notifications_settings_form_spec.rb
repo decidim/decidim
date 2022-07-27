@@ -6,12 +6,12 @@ module Decidim
   describe NotificationsSettingsForm do
     subject do
       described_class.from_params(
-        notifications_from_followed: notifications_from_followed,
-        notifications_from_own_activity: notifications_from_own_activity,
-        notifications_sending_frequency: notifications_sending_frequency,
-        email_on_moderations: email_on_moderations,
-        newsletter_notifications: newsletter_notifications,
-        allow_public_contact: allow_public_contact
+        notifications_from_followed:,
+        notifications_from_own_activity:,
+        notifications_sending_frequency:,
+        email_on_moderations:,
+        newsletter_notifications:,
+        allow_public_contact:
       ).with_context(
         current_user: user
       )
@@ -164,16 +164,16 @@ module Decidim
     describe "#user_is_moderator?" do
       context "when an organization has a moderator and a regular user" do
         let(:organization) { create :organization, available_locales: [:en] }
-        let(:participatory_space) { create :participatory_process, organization: organization }
+        let(:participatory_space) { create :participatory_process, organization: }
         let(:moderator) do
           create(
             :process_moderator,
             :confirmed,
-            organization: organization,
+            organization:,
             participatory_process: participatory_space
           )
         end
-        let(:user) { create :user, organization: organization }
+        let(:user) { create :user, organization: }
 
         it "returns false when user isnt a moderator" do
           expect(subject.user_is_moderator?(user)).to be false
