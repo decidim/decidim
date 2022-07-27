@@ -6,11 +6,11 @@ describe Decidim::ContentBlocks::StatsCell, type: :cell do
   subject { stats_cell.call }
 
   let(:organization) { create(:organization) }
-  let(:content_block) { create :content_block, organization: organization, manifest_name: :stats, scope_name: :homepage }
+  let(:content_block) { create :content_block, organization:, manifest_name: :stats, scope_name: :homepage }
   let(:stats_cell) { cell(content_block.cell, content_block) }
 
-  let!(:users) { create_list(:user, 10, :confirmed, organization: organization) }
-  let!(:processes) { create_list(:participatory_process, 5, organization: organization) }
+  let!(:users) { create_list(:user, 10, :confirmed, organization:) }
+  let!(:processes) { create_list(:participatory_process, 5, organization:) }
 
   let(:other_organization) { create(:organization) }
   let!(:other_users) { create_list(:user, 3, :confirmed, organization: other_organization) }
