@@ -338,24 +338,29 @@ lt:
           back: Atgal
           back_to_initiatives: Grįžti į iniciatyvas
           callout_text: Sveikiname! Jūsų iniciatyva sukurta.
+          confirm: Jūs siųsite šią iniciatyvą administratoriaus peržiūrai ir publikavimui. Paskelbus iniciatyvą jos koreguoti nebegalėsite. Ar tikrai norite ją siųsti?
           edit_my_initiative: Redaguoti mano iniciatyvas
           go_to_my_initiatives: Eiti į mano iniciatyvas
           more_information: "(Daugiau informacijos)"
           send_my_initiative: Siųsti mano iniciatyvą techniniam patvirtinimui
         finish_help:
           access_reminder: Galite pasiekti savo iniciatyvas per %{link} filtrą iniciatyvų puslapyje.
+          publish_helper_text: Prisiminkite, kad tam, kad iniciatyva būtų publikuota turite užpildyti būtiną informaciją ir <strong>išsiųsti ją techniniam patvirtinimui</strong> atliekamam administratorių.
         previous_form:
           back: Atgal
           continue: Tęsti
+          help: Kas yra ši iniciatyva? Užrašykite pavadinimą ir aprašykite. Rekomenduojame trumpą ir glaustą pavadinimą ir glaustai aprašyti siūlomą sprendimą.
           more_information: "(Daugiau informacijos)"
         promotal_committee:
           back: Atgal
+          individual_help_text: Kad būtų galima įgyvendinti tokią piliečių iniciatyvą, Rėmimo komisiją turi sudaryti ne mažiau kaip %{committee_size} nariai (vertintojai). Šią nuorodą bendrinkite su kitais šioje iniciatyvoje dalyvaujančiais asmenimis. Gavę šią nuorodą, jūsų kontaktiniai asmenys turės atlikti nurodytus veiksmus.
           more_information: "(Daugiau informacijos)"
         select_initiative_type:
           back: Atgal
           choose_html: Noriu sukurti <strong>%{title}</strong>
           more_information: "(Daugiau informacijos)"
           select: Noriu paremti šią iniciatyvą
+          select_initiative_type_help: Iniciatyvos yra būdas dalyviams įsitraukti ir kartu su organizacija ginti bendrąjį interesą. Kurią iniciatyvą norite pradėti Jūs?
         share_committee_link:
           continue: Tęsti
           invite_to_committee_help: Nuoroda, skirta dalyviams į rėmėjų komitetą pakviesti
