@@ -7,9 +7,9 @@ module Decidim::ParticipatoryProcesses
     subject { described_class.new(form, participatory_process, user) }
 
     let(:organization) { create :organization }
-    let(:user) { create :user, organization: organization }
-    let(:participatory_process_group) { create :participatory_process_group, organization: organization }
-    let(:scope) { create :scope, organization: organization }
+    let(:user) { create :user, organization: }
+    let(:participatory_process_group) { create :participatory_process_group, organization: }
+    let(:scope) { create :scope, organization: }
     let(:errors) { double.as_null_object }
     let!(:participatory_process) { create :participatory_process, :with_steps }
     let!(:component) { create :component, manifest_name: :dummy, participatory_space: participatory_process }

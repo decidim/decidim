@@ -14,22 +14,22 @@ module Decidim::Votings::Census::Admin
     let(:birthdate) { "20010414" }
     let(:params) do
       {
-        document_number: document_number,
+        document_number:,
         document_type: "DNI",
-        birthdate: birthdate,
+        birthdate:,
         full_name: "Jane Doe",
         full_address: "Nowhere street 1",
         postal_code: "12345",
         mobile_phone_number: "123456789",
         ballot_style_code: ballot_style_code&.downcase,
-        email: email
+        email:
       }
     end
 
     let(:context) do
       {
         current_user: user,
-        dataset: dataset,
+        dataset:,
         voting: dataset.voting
       }
     end

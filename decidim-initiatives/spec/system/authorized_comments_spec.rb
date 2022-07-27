@@ -3,14 +3,14 @@
 require "spec_helper"
 
 describe "Authorized comments", type: :system do
-  let!(:initiative_type) { create(:initiatives_type, :online_signature_enabled, organization: organization) }
+  let!(:initiative_type) { create(:initiatives_type, :online_signature_enabled, organization:) }
   let!(:scoped_type) { create(:initiatives_type_scope, type: initiative_type) }
-  let(:commentable) { create(:initiative, :published, author: author, scoped_type: scoped_type, organization: organization) }
-  let!(:author) { create(:user, :confirmed, organization: organization) }
-  let!(:user) { create(:user, :confirmed, organization: organization) }
-  let!(:comments) { create_list(:comment, 3, commentable: commentable) }
+  let(:commentable) { create(:initiative, :published, author:, scoped_type:, organization:) }
+  let!(:author) { create(:user, :confirmed, organization:) }
+  let!(:user) { create(:user, :confirmed, organization:) }
+  let!(:comments) { create_list(:comment, 3, commentable:) }
   let!(:authorization_handler_name) { "dummy_authorization_handler" }
-  let!(:organization) { create(:organization, available_authorizations: available_authorizations) }
+  let!(:organization) { create(:organization, available_authorizations:) }
   let!(:available_authorizations) { [authorization_handler_name] }
 
   let(:resource_path) { resource_locator(commentable).path }
@@ -51,7 +51,7 @@ describe "Authorized comments", type: :system do
   end
 
   context "when the initiative has restrictions on commenting" do
-    let!(:resource_permission) { commentable.create_resource_permission(permissions: permissions) }
+    let!(:resource_permission) { commentable.create_resource_permission(permissions:) }
     let(:comment_permission) do
       { comment: authorization_handlers }
     end
@@ -75,7 +75,7 @@ describe "Authorized comments", type: :system do
     end
 
     context "and user is verified" do
-      let(:authorization) { create(:authorization, user: user, name: "dummy_authorization_handler") }
+      let(:authorization) { create(:authorization, user:, name: "dummy_authorization_handler") }
 
       describe "restricted comment action" do
         let(:permissions) { comment_permission }

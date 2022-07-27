@@ -9,8 +9,8 @@ module Decidim
 
       include_context "when creating a comment"
 
-      let(:comment) { create(:comment, commentable: commentable) }
-      let(:proposal_component) { create(:proposal_component, organization: organization) }
+      let(:comment) { create(:comment, commentable:) }
+      let(:proposal_component) { create(:proposal_component, organization:) }
       let(:proposal_metadata) { Decidim::ContentParsers::ProposalParser::Metadata.new([]) }
       let(:linked_proposal) { create(:proposal, component: proposal_component) }
       let(:linked_proposal_official) { create(:proposal, :official, component: proposal_component) }

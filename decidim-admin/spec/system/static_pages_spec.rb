@@ -13,7 +13,7 @@ describe "Content pages", type: :system do
   end
 
   describe "Showing pages" do
-    let!(:decidim_pages) { create_list(:static_page, 5, :with_topic, organization: organization) }
+    let!(:decidim_pages) { create_list(:static_page, 5, :with_topic, organization:) }
 
     it_behaves_like "editable content for admins" do
       let(:target_path) { decidim.pages_path }
@@ -74,7 +74,7 @@ describe "Content pages", type: :system do
     end
 
     context "when editing a topic" do
-      let!(:topic) { create(:static_page_topic, organization: organization) }
+      let!(:topic) { create(:static_page_topic, organization:) }
 
       before do
         login_as admin, scope: :user
@@ -113,7 +113,7 @@ describe "Content pages", type: :system do
     end
 
     context "when deleting topics" do
-      let!(:topic) { create(:static_page_topic, organization: organization) }
+      let!(:topic) { create(:static_page_topic, organization:) }
 
       before do
         login_as admin, scope: :user
@@ -136,7 +136,7 @@ describe "Content pages", type: :system do
   end
 
   describe "Managing pages" do
-    let!(:topic) { create(:static_page_topic, organization: organization) }
+    let!(:topic) { create(:static_page_topic, organization:) }
 
     before do
       login_as admin, scope: :user
@@ -180,8 +180,8 @@ describe "Content pages", type: :system do
     end
 
     context "with existing pages" do
-      let!(:decidim_page) { create(:static_page, :with_topic, organization: organization) }
-      let!(:topic) { create(:static_page_topic, organization: organization) }
+      let!(:decidim_page) { create(:static_page, :with_topic, organization:) }
+      let!(:topic) { create(:static_page_topic, organization:) }
 
       before do
         visit current_path

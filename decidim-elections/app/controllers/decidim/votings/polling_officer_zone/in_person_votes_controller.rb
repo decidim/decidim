@@ -33,7 +33,7 @@ module Decidim
         end
 
         def show
-          enforce_permission_to :manage, :in_person_vote, polling_officer: polling_officer
+          enforce_permission_to :manage, :in_person_vote, polling_officer:
         end
 
         def update
@@ -106,13 +106,13 @@ module Decidim
         def in_person_vote_form
           @in_person_vote_form ||= form(Decidim::Votings::Voter::InPersonVoteForm).from_params(
             {
-              voter_token: voter_token,
-              voter_id: voter_id,
+              voter_token:,
+              voter_id:,
               voted: params.dig(:in_person_vote, :voted)
             },
-            election: election,
-            polling_station: polling_station,
-            polling_officer: polling_officer
+            election:,
+            polling_station:,
+            polling_officer:
           )
         end
 
@@ -137,7 +137,7 @@ module Decidim
         end
 
         def pending_in_person_vote
-          @pending_in_person_vote ||= Decidim::Votings::Votes::PendingInPersonVotes.for.find_by(polling_officer: polling_officer, election: election)
+          @pending_in_person_vote ||= Decidim::Votings::Votes::PendingInPersonVotes.for.find_by(polling_officer:, election:)
         end
 
         def exit_path

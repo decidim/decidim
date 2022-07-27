@@ -6,8 +6,8 @@ describe "Notifications", type: :system do
   let(:resource) { create :dummy_resource }
   let(:participatory_space) { resource.component.participatory_space }
   let(:organization) { participatory_space.organization }
-  let!(:user) { create :user, :confirmed, organization: organization }
-  let!(:notification) { create :notification, user: user, resource: resource }
+  let!(:user) { create :user, :confirmed, organization: }
+  let!(:notification) { create :notification, user:, resource: }
 
   before do
     switch_to_host organization.host
@@ -116,7 +116,7 @@ describe "Notifications", type: :system do
     let(:event_class) { "Decidim::Comments::UserGroupMentionedEvent" }
     let(:event_name) { "decidim.events.comments.user_group_mentioned" }
     let(:extra) { { comment_id: create(:comment).id, group_id: create(:user_group).id } }
-    let!(:notification) { create :notification, user: user, event_class: event_class, event_name: event_name, extra: extra }
+    let!(:notification) { create :notification, user:, event_class:, event_name:, extra: }
 
     before do
       page.visit decidim.notifications_path

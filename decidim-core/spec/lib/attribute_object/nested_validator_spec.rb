@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim
   describe AttributeObject::NestedValidator do
-    subject { validatable.new(nested: nested) }
+    subject { validatable.new(nested:) }
 
     let(:validatable) do
       Class.new do

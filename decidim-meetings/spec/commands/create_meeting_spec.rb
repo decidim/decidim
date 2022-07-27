@@ -7,10 +7,10 @@ module Decidim::Meetings
     subject { described_class.new(form) }
 
     let(:organization) { create :organization, available_locales: [:en] }
-    let(:current_user) { create :user, :admin, :confirmed, organization: organization }
-    let(:participatory_process) { create :participatory_process, organization: organization }
+    let(:current_user) { create :user, :admin, :confirmed, organization: }
+    let(:participatory_process) { create :participatory_process, organization: }
     let(:current_component) { create :component, participatory_space: participatory_process, manifest_name: "meetings" }
-    let(:scope) { create :scope, organization: organization }
+    let(:scope) { create :scope, organization: }
     let(:category) { create :category, participatory_space: participatory_process }
     let(:address) { "address" }
     let(:invalid) { false }
@@ -34,26 +34,26 @@ module Decidim::Meetings
         description: Faker::Lorem.sentence(word_count: 3),
         location: Faker::Lorem.sentence(word_count: 2),
         location_hints: Faker::Lorem.sentence(word_count: 3),
-        start_time: start_time,
+        start_time:,
         end_time: start_time + 2.hours,
-        address: address,
-        latitude: latitude,
-        longitude: longitude,
-        scope: scope,
-        category: category,
-        user_group_id: user_group_id,
-        current_user: current_user,
-        current_component: current_component,
+        address:,
+        latitude:,
+        longitude:,
+        scope:,
+        category:,
+        user_group_id:,
+        current_user:,
+        current_component:,
         current_organization: organization,
-        registration_type: registration_type,
-        available_slots: available_slots,
-        registration_url: registration_url,
-        registration_terms: registration_terms,
-        registrations_enabled: registrations_enabled,
+        registration_type:,
+        available_slots:,
+        registration_url:,
+        registration_terms:,
+        registrations_enabled:,
         clean_type_of_meeting: type_of_meeting,
-        online_meeting_url: online_meeting_url,
-        iframe_embed_type: iframe_embed_type,
-        iframe_access_level: iframe_access_level
+        online_meeting_url:,
+        iframe_embed_type:,
+        iframe_access_level:
       )
     end
 
@@ -126,7 +126,7 @@ module Decidim::Meetings
       end
 
       context "when the author is a user_group" do
-        let(:user_group) { create :user_group, :verified, users: [current_user], organization: organization }
+        let(:user_group) { create :user_group, :verified, users: [current_user], organization: }
         let(:user_group_id) { user_group.id }
 
         it "sets the user_group as the author" do
@@ -156,7 +156,7 @@ module Decidim::Meetings
       end
 
       it "schedules a upcoming meeting notification job 48h before start time" do
-        meeting = instance_double(Meeting, id: 1, start_time: start_time, participatory_space: participatory_process)
+        meeting = instance_double(Meeting, id: 1, start_time:, participatory_space: participatory_process)
         allow(Decidim.traceability)
           .to receive(:create!)
           .and_return(meeting)
@@ -196,7 +196,7 @@ module Decidim::Meetings
       end
 
       it "sends a notification to the participatory space followers" do
-        follower = create(:user, organization: organization)
+        follower = create(:user, organization:)
         create(:follow, followable: participatory_process, user: follower)
 
         expect(Decidim::EventsManager)

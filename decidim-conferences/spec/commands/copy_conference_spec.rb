@@ -7,7 +7,7 @@ module Decidim::Conferences
     subject { described_class.new(form, conference) }
 
     let(:organization) { create :organization }
-    let(:scope) { create :scope, organization: organization }
+    let(:scope) { create :scope, organization: }
     let(:errors) { double.as_null_object }
     let!(:conference) { create :conference }
     let!(:component) { create :component, manifest_name: :dummy, participatory_space: conference }

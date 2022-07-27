@@ -13,7 +13,7 @@ module Decidim
       @events = {}
     end
 
-    def method_missing(method_name, *args, &_block)
+    def method_missing(method_name, *args, &)
       args = args.first if args.size == 1
       @events[method_name] = args
     end

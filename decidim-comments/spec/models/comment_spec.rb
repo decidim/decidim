@@ -6,12 +6,12 @@ module Decidim
   module Comments
     describe Comment do
       let(:component) { create(:component, manifest_name: "dummy") }
-      let!(:commentable) { create(:dummy_resource, component: component) }
+      let!(:commentable) { create(:dummy_resource, component:) }
       let!(:author) { create(:user, organization: commentable.organization) }
-      let!(:comment) { create(:comment, commentable: commentable, author: author) }
+      let!(:comment) { create(:comment, commentable:, author:) }
       let!(:replies) { create_list(:comment, 3, commentable: comment, root_commentable: commentable) }
-      let!(:up_vote) { create(:comment_vote, :up_vote, comment: comment) }
-      let!(:down_vote) { create(:comment_vote, :down_vote, comment: comment) }
+      let!(:up_vote) { create(:comment_vote, :up_vote, comment:) }
+      let!(:down_vote) { create(:comment_vote, :down_vote, comment:) }
 
       include_examples "authorable" do
         subject { comment }
@@ -110,7 +110,7 @@ module Decidim
         let(:user) { create(:user, organization: comment.organization) }
 
         it "returns true if the given user has upvoted the comment" do
-          create(:comment_vote, comment: comment, author: user, weight: 1)
+          create(:comment_vote, comment:, author: user, weight: 1)
           expect(comment).to be_up_voted_by(user)
         end
 
@@ -123,7 +123,7 @@ module Decidim
         let(:user) { create(:user, organization: comment.organization) }
 
         it "returns true if the given user has downvoted the comment" do
-          create(:comment_vote, comment: comment, author: user, weight: -1)
+          create(:comment_vote, comment:, author: user, weight: -1)
           expect(comment).to be_down_voted_by(user)
         end
 
@@ -151,7 +151,7 @@ module Decidim
       end
 
       describe "#formatted_body" do
-        let(:comment) { create(:comment, commentable: commentable, author: author, body: body) }
+        let(:comment) { create(:comment, commentable:, author:, body:) }
         let(:body) { "<b>bold text</b> %lorem% <a href='https://example.com'>link</a>" }
 
         before do
@@ -216,7 +216,7 @@ module Decidim
       end
 
       describe "#comment_threads count" do
-        let!(:parent) { create(:comment, commentable: commentable) }
+        let!(:parent) { create(:comment, commentable:) }
         let!(:comments) { create_list(:comment, 3, commentable: parent, root_commentable: commentable) }
 
         it "return 3" do
@@ -243,8 +243,8 @@ module Decidim
           context "when organization has a default comments length params" do
             let!(:body) { { en: ::Faker::Lorem.sentence(word_count: 1600) } }
             let(:organization) { create(:organization, comments_max_length: 1500) }
-            let(:component) { create(:component, organization: organization, manifest_name: "dummy") }
-            let!(:commentable) { create(:dummy_resource, component: component) }
+            let(:component) { create(:component, organization:, manifest_name: "dummy") }
+            let!(:commentable) { create(:dummy_resource, component:) }
 
             it "is invalid" do
               comment.body = body

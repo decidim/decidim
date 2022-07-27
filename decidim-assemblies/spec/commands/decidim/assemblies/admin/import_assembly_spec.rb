@@ -7,7 +7,7 @@ module Decidim::Assemblies::Admin
     subject { described_class.new(form, user) }
 
     let(:organization) { create :organization }
-    let(:user) { create :user, organization: organization }
+    let(:user) { create :user, organization: }
     let!(:document_file) { File.read(Decidim::Dev.asset(document_name)) }
     let(:form_doc) do
       instance_double(File,
@@ -24,8 +24,8 @@ module Decidim::Assemblies::Admin
         import_components?: import_components,
         document: form_doc,
         document_text: document_file,
-        document_type: document_type,
-        current_user: create(:user, organization: organization),
+        document_type:,
+        current_user: create(:user, organization:),
         current_organization: organization,
         invalid?: invalid
       )
@@ -43,7 +43,7 @@ module Decidim::Assemblies::Admin
       it "broadcasts ok and create the assembly" do
         expect { subject.call }.to(
           broadcast(:ok) &&
-          change { ::Decidim::Assembly.where(organization: organization).count }.by(1)
+          change { ::Decidim::Assembly.where(organization:).count }.by(1)
         )
 
         imported_assembly = Decidim::Assembly.last

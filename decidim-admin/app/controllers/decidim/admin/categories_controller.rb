@@ -14,12 +14,12 @@ module Decidim
 
       def new
         enforce_permission_to :create, :category
-        @form = form(CategoryForm).from_params({}, current_participatory_space: current_participatory_space)
+        @form = form(CategoryForm).from_params({}, current_participatory_space:)
       end
 
       def create
         enforce_permission_to :create, :category
-        @form = form(CategoryForm).from_params(params, current_participatory_space: current_participatory_space)
+        @form = form(CategoryForm).from_params(params, current_participatory_space:)
 
         CreateCategory.call(@form, current_participatory_space, current_user) do
           on(:ok) do
@@ -37,13 +37,13 @@ module Decidim
       def edit
         @category = collection.find(params[:id])
         enforce_permission_to :update, :category, category: @category
-        @form = form(CategoryForm).from_model(@category, current_participatory_space: current_participatory_space)
+        @form = form(CategoryForm).from_model(@category, current_participatory_space:)
       end
 
       def update
         @category = collection.find(params[:id])
         enforce_permission_to :update, :category, category: @category
-        @form = form(CategoryForm).from_params(params, current_participatory_space: current_participatory_space)
+        @form = form(CategoryForm).from_params(params, current_participatory_space:)
 
         UpdateCategory.call(@category, @form, current_user) do
           on(:ok) do

@@ -4,9 +4,9 @@ require "spec_helper"
 
 describe "Static pages", type: :system do
   let(:organization) { create(:organization) }
-  let!(:page1) { create(:static_page, :with_topic, organization: organization) }
-  let!(:page2) { create(:static_page, :with_topic, organization: organization) }
-  let!(:page3) { create(:static_page, organization: organization) }
+  let!(:page1) { create(:static_page, :with_topic, organization:) }
+  let!(:page2) { create(:static_page, :with_topic, organization:) }
+  let!(:page3) { create(:static_page, organization:) }
   let(:user) { nil }
 
   before do
@@ -40,7 +40,7 @@ describe "Static pages", type: :system do
     end
 
     context "when page content has embedded iframe" do
-      let!(:video_page) { create(:static_page, :with_topic, content: content, organization: organization) }
+      let!(:video_page) { create(:static_page, :with_topic, content:, organization:) }
       let(:content) { { "en" => %(<p>foo</p><p><br></p><iframe class="ql-video" allowfullscreen="true" src="#{iframe_src}" frameborder="0"></iframe><p><br></p><p>bar</p>) } }
       let(:iframe_src) { "http://www.example.org" }
 
@@ -106,7 +106,7 @@ describe "Static pages", type: :system do
     it_behaves_like "requesting with very long URL parameters"
 
     context "when authenticated" do
-      let(:user) { create :user, :confirmed, organization: organization }
+      let(:user) { create :user, :confirmed, organization: }
 
       it_behaves_like "requesting with very long URL parameters"
     end

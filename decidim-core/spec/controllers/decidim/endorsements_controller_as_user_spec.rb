@@ -12,7 +12,7 @@ module Decidim
 
         it "allows endorsements" do
           expect do
-            post :create, format: :js, params: params
+            post :create, format: :js, params:
           end.to change(Endorsement, :count).by(1)
 
           expect(Endorsement.last.author).to eq(user)
@@ -57,7 +57,7 @@ module Decidim
 
         it "does not allow endorsing" do
           expect do
-            post :create, format: :js, params: params
+            post :create, format: :js, params:
           end.not_to change(Endorsement, :count)
 
           expect(flash[:alert]).not_to be_empty
@@ -79,7 +79,7 @@ module Decidim
 
         it "does not allow endorsing" do
           expect do
-            post :create, format: :js, params: params
+            post :create, format: :js, params:
           end.not_to change(Endorsement, :count)
 
           expect(flash[:alert]).not_to be_empty
@@ -97,7 +97,7 @@ module Decidim
 
     describe "As User unendorsing a resource" do
       before do
-        create(:endorsement, resource: resource, author: user)
+        create(:endorsement, resource:, author: user)
       end
 
       context "when endorsements are enabled" do
@@ -105,7 +105,7 @@ module Decidim
 
         it "deletes the endorsement" do
           expect do
-            delete :destroy, format: :js, params: params
+            delete :destroy, format: :js, params:
           end.to change(Endorsement, :count).by(-1)
 
           expect(Endorsement.count).to eq(0)
@@ -117,7 +117,7 @@ module Decidim
 
         it "does not delete the endorsement" do
           expect do
-            delete :destroy, format: :js, params: params
+            delete :destroy, format: :js, params:
           end.not_to change(Endorsement, :count)
 
           expect(flash[:alert]).not_to be_empty

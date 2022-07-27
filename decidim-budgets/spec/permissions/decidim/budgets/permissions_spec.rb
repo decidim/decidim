@@ -9,7 +9,7 @@ describe Decidim::Budgets::Permissions do
   let(:context) do
     {
       current_component: budgets_component,
-      project: project
+      project:
     }
   end
   let(:budgets_component) { create :budgets_component }

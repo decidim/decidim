@@ -1,13 +1,13 @@
 # frozen_string_literal: true
 
 shared_examples "manage process admins examples" do
-  let(:other_user) { create :user, organization: organization, email: "my_email@example.org" }
+  let(:other_user) { create :user, organization:, email: "my_email@example.org" }
 
   let!(:process_admin) do
     create :process_admin,
            :confirmed,
-           organization: organization,
-           participatory_process: participatory_process
+           organization:,
+           participatory_process:
   end
 
   before do
@@ -42,7 +42,7 @@ shared_examples "manage process admins examples" do
   end
 
   describe "when managing different users" do
-    let!(:user_role2) { create(:participatory_process_user_role, participatory_process: participatory_process, user: other_user) }
+    let!(:user_role2) { create(:participatory_process_user_role, participatory_process:, user: other_user) }
 
     before do
       visit current_path

@@ -22,22 +22,22 @@ describe Decidim::Verifications::PerformAuthorizationStep do
       end
 
       def verification_metadata
-        { address: address, sms_code: rand(10_000) }
+        { address:, sms_code: rand(10_000) }
       end
     end
   end
 
   let(:authorizations) do
-    Decidim::Verifications::Authorizations.new(organization: user.organization, user: user, granted: false)
+    Decidim::Verifications::Authorizations.new(organization: user.organization, user:, granted: false)
   end
 
   let(:user) { create(:user, :confirmed) }
 
-  let(:form) { form_class.new(user: user, address: address) }
+  let(:form) { form_class.new(user:, address:) }
 
   let(:authorization_params) do
     {
-      user: user,
+      user:,
       name: "postal_address",
       verification_metadata: { phone_number: "666666666", sms_code: "10_001" }
     }

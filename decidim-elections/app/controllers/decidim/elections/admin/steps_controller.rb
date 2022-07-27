@@ -13,7 +13,7 @@ module Decidim
           enforce_permission_to :read, :steps, election: election
 
           if current_step_form_class
-            @form = form(current_step_form_class).instance(election: election)
+            @form = form(current_step_form_class).instance(election:)
             @form.valid?
           end
         end
@@ -22,7 +22,7 @@ module Decidim
           enforce_permission_to :update, :steps, election: election
           redirect_to election_steps_path(election) && return unless params[:id] == current_step
 
-          @form = form(current_step_form_class).from_params(params, election: election)
+          @form = form(current_step_form_class).from_params(params, election:)
           Decidim::Elections::Admin::UpdateActionStatus.call(@form.pending_action) if @form.pending_action
 
           # check pending action status mode

@@ -70,7 +70,7 @@ module Decidim
         end
 
         def attributes
-          { conference: conference }.merge(
+          { conference: }.merge(
             form.attributes.slice(
               "name",
               "weight",

@@ -8,7 +8,7 @@ describe "Admin manages global moderations", type: :system do
       :user,
       :confirmed,
       :admin,
-      organization: organization
+      organization:
     )
   end
   let(:organization) { current_component.organization }

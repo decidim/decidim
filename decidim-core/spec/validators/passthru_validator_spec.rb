@@ -3,7 +3,7 @@
 require "spec_helper"
 
 describe PassthruValidator do
-  subject { validatable.new(file: file, organization: organization) }
+  subject { validatable.new(file:, organization:) }
 
   let(:validator_settings) { {} }
 
