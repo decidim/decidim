@@ -70,6 +70,7 @@ search:
   ##   %w(*.jpg *.png *.gif *.svg *.ico *.eot *.otf *.ttf *.woff *.woff2 *.pdf *.css *.sass *.scss *.less *.yml *.json)
   exclude:
     - decidim-dev/lib/decidim/dev/assets/iso-8859-15.md
+    - decidim-dev/lib/decidim/dev/assets/import_participatory_space_private_users_iso8859-1.csv
     - decidim-comments/app/assets/javascripts/decidim/comments/bundle.js
     - decidim-comments/app/assets/javascripts/decidim/comments/bundle.js.map
     - "*.jpeg"
