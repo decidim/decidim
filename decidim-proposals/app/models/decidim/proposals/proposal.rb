@@ -106,7 +106,7 @@ module Decidim
       scope_search_multi :with_any_state, [:accepted, :rejected, :evaluating, :state_not_published]
 
       def self.with_valuation_assigned_to(user, space)
-        valuator_roles = space.user_roles(:valuator).where(user: user)
+        valuator_roles = space.user_roles(:valuator).where(user:)
 
         includes(:valuation_assignments)
           .where(decidim_proposals_valuation_assignments: { valuator_role_id: valuator_roles })
@@ -139,7 +139,7 @@ module Decidim
       end
 
       def self.retrieve_proposals_for(component)
-        Decidim::Proposals::Proposal.where(component: component).joins(:coauthorships)
+        Decidim::Proposals::Proposal.where(component:).joins(:coauthorships)
                                     .includes(:votes, :endorsements)
                                     .where(decidim_coauthorships: { decidim_author_type: "Decidim::UserBaseEntity" })
                                     .not_hidden
@@ -355,7 +355,7 @@ module Decidim
           )
         )
         SQL
-        where(query, value: value)
+        where(query, value:)
       end
 
       def self.ransackable_scopes(auth_object = nil)

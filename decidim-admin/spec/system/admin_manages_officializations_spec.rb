@@ -10,7 +10,7 @@ describe "Admin manages officializations", type: :system do
 
   let(:organization) { create(:organization) }
 
-  let!(:admin) { create(:user, :admin, :confirmed, organization: organization) }
+  let!(:admin) { create(:user, :admin, :confirmed, organization:) }
 
   before do
     switch_to_host(organization.host)
@@ -20,10 +20,10 @@ describe "Admin manages officializations", type: :system do
   end
 
   describe "listing officializations" do
-    let!(:officialized) { create(:user, :officialized, organization: organization) }
-    let!(:not_officialized) { create(:user, organization: organization) }
+    let!(:officialized) { create(:user, :officialized, organization:) }
+    let!(:not_officialized) { create(:user, organization:) }
     let!(:deleted) do
-      user = create(:user, organization: organization)
+      user = create(:user, organization:)
       result = Decidim::DestroyAccount.call(user, OpenStruct.new(valid?: true, delete_reason: "Testing"))
       result["ok"]
     end
@@ -50,7 +50,7 @@ describe "Admin manages officializations", type: :system do
 
   describe "officializating users" do
     context "when not yet officialized" do
-      let!(:user) { create(:user, organization: organization) }
+      let!(:user) { create(:user, organization:) }
 
       before do
         within ".secondary-nav" do
@@ -96,7 +96,7 @@ describe "Admin manages officializations", type: :system do
           :user,
           :officialized,
           officialized_as: { "en" => "Mayor of Barcelona" },
-          organization: organization
+          organization:
         )
       end
 
@@ -130,7 +130,7 @@ describe "Admin manages officializations", type: :system do
   end
 
   describe "unofficializating users" do
-    let!(:user) { create(:user, :officialized, organization: organization) }
+    let!(:user) { create(:user, :officialized, organization:) }
 
     before do
       within ".secondary-nav" do
@@ -152,7 +152,7 @@ describe "Admin manages officializations", type: :system do
   end
 
   describe "contacting the user" do
-    let!(:user) { create(:user, organization: organization) }
+    let!(:user) { create(:user, organization:) }
 
     before do
       within ".secondary-nav" do
@@ -169,7 +169,7 @@ describe "Admin manages officializations", type: :system do
   end
 
   describe "clicking on user name" do
-    let!(:user) { create(:user, organization: organization) }
+    let!(:user) { create(:user, organization:) }
 
     before do
       within ".secondary-nav" do
@@ -189,7 +189,7 @@ describe "Admin manages officializations", type: :system do
   end
 
   describe "clicking on user nickname" do
-    let!(:user) { create(:user, organization: organization) }
+    let!(:user) { create(:user, organization:) }
 
     before do
       within ".secondary-nav" do
@@ -209,7 +209,7 @@ describe "Admin manages officializations", type: :system do
   end
 
   describe "retrieving the user email address" do
-    let!(:users) { create_list(:user, 3, organization: organization) }
+    let!(:users) { create_list(:user, 3, organization:) }
 
     before do
       within ".secondary-nav" do

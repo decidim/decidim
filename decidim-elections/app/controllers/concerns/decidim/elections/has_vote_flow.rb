@@ -19,7 +19,7 @@ module Decidim
 
       def default_vote_flow
         Decidim::Elections::CurrentUserVoteFlow.new(election, current_user) do
-          allowed_to?(:user_vote, :election, election: election)
+          allowed_to?(:user_vote, :election, election:)
         end
       end
 
@@ -32,7 +32,7 @@ module Decidim
       def can_preview?
         return @can_preview if defined?(@can_preview)
 
-        @preview_mode = allowed_to?(:preview, :election, election: election)
+        @preview_mode = allowed_to?(:preview, :election, election:)
       end
 
       def ballot_questions

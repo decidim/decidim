@@ -618,17 +618,17 @@ module Decidim
       let(:blob) do
         ActiveStorage::Blob.create_and_upload!(
           io: File.open(Decidim::Dev.asset("city.jpeg")),
-          filename: filename
+          filename:
         )
       end
       let(:url) { Rails.application.routes.url_helpers.rails_blob_url(blob, only_path: true) }
       let(:file) do
         double(
-          blob: blob,
-          filename: filename,
+          blob:,
+          filename:,
           attached?: present?,
           attachment: double(
-            blob: blob,
+            blob:,
             "image?" => image?
           )
         )
@@ -636,7 +636,7 @@ module Decidim
       let(:optional) { true }
       let(:attributes) do
         {
-          optional: optional
+          optional:
         }
       end
       let(:output) do
@@ -688,7 +688,7 @@ module Decidim
         let(:blob) do
           ActiveStorage::Blob.create_and_upload!(
             io: File.open(Decidim::Dev.asset("Exampledocument.pdf")),
-            filename: filename
+            filename:
           )
         end
 

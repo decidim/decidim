@@ -62,12 +62,12 @@ module Decidim
         if resource
           resource_permissions.update!(permissions: different_from_component_permissions(permissions))
         else
-          component.update!(permissions: permissions)
+          component.update!(permissions:)
         end
       end
 
       def run_hooks
-        component.manifest.run_hooks(:permission_update, component: component, resource: resource)
+        component.manifest.run_hooks(:permission_update, component:, resource:)
       end
 
       def resource_permissions

@@ -43,7 +43,7 @@ describe "Organization scopes", type: :system do
     end
 
     context "with existing scopes" do
-      let!(:scope) { create(:scope, organization: organization) }
+      let!(:scope) { create(:scope, organization:) }
 
       before do
         visit current_path

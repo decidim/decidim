@@ -8,7 +8,7 @@ FactoryBot.define do
   factory :post_component, parent: :component do
     name { Decidim::Components::Namer.new(participatory_space.organization.available_locales, :blogs).i18n_name }
     manifest_name { :blogs }
-    participatory_space { create(:participatory_process, :with_steps, organization: organization) }
+    participatory_space { create(:participatory_process, :with_steps, organization:) }
   end
 
   factory :post, class: "Decidim::Blogs::Post" do

@@ -10,13 +10,13 @@ namespace :decidim do
 
       Decidim::CarrierWaveMigratorService::MIGRATION_ATTRIBUTES.each do |(klass, cw_attribute, cw_uploader, as_attribute)|
         Decidim::CarrierWaveMigratorService.migrate_attachment!({
-                                                                  klass: klass, cw_attribute: cw_attribute,
-                                                                  cw_uploader: cw_uploader, as_attribute: as_attribute,
-                                                                  logger: logger,
-                                                                  routes_mappings: routes_mappings
+                                                                  klass:, cw_attribute:,
+                                                                  cw_uploader:, as_attribute:,
+                                                                  logger:,
+                                                                  routes_mappings:
                                                                 })
       end
-      Decidim::CarrierWaveMigratorService.migrate_content_blocks_attachments!(logger: logger, routes_mappings: routes_mappings)
+      Decidim::CarrierWaveMigratorService.migrate_content_blocks_attachments!(logger:, routes_mappings:)
 
       path = Rails.root.join("tmp/attachment_mappings.csv")
       dirname = File.dirname(path)
@@ -30,12 +30,12 @@ namespace :decidim do
       logger = ActiveSupport::TaggedLogging.new(Logger.new("log/#{Time.current.strftime("%Y%m%d%H%M")}_activestorage_migration_check.log"))
       Decidim::CarrierWaveMigratorService::MIGRATION_ATTRIBUTES.each do |(klass, cw_attribute, cw_uploader, as_attribute)|
         Decidim::CarrierWaveMigratorService.check_migration({
-                                                              klass: klass, cw_attribute: cw_attribute,
-                                                              cw_uploader: cw_uploader, as_attribute: as_attribute,
-                                                              logger: logger
+                                                              klass:, cw_attribute:,
+                                                              cw_uploader:, as_attribute:,
+                                                              logger:
                                                             })
       end
-      Decidim::CarrierWaveMigratorService.check_content_blocks_attachments(logger: logger)
+      Decidim::CarrierWaveMigratorService.check_content_blocks_attachments(logger:)
     end
 
     desc "Migrates inline images to ActiveStorage editor_image attachments"
@@ -61,7 +61,7 @@ namespace :decidim do
           rewrite_value(nested_value, user)
         end
       else
-        parser = Decidim::ContentParsers::InlineImagesParser.new(value, user: user)
+        parser = Decidim::ContentParsers::InlineImagesParser.new(value, user:)
         parser.rewrite
       end
     end

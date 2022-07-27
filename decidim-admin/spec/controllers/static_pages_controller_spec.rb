@@ -8,7 +8,7 @@ module Decidim
       routes { Decidim::Admin::Engine.routes }
 
       let(:organization) { create :organization }
-      let(:user) { create(:user, :admin, :confirmed, organization: organization) }
+      let(:user) { create(:user, :admin, :confirmed, organization:) }
 
       before do
         request.env["decidim.current_organization"] = organization
@@ -46,7 +46,7 @@ module Decidim
       end
 
       context "when updating a page" do
-        let!(:page) { create(:static_page, organization: organization) }
+        let!(:page) { create(:static_page, organization:) }
 
         it "injects the organization to the form" do
           put :update, params: { id: page.id }.with_indifferent_access

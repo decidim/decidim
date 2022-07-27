@@ -7,7 +7,7 @@ module Decidim
     describe ElectionPresenter, type: :helper do
       subject(:presenter) { described_class.new(election) }
 
-      let(:election) { create :election, title: title, description: description }
+      let(:election) { create :election, title:, description: }
       let(:title) do
         {
           "en" => "A title <br/> with a lot of <strong>HTML</strong> &amp; &quote;special characters&quote;"

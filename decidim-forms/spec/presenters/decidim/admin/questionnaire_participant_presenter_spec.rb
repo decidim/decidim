@@ -4,20 +4,20 @@ require "spec_helper"
 
 module Decidim
   describe Forms::Admin::QuestionnaireParticipantPresenter, type: :helper do
-    subject { described_class.new(participant: participant) }
+    subject { described_class.new(participant:) }
 
     let!(:questionnaire) { create(:questionnaire) }
     let!(:user) { create(:user, organization: questionnaire.questionnaire_for.organization) }
     let!(:questions) do
       [
-        create(:questionnaire_question, questionnaire: questionnaire, position: 1),
-        create(:questionnaire_question, :separator, questionnaire: questionnaire, position: 2),
-        create(:questionnaire_question, questionnaire: questionnaire, position: 3),
-        create(:questionnaire_question, :title_and_description, questionnaire: questionnaire, position: 2)
+        create(:questionnaire_question, questionnaire:, position: 1),
+        create(:questionnaire_question, :separator, questionnaire:, position: 2),
+        create(:questionnaire_question, questionnaire:, position: 3),
+        create(:questionnaire_question, :title_and_description, questionnaire:, position: 2)
       ]
     end
     let!(:answers) do
-      questions.map { |question| create :answer, user: user, questionnaire: questionnaire, question: question }.sort_by { |a| a.question.position }
+      questions.map { |question| create :answer, user:, questionnaire:, question: }.sort_by { |a| a.question.position }
     end
     let!(:answer) { subject.answers.first.answer }
     let!(:participant) { answers.first }
@@ -77,7 +77,7 @@ module Decidim
       let!(:questionnaire2) { create(:questionnaire, questionnaire_for: component) }
       let!(:questions2) { 3.downto(1).map { |n| create :questionnaire_question, questionnaire: questionnaire2, position: n } }
       let!(:answers2) do
-        questions2.map { |question| create :answer, user: user, questionnaire: questionnaire2, question: question }.sort_by { |a| a.question.position }
+        questions2.map { |question| create :answer, user:, questionnaire: questionnaire2, question: }.sort_by { |a| a.question.position }
       end
       let!(:answer) { subject.answers.first.answer }
       let!(:participant2) { answers2.first }

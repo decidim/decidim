@@ -10,7 +10,7 @@ module Decidim
     let(:organization) { user&.organization }
     let(:provider) { "facebook" }
     let(:uid) { "123456" }
-    let(:identity) { build(:identity, user: user, provider: provider, uid: uid, organization: organization) }
+    let(:identity) { build(:identity, user:, provider:, uid:, organization:) }
 
     it { is_expected.to be_valid }
 
@@ -52,7 +52,7 @@ module Decidim
 
         it "is invalid for the same organization" do
           identity.save
-          other_identity = build(:identity, provider: identity.provider, uid: identity.uid, organization: organization)
+          other_identity = build(:identity, provider: identity.provider, uid: identity.uid, organization:)
           expect(other_identity).to be_invalid
         end
       end

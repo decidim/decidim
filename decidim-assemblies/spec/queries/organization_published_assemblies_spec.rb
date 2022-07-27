@@ -9,13 +9,13 @@ module Decidim::Assemblies
     let!(:organization) { create(:organization) }
 
     let!(:published_assemblies) do
-      create(:assembly, :published, organization: organization, weight: 2)
-      create(:assembly, :published, organization: organization, weight: 3)
-      create(:assembly, :published, organization: organization, weight: 1)
+      create(:assembly, :published, organization:, weight: 2)
+      create(:assembly, :published, organization:, weight: 3)
+      create(:assembly, :published, organization:, weight: 1)
     end
 
     let!(:unpublished_assemblies) do
-      create_list(:assembly, 3, :unpublished, organization: organization)
+      create_list(:assembly, 3, :unpublished, organization:)
     end
 
     let!(:foreign_assemblies) do

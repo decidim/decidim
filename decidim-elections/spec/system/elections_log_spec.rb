@@ -5,10 +5,10 @@ require "spec_helper"
 describe "Elections log", type: :system do
   let(:manifest_name) { "elections" }
   let!(:organization) { create(:organization) }
-  let!(:election) { create :election, :bb_test, :created, component: component }
+  let!(:election) { create :election, :bb_test, :created, component: }
 
   include_context "with a component" do
-    let!(:voting) { create(:voting, :published, organization: organization) }
+    let!(:voting) { create(:voting, :published, organization:) }
     let(:participatory_space) { voting }
     let(:organization_traits) { [:secure_context] }
   end
@@ -24,9 +24,9 @@ describe "Elections log", type: :system do
   end
 
   describe "when elections with bb_status are present" do
-    let!(:vote_election) { create :election, :bb_test, :vote, component: component }
-    let!(:finished_election) { create :election, :bb_test, :results_published, component: component }
-    let!(:key_ceremony_election) { create :election, :bb_test, :key_ceremony_ended, component: component }
+    let!(:vote_election) { create :election, :bb_test, :vote, component: }
+    let!(:finished_election) { create :election, :bb_test, :results_published, component: }
+    let!(:key_ceremony_election) { create :election, :bb_test, :key_ceremony_ended, component: }
 
     it "shows list of elections" do
       visit decidim_votings.voting_elections_log_path(voting)

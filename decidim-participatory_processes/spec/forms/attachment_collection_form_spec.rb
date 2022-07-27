@@ -8,7 +8,7 @@ module Decidim
     describe AttachmentCollectionForm do
       include_examples "attachment collection form" do
         let(:collection_for) do
-          create :participatory_process, organization: organization
+          create :participatory_process, organization:
         end
       end
     end

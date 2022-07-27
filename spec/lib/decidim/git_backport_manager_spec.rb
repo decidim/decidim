@@ -8,7 +8,7 @@ describe Decidim::GitBackportManager do
   let(:release_branch) { "release/0.99-stable" }
   let(:backport_branch) { "backport/fix-something-9876" }
   let(:pull_request_id) { 9_876 }
-  let(:manager) { described_class.new(pull_request_id: pull_request_id, release_branch: release_branch, backport_branch: backport_branch, working_dir: tmp_repository_dir) }
+  let(:manager) { described_class.new(pull_request_id:, release_branch:, backport_branch:, working_dir: tmp_repository_dir) }
 
   let(:tmp_repository_dir) { "/tmp/decidim-git-backport-manager-test-#{rand(1_000)}" }
   let(:working_dir) { File.expand_path("../../..", __dir__) }

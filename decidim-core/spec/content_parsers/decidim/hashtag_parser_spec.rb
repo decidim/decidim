@@ -5,9 +5,9 @@ require "spec_helper"
 module Decidim
   describe ContentParsers::HashtagParser do
     let(:organization) { create(:organization) }
-    let(:hashtag) { create(:hashtag, organization: organization, name: name) }
+    let(:hashtag) { create(:hashtag, organization:, name:) }
     let(:name) { "a_hashtag" }
-    let(:context) { { current_organization: organization, extra_hashtags: extra_hashtags } }
+    let(:context) { { current_organization: organization, extra_hashtags: } }
     let(:extra_hashtags) { false }
     let(:parser) { described_class.new(content, context) }
 
@@ -36,7 +36,7 @@ module Decidim
     end
 
     context "when contents has a new hashtag" do
-      let(:hashtag) { Decidim::Hashtag.find_by(organization: organization, name: name) }
+      let(:hashtag) { Decidim::Hashtag.find_by(organization:, name:) }
       let(:content) { "This text contains a hashtag not present on DB: ##{name}" }
       let(:parsed_content) { "This text contains a hashtag not present on DB: #{hashtag.to_global_id}/#{hashtag.name}" }
 
@@ -44,8 +44,8 @@ module Decidim
     end
 
     context "when hashtagging multiple hashtags" do
-      let(:new_hashtag) { Decidim::Hashtag.find_by(organization: organization, name: "a_new_one") }
-      let(:hashtag2) { create(:hashtag, organization: organization) }
+      let(:new_hashtag) { Decidim::Hashtag.find_by(organization:, name: "a_new_one") }
+      let(:hashtag2) { create(:hashtag, organization:) }
       let(:content) { "This text contains multiple hashtag presents: #a_new_one, ##{hashtag.name} and ##{hashtag2.name}" }
       let(:parsed_content) { "This text contains multiple hashtag presents: #{new_hashtag.to_global_id}/#{new_hashtag.name}, #{hashtag.to_global_id}/#{hashtag.name} and #{hashtag2.to_global_id}/#{hashtag2.name}" }
       let(:metadata_hashtags) { [new_hashtag, hashtag, hashtag2] }
@@ -54,13 +54,13 @@ module Decidim
     end
 
     context "when hashtags name contains unicode characters" do
-      let(:hashtag) { create(:hashtag, organization: organization, name: "acción_mutante") }
+      let(:hashtag) { create(:hashtag, organization:, name: "acción_mutante") }
 
       it_behaves_like "find and stores the hashtags references"
     end
 
     context "when content contains the same new hashtag twice" do
-      let(:hashtag) { Decidim::Hashtag.find_by(organization: organization, name: name) }
+      let(:hashtag) { Decidim::Hashtag.find_by(organization:, name:) }
       let(:content) { "This text contains a hashtag not present on DB twice: ##{name} and ##{name}" }
       let(:parsed_content) { "This text contains a hashtag not present on DB twice: #{hashtag.to_global_id}/#{hashtag.name} and #{hashtag.to_global_id}/#{hashtag.name}" }
 

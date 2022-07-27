@@ -9,7 +9,7 @@ inputs:
     required: true
   ruby_version:
     description: 'Ruby Version'
-    default: "3.0.2"
+    default: "3.1.1"
     required: false
   node_version:
     description: 'Node version'

@@ -5,7 +5,7 @@ require "spec_helper"
 module Decidim
   describe MachineTranslationFieldsJob do
     let(:title) { { en: "New Title" } }
-    let(:process) { build :participatory_process, title: title }
+    let(:process) { build :participatory_process, title: }
     let(:target_locale) { "ca" }
     let(:source_locale) { "en" }
 

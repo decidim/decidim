@@ -16,7 +16,7 @@ module Decidim
         def update
           enforce_permission_to :update, :trustee, trustee: trustee
 
-          form = form(TrusteeForm).from_params(params, trustee: trustee)
+          form = form(TrusteeForm).from_params(params, trustee:)
 
           UpdateTrustee.call(form) do
             on(:ok) do

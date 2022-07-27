@@ -30,12 +30,12 @@ module Decidim
               access_code = SecureRandom.alphanumeric(8)
               hashed_online_data = Digest::SHA256.hexdigest([datum.hashed_check_data, access_code].join("."))
 
-              datum.update!(access_code: access_code, hashed_online_data: hashed_online_data)
+              datum.update!(access_code:, hashed_online_data:)
             end
           end
 
           def update_dataset_status(dataset, status, user)
-            UpdateDataset.call(dataset, { status: status }, user)
+            UpdateDataset.call(dataset, { status: }, user)
           end
         end
       end

@@ -5,8 +5,8 @@ require "spec_helper"
 describe "Admin edits proposals", type: :system do
   let(:manifest_name) { "proposals" }
   let(:organization) { participatory_process.organization }
-  let!(:user) { create :user, :admin, :confirmed, organization: organization }
-  let!(:proposal) { create :proposal, :official, component: component }
+  let!(:user) { create :user, :admin, :confirmed, organization: }
+  let!(:proposal) { create :proposal, :official, component: }
   let(:creation_enabled?) { true }
 
   include_context "when managing a component as an admin"
@@ -45,7 +45,7 @@ describe "Admin edits proposals", type: :system do
 
     context "when the proposal has some votes" do
       before do
-        create :proposal_vote, proposal: proposal
+        create :proposal_vote, proposal:
       end
 
       it "doesn't let the user edit it" do
@@ -64,14 +64,14 @@ describe "Admin edits proposals", type: :system do
         create(:proposal_component,
                :with_creation_enabled,
                :with_attachments_allowed,
-               manifest: manifest,
+               manifest:,
                participatory_space: participatory_process)
       end
 
       let!(:proposal) do
         create(:proposal,
                :official,
-               component: component,
+               component:,
                title: "Proposal with attachments",
                body: "This is my proposal and I want to upload attachments.")
       end
@@ -94,7 +94,7 @@ describe "Admin edits proposals", type: :system do
   end
 
   describe "editing a non-official proposal" do
-    let!(:proposal) { create :proposal, users: [user], component: component }
+    let!(:proposal) { create :proposal, users: [user], component: }
 
     it "renders an error" do
       visit_component_admin

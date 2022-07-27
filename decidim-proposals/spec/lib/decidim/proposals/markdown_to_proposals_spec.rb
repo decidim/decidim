@@ -6,7 +6,7 @@ module Decidim
   module Proposals
     describe MarkdownToProposals do
       def should_parse_and_produce_proposals(num_proposals)
-        proposals = Decidim::Proposals::Proposal.where(component: component)
+        proposals = Decidim::Proposals::Proposal.where(component:)
         expect { parser.parse(document) }.to change { proposals.count }.by(num_proposals)
         proposals
       end
@@ -17,7 +17,7 @@ module Decidim
       end
 
       def proposal_should_conform(section_level, title, body)
-        proposal = Decidim::Proposals::Proposal.where(component: component).last
+        proposal = Decidim::Proposals::Proposal.where(component:).last
         expect(proposal.participatory_text_level).to eq(Decidim::Proposals::ParticipatoryTextSection::LEVELS[section_level])
         expect(translated(proposal.title)).to eq(title)
         expect(translated(proposal.body)).to eq(body)

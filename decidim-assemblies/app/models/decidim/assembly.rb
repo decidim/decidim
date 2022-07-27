@@ -134,7 +134,7 @@ module Decidim
     end
 
     def ancestors
-      self_and_ancestors.where.not(id: id)
+      self_and_ancestors.where.not(id:)
     end
 
     def translated_title
@@ -206,7 +206,7 @@ module Decidim
     # rubocop:disable Rails/SkipsModelValidations
     def update_children_paths
       self.class.where(
-        ["#{self.class.table_name}.parents_path <@ :old_path AND #{self.class.table_name}.id != :id", { old_path: parents_path_before_last_save, id: id }]
+        ["#{self.class.table_name}.parents_path <@ :old_path AND #{self.class.table_name}.id != :id", { old_path: parents_path_before_last_save, id: }]
       ).update_all(
         ["parents_path = :new_path || subpath(parents_path, nlevel(:old_path))", { new_path: parents_path, old_path: parents_path_before_last_save }]
       )

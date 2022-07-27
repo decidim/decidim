@@ -17,16 +17,16 @@ module Decidim
         :picker,
         layout: nil,
         locals: {
-          required: required,
-          title: title,
-          root: root,
+          required:,
+          title:,
+          root:,
           current: (current || root),
           scopes: scopes&.order(name: :asc),
-          parent_scopes: parent_scopes,
+          parent_scopes:,
           picker_target_id: (params[:target_element_id] || "content"),
           global_value: params[:global_value],
-          max_depth: max_depth,
-          context: context
+          max_depth:,
+          context:
         }
       )
     end
@@ -34,7 +34,7 @@ module Decidim
     private
 
     def picker_context(root, title, max_depth)
-      root ? { root: root.id, title: title, max_depth: max_depth } : { title: title, max_depth: max_depth }
+      root ? { root: root.id, title:, max_depth: } : { title:, max_depth: }
     end
 
     def resolve_picker_scopes(root, current)

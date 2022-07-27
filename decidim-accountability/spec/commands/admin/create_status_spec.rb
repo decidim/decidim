@@ -7,8 +7,8 @@ module Decidim::Accountability
     subject { described_class.new(form, user) }
 
     let(:organization) { create :organization, available_locales: [:en] }
-    let(:user) { create(:user, organization: organization) }
-    let(:participatory_process) { create :participatory_process, organization: organization }
+    let(:user) { create(:user, organization:) }
+    let(:participatory_process) { create :participatory_process, organization: }
     let(:current_component) { create :component, manifest_name: "accountability", participatory_space: participatory_process }
 
     let(:key) { "planned" }
@@ -19,11 +19,11 @@ module Decidim::Accountability
     let(:form) do
       double(
         invalid?: invalid,
-        current_component: current_component,
-        key: key,
+        current_component:,
+        key:,
         name: { en: name },
         description: { en: description },
-        progress: progress
+        progress:
       )
     end
     let(:invalid) { false }
