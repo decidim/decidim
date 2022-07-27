@@ -11,8 +11,8 @@ module Decidim::Meetings
 
     let(:form) do
       Admin::ValidateRegistrationCodeForm.from_params(
-        code: code
-      ).with_context(current_organization: meeting.organization, meeting: meeting)
+        code:
+      ).with_context(current_organization: meeting.organization, meeting:)
     end
 
     context "when the form is not valid" do
@@ -26,7 +26,7 @@ module Decidim::Meetings
     end
 
     context "when everything is ok" do
-      let!(:registration) { create(:registration, meeting: meeting, code: code, validated_at: nil) }
+      let!(:registration) { create(:registration, meeting:, code:, validated_at: nil) }
 
       it "broadcasts ok" do
         expect { subject.call }.to broadcast(:ok)
@@ -41,7 +41,7 @@ module Decidim::Meetings
 
     describe "events" do
       let(:user) { create :user, :confirmed, organization: meeting.organization }
-      let!(:registration) { create(:registration, meeting: meeting, code: code, validated_at: nil, user: user) }
+      let!(:registration) { create(:registration, meeting:, code:, validated_at: nil, user:) }
 
       context "when registrations are enabled and registration code is enabled" do
         before do
@@ -57,7 +57,7 @@ module Decidim::Meetings
               resource: meeting,
               affected_users: [user],
               extra: {
-                registration: registration
+                registration:
               }
             )
 

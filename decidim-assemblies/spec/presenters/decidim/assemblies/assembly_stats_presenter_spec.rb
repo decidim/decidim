@@ -4,11 +4,11 @@ require "spec_helper"
 
 module Decidim
   describe Assemblies::AssemblyStatsPresenter do
-    subject { described_class.new(assembly: assembly) }
+    subject { described_class.new(assembly:) }
 
     let!(:organization) { create(:organization) }
-    let!(:user) { create(:user, :confirmed, organization: organization) }
-    let!(:assembly) { create(:assembly, organization: organization) }
+    let!(:user) { create(:user, :confirmed, organization:) }
+    let!(:assembly) { create(:assembly, organization:) }
     let!(:component) { create(:component, participatory_space: assembly) }
 
     describe "#collection" do

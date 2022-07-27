@@ -10,12 +10,12 @@ module Decidim::Assemblies
     let!(:new_role) { "collaborator" }
     let!(:user_role) do
       user = create :assembly_admin
-      Decidim::AssemblyUserRole.where(user: user).last
+      Decidim::AssemblyUserRole.where(user:).last
     end
     let(:form) do
       double(
         invalid?: invalid,
-        current_user: current_user,
+        current_user:,
         role: new_role,
         current_participatory_space: my_assembly
       )

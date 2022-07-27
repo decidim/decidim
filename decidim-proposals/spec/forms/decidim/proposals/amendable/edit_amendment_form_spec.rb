@@ -8,14 +8,14 @@ module Decidim
       subject { form }
 
       let!(:component) { create(:proposal_component) }
-      let!(:amendable) { create(:proposal, component: component) }
-      let!(:emendation) { create(:proposal, component: component) }
-      let!(:amendment) { create(:amendment, :draft, amendable: amendable, emendation: emendation) }
+      let!(:amendable) { create(:proposal, component:) }
+      let!(:emendation) { create(:proposal, component:) }
+      let!(:amendment) { create(:amendment, :draft, amendable:, emendation:) }
 
       let(:params) do
         {
           id: amendment.id,
-          emendation_params: emendation_params
+          emendation_params:
         }
       end
 

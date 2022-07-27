@@ -7,8 +7,8 @@ module Decidim::ParticipatoryProcesses
     subject { described_class.new(process_type, form) }
 
     let(:organization) { create(:organization) }
-    let(:process_type) { create :participatory_process_type, organization: organization }
-    let(:user) { create :user, :admin, :confirmed, organization: organization }
+    let(:process_type) { create :participatory_process_type, organization: }
+    let(:user) { create :user, :admin, :confirmed, organization: }
     let(:form) do
       instance_double(
         Admin::ParticipatoryProcessTypeForm,

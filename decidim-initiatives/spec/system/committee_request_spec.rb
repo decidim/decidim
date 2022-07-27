@@ -4,7 +4,7 @@ require "spec_helper"
 
 describe "Decidim::Initiatives::CommitteeRequestController", type: :system do
   let(:organization) { create(:organization) }
-  let(:initiative) { create(:initiative, :created, organization: organization) }
+  let(:initiative) { create(:initiative, :created, organization:) }
 
   context "when GET new" do
     context "and owner requests membership" do
@@ -20,11 +20,11 @@ describe "Decidim::Initiatives::CommitteeRequestController", type: :system do
     end
 
     context "and authorized user" do
-      let(:user) { create(:user, :confirmed, organization: organization) }
+      let(:user) { create(:user, :confirmed, organization:) }
 
       it "are allowed to request membership" do
         switch_to_host(organization.host)
-        create(:authorization, user: user)
+        create(:authorization, user:)
         login_as user, scope: :user
 
         visit decidim_initiatives.new_initiative_committee_request_path(initiative.to_param)
@@ -33,7 +33,7 @@ describe "Decidim::Initiatives::CommitteeRequestController", type: :system do
     end
 
     context "and unauthorized users do" do
-      let(:user) { create(:user, :confirmed, organization: organization) }
+      let(:user) { create(:user, :confirmed, organization:) }
 
       before do
         switch_to_host(organization.host)

@@ -139,12 +139,12 @@ module Decidim
           component: @component,
           title: { I18n.locale => title },
           body: { I18n.locale => body },
-          participatory_text_level: participatory_text_level
+          participatory_text_level:
         }
 
         PaperTrail.request(enabled: false) do
           proposal = Decidim::Proposals::ProposalBuilder.create(
-            attributes: attributes,
+            attributes:,
             author: @component.organization,
             action_user: @current_user
           )

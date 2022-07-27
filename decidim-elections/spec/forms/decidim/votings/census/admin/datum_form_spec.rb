@@ -19,22 +19,22 @@ describe Decidim::Votings::Census::Admin::DatumForm do
 
   let(:attributes) do
     {
-      document_number: document_number,
-      document_type: document_type,
-      birthdate: birthdate,
-      full_name: full_name,
-      full_address: full_address,
-      postal_code: postal_code,
-      mobile_phone_number: mobile_phone_number,
-      ballot_style_code: ballot_style_code,
-      email: email
+      document_number:,
+      document_type:,
+      birthdate:,
+      full_name:,
+      full_address:,
+      postal_code:,
+      mobile_phone_number:,
+      ballot_style_code:,
+      email:
     }
   end
 
   let(:context) do
     {
       current_user: user,
-      dataset: dataset
+      dataset:
     }
   end
 

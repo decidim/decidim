@@ -57,7 +57,7 @@ module Decidim
 
       initializer "decidim.stats" do
         Decidim.stats.register :conferences_count, priority: StatsRegistry::HIGH_PRIORITY do |organization, _start_at, _end_at|
-          Decidim::Conference.where(organization: organization).public_spaces.count
+          Decidim::Conference.where(organization:).public_spaces.count
         end
       end
 

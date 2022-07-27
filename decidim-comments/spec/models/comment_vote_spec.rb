@@ -6,12 +6,12 @@ module Decidim
   module Comments
     describe CommentVote do
       let!(:organization) { create(:organization) }
-      let!(:participatory_process) { create(:participatory_process, organization: organization) }
+      let!(:participatory_process) { create(:participatory_process, organization:) }
       let!(:component) { create(:component, participatory_space: participatory_process) }
-      let!(:commentable) { create(:dummy_resource, component: component) }
-      let!(:author) { create(:user, organization: organization) }
-      let!(:comment) { create(:comment, commentable: commentable, author: author) }
-      let!(:comment_vote) { create(:comment_vote, comment: comment, author: author) }
+      let!(:commentable) { create(:dummy_resource, component:) }
+      let!(:author) { create(:user, organization:) }
+      let!(:comment) { create(:comment, commentable:, author:) }
+      let!(:comment_vote) { create(:comment_vote, comment:, author:) }
 
       it "is valid" do
         expect(comment_vote).to be_valid
@@ -27,7 +27,7 @@ module Decidim
 
       it "validates uniqueness for author and comment combination" do
         expect do
-          create(:comment_vote, comment: comment, author: author)
+          create(:comment_vote, comment:, author:)
         end.to raise_error(ActiveRecord::RecordInvalid)
       end
 
@@ -39,7 +39,7 @@ module Decidim
       it "is invalid if comment and author have different organizations" do
         author = create(:user)
         comment = create(:comment)
-        comment_vote = build(:comment_vote, comment: comment, author: author)
+        comment_vote = build(:comment_vote, comment:, author:)
         expect(comment_vote).to be_invalid
       end
     end

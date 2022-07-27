@@ -1,13 +1,13 @@
 # frozen_string_literal: true
 
 shared_examples "manage assembly admins examples" do
-  let(:other_user) { create :user, organization: organization, email: "my_email@example.org" }
+  let(:other_user) { create :user, organization:, email: "my_email@example.org" }
 
   let!(:assembly_admin) do
     create :assembly_admin,
            :confirmed,
-           organization: organization,
-           assembly: assembly
+           organization:,
+           assembly:
   end
 
   before do
@@ -43,7 +43,7 @@ shared_examples "manage assembly admins examples" do
 
   describe "when managing different users" do
     before do
-      create(:assembly_user_role, assembly: assembly, user: other_user)
+      create(:assembly_user_role, assembly:, user: other_user)
       visit current_path
     end
 

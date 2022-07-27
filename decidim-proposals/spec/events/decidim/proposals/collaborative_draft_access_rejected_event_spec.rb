@@ -21,7 +21,7 @@ describe Decidim::Proposals::CollaborativeDraftAccessRejectedEvent do
   let(:requester_name) { requester.name }
   let(:requester_nickname) { requester_presenter.nickname }
   let(:requester_path) { requester_presenter.profile_path }
-  let(:extra) { { requester_id: requester_id } }
+  let(:extra) { { requester_id: } }
 
   context "when the notification is for coauthor users" do
     it_behaves_like "a simple event"

@@ -23,7 +23,7 @@ module Decidim
       end
 
       def create
-        @form = form(RegistrationForm).from_params(params[:user].merge(current_locale: current_locale))
+        @form = form(RegistrationForm).from_params(params[:user].merge(current_locale:))
 
         CreateRegistration.call(@form) do
           on(:ok) do |user|

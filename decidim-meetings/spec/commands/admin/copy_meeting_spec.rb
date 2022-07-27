@@ -17,7 +17,7 @@ module Decidim::Meetings
     let(:private_meeting) { false }
     let(:transparent) { true }
     let(:services) do
-      build_list(:service, 2, meeting: meeting)
+      build_list(:service, 2, meeting:)
     end
     let(:services_to_persist) do
       services.map { |service| Admin::MeetingServiceForm.from_params(service.attributes) }
@@ -30,15 +30,15 @@ module Decidim::Meetings
         description: { en: "description" },
         location: { en: "location" },
         location_hints: { en: "location hints" },
-        start_time: start_time,
+        start_time:,
         end_time: 1.day.from_now + 1.hour,
-        address: address,
-        latitude: latitude,
-        longitude: longitude,
+        address:,
+        latitude:,
+        longitude:,
         scope: meeting.scope,
         category: meeting.category,
-        services_to_persist: services_to_persist,
-        current_user: current_user,
+        services_to_persist:,
+        current_user:,
         questionnaire: Decidim::Forms::Questionnaire.new,
         private_meeting: meeting.private_meeting,
         transparent: meeting.transparent,

@@ -9,7 +9,7 @@ module Decidim
         subject { described_class.from_params(attributes).with_context(current_organization: organization) }
 
         let(:organization) { create :organization }
-        let(:participatory_processes) { create_list :participatory_process, 3, organization: organization }
+        let(:participatory_processes) { create_list :participatory_process, 3, organization: }
         let(:title) do
           {
             en: "Title",

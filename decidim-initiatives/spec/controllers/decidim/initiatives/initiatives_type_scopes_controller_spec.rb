@@ -9,12 +9,12 @@ module Decidim
 
       let(:organization) { create(:organization) }
       let(:initiative_type) do
-        type = create(:initiatives_type, organization: organization)
+        type = create(:initiatives_type, organization:)
 
         3.times do
           InitiativesTypeScope.create(
-            type: type,
-            scope: create(:scope, organization: organization),
+            type:,
+            scope: create(:scope, organization:),
             supports_required: 1000
           )
         end
@@ -23,12 +23,12 @@ module Decidim
       end
 
       let(:other_initiative_type) do
-        type = create(:initiatives_type, organization: organization)
+        type = create(:initiatives_type, organization:)
 
         3.times do
           InitiativesTypeScope.create(
-            type: type,
-            scope: create(:scope, organization: organization),
+            type:,
+            scope: create(:scope, organization:),
             supports_required: 1000
           )
         end

@@ -7,10 +7,10 @@ describe "Upcoming meeting for card view hook", type: :system do
     let(:participatory_space) { assembly }
   end
 
-  let(:assembly) { create :assembly, organization: organization }
+  let(:assembly) { create :assembly, organization: }
   let(:manifest_name) { "meetings" }
   let!(:past_meeting) do
-    create(:meeting, :published, :past, component: component)
+    create(:meeting, :published, :past, component:)
   end
 
   context "when there are only past meetings" do
@@ -26,10 +26,10 @@ describe "Upcoming meeting for card view hook", type: :system do
   context "when there are some upcoming meetings" do
     let(:start_time) { Time.zone.local(2099, 5, 31, 12, 34) }
     let!(:upcoming_meeting1) do
-      create(:meeting, :published, :upcoming, start_time: start_time, end_time: start_time + 1.hour, component: component)
+      create(:meeting, :published, :upcoming, start_time:, end_time: start_time + 1.hour, component:)
     end
     let!(:upcoming_meeting2) do
-      create(:meeting, :published, :upcoming, start_time: start_time + 1.year, end_time: start_time + 1.year + 1.hour, component: component)
+      create(:meeting, :published, :upcoming, start_time: start_time + 1.year, end_time: start_time + 1.year + 1.hour, component:)
     end
 
     it "shows the next upcoming meeting" do

@@ -6,7 +6,7 @@ describe "Admin manages meetings registration forms", type: :system do
   let(:manifest_name) { "meetings" }
 
   let!(:questionnaire) { create(:questionnaire) }
-  let!(:meeting) { create :meeting, scope: scope, component: current_component, questionnaire: questionnaire, registrations_enabled: true, registration_form_enabled: true }
+  let!(:meeting) { create :meeting, scope:, component: current_component, questionnaire:, registrations_enabled: true, registration_form_enabled: true }
 
   include_context "when managing a component as an admin"
 

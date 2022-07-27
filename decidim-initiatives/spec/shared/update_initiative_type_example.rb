@@ -10,7 +10,7 @@ shared_examples "update an initiative type" do
            :undo_online_signatures_enabled,
            :custom_signature_end_date_disabled,
            :area_disabled,
-           organization: organization)
+           organization:)
   end
   let(:form) do
     form_klass.from_params(
@@ -88,7 +88,7 @@ shared_examples "update an initiative type" do
       end
 
       it "propagates signature type to created initiatives" do
-        initiative = create(:initiative, :created, organization: organization, scoped_type: scope, signature_type: "online")
+        initiative = create(:initiative, :created, organization:, scoped_type: scope, signature_type: "online")
 
         command.call
         initiative.reload
@@ -97,7 +97,7 @@ shared_examples "update an initiative type" do
       end
 
       it "doesn't propagate signature type to non-created initiatives" do
-        initiative = create(:initiative, :published, organization: organization, scoped_type: scope, signature_type: "online")
+        initiative = create(:initiative, :published, organization:, scoped_type: scope, signature_type: "online")
 
         command.call
         initiative.reload

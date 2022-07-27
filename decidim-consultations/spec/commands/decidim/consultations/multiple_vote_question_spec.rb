@@ -8,12 +8,12 @@ module Decidim
       subject { described_class.new(form, user) }
 
       let(:organization) { create :organization }
-      let(:consultation) { create :consultation, organization: organization }
-      let(:question) { create :question, :multiple, consultation: consultation }
-      let(:user) { create :user, organization: organization }
-      let(:response1) { create :response, question: question }
-      let(:response2) { create :response, question: question }
-      let(:response3) { create :response, question: question }
+      let(:consultation) { create :consultation, organization: }
+      let(:question) { create :question, :multiple, consultation: }
+      let(:user) { create :user, organization: }
+      let(:response1) { create :response, question: }
+      let(:response2) { create :response, question: }
+      let(:response3) { create :response, question: }
       let(:responses) { [response1.id, response2.id, response3.id] }
       let(:form) do
         MultiVoteForm
@@ -22,7 +22,7 @@ module Decidim
       end
       let(:attributes) do
         {
-          responses: responses
+          responses:
         }
       end
 
@@ -78,7 +78,7 @@ module Decidim
       end
 
       context "when user tries to vote more than maximum" do
-        let!(:vote) { create :vote, author: user, question: question }
+        let!(:vote) { create :vote, author: user, question: }
 
         it "broadcasts invalid" do
           expect { subject.call }.to broadcast(:invalid)

@@ -18,8 +18,8 @@ shared_context "when it's a comment event" do
   let(:extra) { { comment_id: comment.id } }
   let(:resource_title) { decidim_html_escape(translated(resource.title)) }
   let(:user_group) do
-    user_group = create(:user_group, :verified, organization: organization, users: [comment_author])
-    comment.update!(user_group: user_group)
+    user_group = create(:user_group, :verified, organization:, users: [comment_author])
+    comment.update!(user_group:)
     user_group
   end
 end

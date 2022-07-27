@@ -10,7 +10,7 @@ shared_examples_for "categorizable interface" do
 
     context "when model has category" do
       before do
-        model.update(category: category)
+        model.update(category:)
       end
 
       it "has a category" do

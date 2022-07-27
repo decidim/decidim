@@ -31,11 +31,11 @@ module Decidim
           private
 
           def valid?
-            user.present? && dataset&.data&.present? && dataset.data_created?
+            user.present? && dataset&.data&.exists? && dataset.data_created?
           end
 
           def update_dataset_status(dataset, status, user)
-            UpdateDataset.call(dataset, { status: status }, user)
+            UpdateDataset.call(dataset, { status: }, user)
           end
         end
       end

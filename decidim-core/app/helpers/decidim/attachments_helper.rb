@@ -10,7 +10,7 @@ module Decidim
     #
     # Returns nothing.
     def attachments_for(attached_to)
-      render partial: "decidim/application/attachments", locals: { attached_to: attached_to }
+      render partial: "decidim/application/attachments", locals: { attached_to: }
     end
 
     # Renders the attachment's title.

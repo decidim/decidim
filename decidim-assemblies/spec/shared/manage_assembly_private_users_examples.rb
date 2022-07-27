@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
 shared_examples "manage assembly private users examples" do
-  let(:other_user) { create :user, organization: organization, email: "my_email@example.org" }
+  let(:other_user) { create :user, organization:, email: "my_email@example.org" }
 
-  let!(:assembly_private_user) { create :assembly_private_user, user: user, privatable_to: assembly }
+  let!(:assembly_private_user) { create :assembly_private_user, user:, privatable_to: assembly }
 
   before do
     switch_to_host(organization.host)

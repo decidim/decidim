@@ -5,15 +5,15 @@ require "spec_helper"
 describe "FixBlockedUserNamesInActionLog", type: :migration do
   let(:organization) { create(:organization) }
   let(:admin) { create(:user, :admin, :confirmed) }
-  let(:users) { create_list(:user, 4, :blocked, organization: organization) }
+  let(:users) { create_list(:user, 4, :blocked, organization:) }
 
   let(:user_logs_extra) { {} }
-  let!(:dummy_logs) { create_list(:action_log, 10, organization: organization) }
+  let!(:dummy_logs) { create_list(:action_log, 10, organization:) }
   let!(:user_logs) do
     users.map do |u|
       create(
         :action_log,
-        organization: organization,
+        organization:,
         resource: u,
         resource_type: u.class.name,
         action: "block",

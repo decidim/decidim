@@ -23,13 +23,13 @@ module Decidim
 
           def new
             enforce_permission_to :create, :attachment, attached_to: attached_to
-            @form = form(::Decidim::Admin::AttachmentForm).from_params({}, attached_to: attached_to)
+            @form = form(::Decidim::Admin::AttachmentForm).from_params({}, attached_to:)
             render template: "decidim/admin/attachments/new"
           end
 
           def create
             enforce_permission_to :create, :attachment, attached_to: attached_to
-            @form = form(::Decidim::Admin::AttachmentForm).from_params(params, attached_to: attached_to)
+            @form = form(::Decidim::Admin::AttachmentForm).from_params(params, attached_to:)
 
             CreateAttachment.call(@form, attached_to, current_user) do
               on(:ok) do
@@ -47,14 +47,14 @@ module Decidim
           def edit
             @attachment = collection.find(params[:id])
             enforce_permission_to :update, :attachment, attachment: attachment
-            @form = form(::Decidim::Admin::AttachmentForm).from_model(@attachment, attached_to: attached_to)
+            @form = form(::Decidim::Admin::AttachmentForm).from_model(@attachment, attached_to:)
             render template: "decidim/admin/attachments/edit"
           end
 
           def update
             @attachment = collection.find(params[:id])
             enforce_permission_to :update, :attachment, attachment: attachment
-            @form = form(::Decidim::Admin::AttachmentForm).from_params(attachment_params, attached_to: attached_to)
+            @form = form(::Decidim::Admin::AttachmentForm).from_params(attachment_params, attached_to:)
 
             UpdateAttachment.call(@attachment, @form, current_user) do
               on(:ok) do
