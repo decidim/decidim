@@ -38,7 +38,7 @@ module Decidim
         filter,
         namespace: filter_form_namespace,
         builder: FormBuilder,
-        url: url,
+        url:,
         as: :filter,
         method: :get,
         remote: true,

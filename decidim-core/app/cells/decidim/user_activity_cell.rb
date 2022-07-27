@@ -27,7 +27,7 @@ module Decidim
         {
           name: resource_type,
           translation: I18n.t(resource_type.split("::").last.underscore, scope: "decidim.components.component_order_selector.order"),
-          filter: { resource_type: resource_type }
+          filter: { resource_type: }
         }
       end
     end
