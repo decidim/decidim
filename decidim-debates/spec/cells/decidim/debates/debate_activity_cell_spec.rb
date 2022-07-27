@@ -26,6 +26,19 @@ module Decidim
           expect(html).to have_css("#action-#{action_log.id} .card__content")
         end
 
+        context "when the description contains hashtags" do
+          let(:component) { create(:debates_component) }
+          let(:description) do
+            Decidim::ContentProcessor.parse_with_processor(:hashtag, "Description #description", current_organization: component.organization).rewrite
+          end
+          let!(:debate) { create(:debate, component:, description: { en: description }) }
+
+          it "renders the hashtags correctly" do
+            html = cell("decidim/debates/debate_activity", action_log).call
+            expect(html).to have_content("Description #description")
+          end
+        end
+
         context "when action is update" do
           let(:action) { :update }
 

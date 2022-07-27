@@ -20,7 +20,15 @@ module Decidim
       end
 
       def resource_link_text
-        Decidim::Meetings::MeetingPresenter.new(resource).title
+        presenter.title
+      end
+
+      def description
+        strip_tags(presenter.description(links: true))
+      end
+
+      def presenter
+        @presenter ||= Decidim::Meetings::MeetingPresenter.new(resource)
       end
     end
   end
