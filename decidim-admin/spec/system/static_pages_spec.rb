@@ -33,7 +33,7 @@ describe "Content pages", type: :system do
             "a[href=\"#{decidim.page_path(decidim_page)}\"]",
             text: topic_title
           )
-          within("details", text: topic_title) do
+          within("div[data-component='accordion']", text: topic_title) do
             find("svg", match: :first).click
             expect(page).to have_css(
               "a[href=\"#{decidim.page_path(decidim_page)}\"]",
