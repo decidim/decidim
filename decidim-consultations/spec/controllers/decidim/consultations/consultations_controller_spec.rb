@@ -6,7 +6,7 @@ describe Decidim::Consultations::ConsultationsController, type: :controller do
   routes { Decidim::Consultations::Engine.routes }
 
   let(:organization) { create(:organization) }
-  let(:consultation) { create(:consultation, organization: organization) }
+  let(:consultation) { create(:consultation, organization:) }
 
   before do
     request.env["decidim.current_organization"] = organization

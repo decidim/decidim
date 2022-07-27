@@ -14,8 +14,8 @@ module Decidim
       context "when resource is inside a participatory space" do
         let!(:resource) do
           Decidim::DummyResources::DummyResource.new(
-            scope: scope,
-            component: component,
+            scope:,
+            component:,
             title: { en: "The resource title" },
             address: "The resource address.",
             published_at: Time.current
@@ -133,7 +133,7 @@ module Decidim
         let!(:resource) do
           Decidim::User.new(
             name: user_name,
-            organization: organization
+            organization:
           )
         end
 

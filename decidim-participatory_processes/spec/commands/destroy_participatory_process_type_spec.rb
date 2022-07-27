@@ -7,7 +7,7 @@ module Decidim::ParticipatoryProcesses
     subject { described_class.new(process_type, user) }
 
     let(:organization) { create(:organization) }
-    let(:process_type) { create(:participatory_process_type, organization: organization) }
+    let(:process_type) { create(:participatory_process_type, organization:) }
     let(:user) { create(:user, :admin, :confirmed) }
 
     context "when everything is ok" do

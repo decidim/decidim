@@ -19,10 +19,10 @@ module Decidim::Meetings
     let(:user_id) { nil }
     let(:attributes) do
       {
-        name: name,
-        email: email,
-        existing_user: existing_user,
-        user_id: user_id
+        name:,
+        email:,
+        existing_user:,
+        user_id:
       }
     end
 
@@ -50,7 +50,7 @@ module Decidim::Meetings
       end
 
       context "and user exists" do
-        let(:user_id) { create(:user, organization: organization).id }
+        let(:user_id) { create(:user, organization:).id }
 
         it { is_expected.to be_valid }
       end
@@ -65,7 +65,7 @@ module Decidim::Meetings
         subject { form.user }
 
         context "when the user exists" do
-          let(:user_id) { create(:user, organization: organization).id }
+          let(:user_id) { create(:user, organization:).id }
 
           it { is_expected.to be_kind_of(Decidim::User) }
         end

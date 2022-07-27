@@ -18,7 +18,7 @@ module Decidim
         @author = @reportable.try(:creator_identity) || @reportable.try(:author)
         @original_language = original_language(@reportable)
         subject = I18n.t("report.subject", scope: "decidim.reported_mailer")
-        mail(to: user.email, subject: subject)
+        mail(to: user.email, subject:)
       end
     end
 
@@ -29,7 +29,7 @@ module Decidim
         @organization = user.organization
         @user = user
         subject = I18n.t("hide.subject", scope: "decidim.reported_mailer")
-        mail(to: user.email, subject: subject)
+        mail(to: user.email, subject:)
       end
     end
 

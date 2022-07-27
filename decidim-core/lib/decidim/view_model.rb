@@ -31,14 +31,14 @@ module Decidim
 
     def call(*)
       identifier = self.class.name.sub(/Cell$/, "").underscore
-      instrument(:cell, identifier: identifier) do |_payload|
+      instrument(:cell, identifier:) do |_payload|
         super
       end
     end
 
     private
 
-    def render_template(template, options, &block)
+    def render_template(template, options, &)
       ActiveSupport::Notifications.instrument(
         "render_template.action_view",
         identifier: template.file,

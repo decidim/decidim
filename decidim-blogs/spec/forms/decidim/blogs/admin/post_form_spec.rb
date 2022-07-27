@@ -8,8 +8,8 @@ module Decidim
       describe PostForm do
         subject do
           described_class.from_params(attributes).with_context(
-            current_organization: current_organization,
-            current_user: current_user
+            current_organization:,
+            current_user:
           )
         end
 
@@ -19,7 +19,7 @@ module Decidim
         let(:user_group) { create(:user_group, :verified, organization: current_organization) }
         let(:decidim_author_id) { "" }
         let(:component) { create(:post_component, organization: current_organization) }
-        let(:post) { create(:post, component: component, author: author) }
+        let(:post) { create(:post, component:, author:) }
         let(:user_from_another_org) { create(:user) }
         let(:post_id) { nil }
 
@@ -119,8 +119,8 @@ module Decidim
         describe "when assigns a model" do
           subject do
             described_class.from_model(post).with_context(
-              current_organization: current_organization,
-              current_user: current_user
+              current_organization:,
+              current_user:
             )
           end
 

@@ -42,15 +42,15 @@ module Decidim
           supports: proposal.proposal_votes_count,
           endorsements: {
             total_count: proposal.endorsements.size,
-            user_endorsements: user_endorsements
+            user_endorsements:
           },
           comments: proposal.comments_count,
           attachments: proposal.attachments.size,
           followers: proposal.follows.size,
           published_at: proposal.published_at,
-          url: url,
+          url:,
           meeting_urls: meetings,
-          related_proposals: related_proposals,
+          related_proposals:,
           is_amend: proposal.emendation?,
           original_proposal: {
             title: proposal&.amendable&.title,

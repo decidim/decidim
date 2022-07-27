@@ -6,7 +6,7 @@ describe Decidim::Conferences::Admin::SendConferenceDiplomaJob do
   subject { described_class }
 
   let(:conference) { create(:conference) }
-  let(:conference_registration) { create(:conference_registration, :confirmed, conference: conference) }
+  let(:conference_registration) { create(:conference_registration, :confirmed, conference:) }
 
   describe "queue" do
     it "is queued to events" do

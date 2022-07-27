@@ -9,8 +9,8 @@ describe "User edits a debate", type: :system do
   let!(:debate) do
     create(
       :debate,
-      author: author,
-      component: component,
+      author:,
+      component:,
       skip_injection: true
     )
   end
@@ -24,10 +24,10 @@ describe "User edits a debate", type: :system do
   end
 
   context "when editing my debate" do
-    let(:user) { create :user, :confirmed, organization: organization }
+    let(:user) { create :user, :confirmed, organization: }
     let(:author) { user }
-    let!(:scope) { create(:scope, organization: organization) }
-    let!(:category) { create :category, participatory_space: participatory_space }
+    let!(:scope) { create(:scope, organization:) }
+    let!(:category) { create :category, participatory_space: }
     let(:scope_picker) { select_data_picker(:debate_scope_id) }
 
     it "allows editing my debate", :slow do
@@ -55,13 +55,13 @@ describe "User edits a debate", type: :system do
 
     context "when editing as a user group" do
       let(:author) { user }
-      let!(:user_group) { create :user_group, :verified, organization: organization, users: [user] }
+      let!(:user_group) { create :user_group, :verified, organization:, users: [user] }
       let!(:debate) do
         create(
           :debate,
-          author: author,
-          user_group: user_group,
-          component: component,
+          author:,
+          user_group:,
+          component:,
           skip_injection: true
         )
       end

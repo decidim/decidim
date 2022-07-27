@@ -159,7 +159,7 @@ module Decidim
         context "when slug is not unique" do
           context "when in the same organization" do
             before do
-              create(:conference, slug: slug, organization: organization)
+              create(:conference, slug:, organization:)
             end
 
             it "is not valid" do
@@ -170,7 +170,7 @@ module Decidim
 
           context "when in another organization" do
             before do
-              create(:conference, slug: slug)
+              create(:conference, slug:)
             end
 
             it "is valid" do

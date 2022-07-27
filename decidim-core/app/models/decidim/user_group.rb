@@ -192,7 +192,7 @@ module Decidim
       is_repeated = self
                     .class
                     .with_document_number(organization, document_number)
-                    .where.not(id: id)
+                    .where.not(id:)
                     .any?
 
       errors.add(:document_number, :taken) if is_repeated

@@ -46,7 +46,7 @@ module Decidim
         affected_users = mentioned_users - already_notified_users
         @already_notified_users += affected_users
 
-        notify(:user_mentioned, affected_users: affected_users)
+        notify(:user_mentioned, affected_users:)
       end
 
       def notify_mentioned_groups
@@ -56,7 +56,7 @@ module Decidim
           affected_users = group.accepted_users - already_notified_users
           @already_notified_users += affected_users
 
-          notify(:user_group_mentioned, affected_users: affected_users, extra: { group_id: group.id })
+          notify(:user_group_mentioned, affected_users:, extra: { group_id: group.id })
         end
       end
 
@@ -68,14 +68,14 @@ module Decidim
         affected_users = [comment.commentable.author] - already_notified_users
         @already_notified_users += affected_users
 
-        notify(:reply_created, affected_users: affected_users)
+        notify(:reply_created, affected_users:)
       end
 
       def notify_author_followers
         followers = comment.author.followers - already_notified_users
         @already_notified_users += followers
 
-        notify(:comment_by_followed_user, followers: followers)
+        notify(:comment_by_followed_user, followers:)
       end
 
       def notify_user_group_followers
@@ -84,7 +84,7 @@ module Decidim
         followers = comment.user_group.followers - already_notified_users
         @already_notified_users += followers
 
-        notify(:comment_by_followed_user_group, followers: followers)
+        notify(:comment_by_followed_user_group, followers:)
       end
 
       # Notifies the users the `comment.commentable` resource implements as necessary.
@@ -92,7 +92,7 @@ module Decidim
         followers = comment.commentable.users_to_notify_on_comment_created - already_notified_users
         @already_notified_users += followers
 
-        notify(:comment_created, followers: followers)
+        notify(:comment_created, followers:)
       end
 
       # Creates the notifications for the given user IDS and the given event.
@@ -110,7 +110,7 @@ module Decidim
         event_class = "Decidim::Comments::#{event.to_s.camelcase}Event".constantize
         data = {
           event: "decidim.events.comments.#{event}",
-          event_class: event_class,
+          event_class:,
           resource: comment.root_commentable,
           extra: {
             comment_id: comment.id

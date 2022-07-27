@@ -18,7 +18,7 @@ shared_context "when performing the whole process" do
       Decidim::Dev.asset("private_key3.jwk")
     ]
   end
-  let(:election) { create :election, :ready_for_setup, trustee_keys: trustee_keys, component: current_component }
+  let(:election) { create :election, :ready_for_setup, trustee_keys:, component: current_component }
 end
 
 module Decidim

@@ -4,9 +4,9 @@ require "spec_helper"
 
 describe "Multiple Answers Question", type: :system do
   let(:organization) { create(:organization) }
-  let(:consultation) { create(:consultation, :active, organization: organization) }
-  let(:question) { create :question, :multiple, :published, consultation: consultation }
-  let(:user) { create :user, :confirmed, organization: organization }
+  let(:consultation) { create(:consultation, :active, organization:) }
+  let(:question) { create :question, :multiple, :published, consultation: }
+  let(:user) { create :user, :confirmed, organization: }
 
   context "and guest user" do
     before do
@@ -52,10 +52,10 @@ describe "Multiple Answers Question", type: :system do
     end
 
     context "when voting" do
-      let!(:response1) { create :response, question: question }
-      let!(:response2) { create :response, question: question }
-      let!(:response3) { create :response, question: question }
-      let!(:response4) { create :response, question: question }
+      let!(:response1) { create :response, question: }
+      let!(:response2) { create :response, question: }
+      let!(:response3) { create :response, question: }
+      let!(:response4) { create :response, question: }
 
       before do
         switch_to_host(organization.host)
@@ -108,13 +108,13 @@ describe "Multiple Answers Question", type: :system do
     end
 
     context "and voted before" do
-      let!(:response1) { create :response, question: question }
-      let!(:response2) { create :response, question: question }
+      let!(:response1) { create :response, question: }
+      let!(:response2) { create :response, question: }
       let!(:vote1) do
-        create :vote, author: user, question: question, response: response1
+        create :vote, author: user, question:, response: response1
       end
       let!(:vote2) do
-        create :vote, author: user, question: question, response: response2
+        create :vote, author: user, question:, response: response2
       end
 
       before do

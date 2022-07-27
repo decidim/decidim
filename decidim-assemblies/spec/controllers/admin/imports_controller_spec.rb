@@ -9,7 +9,7 @@ module Decidim
         routes { Decidim::Assemblies::AdminEngine.routes }
 
         it_behaves_like "admin imports controller" do
-          let!(:participatory_space) { create :assembly, organization: organization }
+          let!(:participatory_space) { create :assembly, organization: }
           let(:extra_params) { { assembly_slug: participatory_space.slug } }
           let(:file) { upload_test_file(Decidim::Dev.test_file("import_proposals.csv", "text/csv")) }
         end

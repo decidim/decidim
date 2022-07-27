@@ -44,7 +44,7 @@ module Decidim
 
       context "when code is not unique" do
         before do
-          create(:scope, organization: organization, code: code)
+          create(:scope, organization:, code:)
         end
 
         it "is not valid" do
@@ -55,7 +55,7 @@ module Decidim
 
       context "when the code exists in another organization" do
         before do
-          create(:scope, code: code)
+          create(:scope, code:)
         end
 
         it { is_expected.to be_valid }

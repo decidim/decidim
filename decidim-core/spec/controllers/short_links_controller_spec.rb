@@ -7,7 +7,7 @@ module Decidim
     routes { Decidim::Core::Engine.routes }
 
     let(:organization) { create(:organization) }
-    let(:component) { create(:component, organization: organization) }
+    let(:component) { create(:component, organization:) }
 
     before do
       request.env["decidim.current_organization"] = organization
@@ -36,7 +36,7 @@ module Decidim
         let(:params) { { id: "thI5Do3SNotEx1st" } }
 
         it "returns a 404" do
-          expect { get :show, params: params }.to raise_error(ActionController::RoutingError)
+          expect { get :show, params: }.to raise_error(ActionController::RoutingError)
         end
       end
     end

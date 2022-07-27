@@ -60,7 +60,7 @@ module Decidim
 
     def open_7z_and_extract_zip(file_path)
       File.open(file_path, "rb") do |file|
-        SevenZipRuby::Reader.open_file(file, password: password) do |szr|
+        SevenZipRuby::Reader.open_file(file, password:) do |szr|
           szr.extract(:all, tmp_dir_out)
         end
       end

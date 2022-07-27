@@ -47,7 +47,7 @@ describe "Admin manages area types", type: :system do
   end
 
   context "with existing area_types" do
-    let!(:area_type) { create(:area_type, organization: organization) }
+    let!(:area_type) { create(:area_type, organization:) }
 
     before do
       visit current_path

@@ -7,12 +7,12 @@ module Decidim
     routes { Decidim::Core::Engine.routes }
 
     let(:organization) { create(:organization) }
-    let(:user) { create :user, :confirmed, organization: organization }
-    let(:another_user) { create :user, :confirmed, organization: organization }
-    let(:user_group) { create :user_group, :confirmed, organization: organization, users: [user, another_user] }
-    let(:another_group) { create :user_group, :confirmed, organization: organization, users: [another_user] }
-    let!(:another_group_member) { create(:user_group_membership, user: user, user_group: another_group, role: :member) }
-    let(:external_user) { create :user, :confirmed, organization: organization }
+    let(:user) { create :user, :confirmed, organization: }
+    let(:another_user) { create :user, :confirmed, organization: }
+    let(:user_group) { create :user_group, :confirmed, organization:, users: [user, another_user] }
+    let(:another_group) { create :user_group, :confirmed, organization:, users: [another_user] }
+    let!(:another_group_member) { create(:user_group_membership, user:, user_group: another_group, role: :member) }
+    let(:external_user) { create :user, :confirmed, organization: }
 
     let(:conversation) do
       Messaging::Conversation.start!(
@@ -111,7 +111,7 @@ module Decidim
 
         it "does not create a conversation" do
           expect do
-            post :create, params: params
+            post :create, params:
           end.not_to change(Messaging::Conversation, :count)
 
           expect(flash[:alert]).not_to be_empty
@@ -126,7 +126,7 @@ module Decidim
 
         it "does not create a conversation" do
           expect do
-            post :create, params: params
+            post :create, params:
           end.to change(Messaging::Conversation, :count).by(1)
 
           expect(flash[:alert]).to be_nil
@@ -146,7 +146,7 @@ module Decidim
 
           it "does not create a conversation" do
             expect do
-              post :create, params: params
+              post :create, params:
             end.not_to change(Messaging::Conversation, :count)
 
             expect(flash[:alert]).not_to be_empty

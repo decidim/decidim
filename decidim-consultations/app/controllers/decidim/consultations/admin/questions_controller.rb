@@ -21,7 +21,7 @@ module Decidim
 
         def create
           enforce_permission_to :create, :question
-          @form = question_form.from_params(params, current_consultation: current_consultation)
+          @form = question_form.from_params(params, current_consultation:)
 
           CreateQuestion.call(@form) do
             on(:ok) do
@@ -38,7 +38,7 @@ module Decidim
 
         def edit
           enforce_permission_to :update, :question, question: current_question
-          @form = question_form.from_model(current_question, current_consultation: current_consultation)
+          @form = question_form.from_model(current_question, current_consultation:)
           render layout: "decidim/admin/question"
         end
 
@@ -46,7 +46,7 @@ module Decidim
           enforce_permission_to :update, :question, question: current_question
 
           @form = question_form
-                  .from_params(params, question_id: current_question.id, current_consultation: current_consultation)
+                  .from_params(params, question_id: current_question.id, current_consultation:)
 
           UpdateQuestion.call(current_question, @form) do
             on(:ok) do |question|

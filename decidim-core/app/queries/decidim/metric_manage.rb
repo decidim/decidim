@@ -31,7 +31,7 @@ module Decidim
       return if cumulative.zero? && %w(blocked_users reported_users user_reports).exclude?(@metric_name)
 
       @registry = Decidim::Metric.find_or_initialize_by(day: @day.to_s, metric_type: @metric_name, organization: @organization)
-      @registry.assign_attributes(cumulative: cumulative, quantity: quantity)
+      @registry.assign_attributes(cumulative:, quantity:)
       @registry.save!
       @registry
     end

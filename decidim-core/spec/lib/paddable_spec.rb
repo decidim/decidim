@@ -115,7 +115,7 @@ module Decidim
       end
 
       def secure_hash(id)
-        Decidim::Tokenizer.new(salt: salt).hex_digest(id)
+        Decidim::Tokenizer.new(salt:).hex_digest(id)
       end
     end
   end

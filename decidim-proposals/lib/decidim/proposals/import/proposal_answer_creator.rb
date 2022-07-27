@@ -44,7 +44,7 @@ module Decidim
         end
 
         def fetch_resource
-          proposal = Decidim::Proposals::Proposal.find_by(id: id)
+          proposal = Decidim::Proposals::Proposal.find_by(id:)
           return nil unless proposal
           return nil if proposal.emendation?
 

@@ -11,9 +11,9 @@ module Decidim::Accountability
     let(:start_date) { 3.days.ago }
     let(:end_date) { 3.days.from_now }
     let(:progress) { 67.0 }
-    let!(:result) { create(:result, start_date: start_date, end_date: end_date, progress: progress) }
+    let!(:result) { create(:result, start_date:, end_date:, progress:) }
     let(:model) { result }
-    let(:cell_html) { cell("decidim/accountability/result_m", result, context: { show_space: show_space }).call }
+    let(:cell_html) { cell("decidim/accountability/result_m", result, context: { show_space: }).call }
 
     it_behaves_like "has space in m-cell"
 

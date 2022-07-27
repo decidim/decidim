@@ -13,7 +13,7 @@ module Decidim::Importers
       let(:previous_participatory_space) { create(:participatory_process) }
       let!(:component1) { create(:component, :with_one_step, :published, :with_permissions, weight: 1) }
       let!(:participatory_space) { component1.participatory_space }
-      let!(:component2) { create(:component, :with_one_step, :unpublished, :with_permissions, participatory_space: participatory_space, weight: 2) }
+      let!(:component2) { create(:component, :with_one_step, :unpublished, :with_permissions, participatory_space:, weight: 2) }
 
       let(:json_as_text) do
         <<~EOJSON

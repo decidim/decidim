@@ -70,7 +70,7 @@ module Decidim
         let(:results) { create_list(:result, 2) }
 
         before do
-          model.update(results: results)
+          model.update(results:)
         end
 
         describe "results" do

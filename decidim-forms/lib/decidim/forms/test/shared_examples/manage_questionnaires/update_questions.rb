@@ -4,7 +4,7 @@ require "spec_helper"
 
 shared_examples_for "update questions" do
   context "when a questionnaire has an existing question" do
-    let!(:question) { create(:questionnaire_question, questionnaire: questionnaire, body: body) }
+    let!(:question) { create(:questionnaire_question, questionnaire:, body:) }
 
     before do
       visit questionnaire_edit_path
@@ -119,7 +119,7 @@ shared_examples_for "update questions" do
   end
 
   context "when a questionnaire has a title and description" do
-    let!(:question) { create(:questionnaire_question, :title_and_description, questionnaire: questionnaire, body: title_and_description_body) }
+    let!(:question) { create(:questionnaire_question, :title_and_description, questionnaire:, body: title_and_description_body) }
 
     before do
       visit questionnaire_edit_path
@@ -220,8 +220,8 @@ shared_examples_for "update questions" do
     let!(:question) do
       create(
         :questionnaire_question,
-        questionnaire: questionnaire,
-        body: body,
+        questionnaire:,
+        body:,
         question_type: "single_option",
         options: [
           { "body" => { "en" => "cacatua" } },
@@ -278,12 +278,12 @@ shared_examples_for "update questions" do
   end
 
   context "when a questionnaire has an existing question with matrix rows" do
-    let!(:other_question) { create(:questionnaire_question, questionnaire: questionnaire, position: 1) }
+    let!(:other_question) { create(:questionnaire_question, questionnaire:, position: 1) }
     let!(:question) do
       create(
         :questionnaire_question,
-        questionnaire: questionnaire,
-        body: body,
+        questionnaire:,
+        body:,
         question_type: "matrix_single",
         position: 2,
         options: [
@@ -345,11 +345,11 @@ shared_examples_for "update questions" do
 
   context "when a questionnaire has multiple existing questions" do
     let!(:question1) do
-      create(:questionnaire_question, questionnaire: questionnaire, body: first_body, position: 0)
+      create(:questionnaire_question, questionnaire:, body: first_body, position: 0)
     end
 
     let!(:question2) do
-      create(:questionnaire_question, questionnaire: questionnaire, body: second_body, position: 1)
+      create(:questionnaire_question, questionnaire:, body: second_body, position: 1)
     end
 
     let(:first_body) do

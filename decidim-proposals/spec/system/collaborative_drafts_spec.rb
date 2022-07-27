@@ -8,16 +8,16 @@ describe "Explore Collaborative Drafts", versioning: true, type: :system do
   include_context "with a component"
 
   let(:manifest_name) { "proposals" }
-  let!(:scope) { create :scope, organization: organization }
-  let!(:author) { create :user, :confirmed, organization: organization }
-  let!(:user) { create :user, :confirmed, organization: organization }
-  let(:participatory_process) { create(:participatory_process, :with_steps, organization: organization) }
+  let!(:scope) { create :scope, organization: }
+  let!(:author) { create :user, :confirmed, organization: }
+  let!(:user) { create :user, :confirmed, organization: }
+  let(:participatory_process) { create(:participatory_process, :with_steps, organization:) }
   let!(:component) do
     create(:proposal_component,
            :with_creation_enabled,
-           manifest: manifest,
+           manifest:,
            participatory_space: participatory_process,
-           organization: organization,
+           organization:,
            settings: {
              collaborative_drafts_enabled: true,
              scopes_enabled: true,
@@ -27,15 +27,15 @@ describe "Explore Collaborative Drafts", versioning: true, type: :system do
   let!(:category) { create :category, participatory_space: participatory_process }
   let!(:category2) { create :category, participatory_space: participatory_process }
   let!(:category3) { create :category, participatory_space: participatory_process }
-  let!(:collaborative_draft) { create(:collaborative_draft, :open, component: component, category: category, scope: scope, users: [author]) }
-  let!(:collaborative_draft_no_tags) { create(:collaborative_draft, :open, component: component) }
+  let!(:collaborative_draft) { create(:collaborative_draft, :open, component:, category:, scope:, users: [author]) }
+  let!(:collaborative_draft_no_tags) { create(:collaborative_draft, :open, component:) }
 
-  let!(:open_collaborative_draft) { create(:collaborative_draft, :open, component: component, category: category) }
-  let!(:withdrawn_collaborative_draft) { create(:collaborative_draft, :withdrawn, component: component, category: category2) }
-  let!(:published_collaborative_draft) { create(:collaborative_draft, :published, component: component, category: category3) }
+  let!(:open_collaborative_draft) { create(:collaborative_draft, :open, component:, category:) }
+  let!(:withdrawn_collaborative_draft) { create(:collaborative_draft, :withdrawn, component:, category: category2) }
+  let!(:published_collaborative_draft) { create(:collaborative_draft, :published, component:, category: category3) }
 
   let(:request_access_form) { Decidim::Proposals::RequestAccessToCollaborativeDraftForm.from_params(state: collaborative_draft.state, id: collaborative_draft.id) }
-  let!(:other_user) { create :user, :confirmed, organization: organization }
+  let!(:other_user) { create :user, :confirmed, organization: }
   let(:request_access_from_other_user) { Decidim::Proposals::RequestAccessToCollaborativeDraft.new(request_access_form, other_user) }
 
   context "with collaborative drafts enabled" do
@@ -55,7 +55,7 @@ describe "Explore Collaborative Drafts", versioning: true, type: :system do
       end
 
       it "renders links to each collaborative draft details" do
-        collaborative_drafts_count = Decidim::Proposals::CollaborativeDraft.open.where(component: component).count
+        collaborative_drafts_count = Decidim::Proposals::CollaborativeDraft.open.where(component:).count
         expect(page).to have_css(".card.card--collaborative_draft.success", count: collaborative_drafts_count)
         expect(page).to have_css(".card__button.button", count: collaborative_drafts_count)
         first ".card__support" do
@@ -105,9 +105,9 @@ describe "Explore Collaborative Drafts", versioning: true, type: :system do
         let!(:component) do
           create(:proposal_component,
                  :with_creation_enabled,
-                 manifest: manifest,
+                 manifest:,
                  participatory_space: participatory_process,
-                 organization: organization,
+                 organization:,
                  settings: {
                    collaborative_drafts_enabled: true,
                    geocoding_enabled: true,
@@ -115,7 +115,7 @@ describe "Explore Collaborative Drafts", versioning: true, type: :system do
                    scope_id: participatory_process.scope&.id
                  })
         end
-        let!(:collaborative_draft) { create(:collaborative_draft, :open, component: component, address: address, category: category, scope: scope, users: [author]) }
+        let!(:collaborative_draft) { create(:collaborative_draft, :open, component:, address:, category:, scope:, users: [author]) }
         let(:address) { "Some address" }
         let(:latitude) { 40.1234 }
         let(:longitude) { 2.1234 }
@@ -348,7 +348,7 @@ describe "Explore Collaborative Drafts", versioning: true, type: :system do
   end
 
   context "with collaborative drafts disabled" do
-    let(:component) { create(:proposal_component, manifest: manifest, participatory_space: participatory_process) }
+    let(:component) { create(:proposal_component, manifest:, participatory_space: participatory_process) }
 
     before do
       visit main_component_path(component)
