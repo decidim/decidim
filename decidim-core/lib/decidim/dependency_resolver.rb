@@ -165,7 +165,7 @@ module Decidim
         formatter = proc do |_severity, _datetime, _progname, msg|
           "#{msg}\n"
         end
-        @logger = Logger.new($stdout, formatter: formatter)
+        @logger = Logger.new($stdout, formatter:)
         logger.debug!
       end
 
@@ -187,10 +187,10 @@ module Decidim
       #   and false indicates processing is not needed.
       # @return [Bundler::LazySpecification, nil] The specification for the gem
       #   or nil when it is not found.
-      def find(dependencies, gem, &block)
+      def find(dependencies, gem, &)
         found = nil
         dependencies.each do |dependency|
-          next unless process?(dependency, &block)
+          next unless process?(dependency, &)
 
           spec = spec(dependency.name)
           next unless spec # E.g. the "bundler" gem is not in the locked gems
@@ -202,7 +202,7 @@ module Decidim
           @current_level += 1
           # Do not se the found value directly here because otherwise the
           # recursive call would not be made if the target gem is already found.
-          sub_spec = find(spec.dependencies, gem, &block)
+          sub_spec = find(spec.dependencies, gem, &)
           @current_level -= 1
           found ||= sub_spec
         end
