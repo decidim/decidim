@@ -35,7 +35,7 @@ module Decidim
 
       describe ".first_class" do
         let(:parent) { create(:agenda_item) }
-        let(:child) { create(:agenda_item, parent: parent) }
+        let(:child) { create(:agenda_item, parent:) }
 
         it "returns agenda items without a parent" do
           expect(described_class.first_class).to eq([parent])
@@ -44,7 +44,7 @@ module Decidim
 
       describe ".agenda_item_children" do
         let(:parent) { create(:agenda_item) }
-        let(:child) { create(:agenda_item, parent: parent) }
+        let(:child) { create(:agenda_item, parent:) }
 
         it "returns agenda items that have a parent" do
           expect(described_class.agenda_item_children).to eq([child])

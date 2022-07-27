@@ -9,25 +9,25 @@ describe Decidim::Debates::DebateForm do
   let(:context) do
     {
       current_organization: organization,
-      current_component: current_component,
+      current_component:,
       current_participatory_space: participatory_process
     }
   end
-  let(:participatory_process) { create :participatory_process, organization: organization }
+  let(:participatory_process) { create :participatory_process, organization: }
   let(:current_component) { create :component, participatory_space: participatory_process, manifest_name: "debates" }
   let(:title) { "My title" }
   let(:description) { "My description" }
   let(:category) { create :category, participatory_space: participatory_process }
   let(:category_id) { category.id }
-  let(:parent_scope) { create(:scope, organization: organization) }
+  let(:parent_scope) { create(:scope, organization:) }
   let(:scope) { create(:subscope, parent: parent_scope) }
   let(:scope_id) { scope.id }
   let(:attributes) do
     {
-      category_id: category_id,
-      scope_id: scope_id,
-      title: title,
-      description: description
+      category_id:,
+      scope_id:,
+      title:,
+      description:
     }
   end
 
@@ -56,7 +56,7 @@ describe Decidim::Debates::DebateForm do
   context "when a debate exists" do
     subject { described_class.from_model(debate).with_context(context.merge(current_user: user)) }
 
-    let(:debate) { create :debate, category: category, component: current_component }
+    let(:debate) { create :debate, category:, component: current_component }
 
     describe "when the user is the author" do
       let(:user) { debate.author }
@@ -65,7 +65,7 @@ describe Decidim::Debates::DebateForm do
     end
 
     describe "when the user is not the author" do
-      let(:user) { create(:user, organization: organization) }
+      let(:user) { create(:user, organization:) }
 
       it { is_expected.not_to be_valid }
     end
@@ -74,7 +74,7 @@ describe Decidim::Debates::DebateForm do
   describe "map_model" do
     subject { described_class.from_model(debate).with_context(context) }
 
-    let(:debate) { create :debate, category: category, component: current_component }
+    let(:debate) { create :debate, category:, component: current_component }
 
     it "sets the title" do
       expect(subject.title).to be_present

@@ -24,7 +24,7 @@ module Decidim
         private
 
         def slug_uniqueness
-          return unless OrganizationAssemblies.new(current_organization).query.where(slug: slug).where.not(id: id).any?
+          return unless OrganizationAssemblies.new(current_organization).query.where(slug:).where.not(id:).any?
 
           errors.add(:slug, :taken)
         end

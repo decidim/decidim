@@ -5,11 +5,11 @@ require "spec_helper"
 describe "Proposals", type: :system do
   include_context "with a component"
   let(:manifest_name) { "proposals" }
-  let!(:user) { create :user, :confirmed, organization: organization }
+  let!(:user) { create :user, :confirmed, organization: }
   let!(:component) do
     create(:proposal_component,
            :with_creation_enabled,
-           manifest: manifest,
+           manifest:,
            participatory_space: participatory_process)
   end
 
@@ -24,7 +24,7 @@ describe "Proposals", type: :system do
     end
 
     context "and draft proposal exists for current users" do
-      let!(:draft) { create(:proposal, :draft, component: component, users: [user]) }
+      let!(:draft) { create(:proposal, :draft, component:, users: [user]) }
 
       it "redirects to edit draft" do
         click_link "New proposal"

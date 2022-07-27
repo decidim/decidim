@@ -17,8 +17,8 @@ module Decidim::ParticipatoryProcesses
         cta_path: nil,
         title: { en: "new title" },
         description: { en: "new description" },
-        start_date: start_date,
-        end_date: end_date,
+        start_date:,
+        end_date:,
         invalid?: invalid
       )
     end

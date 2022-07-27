@@ -41,7 +41,7 @@ module Decidim
         StartConversation.call(@form) do
           on(:ok) do |conversation|
             render action: :create, locals: {
-              conversation: conversation,
+              conversation:,
               form: MessageForm.new
             }
           end
@@ -49,7 +49,7 @@ module Decidim
           on(:invalid) do |messages|
             render action: :error, locals: {
               error: I18n.t("messaging.conversations.create.error", scope: "decidim"),
-              messages: messages
+              messages:
             }, status: :unprocessable_entity
           end
         end
@@ -77,13 +77,13 @@ module Decidim
 
         ReplyToConversation.call(conversation, @form) do
           on(:ok) do |message|
-            render action: :update, locals: { message: message }
+            render action: :update, locals: { message: }
           end
 
           on(:invalid) do |messages|
             render action: :error, locals: {
               error: I18n.t("messaging.conversations.update.error", scope: "decidim"),
-              messages: messages
+              messages:
             }, status: :unprocessable_entity
           end
         end

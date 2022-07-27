@@ -5,10 +5,10 @@ require "spec_helper"
 describe "commented debates badge" do
   let!(:debate) { create(:debate, :open_ama) }
   let(:organization) { debate.component.organization }
-  let!(:user) { create(:user, organization: organization) }
+  let!(:user) { create(:user, organization:) }
 
   describe "commenting a debate" do
-    let!(:user2) { create(:user, organization: organization) }
+    let!(:user2) { create(:user, organization:) }
     let!(:other_comment) { create(:comment, author: user2, commentable: debate, root_commentable: debate) }
 
     context "when creating the first comment" do

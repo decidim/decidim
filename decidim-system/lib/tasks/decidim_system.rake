@@ -8,7 +8,7 @@ namespace :decidim_system do
     password = prompt("Password")
     password_confirmation = prompt("Password confirmation")
 
-    admin = Decidim::System::Admin.new(email: email, password: password, password_confirmation: password_confirmation)
+    admin = Decidim::System::Admin.new(email:, password:, password_confirmation:)
 
     if admin.valid?
       admin.save!

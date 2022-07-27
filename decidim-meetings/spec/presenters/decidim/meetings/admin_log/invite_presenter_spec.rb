@@ -7,9 +7,9 @@ module Decidim::Meetings::AdminLog
     subject { described_class.new(action_log, helper).present }
 
     let(:participatory_space) { create :participatory_process }
-    let(:component) { create :component, participatory_space: participatory_space }
+    let(:component) { create :component, participatory_space: }
     let(:invite) { create(:invite, sent_at: nil) }
-    let(:action_log) { create(:action_log, participatory_space: participatory_space, component: component, resource: invite, action: "create") }
+    let(:action_log) { create(:action_log, participatory_space:, component:, resource: invite, action: "create") }
 
     before do
       helper.class.include Decidim::TranslatableAttributes

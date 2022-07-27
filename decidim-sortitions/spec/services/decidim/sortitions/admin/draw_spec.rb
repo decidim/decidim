@@ -7,7 +7,7 @@ module Decidim
     module Admin
       describe Draw do
         let(:organization) { create(:organization) }
-        let(:participatory_process) { create(:participatory_process, organization: organization) }
+        let(:participatory_process) { create(:participatory_process, organization:) }
         let(:proposal_component) { create(:proposal_component, participatory_space: participatory_process) }
         let(:target_items) { ::Faker::Number.number(digits: 2).to_i }
         let(:seed) { Time.now.utc.to_i * ::Faker::Number.between(from: 1, to: 6).to_i }
@@ -18,8 +18,8 @@ module Decidim
         end
         let(:sortition) do
           double(
-            target_items: target_items,
-            seed: seed,
+            target_items:,
+            seed:,
             category: nil,
             request_timestamp: Time.now.utc,
             decidim_proposals_component: proposal_component

@@ -8,23 +8,23 @@ RSpec.describe "Proposal search", type: :request do
   subject { response.body }
 
   let(:component) { create :proposal_component }
-  let(:user) { create :user, :confirmed, organization: organization }
+  let(:user) { create :user, :confirmed, organization: }
   let(:participatory_space) { component.participatory_space }
   let(:organization) { participatory_space.organization }
   let(:filter_params) { {} }
 
-  let!(:proposal1) { create(:proposal, title: "A doggo", component: component) }
-  let!(:proposal2) { create(:proposal, body: "There is a doggo in the office", component: component) }
-  let!(:proposal3) { create(:proposal, component: component, users: [user]) }
-  let!(:proposal4) { create(:proposal, :withdrawn, component: component) }
-  let!(:proposal5) { create(:proposal, :rejected, component: component) }
-  let!(:proposal6) { create(:proposal, :accepted, component: component) }
-  let!(:proposal7) { create(:proposal, :accepted, component: component) }
+  let!(:proposal1) { create(:proposal, title: "A doggo", component:) }
+  let!(:proposal2) { create(:proposal, body: "There is a doggo in the office", component:) }
+  let!(:proposal3) { create(:proposal, component:, users: [user]) }
+  let!(:proposal4) { create(:proposal, :withdrawn, component:) }
+  let!(:proposal5) { create(:proposal, :rejected, component:) }
+  let!(:proposal6) { create(:proposal, :accepted, component:) }
+  let!(:proposal7) { create(:proposal, :accepted, component:) }
 
-  let(:meetings_component) { create(:component, manifest_name: "meetings", participatory_space: participatory_space) }
+  let(:meetings_component) { create(:component, manifest_name: "meetings", participatory_space:) }
   let(:meeting) { create :meeting, :published, component: meetings_component }
 
-  let(:dummy_component) { create(:component, manifest_name: "dummy", participatory_space: participatory_space) }
+  let(:dummy_component) { create(:component, manifest_name: "dummy", participatory_space:) }
   let(:dummy_resource) { create :dummy_resource, component: dummy_component }
 
   let(:request_path) { Decidim::EngineRouter.main_proxy(component).proposals_path }
@@ -148,7 +148,7 @@ RSpec.describe "Proposal search", type: :request do
   end
 
   context "when searching by related to" do
-    let(:filter_params) { { related_to: related_to } }
+    let(:filter_params) { { related_to: } }
 
     context "and related to is set to meetings" do
       let(:related_to) { "Decidim::Meetings::Meeting".underscore }
@@ -180,7 +180,7 @@ RSpec.describe "Proposal search", type: :request do
   end
 
   context "when searching by activity" do
-    let(:filter_params) { { activity: activity } }
+    let(:filter_params) { { activity: } }
 
     before do
       login_as user, scope: :user

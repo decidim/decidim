@@ -28,7 +28,7 @@ module Decidim
     private
 
     # Overwrite devise_mail so we can inject the organization from the user.
-    def devise_mail(user, action, opts = {}, &block)
+    def devise_mail(user, action, opts = {}, &)
       with_user(user) do
         @organization = user.organization
         super

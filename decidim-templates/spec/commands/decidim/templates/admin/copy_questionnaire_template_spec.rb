@@ -8,8 +8,8 @@ module Decidim
     module Admin
       describe CopyQuestionnaireTemplate do
         let(:organization) { create(:organization) }
-        let(:template) { create(:questionnaire_template, organization: organization) }
-        let(:user) { create(:user, organization: organization) }
+        let(:template) { create(:questionnaire_template, organization:) }
+        let(:user) { create(:user, organization:) }
 
         describe "when the template is invalid" do
           before do

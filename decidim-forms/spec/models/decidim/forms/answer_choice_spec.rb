@@ -8,17 +8,17 @@ module Decidim
       subject { answer_choice }
 
       let(:organization) { create(:organization) }
-      let(:user) { create(:user, organization: organization) }
-      let(:participatory_process) { create(:participatory_process, organization: organization) }
+      let(:user) { create(:user, organization:) }
+      let(:participatory_process) { create(:participatory_process, organization:) }
       let(:questionnaire) { create(:questionnaire, questionnaire_for: participatory_process) }
       let(:question_type) { "single_option" }
-      let(:question) { create(:questionnaire_question, questionnaire: questionnaire, question_type: question_type) }
-      let(:answer_options) { create_list(:answer_option, 3, question: question) }
+      let(:question) { create(:questionnaire_question, questionnaire:, question_type:) }
+      let(:answer_options) { create_list(:answer_option, 3, question:) }
       let(:answer_option) { answer_options.first }
-      let(:matrix_rows) { create_list(:question_matrix_row, 3, question: question) }
+      let(:matrix_rows) { create_list(:question_matrix_row, 3, question:) }
       let(:matrix_row) { matrix_rows.first }
-      let(:answer) { create(:answer, question: question, questionnaire: questionnaire) }
-      let(:answer_choice) { build(:answer_choice, answer: answer, answer_option: answer_option, matrix_row: matrix_row) }
+      let(:answer) { create(:answer, question:, questionnaire:) }
+      let(:answer_choice) { build(:answer_choice, answer:, answer_option:, matrix_row:) }
 
       it { is_expected.to be_valid }
 

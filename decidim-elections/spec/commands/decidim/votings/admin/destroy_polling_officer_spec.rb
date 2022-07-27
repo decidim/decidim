@@ -10,7 +10,7 @@ module Decidim
 
         let(:voting) { create :voting }
         let!(:user) { create :user, :confirmed, organization: voting.organization }
-        let(:polling_officer) { create :polling_officer, user: user, voting: voting }
+        let(:polling_officer) { create :polling_officer, user:, voting: }
         let!(:current_user) { create :user, email: "some_email@example.org", organization: voting.organization }
 
         context "when everything is ok" do

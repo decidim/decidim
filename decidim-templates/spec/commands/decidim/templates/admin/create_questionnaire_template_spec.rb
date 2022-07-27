@@ -9,7 +9,7 @@ module Decidim
         subject { described_class.new(form) }
 
         let(:organization) { create :organization }
-        let(:user) { create :user, :admin, :confirmed, organization: organization }
+        let(:user) { create :user, :admin, :confirmed, organization: }
 
         let(:form) do
           instance_double(

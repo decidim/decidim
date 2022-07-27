@@ -4,9 +4,9 @@ require "spec_helper"
 
 describe "Initiative signing", type: :system do
   let(:organization) { create(:organization, available_authorizations: authorizations) }
-  let(:initiative) { create(:initiative, :published, organization: organization, scoped_type: create(:initiatives_type_scope, type: initiatives_type)) }
-  let(:initiatives_type) { create(:initiatives_type, :with_user_extra_fields_collection, :with_sms_code_validation, organization: organization) }
-  let(:confirmed_user) { create(:user, :confirmed, organization: organization) }
+  let(:initiative) { create(:initiative, :published, organization:, scoped_type: create(:initiatives_type_scope, type: initiatives_type)) }
+  let(:initiatives_type) { create(:initiatives_type, :with_user_extra_fields_collection, :with_sms_code_validation, organization:) }
+  let(:confirmed_user) { create(:user, :confirmed, organization:) }
   let(:authorizations) { ["sms"] }
   let(:document_number) { "0123345678A" }
   let(:phone_number) { "666666666" }
@@ -20,7 +20,7 @@ describe "Initiative signing", type: :system do
       name: "dummy_authorization_handler",
       user: confirmed_user,
       unique_id: document_number,
-      metadata: { document_number: document_number, postal_code: "01234", scope_id: initiative.scope.id }
+      metadata: { document_number:, postal_code: "01234", scope_id: initiative.scope.id }
     )
   end
 
@@ -55,7 +55,7 @@ describe "Initiative signing", type: :system do
   end
 
   context "when initiative type personal data collection is disabled" do
-    let(:initiatives_type) { create(:initiatives_type, :with_sms_code_validation, organization: organization) }
+    let(:initiatives_type) { create(:initiatives_type, :with_sms_code_validation, organization:) }
 
     it "The sms step appears" do
       expect(page).to have_content("MOBILE PHONE NUMBER")
@@ -96,7 +96,7 @@ describe "Initiative signing", type: :system do
 
         context "with valid authorization" do
           before do
-            create(:authorization, name: "sms", user: confirmed_user, granted_at: 2.seconds.ago, unique_id: unique_id)
+            create(:authorization, name: "sms", user: confirmed_user, granted_at: 2.seconds.ago, unique_id:)
           end
 
           context "and inserts wrong phone number" do

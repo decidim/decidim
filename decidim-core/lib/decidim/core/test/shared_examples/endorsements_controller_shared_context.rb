@@ -3,7 +3,7 @@
 RSpec.shared_context "when in a resource" do
   routes { Decidim::Core::Engine.routes }
 
-  let(:resource) { create(:dummy_resource, component: component) }
+  let(:resource) { create(:dummy_resource, component:) }
   let(:user) { create(:user, :confirmed, organization: component.organization) }
   let(:params) do
     {

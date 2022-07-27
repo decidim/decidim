@@ -12,7 +12,7 @@ describe Decidim::Verifications::ConfirmUserAuthorization do
       :authorization,
       :pending,
       name: "cool_method",
-      verification_metadata: verification_metadata
+      verification_metadata:
     )
   end
 
@@ -34,10 +34,10 @@ describe Decidim::Verifications::ConfirmUserAuthorization do
     end
   end
 
-  let(:form) { form_class.new(secret_code: secret_code) }
+  let(:form) { form_class.new(secret_code:) }
 
   let(:authorizations) do
-    Decidim::Verifications::Authorizations.new(organization: user.organization, user: user, granted: true)
+    Decidim::Verifications::Authorizations.new(organization: user.organization, user:, granted: true)
   end
 
   let(:user) { authorization.user }

@@ -26,7 +26,7 @@ module Decidim::Conferences
         create_list(
           :question,
           3,
-          consultation: consultation
+          consultation:
         )
       end
 
@@ -199,7 +199,7 @@ module Decidim::Conferences
       end
 
       describe "events" do
-        let!(:follow) { create :follow, followable: my_conference, user: user }
+        let!(:follow) { create :follow, followable: my_conference, user: }
         let(:title) { my_conference.title }
         let(:start_date) { my_conference.start_date }
         let(:end_date) { my_conference.end_date }
@@ -207,16 +207,16 @@ module Decidim::Conferences
         let(:form) do
           double(
             invalid?: false,
-            title: title,
+            title:,
             slogan: my_conference.slogan,
             slug: my_conference.slug,
             hashtag: my_conference.slug,
             short_description: my_conference.short_description,
             description: my_conference.description,
             objectives: my_conference.objectives,
-            location: location,
-            start_date: start_date,
-            end_date: end_date,
+            location:,
+            start_date:,
+            end_date:,
             scopes_enabled: my_conference.scopes_enabled,
             scope: my_conference.scope,
             hero_image: nil,

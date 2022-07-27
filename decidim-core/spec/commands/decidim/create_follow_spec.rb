@@ -5,8 +5,8 @@ require "spec_helper"
 module Decidim
   describe CreateFollow do
     let!(:organization) { create(:organization) }
-    let!(:user1) { create(:user, organization: organization) }
-    let!(:user2) { create(:user, organization: organization) }
+    let!(:user1) { create(:user, organization:) }
+    let!(:user2) { create(:user, organization:) }
 
     let(:form) { double(followable: user2, invalid?: false) }
 

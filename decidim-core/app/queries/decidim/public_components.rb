@@ -5,7 +5,7 @@ module Decidim
   # spaces in the given organization. Can filter by manifest name.
   class PublicComponents < Decidim::Query
     def self.for(organization, manifest_name: nil)
-      new(organization, manifest_name: manifest_name).query
+      new(organization, manifest_name:).query
     end
 
     def initialize(organization, manifest_name: nil)
@@ -15,7 +15,7 @@ module Decidim
 
     def query
       results = Decidim::Component.where(participatory_space: public_spaces).published
-      results = results.where(manifest_name: manifest_name) if manifest_name.present?
+      results = results.where(manifest_name:) if manifest_name.present?
       results
     end
 

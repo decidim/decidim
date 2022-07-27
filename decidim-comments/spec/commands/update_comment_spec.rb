@@ -6,12 +6,12 @@ module Decidim
   module Comments
     describe UpdateComment do
       let(:organization) { create(:organization) }
-      let(:participatory_process) { create(:participatory_process, organization: organization) }
+      let(:participatory_process) { create(:participatory_process, organization:) }
       let(:component) { create(:component, participatory_space: participatory_process) }
-      let(:author) { create(:user, organization: organization) }
-      let(:dummy_resource) { create :dummy_resource, component: component }
+      let(:author) { create(:user, organization:) }
+      let(:dummy_resource) { create :dummy_resource, component: }
       let(:commentable) { dummy_resource }
-      let(:comment) { create :comment, author: author, commentable: commentable }
+      let(:comment) { create :comment, author:, commentable: }
       let(:body) { "This is a reasonable comment" }
       let(:form_params) do
         {

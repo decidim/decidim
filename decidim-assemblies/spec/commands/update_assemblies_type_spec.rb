@@ -7,14 +7,14 @@ module Decidim::Assemblies
     subject { described_class.new(assembly_type, form) }
 
     let(:organization) { create :organization }
-    let(:user) { create :user, :admin, :confirmed, organization: organization }
-    let(:assembly_type) { create :assemblies_type, organization: organization }
+    let(:user) { create :user, :admin, :confirmed, organization: }
+    let(:assembly_type) { create :assemblies_type, organization: }
     let(:title) { Decidim::Faker::Localized.literal("New title") }
     let(:form) do
       double(
         invalid?: invalid,
         current_user: user,
-        title: title
+        title:
       )
     end
     let(:invalid) { false }

@@ -45,19 +45,19 @@ module Decidim
     # Returns the newly created `Decidim::ActionLog` resource.
     def log!
       Decidim::ActionLog.create!(
-        user: user,
-        organization: organization,
-        action: action,
-        resource: resource,
+        user:,
+        organization:,
+        action:,
+        resource:,
         resource_id: resource.id,
         resource_type: resource.class.name,
-        participatory_space: participatory_space,
-        component: component,
-        area: area,
-        scope: scope,
-        version_id: version_id,
+        participatory_space:,
+        component:,
+        area:,
+        scope:,
+        version_id:,
         extra: extra_data,
-        visibility: visibility
+        visibility:
       )
     end
 

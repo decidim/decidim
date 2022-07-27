@@ -7,7 +7,7 @@ module Decidim
     describe TrusteePresenter, type: :helper do
       subject(:presenter) { described_class.new(trustee) }
 
-      let(:trustee) { create :trustee, public_key: public_key }
+      let(:trustee) { create :trustee, public_key: }
       let(:public_key) do
         {
           kty: "RSA",
