@@ -27,14 +27,14 @@ edit_link(
           <% @topics.each_with_index do |topic, ix| %>
             <% if topic.pages.any? %>
               <div class="page__accordion">
-                <div id="accordion-trigger-<%= ix %>" data-controls="accordion-panel-<%= ix %>" class="page__accordion-trigger">
+                <div class="page__accordion-trigger">
                   <div>
                     <h3 class="page__accordion-trigger-title">
                       <%= link_to translated_attribute(topic.title), page_path(topic.pages.first) %>
                     </h3>
                     <p class="page__accordion-trigger-snippet"><%= translated_attribute topic.description %></p>
                   </div>
-                  <div>
+                  <div id="accordion-trigger-<%= ix %>" data-controls="accordion-panel-<%= ix %>">
                     <%= icon "arrow-down-s-line", class: "page__accordion-trigger-arrow" %>
                     <%= icon "arrow-up-s-line", class: "page__accordion-trigger-arrow" %>
                   </div>

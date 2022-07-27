@@ -25,13 +25,33 @@
         @apply w-8 h-8 text-secondary fill-current first:block last:hidden;
       }
 
-      &[aria-expanded="true"] &-arrow{
+      [role="button"][aria-expanded="true"] &-arrow{
         @apply first:hidden last:block;
       }
     }
 
     &-panel{
       @apply border-t border-gray-3 mt-4 pt-4 space-y-4;
+
+      a{
+        @apply hover:underline;
+      }
+    }
+  }
+
+  &__tabbed{
+    @apply grid grid-cols-10 gap-20 first:[&>*]:col-span-3 last:[&>*]:col-span-7;
+
+    &-list{
+      @apply bg-background rounded divide-y divide-gray-3;
+
+      a{
+        @apply p-4 block w-full h-full text-secondary hover:underline;
+
+        &.is-selected{
+          @apply border-l-4 border-primary font-semibold;
+        }
+      }
     }
   }
 }
