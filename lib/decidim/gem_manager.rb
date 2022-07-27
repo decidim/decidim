@@ -133,8 +133,8 @@ module Decidim
       end
 
       def run_all(command, out: $stdout, include_root: true)
-        all_dirs(include_root: include_root) do |dir|
-          status = run_at(dir, command, out: out)
+        all_dirs(include_root:) do |dir|
+          status = run_at(dir, command, out:)
 
           break if !status && fail_fast?
         end
@@ -142,7 +142,7 @@ module Decidim
 
       def run_packages(command, out: $stdout)
         package_dirs do |dir|
-          status = run_at(dir, command, out: out)
+          status = run_at(dir, command, out:)
 
           break if !status && fail_fast?
         end
@@ -150,7 +150,7 @@ module Decidim
 
       def run_at(dir, command, out: $stdout)
         attempts = 0
-        until (status = new(dir).run(command, out: out))
+        until (status = new(dir).run(command, out:))
           attempts += 1
 
           break if attempts > Decidim::GemManager.retry_times
