@@ -5,8 +5,8 @@ require "spec_helper"
 describe "Admin manages polling officers", type: :system do
   include_context "when admin managing a voting"
 
-  let(:other_user) { create :user, organization: organization, email: "my_email@example.org" }
-  let!(:polling_officer) { create :polling_officer, user: other_user, voting: voting }
+  let(:other_user) { create :user, organization:, email: "my_email@example.org" }
+  let!(:polling_officer) { create :polling_officer, user: other_user, voting: }
 
   before do
     switch_to_host(organization.host)
@@ -28,7 +28,7 @@ describe "Admin manages polling officers", type: :system do
     end
 
     context "when searching by name" do
-      let(:searched_officer) { create(:polling_officer, voting: voting) }
+      let(:searched_officer) { create(:polling_officer, voting:) }
 
       it "filters the results as expected" do
         search_by_text(searched_officer.name)
@@ -38,8 +38,8 @@ describe "Admin manages polling officers", type: :system do
     end
 
     context "when searching by polling station" do
-      let(:polling_station) { create(:polling_station, voting: voting) }
-      let!(:searched_officer) { create(:polling_officer, voting: voting, presided_polling_station: polling_station) }
+      let(:polling_station) { create(:polling_station, voting:) }
+      let!(:searched_officer) { create(:polling_officer, voting:, presided_polling_station: polling_station) }
 
       it "filters the results as expected" do
         search_by_text(translated(polling_station.title))
@@ -50,15 +50,15 @@ describe "Admin manages polling officers", type: :system do
 
     context "when filtering by polling officer role" do
       let!(:president) do
-        create(:polling_officer, voting: voting, presided_polling_station: create(:polling_station, voting: voting))
+        create(:polling_officer, voting:, presided_polling_station: create(:polling_station, voting:))
       end
 
       let!(:manager) do
-        create(:polling_officer, voting: voting, managed_polling_station: create(:polling_station, voting: voting))
+        create(:polling_officer, voting:, managed_polling_station: create(:polling_station, voting:))
       end
 
       let!(:unassigned) do
-        create(:polling_officer, voting: voting)
+        create(:polling_officer, voting:)
       end
 
       it_behaves_like "a filtered collection", options: "Role", filter: "President" do

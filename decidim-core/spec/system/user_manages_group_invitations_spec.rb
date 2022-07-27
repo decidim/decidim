@@ -4,7 +4,7 @@ require "spec_helper"
 
 describe "User manages group invitations", type: :system do
   let(:user) { create(:user, :confirmed) }
-  let!(:membership) { create :user_group_membership, user: user, role: :invited }
+  let!(:membership) { create :user_group_membership, user:, role: :invited }
 
   before do
     switch_to_host(user.organization.host)

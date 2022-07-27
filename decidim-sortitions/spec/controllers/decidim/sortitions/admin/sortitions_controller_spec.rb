@@ -53,10 +53,10 @@ module Decidim
             {
               participatory_process_slug: sortition.component.participatory_space.slug,
               sortition: {
-                decidim_proposals_component_id: decidim_proposals_component_id,
-                decidim_category_id: decidim_category_id,
-                dice: dice,
-                target_items: target_items,
+                decidim_proposals_component_id:,
+                decidim_category_id:,
+                dice:,
+                target_items:,
                 title: {
                   en: "Title",
                   es: "Título",
@@ -94,7 +94,7 @@ module Decidim
                 expect(params).to eq(action: :show, id: Sortition.last.id)
               end
 
-              post :create, params: params
+              post :create, params:
             end
 
             it "Sortition author is the current user" do
@@ -137,7 +137,7 @@ module Decidim
               participatory_process_slug: component.participatory_space.slug,
               id: sortition.id,
               sortition: {
-                cancel_reason: cancel_reason
+                cancel_reason:
               }
             }
           end
@@ -161,7 +161,7 @@ module Decidim
             it "redirects to sortitions list newly created sortition" do
               expect(controller).to receive(:redirect_to).with(action: :index)
 
-              delete :destroy, params: params
+              delete :destroy, params:
             end
           end
         end
@@ -202,8 +202,8 @@ module Decidim
               participatory_process_slug: component.participatory_space.slug,
               id: sortition.id,
               sortition: {
-                title: title,
-                additional_info: additional_info
+                title:,
+                additional_info:
               }
             }
           end
@@ -227,7 +227,7 @@ module Decidim
             it "redirects to sortitions list newly created sortition" do
               expect(controller).to receive(:redirect_to).with(action: :index)
 
-              patch :update, params: params
+              patch :update, params:
             end
           end
         end

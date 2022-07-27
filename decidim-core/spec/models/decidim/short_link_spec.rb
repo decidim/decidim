@@ -9,10 +9,10 @@ module Decidim
     let(:short_link) do
       create(
         :short_link,
-        target: target,
+        target:,
         mounted_engine_name: engine_name,
-        route_name: route_name,
-        params: params
+        route_name:,
+        params:
       )
     end
     let(:target) { create(:dummy_resource) }
@@ -21,7 +21,7 @@ module Decidim
     let(:params) { {} }
 
     describe ".to" do
-      subject { described_class.to(target, engine_name, route_name: route_name, params: params) }
+      subject { described_class.to(target, engine_name, route_name:, params:) }
 
       it "creates a unique short link within the target organization" do
         expect(subject).to be_a(described_class)

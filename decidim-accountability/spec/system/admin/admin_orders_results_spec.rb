@@ -9,17 +9,17 @@ describe "Admin orders results", type: :system do
       create(:result, scope: create(:scope, organization: component.organization,
                                             name: { "ca" => "Scope2", "en" => "Scope3" }),
                       component: current_component,
-                      category: create(:category, participatory_space: participatory_space),
+                      category: create(:category, participatory_space:),
                       created_at: 2.days.ago),
       create(:result, scope: create(:scope, organization: component.organization,
                                             name: { "ca" => "Scope3", "en" => "Scope1" }),
                       component: current_component,
-                      category: create(:category, participatory_space: participatory_space),
+                      category: create(:category, participatory_space:),
                       created_at: 1.day.ago),
       create(:result, scope: create(:scope, organization: component.organization,
                                             name: { "ca" => "Scope1", "en" => "Scope2" }),
                       component: current_component,
-                      category: create(:category, participatory_space: participatory_space),
+                      category: create(:category, participatory_space:),
                       created_at: Time.current)
     ]
   end

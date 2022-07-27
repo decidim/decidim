@@ -33,9 +33,9 @@ shared_examples_for "a resource search with scopes" do |factory_name|
     let(:scope2) { create :scope, organization: component.organization }
     let(:subscope1) { create :scope, organization: component.organization, parent: scope1 }
 
-    let!(:resource) { create(factory_name, { component: component, scope: scope1 }.merge(factory_params)) }
-    let!(:resource2) { create(factory_name, { component: component, scope: scope2 }.merge(factory_params)) }
-    let!(:resource3) { create(factory_name, { component: component, scope: subscope1 }.merge(factory_params)) }
+    let!(:resource) { create(factory_name, { component:, scope: scope1 }.merge(factory_params)) }
+    let!(:resource2) { create(factory_name, { component:, scope: scope2 }.merge(factory_params)) }
+    let!(:resource3) { create(factory_name, { component:, scope: subscope1 }.merge(factory_params)) }
 
     before do
       get(
@@ -76,7 +76,7 @@ shared_examples_for "a resource search with scopes" do |factory_name|
     end
 
     context "when `global` is being sent" do
-      let!(:resource_without_scope) { create(factory_name, { component: component, scope: nil }.merge(factory_params)) }
+      let!(:resource_without_scope) { create(factory_name, { component:, scope: nil }.merge(factory_params)) }
       let(:scope_ids) { ["global"] }
 
       before do
@@ -96,7 +96,7 @@ shared_examples_for "a resource search with scopes" do |factory_name|
     end
 
     context "when `global` and some ids is being sent" do
-      let!(:resource_without_scope) { create(factory_name, { component: component, scope: nil }.merge(factory_params)) }
+      let!(:resource_without_scope) { create(factory_name, { component:, scope: nil }.merge(factory_params)) }
       let(:scope_ids) { ["global", scope2.id, scope1.id] }
 
       before do
@@ -134,13 +134,13 @@ shared_examples_for "a resource search with categories" do |factory_name, catego
   end
 
   describe "results" do
-    let(:category1) { create :category, participatory_space: participatory_space }
-    let(:category2) { create :category, participatory_space: participatory_space }
-    let(:child_category) { create :category, participatory_space: participatory_space, parent: category2 }
-    let!(:resource) { create(factory_name, { component: component }.merge(factory_params)) }
-    let!(:resource2) { create(factory_name, { component: component, category: category1 }.merge(factory_params)) }
-    let!(:resource3) { create(factory_name, { component: component, category: category2 }.merge(factory_params)) }
-    let!(:resource4) { create(factory_name, { component: component, category: child_category }.merge(factory_params)) }
+    let(:category1) { create :category, participatory_space: }
+    let(:category2) { create :category, participatory_space: }
+    let(:child_category) { create :category, participatory_space:, parent: category2 }
+    let!(:resource) { create(factory_name, { component: }.merge(factory_params)) }
+    let!(:resource2) { create(factory_name, { component:, category: category1 }.merge(factory_params)) }
+    let!(:resource3) { create(factory_name, { component:, category: category2 }.merge(factory_params)) }
+    let!(:resource4) { create(factory_name, { component:, category: child_category }.merge(factory_params)) }
 
     before do
       get(
@@ -218,12 +218,12 @@ shared_examples_for "a resource search with origin" do |factory_name|
   let(:filter_params) { { with_any_origin: origins } }
 
   describe "results" do
-    let!(:official_resource) { create(factory_name, :official, { component: component }.merge(factory_params)) }
-    let!(:user_group_resource) { create(factory_name, :user_group_author, { component: component }.merge(factory_params)) }
-    let!(:participant_resource) { create(factory_name, :participant_author, { component: component }.merge(factory_params)) }
+    let!(:official_resource) { create(factory_name, :official, { component: }.merge(factory_params)) }
+    let!(:user_group_resource) { create(factory_name, :user_group_author, { component: }.merge(factory_params)) }
+    let!(:participant_resource) { create(factory_name, :participant_author, { component: }.merge(factory_params)) }
 
     if FactoryBot.factory_by_name(factory_name).defined_traits.map(&:name).include?(:meeting_resource)
-      let!(:meeting_resource) { create(factory_name, :official_meeting, { component: component }.merge(factory_params)) }
+      let!(:meeting_resource) { create(factory_name, :official_meeting, { component: }.merge(factory_params)) }
     end
 
     before do

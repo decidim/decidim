@@ -5,8 +5,8 @@ shared_context "when process admin administrating a participatory process" do
     create(
       :process_admin,
       :confirmed,
-      organization: organization,
-      participatory_process: participatory_process
+      organization:,
+      participatory_process:
     )
   end
 

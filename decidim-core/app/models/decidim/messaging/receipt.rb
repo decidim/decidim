@@ -13,7 +13,7 @@ module Decidim
       belongs_to :recipient, foreign_key: "decidim_recipient_id", class_name: "Decidim::User"
       belongs_to :message, foreign_key: "decidim_message_id", class_name: "Decidim::Messaging::Message"
 
-      scope :recipient, ->(recipient) { where(recipient: recipient) }
+      scope :recipient, ->(recipient) { where(recipient:) }
       scope :unread_by, ->(user) { recipient(user).unread }
       scope :unread, -> { where(read_at: nil) }
 

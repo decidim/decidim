@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require "spec_helper"
-require "decidim/core/test/shared_examples/simple_event"
 
 describe Decidim::Sortitions::CreateSortitionEvent do
   let(:resource) { create :sortition }

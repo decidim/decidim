@@ -10,13 +10,13 @@ module Decidim::Votings
     let!(:local_promoted_voting) do
       create(:voting,
              :promoted,
-             organization: organization)
+             organization:)
     end
 
     let!(:local_non_promoted_voting) do
       create(:voting,
              :published,
-             organization: organization)
+             organization:)
     end
 
     let!(:external_non_promoted_voting) do

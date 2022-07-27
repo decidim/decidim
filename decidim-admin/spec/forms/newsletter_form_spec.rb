@@ -6,7 +6,7 @@ module Decidim
   module Admin
     describe NewsletterForm do
       subject do
-        described_class.new(subject: newsletter_subject, body: body)
+        described_class.new(subject: newsletter_subject, body:)
                        .with_context(current_organization: organization)
       end
 

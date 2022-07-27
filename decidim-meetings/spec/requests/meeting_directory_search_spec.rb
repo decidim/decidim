@@ -8,13 +8,13 @@ RSpec.describe "Meeting directory search", type: :request do
   subject { response.body }
 
   let(:organization) { create(:organization) }
-  let!(:components) { create_list(:component, 3, manifest_name: "meetings", organization: organization) }
-  let(:user) { create :user, :confirmed, organization: organization }
+  let!(:components) { create_list(:component, 3, manifest_name: "meetings", organization:) }
+  let(:user) { create :user, :confirmed, organization: }
 
   let(:participatory_space) { components.first.participatory_space }
-  let!(:category1) { create :category, participatory_space: participatory_space }
-  let!(:category2) { create :category, participatory_space: participatory_space }
-  let!(:child_category) { create :category, participatory_space: participatory_space, parent: category2 }
+  let!(:category1) { create :category, participatory_space: }
+  let!(:category2) { create :category, participatory_space: }
+  let!(:child_category) { create :category, participatory_space:, parent: category2 }
   let!(:meeting1) { create(:meeting, :published, component: components.second) }
   let!(:meeting2) { create(:meeting, :published, component: components.first, category: category1) }
   let!(:meeting3) { create(:meeting, :published, component: components.first, category: category2) }

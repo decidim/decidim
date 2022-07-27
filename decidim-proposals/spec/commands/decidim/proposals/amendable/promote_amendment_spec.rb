@@ -8,14 +8,14 @@ module Decidim
       let!(:component) { create(:proposal_component) }
       let!(:other_user) { create(:user, :confirmed, organization: component.organization) }
 
-      let!(:amendable) { create(:proposal, component: component) }
-      let!(:emendation) { create(:proposal, component: component) }
-      let!(:amendment) { create :amendment, :rejected, amendable: amendable, emendation: emendation }
+      let!(:amendable) { create(:proposal, component:) }
+      let!(:emendation) { create(:proposal, component:) }
+      let!(:amendment) { create :amendment, :rejected, amendable:, emendation: }
 
       let(:current_user) { amendment.amender }
       let(:context) do
         {
-          current_user: current_user,
+          current_user:,
           current_organization: component.organization
         }
       end

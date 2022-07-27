@@ -47,7 +47,7 @@ describe "Admin manages scope types", type: :system do
   end
 
   context "with existing scope_types" do
-    let!(:scope_type) { create(:scope_type, organization: organization) }
+    let!(:scope_type) { create(:scope_type, organization:) }
 
     before do
       visit current_path

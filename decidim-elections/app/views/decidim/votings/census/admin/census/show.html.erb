@@ -18,6 +18,6 @@
   </div>
 </div>
 
-<% if current_census.creating_data? || current_census.generating_codes? %>
+<% if waiting_status? %>
   <%= javascript_pack_tag "decidim_votings_admin_update_census_dataset_status" %>
 <% end %>

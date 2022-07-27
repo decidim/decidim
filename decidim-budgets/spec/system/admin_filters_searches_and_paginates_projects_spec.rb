@@ -18,8 +18,8 @@ describe "Admin filters, searches, and paginates projects", type: :system do
   context "when filtering by scope" do
     let!(:scope1) { create(:scope, organization: component.organization, name: { "en" => "Scope1" }) }
     let!(:scope2) { create(:scope, organization: component.organization, name: { "en" => "Scope2" }) }
-    let!(:project_with_scope1) { create(:project, budget: budget, scope: scope1) }
-    let!(:project_with_scope2) { create(:project, budget: budget, scope: scope2) }
+    let!(:project_with_scope1) { create(:project, budget:, scope: scope1) }
+    let!(:project_with_scope2) { create(:project, budget:, scope: scope2) }
     let(:project_with_scope1_title) { translated(project_with_scope1.title) }
     let(:project_with_scope2_title) { translated(project_with_scope2.title) }
 
@@ -37,10 +37,10 @@ describe "Admin filters, searches, and paginates projects", type: :system do
   end
 
   context "when filtering by category" do
-    let!(:category1) { create(:category, participatory_space: participatory_space, name: { "en" => "Category1" }) }
-    let!(:category2) { create(:category, participatory_space: participatory_space, name: { "en" => "Category2" }) }
-    let!(:project_with_category1) { create(:project, budget: budget, category: category1) }
-    let!(:project_with_category2) { create(:project, budget: budget, category: category2) }
+    let!(:category1) { create(:category, participatory_space:, name: { "en" => "Category1" }) }
+    let!(:category2) { create(:category, participatory_space:, name: { "en" => "Category2" }) }
+    let!(:project_with_category1) { create(:project, budget:, category: category1) }
+    let!(:project_with_category2) { create(:project, budget:, category: category2) }
     let(:project_with_category1_title) { translated(project_with_category1.title) }
     let(:project_with_category2_title) { translated(project_with_category2.title) }
 
@@ -58,8 +58,8 @@ describe "Admin filters, searches, and paginates projects", type: :system do
   end
 
   context "when filtering by selected" do
-    let!(:project_with_status1) { create(:project, budget: budget, selected_at: Time.current) }
-    let!(:project_with_status2) { create(:project, budget: budget, selected_at: nil) }
+    let!(:project_with_status1) { create(:project, budget:, selected_at: Time.current) }
+    let!(:project_with_status2) { create(:project, budget:, selected_at: nil) }
     let(:project_with_status1_title) { translated(project_with_status1.title) }
     let(:project_with_status2_title) { translated(project_with_status2.title) }
 
@@ -77,8 +77,8 @@ describe "Admin filters, searches, and paginates projects", type: :system do
   end
 
   context "when searching by ID or title" do
-    let!(:project1) { create(:project, budget: budget) }
-    let!(:project2) { create(:project, budget: budget) }
+    let!(:project1) { create(:project, budget:) }
+    let!(:project2) { create(:project, budget:) }
     let!(:project1_title) { translated(project1.title) }
     let!(:project2_title) { translated(project2.title) }
 
@@ -101,7 +101,7 @@ describe "Admin filters, searches, and paginates projects", type: :system do
     before { visit current_path }
 
     it_behaves_like "paginating a collection" do
-      let!(:collection) { create_list(:project, 50, budget: budget) }
+      let!(:collection) { create_list(:project, 50, budget:) }
     end
   end
 end

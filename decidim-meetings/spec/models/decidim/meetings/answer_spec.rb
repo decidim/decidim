@@ -10,8 +10,8 @@ module Decidim
       let(:meeting) { create(:meeting) }
       let(:user) { create(:user, organization: meeting.organization) }
       let(:questionnaire) { create(:meetings_poll_questionnaire, questionnaire_for: meeting) }
-      let(:question) { create(:meetings_poll_question, questionnaire: questionnaire) }
-      let(:answer) { create(:meetings_poll_answer, questionnaire: questionnaire, question: question, user: user) }
+      let(:question) { create(:meetings_poll_question, questionnaire:) }
+      let(:answer) { create(:meetings_poll_answer, questionnaire:, question:, user:) }
 
       it { is_expected.to be_valid }
 

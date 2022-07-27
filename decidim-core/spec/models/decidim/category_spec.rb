@@ -30,7 +30,7 @@ module Decidim
 
     context "without a participatory space" do
       let(:parent) { create(:category) }
-      let(:category) { create(:subcategory, parent: parent, participatory_space: nil) }
+      let(:category) { create(:subcategory, parent:, participatory_space: nil) }
 
       it "is saved to parent before save" do
         subject.save

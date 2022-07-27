@@ -3,7 +3,7 @@
 require "spec_helper"
 
 shared_examples_for "general conversation permissions" do
-  let(:context) { { conversation: conversation } }
+  let(:context) { { conversation: } }
   let(:another_user) { create :user }
   let(:group) { create :user_group }
 
@@ -44,13 +44,13 @@ shared_examples_for "general conversation permissions" do
   end
 
   context "when the interlocutor is specified in the context" do
-    let(:context) { { conversation: conversation, interlocutor: interlocutor } }
+    let(:context) { { conversation:, interlocutor: } }
     let(:originator) { interlocutor }
     let(:interlocutor) { create :user }
 
     let!(:conversation) do
       Decidim::Messaging::Conversation.start!(
-        originator: originator,
+        originator:,
         interlocutors: [another_user],
         body: "who wants apples?"
       )
@@ -66,7 +66,7 @@ shared_examples_for "general conversation permissions" do
   end
 
   context "when the originator of the conversation is a group" do
-    let(:context) { { conversation: conversation, interlocutor: group } }
+    let(:context) { { conversation:, interlocutor: group } }
     let!(:conversation) do
       Decidim::Messaging::Conversation.start!(
         originator: group,
@@ -79,7 +79,7 @@ shared_examples_for "general conversation permissions" do
   end
 
   context "when the group is an interlocutor" do
-    let(:context) { { conversation: conversation, interlocutor: group } }
+    let(:context) { { conversation:, interlocutor: group } }
     let!(:conversation) do
       Decidim::Messaging::Conversation.start!(
         originator: another_user,
@@ -91,14 +91,14 @@ shared_examples_for "general conversation permissions" do
     it { is_expected.to eq true }
 
     context "and group is not specified as interlocutor" do
-      let(:context) { { conversation: conversation } }
+      let(:context) { { conversation: } }
 
       it { is_expected.to eq false }
     end
   end
 
   context "when the group is not in the conversation" do
-    let(:context) { { conversation: conversation, interlocutor: group } }
+    let(:context) { { conversation:, interlocutor: group } }
     let!(:conversation) do
       Decidim::Messaging::Conversation.start!(
         originator: another_user,
@@ -112,7 +112,7 @@ shared_examples_for "general conversation permissions" do
 end
 
 shared_examples_for "restricted conversation permissions" do
-  let(:context) { { conversation: conversation } }
+  let(:context) { { conversation: } }
   let(:user) { create :user }
   let(:interlocutor) { create :user, organization: user.organization }
   let!(:conversation) do

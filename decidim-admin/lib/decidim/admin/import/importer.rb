@@ -64,9 +64,9 @@ module Decidim
           data = prepare
           @verifier ||= creator.verifier_klass.new(
             headers: data_headers.map(&:to_s),
-            data: data,
-            reader: reader,
-            context: context
+            data:,
+            reader:,
+            context:
           )
         end
 

@@ -22,7 +22,7 @@ module Decidim
       end
 
       def call(component, args, _ctx)
-        @query = { component: component }
+        @query = { component: }
         args.keys.each do |key|
           @query[key] = args[key]
         end

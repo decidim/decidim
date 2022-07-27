@@ -16,7 +16,7 @@ describe "User edit meeting", type: :system do
            title: { en: "Meeting title with #hashtag" },
            description: { en: "Meeting description" },
            author: user,
-           component: component)
+           component:)
   end
   let(:component) do
     create(:meeting_component,
@@ -70,7 +70,7 @@ describe "User edit meeting", type: :system do
                author: user,
                attendees_count: nil,
                attending_organizations: nil,
-               component: component)
+               component:)
       end
 
       it "updates the meeting report" do

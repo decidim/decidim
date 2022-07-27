@@ -15,8 +15,8 @@ module Decidim::Accountability
       create(
         :result,
         component: current_component,
-        category: category,
-        scope: scope,
+        category:,
+        scope:,
         parent: nil,
         progress: 40
       )
@@ -25,8 +25,8 @@ module Decidim::Accountability
       create(
         :result,
         component: current_component,
-        category: category,
-        scope: scope,
+        category:,
+        scope:,
         parent: nil,
         progress: 20
       )
@@ -35,8 +35,8 @@ module Decidim::Accountability
       create(
         :result,
         component: current_component,
-        category: category,
-        scope: scope,
+        category:,
+        scope:,
         parent: nil,
         progress: nil
       )
@@ -45,7 +45,7 @@ module Decidim::Accountability
       create(
         :result,
         component: current_component,
-        category: category,
+        category:,
         scope: other_scope,
         parent: nil,
         progress: 50

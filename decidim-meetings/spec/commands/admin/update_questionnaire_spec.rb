@@ -72,14 +72,14 @@ module Decidim
           QuestionnaireForm.from_params(
             questionnaire: form_params
           ).with_context(
-            current_organization: current_organization,
+            current_organization:,
             current_user: user
           )
         end
         let(:command) { described_class.new(form, questionnaire) }
 
         context "with a persisted poll and questionnaire" do
-          let(:poll) { create(:poll, meeting: meeting) }
+          let(:poll) { create(:poll, meeting:) }
           let(:questionnaire) { create(:meetings_poll_questionnaire, questionnaire_for: poll) }
 
           describe "when the form is invalid" do
@@ -117,7 +117,7 @@ module Decidim
             it "traces the action", versioning: true do
               expect(Decidim.traceability)
                 .to receive(:perform_action!)
-                .with("update", Decidim::Meetings::Questionnaire, user, { meeting: meeting })
+                .with("update", Decidim::Meetings::Questionnaire, user, { meeting: })
                 .and_call_original
 
               expect { command.call }.to change(Decidim::ActionLog, :count)
@@ -128,7 +128,7 @@ module Decidim
           end
 
           describe "when the questionnaire has an existing question" do
-            let!(:question) { create(:meetings_poll_question, questionnaire: questionnaire) }
+            let!(:question) { create(:meetings_poll_question, questionnaire:) }
 
             context "and the question should be removed" do
               let(:form_params) do
@@ -223,7 +223,7 @@ module Decidim
           end
 
           describe "when the questionnaire has an existing question" do
-            let!(:question) { create(:meetings_poll_question, questionnaire: questionnaire) }
+            let!(:question) { create(:meetings_poll_question, questionnaire:) }
 
             context "and the question should be removed" do
               let(:form_params) do

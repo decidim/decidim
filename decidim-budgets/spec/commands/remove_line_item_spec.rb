@@ -14,11 +14,11 @@ module Decidim::Budgets
              settings: { vote_threshold_percent: 50 })
     end
 
-    let(:budget) { create(:budget, component: component, total_budget: 100_000) }
-    let(:project) { create(:project, budget: budget, budget_amount: 50_000) }
+    let(:budget) { create(:budget, component:, total_budget: 100_000) }
+    let(:project) { create(:project, budget:, budget_amount: 50_000) }
 
     let(:order) do
-      order = create(:order, user: user, budget: budget)
+      order = create(:order, user:, budget:)
       order.projects << project
       order.save!
       order

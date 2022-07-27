@@ -24,7 +24,7 @@ module Decidim
         #
         # Returns a collection of Meetings.
         def meetings
-          Decidim::Meetings::Meeting.where(component: component)
+          Decidim::Meetings::Meeting.where(component:)
         end
 
         # Finds the component meetings.
