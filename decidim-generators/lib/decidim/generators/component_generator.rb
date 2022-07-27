@@ -11,7 +11,7 @@ module Decidim
     class ComponentGenerator < Thor
       include Thor::Actions
 
-      attr_reader :component_name, :component_module_name, :component_resource_name, :component_folder, :component_description, :core_version
+      attr_reader :component_name, :component_module_name, :component_resource_name, :component_folder, :component_description, :core_version, :required_ruby_version
 
       source_root File.expand_path("component_templates", __dir__)
 
@@ -25,6 +25,7 @@ module Decidim
         @component_folder = options[:destination_folder] || "decidim-module-#{component_name}"
         @core_version = Decidim::Core.version
         @component_description = ask "Write a description for the new component:"
+        @required_ruby_version = RUBY_VERSION.length == 5 ? RUBY_VERSION[0..2] : RUBY_VERSION
 
         template "decidim-component.gemspec.erb", "#{component_folder}/decidim-#{component_name}.gemspec"
         template "Gemfile.erb", "#{component_folder}/Gemfile" if options[:external]
