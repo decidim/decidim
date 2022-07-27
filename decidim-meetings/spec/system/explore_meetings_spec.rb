@@ -31,8 +31,8 @@ describe "Explore meetings", :slow, type: :system do
     end
 
     context "with default filter" do
-      let!(:past_meeting) { create(:meeting, :published, start_time: 2.weeks.ago, component: component) }
-      let!(:upcoming_meeting) { create(:meeting, :published, :not_official, component: component) }
+      let!(:past_meeting) { create(:meeting, :published, start_time: 2.weeks.ago, component:) }
+      let!(:upcoming_meeting) { create(:meeting, :published, :not_official, component:) }
 
       it "shows all the upcoming meetings" do
         visit_component
@@ -207,12 +207,12 @@ describe "Explore meetings", :slow, type: :system do
       end
 
       context "when filtering by date" do
-        let!(:past_meeting1) { create(:meeting, :published, component: component, start_time: 1.week.ago) }
-        let!(:past_meeting2) { create(:meeting, :published, component: component, start_time: 3.months.ago) }
-        let!(:past_meeting3) { create(:meeting, :published, component: component, start_time: 2.days.ago) }
-        let!(:upcoming_meeting1) { create(:meeting, :published, component: component, start_time: 1.week.from_now) }
-        let!(:upcoming_meeting2) { create(:meeting, :published, component: component, start_time: 3.months.from_now) }
-        let!(:upcoming_meeting3) { create(:meeting, :published, component: component, start_time: 2.days.from_now) }
+        let!(:past_meeting1) { create(:meeting, :published, component:, start_time: 1.week.ago) }
+        let!(:past_meeting2) { create(:meeting, :published, component:, start_time: 3.months.ago) }
+        let!(:past_meeting3) { create(:meeting, :published, component:, start_time: 2.days.ago) }
+        let!(:upcoming_meeting1) { create(:meeting, :published, component:, start_time: 1.week.from_now) }
+        let!(:upcoming_meeting2) { create(:meeting, :published, component:, start_time: 3.months.from_now) }
+        let!(:upcoming_meeting3) { create(:meeting, :published, component:, start_time: 2.days.from_now) }
 
         it "lists filtered meetings" do
           visit_component
