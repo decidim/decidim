@@ -12,7 +12,7 @@ module Decidim
       let(:current_user) { create(:user) }
       let(:other_user) { create(:user, organization: current_user.organization) }
       let(:params) { { user: current_user } }
-      let!(:duplicate) { create(:authorization, name: "authorization_handler", user: other_user, unique_id: unique_id) }
+      let!(:duplicate) { create(:authorization, name: "authorization_handler", user: other_user, unique_id:) }
 
       before do
         allow(handler).to receive(:unique_id).and_return(unique_id)

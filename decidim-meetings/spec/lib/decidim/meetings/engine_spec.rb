@@ -6,14 +6,14 @@ describe Decidim::Meetings::Engine do
   describe "decidim_meetings.authorization_transfer" do
     include_context "authorization transfer"
 
-    let(:component) { create(:meeting_component, organization: organization) }
-    let(:poll_meeting) { create(:meeting, component: component) }
+    let(:component) { create(:meeting_component, organization:) }
+    let(:poll_meeting) { create(:meeting, component:) }
     let(:questionnaire) { create(:meetings_poll_questionnaire, questionnaire_for: create(:poll, meeting: poll_meeting)) }
     let(:original_records) do
       {
-        meetings: create_list(:meeting, 3, component: component, author: original_user),
+        meetings: create_list(:meeting, 3, component:, author: original_user),
         registrations: create_list(:registration, 5, user: original_user),
-        answers: create_list(:meetings_poll_answer, 10, questionnaire: questionnaire, user: original_user)
+        answers: create_list(:meetings_poll_answer, 10, questionnaire:, user: original_user)
       }
     end
     let(:transferred_meetings) { Decidim::Meetings::Meeting.where(author: target_user).order(:id) }

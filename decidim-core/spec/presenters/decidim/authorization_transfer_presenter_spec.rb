@@ -9,7 +9,7 @@ module Decidim
     let(:presenter) { described_class.new(transfer) }
 
     let(:transfer) { create(:authorization_transfer) }
-    let!(:records) { create_list(:authorization_transfer_record, 5, transfer: transfer) }
+    let!(:records) { create_list(:authorization_transfer_record, 5, transfer:) }
 
     shared_context "with actual records" do
       let(:comments) { create_list(:comment, 10) }
@@ -18,7 +18,7 @@ module Decidim
       let(:coauthorships) { proposals.map(&:coauthorships).reduce([], :+) }
       let(:amendments) do
         proposals.map do |amendable|
-          create(:amendment, amendable: amendable, emendation: create(:proposal, component: amendable.component))
+          create(:amendment, amendable:, emendation: create(:proposal, component: amendable.component))
         end.flatten
       end
       let(:endorsements) do
@@ -27,7 +27,7 @@ module Decidim
 
       let!(:records) do
         (coauthorships + amendments + endorsements + meetings + comments).map do |resource|
-          create(:authorization_transfer_record, transfer: transfer, resource: resource)
+          create(:authorization_transfer_record, transfer:, resource:)
         end
       end
     end

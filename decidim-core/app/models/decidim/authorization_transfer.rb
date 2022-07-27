@@ -133,7 +133,7 @@ module Decidim
 
         transaction do
           transfer = create!(
-            authorization: authorization,
+            authorization:,
             user: handler.user,
             source_user: authorization.user
           )
@@ -249,7 +249,7 @@ module Decidim
 
       records.create!(
         transferrable_ids.map do |resource_id|
-          { resource_type: resource_class.name, resource_id: resource_id }
+          { resource_type: resource_class.name, resource_id: }
         end
       )
     end

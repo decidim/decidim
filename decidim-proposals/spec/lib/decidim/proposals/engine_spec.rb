@@ -6,10 +6,10 @@ describe Decidim::Proposals::Engine do
   describe "decidim_proposals.authorization_transfer" do
     include_context "authorization transfer"
 
-    let(:component) { create(:proposal_component, :with_votes_enabled, organization: organization) }
-    let(:proposal1) { create(:proposal, component: component) }
-    let(:proposal2) { create(:proposal, component: component) }
-    let(:proposal3) { create(:proposal, component: component) }
+    let(:component) { create(:proposal_component, :with_votes_enabled, organization:) }
+    let(:proposal1) { create(:proposal, component:) }
+    let(:proposal2) { create(:proposal, component:) }
+    let(:proposal3) { create(:proposal, component:) }
     let(:original_records) do
       {
         votes: [

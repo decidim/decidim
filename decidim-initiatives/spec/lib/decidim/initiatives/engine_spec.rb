@@ -10,10 +10,10 @@ describe Decidim::Initiatives::Engine do
   describe "decidim_initiatives.authorization_transfer" do
     include_context "authorization transfer"
 
-    let(:component) { create(:post_component, organization: organization) }
+    let(:component) { create(:post_component, organization:) }
     let(:original_records) do
       {
-        initiatives: create_list(:initiative, 3, organization: organization, author: original_user),
+        initiatives: create_list(:initiative, 3, organization:, author: original_user),
         votes: create_list(:initiative_user_vote, 5, author: original_user)
       }
     end

@@ -289,7 +289,7 @@ FactoryBot.define do
       organization { create(:organization) }
     end
 
-    user { create(:user, :confirmed, organization: organization) }
+    user { create(:user, :confirmed, organization:) }
     source_user { create(:user, :confirmed, :deleted, organization: user.try(:organization) || organization) }
     authorization do
       create(
@@ -299,7 +299,7 @@ FactoryBot.define do
     end
 
     trait :transferred do
-      authorization { create(:authorization, user: user) }
+      authorization { create(:authorization, user:) }
     end
   end
 
@@ -308,7 +308,7 @@ FactoryBot.define do
       organization { resource.try(:organization) || create(:organization) }
     end
 
-    transfer { create(:authorization_transfer, organization: organization) }
+    transfer { create(:authorization_transfer, organization:) }
     resource { create(:dummy_resource) }
   end
 

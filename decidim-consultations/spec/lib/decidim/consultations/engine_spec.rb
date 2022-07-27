@@ -6,10 +6,10 @@ describe Decidim::Consultations::Engine do
   describe "decidim_consultations.authorization_transfer" do
     include_context "authorization transfer"
 
-    let(:consultation) { create(:consultation, organization: organization) }
-    let(:question1) { create(:question, consultation: consultation) }
-    let(:question2) { create(:question, consultation: consultation) }
-    let(:question3) { create(:question, consultation: consultation) }
+    let(:consultation) { create(:consultation, organization:) }
+    let(:question1) { create(:question, consultation:) }
+    let(:question2) { create(:question, consultation:) }
+    let(:question3) { create(:question, consultation:) }
     let(:original_records) do
       {
         votes: [

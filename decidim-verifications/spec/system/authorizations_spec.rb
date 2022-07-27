@@ -65,7 +65,7 @@ describe "Authorizations", type: :system, with_authorization_workflows: ["dummy_
           end
 
           before do
-            create_list(:comment, 10, author: other_user, commentable: commentable)
+            create_list(:comment, 10, author: other_user, commentable:)
             create_list(:proposal, 5, users: [other_user], component: create(:proposal_component, organization: user.organization))
 
             within_user_menu do

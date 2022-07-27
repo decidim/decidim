@@ -58,7 +58,7 @@ module Decidim
       Authorization.find_by(
         user: User.where.not(id: user.id).where(organization: user.organization),
         name: handler_name,
-        unique_id: unique_id
+        unique_id:
       )
     end
 

@@ -6,10 +6,10 @@ describe Decidim::Budgets::Engine do
   describe "decidim_budgets.authorization_transfer" do
     include_context "authorization transfer"
 
-    let(:component) { create(:budgets_component, organization: organization) }
-    let(:budget1) { create(:budget, component: component) }
-    let(:budget2) { create(:budget, component: component) }
-    let(:budget3) { create(:budget, component: component) }
+    let(:component) { create(:budgets_component, organization:) }
+    let(:budget1) { create(:budget, component:) }
+    let(:budget2) { create(:budget, component:) }
+    let(:budget3) { create(:budget, component:) }
     let(:original_records) do
       {
         orders: [

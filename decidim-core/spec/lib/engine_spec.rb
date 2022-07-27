@@ -91,15 +91,15 @@ module Decidim::Core
     describe "decidim.authorization_transfer" do
       include_context "authorization transfer"
 
-      let(:component) { create(:component, organization: organization) }
-      let(:coauthorables) { build_list(:dummy_resource, 5, component: component) }
-      let(:endorsables) { build_list(:dummy_resource, 10, component: component) }
-      let(:amendable) { build(:dummy_resource, component: component) }
-      let(:emendation) { build(:dummy_resource, component: component) }
+      let(:component) { create(:component, organization:) }
+      let(:coauthorables) { build_list(:dummy_resource, 5, component:) }
+      let(:endorsables) { build_list(:dummy_resource, 10, component:) }
+      let(:amendable) { build(:dummy_resource, component:) }
+      let(:emendation) { build(:dummy_resource, component:) }
       let(:original_records) do
         {
-          amendments: create_list(:amendment, 3, amendable: amendable, emendation: emendation, amender: original_user),
-          coauthorships: coauthorables.map { |coauthorable| create(:coauthorship, coauthorable: coauthorable, author: original_user) },
+          amendments: create_list(:amendment, 3, amendable:, emendation:, amender: original_user),
+          coauthorships: coauthorables.map { |coauthorable| create(:coauthorship, coauthorable:, author: original_user) },
           endorsements: endorsables.map { |endorsable| create(:endorsement, resource: endorsable, author: original_user) }
         }
       end

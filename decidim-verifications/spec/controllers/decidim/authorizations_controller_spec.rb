@@ -24,8 +24,8 @@ module Decidim::Verifications
       context "when the handler is valid" do
         let(:handler_name) { "dummy_authorization_handler" }
         let(:document_number) { "12345678X" }
-        let(:handler_params) { { document_number: document_number } }
-        let(:authorization) { Decidim::Authorization.find_by(name: handler_name, user: user) }
+        let(:handler_params) { { document_number: } }
+        let(:authorization) { Decidim::Authorization.find_by(name: handler_name, user:) }
 
         it "creates an authorization and redirects the user" do
           expect do
@@ -84,7 +84,7 @@ module Decidim::Verifications
                   tr.move_records(Decidim::DummyResources::DummyResource, :decidim_author_id)
                 end
 
-                create_list(:dummy_resource, 5, author: other_user, component: component)
+                create_list(:dummy_resource, 5, author: other_user, component:)
               end
 
               it "transfers the authorization and the records" do

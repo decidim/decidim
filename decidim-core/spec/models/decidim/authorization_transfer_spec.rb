@@ -6,16 +6,16 @@ module Decidim
   describe AuthorizationTransfer do
     subject { transfer }
 
-    let(:transfer) { build(:authorization_transfer, organization: organization, user: user, source_user: source_user, authorization: authorization) }
+    let(:transfer) { build(:authorization_transfer, organization:, user:, source_user:, authorization:) }
 
     let(:organization) { create(:organization) }
-    let(:user) { create(:user, :confirmed, organization: organization) }
-    let(:source_user) { create(:user, :confirmed, :deleted, organization: organization) }
+    let(:user) { create(:user, :confirmed, organization:) }
+    let(:source_user) { create(:user, :confirmed, :deleted, organization:) }
     let(:authorization) do
       create(
         :authorization,
         :granted,
-        user: source_user || create(:user, :confirmed, :deleted, organization: organization),
+        user: source_user || create(:user, :confirmed, :deleted, organization:),
         unique_id: "12345678X"
       )
     end
@@ -104,12 +104,12 @@ module Decidim
         DummyAuthorizationHandler.from_params(
           document_number: authorization.unique_id,
           postal_code: "08001",
-          user: user
+          user:
         )
       end
-      let(:component) { create(:component, manifest_name: "dummy", organization: organization) }
-      let!(:dummy_resources) { create_list(:dummy_resource, 3, author: source_user, component: component) }
-      let!(:coauthorable_dummy_resources) { create_list(:coauthorable_dummy_resource, 5, authors_list: [source_user], component: component) }
+      let(:component) { create(:component, manifest_name: "dummy", organization:) }
+      let!(:dummy_resources) { create_list(:dummy_resource, 3, author: source_user, component:) }
+      let!(:coauthorable_dummy_resources) { create_list(:coauthorable_dummy_resource, 5, authors_list: [source_user], component:) }
 
       include_context "with local block registry"
 
@@ -221,13 +221,13 @@ module Decidim
     describe "#information" do
       subject { transfer.information }
 
-      let(:component) { create(:component, manifest_name: "dummy", organization: organization) }
-      let(:dummy_resources) { create_list(:dummy_resource, 3, author: user, component: component) }
-      let(:coauthorable_dummy_resources) { create_list(:coauthorable_dummy_resource, 5, authors_list: [user], component: component) }
+      let(:component) { create(:component, manifest_name: "dummy", organization:) }
+      let(:dummy_resources) { create_list(:dummy_resource, 3, author: user, component:) }
+      let(:coauthorable_dummy_resources) { create_list(:coauthorable_dummy_resource, 5, authors_list: [user], component:) }
 
       let(:amendments) do
         dummy_resources.map do |amendable|
-          create(:amendment, amendable: amendable, emendation: create(:dummy_resource, author: user, component: amendable.component))
+          create(:amendment, amendable:, emendation: create(:dummy_resource, author: user, component: amendable.component))
         end.flatten
       end
       let(:endorsements) do
@@ -236,10 +236,10 @@ module Decidim
 
       before do
         (dummy_resources + amendments + endorsements).each do |r|
-          create(:authorization_transfer_record, transfer: transfer, resource: r)
+          create(:authorization_transfer_record, transfer:, resource: r)
         end
         coauthorable_dummy_resources.each do |r|
-          r.coauthorships.each { |c| create(:authorization_transfer_record, transfer: transfer, resource: c) }
+          r.coauthorships.each { |c| create(:authorization_transfer_record, transfer:, resource: c) }
         end
       end
 
@@ -264,8 +264,8 @@ module Decidim
     describe "#move_records" do
       subject { transfer.move_records(Decidim::DummyResources::DummyResource, :decidim_author_id) }
 
-      let(:component) { create(:component, manifest_name: "dummy", organization: organization) }
-      let!(:dummy_resources) { create_list(:dummy_resource, 3, author: source_user, component: component) }
+      let(:component) { create(:component, manifest_name: "dummy", organization:) }
+      let!(:dummy_resources) { create_list(:dummy_resource, 3, author: source_user, component:) }
 
       before { transfer.save! }
 

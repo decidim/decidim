@@ -292,7 +292,7 @@ describe "Account", type: :system do
       end
 
       context "when the user has an authorization" do
-        let!(:authorization) { create(:authorization, :granted, user: user) }
+        let!(:authorization) { create(:authorization, :granted, user:) }
 
         it "displays the authorizations message" do
           visit decidim.delete_account_path

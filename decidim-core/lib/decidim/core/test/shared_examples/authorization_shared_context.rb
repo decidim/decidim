@@ -2,8 +2,8 @@
 
 shared_context "authorization transfer" do
   let(:organization) { create(:organization) }
-  let(:original_user) { create(:user, :confirmed, :deleted, organization: organization) }
-  let(:target_user) { create(:user, :confirmed, organization: organization) }
+  let(:original_user) { create(:user, :confirmed, :deleted, organization:) }
+  let(:target_user) { create(:user, :confirmed, organization:) }
   let(:authorization_document_number) { "12345678X" }
   let(:authorization) { create(:authorization, :granted, user: original_user, unique_id: authorization_document_number) }
   let(:authorization_handler) do
@@ -15,7 +15,7 @@ shared_context "authorization transfer" do
   let(:transfer) do
     create(
       :authorization_transfer,
-      authorization: authorization,
+      authorization:,
       user: authorization_handler.user,
       source_user: original_user
     )
