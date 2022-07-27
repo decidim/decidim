@@ -7,9 +7,17 @@ module Decidim
 
     DEFAULT_RESOURCE_TYPE_ICONS = {
       "all" => "apps-2-line",
+      "Decidim::Proposals::CollaborativeDraft" => "draft-line",
       "Decidim::Comments::Comment" => "chat-1-line",
-      "Decidim::Proposals::Proposal" => "chat-new-line",
       "Decidim::Debates::Debate" => "discuss-line",
+      "Decidim::Initiative" => "lightbulb-flash-line",
+      "Decidim::Meetings::Meeting" => "map-pin-line",
+      "Decidim::Blogs::Post" => "pen-nib-line",
+      "Decidim::Proposals::Proposal" => "chat-new-line",
+      "Decidim::Consultations::Question" => "question-mark",
+      "Decidim::Budgets::Order" => "check-double-line",
+      "Decidim::Assembly" => "government-line",
+      "Decidim::ParticipatoryProcess" => "treasure-map-line",
       "other" => "question-line"
     }.freeze
 
