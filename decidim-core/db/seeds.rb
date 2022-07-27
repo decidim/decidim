@@ -57,13 +57,13 @@ if !Rails.env.production? || ENV.fetch("SEED", nil)
     province = Decidim::ScopeType.create!(
       name: Decidim::Faker::Localized.literal("province"),
       plural: Decidim::Faker::Localized.literal("provinces"),
-      organization: organization
+      organization:
     )
 
     municipality = Decidim::ScopeType.create!(
       name: Decidim::Faker::Localized.literal("municipality"),
       plural: Decidim::Faker::Localized.literal("municipalities"),
-      organization: organization
+      organization:
     )
 
     3.times do |time|
@@ -71,7 +71,7 @@ if !Rails.env.production? || ENV.fetch("SEED", nil)
         name: Decidim::Faker::Localized.literal(Faker::Address.unique.state),
         code: "#{Faker::Address.country_code}_#{time}",
         scope_type: province,
-        organization: organization
+        organization:
       )
 
       5.times do
@@ -79,8 +79,8 @@ if !Rails.env.production? || ENV.fetch("SEED", nil)
           name: Decidim::Faker::Localized.literal(Faker::Address.unique.city),
           code: "#{parent.code}-#{Faker::Address.unique.state_abbr}",
           scope_type: municipality,
-          organization: organization,
-          parent: parent
+          organization:,
+          parent:
         )
       end
     end
@@ -89,20 +89,20 @@ if !Rails.env.production? || ENV.fetch("SEED", nil)
   territorial = Decidim::AreaType.create!(
     name: Decidim::Faker::Localized.literal("territorial"),
     plural: Decidim::Faker::Localized.literal("territorials"),
-    organization: organization
+    organization:
   )
 
   sectorial = Decidim::AreaType.create!(
     name: Decidim::Faker::Localized.literal("sectorials"),
     plural: Decidim::Faker::Localized.literal("sectorials"),
-    organization: organization
+    organization:
   )
 
   3.times do
     Decidim::Area.create!(
       name: Decidim::Faker::Localized.word,
       area_type: territorial,
-      organization: organization
+      organization:
     )
   end
 
@@ -110,7 +110,7 @@ if !Rails.env.production? || ENV.fetch("SEED", nil)
     Decidim::Area.create!(
       name: Decidim::Faker::Localized.word,
       area_type: sectorial,
-      organization: organization
+      organization:
     )
   end
 
@@ -118,7 +118,7 @@ if !Rails.env.production? || ENV.fetch("SEED", nil)
   admin_hash = {
     name: Faker::Name.name,
     nickname: Faker::Twitter.unique.screen_name,
-    organization: organization,
+    organization:,
     confirmed_at: Time.current,
     locale: I18n.default_locale,
     admin: true,
@@ -133,14 +133,14 @@ if !Rails.env.production? || ENV.fetch("SEED", nil)
   admin.update!(admin_hash)
 
   ["user@example.org", "user2@example.org"].each do |email|
-    Decidim::User.find_or_initialize_by(email: email).update!(
+    Decidim::User.find_or_initialize_by(email:).update!(
       name: Faker::Name.name,
       nickname: Faker::Twitter.unique.screen_name,
       password: "decidim123456789",
       password_confirmation: "decidim123456789",
       confirmed_at: Time.current,
       locale: I18n.default_locale,
-      organization: organization,
+      organization:,
       tos_agreement: true,
       personal_url: Faker::Internet.url,
       about: Faker::Lorem.paragraph(sentence_count: 2),
@@ -159,7 +159,7 @@ if !Rails.env.production? || ENV.fetch("SEED", nil)
     password_confirmation: "decidim123456789",
     confirmed_at: Time.current,
     locale: I18n.default_locale,
-    organization: organization,
+    organization:,
     tos_agreement: true,
     personal_url: Faker::Internet.url,
     about: Faker::Lorem.paragraph(sentence_count: 2),
@@ -184,21 +184,21 @@ if !Rails.env.production? || ENV.fetch("SEED", nil)
         extended_data: {
           document_number: Faker::Number.number(digits: 10).to_s,
           phone: Faker::PhoneNumber.phone_number,
-          verified_at: verified_at
+          verified_at:
         },
         decidim_organization_id: user.organization.id
       )
 
       Decidim::UserGroupMembership.create!(
-        user: user,
+        user:,
         role: "creator",
-        user_group: user_group
+        user_group:
       )
     end
   end
 
   oauth_application = Decidim::OAuthApplication.create!(
-    organization: organization,
+    organization:,
     name: "Test OAuth application",
     organization_name: "Example organization",
     organization_url: "http://www.example.org",
@@ -210,7 +210,7 @@ if !Rails.env.production? || ENV.fetch("SEED", nil)
 
   Decidim::System::CreateDefaultContentBlocks.call(organization)
 
-  hero_content_block = Decidim::ContentBlock.find_by(organization: organization, manifest_name: :hero, scope_name: :homepage)
+  hero_content_block = Decidim::ContentBlock.find_by(organization:, manifest_name: :hero, scope_name: :homepage)
   hero_content_block.images_container.background_image = ActiveStorage::Blob.create_and_upload!(
     io: File.open(File.join(seeds_root, "homepage_image.jpg")),
     filename: "homepage_image.jpg",

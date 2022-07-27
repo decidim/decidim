@@ -5,10 +5,10 @@ module Decidim
   # locale into account for fragment caching.
   module CacheHelper
     # See: https://git.io/J3ouj
-    def cache(name = {}, options = {}, &block)
+    def cache(name = {}, options = {}, &)
       name = Array(name) + [current_locale]
 
-      super(name, options, &block)
+      super(name, options, &)
     end
   end
 end

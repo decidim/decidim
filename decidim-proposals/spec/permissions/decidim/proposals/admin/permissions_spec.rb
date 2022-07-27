@@ -11,10 +11,10 @@ describe Decidim::Proposals::Admin::Permissions do
   let(:extra_context) { {} }
   let(:context) do
     {
-      proposal: proposal,
-      current_component: current_component,
-      current_settings: current_settings,
-      component_settings: component_settings
+      proposal:,
+      current_component:,
+      current_settings:,
+      component_settings:
     }.merge(extra_context)
   end
   let(:component_settings) do
@@ -90,12 +90,12 @@ describe Decidim::Proposals::Admin::Permissions do
   context "when user is a valuator" do
     let(:organization) { space.organization }
     let(:space) { current_component.participatory_space }
-    let!(:valuator_role) { create :participatory_process_user_role, user: user, role: :valuator, participatory_process: space }
-    let!(:user) { create :user, organization: organization }
+    let!(:valuator_role) { create :participatory_process_user_role, user:, role: :valuator, participatory_process: space }
+    let!(:user) { create :user, organization: }
 
     context "and can valuate the current proposal" do
       let(:proposal) { create :proposal, component: current_component }
-      let!(:assignment) { create :valuation_assignment, proposal: proposal, valuator_role: valuator_role }
+      let!(:assignment) { create :valuation_assignment, proposal:, valuator_role: }
 
       it_behaves_like "can create proposal notes"
       it_behaves_like "can answer proposals"
@@ -166,7 +166,7 @@ describe Decidim::Proposals::Admin::Permissions do
 
       context "when it has some votes" do
         before do
-          create :proposal_vote, proposal: proposal
+          create :proposal_vote, proposal:
         end
 
         it_behaves_like "permission is not set"

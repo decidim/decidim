@@ -61,7 +61,7 @@ module Decidim
 
         def slug_uniqueness
           return unless organization_votings
-                        .where(slug: slug)
+                        .where(slug:)
                         .where.not(id: context[:voting_id])
                         .any?
 

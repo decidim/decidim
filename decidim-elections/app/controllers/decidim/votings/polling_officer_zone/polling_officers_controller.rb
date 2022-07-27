@@ -11,7 +11,7 @@ module Decidim
         helper_method :polling_stations, :polling_officers_elections
 
         def index
-          enforce_permission_to :view, :polling_officers, polling_officers: polling_officers
+          enforce_permission_to :view, :polling_officers, polling_officers:
         end
 
         private

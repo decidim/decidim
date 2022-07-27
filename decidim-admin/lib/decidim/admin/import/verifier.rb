@@ -73,7 +73,7 @@ module Decidim
                 I18n.t(
                   "decidim.admin.imports.data_errors.invalid_indexes.records.message",
                   count: invalid_indexes.count,
-                  indexes: indexes
+                  indexes:
                 ),
                 I18n.t("decidim.admin.imports.data_errors.invalid_indexes.records.detail")
               ].join(" ")
@@ -82,7 +82,7 @@ module Decidim
                 I18n.t(
                   "decidim.admin.imports.data_errors.invalid_indexes.lines.message",
                   count: invalid_indexes.count,
-                  indexes: indexes
+                  indexes:
                 ),
                 I18n.t("decidim.admin.imports.data_errors.invalid_indexes.lines.detail")
               ].join(" ")

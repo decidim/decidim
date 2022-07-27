@@ -9,11 +9,11 @@ module Decidim::Votings
 
     subject { cell_html }
 
-    let(:my_cell) { cell("decidim/votings/voting_m", voting, context: { show_space: show_space }) }
+    let(:my_cell) { cell("decidim/votings/voting_m", voting, context: { show_space: }) }
     let(:cell_html) { my_cell.call }
     let(:start_time) { 2.days.ago }
     let(:end_time) { 1.day.from_now }
-    let(:voting) { create(:voting, :published, start_time: start_time, end_time: end_time) }
+    let(:voting) { create(:voting, :published, start_time:, end_time:) }
     let(:model) { voting }
     let(:user) { create :user, organization: voting.organization }
 

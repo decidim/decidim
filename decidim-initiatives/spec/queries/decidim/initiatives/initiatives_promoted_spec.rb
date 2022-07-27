@@ -5,21 +5,21 @@ require "spec_helper"
 module Decidim
   module Initiatives
     describe InitiativesPromoted do
-      let!(:user) { create(:user, :confirmed, organization: organization) }
-      let!(:admin) { create(:user, :confirmed, :admin, organization: organization) }
+      let!(:user) { create(:user, :confirmed, organization:) }
+      let!(:admin) { create(:user, :confirmed, :admin, organization:) }
       let!(:organization) { create(:organization) }
-      let!(:user_initiatives) { create_list(:initiative, 3, organization: organization, author: user) }
-      let!(:admin_initiatives) { create_list(:initiative, 3, organization: organization, author: admin) }
+      let!(:user_initiatives) { create_list(:initiative, 3, organization:, author: user) }
+      let!(:admin_initiatives) { create_list(:initiative, 3, organization:, author: admin) }
 
       context "when initiative promoters" do
         subject { described_class.new(promoter) }
 
-        let(:promoter) { create(:user, organization: organization) }
-        let(:promoter_initiatives) { create_list(:initiative, 3, organization: organization) }
+        let(:promoter) { create(:user, organization:) }
+        let(:promoter_initiatives) { create_list(:initiative, 3, organization:) }
 
         before do
           promoter_initiatives.each do |initiative|
-            create(:initiatives_committee_member, initiative: initiative, user: promoter)
+            create(:initiatives_committee_member, initiative:, user: promoter)
           end
         end
 

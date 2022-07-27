@@ -28,7 +28,7 @@ module Decidim
         @metrics_presenter ||= Decidim::Admin::DashboardMetricChartsPresenter.new(
           summary: true,
           organization: current_organization,
-          view_context: view_context
+          view_context:
         )
       end
 
@@ -50,8 +50,8 @@ module Decidim
       def users_count(date, admin)
         @users_count = Decidim::Admin::ActiveUsersCounter.new(
           organization: current_organization,
-          date: date,
-          admin: admin
+          date:,
+          admin:
         ).query.count
       end
     end

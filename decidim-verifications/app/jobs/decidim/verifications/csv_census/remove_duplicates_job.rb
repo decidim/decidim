@@ -9,7 +9,7 @@ module Decidim
         def perform(organization)
           duplicated_census(organization).pluck(:email).each do |email|
             CsvDatum.inside(organization)
-                    .where(email: email)
+                    .where(email:)
                     .order(id: :desc)
                     .all(1..-1)
                     .each(&:delete)

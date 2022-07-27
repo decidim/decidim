@@ -4,10 +4,10 @@ require "spec_helper"
 
 describe "Question", type: :system do
   let(:organization) { create(:organization) }
-  let(:consultation) { create(:consultation, :published, organization: organization) }
-  let(:previous_question) { create :question, consultation: consultation }
-  let(:question) { create :question, consultation: consultation }
-  let(:next_question) { create :question, consultation: consultation }
+  let(:consultation) { create(:consultation, :published, organization:) }
+  let(:previous_question) { create :question, consultation: }
+  let(:question) { create :question, consultation: }
+  let(:next_question) { create :question, consultation: }
 
   context "when shows question information" do
     before do
@@ -71,10 +71,10 @@ describe "Question", type: :system do
   end
 
   context "when no question is published" do
-    let(:user) { create(:user, :admin, :confirmed, organization: organization) }
-    let(:previous_question) { create :question, :unpublished, consultation: consultation }
-    let(:question) { create :question, :unpublished, consultation: consultation }
-    let(:next_question) { create :question, :unpublished, consultation: consultation }
+    let(:user) { create(:user, :admin, :confirmed, organization:) }
+    let(:previous_question) { create :question, :unpublished, consultation: }
+    let(:question) { create :question, :unpublished, consultation: }
+    let(:next_question) { create :question, :unpublished, consultation: }
 
     before do
       switch_to_host(organization.host)
@@ -117,9 +117,9 @@ describe "Question", type: :system do
 
   context "when finished consultations" do
     context "and published results" do
-      let(:consultation) { create :consultation, :finished, :published, :published_results, organization: organization }
-      let(:response) { create :response, question: question }
-      let!(:vote) { create :vote, question: question, response: response }
+      let(:consultation) { create :consultation, :finished, :published, :published_results, organization: }
+      let(:response) { create :response, question: }
+      let!(:vote) { create :vote, question:, response: }
 
       before do
         switch_to_host(organization.host)
@@ -135,7 +135,7 @@ describe "Question", type: :system do
   end
 
   context "when question has no hero image" do
-    let(:question_without_hero) { create :question, consultation: consultation, hero_image: nil }
+    let(:question_without_hero) { create :question, consultation:, hero_image: nil }
 
     before do
       switch_to_host(organization.host)

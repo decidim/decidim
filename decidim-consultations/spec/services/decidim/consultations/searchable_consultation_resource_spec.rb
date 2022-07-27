@@ -9,7 +9,7 @@ module Decidim
         create(
           :consultation,
           :unpublished,
-          organization: organization,
+          organization:,
           title: Decidim::Faker::Localized.name,
           subtitle: Decidim::Faker::Localized.name,
           description: description1
@@ -19,7 +19,7 @@ module Decidim
       let(:consultation2) do
         create(
           :consultation,
-          organization: organization,
+          organization:,
           title: Decidim::Faker::Localized.name,
           subtitle: Decidim::Faker::Localized.name,
           description: description2
@@ -29,10 +29,10 @@ module Decidim
       let(:searchable_resource_attrs_mapper) do
         lambda { |space, locale|
           {
-            "content_a" => I18n.transliterate(translated(space.title, locale: locale)),
-            "content_b" => I18n.transliterate(translated(space.subtitle, locale: locale)),
+            "content_a" => I18n.transliterate(translated(space.title, locale:)),
+            "content_b" => I18n.transliterate(translated(space.subtitle, locale:)),
             "content_c" => "",
-            "content_d" => I18n.transliterate(translated(space.description, locale: locale))
+            "content_d" => I18n.transliterate(translated(space.description, locale:))
           }
         }
       end

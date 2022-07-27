@@ -7,7 +7,7 @@ module Decidim::Budgets
     subject { described_class.new(category_id, Array(project)) }
 
     let(:budget) { create(:budget) }
-    let(:project) { create(:project, budget: budget) }
+    let(:project) { create(:project, budget:) }
     let(:category) { create(:category, participatory_space: budget.component.participatory_space) }
     let(:category_id) { category.id }
 

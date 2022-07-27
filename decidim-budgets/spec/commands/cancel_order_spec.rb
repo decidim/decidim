@@ -14,10 +14,10 @@ module Decidim::Budgets
         organization: user.organization
       )
     end
-    let(:budget) { create(:budget, component: component) }
-    let(:project) { create(:project, budget: budget, budget_amount: 90_000_000) }
+    let(:budget) { create(:budget, component:) }
+    let(:project) { create(:project, budget:, budget_amount: 90_000_000) }
     let(:order) do
-      order = create(:order, user: user, budget: budget)
+      order = create(:order, user:, budget:)
       order.projects << project
       order.checked_out_at = Time.current
       order.save!
@@ -44,7 +44,7 @@ module Decidim::Budgets
     end
 
     context "when the order is not checked out" do
-      let(:order) { create(:order, user: user, budget: budget) }
+      let(:order) { create(:order, user:, budget:) }
 
       it "broadcasts invalid" do
         expect { subject.call }.to broadcast(:invalid)

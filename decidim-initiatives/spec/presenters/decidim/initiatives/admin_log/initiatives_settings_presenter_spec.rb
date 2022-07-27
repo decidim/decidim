@@ -11,7 +11,7 @@ module Decidim
         let(:action_log) do
           create(
             :action_log,
-            action: action
+            action:
           )
         end
         let(:action) { :update }

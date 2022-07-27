@@ -9,8 +9,8 @@ module Decidim
         subject { described_class.new(form) }
 
         let(:organization) { create :organization }
-        let(:consultation) { create(:consultation, organization: organization) }
-        let(:scope) { create(:scope, organization: organization) }
+        let(:consultation) { create(:consultation, organization:) }
+        let(:scope) { create(:scope, organization:) }
         let(:errors) { double.as_null_object }
         let(:banner_image) { upload_test_file(Decidim::Dev.test_file("city.jpeg", "image/jpeg")) }
         let(:hero_image) { upload_test_file(Decidim::Dev.test_file("city.jpeg", "image/jpeg")) }
@@ -24,8 +24,8 @@ module Decidim
               participatory_scope_en: "Participatory scope",
               what_is_decided_en: "What is decided",
               decidim_scope_id: scope.id,
-              banner_image: banner_image,
-              hero_image: hero_image,
+              banner_image:,
+              hero_image:,
               external_voting: false,
               order: 1
             }

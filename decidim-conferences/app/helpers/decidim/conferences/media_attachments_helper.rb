@@ -11,7 +11,7 @@ module Decidim
       #
       # Returns nothing.
       def attachments_for_conference(attached_to)
-        render partial: "attachments", locals: { attached_to: attached_to }
+        render partial: "attachments", locals: { attached_to: }
       end
 
       # Renders the attachment's title.

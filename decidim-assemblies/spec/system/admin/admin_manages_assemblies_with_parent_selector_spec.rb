@@ -76,7 +76,7 @@ describe "Admin manages assemblies with parent selector", type: :system do
   end
 
   context "when managing child assemblies" do
-    let!(:child_assembly) { create :assembly, organization: organization, parent: assembly }
+    let!(:child_assembly) { create :assembly, organization:, parent: assembly }
 
     before do
       within find("tr", text: translated(assembly.title)) do

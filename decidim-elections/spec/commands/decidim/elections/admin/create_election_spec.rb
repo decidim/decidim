@@ -6,21 +6,21 @@ describe Decidim::Elections::Admin::CreateElection do
   subject { described_class.new(form) }
 
   let(:organization) { create :organization, available_locales: [:en, :ca, :es], default_locale: :en }
-  let(:participatory_process) { create :participatory_process, organization: organization }
+  let(:participatory_process) { create :participatory_process, organization: }
   let(:current_component) { create :component, participatory_space: participatory_process, manifest_name: "elections" }
-  let(:user) { create :user, :admin, :confirmed, organization: organization }
+  let(:user) { create :user, :admin, :confirmed, organization: }
   let(:form) do
     double(
       invalid?: invalid,
       title: { en: "title" },
       description: { en: "description" },
-      start_time: start_time,
-      end_time: end_time,
+      start_time:,
+      end_time:,
       attachment: attachment_params,
-      photos: photos,
+      photos:,
       add_photos: uploaded_photos,
       current_user: user,
-      current_component: current_component,
+      current_component:,
       current_organization: organization
     )
   end

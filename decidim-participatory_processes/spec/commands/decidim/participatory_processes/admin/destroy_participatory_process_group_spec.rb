@@ -5,8 +5,8 @@ require "spec_helper"
 module Decidim::ParticipatoryProcesses
   describe Admin::DestroyParticipatoryProcessGroup do
     let(:organization) { create :organization }
-    let(:user) { create :user, :admin, :confirmed, organization: organization }
-    let(:participatory_process_group) { create :participatory_process_group, organization: organization }
+    let(:user) { create :user, :admin, :confirmed, organization: }
+    let(:participatory_process_group) { create :participatory_process_group, organization: }
     let(:command) { described_class.new(participatory_process_group, user) }
 
     it "destroys the participatory process group" do

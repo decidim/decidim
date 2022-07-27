@@ -8,13 +8,13 @@ module Decidim
 
     include_context "when a resource is ready for global search"
 
-    let(:current_component) { create :budgets_component, organization: organization }
+    let(:current_component) { create :budgets_component, organization: }
     let(:budget) { create :budget, component: current_component }
 
     let!(:resource) do
       create(
         :project,
-        budget: budget,
+        budget:,
         scope: scope1,
         title: Decidim::Faker::Localized.name,
         description: description1
@@ -26,7 +26,7 @@ module Decidim
         context "when on create" do
           it "does indexes a SearchableResource after resource creation" do
             organization.available_locales.each do |locale|
-              searchable = SearchableResource.find_by(resource_type: resource.class.name, resource_id: resource.id, locale: locale)
+              searchable = SearchableResource.find_by(resource_type: resource.class.name, resource_id: resource.id, locale:)
               expect_searchable_resource_to_correspond_to_project(searchable, resource, locale)
             end
           end
@@ -45,9 +45,9 @@ module Decidim
               expect(resource.update(title: updated_title)).to be_truthy
 
               organization.available_locales.each do |locale|
-                searchable = SearchableResource.find_by(resource_type: resource.class.name, resource_id: resource.id, locale: locale)
+                searchable = SearchableResource.find_by(resource_type: resource.class.name, resource_id: resource.id, locale:)
                 searchable.reload
-                expect(searchable.content_a).to eq I18n.transliterate(translated(updated_title, locale: locale))
+                expect(searchable.content_a).to eq I18n.transliterate(translated(updated_title, locale:))
                 expect(searchable.updated_at).to be > created_at
               end
             end
@@ -69,7 +69,7 @@ module Decidim
         let!(:resource2) do
           create(
             :project,
-            budget: budget,
+            budget:,
             scope: scope1,
             title: Decidim::Faker::Localized.name,
             description: Decidim::Faker::Localized.prefixed("Chewie, I'll be waiting for your signal. Take care, you two. May the Force be with you. Ow!", test_locales)
@@ -113,10 +113,10 @@ module Decidim
 
     def expected_searchable_resource_attrs(resource, locale)
       {
-        "content_a" => I18n.transliterate(translated(resource.title, locale: locale)),
+        "content_a" => I18n.transliterate(translated(resource.title, locale:)),
         "content_b" => "",
         "content_c" => "",
-        "content_d" => I18n.transliterate(translated(resource.description, locale: locale)),
+        "content_d" => I18n.transliterate(translated(resource.description, locale:)),
         "locale" => locale,
 
         "decidim_organization_id" => resource.component.organization.id,

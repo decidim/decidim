@@ -4,8 +4,8 @@ shared_examples "includes base workflow features" do
   describe "#budgets" do
     subject { workflow.budgets }
 
-    let(:independent_component) { create(:budgets_component, organization: organization) }
-    let(:unpublished_component) { create(:budgets_component, published_at: nil, organization: organization) }
+    let(:independent_component) { create(:budgets_component, organization:) }
+    let(:unpublished_component) { create(:budgets_component, published_at: nil, organization:) }
 
     it "counts only the component resources" do
       expect(subject).to match_array(Decidim::Budgets::Budget.where(component: budgets_component))

@@ -8,9 +8,9 @@ module Decidim::ParticipatoryProcesses
 
     let!(:organization) { create(:organization) }
     let!(:local_participatory_processes) do
-      create(:participatory_process, organization: organization, weight: 2)
-      create(:participatory_process, organization: organization, weight: 3)
-      create(:participatory_process, organization: organization, weight: 1)
+      create(:participatory_process, organization:, weight: 2)
+      create(:participatory_process, organization:, weight: 3)
+      create(:participatory_process, organization:, weight: 1)
     end
 
     let!(:foreign_participatory_processes) do
