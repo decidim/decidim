@@ -47,6 +47,7 @@ module Decidim
         template "app/controllers/decidim/component/admin/application_controller.rb.erb", "#{app_folder}/controllers/decidim/#{component_name}/admin/application_controller.rb"
         template "app/helpers/decidim/component/application_helper.rb.erb", "#{app_folder}/helpers/decidim/#{component_name}/application_helper.rb"
         template "app/models/decidim/component/application_record.rb.erb", "#{app_folder}/models/decidim/#{component_name}/application_record.rb"
+        template "app/permissions/decidim/component/admin/permissions.rb.erb", "#{app_folder}/permissions/decidim/#{component_name}/admin/permissions.rb"
 
         bin_folder = "#{component_folder}/bin"
         template "bin/rails.erb", "#{bin_folder}/rails"
@@ -69,6 +70,7 @@ module Decidim
         spec_folder = "#{component_folder}/spec"
         template "spec/spec_helper.rb.erb", "#{spec_folder}/spec_helper.rb"
         template "spec/factories.rb.erb", "#{spec_folder}/factories.rb"
+        template "spec/permissions/admin/permissions_spec.rb.erb", "#{spec_folder}/permissions/admin/permissions_spec.rb"
 
         if options[:external]
           inside(component_folder) do
