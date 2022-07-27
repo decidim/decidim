@@ -6,9 +6,9 @@ module Decidim
   describe MetricOperationManifest do
     subject do
       described_class.new(
-        metric_name: metric_name,
-        manager_class: manager_class,
-        metric_operation: metric_operation
+        metric_name:,
+        manager_class:,
+        metric_operation:
       )
     end
 

@@ -6,8 +6,8 @@ describe Decidim::Conferences::ContentBlocks::HighlightedConferencesCell, type: 
   subject { cell(content_block.cell, content_block).call }
 
   let(:organization) { create(:organization) }
-  let(:content_block) { create :content_block, organization: organization, manifest_name: :highlighted_conferences, scope_name: :homepage, settings: settings }
-  let!(:conferences) { create_list :conference, 5, :published, organization: organization }
+  let(:content_block) { create :content_block, organization:, manifest_name: :highlighted_conferences, scope_name: :homepage, settings: }
+  let!(:conferences) { create_list :conference, 5, :published, organization: }
   let(:settings) { {} }
 
   let(:highlighted_conferences) { subject.find("#highlighted-conferences") }

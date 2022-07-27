@@ -11,7 +11,7 @@ module Decidim
 
         @attachment = Attachment.new(
           title: { I18n.locale => @form.attachment.title },
-          attached_to: attached_to,
+          attached_to:,
           file: @form.attachment.file, # Define attached_to before this
           content_type: @form.attachment.file.content_type
         )

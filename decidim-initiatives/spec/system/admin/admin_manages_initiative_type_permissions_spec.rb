@@ -11,9 +11,9 @@ describe "Admin manages initiative type permissions", type: :system do
       available_authorizations: %w(dummy_authorization_handler another_dummy_authorization_handler)
     )
   end
-  let(:user) { create(:user, :admin, :confirmed, organization: organization) }
+  let(:user) { create(:user, :admin, :confirmed, organization:) }
   let(:participatory_space_engine) { decidim_admin_initiatives }
-  let!(:initiative_type) { create :initiatives_type, organization: organization }
+  let!(:initiative_type) { create :initiatives_type, organization: }
 
   let(:action) { "vote" }
 

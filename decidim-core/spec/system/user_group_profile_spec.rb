@@ -76,7 +76,7 @@ describe "User group profile", type: :system do
 
     context "when displaying members" do
       let!(:pending_user) { create :user, organization: user.organization }
-      let!(:pending_membership) { create :user_group_membership, user_group: user_group, user: pending_user, role: "requested" }
+      let!(:pending_membership) { create :user_group_membership, user_group:, user: pending_user, role: "requested" }
 
       it "lists the members" do
         expect(page).to have_link("Members 1")

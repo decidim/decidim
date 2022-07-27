@@ -10,10 +10,10 @@ describe Decidim::Meetings::Admin::Permissions do
   let(:context) do
     {
       current_component: meeting_component,
-      meeting: meeting,
-      agenda: agenda,
-      questionnaire: questionnaire,
-      poll: poll
+      meeting:,
+      agenda:,
+      questionnaire:,
+      poll:
     }
   end
   let(:meeting_component) { create :meeting_component }

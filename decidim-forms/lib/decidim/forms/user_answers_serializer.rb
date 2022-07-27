@@ -83,7 +83,7 @@ module Decidim
           row_body = translated_attribute(matrix_row.body)
 
           row_choices = answer.question.answer_options.map do |answer_option|
-            choice = choices.find_by(matrix_row: matrix_row, answer_option: answer_option)
+            choice = choices.find_by(matrix_row:, answer_option:)
             choice.try(:custom_body) || choice.try(:body)
           end
 

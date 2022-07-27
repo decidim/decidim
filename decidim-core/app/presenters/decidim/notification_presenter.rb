@@ -14,7 +14,7 @@ module Decidim
         time_ago_in_words(created_at)
       else
         format = created_at.year == Time.current.year ? :ddmm : :ddmmyyyy
-        I18n.l(created_at, format: format)
+        I18n.l(created_at, format:)
       end
     end
 

@@ -8,16 +8,16 @@ module Decidim::ParticipatoryProcesses
 
     let!(:organization) { create(:organization) }
     let!(:published_participatory_processes) do
-      create(:participatory_process, :published, organization: organization, weight: 2)
-      create(:participatory_process, :published, organization: organization, weight: 3)
-      create(:participatory_process, :published, organization: organization, weight: 1)
+      create(:participatory_process, :published, organization:, weight: 2)
+      create(:participatory_process, :published, organization:, weight: 3)
+      create(:participatory_process, :published, organization:, weight: 1)
     end
 
     let!(:unpublished_participatory_processes) do
       create_list(:participatory_process,
                   3,
                   :unpublished,
-                  organization: organization)
+                  organization:)
     end
 
     let!(:foreign_participatory_processes) do

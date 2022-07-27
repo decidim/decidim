@@ -9,11 +9,11 @@ describe Decidim::Elections::Admin::Permissions do
   let(:context) do
     {
       current_component: elections_component,
-      election: election,
-      question: question,
-      answer: answer,
-      trustee_participatory_space: trustee_participatory_space,
-      questionnaire: questionnaire
+      election:,
+      question:,
+      answer:,
+      trustee_participatory_space:,
+      questionnaire:
     }
   end
   let(:elections_component) { create :elections_component }
@@ -35,7 +35,7 @@ describe Decidim::Elections::Admin::Permissions do
   shared_examples "not allowed when election has invalid questions" do
     context "when election has invalid questions" do
       let(:election) { create :election, component: elections_component }
-      let(:question) { create :question, :candidates, max_selections: 11, election: election }
+      let(:question) { create :question, :candidates, max_selections: 11, election: }
 
       it { is_expected.to be false }
     end
@@ -44,7 +44,7 @@ describe Decidim::Elections::Admin::Permissions do
   shared_examples "not allowed when trustee has elections" do
     context "when trustee has elections" do
       let(:trustee) { create :trustee, :with_elections }
-      let(:trustee_participatory_space) { create :trustees_participatory_space, trustee: trustee }
+      let(:trustee_participatory_space) { create :trustees_participatory_space, trustee: }
 
       it { is_expected.to be false }
     end
@@ -126,7 +126,7 @@ describe Decidim::Elections::Admin::Permissions do
   end
 
   describe "questions" do
-    let(:question) { create :question, election: election }
+    let(:question) { create :question, election: }
 
     describe "question creation" do
       let(:action) do
@@ -161,8 +161,8 @@ describe Decidim::Elections::Admin::Permissions do
   end
 
   describe "answers" do
-    let(:question) { create :question, election: election }
-    let(:answer) { create :election_answer, question: question }
+    let(:question) { create :question, election: }
+    let(:answer) { create :election_answer, question: }
 
     describe "answer creation" do
       let(:action) do

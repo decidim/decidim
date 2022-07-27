@@ -7,7 +7,7 @@ module Decidim
     describe StatusChangeNotifier do
       let(:message_delivery) { instance_double(ActionMailer::MessageDelivery) }
       let(:organization) { create(:organization) }
-      let(:author) { create(:user, organization: organization) }
+      let(:author) { create(:user, organization:) }
       let(:created) { false }
       let(:validating) { false }
       let(:published) { false }
@@ -19,8 +19,8 @@ module Decidim
       let(:initiative) do
         double(
           "initiative",
-          organization: organization,
-          author: author,
+          organization:,
+          author:,
           created?: created,
           validating?: validating,
           published?: published,
@@ -28,11 +28,11 @@ module Decidim
           rejected?: rejected,
           accepted?: accepted,
           committee_members: double("committee_members", approved: committee_members),
-          followers: followers
+          followers:
         )
       end
 
-      subject { described_class.new(initiative: initiative) }
+      subject { described_class.new(initiative:) }
 
       before do
         allow(message_delivery).to receive(:deliver_later)
@@ -57,7 +57,7 @@ module Decidim
           2.times do
             members << double(
               "committe_member",
-              user: create(:user, organization: organization)
+              user: create(:user, organization:)
             )
           end
           members
@@ -79,7 +79,7 @@ module Decidim
           2.times do
             members << double(
               "committe_member",
-              user: create(:user, organization: organization)
+              user: create(:user, organization:)
             )
           end
           members
@@ -101,13 +101,13 @@ module Decidim
           2.times do
             members << double(
               "committe_member",
-              user: create(:user, organization: organization)
+              user: create(:user, organization:)
             )
           end
           members
         end
         let(:followers) do
-          create_list(:user, 10, organization: organization)
+          create_list(:user, 10, organization:)
         end
 
         it "Result is notified to author and committee members" do
@@ -126,13 +126,13 @@ module Decidim
           2.times do
             members << double(
               "committe_member",
-              user: create(:user, organization: organization)
+              user: create(:user, organization:)
             )
           end
           members
         end
         let(:followers) do
-          create_list(:user, 10, organization: organization)
+          create_list(:user, 10, organization:)
         end
 
         it "Result is notified to author and committee members" do

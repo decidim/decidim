@@ -55,7 +55,7 @@ module Decidim
           title, body = reset_proposal_title_and_body(proposal)
 
           Decidim.traceability.perform_action!(:create, proposal, form.current_user, visibility: "all") do
-            proposal.update(title: title, body: body, published_at: Time.current)
+            proposal.update(title:, body:, published_at: Time.current)
           end
         end
 

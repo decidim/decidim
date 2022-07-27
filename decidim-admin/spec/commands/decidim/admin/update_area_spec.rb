@@ -7,17 +7,17 @@ module Decidim::Admin
     subject { described_class.new(area, form) }
 
     let(:organization) { create :organization }
-    let(:user) { create :user, :admin, :confirmed, organization: organization }
-    let(:area) { create :area, organization: organization }
+    let(:user) { create :user, :admin, :confirmed, organization: }
+    let(:area) { create :area, organization: }
     let(:name) { Decidim::Faker::Localized.literal("New name") }
-    let(:area_type) { create :area_type, organization: organization }
+    let(:area_type) { create :area_type, organization: }
 
     let(:form) do
       double(
         invalid?: invalid,
         current_user: user,
-        name: name,
-        area_type: area_type
+        name:,
+        area_type:
       )
     end
     let(:invalid) { false }

@@ -44,7 +44,7 @@ describe "User group leaving", type: :system do
 
       before do
         create :user_group_membership, user: user, user_group: user_group, role: :admin
-        create :user_group_membership, user: another_user, user_group: user_group, role: :admin
+        create :user_group_membership, user: another_user, user_group:, role: :admin
       end
 
       it "allows the user to leave and join back" do

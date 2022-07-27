@@ -10,10 +10,10 @@ module Decidim::Comments
 
     let(:my_cell) { cell("decidim/comments/comment_thread", comment) }
     let(:organization) { create(:organization) }
-    let(:participatory_process) { create :participatory_process, organization: organization }
+    let(:participatory_process) { create :participatory_process, organization: }
     let(:component) { create(:component, participatory_space: participatory_process) }
-    let(:commentable) { create(:dummy_resource, component: component) }
-    let(:comment) { create(:comment, commentable: commentable) }
+    let(:commentable) { create(:dummy_resource, component:) }
+    let(:comment) { create(:comment, commentable:) }
 
     context "when rendering" do
       it "renders the thread" do
@@ -38,7 +38,7 @@ module Decidim::Comments
 
         context "with a deleted user" do
           let(:user) { create(:user, :deleted, organization: component.organization) }
-          let(:comment) { create(:comment, commentable: commentable, author: user) }
+          let(:comment) { create(:comment, commentable:, author: user) }
 
           it "renders the title" do
             expect(subject).to have_css(".comment-thread__title", text: "Conversation with Deleted participant")

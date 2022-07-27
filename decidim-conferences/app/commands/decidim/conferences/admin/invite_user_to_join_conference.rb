@@ -37,7 +37,7 @@ module Decidim
 
         def already_invited?
           return false unless user.persisted?
-          return false unless conference.conference_invites.exists?(user: user)
+          return false unless conference.conference_invites.exists?(user:)
 
           form.errors.add(:email, :already_invited)
           true
@@ -57,8 +57,8 @@ module Decidim
             Decidim::Conferences::ConferenceInvite,
             invited_by,
             {
-              user: user,
-              conference: conference,
+              user:,
+              conference:,
               registration_type: form.registration_type,
               sent_at: Time.current
             },
@@ -98,7 +98,7 @@ module Decidim
 
         def invite_user_to_sign_up
           user.skip_reconfirmation!
-          user.invite!(invited_by, invitation_instructions: "join_conference", conference: conference)
+          user.invite!(invited_by, invitation_instructions: "join_conference", conference:)
         end
       end
     end

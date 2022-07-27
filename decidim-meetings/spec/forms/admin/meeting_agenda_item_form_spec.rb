@@ -9,7 +9,7 @@ module Decidim::Meetings
 
     let(:organization) { create(:organization, available_locales: [:en]) }
 
-    let(:participatory_process) { create :participatory_process, organization: organization }
+    let(:participatory_process) { create :participatory_process, organization: }
     let(:current_component) { create :component, participatory_space: participatory_process, manifest_name: "meetings" }
     let(:meeting) { create :meeting, component: current_component }
 
@@ -39,13 +39,13 @@ module Decidim::Meetings
 
     let(:attributes) do
       {
-        title: title,
-        description: description,
-        duration: duration,
-        parent_id: parent_id,
-        deleted: deleted,
-        position: position,
-        agenda_item_children: agenda_item_children
+        title:,
+        description:,
+        duration:,
+        parent_id:,
+        deleted:,
+        position:,
+        agenda_item_children:
       }
     end
 

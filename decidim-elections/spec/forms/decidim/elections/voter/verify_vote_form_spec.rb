@@ -12,7 +12,7 @@ describe Decidim::Elections::Voter::VerifyVoteForm do
   end
   let(:context) do
     {
-      election: election
+      election:
     }
   end
   let(:election) { create(:election) }

@@ -125,8 +125,8 @@ module Decidim
         content_c = I18n.transliterate(contents[:C] || "")
         content_d = I18n.transliterate(contents[:D] || "")
         {
-          content_a: content_a, content_b: content_b, content_c: content_c, content_d: content_d,
-          locale: locale,
+          content_a:, content_b:, content_c:, content_d:,
+          locale:,
           datetime: fields[:datetime],
           decidim_scope_id: fields[:decidim_scope_id],
           decidim_participatory_space_id: fields[:decidim_participatory_space_id],

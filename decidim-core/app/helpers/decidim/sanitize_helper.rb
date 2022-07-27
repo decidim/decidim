@@ -88,7 +88,7 @@ module Decidim
         content = strip_tags(sanitize_text(content)) if strip_tags
 
         renderer = Decidim::ContentRenderers::HashtagRenderer.new(content)
-        content = renderer.render(links: links, extras: extras).html_safe
+        content = renderer.render(links:, extras:).html_safe
 
         content = Decidim::ContentRenderers::LinkRenderer.new(content).render if links
         content

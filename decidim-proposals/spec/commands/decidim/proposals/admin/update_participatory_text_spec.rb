@@ -33,7 +33,7 @@ module Decidim
                 body: { en: ::Faker::Books::Lovecraft.fhtagn(number: 5) }
               ).with_context(
                 current_participatory_space: current_component.participatory_space,
-                current_component: current_component
+                current_component:
               )
             end
             modifs
@@ -41,7 +41,7 @@ module Decidim
           let(:form) do
             instance_double(
               PreviewParticipatoryTextForm,
-              current_component: current_component,
+              current_component:,
               proposals: proposal_modifications
             )
           end

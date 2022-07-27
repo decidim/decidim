@@ -10,7 +10,7 @@ module Decidim
         helper_method :election, :question, :answers, :answers, :missing_answers
 
         def index
-          flash.now[:alert] = I18n.t("answers.index.invalid_max_selections", scope: "decidim.elections.admin", missing_answers: missing_answers) if missing_answers.positive?
+          flash.now[:alert] = I18n.t("answers.index.invalid_max_selections", scope: "decidim.elections.admin", missing_answers:) if missing_answers.positive?
         end
 
         def new
@@ -20,7 +20,7 @@ module Decidim
 
         def create
           enforce_permission_to :update, :answer, election: election, question: question
-          @form = form(AnswerForm).from_params(params, election: election, question: question)
+          @form = form(AnswerForm).from_params(params, election:, question:)
 
           CreateAnswer.call(@form) do
             on(:ok) do
@@ -42,7 +42,7 @@ module Decidim
 
         def update
           enforce_permission_to :update, :answer, election: election, question: question
-          @form = form(AnswerForm).from_params(params, election: election, question: question)
+          @form = form(AnswerForm).from_params(params, election:, question:)
 
           UpdateAnswer.call(@form, answer) do
             on(:ok) do

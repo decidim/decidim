@@ -19,11 +19,11 @@ module Decidim
         )
       end
 
-      let!(:proposal) { create :proposal, component: component, users: [author] }
-      let(:author) { create(:user, organization: organization) }
+      let!(:proposal) { create :proposal, component:, users: [author] }
+      let(:author) { create(:user, organization:) }
 
       let(:user_group) do
-        create(:user_group, :verified, organization: organization, users: [author])
+        create(:user_group, :verified, organization:, users: [author])
       end
 
       let(:has_address) { false }
@@ -43,18 +43,18 @@ module Decidim
         let(:body) { "A reasonable proposal body" }
         let(:form_params) do
           {
-            title: title,
-            body: body,
-            address: address,
-            has_address: has_address,
+            title:,
+            body:,
+            address:,
+            has_address:,
             user_group_id: user_group.try(:id),
-            suggested_hashtags: suggested_hashtags,
+            suggested_hashtags:,
             attachment: attachment_params,
             photos: current_photos,
             add_photos: uploaded_photos,
             documents: current_files,
             add_documents: uploaded_files,
-            errors: errors
+            errors:
           }
         end
 
@@ -95,7 +95,7 @@ module Decidim
         end
 
         context "when the author changing the author to one that has reached the proposal limit" do
-          let!(:other_proposal) { create :proposal, component: component, users: [author], user_groups: [user_group] }
+          let!(:other_proposal) { create :proposal, component:, users: [author], user_groups: [user_group] }
           let(:component) { create(:proposal_component, :with_proposal_limit) }
 
           it "broadcasts invalid" do

@@ -20,7 +20,7 @@ module Decidim
       # Returns nothing.
       def map_model(model)
         self.responses = model.questions.map do |question|
-          AnswerForm.from_model(Decidim::Forms::Answer.new(question: question))
+          AnswerForm.from_model(Decidim::Forms::Answer.new(question:))
         end
       end
 

@@ -89,7 +89,7 @@ shared_examples "Endorse resource system specs" do
       end
 
       context "when the resource is already endorsed" do
-        let!(:endorsement) { create(:endorsement, resource: resource, author: user) }
+        let!(:endorsement) { create(:endorsement, resource:, author: user) }
 
         it "is not able to endorse it again" do
           visit_resource
@@ -130,7 +130,7 @@ shared_examples "Endorse resource system specs" do
         before do
           organization.available_authorizations = ["dummy_authorization_handler"]
           organization.save!
-          component.update(permissions: permissions)
+          component.update(permissions:)
         end
 
         context "when user is NOT verified" do
@@ -145,7 +145,7 @@ shared_examples "Endorse resource system specs" do
 
         context "when user IS verified" do
           before do
-            handler_params = { user: user }
+            handler_params = { user: }
             handler_name = "dummy_authorization_handler"
             handler = Decidim::AuthorizationHandler.handler_for(handler_name, handler_params)
 

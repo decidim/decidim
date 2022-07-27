@@ -5,8 +5,8 @@ shared_examples "manage process steps examples" do
   let!(:process_step) do
     create(
       :participatory_process_step,
-      participatory_process: participatory_process,
-      active: active
+      participatory_process:,
+      active:
     )
   end
 
@@ -86,7 +86,7 @@ shared_examples "manage process steps examples" do
   end
 
   context "when deleting a participatory process step" do
-    let!(:process_step2) { create(:participatory_process_step, participatory_process: participatory_process) }
+    let!(:process_step2) { create(:participatory_process_step, participatory_process:) }
 
     before do
       visit current_path

@@ -9,23 +9,23 @@ module Decidim
         subject { described_class.from_params(attributes).with_context(context) }
 
         let(:organization) { create :organization }
-        let(:initiatives_type) { create(:initiatives_type, organization: organization) }
+        let(:initiatives_type) { create(:initiatives_type, organization:) }
         let(:title) { Decidim::Faker::Localized.sentence(word_count: 5) }
         let(:promoting_committee_enabled) { true }
         let(:minimum_committee_members) { 5 }
         let(:comments_enabled) { true }
         let(:attributes) do
           {
-            title: title,
+            title:,
             description: Decidim::Faker::Localized.sentence(word_count: 25),
             online_signature_enabled: false,
             attachments_enabled: true,
             custom_signature_end_date_enabled: true,
             undo_online_signatures_enabled: false,
             area_enabled: false,
-            comments_enabled: comments_enabled,
-            promoting_committee_enabled: promoting_committee_enabled,
-            minimum_committee_members: minimum_committee_members,
+            comments_enabled:,
+            promoting_committee_enabled:,
+            minimum_committee_members:,
             banner_image: Decidim::Dev.test_file("city2.jpeg", "image/jpeg")
           }
         end

@@ -14,7 +14,7 @@ module Decidim
       let(:event_name) { "decidim.events.comments.comment_created" }
       let(:extra) { { comment_id: create(:comment).id } }
 
-      let(:notification) { create(:notification, event_class: event_class, event_name: event_name, extra: extra) }
+      let(:notification) { create(:notification, event_class:, event_name:, extra:) }
 
       describe "#body" do
         it "returns text without links and with HTML entities unescaped" do

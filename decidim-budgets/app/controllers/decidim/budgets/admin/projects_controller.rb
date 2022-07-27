@@ -26,7 +26,7 @@ module Decidim
         def create
           enforce_permission_to :create, :project
 
-          @form = form(ProjectForm).from_params(params, budget: budget)
+          @form = form(ProjectForm).from_params(params, budget:)
 
           CreateProject.call(@form) do
             on(:ok) do
@@ -49,7 +49,7 @@ module Decidim
 
         def update
           enforce_permission_to :update, :project, project: project
-          @form = form(ProjectForm).from_params(params, budget: budget)
+          @form = form(ProjectForm).from_params(params, budget:)
 
           UpdateProject.call(@form, project) do
             on(:ok) do
@@ -169,7 +169,7 @@ module Decidim
         end
 
         def orders
-          @orders ||= Order.where(budget: budget)
+          @orders ||= Order.where(budget:)
         end
 
         def project_ids

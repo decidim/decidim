@@ -7,7 +7,7 @@ module Decidim
     describe "#short_url" do
       subject { helper.short_url(**kwargs) }
 
-      let(:kwargs) { { route_name: route_name, params: params }.compact }
+      let(:kwargs) { { route_name:, params: }.compact }
       let(:route_name) { nil }
       let(:params) { nil }
       let(:target) { create(:dummy_resource) }
