@@ -71,6 +71,7 @@ module Decidim
         template "spec/spec_helper.rb.erb", "#{spec_folder}/spec_helper.rb"
         template "spec/factories.rb.erb", "#{spec_folder}/factories.rb"
         template "spec/permissions/admin/permissions_spec.rb.erb", "#{spec_folder}/permissions/admin/permissions_spec.rb"
+        template "spec/lib/version_spec.rb.erb", "#{spec_folder}/lib/decidim/#{component_name}/version_spec.rb"
 
         if options[:external]
           inside(component_folder) do
