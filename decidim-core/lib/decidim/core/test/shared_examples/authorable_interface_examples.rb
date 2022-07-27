@@ -9,7 +9,7 @@ shared_examples_for "authorable interface" do
       let(:query) { "{ author { name } }" }
 
       before do
-        model.update(author: author)
+        model.update(author:)
       end
 
       it "does not include the author" do
@@ -22,7 +22,7 @@ shared_examples_for "authorable interface" do
       let(:query) { "{ author { name } }" }
 
       before do
-        model.update(author: author, user_group: nil)
+        model.update(author:, user_group: nil)
       end
 
       it "includes the user's name" do
@@ -35,7 +35,7 @@ shared_examples_for "authorable interface" do
       let(:query) { "{ author { name } }" }
 
       before do
-        model.update(user_group: user_group, author: nil)
+        model.update(user_group:, author: nil)
       end
 
       it "includes the user group's name" do

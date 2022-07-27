@@ -27,7 +27,7 @@ module Decidim
         @query = Decidim::Component
         # remove default ordering if custom order required
         @query = @query.unscoped if args[:order]
-        @query = @query.where(participatory_space: participatory_space).published
+        @query = @query.where(participatory_space:).published
         add_filter_keys(args[:filter])
         add_order_keys(args[:order].to_h)
         add_default_order

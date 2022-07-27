@@ -61,7 +61,7 @@ class CheckLegacyTables < ActiveRecord::Migration[5.2]
           puts "Migrating question #{survey_question.id}..."
 
           question = ::Decidim::Forms::Question.create!(
-            questionnaire: questionnaire,
+            questionnaire:,
             position: survey_question.position,
             question_type: survey_question.question_type,
             mandatory: survey_question.mandatory,
@@ -77,7 +77,7 @@ class CheckLegacyTables < ActiveRecord::Migration[5.2]
 
           AnswerOption.where(decidim_survey_question_id: survey_question.id).find_each do |survey_answer_option|
             answer_option_mapping[survey_answer_option.id] = ::Decidim::Forms::AnswerOption.create!(
-              question: question,
+              question:,
               body: survey_answer_option.body,
               free_text: survey_answer_option.free_text
             )
@@ -85,8 +85,8 @@ class CheckLegacyTables < ActiveRecord::Migration[5.2]
 
           Answer.where(decidim_survey_id: survey.id, decidim_survey_question_id: survey_question.id).find_each do |survey_answer|
             answer = ::Decidim::Forms::Answer.new(
-              questionnaire: questionnaire,
-              question: question,
+              questionnaire:,
+              question:,
               decidim_user_id: survey_answer.decidim_user_id,
               body: survey_answer.body,
               created_at: survey_answer.created_at,

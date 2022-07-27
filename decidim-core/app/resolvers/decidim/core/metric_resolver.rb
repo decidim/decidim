@@ -41,7 +41,7 @@ module Decidim
 
       def scope
         @records = Decidim::Metric
-                   .where(metric_type: name, organization: organization)
+                   .where(metric_type: name, organization:)
       end
 
       # Only key name attributes in Decidim::Metric will be applied

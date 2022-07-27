@@ -8,7 +8,7 @@ module Decidim::Budgets
 
     let!(:budgets) { create_list(:budget, 6, component: budgets_component) }
     let(:budgets_component) { create(:budgets_component) }
-    let(:current_user) { create(:user, :admin, organization: organization) }
+    let(:current_user) { create(:user, :admin, organization:) }
     let(:organization) { budgets_component.organization }
 
     it_behaves_like "includes base workflow features"

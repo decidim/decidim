@@ -7,8 +7,8 @@ describe Decidim::ParticipatoryProcessRoleAssignedEvent do
 
   let(:resource) { create :participatory_process }
   let(:event_name) { "decidim.events.participatory_process.role_assigned" }
-  let(:role) { create :participatory_process_user_role, user: user, participatory_process: resource, role: :admin }
-  let(:extra) { { role: role } }
+  let(:role) { create :participatory_process_user_role, user:, participatory_process: resource, role: :admin }
+  let(:extra) { { role: } }
 
   it_behaves_like "a simple event"
 

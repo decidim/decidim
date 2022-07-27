@@ -35,7 +35,7 @@ describe Decidim::Votings::PollingStationClosure, type: :model do
   end
 
   describe "#signed?" do
-    let(:closure) { create(:ps_closure, signed_at: signed_at) }
+    let(:closure) { create(:ps_closure, signed_at:) }
 
     context "when signed_at is blank" do
       let(:signed_at) { nil }

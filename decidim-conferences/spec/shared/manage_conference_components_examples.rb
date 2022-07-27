@@ -164,7 +164,7 @@ shared_examples "manage conference components" do
 
   describe "publish and unpublish a component" do
     let!(:component) do
-      create(:component, participatory_space: conference, published_at: published_at)
+      create(:component, participatory_space: conference, published_at:)
     end
 
     let(:published_at) { nil }

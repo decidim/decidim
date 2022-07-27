@@ -49,7 +49,7 @@ module Decidim
           @current_user,
           visibility: "public-only"
         ) do
-          @proposal.update title: title, body: body, published_at: Time.current
+          @proposal.update title:, body:, published_at: Time.current
         end
       end
 

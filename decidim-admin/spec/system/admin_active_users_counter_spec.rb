@@ -4,7 +4,7 @@ require "spec_helper"
 
 describe "Admin checks active users panel statistics", type: :system do
   let(:organization) { create(:organization) }
-  let!(:user) { create(:user, :admin, :confirmed, organization: organization) }
+  let!(:user) { create(:user, :admin, :confirmed, organization:) }
 
   before do
     switch_to_host(organization.host)

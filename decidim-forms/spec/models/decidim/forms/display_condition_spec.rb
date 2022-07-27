@@ -8,15 +8,15 @@ module Decidim
       subject { display_condition }
 
       let(:questionnaire) { create(:questionnaire) }
-      let(:condition_question) { create(:questionnaire_question, questionnaire: questionnaire, position: 2) }
-      let(:question) { create(:questionnaire_question, questionnaire: questionnaire, position: 3) }
+      let(:condition_question) { create(:questionnaire_question, questionnaire:, position: 2) }
+      let(:question) { create(:questionnaire_question, questionnaire:, position: 3) }
       let(:condition_type) { :answered }
       let(:display_condition) do
         build(
           :display_condition,
-          question: question,
-          condition_question: condition_question,
-          condition_type: condition_type
+          question:,
+          condition_question:,
+          condition_type:
         )
       end
 
@@ -24,9 +24,9 @@ module Decidim
         build(
           :display_condition,
           :equal,
-          question: question,
-          condition_question: condition_question,
-          answer_option: answer_option
+          question:,
+          condition_question:,
+          answer_option:
         )
       end
 
@@ -34,8 +34,8 @@ module Decidim
         build(
           :display_condition,
           :match,
-          question: question,
-          condition_question: condition_question,
+          question:,
+          condition_question:,
           condition_value: { en: "To be", es: "o no", ca: "ser" }
         )
       end
@@ -325,7 +325,7 @@ module Decidim
             create(:questionnaire_question,
                    :with_answer_options,
                    question_type: :single_option,
-                   questionnaire: questionnaire,
+                   questionnaire:,
                    position: 2)
           end
 
@@ -338,7 +338,7 @@ module Decidim
             create(:questionnaire_question,
                    :with_answer_options,
                    question_type: :matrix_single,
-                   questionnaire: questionnaire,
+                   questionnaire:,
                    position: 2)
           end
 

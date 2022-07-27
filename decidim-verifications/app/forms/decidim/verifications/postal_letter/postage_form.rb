@@ -24,7 +24,7 @@ module Decidim
         def verification_metadata
           {
             address: full_address,
-            verification_code: verification_code,
+            verification_code:,
             letter_sent_at: Time.current
           }
         end

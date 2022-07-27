@@ -4,7 +4,7 @@ shared_examples "manage proposals" do
   let(:address) { "Some address" }
   let(:latitude) { 40.1234 }
   let(:longitude) { 2.1234 }
-  let(:participatory_process) { create(:participatory_process, :with_steps, organization: organization, scope: participatory_process_scope) }
+  let(:participatory_process) { create(:participatory_process, :with_steps, organization:, scope: participatory_process_scope) }
   let(:participatory_process_scope) { nil }
   let(:proposal_title) { translated(proposal.title) }
 
@@ -466,7 +466,7 @@ shared_examples "manage proposals" do
     context "when the proposal is an emendation" do
       let!(:amendable) { create(:proposal, component: current_component) }
       let!(:emendation) { create(:proposal, component: current_component) }
-      let!(:amendment) { create :amendment, amendable: amendable, emendation: emendation, state: "evaluating" }
+      let!(:amendment) { create :amendment, amendable:, emendation:, state: "evaluating" }
 
       it "cannot answer a proposal" do
         visit_component_admin

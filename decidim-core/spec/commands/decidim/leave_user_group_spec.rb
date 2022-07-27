@@ -7,7 +7,7 @@ module Decidim
     describe LeaveUserGroup do
       describe "call" do
         let(:organization) { create(:organization) }
-        let(:membership) { create :user_group_membership, role: role }
+        let(:membership) { create :user_group_membership, role: }
         let(:role) { :admin }
         let(:user) { membership.user }
         let(:user_group) { membership.user_group }
@@ -22,7 +22,7 @@ module Decidim
           end
 
           context "and there is another admin in the group" do
-            let!(:another_membership) { create(:user_group_membership, user_group: user_group, role: :admin) }
+            let!(:another_membership) { create(:user_group_membership, user_group:, role: :admin) }
 
             it "broadcasts ok" do
               expect { command.call }.to broadcast(:ok)
@@ -30,7 +30,7 @@ module Decidim
           end
 
           context "and there is another member in the group" do
-            let!(:another_membership) { create(:user_group_membership, user_group: user_group, role: :member) }
+            let!(:another_membership) { create(:user_group_membership, user_group:, role: :member) }
 
             it "doesnt allow last admin to leave the group" do
               expect { command.call }.to broadcast(:last_admin)

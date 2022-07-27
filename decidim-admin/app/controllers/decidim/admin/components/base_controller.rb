@@ -33,7 +33,7 @@ module Decidim
 
         def permissions_context
           super.merge(
-            current_participatory_space: current_participatory_space,
+            current_participatory_space:,
             participatory_space: current_participatory_space
           )
         end

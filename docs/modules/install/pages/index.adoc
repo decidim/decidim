@@ -116,6 +116,9 @@ You can configure it with `crontab -e`, for instance if you've created your Deci
 
 # Send notification mail digest weekly on saturdays
 5 0 * * 6 cd /home/user/decidim_application && RAILS_ENV=production bundle exec rake decidim:mailers:notifications_digest_weekly
+
+# Change active step in participatory processes
+*/15 * * * * cd /home/user/decidim_application && RAILS_ENV=production bundle exec rake decidim_participatory_processes:change_active_step
 ----
 
 === Further configuration

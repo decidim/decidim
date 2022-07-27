@@ -11,7 +11,7 @@ describe "Finished consultations", type: :system do
 
   context "when finished consultations" do
     let!(:consultation) do
-      create :consultation, :finished, :published, :published_results, organization: organization
+      create :consultation, :finished, :published, :published_results, organization:
     end
 
     it "shows them" do
@@ -30,7 +30,7 @@ describe "Finished consultations", type: :system do
 
   context "when active consultations" do
     let!(:consultation) do
-      create :consultation, :active, :published, :published_results, organization: organization
+      create :consultation, :active, :published, :published_results, organization:
     end
 
     it "shows them" do

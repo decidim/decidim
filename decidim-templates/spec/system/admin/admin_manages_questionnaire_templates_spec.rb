@@ -4,7 +4,7 @@ require "spec_helper"
 
 describe "Admin manages questionnaire templates", type: :system do
   let!(:organization) { create :organization }
-  let!(:user) { create :user, :confirmed, organization: organization }
+  let!(:user) { create :user, :confirmed, organization: }
 
   before do
     switch_to_host(organization.host)
@@ -13,7 +13,7 @@ describe "Admin manages questionnaire templates", type: :system do
   end
 
   describe "listing templates" do
-    let!(:template) { create(:questionnaire_template, organization: organization) }
+    let!(:template) { create(:questionnaire_template, organization:) }
 
     before do
       visit decidim_admin_templates.questionnaire_templates_path
@@ -118,7 +118,7 @@ describe "Admin manages questionnaire templates", type: :system do
   end
 
   describe "updating a template" do
-    let!(:template) { create(:questionnaire_template, organization: organization) }
+    let!(:template) { create(:questionnaire_template, organization:) }
 
     before do
       visit decidim_admin_templates.questionnaire_templates_path
@@ -148,7 +148,7 @@ describe "Admin manages questionnaire templates", type: :system do
   end
 
   describe "updating a template with invalid values" do
-    let!(:template) { create(:questionnaire_template, organization: organization) }
+    let!(:template) { create(:questionnaire_template, organization:) }
 
     before do
       visit decidim_admin_templates.questionnaire_templates_path
@@ -173,7 +173,7 @@ describe "Admin manages questionnaire templates", type: :system do
   end
 
   describe "copying a template" do
-    let!(:template) { create(:questionnaire_template, organization: organization) }
+    let!(:template) { create(:questionnaire_template, organization:) }
 
     before do
       visit decidim_admin_templates.questionnaire_templates_path
@@ -190,7 +190,7 @@ describe "Admin manages questionnaire templates", type: :system do
   end
 
   describe "editing the questionnaire_template's questionnaire" do
-    let!(:template) { create(:questionnaire_template, organization: organization) }
+    let!(:template) { create(:questionnaire_template, organization:) }
 
     before do
       visit decidim_admin_templates.questionnaire_templates_path
@@ -257,7 +257,7 @@ describe "Admin manages questionnaire templates", type: :system do
   end
 
   describe "destroying a template" do
-    let!(:template) { create(:questionnaire_template, organization: organization) }
+    let!(:template) { create(:questionnaire_template, organization:) }
 
     before do
       visit decidim_admin_templates.questionnaire_templates_path
@@ -274,7 +274,7 @@ describe "Admin manages questionnaire templates", type: :system do
   end
 
   describe "previewing a questionnaire_template" do
-    let!(:template) { create(:questionnaire_template, organization: organization) }
+    let!(:template) { create(:questionnaire_template, organization:) }
     let!(:questions) { create_list(:questionnaire_question, 3, questionnaire: template.templatable) }
     let(:questionnaire) { template.templatable }
 

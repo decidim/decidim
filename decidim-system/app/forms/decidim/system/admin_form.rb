@@ -22,7 +22,7 @@ module Decidim
       private
 
       def email_uniqueness
-        return unless Admin.where(email: email).where.not(id: id).any?
+        return unless Admin.where(email:).where.not(id:).any?
 
         errors.add(:email, I18n.t("models.admin.validations.email_uniqueness",
                                   scope: "decidim.system"))

@@ -7,15 +7,15 @@ describe "Postal letter code verification", type: :system do
     create(:organization, available_authorizations: ["postal_letter"])
   end
 
-  let(:user) { create(:user, :confirmed, organization: organization) }
-  let(:admin) { create(:user, :admin, :confirmed, organization: organization) }
+  let(:user) { create(:user, :confirmed, organization:) }
+  let(:admin) { create(:user, :admin, :confirmed, organization:) }
 
   let!(:authorization) do
     create(
       :authorization,
       :pending,
       name: "postal_letter",
-      user: user,
+      user:,
       verification_metadata: prior_verification_metadata
     )
   end

@@ -8,7 +8,7 @@ module Decidim::Conferences
 
     let!(:organization) { create(:organization) }
     let!(:local_conferences) do
-      create_list(:conference, 3, organization: organization)
+      create_list(:conference, 3, organization:)
     end
 
     let!(:foreign_conferences) do

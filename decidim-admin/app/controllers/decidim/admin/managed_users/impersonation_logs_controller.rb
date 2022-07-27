@@ -9,7 +9,7 @@ module Decidim
         layout "decidim/admin/users"
 
         def index
-          @impersonation_logs = Decidim::ImpersonationLog.where(user: user).order(started_at: :desc).page(params[:page]).per(15)
+          @impersonation_logs = Decidim::ImpersonationLog.where(user:).order(started_at: :desc).page(params[:page]).per(15)
         end
 
         private

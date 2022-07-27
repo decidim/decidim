@@ -11,12 +11,12 @@ describe "Explore Budgets", :slow, type: :system do
   let!(:component) do
     create(:budgets_component,
            :with_vote_threshold_percent,
-           manifest: manifest,
+           manifest:,
            participatory_space: participatory_process)
   end
 
   context "with only one budget" do
-    let!(:budgets) { create_list(:budget, 1, component: component) }
+    let!(:budgets) { create_list(:budget, 1, component:) }
 
     it "redirects to the only budget details" do
       visit_component
@@ -27,7 +27,7 @@ describe "Explore Budgets", :slow, type: :system do
 
   context "with many budgets" do
     let!(:budgets) do
-      1.upto(6).to_a.map { |x| create(:budget, component: component, weight: x, total_budget: x * 10_000_000, description: { en: "This is budget #{x}" }) }
+      1.upto(6).to_a.map { |x| create(:budget, component:, weight: x, total_budget: x * 10_000_000, description: { en: "This is budget #{x}" }) }
     end
 
     before do
@@ -46,7 +46,7 @@ describe "Explore Budgets", :slow, type: :system do
     describe "budget list item" do
       let(:budget) { budgets.first }
       let(:item) { page.find(".budget-list .card--list__item:first-child", match: :first) }
-      let!(:projects) { create_list(:project, 3, budget: budget, budget_amount: 10_000_000) }
+      let!(:projects) { create_list(:project, 3, budget:, budget_amount: 10_000_000) }
 
       before do
         login_as user, scope: :user
@@ -57,8 +57,8 @@ describe "Explore Budgets", :slow, type: :system do
       end
 
       context "when an item is bookmarked" do
-        let!(:order) { create(:order, user: user, budget: budget) }
-        let!(:line_item) { create(:line_item, order: order, project: projects.first) }
+        let!(:order) { create(:order, user:, budget:) }
+        let!(:line_item) { create(:line_item, order:, project: projects.first) }
 
         it "shows the bookmark icon" do
           visit_component
@@ -72,7 +72,7 @@ describe "Explore Budgets", :slow, type: :system do
         let(:item) { page.find("#voted-budgets .card--list__item:first-child") }
 
         let!(:order) do
-          order = create(:order, user: user, budget: budget)
+          order = create(:order, user:, budget:)
           order.projects = [projects.first]
           order.checked_out_at = Time.current
           order.save!

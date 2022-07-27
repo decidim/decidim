@@ -55,7 +55,7 @@ module Decidim
               "weight",
               "date"
             ).symbolize_keys.merge(
-              conference: conference
+              conference:
             ),
             log_info
           )

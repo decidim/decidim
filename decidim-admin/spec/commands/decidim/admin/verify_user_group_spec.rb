@@ -4,14 +4,14 @@ require "spec_helper"
 
 module Decidim::Admin
   describe VerifyUserGroup do
-    subject { described_class.new(user_group, current_user, via_csv: via_csv) }
+    subject { described_class.new(user_group, current_user, via_csv:) }
 
     let(:via_csv) { false }
-    let(:current_user) { create :user, organization: organization }
+    let(:current_user) { create :user, organization: }
     let(:organization) { create :organization }
 
     describe "User group validation is pending" do
-      let!(:user_group) { create(:user_group, users: [create(:user, organization: organization)]) }
+      let!(:user_group) { create(:user_group, users: [create(:user, organization:)]) }
 
       context "when the command is not valid" do
         let(:invalid) { true }
@@ -44,7 +44,7 @@ module Decidim::Admin
     end
 
     describe "User group is already rejected" do
-      let!(:user_group) { create(:user_group, rejected_at: Time.current, users: [create(:user, organization: organization)]) }
+      let!(:user_group) { create(:user_group, rejected_at: Time.current, users: [create(:user, organization:)]) }
 
       context "when the command is not valid" do
         let(:invalid) { true }

@@ -52,6 +52,20 @@ You can read more about this change on PR [\#XXXX](https://github.com/decidim/de
 
 ### Added
 
+#### Automatically change active step in participatory processes
+
+PR [\#9026](https://github.com/decidim/decidim/pull/9026) adds the ability to automatically change the active step of participatory processess. This is an optional behavior that system admins can enable by configuring a cron job. The frequency of the cron task should be decided by the system admin and depends on each platform's use cases. A precision of 15min is enough for most cases. An example of a crontab job may be:
+
+```bash
+*/15 * * * * cd /home/user/decidim_application && RAILS_ENV=production bundle exec rake decidim_participatory_processes:change_active_step
+```
+
+Each time the job executes it checks all currently active and published participatory processes and for each, it checks the steps with the date range in the current date. If a change should be made, it deactivates the previous step and activates the next step.
+
+Platform administrators will always have the possibility to manually change phases, although if a cron job is configured the change may be undone.
+
+This PR also changes the Step `start_date` and `end_date`  fields to timestamps.
+
 ### Changed
 
 #### Automated authorization conflict handling for deleted users
@@ -175,6 +189,13 @@ end
 Note that when unregistering an authorization transfer handler, the transfers will still work normally for the other transfer handlers and no conflicts are reported for the admin users in case of conflict situation between a new authorization and a previous authorization for a deleted user. In this case, the authorization is transferred to the new user normally but the unregistered transfer handlers are not called which means those records will not be transferred between the user accounts. For conflicts between normal registered users or managed users, the conflicts are still reported as before. The automated authorization transfers only happen in case the previously authorized conflicting user account was deleted.
 
 You can read more about this change at PR [\#9463](https://github.com/decidim/decidim/pull/9463).
+#### Tailwind CSS introduction
+
+Decidim redesign has introduced Tailwind CSS framework to compile CSS. It integrates with Webpacker,
+which generates Tailwind configuration dynamically when Webpacker is invoked. More details in the PR [#9480](https://github.com/decidim/decidim/pull/9480/).
+
+You'll need to add `tailwind.config.js` to your app `.gitignore`. If you generate a new Decidim app
+from scratch, that entry will already be included in the `.gitignore`.
 
 ### Fixed
 

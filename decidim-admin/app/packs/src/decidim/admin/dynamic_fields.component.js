@@ -70,6 +70,7 @@ class DynamicFieldsComponent {
       $(this).replaceAttribute("for", placeholder, value);
       $(this).replaceAttribute("tabs_id", placeholder, value);
       $(this).replaceAttribute("href", placeholder, value);
+      $(this).replaceAttribute("value", placeholder, value);
 
       return this;
     }

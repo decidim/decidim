@@ -89,8 +89,8 @@ module Decidim
     #
     # Returns nothing if registered successfully, raises an exception
     # otherwise.
-    def self.register_badge(name, &block)
-      badge_registry.register(name, &block)
+    def self.register_badge(name, &)
+      badge_registry.register(name, &)
     end
 
     # Public: Resets all the badge scores using each of the badges'

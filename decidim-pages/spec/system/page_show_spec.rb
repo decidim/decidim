@@ -14,7 +14,7 @@ describe "Show a page", type: :system do
     }
   end
 
-  let!(:page_component) { create(:page, component: component, body: body) }
+  let!(:page_component) { create(:page, component:, body:) }
 
   describe "page show" do
     it_behaves_like "editable content for admins" do
