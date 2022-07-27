@@ -1,0 +1,42 @@
+.login{
+  &__signup-info{
+    @apply text-lg font-semibold prose-a:text-secondary prose-a:underline mb-10;
+  }
+
+  &__omniauth{
+    @apply flex flex-col items-center gap-6 py-10;
+
+    &-separator{
+      @apply flex items-center justify-center gap-12 after:content-[''] before:content-[''] after:h-px before:h-px after:bg-background before:bg-background after:grow before:grow;
+    }
+  }
+
+  &__form{
+    @apply flex flex-col py-10 gap-10;
+
+    &-submit{
+      @apply text-right py-10 border-t-2 border-background;
+    }
+
+    label{
+      @apply font-semibold text-lg;
+
+      &:last-child{
+        @apply font-normal cursor-pointer;
+      }
+    }
+
+    input[type="email"],
+    input[type="password"]{
+      @apply w-full block mt-3;
+    }
+  }
+
+  &__links{
+    @apply flex flex-col gap-4 py-10 border-t-2 border-background;
+
+    a{
+      @apply text-secondary hover:underline;
+    }
+  }
+}

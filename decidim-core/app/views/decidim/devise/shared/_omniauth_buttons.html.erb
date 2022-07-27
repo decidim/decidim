@@ -1,7 +1,7 @@
 <% if Devise.mappings[:user].omniauthable? && current_organization.enabled_omniauth_providers.any? %>
   <%- current_organization.enabled_omniauth_providers.keys.each do |provider| %>
-    <div class="flex flex-col items-center gap-6 py-10">
-      <%= link_to decidim.send("user_#{provider}_omniauth_authorize_path"), class: "button lg border border-gray inline-flex", method: :post do %>
+    <div class="login__omniauth">
+      <%= link_to decidim.send("user_#{provider}_omniauth_authorize_path"), class: "button button__lg border border-gray inline-flex", method: :post do %>
         <span class="button--social__icon">
           <%= oauth_icon provider %>
         </span>
@@ -12,6 +12,6 @@
     </div>
   <% end %>
   <%- if current_organization.sign_in_enabled? %>
-    <span class="flex items-center justify-center gap-12 after:content-[''] before:content-[''] after:h-px before:h-px after:bg-background before:bg-background after:grow before:grow"><%= t(".or") %></span>
+    <span class="login__omniauth-separator"><%= t(".or") %></span>
   <%- end %>
 <% end %>

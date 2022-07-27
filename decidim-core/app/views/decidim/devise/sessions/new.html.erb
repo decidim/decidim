@@ -6,7 +6,7 @@
     <h1 class="h1 decorator my-12"><%= t("devise.sessions.new.sign_in") %></h1>
   </div>
 
-  <div class="text-lg font-semibold prose-a:text-secondary prose-a:underline mb-10">
+  <div class="login__signup-info">
     <% if current_organization.sign_up_enabled? %>
       <p>
         <%= t("decidim.devise.sessions.new.are_you_new?") %>
@@ -30,27 +30,27 @@
   </div>
 
   <% if current_organization.sign_in_enabled? %>
-    <%= decidim_form_for(resource, namespace: "session", as: resource_name, url: session_path(resource_name), html: { class: "form" } ) do |f| %>
-      <div class="flex flex-col py-10 gap-10">
+    <%= decidim_form_for(resource, namespace: "session", as: resource_name, url: session_path(resource_name) ) do |f| %>
+      <div class="login__form">
         <!-- TODO: move the input classes to the base component -->
-        <%= f.email_field :email, autocomplete: "email", placeholder: "hi@email.com", class: "w-full block rounded border border-gray px-4 py-2 bg-background-2 mt-3", label_options: { class: "font-semibold text-lg" } %>
+        <%= f.email_field :email, autocomplete: "email", placeholder: "hi@email.com" %>
 
-        <%= f.password_field :password, autocomplete: "current-password", placeholder: "******", class: "w-full block rounded border border-gray px-4 py-2 bg-background-2 mt-3", label_options: { class: "font-semibold text-lg" } %>
+        <%= f.password_field :password, autocomplete: "current-password", placeholder: "******" %>
 
         <% if devise_mapping.rememberable? %>
           <%= f.check_box :remember_me, class: "mr-1 cursor-pointer" %>
         <% end %>
       </div>
 
-      <div class="text-right py-10 border-t-2 border-background">
-        <button type="submit" class="button lg secondary">
+      <div class="login__form-submit">
+        <button type="submit" class="button button__lg button__secondary">
           <%= t("devise.sessions.new.sign_in") %>
           <%= icon "arrow-right-line", class: "fill-current" %>
         </button>
       </div>
     <% end %>
 
-    <div class="flex flex-col gap-4 py-10 border-t-2 border-background">
+    <div class="login__links">
       <%= render "decidim/devise/shared/redesigned_links" %>
     </div>
   <% end %>

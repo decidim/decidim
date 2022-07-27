@@ -30,6 +30,8 @@
   @import "stylesheets/decidim/redesigned_dropdown.scss";
 }
 
+@import "stylesheets/decidim/redesigned_login.scss";
+
 // This imports all the Decidim module stylesheet imports registered at
 // `config/assets.rb` of the module for the "app" group.
 // @import "!decidim-style-imports[app]";
