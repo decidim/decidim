@@ -5,12 +5,12 @@ require "spec_helper"
 module Decidim
   describe ReportedMailer, type: :mailer do
     let(:organization) { create(:organization, name: "Test Organization") }
-    let(:user) { create(:user, :admin, organization: organization) }
-    let(:component) { create(:component, organization: organization) }
+    let(:user) { create(:user, :admin, organization:) }
+    let(:component) { create(:component, organization:) }
     let(:reportable) { create(:proposal, title: Decidim::Faker::Localized.sentence, body: Decidim::Faker::Localized.paragraph(sentence_count: 3)) }
-    let(:moderation) { create(:moderation, reportable: reportable, participatory_space: component.participatory_space, report_count: 1) }
+    let(:moderation) { create(:moderation, reportable:, participatory_space: component.participatory_space, report_count: 1) }
     let(:author) { reportable.creator_identity }
-    let!(:report) { create(:report, moderation: moderation, details: "bacon eggs spam") }
+    let!(:report) { create(:report, moderation:, details: "bacon eggs spam") }
     let(:decidim) { Decidim::Core::Engine.routes.url_helpers }
 
     describe "#report" do

@@ -9,7 +9,7 @@ module Decidim
         subject(:form) { described_class.from_params(attributes).with_context(context) }
 
         let(:organization) { create :organization }
-        let(:conference) { create :conference, organization: organization }
+        let(:conference) { create :conference, organization: }
         let(:current_participatory_space) { conference }
         let(:meeting_component) do
           create(:component, manifest_name: :meetings, participatory_space: conference)
@@ -94,7 +94,7 @@ module Decidim
           end
 
           context "and user exists" do
-            let(:user_id) { create(:user, organization: organization).id }
+            let(:user_id) { create(:user, organization:).id }
 
             it { is_expected.to be_valid }
           end
@@ -110,7 +110,7 @@ module Decidim
           subject { form.user }
 
           context "when the user exists" do
-            let(:user_id) { create(:user, organization: organization).id }
+            let(:user_id) { create(:user, organization:).id }
 
             it { is_expected.to be_kind_of(Decidim::User) }
           end

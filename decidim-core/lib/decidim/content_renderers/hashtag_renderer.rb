@@ -29,7 +29,7 @@ module Decidim
 
           next "" if hashtag.nil? || (!extras && extra.present?)
 
-          presenter = Decidim::HashtagPresenter.new(hashtag, cased_name: cased_name)
+          presenter = Decidim::HashtagPresenter.new(hashtag, cased_name:)
 
           if links
             presenter.display_hashtag

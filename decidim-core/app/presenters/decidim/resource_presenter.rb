@@ -11,7 +11,7 @@ module Decidim
         content = decidim_html_escape(content) if html_escape
 
         renderer = Decidim::ContentRenderers::HashtagRenderer.new(content)
-        renderer.render(links: links, extras: extras).html_safe
+        renderer.render(links:, extras:).html_safe
       end
     end
 

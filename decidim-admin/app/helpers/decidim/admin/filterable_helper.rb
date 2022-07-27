@@ -6,7 +6,7 @@ module Decidim
     module FilterableHelper
       # Renders the filters selector with tags in the admin panel.
       def admin_filter_selector(i18n_ctx = nil)
-        render partial: "decidim/admin/shared/filters", locals: { i18n_ctx: i18n_ctx }
+        render partial: "decidim/admin/shared/filters", locals: { i18n_ctx: }
       end
 
       # Builds a tree of links from Decidim::Admin::Filterable::filters_with_values

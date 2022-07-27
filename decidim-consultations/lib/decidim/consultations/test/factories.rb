@@ -24,7 +24,7 @@ FactoryBot.define do
     end_voting_date { Time.zone.today + 1.month }
     introductory_image { Decidim::Dev.test_file("city.jpeg", "image/jpeg") }
     introductory_video_url { "https://www.youtube.com/embed/zhMMW0TENNA" }
-    decidim_highlighted_scope_id { create(:scope, organization: organization).id }
+    decidim_highlighted_scope_id { create(:scope, organization:).id }
     results_published_at { nil }
 
     trait :unpublished do

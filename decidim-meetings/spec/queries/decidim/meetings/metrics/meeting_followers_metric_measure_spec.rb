@@ -6,8 +6,8 @@ describe Decidim::Meetings::Metrics::MeetingFollowersMetricMeasure do
   let(:day) { Time.zone.yesterday }
   let(:organization) { create(:organization) }
   let(:not_valid_resource) { create(:dummy_resource) }
-  let(:participatory_space) { create(:participatory_process, :with_steps, organization: organization) }
-  let(:meeting_component) { create(:meeting_component, :published, participatory_space: participatory_space) }
+  let(:participatory_space) { create(:participatory_process, :with_steps, organization:) }
+  let(:meeting_component) { create(:meeting_component, :published, participatory_space:) }
   let(:meeting) { create(:meeting, component: meeting_component, created_at: day) }
   let!(:follows) { create_list(:follow, 5, followable: meeting, created_at: day) }
   let!(:old_follows) { create_list(:follow, 5, followable: meeting, created_at: day - 1.week) }

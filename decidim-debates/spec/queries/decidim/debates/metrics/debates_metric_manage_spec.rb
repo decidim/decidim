@@ -4,11 +4,11 @@ require "spec_helper"
 
 describe Decidim::Debates::Metrics::DebatesMetricManage do
   let(:organization) { create(:organization) }
-  let(:participatory_space) { create(:participatory_process, :with_steps, organization: organization) }
-  let(:component) { create(:debates_component, :published, participatory_space: participatory_space) }
+  let(:participatory_space) { create(:participatory_process, :with_steps, organization:) }
+  let(:component) { create(:debates_component, :published, participatory_space:) }
   let(:day) { Time.zone.today - 1.day }
-  let!(:debates) { create_list(:debate, 5, start_time: day, component: component) }
-  let!(:old_debates) { create_list(:debate, 5, start_time: day - 1.week, component: component) }
+  let!(:debates) { create_list(:debate, 5, start_time: day, component:) }
+  let!(:old_debates) { create_list(:debate, 5, start_time: day - 1.week, component:) }
 
   include_context "when managing metrics"
 
@@ -29,7 +29,7 @@ describe Decidim::Debates::Metrics::DebatesMetricManage do
     end
 
     it "updates metric records" do
-      create(:metric, metric_type: "debates", day: day, cumulative: 1, quantity: 1, organization: organization, category: nil, participatory_space: participatory_space)
+      create(:metric, metric_type: "debates", day:, cumulative: 1, quantity: 1, organization:, category: nil, participatory_space:)
       registry = generate_metric_registry
 
       expect(Decidim::Metric.count).to eq(1)

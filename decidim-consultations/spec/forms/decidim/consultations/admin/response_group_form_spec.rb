@@ -16,7 +16,7 @@ module Decidim
         end
 
         let(:organization) { create :organization }
-        let(:consultation) { create :consultation, organization: organization }
+        let(:consultation) { create :consultation, organization: }
         let(:question) { create :question }
         let(:title) do
           {

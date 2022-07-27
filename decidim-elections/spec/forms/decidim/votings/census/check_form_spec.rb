@@ -15,18 +15,18 @@ describe Decidim::Votings::Census::CheckForm do
 
   let(:attributes) do
     {
-      document_number: document_number,
-      document_type: document_type,
-      day: day,
-      month: month,
-      year: year,
-      postal_code: postal_code
+      document_number:,
+      document_type:,
+      day:,
+      month:,
+      year:,
+      postal_code:
     }
   end
 
   let(:context) do
     {
-      current_participatory_space: current_participatory_space
+      current_participatory_space:
     }
   end
 

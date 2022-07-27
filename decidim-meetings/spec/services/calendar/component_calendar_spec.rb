@@ -8,9 +8,9 @@ module Decidim::Meetings::Calendar
 
     let!(:meeting) { create :meeting, :published }
     let!(:component) { meeting.component }
-    let!(:another_meeting) { create :meeting, :published, component: component }
+    let!(:another_meeting) { create :meeting, :published, component: }
     let!(:external_meeting) { create :meeting }
-    let!(:unpublished_meeting) { create :meeting, component: component }
+    let!(:unpublished_meeting) { create :meeting, component: }
     let!(:withdrawn_meeting) { create :meeting, :published, :withdrawn }
 
     describe "#calendar" do
@@ -55,7 +55,7 @@ module Decidim::Meetings::Calendar
       let!(:filters) { { "with_any_origin" => ["", "official"], "with_any_type" => ["", "online"] } }
 
       context "when no meetings returned" do
-        let!(:online_meeting) { create :meeting, :published, :not_official, :online, component: component }
+        let!(:online_meeting) { create :meeting, :published, :not_official, :online, component: }
 
         it "returns a nil value" do
           expect(subject).to be_nil
@@ -63,7 +63,7 @@ module Decidim::Meetings::Calendar
       end
 
       context "when having meetings returned" do
-        let!(:online_meeting) { create :meeting, :published, :official, :online, component: component }
+        let!(:online_meeting) { create :meeting, :published, :official, :online, component: }
 
         it "renders the meetings of the given component based on filters" do
           expect(subject).to include(online_meeting.title["en"])

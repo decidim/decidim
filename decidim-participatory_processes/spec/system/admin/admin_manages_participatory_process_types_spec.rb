@@ -6,7 +6,7 @@ describe "Admin manages participatory process types", type: :system do
   include_context "when admin administrating a participatory process"
 
   let!(:participatory_processes) do
-    create_list(:participatory_process, 3, organization: organization)
+    create_list(:participatory_process, 3, organization:)
   end
 
   describe "Managing participatory process types" do
@@ -38,7 +38,7 @@ describe "Admin manages participatory process types", type: :system do
     end
 
     context "with existing participatory process types" do
-      let!(:participatory_process_type) { create(:participatory_process_type, organization: organization) }
+      let!(:participatory_process_type) { create(:participatory_process_type, organization:) }
 
       before do
         visit current_path

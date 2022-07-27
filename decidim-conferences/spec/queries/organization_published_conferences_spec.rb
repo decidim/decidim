@@ -9,13 +9,13 @@ module Decidim::Conferences
     let!(:organization) { create(:organization) }
 
     let!(:published_conferences) do
-      create(:conference, :published, organization: organization, start_date: 1.year.ago, end_date: 1.year.ago + 3.days)
-      create(:conference, :published, organization: organization, start_date: 30.days.ago, end_date: 30.days.ago + 7.days)
-      create(:conference, :published, organization: organization, start_date: 7.days.from_now, end_date: 7.days.from_now + 4.days)
+      create(:conference, :published, organization:, start_date: 1.year.ago, end_date: 1.year.ago + 3.days)
+      create(:conference, :published, organization:, start_date: 30.days.ago, end_date: 30.days.ago + 7.days)
+      create(:conference, :published, organization:, start_date: 7.days.from_now, end_date: 7.days.from_now + 4.days)
     end
 
     let!(:unpublished_conferences) do
-      create_list(:conference, 3, :unpublished, organization: organization)
+      create_list(:conference, 3, :unpublished, organization:)
     end
 
     let!(:foreign_conferences) do

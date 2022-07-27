@@ -6,7 +6,7 @@ module Decidim
   describe TimeoutsController, type: :controller do
     routes { Decidim::Core::Engine.routes }
 
-    let(:current_user) { create(:user, :confirmed, organization: organization) }
+    let(:current_user) { create(:user, :confirmed, organization:) }
     let(:timeout_time) { 30.minutes }
     let(:last_request) { (Time.current - time_since_last_request).to_i }
     let(:user_session) { { "last_request_at" => last_request } }

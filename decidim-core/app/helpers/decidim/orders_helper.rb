@@ -12,7 +12,7 @@ module Decidim
     #         * i18n_scope - The scope of the i18n translations
     def order_selector(orders, options = {})
       render partial: "decidim/shared/orders", locals: {
-        orders: orders,
+        orders:,
         i18n_scope: options[:i18n_scope]
       }
     end
@@ -32,9 +32,9 @@ module Decidim
           "participatory_process_slug",
           "assembly_slug",
           "initiative_slug"
-        ).merge(page: nil, order: order)),
+        ).merge(page: nil, order:)),
         {
-          data: { order: order },
+          data: { order: },
           remote: true
         }.merge(options)
       )

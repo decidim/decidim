@@ -42,7 +42,7 @@ module Decidim
         let(:user) { create(:user) }
         let!(:scope) { create(:scope, organization: user.organization) }
         let(:record) do
-          DummyAuthorizationHandler.new(user: user)
+          DummyAuthorizationHandler.new(user:)
         end
 
         it "includes a scopes selector" do

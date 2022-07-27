@@ -8,24 +8,24 @@ module Decidim::Votings
 
     let(:voting) { create(:voting) }
     let(:component) { create(:elections_component, participatory_space: voting) }
-    let(:election) { create(:election, component: component) }
-    let(:polling_station) { create(:polling_station, voting: voting) }
-    let(:polling_officer) { create(:polling_officer, voting: voting) }
+    let(:election) { create(:election, component:) }
+    let(:polling_station) { create(:polling_station, voting:) }
+    let(:polling_officer) { create(:polling_officer, voting:) }
 
     let(:params) do
       {
         polling_station_id: polling_station.id,
         election_id: election.id,
         election_votes_count: 100,
-        total_ballots_count: total_ballots_count,
-        polling_officer_notes: polling_officer_notes
+        total_ballots_count:,
+        polling_officer_notes:
       }
     end
 
     let(:total_ballots_count) { 100 }
     let(:polling_officer_notes) { Faker::Lorem.sentence }
 
-    let(:form) { EnvelopesResultForm.new(params).with_context(polling_officer: polling_officer) }
+    let(:form) { EnvelopesResultForm.new(params).with_context(polling_officer:) }
 
     context "when the form is not valid" do
       let(:total_ballots_count) { 101 }

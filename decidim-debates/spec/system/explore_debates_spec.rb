@@ -19,7 +19,7 @@ describe "Explore debates", type: :system do
       create_list(
         :debate,
         debates_count,
-        component: component,
+        component:,
         start_time: Time.zone.local(2016, 12, 13, 14, 15),
         end_time: Time.zone.local(2016, 12, 13, 16, 17),
         skip_injection: true
@@ -38,7 +38,7 @@ describe "Explore debates", type: :system do
 
     context "when there are a lot of debates" do
       let!(:debates) do
-        create_list(:debate, Decidim::Paginable::OPTIONS.first + 5, component: component, skip_injection: true)
+        create_list(:debate, Decidim::Paginable::OPTIONS.first + 5, component:, skip_injection: true)
       end
 
       it "paginates them" do
@@ -58,7 +58,7 @@ describe "Explore debates", type: :system do
       let!(:open_debate) do
         create(
           :debate,
-          component: component,
+          component:,
           start_time: nil,
           end_time: nil,
           skip_injection: true
@@ -80,7 +80,7 @@ describe "Explore debates", type: :system do
 
       context "with the component's settings" do
         before do
-          component.update!(settings: { announcement: announcement })
+          component.update!(settings: { announcement: })
           visit_component
         end
 
@@ -94,7 +94,7 @@ describe "Explore debates", type: :system do
           component.update!(
             step_settings: {
               component.participatory_space.active_step.id => {
-                announcement: announcement
+                announcement:
               }
             }
           )
@@ -110,10 +110,10 @@ describe "Explore debates", type: :system do
     context "when filtering" do
       context "when filtering by origin" do
         context "with 'official' origin" do
-          let!(:debates) { create_list(:debate, 2, component: component, skip_injection: true) }
+          let!(:debates) { create_list(:debate, 2, component:, skip_injection: true) }
 
           it "lists the filtered debates" do
-            create(:debate, :participant_author, component: component, skip_injection: true)
+            create(:debate, :participant_author, component:, skip_injection: true)
             visit_component
 
             within ".filters .with_any_origin_check_boxes_tree_filter" do
@@ -127,10 +127,10 @@ describe "Explore debates", type: :system do
         end
 
         context "with 'participants' origin" do
-          let!(:debates) { create_list(:debate, 2, :participant_author, component: component, skip_injection: true) }
+          let!(:debates) { create_list(:debate, 2, :participant_author, component:, skip_injection: true) }
 
           it "lists the filtered debates" do
-            create(:debate, component: component, skip_injection: true)
+            create(:debate, component:, skip_injection: true)
             visit_component
 
             within ".filters .with_any_origin_check_boxes_tree_filter" do
@@ -145,7 +145,7 @@ describe "Explore debates", type: :system do
       end
 
       it "allows filtering by scope" do
-        scope = create(:scope, organization: organization)
+        scope = create(:scope, organization:)
         debate = debates.first
         debate.scope = scope
         debate.save
@@ -162,11 +162,11 @@ describe "Explore debates", type: :system do
       end
 
       context "when filtering by category" do
-        let(:category2) { create :category, participatory_space: participatory_space }
-        let(:debates) { create_list(:debate, 3, component: component, category: category2, skip_injection: true) }
+        let(:category2) { create :category, participatory_space: }
+        let(:debates) { create_list(:debate, 3, component:, category: category2, skip_injection: true) }
 
         before do
-          create(:debate, component: component, category: category, skip_injection: true)
+          create(:debate, component:, category:, skip_injection: true)
           login_as user, scope: :user
           visit_component
         end
@@ -213,7 +213,7 @@ describe "Explore debates", type: :system do
 
     context "with comment metadata" do
       let!(:comment) { create(:comment, commentable: debates) }
-      let!(:debates) { create(:debate, :open_ama, component: component, skip_injection: true) }
+      let!(:debates) { create(:debate, :open_ama, component:, skip_injection: true) }
 
       it "shows the last comment author and the time" do
         visit_component
@@ -226,8 +226,8 @@ describe "Explore debates", type: :system do
   end
 
   context "when component is not commentable" do
-    let(:component) { create :debante_component, :with_comments_blocked, participatory_space: participatory_space }
-    let(:resources) { create_list(:debate, 3, component: component) }
+    let(:component) { create :debante_component, :with_comments_blocked, participatory_space: }
+    let(:resources) { create_list(:debate, 3, component:) }
 
     it_behaves_like "an uncommentable component"
   end
@@ -244,7 +244,7 @@ describe "Explore debates", type: :system do
       create(
         :debate,
         :open_ama,
-        component: component,
+        component:,
         start_time: Time.zone.local(2016, 12, 13, 14, 15),
         end_time: Time.zone.local(2016, 12, 13, 16, 17),
         skip_injection: true
@@ -276,7 +276,7 @@ describe "Explore debates", type: :system do
 
     context "with a category" do
       let(:debate) do
-        debate = create(:debate, component: component, skip_injection: true)
+        debate = create(:debate, component:, skip_injection: true)
         debate.category = create :category, participatory_space: participatory_space
         debate.save
         debate
@@ -293,8 +293,8 @@ describe "Explore debates", type: :system do
 
     context "with a scope" do
       let(:debate) do
-        debate = create(:debate, component: component, skip_injection: true)
-        debate.scope = create(:scope, organization: organization)
+        debate = create(:debate, component:, skip_injection: true)
+        debate.scope = create(:scope, organization:)
         debate.save
         debate
       end
@@ -318,13 +318,13 @@ describe "Explore debates", type: :system do
     end
 
     context "when debate is official" do
-      let!(:debate) { create(:debate, author: organization, description: { en: content }, component: component, skip_injection: true) }
+      let!(:debate) { create(:debate, author: organization, description: { en: content }, component:, skip_injection: true) }
 
       it_behaves_like "rendering safe content", ".columns.mediumlarge-8.mediumlarge-pull-4"
     end
 
     context "when rich text editor is enabled for participants" do
-      let!(:debate) { create(:debate, author: user, description: { en: content }, component: component, skip_injection: true) }
+      let!(:debate) { create(:debate, author: user, description: { en: content }, component:, skip_injection: true) }
 
       before do
         organization.update(rich_text_editor_in_public_views: true)
@@ -335,7 +335,7 @@ describe "Explore debates", type: :system do
     end
 
     context "when rich text editor is NOT enabled on the frontend" do
-      let!(:debate) { create(:debate, author: user, description: { en: content }, component: component, skip_injection: true) }
+      let!(:debate) { create(:debate, author: user, description: { en: content }, component:, skip_injection: true) }
 
       it_behaves_like "rendering unsafe content", ".columns.mediumlarge-8.mediumlarge-pull-4"
     end

@@ -26,7 +26,7 @@ module Decidim::Conferences
     end
 
     context "when the conference is not published" do
-      let(:follow) { create :follow, followable: my_conference, user: user }
+      let(:follow) { create :follow, followable: my_conference, user: }
 
       it "is valid" do
         expect { subject.call }.to broadcast(:ok)

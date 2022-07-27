@@ -4,7 +4,7 @@ require "spec_helper"
 
 describe "Conferences", type: :system do
   let(:organization) { create(:organization) }
-  let!(:conference) { create(:conference, organization: organization) }
+  let!(:conference) { create(:conference, organization:) }
 
   def visit_conference
     visit decidim_conferences.conference_path(conference)
@@ -31,7 +31,7 @@ describe "Conferences", type: :system do
   end
 
   context "when it has media links" do
-    let!(:media_link) { create(:media_link, conference: conference) }
+    let!(:media_link) { create(:media_link, conference:) }
 
     before do
       visit decidim_conferences.conference_media_path(conference)

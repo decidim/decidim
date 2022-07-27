@@ -5,7 +5,7 @@ require "spec_helper"
 describe "Explore versions", versioning: true, type: :system do
   include_context "with a component"
   let(:manifest_name) { "debates" }
-  let!(:debate) { create(:debate, component: component) }
+  let!(:debate) { create(:debate, component:) }
   let(:debate_path) { Decidim::ResourceLocatorPresenter.new(debate).path }
 
   context "when visiting a debate details" do

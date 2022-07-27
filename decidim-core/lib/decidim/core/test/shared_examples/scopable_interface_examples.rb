@@ -6,7 +6,7 @@ shared_examples_for "scopable interface" do
   let!(:scope) { create(:scope, organization: model.participatory_space.organization) }
 
   before do
-    model.update(scope: scope)
+    model.update(scope:)
   end
 
   describe "scope" do

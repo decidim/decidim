@@ -13,7 +13,7 @@ module Decidim
         let(:form) do
           double(
             invalid?: invalid,
-            monitoring_committee_notes: monitoring_committee_notes
+            monitoring_committee_notes:
           )
         end
         let(:invalid) { false }

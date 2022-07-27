@@ -9,7 +9,7 @@ describe Decidim::Sortitions::Permissions do
   let(:context) do
     {
       current_component: sortition_component,
-      sortition: sortition
+      sortition:
     }
   end
   let(:sortition_component) { create :sortition_component }

@@ -9,9 +9,9 @@ describe Decidim::Proposals::Permissions do
   let(:context) do
     {
       current_component: proposal_component,
-      current_settings: current_settings,
-      proposal: proposal,
-      component_settings: component_settings
+      current_settings:,
+      proposal:,
+      component_settings:
     }
   end
   let(:proposal_component) { create :proposal_component }

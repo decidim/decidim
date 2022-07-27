@@ -32,7 +32,7 @@ module Decidim
           }
           role_params = {
             role: form.role.to_sym,
-            user: user,
+            user:,
             participatory_process: participatory_space
           }
 
@@ -48,7 +48,7 @@ module Decidim
         def existing_role
           Decidim::ParticipatoryProcessUserRole.exists?(
             role: form.role.to_sym,
-            user: user,
+            user:,
             participatory_process: participatory_space
           )
         end

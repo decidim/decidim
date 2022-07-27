@@ -12,7 +12,7 @@ module Decidim
         categories = bulk_categories_for_select collection
         disabled = bulk_disabled_categories_for collection
         prompt = t("decidim.proposals.admin.proposals.index.change_category")
-        select(:category, :id, options_for_select(categories, selected: [], disabled: disabled), prompt: prompt)
+        select(:category, :id, options_for_select(categories, selected: [], disabled:), prompt:)
       end
 
       def bulk_categories_for_select(scope)
@@ -50,7 +50,7 @@ module Decidim
         end
 
         prompt = t("decidim.proposals.admin.proposals.index.select_component")
-        select(:target_component_id, nil, options_for_select(components, selected: []), prompt: prompt)
+        select(:target_component_id, nil, options_for_select(components, selected: []), prompt:)
       end
     end
   end

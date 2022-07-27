@@ -40,8 +40,8 @@ module Decidim
             }
 
             Decidim::Votings::Census::Datum.create(
-              dataset: dataset,
-              attributes: attributes
+              dataset:,
+              attributes:
             )
           end
 
