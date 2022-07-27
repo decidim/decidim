@@ -36,6 +36,8 @@ module Decidim
         template "README.md.erb", "#{component_folder}/README.md"
         template "gitignore", "#{component_folder}/.gitignore"
         template "circleci/config.yml", "#{component_folder}/.circleci/config.yml"
+        template ".ruby-version", "#{component_folder}/.ruby-version"
+        template ".node-version", "#{component_folder}/.node-version"
 
         app_folder = "#{component_folder}/app"
         template "app/packs/js/entrypoint.js", "#{app_folder}/packs/entrypoints/decidim_#{component_name}.js"
