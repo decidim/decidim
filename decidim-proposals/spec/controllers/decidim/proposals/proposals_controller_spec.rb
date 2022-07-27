@@ -67,9 +67,9 @@ module Decidim
           end
 
           context "when emendations exist" do
-            let!(:amendable) { create(:proposal, component: component) }
-            let!(:emendation) { create(:proposal, component: component) }
-            let!(:amendment) { create(:amendment, amendable: amendable, emendation: emendation, state: "accepted") }
+            let!(:amendable) { create(:proposal, component:) }
+            let!(:emendation) { create(:proposal, component:) }
+            let!(:amendment) { create(:amendment, amendable:, emendation:, state: "accepted") }
 
             it "does not include emendations" do
               get :index
@@ -95,7 +95,7 @@ module Decidim
         end
 
         context "when draft proposals exist from other users" do
-          let!(:others_draft) { create(:proposal, :draft, component: component) }
+          let!(:others_draft) { create(:proposal, :draft, component:) }
 
           it "renders the empty form" do
             get :new, params: params
@@ -139,7 +139,7 @@ module Decidim
 
       describe "PATCH update" do
         let(:component) { create(:proposal_component, :with_creation_enabled, :with_attachments_allowed) }
-        let(:proposal) { create(:proposal, component: component, users: [user]) }
+        let(:proposal) { create(:proposal, component:, users: [user]) }
         let(:proposal_params) do
           {
             title: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
@@ -173,7 +173,7 @@ module Decidim
                 documents: proposal.documents.map { |a| a.id.to_s }
               }
             end
-            let(:proposal) { create(:proposal, :with_photo, :with_document, component: component, users: [user]) }
+            let(:proposal) { create(:proposal, :with_photo, :with_document, component:, users: [user]) }
 
             it "displays the editing form with errors" do
               patch :update, params: params
@@ -190,7 +190,7 @@ module Decidim
       describe "access links from creating proposal steps" do
         let!(:component) { create(:proposal_component, :with_creation_enabled) }
         let!(:current_user) { create(:user, :confirmed, organization: component.organization) }
-        let!(:proposal_extra) { create(:proposal, :draft, component: component, users: [current_user]) }
+        let!(:proposal_extra) { create(:proposal, :draft, component:, users: [current_user]) }
         let!(:params) do
           {
             id: proposal_extra.id,
@@ -235,7 +235,7 @@ module Decidim
         before { sign_in user }
 
         context "when an authorized user is withdrawing a proposal" do
-          let(:proposal) { create(:proposal, component: component, users: [user]) }
+          let(:proposal) { create(:proposal, component:, users: [user]) }
 
           it "withdraws the proposal" do
             put :withdraw, params: params.merge(id: proposal.id)
@@ -247,7 +247,7 @@ module Decidim
           end
 
           context "and the proposal already has supports" do
-            let(:proposal) { create(:proposal, :with_votes, component: component, users: [user]) }
+            let(:proposal) { create(:proposal, :with_votes, component:, users: [user]) }
 
             it "is not able to withdraw the proposal" do
               put :withdraw, params: params.merge(id: proposal.id)
@@ -262,7 +262,7 @@ module Decidim
 
         describe "when current user is NOT the author of the proposal" do
           let(:current_user) { create(:user, :confirmed, organization: component.organization) }
-          let(:proposal) { create(:proposal, component: component, users: [current_user]) }
+          let(:proposal) { create(:proposal, component:, users: [current_user]) }
 
           context "and the proposal has no supports" do
             it "is not able to withdraw the proposal" do
@@ -281,9 +281,9 @@ module Decidim
 
       describe "GET show" do
         let!(:component) { create(:proposal_component, :with_amendments_enabled) }
-        let!(:amendable) { create(:proposal, component: component) }
-        let!(:emendation) { create(:proposal, component: component) }
-        let!(:amendment) { create(:amendment, amendable: amendable, emendation: emendation) }
+        let!(:amendable) { create(:proposal, component:) }
+        let!(:emendation) { create(:proposal, component:) }
+        let!(:amendment) { create(:amendment, amendable:, emendation:) }
         let(:active_step_id) { component.participatory_space.active_step.id }
 
         context "when the proposal is an amendable" do

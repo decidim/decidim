@@ -44,7 +44,7 @@ module Decidim
                          .published
                          .answered
                          .state_not_published
-                         .where(component: component)
+                         .where(component:)
                          .where(id: proposal_ids)
         end
 

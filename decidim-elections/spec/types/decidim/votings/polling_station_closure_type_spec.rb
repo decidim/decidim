@@ -9,7 +9,7 @@ module Decidim
       include_context "with a graphql class type"
 
       let(:signed_at) { nil }
-      let(:model) { create(:ps_closure, :with_results, signed_at: signed_at) }
+      let(:model) { create(:ps_closure, :with_results, signed_at:) }
 
       describe "id" do
         let(:query) { "{ id }" }

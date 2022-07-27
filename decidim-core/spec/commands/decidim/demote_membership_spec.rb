@@ -7,7 +7,7 @@ module Decidim
     describe DemoteMembership do
       describe "call" do
         let(:role) { "admin" }
-        let(:membership) { create :user_group_membership, role: role }
+        let(:membership) { create :user_group_membership, role: }
         let(:user_group) { membership.user_group }
 
         let(:command) { described_class.new(membership, user_group) }

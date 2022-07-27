@@ -7,7 +7,7 @@ module Decidim::Budgets
     subject { described_class.new(selection_to_s, Array(project)) }
 
     let(:budget) { create(:budget) }
-    let(:project) { create(:project, budget: budget) }
+    let(:project) { create(:project, budget:) }
     let(:selection) { true }
     let(:selection_to_s) { selection.to_s }
 
@@ -27,7 +27,7 @@ module Decidim::Budgets
     end
 
     context "when project is already selected for implementation" do
-      let(:project) { create(:project, :selected, budget: budget) }
+      let(:project) { create(:project, :selected, budget:) }
       let(:selection) { false }
 
       it "deselects the project" do

@@ -36,21 +36,21 @@ module Decidim
 
       describe "#questions_editable?" do
         it "returns false when questionnaire has already answers" do
-          create(:answer, questionnaire: questionnaire)
+          create(:answer, questionnaire:)
           expect(subject.reload).not_to be_questions_editable
         end
       end
 
       describe "#answered_by?" do
         let!(:user) { create(:user, organization: questionnaire.questionnaire_for.component.participatory_space.organization) }
-        let!(:question) { create(:questionnaire_question, questionnaire: questionnaire) }
+        let!(:question) { create(:questionnaire_question, questionnaire:) }
 
         it "returns false if the given user has not answered the questionnaire" do
           expect(questionnaire).not_to be_answered_by(user)
         end
 
         it "returns true if the given user has answered the questionnaire" do
-          create(:answer, questionnaire: questionnaire, question: question, user: user)
+          create(:answer, questionnaire:, question:, user:)
           expect(questionnaire).to be_answered_by(user)
         end
       end
@@ -66,7 +66,7 @@ module Decidim
           end
 
           context "when questionnaire has questions" do
-            let!(:question) { create(:questionnaire_question, questionnaire: questionnaire) }
+            let!(:question) { create(:questionnaire_question, questionnaire:) }
 
             it "returns false" do
               expect(questionnaire.pristine?).to be(false)

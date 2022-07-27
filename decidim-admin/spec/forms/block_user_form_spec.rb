@@ -7,7 +7,7 @@ module Decidim
     describe BlockUserForm do
       let(:organization) { create(:organization) }
 
-      let(:user) { create(:user, organization: organization) }
+      let(:user) { create(:user, organization:) }
 
       let(:justification) { "" }
 
@@ -28,7 +28,7 @@ module Decidim
       describe "from params" do
         subject do
           described_class.from_params(
-            justification: justification, user_id: user.id
+            justification:, user_id: user.id
           ).with_context(
             current_organization: organization
           )

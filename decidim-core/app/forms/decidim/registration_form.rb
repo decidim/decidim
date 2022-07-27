@@ -35,7 +35,7 @@ module Decidim
     private
 
     def email_unique_in_organization
-      errors.add :email, :taken if valid_users.find_by(email: email, organization: current_organization).present?
+      errors.add :email, :taken if valid_users.find_by(email:, organization: current_organization).present?
     end
 
     def nickname_unique_in_organization

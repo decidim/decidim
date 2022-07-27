@@ -8,7 +8,7 @@ module Decidim
     let(:form) do
       double(
         valid?: valid,
-        errors: errors
+        errors:
       )
     end
     let(:errors) do

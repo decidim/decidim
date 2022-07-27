@@ -25,19 +25,19 @@ module Decidim
 
         it "serializes the title" do
           I18n.available_locales.each do |locale|
-            expect(translated(serialized[:title], locale: locale)).to eq(translated(voting.title, locale: locale))
+            expect(translated(serialized[:title], locale:)).to eq(translated(voting.title, locale:))
           end
         end
 
         it "serializes the description" do
           I18n.available_locales.each do |locale|
-            expect(translated(serialized[:description], locale: locale)).to eq(translated(voting.description, locale: locale))
+            expect(translated(serialized[:description], locale:)).to eq(translated(voting.description, locale:))
           end
         end
 
         it "serializes the voting type" do
           I18n.available_locales.each do |locale|
-            expect(translated(serialized[:voting_type], locale: locale)).to eq(I18n.t(voting.voting_type, scope: "decidim.votings.admin.votings.form.voting_type"))
+            expect(translated(serialized[:voting_type], locale:)).to eq(I18n.t(voting.voting_type, scope: "decidim.votings.admin.votings.form.voting_type"))
           end
         end
 

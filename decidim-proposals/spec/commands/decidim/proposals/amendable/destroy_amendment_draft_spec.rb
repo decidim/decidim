@@ -8,9 +8,9 @@ module Decidim
       let!(:component) { create(:proposal_component) }
       let!(:other_user) { create(:user, :confirmed, organization: component.organization) }
 
-      let!(:amendable) { create(:proposal, component: component) }
-      let!(:emendation) { create(:proposal, :unpublished, component: component) }
-      let!(:amendment) { create(:amendment, :draft, amendable: amendable, emendation: emendation) }
+      let!(:amendable) { create(:proposal, component:) }
+      let!(:emendation) { create(:proposal, :unpublished, component:) }
+      let!(:amendment) { create(:amendment, :draft, amendable:, emendation:) }
 
       let(:command) { described_class.new(amendment, current_user) }
 

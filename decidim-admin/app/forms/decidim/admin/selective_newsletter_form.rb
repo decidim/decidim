@@ -20,7 +20,7 @@ module Decidim
 
       def map_model(_newsletter)
         self.participatory_space_types = Decidim.participatory_space_manifests.map do |manifest|
-          SelectiveNewsletterParticipatorySpaceTypeForm.from_model(manifest: manifest)
+          SelectiveNewsletterParticipatorySpaceTypeForm.from_model(manifest:)
         end
       end
 

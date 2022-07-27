@@ -7,17 +7,17 @@ module Decidim::Meetings
     subject { described_class.new(form, meeting, current_user) }
 
     let(:organization) { create :organization }
-    let!(:current_user) { create :user, :admin, organization: organization }
+    let!(:current_user) { create :user, :admin, organization: }
     let(:name) { "name" }
     let(:email) { "foo@example.org" }
     let(:existing_user) { false }
     let(:user_id) { nil }
     let(:form_params) do
       {
-        name: name,
-        email: email,
-        existing_user: existing_user,
-        user_id: user_id
+        name:,
+        email:,
+        existing_user:,
+        user_id:
       }
     end
     let(:form) do
@@ -27,9 +27,9 @@ module Decidim::Meetings
         current_organization: organization
       )
     end
-    let!(:participatory_process) { create :participatory_process, organization: organization }
+    let!(:participatory_process) { create :participatory_process, organization: }
     let!(:component) { create :meeting_component, participatory_space: participatory_process }
-    let!(:meeting) { create :meeting, component: component }
+    let!(:meeting) { create :meeting, component: }
 
     context "when everything is ok" do
       before do
@@ -51,7 +51,7 @@ module Decidim::Meetings
         it "traces the action", versioning: true do
           expect(Decidim.traceability)
             .to receive(:create!)
-            .with(Decidim::Meetings::Invite, current_user, kind_of(Hash), hash_including(resource: hash_including(:title), participatory_space: hash_including(:title), attendee_name: attendee_name))
+            .with(Decidim::Meetings::Invite, current_user, kind_of(Hash), hash_including(resource: hash_including(:title), participatory_space: hash_including(:title), attendee_name:))
             .and_call_original
 
           expect { subject.call }.to change(Decidim::ActionLog, :count)
@@ -65,7 +65,7 @@ module Decidim::Meetings
       end
 
       context "when the form provides an existing user" do
-        let!(:user) { create(:user, :confirmed, organization: organization) }
+        let!(:user) { create(:user, :confirmed, organization:) }
         let(:attendee_name) { user.name }
         let(:existing_user) { true }
         let(:user_id) { user.id }
@@ -87,7 +87,7 @@ module Decidim::Meetings
       end
 
       context "when a user already exists" do
-        let!(:user) { create(:user, :confirmed, email: form.email, organization: organization) }
+        let!(:user) { create(:user, :confirmed, email: form.email, organization:) }
         let(:attendee_name) { user.name }
 
         it "does not create another user" do
@@ -123,7 +123,7 @@ module Decidim::Meetings
           queued_user, _, queued_options = ActiveJob::Arguments.deserialize(ActiveJob::Base.queue_adapter.enqueued_jobs.first[:args]).last[:args]
 
           expect(queued_user).to eq(Decidim::User.last)
-          expect(queued_options).to eq(invitation_instructions: "join_meeting", meeting: meeting)
+          expect(queued_options).to eq(invitation_instructions: "join_meeting", meeting:)
         end
 
         it_behaves_like "creates the invitation and traces the action" do
@@ -144,7 +144,7 @@ module Decidim::Meetings
 
     context "when the user has already been invited" do
       before do
-        meeting.invites << build(:invite, meeting: meeting, user: build(:user, email: email, organization: organization))
+        meeting.invites << build(:invite, meeting:, user: build(:user, email:, organization:))
       end
 
       it "broadcasts invalid" do

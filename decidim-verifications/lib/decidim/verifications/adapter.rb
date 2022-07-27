@@ -70,9 +70,9 @@ module Decidim
       #
       def root_path(redirect_url: nil)
         if manifest.type == "direct"
-          decidim_verifications.new_authorization_path(redirect_params(handler: name, redirect_url: redirect_url))
+          decidim_verifications.new_authorization_path(redirect_params(handler: name, redirect_url:))
         else
-          main_engine.send(:root_path, redirect_params(redirect_url: redirect_url))
+          main_engine.send(:root_path, redirect_params(redirect_url:))
         end
       end
 
@@ -84,7 +84,7 @@ module Decidim
         raise InvalidVerificationRoute.new(route: "edit_authorization_path") if manifest.type == "direct"
         raise MissingVerificationRoute.new(handler: name, route: "edit_authorization_path", action: "resume") unless main_engine.respond_to?(:edit_authorization_path)
 
-        main_engine.send(:edit_authorization_path, redirect_params(redirect_url: redirect_url))
+        main_engine.send(:edit_authorization_path, redirect_params(redirect_url:))
       end
 
       #
@@ -93,11 +93,11 @@ module Decidim
       #
       def renew_path(redirect_url: nil)
         if manifest.type == "direct"
-          decidim_verifications.renew_authorizations_path(redirect_params(handler: name, redirect_url: redirect_url))
+          decidim_verifications.renew_authorizations_path(redirect_params(handler: name, redirect_url:))
         else
           raise MissingVerificationRoute.new(handler: name, route: "renew_authorization_path", action: "renew") unless main_engine.respond_to?(:renew_authorization_path)
 
-          main_engine.send(:renew_authorization_path, redirect_params(redirect_url: redirect_url))
+          main_engine.send(:renew_authorization_path, redirect_params(redirect_url:))
         end
       end
 

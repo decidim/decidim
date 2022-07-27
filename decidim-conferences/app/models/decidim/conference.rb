@@ -100,11 +100,11 @@ module Decidim
     end
 
     def has_registration_for?(user)
-      conference_registrations.where(user: user).any?
+      conference_registrations.where(user:).any?
     end
 
     def has_registration_for_user_and_registration_type?(user, registration_type)
-      conference_registrations.where(user: user, registration_type: registration_type).any?
+      conference_registrations.where(user:, registration_type:).any?
     end
 
     def has_available_slots?

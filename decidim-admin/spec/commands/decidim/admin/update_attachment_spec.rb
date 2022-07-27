@@ -21,7 +21,7 @@ module Decidim::Admin
           ca: "Una ciutat",
           es: "Una ciudad"
         },
-        file: file,
+        file:,
         attachment_collection: nil,
         weight: 2
       )

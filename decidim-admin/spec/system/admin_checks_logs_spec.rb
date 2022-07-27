@@ -5,8 +5,8 @@ require "spec_helper"
 describe "Admin checks logs", type: :system do
   let(:organization) { create(:organization) }
 
-  let!(:user) { create(:user, :admin, :confirmed, organization: organization) }
-  let!(:action_logs) { create_list :action_log, 3, organization: organization }
+  let!(:user) { create(:user, :admin, :confirmed, organization:) }
+  let!(:action_logs) { create_list :action_log, 3, organization: }
 
   before do
     switch_to_host(organization.host)
@@ -33,8 +33,8 @@ describe "Admin checks logs", type: :system do
 
   context "when filtering" do
     context "and there are no matching logs" do
-      let(:admin1) { create(:user, :admin, organization: organization, name: "John Doe", nickname: "joe", email: "jdoe@example.org") }
-      let!(:action_logs) { [create(:action_log, user: admin1, organization: organization)] }
+      let(:admin1) { create(:user, :admin, organization:, name: "John Doe", nickname: "joe", email: "jdoe@example.org") }
+      let!(:action_logs) { [create(:action_log, user: admin1, organization:)] }
 
       it "shows the correct message" do
         within ".filters__section" do
@@ -68,9 +68,9 @@ describe "Admin checks logs", type: :system do
     context "with time" do
       let!(:action_logs) do
         [].tap do |logs|
-          logs << create(:action_log, created_at: Time.zone.local(2022, 6, 22, 8, 9, 10), organization: organization)
-          logs << create(:action_log, created_at: Time.zone.local(2022, 6, 22, 9, 10, 11), organization: organization)
-          logs << create(:action_log, created_at: Time.zone.local(2022, 6, 22, 10, 11, 12), organization: organization)
+          logs << create(:action_log, created_at: Time.zone.local(2022, 6, 22, 8, 9, 10), organization:)
+          logs << create(:action_log, created_at: Time.zone.local(2022, 6, 22, 9, 10, 11), organization:)
+          logs << create(:action_log, created_at: Time.zone.local(2022, 6, 22, 10, 11, 12), organization:)
         end
       end
 
@@ -110,14 +110,14 @@ describe "Admin checks logs", type: :system do
     end
 
     context "with user" do
-      let(:admin1) { create(:user, :admin, organization: organization, name: "John Doe", nickname: "joe", email: "jdoe@example.org") }
-      let(:admin2) { create(:user, :admin, organization: organization, name: "Richard Roe", nickname: "roe", email: "rroe@example.org") }
-      let(:admin3) { create(:user, :admin, organization: organization, name: "Joe Schmoe", nickname: "schmoe", email: "jschmoe@example.org") }
+      let(:admin1) { create(:user, :admin, organization:, name: "John Doe", nickname: "joe", email: "jdoe@example.org") }
+      let(:admin2) { create(:user, :admin, organization:, name: "Richard Roe", nickname: "roe", email: "rroe@example.org") }
+      let(:admin3) { create(:user, :admin, organization:, name: "Joe Schmoe", nickname: "schmoe", email: "jschmoe@example.org") }
       let!(:action_logs) do
         [].tap do |logs|
-          logs << create(:action_log, user: admin1, organization: organization)
-          logs << create(:action_log, user: admin2, organization: organization)
-          logs << create(:action_log, user: admin3, organization: organization)
+          logs << create(:action_log, user: admin1, organization:)
+          logs << create(:action_log, user: admin2, organization:)
+          logs << create(:action_log, user: admin3, organization:)
         end
       end
 

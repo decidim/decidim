@@ -5,7 +5,7 @@ require "spec_helper"
 describe "Proposals component" do # rubocop:disable RSpec/DescribeClass
   let!(:component) { create(:proposal_component) }
   let(:organization) { component.organization }
-  let!(:current_user) { create(:user, :confirmed, :admin, organization: organization) }
+  let!(:current_user) { create(:user, :confirmed, :admin, organization:) }
 
   describe "on destroy" do
     context "when there are no proposals for the component" do
@@ -20,7 +20,7 @@ describe "Proposals component" do # rubocop:disable RSpec/DescribeClass
 
     context "when there are proposals for the component" do
       before do
-        create(:proposal, component: component)
+        create(:proposal, component:)
       end
 
       it "raises an error" do
@@ -48,9 +48,9 @@ describe "Proposals component" do # rubocop:disable RSpec/DescribeClass
 
     let!(:proposal) { create :proposal }
     let(:component) { proposal.component }
-    let!(:hidden_proposal) { create :proposal, component: component }
-    let!(:draft_proposal) { create :proposal, :draft, component: component }
-    let!(:withdrawn_proposal) { create :proposal, :withdrawn, component: component }
+    let!(:hidden_proposal) { create :proposal, component: }
+    let!(:draft_proposal) { create :proposal, :draft, component: }
+    let!(:withdrawn_proposal) { create :proposal, :withdrawn, component: }
     let!(:moderation) { create :moderation, reportable: hidden_proposal, hidden_at: 1.day.ago }
 
     let(:current_stat) { stats.find { |stat| stat[1] == stats_name } }
@@ -59,19 +59,19 @@ describe "Proposals component" do # rubocop:disable RSpec/DescribeClass
       let(:stats_name) { :proposals_count }
 
       it "only counts published (except withdrawn) and not hidden proposals" do
-        expect(Decidim::Proposals::Proposal.where(component: component).count).to eq 4
+        expect(Decidim::Proposals::Proposal.where(component:).count).to eq 4
         expect(subject).to eq 1
       end
     end
 
     describe "proposals_accepted" do
-      let!(:accepted_proposal) { create :proposal, :accepted, component: component }
-      let!(:accepted_hidden_proposal) { create :proposal, :accepted, component: component }
+      let!(:accepted_proposal) { create :proposal, :accepted, component: }
+      let!(:accepted_hidden_proposal) { create :proposal, :accepted, component: }
       let!(:moderation) { create :moderation, reportable: accepted_hidden_proposal, hidden_at: 1.day.ago }
       let(:stats_name) { :proposals_accepted }
 
       it "only counts accepted and not hidden proposals" do
-        expect(Decidim::Proposals::Proposal.where(component: component).count).to eq 6
+        expect(Decidim::Proposals::Proposal.where(component:).count).to eq 6
         expect(subject).to eq 1
       end
     end
@@ -96,10 +96,10 @@ describe "Proposals component" do # rubocop:disable RSpec/DescribeClass
       before do
         # rubocop:disable RSpec/FactoryBot/CreateList
         2.times do
-          create(:endorsement, resource: proposal, author: build(:user, organization: organization))
+          create(:endorsement, resource: proposal, author: build(:user, organization:))
         end
         3.times do
-          create(:endorsement, resource: hidden_proposal, author: build(:user, organization: organization))
+          create(:endorsement, resource: hidden_proposal, author: build(:user, organization:))
         end
         # rubocop:enable RSpec/FactoryBot/CreateList
       end
@@ -171,7 +171,7 @@ describe "Proposals component" do # rubocop:disable RSpec/DescribeClass
       context "when there are proposals for the component" do
         before do
           component.update(settings: { participatory_texts_enabled: true }) # Testing from true to false
-          create(:proposal, component: component)
+          create(:proposal, component:)
           visit edit_component_path
         end
 
@@ -237,16 +237,16 @@ describe "Proposals component" do # rubocop:disable RSpec/DescribeClass
 
     let!(:assigned_proposal) { create :proposal }
     let(:component) { assigned_proposal.component }
-    let!(:unassigned_proposal) { create :proposal, component: component }
+    let!(:unassigned_proposal) { create :proposal, component: }
     let(:participatory_process) { component.participatory_space }
     let(:organization) { participatory_process.organization }
 
     context "when the user is a valuator" do
-      let!(:user) { create :user, admin: false, organization: organization }
-      let!(:valuator_role) { create :participatory_process_user_role, role: :valuator, user: user, participatory_process: participatory_process }
+      let!(:user) { create :user, admin: false, organization: }
+      let!(:valuator_role) { create :participatory_process_user_role, role: :valuator, user:, participatory_process: }
 
       before do
-        create :valuation_assignment, proposal: assigned_proposal, valuator_role: valuator_role
+        create :valuation_assignment, proposal: assigned_proposal, valuator_role:
       end
 
       it "only exports assigned proposals" do
@@ -255,7 +255,7 @@ describe "Proposals component" do # rubocop:disable RSpec/DescribeClass
     end
 
     context "when the user is an admin" do
-      let!(:user) { create :user, admin: true, organization: organization }
+      let!(:user) { create :user, admin: true, organization: }
 
       it "exports all proposals from the component" do
         expect(subject).to match_array([unassigned_proposal, assigned_proposal])

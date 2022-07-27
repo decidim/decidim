@@ -9,11 +9,11 @@ module Decidim::Votings
     let!(:organization) { create(:organization) }
 
     let!(:published_votings) do
-      create_list(:voting, 3, :published, organization: organization)
+      create_list(:voting, 3, :published, organization:)
     end
 
     let!(:unpublished_votings) do
-      create_list(:voting, 3, :unpublished, organization: organization)
+      create_list(:voting, 3, :unpublished, organization:)
     end
 
     let!(:foreign_votings) do

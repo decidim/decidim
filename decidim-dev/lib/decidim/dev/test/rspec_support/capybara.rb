@@ -97,7 +97,7 @@ RSpec.configure do |config|
     if domain
       page.driver.browser.execute_cdp(
         "Network.setCookie",
-        domain: domain,
+        domain:,
         name: Decidim.consent_cookie_name,
         value: { essential: true }.to_json,
         path: "/"

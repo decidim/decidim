@@ -12,7 +12,7 @@ module Decidim
       # Returns an Arel::Relation with all the comments for that component and resource.
       def comments_for_resource(resource_class, component)
         Comment
-          .where(decidim_root_commentable_id: resource_class.where(component: component))
+          .where(decidim_root_commentable_id: resource_class.where(component:))
           .where(decidim_root_commentable_type: resource_class.to_s)
       end
 

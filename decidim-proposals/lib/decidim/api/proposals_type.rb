@@ -32,11 +32,11 @@ module Decidim
       end
 
       def proposals(filter: {}, order: {})
-        Decidim::Proposals::ProposalListHelper.new(model_class: Proposal).call(object, { filter: filter, order: order }, context)
+        Decidim::Proposals::ProposalListHelper.new(model_class: Proposal).call(object, { filter:, order: }, context)
       end
 
       def proposal(id:)
-        Decidim::Proposals::ProposalFinderHelper.new(model_class: Proposal).call(object, { id: id }, context)
+        Decidim::Proposals::ProposalFinderHelper.new(model_class: Proposal).call(object, { id: }, context)
       end
     end
   end

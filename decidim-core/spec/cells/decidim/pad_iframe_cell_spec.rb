@@ -3,9 +3,9 @@
 require "spec_helper"
 
 describe Decidim::PadIframeCell, type: :cell do
-  subject { described_class.new(model, context: { current_user: current_user }) }
+  subject { described_class.new(model, context: { current_user: }) }
 
-  let(:my_cell) { cell("decidim/pad_iframe", model, context: { current_user: current_user }) }
+  let(:my_cell) { cell("decidim/pad_iframe", model, context: { current_user: }) }
   let(:model) { create(:dummy_resource) }
   let(:current_user) { model.author }
   let(:pad) { instance_double(Decidim::Etherpad::Pad, text: pad_text) }

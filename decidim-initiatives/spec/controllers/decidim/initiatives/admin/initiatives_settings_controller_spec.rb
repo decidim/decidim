@@ -9,8 +9,8 @@ module Decidim
         routes { Decidim::Initiatives::AdminEngine.routes }
 
         let(:organization) { create(:organization) }
-        let(:current_user) { create(:user, :confirmed, :admin, organization: organization) }
-        let!(:initiatives_settings) { create(:initiatives_settings, organization: organization) }
+        let(:current_user) { create(:user, :confirmed, :admin, organization:) }
+        let!(:initiatives_settings) { create(:initiatives_settings, organization:) }
 
         before do
           request.env["decidim.current_organization"] = organization

@@ -14,23 +14,23 @@ RSpec.describe "Collaborative draft search", type: :request do
       settings: { collaborative_drafts_enabled: true }
     )
   end
-  let(:user) { create :user, :confirmed, organization: organization }
+  let(:user) { create :user, :confirmed, organization: }
   let(:participatory_space) { component.participatory_space }
   let(:organization) { participatory_space.organization }
   let(:filter_params) { {} }
 
-  let!(:collaborative_draft1) { create(:collaborative_draft, title: { en: "A doggo" }, component: component) }
-  let!(:collaborative_draft2) { create(:collaborative_draft, body: { en: "There is a doggo in the office" }, component: component) }
-  let!(:collaborative_draft3) { create(:collaborative_draft, :open, component: component) }
-  let!(:collaborative_draft4) { create(:collaborative_draft, :published, component: component) }
-  let!(:collaborative_draft5) { create(:collaborative_draft, :withdrawn, component: component) }
-  let!(:collaborative_draft6) { create(:collaborative_draft, component: component) }
-  let!(:collaborative_draft7) { create(:collaborative_draft, component: component) }
+  let!(:collaborative_draft1) { create(:collaborative_draft, title: { en: "A doggo" }, component:) }
+  let!(:collaborative_draft2) { create(:collaborative_draft, body: { en: "There is a doggo in the office" }, component:) }
+  let!(:collaborative_draft3) { create(:collaborative_draft, :open, component:) }
+  let!(:collaborative_draft4) { create(:collaborative_draft, :published, component:) }
+  let!(:collaborative_draft5) { create(:collaborative_draft, :withdrawn, component:) }
+  let!(:collaborative_draft6) { create(:collaborative_draft, component:) }
+  let!(:collaborative_draft7) { create(:collaborative_draft, component:) }
 
-  let(:meetings_component) { create(:component, manifest_name: "meetings", participatory_space: participatory_space) }
+  let(:meetings_component) { create(:component, manifest_name: "meetings", participatory_space:) }
   let(:meeting) { create :meeting, :published, component: meetings_component }
 
-  let(:dummy_component) { create(:component, manifest_name: "dummy", participatory_space: participatory_space) }
+  let(:dummy_component) { create(:component, manifest_name: "dummy", participatory_space:) }
   let(:dummy_resource) { create :dummy_resource, component: dummy_component }
 
   let(:request_path) { Decidim::EngineRouter.main_proxy(component).collaborative_drafts_path }
@@ -123,7 +123,7 @@ RSpec.describe "Collaborative draft search", type: :request do
   end
 
   context "when searching by related to" do
-    let(:filter_params) { { related_to: related_to } }
+    let(:filter_params) { { related_to: } }
 
     context "and related to is set to meetings" do
       let(:related_to) { "Decidim::Meetings::Meeting".underscore }

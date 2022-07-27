@@ -7,10 +7,10 @@ module Decidim::Votings
     subject { described_class.new(datum, medium) }
 
     let(:voting) { create(:voting) }
-    let(:datum) { create(:datum, :with_access_code, dataset: dataset) }
+    let(:datum) { create(:datum, :with_access_code, dataset:) }
     let(:mobile_phone_number) { datum.mobile_phone_number }
     let(:access_code) { datum.access_code }
-    let(:dataset) { create(:dataset, voting: voting) }
+    let(:dataset) { create(:dataset, voting:) }
     let(:medium) { "email" }
 
     context "when datum is nil" do

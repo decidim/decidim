@@ -5,8 +5,8 @@ require "spec_helper"
 module Decidim
   module Admin
     describe VerifyUserGroupFromCsvJob do
-      let!(:user_group) { create :user_group, :confirmed, organization: organization }
-      let(:user) { create(:user, :admin, organization: organization) }
+      let!(:user_group) { create :user_group, :confirmed, organization: }
+      let(:user) { create(:user, :admin, organization:) }
       let(:organization) { create(:organization) }
       let(:email) { user_group.email }
 
@@ -25,7 +25,7 @@ module Decidim
       end
 
       context "when the user group is not confirmed" do
-        let!(:user_group) { create :user_group, organization: organization }
+        let!(:user_group) { create :user_group, organization: }
 
         it "does not verify the user group" do
           expect do
@@ -36,7 +36,7 @@ module Decidim
       end
 
       context "when the user group is confirmed and verified" do
-        let!(:user_group) { create :user_group, :confirmed, :verified, organization: organization }
+        let!(:user_group) { create :user_group, :confirmed, :verified, organization: }
 
         it "does not verify the user group" do
           expect do

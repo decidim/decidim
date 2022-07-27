@@ -6,12 +6,12 @@ describe "Newsletters (view in web)", type: :system do
   let(:organization) { newsletter.organization }
   let!(:newsletter) { create :newsletter, :sent }
   let!(:content_block) do
-    content_block = Decidim::ContentBlock.find_by(organization: organization, scope_name: :newsletter_template, scoped_resource_id: newsletter.id)
+    content_block = Decidim::ContentBlock.find_by(organization:, scope_name: :newsletter_template, scoped_resource_id: newsletter.id)
     content_block.destroy!
     content_block = create(
       :content_block,
       :newsletter_template,
-      organization: organization,
+      organization:,
       scoped_resource_id: newsletter.id,
       manifest_name: "image_text_cta",
       settings: {

@@ -6,7 +6,7 @@ if !Rails.env.production? || ENV.fetch("SEED", nil)
   password = ENV.fetch("DECIDIM_SYSTEM_USER_PASSWORD", "decidim123456789")
 
   Decidim::System::Admin.find_or_initialize_by(email: "system@example.org").update!(
-    password: password,
+    password:,
     password_confirmation: password
   )
 

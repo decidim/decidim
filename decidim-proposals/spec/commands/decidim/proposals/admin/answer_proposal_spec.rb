@@ -13,7 +13,7 @@ module Decidim
         let(:current_user) { create(:user, :admin) }
         let(:form) do
           ProposalAnswerForm.from_params(form_params).with_context(
-            current_user: current_user,
+            current_user:,
             current_component: proposal.component,
             current_organization: proposal.component.organization
           )
@@ -96,7 +96,7 @@ module Decidim
         end
 
         context "when proposal answer should not be published immediately" do
-          let(:proposal) { create(:proposal, component: component) }
+          let(:proposal) { create(:proposal, component:) }
           let(:component) { create(:proposal_component, :without_publish_answers_immediately) }
 
           it "broadcasts ok" do

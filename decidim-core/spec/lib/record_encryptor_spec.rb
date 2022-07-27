@@ -206,8 +206,8 @@ module Decidim
     context "with active record" do
       subject do
         klass.create!(
-          title: title,
-          reference: reference
+          title:,
+          reference:
         )
       end
 

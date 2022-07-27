@@ -79,7 +79,7 @@ module Decidim
         .or(currently_unsignable)
     }
     scope :published, -> { where.not(published_at: nil) }
-    scope :with_state, ->(state) { where(state: state) if state.present? }
+    scope :with_state, ->(state) { where(state:) if state.present? }
 
     scope_search_multi :with_any_state, [:accepted, :rejected, :answered, :open, :closed]
 
