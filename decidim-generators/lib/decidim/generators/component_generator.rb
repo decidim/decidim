@@ -35,7 +35,7 @@ module Decidim
         template "LICENSE-AGPLv3.txt", "#{component_folder}/LICENSE-AGPLv3.txt"
         template "README.md.erb", "#{component_folder}/README.md"
         template "gitignore", "#{component_folder}/.gitignore"
-        template "circleci/config.yml", "#{component_folder}/.circleci/config.yml"
+        template "github/ci.yml.erb", "#{component_folder}/.github/workflows/ci_#{component_name}.yml"
         template ".ruby-version", "#{component_folder}/.ruby-version"
         template ".node-version", "#{component_folder}/.node-version"
 
