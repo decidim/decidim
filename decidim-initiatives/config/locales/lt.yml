@@ -521,6 +521,7 @@ lt:
           author_title: Iniciatyvos autorė(-ius)
           city: Miestas
           email: El. paštas
+          full_name: Vardas ir pavardė
         show:
           print: Spausdinti Iniciatyvą
           send_to_technical_validation: Siųsti techniniam patvirtinimui
