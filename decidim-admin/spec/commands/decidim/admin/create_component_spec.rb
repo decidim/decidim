@@ -17,9 +17,9 @@ module Decidim::Admin
         },
         invalid?: !valid,
         valid?: valid,
-        current_user: current_user,
+        current_user:,
         weight: 2,
-        manifest: manifest,
+        manifest:,
         participatory_space: participatory_process,
         settings: {
           dummy_global_attribute1: true,

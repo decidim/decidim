@@ -38,8 +38,8 @@ module Decidim
       # Returns a nested Hash with the fields by default.
       def finalize(serialized_data)
         event_data = {
-          resource: resource,
-          serialized_data: serialized_data
+          resource:,
+          serialized_data:
         }
         ActiveSupport::Notifications.publish(event_name, event_data)
 

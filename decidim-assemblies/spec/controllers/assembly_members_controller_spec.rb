@@ -13,7 +13,7 @@ module Decidim
         create(
           :assembly,
           :published,
-          organization: organization
+          organization:
         )
       end
 
@@ -30,8 +30,8 @@ module Decidim
         end
 
         context "when assembly has members" do
-          let!(:member1) { create(:assembly_member, assembly: assembly) }
-          let!(:member2) { create(:assembly_member, assembly: assembly) }
+          let!(:member1) { create(:assembly_member, assembly:) }
+          let!(:member2) { create(:assembly_member, assembly:) }
           let!(:non_member) { create(:assembly_member) }
 
           context "when user has permissions" do

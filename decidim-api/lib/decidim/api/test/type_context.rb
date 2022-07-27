@@ -23,12 +23,12 @@ shared_context "with a graphql class type" do
   def execute_query(query, variables)
     result = schema.execute(
       query,
-      root_value: root_value,
+      root_value:,
       context: {
-        current_organization: current_organization,
-        current_user: current_user
+        current_organization:,
+        current_user:
       },
-      variables: variables
+      variables:
     )
 
     raise StandardError, result["errors"].map { |e| e["message"] }.join(", ") if result["errors"]

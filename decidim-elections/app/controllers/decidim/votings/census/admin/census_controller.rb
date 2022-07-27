@@ -22,7 +22,7 @@ module Decidim
             enforce_permission_to :manage, :census, voting: current_participatory_space
 
             @form = form(DatasetForm).from_params(params).with_context(
-              current_participatory_space: current_participatory_space
+              current_participatory_space:
             )
 
             CreateDataset.call(@form, current_user) do
@@ -163,7 +163,7 @@ module Decidim
 
           def ballot_style_callout_text
             if current_participatory_space.has_ballot_styles?
-              t("has_ballot_styles_message", scope: "decidim.votings.census.admin.census.new", ballot_style_code_header: ballot_style_code_header)
+              t("has_ballot_styles_message", scope: "decidim.votings.census.admin.census.new", ballot_style_code_header:)
             else
               t("missing_ballot_styles_message", scope: "decidim.votings.census.admin.census.new", ballot_styles_admin_path: admin_voting_ballot_styles_path)
             end

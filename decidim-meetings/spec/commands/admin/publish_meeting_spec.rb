@@ -9,8 +9,8 @@ module Decidim
         subject { described_class.new(meeting, user) }
 
         let(:organization) { create :organization, available_locales: [:en] }
-        let(:user) { create :user, :admin, :confirmed, organization: organization }
-        let(:participatory_process) { create :participatory_process, organization: organization }
+        let(:user) { create :user, :admin, :confirmed, organization: }
+        let(:participatory_process) { create :participatory_process, organization: }
         let(:current_component) { create :component, participatory_space: participatory_process, manifest_name: "meetings" }
         let(:meeting) { create :meeting, component: current_component }
 
@@ -46,7 +46,7 @@ module Decidim
           end
 
           it "sends a notification to the participatory space followers" do
-            follower = create(:user, organization: organization)
+            follower = create(:user, organization:)
             create(:follow, followable: participatory_process, user: follower)
 
             expect(Decidim::EventsManager)

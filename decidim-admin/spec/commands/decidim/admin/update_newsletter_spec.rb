@@ -5,9 +5,9 @@ require "spec_helper"
 module Decidim::Admin
   describe UpdateNewsletter do
     describe "call" do
-      let(:user) { create(:user, organization: organization) }
+      let(:user) { create(:user, organization:) }
       let(:organization) { create(:organization) }
-      let(:newsletter) { create(:newsletter, organization: organization) }
+      let(:newsletter) { create(:newsletter, organization:) }
 
       let(:newsletter_subject) { Decidim::Faker::Localized.paragraph(sentence_count: 3) }
       let(:newsletter_body) { Decidim::Faker::Localized.paragraph(sentence_count: 3) }

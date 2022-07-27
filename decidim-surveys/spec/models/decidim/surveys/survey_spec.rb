@@ -45,7 +45,7 @@ module Decidim
         let(:component) { survey.component }
 
         before do
-          component.settings = { starts_at: starts_at, ends_at: ends_at }
+          component.settings = { starts_at:, ends_at: }
         end
 
         context "when neither starts_at or ends_at are defined" do

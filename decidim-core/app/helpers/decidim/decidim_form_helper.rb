@@ -10,7 +10,7 @@ module Decidim
     # &block - The block to execute as content of the form.
     #
     # Returns a String.
-    def decidim_form_for(record, options = {}, &block)
+    def decidim_form_for(record, options = {}, &)
       options[:data] ||= {}
       options[:data].update(abide: true, "live-validate" => true, "validate-on-blur" => true)
 
@@ -31,7 +31,7 @@ module Decidim
 
       output = ""
       output += base_error_messages(record).to_s
-      output += form_for(record, options, &block).to_s
+      output += form_for(record, options, &).to_s
 
       output.html_safe
     end
@@ -75,7 +75,7 @@ module Decidim
       picker_options = {
         id: id || sanitize_to_id(name),
         class: "picker-single",
-        name: name
+        name:
       }
 
       prompt_params = yield(nil)
@@ -84,9 +84,9 @@ module Decidim
 
       template = ""
       template += render("decidim/scopes/scopes_picker_input",
-                         picker_options: picker_options,
-                         prompt_params: prompt_params,
-                         scopes: scopes,
+                         picker_options:,
+                         prompt_params:,
+                         scopes:,
                          values_on_top: true)
       template.html_safe
     end

@@ -9,21 +9,21 @@ module Decidim
         subject { described_class.from_model(initiative).with_context(context) }
 
         let(:organization) { create(:organization) }
-        let(:initiatives_type) { create(:initiatives_type, organization: organization) }
+        let(:initiatives_type) { create(:initiatives_type, organization:) }
         let(:scope) { create(:initiatives_type_scope, type: initiatives_type) }
         let(:other_scope) { create(:initiatives_type_scope, type: initiatives_type) }
         let(:state) { "published" }
         let(:attachment_params) { nil }
 
-        let(:initiative) { create(:initiative, organization: organization, state: state, scoped_type: scope) }
-        let(:user) { create(:user, organization: organization) }
+        let(:initiative) { create(:initiative, organization:, state:, scoped_type: scope) }
+        let(:user) { create(:user, organization:) }
 
         let(:context) do
           {
             current_user: user,
             current_organization: organization,
             current_component: nil,
-            initiative: initiative
+            initiative:
           }
         end
 
@@ -32,8 +32,8 @@ module Decidim
 
         let(:attributes) do
           {
-            type_id: type_id,
-            decidim_scope_id: decidim_scope_id,
+            type_id:,
+            decidim_scope_id:,
             title: Decidim::Faker::Localized.sentence(word_count: 2),
             description: Decidim::Faker::Localized.sentence(word_count: 5),
             state: "created",
@@ -105,7 +105,7 @@ module Decidim
             let(:state) { "validating" }
 
             context "and user current_user is admin" do
-              let(:user) { create(:user, :admin, organization: organization) }
+              let(:user) { create(:user, :admin, organization:) }
 
               it { is_expected.to be(true) }
             end

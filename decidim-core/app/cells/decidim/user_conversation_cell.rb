@@ -79,10 +79,10 @@ module Decidim
       interlocutors
     end
 
-    def reply_form(&block)
-      return form_for(form_ob, url: decidim.profile_conversations_path(nickname: user.nickname), method: :post, &block) unless conversation.id
+    def reply_form(&)
+      return form_for(form_ob, url: decidim.profile_conversations_path(nickname: user.nickname), method: :post, &) unless conversation.id
 
-      form_for(form_ob, url: decidim.profile_conversation_path(nickname: user.nickname, id: conversation.id), method: :put, remote: true, &block)
+      form_for(form_ob, url: decidim.profile_conversation_path(nickname: user.nickname, id: conversation.id), method: :put, remote: true, &)
     end
   end
 end

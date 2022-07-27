@@ -14,7 +14,7 @@ module Decidim
 
         @form = form(import_manifest.form_class).from_params(
           { name: import_manifest.name },
-          current_component: current_component
+          current_component:
         )
       end
 
@@ -24,8 +24,8 @@ module Decidim
 
         @form = form(import_manifest.form_class).from_params(
           params,
-          current_component: current_component,
-          current_organization: current_organization
+          current_component:,
+          current_organization:
         )
 
         CreateImport.call(@form) do
@@ -48,8 +48,8 @@ module Decidim
         raise ActionController::RoutingError, "Not Found" unless import_manifest
 
         @form = form(Decidim::Admin::ImportExampleForm).from_params(params).with_context(
-          current_component: current_component,
-          current_organization: current_organization
+          current_component:,
+          current_organization:
         )
 
         respond_to do |format|
@@ -58,7 +58,7 @@ module Decidim
               CreateImportExample.call(@form) do
                 on(:ok) do |data|
                   filename = "#{current_component.manifest_name}-#{import_manifest.name}-example.#{key}"
-                  send_data data.read, disposition: :attachment, filename: filename, type: mime
+                  send_data data.read, disposition: :attachment, filename:, type: mime
                 end
 
                 on(:invalid) do

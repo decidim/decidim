@@ -10,10 +10,10 @@ module Decidim
 
         let(:event_name) { "decidim.events.votings.polling_officers.polling_station_assigned" }
         let(:organization) { create(:organization) }
-        let(:voting) { create(:voting, organization: organization) }
-        let(:polling_station) { create(:polling_station, voting: voting) }
+        let(:voting) { create(:voting, organization:) }
+        let(:polling_station) { create(:polling_station, voting:) }
         let(:resource) { voting }
-        let(:polling_officer) { create(:polling_officer, user: user, managed_polling_station: polling_station, voting: voting) }
+        let(:polling_officer) { create(:polling_officer, user:, managed_polling_station: polling_station, voting:) }
         let(:extra) { { polling_officer_id: polling_officer.id } }
         let(:polling_station_name) { translated(polling_station.title) }
         let(:voting_title) { translated(voting.title) }

@@ -15,7 +15,7 @@ module Decidim
         #
         # Returns an Order.
         def current_order
-          @current_order ||= Order.includes(:projects).find_or_initialize_by(user: current_user, budget: budget)
+          @current_order ||= Order.includes(:projects).find_or_initialize_by(user: current_user, budget:)
         end
 
         def current_order=(order)
@@ -30,7 +30,7 @@ module Decidim
           current_user.present? &&
             voting_open? &&
             current_participatory_space.can_participate?(current_user) &&
-            allowed_to?(:create, :order, budget: budget, workflow: current_workflow)
+            allowed_to?(:create, :order, budget:, workflow: current_workflow)
         end
 
         # Return true if the user has voted the project

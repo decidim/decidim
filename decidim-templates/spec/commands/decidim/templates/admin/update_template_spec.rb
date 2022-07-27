@@ -9,8 +9,8 @@ module Decidim
         subject { described_class.new(template, form, user) }
 
         let(:organization) { create :organization }
-        let(:user) { create :user, :admin, :confirmed, organization: organization }
-        let(:template) { create :questionnaire_template, organization: organization }
+        let(:user) { create :user, :admin, :confirmed, organization: }
+        let(:template) { create :questionnaire_template, organization: }
         let(:name) { "test" }
         let(:description) { "description" }
 
@@ -21,8 +21,8 @@ module Decidim
             valid?: !invalid,
             current_user: user,
             current_organization: organization,
-            name: name,
-            description: description
+            name:,
+            description:
           )
         end
         let(:invalid) { false }

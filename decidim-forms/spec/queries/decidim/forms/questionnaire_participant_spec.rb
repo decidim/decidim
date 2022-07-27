@@ -7,8 +7,8 @@ describe Decidim::Forms::QuestionnaireParticipant do
 
   let!(:questionnaire) { create(:questionnaire) }
   let!(:user) { create(:user, organization: questionnaire.questionnaire_for.organization) }
-  let!(:questions) { 3.downto(1).map { |n| create :questionnaire_question, questionnaire: questionnaire, position: n } }
-  let!(:answers) { questions.map { |question| create :answer, user: user, questionnaire: questionnaire, question: question } }
+  let!(:questions) { 3.downto(1).map { |n| create :questionnaire_question, questionnaire:, position: n } }
+  let!(:answers) { questions.map { |question| create :answer, user:, questionnaire:, question: } }
   let!(:session_token) { answers.first.session_token }
 
   it "returns the user info for a questionnaire participant by session_token" do

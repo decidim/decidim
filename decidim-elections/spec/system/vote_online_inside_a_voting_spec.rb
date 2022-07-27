@@ -5,17 +5,17 @@ require "spec_helper"
 describe "Vote online in an election inside a Voting", type: :system do
   let(:manifest_name) { "elections" }
   let(:questionnaire) { create(:questionnaire, :with_questions) }
-  let!(:election) { create :election, :bb_test, :vote, component: component, questionnaire: questionnaire }
+  let!(:election) { create :election, :bb_test, :vote, component:, questionnaire: }
   let(:user) { create(:user, :confirmed, organization: component.organization) }
   let!(:datum) do
-    create(:datum, :with_access_code, document_type: "DNI", document_number: "12345678X", birthdate: Date.civil(1980, 5, 11), postal_code: "04001", access_code: "1234", dataset: dataset)
+    create(:datum, :with_access_code, document_type: "DNI", document_number: "12345678X", birthdate: Date.civil(1980, 5, 11), postal_code: "04001", access_code: "1234", dataset:)
   end
-  let!(:elections) { create_list(:election, 2, :vote, component: component) } # prevents redirect to single election page
+  let!(:elections) { create_list(:election, 2, :vote, component:) } # prevents redirect to single election page
   let(:router) { Decidim::EngineRouter.main_proxy(component).decidim_voting_elections }
 
   include_context "with a component" do
-    let(:voting) { create(:voting, :published, organization: organization) }
-    let!(:dataset) { create(:dataset, voting: voting) }
+    let(:voting) { create(:voting, :published, organization:) }
+    let!(:dataset) { create(:dataset, voting:) }
     let(:participatory_space) { voting }
     let(:organization_traits) { [:secure_context] }
   end
@@ -42,24 +42,24 @@ describe "Vote online in an election inside a Voting", type: :system do
 
   context "when there are different ballot styles" do
     before do
-      ballot_style = create(:ballot_style, voting: voting)
-      ballot_style2 = create(:ballot_style, voting: voting)
+      ballot_style = create(:ballot_style, voting:)
+      ballot_style2 = create(:ballot_style, voting:)
 
       election.questions.each do |question|
         create(
           :ballot_style_question,
-          question: question,
-          ballot_style: ballot_style
+          question:,
+          ballot_style:
         )
       end
 
       dataset.data.each do |datum|
-        datum.update(ballot_style: ballot_style)
+        datum.update(ballot_style:)
       end
 
       create(
         :ballot_style_question,
-        question: create(:question, election: election),
+        question: create(:question, election:),
         ballot_style: ballot_style2
       )
     end
@@ -123,7 +123,7 @@ describe "Vote online in an election inside a Voting", type: :system do
   end
 
   context "when the voting is not published" do
-    let(:election) { create :election, :upcoming, :complete, component: component }
+    let(:election) { create :election, :upcoming, :complete, component: }
 
     it_behaves_like "doesn't allow to vote"
     it_behaves_like "allows admins to preview the voting booth"
@@ -152,9 +152,9 @@ describe "Vote online in an election inside a Voting", type: :system do
   end
 
   context "when the voter already voted in person" do
-    let!(:in_person_vote) { create :in_person_vote, election: election, polling_officer: polling_officer, voter_id: voter_id }
-    let(:polling_station) { create(:polling_station, voting: voting) }
-    let(:polling_officer) { create(:polling_officer, voting: voting, user: user, presided_polling_station: polling_station) }
+    let!(:in_person_vote) { create :in_person_vote, election:, polling_officer:, voter_id: }
+    let(:polling_station) { create(:polling_station, voting:) }
+    let(:polling_officer) { create(:polling_officer, voting:, user:, presided_polling_station: polling_station) }
     let(:voter_id) { vote_flow.voter_id }
     let(:vote_flow) do
       ret = Decidim::Votings::CensusVoteFlow.new(election)

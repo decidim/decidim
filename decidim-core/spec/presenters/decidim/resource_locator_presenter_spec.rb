@@ -7,7 +7,7 @@ module Decidim
     let(:organization) { create(:organization, host: "1.lvh.me") }
 
     let(:participatory_process) do
-      create(:participatory_process, slug: "my-process", organization: organization)
+      create(:participatory_process, slug: "my-process", organization:)
     end
 
     let(:component) do
@@ -15,7 +15,7 @@ module Decidim
     end
 
     let(:resource) do
-      create(:dummy_resource, id: 1, component: component)
+      create(:dummy_resource, id: 1, component:)
     end
 
     context "with a component resource" do

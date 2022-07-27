@@ -23,8 +23,8 @@ module Decidim
       #
       # Registers a new verification workflow using the workflow manifest API
       #
-      def register_workflow(name, &block)
-        registry.register_workflow(name, &block)
+      def register_workflow(name, &)
+        registry.register_workflow(name, &)
       end
 
       #

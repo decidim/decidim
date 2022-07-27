@@ -8,7 +8,7 @@ module Decidim
       describe PageForm do
         subject do
           described_class.from_params(attributes).with_context(
-            current_organization: current_organization
+            current_organization:
           )
         end
 

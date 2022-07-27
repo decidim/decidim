@@ -8,7 +8,7 @@ module Decidim
       let(:form_klass) { CollaborativeDraftForm }
       let(:component) { create(:proposal_component, :with_collaborative_drafts_enabled, :with_extra_hashtags, suggested_hashtags: suggested_hashtags.join(" ")) }
       let(:organization) { component.organization }
-      let(:user) { create :user, :confirmed, organization: organization }
+      let(:user) { create :user, :confirmed, organization: }
       let(:form) do
         form_klass.from_params(
           form_params
@@ -20,10 +20,10 @@ module Decidim
         )
       end
 
-      let(:author) { create(:user, organization: organization) }
+      let(:author) { create(:user, organization:) }
 
       let(:user_group) do
-        create(:user_group, :verified, organization: organization, users: [author])
+        create(:user_group, :verified, organization:, users: [author])
       end
 
       let(:has_address) { false }
@@ -38,13 +38,13 @@ module Decidim
           {
             title: "This is the collaborative draft title",
             body: "This is the collaborative draft body",
-            address: address,
-            has_address: has_address,
-            latitude: latitude,
-            longitude: longitude,
+            address:,
+            has_address:,
+            latitude:,
+            longitude:,
             add_documents: attachment_params,
             user_group_id: user_group.try(:id),
-            suggested_hashtags: suggested_hashtags
+            suggested_hashtags:
           }
         end
 

@@ -19,7 +19,7 @@ module Decidim
 
         describe "PATCH update" do
           let(:component) { create(:budgets_component) }
-          let(:project) { create(:project, component: component) }
+          let(:project) { create(:project, component:) }
           let(:project_title) { project.title }
           let(:project_params) do
             {
@@ -53,7 +53,7 @@ module Decidim
           context "when the existing project has attachments and there are other errors on the form" do
             include_context "with controller rendering the view" do
               let(:project_title) { { en: "" } }
-              let(:project) { create(:project, :with_photos, component: component) }
+              let(:project) { create(:project, :with_photos, component:) }
 
               controller(ProjectsController) do
                 helper_method :proposals_picker_projects_path

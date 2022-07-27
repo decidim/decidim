@@ -7,14 +7,14 @@ describe "sms code verification", type: :system do
     create(:organization, available_authorizations: ["sms"])
   end
 
-  let(:user) { create(:user, :confirmed, organization: organization) }
+  let(:user) { create(:user, :confirmed, organization:) }
 
   let!(:authorization) do
     create(
       :authorization,
       :pending,
       name: "sms",
-      user: user,
+      user:,
       verification_metadata: prior_verification_metadata
     )
   end

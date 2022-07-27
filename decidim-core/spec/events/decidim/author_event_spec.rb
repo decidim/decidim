@@ -16,7 +16,7 @@ module Decidim
           end
         end
 
-        DummyEvent.new(resource: resource, event_name: "dummy_event", user: user, extra: {})
+        DummyEvent.new(resource:, event_name: "dummy_event", user:, extra: {})
       end
 
       let(:resource) do

@@ -11,9 +11,9 @@ describe Decidim::Consultations::Admin::QuestionsHelper do
 
   describe "question_response_groups" do
     let(:question) { create :question }
-    let(:group1) { create :response_group, question: question }
-    let(:group2) { create :response_group, question: question }
-    let(:group3) { create :response_group, question: question }
+    let(:group1) { create :response_group, question: }
+    let(:group2) { create :response_group, question: }
+    let(:group3) { create :response_group, question: }
     let!(:groups) do
       ["", group1.id, group2.id, group3.id]
     end

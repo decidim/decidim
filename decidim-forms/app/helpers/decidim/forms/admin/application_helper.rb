@@ -31,7 +31,7 @@ module Decidim
             "placeholder" => options[:placeholder],
             "locale" => I18n.locale
           }
-          tag.span(class: options[:class], data: data) do
+          tag.span(class: options[:class], data:) do
             truncate translated_attribute(title), length: options[:max_length], omission: options[:omission]
           end
         end

@@ -14,7 +14,7 @@ module Decidim
 
         let(:answers) do
           survey.questionnaire.questions.map do |question|
-            create(:answer, questionnaire: survey.questionnaire, question: question, user: user)
+            create(:answer, questionnaire: survey.questionnaire, question:, user:)
           end
         end
 
@@ -48,7 +48,7 @@ module Decidim
               component_id: survey.component.id,
               participatory_process_slug: survey.component.participatory_space.slug,
               id: survey.id,
-              session_token: session_token
+              session_token:
             }
           end
 
@@ -65,7 +65,7 @@ module Decidim
               component_id: survey.component.id,
               participatory_process_slug: survey.component.participatory_space.slug,
               id: survey.id,
-              session_token: session_token
+              session_token:
             }
           end
 

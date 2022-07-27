@@ -11,8 +11,8 @@ describe "User creates debate", type: :system do
   end
 
   context "when creating a new debate" do
-    let(:user) { create :user, :confirmed, organization: organization }
-    let!(:category) { create :category, participatory_space: participatory_space }
+    let(:user) { create :user, :confirmed, organization: }
+    let!(:category) { create :category, participatory_space: }
 
     context "when the user is logged in" do
       before do
@@ -57,7 +57,7 @@ describe "User creates debate", type: :system do
         end
 
         context "when creating as a user group" do
-          let!(:user_group) { create :user_group, :verified, organization: organization, users: [user] }
+          let!(:user_group) { create :user_group, :verified, organization:, users: [user] }
 
           it "creates a new debate", :slow do
             visit_component
@@ -91,7 +91,7 @@ describe "User creates debate", type: :system do
               }
             }
 
-            component.update!(permissions: permissions)
+            component.update!(permissions:)
           end
 
           it "shows a modal dialog" do

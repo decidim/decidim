@@ -12,7 +12,7 @@ module Decidim
         let(:election) { create :election, :complete, component: elections_component }
         let(:elections_component) { create :elections_component, participatory_space: ballot_style.voting }
         let(:ballot_style_questions) do
-          election.questions.first(2).map { |question| create(:ballot_style_question, question: question, ballot_style: ballot_style) }
+          election.questions.first(2).map { |question| create(:ballot_style_question, question:, ballot_style:) }
         end
         let(:params) do
           {

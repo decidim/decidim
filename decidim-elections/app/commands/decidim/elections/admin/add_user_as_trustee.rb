@@ -42,14 +42,14 @@ module Decidim
           @trustee = Decidim.traceability.create!(
             Trustee,
             current_user,
-            user: user,
+            user:,
             organization: user.organization
           )
         end
 
         # If a trustee exists for this participatory space, it won't get created again
         def existing_trustee_participatory_spaces?
-          trustees_space = TrusteesParticipatorySpace.where(participatory_space: participatory_space).includes(:trustee)
+          trustees_space = TrusteesParticipatorySpace.where(participatory_space:).includes(:trustee)
           @existing_trustee_participatory_spaces ||= Decidim::Elections::Trustee.joins(:trustees_participatory_spaces)
                                                                                 .includes([:user])
                                                                                 .where(trustees_participatory_spaces: trustees_space)
@@ -67,7 +67,7 @@ module Decidim
         def add_participatory_space
           trustee = Decidim::Elections::Trustee.find_by(decidim_user_id: user.id)
           trustee.trustees_participatory_spaces.create!(
-            participatory_space: participatory_space
+            participatory_space:
           )
         end
 

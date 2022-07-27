@@ -35,7 +35,7 @@ module Decidim
           end
 
           def update_dataset_status(dataset, status, user)
-            UpdateDataset.call(dataset, { status: status }, user)
+            UpdateDataset.call(dataset, { status: }, user)
           end
         end
       end

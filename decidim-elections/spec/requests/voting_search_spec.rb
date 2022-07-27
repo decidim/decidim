@@ -10,14 +10,14 @@ RSpec.describe "Voting search", type: :request do
   let(:organization) { create(:organization) }
   let(:filter_params) { {} }
 
-  let!(:published_voting) { create :voting, :published, title: Decidim::Faker::Localized.localized { "Tacos gentrify celiac mixtape." }, organization: organization }
-  let!(:upcoming_voting) { create :voting, :upcoming, organization: organization }
-  let!(:ongoing_voting) { create :voting, :ongoing, organization: organization }
-  let!(:finished_voting) { create :voting, :finished, organization: organization }
-  let!(:ongoing_online_voting) { create :voting, :ongoing, :online, organization: organization }
-  let!(:ongoing_in_person_voting) { create :voting, :ongoing, :in_person, organization: organization }
-  let!(:ongoing_hybrid_voting) { create :voting, :ongoing, :hybrid, organization: organization }
-  let!(:unpublished_voting) { create :voting, :unpublished, organization: organization }
+  let!(:published_voting) { create :voting, :published, title: Decidim::Faker::Localized.localized { "Tacos gentrify celiac mixtape." }, organization: }
+  let!(:upcoming_voting) { create :voting, :upcoming, organization: }
+  let!(:ongoing_voting) { create :voting, :ongoing, organization: }
+  let!(:finished_voting) { create :voting, :finished, organization: }
+  let!(:ongoing_online_voting) { create :voting, :ongoing, :online, organization: }
+  let!(:ongoing_in_person_voting) { create :voting, :ongoing, :in_person, organization: }
+  let!(:ongoing_hybrid_voting) { create :voting, :ongoing, :hybrid, organization: }
+  let!(:unpublished_voting) { create :voting, :unpublished, organization: }
   let!(:external_voting) { create :voting, :published }
 
   let(:request_path) { decidim_votings.votings_path }

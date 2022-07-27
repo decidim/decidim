@@ -13,7 +13,7 @@ module Decidim
       let(:thumbnail) { "https://foo.bar/baz.thumb" }
 
       let(:model) do
-        double(url: url, file_type: file_type, thumbnail_url: thumbnail)
+        double(url:, file_type:, thumbnail_url: thumbnail)
       end
 
       describe "url" do

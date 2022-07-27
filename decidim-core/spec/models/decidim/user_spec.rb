@@ -7,7 +7,7 @@ module Decidim
     subject { user }
 
     let(:organization) { create(:organization) }
-    let(:user) { build(:user, organization: organization) }
+    let(:user) { build(:user, organization:) }
 
     include_examples "resourceable"
 
@@ -28,7 +28,7 @@ module Decidim
 
     it "has an association for user groups" do
       user_group = create(:user_group)
-      create(:user_group_membership, user: subject, user_group: user_group)
+      create(:user_group_membership, user: subject, user_group:)
       expect(subject.user_groups).to eq([user_group])
     end
 
@@ -195,10 +195,10 @@ module Decidim
     describe "validation scopes" do
       context "when a user with the same email exists in another organization" do
         let(:email) { "foo@bar.com" }
-        let(:user) { create(:user, email: email) }
+        let(:user) { create(:user, email:) }
 
         before do
-          create(:user, email: email)
+          create(:user, email:)
         end
 
         it { is_expected.to be_valid }
@@ -222,7 +222,7 @@ module Decidim
     describe "#tos_accepted?" do
       subject { user.tos_accepted? }
 
-      let(:user) { create(:user, organization: organization, accepted_tos_version: accepted_tos_version) }
+      let(:user) { create(:user, organization:, accepted_tos_version:) }
       let(:accepted_tos_version) { organization.tos_version }
 
       it { is_expected.to be_truthy }
@@ -235,7 +235,7 @@ module Decidim
 
         context "when organization has no TOS" do
           let(:organization) { build(:organization, tos_version: nil) }
-          let(:user) { build(:user, organization: organization) }
+          let(:user) { build(:user, organization:) }
 
           it { is_expected.to be_falsey }
         end
@@ -247,7 +247,7 @@ module Decidim
         it { is_expected.to be_falsey }
 
         context "when user is managed" do
-          let(:user) { build(:user, :managed, organization: organization, accepted_tos_version: accepted_tos_version) }
+          let(:user) { build(:user, :managed, organization:, accepted_tos_version:) }
 
           it { is_expected.to be_truthy }
         end
@@ -261,7 +261,7 @@ module Decidim
     end
 
     describe "#find_for_authentication" do
-      let(:user) { create(:user, organization: organization) }
+      let(:user) { create(:user, organization:) }
 
       let(:conditions) do
         {
@@ -280,15 +280,15 @@ module Decidim
     describe ".interested_in_scopes" do
       let(:scopes) { [] }
 
-      let(:scope1) { create(:scope, organization: organization) }
-      let(:scope2) { create(:scope, organization: organization) }
-      let(:scope3) { create(:scope, organization: organization) }
-      let(:scope4) { create(:scope, organization: organization) }
-      let(:scope5) { create(:scope, organization: organization) }
+      let(:scope1) { create(:scope, organization:) }
+      let(:scope2) { create(:scope, organization:) }
+      let(:scope3) { create(:scope, organization:) }
+      let(:scope4) { create(:scope, organization:) }
+      let(:scope5) { create(:scope, organization:) }
 
-      let(:users_scope1) { create_list(:user, 10, organization: organization, extended_data: { interested_scopes: scope1.id }) }
-      let(:users_scope2) { create_list(:user, 10, organization: organization, extended_data: { interested_scopes: [scope2.id] }) }
-      let(:users_multiscope) { create_list(:user, 10, organization: organization, extended_data: { interested_scopes: [scope1.id, scope2.id, scope3.id] }) }
+      let(:users_scope1) { create_list(:user, 10, organization:, extended_data: { interested_scopes: scope1.id }) }
+      let(:users_scope2) { create_list(:user, 10, organization:, extended_data: { interested_scopes: [scope2.id] }) }
+      let(:users_multiscope) { create_list(:user, 10, organization:, extended_data: { interested_scopes: [scope1.id, scope2.id, scope3.id] }) }
 
       # It needs to be controlled when the users are created which is why this
       # needs to be separated to its own method instead of using the bang
@@ -360,8 +360,8 @@ module Decidim
 
       context "when there are scopes with matching numbers in their IDs" do
         let(:scopes) { [scope1.id] }
-        let(:extra_scopes) { create_list(:scope, 15, organization: organization) }
-        let(:users_scope11) { create_list(:user, 10, organization: organization, extended_data: { interested_scopes: [11] }) }
+        let(:extra_scopes) { create_list(:scope, 15, organization:) }
+        let(:users_scope11) { create_list(:user, 10, organization:, extended_data: { interested_scopes: [11] }) }
 
         before do
           # Reset the scope IDs to start from 1 in order to get possibly

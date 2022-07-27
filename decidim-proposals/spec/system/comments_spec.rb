@@ -3,12 +3,12 @@
 require "spec_helper"
 
 describe "Comments", type: :system do
-  let!(:component) { create(:proposal_component, organization: organization) }
-  let!(:author) { create(:user, :confirmed, organization: organization) }
-  let!(:commentable) { create(:proposal, component: component, users: [author]) }
+  let!(:component) { create(:proposal_component, organization:) }
+  let!(:author) { create(:user, :confirmed, organization:) }
+  let!(:commentable) { create(:proposal, component:, users: [author]) }
   let!(:organization) { create(:organization) }
-  let!(:user) { create(:user, :confirmed, organization: organization) }
-  let!(:comments) { create_list(:comment, 3, commentable: commentable) }
+  let!(:user) { create(:user, :confirmed, organization:) }
+  let!(:comments) { create_list(:comment, 3, commentable:) }
 
   let(:resource_path) { resource_locator(commentable).path }
 

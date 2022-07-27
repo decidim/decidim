@@ -25,7 +25,7 @@ module Decidim
 
     context "when an account is removed" do
       it "deletes assembly user role" do
-        create(:assembly_user_role, user: user)
+        create(:assembly_user_role, user:)
 
         expect do
           command.call
@@ -33,7 +33,7 @@ module Decidim
       end
 
       it "deletes assembly member" do
-        create(:assembly_member, user: user)
+        create(:assembly_member, user:)
 
         expect do
           command.call

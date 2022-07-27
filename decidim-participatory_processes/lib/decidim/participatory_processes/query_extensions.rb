@@ -39,7 +39,7 @@ module Decidim
       def participatory_process_group(id:)
         Decidim::ParticipatoryProcessGroup.find_by(
           organization: context[:current_organization],
-          id: id
+          id:
         )
       end
 
@@ -52,7 +52,7 @@ module Decidim
       def participatory_process_type(id:)
         Decidim::ParticipatoryProcessType.find_by(
           organization: context[:current_organization],
-          id: id
+          id:
         )
       end
     end
