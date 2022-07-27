@@ -782,7 +782,6 @@ GEM
     thread_safe (0.3.6)
     tilt (2.0.10)
     timeout (0.3.0)
-    tomlrb (2.0.3)
     tzinfo (2.0.4)
       concurrent-ruby (~> 1.0)
     uber (0.1.0)
