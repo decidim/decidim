@@ -21,7 +21,7 @@ module Decidim
     #
     # Returns a Hash with the localized content
     def self.find_content(organization, id)
-      find_by(organization: organization, section_id: id).try(:content) || {}
+      find_by(organization:, section_id: id).try(:content) || {}
     end
 
     # Public: Stores the content.
@@ -33,12 +33,12 @@ module Decidim
     # Returns a Hash with the localized content
     def self.set_content(organization, id, content)
       item = find_or_initialize_by(
-        organization: organization,
+        organization:,
         section_id: id
       )
 
       if content.present? && content.values.any?(&:present?)
-        item.update!(content: content)
+        item.update!(content:)
       else
         item.destroy!
       end

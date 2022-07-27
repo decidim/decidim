@@ -5,7 +5,7 @@ require "spec_helper"
 module Decidim
   describe ContentParsers::UserGroupParser do
     let(:organization) { create(:organization) }
-    let(:user_group) { create(:user_group, :confirmed, organization: organization) }
+    let(:user_group) { create(:user_group, :confirmed, organization:) }
     let(:context) { { current_organization: organization } }
     let(:parser) { described_class.new(content, context) }
 
@@ -37,7 +37,7 @@ module Decidim
     end
 
     context "when mentioning multiple valid groups" do
-      let(:user_group2) { create(:user_group, :confirmed, organization: organization) }
+      let(:user_group2) { create(:user_group, :confirmed, organization:) }
       let(:content) { "This text contains multiple valid group mentions: @#{user_group.nickname} and @#{user_group2.nickname}" }
 
       it "rewrites all mentions" do

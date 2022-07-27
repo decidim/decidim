@@ -11,7 +11,7 @@ module Decidim
     after_initialize :generate, :set_default_expiration
 
     def self.use!(token_for:, token:)
-      record = find_by!(token_for: token_for, token: token)
+      record = find_by!(token_for:, token:)
       record.use!
     end
 
@@ -36,7 +36,7 @@ module Decidim
 
       loop do
         self.token = SecureRandom.hex(32)
-        break if ShareToken.find_by(token: token).blank?
+        break if ShareToken.find_by(token:).blank?
       end
     end
 

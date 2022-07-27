@@ -14,8 +14,8 @@ module Decidim
 
         context "when validation error" do
           let(:organization) { create(:organization) }
-          let(:user) { create(:user, organization: organization) }
-          let!(:initiative_type) { create(:initiatives_type, organization: organization, banner_image: banner_image) }
+          let(:user) { create(:user, organization:) }
+          let!(:initiative_type) { create(:initiatives_type, organization:, banner_image:) }
           let(:banner_image) { upload_test_file(Decidim::Dev.test_file("city2.jpeg", "image/jpeg")) }
           let(:form) do
             form_klass

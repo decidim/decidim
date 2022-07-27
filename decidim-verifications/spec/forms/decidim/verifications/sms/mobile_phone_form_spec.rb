@@ -6,8 +6,8 @@ module Decidim::Verifications::Sms
   describe MobilePhoneForm do
     subject do
       described_class.new(
-        mobile_phone_number: mobile_phone_number,
-        user: user
+        mobile_phone_number:,
+        user:
       )
     end
 

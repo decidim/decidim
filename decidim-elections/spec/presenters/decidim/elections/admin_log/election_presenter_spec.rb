@@ -6,7 +6,7 @@ module Decidim
   describe Elections::AdminLog::ElectionPresenter, type: :helper do
     subject { described_class.new(action_log, helper) }
 
-    let(:action_log) { create(:action_log, action: action) }
+    let(:action_log) { create(:action_log, action:) }
 
     before do
       helper.extend(Decidim::ApplicationHelper)
@@ -101,7 +101,7 @@ module Decidim
       end
 
       context "when a trustee is reported as missing" do
-        let(:action_log) { build(:action_log, action: action) }
+        let(:action_log) { build(:action_log, action:) }
         let(:action) { :report_missing_trustee }
         let(:trustee) { create(:trustee) }
 

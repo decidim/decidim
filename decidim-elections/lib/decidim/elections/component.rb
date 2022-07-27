@@ -75,7 +75,7 @@ Decidim.register_component(:elections) do |component|
       name: Decidim::Components::Namer.new(participatory_space.organization.available_locales, :elections).i18n_name,
       manifest_name: :elections,
       published_at: Time.current,
-      participatory_space: participatory_space
+      participatory_space:
     }
 
     component = Decidim.traceability.perform_action!(
@@ -93,7 +93,7 @@ Decidim.register_component(:elections) do |component|
         Decidim::Elections::Election,
         admin_user,
         {
-          component: component,
+          component:,
           title: Decidim::Faker::Localized.sentence(word_count: 2),
           description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
             Decidim::Faker::Localized.paragraph(sentence_count: 3)
@@ -164,7 +164,7 @@ Decidim.register_component(:elections) do |component|
 
         %w(short_answer long_answer).each do |text_question_type|
           Decidim::Forms::Question.create!(
-            questionnaire: questionnaire,
+            questionnaire:,
             body: Decidim::Faker::Localized.paragraph,
             question_type: text_question_type
           )
@@ -172,7 +172,7 @@ Decidim.register_component(:elections) do |component|
 
         %w(single_option multiple_option).each do |multiple_choice_question_type|
           question = Decidim::Forms::Question.create!(
-            questionnaire: questionnaire,
+            questionnaire:,
             body: Decidim::Faker::Localized.paragraph,
             question_type: multiple_choice_question_type
           )
@@ -190,7 +190,7 @@ Decidim.register_component(:elections) do |component|
         Decidim::Elections::Election,
         admin_user,
         {
-          component: component,
+          component:,
           title: Decidim::Faker::Localized.sentence(word_count: 2),
           description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
             Decidim::Faker::Localized.paragraph(sentence_count: 3)
@@ -261,7 +261,7 @@ Decidim.register_component(:elections) do |component|
 
         %w(short_answer long_answer).each do |text_question_type|
           Decidim::Forms::Question.create!(
-            questionnaire: questionnaire,
+            questionnaire:,
             body: Decidim::Faker::Localized.paragraph,
             question_type: text_question_type
           )
@@ -269,7 +269,7 @@ Decidim.register_component(:elections) do |component|
 
         %w(single_option multiple_option).each do |multiple_choice_question_type|
           question = Decidim::Forms::Question.create!(
-            questionnaire: questionnaire,
+            questionnaire:,
             body: Decidim::Faker::Localized.paragraph,
             question_type: multiple_choice_question_type
           )
@@ -287,7 +287,7 @@ Decidim.register_component(:elections) do |component|
         Decidim::Elections::Election,
         admin_user,
         {
-          component: component,
+          component:,
           title: Decidim::Faker::Localized.sentence(word_count: 2),
           description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
             Decidim::Faker::Localized.paragraph(sentence_count: 3)
@@ -373,7 +373,7 @@ Decidim.register_component(:elections) do |component|
             value: answer_value,
             closurable: bb_closure,
             question: result_question,
-            answer: answer,
+            answer:,
             result_type: :valid_answers
           )
           question_pending -= answer_value
@@ -402,7 +402,7 @@ Decidim.register_component(:elections) do |component|
 
         %w(short_answer long_answer).each do |text_question_type|
           Decidim::Forms::Question.create!(
-            questionnaire: questionnaire,
+            questionnaire:,
             body: Decidim::Faker::Localized.paragraph,
             question_type: text_question_type
           )
@@ -410,7 +410,7 @@ Decidim.register_component(:elections) do |component|
 
         %w(single_option multiple_option).each do |multiple_choice_question_type|
           question = Decidim::Forms::Question.create!(
-            questionnaire: questionnaire,
+            questionnaire:,
             body: Decidim::Faker::Localized.paragraph,
             question_type: multiple_choice_question_type
           )
@@ -427,7 +427,7 @@ Decidim.register_component(:elections) do |component|
       Decidim::Elections::Election,
       admin_user,
       {
-        component: component,
+        component:,
         title: Decidim::Faker::Localized.sentence(word_count: 2),
         description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
           Decidim::Faker::Localized.paragraph(sentence_count: 3)
@@ -499,7 +499,7 @@ Decidim.register_component(:elections) do |component|
 
     %w(short_answer long_answer).each do |text_question_type|
       Decidim::Forms::Question.create!(
-        questionnaire: questionnaire,
+        questionnaire:,
         body: Decidim::Faker::Localized.paragraph,
         question_type: text_question_type
       )
@@ -507,7 +507,7 @@ Decidim.register_component(:elections) do |component|
 
     %w(single_option multiple_option).each do |multiple_choice_question_type|
       question = Decidim::Forms::Question.create!(
-        questionnaire: questionnaire,
+        questionnaire:,
         body: Decidim::Faker::Localized.paragraph,
         question_type: multiple_choice_question_type
       )

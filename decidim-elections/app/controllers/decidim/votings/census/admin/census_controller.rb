@@ -8,12 +8,12 @@ module Decidim
         class CensusController < Admin::ApplicationController
           helper_method :votings, :current_participatory_space, :current_census, :census_steps, :current_census_action_view,
                         :user_email, :ballot_style_callout_text, :ballot_style_callout_level, :ballot_style_code_header
-          helper_method :admin_voting_census_path, :admin_status_voting_census_path, :generate_access_codes_path, :export_access_codes_path
+          helper_method :admin_voting_census_path, :admin_status_voting_census_path, :generate_access_codes_path, :export_access_codes_path, :waiting_status?
 
           def show
             enforce_permission_to :manage, :census, voting: current_participatory_space
 
-            flash[:notice] = "Finished processing #{current_census.file}" if current_census.data_created?
+            flash[:notice] = "Finished processing #{current_census.filename}" if current_census.data_created?
 
             @form = form(DatasetForm).instance
           end
@@ -22,7 +22,7 @@ module Decidim
             enforce_permission_to :manage, :census, voting: current_participatory_space
 
             @form = form(DatasetForm).from_params(params).with_context(
-              current_participatory_space: current_participatory_space
+              current_participatory_space:
             )
 
             CreateDataset.call(@form, current_user) do
@@ -163,7 +163,7 @@ module Decidim
 
           def ballot_style_callout_text
             if current_participatory_space.has_ballot_styles?
-              t("has_ballot_styles_message", scope: "decidim.votings.census.admin.census.new", ballot_style_code_header: ballot_style_code_header)
+              t("has_ballot_styles_message", scope: "decidim.votings.census.admin.census.new", ballot_style_code_header:)
             else
               t("missing_ballot_styles_message", scope: "decidim.votings.census.admin.census.new", ballot_styles_admin_path: admin_voting_ballot_styles_path)
             end
@@ -183,6 +183,10 @@ module Decidim
 
           def ballot_style_code_header
             "Ballot Style Code"
+          end
+
+          def waiting_status?
+            current_census.creating_data? || current_census.generating_codes? || current_census.exporting_codes?
           end
         end
       end

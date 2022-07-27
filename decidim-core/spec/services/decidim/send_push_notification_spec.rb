@@ -25,7 +25,7 @@ describe Decidim::SendPushNotification do
 
     describe "#perform" do
       let(:user) { create(:user) }
-      let(:notification) { create :notification, user: user }
+      let(:notification) { create :notification, user: }
 
       it "returns false" do
         expect(subject.perform(notification)).to be_falsy
@@ -36,7 +36,7 @@ describe Decidim::SendPushNotification do
   context "without any subscription" do
     describe "#perform" do
       let(:user) { create(:user, notification_settings: { subscriptions: {} }) }
-      let(:notification) { create :notification, user: user }
+      let(:notification) { create :notification, user: }
 
       it "returns empty array" do
         expect(subject.perform(notification)).to be_empty
@@ -45,8 +45,8 @@ describe Decidim::SendPushNotification do
   end
 
   context "with subscriptions" do
-    let(:user) { create(:user, notification_settings: { subscriptions: subscriptions }) }
-    let(:notification) { create :notification, user: user }
+    let(:user) { create(:user, notification_settings: { subscriptions: }) }
+    let(:notification) { create :notification, user: }
 
     describe "#perform" do
       it "returns 201 and created if the message is sent ok" do
@@ -59,7 +59,7 @@ describe Decidim::SendPushNotification do
                                 })
 
         first_notification_payload = {
-          message: message,
+          message:,
           endpoint: subscriptions["auth_key_1"]["endpoint"],
           p256dh: subscriptions["auth_key_1"]["p256dh"],
           auth: subscriptions["auth_key_1"]["auth"],
@@ -69,7 +69,7 @@ describe Decidim::SendPushNotification do
           )
         }
         second_notification_payload = {
-          message: message,
+          message:,
           endpoint: subscriptions["auth_key_2"]["endpoint"],
           p256dh: subscriptions["auth_key_2"]["p256dh"],
           auth: subscriptions["auth_key_2"]["auth"],
@@ -79,7 +79,7 @@ describe Decidim::SendPushNotification do
           )
         }
         third_notification_payload = {
-          message: message,
+          message:,
           endpoint: subscriptions["auth_key_3"]["endpoint"],
           p256dh: subscriptions["auth_key_3"]["p256dh"],
           auth: subscriptions["auth_key_3"]["auth"],
@@ -102,7 +102,7 @@ describe Decidim::SendPushNotification do
 
   context "with subscription" do
     let(:user) { create(:user, notification_settings: { subscriptions: subscription }) }
-    let(:notification) { create :notification, user: user }
+    let(:notification) { create :notification, user: }
 
     describe "#perform" do
       it "returns 201 and created if the message is sent ok" do
@@ -124,6 +124,29 @@ describe Decidim::SendPushNotification do
         }
 
         allow(Webpush).to receive(:payload_send).with(notification_payload).and_return(double("result", message: "Created", code: "201"))
+
+        responses = subject.perform(notification)
+        expect(responses.all? { |response| response.code == "201" }).to be(true)
+        expect(responses.all? { |response| response.message == "Created" }).to be(true)
+      end
+
+      it "builds notification in user locale" do
+        # Pick other locale from organization
+        alternative_locale = (user.organization.available_locales - [user.locale]).sample
+        user.update(locale: alternative_locale)
+
+        I18n.with_locale(user.locale) do
+          presented_notification = Decidim::PushNotificationPresenter.new(notification)
+          message = JSON.generate({
+                                    title: presented_notification.title,
+                                    body: presented_notification.body,
+                                    icon: presented_notification.icon,
+                                    data: { url: presented_notification.url }
+                                  })
+
+          notification_payload = a_hash_including(message:)
+          expect(Webpush).to receive(:payload_send).with(notification_payload).ordered.and_return(double("result", message: "Created", code: "201"))
+        end
 
         responses = subject.perform(notification)
         expect(responses.all? { |response| response.code == "201" }).to be(true)

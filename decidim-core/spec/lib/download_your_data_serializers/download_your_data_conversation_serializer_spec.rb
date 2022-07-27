@@ -7,7 +7,7 @@ module Decidim
     subject { described_class.new(conversation) }
 
     let(:organization) { create(:organization) }
-    let(:user) { create :user, :confirmed, organization: organization }
+    let(:user) { create :user, :confirmed, organization: }
 
     let(:conversation) do
       Messaging::Conversation.start!(

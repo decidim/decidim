@@ -5,8 +5,8 @@ require "spec_helper"
 module Decidim::Admin
   describe HideResource do
     let(:reportable) { create(:dummy_resource) }
-    let(:moderation) { create(:moderation, reportable: reportable, report_count: 1) }
-    let!(:report) { create(:report, moderation: moderation) }
+    let(:moderation) { create(:moderation, reportable:, report_count: 1) }
+    let!(:report) { create(:report, moderation:) }
     let(:current_user) { create :user, organization: reportable.participatory_space.organization }
     let(:command) { described_class.new(reportable, current_user) }
     let(:author_notification) do
@@ -51,7 +51,7 @@ module Decidim::Admin
     end
 
     context "when the resource is already hidden" do
-      let(:moderation) { create(:moderation, reportable: reportable, report_count: 1, hidden_at: Time.current) }
+      let(:moderation) { create(:moderation, reportable:, report_count: 1, hidden_at: Time.current) }
 
       it "broadcasts invalid" do
         expect { command.call }.to broadcast(:invalid)

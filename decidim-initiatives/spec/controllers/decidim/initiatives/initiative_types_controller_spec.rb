@@ -15,11 +15,11 @@ module Decidim
           create(:initiatives_type,
                  title: Decidim::Faker::Localized.literal(title),
                  description: Decidim::Faker::Localized.sentence(word_count: 25),
-                 organization: organization)
+                 organization:)
         end
       end
 
-      let(:user) { create(:user, :admin, :confirmed, organization: organization) }
+      let(:user) { create(:user, :admin, :confirmed, organization:) }
       let(:query) { "" }
       let(:params) { { term: query } }
       let(:results) { JSON.parse(response.body) }
@@ -27,7 +27,7 @@ module Decidim
       before do
         request.env["decidim.current_organization"] = organization
         sign_in user, scope: :user
-        get :search, format: :json, params: params
+        get :search, format: :json, params:
       end
 
       matcher :have_initiative_types do |expected|

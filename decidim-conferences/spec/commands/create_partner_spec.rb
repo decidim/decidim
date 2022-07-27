@@ -23,11 +23,11 @@ module Decidim::Conferences
     let(:form_params) do
       {
         conference_partner: {
-          name: name,
+          name:,
           weight: 1,
-          partner_type: partner_type,
+          partner_type:,
           link: Faker::Internet.url,
-          logo: logo
+          logo:
         }
       }
     end
@@ -35,7 +35,7 @@ module Decidim::Conferences
       form_klass.from_params(
         form_params
       ).with_context(
-        current_user: current_user,
+        current_user:,
         current_organization: conference.organization
       )
     end

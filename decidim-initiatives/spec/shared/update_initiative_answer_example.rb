@@ -2,13 +2,13 @@
 
 shared_examples "update an initiative answer" do
   let(:organization) { create(:organization) }
-  let(:initiative) { create(:initiative, organization: organization, state: state) }
+  let(:initiative) { create(:initiative, organization:, state:) }
   let(:form) do
     form_klass.from_params(
       form_params
     ).with_context(
       current_organization: organization,
-      initiative: initiative
+      initiative:
     )
   end
   let(:signature_end_date) { Date.current + 500.days }
@@ -16,12 +16,12 @@ shared_examples "update an initiative answer" do
   let(:form_params) do
     {
       signature_start_date: Date.current + 10.days,
-      signature_end_date: signature_end_date,
+      signature_end_date:,
       answer: { en: "Measured answer" },
       answer_url: "http://decidim.org"
     }
   end
-  let(:administrator) { create(:user, :admin, organization: organization) }
+  let(:administrator) { create(:user, :admin, organization:) }
   let(:current_user) { administrator }
   let(:command) { described_class.new(initiative, form, current_user) }
 

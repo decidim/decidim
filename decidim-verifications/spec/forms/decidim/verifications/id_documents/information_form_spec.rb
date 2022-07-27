@@ -6,9 +6,9 @@ module Decidim::Verifications::IdDocuments
   describe InformationForm do
     subject do
       described_class.new(
-        verification_type: verification_type,
-        document_type: document_type,
-        document_number: document_number
+        verification_type:,
+        document_type:,
+        document_number:
       )
     end
 

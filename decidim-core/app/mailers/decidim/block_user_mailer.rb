@@ -15,7 +15,7 @@ module Decidim
           justification: @justification
         )
 
-        mail(to: user.email, subject: subject)
+        mail(to: user.email, subject:)
       end
     end
   end

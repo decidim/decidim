@@ -21,7 +21,7 @@ module Decidim::Meetings
       {
         title_en: title[:en],
         description_en: description[:en],
-        deleted: deleted
+        deleted:
       }
     end
 

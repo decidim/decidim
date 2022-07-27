@@ -4,9 +4,9 @@ require "spec_helper"
 
 describe "Admin manages initiatives types scopes", type: :system do
   let(:organization) { create(:organization) }
-  let(:user) { create(:user, :admin, :confirmed, organization: organization) }
-  let(:initiatives_type) { create :initiatives_type, organization: organization }
-  let!(:scope) { create :scope, organization: organization }
+  let(:user) { create(:user, :admin, :confirmed, organization:) }
+  let(:initiatives_type) { create :initiatives_type, organization: }
+  let!(:scope) { create :scope, organization: }
 
   before do
     switch_to_host(organization.host)

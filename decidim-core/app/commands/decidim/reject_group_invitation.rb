@@ -36,7 +36,7 @@ module Decidim
     end
 
     def membership
-      @membership ||= Decidim::UserGroupMembership.find_by(user: user, user_group: user_group, role: :invited)
+      @membership ||= Decidim::UserGroupMembership.find_by(user:, user_group:, role: :invited)
     end
   end
 end

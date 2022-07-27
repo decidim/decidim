@@ -6,8 +6,8 @@ shared_examples_for "reportable" do
   context "when reportable" do
     let(:user) { create(:user, organization: subject.organization) }
     let(:participatory_space) { subject.component.participatory_space }
-    let(:moderation) { create(:moderation, reportable: subject, participatory_space: participatory_space, report_count: 1) }
-    let!(:report) { create(:report, moderation: moderation, user: user) }
+    let(:moderation) { create(:moderation, reportable: subject, participatory_space:, report_count: 1) }
+    let!(:report) { create(:report, moderation:, user:) }
 
     describe "#reported_by?" do
       context "when the resource has not been reported by the given user" do
@@ -27,7 +27,7 @@ shared_examples_for "reportable" do
       end
 
       context "when the resource has been hidden" do
-        let(:moderation) { create(:moderation, reportable: subject, participatory_space: participatory_space, report_count: 1, hidden_at: Time.current) }
+        let(:moderation) { create(:moderation, reportable: subject, participatory_space:, report_count: 1, hidden_at: Time.current) }
 
         before do
           subject.reload
@@ -39,7 +39,7 @@ shared_examples_for "reportable" do
 
     describe "#reported?" do
       context "when the report count is equal to 0" do
-        let(:moderation) { create(:moderation, reportable: subject, participatory_space: participatory_space, report_count: 0) }
+        let(:moderation) { create(:moderation, reportable: subject, participatory_space:, report_count: 0) }
         let!(:report) { nil }
 
         it { expect(subject).not_to be_reported }

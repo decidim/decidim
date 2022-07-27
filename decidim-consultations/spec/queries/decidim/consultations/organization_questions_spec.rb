@@ -8,7 +8,7 @@ module Decidim
       subject { described_class.new(organization) }
 
       let!(:organization) { create(:organization) }
-      let!(:local_consultation) { create :consultation, organization: organization }
+      let!(:local_consultation) { create :consultation, organization: }
       let!(:local_questions) do
         create_list(:question, 3, consultation: local_consultation)
       end

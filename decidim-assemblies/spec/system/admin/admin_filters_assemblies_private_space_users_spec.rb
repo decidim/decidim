@@ -6,12 +6,12 @@ describe "Admin filters assemblies private space users", type: :system do
   include_context "with filterable context"
 
   let(:organization) { create(:organization) }
-  let!(:user) { create(:user, :admin, :confirmed, organization: organization) }
-  let(:assembly) { create(:assembly, organization: organization) }
+  let!(:user) { create(:user, :admin, :confirmed, organization:) }
+  let(:assembly) { create(:assembly, organization:) }
 
-  let!(:invited_user1) { create(:user, name: name, organization: organization) }
+  let!(:invited_user1) { create(:user, name:, organization:) }
   let!(:invited_private_user1) { create :assembly_private_user, user: invited_user1, privatable_to: assembly }
-  let!(:invited_user2) { create(:user, email: email, organization: organization) }
+  let!(:invited_user2) { create(:user, email:, organization:) }
   let!(:invited_private_user2) { create :assembly_private_user, user: invited_user2, privatable_to: assembly }
 
   let(:name) { "Dummy Name" }

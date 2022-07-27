@@ -18,7 +18,7 @@ module Decidim
         link = post_path(post)
         body = translated_attribute(post.body)
         tail = "... <br/> #{link_to(t("read_more", scope: "decidim.blogs"), link)}".html_safe
-        CGI.unescapeHTML html_truncate(body, max_length: max_length, tail: tail)
+        CGI.unescapeHTML html_truncate(body, max_length:, tail:)
       end
     end
   end

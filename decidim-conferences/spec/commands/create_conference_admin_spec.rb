@@ -15,9 +15,9 @@ module Decidim::Conferences
     let(:form) do
       double(
         invalid?: invalid,
-        email: email,
-        role: role,
-        name: name,
+        email:,
+        role:,
+        name:,
         current_participatory_space: my_conference
       )
     end
@@ -43,7 +43,7 @@ module Decidim::Conferences
     context "when everything is ok" do
       it "creates the user role" do
         subject.call
-        roles = Decidim::ConferenceUserRole.where(user: user)
+        roles = Decidim::ConferenceUserRole.where(user:)
 
         expect(roles.count).to eq 1
         expect(roles.first.role).to eq "admin"
@@ -102,7 +102,7 @@ module Decidim::Conferences
         it "doesn't get created twice" do
           expect { subject.call }.to broadcast(:ok)
 
-          roles = Decidim::ConferenceUserRole.where(user: user)
+          roles = Decidim::ConferenceUserRole.where(user:)
 
           expect(roles.count).to eq 1
           expect(roles.first.role).to eq "admin"

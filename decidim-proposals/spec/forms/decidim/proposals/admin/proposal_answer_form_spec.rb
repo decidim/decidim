@@ -18,10 +18,10 @@ module Decidim
         let(:params) do
           {
             internal_state: state,
-            answer: answer,
-            cost: cost,
-            cost_report: cost_report,
-            execution_period: execution_period
+            answer:,
+            cost:,
+            cost_report:,
+            execution_period:
           }
         end
 

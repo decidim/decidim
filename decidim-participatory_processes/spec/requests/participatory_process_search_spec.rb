@@ -6,32 +6,32 @@ RSpec.describe "Participatory process search", type: :request do
   subject { response.body }
 
   let(:organization) { create(:organization) }
-  let(:current_user) { create :user, :confirmed, organization: organization }
+  let(:current_user) { create :user, :confirmed, organization: }
   let!(:process1) do
     create(
       :participatory_process,
       :active,
-      organization: organization,
-      area: create(:area, organization: organization),
-      scope: create(:scope, organization: organization)
+      organization:,
+      area: create(:area, organization:),
+      scope: create(:scope, organization:)
     )
   end
   let!(:process2) do
     create(
       :participatory_process,
       :active,
-      organization: organization,
-      area: create(:area, organization: organization),
-      scope: create(:scope, organization: organization)
+      organization:,
+      area: create(:area, organization:),
+      scope: create(:scope, organization:)
     )
   end
-  let!(:past_process) { create(:participatory_process, :past, organization: organization) }
-  let!(:upcoming_process) { create(:participatory_process, :upcoming, organization: organization) }
+  let!(:past_process) { create(:participatory_process, :past, organization:) }
+  let!(:upcoming_process) { create(:participatory_process, :upcoming, organization:) }
   let!(:unpublished_process) do
     create(
       :participatory_process,
       :unpublished,
-      organization: organization
+      organization:
     )
   end
 

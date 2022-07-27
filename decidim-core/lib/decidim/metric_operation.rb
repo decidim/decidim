@@ -21,7 +21,7 @@ module Decidim
         )
       end
 
-      metric_manifest = MetricOperationManifest.new(metric_operation: metric_operation, metric_name: metric_name)
+      metric_manifest = MetricOperationManifest.new(metric_operation:, metric_name:)
 
       yield(metric_manifest)
 

@@ -6,7 +6,7 @@ describe Decidim::ContentBlocks::HeroCell, type: :cell do
   subject { cell(content_block.cell, content_block).call }
 
   let(:organization) { create(:organization) }
-  let(:content_block) { create :content_block, organization: organization, manifest_name: :hero, scope_name: :homepage, settings: settings }
+  let(:content_block) { create :content_block, organization:, manifest_name: :hero, scope_name: :homepage, settings: }
   let(:settings) { {} }
 
   controller Decidim::PagesController

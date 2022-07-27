@@ -7,15 +7,15 @@ describe "Postal letter management", type: :system do
     create(:organization, available_authorizations: ["postal_letter"])
   end
 
-  let(:admin) { create(:user, :confirmed, :admin, organization: organization) }
-  let(:user) { create :user, :confirmed, organization: organization }
-  let(:user2) { create :user, :confirmed, organization: organization }
+  let(:admin) { create(:user, :confirmed, :admin, organization:) }
+  let(:user) { create :user, :confirmed, organization: }
+  let(:user2) { create :user, :confirmed, organization: }
 
   let!(:letter_not_sent) do
     create(
       :authorization,
       :pending,
-      user: user,
+      user:,
       name: "postal_letter",
       verification_metadata: {
         pending_verification_code: "123456",

@@ -34,7 +34,7 @@ module Decidim
 
       def detect_current_organization(env)
         host = host_for(env)
-        Decidim::Organization.find_by(host: host)
+        Decidim::Organization.find_by(host:)
       end
 
       def find_secondary_host_org(env)
