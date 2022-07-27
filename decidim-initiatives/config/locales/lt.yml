@@ -382,6 +382,8 @@ lt:
           choose_html: Noriu sukurti <strong>%{title}</strong>
           more_information: "(Daugiau informacijos)"
           select: Noriu paremti šią iniciatyvą
+          select_initiative_type_help: Iniciatyvos yra būdas dalyviams įsitraukti ir kartu su organizacija ginti bendrąjį interesą. Kurią iniciatyvą norite pradėti Jūs?
+          verification_required: Norėdami pasirašyti iniciatyvą, patvirtinkite savo paskyrą
         share_committee_link:
           continue: Tęsti
           invite_to_committee_help: Nuoroda, skirta dalyviams į rėmėjų komitetą pakviesti
@@ -493,6 +495,32 @@ lt:
         filters_small_view:
           close_modal: Uždaryti langą
           filter: Filtruoti
+          filter_by: Filtruoti pagal
+          unfold: Išskleisti
+        index_header:
+          new_initiative: Nauja iniciatyva
+        initiatives:
+          closed_initiatives_warning: Šiuo metu atvirų iniciatyvų nėra, tačiau čia galite rasti visų baigtų svarstyti iniciatyvų sąrašą.
+          no_initiatives_warning: Jūsų paieškos kriterijus atitinkančių iniciatyvų nerasta.
+        interactions:
+          comments_count:
+            count:
+              one: Komentaras
+              few: Komentarai
+              many: Komentarai
+              other: Komentarai
+        orders:
+          label: 'Rūšiuoti iniciatyvas pagal:'
+          most_commented: Labiausiai komentuota
+          most_voted: Surinko daugiausia parašų
+          random: Atsitiktinai
+          recent: Naujausia
+          recently_published: Naujausiai publikuota
+        print:
+          address: Adresas
+          author_title: Iniciatyvos autorė(-ius)
+          city: Miestas
+          email: El. paštas
         show:
           print: Spausdinti Iniciatyvą
           send_to_technical_validation: Siųsti techniniam patvirtinimui
