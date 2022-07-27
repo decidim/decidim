@@ -63,7 +63,7 @@ module Decidim
     end
 
     def endorse_allowed?
-      allowed_to?(:create, :endorsement, resource: resource)
+      allowed_to?(:create, :endorsement, resource:)
     end
 
     def user_has_verified_groups?
