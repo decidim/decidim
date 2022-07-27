@@ -6,10 +6,10 @@ describe Decidim::Budgets::Admin::CreateBudget do
   subject { described_class.new(form) }
 
   let(:organization) { create :organization, available_locales: [:en, :ca, :es], default_locale: :en }
-  let(:participatory_process) { create :participatory_process, organization: organization }
+  let(:participatory_process) { create :participatory_process, organization: }
   let!(:current_component) { create :component, participatory_space: participatory_process, manifest_name: "budgets" }
-  let(:user) { create :user, :admin, :confirmed, organization: organization }
-  let(:scope) { create :scope, organization: organization }
+  let(:user) { create :user, :admin, :confirmed, organization: }
+  let(:scope) { create :scope, organization: }
 
   let(:form) do
     double(
@@ -18,9 +18,9 @@ describe Decidim::Budgets::Admin::CreateBudget do
       title: { en: "title" },
       description: { en: "description" },
       total_budget: 100_000_000,
-      scope: scope,
+      scope:,
       current_user: user,
-      current_component: current_component,
+      current_component:,
       current_organization: organization
     )
   end
@@ -30,7 +30,7 @@ describe Decidim::Budgets::Admin::CreateBudget do
   let(:budget) { Decidim::Budgets::Budget.last }
 
   it "creates the budget" do
-    expect { subject.call }.to change { Decidim::Budgets::Budget.count }.by(1)
+    expect { subject.call }.to change(Decidim::Budgets::Budget, :count).by(1)
   end
 
   it "stores the given data" do

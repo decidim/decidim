@@ -14,14 +14,14 @@ module Decidim
 
       def new
         enforce_permission_to :create, :category
-        @form = form(CategoryForm).from_params({}, current_participatory_space: current_participatory_space)
+        @form = form(CategoryForm).from_params({}, current_participatory_space:)
       end
 
       def create
         enforce_permission_to :create, :category
-        @form = form(CategoryForm).from_params(params, current_participatory_space: current_participatory_space)
+        @form = form(CategoryForm).from_params(params, current_participatory_space:)
 
-        CreateCategory.call(@form, current_participatory_space) do
+        CreateCategory.call(@form, current_participatory_space, current_user) do
           on(:ok) do
             flash[:notice] = I18n.t("categories.create.success", scope: "decidim.admin")
             redirect_to categories_path(current_participatory_space)
@@ -37,15 +37,15 @@ module Decidim
       def edit
         @category = collection.find(params[:id])
         enforce_permission_to :update, :category, category: @category
-        @form = form(CategoryForm).from_model(@category, current_participatory_space: current_participatory_space)
+        @form = form(CategoryForm).from_model(@category, current_participatory_space:)
       end
 
       def update
         @category = collection.find(params[:id])
         enforce_permission_to :update, :category, category: @category
-        @form = form(CategoryForm).from_params(params, current_participatory_space: current_participatory_space)
+        @form = form(CategoryForm).from_params(params, current_participatory_space:)
 
-        UpdateCategory.call(@category, @form) do
+        UpdateCategory.call(@category, @form, current_user) do
           on(:ok) do
             flash[:notice] = I18n.t("categories.update.success", scope: "decidim.admin")
             redirect_to categories_path(current_participatory_space)
@@ -67,7 +67,7 @@ module Decidim
         @category = collection.find(params[:id])
         enforce_permission_to :destroy, :category, category: @category
 
-        DestroyCategory.call(@category) do
+        DestroyCategory.call(@category, current_user) do
           on(:ok) do
             flash[:notice] = I18n.t("categories.destroy.success", scope: "decidim.admin")
           end

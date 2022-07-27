@@ -23,7 +23,6 @@ hu:
           step:
             allow_answers: Válaszok engedélyezése
             allow_unregistered: Nem regisztrált felhasználók számára a kérdőív kitöltésének engedélyezése
-            allow_unregistered_help: Amennyiben aktív, nem szükséges a bejelentkezés a kérdőív kitöltéséhez. Ez megbízhatatlan, kevésbé hiteles adatokhoz vezethet és sérülékenyebbé teszi a rendszert az automatizált támadásokkal szemben. Óvatosan használjuk!
             announcement: Közlemény
     events:
       surveys:

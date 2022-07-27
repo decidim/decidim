@@ -8,7 +8,7 @@ describe "User edit meeting", type: :system do
 
   let!(:user) { create :user, :confirmed, organization: participatory_process.organization }
   let!(:another_user) { create :user, :confirmed, organization: participatory_process.organization }
-  let!(:meeting) { create :meeting, :published, title: { en: "Meeting title with #hashtag" }, description: { en: "Meeting description" }, author: user, component: component }
+  let!(:meeting) { create :meeting, :published, title: { en: "Meeting title with #hashtag" }, description: { en: "Meeting description" }, author: user, component: }
   let(:latitude) { 40.1234 }
   let(:longitude) { 2.1234 }
   let(:component) do

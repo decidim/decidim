@@ -28,7 +28,7 @@ module Decidim
         link_to(i18n_text, decidim_consultations.question_path(question), class: css)
       end
 
-      def authorized_vote_modal_button(question, html_options, &block)
+      def authorized_vote_modal_button(question, html_options, &)
         return if current_user && action_authorized_to(:vote, resource: nil, permissions_holder: question).ok?
 
         tag = "button"
@@ -43,7 +43,7 @@ module Decidim
 
         html_options["onclick"] = "event.preventDefault();"
 
-        send("#{tag}_to", "", html_options, &block)
+        send("#{tag}_to", "", html_options, &)
       end
     end
   end

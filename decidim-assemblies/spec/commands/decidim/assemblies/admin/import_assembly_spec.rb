@@ -7,8 +7,8 @@ module Decidim::Assemblies::Admin
     subject { described_class.new(form, user) }
 
     let(:organization) { create :organization }
-    let(:user) { create :user, organization: organization }
-    let!(:document_file) { IO.read(Decidim::Dev.asset(document_name)) }
+    let(:user) { create :user, organization: }
+    let!(:document_file) { File.read(Decidim::Dev.asset(document_name)) }
     let(:form_doc) do
       instance_double(File,
                       blank?: false)
@@ -24,8 +24,8 @@ module Decidim::Assemblies::Admin
         import_components?: import_components,
         document: form_doc,
         document_text: document_file,
-        document_type: document_type,
-        current_user: create(:user, organization: organization),
+        document_type:,
+        current_user: create(:user, organization:),
         current_organization: organization,
         invalid?: invalid
       )
@@ -43,7 +43,7 @@ module Decidim::Assemblies::Admin
       it "broadcasts ok and create the assembly" do
         expect { subject.call }.to(
           broadcast(:ok) &&
-          change { ::Decidim::Assembly.where(organization: organization).count }.by(1)
+          change { ::Decidim::Assembly.where(organization:).count }.by(1)
         )
 
         imported_assembly = Decidim::Assembly.last
@@ -76,7 +76,7 @@ module Decidim::Assemblies::Admin
       it "doesn't create any assembly" do
         expect do
           subject.call
-        end.to change(::Decidim::Assembly, :count).by(0)
+        end.not_to change(::Decidim::Assembly, :count)
       end
     end
 
@@ -92,7 +92,7 @@ module Decidim::Assemblies::Admin
       let(:import_categories) { true }
 
       it "imports an assembly and the categories" do
-        expect { subject.call }.to change { Decidim::Category.count }.by(8)
+        expect { subject.call }.to change(Decidim::Category, :count).by(8)
         expect(Decidim::Category.distinct.select(:decidim_participatory_space_id).count).to eq 1
 
         imported_assembly_category = Decidim::Category.first
@@ -110,7 +110,7 @@ module Decidim::Assemblies::Admin
 
       context "when attachment collections exists" do
         it "imports a assembly and the collections" do
-          expect { subject.call }.to change { Decidim::AttachmentCollection.count }.by(1)
+          expect { subject.call }.to change(Decidim::AttachmentCollection, :count).by(1)
           imported_assembly_collection = Decidim::AttachmentCollection.first
           expect(imported_assembly_collection.name).to eq("ca" => "deleniti", "en" => "laboriosam", "es" => "quia")
           expect(imported_assembly_collection.collection_for).to eq(Decidim::Assembly.last)

@@ -63,5 +63,11 @@ cs:
             current_step: Krok %{step}
             of_total_steps: z %{total_steps}
             tos_agreement: Zúčastněním souhlasíte s podmínkami služby
+      admin_log:
+        template:
+          create: "%{user_name} vytvořil šablonu dotazníku %{resource_name}"
+          delete: "%{user_name} odstranil šablonu dotazníku %{resource_name}"
+          duplicate: "%{user_name} zkopíroval šablonu dotazníku %{resource_name}"
+          update: "%{user_name} aktualizoval šablonu dotazníku %{resource_name}"
       template_types:
         questionnaires: Dotazníky

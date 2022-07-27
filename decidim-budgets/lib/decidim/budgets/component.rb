@@ -90,6 +90,7 @@ Decidim.register_component(:budgets) do |component|
     settings.attribute :vote_selected_projects_maximum, type: :integer, default: 1
     settings.attribute :comments_enabled, type: :boolean, default: true
     settings.attribute :comments_max_length, type: :integer, required: false
+    settings.attribute :geocoding_enabled, type: :boolean, default: false
     settings.attribute :resources_permissions_enabled, type: :boolean, default: true
     settings.attribute :announcement, type: :text, translated: true, editor: true
 
@@ -119,17 +120,17 @@ Decidim.register_component(:budgets) do |component|
       name: Decidim::Components::Namer.new(participatory_space.organization.available_locales, :budgets).i18n_name,
       manifest_name: :budgets,
       published_at: Time.current,
-      participatory_space: participatory_space,
+      participatory_space:,
       settings: {
-        landing_page_content: landing_page_content,
+        landing_page_content:,
         more_information_modal: Decidim::Faker::Localized.paragraph(sentence_count: 4),
-        workflow: %w(one random all).sample
+        workflow: Decidim::Budgets.workflows.keys.sample
       }
     )
 
     rand(1...3).times do
       Decidim::Budgets::Budget.create!(
-        component: component,
+        component:,
         title: Decidim::Faker::Localized.sentence(word_count: 2),
         description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
           Decidim::Faker::Localized.paragraph(sentence_count: 3)
@@ -138,10 +139,10 @@ Decidim.register_component(:budgets) do |component|
       )
     end
 
-    Decidim::Budgets::Budget.where(component: component).each do |budget|
+    Decidim::Budgets::Budget.where(component:).each do |budget|
       rand(2...4).times do
         project = Decidim::Budgets::Project.create!(
-          budget: budget,
+          budget:,
           scope: participatory_space.organization.scopes.sample,
           category: participatory_space.categories.sample,
           title: Decidim::Faker::Localized.sentence(word_count: 2),
@@ -160,7 +161,7 @@ Decidim.register_component(:budgets) do |component|
         Decidim::Attachment.create!(
           title: Decidim::Faker::Localized.sentence(word_count: 2),
           description: Decidim::Faker::Localized.sentence(word_count: 5),
-          attachment_collection: attachment_collection,
+          attachment_collection:,
           attached_to: project,
           content_type: "application/pdf",
           file: ActiveStorage::Blob.create_and_upload!(

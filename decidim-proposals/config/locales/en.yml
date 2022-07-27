@@ -198,6 +198,7 @@ en:
             automatic_hashtags: Hashtags added to all proposals
             comments_blocked: Comments blocked
             creation_enabled: Participants can create proposals
+            creation_enabled_readonly: This setting is disabled when you activate the Participatory Texts functionality. To upload proposals as participatory text click on the Participatory Texts button and follow the instructions.
             default_sort_order: Default proposal sorting
             default_sort_order_help: Default it means that if the supports are enabled, the proposals will be shown sorted by random, and if the supports are blocked, then they will be sorted by the most supported.
             default_sort_order_options:
@@ -213,6 +214,7 @@ en:
             endorsements_enabled: Endorsements enabled
             proposal_answering_enabled: Proposal answering enabled
             publish_answers_immediately: Publish proposal answers immediately
+            publish_answers_immediately_help_html: Mind that if you answer any proposal without this enabled, you'll need to publish them manually by selecting them and using the action for publication. For more info on how this works, see <a href="https://docs.decidim.org/en/admin/components/proposals/answers#_publication" target="_blank">proposals' answers documentation page</a>.
             suggested_hashtags: Hashtags suggested to participants for new proposals
             votes_blocked: Supports blocked
             votes_enabled: Supports enabled
@@ -302,6 +304,7 @@ en:
           email_outro: You have received this notification because you are following "%{participatory_space_title}". You can stop receiving notifications following the previous link.
           email_subject: New proposal "%{resource_title}" added to %{participatory_space_title}
           notification_title: The proposal <a href="%{resource_path}">%{resource_title}</a> has been added to %{participatory_space_title} by %{author}
+          notification_title_official: The official proposal <a href="%{resource_path}">%{resource_title}</a> has been added to %{participatory_space_title}
         proposal_rejected:
           affected_user:
             email_intro: 'Your proposal "%{resource_title}" has been rejected. You can read the answer in this page:'

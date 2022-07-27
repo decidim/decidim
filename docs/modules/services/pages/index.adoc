@@ -6,6 +6,7 @@ There are multiple services that can be enabled in a Decidim installation. It's 
 * xref:services:elections_bulletin_board.adoc[Elections Bulletin Board]
 * xref:services:etherpad.adoc[Etherpad]
 * xref:services:maps.adoc[Maps]
+* xref:services:sms.adoc[SMS]
 * xref:services:smtp.adoc[SMTP]
 * xref:services:social_providers.adoc[Social Providers]
 

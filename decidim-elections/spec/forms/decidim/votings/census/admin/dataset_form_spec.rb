@@ -3,7 +3,7 @@
 require "spec_helper"
 
 describe Decidim::Votings::Census::Admin::DatasetForm do
-  subject { described_class.from_params(file: file).with_context(current_participatory_space: voting) }
+  subject { described_class.from_params(file:).with_context(current_participatory_space: voting) }
 
   let(:voting) { create(:voting) }
   let(:file) { upload_test_file(Decidim::Dev.test_file("import_voting_census.csv", "text/csv")) }

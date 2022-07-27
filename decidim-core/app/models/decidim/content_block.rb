@@ -21,7 +21,7 @@ module Decidim
     # Public: finds the published content blocks for the given scope and
     # organization. Returns them ordered by ascending weight (lowest first).
     def self.for_scope(scope, organization:)
-      where(organization: organization, scope_name: scope)
+      where(organization:, scope_name: scope)
         .order(weight: :asc)
     end
 

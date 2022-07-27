@@ -6,7 +6,7 @@ describe "Initiative", type: :system do
   let(:organization) { create(:organization) }
   let(:state) { :published }
   let(:base_initiative) do
-    create(:initiative, organization: organization, state: state)
+    create(:initiative, organization:, state:)
   end
 
   before do
@@ -58,6 +58,24 @@ describe "Initiative", type: :system do
         end
       end
 
+      context "when signature interval is defined" do
+        let(:base_initiative) do
+          create(:initiative,
+                 organization:,
+                 signature_start_date: 1.day.ago,
+                 signature_end_date: 1.day.from_now,
+                 state:)
+        end
+
+        it "displays collection period" do
+          within ".process-header__phase" do
+            expect(page).to have_content("Signature collection period")
+            expect(page).to have_content(1.day.ago.strftime("%Y-%m-%d"))
+            expect(page).to have_content(1.day.from_now.strftime("%Y-%m-%d"))
+          end
+        end
+      end
+
       it_behaves_like "initiative shows signatures"
 
       it "shows the author name once in the authors list" do
@@ -97,6 +115,30 @@ describe "Initiative", type: :system do
       end
 
       it_behaves_like "has attachments"
+
+      it "displays comments section" do
+        expect(page).to have_css(".comments")
+        expect(page).to have_content("0 Comments")
+      end
+
+      context "when comments are disabled" do
+        let(:base_initiative) do
+          create(:initiative, organization:, state:, scoped_type:)
+        end
+
+        let(:scoped_type) do
+          create(:initiatives_type_scope,
+                 type: create(:initiatives_type,
+                              :with_comments_disabled,
+                              organization:,
+                              signature_type: "online"))
+        end
+
+        it "does not have comments" do
+          expect(page).not_to have_css(".comments")
+          expect(page).not_to have_content("0 Comments")
+        end
+      end
     end
   end
 end

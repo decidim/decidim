@@ -13,6 +13,7 @@ module Decidim
 
       helper Decidim::WidgetUrlsHelper
       helper Decidim::ResourceVersionsHelper
+      helper Decidim::ShortLinkHelper
 
       helper_method :meetings, :meeting, :registration, :search
 
@@ -25,7 +26,7 @@ module Decidim
       def create
         enforce_permission_to :create, :meeting
 
-        @form = meeting_form.from_params(params, current_component: current_component)
+        @form = meeting_form.from_params(params, current_component:)
 
         CreateMeeting.call(@form) do
           on(:ok) do |meeting|

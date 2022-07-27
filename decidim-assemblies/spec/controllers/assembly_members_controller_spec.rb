@@ -13,7 +13,7 @@ module Decidim
         create(
           :assembly,
           :published,
-          organization: organization
+          organization:
         )
       end
 
@@ -30,15 +30,15 @@ module Decidim
         end
 
         context "when assembly has members" do
-          let!(:member_1) { create(:assembly_member, assembly: assembly) }
-          let!(:member_2) { create(:assembly_member, assembly: assembly) }
+          let!(:member1) { create(:assembly_member, assembly:) }
+          let!(:member2) { create(:assembly_member, assembly:) }
           let!(:non_member) { create(:assembly_member) }
 
           context "when user has permissions" do
             it "displays list of members" do
               get :index, params: { assembly_slug: assembly.slug }
 
-              expect(controller.helpers.collection).to match_array([member_1, member_2])
+              expect(controller.helpers.collection).to match_array([member1, member2])
             end
           end
 

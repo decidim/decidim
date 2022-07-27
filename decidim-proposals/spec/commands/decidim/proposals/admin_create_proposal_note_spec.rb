@@ -9,11 +9,11 @@ module Decidim
         describe "call" do
           let(:proposal) { create(:proposal) }
           let(:organization) { proposal.component.organization }
-          let(:current_user) { create(:user, :admin, organization: organization) }
-          let!(:another_admin) { create(:user, :admin, organization: organization) }
-          let(:valuation_assignment) { create(:valuation_assignment, proposal: proposal) }
+          let(:current_user) { create(:user, :admin, organization:) }
+          let!(:another_admin) { create(:user, :admin, organization:) }
+          let(:valuation_assignment) { create(:valuation_assignment, proposal:) }
           let!(:valuator) { valuation_assignment.valuator }
-          let(:form) { ProposalNoteForm.from_params(form_params).with_context(current_user: current_user, current_organization: organization) }
+          let(:form) { ProposalNoteForm.from_params(form_params).with_context(current_user:, current_organization: organization) }
 
           let(:form_params) do
             {
@@ -35,7 +35,7 @@ module Decidim
             it "doesn't create the proposal note" do
               expect do
                 command.call
-              end.to change(ProposalVote, :count).by(0)
+              end.not_to change(ProposalVote, :count)
             end
           end
 

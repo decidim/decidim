@@ -7,10 +7,10 @@ describe Decidim::Proposals::ProposalMentionedEvent do
 
   let(:event_name) { "decidim.events.proposals.proposal_mentioned" }
   let(:organization) { create :organization }
-  let(:author) { create :user, organization: organization }
+  let(:author) { create :user, organization: }
 
-  let(:source_proposal) { create :proposal, component: create(:proposal_component, organization: organization), title: "Proposal A" }
-  let(:mentioned_proposal) { create :proposal, component: create(:proposal_component, organization: organization), title: "Proposal B" }
+  let(:source_proposal) { create :proposal, component: create(:proposal_component, organization:), title: "Proposal A" }
+  let(:mentioned_proposal) { create :proposal, component: create(:proposal_component, organization:), title: "It's proposal B" }
   let(:resource) { source_proposal }
   let(:extra) do
     {
@@ -34,13 +34,13 @@ describe Decidim::Proposals::ProposalMentionedEvent do
 
   describe "email_subject" do
     it "is generated correctly" do
-      expect(subject.email_subject).to eq("Your proposal \"#{translated(mentioned_proposal.title)}\" has been mentioned")
+      expect(subject.email_subject).to eq("Your proposal \"#{decidim_sanitize(translated(mentioned_proposal.title))}\" has been mentioned")
     end
   end
 
   context "with content" do
     let(:content) do
-      "Your proposal \"#{translated(mentioned_proposal.title)}\" has been mentioned " \
+      "Your proposal \"#{decidim_html_escape(translated(mentioned_proposal.title))}\" has been mentioned " \
         "<a href=\"#{resource_url}\">in this space</a> in the comments."
     end
 

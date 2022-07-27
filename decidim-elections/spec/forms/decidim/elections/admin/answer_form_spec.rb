@@ -9,8 +9,8 @@ describe Decidim::Elections::Admin::AnswerForm do
     {
       current_organization: component.organization,
       current_component: component,
-      election: election,
-      question: question
+      election:,
+      question:
     }
   end
   let(:election) { question.election }
@@ -22,9 +22,9 @@ describe Decidim::Elections::Admin::AnswerForm do
   let(:attachment_params) { nil }
   let(:attributes) do
     {
-      title: title,
-      description: description,
-      weight: weight,
+      title:,
+      description:,
+      weight:,
       attachment: attachment_params
     }
   end
@@ -69,7 +69,7 @@ describe Decidim::Elections::Admin::AnswerForm do
 
     let(:proposals_component) { create :component, manifest_name: :proposals, participatory_space: component.participatory_space }
     let(:proposals) { create_list :proposal, 2, component: proposals_component }
-    let(:answer) { create :election_answer, question: question }
+    let(:answer) { create :election_answer, question: }
 
     describe "#map_model" do
       it "sets the proposal_ids correctly" do

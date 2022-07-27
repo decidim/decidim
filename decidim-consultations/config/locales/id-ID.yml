@@ -271,6 +271,5 @@ id:
         start_voting_date: Voting dimulai
       question_components:
         question_menu_item: Pertanyaan
-        unfold: Membuka
       question_header:
         back_to_consultation: Lihat semua konsultasi

@@ -19,7 +19,7 @@ module Decidim
     private
 
     def localized_reference(reference)
-      I18n.t("reference", reference: reference, scope: "decidim.shared.reference")
+      I18n.t("reference", reference:, scope: "decidim.shared.reference")
     end
   end
 end

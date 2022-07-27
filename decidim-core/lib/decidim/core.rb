@@ -54,7 +54,9 @@ module Decidim
   autoload :MenuItem, "decidim/menu_item"
   autoload :MenuRegistry, "decidim/menu_registry"
   autoload :ManifestRegistry, "decidim/manifest_registry"
+  autoload :AssetRouter, "decidim/asset_router"
   autoload :EngineRouter, "decidim/engine_router"
+  autoload :UrlOptionResolver, "decidim/url_option_resolver"
   autoload :Events, "decidim/events"
   autoload :ViewHooks, "decidim/view_hooks"
   autoload :ContentBlockRegistry, "decidim/content_block_registry"
@@ -110,6 +112,9 @@ module Decidim
   autoload :Command, "decidim/command"
   autoload :EventRecorder, "decidim/event_recorder"
   autoload :ControllerHelpers, "decidim/controller_helpers"
+  autoload :ProcessesFileLocally, "decidim/processes_file_locally"
+  autoload :RedesignLayout, "decidim/redesign_layout"
+  autoload :DisabledRedesignLayout, "decidim/disabled_redesign_layout"
 
   include ActiveSupport::Configurable
   # Loads seeds from all engines.
@@ -143,7 +148,7 @@ module Decidim
       puts "Setting random values for the \"#{badge.name}\" badge..."
       User.all.find_each do |user|
         Gamification::BadgeScore.find_or_create_by!(
-          user: user,
+          user:,
           badge_name: badge.name,
           value: Random.rand(0...20)
         )
@@ -359,6 +364,12 @@ module Decidim
     # "MyTranslationService"
   end
 
+  # If set to true redesigned versions of layouts and cells will be used by
+  # default
+  config_accessor :redesign_active do
+    false
+  end
+
   # The Decidim::Exporters::CSV's default column separator
   config_accessor :default_csv_col_sep do
     ";"
@@ -396,7 +407,43 @@ module Decidim
   # Defines the name of the cookie used to check if the user allows Decidim to
   # set cookies.
   config_accessor :consent_cookie_name do
-    "decidim-cc"
+    "decidim-consent"
+  end
+
+  # Defines cookie categories. Note that when adding a cookie you need to
+  # add following i18n entries also (change 'foo' with the name of the cookie).
+  #
+  # layouts.decidim.cookie_consent.cookie_details.cookies.foo.service
+  # layouts.decidim.cookie_consent.cookie_details.cookies.foo.description
+  config_accessor :consent_categories do
+    [
+      {
+        slug: "essential",
+        mandatory: true,
+        cookies: [
+          {
+            type: "cookie",
+            name: "_session_id"
+          },
+          {
+            type: "cookie",
+            name: Decidim.consent_cookie_name
+          }
+        ]
+      },
+      {
+        slug: "preferences",
+        mandatory: false
+      },
+      {
+        slug: "analytics",
+        mandatory: false
+      },
+      {
+        slug: "marketing",
+        mandatory: false
+      }
+    ]
   end
 
   # Blacklisted passwords. Array may contain strings and regex entries.
@@ -404,11 +451,33 @@ module Decidim
     []
   end
 
+  # Defines if admins are required to have stronger passwords than other users
+  config_accessor :admin_password_strong do
+    true
+  end
+
+  config_accessor :admin_password_expiration_days do
+    90
+  end
+
+  config_accessor :admin_password_min_length do
+    15
+  end
+
+  config_accessor :admin_password_repetition_times do
+    5
+  end
+
   # This is an internal key that allow us to properly configure the caching key separator. This is useful for redis cache store
   # as it creates some namespaces within the cached data.
   # use `config.cache_key_separator = ":"` in your initializer to have namespaced data
   config_accessor :cache_key_separator do
     "/"
+  end
+
+  # Enable/Disable the service worker
+  config_accessor :service_worker_enabled do
+    Rails.env.exclude?("development")
   end
 
   # Public: Registers a global engine. This method is intended to be used
@@ -427,7 +496,7 @@ module Decidim
 
     global_engines[name.to_sym] = {
       at: options[:at],
-      engine: engine
+      engine:
     }
   end
 
@@ -458,8 +527,8 @@ module Decidim
   # name - A Symbol with the component's unique name.
   #
   # Returns nothing.
-  def self.register_component(name, &block)
-    component_registry.register(name, &block)
+  def self.register_component(name, &)
+    component_registry.register(name, &)
   end
 
   # Public: Registers a participatory space, usually held in an external library
@@ -473,19 +542,19 @@ module Decidim
   # name - A Symbol with the participatory space's unique name.
   #
   # Returns nothing.
-  def self.register_participatory_space(name, &block)
-    participatory_space_registry.register(name, &block)
+  def self.register_participatory_space(name, &)
+    participatory_space_registry.register(name, &)
   end
 
   # Public: Registers a resource.
   #
   # Returns nothing.
-  def self.register_resource(name, &block)
-    resource_registry.register(name, &block)
+  def self.register_resource(name, &)
+    resource_registry.register(name, &)
   end
 
-  def self.notification_settings(name, &block)
-    notification_settings_registry.register(name, &block)
+  def self.notification_settings(name, &)
+    notification_settings_registry.register(name, &)
   end
 
   # Public: Finds all registered resource manifests via the `register_component`
@@ -579,8 +648,8 @@ module Decidim
   # name   - A string or symbol with the name of the menu
   # &block - A block using the DSL defined in `Decidim::MenuItem`
   #
-  def self.menu(name, &block)
-    MenuRegistry.register(name.to_sym, &block)
+  def self.menu(name, &)
+    MenuRegistry.register(name.to_sym, &)
   end
 
   # Public: Stores an instance of ViewHooks
@@ -655,7 +724,9 @@ module Decidim
   # Gemfile uses the "path" parameter to find the module.
   # This is because the module can be defined by some files searched by Rails automatically
   # (ie: decidim-initiatives/lib/decidim/initiatives/version.rb automatically defines Decidim::Intiatives even if not required)
+  # for extra safety, we check if the module is defined (via safe_constantize), this should enable situations
+  # like adding a line like 'gem "decidim-consultations", require: false' where the gem is loaded but not required
   def self.module_installed?(mod)
-    Gem.loaded_specs.has_key?("decidim-#{mod}")
+    Gem.loaded_specs.has_key?("decidim-#{mod}") && "Decidim::#{mod.to_s.camelize}".safe_constantize
   end
 end

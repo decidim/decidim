@@ -32,7 +32,7 @@ describe "decidim_system:create_admin", type: :task do
 
     context "when provided data is valid" do
       it "creates an admin" do
-        expect { task.execute }.to change { Decidim::System::Admin.count }.by(1)
+        expect { task.execute }.to change(Decidim::System::Admin, :count).by(1)
         expect($stdout.string).to include("System admin created successfully")
       end
     end
@@ -43,7 +43,7 @@ describe "decidim_system:create_admin", type: :task do
         let(:password_confirmation) { "invalid" }
 
         it "prevents creation of admin and displays validation errors" do
-          expect { task.execute }.not_to(change { Decidim::System::Admin.count })
+          expect { task.execute }.not_to(change(Decidim::System::Admin, :count))
 
           expect($stdout.string).to include("Some errors prevented creation of admin")
           expect($stdout.string).to include("Email is invalid")
@@ -56,7 +56,7 @@ describe "decidim_system:create_admin", type: :task do
         let(:password_confirmation) { "password1234" }
 
         it "prevents creation of admin and displays validation errors" do
-          expect { task.execute }.not_to(change { Decidim::System::Admin.count })
+          expect { task.execute }.not_to(change(Decidim::System::Admin, :count))
 
           expect($stdout.string).to include("Some errors prevented creation of admin")
           expect($stdout.string).to include("Password is too common")

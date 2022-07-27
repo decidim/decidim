@@ -25,12 +25,12 @@ module Decidim
             instance_double(
               ProjectImportProposalsForm,
               origin_component: proposal.component,
-              current_component: current_component,
-              current_user: current_user,
-              default_budget: default_budget,
-              import_all_accepted_proposals: import_all_accepted_proposals,
+              current_component:,
+              current_user:,
+              default_budget:,
+              import_all_accepted_proposals:,
               scope_id: scope,
-              budget: budget,
+              budget:,
               valid?: valid
             )
           end
@@ -50,7 +50,7 @@ module Decidim
             it "doesn't create the project" do
               expect do
                 command.call
-              end.to change(Project, :count).by(0)
+              end.not_to change(Project, :count)
             end
           end
 
@@ -64,16 +64,16 @@ module Decidim
             it "creates the projects" do
               expect do
                 command.call
-              end.to change { Project.where(budget: budget).count }.by(1)
+              end.to change { Project.where(budget:).count }.by(1)
             end
 
             context "when there are no proposals in the selected scope" do
-              let(:scope) { create :scope, organization: organization }
+              let(:scope) { create :scope, organization: }
 
               it "doesn't create any project" do
                 expect do
                   command.call
-                end.not_to(change { Project.where(budget: budget).where(scope: scope).count })
+                end.not_to(change { Project.where(budget:).where(scope:).count })
               end
             end
 
@@ -88,9 +88,9 @@ module Decidim
               it "doesn't import it again" do
                 expect do
                   command.call
-                end.to change { Project.where(budget: budget).count }.by(1)
+                end.to change { Project.where(budget:).count }.by(1)
 
-                projects = Project.where(budget: budget)
+                projects = Project.where(budget:)
                 first_project = projects.first
                 last_project = projects.last
                 expect(first_project.title).to eq(proposal.title)
@@ -100,7 +100,7 @@ module Decidim
 
             it "links the proposals" do
               command.call
-              last_project = Project.where(budget: budget).last
+              last_project = Project.where(budget:).last
 
               linked = last_project.linked_resources(:proposals, "included_proposals")
 
@@ -110,7 +110,7 @@ module Decidim
             it "only imports wanted attributes" do
               command.call
 
-              new_project = Project.where(budget: budget).last
+              new_project = Project.where(budget:).last
               expect(new_project.title).to eq(proposal.title)
               expect(new_project.description).to eq(proposal.body)
               expect(new_project.category).to eq(proposal.category)
@@ -124,7 +124,7 @@ module Decidim
               it "imports the default budget" do
                 command.call
 
-                new_project = Project.where(budget: budget).last
+                new_project = Project.where(budget:).last
                 expect(new_project.budget_amount).to eq(default_budget)
               end
             end

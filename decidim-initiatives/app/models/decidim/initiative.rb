@@ -79,7 +79,7 @@ module Decidim
         .or(currently_unsignable)
     }
     scope :published, -> { where.not(published_at: nil) }
-    scope :with_state, ->(state) { where(state: state) if state.present? }
+    scope :with_state, ->(state) { where(state:) if state.present? }
 
     scope_search_multi :with_any_state, [:accepted, :rejected, :answered, :open, :closed]
 
@@ -176,6 +176,11 @@ module Decidim
     # Returns Decidim::BannerImageUploader
     def banner_image
       type.attached_uploader(:banner_image)
+    end
+
+    # Public: Whether the object's comments are visible or not.
+    def commentable?
+      type.comments_enabled?
     end
 
     # Public: Check if an initiative has been created by an individual person.

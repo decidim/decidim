@@ -22,12 +22,12 @@ module Decidim
 
     let(:attributes) do
       {
-        name: name,
-        nickname: nickname,
-        email: email,
-        password: password,
-        password_confirmation: password_confirmation,
-        tos_agreement: tos_agreement
+        name:,
+        nickname:,
+        email:,
+        password:,
+        password_confirmation:,
+        tos_agreement:
       }
     end
 
@@ -66,26 +66,42 @@ module Decidim
     end
 
     context "when the email already exists" do
-      let!(:user) { create(:user, organization: organization, email: email) }
+      context "and a user has the email" do
+        let!(:user) { create(:user, organization:, email:) }
 
-      it { is_expected.to be_invalid }
+        it { is_expected.to be_invalid }
 
-      context "and is pending to accept the invitation" do
-        let!(:user) { create(:user, organization: organization, email: email, invitation_token: "foo", invitation_accepted_at: nil) }
+        context "and is pending to accept the invitation" do
+          let!(:user) { create(:user, organization:, email:, invitation_token: "foo", invitation_accepted_at: nil) }
+
+          it { is_expected.to be_invalid }
+        end
+      end
+
+      context "and a user_group has the email" do
+        let!(:user_group) { create(:user_group, organization:, email:) }
 
         it { is_expected.to be_invalid }
       end
     end
 
     context "when the nickname already exists" do
-      let!(:user) { create(:user, organization: organization, nickname: nickname.upcase) }
+      context "and a user has the nickname" do
+        let!(:user) { create(:user, organization:, nickname: nickname.upcase) }
 
-      it { is_expected.to be_invalid }
+        it { is_expected.to be_invalid }
 
-      context "and is pending to accept the invitation" do
-        let!(:user) { create(:user, organization: organization, nickname: nickname, invitation_token: "foo", invitation_accepted_at: nil) }
+        context "and is pending to accept the invitation" do
+          let!(:user) { create(:user, organization:, nickname:, invitation_token: "foo", invitation_accepted_at: nil) }
 
-        it { is_expected.to be_valid }
+          it { is_expected.to be_valid }
+        end
+      end
+
+      context "and a user_group has the nickname" do
+        let!(:user_group) { create(:user_group, organization:, nickname:) }
+
+        it { is_expected.to be_invalid }
       end
     end
 

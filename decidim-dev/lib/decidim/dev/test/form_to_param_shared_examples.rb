@@ -4,7 +4,7 @@ shared_examples "form to param" do |options|
   method_name = options[:method_name] || :to_param
 
   describe "##{method_name}" do
-    subject { described_class.new(id: id) }
+    subject { described_class.new(id:) }
 
     context "with actual ID" do
       let(:id) { double }

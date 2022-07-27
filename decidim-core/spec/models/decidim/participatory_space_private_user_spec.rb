@@ -26,7 +26,7 @@ module Decidim
       let(:participatory_space_private_user) do
         build(
           :participatory_space_private_user,
-          user: user,
+          user:,
           privatable_to: participatory_process
         )
       end

@@ -8,14 +8,14 @@ module Decidim
 
     include_context "when a resource is ready for global search"
 
-    let(:current_component) { create :post_component, organization: organization }
+    let(:current_component) { create :post_component, organization: }
 
     let!(:resource) do
       create(
         :post,
         component: current_component,
         title: Decidim::Faker::Localized.name,
-        body: description_1
+        body: description1
       )
     end
 
@@ -24,7 +24,7 @@ module Decidim
         context "when on create" do
           it "does indexes a SearchableResource after resource creation" do
             organization.available_locales.each do |locale|
-              searchable = SearchableResource.find_by(resource_type: resource.class.name, resource_id: resource.id, locale: locale)
+              searchable = SearchableResource.find_by(resource_type: resource.class.name, resource_id: resource.id, locale:)
               expect_searchable_resource_to_correspond_to_post(searchable, resource, locale)
             end
           end
@@ -48,8 +48,8 @@ module Decidim
               searchable.reload
 
               organization.available_locales.each do |locale|
-                searchable = SearchableResource.find_by(resource_type: resource.class.name, resource_id: resource.id, locale: locale)
-                expect(searchable.content_a).to eq I18n.transliterate(translated(updated_title, locale: locale).to_s)
+                searchable = SearchableResource.find_by(resource_type: resource.class.name, resource_id: resource.id, locale:)
+                expect(searchable.content_a).to eq I18n.transliterate(translated(updated_title, locale:).to_s)
                 expect(searchable.updated_at).to be > created_at
               end
             end
@@ -68,7 +68,7 @@ module Decidim
 
     describe "Search" do
       context "when searching by resource resource_type" do
-        let!(:resource_2) do
+        let!(:resource2) do
           create(
             :post,
             component: current_component,
@@ -82,7 +82,7 @@ module Decidim
             on(:ok) do |results_by_type|
               results = results_by_type[resource.class.name]
               expect(results[:count]).to eq 2
-              expect(results[:results]).to match_array [resource, resource_2]
+              expect(results[:results]).to match_array [resource, resource2]
             end
             on(:invalid) { raise("Should not happen") }
           end
@@ -93,7 +93,7 @@ module Decidim
             on(:ok) do |results_by_type|
               results = results_by_type[resource.class.name]
               expect(results[:count]).to eq 1
-              expect(results[:results]).to eq [resource_2]
+              expect(results[:results]).to eq [resource2]
             end
             on(:invalid) { raise("Should not happen") }
           end
@@ -114,10 +114,10 @@ module Decidim
 
     def expected_searchable_resource_attrs(resource, locale)
       {
-        "content_a" => I18n.transliterate(translated(resource.title, locale: locale)),
+        "content_a" => I18n.transliterate(translated(resource.title, locale:)),
         "content_b" => "",
         "content_c" => "",
-        "content_d" => I18n.transliterate(translated(resource.body, locale: locale)),
+        "content_d" => I18n.transliterate(translated(resource.body, locale:)),
         "locale" => locale,
 
         "decidim_organization_id" => resource.component.organization.id,

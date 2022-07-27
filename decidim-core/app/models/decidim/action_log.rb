@@ -85,6 +85,36 @@ module Decidim
       )
     }
 
+    # Accepts a space filter that defines the participatory space manifest name
+    # and ID. E.g. "participatory_processes(123)" where
+    # "participatory_processes" is the manifest name and the number within the
+    # parentheses is the ID.
+    #
+    # For this scope to work, the filter has to follow the given structure and
+    # the participatory space name needs to match one of the registered
+    # manifest names.
+    scope :with_participatory_space, lambda { |space_filter|
+      filter_match = space_filter.match(/([a-z_]+)\(([0-9]+)\)/)
+      return self unless filter_match
+
+      space_name = filter_match[1].to_sym
+      space_id = filter_match[2]
+      space_manifest = Decidim.participatory_space_manifests.find do |manifest|
+        manifest.name == space_name
+      end
+      return self unless space_manifest
+
+      where(
+        participatory_space_type: space_manifest.model_class_name,
+        participatory_space_id: space_id
+      ).or(
+        where(
+          resource_type: space_manifest.model_class_name,
+          resource_id: space_id
+        )
+      )
+    }
+
     validates :action, presence: true
     validates :resource, presence: true, if: ->(log) { log.action != "delete" }
     validates :visibility, presence: true, inclusion: { in: %w(private-only admin-only public-only all) }
@@ -129,8 +159,12 @@ module Decidim
       @publicable_public_resource_types ||= public_resource_types.select { |klass| klass.constantize.column_names.include?("published_at") }
     end
 
-    def self.ransackable_scopes(_auth_object = nil)
-      [:with_resource_type]
+    def self.ransackable_scopes(auth_object = nil)
+      base = [:with_resource_type]
+      return base unless auth_object&.admin?
+
+      # Add extra scopes for admins for the admin panel searches
+      base + [:with_participatory_space]
     end
 
     # Overwrites the method so that records cannot be modified.
@@ -194,7 +228,7 @@ module Decidim
     # when it's necessary.
     def self.lazy_relation(id_method, klass_name, cache)
       klass = klass_name.constantize
-      BatchLoader.for(id_method).batch(cache: cache, key: klass.name.underscore) do |relation_ids, loader|
+      BatchLoader.for(id_method).batch(cache:, key: klass.name.underscore) do |relation_ids, loader|
         scope = klass.where(id: relation_ids)
 
         scope = if klass.include?(Decidim::HasComponent)
@@ -214,16 +248,16 @@ module Decidim
     end
 
     # Whether this activity or log is visible for a given user (can also be nil)
-    #
-    # Returns a True/False.
     def visible_for?(user)
-      return false if resource_lazy.blank?
-      return false if participatory_space_lazy.blank?
-      return false if resource_lazy.respond_to?(:deleted?) && resource_lazy.deleted?
-      return false if resource_lazy.respond_to?(:hidden?) && resource_lazy.hidden?
-      return false if resource_lazy.respond_to?(:can_participate?) && !resource_lazy.can_participate?(user)
+      resource_lazy.present? &&
+        participatory_space_lazy.present? &&
+        !resource_lazy.try(:deleted?) &&
+        !resource_lazy.try(:hidden?) &&
+        (!resource_lazy.respond_to?(:can_participate?) || resource_lazy.try(:can_participate?, user))
+    rescue NameError => e
+      Rails.logger.warn "Failed resource for #{self.class.name}(id=#{id}): #{e.message}"
 
-      true
+      false
     end
   end
 end

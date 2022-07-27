@@ -2,7 +2,7 @@
 
 The newsletter templates allow the user to select a template amongst a set of of them, and use it as base to send newsletters. This allow for more customization on newsletter, tematic newsletters, etc.
 
-Code-wise, they use the content blocks system internally, so https://github.com/decidim/decidim/blob/develop/docs/advanced/content_blocks.md[check the docs] for that section first.
+Code-wise, they use the content blocks system internally, so xref:develop:content_blocks.adoc[check the docs] for that section first.
 
 == Adding a new template
 

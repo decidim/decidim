@@ -11,8 +11,15 @@ Gem::Specification.new do |s|
   s.authors = ["Josep Jaume Rey Peroy", "Marc Riera Casals", "Oriol Gual Oliva"]
   s.email = ["josepjaume@gmail.com", "mrc2407@gmail.com", "oriolgual@gmail.com"]
   s.license = "AGPL-3.0"
-  s.homepage = "https://github.com/decidim/decidim"
-  s.required_ruby_version = ">= 3.0"
+  s.homepage = "https://decidim.org"
+  s.metadata = {
+    "bug_tracker_uri" => "https://github.com/decidim/decidim/issues",
+    "documentation_uri" => "https://docs.decidim.org/",
+    "funding_uri" => "https://opencollective.com/decidim",
+    "homepage_uri" => "https://decidim.org",
+    "source_code_uri" => "https://github.com/decidim/decidim"
+  }
+  s.required_ruby_version = ">= 3.1"
 
   s.name = "decidim-dev"
   s.summary = "Decidim dev tools"
@@ -30,7 +37,7 @@ Gem::Specification.new do |s|
   s.add_dependency "erb_lint", "~> 0.0.35"
   s.add_dependency "i18n-tasks", "~> 0.9.18"
   s.add_dependency "mdl", "~> 0.5"
-  s.add_dependency "nokogiri", "~> 1.12"
+  s.add_dependency "nokogiri", "~> 1.13"
   s.add_dependency "parallel_tests", "~> 3.7"
   s.add_dependency "puma", "~> 5.0"
   s.add_dependency "rails-controller-testing", "~> 1.0"
@@ -40,11 +47,12 @@ Gem::Specification.new do |s|
   s.add_dependency "rspec-rails", "~> 4.0"
   s.add_dependency "rspec-retry", "~> 0.6.2"
   s.add_dependency "rubocop", "~> 1.28.0"
+  s.add_dependency "rubocop-faker", "~> 1.1"
   s.add_dependency "rubocop-rails", "~> 2.14"
   s.add_dependency "rubocop-rspec", "~> 2.10"
   s.add_dependency "selenium-webdriver", "~> 4.1.0"
-  s.add_dependency "simplecov", "~> 0.19.0"
-  s.add_dependency "simplecov-cobertura", "~> 1.3.1"
+  s.add_dependency "simplecov", "~> 0.21.0"
+  s.add_dependency "simplecov-cobertura", "~> 2.1.0"
   s.add_dependency "w3c_rspec_validators", "~> 0.3.0"
   s.add_dependency "webmock", "~> 3.6"
   s.add_dependency "wisper-rspec", "~> 1.0"

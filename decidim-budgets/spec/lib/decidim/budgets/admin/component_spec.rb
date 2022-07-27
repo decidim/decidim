@@ -5,7 +5,7 @@ require "spec_helper"
 describe "Budgets component" do # rubocop:disable RSpec/DescribeClass
   let!(:component) { create(:budgets_component) }
   let(:organization) { component.organization }
-  let!(:current_user) { create(:user, :confirmed, :admin, organization: organization) }
+  let!(:current_user) { create(:user, :confirmed, :admin, organization:) }
 
   describe "on update" do
     let(:manifest) { component.manifest }
@@ -15,8 +15,8 @@ describe "Budgets component" do # rubocop:disable RSpec/DescribeClass
       Decidim::Budgets::Admin::ComponentForm.from_params(
         id: component.id,
         weight: 0,
-        manifest: manifest,
-        participatory_space: participatory_space,
+        manifest:,
+        participatory_space:,
         name: generate_localized_title,
         default_step_settings: {},
         settings: new_settings(:global, settings)
@@ -27,6 +27,7 @@ describe "Budgets component" do # rubocop:disable RSpec/DescribeClass
     let(:percent) { 70 }
     let(:minimum_enabled) { false }
     let(:projects_enabled) { false }
+    let(:geocoding_enabled) { false }
     let(:minimum_number) { 3 }
     let(:maximum_number) { 6 }
 
@@ -39,12 +40,25 @@ describe "Budgets component" do # rubocop:disable RSpec/DescribeClass
         vote_minimum_budget_projects_number: minimum_number,
         vote_rule_selected_projects_enabled: projects_enabled,
         vote_selected_projects_minimum: minimum_number,
-        vote_selected_projects_maximum: maximum_number
+        vote_selected_projects_maximum: maximum_number,
+        geocoding_enabled:
       }
     end
 
     def new_settings(name, data)
       Decidim::Component.build_settings(manifest, name, data, organization)
+    end
+
+    describe "with geocoding enabled" do
+      let(:geocoding_enabled) { true }
+      # One budget rule must me activated
+      let(:percent_enabled) { true }
+
+      it "updates the component" do
+        expect do
+          Decidim::Admin::UpdateComponent.call(form, component, current_user)
+        end.to broadcast(:ok)
+      end
     end
 
     describe "with minimum projects number to vote" do
@@ -256,16 +270,16 @@ describe "Budgets component" do # rubocop:disable RSpec/DescribeClass
 
     let(:component) { create(:budgets_component) }
     let(:component2) { create(:budgets_component) }
-    let(:budget) { create(:budget, component: component) }
+    let(:budget) { create(:budget, component:) }
     let(:budget2) { create(:budget, component: component2) }
     let(:budget3) { create(:budget, component: component2) }
-    let!(:components_projects) { create_list(:project, 2, budget: budget) }
+    let!(:components_projects) { create_list(:project, 2, budget:) }
     let!(:another_component_projects) { create_list(:project, 3, budget: budget2) }
     let!(:another_component_projects2) { create_list(:project, 4, budget: budget3) }
     let(:organization) { component.participatory_space.organization }
 
     context "when the user is an admin" do
-      let!(:user) { create :user, admin: true, organization: organization }
+      let!(:user) { create :user, admin: true, organization: }
 
       it "exports all budgets from the component" do
         expect(subject.count).to eq(2)
@@ -285,14 +299,14 @@ describe "Budgets component" do # rubocop:disable RSpec/DescribeClass
     end
 
     let(:component) { create(:budgets_component) }
-    let(:budget1) { create(:budget, component: component) }
-    let(:budget2) { create(:budget, component: component) }
+    let(:budget1) { create(:budget, component:) }
+    let(:budget2) { create(:budget, component:) }
     let!(:budget1_projects) { create_list(:project, 3, budget: budget1) }
     let!(:budget2_projects) { create_list(:project, 2, budget: budget2) }
     let(:organization) { component.participatory_space.organization }
 
     context "when the user is an admin" do
-      let!(:user) { create :user, admin: true, organization: organization }
+      let!(:user) { create :user, admin: true, organization: }
 
       it "exports projects of individual budget" do
         expect(subject.count).to eq(3)

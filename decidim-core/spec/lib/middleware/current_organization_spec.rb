@@ -10,7 +10,7 @@ module Decidim
     let(:middleware) { described_class.new(app) }
 
     context "when an organization exists for the current host" do
-      let!(:organization) { create(:organization, host: host) }
+      let!(:organization) { create(:organization, host:) }
 
       it "sets the organization" do
         _code, new_env = middleware.call(env)

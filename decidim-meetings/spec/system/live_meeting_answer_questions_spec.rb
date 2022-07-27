@@ -9,15 +9,15 @@ describe "Meeting live event poll answer", type: :system do
   let(:user) do
     create :user,
            :confirmed,
-           organization: organization
+           organization:
   end
-  let(:user_2) do
+  let(:user2) do
     create :user,
            :confirmed,
-           organization: organization
+           organization:
   end
 
-  let(:meeting) { create :meeting, :published, :online, :live, component: component }
+  let(:meeting) { create :meeting, :published, :online, :live, component: }
   let(:meeting_live_event_path) do
     decidim_participatory_process_meetings.meeting_live_event_path(
       participatory_process_slug: participatory_process.slug,
@@ -39,7 +39,7 @@ describe "Meeting live event poll answer", type: :system do
       es: "Esta es la segunda pregunta"
     }
   end
-  let!(:poll) { create(:poll, meeting: meeting) }
+  let!(:poll) { create(:poll, meeting:) }
   let!(:questionnaire) { create(:meetings_poll_questionnaire, questionnaire_for: poll) }
 
   before do
@@ -48,8 +48,8 @@ describe "Meeting live event poll answer", type: :system do
   end
 
   context "when all questions are unpublished" do
-    let!(:question_multiple_option) { create(:meetings_poll_question, :unpublished, questionnaire: questionnaire, body: body_multiple_option_question, question_type: "multiple_option") }
-    let!(:question_single_option) { create(:meetings_poll_question, :unpublished, questionnaire: questionnaire, body: body_single_option_question, question_type: "single_option") }
+    let!(:question_multiple_option) { create(:meetings_poll_question, :unpublished, questionnaire:, body: body_multiple_option_question, question_type: "multiple_option") }
+    let!(:question_single_option) { create(:meetings_poll_question, :unpublished, questionnaire:, body: body_single_option_question, question_type: "single_option") }
 
     before do
       visit meeting_live_event_path
@@ -62,8 +62,8 @@ describe "Meeting live event poll answer", type: :system do
   end
 
   context "when questions are published" do
-    let!(:question_multiple_option) { create(:meetings_poll_question, :published, questionnaire: questionnaire, body: body_multiple_option_question, question_type: "multiple_option") }
-    let!(:question_single_option) { create(:meetings_poll_question, :published, questionnaire: questionnaire, body: body_single_option_question, question_type: "single_option") }
+    let!(:question_multiple_option) { create(:meetings_poll_question, :published, questionnaire:, body: body_multiple_option_question, question_type: "multiple_option") }
+    let!(:question_single_option) { create(:meetings_poll_question, :published, questionnaire:, body: body_single_option_question, question_type: "single_option") }
 
     before do
       visit meeting_live_event_path
@@ -81,9 +81,9 @@ describe "Meeting live event poll answer", type: :system do
   end
 
   context "when questions are closed" do
-    let!(:question_multiple_option) { create(:meetings_poll_question, :closed, questionnaire: questionnaire, body: body_multiple_option_question, question_type: "multiple_option") }
-    let!(:answer_user_1) { create(:meetings_poll_answer, question: question_multiple_option, user: user, questionnaire: questionnaire) }
-    let!(:answer_choice_user_1) { create(:meetings_poll_answer_choice, answer: answer_user_1) }
+    let!(:question_multiple_option) { create(:meetings_poll_question, :closed, questionnaire:, body: body_multiple_option_question, question_type: "multiple_option") }
+    let!(:answer_user1) { create(:meetings_poll_answer, question: question_multiple_option, user:, questionnaire:) }
+    let!(:answer_choice_user1) { create(:meetings_poll_answer_choice, answer: answer_user1) }
 
     before do
       visit meeting_live_event_path

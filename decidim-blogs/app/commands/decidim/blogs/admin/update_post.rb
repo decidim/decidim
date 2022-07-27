@@ -10,9 +10,10 @@ module Decidim
         #
         # form - The form from which to get the data.
         # blog - The current instance of the page to be updated.
-        def initialize(form, post)
+        def initialize(form, post, user)
           @form = form
           @post = post
+          @user = user
         end
 
         # Updates the blog if valid.
@@ -33,7 +34,9 @@ module Decidim
         attr_reader :form, :post
 
         def update_post!
-          post.update!(
+          Decidim.traceability.update!(
+            post,
+            @user,
             title: form.title,
             body: form.body,
             author: form.author

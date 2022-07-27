@@ -24,6 +24,7 @@ cs:
         banner_image: Obrázek banneru
         child_scope_threshold_enabled: Povolit podpisy podřízené oblasti působnosti
         collect_user_extra_fields: Sbírejte osobní údaje uživatelů podpisem
+        comments_enabled: Povolit komentáře
         custom_signature_end_date_enabled: Povolit autorům zvolit konec doby sběru podpisů
         description: Popis
         document_number_authorization_handler: Autorizace k ověření čísla dokumentu pro podpisy
@@ -90,12 +91,17 @@ cs:
             label: Typ
         search_placeholder:
           title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Hledat %{collection} podle názvu, popisu, ID nebo jména autora.
+      initiatives_settings:
+        update:
+          error: Došlo k chybě
+          success: Nastavení iniciativ bylo úspěšně aktualizováno
       menu:
         attachments: Přílohy
         committee_members: Členové výboru
         components: Komponenty
         information: Informace
         initiatives: Iniciativy
+        initiatives_settings: Nastavení
         initiatives_types: Typy iniciativ
         moderations: Moderování
       models:
@@ -244,11 +250,19 @@ cs:
             edit: Upravit
             new: Nový
             photos: Fotky
-          show:
-            print: Vytisknout
           update:
             error: Došlo k chybě
             success: Iniciativa občanů byla úspěšně aktualizována
+        initiatives_settings:
+          edit:
+            update: Aktualizovat
+          form:
+            comments: Nejvíce komentované
+            date: Nejnovější
+            publication_date: Nedávno publikované
+            random: Náhodně
+            signatures: S nejvíce podpisy
+            title: Nastavení pro iniciativy
         initiatives_type_scopes:
           create:
             error: Došlo k chybě
@@ -280,7 +294,7 @@ cs:
             update: Aktualizovat
           form:
             authorizations: Nastavení autorizace
-            child_scope_threshold_enabled_help: 'Tento příznak konfigurace nepodporuje offline hlasování, umožňuje podřízené oblasti působnosti a pracuje s obslužnou rutinou autorizace, která uživateli přiřazuje rozsah, Ujistěte se, že jste vybrali tuto autorizaci, níže v nastavení autorizace. Aby fungovala obblast působnosti, musí být nastavena hierarchickým způsobem: 1 nadřazený - N podřazených. Více informací o tom, jak tato konfigurace funguje, naleznete na tomto <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">odkazu</a>.'
+            child_scope_threshold_enabled_help: 'Tento konfigurační příznak nepodporuje offline hlasování. Umožňuje podrozsahy a pracuje s obslužnou rutinou autorizace, která uživateli přiřazuje rozsah. Ujistěte se, že jste vybrali toto oprávnění níže v nastavení oprávnění. Aby to fungovalo, musí být rozsahy nakonfigurovány hierarchickým způsobem: 1 nadřazený – N podřízený. Další informace o tom, jak tato konfigurace funguje, najdete na <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">stránce dokumentace pro administraci iniciativ</a>.'
             only_global_scope_enabled_help: Zaškrtněte tuto poznámku, pokud jste povolili "Podřazená oblast působnosti" a nakonfigurovali globální rozsah jako vaši nadřazenou oblast působnosti. Povolením této možnosti bude výběr typu iniciativy přeskočeno v průvodci vytvořením iniciativy. Více informací o tom, jak tato konfigurace funguje, naleznete na tomto <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">odkazu</a>.
             options: Možnosti
             title: Obecná informace
@@ -298,6 +312,12 @@ cs:
           send_to_technical_validation: "%{user_name} zaslala %{resource_name} iniciativu k technickému ověření"
           unpublish: "%{user_name} zrušil iniciativu %{resource_name}"
           update: "%{user_name} aktualizoval iniciativu %{resource_name}"
+        initiatives_settings:
+          update: "%{user_name} aktualizoval nastavení iniciativ"
+        initiatives_type:
+          create: "%{user_name} vytvořil typ iniciativ %{resource_name}"
+          delete: "%{user_name} odstranil typ iniciativ %{resource_name}"
+          update: "%{user_name} aktualizoval typ iniciativ %{resource_name}"
       admin_states:
         accepted: Dostatek podpisů
         created: Vytvořeno
@@ -519,6 +539,7 @@ cs:
             title: 'Titul:'
             type: Typ iniciativy
           legal_text: Shromážděné osobní údaje organizace začlení a bude s nimi nakládat důvěrně v souladu s platnými právními předpisy.
+          members_header: Členové propagačního výboru iniciativy
           phone_number: Telefonní číslo
           place_date: Místo, datum
           postal_code: PSČ/ZIP
@@ -582,6 +603,8 @@ cs:
           published: Publikováno
           rejected: Nedostatek podpisů
           validating: Technické ověření
+      signature_interval:
+        title: Doba sběru podpisů
       states:
         accepted: Přijato
         expired: Platnost vypršela

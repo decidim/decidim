@@ -6,7 +6,7 @@ module Decidim::Admin
   describe CreateStaticPage do
     describe "call" do
       let(:organization) { create(:organization) }
-      let(:user) { create :user, :admin, :confirmed, organization: organization }
+      let(:user) { create :user, :admin, :confirmed, organization: }
       let(:form) do
         StaticPageForm
           .from_model(build(:static_page))

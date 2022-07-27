@@ -8,10 +8,11 @@ module Decidim::Initiatives
 
     subject { cell_html }
 
-    let(:my_cell) { cell("decidim/initiatives/initiative_m", initiative, context: { show_space: show_space }) }
+    let(:my_cell) { cell("decidim/initiatives/initiative_m", initiative, context: { show_space: }) }
     let(:cell_html) { my_cell.call }
     let(:state) { :published }
-    let!(:initiative) { create(:initiative, hashtag: "my_hashtag", state: state) }
+    let(:organization) { create(:organization) }
+    let!(:initiative) { create(:initiative, organization:, hashtag: "my_hashtag", state:) }
     let(:user) { create :user, organization: initiative.organization }
 
     before do
@@ -75,6 +76,19 @@ module Decidim::Initiatives
         let(:state) { :discarded }
 
         it_behaves_like "card does not show signatures"
+      end
+
+      context "when comments are disabled on inititiative type" do
+        let!(:initiative) { create(:initiative, hashtag: "my_hashtag", state:) }
+
+        before do
+          allow(initiative.type).to receive(:comments_enabled?).and_return(false)
+        end
+
+        it "does not render comments" do
+          expect(subject).not_to have_css(".comments_count_status")
+          expect(subject).not_to have_content("0 comments")
+        end
       end
     end
   end

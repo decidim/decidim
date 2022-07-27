@@ -9,10 +9,10 @@ module Decidim
         routes { Decidim::Initiatives::AdminEngine.routes }
 
         let(:organization) { create(:organization) }
-        let(:admin_user) { create(:user, :confirmed, :admin, organization: organization) }
-        let(:user) { create(:user, :confirmed, organization: organization) }
+        let(:admin_user) { create(:user, :confirmed, :admin, organization:) }
+        let(:user) { create(:user, :confirmed, organization:) }
         let(:initiative_type) do
-          create(:initiatives_type, organization: organization)
+          create(:initiatives_type, organization:)
         end
         let(:initiative_type_scope) do
           create(:initiatives_type_scope, type: initiative_type)
@@ -87,7 +87,7 @@ module Decidim
                        initiatives_type_id: initiative_type.id,
                        initiatives_type_scope: invalid_attributes
                      }
-              end.to change(InitiativesTypeScope, :count).by(0)
+              end.not_to change(InitiativesTypeScope, :count)
             end
           end
 
@@ -208,7 +208,7 @@ module Decidim
             end
 
             it "fails if the initiative type scope is being used" do
-              create(:initiative, organization: organization, scoped_type: initiative_type_scope)
+              create(:initiative, organization:, scoped_type: initiative_type_scope)
 
               expect do
                 delete :destroy,
@@ -216,7 +216,7 @@ module Decidim
                          initiatives_type_id: initiative_type.id,
                          id: initiative_type_scope.to_param
                        }
-              end.to change(InitiativesTypeScope, :count).by(0)
+              end.not_to change(InitiativesTypeScope, :count)
             end
           end
 

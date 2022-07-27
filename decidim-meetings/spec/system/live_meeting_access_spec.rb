@@ -6,7 +6,7 @@ describe "Meeting live event access", type: :system do
   include_context "with a component"
   let(:manifest_name) { "meetings" }
 
-  let!(:user) { create :user, :confirmed, organization: organization }
+  let!(:user) { create :user, :confirmed, organization: }
   let(:meeting_live_event_path) do
     decidim_participatory_process_meetings.meeting_live_event_path(
       participatory_process_slug: participatory_process.slug,
@@ -80,6 +80,23 @@ describe "Meeting live event access", type: :system do
               expect(page).to have_content("JOIN MEETING")
             end
           end
+
+          context "when cookies rejected" do
+            before { select_cookies(false, visit_root: true) }
+
+            it "shows cookie warning" do
+              visit_meeting
+
+              expect(page).to have_content("This meeting is happening right now")
+              case embedding_type
+              when :embedded
+                expect(page).to have_content("You need to enable all cookies in order to see this content")
+                expect(page).not_to have_css("iframe")
+              else
+                expect(page).to have_content("JOIN MEETING")
+              end
+            end
+          end
         end
       end
 
@@ -88,8 +105,8 @@ describe "Meeting live event access", type: :system do
           meeting.iframe_access_level_registered!
         end
 
-        let!(:registered_user) { create :user, :confirmed, organization: organization }
-        let!(:registration) { create :registration, meeting: meeting, user: registered_user }
+        let!(:registered_user) { create :user, :confirmed, organization: }
+        let!(:registration) { create :registration, meeting:, user: registered_user }
 
         context "and user is not signed in" do
           it "doesn't show the meeting link embedded" do
@@ -144,10 +161,10 @@ describe "Meeting live event access", type: :system do
     end
 
     shared_examples "belonging to an assembly which is a transparent private space" do
-      let(:assembly) { create(:assembly, :private, :transparent, organization: organization) }
+      let(:assembly) { create(:assembly, :private, :transparent, organization:) }
       let(:participatory_space) { assembly }
-      let(:admin) { create :user, :confirmed, :admin, organization: organization }
-      let(:private_user) { create :user, :confirmed, organization: organization }
+      let(:admin) { create :user, :confirmed, :admin, organization: }
+      let(:private_user) { create :user, :confirmed, organization: }
       let!(:assembly_private_user) { create :assembly_private_user, user: private_user, privatable_to: assembly }
 
       context "when user is not signed in" do
@@ -196,7 +213,7 @@ describe "Meeting live event access", type: :system do
     end
 
     context "and the iframe_embed_type is none" do
-      let(:meeting) { create :meeting, :published, :online, :live, component: component }
+      let(:meeting) { create :meeting, :published, :online, :live, component: }
 
       it "doesn't show the link to the live meeting streaming" do
         visit_meeting
@@ -206,10 +223,10 @@ describe "Meeting live event access", type: :system do
     end
 
     context "and the iframe_embed_type is 'embed_in_meeting_page'" do
-      let(:meeting) { create :meeting, :published, :embed_in_meeting_page_iframe_embed_type, :online, :embeddable, :live, component: component }
+      let(:meeting) { create :meeting, :published, :embed_in_meeting_page_iframe_embed_type, :online, :embeddable, :live, component: }
 
       context "and the meeting URL is not embeddable" do
-        let(:meeting) { create :meeting, :published, :embed_in_meeting_page_iframe_embed_type, :online, :live, component: component }
+        let(:meeting) { create :meeting, :published, :embed_in_meeting_page_iframe_embed_type, :online, :live, component: }
 
         it "shows the link to the live meeting streaming" do
           visit_meeting
@@ -218,18 +235,22 @@ describe "Meeting live event access", type: :system do
         end
       end
 
-      it "shows the meeting link embedded" do
-        visit_meeting
+      context "when cookies accepted" do
+        before { select_cookies(true, visit_root: true) }
 
-        expect(page).to have_css("iframe")
+        it "shows the meeting link embedded" do
+          visit_meeting
+
+          expect(page).to have_css("iframe")
+        end
+
+        it_behaves_like "iframe access levels", :embedded
+        it_behaves_like "belonging to an assembly which is a transparent private space"
       end
-
-      it_behaves_like "iframe access levels", :embedded
-      it_behaves_like "belonging to an assembly which is a transparent private space"
     end
 
     context "and the iframe_embed_type is 'open_in_live_event_page'" do
-      let(:meeting) { create :meeting, :published, :online, :open_in_live_event_page_iframe_embed_type, :live, :embeddable, component: component }
+      let(:meeting) { create :meeting, :published, :online, :open_in_live_event_page_iframe_embed_type, :live, :embeddable, component: }
 
       it "shows the link to the live meeting streaming" do
         visit_meeting
@@ -242,7 +263,7 @@ describe "Meeting live event access", type: :system do
       end
 
       context "and the meeting URL is not embeddable" do
-        let(:meeting) { create :meeting, :published, :online, :open_in_live_event_page_iframe_embed_type, :live, component: component }
+        let(:meeting) { create :meeting, :published, :online, :open_in_live_event_page_iframe_embed_type, :live, component: }
 
         it "shows the link to the external streaming service" do
           visit_meeting
@@ -255,12 +276,18 @@ describe "Meeting live event access", type: :system do
         end
       end
 
-      it_behaves_like "iframe access levels", :live_event_page
-      it_behaves_like "belonging to an assembly which is a transparent private space"
+      context "when cookies accepted" do
+        before do
+          select_cookies(true, visit_root: true)
+        end
+
+        it_behaves_like "iframe access levels", :live_event_page
+        it_behaves_like "belonging to an assembly which is a transparent private space"
+      end
     end
 
     context "and the iframe_embed_type is 'open_in_new_tab'" do
-      let(:meeting) { create :meeting, :published, :online, :open_in_new_tab_iframe_embed_type, :live, component: component }
+      let(:meeting) { create :meeting, :published, :online, :open_in_new_tab_iframe_embed_type, :live, component: }
 
       it "shows the link to the meeting URL" do
         visit_meeting
@@ -277,7 +304,7 @@ describe "Meeting live event access", type: :system do
   end
 
   context "when online meeting is not live and is not embedded" do
-    let(:meeting) { create :meeting, :published, :online, :past, component: component }
+    let(:meeting) { create :meeting, :published, :online, :past, component: }
 
     it "doesn't show the link to the live meeting streaming" do
       visit_meeting
@@ -287,7 +314,7 @@ describe "Meeting live event access", type: :system do
   end
 
   context "when online meeting is not live and it's embedded" do
-    let(:meeting) { create :meeting, :published, :embed_in_meeting_page_iframe_embed_type, :online, :embeddable, component: component }
+    let(:meeting) { create :meeting, :published, :embed_in_meeting_page_iframe_embed_type, :online, :embeddable, component: }
 
     it "doesn't show the meeting link embedded" do
       visit_meeting
@@ -297,7 +324,7 @@ describe "Meeting live event access", type: :system do
   end
 
   describe "live meeting access" do
-    let(:meeting) { create :meeting, :published, :online, :embed_in_meeting_page_iframe_embed_type, component: component }
+    let(:meeting) { create :meeting, :published, :online, :embed_in_meeting_page_iframe_embed_type, component: }
     let(:start_time) { meeting.start_time }
     let(:end_time) { meeting.end_time }
 

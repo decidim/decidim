@@ -31,7 +31,7 @@ module Decidim::ParticipatoryProcesses
 
     context "when everything is ok" do
       it "creates a participatory process step" do
-        expect { subject.call }.to change { Decidim::ParticipatoryProcessStep.count }.by(1)
+        expect { subject.call }.to change(Decidim::ParticipatoryProcessStep, :count).by(1)
       end
 
       it "broadcasts ok" do
@@ -58,7 +58,7 @@ module Decidim::ParticipatoryProcesses
 
       context "when the process has active steps" do
         before do
-          create(:participatory_process_step, participatory_process: participatory_process, active: true)
+          create(:participatory_process_step, participatory_process:, active: true)
         end
 
         it "creates the step as active" do

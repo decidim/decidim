@@ -4,14 +4,14 @@ require "spec_helper"
 
 describe "Private Participatory Processes", type: :system do
   let!(:organization) { create(:organization) }
-  let!(:participatory_process) { create :participatory_process, :published, organization: organization }
-  let!(:private_participatory_process) { create :participatory_process, :published, organization: organization, private_space: true }
-  let!(:admin) { create(:user, :admin, :confirmed, organization: organization) }
-  let!(:user) { create :user, :confirmed, organization: organization }
-  let!(:other_user) { create :user, :confirmed, organization: organization }
-  let!(:other_user_2) { create :user, :confirmed, organization: organization }
+  let!(:participatory_process) { create :participatory_process, :published, organization: }
+  let!(:private_participatory_process) { create :participatory_process, :published, organization:, private_space: true }
+  let!(:admin) { create(:user, :admin, :confirmed, organization:) }
+  let!(:user) { create :user, :confirmed, organization: }
+  let!(:other_user) { create :user, :confirmed, organization: }
+  let!(:other_user2) { create :user, :confirmed, organization: }
   let!(:participatory_space_private_user) { create :participatory_space_private_user, user: other_user, privatable_to: private_participatory_process }
-  let!(:participatory_space_private_user_2) { create :participatory_space_private_user, user: other_user_2, privatable_to: private_participatory_process }
+  let!(:participatory_space_private_user2) { create :participatory_space_private_user, user: other_user2, privatable_to: private_participatory_process }
 
   context "when there are private participatory processes" do
     context "and no user is logged in" do

@@ -3,11 +3,11 @@
     <h2 class="card-title"><%= title %></h2>
   </div>
   <div class="card-section">
-    <% if current_organization.user_groups_enabled? && Decidim::UserGroups::ManageableUserGroups.for(current_user).verified.any? %>
+
       <div class="field">
-        <%= user_group_select_field form, :user_group_id, label: t("decidim.blogs.actions.user_group_id") %>
+        <%= post_author_select_field form, :decidim_author_id, label: t("decidim.blogs.actions.author_id") %>
       </div>
-    <% end %>
+
     <div class="row column">
       <%= form.translated :text_field, :title, autofocus: true %>
     </div>

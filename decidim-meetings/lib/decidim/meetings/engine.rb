@@ -42,6 +42,12 @@ module Decidim
         end
       end
 
+      initializer "decidim.content_processors" do |_app|
+        Decidim.configure do |config|
+          config.content_processors += [:meeting]
+        end
+      end
+
       initializer "decidim_meetings.view_hooks" do
         Decidim.view_hooks.register(:participatory_space_highlighted_elements, priority: Decidim::ViewHooks::HIGH_PRIORITY) do |view_context|
           view_context.cell("decidim/meetings/highlighted_meetings", view_context.current_participatory_space)
@@ -58,7 +64,7 @@ module Decidim
           view_context.render(
             partial: "decidim/participatory_spaces/upcoming_meeting_for_card.html",
             locals: {
-              upcoming_meeting: upcoming_meeting
+              upcoming_meeting:
             }
           )
         end
@@ -72,8 +78,8 @@ module Decidim
           view_context.render(
             partial: "decidim/participatory_spaces/conference_venues",
             locals: {
-              meetings: meetings,
-              meetings_geocoded: meetings_geocoded
+              meetings:,
+              meetings_geocoded:
             }
           )
         end
@@ -88,7 +94,7 @@ module Decidim
         Decidim::Gamification.register_badge(:attended_meetings) do |badge|
           badge.levels = [1, 3, 5, 10, 30]
           badge.reset = lambda do |user|
-            Decidim::Meetings::Registration.where(user: user).count
+            Decidim::Meetings::Registration.where(user:).count
           end
         end
       end

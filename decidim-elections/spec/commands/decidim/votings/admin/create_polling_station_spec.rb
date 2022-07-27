@@ -9,27 +9,27 @@ module Decidim
         subject { described_class.new(form) }
 
         let(:organization) { create :organization, available_locales: [:en, :ca, :es], default_locale: :en }
-        let(:user) { create :user, :admin, :confirmed, organization: organization }
-        let(:voting) { create :voting, voting_type: "hybrid", organization: organization }
+        let(:user) { create :user, :admin, :confirmed, organization: }
+        let(:voting) { create :voting, voting_type: "hybrid", organization: }
         let(:president) { nil }
         let(:managers) { [] }
 
         let(:form) do
           double(
             invalid?: invalid,
-            title: title,
-            location: location,
-            location_hints: location_hints,
-            address: address,
-            latitude: latitude,
-            longitude: longitude,
+            title:,
+            location:,
+            location_hints:,
+            address:,
+            latitude:,
+            longitude:,
             polling_station_president: president,
             polling_station_president_id: president&.id,
             polling_station_managers: managers,
             polling_station_manager_ids: managers.pluck(:id),
             current_user: user,
             current_organization: organization,
-            voting: voting
+            voting:
           )
         end
 
@@ -44,7 +44,7 @@ module Decidim
         let(:polling_station) { Decidim::Votings::PollingStation.last }
 
         it "creates the voting" do
-          expect { subject.call }.to change { Decidim::Votings::PollingStation.count }.by(1)
+          expect { subject.call }.to change(Decidim::Votings::PollingStation, :count).by(1)
         end
 
         it "broadcasts ok" do
@@ -87,7 +87,7 @@ module Decidim
         end
 
         context "when selecting a president" do
-          let(:president) { create(:polling_officer, voting: voting) }
+          let(:president) { create(:polling_officer, voting:) }
 
           it "stores the reference correctly" do
             subject.call
@@ -113,7 +113,7 @@ module Decidim
         end
 
         context "when selecting managers" do
-          let(:managers) { create_list(:polling_officer, 3, voting: voting) }
+          let(:managers) { create_list(:polling_officer, 3, voting:) }
 
           it "stores the reference correctly" do
             subject.call

@@ -12,8 +12,8 @@ module Decidim
         case type
         when Symbol, ActiveModel::Type::Value
           {
-            type: type,
-            options: options
+            type:,
+            options:
           }
         when Class
           resolve_class(type, **options)
@@ -41,7 +41,7 @@ module Decidim
             options: options.merge(primitive: type)
           }
         elsif type == Hash
-          resolve_hash(Hash[Symbol => Object], **options)
+          resolve_hash({ Symbol => Object }, **options)
         elsif type == Array
           resolve_array(Array[Object], **options)
         else
@@ -56,7 +56,7 @@ module Decidim
 
         {
           type: :hash,
-          options: options.merge(key_type: key_type, value_type: val_type)
+          options: options.merge(key_type:, value_type: val_type)
         }
       end
 
@@ -77,7 +77,7 @@ module Decidim
           # https://github.com/rails/rails/tree/main/activemodel/lib/active_model/type
           {
             type: type_symbol,
-            options: options
+            options:
           }
         else
           {

@@ -11,7 +11,7 @@ describe "Surveys component" do # rubocop:disable RSpec/DescribeClass
   describe "before_destroy hooks" do
     context "when there are no answers" do
       before do
-        create :survey, component: component
+        create :survey, component:
       end
 
       it "does not raise any error" do
@@ -36,11 +36,11 @@ describe "Surveys component" do # rubocop:disable RSpec/DescribeClass
 
   context "when copying component" do
     it "does not raise any error" do
-      expect { subject.manifest.run_hooks(:copy, old_component: component, new_component: new_component) }.not_to raise_error
+      expect { subject.manifest.run_hooks(:copy, old_component: component, new_component:) }.not_to raise_error
     end
 
     it "create a survey component" do
-      expect { subject.manifest.run_hooks(:copy, old_component: component, new_component: new_component) }.to change { Decidim::Surveys::Survey.count }.by(1)
+      expect { subject.manifest.run_hooks(:copy, old_component: component, new_component:) }.to change(Decidim::Surveys::Survey, :count).by(1)
     end
   end
 end

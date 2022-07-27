@@ -73,10 +73,10 @@ module Decidim
       def proposal_wizard_stepper(current_step)
         content_tag :ol, class: "wizard__steps" do
           %(
-            #{proposal_wizard_stepper_step(:step_1, current_step)}
-            #{proposal_wizard_stepper_step(:step_2, current_step)}
-            #{proposal_wizard_stepper_step(:step_3, current_step)}
-            #{proposal_wizard_stepper_step(:step_4, current_step)}
+            #{proposal_wizard_stepper_step(ProposalsController::STEP1, current_step)}
+            #{proposal_wizard_stepper_step(ProposalsController::STEP2, current_step)}
+            #{proposal_wizard_stepper_step(ProposalsController::STEP3, current_step)}
+            #{proposal_wizard_stepper_step(ProposalsController::STEP4, current_step)}
           ).html_safe
         end
       end
@@ -91,7 +91,7 @@ module Decidim
           concat ")"
         end
         content_tag :span, class: "text-small" do
-          concat t(:"decidim.proposals.proposals.wizard_steps.step_of", current_step_num: current_step_num, total_steps: total_steps)
+          concat t(:"decidim.proposals.proposals.wizard_steps.step_of", current_step_num:, total_steps:)
           concat see_steps
         end
       end
@@ -120,11 +120,11 @@ module Decidim
       # Renders the back link except for step_2: compare
       def proposal_wizard_aside_link_to_back(step)
         case step
-        when :step_1
+        when ProposalsController::STEP1
           proposals_path
-        when :step_3
+        when ProposalsController::STEP3
           compare_proposal_path
-        when :step_4
+        when ProposalsController::STEP4
           edit_draft_proposal_path
         end
       end

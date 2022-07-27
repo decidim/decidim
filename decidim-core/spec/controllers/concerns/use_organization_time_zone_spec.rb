@@ -6,7 +6,7 @@ module Decidim
   describe ApplicationController, type: :controller do
     let(:utc_time_zone) { "UTC" }
     let(:alt_time_zone) { "Hawaii" }
-    let(:organization) { create(:organization, time_zone: time_zone) }
+    let(:organization) { create(:organization, time_zone:) }
 
     before do
       request.env["decidim.current_organization"] = organization

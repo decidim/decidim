@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 shared_examples "manage registration types examples" do
-  let!(:registration_type) { create(:registration_type, conference: conference) }
+  let!(:registration_type) { create(:registration_type, conference:) }
 
   before do
     switch_to_host(organization.host)

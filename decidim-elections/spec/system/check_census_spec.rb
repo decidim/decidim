@@ -6,14 +6,14 @@ describe "Check Census", type: :system do
   include Rack::Test::Methods
 
   let!(:organization) { create(:organization) }
-  let!(:voting) { create(:voting, :published, organization: organization, census_contact_information: "census_help@example.com") }
-  let!(:dataset) { create(:dataset, :data_created, voting: voting) }
+  let!(:voting) { create(:voting, :published, organization:, census_contact_information: "census_help@example.com") }
+  let!(:dataset) { create(:dataset, :data_created, voting:) }
   let!(:datum) do
-    create(:datum, document_type: "DNI", document_number: "12345678X", birthdate: Date.civil(1980, 5, 11), postal_code: "04001", dataset: dataset, mobile_phone_number: mobile_phone_number, email: email)
+    create(:datum, document_type: "DNI", document_number: "12345678X", birthdate: Date.civil(1980, 5, 11), postal_code: "04001", dataset:, mobile_phone_number:, email:)
   end
-  let!(:user) { create :user, :confirmed, organization: organization }
+  let!(:user) { create :user, :confirmed, organization: }
   let(:mobile_phone_number) { "123456789" }
-  let(:email) { "census_email@example.com" }
+  let(:email) { "foo@example.com" }
   let(:memory_store) { ActiveSupport::Cache.lookup_store(:memory_store) }
 
   before do
@@ -123,7 +123,7 @@ describe "Check Census", type: :system do
 
         expect(page).to have_content("Get Access Code")
 
-        click_button "Send by email to"
+        click_button "Send by email to ****@example.com"
 
         callout = find(:xpath, '//*[@id="content"]/div[1]')
 

@@ -32,6 +32,7 @@ module Decidim
     end
 
     def decidim_sanitize_editor(html, options = {})
+      html = Decidim::IframeDisabler.new(html, options).perform
       content_tag(:div, decidim_sanitize(html, options), class: %w(ql-editor ql-reset-decidim))
     end
 
@@ -87,18 +88,24 @@ module Decidim
         content = strip_tags(sanitize_text(content)) if strip_tags
 
         renderer = Decidim::ContentRenderers::HashtagRenderer.new(content)
-        content = renderer.render(links: links, extras: extras).html_safe
+        content = renderer.render(links:, extras:).html_safe
 
         content = Decidim::ContentRenderers::LinkRenderer.new(content).render if links
         content
       end
     end
 
+    # This method is currently being used only for Proposal and Meeting,
+    # It aims to load the presenter class, and perform some basic sanitization on the content
+    # This method should be used along side simple_format.
+    # @param resource [Object] Resource object
+    # @param method [Symbol] Method name
+    #
+    # @return ActiveSupport::SafeBuffer
     def render_sanitized_content(resource, method)
       content = present(resource).send(method, links: true, strip_tags: !safe_content?)
-      content = simple_format(content, {}, sanitize: false)
 
-      return content unless safe_content?
+      return decidim_sanitize(content, {}) unless safe_content?
 
       decidim_sanitize_editor(content)
     end

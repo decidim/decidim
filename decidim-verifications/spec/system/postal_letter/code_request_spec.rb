@@ -7,8 +7,8 @@ describe "Postal letter code request", type: :system do
     create(:organization, available_authorizations: ["postal_letter"])
   end
 
-  let!(:user) { create(:user, :confirmed, organization: organization) }
-  let(:admin) { create(:user, :admin, :confirmed, organization: organization) }
+  let!(:user) { create(:user, :confirmed, organization:) }
+  let(:admin) { create(:user, :admin, :confirmed, organization:) }
 
   let(:verification_metadata) do
     Decidim::Authorization.first.verification_metadata

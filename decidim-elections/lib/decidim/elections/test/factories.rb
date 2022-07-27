@@ -11,7 +11,7 @@ FactoryBot.define do
   factory :elections_component, parent: :component do
     name { Decidim::Components::Namer.new(participatory_space.organization.available_locales, :elections).i18n_name }
     manifest_name { :elections }
-    participatory_space { create(:participatory_process, :with_steps, organization: organization) }
+    participatory_space { create(:participatory_process, :with_steps, organization:) }
   end
 
   factory :election, class: "Decidim::Elections::Election" do
@@ -29,7 +29,7 @@ FactoryBot.define do
     blocked_at { nil }
     bb_status { nil }
     questionnaire
-    component { create(:elections_component, organization: organization) }
+    component { create(:elections_component, organization:) }
     salt { SecureRandom.hex(32) }
 
     trait :bb_test do
@@ -61,10 +61,10 @@ FactoryBot.define do
 
     trait :complete do
       after(:build) do |election, _evaluator|
-        election.questions << build(:question, :yes_no, election: election, weight: 1)
-        election.questions << build(:question, :candidates, election: election, weight: 3)
-        election.questions << build(:question, :projects, election: election, weight: 2)
-        election.questions << build(:question, :nota, election: election, weight: 4)
+        election.questions << build(:question, :yes_no, election:, weight: 1)
+        election.questions << build(:question, :candidates, election:, weight: 3)
+        election.questions << build(:question, :projects, election:, weight: 2)
+        election.questions << build(:question, :nota, election:, weight: 4)
       end
     end
 
@@ -79,7 +79,7 @@ FactoryBot.define do
 
       after(:create) do |election, evaluator|
         evaluator.trustee_keys.each do |name, key|
-          create(:trustee, :with_public_key, name: name, election: election, public_key: key)
+          create(:trustee, :with_public_key, name:, election:, public_key: key)
         end
       end
     end
@@ -120,7 +120,7 @@ FactoryBot.define do
       bb_status { "vote_ended" }
 
       after(:create) do |election, evaluator|
-        create_list(:vote, evaluator.number_of_votes, :accepted, election: election)
+        create_list(:vote, evaluator.number_of_votes, :accepted, election:)
       end
     end
 
@@ -136,7 +136,7 @@ FactoryBot.define do
       verifiable_results_file_url { Faker::Internet.url }
 
       after(:create) do |election|
-        create(:bb_closure, :with_results, election: election)
+        create(:bb_closure, :with_results, election:)
       end
     end
 
@@ -170,7 +170,6 @@ FactoryBot.define do
 
     election
     title { generate_localized_title }
-    description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
     min_selections { 1 }
     max_selections { 1 }
     weight { Faker::Number.number(digits: 1) }
@@ -178,7 +177,7 @@ FactoryBot.define do
 
     trait :complete do
       after(:build) do |question, evaluator|
-        overrides = { question: question }
+        overrides = { question: }
         overrides[:description] = nil unless evaluator.more_information
         question.answers = build_list(:election_answer, evaluator.answers, overrides)
       end
@@ -211,7 +210,7 @@ FactoryBot.define do
 
     trait :with_votes do
       after(:build) do |question, evaluator|
-        overrides = { question: question }
+        overrides = { question: }
         overrides[:description] = nil unless evaluator.more_information
         question.answers = build_list(:election_answer, evaluator.answers, :with_votes, overrides)
       end
@@ -227,7 +226,7 @@ FactoryBot.define do
 
     trait :with_votes do
       after(:build) do |answer|
-        create(:election_result, election: answer.question.election, question: answer.question, answer: answer)
+        create(:election_result, election: answer.question.election, question: answer.question, answer:)
       end
     end
 
@@ -264,10 +263,10 @@ FactoryBot.define do
           max = total_votes
           question.answers.each do |answer|
             value = Faker::Number.between(from: 0, to: max)
-            closure.results << create(:election_result, election: closure.election, question: question, answer: answer, value: value)
+            closure.results << create(:election_result, election: closure.election, question:, answer:, value:)
             max -= value
           end
-          closure.results << create(:election_result, :blank_ballots, election: closure.election, question: question, value: max)
+          closure.results << create(:election_result, :blank_ballots, election: closure.election, question:, value: max)
         end
         closure.results << create(:election_result, :total_ballots, election: closure.election, value: total_votes)
       end
@@ -279,9 +278,9 @@ FactoryBot.define do
       election { create(:election, :tally_ended) }
     end
 
-    closurable { create :bb_closure, election: election }
-    question { create :question, election: election }
-    answer { create :election_answer, question: question }
+    closurable { create :bb_closure, election: }
+    question { create :question, election: }
+    answer { create :election_answer, question: }
     value { Faker::Number.number(digits: 1) }
     result_type { "valid_answers" }
 
@@ -315,12 +314,12 @@ FactoryBot.define do
     end
 
     public_key { nil }
-    user { build(:user, :confirmed, organization: organization) }
+    user { build(:user, :confirmed, organization:) }
     organization { create(:organization) }
 
     trait :considered do
       after(:build) do |trustee, evaluator|
-        trustee.trustees_participatory_spaces << build(:trustees_participatory_space, trustee: trustee, election: evaluator.election, organization: evaluator.organization)
+        trustee.trustees_participatory_spaces << build(:trustees_participatory_space, trustee:, election: evaluator.election, organization: evaluator.organization)
       end
     end
 
@@ -342,9 +341,9 @@ FactoryBot.define do
       organization { election&.component&.participatory_space&.organization || create(:organization) }
       election { nil }
     end
-    participatory_space { election&.component&.participatory_space || create(:participatory_process, organization: organization) }
+    participatory_space { election&.component&.participatory_space || create(:participatory_process, organization:) }
     considered { true }
-    trustee { create(:trustee, organization: organization) }
+    trustee { create(:trustee, organization:) }
 
     trait :trustee_ready do
       association :trustee, :with_public_key

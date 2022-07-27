@@ -4,11 +4,11 @@ require "spec_helper"
 
 describe "Admin manages participatory process group landing page", type: :system do
   include_context "when admin administrating a participatory process"
-  let!(:participatory_process_group) { create(:participatory_process_group, organization: organization) }
+  let!(:participatory_process_group) { create(:participatory_process_group, organization:) }
   let(:active_content_blocks) do
     Decidim::ContentBlock.for_scope(
       :participatory_process_group_homepage,
-      organization: organization
+      organization:
     ).where(scoped_resource_id: participatory_process_group.id)
   end
 
@@ -79,7 +79,7 @@ describe "Admin manages participatory process group landing page", type: :system
     let!(:content_block) do
       create(
         :content_block,
-        organization: organization,
+        organization:,
         manifest_name: :hero,
         scope_name: :participatory_process_group_homepage,
         scoped_resource_id: participatory_process_group.id
@@ -95,7 +95,7 @@ describe "Admin manages participatory process group landing page", type: :system
     let!(:cta_content_block) do
       create(
         :content_block,
-        organization: organization,
+        organization:,
         scope_name: :participatory_process_group_homepage,
         scoped_resource_id: participatory_process_group.id,
         manifest_name: :cta,

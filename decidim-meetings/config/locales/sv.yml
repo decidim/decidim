@@ -100,7 +100,7 @@ sv:
           with_any_type:
             label: Mötestyp
             values:
-              hybrid: Båda
+              hybrid: Hybrid
               in_person: Fysiska
               online: Online
       meeting_copies:
@@ -182,9 +182,6 @@ sv:
           email_outro: Du har fått det här meddelandet eftersom du följer mötet "%{resource_title}". Du kan sluta följa det på föregående länk.
           email_subject: Mötet "%{resource_title}" börjar om färre än 48 timmar.
           notification_title: Mötet <a href="%{resource_path}">%{resource_title}</a> startar inom mindre än 48 timmar.
-    forms:
-      meetings:
-        attendees_count_help_text: Glöm inte att inkludera det totala antalet deltagare på ditt evenemang. Det är viktigt att hålla koll på hur många människor, oavsett om de deltog fysiskt eller online.
     gamification:
       badges:
         attended_meetings:
@@ -311,7 +308,6 @@ sv:
             select_a_meeting_type: Välj mötestyp
             select_a_registration_type: Välj en registreringsmetod
             select_an_iframe_access_level: Välj vem får tillgång till denna iframe
-            show_embedded_iframe_help: Endast ett fåtal tjänster tillåter inbäddning i möten eller live-event (t.ex. YouTube, Twitch och Jitsi)
           index:
             title: Möten
           new:
@@ -392,6 +388,8 @@ sv:
       calendar_modal:
         calendar_url: Kalender-URL
         close_window: Stäng fönster
+        copy_calendar_url: Kopiera
+        copy_calendar_url_copied: Kopierad!
         export_calendar: Exportera kalender
       conference_venues: Konferenslokaler
       content_blocks:
@@ -475,7 +473,7 @@ sv:
           type: Typ
           type_values:
             all: Allt
-            hybrid: Båda
+            hybrid: Hybrid
             in_person: Fysiska
             online: Online
         filters_small_view:
@@ -496,7 +494,6 @@ sv:
           select_a_meeting_type: Välj mötestyp
           select_a_registration_type: Välj en registreringsmetod
           select_an_iframe_access_level: Välj vem får tillgång till denna iframe
-          show_embedded_iframe_help: Endast ett fåtal tjänster tillåter inbäddning i möten eller live-event (t.ex. YouTube, Twitch och Jitsi)
         index:
           click_here: Se alla möten
           new_meeting: Nytt möte
@@ -566,7 +563,7 @@ sv:
           fields:
             closed: Stängd
             end_time: Slutdatum
-            id: Id
+            id: ID
             map: Karta
             official_meeting: Officiellt möte
             start_time: Startdatum
@@ -579,7 +576,6 @@ sv:
             empty_questions: Under hela mötet kommer några frågor att skickas och du kommer kunna svara på dem. De kommer att visas här.
           index_admin:
             admin_dashboard: Adminpanel
-            edit: Redigera i adminpanelen
             question: Fråga
             received_answer: mottaget svar
             received_answers: mottagna svar
@@ -617,7 +613,7 @@ sv:
           invalid: Det gick inte att lämna mötet.
           success: Du har lämnat mötet.
       type_of_meeting:
-        hybrid: Båda
+        hybrid: Hybrid
         in_person: Fysiska
         online: Online
       types:

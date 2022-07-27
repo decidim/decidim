@@ -6,8 +6,8 @@ describe Decidim::Initiatives::InitiativesController, type: :controller do
   routes { Decidim::Initiatives::Engine.routes }
 
   let(:organization) { create(:organization) }
-  let!(:initiative) { create(:initiative, organization: organization) }
-  let!(:created_initiative) { create(:initiative, :created, organization: organization) }
+  let!(:initiative) { create(:initiative, organization:) }
+  let!(:created_initiative) { create(:initiative, :created, organization:) }
 
   before do
     request.env["decidim.current_organization"] = organization
@@ -20,8 +20,20 @@ describe Decidim::Initiatives::InitiativesController, type: :controller do
       expect(subject.helpers.initiatives).not_to include(created_initiative)
     end
 
+    context "when no order is given" do
+      let(:voted_initiative) { create(:initiative, organization:) }
+      let!(:vote) { create(:initiative_user_vote, initiative: voted_initiative) }
+      let!(:initiatives_settings) { create(:initiatives_settings, :most_signed) }
+
+      it "return in the default order" do
+        get :index, params: { order: "most_voted" }
+
+        expect(subject.helpers.initiatives.first).to eq(voted_initiative)
+      end
+    end
+
     context "when order by most_voted" do
-      let(:voted_initiative) { create(:initiative, organization: organization) }
+      let(:voted_initiative) { create(:initiative, organization:) }
       let!(:vote) { create(:initiative_user_vote, initiative: voted_initiative) }
 
       it "most voted appears first" do
@@ -32,7 +44,7 @@ describe Decidim::Initiatives::InitiativesController, type: :controller do
     end
 
     context "when order by most recent" do
-      let!(:old_initiative) { create(:initiative, organization: organization, created_at: initiative.created_at - 12.months) }
+      let!(:old_initiative) { create(:initiative, organization:, created_at: initiative.created_at - 12.months) }
 
       it "most recent appears first" do
         get :index, params: { order: "recent" }
@@ -41,7 +53,7 @@ describe Decidim::Initiatives::InitiativesController, type: :controller do
     end
 
     context "when order by most recently published" do
-      let!(:old_initiative) { create(:initiative, organization: organization, published_at: initiative.published_at - 12.months) }
+      let!(:old_initiative) { create(:initiative, organization:, published_at: initiative.published_at - 12.months) }
 
       it "most recent appears first" do
         get :index, params: { order: "recently_published" }
@@ -50,7 +62,7 @@ describe Decidim::Initiatives::InitiativesController, type: :controller do
     end
 
     context "when order by most commented" do
-      let(:commented_initiative) { create(:initiative, organization: organization) }
+      let(:commented_initiative) { create(:initiative, organization:) }
       let!(:comment) { create(:comment, commentable: commented_initiative) }
 
       it "most commented appears fisrt" do
@@ -65,6 +77,11 @@ describe Decidim::Initiatives::InitiativesController, type: :controller do
       it "Shows published initiatives" do
         get :show, params: { slug: initiative.slug }
         expect(subject.helpers.current_initiative).to eq(initiative)
+      end
+
+      it "Returns 404 when there isn't an initiative" do
+        expect { get :show, params: { slug: "invalid-initiative" } }
+          .to raise_error(ActiveRecord::RecordNotFound)
       end
 
       it "Throws exception on non published initiatives" do
@@ -92,7 +109,7 @@ describe Decidim::Initiatives::InitiativesController, type: :controller do
     end
 
     let(:valid_attributes) do
-      attrs = attributes_for(:initiative, organization: organization)
+      attrs = attributes_for(:initiative, organization:)
       attrs[:signature_end_date] = I18n.l(attrs[:signature_end_date], format: :decidim_short)
       attrs[:signature_start_date] = I18n.l(attrs[:signature_start_date], format: :decidim_short)
       attrs[:type_id] = created_initiative.type.id
@@ -138,7 +155,7 @@ describe Decidim::Initiatives::InitiativesController, type: :controller do
             :created,
             :with_photos,
             :with_documents,
-            organization: organization
+            organization:
           )
         end
 

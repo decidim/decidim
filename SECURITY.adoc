@@ -7,6 +7,9 @@ Until we have the version 1.0 we support only the last minor and major version w
 |===
 | Version | Supported
 
+| 0.27.x
+| :white_check_mark:
+
 | 0.26.x
 | :white_check_mark:
 

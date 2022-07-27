@@ -4,9 +4,9 @@ require "spec_helper"
 
 describe "Vote online in an election", type: :system do
   let(:manifest_name) { "elections" }
-  let!(:election) { create :election, :bb_test, :vote, component: component }
+  let!(:election) { create :election, :bb_test, :vote, component: }
   let(:user) { create(:user, :confirmed, organization: component.organization) }
-  let!(:elections) { create_list(:election, 2, :vote, component: component) } # prevents redirect to single election page
+  let!(:elections) { create_list(:election, 2, :vote, component:) } # prevents redirect to single election page
   let(:router) { Decidim::EngineRouter.main_proxy(component).decidim_participatory_process_elections }
 
   before do
@@ -72,21 +72,21 @@ describe "Vote online in an election", type: :system do
   end
 
   context "when the election is not published" do
-    let(:election) { create :election, :upcoming, :complete, component: component }
+    let(:election) { create :election, :upcoming, :complete, component: }
 
     it_behaves_like "doesn't allow to vote"
     it_behaves_like "allows admins to preview the voting booth"
   end
 
   context "when the election has not started yet" do
-    let(:election) { create :election, :upcoming, :published, :complete, component: component }
+    let(:election) { create :election, :upcoming, :published, :complete, component: }
 
     it_behaves_like "doesn't allow to vote"
     it_behaves_like "allows admins to preview the voting booth"
   end
 
   context "when the election has finished" do
-    let(:election) { create :election, :finished, :published, :complete, component: component }
+    let(:election) { create :election, :finished, :published, :complete, component: }
 
     it_behaves_like "doesn't allow to vote"
     it_behaves_like "doesn't allow admins to preview the voting booth"
@@ -102,7 +102,7 @@ describe "Vote online in an election", type: :system do
         }
       }
 
-      component.update!(permissions: permissions)
+      component.update!(permissions:)
     end
 
     it "shows a modal dialog" do
@@ -115,7 +115,7 @@ describe "Vote online in an election", type: :system do
     end
 
     context "when the election has not started yet" do
-      let(:election) { create :election, :upcoming, :published, :complete, component: component }
+      let(:election) { create :election, :upcoming, :published, :complete, component: }
 
       it_behaves_like "allows admins to preview the voting booth"
     end
@@ -131,7 +131,7 @@ describe "Vote online in an election", type: :system do
         }
       }
 
-      election.create_resource_permission(permissions: permissions)
+      election.create_resource_permission(permissions:)
     end
 
     it "shows a modal dialog" do
@@ -144,7 +144,7 @@ describe "Vote online in an election", type: :system do
     end
 
     context "when the election has not started yet" do
-      let(:election) { create :election, :upcoming, :published, :complete, component: component }
+      let(:election) { create :election, :upcoming, :published, :complete, component: }
 
       it_behaves_like "allows admins to preview the voting booth"
     end
@@ -162,6 +162,25 @@ describe "Vote online in an election", type: :system do
       end
 
       expect(page).to have_content("Next")
+    end
+  end
+
+  context "when the comunication with bulletin board fails" do
+    before do
+      election.questions.last.destroy!
+      election.questions.last.destroy!
+      election.questions.last.destroy!
+      allow(Decidim::Elections.bulletin_board).to receive(:bulletin_board_server).and_return("http://idontexist.tld/api")
+    end
+
+    it "alerts the user about the error" do
+      visit_component
+      click_link translated(election.title)
+      click_link "Start voting"
+
+      within "#server-failure" do
+        expect(page).to have_content("Something went wrong")
+      end
     end
   end
 end

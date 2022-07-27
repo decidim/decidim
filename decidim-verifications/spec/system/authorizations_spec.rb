@@ -10,7 +10,7 @@ describe "Authorizations", type: :system, with_authorization_workflows: ["dummy_
   context "when a new user" do
     let(:organization) { create :organization, available_authorizations: authorizations }
 
-    let(:user) { create(:user, :confirmed, organization: organization) }
+    let(:user) { create(:user, :confirmed, organization:) }
 
     context "when one authorization has been configured" do
       let(:authorizations) { ["dummy_authorization_handler"] }
@@ -21,7 +21,7 @@ describe "Authorizations", type: :system, with_authorization_workflows: ["dummy_
 
         within "form.new_user" do
           fill_in :session_user_email, with: user.email
-          fill_in :session_user_password, with: "decidim123456"
+          fill_in :session_user_password, with: "decidim123456789"
           find("*[type=submit]").click
         end
       end
@@ -51,7 +51,7 @@ describe "Authorizations", type: :system, with_authorization_workflows: ["dummy_
 
         within "form.new_user" do
           fill_in :session_user_email, with: user.email
-          fill_in :session_user_password, with: "decidim123456"
+          fill_in :session_user_password, with: "decidim123456789"
           find("*[type=submit]").click
         end
       end
@@ -64,7 +64,7 @@ describe "Authorizations", type: :system, with_authorization_workflows: ["dummy_
 
   context "when existing user from their account" do
     let(:organization) { create :organization, available_authorizations: authorizations }
-    let(:user) { create(:user, :confirmed, organization: organization) }
+    let(:user) { create(:user, :confirmed, organization:) }
 
     before do
       login_as user, scope: :user
@@ -120,7 +120,7 @@ describe "Authorizations", type: :system, with_authorization_workflows: ["dummy_
       let(:authorizations) { ["dummy_authorization_handler"] }
 
       let!(:authorization) do
-        create(:authorization, name: "dummy_authorization_handler", user: user)
+        create(:authorization, name: "dummy_authorization_handler", user:)
       end
 
       it "shows the authorization at their account" do
@@ -138,7 +138,7 @@ describe "Authorizations", type: :system, with_authorization_workflows: ["dummy_
       context "when the authorization is renewable" do
         describe "and still not over the waiting period" do
           let!(:authorization) do
-            create(:authorization, name: "dummy_authorization_handler", user: user, granted_at: 1.minute.ago)
+            create(:authorization, name: "dummy_authorization_handler", user:, granted_at: 1.minute.ago)
           end
 
           it "can't be renewed yet" do
@@ -157,7 +157,7 @@ describe "Authorizations", type: :system, with_authorization_workflows: ["dummy_
 
         describe "and passed the time between renewals" do
           let!(:authorization) do
-            create(:authorization, name: "dummy_authorization_handler", user: user, granted_at: 6.minutes.ago)
+            create(:authorization, name: "dummy_authorization_handler", user:, granted_at: 6.minutes.ago)
           end
 
           it "can be renewed" do
@@ -209,7 +209,7 @@ describe "Authorizations", type: :system, with_authorization_workflows: ["dummy_
 
       context "when the authorization has not expired yet" do
         let!(:authorization) do
-          create(:authorization, name: "dummy_authorization_handler", user: user, granted_at: 2.seconds.ago)
+          create(:authorization, name: "dummy_authorization_handler", user:, granted_at: 2.seconds.ago)
         end
 
         it "can't be renewed yet" do
@@ -228,7 +228,7 @@ describe "Authorizations", type: :system, with_authorization_workflows: ["dummy_
 
       context "when the authorization has expired" do
         let!(:authorization) do
-          create(:authorization, name: "dummy_authorization_handler", user: user, granted_at: 2.months.ago)
+          create(:authorization, name: "dummy_authorization_handler", user:, granted_at: 2.months.ago)
         end
 
         it "can be renewed" do

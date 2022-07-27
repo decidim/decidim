@@ -56,16 +56,12 @@
         short_description: Kort beskrivelse
         start_date: Startdato
         title: Tittel
+      participatory_process_type:
+        title: Tittel
       participatory_process_user_role:
         email: Epost
         name: Navn
         role: Rolle
-    errors:
-      models:
-        participatory_process:
-          attributes:
-            document:
-              invalid_document_type: 'Ugyldig filtype. Godkjente formater er: %{valid_mime_types}'
     models:
       decidim/participatory_process_step_activated_event: Fase er aktivert
       decidim/participatory_process_step_changed_event: Fase endret
@@ -96,6 +92,7 @@
         new_process: Ny prosess
         new_process_group: Ny prosessgruppe
         new_process_step: Ny medvirkningsfase
+        new_process_type: Ny prosesstype
         new_process_user_role: Ny prosessadministrator
         preview: Forhåndsvis
         publish: Publiser
@@ -105,7 +102,8 @@
         participatory_process_groups: Prosessgrupper
         participatory_process_groups_submenu:
           info: Informasjon
-          landing_page: Startsiden
+          landing_page: Landingsside
+        participatory_process_types: Prosesstyper
         participatory_processes: Prosesser
         participatory_processes_submenu:
           attachment_collections: Mapper
@@ -137,6 +135,11 @@
             start_date: Startdato
             title: Tittel
           name: Medvirkningsfase
+        participatory_process_type:
+          fields:
+            created_at: Opprettet
+            title: Tittel
+          name: Prosesstype
         participatory_process_user_role:
           fields:
             email: Epost
@@ -219,6 +222,10 @@
         update:
           error: Det oppstod et problem med å oppdatere denne medvirkningsfasen.
           success: Medvirkningsfase oppdatert.
+      participatory_process_types:
+        create:
+          error: Det oppstod et problem med å lage en ny prosesstype.
+          success: Prosesstypen ble opprettet.
       participatory_process_user_roles:
         create:
           error: Det oppstod et problem med å legge til en deltaker for denne prosessen.
@@ -384,6 +391,7 @@
             related_processes: Relaterte prosesser
             scope_type_max_depth_help: Begrens temaets filternivå; Filteret viser fra generelt til valgt tematype.
             select_an_area: Velg et Område
+            select_participatory_process_type: Velg en type prosess
             select_process_group: Velg en prosessgruppe
             slug_help: 'URL-navn brukes til å generere nettadressene som peker på denne prosessen. Godtar bare bokstaver, tall og bindestreker, og må starte med en bokstav. Eksempel: %{url}'
             title: Generell informasjon
@@ -410,6 +418,7 @@
           back_to_process: Tilbake til prosesssiden
       participatory_processes:
         filters:
+          all_types: Alle prosesser
           counters:
             active:
               one: 1 aktiv prosess
@@ -427,6 +436,7 @@
             no_active: Ingen aktive prosesser
             no_active_nor_upcoming: Ingen aktive eller kommende prosesser
             no_active_nor_upcoming_callout: Det er ingen aktive eller kommende prosesser. Her er en liste over de som har vært.
+          filter_by: Vis
           names:
             active: Aktiv
             all: Alle
@@ -435,6 +445,8 @@
           see: Se
         index:
           loading: Laster inn resultater...
+        show:
+          title: Om denne prosessen
       show:
         area: Område
         belongs_to_group: Denne prosessen tilhører

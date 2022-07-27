@@ -12,14 +12,14 @@ module Decidim
           let!(:proposal_component) do
             create(
               :proposal_component,
-              organization: organization
+              organization:
             )
           end
           let!(:current_component) do
             create(
               :proposal_component,
               participatory_space: proposal_component.participatory_space,
-              organization: organization
+              organization:
             )
           end
 
@@ -27,14 +27,14 @@ module Decidim
             instance_double(
               ProposalsImportForm,
               origin_component: proposal_component,
-              current_component: current_component,
+              current_component:,
               current_organization: organization,
-              keep_authors: keep_authors,
-              keep_answers: keep_answers,
-              states: states,
-              scopes: scopes,
-              scope_ids: scope_ids,
-              current_user: create(:user, organization: organization),
+              keep_authors:,
+              keep_answers:,
+              states:,
+              scopes:,
+              scope_ids:,
+              current_user: create(:user, organization:),
               valid?: valid
             )
           end
@@ -55,7 +55,7 @@ module Decidim
             it "doesn't create the proposal" do
               expect do
                 command.call
-              end.to change(Proposal, :count).by(0)
+              end.not_to change(Proposal, :count)
             end
           end
 
@@ -165,15 +165,15 @@ module Decidim
 
             describe "proposal scopes" do
               let(:states) { ProposalsImportForm::VALID_STATES.dup }
-              let(:scope) { create(:scope, organization: organization) }
-              let(:other_scope) { create(:scope, organization: organization) }
+              let(:scope) { create(:scope, organization:) }
+              let(:other_scope) { create(:scope, organization:) }
 
               let(:scopes) { [scope] }
               let(:scope_ids) { [scope.id] }
 
               let!(:proposals) do
                 [
-                  create(:proposal, component: proposal_component, scope: scope),
+                  create(:proposal, component: proposal_component, scope:),
                   create(:proposal, component: proposal_component, scope: other_scope)
                 ]
               end

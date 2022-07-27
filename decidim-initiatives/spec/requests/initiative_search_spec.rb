@@ -6,37 +6,38 @@ RSpec.describe "Initiative search", type: :request do
   subject { response.body }
 
   let(:organization) { create :organization }
-  let(:type1) { create :initiatives_type, organization: organization }
-  let(:type2) { create :initiatives_type, organization: organization }
+  let(:type1) { create :initiatives_type, organization: }
+  let(:type2) { create :initiatives_type, organization: }
   let(:scoped_type1) { create :initiatives_type_scope, type: type1 }
   let(:scoped_type2) { create :initiatives_type_scope, type: type2 }
-  let(:user1) { create(:user, :confirmed, organization: organization, name: "John McDoggo", nickname: "john_mcdoggo") }
-  let(:user2) { create(:user, :confirmed, organization: organization, nickname: "doggotrainer") }
-  let(:group1) { create(:user_group, :confirmed, organization: organization, name: "The Doggo House", nickname: "the_doggo_house") }
-  let(:group2) { create(:user_group, :confirmed, organization: organization, nickname: "thedoggokeeper") }
-  let(:area1) { create(:area, organization: organization) }
-  let(:area2) { create(:area, organization: organization) }
+  let(:user1) { create(:user, :confirmed, organization:, name: "John McDoggo", nickname: "john_mcdoggo") }
+  let(:user2) { create(:user, :confirmed, organization:, nickname: "doggotrainer") }
+  let(:group1) { create(:user_group, :confirmed, organization:, name: "The Doggo House", nickname: "the_doggo_house") }
+  let(:group2) { create(:user_group, :confirmed, organization:, nickname: "thedoggokeeper") }
+  let(:area1) { create(:area, organization:) }
+  let(:area2) { create(:area, organization:) }
 
-  let!(:initiative1) { create(:initiative, id: 999_999, title: { en: "A doggo" }, scoped_type: scoped_type1, organization: organization) }
-  let!(:initiative2) { create(:initiative, description: { en: "There is a doggo in the office" }, scoped_type: scoped_type2, organization: organization) }
-  let!(:initiative3) { create(:initiative, organization: organization) }
-  let!(:area1_initiative) { create(:initiative, organization: organization, area: area1) }
-  let!(:area2_initiative) { create(:initiative, organization: organization, area: area2) }
-  let!(:user1_initiative) { create(:initiative, organization: organization, author: user1) }
-  let!(:user2_initiative) { create(:initiative, organization: organization, author: user2) }
-  let!(:group1_initiative) { create(:initiative, organization: organization, author: group1) }
-  let!(:group2_initiative) { create(:initiative, organization: organization, author: group2) }
-  let!(:closed_initiative) { create(:initiative, :acceptable, organization: organization) }
-  let!(:accepted_initiative) { create(:initiative, :accepted, organization: organization) }
-  let!(:rejected_initiative) { create(:initiative, :rejected, organization: organization) }
-  let!(:answered_rejected_initiative) { create(:initiative, :rejected, organization: organization, answered_at: Time.current) }
-  let!(:created_initiative) { create(:initiative, :created, organization: organization) }
-  let!(:user1_created_initiative) { create(:initiative, :created, organization: organization, author: user1, signature_start_date: Date.current + 2.days, signature_end_date: Date.current + 22.days) }
+  let!(:initiative1) { create(:initiative, id: 999_999, title: { en: "A doggo" }, scoped_type: scoped_type1, organization:) }
+  let!(:initiative2) { create(:initiative, description: { en: "There is a doggo in the office" }, scoped_type: scoped_type2, organization:) }
+  let!(:initiative3) { create(:initiative, organization:) }
+  let!(:area1_initiative) { create(:initiative, organization:, area: area1) }
+  let!(:area2_initiative) { create(:initiative, organization:, area: area2) }
+  let!(:user1_initiative) { create(:initiative, organization:, author: user1) }
+  let!(:user2_initiative) { create(:initiative, organization:, author: user2) }
+  let!(:group1_initiative) { create(:initiative, organization:, author: group1) }
+  let!(:group2_initiative) { create(:initiative, organization:, author: group2) }
+  let!(:closed_initiative) { create(:initiative, :acceptable, organization:) }
+  let!(:accepted_initiative) { create(:initiative, :accepted, organization:) }
+  let!(:rejected_initiative) { create(:initiative, :rejected, organization:) }
+  let!(:answered_rejected_initiative) { create(:initiative, :rejected, organization:, answered_at: Time.current) }
+  let!(:created_initiative) { create(:initiative, :created, organization:) }
+  let!(:user1_created_initiative) { create(:initiative, :created, organization:, author: user1, signature_start_date: Date.current + 2.days, signature_end_date: Date.current + 22.days) }
 
   let(:filter_params) { {} }
   let(:request_path) { decidim_initiatives.initiatives_path }
 
   before do
+    stub_const("Decidim::Paginable::OPTIONS", [100])
     get(
       request_path,
       params: { filter: filter_params },
@@ -292,7 +293,7 @@ RSpec.describe "Initiative search", type: :request do
   end
 
   context "when filtering by author" do
-    let(:filter_params) { { with_any_state: %w(open closed), author: author } }
+    let(:filter_params) { { with_any_state: %w(open closed), author: } }
 
     before do
       login_as user1, scope: :user

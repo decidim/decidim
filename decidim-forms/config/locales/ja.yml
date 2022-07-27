@@ -121,6 +121,9 @@ ja:
           update:
             invalid: フォームの保存に失敗しました。
             success: フォームを保存しました。
+      admin_log:
+        questionnaire:
+          update: "%{user_name} が %{resource_name} アンケートを更新しました"
       errors:
         answer:
           body: 本文は空白にできません

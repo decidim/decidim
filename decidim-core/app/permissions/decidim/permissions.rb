@@ -150,7 +150,7 @@ module Decidim
       user_group = context.fetch(:user_group)
 
       if permission_action.action == :leave
-        user_can_leave_group = Decidim::UserGroupMembership.where(user: user, user_group: user_group).any?
+        user_can_leave_group = Decidim::UserGroupMembership.where(user:, user_group:).any?
         return toggle_allow(user_can_leave_group)
       end
 
@@ -194,7 +194,7 @@ module Decidim
     end
 
     def not_already_active?(authorization)
-      Verifications::Authorizations.new(organization: user.organization, user: user, name: authorization.name).none?
+      Verifications::Authorizations.new(organization: user.organization, user:, name: authorization.name).none?
     end
 
     def user_manager_permissions

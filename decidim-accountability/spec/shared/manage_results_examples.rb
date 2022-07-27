@@ -27,7 +27,7 @@ shared_examples "manage results" do
   end
 
   context "when having existing proposals" do
-    let!(:proposal_component) { create(:proposal_component, participatory_space: participatory_space) }
+    let!(:proposal_component) { create(:proposal_component, participatory_space:) }
     let!(:proposals) { create_list :proposal, 5, component: proposal_component, skip_injection: true }
 
     it "updates a result" do

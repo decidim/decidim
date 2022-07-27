@@ -1,3 +1,4 @@
+<!-- REDESIGN_PENDING: Remove when redesigned is finished -->
 <div class="main-footer">
   <% if current_organization.official_img_footer.attached? %>
     <%= link_to current_organization.official_url, class: "main-footer__badge" do %>
@@ -22,6 +23,7 @@
             <% end %>
           <% end %>
           <li><%= link_to t("layouts.decidim.footer.download_open_data"), decidim.open_data_download_path %></li>
+          <li><a href="#" data-open="cc-modal"><%= t("layouts.decidim.footer.cookie_settings") %></a></li>
         </ul>
       </nav>
     </div>

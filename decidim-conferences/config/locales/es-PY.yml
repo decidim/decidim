@@ -61,7 +61,7 @@ es-PY:
         full_name: Nombre completo
         personal_url: URL personal
         position: Cargo
-        short_bio: Breve Biografía
+        short_bio: Breve biografía
         twitter_handle: Cuenta de Twitter
         user_id: Usuaria
       conference_user_role:

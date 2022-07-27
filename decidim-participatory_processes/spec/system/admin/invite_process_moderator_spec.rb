@@ -19,8 +19,8 @@ describe "Invite process moderator", type: :system do
 
       within "form.new_user" do
         fill_in :invitation_user_nickname, with: "caballo_loco"
-        fill_in :invitation_user_password, with: "decidim123456"
-        fill_in :invitation_user_password_confirmation, with: "decidim123456"
+        fill_in :invitation_user_password, with: "decidim123456789"
+        fill_in :invitation_user_password_confirmation, with: "decidim123456789"
         check :invitation_user_tos_agreement
         find("*[type=submit]").click
       end
@@ -48,7 +48,7 @@ describe "Invite process moderator", type: :system do
     let(:email) { "moderator@example.org" }
 
     let!(:moderator) do
-      create :user, :confirmed, :admin_terms_accepted, email: email, organization: organization
+      create :user, :confirmed, :admin_terms_accepted, email:, organization:
     end
 
     before do

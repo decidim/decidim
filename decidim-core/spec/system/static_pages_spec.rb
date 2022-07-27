@@ -4,9 +4,9 @@ require "spec_helper"
 
 describe "Static pages", type: :system do
   let(:organization) { create(:organization) }
-  let!(:page1) { create(:static_page, :with_topic, organization: organization) }
-  let!(:page2) { create(:static_page, :with_topic, organization: organization) }
-  let!(:page3) { create(:static_page, organization: organization) }
+  let!(:page1) { create(:static_page, :with_topic, organization:) }
+  let!(:page2) { create(:static_page, :with_topic, organization:) }
+  let!(:page3) { create(:static_page, organization:) }
   let(:user) { nil }
 
   before do
@@ -36,6 +36,44 @@ describe "Static pages", type: :system do
     context "when visiting a single page without topic" do
       it_behaves_like "accessible page" do
         before { visit decidim.page_path(page3) }
+      end
+    end
+
+    context "when page content has embedded iframe" do
+      let!(:video_page) { create(:static_page, :with_topic, content:, organization:) }
+      let(:content) { { "en" => %(<p>foo</p><p><br></p><iframe class="ql-video" allowfullscreen="true" src="#{iframe_src}" frameborder="0"></iframe><p><br></p><p>bar</p>) } }
+      let(:iframe_src) { "http://www.example.org" }
+
+      before do
+        stub_request(:get, iframe_src)
+          .to_return(status: 200, body: "foo", headers: { "Content-Type" => "text/plain" })
+        visit decidim.pages_path
+      end
+
+      context "when cookies are rejected" do
+        before do
+          click_link "Cookie settings"
+          click_button "Accept only essential"
+        end
+
+        it "disables iframe" do
+          visit decidim.page_path(video_page)
+          expect(page).to have_content("You need to enable all cookies in order to see this content")
+          expect(page).not_to have_selector("iframe")
+        end
+      end
+
+      context "when cookies are accepted" do
+        before do
+          click_link "Cookie settings"
+          click_button "Accept all"
+        end
+
+        it "shows iframe" do
+          visit decidim.page_path(video_page)
+          expect(page).not_to have_content("You need to enable all cookies in order to see this content")
+          expect(page).to have_selector("iframe", count: 1)
+        end
       end
     end
   end
@@ -68,7 +106,7 @@ describe "Static pages", type: :system do
     it_behaves_like "requesting with very long URL parameters"
 
     context "when authenticated" do
-      let(:user) { create :user, :confirmed, organization: organization }
+      let(:user) { create :user, :confirmed, organization: }
 
       it_behaves_like "requesting with very long URL parameters"
     end

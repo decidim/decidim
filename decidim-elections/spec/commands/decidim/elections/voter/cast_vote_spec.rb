@@ -8,25 +8,29 @@ describe Decidim::Elections::Voter::CastVote do
   let(:form) do
     double(
       invalid?: invalid,
-      encrypted_data: encrypted_data,
-      encrypted_data_hash: encrypted_data_hash,
-      election: election,
-      election_id: election_id,
-      voter_id: voter_id,
-      bulletin_board: bulletin_board,
-      user: user,
-      email: email,
+      encrypted_data:,
+      encrypted_data_hash:,
+      election:,
+      election_id:,
+      voter_id:,
+      bulletin_board:,
+      user:,
+      email:,
       current_organization: organization
     )
   end
   let(:invalid) { false }
-  let(:encrypted_data) { { question_1: "aNsWeR 1" }.to_json }
+  let(:encrypted_data) do
+    # rubocop:disable Naming/VariableNumber
+    { question_1: "aNsWeR 1" }.to_json
+    # rubocop:enable Naming/VariableNumber
+  end
   let(:encrypted_data_hash) { "1234" }
   let(:election) { create(:election) }
   let(:election_id) { election.id }
   let(:voter_id) { "voter.1" }
   let(:organization) { create(:organization) }
-  let(:user) { create :user, :confirmed, organization: organization }
+  let(:user) { create :user, :confirmed, organization: }
   let(:email) { "an_email@example.org" }
   let(:cast_vote_method) { :cast_vote }
 

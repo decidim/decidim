@@ -123,6 +123,9 @@ module Decidim
 
         if branch.present?
           get target_gemfile, "Gemfile", force: true
+          append_file "Gemfile", %(\ngem "net-imap", "~> 0.2.3", group: :development)
+          append_file "Gemfile", %(\ngem "net-pop", "~> 0.1.1", group: :development)
+          append_file "Gemfile", %(\ngem "net-smtp", "~> 0.3.1", group: :development)
           get "#{target_gemfile}.lock", "Gemfile.lock", force: true
         else
           copy_file target_gemfile, "Gemfile", force: true
@@ -221,8 +224,29 @@ module Decidim
         prepend_to_file "config/spring.rb", "require \"decidim/spring\"\n\n"
       end
 
-      def add_ignore_uploads
-        append_file ".gitignore", "\n# Ignore public uploads\npublic/uploads" unless options["skip_git"]
+      def modify_gitignore
+        return if options[:skip_git]
+
+        append_file ".gitignore", <<~GITIGNORE
+
+          # Ignore env configuration files
+          .env
+          .envrc
+          .rbenv-vars
+
+          # Ignore the files and folders generated through Webpack
+          /public/decidim-packs
+          /public/packs-test
+          /public/sw.js
+          /public/sw.js.map
+
+          # Ignore node modules
+          /node_modules
+        GITIGNORE
+      end
+
+      def add_ignore_tailwind_configuration
+        append_file ".gitignore", "\n\n# Ignore Tailwind configuration\ntailwind.config.js" unless options["skip_git"]
       end
 
       def remove_default_error_pages

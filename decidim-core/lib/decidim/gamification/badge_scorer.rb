@@ -94,13 +94,13 @@ module Decidim
         if previous_level.zero?
           publish_event(name: "decidim.events.gamification.badge_earned",
                         klass: BadgeEarnedEvent,
-                        previous_level: previous_level,
-                        current_level: current_level)
+                        previous_level:,
+                        current_level:)
         else
           publish_event(name: "decidim.events.gamification.level_up",
                         klass: LevelUpEvent,
-                        previous_level: previous_level,
-                        current_level: current_level)
+                        previous_level:,
+                        current_level:)
         end
       end
 
@@ -112,8 +112,8 @@ module Decidim
           affected_users: recipients,
           extra: {
             badge_name: @badge.name.to_s,
-            previous_level: previous_level,
-            current_level: current_level
+            previous_level:,
+            current_level:
           }
         )
       end

@@ -9,6 +9,8 @@ module Decidim
       include Decidim::DeviseControllers
       include NeedsTosAccepted
 
+      helper Decidim::PasswordsHelper
+
       before_action :check_sign_up_enabled
       before_action :configure_permitted_parameters
 
@@ -21,7 +23,7 @@ module Decidim
       end
 
       def create
-        @form = form(RegistrationForm).from_params(params[:user].merge(current_locale: current_locale))
+        @form = form(RegistrationForm).from_params(params[:user].merge(current_locale:))
 
         CreateRegistration.call(@form) do
           on(:ok) do |user|

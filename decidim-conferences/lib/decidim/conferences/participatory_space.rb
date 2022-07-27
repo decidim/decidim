@@ -35,8 +35,8 @@ Decidim.register_participatory_space(:conferences) do |participatory_space|
   end
 
   participatory_space.register_on_destroy_account do |user|
-    Decidim::ConferenceUserRole.where(user: user).destroy_all
-    Decidim::ConferenceSpeaker.where(user: user).destroy_all
+    Decidim::ConferenceUserRole.where(user:).destroy_all
+    Decidim::ConferenceSpeaker.where(user:).destroy_all
   end
 
   participatory_space.seeds do
@@ -44,7 +44,7 @@ Decidim.register_participatory_space(:conferences) do |participatory_space|
     seeds_root = File.join(__dir__, "..", "..", "..", "db", "seeds")
 
     Decidim::ContentBlock.create(
-      organization: organization,
+      organization:,
       weight: 33,
       scope_name: :homepage,
       manifest_name: :highlighted_conferences,
@@ -63,7 +63,7 @@ Decidim.register_participatory_space(:conferences) do |participatory_space|
         description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
           Decidim::Faker::Localized.paragraph(sentence_count: 3)
         end,
-        organization: organization,
+        organization:,
         hero_image: ActiveStorage::Blob.create_and_upload!(
           io: File.open(File.join(seeds_root, "city.jpeg")),
           filename: "hero_image.jpeg",
@@ -95,22 +95,22 @@ Decidim.register_participatory_space(:conferences) do |participatory_space|
       Decidim::ConferenceUserRole::ROLES.each do |role|
         email = "conference_#{conference.id}_#{role}@example.org"
 
-        user = Decidim::User.find_or_initialize_by(email: email)
+        user = Decidim::User.find_or_initialize_by(email:)
         user.update!(
           name: Faker::Name.name,
           nickname: Faker::Twitter.unique.screen_name,
-          password: "decidim123456",
-          password_confirmation: "decidim123456",
-          organization: organization,
+          password: "decidim123456789",
+          password_confirmation: "decidim123456789",
+          organization:,
           confirmed_at: Time.current,
           locale: I18n.default_locale,
           tos_agreement: true
         )
 
         Decidim::ConferenceUserRole.find_or_create_by!(
-          user: user,
-          conference: conference,
-          role: role
+          user:,
+          conference:,
+          role:
         )
       end
 
@@ -123,7 +123,7 @@ Decidim.register_participatory_space(:conferences) do |participatory_space|
       Decidim::Attachment.create!(
         title: Decidim::Faker::Localized.sentence(word_count: 2),
         description: Decidim::Faker::Localized.sentence(word_count: 5),
-        attachment_collection: attachment_collection,
+        attachment_collection:,
         attached_to: conference,
         content_type: "application/pdf",
         file: ActiveStorage::Blob.create_and_upload!(
@@ -181,7 +181,7 @@ Decidim.register_participatory_space(:conferences) do |participatory_space|
           end,
           twitter_handle: Faker::Twitter.unique.screen_name,
           personal_url: Faker::Internet.url,
-          conference: conference
+          conference:
         )
       end
 
@@ -192,7 +192,7 @@ Decidim.register_participatory_space(:conferences) do |participatory_space|
             weight: Faker::Number.between(from: 1, to: 10),
             link: Faker::Internet.url,
             partner_type: type,
-            conference: conference,
+            conference:,
             logo: ActiveStorage::Blob.create_and_upload!(
               io: File.open(File.join(seeds_root, "logo.png")),
               filename: "logo.png",
@@ -209,7 +209,7 @@ Decidim.register_participatory_space(:conferences) do |participatory_space|
           link: Faker::Internet.url,
           date: Date.current,
           weight: Faker::Number.between(from: 1, to: 10),
-          conference: conference
+          conference:
         )
       end
 
@@ -220,7 +220,7 @@ Decidim.register_participatory_space(:conferences) do |participatory_space|
           weight: Faker::Number.between(from: 1, to: 10),
           price: Faker::Number.between(from: 1, to: 300),
           published_at: 2.weeks.ago,
-          conference: conference
+          conference:
         )
       end
 
@@ -233,7 +233,7 @@ Decidim.register_participatory_space(:conferences) do |participatory_space|
 
         conference.speakers.sample(3).each do |speaker|
           Decidim::ConferenceSpeakerConferenceMeeting.create!(
-            conference_meeting: conference_meeting,
+            conference_meeting:,
             conference_speaker: speaker
           )
         end

@@ -7,6 +7,7 @@ module Decidim
     shared_examples_for "CreateCategory command" do
       describe "call" do
         let(:organization) { create(:organization) }
+        let(:user) { create(:user, organization:) }
         let(:form_params) do
           {
             "category" => {
@@ -24,7 +25,7 @@ module Decidim
             current_organization: organization
           )
         end
-        let(:command) { described_class.new(form, participatory_space) }
+        let(:command) { described_class.new(form, participatory_space, user) }
 
         describe "when the form is not valid" do
           before do
@@ -51,6 +52,18 @@ module Decidim
             expect do
               command.call
             end.to change(participatory_space.categories, :count).by(1)
+          end
+
+          it "traces the action", versioning: true do
+            expect(Decidim.traceability)
+              .to receive(:perform_action!)
+              .with(:create, Decidim::Category, user, {})
+              .and_call_original
+
+            expect { command.call }.to change(Decidim::ActionLog, :count)
+            action_log = Decidim::ActionLog.last
+            expect(action_log.action).to eq("create")
+            expect(action_log.version).to be_present
           end
         end
       end

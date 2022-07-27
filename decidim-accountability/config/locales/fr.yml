@@ -21,6 +21,7 @@ fr:
       timeline_entry:
         description: Description
         entry_date: Date
+        title: Titre
     models:
       decidim/accountability/proposal_linked_event: Proposition incluse dans une réalisation
       decidim/accountability/result_progress_updated_event: Résultat du progrès mis à jour
@@ -121,6 +122,14 @@ fr:
           create: "%{user_name} a créé la réalisation %{resource_name} dans %{space_name}"
           delete: "%{user_name} a supprimé la réalisation %{resource_name} dans %{space_name}"
           update: "%{user_name} a mis à jour la réalisation %{resource_name} dans %{space_name}"
+        status:
+          create: "%{user_name} a créé le statut %{resource_name}"
+          delete: "%{user_name} a supprimé le statut %{resource_name}"
+          update: "%{user_name} a mis à jour le statut %{resource_name}"
+        timeline_entry:
+          create: "%{user_name} a créé l'étape d'évolution de la réalisation %{resource_name}"
+          delete: "%{user_name} a supprimé l'étape d'évolution de la réalisation %{resource_name}"
+          update: "%{user_name} a mis à jour l'étape d'évolution de la réalisation %{resource_name}"
         value_types:
           parent_presenter:
             not_found: 'Le parent n''a pas été trouvé dans la base de données (ID: %{id})'
@@ -158,8 +167,8 @@ fr:
             progress: Avancement
         timeline_entry:
           fields:
-            description: Description
             entry_date: Date
+            title: Titre
       result_m:
         executed: Exécuté
         view: Voir
@@ -225,12 +234,12 @@ fr:
       accountability:
         proposal_linked:
           email_intro: 'La proposition "%{proposal_title}" a été incluse dans une réalisation. Vous pouvez le voir sur cette page :'
-          email_outro: Vous avez reçu cette notification parce que vous suivez "%{proposal_title}". Vous pouvez arrêter de recevoir des notifications à partir du lien précédent.
+          email_outro: Vous avez reçu cette notification parce que vous suivez "%{proposal_title}". Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l'onglet “Mon compte” > “Paramètres des notifications”.
           email_subject: Une mise à jour de %{proposal_title}
           notification_title: La proposition <a href="%{proposal_path}">%{proposal_title}</a> a été incluse dans la réalisation <a href="%{resource_path}">%{resource_title}</a>.
         result_progress_updated:
           email_intro: 'Le résultat "%{resource_title}", qui inclut la proposition "%{proposal_title}", est maintenant terminé à %{progress}%. Vous pouvez le voir sur cette page:'
-          email_outro: Vous avez reçu cette notification car vous suivez "%{proposal_title}" et cette proposition est incluse dans le résultat "%{resource_title}". Vous pouvez cesser de recevoir des notifications en suivant le lien précédent.
+          email_outro: Vous avez reçu cette notification car vous suivez "%{proposal_title}" et cette proposition est incluse dans le résultat "%{resource_title}". Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l'onglet “Mon compte” > “Paramètres des notifications”.
           email_subject: Une mise à jour à %{resource_title} progress
           notification_title: Le résultat <a href="%{resource_path}">%{resource_title}</a>, qui inclut la proposition <a href="%{proposal_path}">%{proposal_title}</a>, est désormais achevé à %{progress}%.
     metrics:

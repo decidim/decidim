@@ -6,11 +6,11 @@ describe Decidim::Debates::Admin::CreateDebate do
   subject { described_class.new(form) }
 
   let(:organization) { create :organization, available_locales: [:en, :ca, :es], default_locale: :en }
-  let(:participatory_process) { create :participatory_process, organization: organization }
+  let(:participatory_process) { create :participatory_process, organization: }
   let(:current_component) { create :component, participatory_space: participatory_process, manifest_name: "debates" }
-  let(:scope) { create :scope, organization: organization }
+  let(:scope) { create :scope, organization: }
   let(:category) { create :category, participatory_space: participatory_process }
-  let(:user) { create :user, :admin, :confirmed, organization: organization }
+  let(:user) { create :user, :admin, :confirmed, organization: }
   let(:form) do
     double(
       invalid?: invalid,
@@ -20,12 +20,12 @@ describe Decidim::Debates::Admin::CreateDebate do
       instructions: { en: "instructions" },
       start_time: 1.day.from_now,
       end_time: 1.day.from_now + 1.hour,
-      scope: scope,
-      category: category,
+      scope:,
+      category:,
       current_user: user,
-      current_component: current_component,
+      current_component:,
       current_organization: organization,
-      finite: finite,
+      finite:,
       comments_enabled: true
     )
   end
@@ -44,7 +44,7 @@ describe Decidim::Debates::Admin::CreateDebate do
     let(:debate) { Decidim::Debates::Debate.last }
 
     it "creates the debate" do
-      expect { subject.call }.to change { Decidim::Debates::Debate.count }.by(1)
+      expect { subject.call }.to change(Decidim::Debates::Debate, :count).by(1)
     end
 
     context "when debate is open" do
@@ -96,7 +96,7 @@ describe Decidim::Debates::Admin::CreateDebate do
     end
 
     describe "events" do
-      let(:space_follower) { create(:user, organization: organization) }
+      let(:space_follower) { create(:user, organization:) }
       let!(:space_follow) { create :follow, followable: participatory_process, user: space_follower }
 
       it "notifies the change to the author followers" do

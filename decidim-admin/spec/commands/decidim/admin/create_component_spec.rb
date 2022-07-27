@@ -17,24 +17,24 @@ module Decidim::Admin
         },
         invalid?: !valid,
         valid?: valid,
-        current_user: current_user,
+        current_user:,
         weight: 2,
-        manifest: manifest,
+        manifest:,
         participatory_space: participatory_process,
         settings: {
-          dummy_global_attribute_1: true,
-          dummy_global_attribute_2: false
+          dummy_global_attribute1: true,
+          dummy_global_attribute2: false
         },
         default_step_settings: {
           step.id.to_s => {
-            dummy_step_attribute_1: true,
-            dummy_step_attribute_2: false
+            dummy_step_attribute1: true,
+            dummy_step_attribute2: false
           }
         },
         step_settings: {
           step.id.to_s => {
-            dummy_step_attribute_1: true,
-            dummy_step_attribute_2: false
+            dummy_step_attribute1: true,
+            dummy_step_attribute2: false
           }
         }
       )
@@ -55,13 +55,13 @@ module Decidim::Admin
         expect(participatory_process.components).not_to be_empty
 
         component = participatory_process.components.first
-        expect(component.settings.dummy_global_attribute_1).to be(true)
-        expect(component.settings.dummy_global_attribute_2).to be(false)
+        expect(component.settings.dummy_global_attribute1).to be(true)
+        expect(component.settings.dummy_global_attribute2).to be(false)
         expect(component.weight).to eq 2
 
         step_settings = component.step_settings[step.id.to_s]
-        expect(step_settings.dummy_step_attribute_1).to be(true)
-        expect(step_settings.dummy_step_attribute_2).to be(false)
+        expect(step_settings.dummy_step_attribute1).to be(true)
+        expect(step_settings.dummy_step_attribute2).to be(false)
       end
 
       it "traces the action", versioning: true do

@@ -5,23 +5,23 @@ require "spec_helper"
 describe "User timeline", type: :system do
   let(:organization) { create(:organization) }
   let(:comment) { create(:comment) }
-  let(:user) { create(:user, :confirmed, organization: organization) }
-  let(:user2) { create(:user, organization: organization) }
+  let(:user) { create(:user, :confirmed, organization:) }
+  let(:user2) { create(:user, organization:) }
 
   let(:component) do
-    create(:component, :published, organization: organization)
+    create(:component, :published, organization:)
   end
 
   let(:component2) do
-    create(:component, :published, organization: organization)
+    create(:component, :published, organization:)
   end
 
   let(:component3) do
-    create(:component, :published, organization: organization)
+    create(:component, :published, organization:)
   end
 
   let(:resource) do
-    create(:dummy_resource, component: component, published_at: Time.current)
+    create(:dummy_resource, component:, published_at: Time.current)
   end
 
   let(:resource2) do
@@ -33,19 +33,19 @@ describe "User timeline", type: :system do
   end
 
   let!(:action_log) do
-    create(:action_log, action: "create", visibility: "public-only", resource: comment, organization: organization, user: user2)
+    create(:action_log, action: "create", visibility: "public-only", resource: comment, organization:, user: user2)
   end
 
-  let!(:action_log_2) do
-    create(:action_log, action: "publish", visibility: "all", resource: resource, organization: organization, participatory_space: component.participatory_space)
+  let!(:action_log2) do
+    create(:action_log, action: "publish", visibility: "all", resource:, organization:, participatory_space: component.participatory_space)
   end
 
-  let!(:action_log_3) do
-    create(:action_log, action: "publish", visibility: "all", resource: resource2, organization: organization)
+  let!(:action_log3) do
+    create(:action_log, action: "publish", visibility: "all", resource: resource2, organization:)
   end
 
   let!(:hidden_action_log) do
-    create(:action_log, action: "publish", visibility: "all", resource: resource3, organization: organization)
+    create(:action_log, action: "publish", visibility: "all", resource: resource3, organization:)
   end
 
   let(:resource_types) do
@@ -63,9 +63,9 @@ describe "User timeline", type: :system do
       %w(Decidim::DummyResources::DummyResource)
     )
 
-    Decidim::Follow.create!(user: user, followable: user2)
-    Decidim::Follow.create!(user: user, followable: action_log_2.participatory_space)
-    Decidim::Follow.create!(user: user, followable: resource2)
+    Decidim::Follow.create!(user:, followable: user2)
+    Decidim::Follow.create!(user:, followable: action_log2.participatory_space)
+    Decidim::Follow.create!(user:, followable: resource2)
     login_as user, scope: :user
     switch_to_host organization.host
   end

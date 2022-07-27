@@ -22,10 +22,6 @@ This is on the default Decidim installation so you shouldn't change anything to 
 
 ![Use survey](docs/screenshot02.png)
 
-## Documentation
-
-Read more about this component on [Admin Manual](https://docs.decidim.org/admin-manual/en/processess/#surveys).
-
 ## Contributing
 
 See [Decidim](https://github.com/decidim/decidim).

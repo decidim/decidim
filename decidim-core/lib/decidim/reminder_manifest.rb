@@ -55,11 +55,11 @@ module Decidim
       end
     end
 
-    def message(key, context = nil, **extra, &block)
+    def message(key, context = nil, **extra, &)
       extra = context if extra.empty? && context.is_a?(Hash)
 
       if block_given?
-        messages.set(key, &block)
+        messages.set(key, &)
       else
         messages.render(key, context, **extra)
       end

@@ -23,7 +23,9 @@
     <% end %>
   </div>
   <h2 class="heading2"><%= translated_attribute post.title %></h2>
-  <%= cell "decidim/author", present(post.author), from: post %>
+
+  <% post_presenter = Decidim::Blogs::PostPresenter.new(post) %>
+  <%= cell "decidim/author", post_presenter.author, from: post %>
 </div>
 <div class="row">
   <% if show_endorsements_card? %>

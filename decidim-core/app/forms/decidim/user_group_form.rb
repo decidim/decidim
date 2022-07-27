@@ -16,7 +16,7 @@ module Decidim
     attribute :phone
 
     validates :name, presence: true
-    validates :email, presence: true, 'valid_email_2/email': { disposable: true }
+    validates :email, presence: true, "valid_email_2/email": { disposable: true }
     validates :nickname, presence: true
 
     validates :nickname, length: { maximum: Decidim::User.nickname_max_length, allow_blank: true }
@@ -39,7 +39,7 @@ module Decidim
                                                context.current_organization,
                                                document_number
                                              )
-                                             .where.not(id: id)
+                                             .where.not(id:)
                                              .present?
     end
 
@@ -47,9 +47,9 @@ module Decidim
       return true if Decidim::UserBaseEntity
                      .where(
                        organization: context.current_organization,
-                       email: email
+                       email:
                      )
-                     .where.not(id: id)
+                     .where.not(id:)
                      .empty?
 
       errors.add :email, :taken
@@ -60,9 +60,9 @@ module Decidim
       return true if Decidim::UserBaseEntity
                      .where(
                        organization: context.current_organization,
-                       name: name
+                       name:
                      )
-                     .where.not(id: id)
+                     .where.not(id:)
                      .empty?
 
       errors.add :name, :taken
@@ -73,9 +73,9 @@ module Decidim
       return true if Decidim::UserBaseEntity
                      .where(
                        organization: context.current_organization,
-                       nickname: nickname
+                       nickname:
                      )
-                     .where.not(id: id)
+                     .where.not(id:)
                      .empty?
 
       errors.add :nickname, :taken

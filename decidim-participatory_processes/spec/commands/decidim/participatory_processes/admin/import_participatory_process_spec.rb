@@ -7,7 +7,7 @@ module Decidim::ParticipatoryProcesses
     subject { described_class.new(form) }
 
     let(:organization) { create :organization }
-    let!(:document_file) { IO.read(Decidim::Dev.asset(document_name)) }
+    let!(:document_file) { File.read(Decidim::Dev.asset(document_name)) }
     let(:form_doc) do
       instance_double(File,
                       blank?: false)
@@ -23,8 +23,8 @@ module Decidim::ParticipatoryProcesses
         import_components?: import_components,
         document: form_doc,
         document_text: document_file,
-        document_type: document_type,
-        current_user: create(:user, organization: organization),
+        document_type:,
+        current_user: create(:user, organization:),
         current_organization: organization,
         invalid?: invalid
       )
@@ -42,7 +42,7 @@ module Decidim::ParticipatoryProcesses
       it "broadcasts ok and create the process" do
         expect { subject.call }.to(
           broadcast(:ok) &&
-          change { ::Decidim::ParticipatoryProcess.where(organization: organization).count }.by(1)
+          change { ::Decidim::ParticipatoryProcess.where(organization:).count }.by(1)
         )
 
         imported_participatory_process = Decidim::ParticipatoryProcess.last
@@ -75,7 +75,7 @@ module Decidim::ParticipatoryProcesses
       it "doesn't create any proces" do
         expect do
           subject.call
-        end.to change(::Decidim::ParticipatoryProcess, :count).by(0)
+        end.not_to change(::Decidim::ParticipatoryProcess, :count)
       end
     end
 
@@ -91,7 +91,7 @@ module Decidim::ParticipatoryProcesses
       let(:import_components) { true }
 
       it "imports a participatory process and the steps" do
-        expect { subject.call }.to change { Decidim::Component.count }.by(3)
+        expect { subject.call }.to change(Decidim::Component, :count).by(3)
         expect(Decidim::Component.where(participatory_space_id: Decidim::ParticipatoryProcess.last).count).to eq 3
       end
 
@@ -106,7 +106,7 @@ module Decidim::ParticipatoryProcesses
       let(:import_steps) { true }
 
       it "imports a participatory process and the steps" do
-        expect { subject.call }.to change { Decidim::ParticipatoryProcessStep.count }.by(1)
+        expect { subject.call }.to change(Decidim::ParticipatoryProcessStep, :count).by(1)
         expect(Decidim::ParticipatoryProcessStep.distinct.pluck(:decidim_participatory_process_id).count).to eq 1
 
         imported_participatory_process_step = Decidim::ParticipatoryProcessStep.last
@@ -126,7 +126,7 @@ module Decidim::ParticipatoryProcesses
       let(:import_categories) { true }
 
       it "imports a participatory process and the categories" do
-        expect { subject.call }.to change { Decidim::Category.count }.by(8)
+        expect { subject.call }.to change(Decidim::Category, :count).by(8)
         expect(Decidim::Category.unscoped.distinct.pluck(:decidim_participatory_space_id).count).to eq 1
 
         imported_participatory_process_category = Decidim::Category.unscoped.first
@@ -150,7 +150,7 @@ module Decidim::ParticipatoryProcesses
 
       context "when attachment collections exists" do
         it "imports a participatory process and the collections" do
-          expect { subject.call }.to change { Decidim::AttachmentCollection.count }.by(1)
+          expect { subject.call }.to change(Decidim::AttachmentCollection, :count).by(1)
           imported_participatory_process_collection = Decidim::AttachmentCollection.first
           expect(imported_participatory_process_collection.name).to eq("ca" => "assumenda", "en" => "cumque", "es" => "rem")
           expect(imported_participatory_process_collection.collection_for).to eq(Decidim::ParticipatoryProcess.last)

@@ -18,18 +18,20 @@ module Decidim
     def perform(notification)
       return unless Rails.application.secrets.vapid[:enabled]
 
-      notification.user.notifications_subscriptions.values.map do |subscription|
-        message_params = notification_params(Decidim::PushNotificationPresenter.new(notification))
-        payload = build_payload(message_params, subscription)
-        # Capture webpush exceptions in order to avoid this call to be repeated by the background job runner
-        # Webpush::Error class is the parent class of all defined errors
-        begin
-          Webpush.payload_send(**payload)
-        rescue Webpush::Error => e
-          Rails.logger.warn("[ERROR] Push notification delivery failed due to #{e.message}")
-          nil
-        end
-      end.compact
+      I18n.with_locale(notification.user.locale || notification.user.organization.default_locale) do
+        notification.user.notifications_subscriptions.values.map do |subscription|
+          message_params = notification_params(Decidim::PushNotificationPresenter.new(notification))
+          payload = build_payload(message_params, subscription)
+          # Capture webpush exceptions in order to avoid this call to be repeated by the background job runner
+          # Webpush::Error class is the parent class of all defined errors
+          begin
+            Webpush.payload_send(**payload)
+          rescue Webpush::Error => e
+            Rails.logger.warn("[ERROR] Push notification delivery failed due to #{e.message}")
+            nil
+          end
+        end.compact
+      end
     end
 
     private

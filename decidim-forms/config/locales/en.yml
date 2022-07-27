@@ -45,6 +45,8 @@ en:
             actions:
               back: Back to responses
               export: Export
+              next: Next &rsaquo;
+              previous: "&lsaquo; Prev"
               show: Show answers
             empty: No answers yet
             export:
@@ -122,6 +124,9 @@ en:
           update:
             invalid: There was a problem saving the form.
             success: Form successfully saved.
+      admin_log:
+        questionnaire:
+          update: "%{user_name} updated the %{resource_name} questionnaire"
       errors:
         answer:
           body: Body can't be blank

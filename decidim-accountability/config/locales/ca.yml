@@ -21,6 +21,7 @@ ca:
       timeline_entry:
         description: Descripció
         entry_date: Data
+        title: Títol
     models:
       decidim/accountability/proposal_linked_event: Proposta inclosa a un resultat
       decidim/accountability/result_progress_updated_event: Progrés del resultat actualitzat
@@ -121,6 +122,14 @@ ca:
           create: "%{user_name} ha creat el resultat %{resource_name} en %{space_name}"
           delete: "%{user_name} ha eliminat el resultat %{resource_name} de l'espai %{space_name}"
           update: "%{user_name} ha actualitzat el resultat %{resource_name} en %{space_name}"
+        status:
+          create: "%{user_name} ha creat l'estat %{resource_name}"
+          delete: "%{user_name} ha eliminat l'estat %{resource_name}"
+          update: "%{user_name} ha actualitzat l'estat %{resource_name}"
+        timeline_entry:
+          create: "%{user_name} ha creat l'entrada %{resource_name} a la línia de temps"
+          delete: "%{user_name} ha eliminat l'entrada %{resource_name} a la línia de temps"
+          update: "%{user_name} ha actualitzat l'entrada %{resource_name} a la línia de temps"
         value_types:
           parent_presenter:
             not_found: 'No s''ha trobat el pare a la base de dades (ID: %{id})'
@@ -158,8 +167,8 @@ ca:
             progress: Progrés
         timeline_entry:
           fields:
-            description: Descripció
             entry_date: Data
+            title: Títol
       result_m:
         executed: Executat
         view: Veure

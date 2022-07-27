@@ -14,7 +14,7 @@ shared_examples_for "add display conditions" do
     end
 
     context "when questionnaire has only one question" do
-      let!(:question) { create(:questionnaire_question, questionnaire: questionnaire, body: body, question_type: "short_answer") }
+      let!(:question) { create(:questionnaire_question, questionnaire:, body:, question_type: "short_answer") }
 
       before do
         visit_questionnaire_edit_path_and_expand_all
@@ -40,21 +40,21 @@ shared_examples_for "add display conditions" do
       let!(:question_short_answer) do
         create(:questionnaire_question,
                position: 0,
-               questionnaire: questionnaire,
+               questionnaire:,
                body: Decidim::Faker::Localized.sentence,
                question_type: "short_answer")
       end
       let!(:question_long_answer) do
         create(:questionnaire_question,
                position: 1,
-               questionnaire: questionnaire,
+               questionnaire:,
                body: Decidim::Faker::Localized.sentence,
                question_type: "long_answer")
       end
       let!(:question_single_option) do
         create(:questionnaire_question,
                position: 2,
-               questionnaire: questionnaire,
+               questionnaire:,
                body: Decidim::Faker::Localized.sentence,
                question_type: "single_option",
                options: answer_options)
@@ -62,7 +62,7 @@ shared_examples_for "add display conditions" do
       let!(:question_multiple_option) do
         create(:questionnaire_question,
                position: 3,
-               questionnaire: questionnaire,
+               questionnaire:,
                body: Decidim::Faker::Localized.sentence,
                question_type: "multiple_option",
                options: answer_options)
@@ -101,7 +101,7 @@ shared_examples_for "add display conditions" do
           within_add_display_condition do
             options = questions.map { |question| question["body"]["en"] }
             options << "Select a question"
-            expect(page).to have_select("Question", options: options)
+            expect(page).to have_select("Question", options:)
 
             within "select[id$=decidim_condition_question_id]" do
               elements = page.all("option[data-type]")
@@ -149,7 +149,7 @@ shared_examples_for "add display conditions" do
             options = answer_options.map { |option| option["body"]["en"] }
             options << "Select answer option"
 
-            expect(page).to have_select("Answer option", options: options, wait: 5)
+            expect(page).to have_select("Answer option", options:, wait: 5)
           end
         end
 

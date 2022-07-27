@@ -125,22 +125,22 @@ module Decidim
     describe "#linked_classes_for" do
       subject { Decidim::Proposals::Proposal }
 
-      let(:proposals_component_1) { create :component, manifest_name: "proposals" }
-      let(:proposals_component_2) { create :component, manifest_name: "proposals" }
-      let(:meetings_component) { create :component, manifest_name: "meetings", participatory_space: proposals_component_1.participatory_space }
-      let(:dummy_component) { create :component, manifest_name: "dummy", participatory_space: proposals_component_2.participatory_space }
-      let(:proposal_1) { create :proposal, component: proposals_component_1 }
-      let(:proposal_2) { create :proposal, component: proposals_component_2 }
+      let(:proposals_component1) { create :component, manifest_name: "proposals" }
+      let(:proposals_component2) { create :component, manifest_name: "proposals" }
+      let(:meetings_component) { create :component, manifest_name: "meetings", participatory_space: proposals_component1.participatory_space }
+      let(:dummy_component) { create :component, manifest_name: "dummy", participatory_space: proposals_component2.participatory_space }
+      let(:proposal1) { create :proposal, component: proposals_component1 }
+      let(:proposal2) { create :proposal, component: proposals_component2 }
       let(:meeting) { create :meeting, component: meetings_component }
       let(:dummy_resource) { create :dummy_resource, component: dummy_component }
 
       before do
-        proposal_1.link_resources([meeting], "proposals_from_meeting")
-        proposal_2.link_resources([dummy_resource], "included_proposals")
+        proposal1.link_resources([meeting], "proposals_from_meeting")
+        proposal2.link_resources([dummy_resource], "included_proposals")
       end
 
       it "finds the linked classes for a given component" do
-        expect(subject.linked_classes_for(proposals_component_1)).to eq ["Decidim::Meetings::Meeting"]
+        expect(subject.linked_classes_for(proposals_component1)).to eq ["Decidim::Meetings::Meeting"]
       end
     end
 

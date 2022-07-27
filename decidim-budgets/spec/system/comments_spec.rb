@@ -3,9 +3,9 @@
 require "spec_helper"
 
 describe "Comments", type: :system do
-  let!(:component) { create(:budgets_component, organization: organization) }
-  let!(:budget) { create(:budget, component: component) }
-  let!(:commentable) { create(:project, budget: budget) }
+  let!(:component) { create(:budgets_component, organization:) }
+  let!(:budget) { create(:budget, component:) }
+  let!(:commentable) { create(:project, budget:) }
   let(:resource_path) { resource_locator([budget, commentable]).path }
 
   include_examples "comments"
@@ -25,8 +25,10 @@ describe "Comments", type: :system do
       visit decidim_budgets.budget_project_path(id: commentable.id, budget_id: budget.id)
 
       another_window = window_opened_by do
-        find(".icon--ellipses", match: :first).click
-        click_link "Get link"
+        within(".comment__header__context-menu", match: :first) do
+          page.find("label").click
+          click_link "Get link"
+        end
       end
 
       within_window(another_window) do

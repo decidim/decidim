@@ -24,8 +24,8 @@ module Decidim
         Decidim.traceability.perform_action!(:create, Assembly, @user, visibility: "all") do
           @imported_assembly = Assembly.new(
             organization: @organization,
-            title: title,
-            slug: slug,
+            title:,
+            slug:,
             hashtag: attributes["hashtag"],
             subtitle: attributes["subtitle"],
             short_description: attributes["short_description"],
@@ -107,7 +107,7 @@ module Decidim
         attachments["files"].map do |file|
           next unless remote_file_exists?(file["remote_file_url"])
 
-          file_tmp = URI.open(file["remote_file_url"])
+          file_tmp = URI.parse(file["remote_file_url"]).open
 
           Decidim.traceability.perform_action!("create", Attachment, @user) do
             attachment = Attachment.new(

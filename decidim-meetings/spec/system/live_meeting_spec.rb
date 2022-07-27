@@ -6,8 +6,8 @@ describe "Meeting live event", type: :system do
   include_context "with a component"
   let(:manifest_name) { "meetings" }
 
-  let!(:user) { create :user, :confirmed, organization: organization }
-  let(:meeting) { create :meeting, :published, :online, :live, component: component }
+  let!(:user) { create :user, :confirmed, organization: }
+  let(:meeting) { create :meeting, :published, :online, :live, component: }
   let(:meeting_path) do
     decidim_participatory_process_meetings.meeting_path(
       participatory_process_slug: participatory_process.slug,
@@ -38,6 +38,26 @@ describe "Meeting live event", type: :system do
     expect(page).to have_current_path meeting_path
   end
 
+  context "with essential cookies only" do
+    before do
+      visit decidim.root_path
+      select_cookies("essential")
+    end
+
+    it "tells that you need to enable cookies" do
+      visit meeting_live_event_path
+      expect(page).not_to have_selector("iframe")
+      expect(page).to have_content("You need to enable all cookies in order to see this content")
+    end
+
+    it "can enable all cookies" do
+      visit meeting_live_event_path
+      click_link "Change cookie settings"
+      click_button "Accept all"
+      expect(page).to have_selector("iframe")
+    end
+  end
+
   context "when user is logged and session is about to timeout" do
     before do
       allow(Decidim.config).to receive(:expire_session_after).and_return(2.minutes)
@@ -48,7 +68,7 @@ describe "Meeting live event", type: :system do
     end
 
     context "when meeting is live" do
-      let(:meeting) { create(:meeting, :published, :online, :embed_in_meeting_page_iframe_embed_type, component: component, start_time: 1.minute.ago, end_time: end_time) }
+      let(:meeting) { create(:meeting, :published, :online, :embed_in_meeting_page_iframe_embed_type, component:, start_time: 1.minute.ago, end_time:) }
       let(:end_time) { 1.hour.from_now }
 
       it "does not timeout user" do

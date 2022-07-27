@@ -7,17 +7,20 @@ describe "Explore meeting directory", type: :system do
     Decidim::Meetings::DirectoryEngine.routes.url_helpers.root_path
   end
   let(:organization) { create(:organization) }
-  let(:participatory_process) { create :participatory_process, organization: organization }
+  let(:participatory_process) { create :participatory_process, organization: }
   let(:components) do
-    create_list(:meeting_component, 3, organization: organization)
+    create_list(:meeting_component, 3, organization:)
   end
   let!(:meetings) do
     components.flat_map do |component|
-      create_list(:meeting, 2, :published, :not_official, component: component)
+      create_list(:meeting, 2, :published, :not_official, component:)
     end
   end
 
   before do
+    # Required for the link to be pointing to the correct URL with the server
+    # port since the server port is not defined for the test environment.
+    allow(ActionMailer::Base).to receive(:default_url_options).and_return(port: Capybara.server_port)
     switch_to_host(organization.host)
     visit directory
   end
@@ -66,7 +69,7 @@ describe "Explore meeting directory", type: :system do
   end
 
   context "with a scope" do
-    let!(:scope) { create(:scope, organization: organization) }
+    let!(:scope) { create(:scope, organization:) }
     let!(:meeting) do
       meeting = meetings.first
       meeting.scope = scope
@@ -160,6 +163,39 @@ describe "Explore meeting directory", type: :system do
         expect(page).to have_content(online_meeting2.title["en"])
         expect(page).to have_css("#meetings-count", text: "2 MEETINGS")
       end
+
+      it "allows linking to the filtered view using a short link" do
+        within ".with_any_type_check_boxes_tree_filter" do
+          uncheck "All"
+          check "Online"
+        end
+
+        expect(page).to have_content(online_meeting1.title["en"])
+        expect(page).to have_content(online_meeting2.title["en"])
+        expect(page).to have_css("#meetings-count", text: "2 MEETINGS")
+
+        filter_params = CGI.parse(URI.parse(page.current_url).query)
+        base_url = "http://#{organization.host}:#{Capybara.server_port}"
+
+        click_button "Export calendar"
+        expect(page).to have_content("Calendar URL:")
+        expect(page).to have_css("#calendarShare", visible: :visible)
+        short_url = nil
+        within "#calendarShare" do
+          input = find("input#urlCalendarUrl[readonly]")
+          short_url = input.value
+          expect(short_url).to match(%r{^#{base_url}/s/[a-zA-Z0-9]{10}$})
+        end
+
+        visit short_url
+        expect(page).to have_content(online_meeting1.title["en"])
+        expect(page).to have_content(online_meeting2.title["en"])
+        expect(page).to have_css("#meetings-count", text: "2 MEETINGS")
+        expect(page).to have_current_path(/^#{directory}/)
+
+        current_params = CGI.parse(URI.parse(page.current_url).query)
+        expect(current_params).to eq(filter_params)
+      end
     end
 
     context "when there are only in-person meetings" do
@@ -212,10 +248,10 @@ describe "Explore meeting directory", type: :system do
 
   context "with different participatory spaces" do
     let(:assembly) do
-      create(:assembly, organization: organization)
+      create(:assembly, organization:)
     end
     let(:assembly_component) do
-      create(:meeting_component, participatory_space: assembly, organization: organization)
+      create(:meeting_component, participatory_space: assembly, organization:)
     end
     let!(:assembly_meeting) do
       create(:meeting, :published, component: assembly_component)

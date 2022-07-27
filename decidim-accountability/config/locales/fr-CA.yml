@@ -21,6 +21,7 @@ fr-CA:
       timeline_entry:
         description: Description
         entry_date: Date
+        title: Titre
     models:
       decidim/accountability/proposal_linked_event: Proposition incluse dans une réalisation
       decidim/accountability/result_progress_updated_event: Résultat du progrès mis à jour
@@ -121,6 +122,14 @@ fr-CA:
           create: "%{user_name} a créé la réalisation %{resource_name} dans %{space_name}"
           delete: "%{user_name} a supprimé la réalisation %{resource_name} dans %{space_name}"
           update: "%{user_name} a mis à jour la réalisation %{resource_name} dans %{space_name}"
+        status:
+          create: "%{user_name} a créé le statut %{resource_name}"
+          delete: "%{user_name} a supprimé le statut %{resource_name}"
+          update: "%{user_name} a mis à jour le statut %{resource_name}"
+        timeline_entry:
+          create: "%{user_name} a créé l'étape d'évolution de la réalisation %{resource_name}"
+          delete: "%{user_name} a supprimé l'étape d'évolution de la réalisation %{resource_name}"
+          update: "%{user_name} a mis à jour l'étape d'évolution de la réalisation %{resource_name}"
         value_types:
           parent_presenter:
             not_found: 'Le parent n''a pas été trouvé dans la base de données (ID: %{id})'
@@ -158,8 +167,8 @@ fr-CA:
             progress: Avancement
         timeline_entry:
           fields:
-            description: Description
             entry_date: Date
+            title: Titre
       result_m:
         executed: Exécuté
         view: Voir

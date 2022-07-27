@@ -7,14 +7,17 @@ module Decidim::Budgets
     subject { described_class.new(form) }
 
     let(:organization) { create :organization, available_locales: [:en] }
-    let(:current_user) { create :user, :admin, :confirmed, organization: organization }
-    let(:participatory_process) { create :participatory_process, organization: organization }
+    let(:current_user) { create :user, :admin, :confirmed, organization: }
+    let(:participatory_process) { create :participatory_process, organization: }
     let(:current_component) { create :component, manifest_name: :budgets, participatory_space: participatory_process }
     let(:budget) { create :budget, component: current_component }
-    let(:scope) { create :scope, organization: organization }
+    let(:scope) { create :scope, organization: }
     let(:category) { create :category, participatory_space: participatory_process }
     let(:uploaded_photos) { [] }
     let(:photos) { [] }
+    let(:address) { nil }
+    let(:latitude) { 40.1234 }
+    let(:longitude) { 2.1234 }
     let(:proposal_component) do
       create(:component, manifest_name: :proposals, participatory_space: participatory_process)
     end
@@ -28,17 +31,20 @@ module Decidim::Budgets
     let(:form) do
       double(
         invalid?: invalid,
-        current_component: current_component,
-        current_user: current_user,
+        current_component:,
+        current_user:,
         title: { en: "title" },
         description: { en: "description" },
         budget_amount: 10_000_000,
+        address:,
+        latitude:,
+        longitude:,
         proposal_ids: proposals.map(&:id),
-        scope: scope,
-        category: category,
-        photos: photos,
+        scope:,
+        category:,
+        photos:,
         add_photos: uploaded_photos,
-        budget: budget
+        budget:
       )
     end
     let(:invalid) { false }
@@ -87,6 +93,26 @@ module Decidim::Budgets
         expect { subject.call }.to change(Decidim::ActionLog, :count)
         action_log = Decidim::ActionLog.last
         expect(action_log.version).to be_present
+      end
+
+      context "when geocoding is enabled" do
+        let(:current_component) { create :budgets_component, :with_geocoding_enabled, participatory_space: participatory_process }
+
+        context "when the address is present" do
+          let(:address) { "Some address" }
+
+          before do
+            stub_geocoding(address, [latitude, longitude])
+          end
+
+          it "sets the latitude and longitude" do
+            subject.call
+            project = Decidim::Budgets::Project.last
+
+            expect(project.latitude).to eq(latitude)
+            expect(project.longitude).to eq(longitude)
+          end
+        end
       end
 
       it "links proposals" do

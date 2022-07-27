@@ -6,9 +6,9 @@ module Decidim::Assemblies
   describe Admin::UpdateAssembly do
     describe "call" do
       let(:organization) { create(:organization) }
-      let(:assembly_type) { create(:assemblies_type, organization: organization) }
+      let(:assembly_type) { create(:assemblies_type, organization:) }
       let(:assembly_type_id) { assembly_type.id }
-      let(:my_assembly) { create :assembly, assembly_type: assembly_type, organization: organization }
+      let(:my_assembly) { create :assembly, assembly_type:, organization: }
       let(:user) { create :user, :admin, :confirmed, organization: my_assembly.organization }
 
       let(:participatory_processes) do
@@ -225,7 +225,7 @@ module Decidim::Assemblies
         end
 
         context "when updating the parent assembly" do
-          let!(:parent_assembly) { create :assembly, organization: organization }
+          let!(:parent_assembly) { create :assembly, organization: }
 
           it "increments the parent's children_count counter correctly" do
             form.parent_id = parent_assembly.id

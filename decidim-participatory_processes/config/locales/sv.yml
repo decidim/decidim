@@ -56,16 +56,12 @@ sv:
         short_description: Kort beskrivning
         start_date: Startdatum
         title: Titel
+      participatory_process_type:
+        title: Titel
       participatory_process_user_role:
         email: E-post
         name: Namn
         role: Roll
-    errors:
-      models:
-        participatory_process:
-          attributes:
-            document:
-              invalid_document_type: 'Ogiltig dokumenttyp. Godkända format är: %{valid_mime_types}'
     models:
       decidim/participatory_process_step_activated_event: Steg aktiverat
       decidim/participatory_process_step_changed_event: Steget har ändrats
@@ -106,6 +102,7 @@ sv:
         participatory_process_groups_submenu:
           info: Info
           landing_page: Landningssida
+        participatory_process_types: Processtyper
         participatory_processes: Dialoger
         participatory_processes_submenu:
           attachment_collections: Mappar
@@ -137,6 +134,9 @@ sv:
             start_date: Startdatum
             title: Titel
           name: Steg i dialog
+        participatory_process_type:
+          fields:
+            title: Titel
         participatory_process_user_role:
           fields:
             email: E-post
@@ -219,6 +219,13 @@ sv:
         update:
           error: Det gick inte att uppdatera detta steg i dialogen.
           success: Steget i deltagarprocessen har uppdaterats.
+      participatory_process_types:
+        edit:
+          update: Uppdatera
+        form:
+          title: Titel
+        new:
+          create: Skapa
       participatory_process_user_roles:
         create:
           error: Det gick inte att lägga till en deltagare till dialogen.
@@ -427,6 +434,7 @@ sv:
             no_active: Inga pågående dialoger
             no_active_nor_upcoming: Inga pågående eller kommande dialoger
             no_active_nor_upcoming_callout: Det finns inga pågående eller kommande dialoger. Här är en lista över tidigare dialoger.
+          filter_by: Visa
           names:
             active: Pågående
             all: Alla

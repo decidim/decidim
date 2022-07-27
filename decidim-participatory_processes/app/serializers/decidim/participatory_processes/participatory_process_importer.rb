@@ -24,8 +24,8 @@ module Decidim
         Decidim.traceability.perform_action!(:create, ParticipatoryProcess, @user, visibility: "all") do
           @imported_process = ParticipatoryProcess.new(
             organization: @organization,
-            title: title,
-            slug: slug,
+            title:,
+            slug:,
             subtitle: attributes["subtitle"],
             hashtag: attributes["hashtag"],
             description: attributes["description"],
@@ -116,7 +116,7 @@ module Decidim
         attachments["files"].map do |file|
           next unless remote_file_exists?(file["remote_file_url"])
 
-          file_tmp = URI.open(file["remote_file_url"])
+          file_tmp = URI.parse(file["remote_file_url"]).open
 
           Decidim.traceability.perform_action!("create", Attachment, @user) do
             attachment = Attachment.new(
