@@ -8,7 +8,7 @@ module Decidim
       describe CensusForm do
         subject do
           described_class.from_params(
-            user: user
+            user:
           ).with_context(
             context
           )
@@ -17,7 +17,7 @@ module Decidim
         let(:user) { create(:user) }
         let(:email) { user.email }
         let(:organization) { user.organization }
-        let(:csv_datum) { create(:csv_datum, email: email, organization: organization) }
+        let(:csv_datum) { create(:csv_datum, email:, organization:) }
 
         let(:context) do
           {
@@ -36,7 +36,7 @@ module Decidim
         end
 
         context "when user email not in census" do
-          let(:csv_datum) { create(:csv_datum, email: "other_email@example.org", organization: organization) }
+          let(:csv_datum) { create(:csv_datum, email: "other_email@example.org", organization:) }
 
           it "is not valid" do
             expect(subject).not_to be_valid

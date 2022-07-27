@@ -9,8 +9,8 @@ describe Decidim::EventsManager do
     let(:resource) { double }
     let(:extra) { double }
     let(:organization) { create :organization }
-    let(:followers) { create_list :user, 3, organization: organization }
-    let(:affected_users) { create_list :user, 3, organization: organization }
+    let(:followers) { create_list :user, 3, organization: }
+    let(:affected_users) { create_list :user, 3, organization: }
     let(:force_send) { true }
 
     it "delegates the params to ActiveSupport::Notifications" do
@@ -19,21 +19,21 @@ describe Decidim::EventsManager do
         .with(
           event,
           event_class: "Decidim::Events::BaseEvent",
-          resource: resource,
-          followers: followers,
-          affected_users: affected_users,
-          force_send: force_send,
-          extra: extra
+          resource:,
+          followers:,
+          affected_users:,
+          force_send:,
+          extra:
         )
 
       described_class.publish(
-        event: event,
-        event_class: event_class,
-        resource: resource,
-        followers: followers,
-        affected_users: affected_users,
-        force_send: force_send,
-        extra: extra
+        event:,
+        event_class:,
+        resource:,
+        followers:,
+        affected_users:,
+        force_send:,
+        extra:
       )
     end
 
@@ -46,12 +46,12 @@ describe Decidim::EventsManager do
           .with(event, hash_including(affected_users: followers))
 
         described_class.publish(
-          event: event,
-          event_class: event_class,
-          resource: resource,
-          followers: followers,
-          affected_users: affected_users,
-          extra: extra
+          event:,
+          event_class:,
+          resource:,
+          followers:,
+          affected_users:,
+          extra:
         )
       end
     end
@@ -65,12 +65,12 @@ describe Decidim::EventsManager do
           .with(event, hash_including(followers: affected_users))
 
         described_class.publish(
-          event: event,
-          event_class: event_class,
-          resource: resource,
-          followers: followers,
-          affected_users: affected_users,
-          extra: extra
+          event:,
+          event_class:,
+          resource:,
+          followers:,
+          affected_users:,
+          extra:
         )
       end
     end

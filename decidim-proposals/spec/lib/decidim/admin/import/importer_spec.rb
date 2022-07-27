@@ -3,21 +3,21 @@
 require "spec_helper"
 
 describe Decidim::Admin::Import::Importer do
-  subject { described_class.new(file: blob, reader: reader, creator: creator, context: context) }
+  subject { described_class.new(file: blob, reader:, creator:, context:) }
 
   let(:creator) { Decidim::Proposals::Import::ProposalCreator }
 
   let(:organization) { create(:organization, available_locales: [:en]) }
-  let(:user) { create(:user, organization: organization) }
+  let(:user) { create(:user, organization:) }
   let(:context) do
     {
       current_organization: organization,
       current_user: user,
-      current_component: current_component,
+      current_component:,
       current_participatory_space: participatory_process
     }
   end
-  let(:participatory_process) { create :participatory_process, organization: organization }
+  let(:participatory_process) { create :participatory_process, organization: }
   let(:current_component) { create :component, manifest_name: :proposals, participatory_space: participatory_process }
 
   context "with CSV" do

@@ -9,7 +9,7 @@ module Decidim
 
       let(:component) { create(:debate).component }
       let(:user) { create :user, organization: component.organization }
-      let!(:follow) { create :follow, followable: component.participatory_space, user: user }
+      let!(:follow) { create :follow, followable: component.participatory_space, user: }
 
       let(:previous_settings) do
         { creation_enabled: previously_allowing_creation }

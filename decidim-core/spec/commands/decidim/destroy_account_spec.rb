@@ -6,7 +6,7 @@ module Decidim
   describe DestroyAccount do
     let(:command) { described_class.new(user, form) }
     let(:user) { create(:user, :confirmed) }
-    let!(:identity) { create(:identity, user: user) }
+    let!(:identity) { create(:identity, user:) }
     let(:valid) { true }
     let(:data) do
       {
@@ -70,7 +70,7 @@ module Decidim
 
       it "deletes user group memberships" do
         user_group = create(:user_group)
-        create(:user_group_membership, user_group: user_group, user: user)
+        create(:user_group_membership, user_group:, user:)
 
         expect do
           command.call
@@ -80,7 +80,7 @@ module Decidim
       it "deletes the follows" do
         other_user = create(:user)
         create(:follow, followable: user, user: other_user)
-        create(:follow, followable: other_user, user: user)
+        create(:follow, followable: other_user, user:)
 
         expect do
           command.call
@@ -88,7 +88,7 @@ module Decidim
       end
 
       it "deletes participatory space private user" do
-        create(:participatory_space_private_user, user: user)
+        create(:participatory_space_private_user, user:)
 
         expect do
           command.call

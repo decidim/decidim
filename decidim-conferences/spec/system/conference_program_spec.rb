@@ -5,7 +5,7 @@ require "spec_helper"
 describe "Conference program", type: :system do
   include Decidim::TranslationsHelper
   let(:organization) { create(:organization) }
-  let(:conference) { create(:conference, organization: organization) }
+  let(:conference) { create(:conference, organization:) }
   let!(:component) do
     create(:component, manifest_name: :meetings, participatory_space: conference)
   end
@@ -37,8 +37,8 @@ describe "Conference program", type: :system do
   end
 
   context "when there are some conference meetings" do
-    let!(:conference_speakers) { create_list(:conference_speaker, 3, :with_meeting, conference: conference, meetings_component: component) }
-    let(:meetings) { Decidim::ConferenceMeeting.where(component: component) }
+    let!(:conference_speakers) { create_list(:conference_speaker, 3, :with_meeting, conference:, meetings_component: component) }
+    let(:meetings) { Decidim::ConferenceMeeting.where(component:) }
 
     before do
       visit decidim_conferences.conference_conference_program_path(conference, component)

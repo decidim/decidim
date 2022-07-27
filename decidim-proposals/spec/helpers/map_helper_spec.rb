@@ -8,9 +8,9 @@ module Decidim
       include Decidim::LayoutHelper
 
       let!(:organization) { create(:organization) }
-      let!(:proposal_component) { create(:proposal_component, :with_geocoding_enabled, organization: organization) }
-      let!(:user) { create(:user, organization: organization) }
-      let!(:proposals) { create_list(:proposal, 5, address: address, latitude: latitude, longitude: longitude, component: proposal_component) }
+      let!(:proposal_component) { create(:proposal_component, :with_geocoding_enabled, organization:) }
+      let!(:user) { create(:user, organization:) }
+      let!(:proposals) { create_list(:proposal, 5, address:, latitude:, longitude:, component: proposal_component) }
       let!(:proposal) { proposals.first }
       let(:address) { "Carrer Pic de Peguera 15, 17003 Girona" }
       let(:latitude) { 40.1234 }
@@ -29,7 +29,7 @@ module Decidim
         it { is_expected.to be_truthy }
 
         context "when proposal is not geocoded" do
-          let!(:proposals) { create_list(:proposal, 5, address: address, latitude: nil, longitude: nil, component: proposal_component) }
+          let!(:proposals) { create_list(:proposal, 5, address:, latitude: nil, longitude: nil, component: proposal_component) }
 
           it { is_expected.to be_falsey }
         end

@@ -16,7 +16,7 @@ module Decidim
         end
 
         def show
-          enforce_permission_to :read, :monitoring_committee_election_result, voting: current_voting, election: election
+          enforce_permission_to :read, :monitoring_committee_election_result, voting: current_voting, election:
         end
 
         def update
@@ -61,7 +61,7 @@ module Decidim
         end
 
         def publish_results_form
-          @publish_results_form ||= form(Decidim::Votings::Admin::PublishResultsForm).from_params(params, election: election)
+          @publish_results_form ||= form(Decidim::Votings::Admin::PublishResultsForm).from_params(params, election:)
         end
       end
     end

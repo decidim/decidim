@@ -17,12 +17,12 @@ module Decidim
     let(:oauth_signature) { OmniauthRegistrationForm.create_signature(provider, uid) }
     let(:attributes) do
       {
-        email: email,
+        email:,
         email_verified: true,
-        name: name,
-        provider: provider,
-        uid: uid,
-        oauth_signature: oauth_signature,
+        name:,
+        provider:,
+        uid:,
+        oauth_signature:,
         avatar_url: "http://www.example.org/foo.jpg"
       }
     end

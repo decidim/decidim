@@ -8,13 +8,13 @@ module Decidim
       subject { form }
 
       let(:organization) { create(:organization) }
-      let!(:component) { create(:dummy_component, organization: organization) }
-      let(:user) { create(:user, :confirmed, :admin, organization: organization) }
+      let!(:component) { create(:dummy_component, organization:) }
+      let(:user) { create(:user, :confirmed, :admin, organization:) }
       let(:file) { Decidim::Dev.test_file("import_proposals.csv", "text/csv") }
       let(:name) { "dummies" }
       let(:format) { "csv" }
 
-      let(:params) { { name: name, format: format } }
+      let(:params) { { name:, format: } }
 
       let(:form) do
         described_class.from_params(params).with_context(

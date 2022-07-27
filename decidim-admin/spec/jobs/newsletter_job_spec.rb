@@ -5,14 +5,14 @@ require "spec_helper"
 module Decidim
   module Admin
     describe NewsletterJob do
-      let!(:newsletter) { create(:newsletter, organization: organization, total_deliveries: 0) }
+      let!(:newsletter) { create(:newsletter, organization:, total_deliveries: 0) }
       let!(:organization) { create(:organization) }
       let!(:another_organization) { create(:organization) }
-      let!(:deliverable_user) { create(:user, :confirmed, newsletter_notifications_at: Time.current, organization: organization) }
+      let!(:deliverable_user) { create(:user, :confirmed, newsletter_notifications_at: Time.current, organization:) }
       let!(:another_deliverable_user) { create(:user, :confirmed, newsletter_notifications_at: Time.current, organization: another_organization) }
-      let!(:undeliverable_user) { create(:user, newsletter_notifications_at: Time.current, organization: organization) }
-      let!(:non_deliverable_user) { create(:user, :confirmed, newsletter_notifications_at: nil, organization: organization) }
-      let!(:deleted_user) { create(:user, :confirmed, :deleted, newsletter_notifications_at: Time.current, organization: organization) }
+      let!(:undeliverable_user) { create(:user, newsletter_notifications_at: Time.current, organization:) }
+      let!(:non_deliverable_user) { create(:user, :confirmed, newsletter_notifications_at: nil, organization:) }
+      let!(:deleted_user) { create(:user, :confirmed, :deleted, newsletter_notifications_at: Time.current, organization:) }
       let(:send_to_all_users) { true }
       let(:send_to_followers) { false }
       let(:send_to_participants) { false }
@@ -21,11 +21,11 @@ module Decidim
 
       let(:form_params) do
         {
-          send_to_all_users: send_to_all_users,
-          send_to_followers: send_to_followers,
-          send_to_participants: send_to_participants,
-          participatory_space_types: participatory_space_types,
-          scope_ids: scope_ids
+          send_to_all_users:,
+          send_to_followers:,
+          send_to_participants:,
+          participatory_space_types:,
+          scope_ids:
         }
       end
 

@@ -113,7 +113,7 @@ FactoryBot.define do
     title { generate_localized_title }
     description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
     organization
-    author { create(:user, :confirmed, organization: organization) }
+    author { create(:user, :confirmed, organization:) }
     published_at { Time.current }
     state { "published" }
     signature_type { "online" }
@@ -122,14 +122,14 @@ FactoryBot.define do
 
     scoped_type do
       create(:initiatives_type_scope,
-             type: create(:initiatives_type, organization: organization, signature_type: signature_type))
+             type: create(:initiatives_type, organization:, signature_type:))
     end
 
     after(:create) do |initiative|
       if initiative.author.is_a?(Decidim::User) && Decidim::Authorization.where(user: initiative.author).where.not(granted_at: nil).none?
         create(:authorization, user: initiative.author, granted_at: Time.now.utc)
       end
-      create_list(:initiatives_committee_member, 3, initiative: initiative)
+      create_list(:initiatives_committee_member, 3, initiative:)
     end
 
     trait :created do
@@ -199,12 +199,12 @@ FactoryBot.define do
     trait :with_user_extra_fields_collection do
       scoped_type do
         create(:initiatives_type_scope,
-               type: create(:initiatives_type, :with_user_extra_fields_collection, organization: organization))
+               type: create(:initiatives_type, :with_user_extra_fields_collection, organization:))
       end
     end
 
     trait :with_area do
-      area { create(:area, organization: organization) }
+      area { create(:area, organization:) }
     end
 
     trait :with_documents do

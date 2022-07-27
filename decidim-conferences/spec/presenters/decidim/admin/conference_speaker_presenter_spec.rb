@@ -15,7 +15,7 @@ module Decidim
 
       context "when speaker is an existing user" do
         let(:user) { build(:user, name: "Julia G.", nickname: "julia_g") }
-        let(:conference_speaker) { build(:conference_speaker, full_name: "Full name", user: user) }
+        let(:conference_speaker) { build(:conference_speaker, full_name: "Full name", user:) }
 
         it { is_expected.to eq "Julia G. (@julia_g)" }
       end

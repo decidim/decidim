@@ -11,15 +11,15 @@ module Decidim
           let!(:current_component) { create(:proposal_component) }
           let(:space) { current_component.participatory_space }
           let(:organization) { space.organization }
-          let(:user) { create :user, organization: organization }
-          let(:valuator_role) { create :participatory_process_user_role, role: :valuator, user: user, participatory_process: space }
+          let(:user) { create :user, organization: }
+          let(:valuator_role) { create :participatory_process_user_role, role: :valuator, user:, participatory_process: space }
           let(:form) do
             instance_double(
               ValuationAssignmentForm,
               current_user: user,
-              current_component: current_component,
+              current_component:,
               current_organization: current_component.organization,
-              valuator_role: valuator_role,
+              valuator_role:,
               proposals: [proposal],
               valid?: valid
             )
@@ -50,13 +50,13 @@ module Decidim
             it "creates the valuation assignment between the user and the proposal" do
               expect do
                 command.call
-              end.to change { ValuationAssignment.where(proposal: proposal, valuator_role: valuator_role).count }.by(1)
+              end.to change { ValuationAssignment.where(proposal:, valuator_role:).count }.by(1)
             end
 
             it "traces the action", versioning: true do
               expect(Decidim.traceability)
                 .to receive(:create!)
-                .with(Decidim::Proposals::ValuationAssignment, form.current_user, proposal: proposal, valuator_role: valuator_role)
+                .with(Decidim::Proposals::ValuationAssignment, form.current_user, proposal:, valuator_role:)
                 .and_call_original
 
               expect { command.call }.to change(Decidim::ActionLog, :count)

@@ -7,7 +7,7 @@ module Decidim
     describe ParticipatoryProcessHelper do
       describe "#participatory_process_step_dates" do
         let(:participatory_process) do
-          double(start_date: start_date, end_date: end_date)
+          double(start_date:, end_date:)
         end
 
         let(:start_date) { Date.civil(2016, 1, 1) }

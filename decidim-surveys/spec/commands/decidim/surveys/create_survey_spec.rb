@@ -33,7 +33,7 @@ module Decidim
           end
 
           it "creates a new survey with the same name as the component" do
-            expect(Survey).to receive(:new).with(component: component, questionnaire: kind_of(Decidim::Forms::Questionnaire)).and_call_original
+            expect(Survey).to receive(:new).with(component:, questionnaire: kind_of(Decidim::Forms::Questionnaire)).and_call_original
 
             expect do
               command.call

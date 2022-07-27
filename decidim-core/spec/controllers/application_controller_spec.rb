@@ -5,7 +5,7 @@ require "spec_helper"
 module Decidim
   describe ApplicationController, type: :controller do
     let!(:organization) { create :organization }
-    let!(:user) { create :user, :confirmed, organization: organization }
+    let!(:user) { create :user, :confirmed, organization: }
     let(:tos_path) { "/pages/terms-and-conditions" }
 
     controller Decidim::ApplicationController do
@@ -121,7 +121,7 @@ module Decidim
         end
 
         context "and the user should agree to the terms of service" do
-          let!(:user) { create :user, :confirmed, organization: organization, accepted_tos_version: nil }
+          let!(:user) { create :user, :confirmed, organization:, accepted_tos_version: nil }
 
           it "redirects the user to the terms of service page and stores the location" do
             get :show

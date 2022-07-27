@@ -22,13 +22,13 @@ module Decidim
         it "serializes the participatory space" do
           expect(serialized[:participatory_space]).to include(id: election.participatory_space.id)
           I18n.available_locales.each do |locale|
-            expect(translated(serialized[:participatory_space][:title], locale: locale)).to eq(translated(election.participatory_space.title, locale: locale))
+            expect(translated(serialized[:participatory_space][:title], locale:)).to eq(translated(election.participatory_space.title, locale:))
           end
         end
 
         it "serializes the title" do
           I18n.available_locales.each do |locale|
-            expect(translated(serialized[:answer_title], locale: locale)).to eq(translated(answer.title, locale: locale))
+            expect(translated(serialized[:answer_title], locale:)).to eq(translated(answer.title, locale:))
           end
         end
 
@@ -42,7 +42,7 @@ module Decidim
 
         it "serializes the election title" do
           I18n.available_locales.each do |locale|
-            expect(translated(serialized[:election_title], locale: locale)).to eq(translated(answer.question.election.title, locale: locale))
+            expect(translated(serialized[:election_title], locale:)).to eq(translated(answer.question.election.title, locale:))
           end
         end
 
@@ -52,7 +52,7 @@ module Decidim
 
         it "serializes the question title" do
           I18n.available_locales.each do |locale|
-            expect(translated(serialized[:question_title], locale: locale)).to eq(translated(answer.question.title, locale: locale))
+            expect(translated(serialized[:question_title], locale:)).to eq(translated(answer.question.title, locale:))
           end
         end
       end

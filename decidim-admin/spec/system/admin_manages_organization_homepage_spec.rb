@@ -4,7 +4,7 @@ require "spec_helper"
 
 describe "Admin manages organization homepage", type: :system do
   let(:organization) { create(:organization) }
-  let(:user) { create(:user, :admin, :confirmed, organization: organization) }
+  let(:user) { create(:user, :admin, :confirmed, organization:) }
 
   before do
     switch_to_host(organization.host)
@@ -28,7 +28,7 @@ describe "Admin manages organization homepage", type: :system do
   end
 
   context "when editing a persisted content block" do
-    let!(:content_block) { create :content_block, organization: organization, manifest_name: :hero, scope_name: :homepage }
+    let!(:content_block) { create :content_block, organization:, manifest_name: :hero, scope_name: :homepage }
 
     it "updates the settings of the content block" do
       visit decidim_admin.edit_organization_homepage_content_block_path(:hero)
@@ -55,8 +55,8 @@ describe "Admin manages organization homepage", type: :system do
   end
 
   context "when loading non-existing content blocks" do
-    let!(:unpublished_block) { create :content_block, organization: organization, scope_name: :homepage, published_at: nil }
-    let!(:published_block) { create :content_block, organization: organization, scope_name: :homepage }
+    let!(:unpublished_block) { create :content_block, organization:, scope_name: :homepage, published_at: nil }
+    let!(:published_block) { create :content_block, organization:, scope_name: :homepage }
 
     before do
       # We do this to simulate content blocks from some modules that have been

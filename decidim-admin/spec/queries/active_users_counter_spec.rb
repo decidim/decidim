@@ -12,21 +12,21 @@ module Decidim::Admin
 
     # Participants
     let!(:participants_logins) do
-      create_list(:user, 2, :confirmed, organization: organization, current_sign_in_at: last_month, last_sign_in_at: last_month)
-      create_list(:user, 5, :confirmed, organization: organization, current_sign_in_at: last_week, last_sign_in_at: last_week)
-      create_list(:user, 7, :confirmed, organization: organization, current_sign_in_at: now, last_sign_in_at: now)
+      create_list(:user, 2, :confirmed, organization:, current_sign_in_at: last_month, last_sign_in_at: last_month)
+      create_list(:user, 5, :confirmed, organization:, current_sign_in_at: last_week, last_sign_in_at: last_week)
+      create_list(:user, 7, :confirmed, organization:, current_sign_in_at: now, last_sign_in_at: now)
     end
     # Admins
     let!(:admins_logins) do
-      create_list(:user, 3, :admin, :confirmed, organization: organization, current_sign_in_at: last_month, last_sign_in_at: last_month)
-      create_list(:user, 4, :admin, :confirmed, organization: organization, current_sign_in_at: last_week, last_sign_in_at: last_week)
-      create_list(:user, 10, :admin, :confirmed, organization: organization, current_sign_in_at: now, last_sign_in_at: now)
+      create_list(:user, 3, :admin, :confirmed, organization:, current_sign_in_at: last_month, last_sign_in_at: last_month)
+      create_list(:user, 4, :admin, :confirmed, organization:, current_sign_in_at: last_week, last_sign_in_at: last_week)
+      create_list(:user, 10, :admin, :confirmed, organization:, current_sign_in_at: now, last_sign_in_at: now)
     end
 
     describe "with bad query init values" do
       context "when executing query" do
         let(:parameters) do
-          { organization: organization, date: nil, admin: nil }
+          { organization:, date: nil, admin: nil }
         end
 
         it "returns 0 matches" do
@@ -40,22 +40,22 @@ module Decidim::Admin
     describe "with good query init values" do
       context "when three different periods and two different user types" do
         let(:parameters_last_day_admin) do
-          { organization: organization, date: last_day, admin: true }
+          { organization:, date: last_day, admin: true }
         end
         let(:parameters_last_week_admin) do
-          { organization: organization, date: last_week, admin: true }
+          { organization:, date: last_week, admin: true }
         end
         let(:parameters_last_month_admin) do
-          { organization: organization, date: last_month, admin: true }
+          { organization:, date: last_month, admin: true }
         end
         let(:parameters_last_day_participants) do
-          { organization: organization, date: last_day, admin: false }
+          { organization:, date: last_day, admin: false }
         end
         let(:parameters_last_week_participants) do
-          { organization: organization, date: last_week, admin: false }
+          { organization:, date: last_week, admin: false }
         end
         let(:parameters_last_month_participants) do
-          { organization: organization, date: last_month, admin: false }
+          { organization:, date: last_month, admin: false }
         end
 
         let(:result) do

@@ -69,7 +69,7 @@ class DummyAuthorizationHandler < Decidim::AuthorizationHandler
   # it's created, and available though authorization.metadata
   #
   def metadata
-    super.merge(document_number: document_number, postal_code: postal_code, scope_id: scope_id)
+    super.merge(document_number:, postal_code:, scope_id:)
   end
 
   private
@@ -105,7 +105,7 @@ class DummyAuthorizationHandler < Decidim::AuthorizationHandler
         if disallowed_user_postal_code
           if user_postal_code
             i18n_postal_codes_key = "extra_explanation.user_postal_codes"
-            user_postal_code_params = { user_postal_code: user_postal_code }
+            user_postal_code_params = { user_postal_code: }
           else
             i18n_postal_codes_key = "extra_explanation.postal_codes"
             user_postal_code_params = {}
@@ -126,7 +126,7 @@ class DummyAuthorizationHandler < Decidim::AuthorizationHandler
         if disallowed_user_user_scope
           if user_scope_id
             i18n_scope_key = "extra_explanation.user_scope"
-            user_scope_params = { user_scope_name: user_scope_name }
+            user_scope_params = { user_scope_name: }
           else
             i18n_scope_key = "extra_explanation.scope"
             user_scope_params = {}

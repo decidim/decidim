@@ -4,15 +4,15 @@ require "spec_helper"
 
 describe Decidim::Verifications::AuthorizationsBeforeDate do
   let(:name) { "some_method" }
-  let(:user1) { create(:user, organization: organization) }
-  let(:user2) { create(:user, organization: organization) }
-  let(:user3) { create(:user, organization: organization) }
-  let(:user4) { create(:user, organization: organization) }
-  let(:user5) { create(:user, organization: organization) }
-  let(:user6) { create(:user, organization: organization) }
-  let(:user7) { create(:user, organization: organization) }
-  let(:user8) { create(:user, organization: organization) }
-  let(:user9) { create(:user, organization: organization, managed: true) }
+  let(:user1) { create(:user, organization:) }
+  let(:user2) { create(:user, organization:) }
+  let(:user3) { create(:user, organization:) }
+  let(:user4) { create(:user, organization:) }
+  let(:user5) { create(:user, organization:) }
+  let(:user6) { create(:user, organization:) }
+  let(:user7) { create(:user, organization:) }
+  let(:user8) { create(:user, organization:) }
+  let(:user9) { create(:user, organization:, managed: true) }
   let(:organization) { create :organization }
   let(:now) { Time.zone.now }
   let(:prev_week) { Time.zone.today.prev_week }
@@ -20,35 +20,35 @@ describe Decidim::Verifications::AuthorizationsBeforeDate do
   let(:prev_year) { Time.zone.today.prev_year }
 
   let!(:created_now) do
-    create(:authorization, created_at: now, granted_at: nil, name: name, user: user1)
+    create(:authorization, created_at: now, granted_at: nil, name:, user: user1)
   end
 
   let!(:created_prev_week) do
-    create(:authorization, created_at: prev_week, granted_at: nil, name: name, user: user2)
+    create(:authorization, created_at: prev_week, granted_at: nil, name:, user: user2)
   end
 
   let!(:created_prev_month) do
-    create(:authorization, created_at: prev_month, granted_at: nil, name: name, user: user3)
+    create(:authorization, created_at: prev_month, granted_at: nil, name:, user: user3)
   end
 
   let!(:created_prev_year) do
-    create(:authorization, created_at: prev_year, granted_at: nil, name: name, user: user4)
+    create(:authorization, created_at: prev_year, granted_at: nil, name:, user: user4)
   end
 
   let!(:granted_now) do
-    create(:authorization, created_at: prev_year, granted_at: now, name: name, user: user5)
+    create(:authorization, created_at: prev_year, granted_at: now, name:, user: user5)
   end
 
   let!(:granted_prev_week) do
-    create(:authorization, created_at: prev_year, granted_at: prev_week, name: name, user: user6)
+    create(:authorization, created_at: prev_year, granted_at: prev_week, name:, user: user6)
   end
 
   let!(:granted_prev_month) do
-    create(:authorization, created_at: prev_year, granted_at: prev_month, name: name, user: user7)
+    create(:authorization, created_at: prev_year, granted_at: prev_month, name:, user: user7)
   end
 
   let!(:granted_prev_year) do
-    create(:authorization, created_at: prev_year, granted_at: prev_year, name: name, user: user8)
+    create(:authorization, created_at: prev_year, granted_at: prev_year, name:, user: user8)
   end
 
   let!(:granted_managed) do
@@ -69,7 +69,7 @@ describe Decidim::Verifications::AuthorizationsBeforeDate do
   describe "when no filtering" do
     it_behaves_like "a correct usage of the query" do
       let(:parameters) do
-        { organization: organization, date: now }
+        { organization:, date: now }
       end
 
       let(:expectation) do
@@ -87,7 +87,7 @@ describe Decidim::Verifications::AuthorizationsBeforeDate do
   describe "when granted only, no date" do
     it_behaves_like "a correct usage of the query" do
       let(:parameters) do
-        { organization: organization, date: nil, granted: true }
+        { organization:, date: nil, granted: true }
       end
 
       let(:expectation) do
@@ -105,7 +105,7 @@ describe Decidim::Verifications::AuthorizationsBeforeDate do
   describe "when granted only, prev_week date" do
     it_behaves_like "a correct usage of the query" do
       let(:parameters) do
-        { organization: organization, date: prev_week, granted: true }
+        { organization:, date: prev_week, granted: true }
       end
 
       let(:expectation) do
@@ -123,7 +123,7 @@ describe Decidim::Verifications::AuthorizationsBeforeDate do
   describe "when granted only, prev_month date" do
     it_behaves_like "a correct usage of the query" do
       let(:parameters) do
-        { organization: organization, date: prev_month, granted: true }
+        { organization:, date: prev_month, granted: true }
       end
 
       let(:expectation) do
@@ -141,7 +141,7 @@ describe Decidim::Verifications::AuthorizationsBeforeDate do
   describe "when granted only, prev_year date" do
     it_behaves_like "a correct usage of the query" do
       let(:parameters) do
-        { organization: organization, date: prev_year, granted: true }
+        { organization:, date: prev_year, granted: true }
       end
 
       let(:expectation) do
@@ -153,7 +153,7 @@ describe Decidim::Verifications::AuthorizationsBeforeDate do
   describe "when ungranted only, now date" do
     it_behaves_like "a correct usage of the query" do
       let(:parameters) do
-        { organization: organization, date: now, granted: false }
+        { organization:, date: now, granted: false }
       end
 
       let(:expectation) do
@@ -169,7 +169,7 @@ describe Decidim::Verifications::AuthorizationsBeforeDate do
   describe "when ungranted only, prev_week date" do
     it_behaves_like "a correct usage of the query" do
       let(:parameters) do
-        { organization: organization, date: prev_week, granted: false }
+        { organization:, date: prev_week, granted: false }
       end
 
       let(:expectation) do
@@ -184,7 +184,7 @@ describe Decidim::Verifications::AuthorizationsBeforeDate do
   describe "when ungranted only, prev_month date" do
     it_behaves_like "a correct usage of the query" do
       let(:parameters) do
-        { organization: organization, date: prev_month, granted: false }
+        { organization:, date: prev_month, granted: false }
       end
 
       let(:expectation) do
@@ -198,7 +198,7 @@ describe Decidim::Verifications::AuthorizationsBeforeDate do
   describe "when ungranted only, prev_year date" do
     it_behaves_like "a correct usage of the query" do
       let(:parameters) do
-        { organization: organization, date: prev_year, granted: false }
+        { organization:, date: prev_year, granted: false }
       end
 
       let(:expectation) do
@@ -210,7 +210,7 @@ describe Decidim::Verifications::AuthorizationsBeforeDate do
   describe "when granted only, impersonated only" do
     it_behaves_like "a correct usage of the query" do
       let(:parameters) do
-        { organization: organization, date: prev_month, granted: true, impersonated_only: true }
+        { organization:, date: prev_month, granted: true, impersonated_only: true }
       end
 
       let(:expectation) do

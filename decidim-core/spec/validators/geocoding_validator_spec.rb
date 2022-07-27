@@ -3,7 +3,7 @@
 require "spec_helper"
 
 describe GeocodingValidator do
-  subject { validatable.new(address: address, component: component) }
+  subject { validatable.new(address:, component:) }
 
   let(:validatable) do
     Class.new do

@@ -42,7 +42,7 @@ module Decidim
       end
 
       def message
-        @message ||= conversation.add_message(sender: sender, body: form.body, user: form.context.current_user)
+        @message ||= conversation.add_message(sender:, body: form.body, user: form.context.current_user)
       end
 
       def notify_interlocutors

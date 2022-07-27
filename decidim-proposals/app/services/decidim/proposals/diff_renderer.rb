@@ -29,10 +29,10 @@ module Decidim
 
         diff.update(
           attribute => {
-            type: type,
+            type:,
             label: I18n.t(attribute, scope: i18n_scope),
-            old_value: old_value,
-            new_value: new_value
+            old_value:,
+            new_value:
           }
         )
       end

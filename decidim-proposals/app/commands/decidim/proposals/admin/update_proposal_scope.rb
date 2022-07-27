@@ -57,7 +57,7 @@ module Decidim
 
         def update_proposal_scope(proposal)
           proposal.update!(
-            scope: scope
+            scope:
           )
         end
 

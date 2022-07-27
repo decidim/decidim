@@ -23,7 +23,7 @@ module Decidim
 
       def i18n_name
         locales.inject({}) do |names, locale|
-          names.update(locale => I18n.t("decidim.components.#{component_name}.name", locale: locale))
+          names.update(locale => I18n.t("decidim.components.#{component_name}.name", locale:))
         end
       end
 

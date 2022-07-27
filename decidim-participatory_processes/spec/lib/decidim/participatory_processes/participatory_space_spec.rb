@@ -25,7 +25,7 @@ module Decidim
 
     context "when an account is removed" do
       it "deletes participatory process user role" do
-        create(:participatory_process_user_role, user: user)
+        create(:participatory_process_user_role, user:)
 
         expect do
           command.call

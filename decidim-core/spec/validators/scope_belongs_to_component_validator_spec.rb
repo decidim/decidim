@@ -3,7 +3,7 @@
 require "spec_helper"
 
 describe ScopeBelongsToComponentValidator do
-  subject { validatable.new(scope: scope, component: component) }
+  subject { validatable.new(scope:, component:) }
 
   let(:validatable) do
     Class.new do
@@ -20,8 +20,8 @@ describe ScopeBelongsToComponentValidator do
       validates :scope, scope_belongs_to_component: true
     end
   end
-  let(:component) { create :component, organization: organization }
-  let!(:parent_scope) { create(:scope, organization: organization) }
+  let(:component) { create :component, organization: }
+  let!(:parent_scope) { create(:scope, organization:) }
   let!(:organization) { create :organization }
 
   before do
@@ -39,8 +39,8 @@ describe ScopeBelongsToComponentValidator do
   end
 
   context "when the scope is not valid" do
-    let(:another_scope) { create(:scope, organization: organization) }
-    let(:scope) { create(:scope, organization: organization, parent: another_scope) }
+    let(:another_scope) { create(:scope, organization:) }
+    let(:scope) { create(:scope, organization:, parent: another_scope) }
 
     it { is_expected.to be_invalid }
   end

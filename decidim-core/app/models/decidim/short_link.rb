@@ -41,10 +41,10 @@ module Decidim
         end
 
       values = {
-        organization: organization,
-        target: target,
+        organization:,
+        target:,
         mounted_engine_name: mounted_engine,
-        route_name: route_name
+        route_name:
       }
       existing =
         if params
@@ -53,7 +53,7 @@ module Decidim
           find_by(values.merge(params: nil))
         end
 
-      existing || create!(values.merge(params: params))
+      existing || create!(values.merge(params:))
     end
 
     # Creates a random unique identifier for any new links. Raises an
@@ -69,7 +69,7 @@ module Decidim
         # 26 + 26 + 10 = 62 possibilities per character
         # 62^10 ≈ 8×10¹⁷ total possibilities
         candidate = SecureRandom.alphanumeric(10)
-        next if where(organization: organization, identifier: candidate).any?
+        next if where(organization:, identifier: candidate).any?
 
         return candidate
       end

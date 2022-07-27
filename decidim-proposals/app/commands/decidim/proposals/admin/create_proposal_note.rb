@@ -39,7 +39,7 @@ module Decidim
             form.current_user,
             {
               body: form.body,
-              proposal: proposal,
+              proposal:,
               author: form.current_user
             },
             resource: {
@@ -50,13 +50,13 @@ module Decidim
 
         def notify_admins_and_valuators
           affected_users = Decidim::User.org_admins_except_me(form.current_user).all
-          affected_users += Decidim::Proposals::ValuationAssignment.includes(valuator_role: :user).where.not(id: form.current_user.id).where(proposal: proposal).map(&:valuator)
+          affected_users += Decidim::Proposals::ValuationAssignment.includes(valuator_role: :user).where.not(id: form.current_user.id).where(proposal:).map(&:valuator)
 
           data = {
             event: "decidim.events.proposals.admin.proposal_note_created",
             event_class: Decidim::Proposals::Admin::ProposalNoteCreatedEvent,
             resource: proposal,
-            affected_users: affected_users
+            affected_users:
           }
 
           Decidim::EventsManager.publish(**data)

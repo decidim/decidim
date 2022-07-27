@@ -8,10 +8,10 @@ module Decidim
 
     let(:params) do
       {
-        resource_class: resource_class,
-        property: property,
-        blob: blob,
-        form_class: form_class
+        resource_class:,
+        property:,
+        blob:,
+        form_class:
       }
     end
 

@@ -5,8 +5,8 @@ require "spec_helper"
 describe Decidim::AttachmentForm do
   subject do
     described_class.new(
-      title: title,
-      file: file
+      title:,
+      file:
     ).with_context(current_organization: organization)
   end
 
