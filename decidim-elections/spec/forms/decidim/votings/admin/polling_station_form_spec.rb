@@ -13,7 +13,7 @@ module Decidim
         let(:context) do
           {
             current_organization: organization,
-            voting: voting
+            voting:
           }
         end
         let(:title) do
@@ -34,7 +34,7 @@ module Decidim
             title_en: title[:en],
             location_en: location[:en],
             location_hints_en: location_hints[:en],
-            address: address
+            address:
           }
         end
 

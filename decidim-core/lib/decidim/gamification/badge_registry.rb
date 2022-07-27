@@ -38,11 +38,11 @@ module Decidim
       #
       # Returns a Badge when registered successfully, raises an exception
       # otherwise.
-      def register(name, &block)
+      def register(name, &)
         name = name.to_s
 
-        badge = Badge.new(name: name).tap do |object|
-          object.instance_eval(&block)
+        badge = Badge.new(name:).tap do |object|
+          object.instance_eval(&)
         end
 
         badge.validate!

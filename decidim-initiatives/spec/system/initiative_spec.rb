@@ -6,7 +6,7 @@ describe "Initiative", type: :system do
   let(:organization) { create(:organization) }
   let(:state) { :published }
   let(:base_initiative) do
-    create(:initiative, organization: organization, state: state)
+    create(:initiative, organization:, state:)
   end
 
   before do
@@ -61,10 +61,10 @@ describe "Initiative", type: :system do
       context "when signature interval is defined" do
         let(:base_initiative) do
           create(:initiative,
-                 organization: organization,
+                 organization:,
                  signature_start_date: 1.day.ago,
                  signature_end_date: 1.day.from_now,
-                 state: state)
+                 state:)
         end
 
         it "displays collection period" do
@@ -123,14 +123,14 @@ describe "Initiative", type: :system do
 
       context "when comments are disabled" do
         let(:base_initiative) do
-          create(:initiative, organization: organization, state: state, scoped_type: scoped_type)
+          create(:initiative, organization:, state:, scoped_type:)
         end
 
         let(:scoped_type) do
           create(:initiatives_type_scope,
                  type: create(:initiatives_type,
                               :with_comments_disabled,
-                              organization: organization,
+                              organization:,
                               signature_type: "online"))
         end
 

@@ -7,9 +7,9 @@ describe "Meeting registrations", type: :system do
   let(:manifest_name) { "meetings" }
 
   let!(:questionnaire) { create(:questionnaire) }
-  let!(:question) { create(:questionnaire_question, questionnaire: questionnaire, position: 0) }
-  let!(:meeting) { create :meeting, :published, component: component, questionnaire: questionnaire }
-  let!(:user) { create :user, :confirmed, organization: organization }
+  let!(:question) { create(:questionnaire_question, questionnaire:, position: 0) }
+  let!(:meeting) { create :meeting, :published, component:, questionnaire: }
+  let!(:user) { create :user, :confirmed, organization: }
 
   let(:registrations_enabled) { true }
   let(:registration_form_enabled) { false }
@@ -32,10 +32,10 @@ describe "Meeting registrations", type: :system do
 
   before do
     meeting.update!(
-      registrations_enabled: registrations_enabled,
-      registration_form_enabled: registration_form_enabled,
-      available_slots: available_slots,
-      registration_terms: registration_terms
+      registrations_enabled:,
+      registration_form_enabled:,
+      available_slots:,
+      registration_terms:
     )
   end
 
@@ -72,7 +72,7 @@ describe "Meeting registrations", type: :system do
       let(:available_slots) { 1 }
 
       before do
-        create(:registration, meeting: meeting, user: user)
+        create(:registration, meeting:, user:)
       end
 
       it "the registration button is disabled" do
@@ -221,7 +221,7 @@ describe "Meeting registrations", type: :system do
           end
 
           it "they can join the meeting if they are already following it" do
-            create(:follow, followable: meeting, user: user)
+            create(:follow, followable: meeting, user:)
 
             visit_meeting
 
@@ -248,7 +248,7 @@ describe "Meeting registrations", type: :system do
         end
 
         context "and they ARE part of a verified user group" do
-          let!(:user_group) { create :user_group, :verified, users: [user], organization: organization }
+          let!(:user_group) { create :user_group, :verified, users: [user], organization: }
 
           it "they can join the meeting representing a group and appear in the attending organizations list" do
             visit_meeting
@@ -291,7 +291,7 @@ describe "Meeting registrations", type: :system do
       it_behaves_like "has questionnaire"
 
       context "when the user is following the meeting" do
-        let!(:follow) { create(:follow, followable: meeting, user: user) }
+        let!(:follow) { create(:follow, followable: meeting, user:) }
 
         it_behaves_like "has questionnaire"
       end
@@ -317,7 +317,7 @@ describe "Meeting registrations", type: :system do
       end
 
       context "when the registration form has file question and file is invalid" do
-        let!(:question) { create(:questionnaire_question, questionnaire: questionnaire, position: 0, question_type: :files) }
+        let!(:question) { create(:questionnaire_question, questionnaire:, position: 0, question_type: :files) }
 
         before do
           login_as user, scope: :user
@@ -363,8 +363,8 @@ describe "Meeting registrations", type: :system do
     end
 
     context "and the user is going to the meeting" do
-      let!(:answer) { create(:answer, questionnaire: questionnaire, question: question, user: user) }
-      let!(:registration) { create(:registration, meeting: meeting, user: user) }
+      let!(:answer) { create(:answer, questionnaire:, question:, user:) }
+      let!(:registration) { create(:registration, meeting:, user:) }
 
       before do
         login_as user, scope: :user

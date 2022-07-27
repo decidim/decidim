@@ -65,7 +65,7 @@ module Decidim
       uri = URI.parse(url)
       filename = File.basename(uri.path)
       file = URI.parse(url).open
-      model.send(mounted_as).attach(io: file, filename: filename)
+      model.send(mounted_as).attach(io: file, filename:)
     rescue URI::InvalidURIError
       model.errors.add(mounted_as, :invalid)
     end

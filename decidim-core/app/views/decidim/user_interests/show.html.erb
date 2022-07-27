@@ -1,17 +1,15 @@
 <% add_decidim_page_title(t("my_interests", scope: "layouts.decidim.user_profile")) %>
 <% content_for(:subtitle) { t("my_interests", scope: "layouts.decidim.user_profile") } %>
 
-<div class="row">
-  <p><%= t(".select_your_interests") %></p>
-  <%= form_for(@user_interests, url: user_interests_path, method: :put, class: "user-form") do |f| %>
-    <p><strong><%= t(".my_interests") %></strong></p>
-    <% if @user_interests.scopes.any? %>
-      <div class="clearfix m-bottom">
-        <%= render partial: "scopes", locals: { scopes: @user_interests.scopes, f: f } %>
-      </div>
-      <%= f.submit t(".update_my_interests") %>
-    <% else %>
-      <p><%= t(".no_scopes") %></p>
-    <% end %>
+<p><%= t(".select_your_interests") %></p>
+<%= form_for(@user_interests, url: user_interests_path, method: :put, class: "user-form") do |f| %>
+  <p><strong><%= t(".my_interests") %></strong></p>
+  <% if @user_interests.scopes.any? %>
+    <div class="clearfix m-bottom">
+      <%= render partial: "scopes", locals: { scopes: @user_interests.scopes, f: f } %>
+    </div>
+    <%= f.submit t(".update_my_interests") %>
+  <% else %>
+    <p><%= t(".no_scopes") %></p>
   <% end %>
-</div>
+<% end %>

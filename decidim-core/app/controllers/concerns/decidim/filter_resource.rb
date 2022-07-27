@@ -85,7 +85,7 @@ module Decidim
       # utilize this context information, such as the current user.
       def context_params
         context = {
-          current_user: current_user,
+          current_user:,
           organization: current_organization
         }
         context[:component] = current_component if respond_to?(:current_component)

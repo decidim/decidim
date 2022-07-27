@@ -9,10 +9,10 @@ module Decidim::Conferences
     let(:registrations_enabled) { true }
     let(:available_slots) { 10 }
     let(:organization) { create :organization }
-    let!(:conference) { create :conference, organization: organization, registrations_enabled: registrations_enabled, available_slots: available_slots }
-    let!(:conference_admin) { create :conference_admin, conference: conference }
-    let!(:registration_type) { create :registration_type, conference: conference }
-    let(:user) { create :user, :confirmed, organization: organization }
+    let!(:conference) { create :conference, organization:, registrations_enabled:, available_slots: }
+    let!(:conference_admin) { create :conference_admin, conference: }
+    let!(:registration_type) { create :registration_type, conference: }
+    let(:user) { create :user, :confirmed, organization: }
     let(:participatory_space_admins) { conference.admins }
 
     let(:user_notification) do
@@ -30,7 +30,7 @@ module Decidim::Conferences
         event_class: ConferenceRegistrationsOverPercentageEvent,
         resource: conference,
         followers: participatory_space_admins,
-        extra: extra
+        extra:
       }
     end
 
@@ -62,7 +62,7 @@ module Decidim::Conferences
       end
 
       context "and exists and invite for the user" do
-        let!(:conference_invite) { create(:conference_invite, conference: conference, user: user) }
+        let!(:conference_invite) { create(:conference_invite, conference:, user:) }
 
         it "marks the invite as accepted" do
           expect { subject.call }.to change { conference_invite.reload.accepted_at }.from(nil).to(kind_of(Time))
@@ -73,7 +73,7 @@ module Decidim::Conferences
         let(:extra) { { percentage: 0.5 } }
 
         before do
-          create_list :conference_registration, (available_slots * 0.5).round - 1, conference: conference
+          create_list :conference_registration, (available_slots * 0.5).round - 1, conference:
         end
 
         it "also sends a notification to the process admins" do
@@ -85,7 +85,7 @@ module Decidim::Conferences
 
         context "when the 50% is already met" do
           before do
-            create :conference_registration, conference: conference
+            create :conference_registration, conference:
           end
 
           it "doesn't notify it twice to the process admins" do
@@ -100,7 +100,7 @@ module Decidim::Conferences
         let(:extra) { { percentage: 0.8 } }
 
         before do
-          create_list :conference_registration, (available_slots * 0.8).round - 1, conference: conference
+          create_list :conference_registration, (available_slots * 0.8).round - 1, conference:
         end
 
         it "also sends a notification to the process admins" do
@@ -112,7 +112,7 @@ module Decidim::Conferences
 
         context "when the 80% is already met" do
           before do
-            create_list :conference_registration, (available_slots * 0.8).round, conference: conference
+            create_list :conference_registration, (available_slots * 0.8).round, conference:
           end
 
           it "doesn't notify it twice to the process admins" do
@@ -127,7 +127,7 @@ module Decidim::Conferences
         let(:extra) { { percentage: 1 } }
 
         before do
-          create_list :conference_registration, available_slots - 1, conference: conference
+          create_list :conference_registration, available_slots - 1, conference:
         end
 
         it "also sends a notification to the process admins" do
@@ -151,7 +151,7 @@ module Decidim::Conferences
       let(:available_slots) { 1 }
 
       before do
-        create(:conference_registration, conference: conference)
+        create(:conference_registration, conference:)
       end
 
       it "broadcasts invalid" do

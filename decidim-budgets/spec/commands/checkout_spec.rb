@@ -15,12 +15,12 @@ module Decidim::Budgets
         organization: user.organization
       )
     end
-    let(:budget) { create :budget, component: component }
+    let(:budget) { create :budget, component: }
 
-    let(:projects) { create_list(:project, 2, budget: budget, budget_amount: 45_000_000) }
+    let(:projects) { create_list(:project, 2, budget:, budget_amount: 45_000_000) }
 
     let(:order) do
-      order = create(:order, user: user, budget: budget)
+      order = create(:order, user:, budget:)
       order.projects << projects
       order.save!
       order
@@ -65,7 +65,7 @@ module Decidim::Budgets
 
     context "when the voting rule is set to threshold percent" do
       context "when the order total budget doesn't exceed the threshold" do
-        let(:projects) { create_list(:project, 2, budget: budget, budget_amount: 30_000_000) }
+        let(:projects) { create_list(:project, 2, budget:, budget_amount: 30_000_000) }
 
         it "broadcasts invalid" do
           expect { subject.call }.to broadcast(:invalid)
@@ -88,7 +88,7 @@ module Decidim::Budgets
         create(
           :budgets_component,
           voting_rule,
-          vote_minimum_budget_projects_number: vote_minimum_budget_projects_number,
+          vote_minimum_budget_projects_number:,
           organization: user.organization
         )
       end
@@ -96,7 +96,7 @@ module Decidim::Budgets
       let(:vote_minimum_budget_projects_number) { 0 }
 
       context "and the order exceed the maximum number of projects" do
-        let(:projects) { create_list(:project, 8, budget: budget, budget_amount: 45_000_000) }
+        let(:projects) { create_list(:project, 8, budget:, budget_amount: 45_000_000) }
 
         it "broadcasts invalid" do
           expect { subject.call }.to broadcast(:invalid)
@@ -104,7 +104,7 @@ module Decidim::Budgets
       end
 
       context "when the total budget exceeds the maximum" do
-        let(:projects) { create_list(:project, 4, budget: budget, budget_amount: 100_000_000) }
+        let(:projects) { create_list(:project, 4, budget:, budget_amount: 100_000_000) }
 
         it "broadcasts valid" do
           expect { subject.call }.to broadcast(:ok)
@@ -116,7 +116,7 @@ module Decidim::Budgets
       let(:voting_rule) { :with_budget_projects_range }
 
       context "and the order exceed the maximum number of projects" do
-        let(:projects) { create_list(:project, 8, budget: budget, budget_amount: 45_000_000) }
+        let(:projects) { create_list(:project, 8, budget:, budget_amount: 45_000_000) }
 
         it "broadcasts invalid" do
           expect { subject.call }.to broadcast(:invalid)
@@ -124,7 +124,7 @@ module Decidim::Budgets
       end
 
       context "and the order doesn't reach the minimum number of projects" do
-        let(:projects) { create_list(:project, 2, budget: budget, budget_amount: 45_000_000) }
+        let(:projects) { create_list(:project, 2, budget:, budget_amount: 45_000_000) }
 
         it "broadcasts invalid" do
           expect { subject.call }.to broadcast(:invalid)
@@ -132,7 +132,7 @@ module Decidim::Budgets
       end
 
       context "when the total budget exceeds the maximum" do
-        let(:projects) { create_list(:project, 4, budget: budget, budget_amount: 100_000_000) }
+        let(:projects) { create_list(:project, 4, budget:, budget_amount: 100_000_000) }
 
         it "broadcasts valid" do
           expect { subject.call }.to broadcast(:ok)

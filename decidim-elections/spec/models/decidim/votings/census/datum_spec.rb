@@ -7,7 +7,7 @@ describe Decidim::Votings::Census::Datum do
 
   let(:dataset) { create(:dataset) }
 
-  let(:datum) { build(:datum, dataset: dataset) }
+  let(:datum) { build(:datum, dataset:) }
 
   it { is_expected.to be_valid }
 
@@ -19,7 +19,7 @@ describe Decidim::Votings::Census::Datum do
     context "with hashed_in_person_data" do
       let!(:another_datum) do
         create :datum,
-               dataset: dataset,
+               dataset:,
                hashed_in_person_data: datum.hashed_in_person_data
       end
 
@@ -29,7 +29,7 @@ describe Decidim::Votings::Census::Datum do
     context "with hashed_check_data" do
       let!(:another_datum) do
         create :datum,
-               dataset: dataset,
+               dataset:,
                hashed_check_data: datum.hashed_check_data
       end
 

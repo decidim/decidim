@@ -6,19 +6,19 @@ describe "Report Proposal", type: :system do
   include_context "with a component"
 
   let(:manifest_name) { "proposals" }
-  let!(:proposals) { create_list(:proposal, 3, component: component) }
+  let!(:proposals) { create_list(:proposal, 3, component:) }
   let(:reportable) { proposals.first }
   let(:reportable_path) { resource_locator(reportable).path }
-  let!(:user) { create :user, :confirmed, organization: organization }
+  let!(:user) { create :user, :confirmed, organization: }
 
   let!(:component) do
     create(:proposal_component,
-           manifest: manifest,
+           manifest:,
            participatory_space: participatory_process)
   end
 
   context "when the author is a meeting" do
-    let!(:proposal) { create(:proposal, :official_meeting, component: component) }
+    let!(:proposal) { create(:proposal, :official_meeting, component:) }
     let(:reportable) { proposal }
     let(:reportable_path) { resource_locator(reportable).path }
 

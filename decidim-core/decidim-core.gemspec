@@ -22,7 +22,7 @@ Gem::Specification.new do |s|
   s.summary = "The core of the Decidim framework."
   s.description = "Adds core features so other engines can hook into the framework."
   s.license = "AGPL-3.0"
-  s.required_ruby_version = ">= 3.0"
+  s.required_ruby_version = ">= 3.1"
 
   s.files = Dir["{app,config,db,lib,vendor}/**/*", "Rakefile", "README.md"]
 
@@ -51,6 +51,7 @@ Gem::Specification.new do |s|
   s.add_dependency "mime-types", ">= 1.16", "< 4.0"
   s.add_dependency "mini_magick", "~> 4.9"
   s.add_dependency "mustache", "~> 1.1.0"
+  s.add_dependency "net-smtp", "~> 0.3.1"
   s.add_dependency "omniauth", "~> 2.0"
   s.add_dependency "omniauth-facebook", "~> 5.0"
   s.add_dependency "omniauth-google-oauth2", "~> 1.0"
@@ -60,6 +61,8 @@ Gem::Specification.new do |s|
   s.add_dependency "pg", "~> 1.4.0", "< 2"
   s.add_dependency "pg_search", "~> 2.2"
   s.add_dependency "premailer-rails", "~> 1.10"
+  # psych 4 has a breaking change, see https://stackoverflow.com/questions/71191685/visit-psych-nodes-alias-unknown-alias-default-psychbadalias
+  s.add_dependency "psych", "< 4"
   s.add_dependency "rack", "~> 2.2", ">= 2.2.3"
   s.add_dependency "rack-attack", "~> 6.0"
   s.add_dependency "rails", "~> 6.1.0"

@@ -14,8 +14,8 @@ module Decidim
           {
             id: sortition.id,
             sortition: {
-              title: title,
-              additional_info: additional_info
+              title:,
+              additional_info:
             }
           }
         end

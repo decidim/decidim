@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim
   describe Scope do
-    subject(:scope) { build(:scope, parent: parent) }
+    subject(:scope) { build(:scope, parent:) }
 
     let(:parent) { nil }
 

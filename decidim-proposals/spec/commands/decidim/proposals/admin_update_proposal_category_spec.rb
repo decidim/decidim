@@ -29,7 +29,7 @@ module Decidim
           describe "with a category and proposals" do
             context "when the category is the same as the proposal's category" do
               before do
-                proposal.update!(category: category)
+                proposal.update!(category:)
               end
 
               it "doesn't update the proposal" do

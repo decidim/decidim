@@ -60,9 +60,9 @@ module Decidim
         # If a lambda or proc is passed as the :static_map_url configuration.
         if map_url.respond_to?(:call)
           return map_url.call(
-            latitude: latitude,
-            longitude: longitude,
-            options: options
+            latitude:,
+            longitude:,
+            options:
           ).to_s
         end
 
@@ -82,9 +82,9 @@ module Decidim
         # dynamically set parameters.
         params = configured_params.merge(
           url_params(
-            latitude: latitude,
-            longitude: longitude,
-            options: options
+            latitude:,
+            longitude:,
+            options:
           )
         )
 
@@ -101,8 +101,8 @@ module Decidim
       # @return [Hash] The parameters to pass to the static map image URL.
       def url_params(latitude:, longitude:, options: {})
         {
-          latitude: latitude,
-          longitude: longitude,
+          latitude:,
+          longitude:,
           zoom: options.fetch(:zoom, 15),
           width: options.fetch(:width, 120),
           height: options.fetch(:height, 120)
@@ -117,9 +117,9 @@ module Decidim
       # @return [String] The raw data for the image.
       def image_data(latitude:, longitude:, options: {})
         request_url = url(
-          latitude: latitude,
-          longitude: longitude,
-          options: options
+          latitude:,
+          longitude:,
+          options:
         )
         return "" unless request_url
 

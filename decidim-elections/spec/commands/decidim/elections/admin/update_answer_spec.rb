@@ -6,11 +6,11 @@ describe Decidim::Elections::Admin::UpdateAnswer do
   subject(:command) { described_class.new(form, answer) }
 
   let(:election) { create :election }
-  let(:question) { create :question, election: election }
-  let(:answer) { create :election_answer, question: question }
+  let(:question) { create :question, election: }
+  let(:answer) { create :election_answer, question: }
   let(:component) { election.component }
   let(:organization) { component.organization }
-  let(:user) { create :user, :admin, :confirmed, organization: organization }
+  let(:user) { create :user, :admin, :confirmed, organization: }
   let(:form) do
     double(
       invalid?: invalid,
@@ -18,13 +18,13 @@ describe Decidim::Elections::Admin::UpdateAnswer do
       title: { en: "title" },
       description: { en: "description" },
       weight: 10,
-      proposals: proposals,
+      proposals:,
       proposal_ids: proposals.map(&:id),
       attachment: attachment_params,
       photos: current_photos,
       add_photos: uploaded_photos,
-      election: election,
-      question: question
+      election:,
+      question:
     )
   end
   let(:proposals) { [] }

@@ -121,7 +121,7 @@ module Decidim
       Authorization.where(
         user: User.where.not(id: user.id).where(organization: user.organization),
         name: handler_name,
-        unique_id: unique_id
+        unique_id:
       )
     end
 

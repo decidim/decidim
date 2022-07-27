@@ -6,13 +6,13 @@ module Decidim::Elections
   describe TrusteeMailer, type: :mailer do
     let(:user) { create :user, :confirmed }
     let(:organization) { user.organization }
-    let(:participatory_space) { create :participatory_process, organization: organization }
+    let(:participatory_space) { create :participatory_process, organization: }
 
     let!(:trustee) do
       trustee = create(:trustee,
                        decidim_user_id: user.id)
       trustee.trustees_participatory_spaces.create(
-        participatory_space: participatory_space
+        participatory_space:
       )
     end
 

@@ -4,14 +4,14 @@ require "spec_helper"
 
 describe Decidim::Initiatives::EndorseInitiativeEvent do
   subject do
-    described_class.new(resource: initiative, event_name: event_name, user: user, extra: {})
+    described_class.new(resource: initiative, event_name:, user:, extra: {})
   end
 
   let(:organization) { initiative.organization }
   let(:initiative) { create :initiative }
   let(:initiative_author) { initiative.author }
   let(:event_name) { "decidim.events.initiatives.initiative_endorsed" }
-  let(:user) { create :user, organization: organization }
+  let(:user) { create :user, organization: }
   let(:resource_path) { resource_locator(initiative).path }
 
   describe "types" do

@@ -68,7 +68,7 @@ module Decidim
                        organization: @participatory_space.organization,
                        admin: false,
                        invited_by: current_user,
-                       invitation_instructions: invitation_instructions)
+                       invitation_instructions:)
       end
 
       def invitation_instructions

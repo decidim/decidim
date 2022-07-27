@@ -28,7 +28,7 @@ class AddScopesForAllInitiativeTypes < ActiveRecord::Migration[5.1]
     # environment consistent with the underlying data model. It is
     # not relevant for production environments.
     Organization.find_each do |organization|
-      InitiativesType.where(organization: organization).find_each do |type|
+      InitiativesType.where(organization:).find_each do |type|
         organization.scopes.each do |scope|
           InitiativesTypeScope.create(
             decidim_initiatives_types_id: type.id,

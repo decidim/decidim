@@ -85,7 +85,7 @@ module Decidim
         initiative.percentage >= 100
       end
 
-      def authorized_create_modal_button(type, html_options, &block)
+      def authorized_create_modal_button(type, html_options, &)
         tag = "button"
         html_options ||= {}
 
@@ -102,10 +102,10 @@ module Decidim
 
         html_options["onclick"] = "event.preventDefault();"
 
-        send("#{tag}_to", "", html_options, &block)
+        send("#{tag}_to", "", html_options, &)
       end
 
-      def authorized_vote_modal_button(initiative, html_options, &block)
+      def authorized_vote_modal_button(initiative, html_options, &)
         return if current_user && action_authorized_to("vote", resource: initiative, permissions_holder: initiative.type).ok?
 
         tag = "button"
@@ -120,7 +120,7 @@ module Decidim
 
         html_options["onclick"] = "event.preventDefault();"
 
-        send("#{tag}_to", "", html_options, &block)
+        send("#{tag}_to", "", html_options, &)
       end
 
       def can_edit_custom_signature_end_date?(initiative)

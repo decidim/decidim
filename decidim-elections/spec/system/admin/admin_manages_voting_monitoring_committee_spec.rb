@@ -5,8 +5,8 @@ require "spec_helper"
 describe "Admin manages the monitoring committee", type: :system do
   include_context "when admin managing a voting"
 
-  let(:other_user) { create :user, organization: organization, email: "my_email@example.org" }
-  let!(:monitoring_committee_member) { create :monitoring_committee_member, user: other_user, voting: voting }
+  let(:other_user) { create :user, organization:, email: "my_email@example.org" }
+  let!(:monitoring_committee_member) { create :monitoring_committee_member, user: other_user, voting: }
 
   before do
     switch_to_host(organization.host)

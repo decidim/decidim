@@ -65,9 +65,9 @@ module Decidim
         return unless @authorization_handler
 
         if pending?
-          @authorization_handler.resume_authorization_path(redirect_url: redirect_url)
+          @authorization_handler.resume_authorization_path(redirect_url:)
         else
-          @authorization_handler.root_path(redirect_url: redirect_url)
+          @authorization_handler.root_path(redirect_url:)
         end
       end
 
@@ -97,7 +97,7 @@ module Decidim
         @authorization_handlers = authorization_handlers
         @statuses = authorization_handlers&.map do |name, opts|
           handler = Verifications::Adapter.from_element(name)
-          authorization = user ? Verifications::Authorizations.new(organization: user.organization, user: user, name: name).first : nil
+          authorization = user ? Verifications::Authorizations.new(organization: user.organization, user:, name:).first : nil
           status_code, data = handler.authorize(authorization, opts["options"], component, resource)
           AuthorizationStatus.new(status_code, handler, data)
         end

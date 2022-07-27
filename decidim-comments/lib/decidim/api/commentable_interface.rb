@@ -25,7 +25,7 @@ module Decidim
       field :total_comments_count, GraphQL::Types::Int, description: "The number of comments in all levels this resource holds", null: false
 
       def comments(order_by: nil, single_comment_id: nil)
-        SortedComments.for(object, order_by: order_by, id: single_comment_id).not_hidden
+        SortedComments.for(object, order_by:, id: single_comment_id).not_hidden
       end
 
       def total_comments_count
