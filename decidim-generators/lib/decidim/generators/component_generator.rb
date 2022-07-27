@@ -11,7 +11,7 @@ module Decidim
     class ComponentGenerator < Thor
       include Thor::Actions
 
-      attr_reader :component_name, :component_module_name, :component_resource_name, :component_folder, :component_description, :core_version, :required_ruby_version
+      attr_reader :component_name, :component_module_name, :component_resource_name, :component_folder, :component_description, :core_version, :required_ruby_version, :security_email
 
       source_root File.expand_path("component_templates", __dir__)
 
@@ -26,6 +26,8 @@ module Decidim
         @core_version = Decidim::Core.version
         @component_description = ask "Write a description for the new component:"
         @required_ruby_version = RUBY_VERSION.length == 5 ? RUBY_VERSION[0..2] : RUBY_VERSION
+        @security_email = ask "Provide a public email in case of security concern:"
+        format_email!
 
         template "decidim-component.gemspec.erb", "#{component_folder}/decidim-#{component_name}.gemspec"
         template "Gemfile.erb", "#{component_folder}/Gemfile" if options[:external]
@@ -70,6 +72,23 @@ module Decidim
           inside(component_folder) do
             Bundler.with_original_env { run "bundle install" }
           end
+        end
+      end
+
+      private
+
+      def format_email!
+        begin
+          raise "Security email must be defined" if @security_email.blank?
+          return unless @security_email.include?("@")
+
+          split = @security_email.split("@")
+          email = split.first
+          domain = split.last.gsub(".", " [dot] ")
+          @security_email = "#{email} [at] #{domain}"
+        rescue RuntimeError => e
+          puts "[ERROR] #{e}"
+          exit 1
         end
       end
     end
