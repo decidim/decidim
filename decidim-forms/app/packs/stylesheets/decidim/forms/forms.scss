@@ -123,8 +123,7 @@
   }
 
   &__file{
-    /* REDESIGN_PENDING: add 'button--transparent-secondary' when available. See https://github.com/PopulateTools/issues/issues/1634 */
-    @apply button w-full justify-center;
+    @apply w-full justify-center;
 
     & + input[type="file"]{
       @apply hidden;
