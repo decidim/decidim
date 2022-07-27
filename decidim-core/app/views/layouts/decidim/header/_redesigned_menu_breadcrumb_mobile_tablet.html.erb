@@ -1,0 +1,19 @@
+<details>
+  <summary id="secondary-dropdown-summary-mobile" aria-controls="secondary-dropdown-mobile" class="flex items-center justify-between text-white">
+    <div class="flex flex-wrap md:flex-nowrap gap-x-2.5 overflow-hidden">
+      <% breadcrumb=[["Process", false], ["Imaginem el nou ecobarri de Ca n' Ametller", true], ["Sobre el procés", false]] %>
+
+      <!-- REDESIGN_PENDING: Only displays two last items -->
+      <% breadcrumb.take(2).each_with_index do |item, i| %>
+        <% is_active = item[1] # item[0] could also be "active" %>
+        <span class="<%= "hidden" if i == 0 %>">/</span>
+        <span class="cursor-pointer <%= "truncate" if i != 0 %> <%= "font-bold" if is_active %>"><%= item[0] %></span>
+      <% end %>
+    </div>
+
+    <%= icon "arrow-down-s-line", class: "flex-none w-6 h-6 fill-current" %>
+  </summary>
+  <div id="secondary-dropdown-mobile" aria-labelledby="secondary-dropdown-summary-mobile">
+    <%= render partial: "layouts/decidim/header/redesigned_menu_breadcrumb_secondary_dropdown" %>
+  </div>
+</details>

@@ -3,16 +3,23 @@
     <%= render partial: "count" %>
   </h1>
   <% if Decidim::Initiatives.creation_enabled %>
-    <% if current_user && allowed_to?(:create, :initiative) %>
+    <% if current_user && available_initiative_types.size > 1 %>
       <%= link_to create_initiative_path(:select_initiative_type), class: "title-action__action button small" do %>
         <%= t(".new_initiative") %>
         <%= icon "plus", role: "img", "aria-hidden": true %>
       <% end %>
     <% elsif current_user %>
-      <button type="button" class="title-action__action button small" data-open="not-authorized-modal" aria-controls="not-authorized-modal" aria-haspopup="dialog" tabindex="0">
-        <%= t(".new_initiative") %>
-        <%= icon "plus", role: "img", "aria-hidden": true %>
-      </button>
+      <% if allowed_to?(:create, :initiative, { initiative_type: available_initiative_types.first }) %>
+        <%= link_to create_initiative_path(:select_initiative_type), class: "title-action__action button small" do %>
+          <%= t(".new_initiative") %>
+          <%= icon "plus", role: "img", "aria-hidden": true %>
+        <% end %>
+      <% else %>
+        <%= authorized_create_modal_button(available_initiative_types.first, remote: true, class: "title-action__action button small") do %>
+          <%= icon "plus", role: "img", "aria-hidden": true %>
+          <%= t(".new_initiative") %>
+        <% end %>
+      <% end %>
     <% else %>
       <% content_for(:redirect_after_login) { create_initiative_url(:select_initiative_type) } %>
       <button type="button" class="title-action__action button small" data-open="loginModal" aria-controls="loginModal" aria-haspopup="dialog" tabindex="0">
@@ -23,22 +30,4 @@
   <% end %>
 </div>
 
-<div class="reveal not-authorized-reveal" id="not-authorized-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="not-authorized-modal-title" data-reveal data-multiple-opened="true">
-  <div class="reveal__header">
-    <h2 class="reveal__title" id="not-authorized-modal-title"><%= t(".not_authorized.title") %></h2>
-    <button class="close-button" data-close aria-label="<%= t(".not_authorized.close") %>"
-      type="button">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
-  <div class="not-authhorized-content">
-    <div class="not-authorized-modal-content">
-      <p>
-        <%= t(".not_authorized.explanation") %>
-      </p>
-    </div>
-  </div>
-  <div class="not-authorized-modal-footer reveal__footer">
-    <%= link_to t(".not_authorized.authorizations_page"), decidim_verifications.authorizations_path(redirect_url: create_initiative_url(:select_initiative_type)), class: "button expanded" %>
-  </div>
-</div>
+<%= render partial: "decidim/initiatives/modal" %>

@@ -6,12 +6,12 @@ describe "Admin filters participatory processes private space users", type: :sys
   include_context "with filterable context"
 
   let(:organization) { create(:organization) }
-  let!(:user) { create(:user, :admin, :confirmed, organization: organization) }
-  let(:participatory_process) { create(:participatory_process, organization: organization) }
+  let!(:user) { create(:user, :admin, :confirmed, organization:) }
+  let(:participatory_process) { create(:participatory_process, organization:) }
 
-  let!(:invited_user1) { create(:user, name: name, organization: organization) }
+  let!(:invited_user1) { create(:user, name:, organization:) }
   let!(:invited_private_user1) { create :participatory_space_private_user, user: invited_user1, privatable_to: participatory_process }
-  let!(:invited_user2) { create(:user, email: email, organization: organization) }
+  let!(:invited_user2) { create(:user, email:, organization:) }
   let!(:invited_private_user2) { create :participatory_space_private_user, user: invited_user2, privatable_to: participatory_process }
 
   let(:name) { "Dummy Name" }

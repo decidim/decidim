@@ -7,8 +7,8 @@ module Decidim
     routes { Decidim::Core::Engine.routes }
 
     let(:organization) { create(:organization) }
-    let(:component) { create(:component, organization: organization) }
-    let(:resource) { create(:dummy_resource, component: component) }
+    let(:component) { create(:component, organization:) }
+    let(:resource) { create(:dummy_resource, component:) }
 
     before do
       request.env["decidim.current_organization"] = organization
@@ -31,7 +31,7 @@ module Decidim
         allow(controller).to receive(:send_data).with(data, type: "image/jpeg", disposition: "inline")
         expect(controller).not_to receive(:store_current_location)
 
-        get :show, format: "image/jpeg", params: params
+        get :show, format: "image/jpeg", params:
       end
     end
   end

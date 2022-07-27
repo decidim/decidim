@@ -12,9 +12,9 @@ module Decidim
 
     describe "::initiatives" do
       let(:organization) { create(:organization) }
-      let(:initiatives_type) { create(:initiatives_type, organization: organization) }
+      let(:initiatives_type) { create(:initiatives_type, organization:) }
       let(:scope) { create(:initiatives_type_scope, type: initiatives_type) }
-      let!(:initiative) { create(:initiative, organization: organization, scoped_type: scope) }
+      let!(:initiative) { create(:initiative, organization:, scoped_type: scope) }
       let!(:other_initiative) { create(:initiative) }
 
       it "returns initiatives" do

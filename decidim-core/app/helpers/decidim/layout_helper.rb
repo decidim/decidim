@@ -29,6 +29,24 @@ module Decidim
       favicon_link_tag(icon_image.gsub(".png", ".ico"), rel: "icon", sizes: "any", type: nil)
     end
 
+    def redesigned_icon(name, options = {})
+      default_html_properties = {
+        "width" => "1em",
+        "height" => "1em",
+        "role" => "img",
+        "aria-hidden" => "true"
+      }
+
+      html_properties = options.with_indifferent_access.transform_keys(&:dasherize).slice("width", "height", "aria-label", "role", "aria-hidden", "class")
+      html_properties = default_html_properties.merge(html_properties)
+
+      href = Decidim.cors_enabled ? "" : asset_pack_path("media/images/remixicon.symbol.svg")
+
+      content_tag :svg, html_properties do
+        content_tag :use, nil, "href" => "#{href}#ri-#{name}"
+      end
+    end
+
     # Outputs an SVG-based icon.
     #
     # name    - The String with the icon name.
@@ -42,7 +60,7 @@ module Decidim
     #             :class - The String to add as a CSS class (optional).
     #
     # Returns a String.
-    def icon(name, options = {})
+    def legacy_icon(name, options = {})
       options = options.with_indifferent_access
       html_properties = {}
 
@@ -74,6 +92,18 @@ module Decidim
         inner += content_tag :use, nil, "href" => "#{href}#icon-#{name}"
 
         inner
+      end
+    end
+
+    def icon(*args)
+      redesign_enabled? ? redesigned_icon(*args) : legacy_icon(*args)
+    end
+
+    def arrow_link(text, url, args = {})
+      content_tag :a, href: url, class: "arrow-link #{args.with_indifferent_access[:class]}" do
+        inner = text
+        inner += redesigned_icon("arrow-right-line", class: "fill-current")
+        inner.html_safe
       end
     end
 
@@ -122,10 +152,10 @@ module Decidim
       active_item = items.find { |item| item[:active] }
 
       controller.view_context.render partial: "decidim/shared/extended_navigation_bar", locals: {
-        items: items,
-        extra_items: extra_items,
-        active_item: active_item,
-        max_items: max_items
+        items:,
+        extra_items:,
+        active_item:,
+        max_items:
       }
     end
 
@@ -148,7 +178,7 @@ module Decidim
     # background-color: rgba(var(--primary-rgb), 0.5)
     def organization_colors
       css = current_organization.colors.each.map { |k, v| "--#{k}: #{v};--#{k}-rgb: #{v[1..2].hex},#{v[3..4].hex},#{v[5..6].hex};" }.join
-      render partial: "layouts/decidim/organization_colors", locals: { css: css }
+      render partial: "layouts/decidim/organization_colors", locals: { css: }
     end
 
     private

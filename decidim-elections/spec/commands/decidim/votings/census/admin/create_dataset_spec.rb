@@ -9,7 +9,7 @@ module Decidim::Votings::Census::Admin
     let(:voting) { create(:voting) }
     let(:user) { create(:user, :admin, organization: voting.organization) }
     let(:file) { upload_test_file(Decidim::Dev.test_file("import_voting_census.csv", "text/csv")) }
-    let(:params) { { file: file } }
+    let(:params) { { file: } }
     let(:context) { { current_participatory_space: voting } }
 
     let(:form) { DatasetForm.from_params(params).with_context(context) }
@@ -42,8 +42,23 @@ module Decidim::Votings::Census::Admin
       end
     end
 
+    context "when file only contains headers" do
+      let(:file) { upload_test_file(Decidim::Dev.test_file("import_voting_census_only_headers.csv", "text/csv")) }
+
+      it "broadcasts invalid_csv_file" do
+        expect(subject.call).to broadcast(:invalid_csv_header)
+      end
+
+      it "does not enqueue any job" do
+        expect(CreateDatumJob).not_to receive(:perform_later)
+
+        subject.call
+      end
+    end
+
     it "broadcasts ok" do
       expect(subject.call).to broadcast(:ok)
+      expect(Decidim::Votings::Census::Dataset.last.csv_row_raw_count).to eq(5)
     end
 
     context "when active storage service is not local" do

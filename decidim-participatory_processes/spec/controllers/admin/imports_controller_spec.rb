@@ -9,7 +9,7 @@ module Decidim
         routes { Decidim::ParticipatoryProcesses::AdminEngine.routes }
 
         it_behaves_like "admin imports controller" do
-          let!(:participatory_space) { create :participatory_process, organization: organization }
+          let!(:participatory_space) { create :participatory_process, organization: }
           let(:extra_params) { { participatory_process_slug: participatory_space.slug } }
 
           let(:file) do

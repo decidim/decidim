@@ -4,6 +4,8 @@
 require "json"
 require "ruby-progressbar"
 
+require "./lib/decidim/github_manager/querier"
+
 class EmptyTokenError < RuntimeError
   def full_message
     <<~HELP
@@ -169,23 +171,10 @@ class ChangeLogGenerator
     id = get_pr_id(commit)
     return nil unless id
 
-    data = get_data_for_pr(id)
-    labels = data["labels"].map { |l| l["name"] }.sort
-    title = data["title"]
-
-    {
-      id: id,
-      title: title,
-      labels: labels,
-      type: labels.select { |l| l.match(/^type: /) || l == "target: developer-experience" },
-      modules: labels.select { |l| l.match(/^module: /) }
-    }
-  end
-
-  def get_data_for_pr(id)
-    uri = "https://api.github.com/repos/decidim/decidim/issues/#{id}"
-    response = `curl -s -H "Authorization: token #{github_token}" "#{uri}"`
-    JSON.parse(response)
+    Decidim::GithubManager::Querier.new(
+      token: github_token,
+      issue_id: id
+    ).call
   end
 
   def pr_link(id)

@@ -8,7 +8,7 @@ module Decidim::Conferences
 
     let(:my_cell) { cell("decidim/conferences/partner", partner) }
     let!(:conference) { create(:conference) }
-    let(:partner) { create(:partner, :main_promotor, conference: conference) }
+    let(:partner) { create(:partner, :main_promotor, conference:) }
 
     context "when rendering a main_promotor" do
       it "renders a partner card" do
@@ -17,7 +17,7 @@ module Decidim::Conferences
     end
 
     context "when rendering a collaborator" do
-      let(:partner) { create(:partner, :collaborator, conference: conference) }
+      let(:partner) { create(:partner, :collaborator, conference:) }
 
       it "renders a User_group author card" do
         expect(subject).to have_css(".partner-box")

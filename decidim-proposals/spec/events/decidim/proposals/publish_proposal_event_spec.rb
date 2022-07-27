@@ -6,7 +6,7 @@ module Decidim
   module Proposals
     describe PublishProposalEvent do
       let(:resource) { create :proposal, title: "A nice proposal" }
-      let(:participatory_process) { create :participatory_process, organization: organization }
+      let(:participatory_process) { create :participatory_process, organization: }
       let(:proposal_component) { create(:proposal_component, participatory_space: participatory_process) }
       let(:resource_title) { translated(resource.title) }
       let(:event_name) { "decidim.events.proposals.proposal_published" }
@@ -59,6 +59,18 @@ module Decidim
         end
       end
 
+      context "when the proposal is official" do
+        let(:resource) { create :proposal, :official, title: "A nice proposal" }
+        let(:extra) { { participatory_space: resource.participatory_space } }
+
+        describe "notification_title" do
+          it "is generated correctly" do
+            expect(subject.notification_title)
+              .to include("The official proposal <a href=\"#{resource_path}\">#{resource_title}</a> has been added to #{participatory_space_title}")
+          end
+        end
+      end
+
       context "when the target are the participatory space followers" do
         let(:event_name) { "decidim.events.proposals.proposal_published_for_space" }
         let(:extra) { { participatory_space: true } }
@@ -100,7 +112,7 @@ module Decidim
           create :proposal,
                  component: proposal_component,
                  title: { en: "A nice proposal", machine_translations: { ca: "Une belle idee" } },
-                 body: body
+                 body:
         end
 
         let(:en_version) { subject.resource_text["en"] }

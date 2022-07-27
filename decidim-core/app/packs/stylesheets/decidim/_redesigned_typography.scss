@@ -1,0 +1,27 @@
+.h1{
+  @apply font-sans font-bold text-4xl;
+}
+
+.h2{
+  @apply font-sans font-bold text-3xl;
+}
+
+.h3{
+  @apply font-sans font-bold text-2xl;
+}
+
+.h4{
+  @apply font-sans font-bold text-xl;
+}
+
+.h5{
+  @apply font-sans font-bold text-lg;
+}
+
+.h6{
+  @apply font-sans font-bold text-md;
+}
+
+.decorator{
+  @apply relative after:absolute after:content-[''] after:h-1 after:w-24 after:top-[calc(100%+.25rem)] after:left-0 after:bg-tertiary after:rounded-b;
+}

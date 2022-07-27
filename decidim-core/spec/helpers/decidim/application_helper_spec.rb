@@ -12,7 +12,7 @@ module Decidim
     end
 
     describe "#html_truncate" do
-      subject { helper.html_truncate(text, length: length) }
+      subject { helper.html_truncate(text, length:) }
 
       describe "truncating HTML text" do
         let(:text) { "<p>Hello, this is dog</p>" }
@@ -29,7 +29,7 @@ module Decidim
       end
 
       describe "truncating with a custom separator" do
-        subject { helper.html_truncate(text, length: length, separator: " ...read more") }
+        subject { helper.html_truncate(text, length:, separator: " ...read more") }
 
         let(:text) { "Hello, this is dog" }
         let(:length) { 5 }
@@ -38,7 +38,7 @@ module Decidim
       end
 
       context "when :tail_before_final_tag is false" do
-        subject { helper.html_truncate(text, length: length, tail_before_final_tag: false) }
+        subject { helper.html_truncate(text, length:, tail_before_final_tag: false) }
 
         describe "truncating HTML text" do
           let(:text) { "<div><p>Hello, this is dog</p></div>" }
@@ -49,7 +49,7 @@ module Decidim
       end
 
       context "when :tail_before_final_tag is true" do
-        subject { helper.html_truncate(text, length: length, tail_before_final_tag: true) }
+        subject { helper.html_truncate(text, length:, tail_before_final_tag: true) }
 
         describe "truncating HTML text" do
           let(:text) { "<p>Hello, <b>this is dog</b></p>" }
@@ -60,7 +60,7 @@ module Decidim
       end
 
       context "when :tail_before_final_tag is missing" do
-        subject { helper.html_truncate(text, length: length) }
+        subject { helper.html_truncate(text, length:) }
 
         describe "truncating HTML text" do
           let(:text) { "<p>Hello, <b>this is dog</b></p>" }

@@ -6,8 +6,8 @@ describe "Explore posts", type: :system do
   include_context "with a component"
   let(:manifest_name) { "blogs" }
 
-  let!(:old_post) { create(:post, component: component, created_at: 2.days.ago) }
-  let!(:new_post) { create(:post, component: component, created_at: Time.current) }
+  let!(:old_post) { create(:post, component:, created_at: 2.days.ago) }
+  let!(:new_post) { create(:post, component:, created_at: Time.current) }
 
   let!(:image) { create(:attachment, attached_to: old_post) }
 
@@ -38,7 +38,7 @@ describe "Explore posts", type: :system do
 
     context "when paginating" do
       let(:collection_size) { 10 }
-      let!(:collection) { create_list :post, collection_size, component: component }
+      let!(:collection) { create_list :post, collection_size, component: }
       let!(:resource_selector) { ".card--post" }
 
       before do
@@ -47,7 +47,7 @@ describe "Explore posts", type: :system do
 
       it "lists 4 resources per page by default" do
         expect(page).to have_css(resource_selector, count: 4)
-        expect(page).to have_css(".pagination .page", count: 3)
+        expect(page).to have_css("[data-pages] [data-page]", count: 3)
       end
     end
   end
@@ -55,7 +55,7 @@ describe "Explore posts", type: :system do
   describe "show" do
     let(:posts_count) { 1 }
     let(:author) { organization }
-    let!(:post) { create(:post, component: component, author: author) }
+    let!(:post) { create(:post, component:, author:) }
 
     before do
       visit resource_locator(post).path
@@ -70,7 +70,7 @@ describe "Explore posts", type: :system do
     end
 
     context "when author is a user_group" do
-      let(:author) { create(:user_group, :verified, organization: organization) }
+      let(:author) { create(:user_group, :verified, organization:) }
 
       it "shows user group as the author" do
         within ".author__name" do
@@ -113,8 +113,8 @@ describe "Explore posts", type: :system do
 
   describe "most commented" do
     context "when ordering by 'most_commented'" do
-      let!(:post_more_comments) { create(:post, component: component) }
-      let!(:post_less_comments) { create(:post, component: component) }
+      let!(:post_more_comments) { create(:post, component:) }
+      let!(:post_less_comments) { create(:post, component:) }
       let!(:more_comments) { create_list(:comment, 7, commentable: post_more_comments) }
       let!(:less_comments) { create_list(:comment, 3, commentable: post_less_comments) }
 

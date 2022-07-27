@@ -7,9 +7,9 @@ module Decidim
     describe CopyPage do
       describe "call" do
         let(:component) { create(:component, manifest_name: "pages") }
-        let!(:page) { create(:page, component: component) }
+        let!(:page) { create(:page, component:) }
         let(:new_component) { create(:component, manifest_name: "pages") }
-        let(:context) { { new_component: new_component, old_component: component } }
+        let(:context) { { new_component:, old_component: component } }
         let(:command) { described_class.new(context) }
 
         describe "when the page is not duplicated" do

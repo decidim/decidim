@@ -24,7 +24,7 @@ describe "I18n sanity" do
 
   it "does not have missing keys" do
     expect(missing_keys).to be_empty,
-                            "Missing #{missing_keys.leaves.count} i18n keys, please run `bundle exec i18n-tasks missing --locales #{locales}' to show them"
+                            "Missing #{missing_keys.leaves.count} i18n keys, please run `ENFORCED_LOCALES=#{locales} bundle exec i18n-tasks missing --locales #{locales}' to show them"
   end
 
   it "does not have unused keys" do

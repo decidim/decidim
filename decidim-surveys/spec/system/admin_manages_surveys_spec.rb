@@ -6,12 +6,12 @@ describe "Admin manages surveys", type: :system do
   let(:manifest_name) { "surveys" }
   let!(:component) do
     create(:component,
-           manifest: manifest,
-           participatory_space: participatory_space,
+           manifest:,
+           participatory_space:,
            published_at: nil)
   end
   let!(:questionnaire) { create(:questionnaire) }
-  let!(:survey) { create :survey, component: component, questionnaire: questionnaire }
+  let!(:survey) { create :survey, component:, questionnaire: }
 
   include_context "when managing a component as an admin"
 
@@ -25,7 +25,7 @@ describe "Admin manages surveys", type: :system do
       component.unpublish!
     end
 
-    let!(:question) { create(:questionnaire_question, questionnaire: questionnaire) }
+    let!(:question) { create(:questionnaire_question, questionnaire:) }
 
     it "allows to preview survey" do
       visit questionnaire_edit_path
@@ -43,7 +43,7 @@ describe "Admin manages surveys", type: :system do
     end
 
     context "when the survey has answers" do
-      let!(:answer) { create(:answer, question: question, questionnaire: questionnaire) }
+      let!(:answer) { create(:answer, question:, questionnaire:) }
 
       it "shows warning message" do
         visit questionnaire_edit_path
@@ -79,7 +79,7 @@ describe "Admin manages surveys", type: :system do
         before do
           component.update!(
             settings: {
-              clean_after_publish: clean_after_publish
+              clean_after_publish:
             }
           )
         end
@@ -126,7 +126,7 @@ describe "Admin manages surveys", type: :system do
   private
 
   def find_nested_form_field(attribute, visible: :visible)
-    current_scope.find(nested_form_field_selector(attribute), visible: visible)
+    current_scope.find(nested_form_field_selector(attribute), visible:)
   end
 
   def nested_form_field_selector(attribute)

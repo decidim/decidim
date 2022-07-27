@@ -5,8 +5,8 @@ require "spec_helper"
 module Decidim::Admin
   describe UnhideResource do
     let(:reportable) { create(:dummy_resource) }
-    let(:moderation) { create(:moderation, reportable: reportable, report_count: 1, hidden_at: Time.current) }
-    let!(:report) { create(:report, moderation: moderation) }
+    let(:moderation) { create(:moderation, reportable:, report_count: 1, hidden_at: Time.current) }
+    let!(:report) { create(:report, moderation:) }
     let(:current_user) { create :user, organization: reportable.participatory_space.organization }
     let(:command) { described_class.new(reportable, current_user) }
 
@@ -35,7 +35,7 @@ module Decidim::Admin
     end
 
     context "when the resource is not hidden" do
-      let(:moderation) { create(:moderation, reportable: reportable, report_count: 1, hidden_at: nil) }
+      let(:moderation) { create(:moderation, reportable:, report_count: 1, hidden_at: nil) }
 
       it "broadcasts invalid" do
         expect { command.call }.to broadcast(:invalid)

@@ -115,7 +115,7 @@ shared_examples "manage conferences" do
 
   describe "previewing conferences" do
     context "when the conference is unpublished" do
-      let!(:conference) { create(:conference, :unpublished, organization: organization) }
+      let!(:conference) { create(:conference, :unpublished, organization:) }
 
       it "allows the user to preview the unpublished conference" do
         within find("tr", text: translated(conference.title)) do
@@ -127,7 +127,7 @@ shared_examples "manage conferences" do
     end
 
     context "when the conference is published" do
-      let!(:conference) { create(:conference, organization: organization) }
+      let!(:conference) { create(:conference, organization:) }
 
       it "allows the user to preview the unpublished conference" do
         within find("tr", text: translated(conference.title)) do
@@ -147,7 +147,7 @@ shared_examples "manage conferences" do
   end
 
   describe "publishing a conference" do
-    let!(:conference) { create(:conference, :unpublished, organization: organization) }
+    let!(:conference) { create(:conference, :unpublished, organization:) }
 
     before do
       click_link translated(conference.title)
@@ -165,7 +165,7 @@ shared_examples "manage conferences" do
   end
 
   describe "unpublishing a conference" do
-    let!(:conference) { create(:conference, organization: organization) }
+    let!(:conference) { create(:conference, organization:) }
 
     before do
       click_link translated(conference.title)
@@ -193,10 +193,10 @@ shared_examples "manage conferences" do
   end
 
   context "when the conference has a scope" do
-    let(:scope) { create(:scope, organization: organization) }
+    let(:scope) { create(:scope, organization:) }
 
     before do
-      conference.update!(scopes_enabled: true, scope: scope)
+      conference.update!(scopes_enabled: true, scope:)
     end
 
     it "disables the scope for the conference" do

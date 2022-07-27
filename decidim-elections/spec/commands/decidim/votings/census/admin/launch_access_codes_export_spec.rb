@@ -7,7 +7,7 @@ module Decidim::Votings::Census::Admin
     subject { described_class.new(dataset, user) }
 
     let(:dataset) { create(:dataset, :codes_generated) }
-    let(:user) { create(:user, :admin) }
+    let(:user) { create(:user, :admin, organization: dataset.organization) }
 
     context "when the inputs are not valid" do
       context "when the user in nil" do

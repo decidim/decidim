@@ -6,9 +6,9 @@ describe Decidim::Initiatives::ContentBlocks::HighlightedInitiativesCell, type: 
   subject { cell(content_block.cell, content_block) }
 
   let(:organization) { create(:organization) }
-  let(:content_block) { create :content_block, organization: organization, manifest_name: :highlighted_initiatives, scope_name: :homepage, settings: settings }
-  let!(:initiatives) { create_list :initiative, 5, organization: organization }
-  let!(:most_recent_initiative) { create :initiative, published_at: 1.day.from_now, organization: organization }
+  let(:content_block) { create :content_block, organization:, manifest_name: :highlighted_initiatives, scope_name: :homepage, settings: }
+  let!(:initiatives) { create_list :initiative, 5, organization: }
+  let!(:most_recent_initiative) { create :initiative, published_at: 1.day.from_now, organization: }
   let(:settings) { {} }
 
   let(:highlighted_initiatives) { subject.call.find("#highlighted-initiatives") }

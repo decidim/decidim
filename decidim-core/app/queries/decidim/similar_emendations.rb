@@ -24,7 +24,7 @@ module Decidim
     # Retrieves similar emendations
     def query
       emendation.class
-                .where(component: component)
+                .where(component:)
                 .only_visible_emendations_for(amender, component)
                 .published
                 .not_hidden

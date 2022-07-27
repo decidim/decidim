@@ -29,6 +29,8 @@ module Decidim
     autoload :OrganizationType, "decidim/api/types/organization_type"
     autoload :ParticipatorySpaceType, "decidim/api/types/participatory_space_type"
     autoload :ParticipatorySpaceLinkType, "decidim/api/types/participatory_space_link_type"
+    autoload :ParticipatorySpaceManifestType, "decidim/api/types/participatory_space_manifest_type"
+    autoload :QuantifiableTranslatedFieldType, "decidim/api/types/quantifiable_translated_field_type"
     autoload :ScopeApiType, "decidim/api/types/scope_api_type"
     autoload :SessionType, "decidim/api/types/session_type"
     autoload :StatisticType, "decidim/api/types/statistic_type"

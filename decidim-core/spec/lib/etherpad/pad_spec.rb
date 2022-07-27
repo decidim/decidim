@@ -10,8 +10,8 @@ module Decidim
       let(:pad_id) { "Ret.-MEET-2021-11-1-3ff3aca8073fd33735cb8f92243464" }
       let(:etherpad_config) do
         {
-          server: server,
-          api_key: api_key
+          server:,
+          api_key:
         }
       end
       let(:server) { "http://pad.example.org" }

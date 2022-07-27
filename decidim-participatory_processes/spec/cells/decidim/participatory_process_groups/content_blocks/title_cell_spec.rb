@@ -12,16 +12,16 @@ describe Decidim::ParticipatoryProcessGroups::ContentBlocks::TitleCell, type: :c
   let(:participatory_process_group) do
     create(
       :participatory_process_group,
-      organization: organization,
-      hashtag: hashtag,
-      group_url: group_url,
-      meta_scope: meta_scope
+      organization:,
+      hashtag:,
+      group_url:,
+      meta_scope:
     )
   end
   let(:content_block) do
     create(
       :content_block,
-      organization: organization,
+      organization:,
       manifest_name: :title,
       scope_name: :participatory_process_group_homepage,
       scoped_resource_id: participatory_process_group.id

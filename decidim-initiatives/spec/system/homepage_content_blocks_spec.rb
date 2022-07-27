@@ -4,8 +4,8 @@ require "spec_helper"
 
 describe "Homepage initiatives content blocks", type: :system do
   let(:organization) { create(:organization) }
-  let!(:initiative) { create(:initiative, organization: organization) }
-  let!(:closed_initiative) { create(:initiative, :rejected, organization: organization) }
+  let!(:initiative) { create(:initiative, organization:) }
+  let!(:closed_initiative) { create(:initiative, :rejected, organization:) }
 
   before do
     create :content_block, organization: organization, scope_name: :homepage, manifest_name: :highlighted_initiatives
