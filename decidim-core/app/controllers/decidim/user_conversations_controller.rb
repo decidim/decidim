@@ -40,7 +40,7 @@ module Decidim
 
       Messaging::ReplyToConversation.call(conversation, @form) do
         on(:ok) do |message|
-          render action: :update, locals: { message: message }
+          render action: :update, locals: { message: }
         end
 
         on(:invalid) do

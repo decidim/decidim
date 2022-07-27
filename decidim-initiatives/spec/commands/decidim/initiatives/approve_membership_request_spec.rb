@@ -6,9 +6,9 @@ module Decidim
   module Initiatives
     describe ApproveMembershipRequest do
       let(:organization) { create(:organization) }
-      let!(:initiative) { create(:initiative, :created, organization: organization) }
+      let!(:initiative) { create(:initiative, :created, organization:) }
       let(:author) { initiative.author }
-      let(:membership_request) { create(:initiatives_committee_member, initiative: initiative, state: "requested") }
+      let(:membership_request) { create(:initiatives_committee_member, initiative:, state: "requested") }
       let(:command) { described_class.new(membership_request) }
 
       context "when everything is ok" do

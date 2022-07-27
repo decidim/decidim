@@ -29,14 +29,14 @@ module Decidim
         if @form.before_date.present?
           authorizations_to_revoke = if @form.impersonated_only?
                                        Decidim::Verifications::AuthorizationsBeforeDate.new(
-                                         organization: organization,
+                                         organization:,
                                          date: @form.before_date,
                                          granted: true,
                                          impersonated_only: @form.impersonated_only
                                        )
                                      else
                                        Decidim::Verifications::AuthorizationsBeforeDate.new(
-                                         organization: organization,
+                                         organization:,
                                          date: @form.before_date,
                                          granted: true
                                        )

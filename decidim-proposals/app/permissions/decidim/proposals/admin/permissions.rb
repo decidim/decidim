@@ -72,7 +72,7 @@ module Decidim
         end
 
         def user_valuator_role
-          @user_valuator_role ||= space.user_roles(:valuator).find_by(user: user)
+          @user_valuator_role ||= space.user_roles(:valuator).find_by(user:)
         end
 
         def user_is_valuator?
@@ -84,7 +84,7 @@ module Decidim
         def valuator_assigned_to_proposal?
           @valuator_assigned_to_proposal ||=
             Decidim::Proposals::ValuationAssignment
-            .where(proposal: proposal, valuator_role: user_valuator_role)
+            .where(proposal:, valuator_role: user_valuator_role)
             .any?
         end
 

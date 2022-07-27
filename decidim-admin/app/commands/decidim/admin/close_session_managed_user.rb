@@ -32,7 +32,7 @@ module Decidim
       private
 
       def impersonation_log
-        @impersonation_log ||= Decidim::ImpersonationLog.where(admin: current_user, user: user).active.first
+        @impersonation_log ||= Decidim::ImpersonationLog.where(admin: current_user, user:).active.first
       end
 
       def close_session

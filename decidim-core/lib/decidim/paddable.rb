@@ -62,7 +62,7 @@ module Decidim
       # compatibilize with old versions if no salt available (less secure)
       def token
         if defined?(salt) && salt.present?
-          tokenizer = Decidim::Tokenizer.new(salt: salt)
+          tokenizer = Decidim::Tokenizer.new(salt:)
           return tokenizer.hex_digest(id)
         end
 

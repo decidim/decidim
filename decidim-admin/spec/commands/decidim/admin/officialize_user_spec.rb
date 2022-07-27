@@ -7,14 +7,14 @@ module Decidim::Admin
     subject { described_class.new(form) }
 
     let(:organization) { create :organization }
-    let(:current_user) { create(:user, organization: organization) }
+    let(:current_user) { create(:user, organization:) }
 
     let(:form) do
       OfficializationForm.from_params(
         officialized_as: { "en" => "Major of Barcelona" },
-        user_id: user_id
+        user_id:
       ).with_context(
-        current_user: current_user,
+        current_user:,
         current_organization: organization
       )
     end
@@ -34,7 +34,7 @@ module Decidim::Admin
     end
 
     context "when the form is valid" do
-      let(:user) { create(:user, organization: organization) }
+      let(:user) { create(:user, organization:) }
       let(:user_id) { user.id }
       let(:log_info) do
         hash_including(
@@ -79,7 +79,7 @@ module Decidim::Admin
       end
 
       it "notifies the user's followers" do
-        follower = create(:user, organization: organization)
+        follower = create(:user, organization:)
         create(:follow, followable: user, user: follower)
 
         expect(Decidim::EventsManager)

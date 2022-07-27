@@ -50,8 +50,8 @@ describe "Manage proposal wizard steps help texts", type: :system do
 
     click_button "Update"
 
-    create(:proposal, title: "More sidewalks and less roads", body: "Cities need more people, not more cars", component: component, users: [user])
-    create(:proposal, title: "More trees and parks", body: "Green is always better", component: component, users: [user])
+    create(:proposal, title: "More sidewalks and less roads", body: "Cities need more people, not more cars", component:, users: [user])
+    create(:proposal, title: "More trees and parks", body: "Green is always better", component:, users: [user])
     visit_component
     click_link "New proposal"
     within ".new_proposal" do

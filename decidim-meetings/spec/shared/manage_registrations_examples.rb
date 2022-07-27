@@ -27,8 +27,8 @@ shared_examples "manage registrations" do
   end
 
   context "when registrations are enabled" do
-    let!(:meeting) { create :meeting, :published, scope: scope, component: current_component, registrations_enabled: true }
-    let!(:registrations) { create_list :registration, 10, meeting: meeting }
+    let!(:meeting) { create :meeting, :published, scope:, component: current_component, registrations_enabled: true }
+    let!(:registrations) { create_list :registration, 10, meeting: }
 
     context "and a few registrations have been created" do
       it "can verify the number of registrations" do
@@ -39,7 +39,7 @@ shared_examples "manage registrations" do
   end
 
   context "when exporting registrations", driver: :rack_test do
-    let!(:registrations) { create_list :registration, 10, meeting: meeting }
+    let!(:registrations) { create_list :registration, 10, meeting: }
 
     it "exports a CSV" do
       visit_edit_registrations_page
@@ -69,7 +69,7 @@ shared_examples "manage registrations" do
       meeting.component.update!(settings: { registration_code_enabled: true })
     end
 
-    let!(:registration) { create :registration, meeting: meeting, code: "QW12ER34" }
+    let!(:registration) { create :registration, meeting:, code: "QW12ER34" }
 
     it "can validate a valid registration code" do
       visit_edit_registrations_page

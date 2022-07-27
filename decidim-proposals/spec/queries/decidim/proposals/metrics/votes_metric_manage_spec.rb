@@ -4,11 +4,11 @@ require "spec_helper"
 
 describe Decidim::Proposals::Metrics::VotesMetricManage do
   let(:organization) { create(:organization) }
-  let(:participatory_space) { create(:participatory_process, :with_steps, organization: organization) }
-  let(:component) { create(:proposal_component, :published, participatory_space: participatory_space) }
-  let(:proposal) { create(:proposal, component: component) }
+  let(:participatory_space) { create(:participatory_process, :with_steps, organization:) }
+  let(:component) { create(:proposal_component, :published, participatory_space:) }
+  let(:proposal) { create(:proposal, component:) }
   let(:day) { Time.zone.yesterday }
-  let!(:votes) { create_list(:proposal_vote, 5, proposal: proposal, created_at: day) }
+  let!(:votes) { create_list(:proposal_vote, 5, proposal:, created_at: day) }
 
   include_context "when managing metrics"
 
@@ -29,7 +29,7 @@ describe Decidim::Proposals::Metrics::VotesMetricManage do
     end
 
     it "updates metric records" do
-      create(:metric, metric_type: "votes", day: day, cumulative: 1, quantity: 1, organization: organization, category: nil, participatory_space: participatory_space, related_object: proposal)
+      create(:metric, metric_type: "votes", day:, cumulative: 1, quantity: 1, organization:, category: nil, participatory_space:, related_object: proposal)
       registry = generate_metric_registry
 
       expect(Decidim::Metric.count).to eq(1)
@@ -38,10 +38,10 @@ describe Decidim::Proposals::Metrics::VotesMetricManage do
     end
 
     context "when calculating the metrics" do
-      let(:withdrawn_proposal) { create(:proposal, state: "withdrawn", component: component) }
+      let(:withdrawn_proposal) { create(:proposal, state: "withdrawn", component:) }
       let!(:invalid_votes) { create_list(:proposal_vote, 5, proposal: withdrawn_proposal, created_at: day) }
-      let(:moderation) { create(:moderation, reportable: proposal, report_count: 1, participatory_space: participatory_space) }
-      let!(:report) { create(:report, moderation: moderation) }
+      let(:moderation) { create(:moderation, reportable: proposal, report_count: 1, participatory_space:) }
+      let!(:report) { create(:report, moderation:) }
 
       it "filters the data correctly" do
         proposal.moderation.update!(hidden_at: Time.current)

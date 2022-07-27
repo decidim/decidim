@@ -9,12 +9,12 @@ module Decidim
         routes { Decidim::ParticipatoryProcesses::AdminEngine.routes }
 
         let(:organization) { create(:organization) }
-        let(:current_user) { create(:user, :confirmed, :admin, organization: organization) }
+        let(:current_user) { create(:user, :confirmed, :admin, organization:) }
         let!(:participatory_process) do
           create(
             :participatory_process,
             :published,
-            organization: organization
+            organization:
           )
         end
 

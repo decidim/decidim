@@ -17,7 +17,7 @@ namespace :decidim do
     target_users = Decidim::User.where(notifications_sending_frequency: frequency)
     time = Time.now.utc
     target_users.find_each do |user|
-      Decidim::EmailNotificationsDigestGeneratorJob.perform_later(user.id, frequency, time: time)
+      Decidim::EmailNotificationsDigestGeneratorJob.perform_later(user.id, frequency, time:)
     end
   end
 end

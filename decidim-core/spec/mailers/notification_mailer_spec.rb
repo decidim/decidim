@@ -5,13 +5,13 @@ require "spec_helper"
 module Decidim
   describe NotificationMailer, type: :mailer do
     let(:organization) { create(:organization, name: "O'Connor") }
-    let(:user) { create(:user, name: "Sarah Connor", organization: organization) }
+    let(:user) { create(:user, name: "Sarah Connor", organization:) }
     let(:resource) { user }
     let(:event_class_name) { "Decidim::ProfileUpdatedEvent" }
     let(:extra) { { foo: "bar" } }
     let(:event) { "decidim.events.users.profile_updated" }
     let(:event_instance) do
-      event_class_name.constantize.new(resource: resource, event_name: event, user: user, user_role: :follower, extra: extra)
+      event_class_name.constantize.new(resource:, event_name: event, user:, user_role: :follower, extra:)
     end
 
     describe "event_received" do

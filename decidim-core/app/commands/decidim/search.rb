@@ -40,7 +40,7 @@ module Decidim
 
         results_by_type.update(class_name => {
                                  count: results_count,
-                                 results: results
+                                 results:
                                })
       end
       broadcast(:ok, search_results)
@@ -83,7 +83,7 @@ module Decidim
 
     def filtered_query_for(class_name)
       query = SearchableResource.where(
-        organization: organization,
+        organization:,
         locale: I18n.locale,
         resource_type: class_name
       )

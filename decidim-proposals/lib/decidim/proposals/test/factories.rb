@@ -8,7 +8,7 @@ FactoryBot.define do
   factory :proposal_component, parent: :component do
     name { Decidim::Components::Namer.new(participatory_space.organization.available_locales, :proposals).i18n_name }
     manifest_name { :proposals }
-    participatory_space { create(:participatory_process, :with_steps, organization: organization) }
+    participatory_space { create(:participatory_process, :with_steps, organization:) }
 
     trait :with_endorsements_enabled do
       step_settings do
@@ -57,7 +57,7 @@ FactoryBot.define do
 
       settings do
         {
-          vote_limit: vote_limit
+          vote_limit:
         }
       end
     end
@@ -69,7 +69,7 @@ FactoryBot.define do
 
       settings do
         {
-          proposal_limit: proposal_limit
+          proposal_limit:
         }
       end
     end
@@ -81,7 +81,7 @@ FactoryBot.define do
 
       settings do
         {
-          proposal_length: proposal_length
+          proposal_length:
         }
       end
     end
@@ -139,7 +139,7 @@ FactoryBot.define do
 
       settings do
         {
-          threshold_per_proposal: threshold_per_proposal
+          threshold_per_proposal:
         }
       end
     end
@@ -176,7 +176,7 @@ FactoryBot.define do
 
       settings do
         {
-          minimum_votes_per_user: minimum_votes_per_user
+          minimum_votes_per_user:
         }
       end
     end
@@ -223,8 +223,8 @@ FactoryBot.define do
       step_settings do
         {
           participatory_space.active_step.id => {
-            automatic_hashtags: automatic_hashtags,
-            suggested_hashtags: suggested_hashtags,
+            automatic_hashtags:,
+            suggested_hashtags:,
             creation_enabled: true
           }
         }
@@ -292,7 +292,7 @@ FactoryBot.define do
         users = evaluator.users || [create(:user, :confirmed, organization: proposal.component.participatory_space.organization)]
         users.each_with_index do |user, idx|
           user_group = evaluator.user_groups[idx]
-          proposal.coauthorships.build(author: user, user_group: user_group)
+          proposal.coauthorships.build(author: user, user_group:)
         end
       end
     end
@@ -318,7 +318,7 @@ FactoryBot.define do
         proposal.coauthorships.clear
         user = create(:user, organization: proposal.component.participatory_space.organization)
         user_group = create(:user_group, :verified, organization: user.organization, users: [user])
-        proposal.coauthorships.build(author: user, user_group: user_group)
+        proposal.coauthorships.build(author: user, user_group:)
       end
     end
 
@@ -333,7 +333,7 @@ FactoryBot.define do
       after :build do |proposal|
         proposal.coauthorships.clear
         component = build(:meeting_component, participatory_space: proposal.component.participatory_space)
-        proposal.coauthorships.build(author: build(:meeting, component: component))
+        proposal.coauthorships.build(author: build(:meeting, component:))
       end
     end
 
@@ -389,7 +389,7 @@ FactoryBot.define do
 
     trait :with_votes do
       after :create do |proposal|
-        create_list(:proposal_vote, 5, proposal: proposal)
+        create_list(:proposal_vote, 5, proposal:)
       end
     end
 
@@ -456,7 +456,7 @@ FactoryBot.define do
         users = evaluator.users || [create(:user, organization: collaborative_draft.component.participatory_space.organization)]
         users.each_with_index do |user, idx|
           user_group = evaluator.user_groups[idx]
-          collaborative_draft.coauthorships.build(author: user, user_group: user_group)
+          collaborative_draft.coauthorships.build(author: user, user_group:)
         end
       end
     end
@@ -486,7 +486,7 @@ FactoryBot.define do
     valuator_role do
       space = proposal.component.participatory_space
       organization = space.organization
-      build :participatory_process_user_role, role: :valuator, user: build(:user, organization: organization)
+      build :participatory_process_user_role, role: :valuator, user: build(:user, organization:)
     end
   end
 end

@@ -21,10 +21,10 @@ module Decidim
         let(:existing_user) { false }
         let(:attributes) do
           {
-            name: name,
-            email: email,
-            existing_user: existing_user,
-            user_id: user_id
+            name:,
+            email:,
+            existing_user:,
+            user_id:
           }
         end
 
@@ -64,7 +64,7 @@ module Decidim
           describe "when name and email are missing but user_id is present" do
             let(:name) { nil }
             let(:email) { nil }
-            let(:user_id) { create(:user, organization: organization).id }
+            let(:user_id) { create(:user, organization:).id }
 
             it { is_expected.to be_valid }
           end
