@@ -35,7 +35,7 @@ module Decidim
         if text
           pluralize(count, text)
         else
-          t("results.count.results_count", scope: "decidim.accountability", count: count)
+          t("results.count.results_count", scope: "decidim.accountability", count:)
         end
       end
 
@@ -44,7 +44,7 @@ module Decidim
         if text
           pluralize(count, text)
         else
-          t("results.count.results_count", scope: "decidim.accountability", count: count)
+          t("results.count.results_count", scope: "decidim.accountability", count:)
         end
       end
     end

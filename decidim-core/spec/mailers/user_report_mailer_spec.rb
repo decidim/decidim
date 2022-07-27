@@ -5,11 +5,11 @@ require "spec_helper"
 module Decidim
   describe UserReportMailer, type: :mailer do
     let(:organization) { create(:organization, name: "Test Organization") }
-    let(:admin) { create(:user, :admin, organization: organization) }
-    let(:reporter) { create(:user, :confirmed, organization: organization) }
-    let(:moderation) { create(:user_moderation, user: user) }
-    let(:user_report) { create(:user_report, user: reporter, reason: reason, details: "Lorem ipsum", moderation: moderation) }
-    let(:user) { create(:user, :confirmed, organization: organization) }
+    let(:admin) { create(:user, :admin, organization:) }
+    let(:reporter) { create(:user, :confirmed, organization:) }
+    let(:moderation) { create(:user_moderation, user:) }
+    let(:user_report) { create(:user_report, user: reporter, reason:, details: "Lorem ipsum", moderation:) }
+    let(:user) { create(:user, :confirmed, organization:) }
     let(:reason) { "spam" }
 
     describe "#notify" do
@@ -29,7 +29,7 @@ module Decidim
         end
 
         context "when the user is already blocked" do
-          let(:user) { create(:user, :blocked, organization: organization) }
+          let(:user) { create(:user, :blocked, organization:) }
 
           it "includes the reported user's original name" do
             # The `user.name` is set to "Blocked user"

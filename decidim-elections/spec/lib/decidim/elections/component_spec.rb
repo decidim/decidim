@@ -16,7 +16,7 @@ describe "Elections component" do # rubocop:disable RSpec/DescribeClass
 
     context "with elections" do
       before do
-        create :election, component: component
+        create :election, component:
       end
 
       it "raises an error" do

@@ -7,35 +7,35 @@ module Decidim::Conferences
     subject { described_class.new(form) }
 
     let(:organization) { create :organization }
-    let(:current_user) { create :user, :admin, :confirmed, organization: organization }
-    let(:scope) { create :scope, organization: organization }
+    let(:current_user) { create :user, :admin, :confirmed, organization: }
+    let(:scope) { create :scope, organization: }
     let(:errors) { double.as_null_object }
     let!(:participatory_processes) do
       create_list(
         :participatory_process,
         3,
-        organization: organization
+        organization:
       )
     end
     let!(:assemblies) do
       create_list(
         :assembly,
         3,
-        organization: organization
+        organization:
       )
     end
-    let(:consultation) { create :consultation, organization: organization }
+    let(:consultation) { create :consultation, organization: }
     let!(:questions) do
       create_list(
         :question,
         3,
-        consultation: consultation
+        consultation:
       )
     end
     let(:form) do
       instance_double(
         Admin::ConferenceForm,
-        current_user: current_user,
+        current_user:,
         invalid?: invalid,
         title: { en: "title" },
         slogan: { en: "slogan" },
@@ -49,8 +49,8 @@ module Decidim::Conferences
         short_description: { en: "short_description" },
         current_organization: organization,
         scopes_enabled: true,
-        scope: scope,
-        errors: errors,
+        scope:,
+        errors:,
         show_statistics: false,
         objectives: { en: "objectives" },
         start_date: 1.day.from_now,

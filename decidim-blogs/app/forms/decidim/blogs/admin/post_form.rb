@@ -43,7 +43,7 @@ module Decidim
         end
 
         def post
-          @post ||= Post.find_by(id: id)
+          @post ||= Post.find_by(id:)
         end
 
         def user_groups

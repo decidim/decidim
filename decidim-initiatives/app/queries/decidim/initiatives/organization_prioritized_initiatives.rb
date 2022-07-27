@@ -22,7 +22,7 @@ module Decidim
       private
 
       def base_query
-        Decidim::Initiative.where(organization: organization).published.open
+        Decidim::Initiative.where(organization:).published.open
       end
     end
   end

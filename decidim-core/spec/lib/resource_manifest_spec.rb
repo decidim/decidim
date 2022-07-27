@@ -6,9 +6,9 @@ module Decidim
   describe ResourceManifest do
     subject do
       described_class.new(
-        component_manifest: component_manifest,
-        name: name,
-        route_name: route_name,
+        component_manifest:,
+        name:,
+        route_name:,
         model_class_name: model_class
       )
     end

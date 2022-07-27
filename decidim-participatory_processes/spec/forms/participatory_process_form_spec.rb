@@ -143,7 +143,7 @@ module Decidim
         context "when slug is not unique" do
           context "and process in the same organization" do
             before do
-              create(:participatory_process, slug: slug, organization: organization)
+              create(:participatory_process, slug:, organization:)
             end
 
             it "is not valid" do
@@ -154,7 +154,7 @@ module Decidim
 
           context "and process in another organization" do
             before do
-              create(:participatory_process, slug: slug)
+              create(:participatory_process, slug:)
             end
 
             it "is valid" do

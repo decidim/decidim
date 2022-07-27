@@ -6,7 +6,7 @@ describe "Session timeout", type: :system do
   include ActiveSupport::Testing::TimeHelpers
 
   let(:organization) { create(:organization) }
-  let(:current_user) { create :user, :confirmed, organization: organization }
+  let(:current_user) { create :user, :confirmed, organization: }
 
   context "when session is about to timeout" do
     before do

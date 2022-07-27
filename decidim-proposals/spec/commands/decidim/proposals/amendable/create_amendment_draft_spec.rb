@@ -7,7 +7,7 @@ module Decidim
     describe CreateDraft do
       let!(:component) { create(:proposal_component, :with_amendments_enabled) }
       let!(:user) { create :user, :confirmed, organization: component.organization }
-      let!(:amendable) { create(:proposal, component: component) }
+      let!(:amendable) { create(:proposal, component:) }
 
       let(:title) { "More sidewalks and less roads!" }
       let(:body) { "Everything would be better" }
@@ -15,7 +15,7 @@ module Decidim
       let(:params) do
         {
           amendable_gid: amendable.to_sgid.to_s,
-          emendation_params: { title: title, body: body }
+          emendation_params: { title:, body: }
         }
       end
 

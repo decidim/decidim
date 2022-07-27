@@ -4,7 +4,7 @@
 module TranslationHelpers
   # Allows using the `t` shortcut inside specs just like in views
   def t(key, scope: nil)
-    I18n.t(key, scope: scope, raise: true)
+    I18n.t(key, scope:, raise: true)
   end
 
   # Gives the localized version of the attribute for the given locale. The
@@ -25,7 +25,7 @@ module TranslationHelpers
   # field - the field that holds the translations
   # upcase - a boolean to indicate whether the string must be checked upcased or not.
   def have_i18n_content(field, upcase: false, strip_tags: false)
-    have_content(i18n_content(field, upcase: upcase, strip_tags: strip_tags))
+    have_content(i18n_content(field, upcase:, strip_tags:))
   end
 
   # Checks that the current page doesn't have some translated content. It strips
@@ -34,7 +34,7 @@ module TranslationHelpers
   # field - the field that holds the translations
   # upcase - a boolean to indicate whether the string must be checked upcased or not.
   def have_no_i18n_content(field, upcase: false)
-    have_no_content(i18n_content(field, upcase: upcase))
+    have_no_content(i18n_content(field, upcase:))
   end
 
   # Handles how to fill in i18n form fields.

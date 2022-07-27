@@ -72,7 +72,7 @@ module Decidim
             manifest.participatory_spaces.call(context[:current_organization]).public_spaces
           end
           components = Component.where(participatory_space: spaces).published
-          model_class.constantize.where(component: components).find_by(id: id)
+          model_class.constantize.where(component: components).find_by(id:)
         end
       end
 

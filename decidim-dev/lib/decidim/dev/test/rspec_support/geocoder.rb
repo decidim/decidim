@@ -49,7 +49,7 @@ module Decidim::Map::Provider
       def self.add_stub(address, coordinates)
         stubs.push(
           properties: address.is_a?(Hash) ? address : { street: address },
-          geometry: { coordinates: coordinates }
+          geometry: { coordinates: }
         )
       end
 

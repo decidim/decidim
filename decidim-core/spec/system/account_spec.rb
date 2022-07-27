@@ -3,7 +3,7 @@
 require "spec_helper"
 
 describe "Account", type: :system do
-  let(:user) { create(:user, :confirmed, password: password, password_confirmation: password) }
+  let(:user) { create(:user, :confirmed, password:, password_confirmation: password) }
   let(:password) { "dqCFgjfDbC7dPbrv" }
   let(:organization) { user.organization }
 
@@ -195,7 +195,7 @@ describe "Account", type: :system do
       end
 
       context "when the user is an admin" do
-        let!(:user) { create(:user, :confirmed, :admin, password: password, password_confirmation: password) }
+        let!(:user) { create(:user, :confirmed, :admin, password:, password_confirmation: password) }
 
         before do
           login_as user, scope: :user
@@ -233,7 +233,7 @@ describe "Account", type: :system do
       end
 
       context "when scopes are defined" do
-        let!(:scopes) { create_list(:scope, 3, organization: organization) }
+        let!(:scopes) { create_list(:scope, 3, organization:) }
         let!(:subscopes) { create_list(:subscope, 3, parent: scopes.first) }
 
         before do
@@ -291,7 +291,7 @@ describe "Account", type: :system do
 
   context "when on the notifications page in a PWA browser" do
     let(:organization) { create(:organization, host: "pwa.lvh.me") }
-    let(:user) { create(:user, :confirmed, password: password, password_confirmation: password, organization: organization) }
+    let(:user) { create(:user, :confirmed, password:, password_confirmation: password, organization:) }
     let(:password) { "dqCFgjfDbC7dPbrv" }
     let(:vapid_keys) do
       {

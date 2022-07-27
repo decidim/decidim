@@ -52,7 +52,7 @@ module Decidim
           }
         ) do
           Decidim::ParticipatorySpacePrivateUser.find_or_create_by!(
-            user: user,
+            user:,
             privatable_to: @private_user_to
           )
         end
@@ -85,7 +85,7 @@ module Decidim
                        organization: private_user_to.organization,
                        admin: false,
                        invited_by: current_user,
-                       invitation_instructions: invitation_instructions)
+                       invitation_instructions:)
       end
 
       def invitation_instructions

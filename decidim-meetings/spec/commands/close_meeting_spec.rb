@@ -13,7 +13,7 @@ module Decidim::Meetings
         invalid?: invalid,
         closing_report: { en: "Great meeting" },
         closed_at: Time.current,
-        proposal_ids: proposal_ids,
+        proposal_ids:,
         current_user: user,
         attendees_count: 10,
         current_organization: meeting.organization
@@ -91,7 +91,7 @@ module Decidim::Meetings
       end
 
       describe "events" do
-        let!(:follow) { create :follow, followable: meeting, user: user }
+        let!(:follow) { create :follow, followable: meeting, user: }
 
         it "notifies the change" do
           expect(Decidim::EventsManager)

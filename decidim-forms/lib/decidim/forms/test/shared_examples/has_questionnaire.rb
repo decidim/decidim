@@ -50,8 +50,8 @@ shared_examples_for "has questionnaire" do
     end
 
     context "with multiple steps" do
-      let!(:separator) { create(:questionnaire_question, questionnaire: questionnaire, position: 1, question_type: :separator) }
-      let!(:question2) { create(:questionnaire_question, questionnaire: questionnaire, position: 2) }
+      let!(:separator) { create(:questionnaire_question, questionnaire:, position: 1, question_type: :separator) }
+      let!(:question2) { create(:questionnaire_question, questionnaire:, position: 2) }
 
       before do
         visit questionnaire_public_path
@@ -120,7 +120,7 @@ shared_examples_for "has questionnaire" do
       let!(:question) do
         create(
           :questionnaire_question,
-          questionnaire: questionnaire,
+          questionnaire:,
           question_type: "single_option",
           position: 0,
           options: [
@@ -131,7 +131,7 @@ shared_examples_for "has questionnaire" do
       end
 
       before do
-        answer = create(:answer, id: 1, questionnaire: questionnaire, question: question)
+        answer = create(:answer, id: 1, questionnaire:, question:)
 
         answer.choices.create!(
           answer_option: Decidim::Forms::AnswerOption.first,
@@ -156,7 +156,7 @@ shared_examples_for "has questionnaire" do
     end
 
     context "and submitting a fresh form" do
-      let!(:other_question) { create(:questionnaire_question, questionnaire: questionnaire, position: 1) }
+      let!(:other_question) { create(:questionnaire_question, questionnaire:, position: 1) }
 
       before do
         visit questionnaire_public_path
@@ -166,7 +166,7 @@ shared_examples_for "has questionnaire" do
     end
 
     context "and rendering a form after errors" do
-      let!(:other_question) { create(:questionnaire_question, questionnaire: questionnaire, position: 1) }
+      let!(:other_question) { create(:questionnaire_question, questionnaire:, position: 1) }
 
       before do
         visit questionnaire_public_path
@@ -180,7 +180,7 @@ shared_examples_for "has questionnaire" do
       let!(:question) do
         create(
           :questionnaire_question,
-          questionnaire: questionnaire,
+          questionnaire:,
           question_type: "short_answer",
           position: 0,
           mandatory: true
@@ -253,7 +253,7 @@ shared_examples_for "has questionnaire" do
       let!(:question) do
         create(
           :questionnaire_question,
-          questionnaire: questionnaire,
+          questionnaire:,
           question_type: "single_option",
           position: 0,
           mandatory: true,
@@ -282,7 +282,7 @@ shared_examples_for "has questionnaire" do
     end
 
     context "when a question has a rich text description" do
-      let!(:question) { create(:questionnaire_question, questionnaire: questionnaire, position: 0, description: { en: "<b>This question is important</b>" }) }
+      let!(:question) { create(:questionnaire_question, questionnaire:, position: 0, description: { en: "<b>This question is important</b>" }) }
 
       it "properly interprets HTML descriptions" do
         visit questionnaire_public_path
@@ -297,9 +297,9 @@ shared_examples_for "has questionnaire" do
       let!(:question) do
         create(
           :questionnaire_question,
-          questionnaire: questionnaire,
-          question_type: question_type,
-          max_characters: max_characters,
+          questionnaire:,
+          question_type:,
+          max_characters:,
           position: 1,
           options: [
             { "body" => answer_option_bodies[0] },
@@ -312,7 +312,7 @@ shared_examples_for "has questionnaire" do
       let!(:other_question) do
         create(
           :questionnaire_question,
-          questionnaire: questionnaire,
+          questionnaire:,
           question_type: "multiple_option",
           max_choices: 2,
           position: 2,
@@ -427,7 +427,7 @@ shared_examples_for "has questionnaire" do
 
     context "when question type is long answer" do
       let(:max_characters) { 0 }
-      let!(:question) { create(:questionnaire_question, questionnaire: questionnaire, question_type: "long_answer", max_characters: max_characters) }
+      let!(:question) { create(:questionnaire_question, questionnaire:, question_type: "long_answer", max_characters:) }
 
       it "renders the answer as a textarea" do
         visit questionnaire_public_path
@@ -440,7 +440,7 @@ shared_examples_for "has questionnaire" do
 
     context "when question type is short answer" do
       let(:max_characters) { 0 }
-      let!(:question) { create(:questionnaire_question, questionnaire: questionnaire, question_type: "short_answer", max_characters: max_characters) }
+      let!(:question) { create(:questionnaire_question, questionnaire:, question_type: "short_answer", max_characters:) }
 
       it "renders the answer as a text field" do
         visit questionnaire_public_path
@@ -453,7 +453,7 @@ shared_examples_for "has questionnaire" do
 
     context "when question type is single option" do
       let(:answer_options) { Array.new(2) { { "body" => Decidim::Faker::Localized.sentence } } }
-      let!(:question) { create(:questionnaire_question, questionnaire: questionnaire, question_type: "single_option", options: answer_options) }
+      let!(:question) { create(:questionnaire_question, questionnaire:, question_type: "single_option", options: answer_options) }
 
       it "renders answers as a collection of radio buttons" do
         visit questionnaire_public_path
@@ -479,7 +479,7 @@ shared_examples_for "has questionnaire" do
 
     context "when question type is multiple option" do
       let(:answer_options) { Array.new(3) { { "body" => Decidim::Faker::Localized.sentence } } }
-      let!(:question) { create(:questionnaire_question, questionnaire: questionnaire, question_type: "multiple_option", options: answer_options) }
+      let!(:question) { create(:questionnaire_question, questionnaire:, question_type: "multiple_option", options: answer_options) }
 
       it "renders answers as a collection of radio buttons" do
         visit questionnaire_public_path
@@ -542,7 +542,7 @@ shared_examples_for "has questionnaire" do
       let!(:question) do
         create(
           :questionnaire_question,
-          questionnaire: questionnaire,
+          questionnaire:,
           question_type: "sorting",
           options: [
             { "body" => { "en" => "chocolate" } },
@@ -648,11 +648,11 @@ shared_examples_for "has questionnaire" do
       let!(:question) do
         create(
           :questionnaire_question,
-          questionnaire: questionnaire,
+          questionnaire:,
           question_type: "matrix_single",
           rows: matrix_rows,
           options: answer_options,
-          mandatory: mandatory
+          mandatory:
         )
       end
 
@@ -734,12 +734,12 @@ shared_examples_for "has questionnaire" do
       let!(:question) do
         create(
           :questionnaire_question,
-          questionnaire: questionnaire,
+          questionnaire:,
           question_type: "matrix_multiple",
           rows: matrix_rows,
           options: answer_options,
-          max_choices: max_choices,
-          mandatory: mandatory
+          max_choices:,
+          mandatory:
         )
       end
 
@@ -881,11 +881,11 @@ shared_examples_for "has questionnaire" do
         end
       end
       let(:condition_question_options) { [] }
-      let!(:question) { create(:questionnaire_question, questionnaire: questionnaire, position: 2) }
+      let!(:question) { create(:questionnaire_question, questionnaire:, position: 2) }
       let!(:conditioned_question_id) { "#questionnaire_responses_1" }
       let!(:condition_question) do
         create(:questionnaire_question,
-               questionnaire: questionnaire,
+               questionnaire:,
                question_type: condition_question_type,
                position: 1,
                options: condition_question_options)
@@ -896,8 +896,8 @@ shared_examples_for "has questionnaire" do
           let!(:display_condition) do
             create(:display_condition,
                    condition_type: "answered",
-                   question: question,
-                   condition_question: condition_question)
+                   question:,
+                   condition_question:)
           end
 
           before do
@@ -988,8 +988,8 @@ shared_examples_for "has questionnaire" do
           let!(:display_condition) do
             create(:display_condition,
                    condition_type: "not_answered",
-                   question: question,
-                   condition_question: condition_question)
+                   question:,
+                   condition_question:)
           end
 
           before do
@@ -1068,8 +1068,8 @@ shared_examples_for "has questionnaire" do
           let!(:display_condition) do
             create(:display_condition,
                    condition_type: "equal",
-                   question: question,
-                   condition_question: condition_question,
+                   question:,
+                   condition_question:,
                    answer_option: condition_question.answer_options.first)
           end
 
@@ -1124,8 +1124,8 @@ shared_examples_for "has questionnaire" do
           let!(:display_condition) do
             create(:display_condition,
                    condition_type: "not_equal",
-                   question: question,
-                   condition_question: condition_question,
+                   question:,
+                   condition_question:,
                    answer_option: condition_question.answer_options.first)
           end
 
@@ -1181,9 +1181,9 @@ shared_examples_for "has questionnaire" do
           let!(:display_condition) do
             create(:display_condition,
                    condition_type: "match",
-                   question: question,
-                   condition_question: condition_question,
-                   condition_value: condition_value)
+                   question:,
+                   condition_question:,
+                   condition_value:)
           end
 
           before do
@@ -1317,13 +1317,13 @@ shared_examples_for "has questionnaire" do
             [
               create(:display_condition,
                      condition_type: "answered",
-                     question: question,
-                     condition_question: condition_question,
+                     question:,
+                     condition_question:,
                      mandatory: true),
               create(:display_condition,
                      condition_type: "not_equal",
-                     question: question,
-                     condition_question: condition_question,
+                     question:,
+                     condition_question:,
                      mandatory: true,
                      answer_option: condition_question.answer_options.second)
             ]
@@ -1349,14 +1349,14 @@ shared_examples_for "has questionnaire" do
             [
               create(:display_condition,
                      condition_type: "equal",
-                     question: question,
-                     condition_question: condition_question,
+                     question:,
+                     condition_question:,
                      mandatory: false,
                      answer_option: condition_question.answer_options.first),
               create(:display_condition,
                      condition_type: "not_equal",
-                     question: question,
-                     condition_question: condition_question,
+                     question:,
+                     condition_question:,
                      mandatory: false,
                      answer_option: condition_question.answer_options.third)
             ]
@@ -1382,13 +1382,13 @@ shared_examples_for "has questionnaire" do
 
         context "when a mandatory question has conditions that have not been fulfilled" do
           let!(:condition_question_type) { "short_answer" }
-          let!(:question) { create(:questionnaire_question, questionnaire: questionnaire, position: 2, mandatory: true) }
+          let!(:question) { create(:questionnaire_question, questionnaire:, position: 2, mandatory: true) }
           let!(:display_conditions) do
             [
               create(:display_condition,
                      condition_type: "match",
-                     question: question,
-                     condition_question: condition_question,
+                     question:,
+                     condition_question:,
                      condition_value: { en: "hey", es: "ey", ca: "ei" },
                      mandatory: true)
             ]
@@ -1414,7 +1414,7 @@ shared_examples_for "has questionnaire" do
     private
 
     def expect_question_to_be_visible(visible)
-      expect(page).to have_css(conditioned_question_id, visible: visible)
+      expect(page).to have_css(conditioned_question_id, visible:)
     end
 
     def change_focus

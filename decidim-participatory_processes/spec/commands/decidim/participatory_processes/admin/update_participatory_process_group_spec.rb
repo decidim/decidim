@@ -7,8 +7,8 @@ module Decidim::ParticipatoryProcesses
     subject { described_class.new(participatory_process_group, form) }
 
     let(:organization) { create :organization }
-    let(:participatory_process_group) { create :participatory_process_group, organization: organization }
-    let(:current_user) { create :user, :admin, :confirmed, organization: organization }
+    let(:participatory_process_group) { create :participatory_process_group, organization: }
+    let(:current_user) { create :user, :admin, :confirmed, organization: }
     let(:invalid) { false }
     let(:title_en) { "title es" }
     let(:developer_group) { participatory_process_group.developer_group }
@@ -17,7 +17,7 @@ module Decidim::ParticipatoryProcesses
       {
         participatory_process_group: {
           id: participatory_process_group.id,
-          title_en: title_en,
+          title_en:,
           title_es: "title es",
           title_ca: "title ca",
           description_en: "description en",
@@ -27,9 +27,9 @@ module Decidim::ParticipatoryProcesses
           group_url: "http://example.org",
           hero_image: nil,
           current_organization: organization,
-          current_user: current_user,
+          current_user:,
           participatory_process_ids: [],
-          developer_group: developer_group,
+          developer_group:,
           local_area: participatory_process_group.local_area,
           meta_scope: participatory_process_group.meta_scope,
           target: participatory_process_group.target,
@@ -41,7 +41,7 @@ module Decidim::ParticipatoryProcesses
     let(:context) do
       {
         current_organization: organization,
-        current_user: current_user,
+        current_user:,
         process_group_id: participatory_process_group.id
       }
     end

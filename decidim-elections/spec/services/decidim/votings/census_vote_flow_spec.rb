@@ -6,8 +6,8 @@ module Decidim::Votings
   describe CensusVoteFlow do
     subject(:vote_flow) { described_class.new(election) }
 
-    let(:dataset) { create(:dataset, voting: voting) }
-    let(:election) { create(:election, component: component, **election_params) }
+    let(:dataset) { create(:dataset, voting:) }
+    let(:election) { create(:election, component:, **election_params) }
     let(:component) { create(:elections_component, participatory_space: voting) }
     let(:voting) { create(:voting) }
     let(:election_params) do
@@ -26,12 +26,12 @@ module Decidim::Votings
         created_at: Time.new(2000, 1, 1, 0, 0, 0, 0),
         full_name: "A. Very Nice Name",
         email: "voter@example.org",
-        document_type: document_type,
-        document_number: document_number,
-        birthdate: birthdate,
-        postal_code: postal_code,
-        access_code: access_code,
-        dataset: dataset,
+        document_type:,
+        document_number:,
+        birthdate:,
+        postal_code:,
+        access_code:,
+        dataset:,
         **datum_params_changes
       }
     end
@@ -44,10 +44,10 @@ module Decidim::Votings
 
     let(:login_params) do
       {
-        document_type: document_type,
-        document_number: document_number,
-        postal_code: postal_code,
-        access_code: access_code,
+        document_type:,
+        document_number:,
+        postal_code:,
+        access_code:,
         day: birthdate.day,
         month: birthdate.month,
         year: birthdate.year
@@ -202,14 +202,14 @@ module Decidim::Votings
       subject { vote_flow.questions_for(election) }
 
       context "when the election has a ballot_style" do
-        let(:datum_params_changes) { { ballot_style: ballot_style, dataset: dataset } }
-        let(:ballot_style) { create(:ballot_style, :with_ballot_style_questions, election: election, voting: voting) }
+        let(:datum_params_changes) { { ballot_style:, dataset: } }
+        let(:ballot_style) { create(:ballot_style, :with_ballot_style_questions, election:, voting:) }
 
         it { expect(subject).to match_array(election.questions.first(2)) }
       end
 
       context "when the election does NOT have a ballot_style" do
-        let(:datum_params_changes) { { dataset: dataset } }
+        let(:datum_params_changes) { { dataset: } }
 
         it { expect(subject).to match_array(election.questions) }
       end
@@ -221,14 +221,14 @@ module Decidim::Votings
       before { vote_flow.voter_login(login_params.merge(login_params_changes)) }
 
       context "when the election has a ballot_style" do
-        let(:datum_params_changes) { { ballot_style: ballot_style, dataset: dataset } }
-        let(:ballot_style) { create(:ballot_style, voting: voting) }
+        let(:datum_params_changes) { { ballot_style:, dataset: } }
+        let(:ballot_style) { create(:ballot_style, voting:) }
 
         it { expect(subject).to eq(ballot_style.slug) }
       end
 
       context "when the election does NOT have a ballot_style" do
-        let(:datum_params_changes) { { dataset: dataset } }
+        let(:datum_params_changes) { { dataset: } }
 
         it { expect(subject).to be_nil }
       end

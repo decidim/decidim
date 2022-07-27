@@ -10,7 +10,7 @@ module Decidim::Surveys
       end
 
       let!(:questionnaire) { build(:questionnaire, :with_questions) }
-      let!(:survey) { create(:survey, questionnaire: questionnaire) }
+      let!(:survey) { create(:survey, questionnaire:) }
 
       let(:serialized_surveys) { subject.serialize }
 

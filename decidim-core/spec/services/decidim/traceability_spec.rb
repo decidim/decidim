@@ -6,7 +6,7 @@ describe Decidim::Traceability, versioning: true do
   subject { described_class.new }
 
   let!(:organization) { dummy_resource.organization }
-  let!(:user) { create :user, organization: organization }
+  let!(:user) { create :user, organization: }
   let(:klass) { Decidim::DummyResources::DummyResource }
   let(:params) { attributes_for(:dummy_resource, scope: nil) }
   let(:dummy_resource) { create :dummy_resource }

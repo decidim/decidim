@@ -23,7 +23,7 @@ module Decidim
         return broadcast(:invalid) unless @organization
 
         auths = Decidim::Verifications::Authorizations.new(
-          organization: organization,
+          organization:,
           granted: true
         ).query
 

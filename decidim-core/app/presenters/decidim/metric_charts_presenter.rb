@@ -97,7 +97,7 @@ module Decidim
                   id: "#{metric_name}_chart",
                   class: "areachart metric-chart #{opts[:graph_klass]}",
                   style: opts[:margin],
-                  data: data
+                  data:
     end
 
     def render_downloader(metric_name)

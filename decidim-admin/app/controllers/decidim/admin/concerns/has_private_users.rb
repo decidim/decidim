@@ -25,13 +25,13 @@ module Decidim
 
           def new
             enforce_permission_to :create, :space_private_user
-            @form = form(ParticipatorySpacePrivateUserForm).from_params({}, privatable_to: privatable_to)
+            @form = form(ParticipatorySpacePrivateUserForm).from_params({}, privatable_to:)
             render template: "decidim/admin/participatory_space_private_users/new"
           end
 
           def create
             enforce_permission_to :create, :space_private_user
-            @form = form(ParticipatorySpacePrivateUserForm).from_params(params, privatable_to: privatable_to)
+            @form = form(ParticipatorySpacePrivateUserForm).from_params(params, privatable_to:)
 
             CreateParticipatorySpacePrivateUser.call(@form, current_user, current_participatory_space) do
               on(:ok) do

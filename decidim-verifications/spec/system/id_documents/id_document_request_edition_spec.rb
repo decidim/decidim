@@ -17,7 +17,7 @@ describe "Identity document request edition", type: :system do
       :authorization,
       :pending,
       name: "id_documents",
-      user: user,
+      user:,
       verification_metadata: {
         "verification_type" => verification_method,
         "document_type" => "DNI",
@@ -27,7 +27,7 @@ describe "Identity document request edition", type: :system do
     )
   end
 
-  let!(:user) { create(:user, :confirmed, organization: organization) }
+  let!(:user) { create(:user, :confirmed, organization:) }
 
   before do
     switch_to_host(organization.host)
@@ -140,7 +140,7 @@ describe "Identity document request edition", type: :system do
   def submit_upload_form(doc_type:, doc_number:, file_name: nil, remove_before: false)
     select doc_type, from: "Type of your document"
     fill_in "Document number (with letter)", with: doc_number
-    options = { remove_before: remove_before }
+    options = { remove_before: }
     dynamically_attach_file(:id_document_upload_verification_attachment, Decidim::Dev.asset(file_name), options) if file_name
 
     click_button "Request verification again"

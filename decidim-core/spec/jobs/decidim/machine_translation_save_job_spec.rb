@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim
   describe MachineTranslationFieldsJob do
-    let(:process) { build :participatory_process, title: title }
+    let(:process) { build :participatory_process, title: }
     let(:target_locale) { "ca" }
     let(:source_locale) { "en" }
     let(:translated_value) { "#{target_locale} - #{title[source_locale]}" }
@@ -71,12 +71,12 @@ module Decidim
 
     describe "when the resource is reported" do
       let(:organization) { create(:organization) }
-      let(:participatory_space) { create(:participatory_process, organization: organization) }
-      let!(:moderators) { create_list(:user, 3, :admin, organization: organization) }
-      let(:moderation) { create(:moderation, report_count: 2, participatory_space: participatory_space) }
-      let!(:report) { create(:report, moderation: moderation) }
+      let(:participatory_space) { create(:participatory_process, organization:) }
+      let!(:moderators) { create_list(:user, 3, :admin, organization:) }
+      let(:moderation) { create(:moderation, report_count: 2, participatory_space:) }
+      let!(:report) { create(:report, moderation:) }
       let(:title) { { "ca" => "Títol" } }
-      let(:proposal) { build(:proposal, title: title, body: { "ca" => "Proposta" }, moderation: moderation) }
+      let(:proposal) { build(:proposal, title:, body: { "ca" => "Proposta" }, moderation:) }
       let(:translated_value) { "Proposal" }
 
       describe "and the target language is the organization's default" do

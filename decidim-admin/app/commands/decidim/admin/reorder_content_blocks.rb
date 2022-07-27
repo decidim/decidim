@@ -59,7 +59,7 @@ module Decidim
         data.each do |manifest_name, weight|
           content_block = collection.find { |block| block.manifest_name == manifest_name }
           if content_block.present?
-            content_block.update!(weight: weight)
+            content_block.update!(weight:)
           else
             create_content_block(manifest_name, weight)
           end
@@ -78,11 +78,11 @@ module Decidim
 
       def create_content_block(manifest_name, weight)
         Decidim::ContentBlock.create!(
-          organization: organization,
+          organization:,
           scope_name: scope,
           scoped_resource_id: scoped_resource_id.presence,
-          weight: weight,
-          manifest_name: manifest_name
+          weight:,
+          manifest_name:
         )
       end
 
@@ -93,7 +93,7 @@ module Decidim
       end
 
       def collection
-        @collection ||= Decidim::ContentBlock.for_scope(scope, organization: organization).where(scoped_resource_id: scoped_resource_id)
+        @collection ||= Decidim::ContentBlock.for_scope(scope, organization:).where(scoped_resource_id:)
       end
     end
   end

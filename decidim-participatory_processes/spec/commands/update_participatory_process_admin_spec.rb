@@ -7,14 +7,14 @@ module Decidim::ParticipatoryProcesses
     subject { described_class.new(form, role) }
 
     let(:my_process) { create :participatory_process }
-    let(:role) { create :participatory_process_user_role, user: user, participatory_process: my_process, role: :admin }
+    let(:role) { create :participatory_process_user_role, user:, participatory_process: my_process, role: :admin }
     let(:new_role) { "moderator" }
     let!(:current_user) { create :user, email: "some_email@example.org", organization: my_process.organization }
     let!(:user) { create :user, :confirmed, organization: my_process.organization }
     let(:form) do
       double(
         invalid?: invalid,
-        current_user: current_user,
+        current_user:,
         role: new_role,
         current_participatory_space: my_process
       )
