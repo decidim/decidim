@@ -562,8 +562,8 @@ module Decidim
   # Public: Registers a social share service.
   #
   # Returns nothing.
-  def self.register_social_share_service(name, &block)
-    social_share_services_registry.register(name, &block)
+  def self.register_social_share_service(name, &)
+    social_share_services_registry.register(name, &)
   end
 
   # Public: Registers a notification setting.
