@@ -1,0 +1,13 @@
+inherit_from: https://raw.githubusercontent.com/decidim/decidim/<%= edge_git_branch %>/.rubocop.yml
+
+AllCops:
+  Include:
+    - "**/*.rb"
+    - "**/*.rake"
+    - "**/*.ru"
+    - "**/Gemfile"
+    - "**/Rakefile"
+  Exclude:
+    - "node_modules/**/*"
+    - "db/schema.rb"
+    - "vendor/**/*"

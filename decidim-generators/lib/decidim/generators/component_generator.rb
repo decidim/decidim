@@ -5,13 +5,14 @@ require "bundler"
 require "thor"
 require "active_support/inflector"
 require "decidim/core/version"
+require "decidim/generators"
 
 module Decidim
   module Generators
     class ComponentGenerator < Thor
       include Thor::Actions
 
-      attr_reader :component_name, :component_module_name, :component_resource_name, :component_folder, :component_description, :core_version, :required_ruby_version, :security_email
+      attr_reader :component_name, :component_module_name, :component_resource_name, :component_folder, :component_description, :core_version, :required_ruby_version, :security_email, :edge_git_branch
 
       source_root File.expand_path("component_templates", __dir__)
 
@@ -24,6 +25,7 @@ module Decidim
         @component_module_name = component_name.camelize
         @component_folder = options[:destination_folder] || "decidim-module-#{component_name}"
         @core_version = Decidim::Core.version
+        @edge_git_branch = Decidim::Generators.edge_git_branch
         @component_description = ask "Write a description for the new component:"
         @required_ruby_version = RUBY_VERSION.length == 5 ? RUBY_VERSION[0..2] : RUBY_VERSION
         @security_email = ask "Provide a public email in case of security concern:"
@@ -38,6 +40,7 @@ module Decidim
         template "github/ci.yml.erb", "#{component_folder}/.github/workflows/ci_#{component_name}.yml"
         template ".ruby-version", "#{component_folder}/.ruby-version"
         template ".node-version", "#{component_folder}/.node-version"
+        template ".rubocop.yml.erb", "#{component_folder}/.rubocop.yml"
 
         app_folder = "#{component_folder}/app"
         template "app/packs/js/entrypoint.js", "#{app_folder}/packs/entrypoints/decidim_#{component_name}.js"
