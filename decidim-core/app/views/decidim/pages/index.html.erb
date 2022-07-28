@@ -29,12 +29,12 @@ edit_link(
               <div class="page__accordion">
                 <div class="page__accordion-trigger">
                   <div>
-                    <h3 class="page__accordion-trigger-title">
+                    <h3 id="accordion-title-<%= ix %>" class="page__accordion-trigger-title">
                       <%= link_to translated_attribute(topic.title), page_path(topic.pages.first) %>
                     </h3>
                     <p class="page__accordion-trigger-snippet"><%= translated_attribute topic.description %></p>
                   </div>
-                  <div id="accordion-trigger-<%= ix %>" data-controls="accordion-panel-<%= ix %>">
+                  <div id="accordion-trigger-<%= ix %>" data-controls="accordion-panel-<%= ix %>" aria-labelledby="accordion-title-<%= ix %>">
                     <%= icon "arrow-down-s-line", class: "page__accordion-trigger-arrow" %>
                     <%= icon "arrow-up-s-line", class: "page__accordion-trigger-arrow" %>
                   </div>
