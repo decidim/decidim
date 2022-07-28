@@ -31,7 +31,11 @@
     }
 
     &-panel{
-      @apply border-t border-gray-3 mt-4 pt-4 space-y-4;
+      @apply border-t border-gray-3 mt-4 pt-4;
+
+      ul{
+        @apply space-y-4;
+      }
 
       a{
         @apply hover:underline;

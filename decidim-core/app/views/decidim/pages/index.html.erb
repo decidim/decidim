@@ -40,11 +40,13 @@ edit_link(
                   </div>
                 </div>
 
-                <ul id="accordion-panel-<%= ix %>" class="page__accordion-panel" role="menu">
-                  <% topic.pages.each do |page| %>
-                    <li role="menuitem"><%= link_to translated_attribute(page.title), page_path(page), class: "text-secondary" %></li>
-                  <% end %>
-                </ul>
+                <div id="accordion-panel-<%= ix %>" class="page__accordion-panel">
+                  <ul role="menu">
+                    <% topic.pages.each do |page| %>
+                      <li role="menuitem"><%= link_to translated_attribute(page.title), page_path(page), class: "text-secondary" %></li>
+                    <% end %>
+                  </ul>
+                </div>
               </div>
             <% end %>
           <% end %>
