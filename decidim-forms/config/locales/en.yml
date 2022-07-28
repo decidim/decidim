@@ -178,6 +178,7 @@ en:
           upload_file: Upload file
       step_navigation:
         show:
+          are_you_sure: This action cannot be undone and you will not be able to edit your answers. Are you sure?
           back: Back
           continue: Continue
           submit: Submit
