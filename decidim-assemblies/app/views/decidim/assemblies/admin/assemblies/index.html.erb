@@ -72,8 +72,17 @@
                 <% end %>
               </td>
               <td class="table-list__actions">
-                <% if allowed_to? :export, :assembly, assembly: assembly %>
-                  <%= icon_link_to "data-transfer-download", assembly_export_path(assembly), t("actions.export", scope: "decidim.admin"), method: :post, class: "action-icon--export" %>
+                <% if allowed_to? :update, :assembly, assembly: assembly %>
+                  <%= icon_link_to "pencil", edit_assembly_path(assembly), t("actions.configure", scope: "decidim.admin"), class: "action-icon--new" %>
+                <% else %>
+                  <span class="action-space icon"></span>
+                <% end %>
+
+                <% if assembly.children.count.positive? || allowed_to?(:create, :assembly) %>
+                  <%= icon_link_to "dial",
+                                   url_for(query_params_with(parent_id_eq: assembly.id)),
+                                   t("decidim.admin.titles.assemblies"),
+                                   class: "action-icon--dial #{'highlighted' if assembly.children.count.positive?}" %>
                 <% else %>
                   <span class="action-space icon"></span>
                 <% end %>
@@ -84,17 +93,8 @@
                   <span class="action-space icon"></span>
                 <% end %>
 
-                <% if allowed_to? :update, :assembly, assembly: assembly %>
-                  <%= icon_link_to "pencil", edit_assembly_path(assembly), t("actions.configure", scope: "decidim.admin"), class: "action-icon--new" %>
-                <% else %>
-                  <span class="action-space icon"></span>
-                <% end %>
-
-                <% if assembly.children.count.positive? || allowed_to?(:create, :assembly) %>
-                  <%= icon_link_to "dial",
-                      url_for(query_params_with(parent_id_eq: assembly.id)),
-                      t("decidim.admin.titles.assemblies"),
-                      class: "action-icon--dial #{'highlighted' if assembly.children.count.positive?}" %>
+                <% if allowed_to? :export, :assembly, assembly: assembly %>
+                  <%= icon_link_to "data-transfer-download", assembly_export_path(assembly), t("actions.export", scope: "decidim.admin"), method: :post, class: "action-icon--export" %>
                 <% else %>
                   <span class="action-space icon"></span>
                 <% end %>

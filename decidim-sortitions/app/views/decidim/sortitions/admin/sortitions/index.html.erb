@@ -28,11 +28,6 @@
             <td><%= decidim_html_escape(translated_attribute(sortition.title)) %></td>
             <td><%= l sortition.created_at, format: :short %></td>
             <td class="table-list__actions">
-              <%= icon_link_to "eye",
-                               sortition_path(sortition),
-                               t("actions.show", scope: "decidim.sortitions.admin"),
-                               class: "action-icon--preview" %>
-
               <% if allowed_to? :update, :sortition, sortition: sortition %>
                 <%= icon_link_to "pencil",
                                 edit_sortition_path(sortition),
@@ -41,6 +36,11 @@
               <% else %>
                 <span class="action-space icon"></span>
               <% end %>
+
+              <%= icon_link_to "eye",
+                               sortition_path(sortition),
+                               t("actions.show", scope: "decidim.sortitions.admin"),
+                               class: "action-icon--preview" %>
 
               <%= resource_permissions_link(sortition) %>
 

@@ -49,18 +49,18 @@
                 </td>
               <% end %>
               <td class="table-list__actions">
+                <% if allowed_to? :update, :answer, election: election, question: question, answer: answer %>
+                  <%= icon_link_to "pencil", edit_election_question_answer_path(election, question, answer), t("actions.edit", scope: "decidim.elections"), class: "action-icon--edit" %>
+                <% else %>
+                  <%= icon "pencil", class: "action-icon action-icon--disabled", role: "img", aria_label: t("actions.edit", scope: "decidim.elections") %>
+                <% end %>
+
                 <% if election.results? %>
                   <% if answer.selected %>
                     <%= icon_link_to "x", unselect_election_question_answer_path(election, question, answer), t("answers.select.disable", scope: "decidim.elections.admin"), class: "action-icon", method: :put %>
                   <% else %>
                     <%= icon_link_to "check", select_election_question_answer_path(election, question, answer), t("answers.select.enable", scope: "decidim.elections.admin"), class: "action-icon", method: :put %>
                   <% end %>
-                <% end %>
-
-                <% if allowed_to? :update, :answer, election: election, question: question, answer: answer %>
-                  <%= icon_link_to "pencil", edit_election_question_answer_path(election, question, answer), t("actions.edit", scope: "decidim.elections"), class: "action-icon--edit" %>
-                <% else %>
-                  <%= icon "pencil", class: "action-icon action-icon--disabled", role: "img", aria_label: t("actions.edit", scope: "decidim.elections") %>
                 <% end %>
 
                 <% if allowed_to? :delete, :answer, election: election, question: question, answer: answer %>

@@ -36,16 +36,6 @@
             <td><%= l initiative.created_at, format: :short %></td>
             <td><%= initiative.published_at? ? l(initiative.published_at, format: :short) : "" %></td>
             <td class="table-list__actions">
-              <% if allowed_to? :preview, :initiative, initiative: initiative %>
-                <%= icon_link_to "eye",
-                                 decidim_initiatives.initiative_path(initiative.to_param),
-                                 t(".preview"),
-                                 class: "action-icon--preview",
-                                 target: "_blank" %>
-              <% else %>
-                <span class="action-space icon"></span>
-              <% end %>
-
               <% if allowed_to? :edit, :initiative, initiative: initiative %>
                 <%= icon_link_to "pencil",
                                  decidim_admin_initiatives.edit_initiative_path(initiative.to_param),
@@ -66,10 +56,21 @@
                                  decidim_initiatives.print_initiative_path(initiative),
                                  t(".print",),
                                  class: "action-icon--print",
-                               target: :blank %>
-            <% else %>
-              <span class="action-space icon"></span>
+                                 target: :blank %>
+              <% else %>
+                <span class="action-space icon"></span>
               <% end %>
+
+              <% if allowed_to? :preview, :initiative, initiative: initiative %>
+                <%= icon_link_to "eye",
+                                 decidim_initiatives.initiative_path(initiative.to_param),
+                                 t(".preview"),
+                                 class: "action-icon--preview",
+                                 target: "_blank" %>
+              <% else %>
+                <span class="action-space icon"></span>
+              <% end %>
+
               <%= free_resource_permissions_link(initiative) || content_tag(:span, nil, class: "action-space icon") %>
             </td>
         <% end %>

@@ -36,13 +36,13 @@
                 <% end %>
               </td>
               <td class="table-list__actions">
-                <%= icon_link_to "list", election_question_answers_path(election, question), t("actions.manage_answers", scope: "decidim.elections"), class: "action-icon--manage-answers" %>
-
                 <% if allowed_to? :update, :question, election: election, question: question %>
                   <%= icon_link_to "pencil", edit_election_question_path(election, question), t("actions.edit", scope: "decidim.elections"), class: "action-icon--edit" %>
                 <% else %>
                   <%= icon "pencil", class: "action-icon action-icon--disabled", role: "img", aria_label: t("actions.edit", scope: "decidim.elections") %>
                 <% end %>
+
+                <%= icon_link_to "list", election_question_answers_path(election, question), t("actions.manage_answers", scope: "decidim.elections"), class: "action-icon--manage-answers" %>
 
                 <% if allowed_to? :delete, :question, election: election, question: question %>
                   <%= icon_link_to "circle-x", election_question_path(election, question), t("actions.destroy", scope: "decidim.elections"), method: :delete, class: "action-icon--remove", data: { confirm: t("actions.confirm_destroy", scope: "decidim.elections") } %>

@@ -8,9 +8,20 @@
     </td>
     <%= td_resource_scope_for(component.scope) %>
     <td class="table-list__actions">
-      <%= icon_link_to "eye", main_component_path(component), t("actions.preview", scope: "decidim.admin"), class: "action-icon--preview", target: :blank %>
       <% if component.manifest.admin_engine %>
         <%= icon_link_to "pencil", manage_component_path(component), t("actions.manage", scope: "decidim.admin"), class: "action-icon--manage" %>
+      <% else %>
+        <span class="action-space icon"></span>
+      <% end %>
+
+      <% if allowed_to? :share, :component, component: component %>
+        <%= icon_link_to "share", url_for(action: :share, id: component, controller: "components"), t("actions.share", scope: "decidim.admin"), class: "action-icon--share", target: "_blank" %>
+      <% else %>
+        <span class="action-space icon"></span>
+      <% end %>
+
+      <% if allowed_to? :update, :component, component: component %>
+        <%= icon_link_to "cog", url_for(action: :edit, id: component, controller: "components"), t("actions.configure", scope: "decidim.admin"), class: "action-icon--configure" %>
       <% else %>
         <span class="action-space icon"></span>
       <% end %>
@@ -25,11 +36,7 @@
         <span class="action-space icon"></span>
       <% end %>
 
-      <% if allowed_to? :update, :component, component: component %>
-        <%= icon_link_to "cog", url_for(action: :edit, id: component, controller: "components"), t("actions.configure", scope: "decidim.admin"), class: "action-icon--configure" %>
-      <% else %>
-        <span class="action-space icon"></span>
-      <% end %>
+      <%= icon_link_to "eye", main_component_path(component), t("actions.preview", scope: "decidim.admin"), class: "action-icon--preview", target: :blank %>
 
       <% if allowed_to? :update, :component, component: component %>
         <% if component.manifest.actions.empty? %>
@@ -37,12 +44,6 @@
         <% else %>
           <%= icon_link_to "key", url_for(action: :edit, component_id: component, controller: "component_permissions"), t("actions.permissions", scope: "decidim.admin"), class: "action-icon--permissions" %>
         <% end %>
-      <% else %>
-        <span class="action-space icon"></span>
-      <% end %>
-
-      <% if allowed_to? :share, :component, component: component %>
-        <%= icon_link_to "share", url_for(action: :share, id: component, controller: "components"), t("actions.share", scope: "decidim.admin"), class: "action-icon--share", target: "_blank" %>
       <% else %>
         <span class="action-space icon"></span>
       <% end %>

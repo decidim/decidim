@@ -66,8 +66,8 @@
 
     <%= icon_with_link_to_proposal(proposal) %>
 
-    <%= resource_permissions_link(proposal) %>
+    <%= icon_link_to "eye", resource_locator(proposal).path, t("actions.preview", scope: "decidim.proposals.admin"), class: "action-icon--preview", target: :blank %>
 
-   <%= icon_link_to "eye", resource_locator(proposal).path, t("actions.preview", scope: "decidim.proposals.admin"), class: "action-icon--preview", target: :blank %>
+    <%= resource_permissions_link(proposal) %>
   </td>
 </tr>

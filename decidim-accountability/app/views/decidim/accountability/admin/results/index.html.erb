@@ -72,7 +72,9 @@
               </td>
 
               <td class="table-list__actions">
-                <%= icon_link_to "eye", resource_locator(result).path, t("actions.preview", scope: "decidim.accountability"), class: "action-icon--preview", target: :blank %>
+                <% if allowed_to? :update, :result, result: result %>
+                  <%= icon_link_to "pencil", edit_result_path(result), t("actions.edit", scope: "decidim.accountability"), class: "action-icon--edit" %>
+                <% end %>
 
                 <% if allowed_to? :update, :result, result: result %>
                   <%= icon_link_to "plus", results_path(parent_id: result.id), t("actions.new", scope: "decidim.accountability", name: t("models.result.name", scope: "decidim.accountability.admin")), class: "action-icon--plus" %>
@@ -83,16 +85,14 @@
                 <% end %>
 
                 <% if allowed_to? :update, :result, result: result %>
-                  <%= icon_link_to "pencil", edit_result_path(result), t("actions.edit", scope: "decidim.accountability"), class: "action-icon--edit" %>
-                <% end %>
-
-                <% if allowed_to? :update, :result, result: result %>
                     <%= icon_link_to "folder", result_attachment_collections_path(result), t("actions.attachment_collections", scope: "decidim.accountability"), class: "action-icon--attachment_collections" %>
                 <% end %>
 
                 <% if allowed_to? :update, :result, result: result %>
                   <%= icon_link_to "paperclip", result_attachments_path(result), t("actions.attachments", scope: "decidim.accountability"), class: "action-icon--attachments" %>
                 <% end %>
+
+                <%= icon_link_to "eye", resource_locator(result).path, t("actions.preview", scope: "decidim.accountability"), class: "action-icon--preview", target: :blank %>
 
                 <%= resource_permissions_link(result) %>
 

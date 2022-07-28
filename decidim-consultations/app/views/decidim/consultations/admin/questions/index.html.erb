@@ -60,8 +60,6 @@
                   <span class="action-space icon"></span>
                 <% end %>
 
-                <%= free_resource_permissions_link(question) %>
-
                 <% if allowed_to? :preview, :question, question: question %>
                   <%= icon_link_to "eye",
                                    decidim_consultations.question_path(question),
@@ -72,6 +70,7 @@
                   <span class="action-space icon"></span>
                 <% end %>
 
+                <%= free_resource_permissions_link(question) %>
               </td>
             </tr>
           <% end %>
