@@ -1,7 +1,22 @@
 lt:
   activemodel:
     attributes:
+      agenda:
+        description: Aprašymas
+        duration: Trukmė
+        title: Pavadinimas
+      close_meeting:
+        attendees_count: Dalyvių skaičius
+        attending_organizations: Dalyvavusių organizacijų sąrašas
+        audio_url: Audio nuoroda
+        closing_report: Minutės
+        closing_visible: Matomas
+        contributions_count: Prisidėjimų skaičius
+        proposal_ids: Susirinkime sukurti pasiūlymai
+        video_url: Vaizdo įrašo nuoroda
       meeting:
+        address: Adresas
+        available_slots: Šiam susirinkimui turimi laisvi intervalai
         decidim_scope_id: Apimtis
   activerecord:
     models:
