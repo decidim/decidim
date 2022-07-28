@@ -98,7 +98,7 @@
     &-outline{
       --color: var(--tertiary);
 
-      @apply w-full h-full grid place-items-center rounded-full overflow-hidden bg-[radial-gradient(farthest-side,#F3F4F7_90%,transparent_0_100%),conic-gradient(var(--color)_calc(var(--value)*100%),transparent_0)];
+      @apply w-32 h-32 mx-auto grid place-items-center rounded-full overflow-hidden bg-[radial-gradient(farthest-side,#F3F4F7_90%,transparent_0_100%),conic-gradient(var(--color)_calc(var(--value)*100%),transparent_0)];
     }
 
     &-circle{
@@ -106,15 +106,17 @@
     }
 
     &-title{
-      @apply absolute rounded text-primary bg-white top-full left-1/2 -translate-y-1/2 -translate-x-1/2 drop-shadow-md z-10 px-1.5 font-semibold;
+      @apply absolute rounded text-primary bg-white top-full left-1/2 -translate-y-1/2 -translate-x-1/2 z-10 px-1.5 font-semibold;
+
+      box-shadow: 0px 4px 6px 0px rgba(211, 211, 211, 0.25);
     }
 
     &-name{
-      @apply text-center font-semibold mt-4;
+      @apply text-gray-2 text-center font-semibold mt-4;
     }
 
     &-description{
-      @apply text-center mt-2;
+      @apply text-gray-2 text-center mt-2;
     }
   }
 

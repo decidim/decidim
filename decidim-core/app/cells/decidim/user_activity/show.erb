@@ -1,5 +1,6 @@
 <div class="profile__activity">
     <%= redesigned_filter_form_for context[:filter], url_for, class: "new_filter profile__activity__filter-container" do |form| %>
+      <%# REDESIGN_PENDING: allow passing a default element checked %>
       <%= form.collection_radio_buttons(
             :resource_type,
             filter_items_for_radiobuttons,
