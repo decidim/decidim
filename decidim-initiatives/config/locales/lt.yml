@@ -499,7 +499,30 @@ lt:
           city: Miestas
           email: El. paštas
           full_name: Vardas ir pavardė
+          id_number: Asmens kodas
+          initiative:
+            attachments: Prisegti dokumentai (prašau įrašykite kiekvieno dokumento pavadinimą apačioje)
+            description: 'Aprašymas:'
+            title: 'Pavadinimas:'
+            type: Iniciatyvos tipas
+          legal_text: Surenkami asmens duomenys bus inkorporuojami ir tvarkomi konfidencialiai - laikantis teisės aktų.
+          members_header: Iniciatyvos remėjų komiteto nariai
+          phone_number: Telefono numeris
+          place_date: Vieta, Data
+          postal_code: Pašto kodas
+          print: Spausdinti
+          province: Provincija/Rajonas
+          section: 'Jei to reikalauja organizacija, prašome atspausdinti ir užpildyti šią formą išsiunčiamą kur nurodyta:'
+          signature: Parašas
+        result:
+          answer_title: Į iniciatyvą buvo atsakyta
+          initiative_rejected_reason: Ši iniciatyva atmesta, nes trūksta parašų.
         show:
+          any_vote_method: Šiai piliečių iniciatyvai paremti parašai renkami tiek internetu, tiek fiziškai.
+          confirm: Jūs siųsite šią iniciatyvą administratoriaus peržiūrai ir publikavimui. Paskelbus iniciatyvą jos koreguoti nebegalėsite. Ar tikrai norite ją siųsti?
+          edit: Redaguoti
+          follow_description: Gauti pranešimą, kai atsiras su šia iniciatyva susijusių naujienų
+          offline_method: Ši iniciatyva renka tik fizinius parašus.
           print: Spausdinti Iniciatyvą
           send_to_technical_validation: Siųsti techniniam patvirtinimui
         signatures_count:
@@ -519,6 +542,8 @@ lt:
             few: Parašai
             many: Parašai
             other: Parašai
+          most_popular_initiative: Populiariausia iniciatyva
+          need_more_votes: Reikia daugiau parašų
       initiatives_mailer:
         creation_subject: Jūsų iniciatyva „%{title}“ sukurta
         initiative_link:
@@ -590,3 +615,9 @@ lt:
         sms_phone_number: Mobilaus telefono numeris
         step: '%{current} žingsnis iš %{total}'
         title: Pasirašyti %{initiative_title}
+      initiatives:
+        initiative:
+          check: Peržiūrėti
+          check_and_support: Peržiūrėti ir pasirašyti
+        no_initiatives_yet:
+          no_initiatives_yet: Dar nėra iniciatyvų!
