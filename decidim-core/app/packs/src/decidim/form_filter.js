@@ -23,6 +23,7 @@ export default class FormFilterComponent {
 
     this._updateInitialState();
     this._onFormChange = delayed(this, this._onFormChange.bind(this));
+    this._onFormSubmit = delayed(this, this._onFormSubmit.bind(this));
     this._onPopState = this._onPopState.bind(this);
 
     if (window.Decidim.PopStateHandler) {
@@ -42,6 +43,7 @@ export default class FormFilterComponent {
     if (this.mounted) {
       this.mounted = false;
       this.$form.off("change", "input, select", this._onFormChange);
+      this.$form.off("submit", this._onFormSubmit);
 
       unregisterCallback(`filters-${this.id}`)
     }
@@ -62,6 +64,7 @@ export default class FormFilterComponent {
         contentContainer = this.$form.data("remoteFill");
       }
       this.$form.on("change", "input:not([data-disable-dynamic-change]), select:not([data-disable-dynamic-change])", this._onFormChange);
+      this.$form.on("submit", this._onFormSubmit);
 
       this.currentFormRequest = null;
       this.$form.on("ajax:beforeSend", (e) => {
@@ -261,7 +264,9 @@ export default class FormFilterComponent {
   }
 
   /**
-   * Handles the logic to update the current location after a form change event.
+   * Handles the logic to decide whether the form should be submitted or not
+   * after a form change event. The form is only submitted when changes have
+   * occurred.
    * @private
    * @returns {Void} - Returns nothing.
    */
@@ -270,7 +275,7 @@ export default class FormFilterComponent {
       return;
     }
 
-    const [newPath, newState] = this._currentStateAndPath();
+    const [newPath] = this._currentStateAndPath();
     const path = this._getLocation(false);
 
     if (newPath === path) {
@@ -278,6 +283,17 @@ export default class FormFilterComponent {
     }
 
     Rails.fire(this.$form[0], "submit");
+  }
+
+  /**
+   * Saves the current state of the search on form submit to update the search
+   * parameters to the URL and store the picker states.
+   * @private
+   * @returns {Void} - Returns nothing.
+   */
+  _onFormSubmit() {
+    const [newPath, newState] = this._currentStateAndPath();
+
     pushState(newPath, newState);
     this._saveFilters(newPath);
   }
