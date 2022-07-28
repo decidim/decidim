@@ -5,7 +5,7 @@ require "spec_helper"
 # users of this test should delare the `subject` variable.
 shared_examples "with endorsable permissions can perform actions related to endorsable" do
   let(:action_subject) { :endorsement }
-  let(:resource) { create :dummy_resource }
+  let(:resource) { create :dummy_resource, component: }
   before do
     context[:current_settings] = double(current_settings)
     context[:resource] = resource
