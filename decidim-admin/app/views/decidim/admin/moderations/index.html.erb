@@ -48,9 +48,13 @@
                 <%= moderation.report_count %>
               </td>
               <td>
-                <%=
-                  link_to t("models.moderation.fields.visit_url", scope: "decidim.moderations"), moderation.reportable.reported_content_url, data: { tooltip: true }, title: strip_tags(reported_content_excerpt_for(moderation.reportable, limit: 250))
-                %>
+                <% if (reportable_url = moderation.reportable.reported_content_url) %>
+                  <%=
+                    link_to t("models.moderation.fields.visit_url", scope: "decidim.moderations"), reportable_url, data: { tooltip: true }, title: strip_tags(reported_content_excerpt_for(moderation.reportable, limit: 250))
+                  %>
+                <% else %>
+                  <%= t("models.moderation.fields.deleted_resource", scope: "decidim.moderations") %>
+                <% end %>
               </td>
               <td>
                 <% reports = moderation.reports.map { |report| render "report", report: report } %>
