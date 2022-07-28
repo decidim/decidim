@@ -132,6 +132,35 @@ module Decidim
         end
       end
 
+      describe "#reported_content_url" do
+        subject { comment.reported_content_url }
+
+        let(:url_format) { "http://%{host}:%{port}/processes/%{slug}/f/%{component_id}/dummy_resources/%{resource_id}#comment_%{comment_id}" }
+
+        it "returns the resource URL" do
+          expect(subject).to eq(
+            format(
+              url_format,
+              host: commentable.organization.host,
+              port: Capybara.server_port,
+              slug: commentable.participatory_space.slug,
+              component_id: commentable.component.id,
+              resource_id: commentable.id,
+              comment_id: comment.id
+            )
+          )
+        end
+
+        context "when the root commentable has been deleted" do
+          before do
+            comment.root_commentable.destroy!
+            comment.reload
+          end
+
+          it { is_expected.to be_nil }
+        end
+      end
+
       describe "#users_to_notify_on_comment_created" do
         let(:user) { create :user, organization: comment.organization }
 
