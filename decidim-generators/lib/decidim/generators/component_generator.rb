@@ -95,8 +95,9 @@ module Decidim
           domain = split.last.gsub(".", " [dot] ")
           @security_email = "#{email} [at] #{domain}"
         rescue RuntimeError => e
+          # rubocop:disable Rails/Output
           puts "[ERROR] #{e}"
-          exit 1
+          # rubocop:enable Rails/Output
         end
       end
     end
