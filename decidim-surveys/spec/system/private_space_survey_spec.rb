@@ -52,7 +52,7 @@ describe "Private Space Answer a survey", type: :system do
       it "does not allow answering the survey" do
         visit_component
 
-        within ".wrapper" do
+        within "div.grow" do
           expect(page).to have_i18n_content(questionnaire.title, upcase: true)
           expect(page).to have_i18n_content(questionnaire.description)
 
@@ -103,7 +103,7 @@ describe "Private Space Answer a survey", type: :system do
         it "not allows answering the survey" do
           visit_component
 
-          within ".wrapper" do
+          within "div.grow" do
             expect(page).to have_i18n_content(questionnaire.title, upcase: true)
             expect(page).to have_i18n_content(questionnaire.description)
             expect(page).to have_content "The form is available only for private users"
