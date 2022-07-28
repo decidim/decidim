@@ -3,11 +3,11 @@
 </div>
 
 <noscript>
-  <%= cell("decidim/announcement", { title: t("decidim.forms.questionnaires.show.questionnaire_js_disabled.title"), title: t("decidim.forms.questionnaires.show.questionnaire_js_disabled.body") }, callout_class: "warning") %>
+  <%= cell("decidim/announcement", { title: t("decidim.forms.questionnaires.show.questionnaire_js_disabled.title"), body: t("decidim.forms.questionnaires.show.questionnaire_js_disabled.body") }, callout_class: "warning") %>
 </noscript>
 
 <% unless current_participatory_space.can_participate?(current_user) %>
-  <%= cell("decidim/announcement", { title: t("decidim.forms.questionnaires.show.questionnaire_for_private_users.title"), title: t("decidim.forms.questionnaires.show.questionnaire_for_private_users.body") }, callout_class: "alert") %>
+  <%= cell("decidim/announcement", { title: t("decidim.forms.questionnaires.show.questionnaire_for_private_users.title"), body: t("decidim.forms.questionnaires.show.questionnaire_for_private_users.body") }, callout_class: "alert") %>
 <% end %>
 
 <%= decidim_form_for(@form, url: update_url, method: :post, html: { multipart: true, class: "form answer-questionnaire" }, data: { "safe-path" => form_path }) do |form| %>
