@@ -1,4 +1,4 @@
-/* global spyOn */
+/* global spyOn, jest */
 /* eslint-disable id-length */
 window.$ = $;
 
@@ -6,6 +6,20 @@ import CheckBoxesTree from "./check_boxes_tree"
 import DataPicker from "./data_picker"
 
 const FormFilterComponent = require("./form_filter.component_for_testing.js");
+
+const expectedPushState = (state, filters) => {
+  const queryString = Object.keys(filters).map((key) => {
+    const name = `filter[${key}]`;
+    const val = filters[key];
+    if (Array.isArray(val)) {
+      return val.map((v) => `${encodeURIComponent(`${name}[]`)}=${encodeURIComponent(v)}`).join("&");
+    }
+
+    return `${encodeURIComponent(name)}=${encodeURIComponent(val)}`;
+  }).join("&");
+
+  return [state, null, `/filters?${queryString}`];
+}
 
 describe("FormFilterComponent", () => {
   const selector = "form#new_filter";
@@ -15,6 +29,10 @@ describe("FormFilterComponent", () => {
   beforeEach(() => {
     let form = `
       <form id="new_filter" action="/filters" method="get">
+        <fieldset>
+          <input id="filter_search_text_cont" placeholder="Search" data-disable-dynamic-change="true" type="search" name="filter[search_text_cont]">
+        </fieldset>
+
         <fieldset>
           <div id="filter_somerandomid_scope_id" class="data-picker picker-multiple" data-picker-name="filter[scope_id]">
             <div class="picker-values">
@@ -67,11 +85,25 @@ describe("FormFilterComponent", () => {
     `;
     $("body").append(form);
 
+    const $form = $(document).find("form");
+
     window.Decidim = window.Decidim || {};
 
     window.theDataPicker = new DataPicker($(".data-picker"));
     window.theCheckBoxesTree = new CheckBoxesTree();
-    subject = new FormFilterComponent($(document).find("form"));
+    window.Rails = {
+      fire: (htmlElement, event) => {
+        // Hack to call trigger on the correct instance of the form, as fetching
+        // with the selector does not work.
+        if (htmlElement === $form[0]) {
+          $form.trigger(event);
+        }
+      }
+    };
+
+    subject = new FormFilterComponent($form);
+
+    jest.useFakeTimers();
   });
 
   it("exists", () => {
@@ -88,7 +120,19 @@ describe("FormFilterComponent", () => {
 
   describe("when mounted", () => {
     beforeEach(() => {
-      spyOn(subject.$form, "on");
+      // Jest doesn't implement listening on the form submit event so we need
+      // to hack it.
+      const originalOn = subject.$form.on.bind(subject.$form);
+      jest.spyOn(subject.$form, "on").mockImplementation((...args) => {
+        if (args[0] === "submit") {
+          subject.$form.submitHandler = args[1];
+        } else if (args[0] === "change" && typeof args[1] === "string") {
+          subject.$form.changeHandler = args[2];
+        } else {
+          originalOn(...args);
+        }
+      });
+
       subject.mountComponent();
     });
 
@@ -100,8 +144,96 @@ describe("FormFilterComponent", () => {
       expect(subject.mounted).toBeTruthy();
     });
 
-    it("binds the form change event", () => {
+    it("binds the form change and submit events", () => {
       expect(subject.$form.on).toHaveBeenCalledWith("change", "input:not([data-disable-dynamic-change]), select:not([data-disable-dynamic-change])", subject._onFormChange);
+      expect(subject.$form.on).toHaveBeenCalledWith("submit", subject._onFormSubmit);
+    });
+
+    describe("form changes", () => {
+      beforeEach(() => {
+        spyOn(window.history, "pushState");
+
+        // This is a hack to be able to trigger the events even somewhat close
+        // to an actual situation. In real browser environment the change events
+        // would be triggered by the input/select elements but to simplify the
+        // test implementation, we trigger them directly on the form.
+        const originalTrigger = subject.$form.trigger.bind(subject.$form);
+        jest.spyOn(subject.$form, "trigger").mockImplementation((...args) => {
+          if (args[0] === "submit") {
+            subject.$form.submitHandler();
+          } else if (args[0] === "change") {
+            subject.$form.changeHandler();
+          } else {
+            originalTrigger(...args);
+          }
+
+          jest.runAllTimers();
+        });
+      });
+
+      it("does not save the state in case there were no changes to previous state", () => {
+        subject.$form.trigger("change");
+
+        expect(window.history.pushState).not.toHaveBeenCalled();
+      });
+
+      it("saves the state after dynamic form changes", () => {
+        $("#filter_somerandomid_category_id").val(2);
+
+        subject.$form.trigger("change");
+
+        const state = {
+          "filter_somerandomid_scope_id": [
+            {
+              "text": "Scope 1",
+              "url": "picker_url_1",
+              "value": "3"
+            },
+            {
+              "text": "Scope 2",
+              "url": "picker_url_2",
+              "value": "4"
+            }
+          ]
+        };
+        const filters = {
+          "search_text_cont": "",
+          "scope_id": [3, 4],
+          "category_id": 2,
+          "state": [""]
+        };
+        expect(window.history.pushState).toHaveBeenCalledWith(...expectedPushState(state, filters));
+      });
+
+      it("saves the state after form submission through input element", () => {
+        const textInput = document.getElementById("filter_search_text_cont");
+        textInput.value = "search";
+
+        subject.$form.trigger("submit");
+
+        const state = {
+          "filter_somerandomid_scope_id": [
+            {
+              "text": "Scope 1",
+              "url": "picker_url_1",
+              "value": "3"
+            },
+            {
+              "text": "Scope 2",
+              "url": "picker_url_2",
+              "value": "4"
+            }
+          ]
+        }
+        const filters = {
+          "search_text_cont": "search",
+          "scope_id": [3, 4],
+          "category_id": 1,
+          "state": [""]
+        }
+
+        expect(window.history.pushState).toHaveBeenCalledWith(...expectedPushState(state, filters));
+      });
     });
 
     describe("onpopstate event", () => {
@@ -145,8 +277,9 @@ describe("FormFilterComponent", () => {
       expect(subject.mounted).toBeFalsy();
     });
 
-    it("unbinds the form change event", () => {
+    it("unbinds the form change and submit events", () => {
       expect(subject.$form.off).toHaveBeenCalledWith("change", "input, select", subject._onFormChange);
+      expect(subject.$form.off).toHaveBeenCalledWith("submit", subject._onFormSubmit);
     });
   });
 
