@@ -86,19 +86,12 @@ module Decidim
       private
 
       def format_email!
-        begin
-          raise "Security email must be defined" if @security_email.blank?
-          return unless @security_email.include?("@")
+        return unless @security_email.include?("@")
 
-          split = @security_email.split("@")
-          email = split.first
-          domain = split.last.gsub(".", " [dot] ")
-          @security_email = "#{email} [at] #{domain}"
-        rescue RuntimeError => e
-          # rubocop:disable Rails/Output
-          puts "[ERROR] #{e}"
-          # rubocop:enable Rails/Output
-        end
+        split = @security_email.split("@")
+        email = split.first
+        domain = split.last.gsub(".", " [dot] ")
+        @security_email = "#{email} [at] #{domain}"
       end
     end
   end
