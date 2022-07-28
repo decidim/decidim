@@ -15,5 +15,9 @@ module Decidim
         { resize_and_pad: [value, value] }
       end
     end
+
+    def extension_allowlist
+      %w(jpg jpeg gif png ico)
+    end
   end
 end
