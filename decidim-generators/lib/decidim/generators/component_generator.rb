@@ -12,7 +12,15 @@ module Decidim
     class ComponentGenerator < Thor
       include Thor::Actions
 
-      attr_reader :component_name, :component_module_name, :component_resource_name, :component_folder, :component_description, :core_version, :required_ruby_version, :security_email, :edge_git_branch
+      attr_reader :component_name,
+                  :component_module_name,
+                  :component_resource_name,
+                  :component_folder,
+                  :component_description,
+                  :core_version,
+                  :required_ruby_version,
+                  :security_email,
+                  :edge_git_branch
 
       source_root File.expand_path("component_templates", __dir__)
 
@@ -79,6 +87,8 @@ module Decidim
         if options[:external]
           inside(component_folder) do
             Bundler.with_original_env { run "bundle install" }
+            Bundler.with_original_env { run "bundle lock --add-platform x86_64-linux" }
+            Bundler.with_original_env { run "bundle lock --add-platform ruby" }
           end
         end
       end
@@ -86,7 +96,7 @@ module Decidim
       private
 
       def format_email!
-        return unless @security_email.include?("@")
+        return unless @security_email&.include?("@")
 
         split = @security_email.split("@")
         email = split.first
