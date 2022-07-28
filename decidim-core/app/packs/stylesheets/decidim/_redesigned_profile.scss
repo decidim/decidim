@@ -15,7 +15,7 @@
     @apply pb-3 space-y-2;
 
     &-data{
-      @apply flex justify-between flex-wrap gap-x-6;
+      @apply flex flex-wrap gap-x-6;
     }
 
     &-item{
@@ -152,6 +152,46 @@
 
     &:hover &-name{
       @apply underline;
+    }
+  }
+
+  &__scaffold{
+    &__top{
+      @apply bg-background;
+
+      &-content{
+        @apply lg:w-2/3 mx-auto flex flex-col items-center md:items-start md:flex-row justify-between py-6 md:py-12 gap-6;
+
+        & > *{
+          &:nth-child(1){
+            @apply flex-none;
+          }
+
+          &:nth-child(2){
+            @apply grow divide-y divide-gray-3;
+          }
+
+          &:nth-child(3){
+            @apply max-w-fit flex md:flex-col gap-4;
+          }
+        }
+      }
+    }
+
+    &__middle{
+      @apply bg-background;
+
+      &-content{
+        @apply lg:w-2/3 mx-auto flex justify-between text-gray-2;
+      }
+    }
+
+    &__bottom{
+      @apply border-t-2 border-gray-3 -mt-0.5;
+
+      &-content{
+        @apply lg:w-2/3 mx-auto py-6 md:py-12 min-h-[200px] mb-32;
+      }
     }
   }
 }
