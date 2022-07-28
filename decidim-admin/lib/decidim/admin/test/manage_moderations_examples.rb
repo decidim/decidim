@@ -152,4 +152,33 @@ shared_examples "manage moderations" do
       end
     end
   end
+
+  context "when listing comments for deleted resources" do
+    let(:comments) do
+      reportables.first(reportables.length - 1).map do |resource|
+        create(:comment, commentable: resource)
+      end
+    end
+    let!(:moderations) do
+      comments.first(comments.length - 1).map do |reportable|
+        space = reportable.is_a?(Decidim::Participable) ? reportable : reportable.participatory_space
+        moderation = create(:moderation, reportable:, report_count: 1, participatory_space: space, reported_content: reportable.reported_searchable_content_text)
+        create(:report, moderation:)
+
+        reportable.root_commentable.destroy!
+        reportable.reload
+
+        moderation
+      end
+    end
+
+    it "user can review them" do
+      moderations.each do |moderation|
+        within "tr[data-id=\"#{moderation.id}\"]" do
+          expect(page).to have_content "Deleted resource"
+          expect(page).to have_content "Spam"
+        end
+      end
+    end
+  end
 end
