@@ -5,23 +5,13 @@
     </h3>
   </div>
 
-  <div class="row diff_view diff_view_unified_unescaped<%= " hide" unless show_html_view_dropdown? %>" id="<%= attribute_diff_id("diff_view_unified_unescaped") %>">
-    <%= diff_unified(data, :unescaped_html) %>
+  <div class="row diff_view diff_view_unified" id="attribute-diff-unified-<%= data[:label].parameterize %>-<%= format %>">
+    <%= diff_unified(data, format) %>
   </div>
 
-  <div class="row diff_view diff_view_unified_escaped<%= " hide" if show_html_view_dropdown? %>" id="<%= attribute_diff_id("diff_view_unified_escaped") %>">
-    <%= diff_unified(data, :html) %>
+  <div class="row diff_view diff_view_split hide" id="attribute-diff-unified-<%= data[:label].parameterize %>-<%= format %>">
+    <%= diff_split(data, "left", format) %>
+    <%= diff_split(data, "right", format) %>
   </div>
 
-  <div class="row diff_view diff_view_split_unescaped hide" id="<%= attribute_diff_id("diff_view_split_unescaped") %>">
-    <%= diff_split(data, "left", :unescaped_html) %>
-
-    <%= diff_split(data, "right", :unescaped_html) %>
-  </div>
-
-  <div class="row diff_view diff_view_split_escaped hide" id="<%= attribute_diff_id("diff_view_split_escaped") %>">
-    <%= diff_split(data, "left", :html) %>
-
-    <%= diff_split(data, "right", :html) %>
-  </div>
 </div>

@@ -8,6 +8,7 @@ module Decidim
       include Decidim::Comments::CommentsHelper
       include PaginateHelper
       include ProposalVotesHelper
+      include ProposalPresenterHelper
       include ::Decidim::EndorsableHelper
       include ::Decidim::FollowableHelper
       include Decidim::MapHelper
@@ -82,27 +83,6 @@ module Decidim
 
       def minimum_votes_per_user_enabled?
         minimum_votes_per_user.positive?
-      end
-
-      def not_from_collaborative_draft(proposal)
-        proposal.linked_resources(:proposals, "created_from_collaborative_draft").empty?
-      end
-
-      def not_from_participatory_text(proposal)
-        proposal.participatory_text_level.nil?
-      end
-
-      # If the proposal is official or the rich text editor is enabled on the
-      # frontend, the proposal body is considered as safe content; that's unless
-      # the proposal comes from a collaborative_draft or a participatory_text.
-      def safe_content?
-        rich_text_editor_in_public_views? && not_from_collaborative_draft(@proposal) ||
-          (@proposal.official? || @proposal.official_meeting?) && not_from_participatory_text(@proposal)
-      end
-
-      # If the content is safe, HTML tags are sanitized, otherwise, they are stripped.
-      def render_proposal_body(proposal)
-        Decidim::ContentProcessor.render(render_sanitized_content(proposal, :body), "div")
       end
 
       # Returns :text_area or :editor based on the organization' settings.

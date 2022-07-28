@@ -1,7 +1,13 @@
 <div class="mediumlarge-12 columns">
-  <div class="card">
-    <div class="diff-data">
-      <%= output_unified_diff(data, format) %>
+  <% available_locales_for(data).each do |locale, filled| %>
+    <% next unless filled %>
+    <% unless I18n.locale.to_s == locale %>
+      <p><strong><%= locale_name(locale) %></strong></p>
+    <% end %>
+    <div class="card">
+      <div class="diff-data">
+        <%= output_unified_diff(data, format, locale) %>
+      </div>
     </div>
-  </div>
+  <% end %>
 </div>

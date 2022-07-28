@@ -3,9 +3,15 @@
     <%= t(direction, scope: "versions.directions") %>
   </div>
 
-  <div class="card">
-    <div class="diff-data">
-      <%= output_split_diff(data, direction, format) %>
+  <% available_locales_for(data).each do |locale, filled| %>
+    <% next unless filled %>
+    <% unless I18n.locale.to_s == locale %>
+      <p><strong><%= locale_name(locale) %></strong></p>
+    <% end %>
+    <div class="card">
+      <div class="diff-data">
+        <%= output_split_diff(data, direction, format, locale) %>
+      </div>
     </div>
-  </div>
+  <% end %>
 </div>

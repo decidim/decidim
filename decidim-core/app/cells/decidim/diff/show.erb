@@ -1,8 +1,50 @@
-<%= render :diff_mode_dropdown %>
-<%= render :diff_mode_html %>
+<div class="versions-diff">
+  <div class="versions-selector">
+    <ul class="tabs" data-tabs id="diff-tabs">
+      <li class="tabs-title is-active" id="diff-text-title">
+        <!-- Wrap the anchor inside a div to keep correct button styling -->
+        <div>
+          <%= link_to "#diff-text", class: "button button--nomargin button--sc hollow" do %>
+            <%= t("versions.tabs.text") %>
+          <% end %>
+        </div>
+      </li>
+      <li class="tabs-title" id="diff-source-title">
+        <!-- Wrap the anchor inside a div to keep correct button styling -->
+        <div>
+          <%= link_to "#diff-source", class: "button button--nomargin button--sc hollow" do %>
+            <%= t("versions.tabs.source") %>
+          <% end %>
+        </div>
+      </li>
+      <li class="tabs-title" id="diff-preview-title">
+        <!-- Wrap the anchor inside a div to keep correct button styling -->
+        <div>
+          <%= link_to "#diff-preview", class: "button button--nomargin button--sc hollow" do %>
+            <%= t("versions.tabs.preview") %>
+          <% end %>
+        </div>
+      </li>
+    </ul>
+  </div>
 
-<div aria-live="polite">
-  <% diff_data.each do |data| %>
-    <%= attribute(data) %>
-  <% end %>
+  <div class="tabs-content" data-tabs-content="diff-tabs">
+
+    <div class="tabs-panel is-active" id="diff-text">
+      <%= render :diff_mode_dropdown %>
+      <% diff_data.each do |data| %>
+        <%= attribute(data, :text) %>
+      <% end %>
+    </div>
+    <div class="tabs-panel" id="diff-source">
+      <%= render :diff_mode_dropdown %>
+      <% diff_data.each do |data| %>
+        <%= attribute(data, :html) %>
+      <% end %>
+    </div>
+    <div class="tabs-panel" id="diff-preview">
+      <%= preview %>
+    </div>
+  </div>
+
 </div>

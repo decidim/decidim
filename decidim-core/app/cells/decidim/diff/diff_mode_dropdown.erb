@@ -17,13 +17,13 @@
 
         <ul class="menu is-dropdown-submenu" id="diffmode-chooser-menu" role="menu" aria-labelledby="diff-view-selected">
           <li role="presentation">
-            <%= link_to "#diff-view-unified", class: "diff-view-mode", id:"diff-view-unified", role: "menuitem" do %>
+            <%= link_to "#diff-view-unified", class: "diff-view-mode diff-view-unified", id:"diff-view-unified", role: "menuitem" do %>
               <%= t("versions.dropdown.option_unified") %>
             <% end %>
           </li>
 
           <li role="presentation">
-            <%= link_to "#diff-view-split", class: "diff-view-mode", id:"diff-view-split", role: "menuitem" do %>
+            <%= link_to "#diff-view-split", class: "diff-view-mode diff-view-split", id:"diff-view-split", role: "menuitem" do %>
               <%= t("versions.dropdown.option_split") %>
             <% end %>
           </li>

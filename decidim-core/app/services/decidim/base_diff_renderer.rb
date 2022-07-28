@@ -28,6 +28,11 @@ module Decidim
       end
     end
 
+    # implement if item can be previewed
+    def preview
+      nil
+    end
+
     private
 
     attr_reader :version
