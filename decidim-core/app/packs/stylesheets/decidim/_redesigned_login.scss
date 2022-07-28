@@ -1,6 +1,10 @@
 .login{
-  &__signup-info{
-    @apply text-lg font-semibold prose-a:text-secondary prose-a:underline mb-10;
+  &__info{
+    @apply text-gray-2 text-lg space-y-4 prose-a:text-secondary prose-a:underline last:[&>*]:font-semibold;
+  }
+
+  &__info-required{
+    @apply my-10 text-gray-2 text-sm;
   }
 
   &__omniauth{
@@ -14,18 +18,19 @@
   &__form{
     @apply flex flex-col py-10 gap-10;
 
-    &-submit{
-      @apply text-right py-10 border-t-2 border-background;
+    &-block{
+      @apply py-10 border-t-2 border-background flex flex-col py-10 gap-4 only:[&_button]:ml-auto;
     }
 
-    label{
-      @apply font-semibold text-lg;
-
-      &:last-child{
-        @apply font-normal cursor-pointer;
-      }
+    &-checkbox-label{
+      @apply text-md text-gray-2 font-normal prose-a:text-secondary prose-a:underline cursor-pointer;
     }
 
+    label:not(&-checkbox-label){
+      @apply font-semibold text-lg space-y-4;
+    }
+
+    input[type="text"],
     input[type="email"],
     input[type="password"]{
       @apply w-full block mt-3;

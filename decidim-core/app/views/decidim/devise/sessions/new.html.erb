@@ -6,7 +6,7 @@
     <h1 class="h1 decorator my-12"><%= t("devise.sessions.new.sign_in") %></h1>
   </div>
 
-  <div class="login__signup-info">
+  <div class="login__info">
     <% if current_organization.sign_up_enabled? %>
       <p>
         <%= t("decidim.devise.sessions.new.are_you_new?") %>
@@ -32,17 +32,16 @@
   <% if current_organization.sign_in_enabled? %>
     <%= decidim_form_for(resource, namespace: "session", as: resource_name, url: session_path(resource_name) ) do |f| %>
       <div class="login__form">
-        <!-- TODO: move the input classes to the base component -->
         <%= f.email_field :email, autocomplete: "email", placeholder: "hi@email.com" %>
 
         <%= f.password_field :password, autocomplete: "current-password", placeholder: "******" %>
 
         <% if devise_mapping.rememberable? %>
-          <%= f.check_box :remember_me, class: "mr-1 cursor-pointer" %>
+          <%= f.check_box :remember_me, label_options: { class: "login__form-checkbox-label" } %>
         <% end %>
       </div>
 
-      <div class="login__form-submit">
+      <div class="login__form-block">
         <button type="submit" class="button button__lg button__secondary">
           <%= t("devise.sessions.new.sign_in") %>
           <%= icon "arrow-right-line", class: "fill-current" %>
