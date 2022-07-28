@@ -1,10 +1,10 @@
 .login{
   &__info{
-    @apply text-gray-2 text-lg space-y-4 prose-a:text-secondary prose-a:underline last:[&>*]:font-semibold;
+    @apply text-gray-2 text-lg space-y-4 mb-10 prose-a:text-secondary prose-a:underline last:[&>*]:font-semibold;
   }
 
   &__info-required{
-    @apply my-10 text-gray-2 text-sm;
+    @apply mb-10 text-gray-2 text-sm;
   }
 
   &__omniauth{
