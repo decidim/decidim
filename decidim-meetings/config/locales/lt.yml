@@ -17,7 +17,12 @@ lt:
       meeting:
         address: Adresas
         available_slots: Šiam susirinkimui turimi laisvi intervalai
+        customize_registration_email: Redaguoti registracijos laišką
+        decidim_category_id: Kategorija
         decidim_scope_id: Apimtis
+        decidim_user_group_id: Naudotojų grupė
+        description: Aprašymas
+        end_time: Pabaigos laikas
   activerecord:
     models:
       decidim/meetings/registration:
@@ -106,10 +111,60 @@ lt:
           notification_title: Susirinkimas<a href="%{resource_path}"><a href="%{resource_path}">%{resource_title}</a> pridėtas prie %{participatory_space_title}
         meeting_registration_confirmed:
           notification_title: Jūsų registracija į susirinkimą <a href="%{resource_url}">%{resource_title}</a> buvo patvirtinta. Jūsų registracijos kodas yra %{registration_code}.
+        registrations_enabled:
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> Susirinkimas leidžia registruotis.
+        upcoming_meeting:
+          email_intro: '%{resource_title} susirinkimas prasidės už mažiau nei 48 val.'
+          email_outro: Gavote šį pranešimą nes sekate "%{resource_title}" susirinkimą. Galite jo nebesekti paspaudę ant ankstesnės nuorodos.
+          email_subject: '"%{resource_title}" susirinkimas prasidės už mažiau nei 48 val.'
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> Susirinkimas prasidės už mažiau nei 48 val.
+    forms:
+      meetings:
+        attendees_count_help_text: Nepamirškite įrašyti dalyvių susirinkime skaičiaus (tiek dalyvaujančių gyvai, tiek nuotoliniu būdu).
+    gamification:
+      badges:
+        attended_meetings:
+          conditions:
+            - Registruokitės į susirinkimus, kuriuose norite dalyvauti
+          description: Šis ženklelis suteikiamas dalyvavus keliuose tiesioginiuose susirinkimuose.
+          description_another: Šis dalyvis dalyvavo %{score} susirinkimuose (-ų).
+          description_own: Jūs dalyvavote %{score} susirinkimuose (-ų).
+          name: Dalyvauta susirinkimuose
+          next_level_in: Dalyvaukite dar %{score} susirinkimuose (-ų) ir pasiekite kitą lygį!
+          unearned_another: Šis dalyvis dar nedalyvavo nė viename susirinkime.
+          unearned_own: Jūs dar nedalyvavote nė viename susirinkime.
     meetings:
+      actions:
+        agenda: Darbotvarkė
+        attachment_collections: Aplankai
+        attachments: Priedai
+        close: Uždaryti
+        confirm_destroy: Ar tikrai norite panaikinti šį susirinkimą?
+        destroy: Ištrinti
+        edit: Redaguoti
+        invalid_destroy:
+          proposals_count:
+            one: 'Susirinkimo negalima panaikinti, nes su juo susietas %{count} pasiūlymas:'
+            few: 'Susirinkimo negalima panaikinti, nes su juo susietas %{count} pasiūlymai:'
+            many: 'Susirinkimo negalima panaikinti, nes su juo susietas %{count} pasiūlymai:'
+            other: 'Susirinkimo negalima panaikinti, nes su juo susietas %{count} pasiūlymai:'
+        manage_poll: Tvarkyti apklausą
+        new: Naujas susirinkimas
+        preview: Peržiūra
+        registrations: Registracijos
+        title: Veiksmai
       admin:
         agenda:
+          agenda_item:
+            add_agenda_item_child: Pridėti darbotvarkės punktą
+            agenda_item: Darbotvarkės klausimas
+            agenda_item_children: Darbotvarkės po-punktčiai
+            down: Žemyn
+            remove: Pašalinti
+            up: Aukštyn
           agenda_item_child:
+            agenda_item_child: Darbotvarkės po-punktčiai
+            down: Žemyn
             remove: Pašalinti
             up: Aukštyn
           create:
@@ -186,6 +241,8 @@ lt:
           edit:
             title: Redaguoti susirinkimą
             update: Atnaujinti
+          form:
+            address_help: 'Adresas: jį naudoja „Geocoder“, kad rastų vietą'
       meetings:
         filters:
           scope: Apimtis
