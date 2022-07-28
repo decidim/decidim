@@ -1,33 +1,27 @@
 <% add_decidim_page_title(t("devise.confirmations.new.resend_confirmation_instructions")) %>
 
-<div class="wrapper">
-<div class="row collapse">
-  <div class="row collapse">
-    <div class="columns large-8 large-centered text-center page-title">
-      <h1><%= t("devise.confirmations.new.resend_confirmation_instructions") %></h1>
-    </div>
+<%= render layout: "layouts/decidim/shared/layout_center" do %>
+
+  <div class="flex justify-center">
+    <h1 class="h1 decorator my-12"><%= t("devise.confirmations.new.resend_confirmation_instructions") %></h1>
   </div>
 
-  <div class="row">
-    <div class="columns medium-7 large-5 medium-centered">
-      <div class="card">
-        <div class="card__content">
-          <%= decidim_form_for(resource, namespace: "confirmation", as: resource_name, url: confirmation_path(resource_name), html: { method: :post, class: "register-form new_user" }) do |f| %>
-            <%= render "devise/shared/error_messages", resource: resource %>
+  <%= decidim_form_for(resource, namespace: "confirmation", as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
 
-            <div class="field">
-              <%= f.email_field :email, autofocus: true, value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email), autocomplete: "email" %>
-            </div>
-
-            <div class="actions">
-              <%= f.submit t("devise.confirmations.new.resend_confirmation_instructions"), class: "button expanded" %>
-            </div>
-          <% end %>
-
-          <%= render "decidim/devise/shared/links" %>
-        </div>
-      </div>
+    <div class="login__form">
+      <%= f.email_field :email, autofocus: true, value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email), autocomplete: "email" %>
     </div>
+
+    <div class="login__form-block">
+      <button type="submit" class="button button__lg button__secondary">
+        <%= t("devise.confirmations.new.resend_confirmation_instructions") %>
+        <%= icon "arrow-right-line", class: "fill-current" %>
+      </button>
+    </div>
+  <% end %>
+
+  <div class="login__links">
+    <%= render "decidim/devise/shared/redesigned_links" %>
   </div>
-</div>
-</div>
+
+<% end %>
