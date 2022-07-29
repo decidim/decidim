@@ -15,9 +15,11 @@ module Decidim
 
       def map_model(model)
         question = model[:question]
+        closure = model[:closure]
         self.id = question.id
         self.title = question.title
         self.nota_option = question.nota_option?
+        self.value = closure.results&.blank_answers&.find_by(question: question)&.value
       end
     end
   end

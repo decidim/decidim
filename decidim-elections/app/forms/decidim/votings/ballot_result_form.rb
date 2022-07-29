@@ -22,6 +22,9 @@ module Decidim
 
       def map_model(model)
         self.total_ballots_count = model.results&.total_ballots&.first&.value || 0
+        self.null_ballots_count = model.results&.null_ballots&.first&.value
+        self.blank_ballots_count = model.results&.blank_ballots&.first&.value
+        self.valid_ballots_count = model.results&.valid_ballots&.first&.value
       end
     end
   end

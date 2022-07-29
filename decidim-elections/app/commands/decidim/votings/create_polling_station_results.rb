@@ -23,6 +23,8 @@ module Decidim
         return broadcast(:invalid) if form.invalid?
 
         transaction do
+          closure.results.not_total_ballots.destroy_all
+
           form.ballot_results.attributes.compact.each do |ballot_result|
             create_ballot_result_for!(ballot_result)
           end
