@@ -29,10 +29,6 @@ describe "Content pages", type: :system do
           topic_title = decidim_page.topic.title[I18n.locale.to_s]
           page_title = decidim_page.title[I18n.locale.to_s]
 
-          expect(page).to have_css(
-            "a[href=\"#{decidim.page_path(decidim_page)}\"]",
-            text: topic_title
-          )
           within("div[data-component='accordion']", text: topic_title) do
             find("svg", match: :first).click
             expect(page).to have_css(
