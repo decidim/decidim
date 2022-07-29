@@ -19,7 +19,7 @@ module Decidim
         self.id = question.id
         self.title = question.title
         self.nota_option = question.nota_option?
-        self.value = closure.results&.blank_answers&.find_by(question: question)&.value
+        self.value = closure.results&.blank_answers&.find_by(question:)&.value
       end
     end
   end

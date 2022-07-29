@@ -221,6 +221,10 @@ FactoryBot.define do
     phase { :count }
     validated_at { nil }
 
+    trait :completed do
+      phase { :complete }
+    end
+
     trait :with_results do
       phase { :signature }
 

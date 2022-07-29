@@ -20,12 +20,16 @@ module Decidim
         total_ballots_count == (valid_ballots_count.to_i + blank_ballots_count.to_i + null_ballots_count.to_i)
       end
 
+      # rubocop:disable Metrics/PerceivedComplexity
+      # rubocop:disable Metrics/CyclomaticComplexity
       def map_model(model)
         self.total_ballots_count = model.results&.total_ballots&.first&.value || 0
         self.null_ballots_count = model.results&.null_ballots&.first&.value
         self.blank_ballots_count = model.results&.blank_ballots&.first&.value
         self.valid_ballots_count = model.results&.valid_ballots&.first&.value
       end
+      # rubocop:enable Metrics/PerceivedComplexity
+      # rubocop:enable Metrics/CyclomaticComplexity
     end
   end
 end

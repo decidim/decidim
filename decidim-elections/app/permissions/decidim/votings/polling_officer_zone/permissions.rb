@@ -11,7 +11,12 @@ module Decidim
           when :polling_officers
             toggle_allow(polling_officers_for_user?) if permission_action.action == :view
           when :polling_station_results, :in_person_vote
-            toggle_allow(polling_officer.user == user) if permission_action.action == :manage
+            case permission_action.action
+            when :manage, :create
+              toggle_allow(polling_officer&.user == user)
+            when :edit
+              toggle_allow(polling_officer&.user == user && closure.present? && !closure&.complete_phase?)
+            end
           when :user
             allow! if permission_action.action == :update_profile
           end
@@ -30,7 +35,11 @@ module Decidim
         end
 
         def polling_officer
-          @polling_officer ||= context.fetch(:polling_officer, [])
+          @polling_officer ||= context.fetch(:polling_officer, nil)
+        end
+
+        def closure
+          @closure ||= context.fetch(:closure, nil)
         end
       end
     end

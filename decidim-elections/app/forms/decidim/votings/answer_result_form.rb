@@ -19,7 +19,7 @@ module Decidim
         self.id = answer.id
         self.title = answer.title
         self.question_id = answer.question.id
-        self.value = closure.results&.valid_answers&.find_by(answer: answer)&.value
+        self.value = closure.results&.valid_answers&.find_by(answer:)&.value
       end
     end
   end
