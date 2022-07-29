@@ -19,7 +19,7 @@
     @apply flex flex-col py-10 gap-10;
 
     &-block{
-      @apply py-10 border-t-2 border-background flex flex-col py-10 gap-4 only:[&_button]:ml-auto [&_*:not(h4)]:text-gray-2;
+      @apply py-10 border-t-2 border-background flex flex-col py-10 gap-4 only:[&_button]:ml-auto [&_p]:text-gray-2;
     }
 
     &-checkbox-label{
