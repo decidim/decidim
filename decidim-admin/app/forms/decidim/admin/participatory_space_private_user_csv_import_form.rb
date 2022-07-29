@@ -8,7 +8,7 @@ module Decidim
     #
     class ParticipatorySpacePrivateUserCsvImportForm < Form
       include Decidim::HasUploadValidations
-      include Decidim::ProcessesFileLocally
+      include Decidim::Admin::CustomImport
 
       attribute :file, Decidim::Attributes::Blob
       attribute :user_name, String
@@ -20,10 +20,8 @@ module Decidim
       def validate_csv
         return if file.blank?
 
-        process_file_locally(file) do |file_path|
-          CSV.foreach(file_path) do |_email, user_name|
-            errors.add(:user_name, :invalid) unless user_name.match?(UserBaseEntity::REGEXP_NAME)
-          end
+        process_import_file(file) do |(_email, user_name)|
+          errors.add(:user_name, :invalid) unless user_name.match?(UserBaseEntity::REGEXP_NAME)
         end
       end
     end
