@@ -231,6 +231,8 @@ lt:
             update: Atnaujinti
           form:
             address_help: 'Adresas: jį naudoja „Geocoder“, kad rastų vietą'
+            disclaimer: 'Perspėjimas: Naudodami išorinę registracijos sistemą, %{organization} nėra atsakinga už dalyvių duomenų tvarkymą.'
+            location_help: 'Vieta: naudotojams skirtas pranešimas, kuriame nurodoma susitikimo vieta'
       directory:
         meetings:
           index:
