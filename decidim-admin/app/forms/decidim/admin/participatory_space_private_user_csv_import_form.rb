@@ -21,7 +21,7 @@ module Decidim
         return if file.blank?
 
         process_import_file(file) do |(_email, user_name)|
-          errors.add(:user_name, :invalid) unless user_name.match?(UserBaseEntity::REGEXP_NAME)
+          errors.add(:user_name, :invalid) if user_name.blank? || !user_name.match?(UserBaseEntity::REGEXP_NAME)
         end
       end
     end
