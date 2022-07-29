@@ -148,10 +148,13 @@ shared_examples_for "has questionnaire" do
 
     shared_examples_for "a correctly ordered questionnaire" do
       it "displays the questions ordered by position starting with one" do
-        form_fields = all(".answer-questionnaire .row")
+        form_fields = all(".answer-questionnaire__question")
 
-        expect(form_fields[0]).to have_i18n_content(question.body).and have_content("1. ")
-        expect(form_fields[1]).to have_i18n_content(other_question.body).and have_content("2. ")
+        expect(form_fields[0]).to have_i18n_content(question.body)
+        expect(form_fields[1]).to have_i18n_content(other_question.body)
+        (0..1).each do |index|
+          expect(form_fields[index]).to have_css("[data-answer-idx='#{index + 1}']")
+        end
       end
     end
 
