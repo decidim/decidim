@@ -12,24 +12,38 @@
              else
                t("heading", scope: "decidim.votings.polling_officer_zone.closures.show")
              end %>
-
-<%= content_tag :p,
-                if closure.certificate_phase?
-                  t("info_text", scope: "decidim.votings.polling_officer_zone.closures.certify")
-                elsif closure.signature_phase?
-                  t("info_text", scope: "decidim.votings.polling_officer_zone.closures.sign")
-                else
-                  t("info_text", scope: "decidim.votings.polling_officer_zone.closures.show")
-                end %>
+<%= content_tag :p, if closure.complete_phase?
+               t("sub_heading", scope: "decidim.votings.polling_officer_zone.closures.completed")
+             else
+               t("sub_heading", scope: "decidim.votings.polling_officer_zone.closures.show")
+             end %>
 
 <div class="row mt-sm">
   <div class="columns">
     <%= cell("decidim/votings/polling_station_closure_recount", closure) %>
 
-    <%= cell("decidim/votings/polling_station_closure_certificate", closure) %>
+    <% unless closure.complete_phase? %>
+      <p><%= link_to t("edit_count_votes", scope: "decidim.votings.polling_officer_zone.closures.show"),
+                 edit_polling_officer_election_closure_path(polling_officer, election) %></p>
+    <% end %>
 
-    <%= render "certify_form" if closure.certificate_phase? %>
+    <h3><%= t("recount_certificate", scope: "decidim.votings.polling_officer_zone.closures.show") %></h3>
+    <%= content_tag :p,
+                    if closure.certificate_phase?
+                      t("info_text", scope: "decidim.votings.polling_officer_zone.closures.certify")
+                    elsif closure.signature_phase?
+                      t("info_text", scope: "decidim.votings.polling_officer_zone.closures.sign")
+                    else
+                      t("info_text", scope: "decidim.votings.polling_officer_zone.closures.show")
+                    end %>
+    <div class="card--secondary">
+      <div class="card__content">
+        <%= cell("decidim/votings/polling_station_closure_certificate", closure) %>
 
-    <%= render "sign_form" if closure.signature_phase? && !closure.signed? %>
+        <%= render "certify_form" if closure.certificate_phase? %>
+
+        <%= render "sign_form" if closure.signature_phase? && !closure.signed? %>
+      </div>
+    </div>
   </div>
 </div>

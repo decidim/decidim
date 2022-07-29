@@ -1,5 +1,8 @@
 <% if has_images? %>
   <div class="row column">
+    <p>
+      <%= content_tag :strong, t("current_certificate", scope: "decidim.votings.polling_station_closure_certificate") %>
+    </p>
     <% model.photos.each do |image| %>
       <a href="<%= image.url %>" target="_blank">
         <img class="thumbnail" src="<%= image.thumbnail_url %>" alt="<%= translated_attribute(image.title) %>">

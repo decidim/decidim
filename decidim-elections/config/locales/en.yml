@@ -1177,6 +1177,8 @@ en:
             info_text: Please upload a picture of the Electoral Closure Certificate.
             submit: Upload the certificate
             success: Certificate uploaded successfully.
+          completed:
+            sub_heading: This recount has been certified and can not longer be edited.
           create:
             error: An error occurred creating the closure, please try again later.
             success: Closure successfully created.
@@ -1211,8 +1213,11 @@ en:
             submit: Verify total number
             total_ballots_count: Number of ballots
           show:
+            edit_count_votes: Wrong numbers? You can still edit them.
             heading: Vote recount
             info_text: Polling station electoral closure.
+            recount_certificate: Recount certificate
+            sub_heading: The recount needs to be closed by uploading a certificate. Once this is done, the recount will be sealed and can no longer be edited.
           sign:
             cancel: Cancel
             check_box: I've reviewed this and is the same as the physical electoral closure certificate
@@ -1296,6 +1301,8 @@ en:
           manager: Manager
           president: President
           unassigned: Unassigned
+      polling_station_closure_certificate:
+        current_certificate: 'Current certificate:'
       polling_station_closure_recount:
         nota_option: Blank/ None of the above
         polling_officer_notes: 'Polling officer notes:'
