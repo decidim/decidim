@@ -554,20 +554,14 @@ shared_examples_for "has questionnaire" do
         )
       end
 
-      it "renders the question answers as a collection of check boxes sortable on click" do
+      it "renders the question answers as a collection of divs sortable on drag and drop" do
         visit questionnaire_public_path
 
-        expect(page).to have_selector(".js-sortable-check-box-collection input[type=checkbox]", count: 5)
+        expect(page).to have_selector("div.answer-questionnaire__sorting.js-collection-input", count: 5)
 
-        expect(page).to have_content("chocolate\nlike\nWe\ndark\nall")
-
-        check "We"
-        check "all"
-        check "like"
-        check "dark"
-        check "chocolate"
-
-        expect(page).to have_content("1. We\n2. all\n3. like\n4. dark\n5. chocolate")
+        %w(We all like dark chocolate).each do |term|
+          expect(page).to have_content(term)
+        end
       end
 
       it "properly saves valid sortings" do
