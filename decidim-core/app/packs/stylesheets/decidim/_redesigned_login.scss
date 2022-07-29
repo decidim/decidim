@@ -26,7 +26,8 @@
       @apply text-md text-gray-2 font-normal prose-a:text-secondary prose-a:underline cursor-pointer;
     }
 
-    label:not(&-checkbox-label){
+    & label:not(&-checkbox-label),
+    &-block label:not(&-checkbox-label){
       @apply font-semibold text-lg space-y-4;
     }
 
