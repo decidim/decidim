@@ -72,7 +72,20 @@ module Decidim
       end
 
       def can_create_meetings?
-        component_settings&.creation_enabled_for_participants?
+        component_settings&.creation_enabled_for_participants? && public_space_or_member?
+      end
+
+      def public_space_or_member?
+        participatory_space = context[:current_component].participatory_space
+
+        participatory_space.private_space? ? space_member?(participatory_space, user) : true
+      end
+
+      # Neither platform admins, nor space admins should be able to create meetings from the public side.
+      def space_member?(participatory_space, user)
+        return false unless user
+
+        participatory_space.participatory_space_private_users.exists?(decidim_user_id: user.id)
       end
 
       def can_update_meeting?
