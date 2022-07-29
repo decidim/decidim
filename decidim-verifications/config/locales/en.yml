@@ -141,6 +141,11 @@ en:
             body: To do this you must enter system administration and add the csv_census authorizations to the organization
             title: You need to activate the CSV census for this organization
           new:
+            example: |
+              user@example.org
+              user2@example.org
+              ...
+              ...
             file: ".csv file with emails data"
             info: 'Must be a file in CSV format with only one column with the email address:'
             submit: Upload file

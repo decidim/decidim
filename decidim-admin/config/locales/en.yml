@@ -849,7 +849,11 @@ en:
             empty: You have no private participants.
             explanation: You have %{count} private participants.
             title: Delete private participants
-          explanation: Upload your CSV file. It must have two columns with email in the first column of the file and name in the last column of the file (email, name) of the users that you want to add to the participatory space, without headers. Avoid using invalid chars like `<>?%&^*#@()[]=+:;"{}\|` in user name.
+          example_file: 'Example file:'
+          explanation: Upload your CSV file. It must have two columns with email in the first column of the file and name in the last column of the file of the users that you want to add to the participatory space, without headers. Avoid using invalid chars like `<>?%&^*#@()[]=+:;"{}\|` in user name.
+          explanation_example: |
+            john.doe@example.org%{csv_col_sep}John Doe
+            joanna.doe@example.org%{csv_col_sep}Joanna Doe
           title: Upload your CSV file
           upload: Upload
       reminders:
@@ -998,7 +1002,11 @@ en:
           verify_via_csv: Verify via CSV
       user_groups_csv_verifications:
         new:
+          example_file: 'Example file:'
           explanation: Upload your CSV file. It must have the official emails of the groups in your organization in the first column of the file, without headers. Only groups that have confirmed their email and that have an email appearing in the CSV file will be validated.
+          explanation_example: |
+            acme@example.org
+            bubba.gump@example.org
           title: Upload your CSV file
           upload: Upload
       users:
