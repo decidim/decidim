@@ -257,7 +257,7 @@ export default class FormFilterComponent {
 
     // Only one instance should submit the form on browser history navigation
     if (this.popStateSubmiter) {
-      Rails.fire(this.$form[0], "submit");
+      Rails.fire(this.$form[0], "submit", { from: "pop" });
     }
 
     this.changeEvents = true;
@@ -289,9 +289,15 @@ export default class FormFilterComponent {
    * Saves the current state of the search on form submit to update the search
    * parameters to the URL and store the picker states.
    * @private
+   * @param {jQuery.Event} ev The event that caused the form to submit.
    * @returns {Void} - Returns nothing.
    */
-  _onFormSubmit() {
+  _onFormSubmit(ev) {
+    const eventDetail = ev.originalEvent.detail;
+    if (eventDetail && eventDetail.from === "pop") {
+      return;
+    }
+
     const [newPath, newState] = this._currentStateAndPath();
 
     pushState(newPath, newState);
