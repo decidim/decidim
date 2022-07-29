@@ -265,6 +265,14 @@ describe("FormFilterComponent", () => {
         expect(checked.map((input) => input.value)).toEqual(["", "accepted", "evaluating"]);
         expect(checked.filter((input) => input.indeterminate).map((input) => input.value)).toEqual([""]);
       });
+
+      it("does not save the state", () => {
+        spyOn(window.history, "pushState");
+
+        window.onpopstate({ isTrusted: true, state: scopesPickerState});
+
+        expect(window.history.pushState).not.toHaveBeenCalled();
+      });
     });
   });
 
