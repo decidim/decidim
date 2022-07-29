@@ -58,9 +58,9 @@ shared_examples_for "has questionnaire" do
       end
 
       it "allows answering the first questionnaire" do
-        expect(page).to have_content("STEP 1 OF 2")
+        expect(page).to have_content("Step 1 of 2")
 
-        within ".answer-questionnaire__submit" do
+        within ".answer-questionnaire__submit", match: :first do
           expect(page).to have_no_content("Back")
         end
 
@@ -74,7 +74,7 @@ shared_examples_for "has questionnaire" do
 
         click_link "Back"
 
-        expect(page).to have_content("STEP 1 OF 2")
+        expect(page).to have_content("Step 1 of 2")
         expect(page).to have_field("questionnaire_responses_0", with: "My first answer")
       end
 
@@ -94,13 +94,15 @@ shared_examples_for "has questionnaire" do
       end
 
       def answer_first_questionnaire
-        expect(page).to have_no_selector("#questionnaire_tos_agreement")
+        within "div.answer-questionnaire__step", match: :first do
+          expect(page).to have_no_selector("#questionnaire_tos_agreement")
 
-        fill_in question.body["en"], with: "My first answer"
-        within ".answer-questionnaire__submit" do
-          click_link "Continue"
+          fill_in question.body["en"], with: "My first answer"
+          within ".answer-questionnaire__footer", match: :first do
+            click_link "Continue"
+          end
         end
-        expect(page).to have_content("STEP 2 OF 2")
+        expect(page).to have_content("Step 2 of 2")
       end
     end
 
