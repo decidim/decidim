@@ -65,6 +65,48 @@ describe Decidim::Votings::Admin::Permissions do
     end
   end
 
+  describe "polling stations" do
+    let(:action_subject) { :polling_station }
+    let(:action_name) { :create }
+    let(:polling_station) { create :polling_station, voting: }
+
+    it { is_expected.to be true }
+
+    context "when updating a polling station" do
+      let(:action_name) { :update }
+
+      it { is_expected.to be false }
+
+      context "and there is a polling station" do
+        let(:extra_context) do
+          { polling_station: }
+        end
+
+        it { is_expected.to be true }
+      end
+    end
+
+    context "when destroying a polling station" do
+      let(:action_name) { :delete }
+
+      it { is_expected.to be false }
+
+      context "and there is a polling station" do
+        let(:extra_context) do
+          { polling_station: }
+        end
+
+        it { is_expected.to be true }
+
+        context "and has closures" do
+          let!(:closure) { create :ps_closure, polling_station: }
+
+          it { is_expected.to be false }
+        end
+      end
+    end
+  end
+
   describe "census" do
     let(:action_subject) { :census }
 

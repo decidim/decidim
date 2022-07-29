@@ -84,8 +84,10 @@ module Decidim
             case permission_action.action
             when :create
               toggle_allow(user.admin?)
-            when :update, :delete
+            when :update
               toggle_allow(user.admin? && polling_station.present?)
+            when :delete
+              toggle_allow(user.admin? && polling_station.present? && polling_station.closures.blank?)
             end
           when :polling_officer
             case permission_action.action
