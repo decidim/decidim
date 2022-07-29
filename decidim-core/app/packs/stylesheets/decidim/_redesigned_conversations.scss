@@ -1,12 +1,20 @@
 .conversation{
+  &__container{
+    @apply divide-y divide-gray-3;
+  }
+
   &__item{
-    @apply flex items-center justify-between rounded border-4 border-background p-4 gap-4;
+    @apply flex items-center justify-between gap-4 py-4 first:pt-0 last:pb-0;
+
+    &-avatar{
+      @apply flex-none w-8 h-8 rounded-full overflow-hidden drop-shadow-md border-2 border-white grid place-items-center;
+    }
 
     &-snippet{
       @apply grow space-y-2.5;
 
       &-title{
-        @apply h5 text-secondary;
+        @apply flex gap-4;
       }
 
       &-description{
