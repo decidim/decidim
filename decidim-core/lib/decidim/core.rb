@@ -168,6 +168,7 @@ module Decidim
   # column information.
   def self.reset_all_column_information
     ActiveRecord::Base.descendants.each do |cls|
+      next if cls.name.nil? # abstract classes registered during tests
       next if cls.abstract_class? || !cls.name.match?(/^Decidim::/)
 
       cls.reset_column_information
