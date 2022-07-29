@@ -160,7 +160,9 @@ describe("FormFilterComponent", () => {
         const originalTrigger = subject.$form.trigger.bind(subject.$form);
         jest.spyOn(subject.$form, "trigger").mockImplementation((...args) => {
           if (args[0] === "submit") {
-            subject.$form.submitHandler();
+            subject.$form.submitHandler(
+              $.event.fix(new CustomEvent("submit", { bubbles: true, cancelable: true }))
+            );
           } else if (args[0] === "change") {
             subject.$form.changeHandler();
           } else {
