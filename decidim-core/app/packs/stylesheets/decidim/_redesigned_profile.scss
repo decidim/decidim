@@ -108,7 +108,7 @@
     &-title{
       @apply absolute rounded text-primary bg-white top-full left-1/2 -translate-y-1/2 -translate-x-1/2 z-10 px-1.5 font-semibold;
 
-      box-shadow: 0px 4px 6px 0px rgba(211, 211, 211, 0.25);
+      box-shadow: 0 4px 6px 0 rgba(211, 211, 211, .25);
     }
 
     &-name{
@@ -189,6 +189,7 @@
     }
 
     &__bottom{
+      /* stylelint-disable-next-line number-leading-zero */
       @apply border-t-2 border-gray-3 -mt-0.5;
 
       &-content{
