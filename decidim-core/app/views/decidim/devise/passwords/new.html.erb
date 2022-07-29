@@ -9,7 +9,7 @@
   <%= decidim_form_for(resource, namespace: "password", as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
 
     <div class="login__form">
-      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "hi@email.com" %>
     </div>
 
     <div class="login__form-block">

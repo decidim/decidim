@@ -9,7 +9,7 @@
   <%= decidim_form_for(resource, namespace: "confirmation", as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
 
     <div class="login__form">
-      <%= f.email_field :email, autofocus: true, value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email), autocomplete: "email" %>
+      <%= f.email_field :email, autofocus: true, value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email), autocomplete: "email", placeholder: "hi@email.com" %>
     </div>
 
     <div class="login__form-block">

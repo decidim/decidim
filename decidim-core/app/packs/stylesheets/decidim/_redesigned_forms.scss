@@ -14,7 +14,7 @@
   input[type="week"],
   textarea{
     &:not(.reset-defaults){
-      @apply inline-block px-4 py-2 border border-gray outline outline-1 outline-transparent rounded bg-background-2 text-black placeholder:text-gray focus:border-0 focus:outline-2 focus:outline-secondary invalid:border-0 invalid:outline-2 invalid:outline-alert disabled:bg-background-3 disabled:text-gray-2;
+      @apply inline-block px-4 py-2 border border-gray outline outline-1 outline-transparent rounded bg-background-2 text-black font-normal placeholder:text-gray focus:border-0 focus:outline-2 focus:outline-secondary invalid:border-0 invalid:outline-2 invalid:outline-alert disabled:bg-background-3 disabled:text-gray-2;
 
       &.sm{
         /* stylelint-disable-next-line number-leading-zero */
