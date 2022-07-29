@@ -60,7 +60,7 @@ describe "Meeting registrations", type: :system do
       it "can't answer the registration form" do
         visit questionnaire_public_path
 
-        expect(page).to have_i18n_content(questionnaire.title, upcase: true)
+        expect(page).to have_i18n_content(questionnaire.title)
         expect(page).to have_i18n_content(questionnaire.description)
 
         expect(page).to have_no_i18n_content(question.body)
@@ -97,7 +97,7 @@ describe "Meeting registrations", type: :system do
         it "can't answer the registration form" do
           visit questionnaire_public_path
 
-          expect(page).to have_i18n_content(questionnaire.title, upcase: true)
+          expect(page).to have_i18n_content(questionnaire.title)
           expect(page).to have_i18n_content(questionnaire.description)
 
           expect(page).to have_no_i18n_content(question.body)
@@ -152,7 +152,7 @@ describe "Meeting registrations", type: :system do
           it "they have the option to sign in" do
             visit questionnaire_public_path
 
-            expect(page).to have_i18n_content(questionnaire.title, upcase: true)
+            expect(page).to have_i18n_content(questionnaire.title)
             expect(page).to have_i18n_content(questionnaire.description)
 
             expect(page).not_to have_css(".form.answer-questionnaire")
@@ -308,7 +308,7 @@ describe "Meeting registrations", type: :system do
         it "shows the registration form without questions" do
           visit questionnaire_public_path
 
-          expect(page).to have_i18n_content(questionnaire.title, upcase: true)
+          expect(page).to have_i18n_content(questionnaire.title)
           expect(page).to have_i18n_content(questionnaire.description)
           expect(page).to have_content "Show my attendance publicly"
           expect(page).to have_field("public_participation", checked: false)
@@ -482,7 +482,7 @@ describe "Meeting registrations", type: :system do
         it "can't answer the registration again" do
           visit questionnaire_public_path
 
-          expect(page).to have_i18n_content(questionnaire.title, upcase: true)
+          expect(page).to have_i18n_content(questionnaire.title)
           expect(page).to have_i18n_content(questionnaire.description)
 
           expect(page).to have_no_i18n_content(question.body)
