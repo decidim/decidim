@@ -246,6 +246,154 @@ lt:
             address_help: 'Adresas: jį naudoja „Geocoder“, kad rastų vietą'
             disclaimer: 'Perspėjimas: Naudodami išorinę registracijos sistemą, %{organization} nėra atsakinga už dalyvių duomenų tvarkymą.'
             location_help: 'Vieta: naudotojams skirtas pranešimas, kuriame nurodoma susitikimo vieta'
+            location_hints_help: 'Vietos priedėliai: papildoma informacija kaip pvz. buto numeris, iš kurios pusės įeiti ir t. t.'
+            online_meeting_url_help: 'Nuoroda: leisti dalyviams tiesiai prisijungti prie susirinkimo'
+            registration_url_help: 'Nuoroda: leisti dalyviams eiti į išorinę registracijos sistemą'
+            select_a_meeting_type: Prašome pasirinkti susirinkimo tipą
+            select_a_registration_type: Prašome pasirinkti registracijos tipą
+            select_an_iframe_access_level: Pasirinkite iframe prieigos lygį
+            show_embedded_iframe_help: 'Tik kelios paslaugos leidžia integruotis susitikimuose iš šių domenų: %{domains}'
+          index:
+            title: Susirinkimai
+          new:
+            create: Sukurti
+            title: Sukurti susirinkimą
+          publish:
+            invalid: Skelbiant šį susirinkimą iškilo problema
+            success: Susirinkimas sėkmingai paskelbtas
+      calendar_modal:
+        copy_calendar_url_explanation: Atkreipkite dėmesį, kad eksportuojate pasirinktus susirinkimus (nes yra aktyvių filtrų). Jei norėtumėt eksportuoti viską, pirmiausiai panaikinkite filtrus.
+        copy_calendar_url_message: Nuoroda sėkmingai nukopijuota į iškarpinę.
+        export_calendar: Eksportuoti kalendorių
+      close_meeting_reminder_mailer:
+        close_meeting_reminder:
+          body: Susirinkimas<a href="%{meeting_path}">%{meeting_title}</a> laukia būti uždarytas. Prašau pridėkite susirinkimo ataskaitą paspausdami "Uždaryti susirinkimą".
+          greetings: Sveiki, <br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
+          hello: Sveiki %{username},
+          subject: Dabar galite uždaryti susirinkimą su ataskaita %{organization_name} platformoje
+      conference_venues: Konferencijos vietos
+      content_blocks:
+        upcoming_meetings:
+          name: Artėjantys susirinkimai
+          upcoming_meetings: Artėjantys susirinkimai
+      directory:
+        meetings:
+          index:
+            meetings: Susirinkimai
+            space_type: Dalyvaujamoji erdvė
+      iframe_access_level:
+        all: Visi lankytojai
+        registered: Registruoti dalyviai
+        signed_in: Tik prisijungę dalyviai
+      iframe_embed_type:
+        embed_in_meeting_page: Integruoti į susirinkimo puslapį
+        none: Nėra
+        open_in_live_event_page: Atidaryti renginio puslapyje (pasirinktinai - su apklausomis)
+        open_in_new_tab: Atidaryti naujame skirtuke
+      last_activity:
+        meeting_updated_at_html: "<span>Diskusija atnaujinta %{link}</span>"
+        new_meeting_at_html: "<span>Naujas susirinkimas %{link}</span>"
+      layouts:
+        live_event:
+          administrate: Administruoti
+          close: uždaryti
+          questions: Klausimai
+      mailer:
+        invite_join_meeting_mailer:
+          invite:
+            subject: Kvietimas dalyvauti susirinkime
+        registration_mailer:
+          confirmation:
+            subject: Jūsų registracija į susirinkimą buvo patvirtinta
+      meeting:
+        not_allowed: Jūs negalite peržiūrėti šio susirinkimo
+      meeting_closes:
+        edit:
+          back: Atgal
+          close: Uždaryti susirinkimą
+          title: Uždaryti susirinkimą
       meetings:
+        calendar_modal:
+          add_to_calendar: Pridėti į kalendorių
+          apple: Įtraukti į Apple kalendorių
+          close_window: Uždaryti langą
+          full_details_html: Pilnas aprašymas - %{link}
+          google: Įtraukti į „Google“ kalendorių
+          outlook: Įtraukti į „Outlook“ kalendorių
+        count:
+          meetings_count:
+            one: "%{count} susirinkimas"
+            few: "%{count} susirinkimai"
+            many: "%{count} susirinkimai"
+            other: "%{count} susirinkimai"
+        create:
+          invalid: Kuriant šį susirinkimą iškilo problema.
+          success: Jūs sukūrėte susirinkimą.
+        edit:
+          back: Atgal
+          title: Redaguoti susirinkimą
+          update: Atnaujinti
         filters:
+          activity: Mano veikla
+          all: Visi
+          category: Kategorija
+          date: Data
+          date_values:
+            all: Visi
+            past: Praėję
+            upcoming: Artėjantys
+          my_meetings: Susirinkimai
           scope: Apimtis
+        show:
+          leave: Atšaukti registraciją
+          leave_confirmation: Ar tikrai norite atšaukti savo registraciją į šį susirinkimą?
+          link_available_soon: Nuoroda bus prieinama neužilgo
+          link_closed: Nuoroda bus prieinama kelias minutes prieš susirinkimą
+          live_event: Susirinkimas vyksta šiuo metu
+          meeting_minutes: Susirinkimo Protokolas
+          micro_camera_permissions_warning: Kai paspausite ant žemiau esančio mygtuko, Jūsų paprašys leidimo naudoti mikrofoną ir kamerą, bei prisijungsite prie susirinkimo
+          no_slots_available: Nebėra vietų
+          organizations: Dalyvaujančios organizacijos
+          registration_code_help_text: Jūsų registracijos kodas
+          registration_state:
+            validated: PATIKRINTA
+            validation_pending: VYKSTA PATIKRINIMAS
+          remaining_slots:
+            one: "Liko %{count} vieta"
+            few: "Liko %{count} vietos"
+            many: "Liko %{count} vietos"
+            other: "Liko %{count} vietos"
+          view: Peržiūrėti
+          visit_finished: Peržiūrėti susirinkimą
+          withdraw_btn_hint: Galite išimti susirinkimą jei apsigalvojoje. Susirinkimas nebus ištrintas - jis atsidurs išimtų susirinkimų sąraše.
+          withdraw_confirmation_html: Ar tikrai norite išimti šį susirinkimą? <br><br><strong>Šio veiksmo atšaukti negalima!</strong>
+          withdraw_meeting: Išimti susirinkimą
+        update:
+          invalid: Atnaujinant susirinkimą iškilo problema.
+          success: Sėkmingai atnaujinote susirinkimą.
+      meetings_map:
+        view_meeting: Peržiūrėti susirinkimą
+      models:
+        invite:
+          fields:
+            email: El. paštas
+            name: Vardas
+            sent_at: Išsiųsta
+            status: Būsena
+          status:
+            accepted: Priimta (%{at})
+            rejected: Atmesta (%{at})
+            sent: Išsiųstas
+        meeting:
+          fields:
+            closed: Uždaryta
+            end_time: Pabaigos data
+            id: ID
+            map: Žemėlapis
+            official_meeting: Oficialus susirinkimas
+            start_time: Pradžios data
+            title: Pavadinimas
+      polls:
+        questions:
+          closed_question:
+            question_results: Klausimų rezultatai
