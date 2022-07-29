@@ -42,12 +42,19 @@ module Decidim
     end
 
     def component_stats(conditions)
+      stats = {}
       Decidim.component_manifests.flat_map do |component|
-        component.stats.except([:supports_count])
-                 .filter(conditions)
-                 .with_context(published_components)
-                 .map { |name, data| [name, data] }
+        component
+          .stats.except([:supports_count])
+          .filter(conditions)
+          .with_context(published_components)
+          .each do |name, data|
+            stats[name] ||= 0
+            stats[name] += data
+          end
       end
+
+      stats.to_a
     end
 
     def published_components
