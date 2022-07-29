@@ -34,10 +34,10 @@ edit_link(
                     </h3>
                     <p class="page__accordion-trigger-snippet"><%= translated_attribute topic.description %></p>
                   </div>
-                  <div id="accordion-trigger-<%= ix %>" data-controls="accordion-panel-<%= ix %>" aria-labelledby="accordion-title-<%= ix %>">
+                  <button id="accordion-trigger-<%= ix %>" data-controls="accordion-panel-<%= ix %>" aria-labelledby="accordion-title-<%= ix %>">
                     <%= icon "arrow-down-s-line", class: "page__accordion-trigger-arrow" %>
                     <%= icon "arrow-up-s-line", class: "page__accordion-trigger-arrow" %>
-                  </div>
+                  </button>
                 </div>
 
                 <div id="accordion-panel-<%= ix %>" class="page__accordion-panel">
