@@ -1,4 +1,4 @@
 [data-component="accordion"] [id*="panel"][aria-hidden="true"],
-[data-component="accordion"] [id*="panel"][aria-hidden="true"] > *{
+[data-component="accordion"] [id*="panel"][aria-hidden="true"] *{
   display: none;
 }
