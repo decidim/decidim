@@ -840,7 +840,7 @@ en:
           title: New Participatory Space private participant.
       participatory_space_private_users_csv_imports:
         create:
-          invalid: There was a problem reading the CSV file.
+          invalid: There was a problem reading the CSV file. Please make sure you have followed the instructions.
           success: CSV file uploaded successfully, we're sending an invitation email to participants. This might take a while.
         new:
           destroy:
