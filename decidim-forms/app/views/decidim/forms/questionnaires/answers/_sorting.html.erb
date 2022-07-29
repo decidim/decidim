@@ -12,10 +12,8 @@
 
       <%= icon "drag-move-2-line" %>
 
-      <%= hidden_field_tag "questionnaire[responses][#{answer_idx}][choices][#{idx}][position]",
-                          choice.try(:position),
-                          disabled: true %>
-
+      <%= hidden_field_tag "questionnaire[responses][#{answer_idx}][choices][#{idx}][position]", choice.try(:position) %>
+      <%= hidden_field_tag "questionnaire[responses][#{answer_idx}][choices][#{idx}][body]", translated_attribute(answer_option.body) %>
       <%= hidden_field_tag "questionnaire[responses][#{answer_idx}][choices][#{idx}][answer_option_id]", answer_option.id %>
     </div>
   <% end %>
