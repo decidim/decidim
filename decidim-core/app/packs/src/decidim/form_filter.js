@@ -336,7 +336,7 @@ export default class FormFilterComponent {
    * @returns {String} - Returns a unique identifier
    */
   _getUID() {
-    return `filter-form-${new Date().setUTCMilliseconds()}-${Math.floor(Math.random() * 10000000)}`;
+    return `filter-form-${new Date().getUTCMilliseconds()}-${Math.floor(Math.random() * 10000000)}`;
   }
 
   /**
