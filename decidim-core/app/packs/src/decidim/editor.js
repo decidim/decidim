@@ -1,6 +1,7 @@
 /* eslint-disable require-jsdoc */
 
 import lineBreakButtonHandler from "src/decidim/editor/linebreak_module"
+import "src/decidim/editor/clipboard_override"
 import "src/decidim/vendor/image-resize.min"
 import "src/decidim/vendor/image-upload.min"
 
