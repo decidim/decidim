@@ -364,27 +364,49 @@ describe "Admin manages organization", type: :system do
         expect(organization[:welcome_notification_subject]).to be_nil
         expect(organization.send_welcome_notification).to be_truthy
       end
+    end
 
-      context "when customizing it" do
-        it "shows the custom fields and stores them" do
-          visit decidim_admin.edit_organization_path
-          check "Send welcome notification"
-          check "Customize welcome notification"
+    context "when customizing it" do
+      it "shows the custom fields and stores them" do
+        visit decidim_admin.edit_organization_path
+        check "Send welcome notification"
+        check "Customize welcome notification"
 
-          fill_in_i18n :organization_welcome_notification_subject, "#organization-welcome_notification_subject-tabs",
-                       en: "Well hello!"
+        fill_in_i18n :organization_welcome_notification_subject, "#organization-welcome_notification_subject-tabs",
+                     en: "Well hello!"
 
-          fill_in_i18n_editor :organization_welcome_notification_body, "#organization-welcome_notification_body-tabs",
-                              en: "<p>Body</p>"
+        fill_in_i18n_editor :organization_welcome_notification_body, "#organization-welcome_notification_body-tabs",
+                            en: "<p>Body</p>"
 
-          click_button "Update"
-          expect(page).to have_content("updated successfully")
+        click_button "Update"
+        expect(page).to have_content("updated successfully")
 
-          organization.reload
-          expect(organization.send_welcome_notification).to be_truthy
-          expect(organization[:welcome_notification_subject]).to include("en" => "Well hello!")
-          expect(organization[:welcome_notification_body]).to include("en" => "<p>Body</p>")
-        end
+        organization.reload
+        expect(organization.send_welcome_notification).to be_truthy
+        expect(organization[:welcome_notification_subject]).to include("en" => "Well hello!")
+        expect(organization[:welcome_notification_body]).to include("en" => "<p>Body</p>")
+      end
+
+      it "allows re-sending the form in case there was an error on the form" do
+        visit decidim_admin.edit_organization_path
+        check "Send welcome notification"
+        check "Customize welcome notification"
+
+        fill_in_i18n :organization_welcome_notification_subject, "#organization-welcome_notification_subject-tabs",
+                     en: ""
+
+        click_button "Update"
+        expect(page).to have_content("There was a problem updating this organization.")
+
+        fill_in_i18n :organization_welcome_notification_subject, "#organization-welcome_notification_subject-tabs",
+                     en: "Well hello!"
+
+        click_button "Update"
+        expect(page).to have_content("updated successfully")
+
+        organization.reload
+        expect(organization.send_welcome_notification).to be_truthy
+        expect(organization[:welcome_notification_subject]).to include("en" => "Well hello!")
       end
     end
   end
