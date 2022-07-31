@@ -12,7 +12,9 @@ module Decidim
     helper_method :activities, :resource_types, :user
 
     def index
-      raise ActionController::RoutingError, "Not Found" if current_user != user
+      raise Decidim::ActionForbidden unless user_signed_in?
+
+      redirect_to profile_activity_path(nickname: params[:nickname]) unless current_user == user
     end
 
     private
