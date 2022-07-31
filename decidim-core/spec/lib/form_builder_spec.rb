@@ -380,13 +380,68 @@ module Decidim
     end
 
     describe "datetime_field" do
+      let(:output) do
+        builder.datetime_field :start_time
+      end
+
+      context "when the start_time is set as ActiveSupport::TimeWithZone" do
+        before do
+          resource.start_time = Time.parse("2017-02-01T15:00:00.000Z").in_time_zone("UTC")
+        end
+
+        it { expect(resource.start_time).to be_a(ActiveSupport::TimeWithZone) }
+
+        it "formats the start date correctly" do
+          expect(parsed.css("input").first.attr("data-startdate")).to eq("01/02/2017 15:00")
+        end
+
+        context "with another timezone", tz: "Helsinki" do
+          it "formats the start date in the original time zone" do
+            # Note: this case is correct because it should preserve the zone stored within the value itself.
+            expect(parsed.css("input").first.attr("data-startdate")).to eq("01/02/2017 15:00")
+          end
+        end
+      end
+
+      context "when the start_time is set as Time" do
+        before do
+          resource.start_time = Time.parse("2017-02-01T15:00:00.000Z")
+        end
+
+        it { expect(resource.start_time).to be_a(Time) }
+
+        it "formats the start date correctly" do
+          expect(parsed.css("input").first.attr("data-startdate")).to eq("01/02/2017 15:00")
+        end
+
+        context "with another timezone", tz: "Helsinki" do
+          it "formats the start date in the correct time zone" do
+            expect(parsed.css("input").first.attr("data-startdate")).to eq("01/02/2017 17:00")
+          end
+        end
+      end
+
+      context "when the start_time is set as DateTime" do
+        before do
+          resource.start_time = DateTime.parse("2017-02-01T15:00:00.000Z") # rubocop:disable Style/DateTime
+        end
+
+        it { expect(resource.start_time).to be_a(DateTime) }
+
+        it "formats the start date correctly" do
+          expect(parsed.css("input").first.attr("data-startdate")).to eq("01/02/2017 15:00")
+        end
+
+        context "with another timezone", tz: "Helsinki" do
+          it "formats the start date in the correct time zone" do
+            expect(parsed.css("input").first.attr("data-startdate")).to eq("01/02/2017 17:00")
+          end
+        end
+      end
+
       context "when the resource has errors" do
         before do
           resource.valid?
-        end
-
-        let(:output) do
-          builder.datetime_field :start_time
         end
 
         it "renders the input with the proper class" do
