@@ -104,9 +104,9 @@ module Decidim
         {
           "upload" => {
             "allowed_file_extensions" => {
-              "default" => %w(jpg jpeg gif png bmp pdf rtf txt),
-              "admin" => %w(jpg jpeg gif png bmp pdf doc docx xls xlsx ppt pptx ppx rtf txt odt ott odf otg ods ots),
-              "image" => %w(jpg jpeg gif png bmp),
+              "default" => %w(jpg jpeg png pdf rtf txt),
+              "admin" => %w(jpg jpeg png pdf doc docx xls xlsx ppt pptx ppx rtf txt odt ott odf otg ods ots),
+              "image" => %w(jpg jpeg png),
               "favicon" => %w(png)
             },
             "allowed_content_types" => {
