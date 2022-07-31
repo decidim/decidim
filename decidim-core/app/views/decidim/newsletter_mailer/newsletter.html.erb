@@ -5,12 +5,20 @@
 <% end %>
 
 <% content_for :unsubscribe do %>
-  <%== t ".unsubscribe", link: decidim.unsubscribe_newsletters_url(host: @organization.host, u: @encrypted_token ) %>
+  <% if @newsletter.try(:draft?) %>
+    <%== t ".unsubscribe", link: "#" %>
+  <% else %>
+    <%== t ".unsubscribe", link: decidim.unsubscribe_newsletters_url(host: @organization.host, u: @encrypted_token ) %>
+  <% end %>
 <% end %>
 
 <% content_for :see_on_website do %>
   <center style="display: none">
     <%== CGI.unescapeHTML truncate(cell.body, max_length: 50) %>
   </center>
-  <%== t ".see_on_website", link: decidim.newsletter_url(host: @organization.host, id: @newsletter) %>
+  <% if @newsletter.try(:draft?) %>
+    <%== t ".see_on_website", link: "#" %>
+  <% else %>
+    <%== t ".see_on_website", link: decidim.newsletter_url(host: @organization.host, id: @newsletter) %>
+  <% end %>
 <% end %>

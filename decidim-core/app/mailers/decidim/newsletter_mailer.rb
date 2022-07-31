@@ -11,12 +11,13 @@ module Decidim
 
     helper_method :cell
 
-    def newsletter(user, newsletter)
+    def newsletter(user, newsletter, preview: false)
       return if user.email.blank?
 
       @organization = user.organization
       @newsletter = newsletter
       @user = user
+      @preview = preview
 
       @custom_url_for_mail_root = custom_url_for_mail_root(@organization, @newsletter.id) if Decidim.config.track_newsletter_links
       @encrypted_token = Decidim::NewsletterEncryptor.sent_at_encrypted(@user.id, @newsletter.sent_at)

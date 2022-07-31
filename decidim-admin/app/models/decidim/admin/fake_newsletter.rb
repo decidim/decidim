@@ -41,6 +41,10 @@ module Decidim
         nil
       end
 
+      def draft?
+        true
+      end
+
       private
 
       attr_reader :organization, :manifest

@@ -6,7 +6,7 @@
     <%= stylesheet_pack_tag "decidim_email" %>
   </head>
 
-  <body>
+  <%= content_tag :body, class: @preview ? "preview" : nil do %>
     <!-- <style> -->
     <table class="body">
       <% if content_for?(:see_on_website) %>
@@ -42,5 +42,5 @@
         </td>
       </tr>
     </table>
-  </body>
+  <% end %>
 </html>
