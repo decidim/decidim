@@ -3,13 +3,12 @@
 # This validator takes care of ensuring the validated content is
 # respectful, doesn't use caps, and overall is meaningful.
 class EtiquetteValidator < ActiveModel::EachValidator
+  include ActionView::Helpers::SanitizeHelper
+
   def validate_each(record, attribute, value)
     return if value.blank?
 
-    # Converts possible HTML into plain text by stripping out only the text from
-    # the HTML fragment.
-    document = Nokogiri::HTML(value)
-    text_value = document.text
+    text_value = strip_tags(value)
 
     validate_caps(record, attribute, text_value)
     validate_marks(record, attribute, text_value)
