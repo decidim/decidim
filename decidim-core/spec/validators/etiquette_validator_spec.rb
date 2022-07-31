@@ -81,4 +81,19 @@ describe EtiquetteValidator do
       it { is_expected.to be_valid }
     end
   end
+
+  context "when the text is written in HTML" do
+    let(:body) do
+      data = File.read(Decidim::Dev.asset("avatar.jpg"))
+      encoded = Base64.encode64(data)
+
+      <<~HTML
+        <p>Text before the image.</p>
+        <p><img src="data:image/png;base64,#{encoded.strip}"></p>
+        <p>Some other text after the image.</p>
+      HTML
+    end
+
+    it { is_expected.to be_valid }
+  end
 end

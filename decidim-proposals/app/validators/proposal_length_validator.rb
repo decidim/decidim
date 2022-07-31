@@ -8,8 +8,13 @@ class ProposalLengthValidator < ActiveModel::EachValidator
   def validate_each(record, attribute, value)
     return if value.blank?
 
-    validate_min_length(record, attribute, value)
-    validate_max_length(record, attribute, value)
+    # Converts possible HTML into plain text by stripping out only the text from
+    # the HTML fragment.
+    document = Nokogiri::HTML(value)
+    text_value = document.text
+
+    validate_min_length(record, attribute, text_value)
+    validate_max_length(record, attribute, text_value)
   end
 
   private

@@ -6,9 +6,14 @@ class EtiquetteValidator < ActiveModel::EachValidator
   def validate_each(record, attribute, value)
     return if value.blank?
 
-    validate_caps(record, attribute, value)
-    validate_marks(record, attribute, value)
-    validate_caps_first(record, attribute, value)
+    # Converts possible HTML into plain text by stripping out only the text from
+    # the HTML fragment.
+    document = Nokogiri::HTML(value)
+    text_value = document.text
+
+    validate_caps(record, attribute, text_value)
+    validate_marks(record, attribute, text_value)
+    validate_caps_first(record, attribute, text_value)
   end
 
   private
