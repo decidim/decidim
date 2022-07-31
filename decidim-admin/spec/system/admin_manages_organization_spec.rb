@@ -3,6 +3,8 @@
 require "spec_helper"
 
 describe "Admin manages organization", type: :system do
+  include ActionView::Helpers::SanitizeHelper
+
   let(:organization) { create(:organization) }
   let(:user) { create(:user, :admin, :confirmed, organization:) }
 
@@ -36,6 +38,9 @@ describe "Admin manages organization", type: :system do
     context "when using the rich text editor" do
       before do
         visit decidim_admin.edit_organization_path
+
+        # Makes sure in the error screenshots the editor is visible
+        page.scroll_to(find("#organization-admin_terms_of_use_body-tabs-admin_terms_of_use_body-panel-0 .editor"))
       end
 
       context "when the admin terms of use content is empty" do
@@ -346,6 +351,84 @@ describe "Admin manages organization", type: :system do
           expect(find(
             "#organization-admin_terms_of_use_body-tabs-admin_terms_of_use_body-panel-0 .editor .ql-editor"
           )["innerHTML"]).to eq(terms_content.to_s.gsub("\n", ""))
+        end
+      end
+
+      context "when pasting content with bold text" do
+        let(:organization) do
+          create(
+            :organization,
+            admin_terms_of_use_body: Decidim::Faker::Localized.localized { "" }
+          )
+        end
+
+        let(:clipboard_content_html) do
+          # The pasted content contains always all styles for the elements, so
+          # this is just to test that the styles don't interfere with the pasted
+          # content handling.
+          styles = {
+            p: {
+              "box-sizing" => "border-box",
+              "font-family" => "Helvetica, Arial, sans-serif",
+              "font-style" => "normal"
+            },
+            strong: {
+              "box-sizing" => "border-box",
+              "font-weight" => "600",
+              "line-height" => "inherit"
+            },
+            a: {
+              "box-sizing" => "border-box",
+              "background-color" => "transparent",
+              "line-height" => "inherit",
+              "color" => "rgb(0, 102, 204)",
+              "text-decoration" => "underline",
+              "cursor" => "pointer",
+              "font-weight" => "normal"
+            },
+            br: {
+              "box-sizing" => "border-box"
+            }
+          }.transform_values { |css| css.map { |k, v| "#{k}: #{v}" }.join("; ").concat(";") }
+
+          cnt = <<~HTML
+            <p style="#{styles[:p]}">testing</p>
+            <p style="#{styles[:p]}"><strong style="#{styles[:strong]}">foo</strong><br style="styles[:br]"><a href="https://www.decidim.org/" rel="noopener noreferrer" target="_blank" style="#{styles[:a]}">link</a></p>
+          HTML
+
+          cnt.gsub("\n", "")
+        end
+
+        let(:clipboard_content_plain) { "testing\n\nfoo\nlink" }
+
+        let(:parsed_content) do
+          cnt = <<~HTML
+            <p>testing</p>
+            <p><strong>foo</strong><br><a href="https://www.decidim.org/" rel="noopener noreferrer" target="_blank">link</a></p>
+            <p><br></p>
+          HTML
+
+          cnt.gsub("\n", "")
+        end
+
+        it "parses the pasted content correctly with the strong element" do
+          # Focus the editor before sending the paste event
+          find('div[contenteditable="true"].ql-editor').native.send_keys "a", [:backspace]
+
+          page.execute_script(
+            <<~JS
+              var dt = new DataTransfer();
+              dt.setData("text/html", #{clipboard_content_html.to_json});
+              dt.setData("text/plain", #{clipboard_content_plain.to_json});
+
+              var element = document.querySelector("#organization-admin_terms_of_use_body-tabs-admin_terms_of_use_body-panel-0 div[contenteditable='true'].ql-editor");
+              element.dispatchEvent(new ClipboardEvent("paste", { clipboardData: dt }));
+            JS
+          )
+
+          expect(find(
+            "#organization-admin_terms_of_use_body-tabs-admin_terms_of_use_body-panel-0 .editor .ql-editor"
+          )["innerHTML"]).to eq(parsed_content)
         end
       end
     end
