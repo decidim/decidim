@@ -21,7 +21,7 @@
           <% if @component %>
             <div class="card-divider"><%= t("#{@component.manifest.name}.actions.#{action}", scope: "decidim.components") %></div>
           <% else %>
-            <div class="card-divider"><%= t("#{resource.manifest.name}.actions.#{action}", scope: "decidim.resources") %></div>
+            <div class="card-divider"><%= t("#{resource.resource_manifest.name}.actions.#{action}", scope: "decidim.resources") %></div>
           <% end %>
 
           <div class="card-section">
