@@ -20,10 +20,22 @@
       &-description{
         @apply text-gray-2;
       }
+    }
 
-      &-time{
-        @apply flex text-sm text-gray-2;
+    &-info{
+      @apply flex flex-col items-center gap-2 text-sm text-gray-2;
+
+      & > *:not(:only-child):last-child{
+        @apply bg-secondary text-white rounded-full font-semibold px-1.5;
       }
+    }
+
+    &:hover &-avatar{
+      @apply border-tertiary;
+    }
+
+    &:hover &-snippet-title{
+      @apply underline;
     }
   }
 
