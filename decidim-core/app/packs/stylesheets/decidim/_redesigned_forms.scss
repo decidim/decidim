@@ -48,3 +48,15 @@
 *:invalid ~ .form-error{
   @apply block;
 }
+
+.input-character-counter{
+  @apply relative;
+
+  &__container{
+    @apply absolute top-0 right-0 -translate-y-full;
+  }
+
+  &__text{
+    @apply inline-block text-xs text-gray-2;
+  }
+}

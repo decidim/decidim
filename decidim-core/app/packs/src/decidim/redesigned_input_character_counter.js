@@ -62,18 +62,19 @@ export default class InputCharacterCounter {
     } else {
       const span = document.createElement("span")
       span.id = targetId
-      span.className = "inline-block mt-3 text-xs text-gray-2"
+      span.className = "input-character-counter__text"
 
       this.$target = $(span)
 
       const div = document.createElement("div")
-      div.className = "absolute top-0 right-0 -translate-y-full"
+      div.className = "input-character-counter__container"
       div.appendChild(span)
 
       // If input is a hidden for WYSIWYG editor add it at the end
       if (this.$input.parent().is(".editor")) {
         this.$input.parent().after(this.$target);
       } else {
+        this.$input.parent().addClass("input-character-counter")
         this.$input.after(div);
       }
     }

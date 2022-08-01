@@ -2,9 +2,7 @@
   <div class="conversation__reply">
     <%= f.label :body, nil, class: "sr-only" %>
     <!-- REDESIGN_PENDING: add input_emoji -->
-    <div class="relative">
-      <%= f.text_area :body, label: false, rows: 4, required: true, autofocus: true, placeholder: t(".placeholder") %>
-    </div>
+    <%= f.text_area :body, label: false, rows: 4, required: true, autofocus: true, placeholder: t(".placeholder") %>
     <%= f.submit "#{t(".send")} #{icon "arrow-right-line", class: "fill-current"}".html_safe, class: "button button__sm button__secondary self-end mt-4" %>
   </div>
 <% end %>
