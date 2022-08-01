@@ -77,13 +77,13 @@ describe Decidim::Permissions do
       end
 
       context "when the user has no admin access" do
-        let(:user) { create :user, organization: organization }
+        let(:user) { create :user, organization: }
 
         it { is_expected.to be false }
       end
 
       context "when the user is an admin" do
-        let(:user) { create :user, :admin, organization: organization }
+        let(:user) { create :user, :admin, organization: }
 
         it { is_expected.to be true }
       end
@@ -127,7 +127,7 @@ describe Decidim::Permissions do
   end
 
   context "when subject is an authorization" do
-    let(:context) { { authorization: authorization } }
+    let(:context) { { authorization: } }
     let(:user) { authorization.user }
     let(:action_name) { nil }
     let(:action) do
@@ -195,8 +195,8 @@ describe Decidim::Permissions do
   end
 
   context "when an amend action" do
-    let(:component) { create :component, :published, organization: user.organization, settings: settings }
-    let(:settings) { { amendments_enabled: amendments_enabled } }
+    let(:component) { create :component, :published, organization: user.organization, settings: }
+    let(:settings) { { amendments_enabled: } }
     let(:amendment) { create :amendment }
     let(:user) { amendment.amender }
     let(:context) { { current_component: component } }
@@ -264,6 +264,8 @@ describe Decidim::Permissions do
 
   context "with a user" do
     let(:user) { create :user }
+    let(:component) { create :component, :published, organization: user.organization }
+    let(:context) { { current_component: component } }
 
     context "when user is a user manager" do
       let(:user) { create :user, :user_manager }
@@ -287,7 +289,7 @@ describe Decidim::Permissions do
 
     context "when managing self user" do
       let(:action_subject) { :user }
-      let(:context) { { current_user: current_user } }
+      let(:context) { { current_user: } }
 
       context "when user is self" do
         let(:current_user) { user }
@@ -313,10 +315,10 @@ describe Decidim::Permissions do
 
       context "when any other action on a follow" do
         let(:action_name) { :foo }
-        let(:context) { { follow: follow } }
+        let(:context) { { follow: } }
 
         context "when the author of the follow is the user" do
-          let(:follow) { create :follow, user: user }
+          let(:follow) { create :follow, user: }
 
           it { is_expected.to be true }
         end
@@ -342,10 +344,10 @@ describe Decidim::Permissions do
 
       context "when any other action on a notification" do
         let(:action_name) { :foo }
-        let(:context) { { notification: notification } }
+        let(:context) { { notification: } }
 
         context "when the notification is sent to the user" do
-          let(:notification) { build :notification, user: user }
+          let(:notification) { build :notification, user: }
 
           it { is_expected.to be true }
         end
@@ -406,7 +408,7 @@ describe Decidim::Permissions do
         let(:action_name) { :leave }
         let(:user) { create :user, :confirmed }
         let!(:user_group) { create :user_group, users: [user], organization: user.organization }
-        let(:context) { { user_group: user_group } }
+        let(:context) { { user_group: } }
 
         context "when the user does not belong to the user group" do
           let!(:user_group) { create :user_group, organization: user.organization }
@@ -420,7 +422,7 @@ describe Decidim::Permissions do
 
         context "when the user belongs to the group" do
           before do
-            membership = Decidim::UserGroupMembership.find_by(user: user, user_group: user_group)
+            membership = Decidim::UserGroupMembership.find_by(user:, user_group:)
             membership.role = :admin
             membership.save
           end
@@ -433,7 +435,7 @@ describe Decidim::Permissions do
         let(:action_name) { :manage }
         let(:user) { create :user, :confirmed }
         let!(:user_group) { create :user_group, users: [user], organization: user.organization }
-        let(:context) { { user_group: user_group } }
+        let(:context) { { user_group: } }
 
         context "when the user is the creator" do
           it { is_expected.to be true }
@@ -441,7 +443,7 @@ describe Decidim::Permissions do
 
         context "when the user is an admin" do
           before do
-            membership = Decidim::UserGroupMembership.find_by(user: user, user_group: user_group)
+            membership = Decidim::UserGroupMembership.find_by(user:, user_group:)
             membership.role = :admin
             membership.save
           end
@@ -451,7 +453,7 @@ describe Decidim::Permissions do
 
         context "when the user is a basic member" do
           before do
-            membership = Decidim::UserGroupMembership.find_by(user: user, user_group: user_group)
+            membership = Decidim::UserGroupMembership.find_by(user:, user_group:)
             membership.role = :member
             membership.save
           end

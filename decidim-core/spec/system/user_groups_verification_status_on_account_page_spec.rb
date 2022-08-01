@@ -4,11 +4,11 @@ require "spec_helper"
 
 describe "User group verification status on account page", type: :system do
   let(:organization) { create(:organization) }
-  let(:user) { create(:user, :confirmed, organization: organization) }
+  let(:user) { create(:user, :confirmed, organization:) }
 
   before do
     switch_to_host(organization.host)
-    create(:user_group_membership, user: user, user_group: user_group)
+    create(:user_group_membership, user:, user_group:)
     login_as user, scope: :user
   end
 

@@ -31,7 +31,7 @@ module Decidim
 
       def topic
         @topic ||= StaticPageTopic.find_by(
-          organization: organization,
+          organization:,
           id: topic_id
         )
       end
@@ -50,7 +50,7 @@ module Decidim
 
       def slug_uniqueness
         return unless organization
-        return unless organization.static_pages.where(slug: slug).where.not(id: id).any?
+        return unless organization.static_pages.where(slug:).where.not(id:).any?
 
         errors.add(:slug, :taken)
       end

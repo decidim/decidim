@@ -3,7 +3,7 @@
 require "spec_helper"
 describe "Admin filters user_groups", type: :system do
   let(:organization) { create(:organization) }
-  let!(:user) { create(:user, :admin, :confirmed, organization: organization) }
+  let!(:user) { create(:user, :admin, :confirmed, organization:) }
   let(:resource_controller) { Decidim::Admin::UserGroupsController }
   let(:model_name) { Decidim::UserGroup.model_name }
 
@@ -16,9 +16,9 @@ describe "Admin filters user_groups", type: :system do
   include_context "with filterable context"
 
   context "when filtering by State" do
-    let!(:pending_ug) { create(:user_group, organization: organization, users: [user]) }
-    let!(:verified_ug) { create(:user_group, :verified, organization: organization, users: [user]) }
-    let!(:rejected_ug) { create(:user_group, :rejected, organization: organization, users: [user]) }
+    let!(:pending_ug) { create(:user_group, organization:, users: [user]) }
+    let!(:verified_ug) { create(:user_group, :verified, organization:, users: [user]) }
+    let!(:rejected_ug) { create(:user_group, :rejected, organization:, users: [user]) }
 
     context "when pending" do
       it_behaves_like "a filtered collection", options: "State", filter: "Pending" do
@@ -58,7 +58,7 @@ describe "Admin filters user_groups", type: :system do
   end
 
   context "when searching by ID or title" do
-    let!(:group) { create(:user_group, organization: organization, users: [user]) }
+    let!(:group) { create(:user_group, organization:, users: [user]) }
 
     it "can be searched by nickname" do
       search_by_text(group.nickname)
@@ -80,10 +80,10 @@ describe "Admin filters user_groups", type: :system do
   end
 
   context "when sorting" do
-    let!(:another_user) { create(:user, :admin, :confirmed, organization: organization) }
-    let!(:collection) { create_list(:user_group, 50, :verified, organization: organization, users: [user]) }
+    let!(:another_user) { create(:user, :admin, :confirmed, organization:) }
+    let!(:collection) { create_list(:user_group, 50, :verified, organization:, users: [user]) }
     let!(:group) do
-      create(:user_group, organization: organization, users: [user, another_user],
+      create(:user_group, organization:, users: [user, another_user],
                           name: "ZZZupper group",
                           document_number: "9999999999",
                           phone: "999.999.9999").reload
@@ -179,7 +179,7 @@ describe "Admin filters user_groups", type: :system do
   end
 
   it_behaves_like "paginating a collection" do
-    let!(:collection) { create_list(:user_group, 50, organization: organization, users: [user]) }
+    let!(:collection) { create_list(:user_group, 50, organization:, users: [user]) }
 
     before do
       switch_to_host(organization.host)

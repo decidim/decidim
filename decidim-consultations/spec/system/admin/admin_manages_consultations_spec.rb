@@ -179,7 +179,7 @@ describe "Admin manages consultations", type: :system do
   end
 
   describe "updating a consultation without images" do
-    let!(:consultation3) { create(:consultation, organization: organization) }
+    let!(:consultation3) { create(:consultation, organization:) }
 
     before do
       visit decidim_admin_consultations.consultations_path
@@ -200,7 +200,7 @@ describe "Admin manages consultations", type: :system do
   end
 
   describe "previewing consultations" do
-    let!(:consultation) { create(:consultation, :unpublished, organization: organization) }
+    let!(:consultation) { create(:consultation, :unpublished, organization:) }
 
     it "allows the user to preview the unpublished consultation" do
       within find("tr", text: translated(consultation.title)) do
@@ -223,7 +223,7 @@ describe "Admin manages consultations", type: :system do
   end
 
   describe "publishing a consultation" do
-    let!(:consultation) { create(:consultation, :unpublished, organization: organization) }
+    let!(:consultation) { create(:consultation, :unpublished, organization:) }
 
     before do
       within find("tr", text: translated(consultation.title)) do
@@ -243,7 +243,7 @@ describe "Admin manages consultations", type: :system do
   end
 
   describe "unpublishing a consultation" do
-    let!(:consultation) { create(:consultation, :published, organization: organization) }
+    let!(:consultation) { create(:consultation, :published, organization:) }
 
     before do
       within find("tr", text: translated(consultation.title)) do

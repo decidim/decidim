@@ -18,7 +18,7 @@ module Decidim
 
         def create
           enforce_permission_to :create, :election
-          @form = form(ElectionForm).from_params(params, current_component: current_component)
+          @form = form(ElectionForm).from_params(params, current_component:)
 
           CreateElection.call(@form) do
             on(:ok) do
@@ -40,7 +40,7 @@ module Decidim
 
         def update
           enforce_permission_to :update, :election, election: election
-          @form = form(ElectionForm).from_params(params, current_component: current_component)
+          @form = form(ElectionForm).from_params(params, current_component:)
 
           UpdateElection.call(@form, election) do
             on(:ok) do

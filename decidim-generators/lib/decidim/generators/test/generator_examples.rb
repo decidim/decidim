@@ -172,6 +172,7 @@ shared_context "with application env vars" do
       "DECIDIM_ADMIN_PASSWORD_MIN_LENGTH" => "18",
       "DECIDIM_ADMIN_PASSWORD_REPETITION_TIMES" => "8",
       "DECIDIM_ADMIN_PASSWORD_STRONG" => "false",
+      "DECIDIM_REDESIGN_ACTIVE" => "false",
       "RAILS_LOG_LEVEL" => "fatal",
       "RAILS_ASSET_HOST" => "http://assets.example.org",
       "ETHERPAD_SERVER" => "http://a-etherpad-server.com",
@@ -1067,7 +1068,8 @@ shared_examples_for "an application with storage and queue gems" do
     current = rails_value("YAML.load(ERB.new(IO.read(\"config/sidekiq.yml\")).result)", test_app, queue_envs_on)
     expect(current["concurrency"]).to eq(11), "sidekiq concurrency (#{current["concurrency"]}) expected to eq 11"
 
-    queues = %w(mailers vote_reminder reminders default newsletter newsletters_opt_in conference_diplomas events translations user_report block_user metrics exports)
+    queues = %w(mailers vote_reminder reminders default newsletter newsletters_opt_in conference_diplomas events translations user_report block_user metrics exports
+                close_meeting_reminder)
     expect(current["queues"].flatten).to include(*queues), "sidekiq queues (#{current["queues"].flatten}) expected to eq containt (#{queues})"
   end
 end

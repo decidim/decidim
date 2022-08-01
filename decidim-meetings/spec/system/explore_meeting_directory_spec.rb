@@ -7,13 +7,13 @@ describe "Explore meeting directory", type: :system do
     Decidim::Meetings::DirectoryEngine.routes.url_helpers.root_path
   end
   let(:organization) { create(:organization) }
-  let(:participatory_process) { create :participatory_process, organization: organization }
+  let(:participatory_process) { create :participatory_process, organization: }
   let(:components) do
-    create_list(:meeting_component, 3, organization: organization)
+    create_list(:meeting_component, 3, organization:)
   end
   let!(:meetings) do
     components.flat_map do |component|
-      create_list(:meeting, 2, :published, :not_official, component: component)
+      create_list(:meeting, 2, :published, :not_official, component:)
     end
   end
 
@@ -69,7 +69,7 @@ describe "Explore meeting directory", type: :system do
   end
 
   context "with a scope" do
-    let!(:scope) { create(:scope, organization: organization) }
+    let!(:scope) { create(:scope, organization:) }
     let!(:meeting) do
       meeting = meetings.first
       meeting.scope = scope
@@ -248,10 +248,10 @@ describe "Explore meeting directory", type: :system do
 
   context "with different participatory spaces" do
     let(:assembly) do
-      create(:assembly, organization: organization)
+      create(:assembly, organization:)
     end
     let(:assembly_component) do
-      create(:meeting_component, participatory_space: assembly, organization: organization)
+      create(:meeting_component, participatory_space: assembly, organization:)
     end
     let!(:assembly_meeting) do
       create(:meeting, :published, component: assembly_component)

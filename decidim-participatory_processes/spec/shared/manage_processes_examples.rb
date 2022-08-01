@@ -2,9 +2,9 @@
 
 shared_examples "manage processes examples" do
   context "when viewing the processes list" do
-    let!(:process_group) { create(:participatory_process_group, organization: organization) }
-    let!(:process_with_group) { create(:participatory_process, organization: organization, participatory_process_group: process_group) }
-    let!(:process_without_group) { create(:participatory_process, organization: organization) }
+    let!(:process_group) { create(:participatory_process_group, organization:) }
+    let!(:process_with_group) { create(:participatory_process, organization:, participatory_process_group: process_group) }
+    let!(:process_without_group) { create(:participatory_process, organization:) }
     let(:model_name) { participatory_process.class.model_name }
     let(:resource_controller) { Decidim::ParticipatoryProcesses::Admin::ParticipatoryProcessesController }
 
@@ -40,12 +40,12 @@ shared_examples "manage processes examples" do
       describe "listing processes filtered by group" do
         it_behaves_like "filtering collection by published/unpublished" do
           let!(:published_space) { process_with_group }
-          let!(:unpublished_space) { create(:participatory_process, :unpublished, organization: organization, participatory_process_group: process_group) }
+          let!(:unpublished_space) { create(:participatory_process, :unpublished, organization:, participatory_process_group: process_group) }
         end
 
         it_behaves_like "filtering collection by private/public" do
           let!(:public_space) { process_with_group }
-          let!(:private_space) { create(:participatory_process, :private, organization: organization, participatory_process_group: process_group) }
+          let!(:private_space) { create(:participatory_process, :private, organization:, participatory_process_group: process_group) }
         end
       end
     end
@@ -53,7 +53,7 @@ shared_examples "manage processes examples" do
 
   context "when previewing processes" do
     context "when the process is unpublished" do
-      let!(:participatory_process) { create(:participatory_process, :unpublished, organization: organization) }
+      let!(:participatory_process) { create(:participatory_process, :unpublished, organization:) }
 
       it "allows the user to preview the unpublished process" do
         within find("tr", text: translated(participatory_process.title)) do
@@ -66,7 +66,7 @@ shared_examples "manage processes examples" do
     end
 
     context "when the process is published" do
-      let!(:participatory_process) { create(:participatory_process, organization: organization) }
+      let!(:participatory_process) { create(:participatory_process, organization:) }
 
       it "allows the user to preview the published process" do
         within find("tr", text: translated(participatory_process.title)) do
@@ -122,7 +122,7 @@ shared_examples "manage processes examples" do
   end
 
   context "when publishing a process" do
-    let!(:participatory_process) { create(:participatory_process, :unpublished, organization: organization) }
+    let!(:participatory_process) { create(:participatory_process, :unpublished, organization:) }
 
     before do
       within find("tr", text: translated(participatory_process.title)) do
@@ -142,7 +142,7 @@ shared_examples "manage processes examples" do
   end
 
   context "when unpublishing a process" do
-    let!(:participatory_process) { create(:participatory_process, organization: organization) }
+    let!(:participatory_process) { create(:participatory_process, organization:) }
 
     before do
       within find("tr", text: translated(participatory_process.title)) do
@@ -176,10 +176,10 @@ shared_examples "manage processes examples" do
   end
 
   context "when the process has a scope" do
-    let(:scope) { create(:scope, organization: organization) }
+    let(:scope) { create(:scope, organization:) }
 
     before do
-      participatory_process.update!(scopes_enabled: true, scope: scope)
+      participatory_process.update!(scopes_enabled: true, scope:)
     end
 
     it "disables the scope for a participatory process" do

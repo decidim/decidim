@@ -204,7 +204,7 @@ describe "Admin manages votings", type: :system do
   end
 
   describe "updating a voting without images" do
-    let!(:voting3) { create(:voting, organization: organization) }
+    let!(:voting3) { create(:voting, organization:) }
 
     before do
       visit decidim_admin_votings.votings_path
@@ -225,7 +225,7 @@ describe "Admin manages votings", type: :system do
   end
 
   describe "previewing votings" do
-    let!(:voting) { create(:voting, :unpublished, organization: organization) }
+    let!(:voting) { create(:voting, :unpublished, organization:) }
 
     it "allows the user to preview the unpublished voting" do
       within find("tr", text: translated(voting.title)) do
@@ -248,7 +248,7 @@ describe "Admin manages votings", type: :system do
   end
 
   describe "publishing a voting" do
-    let!(:voting) { create(:voting, :unpublished, organization: organization) }
+    let!(:voting) { create(:voting, :unpublished, organization:) }
 
     before do
       within find("tr", text: translated(voting.title)) do
@@ -268,7 +268,7 @@ describe "Admin manages votings", type: :system do
   end
 
   describe "unpublishing a voting" do
-    let!(:voting) { create(:voting, :published, organization: organization) }
+    let!(:voting) { create(:voting, :published, organization:) }
 
     before do
       within find("tr", text: translated(voting.title)) do

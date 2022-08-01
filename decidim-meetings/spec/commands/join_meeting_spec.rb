@@ -7,7 +7,7 @@ module Decidim::Meetings
     subject { described_class.new(meeting, user, registration_form) }
 
     let(:organization) { create :organization }
-    let(:participatory_process) { create :participatory_process, organization: organization }
+    let(:participatory_process) { create :participatory_process, organization: }
     let(:component) { create :component, manifest_name: :meetings, participatory_space: participatory_process }
 
     let(:registrations_enabled) { true }
@@ -16,13 +16,13 @@ module Decidim::Meetings
 
     let(:meeting) do
       create(:meeting,
-             component: component,
-             registrations_enabled: registrations_enabled,
-             available_slots: available_slots,
-             questionnaire: questionnaire)
+             component:,
+             registrations_enabled:,
+             available_slots:,
+             questionnaire:)
     end
 
-    let(:user) { create :user, :confirmed, organization: organization, notifications_sending_frequency: "none" }
+    let(:user) { create :user, :confirmed, organization:, notifications_sending_frequency: "none" }
 
     let(:registration_form) { Decidim::Meetings::JoinMeetingForm.new }
 
@@ -37,14 +37,14 @@ module Decidim::Meetings
       }
     end
 
-    let(:process_admin) { create :process_admin, participatory_process: participatory_process }
+    let(:process_admin) { create :process_admin, participatory_process: }
     let(:admin_notification) do
       {
         event: "decidim.events.meetings.meeting_registrations_over_percentage",
         event_class: MeetingRegistrationsOverPercentageEvent,
         resource: meeting,
         affected_users: [process_admin],
-        extra: extra
+        extra:
       }
     end
 
@@ -134,11 +134,11 @@ module Decidim::Meetings
       end
 
       it "makes the user follow the meeting" do
-        expect { subject.call }.to change { Decidim::Follow.where(user: user, followable: meeting).count }.from(0).to(1)
+        expect { subject.call }.to change { Decidim::Follow.where(user:, followable: meeting).count }.from(0).to(1)
       end
 
       context "and exists an invite for the user" do
-        let!(:invite) { create(:invite, meeting: meeting, user: user) }
+        let!(:invite) { create(:invite, meeting:, user:) }
 
         it "marks the invite as accepted" do
           expect { subject.call }.to change { invite.reload.accepted_at }.from(nil).to(kind_of(Time))
@@ -149,7 +149,7 @@ module Decidim::Meetings
         let(:extra) { { percentage: 0.5 } }
 
         before do
-          create_list :registration, (available_slots * 0.5).round - 1, meeting: meeting
+          create_list :registration, (available_slots * 0.5).round - 1, meeting:
         end
 
         it "also sends a notification to the process admins" do
@@ -162,7 +162,7 @@ module Decidim::Meetings
 
         context "when the 50% is already met" do
           before do
-            create :registration, meeting: meeting
+            create :registration, meeting:
           end
 
           it "doesn't notify it twice" do
@@ -177,7 +177,7 @@ module Decidim::Meetings
         let(:extra) { { percentage: 0.8 } }
 
         before do
-          create_list :registration, (available_slots * 0.8).round - 1, meeting: meeting
+          create_list :registration, (available_slots * 0.8).round - 1, meeting:
         end
 
         it "also sends a notification to the process admins" do
@@ -190,7 +190,7 @@ module Decidim::Meetings
 
         context "when the 80% is already met" do
           before do
-            create_list :registration, (available_slots * 0.8).round, meeting: meeting
+            create_list :registration, (available_slots * 0.8).round, meeting:
           end
 
           it "doesn't notify it twice" do
@@ -205,7 +205,7 @@ module Decidim::Meetings
         let(:extra) { { percentage: 1 } }
 
         before do
-          create_list :registration, available_slots - 1, meeting: meeting
+          create_list :registration, available_slots - 1, meeting:
         end
 
         it "also sends a notification to the process admins" do
@@ -230,7 +230,7 @@ module Decidim::Meetings
       let(:available_slots) { 1 }
 
       before do
-        create(:registration, meeting: meeting)
+        create(:registration, meeting:)
       end
 
       it "broadcasts invalid" do
@@ -240,7 +240,7 @@ module Decidim::Meetings
 
     context "when the user has already registered for the meeting" do
       before do
-        create(:registration, meeting: meeting, user: user)
+        create(:registration, meeting:, user:)
       end
 
       it "broadcasts invalid" do
@@ -250,9 +250,9 @@ module Decidim::Meetings
 
     context "when the registration form is a questionnaire" do
       let!(:questionnaire) { create(:questionnaire) }
-      let!(:question) { create(:questionnaire_question, questionnaire: questionnaire) }
+      let!(:question) { create(:questionnaire_question, questionnaire:) }
       let(:session_token) { "some-token" }
-      let(:registration_form) { Decidim::Forms::QuestionnaireForm.from_model(questionnaire).with_context(session_token: session_token) }
+      let(:registration_form) { Decidim::Forms::QuestionnaireForm.from_model(questionnaire).with_context(session_token:) }
 
       context "and the registration form is invalid" do
         it "broadcast invalid_form" do

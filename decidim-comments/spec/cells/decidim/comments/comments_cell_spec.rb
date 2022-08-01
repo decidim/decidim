@@ -10,10 +10,10 @@ module Decidim::Comments
 
     let(:my_cell) { cell("decidim/comments/comments", comment.commentable) }
     let(:organization) { create(:organization) }
-    let(:participatory_process) { create :participatory_process, organization: organization }
+    let(:participatory_process) { create :participatory_process, organization: }
     let(:component) { create(:component, participatory_space: participatory_process) }
-    let(:commentable) { create(:dummy_resource, component: component) }
-    let(:comment) { create(:comment, commentable: commentable) }
+    let(:commentable) { create(:dummy_resource, component:) }
+    let(:comment) { create(:comment, commentable:) }
 
     context "when rendering" do
       it "renders the thread" do
@@ -35,7 +35,7 @@ module Decidim::Comments
 
       context "with the single comment defined" do
         let(:my_cell) { cell("decidim/comments/comments", comment.commentable, single_comment: comment.id) }
-        let!(:other_comments) { create_list(:comment, 10, commentable: commentable) }
+        let!(:other_comments) { create_list(:comment, 10, commentable:) }
 
         it "renders only the single comment" do
           expect(subject).to have_css(".section-heading", text: "Comment details")
@@ -137,7 +137,7 @@ module Decidim::Comments
           before do
             organization.available_authorizations = ["dummy_authorization_handler"]
             organization.save!
-            commentable.create_resource_permission(permissions: permissions)
+            commentable.create_resource_permission(permissions:)
             allow(commentable).to receive(:user_allowed_to_comment?).with(current_user).and_return(false)
             allow(commentable).to receive(:user_authorized_to_comment?).with(current_user).and_return(false)
           end

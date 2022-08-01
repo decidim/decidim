@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 RSpec.shared_examples "manage debates" do
-  let!(:debate) { create :debate, category: category, component: current_component }
+  let!(:debate) { create :debate, category:, component: current_component }
 
   before { visit_component_admin }
 

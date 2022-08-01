@@ -5,8 +5,8 @@ shared_context "when conference admin administrating a conference" do
     create(
       :conference_admin,
       :confirmed,
-      organization: organization,
-      conference: conference
+      organization:,
+      conference:
     )
   end
 

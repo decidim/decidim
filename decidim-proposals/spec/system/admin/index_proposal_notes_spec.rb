@@ -7,7 +7,7 @@ describe "Index Proposal Notes", type: :system do
   let(:organization) { component.organization }
 
   let(:manifest_name) { "proposals" }
-  let(:proposal) { create(:proposal, component: component) }
+  let(:proposal) { create(:proposal, component:) }
   let(:participatory_space) { component.participatory_space }
 
   let(:body) { "New awesome body" }
@@ -17,7 +17,7 @@ describe "Index Proposal Notes", type: :system do
     create_list(
       :proposal_note,
       proposal_notes_count,
-      proposal: proposal
+      proposal:
     )
   end
 

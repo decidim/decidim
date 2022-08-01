@@ -20,9 +20,9 @@ describe "Answer a survey", type: :system do
     }
   end
   let(:user) { create(:user, :confirmed, organization: component.organization) }
-  let!(:questionnaire) { create(:questionnaire, title: title, description: description) }
-  let!(:survey) { create(:survey, component: component, questionnaire: questionnaire) }
-  let!(:question) { create(:questionnaire_question, questionnaire: questionnaire, position: 0) }
+  let!(:questionnaire) { create(:questionnaire, title:, description:) }
+  let!(:survey) { create(:survey, component:, questionnaire:) }
+  let!(:question) { create(:questionnaire_question, questionnaire:, position: 0) }
 
   include_context "with a component"
 
@@ -51,7 +51,7 @@ describe "Answer a survey", type: :system do
         }
       }
 
-      component.update!(permissions: permissions)
+      component.update!(permissions:)
       visit_component
     end
 
@@ -95,7 +95,7 @@ describe "Answer a survey", type: :system do
   end
 
   context "when survey has action log entry" do
-    let!(:action_log) { create(:action_log, user: user, organization: component.organization, resource: survey, component: component, participatory_space: component.participatory_space, visibility: "all") }
+    let!(:action_log) { create(:action_log, user:, organization: component.organization, resource: survey, component:, participatory_space: component.participatory_space, visibility: "all") }
     let(:router) { Decidim::EngineRouter.main_proxy(component) }
 
     it "shows action log entry" do

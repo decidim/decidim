@@ -5,7 +5,7 @@ require "spec_helper"
 describe Decidim::Admin::UserManagerPermissions do
   subject { described_class.new(user, permission_action, context).permissions.allowed? }
 
-  let(:user) { build :user, :user_manager, organization: organization }
+  let(:user) { build :user, :user_manager, organization: }
   let(:organization) { build :organization }
   let(:context) { {} }
   let(:permission_action) { Decidim::PermissionAction.new(**action) }
@@ -30,7 +30,7 @@ describe Decidim::Admin::UserManagerPermissions do
 
   describe "managed users" do
     let(:action_subject) { :managed_user }
-    let(:context) { { organization: organization } }
+    let(:context) { { organization: } }
 
     context "when creating" do
       let(:action_name) { :create }
@@ -86,7 +86,7 @@ describe Decidim::Admin::UserManagerPermissions do
       end
 
       context "when subject user is managed" do
-        let(:subject_user) { build :user, :managed, organization: organization }
+        let(:subject_user) { build :user, :managed, organization: }
 
         context "when there are active impersonation logs" do
           before do
@@ -113,7 +113,7 @@ describe Decidim::Admin::UserManagerPermissions do
       end
 
       context "when subject user is admin" do
-        let(:subject_user) { build :user, :admin, organization: organization }
+        let(:subject_user) { build :user, :admin, organization: }
 
         it_behaves_like "permission is not set"
       end
@@ -125,7 +125,7 @@ describe Decidim::Admin::UserManagerPermissions do
       end
 
       context "when there are active impersonation logs" do
-        let(:subject_user) { build :user, organization: organization }
+        let(:subject_user) { build :user, organization: }
 
         before do
           create :impersonation_log, user: subject_user, admin: user

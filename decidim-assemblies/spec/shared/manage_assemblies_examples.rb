@@ -63,7 +63,7 @@ shared_examples "manage assemblies" do
 
   describe "previewing assemblies" do
     context "when the assembly is unpublished" do
-      let!(:assembly) { create(:assembly, :unpublished, organization: organization, parent: parent_assembly) }
+      let!(:assembly) { create(:assembly, :unpublished, organization:, parent: parent_assembly) }
 
       it "allows the user to preview the unpublished assembly" do
         within find("tr", text: translated(assembly.title)) do
@@ -76,7 +76,7 @@ shared_examples "manage assemblies" do
     end
 
     context "when the assembly is published" do
-      let!(:assembly) { create(:assembly, organization: organization, parent: parent_assembly) }
+      let!(:assembly) { create(:assembly, organization:, parent: parent_assembly) }
 
       it "allows the user to preview the unpublished assembly" do
         within find("tr", text: translated(assembly.title)) do
@@ -96,7 +96,7 @@ shared_examples "manage assemblies" do
   end
 
   describe "publishing an assembly" do
-    let!(:assembly) { create(:assembly, :unpublished, organization: organization, parent: parent_assembly) }
+    let!(:assembly) { create(:assembly, :unpublished, organization:, parent: parent_assembly) }
 
     before do
       within find("tr", text: translated(assembly.title)) do
@@ -116,7 +116,7 @@ shared_examples "manage assemblies" do
   end
 
   describe "unpublishing an assembly" do
-    let!(:assembly) { create(:assembly, organization: organization, parent: parent_assembly) }
+    let!(:assembly) { create(:assembly, organization:, parent: parent_assembly) }
 
     before do
       within find("tr", text: translated(assembly.title)) do
@@ -146,10 +146,10 @@ shared_examples "manage assemblies" do
   end
 
   context "when the assembly has a scope" do
-    let(:scope) { create(:scope, organization: organization) }
+    let(:scope) { create(:scope, organization:) }
 
     before do
-      assembly.update!(scopes_enabled: true, scope: scope)
+      assembly.update!(scopes_enabled: true, scope:)
     end
 
     it "disables the scope for the assembly" do

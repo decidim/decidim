@@ -2,7 +2,7 @@
 
 shared_examples "manage attachments examples" do
   context "when processing attachments" do
-    let!(:attachment) { create(:attachment, attached_to: attached_to, attachment_collection: attachment_collection) }
+    let!(:attachment) { create(:attachment, attached_to:, attachment_collection:) }
 
     before do
       visit current_path

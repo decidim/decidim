@@ -2,15 +2,15 @@
 
 require "spec_helper"
 
-describe Decidim::UploadModal, type: :cell do
+describe Decidim::UploadModalCell, type: :cell do
   subject { my_cell.call }
 
   let(:my_cell) { cell("decidim/upload_modal", form, options) }
   let(:form) do
     double(
-      object: object,
+      object:,
       object_name: "object",
-      file_field: file_field,
+      file_field:,
       abide_error_element: "",
       error_and_help_text: ""
     )
@@ -26,11 +26,11 @@ describe Decidim::UploadModal, type: :cell do
   end
   let(:options) do
     {
-      attribute: attribute,
-      resource_name: resource_name,
-      attachments: attachments,
-      optional: optional,
-      titled: titled
+      attribute:,
+      resource_name:,
+      attachments:,
+      optional:,
+      titled:
     }
   end
   let(:attribute) { "dummy_attribute" }
@@ -60,7 +60,7 @@ describe Decidim::UploadModal, type: :cell do
     let(:object) do
       double(
         model_name: double(
-          param_key: param_key
+          param_key:
         )
       )
     end

@@ -13,7 +13,7 @@ module Decidim
         create(
           :assembly,
           :unpublished,
-          organization: organization
+          organization:
         )
       end
 
@@ -21,7 +21,7 @@ module Decidim
         create(
           :assembly,
           :published,
-          organization: organization
+          organization:
         )
       end
 
@@ -30,7 +30,7 @@ module Decidim
           :assembly,
           :published,
           :promoted,
-          organization: organization
+          organization:
         )
       end
 
@@ -52,9 +52,9 @@ module Decidim
       end
 
       describe "GET assemblies in json format" do
-        let!(:first_level) { create(:assembly, :published, :with_parent, parent: published, organization: organization) }
-        let!(:second_level) { create(:assembly, :published, :with_parent, parent: first_level, organization: organization) }
-        let!(:third_level) { create(:assembly, :published, :with_parent, parent: second_level, organization: organization) }
+        let!(:first_level) { create(:assembly, :published, :with_parent, parent: published, organization:) }
+        let!(:second_level) { create(:assembly, :published, :with_parent, parent: first_level, organization:) }
+        let!(:third_level) { create(:assembly, :published, :with_parent, parent: second_level, organization:) }
 
         let(:parsed_response) { JSON.parse(response.body, symbolize_names: true) }
 
@@ -87,7 +87,7 @@ module Decidim
       end
 
       describe "parent_assemblies" do
-        let!(:child_assembly) { create(:assembly, parent: published, organization: organization) }
+        let!(:child_assembly) { create(:assembly, parent: published, organization:) }
 
         it "includes only parent assemblies, with promoted listed first" do
           expect(controller.helpers.parent_assemblies.first).to eq(promoted)
@@ -104,7 +104,7 @@ module Decidim
           end
 
           context "with signed in user" do
-            let!(:user) { create(:user, :confirmed, organization: organization) }
+            let!(:user) { create(:user, :confirmed, organization:) }
 
             before do
               sign_in user, scope: :user

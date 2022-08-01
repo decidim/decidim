@@ -8,14 +8,21 @@ module Decidim
       include Decidim::LayoutHelper
 
       let!(:organization) { create(:organization) }
-      let!(:budgets_component) { create(:budgets_component, :with_geocoding_enabled, organization: organization) }
+      let!(:budgets_component) { create(:budgets_component, :with_geocoding_enabled, organization:) }
       let(:budget) { create(:budget, component: budgets_component) }
-      let!(:user) { create(:user, organization: organization) }
-      let!(:projects) { create_list(:project, 5, budget: budget, address: address, latitude: latitude, longitude: longitude, component: budgets_component) }
+      let!(:user) { create(:user, organization:) }
+      let!(:projects) { create_list(:project, 5, budget:, address:, latitude:, longitude:, component: budgets_component) }
       let!(:project) { projects.first }
       let(:address) { "Carrer Pic de Peguera 15, 17003 Girona" }
       let(:latitude) { 40.1234 }
       let(:longitude) { 2.1234 }
+      let(:redesign_enabled) { false }
+
+      before do
+        # rubocop:disable RSpec/AnyInstance
+        allow_any_instance_of(ActionView::Base).to receive(:redesign_enabled?).and_return(redesign_enabled)
+        # rubocop:enable RSpec/AnyInstance
+      end
 
       describe "#has_position?" do
         subject { helper.has_position?(project) }
@@ -23,7 +30,7 @@ module Decidim
         it { is_expected.to be_truthy }
 
         context "when project is not geocoded" do
-          let!(:projects) { create_list(:project, 5, budget: budget, address: address, latitude: nil, longitude: nil, component: budgets_component) }
+          let!(:projects) { create_list(:project, 5, budget:, address:, latitude: nil, longitude: nil, component: budgets_component) }
 
           it { is_expected.to be_falsey }
         end

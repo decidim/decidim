@@ -40,7 +40,7 @@ module Decidim
         )
       end
 
-      metric_manifest = MetricManifest.new(metric_name: metric_name)
+      metric_manifest = MetricManifest.new(metric_name:)
 
       yield(metric_manifest)
 

@@ -35,10 +35,10 @@ shared_examples "manage diplomas" do
   end
 
   context "when diploma configuration exists" do
-    let!(:conference) { create :conference, :diploma, organization: organization }
+    let!(:conference) { create :conference, :diploma, organization: }
 
     context "and a few registrations have been confirmed" do
-      let!(:conference_registrations) { create_list :conference_registration, 10, conference: conference }
+      let!(:conference_registrations) { create_list :conference_registration, 10, conference: }
 
       context "and diplomas has not been sent" do
         before do
@@ -62,7 +62,7 @@ shared_examples "manage diplomas" do
       end
 
       context "and diplomas already has been sent" do
-        let!(:conference_registrations) { create_list :conference_registration, 10, conference: conference }
+        let!(:conference_registrations) { create_list :conference_registration, 10, conference: }
 
         before do
           conference.diploma_sent_at = Time.current
@@ -84,7 +84,7 @@ shared_examples "manage diplomas" do
     end
 
     context "and registration has not been confirmed" do
-      let!(:conference_registrations) { create_list :conference_registration, 10, :unconfirmed, conference: conference }
+      let!(:conference_registrations) { create_list :conference_registration, 10, :unconfirmed, conference: }
 
       it "can't send the diplomas" do
         within find("tr", text: translated(conference.title)) do

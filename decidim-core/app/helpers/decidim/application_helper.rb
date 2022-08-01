@@ -29,7 +29,7 @@ module Decidim
     end
 
     def present(object, presenter_class: nil)
-      presenter_class ||= resolve_presenter_class(object, presenter_class: presenter_class)
+      presenter_class ||= resolve_presenter_class(object, presenter_class:)
       presenter = presenter_class.new(object)
 
       yield(presenter) if block_given?
@@ -62,7 +62,7 @@ module Decidim
       return unless admin_allowed_to?(action, subject, extra_context)
       return if content_for?(:edit_link)
 
-      cell_html = raw(cell("decidim/navbar_admin_link", link_url: link_url, link_options: link_options))
+      cell_html = raw(cell("decidim/navbar_admin_link", link_url:, link_options:))
       content_for(:edit_link, cell_html)
     end
 
@@ -85,7 +85,7 @@ module Decidim
       return unless admin_allowed_to?(action, subject, extra_context)
       return if content_for?(:extra_admin_link)
 
-      cell_html = raw(cell("decidim/navbar_admin_link", link_url: link_url, link_options: link_options))
+      cell_html = raw(cell("decidim/navbar_admin_link", link_url:, link_options:))
       content_for(:extra_admin_link, cell_html)
     end
 
@@ -97,9 +97,12 @@ module Decidim
     # options - a Hash with options
     #
     # Renders the cell contents.
-    def cell(name, model, options = {}, &block)
-      options = { context: { current_user: current_user } }.deep_merge(options)
-      super(name, model, options, &block)
+    def cell(name, model, options = {}, &)
+      options = { context: { current_user: } }.deep_merge(options)
+
+      redesigned_name = redesigned_layout(name)
+      name = redesigned_name if Object.const_defined?("#{redesigned_name}_cell".camelize)
+      super(name, model, options, &)
     end
 
     # Public: Builds the URL for the step Call To Action. Takes URL params

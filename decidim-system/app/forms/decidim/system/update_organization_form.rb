@@ -94,8 +94,8 @@ module Decidim
       private
 
       def validate_organization_uniqueness
-        errors.add(:name, :taken) if Decidim::Organization.where(name: name).where.not(id: id).exists?
-        errors.add(:host, :taken) if Decidim::Organization.where(host: host).where.not(id: id).exists?
+        errors.add(:name, :taken) if Decidim::Organization.where(name:).where.not(id:).exists?
+        errors.add(:host, :taken) if Decidim::Organization.where(host:).where.not(id:).exists?
       end
     end
   end

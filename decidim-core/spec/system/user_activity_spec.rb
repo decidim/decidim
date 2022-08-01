@@ -5,38 +5,38 @@ require "spec_helper"
 describe "User activity", type: :system do
   let(:organization) { create(:organization) }
   let(:comment) { create(:comment) }
-  let(:user) { create(:user, :confirmed, organization: organization) }
+  let(:user) { create(:user, :confirmed, organization:) }
 
   let!(:action_log) do
-    create(:action_log, action: "create", visibility: "public-only", resource: comment, organization: organization, user: user)
+    create(:action_log, action: "create", visibility: "public-only", resource: comment, organization:, user:)
   end
 
   let!(:action_log2) do
-    create(:action_log, action: "publish", visibility: "all", resource: resource, organization: organization, participatory_space: component.participatory_space, user: user)
+    create(:action_log, action: "publish", visibility: "all", resource:, organization:, participatory_space: component.participatory_space, user:)
   end
 
   let!(:hidden_action_log) do
-    create(:action_log, action: "publish", visibility: "all", resource: resource2, organization: organization, participatory_space: component.participatory_space)
+    create(:action_log, action: "publish", visibility: "all", resource: resource2, organization:, participatory_space: component.participatory_space)
   end
 
   let!(:private_action_log) do
-    create(:action_log, action: "update", visibility: "private-only", resource: resource3, organization: organization, participatory_space: component.participatory_space, user: user)
+    create(:action_log, action: "update", visibility: "private-only", resource: resource3, organization:, participatory_space: component.participatory_space, user:)
   end
 
   let(:component) do
-    create(:component, :published, organization: organization)
+    create(:component, :published, organization:)
   end
 
   let(:resource) do
-    create(:dummy_resource, component: component, published_at: Time.current)
+    create(:dummy_resource, component:, published_at: Time.current)
   end
 
   let(:resource2) do
-    create(:dummy_resource, component: component, published_at: Time.current)
+    create(:dummy_resource, component:, published_at: Time.current)
   end
 
   let!(:resource3) do
-    create(:coauthorable_dummy_resource, component: component)
+    create(:coauthorable_dummy_resource, component:)
   end
 
   let(:resource_types) do

@@ -99,7 +99,7 @@ module Decidim
           commentableGid: model.to_signed_global_id.to_s,
           commentsUrl: decidim_comments.comments_path,
           rootDepth: root_depth,
-          order: order
+          order:
         }
       end
 
