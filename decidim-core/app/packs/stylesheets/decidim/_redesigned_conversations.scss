@@ -51,7 +51,15 @@
     @apply flex items-start gap-4 w-3/4;
 
     &-text{
-      @apply grow bg-background rounded p-4 text-gray-2;
+      @apply grow bg-background rounded p-4 flex flex-col space-y-2 text-gray-2;
+    }
+
+    &-sender{
+      @apply text-xs text-secondary font-semibold;
+    }
+
+    &-time{
+      @apply block text-xs;
     }
   }
 

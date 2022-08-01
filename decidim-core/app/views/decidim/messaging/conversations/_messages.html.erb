@@ -1,15 +1,17 @@
 <div class="conversation__message<%= " flex-row-reverse ml-auto" if sender_is_user?(sender) %>">
 
-  <%# REDESIGN_PENDING: show only avatar, not name %>
-  <div class="flex-none">
-    <%= cell "decidim/author", present(sender), context_actions: [] %>
+  <div class="w-8 h-8 flex-none rounded-full overflow-hidden border border-white">
+    <%= cell "decidim/author", present(sender), layout: :avatar %>
   </div>
 
   <div class="conversation__message-text">
-    <% messages.each do |message| %>
-      <%= simple_format(message.body_with_links) %>
-    <% end %>
-    <span class="text-xs" title="<%= messages.last.created_at.strftime("%d-%m-%Y %H:%M:%S%z") %>">
+    <span class="conversation__message-sender<%= " ml-auto" if sender_is_user?(sender) %>"><%= sender.name %></span>
+    <div>
+      <% messages.each do |message| %>
+        <%= simple_format(message.body_with_links) %>
+      <% end %>
+    </div>
+    <span class="conversation__message-time" title="<%= messages.last.created_at.strftime("%d-%m-%Y %H:%M:%S%z") %>">
       <%= messages.last.friendly_created_at %>
     </span>
   </div>
