@@ -29,6 +29,7 @@ module Decidim
         validates :scope_id, scope_belongs_to_component: true, if: ->(form) { form.scope_id.present? }
 
         def map_model(model)
+          self.finite = model.start_time.present? && model.end_time.present?
           self.decidim_category_id = model.categorization.decidim_category_id if model.categorization
           presenter = DebatePresenter.new(model)
 
