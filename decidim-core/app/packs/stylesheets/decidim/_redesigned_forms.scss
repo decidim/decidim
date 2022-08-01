@@ -60,3 +60,21 @@
     @apply inline-block text-xs text-gray-2;
   }
 }
+
+.emoji{
+  &__container{
+    @apply relative;
+  }
+
+  &__trigger{
+    @apply relative -top-1;
+  }
+
+  &__button{
+    @apply absolute right-1 bottom-0.5 cursor-pointer text-gray-2;
+  }
+
+  &__button svg{
+    width: 1em;
+  }
+}
