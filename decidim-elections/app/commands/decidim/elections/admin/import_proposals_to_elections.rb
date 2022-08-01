@@ -77,7 +77,10 @@ module Decidim
         end
 
         def proposal_already_copied?(original_proposal)
-          original_proposal.linked_resources(:answers, "related_proposals").any? do |answer|
+          # Note: we are including also answers from unpublished components
+          # because otherwise duplicates could be created until the component is
+          # published.
+          original_proposal.linked_resources(:answers, "related_proposals", component_published: false).any? do |answer|
             answer.question == target_question
           end
         end

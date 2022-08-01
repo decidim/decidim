@@ -76,7 +76,10 @@ module Decidim
         end
 
         def proposal_already_copied?(original_proposal, target_component)
-          original_proposal.linked_resources(:proposals, "copied_from_component").any? do |proposal|
+          # Note: we are including also proposals from unpublished components
+          # because otherwise duplicates could be created until the component is
+          # published.
+          original_proposal.linked_resources(:proposals, "copied_from_component", component_published: false).any? do |proposal|
             proposal.component == target_component
           end
         end
