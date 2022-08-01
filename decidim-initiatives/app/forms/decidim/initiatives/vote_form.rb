@@ -83,6 +83,7 @@ module Decidim
       def user_authorized_scope
         return scope if handler_name.blank?
         return unless authorized?
+        return if authorization.metadata.blank?
 
         @user_authorized_scope ||= authorized_scope_candidates.find do |scope|
           scope&.id == authorization.metadata.symbolize_keys[:scope_id]
