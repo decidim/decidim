@@ -23,6 +23,45 @@ lt:
         decidim_user_group_id: Naudotojų grupė
         description: Aprašymas
         end_time: Pabaigos laikas
+        id: ID
+        location: Vieta
+        location_hints: Vietos užuomina
+        online_meeting_url: Virtualaus susitikimo URL
+        organizer_gid: Sukurti kaip
+        organizer_id: Organizatorius
+        private_meeting: Uždaras posėdis
+        registration_email_custom_content: Suasmenintas registracijos el. laiško turinys
+        registration_form_enabled: Registracijos forma įjungta
+        registration_terms: Registracijos sąlygos
+        registration_url: Registracijos URL
+        registrations_enabled: Registracijos įjungtos
+        show_embedded_iframe: Rodyti šiame URL įterptąjį „iframe“
+        start_time: Pradžios Laikas
+        title: Pavadinimas
+        transparent: Skaidrus
+        type_of_meeting: Tipas
+    errors:
+      models:
+        meeting:
+          attributes:
+            iframe_embed_type:
+              not_embeddable: Šio URL negalima įterpti į susitikimo ar tiesioginio įvykio puslapį
+        meeting_agenda:
+          attributes:
+            base:
+              too_many_minutes: Elementų trukmė viršija posėdžio trukmę %{count} minutėmis (-čių)
+              too_many_minutes_child: Antrinių elementų trukmė viršija darbotvarkės pirminio elemento „%{parent_title}“ trukmę %{count} minutėmis (-čių)
+        meeting_registration_invite:
+          attributes:
+            email:
+              already_invited: Šio el. laiško paskyros adresatas jau buvo pakviestas
+    models:
+      decidim/meetings/close_meeting_event: Susitikimas baigtas
+      decidim/meetings/create_meeting_event: Susitikimas
+      decidim/meetings/meeting_registrations_enabled_event: Registracijos įjungtos
+      decidim/meetings/meeting_registrations_over_percentage_event: Registracijų riba viršyta
+      decidim/meetings/upcoming_meeting_event: Būsimas susitikimas
+      decidim/meetings/update_meeting_event: Susitikimas atnaujintas
   activerecord:
     models:
       decidim/meetings/registration:
