@@ -1075,6 +1075,8 @@ es-PY:
             create:
               invalid: Se ha producido un error al subir el censo, por favor inténtalo de nuevo más tarde.
               invalid_csv_header: Los encabezados CSV faltan o no son correctos - por favor lee las instrucciones cuidadosamente
+            creating_data:
+              info_message: "<strong>Por favor espera</strong>, procesadas %{processed_count} de %{raw_count} filas del fichero %{file} (esto puede tardar algunos minutos)."
             delete:
               button: Borrar todos los datos del censo
               confirm: Eliminar todo el censo no se puede deshacer. ¿Seguro que quieres continuar?
@@ -1088,8 +1090,13 @@ es-PY:
               file_not_exist: Este archivo no existe
               launch_error: Problema al iniciar la exportación de códigos de acceso
               launch_success: Se ha iniciado la exportación de los códigos de acceso. En breve recibirás un correo en %{email}
+            exporting_access_codes:
+              info_message: "<strong>Por favor, espera</strong>, se está preparando la exportación, la recibirás en breve en %{email} (esto puede tardar unos minutos)."
             freeze:
               callout: El censo está cerrado y no se puede modificar.
+              help_html: |
+                Los datos del censo Se han subido correctamente, los códigos se han generado y exportado con éxito.<br><strong>Ahora estás lista para comenzar la elección.</strong><br>
+                Utiliza el CSV exportado que incluye los códigos individuales para distribuirlo al cens utilizando tus propios medios o active la pestaña "¿Puedo votar?" para permitir que cualquiera recupere este código usando sus propis datos de censales.
             generate_access_codes:
               button: Generar códigos de acceso de la votación
               callout: Ahora puedes generar los códigos de acceso. Ten en cuenta que después de generarlos ya no podrás modificar más el censo.
@@ -1098,6 +1105,9 @@ es-PY:
               info_message_warn: Por favor, comprueba que no falten datos, ya que se han creado %{data_count} registros, pero el fichero que se ha subido (%{file}) tenía %{raw_count} filas.
               launch_error: Ha habido un problema al generar los códigos de acceso
               launch_success: Se ha iniciado la generación de códigos.
+              start_over: Por favor, elimine el censo actual y vuelva a empezar con un archivo CSV apropiado con filas válidas.
+            generating_access_codes:
+              info_message: "<strong>Por favor<</strong>, los códigos de acceso a la votación se están generando (esto puede tardar unos minutos)..."
             new:
               file_help:
                 explanation: 'Instrucciones para el archivo:'
