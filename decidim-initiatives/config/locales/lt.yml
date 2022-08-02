@@ -522,6 +522,7 @@ lt:
           city: Miestas
           email: El. paštas
           full_name: Vardas ir pavardė
+          general_title: Aplikacija dėl iniciatyvos priėmimo
           id_number: Asmens kodas
           initiative:
             attachments: Prisegti dokumentai (prašau įrašykite kiekvieno dokumento pavadinimą apačioje)
