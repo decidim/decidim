@@ -23,6 +23,18 @@ lt:
         decidim_user_group_id: Naudotojų grupė
         description: Aprašymas
         end_time: Pabaigos laikas
+        id: ID
+        location: Vieta
+        location_hints: Vietos užuomina
+        online_meeting_url: Virtualaus susitikimo URL
+        organizer_gid: Sukurti kaip
+        organizer_id: Organizatorius
+        private_meeting: Uždaras posėdis
+        registration_email_custom_content: Suasmenintas registracijos el. laiško turinys
+        registration_form_enabled: Registracijos forma įjungta
+        registration_terms: Registracijos sąlygos
+        registration_url: Registracijos URL
+        registrations_enabled: Registracijos įjungtos
   activerecord:
     models:
       decidim/meetings/registration:
