@@ -64,6 +64,16 @@ lt:
       decidim/meetings/update_meeting_event: Susitikimas atnaujintas
   activerecord:
     models:
+      decidim/meetings/meeting:
+        one: Susitikimas
+        few: Susitikimai
+        many: Susitikimų
+        other: Susitikimai
+      decidim/meetings/minutes:
+        one: Minutė
+        few: Minutės
+        many: Minučių
+        other: Minutės
       decidim/meetings/registration:
         one: Registracija
         few: Registracijos
@@ -85,11 +95,15 @@ lt:
             values:
               'false': Praėję
               'true': Artėjantys
+          origin_eq:
+            values:
+              official: Oficialus
           scope_id_eq:
             label: Apimtis
           type_eq:
             values:
               hybrid: Hibridiniai
+              online: Virtualūs
       meeting_copies:
         create:
           error: Dubliuojant šį susitikimą iškilo problema.
@@ -144,6 +158,20 @@ lt:
           notification_title: Susirinkimas<a href="%{resource_path}"><a href="%{resource_path}">%{resource_title}</a> pridėtas prie %{participatory_space_title}
         meeting_registration_confirmed:
           notification_title: Jūsų registracija į susirinkimą <a href="%{resource_url}">%{resource_title}</a> buvo patvirtinta. Jūsų registracijos kodas yra %{registration_code}.
+        meeting_registrations_over_percentage:
+          email_intro: Susitikimui „%{resource_title}“ skirti laiko tarpsniai sudaro daugiau kaip %{percentage}%.
+          email_outro: Šį pranešimą gavote dėl to, kad esate susitikimo dalyvaujamojo proceso erdvės administratorius.
+          email_subject: Susitikimui „%{resource_title}“ skirti laiko tarpsniai sudaro daugiau kaip %{percentage}%
+          notification_title: Susitikimui <a href="%{resource_path}">%{resource_title}</a> skirti laiko tarpsniai sudaro daugiau kaip %{percentage}%.
+        meeting_updated:
+          email_intro: '"%{resource_title}" susitikimas buvo atnaujintas. Naująją versiją galite perskaityti susitikimo puslapyje:'
+          email_outro: Gavote šį pranešimą nes sekate "%{resource_title}" susirinkimą. Galite jo nebesekti paspaudę ant ankstesnės nuorodos.
+          email_subject: '"%{resource_title}" susitikimas buvo atnaujintas'
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> susitikimas buvo atnaujintas.
+        registration_code_validated:
+          email_intro: Jūsų "%{resource_title}" susitikimo registracijos kodas "%{registration_code}" buvo patvirtintas.
+          email_outro: Šį pranešimą gavote dėl to, kad jūsų "%{resource_title}“ susitikimo registracijos kodas buvo patvirtintas.
+          email_subject: Jūsų "%{resource_title}" susitikimo registracijos kodas "%{registration_code}" buvo patvirtintas
         registrations_enabled:
           notification_title: <a href="%{resource_path}">%{resource_title}</a> Susirinkimas leidžia registruotis.
         upcoming_meeting:
@@ -276,6 +304,7 @@ lt:
             update: Atnaujinti
           form:
             address_help: 'Adresas: jį naudoja „Geocoder“, kad rastų vietą'
+            available_slots_help: Jei nėra ribojimų įrašykite 0
             disclaimer: 'Perspėjimas: Naudodami išorinę registracijos sistemą, %{organization} nėra atsakinga už dalyvių duomenų tvarkymą.'
             location_help: 'Vieta: naudotojams skirtas pranešimas, kuriame nurodoma susitikimo vieta'
             location_hints_help: 'Vietos priedėliai: papildoma informacija kaip pvz. buto numeris, iš kurios pusės įeiti ir t. t.'
@@ -292,6 +321,13 @@ lt:
           publish:
             invalid: Skelbiant šį susirinkimą iškilo problema
             success: Susirinkimas sėkmingai paskelbtas
+          service:
+            description: Aprašymas
+            down: Žemyn
+            remove: Pašalinti
+            service: Paslauga
+            title: Pavadinimas
+            up: Į viršų
       calendar_modal:
         export_calendar: Eksportuoti kalendorių
       conference_venues: Konferencijos vietos
@@ -366,7 +402,26 @@ lt:
             past: Praėję
             upcoming: Artėjantys
           my_meetings: Susirinkimai
+          origin_values:
+            official: Oficialus
+            user_groups: Grupės
           scope: Apimtis
+          search: Ieškoti
+          type: Tipas
+          type_values:
+            all: Visi
+            hybrid: Hibridiniai
+            in_person: Fiziniai
+            online: Virtualūs
+        filters_small_view:
+          close_modal: Uždaryti modalinį langą
+          filter: Filtras
+          filter_by: Filtruoti pagal
+          unfold: Išskleisti
+        form:
+          address_help: 'Adresas: jį naudoja „Geocoder“, kad rastų vietą'
+          available_slots_help: Jei nėra ribojimų įrašykite 0
+          create_as: Sukurti posėdį kaip
         show:
           leave: Atšaukti registraciją
           leave_confirmation: Ar tikrai norite atšaukti savo registraciją į šį susirinkimą?
