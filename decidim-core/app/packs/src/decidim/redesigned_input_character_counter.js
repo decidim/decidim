@@ -74,7 +74,12 @@ export default class InputCharacterCounter {
       if (this.$input.parent().is(".editor")) {
         this.$input.parent().after(this.$target);
       } else {
-        this.$input.parent().addClass("input-character-counter")
+        const wrapper = document.createElement("div")
+        wrapper.className = "input-character-counter"
+
+        // The form errors need to be in the same container with the field they
+        // belong to for Foundation Abide to show them automatically.
+        this.$input.next(".form-error").addBack().wrapAll(wrapper)
         this.$input.after(div);
       }
     }
