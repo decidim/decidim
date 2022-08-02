@@ -8,6 +8,19 @@ module Decidim
     describe TranslatedFieldType do
       include_context "with a graphql class type"
 
+      shared_context "with machine translations" do
+        let(:model) do
+          {
+            ca: "Hola",
+            en: "Hello",
+            es: "",
+            machine_translations: {
+              es: "Ey"
+            }
+          }
+        end
+      end
+
       let(:model) do
         {
           ca: "Hola",
@@ -21,6 +34,14 @@ module Decidim
         it "returns the available locales" do
           expect(response["locales"]).to include("en", "ca")
         end
+
+        context "when there are machine translations" do
+          include_context "with machine translations"
+
+          it "returns all available locales with no duplicates" do
+            expect(response["locales"]).to include("en", "ca", "es")
+          end
+        end
       end
 
       describe "translations" do
@@ -32,6 +53,41 @@ module Decidim
             expect(translations.length).to eq(2)
             expect(translations).to include("locale" => "ca", "text" => "Hola")
             expect(translations).to include("locale" => "en", "text" => "Hello")
+          end
+
+          context "when there are machine translations" do
+            include_context "with machine translations"
+
+            let(:query) { "{ translations { locale text machineTranslated }}" }
+
+            it "returns correct translations" do
+              translations = response["translations"]
+              expect(translations.length).to eq(3)
+              expect(translations).to include("locale" => "ca", "text" => "Hola", "machineTranslated" => false)
+              expect(translations).to include("locale" => "en", "text" => "Hello", "machineTranslated" => false)
+              expect(translations).to include("locale" => "es", "text" => "Ey", "machineTranslated" => true)
+            end
+
+            context "with defined translation overriding machine translation" do
+              let(:model) do
+                {
+                  ca: "Hola",
+                  en: "Hello",
+                  es: "Hola",
+                  machine_translations: {
+                    es: "Ey"
+                  }
+                }
+              end
+
+              it "returns correct translations" do
+                translations = response["translations"]
+                expect(translations.length).to eq(3)
+                expect(translations).to include("locale" => "ca", "text" => "Hola", "machineTranslated" => false)
+                expect(translations).to include("locale" => "en", "text" => "Hello", "machineTranslated" => false)
+                expect(translations).to include("locale" => "es", "text" => "Hola", "machineTranslated" => false)
+              end
+            end
           end
         end
 
