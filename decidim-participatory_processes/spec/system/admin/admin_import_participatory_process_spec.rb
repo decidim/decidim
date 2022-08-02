@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 require "spec_helper"
+require "tempfile"
+require "json"
 
 describe "Admin imports participatory process", type: :system do
   include_context "when admin administrating a participatory process"
@@ -25,8 +27,30 @@ describe "Admin imports participatory process", type: :system do
         )
         fill_in :participatory_process_slug, with: "pp-import"
       end
-
-      dynamically_attach_file(:participatory_process_document, Decidim::Dev.asset("participatory_processes.json"))
+      
+      hero_file = Decidim::Dev.asset("city.jpeg")
+      banner_file = Decidim::Dev.asset("city2.jpeg")
+      dest_folder = "../spec/decidim_dummy_app/uploads/decidim/participatory_process/hero_image/1/"
+      FileUtils.mkdir_p(dest_folder)
+      
+      FileUtils.cp(hero_file, dest_folder)
+      FileUtils.cp(banner_file, dest_folder)
+      
+      file_json = File.read(Decidim::Dev.asset("participatory_processes.json"))
+      original_json = JSON.parse(file_json).first
+      
+      hero_url = "#{current_host}:#{Capybara.current_session.server.port}/uploads/decidim/participatory_process/hero_image/1/city.jpeg"
+      banner_url = "#{current_host}:#{Capybara.current_session.server.port}/uploads/decidim/participatory_process/hero_image/1/city.jpeg"
+      
+      original_json['remote_hero_image_url'] = hero_url
+      original_json['remote_banner_image_url'] = banner_url
+      
+      file = Tempfile.new('participatory_processes')
+      file.write(original_json)
+      file.rewind
+      
+      participatory_processes_json = file.read
+      dynamically_attach_file(:participatory_process_document, participatory_processes_json)
 
       click_button "Import"
     end

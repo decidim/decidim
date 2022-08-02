@@ -77,8 +77,7 @@
         "ca": "<p>Et accusamus debitis. Sint voluptatem velit. Quia architecto at.</p>",
         "en": "<p>Sunt eius labore. Odit fugiat numquam. Et consequatur pariatur.</p>",
         "es": "<p>Rerum aperiam omnis. Optio est quo. Odit est eveniet.</p>"
-      },
-      "remote_hero_image_url": "http://localhost:3000/uploads/decidim/participatory_process_group/hero_image/1/city.jpeg"
+      }
     },
     "scope": {
       "id": 1,
@@ -266,8 +265,7 @@
             "name": null,
             "weight": null,
             "description": null
-          },
-          "remote_file_url": "http://localhost:3000/uploads/decidim/attachment/file/3/Exampledocument.pdf"
+          }
         },
         {
           "id": 2,
@@ -286,8 +284,7 @@
             "name": null,
             "weight": null,
             "description": null
-          },
-          "remote_file_url": "http://localhost:3000/uploads/decidim/attachment/file/2/city.jpeg"
+          }
         },
         {
           "id": 1,
@@ -314,8 +311,7 @@
               "en": "Enim velit nulla nihil expedita.",
               "es": "Pariatur excepturi veritatis cumque sed."
             }
-          },
-          "remote_file_url": "http://localhost:3000/uploads/decidim/attachment/file/1/Exampledocument.pdf"
+          }
         }
       ]
     },
