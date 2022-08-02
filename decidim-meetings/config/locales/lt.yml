@@ -433,6 +433,15 @@ lt:
           address_help: 'Adresas: jį naudoja „Geocoder“, kad rastų vietą'
           available_slots_help: Jei nėra ribojimų įrašykite 0
           create_as: Sukurti posėdį kaip
+          disclaimer: 'Perspėjimas: Naudodami išorinę registracijos sistemą jūs suprantate, kad %{organization} organizatoriai nėra atsakingi už naudotojų išorinei paslaugai pateiktus duomenis.'
+          location_help: 'Vieta: naudotojams skirtas pranešimas, kuriame nurodoma susitikimo vieta'
+          location_hints_help: 'Vietos užuominos: papildoma informacija. Pavyzdžiui: pastato aukštas, jei tai yra susitikimas gyvai, arba susitikimo slaptažodis, jei tai virtualus susitikimas su ribota prieiga.'
+          online_meeting_url_help: 'Nuoroda: leiskite dalyviams tiesiai prisijungti prie susitikimo'
+          registration_url_help: 'Nuoroda: leiskite dalyviams prisijungti prie išorinės paslaugos, kurią naudojate registracijai'
+          select_a_category: Pasirinkite kategoriją
+          select_a_meeting_type: Pasirinkite susitikimo tipą
+          select_a_registration_type: Pasirinkite registracijos tipą
+          select_an_iframe_access_level: Pasirinkite iframe prieigos lygį
         show:
           leave: Atšaukti registraciją
           leave_confirmation: Ar tikrai norite atšaukti savo registraciją į šį susirinkimą?
