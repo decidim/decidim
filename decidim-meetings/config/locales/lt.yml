@@ -35,8 +35,45 @@ lt:
         registration_terms: Registracijos sąlygos
         registration_url: Registracijos URL
         registrations_enabled: Registracijos įjungtos
+        show_embedded_iframe: Rodyti šiame URL įterptąjį „iframe“
+        start_time: Pradžios Laikas
+        title: Pavadinimas
+        transparent: Skaidrus
+        type_of_meeting: Tipas
+    errors:
+      models:
+        meeting:
+          attributes:
+            iframe_embed_type:
+              not_embeddable: Šio URL negalima įterpti į susitikimo ar tiesioginio įvykio puslapį
+        meeting_agenda:
+          attributes:
+            base:
+              too_many_minutes: Elementų trukmė viršija posėdžio trukmę %{count} minutėmis (-čių)
+              too_many_minutes_child: Antrinių elementų trukmė viršija darbotvarkės pirminio elemento „%{parent_title}“ trukmę %{count} minutėmis (-čių)
+        meeting_registration_invite:
+          attributes:
+            email:
+              already_invited: Šio el. laiško paskyros adresatas jau buvo pakviestas
+    models:
+      decidim/meetings/close_meeting_event: Susitikimas baigtas
+      decidim/meetings/create_meeting_event: Susitikimas
+      decidim/meetings/meeting_registrations_enabled_event: Registracijos įjungtos
+      decidim/meetings/meeting_registrations_over_percentage_event: Registracijų riba viršyta
+      decidim/meetings/upcoming_meeting_event: Būsimas susitikimas
+      decidim/meetings/update_meeting_event: Susitikimas atnaujintas
   activerecord:
     models:
+      decidim/meetings/meeting:
+        one: Susitikimas
+        few: Susitikimai
+        many: Susitikimų
+        other: Susitikimai
+      decidim/meetings/minutes:
+        one: Minutė
+        few: Minutės
+        many: Minučių
+        other: Minutės
       decidim/meetings/registration:
         one: Registracija
         few: Registracijos
@@ -123,6 +160,20 @@ lt:
           notification_title: Susirinkimas<a href="%{resource_path}"><a href="%{resource_path}">%{resource_title}</a> pridėtas prie %{participatory_space_title}
         meeting_registration_confirmed:
           notification_title: Jūsų registracija į susirinkimą <a href="%{resource_url}">%{resource_title}</a> buvo patvirtinta. Jūsų registracijos kodas yra %{registration_code}.
+        meeting_registrations_over_percentage:
+          email_intro: Susitikimui „%{resource_title}“ skirti laiko tarpsniai sudaro daugiau kaip %{percentage}%.
+          email_outro: Šį pranešimą gavote dėl to, kad esate susitikimo dalyvaujamojo proceso erdvės administratorius.
+          email_subject: Susitikimui „%{resource_title}“ skirti laiko tarpsniai sudaro daugiau kaip %{percentage}%
+          notification_title: Susitikimui <a href="%{resource_path}">%{resource_title}</a> skirti laiko tarpsniai sudaro daugiau kaip %{percentage}%.
+        meeting_updated:
+          email_intro: '"%{resource_title}" susitikimas buvo atnaujintas. Naująją versiją galite perskaityti susitikimo puslapyje:'
+          email_outro: Gavote šį pranešimą nes sekate "%{resource_title}" susirinkimą. Galite jo nebesekti paspaudę ant ankstesnės nuorodos.
+          email_subject: '"%{resource_title}" susitikimas buvo atnaujintas'
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> susitikimas buvo atnaujintas.
+        registration_code_validated:
+          email_intro: Jūsų "%{resource_title}" susitikimo registracijos kodas "%{registration_code}" buvo patvirtintas.
+          email_outro: Šį pranešimą gavote dėl to, kad jūsų "%{resource_title}“ susitikimo registracijos kodas buvo patvirtintas.
+          email_subject: Jūsų "%{resource_title}" susitikimo registracijos kodas "%{registration_code}" buvo patvirtintas
         registrations_enabled:
           notification_title: <a href="%{resource_path}">%{resource_title}</a> Susirinkimas leidžia registruotis.
         upcoming_meeting:
@@ -272,6 +323,13 @@ lt:
           publish:
             invalid: Skelbiant šį susirinkimą iškilo problema
             success: Susirinkimas sėkmingai paskelbtas
+          service:
+            description: Aprašymas
+            down: Žemyn
+            remove: Pašalinti
+            service: Paslauga
+            title: Pavadinimas
+            up: Į viršų
       calendar_modal:
         copy_calendar_url_explanation: Atkreipkite dėmesį, kad eksportuojate pasirinktus susirinkimus (nes yra aktyvių filtrų). Jei norėtumėt eksportuoti viską, pirmiausiai panaikinkite filtrus.
         copy_calendar_url_message: Nuoroda sėkmingai nukopijuota į iškarpinę.
@@ -354,7 +412,27 @@ lt:
             past: Praėję
             upcoming: Artėjantys
           my_meetings: Susirinkimai
+          origin_values:
+            official: Oficialus
+            participants: Dalyviai
+            user_groups: Grupės
           scope: Apimtis
+          search: Ieškoti
+          type: Tipas
+          type_values:
+            all: Visi
+            hybrid: Hibridiniai
+            in_person: Fiziniai
+            online: Virtualūs
+        filters_small_view:
+          close_modal: Uždaryti modalinį langą
+          filter: Filtras
+          filter_by: Filtruoti pagal
+          unfold: Išskleisti
+        form:
+          address_help: 'Adresas: jį naudoja „Geocoder“, kad rastų vietą'
+          available_slots_help: Jei nėra ribojimų įrašykite 0
+          create_as: Sukurti posėdį kaip
         show:
           leave: Atšaukti registraciją
           leave_confirmation: Ar tikrai norite atšaukti savo registraciją į šį susirinkimą?
