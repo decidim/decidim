@@ -2,12 +2,278 @@ lt:
   activemodel:
     attributes:
       participatory_process:
+        announcement: Pranešimas
+        area_id: Aplinka
+        banner_image: Reklamjuostės paveikslėlis
+        copy_categories: Kopijuoti kategorijas
         scope_id: Apimtis
+      participatory_process_user_role:
+        role: Rolė
+    errors:
+      models:
+        participatory_process:
+          attributes:
+            document:
+              allowed_file_content_types: 'Netinkamas dokumento tipas. Priimtini formatai: %{types}'
+    models:
+      decidim/participatory_process_step_activated_event: Etapas aktyvuotas
+      decidim/participatory_process_step_changed_event: Eatapas pakeistas
+  activerecord:
+    models:
+      decidim/participatory_process:
+        one: Dalyvaujamasis procesas
+        few: Dalyvaujamieji procesai
+        many: Dalyvaujamieji procesai
+        other: Dalyvaujamieji procesai
+      decidim/participatory_process_group:
+        one: Dalyvaujamojo proceso grupė
+        few: Dalyvaujamojo proceso grupės
+        many: Dalyvaujamojo proceso grupės
+        other: Dalyvaujamojo proceso grupės
+      decidim/participatory_process_step:
+        one: Etapas
+        few: Etapai
+        many: Etapai
+        other: Etapai
   decidim:
+    admin:
+      actions:
+        activate: Aktyvuoti
+        configure: Konfigūruoti
+        confirm_destroy: Patvirtinti ištrynimą
+        destroy: Ištrinti
+        duplicate: Sukurti kopiją
+        edit: Redaguoti
+        filter:
+          all_processes: Rodyti visus procesus
+          process_groups: Procesų grupės
+        import_process: Importuoti
+        new_process: Naujas procesas
+        new_process_group: Nauja procesų grupė
+        new_process_step: Naujas etapas
+        new_process_type: Naujas proceso tipas
+        new_process_user_role: Naujas proceso administratorius
+        preview: Peržiūra
+        publish: Publikuoti
+        resend_invitation: Persiųsti pakvietimą
+        unpublish: Depublikuoti
+      menu:
+        participatory_process_groups: Procesų grupės
+        participatory_process_groups_submenu:
+          info: Informacija
+          landing_page: Pagrindinis puslapis
+        participatory_process_types: Proceso tipas
+        participatory_processes: Procesai
+        participatory_processes_submenu:
+          attachment_collections: Aplankai
+          attachment_files: Dokumentai
+          attachments: Priedai
+          categories: Kategorijos
+          components: Komponentai
+          info: Informacija
+          moderations: Moderavimai
+          private_users: Privatūs dalyviai
+          process_admins: Proceso administratoriai
+          steps: Etapai
+      models:
+        participatory_process:
+          fields:
+            created_at: Sukurta
+            private: Privatu
+            promoted: Paryškinta
+            published: Paskelbta
+            title: Pavadinimas
+          name: Dalyvaujamasis procesas
+        participatory_process_group:
+          fields:
+            title: Pavadinimas
+          name: Procesų grupė
+        participatory_process_step:
+          fields:
+            end_date: Pabaigos data
+            start_date: Pradžios data
+      participatory_process_steps:
+        new:
+          title: Naujas dalyvaujamojo proceso etapas
+        ordering:
+          error: Pertvarkant šiuos dalyvaujamojo proceso etapus iškilo problema.
+        update:
+          error: Atnaujinant šio dalyvaujamojo proceso etapą iškilo problema.
+          success: Dalyvaujamasis etapas atnaujintas.
+      participatory_process_types:
+        create:
+          error: Kuriant naują proceso tipą iškilo problema.
+          success: Proceso tipas sėkmingai sukurtas.
+        destroy:
+          success: Proceso tipas sėkmingai ištrintas.
+        edit:
+          title: Redaguoti proceso tipą
+          update: Atnaujinti
+        form:
+          title: Pavadinimas
+        new:
+          create: Sukurti
+          title: Naujas proceso tipas
+        update:
+          error: Atnaujinant šį proceso tipą iškilo problema.
+          success: Proceso tipas sėkmingai sukurtas.
+      participatory_process_user_roles:
+        create:
+          error: Pridedant dalyvį prie dalyvaujamojo proceso iškilo problema.
+          success: Administratorius sėkmingai pridėtas prie šio dalyvaujamojo proceso.
+        destroy:
+          success: Šio dalyvaujamojo proceso administratorius pašalintas.
+        edit:
+          title: Atnaujinti dalyvaujamojo proceso administratorių
+          update: Atnaujinti
+        index:
+          process_admins_title: Dalyvaujamojo proceso administratoriai
+        new:
+          create: Sukurti
+          title: Naujas dalyvaujamojo proceso administratorius
+        update:
+          error: Atnaujinant šio dalyvaujamojo proceso administratorių iškilo problema.
+          success: Šio dalyvaujamojo proceso administratorius atnaujintas.
+      participatory_processes:
+        create:
+          error: Kuriant naują dalyvaujamąjį procesą iškilo problema.
+          success: Dalyvaujamasis procesas sukurtas. Dabar konfiguruokite jo etapus.
+        edit:
+          update: Atnaujinti
+        index:
+          not_published: Nepaskelbta
+          private: Privatu
+          public: Vieša
+        new:
+          create: Sukurti
+          title: Naujas dalyvaujamasis procesas
+        update:
+          error: Atnaujinant šį dalyvaujamąjį procesą iškilo problema.
+          success: Dalyvaujamasis procesas atnaujintas.
+      participatory_processes_copies:
+        create:
+          error: Dubliuojant šį dalyvaujamąjį procesą iškilo problema.
+          success: Dalyvaujamasis procesas dubliuotas.
+      participatory_processes_group:
+        create:
+          error: Kuriant naują dalyvaujamojo proceso grupę iškilo problema.
+          success: Dalyvaujamojo proceso grupė sukurta.
+      titles:
+        participatory_process_groups: Dalyvaujamojo proceso grupės
+        participatory_process_types: Dalyvaujamųjų procesų tipai
+        participatory_processes: Dalyvaujamieji procesai
+      users:
+        resend_invitation:
+          error: Dar kartą siunčiant šį kvietimą iškilo problema.
+          success: Kvietimas išsiųstas iš naujo.
+    admin_log:
+      participatory_process:
+        create: "%{user_name} sukūrė %{resource_name} dalyvaujamąjį procesą"
+        duplicate: "%{user_name} dublikavo %{resource_name} dalyvaujamąjį procesą"
+        export: "%{user_name} eksportavo %{resource_name} dalyvaujamąjį procesą"
+        import: "%{user_name} importavo %{resource_name} dalyvaujamąjį procesą"
+        publish: "%{user_name} paskelbė %{resource_name} dalyvaujamąjį procesą"
+        unpublish: "%{user_name} panaikino %{resource_name} dalyvaujamojo proceso skelbimą"
     participatory_process_groups:
       content_blocks:
         title:
           meta_scope: Apimtis
     participatory_processes:
+      admin:
+        content_blocks:
+          highlighted_processes:
+            max_results: Didžiausias rodomų elementų skaičius
+        new_import:
+          accepted_types:
+            json: JSON
+        participatory_process_copies:
+          form:
+            slug_help: 'Nuorodos priedėliai nukreipia į šią konkrečią asamblėją. Priedėliai sudaromi iš raidžių, skaičių, brukšnių ir turi prasidėti nuo raidės. Pavyzdys: %{url}'
+        participatory_process_groups:
+          form:
+            metadata: Metaduomenys
+            title: Bendroji informacija
+            visibility: Matomumas
+        participatory_process_imports:
+          form:
+            document_legend: Pridėti dokumentą
+            slug_help: 'Nuorodos priedėliai nukreipia į šią konkrečią asamblėją. Priedėliai sudaromi iš raidžių, skaičių, brukšnių ir turi prasidėti nuo raidės. Pavyzdys: %{url}'
+        participatory_process_steps:
+          form:
+            cta_path_help: 'Naudokite dalines, ne pilnas, nuorodas. Galima naudoti raides, skaičius, brūkšnius ir pasviruosius brūkšnius, tačiau pradėti būtina raide. Pavyzdys: %{url}'
+            cta_text_help: Jei nenustatyta, mygtukas nebus matomas.
+        participatory_processes:
+          form:
+            announcement_help: Čia įrašytas tekstas naudotojui bus rodomas iš karto po informacijos apie procesą.
+            duration: Trukmė
+            filters: Filtrai
+            images: Paveikslėliai
+            metadata: Metaduomenys
+            other: Kita
+            related_processes: Susiję procesai
+            scope_type_max_depth_help: Riboti srities filtro dydį; Filtras parodys nuo bendros iki pasirinktos apimties tipo.
+            select_an_area: Pasirinkti aplinką
+            select_participatory_process_type: Pasirinkti proceso tipą
+            select_process_group: Pasirinkti procesų grupę
+            slug_help: 'Nuorodos priedėliai nukreipia į šią konkretų procesą. Priedėliai sudaromi iš raidžių, skaičių, brukšnių ir turi prasidėti nuo raidės. Pavyzdys: %{url}'
+            title: Bendroji informacija
+            visbility: Matomumas
+      content_blocks:
+        highlighted_processes:
+          name: Paryškinti procesai
+      index:
+        title: Dalyvaujamieji procesai
+      last_activity:
+        new_participatory_process: Naujas dalyvaujamasis procesas
+      pages:
+        home:
+          highlighted_processes:
+            active_processes: Aktyvūs procesai
+            active_step: Aktyvusis etapas
+            more_information: Daugiau informacijos
+            participate: Dalyvauti
+            participate_in: Dalyvauti procese %{resource_name}
+            processes_button_title: Nuoroda į puslapį „Procesai“, kuriame pateikiami visi procesai
+            see_all_processes: Žiūrėti visus procesus
+      participatory_process_steps:
+        index:
+          back_to_process: Grįžti į procesų puslapį
+      participatory_processes:
+        filters:
+          all_types: Visi tipai
+          counters:
+            active:
+              one: 1 aktyvus procesas
+              few: "%{count} aktyvūs procesai"
+              many: "%{count} aktyvūs procesai"
+              other: "%{count} aktyvūs procesai"
+            all:
+              one: 1 procesas
+              few: "%{count} procesai"
+              many: "%{count} procesai"
+              other: "%{count} procesai"
+            past:
+              one: 1 buvęs procesas
+              few: "%{count} buvę procesai"
+              many: "%{count} buvę procesai"
+              other: "%{count} buvę procesai"
+            upcoming:
+              one: 1 būsimas procesas
+              few: "%{count} būsimi procesai"
+              many: "%{count} būsimi procesai"
+              other: "%{count} būsimi procesai"
+          explanations:
+            no_active: Aktyvių procesų nėra
+            no_active_nor_upcoming: Nei aktyvių, nei būsimų procesų nėra
+            no_active_nor_upcoming_callout: Nei aktyvių, nei būsimų procesų nėra. Čia pateikiamas buvusių procesų sąrašas.
+          filter_by: Rodyti
+          names:
+            active: Aktyvūs
+            all: Visi
+            past: Praėję
+            upcoming: Artėjantys
+          see: Žiūrėti
+        index:
+          loading: Įkeliami rezultatai...
       show:
         scope: Apimtis
