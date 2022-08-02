@@ -42,7 +42,7 @@
     @apply flex flex-col gap-4 py-10 border-t-2 border-background;
 
     a{
-      @apply text-secondary hover:underline;
+      @apply w-fit text-secondary hover:underline;
     }
   }
 }
