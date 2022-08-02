@@ -15,15 +15,19 @@ const initializeAccountForm = () => {
     return;
   }
 
-  const passwodFields = passwordChange.querySelectorAll("input[type='password']");
-  if (passwodFields.length < 1) {
+  const passwordFields = passwordChange.querySelectorAll("input[type='password']");
+  if (passwordFields.length < 1) {
     return;
   }
 
   // Foundation uses jQuery so these have to be bound using jQuery and the
   // attribute value needs to be set through jQuery.
   const togglePasswordFieldValidators = (enabled) => {
-    $(passwodFields).attr("required", enabled);
+    $(passwordFields).attr("required", enabled);
+
+    if (!enabled) {
+      passwordFields.forEach((field) => (field.value = ""));
+    }
   }
 
   $(passwordChange).on("on.zf.toggler", () => {
