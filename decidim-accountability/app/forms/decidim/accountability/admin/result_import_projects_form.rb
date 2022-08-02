@@ -34,7 +34,7 @@ module Decidim
 
         def selceted_projects_count(component)
           projects = Decidim::Budgets::Project.joins(:budget).selected.where(
-            budget: { component: component }
+            budget: { component: }
           )
           projects.reject { |project| project_already_copied?(project) }.count
           # errors[:origin_component_id] << "No projects are being added" if projects_count <= 0

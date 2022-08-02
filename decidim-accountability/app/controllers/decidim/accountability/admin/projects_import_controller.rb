@@ -21,6 +21,7 @@ module Decidim
 
             on(:invalid) do
               flash[:alert] = I18n.t("proposals_imports.create.invalid", scope: "decidim.budgets.admin")
+              @origin = @form.origin_component_id
               render action: "new"
             end
           end

@@ -8,10 +8,10 @@ module Decidim
       describe ProjectsImportController, type: :controller do
         routes { Decidim::Accountability::AdminEngine.routes }
         describe "GET the import result process new" do
-          let(:current_user) { create(:user, :confirmed, :admin, organization: organization) }
+          let(:current_user) { create(:user, :confirmed, :admin, organization:) }
           let(:organization) { create(:organization) }
-          let(:participatory_space) { create(:participatory_process, organization: organization) }
-          let(:component) { create(:component, manifest_name: "accountability", participatory_space: participatory_space, published_at: Time.current) }
+          let(:participatory_space) { create(:participatory_process, organization:) }
+          let(:component) { create(:component, manifest_name: "accountability", participatory_space:, published_at: Time.current) }
           let(:params) { { participatory_process_slug: participatory_space.slug, component_id: component.id } }
 
           before do

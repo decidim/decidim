@@ -52,7 +52,7 @@ module Decidim
             category: project.category,
             scope: project.scope || project.budget.scope,
             component: form.current_component,
-            status: status,
+            status:,
             progress: status&.progress || 0
           }
           @result = Decidim.traceability.create!(

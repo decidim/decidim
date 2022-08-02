@@ -7,7 +7,7 @@ module Decidim::Accountability
     subject(:form) { described_class.from_params(attributes).with_context(context) }
 
     let(:organization) { create(:organization) }
-    let(:participatory_process) { create :participatory_process, organization: organization }
+    let(:participatory_process) { create :participatory_process, organization: }
     let(:current_component) { create :accountability_component, participatory_space: participatory_process }
     let(:budget_component) { create(:component, manifest_name: "budgets", participatory_space: participatory_process) }
     let(:import_all_selected) { false }
@@ -15,7 +15,7 @@ module Decidim::Accountability
     let(:context) do
       {
         current_organization: organization,
-        current_component: current_component,
+        current_component:,
         current_participatory_space: participatory_process
       }
     end
@@ -71,8 +71,8 @@ module Decidim::Accountability
     describe "#selceted_projects_count" do
       subject { described_class.from_model(current_component).with_context(context) }
       let(:budget) { create(:budget, component: budget_component, total_budget: 26_000_000) }
-      let!(:selected_set) { create_list(:project, 3, budget: budget, selected_at: Time.current) }
-      let!(:unselected_set) { create_list(:project, 1, budget: budget, selected_at: nil) }
+      let!(:selected_set) { create_list(:project, 3, budget:, selected_at: Time.current) }
+      let!(:unselected_set) { create_list(:project, 1, budget:, selected_at: nil) }
 
       it "return number of selected projects" do
         expect(subject.selceted_projects_count(budget_component)).to eq(3)
@@ -82,7 +82,7 @@ module Decidim::Accountability
     describe "#project_already_copied?" do
       subject { described_class.from_model(current_component).with_context(context) }
       let(:budget) { create(:budget, component: budget_component, total_budget: 26_000_000) }
-      let!(:project) { create(:project, budget: budget, selected_at: Time.current) }
+      let!(:project) { create(:project, budget:, selected_at: Time.current) }
       let!(:result) { create(:result, component: current_component) }
 
       context "when the project has not copied yet" do
