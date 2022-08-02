@@ -7,17 +7,119 @@ lt:
       proposal:
         decidim_scope_id: Apimtis
         scope_id: Apimtis
+        suggested_hashtags: Pasiūlytos grotažymės
+        title: Pavadinimas
+        user_group_id: Sukurti pasiūlymą kaip
+      proposal_answer:
+        answer: Atsakymas
+        cost: Kaina
+        cost_report: Kaštų ataskaita
+        execution_period: Vykdymo periodas
+      proposals_copy:
+        copy_proposals: Suprantu, kad visi pasiūlymai bus perkelti iš pasirinkto komponento į dabartinį ir kad šio veiksmo negalima atšaukti.
+        origin_component_id: Komponentas, skirtas kopijuoti pasiūlymams iš
+      proposals_import:
+        import_proposals: Importuoti pasiūlymus
+        keep_answers: Išlaikyti būseną ir atsakymus
+        keep_authors: Išlaikyti originalius autorius
+      valuation_assignment:
+        admin_log:
+          valuator_role_id: Vertintojo vardas ir pavardė
+    errors:
+      models:
+        participatory_text:
+          attributes:
+            document:
+              allowed_file_content_types: 'Netinkamas dokumento tipas. Priimtini formatai: %{types}'
+        proposal:
+          attributes:
+            add_documents:
+              needs_to_be_reattached: Reikia pridėti iš naujo
+            add_photos:
+              needs_to_be_reattached: Reikia pridėti iš naujo
+            body:
+              cant_be_equal_to_template: negali prilygti šablonui
+              identical: IR pavadinimas negali sutapti
+            title:
+              identical: IR pagrindinė dalis negali sutapti
+        proposals_merge:
+          attributes:
+            base:
+              not_official: Nėra oficialūs
+              supported: Gavo palaikymo ar pritarimo
+        proposals_split:
+          attributes:
+            base:
+              not_official: Nėra oficialūs
+              supported: Gavo palaikymo ar pritarimo
+    models:
+      decidim/proposals/accepted_proposal_event: Pasiūlymas priimtas
+      decidim/proposals/admin/update_proposal_category_event: Pasiūlymo kategorija pakeista
+      decidim/proposals/admin/update_proposal_scope_event: Pasiūlymo sritis pakeista
+      decidim/proposals/creation_enabled_event: Pasiūlymo sukūrimas aktyvintas
+      decidim/proposals/endorsing_enabled_event: Parama pasiūlymui aktyvinta
+      decidim/proposals/evaluating_proposal_event: Pasiūlymas šiuo metu vertinamas
+      decidim/proposals/proposal_mentioned_event: Pasiūlymas paminėtas
+      decidim/proposals/publish_proposal_event: Pasiūlymas paskelbtas
+      decidim/proposals/rejected_proposal_event: Pasiūlymas atmestas
+      decidim/proposals/voting_enabled_event: Balsavimas už pasiūlymą aktyvintas
+  activerecord:
+    models:
+      decidim/proposals/collaborative_draft:
+        one: Bendras juodraštis
+        few: Bendri projektai
+        many: Bendri projektai
+        other: Bendri projektai
+      decidim/proposals/proposal:
+        one: Pasiūlymas
+        few: Pasiūlymai
+        many: Pasiūlymai
+        other: Pasiūlymai
+      decidim/proposals/proposal_note:
+        one: Užrašas
+        few: Užrašai
+        many: Užrašai
+        other: Užrašai
+      decidim/proposals/proposal_vote:
+        one: Palaikymas
+        few: Palaikymai
+        many: Palaikymai
+        other: Palaikymai
   decidim:
     admin:
       filters:
         proposals:
+          category_id_eq:
+            label: Kategorija
+          is_emendation_true:
+            label: Tipas
+            values:
+              'false': Pasiūlymai
+              'true': Pataisos
           scope_id_eq:
             label: Apimtis
+          state_eq:
+            label: Būsena
+            values:
+              accepted: Priimta
+              evaluating: Vertinamas
+              published: Paskelbta
+              rejected: Atmesta
+              validating: Techninis patvirtinimas
+              withdrawn: Atsiimta
+          state_null:
+            label: Būsena
+            values:
+              'true': Neatsakyta
     components:
       proposals:
         settings:
           global:
             scope_id: Apimtis
+            threshold_per_proposal: Vienam pasiūlymui nustatyta riba
+            vote_limit: Paramos riba vienam dalyviui
+          step:
+            amendment_creation_enabled: Pataisų kūrimas leidžiamas
     proposals:
       collaborative_drafts:
         filters:
