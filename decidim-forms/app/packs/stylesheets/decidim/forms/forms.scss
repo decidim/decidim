@@ -1,41 +1,3 @@
-.questionnaire-question_readonly{
-  font-weight: bold;
-  font-size: .875rem;
-
-  p{
-    margin-bottom: .5rem;
-  }
-
-  em{
-    font-weight: normal;
-    font-size: 90%;
-  }
-
-  p + ul{
-    margin-top: -.5rem;
-  }
-}
-
-.questionnaire-question_readonly-answers{
-  margin-bottom: .5rem;
-
-  &.single_option{
-    list-style-type: disc;
-  }
-
-  &.multiple_option{
-    list-style-type: square;
-  }
-
-  &.sorting{
-    list-style-type: circle;
-  }
-}
-
-.questionnaire-question_readonly-answer{
-  font-weight: normal;
-}
-
 .answer-questionnaire{
   @apply border-t-4 border-background py-10;
 
@@ -147,6 +109,30 @@
 
     > *:only-child{
       @apply ml-auto;
+    }
+  }
+
+  &__box{
+    @apply w-1/2 flex flex-col gap-4 border-2 border-background rounded p-6;
+
+    &-container{
+      @apply flex gap-12 mb-12;
+    }
+
+    &-icon{
+      @apply w-8 h-8 text-tertiary fill-current;
+    }
+
+    &-title{
+      @apply text-2xl font-semibold;
+    }
+
+    &-description{
+      @apply text-lg text-gray-2;
+    }
+
+    &-link{
+      @apply inline-flex items-center gap-2 text-secondary font-semibold mt-auto;
     }
   }
 }

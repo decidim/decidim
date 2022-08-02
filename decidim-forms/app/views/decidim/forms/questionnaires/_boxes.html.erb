@@ -1,0 +1,28 @@
+<div class="answer-questionnaire__box-container">
+  <div class="answer-questionnaire__box">
+    <%= icon "login-box-line", class: "answer-questionnaire__box-icon" %>
+    <p class="answer-questionnaire__box-title">
+      <%= t("decidim.forms.questionnaires.show.answer_questionnaire.already_have_an_account?") %>
+    </p>
+    <p class="answer-questionnaire__box-description">
+      <%= t("decidim.forms.questionnaires.show.answer_questionnaire.sign_in_description") %>
+    </p>
+    <%= link_to(decidim.new_user_session_path, class: "answer-questionnaire__box-link") do %>
+      <%= t("decidim.devise.registrations.new.sign_in") %>
+      <%= icon "arrow-right-line", class: "fill-current" %>
+    <% end %>
+  </div>
+  <div class="answer-questionnaire__box">
+    <%= icon "user-add-line", class: "answer-questionnaire__box-icon" %>
+    <p class="answer-questionnaire__box-title">
+      <%= t("decidim.forms.questionnaires.show.answer_questionnaire.are_you_new?") %>
+    </p>
+    <p class="answer-questionnaire__box-description">
+      <%= t("decidim.forms.questionnaires.show.answer_questionnaire.sign_up_description") %>
+    </p>
+    <%= link_to(decidim.new_user_registration_path, class: "answer-questionnaire__box-link") do %>
+      <%= t("decidim.devise.registrations.new.sign_up") %>
+      <%= icon "arrow-right-line", class: "fill-current" %>
+    <% end %>
+  </div>
+</div>

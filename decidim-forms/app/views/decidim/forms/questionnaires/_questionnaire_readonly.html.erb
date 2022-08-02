@@ -1,10 +1,7 @@
-<div class="answer-questionnaire">
-  <h3 class="section-heading"><%= t("decidim.forms.questionnaires.show.answer_questionnaire.title") %></h3>
-  <p>
-    <%= t("decidim.forms.questionnaires.show.answer_questionnaire.anonymous_user_message", sign_in_link: decidim.new_user_session_path, sign_up_link: decidim.new_user_registration_path).html_safe %>
-  </p>
+<%= render partial: "decidim/forms/questionnaires/boxes" %>
 
-  <ol>
+<div class="answer-questionnaire">
+  <ol class="answer-questionnaire__step">
     <%= cell("decidim/forms/question_readonly", collection: @questionnaire.questions.not_conditioned) %>
   </ol>
 </div>
