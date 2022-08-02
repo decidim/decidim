@@ -75,6 +75,13 @@ es-MX:
       postal_letter:
         explanation: Te enviaremos una carta postal con un código que deberás ingresar para que podamos verificar tu dirección
         name: Código por carta postal
+    events:
+      verifications:
+        verify_with_managed_user:
+          email_intro: La participante <a href="%{resource_url}">%{resource_title}</a> ha intentado verificarse con los datos de otra participante (<a href="%{managed_user_url}">%{managed_user_name}</a>).
+          email_outro: Comprueba la <a href="%{conflicts_url}">lista de conflictos de verificaciones</a> y ponte en contacto con la participante para verificar sus detalles y resolver el problema.
+          email_subject: Error al intentar verificarse contra otra participante
+          notification_title: La participante <a href="%{resource_url}">%{resource_title}</a> ha intentado verificarse con los datos de otra participante (<a href="%{managed_user_url}">%{managed_user_name}</a>).
     verifications:
       authorizations:
         authorization_metadata:
