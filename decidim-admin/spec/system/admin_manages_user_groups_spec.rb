@@ -5,9 +5,9 @@ require "spec_helper"
 describe "Admin manages user groups", type: :system do
   let(:organization) { create(:organization) }
 
-  let!(:user) { create(:user, :admin, :confirmed, organization: organization) }
+  let!(:user) { create(:user, :admin, :confirmed, organization:) }
 
-  let!(:user_groups) { create_list(:user_group, 3, users: [create(:user, organization: organization)]) }
+  let!(:user_groups) { create_list(:user_group, 3, users: [create(:user, organization:)]) }
 
   let(:user_group) { user_groups.first }
 

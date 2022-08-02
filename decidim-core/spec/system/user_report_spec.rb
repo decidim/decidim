@@ -52,7 +52,7 @@ describe "Report User", type: :system do
     context "and the user has reported the resource previously" do
       before do
         user_moderation = create(:user_moderation, user: reportable)
-        create(:user_report, moderation: user_moderation, user: user, reason: "spam")
+        create(:user_report, moderation: user_moderation, user:, reason: "spam")
       end
 
       it "cannot report it twice" do

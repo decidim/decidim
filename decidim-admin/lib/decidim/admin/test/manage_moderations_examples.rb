@@ -3,8 +3,8 @@
 shared_examples "sorted moderations" do
   let!(:moderations) do
     reportables.first(reportables.length - 1).map do |reportable|
-      moderation = create(:moderation, reportable: reportable, report_count: 1, reported_content: reportable.reported_searchable_content_text)
-      create(:report, moderation: moderation)
+      moderation = create(:moderation, reportable:, report_count: 1, reported_content: reportable.reported_searchable_content_text)
+      create(:report, moderation:)
       moderation
     end
   end
@@ -30,16 +30,16 @@ end
 shared_examples "manage moderations" do
   let!(:moderations) do
     reportables.first(reportables.length - 1).map do |reportable|
-      moderation = create(:moderation, reportable: reportable, report_count: 1, reported_content: reportable.reported_searchable_content_text)
-      create(:report, moderation: moderation)
+      moderation = create(:moderation, reportable:, report_count: 1, reported_content: reportable.reported_searchable_content_text)
+      create(:report, moderation:)
       moderation
     end
   end
   let!(:moderation) { moderations.first }
   let!(:hidden_moderations) do
     reportables.last(1).map do |reportable|
-      moderation = create(:moderation, reportable: reportable, report_count: 3, reported_content: reportable.reported_searchable_content_text, hidden_at: Time.current)
-      create_list(:report, 3, moderation: moderation, reason: :spam)
+      moderation = create(:moderation, reportable:, report_count: 3, reported_content: reportable.reported_searchable_content_text, hidden_at: Time.current)
+      create_list(:report, 3, moderation:, reason: :spam)
       moderation
     end
   end

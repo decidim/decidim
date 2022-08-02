@@ -9,11 +9,11 @@ describe Decidim::Debates::Admin::DebateForm do
   let(:context) do
     {
       current_organization: organization,
-      current_component: current_component,
+      current_component:,
       current_participatory_space: participatory_process
     }
   end
-  let(:participatory_process) { create :participatory_process, organization: organization }
+  let(:participatory_process) { create :participatory_process, organization: }
   let(:current_component) { create :component, participatory_space: participatory_process }
   let(:title) do
     Decidim::Faker::Localized.sentence(word_count: 3)
@@ -28,18 +28,18 @@ describe Decidim::Debates::Admin::DebateForm do
   let(:end_time) { 2.days.from_now + 4.hours }
   let(:category) { create :category, participatory_space: participatory_process }
   let(:category_id) { category.id }
-  let(:parent_scope) { create(:scope, organization: organization) }
+  let(:parent_scope) { create(:scope, organization:) }
   let(:scope) { create(:subscope, parent: parent_scope) }
   let(:scope_id) { scope.id }
   let(:attributes) do
     {
       decidim_category_id: category_id,
-      scope_id: scope_id,
-      title: title,
-      description: description,
-      instructions: instructions,
-      start_time: start_time,
-      end_time: end_time
+      scope_id:,
+      title:,
+      description:,
+      instructions:,
+      start_time:,
+      end_time:
     }
   end
 
@@ -113,7 +113,7 @@ describe Decidim::Debates::Admin::DebateForm do
 
     let(:component) { create :debates_component }
     let(:category) { create :category, participatory_space: component.participatory_space }
-    let(:debate) { create :debate, category: category, component: component }
+    let(:debate) { create :debate, category:, component: }
 
     it "sets the form category id correctly" do
       expect(subject.decidim_category_id).to eq category.id

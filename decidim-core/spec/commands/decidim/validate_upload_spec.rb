@@ -9,7 +9,7 @@ module Decidim
       let(:form) do
         double(
           invalid?: invalid,
-          errors: errors
+          errors:
         )
       end
       let(:invalid) { false }

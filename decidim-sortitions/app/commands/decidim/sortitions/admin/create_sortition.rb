@@ -49,7 +49,7 @@ module Decidim
             additional_info: form.additional_info,
             selected_proposals: [],
             candidate_proposals: [],
-            category: category
+            category:
           )
         end
 

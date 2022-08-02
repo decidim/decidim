@@ -39,7 +39,7 @@ module Decidim
         next if klass.blank?
         next if klass.column_names.exclude? "decidim_component_id"
 
-        ary << klass.where(component: component).to_a
+        ary << klass.where(component:).to_a
       end
 
       ary

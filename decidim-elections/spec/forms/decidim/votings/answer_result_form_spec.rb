@@ -5,7 +5,7 @@ require "spec_helper"
 describe Decidim::Votings::AnswerResultForm do
   subject { described_class.from_params(attributes) }
 
-  let(:answer) { create(:election_answer, question: question) }
+  let(:answer) { create(:election_answer, question:) }
   let(:question) { create(:question) }
   let(:answer_id) { answer.id }
   let(:question_id) { question.id }
@@ -14,8 +14,8 @@ describe Decidim::Votings::AnswerResultForm do
   let(:attributes) do
     {
       id: answer_id,
-      question_id: question_id,
-      value: value
+      question_id:,
+      value:
     }
   end
 

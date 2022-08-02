@@ -13,11 +13,11 @@ describe Decidim::Elections::TrusteeZone::Permissions do
     }
   end
   let(:elections_component) { create :elections_component }
-  let(:trustee) { create(:trustee, user: user) }
+  let(:trustee) { create(:trustee, user:) }
   let(:election) do
     create(:election, :ready_for_setup, trustees_participatory_space: trustee_participatory_space)
   end
-  let(:trustee_participatory_space) { create :trustees_participatory_space, trustee: trustee }
+  let(:trustee_participatory_space) { create :trustees_participatory_space, trustee: }
   let(:permission_trustee) { trustee }
   let(:permission_action) { Decidim::PermissionAction.new(**action) }
 

@@ -20,7 +20,7 @@ on:
 
 env:
   CI: "true"
-  RUBY_VERSION: 3.0.2
+  RUBY_VERSION: 3.1.1
   NODE_VERSION: 16.9.1
   DECIDIM_MODULE: decidim-initiatives
   PARALLEL_TEST_PROCESSORS: 2

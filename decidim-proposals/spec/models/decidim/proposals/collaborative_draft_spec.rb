@@ -9,7 +9,7 @@ module Decidim
 
       let(:organization) { component.participatory_space.organization }
       let(:component) { create :proposal_component }
-      let(:collaborative_draft) { create(:collaborative_draft, component: component) }
+      let(:collaborative_draft) { create(:collaborative_draft, component:) }
       let(:coauthorable) { collaborative_draft }
 
       include_examples "coauthorable"
@@ -35,12 +35,12 @@ module Decidim
       end
 
       describe "#editable_by?" do
-        let(:author) { create(:user, organization: organization) }
+        let(:author) { create(:user, organization:) }
 
         context "when user is author" do
           let(:collaborative_draft) do
             cd = create :collaborative_draft, component: component, updated_at: Time.current
-            Decidim::Coauthorship.create(author: author, coauthorable: cd)
+            Decidim::Coauthorship.create(author:, coauthorable: cd)
             cd
           end
 
@@ -51,7 +51,7 @@ module Decidim
           let(:user_group) { create :user_group, :verified, users: [author], organization: author.organization }
           let(:collaborative_draft) do
             cd = create :collaborative_draft, component: component, updated_at: Time.current
-            Decidim::Coauthorship.create(author: author, decidim_user_group_id: user_group.id, coauthorable: cd)
+            Decidim::Coauthorship.create(author:, decidim_user_group_id: user_group.id, coauthorable: cd)
             cd
           end
 
@@ -59,7 +59,7 @@ module Decidim
         end
 
         context "when user is not the author" do
-          let(:collaborative_draft) { create :collaborative_draft, component: component, updated_at: Time.current }
+          let(:collaborative_draft) { create :collaborative_draft, component:, updated_at: Time.current }
 
           it { is_expected.not_to be_editable_by(author) }
         end

@@ -13,7 +13,7 @@ module Decidim
       end
 
       def as_json(*_args)
-        { id: id, body: translated_body }
+        { id:, body: translated_body }
       end
     end
   end

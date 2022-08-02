@@ -17,7 +17,7 @@ describe "Edit a page", type: :system do
 
   describe "admin page" do
     before do
-      create(:page, component: component, body: body)
+      create(:page, component:, body:)
       visit_component_admin
     end
 
@@ -43,7 +43,7 @@ describe "Edit a page", type: :system do
 
   describe "announcements" do
     before do
-      create(:page, component: component, body: body)
+      create(:page, component:, body:)
       visit_component_admin
     end
 

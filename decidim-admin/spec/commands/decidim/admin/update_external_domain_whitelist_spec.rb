@@ -5,7 +5,7 @@ require "spec_helper"
 module Decidim::Admin
   describe UpdateExternalDomainWhitelist do
     let(:organization) { create(:organization, external_domain_whitelist: []) }
-    let(:user) { create(:user, organization: organization) }
+    let(:user) { create(:user, organization:) }
     let(:form) { Decidim::Admin::OrganizationExternalDomainWhitelistForm.from_params(attributes) }
     let(:command) { described_class.new(form, organization, user) }
     let(:domains) { ["erabaki.pamplona.es", "osallistu.hel.fi", "codefor.fr"] }

@@ -51,8 +51,8 @@ module Decidim
 
     delegate :first, to: :cached_query
 
-    def each(&block)
-      cached_query.each(&block)
+    def each(&)
+      cached_query.each(&)
     end
 
     def exists?

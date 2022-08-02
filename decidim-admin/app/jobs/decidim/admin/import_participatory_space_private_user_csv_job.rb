@@ -14,9 +14,9 @@ module Decidim
           name: user_name,
           email: email.downcase.strip
         }
-        private_user_form = ParticipatorySpacePrivateUserForm.from_params(params, privatable_to: privatable_to)
+        private_user_form = ParticipatorySpacePrivateUserForm.from_params(params, privatable_to:)
                                                              .with_context(
-                                                               current_user: current_user,
+                                                               current_user:,
                                                                current_particiaptory_space: privatable_to
                                                              )
 

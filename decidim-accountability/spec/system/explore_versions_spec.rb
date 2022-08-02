@@ -13,12 +13,12 @@ describe "Explore versions", versioning: true, type: :system do
       id: result.id
     )
   end
-  let!(:scope) { create :scope, organization: organization }
+  let!(:scope) { create :scope, organization: }
   let!(:result) do
     create(
       :result,
       progress: 25.0,
-      component: component
+      component:
     )
   end
 

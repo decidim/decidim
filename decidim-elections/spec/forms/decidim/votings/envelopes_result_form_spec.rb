@@ -3,11 +3,11 @@
 require "spec_helper"
 
 describe Decidim::Votings::EnvelopesResultForm do
-  subject { described_class.from_params(attributes).with_context(polling_officer: polling_officer) }
+  subject { described_class.from_params(attributes).with_context(polling_officer:) }
 
   let(:voting) { create(:voting) }
   let(:component) { create(:elections_component, participatory_space: voting) }
-  let(:election) { create(:election, questions: questions, component: component) }
+  let(:election) { create(:election, questions:, component:) }
   let!(:questions) { create_list(:question, 3, :complete) }
   let(:polling_station) { create(:polling_station, voting: component.participatory_space) }
   let(:polling_officer) { create(:polling_officer, voting: component.participatory_space) }
@@ -20,11 +20,11 @@ describe Decidim::Votings::EnvelopesResultForm do
 
   let(:attributes) do
     {
-      polling_station_id: polling_station_id,
-      election_id: election_id,
-      total_ballots_count: total_ballots_count,
-      polling_officer_notes: polling_officer_notes,
-      election_votes_count: election_votes_count
+      polling_station_id:,
+      election_id:,
+      total_ballots_count:,
+      polling_officer_notes:,
+      election_votes_count:
     }
   end
 

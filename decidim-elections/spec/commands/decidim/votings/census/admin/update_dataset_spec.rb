@@ -7,7 +7,7 @@ module Decidim::Votings::Census::Admin
     subject { described_class.new(dataset, attributes, user) }
 
     let(:dataset) { create(:dataset, status: "init_data") }
-    let(:user) { create(:user, :admin, organization: organization) }
+    let(:user) { create(:user, :admin, organization:) }
     let(:organization) { dataset&.organization || create(:organization) }
     let(:attributes) { { status: :data_created } }
 

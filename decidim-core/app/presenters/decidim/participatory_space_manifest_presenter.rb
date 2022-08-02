@@ -13,7 +13,7 @@ module Decidim
 
     def human_name(count: 1)
       organization.available_locales.index_with do |locale|
-        model_class.model_name.human(count: count, locale: locale)
+        model_class.model_name.human(count:, locale:)
       end
     end
 

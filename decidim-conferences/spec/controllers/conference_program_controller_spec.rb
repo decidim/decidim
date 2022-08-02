@@ -13,7 +13,7 @@ module Decidim
         create(
           :conference,
           :published,
-          organization: organization
+          organization:
         )
       end
 
@@ -46,7 +46,7 @@ module Decidim
               :meeting,
               3,
               :published,
-              component: component
+              component:
             )
           end
 

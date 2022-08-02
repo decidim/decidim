@@ -7,7 +7,7 @@ module Decidim
     describe AcceptGroupInvitation do
       describe "call" do
         let(:role) { "invited" }
-        let(:membership) { create :user_group_membership, role: role }
+        let(:membership) { create :user_group_membership, role: }
         let(:user) { membership.user }
         let(:user_group) { membership.user_group }
 

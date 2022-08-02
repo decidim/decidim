@@ -44,7 +44,7 @@ describe "Invite process collaborator", type: :system do
     let(:email) { "collaborator@example.org" }
 
     let!(:collaborator) do
-      create :user, :confirmed, :admin_terms_accepted, email: email, organization: organization
+      create :user, :confirmed, :admin_terms_accepted, email:, organization:
     end
 
     before do

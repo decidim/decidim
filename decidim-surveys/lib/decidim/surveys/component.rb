@@ -94,7 +94,7 @@ Decidim.register_component(:surveys) do |component|
       name: Decidim::Components::Namer.new(participatory_space.organization.available_locales, :surveys).i18n_name,
       manifest_name: :surveys,
       published_at: Time.current,
-      participatory_space: participatory_space
+      participatory_space:
     }
 
     component = Decidim.traceability.perform_action!(
@@ -117,8 +117,8 @@ Decidim.register_component(:surveys) do |component|
     )
 
     params = {
-      component: component,
-      questionnaire: questionnaire
+      component:,
+      questionnaire:
     }
 
     Decidim.traceability.create!(
@@ -130,7 +130,7 @@ Decidim.register_component(:surveys) do |component|
 
     %w(short_answer long_answer).each_with_index do |text_question_type, index|
       Decidim::Forms::Question.create!(
-        questionnaire: questionnaire,
+        questionnaire:,
         body: Decidim::Faker::Localized.paragraph,
         question_type: text_question_type,
         position: index
@@ -139,7 +139,7 @@ Decidim.register_component(:surveys) do |component|
 
     %w(single_option multiple_option).each_with_index do |multiple_choice_question_type, index|
       question = Decidim::Forms::Question.create!(
-        questionnaire: questionnaire,
+        questionnaire:,
         body: Decidim::Faker::Localized.paragraph,
         question_type: multiple_choice_question_type,
         position: index + 2
@@ -151,7 +151,7 @@ Decidim.register_component(:surveys) do |component|
 
       question.display_conditions.create!(
         condition_question: questionnaire.questions.find_by(position: question.position - 2),
-        question: question,
+        question:,
         condition_type: :answered,
         mandatory: true
       )
@@ -159,7 +159,7 @@ Decidim.register_component(:surveys) do |component|
 
     %w(matrix_single matrix_multiple).each_with_index do |matrix_question_type, index|
       question = Decidim::Forms::Question.create!(
-        questionnaire: questionnaire,
+        questionnaire:,
         body: Decidim::Faker::Localized.paragraph,
         question_type: matrix_question_type,
         position: index
@@ -167,7 +167,7 @@ Decidim.register_component(:surveys) do |component|
 
       3.times do |position|
         question.answer_options.create!(body: Decidim::Faker::Localized.sentence)
-        question.matrix_rows.create!(body: Decidim::Faker::Localized.sentence, position: position)
+        question.matrix_rows.create!(body: Decidim::Faker::Localized.sentence, position:)
       end
     end
   end

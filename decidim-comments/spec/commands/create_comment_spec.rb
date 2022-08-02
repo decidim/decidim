@@ -49,11 +49,11 @@ module Decidim
 
           it "creates a new comment" do
             expect(Comment).to receive(:create!).with(
-              { author: author,
-                commentable: commentable,
+              { author:,
+                commentable:,
                 root_commentable: commentable,
                 body: { en: body },
-                alignment: alignment,
+                alignment:,
                 decidim_user_group_id: user_group_id,
                 participatory_space: form.current_component.try(:participatory_space) }
             ).and_call_original
@@ -115,17 +115,17 @@ module Decidim
           end
 
           context "and comment contains a user mention" do
-            let(:mentioned_user) { create(:user, organization: organization) }
+            let(:mentioned_user) { create(:user, organization:) }
             let(:parser_context) { { current_organization: organization } }
             let(:body) { ::Faker::Lorem.paragraph + " @#{mentioned_user.nickname}" }
 
             it "creates a new comment with user mention replaced" do
               expect(Comment).to receive(:create!).with(
-                { author: author,
-                  commentable: commentable,
+                { author:,
+                  commentable:,
                   root_commentable: commentable,
                   body: { en: Decidim::ContentProcessor.parse(body, parser_context).rewrite },
-                  alignment: alignment,
+                  alignment:,
                   decidim_user_group_id: user_group_id,
                   participatory_space: form.current_component.try(:participatory_space) }
               ).and_call_original
@@ -151,17 +151,17 @@ module Decidim
           end
 
           context "and comment contains a group mention" do
-            let(:mentioned_group) { create(:user_group, organization: organization) }
+            let(:mentioned_group) { create(:user_group, organization:) }
             let(:parser_context) { { current_organization: organization } }
             let(:body) { ::Faker::Lorem.paragraph + " @#{mentioned_group.nickname}" }
 
             it "creates a new comment with user_group mention replaced" do
               expect(Comment).to receive(:create!).with(
-                { author: author,
-                  commentable: commentable,
+                { author:,
+                  commentable:,
                   root_commentable: commentable,
                   body: { en: Decidim::ContentProcessor.parse(body, parser_context).rewrite },
-                  alignment: alignment,
+                  alignment:,
                   decidim_user_group_id: user_group_id,
                   participatory_space: form.current_component.try(:participatory_space) }
               ).and_call_original

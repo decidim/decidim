@@ -31,8 +31,8 @@ module Decidim::Admin
     let(:form_params) do
       {
         content_block: {
-          settings: settings,
-          images: images
+          settings:,
+          images:
         }
       }
     end

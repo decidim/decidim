@@ -9,11 +9,11 @@ module Decidim
 
       let!(:organization) { create(:organization) }
       let!(:local_consultations) do
-        create_list(:consultation, 3, :active, organization: organization)
+        create_list(:consultation, 3, :active, organization:)
       end
 
       let!(:local_inactive_consultations) do
-        create_list(:consultation, 3, :upcoming, organization: organization)
+        create_list(:consultation, 3, :upcoming, organization:)
       end
 
       let!(:foreign_consultations) do

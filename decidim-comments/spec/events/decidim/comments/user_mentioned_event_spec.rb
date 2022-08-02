@@ -15,13 +15,13 @@ describe Decidim::Comments::UserMentionedEvent do
   let(:parsed_ca_body) { Decidim::ContentProcessor.parse("Un commentaire pour @#{author.nickname}", current_organization: organization) }
   let(:body) { { en: parsed_body.rewrite, machine_translations: { ca: parsed_ca_body.rewrite } } }
 
-  let(:participatory_process) { create :participatory_process, organization: organization }
+  let(:participatory_process) { create :participatory_process, organization: }
   let(:component) { create(:component, participatory_space: participatory_process) }
-  let(:commentable) { create(:dummy_resource, component: component) }
+  let(:commentable) { create(:dummy_resource, component:) }
 
-  let(:author) { create :user, organization: organization }
-  let!(:comment) { create :comment, body: body, author: author, commentable: commentable }
-  let(:user) { create :user, organization: organization, locale: "ca" }
+  let(:author) { create :user, organization: }
+  let!(:comment) { create :comment, body:, author:, commentable: }
+  let(:user) { create :user, organization:, locale: "ca" }
 
   it_behaves_like "a comment event"
 
@@ -66,10 +66,10 @@ describe Decidim::Comments::UserMentionedEvent do
 
     let(:body) { { en: en_body, machine_translations: { ca: parsed_ca_body.rewrite } } }
 
-    let(:participatory_process) { create :participatory_process, organization: organization }
+    let(:participatory_process) { create :participatory_process, organization: }
     let(:component) { create(:component, participatory_space: participatory_process) }
-    let(:commentable) { create(:dummy_resource, component: component) }
-    let!(:comment) { create :comment, body: body, author: author, commentable: commentable }
+    let(:commentable) { create(:dummy_resource, component:) }
+    let!(:comment) { create :comment, body:, author:, commentable: }
     let(:en_version) { en_comment_content }
     let(:machine_translated) { ca_comment_content }
     let(:translatable) { true }

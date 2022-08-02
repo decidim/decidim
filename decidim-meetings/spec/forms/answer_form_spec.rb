@@ -13,17 +13,17 @@ module Decidim
       let(:user) { create :user, organization: meeting_component.organization }
       let(:meeting_component) { create :meeting_component }
       let(:meeting) { create :meeting, component: meeting_component }
-      let(:poll) { create :poll, meeting: meeting }
+      let(:poll) { create :poll, meeting: }
       let(:questionnaire) { create :meetings_poll_questionnaire, questionnaire_for: poll }
       let!(:question) do
         create(
           :meetings_poll_question,
-          questionnaire: questionnaire,
-          max_choices: max_choices
+          questionnaire:,
+          max_choices:
         )
       end
-      let(:answer_options) { create_list(:meetings_poll_answer_option, 5, question: question) }
-      let!(:answer) { build(:meetings_poll_answer, user: user, questionnaire: questionnaire, question: question) }
+      let(:answer_options) { create_list(:meetings_poll_answer_option, 5, question:) }
+      let!(:answer) { build(:meetings_poll_answer, user:, questionnaire:, question:) }
 
       let(:context) do
         {

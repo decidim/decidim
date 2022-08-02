@@ -11,9 +11,9 @@ module Decidim
 
     let(:attributes) do
       {
-        token_for: token_for,
-        user: user,
-        organization: organization
+        token_for:,
+        user:,
+        organization:
       }
     end
 
@@ -59,13 +59,13 @@ module Decidim
         let(:share_token) { create(:share_token, attributes) }
 
         it "calls the found share_token's #use! method" do
-          expect { ShareToken.use!(token_for: token_for, token: share_token.token) }.to change { subject.reload.times_used }.by(1)
+          expect { ShareToken.use!(token_for:, token: share_token.token) }.to change { subject.reload.times_used }.by(1)
         end
       end
 
       context "when share_token is not found" do
         it "raises an activerecord error" do
-          expect { ShareToken.use!(token_for: token_for, token: "not a valid token") }.to raise_error(ActiveRecord::RecordNotFound)
+          expect { ShareToken.use!(token_for:, token: "not a valid token") }.to raise_error(ActiveRecord::RecordNotFound)
         end
       end
     end
