@@ -116,6 +116,15 @@ lt:
             vote_limit: Paramos riba vienam dalyviui
           step:
             amendment_creation_enabled: Pataisų kūrimas leidžiamas
+            amendment_creation_enabled_help: Dalyvis gali pataisyti pasiūlymus.
+            amendment_promotion_enabled: Pataisų paaukštinimai įjungti
+            amendment_promotion_enabled_help: Pataisymų autoriai galės paaukštinti atmestą pataisymą į pasiūlymą.
+            amendment_reaction_enabled: Pataisų reakcijos įjungtos
+            amendment_reaction_enabled_help: Pasiūlymo autoriai galės priimti arba atmesti dalyvių pataisas.
+            amendments_visibility: Pataisų matomumas
+            amendments_visibility_choices:
+              all: Pataisos matomos visiems
+              participants: Pakeitimai matomi tik jų autoriams
     proposals:
       collaborative_drafts:
         filters:
