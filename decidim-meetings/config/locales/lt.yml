@@ -175,7 +175,11 @@ lt:
           email_intro: Jūsų "%{resource_title}" susitikimo registracijos kodas "%{registration_code}" buvo patvirtintas.
           email_outro: Šį pranešimą gavote dėl to, kad jūsų "%{resource_title}“ susitikimo registracijos kodas buvo patvirtintas.
           email_subject: Jūsų "%{resource_title}" susitikimo registracijos kodas "%{registration_code}" buvo patvirtintas
+          notification_title: Jūsų registracijos kodas "%{registration_code}" <a href="%{resource_path}">%{resource_title}</a> susirinkimui buvo patvirtintas.
         registrations_enabled:
+          email_intro: '"%{resource_title}" susirinkimo registracijos įjungtos. Galite užsiregistruoti jo tinklalapyje:'
+          email_outro: Gavote šį pranešimą nes sekate "%{resource_title}" susirinkimą. Galite jo nebesekti paspaudę ant ankstesnės nuorodos.
+          email_subject: '"%{resource_title}" posėdžio registracijos įjungtos.'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> Susirinkimas leidžia registruotis.
         upcoming_meeting:
           email_intro: '%{resource_title} susirinkimas prasidės už mažiau nei 48 val.'
@@ -331,7 +335,74 @@ lt:
             service: Paslauga
             title: Pavadinimas
             up: Į viršų
+          services:
+            add_service: Pridėti paslaugą
+            services: Paslaugos
+          unpublish:
+            invalid: Depublikuojant šį susirinkimą iškilo problema
+            success: Susirinkimas sėkmingai depublikuotas
+          update:
+            invalid: Atnaujinat šį susirinkimą iškilo problema
+            success: Posėdis sėkmingai atnaujintas
+        meetings_poll:
+          form:
+            title: Redaguoti klausimyną %{questionnaire_for}
+          update:
+            invalid: Atnaujinat šio susirinkimo klausimyną iškilo problema
+            success: Susirinkimo klausimynas sėkmingai atnaujintas
+        models:
+          meeting:
+            name: Susirinkimas
+        registrations:
+          edit:
+            save: Išsaugoti
+            validate: Patvirtinti
+            validate_registration_code: Patvirtinti registracijos kodą
+          form:
+            available_slots_help: Jei nėra ribojimų įrašykite 0.
+            invites: Pakvietimai
+            recommendation_message: Dėl privatumo priežasčių rekomenduojame ištrinti šią įrašo formą, kai jos nebereikės. Pagal numatytuosius parametrus, ji ištrinama praėjus 3 mėnesiams nuo susirinkimo pabaigos.
+            registration_form: Registracijos forma
+            registrations_count:
+              one: Yra %{count} registracija.
+              few: Yra %{count} registracijų.
+              many: Yra %{count} registracijų.
+              other: Yra %{count} registracijų.
+            reserved_slots_help: Palikite 0, jei vietos nerezervuotos
+            reserved_slots_less_than: Turi būti ne didesnis kaip %{count} arba jam lygus
+            title: Registracijos
+          update:
+            invalid: Išsaugant registracijos nuostatas iškilo problema.
+            success: Susirinkimo registracijų nuostatos išsaugotos.
+          validate_registration_code:
+            invalid: Šis registracijos kodas negalioja.
+            success: Registracijos kodas patvirtintas.
+      admin_log:
+        invite:
+          create: "%{user_name} pakvietė %{attendee_name} į susirinkimą %{resource_name} %{space_name} erdvėje"
+          deleted: "%{user_name} panaikino %{attendee_name} kvietimą į susirinkimą %{resource_name} %{space_name} erdvėje"
+          update: "%{user_name} pakvietė %{attendee_name} į susirinkimą %{resource_name} %{space_name} erdvėje"
+        meeting:
+          close: "%{user_name} baigė susirinkimą %{resource_name} %{space_name} erdvėje"
+          create: "%{user_name} atnaujino %{resource_name} susirinkimą %{space_name} erdvėje"
+          delete: "%{user_name} pašalino susirinkimą %{resource_name} %{space_name} erdvėje"
+          export_registrations: "%{user_name} eksportavo susirinkimo %{resource_name} registracijas %{space_name} erdvėje"
+          update: "%{user_name} atnaujino susirinkimą %{resource_name} %{space_name} erdvėje"
+          value_types:
+            organizer_presenter:
+              not_found: 'Organizatorius duomenų bazėje nerastas (ID: %{id})'
+        questionnaire:
+          update: "%{user_name} atnaujino klausimyną %{meeting_name} susirinkimui"
+      application_helper:
+        filter_category_values:
+          all: Visi
+        filter_meeting_space_values:
+          all: Visi
+        filter_scope_values:
+          all: Visi
       calendar_modal:
+        calendar_url: Kalendoriaus URL
+        close_window: Uždaryti langą
         copy_calendar_url_explanation: Atkreipkite dėmesį, kad eksportuojate pasirinktus susirinkimus (nes yra aktyvių filtrų). Jei norėtumėt eksportuoti viską, pirmiausiai panaikinkite filtrus.
         copy_calendar_url_message: Nuoroda sėkmingai nukopijuota į iškarpinę.
         export_calendar: Eksportuoti kalendorių
@@ -496,3 +567,60 @@ lt:
         questions:
           closed_question:
             question_results: Klausimų rezultatai
+      registration_mailer:
+        confirmation:
+          confirmed_html: Jūsų registracija į susirinkimą <a href="%{url}">%{title}</a> buvo patvirtinta.
+          details: Išsamią susirinkimo informaciją rasite priede.
+          registration_code: Jūsų registracijos kodas yra %{code}.
+      registration_type:
+        on_different_platform: Kitoje platformoje
+        on_this_platform: Šioje platformoje
+        registration_disabled: Registracijos išjungtos
+      registrations:
+        create:
+          invalid: Jungiantis prie šio susirinkimo iškilo problema.
+          success: Jūs prisijungėte prie susirinkimo. Kadangi užsiregistravote šiame posėdyje, jums bus pranešta, jeigu jo informacija bus atnaujinta.
+        decline_invitation:
+          invalid: Atmetant kvietimą iškilo problema.
+          success: Jūs atmetėte kvietimą.
+        destroy:
+          invalid: Paliekant šį susirinkimą iškilo problema.
+          success: Sėkmingai palikote susirinkimą.
+      type_of_meeting:
+        hybrid: Hibridinis
+        in_person: Fizinis
+        online: Virtualus
+      types:
+        private_meeting: Uždaras posėdis
+        transparent: Skaidrus
+        withdraw: Atsiimta
+      versions:
+        back_to_resource: Grįžti į susirinkimą
+      withdraw:
+        error: Išimant susirinkimą įvyko klaida
+        success: Susirinkimas sėkmingai išimtas
+    metrics:
+      meetings:
+        description: Sukurtų susirinkimų skaičius
+        object: susirinkimai
+        title: Susirinkimai
+    participatory_spaces:
+      highlighted_meetings:
+        past_meetings: Įvykę susirinkimai
+        see_all: Žiūrėti visus susirinkimus (%{count})
+        upcoming_meetings: Artėjantys susirinkimai
+      upcoming_meeting_for_card:
+        upcoming_meeting: Būsimas susirinkimas
+    resource_links:
+      meetings_through_proposals:
+        meeting_result: 'Susiję rezultatai:'
+        result_meeting: 'Susiję susirinkimai:'
+      proposals_from_meeting:
+        meeting_proposal: 'Susiję pasiūlymai:'
+        proposal_meeting: 'Susiję susirinkimai:'
+    statistics:
+      meetings_count: Susirinkimai
+  devise:
+    mailer:
+      join_meeting:
+        subject: Kvietimas dalyvauti susirinkime
