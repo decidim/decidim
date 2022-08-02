@@ -62,8 +62,6 @@ describe "Private Space Answer a survey", type: :system do
             expect(page).to have_i18n_content(question.body)
             expect(page).not_to have_i18n_content(question_conditioned.body)
           end
-
-          expect(page).to have_content("Sign in with your account or sign up to answer the form.")
         end
       end
     end

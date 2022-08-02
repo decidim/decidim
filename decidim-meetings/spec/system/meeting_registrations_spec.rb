@@ -160,8 +160,6 @@ describe "Meeting registrations", type: :system do
             within ".questionnaire-question_readonly" do
               expect(page).to have_i18n_content(question.body)
             end
-
-            expect(page).to have_content("Sign in with your account or sign up to answer the form")
           end
         end
       end
