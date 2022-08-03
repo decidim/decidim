@@ -130,9 +130,82 @@ lt:
           values:
             'false': Pasirašyta
             'true': Nepasirašyta
+        validated_eq:
+          label: Patvirtinta
+          values:
+            'false': Patvirtinta
+            'true': Nepatvirtinta
+    components:
+      elections:
+        actions:
+          vote: Balsuoti
+        name: Rinkimai
+        settings:
+          global:
+            announcement: Pranešimas
+          step:
+            announcement: Pranešimas
     elections:
+      actions:
+        confirm_destroy: Ar esate tikri?
+        destroy: Sunaikinti
+        edit: Redaguoti
+        feedback: Balsuotojų atsiliepimai
+        import: Importuoti pasiūlymus į atsakymus
+        manage_answers: Tvarkyti atsakymus
+        manage_questions: Tvarkyti klausimus
+        manage_steps: Tvarkyti žingsnius
+        new: Naujas %{name}
+        preview: Peržiūra
+        publish: Publikuoti
+        title: Veiksmai
+        unpublish: Depublikuoti
       admin:
+        answers:
+          create:
+            invalid: Kuriant šią atsakymą iškilo problema
+            success: Atsakymas sukurtas
+          destroy:
+            invalid: Šalinant šį atsakymą iškilo problema
+            success: Atsakymas pašalintas
+          edit:
+            title: Redaguoti atsakymą
+            update: Atnaujinti atsakymą
+          index:
+            invalid_max_selections: Jums reikia dar %{missing_answers} atsakymų, kad atitikti pasirinkimą
+            title: Atsakymai
+          new:
+            create: Sukurti atsakymą
+            title: Naujas atsakymas
+          not_selected: Nepasrinkta
+          select:
+            disable: Nebepasirinkti atsakymo
+            enable: Pažymėti atsakymą kaip pasirinktą
+            invalid: Pasirenkant šį atsakymą iškilo problema
+            success: Atsakymas sėkmingai pasirinktas
+          selected: Pasirinkta
+          unselect:
+            invalid: Nebepasirinktant šį atsakymą iškilo problema
+            success: Atsakymas sėkmingai nebepasirinktas
+          update:
+            invalid: Atnaujinant šį atsakymą iškilo problema
+            success: Atsakymas atnaujintas
         elections:
+          create:
+            invalid: Kuriant šiuos rinkimus iškilo problema
+            success: Rinkimai sukurti
+          destroy:
+            invalid: Šalinant šiuos rinkimus iškilo problema
+            success: Rinkimai pašalinti
+          edit:
+            title: Redaguoti rinkimus
+            update: Atnaujinti rinkimus
+          index:
+            no_bulletin_board: Nėra šiam moduliui reikalingo sukonfigūruoto <a href="https://github.com/decidim/decidim-bulletin-board">Skelbimų Lentos serverio</a>. Šis veiksmas turėtų būti atliktas sistemos administratoriaus.
+            title: Rinkimai
+          new:
+            create: Sukurti rinkimus
+            title: Nauji rinkimai
           publish:
             success: Rinkimai paskelbti.
           unpublish:
@@ -165,3 +238,113 @@ lt:
             success: "%{number} pasiūlymai sėkmingai importuoti į atsakymus"
           new:
             create: Importuoti pasiūlymus į atsakymus
+        steps:
+          key_ceremony:
+            continue: Tęsti
+            title: Raktų ceremonija
+          key_ceremony_ended:
+            errors:
+              time_before: Rinkimai paruošti pradžiai. Reikia palaukti %{hours} valandas prieš pradžios laiką %{start_time} tam, kad pradėti balsavimą.
+            invalid: Pradedant balsavimo periodą iškilo problema
+            requirements:
+              time_before: Rinkimai prasidės neužilgo. Galite pradėti balsavimo perioda rankiniu būdu arba jie prasidės automatiškai %{start_time}.
+            submit: Pradėti balsavimo periodą
+            success: Balsavimo pradžios periodo užklausa buvo sėkmingai išsiųsta Skelbimų Lentai
+            title: Paruošta
+          processing: Apdorojama...
+          results_published:
+            answer: Atsakymas
+            not_selected: Nepasrinkta
+            question: Klausimas
+            result: Rezultatas
+            selected: Pasirinkta
+            submit: Pateikti
+            title: Rezultatai publikuoti
+          tally_ended:
+            answer: Atsakymas
+            not_selected: Nepasrinkta
+            question: Klausimas
+            result: Rezultatas
+            selected: Pasirinkta
+            submit: Skelbti rezultatus
+            success: Balsavimo rezultatų publikavimo užklausa buvo sėkmingai išsiųsta Skelbimų Lentai
+            title: Suskaičiuoti rezultatai
+          tally_started:
+            continue: Tęsti
+            title: Perskaičiavimo procesas
+          vote:
+            errors:
+              time_after: Rinkimai vis dar vyksta. Turite palaukti iki %{end_time}, kad baigti balsavimo periodą.
+            invalid: Baigiant balsavimo periodą iškilo problema
+            requirements:
+              time_after: Rinkimai baigėse. Galite uždaryti balsavimą rankiniu būdu arba jis bus uždarytas automatiškai.
+            submit: Uždaryti balsavimo periodą
+            success: Balsavimo uždarymo periodo užklausa buvo sėkmingai išsiųsta Skelbimų Lentai
+            title: Balsavimo periodas
+          vote_ended:
+            invalid: Pradedant perskaičiviamą iškilo problema
+            submit: Pradėti perskaičiavimą
+            success: Perskaičiviamo pradžios užklausa buvo sėkmingai išsiųsta Skelbimų Lentai
+            text: Balsavimas baigėsi. Galite pradėti skaičiavimą.
+            title: Balsavimo periodas baigėsi
+          vote_stats:
+            no_vote_statistics_yet: Dar nėra balsavimo statistikos
+            title: Balsavimo statistika
+            voters: Balsuotojai
+            votes: Balsai
+        trustees_participatory_spaces:
+          actions:
+            disable: Išjungti
+            enable: Atsižvelgti
+          create:
+            exists: Patikėtinis dalyvaujamojoje erdvėje yra
+            invalid: Kuriant patikėtinį iškilo problema
+            success: Patikėtinis sėkmingai sukurtas
+          delete:
+            invalid: Šalinant patikėtinį iškilo problema
+            success: Patikėtinis sėkmingai pašalintas
+          form:
+            select_user: Pasirinkti naudotoją
+          index:
+            title: Patikėtiniai
+      elections:
+        election_log:
+          results_description:
+            not_published: Rezultatai dar nepaskelbti.
+            published: Rezultatai paskelbti.
+          results_title: Rezultatai
+          started: Prasidėjo
+          tally_description:
+            finished: Skaičiavimas baigėsi.
+            not_started: Skaičiavimas dar neprasidėjo.
+            started: Skaičiavimas prasidėjo.
+          tally_title: Skaičiavimo procesas
+          title: Rinkimų ataskaita
+          verifiable_results:
+            checksum: 'SHA256 suma:'
+            description:
+              not_ready: Paikrinama rinkim7 rinkmena ir SHA256 suma dar nėra prieinami. Kai tik rezultatai bus publikuoti galėsite patikrinti šiuos rinkimus.
+              ready: 'Čia turite galimybę patikrinti rinkimus. Pirmiausia parsisiųskite rinkmeną ir įsitikinkite, kad ji pilna. Tam, kad tai padaryti naudokite šią komandą ir patikrinkite ar išeitis sutampa su suma:'
+            how_to_verify: 'Parsisiuntus rinkimeną galite pradėti naudoti universalų tikrintoją. Klonuokite <a href=''https://github.com/decidim/decidim-bulletin-board''>šią repozitoriją</a> ir iš šakninio aplanko paleiskite šią komandą:'
+            title: Tikrinti rinkimų rezultatus
+            verifiable_file: 'Tikrinama rinkimų rinkmena:'
+          verify: Tikrinti rinkimus
+          vote_description:
+            finished: Balsavimo procesas baigėsi.
+            not_started: Balsavimo procesas dar neprasidėjo.
+            started: Balsavimo procesas prasidėjo.
+          vote_title: Balsavimo procesas
+        filters:
+          active: Aktyvūs
+          all: Visi
+          date: Data
+          finished: Užbaigta
+          search: Ieškoti
+          upcoming: Artėjantys
+        filters_small_view:
+          close_modal: Uždaryti modalinį langą
+          filter: Filtruoti
+          filter_by: Filtruoti pagal
+          unfold: Išskleisti
+        preview:
+          available_answers: 'Galimi atsakymai:'
