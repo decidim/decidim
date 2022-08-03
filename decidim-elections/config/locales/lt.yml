@@ -341,8 +341,47 @@ lt:
           update:
             invalid: Atnaujinant%{trustee} patikėtinį iškilo problema
             success: Patikėtinis %{trustee} sėkmingai atnaujintas
+      election_m:
+        badge_name:
+          finished: Užbaigta
+          ongoing: Aktyvūs
+          upcoming: Artėjantys
+        end_date: Baigiasi
+        footer:
+          view: Peržiūrėti
+          vote: Balsuoti
+        label:
+          date: Datos
+        questions: Klausimai %{count}
+        start_date: Pradžia
+        unspecified: Nepatikslinta
       elections:
+        count:
+          elections_count:
+            one: "%{count} rinkimai"
+            few: "%{count} rinkimai"
+            many: "%{count} rinkimai"
+            other: "%{count} rinkimai"
         election_log:
+          chained_hash: Žinutės Hash grandinė
+          complete: Baigti
+          creation_description:
+            complete: Rinkimai sukurti ir sėkmingai sukonfiguruoti Skelbimų Lentoje.
+            not_created: Rinkimai dar nesukurti.
+          creation_title: Rinkimai sukurti
+          description: Čia yra rinkimų ataskaita, kurije galite peržiūrėti kiekvieno žingsnio būseną.
+          download: Atsisiųsti
+          key_ceremony_description:
+            complete: Raktų ceremonija baigta. Visi patikėtiniai turi tinkamus raktus ir parsisiuntė reikalingus atsarginius raktus.
+            not_started: Raktų ceremonija dar neprasidėjo.
+            started: Raktų ceremonija prasidėjo bet dar nesibaigė.
+          key_ceremony_title: Raktų Ceremonija
+          not_available: Dar neprieinama
+          not_created: Nesukurta
+          not_published: Nepublikuota
+          not_ready: Neparuošta
+          not_started: Nepradėta
+          published: Paskelbta
           results_description:
             not_published: Rezultatai dar nepaskelbti.
             published: Rezultatai paskelbti.
