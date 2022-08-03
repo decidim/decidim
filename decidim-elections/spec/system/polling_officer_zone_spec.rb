@@ -70,6 +70,15 @@ describe "Polling Officer zone", type: :system do
 
         expect(page).to have_content("Closure successfully created")
       end
+
+      context "when a closure is already created" do
+        let!(:closure) { create :ps_closure, election:, polling_station: }
+
+        it "cannot create a new one" do
+          visit decidim_votings_polling_officer_zone.new_polling_officer_election_closure_path(assigned_polling_officer, election)
+          expect(page).to have_content("You are not authorized to perform this action")
+        end
+      end
     end
 
     describe "when adding results to the closure" do

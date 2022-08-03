@@ -12,8 +12,7 @@ module Decidim
         let(:context) do
           {
             polling_officer:,
-            polling_officers:,
-            polling_station:
+            polling_officers:
           }
         end
         let(:voting) { create(:voting) }
@@ -77,6 +76,8 @@ module Decidim
         end
 
         describe "create polling station results" do
+          let(:election) { create :voting_election, voting: }
+          let!(:another_closure) { create :ps_closure, polling_station:, election: }
           let(:action) do
             { scope: :polling_officer_zone, action: :create, subject: :polling_station_results }
           end
@@ -87,6 +88,9 @@ module Decidim
 
           context "when a closure already exists" do
             let!(:closure) { create :ps_closure, polling_station:, polling_officer: }
+            let(:context) do
+              { polling_officer:, closure: }
+            end
 
             it { is_expected.to be_falsey }
           end

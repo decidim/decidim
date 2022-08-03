@@ -13,7 +13,7 @@ module Decidim
           when :polling_station_results, :in_person_vote
             case permission_action.action
             when :create
-              toggle_allow(polling_officer&.user == user && polling_station.present? && polling_station&.closures&.empty?)
+              toggle_allow(polling_officer&.user == user && closure.blank?)
             when :manage
               toggle_allow(polling_officer&.user == user)
             when :edit

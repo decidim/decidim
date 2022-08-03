@@ -18,7 +18,7 @@ module Decidim
         end
 
         def new
-          enforce_permission_to :create, :polling_station_results, polling_officer: polling_officer, polling_station: polling_station
+          enforce_permission_to :create, :polling_station_results, polling_officer: polling_officer, closure: closure
 
           @form = EnvelopesResultForm.new(
             polling_station_id: polling_station.id,
@@ -28,7 +28,7 @@ module Decidim
         end
 
         def create
-          enforce_permission_to :create, :polling_station_results, polling_officer: polling_officer, polling_station: polling_station
+          enforce_permission_to :create, :polling_station_results, polling_officer: polling_officer, closure: closure
           @form = form(EnvelopesResultForm).from_params(params).with_context(polling_officer:)
 
           CreatePollingStationClosure.call(@form) do
