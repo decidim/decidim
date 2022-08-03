@@ -335,6 +335,12 @@ lt:
             select_user: Pasirinkti naudotoją
           index:
             title: Patikėtiniai
+          new:
+            create: Sukurti Patikėtinį
+            title: Naujas Patikėtinis
+          update:
+            invalid: Atnaujinant%{trustee} patikėtinį iškilo problema
+            success: Patikėtinis %{trustee} sėkmingai atnaujintas
       elections:
         election_log:
           results_description:
