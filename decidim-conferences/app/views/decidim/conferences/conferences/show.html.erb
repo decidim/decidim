@@ -16,69 +16,69 @@ edit_link(
 
 <%= participatory_space_floating_help %>
 
-<div class="row">
-  <div class="columns mediumlarge-12">
-    <section class="section">
-      <h3 class="section-heading"><%= t("conferences.show.introduction", scope: "decidim") %></h3>
-      <%= decidim_sanitize_editor translated_attribute(current_participatory_space.short_description) %>
-    </section>
-    <hr class="reset mt-none mb-m">
-    <section class="section">
-      <h3 class="section-heading"><%= t("conferences.show.details", scope: "decidim") %></h3>
-      <%= decidim_sanitize_editor translated_attribute(current_participatory_space.description) %>
-      <div class="row mt-l mb-l">
-        <div class="column medium-9 medium-centered">
-          <% if current_participatory_space.registrations_enabled? %>
-            <div class="column medium-6">
-              <%= link_to t(".register"), decidim_conferences.conference_registration_types_path(current_participatory_space), class:"button button--sc light expanded" %>
-            </div>
-          <% end %>
-          <% current_participatory_space.components.where(manifest_name: "meetings").each do |component_meeting| %>
-            <% if component_meeting.published? || component_meeting == self.try(:current_component) %>
-              <div class="column medium-6 end">
-                <%= link_to translated_attribute(component_meeting.name), decidim_conferences.conference_conference_program_path(current_participatory_space, id: component_meeting.id), class:"button button--sc secondary light expanded" %>
-              </div>
-            <% end %>
-          <% end %>
-        </div>
-      </div>
-    </section>
+<%= render layout:"layouts/decidim/shared/layout_two_col", locals: { reverse: true } do %>
 
-    <%= partners_for current_participatory_space %>
-
-    <%= render_hook(:conference_venues) %>
-
-    <% if current_participatory_space.registrations_enabled? %>
-      <hr class="reset mt-none mb-m">
-      <section class="section">
-        <h3 class="section-heading"><%= t(".register") %></h3>
-        <% if current_user.present? %>
-          <div class="card p-m text-center">
-            <p><%= t(".login_as", name: current_user.name, email: current_user.email ) %></p>
-            <p><%= t(".make_conference_registration") %></p>
-            <div class="medium-3" style="margin: 0 auto;">
-              <%= link_to t(".register"), decidim_conferences.conference_registration_types_path(current_participatory_space), class:"button button--sc light expanded" %>
-            </div>
+  <section class="section">
+    <h3 class="section-heading"><%= t("conferences.show.introduction", scope: "decidim") %></h3>
+    <%= decidim_sanitize_editor translated_attribute(current_participatory_space.short_description) %>
+  </section>
+  <hr class="reset mt-none mb-m">
+  <section class="section">
+    <h3 class="section-heading"><%= t("conferences.show.details", scope: "decidim") %></h3>
+    <%= decidim_sanitize_editor translated_attribute(current_participatory_space.description) %>
+    <div class="row mt-l mb-l">
+      <div class="column medium-9 medium-centered">
+        <% if current_participatory_space.registrations_enabled? %>
+          <div class="column medium-6">
+            <%= link_to t(".register"), decidim_conferences.conference_registration_types_path(current_participatory_space), class:"button button--sc light expanded" %>
           </div>
-        <% else %>
-          <%= render partial: "decidim/conferences/shared/conference_user_login" %>
         <% end %>
-      </section>
-    <% end %>
+        <% current_participatory_space.components.where(manifest_name: "meetings").each do |component_meeting| %>
+          <% if component_meeting.published? || component_meeting == self.try(:current_component) %>
+            <div class="column medium-6 end">
+              <%= link_to translated_attribute(component_meeting.name), decidim_conferences.conference_conference_program_path(current_participatory_space, id: component_meeting.id), class:"button button--sc secondary light expanded" %>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </section>
 
+  <%= partners_for current_participatory_space %>
+
+  <%= render_hook(:conference_venues) %>
+
+  <% if current_participatory_space.registrations_enabled? %>
     <hr class="reset mt-none mb-m">
+    <section class="section">
+      <h3 class="section-heading"><%= t(".register") %></h3>
+      <% if current_user.present? %>
+        <div class="card p-m text-center">
+          <p><%= t(".login_as", name: current_user.name, email: current_user.email ) %></p>
+          <p><%= t(".make_conference_registration") %></p>
+          <div class="medium-3" style="margin: 0 auto;">
+            <%= link_to t(".register"), decidim_conferences.conference_registration_types_path(current_participatory_space), class:"button button--sc light expanded" %>
+          </div>
+        </div>
+      <% else %>
+        <%= render partial: "decidim/conferences/shared/conference_user_login" %>
+      <% end %>
+    </section>
+  <% end %>
 
-    <% unless translated_attribute(current_participatory_space.objectives).blank? %>
-      <section class="section">
-        <h3 class="section-heading"><%= t("conferences.show.objectives", scope: "decidim") %></h3>
-        <%= decidim_sanitize_editor translated_attribute(current_participatory_space.objectives) %>
-      </section>
-    <% end %>
+  <hr class="reset mt-none mb-m">
 
-    <%= cell("decidim/conferences/linked_participatory_spaces", current_participatory_space) %>
+  <% unless translated_attribute(current_participatory_space.objectives).blank? %>
+    <section class="section">
+      <h3 class="section-heading"><%= t("conferences.show.objectives", scope: "decidim") %></h3>
+      <%= decidim_sanitize_editor translated_attribute(current_participatory_space.objectives) %>
+    </section>
+  <% end %>
 
-    <% if current_participatory_space.show_statistics? %>
-      <%= cell("decidim/statistics", stats.highlighted) %>
-    <% end %>
-  </div>
-</div>
+  <%= cell("decidim/conferences/linked_participatory_spaces", current_participatory_space) %>
+
+  <% if current_participatory_space.show_statistics? %>
+    <%= cell("decidim/statistics", stats.highlighted) %>
+  <% end %>
+
+<% end %>

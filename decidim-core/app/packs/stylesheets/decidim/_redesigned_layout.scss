@@ -1,0 +1,33 @@
+.layout-1col{
+  @apply grow container grid grid-cols-12 [&>*]:col-span-12 md:[&>*]:col-start-2 md:[&>*]:col-span-10 lg:[&>*]:col-start-3 lg:[&>*]:col-span-8;
+}
+
+.layout-2col{
+  @apply bg-gradient-to-r from-background via-background to-white [&>*]:grid [&>*]:grid-cols-12 [&>*]:container;
+
+  --tw-gradient-stops: var(--tw-gradient-from) 0%, var(--tw-gradient-from) 50%, var(--tw-gradient-to) 50%;
+
+  aside{
+    @apply col-span-3 py-12;
+  }
+
+  main{
+    @apply col-span-9 bg-white pl-16 py-12;
+  }
+
+  &__reverse{
+    --tw-gradient-stops: var(--tw-gradient-to) 0%, var(--tw-gradient-to) 50%, var(--tw-gradient-from) 50%;
+
+    aside{
+      @apply order-last;
+    }
+
+    main{
+      @apply pl-0 pr-16;
+    }
+  }
+}
+
+.layout-center{
+  @apply grid grid-cols-8 [&>*]:col-span-8 lg:[&>*:not(.grow)]:col-start-2 lg:[&>*:not(.grow)]:col-span-6 mb-28;
+}
