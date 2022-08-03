@@ -491,12 +491,74 @@ lt:
           backup_modal:
             description: Šie rinkimai sukūriami Skelbimų Lentoje. Labai svarbu, kad kiekvienas dalyvaujantis patikėtinis susikurtų atsarginę raktų kopiją ir juos laikytų saugioje vietoje. Po to, procesas tęsis.
             download_election_keys: Parsisiųsti raktus
-          tally_steps:
+            download_icon: Ikona indikuojanti parsisiuntimo veiksmą
+            title: Atsarginiai rinkimų raktai %{election}
+          key_ceremony_steps:
+            back: Atgal
+            description: Šie rinkimai kūriami Skelbimų Lentoje. Norėdami baigti šį procesą, Jūsų dalyvavimas kaip patikėtinio - būtinas.
+            keys:
+              create_election: Raktų generavimas
+              key_ceremony:
+                joint_election_key: Bendras raktų generavimas
+                step_1: Raktų skelbimas
             list:
               status: Būsena
+              task: Užduotis
+            process_warning: Kai procesas prasidės neturėtumėt išeiti iš puslapio iki proceso pabaigos. Tai gali užtrukti keletą minučių, kol visi patikėtiniai prisijungs ir įvykdys.
+            start: Pradėti
+            start_icon: Ikona indikuojanti pradžios mygtuką skirtą rinkimų raktų generavimo pradžiai
+            status:
+              completed: Baigta
+              pending: Laukiama
+              processing: Apdorojama
+            title: Sukurti rinkimų raktus %{election}
+          restore_modal:
+            description: Skelbimų Lenta turi informacijų iš Jūsų, kaip patikėtinio, apie rinkimus. Norėdami tęsti procesą pirmiausiai įkelkite atsargos rinkmeną sugeneruotą praeitos sesijos metu.
+            title: Atkurti %{election} rinkimų raktus
+            upload_election_keys: Įkelti rinkimų raktus
+            upload_icon: Ikona indikuojanti parsisiuntimo veiksmą
+          tally_steps:
+            back: Atgal
+            list:
+              status: Būsena
+              task: Užduotis
+            process_warning: Kai procesas prasidės neturėtumėt išeiti iš puslapio iki proceso pabaigos. Tai gali užtrukti keletą minučių, kol visi patikėtiniai prisijungs ir įvykdys.
+            start: Pradėti
+            start_icon: Ikona indikuojanti pradžios mygtuką skirtą rinkimų raktų generavimo pradžiai
+            status:
+              completed: Baigta
+              pending: Laukiama
+              processing: Apdorojama
+          update:
+            error: Rinkimų būsena neatnaujinta.
+            success: 'Rinkimų būsena yra: %{status}'
+        menu:
+          trustee_zone: Patikėtinių zona
+        no_bulletin_board:
+          body: Sukonfiguruota Skelbimų Lenta yra reikalinga šiai daliai. Susisiekite su administratoriumi dėl daugiau informacijos.
+          title: Atleiskite, Skelbimų Lenta dar nesukonfiguruota.
         trustees:
           show:
+            elections:
+              list:
+                action_required:
+                  'false': 'Ne'
+                  name: Reikalingas veiksmas?
+                  'true': Atlikti veiksmą
+                bb_status: Būsena
+                election: Rinkimai
+                voting_period: Balsavimo periodas
+              no_elections: Nėra rinkimų, kuriuose būtumėt patikėtinis.
+              title: Rinkimai
             identification_keys:
+              cancel: Atšaukti
+              generate: Generuoti atpažinimo raktus
+              generate_error: Generuojant atpažinimo raktus iškilo problema.
+              generate_legend: Turite sugeneruoti porą atpažinimo raktų norėdami dalyvauti rinkimuose kaip patikėtinis.
+              generate_legend_1: Paspaudus mygtuką turėtumėt atsisiųsti rinkmeną su sugeneruotais atpažinimo raktais.
+              generate_legend_2: Nukopijuokite rinkmeną į švarų USB raktą
+              generate_legend_3: Įsitikinkite, kad kompiuteryje nėra rinkmenos kopijos.
+              generate_legend_4: Padarykite kitą rinkmenos kopiją ir laikykite ją labai saugioje vietoje.
               submit: Pateikti
               submit_title: Įkelti viešo atpažinimo raktą
               title: Patikėtinių atpažinimo raktai
@@ -514,6 +576,34 @@ lt:
           audit: "Audituoti biuletenį"
           back: Vėl pradėti balsavimo procesą
           ballot_hash: 'Biuletenio identifikacinis kodas:'
+        verify:
+          error:
+            header: Balsas nerastas!
+            info: Balso kodas nebuvo rastas %{link} balsadėžėje. Pabandykite iš naujo.
+          form:
+            submit: Patikrinti
+            vote_identifier: 'Atpažinimo kodas:'
+          header:
+            title: Patikrinkite savo balsą
+          success:
+            header: Balsas rastas!
+            info: Jūsų užkoduotas balsas yra %{link} balsadėžėje
+        voting_step:
+          back: Atgal
+          continue: Kita
+      warnings:
+        no_elections_warning: Jūsų paieškos kriterijus atitinkančių rinkimų nerasta arba neplanuojama.
+        no_scheduled_elections_warning: Dabar neplanuojama rinkimų, tačiau čia galite rasti visų įvykusių rinkimų sąrašą.
+    events:
+      elections:
+        election_published:
+          email_intro: '%{participatory_space_title} %{resource_title} rinkimai dabar aktyvūs. Juos galite pamatyti šiame puslapyje:'
+          email_outro: Šį pranešimą gavote dėl to, kad sekate %{participatory_space_title}. Jeigu nebenorite gauti pranešimų, spustelėkite ankstesnę nuorodą.
+          email_subject: '%{participatory_space_title} %{resource_title} rinkimai dabar aktyvūs.'
+          notification_title: '%{participatory_space_title} <a href="%{resource_path}">%{resource_title}</a> rinkimai dabar aktyvūs.'
+        trustees:
+          new_election:
+            email_intro: Buvote pridėtas kaip patikėtinis į %{resource_title} rinkimus.
     votings:
       votings:
         filters:
