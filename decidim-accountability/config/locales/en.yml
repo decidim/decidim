@@ -76,7 +76,7 @@ en:
             no_components: There are no budgets components in this participatory space to import the projects into results.
             origin_component_id: Origin component
             select_component: Select a component
-            success: "%{number} projects successfully imported into results"
+            success: "%{number} projects qeued to be imported. You will be notified by email, once completed"
             title: Import Projects to Accountability
         results:
           create:
@@ -160,6 +160,13 @@ en:
           row_number: Row
           subject: Successful import of results
           success: Successful import of results. You can review the results in the administration interface.
+      import_projects_mailer:
+        import:
+          errors: Errors
+          errors_present: There was a problem importing results
+          row_number: Row
+          subject: Successful import of projects
+          success: Successful imported projects to Accountability. You can review the results in the administration interface.
       last_activity:
         new_result_at_html: "<span>New result at %{link}</span>"
       models:
