@@ -8,7 +8,7 @@ module Decidim
     end
 
     def content_type_allowlist
-      extension_allowlist.map { |ext| Rack::Mime.mime_type(".#{ext}") }.uniq
+      extension_allowlist.map { |ext| MiniMime.lookup_by_extension(ext).content_type }.uniq
     end
 
     # Fetches info about different variants, their processors and dimensions
