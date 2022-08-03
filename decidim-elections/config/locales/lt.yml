@@ -1,5 +1,166 @@
 lt:
   activemodel:
     attributes:
+      answer:
+        description: Aprašymas
+        image: Paveikslėlis
+        proposals: Susiję pasiūlymai
+        title: Pavadinimas
+      election:
+        description: Aprašymas
+        end_time: Balsavimas baigiasi
+        start_time: Balsavimas prasideda
+        title: Pavadinimas
+      question:
+        max_selections: Didžiausias pasirenkimų skaičius
+        min_selections: Nei vienas iš pasiūlytų variantų
+        title: Pavadinimas
       voting:
+        banner_image: Reklamjuostės paveikslėlis
+        census_contact_information: Surašytojų kontaktinė informacija
+        description: Aprašymas
+        end_time: Balsavimas baigiasi
+        introductory_image: Įvadinis paveikslėlis
+        promoted: Paremta
         scope: Apimtis
+        show_check_census: Rodyti "patikrinti surašymą" puslapį
+        start_time: Balsavimas prasideda
+        title: Pavadinimas
+        voting_type: Balsavimo tipas
+    errors:
+      models:
+        answer:
+          attributes:
+            attachment:
+              needs_to_be_reattached: Reikia pridėti iš naujo
+        election:
+          attributes:
+            attachment:
+              needs_to_be_reattached: Reikia pridėti iš naujo
+        trustee:
+          attributes:
+            name:
+              cant_be_changed: negali būti pakeista
+            public_key:
+              cant_be_changed: negali būti pakeista
+        voting:
+          attributes:
+            voting_type:
+              inclusion: "%{value} nėra tinkamas balsavimo tipas"
+  activerecord:
+    errors:
+      models:
+        decidim/votings/polling_officer:
+          attributes:
+            presided_polling_station:
+              president_and_manager: Balsavimo prižiūrėtojas jau yra balsavimo punkto prezidentas/vadybininkas
+            voting:
+              different_organization: Balsavimas turi būti toje pačioje organizacijoje kaip naudotojas
+        decidim/votings/polling_station:
+          attributes:
+            polling_station_president:
+              different_voting: Balsavimo prižiūrėtojas turi būti tame pačiame balsavime kaip balsavimo punktas
+    models:
+      decidim/elections/answer:
+        one: Atsakymas
+        few: Atsakymai
+        many: Atsakymai
+        other: Atsakymai
+      decidim/elections/election:
+        one: Rinkimai
+        few: Rinkimai
+        many: Rinkimai
+        other: Rinkimai
+      decidim/elections/question:
+        one: Klausimas
+        few: Klausimai
+        many: Klausimai
+        other: Klausimai
+      decidim/voting:
+        one: Balsavimas
+        few: Balsavimai
+        many: Balsavimai
+        other: Balsavimai
+      decidim/votings/census/dataset:
+        one: Duomenų rinkinys
+        few: Duomenų rinkiniai
+        many: Duomenų rinkiniai
+        other: Duomenų rinkiniai
+      decidim/votings/census/datum:
+        one: Duomuo
+        few: Duomenys
+        many: Duomenys
+        other: Duomenys
+      decidim/votings/polling_officer:
+        one: Balsavimo prižiūrėtojas
+        few: Balsavimo prižiūrėtojai
+        many: Balsavimo prižiūrėtojai
+        other: Balsavimo prižiūrėtojai
+      decidim/votings/polling_station:
+        one: Balsavimo punktas
+        few: Balsavimo punktas
+        many: Balsavimo punktas
+        other: Balsavimo punktas
+      decidim/votings/voting:
+        one: Balsavimas
+        few: Balsavimai
+        many: Balsavimai
+        other: Balsavimai
+  decidim:
+    admin:
+      filters:
+        officers_assigned_eq:
+          label: Prižiūrėtojai
+          values:
+            assigned: Priskirta
+            unassigned: Nepriskirtas
+        role_eq:
+          label: Rolė
+          values:
+            manager: Vadybininkas
+            president: Prezidentas
+            unassigned: Nepaskirtas
+        search_placeholder:
+          name_or_email_or_nickname_or_presided_station_title_or_managed_station_title_cont: Ieškoti %{collection} vardu/el. paštu arba balsavimo punktu.
+          ? title_or_address_or_manager_name_or_manager_email_or_manager_nickname_or_president_name_or_president_email_or_president_nickname_cont
+          : Ieškoti %{collection} pavadinimu, adresu arba prižiūrėtojo vardu/el. paštu.
+        signed_eq:
+          label: Pasirašyta
+          values:
+            'false': Pasirašyta
+            'true': Nepasirašyta
+    elections:
+      admin:
+        elections:
+          publish:
+            success: Rinkimai paskelbti.
+          unpublish:
+            success: Rinkimų skelbimas panaikintas.
+          update:
+            invalid: Atnaujinant šiuos rinkimus iškilo problema
+            success: Rinkimai atnaujinti
+        exports:
+          elections: Rinkimai
+          feedback_form_answers: Atsiliepimų formos atsakymai
+        mailers:
+          trustee_mailer:
+            body: "<p>Sveiki %{user_name},</p><p>Buvote pridėtas kaip %{resource_name} patikėtinis.</p>"
+            subject: Buvote pridėtas kaip %{resource_name} patikėtinis
+            trustee_zone: Eiti į patikėtinių zoną
+        menu:
+          trustees: Patikėtiniai
+        models:
+          answer:
+            name: Atsakymas
+          election:
+            name: Rinkimai
+          question:
+            name: Klausimas
+          trustee:
+            name: Patikėtinis
+        proposals_imports:
+          create:
+            invalid: Importuojant pasiūlymus į atsakymus iškilo problema
+            success: "%{number} pasiūlymai sėkmingai importuoti į atsakymus"
+          new:
+            create: Importuoti pasiūlymus į atsakymus
