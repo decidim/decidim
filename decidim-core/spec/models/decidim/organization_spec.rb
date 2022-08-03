@@ -117,6 +117,39 @@ module Decidim
       end
     end
 
+    describe "#favicon_ico" do
+      let(:favicon_path) { Decidim::Dev.asset("icon.png") }
+
+      before do
+        subject.favicon.attach(io: File.open(favicon_path), filename: File.basename(favicon_path))
+        subject.save!
+      end
+
+      context "when the favicon variant has not been processed yet" do
+        it "returns nil" do
+          expect(subject.favicon_ico).to be_nil
+        end
+      end
+
+      context "when the favicon variant has been processed" do
+        before { organization.attached_uploader(:favicon).variant(:favicon).process }
+
+        it "returns the variant" do
+          expect(subject.favicon_ico).not_to be(subject.favicon)
+          expect(subject.favicon_ico).to be_a(ActiveStorage::Attached::One)
+          expect(subject.favicon_ico.blob).to be_a(ActiveStorage::Blob)
+        end
+      end
+
+      context "when the favicon is image/vnd.microsoft.icon" do
+        let(:favicon_path) { Decidim::Dev.asset("icon.ico") }
+
+        it "returns the favicon itself" do
+          expect(subject.favicon_ico).to be(subject.favicon)
+        end
+      end
+    end
+
     describe "favicon variants" do
       shared_context "with processed variant" do |variant_name|
         let(:variant) do

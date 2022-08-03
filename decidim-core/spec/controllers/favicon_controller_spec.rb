@@ -41,14 +41,27 @@ module Decidim
           organization.save!
         end
 
-        it "renders empty favicon before it has been processed" do
+        it "renders empty the favicon" do
           get :show
 
           expect(response).to have_http_status(:ok)
-          expect(response.body).to be_empty
+          expect(response.body).not_to be_empty
+        end
+
+        context "and the variant has not been processed" do
+          let(:favicon_path) { Decidim::Dev.asset("icon.png") }
+
+          it "renders empty favicon" do
+            get :show
+
+            expect(response).to have_http_status(:ok)
+            expect(response.body).to be_empty
+          end
         end
 
         context "and the variant has been processed" do
+          let(:favicon_path) { Decidim::Dev.asset("icon.png") }
+
           before { organization.attached_uploader(:favicon).variant(:favicon).process }
 
           it "renders the favicon" do

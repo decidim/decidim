@@ -153,6 +153,15 @@ module Decidim
       static_pages.accessible_for(self, user)
     end
 
+    def favicon_ico
+      return unless favicon.attached?
+      return favicon if favicon.content_type == "image/vnd.microsoft.icon"
+
+      uploader = attached_uploader(:favicon)
+      variant = uploader.variant(:favicon)
+      variant&.image
+    end
+
     private
 
     def tenant_disabled_providers_keys

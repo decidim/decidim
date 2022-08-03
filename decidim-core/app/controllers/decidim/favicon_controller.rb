@@ -36,11 +36,7 @@ module Decidim
     def favicon_blob
       return unless current_organization
 
-      @favicon_blob = begin
-        uploader = current_organization.attached_uploader(:favicon)
-        variant = uploader.variant(:favicon)
-        variant.image&.blob if variant
-      end
+      @favicon_blob ||= current_organization.favicon_ico&.blob
     end
   end
 end
