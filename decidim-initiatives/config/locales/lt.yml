@@ -191,6 +191,8 @@ lt:
     help:
       participatory_spaces:
         initiatives:
+          contextual: "<p> <strong>Iniciatyva</strong> – pasiūlymas, kurį kiekvienas gali remti savo iniciatyva (nepriklausomai nuo kitų būdų ar dalyvaujamojo proceso erdvių), jeigu organizacijai surenka (skaitmeninių) parašų, kad būtų galima vykdyti konkrečius veiksmus (keisti reglamentą, inicijuoti projektą, keisti departamento ar gatvės pavadinimą ir kt.).</p> <p>Iniciatyvos rėmėjai gali apibrėžti savo tikslus, rinkti paramą, diskutuoti, užsiimti jos sklaida ir nustatyti posėdžių vietas, kuriose gali būti renkami dalyvių parašai arba diskusijos atveriamos kitiems dalyviams.</p> <p>Pavyzdžiai: Iniciatyva gali būti paremta parašais, kad būtų galima surengti visų organizacijos narių konsultacijas arba sukurti ar sušaukti asamblėją, arba pradėti organizacijos teritorijos ar srities biudžeto didinimo procesą. Renkant parašus, šią iniciatyvą gali paremti daugiau žmonių ir ją įgyvendinti organizacijoje.</p>\n"
+          page: "<p> <strong>Iniciatyva</strong> – pasiūlymas, kurį kiekvienas gali remti savo iniciatyva (nepriklausomai nuo kitų būdų ar dalyvaujamojo proceso erdvių), jeigu organizacijai surenka (skaitmeninių) parašų, kad būtų galima vykdyti konkrečius veiksmus (keisti reglamentą, inicijuoti projektą, keisti departamento ar gatvės pavadinimą ir kt.).</p> <p>Iniciatyvos rėmėjai gali apibrėžti savo tikslus, rinkti paramą, diskutuoti, užsiimti jos sklaida ir nustatyti posėdžių vietas, kuriose gali būti renkami dalyvių parašai arba diskusijos atveriamos kitiems dalyviams.</p> <p>Pavyzdžiai: Iniciatyva gali būti paremta parašais, kad būtų galima surengti visų organizacijos narių konsultacijas arba sukurti ar sušaukti asamblėją, arba pradėti organizacijos teritorijos ar srities biudžeto didinimo procesą. Renkant parašus, šią iniciatyvą gali paremti daugiau žmonių ir ją įgyvendinti organizacijoje.</p>\n"
           title: Kas yra iniciatyvos?
     initiatives:
       actions:
@@ -292,6 +294,7 @@ lt:
             update: Atnaujinti
           form:
             authorizations: Autorizacijos nustatymai
+            child_scope_threshold_enabled_help: 'Šis konfigūracijos variantas neleidžia turėti fizinių alsų. Jis leidžia turėti posrites ir dirba su autorizacijų tvarkykle kuri priskiria sritį naudotojai. Įsitikinkite, kad pasirenkate teisingą autorizaciją autorizacijų nustatymuose esančiuose žemiau. Tam, kad tai veiktų, sritys turi būti sukonfigūruotos hierarchiškai: 1. Motininis - N Jaunesnysis. Daugiau informacijų galite rasti <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank"> iniciatyvų administratorių dokumentacijos puslapyje</a>.'
             options: Variantai
             title: Bendra informacija
           initiative_type_scopes:
