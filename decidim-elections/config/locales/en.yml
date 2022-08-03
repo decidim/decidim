@@ -1182,14 +1182,19 @@ en:
           create:
             error: An error occurred creating the closure, please try again later.
             success: Closure successfully created.
+          destroy:
+            error: An error occurred removing the closure.
+            success: Closure successfully deleted.
           edit:
+            confirm_start_over: This will remove the total number of votes and the notes attached. Are you sure?
             heading: Vote recount - Answers recount
-            info_text: Please introduce the total number of answers for each question.
+            info_text: Please detail the total number of answers for each question. This must match the total number of answers introduced in the previous step (%{total} answers total).
             modal_ballots_results_count_error:
               close_modal: Close
               info_text: The total number of ballots doesn't match the total number of envelopes. Please review the total of ballots.
               title: Total of ballots do not add up
             save_recount: Save recount
+            start_over: If there's an error in the total number, you can delete everything and start over.
             total_ballots: Total ballots
             total_blank_ballots: Total blank ballots
             total_null_ballots: Total null ballots

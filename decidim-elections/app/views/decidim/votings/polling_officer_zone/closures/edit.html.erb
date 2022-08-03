@@ -17,7 +17,8 @@
                   title: t("polling_station.voting", scope: "decidim.votings.polling_officer_zone.polling_officers.index") %>
 </p>
 
-<%= content_tag :p, t(".info_text") %>
+<%= content_tag :p, t(".info_text", total: "<strong>#{closure.results.total_ballots&.first&.value}</strong>").html_safe %>
+<%= content_tag :p, link_to(t(".start_over"), polling_officer_election_closure_path(polling_officer, election), method: :delete, data: {  confirm: t(".confirm_start_over") }) %>
 
 <%= decidim_form_for(@form, url: polling_officer_election_closure_path(polling_officer, election),
                      html: { class: "form edit_closure" }) do |form| %>

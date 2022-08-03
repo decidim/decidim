@@ -18,7 +18,7 @@ module Decidim
         end
 
         def new
-          enforce_permission_to :create, :polling_station_results, polling_officer: polling_officer
+          enforce_permission_to :create, :polling_station_results, polling_officer: polling_officer, polling_station: polling_station
 
           @form = EnvelopesResultForm.new(
             polling_station_id: polling_station.id,
@@ -28,7 +28,7 @@ module Decidim
         end
 
         def create
-          enforce_permission_to :create, :polling_station_results, polling_officer: polling_officer
+          enforce_permission_to :create, :polling_station_results, polling_officer: polling_officer, polling_station: polling_station
           @form = form(EnvelopesResultForm).from_params(params).with_context(polling_officer:)
 
           CreatePollingStationClosure.call(@form) do
@@ -66,6 +66,22 @@ module Decidim
           end
 
           redirect_to polling_officer_election_closure_path(polling_officer, election)
+        end
+
+        def destroy
+          enforce_permission_to :edit, :polling_station_results, polling_officer: polling_officer, closure: closure
+
+          DestroyPollingStationClosure.call(closure, current_user) do
+            on(:ok) do
+              flash[:notice] = t(".success")
+            end
+
+            on(:invalid) do
+              flash.now[:alert] = t(".error")
+            end
+          end
+
+          redirect_to polling_officers_path
         end
 
         def certify

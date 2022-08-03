@@ -12,7 +12,8 @@ module Decidim
         let(:context) do
           {
             polling_officer:,
-            polling_officers:
+            polling_officers:,
+            polling_station:
           }
         end
         let(:voting) { create(:voting) }
@@ -83,6 +84,12 @@ module Decidim
           it { is_expected.to be true }
 
           it_behaves_like "not allowed when a polling officer is not attached to the current user"
+
+          context "when a closure already exists" do
+            let!(:closure) { create :ps_closure, polling_station:, polling_officer: }
+
+            it { is_expected.to be_falsey }
+          end
         end
 
         describe "edit polling station results" do
