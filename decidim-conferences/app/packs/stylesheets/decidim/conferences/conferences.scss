@@ -1,3 +1,21 @@
-.conference--date{
-  cursor: default;
+.conference{
+  &__highlighted{
+    @apply ring ring-4 ring-background hover:ring-tertiary hover:cursor-pointer rounded flex;
+
+    &-container{
+      @apply space-y-12 mb-28;
+    }
+
+    &-img{
+      @apply w-1/2 aspect-video rounded-l overflow-hidden;
+
+      img{
+        @apply w-full h-full object-cover;
+      }
+    }
+
+    &-text{
+      @apply w-1/2 px-8 py-6 space-y-4;
+    }
+  }
 }

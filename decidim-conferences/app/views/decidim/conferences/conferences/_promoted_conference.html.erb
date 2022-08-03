@@ -1,27 +1,9 @@
-<div class="card card--full card--process">
-  <div class="row collapse card--process__row">
-    <div class="columns mediumlarge-8 large-6 card--process__column">
-      <div class="card__content">
-        <%= link_to conference_path(promoted_conference), class: "card__link" do %>
-          <h2 class="card__title"><%= translated_attribute promoted_conference.title %></h2>
-        <% end %>
-        <%= decidim_sanitize_editor html_truncate(translated_attribute(promoted_conference.short_description), length: 630, separator: "...") %>
-        <%= link_to conference_path(promoted_conference), class: "button small hollow card__button" do %>
-          <%= t("conferences.promoted_conference.more_info", scope: "layouts.decidim") %>
-        <% end %>
-      </div>
-    </div>
-    <div class="columns mediumlarge-8 large-6 card--process__column">
-      <div class="card--full__image"
-           style="background-image:url('<%= promoted_conference.attached_uploader(:hero_image).path %>')">
-        <div class="card__content row collapse">
-          <div class="large-6 large-offset-6 columns">
-            <%= link_to conference_path(promoted_conference), class: "button expanded button--sc" do %>
-              <%= t(promoted_conference.cta_button_text_key, scope: "layouts.decidim.conferences.promoted_conference") %>
-            <% end %>
-          </div>
-        </div>
-      </div>
-    </div>
+<%= link_to conference_path(promoted_conference), class: "conference__highlighted" do %>
+  <div class="conference__highlighted-img">
+    <%= image_tag promoted_conference.attached_uploader(:hero_image).path, alt: t(promoted_conference.cta_button_text_key, scope: "layouts.decidim.conferences.promoted_conference") %>
   </div>
-</div>
+  <div class="conference__highlighted-text">
+    <h3 class="h3 text-secondary"><%= translated_attribute promoted_conference.title %> </h3>
+    <%= decidim_sanitize_editor html_truncate(translated_attribute(promoted_conference.short_description), length: 630, separator: "...") %>
+  </div>
+<% end %>

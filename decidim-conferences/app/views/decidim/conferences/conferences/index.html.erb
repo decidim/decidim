@@ -23,16 +23,17 @@ edit_link(
 <%= render layout:"layouts/decidim/shared/layout_two_col" do %>
 
   <% if promoted_conferences.any? %>
-    <section id="highlighted-conferences" class="row section">
-      <h1 class="section-heading"><%= t("conferences.index.promoted_conferences", scope: "layouts.decidim") %></h1>
+    <section id="highlighted-conferences" class="conference__highlighted-container">
+      <h3 class="h3 decorator"><%= t("conferences.index.promoted_conferences", scope: "layouts.decidim") %></h3>
       <%= render partial: "promoted_conference", collection: promoted_conferences, as: :promoted_conference %>
     </section>
   <% end %>
 
-  <section id="conferences-grid" class="section row collapse">
-    <%= render partial: "decidim/conferences/order_by_conferences" %>
-    <div class="row small-up-1 medium-up-2 large-up-3 card-grid">
+  <section id="conferences-grid" class="space-y-12">
+    <h3 class="h3 decorator"><%= t("conferences.order_by_conferences.conferences", scope: "layouts.decidim", count: collection.count) %></h3>
+    <div class="">
       <%= render(collection) %>
     </div>
   </section>
+
 <% end %>
