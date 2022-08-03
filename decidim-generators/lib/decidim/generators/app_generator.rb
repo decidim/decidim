@@ -254,6 +254,10 @@ module Decidim
         remove_file "public/500.html"
       end
 
+      def remove_default_favicon
+        remove_file "public/favicon.ico"
+      end
+
       def decidim_initializer
         copy_file "initializer.rb", "config/initializers/decidim.rb"
 
