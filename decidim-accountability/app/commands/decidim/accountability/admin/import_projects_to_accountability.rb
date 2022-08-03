@@ -16,12 +16,13 @@ module Decidim
         def call
           return broadcast(:invalid) unless @form.valid?
 
+          qeued_projects = @form.to_be_added_projects
           import_job = ImportProjectsJob.new(@form)
           transaction do
             import_job.results_from_projects!(projects)
             import_job.notify_user!
           end
-          broadcast(:ok, projects)
+          broadcast(:ok, qeued_projects)
         end
 
         private
