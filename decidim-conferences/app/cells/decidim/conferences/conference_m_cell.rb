@@ -12,6 +12,10 @@ module Decidim
         model
       end
 
+      def show
+        render
+      end
+
       private
 
       def title

@@ -4,6 +4,8 @@ module Decidim
   # A Helper to render conferences.
   module Conferences
     module ConferenceHelper
+      include PaginateHelper
+
       # Renders the dates of a conference
       #
       def render_date(conference)

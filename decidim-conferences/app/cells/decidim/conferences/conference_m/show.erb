@@ -1,0 +1,13 @@
+<%= link_to resource_path, class: "conference__item" do %>
+  <% if resource_image_path.present? %>
+    <div class="conference__item-img">
+      <%= image_tag resource_image_path, alt: title, class: "w-full h-full object-cover" %>
+    </div>
+  <% end %>
+
+  <div class="conference__item-text">
+    <h4 class="h4">
+      <%= title %>
+    </h4>
+  </div>
+<% end %>

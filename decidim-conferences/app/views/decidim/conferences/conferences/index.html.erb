@@ -29,11 +29,14 @@ edit_link(
     </section>
   <% end %>
 
-  <section id="conferences-grid" class="space-y-12">
+  <section id="conferences-grid" class="conference__item-container">
     <h3 class="h3 decorator"><%= t("conferences.order_by_conferences.conferences", scope: "layouts.decidim", count: collection.count) %></h3>
-    <div class="">
+    <div class="conference__item-grid">
       <%= render(collection) %>
     </div>
+
+    <%# REDESIGN_PENDING: include paginator %>
+    <%#= decidim_paginate collection %>
   </section>
 
 <% end %>

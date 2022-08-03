@@ -1,6 +1,6 @@
 .conference{
   &__highlighted{
-    @apply ring ring-4 ring-background hover:ring-tertiary hover:cursor-pointer rounded flex;
+    @apply ring ring-4 ring-background hover:ring-tertiary rounded flex hover:cursor-pointer;
 
     &-container{
       @apply space-y-12 mb-28;
@@ -15,7 +15,49 @@
     }
 
     &-text{
-      @apply w-1/2 px-8 py-6 space-y-4;
+      @apply w-1/2 px-8 py-6 space-y-4 text-gray-2;
+    }
+
+    &:hover &-text h3{
+      @apply underline;
+    }
+  }
+
+  &__item{
+    @apply ring ring-4 ring-background hover:ring-tertiary rounded hover:cursor-pointer;
+
+    &-container{
+      @apply space-y-12 mb-16;
+    }
+
+    &-grid{
+      @apply grid gap-x-12 gap-y-16 grid-cols-2;
+    }
+
+    &-img{
+      @apply aspect-[21/9] rounded-t overflow-hidden;
+
+      img{
+        @apply w-full h-full object-cover;
+      }
+    }
+
+    &-text{
+      @apply p-4 block text-secondary;
+
+      h4{
+        /* min-height: line-height * num_lines */
+        @apply min-h-[calc(25px*3)];
+
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+    }
+
+    &:hover &-text{
+      @apply underline;
     }
   }
 }
