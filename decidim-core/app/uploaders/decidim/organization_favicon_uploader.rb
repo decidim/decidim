@@ -12,12 +12,21 @@ module Decidim
 
     set_variants do
       SIZES.transform_values do |value|
-        { resize_and_pad: [value, value] }
-      end
+        {
+          resize_and_pad: [value, value],
+          format: :png
+        }
+      end.merge(
+        favicon: {
+          resize_and_pad: [256, 256],
+          define: "icon:auto-resize=16,24,32,48,64,72,96,128,256",
+          format: :ico
+        }
+      )
     end
 
     def extension_allowlist
-      %w(jpg jpeg gif png ico)
+      %w(png ico)
     end
   end
 end
