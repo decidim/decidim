@@ -403,6 +403,9 @@ lt:
       calendar_modal:
         calendar_url: Kalendoriaus URL
         close_window: Uždaryti langą
+        copy_calendar_url: Kopijuoti
+        copy_calendar_url_clarification: Kopijuoti kalendoriaus URL į iškarpinę
+        copy_calendar_url_copied: Nukopijuota!
         copy_calendar_url_explanation: Atkreipkite dėmesį, kad eksportuojate pasirinktus susirinkimus (nes yra aktyvių filtrų). Jei norėtumėt eksportuoti viską, pirmiausiai panaikinkite filtrus.
         copy_calendar_url_message: Nuoroda sėkmingai nukopijuota į iškarpinę.
         export_calendar: Eksportuoti kalendorių
