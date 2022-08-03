@@ -215,7 +215,58 @@ lt:
             success: "%{number} pasiūlymai sėkmingai importuoti į atsakymus"
           new:
             create: Importuoti pasiūlymus į atsakymus
+            no_components: Šioje dalyvaujamojoje erdvėje nėra kitų pasiūlymų komponentų, pagal kuriuos pasiūlymai būtų įtraukiami į atsakymus.
+            select_component: Pasirinkite komponentą
+            title: Importuoti pasiūlymus
+        questions:
+          create:
+            invalid: Kuriant šį klausimą iškilo problema
+            success: Klausimas sukurtas
+          destroy:
+            invalid: Šalinant šį klausimą iškilo problema
+            success: Klausimas pašalintas
+          edit:
+            title: Redaguoti klausimą
+            update: Atnaujinti klausimą
+          index:
+            title: Klausimai
+          new:
+            create: Sukurti klausimą
+            title: Naujas klausimas
+          update:
+            invalid: Atnaujinant šį klausimą iškilo problema
+            success: Klausimas atnaujintas
         steps:
+          create_election:
+            errors:
+              max_selections: Klausimai neturi <strong>teisingos vertės atsakymų kiekiui</strong>
+              minimum_answers: Klausimai turi turėti bent <strong>du atsakymus</strong>.
+              minimum_questions: Rinkimai <strong>turi turėti bent vieną klausimą</strong>.
+              published: Rinkimai <strong>nėra publikuoti</strong>.
+              trustees_number: Dalyvaujomi erdvė <strong>turi turėti bent %{number} patikėtinių su viešų raktu</strong>.
+            invalid: Konfigūruojant šiuos rinkimus iškilo problema
+            no_trustees: Šiai dalyvaujamajai erdvei nėra sukonfigūruotų Patikėtinių
+            not_used_trustee: "(nenaudojama)"
+            public_key:
+              'false': neturi <strong>viešo rakto</strong>
+              'true': turi <strong>viešą raktą</strong>
+            requirements:
+              max_selections: Visi klausimai turi teisingą kiekį <strong>maksimalių klausimų</strong>.
+              minimum_answers: Kiekvienas klausimas turi bent <strong>du atsakymus</strong>.
+              minimum_questions: Rinkimai <strong>turi bent vieną klausimą</strong>.
+              published: Rinkimai <strong>publikuoti</strong>.
+              time_before: Konfigūracija atliekama <strong>bent %{hours} valandas</strong> prieš rinkimų pradžią.
+              trustees_number: Dalyvaujomi erdvė <strong>turi bent %{number} patikėtinių su viešų raktu</strong>.
+            submit: Konfigūruoti rinkimus
+            success: Rinkimai sėkmingai nusiųsti į Skelbimų Lentą
+            title: Konfigūruoti rinkimus
+            trustees: Rinkimų patikėtiniai
+          created:
+            invalid: Pradedant raktų ceremoniją iškilo problema
+            submit: Pradėti raktų ceremoniją
+            success: Raktų ceremonijos pradžios užklausa išsiųsta į Skelbimų Lentą
+            title: Rinkimai sukurti
+            trustees: Patikėtiniai
           key_ceremony:
             title: Raktų ceremonija
             trustees: Patikėtiniai
@@ -316,6 +367,7 @@ lt:
           all: Visi
           finished: Užbaigta
           search: Ieškoti
+          state: Būsena
           upcoming: Artėjantys
         filters_small_view:
           close_modal: Uždaryti modalinį langą
@@ -324,3 +376,100 @@ lt:
           unfold: Išskleisti
         preview:
           available_answers: 'Galimi atsakymai:'
+          description: 'Balsavimo procese rasite šiuos klausimus:'
+          title: Rinkimų klausimai
+        results:
+          description: 'Štai rinkimų rezultatai kiekvienam klausimui:'
+          percentage: "%{count}%"
+          selected: Pasirinkta
+          title: Rinkimų rezultatai
+        show:
+          action_button:
+            change_vote: Pakeisti balsą
+            vote: Pradėti balsavimą
+            vote_again: Balsuoti dar kartą
+          back: Galimi rinkimai
+          callout:
+            already_voted: Šiuose rinkimuose jau balsavote. Galite pakeisti arba patikrinti savo balsą.
+            pending_vote: Jūsų balsas įkeliamas į serverį.
+            vote_rejected: Nepavyko patikrinti Jūsų balso. Prašau išsiųskite jį dar kartą.
+          election_log: Rinkimų ataskaita
+          preview: Peržiūra
+          verify:
+            already_voted: Jau balsuota?
+            verify_here: Peržiūrėkite savo balsą čia.
+            will_verify: Galėsite patikrinti savo balsą kai rinkimai prasidės.
+          voting_period_status:
+            finished: Balsavimas prasidėjo %{start_time} ir baigėsi %{end_time}
+            ongoing: 'Balsavimas aktyvus iki: %{end_time}'
+            upcoming: Balsavimas prasideda %{start_time}
+      feedback:
+        answer:
+          invalid: Siunčiant atsiliepimą iškilo problema.
+          spam_detected: Atsakant į šios formos klausimus iškilo problema. Galbūt paskubėjote? Ar galite pabandyti dar kartą?
+          success: Atsiliepimas sėkmingai išsiųstas.
+      models:
+        answer:
+          fields:
+            proposals: Pasiūlymai
+            selected: Pasirinkta
+            title: Pavadinimas
+            votes: Balsai
+        election:
+          fields:
+            bb_status: Skelbimų Lentos statusas
+            end_time: Baigiasi
+            start_time: Prasideda
+            title: Pavadinimas
+            verifiable_results_file_hash: SHA256 suma
+            verifiable_results_file_url: Tikrinama rinkimų rinkmena
+        question:
+          fields:
+            answers: Atsakymai
+            max_selections: Didžiausias pasirenkamų atsakymų skaičius
+            title: Pavadinimas
+        trustees_participatory_space:
+          fields:
+            considered: atsižvelgta
+            email: El. paštas
+            inactive: neaktyvus
+            name: Pavadinimas
+            notification: Pranešimas išsiųstas
+            public_key: Viešasis raktas
+            status: Būsena
+      orders:
+        label: Rikiuoti rinkimus pagal
+        older: Ankstesni
+        recent: Paskutiniai
+      trustee_zone:
+        elections:
+          backup_modal:
+            description: Šie rinkimai sukūriami Skelbimų Lentoje. Labai svarbu, kad kiekvienas dalyvaujantis patikėtinis susikurtų atsarginę raktų kopiją ir juos laikytų saugioje vietoje. Po to, procesas tęsis.
+            download_election_keys: Parsisiųsti raktus
+          tally_steps:
+            list:
+              status: Būsena
+        trustees:
+          show:
+            identification_keys:
+              submit: Pateikti
+              submit_title: Įkelti viešo atpažinimo raktą
+              title: Patikėtinių atpažinimo raktai
+              upload: Įkelkite atpažinimo raktus
+              upload_error:
+                invalid_format: Įkelta rinkmena neturi atpažinimo rakto.
+                invalid_key: Atpažinimo raktai negali būti įkelti.
+            not_supported_browser_description: Regis naudojate patikėtinio rolei netinkamą naršyklę. Įsitikinkite, kad naršyklė atnaujinta arba pabandykite naudoti kitas naršykles.
+            not_supported_browser_title: Atnaujinkite naršyklę
+            trustee_role_description: Buvote priskirtas kaip patikėtinis šioje platformoje vyksiantiems rinkimams.
+          update:
+            success: Jūsų viešas atpažinimo raktas sėkmingai išsaugotas.
+      votes:
+        ballot_decision:
+          audit: "Audituoti biuletenį"
+          back: Vėl pradėti balsavimo procesą
+          ballot_hash: 'Biuletenio identifikacinis kodas:'
+    votings:
+      votings:
+        filters:
+          state: Būsena
