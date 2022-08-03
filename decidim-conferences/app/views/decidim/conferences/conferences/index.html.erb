@@ -8,7 +8,20 @@ edit_link(
 )
 %>
 
-<%= participatory_space_wrapper do %>
+<% content_for :js_content do %>
+  <%= javascript_pack_tag "decidim_conferences" %>
+<% end %>
+
+<% content_for :css_content do %>
+  <%= stylesheet_pack_tag "decidim_conferences", media: "all" %>
+<% end %>
+
+<% content_for :aside do %>
+  <h1 class="h1 decorator"><%= t("decidim.conferences.index.title") %></h1>
+<% end %>
+
+<%= render layout:"layouts/decidim/shared/layout_two_col" do %>
+
   <% if promoted_conferences.any? %>
     <section id="highlighted-conferences" class="row section">
       <h1 class="section-heading"><%= t("conferences.index.promoted_conferences", scope: "layouts.decidim") %></h1>

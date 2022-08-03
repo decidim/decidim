@@ -9,6 +9,8 @@ module Decidim
       helper Decidim::Conferences::ConferenceHelper
 
       include NeedsPermission
+      include RedesignLayout
+      redesign active: true
 
       register_permissions(::Decidim::Conferences::ApplicationController,
                            Decidim::Conferences::Permissions,
