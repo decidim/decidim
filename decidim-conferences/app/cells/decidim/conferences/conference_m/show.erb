@@ -1,11 +1,11 @@
-<%= link_to resource_path, class: "conference__item" do %>
+<%= link_to resource_path, class: "conference__list__item" do %>
   <% if resource_image_path.present? %>
-    <div class="conference__item-img">
+    <div class="conference__list__item-img">
       <%= image_tag resource_image_path, alt: title, class: "w-full h-full object-cover" %>
     </div>
   <% end %>
 
-  <div class="conference__item-text">
+  <div class="conference__list__item-text">
     <h4 class="h4">
       <%= title %>
     </h4>
