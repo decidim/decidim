@@ -379,8 +379,64 @@ lt:
           setup: "%{user_name} sukūrė rinkimus %{resource_name} erdvėje %{space_name} Skelbimų Lentoje"
           start_key_ceremony: "%{user_name} pradėjo raktų ceremoniją rinkimams %{resource_name} erdvėje %{space_name} Skelbimų Lentoje"
           start_tally: "%{user_name} pradėjo skaičiavimą rinkimams %{resource_name} erdvėje %{space_name} Skelbimų Lentoje"
+          start_vote: "%{user_name} pradėjo balsavimo periodą rinkimams %{resource_name} erdvėje%{space_name} Skelbimų Lentoje"
+          unpublish: "%{user_name} depublikavo %{resource_name} rinkimus %{space_name} erdvėje"
+          update: "%{user_name} atnaujino %{resource_name} rinkimus %{space_name} erdvėje"
+        trustee:
+          create: "%{user_name} priskyrė naudotoją %{trustee_user} kaip patikėtinį"
+      connection:
+        failed:
+          modal:
+            close: Uždaryti
+            communication_lost: Deja, bet panašu, kad ryšys su balsavimo serveriu (Skelbimų Lenta) - prarastas. <br>Gali būti, kad taip yra dėl interneto ryšio arba serverio apkrovos. <br>Pabandykite vėliau arba susisiekite su serverių prižiūrėtojais.
+            generic_error: Iškilo nežinoma klaida. Gali būti, kad taip yra todėl, kad Jūsų naršyklė nepalaikoma arba naudojate "incognito" nustatymus.
+            title: Įvyko klaida
+      election_m:
+        badge_name:
+          finished: Užbaigta
+          ongoing: Aktyvūs
+          upcoming: Artėjantys
+        end_date: Baigiasi
+        footer:
+          remaining_time:
+            one: "Iki balsavimo liko <strong>%{count} valandos %{minutes} minutės</strong>."
+            few: "Iki balsavimo liko <strong>%{count} valandos %{minutes} minutės</strong>."
+            many: "Iki balsavimo liko <strong>%{count} valandos %{minutes} minutės</strong>."
+            other: "Iki balsavimo liko <strong>%{count} valandos %{minutes} minutės</strong>."
+          view: Peržiūrėti
+          vote: Balsuoti
+        label:
+          date: Datos
+        questions: Klausimai %{count}
+        start_date: Pradžia
+        unspecified: Nepatikslinta
       elections:
+        count:
+          elections_count:
+            one: "%{count} rinkimai"
+            few: "%{count} rinkimai"
+            many: "%{count} rinkimai"
+            other: "%{count} rinkimai"
         election_log:
+          chained_hash: Žinutės Hash grandinė
+          complete: Baigti
+          creation_description:
+            complete: Rinkimai sukurti ir sėkmingai sukonfiguruoti Skelbimų Lentoje.
+            not_created: Rinkimai dar nesukurti.
+          creation_title: Rinkimai sukurti
+          description: Čia yra rinkimų ataskaita, kurije galite peržiūrėti kiekvieno žingsnio būseną.
+          download: Atsisiųsti
+          key_ceremony_description:
+            complete: Raktų ceremonija baigta. Visi patikėtiniai turi tinkamus raktus ir parsisiuntė reikalingus atsarginius raktus.
+            not_started: Raktų ceremonija dar neprasidėjo.
+            started: Raktų ceremonija prasidėjo bet dar nesibaigė.
+          key_ceremony_title: Raktų Ceremonija
+          not_available: Dar neprieinama
+          not_created: Nesukurta
+          not_published: Nepublikuota
+          not_ready: Neparuošta
+          not_started: Nepradėta
+          published: Paskelbta
           results_description:
             not_published: Rezultatai dar nepaskelbti.
             published: Rezultatai paskelbti.
