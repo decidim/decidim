@@ -12,5 +12,13 @@ export default () => {
   item.addEventListener(("change"), (event) => {
     tuggleInfo(`component_${event.target.value}`);
   });
+  window.addEventListener("DOMContentLoaded", () => {
+
+    document.querySelectorAll("#result_import_projects_origin_component_id option").forEach((listItem) => {
+      if (listItem.selected) {
+        document.querySelector(`#component_${listItem.value}`).style.display = null;
+      }
+    })
+  });
 };
 

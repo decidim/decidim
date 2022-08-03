@@ -52,7 +52,7 @@ module Decidim::Accountability
       end
 
       it "returns all of the components" do
-        expect(subject.origin_components&.ids).to match_array(Decidim::Component.where(manifest_name: "budgets")&.ids)
+        expect(subject.origin_components.ids).to match_array(Decidim::Component.where(manifest_name: "budgets").ids)
       end
     end
 
@@ -71,7 +71,7 @@ module Decidim::Accountability
     describe "#selceted_projects_count" do
       subject { described_class.from_model(current_component).with_context(context) }
       let(:budget) { create(:budget, component: budget_component, total_budget: 26_000_000) }
-      let!(:selected_set) { create_list(:project, 3, budget:, selected_at: Time.current) }
+      let!(:selected_set) { create(:project, budget:, selected_at: Time.current) }
       let!(:unselected_set) { create_list(:project, 1, budget:, selected_at: nil) }
 
       it "return number of selected projects" do

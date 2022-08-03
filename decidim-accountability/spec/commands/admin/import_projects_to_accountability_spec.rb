@@ -16,17 +16,10 @@ module Decidim::Accountability
     let(:budget) { create(:budget, component: budget_component, total_budget: 26_000_000) }
     let!(:project) { create(:project, budget:, selected_at:) }
     let(:selected_at) { Time.current }
-    let(:weight) { 0.3 }
-    let(:external_id) { "external-id" }
-    let(:progress) { 89 }
 
     let(:command) { described_class.new(form) }
     let(:proposal_component) do
       create(:component, manifest_name: "proposals", participatory_space:)
-    end
-
-    let(:project_component) do
-      create(:component, manifest_name: "budgets", participatory_space:)
     end
 
     let(:proposals) do

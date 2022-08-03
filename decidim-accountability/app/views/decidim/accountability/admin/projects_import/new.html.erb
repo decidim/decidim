@@ -16,9 +16,6 @@
                 <%= t(".new_items", count: @form.selceted_projects_count(component)) %>
             </p>
           <% end %>
-          <p class="help-text" style="margin-top: -1.5em; margin-left:.5em; color: red;">
-            <%= t(".new_items", count: 0) if @form.errors.include?(:to_be_added_projects) %>
-          </p>
         </div>
         <div class="row column">
           <%= f.check_box :import_all_selected_projects, label: t(".import_all_selected_projects") %>
