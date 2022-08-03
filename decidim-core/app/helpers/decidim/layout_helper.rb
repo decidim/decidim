@@ -23,7 +23,7 @@ module Decidim
     end
 
     def legacy_favicon
-      icon_image = current_organization.attached_uploader(:favicon).variant_url(:small, host: current_organization.host)
+      icon_image = current_organization.attached_uploader(:favicon).variant_url(:favicon, host: current_organization.host)
       return unless icon_image
 
       favicon_link_tag(icon_image.gsub(".png", ".ico"), rel: "icon", sizes: "any", type: nil)
