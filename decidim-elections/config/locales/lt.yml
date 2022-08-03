@@ -362,6 +362,23 @@ lt:
             select_user: Pasirinkti naudotoją
           index:
             title: Patikėtiniai
+          new:
+            create: Sukurti Patikėtinį
+            title: Naujas Patikėtinis
+          update:
+            invalid: Atnaujinant%{trustee} patikėtinį iškilo problema
+            success: Patikėtinis %{trustee} sėkmingai atnaujintas
+      admin_log:
+        election:
+          create: "%{user_name} sukūrė rinkimus %{resource_name} erdvėje %{space_name}"
+          delete: "%{user_name} ištrynė rinkimus %{resource_name} erdvėje %{space_name}"
+          end_vote: "%{user_name} baigė balsavimo periodą %{resource_name} rinkimams %{space_name} erdvėje Skelbimų Lentoje"
+          publish: "%{user_name} paskelbė rinkimus %{resource_name} erdvėje%{space_name}"
+          publish_results: "%{user_name} paskelbė rinkimų %{resource_name} erdėje %{space_name} rezultatus Skelbimų Lentoje"
+          report_missing_trustee: "%{user_name} pranešė %{trustee_name} kaip trūkstantį patikėtinį rinkimų %{resource_name} esančių %{space_name} erdvėje skaičiavimui Skelbimų Lentoje"
+          setup: "%{user_name} sukūrė rinkimus %{resource_name} erdvėje %{space_name} Skelbimų Lentoje"
+          start_key_ceremony: "%{user_name} pradėjo raktų ceremoniją rinkimams %{resource_name} erdvėje %{space_name} Skelbimų Lentoje"
+          start_tally: "%{user_name} pradėjo skaičiavimą rinkimams %{resource_name} erdvėje %{space_name} Skelbimų Lentoje"
       elections:
         election_log:
           results_description:
