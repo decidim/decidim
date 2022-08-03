@@ -68,6 +68,22 @@ module Decidim
             expect(subject.variant_url(:testing)).to match(%r{^http://localhost:#{default_port}/rails/active_storage/representations/redirect/.*/avatar.jpg$})
           end
         end
+
+        context "with a variant that has a different format" do
+          subject { test_class.new(model, mounted_as) }
+
+          let(:test_class) do
+            Class.new(described_class) do
+              set_variants do
+                { testing: { resize_to_fit: [200, 100], format: :png } }
+              end
+            end
+          end
+
+          it "returns a URL to the variant with the correct extension" do
+            expect(subject.variant_url(:testing)).to match(%r{^http://localhost:#{default_port}/rails/active_storage/representations/redirect/.*/avatar.png$})
+          end
+        end
       end
 
       context "with test environment" do

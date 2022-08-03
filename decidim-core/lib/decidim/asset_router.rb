@@ -22,7 +22,7 @@ module Decidim
       if asset.is_a? ActiveStorage::Attached
         routes.rails_blob_url(asset.blob, **default_options.merge(options))
       else
-        routes.rails_representation_url(asset, **default_options.merge(options))
+        representation_url(**options)
       end
     end
 
@@ -75,6 +75,25 @@ module Decidim
       @remote_storage_options ||= {
         host: Rails.application.secrets.dig(:storage, :cdn_host)
       }.compact
+    end
+
+    # Converts the variation URLs last part to the correct file extension in
+    # case the variation has a different format than the original image.
+    #
+    # @return [String] The converted representation URL
+    def representation_url(**options)
+      representation_url = routes.rails_representation_url(asset, **default_options.merge(options))
+      variation = asset.try(:variation)
+      return representation_url unless variation
+
+      format = variation.try(:format)
+      return representation_url unless format
+
+      original_ext = File.extname(asset.blob.filename.to_s)
+      return representation_url if original_ext == ".#{format}"
+
+      basename = File.basename(asset.blob.filename.to_s, original_ext)
+      representation_url.sub(/#{basename}\.#{original_ext.tr(".", "")}$/, "#{basename}.#{format}")
     end
   end
 end
