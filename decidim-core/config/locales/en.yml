@@ -1763,17 +1763,17 @@ en:
           accept_all: Accept all
           accept_only_essential: Accept only essential
           analytics:
-            description: Analytics cookies are cookies that track how users navigate and interact with a website. The information collected is used to help the website owner improve the website.
+            description: These cookies are used to measure and analyse the website audience to help improve the website.
             title: Analytics and statistics
-          description: We use cookies to ensure the basic functionalities of the website and to enhance your online experience. You can choose for each category to opt-in/out whenever you want.
+          description: We use cookies to ensure the basic functionalities of the website and to enhance your online experience. You can configure and accept the use of the cookies, and modify your consent options, at any time.
           essential:
-            description: These cookies are essential for the proper functioning of my website. Without these cookies, the website would not work properly.
+            description: These cookies enable key functionality of the website and help to keep its users secured. They are automatically saved in the browser and cannot be disabled.
             title: Essential
           marketing:
-            description: These cookies collect information about how you use the website, which pages you visited and which links you clicked on.
+            description: These cookies collect information about how you use the website and they can be utilized to provide you more personalized marketing across the different websites you use.
             title: Marketing
           preferences:
-            description: These cookies allow the website to remember the choices you have made in the past
+            description: These cookies allow the website to remember the choices you have made in the past on this website to provide a more personalized experience for the website users.
             title: Preferences
           save_settings: Save settings
           title: Cookie settings
