@@ -676,3 +676,6 @@ lt:
         trustees:
           new_election:
             email_intro: Buvote pridėtas kaip patikėtinis į %{resource_title} rinkimus.
+            email_outro: Gavote šį pranešimą nes buvote pridėtas kaip patikėtinis %{resource_title} rinkimams.
+            email_subject: Esate patikėtinis %{resource_title} rinkimuose..
+            notification_title: Esate patikėtinis <a href="%{resource_path}">%{resource_title}</a> rinkimuose.
