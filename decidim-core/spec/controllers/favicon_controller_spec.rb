@@ -25,6 +25,8 @@ module Decidim
       end
 
       context "when the organization does not have a favicon" do
+        let!(:organization) { create :organization, favicon: nil }
+
         it "renders empty favicon before it has been processed" do
           get :show
 
@@ -51,11 +53,11 @@ module Decidim
         context "and the variant has not been processed" do
           let(:favicon_path) { Decidim::Dev.asset("icon.png") }
 
-          it "renders empty favicon" do
+          it "renders the processed favicon" do
             get :show
 
             expect(response).to have_http_status(:ok)
-            expect(response.body).to be_empty
+            expect(response.body).not_to be_empty
           end
         end
 

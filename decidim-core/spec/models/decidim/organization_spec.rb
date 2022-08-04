@@ -126,8 +126,10 @@ module Decidim
       end
 
       context "when the favicon variant has not been processed yet" do
-        it "returns nil" do
-          expect(subject.favicon_ico).to be_nil
+        it "returns the processed variant" do
+          expect(subject.favicon_ico).not_to be(subject.favicon)
+          expect(subject.favicon_ico).to be_a(ActiveStorage::Attached::One)
+          expect(subject.favicon_ico.blob).to be_a(ActiveStorage::Blob)
         end
       end
 

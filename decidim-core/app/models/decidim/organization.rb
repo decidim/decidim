@@ -159,7 +159,7 @@ module Decidim
 
       uploader = attached_uploader(:favicon)
       variant = uploader.variant(:favicon)
-      variant&.image
+      variant.processed.image
     end
 
     private
