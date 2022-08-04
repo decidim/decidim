@@ -1,0 +1,15 @@
+.address{
+  @apply flex gap-1 text-sm text-gray-2;
+
+  &__container{
+    @apply space-y-2;
+  }
+
+  &__location{
+    @apply h5 text-secondary;
+  }
+
+  &__hints{
+    @apply text-sm text-gray-2;
+  }
+}

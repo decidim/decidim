@@ -1,14 +1,11 @@
-<div class="card__icondata">
-  <ul class="card-data">
-    <li class="card-data__item">
-      <%= resource_icon %>
-    </li>
-    <li class="card-data__item">
-      <div class="text-left">
-        <div class="card__icondata--address">
-          <%= render :details %>
-        </div>
-      </div>
-    </li>
-  </ul>
+<div class="address__container">
+  <% if has_location? %>
+    <h5 class="address__location"><%= location %></h5>
+  <% end %>
+
+  <div class="address"><%= icon "map-pin-line", class: "text-gray fill-current" %><%= address %></div>
+
+  <% if has_location_hints? %>
+    <div class="address__hints"><%= location_hints %></div>
+  <% end %>
 </div>
