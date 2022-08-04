@@ -848,7 +848,20 @@ module Decidim
     end
 
     def image_dimensions_help(dimensions_info)
-      dimensions_info.map do |_version, info|
+      sorted_info = dimensions_info.values.sort do |infoa, infob|
+        texta, textb = [infoa[:processor], infob[:processor]].map do |processor|
+          I18n.t("processors.#{processor}", scope: "decidim.forms.images", dimensions: "")
+        end
+        widtha, heighta = infoa[:dimensions]
+        widthb, heightb = infob[:dimensions]
+
+        [
+          texta <=> textb,
+          widtha <=> widthb,
+          heighta <=> heightb
+        ].find { |cmp| !cmp.zero? } || 0
+      end
+      sorted_info.map do |info|
         dimensions = I18n.t("dimensions", scope: "decidim.forms.images", width: info[:dimensions].first, height: info[:dimensions].last)
         I18n.t(
           "processors.#{info[:processor]}",
