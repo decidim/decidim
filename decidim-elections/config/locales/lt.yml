@@ -640,6 +640,22 @@ lt:
           back: Vėl pradėti balsavimo procesą
           ballot_hash: 'Biuletenio identifikacinis kodas:'
           cast: Užpildykite biuletenį norėdami baigti balsavimą
+          description: Čia galite balsuoti arba patikrinti ar Jūsų balsas buvo teisingai užšifruotas. Saugumo sumetimais audito atlikimas sugadins jūsų balsavimo biuletenį. Tai reiškia, kad, norėdami atiduoti balsą, turėsite iš naujo pradėti balsavimo procesą.
+          header: 'Biuletenis užšifruotas: galite jį įskaityti arba audituoti'
+        casting:
+          header: Biuletenis įskaitomas...
+          text: Biuletenis yra užskaitomas balsadėžėje.
+        confirm:
+          answer: Atsakymas
+          answer_number: '%{number} atsakymas'
+          confirm: Patvirtinti
+          edit: redaguoti
+          header: Patvirtinkite savo balsą
+          intro: Toliau pateikiama balsavimo, kurį rengiatės atlikti, santrauka. <br> Patvirtinkite savo balsą arba pakeiskite savo atsakymus.
+          nota_option: Tuščia
+          question: Klausimas %{count}
+        confirmed:
+          back: Atgal į rinkimus
         verify:
           error:
             header: Balsas nerastas!
