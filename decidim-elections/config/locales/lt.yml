@@ -959,6 +959,68 @@ lt:
               review_recount: Peržiūrėti perskaičiavimą
               text_area_placeholder: Įveskite žinutę
               title: Skaičiai nesutampa
+        in_person_votes:
+          verify_document:
+            census_present: Šis dalyvis įskaičiuotas surašyme.
+            name: Vardas
+            title: 'Patikrinkite ar šie duomenys teisingi:'
+            verify_document: Patvirtinti dokumentą
+        menu:
+          polling_officer_zone: Balsavimo vadybininkų zona
+        polling_officers:
+          index:
+            polling_officer_role_description: Buvote priskirtas kaip balsavimo punkto vadybininkas ar prezidentas.
+            polling_station:
+              address: Adresas
+              count_votes: Skaičiuoti balsus
+              election: Rinkimai
+              identify_person: Atpažinti asmenį
+              name: Vardas
+              no_polling_stations: Nesate priskirtas prie balsavimo punkto.
+              role: Jūsų rolė
+              show_closure: Peržiūrėti uždarymą
+              title: Balsavimo punktai
+              voting: Balsavimas
+      polling_officers:
+        actions:
+          confirm_destroy: Ar esate tikri?
+          destroy: Ištrinti
+          new: Naujas
+          title: Veiksmai
+        roles:
+          manager: Vadybininkas
+          president: Prezidentas
+          unassigned: Nepaskirtas
+      polling_station_closure_recount:
+        nota_option: Nei vienas iš pasiūlytų variantų
+        polling_officer_notes: 'Balsavimo vadybininkų užrašai:'
+        polling_officer_notes_blank: Užrašų nėra
+        recount_summary: 'Perskaičiavimo reziumė:'
+        signed: Pasirašyta
+        total_ballots: 'Visi biuleteniai:'
+        total_blank_ballots: 'Visi tušti biuleteniai:'
+        total_null_ballots: 'Visi nuliniai biuleteniai:'
+        total_valid_ballots: 'Visi validūs biuleteniai:'
+      polling_stations:
+        actions:
+          confirm_destroy: Ar esate tikri?
+          destroy: Ištrinti
+          edit: Redaguoti
+          new: Naujas
+          title: Veiksmai
       votings:
+        access_code_modal:
+          email: Siųsti el. paštu į %{email}
+          info: Norėdami dalyvauti turite turėti prieigos kodą. Jei jo negavote paštu, galime atsiųsti kitą.
+          no_email: Nėra galimo el. pašto
+          no_sms: Nėra galimo tel. nr
+          sms: Siųsti SMS žinute į %{sms}
+          title: Gauti prieigos kodą
+        check_census:
+          check_status: Patikrinti būseną
+          description: Čia galite patikrinti surašymo duomenis ir patikrinti ar galite dalyvauti. Turėtumėt turėti prieigos kodą, tačiau jei jį pametėt galėsite paprašyti kito kai duomenys bus teisingi.
+          error:
+            info: 'Pabandykite iš naujo. Jei manote, kad duomenys sistemoje neteisingi, apie tai galite pranešti: %{census_contact_information}'
+            title: Duomenys, kuriuos įvedėte nėra šio balsavimo surašyme
         filters:
           state: Būsena
