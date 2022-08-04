@@ -629,6 +629,7 @@ lt:
           question: Klausimas %{count}
         confirmed:
           back: Atgal į rinkimus
+          experience: Kokia buvo Jūsų patirtis?
         failed:
           modal:
             communication_lost: Deja, bet panašu, kad ryšys su balsavimo serveriu (Skelbimų Lenta) - prarastas. <br>Gali būti, kad taip yra dėl interneto ryšio arba serverio apkrovos. <br>Pabandykite vėliau arba susisiekite su serverių prižiūrėtojais.
