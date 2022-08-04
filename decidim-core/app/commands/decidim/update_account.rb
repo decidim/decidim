@@ -24,7 +24,9 @@ module Decidim
         notify_followers
         broadcast(:ok, @user.unconfirmed_email.present?)
       else
-        @form.errors.add :avatar, @user.errors[:avatar] if @user.errors.has_key? :avatar
+        [:avatar, :password, :password_confirmation].each do |key|
+          @form.errors.add key, @user.errors[key] if @user.errors.has_key? key
+        end
         broadcast(:invalid)
       end
     end

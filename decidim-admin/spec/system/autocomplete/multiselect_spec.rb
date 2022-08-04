@@ -103,6 +103,16 @@ describe "Autocomplete multiselect", type: :system do
           text_input = find("input[type='text']")
           expect(text_input.value).to eq("")
         end
+
+        context "when the URL has extra parameters in it" do
+          let(:url) { "http://#{organization.host}:#{Capybara.current_session.server.port}#{path}?locale=ca" }
+
+          it "shows selected participant" do
+            find("input[type='text']").fill_in with: participant.name.slice(0..2)
+            find(".autoComplete_wrapper ul#autoComplete_list_1 li", match: :first, wait: 2).click
+            expect(page).to have_content(participant.name)
+          end
+        end
       end
 
       describe "remove selected item" do

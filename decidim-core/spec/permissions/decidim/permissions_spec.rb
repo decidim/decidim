@@ -264,6 +264,8 @@ describe Decidim::Permissions do
 
   context "with a user" do
     let(:user) { create :user }
+    let(:component) { create :component, :published, organization: user.organization }
+    let(:context) { { current_component: component } }
 
     context "when user is a user manager" do
       let(:user) { create :user, :user_manager }

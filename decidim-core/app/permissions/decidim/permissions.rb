@@ -116,9 +116,11 @@ module Decidim
     end
 
     def apply_endorsement_permissions
-      return disallow! if !current_settings.endorsements_enabled || current_settings.endorsements_blocked
+      is_allowed = current_settings.endorsements_enabled &&
+                   !current_settings.endorsements_blocked &&
+                   authorized?(:endorse, resource: context.fetch(:resource, nil))
 
-      allow!
+      toggle_allow(is_allowed)
     end
 
     def notification_action?

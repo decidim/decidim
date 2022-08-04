@@ -12,6 +12,8 @@ module Decidim
     # nickname presented in a twitter-like style
     #
     def nickname
+      return "" if __getobj__.blocked?
+
       "@#{__getobj__.nickname}"
     end
 
@@ -32,6 +34,7 @@ module Decidim
     end
 
     def avatar_url(variant = nil)
+      return default_avatar_url if __getobj__.blocked?
       return avatar.default_url unless avatar.attached?
 
       avatar.path(variant:)
