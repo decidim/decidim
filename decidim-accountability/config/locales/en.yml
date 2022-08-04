@@ -164,9 +164,6 @@ en:
           success: Successful import of results. You can review the results in the administration interface.
       import_projects_mailer:
         import:
-          errors: Errors
-          errors_present: There was a problem importing results
-          row_number: Row
           subject: Successful import of projects
           success: Successful imported projects to Accountability. You can review the results in the administration interface.
       last_activity:
