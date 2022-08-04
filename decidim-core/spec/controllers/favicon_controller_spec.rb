@@ -16,7 +16,7 @@ module Decidim
       context "when the domain does not have an organization" do
         let!(:organization) { nil }
 
-        it "renders empty favicon before it has been processed" do
+        it "renders empty favicon" do
           get :show
 
           expect(response).to have_http_status(:ok)
@@ -43,11 +43,33 @@ module Decidim
           organization.save!
         end
 
-        it "renders empty the favicon" do
+        it "renders the favicon" do
           get :show
 
           expect(response).to have_http_status(:ok)
           expect(response.body).not_to be_empty
+        end
+
+        it "returns the correct cache headers" do
+          get :show
+
+          expect(response.headers["Cache-Control"]).to eq("max-age=604800, public")
+          expect(response.headers["Last-Modified"]).to eq(organization.favicon.blob.created_at.httpdate)
+          expect(response.headers["ETag"]).not_to be_empty
+        end
+
+        context "with a consecutive request" do
+          it "returns the correct HTTP code and the same ETag" do
+            get :show
+            etag = response.headers["ETag"]
+
+            request.headers["If-Modified-Since"] = organization.favicon.blob.created_at.httpdate
+            request.headers["If-None-Match"] = etag
+            get :show
+
+            expect(response.headers["ETag"]).to eq(etag)
+            expect(response).to have_http_status(:not_modified)
+          end
         end
 
         context "and the variant has not been processed" do
