@@ -18,7 +18,7 @@ module Decidim
           user.blocked = true
         end
 
-        it { is_expected.to eq("@blocked_user") }
+        it { is_expected.to eq("") }
       end
     end
 

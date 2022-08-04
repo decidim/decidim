@@ -13,7 +13,7 @@ module Decidim
     # nickname presented in a twitter-like style
     #
     def nickname
-      return "@blocked_user" if __getobj__.blocked?
+      return "" if __getobj__.blocked?
 
       "@#{__getobj__.nickname}"
     end
