@@ -388,6 +388,7 @@ cs:
           more_information: "(Více informací)"
           select: Chci tuto iniciativu podpořit
           select_initiative_type_help: Iniciativy jsou prostředkem, kterým účastníci mohou zasáhnout, aby organizace mohla podniknout kroky na obranu obecného zájmu. Jakou iniciativu chcete spustit?
+          verification_required: Ověřte svůj účet pro podporu této iniciativy
         share_committee_link:
           continue: Pokračovat
           invite_to_committee_help: Odkaz na pozvání lidí, kteří budou součástí podporovaného výboru
