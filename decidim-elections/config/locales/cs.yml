@@ -1099,6 +1099,8 @@ cs:
             create:
               invalid: Při nahrávání seznamu osob došlo k chybě, opakujte akci později.
               invalid_csv_header: Hlavičky CSV chybí nebo nejsou správné - přečtěte si prosím pečlivě pokyny
+            creating_data:
+              info_message: "<strong>Počkejte prosím</strong>, zpracováno %{processed_count} z %{raw_count} řádků ze souboru %{file} (to může trvat několik minut)."
             delete:
               button: Odstranit všechna data ze seznamu obyvatel
               confirm: Odstranění všech dat z rejstříku osob nelze vrátit zpět. Opravdu chcete pokračovat?
@@ -1112,8 +1114,14 @@ cs:
               file_not_exist: Tento soubor neexistuje
               launch_error: Problém se spuštěním exportu přístupových kódů
               launch_success: Export přístupových kódů byl spuštěn. Brzy obdržíte e-mail na %{email}
+            exporting_access_codes:
+              info_message: "<strong>Počkejte prosím</strong>, export se připravuje, obdržíte ho brzy na %{email} (to může trvat několik minut)."
             freeze:
               callout: Seznam osob je zmrazen a nelze jej upravit.
+              help_html: |
+                Data z registru obyvatel byla nahrána, kódy byly úspěšně vygenerovány a exportovány.<br>
+                <strong>Nyní jste připraveni zahájit volbu.</strong><br>
+                Použijte exportovaný CSV s individuálními kódy k distribuci ve vašem sčítání pomocí vlastních prostředků nebo aktivujte záložku "Můžu hlasovat", aby kdokoliv mohl tento kód načíst pomocí vlastních dat ze sčítání.
             generate_access_codes:
               button: Generovat hlasovací přístupové kódy
               callout: Nyní můžete přejít k vygenerování přístupových kódů. Pamatujte, že po vygenerování přístupových kódů již nebudete moci měnit seznam osob.
