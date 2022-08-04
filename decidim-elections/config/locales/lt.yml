@@ -656,6 +656,7 @@ lt:
           question: Klausimas %{count}
         confirmed:
           back: Atgal į rinkimus
+          experience: Kokia buvo Jūsų patirtis?
         verify:
           error:
             header: Balsas nerastas!
