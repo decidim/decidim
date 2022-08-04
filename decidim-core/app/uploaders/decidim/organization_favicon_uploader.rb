@@ -26,7 +26,7 @@ module Decidim
     end
 
     def extension_allowlist
-      %w(png ico)
+      %w(png jpg jpeg ico)
     end
   end
 end
