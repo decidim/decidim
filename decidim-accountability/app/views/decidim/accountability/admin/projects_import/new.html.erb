@@ -7,13 +7,12 @@
       <div class="card-section">
         <div class="row column">
           <%= f.select :origin_component_id, @form.origin_components_collection, prompt: t(".select_component"), label: t(".origin_component_id"), remote: true %>
-
         </div>
         <div class="row column">
           <% @form.origin_components.each do |component| %>
             <p id="component_<%= component.id %>" class="help-text" style="margin-top: -1.5em; margin-left:.5em;<%= "display: none;" unless @origin == 14 %>
               <%= "color: red;" if @form.selceted_projects_count(component).zero? %>">
-                <%= t(".new_items", count: @form.selceted_projects_count(component)) %>
+              <%= t(".new_items", count: @form.selceted_projects_count(component)) %>
             </p>
           <% end %>
         </div>
