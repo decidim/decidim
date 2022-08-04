@@ -35,7 +35,7 @@ module Decidim
 
     def avatar_url(variant = nil)
       return default_avatar_url if __getobj__.blocked?
-      return avatar.default_url unless avatar.attached?
+      return default_avatar_url unless avatar.attached?
 
       avatar.path(variant:)
     end
