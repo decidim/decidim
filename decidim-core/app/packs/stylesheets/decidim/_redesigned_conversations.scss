@@ -11,19 +11,19 @@
     }
 
     &-snippet{
-      @apply grow space-y-2.5;
+      @apply grow space-y-2.5 truncate;
 
       &-title{
         @apply flex gap-4;
       }
 
-      &-description{
-        @apply text-gray-2;
+      &-message{
+        @apply text-gray-2 truncate;
       }
     }
 
     &-info{
-      @apply flex flex-col items-center gap-2 text-sm text-gray-2;
+      @apply flex flex-col items-center gap-2 text-sm text-gray-2 whitespace-nowrap;
 
       & > *:not(:only-child):last-child{
         @apply bg-secondary text-white rounded-full font-semibold px-1.5;
@@ -51,7 +51,7 @@
     @apply flex items-start gap-4 w-3/4;
 
     &-text{
-      @apply grow bg-background rounded p-4 flex flex-col space-y-2 text-gray-2;
+      @apply grow bg-background rounded p-4 pt-2 flex flex-col space-y-2 text-gray-2;
     }
 
     &-sender{

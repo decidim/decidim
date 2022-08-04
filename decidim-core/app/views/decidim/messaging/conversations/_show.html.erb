@@ -5,6 +5,11 @@
     <%= t("decidim.messaging.conversations.index.title") %>
   </h1>
   <%= render partial: "new_conversation_button" %>
+
+  <%= link_to decidim.conversations_path, class: "button button__sm button__text-secondary mt-10" do %>
+    <%= icon "arrow-left-line", class: "fill-current" %>
+    <%= t("decidim.messaging.conversations.show.back") %>
+  <% end %>
 <% end %>
 
 <%= render layout: "layouts/decidim/shared/layout_two_col" do %>
