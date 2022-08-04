@@ -1,15 +1,20 @@
 .address{
-  @apply flex gap-1 text-sm text-gray-2;
+  @apply space-y-2 text-gray-2;
 
   &__container{
-    @apply space-y-2;
+    @apply flex items-start gap-1;
   }
 
   &__location{
-    @apply h5 text-secondary;
+    @apply text-md font-semibold;
   }
 
+  &__address{
+    @apply underline;
+  }
+
+  &__address,
   &__hints{
-    @apply text-sm text-gray-2;
+    @apply text-sm;
   }
 }

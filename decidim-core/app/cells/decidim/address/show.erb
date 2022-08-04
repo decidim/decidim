@@ -1,11 +1,14 @@
 <div class="address__container">
-  <% if has_location? %>
-    <h5 class="address__location"><%= location %></h5>
-  <% end %>
+  <%= icon "map-pin-line", class: "text-gray fill-current" %>
+  <div class="address">
+    <% if has_location? %>
+      <div class="address__location"><%= location %></div>
+    <% end %>
 
-  <div class="address"><%= icon "map-pin-line", class: "text-gray fill-current" %><%= address %></div>
+    <div class="address__address"><%= address %></div>
 
-  <% if has_location_hints? %>
-    <div class="address__hints"><%= location_hints %></div>
-  <% end %>
+    <% if has_location_hints? %>
+      <div class="address__hints"><%= location_hints %></div>
+    <% end %>
+  </div>
 </div>

@@ -94,4 +94,12 @@
       }
     }
   }
+
+  &__map{
+    @apply flex gap-4 only:[&>*]:grow;
+
+    &-address{
+      @apply border-4 border-background rounded p-4 mt-4 first:mt-0;
+    }
+  }
 }
