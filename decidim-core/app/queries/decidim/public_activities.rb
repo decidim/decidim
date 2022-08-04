@@ -107,6 +107,7 @@ module Decidim
               LEFT JOIN decidim_participatory_space_private_users AS #{manifest.name}_private_users
                 ON #{manifest.name}_private_users.privatable_to_type = '#{manifest.model_class_name}'
                 AND #{table}.id = #{manifest.name}_private_users.privatable_to_id
+                AND #{table}.private_space = 't'
             SQL
           ).to_s
         ).where(
