@@ -657,7 +657,53 @@ lt:
         confirmed:
           back: Atgal į rinkimus
           experience: Kokia buvo Jūsų patirtis?
+          feedback: Pasidalinkite savo nuomone
+          header: Balsas patvirtintas
+          lead: Jūsų balsas įskaičiuotas!
+          text: 'Galite patikrinti, ar jūsų balsas pateko į balsadėžę, pasinaudodami šiuo identifikatoriumi: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
+          verify_link: Norėdami patikrinti, kopijuokite identifikatorių ir jį įklijuokite <a href="evote-verify">balsavimo patikros puslapyje</a>
+        create:
+          error: Užskaitant balsą iškilo problema. Prašau pabandykite iš naujo.
+        encrypting:
+          header: Biuletenis šifruojamas...
+          text: Biuletenis šifruojamas siekiant užtikrinti balso slaptumą.
+        failed:
+          header: Balsavimas nepavyko
+          lead: Jūsų balsas nebuvo įskaičiuotas!
+          text: Įvyko klaida. Bandykite dar kartą.
+          try_again: Bandykite dar kartą
+        header:
+          ballot_decision: Balsuokite arba audituokite savo balsą
+          casting: Biuletenis įskaitomas
+          confirm: Patvirtinkite savo balsą
+          confirmed: Balsas patvirtintas
+          encrypting: Biuletenis šifruojamas
+          failed: Balsavimas nepavyko
+        messages:
+          invalid_token: Jūsų sesija balsavimo kabinoje nėra validi. Pabandykite balsuoti iš naujo.
+          not_allowed: Dabar balsuoti šiuose rinkimuose negalite.
+        modal:
+          close: Uždaryti
+          proposal_header: 'Pasiūlymai:'
+        new:
+          answer_choices: Galite pasirinkti ne daugiau kaip %{choices} atsakymų
+          more_information: Daugiau informacijos
+          nota_option: Nei vienas iš pasiūlytų variantų
+          preview_alert: Tai – balsavimo kabinos peržiūra.
+          question_steps: '%{current_step} klausimas iš %{total_steps}'
+          selections: "%{selected} iš %{max_selections}<br> pasirinkčių"
+        onboarding_modal:
+          close: Uždaryti modalinį langą
+          create_account: Sukurti paskyrą
+          description: Ar norite susikurti naują paskyrą šioje platformoje? Galėsite dalyvauti procesuose ir būti aktyvi(-us) organizacijos narė(-ys).
+          no_account: Ne, ačiū.
+          title: Pirmą kartą platformoje?
+        update:
+          error: Atnaujinant balso būseną iškilo problema. Prašau pabandykite iš naujo.
         verify:
+          content:
+            heading: Patikrinkite savo balsą
+            info: Tikrintojas patikrina ar Jūsų balsas identifikuojamas su užšifruotu kodu buvo užskaitytas.
           error:
             header: Balsas nerastas!
             info: Balso kodas nebuvo rastas %{link} balsadėžėje. Pabandykite iš naujo.
@@ -690,3 +736,258 @@ lt:
             email_outro: Gavote šį pranešimą nes buvote pridėtas kaip patikėtinis %{resource_title} rinkimams.
             email_subject: Esate patikėtinis %{resource_title} rinkimuose..
             notification_title: Esate patikėtinis <a href="%{resource_path}">%{resource_title}</a> rinkimuose.
+          new_trustee:
+            email_intro: Administratorius pridėjo Jus kaip %{resource_name} patikėtinį. Galite sukurti viešą raktą <a href='%{trustee_zone_url}'>patikėtinių zonoje</a>
+            email_outro: Gavote šį pranešimą nes buvote pridėtas kaip patikėtinis %{resource_name} rinkimams.
+            email_subject: Esate %{resource_name} patikėtinis.
+            notification_title: Esate <a href="%{participatory_space_url}">%{resource_name}</a> patikėtinis.
+        votes:
+          accepted_votes:
+            email_intro: 'Jūsų balsas priimtas. Naudodami balsavimo žetoną: %{encrypted_vote_hash} galite patikrinti savo balsą <a href="%{verify_url}">čia</a>.'
+            email_outro: Gavote šį pranešimą nes balsavote %{resource_name} rinkimuose.
+            email_subject: Jūsų balsas %{resource_name} buvo priimtas.
+            notification_title: 'Jūsų balsas buvo priimtas. Patikrinkite savo balsą <a href="%{verify_url}">čia</a> naudodami balsavimo žetoną %{encrypted_vote_hash}'
+      votings:
+        polling_officers:
+          polling_station_assigned:
+            email_intro: Buvote priskirtas kaip <a href="%{resource_url}">%{resource_title}</a> Balsavimo Punkto %{role}. Galite valdyti Balsavimo Punktą iš dedikuotos <a href="%{polling_officer_zone_url}"> zonos</a>.
+            email_outro: Gavote šį pranešimą nes buvote pridėtas kaip %{polling_station_name} %{role}.
+            email_subject: Jūs esate %{polling_station_name} Balsavimo Punkto %{role}.
+            notification_title: Jūs esate <a href="%{resource_path}">%{resource_title}</a> balsavimo, %{polling_station_name} punkto %{role}.
+        send_access_code:
+          instruction: 'Štai Jūsų prieigos kodas: %{access_code}. Su juo galite dalyvauti %{voting}.'
+          subject: Jūsų prieigos kodas dalyvavimui %{voting}
+    help:
+      participatory_spaces:
+        votings:
+          contextual: "<p><strong>Balsavimai</strong> yra erdvė, kurioje galite užduoti aiškų klausimą visiems organizacijos žmonėms, pakviesti dalyvauti balsavime, pradėti ir valdyti diskusiją už arba prieš atsakymų variantus. Atėjus konsultacijos pradžios datai, galite balsuoti ir paskelbti balsavimo rezultatus.</p> <p>Pavyzdžiai: Balsavimuose gali vykti dėl beveik visų aspektų, turinčių poveikio organizacijai: galima balsuoti dėl pavadinimo ar logotipo, nuspręsti, ar tapti didesnės organizacijos dalimi, patvirtinti arba atmesti naują strateginį planą arba darbo grupės rezultatus, ir t. t.</p>\n"
+          page: "<p><strong>Balsavimai</strong> yra erdvė, kurioje galite užduoti aiškų klausimą visiems organizacijos žmonėms, pakviesti dalyvauti balsavime, pradėti ir valdyti diskusiją už arba prieš atsakymų variantus. Atėjus konsultacijos pradžios datai, galite balsuoti ir paskelbti balsavimo rezultatus.</p> <p>Pavyzdžiai: Balsavimuose gali vykti dėl beveik visų aspektų, turinčių poveikio organizacijai: galima balsuoti dėl pavadinimo ar logotipo, nuspręsti, ar tapti didesnės organizacijos dalimi, patvirtinti arba atmesti naują strateginį planą arba darbo grupės rezultatus, ir t. t.</p>\n"
+          title: Kas yra balsavimai?
+    menu:
+      votings: Balsavimai
+    statistics:
+      elections_count: Rinkimai
+    votings:
+      admin:
+        menu:
+          votings_submenu:
+            monitoring_committee_election_results: Patvirtinti rezultatus
+            monitoring_committee_members: Nariai
+            monitoring_committee_polling_station_closures: Validuoti sertifikatus
+            monitoring_committee_verify_elections: Tikrinti rinkimus
+            polling_officers: Balsavimo prižiūrėtojai
+            polling_stations: Balsavimo punktai
+        models:
+          ballot_style:
+            fields:
+              code: Kodas
+            name: Balsavimo biuletenio tipas
+          monitoring_committee_member:
+            fields:
+              email: El. paštas
+              name: Pavadinimas
+            name: Priežiūros komitetas
+          polling_officer:
+            fields:
+              email: El. paštas
+              name: Pavadinimas
+              polling_station: Balsavimo punktas (rolė)
+            name: Balsavimo prižiūrėtojas
+          polling_station:
+            fields:
+              address: Adresas
+              polling_station_managers: Vadybininkai
+              polling_station_president: Prezidentas
+              title: Pavadinimas
+            name: Balsavimo punktas
+          voting:
+            fields:
+              created_at: Sukurta
+              promoted: Paryškinta
+              published: Paskelbta
+              title: Pavadinimas
+        monitoring_committee_election_results:
+          actions:
+            title: Veiksmai
+            view: Peržiūrėti
+          index:
+            title: Pasirinkite rinkimus iš kurių norite matyti rezultatus
+          results:
+            bulletin_board: Skelbimų lenta
+            election_totals: Rinkimų bendri rezultatai
+            polling_stations: Balsavimo punktai
+            result_types:
+              blank_answers: Tušti atsakymai
+              blank_ballots: Tušti biuleteniai
+              null_ballots: Nuliniai biuleteniai
+              total_ballots: Visi biuleteniai
+              valid_ballots: Tinkami biuleteniai
+            selected: Pasirinkta
+            title: <i>%{election_title}</i> rezultatai
+            totals: Iš viso
+          show:
+            change_election: Keisti rinkimus
+            publish_results: Skelbti rezultatus
+            publishing: Rezultatai skelbiami...
+          update:
+            invalid: Skelbiant rezultatus iškilo problema
+            rejected: Skelbimų Lenta atmetė rezultatų publikavimą. Pabandykite dar kartą arba susisiekite su sistemos administratoriumi.
+            success: Rinkimų rezultatai paskelbti
+        monitoring_committee_members:
+          create:
+            invalid: Kuriant šį priežiūros komiteto narį iškilo problema
+            success: Priežiūros komiteto narys sukurtas sėkmingai
+          destroy:
+            invalid: Trinant šį priežiūros komiteto narį iškilo problema
+            success: Priežiūros komiteto narys ištrintas sėkmingai
+          form:
+            existing_user: Egzistuojantis dalyvis
+            non_user: Pakviesti naują dalyvį
+        polling_stations:
+          edit:
+            update: Atnaujinti balsavimo punktą
+          form:
+            address_help: 'Adresas: jį naudoja „Geocoder“, kad rastų vietą'
+            location_help: 'Vieta: žinutė skirta balsuotojams nurodanti tikslią balsavimo punkto vietą'
+            location_hints_help: 'Vietos nuorodos: papildoma informacija.'
+            polling_station_managers_help: 'Balsavimo punkto vadybininkai: įsitikinkite, kad jie buvo sukurti ir nepriskirti kitam balsavimo punktui'
+            polling_station_president_help: 'Balsavimo punkto prezidentas: įsitikinkite, kad jis buvo pridėtas ir nebuvo priskirtas kitam balsavimo punktui'
+            select_president: Pasirinkite balsavimo punkto vadybininką kaip balsavimo punkto prezidentą
+          index:
+            title: Balsavimo punktai
+          new:
+            create: Sukurti
+            title: Sukurti balsavimo punktą
+          update:
+            invalid: Atnaujinant balsavimo punktą iškilo problema
+            success: Balsavimo punktas atnaujintas sėkmingai
+        titles:
+          votings: Balsavimai
+        votings:
+          actions:
+            confirm_destroy: Ar esate tikri?
+            destroy: Sunaikinti
+            new_voting: Nauja balsavimo erdvė
+            publish: Publikuoti
+            unpublish: Depublikuoti
+          create:
+            invalid: Kuriant šį balsavimą iškilo problema
+            success: Balsavimas sukurtas sėkmingai
+          edit:
+            add_election_component: Šiam balsavimui nėra sukonfigūruotų rinkimų. Pridėkite juos per Komponentų sekciją
+            assign_missing_officers: Kai kurie balsavimo punktai neturi prezidento ir/arba vadybininkų. Prašome juos priskirti
+            update: Atnaujinti
+          form:
+            banner_image: Reklamjuostės paveikslėlis
+            census_contact_information: Surašytojų kontaktinė informacija
+            census_contact_information_help: Ši kontaktinė informacija skirta dalyviams norintiems pranešti apie problemas. Tai gali būti el. pašto adresas, kontaktinė forma kitame puslapyje ir t. t.
+            introductory_image: Įvadinis paveikslėlis
+            promoted: Paremta
+            select_a_voting_type: Pasirinkite balsavimo tipą
+            show_check_census_help: Ar rodyti "Ar galiu balsuoti?" nuorodą viešų balsavimų meniu
+            slug: Nuorodos dalis
+            slug_help: 'Nuorodos priedėliai nukreipia į šią konkretų balsavimą. Priedėliai sudaromi iš raidžių, skaičių, brukšnių ir turi prasidėti nuo raidės. Pavyzdys: %{url}'
+            title: Pavadinimas
+            voting_type:
+              hybrid: Hibridinis
+              in_person: Fizinis
+              online: Virtualus
+            voting_type_label: Balsavimo tipas
+          new:
+            create: Sukurti
+            title: Naujas balsavimas
+          publish:
+            success: Balsavimas sėkmingai paskelbtas
+          unpublish:
+            success: Balsavimas sėkmingai depublikuotas
+          update:
+            success: Balsavimas sėkmingai atnaujintas
+      admin_log:
+        ballot_style:
+          create: "%{user_name} sukūrė biuletenio tipą su kodu %{ballot_style_code} erdvėje %{space_name}"
+          delete: "%{user_name} ištrynė biuletenio tipą su kodu %{ballot_style_code} erdvėje %{space_name}"
+          update: "%{user_name} atnaujino biuletenio tipą su kodu %{ballot_style_code} erdvėje %{space_name}"
+        census:
+          create: "%{user_name} sukūrė surašymą %{space_name} erdvėje"
+          delete: "%{user_name} ištrynė surašymą erdvėje %{space_name}"
+          update: "%{user_name} atnaujino surašymą erdvėje %{space_name}"
+        monitoring_committee_member:
+          create: "%{user_name} priskyrė naudotoją %{monitoring_committee_member_user} kaip priežiūros komiteto narį erdvėje %{space_name}"
+      census:
+        document_types:
+          passport: Pasas
+        export_mailer:
+          access_codes_export:
+            download: Atsisiųsti
+            subject: '%{voting_title} balsavimo prieigos kodai gali būti eksportuojami'
+        vote_flow:
+          already_voted_in_person: Šis dalyvis jau balsavo ir negali balsuoti dar kartą.
+          datum_not_found: Šie duomenys nesutampa su jokiu balsuotoju.
+      content_blocks:
+        highlighted_votings:
+          name: Paryškinti balsavimai
+        landing_page:
+          description:
+            title: Apie šį balsavimą
+          metrics:
+            heading: Rodikliai
+          polling_stations:
+            heading: Balsavimo punktai
+            no_polling_stations: Balsavimo punktų dar nėra.
+          timeline:
+            heading: Laiko juosta
+      monitoring_committee_members:
+        actions:
+          confirm_destroy: Ar esate tikri?
+          destroy: Ištrinti
+          new: Naujas narys
+          title: Veiksmai
+      pages:
+        home:
+          highlighted_votings:
+            active_votings: Aktyvūs balsavimai
+            see_all_votings: Žiūrėti visus balsavimus
+            votings_button_title: Nuoroda į puslapį „Balsavimai“, kuriame pateikiami visi balsavimai
+      polling_officer_zone:
+        closures:
+          back_to_polling_stations: Atgal į balsavimo punktus
+          certify:
+            add_images: Pridėti paveikslėlių
+            error: Prisegant sertifikatą įvyko klaida. Pabandykite dar kartą.
+            form_legend: Įkelkite rinkiminės baigties sertifikato nuotrauką
+            heading: Balsų perksaičiavimas - įkelkite sertifikatą
+            info_text: Įkelkite rinkiminės baigties sertifikato nuotrauką.
+            submit: Įkelkite sertifikatą
+            success: Sertifikatas įkeltas sėkmingai.
+          create:
+            error: Kuriant uždarymą kilo problema. Pabandykite dar kartą vėliau.
+            success: Uždarymas sėkmingai sukurtas.
+          edit:
+            heading: Balsų perskaičiviamas - atsakymų perskaičiviamas
+            info_text: Prašau įveskite pilną skaičių atsakymų kiekvienam klausimui.
+            modal_ballots_results_count_error:
+              close_modal: Uždaryti
+              info_text: Biuletenių skaičius nesutampa su vokų skaičium. Patikrinkite biuletenių skaičių.
+              title: Visas biuletenių skaičius
+            save_recount: Išsaugoti perskaičiavimą
+            total_ballots: Visi biuleteniai
+            total_blank_ballots: Visi tušti biuleteniai
+            total_null_ballots: Visi nuliniai biuleteniai
+            total_valid_ballots: Visi validūs biuleteniai
+          new:
+            election: 'Rinkimai:'
+            heading: Balsų perskaičiviamas
+            info_text: 'Pridėkite visų biuletenių (vokų) skaičių perskaičiuotą balsavimo punkte:'
+            modal_ballots_count_error:
+              btn_validate_total: Patvirtinti biuletenių perskaičiavimą
+              close_modal: Uždaryti
+              info_explanation_text: 'Prašau peržiūrėkite visą biuletenių skaičių. Jei suminis skaičius neteisingas, prašau pateikite paaiškinimą priežiūros komitetui:'
+              info_text: Įvestas visas biuletenių skaičius (vokai) neatitinka balsavusių balsavimo punkte skaičiaus.
+              message_for_monitoring_committee: Žinutė priežiūros komitetui
+              review_recount: Peržiūrėti perskaičiavimą
+              text_area_placeholder: Įveskite žinutę
+              title: Skaičiai nesutampa
+        in_person_votes:
+          verify_document:
+            census_present: Šis dalyvis įskaičiuotas surašyme.
+            name: Vardas
