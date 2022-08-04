@@ -8,7 +8,6 @@ module Decidim
       class ResultImportProjectsForm < Decidim::Form
         attribute :origin_component_id, Integer
         attribute :import_all_selected_projects, Boolean
-        attribute :to_be_added_projects, Integer
 
         validates :origin_component_id, presence: true
         validates :import_all_selected_projects, allow_nil: false, acceptance: true
@@ -37,7 +36,6 @@ module Decidim
             budget: { component: }
           )
           projects.reject { |project| project_already_copied?(project) }.count
-          # errors[:origin_component_id] << "No projects are being added" if projects_count <= 0
         end
 
         def project_already_copied?(original_project)

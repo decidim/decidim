@@ -30,7 +30,21 @@ module Decidim::Accountability
     describe "when origin component presents" do
       let(:import_all_selected) { true }
 
-      it { is_expected.to be_valid }
+      context "when some projects present" do
+        before do
+          allow(subject).to receive(:to_be_added_projects).and_return(1)
+        end
+
+        it { is_expected.to be_valid }
+      end
+
+      context "when no projects present" do
+        before do
+          allow(subject).to receive(:to_be_added_projects).and_return(0)
+        end
+
+        it { is_expected.not_to be_valid }
+      end
     end
 
     describe "when import all is not selexted" do
@@ -72,10 +86,10 @@ module Decidim::Accountability
       subject { described_class.from_model(current_component).with_context(context) }
       let(:budget) { create(:budget, component: budget_component, total_budget: 26_000_000) }
       let!(:selected_set) { create(:project, budget:, selected_at: Time.current) }
-      let!(:unselected_set) { create_list(:project, 1, budget:, selected_at: nil) }
+      let!(:unselected_set) { create_list(:project, 3, budget:, selected_at: nil) }
 
       it "return number of selected projects" do
-        expect(subject.selceted_projects_count(budget_component)).to eq(3)
+        expect(subject.selceted_projects_count(budget_component)).to eq(1)
       end
     end
 

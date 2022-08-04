@@ -69,8 +69,7 @@ describe "Admin imports projects to accountability", type: :system do
       end
 
       it "shows the components" do
-        expect(page).to have_content(I18n.t("projects_import.new.success", scope: "decidim.accountability.admin", number: 3))
-        expect(find(".table-list")).to have_css("tr", count: 4)
+        expect(page).to have_content(I18n.t("projects_import.new.success", scope: "decidim.accountability.admin", count: 3))
       end
     end
   end

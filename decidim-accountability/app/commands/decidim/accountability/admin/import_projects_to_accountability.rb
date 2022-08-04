@@ -16,13 +16,8 @@ module Decidim
         def call
           return broadcast(:invalid) unless @form.valid?
 
-          qeued_projects = @form.to_be_added_projects
-          import_job = ImportProjectsJob.new(@form)
-          transaction do
-            import_job.results_from_projects!(projects)
-            import_job.notify_user!
-          end
-          broadcast(:ok, qeued_projects)
+          ImportProjectsJob.perform_later(projects.pluck(:id), @form.current_component, @form.current_user)
+          broadcast(:ok, projects.count)
         end
 
         private
@@ -30,7 +25,7 @@ module Decidim
         def projects
           Decidim::Budgets::Project.joins(:budget).selected.where(
             budget: { component: origin_component }
-          )
+          ).reject { |item| @form.project_already_copied?(item) }
         end
 
         def origin_component

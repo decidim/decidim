@@ -5,16 +5,12 @@ module Decidim
     module Admin
       class ImportProjectsJob < ApplicationJob
         queue_as :default
-        def initialize(form)
-          @form = form
-        end
 
-        def results_from_projects!(projects)
-          projects.map do |original_project|
-            next if form.project_already_copied?(original_project)
+        def perform(projects, current_component, current_user)
+          projects.map do |id|
+            original_project = Decidim::Budgets::Project.find_by(id:)
 
-            new_result = create_result_from_project!(original_project, statuses.first)
-
+            new_result = create_result_from_project!(original_project, statuses(current_component).first, current_component, current_user)
             new_result.link_resources([original_project], "included_projects")
             new_result.link_resources(
               original_project.linked_resources(:proposals, "included_proposals"),
@@ -23,29 +19,24 @@ module Decidim
 
             copy_attachments(original_project, new_result)
           end.compact
-        end
-
-        def notify_user!
-          Decidim::Accountability::ImportProjectsMailer.import(form.current_user).deliver_now
+          Decidim::Accountability::ImportProjectsMailer.import(current_user).deliver_now
         end
 
         private
 
-        attr_reader :form
-
-        def create_result_from_project!(project, status)
+        def create_result_from_project!(project, status, component, user)
           params = {
             title: project.title,
             description: project.description,
             category: project.category,
             scope: project.scope || project.budget.scope,
-            component: form.current_component,
+            component:,
             status:,
             progress: status&.progress || 0
           }
           @result = Decidim.traceability.create!(
             Result,
-            form.current_user,
+            user,
             params,
             visibility: "all"
           )
@@ -72,8 +63,8 @@ module Decidim
           end
         end
 
-        def statuses
-          Decidim::Accountability::Status.where(component: form.current_component).order(:progress)
+        def statuses(current_component)
+          Decidim::Accountability::Status.where(component: current_component).order(:progress)
         end
       end
     end
