@@ -15,7 +15,7 @@
   </div>
 
   <% unless @forced_past_meetings %>
-    <%= form.check_boxes_tree :with_any_date, filter_date_values, legend_title: t("decidim.meetings.meetings.filters.date") %>
+    <%= form.collection_radio_buttons :with_any_date, filter_date_values, :first, :last, legend_title: t("decidim.meetings.meetings.filters.date") %>
   <% end %>
 
   <%= form.check_boxes_tree :with_any_type, filter_type_values, legend_title: t("decidim.meetings.meetings.filters.type") %>
