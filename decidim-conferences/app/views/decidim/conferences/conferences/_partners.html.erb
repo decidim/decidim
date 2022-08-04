@@ -1,15 +1,12 @@
 <% if conference.partners.any? %>
-  <div id="conference-partners">
-    <% conference.partners.group_by(&:partner_type).each do |partner_type, partners| %>
-      <hr class="reset mt-none mb-m">
-      <section class="section">
-        <h3 class="section-heading"><%= t(".#{partner_type.pluralize}") %></h3>
-        <div class="row small-up-2 medium-up-3 card-grid">
-          <% partners.each do |partner| %>
-            <%= cell "decidim/conferences/partner", partner %>
-          <% end %>
-        </div>
-      </section>
-    <% end %>
-  </div>
+  <% conference.partners.group_by(&:partner_type).each do |partner_type, partners| %>
+    <section id="conference-partners" class="conference__section">
+      <h2 class="h2 decorator"><%= t(".#{partner_type.pluralize}") %></h2>
+      <div class="conference__grid">
+        <% partners.each do |partner| %>
+          <%= cell "decidim/conferences/partner", partner %>
+        <% end %>
+      </div>
+    </section>
+  <% end %>
 <% end %>

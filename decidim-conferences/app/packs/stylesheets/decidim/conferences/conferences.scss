@@ -61,3 +61,37 @@
     }
   }
 }
+
+.conference{
+  &__section{
+    @apply space-y-8 py-16 first:pt-0 last:pb-0;
+
+    &-description{
+      @apply prose max-w-2xl;
+    }
+
+    & + &{
+      @apply border-t-2 border-background;
+    }
+  }
+
+  &__grid{
+    @apply grid grid-cols-4 gap-x-6 gap-y-10;
+
+    &-item{
+      @apply space-y-4;
+
+      &-img{
+        @apply border-4 border-background rounded aspect-[4/3] p-1;
+
+        img{
+          @apply w-full h-full object-contain;
+        }
+      }
+
+      &-text{
+        @apply text-secondary text-center;
+      }
+    }
+  }
+}

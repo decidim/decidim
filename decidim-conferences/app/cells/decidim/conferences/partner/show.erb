@@ -1,11 +1,6 @@
-<% if model.link.presence %>
-  <%= link_to model.link, class: "partner-box column collapse text-center mb-m", target: "_blank" do %>
-    <%= logo %>
-    <%= name %>
-  <% end %>
-<% else %>
-  <div class="partner-box column collapse text-center mb-m">
-    <%= logo %>
-    <%= name %>
+<%= link_to model.link ||= "", target: "_blank", class: "conference__grid-item" do %>
+  <div class="conference__grid-item-img">
+    <%= image_tag model.attached_uploader(:logo).path(variant: :medium), alt: "logo" %>
   </div>
+  <h5 class="h5 conference__grid-item-text"><%= model.name %></h5>
 <% end %>
