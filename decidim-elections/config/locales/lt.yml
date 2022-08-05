@@ -960,8 +960,44 @@ lt:
         monitoring_committee_verify_elections:
           index:
             download: Atsisiųsti
+            how_to_download: Norėdami patvirtinti rinkimus, atsisiųskite patvirtinimo failą iš viršuje esančios lentelės.
+            how_to_run_verifier: 'Parsisiuntus rinkimeną galite pradėti naudoti universalų tikrintoją. Klonuokite <a href=''https://github.com/decidim/decidim-bulletin-board''>šią repozitoriją</a> ir iš šakninio aplanko paleiskite šią komandą:'
+            how_to_title: Kaip patikrinti rinkimų galiojimą
+            not_available: Dar neprieinama
+            title: Rinkimai
+        polling_officers:
+          create:
+            invalid: Kilo problema sukuriant šį balsavimo prižiūrėtoją
+            success: Balsavimo prižiūrėtojas sukurtas sėkmingai
+          destroy:
+            invalid: Kilo problema pašalinant šį balsavimo prižiūrėtoją
+            success: Balsavimo prižiūrėtojas sėkmingai pašalintas
+          form:
+            existing_user: Egzistuojantis dalyvis
+            non_user: Pakviesti naują dalyvį
+            select_user: Ieškoti pagal vardą, el. pašto adresą arba naudotojo vardą
+            user_type: Dalyvio tipas
+          index:
+            role_manager: vadybininkas
+            role_president: prezidentas
+            title: Balsavimo prižiūrėtojai
+          new:
+            create: Sukurti
+            title: Sukurti balsavimo prižiūrėtoją
+          polling_officers_picker:
+            choose_polling_officers: Pasirinkti balsavimo prižiūrėtojus
+            close: Uždaryti
+            more_polling_officers: Yra dar %{number} daugiau balsavimo prižiūrėtojų. Kad nustatytumėte jų vietą, patikslinkite savo paiešką.
+            no_polling_officers: Jūsų paieškos kriterijus atitinkančių balsavimo prižiūrėtojų nerasta arba nėra balsavimo prižiūrėtojų.
         polling_stations:
+          create:
+            invalid: Sukuriant šį balsavimo punktą iškilo problema
+            success: Balsavimo punktas sėkmingai sukurtas
+          destroy:
+            invalid: Kilo problema pašalinant šį balsavimo punktą
+            success: Balsavimo punktas sėkmingai pašalintas
           edit:
+            title: Atnaujinti balsavimo punktą
             update: Atnaujinti balsavimo punktą
           form:
             address_help: 'Adresas: jį naudoja „Geocoder“, kad rastų vietą'
@@ -1018,6 +1054,7 @@ lt:
           unpublish:
             success: Balsavimas sėkmingai depublikuotas
           update:
+            invalid: Atnaujinant šį balsavimą iškilo problema
             success: Balsavimas sėkmingai atnaujintas
       admin_log:
         ballot_style:
@@ -1030,10 +1067,33 @@ lt:
           update: "%{user_name} atnaujino surašymą erdvėje %{space_name}"
         monitoring_committee_member:
           create: "%{user_name} priskyrė naudotoją %{monitoring_committee_member_user} kaip priežiūros komiteto narį erdvėje %{space_name}"
+          delete: "%{user_name} atskyrė naudotoją %{monitoring_committee_member_user} kaip priežiūros komiteto narį nuo erdvės %{space_name}"
+        polling_officer:
+          create: "%{user_name} priskyrė naudotoją %{polling_officer_user} kaip balsavimo prižiūrėtoją erdvėje %{space_name}"
+          delete: "%{user_name} atskyrė naudotoją %{polling_officer_user} kaip balsavimo prižiūrėtoją nuo erdvės %{space_name}"
+        polling_station:
+          create: "%{user_name} sukūrė balsavimo punktą %{resource_name} erdvėje %{space_name}"
+          delete: "%{user_name} pašalino balsavimo punktą %{resource_name} erdvėje %{space_name}"
+          update: "%{user_name} atnaujino balsavimo punktą %{resource_name} erdvėje %{space_name}"
+        voting:
+          create: "%{user_name} sukūrė %{resource_name} balsavimą"
+          publish: "%{user_name} paskelbė %{resource_name} balsavimą"
+          unpublish: "%{user_name} panaikino %{resource_name} balsavimą"
       census:
         admin:
           census:
+            create:
+              invalid: Kuriant surašymą kilo problema. Pabandykite dar kartą vėliau.
+              invalid_csv_header: Trūksta CSV antraščių, arba jos nėra teisingos - prašome atidžiai perskaityti instrukcijas
+            delete:
+              button: Pašalinti visus surašymo duomenis
+              confirm: Pašalinus visus surašymo duomenis, veiksmo nebus galima anuliuoti. Ar tikrai norite tęsti?
+            destroy:
+              error: Pašalinant surašymą kilo problema. Pabandykite dar kartą vėliau.
+              success: Surašymo duomenys pašalinti
             export_access_codes:
+              button: Eksportuoti balsavimo prieigos kodus
+              callout: Galite toliau tęsti prieigos kodų eksportą. Tai gali būti atlikta tik vieną kartą. Kai pradėsite eksportavimą, el. pašto dėžutėje rasite laišką su instrukcijomis į <strong>%{email}</strong>
               confirm: Galite eskportuoti prieigos kodą vieną kartą. Užtikrinkite, kad turite prieigą prie el. pašto <strong>%{email}</strong>.
               file_not_exist: Failas neegzistuoja
               launch_error: Pradedant prieigos kodų eksportą kilo problema
@@ -1048,6 +1108,7 @@ lt:
               button: Generuoti balsavimo prieigos kodus
               callout: Dabar galite sugeneruoti prieigos kodus. Atsižvelkite į tai, kad sugeneravus prieigos kodus nebegalėsite pakeisti surašymo.
               confirm: Jei tęsite, nebegalėsite pakeisti surašymo.
+              info_message_all: "<strong>Visos eilutės importuotos sėkmingai</strong> iš %{file} failo (%{raw_count} nuo %{data_count})."
         document_types:
           passport: Pasas
         export_mailer:
@@ -1122,6 +1183,37 @@ lt:
               text_area_placeholder: Įveskite žinutę
               title: Skaičiai nesutampa
         in_person_votes:
+          complete_voting:
+            questions_title_voted: 'Šis dalyvis jau balsavo internetu ir turi galimybė balsuoti šiais klausimais:'
+            voted: Dalyvis prabalsavo
+          create:
+            error: Balsavimas nebuvo užregistruotas. Prašome bandyti dar kartą.
+          in_person_form:
+            census_not_present: Šis dalyvis nėra įskaičiuotas į surašymą.
+            census_not_present_description: Jie privalo kreiptis į surašymo skundų biurą arba susisiekti su klientų pagalba.
+            date_of_birth: Gimimo data
+            day: Diena
+            day_placeholder: DD
+            document_number: Dokumento numeris
+            document_number_placeholder: Asmens tapatybės dokumento numeris
+            month: Mėnuo
+            month_placeholder: MM
+            select: Pasirinkite dokumento tipą
+            title: 'Pasirinkite dokumento tipą ir įveskite dalyvio dokumento numerį:'
+            validate_document: Patvirtinti dokumentą
+            year: Metai
+            year_placeholder: MMMM
+          new:
+            back: Atgal į balsavimo punktus
+            title: Identifikuoti ir patvirtinti dalyvį
+          show:
+            back: Atgal į balsavimo punktus
+            title: Laukiama, kol bus užregistruotas fizinis balsavimas
+          update:
+            error: Užskaitant balsą iškilo problema. Prašome pabandykite iš naujo.
+            success:
+              accepted: Balsavimas užregistruotas sėkmingai.
+              rejected: Skelbimų lenta balsavimo nepriėmė. Prašome susisiekti su sistemos administratoriumi.
           verify_document:
             census_present: Šis dalyvis įskaičiuotas surašyme.
             name: Vardas
@@ -1184,3 +1276,30 @@ lt:
           error:
             info: 'Pabandykite iš naujo. Jei manote, kad duomenys sistemoje neteisingi, apie tai galite pranešti: %{census_contact_information}'
             title: Duomenys, kuriuos įvedėte nėra šio balsavimo surašyme
+          form_title: 'Užpildykite šią formą, kad patikrinti savo surašymo duomenis:'
+          invalid: Tikrinant surašymo duomenis iškilo problema.
+          success:
+            access_link: el. paštu.
+            title: Jūsų surašymo duomenys teisingi!
+          title: Ar galiu balsuoti?
+        check_fields:
+          date_of_birth: Gimimo data
+          day: Diena
+          day_placeholder: DD
+          document_number: Dokumento numeris
+          document_number_placeholder: Asmens tapatybės dokumento numeris
+          document_type: Dokumento tipas
+          month: Mėnuo
+          month_placeholder: MM
+          postal_code: Pašto kodas
+          postal_code_placeholder: Pašto kodo numeris
+          select: Pasirinkite dokumento tipą
+          year: Metai
+          year_placeholder: MMMM
+        elections_log:
+          bb_status: Rinkimų būsena
+          election_log: Rinkimų ataskaita
+          title: Rinkimų ataskaita
+        filters:
+          active: Aktyvūs
+          all: Visi
