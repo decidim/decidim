@@ -1,7 +1,7 @@
 <div class="flex -space-x-2">
   <% visible_endorsers.each do |visible_endorser| %>
     <span class="rounded-full overflow-hidden border border-white inline-block w-6 h-6">
-      <%= cell "decidim/author", visible_endorser, layout: :avatar %>
+      <%= cell "decidim/author", visible_endorser, layout: :avatar, skip_profile_link: true %>
     </span>
   <% end %>
 

@@ -1,9 +1,10 @@
 <div class="blog__actions">
   <div class="blog__actions-left">
     <% if endorsements_enabled? %>
-      <div id="endorsers_list-trigger" class="cursor-pointer" data-toggler=".is-active" data-toggle="endorsers_list-trigger endorsers_list" role="button">
+      <%# REDESIGN_PENDING: replace toggler %>
+      <button id="endorsers_list-trigger" class="cursor-pointer" data-toggler=".is-active" data-toggle="endorsers_list-trigger endorsers_list" role="button">
         <%= cell "decidim/endorsers_list", post %>
-      </div>
+      </button>
       <%= endorsement_buttons_cell(post) %>
     <% end %>
 
