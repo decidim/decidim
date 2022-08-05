@@ -170,7 +170,22 @@ lt:
             new_proposal_help_text: Naujo pasiūlymo pagalbos tekstas
             official_proposals_enabled: Oficialūs pasiūlymai aktyvuoti
             participatory_texts_enabled: Dalyvaujamieji tekstai aktyvuoti
+            participatory_texts_enabled_readonly: Jei yra pasiūlymų, negalima sąveika su šia nuostata. Sukurkite naują „Pasiūlymų komponentą“, jei norite aktyvinti šią funkciją arba, jei norite išjungti šią funkciją, visus importuotus pasiūlymus pašalinkite iš laukelio „Bendri tekstai“ meniu.
+            proposal_answering_enabled: Atsakymas į pasiūlymą aktyvintas
+            proposal_edit_before_minutes: Kol nepraeis nurodytas skaičius minučių, autoriai gali keisti pasiūlymus
+            proposal_edit_time: Pasiūlymų koregavimas
+            proposal_edit_time_choices:
+              infinite: Lesti redaguoti pasiūlymus neribotą laiką
+              limited: Leisti redaguoti pasiūlymus nustatytame laiko intervale
+            proposal_length: Ilgiausia įmanoma pasiūlymo pagrindinė dalis
+            proposal_limit: Pasiūlymų skaičiaus limitas vienam dalyviui
+            proposal_wizard_step_1_help_text: Pasiūlymo vedlio etapo „Sukurti“ pagalbos tekstas
+            proposal_wizard_step_2_help_text: Pasiūlymo vedlio etapo „Palyginti“ pagalbos tekstas
+            proposal_wizard_step_3_help_text: Pasiūlymo vedlio etapo „Užbaigti“ pagalbos tekstas
+            proposal_wizard_step_4_help_text: Pasiūlymo vedlio etapo „Paskelbti“ pagalbos tekstas
+            resources_permissions_enabled: Kiekvienam pasiūlymui galima nustatyti leistinus veiksmus
             scope_id: Apimtis
+            scopes_enabled: Sritys įjungtos
             threshold_per_proposal: Vienam pasiūlymui nustatyta riba
             vote_limit: Paramos riba vienam dalyviui
           step:
@@ -184,6 +199,12 @@ lt:
             amendments_visibility_choices:
               all: Pataisos matomos visiems
               participants: Pakeitimai matomi tik jų autoriams
+            amendments_visibility_help: Jeigu pasirenkama „Pakeitimai matomi tik jų autoriams“, dalyvis turi būti prisijungęs, kad galėtų matyti padarytus pakeitimus.
+            announcement: Pranešimas
+            answers_with_costs: Įjungti atsakymų į pasiūlymus išlaidų funkciją
+            automatic_hashtags: Grotažymės pridėtos prie visų pasiūlymų
+            comments_blocked: Komentarai užblokuoti
+            creation_enabled: Dalyviai gali kurti pasiūlymus
     proposals:
       collaborative_drafts:
         filters:
