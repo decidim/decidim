@@ -86,7 +86,8 @@ edit_link(
       (items << not_meetings).flatten!
       items << media if current_participatory_space.attachments.any? || current_participatory_space.media_links.any?
 
-      items.each_with_index do |item, index| %>
+      items.each_with_index do |item, index|
+      %>
         <li class="<%= " is-active" if item[:active] %>">
           <%= link_to item[:url], class: "conference__nav-item" do %>
             <%= item[:name] %>
