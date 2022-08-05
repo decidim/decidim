@@ -20,9 +20,12 @@ lt:
         participatory_process_group_id: Procesų grupė
         participatory_scope: Kas nuspręsta
         participatory_structure: Kaip nuspręsta
+        promoted: Paaukštintas/a
         published_at: Publikuota
         related_process_ids: Susiję procesai
         scope_id: Apimtis
+        scope_type_max_depth_id: Srities filtro gylis
+        scopes_enabled: Sritys įjungtos
         short_description: Trumpas aprašymas
         show_metrics: Rodyti metriką
         show_statistics: Rodyti statistiką
@@ -132,6 +135,8 @@ lt:
           fields:
             end_date: Pabaigos data
             start_date: Pradžios data
+            title: Pavadinimas
+          name: Dalyvaujamojo proceso etapas
         participatory_process_user_role:
           fields:
             email: El. paštas
@@ -321,6 +326,7 @@ lt:
         html_3:
           name: Trečias HTML blokas
         metadata:
+          developer_group: Paaukštintas/a
           name: Metaduomenys
           participatory_scope: Kas nuspręsta
           participatory_structure: Kaip nuspręsta
@@ -332,6 +338,8 @@ lt:
         title:
           meta_scope: Apimtis
           name: Pavadinimas, aprašymas ir grotažymė
+      show:
+        title: Dalyvaujamojo proceso grupės
     participatory_process_steps:
       index:
         process_steps: Proceso etapai
@@ -431,9 +439,12 @@ lt:
         index:
           loading: Įkeliami rezultatai...
       show:
+        area: Aplinka
         belongs_to_group: Šis procesas priklauso
         dates: Datos
+        developer_group: Rėmėjų grupė
         end_date: Pabaigos data
+        local_area: Organizacijos vietovė
         participatory_scope: Kas nuspręsta
         participatory_structure: Kaip nuspręsta
         private_space: Tai yra uždaras procesas
@@ -456,6 +467,8 @@ lt:
           active_step: Aktyvusis etapas
           take_part: Dalyvaukite
       participatory_processes:
+        index:
+          promoted_processes: Paryškinti procesai
         participatory_process:
           active_step: 'Dabartinis etapas:'
           more_info: Daugiau informacijos
