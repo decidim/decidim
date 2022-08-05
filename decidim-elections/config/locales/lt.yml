@@ -1001,6 +1001,9 @@ lt:
               callout: Dabar galite sugeneruoti prieigos kodus. Atsižvelkite į tai, kad sugeneravus prieigos kodus nebegalėsite pakeisti surašymo.
               confirm: Jei tęsite, nebegalėsite pakeisti surašymo.
               info_message_all: "<strong>Visos eilutės importuotos sėkmingai</strong> iš %{file} failo (%{raw_count} nuo %{data_count})."
+              info_message_warn: Prašome patikrinti ar netrūksta duomenų, nes %{data_count} įrašai buvo sukurti ir įkeltas failas file %{file} turėjo %{raw_count} eilučių.
+              launch_error: Pradedant prieigos kodų generavimą kilo problema
+              launch_success: Kodų generavimas pradėtas.
         document_types:
           passport: Pasas
         export_mailer:
