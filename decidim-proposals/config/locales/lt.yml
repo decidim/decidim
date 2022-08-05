@@ -3,11 +3,22 @@ lt:
   activemodel:
     attributes:
       collaborative_draft:
+        address: Adresas
+        body: Pagrindinė dalis
+        category_id: Kategorija
         decidim_scope_id: Apimtis
         scope_id: Apimtis
+        state: Būsena
+        title: Pavadinimas
       proposal:
+        answer: Atsakyti
+        answered_at: Atsakyta
+        automatic_hashtags: Grotažymės pridėtos automatiškai
+        body: Pagrindinė dalis
+        category_id: Kategorija
         decidim_scope_id: Apimtis
         scope_id: Apimtis
+        state: Būsena
         suggested_hashtags: Pasiūlytos grotažymės
         title: Pavadinimas
         user_group_id: Sukurti pasiūlymą kaip
@@ -112,8 +123,20 @@ lt:
             label: Būsena
             values:
               'true': Neatsakyta
+          valuator_role_ids_has:
+            label: Pavesta vertintojui
+        search_placeholder:
+          id_string_or_title_cont: Ieškoti %{collection} pagal ID arba pavadinimą.
     components:
       proposals:
+        actions:
+          amend: Pakeisti
+          comment: Komentuoti
+          create: Sukurti
+          endorse: Palaikyti
+          vote: Paremti
+          withdraw: Atsiimti
+        name: Pasiūlymai
         settings:
           global:
             scope_id: Apimtis
