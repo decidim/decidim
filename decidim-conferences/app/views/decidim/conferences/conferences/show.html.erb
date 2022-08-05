@@ -136,7 +136,7 @@ edit_link(
     </div>
   </section>
 
-  <%= partners_for current_participatory_space %>
+  <%= render partial: "partners", locals: { conference: current_participatory_space } %>
 
   <% unless translated_attribute(current_participatory_space.objectives).blank? %>
     <section class="conference__section">

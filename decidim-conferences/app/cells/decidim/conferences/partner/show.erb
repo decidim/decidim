@@ -1,4 +1,4 @@
-<%= link_to model.link ||= "", target: "_blank", class: "conference__grid-item" do %>
+<%= link_to model.link ||= "", target: "_blank", class: "conference__grid-item", "no-external-link": "" do %>
   <div class="conference__grid-item-img">
     <%= image_tag model.attached_uploader(:logo).path(variant: :medium), alt: "logo" %>
   </div>
