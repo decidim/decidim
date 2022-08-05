@@ -54,7 +54,7 @@
   }
 
   &__actions{
-    @apply flex justify-between;
+    @apply flex flex-col md:flex-row justify-between items-center md:items-start gap-4;
 
     &-left{
       @apply flex items-center gap-2;
