@@ -79,6 +79,18 @@
     }
   }
 
+  &__nav{
+    @apply divide-y divide-white [&>li]:py-3.5 first:[&>li]:pt-0 last:[&>li]:pb-0;
+
+    &-container{
+      @apply ml-6 bg-primary p-6 rounded;
+    }
+
+    &-item{
+      @apply flex items-center gap-1 text-white font-semibold [&>svg]:fill-current;
+    }
+  }
+
   &__section{
     @apply space-y-8 py-16 first:pt-0 last:pb-0;
 

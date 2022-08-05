@@ -23,12 +23,77 @@ edit_link(
 <% end %>
 
 <% content_for :aside do %>
-  <div class="ml-6 bg-primary p-6 rounded">
-    <ul class="text-white divide-y divide-white [&>li]:py-3.5 first:[&>li]:pt-0 last:[&>li]:pb-0">
-      <li>link 1</li>
-      <li>link 2</li>
-      <li>link 3</li>
-      <li>link 4</li>
+  <div class="conference__nav-container">
+    <ul class="conference__nav">
+      <%
+      items = [];
+
+      information = {
+        name: t("layouts.decidim.conferences_nav.conference_menu_item"),
+        url: decidim_conferences.conference_path(current_participatory_space),
+        active: is_active_link?(decidim_conferences.conference_path(current_participatory_space), :exclusive)
+      };
+
+      speakers = {
+        name: t("layouts.decidim.conferences_nav.conference_speaker_menu_item"),
+        url: decidim_conferences.conference_conference_speakers_path(current_participatory_space),
+        active: is_active_link?(decidim_conferences.conference_conference_speakers_path(current_participatory_space), :inclusive)
+      }
+
+      meetings = [];
+      meeting_components = current_participatory_space.components.published.where(manifest_name: "meetings")
+      meeting_components.map do |component|
+        meeting = {
+          name: translated_attribute(component.name),
+          url: decidim_conferences.conference_conference_program_path(current_participatory_space, id: component.id),
+          active: is_active_link?(decidim_conferences.conference_conference_program_path(current_participatory_space, id: component.id), :inclusive)
+        }
+        meetings << meeting if Decidim::Meetings::Meeting.visible_for(current_user).any?
+      end
+
+      partners = {
+        name: t("layouts.decidim.conferences_nav.conference_partners_menu_item"),
+        url: decidim_conferences.conference_path(current_participatory_space, anchor: "conference-partners"),
+      }
+
+      venues = {
+        name: t("layouts.decidim.conferences_nav.venues"),
+        url: decidim_conferences.conference_path(current_participatory_space, anchor: "venues")
+      }
+
+      not_meetings = [];
+      not_meetings_components = current_participatory_space.components.published.where.not(manifest_name: "meetings")
+      not_meetings_components.map do |component|
+        not_meeting = {
+          name: translated_attribute(component.name),
+          url: main_component_path(component),
+          active: is_active_link?(main_component_path(component), :inclusive)
+        }
+        not_meetings << not_meeting
+      end
+
+      media = {
+        name: t("layouts.decidim.conferences_nav.media"),
+        url: decidim_conferences.conference_media_path(current_participatory_space),
+        active: is_active_link?(decidim_conferences.conference_media_path(current_participatory_space), :inclusive)
+      }
+
+      items << information
+      items << speakers if current_participatory_space.speakers.any?
+      (items << meetings).flatten!
+      items << partners if current_participatory_space.partners.any?
+      items << venues if meeting_components.any?
+      (items << not_meetings).flatten!
+      items << media if current_participatory_space.attachments.any? || current_participatory_space.media_links.any?
+
+      items.each_with_index do |item, index| %>
+        <li class="<%= " is-active" if item[:active] %>">
+          <%= link_to item[:url], class: "conference__nav-item" do %>
+            <%= item[:name] %>
+            <%= icon "arrow-right-line" %>
+          <% end %>
+        </li>
+      <% end %>
     </ul>
   </div>
 <% end %>
