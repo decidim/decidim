@@ -1366,8 +1366,28 @@ lt:
           step: Identifikacija
           title: Identifikuoti save pagal mano balsavimo surašymo duomenis
         no_census_contact_information: Kol kas nėra kontaktinės informacijos
+        orders:
+          label: 'Rūšiuoti balsus pagal:'
+          random: Atsitiktinai
+          recent: Naujausia
+        send_access_code:
+          invalid: Iškilo problema išsiunčiant Prieigos Kodą
+          success: Jūsų Prieigos Kodas buvo išsiųstas sėkmingai
+        show:
+          dates: Datos
       votings_m:
+        badge_name:
+          finished: Užbaigta
+          ongoing: Vykstantys
+          upcoming: Artėjantys
+        footer_button_text:
+          participate: Dalyvauti
+          view: Peržiūrėti
+          vote: Balsuoti
+        unspecified: Nepatikslinta
         voting_type:
+          hybrid: Hibridinis
+          in_person: Fizinis
           online: Virtualus
         voting_types_label: Balsavimo tipas
   layouts:
