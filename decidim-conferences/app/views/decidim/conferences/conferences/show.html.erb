@@ -112,28 +112,21 @@ edit_link(
     </div>
   </section>
 
-  <section class="conference__section">
+  <section class="conference__section conference__section-2col">
     <h2 class="h2 decorator"><%= t("conferences.show.details", scope: "decidim") %></h2>
     <div class="conference__section-description">
       <%= decidim_sanitize_editor translated_attribute(current_participatory_space.description) %>
     </div>
 
-    <%# REDESIGN_PENDING: falta diseño? %>
-    <div class="row mt-l mb-l">
-      <div class="column medium-9 medium-centered">
-        <% if current_participatory_space.registrations_enabled? %>
-          <div class="column medium-6">
-            <%= link_to t("decidim.conferences.conferences.show.register"), decidim_conferences.conference_registration_types_path(current_participatory_space), class:"button button--sc light expanded" %>
-          </div>
+    <div>
+      <% if current_participatory_space.registrations_enabled? %>
+        <%= link_to t("decidim.conferences.conferences.show.register"), decidim_conferences.conference_registration_types_path(current_participatory_space), class:"button button__lg button__secondary" %>
+      <% end %>
+      <% current_participatory_space.components.where(manifest_name: "meetings").each do |component_meeting| %>
+        <% if component_meeting.published? || component_meeting == self.try(:current_component) %>
+          <%= link_to translated_attribute(component_meeting.name), decidim_conferences.conference_conference_program_path(current_participatory_space, id: component_meeting.id), class:"button button__lg button__transparent-secondary" %>
         <% end %>
-        <% current_participatory_space.components.where(manifest_name: "meetings").each do |component_meeting| %>
-          <% if component_meeting.published? || component_meeting == self.try(:current_component) %>
-            <div class="column medium-6 end">
-              <%= link_to translated_attribute(component_meeting.name), decidim_conferences.conference_conference_program_path(current_participatory_space, id: component_meeting.id), class:"button button--sc secondary light expanded" %>
-            </div>
-          <% end %>
-        <% end %>
-      </div>
+      <% end %>
     </div>
   </section>
 

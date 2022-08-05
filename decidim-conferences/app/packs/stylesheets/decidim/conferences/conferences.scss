@@ -98,6 +98,23 @@
       @apply prose max-w-2xl;
     }
 
+    &-2col{
+      @apply grid grid-cols-9 gap-x-4 place-items-start space-y-0;
+
+      > :nth-child(3n + 1),
+      > :nth-child(3n + 2){
+        @apply col-span-6;
+      }
+
+      > :nth-child(3n){
+        @apply col-span-3 row-span-2 order-2 justify-self-center flex flex-col gap-2;
+      }
+
+      > :nth-child(3n + 2){
+        @apply order-3;
+      }
+    }
+
     & + &{
       @apply border-t-2 border-background;
     }
@@ -118,7 +135,7 @@
       }
 
       &-text{
-        @apply text-secondary text-center;
+        @apply text-secondary;
       }
     }
   }
