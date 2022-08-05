@@ -727,8 +727,60 @@ lt:
             associated_census_data: Susiję surašymo duomenys
             explanation_callout: Biuletenio tipas numato kokie klausimai bus užduoti balsuotojui. Biuletenio tipe, galite pasirinkti kokie klausimai iš balsavimo komponento priklauso biuletenio tipui. Biuletenio tipo kodas naudojamas sujungti balsuotoją iš surašymo su biuleteniu, kuris jiems pateikiamas balsavimo kabinoje. Nekurkite biuletenio tipų jei norite, kad visi gautų visus klausimus.
             title: Biuletenio tipas
+          new:
+            create: Sukurti
+            title: Sukurti biuletenio tipą
+          update:
+            invalid: Atnaujinant šį biuletenio tipą iškilo problema
+            success: Biuletenio tipas atnaujintas sėkmingai
+        content_blocks:
+          highlighted_votings:
+            max_results: Didžiausias rodomų elementų skaičius
+          landing_page:
+            attachments_and_folders:
+              name: Balsavimo prisegimai ir aplankai
+            description:
+              name: Balsavimo aprašymas
+            elections:
+              name: Balsavimo rinkimai
+            header:
+              name: Balsavimo antraštė
+            html_block_1:
+              name: Balsavimo html blokas 1
+            html_block_2:
+              name: Balsavimo html blokas 2
+            html_block_3:
+              name: Balsavimo html blokas 3
+            metrics:
+              name: Balsavimo rodikliai
+            polling_stations:
+              name: Balsavimo punktai
+            stats:
+              name: Balsavimo statistika
+            timeline:
+              name: Balsavimo laiko juosta
+        index:
+          not_published: Nebeskelbiama
+          published: Paskelbta
+        landing_page:
+          content_blocks:
+            edit:
+              update: Atnaujinti
+          edit:
+            active_content_blocks: Aktyvūs turinio blokai
+            inactive_content_blocks: Neaktyvūs turinio blokai
         menu:
+          votings: Balsavimai
           votings_submenu:
+            attachment_collections: Aplankai
+            attachment_files: Dokumentai
+            attachments: Priedai
+            ballot_styles: Biuletenio tipai
+            census: Surašymas
+            components: Komponentai
+            info: Informacija
+            landing_page: Pagrindinis puslapis
+            monitoring_committee: Priežiūros komitetas
             monitoring_committee_election_results: Patvirtinti rezultatus
             monitoring_committee_members: Nariai
             monitoring_committee_polling_station_closures: Validuoti sertifikatus
@@ -801,6 +853,32 @@ lt:
           form:
             existing_user: Egzistuojantis dalyvis
             non_user: Pakviesti naują dalyvį
+            select_user: Ieškoti pagal el. pašto adresą, vardą arba naudotojo vardą
+            user_type: Dalyvio tipas
+          index:
+            title: Priežiūros komitetas
+          new:
+            create: Sukurti
+            title: Sukurti priežiūros komiteto narį
+        monitoring_committee_polling_station_closures:
+          actions:
+            title: Veiksmai
+            validate: Patvirtinti
+            view: Peržiūrėti
+          closures:
+            change_election: Keisti rinkimus
+            signed: Pasirašyta?
+            title: <i>%{election_title}</i> balsavimo punktai
+            validated: Patvirtinta?
+          edit:
+            change_polling_station: Atgal į balsavimo punktus
+            monitoring_committee_notes: Pastabos
+            title: <i>%{polling_station_title}</i> balsavimo punkto rezultatai <i>%{election_title}</i> rinkimuose
+          elections:
+            title: Pasirinkite rinkimus, kuriuos norite patvirtinti
+          show:
+            change_polling_station: Atgal į balsavimo punktus
+            monitoring_committee_notes: Pastabos iš priežiūros komiteto
         polling_stations:
           edit:
             update: Atnaujinti balsavimo punktą
@@ -853,6 +931,18 @@ lt:
           update:
             success: Balsavimas sėkmingai atnaujintas
       census:
+        admin:
+          census:
+            export_access_codes:
+              confirm: Galite eskportuoti prieigos kodą vieną kartą. Užtikrinkite, kad turite prieigą prie el. pašto <strong>%{email}</strong>.
+              launch_error: Pradedant prieigos kodų eksportą kilo problema
+              launch_success: Prieigos kodų eksportas prasidėjo. Neužilgo gausite el. laišką į %{email}
+            freeze:
+              callout: Surašymas užšaldytas ir negali būti pakeistas.
+            generate_access_codes:
+              button: Generuoti balsavimo prieigos kodus
+              callout: Dabar galite sugeneruoti prieigos kodus. Atsižvelkite į tai, kad sugeneravus prieigos kodus nebegalėsite pakeisti surašymo.
+              confirm: Jei tęsite, nebegalėsite pakeisti surašymo.
         document_types:
           passport: Pasas
         export_mailer:
