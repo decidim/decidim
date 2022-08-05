@@ -7,9 +7,9 @@
     <% end %>
 
     <div class="blogs__list-item__content">
-      <h4 class="h4 blogs__list-item__title">
+      <h2 class="h4 blogs__list-item__title">
         <%= link_to translated_attribute(post.title), post %>
-      </h4>
+      </h2>
 
       <div class="blogs__list-item__text">
         <%= decidim_sanitize_editor post_description(post) %>
