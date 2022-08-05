@@ -954,6 +954,12 @@ lt:
           show:
             change_polling_station: Atgal į balsavimo punktus
             monitoring_committee_notes: Pastabos iš priežiūros komiteto
+          validate:
+            error: Patvirtinant užbaigimą iškilo problema
+            success: Uždarymas patvirtintas teisingai
+        monitoring_committee_verify_elections:
+          index:
+            download: Atsisiųsti
         polling_stations:
           edit:
             update: Atnaujinti balsavimo punktą
