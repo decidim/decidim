@@ -773,8 +773,34 @@ lt:
       votings: Balsavimai
     statistics:
       elections_count: Rinkimai
+      votings_count: Balsavimai
     votings:
       admin:
+        ballot_styles:
+          create:
+            error: Kuriant šį biuletenio tipą iškilo problema
+            success: Biuletenio tipas sukurtas sėkmingai
+          destroy:
+            invalid: Ištrinant šį biuletenio tipą iškilo problema
+            success: Biuletenio tipas ištrintas
+          edit:
+            title: Redaguoti biuletenio tipą
+            update: Atnaujinti
+          form:
+            code_help: 'Užuomina: kodas yra sujungėjas tarp surašymo ir biuletenio tipo. Kai įkeliate surašymo duomenis, kiekvienai įvesčiai priskiriamas biuletenio stilius ir atitinkamas kodas'
+            election: Rinkimai
+            questions: Klausimai biuletenio tipui
+            questions_help: 'Užuomina: pasirinkite klausimus iš rinkimų komponentų, kurie bus pristatyti balsuotojams priskirtiems šiam biuletenio tipui'
+          index:
+            actions:
+              confirm_destroy: Ar esate tikri?
+              destroy: Ištrinti
+              edit: Redaguoti
+              new: Naujas
+              title: Veiksmai
+            associated_census_data: Susiję surašymo duomenys
+            explanation_callout: Biuletenio tipas numato kokie klausimai bus užduoti balsuotojui. Biuletenio tipe, galite pasirinkti kokie klausimai iš balsavimo komponento priklauso biuletenio tipui. Biuletenio tipo kodas naudojamas sujungti balsuotoją iš surašymo su biuleteniu, kuris jiems pateikiamas balsavimo kabinoje. Nekurkite biuletenio tipų jei norite, kad visi gautų visus klausimus.
+            title: Biuletenio tipas
         menu:
           votings_submenu:
             monitoring_committee_election_results: Patvirtinti rezultatus
