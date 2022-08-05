@@ -1,11 +1,11 @@
 <% add_decidim_page_title(t("notifications", scope: "layouts.decidim.user_menu")) %>
 
 <% content_for :aside do %>
-  <h1 class="h1 decorator"><%= t("notifications", scope: "layouts.decidim.user_menu") %></h1>
+  <h1 class="h3 md:h1 decorator"><%= t("notifications", scope: "layouts.decidim.user_menu") %></h1>
 
-  <%= link_to read_all_notifications_path, class: "button button__lg button__secondary mt-12", method: :delete, data: { disable: true }, remote: true do %>
-    <%= t("mark_all_as_read", scope: "layouts.decidim.notifications_dashboard") %>
-    <%= icon "check-line", class: "fill-current" %>
+  <%= link_to read_all_notifications_path, class: "button button__lg button__secondary", method: :delete, data: { disable: true }, remote: true do %>
+    <span class="sr-only md:not-sr-only"><%= t("mark_all_as_read", scope: "layouts.decidim.notifications_dashboard") %></span>
+    <%= icon "check-double-line", class: "fill-current" %>
   <% end %>
 <% end %>
 
