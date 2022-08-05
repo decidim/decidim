@@ -1,42 +1,29 @@
-<section class="extended hero"
-  style="background-image:url('<%= current_participatory_space.attached_uploader(:banner_image).path %>');">
-  <div class="hero__container">
-    <div class="row">
-      <div class="columns large-10 text-left">
-        <h1 class="text-highlight hero-heading mb-none">
-          <%= translated_attribute(current_participatory_space.title) %>
-        </h1>
-        <h2 class="text-highlight">
-          <% if current_participatory_space.hashtag.present? %>
-            <span class="process-header__hashtag card__link">
-              <%= link_to "##{current_participatory_space.hashtag}", twitter_hashtag_url(current_participatory_space.hashtag), target: "_blank" %>
-            </span>
-          <% end %>
-          <%= translated_attribute(current_participatory_space.slogan) %>
-        </h2>
-      </div>
-    </div>
-    <div class="row">
-      <div class="row column medium-8 text-left mt-m">
-        <div class="column medium-6">
-          <div class="conference--date button hollow light expanded">
-            <%= participatory_space_helpers.render_date(current_participatory_space) %>
-            <%= current_participatory_space.location %>
-          </div>
-        </div>
-        <% if current_participatory_space.registrations_enabled? %>
-          <div class="column medium-3 end">
-            <%= link_to t(".register"), decidim_conferences.conference_registration_types_path(current_participatory_space), class:"button button--sc light expanded" %>
-          </div>
+<section style="background-image:url('<%= current_participatory_space.attached_uploader(:banner_image).path %>');">
+  <div class="conference__hero">
+    <div class="conference__hero-text">
+      <h1 class="h1">
+        <%= translated_attribute(current_participatory_space.title) %>
+      </h1>
+      <p class="conference__hero-slogan">
+        <% if current_participatory_space.hashtag.present? %>
+          <span>
+            <%= link_to "##{current_participatory_space.hashtag}", twitter_hashtag_url(current_participatory_space.hashtag), target: "_blank" %>
+          </span>
         <% end %>
-        <% current_participatory_space.components.where(manifest_name: "meetings").each do |component_meeting| %>
-          <% if component_meeting.published? || component_meeting == self.try(:current_component) %>
-            <div class="column medium-3 end">
-              <%= link_to translated_attribute(component_meeting.name), decidim_conferences.conference_conference_program_path(current_participatory_space, id: component_meeting.id), class:"button button--sc light hollow expanded" %>
-            </div>
-          <% end %>
+        <%= translated_attribute(current_participatory_space.slogan) %>
+      </p>
+      <p class="conference__hero-location">
+        <%= participatory_space_helpers.render_date(current_participatory_space) %>
+        <%= " @ " + current_participatory_space.location.to_s if current_participatory_space.location %>
+      </p>
+      <% if current_participatory_space.registrations_enabled? %>
+        <%= link_to t(".register"), decidim_conferences.conference_registration_types_path(current_participatory_space), class:"button button__lg button__secondary" %>
+      <% end %>
+      <% current_participatory_space.components.where(manifest_name: "meetings").each do |component_meeting| %>
+        <% if component_meeting.published? || component_meeting == self.try(:current_component) %>
+          <%= link_to translated_attribute(component_meeting.name), decidim_conferences.conference_conference_program_path(current_participatory_space, id: component_meeting.id), class:"button button__lg button__secondary" %>
         <% end %>
-      </div>
+      <% end %>
     </div>
   </div>
 </section>

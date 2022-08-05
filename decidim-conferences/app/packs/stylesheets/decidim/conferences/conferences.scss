@@ -63,6 +63,22 @@
 }
 
 .conference{
+  &__hero{
+    @apply backdrop-brightness-[30%];
+
+    &-text{
+      @apply container text-center text-white space-y-6 px-16 pt-10 pb-14;
+    }
+
+    &-slogan{
+      @apply text-lg font-semibold;
+    }
+
+    &-location{
+      @apply text-lg;
+    }
+  }
+
   &__section{
     @apply space-y-8 py-16 first:pt-0 last:pb-0;
 
