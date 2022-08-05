@@ -1,3 +1,4 @@
-<%= link_to "#{resource_locator(from_context).path}#list-of-endorsements", title: t("decidim.author.endorsements",count: from_context.endorsements_count) do %>
+<%= link_to "#{resource_locator(from_context).path}#list-of-endorsements", title: t("decidim.author.endorsements", count: from_context.endorsements_count), class: actions_class do %>
+  <%= icon("heart-add-line", class: "text-gray fill-current flex-none") if show_icons? %>
   <%= from_context.endorsements_count %> <%= t("decidim.author.endorsements", count: from_context.endorsements_count) %>
 <% end %>
