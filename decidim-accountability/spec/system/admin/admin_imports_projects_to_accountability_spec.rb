@@ -51,11 +51,13 @@ describe "Admin imports projects to accountability", type: :system do
     context "when there are no projects" do
       before do
         find("#result_import_projects_origin_component_id").find("option[value='#{budget_component.id}']").select_option
+        find("#result_import_projects_import_all_selected_projects").set(true)
+        click_on "Import"
       end
 
-      it "shows the components to select" do
-        expect(page).to have_content t("projects_import.new.origin_component_id", scope: "decidim.accountability.admin")
-        expect(find("#component_#{budget_component.id}")).to have_content(t("projects_import.new.new_items.zero", scope: "decidim.accountability.admin"))
+      it "shows error message" do
+        expect(page).to have_content "There was a problem importing the proposals into projects"
+        expect(page).to have_content "There are no selected projects in this origin component"
       end
     end
 
@@ -68,8 +70,8 @@ describe "Admin imports projects to accountability", type: :system do
         click_on "Import"
       end
 
-      it "shows the components" do
-        expect(page).to have_content(I18n.t("projects_import.new.success", scope: "decidim.accountability.admin", count: 3))
+      it "imports the projects into results" do
+        expect(page).to have_content "3 projects qeued to be imported. You will be notified by email, once completed"
       end
     end
   end

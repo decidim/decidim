@@ -56,7 +56,7 @@ module Decidim
             if attachment.file.attached?
               new_attachment.file = attachment.file.blob
             else
-              new_attachment.attached_uploader(:file).remote_url = attachment.attached_uploader(:file).url(host: project.organization.host)
+              new_attachment.attached_uploader(:file).remote_url = attachment.attached_uploader(:file)
             end
 
             new_attachment.save!

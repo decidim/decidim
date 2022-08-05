@@ -28,10 +28,10 @@ module Decidim
         end
 
         def to_be_added_projects
-          selceted_projects_count(origin_component_id)
+          selected_projects_count(origin_component_id)
         end
 
-        def selceted_projects_count(component)
+        def selected_projects_count(component)
           projects = Decidim::Budgets::Project.joins(:budget).selected.where(
             budget: { component: }
           )

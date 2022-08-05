@@ -82,14 +82,14 @@ module Decidim::Accountability
       end
     end
 
-    describe "#selceted_projects_count" do
+    describe "#selected_projects_count" do
       subject { described_class.from_model(current_component).with_context(context) }
       let(:budget) { create(:budget, component: budget_component, total_budget: 26_000_000) }
       let!(:selected_set) { create(:project, budget:, selected_at: Time.current) }
       let!(:unselected_set) { create_list(:project, 3, budget:, selected_at: nil) }
 
       it "return number of selected projects" do
-        expect(subject.selceted_projects_count(budget_component)).to eq(1)
+        expect(subject.selected_projects_count(budget_component)).to eq(1)
       end
     end
 

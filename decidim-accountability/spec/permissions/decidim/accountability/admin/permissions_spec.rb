@@ -119,8 +119,8 @@ describe Decidim::Accountability::Admin::Permissions do
     it_behaves_like "permission is not set"
   end
 
-  describe "projects_import" do
-    let(:action_subject) { :projects_import }
+  describe "import_projects" do
+    let(:action_subject) { :import_projects }
 
     let(:action) do
       { scope: :admin, action: :create, subject: action_subject }
