@@ -881,7 +881,7 @@ lt:
             monitoring_committee_notes: Pastabos iš priežiūros komiteto
           validate:
             error: Patvirtinant užbaigimą iškilo problema
-            success: Uždarymas patvirtintas teisingai
+            success: Užbaigimas patvirtintas teisingai
         monitoring_committee_verify_elections:
           index:
             download: Atsisiųsti
@@ -1004,10 +1004,27 @@ lt:
               info_message_warn: Prašome patikrinti ar netrūksta duomenų, nes %{data_count} įrašai buvo sukurti ir įkeltas failas file %{file} turėjo %{raw_count} eilučių.
               launch_error: Pradedant prieigos kodų generavimą kilo problema
               launch_success: Kodų generavimas pradėtas.
+            new:
+              file_help:
+                explanation: 'Failo gairės:'
+                message_1: Leidžiami tik CSV (.csv) failai.
+                message_2: Stulpeliai privalo būti išskiriami kabliataškiu (";").
+              has_ballot_styles_message: Jūs sukuriate balsavimo biuletenio tipus. Prašome įsitikinti, kad "%{ballot_style_code_header}" laukelis esantis CSV faile sutampa su pageidaujamo biuletenio tipo kodu.
+              info_message: "<strong>Kol kas nėra sukurto surašymo.</strong> Kad jį sukurti, prašome naudoti žemiau nurodyta CSV failo importo formą."
+              title: Sukurkite surašymą
+            show:
+              heading: Balsavimo erdvės surašymas
+            upload_info:
+              csv_example_with_ballot_style: 'Pavyzdinis failas <strong>su</strong> balsavimo biuletenio tipais:'
+              csv_example_without_ballot_style: 'Pavyzdinis failas <strong>be</strong> balsavimo biuletenio tipų:'
+              csv_header_before: 'Surašymo failas privalo būti CSV su šia antrašte:'
         document_types:
+          dni: Asmens tapatybės dokumentas
+          nie: Asmens tapatybės dokumentas
           passport: Pasas
         export_mailer:
           access_codes_export:
+            click_button: 'Spustelėkite ant sekančios nuorodos, kad atsisiųsti prieigos kodų duomenis.<br/>Failas bus prieinamas iki %{date}.<br/>Jums reikės <a href="https://www.7-zip.org/">7-Zip</a> (Windows), <a href="https://www.keka.io/en/">Keka</a> (MacOS) arba <a href="https://peazip.github.io">PeaZip</a> (Linux) kad jį atverti. Slaptažodis: %{password}'
             download: Atsisiųsti
             subject: '%{voting_title} balsavimo prieigos kodai gali būti eksportuojami'
         vote_flow:
@@ -1074,8 +1091,33 @@ lt:
               review_recount: Peržiūrėti perskaičiavimą
               text_area_placeholder: Įveskite žinutę
               title: Skaičiai nesutampa
+              total_ballots: 'Viso balsavimo biuletenių:'
+              total_people: 'Viso žmonių:'
+            polling_station: 'Balsavimo punktas:'
+            submit: Patvirtinkite bendrą skaičių
+            total_ballots_count: Balsavimo biuletenių kiekis
+          show:
+            heading: Balsų perskaičiviamas
+            info_text: Balsavimo punkto rinkimų užbaigimas.
+          sign:
+            cancel: Atšaukti
+            check_box: Peržiūrėjau, ir tai yra tas pats, kaip ir fizinis rinkimų užbaigimo sertifikatas
+            close_modal: Uždaryti
+            confirm: Gerai, testi
+            error: Įvyko klaida, pamėginkite dar kartą.
+            heading: Balsų perskaičiavimas - Pasirašykite užbaigimą
+            info_text: Jeigu tęsite, nebegalėsite koreguoti jokios informacijos, šio veiksmo anuliuoti negalima.
+            submit: Pasirašykite užbaigimą
+            success: Užbaigimas pasirašytas sėkmingai.
+            title: Veiksmas negali būti anuliuotas
+          update:
+            error: Atliekant užbaigimo atnaujinimą kilo klaida, pabandykite dar kartą vėliau.
+            success: Užbaigimo rezultatai sėkmingai atnaujinti.
         in_person_votes:
           complete_voting:
+            available_answers: 'Galimi atsakymai:'
+            complete_voting: Užbaigti balsavimą
+            identify_another: Identifikuoti kitą dalyvį
             voted: Dalyvis prabalsavo
           create:
             error: Balsavimas nebuvo užregistruotas. Prašome bandyti dar kartą.
@@ -1183,9 +1225,48 @@ lt:
           year_placeholder: MMMM
         elections_log:
           bb_status: Rinkimų būsena
+          description: Rinkimų ataskaitoje bus pateikta visa aktuali informacija apie kiekvieną balsavimą. Pavyzdžiui pagrindinės ceremonijos būsena, taškai arba jeigu rezultatai jau paskelbti. Spustelėkite ant rinkimų, apie kuriuos norite gauti informaciją.
           election_log: Rinkimų ataskaita
           title: Rinkimų ataskaita
         filters:
           active: Aktyvūs
           all: Visi
+          finished: Užbaigta
+          search: Ieškoti
           state: Būsena
+          upcoming: Artėjantys
+        filters_small_view:
+          close_modal: Uždaryti modalinį langą
+          filter: Filtruoti
+          filter_by: Filtruoti pagal
+          unfold: Išskleisti
+        index:
+          no_votings: Jūsų paieškos kriterijus atitinkančių balsavimų nerasta.
+          only_finished: Dabar suplanuotų balsavimų nėra, tačiau čia galite rasti visų įvykusių balsavimų sąrašą.
+          title: Balsavimai
+        login:
+          access_code: Prieigos kodas
+          access_code_placeholder: Prieigos kodas
+          ask_for_a_new_one: Prašyti naujo.
+          dont_have_access_code: Neturite prieigos kodo?
+          form_title: 'Norėdami prisijungti prie balsavimo, užpildykite šią formą:'
+          start_voting: Pradėti balsavimą
+          step: Identifikacija
+      votings_m:
+        voting_type:
+          online: Virtualus
+        voting_types_label: Balsavimo tipas
+  layouts:
+    decidim:
+      election_votes_header:
+        exit: Baigti
+      voting_navigation:
+        check_census: Ar galiu balsuoti?
+        election_log: Rinkimų ataskaita
+        voting_menu_item: Balsavimas
+      votings:
+        index:
+          promoted_votings: Paryškinti balsavimai
+        promoted_voting:
+          more_info: Daugiau informacijos
+          vote: Balsuoti
