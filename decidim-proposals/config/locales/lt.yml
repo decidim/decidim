@@ -6,16 +6,20 @@ lt:
         body: Pagrindinė dalis
         category_id: Kategorija
         decidim_scope_id: Apimtis
+        has_address: Turi adresą
         scope_id: Apimtis
         state: Būsena
         title: Pavadinimas
+        user_group_id: Sukurti bendrą projektą kaip
       proposal:
+        address: Adresas
         answer: Atsakyti
         answered_at: Atsakyta
         automatic_hashtags: Grotažymės pridėtos automatiškai
         body: Pagrindinė dalis
         category_id: Kategorija
         decidim_scope_id: Apimtis
+        has_address: Turi adresą
         scope_id: Apimtis
         state: Būsena
         suggested_hashtags: Pasiūlytos grotažymės
@@ -120,10 +124,27 @@ lt:
           create: Sukurti
           endorse: Palaikyti
           vote: Paremti
+          vote_comment: Balsuoti už komentarą
           withdraw: Atsiimti
         name: Pasiūlymai
         settings:
           global:
+            amendments_enabled: Pataisos leidžiamos
+            amendments_enabled_help: Jeigu jie aktyvūs, sukonfigūruokite kiekvieno etapo pakeitimo požymius.
+            amendments_wizard_help_text: Pakeitimų vedlio pagalbos tekstas
+            announcement: Pranešimas
+            attachments_allowed: Leisti failų prisegimus
+            can_accumulate_supports_beyond_threshold: Gali kaupti paramą virš numatytos ribos
+            collaborative_drafts_enabled: Bendri projektai įjungti
+            comments_enabled: Komentarai įjungti
+            comments_max_length: Maksimalus komentarų ilgis (Palikite 0 kaip numatytą vertę)
+            geocoding_enabled: Geokodavimas įjungtas
+            minimum_votes_per_user: Mažiausia parama vienam naudotojui
+            new_proposal_body_template: Naujo pasiūlymo pagrindinės dalies šablonas
+            new_proposal_body_template_help: Galite nustatyti naujiuose pasiūlymuose būsimą iš anksto užpildytą tekstą
+            new_proposal_help_text: Naujo pasiūlymo pagalbos tekstas
+            official_proposals_enabled: Oficialūs pasiūlymai aktyvuoti
+            participatory_texts_enabled: Dalyvaujamieji tekstai aktyvuoti
             scope_id: Apimtis
             threshold_per_proposal: Vienam pasiūlymui nustatyta riba
             vote_limit: Paramos riba vienam dalyviui
