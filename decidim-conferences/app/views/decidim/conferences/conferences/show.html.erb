@@ -144,21 +144,9 @@ edit_link(
   <%= render_hook(:conference_venues) %>
 
   <% if current_participatory_space.registrations_enabled? %>
-    <%# REDESIGN_PENDING: replace block with the login/signup buttons %>
-    <section class="conference__section">
-      <h2 class="h2 decorator"><%= t("decidim.conferences.conferences.show.register") %></h2>
-      <% if current_user.present? %>
-        <div class="card p-m text-center">
-          <p><%= t("decidim.conferences.conferences.show.login_as", name: current_user.name, email: current_user.email ) %></p>
-          <p><%= t("decidim.conferences.conferences.show.make_conference_registration") %></p>
-          <div class="medium-3" style="margin: 0 auto;">
-            <%= link_to t("decidim.conferences.conferences.show.register"), decidim_conferences.conference_registration_types_path(current_participatory_space), class:"button button--sc light expanded" %>
-          </div>
-        </div>
-      <% else %>
-        <%= render partial: "decidim/conferences/shared/conference_user_login" %>
-      <% end %>
-    </section>
+    <%# REDESIGN_PENDING: uncomment the partial once the login boxes has been moved to that location %>
+    <%# Further info: https://github.com/PopulateTools/issues/issues/1635 %>
+    <%# render partial: "decidim/devise/shared/boxes" %>
   <% end %>
 
   <%= cell("decidim/conferences/linked_participatory_spaces", current_participatory_space) %>
