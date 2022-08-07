@@ -53,7 +53,7 @@ describe UploaderContentTypeValidator do
   end
 
   context "when the file is not valid" do
-    let(:file) { Rack::Test::UploadedFile.new(Decidim::Dev.test_file("city.jpeg", "application/pdf")) }
+    let(:file) { Decidim::Dev.test_file("city.jpeg", "application/pdf") }
 
     it "adds the content type error" do
       expect(subject.count).to eq(1)
