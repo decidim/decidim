@@ -58,8 +58,59 @@ describe UploaderContentTypeValidator do
     it "adds the content type error" do
       expect(subject.count).to eq(1)
       expect(subject[:file]).to eq(
-        ["file should be one of image/jpeg, image/png"]
+        ["file should be one of *.jpeg, *.jpg, *.png"]
       )
+    end
+
+    context "and the content type contains a recognized wildcard match" do
+      let(:uploader) do
+        Class.new(Decidim::ApplicationUploader) do
+          def content_type_allowlist
+            %w(image/*)
+          end
+        end
+      end
+
+      it "adds the correct content type error with the allowed extensions" do
+        expect(subject.count).to eq(1)
+        expect(subject[:file]).to eq(
+          ["file should be one of *.bmp, *.gif, *.jpeg, *.jpg, *.png"]
+        )
+      end
+    end
+
+    context "and the content type contains an unrecognized wildcard match" do
+      let(:uploader) do
+        Class.new(Decidim::ApplicationUploader) do
+          def content_type_allowlist
+            %w(foobar/*)
+          end
+        end
+      end
+
+      it "adds the content type to the error" do
+        expect(subject.count).to eq(1)
+        expect(subject[:file]).to eq(
+          ["file should be one of foobar/*"]
+        )
+      end
+    end
+
+    context "and the content type contains a recognized and an unrecognized wildcard match" do
+      let(:uploader) do
+        Class.new(Decidim::ApplicationUploader) do
+          def content_type_allowlist
+            %w(image/* foobar/*)
+          end
+        end
+      end
+
+      it "adds the recognized extensions and content type to the error in correct order" do
+        expect(subject.count).to eq(1)
+        expect(subject[:file]).to eq(
+          ["file should be one of *.bmp, *.gif, *.jpeg, *.jpg, *.png, foobar/*"]
+        )
+      end
     end
   end
 end
