@@ -77,6 +77,7 @@ module Decidim
       end
 
       def can_decline_invitation?
+        return unless user
         return unless conference.presence
         return unless conference.registrations_enabled? &&
                       conference.conference_invites.exists?(user:) &&

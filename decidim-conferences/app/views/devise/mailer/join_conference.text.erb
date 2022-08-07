@@ -2,7 +2,7 @@
 
 <%= t("decidim.conferences.admin.invite_join_conference_mailer.invite.invited_you_to_join_a_conference", invited_by: @resource.invited_by.name, application: @resource.organization.name) %>
 
-<%= link_to t("devise.mailer.invitation_instructions.accept"), accept_invitation_url(@resource, invitation_token: @token, invite_redirect: Decidim::EngineRouter.main_proxy(@opts[:conference]).conference_conference_registration_path(conference_slug: @opts[:conference]), host: @resource.organization.host) %>
+<%= link_to t("devise.mailer.invitation_instructions.accept"), accept_invitation_url(@resource, invitation_token: @token, invite_redirect: Decidim::EngineRouter.main_proxy(@opts[:conference]).conference_registration_type_conference_registration_path(conference_slug: @opts[:conference], registration_type_id: @opts[:registration_type]), host: @resource.organization.host) %>
 
 <% if @resource.invitation_due_at %>
 <%= t("devise.mailer.invitation_instructions.accept_until", due_date: l(@resource.invitation_due_at, format: :long)) %>
