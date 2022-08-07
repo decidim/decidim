@@ -191,7 +191,7 @@ describe "Admin manages votings", type: :system do
         input_element = find("input[type='file']", visible: :all)
         input_element.attach_file(image_invalid_path)
 
-        expect(page).to have_content("file should be one of image/jpeg, image/png", count: 1)
+        expect(page).to have_content("file should be one of *.jpeg, *.jpg, *.png", count: 1)
         expect(page).to have_css(".upload-errors .form-error", count: 1)
       end
     end
