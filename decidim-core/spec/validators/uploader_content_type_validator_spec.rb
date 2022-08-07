@@ -112,5 +112,23 @@ describe UploaderContentTypeValidator do
         )
       end
     end
+
+    context "and the uploader defines forbidden types" do
+      let(:uploader) do
+        Class.new(Decidim::ApplicationUploader) do
+          def content_type_denylist
+            %w(image/jpeg)
+          end
+        end
+      end
+      let(:file) { Decidim::Dev.test_file("city.jpeg", "image/jpeg") }
+
+      it "adds the possible file extensions to the error message" do
+        expect(subject.count).to eq(1)
+        expect(subject[:file]).to eq(
+          ["file cannot be *.jpe, *.jpeg, *.jpg"]
+        )
+      end
+    end
   end
 end
