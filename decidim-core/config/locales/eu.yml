@@ -1545,6 +1545,12 @@ eu:
     timestamp_error_message: Barkatu, baina azkarregi aritu zara! Mesedez, bidali.
   layouts:
     decidim:
+      cookie_consent:
+        cookie_details:
+          columns:
+            description: Deskribapena
+            name: Izena
+            type: Mota
       edit_link:
         edit: Editatu
       footer:
