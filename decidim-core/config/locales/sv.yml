@@ -1645,6 +1645,7 @@ sv:
       cookie_consent:
         cookie_details:
           columns:
+            description: Beskrivning
             name: Namn
             service: Tjänst
             type: Typ
