@@ -17,6 +17,7 @@ lt:
         edit: Redaguoti
         new: Naujas įrašas
         title: Veiksmai
+        user_group_id: Sukurti įrašą kaip
       admin:
         models:
           components:
