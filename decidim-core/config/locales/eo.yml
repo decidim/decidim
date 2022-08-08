@@ -81,6 +81,10 @@ eo:
       send_instructions: Vi ricevos retpoŝton kun instrukcioj pri kiel malŝlosi vian konton en kelkaj minutoj.
   layouts:
     decidim:
+      cookie_consent:
+        cookie_details:
+          columns:
+            name: Nomo
       user_menu:
         sign_out: Elsaluti
   locale:
