@@ -1509,6 +1509,12 @@ tr:
     timestamp_error_message: Üzgünüm, bu çok hızlıydı! Lütfen yeniden gönderin.
   layouts:
     decidim:
+      cookie_consent:
+        cookie_details:
+          columns:
+            description: Açıklama
+            name: Adı
+            type: Türü
       edit_link:
         edit: Düzenle
       footer:
