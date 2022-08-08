@@ -1569,6 +1569,12 @@ it:
     timestamp_error_message: Mi dispiace, troppo veloce! Per favore, invia di nuovo.
   layouts:
     decidim:
+      cookie_consent:
+        cookie_details:
+          columns:
+            description: Descrisione
+            name: Nome
+            type: genere
       edit_link:
         edit: Modifica
       footer:
