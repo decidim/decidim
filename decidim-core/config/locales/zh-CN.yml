@@ -1412,6 +1412,11 @@ zh-CN:
     timestamp_error_message: 对不起，这太快了！请重新提交。
   layouts:
     decidim:
+      cookie_consent:
+        cookie_details:
+          columns:
+            name: 名称
+            type: 类型
       edit_link:
         edit: 编辑
       footer:
