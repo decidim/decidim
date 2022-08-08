@@ -40,7 +40,7 @@ edit_link(
                   </button>
                 </div>
 
-                <div id="accordion-panel-<%= ix %>" class="page__accordion-panel">
+                <div id="accordion-panel-<%= ix %>" class="page__accordion-panel" aria-hidden="true">
                   <ul role="menu">
                     <% topic.pages.each do |page| %>
                       <li role="menuitem"><%= link_to translated_attribute(page.title), page_path(page), class: "text-secondary" %></li>
