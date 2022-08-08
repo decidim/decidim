@@ -34,7 +34,7 @@
       <div class="login__form">
         <%= f.email_field :email, autocomplete: "email", placeholder: "hi@email.com" %>
 
-        <%= f.password_field :password, autocomplete: "current-password", placeholder: "******" %>
+        <%= f.password_field :password, autocomplete: "current-password", placeholder: "••••••" %>
 
         <% if devise_mapping.rememberable? %>
           <%= f.check_box :remember_me, label_options: { class: "login__form-checkbox-label" } %>
