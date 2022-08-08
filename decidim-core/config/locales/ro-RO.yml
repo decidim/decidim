@@ -1594,6 +1594,12 @@ ro:
     timestamp_error_message: Ne pare rău, acest lucru a fost prea rapid! Te rugăm să retrimiți.
   layouts:
     decidim:
+      cookie_consent:
+        cookie_details:
+          columns:
+            description: Descriere
+            name: Nume
+            type: Tip
       edit_link:
         edit: Editare
       footer:
