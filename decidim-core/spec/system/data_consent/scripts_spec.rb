@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Cookie scripts", type: :system do
+describe "Data consent scripts", type: :system do
   let(:orga) { create(:organization) }
 
   let(:template_class) do
@@ -37,7 +37,7 @@ describe "Cookie scripts", type: :system do
           #{cookie_modal}
           #{document_inner}
           <div class="footer">
-            <a href="#" class="button" data-open="cc-modal">
+            <a href="#" class="button" data-open="dc-modal">
               Cookie settings
             </a>
           </div>
@@ -100,7 +100,7 @@ describe "Cookie scripts", type: :system do
       end
 
       context "when accept all cookies" do
-        before { select_cookies(true) }
+        before { data_consent(true) }
 
         it "runs scripts" do
           expect(page).to have_content(essential_cookies_accepted)
@@ -111,7 +111,7 @@ describe "Cookie scripts", type: :system do
       end
 
       context "when essential cookies only" do
-        before { select_cookies(false) }
+        before { data_consent(false) }
 
         it "runs scripts" do
           expect(page).to have_content(essential_cookies_accepted)
@@ -122,7 +122,7 @@ describe "Cookie scripts", type: :system do
       end
 
       context "when analytics cookies accepted" do
-        before { select_cookies(%w(analytics)) }
+        before { data_consent(%w(analytics)) }
 
         it "runs analytics scripts" do
           expect(page).to have_content(essential_cookies_accepted)
