@@ -149,10 +149,13 @@ lt:
           title: Patvirtinti balsavimą
         budget_excess:
           budget_excess:
+            description: Šio projekto biudžetas viršija didžiausią nustatytą ribą ir projekto negalima pridėti. Jei norite, galite pašalinti projektą, kurį jau pasirinkote pridėti, arba balsuoti, nurodydami, kam teikiate pirmenybę.
             title: Didžiausia nustatyta biudžeto riba viršyta
           close: Uždaryti
+          description: Šio projekto biudžetas viršija didžiausią nustatytą ribą ir projekto negalima pridėti. Jei norite, galite pašalinti projektą, kurį jau pasirinkote pridėti, arba balsuoti, nurodydami, kam teikiate pirmenybę.
           ok: OK
           projects_excess:
+            description: Šis projektas viršija maksimalų projektų skaičių ir jo negalima pridėti. Jei norite, galite pašalinti projektą, kurį jau pasirinkote pridėti, arba balsuoti, nurodydami, kam teikiate pirmenybę.
             title: Didžiausio nustatyto projektų skaičiaus riba viršyta
         budget_summary:
           are_you_sure: Ar tikrai norite atšauti savo balsą?
@@ -260,6 +263,7 @@ lt:
             total_budget: Visas biudžetas
             vote_minimum_budget_projects_number: Mažiausias projektų, už kuriuos galima balsuoti, skaičius
             vote_rule_minimum_budget_projects_enabled: 'Įjungti taisyklę: mažiausias projektų, už kuriuos galima balsuoti, skaičius'
+            vote_rule_selected_projects_enabled: 'Įjungti taisyklę: mažiausias ir didžiausias projektų, už kuriuos galima balsuoti, skaičius'
             vote_rule_threshold_percent_enabled: 'Įjungti taisyklę: Mažiausia biudžeto procentinė dalis'
             vote_selected_projects_maximum: Didžiausias skaičius projektų, kuriuos galima pasirinkti
             vote_selected_projects_minimum: Mažiausias skaičius projektų, kuriuos reikia pasirinkti
