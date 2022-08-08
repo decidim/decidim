@@ -1,1 +1,176 @@
 lt:
+  activemodel:
+    attributes:
+      oauth_application:
+        name: '„OAuth“ programos pavadinimas'
+        organization_logo: Organizacijos logotipas (keturkampis)
+        organization_name: Organizacija
+        organization_url: Organizacijos URL
+        redirect_uri: Peradresavimo URI
+      organization:
+        from_email: El. pašto adresas
+        from_label: Etiketė
+        password: Slaptažodis
+        port: Portas
+        user_name: Naudotojo vardas
+      organization_file_uploads:
+        allowed_content_types:
+          admin: Administratoriaus MIME tipai
+          default: Numatytieji MIME tipai
+        allowed_file_extensions:
+          admin: Administratoriaus failų plėtiniai
+          default: Numatytieji failų plėtiniai
+          image: Vaizdo failų plėtiniai
+        maximum_file_size:
+          avatar: Avataro failo dydis
+          default: Numatytasis failo dydis
+    errors:
+      models:
+        oauth_application:
+          attributes:
+            redirect_uri:
+              must_be_ssl: Peradresavimo URI turi būti SSL URI
+  decidim:
+    system:
+      actions:
+        confirm_destroy: Ar tikrai norite tai ištrinti?
+        destroy: Ištrinti
+        edit: Redaguoti
+        new: Naujas
+        save: Išsaugoti
+        title: Veiksmai
+      admins:
+        create:
+          error: Kuriant naują administratorių iškilo problema.
+          success: Administratorius sukurtas
+        destroy:
+          success: Administratorius pašalintas
+        edit:
+          title: Redaguoti administratorių
+          update: Atnaujinti
+        index:
+          title: Administratoriai
+        new:
+          create: Sukurti
+          title: Naujas administratorius
+        update:
+          error: Atnaujinant šį administratorių iškilo problema.
+          success: Administratorius atnaujintas
+      dashboard:
+        show:
+          current_organizations: Dabartinės organizacijos
+      default_pages:
+        placeholders:
+          title: '%{page} numatytasis pavadinimas'
+      menu:
+        admins: Administratoriai
+        dashboard: Švieslentė
+        oauth_applications: OAuth aplikacijos
+        organizations: Organizacijos
+      models:
+        admin:
+          fields:
+            created_at: Sukurta
+            email: El. paštas
+          name: Administratorius
+          validations:
+            email_uniqueness: jau yra kitas administratorius su tokiu pačiu el. pašto adresu
+        oauth_application:
+          fields:
+            created_at: Sukurta
+            name: '„OAuth“ programos pavadinimas'
+            organization_name: Organizacija
+          name: OAuth aplikacija
+        organization:
+          actions:
+            save_and_invite: Sukurti organizaciją ir pakviesti administratorių
+          fields:
+            created_at: Sukurta
+            file_upload_settings: Failų įkėlimo nustatymai
+            name: Vardas
+            omniauth_settings: '„Omniauth“ nuostatos'
+            smtp_settings: SMTP nustatymai
+          name: Organizacija
+      oauth_applications:
+        create:
+          error: Kuriant šią aplikaciją iškilo problema.
+          success: Programa sukurta.
+        destroy:
+          error: Naikinant šią programą iškilo problema.
+          success: Programa panaikinta.
+        edit:
+          save: Išsaugoti
+          title: Redaguoti programą
+        form:
+          select_organization: Pasirinkti organizaciją
+        index:
+          confirm_delete: Ar tikrai norite ištrinti šią programą?
+          title: OAuth aplikacijos
+        new:
+          save: Išsaugoti
+          title: Nauja aplikacija
+        update:
+          error: Atnaujinant šią programą iškilo problema.
+          success: Programa atnaujinta.
+      organizations:
+        advanced_settings:
+          hide: Slėpti išplėstinius nustatymus
+          show: Rodyti išplėstinius nustatymus
+        create:
+          error: Kuriant naują organizaciją iškilo problema.
+          success: Organizacija sėkmingai sukurta.
+        edit:
+          secondary_hosts_hint: Kiekvieną iš jų įrašykite į naują eilutę
+        file_upload_settings:
+          content_types:
+            default_hint: Pagal numatytuosius nustatymus šie MIME tipai leidžiami visiems vartotojams.
+            title: Leidžiami MIME tipai
+          file_extensions:
+            title: Leidžiami failų plėtiniai
+          file_sizes:
+            avatar_hint: Megabaitai (MB). Šis failo dydžio apribojimas naudojamas avataro paveiksliukams įkelti.
+            default_hint: Megabaitai (MB). Šis failo dydžio apribojimas yra numatytasis, jei nenurodyta kitaip.
+            title: Didžiausi failų dydžiai
+          intro: |
+            Būkite ypač atsargūs, kai ketinate pakeisti šiuos nustatymus. Kuo mažiau leisite, tuo geriau.
+            Leidžiant konkrečius failų plėtinius arba MIME tipus, sistemos naudotojai gali susidurti su saugumo rizika, taip pat gali turėti įtakos svetainės pasiekiamumui.
+        index:
+          title: Organizacijos
+        new:
+          reference_prefix_hint: Nuorodos priešdėlis naudojamas unikaliai identifikuoti išteklius visoje organizacijoje
+          secondary_hosts_hint: Kiekvieną iš jų įrašykite į naują eilutę
+          title: Nauja organizacija
+        omniauth_settings:
+          decidim:
+            client_id: Kliento ID
+            site_url: Svetainės URL
+          enabled: Įjungta
+          enabled_by_default: Šis teikėjas įjungtas pagal numatytuosius nustatymus. Jį galima redaguoti, bet ne išjungti.
+          facebook:
+            app_id: Programos ID
+          google_oauth2:
+            client_id: Kliento ID
+          icon: Piktograma
+          icon_path: Piktogramos kelias
+          twitter:
+            api_key: API raktas
+        smtp_settings:
+          fieldsets:
+            sender: Siuntėjas
+          instructions:
+            from_label: 'El. pašto siuntėjas bus: "jūsų-organizacijos-pavadinimas <your-organization@example.org>". Palikite tuščią, jei norite naudoti „El. pašto adresas“ kaip etiketę'
+          placeholder:
+            from_email: jūsų-organizacija@example.org
+            from_label: jūsų-organizacijos-pavadinimas
+        update:
+          error: Atnaujinant šią organizaciją iškilo problema.
+          success: Organizacija atnaujinta.
+        users_registration_mode:
+          enabled: Leisti dalyviams registruotis ir prisijungti
+          existing: Neleiskite dalyviams registruotis, bet leiskite esamiems dalyviams prisijungti
+      shared:
+        notices:
+          no_organization_warning_html: Norėdami pradėti, turite sukurti organizaciją. Prieš tęsdami būtinai perskaitykite %{guide}.
+          our_getting_started_guide: mūsų veiklos pradžios vadovas
+      titles:
+        dashboard: Švieslentė
