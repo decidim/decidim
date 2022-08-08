@@ -68,6 +68,12 @@ lt:
         email: El. paštas
         name: Vardas
         role: Rolė
+    errors:
+      models:
+        assembly:
+          attributes:
+            document:
+              invalid_document_type: 'Netinkamas dokumento tipas. Priimtini formatai: %{valid_mime_types}'
   activerecord:
     models:
       decidim/assembly:
@@ -270,6 +276,7 @@ lt:
             duration_help: Jei šios asamblėjos veiklos trukmė ribota, pasirinkite pabaigos datą. Priešingu atveju bus rodoma, kad ji neterminuota.
             filters: Filtrai
             images: Vaizdai
+            included_at_help: Pasirinkite datą, kada ši asamblėja buvo įtraukta į „Decidim“. Ši data nebūtinai turi sutapti su sukūrimo data.
             metadata: Metaduomenys
             other: Kita
             select_a_created_by: Pasirinkti pagal kūrėją
