@@ -1,7 +1,71 @@
 lt:
+  activemodel:
+    models:
+      decidim/surveys/closed_survey_event: Apklausa pasibaigė
+      decidim/surveys/opened_survey_event: Apklausa prasidėjo
+  activerecord:
+    models:
+      decidim/surveys/survey:
+        one: Apklausa
+        few: Apklausos
+        many: Apklausos
+        other: Apklausos
+      decidim/surveys/survey_answer:
+        one: Atsakyti
+        few: Atsakymai
+        many: Atsakymai
+        other: Atsakymai
   decidim:
     components:
       surveys:
+        actions:
+          answer: Atsakyti
+        name: Apklausa
         settings:
           global:
-            scope_id: Apimtis
+            announcement: Pranešimas
+            clean_after_publish: Skelbiant apklausą, šalinti atsakymus
+            ends_at: Atsakymai priimami iki
+            ends_at_help: Jei nėra tikslios datos, palikite lauką tuščią
+            scope_id: Sritis
+            scopes_enabled: Sritys įjungtos
+            starts_at: Atsakymai priimami iš
+            starts_at_help: Jei nėra tikslios datos, palikite lauką tuščią
+          step:
+            allow_answers: Leisti atsakymus
+            allow_unregistered: Leisti neregistruotiems naudotojams atsakyti į apklausos klausimus
+            announcement: Pranešimas
+    events:
+      surveys:
+        survey_closed:
+          email_intro: Apklausa %{resource_title} %{participatory_space_title} baigta.
+          email_outro: Šį pranešimą gavote dėl to, kad sekate %{participatory_space_title}. Jeigu nebenorite gauti pranešimų, spustelėkite ankstesnę nuorodą.
+          email_subject: Apklausa %{participatory_space_title} baigta
+          notification_title: Apklausa <a href="%{resource_path}">%{resource_title}</a> <a href="%{participatory_space_url}">%{participatory_space_title}</a> baigta.
+        survey_opened:
+          email_intro: 'Apklausa %{resource_title} %{participatory_space_title} dabar vyksta. Joje galite dalyvauti iš šio puslapio:'
+          email_outro: Šį pranešimą gavote dėl to, kad sekate %{participatory_space_title}. Jeigu nebenorite gauti pranešimų, spustelėkite ankstesnę nuorodą.
+          email_subject: Nauja apklausa %{participatory_space_title}
+          notification_title: Apklausa <a href="%{resource_path}">%{resource_title}</a> <a href="%{participatory_space_url}">%{participatory_space_title}</a> dabar vyksta.
+    metrics:
+      survey_answers:
+        description: Apklausų, į kurių klausimus atsakė dalyviai, skaičius
+        object: atsakymai į apklausų klausimus
+        title: Atsakymai į apklausų klausimus
+    statistics:
+      answers_count: Atsakymai
+    surveys:
+      admin:
+        exports:
+          survey_user_answers: Apklausos dalyvių atsakymai
+        surveys:
+          update:
+            invalid: Išsaugant šią apklausą iškilo problema.
+            success: Apklausa išsaugota.
+      last_activity:
+        new_survey_at_html: "<span>Nauja apklausa %{link}</span>"
+      surveys:
+        answer:
+          invalid: Atsakant į šios apklausos klausimus iškilo problema.
+          spam_detected: Atsakant į šios formos klausimus iškilo problema. Galbūt paskubėjote? Ar galite pabandyti dar kartą?
+          success: Į apklausos klausimus atsakyta.
