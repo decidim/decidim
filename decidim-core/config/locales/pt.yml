@@ -1555,6 +1555,12 @@ pt:
     timestamp_error_message: Desculpe, isso foi muito rápido! Por favor reenvie.
   layouts:
     decidim:
+      cookie_consent:
+        cookie_details:
+          columns:
+            description: Descrição
+            name: Nome
+            type: Tipo
       edit_link:
         edit: Editar
       footer:
