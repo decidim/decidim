@@ -1283,6 +1283,11 @@ sk:
     timestamp_error_message: Prepáčte, bolo to príliš rýchle! Znovu odošlite.
   layouts:
     decidim:
+      cookie_consent:
+        cookie_details:
+          columns:
+            name: Meno
+            type: Typ
       edit_link:
         edit: Upraviť
       footer:
