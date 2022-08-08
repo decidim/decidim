@@ -1727,14 +1727,11 @@ ca:
     timestamp_error_message: Ho sentim, has estat massa ràpid! Si us plau, torna a enviar-ho.
   layouts:
     decidim:
-      cookie_consent:
-        cookie_details:
+      data_consent:
+        details:
           columns:
-            description: Descripció
-            name: Nom
             service: Servei
-            type: Tipus
-          cookies:
+          items:
             _session_id:
               description: Permet als llocs web recordar a la usuària dins d'un lloc web quan es mou entre pàgines web.
               service: Aquesta pàgina web
@@ -1746,37 +1743,31 @@ ca:
         dialog:
           accept_all: Acceptar totes
           accept_only_essential: Acceptar només les essencials
-          cookie_settings: Configuració
           description: Utilitzem galetes en el nostre lloc web per a millorar el rendiment i el contingut d'aquest. Les galetes ens permeten oferir una experiència d'usuari i uns continguts més personalitzats des dels nostres canals de xarxes socials.
+          settings: Configuració
           title: Informació sobre les galetes que es fan servir a aquesta pàgina web
         modal:
           accept_all: Acceptar totes
           accept_only_essential: Acceptar només les essencials
           analytics:
-            description: Les galetes analítiques són galetes que rastregen com els usuaris naveguen i interactuen amb un lloc web. La informació recollida s'utilitza per a ajudar el propietari del lloc web a millorar-lo.
             title: Analítiques i estadístiques
-          description: Fem servir galetes per a garantir les funcionalitats bàsiques de la pàgina web i per a millorar la teva experiència en línia. Pots triar activar-les o desactivar-les per cada categoria quan vulguis.
           essential:
-            description: Aquestes galetes són essencials per al bon funcionament de la pàgina web. Sense aquestes galetes, la pàgina web no funcionarà correctament.
             title: Essencials
           marketing:
-            description: Aquestes galetes recullen informació sobre com fas servir la plataforma, quines pàgines has visitat i a quins enllaços has fet clic.
             title: Màrqueting
           preferences:
-            description: Aquestes galetes permeten a la plataforma recordar les opcions que vas realitzar en el passat
             title: Preferències
           save_settings: Guardar configuració
           title: Configuració de les galetes
           toggle: Canviar %{consent_category}
         warning:
-          all_cookies: totes les galetes
-          change_cookie_settings: Canviar la configuració de les galetes
-          need_cookies: Cal que habilitis %{cookies} per veure aquest contingut.
+          all_categories: totes les galetes
+          change_settings: Canviar la configuració de les galetes
       edit_link:
         edit: Edita
       footer:
         cc_by_license: Amb llicència Creative Commons
-        cookie_settings: Configuració de les galetes
+        data_consent_settings: Configuració de les galetes
         decidim_logo: Logo Decidim
         download_open_data: Descarrega els fitxers de dades obertes
         made_with_open_source: Web creada amb <a target="_blank" href="https://github.com/decidim/decidim">programari lliure</a>.
