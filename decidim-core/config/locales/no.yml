@@ -1603,6 +1603,12 @@
     timestamp_error_message: Beklager, det var for raskt! Vennligst, send inn på nytt.
   layouts:
     decidim:
+      cookie_consent:
+        cookie_details:
+          columns:
+            description: Beskrivelse
+            name: Navn
+            type: Type
       edit_link:
         edit: Rediger
       footer:
