@@ -176,6 +176,8 @@ lt:
         permissions: Leidimai
         reject: Atmesti
         share: Dalintis
+        user:
+          new: Naujas naudotojas
         verify: Patikrinti
       admin_terms_of_use:
         accept:
@@ -340,6 +342,7 @@ lt:
       dashboard:
         show:
           view_more_logs: Peržiūrėti daugiau ataskaitų
+          welcome: '„Decidim“ administratoriaus sritis.'
       domain_whitelist:
         form:
           domain_too_short: Domenas per trumpas
@@ -996,6 +999,7 @@ lt:
           role: Rolė
         new:
           create: Pakviesti
+          title: Kviesti dalyvį kaip administratorių
       users_statistics:
         users_count:
           admins: Administratoriai
