@@ -1733,7 +1733,10 @@ fi-pl:
       data_consent:
         details:
           columns:
+            description: Kuvaus
+            name: Nimi
             service: Palvelu
+            type: Tyyppi
           items:
             _session_id:
               description: Mahdollistaa verkkosivuston muistavan käyttäjän, kun käyttäjä liikkuu sivuston eri sivujen välillä.
@@ -1753,12 +1756,17 @@ fi-pl:
           accept_all: Hyväksy kaikki
           accept_only_essential: Vain välttämättömät
           analytics:
+            description: Näitä evästeitä käytetään sivuston kävijätilastojen mittaamiseen ja analysointiin, jotta sivustoa voidaan parantaa.
             title: Analytiikka ja tilastot
+          description: Käytämme evästeitä varmistaaksemme sivuston perustoiminnot ja parantaaksemme sen käyttökokemusta. Voit määrittää sallimiesi evästeiden käytön ja muokata näitä asetuksia milloin tahansa.
           essential:
+            description: Nämä evästeet mahdollistavat sivuston perustoiminnot ja auttavat pitämään sen käyttäjät suojattuina. Ne tallennetaan automaattisesti selaimeen, eikä sivusto toimi ilman niitä, minkä takia ne ovat pakollisia.
             title: Välttämättömät
           marketing:
+            description: Nämä evästeet keräävät tietoa siitä, miten käytät verkkosivustoa, ja niitä voidaan hyödyntää personoidumman markkinoinnin tarjoamiseen eri sivustojen kautta.
             title: Markkinointi
           preferences:
+            description: Näiden evästeiden avulla verkkosivusto voi muistaa aiemmin tällä sivustolla tekemiäsi valintoja tarjotaksemme sinulle henkilökohtaisemman käyttökokemuksen tällä sivustolla.
             title: Mieltymykset
           save_settings: Tallenna asetukset
           title: Evästeasetukset
@@ -1766,6 +1774,7 @@ fi-pl:
         warning:
           all_categories: kaikki evästeet
           change_settings: Muuta evästeasetuksiasi
+          consent_required: Sinun täytyy sallia %{categories} nähdäksesi tämän sisällön.
       edit_link:
         edit: Muokkaa
       footer:
