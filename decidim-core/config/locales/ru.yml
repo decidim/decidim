@@ -797,6 +797,10 @@ ru:
     timestamp_error_message: Извините, это было слишком быстро! Отправьте, пожалуйста, еще раз.
   layouts:
     decidim:
+      cookie_consent:
+        cookie_details:
+          columns:
+            name: Название
       edit_link:
         edit: Редактировать
       footer:
