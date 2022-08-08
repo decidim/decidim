@@ -1412,6 +1412,11 @@ el:
     timestamp_error_message: Συγνώμη, αυτό ήταν πολύ γρήγορο! Επαναλάβετε την υποβολή.
   layouts:
     decidim:
+      cookie_consent:
+        cookie_details:
+          columns:
+            name: Όνομα
+            type: Τύπος
       edit_link:
         edit: Επεξεργασία
       footer:
