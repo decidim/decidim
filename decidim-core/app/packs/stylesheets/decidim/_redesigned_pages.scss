@@ -47,8 +47,12 @@
     @apply grid grid-cols-1 md:grid-cols-2 gap-6;
   }
 
+  &__layout{
+    @apply container grid grid-cols-1 xl:grid-cols-12 pt-12 pb-36 [&>*]:col-start-auto xl:[&>*]:col-start-2 [&>*]:col-span-full xl:[&>*]:col-span-10 [&>*]:space-y-12;
+  }
+
   &__tabbed{
-    @apply grid grid-cols-10 gap-20 first:[&>*]:col-span-3 last:[&>*]:col-span-7;
+    @apply grid gap-10 lg:gap-20 grid-cols-1 md:grid-cols-10 first:[&>*]:col-span-full md:first:[&>*]:col-span-3 last:[&>*]:col-span-full md:last:[&>*]:col-span-7;
 
     &-list{
       @apply bg-background rounded divide-y divide-gray-3;
