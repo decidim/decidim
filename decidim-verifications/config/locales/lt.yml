@@ -1,1 +1,193 @@
 lt:
+  activemodel:
+    attributes:
+      config:
+        available_methods: Galimi metodai
+        offline: Offline
+        offline_explanation: Tikrinimo fiziškai instrukcija
+        online: Virtualus
+      id_document_information:
+        document_number: Dokumento numeris (su raide)
+        document_type: Dokumento tipas
+      id_document_upload:
+        document_number: Dokumento numeris (su raide)
+        document_type: Jūsų dokumento rūšis
+        user: Dalyvis
+        verification_attachment: Jūsų dokumento nuskenuota kopija
+      offline_confirmation:
+        email: Dalyvio el. pašto adresas
+      postal_letter_address:
+        full_address: Pilnas adresas
+      postal_letter_confirmation:
+        verification_code: Patvirtinimo kodas
+      postal_letter_postage:
+        full_address: Pilnas adresas
+        verification_code: Patvirtinimo kodas
+  decidim:
+    admin:
+      menu:
+        authorization_revocation:
+          before_date_info: Naudinga, jei procesas jau prasidėjo ir norite atšaukti ankstesnio proceso leidimus.
+          button: Atšaukti viską
+          button_before: Atšaukti iki datos
+    authorization_handlers:
+      admin:
+        csv_census:
+          help:
+            - Administratoriai įkelia CSV su priimtų dalyvių el. pašto adresais
+            - Tik dalyviai, turintys el. pašto adresą tame CSV faile, gali gauti patvirtinimą
+        id_documents:
+          help:
+            - Vartotojai užpildo savo tapatybės informaciją ir įkelia savo dokumento kopiją.
+            - Jūs užpildote informaciją, esančią įkeltame paveikslėlyje.
+            - Informacija turi atitikti tai, ką įvedė vartotojas.
+            - Jei nematote aiškiai informacijos arba negalite jos patikrinti, galite atmesti užklausą ir vartotojas galės ją ištaisyti.
+        postal_letter:
+          help:
+            - Dalyviai prašo el. laišku jiems išsiųsti patvirtinimo kodą.
+            - Išsiunčiate jiems el. laišką su patvirtinimo kodu.
+            - Jūs pažymite laišką kaip išsiųstą.
+            - Kai pažymėsite laišką kaip išsiųstą, dalyvis galės įvesti kodą ir gauti patvirtinimą.
+      csv_census:
+        explanation: Patikrinimas naudojant organizacijos surašymo duomenis
+        name: Organizacijos surašymo duomenys
+      direct: Tiesiogiai
+      help: Pagalba
+      id_documents:
+        explanation: Įkelkite savo asmens dokumentus, kad galėtume patikrinti jūsų tapatybę
+        name: Tapatybės dokumentai
+      multistep: Kelių žingsnių procesas
+      name: Vardas
+      postal_letter:
+        explanation: Atsiųsime jums laišką paštu su kodu, kurį turėsite įvesti, kad galėtume patvirtinti jūsų adresą
+        name: Kodas pašto laišku
+    verifications:
+      authorizations:
+        authorization_metadata:
+          info: 'Tai yra dabartinio patikrinimo duomenys:'
+          no_data_stored: Duomenys neišsaugomi.
+        create:
+          error: Kuriant įgaliojimą kilo problema.
+        new:
+          authorize: Siųsti
+          authorize_with: Tikrinti %{authorizer}
+        renew_modal:
+          cancel: Atšaukti
+          close: uždaryti
+          continue: Tęsti
+          info_renew: Jei norite atnaujinti duomenis, tęskite atnaujinimą
+          title: Atnaujinti patikrinimą
+        skip_verification: Dabar tai galite praleisti ir %{link}
+        start_exploring: pradėti naršyti
+      csv_census:
+        admin:
+          census:
+            create:
+              error: Importuojant surašymo duomenis įvyko klaida.
+              success: Sėkmingai importuota %{count} elementų (%{errors} klaidų)
+            destroy_all:
+              success: Visi surašymo duomenys pašalinti
+          destroy:
+            confirm: Pašalinus visus surašymo duomenis, veiksmo nebus galima anuliuoti. Ar tikrai norite tęsti?
+            title: Pašalinti visus surašymo duomenis
+          index:
+            data: Bendras įkeltų įrašų skaičius – %{count}. Paskutinį kartą įkelta %{due_date}
+            empty: Surašymo duomenų nėra. Naudokite toliau pateikiamą formą, kad ją importuotumėte naudodami CSV rinkmeną.
+            title: Dabartiniai surašymo duomenys
+          instructions:
+            body: Kad tai padarytumėte, turite nueiti į sistemos administravimo laukelį ir organizacijai suteikti „csv_census“ leidimus
+            title: Turite įjungti „cvs_census“ šiai organizacijai
+          new:
+            file: ".csv rinkmena su el. pašto duomenimis"
+            info: 'Turi būti CSV formato rinkmena tik su viena skiltimi, kurioje nurodytas el. pašto adresas:'
+            submit: Įkelti failą
+            title: Įkelti naujus surašymo duomenis
+        authorizations:
+          new:
+            error: Negalėjome patikrinti jūsų paskyros arba jūsų duomenys neįtraukti į organizacijos surašymo duomenis.
+            success: Jūsų paskyra patikrinta.
+      dummy_authorization:
+        extra_explanation:
+          scope: Dalyvauti gali tik tie dalyviai, kurių sritis %{scope_name}.
+          user_scope: Dalyvauti gali tik dalyviai, kurių sritis yra %{scope_name}, o jūsų sritis yra %{user_scope_name}.
+      id_documents:
+        admin:
+          config:
+            edit:
+              title: Tapatybės dokumentų konfigūracija
+              update: Atnaujinti
+            update:
+              error: Atnaujinant konfigūraciją iškilo problema.
+              success: Konfigūracija atnaujinta
+          confirmations:
+            create:
+              error: Tikrinimo duomenys nesutampa. Bandykite dar kartą arba atmeskite tikrinimą, kad dalyvis galėtų pakeisti duomenis
+              success: Dalyvis patikrintas
+            new:
+              reject: Atmesti
+              verify: Patikrinti
+          offline_confirmations:
+            create:
+              error: Tikrinimo duomenys nesutampa. Bandykite dar kartą ir prašykite dalyviui juos pakeisti
+            new:
+              cancel: Atšaukti
+          pending_authorizations:
+            index:
+              config: Nustatymai
+              offline_verification: Tikrinimas atjungties režimu
+        authorizations:
+          choose:
+            choose_a_type: 'Pasirinkite, kaip norite būti tikrinami:'
+            title: Identifikuokite save naudodami tapatybės dokumentą
+          create:
+            error: Įkeliant jūsų dokumentą iškilo problema
+            success: Dokumentas įkeltas
+          edit:
+            being_reviewed: Peržiūrime jūsų dokumentus. Netrukus jus patikrinsime
+            rejection_clarity: Įsitikinkite, kad įkeltame paveikslėlyje informacija būtų aiškiai matoma
+            rejection_correctness: Įsitikinkite, kad suvedėte teisingą informaciją
+            rejection_notice: Jus identifikuojant iškilo problema. Bandykite dar kartą
+            send: Dar kartą teikti tikrinimo užklausą
+          new:
+            send: Užklausos tikrinimas
+            title: Įkelkite savo tapatybės dokumentą
+          update:
+            error: Iš naujo įkeliant jūsų dokumentą iškilo problema
+            success: Dokumentas iš naujo įkeltas
+        dni: Asmens tapatybės dokumentas
+        passport: Pasas
+      postal_letter:
+        admin:
+          pending_authorizations:
+            index:
+              address: Adresas
+              letter_sent_at: Laiškas išsiųstas
+              mark_as_sent: Pažymėti kaip išsiųstą
+              not_yet_sent: Dar neišsiųsta
+        authorizations:
+          edit:
+            title: Įveskite gautą patvirtinimo kodą
+            waiting_for_letter: Netrukus jūsų adresu išsiųsime laišką su patvirtinimo kodu
+          new:
+            send: Atsiųskite man laišką
+            title: Paprašykite patvirtinimo kodo
+          update:
+            error: Jūsų tikrinimo kodas nesutampa su mūsų kodu. Dar kartą patikrinkite jums atsiųstą laišką
+            success: Sveikiname! Jūs patikrinti
+      sms:
+        authorizations:
+          create:
+            error: Dėl jūsų užklausos iškilo problema
+            success: Dėkojame! Jūsų telefonu išsiuntėme SMS žinutę.
+          edit:
+            confirm_destroy: Ar tikrai norite iš naujo nustatyti tikrinimo kodą?
+            destroy: Tikrinimo kodą nustatyti iš naujo
+            resend: Negavote patvirtinimo kodo?
+            send: Patvirtinti
+            title: Įveskite gautą patvirtinimo kodą
+          new:
+            send: Atsiųskite SMS
+            title: Paprašykite patvirtinimo kodo
+          update:
+            error: Jūsų tikrinimo kodas nesutampa su mūsų kodu. Dar kartą patikrinkite jums atsiųstą SMS žinutę.
+            success: Sveikiname! Jūs patikrinti.
