@@ -1712,7 +1712,7 @@ de:
             description: Beschreibung
             name: Name
             service: Service
-            type: Typ
+            type: Art
           cookies:
             _session_id:
               description: Ermöglicht es Websites, sich an Benutzer zu erinnern, wenn diese verschiedene Seiten aufrufen.
