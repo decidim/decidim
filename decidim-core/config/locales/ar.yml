@@ -1287,6 +1287,12 @@ ar:
     timestamp_error_message: آسف ، كان ذلك سريعًا جدًا! يرجى إعادة تقديم.
   layouts:
     decidim:
+      cookie_consent:
+        cookie_details:
+          columns:
+            description: الوصف
+            name: الإسم
+            type: نوع
       edit_link:
         edit: تعديل
       footer:
