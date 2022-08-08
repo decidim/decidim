@@ -1780,7 +1780,10 @@ cs:
       data_consent:
         details:
           columns:
+            description: Popis
+            name: Název
             service: Služba
+            type: Typ
           items:
             _session_id:
               description: Umožňuje webovým stránkám zapamatovat si uživatele na webových stránkách, když se pohybují mezi webovými stránkami.
@@ -1800,12 +1803,17 @@ cs:
           accept_all: Přijmout vše
           accept_only_essential: Přijmout pouze nezbytné soubory cookie
           analytics:
+            description: Tyto soubory cookie se používají k měření a analýze publika internetových stránek, aby pomohly zlepšit webové stránky.
             title: Analytika a statistiky
+          description: Soubory cookie používáme, abychom zajistili základní funkce webových stránek a zlepšili vaše online zkušenosti. Můžete si kdykoliv nastavit a akceptovat používání cookies a změnit své možnosti souhlasu.
           essential:
+            description: Tyto soubory cookie umožňují klíčové funkce webu a pomáhají udržet uživatele v bezpečí. Jsou automaticky uloženy v prohlížeči a nemohou být zakázány.
             title: Zásadní
           marketing:
+            description: Tyto soubory cookie shromažďují informace o tom, jak používáte webovou stránku a mohou být využity k poskytování více individualizovaného marketingu na různých webových stránkách, které používáte.
             title: Marketing
           preferences:
+            description: Tyto soubory cookie umožňují si pamatovat si volby, které jste učinili v minulosti na těchto webových stránkách, aby poskytovaly více individualizovaného zážitku pro uživatele webových stránek.
             title: Předvolby
           save_settings: Uložit nastavení
           title: Nastavení cookies
@@ -1813,6 +1821,7 @@ cs:
         warning:
           all_categories: všechny soubory cookie
           change_settings: Změnit nastavení cookie
+          consent_required: Abyste mohli vidět tento obsah, musíte povolit %{categories}.
       edit_link:
         edit: Upravit
       footer:
