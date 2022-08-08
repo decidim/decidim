@@ -1,1 +1,58 @@
+---
 lt:
+  activemodel:
+    attributes:
+      oauth_application:
+        name: '„OAuth“ programos pavadinimas'
+        organization_logo: Organizacijos logotipas (keturkampis)
+        organization_name: Organizacija
+        organization_url: Organizacijos URL
+        redirect_uri: Peradresavimo URI
+      organization:
+        from_email: El. pašto adresas
+        from_label: Etiketė
+        password: Slaptažodis
+        port: Portas
+        user_name: Naudotojo vardas
+      organization_file_uploads:
+        allowed_content_types:
+          admin: Administratoriaus MIME tipai
+          default: Numatytieji MIME tipai
+        allowed_file_extensions:
+          admin: Administratoriaus failų plėtiniai
+          default: Numatytieji failų plėtiniai
+          image: Vaizdo failų plėtiniai
+        maximum_file_size:
+          avatar: Avataro failo dydis
+          default: Numatytasis failo dydis
+    errors:
+      models:
+        oauth_application:
+          attributes:
+            redirect_uri:
+              must_be_ssl: Peradresavimo URI turi būti SSL URI
+  decidim:
+    system:
+      actions:
+        confirm_destroy: Ar tikrai norite tai ištrinti?
+        destroy: Ištrinti
+        edit: Redaguoti
+        new: Naujas
+        save: Išsaugoti
+        title: Veiksmai
+      admins:
+        create:
+          error: Kuriant naują administratorių iškilo problema.
+          success: Administratorius sukurtas
+        destroy:
+          success: Administratorius pašalintas
+        edit:
+          title: Redaguoti administratorių
+          update: Atnaujinti
+        index:
+          title: Administratoriai
+        new:
+          create: Sukurti
+          title: Naujas administratorius
+        update:
+          error: Atnaujinant šį administratorių iškilo problema.
