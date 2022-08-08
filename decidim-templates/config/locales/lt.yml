@@ -1,1 +1,15 @@
 lt:
+  activemodel:
+    attributes:
+      questionnaire:
+        title: Pavadinimas
+      template:
+        description: Aprašymas
+        name: Pavadinimas
+  decidim:
+    admin:
+      menu:
+        templates: Šablonai
+      templates:
+        apply:
+          error: Pritaikant šį šabloną iškilo problema.
