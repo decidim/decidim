@@ -201,6 +201,22 @@ lt:
             automatic_hashtags: Grotažymės pridėtos prie visų pasiūlymų
             comments_blocked: Komentarai užblokuoti
             creation_enabled: Dalyviai gali kurti pasiūlymus
+            creation_enabled_readonly: Šis nustatymas išjungiamas, kai suaktyvinate Dalyvaujančių Tekstų funkciją. Norėdami įkelti pasiūlymus kaip dalyvaujamąjį tekstą, spustelėkite mygtuką Dalyvaujantys Tekstai ir vadovaukitės instrukcijomis.
+            default_sort_order: Numatytasis pasiūlymų rūšiavimas
+            default_sort_order_help: Numatytasis reiškia, kad įjungus palaikymus pasiūlymai bus rodomi surūšiuoti atsitiktine tvarka, o jei palaikymai yra blokuojami – pagal labiausiai palaikomus.
+            default_sort_order_options:
+              default: Numatytasis
+              most_commented: Labiausiai komentuojamas
+              most_endorsed: Labiausiai pritarta
+              most_followed: Labiausiai sekamas
+              most_voted: Labiausiai paremtas
+              random: Atsitiktinis
+              recent: Naujausi
+              with_more_authors: Turintys daug autorių
+            proposal_answering_enabled: Atsakymas į pasiūlymą suaktyvintas
+            publish_answers_immediately: Skelbti atsakymus į pasiūlymius nedelsiant
+            votes_blocked: Parama užblokuota
+            votes_enabled: Parama aktyvuota
     proposals:
       collaborative_drafts:
         filters:
