@@ -1351,6 +1351,11 @@ bg:
     timestamp_error_message: Извинете, това беше твърде бързо! Моля, изпратете отново.
   layouts:
     decidim:
+      cookie_consent:
+        cookie_details:
+          columns:
+            name: Име
+            type: Тип
       edit_link:
         edit: Редактирай
       footer:
