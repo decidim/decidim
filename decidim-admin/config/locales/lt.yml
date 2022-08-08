@@ -171,6 +171,8 @@ lt:
         permissions: Leidimai
         reject: Atmesti
         share: Dalintis
+        user:
+          new: Naujas naudotojas
         verify: Patikrinti
       admin_terms_of_use:
         accept:
@@ -335,6 +337,7 @@ lt:
       dashboard:
         show:
           view_more_logs: Peržiūrėti daugiau ataskaitų
+          welcome: '„Decidim“ administratoriaus sritis.'
       domain_whitelist:
         form:
           domain_too_short: Domenas per trumpas
@@ -447,12 +450,23 @@ lt:
           impersonate_existing_user: Tvarkyti dalyvį "%{name}"
           impersonate_new_managed_user: Tvarkyti naują naudotoją
       imports:
+        creators:
+          proposalcreator: Pasiūlymų kūrėjas
         error: Importuojant iškilo problema
+        help:
+          proposalcreator: Dokumentas turi turėti sultpelių pavadinimus title/lt ir body/lt. Taip pat palaikomi sritis/id ir kategorija/id stulpeliai.
+        import_from_file: Importuoti iš failo
+        invalid_lines: Rasta klaida išteklio numeryje %{invalid_lines}
         new:
+          accepted_mime_types:
+            csv: csv
+            json: json
+            xlsx: xlsx
           actions:
             back: Grįžti
           file_legend: Pridėkite importo failą, kuris bus analizuojamas.
           import: Importuoti
+        notice: "%{number} %{resource_name} sėkmingai importuotas"
       logs:
         logs_list:
           no_logs_yet: Dar nėra įrašų
@@ -944,6 +958,7 @@ lt:
           role: Rolė
         new:
           create: Pakviesti
+          title: Kviesti dalyvį kaip administratorių
       users_statistics:
         users_count:
           admins: Administratoriai
@@ -994,6 +1009,7 @@ lt:
             hidden_at: Paslėpta
             participatory_space: Dalyvaujamoji erdvė
             report_count: Kiekis
+            reportable_id: Id
             reportable_type: Tipas
             reported_content_url: Turinio, apie kurį pranešta, URL
             reports: Pranešimai
