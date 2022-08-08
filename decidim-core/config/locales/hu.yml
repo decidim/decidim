@@ -1604,14 +1604,11 @@ hu:
     timestamp_error_message: Sajnos ez túl gyors volt! Kérlek, küldd el újra.
   layouts:
     decidim:
-      cookie_consent:
-        cookie_details:
+      data_consent:
+        details:
           columns:
-            description: Leírás
-            name: Név
             service: Szolgáltatás
-            type: Típus
-          cookies:
+          items:
             _session_id:
               description: Lehetővé teszi a weboldalak számára, hogy emlékezzenek a felhasználóra a weboldalon belül, amikor az a weboldalak között mozog.
               service: Ez a weboldal
@@ -1623,37 +1620,31 @@ hu:
         dialog:
           accept_all: Összes elfogadása
           accept_only_essential: Csak a szükséges elfogadása
-          cookie_settings: Beállítások
           description: 'A jelenlegi angol nyelvű szöveg kissé zavaros. Talán így kellene olvasni: "Weboldalunkon sütiket használunk a weboldal teljesítményének és tartalmának javítása érdekében. A sütik lehetővé teszik számunkra, hogy személyre szabottabb felhasználói élményt és tartalmat nyújtsunk a közösségi média csatornáinkról.'
+          settings: Beállítások
           title: Információ a weboldalon felhasznált sütikről
         modal:
           accept_all: Összes elfogadása
-          accept_only_essential: Csak a szükségesek elfogadása
+          accept_only_essential: Csak a szükséges elfogadása
           analytics:
-            description: Az analitikai sütik olyan sütik, amelyek nyomon követik, hogy a felhasználók hogyan navigálnak egy weboldalon és hogyan lépnek kapcsolatba vele. Az összegyűjtött információkat a weboldal tulajdonosának a weboldal fejlesztésére használják fel.
             title: Analitika & statisztika
-          description: Sütiket használunk a weboldal alapvető funkcióinak biztosítása és az Ön online élményének javítása érdekében. Minden egyes kategória esetében bármikor választhat, hogy ki/bejelentkezik-e vagy sem.
           essential:
-            description: Ezek a sütik elengedhetetlenek a weboldalam megfelelő működéséhez. E sütik nélkül a weboldal nem működne megfelelően.
             title: Szükséges
           marketing:
-            description: Ezek a sütik információkat gyűjtenek arról, hogyan használja a weboldalt, mely oldalakat látogatta meg, és mely linkekre kattintott.
             title: Marketing
           preferences:
-            description: Ezek a sütik lehetővé teszik a weboldal számára, hogy emlékezzen az Ön által a múltban meghozott döntésekre
             title: Preferenciák
           save_settings: Beállítások mentése
           title: Süti beállítások
           toggle: Váltás %{consent_category}
         warning:
-          all_cookies: összes süti
-          change_cookie_settings: A süti beállítások módosítása
-          need_cookies: A tartalom megtekintéséhez engedályezni kell a %{cookies} sütiket.
+          all_categories: összes süti
+          change_settings: A süti beállítások módosítása
       edit_link:
         edit: Szerkesztés
       footer:
         cc_by_license: A Creative Commons licence
-        cookie_settings: Süti beállítások
+        data_consent_settings: Süti beállítások
         decidim_logo: Decidim-logó
         download_open_data: Töltse le a Nyílt Adat fájlokat
         made_with_open_source: Az oldal <a target="_blank" href="https://github.com/decidim/decidim">nyílt forráskódú szoftverrel</a> készült.
