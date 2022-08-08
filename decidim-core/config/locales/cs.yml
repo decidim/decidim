@@ -1779,7 +1779,7 @@ cs:
         cookie_details:
           columns:
             description: Popis
-            name: Název
+            name: Jméno
             service: Služba
             type: Typ
           cookies:
