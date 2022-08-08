@@ -180,6 +180,10 @@ lt:
             automatic_hashtags: Grotažymės pridėtos prie visų pasiūlymų
             comments_blocked: Komentarai užblokuoti
             creation_enabled: Pasiūlymo sukūrimas aktyvintas
+            proposal_answering_enabled: Atsakymas į pasiūlymą suaktyvintas
+            publish_answers_immediately: Skelbti atsakymus į pasiūlymius nedelsiant
+            votes_blocked: Parama užblokuota
+            votes_enabled: Parama aktyvuota
     proposals:
       collaborative_drafts:
         filters:
