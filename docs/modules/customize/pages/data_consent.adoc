@@ -72,7 +72,7 @@ Decidim.configure do |config|
 end
 ----
 
-When adding categories and items also remember to add the following xref:admin:texts.adoc[translations]:
+When adding categories and items also remember to add the following xref:customize:texts.adoc[translations]:
 
 For category:
 
