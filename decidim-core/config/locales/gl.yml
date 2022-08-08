@@ -1241,6 +1241,10 @@ gl:
     timestamp_error_message: Sentímolo, iso foi demasiado rápido. Reenvío de novo.
   layouts:
     decidim:
+      cookie_consent:
+        cookie_details:
+          columns:
+            type: Tipo
       edit_link:
         edit: Editar
       footer:
