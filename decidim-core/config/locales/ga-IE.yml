@@ -337,6 +337,11 @@ ga:
         sign_up: Cláraigh
   layouts:
     decidim:
+      cookie_consent:
+        cookie_details:
+          columns:
+            name: Ainm
+            type: Cineál
       edit_link:
         edit: Eagar
       header:
