@@ -1552,6 +1552,12 @@ lb:
     timestamp_error_message: Pardon dat wo ze séier! W. e. g. op en Neits areechen.
   layouts:
     decidim:
+      cookie_consent:
+        cookie_details:
+          columns:
+            description: Beschreiwung
+            name: Numm
+            type: Zort
       edit_link:
         edit: Editéieren
       footer:
