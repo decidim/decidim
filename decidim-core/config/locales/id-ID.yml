@@ -1125,6 +1125,10 @@ id:
     timestamp_error_message: Maaf, itu terlalu cepat! Silakan kirim ulang.
   layouts:
     decidim:
+      cookie_consent:
+        cookie_details:
+          columns:
+            type: Mengetik
       edit_link:
         edit: Edit
       footer:
