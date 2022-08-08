@@ -303,6 +303,11 @@ lt:
             title: Rezultatai publikuoti
           tally:
             continue: Tęsti
+            invalid: Raportuojant trūkstantį patikėtinį iškilo problema
+            mark_as_missing: Pažymėti neesančiu
+            mark_as_missing_description: Visi patikėtiniai turėtų dalyvauti procese, bet jei patikėtinis to padaryti negali, galite jį pažymėti kaip trūkstantį.
+            success: Trūkstančio patikėtinio ataskaita išsiųsta į Skelbimų Lentą
+            tally_completion: Šis procesas bus įvykdytas kai visi patikėtiniai bus aktyvūs arba pažymėti kaip trūkstantys. Reikia bent %{quorum} patikėtinių, kad įvykdyti šį procesą.
             title: Skaičiavimo procesas
           tally_ended:
             answer: Atsakymas
