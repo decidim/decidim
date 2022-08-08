@@ -1730,14 +1730,11 @@ fi:
     timestamp_error_message: Pahoittelut, olit liian nopea! Lähetä lomake uudestaan.
   layouts:
     decidim:
-      cookie_consent:
-        cookie_details:
+      data_consent:
+        details:
           columns:
-            description: Kuvaus
-            name: Nimi
             service: Palvelu
-            type: Tyyppi
-          cookies:
+          items:
             _session_id:
               description: Mahdollistaa verkkosivuston muistavan käyttäjän, kun käyttäjä liikkuu sivuston eri sivujen välillä.
               service: Tämä sivusto
@@ -1749,37 +1746,31 @@ fi:
         dialog:
           accept_all: Hyväksy kaikki
           accept_only_essential: Vain välttämättömät
-          cookie_settings: Asetukset
           description: Käytämme sivustollamme evästeitä sivuston suorituskyvyn ja sisällön parantamiseksi. Evästeiden avulla voimme tarjota yksilöllisemmän käyttäjäkokemuksen ja sisältöjä sosiaalisen median kanavista.
+          settings: Asetukset
           title: Tietoa verkkosivustolla käytetyistä evästeistä
         modal:
           accept_all: Hyväksy kaikki
           accept_only_essential: Vain välttämättömät
           analytics:
-            description: Analytiikkaevästeet keräävät tietoja siitä, kuinka käyttäjät selaavat verkkosivustoa ja käyttävät sen eri ominaisuuksia. Kerättyjä tietoja käytetään auttamaan sivuston omistajaa parantamaan sivustoa.
             title: Analytiikka ja tilastot
-          description: Käytämme evästeitä varmistaaksemme sivuston perustoiminnot ja parantaaksemme sen käyttökokemusta. Voit hyväksyä tai estää evästekategorioita haluamallasi tavalla koska tahansa.
           essential:
-            description: Nämä evästeet ovat välttämättömiä verkkosivuston toiminnan kannalta. Ilman näitä evästeitä sivusto ei toimi kunnolla.
             title: Välttämättömät
           marketing:
-            description: Nämä evästeet keräävät tietoa siitä, miten käytät verkkosivustoa, millä sivuilla vierailet ja mitä linkkejä olet klikannut.
             title: Markkinointi
           preferences:
-            description: Näiden evästeiden avulla verkkosivusto muistaa aikaisemmin tekemäsi henkilökohtaiset valinnat ja mieltymykset
             title: Mieltymykset
           save_settings: Tallenna asetukset
           title: Evästeasetukset
           toggle: Muuta tilaa kohteelle %{consent_category}
         warning:
-          all_cookies: kaikki evästeet
-          change_cookie_settings: Muuta evästeasetuksiasi
-          need_cookies: Sinun täytyy sallia %{cookies}-evästeet nähdäksesi tämän sisällön.
+          all_categories: kaikki evästeet
+          change_settings: Muuta evästeasetuksiasi
       edit_link:
         edit: Muokkaa
       footer:
         cc_by_license: Creative Commons -lisenssi
-        cookie_settings: Evästeasetukset
+        data_consent_settings: Evästeasetukset
         decidim_logo: Decidim-logo
         download_open_data: Lataa avoimet datatiedostot
         made_with_open_source: Verkkosivusto luotu <a target="_blank" href="https://github.com/decidim/decidim">vapaan ohjelmiston</a> avulla.
