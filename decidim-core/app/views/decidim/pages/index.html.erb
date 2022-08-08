@@ -57,7 +57,7 @@ edit_link(
     <% if @orphan_pages.any? %>
       <div class="space-y-6">
         <h2 class="h2 decorator"><%= t "decidim.pages.index.standalone_pages" %></h2>
-        <div class="grid grid-cols-2 gap-6">
+        <div class="page__grid">
           <% @orphan_pages.each do |page| %>
             <div class="page__accordion">
               <h3 class="page__accordion-trigger-title">

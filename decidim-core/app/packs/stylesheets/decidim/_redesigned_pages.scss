@@ -43,6 +43,10 @@
     }
   }
 
+  &__grid{
+    @apply grid grid-cols-1 md:grid-cols-2 gap-6;
+  }
+
   &__tabbed{
     @apply grid grid-cols-10 gap-20 first:[&>*]:col-span-3 last:[&>*]:col-span-7;
 
