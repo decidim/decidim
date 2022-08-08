@@ -105,6 +105,8 @@ lt:
             title: Turite įjungti „cvs_census“ šiai organizacijai
           new:
             file: ".csv rinkmena su el. pašto duomenimis"
+            info: 'Turi būti CSV formato rinkmena tik su viena skiltimi, kurioje nurodytas el. pašto adresas:'
+            submit: Įkelti failą
             title: Įkelti naujus surašymo duomenis
         authorizations:
           new:
@@ -168,3 +170,30 @@ lt:
               letter_sent_at: Laiškas išsiųstas
               mark_as_sent: Pažymėti kaip išsiųstą
               not_yet_sent: Dar neišsiųsta
+        authorizations:
+          edit:
+            title: Įveskite gautą patvirtinimo kodą
+            waiting_for_letter: Netrukus jūsų adresu išsiųsime laišką su patvirtinimo kodu
+          new:
+            send: Atsiųskite man laišką
+            title: Paprašykite patvirtinimo kodo
+          update:
+            error: Jūsų tikrinimo kodas nesutampa su mūsų kodu. Dar kartą patikrinkite jums atsiųstą laišką
+            success: Sveikiname! Jūs patikrinti
+      sms:
+        authorizations:
+          create:
+            error: Dėl jūsų užklausos iškilo problema
+            success: Dėkojame! Jūsų telefonu išsiuntėme SMS žinutę.
+          edit:
+            confirm_destroy: Ar tikrai norite iš naujo nustatyti tikrinimo kodą?
+            destroy: Tikrinimo kodą nustatyti iš naujo
+            resend: Negavote patvirtinimo kodo?
+            send: Patvirtinti
+            title: Įveskite gautą patvirtinimo kodą
+          new:
+            send: Atsiųskite SMS
+            title: Paprašykite patvirtinimo kodo
+          update:
+            error: Jūsų tikrinimo kodas nesutampa su mūsų kodu. Dar kartą patikrinkite jums atsiųstą SMS žinutę.
+            success: Sveikiname! Jūs patikrinti.
