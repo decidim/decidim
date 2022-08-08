@@ -1,15 +1,15 @@
-import ConsentManager from "src/decidim/cookie_consent/consent_manager";
+import ConsentManager from "src/decidim/data_consent/consent_manager";
 
 const initDialog = (manager) => {
   if (Object.keys(manager.state).length > 0) {
     return;
   }
-  const dialogWrapper = document.querySelector("#cc-dialog-wrapper");
+  const dialogWrapper = document.querySelector("#dc-dialog-wrapper");
   dialogWrapper.classList.remove("hide");
 
-  const acceptAllButton = dialogWrapper.querySelector("#cc-dialog-accept");
-  const rejectAllButton = dialogWrapper.querySelector("#cc-dialog-reject");
-  const settingsButton = dialogWrapper.querySelector("#cc-dialog-settings");
+  const acceptAllButton = dialogWrapper.querySelector("#dc-dialog-accept");
+  const rejectAllButton = dialogWrapper.querySelector("#dc-dialog-reject");
+  const settingsButton = dialogWrapper.querySelector("#dc-dialog-settings");
 
   acceptAllButton.addEventListener("click", () => {
     manager.acceptAll();
@@ -30,8 +30,8 @@ const initModal = (manager) => {
   const categoryElements = manager.modal.querySelectorAll(".category-wrapper");
 
   categoryElements.forEach((categoryEl) => {
-    const categoryButton = categoryEl.querySelector(".cc-title");
-    const categoryDescription = categoryEl.querySelector(".cc-description");
+    const categoryButton = categoryEl.querySelector(".dc-title");
+    const categoryDescription = categoryEl.querySelector(".dc-description");
     categoryButton.addEventListener("click", () => {
       const hidden = categoryDescription.classList.contains("hide");
       if (hidden) {
@@ -44,9 +44,9 @@ const initModal = (manager) => {
     })
   })
 
-  const acceptAllButton = manager.modal.querySelector("#cc-modal-accept");
-  const rejectAllButton = manager.modal.querySelector("#cc-modal-reject");
-  const saveSettingsButton = manager.modal.querySelector("#cc-modal-save");
+  const acceptAllButton = manager.modal.querySelector("#dc-modal-accept");
+  const rejectAllButton = manager.modal.querySelector("#dc-modal-reject");
+  const saveSettingsButton = manager.modal.querySelector("#dc-modal-save");
 
   acceptAllButton.addEventListener("click", () => {
     manager.acceptAll();
@@ -84,7 +84,7 @@ const initDisabledIframes = (manager) => {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  const modal = document.querySelector("#cc-modal");
+  const modal = document.querySelector("#dc-modal");
   if (!modal) {
     return;
   }
@@ -94,7 +94,7 @@ document.addEventListener("DOMContentLoaded", () => {
     modal: modal,
     categories: categories,
     cookieName: window.Decidim.config.get("consent_cookie_name"),
-    warningElement: document.querySelector(".cookie-warning")
+    warningElement: document.querySelector(".dataconsent-warning")
   });
 
   initDisabledIframes(manager);

@@ -404,23 +404,24 @@ module Decidim
     1_000
   end
 
-  # Defines the name of the cookie used to check if the user allows Decidim to
-  # set cookies.
+  # Defines the name of the cookie used to check if the user has given consent
+  # to store local data in their browser.
   config_accessor :consent_cookie_name do
     "decidim-consent"
   end
 
-  # Defines cookie categories. Note that when adding a cookie you need to
-  # add following i18n entries also (change 'foo' with the name of the cookie).
+  # Defines data consent categories. Note that when adding an item you need to
+  # add following i18n entries also (change 'foo' with the name of the data
+  # which can be a cookie for instance).
   #
-  # layouts.decidim.cookie_consent.cookie_details.cookies.foo.service
-  # layouts.decidim.cookie_consent.cookie_details.cookies.foo.description
+  # layouts.decidim.data_consent.details.items.foo.service
+  # layouts.decidim.data_consent.details.items.foo.description
   config_accessor :consent_categories do
     [
       {
         slug: "essential",
         mandatory: true,
-        cookies: [
+        items: [
           {
             type: "cookie",
             name: "_session_id"
