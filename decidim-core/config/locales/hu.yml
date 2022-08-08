@@ -1609,7 +1609,7 @@ hu:
             description: Leírás
             name: Név
             service: Szolgáltatás
-            type: Típus
+            type: típus
           cookies:
             _session_id:
               description: Lehetővé teszi a weboldalak számára, hogy emlékezzenek a felhasználóra a weboldalon belül, amikor az a weboldalak között mozog.
