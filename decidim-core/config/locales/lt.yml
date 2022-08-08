@@ -127,6 +127,10 @@ lt:
         few: "prieš %{count} min."
         many: "prieš %{count} min."
         other: "prieš %{count} min."
+      x_seconds:
+        one: prieš 1 sekundę
+        other: "prieš %{count} sekundes"
+        zero: dabar
   decidim:
     accessibility:
       external_link: Išorinė nuoroda
