@@ -1,1 +1,16 @@
+---
 lt:
+  activemodel:
+    attributes:
+      config:
+        available_methods: Galimi metodai
+        offline: Offline
+        offline_explanation: Tikrinimo fiziškai instrukcija
+        online: Virtualus
+      id_document_information:
+        document_number: Dokumento numeris (su raide)
+        document_type: Dokumento tipas
+      id_document_upload:
+        document_number: Dokumento numeris (su raide)
+        document_type: Jūsų dokumento rūšis
+        user: Dalyvis
