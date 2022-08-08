@@ -1751,14 +1751,11 @@ lt:
     timestamp_error_message: Atsiprašome, tai buvo per greitai! Pateikite iš naujo.
   layouts:
     decidim:
-      cookie_consent:
-        cookie_details:
+      data_consent:
+        details:
           columns:
-            description: Aprašymas
-            name: Pavadinimas
             service: Paslauga
-            type: Tipas
-          cookies:
+          items:
             _session_id:
               description: Leidžia svetainėms prisiminti vartotoją svetainėje, kai jie pereina iš vieno tinklalapio į kitą.
               service: Ši svetainė
@@ -1770,37 +1767,31 @@ lt:
         dialog:
           accept_all: Priimti visus
           accept_only_essential: Sutikti tik su būtinaisiais slapukais
-          cookie_settings: Nustatymai
           description: Savo svetainėje naudojame slapukus siekdami pagerinti svetainės veikimą ir turinį. Slapukai leidžia mums teikti labiau suasmenintą vartotojo patirtį ir turinį iš mūsų socialinės žiniasklaidos kanalų.
+          settings: Nustatymai
           title: Informacija apie svetainėje naudojamus slapukus
         modal:
           accept_all: Priimti visus
           accept_only_essential: Sutikti tik su būtinaisiais slapukais
           analytics:
-            description: '„Analytics“ slapukai yra slapukai, kurie seka, kaip vartotojai naršo ir sąveikauja su svetaine. Surinkta informacija naudojama siekiant padėti svetainės savininkui tobulinti svetainę.'
             title: Analitika ir statistika
-          description: Naudojame slapukus siekdami užtikrinti pagrindines svetainės funkcijas ir pagerinti jūsų patirtį. Kiekvienai kategorijai galite pasirinkti, kada norite jų atsisakyti.
           essential:
-            description: Šie slapukai yra būtini tinkamam mūsų svetainės veikimui.
             title: Esminiai
           marketing:
-            description: Šie sausainiukai renka informaciją apie tai kaip naudojate puslapį, kuriuose puslapiuose lankotės ir ant kokių nuorodų spaudžiate.
             title: Marketingas
           preferences:
-            description: Šie sausainiukai leidžia puslapiui prisiminti Jūsų praeities pasirinkimus
             title: Nuostatos
           save_settings: Išsaugoti nustatymus
           title: Slapukų nustatymai
           toggle: Įjungti %{consent_category}
         warning:
-          all_cookies: visi slapukai
-          change_cookie_settings: Keisti slapukų nuostatas
-          need_cookies: Turite leisti %{cookies} tam, kad matyti šį turinį.
+          all_categories: visi slapukai
+          change_settings: Keisti slapukų nuostatas
       edit_link:
         edit: Redaguoti
       footer:
         cc_by_license: '„Creative Commons“ licencija'
-        cookie_settings: Slapukų nustatymai
+        data_consent_settings: Slapukų nustatymai
         decidim_logo: '„Decidim“ logotipas'
         download_open_data: Parsisiųsti atvirųjų duomenų rinkmenas
         made_with_open_source: Interneto svetainė sukurta naudojant <a target="_blank" href="https://github.com/decidim/decidim">atvirą programinę įrangą</a>.
