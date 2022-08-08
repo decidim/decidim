@@ -1,39 +1,32 @@
-<div class="wrapper">
-<div class="row collapse">
-  <div class="row collapse">
-    <div class="columns large-8 large-centered text-center page-title">
-      <h1><%= t("devise.passwords.edit.title") %></h1>
-    </div>
+<%= render layout: "layouts/decidim/shared/layout_center" do %>
+
+  <div class="flex justify-center">
+    <h1 class="h1 decorator my-12"><%= t("devise.passwords.edit.title") %></h1>
   </div>
 
-  <div class="row">
-    <div class="columns medium-7 large-5 medium-centered">
-      <div class="card">
-        <div class="card__content">
-          <%= decidim_form_for(resource, namespace: "password", as: resource_name, url: @send_path || password_path(resource_name), html: { method: :put, class: "register-form new_user" }) do |f| %>
-            <%= form_required_explanation %>
+  <%= decidim_form_for(resource, namespace: "password", as: resource_name, url: @send_path || password_path(resource_name), html: { method: :put, class: "register-form new_user" }) do |f| %>
+    <%= form_required_explanation %>
 
-            <%= f.hidden_field :reset_password_token %>
+    <div class="login__form">
+      <%= f.hidden_field :reset_password_token %>
 
-            <div class="field">
-              <%= f.password_field :password, password_field_options_for(current_user || params["reset_password_token"]) %>
-            </div>
+      <%= f.password_field :password, password_field_options_for(current_user || params["reset_password_token"]) %>
 
-            <div class="field">
-              <%= f.password_field :password_confirmation, password_field_options_for(current_user || params["reset_password_token"]).except(:help_text) %>
-            </div>
-
-            <div class="actions">
-              <%= f.submit t("devise.passwords.edit.change_my_password"), class: "button expanded" %>
-            </div>
-          <% end %>
-
-          <% unless current_user %>
-            <%= render "decidim/devise/shared/links" %>
-          <% end %>
-        </div>
-      </div>
+      <%= f.password_field :password_confirmation, password_field_options_for(current_user || params["reset_password_token"]).except(:help_text) %>
     </div>
-  </div>
-</div>
-</div>
+
+    <div class="login__form-block">
+      <button type="submit" class="button button__lg button__secondary">
+        <%= t("devise.passwords.edit.change_my_password") %>
+        <%= icon "arrow-right-line", class: "fill-current" %>
+      </button>
+    </div>
+  <% end %>
+
+  <% unless current_user %>
+    <div class="login__links">
+      <%= render "decidim/devise/shared/redesigned_links" %>
+    </div>
+  <% end %>
+
+<% end %>
