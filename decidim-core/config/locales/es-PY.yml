@@ -1731,14 +1731,11 @@ es-PY:
     timestamp_error_message: Lo siento, has sido demasiado rápido! Por favor, vuelva a enviar.
   layouts:
     decidim:
-      cookie_consent:
-        cookie_details:
+      data_consent:
+        details:
           columns:
-            description: Descripción
-            name: Nombre
             service: Servicio
-            type: Tipo
-          cookies:
+          items:
             _session_id:
               description: Permite a los sitios web recordar a la usuaria dentro de un sitio web cuando se mueve entre páginas web.
               service: Esta página web
@@ -1750,37 +1747,31 @@ es-PY:
         dialog:
           accept_all: Aceptar todas
           accept_only_essential: Aceptar solo las esenciales
-          cookie_settings: Configuración
           description: Utilizamos cookies en nuestro sitio web para mejorar el rendimiento y el contenido del mismo. Las cookies nos permiten ofrecer una experiencia de usuario y unos contenidos más personalizados desde nuestros canales de redes sociales.
+          settings: Configuración
           title: Información sobre las cookies utilizadas en la página web
         modal:
           accept_all: Aceptar todas
           accept_only_essential: Aceptar solo las esenciales
           analytics:
-            description: Las cookies analíticas son cookies que rastrean cómo las usuarias navegan e interactúan con la página web. La información recopilada se utiliza para ayudar a la propietaria de la web a mejorar la página.
             title: Analíticas y estadísticas
-          description: Utilizamos cookies para asegurar las funcionalidades básicas de la página web y para mejorar tu experiencia en línea. Puedes elegir activarlas o desactivarlas por cada categoría cuando quieras.
           essential:
-            description: Estas cookies son esenciales para el buen funcionamiento de esta página web. Sin estas cookies, esta página web no funcionará correctamente.
             title: Esenciales
           marketing:
-            description: Estas cookies recopilan información sobre cómo utilizas la plataforma, qué páginas visitaste y a qué enlaces hiciste clic.
             title: Marketing
           preferences:
-            description: Estas cookies permiten a la plataforma recordar las opciones que has hecho en el pasado
             title: Preferencias
           save_settings: Guardar configuración
           title: Configuración de cookies
           toggle: Cambiar %{consent_category}
         warning:
-          all_cookies: todas las cookies
-          change_cookie_settings: Cambiar la configuración de cookies
-          need_cookies: Necesitas habilitar %{cookies} para ver este contenido.
+          all_categories: todas las cookies
+          change_settings: Cambiar la configuración de cookies
       edit_link:
         edit: Editar
       footer:
         cc_by_license: Con licencia Creative Commons
-        cookie_settings: Configuración de cookies
+        data_consent_settings: Configuración de cookies
         decidim_logo: Logo Decidim
         download_open_data: Descargar ficheros de datos abiertos
         made_with_open_source: Sitio web creado con <a target="_blank" href="https://github.com/decidim/decidim">software libre</a>.
