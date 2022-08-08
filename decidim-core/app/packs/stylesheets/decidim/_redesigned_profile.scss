@@ -95,6 +95,22 @@
   &__badge{
     @apply relative;
 
+    &-banner{
+      @apply flex gap-3 bg-background rounded p-4 [&>*:last-child]:space-y-2;
+
+      svg{
+        @apply w-5 h-5 text-tertiary fill-current flex-none;
+      }
+
+      p {
+        @apply text-md text-gray-2;
+      }
+    }
+
+    &-grid{
+      @apply grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-12 py-6 md:py-12;
+    }
+
     &-outline{
       --color: var(--tertiary);
 
@@ -122,6 +138,10 @@
 
   &__user{
     @apply flex items-center space-x-1.5;
+
+    &-grid{
+      @apply grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-10;
+    }
 
     &-avatar{
       @apply w-full h-full rounded-full overflow-hidden drop-shadow-md border-2 border-white;
@@ -174,7 +194,7 @@
           }
 
           &:nth-child(3){
-            @apply max-w-fit flex md:flex-col gap-4;
+            @apply max-w-fit flex justify-center flex-wrap md:flex-col gap-4;
           }
         }
       }

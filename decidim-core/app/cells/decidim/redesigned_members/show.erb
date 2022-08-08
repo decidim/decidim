@@ -5,7 +5,7 @@
     <%= cell("decidim/announcement", validation) %>
   <% end %>
 <% else %>
-  <div class="grid grid-cols-2 gap-10">
+  <div class="profile__user-grid">
     <% memberships.each do |membership| %>
       <%= card_for membership %>
     <% end %>

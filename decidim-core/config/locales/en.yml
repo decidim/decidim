@@ -892,6 +892,7 @@ en:
       description: Badges are recognitions to participant actions and progress in the platform. As you start discovering, participating and interacting in the platform, you will earn different badges.
       level: Level %{level}
       reached_top: You've reached the top level for this badge.
+      title: What are the badges?
     group_admins:
       actions:
         are_you_sure: Are you sure? This won't remove the participant from the group.
