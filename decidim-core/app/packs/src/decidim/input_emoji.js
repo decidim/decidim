@@ -66,8 +66,6 @@ export default function addInputEmoji() {
         locale: document.documentElement.getAttribute("lang"),
         i18n
       }, {
-        showCloseButton: true,
-        className: "emoji-picker",
         position: {
           position: "absolute",
           right: 0,
