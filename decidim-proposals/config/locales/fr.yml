@@ -213,6 +213,7 @@ fr:
             endorsements_enabled: Activer le module de soutiens
             proposal_answering_enabled: Autoriser la réponse officielle aux propositions
             publish_answers_immediately: Publier immédiatement les réponses à la proposition
+            publish_answers_immediately_help_html: 'N''oubliez pas que si vous répondez à une proposition sans cette option, vous devrez la publier manuellement en les sélectionnant et en utilisant l''action de publication. Pour plus d''informations sur comment cela fonctionne, voir la page de documentation de <a href="https://docs.decidim.org/en/admin/components/proposals/answers#_publication" target="_blank">propositions</a>.'
             suggested_hashtags: Hashtags suggérés aux utilisateurs pour de nouvelles propositions
             votes_blocked: Bloquer les votes
             votes_enabled: Activer le module de vote simple
