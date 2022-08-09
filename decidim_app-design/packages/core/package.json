@@ -10,7 +10,7 @@
   "author": "Decidim Contributors",
   "license": "AGPL-3.0",
   "dependencies": {
-    "@joeattardi/emoji-button": "^4.6.2",
+    "@picmo/popup-picker": "^5.4.0",
     "@rails/activestorage": "^6.0.4",
     "@tarekraafat/autocomplete.js": "^10.2.6",
     "@zeitiger/appendaround": "^1.0.0",
