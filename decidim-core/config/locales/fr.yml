@@ -49,7 +49,7 @@ fr:
   activerecord:
     attributes:
       decidim/action_log:
-        created_at: Heure
+        created_at: Date et heure
         with_participatory_space: Espace participatif
       decidim/user:
         current_password: Mot de passe actuel
