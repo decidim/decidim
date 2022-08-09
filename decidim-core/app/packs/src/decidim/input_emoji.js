@@ -71,15 +71,14 @@ export default function addInputEmoji() {
           right: 0,
           bottom: 0
         },
-        rootElement: wrapper
+        rootElement: wrapper,
+        triggerElement: btn
       });
 
       // Prevent the picker close button to submit the comment form
       picker.closeButton.type = "button";
 
-      const handlerPicker = (ev) => {
-        ev.preventDefault();
-        ev.stopPropagation();
+      const handlerPicker = () => {
         picker.toggle();
       }
 
