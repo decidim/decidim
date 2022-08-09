@@ -16,7 +16,7 @@ shared_examples "manage announcements" do
 
     visit main_component_path(current_component)
 
-    within ".notification.js-announcement" do
+    within ".callout.js-announcement" do
       expect(page).to have_content("An important announcement")
     end
   end
@@ -50,7 +50,7 @@ shared_examples "manage announcements" do
 
       visit main_component_path(current_component)
 
-      within ".notification.js-announcement" do
+      within ".callout.js-announcement" do
         expect(page).to have_no_content("An important announcement")
         expect(page).to have_content("An announcement for this step")
       end

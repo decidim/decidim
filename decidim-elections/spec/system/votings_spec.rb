@@ -179,7 +179,7 @@ describe "Votings", type: :system do
 
       it "I see an alert" do
         expect(page).to have_content("Currently, there are no scheduled votings, but here you can find the finished votings listed.")
-        expect(page).to have_selector(".notification.js-announcement", count: 1)
+        expect(page).to have_selector(".callout.js-announcement", count: 1)
       end
     end
   end
