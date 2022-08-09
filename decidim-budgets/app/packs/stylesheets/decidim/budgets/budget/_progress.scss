@@ -9,6 +9,14 @@
   position: absolute;
 }
 
+.progress-meter--minimum-mark{
+  background: black;
+  display: block;
+  height: 100%;
+  margin-left: 100%;
+  width: 5px;
+}
+
 .progress-meter-text--right{
   left: auto;
   min-width: 100%;
