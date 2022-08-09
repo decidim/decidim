@@ -1,8 +1,12 @@
 .notification{
   @apply border-t border-gray-3 first:border-t-0 py-4 first:pt-0 last:pb-0 flex items-start justify-between gap-4;
 
+  &__wrapper{
+    @apply grow flex flex-col-reverse md:flex-row gap-2 md:gap-4;
+  }
+
   &__time{
-    @apply w-1/12 text-gray-2 break-words flex-none first-letter:uppercase;
+    @apply w-full md:w-1/6 text-gray-2 break-words flex-none first-letter:uppercase text-sm md:text-md;
   }
 
   &__snippet{
