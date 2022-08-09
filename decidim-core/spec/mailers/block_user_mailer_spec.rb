@@ -21,6 +21,10 @@ module Decidim
         expect(email_body(mail)).to include("Your account was blocked.")
         expect(email_body(mail)).to include("Reason: ")
       end
+
+      it "includes no-reply message" do
+        expect(email_body(mail)).to include("Please do not answer to this email. This email is sent from a notification-only-email and is not intended to receive emails")
+      end
     end
   end
 end
