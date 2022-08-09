@@ -20,13 +20,17 @@
       &-message{
         @apply text-gray-2 truncate;
       }
+
+      &-time{
+        @apply text-gray-2 text-sm;
+      }
     }
 
-    &-info{
-      @apply flex flex-col items-center gap-2 text-sm text-gray-2 whitespace-nowrap;
+    &-unread{
+      @apply w-1/12 flex-none text-sm text-white;
 
-      & > *:not(:only-child):last-child{
-        @apply bg-secondary text-white rounded-full font-semibold px-1.5;
+      & > *{
+        @apply bg-secondary rounded-full font-semibold px-1.5;
       }
     }
 

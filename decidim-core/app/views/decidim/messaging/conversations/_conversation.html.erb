@@ -25,17 +25,18 @@
     </div>
 
     <p class="conversation__item-snippet-message"><%= truncate conversation.last_message.body, length: 150 %></p>
-  </div>
 
-  <div class="conversation__item-info">
-    <span>
+    <div class="conversation__item-snippet-time">
       <% if I18n.locale != :en %>
         <%= t("ago", scope: "decidim.messaging.conversations.index") %> <%= time_ago_in_words(Time.parse(conversation.last_message.created_at.to_s)) %>
       <% else %>
         <%= time_ago_in_words(Time.parse(conversation.last_message.created_at.to_s)) %>
       <% end %>
-    </span>
-    <% if conversation.unread_count(current_user).positive? %>
+    </div>
+  </div>
+
+  <div class="conversation__item-unread">
+    <% if !conversation.unread_count(current_user).positive? %>
       <span><%= conversation.unread_count(current_user) %></span>
     <% end %>
   </div>
