@@ -84,7 +84,7 @@ describe "Notifications", type: :system do
     end
 
     it "shows the notifications" do
-      expect(page).to have_selector(".card.card--widget")
+      expect(page).to have_selector(".notification")
     end
 
     context "when setting a single notification as read" do
@@ -124,7 +124,7 @@ describe "Notifications", type: :system do
 
     it "shows the notification with the group mentioned" do
       group = Decidim::UserGroup.find(notification.extra["group_id"])
-      element = page.find(".card-data__item--expand")
+      element = page.find(".notification")
       notification_text = element.text
 
       expect(notification_text).to include("as a member of #{group.name} @#{group.nickname}")

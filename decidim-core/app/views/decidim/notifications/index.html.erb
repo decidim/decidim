@@ -10,5 +10,7 @@
 <% end %>
 
 <%= render layout: "layouts/decidim/shared/layout_two_col" do %>
-  <%= cell "decidim/notifications", current_user %>
+  <div id="notifications">
+    <%= cell "decidim/notifications", current_user %>
+  </div>
 <% end %>

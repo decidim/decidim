@@ -10,7 +10,7 @@
       </span>
     </div>
   </div>
-  <%= link_to model, remote: true, method: :delete, class: "notification__button" do %>
+  <%= link_to model, remote: true, method: :delete, class: "notification__button mark-as-read-button" do %>
     <span class="sr-only md:not-sr-only"><%= t("mark_as_read", scope: "layouts.decidim.notifications_dashboard") %></span>
     <%= icon "check-line", class: "fill-current" %>
   <% end %>
