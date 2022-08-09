@@ -56,10 +56,13 @@ From the system dashboard you can add new admins.
 ⚠️ If you need to reset your administrator password you'll need to do it by entering the Rails console and changing it manually. ⚠️
 
 . Open the rails console:
+
 ```bash
 bin/rails console
 ```
+
 . Run the following instructions, changing them accordingly:
+
 ```ruby
 system_admin = Decidim::System::Admin.order(:id).first                        # for the first system admin
 system_admin = Decidim::System::Admin.find_by_email "system@example.org"      # if you already know the email

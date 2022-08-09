@@ -1,0 +1,113 @@
+= Data consent (aka. "cookie consent")
+
+With data consent we can explain better what local data we store in the user's browser, why we are storing this data, and let the user choose which data they allow to store in their browser.
+
+This feature is many times referred to as "cookie consent" due to historic reasons but in Decidim we prefer to call it "data consent" because this can also include other data stored in the user's browser using its APIs, such as data added to LocalStorage.
+
+As many non-technical people are still more familiar with the "cookie" terminology, the user interface talks only about "Cookie consent" to make it easier to understand for non-technical participants.
+
+== Different data consent categories available in Decidim
+
+By default there are four (4) data consent categories: **essential**, **preferences**, **analytics** and **marketing**. To display embedded iframes properly user has to give consent to all categories.
+
+== Adding scripts which require data consent
+
+The recommended place for scripts is ```app/views/layouts/decidim/_head_extra.html.erb```.
+For example, if you want to add a script that requires marketing consent, you can add the following code:
+
+[source,javascript]
+----
+<script type="text/plain" data-consent="marketing">
+  console.log("marketing data consent given");
+</script>
+----
+
+NOTE: Script type should be "text/plain". Without that, user's data consent setting does not have any effect.
+
+== Adding data consent category and related documentation
+
+You are able to modify data consent categories via the `consent_gategories` configuration option.
+
+For example if you want to add a "statistics" category you need to add following code to your app's initializer:
+
+[source,ruby]
+----
+Decidim.configure do |config|
+  config.consent_categories = [
+    {
+      slug: "essential",
+      mandatory: true,
+      items: [
+        {
+          type: "cookie",
+          name: "_session_id"
+        },
+        {
+          type: "cookie",
+          name: Decidim.consent_cookie_name
+        }
+      ]
+    },
+    {
+      slug: "preferences",
+      mandatory: false
+    },
+    {
+      slug: "analytics",
+      mandatory: false
+    },
+    {
+      slug: "marketing",
+      mandatory: false
+    },
+    {
+      slug: "statistics",
+      mandatory: false,
+      items: [
+        type: "cookie",
+        name: "statistics-cookie"
+      ]
+    }
+  ]
+end
+----
+
+When adding categories and items also remember to add the following xref:customize:texts.adoc[translations]:
+
+For category:
+
+[listing]
+----
+layouts.decidim.data_consent.modal.statistics.title
+layouts.decidim.data_consent.modal.statistics.description
+----
+
+For data items (e.g. cookies):
+
+[listing]
+----
+layouts.decidim.data_consent.details.items.statistics-cookie.description
+layouts.decidim.data_consent.details.items.statistics-cookie.service
+----
+
+* Description explains the purpose of using this data
+* Service explains the 3rd party service where this data is coming from
+
+So, for instance for the English language (`en`), it would look like this:
+
+[source,yaml]
+----
+en:
+  layouts:
+    decidim:
+      data_consent:
+        modal:
+          statistics:
+            title: The title for the statistics
+            description: The description for the statistics
+        details:
+          items:
+            statistics-cookie:
+              description: The purpose of the cookie
+              service: The 3rd party service of the cookie
+----

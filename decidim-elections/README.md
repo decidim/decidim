@@ -31,11 +31,11 @@ bundle
 For the Elections module to function as expected, there are some background tasks that should be scheduled to be executed regularly. Alternatively you could use `whenever` gem or the scheduled jobs of your hosting provider.
 
 You can configure it with `crontab -e`, for instance if you've created your Decidim application on /home/user/decidim_application:
-```
+
+```bash
 # Remove census export files
 0 0 * * * cd /home/user/decidim_application && RAILS_ENV=production bundle exec rake decidim_votings_census:delete_census_access_codes_export
 ```
-
 
 ## Contributing
 
