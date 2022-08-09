@@ -8,7 +8,15 @@
   }
 
   &__omniauth{
-    @apply flex flex-col items-center gap-6 py-10;
+    @apply flex flex-col items-center gap-8 py-10 text-gray-2 font-semibold;
+
+    &-button{
+      @apply button button__xl border border-gray shadow-[0_4px_6px_rgba(211,211,211,0.25)] justify-start gap-8 text-lg min-w-[50%];
+
+      svg{
+        @apply w-6 h-6 fill-current;
+      }
+    }
 
     &-separator{
       @apply flex items-center justify-center gap-12 after:content-[''] before:content-[''] after:h-px before:h-px after:bg-background before:bg-background after:grow before:grow;
