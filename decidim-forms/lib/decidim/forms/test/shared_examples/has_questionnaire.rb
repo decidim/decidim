@@ -70,7 +70,7 @@ shared_examples_for "has questionnaire" do
       it "allows revisiting previously-answered questionnaires with my answers" do
         answer_first_questionnaire
 
-        click_link "Back"
+        click_button "Back"
 
         expect(page).to have_content("Step 1 of 2")
         expect(page).to have_field("questionnaire_responses_0", with: "My first answer")
@@ -97,7 +97,7 @@ shared_examples_for "has questionnaire" do
 
           fill_in question.body["en"], with: "My first answer"
           within ".answer-questionnaire__footer", match: :first do
-            click_link "Continue"
+            click_button "Continue"
           end
         end
         expect(page).to have_content("Step 2 of 2")
