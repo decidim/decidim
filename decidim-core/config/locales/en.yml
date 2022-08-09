@@ -1704,6 +1704,30 @@ en:
   doorkeeper:
     scopes:
       public: Your public information.
+  emojis:
+    categories:
+      activities: Activities
+      animals-nature: Animals & Nature
+      custom: Custom
+      flags: Flags
+      food-drink: Food & Drink
+      objects: Objects
+      people-body: People & Body
+      recents: Recently Used
+      smileys-emotion: Smileys & Emotion
+      symbols: Symbols
+      travel-places: Travel & Places
+    error:
+      load: Failed to load emojis
+    recents:
+      clear: Clear recent emojis
+      none: You haven't selected any emojis yet.
+    retry: Try again
+    search:
+      _: Search emojis...
+      clear: Clear search
+      error: Failed to search emojis
+      not_found: No results found
   errors:
     messages:
       already_confirmed: was already confirmed, please try signing in
