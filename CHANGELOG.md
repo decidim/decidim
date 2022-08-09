@@ -47,23 +47,27 @@ require "decidim/spring"
 
 You can read more about this change on PR [\#8411](https://github.com/decidim/decidim/pull/8411).
 
-#### 2.3. Cookies consent change
+#### 2.3. Data consent change (aka "cookie consent")
 
-Cookie consent management has been updated. Supported cookie categories are essential, preferences, analytics and marketing.
+Local data consent management has been updated, generally also referred to as "cookie consent". Supported data consent categories are essential, preferences, analytics and marketing.
 
-Iframe HTML elements that are added with the editor or meeting forms are disabled until all cookies are accepted. Scripts that require cookies could be added as follows:
+This feature is many times referred to as "cookie consent" due to historic reasons but in Decidim we prefer to call it "data consent" because this can also include other data stored in the user's browser using its APIs, such as data added to LocalStorage.
+
+As many non-technical people are still more familiar with the "cookie" terminology, the user interface talks only about "Cookie consent" to make it easier to understand for non-technical participants.
+
+Iframe HTML elements that are added with the editor or meeting forms are disabled until data consent is given for all data categories. Scripts that require local data to be stored in the user's browser could be added as follows:
 
 ```html
 <script type="text/plain" data-consent="marketing">
-  console.log('marketing cookies accepted');
+  console.log("marketing data consent given");
 </script>
 ```
 
-Note that you need to define the `type="text/plain"` for the script that adds cookies in order to prevent the script from being executed before cookies are accepted. You should also define the metadata for all the cookies that you're using on your app initializer.
+Note that you need to define the `type="text/plain"` for the script that adds local data to the user's browser in order to prevent the script from being executed before data consent is given. You should also define the metadata for all the local data that you or your 3rd party scripts are adding to the user's browser.
 
-Mind that we also changed the cookie consent cookie from "decidim-cc" to "decidim-consent" by default. You can change it on your initializer, or update your cookie legal notice accordingly.
+Mind that we also changed the data consent cookie from "decidim-cc" to "decidim-consent" by default. You can change it on your initializer, or update your legal notice accordingly.
 
-Learn more about [Cookies at Decidim Documentation](https://docs.decidim.org/en/customize/cookies). You can read more about this change on PR [\#9271](https://github.com/decidim/decidim/pull/9271).
+Learn more about [Data consent at Decidim Documentation](https://docs.decidim.org/en/customize/data_consent). You can read more about this change on PR [\#9271](https://github.com/decidim/decidim/pull/9271).
 
 #### 2.4. Configuration via Environment Variables
 
