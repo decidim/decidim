@@ -1,12 +1,51 @@
 <div id="order-progress">
+  <% if include_heading && !current_order_checked_out? %>
+    <p><%== current_rule_description %></p>
+  <% end %>
+
   <div class="budget-summary__progressbox" data-current-allocation="<%= current_order ? current_order.total : 0 %>">
-    <div class="progress budget-progress" role="progressbar" aria-valuenow="<%= current_order_budget_percent %>" aria-valuetext="<%= current_order_budget_percent %>%" aria-valuemin="0" aria-valuemax="100">
-      <div class="progress-meter progress-meter--minimum" style="width: <%= current_order_budget_percent_minimum %>%"></div>
-      <!--Change width and text dynamically.-->
-      <div class="progress-meter budget-progress__meter" style="width: <%= current_order_budget_percent %>%">
-        <span class="progress-meter-text progress-meter-text--right"><%= current_order_budget_percent %>%</span>
+    <div class="budget-summary__progressbar">
+      <div class="progress budget-progress" role="progressbar" aria-valuenow="<%= current_order_budget_percent %>" aria-valuetext="<%= current_order_budget_percent %>%" aria-valuemin="0" aria-valuemax="100">
+        <div class="progress-meter progress-meter--minimum" style="width: <%= current_order_budget_percent_minimum %>%">
+          <span class="progress-meter--minimum-mark"></span>
+        </div>
+        <div class="progress-meter budget-progress__meter" style="width: <%= current_order_budget_percent %>%">
+          <span class="progress-meter-text progress-meter-text--right"><%= current_order_budget_percent %>%</span>
+        </div>
+      </div>
+
+      <div class="budget-progress_marks">
+        <span class="mini-title" style="width: <%= current_order_budget_percent_minimum %>%;" class="budget-progress_left_mark">
+          <%= t(".assigned") %><br>
+          <strong id="order-total-budget" class="mini-title__strong">
+            <% if current_order.projects_rule? %>
+              <%= current_order.projects.count %> / <%= current_order.maximum_projects %>
+            <% else %>
+              <%= budget_to_currency current_order&.total_budget.to_f %>
+            <% end %>
+          </strong>
+        </span>
+        <% if current_order.minimum_budget > 0 %>
+          <span class="mini-title budget-progress_medium_mark">
+            <%= t(".minimum") %><br>
+            <strong class="mini-title__strong">
+              <%= budget_to_currency(current_order.minimum_budget) %>
+            </strong>
+          </span>
+        <% end %>
+        <span class="mini-title budget-progress_right_mark" data-total-allocation="<%= current_order.available_allocation %>">
+          <%= t(".budget") %><br>
+          <strong class="mini-title__strong">
+            <% if current_order.projects_rule? %>
+              <%= current_order.maximum_projects %>
+            <% else %>
+              <%= budget_to_currency(budget.total_budget) %>
+            <% end %>
+          </strong>
+        </span>
       </div>
     </div>
+
     <% if !current_order_checked_out? && voting_open? %>
       <button class="button small button--sc" data-toggle="budget-confirm" <%= budget_confirm_disabled_attr %>>
         <%= t(".vote") %>

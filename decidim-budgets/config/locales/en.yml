@@ -215,27 +215,24 @@ en:
             title: Maximum projects exceeded
         budget_summary:
           are_you_sure: Are you sure you want to cancel your vote?
-          assigned: 'Assigned:'
           cancel_order: delete your vote and start over
           checked_out:
             description: You've already voted for the budget. If you've changed your mind, you can %{cancel_link}.
             title: Budget vote completed
           minimum_projects_rule:
-            description: What projects do you think we should allocate budget for? Select at least %{minimum_number} projects you want and vote according to your preferences to define the budget.
+            description: Select at least %{minimum_number} projects you want and vote according to your preferences to define the budget.
             instruction: "<li>Select at least %{minimum_number} projects you want and vote according to your preferences to define the budget.</li>"
           projects_rule:
-            description: What projects do you think we should allocate budget for? Select at least %{minimum_number} and up to %{maximum_number} projects you want and vote according to your preferences to define the budget.
+            description: Select at least %{minimum_number} and up to %{maximum_number} projects you want and vote according to your preferences to define the budget.
             instruction: "<li>Select at least %{minimum_number} and up to %{maximum_number} projects you want and vote according to your preferences to define the budget.</li>"
           projects_rule_maximum_only:
-            description: What projects do you think we should allocate budget for? Select up to %{maximum_number} projects you want and vote according to your preferences to define the budget.
+            description: Select up to %{maximum_number} projects you want and vote according to your preferences to define the budget.
             instruction: "<li>Select up to %{maximum_number} projects you want and vote according to your preferences to define the budget.</li>"
           rules:
             title: Budget rules
           title: You decide the budget
-          total_budget: Total budget
-          total_projects: Total votes
           vote_threshold_percent_rule:
-            description: What projects do you think we should allocate budget for? Assign at least %{minimum_budget} to the projects you want and vote according to your preferences to define the budget.
+            description: Assign at least %{minimum_budget} to the projects you want and vote according to your preferences to define the budget.
             instruction: "<li>Assign at least %{minimum_budget} to the projects you want and vote according to your preferences to define the budget.</li>"
         count:
           projects_count:
@@ -264,7 +261,22 @@ en:
         index:
           view_project: View project
         order_progress:
+          assigned: Assigned
+          budget: Budget
+          dynamic_help:
+            keep_adding_projects: Keep adding projects
+            minimum_reached: You have reached the minimum to be able to vote
+            start_adding_projects: Start adding projects
+          minimum: Minimum
           vote: Vote
+          minimum_projects_rule:
+            description: Select at least %{minimum_number} projects you want and vote according to your preferences to define the budget.
+          projects_rule:
+            description: Select at least %{minimum_number} and up to %{maximum_number} projects you want and vote according to your preferences to define the budget.
+          projects_rule_maximum_only:
+            description: Select up to %{maximum_number} projects you want and vote according to your preferences to define the budget.
+          vote_threshold_percent_rule:
+            description: Assign at least %{minimum_budget} to the projects you want and vote according to your preferences to define the budget.
         order_selected_projects:
           remove: Remove
           selected_projects:

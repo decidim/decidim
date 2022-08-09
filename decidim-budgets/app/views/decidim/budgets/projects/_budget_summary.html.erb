@@ -33,40 +33,10 @@
             <%= translated_attribute(budget.title) %>
           <% end %>
         </h2>
-        <p>
-          <%= raw current_rule_description %>
-        </p>
       <% end %>
     <% end %>
 
-    <% if current_order.projects_rule? %>
-      <div class="budget-summary__total" data-total-allocation="<%= current_order.available_allocation %>">
-        <span class="mini-title"><%= t(".total_projects") %>
-          <strong class="mini-title__strong mini-title__strong--highlight">
-            <%= current_order.maximum_projects %>
-          </strong>
-        </span>
-      </div>
-    <% else %>
-      <div class="budget-summary__total" data-total-allocation="<%= current_order.available_allocation %>" data-total-budget="<%= budget.total_budget %>">
-        <span class="mini-title"><%= t(".total_budget") %>
-          <strong class="mini-title__strong mini-title__strong--highlight">
-            <%= budget_to_currency(budget.total_budget) %>
-          </strong>
-        </span>
-      </div>
-    <% end %>
-
-    <%= render partial: "order_progress" %>
-
-    <div>
-      <span class="mini-title">
-        <%= t(".assigned") %>
-        <%= render partial: "order_total_budget" %>
-      </span>
-    </div>
-
-    <%= cell("decidim/budgets/budget_information_modal", budget) %>
+    <%= render partial: "order_progress", locals: { include_heading: include_heading } %>
   </div>
 
   <%= render partial: "order_selected_projects" %>

@@ -7,7 +7,7 @@ var $budgetConfirm = $('#budget-confirm');
 
 morphdom($orderTotalBudget[0], '<%= j(render partial: "decidim/budgets/projects/order_total_budget").strip.html_safe %>');
 morphdom($orderSelectedProjects[0], '<%= j(render partial: "decidim/budgets/projects/order_selected_projects").strip.html_safe %>');
-morphdom($orderProgress[0], '<%= j(render partial: "decidim/budgets/projects/order_progress").strip.html_safe %>');
+morphdom($orderProgress[0], '<%= j(render partial: "decidim/budgets/projects/order_progress", locals: { include_heading: true }).strip.html_safe %>');
 morphdom($budgetConfirm[0], '<%= j(render partial: "decidim/budgets/projects/budget_confirm").strip.html_safe %>')
 
 $("#order-progress").foundation();

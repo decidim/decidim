@@ -2,8 +2,12 @@
   margin-bottom: .5rem;
 }
 
+.budget-summary__progressbar{
+  flex-grow: 1;
+}
+
 .budget-summary__progressbox{
-  align-items: stretch;
+  align-items: flex-start;
   margin-bottom: .5rem;
 
   @include breakpoint(smallmedium down){
@@ -47,6 +51,7 @@
 }
 
 .budget-progress{
+  display: flex;
   flex-grow: 1;
   margin-bottom: .5rem;
   min-height: 1.5rem;
@@ -56,6 +61,26 @@
     margin-bottom: 0;
     margin-right: 1rem;
   }
+}
+
+.budget-progress_marks{
+  display: flex;
+  flex-direction: row;
+  margin-right: 1rem;
+}
+
+.budget-progress_left_mark{
+  text-align: left;
+}
+
+.budget-progress_medium_mark{
+  text-align: center;
+  transform: translateX(-50%);
+}
+
+.budget-progress_right_mark{
+  margin-left: auto;
+  text-align: right;
 }
 
 .budget-progress--fixed{
