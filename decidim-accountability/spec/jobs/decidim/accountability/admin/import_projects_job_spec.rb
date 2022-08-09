@@ -15,7 +15,6 @@ describe Decidim::Accountability::Admin::ImportProjectsJob do
 
   let(:budget_component) { create(:component, manifest_name: "budgets", participatory_space:) }
   let(:budget) { create(:budget, component: budget_component, total_budget: 26_000_000) }
-  # let!(:project) { create(:project, budget:, selected_at:) }
   let(:selected_at) { Time.current }
 
   let(:command) { described_class.new(form) }

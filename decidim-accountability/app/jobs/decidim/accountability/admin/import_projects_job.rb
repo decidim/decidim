@@ -6,11 +6,11 @@ module Decidim
       class ImportProjectsJob < ApplicationJob
         queue_as :default
 
-        def perform(projects, current_component, current_user)
+        def perform(projects, component, user)
           projects.map do |id|
             original_project = Decidim::Budgets::Project.find_by(id:)
 
-            new_result = create_result_from_project!(original_project, statuses(current_component).first, current_component, current_user)
+            new_result = create_result_from_project!(original_project, statuses(component).first, component, user)
             new_result.link_resources([original_project], "included_projects")
             new_result.link_resources(
               original_project.linked_resources(:proposals, "included_proposals"),
@@ -19,7 +19,7 @@ module Decidim
 
             copy_attachments(original_project, new_result)
           end.compact
-          Decidim::Accountability::ImportProjectsMailer.import(current_user).deliver_now
+          Decidim::Accountability::ImportProjectsMailer.import(user, component, projects.count).deliver_now
         end
 
         private
@@ -63,8 +63,8 @@ module Decidim
           end
         end
 
-        def statuses(current_component)
-          Decidim::Accountability::Status.where(component: current_component).order(:progress)
+        def statuses(component)
+          Decidim::Accountability::Status.where(component:).order(:progress)
         end
       end
     end

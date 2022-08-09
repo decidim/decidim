@@ -7,7 +7,7 @@ module Decidim
     module Admin
       describe ProjectsImportController, type: :controller do
         routes { Decidim::Accountability::AdminEngine.routes }
-        describe "GET the import result process new" do
+        describe "GET show" do
           let(:current_user) { create(:user, :confirmed, :admin, organization:) }
           let(:organization) { create(:organization) }
           let(:participatory_space) { create(:participatory_process, organization:) }

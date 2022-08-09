@@ -37,7 +37,7 @@ module Decidim
           when :import_projects
             case permission_action.action
             when :create, :new
-              true
+              true if defined?(Decidim::Budgets::Project)
             else
               false
             end

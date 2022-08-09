@@ -14,4 +14,3 @@ module Decidim
 end
 
 Spring::Watcher::Listen.prepend Decidim::SpringWatcher
-Spring.application_root = ""

@@ -20,7 +20,7 @@ module Decidim
             end
 
             on(:invalid) do
-              flash[:alert] = I18n.t("proposals_imports.create.invalid", scope: "decidim.budgets.admin")
+              flash[:alert] = I18n.t("projects_import.create.invalid", scope: "decidim.accountability.admin")
               render action: "new"
             end
           end

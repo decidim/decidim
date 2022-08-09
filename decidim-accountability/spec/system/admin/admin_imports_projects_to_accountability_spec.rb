@@ -50,14 +50,15 @@ describe "Admin imports projects to accountability", type: :system do
 
     context "when there are no projects" do
       before do
+        visit current_path
         find("#result_import_projects_origin_component_id").find("option[value='#{budget_component.id}']").select_option
         find("#result_import_projects_import_all_selected_projects").set(true)
-        click_on "Import"
       end
 
       it "shows error message" do
-        expect(page).to have_content "There was a problem importing the proposals into projects"
         expect(page).to have_content "There are no selected projects in this origin component"
+        click_on "Import"
+        expect(page).to have_content "There was a problem importing the projects into results, please follow the instructions carefully and make sure you have selected projects for implementation."
       end
     end
 
@@ -65,13 +66,15 @@ describe "Admin imports projects to accountability", type: :system do
       let!(:selected_set) { create_list(:project, 3, budget:, selected_at: Time.current) }
 
       before do
+        visit current_path
         find("#result_import_projects_origin_component_id").find("option[value='#{budget_component.id}']").select_option
         find("#result_import_projects_import_all_selected_projects").set(true)
-        click_on "Import"
       end
 
       it "imports the projects into results" do
-        expect(page).to have_content "3 projects qeued to be imported. You will be notified by email, once completed"
+        expect(page).to have_content("3 selected projects will be imported")
+        click_on "Import"
+        expect(page).to have_content "3 projects queued to be imported. You will be notified by email, once completed"
       end
     end
   end

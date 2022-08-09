@@ -100,9 +100,9 @@ module Decidim::Accountability
       let!(:result) { create(:result, component: current_component) }
 
       context "when the project has not copied yet" do
-        it "returns true" do
+        it "returns false" do
           rlt = subject.project_already_copied?(project)
-          expect(rlt).to be_falsy
+          expect(rlt).to be(false)
         end
       end
 
@@ -113,7 +113,7 @@ module Decidim::Accountability
 
         it "returns true" do
           rlt = subject.project_already_copied?(project)
-          expect(rlt).to be_truthy
+          expect(rlt).to be(true)
         end
       end
     end

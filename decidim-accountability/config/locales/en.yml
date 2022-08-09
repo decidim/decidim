@@ -66,6 +66,8 @@ en:
           timeline_entry:
             name: Timeline entry
         projects_import:
+          create:
+            invalid: There was a problem importing the projects into results, please follow the instructions carefully and make sure you have selected projects for implementation.
           new:
             create: Import
             import_all_selected_projects: Import all projects selected for implementation
@@ -77,8 +79,8 @@ en:
             origin_component_id: Origin component
             select_component: Select a component
             success:
-              one: 1 project qeued to be imported. You will be notified by email, once completed
-              other: "%{count} projects qeued to be imported. You will be notified by email, once completed"
+              one: 1 project queued to be imported. You will be notified by email, once completed
+              other: "%{count} projects queued to be imported. You will be notified by email, once completed"
             title: Import Projects to Accountability
         results:
           create:
@@ -164,8 +166,12 @@ en:
           success: Successful import of results. You can review the results in the administration interface.
       import_projects_mailer:
         import:
+          added_projects:
+            one: One result was imported from projects.
+            other: "%{count} results were imported from projects."
           subject: Successful import of projects
-          success: Successful imported projects to Accountability. You can review the results in the administration interface.
+          success: "Successful imported projects to results in the %{component_name} component. You can review the results in the administration interface."
+
       last_activity:
         new_result_at_html: "<span>New result at %{link}</span>"
       models:
