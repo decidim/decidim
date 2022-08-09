@@ -59,7 +59,7 @@ describe Decidim::Accountability::Admin::ImportProjectsJob do
       end.to change(Decidim::Accountability::Result, :count).from(0).to(3)
     end
 
-    it "emaills the user after importing" do
+    it "emails the user after importing" do
       allow(Decidim::Accountability::ImportProjectsMailer)
         .to receive(:import)
         .with(current_user)
