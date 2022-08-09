@@ -14,6 +14,7 @@ describe "Content pages", type: :system do
 
   describe "Showing pages" do
     let!(:decidim_pages) { create_list(:static_page, 5, :with_topic, organization:) }
+    let(:decidim_page) { decidim_pages.first }
 
     it_behaves_like "editable content for admins" do
       let(:target_path) { decidim.pages_path }
@@ -24,18 +25,25 @@ describe "Content pages", type: :system do
         visit decidim.pages_path
       end
 
-      it "shows the list of all the pages" do
+      it "shows the list of topics" do
         decidim_pages.each do |decidim_page|
           topic_title = decidim_page.topic.title[I18n.locale.to_s]
-          page_title = decidim_page.title[I18n.locale.to_s]
 
-          within("div[data-component='accordion']", text: topic_title) do
-            find("svg", match: :first).click
-            expect(page).to have_css(
-              "a[href=\"#{decidim.page_path(decidim_page)}\"]",
-              text: page_title
-            )
-          end
+          expect(page).to have_content(topic_title)
+        end
+      end
+
+      it "expands the topics" do
+        topic_title = decidim_page.topic.title[I18n.locale.to_s]
+        page_title = decidim_page.title[I18n.locale.to_s]
+
+        within(".page__accordion", text: topic_title) do
+          find("button").click
+
+          expect(page).to have_css(
+            "a[href=\"#{decidim.page_path(decidim_page)}\"]",
+            text: page_title
+          )
         end
       end
     end
