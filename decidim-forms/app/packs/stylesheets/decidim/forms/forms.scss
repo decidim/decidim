@@ -48,7 +48,7 @@
 
   &__multiple-matrix,
   &__single-matrix{
-    @apply text-gray-2 text-sm rounded overflow-hidden;
+    @apply text-gray-2 text-sm rounded overflow-x-auto;
 
     th,
     td{

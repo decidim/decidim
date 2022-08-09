@@ -1,9 +1,9 @@
 <div class="form-general-submit answer-questionnaire__submit">
   <% if !first_step? %>
-    <%= link_to("#", class: "arrow-link text-lg text-secondary", data: { toggle: [previous_step_dom_id, current_step_dom_id].join(" ") }) do %>
+    <button type="button" class="button button__lg button__text-secondary" data-toggle="<%= [previous_step_dom_id, current_step_dom_id].join(" ") %>">
       <%= icon "arrow-left-line", class: "fill-current" %>
       <%= t("decidim.forms.step_navigation.show.back") %>
-    <% end %>
+    </button>
   <% end %>
 
   <% if last_step? %>
@@ -15,9 +15,9 @@
       **confirm_data
     ) %>
   <% else %>
-    <%= link_to("#", class: "button button__lg button__secondary", data: { toggle: [next_step_dom_id, current_step_dom_id].join(" ") }) do %>
+    <button type="button" class="button button__lg button__secondary" data-toggle="<%= [next_step_dom_id, current_step_dom_id].join(" ") %>">
       <%= t("decidim.forms.step_navigation.show.continue") %>
       <%= icon "arrow-right-line", class: "fill-current" %>
-    <% end %>
+    </button>
   <% end %>
 </div>
