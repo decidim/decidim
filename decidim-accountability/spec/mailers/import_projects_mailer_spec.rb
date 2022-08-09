@@ -25,7 +25,6 @@ module Decidim
         it "emails success message to the user" do
           expect(mail.body).to include("Successful imported projects to results in the #{current_component.name["en"]} component. You can review the results in the administration interface.")
           expect(mail.body).to include("3 results were imported from projects.")
-          expect(mail.body).to include("This email is sent from a notification-only-email and is not intended to receive emails")
         end
       end
     end

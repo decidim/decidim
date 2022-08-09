@@ -170,8 +170,7 @@ en:
             one: One result was imported from projects.
             other: "%{count} results were imported from projects."
           subject: Successful import of projects
-          success: "Successful imported projects to results in the %{component_name} component. You can review the results in the administration interface."
-
+          success: Successful imported projects to results in the %{component_name} component. You can review the results in the administration interface.
       last_activity:
         new_result_at_html: "<span>New result at %{link}</span>"
       models:
