@@ -62,7 +62,7 @@ describe Decidim::Accountability::Admin::ImportProjectsJob do
     it "emails the user after importing" do
       allow(Decidim::Accountability::ImportProjectsMailer)
         .to receive(:import)
-        .with(current_user)
+        .with(current_user, current_component, projects.count)
         .and_return(mailer)
       expect(mailer)
         .to receive(:deliver_now)
