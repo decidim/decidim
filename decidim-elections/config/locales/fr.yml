@@ -243,7 +243,11 @@ fr:
             success: Question mise à jour avec succès
         steps:
           create_election:
+            census: Recensement
             errors:
+              census_codes_generated: Les codes électoraux pour le recensement ne sont pas générés.
+              census_frozen: Les codes électoraux ne sont pas exportés.
+              census_uploaded: Il n'y a pas de recensement téléchargé pour cette élection.
               component_published: La fonctionnalité élection n'est <strong>pas publiée</strong>.
               max_selections: Les questions n'ont pas de <strong>valeur correcte pour le nombre de réponses</strong>
               minimum_answers: Les questions doivent avoir <strong>au moins deux réponses</strong>.
@@ -258,6 +262,9 @@ fr:
               'false': n'a pas de <strong>clé publique</strong>
               'true': a une <strong>clé publique</strong>
             requirements:
+              census_codes_generated: Les codes de recensement sont générés.
+              census_frozen: Les codes sont exportés et le recensement est gelé.
+              census_uploaded: Le recensement a été téléchargé.
               component_published: La fonctionnalité élection est <strong>publiée</strong>.
               max_selections: Toutes les questions ont une valeur correcte pour <strong>le maximum de réponses</strong>.
               minimum_answers: Chaque question a <strong>au moins 2 réponses</strong>.
@@ -1068,6 +1075,8 @@ fr:
             create:
               invalid: Une erreur s'est produite lors de la mise à jour du recensement, veuillez réessayer plus tard.
               invalid_csv_header: Les en-têtes CSV sont manquants ou incorrects - veuillez lire attentivement les instructions
+            creating_data:
+              info_message: "<strong>Veuillez patienter</strong>, %{processed_count} traités sur %{raw_count} lignes à partir du fichier %{file} (cela peut prendre plusieurs minutes)."
             delete:
               button: Supprimer toutes les données du recensement
               confirm: La suppression de tout le recensement ne peut pas être annulée. Êtes-vous sûr de vouloir continuer?
@@ -1081,8 +1090,14 @@ fr:
               file_not_exist: Ce fichier n'existe pas
               launch_error: Problème lors du lancement de l'export des codes d'accès
               launch_success: L'export des codes d'accès a été lancée. Vous recevrez sous peu un e-mail à %{email}
+            exporting_access_codes:
+              info_message: "<strong>Veuillez patienter</strong>, l'export est en cours de préparation, vous le recevrez sous peu à %{email} (cela peut prendre plusieurs minutes)."
             freeze:
               callout: Le recensement est gelé et ne peut pas être modifié.
+              help_html: |
+                Les données du recensement ont été téléchargées, les codes générés et exportés avec succès.<br>
+                <strong>Vous êtes maintenant prêt à commencer l'élection.</strong><br>
+                Utilisez le CSV exporté avec les codes individuels pour le distribuer le long de votre recensement en utilisant vos propres moyens ou activez l'onglet "Puis-je voter" pour permettre à quiconque de récupérer ce code en utilisant ses propres données de recensement.
             generate_access_codes:
               button: Générer des codes d'accès au vote
               callout: Vous pouvez maintenant procéder à la génération des codes d'accès. N'oubliez pas qu'après la génération des codes d'accès, vous ne pourrez plus modifier le recensement.
@@ -1091,6 +1106,9 @@ fr:
               info_message_warn: Veuillez vérifier qu'aucune donnée n'est manquante, car %{data_count} enregistrements ont été créés et le fichier téléchargé %{file} a %{raw_count} lignes.
               launch_error: Problème lors du lancement de la génération des codes d'accès
               launch_success: Génération de codes lancée.
+              start_over: Veuillez supprimer le recensement actuel et recommencer avec un fichier CSV correct avec des lignes valides.
+            generating_access_codes:
+              info_message: "<strong>Veuillez patienter</strong>, les codes d'accès au vote sont en cours de génération (cela peut prendre plusieurs minutes)..."
             new:
               file_help:
                 explanation: 'Instructions concernant le fichier :'
