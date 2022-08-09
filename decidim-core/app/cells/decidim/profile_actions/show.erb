@@ -1,12 +1,15 @@
-<% profile_actions.each do |item| %>
-  <% if item[:cell].present? %>
-    <%= cell item[:cell], profile_holder, item[:options] %>
-  <% else %>
-    <%= cell "decidim/button", item, item[:options] %>
+<div class="max-w-full flex md:flex-col gap-4 overflow-x-auto">
+  <% profile_actions.each do |item| %>
+    <% if item[:cell].present? %>
+      <%= cell item[:cell], profile_holder, item[:options] %>
+    <% else %>
+      <%= cell "decidim/button", item, item[:options] %>
+    <% end %>
   <% end %>
-<% end %>
+</div>
 
-<div class="flex justify-between text-xs">
+<%# REDESING_PENDING: hide this container if both conditions do not contain anything %>
+<div class="flex justify-center md:justify-between text-xs">
   <% if user_flaggable? %>
     <%== cell("decidim/author", profile_holder, from: profile_holder).flag_user %>
   <% end %>
@@ -14,10 +17,10 @@
   <% if can_leave_group? %>
     <%= cell(
       "decidim/button",
-      { icon: "logout-box-r-line", text: t("decidim.profiles.user.leave_user_group"), path: decidim.leave_group_path(profile_holder.nickname)  },
+      { icon: "logout-box-r-line", text: t("decidim.profiles.user.leave_user_group"), path: decidim.leave_group_path(profile_holder.nickname) },
       method: :delete,
       button_classes: "button button__sm button__text-secondary only:m-auto",
-      text_classes: "sr-only sm:not-sr-only first-letter:uppercase"
+      text_classes: "first-letter:uppercase"
     ) %>
   <% end %>
 </div>

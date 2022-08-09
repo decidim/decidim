@@ -28,10 +28,14 @@
   }
 
   &__tab{
-    @apply grow rounded-t;
+    @apply grow rounded-t min-w-[120px];
 
     &.is-active{
       @apply bg-white z-10 text-secondary font-semibold;
+    }
+
+    &-item{
+      @apply w-full h-full p-2.5 flex items-center justify-center gap-2;
     }
   }
 
@@ -46,7 +50,7 @@
       }
 
       svg{
-        @apply w-4 h-4 md:w-6 md:h-6 flex-none text-gray fill-current;
+        @apply w-4 h-4 flex-none text-gray fill-current;
       }
 
       span{
@@ -72,10 +76,10 @@
     }
 
     &__item{
-      @apply flex flex-col md:flex-row gap-2 md:gap-12 py-4;
+      @apply flex flex-col-reverse md:flex-row gap-2 md:gap-12 py-4;
 
       &-time{
-        @apply flex-none text-gray-2;
+        @apply w-full md:w-1/6 flex-none text-gray-2 text-sm md:text-md;
       }
 
       &-content{
@@ -190,18 +194,18 @@
           }
 
           &:nth-child(2){
-            @apply grow divide-y divide-gray-3;
+            @apply w-full md:w-fit grow divide-y divide-gray-3;
           }
 
           &:nth-child(3){
-            @apply max-w-fit flex justify-center flex-wrap md:flex-col gap-4;
+            @apply max-w-full w-fit inline-flex flex-col gap-4;
           }
         }
       }
     }
 
     &__middle{
-      @apply bg-background;
+      @apply bg-background overflow-x-auto;
 
       &-content{
         @apply lg:w-2/3 mx-auto flex justify-between text-gray-2;
