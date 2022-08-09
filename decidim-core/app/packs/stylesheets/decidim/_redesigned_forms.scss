@@ -71,6 +71,7 @@
   }
 
   &__button{
+    /* stylelint-disable-next-line number-leading-zero */
     @apply absolute right-1 bottom-0.5 cursor-pointer text-gray-2;
   }
 
