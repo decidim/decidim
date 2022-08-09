@@ -510,6 +510,7 @@ fr:
         notice: "%{count} %{resource_name} importées avec succès"
       logs:
         filters:
+          participatory_space: Trouver un espace participatif
           text: Recherche par adresse e-mail, nom ou pseudonyme.
           user: Utilisateur
         logs_list:
