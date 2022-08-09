@@ -252,6 +252,7 @@ ignore_unused:
   - decidim.amendments.accept.error
   - decidim.search.results
   - decidim.searches.filters.state.*
+  - decidim.security.selfxss_warning.*
   - decidim.assemblies.filter.*
   - decidim.initiatives.initiatives.votes_count.count.*
   - decidim.proposals.admin.participatory_texts.new_import.accepted_mime_types.*
@@ -326,6 +327,7 @@ ignore_unused:
   - decidim.initiatives.create_initiative.select_initiative_type.*
   - decidim.blogs.admin_log.*
   - decidim.templates.admin_log.*
+  - emojis.*
   - ransack.predicates.*
 
 ## Exclude these keys from the `i18n-tasks eq-base' report:
