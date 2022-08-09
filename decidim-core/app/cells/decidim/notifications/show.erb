@@ -3,7 +3,8 @@ validations = [];
 
 validations << t("decidim.notifications.no_notifications") if !notifications.any?
 
-validations.each do |validation| %>
+validations.each do |validation|
+%>
   <%= cell("decidim/announcement", validation) %>
 <% end %>
 
