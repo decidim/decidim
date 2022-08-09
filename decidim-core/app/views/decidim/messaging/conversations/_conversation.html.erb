@@ -36,7 +36,7 @@
   </div>
 
   <div class="conversation__item-unread">
-    <% if !conversation.unread_count(current_user).positive? %>
+    <% if conversation.unread_count(current_user).positive? %>
       <span><%= conversation.unread_count(current_user) %></span>
     <% end %>
   </div>
