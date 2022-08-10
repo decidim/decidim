@@ -75,7 +75,6 @@
                     <tr>
                       <th class="small-12 first columns">
                         <%= yield %>
-                        <%= t("decidim.newsletter_mailer.newsletter.no_reply_notice") %>
                       </th>
                       <th class="expander"></th>
                     </tr>
@@ -124,6 +123,19 @@
                 </tr>
               </table>
             <% end %>
+            <table class="main container">
+              <tr>
+                <td>
+                  <table class="row content">
+                    <tr>
+                      <th class="small-12 first columns footnote">
+                        <%= t("decidim.newsletter_mailer.newsletter.no_reply_notice") %>
+                      </th>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
           </center>
         </td>
       </tr>
