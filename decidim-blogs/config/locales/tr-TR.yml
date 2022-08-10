@@ -49,13 +49,8 @@ tr:
             title: Başlık
       posts:
         show:
-          back: Listeye geri dön
           comments: Yorumlar
           view: Görünüm
-        sidebar_blog:
-          comments: yorumlar
-          most_commented_posts: En çok yorum yapılan yazılar
-      read_more: Daha fazla oku
     components:
       blogs:
         name: Blog
