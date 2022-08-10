@@ -1721,6 +1721,8 @@ ja:
             decidim-consent:
               description: このウェブサイトでユーザーが許可するクッキーに関する情報を保存します。
               service: このウェブサイト
+            pwaInstallPromptSeen:
+              service: このウェブサイト
           types:
             cookie: クッキー
         dialog:
