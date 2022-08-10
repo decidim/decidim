@@ -49,7 +49,7 @@ fr-CA:
   activerecord:
     attributes:
       decidim/action_log:
-        created_at: Heure
+        created_at: Date et heure
         with_participatory_space: Espace participatif
       decidim/user:
         current_password: Mot de passe actuel
@@ -1729,13 +1729,18 @@ fr-CA:
       data_consent:
         details:
           columns:
+            description: Description
+            name: Nom
             service: Service
+            type: Type
           items:
             _session_id:
               description: Permet aux sites Web de se souvenir de l'utilisateur au sein d'un même site lorsqu'il navigue d'une page à l'autre.
               service: Ce site web
             decidim-consent:
               description: Stocke des informations sur les cookies autorisés par l'utilisateur sur ce site web.
+              service: Ce site web
+            pwaInstallPromptSeen:
               service: Ce site web
           types:
             cookie: Cookie
@@ -1749,12 +1754,17 @@ fr-CA:
           accept_all: Tout accepter
           accept_only_essential: Accepter seulement l'essentiel
           analytics:
+            description: Ces cookies sont utilisés pour mesurer et analyser le public du site afin de l'améliorer.
             title: Analyses et statistiques
+          description: Nous utilisons des cookies pour assurer les fonctionnalités de base du site Web et pour améliorer votre expérience en ligne. Vous pouvez configurer et accepter l'utilisation des cookies et modifier vos options de consentement à tout moment.
           essential:
+            description: Ces cookies permettent le fonctionnement essentiel du site Web et aident à sécuriser ses utilisateurs. Ils sont automatiquement enregistrés dans le navigateur et ne peuvent pas être désactivés.
             title: Essentiels
           marketing:
+            description: Ces cookies recueillent des informations sur la façon dont vous utilisez le site Web et peuvent être utilisés pour vous offrir un marketing plus personnalisé sur les différents sites Web que vous utilisez.
             title: Marketing
           preferences:
+            description: Ces cookies permettent au site Web de se souvenir des choix que vous avez faits par le passé sur ce site pour offrir une expérience plus personnalisée aux utilisateurs du site.
             title: Préférences
           save_settings: Enregistrer les paramètres
           title: Paramètres des cookies
@@ -1762,6 +1772,7 @@ fr-CA:
         warning:
           all_categories: tous les cookies
           change_settings: Modifier les paramètres des cookies
+          consent_required: Vous devez activer %{categories} pour voir ce contenu.
       edit_link:
         edit: Modifier
       footer:
@@ -1837,6 +1848,12 @@ fr-CA:
     password_too_common: est trop commun
     password_too_long: est trop long
     password_too_short: est trop court
+  ransack:
+    predicates:
+      dtgt: après
+      dtgteq: est après ou égal au
+      dtlt: avant
+      dtlteq: avant ou égal à
   social_share_button:
     delicious: Delicious
     douban: Douban
