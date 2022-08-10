@@ -1744,6 +1744,8 @@ fi-pl:
             decidim-consent:
               description: Tallentaa tietoja sallimistasi evästeistä tällä sivustolla.
               service: Tämä sivusto
+            pwaInstallPromptSeen:
+              service: Tämä sivusto
           types:
             cookie: Eväste
         dialog:
