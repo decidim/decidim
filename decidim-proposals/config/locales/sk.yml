@@ -731,7 +731,6 @@ sk:
           changes_at_title: doplňujúci návrh k "%{title}"
           comments: Komentáre
           edit_proposal: Upraviť návrh
-          endorsements_list: Zoznam Schválenie
           estimated_cost: Odhadované náklady
           hidden_endorsers_count:
             one: a%{count} ďalšia osoba
