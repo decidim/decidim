@@ -859,7 +859,6 @@ ca:
           changes_at_title: Esmena a "%{title}"
           comments: Comentaris
           edit_proposal: Edita proposta
-          endorsements_list: Llistat d'adhesions
           estimated_cost: Cost estimat
           hidden_endorsers_count:
             one: i %{count} persona més
