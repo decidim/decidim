@@ -52,7 +52,7 @@ describe "Conference speakers", type: :system do
 
     it "lists all conference speakers" do
       within "#conference_speakers-grid" do
-        expect(page).to have_selector(".column.conference-speaker", count: 2)
+        expect(page).to have_selector("[data-conference-speaker]", count: 2)
 
         conference_speakers.each do |conference_speaker|
           expect(page).to have_content(Decidim::ConferenceSpeakerPresenter.new(conference_speaker).name)

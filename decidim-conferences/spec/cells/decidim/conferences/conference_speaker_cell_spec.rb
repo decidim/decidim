@@ -41,7 +41,7 @@ module Decidim::Conferences
 
     def call_and_expect_speaker_cell(model)
       html = cell("decidim/conferences/conference_speaker", model).call
-      expect(html).to have_css(".conference-speaker")
+      expect(html).to have_css("[data-conference-speaker]")
     end
   end
 end

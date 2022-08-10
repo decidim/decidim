@@ -83,7 +83,7 @@
     @apply divide-y divide-white [&>li]:py-3.5 first:[&>li]:pt-0 last:[&>li]:pb-0;
 
     &-container{
-      @apply ml-6 bg-primary p-6 rounded;
+      @apply ml-0 md:ml-6 bg-primary p-6 rounded w-full md:w-auto self-stretch;
     }
 
     &-item{
@@ -145,6 +145,40 @@
 
     &-address{
       @apply border-4 border-background rounded p-4 mt-4 first:mt-0;
+    }
+  }
+}
+
+.conference__speaker{
+  &__container{
+    @apply grid grid-cols-5 gap-x-16 gap-y-10 mb-36;
+  }
+
+  &__item{
+    @apply flex flex-col gap-4 hover:cursor-pointer;
+
+    &-image{
+      @apply ring-4 ring-background overflow-hidden rounded;
+
+      img{
+        @apply w-full h-full object-cover;
+      }
+    }
+
+    &-name{
+      @apply text-secondary;
+    }
+
+    &-text{
+      @apply mt-2 flex flex-col text-sm text-gray-2;
+    }
+
+    &:hover &-image{
+      @apply ring-tertiary;
+    }
+
+    &:hover &-name{
+      @apply underline
     }
   }
 }

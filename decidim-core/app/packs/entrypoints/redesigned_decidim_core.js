@@ -35,7 +35,7 @@ import "src/decidim/form_attachments"
 import "src/decidim/form_validator"
 import "src/decidim/form_remote"
 import "src/decidim/ajax_modals"
-import "src/decidim/conferences"
+// import "src/decidim/conferences" -- deprecated
 import "src/decidim/tooltip_keep_on_hover"
 import "src/decidim/diff_mode_dropdown"
 import "src/decidim/conversations"
