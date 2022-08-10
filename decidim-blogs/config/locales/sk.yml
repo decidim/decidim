@@ -50,13 +50,8 @@ sk:
             title: názov
       posts:
         show:
-          back: Späť na zoznam
           comments: Komentáre
           view: Zobraziť
-        sidebar_blog:
-          comments: komentáre
-          most_commented_posts: Najviac komentované príspevky
-      read_more: Čítať ďalej
     components:
       blogs:
         name: Blog
