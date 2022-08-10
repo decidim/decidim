@@ -56,13 +56,8 @@ ca:
             title: títol
       posts:
         show:
-          back: Tornar al llistat
           comments: Comentaris
           view: Veure
-        sidebar_blog:
-          comments: comentaris
-          most_commented_posts: Publicacions més comentades
-      read_more: Llegeix més
     components:
       blogs:
         actions:
