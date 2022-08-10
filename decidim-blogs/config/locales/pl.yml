@@ -52,13 +52,8 @@ pl:
             title: Tytuł
       posts:
         show:
-          back: Powrót do listy
           comments: Komentarze
           view: Zobacz
-        sidebar_blog:
-          comments: komentarze
-          most_commented_posts: Najczęściej komentowane wpisy
-      read_more: Czytaj więcej
     components:
       blogs:
         name: Blog
