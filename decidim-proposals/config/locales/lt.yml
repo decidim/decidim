@@ -218,6 +218,8 @@ lt:
               random: Atsitiktinis
               recent: Naujausi
               with_more_authors: Turintys daug autorių
+            endorsements_blocked: Pritarimai užblokuoti
+            endorsements_enabled: Pritarimai aktyvuoti
             proposal_answering_enabled: Atsakymas į pasiūlymą suaktyvintas
             publish_answers_immediately: Skelbti atsakymus į pasiūlymius nedelsiant
             votes_blocked: Parama užblokuota
@@ -226,9 +228,19 @@ lt:
       proposals:
         admin:
           proposal_note_created:
+            email_intro: Kažkas paliko pastabą dėl pasiūlymo „%{resource_title}“. Patikrinkite tai <a href="%{admin_proposal_info_url}">administratoriaus srityje</a>
             email_outro: Šį pranešimą gavote dėl to, kad galite vertinti pasiūlymą.
             email_subject: Kažkas paliko pastabą dėl pasiūlymo „%{resource_title}“.
             notification_title: Kažkas paliko pastabą dėl pasiūlymo <a href="%{resource_path}">%{resource_title}</a>. Peržiūrėkite ją <a href="%{admin_proposal_info_path}">administratoriaus srityje</a>
+        collaborative_draft_access_accepted:
+          email_intro: '%{requester_name} buvo priimtas kaip <a href="%{resource_url}">%{resource_title}</a> bendradarbiavimo juodraščio bendradarbis.'
+          email_outro: Šį pranešimą gavote dėl to, kad esate <a href="%{resource_path}">%{resource_title}</a> bendraautorius.
+          email_subject: "%{requester_name}, kaip %{resource_title} bendraautoriui, suteikta prieiga."
+          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a>, <strong>, kaip </strong> bendro juodraščio <a href="%{resource_path}">%{resource_title}</a> bendraautoriui, suteikta prieiga.
+        collaborative_draft_access_rejected:
+          email_intro: '%{requester_name} buvo atmestas kaip <a href="%{resource_url}">%{resource_title}</a> bendradarbiavimo juodraščio bendradarbis.'
+          email_outro: Šį pranešimą gavote dėl to, kad esate <a href="%{resource_path}">%{resource_title}</a> bendraautorius.
+          email_subject: "%{requester_name} nesuteikta prieigos prie bendro juodraščio %{resource_title} kaip bendraautoriui."
     proposals:
       collaborative_drafts:
         filters:
