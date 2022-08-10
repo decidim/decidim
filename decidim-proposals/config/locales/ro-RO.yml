@@ -844,7 +844,6 @@ ro:
           changes_at_title: Amendament pentru „%{title}”
           comments: Comentarii
           edit_proposal: Editează propunerea
-          endorsements_list: Lista susținerilor
           estimated_cost: Cost estimat
           hidden_endorsers_count:
             one: și încă %{count} persoană
