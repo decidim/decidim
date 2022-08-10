@@ -731,7 +731,6 @@ zh-CN:
           changes_at_title: 对"%{title}" 的修正
           comments: 评论
           edit_proposal: 编辑提案
-          endorsements_list: 认可名单
           estimated_cost: 估计费用
           hidden_endorsers_count:
             other: 和更多 %{count} 人
