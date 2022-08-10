@@ -606,7 +606,6 @@ id:
           back_to: Kembali ke
           comments: Komentar
           edit_proposal: Edit proposal
-          endorsements_list: Daftar Endorsemen
           hidden_endorsers_count:
             other: dan %{count} lebih banyak orang
           link_to_collaborative_draft_help_text: Proposal ini adalah hasil dari draf kolaboratif. Tinjau sejarahnya
