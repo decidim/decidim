@@ -56,13 +56,8 @@ hu:
             title: cím
       posts:
         show:
-          back: Vissza a listához
           comments: Hozzászólások
           view: Nézet
-        sidebar_blog:
-          comments: hozzászólások
-          most_commented_posts: Legtöbb hozzászólással
-      read_more: Bővebben
     components:
       blogs:
         actions:
