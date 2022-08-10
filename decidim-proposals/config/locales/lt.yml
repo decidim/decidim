@@ -259,6 +259,52 @@ lt:
         collaborative_draft_withdrawn:
           email_intro: <a href="%{author_url}">%{author_name} %{author_nickname}</a> atsiėmė <a href="%{resource_url}">%{resource_title}</a> juodraštį.
           email_outro: Šį pranešimą gavote dėl to, kad esate <a href="%{resource_url}">%{resource_title}</a> bendraautorius.
+          email_subject: "%{author_name} %{author_nickname} atsiėmė juodraštį %{resource_title}."
+          notification_title: <a href="%{author_path}">%{author_nickname}</a><strong> atsiėmė</strong><a href="%{resource_path}">%{resource_title}</a> juodraštį.
+        creation_enabled:
+          email_intro: 'Dabar galite kurti naujus pasiūlymus %{participatory_space_title}! Pradėti dalyvauti šiame puslapyje:'
+          email_outro: Šį pranešimą gavote dėl to, kad sekate %{participatory_space_title}. Jeigu nebenorite gauti pranešimų, spustelėkite ankstesnę nuorodą.
+          email_subject: Dabar su pasiūlymais galima susipažinti in %{participatory_space_title}
+          notification_title: Dabar galite pateikti <a href="%{resource_path}">naujų pasiūlymų </a> <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+        endorsing_enabled:
+          email_intro: 'Galite pritarti pasiūlymams %{participatory_space_title}! Pradėkite dalyvauti šiame puslapyje:'
+          email_outro: Šį pranešimą gavote dėl to, kad sekate %{participatory_space_title}. Jeigu nebenorite gauti pranešimų, spustelėkite ankstesnę nuorodą.
+          email_subject: Pritarimas pasiūlymams %{participatory_space_title} prasidėjo
+          notification_title: Dabar galite pradėti <a href="%{resource_path}">pritarti pasiūlymams</a> <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+        proposal_accepted:
+          affected_user:
+            email_intro: 'Jūsų pasiūlymas "%{resource_title}" priimtas. Atsakymą galite perskaityti šiame puslapyje:'
+            email_outro: Šį pranešimą gavote dėl to, kad esate „%{resource_title}“ autorius.
+            email_subject: Jūsų pasiūlymas priimtas
+            notification_title: Jūsų pasiūlymas <a href="%{resource_path}">%{resource_title}</a> priimtas.
+          follower:
+            email_intro: 'Pasiūlymas "%{resource_title}" priimtas. Atsakymą galite perskaityti šiame puslapyje:'
+            email_outro: Gavote šį pranešimą, nes sekate %{resource_title}. Galite nebesekti paspaudę ant aukščiau esančios nuorodos.
+            email_subject: Pasiūlymas, kurį sekate, buvo priimtas
+            notification_title: <a href="%{resource_path}">%{resource_title}</a> pasiūlymas priimtas.
+        proposal_evaluating:
+          affected_user:
+            email_intro: 'Jūsų pasiūlymas "%{resource_title}" šiuo metu vertinamas. Atsakymą galite pasitikrinti šiame puslapyje:'
+    gamification:
+      badges:
+        accepted_proposals:
+          unearned_another: Dar nepriimtas nė vienas šio dalyvio pasiūlymas.
+          unearned_own: Dar nepriimtas nė vienas jūsų pasiūlymas.
+        proposal_votes:
+          conditions:
+            - Naršykite ir praleiskite šiek tiek laiko skaitydami kitų žmonių pasiūlymus
+            - Palaikykite pasiūlymus, kurie jums patinka arba kurie jums atrodo įdomūs
+          description: Šis ženklelis suteikiamas, kai paremiate kitų žmonių pasiūlymus.
+          description_another: Šis dalyvis parėmė %{score} pasiūlymus (-ų).
+          description_own: Jūs parėmėte %{score} pasiūlymus (-ų).
+          name: Pasiūlymą palaiko
+          next_level_in: Paremkite dar %{score} pasiūlymus (-ų) ir pasiekite kitą lygį!
+          unearned_another: Šis dalyvis dar neparėmė jokių pasiūlymų.
+          unearned_own: Jūs dar neparėmėte jokių pasiūlymų.
+        proposals:
+          conditions:
+            - Pasirinkite jus dominančią dalyvavimo erdvę, kurioje įjungta pasiūlymų teikimo funkcija
+            - Sukurti naują pasiūlymą
     proposals:
       collaborative_drafts:
         filters:
