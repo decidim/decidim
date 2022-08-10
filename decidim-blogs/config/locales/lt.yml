@@ -58,13 +58,8 @@ lt:
             title: pavadinimas
       posts:
         show:
-          back: Grįžti į sąrašą
           comments: Komentarai
           view: Peržiūrėti
-        sidebar_blog:
-          comments: komentarai
-          most_commented_posts: Labiausiai komentuojamos publikacijos
-      read_more: Skaityti daugiau
     components:
       blogs:
         actions:
