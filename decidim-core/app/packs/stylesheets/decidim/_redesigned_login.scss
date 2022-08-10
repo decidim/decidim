@@ -11,6 +11,7 @@
     @apply flex flex-col items-center gap-8 py-10 text-gray-2 font-semibold;
 
     &-button{
+      /* stylelint-disable-next-line number-leading-zero */
       @apply border border-gray shadow-[0_4px_6px_rgba(211,211,211,0.25)] justify-start gap-8 text-lg min-w-[50%];
 
       svg{
