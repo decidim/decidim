@@ -240,6 +240,25 @@ lt:
           email_intro: '%{requester_name} buvo atmestas kaip <a href="%{resource_url}">%{resource_title}</a> bendradarbiavimo juodraščio bendradarbis.'
           email_outro: Šį pranešimą gavote dėl to, kad esate <a href="%{resource_path}">%{resource_title}</a> bendraautorius.
           email_subject: "%{requester_name} nesuteikta prieigos prie bendro juodraščio %{resource_title} kaip bendraautoriui."
+          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> nesuteikta <strong>prieigos kaip </strong> juodraščio <a href="%{resource_path}">%{resource_title}</a> bendraautoriui.
+        collaborative_draft_access_requested:
+          email_intro: '%{requester_name} paprašė prieigos kaip bendraautorius. Galite <strong>priimti arba atmesti užklausą</strong> iš bendro juodraščio <a href="%{resource_path}">%{resource_title}</a> puslapio.'
+          email_outro: Šį pranešimą gavote dėl to, kad esate <a href="%{resource_path}">%{resource_title}</a> bendraautorius.
+          email_subject: "%{requester_name} paprašė prieigos, kad galėtų prisidėti prie %{resource_title}."
+          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> paprašė prieigos, kad galėtų prisidėti prie bendro juodraščio <a href="%{resource_path}">%{resource_title}</a>. Užklausą <strong>priimkite arba atmeskite</strong>.
+        collaborative_draft_access_requester_accepted:
+          email_intro: Jums suteikta prieiga kaip bendro juodraščio <a href="%{resource_url}">%{resource_title}</a> bendraautoriui.
+          email_outro: Šį pranešimą gavote dėl to, kad pateikėte prašymą tapti <a href="%{resource_url}">%{resource_title}</a> bendraautoriumi.
+          email_subject: Jūs patvirtintas %{resource_title} bendraautoriumi.
+          notification_title: Jums suteikta <strong>prieiga kaip </strong> bendro juodraščio <a href="%{resource_path}">%{resource_title}</a> bendraautoriui.
+        collaborative_draft_access_requester_rejected:
+          email_intro: Jums nesuteikta prieiga kaip bendro juodraščio <a href="%{resource_path}">%{resource_title}</a> bendraautoriui.
+          email_outro: Šį pranešimą gavote dėl to, kad pateikėte prašymą tapti <a href="%{resource_url}">%{resource_title}</a> bendraautoriumi.
+          email_subject: Jūs prašymas tapti %{resource_title} bendraautoriumi atmestas.
+          notification_title: Jums <strong>nesuteikta prieiga prie </strong> juodraščio <a href="%{resource_path}">%{resource_title}</a>.
+        collaborative_draft_withdrawn:
+          email_intro: <a href="%{author_url}">%{author_name} %{author_nickname}</a> atsiėmė <a href="%{resource_url}">%{resource_title}</a> juodraštį.
+          email_outro: Šį pranešimą gavote dėl to, kad esate <a href="%{resource_url}">%{resource_title}</a> bendraautorius.
     proposals:
       collaborative_drafts:
         filters:
