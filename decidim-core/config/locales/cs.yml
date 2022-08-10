@@ -640,6 +640,9 @@ cs:
       identities:
         done: Hotovo
         select_identity: Vybrat identitu
+    endorsers_list:
+      close: Zavřít‏
+      endorsed_by: Líbí se…
     errors:
       internal_server_error:
         title: Vyskytl se problém s naším serverem
