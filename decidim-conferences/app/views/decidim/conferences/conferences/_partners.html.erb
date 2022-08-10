@@ -1,6 +1,6 @@
 <% if conference.partners.any? %>
   <% conference.partners.group_by(&:partner_type).each do |partner_type, partners| %>
-    <section id="conference-partners" class="conference__section">
+    <section id="conference-partners-<%= partner_type %>" class="conference__section">
       <h2 class="h2 decorator"><%= t(".#{partner_type.pluralize}") %></h2>
       <div class="conference__grid">
         <% partners.each do |partner| %>

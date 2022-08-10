@@ -103,15 +103,15 @@
 
       > :nth-child(3n + 1),
       > :nth-child(3n + 2){
-        @apply col-span-6;
+        @apply col-span-9 md:col-span-6;
       }
 
       > :nth-child(3n){
-        @apply col-span-3 row-span-2 order-2 justify-self-center flex flex-col gap-2;
+        @apply col-span-9 md:col-span-3 row-span-2 md:order-2 justify-self-center flex md:flex-col gap-2 max-w-full overflow-x-auto;
       }
 
       > :nth-child(3n + 2){
-        @apply order-3;
+        @apply md:order-3;
       }
     }
 
@@ -121,7 +121,7 @@
   }
 
   &__grid{
-    @apply grid grid-cols-4 gap-x-6 gap-y-10;
+    @apply grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-x-6 gap-y-10;
 
     &-item{
       @apply space-y-4;
@@ -141,7 +141,7 @@
   }
 
   &__map{
-    @apply flex gap-4 only:[&>*]:grow;
+    @apply flex gap-4 only:[&>*]:grow first:[&>*]:min-w-[40%];
 
     &-address{
       @apply border-4 border-background rounded p-4 mt-4 first:mt-0;
