@@ -724,7 +724,6 @@ lv:
           changes_at_title: Grozīts "%{title}"
           comments: Komentāri
           edit_proposal: Rediģēt priekšlikumu
-          endorsements_list: Atbalsta saraksts
           estimated_cost: Paredzamās izmaksas
           hidden_endorsers_count:
             zero: un vēl %{count} personas
