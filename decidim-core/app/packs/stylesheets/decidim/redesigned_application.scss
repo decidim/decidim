@@ -23,6 +23,7 @@
 }
 
 @layer components{
+  @import "stylesheets/decidim/redesigned_layout.scss";
   @import "stylesheets/decidim/redesigned_buttons.scss";
   @import "stylesheets/decidim/redesigned_labels.scss";
   @import "stylesheets/decidim/redesigned_forms.scss";
