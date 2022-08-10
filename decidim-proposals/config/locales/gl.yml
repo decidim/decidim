@@ -762,7 +762,6 @@ gl:
           back_to_list: Volver á listaxe
           comments: Comentarios
           edit_proposal: Editar proposta
-          endorsements_list: Lista de avales
           hidden_endorsers_count:
             one: e %{count} persoas máis
             other: e %{count} persoas máis
