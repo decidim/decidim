@@ -16,6 +16,111 @@ Accessibility of websites is based on the https://www.w3.org/WAI/standards-guide
 
 These guidelines are constantly evolving and new versions can come out that may require changes in already implemented functionality. Some of the violations can be noticed automatically but some violations require a real person testing the website with the common assistive technologies used for browsing the internet (see the "Testing" section below).
 
+=== Common mistakes
+
+This section contains some common mistakes that developers tend to do regarding accessibility. These do not cover all of the things you need to consider regarding accessibility but we add common issues in this list as we notice them.
+
+==== Illogical heading order
+
+Every page should have a logical heading order when using the `<h1>`, `<h2>`, `<h3>`, `<h4>`, `<h5>` and `<h6>` heading elements. This means that you cannot add e.g. a `<h3>` if the previous heading was `<h1>` before the sub-level heading element appears in the document. `<h1>` should be followed by `<h2>`. Under the `<h2>`, you can add `<h3>`.
+
+Few other general advices regarding the headings on the page:
+
+* Every page should have only one `<h1>` element on them to indicate the main topic of that page
+* The `<h1>` of the page should match the first part of that page's `<title>` element, or at least be very close to that
+* Sub-level headings should always be related to each other, i.e. the `<h3>` level heading is related to the `<h2>` heading that preceeded it
+
+==== Color contrast
+
+When creating user interfaces or modifying the colors, always make sure that you are not breaking accessibility with your changes. You can use the http://webaim.org/resources/contrastchecker/[Color contrast checker] to ensure that your colors have enough contrast against the background color where they are displayed at.
+
+It is also important that the links have enough contrast difference with the surrounding text where the links appear. Another thing to note is to provide enough contrast difference for the interactive elements, such as links and buttons, between their default states and their hover or focus states.
+
+To learn more, refer to:
+https://www.w3.org/TR/WCAG21/#use-of-color
+https://www.w3.org/WAI/WCAG21/Techniques/general/G183
+
+==== Links and buttons
+
+Many developers tend to use the `<a>` element to indicate a clickable UI element on the page but using the `<a>` element is not always correct. The anchor elements (i.e. links) are meant to link to different pages or to anchor positions within the page. If the element is supposed to e.g. open some hidden item on that page, you should use the `<button>` element instead. A good general guide on how to pick the correct element is presented below.
+
+Is the element a link that has a URL (i.e. a `href="..."` attribute)?
+
+* Yes - use the anchor `<a>` element
+* No - use the `<button>` element
+
+When clicking the element keeps you on the same page, most of the times you should be using a `<button>` element. The only exception is when you are defining an actual anchor point link within the same page. In this situation, clicking the link should take you to the correct anchor point on that page.
+
+Sometimes it may be tempting to create a button element just by using a `<div>` element and applying some HTML attributes on it to make it behave more like a button. We have seen some developers e.g. creating elements such as `<div class="button" role="button">Click me</div>` which is incorrect. You cannot focus that element using only keyboard to navigate the page. You would also need to add `tabindex="0"` to make the element focusable for keyboards and assistive technologies but before you do that, think first. If you are trying to create a button, why not just use the `<button>` element which is already designed for this purpose. When using the correct element, you can remove the unnecessary HTML attributes as `role="button` and `tabindex="0"` because they are already built into the `<button>` element.
+
+==== Accessibility labels
+
+Always provide accessibility labels on the elements to make them easier to use with assistive technologies. Here are few tips regarding these labels:
+
+* When adding images using the `<img>` tag, always provide an alternative text using the `alt="..."` attribute.
+* When providing buttons without any text inside then, such as `[X]` or `[🔍]`, always provide an accessibility label for those buttons using the `aria-label="..."` attribute.
+* Complex elements that have a lot of information or functionality inside them (such as cards with a lot of information) should be correctly labelled using the `aria-label="..."` attribute. Most of the times such elements should be also marked with the correct landmark role, which is often "region" in these cases. This is particularly important if the card element has some functionality inside it, such as "liking" something, as the landmark role indicates what you are performing the action against.
+
+If you embed `<svg>` images on the website, those embedded images should have a translated `<title>` element inside them that describes the SVG for those users who are unable to see the image. Note that many times the `<title>` element in the SVGs that you download from the internet may just be a technical name for that element or written in English. If you embed such elements on the page, the `<title>` element should be always translated to the user's language. If you find this hard to implement, do not embed the SVG on the page and use an `<img>` element instead with the alternative text indicated with the `alt="..."` attribute. Also note that if you use SVGs for icons, most of the times these icons can be hidden from assistive technologies completely when you don't necessarily need to add the translated `<title>` to those images.
+
+==== Adjacent links for the same resource
+
+Many people using assistive technologies, such as screen readers (with keyboard navigation), tend to quickly glance through the page through its links when they first arrive on the page. This gives them a sense of the content on the page without reading through the whole content on it or allows them to quickly jump to the correct resource they were looking for.
+
+If the same resource, such as a proposal on the listing page, has multiple adjacent links pointing to it, it makes it really difficult for such users to glance through the page because they might need to go through multiple links to get to the next resource.
+
+The following HTML would be problematic in this sense:
+
+[source,html]
+----
+<h1>Resources</h1>
+<div class="card">
+  <a href="/link/to/resource"><img src="..." alt="Resource title"></a>
+  <h2><a href="/link/to/resource">Resource title</a></h2>
+  <p><a href="/link/to/resource">Resource description</a></p>
+  <p><a href="/link/to/resource" aria-label="Read more about Resource">Read more &raquo;</a></p>
+</div>
+----
+
+The correct way to present such element would be as follows:
+
+[source,html]
+----
+<h1>Resources</h1>
+<a href="/link/to/resource" class="card">
+  <img src="..." alt="Resource title">
+  <h2>Resource title</h2>
+  <p>Resource description</p>
+  <p aria-label="Read more about Resource">Read more &raquo;</p>
+</a>
+----
+
+This way you would only provide a single link to the same resource instead of the four separate links in the incorrect example. This makes it much more convenient for the assistive technology users to glance through the page.
+
+For more information, refer to:
+https://www.w3.org/WAI/WCAG21/Techniques/html/H2
+
+==== Utilize ARIA attributes where possible
+
+Many elements that provide interactive functionality on the website require ARIA attributes on them to make them accessible. A couple of example of such cases include:
+
+* An element that shows or hides another element on the page, such as an "accordion" element.
+* Dynamic search forms that update another section on the same page without a complete refresh of the page. The button that initiates the search should indicate which element it is connected with on the same page and once the search completes, the number of results found should be announced for the screen readers.
+* Pagination elements where you have "next" and "previous" links as well as "current" page which is shown right now.
+* Progress bars which have "minimum" and "maximum" values as well as a "current" value.
+* Custom dropdown elements that open a specific section on the page containing the dropdown items and also have currently selected items included in them.
+* Form elements that may have errors on them where the errorneous elements should be indicated for people using assistive technologies.
+* Significant areas on the page should be marked with the correct landmark roles, such as navigations and enclosed regions on the page. Many times you can also find the correct HTML element that indicates its correct role by familiarizing yourself with the landmark roles.
+
+To learn more refer to:
+https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes
+
+==== Elements hidden from the accessibility API
+
+People using accessible technologies do not always need to "see" (or hear) all of the items that users without any disabilities see on the page. A common example of such element is a visual decorative icon within links or buttons that is only used to make some elements more recognizable for people with no visual impairments. People using assistive technologies may have visual impairments or may use the website completely using a screen reader when these visual cues may just confuse those users rather than provide any actual improvement on their user experience.
+
+To hide an element from assistive technologies, use the `aria-hidden="true"` attribute on it. Do not abuse this method to hide almost everything from the website to make it "accessible". The website is not really accessible if everything on it is hidden. Always think whether the element you are hiding provides actually useful functionality for the users. If it does so, you should not hide it. But if the element is only used to provide small decorative enhancements on the user experience, it can be sometimes hidden, such as the example case with the icons within buttons.
+
 === Technical accessibility
 
 The Decidim development environment ships with an automated accessibility evaluation tool (with the `decidim-dev` module) that you may have seen at the top left corner of the page in case you have been developing Decidim recently. When the page passes the technical evaluation, you should see the following indicator at the top left corner of the page:
