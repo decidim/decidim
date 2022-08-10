@@ -1,17 +1,3 @@
-<div class="row column voting-rules">
-  <div class="callout warning">
-    <div class="row">
-      <div class="columns medium-8 large-9">
-        <h2 class="heading3">
-          <%= t(".rules.title") %>
-        </h2>
-        <ul>
-          <%= raw current_rule_explanation %>
-        </ul>
-      </div>
-    </div>
-  </div>
-</div>
 <div class="card budget-summary" data-progress-reference data-safe-url="<%= budget_url(budget) %>">
   <div class="card__content">
     <% if include_heading %>
