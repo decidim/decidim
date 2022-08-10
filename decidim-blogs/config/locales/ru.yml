@@ -51,10 +51,6 @@ ru:
       posts:
         show:
           view: Посмотреть
-        sidebar_blog:
-          comments: комментарии
-          most_commented_posts: Наиболее комментируемые посты
-      read_more: Читать подробнее
     components:
       blogs:
         name: Блог
