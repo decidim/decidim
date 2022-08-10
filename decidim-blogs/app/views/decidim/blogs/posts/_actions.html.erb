@@ -2,7 +2,7 @@
   <div class="blog__actions-left">
     <% if endorsements_enabled? %>
       <%# REDESIGN_PENDING: replace toggler %>
-      <button id="endorsers_list-trigger" class="cursor-pointer" data-toggler=".is-active" data-toggle="endorsers_list-trigger endorsers_list" role="button">
+      <button id="endorsers_list-trigger" class="cursor-pointer" data-toggler=".is-active" data-toggle="endorsers_list-trigger endorsers_list">
         <%= cell "decidim/endorsers_list", post %>
       </button>
       <%= endorsement_buttons_cell(post) %>
