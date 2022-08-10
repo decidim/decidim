@@ -859,7 +859,6 @@ es-MX:
           changes_at_title: Enmienda a "%{title}"
           comments: Comentarios
           edit_proposal: Editar propuesta
-          endorsements_list: Lista de adhesiones
           estimated_cost: Coste estimado
           hidden_endorsers_count:
             one: y %{count} persona más
