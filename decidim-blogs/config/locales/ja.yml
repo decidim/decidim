@@ -55,13 +55,8 @@ ja:
             title: タイトル
       posts:
         show:
-          back: リストに戻る
           comments: コメント
           view: 表示
-        sidebar_blog:
-          comments: コメント
-          most_commented_posts: 最もコメントされた投稿
-      read_more: もっと読む
     components:
       blogs:
         actions:
