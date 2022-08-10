@@ -17,7 +17,7 @@
 
       <div class="blogs__list-item__author">
         <% post_presenter = Decidim::Blogs::PostPresenter.new(post) %>
-        <%= cell "decidim/author", post_presenter.author, from: post, has_actions: true %>
+        <%= cell "decidim/author", post_presenter.author, from: post, has_actions: true, skip_profile_link: true %>
       </div>
     </div>
   </div>
