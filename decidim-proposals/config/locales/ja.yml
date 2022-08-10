@@ -847,7 +847,6 @@ ja:
           changes_at_title: '「%{title} 」に修正'
           comments: コメント
           edit_proposal: 提案を編集
-          endorsements_list: オススメ一覧
           estimated_cost: 推定コスト
           hidden_endorsers_count:
             other: '%{count} 人以上'
