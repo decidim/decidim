@@ -56,13 +56,8 @@ es-MX:
             title: título
       posts:
         show:
-          back: Volver al listado
           comments: Comentarios
           view: Ver
-        sidebar_blog:
-          comments: comentarios
-          most_commented_posts: Publicaciones más comentadas
-      read_more: Leer más
     components:
       blogs:
         actions:
