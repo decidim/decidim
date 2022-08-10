@@ -58,13 +58,8 @@ cs:
             title: titulek
       posts:
         show:
-          back: Zpět na seznam
           comments: Komentáře
           view: Zobrazit
-        sidebar_blog:
-          comments: komentáře
-          most_commented_posts: Nejvíce komentované příspěvky
-      read_more: Přečtěte si více
     components:
       blogs:
         actions:
