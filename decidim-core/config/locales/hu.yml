@@ -1615,6 +1615,8 @@ hu:
             decidim-consent:
               description: Tárolja a felhasználó által a weboldalon engedélyezett sütikre vonatkozó információkat.
               service: Ez a weboldal
+            pwaInstallPromptSeen:
+              service: Ez a weboldal
           types:
             cookie: Süti
         dialog:
