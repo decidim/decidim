@@ -86,7 +86,7 @@
     }
 
     &-button{
-      @apply text-right text-xs text-secondary cursor-pointer;
+      @apply block ml-auto text-right text-xs text-secondary cursor-pointer;
     }
   }
 }
