@@ -50,13 +50,8 @@ pt-BR:
             title: título
       posts:
         show:
-          back: Voltar para a lista
           comments: Comentários
           view: Visualizar
-        sidebar_blog:
-          comments: comentários
-          most_commented_posts: Posts mais comentados
-      read_more: Saiba mais
     components:
       blogs:
         name: Blog
