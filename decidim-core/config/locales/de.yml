@@ -1716,6 +1716,8 @@ de:
             decidim-consent:
               description: Speichert Informationen über die vom Benutzer erlaubten Cookies auf dieser Website.
               service: Diese Website
+            pwaInstallPromptSeen:
+              service: Diese Website
           types:
             cookie: Cookie
         dialog:
