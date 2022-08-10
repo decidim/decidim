@@ -151,7 +151,7 @@
 
 .conference__speaker{
   &__container{
-    @apply grid grid-cols-5 gap-x-16 gap-y-10 mb-36;
+    @apply grid grid-cols-2 md:grid-cols-5 gap-x-8 md:gap-x-16 gap-y-5 md:gap-y-10 mb-16 md:mb-36;
   }
 
   &__item{
