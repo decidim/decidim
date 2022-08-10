@@ -789,7 +789,6 @@ it:
           changes_at_title: Modifica a "%{title}"
           comments: Commenti
           edit_proposal: Modifica la proposta
-          endorsements_list: Elenco dei sostenitori
           estimated_cost: Costo stimato
           hidden_endorsers_count:
             one: e %{count} altra persona
