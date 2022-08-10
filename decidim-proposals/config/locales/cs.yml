@@ -882,7 +882,6 @@ cs:
           changes_at_title: Pozměňovací návrh k "%{title}"
           comments: Komentáře
           edit_proposal: Upravit návrh
-          endorsements_list: Seznam Schválení
           estimated_cost: Odhadované náklady
           hidden_endorsers_count:
             one: a %{count} další osoba
