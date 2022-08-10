@@ -47,13 +47,8 @@ zh-CN:
             title: 标题
       posts:
         show:
-          back: 返回列表
           comments: 评论
           view: 查看
-        sidebar_blog:
-          comments: 评论
-          most_commented_posts: 评论最多的帖子
-      read_more: 阅读更多
     components:
       blogs:
         name: 博客
