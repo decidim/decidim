@@ -1738,6 +1738,8 @@ ca:
             decidim-consent:
               description: Emmagatzema informació sobre les galetes permeses per la usuària en aquesta pàgina web.
               service: Aquesta pàgina web
+            pwaInstallPromptSeen:
+              service: Aquesta pàgina web
           types:
             cookie: Galeta
         dialog:
