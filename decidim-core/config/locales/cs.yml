@@ -1796,6 +1796,7 @@ cs:
               service: Tato stránka
           types:
             cookie: Cookie
+            local_storage: Místní úložiště
         dialog:
           accept_all: Přijmout vše
           accept_only_essential: Přijmout pouze nezbytné soubory cookie
