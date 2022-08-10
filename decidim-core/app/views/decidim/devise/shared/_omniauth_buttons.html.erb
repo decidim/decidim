@@ -2,9 +2,10 @@
   <div class="login__omniauth">
     <%- current_organization.enabled_omniauth_providers.keys.each do |provider| %>
         <%# REDESIGN_PENDING: 'button' & 'button__xl' classnames should be included into 'login__omniauth-button' css class,
+                              otherwise they'll not match with the design (bordered),
                               but currently this branch does not have such definitions yet (they're in a different branch),
                               so tailwindcss cannot compile. Move them there in a future iteration %>
-        <%= link_to decidim.send("user_#{provider}_omniauth_authorize_path"), class: "login__omniauth-button button button__xl button--#{normalize_provider_name(provider)}", method: :post do %>
+        <%= link_to decidim.send("user_#{provider}_omniauth_authorize_path"), class: "login__omniauth-button button--#{normalize_provider_name(provider)}", method: :post do %>
           <%= oauth_icon provider %>
           <span>
             <%= t("devise.shared.links.sign_in_with_provider", provider: normalize_provider_name(provider).titleize) %>
