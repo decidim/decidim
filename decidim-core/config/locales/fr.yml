@@ -1740,6 +1740,8 @@ fr:
             decidim-consent:
               description: Stocke des informations sur les cookies autorisés par l'utilisateur sur ce site web.
               service: Ce site web
+            pwaInstallPromptSeen:
+              service: Ce site web
           types:
             cookie: Cookie
         dialog:
