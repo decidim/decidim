@@ -51,13 +51,8 @@ ro:
             title: titlu
       posts:
         show:
-          back: Înapoi la listă
           comments: Comentarii
           view: Vizualizează
-        sidebar_blog:
-          comments: comentarii
-          most_commented_posts: Cele mai comentate postări
-      read_more: Citește mai mult
     components:
       blogs:
         actions:
