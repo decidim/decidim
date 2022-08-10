@@ -50,13 +50,8 @@ it:
             title: titolo
       posts:
         show:
-          back: Torna alla lista
           comments: Commenti
           view: vista
-        sidebar_blog:
-          comments: Commenti
-          most_commented_posts: La maggior parte dei post commentati
-      read_more: Leggi di più
     components:
       blogs:
         name: blog
