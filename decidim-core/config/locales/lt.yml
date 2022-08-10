@@ -1762,6 +1762,8 @@ lt:
             decidim-consent:
               description: Saugo informaciją apie vartotojo leidžiamus slapukus šioje svetainėje.
               service: Ši svetainė
+            pwaInstallPromptSeen:
+              service: Ši svetainė
           types:
             cookie: Slapukas
         dialog:
