@@ -1791,6 +1791,8 @@ cs:
             decidim-consent:
               description: Uloží informace o cookies povolených uživatelem na této stránce.
               service: Tato stránka
+            pwaInstallPromptSeen:
+              service: Tato stránka
           types:
             cookie: Cookie
         dialog:
