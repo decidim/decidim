@@ -15,7 +15,7 @@
     @apply pb-3 space-y-2;
 
     &-data{
-      @apply flex flex-wrap gap-x-6;
+      @apply flex flex-wrap gap-x-6 gap-y-4;
     }
 
     &-item{
@@ -72,11 +72,11 @@
     }
 
     &__container{
-      @apply md:col-span-6 divide-y divide-gray-3 -mt-4;
+      @apply md:col-span-6 divide-y divide-gray-3;
     }
 
     &__item{
-      @apply flex flex-col-reverse md:flex-row gap-2 md:gap-12 py-4;
+      @apply flex flex-col-reverse md:flex-row gap-2 md:gap-12 py-4 first:pt-0 last:pb-0;
 
       &-time{
         @apply w-full md:w-1/6 flex-none text-gray-2 text-sm md:text-md;

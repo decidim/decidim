@@ -49,9 +49,9 @@ module Decidim
       [{ icon: "account-pin-circle-line", text: nickname }].tap do |items|
         items.append(icon: "link", text: personal_url) if personal_url.present?
         if profile_holder.public_users_followings.count.positive?
-          items.append(icon: "contacts-line", text: t("decidim.following.following_count", count: public_users_followings.count))
+          items.append(icon: TABS_ITEMS[:following][:icon], text: t("decidim.following.following_count", count: public_users_followings.count))
         end
-        items.append(icon: "user-received-line", text: t("decidim.followers.followers_count", count: followers_count)) if profile_holder.followers_count.positive?
+        items.append(icon: TABS_ITEMS[:followers][:icon], text: t("decidim.followers.followers_count", count: followers_count)) if profile_holder.followers_count.positive?
       end
     end
 

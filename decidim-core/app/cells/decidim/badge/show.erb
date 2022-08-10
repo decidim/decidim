@@ -2,7 +2,7 @@
   <div class="profile__badge">
     <div class="profile__badge-outline" style="--value:<%= status.level.to_f / 5 %>;<%= "--color:var(--primary)" if status.level.to_f / 5 == 1 %>">
       <div class="profile__badge-circle">
-        <%= image_tag badge.image, alt: badge_name ||= "badge_image" %>
+        <%= image_tag badge.image, alt: badge_name %>
       </div>
     </div>
     <div class="profile__badge-title">
