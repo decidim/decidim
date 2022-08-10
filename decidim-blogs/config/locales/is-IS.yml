@@ -31,11 +31,6 @@ is-IS:
             body: Líkami
             created_at: Búið til á
             title: titill
-      posts:
-        sidebar_blog:
-          comments: athugasemdir
-          most_commented_posts: Flestar ummæli innleggar
-      read_more: Lestu meira
     components:
       blogs:
         name: Blogg
