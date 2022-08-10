@@ -723,7 +723,6 @@ el:
           changes_at_title: Τροποποίηση σε «%{title}»
           comments: Σχόλια
           edit_proposal: Επεξεργασία πρότασης
-          endorsements_list: Λίστα επιδοκιμασιών
           estimated_cost: Εκτιμώμενο κόστος
           hidden_endorsers_count:
             one: και %{count} ακόμη άτομο
