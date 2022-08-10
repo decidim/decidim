@@ -54,13 +54,8 @@ ar:
             title: عنوان
       posts:
         show:
-          back: العودة إلى القائمة
           comments: التعليقات
           view: رأي
-        sidebar_blog:
-          comments: تعليقات
-          most_commented_posts: الأكثر تعليقًا عليها
-      read_more: قراءة المزيد
     components:
       blogs:
         actions:
