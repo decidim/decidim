@@ -1754,7 +1754,10 @@ lt:
       data_consent:
         details:
           columns:
+            description: Aprašymas
+            name: Pavadinimas
             service: Paslauga
+            type: Tipas
           items:
             _session_id:
               description: Leidžia svetainėms prisiminti vartotoją svetainėje, kai jie pereina iš vieno tinklalapio į kitą.
