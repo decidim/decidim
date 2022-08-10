@@ -56,13 +56,8 @@ fi-pl:
             title: otsikko
       posts:
         show:
-          back: Takaisin listaan
           comments: Kommentit
           view: Näytä
-        sidebar_blog:
-          comments: kommentit
-          most_commented_posts: Eniten kommentoidut artikkelit
-      read_more: Lue lisää
     components:
       blogs:
         actions:
