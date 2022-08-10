@@ -50,13 +50,8 @@ eu:
             title: Izenburua
       posts:
         show:
-          back: Itzuli zerrendara
           comments: Iruzkinak
           view: ikusi
-        sidebar_blog:
-          comments: iruzkinak
-          most_commented_posts: Gehien iruzkinatutako mezu
-      read_more: Irakurri gehiago
     components:
       blogs:
         actions:
