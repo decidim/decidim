@@ -50,13 +50,8 @@
             title: tittel
       posts:
         show:
-          back: Tilbake til listen
           comments: Kommentarer
           view: Vis
-        sidebar_blog:
-          comments: kommentarer
-          most_commented_posts: Mest kommenterte innlegg
-      read_more: Les mer
     components:
       blogs:
         actions:
