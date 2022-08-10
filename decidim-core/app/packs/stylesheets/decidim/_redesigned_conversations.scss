@@ -52,7 +52,7 @@
   }
 
   &__message{
-    @apply flex items-start gap-4 w-3/4;
+    @apply flex items-start gap-4 w-full md:w-3/4;
 
     &-text{
       @apply grow bg-background rounded p-4 pt-2 flex flex-col space-y-2 text-gray-2;
@@ -68,7 +68,7 @@
   }
 
   &__reply{
-    @apply flex flex-col w-2/3 mx-auto;
+    @apply flex flex-col w-full md:w-2/3 mx-auto;
 
     textarea{
       @apply w-full border border-gray rounded-lg px-4 py-2;
