@@ -1751,8 +1751,12 @@ en:
             decidim-consent:
               description: Stores information about the cookies allowed by the user on this website.
               service: This website
+            pwaInstallPromptSeen:
+              description: Stores status if the progressive web application (PWA) install notification has been already seen by the user.
+              service: This website
           types:
             cookie: Cookie
+            local_storage: Local storage
         dialog:
           accept_all: Accept all
           accept_only_essential: Accept only essential
