@@ -113,6 +113,7 @@ ignore_missing:
   - actions.invalid_destroy.proposals_count
   - decidim.budgets.projects_helper.current_rule_explanation.*
   - decidim.budgets.projects_helper.current_rule_description.*
+  - decidim.budgets.projects_helper.current_rule_call_for_action_text.*
   - decidim.debates.debate_m.footer.commented_time_ago
 
 # Consider these keys used:
@@ -195,6 +196,12 @@ ignore_unused:
   - decidim.budgets.budget_information_modal.back_to
   - decidim.budgets.limit_announcement.cant_vote
   - decidim.budgets.limit_announcement.limit_reached
+  - decidim.budgets.projects.order_progress.dynamic_help.*
+  - decidim.budgets.projects.order_progress.minimum_projects_rule.*
+  - decidim.budgets.projects.order_progress.projects_rule.*
+  - decidim.budgets.projects.order_progress.projects_rule_maximum_only.*
+  - decidim.budgets.projects.order_progress.maximum_projects_rule.*
+  - decidim.budgets.projects.order_progress.vote_threshold_percent_rule.*
   - decidim.sortitions.admin_log.*
   - decidim.sortitions.sortitions.orders.*
   - decidim.consultations.admin_log.*
