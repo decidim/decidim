@@ -161,6 +161,12 @@ module.exports = { // eslint-disable-line
     {
       "files": ["**/*.scss"],
       "customSyntax": "postcss-scss"
+    },
+    {
+      "files": ["**/_redesigned*.scss"],
+      "rules": {
+        "number-leading-zero": "always"
+      }
     }
   ]
 }
