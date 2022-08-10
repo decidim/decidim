@@ -810,7 +810,6 @@ eu:
           changes_at_title: Zuzenketa honi "%{title}"
           comments: Iruzkinak
           edit_proposal: Editatu proposamena
-          endorsements_list: Onarpenen zerrenda
           estimated_cost: Gutxi gorabeherako kostua
           hidden_endorsers_count:
             one: eta %{count} pertsona gehiago
