@@ -775,7 +775,6 @@
           changes_at_title: Endring til "%{title}"
           comments: Kommentarer
           edit_proposal: Rediger forslaget
-          endorsements_list: Liste over Påtegnelser
           estimated_cost: Estimert kostnad
           hidden_endorsers_count:
             one: og %{count} til person
