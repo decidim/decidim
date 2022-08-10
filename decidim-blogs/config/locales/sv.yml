@@ -51,13 +51,8 @@ sv:
             title: titel
       posts:
         show:
-          back: Tillbaka till listan
           comments: Kommentarer
           view: Visa
-        sidebar_blog:
-          comments: kommentarer
-          most_commented_posts: Mest kommenterade inlägg
-      read_more: Läs mer
     components:
       blogs:
         actions:
