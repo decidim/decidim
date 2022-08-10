@@ -221,6 +221,11 @@ lt:
             publish_answers_immediately: Skelbti atsakymus į pasiūlymius nedelsiant
             votes_blocked: Parama užblokuota
             votes_enabled: Parama aktyvuota
+    events:
+      proposals:
+        admin:
+          proposal_note_created:
+            email_outro: Šį pranešimą gavote dėl to, kad galite vertinti pasiūlymą.
     proposals:
       collaborative_drafts:
         filters:
