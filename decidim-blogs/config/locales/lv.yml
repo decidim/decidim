@@ -49,13 +49,8 @@ lv:
             title: nosaukums
       posts:
         show:
-          back: Atpakaļ uz sarakstu
           comments: Komentāri
           view: Apskatīt
-        sidebar_blog:
-          comments: komentāri
-          most_commented_posts: Visvairāk komentētie ziņojumi
-      read_more: Lasīt vairāk
     components:
       blogs:
         name: Emuārs
