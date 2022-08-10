@@ -1742,6 +1742,8 @@ es-MX:
             decidim-consent:
               description: Almacena información sobre las cookies permitidas por la usuaria en esta página web.
               service: Esta página web
+            pwaInstallPromptSeen:
+              service: Esta página web
           types:
             cookie: Cookie
         dialog:
