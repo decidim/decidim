@@ -859,7 +859,6 @@ fr:
           changes_at_title: Amendement de "%{title}"
           comments: Commentaires
           edit_proposal: Modifier la proposition
-          endorsements_list: Liste des soutiens
           estimated_cost: Coût estimé
           hidden_endorsers_count:
             one: et %{count} personne de plus
