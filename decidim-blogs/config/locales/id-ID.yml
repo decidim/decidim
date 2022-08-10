@@ -48,10 +48,6 @@ id:
       posts:
         show:
           view: Melihat
-        sidebar_blog:
-          comments: komentar
-          most_commented_posts: Posting yang paling banyak dikomentari
-      read_more: Baca lebih lajut
     components:
       blogs:
         name: Blog
