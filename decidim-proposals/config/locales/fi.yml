@@ -859,7 +859,6 @@ fi:
           changes_at_title: Muokkaus kohteelle "%{title}"
           comments: Kommentit
           edit_proposal: Muokkaa ehdotusta
-          endorsements_list: Luettelo suositteluista
           estimated_cost: Arvioitu kustannus
           hidden_endorsers_count:
             one: ja %{count} muu henkilö
