@@ -189,6 +189,8 @@ lt:
         admin:
           proposal_note_created:
             email_outro: Šį pranešimą gavote dėl to, kad galite vertinti pasiūlymą.
+            email_subject: Kažkas paliko pastabą dėl pasiūlymo „%{resource_title}“.
+            notification_title: Kažkas paliko pastabą dėl pasiūlymo <a href="%{resource_path}">%{resource_title}</a>. Peržiūrėkite ją <a href="%{admin_proposal_info_path}">administratoriaus srityje</a>
     proposals:
       collaborative_drafts:
         filters:
