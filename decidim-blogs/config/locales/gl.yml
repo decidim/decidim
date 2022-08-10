@@ -50,13 +50,8 @@ gl:
             title: título
       posts:
         show:
-          back: Volver á listaxe
           comments: Comentarios
           view: Ver
-        sidebar_blog:
-          comments: comentarios
-          most_commented_posts: As publicacións máis comentadas
-      read_more: Ler máis
     components:
       blogs:
         actions:
