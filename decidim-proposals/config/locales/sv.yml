@@ -835,7 +835,6 @@ sv:
           changes_at_title: Ändring till %{title}
           comments: Kommentarer
           edit_proposal: Redigera förslag
-          endorsements_list: Lista över instämmanden
           estimated_cost: Beräknad kostnad
           hidden_endorsers_count:
             one: och %{count} till person
