@@ -56,13 +56,8 @@ fr:
             title: titre
       posts:
         show:
-          back: Retour à la liste
           comments: Commentaires
           view: Voir
-        sidebar_blog:
-          comments: commentaires
-          most_commented_posts: Articles les plus commentés
-      read_more: Voir la suite
     components:
       blogs:
         actions:
