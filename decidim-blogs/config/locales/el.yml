@@ -50,13 +50,8 @@ el:
             title: τίτλος
       posts:
         show:
-          back: Επιστροφή στη λίστα
           comments: Σχόλια
           view: Προβολή
-        sidebar_blog:
-          comments: σχόλια
-          most_commented_posts: Ανάρτήσεις με τα περισσότερα σχόλια
-      read_more: Διαβάστε περισσότερα
     components:
       blogs:
         name: Ιστολόγιο
