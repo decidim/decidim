@@ -532,6 +532,9 @@ nl:
       identities:
         done: Voltooid
         select_identity: Selecteer identiteit
+    endorsers_list:
+      close: Sluiten
+      endorsed_by: Geliket door...
     errors:
       internal_server_error:
         title: Er was een probleem met de server
@@ -1556,6 +1559,21 @@ nl:
     timestamp_error_message: Sorry, dat was te snel! Gelieve opnieuw in te dienen.
   layouts:
     decidim:
+      data_consent:
+        details:
+          columns:
+            description: Beschrijving
+            name: Naam
+            type: Type
+          items:
+            pwaInstallPromptSeen:
+              description: Bewaart de status als de progressieve webapplicatie (PWA) installatiemelding al gezien is door de gebruiker.
+          types:
+            local_storage: Lokale opslag
+        modal:
+          analytics:
+            description: Deze cookies worden gebruikt om het gebruik van de website te meten en te analyseren en zo de website te verbeteren.
+          description: We gebruiken cookies om de basisfunctionaliteiten van de website te garanderen en jouw online-ervaring te verbeteren. Je kunt op elk gewenst moment het gebruik van de cookies configureren en accepteren of je toestemmingsopties wijzigen.
       edit_link:
         edit: Bewerk
       footer:
