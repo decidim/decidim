@@ -807,7 +807,6 @@ nl:
           changes_at_title: Amendement op "%{title}"
           comments: Reacties
           edit_proposal: Bewerk voorstel
-          endorsements_list: Lijst met aanbevelingen
           estimated_cost: Geschatte kosten
           hidden_endorsers_count:
             one: en nog %{count} persoon
