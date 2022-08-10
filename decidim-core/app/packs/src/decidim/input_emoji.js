@@ -1,4 +1,49 @@
-import { createPopup } from "@picmo/popup-picker";
+import { PopupPickerController } from "@picmo/popup-picker";
+
+/**
+ * This implements the mobile position handling based on a mobile breakpoint to
+ * make the picker behave better on mobile.
+ */
+const MOBILE_BREAKPOINT = 450;
+class PickerController extends PopupPickerController {
+  constructor(pickerOptions, popupOptions) {
+    super(pickerOptions, popupOptions);
+
+    this.configuredRootElement = popupOptions.rootElement || this.options.rootElement;
+    this.configuredPosition = {
+      desktop: this.options.position,
+      mobile: this.options.mobilePosition || this.options.position
+    }
+  }
+
+  async setPosition() {
+    if (this.isMobileView()) {
+      this.options.position = this.configuredPosition.mobile;
+    } else {
+      this.options.position = { inset: null, ...this.configuredPosition.desktop };
+    }
+
+    await Reflect.apply(PopupPickerController.prototype.setPosition, this, []);
+  }
+
+  async open() {
+    if (this.isOpen) {
+      return;
+    }
+
+    if (this.isMobileView()) {
+      this.options.rootElement = document.body;
+    } else {
+      this.options.rootElement = this.configuredRootElement;
+    }
+
+    await Reflect.apply(PopupPickerController.prototype.open, this, []);
+  }
+
+  isMobileView() {
+    return window.matchMedia(`screen and (max-width: ${MOBILE_BREAKPOINT}px)`).matches;
+  }
+}
 
 /**
  * Turns a deep messages object into a dictionary object with a single level and
@@ -22,6 +67,14 @@ const dictionary = (messages, prefix = "") => {
 
   return final;
 };
+
+const createPopup = (pickerOptions, popupOptions) => {
+  const popup = new PickerController({
+    autoFocus: "auto",
+    ...pickerOptions
+  }, popupOptions);
+  return popup;
+}
 
 // eslint-disable-next-line require-jsdoc
 export default function addInputEmoji() {
@@ -71,7 +124,9 @@ export default function addInputEmoji() {
           right: 0,
           bottom: 0
         },
+        mobilePosition: "bottom-end",
         rootElement: wrapper,
+        referenceElement: elem,
         triggerElement: btn
       });
 
