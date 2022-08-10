@@ -681,7 +681,6 @@ ar:
           changes_at_title: تعديل على "%{title}"
           comments: تعليقات
           edit_proposal: تعديل الاقتراح
-          endorsements_list: قائمة المصادقة
           estimated_cost: التكلفة التقديرية
           hidden_endorsers_count:
             zero: و %{count} المزيد من الناس
