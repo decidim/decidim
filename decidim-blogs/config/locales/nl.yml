@@ -50,13 +50,8 @@ nl:
             title: titel
       posts:
         show:
-          back: Terug naar het overzicht
           comments: Reacties
           view: Bekijk
-        sidebar_blog:
-          comments: reacties
-          most_commented_posts: Bericht met meeste reacties
-      read_more: Lees meer
     components:
       blogs:
         actions:
