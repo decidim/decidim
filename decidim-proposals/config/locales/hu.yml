@@ -742,7 +742,6 @@ hu:
           changes_at_title: A (z) "%{title}" módosítása
           comments: Hozzászólások
           edit_proposal: Javaslat szerkesztése
-          endorsements_list: Jóváhagyások listája
           estimated_cost: Becsült költség
           hidden_endorsers_count:
             one: és még %{count} személy
