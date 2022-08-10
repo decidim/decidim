@@ -7,7 +7,6 @@ module Decidim
     extend ActiveSupport::Concern
 
     included do
-
       # Displays the flash messages found in ActionDispatch's +flash+ hash using
       # Foundation's +callout+ component.
       #
