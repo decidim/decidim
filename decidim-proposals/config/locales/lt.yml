@@ -397,9 +397,199 @@ lt:
         exports:
           proposal_comments: Komentarai
           proposals: Pasiūlymai
+        imports:
+          label:
+            answers: Importuoti atsakymus iš failo
+            proposals: Importuoti pasiūlymus iš failo
+          title:
+            answers: Importuoti atsakymus į pasiūlymus
+            proposals: Importuoti pasiūlymus
+        models:
+          proposal:
+            name: Pasiūlymas
+        participatory_texts:
+          bulk-actions:
+            are_you_sure: Ar tikrai norite išmesti visą dalyvaujamojo teksto juodraštį?
+            discard_all: Pašalinti visus
+            import_doc: Importuoti dokumentą
+          discard:
+            success: Visi dalyvaujamųjų tekstų juodraščiai ištrinti.
+          import:
+            invalid: Forma netinkama!
+            invalid_file: Rinkmenoje yra klaidų, pabandykite redaguoti rinkmenos turinį ir dar kartą ją įkelti.
+          index:
+            publish_document: Skelbti dokumentą
+            save_draft: Išsaugoti juodraštį
+          new_import:
+            bottom_hint: "(Dokumentų skirsnius galėsite peržiūrėti ir rūšiuoti)"
+            title: Pridėti dokumentą
+            upload_document: Įkelti dokumentą
+          publish:
+            invalid: Nepavyko paskelbti pasiūlymų
+            success: Visi pasiūlymai paskelbti
+          sections:
+            section: "<em>Skirsnis:</em> <strong>%{title}</strong>"
+            sub-section: "<em>Poskirsnis:</em> %{title}"
+        proposal_answers:
+          form:
+            accepted: Priimta
+            not_answered: Neatsakyta
+            rejected: Atmesta
+        proposal_notes:
+          create:
+            error: Kuriant šią pastabą prie pasiūlymo iškilo problema
+            success: Pastaba prie pasiūlymo sukurta
+          form:
+            note: Pastaba
+            submit: Pateikti
+          leave_your_note: Palikite pastabą
+          title: Privačios pastabos
+        proposals:
+          answer:
+            invalid: Atsakant į šį pasiūlymą iškilo problema
+            success: Į pasiūlymą atsakyta
+          create:
+            invalid: Kuriant šį pasiūlymą iškilo problema
+            success: Pasiūlymas sukurtas
+          edit:
+            title: Atnaujinti pasiūlymą
+            update: Atnaujinti
+          form:
+            attachment_legend: "(Neprivaloma) Pridėti priedą"
+            delete_attachment: Ištrinti prikabintą failą
+            select_a_category: Pasirinkite kategoriją
+            select_a_meeting: Pasirinkite susitikimą
+          index:
+            actions: Veiksmai
+            assign_to_valuator: Priskirti vertintojui
+            assign_to_valuator_button: Priskirti
+            cancel: Atšaukti
+            change_category: Keisti kategoriją
+            change_scope: Keisti apimtį
+            merge: Sulieti į vieną
+            merge_button: Sulieti
+            publish: Publikuoti
+            select_component: Pasirinkite komponentą
+            selected: pasirinkta
+            split: Išskaidyti pasiūlymus
+            split_button: Skaidyti
+            title: Pasiūlymai
+          show:
+            ranking: "%{ranking} iš %{total}"
+            related_meetings: Susiję susitikimai
+            remove_assignment: Pašalinti užduotį
+            remove_assignment_confirmation: Ar tikrai norite nušalinti vertintoją nuo šio pasiūlymo?
+            valuators: Vertintojai
+          update_category:
+            invalid: 'Šie pasiūlymai jau priskirti kategorijai %{subject_name}: %{proposals}.'
+            select_a_category: Pasirinkite kategoriją
+            select_a_proposal: Pasirinkite pasiūlymą
+            success: 'Pasiūlymas atnaujintas ir priskirtas kategorijai %{subject_name}: %{proposals}.'
+          update_scope:
+            invalid: 'Šie pasiūlymai jau turi %{subject_name} apimtį: %{proposals}.'
+            select_a_proposal: Pasirinkite pasiūlymą
+        proposals_imports:
+          create:
+            invalid: Importuojant pasiūlymus iškilo problema
+            success: "%{number} pasiūlymai (-ų) importuoti"
+          new:
+            create: Importuoti pasiūlymus
+            no_components: Šioje dalyvaujamojo proceso erdvėje nėra kitų pasiūlymų komponentų, iš kurių būtų galima importuoti pasiūlymus.
+            select_component: Pasirinkite komponentą
+            select_states: Patikrinti importuoti skirtų pasiūlymų būseną
+            title: Importuoti pasiūlymus
+        proposals_merges:
+          create:
+            invalid: 'Suliejant pasirinktus pasiūlymus iškilo problema, nes kai kurie iš jų:'
+            success: Pasiūlymai sulieti į vieną naują pasiūlymą.
+        proposals_splits:
+          create:
+            invalid: 'Iškilo problema skaidant pasirinktus pasiūlymus, nes kai kurie iš jų:'
+        valuation_assignments:
+          create:
+            invalid: Pavedant pasiūlymus vertintojui įvyko klaida
+            success: Pasiūlymai pavesti vertintojui
+          delete:
+            invalid: Naikinant vertintojui pavestus pasiūlymus įvyko klaida
+            success: Vertintojas sėkmingai pašalintas nuo pasiūlymų
+      admin_log:
+        proposal:
+          answer: "%{user_name} atsakė į pasiūlymą %{resource_name} %{space_name} erdvėje"
+          create: "%{user_name} sukūrė %{resource_name} pasiūlymą kaip oficialų pasiūlymą %{space_name} erdvėje"
+          publish_answer: "%{user_name} paskelbė atsakymą į pasiūlymą %{resource_name} %{space_name} erdvėje"
+          update: "%{user_name} atnaujino %{resource_name} oficialų pasiūlymą %{space_name} erdvėje"
+        proposal_note:
+          create: "%{user_name} paliko privačią pastabą dėl pasiūlymo %{resource_name} %{space_name} erdvėje"
+        valuation_assignment:
+          create: "%{user_name} pavedė %{resource_name} pasiūlymą vertintojui"
+          delete: "%{user_name} pašalino vertintoją nuo %{proposal_title} pasiūlymo"
+      answers:
+        accepted: Priimta
+        evaluating: Vertinama
+        not_answered: Neatsakyta
+        rejected: Atmesta
+        withdrawn: Atsiimta
+      application_helper:
+        filter_category_values:
+          all: Visi
+        filter_origin_values:
+          all: Visi
+          meetings: Susitikimai
+          official: Oficialūs
+          participants: Dalyviai
+          user_groups: Grupės
+        filter_scope_values:
+          all: Visi
+        filter_state_values:
+          accepted: Priimta
       collaborative_drafts:
         filters:
           scope: Apimtis
+        orders:
+          label: 'Juodraščių rikiavimo kriterijai:'
+          random: Atsitiktinai
+          recent: Naujausi
+        requests:
+          accepted_request:
+            error: Nepavyko patvirtinti bendraautoriumi. Bandykite dar kartą vėliau.
+            success: "@%{user} patvirtintas bendraautoriumi"
+          access_requested:
+            error: Jūsų užklausos įvykdyti nepavyko. Bandykite dar kartą vėliau.
+            success: Jūsų bendradarbiavimo užklausa išsiųsta
+          collaboration_requests:
+            accept_request: Sutikti
+            reject_request: Atmesti
+            title: Bendradarbiavimo užklausos
+          rejected_request:
+            error: Nepavyko atmesti kaip bendraautoriaus. Bandykite dar kartą vėliau.
+            success: "@%{user} atmestas kaip bendraautorius"
+        show:
+          back: Atgal
+          edit: Redaguoti bendrąjį juodraštį
+          final_proposal: galutinis pasiūlymas
+          final_proposal_help_text: Šis juodraštis baigtas. Patikrinkite galutinį pasiūlymą
+          publish: Paskelbti
+          publish_info: Skelbti šią juodraščio versiją arba
+          published_proposal: paskelbtas pasiūlymas
+          request_access: Prašyti prieigos
+          requested_access: Prieigos prašymas pateiktas
+          version_history: peržiūrėti šio pasiūlymo ankstesnes versijas
+          withdraw: atsiimti juodraštį
+        states:
+          open: Atviras
+          published: Paskelbtas
+          withdrawn: Atsiimtas
+        update:
+          error: Išsaugant bendrąjį juodraštį iškilo problema.
+          success: Bendrasis juodraštis atnaujintas.
+        wizard_aside:
+          back_from_collaborative_draft: Grįžti į bendruosius juodraščius
+          info: Rengiate <strong>bendrąjį juodraštį</strong>.
+        wizard_header:
+          title: Sukurkite savo bendrąjį juodraštį
+      content_blocks:
+        highlighted_proposals:
+          proposals: Pasiūlymai
       models:
         proposal:
           fields:
