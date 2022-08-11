@@ -11,11 +11,13 @@ module Decidim
           transformer = DocToMarkdown.new(file, DocToMarkdown::ODT_MIME_TYPE)
 
           expected = File.read(Decidim::Dev.asset("participatory_text.md"))
-          expected.strip!
+          # remove the HTML commnets
+          expected.gsub!(/<!--.*-->/, "")
           # doc2text does not support ordered lists use - instead
           expected.gsub!(/^\d\. /, "- ")
           # doc2text can not embed images, instead leaves the title, expect this
           expected.gsub!(/^![^\n]+\n/, "Decidim Logo\n")
+          expected.strip!
 
           actual = transformer.to_md
           actual.strip!

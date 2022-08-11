@@ -82,7 +82,7 @@ describe "Meeting live event access", type: :system do
           end
 
           context "when cookies rejected" do
-            before { select_cookies(false, visit_root: true) }
+            before { data_consent(false, visit_root: true) }
 
             it "shows cookie warning" do
               visit_meeting
@@ -236,7 +236,7 @@ describe "Meeting live event access", type: :system do
       end
 
       context "when cookies accepted" do
-        before { select_cookies(true, visit_root: true) }
+        before { data_consent(true, visit_root: true) }
 
         it "shows the meeting link embedded" do
           visit_meeting
@@ -278,7 +278,7 @@ describe "Meeting live event access", type: :system do
 
       context "when cookies accepted" do
         before do
-          select_cookies(true, visit_root: true)
+          data_consent(true, visit_root: true)
         end
 
         it_behaves_like "iframe access levels", :live_event_page
