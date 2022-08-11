@@ -335,9 +335,19 @@ lt:
         voting_enabled:
           email_intro: 'Galite paremti pasiūlymus %{participatory_space_title} erdvėje! Prisidėkite šiame puslapyje:'
           email_outro: Šį pranešimą gavote dėl to, kad sekate %{participatory_space_title}. Jeigu nebenorite gauti pranešimų, spustelėkite ankstesnę nuorodą.
+          email_subject: Balsavimas %{participatory_space_title} prasidėjo
+          notification_title: Dabar galite pradėti <a href="%{resource_path}">balsuoti už pasiūlymus</a> <a href="%{participatory_space_url}">%{participatory_space_title}</a>erdvėje
     gamification:
       badges:
         accepted_proposals:
+          conditions:
+            - Pasirinkite jus dominančią dalyvavimo erdvę, kurioje įjungta pasiūlymų teikimo funkcija
+            - Pabandykite teikti pasiūlymus, kuriuos būtų galima įgyvendinti. Taip labiau tikėtina, kad jie bus priimti.
+          description: Šis ženklelis suteikiamas, kai aktyviai teikiate naujus pasiūlymus ir jie yra priimami.
+          description_another: Priimti (-a) %{score} šio dalyvio pasiūlymai (-ų).
+          description_own: Priimti (-a) %{score} jūsų pasiūlymai (-ų).
+          name: Priimti pasiūlymai
+          next_level_in: Pasistenkite, kad būtų priimti (-a) dar %{score} pasiūlymai (-ų) ir pasiekite kitą lygį!
           unearned_another: Dar nepriimtas nė vienas šio dalyvio pasiūlymas.
           unearned_own: Dar nepriimtas nė vienas jūsų pasiūlymas.
         proposal_votes:
@@ -355,7 +365,38 @@ lt:
           conditions:
             - Pasirinkite jus dominančią dalyvavimo erdvę, kurioje įjungta pasiūlymų teikimo funkcija
             - Sukurti naują pasiūlymą
+          description: Šis ženklelis suteikiamas, kai aktyviai teikiate naujus pasiūlymus.
+          description_another: Šis dalyvis sukūrė %{score} pasiūlymus (-ų).
+          description_own: Jūs parengėte %{score} pasiūlymus (-ų).
+          name: Pasiūlymai
+          next_level_in: Parenkite dar %{score} pasiūlymus (-ų) ir pasiekite kitą lygį!
+          unearned_another: Šis dalyvis dar neparengė jokių pasiūlymų.
+          unearned_own: Jūs dar neparengėte jokių pasiūlymų.
+    metrics:
+      accepted_proposals:
+        description: Priimtų pasiūlymų skaičius
+        object: pasiūlymai
+        title: Priimti pasiūlymai
+      proposals:
+        description: Pasiūlymų skaičius
+        object: pasiūlymai
+        title: Pasiūlymai
+    participatory_spaces:
+      highlighted_proposals:
+        see_all: Žiūrėti visus pasiūlymus (%{count})
     proposals:
+      actions:
+        answer_proposal: Atsakyti į pasiūlymą
+        edit_proposal: Redaguoti pasiūlymą
+        new: Naujas pasiūlymas
+        show: Rodyti pasiūlymą
+        title: Veiksmai
+      admin:
+        actions:
+          preview: Peržiūra
+        exports:
+          proposal_comments: Komentarai
+          proposals: Pasiūlymai
       collaborative_drafts:
         filters:
           scope: Apimtis
