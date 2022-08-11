@@ -826,7 +826,7 @@ module Decidim
     # Modified to change the tag to a valid HTML tag inside the <label> element.
     def error_and_help_text(attribute, options = {})
       html = ""
-      html += content_tag(:div, options[:help_text], class: "help-text") if options[:help_text]
+      html += content_tag(:span, options[:help_text], class: "help-text") if options[:help_text]
       html += error_for(attribute, options) || ""
       html.html_safe
     end
