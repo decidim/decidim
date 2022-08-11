@@ -42,7 +42,7 @@
 }
 
 .form-error{
-  @apply mt-2 hidden text-sm text-primary;
+  @apply mt-2 hidden font-normal text-sm text-primary;
 }
 
 *:invalid ~ .form-error{
@@ -50,14 +50,20 @@
 }
 
 .input-character-counter{
-  @apply relative;
+  @apply relative mt-4;
+
+  input[type="text"],
+  input[type="email"],
+  input[type="password"]{
+    @apply mt-0;
+  }
 
   &__container{
     @apply absolute top-0 right-0 -translate-y-full;
   }
 
   &__text{
-    @apply inline-block text-xs text-gray-2;
+    @apply font-normal inline-block text-xs text-gray-2;
   }
 }
 
