@@ -111,28 +111,4 @@
       @apply ml-auto;
     }
   }
-
-  &__box{
-    @apply w-1/2 flex flex-col gap-4 border-2 border-background rounded p-6;
-
-    &-container{
-      @apply flex gap-12 mb-12;
-    }
-
-    &-icon{
-      @apply w-8 h-8 text-tertiary fill-current;
-    }
-
-    &-title{
-      @apply text-2xl font-semibold;
-    }
-
-    &-description{
-      @apply text-lg text-gray-2;
-    }
-
-    &-link{
-      @apply inline-flex items-center gap-2 text-secondary font-semibold mt-auto;
-    }
-  }
 }
