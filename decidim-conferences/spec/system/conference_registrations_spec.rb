@@ -67,7 +67,7 @@ describe "Conference registrations", type: :system do
       it "the registration button is disabled" do
         visit_conference_registration_types
 
-        expect(page).to have_css(".conference-registration", count: registration_types_count)
+        expect(page).to have_css("[data-conference-registration]", count: registration_types_count)
 
         within ".wrapper" do
           expect(page).to have_css("button[disabled]", text: "NO SLOTS AVAILABLE", count: 5)

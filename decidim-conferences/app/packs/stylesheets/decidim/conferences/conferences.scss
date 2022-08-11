@@ -182,3 +182,43 @@
     }
   }
 }
+
+.conference__registration{
+  @apply flex items-center justify-between rounded-l px-4 border-l-4 border-background;
+
+  &-container{
+    @apply w-full md:w-3/5 space-y-10 mb-16 md:mb-36;
+
+    &-title{
+      @apply py-10 text-gray-2 uppercase font-semibold;
+    }
+  }
+
+  &-text{
+    @apply text-sm text-gray-2 space-y-4;
+
+    & > *:last-child{
+      @apply flex items-center gap-1.5 first:[&>*]:flex-none;
+    }
+  }
+
+  &-button{
+    @apply bg-background rounded px-6 py-3 flex items-center justify-end gap-8 w-1/3;
+
+    & > *:first-child{
+      @apply text-xl font-semibold;
+    }
+  }
+
+  &:hover{
+    @apply cursor-pointer border-tertiary;
+  }
+
+  &:hover &-text > *:first-child{
+    @apply underline;
+  }
+
+  &:hover &-button button{
+    @apply bg-secondary text-white border-transparent;
+  }
+}

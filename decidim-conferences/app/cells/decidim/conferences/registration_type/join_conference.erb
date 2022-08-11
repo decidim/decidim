@@ -3,22 +3,23 @@
     <% if allowed? %>
       <%= button_to conference_registration_type_conference_registration_path(conference, model),
           method: :delete,
-          class: "#{button_classes} secondary light",
-          style: "margin-bottom: 0;",
+          class: "#{button_classes} bg-success text-white",
           data: { disable: true } do %>
-        <%= icon("check", class: "icon--small") %>
         <%= t("going", scope: "decidim.conferences.conference.show") %>
+        <%= icon "checkbox-circle-line", class: "w-3.5 h-3.5 fill-current" %>
       <% end %>
     <% end %>
   <% else %>
     <%= render :registration_confirm %>
     <% if allowed? %>
-      <%= button_to i18n_join_text, "#",
-          class: button_classes,
+      <%= button_to "#",
+          class: "#{button_classes} border border-gray-2",
           disabled: !conference.has_available_slots? || conference.has_registration_for?(current_user),
-          style: "margin-bottom: 0;",
           onclick: "event.preventDefault()",
-          data: { open: current_user.present? ? "conference-registration-confirm-#{model.id}" : "loginModal" } %>
+          data: { open: current_user.present? ? "conference-registration-confirm-#{model.id}" : "loginModal" } do %>
+        <%= t("going", scope: "decidim.conferences.conference.show") %>
+        <%= icon "ticket-line", class: "w-3.5 h-3.5 fill-current" %>
+      <% end %>
     <% end %>
   <% end %>
 <% end %>

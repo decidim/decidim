@@ -8,23 +8,35 @@ edit_link(
   conference: current_participatory_space
 )
 %>
-<div class="row">
-  <div class="columns mediumlarge-12">
-    <section class="section">
-      <h4 class="section-heading"><%= t("registration_types.index.register", scope: "decidim.conferences") %></h4>
-      <% if current_user.present? %>
-        <p><%= t(".login_as", name: current_user.name, email: current_user.email ) %></p>
-      <% else %>
-        <%= render partial: "decidim/conferences/shared/conference_user_login" %>
-      <% end %>
-      <% if collection.any? %>
-        <p><%= t(".choose_an_option") %></p>
+
+<% content_for :js_content do %>
+  <%= javascript_pack_tag "decidim_conferences" %>
+<% end %>
+
+<% content_for :css_content do %>
+  <%= stylesheet_pack_tag "decidim_conferences", media: "all" %>
+<% end %>
+
+<%# NOTE: this page does not use a regular layout %>
+<div class="container">
+
+  <section class="section">
+    <h1 class="h1 decorator my-12"><%= t("registration_types.index.register", scope: "decidim.conferences") %></h1>
+
+    <%# REDESIGN_PENDING: uncomment the partial once the login boxes has been moved to that location %>
+    <%# Further info: https://github.com/decidim/decidim/issues/9675 %>
+    <%= render partial: "decidim/shared/boxes" %>
+
+    <% if collection.any? %>
+      <p class="conference__registration-container-title"><%= t(".choose_an_option") %></p>
+      <div class="conference__registration-container">
         <% collection.each do |registration_type| %>
           <%= cell "decidim/conferences/registration_type", registration_type, allowed: allowed_to?(:join, :conference, conference: current_participatory_space) %>
         <% end %>
-      <% else %>
-        <%= t("registration_types.index.no_registrations", scope: "decidim.conferences") %>
-      <% end %>
-    </section>
-  </div>
+      </div>
+    <% else %>
+      <%= cell("decidim/announcement",  t("registration_types.index.no_registrations", scope: "decidim.conferences")) %>
+    <% end %>
+  </section>
+
 </div>

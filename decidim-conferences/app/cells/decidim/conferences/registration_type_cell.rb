@@ -36,7 +36,7 @@ module Decidim
       end
 
       def button_classes
-        "button button--sc small"
+        "button button__sm"
       end
 
       def conference
