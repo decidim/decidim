@@ -23,7 +23,7 @@ module Decidim
       end
 
       it "includes no-reply message" do
-        expect(email_body(mail)).to include("Please do not answer to this email. This email is sent from a notification-only-email and is not intended to receive emails")
+        expect(email_body(mail)).to include("This email was sent from a notification email address that cannot accept incoming email. Please do not reply to this message.")
       end
     end
   end
