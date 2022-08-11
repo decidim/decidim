@@ -59,7 +59,7 @@ describe Decidim::Accountability::Admin::ImportProjectsJob do
       end.to change(Decidim::Accountability::Result, :count).from(0).to(3)
     end
 
-    it "emails the user after importing" do
+    it "triggers deliver_now" do
       allow(Decidim::Accountability::ImportProjectsMailer)
         .to receive(:import)
         .with(current_user, current_component, projects.count)
@@ -68,6 +68,12 @@ describe Decidim::Accountability::Admin::ImportProjectsJob do
         .to receive(:deliver_now)
 
       subject.perform_now(projects, current_component, current_user)
+    end
+
+    it "emails the user after importing" do
+      subject.perform_now(projects, current_component, current_user)
+      email = last_email
+      expect(email.subject).to eq("Successful import of projects")
     end
   end
 end

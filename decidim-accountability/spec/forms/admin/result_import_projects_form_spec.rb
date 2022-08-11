@@ -32,7 +32,7 @@ module Decidim::Accountability
 
       context "when some projects present" do
         before do
-          allow(subject).to receive(:to_be_added_projects).and_return(1)
+          allow(subject).to receive(:origin_projects_count).and_return(1)
         end
 
         it { is_expected.to be_valid }
@@ -40,7 +40,7 @@ module Decidim::Accountability
 
       context "when no projects present" do
         before do
-          allow(subject).to receive(:to_be_added_projects).and_return(0)
+          allow(subject).to receive(:origin_projects_count).and_return(0)
         end
 
         it { is_expected.not_to be_valid }

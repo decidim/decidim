@@ -11,7 +11,7 @@ module Decidim
 
         validates :origin_component_id, presence: true
         validates :import_all_selected_projects, allow_nil: false, acceptance: true
-        validates :to_be_added_projects, numericality: { greater_than: 0 }, if: ->(form) { form.origin_component_id }
+        validates :origin_projects_count, numericality: { greater_than: 0 }, if: ->(form) { form.origin_component_id }
 
         def origin_component
           @origin_component ||= origin_components.find_by(id: origin_component_id)
@@ -27,10 +27,6 @@ module Decidim
           @budgets_component ||= current_participatory_space.components.where(manifest_name: "budgets")
         end
 
-        def to_be_added_projects
-          selected_projects_count(origin_component_id)
-        end
-
         def selected_projects_count(component)
           projects = Decidim::Budgets::Project.joins(:budget).selected.where(
             budget: { component: }
@@ -42,6 +38,12 @@ module Decidim
           original_project.linked_resources(:results, "included_projects").any? do |result|
             result.component == current_component
           end
+        end
+
+        private
+
+        def origin_projects_count
+          selected_projects_count(origin_component_id)
         end
       end
     end
