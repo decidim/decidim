@@ -1,4 +1,4 @@
-<div class="w-fit flex md:flex-col gap-4 overflow-x-auto mx-auto">
+<div class="profile__actions-main">
   <% profile_actions.each do |item| %>
     <% if item[:cell].present? %>
       <%= cell item[:cell], profile_holder, item[:options] %>
@@ -8,7 +8,7 @@
   <% end %>
 </div>
 
-<div class="flex justify-center md:justify-between text-xs">
+<div class="profile__actions-secondary">
   <%= cell("decidim/follow_button", profile_holder) %>
 
   <% if user_flaggable? %>

@@ -27,15 +27,25 @@
     @apply pt-3 text-sm text-gray-2;
   }
 
+  &__actions{
+    &-main{
+      @apply w-fit grid grid-cols-2 md:grid-cols-1 mx-auto gap-x-4 gap-y-6 md:gap-4;
+    }
+
+    &-secondary{
+      @apply flex justify-center md:justify-between text-xs;
+    }
+  }
+
   &__tab{
-    @apply grow rounded-t min-w-[120px];
+    @apply grow rounded-t;
 
     &.is-active{
       @apply bg-white z-10 text-secondary font-semibold;
     }
 
     &-item{
-      @apply w-full h-full p-2.5 flex items-center justify-center gap-2;
+      @apply w-full h-full p-2.5 flex flex-col md:flex-row items-center justify-center gap-2;
     }
   }
 
