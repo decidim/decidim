@@ -11,6 +11,10 @@ module Decidim
 
     private
 
+    def button_classes
+      "button button__sm button__text-secondary only:m-auto"
+    end
+
     def text
       current_user_follows? ? t("decidim.follows.destroy.button") : t("decidim.follows.create.button")
     end
@@ -28,7 +32,7 @@ module Decidim
     end
 
     def icon_name
-      "notification-3-line"
+      current_user_follows? ? "notification-3-fill" : "notification-3-line"
     end
 
     def remote

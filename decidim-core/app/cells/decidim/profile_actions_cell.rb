@@ -11,7 +11,6 @@ module Decidim
       edit_profile: { icon: "pencil-line", path: :profile_edit_path },
       create_user_group: { icon: "team-line", path: :profile_new_group_path },
       edit_user_group: { icon: "team-line", path: :edit_group_path },
-      follow: { cell: "decidim/follow_button" },
       message: { icon: "mail-send-line", path: :new_conversation_path },
       manage_user_group_users: { icon: "user-settings-line", path: :group_manage_users_path },
       manage_user_group_admins: { icon: "user-star-line", path: :group_manage_admins_path },
@@ -62,7 +61,6 @@ module Decidim
         keys << :edit_profile if own_profile?
         keys << :create_user_group if own_profile? && user_groups_enabled?
         keys << :edit_user_group if can_edit_user_group_profile?
-        keys << :follow
         keys << :message if can_contact_user?
         keys.append(:manage_user_group_users, :manage_user_group_admins, :invite_user) if can_edit_user_group_profile?
         keys << :join_user_group if can_join_user_group?

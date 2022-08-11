@@ -9,7 +9,7 @@ module Decidim
 
     DEFAULT_ATTRIBUTES = {
       button_classes: "button button__sm button__transparent-secondary",
-      text_classes: "first-letter:uppercase",
+      text_classes: "inline-flex first-letter:uppercase",
       icon_classes: "fill-current flex-none",
       method: :get,
       remote: false,

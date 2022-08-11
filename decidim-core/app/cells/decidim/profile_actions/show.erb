@@ -1,4 +1,4 @@
-<div class="max-w-full flex md:flex-col gap-4 overflow-x-auto">
+<div class="w-fit flex md:flex-col gap-4 overflow-x-auto mx-auto">
   <% profile_actions.each do |item| %>
     <% if item[:cell].present? %>
       <%= cell item[:cell], profile_holder, item[:options] %>
@@ -8,8 +8,9 @@
   <% end %>
 </div>
 
-<%# REDESING_PENDING: hide this container if both conditions do not contain anything %>
 <div class="flex justify-center md:justify-between text-xs">
+  <%= cell("decidim/follow_button", profile_holder) %>
+
   <% if user_flaggable? %>
     <%== cell("decidim/author", profile_holder, from: profile_holder).flag_user %>
   <% end %>
@@ -19,8 +20,7 @@
       "decidim/button",
       { icon: "logout-box-r-line", text: t("decidim.profiles.user.leave_user_group"), path: decidim.leave_group_path(profile_holder.nickname) },
       method: :delete,
-      button_classes: "button button__sm button__text-secondary only:m-auto",
-      text_classes: "first-letter:uppercase"
+      button_classes: "button button__sm button__text-secondary only:m-auto"
     ) %>
   <% end %>
 </div>
