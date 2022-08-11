@@ -223,7 +223,7 @@ lt:
             proposal_answering_enabled: Atsakymas į pasiūlymą suaktyvintas
             publish_answers_immediately: Skelbti atsakymus į pasiūlymius nedelsiant
             suggested_hashtags: Dalyviams pasiūlytos grotažymės naujiems pasiūlymams
-            votes_blocked: Parama užblokuota
+            votes_blocked: Blokuoti balsai
             votes_enabled: Parama aktyvuota
             votes_hidden: Balsai paslėpti (jei balsavimo funkcija įjungta, pažymėjus šį pasirinkimą, balsų kiekis bus paslėptas)
     events:
@@ -296,6 +296,11 @@ lt:
             email_outro: Gavote šį pranešimą, nes sekate %{resource_title}. Galite nebesekti paspaudę ant aukščiau esančios nuorodos.
             email_subject: Pasiūlymas, kurį sekate, šiuo metu vertinamas
             notification_title: <a href="%{resource_path}">%{resource_title}</a> pasiūlymas šiuo metu vertinamas.
+        proposal_mentioned:
+          email_intro: Jūsų pasiūlymas „%{mentioned_proposal_title}“ buvo paminėtas <a href="%{resource_url}">šioje erdvėje</a> komentaruose.
+          email_outro: Šį pranešimą gavote dėl to, kad esate „%{resource_title}“ autorius.
+          email_subject: Jūsų pasiūlymas „%{mentioned_proposal_title}“ buvo paminėtas
+          notification_title: Jūsų pasiūlymas „%{mentioned_proposal_title}“ buvo paminėtas <a href="%{resource_path}">šioje erdvėje</a> komentaruose.
     gamification:
       badges:
         accepted_proposals:
