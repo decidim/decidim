@@ -30,6 +30,8 @@ lt:
           before_date_info: Naudinga, jei procesas jau prasidėjo ir norite atšaukti ankstesnio proceso leidimus.
           button: Atšaukti viską
           button_before: Atšaukti iki datos
+          destroy:
+            confirm: Atšaukus leidimus iki datos, veiksmo nebus galima anuliuoti. Ar tikrai norite tęsti?
     authorization_handlers:
       admin:
         csv_census:
