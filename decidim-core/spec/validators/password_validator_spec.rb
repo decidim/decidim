@@ -47,6 +47,27 @@ describe PasswordValidator do
           expect(record.errors[attribute]).to be_empty
         end
       end
+
+      context "when the record responds to organization instead of current_organization" do
+        let(:record) do
+          double(
+            name: ::Faker::Name.name,
+            email: ::Faker::Internet.email,
+            nickname: ::Faker::Internet.username(specifier: 10..15),
+            organization:,
+            errors:,
+            admin?: admin_record,
+            previous_passwords:,
+            encrypted_password_was: ::Devise::Encryptor.digest(Decidim::User, "decidim123456"),
+            encrypted_password_changed?: true
+          )
+        end
+
+        it "just works" do
+          expect(validator).to be(true)
+          expect(record.errors[attribute]).to be_empty
+        end
+      end
     end
 
     context "when there is blacklisted passwords" do
@@ -164,6 +185,16 @@ describe PasswordValidator do
       it "is too similar with domain" do
         expect(validator).to be(false)
         expect(record.errors[attribute]).to eq(["is too similar to this domain name"])
+      end
+
+      context "when a part of the host is too similar with the password" do
+        let(:organization) { create(:organization, host: "decidim123456.example.org") }
+        let(:value) { "decidim123456" }
+
+        it "is too similar with domain" do
+          expect(validator).to be(false)
+          expect(record.errors[attribute]).to eq(["is too similar to this domain name"])
+        end
       end
     end
 
