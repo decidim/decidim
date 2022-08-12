@@ -10,6 +10,17 @@ if respond_to?(:meeting_component) && meeting_component
 end
 %>
 <% add_decidim_meta_tags(title: t("conference_program.index.title", scope: "decidim")) %>
+
+<% content_for :js_content do %>
+  <%= javascript_pack_tag "decidim_conferences" %>
+<% end %>
+
+<% content_for :css_content do %>
+  <%= stylesheet_pack_tag "decidim_conferences", media: "all" %>
+<% end %>
+
+<%# NOTE: this page does not use a regular layout %>
+
 <div class="section row">
   <div class="columns mediumlarge-12">
     <h3 class="section-heading"><%= t(".program") %></h3>
