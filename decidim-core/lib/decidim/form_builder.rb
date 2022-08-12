@@ -590,8 +590,8 @@ module Decidim
       content += abide_error_element(attribute) if class_options[:pattern] || class_options[:required]
       content = content.html_safe
 
-      html = wrap_prefix_and_postfix(content, prefix, postfix)
-      html + error_and_help_text(attribute, options.merge(help_text:))
+      html = error_and_help_text(attribute, options.merge(help_text:))
+      html + wrap_prefix_and_postfix(content, prefix, postfix)
     end
 
     # rubocop: disable Metrics/CyclomaticComplexity
@@ -802,7 +802,7 @@ module Decidim
       screenreader_title = content_tag(
         :span,
         I18n.t("required", scope: "forms"),
-        class: "show-for-sr"
+        class: "sr-only"
       )
       content_tag(
         :span,
