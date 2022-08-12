@@ -8,6 +8,7 @@ lt:
         organization_url: Organizacijos URL
         redirect_uri: Peradresavimo URI
       organization:
+        address: SMTP pagrindinio kompiuterio vardas
         from_email: El. pašto adresas
         from_label: Etiketė
         password: Slaptažodis
@@ -61,6 +62,7 @@ lt:
           current_organizations: Dabartinės organizacijos
       default_pages:
         placeholders:
+          content: Administratoriaus suvestinės statiniame puslapyje %{page} įrašykite prasmingą turinį.
           title: '%{page} numatytasis pavadinimas'
       menu:
         admins: Administratoriai
@@ -123,9 +125,14 @@ lt:
           secondary_hosts_hint: Kiekvieną iš jų įrašykite į naują eilutę
         file_upload_settings:
           content_types:
+            admin_hint: Šie MIME tipai leidžiami administratorių dalies įkėlimams. Administratoriai turėtų suprasti tokių dokumentų formatų rizikas.
             default_hint: Pagal numatytuosius nustatymus šie MIME tipai leidžiami visiems vartotojams.
+            intro_html: Pridedate "wildcards" su asterisku MIME tipams (pvz. <code>paveikslelis/*</code>.
             title: Leidžiami MIME tipai
           file_extensions:
+            admin_hint: Šie Mime tipai leidžiami administratorių dalies įkėlimams. Administratoriai turėtų suprasti tokių dokumentų formatų rizikas.
+            default_hint: Šie rinkmenų tipai leidžiami visiems naudotojams.
+            image_hint: Šie rinkmenų tipai tinkami paveikslėlių įkėlimui.
             title: Leidžiami failų plėtiniai
           file_sizes:
             avatar_hint: Megabaitai (MB). Šis failo dydžio apribojimas naudojamas avataro paveiksliukams įkelti.
@@ -143,17 +150,21 @@ lt:
         omniauth_settings:
           decidim:
             client_id: Kliento ID
+            client_secret: Kliento paslaptis
             site_url: Svetainės URL
           enabled: Įjungta
           enabled_by_default: Šis teikėjas įjungtas pagal numatytuosius nustatymus. Jį galima redaguoti, bet ne išjungti.
           facebook:
             app_id: Programos ID
+            app_secret: Programos paslaptis
           google_oauth2:
             client_id: Kliento ID
+            client_secret: Kliento paslaptis
           icon: Piktograma
           icon_path: Piktogramos kelias
           twitter:
             api_key: API raktas
+            api_secret: API paslaptis
         smtp_settings:
           fieldsets:
             sender: Siuntėjas
@@ -166,6 +177,7 @@ lt:
           error: Atnaujinant šią organizaciją iškilo problema.
           success: Organizacija atnaujinta.
         users_registration_mode:
+          disabled: Prieiga galima tik iš išorės paskyrų
           enabled: Leisti dalyviams registruotis ir prisijungti
           existing: Neleiskite dalyviams registruotis, bet leiskite esamiems dalyviams prisijungti
       shared:
