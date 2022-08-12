@@ -31,6 +31,8 @@ lt:
           before_date_info: Naudinga, jei procesas jau prasidėjo ir norite atšaukti ankstesnio proceso leidimus.
           button: Atšaukti viską
           button_before: Atšaukti iki datos
+          destroy:
+            confirm: Atšaukus leidimus iki datos, veiksmo nebus galima anuliuoti. Ar tikrai norite tęsti?
     authorization_handlers:
       admin:
         csv_census:
@@ -67,6 +69,8 @@ lt:
         verify_with_managed_user:
           email_intro: Dalyvis <a href="%{resource_path}">%{resource_title}</a> bandė patvirtinti save kito dalyvio duomenimis (<a href="%{managed_user_path}">%{managed_user_name}</a>.
           email_outro: Patikrinkite <a href="%{conflicts_path}">Patvirtinimų konfliktų sąrašą</a> ir susisiekite su dalyviu, kad patikrintumėte jo informaciją ir išspręstumėte problemą.
+          email_subject: Nepavykęs tikrinimo bandymas su tvarkomu naudotoju
+          notification_title: Dalyvis <a href="%{resource_path}">%{resource_title}</a> bandė patvirtinti save kito dalyvio duomenimis (<a href="%{managed_user_path}">%{managed_user_name}</a>.
     verifications:
       authorizations:
         authorization_metadata:
