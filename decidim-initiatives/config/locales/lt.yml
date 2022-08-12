@@ -278,6 +278,7 @@ lt:
             update: Atnaujinti
           form:
             authorizations: Autorizacijos nustatymai
+            child_scope_threshold_enabled_help: 'Šis konfigūracijos variantas neleidžia turėti fizinių balsų. Jis leidžia turėti posrites ir dirba su autorizacijų tvarkykle kuri priskiria sritį naudotojui. Įsitikinkite, kad pasirenkate teisingą autorizaciją autorizacijų nustatymuose esančiuose žemiau. Tam, kad tai veiktų, sritys turi būti sukonfigūruotos hierarchiškai: 1. Motininis - N Jaunesnysis. Daugiau informacijos galite rasti <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank"> iniciatyvų administratorių dokumentacijos puslapyje</a>.'
             options: Variantai
             title: Bendra informacija
           initiative_type_scopes:
