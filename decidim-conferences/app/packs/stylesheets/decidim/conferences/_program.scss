@@ -1,0 +1,41 @@
+.conference__program{
+  @apply mb-16 md:mb-36;
+
+  &-selector{
+    @apply flex gap-1 justify-end [&~*]:mt-6;
+
+    // REDESIGN_PENDING: Uncomment this block once merged https://github.com/decidim/decidim/pull/9387
+    // Otherwise TailwindCSS won't compile
+    // [aria-expanded="true"]{
+    //   @apply button__secondary;
+    // }
+  }
+
+  &-item{
+    @apply grid grid-cols-12 gap-x-2 items-start first:[&>*]:col-span-2 last:[&>*]:col-span-10;
+  }
+
+  &-time{
+    @apply h-10 grid place-items-center border-b-2 border-tertiary text-center text-xl text-gray-2 font-semibold;
+  }
+
+  &-category{
+    @apply h-10 w-full bg-background grid place-items-center border-b-2 border-gray-3 text-center text-md text-gray-2 font-normal;
+
+    &-container{
+      @apply flex gap-2 [&>*]:grow;
+    }
+
+    &-content{
+      @apply pt-6 pb-8 first:[&>*]:block first:[&>*:not(:only-child)]:mb-10 [&>*:not(:first-child)]:mt-6;
+    }
+
+    &[aria-expanded="true"]{
+      @apply bg-background-4 border-secondary text-secondary font-semibold;
+    }
+  }
+
+  &-attribute{
+    @apply flex items-center gap-2 last:[&>*]:flex last:[&>*]:items-center last:[&>*]:gap-6;
+  }
+}
