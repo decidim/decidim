@@ -27,7 +27,7 @@
     }
 
     &-content{
-      @apply pt-6 pb-8 first:[&>*]:block first:[&>*:not(:only-child)]:mb-10 [&>*:not(:first-child)]:mt-6;
+      @apply pt-6 pb-8 first:[&>a]:block first:[&>a]:mb-10 [&>*:not(:first-child)]:mt-6;
     }
 
     &[aria-expanded="true"]{
