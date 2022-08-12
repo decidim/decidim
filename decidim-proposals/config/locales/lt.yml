@@ -487,6 +487,16 @@ lt:
             amendments_count: Pakeitimų skaičius
             assigned_valuators: Paskirti vertintojai
             authors: Autoriai
+            body: Pagrindinė dalis
+            comments_count: Komentarų skaičius
+            comments_negative_count: Prieš
+            comments_neutral_count: Neutralūs
+            comments_positive_count: Už
+            created_at: Sukūrimo data
+            documents: Dokumentai
+            link: Nuoroda
+            photos: Nuotraukos
+            proposals: Pasiūlymai
             ranking: "%{ranking} iš %{total}"
             related_meetings: Susiję susitikimai
             remove_assignment: Pašalinti užduotį
@@ -555,8 +565,45 @@ lt:
         filter_state_values:
           accepted: Priimta
       collaborative_drafts:
+        collaborative_draft:
+          withdraw:
+            irreversible_action_modal:
+              body: Uždarius juodraštį, jo nebebus galima redaguoti. Į juodraščio kūrimą negalės įsitraukti nauji autoriai ir nebus galima pateikti naujų nuomonių.
+              cancel: Atšaukti
+              ok: Atsiimti bendrąjį juodraštį
+              title: Tai yra negrįžtamas veiksmas
+            success: Bendrasis juodraštis atsiimtas.
+        create:
+          error: Kuriant šį bendrąjį juodraštį iškilo problema
+          success: Bendrasis juodraštis sukurtas.
+        edit:
+          attachment_legend: "(Neprivaloma) Pridėti priedą"
+          back: Atgal
+          select_a_category: Pasirinkite kategoriją
+          send: Siųsti
+          title: Redaguoti bendrąjį juodraštį
         filters:
+          all: Visi
+          amendment: Pataisos
+          category: Kategorija
+          open: Atidaryta
+          published: Paskelbta
+          related_to: Susiję su
           scope: Apimtis
+          search: Ieškoti
+          state: Būsena
+          withdrawn: Atsiimta
+        filters_small_view:
+          close_modal: Uždaryti modalinį langą
+          filter: Filtruoti
+          filter_by: Filtruoti pagal
+          unfold: Išskleisti
+        new:
+          add_file: Pridėti failą
+          edit_file: Redaguoti failą
+          send: Tęsti
+        new_collaborative_draft_button:
+          new_collaborative_draft: Naujas bendrasis projektas
         orders:
           label: 'Juodraščių rikiavimo kriterijai:'
           random: Atsitiktinai
@@ -602,10 +649,60 @@ lt:
       content_blocks:
         highlighted_proposals:
           proposals: Pasiūlymai
+      create:
+        error: Išsaugant šį pasiūlymą iškilo problema.
+        success: Pasiūlymas sukurtas. Išsaugotas kaip Juodraštis.
+      destroy_draft:
+        error: Šalinant bendrąjį juodraštį iškilo problema.
+        success: Pasiūlymo projektas pašalintas.
+      last_activity:
+        new_proposal_at_html: "<span>Naujas pasiūlymas %{link}</span>"
+        proposal_updated_at_html: "<span>Pasiūlymas atnaujintas %{link}</span>"
       models:
+        collaborative_draft:
+          fields:
+            authors: Autoriai
+            comments: Komentarai
         proposal:
           fields:
+            category: Kategorija
+            comments: Komentarai
+            id: ID
+            notes: Užrašai
+            official_proposal: Oficialus pasiūlymas
+            published_answer: Paskelbtas atsakymas
+            published_at: Paskelbta
             scope: Apimtis
+            state: Būsena
       proposals:
         filters:
           scope: Apimtis
+        filters_small_view:
+          filter_by: Filtruoti pagal
+          unfold: Išskleisti
+        index:
+          click_here: Žiūrėti visus pasiūlymus
+          new_proposal: Naujas pasiūlymas
+          see_all: Žiūrėti visus pasiūlymus
+          see_all_withdrawn: Žiūrėti visus atsiimtus pasiūlymus
+          text_banner: Jūs žiūrite autorių atsiimtų pasiūlymų sąrašą. %{go_back_link}.
+          view_proposal: Žiūrėti pasiūlymą
+        new:
+          send: Tęsti
+          title: Sukurti savo pasiūlymą
+        orders:
+          label: 'Rikiuoti pasiūlymus pagal:'
+          most_commented: Labiausiai komentuojamas
+          most_endorsed: Labiausiai paremtas
+          most_followed: Labiausiai sekamas
+          most_voted: Labiausiai balsuotas
+          random: Atsitiktinai
+          recent: Naujausi
+          with_more_authors: Turintys daug autorių
+        participatory_texts:
+          index:
+            document_index: Dokumentų rodyklė
+          view_index:
+            see_index: Žiūrėti rodyklę
+        preview:
+          announcement_body: Jūsų pasiūlymas buvo išsaugotas kaip juodraštis. Jis turi būti paskelbtas, kad jis būtų rodomas svetainėje.
