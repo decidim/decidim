@@ -54,6 +54,7 @@ en:
             body: Body
             created_at: Created at
             official_blog_post: Official post
+            published_at: Publish time
             title: title
       posts:
         show:
