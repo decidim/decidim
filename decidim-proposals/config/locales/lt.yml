@@ -511,6 +511,7 @@ lt:
           update_scope:
             invalid: 'Šie pasiūlymai jau turi %{subject_name} apimtį: %{proposals}.'
             select_a_proposal: Pasirinkite pasiūlymą
+            select_a_scope: Pasirinkite apimtį
         proposals_imports:
           create:
             invalid: Importuojant pasiūlymus iškilo problema
@@ -528,6 +529,7 @@ lt:
         proposals_splits:
           create:
             invalid: 'Iškilo problema skaidant pasirinktus pasiūlymus, nes kai kurie iš jų:'
+            success: Pasiūlymai išskaidyti į naujus.
         valuation_assignments:
           create:
             invalid: Pavedant pasiūlymus vertintojui įvyko klaida
@@ -565,9 +567,27 @@ lt:
           all: Visi
         filter_state_values:
           accepted: Priimta
+          all: Visi
+          evaluating: Vertinama
+          not_answered: Neatsakyta
+          rejected: Atmesta
+        filter_type_values:
+          all: Visi
+          amendments: Pakeitimai
+          proposals: Pasiūlymai
       collaborative_drafts:
         collaborative_draft:
+          publish:
+            error: Skelbiant bendrąjį juodraštį iškilo problema.
+            irreversible_action_modal:
+              body: Paskelbus juodraštį, kaip pasiūlymą, jo nebebus galima redaguoti. Į pasiūlymo kūrimą negalės įsitraukti nauji autoriai ir nebus galima pateikti naujų nuomonių.
+              cancel: Atšaukti
+              ok: Paskelbti kaip Pasiūlymą
+              title: Tai yra negrįžtamas veiksmas
+            success: Bendrasis juodraštis paskelbtas kaip pasiūlymas.
+          view_collaborative_draft: Peržiūrėti Bendrąjį Juodraštį
           withdraw:
+            error: Uždarant bendrąjį juodraštį iškilo problema.
             irreversible_action_modal:
               body: Uždarius juodraštį, jo nebebus galima redaguoti. Į juodraščio kūrimą negalės įsitraukti nauji autoriai ir nebus galima pateikti naujų nuomonių.
               cancel: Atšaukti
@@ -607,6 +627,7 @@ lt:
           new_collaborative_draft: Naujas bendrasis projektas
         orders:
           label: 'Juodraščių rikiavimo kriterijai:'
+          most_contributed: Prie kurio labiausiai prisidėta
           random: Atsitiktinai
           recent: Naujausi
         requests:
@@ -676,9 +697,45 @@ lt:
             scope: Apimtis
             state: Būsena
       proposals:
+        compare:
+          title: Panašūs Pasiūlymai
+        complete:
+          send: Siųsti
+          title: Užbaikite savo pasiūlymą
+        dynamic_map_instructions:
+          description: Koordinatės bus atnaujintos paspaudus mygtuką „Peržiūrėti“. Tačiau adresas nesikeičia.
+          instructions: Galite perkelti tašką žemėlapyje.
+        edit:
+          add_documents: Pridėti dokumentus
+          add_image: Pridėti paveikslėlį
+          attachment_legend: "(Neprivaloma) Pridėti priedą"
+          back: Atgal
+          edit_documents: Redaguoti dokumentus
+          edit_image: Redaguoti atvaizdą
+          gallery_legend: "(Neprivaloma) Pridėkite vaizdą prie pasiūlymo kortelės"
+          select_a_category: Pasirinkite kategoriją
+          send: Siųsti
+          title: Redaguoti pasiūlymą
+        edit_draft:
+          discard: Ištrinti šį juodraštį
+          discard_confirmation: Ar tikrai norite ištrinti šį pasiūlymo juodraštį?
+          send: Peržiūrėti
+          title: Redaguoti pasiūlymo projektą
         filters:
+          activity: Mano veikla
+          all: Visi
+          amendment_type: Tipas
+          category: Kategorija
+          my_proposals: Mano pasiūlymai
+          origin: Kilmė
+          related_to: Susiję su
           scope: Apimtis
+          search: Ieškoti
+          state: Būsena
+          type: Tipas
+          voted: Balsuota
         filters_small_view:
+          close_modal: Uždaryti modalinį langą
           filter_by: Filtruoti pagal
           unfold: Išskleisti
         index:
@@ -707,3 +764,55 @@ lt:
             see_index: Žiūrėti rodyklę
         preview:
           announcement_body: Jūsų pasiūlymas buvo išsaugotas kaip juodraštis. Jis turi būti paskelbtas, kad jis būtų rodomas svetainėje.
+          announcement_title: Jūsų pasiūlymas dar nepaskelbtas
+          modify: Modifikuoti pasiūlymą
+          publish: Paskelbti
+          title: Paskelbkite savo pasiūlymą
+        proposal:
+          creation_date: 'Sukūrimo data: %{date}'
+          view_proposal: Žiūrėti pasiūlymą
+        proposals:
+          empty: Pasiūlymų dar nėra
+          empty_filters: Pagal šį kriterijų nėra nė vieno pasiūlymo
+        show:
+          answer: Atsakymas
+          back_to: Grįžti į
+          back_to_list: Grįžti į sąrašą
+          changes_at_title: '„%{title}“ pakeitimas'
+          comments: Komentarai
+          edit_proposal: Redaguoti pasiūlymą
+          estimated_cost: Numatomos išlaidos
+          link_to_collaborative_draft_help_text: Šis pasiūlymas yra bendro projekto rezultatas. Peržiūrėkite istoriją
+          link_to_proposal_from_emendation_text: Žiūrėti Pasiūlymą
+          proposal_accepted_reason: 'Šis pasiūlymas buvo priimtas, nes:'
+          proposal_in_evaluation_reason: Šis pasiūlymas šiuo metu vertinamas
+          proposal_rejected_reason: 'Šis pasiūlymas buvo atmestas, nes:'
+      proposals_picker:
+        choose_proposals: Pasirinkti pasiūlymus
+        close: Uždaryti
+        more_proposals: Yra dar %{number} pasiūlymai (-ų). Kad nustatytumėte jų vietą, patikslinkite savo paiešką.
+        no_proposals: Jūsų paieškos kriterijus atitinkančių pasiūlymų nerasta arba pasiūlymų nėra.
+      publish:
+        error: Skelbiant šį pasiūlymą iškilo problema.
+        success: Pasiūlymas paskelbtas.
+      publish_answers:
+        success: Pasiūlymų atsakymai paskelbti.
+      update:
+        error: Išsaugant šį pasiūlymą iškilo problema.
+        success: Pasiūlymas atnaujintas.
+      update_draft:
+        error: Išsaugant bendrąjį juodraštį iškilo problema.
+        success: Pasiūlymo juodraštis atnaujintas.
+      versions:
+        collaborative_drafts:
+          back_to_resource: Grįžti į bendrąjį juodraštį
+        index:
+          title: Versijos
+        proposals:
+          back_to_resource: Grįžti į pasiūlymą
+    resource_links:
+      copied_from_component:
+        proposal_proposal: Susiję pasiūlymai
+    statistics:
+      proposals_accepted: Priimti Pasiūlymai
+      proposals_count: Pasiūlymai
