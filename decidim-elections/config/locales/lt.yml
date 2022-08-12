@@ -309,6 +309,7 @@ lt:
             success: Trūkstančio patikėtinio ataskaita išsiųsta į Skelbimų Lentą
             tally_completion: Šis procesas bus įvykdytas kai visi patikėtiniai bus aktyvūs arba pažymėti kaip trūkstantys. Reikia bent %{quorum} patikėtinių, kad įvykdyti šį procesą.
             title: Skaičiavimo procesas
+            undo_mark_as_missing: Patikėtinis netyčia pažymėtas kaip trūkstantis gali dalyvauti prieš pasibaigiant procesui. Jis gali atlikti savo užduotis kaip įprasta.
           tally_ended:
             answer: Atsakymas
             not_selected: Nepasrinkta
