@@ -1,6 +1,6 @@
-<%= render partial: "decidim/shared/boxes" %>
+<%= render partial: "decidim/devise/shared/boxes" %>
 
-<div class="answer-questionnaire">
+<div class="answer-questionnaire mt-12">
   <ol class="answer-questionnaire__step">
     <%= cell("decidim/forms/question_readonly", collection: @questionnaire.questions.not_conditioned) %>
   </ol>
