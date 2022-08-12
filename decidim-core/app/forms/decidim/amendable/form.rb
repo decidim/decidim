@@ -67,7 +67,7 @@ module Decidim
 
           errors.map do |hash|
             error = hash.delete(:error)
-            @amendable_form.errors.add(key, error, **hash) unless @amendable_form.errors.details[key].include? error: error
+            @amendable_form.errors.add(key, error, **hash) unless @amendable_form.errors.details[key].include?(error:)
           end
         end
       end
