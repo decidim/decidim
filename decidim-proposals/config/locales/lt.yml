@@ -410,12 +410,23 @@ lt:
             merge: Sulieti į vieną
             merge_button: Sulieti
             publish: Publikuoti
+            publish_answers: Skelbti atsakymus
             select_component: Pasirinkite komponentą
             selected: pasirinkta
             split: Išskaidyti pasiūlymus
             split_button: Skaidyti
             title: Pasiūlymai
+            update: Atnaujinti
+            update_scope_button: Atnaujinti apimtį
+          new:
+            create: Sukurti
+            title: Sukurti pasiūlymą
+          publish_answers:
+            number_of_proposals: Bus paskelbti atsakymai į %{number} pasiūlymus (-ų).
+            select_a_proposal: Pasirinkite pasiūlymą
           show:
+            amendments_count: Pakeitimų skaičius
+            assigned_valuators: Paskirti vertintojai
             ranking: "%{ranking} iš %{total}"
             related_meetings: Susiję susitikimai
             remove_assignment: Pašalinti užduotį
