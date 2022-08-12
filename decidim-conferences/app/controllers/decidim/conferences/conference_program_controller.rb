@@ -6,7 +6,9 @@ module Decidim
       include ParticipatorySpaceContext
       helper Decidim::SanitizeHelper
       helper Decidim::Conferences::ConferenceProgramHelper
-      participatory_space_layout only: :show
+      # participatory_space_layout only: :show
+
+      redesign_participatory_space_layout
 
       helper_method :collection, :conference, :meeting_days, :meeting_component
 
