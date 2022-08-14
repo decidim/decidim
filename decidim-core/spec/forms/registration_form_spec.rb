@@ -4,7 +4,9 @@ require "spec_helper"
 
 module Decidim
   describe RegistrationForm do
-    subject do
+    subject { form }
+
+    let(:form) do
       described_class.from_params(
         attributes
       ).with_context(
@@ -19,6 +21,7 @@ module Decidim
     let(:password) { "S4CGQ9AM4ttJdPKS" }
     let(:password_confirmation) { password }
     let(:tos_agreement) { "1" }
+    let(:newsletter) { "1" }
 
     let(:attributes) do
       {
@@ -27,7 +30,8 @@ module Decidim
         email:,
         password:,
         password_confirmation:,
-        tos_agreement:
+        tos_agreement:,
+        newsletter:
       }
     end
 
@@ -139,6 +143,20 @@ module Decidim
       let(:tos_agreement) { "0" }
 
       it { is_expected.to be_invalid }
+    end
+
+    describe "#newsletter_at" do
+      subject { form.newsletter_at }
+
+      let(:current_time) { Time.current }
+
+      it { is_expected.to be_between(current_time - 1.minute, current_time + 1.minute) }
+
+      context "when newsletter was not ordered" do
+        let(:newsletter) { "0" }
+
+        it { is_expected.to be_nil }
+      end
     end
   end
 end

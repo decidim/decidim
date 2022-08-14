@@ -16,6 +16,7 @@ module Decidim
       return broadcast(:invalid) if form.invalid?
 
       user.password = form.password
+      user.password_confirmation = form.password_confirmation
 
       if user.save
         broadcast(:ok)

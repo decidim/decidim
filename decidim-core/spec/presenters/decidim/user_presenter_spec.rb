@@ -83,5 +83,21 @@ module Decidim
         it { is_expected.to eq("http://#{host}/profiles/#{user.nickname}") }
       end
     end
+
+    describe "#officialization_text" do
+      subject { described_class.new(user).officialization_text }
+
+      it "returns the default officialization text" do
+        expect(subject).to eq("This participant is publicly verified, his/her name or role has been verified to correspond with his/her real name and role")
+      end
+
+      context "when the user is officialized as" do
+        let(:user) { build(:user, officialized_as: { en: "Foobar", ca: "Fóóbàr" }) }
+
+        it "returns the default officialization text" do
+          expect(subject).to eq("Foobar")
+        end
+      end
+    end
   end
 end
