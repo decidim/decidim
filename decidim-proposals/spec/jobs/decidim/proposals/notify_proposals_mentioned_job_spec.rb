@@ -12,8 +12,8 @@ module Decidim
       let(:comment) { create(:comment, commentable: commentable) }
       let(:proposal_component) { create(:proposal_component, organization: organization) }
       let(:proposal_metadata) { Decidim::ContentParsers::ProposalParser::Metadata.new([]) }
-      let(:users) { [create(:user, :confirmed, organization:)] }
-      let(:linked_proposal) { create(:proposal, component: proposal_component, users:) }
+      let(:users) { [create(:user, :confirmed, organization: organization)] }
+      let(:linked_proposal) { create(:proposal, component: proposal_component, users: users) }
       let(:linked_proposal_official) { create(:proposal, :official, component: proposal_component) }
       let(:author) { create(:user, organization: commentable.organization) }
 
