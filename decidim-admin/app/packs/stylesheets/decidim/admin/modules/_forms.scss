@@ -116,12 +116,10 @@ label,
   margin-bottom: $input-margin;
 }
 
-.hashtags__container{
-  &:not(.field){
-    .form-input-extra-before + span.form-error{
-      margin-top: -2.5rem !important;
-    }
-  }
+.form-input-extra-before{
+  margin-bottom: $form-spacing * 1.5;
+  display: block;
+  margin-top: $form-spacing * -1;
 }
 
 .custom-error{
