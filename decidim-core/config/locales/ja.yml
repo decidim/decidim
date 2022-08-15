@@ -588,6 +588,9 @@ ja:
       identities:
         done: 完了
         select_identity: IDを選択
+    endorsers_list:
+      close: 閉じる
+      endorsed_by: オススメ
     errors:
       internal_server_error:
         title: サーバーに問題が発生しました
@@ -1713,7 +1716,10 @@ ja:
       data_consent:
         details:
           columns:
+            description: 説明
+            name: 名前
             service: サービス
+            type: 種別
           items:
             _session_id:
               description: ウェブページ間を移動したときにウェブサイト内のユーザーをウェブサイトが記憶できるようにします。
@@ -1725,6 +1731,7 @@ ja:
               service: このウェブサイト
           types:
             cookie: クッキー
+            local_storage: ローカルストレージ
         dialog:
           accept_all: すべて受け入れる
           accept_only_essential: 必須のみを受け入れる
@@ -1748,6 +1755,7 @@ ja:
         warning:
           all_categories: すべてのクッキー
           change_settings: Cookie の設定を変更する
+          consent_required: このコンテンツを表示するには %{categories} を有効にする必要があります。
       edit_link:
         edit: 編集
       footer:
