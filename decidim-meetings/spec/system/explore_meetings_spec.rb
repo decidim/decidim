@@ -33,7 +33,7 @@ describe "Explore meetings", :slow, type: :system do
 
       it "shows all the upcoming meetings" do
         visit_component
-        within ".date_check_boxes_tree_filter" do
+        within ".date_collection_radio_buttons_filter" do
           expect(find("input[value='upcoming']").checked?).to be(true)
         end
 
@@ -214,7 +214,7 @@ describe "Explore meetings", :slow, type: :system do
         it "lists filtered meetings" do
           visit_component
 
-          within ".date_check_boxes_tree_filter" do
+          within ".date_collection_radio_buttons_filter" do
             choose "Past"
           end
 
@@ -222,7 +222,7 @@ describe "Explore meetings", :slow, type: :system do
           expect(page).to have_content(translated(past_meeting1.title))
           expect(page).not_to have_content(translated(upcoming_meeting1.title))
 
-          within ".date_check_boxes_tree_filter" do
+          within ".date_collection_radio_buttons_filter" do
             choose "Upcoming"
           end
 
@@ -231,7 +231,7 @@ describe "Explore meetings", :slow, type: :system do
 
           expect(page).to have_css(".card--meeting", count: 8)
 
-          within ".date_check_boxes_tree_filter" do
+          within ".date_collection_radio_buttons_filter" do
             choose "All"
           end
 
@@ -243,7 +243,7 @@ describe "Explore meetings", :slow, type: :system do
         context "when there are multiple past meetings" do
           it "orders them by start date" do
             visit_component
-            within ".date_check_boxes_tree_filter" do
+            within ".date_collection_radio_buttons_filter" do
               choose "Past"
             end
 
@@ -258,7 +258,7 @@ describe "Explore meetings", :slow, type: :system do
         context "when there are multiple upcoming meetings" do
           it "orders them by start date" do
             visit_component
-            within ".date_check_boxes_tree_filter" do
+            within ".date_collection_radio_buttons_filter" do
               choose "Upcoming"
             end
 
@@ -273,7 +273,7 @@ describe "Explore meetings", :slow, type: :system do
         context "when there are multiple meetings" do
           it "orders them by start date" do
             visit_component
-            within ".date_check_boxes_tree_filter" do
+            within ".date_collection_radio_buttons_filter" do
               choose "All"
             end
 
@@ -293,7 +293,7 @@ describe "Explore meetings", :slow, type: :system do
         past_meeting = create(:meeting, :published, component: component, start_time: 1.day.ago)
         visit_component
 
-        within ".date_check_boxes_tree_filter" do
+        within ".date_collection_radio_buttons_filter" do
           choose "Past"
         end
 
