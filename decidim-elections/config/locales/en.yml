@@ -34,6 +34,14 @@ en:
           attributes:
             attachment:
               needs_to_be_reattached: Needs to be reattached
+        ballot_result:
+          attributes:
+            base:
+              total_count_invalid: The total number of answers doesn't match the valid/blank/null breakdown.
+        question_result:
+          attributes:
+            base:
+              blank_count_invalid: The total number of blank answers cannot be greater than the total of blank ballots.
         election:
           attributes:
             attachment:

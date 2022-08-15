@@ -5,10 +5,9 @@
   <div class="card__content">
     <div class="row">
       <%= form.fields_for "[ballot_results]", form.object.ballot_results do |ballot_form| %>
-        <%= content_tag :span,
-                        "",
-                        id: "closure_result-total-ballots",
-                        data: { total_ballots: ballot_form.object.total_ballots_count } %>
+        <%= ballot_form.hidden_field(:total_ballots_count) %>
+
+        <%= ballot_form.error_for :base %>
 
         <%= content_tag :div,
                         ballot_form.number_field(

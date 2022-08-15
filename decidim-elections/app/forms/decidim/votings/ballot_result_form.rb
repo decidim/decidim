@@ -17,7 +17,13 @@ module Decidim
       validate :ballot_total_count
 
       def ballot_total_count
-        total_ballots_count == (valid_ballots_count.to_i + blank_ballots_count.to_i + null_ballots_count.to_i)
+        return if total_ballots_count == (valid_ballots_count.to_i + blank_ballots_count.to_i + null_ballots_count.to_i)
+
+        errors.add(:base, :total_count_invalid)
+        errors.add(:total_ballots_count, :invalid)
+        errors.add(:valid_ballots_count, :invalid)
+        errors.add(:blank_ballots_count, :invalid)
+        errors.add(:null_ballots_count, :invalid)
       end
 
       # rubocop:disable Metrics/PerceivedComplexity

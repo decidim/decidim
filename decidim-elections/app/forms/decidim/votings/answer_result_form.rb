@@ -21,6 +21,10 @@ module Decidim
         self.question_id = answer.question.id
         self.value = closure.results&.valid_answers&.find_by(answer:)&.value
       end
+
+      def answer
+        @answer ||= Decidim::Elections::Answer.find_by(id: id)
+      end
     end
   end
 end

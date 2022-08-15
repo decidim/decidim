@@ -24,7 +24,6 @@ Decidim::Webpacker.register_entrypoints(
   decidim_votings_admin_polling_officers_picker: "#{base_path}/app/packs/entrypoints/decidim_votings_admin_polling_officers_picker.js",
   decidim_votings_voting_polling_officer_zone_in_person_vote: "#{base_path}/app/packs/entrypoints/decidim_votings_voting_polling_officer_zone-in-person-vote.js",
   decidim_votings_voting_polling_officer_zone_new_closure: "#{base_path}/app/packs/entrypoints/decidim_votings_voting_polling_officer_zone-new-closure.js",
-  decidim_votings_voting_polling_officer_zone_edit_closure: "#{base_path}/app/packs/entrypoints/decidim_votings_voting_polling_officer_zone-edit-closure.js",
   decidim_votings_voting_polling_officer_zone_sign_closure: "#{base_path}/app/packs/entrypoints/decidim_votings_voting_polling_officer_zone-sign-closure.js",
   decidim_votings_admin_polling_stations_form: "#{base_path}/app/packs/entrypoints/decidim_votings_admin_polling_stations_form.js",
   decidim_votings_admin_update_census_dataset_status: "#{base_path}/app/packs/entrypoints/decidim_votings_admin_update_census_dataset_status.js",

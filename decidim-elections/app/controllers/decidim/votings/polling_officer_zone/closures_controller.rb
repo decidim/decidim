@@ -58,14 +58,15 @@ module Decidim
           CreatePollingStationResults.call(@form, closure) do
             on(:ok) do
               flash[:notice] = t(".success")
+              redirect_to polling_officer_election_closure_path(polling_officer, election)
             end
 
             on(:invalid) do
-              flash[:alert] = t(".error")
+              flash.now[:alert] = t(".error")
+
+              render :edit
             end
           end
-
-          redirect_to polling_officer_election_closure_path(polling_officer, election)
         end
 
         def destroy
