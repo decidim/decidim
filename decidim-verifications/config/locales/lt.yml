@@ -32,6 +32,16 @@ lt:
           button_before: Atšaukti iki datos
           destroy:
             confirm: Atšaukus leidimus iki datos, veiksmo nebus galima anuliuoti. Ar tikrai norite tęsti?
+            confirm_all: Atšaukus visus leidimus, veiksmo nebus galima anuliuoti. Ar tikrai norite tęsti?
+          destroy_nok: Atšaukiant leidimus, iškilo problema.
+          destroy_ok: Visi sutampantys leidimai atšaukti.
+          info: Bendras patvirtintų dalyvių skaičius – %{count}.
+          no_data: Patvirtintų dalyvių nėra
+          title: Įgaliojimų atėmimas
+        authorization_workflows: Autorizacijos
+    admin_log:
+      organization:
+        update_id_documents_config: "%{user_name} atnaujino tapatybės dokumentų tikrinimo konfigūraciją"
     authorization_handlers:
       admin:
         csv_census:
