@@ -212,7 +212,7 @@ describe "Explore meeting directory", type: :system do
 
     context "with all meetings" do
       it "orders them by start date" do
-        visit "#{directory}?per_page=20"
+        visit directory
 
         within ".date_check_boxes_tree_filter" do
           choose "All"
