@@ -1,6 +1,9 @@
 ---
 en:
   activemodel:
+    attributes:
+      post:
+        published_at: "Publish time"
     models:
       decidim/blogs/create_post_event: New blog post
   activerecord:

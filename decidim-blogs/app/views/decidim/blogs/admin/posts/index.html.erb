@@ -35,12 +35,12 @@
               <td>
                 <%= l post.created_at, format: "%d/%m/%Y - %H:%M" %>
               </td>
-              <td>
-              <% if post.published_at %>
-                <%= l post.published_at, format: "%d/%m/%Y - %H:%M" %>
-              <% else %>
-                <%= "---" %>
-              <% end %>
+              <% publish_data = set_up_publicatin_time(post.published_at, post.created_at) %>
+              <td class="table-list__actions">
+                <%= content_tag :span, class: "padding-3", data: { tooltip: true, disable_hover: false, click_open: false }, title: publish_data[:popup] do
+                      publish_data[:icon]
+                    end %>
+                <%= publish_data[:status] %>
               </td>
               <td class="table-list__actions">
                 <% if allowed_to? :update, :blogpost, blog_post: post %>

@@ -39,6 +39,7 @@ module Decidim
             @user,
             title: form.title,
             body: form.body,
+            published_at: @form.published_at,
             author: form.author
           )
         end
