@@ -301,19 +301,19 @@ describe "Explore meetings", :slow, type: :system do
         expect(page).to have_content(translated(past_meeting.title))
 
         filter_params = CGI.parse(URI.parse(page.current_url).query)
-        base_url = "http://#{organization.host}:#{Capybara.server_port}"
+        base_url = "http://#{organization.host}"
 
         click_button "Export calendar"
         expect(page).to have_content("Calendar URL:")
         expect(page).to have_css("#calendarShare", visible: :visible)
-        short_url = nil
+        share_url = nil
         within "#calendarShare" do
-          input = find("input#urlCalendarUrl[readonly]")
-          short_url = input.value
-          expect(short_url).to match(%r{^#{base_url}/s/[a-zA-Z0-9]{10}$})
+          input = find("input[readonly]")
+          share_url = input.value
+          expect(share_url).to match(%r{^#{base_url}:[0-9]+/processes/#{participatory_process.slug}/f/#{component.id}/calendar$})
         end
 
-        visit short_url
+        visit share_url
         expect(page).to have_css(".card--meeting", count: 1)
         expect(page).to have_content(translated(past_meeting.title))
         expect(page).to have_current_path(/^#{main_component_path(component)}/)
