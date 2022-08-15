@@ -161,6 +161,18 @@ module Decidim
       end
     end
 
+    describe "#newsletter_notifications_at" do
+      let(:current_time) { Time.current }
+
+      it { expect(subject.newsletter_notifications_at).to be_between(current_time - 1.minute, current_time + 1.minute) }
+
+      context "when the newsletter notifications were not ordered" do
+        let(:newsletter_notifications) { "0" }
+
+        it { expect(subject.newsletter_notifications_at).to be_nil }
+      end
+    end
+
     describe "#user_is_moderator?" do
       context "when an organization has a moderator and a regular user" do
         let(:organization) { create :organization, available_locales: [:en] }
