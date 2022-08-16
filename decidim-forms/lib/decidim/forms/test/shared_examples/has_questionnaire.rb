@@ -12,7 +12,7 @@ shared_examples_for "has questionnaire" do
 
       expect(page).not_to have_css(".form.answer-questionnaire")
 
-      within ".questionnaire-question_readonly" do
+      within "[data-question-readonly]" do
         expect(page).to have_i18n_content(question.body)
       end
     end

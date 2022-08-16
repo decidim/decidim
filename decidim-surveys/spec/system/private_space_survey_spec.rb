@@ -52,16 +52,14 @@ describe "Private Space Answer a survey", type: :system do
       it "does not allow answering the survey" do
         visit_component
 
-        within "div.grow" do
-          expect(page).to have_i18n_content(questionnaire.title)
-          expect(page).to have_i18n_content(questionnaire.description)
+        expect(page).to have_i18n_content(questionnaire.title)
+        expect(page).to have_i18n_content(questionnaire.description)
 
-          expect(page).not_to have_css(".form.answer-questionnaire")
+        expect(page).not_to have_css(".form.answer-questionnaire")
 
-          within ".questionnaire-question_readonly" do
-            expect(page).to have_i18n_content(question.body)
-            expect(page).not_to have_i18n_content(question_conditioned.body)
-          end
+        within "[data-question-readonly]" do
+          expect(page).to have_i18n_content(question.body)
+          expect(page).not_to have_i18n_content(question_conditioned.body)
         end
       end
     end
@@ -101,14 +99,12 @@ describe "Private Space Answer a survey", type: :system do
         it "not allows answering the survey" do
           visit_component
 
-          within "div.grow" do
-            expect(page).to have_i18n_content(questionnaire.title)
-            expect(page).to have_i18n_content(questionnaire.description)
-            expect(page).to have_content "The form is available only for private users"
-            expect(page).to have_content "Form closed"
+          expect(page).to have_i18n_content(questionnaire.title)
+          expect(page).to have_i18n_content(questionnaire.description)
+          expect(page).to have_content "The form is available only for private users"
+          expect(page).to have_content "Form closed"
 
-            expect(page).to have_selector(".button[disabled]")
-          end
+          expect(page).to have_selector(".button[disabled]")
         end
       end
     end
