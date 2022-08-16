@@ -3,7 +3,7 @@
     @apply backdrop-brightness-[30%];
 
     &-text{
-      @apply container text-center text-white space-y-6 px-16 pt-10 pb-14;
+      @apply container text-center text-white space-y-6 px-16 pt-10 pb-14 md:[&_a_+_a]:ml-6;
     }
 
     &-slogan{
@@ -24,35 +24,6 @@
 
     &-item{
       @apply flex items-center gap-1 text-white font-semibold [&>svg]:fill-current;
-    }
-  }
-
-  &__section{
-    @apply space-y-8 py-16 first:pt-0 last:pb-0;
-
-    &-description{
-      @apply prose max-w-2xl;
-    }
-
-    &-2col{
-      @apply grid grid-cols-9 gap-x-4 place-items-start space-y-0;
-
-      > :nth-child(3n + 1),
-      > :nth-child(3n + 2){
-        @apply col-span-9 md:col-span-6;
-      }
-
-      > :nth-child(3n){
-        @apply col-span-9 md:col-span-3 row-span-2 md:order-2 justify-self-center flex md:flex-col gap-2 max-w-full overflow-x-auto;
-      }
-
-      > :nth-child(3n + 2){
-        @apply md:order-3;
-      }
-    }
-
-    & + &{
-      @apply border-t-2 border-background;
     }
   }
 
@@ -81,6 +52,22 @@
 
     &-address{
       @apply border-4 border-background rounded p-4 mt-4 first:mt-0;
+    }
+  }
+
+  &__box{
+    @apply flex flex-col gap-4 md:flex-row md:items-end justify-between border-2 border-background rounded p-6 first:[&>*]:space-y-4;
+
+    &-icon{
+      @apply w-8 h-8 text-tertiary fill-current;
+    }
+
+    &-title{
+      @apply text-2xl font-semibold;
+    }
+
+    &-description{
+      @apply text-lg text-gray-2;
     }
   }
 }

@@ -194,7 +194,7 @@ describe "Assemblies", type: :system do
         let(:show_statistics) { true }
 
         it "renders the stats for those components are visible" do
-          within ".section-statistics" do
+          within "[data-statistics]" do
             expect(page).to have_css("h3.section-heading", text: "STATISTICS")
             expect(page).to have_css(".statistic__title", text: "PROPOSALS")
             expect(page).to have_css(".statistic__number", text: "3")

@@ -18,7 +18,7 @@ module Decidim::ParticipatoryProcesses
 
     context "when rendering" do
       it "renders the statistics wrapper" do
-        expect(subject).to have_css(".section-statistics")
+        expect(subject).to have_css("[data-statistics]")
       end
 
       it "renders the title" do
@@ -26,7 +26,7 @@ module Decidim::ParticipatoryProcesses
       end
 
       it "renders each stat" do
-        expect(subject).to have_css(".statistic__data", count: 3)
+        expect(subject).to have_css("[data-statistic]", count: 3)
       end
     end
   end
