@@ -75,6 +75,7 @@ lt:
     'true': 'Taip'
   carrierwave:
     errors:
+      image_too_big: Paveikslėlis per didelis
       not_inside_organization: Dokumentas nepririštas prie jokios organizacijos
   date:
     formats:
@@ -90,6 +91,9 @@ lt:
       skip_button: Perieti į pagrindinį turinį
     account:
       blocked: Ši paskyra užblokuota dėl sąlygų pažeidimų
+      data_portability_export:
+        file_no_exists: Failas neegzistuoja
+        notice: Parsisiunčiami jūsų duomenys. Kai procesas bus baigtas, gausite e. laišką.
       delete:
         alert: Šis veiksmas negali būti pakeistas vėliau. Jei ištrinate paskyrą nebegalėsite prie jos prisijungti. Paskyros ištrynis anonimizuos Jūsų indėlius. Galėsite susikurti naują paskyrą, tačiau indėliai nebus jai priskirti.
         confirm:
@@ -102,6 +106,7 @@ lt:
         error: Ištrinant Jūsų paskyrą iškilo problema.
         success: Jūsų paskyra ištrinta.
       show:
+        available_locales_helper: Pasirinkite kalbą, kuria norite naršyti platformą ir gauti pranešimus
         change_password: Pakeisti slaptažodį
         update_account: Atnaujinti paskyrą
       update:
@@ -383,6 +388,8 @@ lt:
             amendments_enabled: Pataisos leidžiamos
             comments_enabled: Komentarai leidžiami
             comments_max_length: Komentarų maksimalus ilgis
+            dummy_global_attribute_1: Fiktyvus atributas 1
+            dummy_global_attribute_2: Fiktyvus atributas 2
             dummy_global_translatable_text: Testinis verčiamas tekstas
             enable_pads_creation: Leisti bendrų dokumentų kūrimą
             resources_permissions_enabled: Išteklių leidimai įjungti
@@ -394,6 +401,8 @@ lt:
             amendment_reaction_enabled: Pataisų reakcijos įjungtos
             amendments_visibility: Pataisų matomumas
             comments_blocked: Komentarai užblokuoti
+            dummy_step_attribute_1: Fiktyvaus veiksmo atributas 1
+            dummy_step_attribute_2: Fiktyvaus veiksmo atributas 2
             dummy_step_translatable_text: Testinis Verčiamas Tekstas
     contact: Kontaktas
     content_blocks:
@@ -437,6 +446,13 @@ lt:
       actions:
         login_before_access: Prašau prisijunkite prie savo paskyros
         unauthorized: Jūs neturite teisės atlikti šio veiksmo
+    data_portability:
+      export:
+        ready: Pasirengęs
+      show:
+        download_data: Parsisiųsti duomenis
+        download_data_description: Rinkmena su visais su Jūsų paskyra susijusiais duomenimis bus išsiųsta į <strong>%{user_email}</strong>. Šis el. laiškas turės .zip rinkmeną ir slaptažodį, su kuriuo reikės jį atidaryti.<br/><br/>Norėdami jį atidaryti, Jums reikės <a href="https://www.7-zip.org/">7-Zip</a>(Windows) arba <a href="https://www.keka.io/">Keka</a>(MacOS). Jei naudojate Linux, dažniausiai viskas bus paruošta iš anksto. Jei ne, galite naudoti <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> arba <a href="https://peazip.github.io">PeaZip</a>).
+        request_data: Prašyti duomenų
     datepicker:
       help_text: 'Pageidaujamas formatas: %{datepicker_format}'
     devise:
@@ -663,6 +679,9 @@ lt:
           email_subject: "%{nickname} atnaujino savo profilį"
           notification_title: '%{name} (%{nickname}) profilio puslapis, <a href="%{resource_path}">, kurį sekate</a> buvo atnaujintas.'
     export_mailer:
+      data_portability_export:
+        click_button: 'Spustelėkite ant sekančios nuorodos, kad atsisiųsti prieigos kodų duomenis.<br/>Failas bus prieinamas iki %{date}.<br/>Jums reikės <a href="https://www.7-zip.org/">7-Zip</a> (Windows), <a href="https://www.keka.io/en/">Keka</a> (MacOS) arba <a href="https://peazip.github.io">PeaZip</a> (Linux) kad jį atverti. Slaptažodis: %{password}'
+        download: Atsisiųsti
       export:
         ready: Pridedame jūsų eksporto suspaustos rinkmenos variantą.
       subject: Jūsų eksportuojamas „%{name}“ yra parengtas
@@ -702,6 +721,7 @@ lt:
         button: Nebesekti
         error: Nutraukiant šio ištekliaus sekimą iškilo problema.
     forms:
+      current_file: Ši rinkmena
       current_image: Dabartinis paveikslėlis
       default_image: Numatytas atvaizdas
       errors:
@@ -712,6 +732,8 @@ lt:
       file_help:
         file:
           explanation: 'Rinkmenai skirtos gairės:'
+          message_1: Turi būti paveikslėlis arba dokumentas.
+          message_2: Paveikslėliams, rekomenduojame naudoti horizontalius formatus ir platforma juos apkirps. CSV rinkmenoms, atskyrimas tarp stulpelių turi būti kablelis
         image:
           explanation: 'Paveikslėliui skirtos gairės:'
           message_1: Pageidautinas horizontalaus formato paveikslėlis be teksto.
@@ -719,6 +741,7 @@ lt:
       file_validation:
         allowed_file_extensions: 'Leidžiami rinkmenų plėtiniai: %{extensions}'
         max_file_size: 'Maksimalus rinkmenos dydis: %{megabytes} MB'
+      remove_this_file: Pašalinti šią rinkmeną
     gamification:
       all_badges_link: Žiūrėti visus prieinamus ženklelius.
       badges:
@@ -831,6 +854,7 @@ lt:
       no_user_groups: Dar nepriklauso nė vienai grupei.
       roles:
         admin: Administratorius
+        creator: Kūrėjas
         member: Narys
       update:
         error: Atnaujinant šią grupę iškilo problema
@@ -1035,11 +1059,14 @@ lt:
         administrators: Administratoriai
         allow_public_contact: Leiskite bet kam jums siųsti tiesiogines žinutes, net jeigu jų nesekate.
         direct_messages: Gauti tiesioginius pranešimus iš bet kurio asmens
+        email_on_moderations: Noriu gauti el. laišką kiekvieną kartą kai kažkas (turinys ar naudotojas) raportuojami.
+        email_on_notification: Noriu gauti e. laišką kiekvieną kartą, kai gaunu pranešimą.
         everything_followed: Viskas, ką seku
         newsletter_notifications: Noriu gauti naujienlaiškius
         newsletters: Naujienlaiškiai
         own_activity: Mano veikla, pvz., kai kas nors pakomentuoja mano pasiūlymą arba pamini mane
         receive_notifications_about: Aš noriu gauti pranešimus apie
+        send_notifications_by_email: Siųsti pranešimus el. paštu
         update_notifications_settings: Išsaugoti pakeitimus
       update:
         error: Atnaujinant jūsų pranešimų nuostatas iškilo problema.
@@ -1097,6 +1124,7 @@ lt:
           agreement: Aš sutinku su šiomis sąlygomis
           legend: Sutikti su naudojimosi nuostatomis ir sąlygomis
         refuse:
+          modal_body: Jeigu nesutiksite, negalėsite naudotis platforma, <a href="%{data_portability_path}">pasisiųsti savo duomenų</a> ir (arba) <a href="%{delete_path}">pašalinti savo paskyros</a>.
           modal_btn_continue: Sutikti su sąlygomis ir tęsti
           modal_btn_exit: Peržiūrėsiu vėliau
           modal_button: Nesutikti su sąlygomis
@@ -1401,6 +1429,7 @@ lt:
     invitations:
       edit:
         header: Baikite kurti savo paskyrą
+        nickname_help: Jūsų naudotojo vardas %{organization}.
         submit_button: Išsaugoti
         subtitle: Jei priimate kvietimą, nustatykite savo naudotojo vardą ir slaptažodį.
       invitation_removed: Jūsų kvietimas pašalintas.
@@ -1467,6 +1496,7 @@ lt:
     passwords:
       edit:
         change_my_password: Keisti slaptažodį
+        change_your_password: Pasikeiskite slaptažodį
         confirm_new_password: Patvirtinkite naują slaptažodį
         new_password: Naujas slaptažodis
         password_help: "%{minimun_characters} minimalus rašmenų skaičius, rašmenys neturi būti pernelyg įprasti (pvz., 123456) ir turi skirtis nuo jūsų naudotojo vardo ir e. pašto adreso."
@@ -1563,6 +1593,10 @@ lt:
     timestamp_error_message: Atsiprašome, tai buvo per greitai! Pateikite iš naujo.
   layouts:
     decidim:
+      cookie_warning:
+        description_html: Šioje svetainėje naudojami slapukai. Toliau naršydami svetainėje sutinkate, kad būtų naudojami slapukai. %{link}.
+        link_label: Daugiau informacijos apie slapukus
+        ok: Sutinku
       edit_link:
         edit: Redaguoti
       footer:
@@ -1683,8 +1717,14 @@ lt:
       option_unified: Vieningas
   views:
     pagination:
+      first: "&laquo; Pirmas"
+      first_title: Nuoroda į pirmąjį puslapį
+      last: Paskutinis &raquo;
+      last_title: Nuoroda į paskutinį puslapį
+      next: Kitas &rsaquo;
       next_title: Nuoroda į kitą puslapį
       pagination: Puslapių numeravimas
+      previous: "&lsaquo; Ankst."
       previous_title: Nuoroda į ankstesnį puslapį
       title: 'Puslapio numeris: '
       truncate: "&hellip;"
