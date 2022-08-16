@@ -154,6 +154,9 @@ lt:
       destroy:
         error: Ištrinant Jūsų paskyrą iškilo problema.
         success: Jūsų paskyra ištrinta.
+      download_your_data_export:
+        file_no_exists: Failas neegzistuoja
+        notice: Parsisiunčiami jūsų duomenys. Kai procesas bus baigtas, gausite e. laišką.
       email_change:
         body1: Išsiuntėme laišką į %{unconfirmed_email} el. pašto patvirtinimui.
         body2: Ar reikėtų naujo el. pašto patvirtinimo laiško? %{resend_link} arba %{cancel_link}.
@@ -482,6 +485,8 @@ lt:
             amendments_enabled: Pataisos leidžiamos
             comments_enabled: Komentarai leidžiami
             comments_max_length: Komentarų maksimalus ilgis
+            dummy_global_attribute1: Fiktyvus atributas 1
+            dummy_global_attribute2: Fiktyvus atributas 2
             dummy_global_translatable_text: Testinis verčiamas tekstas
             enable_pads_creation: Leisti bendrų dokumentų kūrimą
             resources_permissions_enabled: Išteklių leidimai įjungti
@@ -493,6 +498,8 @@ lt:
             amendment_reaction_enabled: Pataisų reakcijos įjungtos
             amendments_visibility: Pataisų matomumas
             comments_blocked: Komentarai užblokuoti
+            dummy_step_attribute1: Fiktyvaus veiksmo atributas 1
+            dummy_step_attribute2: Fiktyvaus veiksmo atributas 2
             dummy_step_translatable_text: Testinis Verčiamas Tekstas
     contact: Kontaktas
     content_blocks:
@@ -600,6 +607,13 @@ lt:
           this_application_will_not_be_able_to: 'Ši programa negalės:'
           update_profile: Atnaujinkite savo profilį
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> nori naudoti Jūsų paskyrą"
+    download_your_data:
+      export:
+        ready: Pasirengęs
+      show:
+        download_data: Parsisiųsti duomenis
+        download_data_description: Rinkmena su visais su Jūsų paskyra susijusiais duomenimis bus išsiųsta į <strong>%{user_email}</strong>. Šis el. laiškas turės .zip rinkmeną ir slaptažodį, su kuriuo reikės jį atidaryti.<br/><br/>Norėdami jį atidaryti, Jums reikės <a href="https://www.7-zip.org/">7-Zip</a>(Windows) arba <a href="https://www.keka.io/">Keka</a>(MacOS). Jei naudojate Linux, dažniausiai viskas bus paruošta iš anksto. Jei ne, galite naudoti <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> arba <a href="https://peazip.github.io">PeaZip</a>).
+        request_data: Prašyti duomenų
     editor_images:
       create:
         error: Klaida įkeliant paveikslėlį
@@ -773,6 +787,9 @@ lt:
           email_subject: "%{name} buvo oficializuotas"
           notification_title: Dalyvis %{name} (%{nickname}) buvo oficializuotas.
     export_mailer:
+      download_your_data_export:
+        click_button: 'Spustelėkite ant sekančios nuorodos, kad atsisiųsti prieigos kodų duomenis.<br/>Failas bus prieinamas iki %{date}.<br/>Jums reikės <a href="https://www.7-zip.org/">7-Zip</a> (Windows), <a href="https://www.keka.io/en/">Keka</a> (MacOS) arba <a href="https://peazip.github.io">PeaZip</a> (Linux) kad jį atverti. Slaptažodis: %{password}'
+        download: Atsisiųsti
       export:
         ready: Pridedame jūsų eksporto suspaustos rinkmenos variantą.
       subject: Jūsų eksportuojamas „%{name}“ yra parengtas
@@ -822,6 +839,7 @@ lt:
       file_help:
         file:
           explanation: 'Rinkmenai skirtos gairės:'
+          message_1: Turi būti paveikslėlis arba dokumentas.
           message_2: Paveikslėliams geriau naudokite horizontalųjį formatą, programa apkarpys paveikslėlį.
         icon:
           explanation: 'Piktogramai skirtos gairės:'
@@ -1925,8 +1943,14 @@ lt:
       option_unified: Vieningas
   views:
     pagination:
+      first: "&laquo; Pirmas"
+      first_title: Nuoroda į pirmąjį puslapį
+      last: Paskutinis &raquo;
+      last_title: Nuoroda į paskutinį puslapį
+      next: Kitas &rsaquo;
       next_title: Nuoroda į kitą puslapį
       pagination: Puslapių numeravimas
+      previous: "&lsaquo; Ankst."
       previous_title: Nuoroda į ankstesnį puslapį
       title: 'Puslapio numeris: '
       truncate: "&hellip;"
