@@ -1012,12 +1012,14 @@ lt:
                 message_2: Stulpeliai privalo būti išskiriami kabliataškiu (";").
               has_ballot_styles_message: Jūs sukuriate balsavimo biuletenio tipus. Prašome įsitikinti, kad "%{ballot_style_code_header}" laukelis esantis CSV faile sutampa su pageidaujamo biuletenio tipo kodu.
               info_message: "<strong>Kol kas nėra sukurto surašymo.</strong> Kad jį sukurti, prašome naudoti žemiau nurodyta CSV failo importo formą."
+              missing_ballot_styles_message: 'Šiam balsavimui nėra biuletenio stiliaus. Jei norėtumėt pridėti sąlyginį klausimą (t.y. pateikti skirtingus klausimus skirtingiems balsuotojams pvz. priklausomai nuo jų gyvenamosios vietos), turėtumėt numatyti <a href=%{ballot_styles_admin_path}> biuletenių stilių</a><strong>prieš</strong>importuojant surašymą. Jei norėtumėt visiems balsuotojams adresuoti tą patį klausimą, galite importuoti surašymą.'
               title: Sukurkite surašymą
             show:
               heading: Balsavimo erdvės surašymas
             upload_info:
               csv_example_with_ballot_style: 'Pavyzdinis failas <strong>su</strong> balsavimo biuletenio tipais:'
               csv_example_without_ballot_style: 'Pavyzdinis failas <strong>be</strong> balsavimo biuletenio tipų:'
+              csv_header_after: Neįtraukite paskutinio lauko (%{ballot_style_code_header}) jei Jums nereikia bliutelenio stilių ir sąlyginių klausimų
               csv_header_before: 'Surašymo failas privalo būti CSV su šia antrašte:'
         document_types:
           dni: Asmens tapatybės dokumentas
@@ -1209,6 +1211,7 @@ lt:
           form_title: 'Užpildykite šią formą, kad patikrinti savo surašymo duomenis:'
           invalid: Tikrinant surašymo duomenis iškilo problema.
           success:
+            info: Turėjote gauti prieigos kodą per paštą. Jei negavote, išsiųskite užklausą čia
             title: Jūsų surašymo duomenys teisingi!
           title: Ar galiu balsuoti?
         check_fields:
@@ -1224,6 +1227,12 @@ lt:
           select: Pasirinkite dokumento tipą
           year: Metai
           year_placeholder: MMMM
+        count:
+          title:
+            one: "%{count} balsavimas"
+            few: "%{count} balsavimai"
+            many: "%{count} balsavimai"
+            other: "%{count} balsavimai"
         elections_log:
           bb_status: Rinkimų būsena
           description: Rinkimų ataskaitoje bus pateikta visa aktuali informacija apie kiekvieną balsavimą. Pavyzdžiui pagrindinės ceremonijos būsena, taškai arba jeigu rezultatai jau paskelbti. Spustelėkite ant rinkimų, apie kuriuos norite gauti informaciją.
