@@ -933,6 +933,7 @@ lt:
         monitoring_committee_verify_elections:
           index:
             download: Atsisiųsti
+            how_to_checksum: 'Norėdami įsitikinti, kad atsisiųsta rinkmena - tvarkinga, paleiskite šią komandą konsolėje ir patikrinkite ar išeitis sutampa su šia patikrinimo suma:'
             how_to_download: Norėdami patvirtinti rinkimus, atsisiųskite patvirtinimo failą iš viršuje esančios lentelės.
             how_to_run_verifier: 'Parsisiuntus rinkimeną galite pradėti naudoti universalų tikrintoją. Klonuokite <a href=''https://github.com/decidim/decidim-bulletin-board''>šią repozitoriją</a> ir iš šakninio aplanko paleiskite šią komandą:'
             how_to_title: Kaip patikrinti rinkimų galiojimą
