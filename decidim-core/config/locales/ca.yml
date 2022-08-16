@@ -601,6 +601,9 @@ ca:
       identities:
         done: Fet
         select_identity: Selecciona identitat
+    endorsers_list:
+      close: Tancar
+      endorsed_by: Li agrada a…
     errors:
       internal_server_error:
         title: Hi ha hagut un problema amb el nostre servidor
@@ -1730,7 +1733,10 @@ ca:
       data_consent:
         details:
           columns:
+            description: Descripció
+            name: Nom
             service: Servei
+            type: Tipus
           items:
             _session_id:
               description: Permet als llocs web recordar a la usuària dins d'un lloc web quan es mou entre pàgines web.
@@ -1739,9 +1745,11 @@ ca:
               description: Emmagatzema informació sobre les galetes permeses per la usuària en aquesta pàgina web.
               service: Aquesta pàgina web
             pwaInstallPromptSeen:
+              description: Guarda l'estat si la notificació d'instal·lació de l'aplicació web progressiva (PWA) ja ha estat vista per la usuària.
               service: Aquesta pàgina web
           types:
             cookie: Galeta
+            local_storage: Emmagatzematge local
         dialog:
           accept_all: Acceptar totes
           accept_only_essential: Acceptar només les essencials
@@ -1752,8 +1760,11 @@ ca:
           accept_all: Acceptar totes
           accept_only_essential: Acceptar només les essencials
           analytics:
+            description: Aquestes galetes s'utilitzen per a mesurar i analitzar l'audiència del lloc web per a ajudar a millorar-lo.
             title: Analítiques i estadístiques
+          description: Fem servir galetes per assegurar les funcionalitats bàsiques del lloc web i per a millorar la teva experiència en línia. Pots configurar i acceptar l'ús de galetes, i modificar les teves opcions de consentiment en qualsevol moment.
           essential:
+            description: Aquestes galetes permeten la funcionalitat clau del lloc web i ajuden a mantenir a les seves usuàries segures. Es guarden automàticament al navegador i no es poden desactivar.
             title: Essencials
           marketing:
             title: Màrqueting
