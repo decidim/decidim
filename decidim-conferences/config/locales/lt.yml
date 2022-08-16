@@ -357,6 +357,7 @@ lt:
             invites: Pakvietimai
             search: Ieškoti
           new:
+            explanation: Dalyvis bus pakviestas dalyvauti konferencijoje. Jei e. laiškas nebus užregistruotas, taip pat bus kvietimas dalyvauti organizacijoje.
             invite: Pakviesti
             new_invite: Kviesti dalyvį
         conference_registrations:
