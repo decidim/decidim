@@ -97,6 +97,7 @@ lt:
         blocked_comments_warning: Komentarai šiuo metu išjungti, tačiau galite perskaityti ankstesnius komentarus.
         comment_details_title: Komentaro detalės
         loading: Komentarai įkeliami...
+        single_comment_warning: Likusius komentarus galite peržiūrėti <a href="%{url}">čia</a>.
         single_comment_warning_title: Matote vieną komentarą
         title:
           one: "%{count} komentaras"
