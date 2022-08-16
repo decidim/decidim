@@ -59,7 +59,9 @@ lt:
         avatar: Avataras
         conference_meeting_ids: Susiję susitikimai
         full_name: Vardas, pavardė
+        personal_url: Asmeninis URL
         position: Pozicija
+        short_bio: Trumpas aprašymas
         twitter_handle: Twitter tvarkyklė
         user_id: Naudotojas
       conference_user_role:
@@ -355,6 +357,7 @@ lt:
             invites: Pakvietimai
             search: Ieškoti
           new:
+            explanation: Dalyvis bus pakviestas dalyvauti konferencijoje. Jei e. laiškas nebus užregistruotas, taip pat bus kvietimas dalyvauti organizacijoje.
             invite: Pakviesti
             new_invite: Kviesti dalyvį
         conference_registrations:
