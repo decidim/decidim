@@ -17,6 +17,7 @@ lt:
       decidim/debates/close_debate_event: Diskusija uždaryta
       decidim/debates/create_debate_event: Diskusija
       decidim/debates/creation_disabled_event: Diskuijos išjungtos
+      decidim/debates/creation_enabled_event: Diskusijos aktyvintos
   activerecord:
     models:
       decidim/debates/debate:
@@ -42,6 +43,7 @@ lt:
           step:
             announcement: Pranešimas
             comments_blocked: Komentarai užblokuoti
+            creation_enabled: Galimybė dalyviams rengti diskusijas įjungta
             endorsements_blocked: Pritarimai užblokuoti
             endorsements_enabled: Pritarimai aktyvuoti
     debates:
@@ -119,6 +121,7 @@ lt:
           all: Visos
           category: Kategorija
           category_prompt: Pasirinkite kategoriją
+          citizens: Piliečiai
           commented: Komentuota
           my_debates: Mano diskusijos
           official: Oficialūs
