@@ -269,6 +269,7 @@ lt:
         all: Visi
         finished: Užbaigta
         search: Ieškoti
+        state: Būsena
         upcoming: Artėjančios
       filters_small_view:
         close_modal: Uždaryti langą
