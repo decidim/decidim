@@ -1767,8 +1767,10 @@ es:
             description: Estas cookies permiten la funcionalidad clave del sitio web y ayudan a mantener a sus usuarias seguras. Se guardan automáticamente en el navegador y no se pueden desactivar.
             title: Esenciales
           marketing:
+            description: Estas cookies recopilan información sobre cómo utilizas el sitio web y se pueden utilizar para proporcionarte un servicio más personalizado en los diferentes espacios en los que participas.
             title: Marketing
           preferences:
+            description: Estas cookies permiten que el sitio web recuerde las opciones que se han elegido en el pasado en este sitio web para proporcionar una experiencia más personalizada a las usuarias.
             title: Preferencias
           save_settings: Guardar configuración
           title: Configuración de cookies
@@ -1776,6 +1778,7 @@ es:
         warning:
           all_categories: todas las cookies
           change_settings: Cambiar la configuración de cookies
+          consent_required: Necesitas habilitar %{categories} para ver este contenido.
       edit_link:
         edit: Edita
       footer:
