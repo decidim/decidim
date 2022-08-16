@@ -1767,8 +1767,10 @@ ca:
             description: Aquestes galetes permeten la funcionalitat clau del lloc web i ajuden a mantenir a les seves usuàries segures. Es guarden automàticament al navegador i no es poden desactivar.
             title: Essencials
           marketing:
+            description: Aquestes galetes recullen informació sobre com fas servir el lloc web i es poden fer servir per a proporcionar-te un servei més personalitzat en els diferents espais en què participes.
             title: Màrqueting
           preferences:
+            description: Aquestes galetes permeten que el lloc web recordi les opcions que s'han triat en el passat a aquest lloc web per tal de proporcionar una experiència més personalitzada a les usuàries.
             title: Preferències
           save_settings: Guardar configuració
           title: Configuració de les galetes
@@ -1776,6 +1778,7 @@ ca:
         warning:
           all_categories: totes les galetes
           change_settings: Canviar la configuració de les galetes
+          consent_required: Cal que habilitis %{categories} per veure aquest contingut.
       edit_link:
         edit: Edita
       footer:
