@@ -101,7 +101,7 @@ describe "Notifications", type: :system do
     context "when setting all notifications as read" do
       it "hides all notifications from the page" do
         click_link "Mark all as read"
-        expect(page).not_to have_selector("#notifications")
+        expect(page).not_to have_selector("[data-notification]")
         expect(page).to have_content("No notifications yet")
 
         within ".title-bar" do
