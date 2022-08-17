@@ -110,6 +110,12 @@ describe "User activity", type: :system do
       end
     end
 
+    it "displays activities filter with the All types option checked by default" do
+      within("form.profile__activity__filter-container") do
+        expect(page.find("input[value='all']", visible: false)).to be_checked
+      end
+    end
+
     context "when accessing a non existing profile" do
       before do
         allow(page.config).to receive(:raise_server_errors).and_return(false)
